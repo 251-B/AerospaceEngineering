@@ -10,8 +10,13 @@
 
 ### Bloque I: Fundamentos y Estática
 * `[[01 - Fluid Mechanics/Tema 1 - Propiedades y Estatica de Fluidos|Tema 1: Propiedades de los Fluidos y Estática]]`
-  * Concepto de medio continuo, viscosidad, tensión superficial.
-  * Manometría, fuerzas sobre superficies sumergidas y flotabilidad.
+  * `[[01 - Fluid Mechanics/Concepto - Hipotesis de Medio Continuo y Propiedades Termofisicas|Concepto: Medio Continuo y Termofísica]]`
+  * `[[01 - Fluid Mechanics/Concepto - Viscosidad y Ley de Newton de la Viscosidad|Concepto: Viscosidad y Ley de Newton]]`
+  * `[[01 - Fluid Mechanics/Concepto - Ecuacion Fundamental de la Estatica de Fluidos|Concepto: Ecuación Fundamental de la Estática y Atmósfera ISA]]`
+  * `[[01 - Fluid Mechanics/Concepto - Manometria y Medida de Presion|Concepto: Manometría y Marcha Piezométrica]]`
+  * `[[01 - Fluid Mechanics/Concepto - Fuerzas sobre Superficies Sumergidas y Centro de Presiones|Concepto: Compuertas y Centro de Presiones]]`
+  * `[[01 - Fluid Mechanics/Concepto - Principio de Arquimedes y Estabilidad de Cuerpos Flotantes|Concepto: Arquímedes y Altura Metacéntrica]]`
+  * `[[01 - Fluid Mechanics/Formulario - Tema 1 Estatica y Propiedades|Formulario / Cheat Sheet del Tema 1]]`
 
 ### Bloque II: Cinemática y Dinámica Integral
 * `[[01 - Fluid Mechanics/Tema 2 - Cinematica y Teorema de Transporte de Reynolds|Tema 2: Cinemática y Teorema de Reynolds]]`
@@ -26,6 +31,7 @@
 
 ---
 
-## 🎯 Problemas Típicos de Examen
-* `[[01 - Fluid Mechanics/Problema - Compuerta Sumergida con Momento|Problema: Compuerta Sumergida]]`
-* `[[01 - Fluid Mechanics/Problema - Tobera Convergente y Empuje|Problema: Tobera Convergente y Empuje]]`
+## 🎯 Problemas Típicos de Examen Resueltos
+* `[[01 - Fluid Mechanics/Problema - Manometro Diferencial Multiliquido con Gas|Problema 1: Manómetro Diferencial Multilíquido con Gas]]`
+* `[[01 - Fluid Mechanics/Problema - Compuerta Sumergida Inclinada con Momento de Apertura|Problema 2: Compuerta Articulada Inclinada con Fuerza de Cierre]]`
+

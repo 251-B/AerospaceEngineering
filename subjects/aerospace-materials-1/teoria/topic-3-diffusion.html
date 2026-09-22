@@ -1,0 +1,2871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3: Diffusion in Solids — Complete Theory, Cheatsheet &amp; Interactive Portal</title>
+  
+  <!-- Fonts: Newsreader (Editorial Serif), Inter (Clean Sans), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for high-performance mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --bg-base: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --border-subtle: #E2E8F0;
+      --border-strong: #CBD5E1;
+      
+      --text-heading: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --text-faint: #94A3B8;
+
+      --academic-navy: #1E3A8A;
+      --academic-navy-light: #EFF6FF;
+      --academic-navy-border: #BFDBFE;
+
+      --forest-teal: #0F766E;
+      --forest-teal-light: #F0FDFA;
+      --forest-teal-border: #99F6E4;
+
+      --warm-amber: #92400E;
+      --warm-amber-light: #FEF3C7;
+      --warm-amber-border: #FDE68A;
+
+      --wine-red: #991B1B;
+      --wine-red-light: #FEF2F2;
+      --wine-red-border: #FECACA;
+
+      --purple-accent: #6B21A8;
+      --purple-accent-light: #FAF5FF;
+      --purple-accent-border: #E9D5FF;
+
+      --font-serif: "Newsreader", Charter, Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Masthead Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 12px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--academic-navy);
+      background: var(--academic-navy-light);
+      border: 1px solid var(--academic-navy-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-header-problems {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--forest-teal);
+      border: 1px solid var(--forest-teal);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-header-problems:hover {
+      background: #0d655e;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Layout */
+    .app-layout {
+      display: flex;
+      max-width: 1440px;
+      margin: 0 auto;
+      min-height: calc(100vh - 65px);
+    }
+
+    /* Sidebar */
+    aside.sidebar {
+      width: 320px;
+      flex-shrink: 0;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-subtle);
+      padding: 24px 16px;
+      position: sticky;
+      top: 57px;
+      height: calc(100vh - 57px);
+      overflow-y: auto;
+    }
+
+    .sidebar-heading {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 18px 12px 8px;
+    }
+
+    .sidebar-heading:first-child {
+      margin-top: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
+      line-height: 1.35;
+    }
+
+    .nav-item:hover {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+    }
+
+    .nav-item.active {
+      background: var(--academic-navy-light);
+      color: var(--academic-navy);
+      font-weight: 600;
+    }
+
+    .nav-item .icon {
+      font-size: 14px;
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .nav-item .tag {
+      margin-left: auto;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .nav-item.active .tag {
+      background: #DBEAFE;
+      color: var(--academic-navy);
+    }
+
+    .nav-item.external-link {
+      color: var(--forest-teal);
+      border: 1px dashed var(--forest-teal-border);
+      background: var(--forest-teal-light);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .nav-item.external-link:hover {
+      background: #e6fbf7;
+      border-color: var(--forest-teal);
+    }
+
+    /* Content Area */
+    main.content-area {
+      flex-grow: 1;
+      padding: 40px 56px 90px;
+      max-width: 1020px;
+      background: var(--bg-base);
+    }
+
+    .page-view {
+      display: none;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .page-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Typography & Headers */
+    .page-header {
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .page-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--forest-teal);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.page-title {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    p.page-subtitle {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 36px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text-body);
+      line-height: 1.72;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Figures & SVG Diagrams */
+    .figure-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px 20px;
+      margin: 28px 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .figure-box svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .figure-caption {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-top: 14px;
+      line-height: 1.55;
+    }
+
+    .figure-caption strong {
+      color: var(--text-heading);
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px;
+      line-height: 1.65;
+      border-left: 3px solid;
+    }
+
+    .callout-blue {
+      background: var(--academic-navy-light);
+      border-color: var(--academic-navy);
+      color: #1e3a8a;
+    }
+
+    .callout-teal {
+      background: var(--forest-teal-light);
+      border-color: var(--forest-teal);
+      color: #0f766e;
+    }
+
+    .callout-amber {
+      background: var(--warm-amber-light);
+      border-color: var(--warm-amber);
+      color: #78350f;
+    }
+
+    .callout-wine {
+      background: var(--wine-red-light);
+      border-color: var(--wine-red);
+      color: #991b1b;
+    }
+
+    .callout-purple {
+      background: var(--purple-accent-light);
+      border-color: var(--purple-accent);
+      color: #581c87;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Mathematical Display */
+    .math-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 18px 24px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .math-card .caption {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 22px 0;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-surface);
+      font-size: 13.5px;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      font-weight: 700;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border-strong);
+      white-space: nowrap;
+    }
+
+    table.academic-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    table.academic-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.academic-table tr:hover td {
+      background: #FAFBFD;
+    }
+
+    /* Academic lists */
+    ul.academic-list, ol.academic-list {
+      margin: 12px 0 20px 24px;
+      color: var(--text-body);
+    }
+
+    ul.academic-list li, ol.academic-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    /* Badges & Pills */
+    .mono-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    /* Flashcards */
+    .fc-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .fc-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .fc-filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .fc-filter-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .fc-filter-btn:hover {
+      border-color: var(--border-strong);
+      color: var(--text-heading);
+    }
+
+    .fc-filter-btn.active {
+      background: var(--academic-navy);
+      border-color: var(--academic-navy);
+      color: #FFFFFF;
+    }
+
+    .fc-card-scene {
+      width: 100%;
+      height: 320px;
+      perspective: 1000px;
+      cursor: pointer;
+      margin-bottom: 24px;
+    }
+
+    .fc-card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .fc-card-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .fc-card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      box-sizing: border-box;
+    }
+
+    .fc-card-front {
+      border-top: 4px solid var(--academic-navy);
+    }
+
+    .fc-card-back {
+      border-top: 4px solid var(--forest-teal);
+      transform: rotateY(180deg);
+      background: #FAFDFD;
+    }
+
+    .fc-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .fc-meta-front { color: var(--academic-navy); }
+    .fc-meta-back { color: var(--forest-teal); }
+
+    .fc-body {
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-grow: 1;
+      padding: 12px 0;
+    }
+
+    .fc-hint {
+      font-size: 12px;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    .fc-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .fc-btn {
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      transition: all 0.15s;
+    }
+
+    .fc-btn:hover {
+      background: var(--bg-subtle);
+    }
+
+    .fc-btn-primary {
+      background: var(--academic-navy);
+      color: #FFFFFF;
+      border-color: var(--academic-navy);
+    }
+
+    .fc-btn-primary:hover {
+      background: #172554;
+    }
+
+    /* Quiz */
+    .quiz-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 12.5px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+    }
+
+    .quiz-statement {
+      font-size: 16.5px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .quiz-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-tf {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid;
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .btn-tf.true {
+      background: var(--forest-teal-light);
+      border-color: var(--forest-teal-border);
+      color: var(--forest-teal);
+    }
+
+    .btn-tf.true:hover {
+      background: #ccfbf1;
+      border-color: var(--forest-teal);
+    }
+
+    .btn-tf.false {
+      background: var(--wine-red-light);
+      border-color: var(--wine-red-border);
+      color: var(--wine-red);
+    }
+
+    .btn-tf.false:hover {
+      background: #fee2e2;
+      border-color: var(--wine-red);
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .quiz-feedback.correct {
+      display: block;
+      background: var(--forest-teal-light);
+      border: 1px solid var(--forest-teal-border);
+      color: #065f46;
+    }
+
+    .quiz-feedback.incorrect {
+      display: block;
+      background: var(--wine-red-light);
+      border: 1px solid var(--wine-red-border);
+      color: #991b1b;
+    }
+
+    /* Calculators */
+    .calc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .calc-input-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .calc-input-group input, .calc-input-group select {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      background: var(--bg-base);
+      color: var(--text-heading);
+    }
+
+    .calc-input-group input:focus {
+      outline: none;
+      border-color: var(--academic-navy);
+      background: #FFFFFF;
+    }
+
+    .calc-result-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 16px 20px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .calc-result-value {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--academic-navy);
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">Topic 3</span>
+        <span class="brand-title">Diffusion in Solids &mdash; Master Study Portal</span>
+      </div>
+      <div class="header-actions" style="display:flex; align-items:center; gap:8px;">
+        <a href="../../../index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle, #f1f5f9); border:1px solid var(--border-subtle, #e2e8f0); border-radius:6px; transition:all 0.15s ease;">🏠 Portal</a>
+        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle, #f1f5f9); border:1px solid var(--border-subtle, #e2e8f0); border-radius:6px; transition:all 0.15s ease;">&larr; Temas</a>
+        <a href="../problemas/topic-3-diffusion.html" class="btn-header-problems">
+          <span>&#128218; Step-by-Step Solved Problems</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-heading">Session 5: Complete Theory</div>
+      <ul class="nav-list">
+        <li class="nav-item active" onclick="showPage('p-concept')">
+          <span class="icon">&#128160;</span>
+          <span>1. Concept of diffusion</span>
+          <span class="tag">S5</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-mechanisms')">
+          <span class="icon">&#9881;</span>
+          <span>2. Diffusion mechanisms</span>
+          <span class="tag">S5</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-fick1')">
+          <span class="icon">&#128200;</span>
+          <span>3. Steady state (Fick's 1st law)</span>
+          <span class="tag">S5</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-fick2')">
+          <span class="icon">&#9201;</span>
+          <span>4. Non-steady state (Fick's 2nd)</span>
+          <span class="tag">S5</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-factors')">
+          <span class="icon">&#128293;</span>
+          <span>5. Factors affecting diffusion</span>
+          <span class="tag">S5</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-applications')">
+          <span class="icon">&#128640;</span>
+          <span>6. Industrial applications</span>
+          <span class="tag">S5</span>
+        </li>
+      </ul>
+
+      <div class="sidebar-heading">Master Reference &amp; Drill</div>
+      <ul class="nav-list">
+        <li class="nav-item" onclick="showPage('p-cheatsheet')">
+          <span class="icon">&#128220;</span>
+          <span>Formula Cheatsheet</span>
+          <span class="tag">Exam Ref</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-quizzes')">
+          <span class="icon">&#9989;</span>
+          <span>Speed Drill / Exam Quiz</span>
+          <span class="tag">Drill</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-flashcards')">
+          <span class="icon">&#127183;</span>
+          <span>3D Interactive Flashcards</span>
+          <span class="tag">Deck</span>
+        </li>
+        <li class="nav-item" onclick="showPage('p-tools')">
+          <span class="icon">&#129309;</span>
+          <span>Interactive Calculators (erf / Arrhenius)</span>
+          <span class="tag">Tools</span>
+        </li>
+      </ul>
+
+      <div class="sidebar-heading">Solved Problem Sets</div>
+      <ul class="nav-list">
+        <li class="nav-item external-link" onclick="window.location.href='diffusion_topic3_problems.html'">
+          <span class="icon">&#128209;</span>
+          <span>Solved Problems Portal (1 to 6)</span>
+          <span class="tag">&rarr;</span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content-area">
+
+      <!-- =========================================================
+           SECTION 1: CONCEPT OF DIFFUSION
+           ========================================================= -->
+      <div id="p-concept" class="page-view active">
+        <div class="page-header">
+          <div class="page-category">Session 5 &bull; Fundamentals of Mass Transport</div>
+          <h1 class="page-title">1. Concept of Diffusion</h1>
+          <p class="page-subtitle">Microscopic definition of atomic transport in crystalline solids, thermodynamic origin in thermal vibrations, kinetic comparison across states of matter, and driving force.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128300; What is Diffusion in Solids?</div>
+          <p>In materials science and engineering, <strong>diffusion in solids</strong> is formally defined as the <strong>movement and net transport of atoms or ions within a solid medium</strong>. Contrary to the intuitive perception that atoms in rigid engineering components are permanently fixed in space, crystal lattice constituents undergo continuous oscillatory vibrations around their equilibrium lattice coordinates.</p>
+          
+          <ul class="academic-list">
+            <li><strong>Thermal Vibrations:</strong> <em>The thermal vibrations in solids permit movement of some atoms.</em> At any temperature above absolute zero ($T > 0\text{ K}$), the atoms possess vibrational kinetic energy that occasionally concentrates into a specific bond, allowing an atom to overcome surrounding interatomic potential barriers and jump into an adjacent site.</li>
+            <li><strong>Thermally Activated Phenomena:</strong> Diffusion belongs strictly to the class of <strong>phenomena that need thermal activation</strong>. The probability of an atom acquiring sufficient energy to surmount the local energy barrier increases exponentially with absolute temperature.</li>
+            <li><strong>Transport Phenomena:</strong> <em>Diffusion (transport phenomena): mechanisms by which material is transported through the material.</em> It is the primary physical process governing solid-state phase transformations, precipitation hardening, sintering, oxidation, and surface thermochemical treatments.</li>
+          </ul>
+
+          <div class="callout callout-blue">
+            <div class="callout-title">&#128214; Verbatim Slide Definition (Carlos III de Madrid &bull; Session 5)</div>
+            <p><strong>Diffusion in solids:</strong> <em>movement of atoms within a solid.</em><br>
+            &bull; <em>The thermal vibrations in solids permit movement of some atoms.</em><br>
+            &bull; <em>Phenomena that need thermal activation.</em><br>
+            &bull; <strong>Diffusion (transport phenomena):</strong> <em>mechanisms by which material is transported through the material.</em></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#9878; Atomic Movement Speed Across States of Matter</div>
+          <p>The rate at which atoms or molecules migrate varies drastically depending on the physical state of aggregation, reflecting fundamental differences in atomic packing density and bond rigidity:</p>
+          
+          <div class="math-card">
+            $$\underbrace{\text{Solid (Sólido)}}_{\text{Slow / Lento}} \ll \underbrace{\text{Liquid (Líquido)}}_{\text{Intermediate}} < \underbrace{\text{Gas (Gas)}}_{\text{Fast / Rápido}}$$
+            <div class="caption">Hierarchy of atomic movement rate across states of matter (Slide 2).</div>
+          </div>
+
+          <p><strong>Underlying Physical Origin:</strong></p>
+          <ul class="academic-list">
+            <li><strong>In Gases:</strong> Interatomic distances are vast relative to atomic diameters, intermolecular forces are negligible, and mean free paths are long ($\sim 10^{-7}\text{ m}$). Molecules move at hundreds of meters per second ($D \sim 10^{-5}\text{ m}^2/\text{s}$).</li>
+            <li><strong>In Liquids:</strong> Atoms maintain short-range coordination but lack long-range periodic order. Shear resistance is zero, permitting rapid atomic sliding and convective mixing ($D \sim 10^{-9}\text{ m}^2/\text{s}$).</li>
+            <li><strong>In Solids:</strong> Atoms are trapped in deep potential energy wells within rigid, densely packed 3D crystal lattices. For an atom to migrate, it must locally break multiple coordinated bonds and elastically distort adjacent lattice neighbors. Consequently, solid-state diffusion is orders of magnitude slower ($D \sim 10^{-11}\text{ to } 10^{-20}\text{ m}^2/\text{s}$).</li>
+          </ul>
+        </div>
+
+        <div class="figure-box">
+          <svg viewBox="0 0 740 220" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="solidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#BFDBFE" stop-opacity="0.3"/>
+              </linearGradient>
+            </defs>
+            <!-- Background container -->
+            <rect x="20" y="20" width="700" height="180" rx="8" fill="url(#solidGrad)" stroke="#CBD5E1" stroke-width="1.5"/>
+            
+            <!-- Potential Wells -->
+            <path d="M 60 120 Q 110 180 160 120 Q 210 50 260 120 Q 310 180 360 120 Q 410 50 460 120 Q 510 180 560 120 Q 610 50 660 120" fill="none" stroke="#64748B" stroke-width="2" stroke-dasharray="4,4"/>
+            
+            <!-- Nodes (atoms) -->
+            <circle cx="160" cy="120" r="18" fill="#1E3A8A" stroke="#0F172A" stroke-width="2"/>
+            <text x="160" y="125" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">Atom A</text>
+            
+            <circle cx="360" cy="120" r="18" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" stroke-dasharray="3,3"/>
+            <text x="360" y="124" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#64748B" text-anchor="middle">Vacancy</text>
+
+            <circle cx="560" cy="120" r="18" fill="#1E3A8A" stroke="#0F172A" stroke-width="2"/>
+            <text x="560" y="125" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">Atom B</text>
+
+            <!-- Jump arrow -->
+            <path d="M 175 105 Q 260 30 345 105" fill="none" stroke="#0F766E" stroke-width="3"/>
+            <polygon points="345,105 333,96 339,109" fill="#0F766E"/>
+
+            <!-- Energy Barrier Labels -->
+            <line x1="260" y1="50" x2="260" y2="120" stroke="#991B1B" stroke-width="2"/>
+            <polygon points="260,50 256,60 264,60" fill="#991B1B"/>
+            <polygon points="260,120 256,110 264,110" fill="#991B1B"/>
+            <text x="270" y="88" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#991B1B">Activation Barrier (Ea)</text>
+            <text x="260" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#0F766E" text-anchor="middle">Thermally activated atomic jump</text>
+
+            <!-- Base labels -->
+            <text x="160" y="165" font-family="Inter, sans-serif" font-size="11" fill="#475569" text-anchor="middle">Initial Equilibrium Site</text>
+            <text x="360" y="165" font-family="Inter, sans-serif" font-size="11" fill="#475569" text-anchor="middle">Adjacent Vacant Site</text>
+            <text x="560" y="165" font-family="Inter, sans-serif" font-size="11" fill="#475569" text-anchor="middle">Host Lattice Atom</text>
+          </svg>
+          <div class="figure-caption"><strong>Figure 1.1:</strong> Schematic potential energy landscape of solid-state diffusion. For an atom to execute a jump into an adjacent vacant site, it must acquire thermal energy equal to or exceeding the activation energy barrier $E_a$, squeezing past neighboring matrix atoms.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128260; Driving Force for Diffusion (DRIVING FORCE)</div>
+          <p>Individual atomic jumps in an isotropic crystal lattice occur in random directions (random-walk Brownian motion). A net, macroscopic transport of matter only arises when an asymmetry exists in the spatial distribution of chemical species:</p>
+
+          <div class="math-card">
+            $$\text{DRIVING FORCE} = \text{Composition Gradient} = \frac{\Delta C}{\Delta x} = \frac{C_{\text{ext}} - C_{\text{int}}}{x_2 - x_1}$$
+            <div class="caption">Spatial concentration gradient acting as the thermodynamic driving force toward equal composition (Slide 2).</div>
+          </div>
+
+          <p><strong>Thermodynamic Significance:</strong></p>
+          <ul class="academic-list">
+            <li><strong>Equilibrium Tendency:</strong> The composition gradient produces a gradient in chemical potential ($\nabla \mu$). Atoms migrate spontaneously from regions of high chemical potential to low chemical potential, driving the system toward maximum configurational entropy and chemical equilibrium (uniform composition).</li>
+            <li><strong>Zero Net Transport in Homogeneous Systems:</strong> In a perfectly uniform solid solution at constant temperature, atomic exchanges occur continuously (self-diffusion), but the net flux through any arbitrary internal plane is zero ($J_{\text{net}} = 0$).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128273; Prerequisites for Atomic Diffusion (What is Necessary for Diffusion?)</div>
+          <p>According to Slide 3, for an atom to execute an effective jump into a new equilibrium position, <strong>two mandatory physical conditions</strong> must be satisfied simultaneously:</p>
+
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Prerequisite</th>
+                  <th style="width: 40%;">Physical Mechanism</th>
+                  <th style="width: 35%;">Manifestation in Crystal Lattices</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Empty Site<br><span class="mono-pill">EMPTY SITE</span></strong></td>
+                  <td>An adjacent site must be unoccupied. Due to Pauli exclusion and electrostatic nuclear repulsion, two atoms cannot occupy the same lattice coordinate.</td>
+                  <td>&bull; <strong>Vacancies:</strong> missing host atoms on lattice sites.<br>&bull; <strong>Interstitials:</strong> unoccupied crystallographic interstitial voids.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Sufficient Energy<br><span class="mono-pill">ACTIVATION ENERGY (Ea)</span></strong></td>
+                  <td>The migrating atom must possess vibrational kinetic energy sufficient to overcome the bond-stretching and lattice-distortion barrier of the constriction.</td>
+                  <td>&bull; Requires $E_{\text{thermal}} \ge E_a$.<br>&bull; Governed by the Boltzmann probability factor: $\propto \exp(-E_a / RT)$.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-teal">
+            <div class="callout-title">&#128161; Essential Takeaway from Slide 3</div>
+            <p><strong>Temperature Increase &rArr; Diffusion Acceleration ($\uparrow T \implies \uparrow \text{Diffusion}$):</strong><br>
+            Elevating the temperature simultaneously multiplies the equilibrium vacancy concentration and increases the fraction of atoms possessing thermal energies exceeding $E_a$, exponentially increasing the atomic jump frequency.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 2: DIFFUSION MECHANISMS
+           ========================================================= -->
+      <div id="p-mechanisms" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Session 5 &bull; Microscopic Transport</div>
+          <h1 class="page-title">2. Diffusion Mechanisms</h1>
+          <p class="page-subtitle">Arrhenius thermodynamics of atomic mobility, activation energy components, substitutional vacancy diffusion (self-diffusion and Hume-Rothery interdiffusion), and ultra-fast interstitial diffusion.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128300; Temperature Dependence of Diffusivity: The Arrhenius Equation</div>
+          <p>Solid-state reactions and phase transformations fundamentally depend on the rate at which atoms are transferred through the host lattice. The rate of atomic jumping is quantified by the diffusion coefficient or <strong>diffusivity ($D$)</strong>, which follows an <strong>Arrhenius-type temperature dependence</strong>:</p>
+
+          <div class="math-card">
+            $$D = D_0 \exp\left(-\frac{E_a}{R \cdot T}\right) = D_0 \, e^{-\frac{E_a}{R \cdot T}}$$
+            <div class="caption">Arrhenius equation for the diffusion coefficient in solids (Diffusivity equation).</div>
+          </div>
+
+          <p><strong>Strict definition of physical variables and standard units (verbatim from slides):</strong></p>
+          <ul class="academic-list">
+            <li><strong>$D$ (Diffusivity or diffusion coefficient):</strong> Quantitative measure of atomic mobility. SI units: $\text{m}^2/\text{s}$ (technical units: $\text{cm}^2/\text{s}$ or $\text{mm}^2/\text{s}$).</li>
+            <li><strong>$D_0$ (Pre-exponential factor or frequency factor):</strong> Constant for a given diffusion system ($\text{m}^2/\text{s}$), <em>independent of temperature</em>. It accounts for the atomic jump attempt frequency ($\approx 10^{13}\text{ s}^{-1}$), coordination number, nearest-neighbor jump distance, and vibrational entropy.</li>
+            <li><strong>$E_a$ (or $E_D$ &mdash; Activation Energy):</strong> Thermal energy barrier required to move one mole of diffusing atoms past neighboring atoms into an adjacent site. Expressed in $\text{J/mol}$ or $\text{cal/mol}$ (or on an atomic scale in $\text{eV/atom}$, with $1\text{ eV} = 1.602 \times 10^{-19}\text{ J}$).</li>
+            <li><strong>$R$ (Molar gas constant):</strong>
+              <div class="math-card" style="margin: 8px 0; padding: 10px;">
+                $$R = 8.314\text{ J}/(\text{mol}\cdot\text{K}) = 1.987\text{ cal}/(\text{mol}\cdot\text{K})$$
+              </div>
+            </li>
+            <li><strong>$T$ (Absolute temperature):</strong> Thermodynamic temperature, which must always be evaluated in <strong>Kelvin ($\text{K}$)</strong>: $T(\text{K}) = T(^\circ\text{C}) + 273.15$.</li>
+          </ul>
+
+          <div class="callout callout-amber">
+            <div class="callout-title">&#9888; Fundamental Thermal Principle from Official Slides</div>
+            <p><em>"Energy is required to move atoms past one another during diffusion. This energy is the activation energy, $E_a$ ($\text{J/mol}$, $\text{cal/mol}$)."<br>
+            "Thermal energy should be larger than $E_a$ to produce diffusion:"</em>
+            $$\uparrow T \implies \uparrow \text{Diffusion}$$
+            <em>"Activation energy depends on both the type of atom that diffuses and the material in which the diffusion occurs."</em></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128260; Canonical Classification of Diffusion Types</div>
+          <p>According to the atomic nature of the diffusing solute and the crystallographic pathway traversed through the lattice, solid-state diffusion is formally categorized into two major mechanisms:</p>
+          
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 32%;">Category</th>
+                  <th style="width: 25%;">Subtype</th>
+                  <th style="width: 43%;">Key Characteristics & Transport Mechanism</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2"><strong>1. Vacancy Diffusion<br>(or Substitutional Atom Diffusion)</strong></td>
+                  <td><strong>1.a Self-diffusion</strong></td>
+                  <td>Atomic exchange between chemically identical host atoms in a pure elemental metal. Requires both vacancy formation and vacancy migration.</td>
+                </tr>
+                <tr>
+                  <td><strong>1.b Interdiffusion<br>(Impurity Diffusion)</strong></td>
+                  <td>Net transport of foreign solute atoms through a host solvent lattice, forming substitutional solid solutions. Regulated by Hume-Rothery solubility rules.</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><strong>2. Interstitial Diffusion</strong></td>
+                  <td>Migration of small solute atoms (C, H, O, N) between interstitial lattice interstices without displacing host matrix atoms. Very low activation barrier.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 1. VACANCY DIFFUSION -->
+        <div class="card">
+          <div class="card-title">&#128308; 1. Vacancy (or Substitutional) Diffusion</div>
+          <p>Vacancy diffusion involves the <strong>interchange of an atom from a normal lattice site to an adjacent vacant lattice site or vacancy</strong>. Crucially, the motion of atoms in one direction corresponds physically to the <strong>motion of vacancies in the opposite direction</strong>:</p>
+          
+          <ul class="academic-list">
+            <li><strong>Thermal defect concentration:</strong> Vacancies are intrinsic thermodynamic equilibrium defects. As temperature rises, thermal agitation exponentially multiplies the equilibrium vacancy concentration:
+              $$\uparrow T \implies \uparrow [\text{defects / vacancies}]$$
+              $$\uparrow \text{Thermal energy} > E_a \implies \uparrow \text{Diffusion rate}$$
+            </li>
+            <li><strong>Atomic jump event:</strong> If a host or substitutional solute atom acquires thermal vibrational energy exceeding the local activation energy $E_a$, it overcomes the steric barrier and hops into the adjacent vacancy.</li>
+          </ul>
+
+          <h3 class="sub-heading">&#9874; 1.a Self-Diffusion: Energetic Components and Melting Point Correlation</h3>
+          <p>In pure elemental crystals, self-diffusion occurs via lattice vacancies. The total activation energy per mole ($E_a$) is the direct sum of <strong>two independent physical energy contributions</strong>:</p>
+
+          <div class="math-card">
+            $$\underbrace{E_a(\text{Self-diffusion})}_{\text{Total Activation Energy}} = \underbrace{E_{\text{formation}}}_{\text{Energy required to form a vacancy}} + \underbrace{E_{\text{movement}}}_{\text{Energy required to move the vacancy}}$$
+            <div class="caption">Thermodynamic decomposition of activation energy in vacancy self-diffusion.</div>
+          </div>
+
+          <p><strong>Fundamental correlation with Melting Temperature ($T_m$):</strong></p>
+          <p>Both creating a vacancy and squeezing an atom through the saddle-point constriction of surrounding neighbors require stretching and severing interatomic metallic bonds. Since a higher melting point ($T_{\text{melting}}$) directly reflects stronger interatomic bonding energy ($E_{\text{bond}}$), the slides formulate the following universal rule:</p>
+
+          <div class="math-card" style="background: var(--academic-navy-light); border-color: var(--academic-navy-border);">
+            $$\uparrow T_{\text{melting}} \implies \uparrow E_{\text{bond}} \implies \uparrow E_a$$
+            <div class="caption">Governing trend: The higher the melting temperature of the metal, the greater the activation energy for self-diffusion.</div>
+          </div>
+
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-heading); margin: 18px 0 8px;">Experimental Data Table from Official Slides:</h4>
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th>Metal</th>
+                  <th>Melting Temp, $T_m$ ($^\circ\text{C}$)</th>
+                  <th>Crystal Structure</th>
+                  <th>$E_a$ ($\text{kJ/mol}$)</th>
+                  <th>$E_a$ ($\text{kcal/mol}$)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Zinc (Zn)</strong></td>
+                  <td>$419^\circ\text{C}$</td>
+                  <td>HCP</td>
+                  <td>$91.6\text{ kJ/mol}$</td>
+                  <td>$21.9\text{ kcal/mol}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Aluminium (Al)</strong></td>
+                  <td>$660^\circ\text{C}$</td>
+                  <td>FCC</td>
+                  <td>$165.0\text{ kJ/mol}$</td>
+                  <td>$39.5\text{ kcal/mol}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Copper (Cu)</strong></td>
+                  <td>$1083^\circ\text{C}$</td>
+                  <td>FCC</td>
+                  <td>$196.0\text{ kJ/mol}$</td>
+                  <td>$46.9\text{ kcal/mol}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Nickel (Ni)</strong></td>
+                  <td>$1452^\circ\text{C}$</td>
+                  <td>FCC</td>
+                  <td>$293.0\text{ kJ/mol}$</td>
+                  <td>$70.1\text{ kcal/mol}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Iron ($\alpha$-Fe)</strong></td>
+                  <td>$1530^\circ\text{C}$</td>
+                  <td>BCC</td>
+                  <td>$240.0\text{ kJ/mol}$</td>
+                  <td>$57.5\text{ kcal/mol}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Molybdenum (Mo)</strong></td>
+                  <td>$2600^\circ\text{C}$</td>
+                  <td>BCC</td>
+                  <td>$460.0\text{ kJ/mol}$</td>
+                  <td>$110.0\text{ kcal/mol}$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted);"><em>Analysis:</em> The experimental data rigorously confirms the theory: Zinc ($T_m = 419^\circ\text{C}$) requires only $91.6\text{ kJ/mol}$, whereas refractory Molybdenum ($T_m = 2600^\circ\text{C}$) requires $460\text{ kJ/mol}$, exactly a five-fold increase in the energy barrier.</p>
+
+          <h3 class="sub-heading">&#128260; 1.b Interdiffusion (Impurity Diffusion) and Hume-Rothery Rules</h3>
+          <p><strong>Interdiffusion</strong> refers to the transport process whereby atoms of one metal diffuse into another distinct host metal matrix. This is the atomic mechanism responsible for forming <strong>substitutional solid solutions</strong> and intermetallic phases.</p>
+          
+          <ul class="academic-list">
+            <li><strong>Solubility criteria (Hume-Rothery Rules):</strong> Extensive substitutional interdiffusion is governed by Hume-Rothery criteria (atomic size difference $\Delta r < 15\%$, identical crystal structure, matching valency, and small electronegativity difference).</li>
+            <li><strong>Engineering application:</strong>
+              <br>&bull; Drives homogenization and heat treatment of multi-component aerospace superalloys.
+              <br>&bull; Forms the physical foundation of <strong>diffusion welding / diffusion bonding</strong> for critical turbine components.
+            </li>
+          </ul>
+
+          <div class="figure-box">
+            <svg viewBox="0 0 740 230" width="100%" height="230" xmlns="http://www.w3.org/2000/svg">
+              <!-- Left side: Before heat treatment -->
+              <g transform="translate(30, 20)">
+                <text x="140" y="20" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1E3A8A" text-anchor="middle">Before Heat Treatment (t = 0)</text>
+                <rect x="20" y="35" width="120" height="90" fill="#FDE68A" stroke="#92400E" stroke-width="1.5"/>
+                <text x="80" y="85" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#92400E" text-anchor="middle">Copper (Cu)</text>
+                
+                <rect x="140" y="35" width="120" height="90" fill="#CBD5E1" stroke="#334155" stroke-width="1.5"/>
+                <text x="200" y="85" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#0F172A" text-anchor="middle">Nickel (Ni)</text>
+
+                <!-- Step profile -->
+                <path d="M 20 190 L 140 190 L 140 145 L 260 145" fill="none" stroke="#991B1B" stroke-width="2.5"/>
+                <text x="140" y="215" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#991B1B" text-anchor="middle">Sharp step-function profile</text>
+              </g>
+
+              <!-- Arrow between -->
+              <path d="M 330 100 L 380 100" fill="none" stroke="#0F766E" stroke-width="3"/>
+              <polygon points="380,100 370,94 370,106" fill="#0F766E"/>
+              <text x="355" y="85" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F766E" text-anchor="middle">High Temp &Delta;T</text>
+              <text x="355" y="125" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#64748B" text-anchor="middle">Time t</text>
+
+              <!-- Right side: After heat treatment -->
+              <g transform="translate(420, 20)">
+                <text x="140" y="20" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#0F766E" text-anchor="middle">After Heat Treatment (t > 0)</text>
+                <rect x="20" y="35" width="240" height="90" fill="#E2E8F0" stroke="#64748B" stroke-width="1.5"/>
+                <!-- Interdiffusion zone -->
+                <rect x="100" y="35" width="80" height="90" fill="#FEF3C7" opacity="0.8"/>
+                <text x="60" y="85" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#92400E" text-anchor="middle">Cu-rich</text>
+                <text x="140" y="85" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F766E" text-anchor="middle">Cu-Ni Zone</text>
+                <text x="220" y="85" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#0F172A" text-anchor="middle">Ni-rich</text>
+
+                <!-- Smooth S-curve profile -->
+                <path d="M 20 190 C 100 190 120 145 260 145" fill="none" stroke="#0F766E" stroke-width="2.5"/>
+                <text x="140" y="215" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#0F766E" text-anchor="middle">Smooth sigmoidal concentration gradient</text>
+              </g>
+            </svg>
+            <div class="figure-caption"><strong>Figure 2.1:</strong> Copper-Nickel Diffusion Couple (from slide illustrations). At high temperature, Cu and Ni atoms interdiffuse in opposite directions across the junction plane, converting the initially sharp step concentration into a smooth, continuous S-shaped concentration gradient.</div>
+          </div>
+        </div>
+
+        <!-- 2. INTERSTITIAL DIFFUSION -->
+        <div class="card">
+          <div class="card-title">&#9889; 2. Interstitial Diffusion</div>
+          <p>Interstitial diffusion involves <strong>solute atoms migrating from an interstitial position into an adjacent unoccupied interstitial site</strong>, <em>without permanently displacing any host lattice atoms</em>.</p>
+
+          <ul class="academic-list">
+            <li><strong>Atomic size requirement:</strong> The diffusing solutes must have atomic radii significantly smaller than host matrix atoms. The canonical small interstitial elements in engineering metallurgy are:
+              <div class="math-card" style="padding: 10px; margin: 8px 0; background: var(--academic-navy-light);">
+                $$\mathbf{Carbon\ (C)},\quad \mathbf{Hydrogen\ (H)},\quad \mathbf{Oxygen\ (O)},\quad \mathbf{Nitrogen\ (N)}$$
+              </div>
+            </li>
+          </ul>
+
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 33%;">Comparative Characteristic</th>
+                  <th style="width: 35%;">Interstitial Diffusion</th>
+                  <th style="width: 32%;">Vacancy Diffusion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Activation Energy ($E_a$)</strong></td>
+                  <td><strong>Much lower ($E_{\text{interstitial}} \ll E_{\text{vacancy}}$):</strong> No energy is spent creating lattice defects; the solute only overcomes the migration barrier between interstices ($E_a = E_{\text{movement}}$).</td>
+                  <td><strong>High ($E_{\text{vacancy}} = E_{\text{formation}} + E_{\text{movement}}$):</strong> Requires creating a vacancy and distorting host bonds to jump.</td>
+                </tr>
+                <tr>
+                  <td><strong>Diffusion Rate / Diffusivity ($D$)</strong></td>
+                  <td><strong>Extremely rapid:</strong> Often $10^6$ to $10^{10}$ times faster than vacancy diffusion at the same temperature.</td>
+                  <td><strong>Relatively slow:</strong> Strongly throttled by the small equilibrium concentration of lattice vacancies.</td>
+                </tr>
+                <tr>
+                  <td><strong>Availability of Destination Sites</strong></td>
+                  <td><strong>Abundant:</strong> In dilute solid solutions, virtually all adjacent interstitial cavities are empty and ready to receive a hopping solute.</td>
+                  <td><strong>Severely limited:</strong> Vacancy fraction even near the melting point is only $\sim 10^{-4}$ to $10^{-3}$.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="figure-box">
+            <svg viewBox="0 0 680 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg">
+              <!-- Energy barrier comparison -->
+              <rect x="20" y="15" width="640" height="150" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+              
+              <!-- Curve Vacancy -->
+              <path d="M 60 130 Q 180 -10 300 130" fill="none" stroke="#991B1B" stroke-width="3"/>
+              <text x="180" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#991B1B" text-anchor="middle">Vacancy barrier: Ev = Eformation + Emovement</text>
+
+              <!-- Curve Interstitial -->
+              <path d="M 380 130 Q 500 65 620 130" fill="none" stroke="#0F766E" stroke-width="3"/>
+              <text x="500" y="55" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F766E" text-anchor="middle">Interstitial barrier: Ei = Emovement only (Ei &lt;&lt; Ev)</text>
+
+              <!-- Level lines -->
+              <line x1="40" y1="130" x2="640" y2="130" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <text x="50" y="148" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#64748B">Ground state lattice energy</text>
+            </svg>
+            <div class="figure-caption"><strong>Figure 2.2:</strong> Potential energy barrier comparison from lecture slides: $E_{\text{vacancy}}$ versus $E_{\text{interstitial}}$. Because $E_i \ll E_v$, interstitial diffusion proceeds at exponentially higher rates.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 3: STEADY STATE DIFFUSION & FICK'S 1ST LAW
+           ========================================================= -->
+      <div id="p-fick1" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Session 5 &bull; Conservation of Mass Laws</div>
+          <h1 class="page-title">3. Steady State Diffusion & Fick’s 1st Law</h1>
+          <p class="page-subtitle">Physical definition of diffusion flux J, steady-state condition, formulation of Fick’s first law, and fully worked slide example on hydrogen purification through a palladium membrane.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128202; Quantifying the Diffusion Rate: Matter Flux & Diffusion Flux</div>
+          <p>To quantify the rate and amount of atomic mass transferred through a cross-section of solid material, we define the <strong>diffusion flux ($J$)</strong> (or flux density):</p>
+          
+          <div class="math-card">
+            $$J = \text{Flux} = \frac{\text{Moles or Mass diffusing}}{\text{Area} \times \text{Time}} = \frac{M}{A \cdot t} \quad \text{or} \quad \frac{1}{A} \frac{dm}{dt}$$
+            <div class="caption">Canonical definition of diffusion flux per unit transversal area and per unit time.</div>
+          </div>
+
+          <p><strong>Standard Units in Engineering and Physical Science:</strong></p>
+          <ul class="academic-list">
+            <li><strong>Molar flux:</strong> $\text{mol}/(\text{m}^2\cdot\text{s})$ or $\text{mol}/(\text{cm}^2\cdot\text{s})$.</li>
+            <li><strong>Mass flux:</strong> $\text{kg}/(\text{m}^2\cdot\text{s})$ or $\text{g}/(\text{cm}^2\cdot\text{s})$.</li>
+            <li><strong>Atomic flux:</strong> $\text{atoms}/(\text{m}^2\cdot\text{s})$ (especially practical when evaluating unit-cell volumes and planar densities).</li>
+          </ul>
+
+          <div class="callout callout-blue">
+            <div class="callout-title">&#9878; Fundamental Distinction of Regimes from Official Slides</div>
+            <p>&bull; <strong>Steady-state conditions:</strong> The diffusion flux $J$ <strong>does not change with time</strong> ($\frac{\partial J}{\partial t} = 0$). Governed by <strong>Fick’s 1st Law</strong>.<br>
+            &bull; <strong>Non steady-state conditions:</strong> Both diffusion flux $J$ and local concentration <strong>change with time</strong> ($\frac{\partial J}{\partial t} \neq 0$, $\frac{\partial C}{\partial t} \neq 0$). Governed by <strong>Fick’s 2nd Law</strong>.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#9881; Fick’s First Law of Diffusion</div>
+          <p>Under <strong>steady-state conditions</strong>, the concentration of diffusing species at any spatial position within the solid remains constant with time ($\partial C / \partial t = 0$). Consequently, equal amounts of solute mass enter and exit any differential slice of the material every second.</p>
+          
+          <p>Postulated by Adolf Fick in 1855, Fick’s 1st Law states that diffusion flux is directly proportional to the concentration gradient:</p>
+
+          <div class="math-card">
+            $$J = -D \cdot \frac{\Delta C}{\Delta x} = -D \cdot \frac{dC}{dx}$$
+            <div class="caption">Fundamental equation of Fick's 1st Law for one-dimensional steady-state diffusion.</div>
+          </div>
+
+          <p>For a flat membrane or plate of finite thickness $\Delta x = x_2 - x_1$, with fixed solute concentrations maintained at the outer boundary ($C_{\text{ext}}$) and inner boundary ($C_{\text{int}}$):</p>
+
+          <div class="math-card" style="background: var(--academic-navy-light); border-color: var(--academic-navy-border);">
+            $$J = -D \cdot \frac{C_{\text{int}} - C_{\text{ext}}}{x_2 - x_1} = D \cdot \frac{C_{\text{ext}} - C_{\text{int}}}{\Delta x}$$
+            <div class="caption">Operational formula for flat plates with linear concentration profiles.</div>
+          </div>
+
+          <p><strong>Physical Breakdown of Terms and Symbols:</strong></p>
+          <ul class="academic-list">
+            <li><strong>$J$:</strong> Flux of atoms or mass per unit area and time in the direction of diffusion $x$ ($\text{kg}/(\text{m}^2\cdot\text{s})$ or $\text{at}/(\text{m}^2\cdot\text{s})$).</li>
+            <li><strong>$D$:</strong> Diffusivity or diffusion coefficient at the operational temperature ($\text{m}^2/\text{s}$).</li>
+            <li><strong>$\frac{\Delta C}{\Delta x} = \frac{C_2 - C_1}{x_2 - x_1}$:</strong> Concentration gradient along coordinate $x$ ($\text{kg/m}^4$ or $\text{at/m}^4$). Represents the chemical <strong>DRIVING FORCE</strong>.</li>
+            <li><strong>The Negative Sign:</strong> Dictated by the Second Law of Thermodynamics: net mass transport spontaneously flows "downhill" from high-concentration to low-concentration regions ($\Delta C < 0 \implies J > 0$).</li>
+          </ul>
+
+          <div class="callout callout-teal">
+            <div class="callout-title">&#128161; Necessary Condition for Constant Flux J</div>
+            <p>At constant temperature ($T = \text{const}$), the flux $J$ remains strictly constant <strong>if and only if the boundary compositions on both surfaces of the plate are held constant</strong> over time, ensuring a stationary concentration gradient.</p>
+          </div>
+        </div>
+
+        <div class="figure-box">
+          <svg viewBox="0 0 740 240" width="100%" height="240" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axes -->
+            <line x1="80" y1="200" x2="660" y2="200" stroke="#334155" stroke-width="2"/>
+            <polygon points="660,200 650,195 650,205" fill="#334155"/>
+            <text x="660" y="225" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155">Position x</text>
+
+            <line x1="80" y1="200" x2="80" y2="30" stroke="#334155" stroke-width="2"/>
+            <polygon points="80,30 75,40 85,40" fill="#334155"/>
+            <text x="40" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155">C(x)</text>
+
+            <!-- Plate Boundary 1 -->
+            <line x1="180" y1="40" x2="180" y2="200" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="4,4"/>
+            <rect x="180" y="45" width="340" height="155" fill="#EFF6FF" opacity="0.6"/>
+            <text x="180" y="218" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1E3A8A" text-anchor="middle">x1 (Outer Surface)</text>
+
+            <!-- Plate Boundary 2 -->
+            <line x1="520" y1="40" x2="520" y2="200" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="520" y="218" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1E3A8A" text-anchor="middle">x2 (Inner Surface)</text>
+
+            <!-- Linear Concentration Profile -->
+            <line x1="180" y1="65" x2="520" y2="165" stroke="#991B1B" stroke-width="3.5"/>
+            
+            <circle cx="180" cy="65" r="5" fill="#991B1B"/>
+            <text x="165" y="65" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#991B1B" text-anchor="end">C_ext (High)</text>
+
+            <circle cx="520" cy="165" r="5" fill="#991B1B"/>
+            <text x="535" y="170" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#991B1B">C_int (Low)</text>
+
+            <!-- Slope notation -->
+            <path d="M 330 110 L 400 110 L 400 130" fill="none" stroke="#64748B" stroke-width="1.5"/>
+            <text x="410" y="125" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#64748B">Slope = &Delta;C / &Delta;x = constant</text>
+
+            <!-- Flux vector arrow -->
+            <line x1="280" y1="150" x2="420" y2="150" stroke="#0F766E" stroke-width="4"/>
+            <polygon points="420,150 405,143 405,157" fill="#0F766E"/>
+            <text x="350" y="142" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#0F766E" text-anchor="middle">Diffusion Flux J &rarr;</text>
+
+            <!-- Thickness delta x -->
+            <line x1="180" y1="230" x2="520" y2="230" stroke="#334155" stroke-width="1.5"/>
+            <polygon points="180,230 188,227 188,233" fill="#334155"/>
+            <polygon points="520,230 512,227 512,233" fill="#334155"/>
+            <text x="350" y="242" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">Thickness &Delta;x = x2 - x1</text>
+          </svg>
+          <div class="figure-caption"><strong>Figure 3.1:</strong> Linear concentration profile characteristic of steady-state Fick’s 1st Law ($\partial J / \partial t = 0$). As long as boundary concentrations $C_{\text{ext}}$ and $C_{\text{int}}$ remain fixed, both the concentration gradient and flux $J$ remain perfectly constant.</div>
+        </div>
+
+        <!-- WORKED SLIDE EXAMPLE -->
+        <div class="card" style="border: 2px solid var(--forest-teal-border); background: #FAFDFD;">
+          <div class="card-title" style="color: var(--forest-teal); font-size: 1.15rem;">
+            &#128302; Fully Worked Slide Example: Hydrogen Purification through a Palladium (Pd) Plate
+          </div>
+          
+          <div class="callout callout-teal" style="margin-top: 8px;">
+            <div class="callout-title">&#128221; Verbatim Problem Statement from Slides</div>
+            <p><em>"Determine the thickness of a plate of Pd with transversal area of $0.2\text{ m}^2$ so that it can purify $1.733 \times 10^{-3}\text{ kg/h}$ of hydrogen, if the hydrogen concentration at the side of high pressure of the plate is $1.5\text{ kg/m}^3$ and at the side of low pressure is $0.3\text{ kg/m}^3$. The diffusion coefficient of hydrogen in Pd is $1 \times 10^{-8}\text{ m}^2/\text{s}$."</em></p>
+          </div>
+
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-heading); margin: 18px 0 6px;">Step 1: Data Extraction and SI Unit Conversions</h4>
+          <ul class="academic-list">
+            <li>Transversal plate area: $A = 0.2\text{ m}^2$.</li>
+            <li>Purification mass flow rate: $\dot{m} = 1.733 \times 10^{-3}\text{ kg/h}$.</li>
+            <li>Time conversion: $1\text{ h} = 3600\text{ s} \implies \dot{m} = \frac{1.733 \times 10^{-3}\text{ kg}}{3600\text{ s}} = 4.814 \times 10^{-7}\text{ kg/s}$.</li>
+            <li>Concentration at high-pressure side ($P_{\text{high}}$): $C_{\text{ext}} = C_1 = 1.5\text{ kg/m}^3$.</li>
+            <li>Concentration at low-pressure side ($P_{\text{low}}$): $C_{\text{int}} = C_2 = 0.3\text{ kg/m}^3$.</li>
+            <li>Diffusivity of $H$ in $Pd$: $D = 1.0 \times 10^{-8}\text{ m}^2/\text{s}$.</li>
+          </ul>
+
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-heading); margin: 18px 0 6px;">Step 2: Calculation of Surface Diffusion Flux $J$</h4>
+          <p>Total mass purified per unit area and time:</p>
+          <div class="math-card">
+            $$J = \frac{\text{Mass}}{\text{Area} \cdot \text{Time}} = \frac{1.733 \times 10^{-3}\text{ kg}}{0.2\text{ m}^2 \times 3600\text{ s}} = 2.407 \times 10^{-6}\text{ kg}/(\text{m}^2\cdot\text{s})$$
+          </div>
+
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-heading); margin: 18px 0 6px;">Step 3: Applying Fick’s 1st Law and Solving for Thickness $\Delta x$</h4>
+          <p>Since $J = -D \frac{\Delta C}{\Delta x} = D \frac{C_1 - C_2}{\Delta x}$, solving for required plate thickness $\Delta x$ yields:</p>
+          <div class="math-card" style="background: var(--academic-navy-light); border-color: var(--academic-navy-border);">
+            $$\Delta x = D \cdot \frac{C_{\text{ext}} - C_{\text{int}}}{J} = 1.0 \times 10^{-8}\text{ m}^2/\text{s} \cdot \frac{(1.5 - 0.3)\text{ kg/m}^3}{2.407 \times 10^{-6}\text{ kg}/(\text{m}^2\cdot\text{s})}$$
+            $$\Delta x = \frac{1.2 \times 10^{-8}}{2.407 \times 10^{-6}} = 4.985 \times 10^{-3}\text{ m} \approx \mathbf{5\text{ mm}}$$
+          </div>
+
+          <div class="callout callout-wine">
+            <div class="callout-title">&#128680; Classic Exam Pitfall</div>
+            <p><strong>Hour-to-second unit omission:</strong> Forgetting to divide $\text{kg/h}$ by $3600\text{ s}$ is the most common error in this problem. Diffusivity $D$ is given in $\text{m}^2/\mathbf{s}$, so omitting the $3600$ factor distorts the result by $3600\times$, erroneously yielding $18\text{ meters}$ instead of $5\text{ millimeters}$.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 4: NON-STEADY STATE DIFFUSION & FICK'S 2ND LAW
+           ========================================================= -->
+      <div id="p-fick2" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Session 5 &bull; Transient Kinetics & Error Function</div>
+          <h1 class="page-title">4. Non-Steady State Diffusion & Fick’s 2nd Law</h1>
+          <p class="page-subtitle">Transient diffusion kinetics, partial differential governing equations, concentration-independent diffusivity hypothesis, semi-infinite solid boundary conditions, and Gaussian error function analytical solutions.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#9201; Why Most Practical Engineering Processes are Non-Steady State</div>
+          <p>In industrial materials processing and engineering heat treatments, <strong>diffusion takes place under non-steady state (transient) conditions for the overwhelming majority of practical applications</strong>:</p>
+          
+          <ul class="academic-list">
+            <li><strong>Time-dependent concentration:</strong> The concentration of solute atoms at any given spatial coordinate inside the solid changes continuously over elapsed time ($\frac{\partial C}{\partial t} \neq 0$).</li>
+            <li><strong>Spatially variable diffusion flux:</strong> Because the local concentration evolves dynamically, the concentration gradient $\frac{\partial C}{\partial x}$ and the diffusion flux $J(x, t)$ differ from one plane to the next across the component ($\frac{\partial J}{\partial x} \neq 0$).</li>
+            <li><strong>Thermodynamic outcome (verbatim from lecture slides):</strong> <em>"Non stationary state &rArr; The substances come to an end through extinction"</em> (diffusing solute atoms from the surface progressively penetrate the host matrix until chemical saturation or equilibrium is attained).</li>
+          </ul>
+
+          <h3 class="sub-heading">&#128220; General Partial Differential Equation of Fick’s 2nd Law</h3>
+          <p>Applying the principle of conservation of mass over a one-dimensional differential volume element of thickness $dx$:</p>
+          <div class="math-card">
+            $$\frac{\partial C_x}{\partial t} = -\frac{\partial J}{\partial x} = \frac{\partial}{\partial x}\left( D \frac{\partial C_x}{\partial x} \right)$$
+            <div class="caption">General differential formulation of Fick’s Second Law in one dimension.</div>
+          </div>
+
+          <h3 class="sub-heading">&#128300; Fundamental Hypothesis: Diffusivity Independent of Composition</h3>
+          <p>The slides formulate the foundational hypothesis universally applied in engineering diffusion calculations:</p>
+          <div class="callout callout-blue">
+            <div class="callout-title">&#128203; HYPOTHESIS (Verbatim from Lecture Slides)</div>
+            <p><em>"If $D \neq f(C)$ (i.e. diffusion coefficient is independent of composition; there is no interaction between diffusing atoms):"</em></p>
+            $$\frac{\partial C_x}{\partial t} = D \cdot \frac{\partial^2 C_x}{\partial x^2}$$
+            <p style="margin-top: 8px; font-size: 13.5px;"><strong>Physical meaning:</strong> Rate of composition change equals diffusivity multiplied by the rate of change of the composition gradient. In dilute solid solutions, solute atoms are sufficiently separated that mutual interactions are negligible, rendering $D$ solely a function of temperature.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128208; Analytical Solution: Semi-Infinite Solid with Constant Surface Concentration</div>
+          <p>To solve this second-order partial differential equation, <strong>boundary conditions</strong> matching the experimental setup must be imposed. The classic metallurgical case models a semi-infinite solid exposed to a constant active gas atmosphere:</p>
+
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th>Temporal / Spatial Coordinate</th>
+                  <th>Mathematical Boundary Condition</th>
+                  <th>Physical Engineering Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Initial instant ($t = 0$)</strong></td>
+                  <td>$$C = C_0 \quad \text{for all } 0 \le x \le \infty$$</td>
+                  <td>Before initiating the thermal cycle, the alloy has a uniform, homogeneous solute concentration $C_0$ throughout its bulk.</td>
+                </tr>
+                <tr>
+                  <td><strong>Surface boundary ($x = 0, t > 0$)</strong></td>
+                  <td>$$C = C_s \quad \text{at } x = 0$$</td>
+                  <td>The furnace atmosphere immediately establishes and permanently maintains a constant surface solute concentration $C_s$ (e.g. carburizing gas mixture).</td>
+                </tr>
+                <tr>
+                  <td><strong>Semi-infinite depth ($x \to \infty, t > 0$)</strong></td>
+                  <td>$$C \to C_0 \quad \text{as } x \to \infty$$</td>
+                  <td>The workpiece thickness is sufficiently large that the diffusion front does not penetrate to the opposite face during the processing window.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="sub-heading">&#129518; Analytical Solution via the Gaussian Error Function ($\text{erf}$)</h3>
+          <p>By applying the Boltzmann similarity variable transformation ($\eta = \frac{x}{2\sqrt{Dt}}$), the exact mathematical solution to Fick’s second law is obtained:</p>
+
+          <div class="math-card" style="background: var(--academic-navy-light); border-color: var(--academic-navy-border);">
+            $$\frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left( \frac{x}{2\sqrt{D \cdot t}} \right)$$
+            <div class="caption">Canonical Gaussian Error Function solution for a semi-infinite solid.</div>
+          </div>
+
+          <p>Or expressed in the complementary ratio frequently adopted in case-hardening problems:</p>
+
+          <div class="math-card">
+            $$\frac{C_s - C_x}{C_s - C_0} = \text{erf}\left( \frac{x}{2\sqrt{D \cdot t}} \right)$$
+          </div>
+
+          <p><strong>Exhaustive Nomenclature of Physical Quantities:</strong></p>
+          <ul class="academic-list">
+            <li><strong>$C_x$:</strong> Solute concentration at depth $x$ below the surface after diffusion time $t$ ($\text{wt}\%$ or $\text{kg/m}^3$).</li>
+            <li><strong>$C_s$:</strong> Constant solute concentration imposed at the exterior surface ($x = 0$).</li>
+            <li><strong>$C_0$:</strong> Initial homogeneous solute concentration inside the base alloy ($t = 0$).</li>
+            <li><strong>$x$:</strong> Depth or perpendicular distance measured inwards from the surface ($\text{m}$ or $\text{mm}$).</li>
+            <li><strong>$t$:</strong> Elapsed duration of thermal treatment ($\text{s}$).</li>
+            <li><strong>$D$:</strong> Diffusivity of the solute species at the operating temperature ($\text{m}^2/\text{s}$).</li>
+            <li><strong>$\text{erf}(z)$:</strong> Gaussian error function evaluated at the dimensionless argument $z = \frac{x}{2\sqrt{Dt}}$.</li>
+          </ul>
+
+          <div class="callout callout-teal">
+            <div class="callout-title">&#128218; Benchmark Industrial Examples Cited in Lecture Slides</div>
+            <p><em>Diffusion of a gas (with constant surface concentration) into the interior of a semi-infinite solid:</em><br>
+            &bull; <strong>Carbon diffusion in steel:</strong> Gas carburizing / cementation of gears and drive shafts.<br>
+            &bull; <strong>Saturation of a metal with atmospheric gases:</strong> Surface pickup of oxygen and nitrogen in reactive metals (e.g. titanium, zirconium).</p>
+          </div>
+        </div>
+
+        <div class="figure-box">
+          <svg viewBox="0 0 740 260" width="100%" height="260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axes -->
+            <line x1="80" y1="210" x2="680" y2="210" stroke="#334155" stroke-width="2"/>
+            <polygon points="680,210 670,205 670,215" fill="#334155"/>
+            <text x="680" y="235" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155">Depth x</text>
+
+            <line x1="80" y1="210" x2="80" y2="30" stroke="#334155" stroke-width="2"/>
+            <polygon points="80,30 75,40 85,40" fill="#334155"/>
+            <text x="35" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155">C(x, t)</text>
+
+            <!-- Cs line -->
+            <circle cx="80" cy="50" r="6" fill="#1E3A8A"/>
+            <text x="70" y="55" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="#1E3A8A" text-anchor="end">Cs (Surface, x = 0)</text>
+
+            <!-- C0 baseline -->
+            <line x1="80" y1="180" x2="670" y2="180" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <circle cx="80" cy="180" r="4" fill="#64748B"/>
+            <text x="70" y="184" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#64748B" text-anchor="end">C0 (Initial, t = 0)</text>
+
+            <!-- Profile t1 -->
+            <path d="M 80 50 C 130 50 160 175 280 180" fill="none" stroke="#991B1B" stroke-width="3"/>
+            <text x="210" y="135" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#991B1B">t1 (Short)</text>
+
+            <!-- Profile t2 -->
+            <path d="M 80 50 C 170 50 240 175 420 180" fill="none" stroke="#92400E" stroke-width="3"/>
+            <text x="340" y="125" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#92400E">t2 (Intermediate)</text>
+
+            <!-- Profile t3 -->
+            <path d="M 80 50 C 230 50 330 175 600 180" fill="none" stroke="#0F766E" stroke-width="3"/>
+            <text x="500" y="115" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F766E">t3 (Long)</text>
+
+            <!-- Condition label -->
+            <rect x="520" y="40" width="140" height="35" rx="5" fill="#F1F5F9" stroke="#CBD5E1"/>
+            <text x="590" y="62" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#0F172A" text-anchor="middle">t1 &lt; t2 &lt; t3</text>
+          </svg>
+          <div class="figure-caption"><strong>Figure 4.1:</strong> Transient concentration profiles predicted by Fick’s 2nd Law for increasing heat treatment durations ($t_1 < t_2 < t_3$). While the surface concentration remains anchored at $C_s$, solute penetration deepens into the semi-infinite medium over time.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128736; Parabolic Scaling Law: The $\frac{x^2}{Dt} = \text{constant}$ Principle</div>
+          <p>When an engineering design specifies a target concentration $C_x$ (such as achieving $0.3\text{ wt}\%\text{ C}$ for tooth hardening in a transmission gear):</p>
+
+          <div class="math-card">
+            $$\text{If } \frac{C_x - C_0}{C_s - C_0} = \text{const} \implies \text{erf}\left( \frac{x}{2\sqrt{Dt}} \right) = \text{const} \implies \frac{x}{2\sqrt{Dt}} = \text{constant}$$
+            $$\frac{x^2}{D \cdot t} = \text{constant} \implies x \propto \sqrt{D \cdot t}$$
+            <div class="caption">Parabolic penetration law in non-steady state diffusion.</div>
+          </div>
+
+          <div class="callout callout-wine">
+            <div class="callout-title">&#128680; Critical Examination Rule</div>
+            <p>Because penetration depth $x$ scales with the <strong>square root of time ($\sqrt{t}$)</strong>:<br>
+            &bull; To <strong>double the case-hardened depth ($2x$)</strong> at constant temperature, furnace processing time must be increased by <strong>fourfold ($2^2 = 4t$)</strong>.<br>
+            &bull; To <strong>triple penetration depth ($3x$)</strong>, furnace processing time must increase by <strong>ninefold ($3^2 = 9t$)</strong>.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128203; Numerical Table and Linear Interpolation for $\text{erf}(z)$</div>
+          <p>The Gaussian error function is a non-elementary integral $\text{erf}(z) = \frac{2}{\sqrt{\pi}}\int_0^z e^{-y^2}dy$. Its values are tabulated from the official slide reference table:</p>
+
+          <div class="table-wrapper">
+            <table class="academic-table" style="text-align: center;">
+              <thead>
+                <tr>
+                  <th>$z$</th>
+                  <th>$\text{erf}(z)$</th>
+                  <th>$z$</th>
+                  <th>$\text{erf}(z)$</th>
+                  <th>$z$</th>
+                  <th>$\text{erf}(z)$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0.00</td><td>0.0000</td><td>0.55</td><td>0.5633</td><td>1.30</td><td>0.9340</td></tr>
+                <tr><td>0.05</td><td>0.0564</td><td>0.60</td><td>0.6039</td><td>1.40</td><td>0.9523</td></tr>
+                <tr><td>0.10</td><td>0.1125</td><td>0.65</td><td>0.6420</td><td>1.50</td><td>0.9661</td></tr>
+                <tr><td>0.15</td><td>0.1680</td><td>0.70</td><td>0.6778</td><td>1.60</td><td>0.9763</td></tr>
+                <tr><td>0.20</td><td>0.2227</td><td>0.75</td><td>0.7112</td><td>1.70</td><td>0.9838</td></tr>
+                <tr><td>0.25</td><td>0.2763</td><td>0.80</td><td>0.7421</td><td>1.80</td><td>0.9891</td></tr>
+                <tr><td>0.30</td><td>0.3286</td><td>0.85</td><td>0.7707</td><td>1.90</td><td>0.9928</td></tr>
+                <tr><td>0.35</td><td>0.3794</td><td>0.90</td><td>0.7969</td><td>2.00</td><td>0.9953</td></tr>
+                <tr><td>0.40</td><td>0.4284</td><td>0.95</td><td>0.8209</td><td>2.20</td><td>0.9981</td></tr>
+                <tr><td>0.45</td><td>0.4755</td><td>1.00</td><td>0.8427</td><td>2.40</td><td>0.9993</td></tr>
+                <tr><td>0.50</td><td>0.5205</td><td>1.10</td><td>0.8802</td><td>2.60</td><td>0.9998</td></tr>
+                <tr><td>0.55</td><td>0.5633</td><td>1.20</td><td>0.9103</td><td>&infin;</td><td>1.0000</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-heading); margin: 18px 0 6px;">Linear Interpolation Formula for Problem Solving:</h4>
+          <p>If the calculated value $\text{erf}(z)$ lies between tabulated points $\text{erf}(z_1)$ and $\text{erf}(z_2)$:</p>
+          <div class="math-card">
+            $$z = z_1 + \frac{z_2 - z_1}{\text{erf}(z_2) - \text{erf}(z_1)} \cdot \left[ \text{erf}(z) - \text{erf}(z_1) \right]$$
+            <div class="caption">Linear interpolation equation for extracting argument $z$ from numerical $\text{erf}(z)$.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 5: FACTORS AFFECTING DIFFUSION
+           ========================================================= -->
+      <div id="p-factors" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Session 5 &bull; Diffusivity Influences</div>
+          <h1 class="page-title">5. Factors Affecting Diffusion</h1>
+          <p class="page-subtitle">Fundamental physical drivers of atomic mobility: mechanism and atomic radius, host lattice crystal structure (BCC vs FCC), crystal defects and short-circuit diffusion, concentration effects, temperature, Arrhenius linearization, and the master diffusivity dataset.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128269; Nature of the Solute-Solvent System & Diffusion Rate Definition</div>
+          <p>The diffusion coefficient or <strong>diffusivity ($D$)</strong> is a characteristic transport parameter dictated by the identity of both atomic species involved and the thermodynamic state of the host matrix:</p>
+          <ul class="academic-list">
+            <li><strong>Dual dependency:</strong> <em>"Diffusivity depends on both the atoms that diffuse (solute) and the matrix (solvent)."</em></li>
+            <li><strong>Equilibrium constancy:</strong> <em>"It is constant for a particular system (solute + solvent) and at a specific temperature."</em></li>
+            <li><strong>Definition of Diffusion Rate (verbatim from slides):</strong> <em>"The 'speed' of diffusion of observed species through the material. It depends both on diffusing species and characteristics of the material in which diffusion occurs."</em></li>
+          </ul>
+
+          <p>Below is an in-depth analysis of the <strong>five canonical factors</strong> detailed in the lecture syllabus:</p>
+        </div>
+
+        <!-- FACTOR A & B -->
+        <div class="card">
+          <div class="card-title">&#128308; a) Diffusion Mechanism & Atomic Size (Atom Size)</div>
+          <p>Small solute atoms migrating along interstitial pathways experience vastly lower steric hindrance and activation barriers than bulky solute atoms relying on vacancy exchanges.</p>
+          
+          <div class="callout callout-blue">
+            <div class="callout-title">&#128203; Quantitative Evidence from Slides (at 1000 &ordm;C in Fe-&gamma; FCC)</div>
+            <p>&bull; <strong>Interstitial Carbon in $\text{Fe}-\gamma$:</strong> $D_{1000^\circ\text{C}} = 3 \times 10^{-11}\text{ m}^2/\text{s}$<br>
+            &bull; <strong>Substitutional Iron (vacancy self-diffusion) in $\text{Fe}-\gamma$:</strong> $D_{1000^\circ\text{C}} = 2 \times 10^{-16}\text{ m}^2/\text{s}$<br>
+            <strong>Physical Conclusion:</strong> Interstitial carbon diffuses over <strong>150,000 times faster</strong> than host iron atoms through the exact same austenitic lattice at identical temperature.</p>
+          </div>
+
+          <h3 class="sub-heading">&#128309; b) Crystal Structure of the Host Matrix (Solvent Lattice Structure)</h3>
+          <p>The atomic packing efficiency of the solvent crystal strongly dictates the resistance encountered by hopping atoms. A more open crystalline structure (lower atomic packing factor) provides wider interstitial bottlenecks:</p>
+
+          <div class="callout callout-teal">
+            <div class="callout-title">&#128203; Quantitative Evidence from Slides (Carbon in Iron at 500 &ordm;C)</div>
+            <p>&bull; <strong>In Ferrite $\text{Fe}-\alpha$ (BCC):</strong> $D(\text{C in Fe-}\alpha, \text{BCC}) = 10^{-12}\text{ m}^2/\text{s}$<br>
+            &bull; <strong>In Austenite $\text{Fe}-\gamma$ (FCC):</strong> $D(\text{C in Fe-}\gamma, \text{FCC}) = 5 \times 10^{-15}\text{ m}^2/\text{s}$<br>
+            <strong>Crystallographic rationale:</strong>
+            $$\text{Atomic Packing Factor (BCC: 0.68)} < \text{Atomic Packing Factor (FCC: 0.74)}$$
+            $$d_{\text{interatomic}}(\text{BCC}) > d_{\text{interatomic}}(\text{FCC})$$
+            Although individual octahedral voids in FCC are volumetrically larger, the BCC lattice is <strong>overall significantly more open</strong> (packing efficiency of $68\%$ vs $74\%$). Consequently, carbon diffuses <strong>200 times faster in BCC ferrite than in FCC austenite</strong> at $500^\circ\text{C}$.</p>
+          </div>
+        </div>
+
+        <!-- FACTOR C & D -->
+        <div class="card">
+          <div class="card-title">&#128256; c) Crystal Imperfections & Short-Circuit Diffusion Paths</div>
+          <p>Two-dimensional boundaries and external surfaces exhibit disrupted metallic bonds, high atomic disorder, and substantially greater free volume than the pristine crystal interior. They serve as rapid transport superhighways (<em>short-circuit diffusion paths</em>):</p>
+
+          <div class="math-card" style="background: var(--academic-navy-light); border-color: var(--academic-navy-border);">
+            $$D_{\text{surface}} > D_{\text{grain boundary}} > D_{\text{volume (lattice)}}$$
+            <div class="caption">Diffusivity hierarchy governed by defect density and free volume (Open structures &rArr; &uarr; D).</div>
+          </div>
+
+          <div class="callout callout-amber">
+            <div class="callout-title">&#128202; Official Experimental Data for Silver (Ag) at 500 &ordm;C</div>
+            <p>&bull; <strong>Self-diffusion through single crystal lattice (Volume):</strong> $D = 10^{-17}\text{ m}^2/\text{s}$<br>
+            &bull; <strong>Self-diffusion along grain boundaries (Grain Boundary):</strong> $D = 10^{-11}\text{ m}^2/\text{s}$<br>
+            Grain boundary diffusion in polycrystalline silver is <strong>one million times ($10^6\times$) faster</strong> than volume lattice diffusion at $500^\circ\text{C}$!</p>
+          </div>
+
+          <h3 class="sub-heading">&#9878; d) Concentration of Diffusing Species</h3>
+          <p><em>"When we &uarr; the concentration of solute atoms we modify $D$."</em> At higher concentrations, solute atoms experience mutual elastic and chemical interactions, modifying the activity coefficient of the solid solution and causing diffusivity to vary with local composition ($D = D(C)$).</p>
+        </div>
+
+        <!-- FACTOR E: TEMPERATURE -->
+        <div class="card">
+          <div class="card-title">&#128293; e) Temperature & Arrhenius Linearization</div>
+          <p>Temperature exerts the most pronounced exponential effect on solid diffusion. Increasing temperature elevates the thermal vibrational kinetic energy of lattice atoms, exponentially boosting the fraction of atoms possessing thermal energy in excess of $E_D$:</p>
+
+          <div class="math-card">
+            $$\uparrow T \implies \uparrow \text{Vibrational amplitude} \implies \uparrow \text{Jump probability} \implies \uparrow D$$
+          </div>
+
+          <h3 class="sub-heading">&#128200; Mathematical Linearization of the Arrhenius Equation</h3>
+          <p>Starting from the exponential rate law $D = D_0 \exp\left(-\frac{E_D}{R \cdot T}\right)$ and taking natural logarithms on both sides:</p>
+
+          <div class="math-card" style="background: #FFFFFF; border: 2px solid var(--forest-teal);">
+            $$\ln(D) = \ln(D_0) - \frac{E_D}{R} \cdot \left(\frac{1}{T}\right)$$
+            $$\underbrace{\ln(D)}_{y} = \underbrace{\ln(D_0)}_{y_0} - \underbrace{\left(\frac{E_D}{R}\right)}_{m} \cdot \underbrace{\left(\frac{1}{T}\right)}_{x}$$
+            <div class="caption">Linear equation for the Arrhenius plot ($\ln D$ versus $1/T$).</div>
+          </div>
+
+          <ul class="academic-list">
+            <li><strong>Dependent variable ($y$):</strong> $\ln(D)$ (dimensionless).</li>
+            <li><strong>Independent variable ($x$):</strong> $1/T$ (reciprocal absolute temperature, $\text{K}^{-1}$).</li>
+            <li><strong>Slope of the line ($m$):</strong>
+              $$\text{Slope} = -\frac{E_D}{R} \implies E_D = -R \cdot (\text{Slope})$$
+            </li>
+            <li><strong>Y-intercept ($y_0$):</strong> Extrapolated value at $1/T \to 0$ equals $\ln(D_0) \implies D_0 = \exp(y_0)$.</li>
+          </ul>
+
+          <div class="figure-box">
+            <svg viewBox="0 0 700 240" width="100%" height="240" xmlns="http://www.w3.org/2000/svg">
+              <!-- Axes -->
+              <line x1="80" y1="200" x2="640" y2="200" stroke="#334155" stroke-width="2"/>
+              <polygon points="640,200 630,195 630,205" fill="#334155"/>
+              <text x="640" y="222" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155">1 / T (K^-1)</text>
+
+              <line x1="80" y1="200" x2="80" y2="30" stroke="#334155" stroke-width="2"/>
+              <polygon points="80,30 75,40 85,40" fill="#334155"/>
+              <text x="35" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#334155">Ln(D)</text>
+
+              <!-- Interstitial Line (Shallower slope, higher D) -->
+              <line x1="80" y1="60" x2="560" y2="120" stroke="#0F766E" stroke-width="3"/>
+              <circle cx="80" cy="60" r="5" fill="#0F766E"/>
+              <text x="570" y="125" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F766E">Interstitial Diffusion (lower Ea, gentler slope)</text>
+              <text x="90" y="55" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0F766E">Ln(D0_interst)</text>
+
+              <!-- Vacancy Line (Steeper slope, lower D) -->
+              <line x1="80" y1="90" x2="560" y2="190" stroke="#991B1B" stroke-width="3"/>
+              <circle cx="80" cy="90" r="5" fill="#991B1B"/>
+              <text x="570" y="195" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#991B1B">Vacancy Diffusion (higher Ea, steep slope)</text>
+              <text x="90" y="85" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#991B1B">Ln(D0_vac)</text>
+
+              <!-- Slope formula bracket -->
+              <path d="M 300 138 L 360 138 L 360 152" fill="none" stroke="#64748B" stroke-width="1.5"/>
+              <text x="370" y="150" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#991B1B">Slope = -E_D / R</text>
+            </svg>
+            <div class="figure-caption"><strong>Figure 5.1:</strong> Linearized Arrhenius plot ($\ln D$ versus $1/T$). Systems with higher activation energy ($E_D$) exhibit steeper negative slopes, reflecting greater temperature sensitivity.</div>
+          </div>
+        </div>
+
+        <!-- COMPLETE SLIDE TABLE -->
+        <div class="card">
+          <div class="card-title">&#128202; Master Diffusivity Dataset from Official Lecture Slides</div>
+          <p>Measured experimental diffusion coefficients ($D$) for 12 solute-solvent combinations evaluated at the canonical temperatures of $500^\circ\text{C}$ and $1000^\circ\text{C}$:</p>
+          
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th>Solute</th>
+                  <th>Solvent / Matrix</th>
+                  <th>Solvent Structure</th>
+                  <th>Diffusivity at 500 &ordm;C ($\text{m}^2/\text{s}$)</th>
+                  <th>Diffusivity at 1000 &ordm;C ($\text{m}^2/\text{s}$)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Carbon</strong></td>
+                  <td>Iron (Fe)</td>
+                  <td>FCC ($\gamma$)</td>
+                  <td>$5 \times 10^{-15}$ <span class="mono-pill">*</span></td>
+                  <td>$3 \times 10^{-11}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Carbon</strong></td>
+                  <td>Iron (Fe)</td>
+                  <td>BCC ($\alpha$)</td>
+                  <td>$10^{-12}$</td>
+                  <td>$2 \times 10^{-9}$ <span class="mono-pill">*</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Iron</strong></td>
+                  <td>Iron (Fe)</td>
+                  <td>FCC ($\gamma$)</td>
+                  <td>$2 \times 10^{-23}$ <span class="mono-pill">*</span></td>
+                  <td>$2 \times 10^{-16}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Iron</strong></td>
+                  <td>Iron (Fe)</td>
+                  <td>BCC ($\alpha$)</td>
+                  <td>$10^{-20}$</td>
+                  <td>$3 \times 10^{-14}$ <span class="mono-pill">*</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Nickel</strong></td>
+                  <td>Iron (Fe)</td>
+                  <td>FCC ($\gamma$)</td>
+                  <td>$10^{-23}$</td>
+                  <td>$2 \times 10^{-16}$ <span class="mono-pill">*</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Manganese</strong></td>
+                  <td>Iron (Fe)</td>
+                  <td>FCC ($\gamma$)</td>
+                  <td>$3 \times 10^{-24}$ <span class="mono-pill">*</span></td>
+                  <td>$10^{-16}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Zinc</strong></td>
+                  <td>Copper (Cu)</td>
+                  <td>[FCC]</td>
+                  <td>$4 \times 10^{-18}$</td>
+                  <td>$5 \times 10^{-13}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Copper</strong></td>
+                  <td>Aluminium (Al)</td>
+                  <td>[FCC]</td>
+                  <td>$4 \times 10^{-14}$</td>
+                  <td>&mdash; (Al melts at 660&ordm;C)</td>
+                </tr>
+                <tr>
+                  <td><strong>Copper</strong></td>
+                  <td>Copper (Cu)</td>
+                  <td>[FCC]</td>
+                  <td>$10^{-18}$</td>
+                  <td>$2 \times 10^{-13}$</td>
+                </tr>
+                <tr>
+                  <td><strong>Silver</strong></td>
+                  <td>Silver (Ag, crystal lattice)</td>
+                  <td>[FCC]</td>
+                  <td>$10^{-17}$</td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <td><strong>Silver</strong></td>
+                  <td>Silver (Ag, grain boundary)</td>
+                  <td>[Grain bdy]</td>
+                  <td>$10^{-11}$</td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <td><strong>Carbon</strong></td>
+                  <td>Titanium (Ti)</td>
+                  <td>HCP</td>
+                  <td>$3 \times 10^{-16}$</td>
+                  <td>$2 \times 10^{-11}$ <span class="mono-pill">*</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px;"><em>Footnote from slides:</em> The asterisk symbol <span class="mono-pill">*</span> denotes <strong>metastable phases</strong> at that respective temperature (e.g., FCC austenite below $727^\circ\text{C}$ or BCC ferrite at $1000^\circ\text{C}$, where pure iron is thermodynamically in the FCC $\gamma$-phase).</p>
+        </div>
+
+        <!-- SUMMARY COMPARISON -->
+        <div class="card">
+          <div class="card-title">&#9878; Comprehensive Comparative Synthesis (Slides 20 & 21)</div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--forest-teal-light); border: 1px solid var(--forest-teal-border); border-radius: 8px; padding: 18px;">
+              <h4 style="color: var(--forest-teal); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                &#9650; DIFFUSION is FASTER in...
+              </h4>
+              <ul class="academic-list" style="margin-left: 16px; font-size: 13.5px;">
+                <li><strong>Open crystalline structures</strong> (e.g. BCC vs FCC).</li>
+                <li><strong>Lower density materials</strong>.</li>
+                <li><strong>Structures with a large number of defects</strong> (dislocations, grain boundaries).</li>
+                <li><strong>Neutral diffusing species</strong>.</li>
+                <li><strong>Materials with low melting point ($T_m$)</strong>.</li>
+                <li><strong>Higher temperatures</strong> ($T \uparrow$).</li>
+                <li><strong>Small atomic species</strong> (interstitial diffusion: C, H, O, N).</li>
+              </ul>
+            </div>
+
+            <div style="background: var(--wine-red-light); border: 1px solid var(--wine-red-border); border-radius: 8px; padding: 18px;">
+              <h4 style="color: var(--wine-red); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                &#9660; DIFFUSION is SLOWER in...
+              </h4>
+              <ul class="academic-list" style="margin-left: 16px; font-size: 13.5px;">
+                <li><strong>Compact crystalline structures</strong> (close-packed FCC, HCP).</li>
+                <li><strong>Higher density materials</strong>.</li>
+                <li><strong>Structures with small number of defects</strong> (single crystals).</li>
+                <li><strong>Charged diffusing species</strong> (ionic coulombic traps).</li>
+                <li><strong>Materials with high melting point ($T_m$)</strong> (refractory metals).</li>
+                <li><strong>Low temperatures</strong>.</li>
+                <li><strong>Large atomic species</strong> (substitutional vacancy diffusion).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 6: INDUSTRIAL & AEROSPACE APPLICATIONS
+           ========================================================= -->
+      <div id="p-applications" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Session 5 &bull; Engineering Technologies</div>
+          <h1 class="page-title">6. Applications of Diffusion</h1>
+          <p class="page-subtitle">Critical industrial and aerospace manufacturing processes governed by atomic mass transport: case hardening of transmission gears, ceramic sintering, polymer food barrier membranes, silicon powder nitriding, Rolls-Royce Trent 500 diffusion bonding, semiconductor wafer doping, and diffusion soldering.</p>
+        </div>
+
+        <!-- 1. CEMENTATION / CASE HARDENING -->
+        <div class="card">
+          <div class="card-title">&#9881; 1. Cementation & Case Hardening of Steels</div>
+          <p><strong>Gas carburizing (cementation)</strong> is a thermochemical surface engineering process based on the <strong>interstitial diffusion of carbon atoms</strong> into the surface of low-carbon steel components (such as AISI 1010 or 1018 steels, with initial $C_0 \approx 0.10-0.18\text{ wt}\%\text{ C}$). Carburizing operates at elevated temperatures within the austenitic $\gamma$-Fe range ($900^\circ\text{C}-950^\circ\text{C}$) in a controlled hydrocarbon-carrier gas atmosphere ($\mathbf{CH_4 - H_2}$):</p>
+
+          <h3 class="sub-heading">&#128737; Hardening Mechanism & Residual Stress State</h3>
+          <ul class="academic-list">
+            <li><strong>Dislocation blocking:</strong> Small carbon atoms occupy interstitial positions in the iron lattice, locally distorting the crystal matrix and creating elastic stress fields that <em>"block" or pin dislocation glide</em>. Impeding dislocation motion elevates the yield strength and makes plastic deformation far more difficult $\implies$ <strong>Hardening</strong>.</li>
+            <li><strong>Compressive residual stresses:</strong> The high carbon content on the outer case produces a greater specific volume expansion during martensitic quenching than the low-carbon core. This localized volume expansion leaves the surface in a permanent state of <strong>compressive residual stresses</strong>, which directly counteract applied tensile cyclic loads and markedly prolong fatigue life.</li>
+          </ul>
+
+          <h3 class="sub-heading">&#9878; Engineering Design Duality: Tough Core vs Hard Case</h3>
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Workpiece Region</th>
+                  <th style="width: 35%;">Critical Mechanical Property</th>
+                  <th style="width: 40%;">In-Service Engineering Function</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Inner core</strong></td>
+                  <td><strong>Maximum toughness:</strong> Low carbon base steel ($0.10-0.18\text{ wt}\%$).</td>
+                  <td>Provides high fracture toughness and impact energy absorption, preventing catastrophic brittle failure under shock loading.</td>
+                </tr>
+                <tr>
+                  <td><strong>Outer case</strong></td>
+                  <td><strong>High hardness & wear resistance:</strong> High surface carbon ($\sim 0.8-1.2\text{ wt}\%$).</td>
+                  <td>Resists rolling-sliding frictional wear, abrasive scuffing, and contact surface fatigue on gear tooth flanks and bearings.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-teal">
+            <div class="callout-title">&#128736; Industrial Manufacturing Sequence</div>
+            <p><strong>Optimal manufacturing sequence:</strong> Complex machining (gear hobbing, spline broaching, threading) is performed while the steel is in its ductile, "soft" state to minimize cutting tool wear and machining costs. Once the final geometric tolerances are established, the parts undergo <strong>gas carburizing</strong> and quenching to achieve the hard exterior case.</p>
+          </div>
+
+          <div class="figure-box">
+            <svg viewBox="0 0 700 220" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
+              <!-- Gear Tooth Cross Section -->
+              <path d="M 60 200 L 140 200 Q 180 180 200 120 L 220 50 Q 240 20 280 20 L 420 20 Q 460 20 480 50 L 500 120 Q 520 180 560 200 L 640 200" fill="#E2E8F0" stroke="#334155" stroke-width="2"/>
+              
+              <!-- Hardened Case layer -->
+              <path d="M 80 200 L 150 200 Q 185 180 205 125 L 225 55 Q 242 35 280 35 L 420 35 Q 458 35 475 55 L 495 125 Q 515 180 550 200 L 620 200" fill="#BFDBFE" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="3,3"/>
+              
+              <!-- Core fill -->
+              <path d="M 150 200 Q 185 180 205 125 L 225 55 Q 242 35 280 35 L 420 35 Q 458 35 475 55 L 495 125 Q 515 180 550 200 Z" fill="#F1F5F9"/>
+
+              <!-- Labels -->
+              <text x="350" y="110" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">Tough, Ductile Core</text>
+              <text x="350" y="130" font-family="Inter, sans-serif" font-size="12" fill="#64748B" text-anchor="middle">Low Carbon (~0.18 wt%) &bull; Impact & shock resistant</text>
+
+              <path d="M 230 30 Q 180 -10 130 30" fill="none" stroke="#991B1B" stroke-width="2"/>
+              <text x="120" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#991B1B">Carburized Case</text>
+              <text x="120" y="62" font-family="Inter, sans-serif" font-size="11" fill="#475569">High Carbon (1.0 wt%) &bull; Compressive residual stresses</text>
+
+              <!-- Compressive stress arrows -->
+              <line x1="280" y1="12" x2="310" y2="12" stroke="#991B1B" stroke-width="2"/>
+              <polygon points="310,12 302,9 302,15" fill="#991B1B"/>
+              <line x1="420" y1="12" x2="390" y2="12" stroke="#991B1B" stroke-width="2"/>
+              <polygon points="390,12 398,9 398,15" fill="#991B1B"/>
+              <text x="350" y="-2" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#991B1B" text-anchor="middle">&sigma;_residual compressive</text>
+            </svg>
+            <div class="figure-caption"><strong>Figure 6.1:</strong> Cross-section schematic of a case-hardened transmission gear tooth. The carbon-enriched exterior case imparts wear resistance and residual compressive stresses against fatigue, while the low-carbon interior core maintains impact toughness.</div>
+          </div>
+        </div>
+
+        <!-- 2. SINTERING -->
+        <div class="card">
+          <div class="card-title">&#129521; 2. Sintering in Ceramics & Powder Metallurgy</div>
+          <div class="callout callout-blue">
+            <div class="callout-title">&#128214; Verbatim Definition from Lecture Slides</div>
+            <p><strong>Sintering (e.g. ceramics):</strong> <em>"Mass transport process, thermally activated, conducing to the chemical bonding among particles, and to the reduction of porosity."</em></p>
+          </div>
+
+          <p><strong>Physical Driving Force & Microstructural Evolution:</strong></p>
+          <ul class="academic-list">
+            <li><strong>Thermodynamic driving force:</strong> Reduction in total excess surface free energy ($\Delta G < 0$) achieved by substituting free powder particle surfaces with grain boundaries and solid interparticle interfaces.</li>
+            <li><strong>Neck formation:</strong> Carried out at temperatures typically between $70\%$ and $85\%$ of the absolute melting point ($T_{\text{homologous}} = 0.7-0.85\,T_m$), atomic diffusion through lattice, grain boundaries, and surfaces forms solid neck bridges between adjacent powder particles.</li>
+            <li><strong>Pore elimination:</strong> A continuous flux of vacancies flows from pores into grain boundaries (which act as defect sinks), shrinking and closing internal pores to achieve dense, high-strength bulk components.</li>
+          </ul>
+        </div>
+
+        <!-- 3. POLYMER FILMS FOR FOOD PACKAGING -->
+        <div class="card">
+          <div class="card-title">&#129380; 3. Gas Transport Through Polymer Films (Food Packaging Barriers)</div>
+          <p>In the packaging and preservation of fresh and processed food products, shelf life is fundamentally limited by molecular diffusion and permeation of gases through polymeric barrier films:</p>
+
+          <h3 class="sub-heading">&#128167; Water Vapour Barrier Performance</h3>
+          <ul class="academic-list">
+            <li><strong>Degradation mechanisms under poor water vapor barrier:</strong> Fresh agricultural and meat products dry out; dried culinary powders agglomerate and form solid lumps (<em>clumping</em>); fried snacks and potato chips absorb ambient moisture and lose crispness (<em>lose crispness</em>).</li>
+            <li><strong>Quantitative quality benchmark (verbatim from slides):</strong>
+              <div class="math-card" style="margin: 8px 0; padding: 10px; background: var(--academic-navy-light);">
+                $$\mathbf{\text{Water Vapour Transmission Rate} < 10\text{ g}/(\text{m}^2\cdot\text{day}) \quad \text{measured at } 23^\circ\text{C} \text{ and } 90\%\text{ RH (Relative Humidity)}}$$
+              </div>
+            </li>
+          </ul>
+
+          <h3 class="sub-heading">&#128031; Oxygen & Gas Barrier Performance</h3>
+          <ul class="academic-list">
+            <li>In the presence of diffusing oxygen ($O_2$), par-baked bakery items and cheeses rapidly develop mold.</li>
+            <li>Fresh meats experience surface discoloration and accelerated aerobic bacterial growth. Specifically noted in slides: <em>"Sliced meat turns grey under shop lighting."</em></li>
+            <li>High-fat food products undergo oxidative rancidity, particularly when accelerated by ambient artificial or solar light.</li>
+            <li><em>"Best atmospheres depend on food:"</em> Modified Atmosphere Packaging (MAP) frequently replaces oxygen with nitrogen ($N_2$) or carbon dioxide ($CO_2$).</li>
+          </ul>
+        </div>
+
+        <!-- 4, 5, 6, 7. OTHER APPLICATIONS -->
+        <div class="card">
+          <div class="card-title">&#9992; 4. Aerospace & Advanced Industrial Technologies</div>
+          
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Application</th>
+                  <th style="width: 35%;">Atomic Mechanism / Reaction</th>
+                  <th style="width: 40%;">Aerospace & Engineering Significance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Diffusion Bonding<br>(Solid-State Welding)</strong></td>
+                  <td>Interfacial atomic interdiffusion under elevated hydrostatic pressure and temperature, producing seamless grain coalescence without melting.</td>
+                  <td><strong>Rolls-Royce Trent 500:</strong> Manufacturing of engine cowlings and <strong>wide-chord fan blades</strong>, whose hollow titanium construction saves structural weight and directly <strong>protects the engine against Foreign Object Damage (FOD)</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Silicon Powder Nitriding<br>(Si powder nitriding)</strong></td>
+                  <td>$$3\text{Si (compacted powder)} + 2\text{N}_2\text{ (gas)} \to \text{Si}_3\text{N}_4$$
+                  Gas diffusion of nitrogen into compacted silicon powder.</td>
+                  <td>Synthesis of <strong>silicon nitride ($\text{Si}_3\text{N}_4$)</strong>, an ultra-hard structural engineering ceramic used in aerospace rocket nozzles, ceramic bearings, and gas turbine components.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fabrication of Integrated Circuits (Si Wafers)</strong></td>
+                  <td>Solid-state interstitial and substitutional diffusion of dopant impurities (boron, phosphorus, arsenic) into silicon crystal wafers.</td>
+                  <td>Microscopic creation of <strong>p-n junctions</strong> and integrated semiconductor transistors for aerospace avionics and flight-control computer processors.</td>
+                </tr>
+                <tr>
+                  <td><strong>Diffusion Soldering</strong></td>
+                  <td>Interfacial interdiffusion between thin low-melting solder interlayers and solid substrates to form high-melting intermetallic phases.</td>
+                  <td>Enables fabrication of power electronics joints that can withstand service operating temperatures higher than the initial soldering temperature.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 7: FORMULA CHEATSHEET & MASTER REFERENCE
+           ========================================================= -->
+      <div id="p-cheatsheet" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Master Reference &bull; Quick Review</div>
+          <h1 class="page-title">Formula Cheatsheet & Exam Reference</h1>
+          <p class="page-subtitle">High-density summary of governing equations, physical constants, SI unit conventions, and classic examination traps for Topic 3 (Diffusion in Solids).</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128220; 1. Fundamental Governing Equations</div>
+          
+          <div class="table-wrapper">
+            <table class="academic-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Equation / Law</th>
+                  <th style="width: 25%;">Mathematical Expression</th>
+                  <th style="width: 25%;">Variables & SI Units</th>
+                  <th style="width: 25%;">Validity & Physical Conditions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Diffusion Flux ($J$)</strong></td>
+                  <td>$$J = \frac{\Delta m}{A \cdot \Delta t}$$</td>
+                  <td>&bull; $\Delta m$: $\text{kg}$ or $\text{mol}$<br>&bull; $A$: $\text{m}^2$<br>&bull; $\Delta t$: $\text{s}$<br>&bull; $J$: $\text{kg}/(\text{m}^2\cdot\text{s})$ or $\text{mol}/(\text{m}^2\cdot\text{s})$</td>
+                  <td>General definition applicable to any regime (steady-state or transient).</td>
+                </tr>
+                <tr>
+                  <td><strong>Fick’s 1st Law</strong><br>(Steady State)</td>
+                  <td>$$J = -D \frac{\Delta C}{\Delta x} = D \frac{C_{\text{ext}} - C_{\text{int}}}{\Delta x}$$</td>
+                  <td>&bull; $D$: diffusivity ($\text{m}^2/\text{s}$)<br>&bull; $\Delta C$: $\text{kg/m}^3$ or $\text{at/m}^3$<br>&bull; $\Delta x$: thickness ($\text{m}$)</td>
+                  <td>$\partial C / \partial t = 0$ and $\partial J / \partial t = 0$. Boundary concentrations are strictly constant.</td>
+                </tr>
+                <tr>
+                  <td><strong>Arrhenius Law</strong><br>(Diffusivity)</td>
+                  <td>$$D = D_0 \exp\left(-\frac{E_D}{R \cdot T}\right)$$</td>
+                  <td>&bull; $D_0$: pre-exponential factor ($\text{m}^2/\text{s}$)<br>&bull; $E_D$: activation energy ($\text{J/mol}$ or $\text{cal/mol}$)<br>&bull; $R$: $8.314\text{ J/mol}\cdot\text{K}$ or $1.987\text{ cal/mol}\cdot\text{K}$<br>&bull; $T$: Kelvin ($\text{K}$)</td>
+                  <td>Thermally activated atomic transport in solid media.</td>
+                </tr>
+                <tr>
+                  <td><strong>Linearized Arrhenius</strong><br>(Plot Form)</td>
+                  <td>$$\ln D = \ln D_0 - \frac{E_D}{R} \cdot \left(\frac{1}{T}\right)$$</td>
+                  <td>&bull; Slope: $m = -E_D / R$<br>&bull; Y-intercept: $y_0 = \ln(D_0)$<br>&bull; X-variable: $1/T$ ($\text{K}^{-1}$)</td>
+                  <td>Allows determining $E_D$ and $D_0$ from two experimental points $(D_1, T_1)$ and $(D_2, T_2)$.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fick’s 2nd Law</strong><br>(Differential Form)</td>
+                  <td>$$\frac{\partial C_x}{\partial t} = D \frac{\partial^2 C_x}{\partial x^2}$$</td>
+                  <td>&bull; $C_x$: concentration ($C(x,t)$)<br>&bull; $t$: elapsed time ($\text{s}$)<br>&bull; $x$: distance ($\text{m}$)</td>
+                  <td>Non-steady state regime ($\partial C / \partial t \neq 0$) under the hypothesis $D \neq f(C)$.</td>
+                </tr>
+                <tr>
+                  <td><strong>Semi-Infinite Solid Solution</strong><br>(Error Function)</td>
+                  <td>$$\frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{Dt}}\right)$$
+                  $$\frac{C_s - C_x}{C_s - C_0} = \text{erf}\left(\frac{x}{2\sqrt{Dt}}\right)$$</td>
+                  <td>&bull; $C_x$: conc. at depth $x$ after time $t$<br>&bull; $C_s$: surface conc. ($x=0$)<br>&bull; $C_0$: initial bulk conc. ($t=0$)<br>&bull; Argument $z = \frac{x}{2\sqrt{Dt}}$</td>
+                  <td>Flat surface, semi-infinite solid, constant $C_s$, uniform initial $C_0$.</td>
+                </tr>
+                <tr>
+                  <td><strong>Parabolic Scaling Law</strong></td>
+                  <td>$$\frac{x_1^2}{D_1 \cdot t_1} = \frac{x_2^2}{D_2 \cdot t_2}$$</td>
+                  <td>&bull; At constant $T \implies D = \text{const} \implies \frac{x_1^2}{t_1} = \frac{x_2^2}{t_2}$</td>
+                  <td>Applies whenever target concentration ratio is fixed: $\frac{C_x - C_0}{C_s - C_0} = \text{constant}$.</td>
+                </tr>
+                <tr>
+                  <td><strong>Self-Diffusion Components</strong></td>
+                  <td>$$E_a = E_{\text{formation}} + E_{\text{movement}}$$</td>
+                  <td>&bull; $E_a$: total self-diffusion energy<br>&bull; $E_f$: vacancy formation energy<br>&bull; $E_m$: vacancy migration energy</td>
+                  <td>Pure elemental crystals. Correlates directly with melting point: $\uparrow T_m \implies \uparrow E_a$.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128680; Checklist of Classic Examination Pitfalls (Exam Traps)</div>
+          
+          <div class="callout callout-wine">
+            <div class="callout-title">1. Temperature Scale Trap (Celsius vs Kelvin)</div>
+            <p><strong>Fatal error:</strong> Inserting $T$ in $^\circ\text{C}$ into the Arrhenius exponent or gas law. In the term $e^{-E_a/RT}$, <strong>temperature must always and strictly be evaluated in Kelvin</strong>:
+            $$T(\text{K}) = T(^\circ\text{C}) + 273.15$$
+            Examples: $927^\circ\text{C} = 1200\text{ K}$; $1293^\circ\text{C} = 1566\text{ K}$.</p>
+          </div>
+
+          <div class="callout callout-amber">
+            <div class="callout-title">2. Energy Units and Gas Constant R Consistency</div>
+            <p>Always double check unit consistency between activation energy $E_a$ and the molar gas constant $R$:
+            <br>&bull; If $E_a$ is in $\text{J/mol} \implies$ use $R = 8.314\text{ J}/(\text{mol}\cdot\text{K})$.
+            <br>&bull; If $E_a$ is in $\text{cal/mol} \implies$ use $R = 1.987\text{ cal}/(\text{mol}\cdot\text{K})$.
+            <br>&bull; If $E_a$ is given in $\mathbf{kcal/mol} \implies$ remember to multiply by $1000$! ($E_a = 73\text{ kcal/mol} = 73,000\text{ cal/mol}$).</p>
+          </div>
+
+          <div class="callout callout-blue">
+            <div class="callout-title">3. Time Unit Conversions in Fick’s 1st and 2nd Laws</div>
+            <p>Diffusivity $D$ is almost universally given in $\text{m}^2/\mathbf{s}$ or $\text{cm}^2/\mathbf{s}$.
+            <br>&bull; If mass flow is given in $\text{kg}/\mathbf{h}$, convert to $\text{kg}/\mathbf{s}$ by dividing by $3600\text{ s}$.
+            <br>&bull; If a heat treatment runs for $8\text{ hours}$, convert to seconds: $t = 8 \times 3600 = 28,800\text{ s}$.</p>
+          </div>
+
+          <div class="callout callout-teal">
+            <div class="callout-title">4. Error Function Argument Factor 2</div>
+            <p>The argument of $\text{erf}(z)$ is $z = \frac{x}{2\sqrt{Dt}}$. Do not drop the factor of $2$ in the denominator!
+            $$z = \frac{x}{2\sqrt{Dt}} \implies 2\sqrt{Dt} = \frac{x}{z} \implies \sqrt{Dt} = \frac{x}{2z} \implies Dt = \left(\frac{x}{2z}\right)^2$$</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 8: SPEED DRILL & CONCEPTUAL EXAM QUIZZES
+           ========================================================= -->
+      <div id="p-quizzes" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Self-Assessment &bull; Exam Preparation</div>
+          <h1 class="page-title">Speed Drill & Conceptual Exam Quiz</h1>
+          <p class="page-subtitle">Interactive conceptual drill consisting of 12 True/False and diagnostic verification questions strictly derived from Session 5 lecture slides. Instant feedback, scoring, and step-by-step explanations included.</p>
+        </div>
+
+        <div class="quiz-box">
+          <div class="quiz-bar">
+            <span id="quiz-counter" style="font-weight: 700; color: var(--academic-navy);">Question 1 of 12</span>
+            <span id="quiz-cat-pill" class="mono-pill">Fundamental Concepts</span>
+            <span>Score: <strong id="quiz-score" style="color: var(--forest-teal);">0 / 0 (0%)</strong></span>
+          </div>
+
+          <div id="quiz-statement-text" class="quiz-statement">
+            Loading question...
+          </div>
+
+          <div id="quiz-actions-block" class="quiz-actions">
+            <button class="btn-tf true" onclick="submitQuizAnswer(true)">&#10004; True</button>
+            <button class="btn-tf false" onclick="submitQuizAnswer(false)">&#10008; False</button>
+          </div>
+
+          <div id="quiz-feedback-box" class="quiz-feedback">
+            <div id="quiz-verdict" style="font-weight: 800; font-size: 15px; margin-bottom: 6px;"></div>
+            <div id="quiz-explanation" style="font-size: 14px; line-height: 1.6;"></div>
+            <button id="quiz-next-btn" class="fc-btn fc-btn-primary" style="margin-top: 14px;" onclick="advanceQuiz()">Next Question &rarr;</button>
+          </div>
+
+          <div id="quiz-complete-box" style="display: none; text-align: center; padding: 28px 0;">
+            <h3 style="font-size: 1.5rem; color: var(--text-heading); margin-bottom: 10px;">&#127881; Drill Completed!</h3>
+            <p id="quiz-final-score" style="font-size: 16px; margin-bottom: 20px; color: var(--text-body);"></p>
+            <button class="fc-btn fc-btn-primary" onclick="restartQuiz()">&#128260; Restart Exam Drill</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">&#128161; Strategic Exam Day Advice</div>
+          <p>UC3M multiple-choice and short conceptual exam questions in Topic 3 consistently test:</p>
+          <ul class="academic-list">
+            <li>Immediate distinction between <strong>Fick’s 1st Law (steady-state, constant flux)</strong> and <strong>Fick’s 2nd Law (transient, time-dependent concentration profile, erf solution)</strong>.</li>
+            <li>Physical justification of why diffusion is faster in BCC ferrite than FCC austenite based on <em>atomic packing factor</em> ($0.68 < 0.74$).</li>
+            <li>Recall of the short-circuit transport hierarchy: $D_{\text{surface}} > D_{\text{grain boundary}} > D_{\text{volume}}$.</li>
+            <li>Applying the parabolic scaling law: doubling penetration depth ($2x$) requires multiplying heating time by four ($4t$).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 9: 3D INTERACTIVE FLASHCARDS
+           ========================================================= -->
+      <div id="p-flashcards" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Active Recall &bull; Flashcard Deck</div>
+          <h1 class="page-title">3D Interactive Flashcards Deck</h1>
+          <p class="page-subtitle">Interactive active-recall deck containing 18 high-yield cards designed to master definitions, formulas, atomic mechanisms, and aerospace applications from Topic 3. Click the card or press the Spacebar to flip.</p>
+        </div>
+
+        <div class="fc-container">
+          <div class="fc-controls">
+            <div class="fc-filter-group">
+              <button class="fc-filter-btn active" onclick="filterCards('all')">All (18)</button>
+              <button class="fc-filter-btn" onclick="filterCards('concept')">Concept</button>
+              <button class="fc-filter-btn" onclick="filterCards('mechanisms')">Mechanisms</button>
+              <button class="fc-filter-btn" onclick="filterCards('fick')">Fick Laws</button>
+              <button class="fc-filter-btn" onclick="filterCards('factors')">Factors</button>
+              <button class="fc-filter-btn" onclick="filterCards('applications')">Applications</button>
+            </div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--text-muted);">
+              Card <span id="fc-counter-current">1</span> of <span id="fc-counter-total">18</span>
+            </div>
+          </div>
+
+          <div class="fc-card-scene" onclick="toggleCardFlip()">
+            <div id="fc-card-inner" class="fc-card-inner">
+              <!-- Front -->
+              <div class="fc-card-face fc-card-front">
+                <div class="fc-meta fc-meta-front">
+                  <span id="fc-category-label">Concept</span>
+                  <span>&#128065; Question (Click to Flip)</span>
+                </div>
+                <div id="fc-question-text" class="fc-body">
+                  How is solid diffusion defined and what is its microscopic origin?
+                </div>
+                <div class="fc-hint">&#9432; Click the card or press SPACE to reveal the answer</div>
+              </div>
+
+              <!-- Back -->
+              <div class="fc-card-face fc-card-back">
+                <div class="fc-meta fc-meta-back">
+                  <span>Official Answer</span>
+                  <span>&#10004; Key Takeaway</span>
+                </div>
+                <div id="fc-answer-text" class="fc-body" style="font-size: 15px; text-align: left; align-items: flex-start;">
+                  Diffusion in solids is the net movement of atoms within a solid. Natural thermal vibrations allow atoms to jump; it is a thermally activated process.
+                </div>
+                <div class="fc-hint" style="color: var(--forest-teal);">&#10003; Verified against Session 5 lecture slides</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fc-action-bar">
+            <button class="fc-btn" onclick="prevCard()">&#8592; Previous</button>
+            <button class="fc-btn fc-btn-primary" onclick="toggleCardFlip()">&#128260; Flip (Spacebar)</button>
+            <button class="fc-btn" onclick="nextCard()">Next &#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           SECTION 10: INTERACTIVE TOOLS & CALCULATORS
+           ========================================================= -->
+      <div id="p-tools" class="page-view">
+        <div class="page-header">
+          <div class="page-category">Engineering Computation &bull; Interactive Solvers</div>
+          <h1 class="page-title">Interactive Calculators & Error Function Solver</h1>
+          <p class="page-subtitle">Interactive numerical tools to verify problem sets and exam calculations: Gaussian error function ($\text{erf}$) solver/interpolator and Arrhenius thermal diffusivity calculator.</p>
+        </div>
+
+        <!-- TOOL 1: ERF CALCULATOR -->
+        <div class="calc-card">
+          <div class="card-title">&#128300; 1. Gaussian Error Function (erf) Direct & Inverse Solver</div>
+          <p>Compute $\text{erf}(z)$ directly from argument $z$, or solve the classic inverse problem: find dimensionless argument $z = \frac{x}{2\sqrt{Dt}}$ from a target saturation ratio.</p>
+
+          <div class="calc-grid">
+            <div class="calc-input-group">
+              <label for="input-z-val">Argument z:</label>
+              <input type="number" id="input-z-val" step="0.001" placeholder="e.g. 0.45" oninput="calculateErfFromZ()">
+            </div>
+            <div class="calc-input-group">
+              <label for="input-erf-val">Value of erf(z):</label>
+              <input type="number" id="input-erf-val" step="0.0001" min="0" max="1" placeholder="e.g. 0.4755" oninput="calculateZFromErf()">
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <span style="font-size: 13px; color: var(--text-muted); font-weight: 600;">Computed Result:</span>
+            <div id="erf-calc-output" class="calc-result-value">Enter a value above</div>
+            <div id="erf-calc-detail" style="font-size: 13px; color: var(--text-body);">Calculated using high-precision polynomial approximation (accuracy &gt; 99.999%).</div>
+          </div>
+        </div>
+
+        <!-- TOOL 2: ARRHENIUS CALCULATOR -->
+        <div class="calc-card">
+          <div class="card-title">&#128293; 2. Arrhenius Diffusivity Calculator ($D = D_0 e^{-E_a/RT}$)</div>
+          <p>Compute diffusivity $D$ for any solute-solvent system at any operating temperature, with automated energy and temperature unit conversions.</p>
+
+          <div class="calc-grid">
+            <div class="calc-input-group">
+              <label for="arr-d0">D0 (m²/s):</label>
+              <input type="text" id="arr-d0" value="1.55e-4" placeholder="e.g. 1.55e-4">
+            </div>
+            <div class="calc-input-group">
+              <label for="arr-ea">Activation Energy (Ea):</label>
+              <input type="number" id="arr-ea" value="73" placeholder="e.g. 73 or 137800">
+            </div>
+            <div class="calc-input-group">
+              <label for="arr-units">Ea Units:</label>
+              <select id="arr-units">
+                <option value="kcal" selected>kcal / mol (R = 1.987 cal/mol·K)</option>
+                <option value="cal">cal / mol (R = 1.987 cal/mol·K)</option>
+                <option value="j">J / mol (R = 8.314 J/mol·K)</option>
+                <option value="kj">kJ / mol (R = 8.314 J/mol·K)</option>
+              </select>
+            </div>
+            <div class="calc-input-group">
+              <label for="arr-temp">Temperature T:</label>
+              <input type="number" id="arr-temp" value="1293" placeholder="e.g. 927 or 1200">
+            </div>
+            <div class="calc-input-group">
+              <label for="arr-temp-unit">Temperature Unit:</label>
+              <select id="arr-temp-unit">
+                <option value="k" selected>Kelvin (K)</option>
+                <option value="c">Celsius (ºC)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 10px;">
+            <button class="fc-btn fc-btn-primary" onclick="calculateArrheniusDiffusivity()">&#9881; Compute Diffusivity D</button>
+          </div>
+
+          <div class="calc-result-box" style="margin-top: 16px;">
+            <span style="font-size: 13px; color: var(--text-muted); font-weight: 600;">Computed Diffusivity D:</span>
+            <div id="arr-calc-output" class="calc-result-value">D = 1.000 &times; 10⁻¹⁴ m²/s</div>
+            <div id="arr-calc-detail" style="font-size: 13.5px; color: var(--text-body);">Absolute temperature evaluated: <strong>1293 K</strong> &bull; ln(D) = -32.236</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    /* =========================================================
+       PAGE ROUTER
+       ========================================================= */
+    function showPage(pageId) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(item => 
+        item.getAttribute('onclick')?.includes(pageId)
+      );
+      if (activeNav) activeNav.classList.add('active');
+
+      if (pageId === 'p-quizzes') {
+        renderQuiz();
+      } else if (pageId === 'p-tools') {
+        calculateArrheniusDiffusivity();
+      }
+    }
+
+    /* =========================================================
+       FLASHCARDS DATASET (18 HIGH-YIELD CARDS IN ENGLISH)
+       ========================================================= */
+    const flashcardsData = [
+      {
+        cat: "concept",
+        catLabel: "Concept",
+        q: "What is the microscopic definition of solid-state diffusion and what enables it?",
+        a: "Solid-state diffusion is the net movement of atoms within a solid. Natural thermal vibrations of the crystal lattice allow atoms to jump past one another; it is a thermally activated process requiring energy."
+      },
+      {
+        cat: "concept",
+        catLabel: "Concept",
+        q: "What is the kinetic hierarchy of atomic movement rates across states of matter?",
+        a: "Solid (Slow) ≪ Liquid (Intermediate) < Gas (Fast). In solids, atoms are closely packed in tight potential energy wells, requiring adjacent empty sites and lattice distortion to jump."
+      },
+      {
+        cat: "concept",
+        catLabel: "Concept",
+        q: "What is the driving force (DRIVING FORCE) for macroscopic mass diffusion?",
+        a: "The composition gradient or concentration gradient: ΔC / Δx = (C_ext - C_int) / (x2 - x1). The system spontaneously evolves toward uniform chemical equilibrium."
+      },
+      {
+        cat: "mechanisms",
+        catLabel: "Mechanisms",
+        q: "What two physical prerequisites are indispensable for solid-state atomic diffusion?",
+        a: "1. An adjacent EMPTY SITE (a lattice vacancy in substitutional diffusion, or an unoccupied cavity in interstitial diffusion).\n2. Sufficient thermal energy exceeding the activation energy (ENERGY ≥ Ea) to overcome the steric potential barrier."
+      },
+      {
+        cat: "mechanisms",
+        catLabel: "Mechanisms",
+        q: "What does each physical term in the Arrhenius equation D = D0 · exp(-Ea / RT) represent?",
+        a: "D: Diffusivity / diffusion coefficient (m²/s).\nD0: Pre-exponential factor / frequency constant independent of T (m²/s).\nEa: Activation energy per mole (J/mol or cal/mol).\nR: Molar gas constant (8.314 J/mol·K or 1.987 cal/mol·K).\nT: Absolute temperature in Kelvin (K)."
+      },
+      {
+        cat: "mechanisms",
+        catLabel: "Mechanisms",
+        q: "What two thermodynamic energy components constitute activation energy in vacancy self-diffusion?",
+        a: "Ea(self-diffusion) = E(vacancy formation) + E(vacancy movement). Because higher melting points (Tm) reflect stronger interatomic bonding (Ebond), activation energy increases directly with Tm: ↑Tm ⇒ ↑Ebond ⇒ ↑Ea."
+      },
+      {
+        cat: "mechanisms",
+        catLabel: "Mechanisms",
+        q: "Why is interstitial diffusion orders of magnitude faster and lower-energy than vacancy diffusion?",
+        a: "Diffusing solutes are small atoms (C, H, O, N) that only need energy to hop between adjacent open interstices (Ei ≪ Ev), with no energy required to create lattice defects. Furthermore, almost all interstitial cavities are vacant in dilute solutions."
+      },
+      {
+        cat: "mechanisms",
+        catLabel: "Mechanisms",
+        q: "What criteria regulate substitutional interdiffusion between different metallic elements?",
+        a: "The Hume-Rothery rules: atomic radius difference < 15%, identical crystal structure, matching valency, and similar electronegativity (e.g. Copper-Nickel Cu-Ni diffusion couple)."
+      },
+      {
+        cat: "fick",
+        catLabel: "Fick Laws",
+        q: "How is the diffusion flux J formally defined and what are its standard engineering units?",
+        a: "J = Mass or Moles / (Area · Time). SI units: kg/(m²·s) or mol/(m²·s). In atomic scale calculations: atoms/(m²·s)."
+      },
+      {
+        cat: "fick",
+        catLabel: "Fick Laws",
+        q: "What is Fick’s 1st Law equation and what defines the steady-state condition?",
+        a: "J = -D · (ΔC / Δx). Steady-state requires ∂J/∂t = 0 and ∂C/∂t = 0 (flux and concentration at any location do not change with time). The negative sign indicates mass transport down the concentration gradient."
+      },
+      {
+        cat: "fick",
+        catLabel: "Fick Laws",
+        q: "What is Fick’s 2nd Law differential equation under the concentration-independent D hypothesis?",
+        a: "∂C/∂t = D · (∂²C/∂x²). It governs non-steady state (transient) kinetics where local concentration changes over both elapsed time and distance."
+      },
+      {
+        cat: "fick",
+        catLabel: "Fick Laws",
+        q: "What is the analytical solution to Fick’s 2nd Law for a semi-infinite solid with constant Cs?",
+        a: "(Cx - C0) / (Cs - C0) = 1 - erf(x / (2√Dt)), or (Cs - Cx) / (Cs - C0) = erf(x / (2√Dt)), where Cx is concentration at depth x, Cs is surface concentration, C0 is uniform bulk concentration, and erf is the Gaussian error function."
+      },
+      {
+        cat: "fick",
+        catLabel: "Fick Laws",
+        q: "To double penetration depth (2x) at identical temperature, how much longer must the process run?",
+        a: "4 times longer (4t). The scaling law states x / (2√Dt) = const ⇒ x² / (D·t) = const ⇒ x ∝ √t. Doubling x requires multiplying time t by 2² = 4."
+      },
+      {
+        cat: "factors",
+        catLabel: "Factors",
+        q: "Why does carbon diffuse 200 times faster in Fe-α (BCC) than in Fe-γ (FCC) at 500 ºC?",
+        a: "The BCC crystal lattice is substantially more open: its atomic packing factor is lower (APF_BCC = 0.68 vs APF_FCC = 0.74) and interatomic distances are larger, reducing steric barrier resistance."
+      },
+      {
+        cat: "factors",
+        catLabel: "Factors",
+        q: "What is the diffusivity hierarchy among surfaces, grain boundaries, and crystal lattice (volume)?",
+        a: "D(surface) > D(grain boundary) > D(volume). Disordered regions with broken bonds and excess free volume act as short-circuit paths up to 10⁶ times faster (e.g. in Ag at 500 ºC)."
+      },
+      {
+        cat: "factors",
+        catLabel: "Factors",
+        q: "In an Arrhenius plot of ln(D) versus 1/T, what do the slope and y-intercept represent?",
+        a: "The slope is m = -ED / R (allowing direct determination of activation energy ED = -R · slope). The y-intercept at 1/T = 0 is y0 = ln(D0), yielding pre-exponential factor D0 = exp(y0)."
+      },
+      {
+        cat: "applications",
+        catLabel: "Applications",
+        q: "Why does case-hardening of gears require a hard outer case paired with a tough inner core?",
+        a: "The high-carbon case provides wear resistance and compressive residual stresses that retard fatigue cracking. The low-carbon core retains ductility and fracture toughness to withstand impact shock."
+      },
+      {
+        cat: "applications",
+        catLabel: "Applications",
+        q: "What critical aerospace application of diffusion bonding is highlighted in lecture slides?",
+        a: "Diffusion bonding of cowlings and hollow wide-chord fan blades in Rolls-Royce Trent 500 turbofan engines, reducing structural weight and protecting against Foreign Object Damage (FOD)."
+      }
+    ];
+
+    let currentCardIndex = 0;
+    let filteredCards = [...flashcardsData];
+
+    function updateCardUI() {
+      if (filteredCards.length === 0) return;
+      const card = filteredCards[currentCardIndex];
+      const inner = document.getElementById('fc-card-inner');
+      inner.classList.remove('is-flipped');
+
+      document.getElementById('fc-category-label').innerText = card.catLabel;
+      document.getElementById('fc-question-text').innerText = card.q;
+      document.getElementById('fc-answer-text').innerText = card.a;
+      document.getElementById('fc-counter-current').innerText = currentCardIndex + 1;
+      document.getElementById('fc-counter-total').innerText = filteredCards.length;
+    }
+
+    function toggleCardFlip() {
+      const inner = document.getElementById('fc-card-inner');
+      inner.classList.toggle('is-flipped');
+    }
+
+    function nextCard() {
+      currentCardIndex = (currentCardIndex + 1) % filteredCards.length;
+      updateCardUI();
+    }
+
+    function prevCard() {
+      currentCardIndex = (currentCardIndex - 1 + filteredCards.length) % filteredCards.length;
+      updateCardUI();
+    }
+
+    function filterCards(cat) {
+      document.querySelectorAll('.fc-filter-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.fc-filter-btn')).find(b => 
+        b.getAttribute('onclick')?.includes(`'${cat}'`)
+      );
+      if (activeBtn) activeBtn.classList.add('active');
+
+      if (cat === 'all') {
+        filteredCards = [...flashcardsData];
+      } else {
+        filteredCards = flashcardsData.filter(c => c.cat === cat);
+      }
+      currentCardIndex = 0;
+      updateCardUI();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const flashcardsTab = document.getElementById('p-flashcards');
+      if (flashcardsTab && flashcardsTab.classList.contains('active')) {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          toggleCardFlip();
+        } else if (e.code === 'ArrowRight') {
+          nextCard();
+        } else if (e.code === 'ArrowLeft') {
+          prevCard();
+        }
+      }
+    });
+
+    /* =========================================================
+       QUIZ DATASET & LOGIC (12 SPEED DRILL QUESTIONS IN ENGLISH)
+       ========================================================= */
+    const quizDataset = [
+      {
+        q: "Under steady-state conditions, diffusion flux J remains strictly constant over time (∂J/∂t = 0) and mass transport is governed by Fick’s 1st Law.",
+        correct: true,
+        cat: "Fick Laws",
+        expl: "Correct! In steady-state diffusion, boundary concentrations are fixed and there is no net accumulation of solute mass over time."
+      },
+      {
+        q: "Interstitial diffusion requires higher activation energy than vacancy diffusion because solute atoms must sever more solvent lattice bonds.",
+        correct: false,
+        cat: "Mechanisms",
+        expl: "False! Interstitial diffusion requires MUCH LOWER activation energy (Ei ≪ Ev) because no energy is spent creating vacancies and solute atoms (C, H, O, N) are small."
+      },
+      {
+        q: "Activation energy for self-diffusion in pure elemental metals increases as the melting point (Tm) of the metal increases.",
+        correct: true,
+        cat: "Mechanisms",
+        expl: "Correct! A higher melting point directly reflects stronger interatomic bonding (Ebond), increasing both the energy to form a vacancy and to migrate into it."
+      },
+      {
+        q: "At 500 ºC, carbon diffuses faster in FCC austenite (Fe-γ) than in BCC ferrite (Fe-α) because octahedral voids are larger in FCC.",
+        correct: false,
+        cat: "Factors",
+        expl: "False! Carbon diffuses 200 times faster in BCC ferrite because the BCC structure is more open overall (atomic packing factor 0.68 vs 0.74 in FCC)."
+      },
+      {
+        q: "Diffusion along external surfaces and grain boundaries is slower than diffusion through the perfect single-crystal volume.",
+        correct: false,
+        cat: "Factors",
+        expl: "False! The short-circuit hierarchy is D(surface) > D(grain boundary) > D(volume). In silver at 500 ºC, grain boundary diffusion is 1,000,000 times faster than volume lattice diffusion."
+      },
+      {
+        q: "In Fick’s 2nd Law for a semi-infinite solid, doubling penetration depth x requires quadrupling furnace heating time t at constant temperature.",
+        correct: true,
+        cat: "Fick Laws",
+        expl: "Correct! Because x / (2√Dt) = constant, x² ∝ t. Doubling depth (2x) demands multiplying time by 2² = 4."
+      },
+      {
+        q: "The driving force (DRIVING FORCE) for macroscopic mass diffusion is the composition gradient (ΔC / Δx).",
+        correct: true,
+        cat: "Concepts",
+        expl: "Correct! As explicitly formulated on the slides: DRIVING FORCE = Composition gradient, driving the system toward equal chemical composition."
+      },
+      {
+        q: "The negative sign in Fick’s 1st Law J = -D·(ΔC/Δx) indicates that net atomic flux travels downhill toward regions of lower concentration.",
+        correct: true,
+        cat: "Fick Laws",
+        expl: "Correct! Mass spontaneously flows from high chemical concentration to low concentration, satisfying the Second Law of Thermodynamics."
+      },
+      {
+        q: "In case-carburized steel gears, the carbon-enriched surface layer is left in a residual state of tensile stress.",
+        correct: false,
+        cat: "Applications",
+        expl: "False! Slides explicitly emphasize that the surface is left in a state of COMPRESSIVE RESIDUAL STRESSES, which protect against fatigue crack initiation."
+      },
+      {
+        q: "Sintering is defined as a thermally activated mass transport process conducing to chemical bonding among particles and reduction of porosity.",
+        correct: true,
+        cat: "Applications",
+        expl: "Correct! This is the verbatim slide definition for the powder metallurgical and ceramic consolidation process."
+      },
+      {
+        q: "For polymer food packaging films, an effective water vapor barrier must exhibit a transmission rate exceeding 10 g/(m²·day) at 23 ºC and 90% RH.",
+        correct: false,
+        cat: "Applications",
+        expl: "False! The transmission rate must be LOWER (< 10 g/(m²·day)) to prevent fresh food from drying out and fried snacks from losing crispness."
+      },
+      {
+        q: "In an Arrhenius plot of ln(D) versus 1/T, the slope of the resulting straight line is equal to -ED / R.",
+        correct: true,
+        cat: "Factors",
+        expl: "Correct! From ln(D) = ln(D0) - (ED/R)·(1/T), the negative slope is -ED/R, which yields activation energy upon multiplying by -R."
+      }
+    ];
+
+    let quizIdx = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+
+    function renderQuiz() {
+      if (quizIdx >= quizDataset.length) {
+        document.getElementById('quiz-actions-block').style.display = 'none';
+        document.getElementById('quiz-statement-text').style.display = 'none';
+        document.getElementById('quiz-feedback-box').style.display = 'none';
+        document.getElementById('quiz-complete-box').style.display = 'block';
+        const pct = Math.round((quizScore / quizDataset.length) * 100);
+        document.getElementById('quiz-final-score').innerHTML = `You answered <strong>${quizScore}</strong> of <strong>${quizDataset.length}</strong> questions correctly (${pct}% accuracy).`;
+        return;
+      }
+
+      const q = quizDataset[quizIdx];
+      quizAnswered = false;
+      document.getElementById('quiz-actions-block').style.display = 'flex';
+      document.getElementById('quiz-statement-text').style.display = 'block';
+      document.getElementById('quiz-feedback-box').style.display = 'none';
+      document.getElementById('quiz-complete-box').style.display = 'none';
+
+      document.getElementById('quiz-counter').innerText = `Question ${quizIdx + 1} of ${quizDataset.length}`;
+      document.getElementById('quiz-cat-pill').innerText = q.cat;
+      document.getElementById('quiz-statement-text').innerText = q.q;
+
+      const pct = quizIdx > 0 ? Math.round((quizScore / quizIdx) * 100) : 0;
+      document.getElementById('quiz-score').innerText = `${quizScore} / ${quizIdx} (${pct}%)`;
+    }
+
+    function submitQuizAnswer(userAns) {
+      if (quizAnswered) return;
+      quizAnswered = true;
+      const q = quizDataset[quizIdx];
+      const isRight = (userAns === q.correct);
+
+      if (isRight) quizScore++;
+
+      const feedback = document.getElementById('quiz-feedback-box');
+      const verdict = document.getElementById('quiz-verdict');
+      const expl = document.getElementById('quiz-explanation');
+
+      feedback.className = `quiz-feedback ${isRight ? 'correct' : 'incorrect'}`;
+      verdict.innerText = isRight ? "✓ Correct Answer!" : "✗ Incorrect Answer";
+      expl.innerText = q.expl;
+
+      const pct = Math.round((quizScore / (quizIdx + 1)) * 100);
+      document.getElementById('quiz-score').innerText = `${quizScore} / ${quizIdx + 1} (${pct}%)`;
+    }
+
+    function advanceQuiz() {
+      quizIdx++;
+      renderQuiz();
+    }
+
+    function restartQuiz() {
+      quizIdx = 0;
+      quizScore = 0;
+      renderQuiz();
+    }
+
+    /* =========================================================
+       CALCULATORS LOGIC (HIGH PRECISION ERF & ARRHENIUS)
+       ========================================================= */
+    function mathErf(x) {
+      const a1 =  0.254829592;
+      const a2 = -0.284496736;
+      const a3 =  1.421413741;
+      const a4 = -1.453152027;
+      const a5 =  1.061405429;
+      const p  =  0.3275911;
+
+      const sign = (x < 0) ? -1 : 1;
+      const absX = Math.abs(x);
+
+      const t = 1.0 / (1.0 + p * absX);
+      const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-absX * absX);
+
+      return sign * y;
+    }
+
+    function mathErfInv(y) {
+      if (y <= -1) return -Infinity;
+      if (y >= 1) return Infinity;
+      if (y === 0) return 0;
+
+      const a = 0.147;
+      const log1minusY2 = Math.log(1 - y * y);
+      const part1 = 2 / (Math.PI * a) + log1minusY2 / 2;
+      const innerSqrt = part1 * part1 - log1minusY2 / a;
+      const sign = y < 0 ? -1 : 1;
+      let x = sign * Math.sqrt(Math.sqrt(innerSqrt) - part1);
+
+      for (let i = 0; i < 3; i++) {
+        const err = mathErf(x) - y;
+        const slope = (2 / Math.sqrt(Math.PI)) * Math.exp(-x * x);
+        x = x - err / slope;
+      }
+      return x;
+    }
+
+    function calculateErfFromZ() {
+      const val = parseFloat(document.getElementById('input-z-val').value);
+      if (isNaN(val)) return;
+      const res = mathErf(val);
+      document.getElementById('input-erf-val').value = res.toFixed(5);
+      document.getElementById('erf-calc-output').innerHTML = `erf(${val}) = <strong>${res.toFixed(5)}</strong>`;
+      document.getElementById('erf-calc-detail').innerHTML = `For z = ${val}, saturation fraction is ${res.toFixed(5)}.`;
+    }
+
+    function calculateZFromErf() {
+      const val = parseFloat(document.getElementById('input-erf-val').value);
+      if (isNaN(val) || val < 0 || val >= 1) return;
+      const z = mathErfInv(val);
+      document.getElementById('input-z-val').value = z.toFixed(4);
+      document.getElementById('erf-calc-output').innerHTML = `z = <strong>${z.toFixed(4)}</strong>`;
+      document.getElementById('erf-calc-detail').innerHTML = `For erf(z) = ${val}, argument z = x / (2&radic;Dt) is exactly <strong>${z.toFixed(4)}</strong>.`;
+    }
+
+    function calculateArrheniusDiffusivity() {
+      const d0Str = document.getElementById('arr-d0').value;
+      const d0 = parseFloat(d0Str);
+      let ea = parseFloat(document.getElementById('arr-ea').value);
+      const units = document.getElementById('arr-units').value;
+      let temp = parseFloat(document.getElementById('arr-temp').value);
+      const tempUnit = document.getElementById('arr-temp-unit').value;
+
+      if (isNaN(d0) || isNaN(ea) || isNaN(temp)) return;
+
+      const tempK = (tempUnit === 'c') ? temp + 273.15 : temp;
+
+      let r = 8.314;
+      let eaJoules = ea;
+
+      if (units === 'kcal') {
+        r = 1.987;
+        eaJoules = ea * 1000;
+      } else if (units === 'cal') {
+        r = 1.987;
+        eaJoules = ea;
+      } else if (units === 'kj') {
+        r = 8.314;
+        eaJoules = ea * 1000;
+      } else {
+        r = 8.314;
+        eaJoules = ea;
+      }
+
+      const exponent = -eaJoules / (r * tempK);
+      const d = d0 * Math.exp(exponent);
+      const lnD = Math.log(d);
+
+      const expStr = d.toExponential(4);
+      const parts = expStr.split('e');
+      const base = parts[0];
+      const pwr = parts[1];
+
+      document.getElementById('arr-calc-output').innerHTML = `D = ${base} &times; 10<sup>${pwr}</sup> m²/s`;
+      document.getElementById('arr-calc-detail').innerHTML = `Evaluated T = <strong>${tempK.toFixed(2)} K</strong> &bull; ln(D) = <strong>${lnD.toFixed(3)}</strong> &bull; Exponent = ${exponent.toFixed(3)}`;
+    }
+
+    // Initialize UI on load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateCardUI();
+      renderQuiz();
+      calculateArrheniusDiffusivity();
+    });
+  </script>
+</body>
+</html>
