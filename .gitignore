@@ -1,0 +1,25 @@
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editor & IDE files
+.vscode/
+*.swp
+*.swo
+
+# Obsidian workspace and cache (personal UI states that cause Git merge conflicts)
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/cache/
+vault/.obsidian/graph.json
+vault/.trash/
+.trash/
+
+# Logs and temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

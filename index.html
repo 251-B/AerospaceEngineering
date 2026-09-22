@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Estudio — 2º Ingeniería Aeroespacial</title>
+  <meta name="description" content="Portal centralizado de estudio para el 2º curso del Grado en Ingeniería Aeroespacial.">
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      /* Typography */
+      --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+
+      /* Subject accent colors */
+      --accent-fluid:      #06b6d4;
+      --accent-materials:  #f59e0b;
+      --accent-mechanics:  #10b981;
+      --accent-maths:      #6366f1;
+      --accent-business:   #ef4444;
+
+      /* Transitions */
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-medium: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Layout */
+      --max-width: 1280px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    /* Dark theme (default) */
+    [data-theme="dark"] {
+      --bg-primary:    #070b14;
+      --bg-secondary:  #0d1321;
+      --bg-card:       rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass:      rgba(255, 255, 255, 0.04);
+      --bg-input:      rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card:   rgba(255, 255, 255, 0.10);
+      --text-primary:  #f1f5f9;
+      --text-secondary:#94a3b8;
+      --text-muted:    #64748b;
+      --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --bg-badge-soon: rgba(255, 255, 255, 0.08);
+      --text-badge-soon: #94a3b8;
+      --bg-overlay:    rgba(0, 0, 0, 0.6);
+    }
+
+    /* Light theme */
+    [data-theme="light"] {
+      --bg-primary:    #f8fafc;
+      --bg-secondary:  #f1f5f9;
+      --bg-card:       rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass:      rgba(0, 0, 0, 0.02);
+      --bg-input:      rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card:   rgba(0, 0, 0, 0.10);
+      --text-primary:  #0f172a;
+      --text-secondary:#475569;
+      --text-muted:    #94a3b8;
+      --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.08);
+      --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.12);
+      --bg-badge-soon: rgba(0, 0, 0, 0.06);
+      --text-badge-soon: #64748b;
+      --bg-overlay:    rgba(0, 0, 0, 0.3);
+    }
+
+    /* ========================================================
+       RESET & BASE
+       ======================================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background-color var(--transition-medium), color var(--transition-medium);
+    }
+
+    /* ========================================================
+       ANIMATED BACKGROUND — Starfield
+       ======================================================== */
+    .starfield {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .starfield .star {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle var(--duration) ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0%   { opacity: var(--opacity-min); transform: scale(1); }
+      100% { opacity: var(--opacity-max); transform: scale(1.3); }
+    }
+
+    [data-theme="light"] .starfield { opacity: 0.08; }
+
+    /* ========================================================
+       LAYOUT WRAPPER
+       ======================================================== */
+    .app-wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========================================================
+       HEADER
+       ======================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px) saturate(1.5);
+      -webkit-backdrop-filter: blur(20px) saturate(1.5);
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background var(--transition-medium);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #06b6d4, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-text .subtitle {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .course-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.15));
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      color: #06b6d4;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: relative;
+      width: 52px;
+      height: 28px;
+      border-radius: 14px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition-fast);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(24px);
+    }
+
+    .theme-toggle-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    /* Keyboard shortcut badge */
+    kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    /* ========================================================
+       HERO SECTION
+       ======================================================== */
+    .hero {
+      text-align: center;
+      padding: 56px 0 36px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 .gradient-text {
+      background: linear-gradient(135deg, #06b6d4, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ========================================================
+       TOOLBAR — Search + Semester Filters
+       ======================================================== */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+      max-width: 420px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .search-box input:focus {
+      border-color: #06b6d4;
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    .search-kbd {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* Semester tabs */
+    .semester-tabs {
+      display: flex;
+      gap: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 4px;
+    }
+
+    .semester-tab {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .semester-tab:hover {
+      color: var(--text-primary);
+      background: var(--bg-glass);
+    }
+
+    .semester-tab.active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-weight: 600;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ========================================================
+       SECTION TITLES
+       ======================================================== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-title h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title .count-badge {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+
+    .section-title .semester-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    .semester-badge.active-sem {
+      background: rgba(16, 185, 129, 0.12);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .semester-badge.upcoming-sem {
+      background: var(--bg-badge-soon);
+      color: var(--text-badge-soon);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* ========================================================
+       SUBJECT CARDS GRID
+       ======================================================== */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .subject-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-medium);
+      overflow: hidden;
+    }
+
+    .subject-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent);
+      opacity: 0.8;
+      transition: opacity var(--transition-fast);
+    }
+
+    .subject-card:hover {
+      background: var(--bg-card-hover);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--card-accent);
+      transform: translateY(-2px);
+    }
+
+    .subject-card:hover::before {
+      opacity: 1;
+    }
+
+    .subject-card.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Card header */
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      background: color-mix(in srgb, var(--card-accent) 15%, transparent);
+      border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
+    }
+
+    .card-title-group {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .card-description {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+
+    /* Area links list */
+    .area-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .area-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-glass);
+      border: 1px solid transparent;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 0.87rem;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .area-link:hover {
+      background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+      border-color: color-mix(in srgb, var(--card-accent) 20%, transparent);
+    }
+
+    .area-link .area-icon {
+      font-size: 1.05rem;
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .area-link .area-name {
+      flex: 1;
+    }
+
+    .area-link .area-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    .area-badge.soon {
+      background: var(--bg-badge-soon);
+      color: var(--text-badge-soon);
+    }
+
+    .area-badge.available {
+      background: rgba(16, 185, 129, 0.12);
+      color: #10b981;
+    }
+
+    .area-badge.wip {
+      background: rgba(245, 158, 11, 0.12);
+      color: #f59e0b;
+    }
+
+    /* ========================================================
+       EMPTY STATE — No results
+       ======================================================== */
+    .empty-state {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .empty-state.visible {
+      display: block;
+    }
+
+    .empty-state .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .empty-state h4 {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .empty-state p {
+      font-size: 0.9rem;
+    }
+
+    /* ========================================================
+       Q2 UPCOMING NOTICE
+       ======================================================== */
+    .upcoming-banner {
+      background: var(--bg-glass);
+      border: 1px dashed var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .upcoming-banner .banner-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .upcoming-banner h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .upcoming-banner p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+    .site-footer {
+      margin-top: auto;
+      padding: 24px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-separator {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border-subtle);
+    }
+
+    /* ========================================================
+       KEYBOARD SHORTCUTS TOOLTIP
+       ======================================================== */
+    .shortcuts-hint {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 90;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity var(--transition-medium), transform var(--transition-medium);
+      pointer-events: none;
+    }
+
+    .shortcuts-hint.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .shortcut-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .shortcut-row span {
+      flex: 1;
+    }
+
+    /* ========================================================
+       RESPONSIVE
+       ======================================================== */
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 12px 0;
+      }
+
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+
+      .brand-text h1 {
+        font-size: 1rem;
+      }
+
+      .hero {
+        padding: 40px 0 28px;
+      }
+
+      .stats-bar {
+        gap: 20px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: none;
+      }
+
+      .semester-tabs {
+        justify-content: center;
+      }
+
+      .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .subject-card {
+        padding: 22px 18px 18px;
+      }
+
+      .search-kbd {
+        display: none;
+      }
+
+      .shortcuts-hint {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .semester-tab {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ========================================================
+       UTILITY / ANIMATIONS
+       ======================================================== */
+    .fade-in {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Staggered delay for cards */
+    .subject-card:nth-child(1) { animation-delay: 0.05s; }
+    .subject-card:nth-child(2) { animation-delay: 0.1s; }
+    .subject-card:nth-child(3) { animation-delay: 0.15s; }
+    .subject-card:nth-child(4) { animation-delay: 0.2s; }
+    .subject-card:nth-child(5) { animation-delay: 0.25s; }
+    .subject-card:nth-child(6) { animation-delay: 0.3s; }
+
+    /* Visually hidden */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       ANIMATED STARFIELD BACKGROUND
+       ============================================ -->
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+
+  <div class="app-wrapper">
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="header-brand">
+          <div class="brand-icon" aria-hidden="true">🚀</div>
+          <div class="brand-text">
+            <h1>
+              Ingeniería Aeroespacial
+              <span class="course-badge">2º Curso</span>
+            </h1>
+            <span class="subtitle">Portal de Estudio</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span class="theme-toggle-label" id="themeLabel">Oscuro</span>
+          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema (T)"></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main>
+      <!-- HERO -->
+      <section class="hero container">
+        <h2><span class="gradient-text">Tu centro de estudio</span><br>para Ingeniería Aeroespacial</h2>
+        <p>Accede a teoría, problemas resueltos, formularios y herramientas interactivas para cada asignatura del curso.</p>
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-value" style="color: var(--accent-fluid);">5</span>
+            <span class="stat-label">Asignaturas Q1</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" style="color: var(--accent-maths);">5</span>
+            <span class="stat-label">Áreas por materia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" style="color: var(--accent-mechanics);">2</span>
+            <span class="stat-label">Cuatrimestres</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOOLBAR -->
+      <section class="container">
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar asignatura, tema o concepto…"
+              aria-label="Buscar asignaturas"
+              autocomplete="off"
+            >
+            <kbd class="search-kbd" aria-hidden="true">/</kbd>
+          </div>
+          <div class="semester-tabs" role="tablist" aria-label="Filtrar por cuatrimestre">
+            <button class="semester-tab active" role="tab" data-semester="all" aria-selected="true">Todos</button>
+            <button class="semester-tab" role="tab" data-semester="q1" aria-selected="false">1.er Cuatrimestre</button>
+            <button class="semester-tab" role="tab" data-semester="q2" aria-selected="false">2.º Cuatrimestre</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+           Q1 SUBJECTS
+           ============================================ -->
+      <section class="container" id="sectionQ1" data-semester-section="q1">
+        <div class="section-title">
+          <h3>Primer Cuatrimestre</h3>
+          <span class="count-badge">5 asignaturas</span>
+          <span class="semester-badge active-sem">● Activo</span>
+        </div>
+
+        <div class="subjects-grid" id="subjectsGridQ1">
+
+          <!-- ——— Fluid Mechanics ——— -->
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-fluid);" data-subject="fluid-mechanics" data-keywords="fluidos mecánica flujo navier stokes bernoulli capa límite compresibilidad estática cinemática presión viscosidad reynolds">
+            <div class="card-header">
+              <div class="card-icon">🌊</div>
+              <div class="card-title-group">
+                <h4 class="card-title">Fluid Mechanics</h4>
+                <span class="card-subtitle">Mecánica de Fluidos</span>
+              </div>
+            </div>
+            <p class="card-description">Estática de fluidos, cinemática, ecuaciones de Navier-Stokes, análisis dimensional, flujo potencial, capa límite y compresibilidad.</p>
+            <div class="area-list">
+              <a class="area-link" href="subjects/fluid-mechanics/teoria/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📖</span>
+                <span class="area-name">Teoría y Conceptos</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/fluid-mechanics/problemas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">✏️</span>
+                <span class="area-name">Problemas y Exámenes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/fluid-mechanics/formulas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📋</span>
+                <span class="area-name">Formularios y Prontuarios</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/fluid-mechanics/laboratorio/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🧪</span>
+                <span class="area-name">Laboratorio / Simuladores</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/fluid-mechanics/tests/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🎯</span>
+                <span class="area-name">Tests y Quizzes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ——— Aerospace Materials I ——— -->
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-materials);" data-subject="aerospace-materials-1" data-keywords="materiales cristalino diagrama fase aleación aluminio titanio níquel fatiga fractura tratamiento térmico corrosión compuestos propiedades mecánicas">
+            <div class="card-header">
+              <div class="card-icon">🔬</div>
+              <div class="card-title-group">
+                <h4 class="card-title">Aerospace Materials I</h4>
+                <span class="card-subtitle">Materiales Aeroespaciales I</span>
+              </div>
+            </div>
+            <p class="card-description">Estructura cristalina, diagramas de fase, tratamientos térmicos, aleaciones de aluminio, titanio y níquel, fatiga y mecánica de fractura.</p>
+            <div class="area-list">
+              <a class="area-link" href="subjects/aerospace-materials-1/teoria/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📖</span>
+                <span class="area-name">Teoría y Conceptos</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/aerospace-materials-1/problemas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">✏️</span>
+                <span class="area-name">Problemas y Exámenes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/aerospace-materials-1/formulas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📋</span>
+                <span class="area-name">Formularios y Prontuarios</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/aerospace-materials-1/laboratorio/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🧪</span>
+                <span class="area-name">Laboratorio / Simuladores</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/aerospace-materials-1/tests/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🎯</span>
+                <span class="area-name">Tests y Quizzes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ——— Engineering Mechanics ——— -->
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-mechanics);" data-subject="engineering-mechanics" data-keywords="mecánica ingenieros estática dinámica cinemática sólido rígido inercia vibraciones lagrange euler tensores momento fuerza energía">
+            <div class="card-header">
+              <div class="card-icon">⚙️</div>
+              <div class="card-title-group">
+                <h4 class="card-title">Engineering Mechanics</h4>
+                <span class="card-subtitle">Mecánica para Ingenieros</span>
+              </div>
+            </div>
+            <p class="card-description">Estática analítica, cinemática y dinámica 3D del sólido rígido, tensores de inercia, vibraciones mecánicas y formulación lagrangiana.</p>
+            <div class="area-list">
+              <a class="area-link" href="subjects/engineering-mechanics/teoria/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📖</span>
+                <span class="area-name">Teoría y Conceptos</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/engineering-mechanics/problemas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">✏️</span>
+                <span class="area-name">Problemas y Exámenes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/engineering-mechanics/formulas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📋</span>
+                <span class="area-name">Formularios y Prontuarios</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/engineering-mechanics/laboratorio/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🧪</span>
+                <span class="area-name">Laboratorio / Simuladores</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/engineering-mechanics/tests/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🎯</span>
+                <span class="area-name">Tests y Quizzes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ——— Advanced Maths ——— -->
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-maths);" data-subject="advanced-maths" data-keywords="matemáticas EDO EDP ecuaciones diferenciales fourier laplace variable compleja series transformada calor onda residuos integral">
+            <div class="card-header">
+              <div class="card-icon">📐</div>
+              <div class="card-title-group">
+                <h4 class="card-title">Advanced Maths</h4>
+                <span class="card-subtitle">Matemáticas Avanzadas</span>
+              </div>
+            </div>
+            <p class="card-description">EDOs de orden superior, EDPs clásicas (calor, onda, Laplace), series y transformadas de Fourier y Laplace, variable compleja.</p>
+            <div class="area-list">
+              <a class="area-link" href="subjects/advanced-maths/teoria/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📖</span>
+                <span class="area-name">Teoría y Conceptos</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/advanced-maths/problemas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">✏️</span>
+                <span class="area-name">Problemas y Exámenes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/advanced-maths/formulas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📋</span>
+                <span class="area-name">Formularios y Prontuarios</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/advanced-maths/laboratorio/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🧪</span>
+                <span class="area-name">Laboratorio / Simuladores</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/advanced-maths/tests/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🎯</span>
+                <span class="area-name">Tests y Quizzes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ——— Business Management ——— -->
+          <article class="subject-card fade-in" style="--card-accent: var(--accent-business);" data-subject="business-management" data-keywords="gestión empresas organización industrial proyecto gantt pert costes contabilidad finanzas viabilidad estrategia dirección">
+            <div class="card-header">
+              <div class="card-icon">📊</div>
+              <div class="card-title-group">
+                <h4 class="card-title">Business Management</h4>
+                <span class="card-subtitle">Gestión de Empresas</span>
+              </div>
+            </div>
+            <p class="card-description">Organización industrial, gestión de proyectos aeroespaciales (Gantt/PERT), costes y viabilidad, contabilidad analítica y finanzas.</p>
+            <div class="area-list">
+              <a class="area-link" href="subjects/business-management/teoria/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📖</span>
+                <span class="area-name">Teoría y Conceptos</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/business-management/problemas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">✏️</span>
+                <span class="area-name">Problemas y Exámenes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/business-management/formulas/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">📋</span>
+                <span class="area-name">Formularios y Prontuarios</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/business-management/laboratorio/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🧪</span>
+                <span class="area-name">Laboratorio / Simuladores</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+              <a class="area-link" href="subjects/business-management/tests/" onclick="return handleAreaClick(event)">
+                <span class="area-icon">🎯</span>
+                <span class="area-name">Tests y Quizzes</span>
+                <span class="area-badge soon">Próximamente</span>
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /subjects-grid -->
+      </section>
+
+      <!-- ============================================
+           Q2 SUBJECTS
+           ============================================ -->
+      <section class="container" id="sectionQ2" data-semester-section="q2">
+        <div class="section-title">
+          <h3>Segundo Cuatrimestre</h3>
+          <span class="semester-badge upcoming-sem">◯ Próximamente</span>
+        </div>
+
+        <div class="upcoming-banner">
+          <div class="banner-icon" aria-hidden="true">🛰️</div>
+          <h4>En preparación</h4>
+          <p>Las asignaturas del segundo cuatrimestre se incorporarán a medida que avance el curso y se habiliten los cuadernos de estudio correspondientes.</p>
+        </div>
+      </section>
+
+      <!-- Empty state -->
+      <div class="container">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon" aria-hidden="true">🔭</div>
+          <h4>Sin resultados</h4>
+          <p>No se encontraron asignaturas que coincidan con tu búsqueda.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>Portal de Estudio — 2º Ingeniería Aeroespacial</span>
+        <span class="footer-separator" aria-hidden="true"></span>
+        <span>Curso 2026 – 2027</span>
+        <span class="footer-separator" aria-hidden="true"></span>
+        <span>Construido con ☕ y determinación</span>
+      </div>
+    </footer>
+
+  </div><!-- /app-wrapper -->
+
+  <!-- Keyboard Shortcuts hint -->
+  <div class="shortcuts-hint" id="shortcutsHint">
+    <div class="shortcut-row"><kbd>/</kbd> <span>Buscar</span></div>
+    <div class="shortcut-row"><kbd>T</kbd> <span>Cambiar tema</span></div>
+    <div class="shortcut-row"><kbd>Esc</kbd> <span>Limpiar búsqueda</span></div>
+    <div class="shortcut-row"><kbd>?</kbd> <span>Mostrar atajos</span></div>
+  </div>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ——————————————————————————————————————————
+         DOM REFERENCES
+         —————————————————————————————————————————— */
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const themeLabel = document.getElementById('themeLabel');
+      const searchInput = document.getElementById('searchInput');
+      const semesterTabs = document.querySelectorAll('.semester-tab');
+      const sectionQ1 = document.getElementById('sectionQ1');
+      const sectionQ2 = document.getElementById('sectionQ2');
+      const subjectCards = document.querySelectorAll('.subject-card');
+      const emptyState = document.getElementById('emptyState');
+      const shortcutsHint = document.getElementById('shortcutsHint');
+
+      /* ——————————————————————————————————————————
+         STARFIELD GENERATOR
+         —————————————————————————————————————————— */
+      function createStarfield() {
+        const container = document.getElementById('starfield');
+        const count = Math.min(80, Math.floor(window.innerWidth * window.innerHeight / 12000));
+        for (let i = 0; i < count; i++) {
+          const star = document.createElement('div');
+          star.classList.add('star');
+          const size = Math.random() * 2.5 + 0.5;
+          star.style.width = size + 'px';
+          star.style.height = size + 'px';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.setProperty('--duration', (Math.random() * 4 + 2) + 's');
+          star.style.setProperty('--opacity-min', (Math.random() * 0.2 + 0.1).toFixed(2));
+          star.style.setProperty('--opacity-max', (Math.random() * 0.5 + 0.4).toFixed(2));
+          star.style.animationDelay = (Math.random() * 5) + 's';
+          container.appendChild(star);
+        }
+      }
+      createStarfield();
+
+      /* ——————————————————————————————————————————
+         THEME SYSTEM
+         —————————————————————————————————————————— */
+      function getStoredTheme() {
+        try { return localStorage.getItem('aero-portal-theme'); } catch { return null; }
+      }
+
+      function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        themeLabel.textContent = theme === 'dark' ? 'Oscuro' : 'Claro';
+        try { localStorage.setItem('aero-portal-theme', theme); } catch {}
+      }
+
+      // Initialize theme
+      const storedTheme = getStoredTheme();
+      if (storedTheme) setTheme(storedTheme);
+
+      themeToggle.addEventListener('click', function () {
+        const current = html.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      /* ——————————————————————————————————————————
+         SEMESTER FILTER
+         —————————————————————————————————————————— */
+      let activeSemester = 'all';
+
+      semesterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          semesterTabs.forEach(function (t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          this.classList.add('active');
+          this.setAttribute('aria-selected', 'true');
+          activeSemester = this.getAttribute('data-semester');
+          applyFilters();
+        });
+      });
+
+      /* ——————————————————————————————————————————
+         SEARCH FILTER
+         —————————————————————————————————————————— */
+      searchInput.addEventListener('input', applyFilters);
+
+      function normalizeText(text) {
+        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      }
+
+      function applyFilters() {
+        const query = normalizeText(searchInput.value.trim());
+        let visibleQ1 = 0;
+
+        // Semester section visibility
+        if (activeSemester === 'q2') {
+          sectionQ1.style.display = 'none';
+          sectionQ2.style.display = '';
+          emptyState.classList.remove('visible');
+          return;
+        } else if (activeSemester === 'q1') {
+          sectionQ1.style.display = '';
+          sectionQ2.style.display = 'none';
+        } else {
+          sectionQ1.style.display = '';
+          sectionQ2.style.display = '';
+        }
+
+        // Filter cards
+        subjectCards.forEach(function (card) {
+          const title = normalizeText(card.querySelector('.card-title').textContent);
+          const subtitle = normalizeText(card.querySelector('.card-subtitle').textContent);
+          const description = normalizeText(card.querySelector('.card-description').textContent);
+          const keywords = normalizeText(card.getAttribute('data-keywords') || '');
+          const haystack = title + ' ' + subtitle + ' ' + description + ' ' + keywords;
+
+          if (!query || haystack.includes(query)) {
+            card.style.display = '';
+            visibleQ1++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Show/hide empty state
+        if (visibleQ1 === 0 && (activeSemester === 'all' || activeSemester === 'q1')) {
+          emptyState.classList.add('visible');
+        } else {
+          emptyState.classList.remove('visible');
+        }
+      }
+
+      /* ——————————————————————————————————————————
+         AREA CLICK HANDLER (Disabled links)
+         —————————————————————————————————————————— */
+      window.handleAreaClick = function (event) {
+        const badge = event.currentTarget.querySelector('.area-badge');
+        if (badge && (badge.classList.contains('soon') || badge.classList.contains('wip'))) {
+          event.preventDefault();
+          // Brief visual pulse to indicate not yet available
+          const link = event.currentTarget;
+          link.style.transform = 'scale(0.97)';
+          setTimeout(function () { link.style.transform = ''; }, 150);
+          return false;
+        }
+        return true;
+      };
+
+      /* ——————————————————————————————————————————
+         KEYBOARD SHORTCUTS
+         —————————————————————————————————————————— */
+      let shortcutsTimeout = null;
+
+      document.addEventListener('keydown', function (e) {
+        // Don't trigger shortcuts when typing in inputs
+        const tag = e.target.tagName;
+        const isInput = tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable;
+
+        if (e.key === '/' && !isInput) {
+          e.preventDefault();
+          searchInput.focus();
+          return;
+        }
+
+        if (e.key === 'Escape') {
+          if (document.activeElement === searchInput) {
+            searchInput.value = '';
+            searchInput.blur();
+            applyFilters();
+          }
+          shortcutsHint.classList.remove('visible');
+          return;
+        }
+
+        if ((e.key === 't' || e.key === 'T') && !isInput) {
+          e.preventDefault();
+          themeToggle.click();
+          return;
+        }
+
+        if (e.key === '?' && !isInput) {
+          e.preventDefault();
+          shortcutsHint.classList.toggle('visible');
+          clearTimeout(shortcutsTimeout);
+          if (shortcutsHint.classList.contains('visible')) {
+            shortcutsTimeout = setTimeout(function () {
+              shortcutsHint.classList.remove('visible');
+            }, 5000);
+          }
+          return;
+        }
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
