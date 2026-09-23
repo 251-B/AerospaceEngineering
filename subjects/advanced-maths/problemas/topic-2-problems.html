@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 Problem Set: First-Order ODEs and Qualitative Dynamics — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Inter, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.90);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -120px;
+      right: 12%;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       STICKY QUICK-NAVIGATION PILL BAR (17 PILLS)
+       ======================================================== */
+    .pill-nav-bar {
+      position: sticky;
+      top: 53px;
+      z-index: 90;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+    }
+
+    .pill-nav-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .pill-nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-secondary);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .nav-pill:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      transform: translateY(-1px);
+    }
+
+    .nav-pill.active {
+      color: #ffffff;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT & PROBLEMS CONTAINER
+       ======================================================== */
+    .article-container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .source-box {
+      margin-top: 16px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Problem Card Styles */
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-card);
+      scroll-margin-top: 110px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .problem-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .problem-title-group {
+      flex: 1;
+    }
+
+    .problem-num-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.3;
+    }
+
+    .problem-meta-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Phase Badges & Sections */
+    .phase-section {
+      margin-top: 24px;
+    }
+
+    .phase-badge-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .phase-1-badge { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .phase-2-badge { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .phase-3-badge { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .phase-4-badge { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .problem-statement-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      overflow-x: auto;
+      padding: 14px 18px;
+      margin: 16px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 18px 0;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.05);
+    }
+
+    .result-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #10b981;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .note-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .warning-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #f59e0b;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+
+    table.data-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 680px) {
+      .problem-card { padding: 22px 20px; }
+      .pill-nav-inner { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP STICKY NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📑</span>
+          <span>Problems Index</span>
+        </a>
+        <span class="brand-badge">ProblemsCh2 • 17 Solved</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../teoria/topic-2.html" class="back-link">
+          <span>📖</span>
+          <span>Topic 2 Theory</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       STICKY FAST-NAVIGATION PILL BAR (17 PILLS)
+       ============================================ -->
+  <nav class="pill-nav-bar" aria-label="Quick Jump Navigation">
+    <div class="pill-nav-inner">
+      <a href="#p1" class="nav-pill">P2.1 Direct Int.</a>
+      <a href="#p2" class="nav-pill">P2.2 Gauss Blow-Up</a>
+      <a href="#p3" class="nav-pill">P2.3 Int. Factor (8)</a>
+      <a href="#p4" class="nav-pill">P2.4 Exact ODEs (4)</a>
+      <a href="#p5" class="nav-pill">P2.5 Factor $\mu(x)$</a>
+      <a href="#p6" class="nav-pill">P2.6 Separated Exact</a>
+      <a href="#p7" class="nav-pill">P2.7 Subst. $z=y^2$</a>
+      <a href="#p8" class="nav-pill">P2.8 Bernoulli</a>
+      <a href="#p9" class="nav-pill">P2.9 Lipschitz (5)</a>
+      <a href="#p10" class="nav-pill">P2.10 Int. Transform</a>
+      <a href="#p11" class="nav-pill">P2.11 Ratio Invariance</a>
+      <a href="#p12" class="nav-pill">P2.12 No-Crossing</a>
+      <a href="#p13" class="nav-pill">P2.13 Phase Flow</a>
+      <a href="#p14" class="nav-pill">P2.14 Non-Lipschitz</a>
+      <a href="#p15" class="nav-pill">P2.15 Singular ODE</a>
+      <a href="#p16" class="nav-pill">P2.16 Pitchfork</a>
+      <a href="#p17" class="nav-pill">P2.17 Energy Method</a>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Problems Sheet 2 • Official Solutions</span>
+        <span class="course-tag">Department of Mathematics • UC3M Aerospace Engineering</span>
+      </div>
+      <h1 class="article-title">Chapter 2 Problem Set: First-Order ODEs and Qualitative Dynamics</h1>
+      <p class="article-lead">
+        Comprehensive, exhaustive step-by-step analytical solutions to all 17 official problems from <code>ProblemsCh2.pdf</code>. 
+        Developed with zero algebraic jumps and rigorously structured under our 4-Phase Aerospace Standard.
+      </p>
+      <div class="source-box">
+        <span>📑 Ground Truth:</span>
+        <span>ProblemsCh2.pdf (17 Problems) • UC3M Course Syllabus</span>
+      </div>
+    </header>
+
+    <!-- ========================================================
+         PROBLEM 2.1
+         ======================================================== -->
+    <article class="problem-card" id="p1">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.1</div>
+          <h2 class="problem-title">Direct Integration General Solutions (5 Equations)</h2>
+        </div>
+        <span class="problem-meta-badge">Direct Quadrature • Antiderivatives • Partial Fractions</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Find the general solution of the following equations by direct integration:</p>
+          <ol style="margin-left: 20px;">
+            <li>(i) $y' = e^{3x} - x$</li>
+            <li>(ii) $y' = 1/x$</li>
+            <li>(iii) $y' = x e^{x^2}$</li>
+            <li>(iv) $y' = \frac{1}{1 - x^2}$</li>
+            <li>(v) $y' = \frac{1}{x(1 - x)}$</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>In all 5 sub-problems, the derivative $y'(x) = f(x)$ depends solely on $x$. By the Fundamental Theorem of Calculus:
+        $$ y(x) = \int f(x) \, dx + C $$
+        We identify suitable integration techniques for each: direct primitives, $u$-substitutions, and partial fraction decompositions.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>(i) $y' = e^{3x} - x$:</strong><br>
+        $$ y(x) = \int (e^{3x} - x) \, dx = \int e^{3x} dx - \int x dx = \mathbf{\frac{1}{3} e^{3x} - \frac{x^2}{2} + C} $$</p>
+
+        <p><strong>(ii) $y' = 1/x$:</strong><br>
+        Defined for $x \neq 0$:
+        $$ y(x) = \int \frac{1}{x} \, dx = \mathbf{\ln|x| + C} $$</p>
+
+        <p><strong>(iii) $y' = x e^{x^2}$:<br></strong>
+        Substitute $u = x^2 \implies du = 2x dx \implies x dx = \frac{1}{2} du$:
+        $$ y(x) = \int x e^{x^2} \, dx = \frac{1}{2} \int e^u du = \frac{1}{2} e^u + C = \mathbf{\frac{1}{2} e^{x^2} + C} $$</p>
+
+        <p><strong>(iv) $y' = \frac{1}{1 - x^2}$ ($x \neq \pm 1$):<br></strong>
+        Partial fraction decomposition: $\frac{1}{(1-x)(1+x)} = \frac{A}{1-x} + \frac{B}{1+x} \implies 1 = A(1+x) + B(1-x)$.
+        Setting $x = 1 \implies A = 1/2$; setting $x = -1 \implies B = 1/2$.
+        $$ y(x) = \frac{1}{2} \int \frac{dx}{1-x} + \frac{1}{2} \int \frac{dx}{1+x} = -\frac{1}{2} \ln|1-x| + \frac{1}{2} \ln|1+x| + C $$
+        $$ \mathbf{y(x) = \frac{1}{2} \ln\left| \frac{1+x}{1-x} \right| + C} \quad (\text{or } \text{arctanh}(x) + C \text{ for } |x| < 1) $$</p>
+
+        <p><strong>(v) $y' = \frac{1}{x(1 - x)}$ ($x \neq 0, 1$):<br></strong>
+        Decompose: $\frac{1}{x(1-x)} = \frac{1}{x} + \frac{1}{1-x}$.
+        $$ y(x) = \int \left( \frac{1}{x} + \frac{1}{1-x} \right) dx = \ln|x| - \ln|1-x| + C = \mathbf{\ln\left| \frac{x}{1-x} \right| + C} $$</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Solutions</div>
+          <ul>
+            <li>(i) $y(x) = \frac{1}{3}e^{3x} - \frac{x^2}{2} + C$</li>
+            <li>(ii) $y(x) = \ln|x| + C$ on $x \in (-\infty, 0) \cup (0, \infty)$</li>
+            <li>(iii) $y(x) = \frac{1}{2}e^{x^2} + C$</li>
+            <li>(iv) $y(x) = \frac{1}{2}\ln\left|\frac{1+x}{1-x}\right| + C$</li>
+            <li>(v) $y(x) = \ln\left|\frac{x}{1-x}\right| + C$</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.2
+         ======================================================== -->
+    <article class="problem-card" id="p2">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.2</div>
+          <h2 class="problem-title">Separable ODEs, Gaussian Integrals & Finite-Time Blow-Up</h2>
+        </div>
+        <span class="problem-meta-badge">Separation of Variables • Error Integral • Singularity</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Consider the equation:
+          $$ \frac{dy}{dt} = e^{-t^2} y^2 $$
+          with initial condition $y(0) = y_0$.</p>
+          <p>(i) Solve the equation using separation of variables, expressing the solution in terms of $\int_0^t e^{-s^2} ds$.<br>
+          (ii) Using $\int_0^\infty e^{-s^2} ds = \frac{\sqrt{\pi}}{2}$, show that if $y_0 < \frac{2}{\sqrt{\pi}}$, the solution exists for all $t > 0$ and find its limit as $t \to \infty$.<br>
+          (iii) What happens if $y_0 > \frac{2}{\sqrt{\pi}}$?</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>The ODE is separable. For $y \neq 0$, separate variables $\frac{dy}{y^2} = e^{-t^2} dt$ and integrate across $[0, t]$. The denominator behavior dictates whether the solution exists globally or blows up in finite time.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Part (i): Integration:</strong></p>
+        $$ \int_{y_0}^{y(t)} \frac{du}{u^2} = \int_0^t e^{-s^2} ds \implies \left[ -\frac{1}{u} \right]_{y_0}^{y(t)} = \int_0^t e^{-s^2} ds $$
+        $$ -\frac{1}{y(t)} + \frac{1}{y_0} = \int_0^t e^{-s^2} ds \implies \frac{1}{y(t)} = \frac{1}{y_0} - \int_0^t e^{-s^2} ds = \frac{1 - y_0 \int_0^t e^{-s^2} ds}{y_0} $$
+        $$ \mathbf{y(t) = \frac{y_0}{1 - y_0 \int_0^t e^{-s^2} \, ds}} \tag{2.2.1} $$
+
+        <p><strong>Part (ii): Subcritical Regime ($y_0 < \frac{2}{\sqrt{\pi}}$):</strong></p>
+        <p>Since $e^{-s^2} > 0$, the function $I(t) = \int_0^t e^{-s^2} ds$ is strictly monotonically increasing for $t \ge 0$, bounded by:
+        $$ 0 \le \int_0^t e^{-s^2} ds < \int_0^\infty e^{-s^2} ds = \frac{\sqrt{\pi}}{2} $$
+        Therefore, if $y_0 < \frac{2}{\sqrt{\pi}}$, then $y_0 \int_0^t e^{-s^2} ds < y_0 \frac{\sqrt{\pi}}{2} < 1$ for all $t > 0$. The denominator never reaches zero! The solution exists globally $\forall t \in [0, \infty)$.
+        Taking the limit as $t \to \infty$:
+        $$ \lim_{t \to \infty} y(t) = \mathbf{\frac{y_0}{1 - y_0 \frac{\sqrt{\pi}}{2}}} $$</p>
+
+        <p><strong>Part (iii): Supercritical Regime ($y_0 > \frac{2}{\sqrt{\pi}}$):</strong></p>
+        <p>If $y_0 > \frac{2}{\sqrt{\pi}}$, then $\frac{1}{y_0} < \frac{\sqrt{\pi}}{2} = \int_0^\infty e^{-s^2} ds$. By the Intermediate Value Theorem, there exists a unique finite time $t^* \in (0, \infty)$ such that:
+        $$ \int_0^{t^*} e^{-s^2} ds = \frac{1}{y_0} $$
+        As $t \to t^{*-}$, the denominator approaches $0^+$, causing a <strong>finite-time blow-up</strong>:
+        $$ \lim_{t \to t^{*-}} y(t) = +\infty $$
+        The solution ceases to exist beyond $t^*$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ y(t) = \frac{y_0}{1 - y_0 \int_0^t e^{-s^2} ds} $$
+          <ul>
+            <li>$y_0 < \frac{2}{\sqrt{\pi}} \implies$ Global existence $\forall t \ge 0$, with $\lim_{t\to\infty} y(t) = \frac{y_0}{1 - y_0 \sqrt{\pi}/2}$.</li>
+            <li>$y_0 > \frac{2}{\sqrt{\pi}} \implies$ Finite-time blow-up at $t^*$ where $\int_0^{t^*} e^{-s^2} ds = 1/y_0$.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.3
+         ======================================================== -->
+    <article class="problem-card" id="p3">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.3</div>
+          <h2 class="problem-title">The Integrating Factor Method & Asymptotic Limits (8 Equations)</h2>
+        </div>
+        <span class="problem-meta-badge">Linear 1st-Order ODEs • Integrating Factor • Steady State</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Find the general solution of the following equations using an integrating factor:</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div>(i) $y' + 2y = e^x$</div>
+            <div>(ii) $y' + y = e^{-x}$</div>
+            <div>(iii) $y' - y = e^x$</div>
+            <div>(iv) $y' + 2xy = x$</div>
+            <div>(v) $y' + y \cot x = 1$</div>
+            <div>(vi) $y' + y \tanh x = 1$</div>
+            <div>(vii) $x' + \frac{x}{t} = 1$</div>
+            <div>(viii) $x' + \left(a + \frac{1}{t}\right)x = b \quad (a > 0)$</div>
+          </div>
+          <p style="margin-top: 8px;">For (viii), find the limit of the solution as $t \to \infty$.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Each equation has standard linear form $y' + p(x)y = q(x)$. The integrating factor is $\mu(x) = \exp\left(\int p(x) dx\right)$, transforming the ODE into $\frac{d}{dx}[\mu y] = \mu q(x)$, with solution $y = \frac{1}{\mu}[\int \mu q dx + C]$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        
+        <p><strong>(i) $y' + 2y = e^x$:</strong><br>
+        $\mu(x) = e^{\int 2 dx} = e^{2x}$.<br>
+        $\frac{d}{dx}[y e^{2x}] = e^{2x} e^x = e^{3x} \implies y e^{2x} = \frac{1}{3} e^{3x} + C \implies \mathbf{y(x) = \frac{1}{3} e^x + C e^{-2x}}$.</p>
+
+        <p><strong>(ii) $y' + y = e^{-x}$:</strong><br>
+        $\mu(x) = e^{\int 1 dx} = e^x$.<br>
+        $\frac{d}{dx}[y e^x] = e^x e^{-x} = 1 \implies y e^x = x + C \implies \mathbf{y(x) = (x + C)e^{-x}}$.</p>
+
+        <p><strong>(iii) $y' - y = e^x$:</strong><br>
+        $\mu(x) = e^{\int (-1) dx} = e^{-x}$.<br>
+        $\frac{d}{dx}[y e^{-x}] = e^{-x} e^x = 1 \implies y e^{-x} = x + C \implies \mathbf{y(x) = (x + C)e^x}$.</p>
+
+        <p><strong>(iv) $y' + 2xy = x$:</strong><br>
+        $\mu(x) = e^{\int 2x dx} = e^{x^2}$.<br>
+        $\frac{d}{dx}[y e^{x^2}] = x e^{x^2} \implies y e^{x^2} = \frac{1}{2} e^{x^2} + C \implies \mathbf{y(x) = \frac{1}{2} + C e^{-x^2}}$.</p>
+
+        <p><strong>(v) $y' + y \cot x = 1$:</strong><br>
+        $\int \cot x dx = \int \frac{\cos x}{\sin x} dx = \ln|\sin x| \implies \mu(x) = e^{\ln|\sin x|} = \sin x$.<br>
+        $\frac{d}{dx}[y \sin x] = \sin x \implies y \sin x = -\cos x + C \implies \mathbf{y(x) = -\cot x + C \csc x}$.</p>
+
+        <p><strong>(vi) $y' + y \tanh x = 1$:</strong><br>
+        $\int \tanh x dx = \int \frac{\sinh x}{\cosh x} dx = \ln(\cosh x) \implies \mu(x) = \cosh x$.<br>
+        $\frac{d}{dx}[y \cosh x] = \cosh x \implies y \cosh x = \sinh x + C \implies \mathbf{y(x) = \tanh x + C \text{sech}(x)}$.</p>
+
+        <p><strong>(vii) $x' + \frac{x}{t} = 1$:</strong><br>
+        $\mu(t) = e^{\int \frac{1}{t} dt} = e^{\ln t} = t$.<br>
+        $\frac{d}{dt}[x t] = t \implies x t = \frac{t^2}{2} + C \implies \mathbf{x(t) = \frac{t}{2} + \frac{C}{t}}$.</p>
+
+        <p><strong>(viii) $x' + \left(a + \frac{1}{t}\right)x = b \quad (a > 0)$:</strong><br>
+        $\int \left(a + \frac{1}{t}\right) dt = at + \ln t \implies \mu(t) = e^{at + \ln t} = t e^{at}$.<br>
+        $\frac{d}{dt}[x t e^{at}] = b t e^{at}$. Integrating by parts ($\int t e^{at} dt = \frac{t e^{at}}{a} - \frac{e^{at}}{a^2}$):<br>
+        $$ x t e^{at} = b \left( \frac{t e^{at}}{a} - \frac{e^{at}}{a^2} \right) + C \implies \mathbf{x(t) = \frac{b}{a} - \frac{b}{a^2 t} + \frac{C}{t} e^{-at}} $$
+        Taking the limit as $t \to \infty$ with $a > 0$ (so $e^{-at} \to 0$ and $1/t \to 0$):<br>
+        $$ \lim_{t \to \infty} x(t) = \frac{b}{a} - 0 + 0 = \mathbf{\frac{b}{a}} $$</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Solutions Summary</div>
+          <p>(i) $y = \frac{1}{3}e^x + C e^{-2x}$ &nbsp;|&nbsp; (ii) $y = (x+C)e^{-x}$ &nbsp;|&nbsp; (iii) $y = (x+C)e^x$ &nbsp;|&nbsp; (iv) $y = \frac{1}{2} + C e^{-x^2}$<br>
+          (v) $y = -\cot x + C \csc x$ &nbsp;|&nbsp; (vi) $y = \tanh x + C\text{sech}(x)$ &nbsp;|&nbsp; (vii) $x = \frac{t}{2} + \frac{C}{t}$<br>
+          (viii) $x(t) = \frac{b}{a} - \frac{b}{a^2 t} + \frac{C}{t}e^{-at}$, with $\mathbf{\lim_{t\to\infty} x(t) = \frac{b}{a}}$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.4
+         ======================================================== -->
+    <article class="problem-card" id="p4">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.4</div>
+          <h2 class="problem-title">Exact Differential Equations & Potential Reconstruction (4 Equations)</h2>
+        </div>
+        <span class="problem-meta-badge">Exact Differentials • Euler-Cauchy Test • Potential Surface</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that the following equations are exact and find their general solutions:</p>
+          <ol style="margin-left: 20px;">
+            <li>(i) $(2x + y) + (x + 2y)y' = 0$</li>
+            <li>(ii) $(2xy + 1) + (x^2 + 4y)y' = 0$</li>
+            <li>(iii) $(x^2 + y) + (x + e^y)y' = 0$</li>
+            <li>(iv) $(3x^2 + 2xy) + (x^2 + y^3)y' = 0$</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>In form $M(x, y) dx + N(x, y) dy = 0$. Check exactness criterion $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$. Then reconstruct $F(x, y)$ such that $\frac{\partial F}{\partial x} = M$ and $\frac{\partial F}{\partial y} = N$, with general solution $F(x, y) = C$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        
+        <p><strong>(i) $(2x + y) dx + (x + 2y) dy = 0$:</strong><br>
+        $M = 2x + y \implies \frac{\partial M}{\partial y} = 1$. $N = x + 2y \implies \frac{\partial N}{\partial x} = 1$. Exact! ($\partial M/\partial y = \partial N/\partial x$).<br>
+        $F(x, y) = \int (2x + y) dx = x^2 + xy + h(y)$.<br>
+        $\frac{\partial F}{\partial y} = x + h'(y) = x + 2y \implies h'(y) = 2y \implies h(y) = y^2$.<br>
+        General solution: $\mathbf{x^2 + xy + y^2 = C}$.</p>
+
+        <p><strong>(ii) $(2xy + 1) dx + (x^2 + 4y) dy = 0$:</strong><br>
+        $M = 2xy + 1 \implies \frac{\partial M}{\partial y} = 2x$. $N = x^2 + 4y \implies \frac{\partial N}{\partial x} = 2x$. Exact!<br>
+        $F(x, y) = \int (2xy + 1) dx = x^2 y + x + h(y)$.<br>
+        $\frac{\partial F}{\partial y} = x^2 + h'(y) = x^2 + 4y \implies h'(y) = 4y \implies h(y) = 2y^2$.<br>
+        General solution: $\mathbf{x^2 y + x + 2y^2 = C}$.</p>
+
+        <p><strong>(iii) $(x^2 + y) dx + (x + e^y) dy = 0$:</strong><br>
+        $M = x^2 + y \implies \frac{\partial M}{\partial y} = 1$. $N = x + e^y \implies \frac{\partial N}{\partial x} = 1$. Exact!<br>
+        $F(x, y) = \int (x^2 + y) dx = \frac{x^3}{3} + xy + h(y)$.<br>
+        $\frac{\partial F}{\partial y} = x + h'(y) = x + e^y \implies h'(y) = e^y \implies h(y) = e^y$.<br>
+        General solution: $\mathbf{\frac{x^3}{3} + xy + e^y = C}$.</p>
+
+        <p><strong>(iv) $(3x^2 + 2xy) dx + (x^2 + y^3) dy = 0$:</strong><br>
+        $M = 3x^2 + 2xy \implies \frac{\partial M}{\partial y} = 2x$. $N = x^2 + y^3 \implies \frac{\partial N}{\partial x} = 2x$. Exact!<br>
+        $F(x, y) = \int (3x^2 + 2xy) dx = x^3 + x^2 y + h(y)$.<br>
+        $\frac{\partial F}{\partial y} = x^2 + h'(y) = x^2 + y^3 \implies h'(y) = y^3 \implies h(y) = \frac{y^4}{4}$.<br>
+        General solution: $\mathbf{x^3 + x^2 y + \frac{y^4}{4} = C}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Potential Functions</div>
+          <ul>
+            <li>(i) $x^2 + xy + y^2 = C$</li>
+            <li>(ii) $x^2 y + x + 2y^2 = C$</li>
+            <li>(iii) $\frac{x^3}{3} + xy + e^y = C$</li>
+            <li>(iv) $x^3 + x^2 y + \frac{y^4}{4} = C$</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.5
+         ======================================================== -->
+    <article class="problem-card" id="p5">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.5</div>
+          <h2 class="problem-title">Special Integrating Factor for Non-Exact Equations</h2>
+        </div>
+        <span class="problem-meta-badge">Non-Exact Form • Multiplier $\mu(x)=x$ • Potential Reconstruction</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that the equation:
+          $$ (3xy + y^2) + (x^2 + xy)y' = 0 $$
+          is not exact. Find an integrating factor $I(x)$ depending only on $x$, and use it to solve the equation.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>$M = 3xy + y^2$, $N = x^2 + xy$. Test $\partial M/\partial y$ vs $\partial N/\partial x$. If unequal, compute $\phi(x) = \frac{M_y - N_x}{N}$. The integrating factor is $I(x) = \exp\left(\int \phi(x) dx\right)$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: Check Exactness:</strong></p>
+        $$ \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(3xy + y^2) = 3x + 2y $$
+        $$ \frac{\partial N}{\partial x} = \frac{\partial}{\partial x}(x^2 + xy) = 2x + y $$
+        Since $3x + 2y \neq 2x + y$, the equation is <strong>not exact</strong>.
+
+        <p><strong>Step 2: Construct Integrating Factor $I(x)$:</strong></p>
+        $$ \phi(x) = \frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N} = \frac{(3x + 2y) - (2x + y)}{x^2 + xy} = \frac{x + y}{x(x + y)} = \frac{1}{x} $$
+        This depends strictly on $x$. Thus:
+        $$ I(x) = \exp\left( \int \frac{1}{x} \, dx \right) = e^{\ln x} = \mathbf{x} $$
+
+        <p><strong>Step 3: Multiply and Solve the Exact Equation:</strong></p>
+        Multiply by $I(x) = x$:
+        $$ (3x^2 y + x y^2) \, dx + (x^3 + x^2 y) \, dy = 0 $$
+        Verify exactness: $\frac{\partial}{\partial y}(3x^2 y + xy^2) = 3x^2 + 2xy$; $\frac{\partial}{\partial x}(x^3 + x^2 y) = 3x^2 + 2xy$. Exact!<br>
+        Integrate $M_{\text{new}}$:
+        $$ F(x, y) = \int (3x^2 y + x y^2) \, dx = x^3 y + \frac{1}{2} x^2 y^2 + h(y) $$
+        Differentiate with respect to $y$:
+        $$ \frac{\partial F}{\partial y} = x^3 + x^2 y + h'(y) = x^3 + x^2 y \implies h'(y) = 0 \implies h(y) = 0 $$
+        $$ \mathbf{x^3 y + \frac{1}{2} x^2 y^2 = C} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ I(x) = x, \quad x^3 y + \frac{1}{2} x^2 y^2 = C $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.6
+         ======================================================== -->
+    <article class="problem-card" id="p6">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.6</div>
+          <h2 class="problem-title">Universal Exactness of Separated Differential Forms</h2>
+        </div>
+        <span class="problem-meta-badge">Separated Forms • Cross-Derivative Proof • Applications</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that any differential equation that can be written in the form:
+          $$ f(x) + g(y) \frac{dy}{dx} = 0 $$
+          is exact, and use this to solve the following equations:</p>
+          <p>(i) $x^3 + y y' = 0$<br>
+          (ii) $\frac{2}{x} - b + \left(\frac{1}{y} - a\right)y' = 0$</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>In differential form: $f(x) dx + g(y) dy = 0$. Here $M(x, y) = f(x)$ and $N(x, y) = g(y)$. We evaluate the cross partial derivatives $\frac{\partial M}{\partial y}$ and $\frac{\partial N}{\partial x}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>General Proof:</strong></p>
+        $$ \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}[f(x)] = 0 $$
+        $$ \frac{\partial N}{\partial x} = \frac{\partial}{\partial x}[g(y)] = 0 $$
+        Since $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} = 0$ identically on $\mathbb{R}^2$, <strong>any separated equation is unconditionally exact</strong>. The potential function is $F(x, y) = \int f(x) dx + \int g(y) dy = C$.
+
+        <p><strong>Application (i): $x^3 dx + y dy = 0$:</strong></p>
+        $$ F(x, y) = \int x^3 dx + \int y dy = \frac{x^4}{4} + \frac{y^2}{2} = C \implies \mathbf{x^4 + 2y^2 = C_1} $$
+
+        <p><strong>Application (ii): $\left(\frac{2}{x} - b\right) dx + \left(\frac{1}{y} - a\right) dy = 0$:</strong></p>
+        $$ F(x, y) = \int \left(\frac{2}{x} - b\right) dx + \int \left(\frac{1}{y} - a\right) dy = 2\ln|x| - bx + \ln|y| - ay = C $$
+        $$ \ln(x^2 |y|) - (bx + ay) = C \implies \mathbf{x^2 y e^{-(bx + ay)} = C_1} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          <p>Proof: $\frac{\partial f(x)}{\partial y} \equiv 0 \equiv \frac{\partial g(y)}{\partial x} \implies$ Always exact.<br>
+          (i) $x^4 + 2y^2 = C_1$<br>
+          (ii) $x^2 y e^{-(bx + ay)} = C_1$ (Lotka-Volterra type conservative invariant).</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.7
+         ======================================================== -->
+    <article class="problem-card" id="p7">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.7</div>
+          <h2 class="problem-title">Nonlinear Change of Variables ($z = y^2$)</h2>
+        </div>
+        <span class="problem-meta-badge">Substitution • Linearization • IVP</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that the substitution $z = y^2$ transforms the differential equation:
+          $$ y' = y + \frac{x}{y}, \quad y(0) = 1 $$
+          into a linear equation for $z(x)$. Solve this linear equation, and then find $y(x)$.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Multiply by $y$ to obtain $y y' - y^2 = x$. Substitute $z = y^2 \implies z' = 2y y' \implies y y' = \frac{1}{2}z'$. This yields a linear ODE in $z(x)$, solvable by integrating factor.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p>Multiply by $y$: $y \frac{dy}{dx} - y^2 = x$.<br>
+        With $z = y^2 \implies \frac{dz}{dx} = 2y \frac{dy}{dx} \implies y \frac{dy}{dx} = \frac{1}{2} \frac{dz}{dx}$. Substituting:
+        $$ \frac{1}{2} \frac{dz}{dx} - z = x \iff \mathbf{\frac{dz}{dx} - 2z = 2x} \tag{2.7.1} $$
+        Integrating factor for (2.7.1): $\mu(x) = e^{\int (-2) dx} = e^{-2x}$.<br>
+        $$ \frac{d}{dx}[z e^{-2x}] = 2x e^{-2x} $$
+        Integrate by parts ($\int 2x e^{-2x} dx = -x e^{-2x} - \frac{1}{2} e^{-2x}$):
+        $$ z e^{-2x} = -x e^{-2x} - \frac{1}{2} e^{-2x} + C \implies z(x) = C e^{2x} - x - \frac{1}{2} $$
+        Initial condition: $y(0) = 1 \implies z(0) = [y(0)]^2 = 1^2 = 1$:
+        $$ 1 = C e^0 - 0 - \frac{1}{2} \implies C = \frac{3}{2} $$
+        Therefore:
+        $$ z(x) = \frac{3}{2} e^{2x} - x - \frac{1}{2} $$
+        Since $y(0) = 1 > 0$, taking the positive square root $y = +\sqrt{z}$:
+        $$ \mathbf{y(x) = \sqrt{\frac{3}{2} e^{2x} - x - \frac{1}{2}}} \tag{2.7.2} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ z' - 2z = 2x, \quad y(x) = \sqrt{\frac{3}{2} e^{2x} - x - \frac{1}{2}} $$
+          <p><strong>Domain:</strong> Defined where $\frac{3}{2}e^{2x} - x - 1/2 > 0$, which holds globally on $\mathbb{R}$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.8
+         ======================================================== -->
+    <article class="problem-card" id="p8">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.8</div>
+          <h2 class="problem-title">General Bernoulli Equation Reduction ($z = y^{1-\alpha}$)</h2>
+        </div>
+        <span class="problem-meta-badge">Bernoulli Theorem • Linearizing Transformation • Degenerate Cases</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Consider the Bernoulli equation:
+          $$ \frac{dy}{dx} = a(x) y + b(x) y^\alpha $$
+          (i) What happens when $\alpha = 0$? What happens when $\alpha = 1$?<br>
+          (ii) Show that the substitution $z = y^{1-\alpha}$ transforms the equation into a linear equation for $z(x)$.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Analyze $\alpha=0$ and $\alpha=1$ as degenerate linear cases. For $\alpha \neq 0, 1$, divide by $y^\alpha$ and apply the chain rule to $z = y^{1-\alpha}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Part (i): Degenerate Cases:</strong></p>
+        <ul>
+          <li><strong>$\alpha = 0$:</strong> $y^0 = 1 \implies \frac{dy}{dx} - a(x)y = b(x)$. This is already a standard <strong>linear inhomogeneous 1st-order ODE</strong>.</li>
+          <li><strong>$\alpha = 1$:</strong> $y^1 = y \implies \frac{dy}{dx} = [a(x) + b(x)]y \implies \frac{dy}{dx} - [a(x) + b(x)]y = 0$. This is a <strong>linear homogeneous 1st-order ODE</strong> (and separable).</li>
+        </ul>
+
+        <p><strong>Part (ii): General Linearizing Transformation for $\alpha \neq 0, 1$:</strong></p>
+        <p>Divide equation by $y^\alpha$:
+        $$ y^{-\alpha} \frac{dy}{dx} - a(x) y^{1-\alpha} = b(x) \tag{2.8.1} $$
+        Let $z(x) \equiv y(x)^{1-\alpha}$. Differentiating by the chain rule:
+        $$ \frac{dz}{dx} = (1 - \alpha) y^{-\alpha} \frac{dy}{dx} \implies y^{-\alpha} \frac{dy}{dx} = \frac{1}{1 - \alpha} \frac{dz}{dx} $$
+        Substitute into (2.8.1):
+        $$ \frac{1}{1 - \alpha} \frac{dz}{dx} - a(x) z = b(x) $$
+        Multiply by $(1 - \alpha) \neq 0$:
+        $$ \mathbf{\frac{dz}{dx} - (1 - \alpha) a(x) z = (1 - \alpha) b(x)} \tag{2.8.2} $$
+        Equation (2.8.2) is strictly linear in $z(x)$! Once $z(x)$ is solved, $y(x) = [z(x)]^{1/(1-\alpha)}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \frac{dz}{dx} - (1 - \alpha) a(x) z = (1 - \alpha) b(x) $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.9
+         ======================================================== -->
+    <article class="problem-card" id="p9">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.9</div>
+          <h2 class="problem-title">Solution Uniqueness & Lipschitz Analysis at $x = 0$ (5 Cases)</h2>
+        </div>
+        <span class="problem-meta-badge">Picard-Lindelöf • Lipschitz Test • Derivative Singularity</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> For which of the following equations does the existence and uniqueness theorem guarantee that the solution of $\frac{dx}{dt} = f(x)$ with $x(0) = 0$ is unique?</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div>(i) $f(x) = x(1 - x^2)$</div>
+            <div>(ii) $f(x) = x^{1/3}$</div>
+            <div>(iii) $f(x) = x^3$</div>
+            <div>(iv) $f(x) = x^{1/2}(1 + x)^2$</div>
+            <div>(v) $f(x) = (1 + x)^{3/2}$</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>By Picard-Lindelöf, if $f(x)$ is $C^1$ in a neighborhood of $x = 0$ (i.e. $|f'(0)| < \infty$), $f$ is locally Lipschitz, guaranteeing a unique solution. If $f'(x) \to \infty$ as $x \to 0$, the Lipschitz condition fails, permitting branching non-uniqueness.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        
+        <p><strong>(i) $f(x) = x(1 - x^2) = x - x^3$:</strong><br>
+        $f'(x) = 1 - 3x^2 \implies f'(0) = 1 < \infty$. $f$ is smooth and locally Lipschitz. <strong style="color: #10b981;">Unique!</strong> (The unique solution is $x(t) \equiv 0$).</p>
+
+        <p><strong>(ii) $f(x) = x^{1/3}$:</strong><br>
+        $f'(x) = \frac{1}{3} x^{-2/3} = \frac{1}{3 x^{2/3}}$. As $x \to 0$, $f'(x) \to +\infty$. Not Lipschitz at $0$. <strong style="color: #ef4444;">Non-unique!</strong> (Admits $x(t) \equiv 0$ and $x(t) = \pm (2t/3)^{3/2}$).</p>
+
+        <p><strong>(iii) $f(x) = x^3$:</strong><br>
+        $f'(x) = 3x^2 \implies f'(0) = 0 < \infty$. Continuously differentiable and locally Lipschitz. <strong style="color: #10b981;">Unique!</strong> ($x(t) \equiv 0$).</p>
+
+        <p><strong>(iv) $f(x) = x^{1/2}(1 + x)^2$:</strong><br>
+        $f'(x) = \frac{1}{2\sqrt{x}}(1+x)^2 + 2\sqrt{x}(1+x)$. As $x \to 0^+$, $f'(x) \sim \frac{1}{2\sqrt{x}} \to +\infty$. Not Lipschitz. <strong style="color: #ef4444;">Non-unique!</strong></p>
+
+        <p><strong>(v) $f(x) = (1 + x)^{3/2}$:</strong><br>
+        At $x = 0$, $f(0) = 1$. The derivative is $f'(x) = \frac{3}{2}(1+x)^{1/2} \implies f'(0) = \frac{3}{2} < \infty$. Continuously differentiable and locally Lipschitz. <strong style="color: #10b981;">Unique!</strong></p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Verdict</div>
+          <ul>
+            <li><strong>Unique solutions guaranteed:</strong> (i), (iii), and (v).</li>
+            <li><strong>Uniqueness NOT guaranteed (Lipschitz failure):</strong> (ii) and (iv).</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.10
+         ======================================================== -->
+    <article class="problem-card" id="p10">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.10</div>
+          <h2 class="problem-title">Uniqueness via Integrating Transformation (Without Picard)</h2>
+        </div>
+        <span class="problem-meta-badge">Energy Transform • Linear Homogeneous ODE • Zero Trivial Solution</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that if $y(t)$ satisfies:
+          $$ \frac{dy}{dt} + p(t) y = 0, \quad y(t_0) = 0 $$
+          then $z(t) = y(t) \exp\left(\int_{t_0}^t p(s) ds\right)$ satisfies $\frac{dz}{dt} = 0$, and use this to deduce that the only solution of the initial value problem is $y(t) = 0$ for all $t$. (This proves uniqueness for linear first-order equations without using the Picard-Lindelöf Theorem.)</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Define the transformed variable $z(t) = y(t) \mu(t)$, where $\mu(t) = \exp\left(\int_{t_0}^t p(s)ds\right) > 0$. Differentiate $z(t)$ using the product rule and Fundamental Theorem of Calculus.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p>Compute the time derivative of $\mu(t)$:
+        $$ \frac{d\mu}{dt} = \frac{d}{dt}\left[\exp\left(\int_{t_0}^t p(s) ds\right)\right] = p(t) \exp\left(\int_{t_0}^t p(s) ds\right) = p(t) \mu(t) $$
+        Differentiating $z(t) = y(t) \mu(t)$ using the product rule:
+        $$ \frac{dz}{dt} = \frac{dy}{dt} \mu(t) + y(t) \frac{d\mu}{dt} = \frac{dy}{dt} \mu(t) + y(t) p(t) \mu(t) = \mu(t) \left[ \frac{dy}{dt} + p(t) y \right] $$
+        Since $y(t)$ satisfies $\frac{dy}{dt} + p(t)y = 0$:
+        $$ \mathbf{\frac{dz}{dt} = \mu(t) \cdot 0 = 0} \quad \forall t \tag{2.10.1} $$
+        Integrating $\frac{dz}{dt} = 0$ implies that $z(t)$ is constant: $z(t) \equiv C$.<br>
+        Evaluate at $t = t_0$:
+        $$ C = z(t_0) = y(t_0) \mu(t_0) = 0 \cdot e^0 = 0 $$
+        Therefore:
+        $$ z(t) \equiv 0 \implies y(t) \exp\left(\int_{t_0}^t p(s) ds\right) = 0 $$
+        Since the exponential function is strictly positive ($\exp(\dots) > 0$):
+        $$ \mathbf{y(t) \equiv 0} \quad \forall t \tag{2.10.2} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \frac{dz}{dt} \equiv 0 \implies z(t) = z(t_0) = 0 \implies y(t) \equiv 0 \quad \forall t $$
+          <p><strong>Significance:</strong> Provides an analytical, constructive proof of uniqueness for linear ODEs independent of metric fixed-point theorems.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.11
+         ======================================================== -->
+    <article class="problem-card" id="p11">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.11</div>
+          <h2 class="problem-title">Invariance of Solution Ratios in Linear Homogeneous ODEs</h2>
+        </div>
+        <span class="problem-meta-badge">Quotient Rule • Linear Independence • 1D Subspace</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that if $y_1(t)$ and $y_2(t)$ are both solutions of:
+          $$ \frac{dy}{dt} + p(t) y = 0 $$
+          and $y_2(t) \neq 0$ for all $t$, then $\frac{d}{dt}\left(\frac{y_1}{y_2}\right) = 0$. Deduce that every solution of the equation is a constant multiple of $y_2(t)$.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Apply the quotient rule to $w(t) \equiv \frac{y_1(t)}{y_2(t)}$, using the differential relations $y_1' = -p(t)y_1$ and $y_2' = -p(t)y_2$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p>Differentiating by the quotient rule:
+        $$ \frac{d}{dt}\left( \frac{y_1}{y_2} \right) = \frac{y_1' y_2 - y_1 y_2'}{y_2^2} $$
+        Substitute $y_1' = -p(t)y_1$ and $y_2' = -p(t)y_2$:
+        $$ \frac{d}{dt}\left( \frac{y_1}{y_2} \right) = \frac{[-p(t) y_1] y_2 - y_1 [-p(t) y_2]}{y_2^2} = \frac{-p(t) y_1 y_2 + p(t) y_1 y_2}{y_2^2} = \mathbf{0} $$
+        Since the derivative is zero for all $t$:
+        $$ \frac{y_1(t)}{y_2(t)} = C \implies \mathbf{y_1(t) = C y_2(t)} \tag{2.11.1} $$
+        where $C = \frac{y_1(t_0)}{y_2(t_0)}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Linear Algebra Connection</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \frac{d}{dt}\left(\frac{y_1}{y_2}\right) = 0 \implies y_1(t) = C y_2(t) $$
+          <p><strong>Linear Algebra Interpretation:</strong> The solution space of a 1st-order linear homogeneous ODE is a 1-dimensional vector space spanned by any single non-zero solution $y_2(t)$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.12
+         ======================================================== -->
+    <article class="problem-card" id="p12">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.12</div>
+          <h2 class="problem-title">Trajectory Crossing and Uniqueness Bounds (No-Crossing Theorem)</h2>
+        </div>
+        <span class="problem-meta-badge">No-Crossing Theorem • Invariant Corridors • Barrier Solutions</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> (i) Show that the solution of $\frac{dy}{dt} = (y + 2)(y - 1)e^t$ with $y(0) = 0$ satisfies $y(t) > -2$ for all $t \in \mathbb{R}$.<br>
+          (ii) Suppose that $y_1(t) = -t - 1$ and $y_2(t) = t^2 + 1$ are both solutions of $y' = f(y, t)$, where $f$ and $\frac{\partial f}{\partial y}$ are continuous on $\mathbb{R}^2$. What can you say about the solution with $y(0) = 0$?</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>The <strong>No-Crossing Theorem</strong> dictates that because $f(y, t)$ and $\frac{\partial f}{\partial y}$ are continuous on $\mathbb{R}^2$, distinct solutions cannot intersect or touch in the $(t, y)$ plane. Hence, any known solution serves as an impassable boundary barrier.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Part (i):</strong><br>
+        Notice that $y^*(t) \equiv -2$ is an equilibrium solution: $(-2 + 2)(-2 - 1)e^t = 0 \cdot (-3)e^t = 0 = \frac{d(-2)}{dt}$.<br>
+        Likewise, $y^{**}(t) \equiv 1$ is an equilibrium solution.<br>
+        The initial condition is $y(0) = 0$, which satisfies $-2 < y(0) = 0 < 1$.<br>
+        Since $f(y, t) = (y+2)(y-1)e^t$ and $\frac{\partial f}{\partial y} = (2y+1)e^t$ are continuous everywhere on $\mathbb{R}^2$, the Picard-Lindelöf theorem guarantees uniqueness.<br>
+        Therefore, $y(t)$ can <strong>never cross the line $y = -2$</strong>. Since $y(0) > -2$, by continuity:
+        $$ \mathbf{y(t) > -2 \quad \forall t \in \mathbb{R}} \tag{2.12.1} $$
+        (In fact, $-2 < y(t) < 1$ for all $t$).</p>
+
+        <p><strong>Part (ii):</strong><br>
+        We are given two solutions $y_1(t) = -t - 1$ and $y_2(t) = t^2 + 1$.<br>
+        Evaluate them at the initial time $t = 0$:
+        $$ y_1(0) = -0 - 1 = -1 $$
+        $$ y_2(0) = 0^2 + 1 = 1 $$
+        The initial state $y(0) = 0$ lies strictly between them:
+        $$ y_1(0) = -1 < y(0) = 0 < y_2(0) = 1 $$
+        By the No-Crossing Theorem, the solution curve $y(t)$ can never intersect $y_1(t)$ from below nor $y_2(t)$ from above.<br>
+        Consequently, $y(t)$ is trapped for all $t \in \mathbb{R}$ within the invariant parabolic corridor:
+        $$ \mathbf{-t - 1 < y(t) < t^2 + 1 \quad \forall t \in \mathbb{R}} \tag{2.12.2} $$</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Bounds</div>
+          <ul>
+            <li>(i) $y(t) > -2$ (and $-2 < y(t) < 1$) for all $t$.</li>
+            <li>(ii) $-t - 1 < y(t) < t^2 + 1$ for all $t \in \mathbb{R}$.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.13
+         ======================================================== -->
+    <article class="problem-card" id="p13">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.13</div>
+          <h2 class="problem-title">Multi-Equilibria Autonomous Phase Line Dynamics</h2>
+        </div>
+        <span class="problem-meta-badge">Phase Line • Equilibria Barriers • Asymptotic Limits</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that $y = 0$, $y = 2$, and $y = 3$ are all solutions of:
+          $$ \frac{dy}{dt} = y(y - 2)(y - 3) $$
+          Deduce what happens as $t \to \infty$ to the solutions that have:<br>
+          (i) $y(0) = -1$; (ii) $y(0) = 1$; (iii) $y(0) = 2.5$; (iv) $y(0) = 4$.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>For an autonomous equation $\dot{y} = f(y)$, stationary points $f(y^*)=0$ act as constant solutions and invariant barriers. The sign of $f(y)$ dictates the direction of monotonic motion along the phase line.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Verification of Constant Solutions:</strong><br>
+        $f(0) = 0(0-2)(0-3) = 0$; $f(2) = 2(0)(2-3) = 0$; $f(3) = 3(3-2)(0) = 0$. Since $\frac{d}{dt}(\text{const}) = 0$, $y=0, 2, 3$ are exact solutions.</p>
+
+        <p><strong>Phase Line Sign Analysis:</strong></p>
+        <ul>
+          <li><strong>$y \in (3, \infty)$:</strong> $f(y) = (+)(+)(+) > 0 \implies y'(t) > 0$. Trajectories increase monotonically toward $+\infty$.</li>
+          <li><strong>$y \in (2, 3)$:</strong> $f(y) = (+)(+)(-) < 0 \implies y'(t) < 0$. Trajectories decrease monotonically toward $y = 2$.</li>
+          <li><strong>$y \in (0, 2)$:</strong> $f(y) = (+)(-)(-) > 0 \implies y'(t) > 0$. Trajectories increase monotonically toward $y = 2$.</li>
+          <li><strong>$y \in (-\infty, 0)$:</strong> $f(y) = (-)(-)(-) < 0 \implies y'(t) < 0$. Trajectories decrease monotonically toward $-\infty$.</li>
+        </ul>
+
+        <p><strong>Evaluation of the 4 Initial Conditions:</strong></p>
+        <ol>
+          <li>(i) $y(0) = -1 \in (-\infty, 0)$: $y' < 0 \implies y(t)$ decreases monotonically: $\mathbf{\lim_{t\to\infty} y(t) = -\infty}$.</li>
+          <li>(ii) $y(0) = 1 \in (0, 2)$: $y' > 0 \implies y(t)$ increases monotonically toward equilibrium 2: $\mathbf{\lim_{t\to\infty} y(t) = 2}$.</li>
+          <li>(iii) $y(0) = 2.5 \in (2, 3)$: $y' < 0 \implies y(t)$ decreases monotonically toward equilibrium 2: $\mathbf{\lim_{t\to\infty} y(t) = 2}$.</li>
+          <li>(iv) $y(0) = 4 \in (3, \infty)$: $y' > 0 \implies y(t)$ increases monotonically without bound: $\mathbf{\lim_{t\to\infty} y(t) = +\infty}$.</li>
+        </ol>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Asymptotic Limits</div>
+          <ul>
+            <li>(i) $y(0) = -1 \implies \lim_{t\to\infty} y(t) = -\infty$</li>
+            <li>(ii) $y(0) = 1 \implies \lim_{t\to\infty} y(t) = 2$</li>
+            <li>(iii) $y(0) = 2.5 \implies \lim_{t\to\infty} y(t) = 2$</li>
+            <li>(iv) $y(0) = 4 \implies \lim_{t\to\infty} y(t) = +\infty$</li>
+          </ul>
+          <p><strong>Stability Summary:</strong> $y^* = 0$ is an unstable source; $y^* = 2$ is an asymptotically stable attractor; $y^* = 3$ is an unstable source.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.14
+         ======================================================== -->
+    <article class="problem-card" id="p14">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.14</div>
+          <h2 class="problem-title">Non-Lipschitz Branching Pathology in Picard's Theorem</h2>
+        </div>
+        <span class="problem-meta-badge">Failure of Uniqueness • Infinite Derivative • Non-Lipschitz</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that $y_1(t) = 0$ and $y_2(t) = t^3$ are both solutions of:
+          $$ \frac{dy}{dt} = 3 y^{2/3}, \quad y(0) = 0 $$
+          Explain why this does not contradict the existence and uniqueness theorem.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Verify both solutions by direct substitution. Test whether the vector field $f(t, y) = 3y^{2/3}$ satisfies the Lipschitz condition at $y = 0$ by evaluating the partial derivative $\frac{\partial f}{\partial y}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: Verification of $y_1(t) = 0$:</strong><br>
+        $y_1(0) = 0$. $\frac{dy_1}{dt} = 0$. RHS: $3(y_1)^{2/3} = 3(0)^{2/3} = 0$. LHS = RHS = 0. Valid!</p>
+
+        <p><strong>Step 2: Verification of $y_2(t) = t^3$:</strong><br>
+        $y_2(0) = 0^3 = 0$. $\frac{dy_2}{dt} = \frac{d}{dt}(t^3) = 3t^2$.<br>
+        RHS: $3(y_2)^{2/3} = 3(t^3)^{2/3} = 3(t^{3 \cdot \frac{2}{3}}) = 3t^2$. LHS = RHS = $3t^2$. Valid!</p>
+
+        <p><strong>Step 3: Verification of Non-Contradiction with Picard-Lindelöf:</strong><br>
+        Picard's theorem requires that $f(t, y)$ is locally Lipschitz in $y$. For $f(y) = 3y^{2/3}$:
+        $$ \frac{\partial f}{\partial y} = 3 \cdot \frac{2}{3} y^{-1/3} = \frac{2}{y^{1/3}} $$
+        As $y \to 0$:
+        $$ \lim_{y \to 0} \left| \frac{\partial f}{\partial y} \right| = \lim_{y \to 0} \frac{2}{|y|^{1/3}} = +\infty $$
+        The partial derivative is <strong>unbounded in any neighborhood of $y = 0$</strong>. The Lipschitz condition is strictly violated. Since the hypothesis of the theorem is not satisfied, the theorem makes no guarantee of uniqueness.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Conclusion</div>
+          <p>Both $y_1(t)=0$ and $y_2(t)=t^3$ are valid solutions with $y(0)=0$. This does not contradict Picard-Lindelöf because $\frac{\partial f}{\partial y}(0) = \infty$, violating the Lipschitz condition.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.15
+         ======================================================== -->
+    <article class="problem-card" id="p15">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.15</div>
+          <h2 class="problem-title">Singular ODE and Domain of Definition</h2>
+        </div>
+        <span class="problem-meta-badge">Domain Singularity • Undefined Vector Field • Family of Parabolas</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Find the general solution of:
+          $$ \frac{dy}{dt} = \frac{2y + 1}{t} $$
+          and show that there are an infinite number of solutions that satisfy $y(0) = -\frac{1}{2}$. Does this contradict the existence and uniqueness theorem?</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Separate variables for $t \neq 0$ and $2y + 1 \neq 0$. Check the definition of $f(t, y) = \frac{2y+1}{t}$ at $t = 0$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: Separation of Variables for $t \neq 0$:</strong></p>
+        $$ \frac{1}{2y + 1} \, dy = \frac{1}{t} \, dt $$
+        $$ \int \frac{1}{2y + 1} \, dy = \int \frac{1}{t} \, dt \implies \frac{1}{2} \ln|2y + 1| = \ln|t| + C_0 $$
+        Multiply by 2:
+        $$ \ln|2y + 1| = 2\ln|t| + 2C_0 = \ln(t^2) + \ln C_1 \implies |2y + 1| = C_1 t^2 $$
+        Removing absolute values:
+        $$ 2y + 1 = C t^2 \implies \mathbf{y(t) = -\frac{1}{2} + C t^2} \tag{2.15.1} $$
+        where $C \in \mathbb{R}$ is an arbitrary constant.
+
+        <p><strong>Step 2: Checking $y(0) = -1/2$:</strong></p>
+        $$ y(0) = -\frac{1}{2} + C(0)^2 = -\frac{1}{2} \quad \forall C \in \mathbb{R} $$
+        Every single parabola in the infinite family passes through $(0, -1/2)$!
+
+        <p><strong>Step 3: Picard-Lindelöf Compatibility:</strong></p>
+        <p>The vector field is $f(t, y) = \frac{2y + 1}{t}$. At $t = 0$, $f(t, y)$ has a division by zero: it is <strong>undefined</strong> (discontinuous). 
+        Picard-Lindelöf requires that $f(t, y)$ is continuous on an open domain containing $(t_0, y_0)$. Since $(0, -1/2)$ is not in the domain of $f$, the theorem does not apply. No contradiction exists!</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ y(t) = -\frac{1}{2} + C t^2 \quad (C \in \mathbb{R}) $$
+          <p>Does not contradict Picard-Lindelöf because $f(t, y) = \frac{2y+1}{t}$ is not defined at $t=0$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.16
+         ======================================================== -->
+    <article class="problem-card" id="p16">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.16</div>
+          <h2 class="problem-title">Pitchfork Phase Line & Stability Regimes</h2>
+        </div>
+        <span class="problem-meta-badge">Supercritical Pitchfork • Stability Derivative • Aeroelastic Model</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Find the stationary points of:
+          $$ \frac{dx}{dt} = x(\kappa^2 - x^2) $$
+          where $\kappa > 0$. By sketching the graph of $f(x) = x(\kappa^2 - x^2)$, determine their stability. What happens to the solution with $x(0) = x_0$ as $t \to \infty$ for different values of $x_0$?</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Stationary points satisfy $f(x) = 0$. Stability is evaluated by the sign of $f'(x^*)$: if $f'(x^*) < 0$, it is asymptotically stable; if $f'(x^*) > 0$, it is unstable.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: Finding Stationary Points:</strong></p>
+        $$ f(x) = x(\kappa^2 - x^2) = x(\kappa - x)(\kappa + x) = 0 $$
+        Since $\kappa > 0$, there are 3 distinct equilibria:
+        $$ \mathbf{x_1^* = -\kappa, \quad x_2^* = 0, \quad x_3^* = +\kappa} $$
+
+        <p><strong>Step 2: Stability Analysis via $f'(x)$:</strong></p>
+        $$ f(x) = \kappa^2 x - x^3 \implies f'(x) = \kappa^2 - 3x^2 $$
+        <ul>
+          <li>At $x_2^* = 0$: $f'(0) = \kappa^2 > 0 \implies$ <strong style="color: #ef4444;">Unstable Node (Repellor)</strong>.</li>
+          <li>At $x_1^* = -\kappa$: $f'(-\kappa) = \kappa^2 - 3(-\kappa)^2 = -2\kappa^2 < 0 \implies$ <strong style="color: #10b981;">Asymptotically Stable Attractor (Sink)</strong>.</li>
+          <li>At $x_3^* = +\kappa$: $f'(+\kappa) = \kappa^2 - 3(\kappa)^2 = -2\kappa^2 < 0 \implies$ <strong style="color: #10b981;">Asymptotically Stable Attractor (Sink)</strong>.</li>
+        </ul>
+
+        <p><strong>Step 3: Global Asymptotic Regimes ($t \to \infty$):</strong></p>
+        <ul>
+          <li>If $x_0 > 0$: Trajectory is attracted to $+\kappa$: $\mathbf{\lim_{t\to\infty} x(t) = +\kappa}$.</li>
+          <li>If $x_0 = 0$: Stays on equilibrium forever: $\mathbf{x(t) \equiv 0}$.</li>
+          <li>If $x_0 < 0$: Trajectory is attracted to $-\kappa$: $\mathbf{\lim_{t\to\infty} x(t) = -\kappa}$.</li>
+        </ul>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Pitchfork Bifurcation</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ x^* = 0 \text{ (Unstable)}, \quad x^* = \pm\kappa \text{ (Asymptotically Stable)} $$
+          $$ \lim_{t\to\infty} x(t) = \begin{cases} +\kappa & \text{if } x_0 > 0 \\ 0 & \text{if } x_0 = 0 \\ -\kappa & \text{if } x_0 < 0 \end{cases} $$
+          <p><strong>Aerospace Connection:</strong> Canonical equation of a <em>supercritical pitchfork bifurcation</em>, modeling wing panel post-buckling deflection and aircraft spin-trim states.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 2.17
+         ======================================================== -->
+    <article class="problem-card" id="p17">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 2.17</div>
+          <h2 class="problem-title">Direct Difference Method for Uniqueness</h2>
+        </div>
+        <span class="problem-meta-badge">Energy Function • Difference Equation • Direct Proof</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Show that $y_1(t) = t - 1$ is a solution of:
+          $$ \frac{dy}{dt} = -y + t, \quad y(0) = -1 $$
+          Now suppose that $y_2(t)$ is another solution. Write down a differential equation for $w(t) = y_1(t) - y_2(t)$. Show that $w(t) = 0$ for all $t \ge 0$, and deduce that $y_1(t)$ is the only solution.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Verify $y_1(t)$ by substitution. Construct $w(t) = y_1(t) - y_2(t)$, which satisfies $w(0) = y_1(0) - y_2(0) = -1 - (-1) = 0$. Use the difference equation $w' = -w$ to prove $w(t) \equiv 0$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: Inspection Verification of $y_1(t) = t - 1$:</strong><br>
+        $y_1(0) = 0 - 1 = -1$ (satisfies IC).<br>
+        $\frac{dy_1}{dt} = \frac{d}{dt}(t - 1) = 1$.<br>
+        RHS: $-y_1 + t = -(t - 1) + t = -t + 1 + t = 1$. LHS = RHS = 1. Valid!</p>
+
+        <p><strong>Step 2: Differential Equation for the Difference $w(t) \equiv y_1(t) - y_2(t)$:</strong><br>
+        Since both $y_1$ and $y_2$ satisfy the differential equation:
+        $$ \frac{dy_1}{dt} = -y_1 + t $$
+        $$ \frac{dy_2}{dt} = -y_2 + t $$
+        Subtracting the second equation from the first:
+        $$ \frac{dw}{dt} = \frac{dy_1}{dt} - \frac{dy_2}{dt} = (-y_1 + t) - (-y_2 + t) = -(y_1 - y_2) = -w(t) $$
+        $$ \mathbf{\frac{dw}{dt} + w(t) = 0} \tag{2.17.1} $$
+        The initial condition is:
+        $$ w(0) = y_1(0) - y_2(0) = -1 - (-1) = 0 $$
+
+        <p><strong>Step 3: Proving $w(t) \equiv 0$:</strong><br>
+        Equation (2.17.1) is solved using integrating factor $e^t$:
+        $$ \frac{d}{dt}[w(t) e^t] = 0 \implies w(t) e^t = C \implies w(t) = C e^{-t} $$
+        Using $w(0) = 0$:
+        $$ 0 = C e^0 \implies C = 0 \implies \mathbf{w(t) \equiv 0 \quad \forall t \ge 0} $$
+        Alternatively, via energy function $E(t) = \frac{1}{2}w(t)^2$:
+        $$ \frac{dE}{dt} = w \dot{w} = w(-w) = -w^2 = -2E \le 0 \implies 0 \le E(t) \le E(0) e^{-2t} = 0 \implies E(t) \equiv 0 $$
+        Since $w(t) = y_1(t) - y_2(t) \equiv 0$, we have:
+        $$ \mathbf{y_2(t) \equiv y_1(t) = t - 1} $$
+        proving that $y_1(t) = t - 1$ is the <strong>unique solution</strong> of the initial value problem.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Methodological Significance</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ w' + w = 0, \; w(0) = 0 \implies w(t) \equiv 0 \implies y(t) = t - 1 \text{ is the unique solution} $$
+          <p><strong>Lyapunov / Energy Method:</strong> Proves uniqueness by showing that perturbations in the solution difference contract exponentially ($\dot{E} = -2E$).</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ARTICLE BOTTOM NAVIGATION -->
+    <nav class="article-nav" aria-label="Topic Navigation">
+      <a href="index.html" class="nav-btn">
+        <span class="nav-btn-label">← Back to Overview</span>
+        <span class="nav-btn-title">Problems Hub</span>
+      </a>
+      <a href="../teoria/topic-2.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Review Foundations →</span>
+        <span class="nav-btn-title">Topic 2 Theory & Lecture Guide</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Chapter 2 Complete Problem Solutions • Grounded in ProblemsCh2.pdf</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER & PILL HIGHLIGHT JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      // Theme controller
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+
+      // Active pill highlight on scroll
+      const pills = document.querySelectorAll('.nav-pill');
+      const cards = document.querySelectorAll('.problem-card');
+
+      window.addEventListener('scroll', function () {
+        let currentCard = '';
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top <= 140 && rect.bottom >= 140) {
+            currentCard = '#' + card.getAttribute('id');
+          }
+        });
+
+        pills.forEach(pill => {
+          if (pill.getAttribute('href') === currentCard) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

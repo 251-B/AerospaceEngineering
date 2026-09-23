@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 2: First-Order ODEs and Qualitative Dynamics — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Inter, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(20, 30, 55, 0.90);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      --code-bg: #090d16;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.90);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --code-bg: #f1f5f9;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      right: 10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT
+       ======================================================== */
+    .article-container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-lead {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 860px;
+    }
+
+    .source-banner {
+      margin-top: 20px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Quick Jump Table of Contents */
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .toc-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-heading);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px 20px;
+      list-style: none;
+    }
+
+    .toc-grid a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color var(--transition), transform var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid a:hover {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    .toc-grid .toc-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ========================================================
+       CONTENT TYPOGRAPHY & SECTIONS
+       ======================================================== */
+    .theory-section {
+      margin-bottom: 64px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    h2.section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    h3.sub-title {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 32px 0 14px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 20px 24px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    .math-block {
+      overflow-x: auto;
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .note-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .note-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 24px 0;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.06);
+    }
+
+    .result-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #10b981;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .warning-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #f59e0b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .danger-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-left: 4px solid #ef4444;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .danger-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ef4444;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      padding: 14px 18px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+
+    table.data-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    /* Bottom Navigation Bar */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP STICKY NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📖</span>
+          <span>Theory Index</span>
+        </a>
+        <span class="brand-badge">Advanced Maths • Topic 2</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../problemas/topic-2-problems.html" class="back-link">
+          <span>✏️</span>
+          <span>Solved Problems (Ch. 2)</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       MAIN LECTURE COMPENDIUM
+       ============================================ -->
+  <main class="article-container">
+
+    <!-- HEADER / HERO -->
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Unit 02 • Lecture Study Guide</span>
+        <span class="course-tag">Department of Mathematics • UC3M Bachelor in Aerospace Engineering</span>
+      </div>
+      <h1 class="article-title">Topic 2: First-Order ODEs and Qualitative Dynamics</h1>
+      <p class="article-lead">
+        An exhaustive compendium of exact integration techniques (direct integration, separable equations, integrating factors, exact differentials, 
+        Bernoulli reductions) synthesized with the qualitative theory of dynamical systems (Picard-Lindelöf existence-uniqueness, trajectory 
+        non-crossing theorems, phase line dynamics, and pitchfork bifurcations).
+      </p>
+      <div class="source-banner">
+        <span>📖 Ground Truth Sources:</span>
+        <span>• BookODE's.pdf (Caps. 5-10, J.C. Robinson)</span>
+        <span>• ProblemsCh2.pdf (Department of Mathematics, UC3M)</span>
+      </div>
+    </header>
+
+    <!-- QUICK JUMP TABLE OF CONTENTS -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📑</span>
+        <span>Table of Contents & Lecture Outline</span>
+      </div>
+      <ul class="toc-grid">
+        <li>
+          <a href="#sec-1">
+            <span class="toc-num">01.</span>
+            <span>Direct Integration & Separable ODEs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-2">
+            <span class="toc-num">02.</span>
+            <span>Integrating Factors & Linear 1st-Order ODEs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-3">
+            <span class="toc-num">03.</span>
+            <span>Exact Differential Equations & Potential Functions</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-4">
+            <span class="toc-num">04.</span>
+            <span>Nonlinear Substitutions & Bernoulli Equations</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-5">
+            <span class="toc-num">05.</span>
+            <span>Picard-Lindelöf Theorem & Analytical Pathologies</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-6">
+            <span class="toc-num">06.</span>
+            <span>Qualitative Analysis of Autonomous ODEs & Phase Lines</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ========================================================
+         SECTION 1: DIRECT INTEGRATION & SEPARABLE ODES
+         ======================================================== -->
+    <section class="theory-section" id="sec-1">
+      <div class="section-header">
+        <div class="section-tag">Section 01</div>
+        <h2 class="section-title">1. Direct Integration & Separable Differential Equations</h2>
+      </div>
+
+      <p>
+        The most elementary ordinary differential equations are those that can be resolved directly by quadrature—that is, 
+        by finding an antiderivative.
+      </p>
+
+      <h3 class="sub-title">1.1 Direct Integration ($y' = f(x)$)</h3>
+      <p>
+        When the derivative of the unknown state $y(x)$ depends exclusively on the independent variable $x$:
+      </p>
+      $$ \frac{dy}{dx} = f(x) \tag{1.1} $$
+      <p>
+        By the <strong>Fundamental Theorem of Calculus (FTC)</strong>, if $f(x)$ is continuous on an open interval $I$, 
+        the general solution is the family of antiderivatives:
+      </p>
+      $$ y(x) = \int f(x) \, dx + C = F(x) + C $$
+      <p>
+        For an Initial Value Problem (IVP) with initial datum $y(x_0) = y_0$, we write the solution using dummy integration variables:
+      </p>
+      $$ \mathbf{y(x) = y_0 + \int_{x_0}^x f(s) \, ds} \tag{1.2} $$
+
+      <h3 class="sub-title">1.2 Separable Differential Equations ($y' = g(x) h(y)$)</h3>
+      <p>
+        A first-order ODE is <strong>separable</strong> if the velocity field factors multiplicatively:
+      </p>
+      $$ \frac{dy}{dx} = g(x) h(y) \tag{1.3} $$
+
+      <div class="result-box">
+        <div class="result-box-title">Rigorous Justification via the Chain Rule</div>
+        <p>
+          While physicists often manipulate differentials casually as $\frac{dy}{h(y)} = g(x) dx$, this operation is mathematically justified by the 
+          <strong>chain rule</strong> of differential calculus:
+        </p>
+        <ol>
+          <li><strong>Equilibrium roots:</strong> First determine all constant roots $y^*$ such that $h(y^*) = 0$. The constant function $y(x) \equiv y^*$ is an exact solution for all $x$.</li>
+          <li><strong>Non-equilibrium states ($h(y) \neq 0$):</strong> Divide equation (1.3) by $h(y(x))$:
+            $$ \frac{1}{h(y(x))} \frac{dy}{dx} = g(x) $$
+          </li>
+          <li>Let $H(y)$ be an antiderivative of $\frac{1}{h(y)}$, so that $H'(y) = \frac{1}{h(y)}$. By the chain rule:
+            $$ \frac{d}{dx} \left[ H(y(x)) \right] = H'(y(x)) \frac{dy}{dx} = \frac{1}{h(y(x))} \frac{dy}{dx} $$
+          </li>
+          <li>Integrating both sides with respect to $x$ across $[x_0, x]$:
+            $$ \int_{x_0}^x \frac{d}{ds}\left[ H(y(s)) \right] ds = \int_{x_0}^x g(s) \, ds \implies H(y(x)) - H(y(x_0)) = \int_{x_0}^x g(s) \, ds $$
+          </li>
+          <li>By change of variables ($u = y(s), du = y'(s) ds$):
+            $$ \mathbf{\int_{y_0}^{y(x)} \frac{1}{h(u)} \, du = \int_{x_0}^x g(s) \, ds} \tag{1.4} $$
+          </li>
+        </ol>
+      </div>
+
+      <h3 class="sub-title">1.3 Non-Elementary Gaussian Integrals & Finite-Time Blow-Up Thresholds</h3>
+      <p>
+        In aerospace diffusion processes and thermal boundary layer analysis, differential equations frequently lead to the non-elementary Gaussian integral:
+      </p>
+      $$ \int_0^\infty e^{-s^2} \, ds = \frac{\sqrt{\pi}}{2} \tag{1.5} $$
+
+      <div class="warning-box">
+        <div class="warning-box-title">Blow-Up Threshold Analysis (Problem 2.2)</div>
+        <p>
+          Consider the separable nonlinear problem modeling exothermic combustion:
+        </p>
+        $$ \frac{dy}{dt} = e^{-t^2} y^2, \quad y(0) = y_0 > 0 $$
+        <p>
+          Separating variables and integrating across $[0, t]$:
+        </p>
+        $$ \int_{y_0}^{y(t)} \frac{du}{u^2} = \int_0^t e^{-s^2} ds \implies -\frac{1}{y(t)} + \frac{1}{y_0} = \int_0^t e^{-s^2} ds $$
+        $$ \mathbf{y(t) = \frac{y_0}{1 - y_0 \int_0^t e^{-s^2} \, ds}} \tag{1.6} $$
+        <p>
+          Since $\int_0^t e^{-s^2} ds$ increases monotonically toward the upper bound $\frac{\sqrt{\pi}}{2}$ as $t \to \infty$:
+        </p>
+        <ul>
+          <li><strong>Subcritical Regime ($y_0 < \frac{2}{\sqrt{\pi}}$):</strong> The denominator never vanishes. The solution exists globally $\forall t \ge 0$, with asymptotic ceiling $y(\infty) = \frac{y_0}{1 - y_0 \sqrt{\pi}/2} < \infty$.</li>
+          <li><strong>Critical Threshold ($y_0 = \frac{2}{\sqrt{\pi}}$):</strong> The denominator approaches $0$ as $t \to \infty$, causing blow-up at infinite time ($y(t) \to +\infty$ as $t \to \infty$).</li>
+          <li><strong>Supercritical Regime ($y_0 > \frac{2}{\sqrt{\pi}}$):</strong> The denominator hits zero at a <strong>finite blow-up time $t^*$</strong>:
+            $$ \int_0^{t^*} e^{-s^2} ds = \frac{1}{y_0} < \frac{\sqrt{\pi}}{2} \implies \lim_{t \to t^{*-}} y(t) = +\infty $$
+            Thermal runaway occurs in finite time $t^*$.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: INTEGRATING FACTOR METHOD
+         ======================================================== -->
+    <section class="theory-section" id="sec-2">
+      <div class="section-header">
+        <div class="section-tag">Section 02</div>
+        <h2 class="section-title">2. First-Order Linear Equations & The Integrating Factor Method</h2>
+      </div>
+
+      <p>
+        A first-order linear ordinary differential equation can always be normalized into the standard canonical form:
+      </p>
+      $$ \frac{dx}{dt} + p(t) x(t) = q(t) \tag{2.1} $$
+      <p>
+        where $p(t)$ and $q(t)$ are continuous functions on an interval $I \subseteq \mathbb{R}$.
+      </p>
+
+      <h3 class="sub-title">2.1 Formal Derivation of the Integrating Factor $\mu(t)$</h3>
+      <p>
+        We seek a strictly positive multiplier $\mu(t) > 0$ such that multiplying equation (2.1) transforms the left-hand side into the exact derivative of the product $\mu(t) x(t)$:
+      </p>
+      $$ \mu(t) \frac{dx}{dt} + \mu(t) p(t) x(t) = \mu(t) q(t) \tag{2.2} $$
+      <p>
+        By the product rule:
+      </p>
+      $$ \frac{d}{dt}\left[ \mu(t) x(t) \right] = \mu(t) \frac{dx}{dt} + \frac{d\mu}{dt} x(t) \tag{2.3} $$
+      <p>
+        Equating (2.2) and (2.3) requires:
+      </p>
+      $$ \frac{d\mu}{dt} x(t) = \mu(t) p(t) x(t) \implies \frac{d\mu}{dt} = p(t) \mu(t) $$
+      <p>
+        Separating variables for $\mu > 0$:
+      </p>
+      $$ \int \frac{d\mu}{\mu} = \int p(t) \, dt \implies \ln \mu(t) = \int p(t) \, dt \implies \mathbf{\mu(t) = \exp\left( \int p(t) \, dt \right)} \tag{2.4} $$
+
+      <h3 class="sub-title">2.2 Closed-Form General Solution</h3>
+      <p>
+        Substituting $\mu(t)$ into (2.2):
+      </p>
+      $$ \frac{d}{dt}\left[ \mu(t) x(t) \right] = \mu(t) q(t) $$
+      <p>
+        Integrating with respect to $t$:
+      </p>
+      $$ \mu(t) x(t) = \int \mu(t) q(t) \, dt + C \implies \mathbf{x(t) = \frac{1}{\mu(t)} \left[ \int \mu(t) q(t) \, dt + C \right]} \tag{2.5} $$
+
+      <div class="result-box">
+        <div class="result-box-title">Definite IVP Representation: Transient vs. Forced Response</div>
+        <p>
+          With initial datum $x(t_0) = x_0$ and $\mu(t) = \exp\left(\int_{t_0}^t p(s) ds\right)$ (so $\mu(t_0) = 1$):
+        </p>
+        $$ \mathbf{x(t) = \underbrace{x_0 e^{-\int_{t_0}^t p(s) ds}}_{x_h(t) \text{ (Transient)}} + \underbrace{\int_{t_0}^t e^{-\int_s^t p(u) du} q(s) \, ds}_{x_p(t) \text{ (Forced Steady State)}}} \tag{2.6} $$
+      </div>
+
+      <h3 class="sub-title">2.3 Asymptotic Relaxation: Proof of $x(t) \to \frac{b}{a}$ (Problem 2.3)</h3>
+      <p>
+        Consider the dissipative dynamical model:
+      </p>
+      $$ \frac{dx}{dt} + \left( a + \frac{1}{t} \right) x = b \quad (a > 0, \; b \in \mathbb{R}) $$
+      <p>
+        1. Integrating factor:
+        $$ \int \left(a + \frac{1}{t}\right) dt = at + \ln t \implies \mu(t) = e^{at + \ln t} = t e^{at} $$
+      </p>
+      <p>
+        2. General solution via integration by parts ($\int t e^{at} dt = \frac{t e^{at}}{a} - \frac{e^{at}}{a^2}$):
+        $$ x(t) = \frac{1}{t e^{at}} \left[ b \int t e^{at} dt + C \right] = \frac{1}{t e^{at}} \left[ b \left( \frac{t e^{at}}{a} - \frac{e^{at}}{a^2} \right) + C \right] $$
+        $$ x(t) = \frac{b}{a} - \frac{b}{a^2 t} + \frac{C}{t} e^{-at} \tag{2.7} $$
+      </p>
+      <p>
+        3. Taking the long-time asymptotic limit as $t \to \infty$:
+        $$ \lim_{t \to \infty} x(t) = \frac{b}{a} - 0 + 0 = \mathbf{\frac{b}{a}} $$
+        The system undergoes exponential dissipation of its initial condition, asymptotically reaching the steady equilibrium $\frac{b}{a}$.
+      </p>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: EXACT EQUATIONS & INTEGRATING FACTORS
+         ======================================================== -->
+    <section class="theory-section" id="sec-3">
+      <div class="section-header">
+        <div class="section-tag">Section 03</div>
+        <h2 class="section-title">3. Exact Differential Equations & Special Integrating Factors</h2>
+      </div>
+
+      <p>
+        Consider a first-order differential equation expressed in differential form:
+      </p>
+      $$ M(x, y) \, dx + N(x, y) \, dy = 0 \tag{3.1} $$
+
+      <h3 class="sub-title">3.1 Definition and the Euler-Cauchy-Schwarz Criterion</h3>
+      <p>
+        Equation (3.1) is <strong>exact</strong> on a simply connected domain $D \subseteq \mathbb{R}^2$ if there exists a $C^2$ scalar 
+        potential function $F(x, y)$ such that its total differential satisfies $dF = M dx + N dy$. In that case, the ODE is $dF = 0$, with solution:
+      </p>
+      $$ \mathbf{F(x, y) = C} \tag{3.2} $$
+
+      <div class="result-box">
+        <div class="result-box-title">Theorem: Necessary and Sufficient Condition for Exactness</div>
+        <p>
+          Let $M, N, \frac{\partial M}{\partial y}, \frac{\partial N}{\partial x}$ be continuous on simply connected $D$. The form (3.1) is exact <strong>if and only if</strong>:
+        </p>
+        $$ \mathbf{\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}} \quad \forall (x, y) \in D \tag{3.3} $$
+        <p>
+          <em>Proof of Necessity:</em> If $F$ exists, $M = \frac{\partial F}{\partial x}$ and $N = \frac{\partial F}{\partial y}$. 
+          By Schwarz's theorem on the equality of mixed second partial derivatives of $C^2$ functions:
+          $$ \frac{\partial M}{\partial y} = \frac{\partial^2 F}{\partial y \partial x} = \frac{\partial^2 F}{\partial x \partial y} = \frac{\partial N}{\partial x} \quad \blacksquare $$
+        </p>
+      </div>
+
+      <h3 class="sub-title">3.2 Systematic Reconstruction of the Potential Function $F(x, y)$</h3>
+      <ol>
+        <li>Integrate $M(x, y)$ with respect to $x$ holding $y$ constant:
+          $$ F(x, y) = \int M(x, y) \, dx + h(y) \tag{3.4} $$
+        </li>
+        <li>Differentiate (3.4) with respect to $y$ and equate to $N(x, y)$:
+          $$ \frac{\partial F}{\partial y} = \frac{\partial}{\partial y} \left( \int M(x, y) \, dx \right) + h'(y) = N(x, y) $$
+        </li>
+        <li>Isolate $h'(y)$:
+          $$ h'(y) = N(x, y) - \frac{\partial}{\partial y} \left( \int M(x, y) \, dx \right) \tag{3.5} $$
+          Due to condition (3.3), the right-hand side is guaranteed to be <strong>completely independent of $x$</strong>.
+        </li>
+        <li>Integrate $h'(y)$ to find $h(y)$, yielding the implicit solution $F(x, y) = C$.</li>
+      </ol>
+
+      <h3 class="sub-title">3.3 Special Integrating Factors for Non-Exact Equations</h3>
+      <p>
+        If $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, we seek a multiplier $\mu(x, y)$ such that $\mu M dx + \mu N dy = 0$ is exact:
+      </p>
+      <ul>
+        <li>
+          <strong>Factor depending solely on $x$ ($\mu = \mu(x)$):</strong>
+          $$ \phi(x) \equiv \frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N} \implies \mathbf{\mu(x) = \exp\left( \int \phi(x) \, dx \right)} \tag{3.6} $$
+        </li>
+        <li>
+          <strong>Factor depending solely on $y$ ($\mu = \mu(y)$):</strong>
+          $$ \psi(y) \equiv \frac{\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}}{M} \implies \mathbf{\mu(y) = \exp\left( \int \psi(y) \, dy \right)} \tag{3.7} $$
+        </li>
+      </ul>
+
+      <div class="note-box">
+        <div class="note-box-title">Universal Exactness of Separated Equations (Problem 2.6)</div>
+        <p>
+          Every separable equation $f(x) + g(y) \frac{dy}{dx} = 0 \iff f(x) dx + g(y) dy = 0$ is <strong>unconditionally exact</strong>:
+          $$ M(x) = f(x) \implies \frac{\partial M}{\partial y} = 0, \quad N(y) = g(y) \implies \frac{\partial N}{\partial x} = 0 $$
+          Since $0 = 0$, exactness holds universally, with potential function $F(x, y) = \int f(x) dx + \int g(y) dy = C$.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 4: NONLINEAR SUBSTITUTIONS & BERNOULLI
+         ======================================================== -->
+    <section class="theory-section" id="sec-4">
+      <div class="section-header">
+        <div class="section-tag">Section 04</div>
+        <h2 class="section-title">4. Nonlinear Substitutions & Bernoulli Equations</h2>
+      </div>
+
+      <p>
+        A powerful strategy for resolving nonlinear first-order ODEs is transforming the dependent variable to linearize the equation.
+      </p>
+
+      <h3 class="sub-title">4.1 The Canonical Bernoulli Equation</h3>
+      <p>
+        Introduced by Jacob Bernoulli in 1695, the <strong>Bernoulli differential equation</strong> is:
+      </p>
+      $$ \frac{dy}{dx} - a(x) y = b(x) y^\alpha \quad (\alpha \in \mathbb{R}) \tag{4.1} $$
+
+      <div class="result-box">
+        <div class="result-box-title">The Linearizing Transformation $z = y^{1-\alpha}$</div>
+        <p>
+          For $\alpha \neq 0, 1$, equation (4.1) is nonlinear. We linearize it through the following derivation:
+        </p>
+        <ol>
+          <li>Divide (4.1) by $y^\alpha$ (for $y \neq 0$):
+            $$ y^{-\alpha} \frac{dy}{dx} - a(x) y^{1-\alpha} = b(x) \tag{4.2} $$
+          </li>
+          <li>Define the new dependent variable:
+            $$ z(x) \equiv y(x)^{1-\alpha} \tag{4.3} $$
+          </li>
+          <li>Differentiating by the chain rule:
+            $$ \frac{dz}{dx} = (1 - \alpha) y^{-\alpha} \frac{dy}{dx} \implies y^{-\alpha} \frac{dy}{dx} = \frac{1}{1 - \alpha} \frac{dz}{dx} $$
+          </li>
+          <li>Substitute into (4.2) and multiply by $(1 - \alpha)$:
+            $$ \mathbf{\frac{dz}{dx} - (1 - \alpha) a(x) z(x) = (1 - \alpha) b(x)} \tag{4.4} $$
+          </li>
+        </ol>
+        <p>
+          Equation (4.4) is a standard <strong>linear first-order ODE</strong> for $z(x)$, solved via integrating factor. The original solution is recovered via $y(x) = [z(x)]^{1/(1-\alpha)}$.
+        </p>
+      </div>
+
+      <h3 class="sub-title">4.2 Scale-Invariant Homogeneous Equations ($u = y/x$)</h3>
+      <p>
+        An ODE of the form $\frac{dy}{dx} = F\left(\frac{y}{x}\right)$ is invariant under uniform scale transformations $(x, y) \to (\lambda x, \lambda y)$.
+      </p>
+      <p>
+        Setting $u(x) \equiv \frac{y(x)}{x} \implies y(x) = x u(x)$, differentiation yields $\frac{dy}{dx} = u + x \frac{du}{dx}$. Substituting:
+      </p>
+      $$ u + x \frac{du}{dx} = F(u) \implies \mathbf{\frac{du}{F(u) - u} = \frac{dx}{x}} \tag{4.5} $$
+      <p>
+        Equation (4.5) is always separable.
+      </p>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5: WELL-POSEDNESS & PICARD PATHOLOGIES
+         ======================================================== -->
+    <section class="theory-section" id="sec-5">
+      <div class="section-header">
+        <div class="section-tag">Section 05</div>
+        <h2 class="section-title">5. Well-Posedness, Picard-Lindelöf Theorem & Analytical Pathologies</h2>
+      </div>
+
+      <p>
+        Consider the initial value problem:
+      </p>
+      $$ \begin{cases} \dfrac{dy}{dt} = f(t, y) \\ y(t_0) = y_0 \end{cases} \tag{5.1} $$
+
+      <h3 class="sub-title">5.1 The Picard-Lindelöf Theorem & Lipschitz Continuity</h3>
+      <p>
+        A function $f(t, y)$ is <strong>Lipschitz continuous</strong> with respect to $y$ on domain $D$ if $\exists L < \infty$ such that:
+      </p>
+      $$ |f(t, y_1) - f(t, y_2)| \le L |y_1 - y_2| \quad \forall (t, y_1), (t, y_2) \in D \tag{5.2} $$
+      <p>
+        A continuous bounded partial derivative $\left|\frac{\partial f}{\partial y}\right| \le L$ is a sufficient condition for (5.2). 
+        Under continuity and Lipschitz conditions on a rectangle $R$, Picard-Lindelöf guarantees the <strong>existence of a unique solution</strong> on $I = [t_0 - h, t_0 + h]$.
+      </p>
+
+      <h3 class="sub-title">5.2 Analytical Dissection of Pathologies</h3>
+
+      <div class="danger-box">
+        <div class="danger-box-title">Pathology 1: Non-Lipschitz Branching Non-Uniqueness (Problem 2.14)</div>
+        <p>
+          Consider $y' = 3 y^{2/3}$ with $y(0) = 0$:
+        </p>
+        <ul>
+          <li><strong>Derivative:</strong> $\frac{\partial f}{\partial y} = 2 y^{-1/3} \implies \lim_{y \to 0} \frac{\partial f}{\partial y} = \infty$. The Lipschitz condition fails at the origin.</li>
+          <li><strong>Dual Solutions:</strong>
+            (1) Trivial equilibrium: $y_1(t) \equiv 0$;<br>
+            (2) Separation: $\int y^{-2/3} dy = \int 3 dt \implies 3 y^{1/3} = 3t \implies y_2(t) = t^3$.
+          </li>
+          <li>Both satisfy $y(0)=0$ and $y'(0)=0$. Determinism is breached: solutions can branch infinitely at any delay $c \ge 0$.</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <div class="warning-box-title">Pathology 2: Domain Singularity vs. Picard-Lindelöf (Problem 2.15)</div>
+        <p>
+          Consider $y' = \frac{2y+1}{t}$ with $y(0) = -\frac{1}{2}$:
+        </p>
+        <p>
+          General solution for $t \neq 0$: $y(t) = -\frac{1}{2} + C t^2$. For <em>any</em> value of $C \in \mathbb{R}$, $y(0) = -\frac{1}{2}$. 
+          Does this contradict Picard-Lindelöf?
+        </p>
+        <p>
+          <strong>No!</strong> The vector field $f(t, y) = \frac{2y+1}{t}$ has a division by zero at $t = 0$. Because $f$ is not even defined 
+          (let alone continuous) at the initial point, Picard's theorem does not apply!
+        </p>
+      </div>
+
+      <h3 class="sub-title">5.3 Independent Uniqueness Proof via the Direct Difference Method</h3>
+      <div class="result-box">
+        <div class="result-box-title">Energy Difference Method (Problem 2.17)</div>
+        <p>
+          To prove that an IVP has a unique solution without invoking Picard-Lindelöf:
+        </p>
+        <ol>
+          <li>Suppose $y_1(t)$ and $y_2(t)$ are two solutions to $y' = f(t, y)$ with $y_1(t_0) = y_2(t_0) = y_0$.</li>
+          <li>Define the difference function $w(t) \equiv y_1(t) - y_2(t)$, satisfying $w(t_0) = 0$.</li>
+          <li>Construct the Lyapunov energy function $E(t) \equiv [w(t)]^2 \ge 0$.</li>
+          <li>Differentiate with respect to $t$: $\dot{E}(t) = 2 w(t) \dot{w}(t) = 2 w(t) [f(t, y_1) - f(t, y_2)]$.</li>
+          <li>If $\dot{E}(t) \le 0$ for all $t \ge t_0$, then $0 \le E(t) \le E(t_0) = 0 \implies E(t) \equiv 0 \implies w(t) \equiv 0$.</li>
+          <li>Therefore $y_1(t) \equiv y_2(t)$, proving unconditional uniqueness.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 6: QUALITATIVE ANALYSIS & PHASE LINES
+         ======================================================== -->
+    <section class="theory-section" id="sec-6">
+      <div class="section-header">
+        <div class="section-tag">Section 06</div>
+        <h2 class="section-title">6. Qualitative Analysis of Autonomous ODEs & Phase Lines</h2>
+      </div>
+
+      <p>
+        For an autonomous system $\frac{dx}{dt} = f(x)$, global qualitative trajectories can be characterized completely without analytical integration.
+      </p>
+
+      <h3 class="sub-title">6.1 Linear Stability Criterion for 1D Equilibria</h3>
+      <p>
+        Stationary states satisfy $f(x^*) = 0$. Expanding around $x^*$ for small perturbations $\xi(t) = x(t) - x^*$:
+      </p>
+      $$ \dot{\xi} \approx f'(x^*) \xi \implies \xi(t) = \xi_0 e^{f'(x^*) t} \tag{6.1} $$
+      <ul>
+        <li><strong>$f'(x^*) < 0$:</strong> Asymptotically Stable Attractor (Sink). Trajectories converge to $x^*$.</li>
+        <li><strong>$f'(x^*) > 0$:</strong> Unstable Repellor (Source). Trajectories diverge away from $x^*$.</li>
+        <li><strong>$f'(x^*) = 0$:</strong> Non-hyperbolic / Semistable. Higher-order Taylor derivatives dictate flow.</li>
+      </ul>
+
+      <h3 class="sub-title">6.2 The No-Crossing Theorem and Invariant Confinement Corridors</h3>
+      <div class="result-box">
+        <div class="result-box-title">The No-Crossing Theorem (Problem 2.12)</div>
+        <p>
+          By Picard-Lindelöf uniqueness, two distinct solutions $y_1(t)$ and $y_2(t)$ of a smooth ODE $y' = f(t, y)$ 
+          <strong>can never intersect or touch in the $(t, y)$ plane</strong>:
+        </p>
+        $$ y_1(t_0) < y_2(t_0) \implies y_1(t) < y_2(t) \quad \forall t \text{ in their common domain} $$
+        <p>
+          <em>Consequence:</em> Any known particular solution acts as an impenetrable barrier. If $y_1(t) = -t-1$ and $y_2(t) = t^2+1$ 
+          are solutions, a third solution starting at $y(0) = 0$ is forever trapped inside the invariant corridor:
+        </p>
+        $$ -t - 1 < y(t) < t^2 + 1 \quad \forall t \in \mathbb{R} $$
+      </div>
+
+      <h3 class="sub-title">6.3 Supercritical Pitchfork Bifurcations: $\dot{x} = x(\kappa^2 - x^2)$</h3>
+      <p>
+        In aerospace structural stability and roll-pitch coupling, qualitative dynamics change as parameters pass critical thresholds.
+      </p>
+      <p>
+        Consider $\dot{x} = x(\kappa^2 - x^2)$ with $\kappa > 0$ (Problem 2.16):
+      </p>
+      <ul>
+        <li><strong>Equilibria:</strong> $f(x) = 0 \implies x_1^* = -\kappa, \quad x_2^* = 0, \quad x_3^* = +\kappa$.</li>
+        <li><strong>Stability Derivative:</strong> $f'(x) = \kappa^2 - 3x^2$.
+          <ul>
+            <li>At $x_2^* = 0$: $f'(0) = \kappa^2 > 0 \implies$ <strong>Unstable Repellor</strong>.</li>
+            <li>At $x_{1,3}^* = \pm\kappa$: $f'(\pm\kappa) = \kappa^2 - 3\kappa^2 = -2\kappa^2 < 0 \implies$ <strong>Asymptotically Stable Attractors</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Phase Flow:</strong> The state space $\mathbb{R}$ splits into four invariant corridors:
+          $(-\infty, -\kappa) \to -\kappa$, $(-\kappa, 0) \to -\kappa$, $(0, \kappa) \to +\kappa$, and $(\kappa, \infty) \to +\kappa$. 
+          This is the canonical model of a <strong>supercritical pitchfork bifurcation</strong>.
+        </li>
+      </ul>
+    </section>
+
+    <!-- ARTICLE BOTTOM NAVIGATION -->
+    <nav class="article-nav" aria-label="Topic Navigation">
+      <a href="topic-1.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Topic</span>
+        <span class="nav-btn-title">Topic 1: Introduction, Modeling and Classification</span>
+      </a>
+      <a href="../problemas/topic-2-problems.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Next Step →</span>
+        <span class="nav-btn-title">Chapter 2 Solved Problems (17 Exercises)</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Topic 2 Study Guide • Prepared for Academic Excellence</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
