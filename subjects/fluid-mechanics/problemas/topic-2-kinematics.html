@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Problemas de Cinemática (K1–K10) — Fluid Mechanics</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 
   <!-- KaTeX -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
@@ -18,8 +18,10 @@
 
   <style>
     :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
       --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-serif: 'Newsreader', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
 
       --accent: #06b6d4;
@@ -68,10 +70,62 @@
     body {
       background-color: var(--bg-base);
       color: var(--text-body);
-      font-family: var(--font-sans);
-      font-size: 15.5px;
-      line-height: 1.72;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .problem-title, .subpart-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .badge, .brand-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
     /* Top Sticky Navigation */
@@ -473,6 +527,7 @@
         <span style="font-size: 13px; color: var(--text-muted);">Hoja Oficial de Cinemática</span>
       </div>
       <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language selector"><button class="lang-btn" data-lang="es">ES</button><span class="lang-divider">/</span><button class="lang-btn active" data-lang="en">EN</button></div>
         <a href="index.html" class="back-link">← Índice Problemas</a>
         <a href="../../../index.html" class="back-link">Portal Principal</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"></button>
@@ -1272,6 +1327,11 @@
       </div>
     </article>
 
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
   </main>
 
   <!-- FOOTER -->
@@ -1296,6 +1356,15 @@
         localStorage.setItem('ae_theme', next);
       });
     })();
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
   </script>
 </body>
 </html>

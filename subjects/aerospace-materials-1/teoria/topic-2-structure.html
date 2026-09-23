@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Topic 2: Structure of Materials I & II — Complete Academic Portal</title>
   
-  <!-- Premium Editorial & Technical Fonts: Newsreader (Editorial Serif), Inter (Clean Sans), JetBrains Mono (Technical) -->
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
   
   <!-- KaTeX for pristine mathematical typesetting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
@@ -17,6 +17,101 @@
 
   <style>
     :root {
+
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --academic-navy-light: rgba(30, 58, 138, 0.3);
+      --academic-navy-border: rgba(59, 130, 246, 0.3);
+      --forest-teal-light: rgba(15, 118, 110, 0.25);
+      --forest-teal-border: rgba(20, 184, 166, 0.3);
+      --warm-amber-light: rgba(245, 158, 11, 0.15);
+      --warm-amber-border: rgba(245, 158, 11, 0.3);
+      --wine-red-light: rgba(153, 27, 27, 0.25);
+      --wine-red-border: rgba(239, 68, 68, 0.3);
+    }
+
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    h1, h2, h3, .brand-title, .section-title, .page-header h1 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    body {
+      font-family: var(--font-body) !important;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    code, pre, .tag, .brand-badge {
+      font-family: var(--font-mono) !important;
+    }
+
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background 0.25s ease;
+      display: inline-block;
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-heading); transition: transform 0.25s ease;
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color 0.2s ease;
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
       --bg-base: #F8FAFC;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F1F5F9;
@@ -1054,8 +1149,19 @@
         <div class="brand-title">Topic 2: Structure of Materials I & II</div>
       </div>
       <div class="header-actions" style="display:flex; align-items:center; gap:8px;">
-        <a href="../../../index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle, #f1f5f9); border:1px solid var(--border-subtle, #e2e8f0); border-radius:6px; transition:all 0.15s ease;">🏠 Portal</a>
-        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle, #f1f5f9); border:1px solid var(--border-subtle, #e2e8f0); border-radius:6px; transition:all 0.15s ease;">&larr; Temas</a>
+        <a href="../../../index.html" class="back-link" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">← Temas</a>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
       </div>
     </div>
   </header>
@@ -1067,37 +1173,37 @@
       <div class="sidebar-heading">Session 3: Structure I</div>
       <ul class="nav-list">
         <li class="nav-item active" onclick="showPage('p-cryst-systems')">
-          <span class="icon">🏛️</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§1</span>
           <span>1. Crystalline systems</span>
           <span class="tag">S3</span>
         </li>
         <li class="nav-item" onclick="showPage('p-atomic-packing')">
-          <span class="icon">📦</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§2</span>
           <span>2. Atomic packing</span>
           <span class="tag">S3</span>
         </li>
         <li class="nav-item" onclick="showPage('p-metallic-struct')">
-          <span class="icon">⚙️</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§3</span>
           <span>3. Main metallic structures</span>
           <span class="tag">S3</span>
         </li>
         <li class="nav-item" onclick="showPage('p-interstitial')">
-          <span class="icon">🔘</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§4</span>
           <span>4. Interstitial sites</span>
           <span class="tag">S3</span>
         </li>
         <li class="nav-item" onclick="showPage('p-atomic-pos')">
-          <span class="icon">📍</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§5</span>
           <span>5. Atomic positions</span>
           <span class="tag">S3</span>
         </li>
         <li class="nav-item" onclick="showPage('p-directions')">
-          <span class="icon">↗️</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§6</span>
           <span>6. Directions in the cells</span>
           <span class="tag">S3</span>
         </li>
         <li class="nav-item" onclick="showPage('p-planes')">
-          <span class="icon">📐</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§7</span>
           <span>7. Planes in the cells</span>
           <span class="tag">S3</span>
         </li>
@@ -1106,17 +1212,17 @@
       <div class="sidebar-heading">Session 4: Structure II</div>
       <ul class="nav-list">
         <li class="nav-item" onclick="showPage('p-density')">
-          <span class="icon">⚖️</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§8</span>
           <span>8. Atomic, linear, planar density</span>
           <span class="tag">S4</span>
         </li>
         <li class="nav-item" onclick="showPage('p-point-defects')">
-          <span class="icon">🔹</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§9</span>
           <span>9. Crystalline defects: point</span>
           <span class="tag">S4</span>
         </li>
         <li class="nav-item" onclick="showPage('p-solid-solutions')">
-          <span class="icon">🧪</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">LAB</span>
           <span>10. Solid solutions</span>
           <span class="tag">S4</span>
         </li>
@@ -1126,12 +1232,12 @@
           <span class="tag">S4</span>
         </li>
         <li class="nav-item" onclick="showPage('p-planar-defects')">
-          <span class="icon">🔲</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§10</span>
           <span>12. Crystalline defects: planar</span>
           <span class="tag">S4</span>
         </li>
         <li class="nav-item" onclick="showPage('p-polymorphism')">
-          <span class="icon">🔄</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§11</span>
           <span>13. Polymorphism & Allotropy</span>
           <span class="tag">S4</span>
         </li>
@@ -1140,7 +1246,7 @@
             <div class="sidebar-heading">Master Reference</div>
       <ul class="nav-list">
         <li class="nav-item" onclick="showPage('p-cheatsheet')">
-          <span class="icon">&#128220;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">REF</span>
           <span>Formula Cheatsheet</span>
           <span class="tag">Exam Ref</span>
         </li>
@@ -1149,12 +1255,12 @@
       <div class="sidebar-heading">Solved Problem Sets</div>
       <ul class="nav-list">
         <li class="nav-item" onclick="showPage('p-problems-cryst')">
-          <span class="icon">📝</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§12</span>
           <span>Problems: Cryst. Structures (14)</span>
           <span class="tag">Sheet 1</span>
         </li>
         <li class="nav-item" onclick="showPage('p-problems-defects')">
-          <span class="icon">🔬</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§13</span>
           <span>Problems: Crystal Defects (12)</span>
           <span class="tag">Sheet 2</span>
         </li>
@@ -1163,17 +1269,17 @@
       <div class="sidebar-heading">Mastery & Drills</div>
       <ul class="nav-list">
         <li class="nav-item" onclick="showPage('p-flashcards')">
-          <span class="icon">🗂️</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">FC</span>
           <span>Mastery Flashcards</span>
           <span class="tag">Interactive</span>
         </li>
         <li class="nav-item" onclick="showPage('p-quiz')">
-          <span class="icon">⚡</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§2</span>
           <span>Speed Drill / Exam Quiz</span>
           <span class="tag">Test</span>
         </li>
         <li class="nav-item" onclick="showPage('p-visualizer')">
-          <span class="icon">📊</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§6</span>
           <span>Interactive Unit Cell Simulator</span>
           <span class="tag">Lab</span>
         </li>
@@ -1207,7 +1313,7 @@
           </div>
 
           <div class="callout callout-blue">
-            <div class="callout-title">✈️ Classic Engineering Thought Experiment: Choosing an Aircraft Wing Material</div>
+            <div class="callout-title">️ Classic Engineering Thought Experiment: Choosing an Aircraft Wing Material</div>
             <p style="margin-bottom: 8px;">Consider what happens if we attempt to manufacture an aircraft wing from various material families:</p>
             <ul class="academic-list" style="margin-bottom: 0;">
               <li><strong>Polymer (e.g. Vulcanized Rubber):</strong> <em>Too flexible</em>. Under aerodynamic lift, elastic deformation is excessive; the airfoil geometry cannot be maintained, causing immediate loss of control.</li>
@@ -1236,7 +1342,7 @@
 
           <div class="grid-2col">
             <div style="background: var(--bg-subtle); padding: 18px; border-radius: 6px; border: 1px solid var(--border-subtle);">
-              <h3 class="sub-heading" style="margin-top: 0; color: var(--academic-navy);">💎 Crystalline Solids</h3>
+              <h3 class="sub-heading" style="margin-top: 0; color: var(--academic-navy);"> Crystalline Solids</h3>
               <ul class="academic-list" style="margin-bottom: 0; font-size: 13.5px;">
                 <li><strong>Periodic long-range order:</strong> Atoms arrange in a regular, repeating three-dimensional pattern spanning billions of atomic distances.</li>
                 <li><strong>Thermodynamic driver:</strong> Atoms naturally tend to assume positions of <strong>minimum potential energy</strong> ($E_{\text{min}}$).</li>
@@ -1247,7 +1353,7 @@
             </div>
 
             <div style="background: var(--bg-subtle); padding: 18px; border-radius: 6px; border: 1px solid var(--border-subtle);">
-              <h3 class="sub-heading" style="margin-top: 0; color: var(--warm-amber);">🏺 Amorphous (Non-Crystalline) Solids</h3>
+              <h3 class="sub-heading" style="margin-top: 0; color: var(--warm-amber);"> Amorphous (Non-Crystalline) Solids</h3>
               <ul class="academic-list" style="margin-bottom: 0; font-size: 13.5px;">
                 <li><strong>Absence of long-range order:</strong> Lacks long-range spatial periodicity or crystal symmetry; exhibits only <em>short-range order</em> (nearest-neighbor coordination).</li>
                 <li><strong>Kinetic constraint:</strong> Solids remain amorphous only if they are prevented from crystallizing (e.g. extremely rapid cooling rates "freezing" the disordered liquid structure).</li>
@@ -1337,7 +1443,7 @@
           </p>
 
           <div class="callout callout-teal">
-            <div class="callout-title">💎 Haüy's Two Foundational Discoveries</div>
+            <div class="callout-title"> Haüy's Two Foundational Discoveries</div>
             <ol class="academic-list" style="margin-bottom: 0;">
               <li><strong>Constancy of Cleavage Angles:</strong> Regardless of how violently the calcite specimen was shattered or how infinitesimal the resulting shards became, every fragment consistently cleaved into <em>perfect rhombohedra</em> with identical interfacial angles.</li>
               <li><strong>Void-Free Space Filling:</strong> In the intact crystal, no microscopic voids existed between these building blocks; when packed together, these constituent polyhedra fill 3-dimensional Euclidean space continuously and completely without gaps.</li>
@@ -1571,7 +1677,7 @@
           </div>
 
           <div class="callout callout-amber">
-            <div class="callout-title">📐 Why 14 and Not $7 \times 4 = 28$ Lattices?</div>
+            <div class="callout-title">Why 14 and Not $7 \times 4 = 28$ Lattices?</div>
             <p style="margin-bottom: 6px;">
               If every centring type were mathematically distinct in every system, there would be $7 \times 4 = 28$ lattices. However, only <strong>14 combinations</strong> preserve distinct crystallographic symmetry and cannot be reduced to a simpler, smaller unit cell:
             </p>
@@ -1596,13 +1702,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td><strong>Cubic</strong></td><td>✅ Simple Cubic (SC)</td><td>✅ Body-Centered Cubic (BCC)</td><td>✅ Face-Centered Cubic (FCC)</td><td>❌ (Destroys 3-fold symmetry)</td><td><strong>3</strong></td></tr>
-                <tr><td><strong>Tetragonal</strong></td><td>✅ Simple Tetragonal</td><td>✅ Body-Centered Tetragonal</td><td>❌ (Reduces to $BCT$)</td><td>❌ (Reduces to $P$)</td><td><strong>2</strong></td></tr>
-                <tr><td><strong>Orthorhombic</strong></td><td>✅ Simple Orthorhombic</td><td>✅ Body-Centered Orthorhombic</td><td>✅ Face-Centered Orthorhombic</td><td>✅ Base-Centered Orthorhombic</td><td><strong>4</strong></td></tr>
-                <tr><td><strong>Rhombohedral</strong></td><td>✅ Rhombohedral</td><td>❌ (Reduces to $P$)</td><td>❌ (Reduces to $P$)</td><td>❌ (Reduces to $P$)</td><td><strong>1</strong></td></tr>
-                <tr><td><strong>Hexagonal</strong></td><td>✅ Hexagonal</td><td>❌ (Violates 6-fold)</td><td>❌ (Violates 6-fold)</td><td>❌ (Reduces to $P$)</td><td><strong>1</strong></td></tr>
-                <tr><td><strong>Monoclinic</strong></td><td>✅ Simple Monoclinic</td><td>❌ (Reduces to $C$)</td><td>❌ (Reduces to $C$)</td><td>✅ Base-Centered Monoclinic</td><td><strong>2</strong></td></tr>
-                <tr><td><strong>Triclinic</strong></td><td>✅ Simple Triclinic</td><td>❌ (Reduces to $P$)</td><td>❌ (Reduces to $P$)</td><td>❌ (Reduces to $P$)</td><td><strong>1</strong></td></tr>
+                <tr><td><strong>Cubic</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Simple Cubic (SC)</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Body-Centered Cubic (BCC)</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Face-Centered Cubic (FCC)</td><td><span style="color:#94a3b8;">No</span> (Destroys 3-fold symmetry)</td><td><strong>3</strong></td></tr>
+                <tr><td><strong>Tetragonal</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Simple Tetragonal</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Body-Centered Tetragonal</td><td><span style="color:#94a3b8;">No</span> (Reduces to $BCT$)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><strong>2</strong></td></tr>
+                <tr><td><strong>Orthorhombic</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Simple Orthorhombic</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Body-Centered Orthorhombic</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Face-Centered Orthorhombic</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Base-Centered Orthorhombic</td><td><strong>4</strong></td></tr>
+                <tr><td><strong>Rhombohedral</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Rhombohedral</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><strong>1</strong></td></tr>
+                <tr><td><strong>Hexagonal</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Hexagonal</td><td><span style="color:#94a3b8;">No</span> (Violates 6-fold)</td><td><span style="color:#94a3b8;">No</span> (Violates 6-fold)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><strong>1</strong></td></tr>
+                <tr><td><strong>Monoclinic</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Simple Monoclinic</td><td><span style="color:#94a3b8;">No</span> (Reduces to $C$)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $C$)</td><td><span style="color:#10b981; font-weight:700;">Yes</span> Base-Centered Monoclinic</td><td><strong>2</strong></td></tr>
+                <tr><td><strong>Triclinic</strong></td><td><span style="color:#10b981; font-weight:700;">Yes</span> Simple Triclinic</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><span style="color:#94a3b8;">No</span> (Reduces to $P$)</td><td><strong>1</strong></td></tr>
                 <tr style="font-weight: 700; background: var(--bg-subtle);">
                   <td>TOTAL</td><td><strong>7</strong></td><td><strong>3</strong></td><td><strong>2</strong></td><td><strong>2</strong></td><td><strong>14 Bravais Lattices</strong></td>
                 </tr>
@@ -1877,7 +1983,7 @@
           </p>
 
           <div class="callout callout-blue">
-            <div class="callout-title">🔩 Representative BCC Metals</div>
+            <div class="callout-title">Representative BCC Metals</div>
             Alpha-iron ($\alpha$-Fe, room temperature ferrite), Chromium (Cr), Molybdenum (Mo), Vanadium (V), Tungsten (W), Tantalum (Ta), Sodium (Na), Potassium (K), Barium (Ba).
           </div>
 
@@ -2022,7 +2128,7 @@
           </p>
 
           <div class="callout callout-teal">
-            <div class="callout-title">✈️ Representative FCC Metals (High Ductility)</div>
+            <div class="callout-title">️ Representative FCC Metals (High Ductility)</div>
             Aluminum (Al), Copper (Cu), Nickel (Ni), Lead (Pb), Platinum (Pt), Silver (Ag), Gold (Au), Gamma-iron ($\gamma$-Fe, high-temperature austenite), Palladium (Pd).
           </div>
 
@@ -2159,7 +2265,7 @@
           </p>
 
           <div class="callout callout-amber">
-            <div class="callout-title">🛡️ Representative HCP Metals</div>
+            <div class="callout-title"> Representative HCP Metals</div>
             Titanium ($\alpha$-Ti), Magnesium (Mg), Zinc (Zn), Cadmium (Cd), Cobalt (Co), Zirconium (Zr), Beryllium (Be).
           </div>
 
@@ -2418,7 +2524,7 @@
           </p>
 
           <div class="callout callout-blue">
-            <div class="callout-title">🔘 Definition of Interstitial Site</div>
+            <div class="callout-title"> Definition of Interstitial Site</div>
             An <strong>interstitial site</strong> is a crystallographic position situated between the regular lattice points of a crystal that can be occupied by smaller foreign atoms (solute elements such as Carbon, Nitrogen, Hydrogen, Boron) or smaller ions in ceramic lattices (Session 3, Slide 61).
           </div>
 
@@ -2651,7 +2757,7 @@
           </div>
 
           <div class="callout callout-red">
-            <div class="callout-title">⚠️ The Anisotropic Distorted Octahedral Void in BCC</div>
+            <div class="callout-title">️ The Anisotropic Distorted Octahedral Void in BCC</div>
             <p style="margin-bottom: 6px;">
               Unlike the regular, spherical octahedral sites of FCC, the octahedral site in BCC is <strong>severely compressed and distorted</strong>. Consider the site at the face center $(1/2, 1/2, 0)$:
             </p>
@@ -2680,7 +2786,7 @@
           </ul>
 
           <div class="callout callout-amber">
-            <div class="callout-title">💡 The Carbon-in-Iron Paradox (Austenite vs. Ferrite & Martensite Formation)</div>
+            <div class="callout-title"> The Carbon-in-Iron Paradox (Austenite vs. Ferrite & Martensite Formation)</div>
             <p>
               In BCC, the tetrahedral site ($r = 0.291\,R$) is significantly larger than the octahedral site ($r = 0.155\,R$). <strong>Why, then, does interstitial carbon ($r_C \approx 0.071\text{ nm}$) in $\alpha$-Fe ($R_{\text{Fe}} \approx 0.124\text{ nm}$, so $r_C/R_{\text{Fe}} \approx 0.57$) preferentially occupy the smaller OCTAHEDRAL site?</strong>
             </p>
@@ -2948,7 +3054,7 @@
 
           <h3 class="sub-heading">B. The Origin Translation Rule for Negative Indices</h3>
           <div class="callout callout-amber">
-            <div class="callout-title">📐 New Origin Selection Rule for Negative Directions</div>
+            <div class="callout-title"> New Origin Selection Rule for Negative Directions</div>
             If a direction contains one or more negative indices, translate the origin to a new corner $O'$ that possesses <strong>a coordinate of 1 along the negative axes</strong> and <strong>0 along the positive axes</strong> (Session 3, Slide 74):
           </div>
 
@@ -3089,7 +3195,7 @@
           </div>
 
           <div class="callout callout-teal">
-            <div class="callout-title">📐 Worked Example: Angle Between [110] and [111] in Cubic System</div>
+            <div class="callout-title">Worked Example: Angle Between [110] and [111] in Cubic System</div>
             $$\cos \theta = \frac{(1)(1) + (1)(1) + (0)(1)}{\sqrt{1^2 + 1^2 + 0^2} \cdot \sqrt{1^2 + 1^2 + 1^2}} = \frac{1 + 1 + 0}{\sqrt{2} \cdot \sqrt{3}} = \frac{2}{\sqrt{6}} = \sqrt{\frac{2}{3}} \approx 0.8165$$
             $$\theta = \arccos(0.8165) \approx \mathbf{35.26^\circ}$$
           </div>
@@ -3217,7 +3323,7 @@
           </div>
 
           <div class="callout callout-teal">
-            <div class="callout-title">📐 The Fundamental Orthogonality Rule in Cubic Crystals</div>
+            <div class="callout-title">The Fundamental Orthogonality Rule in Cubic Crystals</div>
             In all cubic crystals, the direction vector with indices $[h\,k\,l]$ is strictly <strong>perpendicular (orthogonal)</strong> to the crystallographic plane possessing the identical Miller indices $(h\,k\,l)$:
             $$[100] \perp (100), \quad [110] \perp (110), \quad [111] \perp (111)$$
             <em>(Note: This simple property does NOT hold in non-cubic systems like tetragonal, monoclinic, or orthorhombic!).</em>
@@ -5138,7 +5244,7 @@
           <div class="grid-2col">
             <div style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
               <h4 style="color: var(--academic-navy); margin-top: 0; margin-bottom: 8px; font-size: 1rem;">
-                💎 Diamond Allotrope
+                 Diamond Allotrope
               </h4>
               <ul class="academic-list" style="margin-bottom: 0; font-size: 13px;">
                 <li><strong>Crystal Structure:</strong> 3D tetrahedral network ($sp^3$ hybridized orbitals); each carbon atom is covalently bonded to 4 neighbors in a Face-Centered Cubic diamond cubic cell ($CN = 4$).</li>
@@ -5150,7 +5256,7 @@
 
             <div style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
               <h4 style="color: var(--academic-navy); margin-top: 0; margin-bottom: 8px; font-size: 1rem;">
-                ✏️ Graphite Allotrope
+                Graphite Allotrope
               </h4>
               <ul class="academic-list" style="margin-bottom: 0; font-size: 13px;">
                 <li><strong>Crystal Structure:</strong> 2D hexagonal planar sheets ($sp^2$ hybridized orbitals, $CN = 3$, in-plane bond distance $0.142\text{ nm}$). Adjacent sheets are separated by a large distance ($0.335\text{ nm}$) and held together solely by <strong>weak van der Waals secondary bonds</strong>.</li>
@@ -5263,7 +5369,7 @@
           </div>
 
           <div class="callout callout-red">
-            <div class="callout-title">⚠️ The Destructive Tetragonal &rarr; Monoclinic Transition</div>
+            <div class="callout-title">The Destructive Tetragonal &rarr; Monoclinic Transition</div>
             Upon cooling through $1170^\circ\text{C}$, the transformation from the high-temperature tetragonal phase to the room-temperature monoclinic phase produces a massive <strong>volumetric expansion of $+3\%$ to $+5\%$</strong> accompanied by an intense shear strain of $\approx 7\%$. In pure un-stabilized zirconia, this localized swelling shatters the ceramic into powder upon cooling from the sintering kiln!
           </div>
 
@@ -6531,7 +6637,7 @@
                   </li>
                   <li><strong>Frenkel Defect:</strong> Displacement of an ion into an interstitial site, leaving a vacancy on its regular sublattice:
                     $$M_M^\times \rightleftharpoons M_i^{\bullet} + V_M', \quad \Delta H_f$$
-                    Similarly, $[M_i^\bullet][V_M'] = K_f \implies \mathbf{\frac{n_f}{N} = \exp\left(-\frac{\Delta H_f}{2\,k_B T}\right)}$$
+                    $$\text{Similarly, } [M_i^\bullet][V_M'] = K_f \implies \mathbf{\frac{n_f}{N} = \exp\left(-\frac{\Delta H_f}{2\,k_B T}\right)}$$
                   </li>
                 </ul>
               </div>
@@ -9207,6 +9313,35 @@
       init3DVisualizer();
     });
 
+  </script>
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme') || localStorage.getItem('ae_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      var toggle = document.getElementById('themeToggle');
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          localStorage.setItem('ae_theme', next);
+        });
+      }
+    })();
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
   </script>
 </body>
 </html>

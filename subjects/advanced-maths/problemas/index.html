@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advanced Mathematics — Problem Sets & Exam Preparation | Aerospace Engineering</title>
 
-  <!-- Google Fonts: Inter, Newsreader, JetBrains Mono -->
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 
   <style>
     /* ========================================================
        CSS VARIABLES & THEME SYSTEM
        ======================================================== */
     :root {
-      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-serif: 'Newsreader', Georgia, serif;
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
 
       /* Subject Accent: Advanced Mathematics */
@@ -551,7 +553,19 @@
       .set-action { padding: 0 16px; }
       .phases-grid { grid-template-columns: 1fr; }
     }
-  </style>
+  
+        [data-theme="light"] {
+            background-color: #f8fafc;
+            background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        [data-theme="dark"] {
+            background-color: #030712;
+            background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -570,8 +584,13 @@
         <span class="brand-badge">Advanced Mathematics</span>
       </div>
       <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
         <a href="../teoria/index.html" class="back-link">
-          <span>📖</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           <span>Theory Syllabus</span>
         </a>
         <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
@@ -586,9 +605,16 @@
 
     <!-- HERO -->
     <section class="page-hero">
+      <div class="page-header-icon" aria-hidden="true" style="display:flex; justify-content:center; margin-bottom:16px;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <circle cx="12" cy="5" r="2.2"/>
+          <path d="M10.5 7L4 21m9.5-14L20 21"/>
+          <path d="M7 15h10"/>
+          <circle cx="12" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="hero-badge-wrap">
         <span class="hero-pill">
-          <span>✏️</span>
           <span>Official Problem Collections • Ground Truth</span>
         </span>
       </div>
@@ -600,11 +626,11 @@
 
       <div class="view-switcher">
         <a href="../teoria/index.html" class="switch-btn">
-          <span>📖</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           <span>Theory Syllabus</span>
         </a>
         <a href="index.html" class="switch-btn active">
-          <span>✏️</span>
+          
           <span>Problem Sheets</span>
         </a>
       </div>
@@ -613,7 +639,7 @@
     <!-- 4-PHASE METHODOLOGY EXPLAINER -->
     <div class="framework-card">
       <div class="framework-title">
-        <span>📐</span>
+        
         <span>The Mandatory 4-Phase Pedagogical Standard</span>
       </div>
       <div class="phases-grid">
@@ -738,7 +764,7 @@
             <span class="ex-pill">Resonance</span>
           </div>
         </div>
-        <div class="set-action">🔒</div>
+        <div class="set-action" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">SOON</div>
       </div>
 
       <!-- CHAPTER 4: COMING SOON -->
@@ -761,7 +787,7 @@
             <span class="ex-pill">Nonlinear Equilibria</span>
           </div>
         </div>
-        <div class="set-action">🔒</div>
+        <div class="set-action" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">SOON</div>
       </div>
 
     </div>
@@ -775,6 +801,11 @@
       </p>
     </footer>
 
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
   </main>
 
   <!-- ============================================
@@ -812,6 +843,15 @@
         });
       }
     })();
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
   </script>
 </body>
 </html>

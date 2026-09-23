@@ -6,16 +6,18 @@
   <title>Business Management — Solved Problems Hub</title>
   <meta name="description" content="Step-by-step analytical solutions to official exercises and exam problem sets for Business Management (UC3M Aerospace Engineering).">
 
-  <!-- Fonts: Inter & Newsreader for academic readability -->
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
       --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-serif: 'Newsreader', Georgia, serif;
-      --font-mono: 'JetBrains Mono', monospace;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
       --accent: #ef4444;
       --accent-soft: rgba(239, 68, 68, 0.12);
       --accent-border: rgba(239, 68, 68, 0.28);
@@ -55,12 +57,65 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
       background: var(--bg-primary);
       color: var(--text-primary);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.75;
       transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, .page-header h1, .card-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .card-badge, .meta-tag, .ex-num {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
     .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
@@ -262,21 +317,38 @@
 
   <header class="back-bar">
     <div class="container back-bar-inner">
-      <a href="../../../index.html" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Return to Portal
-      </a>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);">UC3M 251-14169</span>
+      </div>
       <nav class="nav-tabs">
         <a href="../teoria/index.html" class="tab-link">Theory & Concepts</a>
         <a href="index.html" class="tab-link active">Solved Problems</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
     </div>
   </header>
 
   <main class="container">
     <header class="page-header">
-      <div class="icon">✏️</div>
+      <div class="icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <circle cx="12" cy="5" r="2.2"/>
+          <path d="M10.5 7L4 21m9.5-14L20 21"/>
+          <path d="M7 15h10"/>
+          <circle cx="12" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
       <h1>Business Management — Solved Problems</h1>
       <p>Official course exercises solved with absolute analytical rigor. Step-by-step arithmetic deductions, complete accounting journal entries, balanced financial statements, and zero skipped algebraic steps.</p>
     </header>
@@ -326,6 +398,11 @@
       </a>
 
     </section>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -359,6 +436,15 @@
       const current = root.getAttribute('data-theme');
       const next = current === 'dark' ? 'light' : 'dark';
       applyTheme(next);
+    });
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
     });
   </script>
 </body>

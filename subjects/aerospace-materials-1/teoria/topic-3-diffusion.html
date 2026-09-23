@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Topic 3: Diffusion in Solids — Complete Theory, Cheatsheet &amp; Interactive Portal</title>
   
-  <!-- Fonts: Newsreader (Editorial Serif), Inter (Clean Sans), JetBrains Mono (Technical) -->
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
   
   <!-- KaTeX for high-performance mathematical typesetting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
@@ -18,6 +18,101 @@
 
   <style>
     :root {
+
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --academic-navy-light: rgba(30, 58, 138, 0.3);
+      --academic-navy-border: rgba(59, 130, 246, 0.3);
+      --forest-teal-light: rgba(15, 118, 110, 0.25);
+      --forest-teal-border: rgba(20, 184, 166, 0.3);
+      --warm-amber-light: rgba(245, 158, 11, 0.15);
+      --warm-amber-border: rgba(245, 158, 11, 0.3);
+      --wine-red-light: rgba(153, 27, 27, 0.25);
+      --wine-red-border: rgba(239, 68, 68, 0.3);
+    }
+
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    h1, h2, h3, .brand-title, .section-title, .page-header h1 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    body {
+      font-family: var(--font-body) !important;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    code, pre, .tag, .brand-badge {
+      font-family: var(--font-mono) !important;
+    }
+
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background 0.25s ease;
+      display: inline-block;
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-heading); transition: transform 0.25s ease;
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color 0.2s ease;
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
       --bg-base: #F8FAFC;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F1F5F9;
@@ -821,12 +916,19 @@
         <span class="brand-title">Diffusion in Solids &mdash; Master Study Portal</span>
       </div>
       <div class="header-actions" style="display:flex; align-items:center; gap:8px;">
-        <a href="../../../index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle, #f1f5f9); border:1px solid var(--border-subtle, #e2e8f0); border-radius:6px; transition:all 0.15s ease;">🏠 Portal</a>
-        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle, #f1f5f9); border:1px solid var(--border-subtle, #e2e8f0); border-radius:6px; transition:all 0.15s ease;">&larr; Temas</a>
-        <a href="../problemas/topic-3-diffusion.html" class="btn-header-problems">
-          <span>&#128218; Step-by-Step Solved Problems</span>
-          <span>&rarr;</span>
+        <a href="../../../index.html" class="back-link" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
         </a>
+        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">← Temas</a>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
       </div>
     </div>
   </header>
@@ -837,32 +939,32 @@
       <div class="sidebar-heading">Session 5: Complete Theory</div>
       <ul class="nav-list">
         <li class="nav-item active" onclick="showPage('p-concept')">
-          <span class="icon">&#128160;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§1</span>
           <span>1. Concept of diffusion</span>
           <span class="tag">S5</span>
         </li>
         <li class="nav-item" onclick="showPage('p-mechanisms')">
-          <span class="icon">&#9881;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§2</span>
           <span>2. Diffusion mechanisms</span>
           <span class="tag">S5</span>
         </li>
         <li class="nav-item" onclick="showPage('p-fick1')">
-          <span class="icon">&#128200;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§3</span>
           <span>3. Steady state (Fick's 1st law)</span>
           <span class="tag">S5</span>
         </li>
         <li class="nav-item" onclick="showPage('p-fick2')">
-          <span class="icon">&#9201;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§4</span>
           <span>4. Non-steady state (Fick's 2nd)</span>
           <span class="tag">S5</span>
         </li>
         <li class="nav-item" onclick="showPage('p-factors')">
-          <span class="icon">&#128293;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§5</span>
           <span>5. Factors affecting diffusion</span>
           <span class="tag">S5</span>
         </li>
         <li class="nav-item" onclick="showPage('p-applications')">
-          <span class="icon">&#128640;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§6</span>
           <span>6. Industrial applications</span>
           <span class="tag">S5</span>
         </li>
@@ -871,22 +973,22 @@
       <div class="sidebar-heading">Master Reference &amp; Drill</div>
       <ul class="nav-list">
         <li class="nav-item" onclick="showPage('p-cheatsheet')">
-          <span class="icon">&#128220;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">REF</span>
           <span>Formula Cheatsheet</span>
           <span class="tag">Exam Ref</span>
         </li>
         <li class="nav-item" onclick="showPage('p-quizzes')">
-          <span class="icon">&#9989;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">DRILL</span>
           <span>Speed Drill / Exam Quiz</span>
           <span class="tag">Drill</span>
         </li>
         <li class="nav-item" onclick="showPage('p-flashcards')">
-          <span class="icon">&#127183;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">FC</span>
           <span>3D Interactive Flashcards</span>
           <span class="tag">Deck</span>
         </li>
         <li class="nav-item" onclick="showPage('p-tools')">
-          <span class="icon">&#129309;</span>
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">CALC</span>
           <span>Interactive Calculators (erf / Arrhenius)</span>
           <span class="tag">Tools</span>
         </li>
@@ -894,8 +996,8 @@
 
       <div class="sidebar-heading">Solved Problem Sets</div>
       <ul class="nav-list">
-        <li class="nav-item external-link" onclick="window.location.href='diffusion_topic3_problems.html'">
-          <span class="icon">&#128209;</span>
+        <li class="nav-item external-link" onclick="window.location.href='../problemas/topic-3-diffusion.html'">
+          <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">PROB</span>
           <span>Solved Problems Portal (1 to 6)</span>
           <span class="tag">&rarr;</span>
         </li>
@@ -2865,6 +2967,35 @@
       updateCardUI();
       renderQuiz();
       calculateArrheniusDiffusivity();
+    });
+  </script>
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme') || localStorage.getItem('ae_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      var toggle = document.getElementById('themeToggle');
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          localStorage.setItem('ae_theme', next);
+        });
+      }
+    })();
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
     });
   </script>
 </body>

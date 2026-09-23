@@ -95,15 +95,16 @@
     }
 
     .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
       background: var(--bg-subtle); border: 1px solid var(--border-subtle);
-      color: var(--text-primary); width: 36px; height: 36px;
-      border-radius: 8px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; transition: all var(--transition);
+      cursor: pointer; position: relative; transition: background var(--transition);
     }
-    .theme-toggle:hover { border-color: var(--accent); background: var(--accent-soft); }
-    [data-theme="dark"] .theme-toggle::before { content: "☀️"; }
-    [data-theme="light"] .theme-toggle::before { content: "🌙"; }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
 
     /* Page Header */
     .page-header {
@@ -286,14 +287,27 @@
 
   <main class="container">
     <header class="page-header">
-      <div class="icon">✏️</div>
+      <div class="icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <circle cx="12" cy="5" r="2.2"/>
+          <path d="M10.5 7L4 21m9.5-14L20 21"/>
+          <path d="M7 15h10"/>
+          <circle cx="12" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
       <h1>Official Course <span style="color: var(--accent);">Problem Sets</span></h1>
       <p>Verbatim problem statements from official department problem sheets and exams (2026 Edition), classified strictly by topic.</p>
     </header>
 
     <div class="section-nav">
-      <a href="../teoria/index.html" class="tab-btn">📖 Theory Guides</a>
-      <a href="index.html" class="tab-btn active">✏️ Problem Sets</a>
+      <a href="../teoria/index.html" class="tab-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Theory Guides
+      </a>
+      <a href="index.html" class="tab-btn active">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><path d="M10.5 7L4 21m9.5-14L20 21"/><path d="M7 15h10"/></svg>
+        Problem Sets
+      </a>
     </div>
 
     <div class="topics-grid">

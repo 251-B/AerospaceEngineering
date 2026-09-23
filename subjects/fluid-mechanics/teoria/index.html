@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fluid Mechanics — Índice de Teoría</title>
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
       --accent: #06b6d4;
       --accent-soft: rgba(6, 182, 212, 0.12);
       --accent-border: rgba(6, 182, 212, 0.25);
@@ -45,11 +53,65 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
       background: var(--bg-primary);
       color: var(--text-primary);
       min-height: 100vh;
       transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, .page-header h1, .topic-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .tag, .topic-number, .cbadge, .nav-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial dot grid & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .topic-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
     .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
@@ -207,15 +269,35 @@
   <!-- Back navigation bar -->
   <nav class="back-bar">
     <div class="container back-bar-inner">
-      <a href="../../../index.html" class="back-link">← Volver al Portal</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"></button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="nav-badge" style="color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);">UC3M 251-14166</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
     </div>
   </nav>
 
   <main class="container">
     <!-- Header -->
     <header class="page-header">
-      <div class="icon">🌊</div>
+      <div class="icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <path d="M2 7c4-2.5 8-2.5 12 0s8 2 8 2"/>
+          <path d="M2 12c5-3 10-3 14 0s6 2 6 2"/>
+          <path d="M2 17c3-1 6-1 9 0s7 3 11 1"/>
+          <circle cx="16" cy="11.5" r="1.5" fill="currentColor" fill-opacity="0.3"/>
+        </svg>
+      </div>
       <h1><span class="accent">Fluid Mechanics</span></h1>
       <p>Teoría y Conceptos — Índice de Temas</p>
     </header>
@@ -231,8 +313,8 @@
           <h2 class="topic-title">Introductory Remarks & Starting Assumptions</h2>
           <p class="topic-desc">Comportamiento mecánico de sólidos, líquidos y gases ($\tau \propto d\theta$ vs $\tau \propto d\theta/dt$). Estructura microscópica, fuerzas intermoleculares y distancia media $d$. Hipótesis de medio continuo, condición de doble acotación de la partícula fluida ($d \ll (\delta V)^{1/3} \ll L$), campos macroscópicos ($\rho, \vec{v}, e$), Equilibrio Termodinámico Local (Knudsen $Kn = \lambda/L \ll 1$) y modelos canónicos de gas y líquido perfecto.</p>
           <div class="content-badges">
-            <span class="cbadge theory">📖 Teoría completa (Chapter 1 Notes & Slides)</span>
-            <span class="cbadge" style="background: var(--bg-glass); border: 1px solid var(--border-subtle); color: var(--text-muted);">📐 Fórmulas y Órdenes de Magnitud</span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Teoría Completa (Chapter 1 Notes & Slides)</span>
+            <span class="cbadge" style="background: var(--bg-glass); border: 1px solid var(--border-subtle); color: var(--text-muted);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="2 2 22 22 2 22 2 2"/></svg>Fórmulas y Escalas</span>
           </div>
           <div class="topic-tags">
             <span class="tag">Medio Continuo</span>
@@ -255,8 +337,8 @@
           <h2 class="topic-title">Flow Kinematics</h2>
           <p class="topic-desc">Coordenadas curvilíneas ortogonales y factores de escala. Descripciones Euleriana y Lagrangiana. Trayectorias, líneas/superficies/volúmenes fluidos y líneas de corriente ($dx/v_x = dy/v_y = dz/v_z$). Derivada material ($D/Dt$) y campo intrínseco de aceleración ($\vec{a}$). Circulación ($\Gamma$), vorticidad ($\vec{\omega}$) y potencial de velocidades ($\phi$). Flujo convectivo de masa, momento y energía. Función de corriente plana ($\psi$). Descomposición de Helmholtz en velocidad de rotación ($\bar{\bar{T}}_r$) y deformación pura ($\bar{\bar{T}}_d$), direcciones principales y tasa de dilatación volumétrica ($\nabla \cdot \vec{v}$).</p>
           <div class="content-badges">
-            <span class="cbadge theory">📖 Teoría completa (Chapter 2 Notes & Slides)</span>
-            <span class="cbadge" style="background: var(--bg-glass); border: 1px solid var(--border-subtle); color: var(--text-muted);">📐 Ecuaciones 2.1 a 2.63</span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Teoría Completa (Chapter 2 Notes & Slides)</span>
+            <span class="cbadge" style="background: var(--bg-glass); border: 1px solid var(--border-subtle); color: var(--text-muted);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="2 2 22 22 2 22 2 2"/></svg>Ecuaciones 2.1 a 2.63</span>
           </div>
           <div class="topic-tags">
             <span class="tag">Factores de Escala (h_i)</span>
@@ -282,7 +364,7 @@
           <h2 class="topic-title">Ecuaciones de Conservación Integrales (Reynolds)</h2>
           <p class="topic-desc">Teorema de Transporte de Reynolds. Conservación integral de masa, cantidad de movimiento y energía. Fuerzas y momentos sobre cuerpos sumergidos.</p>
           <div class="content-badges">
-            <span class="cbadge soon">🔒 Próximamente</span>
+            <span class="cbadge soon">Próximamente</span>
           </div>
         </div>
       </div>
@@ -295,7 +377,7 @@
           <h2 class="topic-title">Ecuaciones Diferenciales de Navier-Stokes</h2>
           <p class="topic-desc">Ecuación de continuidad, cantidad de movimiento de Cauchy y tensor de esfuerzos viscosos de Navier-Poisson. Balance de energía interna y mecánica.</p>
           <div class="content-badges">
-            <span class="cbadge soon">🔒 Próximamente</span>
+            <span class="cbadge soon">Próximamente</span>
           </div>
         </div>
       </div>
@@ -308,12 +390,17 @@
           <h2 class="topic-title">Análisis Dimensional y Semejanza Física</h2>
           <p class="topic-desc">Teorema $\Pi$ de Vaschy-Buckingham. Números adimensionales característicos (Reynolds, Mach, Froude, Euler, Prandtl). Semejanza dinámica y ensayos en túnel de viento.</p>
           <div class="content-badges">
-            <span class="cbadge soon">🔒 Próximamente</span>
+            <span class="cbadge soon">Próximamente</span>
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
   </main>
 
   <script>
@@ -331,6 +418,15 @@
     themeToggle.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(next);
+    });
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
     });
   </script>
 </body>
