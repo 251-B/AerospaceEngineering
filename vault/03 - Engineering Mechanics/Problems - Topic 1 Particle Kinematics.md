@@ -12,7 +12,10 @@ language: "English"
 Official problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, Chapter 1). These problems test kinematics in Cartesian, Cylindrical, and Frenet-Serret intrinsic bases, curvature, and relative motion between points.
 
 > [!NOTE]
-> **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets. (Solutions pending development).
+> **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
+> 
+> [!SUCCESS] Complete Analytical Solutions Ready
+> All 10 problems have full, step-by-step pedagogical solutions developed in: [[Solutions - Topic 1 Particle Kinematics]].
 
 ---
 

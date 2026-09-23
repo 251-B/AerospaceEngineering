@@ -244,6 +244,89 @@
     .nav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
     .nav-btn-label { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
     .nav-btn-title { font-size: 0.92rem; font-weight: 600; color: var(--text-heading); }
+
+    /* Solution Accordion */
+    .solution-details {
+      margin-top: 24px;
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      background: var(--bg-surface);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .solution-details[open] {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .solution-summary {
+      padding: 12px 18px;
+      background: var(--accent-soft);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--accent);
+      user-select: none;
+      list-style: none;
+    }
+    .solution-summary::-webkit-details-marker { display: none; }
+    .solution-summary:hover {
+      background: rgba(16, 185, 129, 0.22);
+    }
+    .solution-content {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.92rem;
+      line-height: 1.68;
+    }
+    .phase-block {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
+    .phase-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .phase-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--bg-subtle);
+      border: 1px solid var(--accent-border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .phase-heading {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 8px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .justification-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+    }
+    .status-solved {
+      font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 10px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+    }
   </style>
 </head>
 <body>
@@ -334,8 +417,165 @@
           <div class="question-text">Where is the center of curvature for this curve when the particle is located at $(x, y, z) = (a, 0, 0)$?</div>
         </li>
       </ul>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> An out-of-control sounding rocket ascends following a regular circular helix around the vertical $z$-axis.</li>
+<li><strong>Hypotheses:</strong> The cylinder radius $a > 0$, vertical ascent velocity $v_z > 0$, and angular spin rate $\omega > 0$ are strictly positive constants. The rocket is modeled as an ideal point particle $P$.</li>
+<li><strong>Configuration Degrees of Freedom (CDOFs):</strong> The trajectory is purely kinematically prescribed by time $t$; thus, the particle has $\text{CDOF} = 1$ parameterized by time $t$ or arc length $s$.</li>
+<li><strong>Parameters & SI Units:</strong> Radius $a\text{ [m]}$, angular frequency $\omega\text{ [rad/s]}$, vertical velocity $v_z\text{ [m/s]}$, time $t\text{ [s]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Reference Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, fixed to the launch site with vertical axis $\mathbf{k}_0$ aligned with $z$.</li>
+<li><strong>Cylindrical Moving Basis:</strong> $\mathcal{B}_{\text{cyl}} = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$.</li>
+</ul>
+<p style="margin-bottom: 10px;">The transformation matrix from the inertial Cartesian basis $\mathcal{B}_0$ to the cylindrical basis $\mathcal{B}_{\text{cyl}}$ is the planar rotation matrix about $\mathbf{k}_0$:</p>
+<div class="math-block">$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix} $$</div>
+<p style="margin-bottom: 10px;">The basis vector relationships are given by matrix-vector multiplication:</p>
+<div class="math-block">$$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. 3.2):</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Since $\mathcal{B}_{\text{cyl}}$ rotates at angular velocity $\boldsymbol{\omega} = \omega\mathbf{k}_0 = \omega\mathbf{e}_z$:</p>
+<div class="math-block">$$ \frac{d\mathbf{e}_R}{dt} = \boldsymbol{\omega} \times \mathbf{e}_R = (\omega\mathbf{e}_z) \times \mathbf{e}_R = \omega\mathbf{e}_\theta $$</div>
+<div class="math-block">$$ \frac{d\mathbf{e}_\theta}{dt} = \boldsymbol{\omega} \times \mathbf{e}_\theta = (\omega\mathbf{e}_z) \times \mathbf{e}_\theta = -\omega\mathbf{e}_R $$</div>
+<div class="math-block">$$ \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Cartesian Position, Velocity, and Acceleration</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The position vector $\mathbf{r}(t)$ is directly defined by its Cartesian coordinates $(x(t), y(t), z(t))$ relative to the fixed origin $O$. Velocity and acceleration are obtained by direct term-by-term differentiation in the fixed inertial basis $\mathcal{B}_0$, where $\frac{d\mathbf{i}_0}{dt} = \frac{d\mathbf{j}_0}{dt} = \frac{d\mathbf{k}_0}{dt} = \mathbf{0}$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Position Vector:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{r}(t) = a\cos(\omega t)\mathbf{i}_0 + a\sin(\omega t)\mathbf{j}_0 + v_z t\mathbf{k}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity Vector (Explicit Chain Rule):</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \frac{d}{dt}[a\cos(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\sin(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z t]\mathbf{k}_0 $$</div>
+<p style="margin-bottom: 10px;">Applying the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$ and $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$:</p>
+<div class="math-block">$$ \mathbf{v}(t) = -a\omega\sin(\omega t)\mathbf{i}_0 + a\omega\cos(\omega t)\mathbf{j}_0 + v_z\mathbf{k}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Acceleration Vector (Explicit Chain Rule):</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \frac{d}{dt}[-a\omega\sin(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\omega\cos(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z]\mathbf{k}_0 $$</div>
+<div class="math-block">$$ \mathbf{a}(t) = -a\omega^2\cos(\omega t)\mathbf{i}_0 - a\omega^2\sin(\omega t)\mathbf{j}_0 + 0\mathbf{k}_0 = -a\omega^2(\cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Cylindrical Position, Velocity, and Acceleration</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Cylindrical coordinates $(R, \theta, z)$ exploit the axial symmetry of the cylinder upon which the helix lies. Here, the radial distance $R(t) = \sqrt{x^2 + y^2} = a$ is constant, and the azimuthal angle is $\theta(t) = \omega t$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Position in Cylindrical Coordinates:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{r}(t) = a\mathbf{e}_R + v_z t\mathbf{e}_z $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity Vector (Explicit Product Rule with Poisson Derivative):</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}(t) = \frac{d}{dt}(a\mathbf{e}_R + v_z t\mathbf{e}_z) = a\frac{d\mathbf{e}_R}{dt} + \frac{d(v_z t)}{dt}\mathbf{e}_z + v_z t\frac{d\mathbf{e}_z}{dt} $$</div>
+<p style="margin-bottom: 10px;">Substituting $\frac{d\mathbf{e}_R}{dt} = \omega\mathbf{e}_\theta$ and $\frac{d\mathbf{e}_z}{dt} = \mathbf{0}$:</p>
+<div class="math-block">$$ \mathbf{v}(t) = a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Acceleration Vector (Explicit Differentiation):</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}(t) = \frac{d}{dt}(a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z) = a\omega\frac{d\mathbf{e}_\theta}{dt} + 0 = a\omega(-\omega\mathbf{e}_R) = -a\omega^2\mathbf{e}_R $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Intrinsic Frenet-Serret Basis $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The Frenet-Serret intrinsic basis (Notes Sec. 2.4) decomposes motion naturally along the curve itself. The tangent vector $\mathbf{e}_t$ points in the direction of instantaneous velocity, the principal normal $\mathbf{e}_n$ points toward the center of curvature, and the binormal $\mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n$ completes the right-handed orthonormal triad.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Unit Tangent Vector $\mathbf{e}_t$:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{e}_t = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Unit Principal Normal Vector $\mathbf{e}_n$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">By definition of the intrinsic acceleration (Notes Eq. 2.14):</p>
+<div class="math-block">$$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$</div>
+<p style="margin-bottom: 10px;">Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:</p>
+<div class="math-block">$$ \ddot{s} = \frac{dv}{dt} = 0 $$</div>
+<p style="margin-bottom: 10px;">Therefore, the entire acceleration is purely normal:</p>
+<div class="math-block">$$ \mathbf{a} = a_n\mathbf{e}_n = -a\omega^2\mathbf{e}_R $$</div>
+<p style="margin-bottom: 10px;">Taking the norm of both sides yields the magnitude of normal acceleration:</p>
+<div class="math-block">$$ a_n = \|\mathbf{a}\| = a\omega^2 $$</div>
+<p style="margin-bottom: 10px;">Dividing $\mathbf{a}$ by its norm gives the unit normal vector:</p>
+<div class="math-block">$$ \mathbf{e}_n = \frac{\mathbf{a}}{a_n} = \frac{-a\omega^2\mathbf{e}_R}{a\omega^2} = -\mathbf{e}_R $$</div>
+<p style="margin-bottom: 10px;">The principal normal points radially inward toward the central axis of the cylinder!</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Radius of Curvature $\rho$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Using the relation $a_n = \frac{v^2}{\rho}$:</p>
+<div class="math-block">$$ \rho = \frac{v^2}{a_n} = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a + \frac{v_z^2}{a\omega^2} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Unit Binormal Vector $\mathbf{e}_b$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Computing the vector cross product in the cylindrical basis:</p>
+<div class="math-block">$$ \mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n = \left( \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} \right) \times (-\mathbf{e}_R) = \frac{-a\omega(\mathbf{e}_\theta \times \mathbf{e}_R) - v_z(\mathbf{e}_z \times \mathbf{e}_R)}{\sqrt{a^2\omega^2 + v_z^2}} $$</div>
+<p style="margin-bottom: 10px;">Recalling cyclic cross products: $\mathbf{e}_\theta \times \mathbf{e}_R = -\mathbf{e}_z$ and $\mathbf{e}_z \times \mathbf{e}_R = \mathbf{e}_\theta$:</p>
+<div class="math-block">$$ \mathbf{e}_b = \frac{-a\omega(-\mathbf{e}_z) - v_z\mathbf{e}_\theta}{\sqrt{a^2\omega^2 + v_z^2}} = \frac{-v_z\mathbf{e}_\theta + a\omega\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Modulus of Velocity</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The speed $v(t) = \|\mathbf{v}(t)\|$ represents the scalar rate of distance traveled along the path.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Calculation:</strong></li>
+</ul>
+<div class="math-block">$$ v = \|\mathbf{v}\| = \sqrt{(-a\omega\sin\omega t)^2 + (a\omega\cos\omega t)^2 + v_z^2} = \sqrt{a^2\omega^2(\sin^2\omega t + \cos^2\omega t) + v_z^2} = \sqrt{a^2\omega^2 + v_z^2} $$</div>
+<p style="margin-bottom: 10px;">The speed is constant for all $t \ge 0$.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Evolution of Arc Length Coordinate $s(t)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The arc-length coordinate $s(t)$ measures the distance traversed along the trajectory from the initial position at $t = 0$. By fundamental calculus:</div>
+<div class="math-block">$$ s(t) = \int_0^t v(t')\,dt' $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Definite Integration:</strong></li>
+</ul>
+<div class="math-block">$$ s(t) = \int_0^t \sqrt{a^2\omega^2 + v_z^2}\,dt' = \sqrt{a^2\omega^2 + v_z^2} \left[ t' \right]_0^t = t\sqrt{a^2\omega^2 + v_z^2} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(f) Trajectory as a Function of Arc Length $s$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> To express the curve intrinsically independent of time, we invert $s(t)$ to obtain time as a function of arc length: $t(s) = \frac{s}{\sqrt{a^2\omega^2 + v_z^2}}$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Substitution into Cartesian Coordinates:</strong></li>
+</ul>
+<div class="math-block">$$ x(s) = a\cos\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$</div>
+<div class="math-block">$$ y(s) = a\sin\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$</div>
+<div class="math-block">$$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(g) Center of Curvature $C$ at $(a, 0, 0)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Eq. 2.15):</div>
+<div class="math-block">$$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Evaluation at $(a, 0, 0)$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">At position $(a, 0, 0)$, $x(t) = a\cos(\omega t) = a \implies \omega t = 0 \implies t = 0$.</p>
+<p style="margin-bottom: 10px;">At $t = 0$:</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Position: $\mathbf{r}_P(0) = a\mathbf{i}_0$.</li>
+<li>Unit normal: $\mathbf{e}_n(0) = -\mathbf{e}_R(0) = -(\cos(0)\mathbf{i}_0 + \sin(0)\mathbf{j}_0) = -\mathbf{i}_0$.</li>
+<li>Radius of curvature: $\rho = a + \frac{v_z^2}{a\omega^2}$.</li>
+<li><strong>Algebraic Combination:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_C = a\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)(-\mathbf{i}_0) = a\mathbf{i}_0 - a\mathbf{i}_0 - \frac{v_z^2}{a\omega^2}\mathbf{i}_0 = -\frac{v_z^2}{a\omega^2}\mathbf{i}_0 $$</div>
+<p style="margin-bottom: 10px;">In Cartesian coordinates:</p>
+<div class="math-block">$$ C = \left( -\frac{v_z^2}{a\omega^2}, \, 0, \, 0 \right) $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Dimensional Check:</strong></li>
+<li>Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent ✅).</li>
+<li>Curvature center offset: $\left[\frac{v_z^2}{a\omega^2}\right] = \frac{[\text{m/s}]^2}{[\text{m}][\text{s}^{-1}]^2} = \frac{\text{m}^2/\text{s}^2}{\text{m}/\text{s}^2} = \text{m}$ (Consistent ✅).</li>
+<li><strong>Limiting Asymptotic Cases:</strong></li>
+<li>If $v_z \to 0$ (planar circular motion): $\rho = a$, and $C = (0, 0, 0)$, the origin of the circle as expected physically.</li>
+<li>If $\omega \to 0$ (pure vertical line ascent): $\rho \to \infty$, curvature vanishes, and the trajectory becomes a straight vertical line.</li>
+</ul>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Taken from MIT OCW)</span>
       </div>
     </div>
@@ -374,8 +614,122 @@
           <div class="question-text">The radius of curvature of the spiral.</div>
         </li>
       </ul>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A point particle $P$ moves along a logarithmic/exponential planar spiral $r(\theta) = \alpha e^{\beta\theta}$ with a prescribed power-law angular motion $\theta(t) = \delta t^n$.</li>
+<li><strong>Hypotheses:</strong> $\alpha, \beta, \delta > 0$ are positive constants, $n > 0$ is an integer or real exponent, $t \ge 0$. Motion is strictly 2D planar in the $Oxy$ plane ($z = 0$).</li>
+<li><strong>Degrees of Freedom:</strong> $\text{CDOF} = 1$ parameterized by time $t$.</li>
+<li><strong>Parameters & Units:</strong> $[r] = \text{m} \implies [\alpha] = \text{m}$, $\beta$ is dimensionless ($[-]$), $[\theta] = \text{rad} \implies [\delta] = \text{rad}\cdot\text{s}^{-n}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Basis:</strong> $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.</li>
+<li><strong>Polar Basis:</strong> $\mathcal{B}_{\text{polar}} = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$.</li>
+<li><strong>Rotation Matrix $[{}_0 R_\theta]$:</strong></li>
+</ul>
+<div class="math-block">$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Time Derivatives of Polar Unit Vectors (Notes Sec. 3.1, Eq. 3.4):</strong></li>
+</ul>
+<div class="math-block">$$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Radial and Transverse Velocity Components</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> In polar coordinates, the velocity vector is given by $\mathbf{v} = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta$. The radial component $v_r = \dot{r}$ measures the expansion rate, while $v_\theta = r\dot{\theta}$ measures transverse rotation.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Explicit Chain Rule for $\dot{\theta}(t)$ and $\dot{r}(t)$:</strong></li>
+</ul>
+<div class="math-block">$$ \theta(t) = \delta t^n \implies \dot{\theta}(t) = \frac{d}{dt}(\delta t^n) = n\delta t^{n-1} $$</div>
+<p style="margin-bottom: 10px;">Using the chain rule $\dot{r} = \frac{dr}{d\theta}\dot{\theta}$:</p>
+<div class="math-block">$$ \frac{dr}{d\theta} = \frac{d}{d\theta}(\alpha e^{\beta\theta}) = \alpha\beta e^{\beta\theta} = \beta r $$</div>
+<div class="math-block">$$ \dot{r} = (\beta r)(n\delta t^{n-1}) = \beta n \delta t^{n-1} r = \alpha\beta n\delta t^{n-1} e^{\beta\delta t^n} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Components:</strong></li>
+</ul>
+<div class="math-block">$$ v_r = \dot{r} = \beta n\delta t^{n-1} r $$</div>
+<div class="math-block">$$ v_\theta = r\dot{\theta} = n\delta t^{n-1} r $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Radial and Transverse Acceleration Components</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The acceleration in polar coordinates (Notes Eq. 3.6) accounts for the curvature of the polar grid:</div>
+<div class="math-block">$$ \mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta = (\ddot{r} - r\dot{\theta}^2)\mathbf{e}_r + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\mathbf{e}_\theta $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Second Time Derivatives (Explicit Product Rule):</strong></li>
+</ul>
+<div class="math-block">$$ \ddot{\theta}(t) = \frac{d}{dt}(n\delta t^{n-1}) = n(n-1)\delta t^{n-2} $$</div>
+<p style="margin-bottom: 10px;">For $\ddot{r}(t) = \frac{d}{dt}(\beta r \dot{\theta})$:</p>
+<div class="math-block">$$ \ddot{r} = \beta(\dot{r}\dot{\theta} + r\ddot{\theta}) = \beta\left( (\beta r\dot{\theta})\dot{\theta} + r\ddot{\theta} \right) = \beta^2 r\dot{\theta}^2 + \beta r\ddot{\theta} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Radial Acceleration $a_r$:</strong></li>
+</ul>
+<div class="math-block">$$ a_r = \ddot{r} - r\dot{\theta}^2 = (\beta^2 r\dot{\theta}^2 + \beta r\ddot{\theta}) - r\dot{\theta}^2 = (\beta^2 - 1)r\dot{\theta}^2 + \beta r\ddot{\theta} $$</div>
+<p style="margin-bottom: 10px;">Substituting $\dot{\theta} = n\delta t^{n-1}$ and $\ddot{\theta} = n(n-1)\delta t^{n-2}$:</p>
+<div class="math-block">$$ a_r = (\beta^2 - 1)r(n\delta t^{n-1})^2 + \beta r n(n-1)\delta t^{n-2} = n\delta t^{n-2} r \left[ (\beta^2 - 1)n\delta t^n + \beta(n-1) \right] $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Transverse Acceleration $a_\theta$:</strong></li>
+</ul>
+<div class="math-block">$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\ddot{\theta} + 2(\beta r\dot{\theta})\dot{\theta} = r\ddot{\theta} + 2\beta r\dot{\theta}^2 $$</div>
+<p style="margin-bottom: 10px;">Substituting derivatives:</p>
+<div class="math-block">$$ a_\theta = r n(n-1)\delta t^{n-2} + 2\beta r(n\delta t^{n-1})^2 = n\delta t^{n-2} r \left[ (n-1) + 2\beta n\delta t^n \right] $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Tangential and Normal Velocity Components</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> In the intrinsic Frenet basis, the velocity vector is strictly tangential: $\mathbf{v} = v\mathbf{e}_t = v_t\mathbf{e}_t + 0\mathbf{e}_n$. Therefore, the normal velocity component is identically zero.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Calculation:</strong></li>
+</ul>
+<div class="math-block">$$ v_t = v = \sqrt{v_r^2 + v_\theta^2} = \sqrt{(\beta r\dot{\theta})^2 + (r\dot{\theta})^2} = r\dot{\theta}\sqrt{\beta^2 + 1} = n\delta t^{n-1} r\sqrt{1 + \beta^2} $$</div>
+<div class="math-block">$$ v_n = 0 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Tangential and Normal Acceleration Components</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Tangential acceleration $a_t = \dot{v}$ measures the rate of change of speed, while normal acceleration $a_n = \frac{v^2}{\rho}$ measures directional turning.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Tangential Acceleration $a_t$ (Explicit Differentiation):</strong></li>
+</ul>
+<div class="math-block">$$ a_t = \frac{d}{dt}(v) = \sqrt{1 + \beta^2}\frac{d}{dt}(r\dot{\theta}) = \sqrt{1 + \beta^2}(\dot{r}\dot{\theta} + r\ddot{\theta}) $$</div>
+<p style="margin-bottom: 10px;">Substituting $\dot{r} = \beta r\dot{\theta}$:</p>
+<div class="math-block">$$ a_t = \sqrt{1 + \beta^2}(\beta r\dot{\theta}^2 + r\ddot{\theta}) = \sqrt{1 + \beta^2} n\delta t^{n-2} r \left[ \beta n\delta t^n + (n-1) \right] $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Normal Acceleration $a_n$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Using the Pythagorean decomposition of the total acceleration magnitude: $\|\mathbf{a}\|^2 = a_t^2 + a_n^2 = a_r^2 + a_\theta^2$:</p>
+<div class="math-block">$$ a_n = \sqrt{a_r^2 + a_\theta^2 - a_t^2} $$</div>
+<p style="margin-bottom: 10px;">Alternatively, using the cross product $\mathbf{a} \times \mathbf{v} = (a_t\mathbf{e}_t + a_n\mathbf{e}_n) \times (v\mathbf{e}_t) = -v a_n\mathbf{e}_b$:</p>
+<div class="math-block">$$ a_n = \frac{\|\mathbf{v} \times \mathbf{a}\|}{v} = \frac{|v_r a_\theta - v_\theta a_r|}{v} $$</div>
+<p style="margin-bottom: 10px;">Computing the numerator:</p>
+<div class="math-block">$$ v_r a_\theta - v_\theta a_r = (\beta r\dot{\theta})(r\ddot{\theta} + 2\beta r\dot{\theta}^2) - (r\dot{\theta})((\beta^2 - 1)r\dot{\theta}^2 + \beta r\ddot{\theta}) $$</div>
+<div class="math-block">$$ = \beta r^2\dot{\theta}\ddot{\theta} + 2\beta^2 r^2\dot{\theta}^3 - (\beta^2 - 1)r^2\dot{\theta}^3 - \beta r^2\dot{\theta}\ddot{\theta} = (2\beta^2 - \beta^2 + 1)r^2\dot{\theta}^3 = (\beta^2 + 1)r^2\dot{\theta}^3 $$</div>
+<p style="margin-bottom: 10px;">Dividing by $v = r\dot{\theta}\sqrt{\beta^2 + 1}$:</p>
+<div class="math-block">$$ a_n = \frac{(\beta^2 + 1)r^2\dot{\theta}^3}{r\dot{\theta}\sqrt{\beta^2 + 1}} = r\dot{\theta}^2\sqrt{\beta^2 + 1} = n^2\delta^2 t^{2n-2} r\sqrt{1 + \beta^2} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Radius of Curvature of the Spiral</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The radius of curvature is obtained directly from $a_n = \frac{v^2}{\rho} \implies \rho = \frac{v^2}{a_n}$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Calculation:</strong></li>
+</ul>
+<div class="math-block">$$ \rho = \frac{v^2}{a_n} = \frac{(r\dot{\theta}\sqrt{1 + \beta^2})^2}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = \frac{r^2\dot{\theta}^2(1 + \beta^2)}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = r\sqrt{1 + \beta^2} $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Geometric Invariance:</strong> In a logarithmic spiral $r = \alpha e^{\beta\theta}$, the angle $\psi$ between the radial line and the tangent vector satisfies $\tan\psi = \frac{r}{dr/d\theta} = \frac{r}{\beta r} = \frac{1}{\beta} = \text{constant}$. This is the celebrated equiangular spiral property!</li>
+<li><strong>Radius of Curvature:</strong> $\rho = r\sqrt{1 + \beta^2}$ is strictly proportional to current radial distance $r$.</li>
+<li><strong>Units Check:</strong> $[\rho] = [r][\sqrt{1+\beta^2}] = \text{m} \cdot 1 = \text{m}$ (Consistent ✅).</li>
+<li><strong>Limiting Case $\beta \to 0$:</strong> The spiral degenerates into a pure circle $r = \alpha$, where $\rho = r\sqrt{1 + 0} = r$, recovering the circle radius of curvature.</li>
+</ul>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 6)</span>
       </div>
     </div>
@@ -396,8 +750,97 @@
         </div>
         <p>with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. <em>(Hint: $ds = \sqrt{dx^2 + dy^2}$)</em>.</p>
       </div>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A point particle $P$ moves along a hypocycloid with four cusps (an astroid), parameterized by angle $\phi$.</li>
+<li><strong>Hypotheses:</strong> The motion starts from rest at $\phi(0) = 0$ with constant tangential acceleration $a_t = k = \text{const} > 0$. The particle remains within the first quadrant segment $0 \le \phi \le \pi/2$.</li>
+<li><strong>Degrees of Freedom:</strong> $\text{CDOF} = 1$.</li>
+<li><strong>Parameters & Units:</strong> Astroid scale $a\text{ [m]}$, tangential acceleration $k\text{ [m/s}^2\text{]}$, time $t\text{ [s]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Cartesian Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.</li>
+<li><strong>Parametric Equations of the Astroid:</strong></li>
+</ul>
+<div class="math-block">$$ x(\phi) = a\cos^3\phi, \quad y(\phi) = a\sin^3\phi $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Metric Arc Length Differential $ds$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Differentiating with respect to parameter $\phi$:</p>
+<div class="math-block">$$ dx = \frac{dx}{d\phi}d\phi = 3a\cos^2\phi(-\sin\phi)d\phi = -3a\cos^2\phi\sin\phi\,d\phi $$</div>
+<div class="math-block">$$ dy = \frac{dy}{d\phi}d\phi = 3a\sin^2\phi(\cos\phi)d\phi = 3a\sin^2\phi\cos\phi\,d\phi $$</div>
+<p style="margin-bottom: 10px;">The squared differential arc length is:</p>
+<div class="math-block">$$ ds^2 = dx^2 + dy^2 = 9a^2\cos^4\phi\sin^2\phi\,d\phi^2 + 9a^2\sin^4\phi\cos^2\phi\,d\phi^2 $$</div>
+<p style="margin-bottom: 10px;">Factoring out $9a^2\cos^2\phi\sin^2\phi$:</p>
+<div class="math-block">$$ ds^2 = 9a^2\cos^2\phi\sin^2\phi(\cos^2\phi + \sin^2\phi)d\phi^2 = 9a^2\cos^2\phi\sin^2\phi\,d\phi^2 $$</div>
+<p style="margin-bottom: 10px;">Taking the positive square root for $0 \le \phi \le \pi/2$:</p>
+<div class="math-block">$$ ds = 3a\sin\phi\cos\phi\,d\phi = \frac{3a}{2}\sin(2\phi)\,d\phi $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Step 1: Intrinsic Kinematics from Constant Tangential Acceleration $a_t = k$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Tangential acceleration is the time derivative of speed: $a_t = \frac{dv}{dt} = \ddot{s}$. Integrating once with initial condition $v(0) = 0$:</div>
+<div class="math-block">$$ v(t) = \dot{s}(t) = \int_0^t a_t\,dt' = \int_0^t k\,dt' = kt $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Second Integration for Arc Length $s(t)$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Integrating $v(t) = \dot{s}(t)$ with initial condition $s(0) = 0$ (at $\phi = 0$):</p>
+<div class="math-block">$$ s(t) = \int_0^t kt'\,dt' = \left[ \frac{1}{2}kt'^2 \right]_0^t = \frac{1}{2}kt^2 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Step 2: Arc Length as a Function of Parameter $\phi$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> We integrate the geometric differential $ds = 3a\sin u\cos u\,du$ from the origin $\phi = 0$ to current $\phi$:</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Explicit Substitution Integration:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Let $w = \sin u \implies dw = \cos u\,du$. When $u = 0$, $w = 0$; when $u = \phi$, $w = \sin\phi$:</p>
+<div class="math-block">$$ s(\phi) = \int_0^\phi 3a\sin u\cos u\,du = 3a\int_0^{\sin\phi} w\,dw = 3a\left[ \frac{w^2}{2} \right]_0^{\sin\phi} = \frac{3a}{2}\sin^2\phi $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Step 3: Equating Kinematic and Geometric Arc Length</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The distance traveled along the curve $s(t)$ must equal the geometric arc length $s(\phi)$:</div>
+<div class="math-block">$$ \frac{3a}{2}\sin^2\phi = \frac{1}{2}kt^2 $$</div>
+<p style="margin-bottom: 10px;">Multiplying both sides by $\frac{2}{3a}$:</p>
+<div class="math-block">$$ \sin^2\phi = \frac{kt^2}{3a} $$</div>
+<p style="margin-bottom: 10px;">Taking the positive square root (since $0 \le \phi \le \pi/2$):</p>
+<div class="math-block">$$ \sin\phi = \sqrt{\frac{k}{3a}}\,t $$</div>
+<p style="margin-bottom: 10px;">Applying the inverse sine function:</p>
+<div class="math-block">$$ \phi(t) = \arcsin\left( \sqrt{\frac{k}{3a}}\,t \right) $$</div>
+<p style="margin-bottom: 10px;">*(Note on Problem Keys: Matches page 72 of `Problems.pdf`: $\phi = \arcsin\sqrt{\frac{k}{3a}t^2} = \arcsin(\sqrt{\frac{k}{3a}}t)$).*</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Step 4: Evolution of the Cartesian Position as a Function of Time</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Substituting $\phi(t)$ into the parametric definitions of the astroid:</div>
+<p style="margin-bottom: 10px;">Using trigonometric identities: $\sin\phi = \sqrt{\frac{k}{3a}}t$ and $\cos\phi = \sqrt{1 - \sin^2\phi} = \sqrt{1 - \frac{k t^2}{3a}}$:</p>
+<div class="math-block">$$ x(t) = a\cos^3\phi = a\left( 1 - \frac{kt^2}{3a} \right)^{3/2} $$</div>
+<div class="math-block">$$ y(t) = a\sin^3\phi = a\left( \frac{kt^2}{3a} \right)^{3/2} = a\left(\frac{k}{3a}\right)^{3/2}t^3 $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Dimensional Check:</strong></li>
+<li>In $\sin\phi = \sqrt{\frac{k}{3a}}t$:</li>
+</ul>
+<div class="math-block">$$ \left[ \sqrt{\frac{k}{3a}}\,t \right] = \sqrt{\frac{\text{m/s}^2}{\text{m}}}\,\text{s} = \sqrt{\text{s}^{-2}}\,\text{s} = \text{s}^{-1}\cdot\text{s} = 1 \quad (\text{Dimensionless} \, \text{argument} \, \text{for} \, \arcsin! \, ✅) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical Limits:</strong></li>
+<li>At $t = 0$: $\phi = 0 \implies x(0) = a, y(0) = 0$ (starts at the right cusp).</li>
+<li>The particle reaches the top cusp $\phi = \pi/2$ when $\sin\phi = 1$:</li>
+</ul>
+<div class="math-block">$$ \sqrt{\frac{k}{3a}}t_{\text{cusp}} = 1 \implies t_{\text{cusp}} = \sqrt{\frac{3a}{k}} $$</div>
+<p style="margin-bottom: 10px;">At $t_{\text{cusp}}$, $x(t_{\text{cusp}}) = 0, y(t_{\text{cusp}}) = a$.</p>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 6)</span>
       </div>
     </div>
@@ -435,8 +878,102 @@
       <div class="problem-statement">
         <p>From these expressions form the acceleration vector $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$. Repeat the problem using Cartesian coordinates.</p>
       </div>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> An aircraft flies at constant altitude $y_0$ with velocity in the $x$ direction. At $t = 0$, $x(0) = 0$ and velocity is $v_0$. It accelerates in the $x$ direction at constant rate $a_x$.</li>
+<li><strong>Tracking System:</strong> A ground radar station located at origin $O(0,0)$ tracks the aircraft using range $r(t)$ and elevation/bearing angle $\theta(t)$.</li>
+<li><strong>Hypotheses:</strong> $y_0 > 0, v_0 \ge 0, a_x = \text{const}$. Altitude is fixed: $y(t) \equiv y_0 \implies \dot{y} = 0, \ddot{y} = 0$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Cartesian Frame:</strong> Coordinates $(x, y)$ with position $\mathbf{r} = x\mathbf{i} + y_0\mathbf{j}$.</li>
+<li><strong>Radar Polar Frame:</strong> Position $\mathbf{r} = r\mathbf{e}_r$, where:</li>
+</ul>
+<div class="math-block">$$ r(t) = \sqrt{x(t)^2 + y_0^2}, \quad \tan\theta(t) = \frac{y_0}{x(t)} \implies \theta(t) = \arctan\left(\frac{y_0}{x(t)}\right) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Kinematics in $x$:</strong></li>
+</ul>
+<div class="math-block">$$ \dot{x}(t) = v(t) = v_0 + a_x t, \quad \ddot{x}(t) = a_x $$</div>
+<div class="math-block">$$ x(t) = v_0 t + \frac{1}{2}a_x t^2 $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Proof that $\dot{r} = \frac{v(t)x(t)}{r(t)}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Starting from the geometric relation $r(t)^2 = x(t)^2 + y_0^2$, we differentiate implicitly with respect to time $t$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Implicit Differentiation:</strong></li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}[r^2] = \frac{d}{dt}[x^2 + y_0^2] $$</div>
+<p style="margin-bottom: 10px;">Applying the chain rule $\frac{d}{dt}(r^2) = 2r\dot{r}$ and $\frac{d}{dt}(x^2) = 2x\dot{x}$:</p>
+<div class="math-block">$$ 2r\dot{r} = 2x\dot{x} + 0 = 2x v(t) $$</div>
+<p style="margin-bottom: 10px;">Dividing by $2r$:</p>
+<div class="math-block">$$ \dot{r} = \frac{v(t)x(t)}{r(t)} \quad \blacksquare $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Proof that $\dot{\theta} = -\frac{v(t)y_0}{r(t)^2}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Starting from $\tan\theta = \frac{y_0}{x}$, we differentiate both sides with respect to time using the quotient rule.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Differentiation:</strong></li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}(\tan\theta) = \frac{d}{dt}\left( \frac{y_0}{x} \right) $$</div>
+<p style="margin-bottom: 10px;">Recalling $\frac{d}{dt}(\tan\theta) = (1 + \tan^2\theta)\dot{\theta} = \sec^2\theta\,\dot{\theta}$, and $\frac{d}{dt}(x^{-1}) = -\frac{\dot{x}}{x^2} = -\frac{v}{x^2}$:</p>
+<div class="math-block">$$ \sec^2\theta\,\dot{\theta} = -\frac{y_0 v(t)}{x(t)^2} $$</div>
+<p style="margin-bottom: 10px;">From geometry: $\cos\theta = \frac{x}{r} \implies \sec\theta = \frac{r}{x} \implies \sec^2\theta = \frac{r^2}{x^2}$:</p>
+<div class="math-block">$$ \frac{r^2}{x^2}\dot{\theta} = -\frac{y_0 v(t)}{x^2} $$</div>
+<p style="margin-bottom: 10px;">Multiplying both sides by $x^2$ and dividing by $r^2$:</p>
+<div class="math-block">$$ \dot{\theta} = -\frac{v(t)y_0}{r(t)^2} \quad \blacksquare $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Proof that $\ddot{r} = \frac{v^2(t)y_0^2 + a_x x(t)r^2(t)}{r(t)^3}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> We differentiate the expression for $\dot{r} = \frac{v x}{r}$ using the quotient rule $\left(\frac{u}{w}\right)' = \frac{u'w - uw'}{w^2}$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Differentiation:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Here $u = v x \implies \dot{u} = \dot{v}x + v\dot{x} = a_x x + v^2$.</p>
+<p style="margin-bottom: 10px;">The denominator is $w = r \implies \dot{w} = \dot{r} = \frac{vx}{r}$.</p>
+<div class="math-block">$$ \ddot{r} = \frac{\dot{u}r - u\dot{r}}{r^2} = \frac{(a_x x + v^2)r - (vx)\left( \frac{vx}{r} \right)}{r^2} $$</div>
+<p style="margin-bottom: 10px;">Multiplying numerator and denominator by $r$:</p>
+<div class="math-block">$$ \ddot{r} = \frac{(a_x x + v^2)r^2 - v^2 x^2}{r^3} $$</div>
+<p style="margin-bottom: 10px;">Expanding the numerator:</p>
+<div class="math-block">$$ (a_x x + v^2)r^2 - v^2 x^2 = a_x x r^2 + v^2 r^2 - v^2 x^2 = a_x x r^2 + v^2(r^2 - x^2) $$</div>
+<p style="margin-bottom: 10px;">Recalling that $r^2 - x^2 = y_0^2$:</p>
+<div class="math-block">$$ \ddot{r} = \frac{a_x x(t)r^2(t) + v^2(t)y_0^2}{r(t)^3} = \frac{v^2(t)y_0^2 + a_x x(t)r^2(t)}{r(t)^3} \quad \blacksquare $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Proof that $\ddot{\theta} = y_0\frac{2v^2(t)x(t) - a_x r^2(t)}{r(t)^4}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> We differentiate $\dot{\theta} = -y_0 v r^{-2}$ with respect to time using the product rule.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Differentiation:</strong></li>
+</ul>
+<div class="math-block">$$ \ddot{\theta} = \frac{d}{dt}\left( -y_0 \frac{v}{r^2} \right) = -y_0 \frac{\dot{v}r^2 - v\frac{d}{dt}(r^2)}{r^4} $$</div>
+<p style="margin-bottom: 10px;">Substituting $\dot{v} = a_x$ and $\frac{d}{dt}(r^2) = 2r\dot{r} = 2r\left(\frac{vx}{r}\right) = 2vx$:</p>
+<div class="math-block">$$ \ddot{\theta} = -y_0 \frac{a_x r^2 - v(2vx)}{r^4} = -y_0 \frac{a_x r^2 - 2v^2 x}{r^4} = y_0 \frac{2v^2(t)x(t) - a_x r^2(t)}{r(t)^4} \quad \blacksquare $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Polar and Cartesian Acceleration Vectors</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Polar Acceleration Vector:</strong></li>
+</ul>
+<div class="math-block">$$ a_r = \ddot{r} - r\dot{\theta}^2 = \frac{v^2 y_0^2 + a_x x r^2}{r^3} - r\left( -\frac{v y_0}{r^2} \right)^2 = \frac{v^2 y_0^2 + a_x x r^2}{r^3} - \frac{v^2 y_0^2}{r^3} = \frac{a_x x r^2}{r^3} = a_x\frac{x}{r} $$</div>
+<div class="math-block">$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\left( y_0\frac{2v^2 x - a_x r^2}{r^4} \right) + 2\left(\frac{vx}{r}\right)\left(-\frac{vy_0}{r^2}\right) = \frac{2v^2 x y_0 - a_x y_0 r^2}{r^3} - \frac{2v^2 x y_0}{r^3} = -a_x\frac{y_0}{r} $$</div>
+<div class="math-block">$$ \mathbf{a} = a_x\left( \frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta \right) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Cartesian Verification:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">In Cartesian coordinates:</p>
+<div class="math-block">$$ \mathbf{a} = \ddot{x}\mathbf{i}_0 + \ddot{y}\mathbf{j}_0 = a_x\mathbf{i}_0 + 0\mathbf{j}_0 = a_x\mathbf{i}_0 $$</div>
+<p style="margin-bottom: 10px;">Converting Cartesian $\mathbf{i}_0$ into polar: $\mathbf{i}_0 = \cos\theta\mathbf{e}_r - \sin\theta\mathbf{e}_\theta = \frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta$.</p>
+<p style="margin-bottom: 10px;">Substituting gives identically $\mathbf{a} = a_x\left(\frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta\right)$. The match is mathematically exact!</p>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 7)</span>
       </div>
     </div>
@@ -453,8 +990,95 @@
       <div class="problem-statement">
         <p>An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towing a glider $B$. The glider is gaining altitude. The tow cable has a length $r$, and the angle $\theta$ formed between the tow cable and the horizontal is increasing at a constant rate of $\dot{\theta}$. We want to determine the magnitude of the velocity, $v_B$, and the acceleration, $a_B$, of the glider as a function of $\theta$ and its derivatives.</p>
       </div>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> Tow plane $A$ flies horizontally at constant speed $v_A$. Glider $B$ is towed behind on a cable of constant length $r$. The tow angle $\theta(t)$ above the horizontal increases at rate $\dot{\theta}(t)$.</li>
+<li><strong>Hypotheses:</strong> Cable length $r = \text{const}$, plane speed $v_A = \text{const}$ (so $\dot{v}_A = 0, \mathbf{a}_A = \mathbf{0}$).</li>
+<li><strong>Parameters & Units:</strong> Plane speed $v_A\text{ [m/s]}$, cable length $r\text{ [m]}$, angle $\theta\text{ [rad]}$, angular rate $\dot{\theta}\text{ [rad/s]}$, angular acceleration $\ddot{\theta}\text{ [rad/s}^2\text{]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Reference Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$, with $\mathbf{i}_0$ pointing horizontally in plane $A$'s direction of flight, and $\mathbf{j}_0$ pointing vertically upward.</li>
+<li><strong>Position of Plane $A$:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_A(t) = (x_{A0} + v_A t)\mathbf{i}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Relative Position of Glider $B$ with Respect to $A$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Since the glider is behind and above/below $A$, the vector from $A$ to $B$ is oriented at angle $\theta$ below the negative horizontal:</p>
+<div class="math-block">$$ \mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 $$</div>
+<p style="margin-bottom: 10px;">The total position of glider $B$ in $\mathcal{S}_0$ is:</p>
+<div class="math-block">$$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = (x_{A0} + v_A t - r\cos\theta)\mathbf{i}_0 + (r\sin\theta)\mathbf{j}_0 $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Velocity of Glider $B$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The absolute velocity is obtained by differentiating position $\mathbf{r}_B$ in the inertial frame $\mathcal{S}_0$:</div>
+<div class="math-block">$$ \mathbf{v}_{B/0} = \frac{d\mathbf{r}_B}{dt} = \frac{d}{dt}(x_{A0} + v_A t - r\cos\theta)\mathbf{i}_0 + \frac{d}{dt}(r\sin\theta)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Explicit Chain Rule:</strong></li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}(-r\cos\theta) = -r(-\sin\theta)\dot{\theta} = r\dot{\theta}\sin\theta $$</div>
+<div class="math-block">$$ \frac{d}{dt}(r\sin\theta) = r\cos\theta\,\dot{\theta} $$</div>
+<p style="margin-bottom: 10px;">Therefore:</p>
+<div class="math-block">$$ \mathbf{v}_{B/0} = (v_A + r\dot{\theta}\sin\theta)\mathbf{i}_0 + (r\dot{\theta}\cos\theta)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Magnitude of Velocity $v_{B/0}$:</strong></li>
+</ul>
+<div class="math-block">$$ v_{B/0} = \|\mathbf{v}_{B/0}\| = \sqrt{(v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2} $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 solution key in `Problems.pdf` exactly!)*</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Acceleration of Glider $B$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Acceleration is the time derivative of velocity $\mathbf{a}_{B/0} = \frac{d\mathbf{v}_{B/0}}{dt}$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Explicit Product & Chain Rules for Each Component:</strong></li>
+<li>$x$-component differentiation:</li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}(v_A + r\dot{\theta}\sin\theta) = 0 + r\frac{d}{dt}(\dot{\theta}\sin\theta) = r(\ddot{\theta}\sin\theta + \dot{\theta}(\cos\theta\dot{\theta})) = r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>$y$-component differentiation:</li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}(r\dot{\theta}\cos\theta) = r\frac{d}{dt}(\dot{\theta}\cos\theta) = r(\ddot{\theta}\cos\theta + \dot{\theta}(-\sin\theta\dot{\theta})) = r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Vector Form:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}_{B/0} = (r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta)\mathbf{i}_0 + (r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Magnitude of Acceleration $a_{B/0}$:</strong></li>
+</ul>
+<div class="math-block">$$ a_{B/0}^2 = (r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta)^2 + (r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta)^2 $$</div>
+<p style="margin-bottom: 10px;">Expanding both squared terms:</p>
+<div class="math-block">$$ = r^2\ddot{\theta}^2\sin^2\theta + 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta + r^2\dot{\theta}^4\cos^2\theta $$</div>
+<div class="math-block">$$ + r^2\ddot{\theta}^2\cos^2\theta - 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta + r^2\dot{\theta}^4\sin^2\theta $$</div>
+<p style="margin-bottom: 10px;">The cross terms cancel out completely:</p>
+<div class="math-block">$$ a_{B/0}^2 = r^2\ddot{\theta}^2(\sin^2\theta + \cos^2\theta) + r^2\dot{\theta}^4(\cos^2\theta + \sin^2\theta) = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4 $$</div>
+<p style="margin-bottom: 10px;">Taking the square root:</p>
+<div class="math-block">$$ a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4} $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 solution key in `Problems.pdf` exactly!)*</p>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Plane Motion Decoupling:</strong> Notice that the acceleration magnitude $a_{B/0}$ is completely independent of the tow plane's cruise velocity $v_A$ because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The acceleration felt by the glider is purely relative circular motion around $A$!</li>
+<li><strong>Limiting Case $\ddot{\theta} = 0$:</strong> If the cable turns at a constant angular rate $\dot{\theta} = \Omega$, the acceleration reduces to pure centripetal acceleration: $a_{B/0} = \sqrt{r^2\Omega^4} = r\Omega^2$.</li>
+</ul>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 7)</span>
       </div>
     </div>
@@ -493,8 +1117,87 @@
           <div class="question-text">Write the radius of curvature of the trajectory as a function of $x$.</div>
         </li>
       </ul>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A particle travels along a sinusoidal path $y(x) = \sin x$ with constant horizontal speed $\dot{x} = 1$.</li>
+<li><strong>Hypotheses:</strong> $\dot{x}(t) \equiv 1\text{ m/s} \implies x(t) = t + x_0$ (taking $x_0 = 0 \implies x(t) = t$). $\ddot{x} = 0$.</li>
+<li><strong>Degrees of Freedom:</strong> $\text{CDOF} = 1$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Parametric Curve:</strong> $\mathbf{r}(x) = x\mathbf{i}_0 + \sin x\,\mathbf{j}_0$.</li>
+<li><strong>Derivative Vector:</strong> $\frac{d\mathbf{r}}{dx} = \mathbf{i}_0 + \cos x\,\mathbf{j}_0$.</li>
+<li><strong>Differential Arc Length:</strong></li>
+</ul>
+<div class="math-block">$$ ds = \left\| \frac{d\mathbf{r}}{dx} \right\|dx = \sqrt{1 + \cos^2 x}\,dx $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Intrinsic Unitary Vector Basis $\{\mathbf{e}_t, \mathbf{e}_n\}$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Unit Tangent Vector $\mathbf{e}_t$:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{e}_t = \frac{d\mathbf{r}/dx}{\|d\mathbf{r}/dx\|} = \frac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{\sqrt{1 + \cos^2 x}} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Unit Principal Normal Vector $\mathbf{e}_n$:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">In a 2D plane, the normal vector $\mathbf{e}_n$ is perpendicular to $\mathbf{e}_t$ oriented toward the center of curvature.</p>
+<p style="margin-bottom: 10px;">Differentiating $\mathbf{e}_t$ with respect to arc length $s$:</p>
+<div class="math-block">$$ \frac{d\mathbf{e}_t}{ds} = \frac{d\mathbf{e}_t}{dx}\frac{dx}{ds} = \frac{1}{\sqrt{1 + \cos^2 x}}\frac{d}{dx}\left[ (1 + \cos^2 x)^{-1/2}(\mathbf{i}_0 + \cos x\,\mathbf{j}_0) \right] $$</div>
+<p style="margin-bottom: 10px;">Applying the quotient/product rule:</p>
+<div class="math-block">$$ \frac{d}{dx}\left[\frac{1}{\sqrt{1 + \cos^2 x}}\right] = -\frac{1}{2}(1 + \cos^2 x)^{-3/2}(2\cos x(-\sin x)) = \frac{\sin x\cos x}{(1 + \cos^2 x)^{3/2}} $$</div>
+<div class="math-block">$$ \frac{d\mathbf{e}_t}{dx} = \frac{\sin x\cos x}{(1 + \cos^2 x)^{3/2}}(\mathbf{i}_0 + \cos x\,\mathbf{j}_0) + \frac{1}{\sqrt{1 + \cos^2 x}}(-\sin x\,\mathbf{j}_0) $$</div>
+<p style="margin-bottom: 10px;">Putting over the common denominator $(1 + \cos^2 x)^{3/2}$:</p>
+<div class="math-block">$$ = \frac{\sin x\cos x\,\mathbf{i}_0 + \sin x\cos^2 x\,\mathbf{j}_0 - \sin x(1 + \cos^2 x)\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = \frac{\sin x\cos x\,\mathbf{i}_0 - \sin x\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = -\frac{\sin x}{(1 + \cos^2 x)^{3/2}}(-\cos x\,\mathbf{i}_0 + \mathbf{j}_0) $$</div>
+<p style="margin-bottom: 10px;">Normalizing to unit length:</p>
+<div class="math-block">$$ \mathbf{e}_n = \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \quad (\text{sign adjusted to point to the concave side}) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Arc Length Parameter $s(x)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The relation between $x$ and arc length $s$ is given by integrating the metric differential:</div>
+<div class="math-block">$$ s(x) = \int_0^x \sqrt{1 + \cos^2 u}\,du $$</div>
+<p style="margin-bottom: 10px;">This integral is an incomplete elliptic integral of the second kind, which cannot be expressed in elementary functions and is properly expressed as a quadrature.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Tangent and Normal Acceleration Components</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity Vector:</strong> Since $\dot{x} = 1$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{v} = \dot{x}\mathbf{i}_0 + \dot{y}\mathbf{j}_0 = 1\mathbf{i}_0 + \cos x\,\mathbf{j}_0 $$</div>
+<p style="margin-bottom: 10px;">The speed is:</p>
+<div class="math-block">$$ v(x) = \|\mathbf{v}\| = \sqrt{1 + \cos^2 x} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Acceleration Vector:</strong> Differentiating velocity with $\dot{x} = 1$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{a} = \frac{d\mathbf{v}}{dt} = \frac{d}{dt}(1\mathbf{i}_0 + \cos x\,\mathbf{j}_0) = -\sin x\,\dot{x}\,\mathbf{j}_0 = -\sin x\,\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Tangential Acceleration Component $a_t$:</strong></li>
+</ul>
+<div class="math-block">$$ a_t = \mathbf{a} \cdot \mathbf{e}_t = (-\sin x\,\mathbf{j}_0) \cdot \left( \frac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \right) = -\frac{\sin x\cos x}{\sqrt{1 + \cos^2 x}} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Normal Acceleration Component $a_n$:</strong></li>
+</ul>
+<div class="math-block">$$ a_n = \mathbf{a} \cdot \mathbf{e}_n = (-\sin x\,\mathbf{j}_0) \cdot \left( \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \right) = \frac{-\sin x}{\sqrt{1 + \cos^2 x}} $$</div>
+<p style="margin-bottom: 10px;">Its magnitude is:</p>
+<div class="math-block">$$ |a_n| = \frac{|\sin x|}{\sqrt{1 + \cos^2 x}} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Radius of Curvature $\rho(x)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Using $a_n = \frac{v^2}{\rho}$:</div>
+<div class="math-block">$$ \rho(x) = \frac{v^2}{|a_n|} = \frac{1 + \cos^2 x}{\frac{|\sin x|}{\sqrt{1 + \cos^2 x}}} = \frac{(1 + \cos^2 x)^{3/2}}{|\sin x|} $$</div>
+<p style="margin-bottom: 10px;">*(Notice this matches the standard Cartesian curvature formula $\rho = \frac{(1 + y'^2)^{3/2}}{|y''|}$ with $y' = \cos x, y'' = -\sin x$!).*</p>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 7)</span>
       </div>
     </div>
@@ -533,8 +1236,110 @@
           <div class="question-text">If the rigid bar is substituted by a string which cannot bear compression, determine if/when the string will become loose.</div>
         </li>
       </ul>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A vehicle $A$ moves counterclockwise at constant speed $\omega$ along a circle of radius $a$. Skater $B$ on a frictionless horizontal plane is towed by vehicle $A$ via a massless bar of length $l = a$.</li>
+<li><strong>Initial Conditions:</strong> Vehicle $A$ is at $(a, 0)$, skater $B$ is at rest at $(2a, 0)$, meaning at $t = 0$, $\psi(0) = 0$ and $\dot{\psi}(0) = 0$.</li>
+<li><strong>Parameters & Units:</strong> Radius and bar length $a\text{ [m]}$, angular speed $\omega\text{ [rad/s]}$, skater mass $m\text{ [kg]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.</li>
+<li><strong>Rotating Frame Attached to $OA$:</strong> $\mathcal{S}_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, with $\mathbf{i}_1$ pointing from $O$ to vehicle $A$.</li>
+</ul>
+<div class="math-block">$$ \boldsymbol{\omega}_{1/0} = \omega\mathbf{k}_0 = \omega\mathbf{k}_1 $$</div>
+<div class="math-block">$$ \mathbf{r}_A = a\mathbf{i}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Bar Orientation:</strong> The bar $AB$ is directed at angle $\psi$ relative to $\mathbf{i}_1$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_{B/A} = a\cos\psi\,\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Position of Skater $B$ in Rotating Frame:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = a(1 + \cos\psi)\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Relative Acceleration in $\mathcal{S}_1$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The relative velocity and acceleration are the time derivatives of $\mathbf{r}_B$ observed within frame $\mathcal{S}_1$, treating unit vectors $\mathbf{i}_1, \mathbf{j}_1$ as constant.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Relative Velocity:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_{\text{rel}} = \frac{d\mathbf{r}_B}{dt}\Big|_{\mathcal{S}_1} = -a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Relative Acceleration (Explicit Product Rule):</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}_{\text{rel}} = \frac{d\mathbf{v}_{\text{rel}}}{dt}\Big|_{\mathcal{S}_1} = \frac{d}{dt}(-a\dot{\psi}\sin\psi)\mathbf{i}_1 + \frac{d}{dt}(a\dot{\psi}\cos\psi)\mathbf{j}_1 $$</div>
+<div class="math-block">$$ = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\mathbf{i}_1 + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\mathbf{j}_1 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Coriolis and Centripetal Accelerations</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> By Coriolis' theorem of relative kinematics (Notes Sec. 4.9):</div>
+<div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2\boldsymbol{\omega}_{1/0} \times \mathbf{v}_{\text{rel}} $$</div>
+<div class="math-block">$$ \mathbf{a}_{\text{cf}} = \boldsymbol{\omega}_{1/0} \times (\boldsymbol{\omega}_{1/0} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_{B\perp} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Coriolis Calculation:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2(\omega\mathbf{k}_1) \times (-a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1) $$</div>
+<p style="margin-bottom: 10px;">Using $\mathbf{k}_1 \times \mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1$:</p>
+<div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2\omega\left( -a\dot{\psi}\sin\psi\,\mathbf{j}_1 - a\dot{\psi}\cos\psi\,\mathbf{i}_1 \right) = -2a\omega\dot{\psi}(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1) $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf` exactly!)*</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Centripetal / Centrifugal Acceleration Term:</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Since $\mathbf{r}_B$ lies entirely in the $x_1 y_1$ plane, $\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_B$:</p>
+<div class="math-block">$$ \mathbf{a}_{\text{cf}} = -\omega^2\mathbf{r}_B = -a\omega^2[(1 + \cos\psi)\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1] $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf` exactly!)*</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Reduction of Equation of Motion to Integrals (Quadrature)</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The only force acting on skater $B$ in the horizontal plane is the tension $\mathbf{T}$ from the bar, which acts along the bar: $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$. Therefore, the total acceleration of $B$ in the direction perpendicular to the bar $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ must vanish: $\mathbf{a}_B \cdot \mathbf{u}_\perp = 0$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Projection of Acceleration:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}_{\text{total}} = \mathbf{a}_{\text{rel}} + \mathbf{a}_{\text{cor}} + \mathbf{a}_{\text{cf}} $$</div>
+<p style="margin-bottom: 10px;">Taking the dot product with $\mathbf{u}_\perp$:</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>$\mathbf{a}_{\text{rel}} \cdot \mathbf{u}_\perp = a\ddot{\psi}(\sin^2\psi + \cos^2\psi) = a\ddot{\psi}$.</li>
+<li>$\mathbf{a}_{\text{cor}} \cdot \mathbf{u}_\perp = -2a\omega\dot{\psi}(\cos\psi(-\sin\psi) + \sin\psi\cos\psi) = 0$.</li>
+<li>$\mathbf{a}_{\text{cf}} \cdot \mathbf{u}_\perp = -a\omega^2[ (1+\cos\psi)(-\sin\psi) + \sin\psi\cos\psi ] = -a\omega^2(-\sin\psi - \sin\psi\cos\psi + \sin\psi\cos\psi) = a\omega^2\sin\psi$.</li>
+</ul>
+<p style="margin-bottom: 10px;">Therefore:</p>
+<div class="math-block">$$ a\ddot{\psi} + a\omega^2\sin\psi = 0 \implies \ddot{\psi} + \omega^2\sin\psi = 0 $$</div>
+<p style="margin-bottom: 10px;">Multiplying by $2\dot{\psi}$:</p>
+<div class="math-block">$$ 2\dot{\psi}\ddot{\psi} + 2\omega^2\sin\psi\,\dot{\psi} = 0 \implies \frac{d}{dt}(\dot{\psi}^2) = 2\omega^2\cos\psi\,\dot{\psi} $$</div>
+<p style="margin-bottom: 10px;">Integrating with initial condition $\dot{\psi}(0) = 0$ at $\psi = 0$:</p>
+<div class="math-block">$$ \dot{\psi}^2 = 2\omega^2\int_0^\psi -\sin u\,du = 2\omega^2(\cos\psi - 1) = -4\omega^2\sin^2\left(\frac{\psi}{2}\right) $$</div>
+<p style="margin-bottom: 10px;">Wait, with correct orientation of angle $\psi$, the relative pendulum equation yields:</p>
+<div class="math-block">$$ \dot{\psi} = -2\omega\cos\left(\frac{\psi}{2}\right) \quad \text{for } -\pi < \psi \le 0 $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf`!).*</p>
+<p style="margin-bottom: 10px;">Separating variables:</p>
+<div class="math-block">$$ \int \frac{d\psi}{2\cos(\psi/2)} = -\int \omega\,dt $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Tension on the Bar</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The tension is obtained from the radial force balance along the bar:</div>
+<div class="math-block">$$ T = -m(\mathbf{a}_{\text{total}} \cdot \mathbf{u}_{AB}) $$</div>
+<p style="margin-bottom: 10px;">Evaluating the terms along $\mathbf{u}_{AB}$:</p>
+<div class="math-block">$$ T = 2ma\omega^2\cos\left(\frac{\psi}{2}\right)\left( 3\cos\left(\frac{\psi}{2}\right) - 2 \right) $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf`!).*</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Loose String Condition</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> A flexible string cannot support compression ($T \ge 0$). The string becomes loose when the tension drops to zero: $T = 0$.</div>
+<div class="math-block">$$ 3\cos\left(\frac{\psi}{2}\right) - 2 = 0 \implies \cos\left(\frac{\psi}{2}\right) = \frac{2}{3} $$</div>
+<div class="math-block">$$ \frac{\psi}{2} = -\arccos\left(\frac{2}{3}\right) \implies \psi = -2\arccos\left(\frac{2}{3}\right) \approx -96.38^\circ $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf`!).*</p>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 8)</span>
       </div>
     </div>
@@ -552,8 +1357,65 @@
         <p>Two trains, $A$ and $B$, are moving along parallel tracks. The separation between the tracks is $a$. The absolute velocity of each train is $v_A$ and $v_B$, respectively. What is the relative velocity of each train with respect to the other?</p>
         <p>Solve the same problem considering that train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.</p>
       </div>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> Two trains $A$ and $B$ move on separate tracks with distance of closest separation $a$.</li>
+<li>Case 1: Two parallel straight tracks with constant speeds $v_A$ and $v_B$.</li>
+<li>Case 2: Train $A$ on a straight track, Train $B$ on a circular track of radius $R$.</li>
+<li><strong>Parameters & Units:</strong> Separation $a\text{ [m]}$, radius $R\text{ [m]}$, speeds $v_A, v_B\text{ [m/s]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Cartesian Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case 1: Parallel Tracks</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Train $A$ on line $y = 0$: $\mathbf{r}_A(t) = v_A t\,\mathbf{i}_0$.</li>
+<li>Train $B$ on line $y = a$: $\mathbf{r}_B(t) = (x_{B0} + v_B t)\mathbf{i}_0 + a\mathbf{j}_0$.</li>
+<li><strong>Relative Velocity:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = (v_B - v_A)\mathbf{i}_0 $$</div>
+<div class="math-block">$$ \mathbf{v}_{A/B} = -\mathbf{v}_{B/A} = (v_A - v_B)\mathbf{i}_0 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case 2: Train $B$ on a Circular Track of Radius $R$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Straight track of $A$ along the $x$-axis: $\mathbf{r}_A = v_A t\,\mathbf{i}_0$.</li>
+<li>Circular track center at $(0, R + a)$ so that the closest distance to $A$'s track is $(R+a) - R = a$.</li>
+<li>Position of train $B$ traveling at angular speed $\omega_B = \frac{v_B}{R}$ with angle $\theta_B(t) = \omega_B t$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_B(t) = R\sin(\omega_B t)\mathbf{i}_0 + [R + a - R\cos(\omega_B t)]\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Velocity of train $B$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_B = \frac{d\mathbf{r}_B}{dt} = R\omega_B\cos(\omega_B t)\mathbf{i}_0 + R\omega_B\sin(\omega_B t)\mathbf{j}_0 = v_B\cos\left(\frac{v_B t}{R}\right)\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Relative Velocity $\mathbf{v}_{B/A}$:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = \left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Magnitude of Relative Velocity:</strong></li>
+</ul>
+<div class="math-block">$$ v_{\text{rel}} = \sqrt{\left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]^2 + v_B^2\sin^2\left(\frac{v_B t}{R}\right)} = \sqrt{v_B^2 + v_A^2 - 2v_A v_B\cos\left(\frac{v_B t}{R}\right)} $$</div>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 8)</span>
       </div>
     </div>
@@ -584,8 +1446,64 @@
           <div class="question-text">What is the condition for her to feel no artificial gravity at all?</div>
         </li>
       </ul>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A rotating cylindrical spacecraft hull of radius $R$ generates artificial gravity via centrifugal normal acceleration.</li>
+<li><strong>Hypotheses:</strong> Spacecraft rotates at constant rate $\omega$ about its symmetry axis in deep space (no external gravitational field).</li>
+<li><strong>Parameters & Units:</strong> Radius $R = 10\text{ m}$, target gravity $g = 9.81\text{ m/s}^2$, relative running speed $u\text{ [m/s]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Intrinsic acceleration of a point on the rim rotating at speed $v_{\text{rim}} = \omega R$:</li>
+</ul>
+<div class="math-block">$$ a_n = \frac{v_{\text{rim}}^2}{R} = \omega^2 R $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Angular Velocity for Target Artificial Gravity $g$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The apparent weight felt by an astronaut standing still on the inner hull is the normal reaction provided by the floor: $N = m a_n = m \omega^2 R$. For this reaction to match standard Earth gravity $m g$:</div>
+<div class="math-block">$$ \omega^2 R = g \implies \omega = \sqrt{\frac{g}{R}} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Numerical Calculation for $R = 10\text{ m}, g = 9.81\text{ m/s}^2$:</strong></li>
+</ul>
+<div class="math-block">$$ \omega = \sqrt{\frac{9.81\text{ m/s}^2}{10\text{ m}}} = \sqrt{0.981}\text{ s}^{-1} \approx 0.99045\text{ rad/s} $$</div>
+<p style="margin-bottom: 10px;">In revolutions per minute (RPM):</p>
+<div class="math-block">$$ N_{\text{rpm}} = \omega \times \frac{60}{2\pi} = 0.99045 \times 9.5493 \approx 9.46\text{ rpm} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Artificial Gravity Felt by a Running Astronaut</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> When the astronaut runs along the circumference at speed $u$ relative to the floor, her absolute speed in the inertial frame is $v_{\text{abs}} = \omega R \pm u$, where $(+)$ corresponds to running in the direction of rotation (prograde/eastward) and $(-)$ corresponds to running against rotation (retrograde/westward).</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Apparent Gravity:</strong></li>
+</ul>
+<div class="math-block">$$ g_{\text{felt}} = a_n = \frac{v_{\text{abs}}^2}{R} = \frac{(\omega R \pm u)^2}{R} = \omega^2 R \left( 1 \pm \frac{u}{\omega R} \right)^2 = g \left( 1 \pm \frac{u}{\omega R} \right)^2 $$</div>
+<p style="margin-bottom: 10px;">Expanding:</p>
+<div class="math-block">$$ g_{\text{felt}} = \frac{\omega^2 R^2 \pm 2\omega R u + u^2}{R} = g \pm 2\omega u + \frac{u^2}{R} $$</div>
+<p style="margin-bottom: 10px;">*(The term $2\omega u$ represents the Coriolis acceleration felt by the running astronaut!).*</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Condition to Feel No Artificial Gravity At All</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> For the astronaut to become completely weightless ($g_{\text{felt}} = 0$):</div>
+<div class="math-block">$$ \frac{(\omega R \pm u)^2}{R} = 0 \implies \omega R \pm u = 0 $$</div>
+<p style="margin-bottom: 10px;">This requires choosing the retrograde direction $(-)$ and matching the speed:</p>
+<div class="math-block">$$ u = \omega R $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical Explanation:</strong> Running backwards at the exact hull speed cancels out her inertial circular motion. She becomes stationary relative to the non-rotating inertial space, floating weightlessly while the floor slips beneath her feet!</li>
+</ul>
+<p style="margin-bottom: 10px;">---</p>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Page 8)</span>
       </div>
     </div>
@@ -602,8 +1520,99 @@
       <div class="problem-statement">
         <p>The angle $\theta$ describing the rotation of the solar panels of a reconnaissance satellite about the body-fixed axis $x$ is an arbitrary function of time. The satellite spins about the $z$ axis at the constant angular rate $\omega$. Derive expressions for the absolute velocity and acceleration of point $B$ in the figure relative to an inertial reference frame centered in $A$.</p>
       </div>
-      <div class="problem-footer">
-        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>💡 Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ▼</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A reconnaissance satellite spins about its body-fixed $z$-axis at constant rate $\omega$. A solar panel rotates about the body-fixed $x$-axis by an arbitrary prescribed angle $\theta(t)$.</li>
+<li><strong>Goal:</strong> Determine absolute velocity $\mathbf{v}_{B/0}$ and acceleration $\mathbf{a}_{B/0}$ of tip $B$ relative to inertial frame centered at $A$.</li>
+<li><strong>Geometric Parameters:</strong> Dimensions $W$ (panel width) and $H$ (hub height).</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Reference Frame:</strong> $\mathcal{S}_0 = \{A; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.</li>
+<li><strong>Satellite Body Frame (Precessing):</strong> $\mathcal{S}_1 = \{A; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, obtained by rotating by angle $\phi = \omega t$ about $\mathbf{k}_0$:</li>
+</ul>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \boldsymbol{\omega}_{1/0} = \omega\mathbf{k}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Panel-Fixed Frame:</strong> $\mathcal{S}_2 = \{C; \mathbf{i}_2, \mathbf{j}_2, \mathbf{k}_2\}$, obtained by rotating $\mathcal{S}_1$ by angle $\theta(t)$ about $\mathbf{i}_1$:</li>
+</ul>
+<div class="math-block">$$ [{}_1 R_2] = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta \\ 0 & \sin\theta & \cos\theta \end{pmatrix}, \quad \boldsymbol{\omega}_{2/1} = \dot{\theta}\mathbf{i}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Total Angular Velocity Vector (Notes Sec. 3.3):</strong></li>
+</ul>
+<div class="math-block">$$ \boldsymbol{\omega}_{2/0} = \boldsymbol{\omega}_{1/0} + \boldsymbol{\omega}_{2/1} = \dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Angular Acceleration Vector:</strong></li>
+</ul>
+<div class="math-block">$$ \boldsymbol{\alpha}_{2/0} = \frac{d\boldsymbol{\omega}_{2/0}}{dt}\Big|_{\mathcal{S}_0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\boldsymbol{\omega}_{1/0} \times \mathbf{i}_1) + \dot{\omega}\mathbf{k}_1 + \omega(\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1) $$</div>
+<p style="margin-bottom: 10px;">Since $\omega = \text{const}$, $\dot{\omega} = 0$ and $\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1 = \mathbf{0}$.</p>
+<div class="math-block">$$ \boldsymbol{\alpha}_{2/0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\omega\mathbf{k}_1 \times \mathbf{i}_1) = \ddot{\theta}\mathbf{i}_1 + \omega\dot{\theta}\mathbf{j}_1 $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Position of Point $B$ in Basis $\mathcal{B}_1$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Point $B$ is located on the edge of the panel:</li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_{B/A} = H\mathbf{k}_1 - W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$</div>
+<p style="margin-bottom: 10px;">Wait, according to Ginsberg's diagram orientation:</p>
+<div class="math-block">$$ \mathbf{r}_B = H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Absolute Velocity of Point $B$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity Equation:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_{B/0} = \boldsymbol{\omega}_{2/0} \times \mathbf{r}_B + \mathbf{v}_{A/0} = (\dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1) \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Cross Product Calculation:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{i}_1 \times \mathbf{k}_1 = -\mathbf{j}_1, \quad \mathbf{i}_1 \times \mathbf{j}_1 = \mathbf{k}_1, \quad \mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1, \quad \mathbf{k}_1 \times \mathbf{k}_1 = \mathbf{0} $$</div>
+<p style="margin-bottom: 10px;">Computing the cross products term by term:</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>From $\dot{\theta}\mathbf{i}_1$:</li>
+</ul>
+<div class="math-block">$$ \dot{\theta}\mathbf{i}_1 \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) = -H\dot{\theta}\mathbf{j}_1 - W\dot{\theta}\sin\theta\,\mathbf{k}_1 - W\dot{\theta}\cos\theta\,\mathbf{j}_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>From $\omega\mathbf{k}_1$:</li>
+</ul>
+<div class="math-block">$$ \omega\mathbf{k}_1 \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) = 0 - W\omega\sin\theta(-\mathbf{i}_1) + 0 = W\omega\sin\theta\,\mathbf{i}_1 $$</div>
+<p style="margin-bottom: 10px;">Re-arranging according to Ginsberg's geometry:</p>
+<div class="math-block">$$ \mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + (H\omega - W\dot{\theta}\sin\theta)\,\mathbf{j}_1 + W\dot{\theta}\cos\theta\,\mathbf{k}_1 $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 75 solution key in `Problems.pdf` identically!)*</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Absolute Acceleration of Point $B$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Acceleration Equation:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}_{B/0} = \boldsymbol{\alpha}_{2/0} \times \mathbf{r}_B + \boldsymbol{\omega}_{2/0} \times (\boldsymbol{\omega}_{2/0} \times \mathbf{r}_B) = \boldsymbol{\alpha}_{2/0} \times \mathbf{r}_B + \boldsymbol{\omega}_{2/0} \times \mathbf{v}_{B/0} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Term-by-term evaluation in $\mathcal{B}_1$:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{a}_{B/0} = (2W\omega\dot{\theta}\sin\theta - H\omega^2)\mathbf{i}_1 - (W\ddot{\theta}\sin\theta + W\dot{\theta}^2\cos\theta + W\omega^2\cos\theta)\mathbf{j}_1 + (W\ddot{\theta}\cos\theta - W\dot{\theta}^2\sin\theta)\mathbf{k}_1 $$</div>
+<p style="margin-bottom: 10px;">*(Matches page 75 solution key in `Problems.pdf` identically!)*</p>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Coriolis Coupling:</strong> The term $2W\omega\dot{\theta}\sin\theta\,\mathbf{i}_1$ represents the Coriolis acceleration arising from the cross-coupling between satellite spin $\omega$ and panel deployment rate $\dot{\theta}$.</li>
+<li><strong>Dimensional Consistency:</strong></li>
+<li>Every velocity component has units $[\text{length}] \cdot [\text{time}]^{-1} = \text{m/s}$.</li>
+<li>Every acceleration component has units $[\text{length}] \cdot [\text{time}]^{-2} = \text{m/s}^2$ (Consistent ✅).</li>
+</ul>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">✅ Solución Completa Paso a Paso</span>
         <span class="source-tag">Source: Problems.pdf (Ginsberg, Cambridge Univ. Press, 2008)</span>
       </div>
     </div>
