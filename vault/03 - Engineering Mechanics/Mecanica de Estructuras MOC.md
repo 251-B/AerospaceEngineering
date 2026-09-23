@@ -63,7 +63,7 @@ The *Mechanics Applied to Aerospace Engineering* course provides the core physic
 ## 📝 Official Exam & Practice Problem Sets
 * `[[Problems - Topic 1 Particle Kinematics|Problems: Topic 1 Particle Kinematics (10 Problems)]]` • `[[Solutions - Topic 1 Particle Kinematics|✅ Full Solutions]]`
 * `[[Problems - Topic 2 Point Particle Dynamics|Problems: Topic 2 Point Particle Dynamics (10 Problems)]]` • `[[Solutions - Topic 2 Point Particle Dynamics|✅ Full Solutions]]`
-* `[[Problems - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (15 Problems)]]`
+* `[[Problems - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (15 Problems)]]` • `[[Solutions - Topic 3 Constraints and Reaction Forces|✅ Full Solutions]]`
 
 ---
 
