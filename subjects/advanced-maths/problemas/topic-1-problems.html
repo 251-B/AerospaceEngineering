@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 Problem Set: Introduction, Modeling and Classification of ODEs — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Inter, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.90);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -120px;
+      right: 12%;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       STICKY QUICK-NAVIGATION PILL BAR
+       ======================================================== */
+    .pill-nav-bar {
+      position: sticky;
+      top: 53px;
+      z-index: 90;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+    }
+
+    .pill-nav-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .pill-nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-secondary);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .nav-pill:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      transform: translateY(-1px);
+    }
+
+    .nav-pill.active {
+      color: #ffffff;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT & PROBLEMS CONTAINER
+       ======================================================== */
+    .article-container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .source-box {
+      margin-top: 16px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ========================================================
+       PROBLEM CARDS & 4-PHASE ARCHITECTURE
+       ======================================================== */
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-card);
+      scroll-margin-top: 110px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .problem-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .problem-title-group {
+      flex: 1;
+    }
+
+    .problem-num-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.3;
+    }
+
+    .problem-meta-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Phase Containers */
+    .phase-section {
+      margin-top: 26px;
+    }
+
+    .phase-badge-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .phase-1-badge { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .phase-2-badge { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .phase-3-badge { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .phase-4-badge { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .problem-statement-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      overflow-x: auto;
+      padding: 14px 18px;
+      margin: 16px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 18px 0;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.05);
+    }
+
+    .result-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #10b981;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .note-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .warning-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #f59e0b;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Structured Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+
+    table.data-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    /* Navigation Footer */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 680px) {
+      .problem-card { padding: 22px 20px; }
+      .pill-nav-inner { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP STICKY NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📑</span>
+          <span>Problems Index</span>
+        </a>
+        <span class="brand-badge">ProblemsCh1 • 10 Solved</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../teoria/topic-1.html" class="back-link">
+          <span>📖</span>
+          <span>Topic 1 Theory</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       STICKY FAST-NAVIGATION PILL BAR
+       ============================================ -->
+  <nav class="pill-nav-bar" aria-label="Quick Jump Navigation">
+    <div class="pill-nav-inner">
+      <a href="#p1" class="nav-pill">P1.1 Classification</a>
+      <a href="#p2" class="nav-pill">P1.2 Malthus</a>
+      <a href="#p3" class="nav-pill">P1.3 Plutonium-239</a>
+      <a href="#p4" class="nav-pill">P1.4 Newton Cooling</a>
+      <a href="#p5" class="nav-pill">P1.5 Forensic Death</a>
+      <a href="#p6" class="nav-pill">P1.6 CSTR Mixing</a>
+      <a href="#p7" class="nav-pill">P1.7 Free Fall</a>
+      <a href="#p8" class="nav-pill">P1.8 Pendulum</a>
+      <a href="#p9" class="nav-pill">P1.9 Logistic Model</a>
+      <a href="#p10" class="nav-pill">P1.10 Poiseuille Flow</a>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Problems Sheet 1 • Official Solutions</span>
+        <span class="course-tag">Department of Mathematics • UC3M Aerospace Engineering</span>
+      </div>
+      <h1 class="article-title">Chapter 1 Problem Set: Introduction, Modeling and Classification</h1>
+      <p class="article-lead">
+        Comprehensive, rigorous analytical solutions to all 10 problems from <code>ProblemsCh1.pdf</code>, 
+        developed step-by-step with zero algebraic jumps and structured according to our 4-Phase Engineering Framework.
+      </p>
+      <div class="source-box">
+        <span>📑 Ground Truth:</span>
+        <span>ProblemsCh1.pdf • Official Department Problem Sheet</span>
+      </div>
+    </header>
+
+    <!-- ========================================================
+         PROBLEM 1.1
+         ======================================================== -->
+    <article class="problem-card" id="p1">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.1</div>
+          <h2 class="problem-title">Classification of Ten Fundamental Differential Equations</h2>
+        </div>
+        <span class="problem-meta-badge">Taxonomy • Order • Linearity</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Classify the following equations as ordinary or partial; give their order; and state whether they are linear or nonlinear. In each case identify the dependent and independent variables:</p>
+          <ol style="margin-left: 20px;">
+            <li>(i) <strong>Bessel's equation</strong> ($\nu$ is a parameter): $x^2 y'' + x y' + (x^2 - \nu^2)y = 0$</li>
+            <li>(ii) <strong>Burgers' equation</strong> ($\nu$ is a parameter): $\frac{\partial u}{\partial t} - \nu \frac{\partial^2 u}{\partial x^2} + u \frac{\partial u}{\partial x} = 0$</li>
+            <li>(iii) <strong>Duffing's equation</strong> ($m, k, a, b$ are parameters): $m \ddot{x} + k x = a x - b x^3$</li>
+            <li>(iv) $\frac{dy}{dt} = t - y^2$</li>
+            <li>(v) <strong>The wave equation</strong> ($c$ is a parameter): $\frac{\partial^2 y}{\partial t^2} = c^2 \frac{\partial^2 y}{\partial x^2}$</li>
+            <li>(vi) <strong>Newton's law of cooling</strong> ($k$ is a parameter and $T_A(t)$ is a specified function): $\frac{dT}{dt} = -k(T - T_A(t))$</li>
+            <li>(vii) <strong>The logistic population model</strong> ($k$ is a parameter): $\frac{dp}{dt} = k p (1 - p)$</li>
+            <li>(viii) <strong>Newton's second law</strong> for a particle of mass $m$ moving in a potential $V(x)$: $m \ddot{x} = -V'(x)$</li>
+            <li>(ix) <strong>The coupled equations:</strong> $\dot{x} = x(4 - 2x - y), \quad \dot{y} = y(9 - 3x - 3y)$</li>
+            <li>(x) $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$, where $\mathbf{x}$ is an $n$-component vector and $A$ is an $n \times n$ matrix.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation & Criteria</div>
+        <p>We apply the four foundational mathematical tests established by the UC3M Department of Mathematics:</p>
+        <ul>
+          <li><strong>Type (ODE vs PDE):</strong> An ODE depends on exactly 1 independent variable; a PDE depends on 2 or more independent variables.</li>
+          <li><strong>Order:</strong> The highest derivative index present in the equation.</li>
+          <li><strong>Dependent vs Independent:</strong> Independent is the differentiation variable(s); dependent is the unknown state function(s).</li>
+          <li><strong>Linearity (Cátedra Standard):</strong> An equation is linear if and only if it is of degree 1 in the dependent variable and all its derivatives, with no mutual products or transcendental compositions: $\sum_{j=0}^n a_j(x) y^{(j)} = b(x)$.</li>
+        </ul>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Mathematical Derivation</div>
+        
+        <p><strong>(i) Bessel's equation: $x^2 y'' + x y' + (x^2 - \nu^2)y = 0$</strong><br>
+        Independent variable: $x$ (single $\implies$ <strong>ODE</strong>). Dependent variable: $y(x)$.<br>
+        Derivatives present: $y'$ and $y''$. Highest derivative is order 2 $\implies$ <strong>Order 2</strong>.<br>
+        Linearity: Matches $a_2(x)y'' + a_1(x)y' + a_0(x)y = b(x)$ with $a_2(x)=x^2, a_1(x)=x, a_0(x)=x^2-\nu^2, b(x)=0$. All $y, y', y''$ appear linearly $\implies$ <strong>Linear</strong>.</p>
+
+        <p><strong>(ii) Burgers' equation: $\frac{\partial u}{\partial t} - \nu \frac{\partial^2 u}{\partial x^2} + u \frac{\partial u}{\partial x} = 0$</strong><br>
+        Independent variables: $t, x$ (two $\implies$ <strong>PDE</strong>). Dependent variable: $u(x, t)$.<br>
+        Highest derivative: $\frac{\partial^2 u}{\partial x^2}$ $\implies$ <strong>Order 2</strong>.<br>
+        Linearity: The convective acceleration term $u \frac{\partial u}{\partial x}$ is a product of the dependent variable and its derivative $\implies$ <strong>Nonlinear</strong>.</p>
+
+        <p><strong>(iii) Duffing's equation: $m \ddot{x} + k x = a x - b x^3$</strong><br>
+        Overdot signifies time derivative: $\ddot{x} = \frac{d^2 x}{dt^2}$. Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $x(t)$.<br>
+        Highest derivative: $\ddot{x}$ $\implies$ <strong>Order 2</strong>.<br>
+        Linearity: Rearranging gives $m \ddot{x} + (k - a)x + b x^3 = 0$. If $b \neq 0$, the cubic power $x^3$ violates linearity $\implies$ <strong>Nonlinear</strong>.</p>
+
+        <p><strong>(iv) Riccati Type: $\frac{dy}{dt} = t - y^2$</strong><br>
+        Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $y(t)$. Highest derivative: $\frac{dy}{dt}$ $\implies$ <strong>Order 1</strong>.<br>
+        Linearity: The term $y^2$ is quadratic in the dependent variable $\implies$ <strong>Nonlinear</strong>.</p>
+
+        <p><strong>(v) Wave Equation: $\frac{\partial^2 y}{\partial t^2} = c^2 \frac{\partial^2 y}{\partial x^2}$</strong><br>
+        Independent variables: $t, x$ $\implies$ <strong>PDE</strong>. Dependent variable: $y(x, t)$ (displacement).<br>
+        Highest derivative: $\frac{\partial^2 y}{\partial t^2}, \frac{\partial^2 y}{\partial x^2}$ $\implies$ <strong>Order 2</strong>.<br>
+        Linearity: $\frac{\partial^2 y}{\partial t^2} - c^2 \frac{\partial^2 y}{\partial x^2} = 0$ is a homogeneous linear differential operator $\implies$ <strong>Linear</strong>.</p>
+
+        <p><strong>(vi) Newton's Law of Cooling: $\frac{dT}{dt} = -k(T - T_A(t))$</strong><br>
+        Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $T(t)$. Highest derivative: $\frac{dT}{dt}$ $\implies$ <strong>Order 1</strong>.<br>
+        Linearity: Rearranges to $\frac{dT}{dt} + kT = k T_A(t)$, matching $a_1(t)\dot{T} + a_0(t)T = b(t)$ $\implies$ <strong>Linear</strong>.</p>
+
+        <p><strong>(vii) Logistic Model: $\frac{dp}{dt} = k p (1 - p)$</strong><br>
+        Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $p(t)$. Highest derivative: $\frac{dp}{dt}$ $\implies$ <strong>Order 1</strong>.<br>
+        Linearity: Expanding yields $\frac{dp}{dt} - kp + kp^2 = 0$. The term $kp^2$ is nonlinear in $p$ $\implies$ <strong>Nonlinear</strong>.</p>
+
+        <p><strong>(viii) Particle in Potential: $m \ddot{x} = -V'(x)$</strong><br>
+        Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $x(t)$. Highest derivative: $\ddot{x}$ $\implies$ <strong>Order 2</strong>.<br>
+        Linearity: The force $-V'(x)$ is in general a nonlinear function of $x$ (linear only if $V(x) = \frac{1}{2}\kappa x^2$) $\implies$ <strong>Nonlinear</strong>.</p>
+
+        <p><strong>(ix) Coupled Competing Species: $\dot{x} = x(4 - 2x - y), \quad \dot{y} = y(9 - 3x - 3y)$</strong><br>
+        Independent variable: $t$ $\implies$ <strong>System of ODEs</strong>. Dependent variables: $x(t), y(t)$. Highest derivative: 1st order $\implies$ <strong>Order 1</strong>.<br>
+        Linearity: Expanding gives $\dot{x} = 4x - 2x^2 - xy$ and $\dot{y} = 9y - 3xy - 3y^2$, containing quadratic terms ($x^2, y^2$) and cross product ($xy$) $\implies$ <strong>Nonlinear</strong>.</p>
+
+        <p><strong>(x) Vector Matrix System: $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$</strong><br>
+        Independent variable: $t$ $\implies$ <strong>System of ODEs</strong>. Dependent variables: $\mathbf{x}(t) \in \mathbb{R}^n$. Highest derivative: 1st order $\implies$ <strong>Order 1</strong>.<br>
+        Linearity: Matrix multiplication is a linear operator: $A(c_1 \mathbf{x}_1 + c_2 \mathbf{x}_2) = c_1 A\mathbf{x}_1 + c_2 A\mathbf{x}_2$ $\implies$ <strong>Linear</strong>.</p>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Master Classification Matrix</div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Equation</th>
+                  <th>Type</th>
+                  <th>Order</th>
+                  <th>Linearity</th>
+                  <th>Dependent</th>
+                  <th>Independent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>(i)</td><td>$x^2 y'' + xy' + (x^2-\nu^2)y = 0$</td><td>ODE</td><td>2</td><td>Linear</td><td>$y$</td><td>$x$</td></tr>
+                <tr><td>(ii)</td><td>$u_t - \nu u_{xx} + u u_x = 0$</td><td>PDE</td><td>2</td><td>Nonlinear</td><td>$u$</td><td>$t, x$</td></tr>
+                <tr><td>(iii)</td><td>$m \ddot{x} + kx = ax - bx^3$</td><td>ODE</td><td>2</td><td>Nonlinear</td><td>$x$</td><td>$t$</td></tr>
+                <tr><td>(iv)</td><td>$y' = t - y^2$</td><td>ODE</td><td>1</td><td>Nonlinear</td><td>$y$</td><td>$t$</td></tr>
+                <tr><td>(v)</td><td>$y_{tt} = c^2 y_{xx}$</td><td>PDE</td><td>2</td><td>Linear</td><td>$y$</td><td>$t, x$</td></tr>
+                <tr><td>(vi)</td><td>$T' = -k(T - T_A(t))$</td><td>ODE</td><td>1</td><td>Linear</td><td>$T$</td><td>$t$</td></tr>
+                <tr><td>(vii)</td><td>$p' = kp(1-p)$</td><td>ODE</td><td>1</td><td>Nonlinear</td><td>$p$</td><td>$t$</td></tr>
+                <tr><td>(viii)</td><td>$m \ddot{x} = -V'(x)$</td><td>ODE</td><td>2</td><td>Nonlinear</td><td>$x$</td><td>$t$</td></tr>
+                <tr><td>(ix)</td><td>$\dot{x}=x(4-2x-y), \dot{y}=y(9-3x-3y)$</td><td>ODE System</td><td>1</td><td>Nonlinear</td><td>$x, y$</td><td>$t$</td></tr>
+                <tr><td>(x)</td><td>$\dot{\mathbf{x}} = A\mathbf{x}$</td><td>ODE System</td><td>1</td><td>Linear</td><td>$\mathbf{x}$</td><td>$t$</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.2
+         ======================================================== -->
+    <article class="problem-card" id="p2">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.2</div>
+          <h2 class="problem-title">Malthusian Population Dynamics & Doubling Time</h2>
+        </div>
+        <span class="problem-meta-badge">Separable ODE • Asymptotics • Doubling Time</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Let $x(t)$ be the population of a certain species as a function of time, and suppose that the rate of change of this population is proportional to the existing population at each time, with constant of proportionality $k \in \mathbb{R}$.</p>
+          <p>(i) Write a differential equation for $x(t)$.<br>
+          (ii) Solve it, determine the behavior of $x(t)$ as $t \to \infty$ and interpret it depending on the sign of $k$.<br>
+          (iii) If the initial population is $x(0) = x_0$ and $k > 0$, determine the time needed for the population to double.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>The rate of change is the time derivative $\frac{dx}{dt}$. Proportionality to $x(t)$ with constant $k$ yields:</p>
+        $$ \frac{dx}{dt} = k x(t), \quad x(0) = x_0 > 0 $$
+        <p>This is a first-order linear separable homogeneous ODE.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Part (i):</strong> By definition, the ODE is:</p>
+        $$ \mathbf{\frac{dx}{dt} = k x} \tag{1.2.1} $$
+
+        <p><strong>Part (ii):</strong> Separate variables assuming $x > 0$:</p>
+        $$ \frac{1}{x} \, dx = k \, dt $$
+        <p>Integrate both sides from initial state $(0, x_0)$ to arbitrary state $(t, x(t))$:</p>
+        $$ \int_{x_0}^{x(t)} \frac{1}{\xi} \, d\xi = \int_0^t k \, ds \implies [\ln\xi]_{x_0}^{x(t)} = k [s]_0^t \implies \ln\left(\frac{x(t)}{x_0}\right) = k t $$
+        <p>Exponentiate both sides:</p>
+        $$ \frac{x(t)}{x_0} = e^{kt} \implies \mathbf{x(t) = x_0 e^{kt}} \tag{1.2.2} $$
+
+        <p><em>Asymptotic limits as $t \to \infty$:</em></p>
+        <ul>
+          <li>If $k > 0$: $\lim_{t\to\infty} x(t) = \lim_{t\to\infty} x_0 e^{kt} = +\infty$ (Exponential Malthusian explosion; natality exceeds mortality).</li>
+          <li>If $k = 0$: $x(t) = x_0 e^0 = x_0$ (Static equilibrium; births perfectly balance deaths).</li>
+          <li>If $k < 0$: $\lim_{t\to\infty} x(t) = \lim_{t\to\infty} x_0 e^{-|k|t} = 0$ (Exponential extinction; mortality exceeds natality).</li>
+        </ul>
+
+        <p><strong>Part (iii): Doubling Time $t_d$:</strong></p>
+        <p>Set $x(t_d) = 2x_0$ with $k > 0$:</p>
+        $$ x_0 e^{k t_d} = 2 x_0 \implies e^{k t_d} = 2 $$
+        <p>Take the natural logarithm:</p>
+        $$ k t_d = \ln 2 \implies \mathbf{t_d = \frac{\ln 2}{k}} \tag{1.2.3} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Dimensional Verification</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ x(t) = x_0 e^{kt}, \quad t_d = \frac{\ln 2}{k} $$
+          <p><strong>Dimensional Verification:</strong> $[k] = \text{time}^{-1} \implies [t_d] = \frac{1}{[k]} = \text{time}$, which is dimensionally homogeneous.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.3
+         ======================================================== -->
+    <article class="problem-card" id="p3">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.3</div>
+          <h2 class="problem-title">Plutonium-239 Radioactive Decay & Decay Constant</h2>
+        </div>
+        <span class="problem-meta-badge">Half-Life • Nuclear Decay • Space RTG</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Plutonium 239, virtually nonexistent in nature, is one of the radioactive materials used in the production of nuclear weapons, and is a byproduct of the generation of power in a nuclear reactor. Its half-life (i.e., the time it takes for half of the radioactive isotope to decay) is approximately 24,000 years.</p>
+          <p>Using $\frac{dN}{dt} = -kN$ as an appropriate model for radioactive decay, where $N = N(t)$ is the number of isotopes at time $t$, what is the value of $k$ that should be used for this isotope?</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Radioactive disintegration follows the first-order linear ODE $\frac{dN}{dt} = -kN$ ($k > 0$). By definition of half-life $t_{1/2} = 24{,}000\text{ yr}$, the isotope quantity at $t = t_{1/2}$ satisfies $N(t_{1/2}) = \frac{1}{2} N_0$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p>Separate variables and integrate from $t = 0$ ($N = N_0$) to $t$:</p>
+        $$ \int_{N_0}^{N(t)} \frac{d\xi}{\xi} = \int_0^t -k \, ds \implies \ln\left(\frac{N(t)}{N_0}\right) = -k t \implies N(t) = N_0 e^{-kt} $$
+        <p>Substitute $t = t_{1/2}$ and $N(t_{1/2}) = \frac{1}{2}N_0$:</p>
+        $$ N_0 e^{-k t_{1/2}} = \frac{1}{2} N_0 \implies e^{-k t_{1/2}} = 2^{-1} $$
+        <p>Apply the natural logarithm to both sides:</p>
+        $$ \ln\left(e^{-k t_{1/2}}\right) = \ln\left(2^{-1}\right) \implies -k t_{1/2} = -\ln 2 \implies \mathbf{k = \frac{\ln 2}{t_{1/2}}} $$
+        <p>Numerical evaluation with $t_{1/2} = 24{,}000\text{ years}$ and $\ln 2 \approx 0.69314718$:</p>
+        $$ k = \frac{0.69314718}{24{,}000}\text{ yr}^{-1} \approx \mathbf{2.8881 \times 10^{-5}\text{ yr}^{-1}} $$
+        <p>In SI units ($1\text{ yr} \approx 365.25 \times 86400\text{ s} = 3.15576 \times 10^7\text{ s}$):</p>
+        $$ k = \frac{2.8881 \times 10^{-5}}{3.15576 \times 10^7}\text{ s}^{-1} \approx \mathbf{9.1519 \times 10^{-13}\text{ s}^{-1}} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ k = \frac{\ln 2}{24{,}000} \approx 2.8881 \times 10^{-5}\text{ yr}^{-1} \approx 9.1519 \times 10^{-13}\text{ s}^{-1} $$
+          <p><strong>Physical Interpretation:</strong> The extremely minute decay constant explains why Plutonium-239 provides sustained, quasi-constant thermal power over centuries in space probes.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.4
+         ======================================================== -->
+    <article class="problem-card" id="p4">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.4</div>
+          <h2 class="problem-title">Newton's Law of Cooling Modeling</h2>
+        </div>
+        <span class="problem-meta-badge">Lumped Thermal Model • Variable Identification</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> A cup of hot chocolate is initially at temperature $T(0)$ and is left in the room with an ambient temperature $T_A(t)$. The rate of cooling of the hot chocolate is proportional to the difference between the current temperature $T(t)$ and the ambient temperature.</p>
+          <p>(i) Which are the dependent variable, the independent variable, and the parameters?<br>
+          (ii) Write a linear differential equation for the temperature of the hot chocolate that takes into account the heat exchange with the room. Such differential equation is known as Newton's law of cooling.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Lumped capacitance thermal balance: Internal thermal energy rate $m c_p \frac{dT}{dt}$ balances convective heat loss $\dot{Q}_{\text{loss}} = h A_s (T - T_A(t))$. Rate of cooling is $-\frac{dT}{dt}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Part (i): Identification of Variables and Parameters:</strong></p>
+        <ul>
+          <li><strong>Independent variable:</strong> Time $t$ $[s]$ (or $[\text{min}], [\text{h}]$).</li>
+          <li><strong>Dependent variable:</strong> Temperature of the hot chocolate $T = T(t)$ $[{}^\circ\text{C}]$ or $[\text{K}]$.</li>
+          <li><strong>Parameters:</strong>
+            <ul>
+              <li>Cooling constant: $k = \frac{h A_s}{m c_p} > 0$ $[t^{-1}]$.</li>
+              <li>Initial condition: $T(0) = T_0$ $[{}^\circ\text{C}]$.</li>
+              <li>Ambient temperature: $T_A(t)$ (specified external driving function; acts as a parameter if constant).</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Part (ii): Formulation of Newton's Law of Cooling:</strong></p>
+        <p>The verbal statement dictates that the cooling rate $-\frac{dT}{dt}$ is proportional to $(T(t) - T_A(t))$ with constant $k > 0$:</p>
+        $$ -\frac{dT}{dt} = k(T(t) - T_A(t)) $$
+        <p>Multiplying by $-1$ and rearranging to standard linear form:</p>
+        $$ \mathbf{\frac{dT}{dt} + k T(t) = k T_A(t)} \tag{1.4.1} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Linearity Check</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \frac{dT}{dt} = -k(T - T_A(t)) \iff \frac{dT}{dt} + k T = k T_A(t) $$
+          <p><strong>Linearity:</strong> In form $a_1(t)T' + a_0(t)T = b(t)$ with $a_1(t)=1, a_0(t)=k, b(t)=k T_A(t)$. Strictly 1st-order linear ODE.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.5
+         ======================================================== -->
+    <article class="problem-card" id="p5">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.5</div>
+          <h2 class="problem-title">Forensic Time of Death Estimation (Algor Mortis)</h2>
+        </div>
+        <span class="problem-meta-badge">Algor Mortis • Thermal Inversion • Newton Cooling</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> A body is found in a cold room ($T_A = 5^\circ\text{C}$) at 3 pm, and its temperature then is $19^\circ\text{C}$. An hour later its temperature has dropped to $15^\circ\text{C}$. Use Newton's law of cooling to estimate the time of death, assuming that the living body temperature is $37^\circ\text{C}$ and measuring time in hours.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Let $t = 0\text{ h}$ correspond to 3:00 pm. Known data: $T_A = 5^\circ\text{C}$, $T(0) = 19^\circ\text{C}$, and $T(1) = 15^\circ\text{C}$ (at 4:00 pm). We seek the negative time $t_d < 0$ when $T(t_d) = 37^\circ\text{C}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: General Solution:</strong></p>
+        $$ \frac{dT}{dt} = -k(T - 5) \implies \frac{d(T - 5)}{T - 5} = -k \, dt \implies T(t) - 5 = [T(0) - 5] e^{-kt} $$
+        <p>With $T(0) = 19^\circ\text{C}$, the temperature difference is $19 - 5 = 14^\circ\text{C}$:</p>
+        $$ T(t) = 5 + 14 e^{-kt} \tag{1.5.1} $$
+
+        <p><strong>Step 2: Determination of $k$:</strong></p>
+        <p>At $t = 1\text{ h}$, $T(1) = 15^\circ\text{C}$:</p>
+        $$ 15 = 5 + 14 e^{-k} \implies 10 = 14 e^{-k} \implies e^{-k} = \frac{10}{14} = \frac{5}{7} $$
+        <p>Inverting both sides:</p>
+        $$ e^k = \frac{7}{5} = 1.4 \implies \mathbf{k = \ln(1.4) \approx 0.336472\text{ h}^{-1}} $$
+
+        <p><strong>Step 3: Calculating Time of Death $t_d$:</strong></p>
+        <p>Enforce the living core body temperature $T(t_d) = 37^\circ\text{C}$:</p>
+        $$ 37 = 5 + 14 e^{-k t_d} \implies 32 = 14 e^{-k t_d} \implies e^{-k t_d} = \frac{32}{14} = \frac{16}{7} $$
+        <p>Take the natural logarithm:</p>
+        $$ -k t_d = \ln\left(\frac{16}{7}\right) \implies t_d = -\frac{\ln(16/7)}{k} = -\frac{\ln(16/7)}{\ln(1.4)} $$
+        <p>Evaluating numerically with $\ln(16/7) \approx 0.8266786$ and $\ln(1.4) \approx 0.3364722$:</p>
+        $$ t_d = -\frac{0.8266786}{0.3364722}\text{ h} \approx \mathbf{-2.4569\text{ hours}} $$
+
+        <p><strong>Step 4: Clock Time Conversion:</strong></p>
+        <p>Multiply the fractional part by 60 minutes:</p>
+        $$ 2.4569\text{ hours} = 2\text{ h} + (0.4569 \times 60)\text{ min} = 2\text{ h } 27.41\text{ min} \approx 2\text{ hours and } 27\text{ minutes} $$
+        <p>Subtracting 2 hours and 27 minutes from 3:00 pm (15:00):</p>
+        $$ 15:00 - 2\text{ h } 27\text{ min} = \mathbf{12:33\text{ pm}} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ t_d \approx -2.457\text{ hours} \implies \text{Time of Death} \approx \mathbf{12:33\text{ pm}} $$
+          <p><strong>Forensic Consistency:</strong> Algor mortis cooling is monotonic and deterministic under steady ambient conditions.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.6
+         ======================================================== -->
+    <article class="problem-card" id="p6">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.6</div>
+          <h2 class="problem-title">Saline Mixing Tank Dynamics (CSTR)</h2>
+        </div>
+        <span class="problem-meta-badge">CSTR Mass Balance • Washout • Integrating Factor</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> A tank contains 100 liters of water with 1 kg of salt dissolved in it (uniformly). At time $t_0 = 0$, water without salt flows into the tank at a rate of 1 liter per minute, while the mixture flows out at the same rate.</p>
+          <p>(i) Write a differential equation for $x(t)$, which is the number of kg of salt dissolved in the tank at time $t \ge 0$.<br>
+          (ii) How much salt is dissolved in the tank as $t \to \infty$?<br>
+          (iii) What happens if water with $s$ kg of salt per liter flows into the tank at a given rate while the mixture (that is kept uniform) flows out at the same rate?</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Species conservation of dissolved salt mass: $\frac{dx}{dt} = \dot{m}_{\text{in}} - \dot{m}_{\text{out}} = Q_{\text{in}} C_{\text{in}} - Q_{\text{out}} \frac{x(t)}{V(t)}$. Since $Q_{\text{in}} = Q_{\text{out}} = Q$, $V(t) \equiv V_0 = 100\text{ L}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Part (i): Pure Water Flushing ($C_{\text{in}} = 0$):</strong></p>
+        $$ \dot{m}_{\text{in}} = 1 \times 0 = 0\text{ kg/min}, \quad \dot{m}_{\text{out}} = 1 \times \frac{x(t)}{100} = \frac{x(t)}{100}\text{ kg/min} $$
+        $$ \mathbf{\frac{dx}{dt} = -\frac{x(t)}{100}}, \quad x(0) = 1\text{ kg} \tag{1.6.1} $$
+
+        <p><strong>Part (ii): Analytical Solution and Limit as $t \to \infty$:</strong></p>
+        $$ \int_1^{x(t)} \frac{d\xi}{\xi} = \int_0^t -\frac{1}{100} ds \implies \ln(x(t)) = -\frac{t}{100} \implies \mathbf{x(t) = e^{-t/100}\text{ kg}} $$
+        <p>Taking the limit as $t \to \infty$:</p>
+        $$ \lim_{t\to\infty} x(t) = \lim_{t\to\infty} e^{-t/100} = \mathbf{0\text{ kg}} $$
+
+        <p><strong>Part (iii): Saline Inflow at Concentration $s\text{ kg/L}$:</strong></p>
+        <p>Now $\dot{m}_{\text{in}} = Q \cdot s = 1 \cdot s = s\text{ kg/min}$, leading to the inhomogeneous linear ODE:</p>
+        $$ \frac{dx}{dt} + \frac{1}{100} x(t) = s \tag{1.6.2} $$
+        <p>Multiplying by integrating factor $\mu(t) = \exp\left(\int \frac{1}{100} dt\right) = e^{t/100}$:</p>
+        $$ \frac{d}{dt}\left[ x(t) e^{t/100} \right] = s e^{t/100} $$
+        <p>Integrating both sides from $0$ to $t$:</p>
+        $$ x(t) e^{t/100} - x(0) = s \int_0^t e^{\tau/100} d\tau = 100 s \left[ e^{t/100} - 1 \right] $$
+        <p>With $x(0) = 1\text{ kg}$:</p>
+        $$ x(t) e^{t/100} = 1 + 100s e^{t/100} - 100s = 100s e^{t/100} + (1 - 100s) $$
+        <p>Dividing by $e^{t/100}$:</p>
+        $$ \mathbf{x(t) = 100 s + (1 - 100 s) e^{-t/100}\text{ kg}} \tag{1.6.3} $$
+        <p>As $t \to \infty$, $e^{-t/100} \to 0$:</p>
+        $$ \lim_{t\to\infty} x(t) = \mathbf{100 s\text{ kg}} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \text{Washout: } x(t) = e^{-t/100}, \; \lim_{t\to\infty} x(t) = 0 $$
+          $$ \text{Saline Inflow: } x(t) = 100s + (1 - 100s)e^{-t/100}, \; \lim_{t\to\infty} x(t) = 100s\text{ kg} $$
+          <p><strong>Physical Interpretation:</strong> The asymptotic equilibrium mass $100s\text{ kg}$ corresponds exactly to the tank volume $100\text{ L}$ multiplied by the inlet concentration $s\text{ kg/L}$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.7
+         ======================================================== -->
+    <article class="problem-card" id="p7">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.7</div>
+          <h2 class="problem-title">Free Fall Motion under Gravity</h2>
+        </div>
+        <span class="problem-meta-badge">Newton II • Successive Integration • Kinematics</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Consider an object in free fall from an initial point $y(0) = y_0$ and with initial velocity $0$, under the action of gravity and neglecting air friction. Write a differential equation for the position of the object $y(t)$ and solve it.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>Coordinate $y$ oriented vertically upward. Forces: $\vec{F}_g = -m g \hat{j}$. Newton's second law: $m \frac{d^2 y}{dt^2} = -mg \implies \frac{d^2 y}{dt^2} = -g$. Initial data: $y(0) = y_0$, $y'(0) = 0$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Stage 1: Velocity Integration:</strong></p>
+        $$ \frac{d}{dt}\left(\frac{dy}{dt}\right) = -g \implies \int_0^t \frac{d}{ds}\left(\frac{dy}{ds}\right) ds = \int_0^t -g \, ds $$
+        $$ \frac{dy}{dt}(t) - \frac{dy}{dt}(0) = -gt \implies v(t) = \frac{dy}{dt} = -gt \tag{1.7.1} $$
+
+        <p><strong>Stage 2: Position Integration:</strong></p>
+        $$ \int_0^t \frac{dy}{ds} \, ds = \int_0^t -gs \, ds \implies y(t) - y(0) = \left[ -\frac{1}{2}gs^2 \right]_0^t $$
+        $$ y(t) - y_0 = -\frac{1}{2}gt^2 \implies \mathbf{y(t) = y_0 - \frac{1}{2} g t^2} \tag{1.7.2} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Energy Conservation</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ y(t) = y_0 - \frac{1}{2} g t^2, \quad v(t) = -gt $$
+          <p><strong>Energy Check:</strong> $E = \frac{1}{2}m v^2 + mgy = \frac{1}{2}m (-gt)^2 + mg(y_0 - \frac{1}{2}gt^2) = mgy_0 = \text{constant}$. Mechanical energy is strictly conserved.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.8
+         ======================================================== -->
+    <article class="problem-card" id="p8">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.8</div>
+          <h2 class="problem-title">Simple Pendulum Equation of Motion</h2>
+        </div>
+        <span class="problem-meta-badge">Newtonian Polar Frame • Mechanical Energy • Nonlinear ODE</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> Consider a simple pendulum consisting of a bob of mass $m$ at the end of a string of length $l$ and negligible mass, and denote by $\theta(t)$ the angle with respect to the vertical as a function of time $t$. Neglecting friction, apply Newton's second law to write a differential equation for $\theta(t)$.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>We present two independent methods: (1) Direct force projection in polar coordinates $(\hat{e}_r, \hat{e}_\theta)$ using Newton's second law; (2) Time differentiation of total mechanical energy $\frac{dE}{dt} = 0$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Method 1: Polar Coordinate Force Balance:</strong></p>
+        <p>Bob position: $\vec{r} = l \hat{e}_r$. Taking time derivatives with $\dot{\hat{e}}_r = \dot{\theta}\hat{e}_\theta$ and $\dot{\hat{e}}_\theta = -\dot{\theta}\hat{e}_r$:</p>
+        $$ \vec{v} = l \dot{\theta} \hat{e}_\theta $$
+        $$ \vec{a} = \frac{d\vec{v}}{dt} = -l \dot{\theta}^2 \hat{e}_r + l \ddot{\theta} \hat{e}_\theta $$
+        <p>The tangential acceleration is $a_\theta = l \ddot{\theta}$.</p>
+        <p>Acting forces: String tension $\vec{T} = -T \hat{e}_r$ acts purely radially. Gravity resolves as:</p>
+        $$ \vec{F}_g = mg \cos\theta \, \hat{e}_r - mg \sin\theta \, \hat{e}_\theta $$
+        <p>Projecting Newton's second law along the tangential unit vector $\hat{e}_\theta$:</p>
+        $$ \sum F_\theta = m a_\theta \implies -mg \sin\theta = m (l \ddot{\theta}) $$
+        <p>Dividing by $m l \neq 0$ and bringing all terms to the left-hand side:</p>
+        $$ \mathbf{\ddot{\theta} + \frac{g}{l} \sin\theta = 0} \tag{1.8.1} $$
+
+        <p><strong>Method 2: Energy Conservation Check:</strong></p>
+        $$ E = E_k + E_p = \frac{1}{2} m v^2 + m g l (1 - \cos\theta) = \frac{1}{2} m l^2 \dot{\theta}^2 + m g l (1 - \cos\theta) $$
+        <p>Differentiating with respect to time $t$ ($\frac{dE}{dt} = 0$):</p>
+        $$ \frac{dE}{dt} = m l^2 \dot{\theta} \ddot{\theta} + m g l \sin\theta \, \dot{\theta} = \dot{\theta} \left[ m l^2 \ddot{\theta} + m g l \sin\theta \right] = 0 $$
+        <p>For non-trivial motion ($\dot{\theta} \not\equiv 0$), dividing by $m l^2$ yields identically: $\mathbf{\ddot{\theta} + \frac{g}{l}\sin\theta = 0}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \ddot{\theta}(t) + \frac{g}{l} \sin\theta(t) = 0 $$
+          <p><strong>Classification:</strong> 2nd-order, autonomous, <strong>nonlinear</strong> ODE due to the transcendental term $\sin\theta$. For small amplitudes ($\theta \ll 1$, $\sin\theta \approx \theta$), it linearizes to the harmonic oscillator $\ddot{\theta} + \omega_0^2 \theta = 0$ with natural frequency $\omega_0 = \sqrt{g/l}$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.9
+         ======================================================== -->
+    <article class="problem-card" id="p9">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.9</div>
+          <h2 class="problem-title">Logistic Population Growth Model (Verhulst)</h2>
+        </div>
+        <span class="problem-meta-badge">Partial Fractions • Carrying Capacity • Malthusian Limit</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> A refinement over Malthus' population growth model discussed in Chapter 1 is provided by the logistic equation:
+          $$ \frac{dp}{dt} = kp \left( 1 - \frac{p}{M} \right) $$
+          where $p(t)$ is the population size at time $t$, $k$ is its growth rate (difference between birth rate and death rate), and $M$ is the maximum sustainable population (carrying capacity).</p>
+          <p>Solve the equation for a generic initial condition $p(t_0) = p_0$ and discuss the evolution of the population for $t \to \infty$, comparing with Malthus' ($M \to \infty$) prediction.</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>First-order nonlinear autonomous ODE. Separate variables by moving all terms in $p$ to the LHS, decompose into partial fractions, and integrate from $(t_0, p_0)$ to $(t, p)$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: Separation of Variables:</strong></p>
+        $$ \frac{dp}{dt} = \frac{k}{M} p (M - p) \implies \frac{dp}{p(M - p)} = \frac{k}{M} \, dt \tag{1.9.1} $$
+
+        <p><strong>Step 2: Partial Fraction Decomposition:</strong></p>
+        $$ \frac{1}{p(M - p)} = \frac{A}{p} + \frac{B}{M - p} \implies 1 = A(M - p) + B p $$
+        <p>At $p = 0 \implies A = \frac{1}{M}$; at $p = M \implies B = \frac{1}{M}$. Substituting back:</p>
+        $$ \frac{1}{M} \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = \frac{k}{M} \, dt \implies \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = k \, dt \tag{1.9.2} $$
+
+        <p><strong>Step 3: Definite Integration:</strong></p>
+        $$ \int_{p_0}^p \left( \frac{1}{u} + \frac{1}{M - u} \right) du = \int_{t_0}^t k \, ds $$
+        <p>Recall $\int \frac{1}{M - u} du = -\ln|M - u|$:</p>
+        $$ \left[ \ln|u| - \ln|M - u| \right]_{p_0}^p = k(t - t_0) \implies \left[ \ln\left| \frac{u}{M - u} \right| \right]_{p_0}^p = k(t - t_0) $$
+        $$ \ln\left| \frac{p(M - p_0)}{(M - p) p_0} \right| = k(t - t_0) $$
+
+        <p><strong>Step 4: Exponentiation and Isolation of $p(t)$:</strong></p>
+        $$ \frac{p(M - p_0)}{(M - p) p_0} = e^{k(t - t_0)} \implies p(M - p_0) = p_0 (M - p) e^{k(t - t_0)} $$
+        $$ p(M - p_0) + p p_0 e^{k(t - t_0)} = M p_0 e^{k(t - t_0)} \implies p \left[ (M - p_0) + p_0 e^{k(t - t_0)} \right] = M p_0 e^{k(t - t_0)} $$
+        <p>Dividing numerator and denominator by $e^{k(t - t_0)}$:</p>
+        $$ \mathbf{p(t) = \frac{M p_0}{p_0 + (M - p_0) e^{-k(t - t_0)}}} \tag{1.9.3} $$
+
+        <p><strong>Step 5: Asymptotic Limits:</strong></p>
+        <ul>
+          <li>As $t \to \infty$: $\lim_{t\to\infty} e^{-k(t-t_0)} = 0 \implies \lim_{t\to\infty} p(t) = \frac{M p_0}{p_0 + 0} = \mathbf{M}$.</li>
+          <li>As $M \to \infty$ (Recovery of Malthus): Dividing numerator and denominator of (1.9.3) by $M$:
+            $$ p(t) = \frac{p_0}{\frac{p_0}{M} + \left(1 - \frac{p_0}{M}\right)e^{-k(t-t_0)}} \implies \lim_{M\to\infty} p(t) = \frac{p_0}{0 + (1 - 0)e^{-k(t-t_0)}} = \mathbf{p_0 e^{k(t-t_0)}} $$
+          </li>
+        </ul>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ p(t) = \frac{M p_0}{p_0 + (M - p_0) e^{-k(t - t_0)}} $$
+          $$ \lim_{t\to\infty} p(t) = M, \quad \lim_{M\to\infty} p(t) = p_0 e^{k(t - t_0)} $$
+          <p><strong>Physical Interpretation:</strong> The logistic curve exhibits a sigmoidal shape when $p_0 < M/2$, passing through an inflection point of maximum growth rate at $p = M/2$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEM 1.10
+         ======================================================== -->
+    <article class="problem-card" id="p10">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Problem 1.10</div>
+          <h2 class="problem-title">Laminar Viscous Poiseuille Flow from Navier-Stokes</h2>
+        </div>
+        <span class="problem-meta-badge">Navier-Stokes Reduction • Centerline Regularity • No-Slip Wall</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
+        <div class="problem-statement-box">
+          <p><strong>Enunciado:</strong> In general, it is not possible to find explicit solutions of the Navier-Stokes equations that govern fluid flow. However, in certain cases the equations simplify very strongly. Suppose that a fluid is flowing down a pipe that has a circular cross-section of radius $a$. Assuming that the velocity $V$ of the fluid depends only on its distance from the centre of the pipe, the equation satisfied by $V$ is:
+          $$ \frac{1}{r} \frac{d}{dr}\left( r \frac{dV}{dr} \right) = -P $$
+          where $P > 0$.</p>
+          <p>Multiply by $r$ and integrate once to show that:
+          $$ \frac{dV}{dr} = -\frac{Pr}{2} + \frac{c}{r} $$
+          where $c$ is an arbitrary constant.</p>
+          <p>Integrate again to find an expression for the velocity, and then use the facts that:<br>
+          (i) the velocity should be finite at all points in the pipe, and<br>
+          (ii) fluids 'stick' to boundaries (which means that $V(a) = 0$),<br>
+          to show that:
+          $$ V(r) = \frac{P}{4}\left( a^2 - r^2 \right) $$
+          (Poiseuille flow).</p>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>This is a linear second-order Boundary Value Problem (BVP) in radial coordinate $r \in [0, a]$. The parameter $P \equiv -\frac{1}{\mu}\frac{dp}{dz} > 0$ represents the pressure driving force per unit dynamic viscosity.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
+        <p><strong>Step 1: First Integration (Velocity Gradient):</strong></p>
+        <p>Multiply the differential equation by $r$:</p>
+        $$ \frac{d}{dr}\left( r \frac{dV}{dr} \right) = -P r $$
+        <p>Integrate directly with respect to $r$:</p>
+        $$ \int \frac{d}{dr}\left( r \frac{dV}{dr} \right) dr = \int -P r \, dr \implies r \frac{dV}{dr} = -P \frac{r^2}{2} + c $$
+        <p>Dividing by $r$ ($r > 0$):</p>
+        $$ \mathbf{\frac{dV}{dr} = -\frac{Pr}{2} + \frac{c}{r}} \tag{1.10.1} $$
+        <p>which rigorously proves the required intermediate formula.</p>
+
+        <p><strong>Step 2: Enforcement of Centerline Regularity ($r = 0$):</strong></p>
+        <p>Condition (i) dictates that velocity and velocity gradients must remain physically finite at all points inside the duct, including the centerline $r = 0$. Since $\lim_{r\to 0^+} \frac{c}{r} = \pm\infty$ for any $c \neq 0$, avoiding an infinite velocity gradient and infinite shear stress $\tau_{rz} = \mu \frac{dV}{dr}$ requires:</p>
+        $$ \mathbf{c = 0} $$
+        <p>Therefore, the velocity gradient simplifies to:</p>
+        $$ \frac{dV}{dr} = -\frac{Pr}{2} \tag{1.10.2} $$
+
+        <p><strong>Step 3: Second Integration (Velocity Field):</strong></p>
+        $$ V(r) = \int -\frac{Pr}{2} \, dr = -\frac{Pr^2}{4} + C_2 \tag{1.10.3} $$
+        <p>where $C_2$ is the second constant of integration.</p>
+
+        <p><strong>Step 4: Enforcement of No-Slip Boundary Condition ($r = a$):</strong></p>
+        <p>Condition (ii) states that viscous fluids adhere to solid surfaces without slip: $V(a) = 0$. Imposing this on equation (1.10.3):</p>
+        $$ V(a) = -\frac{P a^2}{4} + C_2 = 0 \implies \mathbf{C_2 = \frac{P a^2}{4}} $$
+        <p>Substituting $C_2$ back into (1.10.3):</p>
+        $$ V(r) = \frac{P a^2}{4} - \frac{P r^2}{4} = \mathbf{\frac{P}{4}\left( a^2 - r^2 \right)} \tag{1.10.4} $$
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Aerospace Quantities</div>
+        <div class="result-box">
+          <div class="result-box-title">Boxed Result</div>
+          $$ \frac{dV}{dr} = -\frac{Pr}{2} + \frac{c}{r} \implies V(r) = \frac{P}{4}\left(a^2 - r^2\right) $$
+          <p><strong>Engineering Metrics:</strong></p>
+          <ul>
+            <li>Centerline peak velocity: $V_{\max} = V(0) = \frac{P a^2}{4}$.</li>
+            <li>Volumetric Flow Rate (Hagen-Poiseuille Law): $Q = \int_0^a V(r) \cdot 2\pi r \, dr = \frac{\pi P a^4}{8} = \frac{\pi a^4}{8\mu}\left(-\frac{dp}{dz}\right)$.</li>
+            <li>Wall shear stress: $\tau_w = -\mu \left.\frac{dV}{dr}\right|_{r=a} = \frac{\mu P a}{2} = \frac{a}{2}\left(-\frac{dp}{dz}\right)$.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ARTICLE BOTTOM NAVIGATION -->
+    <nav class="article-nav" aria-label="Topic Navigation">
+      <a href="index.html" class="nav-btn">
+        <span class="nav-btn-label">← Back to Overview</span>
+        <span class="nav-btn-title">Problems Hub</span>
+      </a>
+      <a href="../teoria/topic-1.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Review Foundations →</span>
+        <span class="nav-btn-title">Topic 1 Theory & Lecture Guide</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Chapter 1 Complete Problem Solutions • Grounded in ProblemsCh1.pdf</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER & PILL HIGHLIGHT JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      // Theme controller
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+
+      // Active pill highlight on scroll
+      const pills = document.querySelectorAll('.nav-pill');
+      const cards = document.querySelectorAll('.problem-card');
+
+      window.addEventListener('scroll', function () {
+        let currentCard = '';
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top <= 140 && rect.bottom >= 140) {
+            currentCard = '#' + card.getAttribute('id');
+          }
+        });
+
+        pills.forEach(pill => {
+          if (pill.getAttribute('href') === currentCard) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

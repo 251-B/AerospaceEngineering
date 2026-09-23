@@ -24,7 +24,7 @@ Este es el nodo raíz de la bóveda de conocimiento de 2º curso del Grado en In
 * **Página Web:** `subjects/engineering-mechanics/`
 
 ### 📐 [[04 - Advanced Maths/Matematicas Avanzadas MOC|Matemáticas Avanzadas]]
-* **Temas principales:** Campos vectoriales y teoremas integrales (Green, Stokes, Divergencia), Variable compleja y residuos, Series y transformadas de Fourier, Ecuaciones en derivadas parciales (onda, calor, Laplace).
+* **Temas principales:** Bloque I: EDOs de 1º Orden, Modelado y Clasificación; Bloque II: EDOs Lineales de 2º Orden y Oscilaciones; Bloque III: Sistemas Lineales y Retratos de Fase; Bloque IV: EDPs Clásicas y Series/Transformadas de Fourier.
 * **Cuaderno NotebookLM asociado:** `c27033c3-5a64-403f-a517-5847831aabcb`
 * **Página Web:** `subjects/advanced-maths/`
 

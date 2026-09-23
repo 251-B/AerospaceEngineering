@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 1: Introduction, Modeling and Classification of ODEs — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Inter, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(20, 30, 55, 0.90);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      --code-bg: #090d16;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.90);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --code-bg: #f1f5f9;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    /* Ambient background accent glow */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      right: 10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT
+       ======================================================== */
+    .article-container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Article Hero */
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-lead {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 860px;
+    }
+
+    /* Ground truth box */
+    .source-banner {
+      margin-top: 20px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Quick Jump Table of Contents */
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .toc-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-heading);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px 20px;
+      list-style: none;
+    }
+
+    .toc-grid a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color var(--transition), transform var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid a:hover {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    .toc-grid .toc-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ========================================================
+       CONTENT TYPOGRAPHY & SECTIONS
+       ======================================================== */
+    .theory-section {
+      margin-bottom: 64px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    h2.section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    h3.sub-title {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 32px 0 14px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h4.sub-sub-title {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin: 22px 0 10px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 20px 24px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    em {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    /* Math display containers */
+    .math-block {
+      overflow-x: auto;
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Interactive Callout Boxes */
+    .note-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .note-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 24px 0;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.06);
+    }
+
+    .result-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #10b981;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .warning-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #f59e0b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .danger-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-left: 4px solid #ef4444;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .danger-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ef4444;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Structured Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      padding: 14px 18px;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+
+    table.data-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    /* Bottom Navigation Bar */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP STICKY NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📖</span>
+          <span>Theory Index</span>
+        </a>
+        <span class="brand-badge">Advanced Maths • Topic 1</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../problemas/topic-1-problems.html" class="back-link">
+          <span>✏️</span>
+          <span>Solved Problems (Ch. 1)</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       MAIN LECTURE COMPENDIUM
+       ============================================ -->
+  <main class="article-container">
+
+    <!-- HEADER / HERO -->
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Unit 01 • Lecture Study Guide</span>
+        <span class="course-tag">Department of Mathematics • UC3M Bachelor in Aerospace Engineering</span>
+      </div>
+      <h1 class="article-title">Topic 1: Introduction, Modeling and Classification of ODEs</h1>
+      <p class="article-lead">
+        A comprehensive and rigorous treatise on ordinary differential equations: taxonomy, the official UC3M linearity test, 
+        fundamental conservation balance models, Picard-Lindelöf existence and uniqueness theory, nonlinear pathologies, 
+        and continuum fluid mechanics reduction to Poiseuille flow.
+      </p>
+      <div class="source-banner">
+        <span>📖 Ground Truth Sources:</span>
+        <span>• BookODE's.pdf (Caps. 1, 2, 3, 5)</span>
+        <span>• definition_linear_ODE.pdf (Cátedra de Matemáticas UC3M)</span>
+        <span>• ProblemsCh1.pdf</span>
+      </div>
+    </header>
+
+    <!-- QUICK JUMP TABLE OF CONTENTS -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📑</span>
+        <span>Table of Contents & Lecture Outline</span>
+      </div>
+      <ul class="toc-grid">
+        <li>
+          <a href="#sec-1">
+            <span class="toc-num">01.</span>
+            <span>Definition & Classification of DEs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-2">
+            <span class="toc-num">02.</span>
+            <span>The Official UC3M Linearity Criterion</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-3">
+            <span class="toc-num">03.</span>
+            <span>Fundamental First-Order Physical Models</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-4">
+            <span class="toc-num">04.</span>
+            <span>Non-Linear Modeling: The Logistic Equation</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-5">
+            <span class="toc-num">05.</span>
+            <span>Solvability & Picard-Lindelöf Theorem</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sec-6">
+            <span class="toc-num">06.</span>
+            <span>Fluid Mechanics Reduction: Poiseuille Flow</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ========================================================
+         SECTION 1: DEFINITION AND CLASSIFICATION
+         ======================================================== -->
+    <section class="theory-section" id="sec-1">
+      <div class="section-header">
+        <div class="section-tag">Section 01</div>
+        <h2 class="section-title">1. Definition and Classification of Differential Equations</h2>
+      </div>
+
+      <p>
+        In physical and engineering sciences, fundamental balance laws—such as Newton's second law of motion, Fourier's conduction law, 
+        or the Navier-Stokes momentum equations—relate physical quantities to their rates of change. Mathematically, these relations 
+        are formulated as <strong>differential equations</strong>: equations containing an unknown function (the dependent variable) 
+        and one or more of its derivatives.
+      </p>
+
+      <h3 class="sub-title">1.1 Ordinary vs. Partial Differential Equations</h3>
+      <p>
+        The primary bifurcation in differential equation theory concerns the number of independent variables upon which the unknown function depends:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Ordinary Differential Equations (ODEs):</strong> The unknown dependent variable $y = y(x)$ or $\mathbf{x} = \mathbf{x}(t)$ 
+          depends on a <em>single independent variable</em>. Consequently, all derivatives appearing in the equation are ordinary derivatives:
+          $$ F\left(x, y(x), \frac{dy}{dx}, \frac{d^2 y}{dx^2}, \dots, \frac{d^n y}{dx^n}\right) = 0 $$
+          <em>Aerospace examples:</em> Trajectory of a spacecraft as a function of time $t$, altitude and velocity of a launch vehicle during boost phase, 
+          or temperature relaxation of a turbine blade.
+        </li>
+        <li>
+          <strong>Partial Differential Equations (PDEs):</strong> The unknown function $u = u(x_1, x_2, \dots, x_k)$ depends on 
+          <em>two or more independent variables</em> (e.g., spatial coordinates $(x, y, z)$ and time $t$). The equation contains partial derivatives:
+          $$ F\left(x, t, u, \frac{\partial u}{\partial t}, \frac{\partial u}{\partial x}, \frac{\partial^2 u}{\partial x^2}, \frac{\partial^2 u}{\partial x \partial t}, \dots\right) = 0 $$
+          <em>Aerospace examples:</em> Pressure field over an airfoil $p(x, y, z, t)$ (Navier-Stokes), temperature distribution inside a re-entry heat shield $T(x, y, z, t)$ (Heat Equation), 
+          or acoustic wave propagation in a turbofan intake (Wave Equation).
+        </li>
+      </ul>
+
+      <h3 class="sub-title">1.2 Order of a Differential Equation</h3>
+      <p>
+        The <strong>order</strong> of an ODE or PDE is defined as the order of the highest derivative occurring in the equation.
+      </p>
+      <ul>
+        <li>First-order ODE: $\frac{dy}{dt} = -k y$ (Radioactive decay, order 1).</li>
+        <li>Second-order ODE: $m \frac{d^2 x}{dt^2} + c \frac{dx}{dt} + k x = F(t)$ (Damped harmonic oscillator, order 2).</li>
+        <li>Fourth-order ODE: $E I \frac{d^4 w}{dx^4} = q(x)$ (Euler-Bernoulli beam deflection under aerodynamic load, order 4).</li>
+      </ul>
+
+      <div class="note-box">
+        <div class="note-box-title">State Space Equivalence</div>
+        <p>
+          Any $n$-th order scalar ODE $y^{(n)} = F(t, y, y', \dots, y^{(n-1)})$ can always be reformulated as an equivalent system of 
+          $n$ coupled first-order ODEs by defining state variables:
+          $$ x_1 = y, \quad x_2 = y', \quad x_3 = y'', \quad \dots, \quad x_n = y^{(n-1)} $$
+          yielding the first-order vector system $\dot{\mathbf{x}} = \mathbf{f}(t, \mathbf{x})$.
+        </p>
+      </div>
+
+      <h3 class="sub-title">1.3 Autonomous vs. Non-Autonomous ODEs</h3>
+      <p>
+        A first-order system $\dot{\mathbf{x}} = \mathbf{f}(t, \mathbf{x})$ is classified according to explicit time dependence:
+      </p>
+      <ul>
+        <li>
+          <strong>Autonomous ODE:</strong> The vector field does <em>not</em> depend explicitly on the independent variable (time $t$):
+          $$ \frac{d\mathbf{x}}{dt} = \mathbf{f}(\mathbf{x}) $$
+          The velocity vector at any point in state space is time-invariant. Physical trajectories with identical initial states are 
+          simply time-shifted copies of each other. Examples include conservative mechanical oscillators and unforced population dynamics.
+        </li>
+        <li>
+          <strong>Non-Autonomous ODE:</strong> The vector field depends explicitly on time:
+          $$ \frac{d\mathbf{x}}{dt} = \mathbf{f}(t, \mathbf{x}) $$
+          Trajectories passing through the same spatial point at different times experience different velocity vectors. 
+          Examples include systems driven by time-dependent external forces (e.g., gust response on a wing, periodic engine excitation).
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: OFFICIAL UC3M LINEARITY CRITERION
+         ======================================================== -->
+    <section class="theory-section" id="sec-2">
+      <div class="section-header">
+        <div class="section-tag">Section 02</div>
+        <h2 class="section-title">2. The Official UC3M Linearity Criterion</h2>
+      </div>
+
+      <p>
+        Linearity is the single most consequential structural property of differential equations. It governs whether the 
+        <strong>principle of linear superposition</strong> holds, permitting the construction of general solutions from linear combinations 
+        of basis functions, Fourier series, and Green's functions.
+      </p>
+
+      <div class="result-box">
+        <div class="result-box-title">Official Department Definition (definition_linear_ODE.pdf)</div>
+        <p>
+          An $n$-th order ordinary differential equation is <strong>linear</strong> if and only if it can be written in the form:
+        </p>
+        $$ a_n(x) y^{(n)}(x) + a_{n-1}(x) y^{(n-1)}(x) + \dots + a_1(x) y'(x) + a_0(x) y(x) = b(x) \tag{2.1} $$
+        <p>
+          where $a_0(x), a_1(x), \dots, a_n(x)$ and $b(x)$ are specified functions defined on an interval $I \subseteq \mathbb{R}$, 
+          with $a_n(x) \neq 0$ for all $x \in I$. If an equation cannot be brought into this form, it is <strong>nonlinear</strong>.
+        </p>
+      </div>
+
+      <h3 class="sub-title">2.1 The Linear Differential Operator & Superposition</h3>
+      <p>
+        Define the differential operator $L$ acting on smooth functions $y \in C^n(I)$:
+      </p>
+      $$ L[y] \equiv \sum_{k=0}^n a_k(x) \frac{d^k y}{dx^k}(x) $$
+      <p>
+        The operator $L$ is a <strong>linear operator</strong> on the vector space of differentiable functions because for any scalars 
+        $c_1, c_2 \in \mathbb{R}$ and functions $y_1, y_2 \in C^n(I)$:
+      </p>
+      $$ L[c_1 y_1 + c_2 y_2] = c_1 L[y_1] + c_2 L[y_2] \tag{2.2} $$
+
+      <p>
+        Consequently:
+      </p>
+      <ul>
+        <li>
+          <strong>Homogeneous Equation ($b(x) \equiv 0$):</strong> $L[y] = 0$. The solutions form a vector subspace of dimension $n$. 
+          If $y_1(x)$ and $y_2(x)$ are solutions, then any linear combination $c_1 y_1(x) + c_2 y_2(x)$ is also an exact solution.
+        </li>
+        <li>
+          <strong>Inhomogeneous Equation ($b(x) \not\equiv 0$):</strong> The general solution is $y(x) = y_h(x) + y_p(x)$, where $y_h$ 
+          is the general solution of the associated homogeneous problem ($L[y_h] = 0$) and $y_p$ is any particular solution ($L[y_p] = b(x)$).
+        </li>
+      </ul>
+
+      <h3 class="sub-title">2.2 Detailed Dissection of Official UC3M Lecture Examples</h3>
+      <p>
+        To ensure total mastery, let us rigorously analyze the canonical examples set forth by the UC3M Mathematics Faculty:
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Equation</th>
+              <th>Rearranged Canonical Form</th>
+              <th>Order</th>
+              <th>Linearity</th>
+              <th>Rigorous Mathematical Justification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$u'(t) = u(t)$</td>
+              <td>$1 \cdot u'(t) - 1 \cdot u(t) = 0$</td>
+              <td>1</td>
+              <td><strong style="color: #10b981;">Linear</strong></td>
+              <td>Matches (2.1) with $a_1(t)=1$, $a_0(t)=-1$, and $b(t)=0$.</td>
+            </tr>
+            <tr>
+              <td>$u''(t) = \left(u'(t)\right)^2 + 1$</td>
+              <td>$u''(t) - \left(u'(t)\right)^2 = 1$</td>
+              <td>2</td>
+              <td><strong style="color: #ef4444;">Nonlinear</strong></td>
+              <td>The first derivative $u'$ appears raised to the power 2: $(u')^2$. This violates the linearity condition $L[c u] \neq c L[u]$.</td>
+            </tr>
+            <tr>
+              <td>$y'(x) = 4\left(y(x)\right)^2 + x^2$</td>
+              <td>$y'(x) - 4[y(x)]^2 = x^2$</td>
+              <td>1</td>
+              <td><strong style="color: #ef4444;">Nonlinear</strong></td>
+              <td>The dependent variable $y(x)$ appears squared. Note: the term $x^2$ is nonlinear in the <em>independent</em> variable, which is completely allowed; the nonlinearity arises solely from $[y(x)]^2$.</td>
+            </tr>
+            <tr>
+              <td>$x^2 y'' + \sin(x) y' + e^x y = \ln(x)$</td>
+              <td>$x^2 y'' + \sin(x) y' + e^x y = \ln(x)$</td>
+              <td>2</td>
+              <td><strong style="color: #10b981;">Linear</strong></td>
+              <td>The coefficients $a_2(x)=x^2$, $a_1(x)=\sin x$, $a_0(x)=e^x$ and forcing $b(x)=\ln x$ are variable functions of $x$, but $y, y', y''$ appear strictly to the first power and uncoupled.</td>
+            </tr>
+            <tr>
+              <td>$y(x) y'(x) = 1$</td>
+              <td>$y \cdot y' = 1$</td>
+              <td>1</td>
+              <td><strong style="color: #ef4444;">Nonlinear</strong></td>
+              <td>Contains the bilinear cross-product of the dependent variable and its derivative: $y(x) \cdot y'(x)$.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="warning-box">
+        <div class="warning-box-title">Exam Warning: Dependent vs. Independent Variable Pitfall</div>
+        <p>
+          A chronic source of error in aerospace mathematics examinations is confusing nonlinear functions of the <em>independent</em> 
+          variable with nonlinearities in the <em>dependent</em> variable.
+        </p>
+        <ul>
+          <li><strong>Permissible in Linear ODEs:</strong> Terms like $\sin(t) \cdot y$, $e^{x^2} \cdot y''$, or $\frac{1}{x} \cdot y'$ do <em>not</em> violate linearity. They are simply variable coefficient functions $a_k(x)$.</li>
+          <li><strong>Prohibited in Linear ODEs:</strong> Terms like $\sin(y)$, $e^{y'}$, $\sqrt{y}$, $(y')^3$, or $y \cdot y'$. Any nonlinear operation on the unknown function or its derivatives renders the equation <strong>nonlinear</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: FUNDAMENTAL FIRST-ORDER PHYSICAL MODELS
+         ======================================================== -->
+    <section class="theory-section" id="sec-3">
+      <div class="section-header">
+        <div class="section-tag">Section 03</div>
+        <h2 class="section-title">3. Fundamental First-Order Physical Models</h2>
+      </div>
+
+      <p>
+        The universal foundation of physical modeling across continuum mechanics and aerospace thermodynamics is the 
+        <strong>Macroscopic Conservation Law</strong> over a control volume $V$:
+      </p>
+      $$ \frac{d\Phi}{dt} = \dot{\Phi}_{\text{in}} - \dot{\Phi}_{\text{out}} + \dot{\Phi}_{\text{generation}} - \dot{\Phi}_{\text{consumption}} \tag{3.1} $$
+      <p>
+        Depending on whether $\Phi$ represents scalar population count, radioactive nuclei, thermal enthalpy, or chemical solute, 
+        equation (3.1) yields the canonical foundational first-order linear models.
+      </p>
+
+      <h3 class="sub-title">3.1 Malthusian Population Dynamics</h3>
+      <p>
+        Thomas Malthus (1798) postulated that under unlimited environmental resources, the rate of increase of a population $x(t)$ 
+        is directly proportional to the current population:
+      </p>
+      $$ \frac{dx}{dt} = k x(t), \quad x(0) = x_0 > 0 \tag{3.2} $$
+      <p>
+        Separating variables:
+      </p>
+      $$ \int_{x_0}^{x(t)} \frac{d\xi}{\xi} = \int_0^t k \, ds \implies \ln\left(\frac{x(t)}{x_0}\right) = k t \implies \mathbf{x(t) = x_0 e^{kt}} $$
+
+      <div class="result-box">
+        <div class="result-box-title">Doubling Time Derivation</div>
+        <p>
+          The doubling time $t_d$ is the time elapsed when $x(t_d) = 2x_0$:
+        </p>
+        $$ x_0 e^{k t_d} = 2 x_0 \implies e^{k t_d} = 2 \implies k t_d = \ln 2 \implies \mathbf{t_d = \frac{\ln 2}{k}} \tag{3.3} $$
+        <p>
+          <strong>Asymptotic Regimes:</strong>
+          (1) $k > 0 \implies \lim_{t\to\infty} x(t) = +\infty$ (Malthusian explosion); 
+          (2) $k = 0 \implies x(t) \equiv x_0$ (Static equilibrium); 
+          (3) $k < 0 \implies \lim_{t\to\infty} x(t) = 0$ (Exponential extinction).
+        </p>
+      </div>
+
+      <h3 class="sub-title">3.2 Radioactive Isotope Decay & Half-Life Deduction</h3>
+      <p>
+        Radioactive disintegration is a quantum stochastic Poisson process. Macroscopically, for a sample of $N(t)$ unstable isotopes, 
+        the disintegration rate is strictly proportional to the number of active nuclei:
+      </p>
+      $$ \frac{dN}{dt} = -k N(t), \quad k > 0 \tag{3.4} $$
+      <p>
+        where $k$ is the radioactive decay constant $[\text{s}^{-1}]$ or $[\text{yr}^{-1}]$. Integrating from $N(0) = N_0$:
+      </p>
+      $$ N(t) = N_0 e^{-kt} \tag{3.5} $$
+
+      <div class="result-box">
+        <div class="result-box-title">Deduction of the Half-Life Formula</div>
+        <p>
+          The <strong>half-life</strong> $t_{1/2}$ is the time required for half of the initial isotopes to disintegrate:
+        </p>
+        $$ N(t_{1/2}) = \frac{1}{2} N_0 \implies N_0 e^{-k t_{1/2}} = \frac{1}{2} N_0 \implies e^{-k t_{1/2}} = 2^{-1} $$
+        <p>
+          Taking the natural logarithm of both sides:
+        </p>
+        $$ -k t_{1/2} = -\ln 2 \implies \mathbf{t_{1/2} = \frac{\ln 2}{k}} \iff \mathbf{k = \frac{\ln 2}{t_{1/2}}} \tag{3.6} $$
+        <p>
+          <em>Aerospace Application (ProblemsCh1 - Ex. 1.3):</em> Plutonium-239 ($^{239}\text{Pu}$), used in Radioisotope Thermoelectric Generators 
+          (RTGs) for deep space probes (e.g., Voyager, Cassini, Curiosity), has $t_{1/2} \approx 24{,}000\text{ years}$.
+          $$ k = \frac{\ln 2}{24{,}000\text{ yr}} \approx 2.8881 \times 10^{-5}\text{ yr}^{-1} \approx 9.158 \times 10^{-13}\text{ s}^{-1} $$
+        </p>
+      </div>
+
+      <h3 class="sub-title">3.3 Newton's Law of Cooling</h3>
+      <p>
+        For a body of mass $m$, surface area $A_s$, and specific heat capacity $c_p$, the first law of thermodynamics states that the rate of 
+        internal thermal energy loss equals the convective heat loss to the ambient medium at temperature $T_A(t)$:
+      </p>
+      $$ m c_p \frac{dT}{dt} = -h A_s (T(t) - T_A(t)) $$
+      <p>
+        Defining the lumped thermal relaxation constant $k \equiv \frac{h A_s}{m c_p} > 0$ $[\text{s}^{-1}]$:
+      </p>
+      $$ \mathbf{\frac{dT}{dt} = -k \left( T(t) - T_A(t) \right)} \tag{3.7} $$
+
+      <p>
+        For a constant ambient temperature $T_A$, this is a first-order linear ODE with solution:
+      </p>
+      $$ T(t) = T_A + (T_0 - T_A) e^{-kt} \tag{3.8} $$
+      <p>
+        As $t \to \infty$, $T(t) \to T_A$, establishing thermal equilibrium asymptotically with characteristic relaxation timescale $\tau = 1/k$.
+      </p>
+
+      <h3 class="sub-title">3.4 Mass Balance in CSTR Saline Mixing Tanks</h3>
+      <p>
+        Consider a Continuous Stirred-Tank Reactor (CSTR) containing an initial volume $V_0$ of brine with dissolved salt mass $x(t)$. 
+        Fluid flows in at volumetric rate $Q_{\text{in}}$ with salt concentration $C_{\text{in}}$, and the well-stirred mixture flows out 
+        at rate $Q_{\text{out}}$ with concentration $C_{\text{out}}(t) = \frac{x(t)}{V(t)}$.
+      </p>
+      <p>
+        Applying conservation of species mass $\frac{dx}{dt} = \dot{m}_{\text{in}} - \dot{m}_{\text{out}}$:
+      </p>
+      $$ \frac{dx}{dt} = Q_{\text{in}} C_{\text{in}} - Q_{\text{out}} \frac{x(t)}{V(t)} \tag{3.9} $$
+
+      <p>
+        When flow rates match ($Q_{\text{in}} = Q_{\text{out}} = Q$), the liquid volume is constant ($V(t) \equiv V_0$):
+      </p>
+      $$ \frac{dx}{dt} + \frac{Q}{V_0} x(t) = Q C_{\text{in}} \tag{3.10} $$
+      <ul>
+        <li>
+          <strong>Pure Washout Regime ($C_{\text{in}} = 0$, ProblemsCh1 - Ex. 1.6):</strong> With $V_0 = 100\text{ L}$, $Q = 1\text{ L/min}$, and $x_0 = 1\text{ kg}$:
+          $$ \frac{dx}{dt} = -\frac{x}{100} \implies x(t) = e^{-t/100}\text{ kg} \implies \lim_{t\to\infty} x(t) = 0 $$
+        </li>
+        <li>
+          <strong>Constant Saline Inflow ($C_{\text{in}} = s\text{ kg/L}$):</strong> Using integrating factor $\mu(t) = e^{t/100}$:
+          $$ x(t) = 100 s + (1 - 100 s) e^{-t/100}\text{ kg} \implies \lim_{t\to\infty} x(t) = 100 s\text{ kg} $$
+        </li>
+      </ul>
+
+      <h3 class="sub-title">3.5 Kinematics of Free Fall Motion under Gravity</h3>
+      <p>
+        A point mass $m$ released from rest in a uniform gravitational field $\vec{g} = -g \hat{j}$ with zero aerodynamic resistance obeys Newton's 2nd law:
+      </p>
+      $$ m \frac{d^2 y}{dt^2} = -m g \implies \mathbf{\frac{d^2 y}{dt^2} = -g} \tag{3.11} $$
+      <p>
+        Expressing as a two-stage successive integration from $t = 0$ with $y(0) = y_0$ and $y'(0) = v_0 = 0$:
+      </p>
+      $$ \int_0^t \frac{d}{ds}\left(\frac{dy}{ds}\right) ds = \int_0^t -g \, ds \implies v(t) = -gt $$
+      $$ \int_0^t \frac{dy}{ds} \, ds = \int_0^t -gs \, ds \implies \mathbf{y(t) = y_0 - \frac{1}{2} g t^2} \tag{3.12} $$
+    </section>
+
+    <!-- ========================================================
+         SECTION 4: NON-LINEAR MODELING & LOGISTIC EQUATION
+         ======================================================== -->
+    <section class="theory-section" id="sec-4">
+      <div class="section-header">
+        <div class="section-tag">Section 04</div>
+        <h2 class="section-title">4. Non-Linear Modeling: The Verhulst Logistic Equation</h2>
+      </div>
+
+      <p>
+        In physical systems, unconstrained exponential growth cannot continue indefinitely. Environmental resistance—such as finite space, 
+        nutrient depletion, or aerodynamic drag—acts as a self-limiting negative feedback mechanism.
+      </p>
+      <p>
+        In 1838, Pierre-François Verhulst modified Malthus' linear model by stipulating that the per-capita growth rate 
+        $\frac{1}{p}\frac{dp}{dt}$ decreases linearly with population density until reaching the <strong>carrying capacity</strong> $M$:
+      </p>
+      $$ \frac{1}{p} \frac{dp}{dt} = k \left( 1 - \frac{p}{M} \right) \iff \mathbf{\frac{dp}{dt} = k p \left( 1 - \frac{p}{M} \right)} \tag{4.1} $$
+
+      <h3 class="sub-title">4.1 Phase-Line Qualitative Dynamics</h3>
+      <p>
+        Equation (4.1) is an <strong>autonomous, first-order, nonlinear ODE</strong>. The equilibrium states satisfy $f(p) = 0$:
+      </p>
+      $$ f(p) = kp - \frac{k}{M} p^2 = 0 \implies p^*_1 = 0, \quad p^*_2 = M $$
+      <p>
+        Linearizing the vector field by computing $f'(p) = k - \frac{2k}{M}p$:
+      </p>
+      <ul>
+        <li><strong>At $p^*_1 = 0$ (Extinction):</strong> $f'(0) = k > 0 \implies$ <strong>Unstable Node (Repellor)</strong>. Any small initial population grows away from zero.</li>
+        <li><strong>At $p^*_2 = M$ (Carrying Capacity):</strong> $f'(M) = k - 2k = -k < 0 \implies$ <strong>Asymptotically Stable Node (Attractor)</strong>. All positive trajectories converge to $M$.</li>
+      </ul>
+
+      <h3 class="sub-title">4.2 Rigorous Analytical Solution via Partial Fractions</h3>
+      <p>
+        Let $p(t_0) = p_0 > 0$ with $p_0 \neq M$. Let us integrate without skipping any algebraic steps:
+      </p>
+
+      <p><strong>Step 1: Separation of Variables:</strong></p>
+      $$ \frac{dp}{dt} = \frac{k}{M} p (M - p) \implies \frac{dp}{p(M - p)} = \frac{k}{M} \, dt $$
+
+      <p><strong>Step 2: Partial Fraction Decomposition:</strong></p>
+      $$ \frac{1}{p(M - p)} = \frac{A}{p} + \frac{B}{M - p} \implies 1 = A(M - p) + B p $$
+      <p>
+        Setting $p = 0 \implies A M = 1 \implies A = \frac{1}{M}$.<br>
+        Setting $p = M \implies B M = 1 \implies B = \frac{1}{M}$.<br>
+        Substituting back and multiplying by $M$:
+      </p>
+      $$ \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = k \, dt $$
+
+      <p><strong>Step 3: Definite Integration:</strong></p>
+      $$ \int_{p_0}^p \left( \frac{1}{u} + \frac{1}{M - u} \right) du = \int_{t_0}^t k \, ds $$
+      <p>
+        Noting that $\int \frac{1}{M-u} du = -\ln|M-u|$ due to the negative derivative of the inner function:
+      </p>
+      $$ \left[ \ln|u| - \ln|M - u| \right]_{p_0}^p = k(t - t_0) \implies \left[ \ln\left| \frac{u}{M - u} \right| \right]_{p_0}^p = k(t - t_0) $$
+      $$ \ln\left| \frac{p(M - p_0)}{(M - p) p_0} \right| = k(t - t_0) $$
+
+      <p><strong>Step 4: Algebraic Inversion:</strong></p>
+      $$ \frac{p(M - p_0)}{(M - p) p_0} = e^{k(t - t_0)} \implies p(M - p_0) = p_0 (M - p) e^{k(t - t_0)} $$
+      $$ p \left[ (M - p_0) + p_0 e^{k(t - t_0)} \right] = M p_0 e^{k(t - t_0)} $$
+      <p>
+        Dividing numerator and denominator by $e^{k(t - t_0)}$:
+      </p>
+
+      <div class="result-box">
+        <div class="result-box-title">The Exact Logistic Formula</div>
+        $$ \mathbf{p(t) = \frac{M p_0}{p_0 + (M - p_0) e^{-k(t - t_0)}}} \tag{4.2} $$
+      </div>
+
+      <h3 class="sub-title">4.3 Asymptotic Limits and Malthusian Recovery</h3>
+      <ul>
+        <li>
+          <strong>Long-Term Saturation ($t \to \infty$):</strong> Since $k > 0$, $\lim_{t\to\infty} e^{-k(t-t_0)} = 0$.
+          $$ \lim_{t \to \infty} p(t) = \frac{M p_0}{p_0 + (M - p_0) \cdot 0} = \mathbf{M} $$
+          The carrying capacity $M$ acts as a universal global attractor for all positive initial states $p_0 > 0$.
+        </li>
+        <li>
+          <strong>Infinite Capacity Limit ($M \to \infty$ — Recovery of Malthus):</strong> Dividing numerator and denominator of (4.2) by $M$:
+          $$ p(t) = \frac{p_0}{\frac{p_0}{M} + \left( 1 - \frac{p_0}{M} \right) e^{-k(t - t_0)}} $$
+          Taking the mathematical limit as environmental saturation vanishes ($M \to \infty$):
+          $$ \lim_{M \to \infty} p(t) = \frac{p_0}{0 + (1 - 0) e^{-k(t - t_0)}} = \mathbf{p_0 e^{k(t - t_0)}} $$
+          Verhulst's nonlinear model reduces strictly and smoothly to Malthus' linear exponential law!
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5: WELL-POSEDNESS & PICARD-LINDELÖF
+         ======================================================== -->
+    <section class="theory-section" id="sec-5">
+      <div class="section-header">
+        <div class="section-tag">Section 05</div>
+        <h2 class="section-title">5. Solvability, Well-Posedness and Picard-Lindelöf Theorem</h2>
+      </div>
+
+      <p>
+        Before attempting to solve a differential equation analytically or numerically, an engineer must ascertain whether the mathematical 
+        model makes physical sense.
+      </p>
+
+      <h3 class="sub-title">5.1 Hadamard's Definition of Well-Posedness</h3>
+      <p>
+        In 1902, Jacques Hadamard formulated the three indispensable requirements for a well-posed physical problem:
+      </p>
+      <ol>
+        <li><strong>Existence:</strong> At least one solution $y(t)$ exists satisfying both the ODE and initial conditions.</li>
+        <li><strong>Uniqueness:</strong> Exactly one solution exists (deterministic causality).</li>
+        <li><strong>Continuous Dependence (Stability):</strong> Small perturbations in initial data produce small variations in the solution over finite time.</li>
+      </ol>
+
+      <h3 class="sub-title">5.2 The Initial Value Problem (IVP) and Volterra Integral Form</h3>
+      <p>
+        Consider the first-order scalar IVP:
+      </p>
+      $$ \begin{cases} \dfrac{dy}{dt} = f(t, y) \\ y(t_0) = y_0 \end{cases} \tag{5.1} $$
+      <p>
+        Integrating both sides from $t_0$ to $t$ transforms the differential problem into an equivalent <strong>Volterra Integral Equation</strong>:
+      </p>
+      $$ \mathbf{y(t) = y_0 + \int_{t_0}^t f(s, y(s)) \, ds} \tag{5.2} $$
+      <p>
+        Equation (5.2) incorporates the initial condition $y(t_0) = y_0$ automatically. Picard's iterative scheme defines the sequence:
+      </p>
+      $$ y_0(t) = y_0, \quad y_{k+1}(t) = y_0 + \int_{t_0}^t f(s, y_k(s)) \, ds, \quad k \ge 0 $$
+
+      <h3 class="sub-title">5.3 Picard-Lindelöf Theorem & The Lipschitz Condition</h3>
+      <div class="result-box">
+        <div class="result-box-title">Picard-Lindelöf Existence and Uniqueness Theorem</div>
+        <p>
+          Let $R = \{ (t, y) : |t - t_0| \le a, \; |y - y_0| \le b \}$ be a closed rectangle. Suppose:
+        </p>
+        <ol>
+          <li>$f(t, y)$ is continuous on $R$, so $|f(t, y)| \le M$ on $R$.</li>
+          <li>$f(t, y)$ satisfies a <strong>Lipschitz condition</strong> with respect to $y$ on $R$:
+            $$ |f(t, y_1) - f(t, y_2)| \le L |y_1 - y_2|, \quad \forall (t, y_1), (t, y_2) \in R \tag{5.3} $$
+            (Sufficient condition: $\left|\frac{\partial f}{\partial y}\right| \le L < \infty$ on $R$).
+          </li>
+        </ol>
+        <p>
+          Then, the IVP (5.1) has a <strong>unique</strong> solution $y(t)$ defined on the interval $[t_0 - h, t_0 + h]$, where:
+          $$ h = \min\left( a, \, \frac{b}{M} \right) $$
+        </p>
+      </div>
+
+      <h3 class="sub-title">5.4 Nonlinear Pathologies: Failure Modes</h3>
+
+      <!-- PATHOLOGY 1 -->
+      <div class="danger-box">
+        <div class="danger-box-title">Pathology 1: Non-Uniqueness via Lipschitz Failure ($y' = y^{1/3}$)</div>
+        <p>
+          Consider the IVP:
+        </p>
+        $$ \frac{dy}{dt} = y^{1/3}, \quad y(0) = 0 $$
+        <ul>
+          <li><strong>Continuity:</strong> $f(t, y) = y^{1/3}$ is continuous on all $\mathbb{R}^2$. Peano's Theorem guarantees that <em>at least one solution exists</em>.</li>
+          <li><strong>Lipschitz Failure:</strong> Compute the partial derivative:
+            $$ \frac{\partial f}{\partial y} = \frac{1}{3 y^{2/3}} \implies \lim_{y \to 0} \frac{\partial f}{\partial y} = +\infty $$
+            The derivative is unbounded near $y = 0$, violating the Lipschitz condition.
+          </li>
+          <li><strong>Infinite Solutions:</strong>
+            (1) Trivial equilibrium: $y_1(t) \equiv 0$.<br>
+            (2) Separation of variables for $y \neq 0$: $\int y^{-1/3} dy = \int dt \implies \frac{3}{2} y^{2/3} = t \implies y_2(t) = \left(\frac{2}{3}t\right)^{3/2}$ and $y_3(t) = -\left(\frac{2}{3}t\right)^{3/2}$.<br>
+            (3) Infinite branching family for any delay $c \ge 0$:
+            $$ y(t) = \begin{cases} 0 & 0 \le t \le c \\ \pm \left( \frac{2}{3}(t - c) \right)^{3/2} & t > c \end{cases} $$
+          </li>
+        </ul>
+        <p>
+          <strong>Verdict:</strong> Determinism is completely destroyed because the Lipschitz condition is breached at the initial state.
+        </p>
+      </div>
+
+      <!-- PATHOLOGY 2 -->
+      <div class="warning-box">
+        <div class="warning-box-title">Pathology 2: Finite-Time Blow-Up ($y' = y^2$)</div>
+        <p>
+          Consider the smooth IVP:
+        </p>
+        $$ \frac{dy}{dt} = y^2, \quad y(0) = y_0 > 0 $$
+        <ul>
+          <li><strong>Regularity:</strong> $f(y) = y^2$ and $\frac{\partial f}{\partial y} = 2y$ are smooth polynomials on every compact domain. Picard-Lindelöf guarantees that a unique <em>local</em> solution exists.</li>
+          <li><strong>Analytical Solution:</strong> Separating variables:
+            $$ \int_{y_0}^{y(t)} \frac{d\eta}{\eta^2} = \int_0^t ds \implies -\frac{1}{y(t)} + \frac{1}{y_0} = t \implies \mathbf{y(t) = \frac{y_0}{1 - y_0 t}} $$
+          </li>
+          <li><strong>Singularity / Blow-Up:</strong> As $t \to \left(\frac{1}{y_0}\right)^-$:
+            $$ \lim_{t \to (1/y_0)^-} y(t) = +\infty $$
+          </li>
+        </ul>
+        <p>
+          <strong>Verdict:</strong> In nonlinear equations, even infinitely smooth velocity fields can cause solutions to escape to infinity in 
+          finite time $T^* = \frac{1}{y_0}$. This never happens in linear ODEs with continuous coefficients!
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 6: FLUID MECHANICS REDUCTION
+         ======================================================== -->
+    <section class="theory-section" id="sec-6">
+      <div class="section-header">
+        <div class="section-tag">Section 06</div>
+        <h2 class="section-title">6. Continuum Reduction: Laminar Viscous Poiseuille Flow</h2>
+      </div>
+
+      <p>
+        The full incompressible Navier-Stokes equations constitute a system of four coupled nonlinear partial differential equations. 
+        However, in axisymmetric geometries with fully developed laminar flow, the equations reduce identically to a linear second-order ODE.
+      </p>
+
+      <h3 class="sub-title">6.1 Reduction from the Navier-Stokes System</h3>
+      <p>
+        Consider steady, laminar flow through a circular pipe of radius $a$. In cylindrical coordinates $(r, \theta, z)$ with axis along the centerline:
+      </p>
+      <ul>
+        <li>Steady flow: $\frac{\partial}{\partial t} = 0$.</li>
+        <li>Axisymmetry: $\frac{\partial}{\partial \theta} = 0$, $u_\theta = 0$.</li>
+        <li>Unidirectional flow: $u_r = 0$. By continuity $\nabla \cdot \vec{u} = \frac{\partial u_z}{\partial z} = 0 \implies u_z = V(r)$.</li>
+        <li>Convective acceleration: $(\vec{u} \cdot \nabla)\vec{u} = u_r \frac{\partial V}{\partial r} \hat{k} + V(r) \frac{\partial V}{\partial z} \hat{k} = \mathbf{0}$. The nonlinear convective term vanishes identically!</li>
+      </ul>
+
+      <p>
+        The axial momentum Navier-Stokes equation reduces to:
+      </p>
+      $$ 0 = -\frac{dp}{dz} + \mu \left[ \frac{1}{r} \frac{d}{dr}\left( r \frac{dV}{dr} \right) \right] $$
+      <p>
+        Defining the constant positive driving parameter $P \equiv -\frac{1}{\mu}\frac{dp}{dz} > 0$:
+      </p>
+      $$ \mathbf{\frac{1}{r} \frac{d}{dr}\left( r \frac{dV}{dr} \right) = -P} \tag{6.1} $$
+
+      <h3 class="sub-title">6.2 Step-by-Step Integration & Physical Boundary Conditions</h3>
+      
+      <p><strong>First Integration (Velocity Gradient):</strong></p>
+      <p>Multiply equation (6.1) by $r$ and integrate:</p>
+      $$ \frac{d}{dr}\left( r \frac{dV}{dr} \right) = -P r \implies r \frac{dV}{dr} = -\frac{P r^2}{2} + c $$
+      $$ \frac{dV}{dr} = -\frac{P r}{2} + \frac{c}{r} \tag{6.2} $$
+
+      <div class="note-box">
+        <div class="note-box-title">Physical Regularity Condition at Centerline ($r = 0$)</div>
+        <p>
+          As $r \to 0^+$, the term $\frac{c}{r} \to \pm\infty$ if $c \neq 0$. An infinite velocity gradient would generate 
+          infinite viscous shear stress $\tau_{rz} = \mu \frac{dV}{dr}$ and infinite viscous dissipation on the pipe centerline, 
+          which is physically impossible without a line source of momentum. Hence, physical regularity requires:
+          $$ \mathbf{c = 0} $$
+          Consequently, the velocity gradient is well-behaved: $\frac{dV}{dr} = -\frac{P r}{2}$.
+        </p>
+      </div>
+
+      <p><strong>Second Integration (Velocity Field):</strong></p>
+      $$ V(r) = \int -\frac{P r}{2} \, dr = -\frac{P r^2}{4} + C_2 \tag{6.3} $$
+
+      <div class="note-box">
+        <div class="note-box-title">No-Slip Boundary Condition at Wall ($r = a$)</div>
+        <p>
+          Real viscous fluids adhere to solid impermeable boundaries at the molecular level (no-slip condition):
+          $$ V(a) = 0 \implies -\frac{P a^2}{4} + C_2 = 0 \implies C_2 = \frac{P a^2}{4} $$
+        </p>
+      </div>
+
+      <div class="result-box">
+        <div class="result-box-title">The Classical Hagen-Poiseuille Parabolic Profile</div>
+        $$ \mathbf{V(r) = \frac{P}{4}\left( a^2 - r^2 \right) = \frac{1}{4\mu}\left(-\frac{dp}{dz}\right)\left( a^2 - r^2 \right)} \tag{6.4} $$
+      </div>
+
+      <h3 class="sub-title">6.3 Macroscopic Aerospace Quantities</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Aerospace Engineering Quantity</th>
+              <th>Analytical Formula</th>
+              <th>Physical Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Maximum Centerline Velocity</strong></td>
+              <td>$V_{\max} = V(0) = \dfrac{P a^2}{4}$</td>
+              <td>Peak flow speed achieved at the pipe axis $r = 0$.</td>
+            </tr>
+            <tr>
+              <td><strong>Volumetric Flow Rate ($Q$)</strong></td>
+              <td>$Q = \displaystyle\int_0^a V(r) \cdot 2\pi r \, dr = \dfrac{\pi P a^4}{8} = \dfrac{\pi a^4}{8\mu}\left(-\dfrac{dp}{dz}\right)$</td>
+              <td>The celebrated Hagen-Poiseuille Law: flow rate scales with the fourth power of pipe radius ($a^4$).</td>
+            </tr>
+            <tr>
+              <td><strong>Average Velocity ($V_{\text{avg}}$)</strong></td>
+              <td>$V_{\text{avg}} = \dfrac{Q}{\pi a^2} = \dfrac{P a^2}{8} = \dfrac{1}{2} V_{\max}$</td>
+              <td>Mean bulk velocity across the circular section is exactly half the maximum velocity.</td>
+            </tr>
+            <tr>
+              <td><strong>Wall Shear Stress ($\tau_w$)</strong></td>
+              <td>$\tau_w = -\left.\mu \dfrac{dV}{dr}\right|_{r=a} = \dfrac{\mu P a}{2} = \dfrac{a}{2}\left(-\dfrac{dp}{dz}\right)$</td>
+              <td>Skin friction acting on the pipe boundary, balancing the axial pressure drop.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ARTICLE BOTTOM NAVIGATION -->
+    <nav class="article-nav" aria-label="Topic Navigation">
+      <a href="index.html" class="nav-btn">
+        <span class="nav-btn-label">← Back to Overview</span>
+        <span class="nav-btn-title">Theory Syllabus Hub</span>
+      </a>
+      <a href="../problemas/topic-1-problems.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Next Step →</span>
+        <span class="nav-btn-title">Chapter 1 Solved Problems (10 Exercises)</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Topic 1 Study Guide • Prepared for Academic Excellence</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

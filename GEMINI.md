@@ -1,5 +1,18 @@
 # Aerospace Engineering — Project Guidelines & Gemini Notebook Context
 
+## 0. Mandatory Session Initialization Protocol (CRITICAL)
+
+Whenever starting **ANY** new conversation, session, or task in this repository, the agent **MUST** immediately verify if the 5 specialized subagents are defined (`manage_subagents` with action `list`). If they are not registered in the session, the agent **MUST immediately call `define_subagent` to register all 5 specialized subagents** as its very first action before executing any user task:
+1. `source_researcher`: Documentalista e Ingestor de Fuentes Oficiales Locales (`sources/`). Read tools enabled, write disabled.
+2. `aerospace_pedagogue`: Ingeniero Aeroespacial & Pedagogo Mayor (model tier `pro`). Deep reasoning, theory development, zero hallucinations.
+3. `problem_step_mentor`: Mentor Pedagógico de Problemas & Auditor de Rigor Analítico (model tier `pro`). Supervisa que toda resolución siga la metodología de 4 fases, sin saltos algebraicos, con justificación previa de cada fórmula e integración/derivación explícita.
+4. `subject_web_builder`: Desarrollador Web Frontend del Portal y Bóveda Obsidian. Write tools enabled (`vault/` y `subjects/`).
+5. `web_qa_reviewer`: Auditor de Calidad (QA), Revisor Técnico y Git manager. Write/command tools enabled.
+
+All future workflow phases **MUST** be delegated to these specialized subagents using `invoke_subagent` rather than performed monolithically by the main agent.
+
+---
+
 ## 1. Primary Scope: Active 2nd Year Collection (`2ndYear`)
 
 When assisting with study materials, querying notes, generating web pages, summaries, or quizzes, **ONLY** prioritize and consult the notebooks from the **`2ndYear`** collection:

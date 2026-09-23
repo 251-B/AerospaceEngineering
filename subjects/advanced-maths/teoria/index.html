@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Mathematics — Theory & Core Concepts | Aerospace Engineering</title>
+  
+  <!-- Google Fonts: Inter, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.30);
+      --accent-glow: rgba(99, 102, 241, 0.20);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.70);
+      --bg-card-hover: rgba(20, 30, 55, 0.88);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      --shadow-hover: 0 10px 36px rgba(99, 102, 241, 0.22);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 10px 36px rgba(99, 102, 241, 0.14);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Background Glow */
+    .bg-glow {
+      position: fixed;
+      top: -150px;
+      right: 15%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========================================================
+       TOP NAVIGATION BAR
+       ======================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition), border-color var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       PAGE HERO
+       ======================================================== */
+    .page-hero {
+      text-align: center;
+      padding: 52px 0 36px;
+    }
+
+    .hero-badge-wrap {
+      margin-bottom: 16px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .page-hero .accent-text {
+      background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-hero p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto 24px;
+      line-height: 1.65;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .hero-stat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 6px #10b981;
+    }
+
+    /* Navigation Switcher */
+    .view-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .switch-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .switch-btn:not(.active) {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border-color: var(--border-subtle);
+    }
+
+    .switch-btn:not(.active):hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* ========================================================
+       SYLLABUS BLOCKS & TOPIC CARDS
+       ======================================================== */
+    .block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 40px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .block-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .block-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .topics-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .topic-card {
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .topic-card.available:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .topic-card.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .topic-accent-strip {
+      width: 6px;
+      flex-shrink: 0;
+      background: var(--accent);
+      opacity: 0.5;
+      transition: opacity var(--transition);
+    }
+
+    .topic-card.available:hover .topic-accent-strip {
+      opacity: 1;
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .topic-card.disabled .topic-accent-strip {
+      background: var(--text-muted);
+      opacity: 0.25;
+    }
+
+    .topic-content {
+      flex: 1;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .topic-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topic-code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .topic-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .topic-badge.available {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .topic-badge.soon {
+      background: var(--bg-input);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .topic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+    }
+
+    .topic-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .topic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .topic-action {
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      transition: color var(--transition), transform var(--transition);
+    }
+
+    .topic-card.available:hover .topic-action {
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    footer.site-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    footer.site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .topic-content { padding: 18px 20px; }
+      .topic-action { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP STICKY NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">Advanced Mathematics</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../problemas/index.html" class="back-link">
+          <span>✏️</span>
+          <span>Problems & Exams</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="container">
+    
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="hero-badge-wrap">
+        <span class="hero-pill">
+          <span>📐</span>
+          <span>UC3M Aerospace Engineering • Year 2 • Q1</span>
+        </span>
+      </div>
+      <h1>Advanced Mathematics<br><span class="accent-text">Theory & Core Concepts</span></h1>
+      <p>
+        Rigorous theoretical syllabus covering ordinary and partial differential equations, existence and uniqueness theorems, 
+        Fourier analysis, complex variables, and continuum fluid mechanics reductions.
+      </p>
+      
+      <div class="view-switcher">
+        <a href="index.html" class="switch-btn active">
+          <span>📖</span>
+          <span>Theory Syllabus</span>
+        </a>
+        <a href="../problemas/index.html" class="switch-btn">
+          <span>✏️</span>
+          <span>Problem Sets (10 Solved)</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-dot"></span>
+          <span>Topic 1 Active & Complete</span>
+        </div>
+        <div class="hero-stat-item">
+          <span>📚 Grounded in Official Department Notes</span>
+        </div>
+        <div class="hero-stat-item">
+          <span>⚡ KaTeX Formula Integration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK I: ORDINARY DIFFERENTIAL EQUATIONS -->
+    <div class="block-header">
+      <h2>
+        <span>Part I: Ordinary Differential Equations (ODEs)</span>
+      </h2>
+      <span class="block-badge">Chapters 1 to 3</span>
+    </div>
+
+    <div class="topics-list">
+
+      <!-- TOPIC 1: ACTIVE -->
+      <a href="topic-1.html" class="topic-card available">
+        <div class="topic-accent-strip"></div>
+        <div class="topic-content">
+          <div class="topic-meta">
+            <span class="topic-code">Topic 01 • Lecture Notes & Theory</span>
+            <span class="topic-badge available">● Available</span>
+          </div>
+          <h3 class="topic-title">Topic 1: Introduction, Modeling and Classification of ODEs</h3>
+          <p class="topic-desc">
+            Foundations of differential equations, order and the official UC3M linearity criterion, Picard-Lindelöf existence and uniqueness theorem, 
+            branching non-uniqueness and finite-time blow-up, fundamental first-order physical models (Malthus, isotope decay, Newton's law of cooling, CSTR mixing), 
+            the Verhulst logistic growth model with carrying capacity saturation, and Navier-Stokes reduction to axisymmetric Poiseuille flow.
+          </p>
+          <div class="topic-tags">
+            <span class="tag">ODEs vs PDEs</span>
+            <span class="tag">Linearity Criterion</span>
+            <span class="tag">Picard-Lindelöf</span>
+            <span class="tag">Blow-Up Singularity</span>
+            <span class="tag">Verhulst Logistic</span>
+            <span class="tag">Poiseuille Reduction</span>
+          </div>
+        </div>
+        <div class="topic-action">→</div>
+      </a>
+
+      <!-- TOPIC 2: COMING SOON -->
+      <div class="topic-card disabled">
+        <div class="topic-accent-strip"></div>
+        <div class="topic-content">
+          <div class="topic-meta">
+            <span class="topic-code">Topic 02 • Lecture Notes</span>
+            <span class="topic-badge soon">Coming Soon</span>
+          </div>
+          <h3 class="topic-title">Topic 2: Second-Order Linear ODEs & Mechanical Oscillations</h3>
+          <p class="topic-desc">
+            Homogeneous equations with constant coefficients, characteristic polynomial, fundamental solution sets and the Wronskian determinant, 
+            variation of parameters, mechanical harmonic oscillators (free, damped, forced), and aeroelastic resonance phenomena.
+          </p>
+          <div class="topic-tags">
+            <span class="tag">Second-Order ODEs</span>
+            <span class="tag">Wronskian</span>
+            <span class="tag">Variation of Parameters</span>
+            <span class="tag">Damped Oscillators</span>
+            <span class="tag">Resonance</span>
+          </div>
+        </div>
+        <div class="topic-action">🔒</div>
+      </div>
+
+      <!-- TOPIC 3: COMING SOON -->
+      <div class="topic-card disabled">
+        <div class="topic-accent-strip"></div>
+        <div class="topic-content">
+          <div class="topic-meta">
+            <span class="topic-code">Topic 03 • Lecture Notes</span>
+            <span class="topic-badge soon">Coming Soon</span>
+          </div>
+          <h3 class="topic-title">Topic 3: Systems of ODEs & Phase Plane Analysis</h3>
+          <p class="topic-desc">
+            First-order linear vector systems $\dot{\mathbf{x}} = A\mathbf{x}$, matrix exponential, eigenvalue and eigenvector analysis, 
+            topological classification of phase portraits (nodes, saddles, centers, spirals), and Hartman-Grobman linearization of nonlinear dynamics.
+          </p>
+          <div class="topic-tags">
+            <span class="tag">Matrix Exponential</span>
+            <span class="tag">Phase Plane</span>
+            <span class="tag">Eigenvalues</span>
+            <span class="tag">Stability Criteria</span>
+            <span class="tag">Linearization</span>
+          </div>
+        </div>
+        <div class="topic-action">🔒</div>
+      </div>
+
+    </div>
+
+    <!-- BLOCK II: PARTIAL DIFFERENTIAL EQUATIONS & TRANSFORMS -->
+    <div class="block-header">
+      <h2>
+        <span>Part II: Partial Differential Equations (PDEs) & Analytical Transforms</span>
+      </h2>
+      <span class="block-badge">Chapters 4 to 6</span>
+    </div>
+
+    <div class="topics-list">
+
+      <!-- TOPIC 4: COMING SOON -->
+      <div class="topic-card disabled">
+        <div class="topic-accent-strip"></div>
+        <div class="topic-content">
+          <div class="topic-meta">
+            <span class="topic-code">Topic 04 • Lecture Notes</span>
+            <span class="topic-badge soon">Coming Soon</span>
+          </div>
+          <h3 class="topic-title">Topic 4: Classical PDEs & Fourier Analysis</h3>
+          <p class="topic-desc">
+            Classification of second-order linear PDEs (elliptic, parabolic, hyperbolic), separation of variables, the 1D wave equation (d'Alembert's formula), 
+            thermal diffusion (heat equation), Laplace's equation in aerodynamic potentials, and orthogonal Fourier series expansions.
+          </p>
+          <div class="topic-tags">
+            <span class="tag">Wave Equation</span>
+            <span class="tag">Heat Equation</span>
+            <span class="tag">Laplace Equation</span>
+            <span class="tag">Fourier Series</span>
+            <span class="tag">Separation of Variables</span>
+          </div>
+        </div>
+        <div class="topic-action">🔒</div>
+      </div>
+
+      <!-- TOPIC 5: COMING SOON -->
+      <div class="topic-card disabled">
+        <div class="topic-accent-strip"></div>
+        <div class="topic-content">
+          <div class="topic-meta">
+            <span class="topic-code">Topic 05 • Lecture Notes</span>
+            <span class="topic-badge soon">Coming Soon</span>
+          </div>
+          <h3 class="topic-title">Topic 5: Laplace Transforms & Complex Analysis</h3>
+          <p class="topic-desc">
+            The unilateral Laplace transform, convolution theorem, Dirac delta impulse responses, aerospace transfer functions, 
+            complex analytic functions, Cauchy-Riemann relations, and contour residue integration.
+          </p>
+          <div class="topic-tags">
+            <span class="tag">Laplace Transform</span>
+            <span class="tag">Transfer Functions</span>
+            <span class="tag">Dirac Delta</span>
+            <span class="tag">Complex Analysis</span>
+            <span class="tag">Residue Theorem</span>
+          </div>
+        </div>
+        <div class="topic-action">🔒</div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Study Portal & Lecture Compendium • Grounded 100% in Official Department Syllabi and Course Materials</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html">← Back to Main Aerospace Portal</a>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
