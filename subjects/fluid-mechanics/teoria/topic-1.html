@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tema 1: Introductory Remarks and Starting Assumptions — Fluid Mechanics</title>
+  
+  <!-- Fonts: Inter & Newsreader for academic readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Article Container */
+    main.article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    /* Page Header */
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin: 26px 0 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    /* Cards & Blocks */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin: 20px 0;
+    }
+
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .math-caption {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .note-box {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 22px 0;
+      font-size: 14.5px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .note-title {
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 22px 0;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-surface);
+      font-size: 13.5px;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      font-weight: 600;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-strong);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Tema 1: Fundamentos</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">← Índice de Teoría</a>
+        <a href="../../../index.html" class="back-link">← Portal Principal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Document Container -->
+  <main class="article-container">
+
+    <article>
+      <!-- Title Header -->
+      <header class="article-header">
+        <div class="article-category">Capítulo 1 · Teoría Fundamental</div>
+        <h1 class="article-title">Introductory Remarks and Starting Assumptions</h1>
+        <p class="article-meta">Mecánica de Fluidos — 2º Curso del Grado en Ingeniería Aeroespacial (UC3M)</p>
+        <div class="source-box">
+          📖 Fuentes de referencia: Notes.pdf (Capítulo 1, Págs. 1–8) | slides_Chapters1-2.pdf (1.0–1.8) · Profs. Antonio L. Sánchez & Javier Rodríguez-Rodríguez
+        </div>
+      </header>
+
+      <!-- SECCIÓN 1: SÓLIDOS, LÍQUIDOS Y GASES -->
+      <section>
+        <h2 class="section-heading">1. Sólidos, Líquidos y Gases: Comportamiento Mecánico y Estructura Microscópica</h2>
+        
+        <p>A nivel macroscópico, la distinción fundamental entre sólidos y fluidos radica en su respuesta mecánica ante la acción de un esfuerzo cortante tangencial $\tau$:</p>
+
+        <div class="card">
+          <ul>
+            <li><strong>Sólidos:</strong> Al aplicar una fuerza externa pequeña responden con una deformación finita. La fuerza interna que contrarresta la acción externa es proporcional a la <strong>deformación</strong>:
+              $$\tau \propto d\theta$$
+              El sólido conserva una forma geométrica propia y fija.
+            </li>
+            <li><strong>Fluidos (Líquidos y Gases):</strong> Se deforman continuamente bajo la acción de esfuerzos tangenciales, por pequeños que sean; son incapaces de mantener el reposo bajo cortadura. La fuerza interna resistiva es proporcional a la <strong>tasa de deformación</strong>:
+              $$\tau \propto \frac{d\theta}{dt}$$
+              Como consecuencia directa, los fluidos carecen de forma propia y se adaptan a la geometría del recipiente que los confina.
+            </li>
+          </ul>
+        </div>
+
+        <h3 class="sub-heading">Líquidos frente a Gases: Densidad y Compresibilidad</h3>
+        <p>Las diferencias mecánicas entre líquidos y gases son menos fundamentales y se centran en dos propiedades:</p>
+        <ul>
+          <li><strong>Densidad:</strong> $\rho_{\text{líquido}} \gg \rho_{\text{gas}}$. Debido a su gran masa por unidad de volumen, la fuerza requerida para acelerar una masa líquida es órdenes de magnitud mayor que la necesaria para mover un gas.</li>
+          <li><strong>Compresibilidad:</strong> El incremento de densidad provocado por una sobrepresión isoterma es insignificante en los líquidos en comparación con los gases:
+            <div class="math-block">
+              $$ \left(\frac{\partial \rho}{\partial p}\right)_{T,\text{líquido}} \ll \left(\frac{\partial \rho}{\partial p}\right)_{T,\text{gas}} \qquad \text{[Notes.pdf, Ec. 1.1]} $$
+              <div class="math-caption">Para reducir a la mitad el volumen específico del agua dulce se requiere una sobrepresión colosal del orden de $10^6\text{ atmósferas}$.</div>
+            </div>
+            Por esta razón, bajo la mayoría de condiciones de ingeniería los líquidos pueden considerarse fluidos de densidad constante (**"líquidos perfectos"**).
+          </li>
+        </ul>
+
+        <h3 class="sub-heading">Origen Microscópico: Fuerzas Intermoleculares y Distancia Media ($d$)</h3>
+        <p>Estas propiedades macroscópicas son consecuencia directa de la estructura microscópica de la materia. La fuerza neta $F(d)$ entre dos moléculas presenta una zona de repulsión intensa a distancias muy cortas y atracción a distancias mayores, alcanzando el equilibrio estable a una distancia crítica característica $d_0 \sim 3 \times 10^{-10}\text{ m} = 3\text{ \AA}$.</p>
+
+        <p>Conocida la densidad $\rho$, la masa molar $W$ y el número de Avogadro $N_A = 6.022 \times 10^{23}\text{ moléculas/mol}$, la masa de una molécula es $W/N_A$. Suponiendo que cada molécula ocupa un cubo de lado medio $d$, se obtiene:</p>
+
+        <div class="math-block">
+          $$ \rho = \frac{W / N_A}{d^3} \implies \mathbf{d = \left(\frac{W}{\rho N_A}\right)^{1/3}} $$
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Magnitud</th>
+                <th>Aire (Gas estándar a nivel del mar)</th>
+                <th>Agua (Líquido)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Densidad ($\rho$)</strong></td>
+                <td>$1.2\text{ kg/m}^3$</td>
+                <td>$1000\text{ kg/m}^3$</td>
+              </tr>
+              <tr>
+                <td><strong>Masa molar ($W$)</strong></td>
+                <td>$28.96\text{ g/mol}$</td>
+                <td>$18.02\text{ g/mol}$</td>
+              </tr>
+              <tr>
+                <td><strong>Distancia intermolecular ($d$)</strong></td>
+                <td>$\mathbf{d \approx 3.4 \times 10^{-9}\text{ m}} \approx 10\,d_0$</td>
+                <td>$\mathbf{d \approx 3.1 \times 10^{-10}\text{ m}} \approx d_0$</td>
+              </tr>
+              <tr>
+                <td><strong>Moléculas en $1\text{ mm}^3$</strong></td>
+                <td>$\sim 10^{16}\text{ moléculas}$</td>
+                <td>$\sim 10^{19}\text{ moléculas}$</td>
+              </tr>
+              <tr>
+                <td><strong>Comportamiento dinámico</strong></td>
+                <td>Vuelo libre; interacciones únicamente por colisiones binarias.</td>
+                <td>Empaquetamiento denso; fuerzas intermoleculares cohesivas permanentes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: MEDIO CONTINUO Y PARTÍCULA FLUIDA -->
+      <section>
+        <h2 class="section-heading">2. La Hipótesis de Medio Continuo y el Concepto de Partícula Fluida</h2>
+        
+        <p>El ingente número de moléculas involucradas ($10^{16}\text{ en 1 mm}^3$ de aire) hace totalmente inviable resolver las ecuaciones de movimiento de Newton para cada partícula individual. Para describir el flujo macroscópico se adopta la **hipótesis de medio continuo**.</p>
+
+        <h3 class="sub-heading">La Escala Macroscópica ($L$)</h3>
+        <p>Definimos la distancia macroscópica característica $L$ como la escala espacial necesaria para observar variaciones significativas en las propiedades del flujo (por ejemplo, en el aire de una habitación $L \sim 10\text{ cm}$; sobre un perfil aerodinámico, $L \sim \text{cuerda alar}$).</p>
+
+        <h3 class="sub-heading">La Partícula Fluida ($\delta V$) y la Condición de Doble Acotación</h3>
+        <p>Dividimos el fluido en pequeños elementos de volumen $\delta V$ centrados en la posición $\vec{x}$ en el instante $t$. Para que las variables macroscópicas estén unívocamente definidas, el tamaño $(\delta V)^{1/3}$ debe satisfacer estrictamente:</p>
+
+        <div class="math-block">
+          $$ \mathbf{d \ll (\delta V)^{1/3} \ll L} \qquad \text{[Notes.pdf, Ec. 1.2]} $$
+        </div>
+
+        <ul>
+          <li><strong>Cota inferior ($(\delta V)^{1/3} \gg d$):</strong> El volumen debe contener millones de moléculas para que las propiedades promedio no sufran fluctuaciones estadísticas discontinuas. Si representamos la densidad aparente $\sum m_i / \delta V$ frente al tamaño $(\delta V)^{1/3}$, para volúmenes diminutos se observan saltos abruptos cada vez que una molécula entra o sale del volumen. Al superar la escala microscópica $d$, la densidad alcanza un valor constante e independiente del volumen: la <strong>meseta continua (*plateau*)</strong>.</li>
+          <li><strong>Cota superior ($(\delta V)^{1/3} \ll L$):</strong> La partícula debe ser suficientemente pequeña frente a las dimensiones globales del flujo para poder considerarse un punto material matemático diferencial en $\vec{x}$.</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-title">Criterio de Validez del Medio Continuo</div>
+          <p>La hipótesis de medio continuo es rigurosamente aplicable siempre que se cumpla la relación:</p>
+          $$\frac{d}{L} \ll 1$$
+          <p>Para aire a condiciones normales, $d \approx 3.4\text{ nm}$, por lo que prácticamente todos los flujos de ingeniería aeronáutica satisfacen esta condición con holgura. La aproximación de medio continuo <strong>deja de ser válida</strong> en flujos hiperenrarecidos (reentrada espacial de satélites en la termosfera a altitudes $h > 100\text{ km}$, donde $d \sim L$) y en dispositivos microelectromecánicos (MEMS/nanofluídica).</p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3: CAMPOS MACROSCÓPICOS -->
+      <section>
+        <h2 class="section-heading">3. Definición de los Campos Macroscópicos: Densidad, Velocidad y Energía Interna</h2>
+        
+        <p>A partir del concepto de partícula fluida $\delta V$, se formulan matemáticamente los campos continuos:</p>
+
+        <div class="card">
+          <p><strong>1. Campo de Densidad ($\rho$):</strong></p>
+          $$ \rho(\vec{x}, t) = \lim_{\delta V \to 0, \, (\delta V)^{1/3} \gg d} \frac{\sum m_i}{\delta V} \qquad \text{[Ec. 1.3]} $$
+
+          <p><strong>2. Campo de Velocidad del Flujo ($\vec{v}$):</strong></p>
+          <p>Representa la velocidad del centro de masas del conjunto de moléculas contenidas en la partícula fluida:</p>
+          $$ \vec{v}(\vec{x}, t) = \lim_{\delta V \to 0} \frac{\sum m_i \vec{v}_i}{\sum m_i} \qquad \text{[Ec. 1.4]} $$
+
+          <p><strong>3. Energía Total y Descomposición de la Energía Interna ($e$):</strong></p>
+          <p>La energía específica total por unidad de masa se descompone exactamente en la energía cinética macroscópica del flujo y la energía interna térmica:</p>
+          $$ \lim_{\delta V \to 0} \frac{\sum E_i}{\sum m_i} = e(\vec{x}, t) + \frac{|\vec{v}|^2}{2} \qquad \text{[Ec. 1.5]} $$
+          donde la <strong>energía interna</strong> $e$ agrupa la energía cinética del movimiento molecular aleatorio relativo al centro de masas junto con las energías intramoleculares de vibración $E_{v,i}$ y rotación $E_{r,i}$:</p>
+          $$ \mathbf{e = \lim_{\delta V \to 0} \frac{\sum m_i \frac{|\vec{v}_i - \vec{v}|^2}{2} + E_{v,i} + E_{r,i} + \cdots}{\sum m_i}} \qquad \text{[Ec. 1.6]} $$
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;">El término $\frac{|\vec{v}_i - \vec{v}|^2}{2}$ corresponde a la agitación térmica desordenada, magnitud directamente asociada a la definición microscópica de la <strong>temperatura ($T$)</strong>.</p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 4: EQUILIBRIO TERMODINÁMICO LOCAL (ETL) -->
+      <section>
+        <h2 class="section-heading">4. Hipótesis de Equilibrio Termodinámico Local (ETL / LTE)</h2>
+        
+        <p>La termodinámica clásica de equilibrio asume sistemas homogéneos con propiedades constantes. En mecánica de fluidos, sin embargo, las propiedades cambian en el espacio y en el tiempo. A pesar de ello, se comprueba que los resultados de la termodinámica de equilibrio son válidos localmente: un observador que se desplace con la velocidad local $\vec{v}(\vec{x}, t)$ del fluido puede describir el estado térmico mediante las mismas <strong>ecuaciones de estado</strong> que rigen en equilibrio estricto.</p>
+
+        <h3 class="sub-heading">El Mecanismo Físico: Las Colisiones Moleculares</h3>
+        <p>En los gases, las moléculas intercambian cantidad de movimiento y energía mediante colisiones continuas, adaptando rápidamente su distribución de velocidades al estado local. Este proceso determina dos escalas microscópicas clave:</p>
+        
+        <ul>
+          <li><strong>Recorrido libre medio ($\lambda$):</strong> Distancia media que recorre una molécula entre dos colisiones sucesivas. Igualando el volumen barrido en su trayectoria ($d_0^2 \lambda$) al volumen por molécula disponible en el gas ($d^3$):
+            <div class="math-block">
+              $$ \frac{\lambda}{d} \simeq \left(\frac{d}{d_0}\right)^2 \implies \mathbf{\lambda \approx 4 \times 10^{-7}\text{ m}} = 0.4\ \mu\text{m} \quad \text{(aire a nivel del mar)} $$
+            </div>
+          </li>
+          <li><strong>Tiempo característico entre colisiones ($\tau$):</strong> Siendo $a \approx \sqrt{\gamma R T} \approx 340\text{ m/s}$ la velocidad térmica promedio (orden de la velocidad del sonido):
+            <div class="math-block">
+              $$ \tau = \frac{\lambda}{a} \approx \frac{4 \times 10^{-7}\text{ m}}{340\text{ m/s}} \approx \mathbf{10^{-9}\text{ s}} = 1\text{ nanosegundo} $$
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="sub-heading">Criterio del Número de Knudsen ($Kn$)</h3>
+        <p>Para que una molécula sufra miles de choques y alcance el equilibrio antes de desplazarse hacia regiones con propiedades macroscópicas notablemente distintas, se debe cumplir que el recorrido libre medio sea insignificante frente a la escala macroscópica $L$:</p>
+
+        <div class="math-block">
+          $$ \mathbf{Kn = \frac{\lambda}{L} \ll 1} \qquad \text{[Notes.pdf, Ec. 1.7]} $$
+          <div class="math-caption">Para flujos no estacionarios con escala de tiempo macroscópica $T_{\text{macro}}$, se exige análogamente que $T_{\text{macro}} \gg \tau \approx 10^{-9}\text{ s}$.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-title">Observación Fundamental sobre el Número de Knudsen</div>
+          <p>El criterio de Equilibrio Termodinámico Local ($Kn = \lambda/L \ll 1$) es <strong>estrictamente más restrictivo</strong> que el de la hipótesis de medio continuo ($d/L \ll 1$). En los gases, el recorrido libre medio molecular es casi dos órdenes de magnitud mayor que la distancia intermolecular ($\lambda \approx 400\text{ nm} \gg d \approx 3.4\text{ nm}$).</p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 5: VARIABLES TERMODINÁMICAS Y MODELOS DE ESTADO -->
+      <section>
+        <h2 class="section-heading">5. Variables Termodinámicas y Ecuaciones de Estado</h2>
+        
+        <p>Bajo la validez del ETL, la relación termodinámica fundamental de Gibbs relaciona la energía interna específica $e$, la entropía $s$ y la densidad $\rho$:</p>
+
+        <div class="math-block">
+          $$ de = T ds - p \, d\left(\frac{1}{\rho}\right) = T ds + \frac{p}{\rho^2} d\rho \qquad \text{[Ec. 1.8]} $$
+        </div>
+
+        <p>De esta relación se deducen las definiciones operativas de temperatura, presión y entalpía específica $h$:</p>
+        <div class="math-block">
+          $$ T = \left(\frac{\partial e}{\partial s}\right)_\rho \quad \text{[Ec. 1.9]}, \qquad p = -\left(\frac{\partial e}{\partial \rho^{-1}}\right)_s \quad \text{[Ec. 1.10]}, \qquad h = e + \frac{p}{\rho} $$
+        </div>
+
+        <p>El manual de la cátedra formula dos modelos canónicos fundamentales para la ingeniería aeroespacial:</p>
+
+        <!-- Modelo 1: Líquido Perfecto -->
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 8px;">A. Modelo de Líquido Perfecto (Incompresible)</h3>
+          <p>Un líquido perfecto se caracteriza por tener <strong>densidad constante $\rho_0$</strong> y <strong>calor específico constante $c$</strong>:</p>
+          $$ \mathbf{\rho = \rho_0} \qquad \text{[Ec. 1.11]} $$
+          $$ \mathbf{e = c T + e_0} \qquad \text{[Ec. 1.12]} $$
+          $$ \mathbf{h = c T + e_0 + \frac{p}{\rho_0}} \qquad \text{[Ec. 1.13]} $$
+          $$ \mathbf{s = c \ln(T) + s_0} \qquad \text{[Ec. 1.14]} $$
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;">donde $e_0$ y $s_0$ son constantes de referencia. En la inmensa mayoría de aplicaciones hidráulicas y de combustible líquido, el agua se modela como líquido perfecto con $\rho_0 = 1000\text{ kg/m}^3$ y $c = 4180\text{ J/(kg}\cdot\text{K)}$.</p>
+        </div>
+
+        <!-- Modelo 2: Gas Perfecto -->
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 8px;">B. Modelo de Gas Perfecto (Calóricamente Perfecto)</h3>
+          <p>La ecuación de estado térmica de los gases ideales relaciona presión, densidad y temperatura:</p>
+          $$ \mathbf{\frac{p}{\rho} = R_g T} \qquad \text{[Ec. 1.15]} $$
+          donde la constante específica del gas es $R_g = R_0/W$, siendo $R_0 = 8.314\text{ J/(mol}\cdot\text{K)}$ la constante universal de los gases y $W$ la masa molecular media.</p>
+          
+          <p>Las ecuaciones de estado calóricas para la energía interna, la entalpía y la entropía son:</p>
+          $$ \mathbf{e = c_v T + e_0} \qquad \text{[Ec. 1.16]} $$
+          $$ \mathbf{h = c_p T + e_0} \qquad \text{[Ec. 1.17]} $$
+          $$ \mathbf{s = c_v \ln\left(\frac{p}{\rho^\gamma}\right) + s_0} \qquad \text{[Ec. 1.18]} $$
+
+          <p>donde $c_v$ y $c_p$ son los calores específicos a volumen y a presión constante, ligados por la **relación de Mayer**:</p>
+          $$ c_p = c_v + R_g $$
+          <p>El cociente de calores específicos $\gamma = c_p/c_v$ vale $\mathbf{\gamma = 7/5 = 1.4}$ para gases diatómicos ($N_2, O_2$, aire). Para el aire seco estándar en régimen subsónico y supersónico moderado:</p>
+          $$ R_g = 287\text{ J/(kg}\cdot\text{K)}, \quad c_v = 717\text{ J/(kg}\cdot\text{K)}, \quad c_p = 1004\text{ J/(kg}\cdot\text{K)} $$
+          
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;"><em>Límites del modelo:</em> A presiones extremas o temperaturas criogénicas deben aplicarse ecuaciones reales (ej. Van der Waals). Asimismo, cuando las variaciones de temperatura son muy pronunciadas (ej. cámaras de combustión o toberas cohete), los calores específicos dejan de ser constantes y pasan a ser funciones de la temperatura $c_p(T), c_v(T)$.</p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 6: RESUMEN Y PRONTUARIO -->
+      <section>
+        <h2 class="section-heading">6. Resumen de Fórmulas y Órdenes de Magnitud</h2>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Concepto / Magnitud</th>
+                <th>Expresión Matemática</th>
+                <th>Valores Típicos (Aire a nivel del mar)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Distancia intermolecular</strong></td>
+                <td>$d = \left(\frac{W}{\rho N_A}\right)^{1/3}$</td>
+                <td>$d \approx 3.4 \times 10^{-9}\text{ m} = 3.4\text{ nm}$</td>
+              </tr>
+              <tr>
+                <td><strong>Condición de partícula fluida</strong></td>
+                <td>$d \ll (\delta V)^{1/3} \ll L$</td>
+                <td>$3.4\text{ nm} \ll (\delta V)^{1/3} \ll 10\text{ cm}$</td>
+              </tr>
+              <tr>
+                <td><strong>Criterio de medio continuo</strong></td>
+                <td>$\frac{d}{L} \ll 1$</td>
+                <td>$\frac{d}{L} \sim 10^{-8} \lll 1$ (muy holgado)</td>
+              </tr>
+              <tr>
+                <td><strong>Recorrido libre medio</strong></td>
+                <td>$\frac{\lambda}{d} \simeq \left(\frac{d}{d_0}\right)^2$</td>
+                <td>$\lambda \approx 4 \times 10^{-7}\text{ m} = 0.4\ \mu\text{m}$</td>
+              </tr>
+              <tr>
+                <td><strong>Tiempo entre colisiones</strong></td>
+                <td>$\tau = \frac{\lambda}{a}$</td>
+                <td>$\tau \approx 10^{-9}\text{ s} = 1\text{ ns}$</td>
+              </tr>
+              <tr>
+                <td><strong>Criterio de Knudsen (ETL)</strong></td>
+                <td>$Kn = \frac{\lambda}{L} \ll 1$</td>
+                <td>$Kn \sim 10^{-6} \ll 1$ (más restrictivo que $d/L$)</td>
+              </tr>
+              <tr>
+                <td><strong>Ecuación gas perfecto</strong></td>
+                <td>$p = \rho R_g T$</td>
+                <td>$R_g = 287\text{ J/(kg}\cdot\text{K)}, \gamma = 1.4$</td>
+              </tr>
+              <tr>
+                <td><strong>Calor específico líquido</strong></td>
+                <td>$e = c T + e_0, \quad \rho = \rho_0$</td>
+                <td>Agua: $\rho_0 = 1000\text{ kg/m}^3, c = 4180\text{ J/(kg}\cdot\text{K)}$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>

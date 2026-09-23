@@ -37,32 +37,31 @@ Do **NOT** use, cite, or query the following notebooks unless the user explicitl
 
 ## 4. Multi-Agent Team & Roles
 
-The project uses a specialized multi-agent workflow to divide responsibilities, avoid context saturation, and guarantee high academic quality:
+The project uses a specialized multi-agent workflow focused strictly on two core pillars:
+1. **Teoría explicada al detalle de cada tema**, rigurosa, clara y fiel al 100% a las fuentes oficiales de la cátedra (`sources/`).
+2. **Resolución de todos los problemas de cada tema uno por uno y paso a paso**, sin saltos algebraicos, con hipótesis, planteamiento físico, desarrollo matemático e interpretación.
 
-### Agent 1: `notebook_researcher`
-* **Role:** Documentalista e Ingestor de NotebookLM (MCP `gemini-notebook`).
-* **Tools:** MCP tools enabled, write disabled.
-* **System Prompt / Task:** Query NotebookLM using the Notebook IDs from Section 1. Extract definitions, complete equations in LaTeX, problem statements, boundary conditions, and exam solutions. Output clean, structured Markdown.
+*(Nota: El agente de simuladores queda eliminado/inactivo por decisión del usuario para centrar el esfuerzo en la solidez del contenido teórico y analítico).*
+
+### Agent 1: `source_researcher` (ex `notebook_researcher`)
+* **Role:** Documentalista e Ingestor de Fuentes Oficiales Locales (`sources/`).
+* **Tools:** Read/search tools enabled, write disabled.
+* **System Prompt / Task:** Consultar e indexar directamente los PDFs, diapositivas y hojas de problemas en `sources/<asignatura>/`. Extraer definiciones, formulación matemática completa en LaTeX, enunciados de problemas, condiciones de contorno y datos numéricos. Output limpio y exhaustivo en Markdown sin inventar nada que no figure en los documentos.
 
 ### Agent 2: `aerospace_pedagogue`
 * **Role:** Ingeniero Aeroespacial & Pedagogo Mayor (Model tier: `pro`).
 * **Tools:** Read-only / deep reasoning.
-* **System Prompt / Task:** Transform raw notes into pedagogical, rigorous explanations. Detail every mathematical derivation step without skipping algebra. Ensure flawless LaTeX formatting ($...$ inline, $$...$$ blocks). Solve problems methodically: Hypotheses & Given Data -> Physical Formulation -> Step-by-Step Mathematical Derivation -> Physical Interpretation & SI Units.
+* **System Prompt / Task:** Redactar la teoría con máxima claridad pedagógica y rigor analítico. Resolver todos los problemas paso a paso siguiendo la metodología de 4 fases (Hipótesis y Datos -> Formulación Física Fundamental -> Deducción Matemática sin omisiones -> Interpretación Física y Unidades SI). Asegurar tipografía KaTeX impecable ($...$ inline, $$...$$ bloques).
 
-### Agent 3: `simulator_engineer`
-* **Role:** Ingeniero de Simuladores & Visualizaciones Científicas.
-* **Tools:** Write tools enabled (creates HTML/JS/Canvas/SVG widgets).
-* **System Prompt / Task:** Create interactive, educational physics/engineering widgets (Canvas 2D, SVG, Chart.js, Three.js) with parameter sliders, real-time recalculations, 60fps animations, and clear legends. Auto-contained to be embedded into subject pages.
-
-### Agent 4: `subject_web_builder`
+### Agent 3: `subject_web_builder`
 * **Role:** Desarrollador Web Frontend del Portal.
-* **Tools:** Write tools enabled (creates/edits HTML, CSS, JS in `subjects/`).
-* **System Prompt / Task:** Implement topic pages, problem sets, formula sheets, and interactive layouts following `index.html` visual styles (dark/light theme, glassmorphism, accent colors per subject, KaTeX CDN integration for instant math rendering, responsive mobile/tablet layout).
+* **Tools:** Write tools enabled (HTML, CSS, JS en `subjects/`).
+* **System Prompt / Task:** Maquetar páginas de estudio limpias, sobrias, legibles y elegantes (sin artificios innecesarios ni sobrecarga de opciones). Enfocadas en lectura y estudio cómodo: tipografía editorial (Newsreader, Inter), KaTeX CDN para renderizado matemático instantáneo, modo oscuro/claro funcional y retorno estricto `../../../index.html`.
 
-### Agent 5: `web_qa_reviewer`
+### Agent 4: `web_qa_reviewer`
 * **Role:** Auditor de Calidad (QA) y Revisor Técnico.
 * **Tools:** Write/command tools enabled (read, test, lint, git checks).
-* **System Prompt / Task:** Audit relative link integrity (`../../`), KaTeX LaTeX syntax (unclosed brackets, illegal symbols), responsive layouts on mobile/tablet, and inspect `git status` / `git diff` to prevent accidental overwrites or merge conflicts with team collaborators.
+* **System Prompt / Task:** Auditar la integridad de enlaces relativos (`../../../index.html`), balance y sintaxis de delimitadores KaTeX ($ y $$), legibilidad responsive y control de cambios en Git.
 
 ---
 
@@ -75,4 +74,8 @@ The local knowledge base resides in `vault/` inside the repository. It serves as
   * `01 - Fluid Mechanics/`, `02 - Aerospace Materials I/`, etc.: Subject-specific notes.
   * `Templates/`: Standard templates for concepts, exam problems, and formula sheets.
 * **Sync & Git:** The vault is committed to Git so all team members share the exact same second brain. User-specific Obsidian cache (`workspace*.json`) is excluded via `.gitignore`.
+
+### Mandatory Workflow Pipeline: Obsidian First → Web Second
+1. **Fase 1 (Ingesta en Obsidian):** Toda la información extraída de los cuadernos de NotebookLM, apuntes o problemas debe estructurarse y guardarse **primero** en la bóveda de Obsidian (`vault/`), utilizando las plantillas de `vault/Templates/` y vinculándola al MOC correspondiente.
+2. **Fase 2 (Desarrollo Web desde Obsidian):** Una vez consolidado el contenido en `vault/`, se utiliza como base de conocimiento ("Ground Truth") para que los agentes diseñen la teoría, resuelvan problemas paso a paso, creen los simuladores y generen las páginas HTML finales en `subjects/`. No se crea ninguna web sin tener antes su respaldo estructurado en Obsidian.
 
