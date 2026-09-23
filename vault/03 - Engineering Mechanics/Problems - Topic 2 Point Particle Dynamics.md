@@ -12,7 +12,10 @@ language: "English"
 Official problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, Chapter 1). These problems test Newton's second law, linear momentum, kinetic energy, work, conservative forces, potential energy, 1D energy landscapes, aerodynamic drag, and the simple pendulum.
 
 > [!NOTE]
-> **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets. (Solutions pending development).
+> **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
+> 
+> [!SUCCESS] Complete Analytical Solutions Ready
+> All 10 problems have full, step-by-step pedagogical solutions developed in: [[Solutions - Topic 2 Point Particle Dynamics]].
 
 ---
 
