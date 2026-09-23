@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3: Financial Statements — Solved Problems 1 to 6 | Business Management</title>
+  <meta name="description" content="Official solved problems for Topic 3: Financial Statements and Capital Structure. Step-by-step analytical resolutions with zero skipped arithmetic steps. UC3M Aerospace Engineering." />
+
+  <!-- Fonts: Inter & Newsreader for academic readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 3 SOLVED PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">Problems Hub</a>
+        <a href="../teoria/topic-3.html" class="back-link">Topic 3 Theory</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Official Course Problem Solutions • Zero Skipped Steps</div>
+        <h1 class="article-title">Topic 3: Financial Statements (Exercises 1 to 6)</h1>
+        <div class="article-meta">
+          <strong>Source Document:</strong> <code>T3_Financial Statements_EXERCISES.pdf</code> (UC3M Business Management) • Solved with exhaustive mathematical and accounting steps.
+        </div>
+
+        <nav class="quick-jump">
+          <span style="font-size: 12px; font-weight: 600; color: var(--text-muted); align-self: center; margin-right: 4px;">Jump to:</span>
+          <a href="#exercise-1" class="jump-btn">Exercise 1 (Accrual vs Cash)</a>
+          <a href="#exercise-2" class="jump-btn">Exercise 2 (JUGA S.A.)</a>
+          <a href="#exercise-3" class="jump-btn">Exercise 3 (Libby's Co.)</a>
+          <a href="#exercise-4" class="jump-btn">Exercise 4 (Hawkins Partners)</a>
+          <a href="#exercise-5" class="jump-btn">Exercise 5 (Corporate P&L)</a>
+          <a href="#exercise-6" class="jump-btn">Exercise 6 (Company X)</a>
+        </nav>
+      </header>
+
+      <!-- ==========================================
+           EXERCISE 1
+           ========================================== -->
+      <section class="problem-box" id="exercise-1">
+        <span class="problem-tag">Exercise 1</span>
+        <h2 class="problem-title">Accrual vs Cash Basis, Linear Depreciation & Inventory Sensitivity</h2>
+
+        <div class="statement-box">
+          A specific company has started activity on the 1st of January of the present year. To this date (31st of March), it has the following goods that were acquired on 31st of December of the previous year:<br>
+          • Factory building: 1.000 m.u. (Duration 25 years)<br>
+          • Office building: 1.500 m.u. (Duration 50 years)<br>
+          • Machinery: 300 m.u. (Duration 10 years)<br>
+          • Transport equipment: 100 m.u. (Duration 5 years)<br>
+          Information corresponding to the 1st quarter is as follows: personnel salaries of the quarter 450 m.u. (75 m.u. pending after 31/3), materials purchases and used in production 700 m.u. (125 m.u. pending after 31/3), energy consumption estimated in 230 m.u. (nothing paid till date), sales invoiced to customers 1.930 m.u. (315 m.u. pending after 31/3). In manufacturing all sold units, the entire purchased materials have been consumed. Ignore corporation taxes.<br>
+          <strong>a)</strong> Calculate at 31/3: income, expenses, collections/cash inflows, payments/cash outflows, investments and depreciation/amortization of the quarter.<br>
+          <strong>b)</strong> How will the response change if only half of the purchased materials had been consumed?
+        </div>
+
+        <h3 class="phase-title">Phase 1: Quarterly Linear Depreciation Computation</h3>
+        <p>The time elapsed is the 1st Quarter ($t = 3 \text{ months} = \frac{1}{4} \text{ year}$). The straight-line quarterly depreciation is:</p>
+        $$D_{\text{quarter}} = \frac{\text{Acquisition Cost}}{4 \times n}$$
+        <ul>
+          <li>Factory building: $\frac{1,000}{4 \times 25} = \frac{1,000}{100} = 10.0 \text{ m.u.}$</li>
+          <li>Office building: $\frac{1,500}{4 \times 50} = \frac{1,500}{200} = 7.5 \text{ m.u.}$</li>
+          <li>Machinery: $\frac{300}{4 \times 10} = \frac{300}{40} = 7.5 \text{ m.u.}$</li>
+          <li>Transport equipment: $\frac{100}{4 \times 5} = \frac{100}{20} = 5.0 \text{ m.u.}$</li>
+          <li><strong>Total Depreciation for the Quarter:</strong> $10.0 + 7.5 + 7.5 + 5.0 = \mathbf{30.0 \text{ m.u.}}$</li>
+        </ul>
+
+        <h3 class="phase-title">Phase 2: Resolution of Part (a) — 100% Consumed</h3>
+        <ol>
+          <li><strong>Income (Revenues):</strong> Under the accrual principle, revenue is recognized upon commercial invoicing regardless of collection:
+            $$\mathbf{\text{Income}} = \mathbf{1,930.0 \text{ m.u.}}$$
+          </li>
+          <li><strong>Expenses:</strong> Consumed factor inputs plus equipment depreciation:
+            $$\mathbf{\text{Expenses}} = 450 \text{ (Salaries)} + 700 \text{ (Materials)} + 230 \text{ (Energy)} + 30 \text{ (Depreciation)} = \mathbf{1,410.0 \text{ m.u.}}$$
+            *(Net Income $= 1,930 - 1,410 = 520.0 \text{ m.u.}$).*
+          </li>
+          <li><strong>Collections (Cash Inflows):</strong> Physical cash collected from customers during the quarter:
+            $$\mathbf{\text{Collections}} = 1,930 - 315 \text{ (uncollected)} = \mathbf{1,615.0 \text{ m.u.}}$$
+          </li>
+          <li><strong>Payments (Cash Outflows):</strong> Physical disbursements from treasury:
+            $$\mathbf{\text{Payments}} = (450 - 75) + (700 - 125) + 0 \text{ (Energy)} = 375 + 575 = \mathbf{950.0 \text{ m.u.}}$$
+            *(Depreciation is a non-cash expense and requires no payment).*
+          </li>
+          <li><strong>Investments:</strong> Total capital goods acquired on 31/12 were $1,000 + 1,500 + 300 + 100 = 2,900.0 \text{ m.u.}$ No new fixed asset investments were made during Q1 ($\text{Q1 Capex} = 0 \text{ m.u.}$).</li>
+          <li><strong>Depreciation:</strong> $\mathbf{30.0 \text{ m.u.}}$</li>
+        </ol>
+
+        <h3 class="phase-title">Phase 3: Resolution of Part (b) — 50% Consumed</h3>
+        <p>If only half of the materials are consumed in production ($700 / 2 = 350 \text{ m.u.}$), the remaining $350 \text{ m.u.}$ is stored in warehouse as an inventory asset:</p>
+        <ul>
+          <li><strong>Expenses:</strong> Decrease by $350 \text{ m.u.}$:
+            $$\mathbf{\text{New Expenses}} = 450 + 350 + 230 + 30 = \mathbf{1,060.0 \text{ m.u.}} \quad (\text{Net Profit rises to } 1,930 - 1,060 = \mathbf{870.0 \text{ m.u.}})$$
+          </li>
+          <li><strong>Payments (Cash Outflows):</strong> <strong>Completely unchanged at $950.0 \text{ m.u.}$!</strong> Supplier payments are governed by raw materials purchased ($700 - 125 = 575 \text{ m.u.}$), regardless of physical shop-floor consumption.</li>
+          <li><strong>Incomes and Collections:</strong> Unchanged at $1,930.0 \text{ m.u.}$ and $1,615.0 \text{ m.u.}$ respectively.</li>
+        </ul>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Pedagogical Conclusion</div>
+          Unconsumed purchased materials represent a <strong>Balance Sheet Asset (Inventory)</strong>, not an Income Statement expense. While Net Income increases by $350 \text{ m.u.}$, treasury cash flow remains identical.
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXERCISE 2
+           ========================================== -->
+      <section class="problem-box" id="exercise-2">
+        <span class="problem-tag">Exercise 2</span>
+        <h2 class="problem-title">JUGA S.A. Opening Balance Sheet</h2>
+
+        <div class="statement-box">
+          The JUGA S.A. Firm is started with a shareholders contribution of 60.000 Euros. Of those 30.000 are paid in and deposited in a Bank account and the remaining are corresponding to the transfer of a patent for a value of 30.000 Euros. With the cash of the Bank account, raw materials have been purchased for a total amount of 10.500 Euros and machinery for 15.000 Euros. Please detail the balance sheet at the operations start.
+        </div>
+
+        <h3 class="phase-title">Phase 1: Journaling Cash Flows & Balances</h3>
+        <ol>
+          <li>Initial capital contributed: Subscribed Share Capital = €60,000 (Monetary: €30,000 cash; In-kind: €30,000 industrial patent).</li>
+          <li>Purchases funded by bank cash:
+            $$\text{Cash Outflows} = 10,500 \text{ (Raw Materials)} + 15,000 \text{ (Machinery)} = 25,500 \text{ \euro}$$
+          </li>
+          <li>Residual bank cash balance:
+            $$\text{Bank Balance} = 30,000 - 25,500 = \mathbf{4,500 \text{ \euro}}$$
+          </li>
+        </ol>
+
+        <h3 class="phase-title">Phase 2: The Formal Opening Balance Sheet</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ASSETS (Activo)</th>
+                <th>Amount (€)</th>
+                <th>LIABILITIES & EQUITY (Pasivo y PN)</th>
+                <th>Amount (€)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>45,000</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>60,000</strong></td>
+              </tr>
+              <tr>
+                <td>• Intangible Assets: Industrial Patent</td>
+                <td>30,000</td>
+                <td>• Subscribed Share Capital</td>
+                <td>60,000</td>
+              </tr>
+              <tr>
+                <td>• Tangible Fixed Assets: Machinery</td>
+                <td>15,000</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>15,000</strong></td>
+                <td><strong>NON-CURRENT LIABILITIES</strong></td>
+                <td><strong>0</strong></td>
+              </tr>
+              <tr>
+                <td>• Inventories: Raw Materials</td>
+                <td>10,500</td>
+                <td><strong>CURRENT LIABILITIES</strong></td>
+                <td><strong>0</strong></td>
+              </tr>
+              <tr>
+                <td>• Cash & Cash Equivalents (Bank account)</td>
+                <td>4,500</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>60,000</td>
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>60,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Equilibrium Verification</div>
+          $$\mathbf{\text{Assets } (60,000 \text{ \euro}) \equiv \text{Liabilities } (0 \text{ \euro}) + \text{Equity } (60,000 \text{ \euro})}$$
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXERCISE 3
+           ========================================== -->
+      <section class="problem-box" id="exercise-3">
+        <span class="problem-tag">Exercise 3</span>
+        <h2 class="problem-title">Libby's Company Balance Sheet Classification & Working Capital</h2>
+
+        <div class="statement-box">
+          Prepare the BALANCE SHEET of Libby's Company using the following figures (in euros):<br>
+          Short-term loan debts 15.500 | Long-term loan debts 3.000 | Money on its bank account 3.000 | Cash 500 | Paid-in capital 12.000 | Accounts receivable 3.500 | Accounts payable 1.500 | Equipment 13.000 | Raw materials (purchased this year but not used yet) 12.500 | Furniture 1.500 | Retained earnings from the year 2.000.
+        </div>
+
+        <h3 class="phase-title">Phase 1: Standard Account Categorization</h3>
+        <ul>
+          <li><strong>Non-Current Assets:</strong> Equipment (€13,000) + Furniture (€1,500) = <strong>€14,500</strong>.</li>
+          <li><strong>Current Assets:</strong> Raw materials inventory (€12,500) + Accounts receivable (€3,500) + Bank (€3,000) + Cash (€500) = <strong>€19,500</strong>.</li>
+          <li><strong>Stockholders' Equity:</strong> Paid-in capital (€12,000) + Retained earnings (€2,000) = <strong>€14,000</strong>.</li>
+          <li><strong>Non-Current Liabilities:</strong> Long-term loan debts = <strong>€3,000</strong>.</li>
+          <li><strong>Current Liabilities:</strong> Short-term loan debts (€15,500) + Accounts payable (€1,500) = <strong>€17,000</strong>.</li>
+        </ul>
+
+        <h3 class="phase-title">Phase 2: Formal Balanced Presentation</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ASSETS (Activo)</th>
+                <th>Amount (€)</th>
+                <th>LIABILITIES & EQUITY (Pasivo y PN)</th>
+                <th>Amount (€)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>14,500</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>14,000</strong></td>
+              </tr>
+              <tr>
+                <td>• Equipment</td>
+                <td>13,000</td>
+                <td>• Paid-in capital</td>
+                <td>12,000</td>
+              </tr>
+              <tr>
+                <td>• Furniture</td>
+                <td>1,500</td>
+                <td>• Retained earnings from the year</td>
+                <td>2,000</td>
+              </tr>
+              <tr>
+                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>19,500</strong></td>
+                <td><strong>NON-CURRENT LIABILITIES</strong></td>
+                <td><strong>3,000</strong></td>
+              </tr>
+              <tr>
+                <td>• Inventories (Raw materials)</td>
+                <td>12,500</td>
+                <td>• Long-term loan debts</td>
+                <td>3,000</td>
+              </tr>
+              <tr>
+                <td>• Accounts receivable</td>
+                <td>3,500</td>
+                <td><strong>CURRENT LIABILITIES</strong></td>
+                <td><strong>17,000</strong></td>
+              </tr>
+              <tr>
+                <td>• Cash at bank</td>
+                <td>3,000</td>
+                <td>• Short-term loan debts</td>
+                <td>15,500</td>
+              </tr>
+              <tr>
+                <td>• Cash on hand</td>
+                <td>500</td>
+                <td>• Accounts payable (Suppliers)</td>
+                <td>1,500</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>34,000</td>
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>34,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Solvency & Working Capital Audit</div>
+          $$\text{Working Capital} = \text{Current Assets} - \text{Current Liabilities} = 19,500 - 17,000 = \mathbf{+2,500 \text{ \euro}}$$
+          $$\text{Debt-to-Equity Ratio} = \frac{L}{E} = \frac{3,000 + 17,000}{14,000} = \frac{20,000}{14,000} = \mathbf{1.43}$$
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXERCISE 4
+           ========================================== -->
+      <section class="problem-box" id="exercise-4">
+        <span class="problem-tag">Exercise 4</span>
+        <h2 class="problem-title">Hawkins Partners Income Statement & Inventories</h2>
+
+        <div class="statement-box">
+          Prepare the Income Statement for Hawkins Partners using the following figures and knowing that corporate tax applicable rate is 30% (figures in euros):<br>
+          1. Initial inventory: 600 | 2. Purchase of goods (sold 100%): 84.000 | 3. Rental costs: 1.000 | 4. Property sold to another company (income): 10.500 | 5. Interests received: 15.200 | 6. Interests from long-term debt: 5.500 | 7. Wages and salaries: 12.700 | 8. Water, gas and electricity: 1.200 | 9. Sales: 130.800 | 10. Inventory at end of period: 500.
+        </div>
+
+        <h3 class="phase-title">Phase 1: Mathematical Step-by-Step Derivation</h3>
+        <ol>
+          <li><strong>Cost of Goods Sold (COGS):</strong>
+            $$\text{COGS} = \text{Initial Inventory} + \text{Purchases} - \text{Ending Inventory} = 600 + 84,000 - 500 = \mathbf{84,100 \text{ \euro}}$$
+          </li>
+          <li><strong>Gross Profit:</strong>
+            $$\text{Gross Profit} = \text{Sales} - \text{COGS} = 130,800 - 84,100 = \mathbf{46,700 \text{ \euro}}$$
+          </li>
+          <li><strong>Operating Expenses:</strong>
+            $$\text{Total Operating Expenses} = 12,700 \text{ (Wages)} + 1,000 \text{ (Rent)} + 1,200 \text{ (Utilities)} = \mathbf{14,900 \text{ \euro}}$$
+          </li>
+          <li><strong>Operating Profit (EBIT):</strong>
+            $$\text{EBIT} = 46,700 - 14,900 = \mathbf{31,800 \text{ \euro}}$$
+          </li>
+          <li><strong>Non-Operating & Financial Items:</strong>
+            $$\text{Net Non-Operating} = +10,500 \text{ (Property gain)} + 15,200 \text{ (Interest rec.)} - 5,500 \text{ (Debt interest)} = \mathbf{+20,200 \text{ \euro}}$$
+          </li>
+          <li><strong>Earnings Before Taxes (EBT):</strong>
+            $$\text{EBT} = 31,800 + 20,200 = \mathbf{52,000 \text{ \euro}}$$
+          </li>
+          <li><strong>Corporate Tax & Net Income:</strong>
+            $$\text{Corporate Tax } (30\%) = 0.30 \times 52,000 = \mathbf{15,600 \text{ \euro}}$$
+            $$\mathbf{\text{Net Income}} = 52,000 - 15,600 = \mathbf{36,400 \text{ \euro}}$$
+          </li>
+        </ol>
+
+        <h3 class="phase-title">Phase 2: Multi-Step Income Statement</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>HAWKINS PARTNERS — INCOME STATEMENT</th>
+                <th>Detail (€)</th>
+                <th>Amount (€)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sales Revenue</td>
+                <td></td>
+                <td>130,800</td>
+              </tr>
+              <tr>
+                <td>(-) Cost of Goods Sold (COGS)</td>
+                <td></td>
+                <td>(84,100)</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>= GROSS PROFIT</td>
+                <td></td>
+                <td>46,700</td>
+              </tr>
+              <tr>
+                <td>(-) Operating Expenses (Wages, Rent, Utilities)</td>
+                <td></td>
+                <td>(14,900)</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>= OPERATING INCOME (EBIT)</td>
+                <td></td>
+                <td>31,800</td>
+              </tr>
+              <tr>
+                <td>(+) Non-Operating Items (Property sale €10.5k + Interests net €9.7k)</td>
+                <td></td>
+                <td>+20,200</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>= EARNINGS BEFORE TAXES (EBT)</td>
+                <td></td>
+                <td>52,000</td>
+              </tr>
+              <tr>
+                <td>(-) Corporate Income Tax (30%)</td>
+                <td></td>
+                <td>(15,600)</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>NET INCOME (NET PROFIT)</td>
+                <td></td>
+                <td>36,400</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXERCISE 5
+           ========================================== -->
+      <section class="problem-box" id="exercise-5">
+        <span class="problem-tag">Exercise 5</span>
+        <h2 class="problem-title">Corporate Income Statement, Trade Discounts, Taxes & Dividends</h2>
+
+        <div class="statement-box">
+          Prepare the Income Statement of a company with the following information from year 2017:<br>
+          • Gross sales: 2.002 million €. Trade policy gives 3% discount to Type A customers (annual purchases > 120 million €). Type A customers account for 40% of sales. Total sales = Gross sales - Discount.<br>
+          • Purchases of raw materials: 962 million €. Assume no change in stocks.<br>
+          • Workforce: 7.800 employees, average salary 30.000 €/year, Social Security spending 30% of salary.<br>
+          • Other operating expenses: 457 million €.<br>
+          • In recent years invested 1.200 million € in fixed assets (lifespan 10 years, linear depreciation, no residual value).<br>
+          • International loan obtained in 2015 of 225 million € at 6% interest along the whole year, principal repayable in 2020.<br>
+          • Corporate tax rate: 30%. Agreed dividend: 50%.
+        </div>
+
+        <h3 class="phase-title">Phase 1: Step-by-Step Numerical Calculations</h3>
+        <ol>
+          <li><strong>Gross Sales & Discount:</strong>
+            $$\text{Type A Sales} = 40\% \times 2,002.00 = 800.80 \text{ M\euro} > 120 \text{ M\euro} \implies \text{Qualifies}$$
+            $$\text{Discount} = 3\% \times 800.80 = \mathbf{24.024 \text{ M\euro}}$$
+            $$\mathbf{\text{Net Sales}} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
+          </li>
+          <li><strong>Cost of Goods Sold (Raw Materials):</strong>
+            $$\mathbf{\text{COGS}} = \mathbf{962.00 \text{ M\euro}} \implies \mathbf{\text{Gross Profit}} = 1,977.976 - 962.00 = \mathbf{1,015.976 \text{ M\euro}}$$
+          </li>
+          <li><strong>Operating Expenses:</strong>
+            * Workforce: $7,800 \times 30,000 \text{ \euro} = 234.00 \text{ M\euro}$. Social Security ($30\%$): $0.30 \times 234 = 70.20 \text{ M\euro}$.
+            $$\text{Total Personnel} = 234.00 + 70.20 = 304.20 \text{ M\euro}$$
+            * Other operating expenses: $457.00 \text{ M\euro}$.
+            * Linear Depreciation: $\frac{1,200.00}{10} = 120.00 \text{ M\euro}$.
+            $$\mathbf{\text{Total Operating Expenses}} = 304.20 + 457.00 + 120.00 = \mathbf{881.20 \text{ M\euro}}$$
+          </li>
+          <li><strong>Operating Income (EBIT):</strong>
+            $$\mathbf{\text{EBIT}} = 1,015.976 - 881.20 = \mathbf{134.776 \text{ M\euro}}$$
+          </li>
+          <li><strong>Financial Interest Expense:</strong>
+            $$\text{Interest} = 6\% \times 225.00 \text{ M\euro} = \mathbf{13.50 \text{ M\euro}}$$
+          </li>
+          <li><strong>Earnings Before Taxes (EBT):</strong>
+            $$\mathbf{\text{EBT}} = 134.776 - 13.50 = \mathbf{121.276 \text{ M\euro}}$$
+          </li>
+          <li><strong>Corporate Taxes ($30\%$) and Net Income:</strong>
+            $$\text{Taxes} = 30\% \times 121.276 = \mathbf{36.383 \text{ M\euro}}$$
+            $$\mathbf{\text{Net Income}} = 121.276 - 36.383 = \mathbf{84.893 \text{ M\euro}}$$
+          </li>
+          <li><strong>Profit Distribution ($50\%$ Dividends, $50\%$ Retained):</strong>
+            $$\mathbf{\text{Dividends}} = 50\% \times 84.893 = \mathbf{42.447 \text{ M\euro}}, \qquad \mathbf{\text{Retained Earnings}} = \mathbf{42.447 \text{ M\euro}}$$
+          </li>
+        </ol>
+
+        <h3 class="phase-title">Phase 2: Formal Income Statement (Year 2017)</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>INCOME STATEMENT — YEAR 2017</th>
+                <th>Detail (M€)</th>
+                <th>Amount (M€)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gross Sales Revenue</td>
+                <td>2,002.000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>(-) Commercial Discounts (3% on Type A)</td>
+                <td>(24.024)</td>
+                <td></td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>TOTAL NET SALES REVENUE</td>
+                <td></td>
+                <td>1,977.976</td>
+              </tr>
+              <tr>
+                <td>(-) Cost of Goods Sold (Raw materials purchases)</td>
+                <td></td>
+                <td>(962.000)</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>GROSS PROFIT</td>
+                <td></td>
+                <td>1,015.976</td>
+              </tr>
+              <tr>
+                <td>(-) Operating Expenses</td>
+                <td></td>
+                <td>(881.200)</td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• Personnel Cost (Wages 234 M€ + 30% SS 70.2 M€)</td>
+                <td>(304.200)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• Other Operating Expenses</td>
+                <td>(457.000)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• Linear Depreciation of Fixed Assets (10% of 1,200 M€)</td>
+                <td>(120.000)</td>
+                <td></td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>OPERATING INCOME (EBIT)</td>
+                <td></td>
+                <td>134.776</td>
+              </tr>
+              <tr>
+                <td>(-) Financial Interest Expenses (6% of 225 M€)</td>
+                <td></td>
+                <td>(13.500)</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>EARNINGS BEFORE TAXES (EBT)</td>
+                <td></td>
+                <td>121.276</td>
+              </tr>
+              <tr>
+                <td>(-) Corporate Income Tax (30%)</td>
+                <td></td>
+                <td>(36.383)</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>NET INCOME FOR THE YEAR</td>
+                <td></td>
+                <td>84.893</td>
+              </tr>
+              <tr>
+                <td>• Dividends to be distributed (50%)</td>
+                <td></td>
+                <td>42.447</td>
+              </tr>
+              <tr>
+                <td>• Retained Earnings transferred to Equity (50%)</td>
+                <td></td>
+                <td>42.447</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXERCISE 6
+           ========================================== -->
+      <section class="problem-box" id="exercise-6">
+        <span class="problem-tag">Exercise 6</span>
+        <h2 class="problem-title">Company X Full Accounting Cycle, Balance Sheet & Uncalled Capital</h2>
+
+        <div class="statement-box">
+          Company X incorporated on 1/1/2017 with 100 m.u. shares fully paid in cash. Purchased on 1/1/2017 with cash: a) land/area for 20 m.u., b) equipment with life of 10 years (straight-line) for 20 m.u., c) raw materials for 20 m.u.<br>
+          Hires an employee for annual cost of 10 m.u. Employee processes half of raw material and sells it for 50 m.u. Sales are uniform every day, average collection period is 3 months. Corporate tax is 30% (paid on 31/12/2017). Strict self-financing strategy.<br>
+          <strong>1.</strong> Prepare the Balance Sheet as on 31/12/2017 with intermediate calculations.<br>
+          <strong>2.</strong> Indicate and explain changes if shareholders had paid only 90% of the 100 m.u. subscribed.
+        </div>
+
+        <h3 class="phase-title">Phase 1: Operational Cycle & P&L Statement (Question 1)</h3>
+        <ol>
+          <li><strong>Sales Revenue:</strong> $50.0 \text{ m.u.}$</li>
+          <li><strong>Raw Materials Consumed (COGS):</strong> Half of $20.0 \text{ m.u.} = \mathbf{10.0 \text{ m.u.}}$ (Remaining inventory in warehouse $= 10.0 \text{ m.u.}$).</li>
+          <li><strong>Gross Profit:</strong> $50.0 - 10.0 = \mathbf{40.0 \text{ m.u.}}$</li>
+          <li><strong>Operating Expenses:</strong>
+            * Employee cost: $10.0 \text{ m.u.}$
+            * Equipment depreciation ($20 / 10 \text{ yrs}$): $2.0 \text{ m.u.}$ (Land is non-depreciable).
+            $$\text{Total Expenses} = 10.0 + 2.0 = \mathbf{12.0 \text{ m.u.}}$$
+          </li>
+          <li><strong>Operating Income (EBIT) & EBT:</strong> $40.0 - 12.0 = \mathbf{28.0 \text{ m.u.}}$</li>
+          <li><strong>Corporate Tax ($30\%$ paid in cash on 31/12):</strong> $30\% \times 28.0 = \mathbf{8.4 \text{ m.u.}}$</li>
+          <li><strong>Net Income & Retained Earnings:</strong> $\mathbf{19.6 \text{ m.u.}}$ (100% retained under strict self-financing).</li>
+        </ol>
+
+        <h3 class="phase-title">Phase 2: Working Capital & Treasury Cash Reconciliation</h3>
+        <ul>
+          <li><strong>Accounts Receivable (3-month collection period):</strong>
+            $$\text{Receivables} = 50.0 \times \frac{3 \text{ months}}{12 \text{ months}} = \mathbf{12.5 \text{ m.u.}} \implies \text{Cash Collected} = 50.0 - 12.5 = 37.5 \text{ m.u.}$$
+          </li>
+          <li><strong>Ending Cash on 31/12/2017:</strong>
+            $$\text{Initial Cash (100 - 20 land - 20 equip - 20 materials)} = 40.0 \text{ m.u.}$$
+            $$\text{Ending Cash} = 40.0 + 37.5 \text{ (Collections)} - 10.0 \text{ (Salaries)} - 8.4 \text{ (Taxes)} = \mathbf{59.1 \text{ m.u.}}$$
+          </li>
+        </ul>
+
+        <h3 class="phase-title">Phase 3: Balance Sheet as on 31/12/2017 (100% Paid)</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ASSETS (Activo)</th>
+                <th>Amount (m.u.)</th>
+                <th>LIABILITIES & EQUITY (Pasivo y PN)</th>
+                <th>Amount (m.u.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>38.0</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>119.6</strong></td>
+              </tr>
+              <tr>
+                <td>• Land / Area (Non-depreciable)</td>
+                <td>20.0</td>
+                <td>• Subscribed & Paid-in Share Capital</td>
+                <td>100.0</td>
+              </tr>
+              <tr>
+                <td>• Equipment (Historical cost)</td>
+                <td>20.0</td>
+                <td>• Retained Earnings (Year 2017 profit)</td>
+                <td>19.6</td>
+              </tr>
+              <tr>
+                <td>• (-) Accumulated Depreciation</td>
+                <td>(2.0)</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>81.6</strong></td>
+                <td><strong>LIABILITIES (DEBT)</strong></td>
+                <td><strong>0.0</strong></td>
+              </tr>
+              <tr>
+                <td>• Inventories (Raw Materials)</td>
+                <td>10.0</td>
+                <td>• Long-term liabilities</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <td>• Accounts Receivable (Customers)</td>
+                <td>12.5</td>
+                <td>• Current liabilities</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <td>• Cash & Cash Equivalents</td>
+                <td>59.1</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>119.6</td>
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>119.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="phase-title">Phase 4: Impact of Uncalled Capital (90% Paid — Question 2)</h3>
+        <p>If shareholders contribute only $90\%$ of subscribed shares ($90 \text{ m.u.}$ in cash), $10 \text{ m.u.}$ represents **Uncalled Capital**:</p>
+        <ol>
+          <li><strong>Income Statement:</strong> Completely unaffected ($\text{Net Income} = 19.6 \text{ m.u.}$).</li>
+          <li><strong>Ending Cash:</strong> Drops by exactly $10.0 \text{ m.u.}$ because the starting cash balance was lower:
+            $$\text{New Cash} = 59.1 - 10.0 = \mathbf{49.1 \text{ m.u.}}$$
+            $$\text{New Current Assets} = 10.0 + 12.5 + 49.1 = \mathbf{71.6 \text{ m.u.}} \implies \mathbf{\text{New Total Assets}} = 38.0 + 71.6 = \mathbf{109.6 \text{ m.u.}}$$
+          </li>
+          <li><strong>Stockholders' Equity:</strong> Uncalled Capital is presented as a negative contra-equity line:
+            $$\text{Subscribed Capital } (100.0) - \text{Uncalled Capital } (10.0) + \text{Retained Earnings } (19.6) = \mathbf{109.6 \text{ m.u.}}$$
+        </ol>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Balance Check with Uncalled Capital</div>
+          $$\mathbf{\text{Total Assets } (109.6 \text{ m.u.}) \equiv \text{Total Liabilities \& Equity } (109.6 \text{ m.u.})}$$
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="index.html">← Back to Problems Hub</a>
+        <a href="../teoria/topic-3.html">Back to Topic 3 Theory →</a>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      try {
+        localStorage.setItem('ae_theme', t);
+        localStorage.setItem('theme', t);
+        localStorage.setItem('aero-portal-theme', t);
+      } catch (e) {}
+    }
+
+    const savedTheme = (() => {
+      try {
+        return localStorage.getItem('ae_theme') || localStorage.getItem('theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+      } catch (e) { return 'dark'; }
+    })();
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>

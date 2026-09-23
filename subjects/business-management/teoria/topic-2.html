@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 2: Value Creation — Environment and Competitive Advantage | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 2: Value Creation, Environment, PESTEL, Porter's Five Forces and Value Chain. 2nd Year Aerospace Engineering, UC3M." />
+
+  <!-- Fonts: Inter & Newsreader for academic readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 2</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">Theory Hub</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Course Notes — Block I: Strategy & Competitive Environment</div>
+        <h1 class="article-title">Value Creation: Environment and Competitive Advantage</h1>
+        <div class="article-meta">
+          <strong>Official Course Sources:</strong> Lecture Slides Topic 2 (Prof. Carmen Paz-Aparicio) & Practice 2 (Prof. Juan Repiso) • UC3M Aerospace Engineering
+        </div>
+      </header>
+
+      <section>
+        <h2>1. Business Objectives and the Creation of Value</h2>
+        <p>In Classical Economic Theory, the firm's objective is assumed to be the <strong>maximization of accounting profit</strong> ($\text{Revenues} - \text{Costs}$). However, modern management science recognizes four severe limitations to this simplistic assumption:</p>
+        <ol>
+          <li><strong>Ambiguity:</strong> Accounting profit is sensitive to accounting standards and valuation rules.</li>
+          <li><strong>Neglect of Risk:</strong> It ignores the financial volatility and credit risk taken to generate that profit.</li>
+          <li><strong>Short-Term Bias:</strong> Slashing R&D or employee training boosts immediate accounting profit while destroying long-term viability.</li>
+          <li><strong>Separation of Ownership & Control:</strong> Professional managers may pursue empire building and personal perquisites rather than owner profits.</li>
+        </ol>
+
+        <div class="callout">
+          <div class="callout-title">The Stakeholder Model & Organizational Theory</div>
+          <p>Under <strong>Organizational Theory (Cyert, March & Simon)</strong>, corporate objectives are the outcome of a continuous negotiation process among diverse <strong>stakeholders</strong> (shareholders, lenders, employees, suppliers, customers, the state, and society). The overarching baseline constraint is the <strong>survival of the enterprise</strong>. The ultimate goal is to <strong>Maximize Enterprise Value (Create Value)</strong> sustainably.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Levels of Strategic Decisions</h2>
+        <p>Firms structure their decision-making across three hierarchical tiers:</p>
+        <ol>
+          <li><strong>Strategic Decisions:</strong> Long-term, irreversible decisions committing major capital resources that shape the firm's boundaries.</li>
+          <li><strong>Tactical Decisions:</strong> Medium-term departmental implementations and annual budget allocations.</li>
+          <li><strong>Operative Decisions:</strong> Day-to-day functional and shop-floor execution.</li>
+        </ol>
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Corporate Strategy</h4>
+            <p><strong>"Where should we compete?"</strong> Defines the overall scope of the firm:</p>
+            <ul>
+              <li><strong>Product Scope:</strong> Diversification into new lines.</li>
+              <li><strong>Geographical Scope:</strong> International expansion.</li>
+              <li><strong>Vertical Scope:</strong> Vertical integration depth.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>Business Strategy</h4>
+            <p><strong>"How should we compete?"</strong> Establishes and sustains competitive advantage within a specific market:</p>
+            <ul>
+              <li><strong>Cost Leadership:</strong> Producing at lower cost.</li>
+              <li><strong>Differentiation:</strong> Charging a premium price.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Corporate Scope: Diversification and Vertical Integration</h2>
+
+        <h3>Corporate Diversification</h3>
+        <ul>
+          <li><strong>Related Diversification:</strong> Expanding into sectors sharing technological, production, or distribution synergies to capture <strong>economies of scope</strong>.</li>
+          <li><strong>Unrelated (Conglomerate) Diversification:</strong> Entering unrelated industries purely for financial portfolio risk diversification.</li>
+        </ul>
+
+        <h3>Vertical Integration</h3>
+        <p>Deciding whether to perform intermediate value chain stages internally (Make) or contract externally in the open market (Buy):</p>
+        <ul>
+          <li><strong>Backward (Upstream):</strong> Integrating into raw materials or component manufacturing.</li>
+          <li><strong>Forward (Downstream):</strong> Integrating into distribution channels, sales retail, or MRO services.</li>
+        </ul>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Advantages of Vertical Integration</th>
+                <th>Disadvantages of Vertical Integration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>• Direct control over quality, tolerances, and scheduling.</td>
+                <td>• Massive upfront capital expenditure and fixed overheads.</td>
+              </tr>
+              <tr>
+                <td>• Reduction of market transaction costs and holdup risks.</td>
+                <td>• Reduced operational flexibility to adopt new external technologies.</td>
+              </tr>
+              <tr>
+                <td>• Protection of proprietary designs and trade secrets.</td>
+                <td>• Loss of supplier specialization and competitive scale.</td>
+              </tr>
+              <tr>
+                <td>• Elimination of double marginalization markups.</td>
+                <td>• Higher internal bureaucratic coordination friction.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. Sources of Competitive Advantage</h2>
+        <p>A firm possesses a competitive advantage when its rate of return on capital exceeds the competitive industry baseline. Michael Porter establishes two mutually exclusive generic routes:</p>
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Route A: Cost Leadership</h4>
+            <p>Supplying an acceptable standard product at a substantially lower unit cost than competitors.</p>
+            <p><strong>7 Cost Drivers (Grant, 2002):</strong></p>
+            <ol>
+              <li><em>Economies of Scale:</em> Spreading fixed costs.</li>
+              <li><em>Economies of Learning:</em> Cumulative worker dexterity.</li>
+              <li><em>Process Innovation:</em> Automated techniques.</li>
+              <li><em>Product Design:</em> Design for Manufacture (DFM).</li>
+              <li><em>Input Costs:</em> Favorable locations & cheap inputs.</li>
+              <li><em>Capacity Utilization:</em> Avoiding idle capacity.</li>
+              <li><em>Residual Efficiency:</em> Eliminating organizational slack.</li>
+            </ol>
+          </div>
+          <div class="info-card">
+            <h4>Route B: Differentiation</h4>
+            <p>Offering unique value attributes that justify a customer price premium exceeding the added cost of creating uniqueness.</p>
+            <ul>
+              <li><strong>Tangible:</strong> Observable performance, lighter weight, fuel efficiency, durability, ergonomics.</li>
+              <li><strong>Intangible:</strong> Prestige, brand equity, aesthetic design, exclusivity, defense credibility.</li>
+              <li><strong>Total Customer Responsiveness:</strong> Comprehensive fleet support, 24/7 technical assistance, tailored financing packages.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. Macro-Environment: The PESTEL Framework</h2>
+        <p>Firms audit six broad macro-environmental dimensions to detect systemic opportunities and threats:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Macro Factors Audited</th>
+                <th>Aerospace Applications</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Political (P)</strong></td>
+                <td>Government policy, geopolitical stability, trade tariffs, defense procurement.</td>
+                <td>ITAR export controls, bilateral aviation treaties, state subsidies.</td>
+              </tr>
+              <tr>
+                <td><strong>Economic (E)</strong></td>
+                <td>GDP growth, inflation, interest rates, currency exchange volatility.</td>
+                <td>Fuel price cycles, EUR/USD exchange volatility, airline passenger demand.</td>
+              </tr>
+              <tr>
+                <td><strong>Socio-Cultural (S)</strong></td>
+                <td>Demographics, lifestyle preferences, travel attitudes, environmental sentiment.</td>
+                <td>Flight-shaming awareness, growing Asian middle-class travel propensity.</td>
+              </tr>
+              <tr>
+                <td><strong>Technological (T)</strong></td>
+                <td>R&D incentives, disruptive propulsion, autonomous systems, digital simulation.</td>
+                <td>Hydrogen fuel cells, SAF drop-in blends, hybrid-electric regional flight.</td>
+              </tr>
+              <tr>
+                <td><strong>Environmental (E)</strong></td>
+                <td>Climate policies, carbon footprint caps, airport noise restrictions.</td>
+                <td>EU Emissions Trading System (EU ETS), CORSIA carbon offsetting.</td>
+              </tr>
+              <tr>
+                <td><strong>Legal (L)</strong></td>
+                <td>Airworthiness regulations, antitrust laws, intellectual property protections.</td>
+                <td>FAA and EASA safety certifications, pilot flight time limitation directives.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>6. Industry Structural Analysis: Porter's Five Forces (1982)</h2>
+        <p>The collective intensity of five microeconomic forces dictates industry attractiveness and long-term average profitability:</p>
+
+        <div class="callout">
+          <div class="callout-title">The Five Forces Architecture</div>
+          <ol>
+            <li><strong>Threat of New Entrants (Barriers to Entry):</strong> High capital intensity, learning economies, brand loyalty, certified supplier networks, and strict safety regulations suppress new entrants in aerospace.</li>
+            <li><strong>Bargaining Power of Suppliers:</strong> High when suppliers are concentrated, inputs are proprietary, or switching costs are high (e.g., commercial jet engines).</li>
+            <li><strong>Bargaining Power of Buyers:</strong> High when buyers purchase in bulk, operate on thin profit margins, and face low switching costs (e.g., airline alliances ordering aircraft fleets).</li>
+            <li><strong>Threat of Substitutes:</strong> Alternative technologies satisfying the same function (e.g., high-speed rail replacing short-haul domestic flights).</li>
+            <li><strong>Intensity of Industry Rivalry:</strong> Driven by slow market growth, balanced competitors, high fixed costs, and high <strong>exit barriers</strong> (specialized tooling, termination liabilities).</li>
+          </ol>
+        </div>
+      </section>
+
+      <section>
+        <h2>7. Internal Value Chain Analysis (Porter, 1985)</h2>
+        <p>Decomposes the enterprise into distinct activities to pinpoint cost origins and value creation drivers:</p>
+
+        <div class="info-card">
+          <h4>Primary Activities</h4>
+          <ul>
+            <li><strong>Inbound Logistics:</strong> Receiving, inspecting, and warehousing raw materials and fasteners.</li>
+            <li><strong>Operations:</strong> CNC machining, composite curing, wing assembly, system integration testing.</li>
+            <li><strong>Outbound Logistics:</strong> Customer acceptance test flights and aircraft fleet ferrying.</li>
+            <li><strong>Marketing & Sales:</strong> Airline fleet route simulation, airshow demonstrations, financing packages.</li>
+            <li><strong>Service:</strong> MRO field engineering, spare parts logistics, service bulletins, pilot simulator training.</li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="margin-top: 16px;">
+          <h4>Support Activities & Margin</h4>
+          <ul>
+            <li><strong>Procurement:</strong> Vendor contracts, raw material sourcing, capital machinery acquisition.</li>
+            <li><strong>Human Resource Management:</strong> Recruiting specialized flight engineers and certifying technicians.</li>
+            <li><strong>Technology Development:</strong> Aerodynamic R&D, structural FEM modeling, flight control algorithms.</li>
+            <li><strong>Firm Infrastructure:</strong> Executive management, legal compliance, financial planning, Quality Assurance (QA).</li>
+            <li><strong>Margin:</strong> The economic surplus realized when customer total willingness to pay exceeds the aggregate cost of performing all value activities.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="topic-1.html">← Previous Topic: The Firm & Objectives</a>
+        <a href="topic-3.html">Next Topic: Financial Management & Statements →</a>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      try {
+        localStorage.setItem('ae_theme', t);
+        localStorage.setItem('theme', t);
+        localStorage.setItem('aero-portal-theme', t);
+      } catch (e) {}
+    }
+
+    const savedTheme = (() => {
+      try {
+        return localStorage.getItem('ae_theme') || localStorage.getItem('theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+      } catch (e) { return 'dark'; }
+    })();
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>

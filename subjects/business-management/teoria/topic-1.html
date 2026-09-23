@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 1: The Firm — Types and Objectives | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 1: The Firm: Types and Objectives. 2nd Year Aerospace Engineering, UC3M." />
+
+  <!-- Fonts: Inter & Newsreader for academic readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    /* Article Container */
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Content Typography */
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    /* Cards and Callouts */
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Navigation footer */
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 1</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">Theory Hub</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Course Notes — Block I: The Firm & Strategic Governance</div>
+        <h1 class="article-title">The Firm: Types and Objectives</h1>
+        <div class="article-meta">
+          <strong>Official Course Sources:</strong> Lecture Slides Topic 1 (Prof. Carmen Paz-Aparicio) & Practice 1.1–1.2 (Prof. Juan Repiso) • UC3M Aerospace Engineering
+        </div>
+      </header>
+
+      <section>
+        <h2>1. Concept and Economic Nature of Business</h2>
+        <p>A <strong>business (enterprise)</strong> is defined in economic science as an organized economic activity that transforms a coordinated set of <strong>inputs (factors of production)</strong> into <strong>outputs (goods and services)</strong> engineered to satisfy customers' needs and wants.</p>
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Factors of Production (Inputs)</h4>
+            <ul>
+              <li><strong>Land:</strong> Natural resources, raw physical materials, geographic property.</li>
+              <li><strong>Labour:</strong> Human cognitive expertise, technical skill, and physical effort.</li>
+              <li><strong>Capital:</strong> Tools, precision machines, computer networks, and financial funds.</li>
+              <li><strong>Entrepreneurship:</strong> Managerial vision, coordination, and risk-bearing capacity.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>Economic Outputs</h4>
+            <ul>
+              <li><strong>Goods:</strong> Tangible physical artifacts (e.g., carbon-fiber wing ribs, turbofan blades, avionics enclosures).</li>
+              <li><strong>Services:</strong> Intangible commercial activities (e.g., airline passenger carriage, structural testing, airworthiness consultancy).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">The Circular Flow of Income</div>
+          <p>National economies operate through a double reciprocal circulation between two primary agents: <strong>Households</strong> and <strong>Firms</strong>:</p>
+          <ul>
+            <li><strong>Real Flow:</strong> Households supply factors of production (labour, land, savings) to firms through factor markets. Firms transform these inputs and supply finished goods and services to households through goods and services markets.</li>
+            <li><strong>Monetary / Financial Flow:</strong> Firms pay factor remuneration (wages, rents, dividends) to households. Households spend this income as consumption expenditures back to firms, generating sales revenue and enterprise profits.</li>
+          </ul>
+        </div>
+
+        <h3>Why do Enterprises Exist? (Market vs Hierarchy)</h3>
+        <p>Society faces the fundamental economic problem of allocating scarce resources to satisfy unlimited wants. Specialization and the division of labour require coordination. This coordination can be achieved through two alternative mechanisms:</p>
+        <ol>
+          <li><strong>The Market (Price Mechanism):</strong> Spontaneous transactions between independent agents guided by market prices. However, market exchanges generate <em>transaction costs</em> (search costs, contracting friction, opportunism).</li>
+          <li><strong>The Enterprise (Hierarchical Coordination):</strong> A planned internal organization where an entrepreneur directs resources through administrative authority. A firm emerges whenever internal coordination is cheaper and more efficient than contracting on the open market.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>2. Business Functional Areas</h2>
+        <p>Firms structure their operations across three core functional spheres:</p>
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>1. Real Functions</h4>
+            <ul>
+              <li><strong>Supply / Procurement:</strong> Sourcing and managing input inventories.</li>
+              <li><strong>Production / Operations:</strong> Physical manufacturing and assembly.</li>
+              <li><strong>Marketing & Sales:</strong> Market analysis, pricing, promotion, and distribution.</li>
+              <li><strong>Support:</strong> Human resources, legal affairs, and IT infrastructure.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>2. Financial Functions</h4>
+            <ul>
+              <li><strong>Financing (Fundraising):</strong> Identifying and obtaining capital (equity and debt).</li>
+              <li><strong>Investing:</strong> Allocating capital into productive assets that generate return above capital cost ($\text{ROIC} > \text{WACC}$).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-card" style="margin-top: 16px;">
+          <h4>3. Management Functions</h4>
+          <p>Global coordination and strategic direction across all operational and financial departments: planning, organizing, leading, and controlling.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. The Management Process (Henri Fayol, 1841–1925)</h2>
+        <p>Modern administrative management follows Henri Fayol's foundational four-stage cyclical process:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Core Managerial Objective</th>
+                <th>Key Engineering & Business Activities</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Planning</strong></td>
+                <td>Defining future direction</td>
+                <td>Setting organizational goals, defining strategies, and formulating comprehensive scheduling and budget sub-plans.</td>
+              </tr>
+              <tr>
+                <td><strong>Organizing</strong></td>
+                <td>Structuring resources</td>
+                <td>Determining task assignments, establishing departmental reporting hierarchies, and allocating responsibilities.</td>
+              </tr>
+              <tr>
+                <td><strong>Leading</strong></td>
+                <td>Guiding human capital</td>
+                <td>Directing, motivating personnel, fostering technical collaboration, and resolving workplace conflicts.</td>
+              </tr>
+              <tr>
+                <td><strong>Controlling</strong></td>
+                <td>Monitoring & verifying</td>
+                <td>Comparing actual performance against engineering milestones and financial budgets, correcting deviations.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">The Role of Engineers in Business Management</div>
+          <p>Aerospace and industrial engineers bring vital quantitative proficiencies to managerial leadership: rigorous critical problem-solving, mastery of critical-path project scheduling, meticulous attention to detail, statistical data analytics, and deep familiarity with automation and complex computer systems.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. The Enterprise and the Entrepreneur</h2>
+        <p>Economic theory has modeled the entrepreneur's identity and economic function through several complementary frameworks:</p>
+        <ul>
+          <li><strong>The "Risk Taker" (Frank Knight, 1921):</strong> The entrepreneur assumes uninsurable economic uncertainty by paying fixed contractual prices for labor and materials today while selling output at uncertain future market prices.</li>
+          <li><strong>The "Innovator" (Joseph Schumpeter, 1950):</strong> The catalyst of <em>creative destruction</em>, introducing new products, opening new markets, or pioneering process innovations.</li>
+          <li><strong>The "On-Alert" Arbitrageur (Israel Kirzner, 1973):</strong> An alert observer constantly discovering unexploited market disequilibria and business opportunities.</li>
+          <li><strong>The Team Production Controller (Alchian & Demsetz, 1972):</strong> In collaborative team production where individual shirking is hard to detect, the central controller must be incentivized to monitor team output. The optimal incentive structure grants the controller four bundle rights:
+            <ol>
+              <li>The right to receive the <strong>residual income (surplus profit)</strong>.</li>
+              <li>The right to control and reassign production factors.</li>
+              <li>The right to act as the central contracting party for all inputs.</li>
+              <li>The right to sell and transfer these ownership rights.</li>
+            </ol>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Types of Enterprises and Legal Forms of Ownership</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Legal Form</th>
+                <th>Ownership Structure</th>
+                <th>Financial Liability</th>
+                <th>Advantages & Disadvantages</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sole Proprietorship</strong></td>
+                <td>1 Individual</td>
+                <td><strong>Unlimited:</strong> Personal assets are liable for all debts.</td>
+                <td><strong>(+)</strong> Simple setup, owner keeps 100% of profits, no corporate tax.<br><strong>(-)</strong> Unlimited risk, hard to raise funds, lacks permanence.</td>
+              </tr>
+              <tr>
+                <td><strong>General Partnership</strong></td>
+                <td>2 or more co-owners</td>
+                <td><strong>Unlimited & Joint:</strong> All partners share total personal liability.</td>
+                <td><strong>(+)</strong> Pooling of capital and skills, transparent tax.<br><strong>(-)</strong> Potential personal disputes, frozen investment, joint liability.</td>
+              </tr>
+              <tr>
+                <td><strong>Corporation (S.A.)</strong></td>
+                <td>Dispersed shareholders</td>
+                <td><strong>Limited:</strong> Capped at the nominal value of subscribed shares.</td>
+                <td><strong>(+)</strong> Limited liability, perpetual existence, massive capital raising.<br><strong>(-)</strong> Double taxation, strict reporting, Agency Problem.</td>
+              </tr>
+              <tr>
+                <td><strong>Cooperative</strong></td>
+                <td>Member-users</td>
+                <td>Limited to member contributions</td>
+                <td><strong>(+)</strong> Democratic governance (1 member, 1 vote), social focus.<br><strong>(-)</strong> Slower decision-making, limited capital expansion.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>6. Separation of Ownership and Control & The Agency Problem</h2>
+        <p>In large modern corporations, share ownership is held by thousands of investors, while operational control is delegated to professional <strong>executives (managers)</strong>.</p>
+
+        <div class="callout">
+          <div class="callout-title">The Agency Problem</div>
+          <p>Because managers (Agents) do not own the company's equity, their personal incentives (maximizing compensation, power, job security, empire building) may conflict with the shareholders' (Principals) objective of long-term share value maximization. This conflict is aggravated by <strong>information asymmetry</strong>.</p>
+        </div>
+
+        <h3>Corporate Governance Control Mechanisms:</h3>
+        <ul>
+          <li><strong>Board of Directors (Consejo de Administración):</strong> Supervises executive directors on behalf of shareholders.</li>
+          <li><strong>Incentive-Linked Contracts:</strong> Aligning executive compensation through stock options and long-term performance bonuses.</li>
+          <li><strong>Independent External Audits:</strong> Independent review of accounting figures to ensure transparent public reporting.</li>
+          <li><strong>Market for Corporate Control:</strong> The discipline imposed by the threat of hostile takeover bids if management underperforms.</li>
+        </ul>
+
+        <div class="info-card">
+          <h4>CNMV Good Governance Recommendations (Spain / IBEX 35)</h4>
+          <ul>
+            <li><strong>Recommendation 13 (Board Size):</strong> The Board should comprise between <strong>10 and 15 members</strong> for optimal discussion.</li>
+            <li><strong>Recommendation 15 (Executive Directors):</strong> Executive directors should be the <strong>minimum necessary</strong>.</li>
+            <li><strong>Recommendation 16 (Proprietary Directors):</strong> Proprietary directors should reflect the exact proportion of capital represented.</li>
+            <li><strong>Recommendation 17 (Independent Directors):</strong> Independent directors should represent at least <strong>50% of the board</strong>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="index.html">← Back to Theory Hub</a>
+        <a href="topic-2.html">Next Topic: Value Creation & Strategy →</a>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      try {
+        localStorage.setItem('ae_theme', t);
+        localStorage.setItem('theme', t);
+        localStorage.setItem('aero-portal-theme', t);
+      } catch (e) {}
+    }
+
+    const savedTheme = (() => {
+      try {
+        return localStorage.getItem('ae_theme') || localStorage.getItem('theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+      } catch (e) { return 'dark'; }
+    })();
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3: Financial Management (I) — Financial Statements | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 3: Financial Statements, Balance Sheet, Income Statement, Capital Structure and WACC. 2nd Year Aerospace Engineering, UC3M." />
+
+  <!-- Fonts: Inter & Newsreader for academic readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 3</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">Theory Hub</a>
+        <a href="../problemas/index.html" class="back-link">Problem Solutions</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Course Notes — Block II: Financial Management & Accounting</div>
+        <h1 class="article-title">Financial Management (I): Financial Statements & Capital Structure</h1>
+        <div class="article-meta">
+          <strong>Official Course Sources:</strong> Lecture Slides Topic 3 (Prof. Carmen Paz-Aparicio) & Practice Exercises T3 • UC3M Aerospace Engineering
+        </div>
+      </header>
+
+      <section>
+        <h2>1. Introduction: Economic Structure vs Financial Structure</h2>
+        <p>Corporate financial management manages the fundraising and deployment of capital across two foundational structural dimensions:</p>
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Economic Structure (Assets)</h4>
+            <p><strong>"What is owned?"</strong> The total investments carried out by the company. It represents the use of funds in terms of goods, productive machinery, inventories, and legal rights.</p>
+            <p><strong>Objective:</strong> Maximize <strong>Profitability</strong>.</p>
+          </div>
+          <div class="info-card">
+            <h4>Financial Structure (Liabilities + Equity)</h4>
+            <p><strong>"What is owed?"</strong> The totality of financial resources gathered to fund those investments (shareholders' equity, bank debts, bonds, supplier credit).</p>
+            <p><strong>Objective:</strong> Minimize the <strong>Cost of Capital</strong>.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">The Fundamental Value Creation Rule</div>
+          $$\mathbf{\text{Profitability of Assets} > \text{Cost of Capital}}$$
+          <p>An enterprise maximizes economic value when the rate of return generated by its productive investments exceeds the aggregate cost of funding them.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. The Income Statement (Profit & Loss — P&L)</h2>
+        <p>The Income Statement reports business economic performance over a specified fiscal period. It operates strictly on the <strong>accrual principle</strong>: revenues and expenses are recognized when value is generated or consumed, regardless of when cash is physically collected or paid.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Accounting Step</th>
+                <th>Formula / Mathematical Line</th>
+                <th>Economic Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gross Sales Revenue</strong></td>
+                <td>$\text{Gross Units Sold} \times \text{Price}$</td>
+                <td>Total invoice value of goods and services delivered.</td>
+              </tr>
+              <tr>
+                <td><strong>(-) Commercial Discounts</strong></td>
+                <td>Discounts to high-volume clients</td>
+                <td>Reductions granted to strategic client tiers.</td>
+              </tr>
+              <tr>
+                <td><strong>= Net Sales Revenue</strong></td>
+                <td>$\text{Gross Sales} - \text{Discounts}$</td>
+                <td>Real commercial revenue generated.</td>
+              </tr>
+              <tr>
+                <td><strong>(-) Cost of Goods Sold (COGS)</strong></td>
+                <td>$\text{Initial Stock} + \text{Purchases} - \text{Ending Stock}$</td>
+                <td>Direct inventory and raw materials consumed in production.</td>
+              </tr>
+              <tr>
+                <td><strong>= Gross Profit</strong></td>
+                <td>$\text{Net Sales} - \text{COGS}$</td>
+                <td>Trading margin before operational overheads.</td>
+              </tr>
+              <tr>
+                <td><strong>(-) Operating Expenses</strong></td>
+                <td>$\text{Salaries} + \text{Social Security} + \text{Utilities} + \text{Depreciation}$</td>
+                <td>General operational, labor, and equipment depreciation costs.</td>
+              </tr>
+              <tr>
+                <td><strong>= Operating Income (EBIT)</strong></td>
+                <td>$\text{Gross Profit} - \text{Operating Expenses}$</td>
+                <td>Pure operating profit generated by core business activities.</td>
+              </tr>
+              <tr>
+                <td><strong>(±) Non-Operating Items</strong></td>
+                <td>$\text{Interest Income} - \text{Interest Expense} \pm \text{Asset Gains}$</td>
+                <td>Net financial debt servicing and extraordinary asset sales.</td>
+              </tr>
+              <tr>
+                <td><strong>= Earnings Before Taxes (EBT)</strong></td>
+                <td>$\text{EBIT} \pm \text{Non-Operating Items}$</td>
+                <td>Pre-tax taxable profit.</td>
+              </tr>
+              <tr>
+                <td><strong>(-) Corporate Income Taxes</strong></td>
+                <td>$t \times \text{EBT} \quad (t = 30\%)$</td>
+                <td>Fiscal tax liability.</td>
+              </tr>
+              <tr>
+                <td><strong>= Net Income (Net Profit)</strong></td>
+                <td>$\text{EBT} - \text{Taxes}$</td>
+                <td>Final profit available for distribution or reinvestment.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Final Net Income is allocated between <strong>Dividends</strong> distributed to shareholders and <strong>Retained Earnings</strong> reinvested to expand equity.</p>
+      </section>
+
+      <section>
+        <h2>3. The Balance Sheet</h2>
+        <p>The Balance Sheet represents an instantaneous financial snapshot of the company at a specific date, adhering to the universal identity:</p>
+        $$\mathbf{\text{Assets}} \equiv \mathbf{\text{Liabilities}} + \mathbf{\text{Stockholders' Equity}}$$
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Assets (Use of Capital)</h4>
+            <ul>
+              <li><strong>Non-Current Assets ($> 1\text{ yr}$):</strong>
+                <ul>
+                  <li><em>Intangible Assets:</em> Patents, software.</li>
+                  <li><em>Tangible Fixed Assets:</em> Land (non-depreciable), buildings, machinery, equipment.</li>
+                  <li><em>(-) Accumulated Depreciation:</em> Linear asset wear.</li>
+                </ul>
+              </li>
+              <li><strong>Current Assets ($\le 1\text{ yr}$):</strong>
+                <ul>
+                  <li><em>Inventories:</em> Raw materials, WIP, finished goods.</li>
+                  <li><em>Accounts Receivable:</em> Pending customer invoices.</li>
+                  <li><em>Cash & Bank:</em> Liquid treasury deposits.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>Liabilities & Equity (Sources of Funds)</h4>
+            <ul>
+              <li><strong>Stockholders' Equity (Own Funds):</strong>
+                <ul>
+                  <li><em>Paid-in Capital:</em> Subscribed shares.</li>
+                  <li><em>(-) Uncalled Capital:</em> Subscribed unpaid shares.</li>
+                  <li><em>Retained Earnings:</em> Cumulative retained profits.</li>
+                </ul>
+              </li>
+              <li><strong>Non-Current Liabilities ($> 1\text{ yr}$):</strong>
+                <ul>
+                  <li>Long-term bank loans, corporate bonds.</li>
+                </ul>
+              </li>
+              <li><strong>Current Liabilities ($\le 1\text{ yr}$):</strong>
+                <ul>
+                  <li>Accounts payable (suppliers), short-term bank debt.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">Linear (Straight-Line) Depreciation Formulation</div>
+          $$\text{Annual Depreciation Expense } (D) = \frac{\text{Acquisition Cost} - \text{Residual Value}}{\text{Useful Lifespan in Years } (n)}$$
+          $$\text{Net Book Value (NBV)} = \text{Acquisition Cost} - \text{Accumulated Depreciation}$$
+        </div>
+      </section>
+
+      <section>
+        <h2>4. Corporate Financing Instruments</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Instrument</th>
+                <th>Key Economic Mechanism</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2"><strong>Equity (Own Funds)</strong></td>
+                <td><strong>Internal Equity (Self-Financing)</strong></td>
+                <td>Retained earnings generated organically. Measured by $\text{Retention Ratio} = 1 - \text{Pay-out}$.</td>
+              </tr>
+              <tr>
+                <td><strong>External Equity (Shares / Stocks)</strong></td>
+                <td>Fractional ownership stakes. No fixed maturity; dividends are non-compulsory; junior claim in liquidation.</td>
+              </tr>
+              <tr>
+                <td rowspan="3"><strong>Long-Term Debt ($> 1\text{ yr}$)</strong></td>
+                <td><strong>Corporate Bonds</strong></td>
+                <td>Debt securities issued on capital markets. Firm pays periodic coupons and returns principal at maturity.</td>
+              </tr>
+              <tr>
+                <td><strong>Bank Loans vs Credit Lines</strong></td>
+                <td>Loans disburse a fixed lump-sum with interest on the total balance; credit lines allow revolving draws with interest paid only on drawn amounts.</td>
+              </tr>
+              <tr>
+                <td><strong>Leasing (Finance vs Operating)</strong></td>
+                <td>Asset rental with a purchase option. Finance leases transfer all ownership risks; operating leases are short-term service rentals.</td>
+              </tr>
+              <tr>
+                <td rowspan="3"><strong>Short-Term Debt ($\le 1\text{ yr}$)</strong></td>
+                <td><strong>Trade Credit (Accounts Payable)</strong></td>
+                <td>Suppliers allow deferred payment (30–90 days) without explicit loan paperwork.</td>
+              </tr>
+              <tr>
+                <td><strong>Commercial Bill Discount</strong></td>
+                <td>Endorsing promissory notes to banks before maturity; the bank deducts interest and fees upfront.</td>
+              </tr>
+              <tr>
+                <td><strong>Factoring</strong></td>
+                <td>Selling accounts receivable portfolios to a financial factor who assumes administration and default risk.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. Financial Leverage & Weighted Average Cost of Capital (WACC)</h2>
+
+        <h3>Financial Structure Metrics</h3>
+        <p>Let $E$ denote Total Equity and $L$ denote Total Liabilities (Total Debt):</p>
+        $$\% \text{ Equity} = \frac{E}{E + L}, \qquad \% \text{ Debt} = \frac{L}{E + L}$$
+        $$\mathbf{\text{Debt-to-Equity Ratio (Financial Leverage)}} = \frac{L}{E}$$
+        <p>A higher $L/E$ ratio magnifies return on equity during expansions but heightens default risk during downturns.</p>
+
+        <h3>Weighted Average Cost of Capital (WACC)</h3>
+        <p>Capital providers demand compensation for their funds: an explicit contractual interest rate on debt ($K_L$) and an implicit opportunity cost on equity ($K_{EQ}$):</p>
+        
+        <div class="callout">
+          <div class="callout-title">Standard Course Formula (Slide 37)</div>
+          $$\mathbf{K_{WACC} = K_{EQ} \cdot \left(\frac{E}{E + L}\right) + K_L \cdot \left(\frac{L}{E + L}\right)}$$
+        </div>
+
+        <p>With tax-deductible interest in extended corporate finance:</p>
+        $$\mathbf{K_{WACC} = K_{EQ} \cdot \left(\frac{E}{E + L}\right) + K_L(1 - t) \cdot \left(\frac{L}{E + L}\right)}$$
+        <p>The WACC serves as the universal benchmark hurdle rate: capital expenditure projects create value if and only if $\text{Project Return} > K_{WACC}$.</p>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="topic-2.html">← Previous Topic: Value Creation & Strategy</a>
+        <a href="../problemas/index.html">View Solved Problems & Exámenes →</a>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      try {
+        localStorage.setItem('ae_theme', t);
+        localStorage.setItem('theme', t);
+        localStorage.setItem('aero-portal-theme', t);
+      } catch (e) {}
+    }
+
+    const savedTheme = (() => {
+      try {
+        return localStorage.getItem('ae_theme') || localStorage.getItem('theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+      } catch (e) { return 'dark'; }
+    })();
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>
