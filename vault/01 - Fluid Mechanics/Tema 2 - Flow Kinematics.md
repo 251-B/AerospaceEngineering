@@ -73,3 +73,20 @@ $$ \vec{a} = \frac{\partial \vec{v}}{\partial t} + \nabla\left(\frac{|\vec{v}|^2
 $$ \Gamma = \oint_L \vec{v} \cdot d\vec{l} = \int_\Sigma (\nabla \wedge \vec{v}) \cdot \vec{n} d\sigma \qquad \text{[Ec. 2.32: Stokes y Vorticidad]} $$
 $$ v_x = \frac{\partial \psi}{\partial y}, \quad v_y = -\frac{\partial \psi}{\partial x}, \quad Q' = \psi_2 - \psi_1 \qquad \text{[Ecs. 2.41, 2.45: Función de Corriente]} $$
 $$ \nabla \vec{v} = \bar{\bar{T}}_d + \bar{\bar{T}}_r, \quad d\vec{v}_r = \frac{1}{2}\vec{\omega}\wedge d\vec{x}, \quad \nabla \cdot \vec{v} = \text{tr}(\bar{\bar{T}}_d) = \frac{1}{V}\frac{dV}{dt} \qquad \text{[Ecs. 2.47, 2.52, 2.62]} $$
+
+---
+
+## ✏️ Problemas Resueltos de Cinemática (Hoja Oficial de Exámenes)
+
+Todos los problemas de la colección oficial de cinemática desarrollados paso a paso:
+1. `[[01 - Fluid Mechanics/Problema - K1 Flujo sobre Pared Porosa Oscilante|Problema K1: Flujo sobre Pared Porosa Oscilante con Succión/Soplado]]`
+2. `[[01 - Fluid Mechanics/Problema - K2 Flujo de Couette Plano|Problema K2: Flujo de Couette Plano y Análisis de Deformación / Rotación]]`
+3. `[[01 - Fluid Mechanics/Problema - K3 Fuente Tridimensional en el Origen|Problema K3: Fuente Tridimensional Puntual en el Origen]]`
+4. `[[01 - Fluid Mechanics/Problema - K4 Flujo Alrededor de Cuerpo de Rankine|Problema K4: Flujo Alrededor de un Semisólido de Rankine]]`
+5. `[[01 - Fluid Mechanics/Problema - K5 Dipolo Plano Oscilante|Problema K5: Dipolo Plano Pulsante / Oscilante]]`
+6. `[[01 - Fluid Mechanics/Problema - K6 Vortice Tridimensional de Burgers|Problema K6: Vórtice Tridimensional de Burgers con Estiramiento Axial]]`
+7. `[[01 - Fluid Mechanics/Problema - K7 Flujo de Estancamiento Hiperbolico|Problema K7: Flujo de Estancamiento Hiperbólico Plano]]`
+8. `[[01 - Fluid Mechanics/Problema - K8 Potencial Tridimensional Pulsante|Problema K8: Flujo Tridimensional Pulsante y Deformación Esférica]]`
+9. `[[01 - Fluid Mechanics/Problema - K9 Flujo Polar Oscilante|Problema K9: Flujo Polar Oscilante y Deformación de una Línea Fluida]]`
+10. `[[01 - Fluid Mechanics/Problema - K10 Flujo Plano con Cizalladura Exponencial|Problema K10: Flujo Plano con Cizalladura Exponencial y Deformación Pura]]`
+

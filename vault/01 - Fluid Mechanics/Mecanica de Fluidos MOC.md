@@ -18,6 +18,17 @@
   * `[[01 - Fluid Mechanics/Concepto - Vorticidad, Circulacion y Potencial de Velocidades|Concepto: Vorticidad, Circulación y Flujo Irrotacional]]`
   * `[[01 - Fluid Mechanics/Concepto - Flujo Convectivo y Funcion de Corriente|Concepto: Flujo Convectivo y Función de Corriente (\psi)]]`
   * `[[01 - Fluid Mechanics/Concepto - Deformacion, Rotacion y Tensor de Velocidad de Deformacion|Concepto: Cinemática de la Deformación y Teorema de Helmholtz]]`
+  * **Problemas Resueltos de Cinemática (Hoja Oficial):**
+    * `[[01 - Fluid Mechanics/Problema - K1 Flujo sobre Pared Porosa Oscilante|Problema K1: Flujo sobre Pared Porosa Oscilante con Succión/Soplado]]`
+    * `[[01 - Fluid Mechanics/Problema - K2 Flujo de Couette Plano|Problema K2: Flujo de Couette Plano y Análisis de Deformación / Rotación]]`
+    * `[[01 - Fluid Mechanics/Problema - K3 Fuente Tridimensional en el Origen|Problema K3: Fuente Tridimensional Puntual en el Origen]]`
+    * `[[01 - Fluid Mechanics/Problema - K4 Flujo Alrededor de Cuerpo de Rankine|Problema K4: Flujo Alrededor de un Semisólido de Rankine]]`
+    * `[[01 - Fluid Mechanics/Problema - K5 Dipolo Plano Oscilante|Problema K5: Dipolo Plano Pulsante / Oscilante]]`
+    * `[[01 - Fluid Mechanics/Problema - K6 Vortice Tridimensional de Burgers|Problema K6: Vórtice Tridimensional de Burgers con Estiramiento Axial]]`
+    * `[[01 - Fluid Mechanics/Problema - K7 Flujo de Estancamiento Hiperbolico|Problema K7: Flujo de Estancamiento Hiperbólico Plano]]`
+    * `[[01 - Fluid Mechanics/Problema - K8 Potencial Tridimensional Pulsante|Problema K8: Flujo Tridimensional Pulsante y Deformación Esférica]]`
+    * `[[01 - Fluid Mechanics/Problema - K9 Flujo Polar Oscilante|Problema K9: Flujo Polar Oscilante y Deformación de una Línea Fluida]]`
+    * `[[01 - Fluid Mechanics/Problema - K10 Flujo Plano con Cizalladura Exponencial|Problema K10: Flujo Plano con Cizalladura Exponencial y Deformación Pura]]`
 
 ### Bloque II: Leyes de Conservación y Navier-Stokes
 * `[[01 - Fluid Mechanics/Tema 3 - Conservation Laws|Tema 3: Conservation Laws (Teorema de Transporte de Reynolds)]]`

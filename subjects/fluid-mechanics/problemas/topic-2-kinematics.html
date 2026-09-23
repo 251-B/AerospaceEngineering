@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problemas de Cinemática (K1–K10) — Fluid Mechanics</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --success: #10b981;
+      --success-soft: rgba(16, 185, 129, 0.12);
+      --warning: #f59e0b;
+      --warning-soft: rgba(245, 158, 11, 0.12);
+
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.7);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Navigation */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Quick Problem Bar */
+    .quick-nav {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+      position: sticky;
+      top: 47px;
+      z-index: 90;
+      backdrop-filter: blur(8px);
+    }
+
+    .quick-nav-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .quick-nav-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
+    .p-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+
+    .p-pill:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Main Container */
+    main.content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .page-title-box {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .topic-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .page-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .verified-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--success-soft);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-size: 12px;
+      color: var(--success);
+      font-weight: 500;
+    }
+
+    /* Problem Card */
+    .problem-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 32px 28px;
+      margin-bottom: 40px;
+      scroll-margin-top: 100px;
+      transition: border-color var(--transition);
+    }
+
+    .problem-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .problem-title-group {
+      flex: 1;
+    }
+
+    .problem-id {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.35;
+    }
+
+    .tag-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg-input);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Enunciado Box */
+    .enunciado-box {
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+
+    .enunciado-box h4 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .enunciado-box ol {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .enunciado-box li {
+      margin-bottom: 6px;
+      color: var(--text-heading);
+      font-size: 14.5px;
+    }
+
+    /* Subpart section */
+    .subpart {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .subpart-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subpart-title .badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .subpart p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Result callout */
+    .result-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .result-box strong {
+      color: var(--accent);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Note callout */
+    .note-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--warning);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    .note-box strong {
+      color: var(--warning);
+    }
+
+    /* Step lists */
+    ol.step-list {
+      padding-left: 22px;
+      margin: 12px 0;
+    }
+
+    ol.step-list li {
+      margin-bottom: 8px;
+    }
+
+    ul.bullet-list {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    ul.bullet-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      padding: 32px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .problem-card {
+        padding: 20px 16px;
+      }
+      .enunciado-box {
+        padding: 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Hoja Oficial de Cinemática</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">← Índice Problemas</a>
+        <a href="../../../index.html" class="back-link">Portal Principal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK PROBLEM NAVIGATION PILLS -->
+  <nav class="quick-nav" aria-label="Navegación rápida de problemas">
+    <div class="quick-nav-inner">
+      <span class="quick-nav-label">PROBLEMAS:</span>
+      <a href="#k1" class="p-pill">K1: Pared Porosa</a>
+      <a href="#k2" class="p-pill">K2: Couette</a>
+      <a href="#k3" class="p-pill">K3: Fuente 3D</a>
+      <a href="#k4" class="p-pill">K4: Rankine</a>
+      <a href="#k5" class="p-pill">K5: Dipolo Osc.</a>
+      <a href="#k6" class="p-pill">K6: Burgers</a>
+      <a href="#k7" class="p-pill">K7: Estancamiento</a>
+      <a href="#k8" class="p-pill">K8: Potencial 3D</a>
+      <a href="#k9" class="p-pill">K9: Polar Osc.</a>
+      <a href="#k10" class="p-pill">K10: Cizalladura</a>
+    </div>
+  </nav>
+
+  <!-- MAIN ARTICLE -->
+  <main class="content-container">
+
+    <div class="page-title-box">
+      <div class="topic-badge">Tema 2 · Cinemática de Fluidos (Flow Kinematics)</div>
+      <h1 class="page-title">Problemas Resueltos: Colección Oficial K1 a K10</h1>
+      <p class="page-meta">
+        Resolución íntegra, sistemática y matemática paso a paso de todos los problemas de la hoja de exámenes de Cinemática del Departamento de Ingeniería Térmica y de Fluidos de la Universidad Carlos III de Madrid.
+      </p>
+      <div class="verified-banner">
+        <span>✓</span>
+        <span>Soluciones manuscritas de cátedra íntegramente cotejadas (fidelidad matemática rigurosa).</span>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         PROBLEMA K1
+         ======================================================== -->
+    <article class="problem-card" id="k1">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K1</div>
+          <h2 class="problem-title">Flujo sobre Pared Porosa Oscilante con Soplado Transversal</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Stokes</span>
+          <span class="tag">Pared Porosa</span>
+          <span class="tag">No Estacionario</span>
+          <span class="tag">Circulación</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>A fluid is blown with velocity $V$ through a horizontal porous wall that is oscillating in its plane with velocity $U \cos(\Omega t)$. The resulting fluid velocity for $0 < y < \infty$ is given by (approximately):</p>
+        $$ v_x = U e^{-y/\delta} \cos\left(\Omega t - \frac{y}{\delta}\right), \qquad v_y = V $$
+        <p>where the characteristic thickness $\delta = (2\nu/\Omega)^{1/2}$ depends on the kinematic viscosity of the fluid $\nu$.</p>
+        <ol>
+          <li>Determine the trajectory and path of a fluid particle initially located at $x=0$ and $y=0$.</li>
+          <li>Obtain the streamline that intersects the point $x=0$ and $y=0$.</li>
+          <li>Compute the vorticity $\nabla \wedge \vec{v}$. If $\nabla \wedge \vec{v} = 0$, obtain also the velocity potential.</li>
+          <li>Calculate the rate of expansion $\nabla \cdot \vec{v}$. If $\nabla \cdot \vec{v} = 0$, obtain also the stream function.</li>
+          <li>Equation of the fluid line formed by the fluid particles initially located along the vertical axis $x=0$.</li>
+          <li>Determine the volume flux crossing the plane $x=0$ as a function of time $Q(t)$ along with its average value $Q_a = \frac{\Omega}{2\pi}\int_t^{t+2\pi/\Omega} Q(t) dt$.</li>
+          <li>Obtain the volume flux leaving the sphere of radius $R$ centered at $x=0$ and $y=2R$.</li>
+          <li>Compute the circulation around a square of side $L$ whose base lies parallel to the wall at a distance $y=L/2$. Redo the computation making use of Stokes theorem.</li>
+        </ol>
+      </div>
+
+      <!-- Apartado 1 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Trayectoria y Línea de Trayectoria (Partícula en $x_0 = 0, y_0 = 0$)</h3>
+        <p>El movimiento lagrangiano en la dirección vertical $y$ viene dado por:</p>
+        $$ \frac{dy}{dt} = v_y = V \implies y(t) = V t + y_0 = V t \implies t = \frac{y}{V} $$
+        <p>Sustituyendo $y(t) = Vt$ en la componente horizontal de la velocidad:</p>
+        $$ \frac{dx}{dt} = v_x = U e^{-Vt/\delta} \cos\left[ \left(\Omega - \frac{V}{\delta}\right) t \right] $$
+        <p>Integrando mediante la primitiva estándar $\int e^{at}\cos(bt)dt = \frac{e^{at}}{a^2+b^2}[a\cos(bt) + b\sin(bt)]$ con $a = -V/\delta$ y $b = \Omega - V/\delta$:</p>
+        <div class="result-box">
+          <strong>Trayectoria $x(t)$</strong>
+          $$ x(t) = \frac{U e^{-Vt/\delta}}{\left(\frac{V}{\delta}\right)^2 + \left(\Omega - \frac{V}{\delta}\right)^2} \left[ -\frac{V}{\delta}\cos\left(\left(\Omega - \frac{V}{\delta}\right)t\right) + \left(\Omega - \frac{V}{\delta}\right)\sin\left(\left(\Omega - \frac{V}{\delta}\right)t\right) \right] + \frac{\frac{UV}{\delta}}{\left(\frac{V}{\delta}\right)^2 + \left(\Omega - \frac{V}{\delta}\right)^2} $$
+        </div>
+        <p>Sustituyendo $t = y/V$ se obtiene la ecuación cartesiana de la <strong>línea de trayectoria (*path line*)</strong> $x(y)$.</p>
+      </div>
+
+      <!-- Apartado 2 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Línea de Corriente por $(x=0, y=0)$</h3>
+        <p>Para un tiempo congelado $t$:</p>
+        $$ \frac{dx}{v_x} = \frac{dy}{v_y} \implies dx = \frac{U}{V} e^{-y/\delta}\cos\left(\Omega t - \frac{y}{\delta}\right) dy $$
+        <p>Integrando respecto a $y$ desde $y=0$ ($x_0=0$):</p>
+        <div class="result-box">
+          <strong>Línea de Corriente Instantánea $x(y, t)$</strong>
+          $$ x(y, t) = -\frac{U\delta}{2V} e^{-y/\delta}\left[ \cos\left(\Omega t - \frac{y}{\delta}\right) + \sin\left(\Omega t - \frac{y}{\delta}\right) \right] + \frac{U\delta}{2V}\left[ \cos(\Omega t) + \sin(\Omega t) \right] $$
+        </div>
+      </div>
+
+      <!-- Apartado 3 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Vorticidad y Potencial de Velocidades</h3>
+        $$ \vec{\omega} = \nabla \wedge \vec{v} = \left(\frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y}\right)\vec{e}_z = -\frac{\partial v_x}{\partial y}\vec{e}_z $$
+        $$ \frac{\partial v_x}{\partial y} = U \left[ -\frac{1}{\delta}e^{-y/\delta}\cos\left(\Omega t - \frac{y}{\delta}\right) + \frac{1}{\delta}e^{-y/\delta}\sin\left(\Omega t - \frac{y}{\delta}\right) \right] $$
+        <div class="result-box">
+          <strong>Campo de Vorticidad $\vec{\omega}$</strong>
+          $$ \vec{\omega} = \frac{U}{\delta} e^{-y/\delta}\left[ \cos\left(\Omega t - \frac{y}{\delta}\right) - \sin\left(\Omega t - \frac{y}{\delta}\right) \right] \vec{e}_z \neq 0 $$
+        </div>
+        <p>Dado que $\vec{\omega} \neq 0$, el flujo es rotacional y <strong>no existe potencial de velocidades $\phi$</strong>.</p>
+      </div>
+
+      <!-- Apartado 4 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Tasa de Expansión $\nabla \cdot \vec{v}$ y Función de Corriente $\psi$</h3>
+        $$ \nabla \cdot \vec{v} = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0 + 0 = 0 \implies \text{Flujo Incompresible} $$
+        <p>Al ser bidimensional e incompresible, existe función de corriente $\psi$ tal que $v_x = \partial\psi/\partial y$ y $v_y = -\partial\psi/\partial x$:</p>
+        <div class="result-box">
+          <strong>Función de Corriente $\psi(x, y, t)$</strong>
+          $$ \psi(x, y, t) = -Vx - \frac{U\delta}{2} e^{-y/\delta}\left[ \cos\left(\Omega t - \frac{y}{\delta}\right) + \sin\left(\Omega t - \frac{y}{\delta}\right) \right] + \psi_0 $$
+        </div>
+      </div>
+
+      <!-- Apartado 5 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Línea Fluida Inicial $x_0 = 0$</h3>
+        <p>Las partículas situadas inicialmente sobre el eje vertical tienen $x_0 = 0$ e $y_0 = \lambda > 0$. Su evolución es $y(t) = \lambda + Vt \implies \lambda = y - Vt$. Sustituyendo en la ley de desplazamiento horizontal:</p>
+        <div class="result-box">
+          <strong>Línea Fluida $x(y, t)$</strong>
+          $$ x(y, t) = -\frac{U\delta}{2V} e^{-y/\delta}\left[ \cos\left(\Omega t - \frac{y}{\delta}\right) + \sin\left(\Omega t - \frac{y}{\delta}\right) \right] + \frac{U\delta}{2V} e^{-(y-Vt)/\delta}\left[ \cos\left(\frac{Vt-y}{\delta}\right) - \sin\left(\frac{Vt-y}{\delta}\right) \right] $$
+        </div>
+      </div>
+
+      <!-- Apartado 6 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6</span> Gasto Volumétrico $Q(t)$ a través de $x = 0$ y Valor Medio $Q_a$</h3>
+        <p>Por unidad de anchura normal al plano:</p>
+        $$ Q(t) = \int_0^\infty v_x(0, y, t) dy = U \int_0^\infty e^{-y/\delta}\cos\left(\Omega t - \frac{y}{\delta}\right) dy = \frac{U\delta}{2}\left[\cos(\Omega t) - \sin(\Omega t)\right] $$
+        <p>Al promediar temporalmente en un periodo $T = 2\pi/\Omega$:</p>
+        <div class="result-box">
+          <strong>Gasto Medio Temporal</strong>
+          $$ Q_a = \frac{\Omega}{2\pi} \int_0^{2\pi/\Omega} Q(t) dt = \mathbf{0} $$
+        </div>
+      </div>
+
+      <!-- Apartado 7 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">7</span> Flujo Saliente de una Esfera de Radio $R$</h3>
+        <p>Por el teorema de la divergencia de Gauss, como $\nabla \cdot \vec{v} = 0$ en todo punto del espacio:</p>
+        <div class="result-box">
+          $$ \oint_S \vec{v} \cdot \vec{n} \, d\sigma = \iiint_V (\nabla \cdot \vec{v}) dV = \mathbf{0} $$
+        </div>
+      </div>
+
+      <!-- Apartado 8 -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">8</span> Circulación $\Gamma$ sobre Cuadrado de Lado $L$ y Comprobación por Stokes</h3>
+        <p>El cuadrado tiene lados horizontales en $y = L/2$ e $y = 3L/2$, y lados verticales entre $x$ y $x+L$:</p>
+        $$ \Gamma = \oint \vec{v}\cdot d\vec{l} = \int_{x}^{x+L} v_x\left(\frac{L}{2}\right)dx + \int_{L/2}^{3L/2} v_y dy - \int_{x}^{x+L} v_x\left(\frac{3L}{2}\right)dx - \int_{L/2}^{3L/2} v_y dy $$
+        <div class="result-box">
+          <strong>Circulación $\Gamma(t)$</strong>
+          $$ \Gamma(t) = U L \left\{ e^{-L/(2\delta)}\cos\left(\Omega t - \frac{L}{2\delta}\right) - e^{-3L/(2\delta)}\cos\left(\Omega t - \frac{3L}{2\delta}\right) \right\} $$
+        </div>
+        <p>Integrando $\iint \vec{\omega}\cdot\vec{e}_z dx dy = L \int_{L/2}^{3L/2} \left(-\frac{\partial v_x}{\partial y}\right)dy = L[v_x(L/2) - v_x(3L/2)]$, verificando idénticamente el <strong>teorema de Stokes</strong>.</p>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K2
+         ======================================================== -->
+    <article class="problem-card" id="k2">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K2</div>
+          <h2 class="problem-title">Flujo de Couette Plano y Análisis de Deformación / Rotación</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Couette</span>
+          <span class="tag">Vorticidad</span>
+          <span class="tag">Tensor Deformación</span>
+          <span class="tag">Direcciones Principales</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>Consider the steady flow of a liquid confined between two parallel planar walls separated a distance $H$. If the top wall moves with constant velocity $U$, the resulting fluid motion exhibits a single velocity component $v_x = Uy/H$, where $y$ denotes the distance to the bottom wall, assumed to be at rest.</p>
+        <ol>
+          <li>Determine the streamlines and the trajectories.</li>
+          <li>Obtain the vorticity field.</li>
+          <li>Compute the circulation $\Gamma$ around a rectangular line of side $L$ oriented parallel to the walls and height $h$.</li>
+          <li>Calculate the gradient of velocity, the rate-of-strain tensor and the expansion rate.</li>
+          <li>Obtain the principal directions of strain as well as the associated principal strain rates.</li>
+          <li>Investigate the evolution of a square fluid element of side $dl$ oriented parallel to the walls.</li>
+        </ol>
+      </div>
+
+      <!-- K2 Apartados -->
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Líneas de Corriente y Trayectorias</h3>
+        <p>Como $v_y = 0$, la ecuación de líneas de corriente $dx/v_x = dy/v_y$ implica directamente $dy = 0 \implies \mathbf{y = y_0 = \text{cte}}$.</p>
+        <p>Para las partículas materiales: $dy/dt = 0 \implies y(t) = y_0$, y $dx/dt = Uy_0/H \implies \mathbf{x(t) - x_0 = \frac{U y_0}{H} t}$.</p>
+        <div class="note-box">
+          <strong>Coincidencia Cinemática:</strong> Flujo estacionario $\implies$ Líneas de corriente $\equiv$ Trayectorias $\equiv$ Líneas de traza ($y = y_0$).
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Campo de Vorticidad</h3>
+        $$ \vec{\omega} = \nabla \wedge \vec{v} = \left(\frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y}\right)\vec{e}_z = \left(0 - \frac{U}{H}\right)\vec{e}_z = \mathbf{-\frac{U}{H}\vec{e}_z} $$
+        <p>La vorticidad es uniforme, constante en el espacio y orientada según $-\vec{e}_z$ (giro horario).</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Circulación $\Gamma$ sobre Rectángulo</h3>
+        $$ \Gamma = \oint \vec{v}\cdot d\vec{l} = \int_{x}^{x+L} v_x(y)dx + 0 - \int_{x}^{x+L} v_x(y+h)dx - 0 = \frac{U y}{H}L - \frac{U(y+h)}{H}L = \mathbf{-\frac{U h L}{H}} $$
+        <p>Por el Teorema de Stokes: $\Gamma = \iint (\vec{\omega}\cdot\vec{e}_z) d\sigma = -\frac{U}{H}(L h) = -\frac{U h L}{H}$.</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Gradiente de Velocidades y Tensores Cinemáticos</h3>
+        <div class="result-box">
+          $$ \nabla\vec{v} = \begin{bmatrix} 0 & 0 \\ \frac{U}{H} & 0 \end{bmatrix}, \qquad \bar{\bar{T}}_d = \begin{bmatrix} 0 & \frac{1}{2}\frac{U}{H} \\ \frac{1}{2}\frac{U}{H} & 0 \end{bmatrix}, \qquad \bar{\bar{T}}_r = \begin{bmatrix} 0 & -\frac{1}{2}\frac{U}{H} \\ \frac{1}{2}\frac{U}{H} & 0 \end{bmatrix} $$
+          <p>Tasa de expansión volumétrica: $\nabla \cdot \vec{v} = \text{tr}(\bar{\bar{T}}_d) = 0$.</p>
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Direcciones Principales y Tasas de Deformación</h3>
+        $$ \det(\bar{\bar{T}}_d - \lambda \bar{\bar{I}}) = \lambda^2 - \left(\frac{U}{2H}\right)^2 = 0 \implies \lambda = \pm \frac{1}{2}\frac{U}{H} $$
+        <div class="result-box">
+          <strong>Modos Principales de Deformación</strong>
+          <ul class="bullet-list">
+            <li><strong>Tracción (+45°):</strong> $\lambda_1 = +\frac{1}{2}\frac{U}{H}, \quad \vec{n}_1 = \left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)$</li>
+            <li><strong>Compresión (-45°):</strong> $\lambda_2 = -\frac{1}{2}\frac{U}{H}, \quad \vec{n}_2 = \left(\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}\right)$</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6</span> Evolución de un Elemento Cuadrado de Lado $dl$</h3>
+        $$ dl(1, 0) \to dl(1, 0) + dl(1, 0)\nabla\vec{v} dt = dl(1, 0) \quad (\text{lado horizontal no rota ni estira}) $$
+        $$ dl(0, 1) \to dl(0, 1) + dl(0, 1)\nabla\vec{v} dt = dl\left(\frac{U}{H}dt, 1\right) \quad (\text{lado vertical se inclina}) $$
+        <p>La distorsión es la superposición exacta de:</p>
+        <ol class="step-list">
+          <li><strong>Rotación de sólido rígido:</strong> Velocidad angular $\Omega_z = -\frac{U}{2H}$ (ángulo $-\frac{U}{2H}dt$).</li>
+          <li><strong>Cizalladura pura:</strong> Tasa de deformación por corte $\dot{\gamma} = \frac{U}{H}$ (ángulo $\frac{U}{2H}dt$ simétrico).</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K3
+         ======================================================== -->
+    <article class="problem-card" id="k3">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K3</div>
+          <h2 class="problem-title">Fuente Tridimensional Puntual en el Origen</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Esféricas</span>
+          <span class="tag">Línea Fluida</span>
+          <span class="tag">Tubo de Corriente</span>
+          <span class="tag">Observador Móvil</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>A three-dimensional fluid source placed at the origin induces a radial motion given by $v_r = Q(t)/(4\pi r^2)$, with $v_\theta = v_\phi = 0$. Obtain:</p>
+        <ol>
+          <li>Streamlines, trajectories and paths.</li>
+          <li>Equation for the fluid surface initially located at $r = R$.</li>
+          <li>Equation for the fluid line that corresponds at the initial instant with a circle of radius $R$ intersecting the origin.</li>
+          <li>Streamtube that intersects the circle defined by $r = R_1$ and $\theta = \theta_1$.</li>
+          <li>The velocity components in cartesian coordinates, as well as the corresponding streamlines and trajectories.</li>
+          <li>Equations for the streamlines and trajectories for an observer moving with velocity $U$.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Líneas de Corriente, Trayectorias y Líneas de Trayectoria</h3>
+        <p>En coordenadas esféricas: $\frac{dr}{v_r} = \frac{r d\theta}{0} = \frac{r \sin\theta d\phi}{0} \implies \mathbf{\theta = \theta_0, \; \phi = \phi_0}$. Son <strong>semirrectas radiales</strong> que divergen desde el origen.</p>
+        <p>Integrando radialmente para la trayectoria:</p>
+        $$ \frac{dr}{dt} = \frac{Q(t)}{4\pi r^2} \implies 4\pi r^2 dr = Q(t) dt \implies \mathbf{\frac{4\pi}{3}\left(r^3 - r_0^3\right) = \int_0^t Q(t') dt'} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Evolución de la Superficie Fluida Inicial $r = R$</h3>
+        <p>Sustituyendo $r_0 = R$ en la ley de evolución del radio:</p>
+        <div class="result-box">
+          $$ \frac{4\pi}{3}\left(r^3 - R^3\right) = \int_0^t Q(t') dt' \implies \mathbf{r(t) = \left[ R^3 + \frac{3}{4\pi}\int_0^t Q(t') dt' \right]^{1/3}} $$
+        </div>
+        <p>La superficie fluida permanece como una <strong>esfera perfecta</strong> en expansión centrada en el origen.</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Evolución de una Circunferencia Inicial que Pasa por el Origen</h3>
+        <p>Parametrizando la circunferencia inicial en $\phi_0 = 0$ como $r_0 = R \cos\lambda, \theta_0 = \lambda$:</p>
+        $$ \frac{4\pi}{3}\left(r^3 - R^3\cos^3\lambda\right) = \int_0^t Q(t') dt', \qquad \theta = \lambda $$
+        <div class="result-box">
+          <strong>Ecuación de la Línea Fluida</strong>
+          $$ \mathbf{\frac{4\pi}{3}\left(r^3 - R^3\cos^3\theta\right) = \int_0^t Q(t') dt'} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Tubo de Corriente por la Circunferencia $r = R_1, \theta = \theta_1$</h3>
+        <p>Al estar formado por el haz de líneas de corriente que pasan por todos los puntos con $\theta = \theta_1$, y siendo cada línea de corriente un rayo de ángulo constante:</p>
+        <div class="result-box">
+          $$ \mathbf{\theta = \theta_1} \qquad \text{(Cono circular recto de semiángulo } \theta_1 \text{ con vértice en el origen)} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Componentes Cartesianas</h3>
+        $$ v_x = \frac{Q(t)}{4\pi}\frac{x}{(x^2+y^2+z^2)^{3/2}}, \quad v_y = \frac{Q(t)}{4\pi}\frac{y}{(x^2+y^2+z^2)^{3/2}}, \quad v_z = \frac{Q(t)}{4\pi}\frac{z}{(x^2+y^2+z^2)^{3/2}} $$
+        <p>Líneas de corriente cartesianas: $\frac{dx}{x} = \frac{dy}{y} = \frac{dz}{z} \implies \mathbf{\frac{x}{x_0} = \frac{y}{y_0} = \frac{z}{z_0}}$ (rectas por el origen).</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6</span> Observador con Velocidad $U \vec{e}_x$</h3>
+        $$ v_x' = \frac{Q(t)}{4\pi}\frac{x'}{(x'^2+y'^2+z'^2)^{3/2}} - U, \qquad v_y' = \frac{Q(t)}{4\pi}\frac{y'}{r'^3}, \qquad v_z' = \frac{Q(t)}{4\pi}\frac{z'}{r'^3} $$
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K4
+         ======================================================== -->
+    <article class="problem-card" id="k4">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K4</div>
+          <h2 class="problem-title">Flujo Alrededor de un Semicuerpo de Rankine</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Rankine</span>
+          <span class="tag">Punto Estancamiento</span>
+          <span class="tag">Función Corriente</span>
+          <span class="tag">Punto de Silla</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>Consider the fluid flow that derives from the potential $\phi = \frac{Q}{2\pi}\ln r + U_\infty r\cos\theta$, corresponding to the superposition of a uniform stream of velocity $U_\infty$ and a source of volumetric flux $Q$.</p>
+        <ol>
+          <li>Determine the velocity components in cartesian and cylindrical coordinates.</li>
+          <li>Obtain the stream lines.</li>
+          <li>Compute the trajectories and paths.</li>
+          <li>Calculate the stagnation points, sketching the stream lines that reach them.</li>
+          <li>Consider the flow near the stagnation points, determining in particular the trajectories and the stream lines.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Componentes de Velocidad</h3>
+        <p>En cilíndricas/polares: $v_r = \frac{\partial\phi}{\partial r} = \mathbf{\frac{Q}{2\pi r} + U_\infty \cos\theta}, \quad v_\theta = \frac{1}{r}\frac{\partial\phi}{\partial\theta} = \mathbf{-U_\infty \sin\theta}$.</p>
+        <p>En cartesianas: $v_x = \mathbf{\frac{Q}{2\pi}\frac{x}{x^2+y^2} + U_\infty}, \quad v_y = \mathbf{\frac{Q}{2\pi}\frac{y}{x^2+y^2}}$.</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Líneas de Corriente</h3>
+        $$ \frac{dr}{\frac{Q}{2\pi r} + U_\infty \cos\theta} = \frac{r d\theta}{-U_\infty \sin\theta} \implies d\left( \frac{Q\theta}{2\pi} + U_\infty r\sin\theta \right) = 0 $$
+        <div class="result-box">
+          <strong>Función de Corriente $\psi(r, \theta)$</strong>
+          $$ \mathbf{\psi(r, \theta) = \frac{Q\theta}{2\pi} + U_\infty r\sin\theta = \frac{Q\theta_0}{2\pi} + U_\infty r_0\sin\theta_0 = \text{cte}} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Trayectorias y Tiempo de Tránsito</h3>
+        <p>Por ser estacionario, las líneas de trayectoria coinciden con las de corriente ($\psi = \text{cte}$).</p>
+        $$ dt = -\frac{r d\theta}{U_\infty \sin\theta} \implies \mathbf{t = -\int_{\theta_0}^\theta \frac{\frac{Q}{2\pi}(\theta_0 - \theta') + U_\infty r_0 \sin\theta_0}{U_\infty^2 \sin^2\theta'} d\theta'} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Punto de Estancamiento y Contorno del Semicuerpo</h3>
+        <p>Haciendo $v_\theta = 0 \implies \theta = \pi$. En la dirección radial $v_r = \frac{Q}{2\pi r} - U_\infty = 0 \implies \mathbf{r_0 = \frac{Q}{2\pi U_\infty}}$.</p>
+        <p>Evaluando la corriente en $(r_0, \pi) \implies \psi = Q/2$. Igualando $\psi(r, \theta) = Q/2$:</p>
+        <div class="result-box">
+          <strong>Contorno del Semicuerpo de Rankine</strong>
+          $$ \mathbf{r(\theta) = \frac{Q(\pi - \theta)}{2\pi U_\infty \sin\theta}, \qquad 0 < \theta < 2\pi} $$
+          <p>Para $\theta \to 0$, $y = r\sin\theta \to \frac{Q}{2 U_\infty}$ (semiespesor asintótico).</p>
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Flujo en las Inmediaciones del Punto de Estancamiento</h3>
+        <p>Definiendo $\xi = (x + r_0)/r_0 \ll 1, \eta = y/r_0 \ll 1$ y $\tau = t U_\infty / r_0$:</p>
+        <div class="result-box">
+          $$ \mathbf{\xi \eta = \xi_0 \eta_0} \quad (\text{Líneas de corriente hiperbólicas}) $$
+          $$ \mathbf{\xi(\tau) = \xi_0 e^{-\tau}, \qquad \eta(\tau) = \eta_0 e^{\tau}} \quad (\text{Trayectorias}) $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K5
+         ======================================================== -->
+    <article class="problem-card" id="k5">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K5</div>
+          <h2 class="problem-title">Dipolo Plano Pulsante / Oscilante</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Dipolo</span>
+          <span class="tag">Lamb-Gromeka</span>
+          <span class="tag">Aceleración</span>
+          <span class="tag">Circulación Nula</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>For the planar fluid motion deriving from the velocity potential $\phi = M\cos(\Omega t)\frac{\cos\theta}{r}$, obtain:</p>
+        <ol>
+          <li>Radial and azimuthal velocity components.</li>
+          <li>Expansion rate $\nabla \cdot \vec{v}$.</li>
+          <li>Vorticity $\nabla \wedge \vec{v}$.</li>
+          <li>Acceleration of the fluid particle initially located at $r = 1$ and $\theta = \pi/2$.</li>
+          <li>Initial value of the circulation around a circle of radius $R = 1/2$ centered at $(r = 1, \theta = \pi/2)$.</li>
+          <li>Streamlines.</li>
+          <li>Trajectories and particle paths.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Componentes de Velocidad</h3>
+        $$ v_r = \frac{\partial\phi}{\partial r} = \mathbf{-\frac{M\cos(\Omega t)\cos\theta}{r^2}}, \qquad v_\theta = \frac{1}{r}\frac{\partial\phi}{\partial\theta} = \mathbf{-\frac{M\cos(\Omega t)\sin\theta}{r^2}} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2–3</span> Tasa de Expansión y Vorticidad</h3>
+        $$ \nabla \cdot \vec{v} = \frac{1}{r}\left[\frac{\partial(rv_r)}{\partial r} + \frac{\partial v_\theta}{\partial\theta}\right] = \mathbf{0} \quad (\text{Incompresible}) $$
+        $$ \vec{\omega} = \nabla \wedge \vec{v} = \frac{1}{r}\left[\frac{\partial(rv_\theta)}{\partial r} - \frac{\partial v_r}{\partial\theta}\right]\vec{e}_z = \mathbf{0} \quad (\text{Irrotacional}) $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Aceleración en $(r = 1, \theta = \pi/2)$</h3>
+        <p>Con $\nabla \wedge \vec{v} = 0$, la aceleración es $\vec{a} = \frac{\partial\vec{v}}{\partial t} + \nabla(v^2/2)$. Con $v^2/2 = \frac{M^2 \cos^2(\Omega t)}{2 r^4}$:</p>
+        $$ \vec{a} = \left[ \frac{M\Omega\sin(\Omega t)\cos\theta}{r^2} - \frac{2 M^2 \cos^2(\Omega t)}{r^5} \right]\vec{e}_r + \left[ \frac{M\Omega\sin(\Omega t)\sin\theta}{r^2} \right]\vec{e}_theta $$
+        <div class="result-box">
+          <strong>Aceleración en $(1, \pi/2)$</strong>
+          $$ \mathbf{\vec{a}\left(1, \frac{\pi}{2}, t\right) = -2 M^2 \cos^2(\Omega t) \, \vec{e}_r + M \Omega \sin(\Omega t) \, \vec{e}_\theta} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Circulación Inicial en Círculo Desplazado</h3>
+        <p>El círculo de radio $R=1/2$ centrado en $(1, \pi/2)$ dista $d - R = 1 - 1/2 = 1/2 > 0$ del origen, no encerrando la singularidad. Por Stokes:</p>
+        <div class="result-box">
+          $$ \mathbf{\Gamma = \iint \vec{\omega}\cdot\vec{n} d\sigma = 0} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6–7</span> Líneas de Corriente y Trayectorias</h3>
+        $$ \frac{dr}{v_r} = \frac{r d\theta}{v_\theta} \implies \frac{dr}{r} = \frac{\cos\theta}{\sin\theta} d\theta \implies \mathbf{r = r_0 \frac{\sin\theta}{\sin\theta_0}} $$
+        <p>Circunferencias tangentes al eje $x$ en el origen. Al ser la dirección del vector velocidad fija en el tiempo, <strong>Líneas de Corriente $\equiv$ Líneas de Trayectoria</strong>.</p>
+        <div class="result-box">
+          <strong>Evolución Temporal de la Posición Angular</strong>
+          $$ \mathbf{\frac{\theta - \theta_0}{2} - \frac{\sin(2\theta) - \sin(2\theta_0)}{4} = -\frac{M \sin^3\theta_0}{r_0^3 \Omega}\sin(\Omega t)} $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K6
+         ======================================================== -->
+    <article class="problem-card" id="k6">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K6</div>
+          <h2 class="problem-title">Vórtice Tridimensional de Burgers con Estiramiento Axial</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Burgers Vortex</span>
+          <span class="tag">Incompresibilidad</span>
+          <span class="tag">Estiramiento Axial</span>
+          <span class="tag">Cilíndricas</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>The axisymmetric velocity field corresponding to a three-dimensional steady vortex of circulation $\Gamma$ is given in cylindrical coordinates by:</p>
+        $$ v_r = -\frac{r}{\tau_r}, \qquad v_\theta = \frac{\Gamma}{2\pi r}\left\{ 1 - \exp\left[ -\left(\frac{r}{R_0}\right)^2 \right] \right\}, \qquad v_z = \frac{z}{\tau_z} $$
+        <ol>
+          <li>Determine the condition required for the motion to be that of an incompressible fluid.</li>
+          <li>Compute streamlines and trajectories.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Condición de Incompresibilidad</h3>
+        $$ \nabla \cdot \vec{v} = \frac{1}{r}\frac{\partial(r v_r)}{\partial r} + \frac{1}{r}\frac{\partial v_\theta}{\partial \theta} + \frac{\partial v_z}{\partial z} = \frac{1}{r}\left(-\frac{2r}{\tau_r}\right) + 0 + \frac{1}{\tau_z} = -\frac{2}{\tau_r} + \frac{1}{\tau_z} = 0 $$
+        <div class="result-box">
+          $$ \mathbf{\tau_r = 2\tau_z} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Líneas de Corriente y Trayectorias</h3>
+        <p>Por ser flujo estacionario, las líneas de corriente coinciden con las trayectorias:</p>
+        <ul class="bullet-list">
+          <li><strong>Evolución radial:</strong> $dr/dt = -r/\tau_r \implies \mathbf{r(t) = r_0 e^{-t/\tau_r}}$</li>
+          <li><strong>Evolución axial:</strong> $dz/dt = z/\tau_z \implies \mathbf{z(t) = z_0 e^{t/\tau_z}}$</li>
+          <li><strong>Superficie de corriente meridional:</strong> Eliminando $t$ con $\tau_r = 2\tau_z$:
+            <div class="result-box">
+              $$ \frac{z}{z_0} = \left(\frac{r}{r_0}\right)^{-2} \implies \mathbf{z r^2 = z_0 r_0^2 = \text{cte}} $$
+            </div>
+          </li>
+          <li><strong>Evolución acimutal:</strong>
+            $$ \mathbf{\theta - \theta_0 = -\frac{\Gamma \tau_r}{2\pi} \int_{r_0}^r \left\{ 1 - \exp\left[-\left(\frac{r'}{R_0}\right)^2\right] \right\} \frac{dr'}{r'^3}} $$
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K7
+         ======================================================== -->
+    <article class="problem-card" id="k7">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K7</div>
+          <h2 class="problem-title">Flujo de Estancamiento Hiperbólico Plano</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Estancamiento</span>
+          <span class="tag">Pure Strain</span>
+          <span class="tag">Función Corriente</span>
+          <span class="tag">Tiempo Infinito</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>Consider the planar motion of velocity components $v_x = ax$ and $v_y = by$, where $a$ and $b$ are known constants.</p>
+        <ol>
+          <li>If the flow is irrotational compute the associated velocity potential.</li>
+          <li>Compute the value of $b$ for which the flow corresponds to that of an incompressible fluid.</li>
+          <li>Obtain the stream lines and represent the result schematically.</li>
+          <li>Determine the trajectory and the path of a fluid particle initially located at $x_0 = 0$ and $y_0 = 1$. How long does it take to reach the origin?</li>
+          <li>Calculate the acceleration of fluid particles located along the axis $y=0$.</li>
+          <li>Find the stream function for the flow.</li>
+          <li>Compute the rate-of-strain tensor.</li>
+          <li>Investigate the evolution of a fluid element whose initial shape is that of a square of sides $dl$.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Potencial de Velocidades</h3>
+        $$ \vec{\omega} = (0 - 0)\vec{e}_z = 0 \implies \mathbf{\phi = a \frac{x^2}{2} + b \frac{y^2}{2} + \phi_0} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Incompresibilidad</h3>
+        $$ \nabla \cdot \vec{v} = a + b = 0 \implies \mathbf{b = -a} \implies \vec{v} = ax\vec{e}_x - ay\vec{e}_y $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Líneas de Corriente</h3>
+        $$ \frac{dx}{ax} = \frac{dy}{-ay} \implies \frac{dx}{x} = -\frac{dy}{y} \implies \mathbf{x y = x_0 y_0 = \text{cte}} \quad (\text{Hipérbolas equiláteras}) $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Partícula en $(0, 1)$ y Tiempo al Origen</h3>
+        <p>$x(t) = 0, y(t) = e^{-at}$. Línea de trayectoria: segmento vertical $x=0, 0 < y \le 1$.</p>
+        <div class="result-box">
+          <strong>Tiempo para Alcanzar el Origen</strong>
+          $$ y(t) \to 0 \implies e^{-at} \to 0 \implies -at \to -\infty \implies \mathbf{t \to \infty} $$
+          <p>Requiere un tiempo infinito debido a la desaceleración exponencial hacia el estancamiento.</p>
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Aceleración en $y = 0$</h3>
+        $$ \vec{a} = (\vec{v}\cdot\nabla)\vec{v} = a^2 x \vec{e}_x + a^2 y \vec{e}_y \implies \mathbf{\left. \vec{a} \right|_{y=0} = a^2 x \, \vec{e}_x} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6</span> Función de Corriente</h3>
+        $$ v_x = \frac{\partial\psi}{\partial y} = ax, \quad v_y = -\frac{\partial\psi}{\partial x} = -ay \implies \mathbf{\psi(x, y) = axy + \psi_0} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">7–8</span> Tensores Cinemáticos y Deformación del Cuadrado</h3>
+        <div class="result-box">
+          $$ \bar{\bar{T}}_d = \begin{bmatrix} a & 0 \\ 0 & -a \end{bmatrix}, \qquad \bar{\bar{T}}_r = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} $$
+        </div>
+        <p>Evolución de los lados del cuadrado: $dl(1, 0) \to \mathbf{dl(1+a\,dt, 0)}$ y $dl(0, 1) \to \mathbf{dl(0, 1-a\,dt)}$.</p>
+        <p>Estado de <strong>deformación pura sin rotación</strong>: estiramiento en $x$, compresión simétrica en $y$, conservación de área.</p>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K8
+         ======================================================== -->
+    <article class="problem-card" id="k8">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K8</div>
+          <h2 class="problem-title">Potencial Tridimensional Pulsante y Deformación Esférica</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Potencial 3D</span>
+          <span class="tag">Superficie Material</span>
+          <span class="tag">Elipsoide Pulsante</span>
+          <span class="tag">Simetría Axial</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>The velocity potential of a three-dimensional flow field is given by $\phi = A \cos(\Omega t)(2x^2 - y^2 - z^2)$, where $A$ and $\Omega$ are known constants.</p>
+        <ol>
+          <li>Determine the velocity field, verifying that $\nabla \wedge \vec{v} = 0$ and $\nabla \cdot \vec{v} = 0$.</li>
+          <li>Compute the streamlines, trajectories and particle paths.</li>
+          <li>Obtain the fluid surface that at the initial instant is a sphere of radius $R$ centered at $(x, y, z) = (-R/2, 0, 0)$.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Campo de Velocidades</h3>
+        $$ v_x = \mathbf{4 A \cos(\Omega t) x}, \qquad v_y = \mathbf{-2 A \cos(\Omega t) y}, \qquad v_z = \mathbf{-2 A \cos(\Omega t) z} $$
+        <p>$\nabla \wedge \vec{v} = \mathbf{0}$ e incompresible $\nabla \cdot \vec{v} = A\cos(\Omega t)(4 - 2 - 2) = \mathbf{0}$.</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Líneas de Corriente y Trayectorias</h3>
+        $$ \frac{dx}{2x} = -\frac{dy}{y} = -\frac{dz}{z} \implies \mathbf{x y^2 = x_0 y_0^2, \qquad \frac{y}{z} = \frac{y_0}{z_0}} $$
+        <p>Integrando temporalmente las trayectorias:</p>
+        <div class="result-box">
+          $$ \frac{x(t)}{x_i} = \exp\left[ \frac{4A}{\Omega}\sin(\Omega t) \right], \quad \frac{y(t)}{y_i} = \exp\left[ -\frac{2A}{\Omega}\sin(\Omega t) \right], \quad \frac{z(t)}{z_i} = \exp\left[ -\frac{2A}{\Omega}\sin(\Omega t) \right] $$
+        </div>
+        <p>Eliminando el tiempo se recuperan exactamente las líneas de corriente (Líneas de Corriente $\equiv$ Trayectorias).</p>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Evolución de la Esfera Inicial $(x_i + R/2)^2 + y_i^2 + z_i^2 = R^2$</h3>
+        <p>Invertiendo la posición lagrangiana: $x_i = x e^{-\frac{4A}{\Omega}\sin(\Omega t)}, y_i = y e^{\frac{2A}{\Omega}\sin(\Omega t)}, z_i = z e^{\frac{2A}{\Omega}\sin(\Omega t)}$.</p>
+        <div class="result-box">
+          <strong>Superficie Fluida Deformada (Elipsoide Pulsante)</strong>
+          $$ \mathbf{\left( x e^{-\frac{4A}{\Omega}\sin(\Omega t)} + \frac{R}{2} \right)^2 + \left( y e^{\frac{2A}{\Omega}\sin(\Omega t)} \right)^2 + \left( z e^{\frac{2A}{\Omega}\sin(\Omega t)} \right)^2 = R^2} $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K9
+         ======================================================== -->
+    <article class="problem-card" id="k9">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K9</div>
+          <h2 class="problem-title">Flujo Polar Oscilante y Deformación de una Línea Fluida</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Polares</span>
+          <span class="tag">Potencial & Corriente</span>
+          <span class="tag">Línea Fluida</span>
+          <span class="tag">Aceleración</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial</h4>
+        <p>For the planar velocity field $v_r = -A \sin(\Omega t) \frac{\sin\theta}{r^2}, v_\theta = A \sin(\Omega t) \frac{\cos\theta}{r^2}$, where $A$ and $\Omega$ are known constants,</p>
+        <ol>
+          <li>Determine the vorticity.</li>
+          <li>Compute the expansion rate.</li>
+          <li>Comment on the existence of velocity potential and stream function and, if they do exist, compute them.</li>
+          <li>Find the acceleration for points along the line $\theta = 0$.</li>
+          <li>Obtain the trajectories & streamlines.</li>
+          <li>Determine the fluid line that at $t = 0$ is given by $\theta = 0$ and $0 < r < \infty$.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1–2</span> Vorticidad y Tasa de Expansión</h3>
+        $$ \omega_z = \frac{1}{r}\left[ \frac{\partial(r v_\theta)}{\partial r} - \frac{\partial v_r}{\partial\theta} \right] = \mathbf{0}, \qquad \nabla \cdot \vec{v} = \frac{1}{r}\left[ \frac{\partial(r v_r)}{\partial r} + \frac{\partial v_\theta}{\partial\theta} \right] = \mathbf{0} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Potencial de Velocidades $\phi$ y Función de Corriente $\psi$</h3>
+        <div class="result-box">
+          $$ \mathbf{\phi(r, \theta, t) = A \sin(\Omega t) \frac{\sin\theta}{r} + \phi_0} $$
+          $$ \mathbf{\psi(r, \theta, t) = A \sin(\Omega t) \frac{\cos\theta}{r} + \psi_0} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Aceleración en el Eje Polar $\theta = 0$</h3>
+        <p>Con $v^2/2 = \frac{A^2 \sin^2(\Omega t)}{2 r^4}$:</p>
+        <div class="result-box">
+          $$ \mathbf{\left. a_r \right|_{\theta = 0} = -\frac{2 A^2 \sin^2(\Omega t)}{r^5}}, \qquad \mathbf{\left. a_\theta \right|_{\theta = 0} = \frac{A \Omega \cos(\Omega t)}{r^2}} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Líneas de Corriente y Trayectorias</h3>
+        $$ \frac{dr}{v_r} = \frac{r d\theta}{v_\theta} \implies \frac{dr}{r} = -\frac{\sin\theta}{\cos\theta} d\theta \implies \mathbf{r = r_0 \frac{\cos\theta}{\cos\theta_0}} $$
+        <p>Circunferencias tangentes al eje $y$ en el origen. Líneas de corriente $\equiv$ Líneas de trayectoria.</p>
+        <div class="result-box">
+          $$ \mathbf{\frac{\theta - \theta_0}{2} + \frac{\sin(2\theta) - \sin(2\theta_0)}{4} = \frac{A \cos^3\theta_0}{r_0^3 \Omega}\left[1 - \cos(\Omega t)\right]} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6</span> Deformación de la Línea Fluida Inicial $\theta_0 = 0$</h3>
+        <p>Con $\theta_0 = 0, r_0 = \lambda$: $\lambda = r / \cos\theta$. Eliminando $\lambda$:</p>
+        <div class="result-box">
+          <strong>Línea Fluida $r(\theta, t)$</strong>
+          $$ \mathbf{\frac{r^3}{2\cos^3\theta}\left(\theta + \frac{\sin 2\theta}{2}\right) = \frac{A}{\Omega}\left[1 - \cos(\Omega t)\right]} $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================================
+         PROBLEMA K10
+         ======================================================== -->
+    <article class="problem-card" id="k10">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problema K10</div>
+          <h2 class="problem-title">Flujo Plano con Cizalladura Exponencial y Deformación Pura</h2>
+        </div>
+        <div class="tag-group">
+          <span class="tag">Quiz 2013</span>
+          <span class="tag">Irrotacional</span>
+          <span class="tag">Pure Shear</span>
+          <span class="tag">Cizalladura Pura</span>
+        </div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Enunciado Oficial (UC3M Quiz Sept 30, 2013)</h4>
+        <p>Given the planar motion described by the velocity components $v_x = A e^{\Omega t} y$ and $v_y = B e^{\Omega t} x$, where $A, B$, and $\Omega$ are constants.</p>
+        <ol>
+          <li>Determine the value of the volume dilation rate $\nabla \cdot \vec{v}$.</li>
+          <li>Obtain the value of $B$ for which the resulting flow is irrotational. Adopt this particular value in what follows.</li>
+          <li>Calculate the stream line that intersects the point $(x, y) = (x_0, y_0)$ at a given instant of time $t$. Sketch the resulting streamlines.</li>
+          <li>Compute the trajectory of a fluid particle located initially at $(x, y) = (x_0, y_0)$.</li>
+          <li>If they exist, calculate the velocity potential $\phi$ and the stream function $\psi$.</li>
+          <li>Determine the rate-of-strain tensor $\bar{\bar{T}}_d$.</li>
+          <li>Describe the deformation of a fluid element of square shape whose sides of length $dl$ are initially oriented parallel to the axes.</li>
+        </ol>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">1</span> Tasa de Dilatación Volumétrica</h3>
+        $$ \nabla \cdot \vec{v} = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0 + 0 = \mathbf{0} \quad (\text{Incompresible}) $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">2</span> Condición de Irrotacionalidad</h3>
+        $$ \vec{\omega} = \left(\frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y}\right)\vec{e}_z = (B e^{\Omega t} - A e^{\Omega t})\vec{e}_z = 0 \implies \mathbf{B = A} $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">3</span> Líneas de Corriente</h3>
+        $$ \frac{dx}{A e^{\Omega t} y} = \frac{dy}{A e^{\Omega t} x} \implies x dx = y dy \implies \mathbf{y^2 - x^2 = y_0^2 - x_0^2} \quad (\text{Hipérbolas equiláteras}) $$
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">4</span> Trayectorias</h3>
+        <p>Líneas de trayectoria $\equiv$ Líneas de corriente ($y^2 - x^2 = y_0^2 - x_0^2$). Integración temporal:</p>
+        <div class="result-box">
+          $$ \mathbf{\ln\left( \frac{x + \sqrt{x^2 + y_0^2 - x_0^2}}{x_0 + y_0} \right) = \pm \frac{A}{\Omega}(e^{\Omega t} - 1)} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">5</span> Potencial de Velocidades y Función de Corriente</h3>
+        <div class="result-box">
+          $$ \mathbf{\phi(x, y, t) = A e^{\Omega t} x y + \phi_0} $$
+          $$ \mathbf{\psi(x, y, t) = \frac{1}{2} A e^{\Omega t}(y^2 - x^2) + \psi_0} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">6</span> Tensor de Velocidad de Deformación</h3>
+        <div class="result-box">
+          $$ \mathbf{\bar{\bar{T}}_d = \begin{bmatrix} 0 & A e^{\Omega t} \\ A e^{\Omega t} & 0 \end{bmatrix}}, \qquad \mathbf{\bar{\bar{T}}_r = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}} $$
+        </div>
+      </div>
+
+      <div class="subpart">
+        <h3 class="subpart-title"><span class="badge">7</span> Deformación de un Elemento Cuadrado</h3>
+        <p>Los lados horizontal y vertical rotan hacia el interior un ángulo idéntico $d\alpha = d\beta = A e^{\Omega t} dt$:</p>
+        $$ dl(1, 0) \to \mathbf{dl(1, A e^{\Omega t} dt)}, \qquad dl(0, 1) \to \mathbf{dl(A e^{\Omega t} dt, 1)} $$
+        <p>Velocidad angular media de rotación $\Omega_z = 0$. Tasa de cizalladura $\dot{\gamma}_{xy} = 2 A e^{\Omega t}$. Se trata de <strong>cizalladura pura (*pure shear strain*)</strong> sin giro de cuerpo rígido.</p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Portal de Estudio — Grado en Ingeniería Aeroespacial — Universidad Carlos III de Madrid</p>
+      <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">Soluciones verificadas con las notas manuscritas de la asignatura Fluid Mechanics.</p>
+    </div>
+  </footer>
+
+  <!-- THEME SCRIPT -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ae_theme') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', saved);
+
+      document.getElementById('themeToggle').addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ae_theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
