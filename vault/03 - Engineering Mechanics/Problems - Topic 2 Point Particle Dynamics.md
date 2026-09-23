@@ -94,6 +94,12 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 
 ---
 
+## 📌 Problem 21: Rotating Planet & Apparent Weight
+
+On a spinning spherical planet of radius $R$ and gravitational acceleration $g_p$, the bodies weight twice as much on the poles as on the equator. Determine the duration of the day on that planet.
+
+---
+
 ## 📌 Problem 23: Simple Pendulum
 
 A simple pendulum consists of a mass $m$ hanging from a string of length $L$ and fixed at a pivot point $O$. The simple pendulum is equivalent to the problem of a heavy particle constrained to move along a smooth circumference. A unilateral constraint is considered, such that the particle moves along the interior of the circumference and it might fall under certain conditions.

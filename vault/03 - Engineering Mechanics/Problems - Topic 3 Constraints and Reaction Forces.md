@@ -32,6 +32,15 @@ where $a$ is a positive constant and $r$ is the distance to the $Oz$ vertical ax
 
 ---
 
+## 📌 Problem 20: Heavy Particle on a Rotating Circumference
+
+A heavy particle is moving along a smooth circumference of radius $R$ and center $O$. One of the diameters of the circumference is along the local vertical, and the circumference is rotating with constant angular velocity $\omega$ about it. The position of the particle with respect to the circumference is described by the angle $\theta$ between the particle and the lowest point of the circumference.
+
+* **(a)** Discuss the conservation of mechanical energy in the moving reference frame and compute its value.
+* **(b)** Compute the reaction of the circumference in the direction normal to its plane, as a function of $\theta$.
+
+---
+
 ## 📌 Problem 22: Particle on a Curve
 
 A heavy point particle $P$ of mass $m$ is constrained to move without friction along the curve:
@@ -66,6 +75,19 @@ The particle departs from the point $(a, 0)$ of the circumference with an initia
 Consider now the situation in which an additional force acts on the particle. The force is proportional to, and in the same direction as, the instantaneous velocity. The constant of proportionality is $2m\mu$. The initial conditions are the same as before.
 * **(e)** Obtain the position of the particle as a function of time.
 * **(f)** Obtain the reaction of the circumference.
+
+---
+
+## 📌 Problem 26: Heavy Particle on a Rotating Half-Circumference
+
+A heavy point particle $P$ of mass $m$ is constrained to move without friction along the half-circumference wire of radius $a$ shown in the figure. The wire containing the point particle rotates around the $OY$ axis with constant angular velocity $\omega = \Omega\mathbf{j}$. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.
+
+* **(a)** Determine the number of degrees of freedom of the problem.
+* **(b)** Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Express the inertia force that acts on the particle in this moving reference frame.
+* **(c)** Express also the components of the weight of the particle with respect to $OX_1Y_1Z_1$.
+* **(d)** Determine if there are any equilibrium points.
+* **(e)** Reduce the problem to integrals (i.e. quadratures) and determine the value of the reaction force.
+* **(f)** Is it possible to use the energy equation? If $\Omega$ were a function of time, would it be possible to use the energy equation? Justify your answer.
 
 ---
 
