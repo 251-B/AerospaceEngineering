@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechanics Applied to Aerospace Engineering — Theory Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      transition: background var(--transition), color var(--transition);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top Nav Bar */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); background: var(--accent-soft); }
+
+    .nav-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      padding: 48px 0 36px;
+    }
+
+    .page-header .icon { font-size: 3rem; margin-bottom: 14px; }
+
+    .page-header h1 {
+      font-size: clamp(1.5rem, 3.8vw, 2.2rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .page-header .accent { color: var(--accent); }
+
+    .page-header p {
+      color: var(--text-secondary); font-size: 1rem;
+      max-width: 640px; margin: 0 auto;
+    }
+
+    /* Section divider */
+    .block-header {
+      display: flex; align-items: center; gap: 12px;
+      margin: 36px 0 18px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .block-header h2 {
+      font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+    .block-header .block-badge {
+      font-size: 0.75rem; font-weight: 600; font-family: var(--font-mono);
+      background: var(--accent-soft); color: var(--accent);
+      padding: 2px 8px; border-radius: 6px;
+    }
+
+    /* Topics list */
+    .topics-list {
+      display: flex; flex-direction: column; gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .topic-card {
+      display: flex; align-items: stretch;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      text-decoration: none; color: inherit;
+    }
+
+    .topic-card.available:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+    }
+
+    .topic-card.disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .topic-num {
+      min-width: 68px; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 1.2rem; font-weight: 800;
+      background: var(--bg-glass); border-right: 1px solid var(--border-subtle);
+      color: var(--accent);
+    }
+    .topic-card.disabled .topic-num {
+      color: var(--text-muted);
+    }
+
+    .topic-body {
+      padding: 18px 22px; flex: 1; min-width: 0;
+    }
+
+    .topic-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 6px; flex-wrap: wrap;
+    }
+
+    .topic-title {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+
+    .topic-desc {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .topic-tags {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+
+    .topic-tag {
+      font-size: 0.72rem; font-weight: 500; font-family: var(--font-mono);
+      background: var(--bg-glass); border: 1px solid var(--border-subtle);
+      padding: 2px 7px; border-radius: 4px; color: var(--text-muted);
+    }
+
+    .badge-status {
+      font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+    }
+    .badge-available {
+      background: var(--accent-soft); color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+    .badge-soon {
+      background: var(--bg-glass); color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0; text-align: center;
+      color: var(--text-muted); font-size: 0.85rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <nav class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <span class="nav-badge">UC3M 251-14165</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="page-header">
+      <div class="icon">🏗️</div>
+      <h1>Mechanics Applied to <span class="accent">Aerospace Engineering</span></h1>
+      <p>Official course syllabus, analytical principles, and rigorous mathematical derivations for 2nd Year BSc Aerospace Engineering.</p>
+    </header>
+
+    <!-- Problem Sets Hub Banner -->
+    <div style="background: var(--bg-card); border: 1px solid var(--accent-border); border-radius: 12px; padding: 18px 24px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+      <div>
+        <div style="font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+          <span>✏️</span>
+          <span>Official Problem Statements Hub</span>
+          <span style="font-size: 0.72rem; font-family: var(--font-mono); background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--accent-border);">30 Problems Ready</span>
+        </div>
+        <p style="font-size: 0.86rem; color: var(--text-secondary); margin: 0;">Verbatim problem statements classified by topic from the official collection (<code>Problems.pdf</code>), rendered in exact KaTeX.</p>
+      </div>
+      <a href="../problemas/index.html" class="back-link" style="background: var(--accent); color: #070b14; font-weight: 700; padding: 8px 18px; border-radius: 8px;">
+        <span>Open Problem Hub →</span>
+      </a>
+    </div>
+
+    <!-- PART I -->
+    <div class="block-header">
+      <h2>Part I: Mechanics of the Point Particle</h2>
+      <span class="block-badge">Chapters 1 to 8</span>
+    </div>
+
+    <div class="topics-list">
+      <!-- Topic 1: Available -->
+      <a href="topic-1.html" class="topic-card available">
+        <div class="topic-num">01</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 1: Fundamentals and Particle Kinematics</h3>
+            <span class="badge-status badge-available">● Available</span>
+          </div>
+          <p class="topic-desc">Aerospace mechanical modeling, scalars, vectors, and tensors, orthonormal bases, rotation matrices [0R1], curvilinear coordinate systems (Cartesian, Cylindrical, Spherical), Frenet-Serret intrinsic basis, and analytical helical rocket trajectory case study.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Mechanical Modeling</span>
+            <span class="topic-tag">Rotation Matrices</span>
+            <span class="topic-tag">Cylindrical / Spherical</span>
+            <span class="topic-tag">Frenet-Serret</span>
+            <span class="topic-tag" style="color: var(--accent); border-color: var(--accent-border);">✏️ 8 Solvable Problems</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Topic 2: Available -->
+      <a href="topic-2.html" class="topic-card available">
+        <div class="topic-num">02</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 2: Point Particle Dynamics</h3>
+            <span class="badge-status badge-available">● Available</span>
+          </div>
+          <p class="topic-desc">Mass, linear momentum, kinetic energy, Newton's three laws, momentum conservation, work-energy theorem, conservative forces, 1D energy diagrams, Lyapunov stability, and the simple pendulum.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Newton's Laws</span>
+            <span class="topic-tag">Linear Momentum</span>
+            <span class="topic-tag">Conservative Forces</span>
+            <span class="topic-tag">Energy Landscapes</span>
+            <span class="topic-tag" style="color: var(--accent); border-color: var(--accent-border);">✏️ 9 Solvable Problems</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Topic 3: Available -->
+      <a href="topic-3.html" class="topic-card available">
+        <div class="topic-num">03</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 3: Constraints and Reaction Forces</h3>
+            <span class="badge-status badge-available">● Available</span>
+          </div>
+          <p class="topic-desc">Holonomic and non-holonomic constraints, configuration degrees of freedom (CDOFs), implicit vs. parametric surfaces and curves, normal ($V_N$) and tangent ($V_T$) vector subspaces, constraint reactions, dynamical decoupling, zero work theorem, multi-particle systems, Coulomb friction, and unilateral takeoff.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Constraints</span>
+            <span class="topic-tag">Normal Subspace</span>
+            <span class="topic-tag">Reaction Forces</span>
+            <span class="topic-tag">Coulomb Friction</span>
+            <span class="topic-tag" style="color: var(--accent); border-color: var(--accent-border);">✏️ 13 Solvable Problems</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Topic 4: Coming soon -->
+      <div class="topic-card disabled">
+        <div class="topic-num">04</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 4: The Harmonic Oscillator (Free, Damped, and Forced)</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Undamped motion, complex phasor representation, underdamped, critical, and overdamped regimes, quality factor Q, harmonic forcing, and resonance phenomena.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Vibrations</span>
+            <span class="topic-tag">Damping</span>
+            <span class="topic-tag">Resonance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic 5: Coming soon -->
+      <div class="topic-card disabled">
+        <div class="topic-num">05</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 5: The Newtonian Mechanics Approach I</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Systematic problem-solving methodology: degrees of freedom, coordinate selection, reference frames, force balance, reduction to quadratures, and stability.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Methodology</span>
+            <span class="topic-tag">Quadratures</span>
+            <span class="topic-tag">Stability</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic 6: Coming soon -->
+      <div class="topic-card disabled">
+        <div class="topic-num">06</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 6: Orbital Mechanics and Kepler's Problem</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Universal gravitation, analytical derivation of Kepler's three laws from Newtonian mechanics, conic orbital sections, vis-viva equation, circular and escape velocity.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Kepler's Laws</span>
+            <span class="topic-tag">Vis-Viva</span>
+            <span class="topic-tag">Orbital Mechanics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART II -->
+    <div class="block-header">
+      <h2>Part II: Mechanics of the Rigid Body</h2>
+      <span class="block-badge">Chapters 9 to 15</span>
+    </div>
+
+    <div class="topics-list">
+      <div class="topic-card disabled">
+        <div class="topic-num">08</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 8: Rigid Body Kinematics and Euler Angles</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Velocity and acceleration fields, instantaneous axis of rotation and slip (IAR), screw motion, 3-1-3 Euler angles and aerospace 3-2-1 yaw-pitch-roll conventions.</p>
+        </div>
+      </div>
+
+      <div class="topic-card disabled">
+        <div class="topic-num">09</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 9: Mass Geometry, Inertia Tensor, and Steiner's Theorem</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Mass moments of continuous and discrete bodies, center of mass, moments and products of inertia, inertia tensor matrix, principal axes, and parallel axis theorem.</p>
+        </div>
+      </div>
+
+      <div class="topic-card disabled">
+        <div class="topic-num">10</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 10: Rigid Body Dynamics and Euler's Equations</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Evolution equations of linear and angular momentum, Euler's differential equations in principal axes, rolling without slipping, and Poinsot torque-free motion.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART III -->
+    <div class="block-header">
+      <h2>Part III: Atmospheric Flight Mechanics</h2>
+      <span class="block-badge">Chapters 16 to 18</span>
+    </div>
+
+    <div class="topics-list">
+      <div class="topic-card disabled">
+        <div class="topic-num">11</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h3 class="topic-title">Topic 11: Atmospheric Flight Elements and Aircraft Performance</h3>
+            <span class="badge-status badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Aircraft forces, lift, parasitic and induced drag, aerodynamic polar, maximum efficiency, level flight, steady climb/descent, gliding, coordinated turn, looping, and Breguet range/endurance formulas.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Study materials grounded 100% in official department lecture notes and slides.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    const saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

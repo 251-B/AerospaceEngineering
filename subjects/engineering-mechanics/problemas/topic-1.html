@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 1: Fundamentals and Particle Kinematics - Problem Sets | Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Google Fonts & KaTeX CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.25s ease;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-input: #0f172a;
+      --text-main: #e2e8f0;
+      --text-heading: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-strong: #334155;
+      --border-card: #273549;
+      --badge-bg: #1e293b;
+      --badge-text: #38bdf8;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-input: #e2e8f0;
+      --text-main: #1e293b;
+      --text-heading: #0f172a;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: #cbd5e1;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0284c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 15.5px;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 920px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 13px; font-weight: 500;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px;
+      background: var(--badge-bg); color: var(--badge-text);
+      padding: 3px 8px; border-radius: 4px; font-weight: 600;
+    }
+
+    .theme-toggle {
+      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
+      color: var(--text-main); width: 36px; height: 36px;
+      border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: all var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); background: var(--accent-soft); }
+    [data-theme="dark"] .theme-toggle::before { content: "☀️"; }
+    [data-theme="light"] .theme-toggle::before { content: "🌙"; }
+
+    .article-container {
+      max-width: 920px; margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 32px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--accent); font-weight: 700; margin-bottom: 8px;
+    }
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+    .article-meta {
+      font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
+    }
+    .source-box {
+      margin-top: 14px; padding: 8px 14px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--accent-border);
+      font-family: var(--font-mono); font-size: 11.5px;
+      color: var(--accent); display: inline-block;
+    }
+
+    .note-banner {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px; padding: 16px 20px;
+      margin-bottom: 36px; font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 26px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .problem-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 16px; margin-bottom: 16px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+    .problem-title-area { flex: 1; }
+    .problem-num {
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .problem-title {
+      font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700;
+      color: var(--text-heading); line-height: 1.3;
+    }
+    .problem-badge {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+      background: var(--bg-subtle); color: var(--text-muted);
+      padding: 4px 10px; border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-statement {
+      font-size: 0.98rem; line-height: 1.75;
+      margin-bottom: 18px; color: var(--text-main);
+    }
+    .problem-statement p { margin-bottom: 12px; }
+
+    .questions-list {
+      list-style-type: none; margin: 16px 0;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .question-item {
+      display: flex; gap: 12px; align-items: baseline;
+      padding: 8px 12px; border-radius: 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.94rem;
+    }
+    .question-label {
+      font-family: var(--font-mono); font-weight: 700;
+      color: var(--accent); min-width: 24px;
+    }
+
+    .problem-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-top: 20px; padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+    .status-tag {
+      font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+      color: #f59e0b; background: rgba(245, 158, 11, 0.1);
+      padding: 3px 10px; border-radius: 4px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .source-tag {
+      font-family: var(--font-mono); font-size: 0.76rem;
+      color: var(--text-muted); font-style: italic;
+    }
+
+    .math-block {
+      overflow-x: auto; padding: 12px 16px; margin: 12px 0;
+      background: var(--bg-subtle); border-radius: 8px;
+      border: 1px solid var(--border-subtle); text-align: center;
+    }
+
+    .article-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 50px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .nav-btn {
+      display: inline-flex; flex-direction: column; text-decoration: none;
+      padding: 12px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .nav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .nav-btn-label { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+    .nav-btn-title { font-size: 0.92rem; font-weight: 600; color: var(--text-heading); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📑</span>
+          <span>Problems Index</span>
+        </a>
+        <a href="../teoria/topic-1.html" class="back-link">
+          <span>📖</span>
+          <span>Topic Theory</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering - Part I</div>
+      <h1 class="article-title">Topic 1: Fundamentals and Particle Kinematics - Problem Sets</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • BSc in Aerospace Engineering, UC3M
+      </div>
+      <div class="source-box">
+        Ground Truth: sources/03-engineering-mechanics/problemas/Problems.pdf (2026 Edition)
+      </div>
+    </header>
+
+    <div class="note-banner">
+      <strong>📌 Verbatim Problem Statements:</strong> All problem statements below are transcribed with 100% fidelity from the official UC3M problem collection. Solutions will be added in subsequent analytical development phases.
+    </div>
+
+
+    <!-- Problem 01 -->
+    <div class="problem-card" id="prob-01">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 01</div>
+          <h2 class="problem-title">Rocket Helical Trajectory</h2>
+        </div>
+        <span class="problem-badge">MIT OCW Benchmark</span>
+      </div>
+      <div class="problem-statement">
+        <p>An out-of-control rocket traces an upward helical trajectory described in Cartesian coordinates for $t \ge 0$ by:</p>
+        <div class="math-block">
+          $$ x = a\cos(\omega t) \tag{1} $$
+          $$ y = a\sin(\omega t) \tag{2} $$
+          $$ z = v_z t \tag{3} $$
+        </div>
+        <p>where $a$, $v_z$, and $\omega$ are constants.</p>
+      </div>
+      <ul class="questions-list">
+        <li class="question-item">
+          <span class="question-label">(a)</span>
+          <div class="question-text">Express the position, velocity, and acceleration vectors in the Cartesian $x, y, z$ system using unit vectors $\mathbf{i}, \mathbf{j}, \mathbf{k}$.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(b)</span>
+          <div class="question-text">Express the position, velocity, and acceleration vectors in the cylindrical coordinate system using unit vectors $\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z$.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(c)</span>
+          <div class="question-text">Express the velocity and acceleration vectors using $s, \rho$ and the vector basis $\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b$.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(d)</span>
+          <div class="question-text">Compute the modulus of the velocity vector.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(e)</span>
+          <div class="question-text">Express the evolution of the arc-length coordinate as a function of time.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(f)</span>
+          <div class="question-text">Write down the trajectory as a function of the arc-length coordinate.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(g)</span>
+          <div class="question-text">Where is the center of curvature for this curve when the particle is located at $(x, y, z) = (a, 0, 0)$?</div>
+        </li>
+      </ul>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Taken from MIT OCW)</span>
+      </div>
+    </div>
+
+    <!-- Problem 02 -->
+    <div class="problem-card" id="prob-02">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 02</div>
+          <h2 class="problem-title">Kinematics, Spiral</h2>
+        </div>
+        <span class="problem-badge">Polar Kinematics</span>
+      </div>
+      <div class="problem-statement">
+        <p>A planar spiral is given by the equation $r = \alpha e^{\beta\theta}$, where $\alpha$ and $\beta$ are constants, $r$ is the radial coordinate, and $\theta$ is the angular coordinate. If a particle moves along the spiral according to the equation $\theta = \delta t^n$ (where $\delta$ is a constant), determine:</p>
+      </div>
+      <ul class="questions-list">
+        <li class="question-item">
+          <span class="question-label">(a)</span>
+          <div class="question-text">The radial and transverse components of the velocity.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(b)</span>
+          <div class="question-text">The radial and transverse components of the acceleration.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(c)</span>
+          <div class="question-text">The tangential and normal components of the velocity.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(d)</span>
+          <div class="question-text">The tangential and normal components of the acceleration.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(e)</span>
+          <div class="question-text">The radius of curvature of the spiral.</div>
+        </li>
+      </ul>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Page 6)</span>
+      </div>
+    </div>
+
+    <!-- Problem 03 -->
+    <div class="problem-card" id="prob-03">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 03</div>
+          <h2 class="problem-title">Kinematics, Astroid</h2>
+        </div>
+        <span class="problem-badge">Intrinsic Kinematics</span>
+      </div>
+      <div class="problem-statement">
+        <p>A point particle describes the astroid:</p>
+        <div class="math-block">
+          $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
+        </div>
+        <p>with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. <em>(Hint: $ds = \sqrt{dx^2 + dy^2}$)</em>.</p>
+      </div>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Page 6)</span>
+      </div>
+    </div>
+
+    <!-- Problem 04 -->
+    <div class="problem-card" id="prob-04">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 04</div>
+          <h2 class="problem-title">Plane at Constant Altitude</h2>
+        </div>
+        <span class="problem-badge">Coordinate Transformations</span>
+      </div>
+      <div class="problem-statement">
+        <p>An aircraft moves at constant altitude $y_0$ with velocity $v_0$ in the $x$ direction. At time $t = 0$ it is located at $x = 0$, and it begins to accelerate in the $x$ direction at a constant rate $a_x$. Describe the position, velocity, and acceleration in polar coordinates $r, \theta$, and answer the following questions:</p>
+      </div>
+      <ul class="questions-list">
+        <li class="question-item">
+          <span class="question-label">(a)</span>
+          <div class="question-text">Show that: $\dot{r} = \frac{v(t) x(t)}{r(t)}$</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(b)</span>
+          <div class="question-text">Show that: $\dot{\theta} = -\frac{v(t) y_0}{r^2(t)}$</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(c)</span>
+          <div class="question-text">Show that: $\ddot{r} = \frac{v^2(t) y_0^2 + a_x x(t) r^2(t)}{r^3(t)}$</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(d)</span>
+          <div class="question-text">Show that: $\ddot{\theta} = y_0\frac{2v^2(t) x(t) - a_x r^2(t)}{r^4(t)}$</div>
+        </li>
+      </ul>
+      <div class="problem-statement">
+        <p>From these expressions form the acceleration vector $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$. Repeat the problem using Cartesian coordinates.</p>
+      </div>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Page 7)</span>
+      </div>
+    </div>
+
+    <!-- Problem 05 -->
+    <div class="problem-card" id="prob-05">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 05</div>
+          <h2 class="problem-title">Plane and Glider</h2>
+        </div>
+        <span class="problem-badge">Aerospace Towed Flight</span>
+      </div>
+      <div class="problem-statement">
+        <p>An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towing a glider $B$. The glider is gaining altitude. The tow cable has a length $r$, and the angle $\theta$ formed between the tow cable and the horizontal is increasing at a constant rate of $\dot{\theta}$. We want to determine the magnitude of the velocity, $v_B$, and the acceleration, $a_B$, of the glider as a function of $\theta$ and its derivatives.</p>
+      </div>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Page 7)</span>
+      </div>
+    </div>
+
+    <!-- Problem 06 -->
+    <div class="problem-card" id="prob-06">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 06</div>
+          <h2 class="problem-title">Particle on Sinusoidal Curve</h2>
+        </div>
+        <span class="problem-badge">Frenet-Serret Frame</span>
+      </div>
+      <div class="problem-statement">
+        <p>A point particle $P$ travels along a curve given by:</p>
+        <div class="math-block">
+          $$ y = \sin x $$
+        </div>
+        <p>with a velocity along $x$ given by $\dot{x} = 1$.</p>
+      </div>
+      <ul class="questions-list">
+        <li class="question-item">
+          <span class="question-label">(a)</span>
+          <div class="question-text">Find the intrinsic, unitary vector basis associated to the curve.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(b)</span>
+          <div class="question-text">Express $x$ as a function of an arc length parameter, $s$. You can leave your solution as a function of an integral.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(c)</span>
+          <div class="question-text">Find the tangent and normal acceleration components of $P$ as a function of $x$.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(d)</span>
+          <div class="question-text">Write the radius of curvature of the trajectory as a function of $x$.</div>
+        </li>
+      </ul>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Page 7)</span>
+      </div>
+    </div>
+
+    <!-- Problem 08 -->
+    <div class="problem-card" id="prob-08">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 08</div>
+          <h2 class="problem-title">Kinematics, Two Trains on Tracks</h2>
+        </div>
+        <span class="problem-badge">Relative Motion</span>
+      </div>
+      <div class="problem-statement">
+        <p>Two trains, $A$ and $B$, are moving along parallel tracks. The separation between the tracks is $a$. The absolute velocity of each train is $v_A$ and $v_B$, respectively. What is the relative velocity of each train with respect to the other?</p>
+        <p>Solve the same problem considering that train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.</p>
+      </div>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Page 8)</span>
+      </div>
+    </div>
+
+    <!-- Problem 41 -->
+    <div class="problem-card" id="prob-41">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 41</div>
+          <h2 class="problem-title">Simple Rotations, Satellite Solar Panels</h2>
+        </div>
+        <span class="problem-badge">Rotational Kinematics</span>
+      </div>
+      <div class="problem-statement">
+        <p>The angle $\theta$ describing the rotation of the solar panels of a reconnaissance satellite about the body-fixed axis $x$ is an arbitrary function of time. The satellite spins about the $z$ axis at the constant angular rate $\omega$. Derive expressions for the absolute velocity and acceleration of point $B$ in the figure relative to an inertial reference frame centered in $A$.</p>
+      </div>
+      <div class="problem-footer">
+        <span class="status-tag">📝 Enunciado Oficial • Resolución Pendiente</span>
+        <span class="source-tag">Source: Problems.pdf (Ginsberg, Cambridge Univ. Press, 2008)</span>
+      </div>
+    </div>
+
+
+    <div class="article-nav">
+      <a href="index.html" class="nav-btn">
+        <span class="nav-btn-label">← Back to Overview</span>
+        <span class="nav-btn-title">Problems Hub</span>
+      </a>
+      <a href="../teoria/topic-1.html" class="nav-btn" style="text-align: center;">
+        <span class="nav-btn-label">Theory Reference</span>
+        <span class="nav-btn-title">Review Topic Theory →</span>
+      </a>
+      <a href="topic-2.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Next Topic →</span>
+        <span class="nav-btn-title">Topic 2: Particle Dynamics</span>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

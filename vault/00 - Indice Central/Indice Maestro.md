@@ -18,8 +18,8 @@ Este es el nodo raíz de la bóveda de conocimiento de 2º curso del Grado en In
 * **Cuaderno NotebookLM asociado:** `9b324478-69e9-482c-813c-5709ec031820`
 * **Página Web:** `subjects/aerospace-materials-1/`
 
-### 🏗️ [[03 - Engineering Mechanics/Mecanica de Estructuras MOC|Mecánica de Estructuras]]
-* **Temas principales:** Elasticidad lineal bidimensional y tridimensional, Círculo de Mohr, Esfuerzo axil, flexión pura y compuesta, cortante y torsión en vigas, Pandeo de columnas, Criterios de fallo (Von Mises, Tresca).
+### 🏗️ [[03 - Engineering Mechanics/Mecanica de Estructuras MOC|Mecánica Aplicada a la Ingeniería Aeroespacial]]
+* **Temas principales:** Cinemática y dinámica del punto material, movimiento relativo, oscilador armónico, problema orbital de Kepler, cinemática y dinámica 3D del sólido rígido, geometría de masas, ecuaciones de Euler y mecánica de vuelo atmosférico.
 * **Cuaderno NotebookLM asociado:** `473546c3-3716-4426-b0c4-58de530f91c8`
 * **Página Web:** `subjects/engineering-mechanics/`
 

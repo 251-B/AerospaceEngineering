@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Mechanics - Problem Sets | Aerospace Engineering</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.25s ease;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17;
+      --bg-surface: #111827;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-card-hover: rgba(26, 36, 56, 0.85);
+      --bg-subtle: #1e293b;
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-card: #273549;
+      --badge-bg: #1e293b;
+      --badge-text: #38bdf8;
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0284c7;
+      --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top Sticky Navigation */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 14px;
+    }
+    .brand-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 13.5px; font-weight: 500;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px;
+      background: var(--badge-bg); color: var(--badge-text);
+      padding: 3px 8px; border-radius: 4px; font-weight: 600;
+    }
+
+    .theme-toggle {
+      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
+      color: var(--text-primary); width: 36px; height: 36px;
+      border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: all var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); background: var(--accent-soft); }
+    [data-theme="dark"] .theme-toggle::before { content: "☀️"; }
+    [data-theme="light"] .theme-toggle::before { content: "🌙"; }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      padding: 48px 0 36px;
+    }
+    .page-header .icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700; color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      color: var(--text-muted); font-size: 1rem;
+      max-width: 680px; margin: 0 auto;
+    }
+
+    /* Tabs/Switch */
+    .section-nav {
+      display: flex; justify-content: center; gap: 12px;
+      margin-bottom: 36px;
+    }
+    .tab-btn {
+      padding: 8px 18px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none; transition: all var(--transition);
+      border: 1px solid var(--border-subtle);
+    }
+    .tab-btn.active {
+      background: var(--accent); color: #0a0e17; border-color: var(--accent);
+    }
+    .tab-btn:not(.active) {
+      background: var(--bg-surface); color: var(--text-muted);
+    }
+    .tab-btn:not(.active):hover {
+      color: var(--text-primary); border-color: var(--border-card);
+    }
+
+    /* Topic Cards Grid */
+    .topics-grid {
+      display: flex; flex-direction: column; gap: 18px;
+      margin-bottom: 60px;
+    }
+    .topic-card {
+      display: flex; text-decoration: none; color: inherit;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow-card); transition: all var(--transition);
+    }
+    .topic-card:hover {
+      border-color: var(--accent); background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .topic-card.disabled {
+      opacity: 0.6; cursor: not-allowed;
+    }
+    .topic-num {
+      min-width: 76px; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 1.4rem; font-weight: 800;
+      background: var(--bg-glass); border-right: 1px solid var(--border-subtle);
+      color: var(--accent);
+    }
+    .topic-body {
+      padding: 22px 24px; flex: 1;
+    }
+    .topic-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .topic-title {
+      font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700;
+      color: var(--text-primary);
+    }
+    .topic-badge {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+      background: rgba(16, 185, 129, 0.12); color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .topic-badge.badge-soon {
+      background: rgba(148, 163, 184, 0.12); color: var(--text-muted);
+      border-color: var(--border-subtle);
+    }
+    .topic-desc {
+      font-size: 0.92rem; color: var(--text-muted); margin-bottom: 14px;
+    }
+    .topic-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .topic-tag {
+      font-family: var(--font-mono); font-size: 0.74rem;
+      background: var(--bg-subtle); color: var(--text-secondary);
+      padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="../teoria/index.html" class="back-link">
+          <span>📖</span>
+          <span>Mechanics Theory</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="page-header">
+      <div class="icon">✏️</div>
+      <h1>Official Course <span style="color: var(--accent);">Problem Sets</span></h1>
+      <p>Verbatim problem statements from official department problem sheets and exams (2026 Edition), classified strictly by topic.</p>
+    </header>
+
+    <div class="section-nav">
+      <a href="../teoria/index.html" class="tab-btn">📖 Theory Guides</a>
+      <a href="index.html" class="tab-btn active">✏️ Problem Sets</a>
+    </div>
+
+    <div class="topics-grid">
+      <!-- Topic 1 -->
+      <a href="topic-1.html" class="topic-card">
+        <div class="topic-num">01</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h2 class="topic-title">Topic 1: Fundamentals and Particle Kinematics</h2>
+            <span class="topic-badge">8 Problems Available</span>
+          </div>
+          <p class="topic-desc">Helical rocket trajectory, logarithmic spirals, parametric astroid, aircraft in polar coordinates, towed glider, sinusoidal path, train relative motion, and satellite solar panel rotations.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Cartesian / Polar / Cylindrical</span>
+            <span class="topic-tag">Frenet-Serret Frame</span>
+            <span class="topic-tag">Radius of Curvature</span>
+            <span class="topic-tag">Relative Motion</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Topic 2 -->
+      <a href="topic-2.html" class="topic-card">
+        <div class="topic-num">02</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h2 class="topic-title">Topic 2: Point Particle Dynamics</h2>
+            <span class="topic-badge">9 Problems Available</span>
+          </div>
+          <p class="topic-desc">Cubic and quartic conservative potentials, 1D energy landscapes, oscillation periods under conservative forces, Stokes viscous drag, football aerodynamic drag, linear central force, and the simple pendulum.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Newton's Laws</span>
+            <span class="topic-tag">Conservative Forces</span>
+            <span class="topic-tag">Potential Energy</span>
+            <span class="topic-tag">Aerodynamic Drag</span>
+            <span class="topic-tag">Simple Pendulum</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Topic 3 -->
+      <a href="topic-3.html" class="topic-card">
+        <div class="topic-num">03</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h2 class="topic-title">Topic 3: Constraints and Reaction Forces</h2>
+            <span class="topic-badge">13 Problems Available</span>
+          </div>
+          <p class="topic-desc">Motion on smooth cones, paraboloids, and tilted cylinders, particle on a curve, circular wire with spring, multi-particle systems connected by inextensible strings over pulleys/spools, particle on torus, plate edge tether, and double pendulum.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Holonomic Constraints</span>
+            <span class="topic-tag">Normal Reactions</span>
+            <span class="topic-tag">Dynamical Decoupling</span>
+            <span class="topic-tag">Multi-Particle Systems</span>
+            <span class="topic-tag">Inextensible Cables</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Topic 4 (Coming Soon) -->
+      <div class="topic-card disabled">
+        <div class="topic-num">04</div>
+        <div class="topic-body">
+          <div class="topic-top">
+            <h2 class="topic-title">Topic 4: The Harmonic Oscillator (Free, Damped, Forced)</h2>
+            <span class="topic-badge badge-soon">Coming Soon</span>
+          </div>
+          <p class="topic-desc">Base-excited vibrations, bumpy taxiway, vibrating rotor, resonance curves, and quality factors.</p>
+          <div class="topic-tags">
+            <span class="topic-tag">Harmonic Oscillator</span>
+            <span class="topic-tag">Damping</span>
+            <span class="topic-tag">Resonance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

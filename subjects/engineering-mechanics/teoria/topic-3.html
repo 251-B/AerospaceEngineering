@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 3: Constraints and Reaction Forces | Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Google Fonts & KaTeX CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.25s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --bg-input: #0f172a;
+      --text-main: #e2e8f0;
+      --text-heading: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-strong: #334155;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+      --badge-bg: #1e293b;
+      --badge-text: #38bdf8;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: #e2e8f0;
+      --text-main: #1e293b;
+      --text-heading: #0f172a;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --accent: #0284c7;
+      --accent-soft: rgba(2, 132, 199, 0.08);
+      --accent-border: rgba(2, 132, 199, 0.3);
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      content: "☀️";
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+      content: "🌙";
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0 36px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-item:hover {
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 30px 0 12px;
+    }
+
+    h4.minor-heading {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      border: 1px solid;
+    }
+
+    .callout-info {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
+
+    .callout-key {
+      background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+      border-color: var(--accent-border);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-warning .callout-title { color: #f59e0b; }
+    .callout-key .callout-title { color: var(--accent); }
+
+    /* Math Blocks */
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .math-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 26px 0;
+      text-align: center;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Example Box */
+    .example-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .example-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .example-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Footer Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      min-width: 220px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📑</span>
+          <span>Mechanics Index</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering — Part I</div>
+      <h1 class="article-title">Topic 3: Constraints and Reaction Forces</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • Prof. Alberto Marín, Mario Merino, Manuel García-Villalba • BSc in Aerospace Engineering, UC3M
+      </div>
+      <div class="source-box">
+        Ground Truth: slides/03_-_Constraints (1).pdf &amp; teoria/Notes.pdf (Chapter 6)
+      </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📌</span>
+        <span>Topic Outline</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#sec-1" class="toc-item"><span>1.</span> Introduction to Constraints &amp; CDOFs</a>
+        <a href="#sec-2" class="toc-item"><span>2.</span> Surfaces &amp; Curves: Implicit and Parametric</a>
+        <a href="#sec-3" class="toc-item"><span>3.</span> Normal and Tangent Subspaces ($V_N, V_T$)</a>
+        <a href="#sec-4" class="toc-item"><span>4.</span> Reaction Forces &amp; Dynamical Decoupling</a>
+        <a href="#sec-5" class="toc-item"><span>5.</span> Power, Work, &amp; Energy Conservation</a>
+        <a href="#sec-6" class="toc-item"><span>6.</span> Constraints on Systems of Particles</a>
+        <a href="#sec-7" class="toc-item"><span>7.</span> Coulomb Friction on Curves &amp; Surfaces</a>
+        <a href="#sec-8" class="toc-item"><span>8.</span> Advanced Classification of Constraints</a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <section id="sec-1">
+      <h2 class="section-heading"><span>1.</span> Introduction to Constraints and Configuration Degrees of Freedom</h2>
+      <p>
+        In physical engineering problems, particles are rarely free to move arbitrarily through 3D Euclidean space. Instead, their paths are constrained by contact with physical guides, rigid surfaces, or connecting links (Slide 3):
+      </p>
+      <ul>
+        <li>A ground vehicle or rolling aircraft constrained to remain upon the spherical surface of the Earth.</li>
+        <li>A small bead sliding smoothly along a fixed rigid wire.</li>
+        <li>Two spacecraft modules or payloads connected by a taut, inextensible cable.</li>
+      </ul>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>⚙️</span>
+          <span>Definition of a Simple Constraint</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          In this course, we begin by analyzing <strong>simple constraints</strong> on a single point particle:
+        </p>
+        <ul style="margin-top: 8px; margin-bottom: 0;">
+          <li>They are expressed mathematically as algebraic equations on spatial coordinates (e.g., $x, y, z$).</li>
+          <li>They do not depend explicitly on time $t$ (<strong>stationary / scleronomic</strong>).</li>
+          <li>They constrain the particle to <strong>stationary surfaces</strong> (2D manifolds) or <strong>stationary curves</strong> (1D manifolds).</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-heading">1.1 Configuration Degrees of Freedom (CDOFs)</h3>
+      <p>
+        The number of <strong>Configuration Degrees of Freedom (CDOFs)</strong> represents the minimum number of independent scalar variables required to uniquely specify the spatial position of a mechanical system at any instant (Slide 4):
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kinematic Situation</th>
+              <th>Dimension of Manifold</th>
+              <th>Number of Constraints</th>
+              <th>Configuration Degrees of Freedom (CDOFs)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Free Particle in 3D Space</strong></td>
+              <td>$\mathbb{R}^3$ (3D)</td>
+              <td>$0$</td>
+              <td>$\mathbf{3}$ ($x, y, z$)</td>
+            </tr>
+            <tr>
+              <td><strong>Particle Constrained to a Surface</strong></td>
+              <td>2D Manifold</td>
+              <td>$1$ ($f(x,y,z)=0$)</td>
+              <td>$\mathbf{2}$ ($q_1, q_2$)</td>
+            </tr>
+            <tr>
+              <td><strong>Particle Constrained to a Curve</strong></td>
+              <td>1D Manifold</td>
+              <td>$2$ ($f=0, g=0$)</td>
+              <td>$\mathbf{1}$ ($q_1$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">1.2 Two Modeling Approaches: DAE vs. Generalized Coordinates</h3>
+      <p>
+        When formulating constrained particle dynamics, two distinct paths exist (Slide 4):
+      </p>
+      <ol>
+        <li>
+          <strong>Differential-Algebraic Equations (DAE Approach):</strong> Retain 3 Cartesian coordinates $(x,y,z)$, write Newton's equations with unknown reaction forces $\mathbf{N}$, and append the algebraic constraint equations $f(x,y,z)=0$. 
+          <em>Drawback:</em> This yields coupled differential-algebraic equations that are cumbersome to solve analytically.
+        </li>
+        <li>
+          <strong>Generalized Coordinates Approach (Course Standard):</strong> Select a number of generalized coordinates equal to the system's CDOFs ($q_1, \dots, q_n$, where $n = \text{CDOF}$) that naturally parametrize the constraint surface or curve:
+          $$ \mathbf{r} = \mathbf{r}(q_1, \dots, q_n) $$
+          <em>Advantage:</em> The constraint equations are <strong>identically satisfied</strong> for all parameter values, reducing the differential equations to the exact minimum dimension without auxiliary algebraic conditions.
+        </li>
+      </ol>
+
+      <h3 class="sub-heading">1.3 Pedagogical Coordinate Selection Strategy (Notes Sec. 6.2)</h3>
+      <p>
+        While any complete coordinate system can theoretically describe the motion, selecting coordinates that mirror the constraint geometry simplifies the kinematics and decoupling immensely:
+      </p>
+      <ul>
+        <li><strong>Tethered Particle / Rigid Link:</strong> If particle $P$ is attached by a rigid link of length $\ell$ to fixed point $A$, it moves on a sphere of radius $\ell$ centered at $A$ (2 CDOFs). Natural generalized coordinates are the spherical angles $(\theta, \phi)$ (Notes Sec. 6.2).</li>
+        <li><strong>Particle on a Conical Guide:</strong> For motion on a cone of half-angle $\alpha$, the azimuthal angle $\theta$ and slant distance to the vertex $\rho$ (or vertical elevation $z$) provide the natural 2 CDOFs.</li>
+        <li><strong>Particle on a Fixed Wire:</strong> For a 1D rigid curve, the Frenet arc length coordinate $s$ or one Cartesian coordinate parametrizing the curve provides the 1 CDOF.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2">
+      <h2 class="section-heading"><span>2.</span> Surfaces and Curves: Implicit and Parametric Representations</h2>
+      <p>
+        To model physical constraints, we manipulate curves and surfaces interchangeably in implicit and parametric forms (Slide 5 &amp; Notes Sec. 6.1):
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Geometric Object</th>
+              <th>Implicit Formulation</th>
+              <th>Parametric Formulation</th>
+              <th>Natural Coordinates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Surface (2-Manifold)</strong></td>
+              <td>$f(x, y, z) = 0$ (Notes Eq. 6.5)<br><small>e.g. Sphere: $x^2 + y^2 + z^2 - R^2 = 0$ (Eq. 6.6)</small></td>
+              <td>$x = x(\alpha, \beta), \; y = y(\alpha, \beta), \; z = z(\alpha, \beta)$ (Eq. 6.3)<br><small>e.g. $x = R\cos\phi\sin\theta, y = R\sin\phi\sin\theta, z = R\cos\theta$ (Eq. 6.4)</small></td>
+              <td>Two parameters: $\alpha, \beta$</td>
+            </tr>
+            <tr>
+              <td><strong>Curve (1-Manifold)</strong></td>
+              <td>$\begin{cases} f(x, y, z) = 0 \\ g(x, y, z) = 0 \end{cases}$ (Notes Eq. 6.7)<br><small>e.g. Circumference: cylinder $\cap$ plane (Eq. 6.8)</small></td>
+              <td>$x = x(\alpha), \; y = y(\alpha), \; z = z(\alpha)$ (Eq. 6.1)<br><small>e.g. $x = C_x + a\cos\theta, y = C_y + a\sin\theta, z = C_z$ (Eq. 6.2)</small></td>
+              <td>One parameter: $\alpha$ (or arc length $s$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">Official Slide Benchmark Examples (Slide 6)</h3>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Parametric Elliptic Curve to Implicit Form</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Elimination of parameter $\alpha$ via trigonometric identities</span>
+          </div>
+          <span class="example-badge">Slide 6</span>
+        </div>
+        <p><strong>Problem Statement:</strong> A curve shaped as an ellipse in the $Oxy$ plane is defined parametrically by:</p>
+        <div class="math-block">
+          $$ \begin{cases} x(\alpha) = a\cos\alpha \\ y(\alpha) = b\sin\alpha \\ z(\alpha) = 0 \end{cases} $$
+        </div>
+        <p>Find the implicit equations defining the curve.</p>
+        <p><strong>Step-by-step Solution:</strong></p>
+        <ol>
+          <li>Isolate the trigonometric terms:
+            $$ \cos\alpha = \frac{x}{a}, \quad \sin\alpha = \frac{y}{b} $$
+          </li>
+          <li>Apply the Pythagorean identity $\cos^2\alpha + \sin^2\alpha \equiv 1$:
+            $$ \left(\frac{x}{a}\right)^2 + \left(\frac{y}{b}\right)^2 = 1 \implies \frac{x^2}{a^2} + \frac{y^2}{b^2} - 1 = 0 $$
+          </li>
+          <li>Combine with the planar condition $z = 0$ to express the curve as the intersection of two surfaces:
+            $$ \begin{cases} f(x, y, z) = \frac{x^2}{a^2} + \frac{y^2}{b^2} - 1 = 0 \\ g(x, y, z) = z = 0 \end{cases} $$
+            (The curve is the intersection between an elliptic cylinder and the coordinate plane $z=0$).
+          </li>
+        </ol>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Parametric Sphere to Implicit Form</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Elimination of azimuth $\alpha$ and elevation $\beta$</span>
+          </div>
+          <span class="example-badge">Slide 6</span>
+        </div>
+        <p><strong>Problem Statement:</strong> A spherical surface of radius $a$ centered at origin $O$ is given by parameters $\alpha \in [0, 2\pi)$ and $\beta \in [-\pi/2, \pi/2]$:</p>
+        <div class="math-block">
+          $$ \begin{cases} x(\alpha, \beta) = a\cos\alpha\cos\beta \\ y(\alpha, \beta) = a\sin\alpha\cos\beta \\ z(\alpha, \beta) = a\sin\beta \end{cases} $$
+        </div>
+        <p>Find its implicit algebraic equation.</p>
+        <p><strong>Step-by-step Solution:</strong></p>
+        <ol>
+          <li>Sum the squares of the horizontal coordinates:
+            $$ x^2 + y^2 = a^2\cos^2\alpha\cos^2\beta + a^2\sin^2\alpha\cos^2\beta = a^2\cos^2\beta(\cos^2\alpha + \sin^2\alpha) = a^2\cos^2\beta $$
+          </li>
+          <li>Add the square of the vertical coordinate $z^2 = a^2\sin^2\beta$:
+            $$ x^2 + y^2 + z^2 = a^2\cos^2\beta + a^2\sin^2\beta = a^2(\cos^2\beta + \sin^2\beta) = a^2 $$
+          </li>
+          <li>The implicit equation of the sphere is:
+            $$ f(x, y, z) = x^2 + y^2 + z^2 - a^2 = 0 $$
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3">
+      <h2 class="section-heading"><span>3.</span> Normal and Tangent Subspaces ($V_N, V_T$)</h2>
+      <p>
+        At each point $P$ of a smooth manifold, Euclidean space decomposes into two orthogonal vector subspaces (Slides 7–8):
+        $$ \mathbb{R}^3 = V_N \oplus V_T, \quad V_N \cap V_T = \{\mathbf{0}\} $$
+      </p>
+
+      <!-- SVG Diagram: Surface Subspaces -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 640 280" width="600" height="260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-sub" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)" />
+            </marker>
+            <marker id="arrow-n" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+            </marker>
+            <marker id="arrow-t" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+            </marker>
+          </defs>
+
+          <!-- Curved Surface Mesh -->
+          <path d="M 60 190 Q 220 250, 560 170 Q 500 70, 360 80 Q 140 100, 60 190 Z" 
+                fill="color-mix(in srgb, var(--accent) 8%, var(--bg-surface))" 
+                stroke="var(--border-strong)" stroke-width="1.5" />
+          <text x="80" y="210" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Surface f(x,y,z)=0</text>
+
+          <!-- Contact Point P -->
+          <circle cx="320" cy="150" r="5" fill="var(--text-heading)" />
+          <text x="325" y="165" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">P</text>
+
+          <!-- Tangent Plane at P -->
+          <polygon points="180,180 420,200 460,110 220,90" 
+                   fill="rgba(245, 158, 11, 0.08)" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4" />
+          <text x="430" y="105" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">Tangent Plane V_T (dim=2)</text>
+
+          <!-- Tangent Vectors -->
+          <line x1="320" y1="150" x2="430" y2="165" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="435" y="172" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t_α = ∂r/∂α</text>
+
+          <line x1="320" y1="150" x2="260" y2="110" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="210" y="105" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t_β = ∂r/∂β</text>
+
+          <!-- Normal Vector n -->
+          <line x1="320" y1="150" x2="320" y2="35" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow-n)" />
+          <text x="330" y="45" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">n = ∇f = t_α × t_β ∈ V_N (dim=1)</text>
+
+          <!-- Right Angle Symbol -->
+          <path d="M 320 125 L 340 128 L 340 152" fill="none" stroke="#38bdf8" stroke-width="1.2" />
+        </svg>
+        <div class="diagram-caption">Figure 3.1: Vector decomposition on a surface constraint: 1D normal subspace $V_N$ spanned by gradient $\mathbf{n} = \nabla f$ and 2D tangent subspace $V_T$ spanned by $\{\mathbf{t}_\alpha, \mathbf{t}_\beta\}$.</div>
+      </div>
+
+      <h3 class="sub-heading">3.1 Vectors on a Surface (Slides 7 &amp; 9, Notes Sec. 6.3)</h3>
+      <p>
+        For a surface constraint: $\dim(V_N) = 1$ and $\dim(V_T) = 2$.
+      </p>
+      <ul>
+        <li>
+          <strong>Normal Vector $\mathbf{n} \in V_N$ via Spatial Gradient (Notes Eq. 6.9):</strong>
+          $$ \mathbf{n} = \nabla f = \frac{\partial f}{\partial x}\mathbf{i}_0 + \frac{\partial f}{\partial y}\mathbf{j}_0 + \frac{\partial f}{\partial z}\mathbf{k}_0 $$
+          The gradient vector $\nabla f$ points perpendicular to the level set $f=0$ in the direction of increasing $f$.
+          The unit normal vector is given by (Notes Eq. 6.10):
+          $$ \mathbf{e}_n = \frac{\nabla f}{\|\nabla f\|} $$
+        </li>
+        <li>
+          <strong>Tangent Vectors $\mathbf{t}_\alpha, \mathbf{t}_\beta \in V_T$ via Parametric Derivatives:</strong>
+          $$ \mathbf{t}_\alpha = \frac{\partial\mathbf{r}}{\partial\alpha} = \frac{\partial x}{\partial\alpha}\mathbf{i}_0 + \frac{\partial y}{\partial\alpha}\mathbf{j}_0 + \frac{\partial z}{\partial\alpha}\mathbf{k}_0 $$
+          $$ \mathbf{t}_\beta = \frac{\partial\mathbf{r}}{\partial\beta} = \frac{\partial x}{\partial\beta}\mathbf{i}_0 + \frac{\partial y}{\partial\beta}\mathbf{j}_0 + \frac{\partial z}{\partial\beta}\mathbf{k}_0 $$
+        </li>
+        <li>
+          <strong>Normal Vector via Cross Product:</strong> A normal vector is also directly provided by:
+          $$ \mathbf{n} = \mathbf{t}_\alpha \times \mathbf{t}_\beta $$
+          $\mathcal{B}_P = \{\mathbf{t}_\alpha, \mathbf{t}_\beta, \mathbf{n}\}$ defines a local vector basis at point $P$.
+        </li>
+      </ul>
+
+      <!-- SVG Diagram: Curve Subspaces -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 640 260" width="600" height="240" xmlns="http://www.w3.org/2000/svg">
+          <!-- 3D Curve -->
+          <path d="M 60 210 Q 240 50, 420 180 T 580 80" 
+                fill="none" stroke="var(--text-muted)" stroke-width="2.5" />
+          <text x="80" y="235" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Curve r(α): f(r)=0 ∩ g(r)=0</text>
+
+          <!-- Contact Point P -->
+          <circle cx="320" cy="140" r="5" fill="var(--text-heading)" />
+          <text x="315" y="160" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">P</text>
+
+          <!-- Tangent Vector t -->
+          <line x1="320" y1="140" x2="430" y2="175" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-t)" />
+          <text x="435" y="190" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t = dr/dα = n_f × n_g ∈ V_T (dim=1)</text>
+
+          <!-- Normal Plane V_N -->
+          <polygon points="260,60 380,40 380,220 260,240" 
+                   fill="rgba(56, 189, 248, 0.08)" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4" />
+          <text x="210" y="45" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">Normal Plane V_N (dim=2)</text>
+
+          <!-- Normal Vectors -->
+          <line x1="320" y1="140" x2="310" y2="50" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="240" y="60" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">n_f = ∇f</text>
+
+          <line x1="320" y1="140" x2="350" y2="210" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="355" y="225" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">n_g = ∇g</text>
+        </svg>
+        <div class="diagram-caption">Figure 3.2: Vector decomposition on a curve constraint: 1D tangent subspace $V_T$ spanned by $\mathbf{t} = d\mathbf{r}/d\alpha$ and 2D normal subspace $V_N$ spanned by $\{\mathbf{n}_f, \mathbf{n}_g\}$.</div>
+      </div>
+
+      <h3 class="sub-heading">3.2 Vectors on a Curve (Slides 8 &amp; 10, Notes Sec. 6.3)</h3>
+      <p>
+        For a curve constraint: $\dim(V_N) = 2$ and $\dim(V_T) = 1$.
+      </p>
+      <ul>
+        <li>
+          <strong>Tangent Vector $\mathbf{t} \in V_T$ via Differentiation:</strong>
+          $$ \mathbf{t} = \frac{d\mathbf{r}}{d\alpha} = \frac{dx}{d\alpha}\mathbf{i}_0 + \frac{dy}{d\alpha}\mathbf{j}_0 + \frac{dz}{d\alpha}\mathbf{k}_0 $$
+          (If $\alpha = s$ is the arc length, $\mathbf{t}$ is unitary: $\mathbf{t} = \mathbf{e}_t$).
+        </li>
+        <li>
+          <strong>Normal Vectors $\mathbf{n}_f, \mathbf{n}_g \in V_N$ via Implicit Gradients:</strong>
+          $$ \mathbf{n}_f = \nabla f, \quad \mathbf{n}_g = \nabla g $$
+        </li>
+        <li>
+          <strong>Tangent Vector via Cross Product of Gradients:</strong>
+          $$ \mathbf{t} = \mathbf{n}_f \times \mathbf{n}_g = \nabla f \times \nabla g $$
+          $\mathcal{B}_P = \{\mathbf{t}, \mathbf{n}_f, \mathbf{n}_g\}$ forms a local vector basis at point $P$.
+        </li>
+      </ul>
+
+      <h3 class="sub-heading">Solved Benchmark Examples (Slides 11 &amp; 12)</h3>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Tangent and Normal Vectors for an Ellipse (Slide 11)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Analytical derivatives, scalar products, and cross product alignment</span>
+          </div>
+          <span class="example-badge">Slide 11</span>
+        </div>
+        <p><strong>Problem:</strong> For curve $x = a\cos\alpha, y = b\sin\alpha, z = 0$, find one tangent vector and two independent normal vectors.</p>
+        <p><strong>Calculus Derivation:</strong></p>
+        <ol>
+          <li>Differentiating with respect to $\alpha$ yields the tangent vector:
+            $$ \mathbf{t} = \frac{d\mathbf{r}}{d\alpha} = -a\sin\alpha\,\mathbf{i}_0 + b\cos\alpha\,\mathbf{j}_0 + 0\,\mathbf{k}_0 $$
+          </li>
+          <li>From implicit forms $f = \frac{x^2}{a^2} + \frac{y^2}{b^2} - 1 = 0$ and $g = z = 0$:
+            $$ \mathbf{n}_f = \nabla f = \frac{2x}{a^2}\mathbf{i}_0 + \frac{2y}{b^2}\mathbf{j}_0 = \frac{2\cos\alpha}{a}\mathbf{i}_0 + \frac{2\sin\alpha}{b}\mathbf{j}_0 $$
+            $$ \mathbf{n}_g = \nabla g = 0\,\mathbf{i}_0 + 0\,\mathbf{j}_0 + 1\,\mathbf{k}_0 = \mathbf{k}_0 $$
+          </li>
+          <li>Testing orthogonality via the scalar product:
+            $$ \mathbf{t} \cdot \mathbf{n}_f = (-a\sin\alpha)\left(\frac{2\cos\alpha}{a}\right) + (b\cos\alpha)\left(\frac{2\sin\alpha}{b}\right) + 0 = -2\sin\alpha\cos\alpha + 2\sin\alpha\cos\alpha \equiv 0 $$
+            $$ \mathbf{t} \cdot \mathbf{n}_g = (-a\sin\alpha)(0) + (b\cos\alpha)(0) + (0)(1) = 0 $$
+            Both $\mathbf{n}_f$ and $\mathbf{n}_g$ are strictly orthogonal to $\mathbf{t}$!
+          </li>
+          <li>Verifying tangent direction via the cross product of the gradients:
+            $$ \mathbf{n}_f \times \mathbf{n}_g = \begin{vmatrix} \mathbf{i}_0 & \mathbf{j}_0 & \mathbf{k}_0 \\ \frac{2\cos\alpha}{a} & \frac{2\sin\alpha}{b} & 0 \\ 0 & 0 & 1 \end{vmatrix} = \frac{2\sin\alpha}{b}\mathbf{i}_0 - \frac{2\cos\alpha}{a}\mathbf{j}_0 = -\frac{2}{ab}\left(-a\sin\alpha\,\mathbf{i}_0 + b\cos\alpha\,\mathbf{j}_0\right) = -\frac{2}{ab}\mathbf{t} $$
+            The cross product of the two surface normals reproduces the curve tangent direction up to a scalar factor.
+          </li>
+        </ol>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Vectors on Paraboloid Surface $x^2 + y^2 = z$ (Slide 12)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Parametric tangent vectors and complete determinant minor expansion</span>
+          </div>
+          <span class="example-badge">Slide 12</span>
+        </div>
+        <p><strong>Problem:</strong> Find two tangent vectors and a normal vector for the surface $x^2 + y^2 = z$ ($z > 0$).</p>
+        <p><strong>Calculus Derivation:</strong></p>
+        <ol>
+          <li>Implicit equation $f(x, y, z) = x^2 + y^2 - z = 0$. Taking the spatial gradient:
+            $$ \mathbf{n} = \nabla f = \frac{\partial(x^2+y^2-z)}{\partial x}\mathbf{i}_0 + \frac{\partial(x^2+y^2-z)}{\partial y}\mathbf{j}_0 + \frac{\partial(x^2+y^2-z)}{\partial z}\mathbf{k}_0 = 2x\,\mathbf{i}_0 + 2y\,\mathbf{j}_0 - \mathbf{k}_0 $$
+          </li>
+          <li>Parametrizing in cylindrical polar coordinates $(r, \theta)$ with $z = r^2$:
+            $$ \mathbf{r}(r, \theta) = r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 + r^2\,\mathbf{k}_0 $$
+            Taking partial derivatives:
+            $$ \mathbf{t}_r = \frac{\partial\mathbf{r}}{\partial r} = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 + 2r\,\mathbf{k}_0 $$
+            $$ \mathbf{t}_\theta = \frac{\partial\mathbf{r}}{\partial\theta} = -r\sin\theta\,\mathbf{i}_0 + r\cos\theta\,\mathbf{j}_0 + 0\,\mathbf{k}_0 $$
+          </li>
+          <li>Taking the cross product $\mathbf{t}_r \times \mathbf{t}_\theta$ by evaluating the $3 \times 3$ determinant:
+            $$ \mathbf{t}_r \times \mathbf{t}_\theta = \begin{vmatrix} \mathbf{i}_0 & \mathbf{j}_0 & \mathbf{k}_0 \\ \cos\theta & \sin\theta & 2r \\ -r\sin\theta & r\cos\theta & 0 \end{vmatrix} $$
+            $$ = \mathbf{i}_0\left(0 - 2r^2\cos\theta\right) - \mathbf{j}_0\left(0 - (-2r^2\sin\theta)\right) + \mathbf{k}_0\left(r\cos^2\theta - (-r\sin^2\theta)\right) $$
+            $$ = -2r^2\cos\theta\,\mathbf{i}_0 - 2r^2\sin\theta\,\mathbf{j}_0 + r(\cos^2\theta + \sin^2\theta)\,\mathbf{k}_0 $$
+            $$ = -2r(r\cos\theta)\,\mathbf{i}_0 - 2r(r\sin\theta)\,\mathbf{j}_0 + r\,\mathbf{k}_0 = -r(2x\,\mathbf{i}_0 + 2y\,\mathbf{j}_0 - \mathbf{k}_0) = -r\nabla f = -r\mathbf{n} $$
+            The cross product of the tangent vectors is directly anti-parallel to the surface gradient, proving orthogonality with $V_T$.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4">
+      <h2 class="section-heading"><span>4.</span> Constraint Reaction Forces and Dynamical Decoupling</h2>
+      <p>
+        The physical agent enforcing a constraint is a <strong>constraint (or reaction) force $\mathbf{N}$</strong> (Slide 13). For smooth frictionless constraints, $\mathbf{N}$ resides strictly in the normal vector subspace:
+        $$ \mathbf{N} \in V_N $$
+      </p>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>⚖️</span>
+          <span>Closure of Constrained Systems (Slide 13)</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          The components of $\mathbf{N}$ are unknown a priori:
+        </p>
+        <ul style="margin-top: 8px; margin-bottom: 0;">
+          <li><strong>Surface Case ($\dim V_N = 1$):</strong> $\mathbf{N} = N_1\,\mathbf{n}$. There are $2$ CDOFs $+ 1$ unknown reaction $= \mathbf{3}$ unknowns.</li>
+          <li><strong>Curve Case ($\dim V_N = 2$):</strong> $\mathbf{N} = N_1\,\mathbf{n}_f + N_2\,\mathbf{n}_g$. There is $1$ CDOF $+ 2$ unknown reactions $= \mathbf{3}$ unknowns.</li>
+          <li>Together with the 3 scalar ODEs of Newton's second law ($m_P\mathbf{a}_0^P = \mathbf{F}_{\text{app}} + \mathbf{N}$), the system has <strong>3 equations for 3 unknowns</strong> and is mathematically closed.</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-heading">4.1 Decoupling Strategy via Orthogonal Projection (Slide 14)</h3>
+      <p>
+        We systematically separate the equations of motion from the reaction unknowns:
+      </p>
+      <ol>
+        <li>
+          <strong>Tangent Projection ($V_T$):</strong> Project Newton's second law onto the basis of $V_T$. Because $\mathbf{N} \perp V_T$, all reaction forces vanish ($\mathbf{N} \cdot \mathbf{t} \equiv 0$). This yields pure second-order ODEs for the generalized coordinates $q_i(t)$!
+        </li>
+        <li>
+          <strong>Normal Projection ($V_N$):</strong> Project Newton's second law onto the basis of $V_N$. This produces algebraic formulas that directly yield reaction forces $N_1, N_2$ once the kinematic state $(q, \dot{q}, \ddot{q})$ is determined.
+        </li>
+      </ol>
+
+      <h3 class="sub-heading">4.2 Path Variables Formulation along Smooth Curves (Notes Sec. 6.5, Eqs. 6.14–6.19)</h3>
+      <p>
+        When a particle moves along an arbitrary smooth 3D curve, formulating dynamics in the intrinsic <strong>Frenet-Serret frame</strong> $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ makes the geometric decoupling transparent (Notes Sec. 6.5):
+      </p>
+      <ul>
+        <li>
+          <strong>Intrinsic Acceleration (Notes Eq. 6.14):</strong>
+          $$ \mathbf{a}_0^P = \ddot{s}\,\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\,\mathbf{e}_n $$
+          where $s(t)$ is the path arc length and $\rho(s)$ is the local radius of curvature. Notice that acceleration has zero component along the binormal direction $\mathbf{e}_b$.
+        </li>
+        <li>
+          <strong>Force Projections (Notes Eqs. 6.15–6.16):</strong>
+          $$ \mathbf{F}_{\text{applied}} = F_t\,\mathbf{e}_t + F_n\,\mathbf{e}_n + F_b\,\mathbf{e}_b $$
+          $$ \mathbf{N} = N_n\,\mathbf{e}_n + N_b\,\mathbf{e}_b \quad (\text{since } N_t = 0 \text{ for a smooth wire}) $$
+        </li>
+        <li>
+          <strong>Decoupled Equations of Motion (Notes Eqs. 6.17–6.19):</strong>
+          $$ \begin{cases}
+          F_t = m\ddot{s} & \text{(Tangential: pure ODE for speed evolution } \dot{s}) \\
+          F_n + N_n = m\frac{\dot{s}^2}{\rho} & \text{(Principal Normal: yields reaction } N_n) \\
+          F_b + N_b = 0 & \text{(Binormal: yields reaction } N_b)
+          \end{cases} $$
+          The tangential equation is entirely independent of reaction components $N_n$ and $N_b$, confirming that the dynamics along the wire can be solved before determining any contact forces.
+        </li>
+      </ul>
+
+      <!-- SVG Diagram: Circular Wire FBD -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 520 280" width="480" height="260" xmlns="http://www.w3.org/2000/svg">
+          <!-- Circle Wire -->
+          <circle cx="260" cy="140" r="100" fill="none" stroke="var(--border-strong)" stroke-width="2" />
+          <line x1="260" y1="140" x2="330" y2="70" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="3" />
+          <text x="290" y="100" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Radius a</text>
+
+          <!-- Axes -->
+          <line x1="140" y1="140" x2="380" y2="140" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="2" />
+          <line x1="260" y1="20" x2="260" y2="260" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="2" />
+          <circle cx="260" cy="140" r="4" fill="var(--text-muted)" />
+          <text x="245" y="155" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">O</text>
+
+          <!-- Particle P at theta -->
+          <circle cx="330" cy="70" r="10" fill="var(--accent)" />
+          <text x="345" y="65" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P (m)</text>
+
+          <!-- Angle Arc -->
+          <path d="M 300 140 A 40 40 0 0 0 288 112" fill="none" stroke="var(--accent)" stroke-width="2" />
+          <text x="305" y="125" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">θ</text>
+
+          <!-- Vectors at P -->
+          <!-- e_theta -->
+          <line x1="330" y1="70" x2="260" y2="0" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="245" y="15" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ (Tangent)</text>
+
+          <!-- e_R -->
+          <line x1="330" y1="70" x2="380" y2="20" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="390" y="25" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R (Normal)</text>
+
+          <!-- Weight mg -->
+          <line x1="330" y1="70" x2="330" y2="155" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-sub)" />
+          <text x="340" y="145" fill="#10b981" font-family="var(--font-mono)" font-size="12" font-weight="700">W = mg</text>
+
+          <!-- Reaction Force N -->
+          <line x1="330" y1="70" x2="280" y2="120" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-sub)" />
+          <text x="270" y="110" fill="#ef4444" font-family="var(--font-mono)" font-size="12" font-weight="700">N_R</text>
+        </svg>
+        <div class="diagram-caption">Figure 3.3: Particle sliding on a vertical circular wire: polar coordinates $\{\mathbf{e}_R, \mathbf{e}_\theta\}$, weight $\mathbf{W}$, and wire normal reaction $N_R\mathbf{e}_R$.</div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Benchmark Case Study: Heavy Particle on a Vertical Circular Wire (Slide 15)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Decoupling equation of motion from reaction force via polar basis projection</span>
+          </div>
+          <span class="example-badge">Slide 15</span>
+        </div>
+        <p><strong>Problem Statement:</strong> A heavy particle $P$ of mass $m$ is constrained to slide along a smooth fixed circular wire of radius $a$ in the vertical $Oxy$ plane under gravity $\mathbf{g} = -g\mathbf{j}_0$. Obtain the equation of motion for angle $\theta(t)$ first, and subsequently determine the normal reaction force $N_R$.</p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 1: Polar Kinematics &amp; Chain Rule</h5>
+        <p>
+          Position vector: $\mathbf{r}_0^P = a\,\mathbf{e}_R(\theta) = a(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$.
+          Applying the chain rule ($\frac{d}{dt} = \dot{\theta}\frac{\partial}{\partial\theta}$):
+          $$ \frac{d\mathbf{e}_R}{dt} = \dot{\theta}\,\mathbf{e}_\theta, \quad \frac{d\mathbf{e}_\theta}{dt} = -\dot{\theta}\,\mathbf{e}_R $$
+          Differentiating position using the product rule ($a = \text{const}$):
+          $$ \mathbf{v}_0^P = a\dot{\theta}\,\mathbf{e}_\theta $$
+          $$ \mathbf{a}_0^P = \frac{d}{dt}(a\dot{\theta}\,\mathbf{e}_\theta) = a\ddot{\theta}\,\mathbf{e}_\theta + a\dot{\theta}\frac{d\mathbf{e}_\theta}{dt} = -a\dot{\theta}^2\,\mathbf{e}_R + a\ddot{\theta}\,\mathbf{e}_\theta $$
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 2: Force Projections</h5>
+        <p>
+          Two forces act on $P$:
+          1. <strong>Weight $\mathbf{W} = -mg\mathbf{j}_0$:</strong>
+             $$ \mathbf{W} \cdot \mathbf{e}_R = -mg\mathbf{j}_0 \cdot (\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0) = -mg\sin\theta $$
+             $$ \mathbf{W} \cdot \mathbf{e}_\theta = -mg\mathbf{j}_0 \cdot (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0) = -mg\cos\theta $$
+             $$ \mathbf{W} = -mg\sin\theta\,\mathbf{e}_R - mg\cos\theta\,\mathbf{e}_\theta $$
+          2. <strong>Wire Reaction Force:</strong> Acts purely in the normal direction: $\mathbf{N} = N_R\,\mathbf{e}_R$.
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 3: Dynamical Decoupling</h5>
+        <p>
+          Setting up Newton's second law $m\mathbf{a}_0^P = \mathbf{W} + \mathbf{N}$:
+          $$ m(-a\dot{\theta}^2\,\mathbf{e}_R + a\ddot{\theta}\,\mathbf{e}_\theta) = (N_R - mg\sin\theta)\,\mathbf{e}_R - mg\cos\theta\,\mathbf{e}_\theta $$
+        </p>
+        <ul>
+          <li><strong>Tangential Equation ($\mathbf{e}_\theta \in V_T$ — eliminates $N_R$):</strong>
+            $$ m a\ddot{\theta} = -mg\cos\theta \implies \ddot{\theta} + \frac{g}{a}\cos\theta = 0 $$
+            This is the isolated, nonlinear equation of motion for coordinate $\theta(t)$!
+          </li>
+          <li><strong>Radial Equation ($\mathbf{e}_R \in V_N$ — determines $N_R$):</strong>
+            $$ -m a\dot{\theta}^2 = N_R - mg\sin\theta \implies N_R(\theta, \dot{\theta}) = mg\sin\theta - ma\dot{\theta}^2 $$
+            The wire reaction balances the radial gravity component and provides the required centripetal acceleration.
+          </li>
+        </ul>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 4: First Integral of Motion via Work-Energy Theorem</h5>
+        <p>
+          Because the circular wire constraint is stationary and frictionless, the reaction force performs zero work ($W_N \equiv 0$). Consequently, total mechanical energy is strictly conserved:
+          $$ E_0 = T_0 + V_0 = \frac{1}{2}m(a\dot{\theta})^2 + mga\sin\theta = \text{constant} $$
+          Assuming the particle is released from rest at initial angular position $\theta_0$ (where $\dot{\theta}_0 = 0$):
+          $$ E_0 = mga\sin\theta_0 \implies \frac{1}{2}m a^2\dot{\theta}^2 + mga\sin\theta = mga\sin\theta_0 $$
+          Solving algebraically for the centripetal acceleration term $a\dot{\theta}^2$:
+          $$ \frac{1}{2}m a^2\dot{\theta}^2 = mga(\sin\theta_0 - \sin\theta) \implies a\dot{\theta}^2 = 2g(\sin\theta_0 - \sin\theta) $$
+          Substituting this kinematic relation directly into the radial reaction force equation obtained in Step 3:
+          $$ N_R(\theta) = mg\sin\theta - m\left[ 2g(\sin\theta_0 - \sin\theta) \right] = mg\sin\theta - 2mg\sin\theta_0 + 2mg\sin\theta = mg(3\sin\theta - 2\sin\theta_0) $$
+          This formula expresses the reaction force as an explicit closed-form algebraic function of position $\theta$, demonstrating how energy methods circumvent solving nonlinear pendulum differential equations.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5">
+      <h2 class="section-heading"><span>5.</span> Power, Work, and Conservation of Mechanical Energy</h2>
+      <p>
+        The power exerted by a constraint reaction force $\mathbf{N}$ on particle $P$ is the scalar product (Slide 16):
+        $$ P_N = \mathbf{N} \cdot \mathbf{v}_0^P \quad [\text{W}] $$
+      </p>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>⚡</span>
+          <span>Stationary Constraint Work Theorem (Slide 16 &amp; Notes Sec. 6.4)</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          For any <strong>stationary (time-independent / scleronomic)</strong> smooth constraint, the velocity vector is strictly tangent to the constraint manifold ($\mathbf{v}_0^P \in V_T$), while the reaction force is strictly normal ($\mathbf{N} \in V_N$):
+          $$ \mathbf{v}_0^P \in V_T \perp \mathbf{N} \in V_N \implies P_N = \mathbf{N} \cdot \mathbf{v}_0^P \equiv 0 \implies W_N = \int_{t_1}^{t_2} P_N\,dt \equiv 0 $$
+          <strong>Fundamental Physical Consequence:</strong> Smooth stationary constraints perform identically zero work. Their existence does not alter the applicability of the <strong>Law of Conservation of Mechanical Energy</strong> ($E_0 = T_0 + V_0 = \text{constant}$).
+        </p>
+      </div>
+
+      <h3 class="sub-heading">5.1 Proof via Differential 1-Forms (Notes Eq. 6.12)</h3>
+      <p>
+        For a surface constraint $f(x, y, z) = 0$, reaction $\mathbf{N} = \lambda\nabla f$. The differential work in an infinitesimal displacement $d\mathbf{r}$ is:
+        $$ \delta W_N = \mathbf{N} \cdot d\mathbf{r} = (\lambda\nabla f) \cdot d\mathbf{r} = \lambda\left( \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz \right) = \lambda\,df $$
+        Because the particle remains on the surface for all time, $f(x, y, z) = 0 \implies df \equiv 0$, establishing $\delta W_N \equiv 0$.
+      </p>
+
+      <h3 class="sub-heading">5.2 Conservation of Mechanical Energy</h3>
+      <p>
+        Because stationary constraint forces perform zero work, they neither introduce nor dissipate energy from the system. If all active external forces are conservative ($\mathbf{F}_{\text{applied}} = -\nabla V_0$), total mechanical energy is strictly conserved:
+        $$ \frac{dE_0}{dt} = \frac{d(T_0 + V_0)}{dt} = P_{\text{applied}} + P_N = (-\nabla V_0 \cdot \mathbf{v}_0^P) + 0 + \frac{dV_0}{dt} \equiv 0 \implies E_0 = \text{constant} $$
+      </p>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6">
+      <h2 class="section-heading"><span>6.</span> Constraints on Systems of Particles</h2>
+      <p>
+        In multi-particle systems, constraints often couple the motion of two or more particles (Slide 17), such as masses connected by an inextensible cable over pulleys:
+      </p>
+      <ul>
+        <li><strong>Kinematic Relation:</strong> The total length $L$ of an inextensible cable running over fixed and moving pulleys yields a holonomic constraint:
+          $$ L = c_1 s_1 + c_2 s_2 + \text{constant} \implies c_1\dot{s}_1 + c_2\dot{s}_2 = 0 $$
+          This reduces the system's CDOFs: a two-particle system with one cable has $2 - 1 = \mathbf{1}$ CDOF.
+        </li>
+        <li><strong>Internal Energy Transfer:</strong> Cable tension performs non-zero work on each individual particle ($W_1 \neq 0, W_2 \neq 0$). However, because the cable is inextensible and massless, internal action-reaction pairs cancel:
+          $$ W_{\text{internal}} = W_1 + W_2 = \int T\,d(c_1 s_1 + c_2 s_2) = \int T\,dL = 0 $$
+          The constraint merely <strong>transfers mechanical energy</strong> between particles, preserving the total mechanical energy of the entire system:
+          $$ E_{\text{total}} = T_1 + T_2 + V_1 + V_2 = \text{constant} $$
+        </li>
+      </ul>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Worked Case Study: The Classical Atwood Machine (Slide 17)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Kinematic constraint differentiation, acceleration, cable tension, and internal work cancellation</span>
+          </div>
+          <span class="example-badge">Multi-Particle</span>
+        </div>
+        <p><strong>Problem Statement:</strong> Two masses $m_1$ and $m_2$ ($m_1 > m_2$) hang vertically from an inextensible massless cable of length $L$ over a frictionless fixed pulley of radius $R$. Derive the acceleration $\ddot{z}_1$, cable tension $T$, and verify internal work cancellation.</p>
+        <p><strong>Step-by-step Solution:</strong></p>
+        <ol>
+          <li><strong>Kinematic Constraint:</strong>
+            Let vertical coordinates $z_1, z_2$ measure downward displacement from the pulley center:
+            $$ z_1 + z_2 = L - \pi R = \text{constant} $$
+            Differentiating with respect to time twice using the sum rule:
+            $$ \frac{d}{dt}(z_1 + z_2) = \dot{z}_1 + \dot{z}_2 = 0 \implies \dot{z}_2 = -\dot{z}_1 $$
+            $$ \frac{d^2}{dt^2}(z_1 + z_2) = \ddot{z}_1 + \ddot{z}_2 = 0 \implies \ddot{z}_2 = -\ddot{z}_1 $$
+          </li>
+          <li><strong>Newton's Second Law for Each Mass:</strong>
+            $$ m_1\ddot{z}_1 = m_1 g - T $$
+            $$ m_2\ddot{z}_2 = m_2 g - T \implies -m_2\ddot{z}_1 = m_2 g - T $$
+          </li>
+          <li><strong>Solving for System Acceleration and Cable Tension:</strong>
+            Subtracting the second equation from the first to eliminate tension $T$:
+            $$ m_1\ddot{z}_1 - (-m_2\ddot{z}_1) = (m_1 g - T) - (m_2 g - T) \implies (m_1 + m_2)\ddot{z}_1 = (m_1 - m_2)g $$
+            $$ \ddot{z}_1 = \frac{m_1 - m_2}{m_1 + m_2}g \quad [\text{m/s}^2] $$
+            Substituting back to determine cable tension $T$:
+            $$ T = m_1(g - \ddot{z}_1) = m_1\left( g - \frac{m_1 - m_2}{m_1 + m_2}g \right) = m_1 g \left( \frac{m_1 + m_2 - m_1 + m_2}{m_1 + m_2} \right) = \frac{2m_1 m_2}{m_1 + m_2}g \quad [\text{N}] $$
+          </li>
+          <li><strong>Energy Verification and Internal Work Cancellation:</strong>
+            The total work done by internal tension on the two-body system over $[0, t]$ is:
+            $$ W_{\text{internal}} = \int_0^t (T\dot{z}_1 + T\dot{z}_2)\,dt' = \int_0^t T(\dot{z}_1 - \dot{z}_1)\,dt' \equiv 0 $$
+            Total mechanical energy $E_{\text{total}} = \frac{1}{2}m_1\dot{z}_1^2 + \frac{1}{2}m_2\dot{z}_2^2 - m_1 g z_1 - m_2 g z_2 = \text{constant}$.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="sec-7">
+      <h2 class="section-heading"><span>7.</span> Coulomb Friction on Curves and Surfaces</h2>
+      <p>
+        When surfaces or curves are rough, contact forces develop a tangential component: the **friction force $\mathbf{F}_R$** (Slides 18–20 &amp; Notes Sec. 6.6). We model this via the Coulomb friction law with coefficient $\mu$.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Dynamic Friction Regime (Relative Slip)</th>
+              <th>Static Friction Regime (Relative Rest)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Relative Velocity</strong></td>
+              <td>$\mathbf{v}_P^* \neq \mathbf{0}$</td>
+              <td>$\mathbf{v}_P^* = \mathbf{0}$</td>
+            </tr>
+            <tr>
+              <td><strong>Force Role</strong></td>
+              <td><strong>Applied Force</strong> (Known magnitude and direction)</td>
+              <td><strong>Constraint Reaction Force</strong> (Unknown magnitude)</td>
+            </tr>
+            <tr>
+              <td><strong>Vector Expression</strong></td>
+              <td>$\mathbf{F}_R = -\mu N\,\frac{\mathbf{v}_P^*}{\|\mathbf{v}_P^*\|}$</td>
+              <td>$\mathbf{F}_R \in V_T$ ($\mathbf{F}_R = R_1\mathbf{t}$ or $R_1\mathbf{t}_\alpha + R_2\mathbf{t}_\beta$)</td>
+            </tr>
+            <tr>
+              <td><strong>Magnitude</strong></td>
+              <td>Saturated: $\|\mathbf{F}_R\| = \mu N$</td>
+              <td>Bounded: $\|\mathbf{F}_R\| \le \mu N$</td>
+            </tr>
+            <tr>
+              <td><strong>Power / Work</strong></td>
+              <td>Strictly negative / dissipative: $P_R = -\mu N v_P^* < 0$</td>
+              <td>Identically zero: $P_R = \mathbf{F}_R \cdot \mathbf{0} \equiv 0$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">7.1 Switching Criteria (Slide 19)</h3>
+      <ul>
+        <li><strong>Static $\to$ Dynamic (Initiation of Slip):</strong> The particle remains stuck as long as the tangential reaction force required for equilibrium satisfies $\|\mathbf{F}_R\| \le \mu N$. The instant external forces require $\|\mathbf{F}_R\| > \mu N$, slip initiates immediately and we switch to the dynamic formulation with $\mathbf{F}_R = -\mu N \frac{\mathbf{v}_P^*}{v_P^*}$.</li>
+        <li><strong>Dynamic $\to$ Static (Arrest / Sticking):</strong> When dynamic friction slows the particle until relative speed reaches zero ($\mathbf{v}_P^* = \mathbf{0}$), we re-evaluate whether tangential forces satisfy $\|\mathbf{F}_{\text{tangential}}\| \le \mu N$. If true, the particle locks into relative rest.</li>
+      </ul>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Benchmark Problem: Particle on a Rough Circular Cylinder (Slide 20)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Formulation of dynamic slip and static equilibrium regimes in cylindrical coordinates</span>
+          </div>
+          <span class="example-badge">Slide 20</span>
+        </div>
+        <p><strong>Problem Statement:</strong> A particle $P$ of mass $m$ moves over the surface of a rough fixed circular cylinder of radius $a$ ($x^2 + y^2 = a^2$) with friction coefficient $\mu$. Formulate the equations of motion for both the dynamic applied-force case and the static constraint-force case.</p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Geometry in Cylindrical Coordinates $\{R, \theta, z\}$</h5>
+        <p>
+          Constraint: $R = a \implies \dot{R} = 0, \ddot{R} = 0$.
+          Tangential subspace $V_T = \text{span}\{\mathbf{e}_\theta, \mathbf{e}_z\}$, Normal subspace $V_N = \text{span}\{\mathbf{e}_R\}$.
+          $$ \mathbf{v}_0^P = a\dot{\theta}\,\mathbf{e}_\theta + \dot{z}\,\mathbf{e}_z, \quad \mathbf{a}_0^P = -a\dot{\theta}^2\,\mathbf{e}_R + a\ddot{\theta}\,\mathbf{e}_\theta + \ddot{z}\,\mathbf{e}_z $$
+          Normal reaction force: $\mathbf{N} = N\,\mathbf{e}_R$.
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Case A: Applied Force Case (Relative Slip: $v = \sqrt{(a\dot{\theta})^2 + \dot{z}^2} > 0$)</h5>
+        <p>
+          Dynamic friction opposes relative velocity:
+          $$ \mathbf{F}_R = -\mu N\left( \frac{a\dot{\theta}}{v}\mathbf{e}_\theta + \frac{\dot{z}}{v}\mathbf{e}_z \right) $$
+          Newton's equations along the cylindrical basis:
+          $$ \begin{cases}
+          -m a\dot{\theta}^2 = F_{\text{ext}, R} + N \implies N = -F_{\text{ext}, R} - ma\dot{\theta}^2 \\
+          m a\ddot{\theta} = F_{\text{ext}, \theta} - \mu N\frac{a\dot{\theta}}{v} \\
+          m\ddot{z} = F_{\text{ext}, z} - \mu N\frac{\dot{z}}{v}
+          \end{cases} $$
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Case B: Constraint Force Case (Relative Rest: $\dot{\theta} = 0, \dot{z} = 0$)</h5>
+        <p>
+          Friction acts as an unknown reaction vector in the tangent plane: $\mathbf{F}_R = R_\theta\,\mathbf{e}_\theta + R_z\,\mathbf{e}_z$.
+          Newton's equilibrium equations:
+          $$ \begin{cases}
+          0 = F_{\text{ext}, R} + N \implies N = -F_{\text{ext}, R} \\
+          0 = F_{\text{ext}, \theta} + R_\theta \implies R_\theta = -F_{\text{ext}, \theta} \\
+          0 = F_{\text{ext}, z} + R_z \implies R_z = -F_{\text{ext}, z}
+          \end{cases} $$
+          Static slip condition: The particle remains at rest if and only if:
+          $$ \|\mathbf{F}_R\| = \sqrt{R_\theta^2 + R_z^2} = \sqrt{F_{\text{ext}, \theta}^2 + F_{\text{ext}, z}^2} \le \mu N = \mu(-F_{\text{ext}, R}) $$
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sec-8">
+      <h2 class="section-heading"><span>8.</span> Advanced Classification of Constraints</h2>
+      <p>
+        In aerospace and multi-body dynamics, constraints are classified according to three fundamental mathematical pairs (Slide 21 &amp; Notes Sec. 6.5):
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Classification</th>
+              <th>Mathematical Formulation</th>
+              <th>Key Mechanical Consequence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Holonomic (Integrable)</strong></td>
+              <td>$f(\mathbf{r}, t) = 0$</td>
+              <td>Directly reduces the number of CDOFs by 1.</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Holonomic (Non-Integrable)</strong></td>
+              <td>$\sum A_i \dot{x}_i + B = 0$</td>
+              <td>Cannot eliminate coordinates; equations must be appended using Lagrange multipliers.</td>
+            </tr>
+            <tr>
+              <td><strong>Scleronomic (Stationary)</strong></td>
+              <td>$\frac{\partial f}{\partial t} = 0$</td>
+              <td>Constraint forces perform zero work ($W_N \equiv 0$).</td>
+            </tr>
+            <tr>
+              <td><strong>Rheonomic (Time-Dependent)</strong></td>
+              <td>$\frac{\partial f}{\partial t} \neq 0$</td>
+              <td>Constraint forces can perform work and change mechanical energy ($W_N \neq 0$).</td>
+            </tr>
+            <tr>
+              <td><strong>Bilateral</strong></td>
+              <td>$f = 0$ (Equality)</td>
+              <td>Normal reaction can take either sign ($N \in \mathbb{R}$).</td>
+            </tr>
+            <tr>
+              <td><strong>Unilateral</strong></td>
+              <td>$f \ge 0$ (Inequality)</td>
+              <td>Reaction can only push ($N \ge 0$); separation occurs at $N = 0$.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">Solved Aerospace Classification Examples (Slides 22 &amp; 23)</h3>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Rheonomic Constraint — Spool Reeling Cable (Slide 22)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Work and energy exchange in a time-dependent constraint</span>
+          </div>
+          <span class="example-badge">Slide 22</span>
+        </div>
+        <p><strong>Problem Statement:</strong> A heavy particle $P$ of mass $m$ is suspended along the vertical axis by a string being wound onto a spool at origin $O$ at constant rate $c > 0$. At $t = 0$, length is $L_0$. Classify the constraint and evaluate its work.</p>
+        <p><strong>Step-by-step Solution:</strong></p>
+        <ol>
+          <li>Constraint equation: $z(t) = ct - L_0$.
+            * Algebraic relation in coordinates $\implies$ <strong>Holonomic</strong>.
+            * Explicit time dependence ($\frac{\partial f}{\partial t} = c \neq 0$) $\implies$ <strong>Rheonomic</strong>.
+            * Strict equality $\implies$ <strong>Bilateral</strong>.
+          </li>
+          <li>Velocity: $\dot{z} = \frac{d}{dt}(ct - L_0) = c$. Acceleration: $\ddot{z} = 0$.</li>
+          <li>Newton's equation along vertical axis:
+            $$ m\ddot{z} = T - mg \implies 0 = T - mg \implies T = mg $$
+          </li>
+          <li>Power and work exerted by tension:
+            $$ P_T = \mathbf{T} \cdot \mathbf{v}_0^P = (mg\,\mathbf{k}_0) \cdot (c\,\mathbf{k}_0) = mgc \neq 0 $$
+            $$ W_T = \int_0^t mgc\,dt' = [mgct']_0^t = mgct > 0 $$
+            Because the constraint is rheonomic, <strong>it performs positive work and injects energy</strong> into the particle!
+          </li>
+        </ol>
+      </div>
+
+      <!-- SVG Diagram: Aircraft Takeoff -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 640 240" width="600" height="220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Runway Ground -->
+          <line x1="40" y1="180" x2="600" y2="180" stroke="var(--border-strong)" stroke-width="3" />
+          <rect x="40" y="180" width="560" height="40" fill="color-mix(in srgb, var(--accent) 5%, var(--bg-surface))" />
+          <text x="50" y="205" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Runway Surface: z = 0 (Unilateral Constraint)</text>
+
+          <!-- Aircraft Body -->
+          <ellipse cx="320" cy="140" rx="90" ry="18" fill="var(--bg-subtle)" stroke="var(--text-heading)" stroke-width="2" />
+          <!-- Wing -->
+          <path d="M 280 140 L 250 85 L 310 85 L 330 140 Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5" />
+          <text x="290" y="145" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">Mass m</text>
+
+          <!-- Wheel Contact -->
+          <circle cx="280" cy="172" r="8" fill="var(--text-heading)" />
+          <circle cx="360" cy="172" r="8" fill="var(--text-heading)" />
+
+          <!-- Forces -->
+          <!-- Normal Force N -->
+          <line x1="320" y1="180" x2="320" y2="120" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="328" y="125" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">N (Ground Reaction)</text>
+
+          <!-- Aerodynamic Lift L -->
+          <line x1="280" y1="85" x2="280" y2="25" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="290" y="35" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">L = 1/2 ρ v² S C_L</text>
+
+          <!-- Weight mg -->
+          <line x1="320" y1="140" x2="320" y2="215" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-sub)" />
+          <text x="330" y="210" fill="#ef4444" font-family="var(--font-mono)" font-size="12" font-weight="700">W = mg</text>
+
+          <!-- Velocity Vector -->
+          <line x1="410" y1="140" x2="480" y2="140" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow-sub)" />
+          <text x="490" y="145" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">v (Speed)</text>
+        </svg>
+        <div class="diagram-caption">Figure 3.4: Unilateral runway constraint: ground reaction $N = mg - L$ decreases as speed increases, vanishing at liftoff speed $v_{\text{takeoff}}$.</div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Unilateral Constraint — Aircraft Runway Takeoff (Slide 23)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Determination of liftoff speed from the zero-reaction condition</span>
+          </div>
+          <span class="example-badge">Slide 23</span>
+        </div>
+        <p><strong>Problem Statement:</strong> An airplane of mass $m$ accelerates down a horizontal runway ($z = 0$) in calm air. Aerodynamic lift is $L = \frac{1}{2}\rho v^2 S C_L$. Determine the speed at which the aircraft lifts off the runway.</p>
+        <p><strong>Step-by-step Solution:</strong></p>
+        <ol>
+          <li>Constraint Formulation: The ground prevents penetration into the Earth ($z \ge 0$), but allows flight into the atmosphere ($z > 0$). This is a <strong>unilateral constraint</strong> with condition $N \ge 0$.</li>
+          <li>Vertical dynamic equilibrium during the ground roll ($z = 0, \ddot{z} = 0$):
+            $$ \sum F_z = 0 \implies N + L - mg = 0 \implies N(v) = mg - \frac{1}{2}\rho v^2 S C_L $$
+          </li>
+          <li>Liftoff Condition: Separation occurs precisely when the ground reaction force drops to zero:
+            $$ N(v_{\text{takeoff}}) = 0 \implies mg - \frac{1}{2}\rho v_{\text{takeoff}}^2 S C_L = 0 $$
+          </li>
+          <li>Solving explicitly for the liftoff speed $v_{\text{takeoff}}$:
+            $$ \frac{1}{2}\rho v_{\text{takeoff}}^2 S C_L = mg \implies v_{\text{takeoff}}^2 = \frac{2mg}{\rho S C_L} $$
+            Taking the positive square root:
+            $$ v_{\text{takeoff}} = \sqrt{\frac{2mg}{\rho S C_L}} \quad [\text{m/s}] $$
+          </li>
+          <li>Conclusion: For $v < v_{\text{takeoff}}$, $N > 0$ (attached roll). At $v = v_{\text{takeoff}}$, $N = 0$ (liftoff). For $v > v_{\text{takeoff}}$, $L > mg$ and the airplane climbs into the air ($z > 0$, constraint inactive).
+          </li>
+          <li><strong>Aerospace Numerical Order of Magnitude:</strong>
+            Consider a typical narrow-body commercial airliner (e.g. Boeing 737 or Airbus A320):
+            <ul>
+              <li>Takeoff mass: $m = 65{,}000\text{ kg}$</li>
+              <li>Wing planform area: $S = 122.6\text{ m}^2$</li>
+              <li>Takeoff lift coefficient (flaps extended): $C_L = 1.6$</li>
+              <li>Standard sea-level air density: $\rho = 1.225\text{ kg/m}^3$</li>
+              <li>Standard gravitational acceleration: $g = 9.81\text{ m/s}^2$</li>
+            </ul>
+            Evaluating the liftoff speed:
+            $$ v_{\text{takeoff}} = \sqrt{\frac{2 \times 65{,}000 \times 9.81}{1.225 \times 122.6 \times 1.6}} = \sqrt{\frac{1{,}275{,}300}{240.296}} \approx \sqrt{5307.2} \approx 72.85\text{ m/s} \approx 262.3\text{ km/h} \approx 141.6\text{ knots} $$
+            This calculation physically proves how runway length and takeoff rotation speed $V_r$ are governed directly by wing loading ($m/S$) and high-lift devices ($C_L$).
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <div class="article-nav">
+      <a href="topic-2.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Topic</span>
+        <span class="nav-btn-title">Topic 2: Point Particle Dynamics</span>
+      </a>
+      <a href="index.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Back to Syllabus →</span>
+        <span class="nav-btn-title">Mechanics Applied Index</span>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Theme toggle with localStorage persistence
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

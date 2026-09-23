@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 2: Point Particle Dynamics — Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Typography: Inter & Newsreader & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.28);
+      --accent-hover: #059669;
+
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.74;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Navigation */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Article layout */
+    main.article-container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0 36px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-item:hover {
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 30px 0 12px;
+    }
+
+    h4.minor-heading {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      border: 1px solid;
+    }
+
+    .callout-info {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
+
+    .callout-key {
+      background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+      border-color: var(--accent-border);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-warning .callout-title { color: #f59e0b; }
+    .callout-key .callout-title { color: var(--accent); }
+
+    /* Math Blocks */
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .math-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 26px 0;
+      text-align: center;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Example Box */
+    .example-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .example-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .example-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Footer Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      min-width: 220px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📑</span>
+          <span>Mechanics Index</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering — Part I</div>
+      <h1 class="article-title">Topic 2: Point Particle Dynamics</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • Prof. Alberto Marín, Mario Merino, Manuel García-Villalba • BSc in Aerospace Engineering, UC3M
+      </div>
+      <div class="source-box">
+        Ground Truth: slides/02.PointParticleDynamics.pdf &amp; teoria/Notes.pdf (Chapter 4)
+      </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📌</span>
+        <span>Topic Outline</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#sec-1" class="toc-item"><span>1.</span> Mass, Linear Momentum, Kinetic Energy</a>
+        <a href="#sec-2" class="toc-item"><span>2.</span> Newton's Three Laws of Motion</a>
+        <a href="#sec-3" class="toc-item"><span>3.</span> Particle Systems &amp; Momentum Conservation</a>
+        <a href="#sec-4" class="toc-item"><span>4.</span> Equations of Motion &amp; Trajectory Integration</a>
+        <a href="#sec-5" class="toc-item"><span>5.</span> Power, Work, &amp; Kinetic Energy Theorem</a>
+        <a href="#sec-6" class="toc-item"><span>6.</span> Conservative Forces &amp; Potential Energy</a>
+        <a href="#sec-7" class="toc-item"><span>7.</span> Polar Vector Field Curl Tests</a>
+        <a href="#sec-8" class="toc-item"><span>8.</span> Mechanical Energy &amp; 1D Energy Diagrams</a>
+        <a href="#sec-9" class="toc-item"><span>9.</span> Equilibrium Configurations &amp; Stability</a>
+        <a href="#sec-10" class="toc-item"><span>10.</span> Benchmark Problem: The Simple Pendulum</a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <section id="sec-1">
+      <h2 class="section-heading"><span>1.</span> Mass, Linear Momentum, and Kinetic Energy</h2>
+      <p>
+        While kinematics describes the geometry of trajectories without regard to the physical influences causing motion, <strong>dynamics</strong> investigates the fundamental physical causes of motion: the forces interacting between matter.
+      </p>
+      <p>
+        In Newtonian dynamics, every material point $P$ is endowed with an invariant intrinsic scalar property: its <strong>inertial mass $m_P$</strong> $[\text{kg}]$, which quantitatively measures its resistance to changes in its state of motion.
+      </p>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>⚙️</span>
+          <span>Core Dynamical Quantities in an Inertial Reference Frame $S_0$</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          Observed from an inertial reference frame $S_0 = \{O; \mathcal{B}_0\}$, a particle of mass $m_P$ moving at velocity $\mathbf{v}_0^P$ possesses:
+        </p>
+        <ul style="margin-top: 8px; margin-bottom: 0;">
+          <li>
+            <strong>Linear Momentum (Quantity of Motion) $\mathbf{p}_0$ (Slide 3):</strong>
+            $$ \mathbf{p}_0 = m_P\,\mathbf{v}_0^P \quad [\text{kg}\cdot\text{m/s}] $$
+            A vector quantity strictly parallel to the instantaneous velocity vector.
+          </li>
+          <li>
+            <strong>Kinetic Energy $T_0$ (Slide 3):</strong>
+            $$ T_0 = \frac{1}{2}m_P\,\|\mathbf{v}_0^P\|^2 = \frac{1}{2}m_P\,v_0^2 \ge 0 \quad [\text{J} = \text{kg}\cdot\text{m}^2/\text{s}^2] $$
+            A non-negative scalar quantity proportional to the square of the particle's speed $v_0$.
+          </li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">
+          <span>🌐</span>
+          <span>Reference Frame Dependence</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          Unlike mass $m_P$, both $\mathbf{p}_0$ and $T_0$ depend directly on the chosen observer's reference frame $S_0$. If an observer travels alongside the particle, its relative velocity is zero, and thus its measured momentum and kinetic energy vanish.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2">
+      <h2 class="section-heading"><span>2.</span> Newton's Three Laws of Motion</h2>
+      <p>
+        Classical dynamics is structured upon three empirical laws formulated by Sir Isaac Newton in his <em>Philosophiae Naturalis Principia Mathematica</em> (1687):
+      </p>
+
+      <h3 class="sub-heading">2.1 First Law (Principle of Inertia — Slide 4)</h3>
+      <p>
+        <em>"A particle continues in its state of rest or of uniform rectilinear motion unless acted upon by a non-zero net external force."</em>
+      </p>
+      <div class="math-block">
+        $$ \sum \mathbf{F} = \mathbf{0} \implies \mathbf{p}_0 = \text{constant} \iff \mathbf{v}_0^P = \text{constant} \iff \mathbf{a}_0^P = \mathbf{0} $$
+        <div class="math-caption">Mathematical formulation of the First Law in an inertial reference frame</div>
+      </div>
+      <p>
+        <strong>Axiomatic Importance:</strong> The First Law establishes the very existence of <strong>inertial reference frames</strong>: spatial reference frames in which unforced bodies do not accelerate.
+      </p>
+
+      <h3 class="sub-heading">2.2 Second Law (Fundamental Law of Dynamics — Slide 5)</h3>
+      <p>
+        <em>"The time rate of change of linear momentum of a particle measured in an inertial frame is directly proportional to, and in the direction of, the resultant force acting upon it."</em>
+      </p>
+      <div class="math-block">
+        $$ \mathbf{F} = \left.\frac{d\mathbf{p}_0}{dt}\right|_0 = \left.\frac{d(m_P\mathbf{v}_0^P)}{dt}\right|_0 $$
+        <div class="math-caption">Newton's Second Law for variable or constant mass</div>
+      </div>
+      <p>
+        For a classical point particle whose mass $m_P$ remains strictly constant in time ($\dot{m}_P = 0$):
+        $$ \mathbf{F} = m_P\left.\frac{d\mathbf{v}_0^P}{dt}\right|_0 = m_P\,\mathbf{a}_0^P $$
+        where $\mathbf{F} = \sum_i \mathbf{F}_i$ is the vector sum of all concurrent forces acting on $P$.
+      </p>
+
+      <h3 class="sub-heading">2.3 Third Law (Action-Reaction Principle — Slide 6)</h3>
+      <p>
+        <em>"To every action there is always an equal and opposite reaction: the mutual interactions between two particles are always equal in magnitude, opposite in direction, and collinear along their line of centers."</em>
+      </p>
+      <div class="math-block">
+        $$ \mathbf{F}_{PQ} = -\mathbf{F}_{QP}, \quad \text{collinear with } (\mathbf{r}^Q - \mathbf{r}^P) $$
+        <div class="math-caption">Action-reaction force pair between particles P and Q</div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3">
+      <h2 class="section-heading"><span>3.</span> Systems of Particles and Momentum Conservation</h2>
+      <p>
+        Consider a system composed of $N$ point particles $\{P_1, P_2, \dots, P_N\}$. The net force on particle $i$ decomposes into external forces $\mathbf{F}_i^{\text{ext}}$ exerted by the environment and internal interaction forces $\mathbf{F}_{ij}^{\text{int}}$ exerted by other particles within the system (Slide 7):
+        $$ \mathbf{F}_i = \mathbf{F}_i^{\text{ext}} + \sum_{j \neq i}^N \mathbf{F}_{ij}^{\text{int}} $$
+      </p>
+
+      <h3 class="sub-heading">Total Linear Momentum and Conservation (Slide 8)</h3>
+      <p>
+        The total linear momentum of the particle ensemble is the vector sum:
+        $$ \mathbf{p}_{\text{tot}} = \sum_{i=1}^N \mathbf{p}_i = \sum_{i=1}^N m_i\,\mathbf{v}_0^{P_i} $$
+        Differentiating with respect to time in the inertial frame $S_0$:
+        $$ \left.\frac{d\mathbf{p}_{\text{tot}}}{dt}\right|_0 = \sum_{i=1}^N \mathbf{F}_i = \sum_{i=1}^N \mathbf{F}_i^{\text{ext}} + \sum_{i=1}^N \sum_{j \neq i}^N \mathbf{F}_{ij}^{\text{int}} $$
+        By Newton's Third Law, internal action-reaction pairs cancel pairwise: $\mathbf{F}_{ij}^{\text{int}} + \mathbf{F}_{ji}^{\text{int}} = \mathbf{0}$. Therefore:
+        $$ \left.\frac{d\mathbf{p}_{\text{tot}}}{dt}\right|_0 = \sum_{i=1}^N \mathbf{F}_i^{\text{ext}} = \mathbf{F}^{\text{ext}} $$
+      </p>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>🛡️</span>
+          <span>Principle of Conservation of Total Linear Momentum</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          If the resultant of all external forces acting on a system vanishes ($\mathbf{F}^{\text{ext}} = \mathbf{0}$, an <strong>isolated system</strong>), the total linear momentum is strictly constant in time:
+          $$ \mathbf{p}_{\text{tot}}(t) = \text{constant vector} $$
+          For two interacting particles $P$ and $Q$ in isolation: $\mathbf{p}_0^P(t) + \mathbf{p}_0^Q(t) = \text{constant}$.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4">
+      <h2 class="section-heading"><span>4.</span> Equations of Motion and Trajectory Integration</h2>
+      <p>
+        Newton's second law $\mathbf{F} = m_P\,\mathbf{a}_0^P$ is a second-order vector differential equation. To integrate it analytically or numerically, we project it onto coordinate bases (Slide 9).
+      </p>
+
+      <h3 class="sub-heading">4.1 Scalar Equations of Motion in Cartesian Coordinates</h3>
+      <p>
+        Projecting onto the canonical Cartesian basis $\{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$:
+      </p>
+      <div class="math-block">
+        $$ \begin{cases}
+        m_P\,\ddot{x}(t) = F_x(t, x, y, z, \dot{x}, \dot{y}, \dot{z}) \\
+        m_P\,\ddot{y}(t) = F_y(t, x, y, z, \dot{x}, \dot{y}, \dot{z}) \\
+        m_P\,\ddot{z}(t) = F_z(t, x, y, z, \dot{x}, \dot{y}, \dot{z})
+        \end{cases} $$
+        <div class="math-caption">System of three coupled second-order scalar ODEs governing particle dynamics</div>
+      </div>
+
+      <h3 class="sub-heading">4.2 State-Space Form and Initial Conditions (Slide 10)</h3>
+      <p>
+        The 3 second-order ODEs can be recast as a system of **6 first-order ordinary differential equations**:
+      </p>
+      <div class="math-block">
+        $$ \begin{cases}
+        \dot{x} = v_x, & \dot{v}_x = \frac{1}{m_P}F_x(t, x, y, z, v_x, v_y, v_z) \\
+        \dot{y} = v_y, & \dot{v}_y = \frac{1}{m_P}F_y(t, x, y, z, v_x, v_y, v_z) \\
+        \dot{z} = v_z, & \dot{v}_z = \frac{1}{m_P}F_z(t, x, y, z, v_x, v_y, v_z)
+        \end{cases} $$
+        <div class="math-caption">Standard state-space formulation suitable for integration and numerical solvers</div>
+      </div>
+      <p>
+        The general solution contains **6 integration constants**, which are uniquely determined by the **initial conditions** at $t = 0$:
+        $$ \mathbf{r}_0^P(0) = [x_0, y_0, z_0]^T, \quad \mathbf{v}_0^P(0) = [\dot{x}_0, \dot{y}_0, \dot{z}_0]^T $$
+      </p>
+
+      <h3 class="sub-heading">4.3 Official Slide Benchmark Examples (Explicit Calculus &amp; Chain Rule)</h3>
+      
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Trajectory Under Gravity (Slide 11)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Direct time-integration via the Fundamental Theorem of Calculus (Barrow's Rule)</span>
+          </div>
+          <span class="example-badge">Slide 11</span>
+        </div>
+        <p>
+          <strong>Problem Statement:</strong> A point particle $P$ ($m_P = 1\text{ kg}$) moves under uniform downward gravity $\mathbf{F} = -m_P g\,\mathbf{j}_0$ ($g = 10\text{ m/s}^2$). At $t = 0$, the particle is launched from the origin $\mathbf{r}_0^P(0) = \mathbf{0}$ with initial velocity $\mathbf{v}_0^P(0) = 2\,\mathbf{i}_0 + 5\,\mathbf{j}_0\text{ m/s}$. Determine the velocity field $\mathbf{v}_0^P(t)$, the position trajectory $\mathbf{r}_0^P(t)$, and the explicit path equation $y(x)$.
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 1: Horizontal Motion Along $\mathbf{i}_0$ ($x$-axis)</h5>
+        <p>
+          Applying Newton's second law along the $x$-direction where no horizontal force acts ($F_x = 0$):
+          $$ m_P\,\ddot{x}(t) = 0 \implies \ddot{x}(t) = \frac{d\dot{x}}{dt} = 0 $$
+          We integrate the acceleration over time from $t'=0$ to $t'=t$ applying the Fundamental Theorem of Calculus:
+          $$ \int_0^t \frac{d\dot{x}}{dt'}\,dt' = \int_0^t 0\,dt' \implies \Big[ \dot{x}(t') \Big]_0^t = 0 \implies \dot{x}(t) - \dot{x}(0) = 0 $$
+          Substituting the initial horizontal velocity $\dot{x}(0) = 2\text{ m/s}$:
+          $$ \dot{x}(t) = \dot{x}(0) = 2\text{ m/s} \quad (\text{uniform rectilinear motion}) $$
+          Next, because $\dot{x}(t) = \frac{dx}{dt}$, we integrate velocity over time:
+          $$ \int_0^t \frac{dx}{dt'}\,dt' = \int_0^t 2\,dt' \implies \Big[ x(t') \Big]_0^t = \Big[ 2t' \Big]_0^t \implies x(t) - x(0) = 2t - 0 $$
+          With $x(0) = 0$, we obtain the parametric horizontal position:
+          $$ x(t) = 2t \quad [\text{m}] $$
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 2: Vertical Motion Along $\mathbf{j}_0$ ($y$-axis)</h5>
+        <p>
+          Projecting Newton's second law onto the vertical axis where weight acts downwards ($F_y = -m_P g$):
+          $$ m_P\,\ddot{y}(t) = -m_P g \implies \ddot{y}(t) = \frac{d\dot{y}}{dt} = -g = -10\text{ m/s}^2 $$
+          Integrating acceleration over time from $t'=0$ to $t'=t$:
+          $$ \int_0^t \frac{d\dot{y}}{dt'}\,dt' = \int_0^t (-10)\,dt' \implies \Big[ \dot{y}(t') \Big]_0^t = \Big[ -10t' \Big]_0^t \implies \dot{y}(t) - \dot{y}(0) = -10t $$
+          Substituting the initial vertical velocity $\dot{y}(0) = 5\text{ m/s}$:
+          $$ \dot{y}(t) = 5 - 10t \quad [\text{m/s}] $$
+          Because $\dot{y}(t) = \frac{dy}{dt}$, we integrate once more with respect to time applying the power rule of integration ($\int t' dt' = \frac{(t')^2}{2}$):
+          $$ \int_0^t \frac{dy}{dt'}\,dt' = \int_0^t (5 - 10t')\,dt' \implies \Big[ y(t') \Big]_0^t = \left[ 5t' - 10\frac{(t')^2}{2} \right]_0^t $$
+          $$ y(t) - y(0) = \left( 5t - 5t^2 \right) - (0 - 0) $$
+          With $y(0) = 0$, we find the parametric vertical position:
+          $$ y(t) = 5t - 5t^2 \quad [\text{m}] $$
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 3: Trajectory Cartesian Curve $y(x)$</h5>
+        <p>
+          To find the geometric path independent of time, we eliminate parameter $t$:
+          $$ x(t) = 2t \implies t(x) = \frac{x}{2} $$
+          Substituting $t(x)$ directly into $y(t)$:
+          $$ y(x) = 5\left(\frac{x}{2}\right) - 5\left(\frac{x}{2}\right)^2 = \frac{5}{2}x - 5\left(\frac{x^2}{4}\right) = \frac{5}{2}x - \frac{5}{4}x^2 $$
+          This equation represents a classical concave downward parabola with vertex at $x_v = 1\text{ m}, y_v = 1.25\text{ m}$.
+        </p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Inverse Dynamics (Slide 12)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Finding the resultant force from prescribed kinematics via explicit Chain Rule</span>
+          </div>
+          <span class="example-badge">Slide 12</span>
+        </div>
+        <p>
+          <strong>Problem Statement:</strong> What instantaneous resultant force $\mathbf{F}(t)$ must act on a particle of mass $m_P = 2\text{ kg}$ so that its velocity vector evolves strictly as $\mathbf{v}_0^P(t) = 2at^2\,\mathbf{i}_0 + e^{bt}\,\mathbf{j}_0$ (where $a, b$ are positive dimensional constants)?
+        </p>
+        <p>
+          <strong>Pedagogical Rationale:</strong> In inverse dynamics, the kinematics is known and we apply Newton's second law $\mathbf{F} = m_P\,\mathbf{a}_0^P = m_P\,\frac{d\mathbf{v}_0^P}{dt}$ to deduce the required force field. Because the Cartesian unit vectors $\{\mathbf{i}_0, \mathbf{j}_0\}$ are stationary in inertial frame $S_0$ ($\frac{d\mathbf{i}_0}{dt} = \mathbf{0}, \frac{d\mathbf{j}_0}{dt} = \mathbf{0}$), we differentiate each scalar component individually.
+        </p>
+        
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 1: Differentiation of the $x$-component (Power Rule)</h5>
+        <p>
+          $$ \frac{d}{dt}\left(2at^2\,\mathbf{i}_0\right) = 2a\left(\frac{d(t^2)}{dt}\right)\mathbf{i}_0 = 2a(2t)\,\mathbf{i}_0 = 4at\,\mathbf{i}_0 $$
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 2: Differentiation of the $y$-component (Chain Rule)</h5>
+        <p>
+          The vertical velocity component involves a composite exponential function $f(t) = e^{bt}$. We define the intermediate variable $u(t) = bt$.
+          Applying the <strong>chain rule of calculus</strong> $\frac{df}{dt} = \frac{df}{du}\frac{du}{dt}$:
+          $$ u(t) = bt \implies \frac{du}{dt} = \frac{d}{dt}(bt) = b $$
+          $$ \frac{d}{dt}\left(e^{bt}\right) = \frac{d(e^u)}{du}\frac{du}{dt} = e^u \cdot b = b\,e^{bt} $$
+          Therefore, the vertical acceleration vector component is:
+          $$ \frac{d}{dt}\left(e^{bt}\,\mathbf{j}_0\right) = b\,e^{bt}\,\mathbf{j}_0 $$
+        </p>
+
+        <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 3: Synthesis of Resultant Force Vector</h5>
+        <p>
+          Combining both components, the acceleration of particle $P$ is:
+          $$ \mathbf{a}_0^P(t) = \frac{d\mathbf{v}_0^P}{dt} = 4at\,\mathbf{i}_0 + b\,e^{bt}\,\mathbf{j}_0 $$
+          Multiplying by the mass of the particle $m_P = 2\text{ kg}$:
+          $$ \mathbf{F}(t) = m_P\,\mathbf{a}_0^P(t) = 2\,\left(4at\,\mathbf{i}_0 + b\,e^{bt}\,\mathbf{j}_0\right) = 8at\,\mathbf{i}_0 + 2b\,e^{bt}\,\mathbf{j}_0 \quad [\text{N}] $$
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5">
+      <h2 class="section-heading"><span>5.</span> Power, Work, and the Kinetic Energy Theorem</h2>
+
+      <h3 class="sub-heading">5.1 Instantaneous Power (Slide 13)</h3>
+      <p>
+        The power $P$ exerted by a force $\mathbf{F}$ on particle $P$ moving with velocity $\mathbf{v}_0^P$ is the scalar product:
+        $$ P = \mathbf{F} \cdot \mathbf{v}_0^P \quad [\text{W} = \text{J/s}] $$
+      </p>
+
+      <h3 class="sub-heading">5.2 The Kinetic Energy Theorem (Work-Energy Principle)</h3>
+      <p>
+        Taking the time derivative of kinetic energy $T_0 = \frac{1}{2}m_P(\mathbf{v}_0^P \cdot \mathbf{v}_0^P)$:
+        $$ \frac{dT_0}{dt} = m_P\,\mathbf{v}_0^P \cdot \left.\frac{d\mathbf{v}_0^P}{dt}\right|_0 = m_P\,\mathbf{a}_0^P \cdot \mathbf{v}_0^P $$
+        Substituting Newton's second law $\mathbf{F} = m_P\mathbf{a}_0^P$:
+      </p>
+      <div class="math-block">
+        $$ \frac{dT_0}{dt} = \mathbf{F} \cdot \mathbf{v}_0^P = P $$
+        <div class="math-caption">The time rate of change of kinetic energy equals the instantaneous power exerted by the net force</div>
+      </div>
+
+      <h3 class="sub-heading">5.3 Work Done by a Force</h3>
+      <p>
+        Integrating power over the time interval $[t_1, t_2]$:
+        $$ W_{12} = \int_{t_1}^{t_2} P\,dt = \int_{t_1}^{t_2} (\mathbf{F}\cdot\mathbf{v}_0^P)\,dt = \int_{\mathbf{r}_1}^{\mathbf{r}_2} \mathbf{F} \cdot d\mathbf{r} = \Delta T_0 = T_{0,2} - T_{0,1} $$
+      </p>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>Fundamental Tangential Work Criterion</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          Expressing velocity in the intrinsic Frenet-Serret frame ($\mathbf{v}_0^P = v_0\,\mathbf{e}_t$), power becomes:
+          $$ P = \mathbf{F} \cdot (v_0\,\mathbf{e}_t) = F_t\,v_0 $$
+          <strong>A force exerts non-zero power and performs work if and only if it produces tangential acceleration ($F_t \neq 0$).</strong> Forces perpendicular to the trajectory (normal constraints, string tension, magnetic Lorentz forces) do **identically zero work** ($W \equiv 0$).
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6">
+      <h2 class="section-heading"><span>6.</span> Conservative Forces and Potential Energy</h2>
+      <p>
+        In general, the work integral $W_{12} = \int_{\Gamma} \mathbf{F}\cdot d\mathbf{r}$ depends on the path $\Gamma$ connecting the endpoints.
+      </p>
+
+      <h3 class="sub-heading">6.1 Conservative Forces (Slide 14)</h3>
+      <p>
+        A force $\mathbf{F}$ is **conservative** if the work it performs between two points is **strictly path-independent**:
+        $$ \int_{\Gamma_A} \mathbf{F}\cdot d\mathbf{r} = \int_{\Gamma_B} \mathbf{F}\cdot d\mathbf{r} \iff \oint_{\mathcal{C}} \mathbf{F}\cdot d\mathbf{r} = 0 \quad \text{along any closed curve } \mathcal{C} $$
+      </p>
+
+      <h3 class="sub-heading">6.2 Potential Energy Function $V_0(\mathbf{r})$</h3>
+      <p>
+        Fixing an arbitrary reference position $\mathbf{r}_*$, the potential energy is defined by:
+        $$ V_0(\mathbf{r}) = -\int_{\mathbf{r}_*}^{\mathbf{r}} \mathbf{F} \cdot d\mathbf{r}' $$
+        The work done by a conservative force equals the negative change in potential energy:
+        $$ W_{12} = -(V_0(\mathbf{r}_2) - V_0(\mathbf{r}_1)) = -\Delta V_0 $$
+        Differentiating: $dW = \mathbf{F}\cdot d\mathbf{r} = -dV_0 = -\nabla V_0 \cdot d\mathbf{r}$, establishing:
+      </p>
+      <div class="math-block">
+        $$ \mathbf{F} = -\nabla V_0 = -\begin{bmatrix} \frac{\partial V_0}{\partial x} \\ \frac{\partial V_0}{\partial y} \\ \frac{\partial V_0}{\partial z} \end{bmatrix} $$
+        <div class="math-caption">A conservative force is always the negative gradient of its scalar potential energy function</div>
+      </div>
+
+      <h3 class="sub-heading">6.3 Mathematical Condition: The Curl Test (Slide 16)</h3>
+      <p>
+        In a simply-connected domain, a continuously differentiable force field $\mathbf{F}(\mathbf{r})$ is conservative **if and only if its curl vanishes identically**:
+      </p>
+      <div class="math-block">
+        $$ \nabla \times \mathbf{F} = \mathbf{0} \iff \text{curl}(\mathbf{F}) = \mathbf{0} $$
+      </div>
+
+      <h3 class="sub-heading">6.4 Fundamental Aerospace Potential Functions (Slide 16)</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Physical Force</th>
+              <th>Vector Expression $\mathbf{F}$</th>
+              <th>Potential Energy $V_0(\mathbf{r})$</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Uniform Gravity</strong></td>
+              <td>$\mathbf{W} = -m_P g\,\mathbf{k}_0$</td>
+              <td>$V_0(z) = m_P g z + C$</td>
+            </tr>
+            <tr>
+              <td><strong>Linear Spring (zero natural length)</strong></td>
+              <td>$\mathbf{F} = -k\,\mathbf{r}_0^P$</td>
+              <td>$V_0(\mathbf{r}) = \frac{1}{2}k\,\|\mathbf{r}_0^P\|^2 = \frac{1}{2}k\,r^2$</td>
+            </tr>
+            <tr>
+              <td><strong>Inverse-Square Central Gravity</strong></td>
+              <td>$\mathbf{F} = -\frac{G M m_P}{r^2}\mathbf{e}_r$</td>
+              <td>$V_0(r) = -\frac{G M m_P}{r}$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="sec-7">
+      <h2 class="section-heading"><span>7.</span> Polar Vector Field Curl Tests</h2>
+      <p>
+        In cylindrical / polar coordinates $\{R, \theta, z\}$, the curl of a vector field is given by:
+        $$ \nabla \times \mathbf{F} = \left( \frac{1}{R}\frac{\partial F_z}{\partial \theta} - \frac{\partial F_\theta}{\partial z} \right)\mathbf{e}_R + \left( \frac{\partial F_R}{\partial z} - \frac{\partial F_z}{\partial R} \right)\mathbf{e}_\theta + \frac{1}{R}\left( \frac{\partial(R F_\theta)}{\partial R} - \frac{\partial F_R}{\partial \theta} \right)\mathbf{e}_z $$
+      </p>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Radial Force $\mathbf{F} = aR\,\mathbf{e}_R$ (Slide 17)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Is it conservative? If so, compute $V_0(R)$</span>
+          </div>
+          <span class="example-badge">Conservative</span>
+        </div>
+        <p><strong>Evaluation:</strong> Here $F_R = aR$, $F_\theta = 0$, $F_z = 0$.</p>
+        <p>
+          $$ (\nabla \times \mathbf{F})_z = \frac{1}{R}\left( \frac{\partial(R \cdot 0)}{\partial R} - \frac{\partial(aR)}{\partial \theta} \right) = \frac{1}{R}(0 - 0) = 0 $$
+          Since all components of $\nabla \times \mathbf{F}$ vanish identically, $\mathbf{F} = aR\,\mathbf{e}_R$ is <strong>conservative</strong>.
+        </p>
+        <p>
+          To find $V_0(R)$: $\mathbf{F} = -\nabla V_0 = -\frac{\partial V_0}{\partial R}\mathbf{e}_R \implies \frac{\partial V_0}{\partial R} = -aR$:
+          $$ V_0(R) = -\int aR\,dR = -\frac{1}{2}aR^2 + C $$
+        </p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Azimuthal Force $\mathbf{F} = bR^2\,\mathbf{e}_\theta$ (Slide 18)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Is it conservative?</span>
+          </div>
+          <span class="example-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">Non-Conservative</span>
+        </div>
+        <p><strong>Evaluation:</strong> Here $F_R = 0$, $F_\theta = bR^2$, $F_z = 0$.</p>
+        <p>
+          $$ (\nabla \times \mathbf{F})_z = \frac{1}{R}\left( \frac{\partial(R \cdot bR^2)}{\partial R} - \frac{\partial(0)}{\partial \theta} \right) = \frac{1}{R}\frac{\partial(bR^3)}{\partial R} = \frac{1}{R}(3bR^2) = 3bR \neq 0 $$
+          Because the curl is non-zero ($\nabla \times \mathbf{F} = 3bR\,\mathbf{e}_z \neq \mathbf{0}$), the force is <strong>non-conservative</strong> and no potential energy function can exist.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sec-8">
+      <h2 class="section-heading"><span>8.</span> Mechanical Energy and 1D Energy Diagrams</h2>
+      <p>
+        Let a particle be acted upon simultaneously by conservative forces $\mathbf{F}_C = -\nabla V_0$ and non-conservative forces $\mathbf{F}_N$ (Slide 19):
+        $$ m_P\,\mathbf{a}_0^P = \mathbf{F}_C + \mathbf{F}_N = -\nabla V_0 + \mathbf{F}_N $$
+        Taking the scalar product with velocity $\mathbf{v}_0^P$:
+        $$ \frac{dT_0}{dt} = -\nabla V_0 \cdot \mathbf{v}_0^P + \mathbf{F}_N \cdot \mathbf{v}_0^P = -\frac{dV_0}{dt} + \mathbf{F}_N \cdot \mathbf{v}_0^P $$
+        Defining the **Total Mechanical Energy $E_0$**:
+      </p>
+      <div class="math-block">
+        $$ E_0 = T_0 + V_0 \implies \frac{dE_0}{dt} = \mathbf{F}_N \cdot \mathbf{v}_0^P $$
+        <div class="math-caption">The rate of change of mechanical energy equals the power exerted by non-conservative forces</div>
+      </div>
+      <p>
+        If non-conservative forces do zero work ($\mathbf{F}_N \cdot \mathbf{v}_0^P = 0$), then $E_0 = \text{constant}$ (a **first integral of motion**).
+      </p>
+
+      <h3 class="sub-heading">8.1 1D Qualitative Motion Analysis (Slide 20)</h3>
+      <p>
+        In a 1D conservative system:
+        $$ T_0(x) = \frac{1}{2}m_P\,v^2 = E_0 - V_0(x) \ge 0 $$
+      </p>
+
+      <!-- SVG Diagram: Energy Landscape -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 680 320" width="640" height="300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)" />
+            </marker>
+          </defs>
+
+          <!-- Axes -->
+          <line x1="60" y1="270" x2="620" y2="270" stroke="var(--text-muted)" stroke-width="1.5" />
+          <text x="630" y="275" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">x</text>
+          <line x1="80" y1="290" x2="80" y2="30" stroke="var(--text-muted)" stroke-width="1.5" />
+          <text x="70" y="22" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Energy</text>
+
+          <!-- Potential Energy Curve V(x) -->
+          <path d="M 80 80 C 140 240, 200 250, 260 210 S 360 90, 440 230 S 560 250, 600 70" 
+                fill="none" stroke="#38bdf8" stroke-width="3" />
+          <text x="610" y="80" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">V₀(x)</text>
+
+          <!-- Total Energy Line E0 -->
+          <line x1="80" y1="130" x2="600" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5" />
+          <text x="610" y="135" fill="#f59e0b" font-family="var(--font-mono)" font-size="13" font-weight="700">E₀</text>
+
+          <!-- Turning Points -->
+          <!-- Point 1 -->
+          <circle cx="116" cy="130" r="5" fill="#f59e0b" />
+          <line x1="116" y1="130" x2="116" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="108" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₁ (v=0)</text>
+
+          <!-- Point 2 -->
+          <circle cx="410" cy="130" r="5" fill="#f59e0b" />
+          <line x1="410" y1="130" x2="410" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="402" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₂ (v=0)</text>
+
+          <!-- Point 3 -->
+          <circle cx="488" cy="130" r="5" fill="#f59e0b" />
+          <line x1="488" y1="130" x2="488" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="480" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₃ (v=0)</text>
+
+          <!-- Point 4 -->
+          <circle cx="585" cy="130" r="5" fill="#f59e0b" />
+          <line x1="585" y1="130" x2="585" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="578" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₄ (v=0)</text>
+
+          <!-- Shaded Forbidden Region (between x2 and x3) -->
+          <rect x="410" y="130" width="78" height="140" fill="rgba(239, 68, 68, 0.12)" />
+          <text x="424" y="200" fill="#ef4444" font-family="var(--font-mono)" font-size="11" font-weight="700">FORBIDDEN</text>
+          <text x="435" y="215" fill="#ef4444" font-family="var(--font-mono)" font-size="10">(E₀ &lt; V₀)</text>
+
+          <!-- Allowed Region Annotations -->
+          <rect x="116" y="130" width="294" height="140" fill="rgba(16, 185, 129, 0.08)" />
+          <text x="210" y="155" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">ALLOWED REGION (E₀ ≥ V₀)</text>
+          
+          <!-- Kinetic Energy Gap -->
+          <line x1="220" y1="130" x2="220" y2="238" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)" />
+          <text x="228" y="185" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">T₀ = E₀ - V₀</text>
+
+          <!-- Minima/Maxima -->
+          <text x="220" y="260" fill="#38bdf8" font-family="var(--font-mono)" font-size="11">Stable Min</text>
+          <text x="350" y="105" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">Unstable Max</text>
+        </svg>
+        <div class="diagram-caption">Figure 2.1: 1D energy diagram illustrating total energy $E_0$, potential energy $V_0(x)$, allowed regions, forbidden regions, and turning points.</div>
+      </div>
+
+      <ul>
+        <li><strong>Allowed Regions ($E_0 \ge V_0$):</strong> Domains where physical motion can take place.</li>
+        <li><strong>Forbidden Regions ($E_0 < V_0$):</strong> Domains where kinetic energy would be negative ($v^2 < 0$), physically inaccessible.</li>
+        <li><strong>Turning Points ($x_{\text{turn}}$):</strong> Points where $E_0 = V_0(x_{\text{turn}}) \implies T_0 = 0 \implies v = 0$. The particle stops and reverses its direction of motion.</li>
+        <li><strong>Instantaneous Speed:</strong> $v(x) = \sqrt{\frac{2(E_0 - V_0(x))}{m_P}}$. Speed is maximal at the local minimum of $V_0(x)$.</li>
+      </ul>
+
+      <h3 class="sub-heading">8.2 Slide 15 Potential Example (Explicit Chain Rule Derivation)</h3>
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Force Field from 1D Potential Function (Slide 15)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Analytical differentiation using the chain rule</span>
+          </div>
+          <span class="example-badge">Slide 15</span>
+        </div>
+        <p>
+          <strong>Problem:</strong> Determine the 1D force $F(x)$ associated with the potential energy function:
+          $$ V_0(x) = \cos(x) + \cos\left(\frac{x}{2} - \frac{\pi}{4}\right) $$
+        </p>
+        <p>
+          <strong>Pedagogical Rationale:</strong> In one dimension, a conservative force is defined by the negative spatial derivative of potential energy: $F(x) = -\frac{dV_0}{dx}$. We differentiate each term separately:
+        </p>
+        <ol>
+          <li>
+            <strong>First Term:</strong> The elementary derivative of cosine is:
+            $$ \frac{d}{dx}\big[\cos(x)\big] = -\sin(x) $$
+          </li>
+          <li>
+            <strong>Second Term (Chain Rule):</strong> The argument is an affine function of $x$. We set the intermediate variable:
+            $$ u(x) = \frac{x}{2} - \frac{\pi}{4} \implies \frac{du}{dx} = \frac{d}{dx}\left(\frac{x}{2}\right) - \frac{d}{dx}\left(\frac{\pi}{4}\right) = \frac{1}{2} - 0 = \frac{1}{2} $$
+            Applying the chain rule $\frac{d}{dx}\big[f(u(x))\big] = \frac{df}{du}\frac{du}{dx}$:
+            $$ \frac{d}{dx}\left[\cos\left(\frac{x}{2} - \frac{\pi}{4}\right)\right] = \frac{d(\cos u)}{du}\frac{du}{dx} = (-\sin u)\cdot\left(\frac{1}{2}\right) = -\frac{1}{2}\sin\left(\frac{x}{2} - \frac{\pi}{4}\right) $$
+          </li>
+          <li>
+            <strong>Resultant Force:</strong> Summing both derivatives and applying the fundamental leading minus sign ($F = -dV_0/dx$):
+            $$ F(x) = -\left[ -\sin(x) - \frac{1}{2}\sin\left(\frac{x}{2} - \frac{\pi}{4}\right) \right] = \sin(x) + \frac{1}{2}\sin\left(\frac{x}{2} - \frac{\pi}{4}\right) $$
+          </li>
+        </ol>
+        <p style="margin-bottom: 0;">
+          <em>Physical Interpretation:</em> The force always acts in the direction of negative potential gradient (directing the particle "downhill" into potential valleys), with magnitude equal to the slope of the curve.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="sec-9">
+      <h2 class="section-heading"><span>9.</span> Equilibrium Configurations and Formal Stability Criteria</h2>
+
+      <h3 class="sub-heading">9.1 Equilibrium Configuration (Slide 21)</h3>
+      <p>
+        A configuration $\mathbf{r}_*$ is an **equilibrium configuration** if a particle released at $\mathbf{r}_*$ with zero velocity remains permanently at rest:
+        $$ \mathbf{a}_0^P = \mathbf{0} \iff \sum \mathbf{F}(\mathbf{r}_*) = \mathbf{0} \iff \nabla V_0(\mathbf{r}_*) = \mathbf{0} $$
+        In 1D, equilibrium positions correspond to the critical points of the potential energy function: $\left.\frac{dV_0}{dx}\right|_{x_*} = 0$.
+      </p>
+
+      <h3 class="sub-heading">9.2 Formal Definition of Stability (Lyapunov Criterion)</h3>
+      <p>
+        An equilibrium position $\mathbf{r}_*$ is **stable** if for any arbitrarily chosen position and velocity tolerances $\varepsilon_r, \varepsilon_v > 0$, there exist bounds $\delta_r, \delta_v > 0$ such that if the particle is perturbed initially with $\|\mathbf{r}(0) - \mathbf{r}_*\| < \delta_r$ and $\|\mathbf{v}(0)\| < \delta_v$, then:
+        $$ \|\mathbf{r}(t) - \mathbf{r}_*\| < \varepsilon_r \quad \text{and} \quad \|\mathbf{v}(t)\| < \varepsilon_v \quad \forall t \ge 0 $$
+        Otherwise, the equilibrium configuration is **unstable**.
+      </p>
+
+      <h3 class="sub-heading">9.3 Second-Derivative Curvature Criterion in 1D (Slide 22)</h3>
+      <p>
+        Expanding $V_0(x)$ in a Taylor series about equilibrium $x_*$:
+        $$ F(x) = -\frac{dV_0}{dx} \approx -\left.\frac{d^2V_0}{dx^2}\right|_{x_*}(x - x_*) $$
+      </p>
+      <ul>
+        <li>
+          <strong>Stable Equilibrium ($\frac{d^2V_0}{dx^2}\big|_{x_*} > 0$):</strong>
+          $x_*$ is a **local minimum** (potential well). The force is restoring ($F \approx -k(x - x_*)$), pushing the particle back towards $x_*$.
+        </li>
+        <li>
+          <strong>Unstable Equilibrium ($\frac{d^2V_0}{dx^2}\big|_{x_*} < 0$):</strong>
+          $x_*$ is a **local maximum** (potential crest). The force is repulsive ($F \approx +k(x - x_*)$), driving the particle away from $x_*$.
+        </li>
+        <li>
+          <strong>Neutral / Indeterminate Equilibrium ($\frac{d^2V_0}{dx^2}\big|_{x_*} = 0$):</strong>
+          Inflection point; higher-order derivatives must be inspected.
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section id="sec-10">
+      <h2 class="section-heading"><span>10.</span> Solved Benchmark Problem: The Simple Pendulum (Slide 23 &amp; Notes Sec. 4.7)</h2>
+
+      <div class="callout callout-info" style="border-left: 4px solid var(--accent);">
+        <div class="callout-title" style="color: var(--accent);">
+          <span>👨‍🏫</span>
+          <span>Analytical &amp; Pedagogical Rigor Audit (<code>problem_step_mentor</code>)</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          This classic problem synthesizes all core concepts of Topic 2: polar kinematic constraints, dynamic force balance, string tension determination, exact mechanical energy first integral, equilibrium stability, and small-amplitude harmonic linearization.
+        </p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--text-heading);">The Simple Pendulum (Slide 23 &amp; Notes Sec. 4.7)</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Nonlinear dynamics, energy first integral, and harmonic linearization</span>
+          </div>
+          <span class="example-badge">UC3M Benchmark</span>
+        </div>
+
+        <p><strong>Problem Statement:</strong> A point particle $P$ of mass $m$ is suspended from a fixed point $O$ by an inextensible, massless rigid rod of length $\ell$, subject to uniform downward gravity $\mathbf{g} = -g\mathbf{j}_0$. Determine the equations of motion, string tension, conservation of energy, equilibrium stability, and small-amplitude oscillations.</p>
+
+        <!-- SVG Diagram: Simple Pendulum FBD -->
+        <div class="diagram-container">
+          <svg viewBox="0 0 520 300" width="480" height="280" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pivot O -->
+            <line x1="160" y1="30" x2="360" y2="30" stroke="var(--text-muted)" stroke-width="2" />
+            <circle cx="260" cy="30" r="5" fill="var(--text-heading)" />
+            <text x="245" y="24" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">O (Pivot)</text>
+
+            <!-- Vertical Dash Line -->
+            <line x1="260" y1="30" x2="260" y2="270" stroke="var(--border-subtle)" stroke-width="1.5" stroke-dasharray="4" />
+
+            <!-- Rod -->
+            <line x1="260" y1="30" x2="380" y2="190" stroke="var(--text-heading)" stroke-width="3" />
+            <text x="325" y="105" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Length ℓ</text>
+
+            <!-- Angle Arc theta -->
+            <path d="M 260 90 A 60 60 0 0 1 297 80" fill="none" stroke="var(--accent)" stroke-width="2" />
+            <text x="282" y="110" fill="var(--accent)" font-family="var(--font-mono)" font-size="13" font-weight="700">θ</text>
+
+            <!-- Bob P -->
+            <circle cx="380" cy="190" r="12" fill="var(--accent)" />
+            <text x="400" y="195" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P (m)</text>
+
+            <!-- Polar Basis at P -->
+            <!-- e_R -->
+            <line x1="380" y1="190" x2="440" y2="270" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="448" y="278" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R</text>
+
+            <!-- e_theta -->
+            <line x1="380" y1="190" x2="300" y2="250" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="270" y="260" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ</text>
+
+            <!-- Forces -->
+            <!-- Tension T -->
+            <line x1="380" y1="190" x2="320" y2="110" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="310" y="130" fill="#ef4444" font-family="var(--font-mono)" font-size="13" font-weight="700">T</text>
+
+            <!-- Weight mg -->
+            <line x1="380" y1="190" x2="380" y2="275" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="390" y="265" fill="#10b981" font-family="var(--font-mono)" font-size="13" font-weight="700">W = mg</text>
+          </svg>
+          <div class="diagram-caption">Figure 2.2: Free body diagram of the simple pendulum with polar unit vectors $\{\mathbf{e}_R, \mathbf{e}_\theta\}$, gravity $\mathbf{W}$, and tension $\mathbf{T}$.</div>
+        </div>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">Step 1: Coordinates, Basis, and Kinematic Constraints (Explicit Calculus)</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> The rod maintains a constant distance $R = \ell$ from pivot $O$, constraining the particle to a circular trajectory in the vertical $Oxy$ plane. We define polar coordinates $\{R, \theta\}$ with fixed origin at pivot $O$, equipped with the local orthonormal basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$:
+          $$ \mathbf{e}_R(\theta) = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 $$
+          $$ \mathbf{e}_\theta(\theta) = -\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0 $$
+        </p>
+        <p>
+          We differentiate the rotating basis vectors with respect to time applying the <strong>chain rule</strong> ($\frac{d}{dt} = \frac{d\theta}{dt}\frac{\partial}{\partial\theta} = \dot{\theta}\frac{\partial}{\partial\theta}$):
+          $$ \frac{d\mathbf{e}_R}{dt} = \frac{\partial\mathbf{e}_R}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\cos\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\sin\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0)\dot{\theta} = \dot{\theta}\,\mathbf{e}_\theta $$
+          $$ \frac{d\mathbf{e}_\theta}{dt} = \frac{\partial\mathbf{e}_\theta}{\partial\theta}\frac{d\theta}{dt} = \left(-\frac{d(\sin\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\cos\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{j}_0)\dot{\theta} = -\dot{\theta}\,\mathbf{e}_R $$
+        </p>
+        <p>
+          The rigidity and inextensibility of the rod impose the holonomic constraint:
+          $$ R(t) = \ell = \text{constant} \implies \dot{R}(t) = 0, \quad \ddot{R}(t) = 0 $$
+        </p>
+        <ul>
+          <li><strong>Position Vector:</strong>
+            $$ \mathbf{r}_0^P = \ell\,\mathbf{e}_R $$
+          </li>
+          <li><strong>Velocity Vector (Product Rule):</strong>
+            $$ \mathbf{v}_0^P = \frac{d}{dt}\left(\ell\,\mathbf{e}_R\right) = \underbrace{\frac{d\ell}{dt}}_{=0}\mathbf{e}_R + \ell\frac{d\mathbf{e}_R}{dt} = \ell(\dot{\theta}\,\mathbf{e}_\theta) = \ell\dot{\theta}\,\mathbf{e}_\theta $$
+          </li>
+          <li><strong>Acceleration Vector (Product Rule &amp; Chain Rule):</strong>
+            $$ \mathbf{a}_0^P = \frac{d}{dt}\left(\ell\dot{\theta}\,\mathbf{e}_\theta\right) = \ell\left( \frac{d\dot{\theta}}{dt}\mathbf{e}_\theta + \dot{\theta}\frac{d\mathbf{e}_\theta}{dt} \right) = \ell\left( \ddot{\theta}\,\mathbf{e}_\theta + \dot{\theta}(-\dot{\theta}\,\mathbf{e}_R) \right) = -\ell\dot{\theta}^2\,\mathbf{e}_R + \ell\ddot{\theta}\,\mathbf{e}_\theta $$
+          </li>
+        </ul>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-top: 24px;">Step 2: Force Projection and Newton's Second Law</h4>
+        <p>
+          Two forces act on particle $P$:
+        </p>
+        <ol>
+          <li><strong>Rod Tension $\mathbf{T}$:**</strong> Acts radially inwards toward pivot $O$:
+            $$ \mathbf{T} = -T\,\mathbf{e}_R \quad (T \ge 0) $$
+          </li>
+          <li><strong>Weight $\mathbf{W}$:**</strong> Acts vertically downwards ($\mathbf{W} = -mg\mathbf{j}_0$). We project it onto the polar basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$ via orthogonal scalar projections:
+            $$ \mathbf{W} = (\mathbf{W}\cdot\mathbf{e}_R)\mathbf{e}_R + (\mathbf{W}\cdot\mathbf{e}_\theta)\mathbf{e}_\theta $$
+            $$ \mathbf{W}\cdot\mathbf{e}_R = -mg\mathbf{j}_0 \cdot (\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0) = mg\cos\theta $$
+            $$ \mathbf{W}\cdot\mathbf{e}_\theta = -mg\mathbf{j}_0 \cdot (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0) = -mg\sin\theta $$
+            $$ \mathbf{W} = mg\cos\theta\,\mathbf{e}_R - mg\sin\theta\,\mathbf{e}_\theta $$
+          </li>
+        </ol>
+        <p>Applying Newton's second law: $m\mathbf{a}_0^P = \mathbf{W} + \mathbf{T}$:</p>
+        <div class="math-block">
+          $$ m(-\ell\dot{\theta}^2\,\mathbf{e}_R + \ell\ddot{\theta}\,\mathbf{e}_\theta) = (mg\cos\theta - T)\,\mathbf{e}_R - mg\sin\theta\,\mathbf{e}_\theta $$
+        </div>
+        <p>Equating components along each basis vector:</p>
+        <ul>
+          <li><strong>Radial Component ($\mathbf{e}_R$):</strong>
+            $$ -m\ell\dot{\theta}^2 = mg\cos\theta - T \implies T(\theta, \dot{\theta}) = m(g\cos\theta + \ell\dot{\theta}^2) $$
+            <em>Physical insight:</em> The rod tension must simultaneously offset the radial gravitational component $mg\cos\theta$ and supply the centripetal acceleration $m\ell\dot{\theta}^2$.
+          </li>
+          <li><strong>Azimuthal Component ($\mathbf{e}_\theta$):</strong>
+            $$ m\ell\ddot{\theta} = -mg\sin\theta \implies \ddot{\theta} + \frac{g}{\ell}\sin\theta = 0 $$
+            <em>Physical insight:</em> This is the exact, nonlinear second-order differential equation of motion of the simple pendulum.
+          </li>
+        </ul>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-top: 24px;">Step 3: Mechanical Energy Conservation, Explicit Time Derivative, &amp; First Integral</h4>
+        <p>
+          Because tension $\mathbf{T}$ acts perpendicular to the instantaneous velocity ($\mathbf{T} \cdot \mathbf{v}_0^P = (-T\mathbf{e}_R)\cdot(\ell\dot{\theta}\mathbf{e}_\theta) = 0$), non-conservative work vanishes identically. Mechanical energy $E_0$ is strictly conserved:
+        </p>
+        <ul>
+          <li><strong>Kinetic Energy:</strong> $T_0 = \frac{1}{2}m\|\mathbf{v}_0^P\|^2 = \frac{1}{2}m(\ell\dot{\theta})^2 = \frac{1}{2}m\ell^2\dot{\theta}^2$</li>
+          <li><strong>Potential Energy:</strong> Setting $V_0 = 0$ at the lowest point ($\theta = 0$): $V_0(\theta) = mg\ell(1 - \cos\theta)$</li>
+          <li><strong>Total Mechanical Energy:</strong>
+            $$ E_0 = T_0 + V_0 = \frac{1}{2}m\ell^2\dot{\theta}^2 + mg\ell(1 - \cos\theta) = \text{constant} $$
+          </li>
+        </ul>
+        <p>
+          <strong>Rigorous Proof of Conservation via the Chain Rule:</strong> Differentiating $E_0$ with respect to time $t$:
+          $$ \frac{dT_0}{dt} = \frac{d}{dt}\left(\frac{1}{2}m\ell^2\dot{\theta}^2\right) = \frac{1}{2}m\ell^2\left(\frac{d(\dot{\theta}^2)}{d\dot{\theta}}\frac{d\dot{\theta}}{dt}\right) = \frac{1}{2}m\ell^2(2\dot{\theta}\ddot{\theta}) = m\ell^2\dot{\theta}\ddot{\theta} $$
+          $$ \frac{dV_0}{dt} = \frac{d}{dt}\big[mg\ell(1 - \cos\theta)\big] = mg\ell\left(\frac{d(1 - \cos\theta)}{d\theta}\frac{d\theta}{dt}\right) = mg\ell(\sin\theta)\dot{\theta} $$
+          Summing both terms:
+          $$ \frac{dE_0}{dt} = m\ell^2\dot{\theta}\ddot{\theta} + mg\ell\sin\theta\dot{\theta} = m\ell\dot{\theta}\left( \ell\ddot{\theta} + g\sin\theta \right) $$
+          Since $\ell\ddot{\theta} + g\sin\theta = 0$ by the equation of motion, $\frac{dE_0}{dt} \equiv 0$ identically!
+        </p>
+        <p>
+          Solving $E_0 = \frac{1}{2}m\ell^2\dot{\theta}^2 + mg\ell(1 - \cos\theta)$ for angular velocity $\dot{\theta}$ yields the <strong>first integral of motion</strong>:
+          $$ \dot{\theta} = \pm\sqrt{\frac{2}{m\ell^2}\left[ E_0 - mg\ell(1 - \cos\theta) \right]} $$
+        </p>
+        <p>Turning points occur when $\dot{\theta} = 0 \implies \cos\theta_{\max} = 1 - \frac{E_0}{mg\ell}$.</p>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-top: 24px;">Step 4: Equilibrium Configurations and Curvature Stability</h4>
+        <p>
+          Equilibrium positions correspond to the critical points of potential energy $V_0(\theta)$:
+          $$ \frac{dV_0}{d\theta} = mg\ell\sin\theta = 0 \implies \theta_* = 0, \pm\pi $$
+        </p>
+        <p>
+          We classify stability by evaluating the second derivative (curvature test):
+          $$ \frac{d^2V_0}{d\theta^2} = \frac{d}{d\theta}(mg\ell\sin\theta) = mg\ell\cos\theta $$
+        </p>
+        <ul>
+          <li><strong>At $\theta_* = 0$ (hanging vertically downwards):</strong>
+            $$ \left.\frac{d^2V_0}{d\theta^2}\right|_{\theta=0} = mg\ell\cos(0) = +mg\ell > 0 \implies \text{\textbf{Stable Equilibrium (Local Minimum)}} $$
+          </li>
+          <li><strong>At $\theta_* = \pm\pi$ (inverted vertically upwards):</strong>
+            $$ \left.\frac{d^2V_0}{d\theta^2}\right|_{\theta=\pm\pi} = mg\ell\cos(\pm\pi) = -mg\ell < 0 \implies \text{\textbf{Unstable Equilibrium (Local Maximum)}} $$
+          </li>
+        </ul>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-top: 24px;">Step 5: Small-Amplitude Linearization ($\theta \ll 1$)</h4>
+        <p>
+          The Maclaurin series expansion of $\sin\theta$ about the stable equilibrium $\theta = 0$ is:
+          $$ \sin\theta = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\theta^{2n+1} = \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \dots = \theta - \frac{\theta^3}{6} + \mathcal{O}(\theta^5) $$
+        </p>
+        <p>
+          For small angular deflections $|\theta| \ll 1\text{ rad}$ (e.g., $|\theta| < 10^\circ \approx 0.175\text{ rad}$), the cubic term is negligible ($\frac{\theta^3}{6} \approx 0.00089 \ll 0.175$). Retaining only the first-order linear term $\sin\theta \approx \theta$, the nonlinear equation reduces to:
+        </p>
+        <div class="math-block">
+          $$ \ddot{\theta} + \frac{g}{\ell}\theta = 0 \iff \ddot{\theta} + \omega_0^2\theta = 0 $$
+          <div class="math-caption">Linearized second-order ODE of the simple harmonic oscillator</div>
+        </div>
+        <p>
+          The characteristic polynomial is $r^2 + \omega_0^2 = 0 \implies r = \pm i\omega_0$, yielding the general harmonic oscillation:
+          $$ \theta(t) = \theta_{\max}\cos(\omega_0 t + \phi_0) $$
+        </p>
+        <p>The natural angular frequency $\omega_0$ and period of oscillation $T_0$ are:</p>
+        <div class="math-block">
+          $$ \omega_0 = \sqrt{\frac{g}{\ell}} \quad [\text{rad/s}], \quad T_0 = \frac{2\pi}{\omega_0} = 2\pi\sqrt{\frac{\ell}{g}} \quad [\text{s}] $$
+        </div>
+        <p style="margin-bottom: 0;">
+          Notice that period $T_0$ depends strictly on pendulum length $\ell$ and gravitational acceleration $g$, exhibiting complete independence from particle mass $m$ and amplitude $\theta_{\max}$ (isochronism of small oscillations).
+        </p>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <div class="article-nav">
+      <a href="topic-1.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Topic</span>
+        <span class="nav-btn-title">Topic 1: Particle Kinematics</span>
+      </a>
+      <a href="topic-3.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Next Topic →</span>
+        <span class="nav-btn-title">Topic 3: Constraints and Reaction Forces</span>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Theme toggle with localStorage persistence
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

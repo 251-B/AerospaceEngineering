@@ -27,8 +27,9 @@ Do **NOT** use, cite, or query the following notebooks unless the user explicitl
 
 ---
 
-## 3. Web Development Guidelines for Study Sites
+## 3. Web Development & Language Guidelines
 
+* **Language Standard (Mandatory):** All study materials, Obsidian notes (`vault/`), solved problems, and web portal pages (`subjects/`) must be written strictly in **English**, as the degree (BSc in Aerospace Engineering at UC3M) and all official source materials (`sources/`) are taught and published entirely in English.
 * **Structure:** Clean, semantic HTML5 files organized by subject or topic.
 * **Design:** Modern, clean, responsive (mobile & tablet friendly for library/study sessions), with pleasant typography and dark/light contrast.
 * **Content:** Grounded in the lecture notes, problem sets, and study guides from the active 2nd Year notebooks and the Obsidian Vault (`vault/`).
@@ -63,9 +64,32 @@ The project uses a specialized multi-agent workflow focused strictly on two core
 * **Tools:** Write/command tools enabled (read, test, lint, git checks).
 * **System Prompt / Task:** Auditar la integridad de enlaces relativos (`../../../index.html`), balance y sintaxis de delimitadores KaTeX ($ y $$), legibilidad responsive y control de cambios en Git.
 
+### Agent 5: `problem_step_mentor`
+* **Role:** Mentor Pedagógico de Problemas & Auditor de Rigor Analítico (Model tier: `pro`).
+* **Tools:** Read-only / deep reasoning / code review.
+* **System Prompt / Task:** Supervisar y asegurar que toda resolución de problemas, ejercicios de clase y exámenes cumpla con el estándar de máxima claridad didáctica:
+  1. **Justificación Pedagógica Previa:** Antes de enunciar o utilizar cualquier fórmula, integral, derivada o principio físico, redactar un párrafo detallado explicando *por qué* se decide emplear esa ecuación específica y qué ventaja analítica aporta frente a otras alternativas.
+  2. **Trazabilidad con Fuentes Oficiales:** Citar explícitamente el origen de cada resultado (ej: *Ecuación (2.6) de Notes.pdf*, *Slide 29*, *Teorema de Poisson*, etc.).
+  3. **Conexión Sistemática entre Cambios de Coordenadas y Matrices de Cambio de Base:** Explicar siempre los cambios de coordenadas vinculándolos directamente con sus correspondientes bases vectoriales y matrices de rotación/cambio de base $[{}_0 R_1]$, demostrando cómo se transforman los vectores de una base a otra mediante producto matricial y proyección.
+  4. **Cero Saltos Algebraicos:** Desarrollar todas las operaciones intermedias, integrales y sustituciones paso a paso, sin omitir pasos intermedios para que cualquier estudiante pueda reproducir el desarrollo sin esfuerzo.
+  5. **Cálculo Explícito de Derivadas, Integrales y Regla de la Cadena:** Desarrollar de manera explícita cada paso de cálculo diferencial e integral:
+     - Detallar siempre la aplicación de la **regla de la cadena** $\frac{d}{dt}f(u(t)) = \frac{df}{du}\frac{du}{dt}$, regla del producto $\frac{d}{dt}(uv) = \dot{u}v + u\dot{v}$ y diferenciación implícita.
+     - En toda integración (temporal o espacial), mostrar la primitiva intermedia, el cambio de variable con su diferencial $du = u'(t)dt$, y la sustitución paso a paso de los límites de integración mediante la Regla de Barrow $[F(t)]_{t_1}^{t_2} = F(t_2) - F(t_1)$.
+     - Queda terminantemente prohibido saltar directamente del enunciado de una derivada o integral a su resultado final.
+
 ---
 
-## 5. Second Brain Architecture (Obsidian Vault: `vault/`)
+## 5. Directrices Generales para la Resolución de Problemas
+
+A partir de ahora, todo problema desarrollado para la bóveda de Obsidian o la web debe adherirse estrictamente a esta metodología:
+1. **Fase 1: Planteamiento Físico, Hipótesis y Datos:** Enunciado formal, identificación de grados de libertad, ligaduras y tabla de parámetros con unidades SI.
+2. **Fase 2: Conexión Geométrica y Matrices de Cambio de Base:** Definición explícita de los sistemas de coordenadas y bases vectoriales involucradas ($\mathcal{B}_0, \mathcal{B}_C, \mathcal{B}_F$). Construcción de la matriz de cambio de base $[{}_0 R_1]$ y deducción de las relaciones de transformación vectorial.
+3. **Fase 3: Desarrollo Matemático y Cálculo Paso a Paso con Justificación Continua:** Cada ecuación, derivada o integral debe estar precedida de una explicación sobre la razón física o matemática de su elección y su referencia exacta en los apuntes oficiales. Toda derivada (especialmente reglas de la cadena temporales) e integral debe desarrollarse explícitamente sin omitir pasos de cálculo.
+4. **Fase 4: Interpretación Física, Órdenes de Magnitud y Unidades:** Análisis del resultado analítico o numérico, comportamiento en casos límite y verificación dimensional.
+
+---
+
+## 6. Second Brain Architecture (Obsidian Vault: `vault/`)
 
 The local knowledge base resides in `vault/` inside the repository. It serves as the primary ground truth:
 * **Format:** Clean Markdown (`.md`) with LaTeX math formulas and bidirectional `[[Wikilinks]]`.

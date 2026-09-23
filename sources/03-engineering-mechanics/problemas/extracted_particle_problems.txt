@@ -1,0 +1,1102 @@
+
+==================== PAGE 6 ====================
+1 Particle exercises and problems
+1 Particle exercises and problems
+1. An out-of-control rocket traces an upward helical trajectory described in cartesian coordinates
+for tą 0 by
+x“a cospωtq, (1)
+y“a sinpωtq, (2)
+z“vzt. (3)
+where a, vz and ω are constants.
+(a) Express the position, velocity and acceleration vectors in the cartesian x,y,z system using
+unit vectorsi,j,k.
+(b) Express the position, velocity and acceleration vectors in the cylindrical coordinate system
+using unit vectors eR,eθ,ez.
+(c) Express the velocity and acceleration vectors using s,ρ and the vector basis et,en,eb.
+(d) Compute the modulus of the velocity vector
+(e) Express the evolution of the arc-length coordinate as a function of time
+(f) Write down the trajectory as a function of the arc-length coordinate
+(g) Where is the center of curvature for this curve when the particle is located at px,y,z q“
+pa, 0, 0q?
+(Taken from MIT OCW)
+2. A planar spiral is given by the equation r“αeβθ, where α and β are constants, r is the radial
+coordinate, and θ is the angular coordinate. If a particle moves along the spiral according to
+the equation θ“δtn (δ is a constant), determine:
+(a) The radial and transverse components of the velocity
+(b) The radial and transverse components of the acceleration
+(c) The tangential and normal components of the velocity
+(d) The tangential and normal components of the acceleration
+(e) The radius of curvature of the spiral
+3. A point particle describes the astroid:
+x “ a cos3φ
+y “ a sin3φ
+with a motion whose tangential acceleration is constant, k. If the point is initially at rest at
+φ“ 0, compute the evolution of the position as a function of time while the particle is in one
+of the smooth segments of the astroid. ( Hint: ds“
+a
+dx2`dy2).
+5 Aerospace Engineering Department (UC3M)
+==================== PAGE 7 ====================
+Mechanics Applied to Aerospace Engineering
+4. An aircraft moves at constant altitude y0 with velocityv0 in thex direction. At time t“ 0 it is
+located at x“ 0, and it begins to accelerate in the x direction at a constant rate ax. Describe
+the position, velocity and acceleration in polar coordinates, r, θ, and answer the following
+questions:
+(a) Show that: 9r“vptq¨ xptq{rptq
+(b) Show that: 9θ“´vptq¨ y0{prptqq2
+(c) Show that: :r“
+`
+v2ptq¨ y2
+0`ax¨xptq¨ r2ptq
+˘
+{prptqq3
+(d) Show that: :θ“y0¨
+`
+2v2ptq¨ xptq´ ax¨r2ptq
+˘
+{prptqq4
+From these expressions form the acceleration vectora“arer`aθeθ. Repeat the problem using
+cartesian coordinates.
+5. An airplane A is flying horizontally with a constant speed vA, and is towing a glider B. The
+glider is gaining altitude. The tow cable has a length r, and the angle θ formed between the
+tow cable and the horizontal is increasing at a constant rate of 9θ. We want to determine the
+magnitude of the velocity, vB
+0 , and the acceleration, aB
+0 , of the glider as a function of θ and its
+derivatives.
+6. A point particle P travels along a curve given by
+y“ sinx
+with a velocity along x given by 9x“ 1.
+(a) Find the intrinsic, unitary vector basis associated to the curve.
+(b) Express x as a function of an arc length parameter, s. You can leave your solution as a
+function of an integral.
+(c) Find the tangent and normal acceleration components of P as a function of x.
+(d) Write the radius of curvature of the trajectory as a function of x.
+Version 2026 6
+==================== PAGE 8 ====================
+1 Particle exercises and problems
+7. A skater B is being towed by a vehicle A on a perfectly smooth horizontal plane, where we
+define an inertial reference frame Oxy. The vehicle is moving along a circumference of radius
+a and center at O with constant angular velocity ω. The skater is attached to the vehicle by a
+bar without mass and constant length l“ a. Initially, the vehicle is located at pa, 0q and the
+skater is at rest at p2a, 0q. Defining a rotating reference frame Ox1y1 with origin at O and axis
+Ox1 along OA, and calling ψ the angle between the axis Ox1 and the bar AB, determine:
+(a) The relative acceleration of the skater with respect to Ox1y1 as a function of ψ and its
+time derivatives.
+(b) The centripetal and Coriolis acceleration terms also as a function of ψ and its time deriva-
+tives.
+(c) Reduce the evolution of ψ to integrals of the form
+ş
+r...sdψ “
+ş
+r...sdt. (consider that
+9ψ2“
+ş
+2 9ψ :ψdt).
+(d) Determine the tension on the bar.
+(e) If the rigid bar is substituted by a string which cannot bear compression, determine if/when
+the string will become loose.
+x
+y
+x1
+y1
+ t
+
+A
+B
+8. Two trains, A and B, are moving along parallel tracks. The separation between the tracks is
+a. The absolute velocity of each train is vA and vB, respectively. What is the relative velocity
+of each train with respect to the other?
+Solve the same problem considering that the train B is now moving along a circular track of
+radius R. The minimum distance between the circular track and the straight track of A is a.
+9. In “2001: A Space Odyssey” an idea to obtain artificial gravity in a spaceship was presented.
+It consists of a cylinder rotating at constant angular velocity around its axis. The astronauts
+would live in the inner surface of the cylinder and the centrifugal force would act as artificial
+gravity.
+(a) If the cylinder has radius R, determine the angular velocity ω required to obtain a given
+level artificial gravity g. Consider R“ 10 m and g“ 9.81 m/s2 for a particular case.
+(b) An astronaut runs inside the surface of the cylinder with a constant speed u with respect
+to the cylinder. Determine the artificial gravity that she feels (neglect the height of the
+astronaut h with respect to the radius of the cylinder R, h!R)
+(c) What is the condition for her to feel no artificial gravity at all?
+7 Aerospace Engineering Department (UC3M)
+==================== PAGE 9 ====================
+Mechanics Applied to Aerospace Engineering
+10. A particle of mass m moves under a forceF “´cx3i , where c is a positive constant. Find the
+potential energy function. If the particle starts from rest at x“´a, what is its velocity when
+it reaches x“ 0? In the subsequent motion, where does it stop again?
+11. The potential energy function of a particle of mass m is Vpxq“´ cpx2´a2q2{2 , where c and
+a are positive constants. Sketch this function, and describe the possible types of motion in the
+three cases (a) Eą 0, (b) Eă´ca4{2 , and (c) ´ca4{2ăEă 0.
+12. A particle moving under a conservative force oscillates betweenx1 andx2. Show that the period
+of oscillation is:
+τ “ 2
+żx2
+x1
+c m
+2rVpx2q´ Vpxqsdx,
+where Vpxq is the potential energy function. In particular, if V “p 1{2qmω2
+0px2´bx4q, show
+that the period for oscillations of amplitude a is
+τ “ 2
+ω0
+ża
+´a
+dx?
+a2´x2
+a
+1´bpa2`x2q
+13. A particle of mass m moves along the Ox axis under the potential Vpxq“ mgx
+“
+px{aq2´ 3
+‰
+.
+Compute the evolution of the particle as a function of time, when it is released fromx0“a with
+an initial velocityv0“?8ga directed along the positive Ox axis. (tip:
+ş
+dx{
+`
+px` 1q?2´x
+˘
+“
+´p2{
+?
+3qarctanhp?2´x{
+?
+3q)
+14. A particle of mass m is moving along the Ox axis under the force Fpxq“ mKxex{ai, where K
+and a are known positive constants. The initial position of the particle is x“a and the initial
+velocity isv“´v0i. Describe the possible types of motion of the particle as a function of v0.
+15. The Stokes’ law states that the magnitude of the drag force acting on a sphere of radius r and
+velocity v moving on a fluid at rest of dynamic viscosity µ is: Fpvq “6πµrv. Assuming the
+density of a vertically-falling sphere is twice the density of the fluid ( ρ0), and considering drag,
+the weight and the buoyancy of the sphere, compute:
+(a) The terminal velocity of the sphere.
+(b) The evolution of the position as a function of time, if the sphere starts from rest.
+Remember that the kinematic viscosity is defined as ν“µ{ρ0.
+16. A football has frontal surface area S, mass m, and a drag coefficient CD. It falls vertically
+through the air of density ρ. It is assumed that the forces acting on the ball are only gravity
+and drag. The drag can be modeled as: D “ p1{2qρv2SCD, with v the speed of the ball.
+Compute its terminal speed and its position as a function of time. You may find the following
+integrals useful: ż dx
+x2
+0´x2 “ 1
+x0
+atanh x
+x0
+;
+ż
+tanhxdx“ ln coshx.
+17. A force attracts a heavy particle M of massm to a pointO. The attractive force is proportional
+to the mass of the particle and to the distance OM. The proportionality coefficient is k2. The
+coordinate systemOxyz has the origin at the centre of attractionO and the axisOz is vertically
+oriented. Initially, the coordinates of M arepx0,y 0,z 0q“p
+?
+3g{k2, 0, 0q and its initial velocity
+isp 9x0, 9y0, 9z0q“p 0, 2g{k, 0q.
+Version 2026 8
+==================== PAGE 10 ====================
+1 Particle exercises and problems
+(a) Describe the motion of M, specifying clearly the shape of the path.
+(b) What is the velocity of the particle as function of t?
+18. A heavy particle of mass m is moving without friction on a cone which is described as:
+z2“x2`y2
+The frame of referenceOxyz is inertial andOz is the ascending vertical. The initial coordinates
+of the particle are pa, 0,aq and its velocity is ?agj. Reduce the problem to integral equations
+and determine the maximum and minumum value of z along the motion.
+19. A heavy particle of mass m is moving without friction on the paraboloid which is described as:
+az“r2
+where a is a positive constant and r is the distance to the Oz vertical axis. If r“ a initially,
+and the particle is released with a velocity v0 tangent to the local parallel, reduce the problem
+to integrals of the form
+ş
+r...sdr“
+ş
+r...sdt. Determine the maximum and minimum of r along
+the motion.
+20. A heavy particle is moving along a smooth circumference of radius R and center O. One of
+the diameters of the circumference is along the local vertical, and the circumference is rotating
+with constant angular velocity ω about it. The position of the particle with respect to the
+circumference is described by the angle θ between the particle and the lowest point of the
+circumference.
+(a) Discuss the conservation of mechanical energy in the moving reference frame and compute
+its value.
+(b) Compute the reaction of the circumference in the direction normal to its plane, as a function
+of θ.
+21. On a spinning spherical planet of radius R and gravitational acceleration gp, the bodies weight
+twice as much on the poles as on the equator. Determine the duration of the day on that planet.
+22. A heavy point particle P of mass m is constrained to move without friction along the curve
+y“a
+´
+1´ cos
+´x
+a
+¯¯
+, (4)
+in the range ´πaďxďπa, where a is a positive constant. Initially, the particle is located at
+x“ 0 with velocity v0 along the positive x axis.
+x
+y
+π  a− π  a
+2 a
+m
+g
+O
+9 Aerospace Engineering Department (UC3M)
+==================== PAGE 11 ====================
+Mechanics Applied to Aerospace Engineering
+(a) Reduce the problem to integrals.
+(b) If v0“?ga determine the minimum and maximum value of x along the motion.
+(c) What should be the minimum value of v0 in order to reach x“πa?
+Let’s assume now that the curve containing the point particle rotates around the OY axis with
+constant angular velocity ω“ Ωj.
+(d) Define a convenient moving reference frame with origin in O, OX1Y1Z1. Determine the
+inertia force that acts on the particle in this moving reference frame as a function ofm,Ω,x1
+and 9x1, where x1 represents the position coordinate of P along OX1.
+(e) Reduce the problem to quadratures and determine the value of the reaction force.
+(f) Find out a trascendental equation whose solutions are the equilibrium positions of the
+point particle in OX1Y1Z1.
+(g) If Ω were a function of time, would it be possible to use the energy equation in the same
+way as before? Justify your answer.
+23. A simple pendulum consists of a mass m hanging from a string of length L and fixed at a pivot
+point O. The simple pendulum is equivalent to the problem of a heavy particle constrained
+to move along a smooth circumference. A unilateral constraint is considered, such that the
+particle move along the interior of the circumference and it might fall under certain conditions.
+Analyze the motion of the particle when it is pushed from the lowest point of the circumference
+with velocity v0. At what point does the particle leave the circumference? Is this point ever
+reached?
+If the circumference rotates around the vertical axis with a constant angular velocity equal to
+ω, write down the new equations of motion. Compute the locations along the circumference in
+which the particle is in equilibrium.
+Version 2026 10
+==================== PAGE 12 ====================
+1 Particle exercises and problems
+24. A heavy particle P is constrained to move along a circumference and it is attached to a spring
+as shown in the figure. The mass of the particle is m, and the radius of the circumference is a.
+The other end of the spring is attached to a point of the y axis with coordinates p0,βaq and
+the constant of the spring is equal to k.
+(a) Compute the potential of the forces acting on the particle as a function of the angle θ
+(shown in the figure).
+(b) Identify the equilibrium positions.
+The particle departs from the pointpa, 0q of the circumference with an initial velocityv0“v0j.
+(c) Reduce the motion to integrals (i.e., quadratures).
+(d) If β“mg{pkaq, obtain the position of the particle as a function of time.
+Consider now the situation in which an additional force acts on the particle. The force is
+proportional to, and in the same direction as, the instantaneous velocity. The constant of
+proportionality is 2mµ. The initial conditions are the same as before.
+(e) Obtain the position of the particle as a function of time.
+(f) Obtain the reaction of the circumference.
+O x
+y
+βa
+A
+P
+a
+g
+θ
+11 Aerospace Engineering Department (UC3M)
+==================== PAGE 13 ====================
+Mechanics Applied to Aerospace Engineering
+25. A spacecraft S is orbiting a celestial body F . The trajectory of the spacecraft with respect to
+an inertial reference frame Fxy is given by
+r“ p
+1`e cosν,
+where p and e are known constants and νptq is a known function of time. The space explorer
+Ijon Tichy needs to perform some extra-vehicular activities during his Seventh Voyage 1. He
+attaches himself with a massless cord of length L to the spacecraft and goes for a space walk.
+The cord remains in tension at all times. The astronaut is very light compared to the spacecraft,
+so his motion does not perturb the motion of the spacecraft. Furthermore, we assume that we
+can consider him as a point particle of mass m. We define a moving reference frame Sx1y1 as
+depicted in the figure.
+(a) Determine the acceleration of the spacecraft with respect to Fxy as a function of time.
+(b) Determine the tangent vector to the trajectory of S as a function of time.
+(c) Determine the relative velocity and relative acceleration of Ijon Tichy with respect to
+Sx1y1 as a function of θ and its time derivatives.
+(d) Determine the fictitious forces acting on Ijon Tichy if we analyze the problem with respect
+to the frame Sx1y1.
+The lengthL is very small compared to the distance betweenF andS. This allows us to take an
+approximation:2 in the following, assume that the gravitational acceleration on the astronaut
+and on the spacecraft are exactly the same vector (magnitude and direction) as a function of
+time.
+(e) Write down one ordinary differential equation that once solved (with given initial condi-
+tions) would yield the angle θ as a function of time (you do not need to solve it)
+(f) Assuming that you solved the previous equation, and therefore knew θptq, determine the
+value of the tension on the cord as a function of time.
+x
+y
+x1
+y1
+F
+ν
+θ
+SL
+1The Star Diaries by Stanislaw Lem.
+2In actual problems the small differences in gravity at the position of the astronaut and the spacecraft can give rise
+to small but important effects, and this approximation is usually not taken for that reason.
+Version 2026 12
+==================== PAGE 14 ====================
+1 Particle exercises and problems
+26. A heavy point particle P of mass m is constrained to move without friction along the half-
+circumference wire of radius a shown in the figure. The wire containing the point particle
+rotates around the OY axis with constant angular velocity ω “ Ωj. Initially, the particle is
+located at x“ 0 with velocity v0 along the positive x axis.
+x
+y
+a−a
+a
+m
+g
+O
+(a) Determine the number of degrees of freedom of the problem.
+(b) Define a convenient moving reference frame with origin in O, OX1Y1Z1. Express the
+inertia force that acts on the particle in this moving reference frame.
+(c) Express also the components of the weight of the particle with respect to OX1Y1Z1.
+(d) Determine if there are any equilibrium points.
+(e) Reduce the problem to integrals (i.e. quadratures) and determine the value of the reaction
+force.
+(f) Is it possible to use the energy equation? If Ω were a function of time, would it be possible
+to use the energy equation? Justify your answer.
+13 Aerospace Engineering Department (UC3M)
+==================== PAGE 15 ====================
+Mechanics Applied to Aerospace Engineering
+27. A heavy bead P of mass m slides without friction along a thin wire with shape given by the
+following equation:
+y1px1q“ sinx1.
+Moreover, the bead is joined to a straight rail located at y1“ 2 by a spring of stiffness k. The
+connection of the spring with the rail can move freely along the rail, so that the spring is always
+vertical. The whole setup rotates with respect to the y1 axis with a constant angular velocityω.
+A sketch of the setup and the definition of the right-handed, rotating Ox1y1z1 reference frame
+is given below.
+k
+P
+y1
+x1
+ω
+O
+y1“ 2
+y1“ sinx1
+g
+(a) Write down the general expression for the components of the relative velocity and accel-
+eration of P in the reference frame Ox1y1z1 as functions of the axial position of the bead,
+x1, and its time derivatives 9x1 and :x1.
+(b) Identify all forces acting on the bead and then write down the three components of New-
+ton’s second law in the Ox1y1z1 reference frame. From these equations, obtain an explicit
+expression of the components of the reaction force on the wire as a function of x1 9x1 and
+the parameters of the problem only, and a second order differential equation for x1 that
+does not depend on the reaction force.
+(c) Is it possible to use the equation of conservation of mechanical energy of the relative motion
+of P ? If so, write it down in terms of x1, 9x1 and the parameters of the problem. What is
+the relation of this equation with the differential equation for x1 in the previous point?
+(d) For ω“ 0 and x1Pr 0, 2πs, discuss the existence of equilibrium positions as a function of
+the parameter λ“mg{k. Are these equilibrium positions stable?
+(e) Consider now that ω ‰ 0, and k “ 0. We drop the bead P at x1 “ π with no initial
+velocity. Sketch the shape of the potential and discuss qualitatively the motion of P if
+the parameter β“ω2{g is small or large. Write down the system of equations that would
+allow to solve for the critical value of β that divides between the two behaviors.
+Version 2026 14
+==================== PAGE 16 ====================
+1 Particle exercises and problems
+28. A point particle P of mass m is attached with a massless cord of length L to the point A,
+as shown in the figure. The point A is oscillating vertically with respect to the fixed reference
+frameOxyz according to the lawz“a sinωt, wherea andω are known constants. The position
+of the particle P with respect to the moving reference frame Ax1y1z1 is completely specified by
+the angles φ and θ shown in the figure.
+Att“ 0 the relative position and relative velocity of the particle are defined by the values
+θ0“ 0, φ 0“ 30˝,
+9θ0“
+d
+2g?
+3L, 9φ0“ 0,
+where g is the gravitational acceleration.
+We define the following unit vectors that define a spherical coordinate system
+er“ sinφ cosθi` sinφ sinθj` cosφk,
+eφ“ cosφ cosθi` cosφ sinθj´ sinφk,
+eθ“´ sinθi` cosθj.
+The partial derivatives of these vectors with respect to φ and θ are
+Ber
+Bφ “eφ, Beφ
+Bφ “´er, Beθ
+Bφ “ 0,
+Ber
+Bθ “ sinφeθ, Beφ
+Bθ “ cosφeθ, Beθ
+Bθ “´ sinφer´ cosφeφ.
+(a) Show that the relative acceleration of P with respect to Ax1y1z1 can be expressed as
+a1
+P “´L
+´
+9φ2` 9θ2 sin2φ
+¯
+er`L
+´
+:φ´ 9θ2 sinφ cosφ
+¯
+eφ`L
+´
+:θ sinφ` 2 9θ 9φ cosφ
+¯
+eθ.
+(b) Write down a system of three ordinary differential equations that once solved would yield
+the angles θ and φ, and the tension on the cord as a function of time (you do not need to
+solve it)
+(c) At t“ 0, determine the relative acceleration of P with respect to Ax1y1z1.
+(d) At t“ 0, determine the value of the tension on the cord.
+15 Aerospace Engineering Department (UC3M)
+==================== PAGE 17 ====================
+Mechanics Applied to Aerospace Engineering
+29. A heavy particle of mass m is constrained to move without friction along the surface of an
+infinitely-long, circular cylinder of radius R. The cylinder axis (Oz) forms an angle α with the
+vertical direction (Oz1). A sketch is shown on the left panel of the figure below. The position
+of the particle is completely specified by providing the coordinate z along the axis Oz and the
+angle θ as shown on the right panel. Initially, the particle is located at z“ 0, θ“π{2 and the
+time derivatives are 9z“v0 and 9θ“ω0.
+(a) Determine the value of z as a function of time, zptq.
+(b) Reduce the determination of the angle θptq to integrals of the form
+ş
+r...sdθ“
+ş
+r...sdt.
+(c) Determine the reaction from the cylinder as a function of θ.
+(d) For the particular case, ω2
+0“g sinα{R describe qualitatively the motion of the particle.
+(e) For the particular case, ω2
+0“ 4g sinα{R describe qualitatively the motion of the particle.
+Version 2026 16
+==================== PAGE 18 ====================
+1 Particle exercises and problems
+30. A point particle P of mass m is constrained to move on a smooth quarter of circumference as
+shown in the figure below. We define a moving reference frame OX1Y1Z1 that rotates with
+respect to an inertial reference frame OXYZ . The rotation of the moving reference frame
+is performed along a vertical axis defined as x1 “ ´R and y1 “ 0, the angular velocity is
+ω “ ωk “ ωk1. The particle is attached to a linear spring with the other end attached to
+the point B of the reference frame OX 1Y1Z1 with coordinates (-2R, 0, 0). The constant of the
+spring is K“αmω2. The angle between OP and the negative side of the z1 axis, ϕ, is used to
+define the position of the particle. Neglect the action of the gravity on the particle.
+Initially the particle is located at ϕ“ 0 and it is set to motion with a relative velocity´βωRi1.
+Both α and β are positive nondimensional parameters.
+(a) Compute the relative velocity and the relative acceleration of the particle in the path
+variable reference frametet,en,ebu as functions of the coordinate ϕ and their derivatives.
+(b) Write down the three components of Newton’s second law expressed in the path variables
+reference frame tet,en,ebu.
+(c) Express the energy conservation equation in the relative reference frame. Discuss if this
+equation is equivalent to one of the above ones.
+Let us now consider a different problem. Depending on the values of the parameters, we may
+find the equilibrium of the forces at different positions.
+(d) Obtain the value of α to have an equilibrium position when the particle is positioned at ϕ
+equal to π
+6 .
+For this value ofα, the particle is again located at ϕ“ 0 and is set to motion with the relative
+velocity defined before.
+(e) Describe the possible types of motion for the different values of β. In particular, obtain
+the critical value of β that makes the particle reach the position ϕ“ π
+2 and the reaction
+force of the curve to the particle at that instant.
+(f) For a value of β higher than the critical one, the particle leaves the arc of circumference
+and its motion is not anymore constrained. Under these conditions compute the maximum
+height reached by the particle,zmax, as a function ofβ. Note that the particle is still under
+the action of the spring.
+17 Aerospace Engineering Department (UC3M)
+==================== PAGE 19 ====================
+Mechanics Applied to Aerospace Engineering
+31. Two heavy point particles P1 andP2 of massm each are connected by an inextensible, massless
+string of total length ℓ. Particle P1 is constrained to move without friction over the surface
+of a cone of semiangle α (the particle cannot leave the surface of the cone). The string passes
+through an aperture at the cone vertex O, and it can slide through it without friction. Particle
+P2 hangs along the cone axis, and is constrained to move along it. We define an inertial reference
+frame S0 as shown in the figure. We call ξ the length of the fraction of string between O and
+P1, and θ the angle formed between the Ox axis and the projection onto the Oxy plane of the
+OP1 vector. In the following, assume that the string is always tense and that the particles do
+not reach point O during motion.
+(a) Write down the general expression of the position, velocity and acceleration vectors of P1
+and P2 as a function of θ, ξ and the parameters of the problem
+(b) Write down the expression of all forces that act on P1 and P2
+(c) Write down the differential equations that, if solved, would yield the time evolution of θ,
+ξ, the tension on the string and any other reaction force in the problem
+(d) What is the mathematical condition that the function ξptq must satisfy for the string to
+remain tense all the time?
+(e) How fast should P1 rotate in the θ direction to have a circular trajectory over a cone
+parallel? What is the value of the string tension and any other reaction force in the
+problem in that case? Give your answer as a function of ξ and the parameters of the
+problem
+(f) Taking these equations as the starting point (or based on the physical considerations of the
+problem) write down two first-integrals of the problem that do not depend on the string
+tension or any other reaction force in the problem
+X
+Y
+Z
+O
+P2
+ξ
+P1
+θ
+g
+Version 2026 18
+==================== PAGE 20 ====================
+1 Particle exercises and problems
+32. A heavy particle P of mass m is connected by a string of total length l“ 4πa to a cylindrical
+spool of radius a and center atO as shown in the figure. The spool rotates at a known constant
+angular rate ω counterclockwise. The string is massless, inelastic, thin, and remains always in
+tension during the motion of the particle. We define the inertial reference frame Oxy as shown
+in the figure. The other end of the string is attached to the spool at a point A of its perimeter,
+and we shall call B the instantaneous point of tangency between the straight segment of the
+string (the segment BP ) and the spool. We will denote the angle between the local horizontal
+(axis Ox) and the radius OB as ϕ. Initially, OA“´ai, and B never reaches A.
+(a) Discuss the number of degrees of freedom of the motion of the particle.
+(b) Write down the position, velocity and acceleration vectors of P with respect to Oxy as a
+function of the constants of the problem, time, the angle ϕ, and its derivatives.
+(c) Write down the mathematical expression of the forces acting on P .
+(d) Is the mechanical energy of P conserved? If so, write down the equation of conservation
+of mechanical energy; otherwise, explain why it is not conserved.
+(e) Write down a closed set of equations that, if solved, would yieldϕ (and the other unknowns
+of the problem, if any) as a function of time. Note that you do not need to solve the
+equations.
+(f) Consider now that ω“ 0. Can you write down a first integral of motion that only involves
+ϕ and 9ϕ (but not :ϕ) in this case? You may want to rethink your previous answers for this
+particular case.
+O
+y
+x
+P
+g
+B
+A
+ω
+19 Aerospace Engineering Department (UC3M)
+==================== PAGE 21 ====================
+Mechanics Applied to Aerospace Engineering
+33. Two heavy point particles, P1 andP2, of mass m each, slide without friction along a rigid wire
+parabola given by equationz“x2{p2Lq, whereL is a known length. The wire rotates about its
+axis with a fixed, known angular velocityω. The two particles repel each other electrically with
+a force of magnitude FE “ k{d2, where k is a known constant and d is the distance between
+the particles. We define the rotating reference frame Oxyz attached to the parabola as shown
+in the figure below.
+O
+z
+xP1
+g
+ω
+P2
+FE
+FE
+(a) Write down the position, velocity, and acceleration vectors of each particle relative toOxyz
+in a generic instant of time, as a function of x1, x2 (the position of P1 and P2 along the
+Ox axis) and their derivatives.
+(b) Write down Newton’s second law for each particle in the Oxyz reference frame.
+(c) If the rotation of the wire is maintained by a motor, how much torque must it produce in
+theOz direction to keepω constant as a function of the variables of the problem and their
+derivatives?
+(d) Find out the equilibrium configurations of the system in the reference frame Oxyz as a
+function of the parameters γ“g{pω2Lq and κ“k{pmω2L3q.
+Consider now that P1 and P2 are constrained to move symmetrically on each branch of the
+parabola, and that γ“κ“ 2. Initially, x1p0q“ L and v1p0q“ Lω (with 9x1p0qą 0).
+(e) Write down the equation that gives the minimum and maximum values of x1 occurring in
+this case. Hint: this equation is a third-order polynomial in x1.
+Version 2026 20
+==================== PAGE 22 ====================
+1 Particle exercises and problems
+34. A heavy point particle P of mass m slides without friction on a circular wire of center C and
+radius R. The wire is located on a vertical plane Oxy that rotates about the vertical axis Oy
+with a prescribed angular frequency Ωptq “Aω sinpωtqj, where A and ω are known positive
+constants, as shown in the figure. The angle that the vector CP makes with the Ox axis is
+denoted φ.
+O
+y
+x
+C
+R •P
+φ
+g
+Ωptq
+Answer the following questions in a reasoned way:
+(a) Write down the position, velocity and acceleration vectors of P relative to the reference
+frame Oxyz, as a function of φ and its derivatives.
+(b) Identify the forces that act on P , and write down their mathematical expression for a
+generic instant of time t.
+(c) Is the mechanical energy of P conserved as seen from the Oxy reference frame? Why?
+(d) Write down a single second order differential equation to calculate φ as a function of time.
+Note that you do not need to solve this equation.
+(e) Compute the reaction of the wire on the particle P as a function of φ, 9φ and t.
+(f) Assume now that A2!g{pRω2q and that the motion of P is such that φ“δ´π{2 with
+δ! 1. Around what value of δ does the particle oscillate? Are there any values of ω for
+which the approximation δ! 1 will not hold?
+21 Aerospace Engineering Department (UC3M)
+==================== PAGE 23 ====================
+Mechanics Applied to Aerospace Engineering
+35. Two heavy particles P and Q of mass m each are connected by an inextensible massless string
+of constant length L. Part of this string rests on top of a cylinder of radius R and center
+at O. The string can slide over the cylinder without friction, and remains tense at all times.
+Furthermore,P andQ are also connected by a spring of zero natural length and stiffness k. We
+define the inertial reference frame S0 as shown in the figure. We denote as A andB the points
+of tangency of the string with the cylinder.
+y
+O
+x
+A
+B
+•P
+•Q
+k
+g
+(a) How many degrees of freedom does this system have? Define your own generalized coor-
+dinates to parametrize the configuration of the system. You will use them in the rest of
+the problem.
+(b) Write down the general expression of the position, velocity and acceleration vectors of P
+andQ relative to theS0 reference frame as a function of your chosen coordinates and their
+time derivatives.
+(c) Write down the expression of all forces acting on P and Q.
+(d) Discuss whether the mechanical energy of P is conserved; if so, write down the expression
+of the corresponding potential energy.
+(e) Consider now that we restrict the motion of the system to symmetric configurations about
+theOy axis only. What is the number of degrees of freedom now? Find the mathematical
+relations that exist between your previously-defined coordinates in this case.
+(f) Find the approximate value of your coordinates when the system is in equilibrium and the
+configuration is symmetric about the Oy axis. To do so, assume that the deviation from
+the vertical of the AP and BQ segments is small, and linearize the equations of motion.
+Find the angular frequency of the oscillations around this equilibrium configuration.
+Version 2026 22
+==================== PAGE 24 ====================
+1 Particle exercises and problems
+36. A heavy point particle P with mass m hanging from a fixed point A on the ceiling with a
+massless string of constant length L. The particle is initially at rest. A bar b rotates about its
+centerO in a horizontal plane at a distance h from the ceiling, with a known, constant angular
+velocity ω. The horizontal distance between O and A is R. At time t “ 0, the bar collides
+with the string and drags it along its motion. The string slides over the bar without friction.
+We callC the instantaneous point of contact of the string with the bar. We define a reference
+frame S1 that rotates with the bar as shown in the figure. We call ξ the distance between O
+and C; ℓ the length of the string segment between C and P ; θ the angle between the vertical
+planeOx1z1 and the plane defined by the bar andP ; andϕ the angle formed between the string
+segmentCP and the bar. You are asked to study only the part of the motion in which the
+string remains tense and in contact with the bar.
+x1
+y1
+z1
+O
+b ω
+A (ceiling)
+R
+h
+P
+tă 0
+x1
+y1
+z1
+O
+b
+A
+C
+ℓ
+P
+ξ
+ϕ
+θ
+tą 0 g
+(a) Write down the position and velocity of point A in S1 as a function of time.
+(b) Obtain a general expression for the position, velocity, and acceleration of P in S1 as a
+function of ξ, ℓ θ, ϕ, their derivatives, and time.
+(c) Express AC, ℓ , and ϕ as a function of ξ and time.
+(d) Identify and express all the forces acting on P.
+(e) Write down a set of second order differential equations for the evolution of the unknowns
+of the problem.
+(f) Compute the initial conditions for the previous equations at t“ 0.
+(g) Is the mechanical energy of the particle conserved in time? Justify your answer.
+(h) If/when the string separates from the bar, express the geometric condition as a relation
+betweenθ and and time.
+23 Aerospace Engineering Department (UC3M)
+==================== PAGE 25 ====================
+Mechanics Applied to Aerospace Engineering
+37. A heavy point particle P with mass m moves without friction on a cone of elliptic cross-section
+as shown in the figure. We define an auxiliary reference frame S1 : tO;B1u attached to the
+cone. The cone is defined in term of two parameters ζ, β as
+Elliptic cone:
+$
+&
+%
+x1“ζ cosβ
+y1“ 2ζ sinβ
+z1“ζ,
+(5)
+The cone spins about its Oz1 axis at a constant angular rate Ω with respect to the inertial
+reference frame S0 : tO;B0u. At time t “ 0, the reference frame S1 coincides with S0, the
+particle P is located at rP
+1,0“ 2j1`k1, and has a velocity vP
+1,0“i1.
+x0 y0
+z0”z1
+O
+Ωt
+g
+x1
+y1
+P
+(a) How many degrees of freedom does the particle motion have?
+(b) Obtain the general expression for the position, velocity, and acceleration ofP in reference
+frame S1 as a function of ζ,β and their derivatives. Remember to define any unit vectors
+that you use in terms of the vectors of B0.
+(c) Identify and express mathematically all the forces acting on P as seen from S1.
+(d) Obtain two second-order differential equations for the evolution of ζ,β in time, which do
+not depend on any other unknowns in the problem.
+(e) Find, justify, and write down one conservation law in this problem, including the value of
+any constants there might be.
+(f) Find the equilibrium positions for P in S1 for ζą 0 as a function of the constants of the
+problem.
+Version 2026 24
+==================== PAGE 26 ====================
+1 Particle exercises and problems
+38. A heavy point particle P with mass mP “ 1 moves without friction on a vertically-standing
+torus as shown in the figure. The particle cannot separate from the surface of this torus. The
+torus is defined in the Cartesian coordinates of the inertial reference frame S0 by the following
+expressions: $
+&
+%
+x0 “ p 2` cosϕq sinθ
+y0 “ sinϕ
+z0 “ 4`p 2` cosϕq cosθ
+A second particle Q with mass mQ “ 2 is constrained to move on the Ox0y0 plane without
+friction. The two particles P and Q attract each other with a force that is proportional to
+the distance between them. The proportionality constant of this force is k“ 2. Initially, the
+particleP is located atrP
+0pt0q“ 2i0`j0`4k0 withvP
+0pt0q“´ k0 and the particleQ is located
+atrQ
+0pt0q“ 3i0`j0 withvQ
+0pt0q“´ i0`j0.
+x0
+y0
+z0
+O
+P
+Q
+g
+(a) Pick a minimal, valid set of coordinates to describe the configuration of the system. Indi-
+cate what is the geometrical meaning of the chosen coordinates.
+(b) Obtain a general expression for the position, velocity, and acceleration vectors of P andQ
+in S0 using the chosen coordinates and their derivatives.
+(c) Obtain two independent tangent vectors and one normal vector to the torus as a function
+of the chosen coordinates.
+(d) Identify and express mathematically all the forces acting on P and Q.
+(e) Find down a set of second order differential equations to determine the evolution of the
+chosen coordinates in time, free of any other unknowns.
+(f) Obtain a scalar conservation law.
+(g) Attending to this conservation law alone, can P ever reach the highest point of the torus?
+25 Aerospace Engineering Department (UC3M)
+==================== PAGE 27 ====================
+Mechanics Applied to Aerospace Engineering
+39. A heavy point particle P with mass m is connected with point O on the upper surface of a thin
+square plate by a massless, inextensible string of length ℓ. The distance between O and the
+edge of the plate isd. The string hangs over the edge of the plate and can slide without friction.
+You can assume that the string remains tense and in contact with the plate at all times. We
+denote the geometric point where the string is in contact with the plate edge as Q. We define
+the inertial reference frame S 0 : tO, B0u, with B0 “ ti0,j0,k0u as shown in the figure. We
+define the angle θ between the Ox0 axis and the string segment OQ, and the angle ϕ between a
+vertical plane containing the plate edge and the line perpendicular to the plate edge that passes
+through P. Initially at time t“ 0,θp0q“ ϕp0q“ π{3 rad, and the modulus of the velocity of P
+is vP
+0p0q“ ?ℓg, where g is the magnitude of the acceleration due to gravity.
+Hint: Note that under the conditions of the problem, the two angles marked with dashed lines
+are equal.
+O
+x0
+y0
+z0
+Q
+P
+d θ
+ϕ
+g
+(a) How many degrees of freedom does the system have?
+(b) Obtain the general expression of a unit vector in the direction from Q to P as a function
+of θ and ϕ.
+(c) Obtain the general expression for the position, velocity, and acceleration vectors of Q and
+P in S0 as a function of θ, ϕ, their derivatives, and the parameters of the problem.
+(d) Identify and express mathematically all the forces acting on P .
+(e) Find a set of second order differential equations to determine the evolution of θ and ϕ in
+time, free of any other unknowns.
+(f) Does the tension force exert work on P ? Provide proof of your answer.
+(g) Derive the general expression of the mechanical energy of P in S0 and compute its value
+initially. Is this a conserved quantity of motion? Justify your answer.
+Version 2026 26
+==================== PAGE 28 ====================
+1 Particle exercises and problems
+40. Two heavy particles P and Q, each of mass m, are connected with a spring of stiffness k as
+shown on the figure. An inertial reference frame S0 is defined with origin O and vector basis
+B0 “ ti0,j0,k0u. Particle P slides without friction along the vertical axis, while particle Q
+slides without friction on a ring of radius R contained in the horizontal plane defined by O,i0
+andj0. The center D of this ring is located a distance ℓ fromO and rotates around the vertical
+axis of S0 with a known constant angular rate Ω. A rotating reference frame S1 is defined so
+that the j1 vector follows the position of D. We define the generalized coordinates ζ (vertical
+position of P ) and ϕ (angle of Q on the circle from j1) as shown.
+O
+i0
+j0
+k0”k1
+i1
+j1D
+P
+ζ Q
+Ωt
+ϕ
+kg
+(a) How many degrees of freedom does the system have? Define the vectors i1,j1 andk1 in
+terms of the vectors of B0.
+(b) Write down the general expression of the position, velocity, and acceleration of P and Q
+with respect to S1 in terms of ζ, ϕ and their derivatives.
+(c) Identify and write down the general expression of all the forces acting on P and Q.
+(d) Using S1 for your analysis, write down the scalar equations of motion of P and Q.
+(e) Starting from these equations, write down a system of two differential equations for ζ and
+ϕ, that do not depend on any other unknowns of the problem.
+(f) Find one conservation law of the problem (i.e., a first integral of motion) in reference frame
+S1.
+27 Aerospace Engineering Department (UC3M)
+==================== PAGE 29 ====================
+Mechanics Applied to Aerospace Engineering
+41. The angle θ describing the rotation of the solar panels of a reconnaissance satellite about the
+body-fixed axis x is an arbitrary function of time. The satellite spins about the z axis at the
+constant angular rate ω. Derive expressions for the absolute velocity and acceleration of point
+B in the figure relative to an inertial reference frame centered in A.
+(Taken from Ginsberg, “Engineering Dynamics”, Cambridge University Press, 2008)
+42. ( Advanced problem:) A point particle P of mass m is attracted by the origin of coordinates O
+of the inertial reference frameS0 by a force with magnitudeF “mα{rβ, wherer is the distance
+betweenO and P and α, β are known constants.
+(a) Show that the angular momentum vector and the mechanical energy of P are conserved
+quantities of motion, and that the motion of P occurs in a plane.
+(b) Using polar coordinates pr,θq in the plane of motion, find a second-order differential equa-
+tion to solve for u“ 1{r as a function of θ (i.e., u“upθq).
+(c) Find a first integral of this equation and discuss the limits of motion of u as a function
+of α{h2, β, and the value of u and u1 “ du{dθ at t “ 0, where h is the magnitude of
+the angular momentum vector about the origin per unit mass. For β “ 1, 2, 3, and 4,
+determine under which conditions:
+i. The particle escapes to infinity ( u“ 0).
+ii. The particle reaches r“ 0 (uÑ8 ).
+iii. The particle oscillates between two values of u.
+Hint: try to solve first the problem with β“ 2, and then try the other values.
+Version 2026 28
+==================== PAGE 30 ====================
+1 Particle exercises and problems
+43. We consider a smooth horizontal plane wih a small hole in it. One of the ends of a massless
+cord of length 2a is passed through the hole and then, two point particles, P1 andP2, each with
+the same mass m, are attached to the ends of the cord. Therefore, P1 is constrained to move
+on the plane and P2 moves along a vertical line below the hole. Initially, half of the cord lies
+under the plane and half of the cord is on the plane. At that instant, P1 is pushed with a speed
+v0 perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is
+always in tension.
+(a) What is the value of v0 if P1 describes a circumference?
+(b) In that case, what is the value of the tension in the cord?
+(c) If v0“
+a
+8ag{3, reduce the problem to integrals (i.e., quadratures).
+(d) Show that for this value of v0, P1 oscillates between r“a and r“ 2a.
+(e) Apply Newton’s law to P2 and show that the tension of the cord is T “mgp 1
+2` 4a3
+3r3q
+(f) Write down the new equations of motion if the plane on which P1 moves is rough, with a
+friction coefficient µ.
+(Hint: the roots of the polynomial ´3x3` 7x2´ 4 are x1“ 1, x2“ 2 and x3“´ 2{3)
+29 Aerospace Engineering Department (UC3M)
+==================== PAGE 31 ====================
+Mechanics Applied to Aerospace Engineering
+44. The little Prince is on his spherical asteroid, which has radius R and mass M, and does not
+rotate. While he sits at the equator, he throws a baobab seed with an initial velocity of
+magnitudev0 and angleγ“ 60 deg with respect to the local horizontal. Knowing that it reaches
+an apocenter of r“ 3R before falling back, determine v0 as a function of the parameters of the
+problem and the universal gravitational constant G.
+45. To understand the vibrations that occur in a turbojet when the mass distribution of the rotor
+is slightly unbalanced, we can consider the turbojet as a rigid disk of mass m that rotates
+at a fixed angular velocity ω, with the center of mass G being separated from the geometric
+center C by a fixed distance. An elastic restoring force (with constant k) tries to keep C at its
+design position O. We call xG
+0 , yG
+0 the Cartesian coordinates of G, and xC
+0 , yC
+0 the Cartesian
+coordinates of C. Considering the weight of the disk negligible, write down the equation of the
+dynamics of G. Assuming that the homogeneous solution is damped over time and only the
+particular solution remains, write down the expression of xG
+0ptq and xC
+0ptq. Can we affirm that
+|OC|ą| OG| if ωą
+a
+k{m?
+x
+y
+O
+C
+G
+ℓ
+ωt
+k
+46. An airplane is taxiing over a bumpy runway of vertical profile y1 “ sinpxq with a horizontal
+velocityc. The vertical motion of the airplane can be modeled as that of a heavy particle P of
+mass m supported on a landing gear of nominal length L when unloaded. Consider that the
+landing gear has stiffness constant k and negligible damping.
+m
+k
+y1“ sinx
+(a) At what taxiing speed is the system in resonance with the bumpy road?
+(b) Find the expression of the amplitude of the airplane oscillations when the taxiing velocity
+c is very high. Hint: the expression depends on c.
+(c) Consider now that the landing gear has damping constant λ. How does the results above
+change? Consider the underdamped, critical, and overdamped cases. What value of λ
+would you choose for this application and why? If the mass of the aircraft changes (e.g.
+more or less payload), does this affect your conclusion?
+Version 2026 30
+==================== PAGE 32 ====================
+1 Particle exercises and problems
+47. We consider a system of two heavy particles of equal massm. The first particle P is constrained
+to move without friction along a circular wire of radius a. The second particle Q is constrained
+to move without friction along a circular wire of radius 2a. Both wires are contained in a plane
+Ox1y1 that rotates at a constant, known angular rate Ω about the axis Oy1”Oy0 with respect
+to a fixed reference frame S0 with axes Ox0y0z0 (not shown in the figure). We also define a
+moving reference frame S1 with axes Ox1y1z1. The two particles repel each other with a force
+that is proportional to their distance, with constant of proportionality, k.
+O x1
+y0”y1
+Ω
+P
+Qφ
+θ
+g
+2a
+a
+(a) How many configuration degrees of freedom has this system?
+(b) How many independent components of the reaction forces on the particles need to be
+considered? Write down the reaction force on each particle.
+(c) Write down the relative accelerations of P and Q with respect to S1 as a function of the
+coordinates of the problem and their derivatives.
+(d) Express the applied forces on the particles as a function of the coordinates of the problem.
+(e) Express the fictitious forces of inertia on the particles as seen from S1, as a function of the
+coordinates of the problem and their derivatives.
+(f) Write down a system of ordinary differential equations to determine the evolution of the
+coordinates of the problem as a function of time, free of any other unknowns. You do not
+need to solve this system (since no initial conditions have been provided) but we assume
+that we know how to solve it, so that from this point we know the coordinates as a function
+of time.
+(g) Determine the values of the reaction forces from the wires as a function of time.
+(h) Is the mechanical energy of this system conserved in S1? If so, write down the correspond-
+ing equation.
+(i) Determine the values of α“ ka
+mg andβ“ aΩ2
+g so thatφ“ 30˝,θ“´ 60˝ is an equilibrium
+position of the system in the relative motion.
+31 Aerospace Engineering Department (UC3M)
+==================== PAGE 33 ====================
+Mechanics Applied to Aerospace Engineering
+48. Two heavy particles P and Q, each of mass m, are connected with an inextensible, massless
+string of lengthℓ as shown in the figure. Particle P is constrained to stay on a paraboloid, given
+implicitly by equation z“cR2, where c is a known constant and we have introduced the usual
+cylindrical coordinates tR,θ,z u. The string passes through a small hole at the origin O, and
+particleQ is restricted to hang along the vertical axis. The reference frame S0“tO;i0,j0,k0u
+is inertial. There is no friction in this problem. Assume that the string is long enough so that
+Q never reaches O and that it is always tense.
+O
+i0 j0
+k0
+P
+Q
+g
+(a) How many effective degrees of freedom does the system have? justify your answer.
+(b) Give the expressions for the position, velocity, and acceleration of P and Q with respect
+to S0 as a function of R, θ and their derivatives. If you use any vector basis other than
+ti0,j0,k0u to write your solution, define it first.
+(c) Find a normal vector and two linearly independent tangent vectors to the paraboloid as a
+function of R, θ. They do not need to be unitary.
+(d) Identify and write down the general expression of all the forces acting on P and Q, intro-
+ducing new unknowns as needed.
+(e) Find the condition that the solution Rptq must satisfy so that the string is indeed always
+in tension.
+(f) Using S0 for your analysis, write down two second-order differential equations for R and
+θ, that do not depend on any other unknowns.
+(g) Find two scalar conservation laws (i.e., first integrals).
+(h) Assuming that initially R “ 1{c, θ “ 0, 9R “ 0, 9θ “ d, where d ‰ 0 is a given value,
+write down an equation in the form fpRq “0 whose roots determine the minimum and
+maximum values of R in the subsequent motion. You do not need to solve this equation.
+Version 2026 32
+==================== PAGE 34 ====================
+1 Particle exercises and problems
+49. A point particle P of mass m slides without friction on a sphere of radius a centered at the
+origin of the inertial reference frame S 0 as shown in the figure. The particle is attracted by a
+point A in the equatorial plane, located a distance a from the surface of the sphere as shown.
+The force of attraction is linearly proportional the distance between this point and P, with
+known constant of proportionality ką 0. The sphere and the point A rotate rigidly about the
+vertical with a known angular velocity Ω k0. We define the auxiliary reference frame S 1 that
+rotates with the sphere and point A, with k1“k0 andi1 pointing in the direction of A. We
+introduce the angles ϕ andθ as shown to locate P on the sphere. Note that there is no gravity
+in this problem.
+O
+i0
+j0
+k1”k0
+i1
+j1
+A
+Pθ
+ϕΩt
+(a) Express the position, velocity, and acceleration of P with respect to S 1 in terms of ϕ, θ
+and their derivatives. Remember to define any unit vectors that you want to use in terms
+ofi0,j0,k0 first.
+(b) Write down the (vector) equation of motion of P in S 1, and derive from there a set of
+two scalar second-order differential equations for ϕ, θ that do not depend on any other
+unknowns. To do so, first identify and write down all the forces needed in your analysis.
+(c) Is the mechanical energy of P conserved in S1? Explain. If so, write down the correspond-
+ing conservation law.
+(d) Identify all equilibrium configurations of the system, and discuss them as a function of the
+ratio mΩ2{k.
+(e) Assuming the functions of time ϕptq andθptq are known, write down the expression of the
+reaction of the sphere on P.
+33 Aerospace Engineering Department (UC3M)
+==================== PAGE 35 ====================
+Mechanics Applied to Aerospace Engineering
+50. A double pendulum consists of two heavy point masses P andQ, each of mass m, connected to
+the origin O and to each other by two rigid, massless bars of length ℓ as shown in the figure.
+We define the inertial frameS0 with the originO and vector basisB0. We define the two angles
+θ and ϕ shown in the figure, to describe the configuration of the system.
+O i
+j
+P
+ℓθ
+Q
+ℓ
+ϕ
+g
+(a) Write down the general expressions of the position, velocity, and acceleration vectors of P
+and Q, using θ, ϕ and their.
+(b) Write down all forces acting on P and Q, introducing new unknowns as needed.
+(c) Write down the equations of motion for θ and ϕ, free of other unknowns.
+(d) Find and write down one conservation law of this problem.
+(e) If the initial conditions are θ“ϕ“π{4, 9θ“ 9ϕ“ 0, will Q ever cross the Ox axis? Justify
+your answer.
+(f) Consider now that we impose the additional constraint ϕ “ 2θ. Compute the natural
+frequency of oscillation of the system under the assumption of small angles.
+Hint: The mechanical energy of an ideal harmonic oscillator of natural frequency ω0 and
+mass m can be written as mp 9x2`ω2
+0x2q{2.
+Version 2026 34
+==================== PAGE 36 ====================
+1 Particle exercises and problems
+51. A heavy point particle P of mass m is constrained to move inside the surface of a hollow sphere
+of radius R and center C located at rC
+1 “Rpj1`k1q. The surface of the sphere is smooth. The
+reference frame S 1 shown in the figure is a non-inertial reference frame, because it rotates with
+a known angular velocity ω10 “ Ωptqk1 with respect to inertial space. We introduce the two
+coordiantes θ and ϕ as shown in the figure, in order to characterize the configuration of P.
+A
+i1
+j1
+k1
+C
+θ
+i1
+ϕ
+P
+g
+Ωptq
+(a) Give the expressions for the position, velocity, and acceleration vectors of P with respect
+to S 1, as functions of θ, ϕ and their derivatives. Remember that you may use any unit
+vectors in your solution, provided that you define them first.
+(b) Identify and write down all forces (actual and fictitious) on P as seen from S 1.
+(c) Write down two differential equations for θ and ϕ, free of any other unknowns.
+(d) Write down an expression for the reaction unknown. This expression may depend on
+θ, 9θ,ϕ, 9ϕ and the known parameters of the problem. What is the mathematical condition
+for the particle to separate from the surface?
+(e) In the case that Ω “ const, determine and discuss the value of θ,ϕ and the reaction
+unknown for the equilibrium configurations of P.
+35 Aerospace Engineering Department (UC3M)

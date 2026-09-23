@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 1: Fundamentals and Particle Kinematics — Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Typography: Inter & Newsreader & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.28);
+      --accent-hover: #059669;
+
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --diagram-fill: #1e293b;
+      --diagram-stroke: #475569;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --diagram-fill: #f1f5f9;
+      --diagram-stroke: #cbd5e1;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.74;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Navigation */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Article layout */
+    main.article-container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0 36px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-item:hover {
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 30px 0 12px;
+    }
+
+    h4.minor-heading {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      border: 1px solid;
+    }
+
+    .callout-info {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
+
+    .callout-key {
+      background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+      border-color: var(--accent-border);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-warning .callout-title { color: #f59e0b; }
+    .callout-key .callout-title { color: var(--accent); }
+
+    /* Math Blocks */
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .math-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 26px 0;
+      text-align: center;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Example Box */
+    .example-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .example-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .example-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Footer Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      min-width: 220px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <span>📑</span>
+          <span>Mechanics Index</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering — Part I</div>
+      <h1 class="article-title">Topic 1: Fundamentals and Particle Kinematics</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • Prof. Alberto Marín, Mario Merino, Manuel García-Villalba • BSc in Aerospace Engineering, UC3M
+      </div>
+      <div class="source-box">
+        Ground Truth: slides/01_-_Point_particle_kinematics.pdf &amp; teoria/Notes.pdf (Chapters 1 &amp; 2)
+      </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📌</span>
+        <span>Topic Outline</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#sec-1" class="toc-item"><span>1.</span> Aerospace Mechanical Modeling</a>
+        <a href="#sec-2" class="toc-item"><span>2.</span> Physical Quantities: Scalars, Vectors, Tensors</a>
+        <a href="#sec-3" class="toc-item"><span>3.</span> Vector Spaces, Bases, and Rotations</a>
+        <a href="#sec-4" class="toc-item"><span>4.</span> Reference Frames and Time Derivatives</a>
+        <a href="#sec-5" class="toc-item"><span>5.</span> Particle Kinematics: Position, Velocity, Acceleration</a>
+        <a href="#sec-6" class="toc-item"><span>6.</span> Curvilinear Coordinate Systems</a>
+        <a href="#sec-7" class="toc-item"><span>7.</span> Degrees of Freedom and Generalized Coordinates</a>
+        <a href="#sec-8" class="toc-item"><span>8.</span> Trajectory and Frenet-Serret Intrinsic Frame</a>
+        <a href="#sec-9" class="toc-item"><span>9.</span> Tangential and Normal Acceleration</a>
+        <a href="#sec-10" class="toc-item"><span>10.</span> Analytical Case Study: Helical Rocket Trajectory</a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <section id="sec-1">
+      <h2 class="section-heading"><span>1.</span> Mechanical Modeling in Aerospace Engineering</h2>
+      <p>
+        Every engineering analysis and design activity in aerospace engineering requires constructing a <strong>mathematical model</strong> of the physical reality under investigation. A model is not reality itself: it is a structured idealization formulated so that the human mind and differential calculus can predict the system's operational behavior.
+      </p>
+      
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>Fundamental Methodological Axiom</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          Attempting to "solve reality directly" without simplifying idealizations inevitably leads to analysis paralysis. To formulate any mechanical problem with engineering rigor, it is mandatory to define explicitly:
+        </p>
+        <ol style="margin-bottom: 0; margin-top: 8px;">
+          <li><strong>The system under study:</strong> The precise identification of its physical boundaries.</li>
+          <li><strong>The environment:</strong> All physical interactions permitted to cross the system boundary.</li>
+          <li><strong>The simplifying assumptions:</strong> The mathematical hypotheses adopted at every analytical stage.</li>
+        </ol>
+      </div>
+
+      <h3 class="sub-heading">Fundamental Models in the Course</h3>
+      <p>
+        In Newtonian mechanics applied to aerospace vehicles, we rely on two primary foundational idealizations:
+      </p>
+      <ul>
+        <li>
+          <strong>Point Particle (Material Point):</strong> An idealization of a body whose spatial dimensions are completely negligible compared to the characteristic length scale of its motion. Geometry, spatial attitude (orientation), and internal deformations are disregarded entirely. Only its <em>translational motion</em> is tracked (possessing <strong>3 degrees of freedom</strong> in 3D Euclidean space $\mathbb{R}^3$).<br>
+          <em>Aerospace Examples:</em> The orbital trajectory of the International Space Station (ISS) around Earth, or the center-of-mass trajectory of a commercial airliner on a transcontinental route.
+        </li>
+        <li>
+          <strong>Rigid Body:</strong> An idealization of a finite-sized body whose geometry remains strictly undeformed under any system of applied external forces. The Euclidean distance between any arbitrary pair of constituent points $P_i$ and $P_j$ remains constant over time:
+          $$ \|\mathbf{r}^{P_i}(t) - \mathbf{r}^{P_j}(t)\| = \text{constant} \quad \forall t $$
+          For a rigid body, tracking a single point's position is insufficient: its <strong>spatial attitude (orientation)</strong> must also be specified via rotation angles (possessing <strong>6 degrees of freedom</strong> in unconstrained 3D space).<br>
+          <em>Aerospace Examples:</em> Spacecraft docking maneuvers, aircraft pitch-roll-yaw attitude dynamics.
+        </li>
+        <li>
+          <strong>Deformable Bodies:</strong> Systems where elastic strain under aerodynamic or inertial load (such as the aeroelastic wing flexure of an Airbus A350 or Boeing 787) cannot be neglected. Studied in Structural Mechanics and Aeroelasticity.
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2">
+      <h2 class="section-heading"><span>2.</span> Physical Quantities: Scalars, Vectors, and Tensors</h2>
+      <p>
+        Any measurable or describable property in a mechanical system is a physical quantity. Based on their mathematical transformation behavior under spatial changes of coordinates, they are classified by tensorial order:
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tensorial Order</th>
+              <th>Quantity Type</th>
+              <th>Mathematical Definition</th>
+              <th>Aerospace Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Order 0</strong></td>
+              <td><strong>Scalar</strong></td>
+              <td>A single real number in $\mathbb{R}$ accompanied by its SI dimensional unit. Devoid of direction or spatial orientation.</td>
+              <td>Mass $m$ $[\text{kg}]$, time $t$ $[\text{s}]$, kinetic energy $T$ $[\text{J}]$, work $W$ $[\text{J}]$.</td>
+            </tr>
+            <tr>
+              <td><strong>Order 1</strong></td>
+              <td><strong>Vector</strong></td>
+              <td>An element of $\mathbb{R}^N$ ($N=2,3$) endowed with magnitude (norm), direction, sense, and physical units. Represented as a column vector of $N$ real numbers in a given basis.</td>
+              <td>Position $\mathbf{r}$, velocity $\mathbf{v}$, acceleration $\mathbf{a}$, aerodynamic force $\mathbf{F}$, angular velocity $\boldsymbol{\omega}$.</td>
+            </tr>
+            <tr>
+              <td><strong>Order 2</strong></td>
+              <td><strong>2nd-Order Tensor</strong></td>
+              <td>A bilinear operator mapping vectors to vectors. Represented as an $N \times N$ square matrix in a tensor basis $\mathcal{B} \otimes \mathcal{B}$.</td>
+              <td><strong>Inertia Tensor</strong> $\bar{\bar{I}}_0$ $[\text{kg}\cdot\text{m}^2]$, Cauchy stress tensor $\bar{\bar{\sigma}}$ $[\text{Pa}]$.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">Physical Classification of Vectors by Point of Application</h3>
+      <p>
+        Depending on how sensitive a mechanical system is to translating a vector across space, we distinguish three crucial categories:
+      </p>
+      <ol>
+        <li>
+          <strong>Free Vectors:</strong> Vectors whose physical effect does not depend on where in space they are applied. They may be shifted anywhere in parallel without altering their mechanical properties.<br>
+          <em>Examples:</em> The angular velocity $\boldsymbol{\omega}$ of a rigid body, the angular acceleration $\boldsymbol{\alpha}$, or a pure torque couple $\mathbf{M}$.
+        </li>
+        <li>
+          <strong>Sliding Vectors:</strong> Vectors whose physical effect on a rigid body remains invariant as long as they are displaced <strong>along their own line of action</strong> (Principle of Transmissibility).<br>
+          <em>Fundamental Example:</em> External forces $\mathbf{F}$ acting on a rigid body. Shifting the force vector along its line of support produces identical translational and rotational motion.
+        </li>
+        <li>
+          <strong>Bound / Fixed Vectors:</strong> Vectors whose physical consequence changes if their exact point of application is moved.<br>
+          <em>Examples:</em> The position vector $\mathbf{r}_0^P = \vec{OP}$ (bound to the spatial origin $O$), or contact forces applied to deformable bodies (where local stress concentrations and deformations depend directly on the point of contact).
+        </li>
+      </ol>
+
+      <div class="callout callout-info">
+        <div class="callout-title">
+          <span>🌐</span>
+          <span>Principio of Observer Invariance</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          <strong>Genuine physical quantities are intrinsic to nature and do not depend on the mathematical coordinate basis chosen to describe them.</strong> If the freestream wind velocity is $250\text{ m/s}$ towards the northeast, that physical vector is unique. Changing from a Cartesian basis to a cylindrical basis changes the numerical triad of components, but the physical geometric vector and its magnitude remain strictly invariant.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3">
+      <h2 class="section-heading"><span>3.</span> Vector Spaces, Bases, and Rotation Matrices</h2>
+      <p>
+        The vectors of classical mechanics constitute a 3-dimensional Euclidean vector space over $\mathbb{R}$. For analytical calculation, we introduce a <strong>vector basis</strong>: an ordered triad of 3 linearly independent vectors spanning all of $\mathbb{R}^3$ via linear combinations.
+      </p>
+
+      <h3 class="sub-heading">3.1 Right-Handed Orthonormal Vector Basis</h3>
+      <p>
+        Consider the canonical basis $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$. A basis is <strong>right-handed orthonormal (dextral)</strong> if it satisfies:
+      </p>
+      <div class="math-block">
+        $$ \|\mathbf{i}_0\| = \|\mathbf{j}_0\| = \|\mathbf{k}_0\| = 1, \quad \mathbf{i}_0 \cdot \mathbf{j}_0 = \mathbf{j}_0 \cdot \mathbf{k}_0 = \mathbf{k}_0 \cdot \mathbf{i}_0 = 0 $$
+        $$ \mathbf{i}_0 \times \mathbf{j}_0 = \mathbf{k}_0, \quad \mathbf{j}_0 \times \mathbf{k}_0 = \mathbf{i}_0, \quad \mathbf{k}_0 \times \mathbf{i}_0 = \mathbf{j}_0 $$
+        <div class="math-caption">Orthonormality conditions and right-hand orientation rule</div>
+      </div>
+
+      <p>
+        Any vector $\mathbf{A} \in \mathbb{R}^3$ is uniquely decomposed as:
+        $$ \mathbf{A} = A_{x0}\mathbf{i}_0 + A_{y0}\mathbf{j}_0 + A_{z0}\mathbf{k}_0 = \begin{bmatrix} A_{x0} \\ A_{y0} \\ A_{z0} \end{bmatrix}_0 $$
+        where the subscript $0$ explicitly designates the reference basis in which the components are expressed.
+      </p>
+
+      <!-- SVG Diagram: Bases & Rotation -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 640 280" width="600" height="260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)" />
+            </marker>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+            </marker>
+            <marker id="arrow-white" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-flow">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--text-heading)" />
+            </marker>
+          </defs>
+
+          <!-- Axes Base 0 -->
+          <g transform="translate(180, 180)">
+            <!-- Axis X0 -->
+            <line x1="0" y1="0" x2="-80" y2="60" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-white)" />
+            <text x="-95" y="75" fill="#94a3b8" font-family="var(--font-mono)" font-size="13">x₀ (i₀)</text>
+
+            <!-- Axis Y0 -->
+            <line x1="0" y1="0" x2="130" y2="0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-white)" />
+            <text x="140" y="5" fill="#94a3b8" font-family="var(--font-mono)" font-size="13">y₀ (j₀)</text>
+
+            <!-- Axis Z0 -->
+            <line x1="0" y1="0" x2="0" y2="-130" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-white)" />
+            <text x="8" y="-135" fill="#94a3b8" font-family="var(--font-mono)" font-size="13">z₀ (k₀)</text>
+
+            <!-- Vector A -->
+            <line x1="0" y1="0" x2="70" y2="-90" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrow)" />
+            <text x="80" y="-95" fill="var(--accent)" font-family="var(--font-mono)" font-size="15" font-weight="700">A</text>
+
+            <!-- Projections -->
+            <line x1="70" y1="-90" x2="70" y2="0" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4" opacity="0.6" />
+            <line x1="70" y1="-90" x2="0" y2="-90" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4" opacity="0.6" />
+            <text x="35" y="15" fill="var(--accent)" font-family="var(--font-mono)" font-size="11">Ax₀</text>
+            <text x="-35" y="-90" fill="var(--accent)" font-family="var(--font-mono)" font-size="11">Az₀</text>
+            
+            <circle cx="0" cy="0" r="4" fill="var(--text-heading)" />
+            <text x="-15" y="-10" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13">O</text>
+          </g>
+
+          <!-- Rotation illustration (Right) -->
+          <g transform="translate(460, 160)">
+            <circle cx="0" cy="0" r="70" fill="none" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="4" />
+            <!-- Axis X -->
+            <line x1="0" y1="0" x2="90" y2="0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-white)" />
+            <text x="96" y="5" fill="#94a3b8" font-family="var(--font-mono)" font-size="12">i₀</text>
+
+            <!-- Axis Y -->
+            <line x1="0" y1="0" x2="0" y2="-90" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-white)" />
+            <text x="-16" y="-96" fill="#94a3b8" font-family="var(--font-mono)" font-size="12">j₀</text>
+
+            <!-- Rotated Axis i1 -->
+            <line x1="0" y1="0" x2="77.9" y2="-45" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+            <text x="86" y="-50" fill="#38bdf8" font-family="var(--font-mono)" font-size="12">i₁</text>
+
+            <!-- Rotated Axis j1 -->
+            <line x1="0" y1="0" x2="-45" y2="-77.9" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+            <text x="-58" y="-84" fill="#38bdf8" font-family="var(--font-mono)" font-size="12">j₁</text>
+
+            <!-- Arc theta -->
+            <path d="M 40 0 A 40 40 0 0 0 34.6 -20" fill="none" stroke="var(--accent)" stroke-width="2" />
+            <text x="46" y="-12" fill="var(--accent)" font-family="var(--font-mono)" font-size="12">θz</text>
+
+            <circle cx="0" cy="0" r="4" fill="var(--accent)" />
+            <text x="-25" y="20" fill="var(--accent)" font-family="var(--font-mono)" font-size="11">k₀ ≡ k₁ (⊙)</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 1.1: Right-handed orthonormal reference frame (left) and elementary rotation about the z-axis (right).</div>
+      </div>
+
+      <h3 class="sub-heading">3.2 Change-of-Basis Matrix $[{}_0 R_1]$</h3>
+      <p>
+        Let $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ and $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ be two right-handed orthonormal bases. The components of vector $\mathbf{A}$ in both bases are related by:
+      </p>
+      <div class="math-block">
+        $$ \begin{bmatrix} A_{x0} \\ A_{y0} \\ A_{z0} \end{bmatrix}_0 = [{}_0 R_1] \begin{bmatrix} A_{x1} \\ A_{y1} \\ A_{z1} \end{bmatrix}_1, \quad [{}_0 R_1] = \begin{bmatrix} \ell_{x1,x0} & \ell_{y1,x0} & \ell_{z1,x0} \\ \ell_{x1,y0} & \ell_{y1,y0} & \ell_{z1,y0} \\ \ell_{x1,z0} & \ell_{y1,z0} & \ell_{z1,z0} \end{bmatrix} $$
+        <div class="math-caption">Change-of-basis matrix $[{}_0 R_1]$ formed by the direction cosines of the basis vectors of $\mathcal{B}_1$ projected onto $\mathcal{B}_0$</div>
+      </div>
+
+      <h4>Cardinal Mathematical Properties:</h4>
+      <ul>
+        <li><strong>Orthogonality:</strong> $[{}_1 R_0] = [{}_0 R_1]^{-1} = [{}_0 R_1]^T \implies [{}_0 R_1]^T [{}_0 R_1] = [U]$ (the identity matrix).</li>
+        <li><strong>Determinant:</strong> $\det([{}_0 R_1]) = +1$ (proper rotation preserving right-handed chirality).</li>
+        <li><strong>Euler's Rotation Theorem:</strong> Any arbitrary relative orientation between two right-handed bases is mathematically equivalent to a <em>single pure rotation</em> by an angle $\theta$ about an invariant unit axis $\mathbf{e}$. Consequently, $[{}_0 R_1]$ always possesses a real eigenvalue $\lambda_1 = 1$ associated with the rotation axis.</li>
+      </ul>
+
+      <h3 class="sub-heading">3.3 Elementary Rotations About Coordinate Axes</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Rotation Axis</th>
+              <th>Invariant Vector</th>
+              <th>Rotation Matrix $[{}_0 R_1]$</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>$x$-axis (angle $\theta_x$)</strong></td>
+              <td>$\mathbf{i}_1 = \mathbf{i}_0$</td>
+              <td>
+                $$ [{}_0 R_1(x, \theta_x)] = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\theta_x & -\sin\theta_x \\ 0 & \sin\theta_x & \cos\theta_x \end{bmatrix} $$
+              </td>
+            </tr>
+            <tr>
+              <td><strong>$y$-axis (angle $\theta_y$)</strong></td>
+              <td>$\mathbf{j}_1 = \mathbf{j}_0$</td>
+              <td>
+                $$ [{}_0 R_1(y, \theta_y)] = \begin{bmatrix} \cos\theta_y & 0 & \sin\theta_y \\ 0 & 1 & 0 \\ -\sin\theta_y & 0 & \cos\theta_y \end{bmatrix} $$
+              </td>
+            </tr>
+            <tr>
+              <td><strong>$z$-axis (angle $\theta_z$)</strong></td>
+              <td>$\mathbf{k}_1 = \mathbf{k}_0$</td>
+              <td>
+                $$ [{}_0 R_1(z, \theta_z)] = \begin{bmatrix} \cos\theta_z & -\sin\theta_z & 0 \\ \sin\theta_z & \cos\theta_z & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">
+          <span>⚠️</span>
+          <span>Sign Convention Warning for the $y$-Axis Rotation</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          Notice that in $R_y(\theta_y)$, the entry $-\sin\theta_y$ appears at <strong>row 3, column 1</strong>, in contrast to $R_x$ and $R_z$ where the minus sign is at row 2 col 3 or row 1 col 2. This arises because the right-hand rule in the plane orthogonal to the $y$-axis rotates $\mathbf{k}_0$ into $\mathbf{i}_0$ ($\mathbf{k}_0 \times \mathbf{i}_0 = \mathbf{j}_0$).
+        </p>
+      </div>
+
+      <h3 class="sub-heading">3.4 Composition and Infinitesimal Rotations</h3>
+      <p>
+        For $n$ successive basis transformations, the overall rotation matrix is obtained by multiplying the elementary matrices <strong>from right to left</strong>:
+        $$ [R] = [R_n]\cdots[R_2][R_1] $$
+        Finite rotations <strong>do not commute</strong>: $[R_i][R_j] \neq [R_j][R_i]$. However, for <strong>infinitesimal rotations</strong> ($d\theta_x, d\theta_y, d\theta_z \ll 1$), neglecting second-order terms ($d\theta^2 \approx 0$):
+      </p>
+      <div class="math-block">
+        $$ [R] \approx [U] + [\Omega]\,dt, \quad [\Omega] = \begin{bmatrix} 0 & -\dot{\theta}_z & \dot{\theta}_y \\ \dot{\theta}_z & 0 & -\dot{\theta}_x \\ -\dot{\theta}_y & \dot{\theta}_x & 0 \end{bmatrix} $$
+        $$ [\Omega]\mathbf{A} \equiv \boldsymbol{\omega} \times \mathbf{A}, \quad \boldsymbol{\omega} = \dot{\theta}_x\mathbf{i} + \dot{\theta}_y\mathbf{j} + \dot{\theta}_z\mathbf{k} $$
+        <div class="math-caption">Exact equivalence between the skew-symmetric angular velocity matrix and the cross product $\boldsymbol{\omega}\times\mathbf{A}$</div>
+      </div>
+      <p>
+        <strong>Capital Conclusion:</strong> Infinitesimal rotations <em>do commute</em>, which mathematically justifies defining the <strong>instantaneous angular velocity $\boldsymbol{\omega}$</strong> as a genuine physical vector.
+      </p>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4">
+      <h2 class="section-heading"><span>4.</span> Reference Frames and Vector Time Differentiation</h2>
+      <p>
+        A <strong>reference frame $S_0$</strong> formalizes the concept of an observer in mechanics:
+        $$ S_0 = \{O; \mathcal{B}_0\} $$
+        composed of a spatial origin point $O$ and an orthonormal vector basis $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
+      </p>
+
+      <h3 class="sub-heading">4.1 Decomposition of the Time Variation of a Vector</h3>
+      <p>
+        A generic time-dependent vector $\mathbf{A}(t) = A(t)\,\mathbf{e}_A(t)$ can evolve in time through changes in both its magnitude $A(t)$ and its spatial direction $\mathbf{e}_A(t)$:
+        $$ \frac{d\mathbf{A}}{dt} = \frac{dA}{dt}\mathbf{e}_A + A\,\frac{d\mathbf{e}_A}{dt} $$
+      </p>
+      <ul>
+        <li>The term $\frac{dA}{dt}\mathbf{e}_A$ is collinear with $\mathbf{A}$ and accounts exclusively for magnitude changes.</li>
+        <li>Since $\mathbf{e}_A$ is a unit vector, $\mathbf{e}_A \cdot \mathbf{e}_A = 1 \implies \mathbf{e}_A \cdot \frac{d\mathbf{e}_A}{dt} = 0$. The directional variation is <strong>strictly perpendicular to $\mathbf{e}_A$</strong>. If the vector rotates with angular velocity $\boldsymbol{\omega}$, then $\frac{d\mathbf{e}_A}{dt} = \boldsymbol{\omega} \times \mathbf{e}_A$.</li>
+      </ul>
+
+      <div class="math-block">
+        $$ \frac{d\mathbf{A}}{dt} = \frac{dA}{dt}\mathbf{e}_A + \boldsymbol{\omega} \times \mathbf{A} $$
+        <div class="math-caption">Universal decomposition of a vector's time derivative into rate of magnitude change and rotational rate of direction change</div>
+      </div>
+
+      <h3 class="sub-heading">4.2 Observer Dependence and Poisson's Theorem</h3>
+      <p>
+        When differentiating a vector with respect to time, <strong>the reference frame from which the motion is observed is critical</strong>:
+        $$ \left.\frac{d\mathbf{b}}{dt}\right|_0 \neq \left.\frac{d\mathbf{b}}{dt}\right|_1 $$
+        If frame $S_1$ rotates with angular velocity $\boldsymbol{\omega}_{10}$ relative to the fixed frame $S_0$, the basis vectors of $S_1$ vary in time when viewed from $S_0$:
+        $$ \left.\frac{d\mathbf{i}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10} \times \mathbf{i}_1, \quad \left.\frac{d\mathbf{j}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10} \times \mathbf{j}_1, \quad \left.\frac{d\mathbf{k}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10} \times \mathbf{k}_1 $$
+        Applying the product rule to $\mathbf{A} = A_{x1}\mathbf{i}_1 + A_{y1}\mathbf{j}_1 + A_{z1}\mathbf{k}_1$, we obtain the **Kinematic Transport Formula (Poisson's Theorem)**:
+      </p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{A}}{dt}\right|_0 = \left.\frac{d\mathbf{A}}{dt}\right|_1 + \boldsymbol{\omega}_{10} \times \mathbf{A} $$
+        <div class="math-caption">The absolute time derivative in S₀ equals the relative derivative in S₁ plus the rotational transport term</div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5">
+      <h2 class="section-heading"><span>5.</span> Point Particle Kinematics: Position, Velocity, and Acceleration</h2>
+
+      <h3 class="sub-heading">5.1 Position Vector $\mathbf{r}_0^P$</h3>
+      <p>
+        The directed line segment connecting the origin $O$ of reference frame $S_0$ to the instantaneous position of particle $P$:
+        $$ \mathbf{r}_0^P = \vec{OP} = x(t)\mathbf{i}_0 + y(t)\mathbf{j}_0 + z(t)\mathbf{k}_0 $$
+      </p>
+
+      <h3 class="sub-heading">5.2 Absolute Velocity Vector $\mathbf{v}_0^P$</h3>
+      <p>
+        The time rate of change of the position vector as measured by an observer fixed in $S_0$:
+        $$ \mathbf{v}_0^P = \left.\frac{d\mathbf{r}_0^P}{dt}\right|_0 = \lim_{\Delta t \to 0} \frac{\Delta \mathbf{r}_0^P}{\Delta t} $$
+      </p>
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>✨</span>
+          <span>Fundamental Geometric Property of Velocity</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          The velocity vector $\mathbf{v}_0^P$ is <strong>always and under all circumstances tangent to the particle's spatial trajectory</strong>. Its magnitude is the scalar <em>speed (celerity)</em>: $v = \|\mathbf{v}_0^P\|$. Never confuse velocity (vector) with speed (scalar).
+        </p>
+      </div>
+
+      <h3 class="sub-heading">5.3 Absolute Acceleration Vector $\mathbf{a}_0^P$</h3>
+      <p>
+        The time rate of change of the velocity vector with respect to $S_0$:
+        $$ \mathbf{a}_0^P = \left.\frac{d\mathbf{v}_0^P}{dt}\right|_0 = \left.\frac{d^2\mathbf{r}_0^P}{dt^2}\right|_0 $$
+        In Cartesian coordinates with a stationary basis $\{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$:
+        $$ \mathbf{a}_0^P = \ddot{x}\mathbf{i}_0 + \ddot{y}\mathbf{j}_0 + \ddot{z}\mathbf{k}_0 $$
+      </p>
+      <p>
+        <strong>Analytical observation:</strong> While the position vector $\mathbf{r}_0^P$ depends on the chosen origin $O$, <strong>velocity $\mathbf{v}_0^P$ and acceleration $\mathbf{a}_0^P$ are independent of the origin $O$</strong> (they are invariant under static translations of the origin).
+      </p>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6">
+      <h2 class="section-heading"><span>6.</span> Orthogonal Curvilinear Coordinate Systems</h2>
+      <p>
+        In Euclidean space $\mathbb{R}^3$, the position of point $P$ can be parametrized by three independent coordinates $\{q_1, q_2, q_3\}$. The local coordinate basis at $P$ is generated by differentiating the position vector:
+        $$ \mathbf{u}_{q_i} = \frac{\partial \mathbf{r}_0^P}{\partial q_i}, \quad \mathbf{e}_{q_i} = \frac{\mathbf{u}_{q_i}}{\|\mathbf{u}_{q_i}\|} $$
+      </p>
+
+      <h3 class="sub-heading">6.1 Cylindrical Coordinates $\{R, \theta, z\}$</h3>
+      <p>
+        Defined by the cylindrical radius $R$, the azimuthal polar angle $\theta$, and the vertical Cartesian coordinate $z$:
+      </p>
+      <div class="math-block">
+        $$ \begin{cases} x = R\cos\theta \\ y = R\sin\theta \\ z = z \end{cases} \iff \begin{cases} R = \sqrt{x^2+y^2} \\ \theta = \arctan(y/x) \\ z = z \end{cases} $$
+      </div>
+
+      <!-- SVG Diagram: Cylindrical Coordinates -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 280" width="560" height="260" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(180, 200)">
+            <!-- Fixed axes -->
+            <line x1="0" y1="0" x2="-80" y2="50" stroke="#64748b" stroke-width="1.5" />
+            <text x="-95" y="65" fill="#64748b" font-family="var(--font-mono)" font-size="12">x</text>
+            <line x1="0" y1="0" x2="200" y2="0" stroke="#64748b" stroke-width="1.5" />
+            <text x="210" y="5" fill="#64748b" font-family="var(--font-mono)" font-size="12">y</text>
+            <line x1="0" y1="0" x2="0" y2="-170" stroke="#64748b" stroke-width="1.5" />
+            <text x="6" y="-175" fill="#64748b" font-family="var(--font-mono)" font-size="12">z (k)</text>
+
+            <!-- Projection on Oxy -->
+            <line x1="0" y1="0" x2="90" y2="30" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3" />
+            <text x="45" y="32" fill="var(--accent)" font-family="var(--font-mono)" font-size="12">R</text>
+
+            <!-- Angle theta -->
+            <path d="M 40 0 A 40 40 0 0 1 36 12" fill="none" stroke="var(--accent)" stroke-width="1.5" />
+            <text x="44" y="10" fill="var(--accent)" font-family="var(--font-mono)" font-size="12">θ</text>
+
+            <!-- Vertical line to P -->
+            <line x1="90" y1="30" x2="90" y2="-90" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3" />
+            <text x="96" y="-30" fill="#38bdf8" font-family="var(--font-mono)" font-size="12">z</text>
+
+            <!-- Point P -->
+            <circle cx="90" cy="-90" r="5" fill="var(--accent)" />
+            <text x="102" y="-94" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P</text>
+
+            <!-- Local Basis vectors at P -->
+            <g transform="translate(90, -90)">
+              <!-- e_R -->
+              <line x1="0" y1="0" x2="50" y2="16.6" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arrow)" />
+              <text x="56" y="22" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R</text>
+
+              <!-- e_theta -->
+              <line x1="0" y1="0" x2="-16.6" y2="50" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)" />
+              <text x="-26" y="66" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ</text>
+
+              <!-- e_z -->
+              <line x1="0" y1="0" x2="0" y2="-55" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+              <text x="8" y="-58" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_z</text>
+            </g>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 1.2: Geometric definition of cylindrical coordinates {R, θ, z} and their mobile local orthonormal basis {e_R, e_θ, e_z}.</div>
+      </div>
+
+      <p>
+        The vectors of the local basis rotate with the azimuthal coordinate $\theta(t)$. Their time derivatives are:
+      </p>
+      <div class="math-block">
+        $$ \dot{\mathbf{e}}_R = \dot{\theta}\,\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_R, \quad \dot{\mathbf{e}}_z = \mathbf{0} $$
+      </div>
+
+      <h4>Cylindrical Kinematic Formulas:</h4>
+      <div class="math-block">
+        $$ \mathbf{r}_0^P = R\,\mathbf{e}_R + z\,\mathbf{e}_z $$
+        $$ \mathbf{v}_0^P = \dot{R}\,\mathbf{e}_R + R\dot{\theta}\,\mathbf{e}_\theta + \dot{z}\,\mathbf{e}_z $$
+        $$ \mathbf{a}_0^P = (\ddot{R} - R\dot{\theta}^2)\,\mathbf{e}_R + (R\ddot{\theta} + 2\dot{R}\dot{\theta})\,\mathbf{e}_\theta + \ddot{z}\,\mathbf{e}_z $$
+        <div class="math-caption">Acceleration in cylindrical coordinates: exhibits centripetal acceleration $(-R\dot{\theta}^2)$ and Coriolis coupling $(2\dot{R}\dot{\theta})$</div>
+      </div>
+
+      <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 32px 0;">
+
+      <h3 class="sub-heading">6.2 Spherical Coordinates $\{r, \theta, \phi\}$</h3>
+      <p>
+        Described by the radial distance $r$, azimuthal longitude $\theta$, and the **latitude $\phi$** (the angle measured relative to the equatorial plane $Oxy$, with $\phi \in [-\pi/2, \pi/2]$):
+      </p>
+      <div class="math-block">
+        $$ \begin{cases} x = r\cos\phi\cos\theta \\ y = r\cos\phi\sin\theta \\ z = r\sin\phi \end{cases} \iff \begin{cases} r = \sqrt{x^2+y^2+z^2} \\ \theta = \arctan(y/x) \\ \phi = \arctan\left(\frac{z}{\sqrt{x^2+y^2}}\right) \end{cases} $$
+      </div>
+
+      <h4>Spherical Local Basis and Time Derivatives:</h4>
+      <div class="math-block">
+        $$ \begin{cases}
+        \mathbf{e}_r = \cos\phi\cos\theta\,\mathbf{i} + \cos\phi\sin\theta\,\mathbf{j} + \sin\phi\,\mathbf{k} \\
+        \mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j} \\
+        \mathbf{e}_phi = -\sin\phi\cos\theta\,\mathbf{i} - \sin\phi\sin\theta\,\mathbf{j} + \cos\phi\,\mathbf{k}
+        \end{cases} $$
+        $$ \dot{\mathbf{e}}_r = \dot{\theta}\cos\phi\,\mathbf{e}_\theta + \dot{\phi}\,\mathbf{e}_\phi, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\cos\phi\,\mathbf{e}_r + \dot{\theta}\sin\phi\,\mathbf{e}_\phi, \quad \dot{\mathbf{e}}_\phi = -\dot{\phi}\,\mathbf{e}_r - \dot{\theta}\sin\phi\,\mathbf{e}_\theta $$
+      </div>
+
+      <h4>Spherical Kinematic Equations:</h4>
+      <div class="math-block">
+        $$ \mathbf{r}_0^P = r\,\mathbf{e}_r $$
+        $$ \mathbf{v}_0^P = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\cos\phi\,\mathbf{e}_\theta + r\dot{\phi}\,\mathbf{e}_\phi $$
+        $$ \mathbf{a}_0^P = a_r\,\mathbf{e}_r + a_\theta\,\mathbf{e}_\theta + a_\phi\,\mathbf{e}_\phi $$
+        $$ \begin{cases}
+        a_r = \ddot{r} - r\dot{\theta}^2\cos^2\phi - r\dot{\phi}^2 \\
+        a_\theta = 2\dot{r}\dot{\theta}\cos\phi + r\ddot{\theta}\cos\phi - 2r\dot{\theta}\dot{\phi}\sin\phi \\
+        a_\phi = 2\dot{r}\dot{\phi} + r\ddot{\phi} + r\dot{\theta}^2\cos\phi\sin\phi
+        \end{cases} $$
+        <div class="math-caption">Complete kinematics in spherical coordinates using the official UC3M latitude angle convention</div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="sec-7">
+      <h2 class="section-heading"><span>7.</span> Degrees of Freedom and Generalized Coordinates</h2>
+      <p>
+        The <strong>degrees of freedom (DOF)</strong> of a configuration represent the minimum number of independent coordinates required to unambiguously specify the spatial position of every particle in the mechanical system.
+      </p>
+      <ul>
+        <li><strong>Free particle in 3D Euclidean space:</strong> $\text{DOF} = 3$. Requires 3 coordinates (e.g. $\{x,y,z\}$).</li>
+        <li><strong>Particle constrained to a smooth regular surface $f(x,y,z) = 0$:</strong> $\text{DOF} = 3 - 1 = 2$. Position is expressed using 2 generalized coordinates: $\mathbf{r} = \mathbf{r}(q_1, q_2)$.</li>
+        <li><strong>Particle constrained to move along a fixed spatial curve $f(x,y,z)=0, g(x,y,z)=0$:</strong> $\text{DOF} = 3 - 2 = 1$. Described by a single generalized coordinate: $\mathbf{r} = \mathbf{r}(q_1)$, a natural choice being the arc length coordinate $s$.</li>
+      </ul>
+      <p>
+        The set of all admissible states that these independent coordinates can assume is the <strong>configuration space</strong> of the system.
+      </p>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sec-8">
+      <h2 class="section-heading"><span>8.</span> Trajectory and the Frenet-Serret Intrinsic Frame</h2>
+      <p>
+        Any smooth regular curve in space can be parametrized in terms of the <strong>arc length coordinate $s(t)$</strong>, where the differential arc length satisfies:
+        $$ ds = \|d\mathbf{r}_0^P\| = \sqrt{dx^2 + dy^2 + dz^2} $$
+        From the local geometry of the curve, we construct a moving right-handed orthonormal basis: the <strong>Frenet-Serret Intrinsic Triad $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$</strong>.
+      </p>
+
+      <!-- SVG Diagram: Frenet Serret -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 620 280" width="580" height="260" xmlns="http://www.w3.org/2000/svg">
+          <!-- Trajectory curve -->
+          <path d="M 40 220 C 150 210, 240 70, 420 80 S 580 180, 580 180" fill="none" stroke="#64748b" stroke-width="2.5" />
+          <text x="50" y="240" fill="#64748b" font-family="var(--font-mono)" font-size="12">Trajectory r(s)</text>
+
+          <!-- Osculating Circle at P -->
+          <circle cx="280" cy="180" r="95" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4" opacity="0.6" />
+          
+          <!-- Center of curvature C -->
+          <circle cx="280" cy="180" r="4" fill="var(--accent)" />
+          <text x="288" y="195" fill="var(--accent)" font-family="var(--font-mono)" font-size="13" font-weight="700">C (Center of curvature)</text>
+
+          <!-- Radius rho -->
+          <line x1="280" y1="180" x2="280" y2="85" stroke="var(--accent)" stroke-width="1.5" />
+          <text x="288" y="140" fill="var(--accent)" font-family="var(--font-mono)" font-size="13">ρ (Radius)</text>
+
+          <!-- Point P -->
+          <circle cx="280" cy="85" r="5" fill="var(--text-heading)" />
+          <text x="260" y="80" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P(s)</text>
+
+          <!-- Frenet-Serret Vectors at P -->
+          <!-- e_t (Tangent) -->
+          <line x1="280" y1="85" x2="365" y2="85" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow-blue)" />
+          <text x="375" y="90" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">e_t (Tangent)</text>
+
+          <!-- e_n (Normal, pointing to C) -->
+          <line x1="280" y1="85" x2="280" y2="150" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrow)" />
+          <text x="230" y="130" fill="var(--accent)" font-family="var(--font-mono)" font-size="13" font-weight="700">e_n (Normal)</text>
+
+          <!-- e_b (Binormal, out of page) -->
+          <circle cx="280" cy="85" r="14" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+          <circle cx="280" cy="85" r="3" fill="#f59e0b" />
+          <text x="250" y="60" fill="#f59e0b" font-family="var(--font-mono)" font-size="13" font-weight="700">e_b ⊙ (Binormal)</text>
+
+          <!-- Osculating plane highlight -->
+          <text x="360" y="140" fill="var(--text-muted)" font-family="var(--font-serif)" font-size="14" font-style="italic">Osculating Plane {e_t, e_n}</text>
+        </svg>
+        <div class="diagram-caption">Figure 1.3: Frenet-Serret intrinsic frame {e_t, e_n, e_b}, local osculating circle, radius of curvature ρ, and center of curvature C.</div>
+      </div>
+
+      <h3 class="sub-heading">Triad Vector Definitions</h3>
+      <ol>
+        <li>
+          <strong>Unit Tangent Vector ($\mathbf{e}_t$):</strong>
+          $$ \mathbf{e}_t = \frac{d\mathbf{r}}{ds} = \lim_{\Delta s \to 0}\frac{\Delta \mathbf{r}}{\Delta s}, \quad \|\mathbf{e}_t\| = 1 $$
+        </li>
+        <li>
+          <strong>Unit Principal Normal Vector ($\mathbf{e}_n$) and Curvature ($\kappa$):</strong>
+          Because $\|\mathbf{e}_t\|^2 = 1 \implies \mathbf{e}_t \cdot \frac{d\mathbf{e}_t}{ds} = 0$, the derivative of $\mathbf{e}_t$ with respect to arc length $s$ is strictly normal to the trajectory. We define the <strong>curvature $\kappa$</strong> and the <strong>radius of curvature $\rho$</strong>:
+          $$ \kappa = \left\|\frac{d\mathbf{e}_t}{ds}\right\| = \frac{d\theta}{ds} = \frac{1}{\rho} \implies \frac{d\mathbf{e}_t}{ds} = \kappa\,\mathbf{e}_n = \frac{1}{\rho}\,\mathbf{e}_n $$
+          The unit normal $\mathbf{e}_n$ points <strong>always towards the local center of curvature $C$</strong> (inwards towards the concavity).
+        </li>
+        <li>
+          <strong>Unit Binormal Vector ($\mathbf{e}_b$) and Torsion ($\tau$):</strong>
+          Completes the right-handed orthonormal triad:
+          $$ \mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n $$
+          It is orthogonal to the <strong>osculating plane</strong> spanned by $\{\mathbf{e}_t, \mathbf{e}_n\}$. The torsion $\tau$ measures the rate of rotation (twisting) of the osculating plane with respect to arc length:
+          $$ \frac{d\mathbf{e}_b}{ds} = -\tau\,\mathbf{e}_n $$
+        </li>
+      </ol>
+
+      <div class="math-block">
+        $$ \begin{bmatrix} d\mathbf{e}_t/ds \\ d\mathbf{e}_n/ds \\ d\mathbf{e}_b/ds \end{bmatrix} = \begin{bmatrix} 0 & \kappa & 0 \\ -\kappa & 0 & \tau \\ 0 & -\tau & 0 \end{bmatrix} \begin{bmatrix} \mathbf{e}_t \\ \mathbf{e}_n \\ \mathbf{e}_b \end{bmatrix} $$
+        <div class="math-caption">The 3D Frenet-Serret equations for a general space curve</div>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="sec-9">
+      <h2 class="section-heading"><span>9.</span> Tangential and Normal Acceleration</h2>
+      <p>
+        To express the particle's kinematics in the intrinsic basis, we apply the chain rule: $\frac{d}{dt} = \frac{ds}{dt}\frac{d}{ds} = \dot{s}\frac{d}{ds} = v\frac{d}{ds}$.
+      </p>
+
+      <h3 class="sub-heading">9.1 Velocity in the Intrinsic Basis</h3>
+      <div class="math-block">
+        $$ \mathbf{v}_0^P = \frac{d\mathbf{r}}{dt} = \frac{d\mathbf{r}}{ds}\frac{ds}{dt} = \dot{s}\,\mathbf{e}_t = v\,\mathbf{e}_t $$
+        <div class="math-caption">Velocity is PURELY TANGENTIAL: its normal and binormal components are always identically zero ($v_n \equiv 0$, $v_b \equiv 0$)</div>
+      </div>
+
+      <h3 class="sub-heading">9.2 Acceleration in the Intrinsic Basis</h3>
+      <p>
+        Differentiating the velocity vector with respect to time:
+        $$ \mathbf{a}_0^P = \frac{d}{dt}(v\,\mathbf{e}_t) = \dot{v}\,\mathbf{e}_t + v\frac{d\mathbf{e}_t}{dt} = \dot{v}\,\mathbf{e}_t + v\left(\frac{d\mathbf{e}_t}{ds}\frac{ds}{dt}\right) $$
+        Substituting $\frac{d\mathbf{e}_t}{ds} = \frac{1}{\rho}\mathbf{e}_n$ and $\frac{ds}{dt} = v$:
+      </p>
+      <div class="math-block">
+        $$ \mathbf{a}_0^P = \ddot{s}\,\mathbf{e}_t + \frac{v^2}{\rho}\,\mathbf{e}_n = a_t\,\mathbf{e}_t + a_n\,\mathbf{e}_n $$
+        $$ a_t = \ddot{s} = \dot{v}, \quad a_n = \frac{v^2}{\rho} = \kappa v^2, \quad a_b \equiv 0 $$
+        <div class="math-caption">Intrinsic acceleration decomposition: tangential (rate of speed change) and centripetal normal (rate of direction turning)</div>
+      </div>
+
+      <div class="callout callout-key">
+        <div class="callout-title">
+          <span>🎯</span>
+          <span>Four Cardinal Physical Principles</span>
+        </div>
+        <ol style="margin-bottom: 0;">
+          <li><strong>Tangential acceleration $a_t = \dot{v}$</strong> is solely responsible for changing the magnitude of velocity (speed). If speed $v$ is constant, $a_t = 0$.</li>
+          <li><strong>Normal acceleration $a_n = \frac{v^2}{\rho}$</strong> is solely responsible for changing the direction of the velocity vector. It points permanently towards the center of curvature $C$. If the path is rectilinear ($\rho \to \infty$) or the particle is at rest ($v=0$), $a_n = 0$.</li>
+          <li><strong>Binormal acceleration is identically zero ($a_b \equiv 0$).</strong> There is never any acceleration component orthogonal to the osculating plane.</li>
+          <li><strong>Both $\mathbf{v}$ and $\mathbf{a}$ are strictly confined to the osculating plane $\{\mathbf{e}_t, \mathbf{e}_n\}$ at all times.</strong></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section id="sec-10">
+      <h2 class="section-heading"><span>10.</span> Solved Analytical Case Study: Helical Rocket Trajectory (Slide 29)</h2>
+      
+      <div class="callout callout-info" style="border-left: 4px solid var(--accent);">
+        <div class="callout-title" style="color: var(--accent);">
+          <span>👨‍🏫</span>
+          <span>Analytical &amp; Pedagogical Rigor Audit (<code>problem_step_mentor</code>)</span>
+        </div>
+        <p style="margin-bottom: 0;">
+          This official department problem synthesizes every core fundamental of Topic 1: kinematic modeling, systematic transformation between coordinate systems via <strong>orthogonal rotation matrices $[{}_0 R_C]$</strong>, calculation of the arc length parameter $s(t)$, and complete analytical derivation of the Frenet-Serret intrinsic frame and radius of curvature $\rho$. Below, each step explains <em>why</em> each mathematical step is taken and cites the exact formulation from official lecture notes (<code>Notes.pdf</code>).
+        </p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--text-heading);">Official Course Benchmark Problem (Slide 29)</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Cartesian, cylindrical, and intrinsic kinematics with zero algebraic skips</span>
+          </div>
+          <span class="example-badge">UC3M Exam Type</span>
+        </div>
+
+        <p><strong>Problem Statement:</strong> An out-of-control experimental rocket traces an upward helical trajectory in 3D Euclidean space $\mathbb{R}^3$, governed in Cartesian coordinates for $t > 0$ by the parametric equations of motion:</p>
+        <div class="math-block">
+          $$ x(t) = a\cos(\omega t), \quad y(t) = a\sin(\omega t), \quad z(t) = v_z t $$
+          <div class="math-caption">Cartesian equations of motion ($a > 0$, $\omega > 0$, $v_z > 0$ are known constants)</div>
+        </div>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-top: 24px;">0. Physical Analysis, Degrees of Freedom, and Surface Constraint</h4>
+        <p>
+          <strong>Why does this problem model aerospace reality?</strong><br>
+          In rocket engineering and ballistics, an unguided spin-stabilized launch vehicle with a steady roll rate $\omega$ and a constant longitudinal propulsion thrust climbs vertically at rate $v_z$ while spinning at angular frequency $\omega$.
+        </p>
+        <p>
+          <strong>Derivation of the Geometric Surface Constraint:</strong><br>
+          Squaring and adding the transversal coordinates $x(t)$ and $y(t)$:
+          $$ x(t)^2 + y(t)^2 = [a\cos(\omega t)]^2 + [a\sin(\omega t)]^2 = a^2(\cos^2\omega t + \sin^2\omega t) = a^2 $$
+          The trajectory is geometrically constrained to lie on the surface of a <strong>right circular cylinder of radius $a$</strong> whose central axis coincides with $Oz$:
+          $$ f(x, y, z) = x^2 + y^2 - a^2 = 0 $$
+          According to the general theory of kinematic constraints (Section 2.7 of <code>Notes.pdf</code>), a single holonomic surface constraint $f=0$ reduces the configuration degrees of freedom from $3$ to $3 - 1 = 2$ DOF. This demonstrates that cylindrical coordinates $\{R, \theta, z\}$ are the most natural parametrization possible, as they fix $R = a = \text{constant}$.
+        </p>
+
+        <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px; margin-top: 28px;">Vector Bases and Derivation of the Change-of-Basis Matrix $[{}_0 R_C]$</h4>
+        <p>
+          We identify the vector bases involved:
+        </p>
+        <ul>
+          <li><strong>Fixed Cartesian Basis $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$:</strong> Invariant in time with respect to the inertial frame $S_0$ ($\dot{\mathbf{i}}_0 = \dot{\mathbf{j}}_0 = \dot{\mathbf{k}}_0 = \mathbf{0}$).</li>
+          <li><strong>Moving Cylindrical Basis $\mathcal{B}_C = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$:</strong> Attached to the particle, rotating at angle $\theta(t) = \omega t$.</li>
+        </ul>
+        <p>
+          Projecting the basis vectors of $\mathcal{B}_C$ onto $\mathcal{B}_0$:
+          $$ \mathbf{e}_R = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 + 0\,\mathbf{k}_0 $$
+          $$ \mathbf{e}_\theta = -\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0 + 0\,\mathbf{k}_0 $$
+          $$ \mathbf{e}_z = 0\,\mathbf{i}_0 + 0\,\mathbf{j}_0 + 1\,\mathbf{k}_0 $$
+          Applying <strong>Equation (1.13) of <code>Notes.pdf</code></strong>, the columns of the change-of-basis matrix $[{}_0 R_C]$ are the components of $\{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$ expressed in $\mathcal{B}_0$:
+        </p>
+        <div class="math-block">
+          $$ [{}_0 R_C(\theta)] = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
+          <div class="math-caption">Orthogonal change-of-basis matrix $[{}_0 R_C]$ (elementary rotation $R_z(\theta)$ per Eq. 1.20 of Notes.pdf)</div>
+        </div>
+        <p>
+          By fundamental matrix orthogonality (Equation 1.14 of <code>Notes.pdf</code>), the inverse transformation from Cartesian basis $\mathcal{B}_0$ to cylindrical basis $\mathcal{B}_C$ is given by the matrix transpose:
+          $$ [{}_C R_0(\theta)] = [{}_0 R_C(\theta)]^{-1} = [{}_0 R_C(\theta)]^T = \begin{bmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
+        </p>
+
+        <h4 class="minor-heading">(a) Kinematics in the Cartesian System $\{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> In the inertial frame $S_0$, the Cartesian unit vectors are strictly constant in time. Per Equation (2.6) of <code>Notes.pdf</code>, the time derivative of $\mathbf{r}_0^P$ is evaluated by differentiating each scalar component directly, without needing rotational transport terms.
+        </p>
+        <ul>
+          <li>
+            <strong>Position Vector:</strong>
+            $$ \mathbf{r}_0^P(t) = a\cos(\omega t)\,\mathbf{i}_0 + a\sin(\omega t)\,\mathbf{j}_0 + v_z t\,\mathbf{k}_0 = \begin{bmatrix} a\cos(\omega t) \\ a\sin(\omega t) \\ v_z t \end{bmatrix}_0 $$
+          </li>
+          <li>
+            <strong>Velocity Vector:</strong> Differentiating with respect to $t$ using the chain rule ($\frac{d}{dt}\cos\omega t = -\omega\sin\omega t$ and $\frac{d}{dt}\sin\omega t = \omega\cos\omega t$):
+            $$ \dot{x}(t) = -a\omega\sin(\omega t), \quad \dot{y}(t) = a\omega\cos(\omega t), \quad \dot{z}(t) = v_z $$
+            $$ \mathbf{v}_0^P(t) = \dot{\mathbf{r}}_0^P = -a\omega\sin(\omega t)\,\mathbf{i}_0 + a\omega\cos(\omega t)\,\mathbf{j}_0 + v_z\,\mathbf{k}_0 = \begin{bmatrix} -a\omega\sin(\omega t) \\ a\omega\cos(\omega t) \\ v_z \end{bmatrix}_0 $$
+          </li>
+          <li>
+            <strong>Acceleration Vector:</strong> Differentiating the velocity with respect to $t$ (Equation 2.7 of <code>Notes.pdf</code>):
+            $$ \ddot{x}(t) = -a\omega^2\cos(\omega t), \quad \ddot{y}(t) = -a\omega^2\sin(\omega t), \quad \ddot{z}(t) = 0 $$
+            $$ \mathbf{a}_0^P(t) = \ddot{\mathbf{r}}_0^P = -a\omega^2\cos(\omega t)\,\mathbf{i}_0 - a\omega^2\sin(\omega t)\,\mathbf{j}_0 + 0\,\mathbf{k}_0 = \begin{bmatrix} -a\omega^2\cos(\omega t) \\ -a\omega^2\sin(\omega t) \\ 0 \end{bmatrix}_0 $$
+          </li>
+        </ul>
+
+        <h4 class="minor-heading">(b) Kinematics in the Cylindrical System $\{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$ via Change of Basis</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> Rather than relying on memorized formulas, we systematically project the Cartesian components using the rotation matrix $[{}_C R_0]$ (Equation 1.12 of <code>Notes.pdf</code>): $[\mathbf{A}]_C = [{}_C R_0] [\mathbf{A}]_0$.
+        </p>
+        
+        <p><strong>1. Position in Cylindrical Coordinates:</strong></p>
+        <div class="math-block">
+          $$ \begin{bmatrix} r_R \\ r_\theta \\ r_z \end{bmatrix}_C = \begin{bmatrix} \cos(\omega t) & \sin(\omega t) & 0 \\ -\sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} a\cos(\omega t) \\ a\sin(\omega t) \\ v_z t \end{bmatrix}_0 = \begin{bmatrix} a(\cos^2\omega t + \sin^2\omega t) \\ -a\sin\omega t\cos\omega t + a\sin\omega t\cos\omega t \\ v_z t \end{bmatrix} = \begin{bmatrix} a \\ 0 \\ v_z t \end{bmatrix}_C $$
+        </div>
+        $$ \mathbf{r}_0^P = a\,\mathbf{e}_R + 0\,\mathbf{e}_\theta + v_z t\,\mathbf{e}_z = a\,\mathbf{e}_R + v_z t\,\mathbf{e}_z $$
+        <p><em>Physical Explanation:</em> In cylindrical coordinates, the position vector always has zero azimuthal component by geometric construction, since $\mathbf{e}_R$ points directly from the $Oz$ axis to point $P$.</p>
+
+        <p><strong>2. Velocity in Cylindrical Coordinates:</strong></p>
+        <div class="math-block">
+          $$ \begin{bmatrix} v_R \\ v_\theta \\ v_z \end{bmatrix}_C = \begin{bmatrix} \cos(\omega t) & \sin(\omega t) & 0 \\ -\sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} -a\omega\sin(\omega t) \\ a\omega\cos(\omega t) \\ v_z \end{bmatrix}_0 = \begin{bmatrix} -a\omega\cos\omega t\sin\omega t + a\omega\sin\omega t\cos\omega t \\ a\omega\sin^2\omega t + a\omega\cos^2\omega t \\ v_z \end{bmatrix} = \begin{bmatrix} 0 \\ a\omega \\ v_z \end{bmatrix}_C $$
+        </div>
+        $$ \mathbf{v}_0^P = 0\,\mathbf{e}_R + a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z = a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z $$
+        <p><em>Physical Explanation:</em> Because the cylindrical radius is strictly constant ($R = a \implies \dot{R} = 0$), there is no radial velocity ($v_R = 0$). All horizontal velocity is tangential azimuthal due to rotational spinning: $v_\theta = R\dot{\theta} = a\omega$.</p>
+
+        <p><strong>3. Acceleration in Cylindrical Coordinates:</strong></p>
+        <div class="math-block">
+          $$ \begin{bmatrix} a_R \\ a_\theta \\ a_z \end{bmatrix}_C = \begin{bmatrix} \cos(\omega t) & \sin(\omega t) & 0 \\ -\sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} -a\omega^2\cos(\omega t) \\ -a\omega^2\sin(\omega t) \\ 0 \end{bmatrix}_0 = \begin{bmatrix} -a\omega^2(\cos^2\omega t + \sin^2\omega t) \\ a\omega^2\sin\omega t\cos\omega t - a\omega^2\sin\omega t\cos\omega t \\ 0 \end{bmatrix} = \begin{bmatrix} -a\omega^2 \\ 0 \\ 0 \end{bmatrix}_C $$
+        </div>
+        $$ \mathbf{a}_0^P = -a\omega^2\,\mathbf{e}_R + 0\,\mathbf{e}_\theta + 0\,\mathbf{e}_z = -a\omega^2\,\mathbf{e}_R $$
+        <p><em>Verification with general cylindrical kinematics formula (Equation 2.30 of <code>Notes.pdf</code>):</em><br>
+        $$ a_R = \ddot{R} - R\dot{\theta}^2 = 0 - a(\omega)^2 = -a\omega^2 $$
+        $$ a_\theta = R\ddot{\theta} + 2\dot{R}\dot{\theta} = a(0) + 2(0)(\omega) = 0 $$
+        $$ a_z = \ddot{z} = 0 $$
+        The match is complete. The acceleration vector points purely towards the cylinder axis (pure centripetal acceleration of magnitude $a\omega^2$).
+        </p>
+
+        <h4 class="minor-heading">(c) Velocity Magnitude (Speed $v$)</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> Speed $v = \|\mathbf{v}_0^P\|$ is an invariant scalar under coordinate transformations. It is required to establish the arc length relationship $ds = v\,dt$.
+        </p>
+        <div class="math-block">
+          $$ v = \|\mathbf{v}_0^P\| = \sqrt{v_R^2 + v_\theta^2 + v_z^2} = \sqrt{0^2 + (a\omega)^2 + v_z^2} = \sqrt{a^2\omega^2 + v_z^2} = \text{constant} $$
+        </div>
+        <p>The rocket traverses the helical trajectory with <strong>rigorously constant speed</strong>.</p>
+
+        <h4 class="minor-heading">(d) Evolution of the Arc Length Coordinate $s(t)$</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> By definition (Equation 2.16 of <code>Notes.pdf</code>), speed is the time rate of change of arc length: $v = \dot{s} = \frac{ds}{dt}$. Integrating from $t=0$ with initial condition $s(0) = 0$:
+        </p>
+        <div class="math-block">
+          $$ s(t) = \int_0^t v\,dt' = \int_0^t \sqrt{a^2\omega^2 + v_z^2}\,dt' = \sqrt{a^2\omega^2 + v_z^2} \int_0^t dt' = t\sqrt{a^2\omega^2 + v_z^2} $$
+        </div>
+        <p>The distance traversed along the helical path increases strictly linearly with elapsed time.</p>
+
+        <h4 class="minor-heading">(e) Intrinsic Frenet-Serret Frame $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ and Intrinsic Acceleration</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> The Frenet-Serret basis decouples the rate of change of speed (tangential acceleration $a_t$) from the rate of change of direction (normal acceleration $a_n$).
+        </p>
+        
+        <p><strong>1. Unit Tangent Vector $\mathbf{e}_t$:</strong><br>
+        By fundamental kinematic definition (Equation 2.9 of <code>Notes.pdf</code>):
+        $$ \mathbf{e}_t = \frac{\mathbf{v}_0^P}{v} = \frac{-a\omega\sin(\omega t)\,\mathbf{i}_0 + a\omega\cos(\omega t)\,\mathbf{j}_0 + v_z\,\mathbf{k}_0}{\sqrt{a^2\omega^2 + v_z^2}} = \frac{a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
+        </p>
+
+        <p><strong>2. Tangential Acceleration $a_t$:</strong><br>
+        Per Equation (2.18) of <code>Notes.pdf</code>, $a_t = \dot{v} = \ddot{s}$. Since $v = \sqrt{a^2\omega^2 + v_z^2} = \text{constant}$:
+        $$ a_t = \frac{d}{dt}\left(\sqrt{a^2\omega^2 + v_z^2}\right) = 0 $$
+        Because the speed is constant, the tangential acceleration vanishes identically.
+        </p>
+
+        <p><strong>3. Derivative of $\mathbf{e}_t$ with respect to arc length $s$, Curvature $\kappa$, and Radius of Curvature $\rho$:</strong><br>
+        We apply the chain rule $\frac{d}{ds} = \frac{1}{v}\frac{d}{dt}$ (Equation 2.12 of <code>Notes.pdf</code>):
+        $$ \frac{d\mathbf{e}_t}{dt} = \frac{1}{\sqrt{a^2\omega^2 + v_z^2}}\frac{d}{dt}[-a\omega\sin(\omega t)\mathbf{i}_0 + a\omega\cos(\omega t)\mathbf{j}_0 + v_z\mathbf{k}_0] = \frac{-a\omega^2\cos(\omega t)\mathbf{i}_0 - a\omega^2\sin(\omega t)\mathbf{j}_0}{\sqrt{a^2\omega^2 + v_z^2}} $$
+        Multiplying by $\frac{1}{v} = \frac{1}{\sqrt{a^2\omega^2 + v_z^2}}$:
+        $$ \frac{d\mathbf{e}_t}{ds} = \frac{1}{v}\frac{d\mathbf{e}_t}{dt} = \frac{-a\omega^2(\cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0)}{a^2\omega^2 + v_z^2} = -\frac{a\omega^2}{a^2\omega^2 + v_z^2}\,\mathbf{e}_R $$
+        By the first Frenet-Serret formula, $\frac{d\mathbf{e}_t}{ds} = \kappa\,\mathbf{e}_n = \frac{1}{\rho}\,\mathbf{e}_n$. Taking the Euclidean norm:
+        $$ \kappa = \left\|\frac{d\mathbf{e}_t}{ds}\right\| = \frac{a\omega^2}{a^2\omega^2 + v_z^2} $$
+        Therefore, the <strong>radius of curvature $\rho$</strong> is:
+        $$ \rho = \frac{1}{\kappa} = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a\left(1 + \frac{v_z^2}{a^2\omega^2}\right) $$
+        </p>
+
+        <p><strong>4. Principal Normal Vector $\mathbf{e}_n$:</strong><br>
+        Normalizing the derivative of the tangent vector (Equation 2.11 of <code>Notes.pdf</code>):
+        $$ \mathbf{e}_n = \frac{1}{\kappa}\frac{d\mathbf{e}_t}{ds} = \left(\frac{a^2\omega^2 + v_z^2}{a\omega^2}\right) \left[ -\frac{a\omega^2}{a^2\omega^2 + v_z^2}\,\mathbf{e}_R \right] = -\mathbf{e}_R = -(\cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0) $$
+        The unit normal vector points <strong>centripetally towards the cylinder axis $Oz$</strong> ($-\mathbf{e}_R$).
+        </p>
+
+        <p><strong>5. Normal Acceleration $a_n$:</strong><br>
+        Per the intrinsic formulation (Equation 2.18 of <code>Notes.pdf</code>):
+        $$ a_n = \frac{v^2}{\rho} = \kappa v^2 = \left( \frac{a\omega^2}{a^2\omega^2 + v_z^2} \right) (a^2\omega^2 + v_z^2) = a\omega^2 $$
+        Thus, the total intrinsic acceleration is:
+        $$ \mathbf{a}_0^P = a_t\,\mathbf{e}_t + a_n\,\mathbf{e}_n + a_b\,\mathbf{e}_b = 0\,\mathbf{e}_t + a\omega^2(-\mathbf{e}_R) + 0\,\mathbf{e}_b = -a\omega^2\,\mathbf{e}_R $$
+        </p>
+
+        <p><strong>6. Binormal Unit Vector $\mathbf{e}_b$:</strong><br>
+        We compute the right-handed cross product $\mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n$ in the cylindrical basis:
+        $$ \mathbf{e}_b = \left( \frac{a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} \right) \times (-\mathbf{e}_R) = \frac{-a\omega(\mathbf{e}_\theta \times \mathbf{e}_R) - v_z(\mathbf{e}_z \times \mathbf{e}_R)}{\sqrt{a^2\omega^2 + v_z^2}} $$
+        Recalling that $\mathbf{e}_\theta \times \mathbf{e}_R = -\mathbf{e}_z$ and $\mathbf{e}_z \times \mathbf{e}_R = \mathbf{e}_\theta$:
+        $$ \mathbf{e}_b = \frac{-a\omega(-\mathbf{e}_z) - v_z(\mathbf{e}_\theta)}{\sqrt{a^2\omega^2 + v_z^2}} = \frac{-v_z\,\mathbf{e}_\theta + a\omega\,\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
+        </p>
+
+        <h4 class="minor-heading">(f) Center of Curvature $C$ at Position $(a, 0, 0)$</h4>
+        <p>
+          <strong>Pedagogical Justification:</strong> By the geometric definition of the osculating circle (Section 2.4 and Figure 2.2 of <code>Notes.pdf</code>), the center of curvature $C$ is displaced by distance $\rho$ from particle $P$ along the direction of the normal vector $\mathbf{e}_n$:
+          $$ \mathbf{r}_C(t) = \mathbf{r}(t) + \rho\,\mathbf{e}_n(t) $$
+        </p>
+        <p>
+          At point $(a, 0, 0)$, time is $t = 0$ (since $x(0) = a\cos(0) = a, y(0) = 0, z(0) = 0$).<br>
+          At this instant:
+          $$ \mathbf{r}(0) = a\,\mathbf{i}_0 $$
+          $$ \mathbf{e}_n(0) = -\mathbf{e}_R(0) = -\mathbf{i}_0 $$
+          $$ \rho = a + \frac{v_z^2}{a\omega^2} $$
+          Substituting and simplifying algebraically:
+          $$ \mathbf{r}_C(0) = a\,\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)(-\mathbf{i}_0) = a\,\mathbf{i}_0 - a\,\mathbf{i}_0 - \frac{v_z^2}{a\omega^2}\,\mathbf{i}_0 = -\frac{v_z^2}{a\omega^2}\,\mathbf{i}_0 $$
+        </p>
+        <div class="math-block">
+          $$ C = \left( -\frac{v_z^2}{a\omega^2}, \, 0, \, 0 \right) $$
+          <div class="math-caption">Exact Cartesian coordinates of the center of the osculating circle at t = 0</div>
+        </div>
+        <p>
+          <strong>Physical Interpretation:</strong> If the rocket had no vertical ascent ($v_z = 0$), the center of curvature would coincide with the coordinate origin $(0,0,0)$ of the planar circle. However, because of vertical ascent $v_z > 0$, the upward slope of the helix flattens the curve (increasing the radius of curvature $\rho > a$) and shifts the center of curvature onto the negative $x$-axis, at distance $\frac{v_z^2}{a\omega^2}$ behind the cylinder's central axis.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <div class="article-nav">
+      <a href="index.html" class="nav-btn">
+        <span class="nav-btn-label">← Back to Course Syllabus</span>
+        <span class="nav-btn-title">Mechanics Applied Index</span>
+      </a>
+      <a href="topic-2.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Next Topic →</span>
+        <span class="nav-btn-title">Topic 2: Point Particle Dynamics</span>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Theme toggle with localStorage persistence
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

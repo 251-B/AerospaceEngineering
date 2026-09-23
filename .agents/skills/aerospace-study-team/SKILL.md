@@ -10,9 +10,9 @@ Esta habilidad permite al agente orquestador coordinar el desarrollo de material
 
 ## Subagentes Disponibles
 
-1. **`notebook_researcher`**: Ingesta y consulta de cuadernos NotebookLM vía MCP (`gemini-notebook`). Extrae temario, fórmulas y problemas.
-2. **`aerospace_pedagogue`**: Razonamiento analítico profundo (`pro`). Redacta teoría rigurosa y resuelve problemas paso a paso en LaTeX.
-3. **`simulator_engineer`**: Crea simuladores y widgets interactivos (Canvas 2D, SVG, Chart.js).
+1. **`source_researcher`**: Ingesta y consulta de fuentes oficiales locales (`sources/`). Extrae temario, fórmulas y problemas.
+2. **`aerospace_pedagogue`**: Razonamiento analítico profundo (`pro`). Redacta teoría rigurosa y estructura el conocimiento.
+3. **`problem_step_mentor`**: Mentor Pedagógico de Problemas (`pro`). Garantiza desarrollo exhaustivo paso a paso, justificación previa de cada ecuación/integral, trazabilidad con apuntes, cambios de coordenadas mediante matrices de cambio de base $[{}_0 R_1]$, y desarrollo explícito de cada paso de cálculo diferencial (regla de la cadena temporal, derivadas implícitas) e integral sin omitir pasos intermedios.
 4. **`subject_web_builder`**: Implementa páginas web en `subjects/` con KaTeX, temas oscuro/claro y diseño responsive.
 5. **`web_qa_reviewer`**: Audita enlaces relativos, valida sintaxis de fórmulas LaTeX y evita conflictos de Git.
 
