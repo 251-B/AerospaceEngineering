@@ -612,16 +612,16 @@
       <div class="header-actions" style="display:flex; align-items:center; gap:8px;">
         <a href="../../../index.html" class="back-link" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>Main Portal</span>
+          <span data-i18n="nav.main_portal">Main Portal</span>
         </a>
-        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">← Problemas</a>
-        <a href="../teoria/topic-3-diffusion.html" class="btn-header-back" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px;"><span>← Back to Theory</span></a>
+        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;"><span data-i18n="nav.problems">← Problemas</span></a>
+        <a href="../teoria/topic-3-diffusion.html" class="btn-header-back" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px;"><span data-i18n="nav.back_to_theory">← Back to Theory</span></a>
         <div class="lang-switch" role="group" aria-label="Language selector">
-          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="es" data-i18n-aria-label="lang.toggle_aria_es">ES</button>
           <span class="lang-divider">/</span>
-          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="en" data-i18n-aria-label="lang.toggle_aria_en">EN</button>
         </div>
-        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme" data-i18n-aria-label="theme.toggle_aria" data-i18n-title="theme.toggle_title"></button>
       </div>
     </div>
   </header>
@@ -629,7 +629,7 @@
   <div class="app-layout">
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
-      <div class="sidebar-heading">Topic 3 Official Problem Set</div>
+      <div class="sidebar-heading" data-i18n="materials.sidebar_prob_set">Topic 3 Official Problem Set</div>
       <ul class="nav-list">
         <li class="nav-item active" onclick="showProblem('prob-1')">
           <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">P1</span>

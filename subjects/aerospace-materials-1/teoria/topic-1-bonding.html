@@ -918,15 +918,15 @@
       <div class="header-actions" style="display:flex; align-items:center; gap:8px;">
         <a href="../../../index.html" class="back-link" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          <span>Main Portal</span>
+          <span data-i18n="nav.main_portal">Main Portal</span>
         </a>
-        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;">← Temas</a>
+        <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px; padding:6px 12px; font-size:12px; font-weight:600; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:6px; transition:all 0.15s ease;"><span data-i18n="nav.topics">← Temas</span></a>
         <div class="lang-switch" role="group" aria-label="Language selector">
-          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="es" data-i18n-aria-label="lang.toggle_aria_es">ES</button>
           <span class="lang-divider">/</span>
-          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="en" data-i18n-aria-label="lang.toggle_aria_en">EN</button>
         </div>
-        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme" data-i18n-aria-label="theme.toggle_aria" data-i18n-title="theme.toggle_title"></button>
       </div>
     </div>
   </header>
@@ -935,7 +935,7 @@
     
     <!-- Multi-Page Navigation Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-heading">Foundational Theory</div>
+      <div class="sidebar-heading" data-i18n="materials.sidebar_foundational">Foundational Theory</div>
       <ul class="nav-list">
         <li class="nav-item active" onclick="showPage('p-paradigm')">
           <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§1</span>
@@ -963,15 +963,15 @@
         </li>
       </ul>
 
-      <div class="sidebar-heading">Memorization & Mastery</div>
+      <div class="sidebar-heading" data-i18n="materials.sidebar_mastery">Memorization & Mastery</div>
       <ul class="nav-list">
         <li class="nav-item" onclick="showPage('p-flashcards')">
           <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">FC</span>
-          <span>Flashcard Deck (41 Cards)</span>
+          <span data-i18n="materials.sidebar_flashcards">Flashcard Deck (41 Cards)</span>
         </li>
         <li class="nav-item" onclick="showPage('p-quiz')">
           <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">§2</span>
-          <span>True / False Speed Drill</span>
+          <span data-i18n="materials.sidebar_speed_drill">True / False Speed Drill</span>
         </li>
         <li class="nav-item" onclick="showPage('p-sim')">
           <span class="icon" style="font-size:0.8rem; font-family:var(--font-mono); font-weight:700;">PROP</span>
@@ -979,7 +979,7 @@
         </li>
         <li class="nav-item" onclick="showPage('p-exam')">
           <span class="icon" style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent);">EX</span>
-          <span>Official Exam Problems</span>
+          <span data-i18n="materials.sidebar_exam_probs">Official Exam Problems</span>
         </li>
       </ul>
     </aside>
