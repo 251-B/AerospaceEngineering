@@ -14,7 +14,7 @@ Este es el nodo raíz de la bóveda de conocimiento de 2º curso del Grado en In
 * **Página Web:** `subjects/fluid-mechanics/`
 
 ### 🔬 [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|Materiales Aeroespaciales I]]
-* **Temas principales:** Estructuras cristalinas, Diagramas de fases binarios, Aleaciones de aluminio, titanio y superaleaciones de níquel, Tratamientos térmicos, Ensayos mecánicos (tracción, fatiga, fluencia, tenacidad).
+* **Temas principales:** Enlaces en sólidos y correlación con propiedades (pozo de potencial), Estructuras cristalinas y defectos, Difusión, Diagramas de fases binarios, Aleaciones ligeras (Al, Ti) y superaleaciones de níquel, Deformación elástica y plástica, Ensayos mecánicos.
 * **Cuaderno NotebookLM asociado:** `9b324478-69e9-482c-813c-5709ec031820`
 * **Página Web:** `subjects/aerospace-materials-1/`
 
