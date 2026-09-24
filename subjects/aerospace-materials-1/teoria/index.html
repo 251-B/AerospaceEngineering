@@ -7,6 +7,7 @@
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <!-- KaTeX -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -66,9 +67,9 @@
       transition: background var(--transition), color var(--transition);
     }
 
-    h1, h2, h3, .page-header h1, .topic-title {
-      font-family: var(--font-display);
-      font-weight: 400;
+    h1, h2, h3, .page-header h1, .page-hero h1, .topic-title, .card-title, .set-title, .framework-title, .ex-title, .block-header h2 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
       letter-spacing: 0.015em;
     }
 
@@ -164,7 +165,6 @@
 
     .page-header h1 {
       font-size: clamp(1.4rem, 3.5vw, 2rem);
-      font-weight: 800; letter-spacing: -0.02em;
       margin-bottom: 6px;
     }
 
@@ -216,7 +216,7 @@
     }
 
     .topic-title {
-      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em;
+      font-size: 1.1rem;
     }
 
     .topic-desc {
