@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 Problem Set: Second-Order Linear ODEs & Oscillations — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-card-hover: rgba(20, 30, 55, 0.92);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      background-color: #030712;
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.94);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      background-color: #f8fafc;
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -120px;
+      right: 12%;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       STICKY QUICK-NAVIGATION PILL BAR
+       ======================================================== */
+    .pill-nav-bar {
+      position: sticky;
+      top: 53px;
+      z-index: 90;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+    }
+
+    .pill-nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .pill-nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-secondary);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .nav-pill:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      transform: translateY(-1px);
+    }
+
+    .nav-pill.active {
+      color: #ffffff;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT & PROBLEMS CONTAINER
+       ======================================================== */
+    .article-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .source-box {
+      margin-top: 16px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ========================================================
+       PROBLEM CARDS & 4-PHASE ARCHITECTURE
+       ======================================================== */
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-card);
+      scroll-margin-top: 110px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .problem-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .problem-title-group {
+      flex: 1;
+    }
+
+    .problem-num-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.3;
+    }
+
+    .problem-meta-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Phase Containers */
+    .phase-section {
+      margin-top: 26px;
+    }
+
+    .phase-badge-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .phase-1-badge { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .phase-2-badge { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .phase-3-badge { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .phase-4-badge { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .problem-statement-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      overflow-x: auto;
+      padding: 14px 18px;
+      margin: 16px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .sub-case-card {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+
+    .sub-case-header {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 18px 0;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.05);
+    }
+
+    .result-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #10b981;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .note-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .warning-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #f59e0b;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Structured Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:hover td {
+      background: var(--accent-soft);
+    }
+
+    /* Bottom Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 680px) {
+      .problem-card { padding: 22px 20px; }
+      .pill-nav-inner { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP STICKY NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>Problems Index</span>
+        </a>
+        <span class="brand-badge">ProblemsCh3 • 11 Solved</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../teoria/topic-3.html" class="back-link">
+          <span>Topic 3 Theory</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       STICKY FAST-NAVIGATION PILL BAR
+       ============================================ -->
+  <nav class="pill-nav-bar" aria-label="Quick Jump Navigation">
+    <div class="pill-nav-inner">
+      <a href="#p1" class="nav-pill">P3.1 Wronskian Bases</a>
+      <a href="#p2" class="nav-pill">P3.2 Abel's Dichotomy</a>
+      <a href="#p3" class="nav-pill">P3.3 Peano Counterexample</a>
+      <a href="#p4" class="nav-pill">P3.4 15 Homogeneous IVPs</a>
+      <a href="#p5" class="nav-pill">P3.5 Saddle Manifold</a>
+      <a href="#p6" class="nav-pill">P3.6 Amplitude-Phase</a>
+      <a href="#p7" class="nav-pill">P3.7 Simple Pendulum</a>
+      <a href="#p8" class="nav-pill">P3.8 Damped Oscillators</a>
+      <a href="#p9" class="nav-pill">P3.9 Falling Chain</a>
+      <a href="#p10" class="nav-pill">P3.10 Parachutist Drag</a>
+      <a href="#p11" class="nav-pill">P3.11 Euler-Cauchy ODE</a>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Problems Sheet 3 • Official Solutions</span>
+        <span class="course-tag">Department of Mathematics • UC3M Aerospace Engineering</span>
+      </div>
+      <h1 class="article-title">Chapter 3 Problem Set: Second-Order Linear ODEs & Oscillations</h1>
+      <p class="article-lead">
+        Comprehensive, mathematically rigorous analytical solutions to all 11 problems from <code>ProblemsCh3.pdf</code>.
+        Covering fundamental sets of solutions, Wronskian determinants, Abel's identity, Peano's counterexample,
+        15 complete initial value problems, saddle point invariant manifolds, polar amplitude-phase transformations,
+        conservative simple pendulums, mechanical damping regimes, falling chain dynamics, linear drag terminal velocity,
+        and Euler-Cauchy differential equations.
+      </p>
+      <div class="source-box">
+        <span>📄 Source Document:</span>
+        <code>sources/04-advanced-maths/problemas/ProblemsCh3.pdf (probls_ch3_2627.pdf)</code>
+      </div>
+    </header>
+
+    <!-- ============================================
+         PROBLEM 1
+         ============================================ -->
+    <article class="problem-card" id="p1">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 1</div>
+          <h2 class="problem-title">Linear Independence of Canonical Solution Pairs via Wronskian</h2>
+        </div>
+        <span class="problem-meta-badge">Wronskian Determinant • Fundamental Bases</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>By finding the Wronskian of the following pairs of functions, show that they are linearly independent:</p>
+          <ol style="margin-left: 20px; margin-top: 8px;">
+            <li>$x_1(t) = e^{k_1 t}$ and $x_2(t) = e^{k_2 t}$ with $k_1 \neq k_2$</li>
+            <li>$x_1(t) = e^{k t}$ and $x_2(t) = t e^{k t}$</li>
+            <li>$x_1(t) = e^{\rho t}\sin(\omega t)$ and $x_2(t) = e^{\rho t}\cos(\omega t)$ with $\omega \neq 0$</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          For two continuously differentiable functions $x_1, x_2 \in C^1(I)$, the Wronskian determinant is defined as:
+          $$ W[x_1, x_2](t) = \det \begin{pmatrix} x_1(t) & x_2(t) \\ \dot{x}_1(t) & \dot{x}_2(t) \end{pmatrix} = x_1(t)\dot{x}_2(t) - x_2(t)\dot{x}_1(t) $$
+          If $W[x_1, x_2](t_0) \neq 0$ at even a single point $t_0 \in I$, the functions $x_1(t)$ and $x_2(t)$ are strictly <strong>linearly independent</strong> on the interval $I$.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (i): Distinct Exponential Modes $x_1(t) = e^{k_1 t}, \; x_2(t) = e^{k_2 t}$ ($k_1 \neq k_2$)</div>
+          <p>Differentiating each function:</p>
+          $$\dot{x}_1(t) = k_1 e^{k_1 t}, \qquad \dot{x}_2(t) = k_2 e^{k_2 t}$$
+          <p>Formulating the Wronskian determinant:</p>
+          $$ W[x_1, x_2](t) = e^{k_1 t}\left( k_2 e^{k_2 t} \right) - e^{k_2 t}\left( k_1 e^{k_1 t} \right) = (k_2 - k_1) e^{(k_1 + k_2)t} $$
+          <p>Since the exponential function satisfies $e^{(k_1 + k_2)t} > 0$ for all $t \in \mathbb{R}$, and $k_1 \neq k_2 \implies k_2 - k_1 \neq 0$:</p>
+          $$ W[x_1, x_2](t) \neq 0 \quad \forall t \in \mathbb{R} \implies \text{Linearly Independent on } \mathbb{R} $$
+        </div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (ii): Repeated Root Secular Mode $x_1(t) = e^{kt}, \; x_2(t) = t e^{kt}$</div>
+          <p>Differentiating using the product rule on $x_2(t)$:</p>
+          $$\dot{x}_1(t) = k e^{kt}, \qquad \dot{x}_2(t) = 1 \cdot e^{kt} + t(k e^{kt}) = (1 + kt)e^{kt}$$
+          <p>Formulating the Wronskian determinant:</p>
+          $$ W[x_1, x_2](t) = e^{kt}\left[ (1 + kt)e^{kt} \right] - t e^{kt}\left[ k e^{kt} \right] = e^{2kt} \left[ (1 + kt) - kt \right] = e^{2kt} $$
+          <p>Since $e^{2kt} > 0$ for every real $t$, $W(t)$ is strictly positive everywhere:</p>
+          $$ W[x_1, x_2](t) = e^{2kt} \neq 0 \quad \forall t \in \mathbb{R} \implies \text{Linearly Independent on } \mathbb{R} $$
+        </div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (iii): Conjugate Complex Modes $x_1(t) = e^{\rho t}\sin(\omega t), \; x_2(t) = e^{\rho t}\cos(\omega t)$ ($\omega \neq 0$)</div>
+          <p>Differentiating via product rule:</p>
+          $$\dot{x}_1(t) = e^{\rho t}\left[ \rho \sin(\omega t) + \omega \cos(\omega t) \right]$$
+          $$\dot{x}_2(t) = e^{\rho t}\left[ \rho \cos(\omega t) - \omega \sin(\omega t) \right]$$
+          <p>Assembling $W(t) = x_1 \dot{x}_2 - x_2 \dot{x}_1$ and factoring $e^{2\rho t}$:</p>
+          $$ W(t) = e^{2\rho t}\left[ \sin(\omega t)\left(\rho \cos(\omega t) - \omega \sin(\omega t)\right) - \cos(\omega t)\left(\rho \sin(\omega t) + \omega \cos(\omega t)\right) \right] $$
+          $$ W(t) = e^{2\rho t}\left[ \rho\sin\omega t\cos\omega t - \omega\sin^2\omega t - \rho\cos\omega t\sin\omega t - \omega\cos^2\omega t \right] $$
+          <p>The cross terms $\rho\sin\omega t\cos\omega t$ cancel identically. Applying $\sin^2\omega t + \cos^2\omega t = 1$:</p>
+          $$ W[x_1, x_2](t) = e^{2\rho t}\left[ -\omega(\sin^2\omega t + \cos^2\omega t) \right] = -\omega e^{2\rho t} $$
+          <p>Because $\omega \neq 0$ and $e^{2\rho t} > 0$:</p>
+          $$ W[x_1, x_2](t) = -\omega e^{2\rho t} \neq 0 \quad \forall t \in \mathbb{R} \implies \text{Linearly Independent on } \mathbb{R} $$
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Master Results</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Master Wronskian Summary</div>
+          <p><strong>(i) Distinct Exponentials:</strong> $W[e^{k_1 t}, e^{k_2 t}](t) = \mathbf{(k_2 - k_1) e^{(k_1 + k_2)t}} \neq 0$</p>
+          <p><strong>(ii) Critical Damping Secular Mode:</strong> $W[e^{kt}, t e^{kt}](t) = \mathbf{e^{2kt}} > 0$</p>
+          <p><strong>(iii) Damped Harmonic Oscillations:</strong> $W[e^{\rho t}\sin\omega t, e^{\rho t}\cos\omega t](t) = \mathbf{-\omega e^{2\rho t}} \neq 0$</p>
+        </div>
+        <div class="note-box">
+          <div class="note-box-title">Aerospace Engineering Context</div>
+          These three fundamental pairs represent the complete basis spanning the null space of any linear time-invariant (LTI) mechanical system $m\ddot{x} + c\dot{x} + kx = 0$: overdamped aerodynamic divergence/decay, critically damped actuation, and flutter oscillation.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 2
+         ============================================ -->
+    <article class="problem-card" id="p2">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 2</div>
+          <h2 class="problem-title">Abel's Identity and the Wronskian Dichotomy</h2>
+        </div>
+        <span class="problem-meta-badge">Abel's Formula • Wronskian Dichotomy</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            Show that the Wronskian for two solutions $x_1(t)$ and $x_2(t)$ of the second order differential equation
+            $$ \frac{d^2x}{dt^2} + p_1(t)\frac{dx}{dt} + p_2(t)x = 0 $$
+            satisfies $\frac{dW(t)}{dt} = -p_1(t)W(t)$. Deduce either that $W(t) = 0$ for all $t$, or that $W(t) \neq 0$ for all $t$.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Assume $p_1(t), p_2(t)$ are continuous functions on an interval $I \subseteq \mathbb{R}$.
+          Let $x_1(t), x_2(t) \in C^2(I)$ be solutions of $L[x] = \ddot{x} + p_1\dot{x} + p_2 x = 0$.
+          We compute the time derivative of $W(t) = x_1\dot{x}_2 - x_2\dot{x}_1$ and replace the second derivatives using the governing ODE.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+        <p><strong>Step 1: Differentiating $W(t)$</strong></p>
+        $$ \frac{dW}{dt} = \frac{d}{dt}\left( x_1 \dot{x}_2 - x_2 \dot{x}_1 \right) = \left( \dot{x}_1 \dot{x}_2 + x_1 \ddot{x}_2 \right) - \left( \dot{x}_2 \dot{x}_1 + x_2 \ddot{x}_1 \right) $$
+        <p>The product terms $\dot{x}_1\dot{x}_2$ and $\dot{x}_2\dot{x}_1$ cancel:</p>
+        $$ \frac{dW}{dt} = x_1 \ddot{x}_2 - x_2 \ddot{x}_1 \tag{1} $$
+
+        <p><strong>Step 2: Substituting Second Derivatives from the ODE</strong></p>
+        $$\ddot{x}_1 = -p_1(t)\dot{x}_1 - p_2(t)x_1, \qquad \ddot{x}_2 = -p_1(t)\dot{x}_2 - p_2(t)x_2$$
+        <p>Substituting into (1):</p>
+        $$ \frac{dW}{dt} = x_1\left( -p_1\dot{x}_2 - p_2 x_2 \right) - x_2\left( -p_1\dot{x}_1 - p_2 x_1 \right) $$
+        $$ \frac{dW}{dt} = -p_1(t)\left[ x_1 \dot{x}_2 - x_2 \dot{x}_1 \right] - p_2(t)\left[ x_1 x_2 - x_2 x_1 \right] $$
+        <p>Since $x_1 x_2 - x_2 x_1 \equiv 0$ and $x_1 \dot{x}_2 - x_2 \dot{x}_1 = W(t)$:</p>
+        $$ \mathbf{\frac{dW(t)}{dt} = -p_1(t) W(t)} \tag{2} $$
+
+        <p><strong>Step 3: Integrating to Abel's Formula</strong></p>
+        <p>Equation (2) is a separable first-order linear ODE. Integrating from $t_0$ to $t$:</p>
+        $$ \int_{W(t_0)}^{W(t)} \frac{dW}{W} = -\int_{t_0}^t p_1(s)\,ds \implies \ln\left| \frac{W(t)}{W(t_0)} \right| = -\int_{t_0}^t p_1(s)\,ds $$
+        $$ \mathbf{W(t) = W(t_0) \exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} \tag{3} $$
+
+        <p><strong>Step 4: Deduction of the Wronskian Dichotomy</strong></p>
+        <p>Because $p_1(s)$ is continuous on $I$, the integral $\int_{t_0}^t p_1(s)\,ds$ is finite for all $t \in I$.
+        Consequently, the exponential term is strictly positive:</p>
+        $$ \exp\left( -\int_{t_0}^t p_1(s)\,ds \right) > 0 \quad \forall t \in I $$
+        <ul>
+          <li><strong>If $W(t_0) = 0$:</strong> $W(t) = 0 \times \exp(\dots) = 0$ for all $t \in I$.</li>
+          <li><strong>If $W(t_0) \neq 0$:</strong> Since neither factor is zero, $W(t) \neq 0$ for all $t \in I$.</li>
+        </ul>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Master Results</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Abel's Identity & Wronskian Dichotomy</div>
+          $$ \boxed{\frac{dW}{dt} = -p_1(t)W(t) \implies W(t) = W(t_0)\exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} $$
+          <p><strong>Conclusion:</strong> For any two solutions of a linear homogeneous second-order ODE with continuous coefficients, the Wronskian is <em>either identically zero everywhere on $I$, or non-zero at every point of $I$</em>. It can never cross zero isolatedly.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 3
+         ============================================ -->
+    <article class="problem-card" id="p3">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 3</div>
+          <h2 class="problem-title">Peano's Counterexample: Wronskian Vanishing vs Linear Independence</h2>
+        </div>
+        <span class="problem-meta-badge">Peano Counterexample • Rigorous Analysis</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            We have seen that, if $x_1(t)$ and $x_2(t)$ are two solutions of a linear homogeneous second order differential equation, then they are linearly independent if and only if their Wronskian is non-zero. This is not true for general functions that are not the solutions of some differential equation.
+          </p>
+          <ol style="margin-left: 20px; margin-top: 8px;">
+            <li>Check that, if $f(t) = t^2|t|$, then $\frac{df}{dt} = 3t|t|$ (straightforward for $t \neq 0$; use the formal definition of the derivative at $t = 0$).</li>
+            <li>Considering $f_1(t) = t^2|t|$ and $f_2(t) = t^3$, show that, although these two functions are linearly independent on $\mathbb{R}$, their Wronskian is identically zero.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Linear independence on a function space requires that $c_1 f_1(t) + c_2 f_2(t) = 0$ for all $t \in \mathbb{R}$ implies $c_1 = c_2 = 0$.
+          The Wronskian is $W[f_1, f_2](t) = f_1(t)f_2'(t) - f_2(t)f_1'(t)$.
+          This problem demonstrates why the condition "$W(t) \equiv 0 \implies \text{linearly dependent}$" fails for arbitrary functions that do not satisfy a common regular linear ODE.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (i): Differentiating $f(t) = t^2|t|$</div>
+          <p><strong>For $t > 0$:</strong> $|t| = t \implies f(t) = t^3 \implies f'(t) = 3t^2 = 3t(t) = 3t|t|$.</p>
+          <p><strong>For $t < 0$:</strong> $|t| = -t \implies f(t) = -t^3 \implies f'(t) = -3t^2 = 3t(-t) = 3t|t|$.</p>
+          <p><strong>At $t = 0$ (Formal Newton Difference Quotient):</strong></p>
+          $$ f'(0) = \lim_{h \to 0} \frac{f(0 + h) - f(0)}{h} = \lim_{h \to 0} \frac{h^2|h| - 0}{h} = \lim_{h \to 0} h|h| $$
+          <p>Testing left and right limits: $\lim_{h \to 0^+} h^2 = 0$, $\lim_{h \to 0^-} (-h^2) = 0$. Both equal $0$, so $f'(0) = 0$.</p>
+          <p>Evaluating $3t|t|$ at $t = 0$: $3(0)|0| = 0$. Thus, everywhere on $\mathbb{R}$:</p>
+          $$ \mathbf{\frac{df}{dt} = 3t|t|} $$
+        </div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (ii): Linear Independence of $f_1(t) = t^2|t|$ and $f_2(t) = t^3$ on $\mathbb{R}$</div>
+          <p>Assume constants $c_1, c_2 \in \mathbb{R}$ such that $c_1 f_1(t) + c_2 f_2(t) = 0$ for all $t \in \mathbb{R}$:</p>
+          $$ c_1 t^2|t| + c_2 t^3 = 0 \quad \forall t \in \mathbb{R} $$
+          <p>Pick $t = 1$: $c_1(1)^2|1| + c_2(1)^3 = c_1 + c_2 = 0 \implies c_2 = -c_1$.</p>
+          <p>Pick $t = -1$: $c_1(-1)^2|-1| + c_2(-1)^3 = c_1(1) + c_2(-1) = c_1 - c_2 = 0 \implies c_1 - (-c_1) = 2c_1 = 0 \implies c_1 = 0, \; c_2 = 0$.</p>
+          <p>Since only the trivial combination works: <strong>$f_1$ and $f_2$ are linearly independent on $\mathbb{R}$.</strong></p>
+
+          <p style="margin-top: 14px;"><strong>Wronskian Determinant on $\mathbb{R}$:</strong></p>
+          $$ W[f_1, f_2](t) = f_1(t)f_2'(t) - f_2(t)f_1'(t) = \left( t^2|t| \right)(3t^2) - \left( t^3 \right)(3t|t|) $$
+          $$ W[f_1, f_2](t) = 3t^4|t| - 3t^4|t| \equiv 0 \quad \forall t \in \mathbb{R} $$
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Epistemological Insight</div>
+        <div class="warning-box">
+          <div class="warning-box-title">Why Peano's Counterexample Does Not Contradict Abel's Theorem</div>
+          <p>
+            If $f_1$ and $f_2$ were solutions of a regular second-order ODE $x'' + p_1(t)x' + p_2(t)x = 0$, $W \equiv 0$ would force linear dependence.
+            However, constructing the ODE satisfied by $f_1$ and $f_2$ on $t > 0$ gives $t^2 x'' - 6x = 0 \iff x'' - \frac{6}{t^2}x = 0$.
+            The coefficient $p_2(t) = -6/t^2$ is <strong>singular at $t = 0$</strong>. Because the coefficient blows up at $t = 0$, the ODE is not regular, Picard-Lindelöf existence-uniqueness breaks down, and Abel's theorem does not apply across $t = 0$.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 4 (15 SUBPROBLEMS)
+         ============================================ -->
+    <article class="problem-card" id="p4">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 4</div>
+          <h2 class="problem-title">15 Second-Order Homogeneous Linear ODEs with Initial Conditions</h2>
+        </div>
+        <span class="problem-meta-badge">Characteristic Polynomial • 15 IVPs Solved</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>Find the general solution of the following differential equations, and then the unique solution satisfying the specified initial conditions:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 8px; margin-top: 8px; font-family: var(--font-mono); font-size: 0.88rem;">
+            <div>(i) $\ddot{x} - 3\dot{x} + 2x = 0, \; x(0)=2, \dot{x}(0)=6$</div>
+            <div>(ii) $y'' - 4y' + 4y = 0, \; y(0)=0, y'(0)=3$</div>
+            <div>(iii) $z'' - 4z' + 13z = 0, \; z(0)=7, z'(0)=42$</div>
+            <div>(iv) $\ddot{y} + \dot{y} - 6y = 0, \; y(0)=-1, y'(0)=8$</div>
+            <div>(v) $\ddot{y} - 4\dot{y} = 0, \; y(0)=13, \dot{y}(0)=0$</div>
+            <div>(vi) $\ddot{\theta} + 4\theta = 0, \; \theta(0)=0, \dot{\theta}(0)=10$</div>
+            <div>(vii) $\ddot{y} + 2\dot{y} + 10y = 0, \; y(0)=3, \dot{y}(0)=0$</div>
+            <div>(viii) $2\ddot{z} + 7\dot{z} - 4z = 0, \; z(0)=0, \dot{z}(0)=9$</div>
+            <div>(ix) $\ddot{y} + 2\dot{y} + y = 0, \; y(0)=0, \dot{y}(0)=-1$</div>
+            <div>(x) $\ddot{x} + 6\dot{x} + 10x = 0, \; x(0)=3, \dot{x}(0)=1$</div>
+            <div>(xi) $4\ddot{x} - 20\dot{x} + 21x = 0, \; x(0)=-4, \dot{x}(0)=-12$</div>
+            <div>(xii) $\ddot{y} + \dot{y} - 2y = 0, \; y(0)=4, \dot{y}(0)=-4$</div>
+            <div>(xiii) $\ddot{y} - 4y = 0, \; y(0)=10, \dot{y}(0)=0$</div>
+            <div>(xiv) $y'' + 4y' + 4y = 0, \; y(0)=27, y'(0)=-54$</div>
+            <div>(xv) $\ddot{y} + \omega^2 y = 0, \; y(0)=0, \dot{y}(0)=1$</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          For $a \ddot{u} + b \dot{u} + c u = 0$, the exponential ansatz $u(t) = e^{rt}$ yields the auxiliary equation:
+          $$ a r^2 + b r + c = 0, \qquad \Delta = b^2 - 4ac $$
+          - $\Delta > 0$: $u(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}$ (Distinct Real).<br>
+          - $\Delta = 0$: $u(t) = (c_1 + c_2 t)e^{rt}$ (Repeated Real).<br>
+          - $\Delta < 0$: $u(t) = e^{\rho t}(c_1 \cos\omega t + c_2 \sin\omega t)$ (Complex Conjugate $r = \rho \pm i\omega$).<br>
+          Constants $c_1, c_2$ are uniquely determined by Cauchy conditions $u(0) = u_0, \dot{u}(0) = v_0$.
+        </p>
+      </div>
+
+      <!-- Phase 3: ALL 15 SUBPROBLEMS -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation (All 15 Items)</div>
+
+        <!-- i -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(i) $\ddot{x} - 3\dot{x} + 2x = 0$ with $x(0) = 2, \; \dot{x}(0) = 6$</div>
+          <p>Auxiliary eq: $r^2 - 3r + 2 = 0 \implies (r-1)(r-2) = 0 \implies r_1 = 1, r_2 = 2$.</p>
+          <p>General solution: $x(t) = c_1 e^t + c_2 e^{2t} \implies \dot{x}(t) = c_1 e^t + 2c_2 e^{2t}$.</p>
+          <p>Initial conditions: $c_1 + c_2 = 2$, $c_1 + 2c_2 = 6 \implies c_2 = 4, \; c_1 = -2$.</p>
+          <p><strong>Solution:</strong> $\mathbf{x(t) = -2e^t + 4e^{2t}}$</p>
+        </div>
+
+        <!-- ii -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(ii) $y'' - 4y' + 4y = 0$ with $y(0) = 0, \; y'(0) = 3$</div>
+          <p>Auxiliary eq: $r^2 - 4r + 4 = 0 \implies (r-2)^2 = 0 \implies r = 2$ (mult. 2).</p>
+          <p>General solution: $y(t) = (c_1 + c_2 t)e^{2t} \implies y'(t) = (2c_1 + c_2 + 2c_2 t)e^{2t}$.</p>
+          <p>Initial conditions: $y(0) = c_1 = 0$; $y'(0) = 2(0) + c_2 = 3 \implies c_2 = 3$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = 3t e^{2t}}$</p>
+        </div>
+
+        <!-- iii -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(iii) $z'' - 4z' + 13z = 0$ with $z(0) = 7, \; z'(0) = 42$</div>
+          <p>Auxiliary eq: $r^2 - 4r + 13 = 0 \implies (r-2)^2 + 9 = 0 \implies r = 2 \pm 3i$ ($\rho = 2, \omega = 3$).</p>
+          <p>General solution: $z(t) = e^{2t}(c_1 \cos 3t + c_2 \sin 3t)$.</p>
+          <p>Derivative: $z'(t) = e^{2t}\left[ (2c_1 + 3c_2)\cos 3t + (2c_2 - 3c_1)\sin 3t \right]$.</p>
+          <p>Initial conditions: $z(0) = c_1 = 7$; $z'(0) = 2(7) + 3c_2 = 42 \implies 3c_2 = 28 \implies c_2 = \frac{28}{3}$.</p>
+          <p><strong>Solution:</strong> $\mathbf{z(t) = e^{2t}\left( 7\cos 3t + \frac{28}{3}\sin 3t \right)}$</p>
+        </div>
+
+        <!-- iv -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(iv) $\ddot{y} + \dot{y} - 6y = 0$ with $y(0) = -1, \; y'(0) = 8$</div>
+          <p>Auxiliary eq: $r^2 + r - 6 = 0 \implies (r+3)(r-2) = 0 \implies r_1 = 2, r_2 = -3$.</p>
+          <p>General solution: $y(t) = c_1 e^{2t} + c_2 e^{-3t} \implies \dot{y}(t) = 2c_1 e^{2t} - 3c_2 e^{-3t}$.</p>
+          <p>Initial conditions: $c_1 + c_2 = -1$, $2c_1 - 3c_2 = 8 \implies 2c_1 - 3(-1-c_1) = 5c_1 + 3 = 8 \implies c_1 = 1, \; c_2 = -2$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = e^{2t} - 2e^{-3t}}$</p>
+        </div>
+
+        <!-- v -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(v) $\ddot{y} - 4\dot{y} = 0$ with $y(0) = 13, \; \dot{y}(0) = 0$</div>
+          <p>Auxiliary eq: $r^2 - 4r = 0 \implies r(r-4) = 0 \implies r_1 = 0, r_2 = 4$.</p>
+          <p>General solution: $y(t) = c_1 + c_2 e^{4t} \implies \dot{y}(t) = 4c_2 e^{4t}$.</p>
+          <p>Initial conditions: $\dot{y}(0) = 4c_2 = 0 \implies c_2 = 0$; $y(0) = c_1 = 13$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = 13}$ (Steady constant equilibrium)</p>
+        </div>
+
+        <!-- vi -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(vi) $\ddot{\theta} + 4\theta = 0$ with $\theta(0) = 0, \; \dot{\theta}(0) = 10$</div>
+          <p>Auxiliary eq: $r^2 + 4 = 0 \implies r = \pm 2i$ ($\rho = 0, \omega = 2$).</p>
+          <p>General solution: $\theta(t) = c_1 \cos 2t + c_2 \sin 2t \implies \dot{\theta}(t) = -2c_1 \sin 2t + 2c_2 \cos 2t$.</p>
+          <p>Initial conditions: $\theta(0) = c_1 = 0$; $\dot{\theta}(0) = 2c_2 = 10 \implies c_2 = 5$.</p>
+          <p><strong>Solution:</strong> $\mathbf{\theta(t) = 5\sin 2t}$</p>
+        </div>
+
+        <!-- vii -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(vii) $\ddot{y} + 2\dot{y} + 10y = 0$ with $y(0) = 3, \; \dot{y}(0) = 0$</div>
+          <p>Auxiliary eq: $r^2 + 2r + 10 = 0 \implies (r+1)^2 + 9 = 0 \implies r = -1 \pm 3i$ ($\rho = -1, \omega = 3$).</p>
+          <p>General solution: $y(t) = e^{-t}(c_1 \cos 3t + c_2 \sin 3t)$.</p>
+          <p>Derivative: $\dot{y}(t) = e^{-t}\left[ (3c_2 - c_1)\cos 3t - (3c_1 + c_2)\sin 3t \right]$.</p>
+          <p>Initial conditions: $y(0) = c_1 = 3$; $\dot{y}(0) = 3c_2 - 3 = 0 \implies c_2 = 1$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = e^{-t}\left( 3\cos 3t + \sin 3t \right)}$</p>
+        </div>
+
+        <!-- viii -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(viii) $2\ddot{z} + 7\dot{z} - 4z = 0$ with $z(0) = 0, \; \dot{z}(0) = 9$</div>
+          <p>Auxiliary eq: $2r^2 + 7r - 4 = 0 \implies (2r - 1)(r + 4) = 0 \implies r_1 = \frac{1}{2}, r_2 = -4$.</p>
+          <p>General solution: $z(t) = c_1 e^{t/2} + c_2 e^{-4t} \implies \dot{z}(t) = \frac{1}{2}c_1 e^{t/2} - 4c_2 e^{-4t}$.</p>
+          <p>Initial conditions: $z(0) = c_1 + c_2 = 0 \implies c_2 = -c_1$; $\dot{z}(0) = \frac{1}{2}c_1 + 4c_1 = \frac{9}{2}c_1 = 9 \implies c_1 = 2, c_2 = -2$.</p>
+          <p><strong>Solution:</strong> $\mathbf{z(t) = 2e^{t/2} - 2e^{-4t}}$</p>
+        </div>
+
+        <!-- ix -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(ix) $\ddot{y} + 2\dot{y} + y = 0$ with $y(0) = 0, \; \dot{y}(0) = -1$</div>
+          <p>Auxiliary eq: $r^2 + 2r + 1 = 0 \implies (r+1)^2 = 0 \implies r = -1$ (mult. 2).</p>
+          <p>General solution: $y(t) = (c_1 + c_2 t)e^{-t} \implies \dot{y}(t) = (c_2 - c_1 - c_2 t)e^{-t}$.</p>
+          <p>Initial conditions: $y(0) = c_1 = 0$; $\dot{y}(0) = c_2 - 0 = -1 \implies c_2 = -1$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = -t e^{-t}}$</p>
+        </div>
+
+        <!-- x -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(x) $\ddot{x} + 6\dot{x} + 10x = 0$ with $x(0) = 3, \; \dot{x}(0) = 1$</div>
+          <p>Auxiliary eq: $r^2 + 6r + 10 = 0 \implies (r+3)^2 + 1 = 0 \implies r = -3 \pm i$ ($\rho = -3, \omega = 1$).</p>
+          <p>General solution: $x(t) = e^{-3t}(c_1 \cos t + c_2 \sin t)$.</p>
+          <p>Derivative: $\dot{x}(t) = e^{-3t}\left[ (c_2 - 3c_1)\cos t - (c_1 + 3c_2)\sin t \right]$.</p>
+          <p>Initial conditions: $x(0) = c_1 = 3$; $\dot{x}(0) = c_2 - 3(3) = 1 \implies c_2 = 10$.</p>
+          <p><strong>Solution:</strong> $\mathbf{x(t) = e^{-3t}\left( 3\cos t + 10\sin t \right)}$</p>
+        </div>
+
+        <!-- xi -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(xi) $4\ddot{x} - 20\dot{x} + 21x = 0$ with $x(0) = -4, \; \dot{x}(0) = -12$</div>
+          <p>Auxiliary eq: $4r^2 - 20r + 21 = 0$. $\Delta = 400 - 336 = 64 = 8^2 \implies r = \frac{20 \pm 8}{8} \implies r_1 = \frac{7}{2}, r_2 = \frac{3}{2}$.</p>
+          <p>General solution: $x(t) = c_1 e^{3t/2} + c_2 e^{7t/2} \implies \dot{x}(t) = \frac{3}{2}c_1 e^{3t/2} + \frac{7}{2}c_2 e^{7t/2}$.</p>
+          <p>Initial conditions: $c_1 + c_2 = -4$, $\frac{3}{2}c_1 + \frac{7}{2}(-4-c_1) = -2c_1 - 14 = -12 \implies -2c_1 = 2 \implies c_1 = -1, \; c_2 = -3$.</p>
+          <p><strong>Solution:</strong> $\mathbf{x(t) = -e^{3t/2} - 3e^{7t/2}}$</p>
+        </div>
+
+        <!-- xii -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(xii) $\ddot{y} + \dot{y} - 2y = 0$ with $y(0) = 4, \; \dot{y}(0) = -4$</div>
+          <p>Auxiliary eq: $r^2 + r - 2 = 0 \implies (r+2)(r-1) = 0 \implies r_1 = 1, r_2 = -2$.</p>
+          <p>General solution: $y(t) = c_1 e^t + c_2 e^{-2t} \implies \dot{y}(t) = c_1 e^t - 2c_2 e^{-2t}$.</p>
+          <p>Initial conditions: $c_1 + c_2 = 4$, $c_1 - 2c_2 = -4 \implies 3c_2 = 8 \implies c_2 = \frac{8}{3}, \; c_1 = \frac{4}{3}$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = \frac{4}{3}e^t + \frac{8}{3}e^{-2t}}$</p>
+        </div>
+
+        <!-- xiii -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(xiii) $\ddot{y} - 4y = 0$ with $y(0) = 10, \; \dot{y}(0) = 0$</div>
+          <p>Auxiliary eq: $r^2 - 4 = 0 \implies r = \pm 2$.</p>
+          <p>General solution: $y(t) = c_1 e^{2t} + c_2 e^{-2t} \implies \dot{y}(t) = 2c_1 e^{2t} - 2c_2 e^{-2t}$.</p>
+          <p>Initial conditions: $c_1 + c_2 = 10$, $2(c_1 - c_2) = 0 \implies c_1 = c_2 = 5$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = 5e^{2t} + 5e^{-2t} = 10\cosh(2t)}$</p>
+        </div>
+
+        <!-- xiv -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(xiv) $y'' + 4y' + 4y = 0$ with $y(0) = 27, \; y'(0) = -54$</div>
+          <p>Auxiliary eq: $r^2 + 4r + 4 = 0 \implies (r+2)^2 = 0 \implies r = -2$ (mult. 2).</p>
+          <p>General solution: $y(t) = (c_1 + c_2 t)e^{-2t} \implies y'(t) = (c_2 - 2c_1 - 2c_2 t)e^{-2t}$.</p>
+          <p>Initial conditions: $y(0) = c_1 = 27$; $y'(0) = c_2 - 2(27) = -54 \implies c_2 = 0$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = 27e^{-2t}}$</p>
+        </div>
+
+        <!-- xv -->
+        <div class="sub-case-card">
+          <div class="sub-case-header">(xv) $\ddot{y} + \omega^2 y = 0$ with $y(0) = 0, \; \dot{y}(0) = 1$ ($\omega \neq 0$)</div>
+          <p>Auxiliary eq: $r^2 + \omega^2 = 0 \implies r = \pm i\omega$.</p>
+          <p>General solution: $y(t) = c_1 \cos(\omega t) + c_2 \sin(\omega t) \implies \dot{y}(t) = -c_1 \omega \sin(\omega t) + c_2 \omega \cos(\omega t)$.</p>
+          <p>Initial conditions: $y(0) = c_1 = 0$; $\dot{y}(0) = c_2 \omega = 1 \implies c_2 = \frac{1}{\omega}$.</p>
+          <p><strong>Solution:</strong> $\mathbf{y(t) = \frac{1}{\omega}\sin(\omega t)}$</p>
+        </div>
+
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Master Summary Table</div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Differential Equation</th>
+                <th>Initial Conditions</th>
+                <th>Roots $r$</th>
+                <th>Unique IVP Solution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>(i)</td><td>$\ddot{x} - 3\dot{x} + 2x = 0$</td><td>$x(0)=2, \dot{x}(0)=6$</td><td>$1, 2$</td><td>$\mathbf{-2e^t + 4e^{2t}}$</td></tr>
+              <tr><td>(ii)</td><td>$y'' - 4y' + 4y = 0$</td><td>$y(0)=0, y'(0)=3$</td><td>$2$ (mult. 2)</td><td>$\mathbf{3t e^{2t}}$</td></tr>
+              <tr><td>(iii)</td><td>$z'' - 4z' + 13z = 0$</td><td>$z(0)=7, z'(0)=42$</td><td>$2 \pm 3i$</td><td>$\mathbf{e^{2t}(7\cos 3t + \frac{28}{3}\sin 3t)}$</td></tr>
+              <tr><td>(iv)</td><td>$\ddot{y} + \dot{y} - 6y = 0$</td><td>$y(0)=-1, y'(0)=8$</td><td>$2, -3$</td><td>$\mathbf{e^{2t} - 2e^{-3t}}$</td></tr>
+              <tr><td>(v)</td><td>$\ddot{y} - 4\dot{y} = 0$</td><td>$y(0)=13, \dot{y}(0)=0$</td><td>$0, 4$</td><td>$\mathbf{13}$</td></tr>
+              <tr><td>(vi)</td><td>$\ddot{\theta} + 4\theta = 0$</td><td>$\theta(0)=0, \dot{\theta}(0)=10$</td><td>$\pm 2i$</td><td>$\mathbf{5\sin 2t}$</td></tr>
+              <tr><td>(vii)</td><td>$\ddot{y} + 2\dot{y} + 10y = 0$</td><td>$y(0)=3, \dot{y}(0)=0$</td><td>$-1 \pm 3i$</td><td>$\mathbf{e^{-t}(3\cos 3t + \sin 3t)}$</td></tr>
+              <tr><td>(viii)</td><td>$2\ddot{z} + 7\dot{z} - 4z = 0$</td><td>$z(0)=0, \dot{z}(0)=9$</td><td>$\frac{1}{2}, -4$</td><td>$\mathbf{2e^{t/2} - 2e^{-4t}}$</td></tr>
+              <tr><td>(ix)</td><td>$\ddot{y} + 2\dot{y} + y = 0$</td><td>$y(0)=0, \dot{y}(0)=-1$</td><td>$-1$ (mult. 2)</td><td>$\mathbf{-t e^{-t}}$</td></tr>
+              <tr><td>(x)</td><td>$\ddot{x} + 6\dot{x} + 10x = 0$</td><td>$x(0)=3, \dot{x}(0)=1$</td><td>$-3 \pm i$</td><td>$\mathbf{e^{-3t}(3\cos t + 10\sin t)}$</td></tr>
+              <tr><td>(xi)</td><td>$4\ddot{x} - 20\dot{x} + 21x = 0$</td><td>$x(0)=-4, \dot{x}(0)=-12$</td><td>$\frac{3}{2}, \frac{7}{2}$</td><td>$\mathbf{-e^{3t/2} - 3e^{7t/2}}$</td></tr>
+              <tr><td>(xii)</td><td>$\ddot{y} + \dot{y} - 2y = 0$</td><td>$y(0)=4, \dot{y}(0)=-4$</td><td>$1, -2$</td><td>$\mathbf{\frac{4}{3}e^t + \frac{8}{3}e^{-2t}}$</td></tr>
+              <tr><td>(xiii)</td><td>$\ddot{y} - 4y = 0$</td><td>$y(0)=10, \dot{y}(0)=0$</td><td>$\pm 2$</td><td>$\mathbf{10\cosh(2t)}$</td></tr>
+              <tr><td>(xiv)</td><td>$y'' + 4y' + 4y = 0$</td><td>$y(0)=27, y'(0)=-54$</td><td>$-2$ (mult. 2)</td><td>$\mathbf{27e^{-2t}}$</td></tr>
+              <tr><td>(xv)</td><td>$\ddot{y} + \omega^2 y = 0$</td><td>$y(0)=0, \dot{y}(0)=1$</td><td>$\pm i\omega$</td><td>$\mathbf{\frac{1}{\omega}\sin(\omega t)}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 5
+         ============================================ -->
+    <article class="problem-card" id="p5">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 5</div>
+          <h2 class="problem-title">Saddle Point Invariant Manifold and Asymptotic Decay</h2>
+        </div>
+        <span class="problem-meta-badge">Phase Plane • Stable Separatrix</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            If the roots of the auxiliary equation are $k_1 > 0$ and $-k_2 < 0$ then the solution is $x(t) = A e^{k_1 t} + B e^{-k_2 t}$.
+            For most choices of initial conditions $x(0) = x_0, \; \dot{x}(0) = y_0$, we will have $x(t) \to \pm\infty$ as $t \to \infty$.
+            However, there are some special initial conditions for which $x(t) \to 0$ as $t \to \infty$.
+            Find the relationship between $x_0$ and $y_0$ that ensures this.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Given $k_1 > 0$ and $k_2 > 0$, the mode $e^{k_1 t}$ diverges exponentially to $+\infty$, while $e^{-k_2 t} \to 0$ as $t \to \infty$.
+          Therefore, $x(t) \to 0$ if and only if the unstable amplitude is strictly annihilated: $A = 0$.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+        <p><strong>Step 1: Differentiate the general solution:</strong></p>
+        $$ x(t) = A e^{k_1 t} + B e^{-k_2 t} \implies \dot{x}(t) = k_1 A e^{k_1 t} - k_2 B e^{-k_2 t} $$
+        
+        <p><strong>Step 2: Impose initial Cauchy conditions at $t = 0$:</strong></p>
+        $$ x(0) = A + B = x_0 \tag{1} $$
+        $$ \dot{x}(0) = k_1 A - k_2 B = y_0 \tag{2} $$
+
+        <p><strong>Step 3: Solve for the amplitude $A$:</strong></p>
+        <p>Multiply (1) by $k_2$ and add to (2):</p>
+        $$ k_2(A + B) + (k_1 A - k_2 B) = k_2 x_0 + y_0 \implies (k_1 + k_2)A = y_0 + k_2 x_0 $$
+        $$ A = \frac{y_0 + k_2 x_0}{k_1 + k_2} \tag{3} $$
+
+        <p><strong>Step 4: Asymptotic Condition $x(t) \to 0$:</strong></p>
+        <p>Because $\lim_{t \to \infty} e^{k_1 t} = \infty$ and $\lim_{t \to \infty} e^{-k_2 t} = 0$:</p>
+        $$ \lim_{t \to \infty} x(t) = 0 \iff A = 0 $$
+        $$ \frac{y_0 + k_2 x_0}{k_1 + k_2} = 0 \implies \mathbf{y_0 = -k_2 x_0} $$
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Dynamical Systems</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Asymptotic Decay Condition</div>
+          $$ \boxed{y_0 = -k_2 x_0 \iff \dot{x}(0) = -k_2 x(0)} $$
+          <p>When this relationship holds, $A = 0$ and $B = x_0$, giving the purely decaying trajectory $\mathbf{x(t) = x_0 e^{-k_2 t}}$.</p>
+        </div>
+        <div class="note-box">
+          <div class="note-box-title">Geometric Phase Plane Meaning: Saddle Separatrix</div>
+          In the phase plane $(x, \dot{x})$, the origin is a saddle equilibrium. The line $\dot{x} = -k_2 x$ is the <strong>stable invariant manifold</strong> (separatrix). Any state starting off this 1D manifold is swept away by the unstable manifold $\dot{x} = k_1 x$, diverging exponentially to infinity.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 6
+         ============================================ -->
+    <article class="problem-card" id="p6">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 6</div>
+          <h2 class="problem-title">Amplitude-Phase Transformation for Harmonic Oscillations</h2>
+        </div>
+        <span class="problem-meta-badge">Polar Representation • Phasor Geometry</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            Given an oscillating function of the form $x(t) = A\cos(\omega t) + B\sin(\omega t)$, show that it can be rewritten as a "single oscillation" $x(t) = M\cos(\omega t - \phi)$ with amplitude $M = (A^2 + B^2)^{1/2}$ and phase $\phi = \arctan(B/A)$.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Apply the angle subtraction identity $\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta$ with $\alpha = \omega t$ and $\beta = \phi$, and equate coefficients with the Cartesian basis $\{\cos\omega t, \sin\omega t\}$.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+        <p><strong>Step 1: Expand the single oscillation form:</strong></p>
+        $$ x(t) = M\cos(\omega t - \phi) = M\left[ \cos(\omega t)\cos\phi + \sin(\omega t)\sin\phi \right] = (M\cos\phi)\cos(\omega t) + (M\sin\phi)\sin(\omega t) $$
+
+        <p><strong>Step 2: Equate with Cartesian components:</strong></p>
+        $$ A\cos(\omega t) + B\sin(\omega t) = (M\cos\phi)\cos(\omega t) + (M\sin\phi)\sin(\omega t) $$
+        $$\begin{cases} A = M\cos\phi & (1) \\ B = M\sin\phi & (2) \end{cases}$$
+
+        <p><strong>Step 3: Solve for Amplitude $M$:</strong></p>
+        <p>Square and add (1) and (2):</p>
+        $$ A^2 + B^2 = M^2\cos^2\phi + M^2\sin^2\phi = M^2(\cos^2\phi + \sin^2\phi) = M^2 $$
+        $$ \mathbf{M = \sqrt{A^2 + B^2} = (A^2 + B^2)^{1/2}} $$
+
+        <p><strong>Step 4: Solve for Phase Lag $\phi$:</strong></p>
+        <p>Divide (2) by (1):</p>
+        $$ \frac{B}{A} = \frac{M\sin\phi}{M\cos\phi} = \tan\phi \implies \mathbf{\phi = \arctan\left(\frac{B}{A}\right)} $$
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Engineering Relevance</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Polar Harmonic Formulas</div>
+          $$ \boxed{x(t) = M\cos(\omega t - \phi), \qquad M = \sqrt{A^2 + B^2}, \qquad \phi = \arctan(B/A)} $$
+        </div>
+        <div class="note-box">
+          <div class="note-box-title">Structural Dynamics Application</div>
+          In aircraft wing flutter and structural modal analysis, the amplitude-phase form immediately reveals the maximum physical peak deflection $x_{\max} = M$ and time lag $\Delta t = \phi/\omega$ relative to external periodic gusts.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 7
+         ============================================ -->
+    <article class="problem-card" id="p7">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 7</div>
+          <h2 class="problem-title">Simple Pendulum Energy Conservation and Small Oscillations</h2>
+        </div>
+        <span class="problem-meta-badge">Energy First Integral • Pendulum Isochronism</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            Consider a so-called simple pendulum whose shaft has length $L$ and negligible mass, and a suspended mass $m$ at its end. If the pivot is at the origin of coordinates, show that:
+          </p>
+          <ol style="margin-left: 20px; margin-top: 8px;">
+            <li>The gravitational potential energy is $V(\theta) = mgL(1 - \cos\theta)$, where $\theta$ is the angle with the downward vertical.</li>
+            <li>The total energy is $E = \frac{1}{2}mL^2\dot{\theta}^2 + mgL(1 - \cos\theta)$.</li>
+            <li>The equation of motion reads $\frac{d^2\theta}{dt^2} = -\frac{g}{L}\sin\theta$, obtained by requesting $\frac{dE}{dt} = 0$.</li>
+            <li>By considering small oscillations around the vertical, the equation becomes $\frac{d^2\theta}{dt^2} = -\frac{g}{L}\theta$. Show that the general solution reads $\theta(t) = M\cos(\omega t - \phi)$ and relate $\omega$ with system parameters. Does $\omega$ depend on mass $m$? Does it depend on amplitude?</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Let pivot be at $(0, 0)$ and positive $y$ upwards. Position of bob: $x = L\sin\theta, \; y = -L\cos\theta$.
+          Velocity along arc: $v = L\dot{\theta}$. Total mechanical energy $E = T + V$.
+          In the absence of dissipative friction, mechanical energy is conserved: $\frac{dE}{dt} = 0$.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+
+        <p><strong>Part (i): Potential Energy $V(\theta)$</strong></p>
+        <p>Vertical height above the lowest point $\theta = 0$ ($y_{\min} = -L$):</p>
+        $$ h(\theta) = y(\theta) - (-L) = -L\cos\theta + L = L(1 - \cos\theta) $$
+        $$ \mathbf{V(\theta) = mgh = mgL(1 - \cos\theta)} $$
+
+        <p><strong>Part (ii): Total Energy $E$</strong></p>
+        <p>Kinetic energy of point mass: $T = \frac{1}{2}mv^2 = \frac{1}{2}m(L\dot{\theta})^2 = \frac{1}{2}mL^2\dot{\theta}^2$.</p>
+        $$ \mathbf{E = T + V(\theta) = \frac{1}{2}mL^2\dot{\theta}^2 + mgL(1 - \cos\theta)} $$
+
+        <p><strong>Part (iii): Equation of Motion via Energy Conservation</strong></p>
+        <p>Differentiating $E(t)$ with respect to time using the chain rule:</p>
+        $$ \frac{dE}{dt} = \frac{1}{2}mL^2(2\dot{\theta}\ddot{\theta}) + mgL(\sin\theta\cdot\dot{\theta}) = mL^2\dot{\theta}\ddot{\theta} + mgL\dot{\theta}\sin\theta = 0 $$
+        <p>Factoring out $mL^2\dot{\theta} \neq 0$:</p>
+        $$ mL^2\dot{\theta}\left( \ddot{\theta} + \frac{g}{L}\sin\theta \right) = 0 \implies \mathbf{\frac{d^2\theta}{dt^2} = -\frac{g}{L}\sin\theta} $$
+
+        <p><strong>Part (iv): Small Oscillations Linearization & Frequency Analysis</strong></p>
+        <p>For $|\theta| \ll 1$, $\sin\theta \approx \theta$. The ODE simplifies to:</p>
+        $$ \ddot{\theta} + \frac{g}{L}\theta = 0 \iff \ddot{\theta} + \omega^2\theta = 0, \quad \text{where } \mathbf{\omega = \sqrt{\frac{g}{L}}} $$
+        <p>The general solution is $\theta(t) = c_1\cos\omega t + c_2\sin\omega t$. In amplitude-phase form:</p>
+        $$ \mathbf{\theta(t) = M\cos(\omega t - \phi)} $$
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Conceptual Answers & Master Results</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Natural Frequency & Answers to Questions</div>
+          $$ \boxed{\omega = \sqrt{\frac{g}{L}} \quad [\text{rad/s}], \qquad T_0 = 2\pi\sqrt{\frac{L}{g}} \quad [\text{s}]} $$
+          <p><strong>1. Does frequency depend on mass $m$?</strong> <strong>NO.</strong> Mass $m$ cancels identically from both terms in the equation of motion.</p>
+          <p><strong>2. Does frequency depend on amplitude $M$?</strong> In the <em>linear small-amplitude approximation</em>, <strong>NO</strong> (Galileo's isochronism). In the <em>exact nonlinear pendulum</em>, the period lengthens with amplitude according to complete elliptic integrals: $T(M) \approx T_0(1 + \frac{1}{16}M^2 + \dots)$.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 8
+         ============================================ -->
+    <article class="problem-card" id="p8">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 8</div>
+          <h2 class="problem-title">Physical Regimes of the Damped Harmonic Oscillator</h2>
+        </div>
+        <span class="problem-meta-badge">Mechanical Damping • Under/Critical/Overdamped</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            Consider the equation $m\ddot{x} + \mu\dot{x} + kx = 0$ for the deviation $x(t)$ of a point particle with mass $m$ from its equilibrium position, subject to an elastic force (constant $k$) and drag force (parameter $\mu$). Discuss how the form of the solutions changes depending on the value of $\mu$ relative to the critical damping $\mu_c = 2\sqrt{mk}$.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          The auxiliary polynomial is $m r^2 + \mu r + k = 0$.
+          The discriminant is $\Delta = \mu^2 - 4mk = \mu^2 - \mu_c^2$, where $\mu_c = 2\sqrt{mk}$.
+          Roots are $r_{1,2} = -\frac{\mu}{2m} \pm \frac{\sqrt{\mu^2 - \mu_c^2}}{2m} = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2}$.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">1. Underdamped Regime: $\mu < \mu_c = 2\sqrt{mk}$ ($\Delta < 0$)</div>
+          <p>The discriminant is negative: $\sqrt{\mu^2 - 4mk} = i\sqrt{4mk - \mu^2}$.</p>
+          <p>Roots are complex conjugates with negative real part: $r_{1,2} = -\gamma \pm i\omega_d$, where:</p>
+          $$ \gamma = \frac{\mu}{2m}, \qquad \omega_d = \frac{\sqrt{4mk - \mu^2}}{2m} = \sqrt{\omega_0^2 - \gamma^2} $$
+          <p>General solution:</p>
+          $$ \mathbf{x(t) = e^{-\gamma t}\left( c_1\cos\omega_d t + c_2\sin\omega_d t \right) = M e^{-\gamma t}\cos(\omega_d t - \phi)} $$
+          <p><em>Behavior:</em> Decaying oscillatory motion within an exponential envelope $\pm M e^{-\gamma t}$, crossing zero infinitely many times.</p>
+        </div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">2. Critically Damped Regime: $\mu = \mu_c = 2\sqrt{mk}$ ($\Delta = 0$)</div>
+          <p>The discriminant vanishes identically. The characteristic equation has a single repeated real root:</p>
+          $$ r_1 = r_2 = -\frac{\mu_c}{2m} = -\sqrt{\frac{k}{m}} = -\omega_0 $$
+          <p>General solution:</p>
+          $$ \mathbf{x(t) = (c_1 + c_2 t)e^{-\omega_0 t}} $$
+          <p><em>Behavior:</em> Non-oscillatory. Crosses equilibrium at most once. Represents the fastest monotonic return to equilibrium without overshoot.</p>
+        </div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">3. Overdamped Regime: $\mu > \mu_c = 2\sqrt{mk}$ ($\Delta > 0$)</div>
+          <p>The discriminant is positive: $\sqrt{\mu^2 - 4mk} < \mu$. Both roots are distinct, real, and strictly negative:</p>
+          $$ r_1 = -\gamma + \sqrt{\gamma^2 - \omega_0^2} < 0, \qquad r_2 = -\gamma - \sqrt{\gamma^2 - \omega_0^2} < 0 $$
+          <p>General solution:</p>
+          $$ \mathbf{x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}} $$
+          <p><em>Behavior:</em> Purely exponential sluggish decay. At long times, dominated by the slower decay mode $e^{r_1 t}$. Crosses zero at most once.</p>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Master Summary & Engineering Impact</div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Damping Regime</th>
+                <th>Damping Condition</th>
+                <th>Roots $r_{1,2}$</th>
+                <th>General Solution $x(t)$</th>
+                <th>Dynamic Behavior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Underdamped</strong></td>
+                <td>$\mu < 2\sqrt{mk}$</td>
+                <td>$-\gamma \pm i\omega_d$</td>
+                <td>$M e^{-\gamma t}\cos(\omega_d t - \phi)$</td>
+                <td>Oscillatory decay, infinite crossings</td>
+              </tr>
+              <tr>
+                <td><strong>Critically Damped</strong></td>
+                <td>$\mu = 2\sqrt{mk}$</td>
+                <td>$-\omega_0$ (mult. 2)</td>
+                <td>$(c_1 + c_2 t)e^{-\omega_0 t}$</td>
+                <td>Fastest return to trim without overshoot</td>
+              </tr>
+              <tr>
+                <td><strong>Overdamped</strong></td>
+                <td>$\mu > 2\sqrt{mk}$</td>
+                <td>$r_2 < r_1 < 0$</td>
+                <td>$c_1 e^{r_1 t} + c_2 e^{r_2 t}$</td>
+                <td>Sluggish exponential relaxation, no oscillations</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 9
+         ============================================ -->
+    <article class="problem-card" id="p9">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 9</div>
+          <h2 class="problem-title">Falling Chain from Table and Hyperbolic Motion</h2>
+        </div>
+        <span class="problem-meta-badge">Hyperbolic Motion • Variable Hanging Mass</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            A chain of length $\ell = 5\text{ m}$ and mass $m$, with uniform mass density, is sitting on a table.
+            If the chain is initially at rest and $1\text{ m}$ of the chain hangs from the edge of the table,
+            apply Newton’s second law to calculate the time $t_*$ when the whole chain falls off the table, neglecting any friction.
+          </p>
+          <p style="margin-top: 6px;"><em>Hint:</em> Formulate a second order ODE for the variable $x(t)$, which is the length of the portion of chain that is overhanging, as a function of time.</p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Let $x(t) \in [1, 5]$ be the overhanging length. Mass density is $\lambda = m/\ell$.
+          The downward gravity force pulling the chain is $F_{\text{ext}} = m_{\text{hang}} g = (\lambda x) g = \frac{m}{\ell}gx$.
+          Because the table is frictionless and the entire chain of constant total mass $m$ accelerates together along its contour:
+          $$ m \ddot{x} = \frac{m}{\ell} g x \implies \ddot{x} - \frac{g}{\ell} x = 0 $$
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+        <p><strong>Step 1: Auxiliary Equation and General Solution</strong></p>
+        <p>Let $\alpha = \sqrt{\frac{g}{\ell}}$. The ODE is $\ddot{x} - \alpha^2 x = 0$.</p>
+        <p>Auxiliary eq: $r^2 - \alpha^2 = 0 \implies r = \pm \alpha$.</p>
+        <p>Hyperbolic general solution:</p>
+        $$ x(t) = c_1 \cosh(\alpha t) + c_2 \sinh(\alpha t) $$
+        $$ \dot{x}(t) = \alpha \left[ c_1 \sinh(\alpha t) + c_2 \cosh(\alpha t) \right] $$
+
+        <p><strong>Step 2: Initial Conditions</strong></p>
+        <p>Released from rest: $\dot{x}(0) = \alpha c_2 = 0 \implies c_2 = 0$.</p>
+        <p>Initial hanging length: $x(0) = c_1 = x_0 = 1\text{ m}$.</p>
+        $$ \mathbf{x(t) = x_0 \cosh(\alpha t) = \cosh\left( \sqrt{\frac{g}{\ell}}\,t \right)} $$
+
+        <p><strong>Step 3: Detachment Time $t_*$</strong></p>
+        <p>The entire chain falls off when $x(t_*) = \ell = 5\text{ m}$:</p>
+        $$ \cosh(\alpha t_*) = \frac{\ell}{x_0} = \frac{5}{1} = 5 $$
+        $$ \alpha t_* = \operatorname{arcosh}(5) = \ln\left( 5 + \sqrt{5^2 - 1} \right) = \ln(5 + \sqrt{24}) = \ln(5 + 2\sqrt{6}) $$
+
+        <p><strong>Step 4: Numerical Evaluation</strong></p>
+        <p>Using standard gravity $g = 9.8\text{ m/s}^2$ and $\ell = 5\text{ m}$:</p>
+        $$ \alpha = \sqrt{\frac{9.8}{5}} = \sqrt{1.96} = 1.4\text{ s}^{-1} $$
+        $$ \ln(5 + 2\sqrt{6}) \approx \ln(5 + 4.898979) = \ln(9.898979) \approx 2.292432 $$
+        $$ \mathbf{t_* = \frac{2.292432}{1.4} \approx 1.63745\text{ s} \approx 1.637\text{ s}} $$
+        <p><em>(If taking $g = 9.81\text{ m/s}^2$, $\alpha \approx 1.40071\text{ s}^{-1} \implies t_* \approx 1.6366\text{ s} \approx 1.637\text{ s}$)</em></p>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Conservation Check</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Master Fall Time & Detachment Velocity</div>
+          $$ \boxed{t_* = \frac{\operatorname{arcosh}(5)}{1.4} \approx 1.637\text{ s}} $$
+          <p><strong>Detachment velocity:</strong> $v_* = \dot{x}(t_*) = x_0 \alpha \sinh(\alpha t_*) = 1 \times 1.4 \times \sqrt{5^2 - 1} = 1.4\sqrt{24} \approx \mathbf{6.859\text{ m/s}}$.</p>
+          <p><strong>Energy Check:</strong> $\Delta E_p = mg\frac{\ell}{2} - mg\frac{x_0^2}{2\ell} = \frac{mg}{2\ell}(\ell^2 - x_0^2) = \frac{1}{2}m v_*^2 \implies v_* = \sqrt{\frac{g}{\ell}(\ell^2 - x_0^2)} = \sqrt{1.96(24)} \approx 6.859\text{ m/s}$. Exact match!</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 10
+         ============================================ -->
+    <article class="problem-card" id="p10">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 10</div>
+          <h2 class="problem-title">Parachutist with Linear Aerodynamic Drag and Terminal Speed</h2>
+        </div>
+        <span class="problem-meta-badge">Linear Drag • Terminal Velocity</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>
+            A parachutist of mass $m\text{ kg}$ jumps from a plane with initial velocity $0$.
+            Because of the parachute, there is a friction force that avoids free fall; this friction turns out to be proportional (with constant of proportionality $c > 0$) to the velocity.
+            Write down an ODE to describe the motion of the parachutist, and determine the terminal speed (when $t \to \infty$).
+            Compare this speed with that of free fall.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Taking positive axis downwards, Newton's 2nd law gives:
+          $$ \sum F = m \frac{dv}{dt} = mg - cv \implies \frac{dv}{dt} + \frac{c}{m} v = g $$
+          With initial condition $v(0) = 0$.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+        <p><strong>Step 1: Integrating Factor Method</strong></p>
+        <p>Integrating factor $\mu(t) = e^{(c/m)t}$:</p>
+        $$ \frac{d}{dt}\left[ v(t) e^{(c/m)t} \right] = g e^{(c/m)t} $$
+        $$ v(t) e^{(c/m)t} = \int g e^{(c/m)t}\,dt = \frac{mg}{c} e^{(c/m)t} + C $$
+        $$ v(t) = \frac{mg}{c} + C e^{-(c/m)t} $$
+
+        <p><strong>Step 2: Initial Condition $v(0) = 0$</strong></p>
+        $$ v(0) = \frac{mg}{c} + C = 0 \implies C = -\frac{mg}{c} $$
+        $$ \mathbf{v(t) = \frac{mg}{c}\left( 1 - e^{-(c/m)t} \right)} $$
+
+        <p><strong>Step 3: Terminal Velocity ($t \to \infty$)</strong></p>
+        <p>As $t \to \infty$, $e^{-(c/m)t} \to 0$:</p>
+        $$ \mathbf{v_\infty = \lim_{t \to \infty} v(t) = \frac{mg}{c}} $$
+
+        <p><strong>Step 4: Comparison with Free Fall</strong></p>
+        <ul>
+          <li><strong>Free fall ($c = 0$):</strong> $v_{\text{free}}(t) = gt$. Velocity increases linearly without bound ($v \to \infty$).</li>
+          <li><strong>Parachutist with Drag ($c > 0$):</strong> Velocity saturates asymptotically to a safe finite constant $v_\infty = \frac{mg}{c}$.</li>
+          <li><strong>Short-time Taylor expansion ($t \ll m/c$):</strong>
+            $$ v(t) = \frac{mg}{c}\left[ 1 - \left( 1 - \frac{c}{m}t + \frac{c^2}{2m^2}t^2 - \dots \right) \right] = gt - \frac{cg}{2m}t^2 + \dots $$
+            At the first instant ($t \to 0$), the jumper accelerates at $g$, identically to free fall, before drag builds up.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Master Summary & Flight Mechanics</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Terminal Velocity & Velocity Profile</div>
+          $$ \boxed{\frac{dv}{dt} + \frac{c}{m}v = g \implies v(t) = \frac{mg}{c}\left(1 - e^{-(c/m)t}\right)} $$
+          $$ \boxed{v_\infty = \frac{mg}{c}} $$
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================
+         PROBLEM 11
+         ============================================ -->
+    <article class="problem-card" id="p11">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 11</div>
+          <h2 class="problem-title">Euler-Cauchy Equation via Exponential Transformation</h2>
+        </div>
+        <span class="problem-meta-badge">Euler-Cauchy • Coordinate Mapping • Resonance</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Phase 1: Statement & Setup</div>
+        <div class="problem-statement-box">
+          <p>We consider the following second order ODE (Euler equation):</p>
+          $$ x^2 y''(x) + p x y'(x) + q y(x) = g(x), \quad x > 0 $$
+          <ol style="margin-left: 20px; margin-top: 8px;">
+            <li>By making the change of variable $x = e^z$ and using the chain rule, show that the ODE is transformed into one with constant coefficients in the variable $z$:
+              $$ \frac{d^2 y}{dz^2} + (p - 1)\frac{dy}{dz} + q y = g(e^z) $$
+            </li>
+            <li>Take $p = 3, \; q = -3$ and $g(x) = 4x$, make the previous transformation and compute the general solution.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
+        <p>
+          Let $x = e^z \iff z = \ln x$ for $x > 0$. The derivative with respect to $x$ is $\frac{dz}{dx} = \frac{1}{x}$.
+          By applying the chain and product rules to $\frac{dy}{dx}$ and $\frac{d^2 y}{dx^2}$, the power pre-factors $x$ and $x^2$ cancel identically, transforming the variable-coefficient ODE into a linear ODE with constant coefficients.
+        </p>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Analytical Derivation</div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (i): Chain Rule Derivation of the Transformation</div>
+          <p><strong>First Derivative:</strong></p>
+          $$ \frac{dy}{dx} = \frac{dy}{dz}\frac{dz}{dx} = \frac{1}{x}\frac{dy}{dz} \implies x \frac{dy}{dx} = \frac{dy}{dz} \tag{1} $$
+
+          <p><strong>Second Derivative:</strong></p>
+          $$ \frac{d^2 y}{dx^2} = \frac{d}{dx}\left( \frac{1}{x}\frac{dy}{dz} \right) = -\frac{1}{x^2}\frac{dy}{dz} + \frac{1}{x}\frac{d}{dx}\left(\frac{dy}{dz}\right) = -\frac{1}{x^2}\frac{dy}{dz} + \frac{1}{x}\left(\frac{d^2 y}{dz^2}\frac{dz}{dx}\right) $$
+          $$ \frac{d^2 y}{dx^2} = -\frac{1}{x^2}\frac{dy}{dz} + \frac{1}{x^2}\frac{d^2 y}{dz^2} = \frac{1}{x^2}\left( \frac{d^2 y}{dz^2} - \frac{dy}{dz} \right) \implies x^2 \frac{d^2 y}{dx^2} = \frac{d^2 y}{dz^2} - \frac{dy}{dz} \tag{2} $$
+
+          <p><strong>Substitution into the Euler-Cauchy Equation:</strong></p>
+          $$ x^2 y'' + p x y' + q y = \left( \frac{d^2 y}{dz^2} - \frac{dy}{dz} \right) + p\left( \frac{dy}{dz} \right) + q y = g(e^z) $$
+          $$ \mathbf{\frac{d^2 y}{dz^2} + (p - 1)\frac{dy}{dz} + q y = g(e^z)} $$
+        </div>
+
+        <div class="sub-case-card">
+          <div class="sub-case-header">Part (ii): Specific Case $p = 3, \; q = -3, \; g(x) = 4x$</div>
+          <p><strong>1. Transformed ODE in $z$:</strong></p>
+          <p>With $p - 1 = 3 - 1 = 2$, $q = -3$, and $g(e^z) = 4e^z$:</p>
+          $$ \frac{d^2 y}{dz^2} + 2\frac{dy}{dz} - 3y = 4e^z $$
+
+          <p><strong>2. Homogeneous Solution $y_h(z)$:</strong></p>
+          <p>Auxiliary eq: $r^2 + 2r - 3 = 0 \implies (r+3)(r-1) = 0 \implies r_1 = 1, r_2 = -3$.</p>
+          $$ y_h(z) = c_1 e^z + c_2 e^{-3z} $$
+
+          <p><strong>3. Resonant Particular Solution $y_p(z)$:</strong></p>
+          <p>Since the forcing exponent $e^{1\cdot z}$ matches the characteristic root $r_1 = 1$, we test the resonant ansatz $y_p(z) = A z e^z$:</p>
+          $$ y_p'(z) = A(1 + z)e^z, \qquad y_p''(z) = A(2 + z)e^z $$
+          $$ y_p'' + 2y_p' - 3y_p = A e^z\left[ (2 + z) + 2(1 + z) - 3z \right] = A e^z\left[ 4 + 3z - 3z \right] = 4A e^z $$
+          <p>Equating to $4e^z$: $4A = 4 \implies A = 1 \implies \mathbf{y_p(z) = z e^z}$.</p>
+
+          <p><strong>4. General Solution in $z$:</strong></p>
+          $$ y(z) = c_1 e^z + c_2 e^{-3z} + z e^z $$
+
+          <p><strong>5. Back-transformation to $x$ ($z = \ln x, \; e^z = x, \; e^{-3z} = x^{-3}$):</strong></p>
+          $$ \mathbf{y(x) = c_1 x + \frac{c_2}{x^3} + x \ln x, \quad x > 0} $$
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Phase 4: Master Verification & Aerospace Application</div>
+        <div class="result-box">
+          <div class="result-box-title">✓ Master Solution & ODE Verification</div>
+          $$ \boxed{y(x) = c_1 x + c_2 x^{-3} + x\ln x, \quad x > 0} $$
+          <p><strong>Direct Verification:</strong></p>
+          <p>$y'(x) = c_1 - 3c_2 x^{-4} + \ln x + 1$</p>
+          <p>$y''(x) = 12c_2 x^{-5} + \frac{1}{x}$</p>
+          <p>$x^2 y'' + 3x y' - 3y = (12c_2 x^{-3} + x) + (3c_1 x - 9c_2 x^{-3} + 3x\ln x + 3x) - (3c_1 x + 3c_2 x^{-3} + 3x\ln x) = 4x \equiv g(x)$. Confirmed!</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ARTICLE BOTTOM NAVIGATION -->
+    <nav class="article-nav" aria-label="Topic Navigation">
+      <a href="topic-2-problems.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Problem Set</span>
+        <span class="nav-btn-title">Chapter 2: First-Order ODEs</span>
+      </a>
+      <a href="../teoria/topic-3.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Review Foundations →</span>
+        <span class="nav-btn-title">Topic 3 Theory & Lecture Guide</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Chapter 3 Complete Problem Solutions • Grounded in ProblemsCh3.pdf</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER & PILL HIGHLIGHT JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      // Theme controller
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+
+      // Active pill highlight on scroll
+      const pills = document.querySelectorAll('.nav-pill');
+      const cards = document.querySelectorAll('.problem-card');
+
+      window.addEventListener('scroll', function () {
+        let currentCard = '';
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top <= 160 && rect.bottom >= 160) {
+            currentCard = '#' + card.getAttribute('id');
+          }
+        });
+
+        pills.forEach(pill => {
+          if (pill.getAttribute('href') === currentCard) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }, { passive: true });
+    })();
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>
