@@ -73,10 +73,24 @@
     * `[[02 - Aerospace Materials I/Problema - T2-DEF11 Concentracion de Vacantes en Cobre Proximo a Fusion|Problema T2-DEF11: Concentración de Vacantes en Cobre Próximo a la Fusión]]`
     * `[[02 - Aerospace Materials I/Problema - T2-DEF12 Fraccion de Puntos de Red Vacantes en Paladio FCC|Problema T2-DEF12: Fracción de Puntos de Red Vacantes en Paladio FCC]]`
 
-#### Tema 3: Diffusion in Solids (Fick's Laws, Mechanisms, Activation Energy)
-* **Fuentes Oficiales:** `Session 5 T3 Difussion_2025.pdf`
+#### [[02 - Aerospace Materials I/Tema 3 - Diffusion in Solids and Mass Transport|Tema 3: Diffusion in Solids & Mass Transport]]
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-3-diffusion.html`
-* **Problemas:** `subjects/aerospace-materials-1/problemas/topic-3-diffusion.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-3-diffusion.html`
+* **Fuentes Oficiales:** `Session 5 T3  Difussion_2025.pdf` (Slides 1–35), `Problems T3_Diffusion.pdf` (6 Problemas)
+* **Nota Maestra:** `[[02 - Aerospace Materials I/Tema 3 - Diffusion in Solids and Mass Transport|Tema 3: Diffusion in Solids and Mass Transport (MOC)]]`
+* **Conceptos Teóricos Atómicos (5 Notas):**
+  * `[[02 - Aerospace Materials I/Concepto - Mecanismos de Difusion Vacantes e Intersticios|Concepto: Mecanismos de Difusión Atómica: Vacantes e Intersticios]]`
+  * `[[02 - Aerospace Materials I/Concepto - Primera Ley de Fick Difusion en Estado Estacionario|Concepto: Primera Ley de Fick y Difusión en Estado Estacionario]]`
+  * `[[02 - Aerospace Materials I/Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error|Concepto: Segunda Ley de Fick, Estado No Estacionario y Función Error]]`
+  * `[[02 - Aerospace Materials I/Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad|Concepto: Ecuación de Arrhenius y Factores que Influyen en la Difusividad]]`
+  * `[[02 - Aerospace Materials I/Concepto - Cementacion y Aplicaciones Industriales de la Difusion|Concepto: Cementación y Aplicaciones Industriales de la Difusión]]`
+* **Problemas Oficiales Resueltos (6 Problemas):**
+  * `[[02 - Aerospace Materials I/Problema - T3-01 Carburacion de Engranaje de Acero 1018|Problema T3-01: Carburación de Engranaje de Acero AISI 1018]]`
+  * `[[02 - Aerospace Materials I/Problema - T3-02 Difusion de Aluminio en Silicio Monocristalino|Problema T3-02: Difusión de Aluminio en Silicio Monocristalino]]`
+  * `[[02 - Aerospace Materials I/Problema - T3-03 Energia de Activacion y Difusividad de Carbono en Acero|Problema T3-03: Energía de Activación y Difusividad de Carbono en Acero Dulce]]`
+  * `[[02 - Aerospace Materials I/Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO|Problema T3-04: Transporte Iónico de Níquel a Través de Placa de MgO]]`
+  * `[[02 - Aerospace Materials I/Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas|Problema T3-05: Temperatura de Cementación de Acero AISI 1010 en 8 Horas]]`
+  * `[[02 - Aerospace Materials I/Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio|Problema T3-06: Purificación de Hidrógeno con Membrana de Paladio]]`
 
 ---
 
