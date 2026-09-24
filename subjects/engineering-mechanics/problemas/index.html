@@ -7,8 +7,11 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Abril+Fatface&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 
   <style>
     :root {
@@ -190,7 +193,10 @@
       border-color: var(--border-subtle);
     }
     .topic-desc {
-      font-size: 0.92rem; color: var(--text-muted); margin-bottom: 14px;
+      font-size: 0.90rem;
+      color: var(--text-secondary);
+      line-height: 1.58;
+      margin-bottom: 12px;
     }
     .topic-tags {
       display: flex; flex-wrap: wrap; gap: 8px;
@@ -323,7 +329,7 @@
             <h2 class="topic-title">Topic 1: Fundamentals and Particle Kinematics</h2>
             <span class="topic-badge">10 Problems Available</span>
           </div>
-          <p class="topic-desc">Helical rocket trajectory, logarithmic spirals, parametric astroid, aircraft in polar coordinates, towed glider, sinusoidal path, towed skater on circle, train relative motion, artificial gravity station, and satellite solar panel rotations.</p>
+          <p class="topic-desc">Ten official kinematics problems: helical rocket trajectories, logarithmic spirals, relative frame kinematics, and rotating space station dynamics.</p>
           <div class="topic-tags">
             <span class="topic-tag">Cartesian / Polar / Cylindrical</span>
             <span class="topic-tag">Frenet-Serret Frame</span>
@@ -341,7 +347,7 @@
             <h2 class="topic-title">Topic 2: Point Particle Dynamics</h2>
             <span class="topic-badge">10 Problems Available</span>
           </div>
-          <p class="topic-desc">Cubic and quartic conservative potentials, 1D energy landscapes, oscillation periods under conservative forces, Stokes viscous drag, football aerodynamic drag, rotating planet apparent weight, linear central force, and the simple pendulum.</p>
+          <p class="topic-desc">Ten official dynamics problems: conservative potentials, energy landscape equilibrium stability, Stokes viscous damping, and non-inertial apparent weight.</p>
           <div class="topic-tags">
             <span class="topic-tag">Newton's Laws</span>
             <span class="topic-tag">Conservative Forces</span>
@@ -360,7 +366,7 @@
             <h2 class="topic-title">Topic 3: Constraints and Reaction Forces</h2>
             <span class="topic-badge">15 Problems Available</span>
           </div>
-          <p class="topic-desc">Motion on smooth cones, paraboloids, and tilted cylinders, rotating circumference and half-circumference wires, particle on a curve, circular wire with spring, multi-particle systems connected by inextensible strings over pulleys/spools, particle on torus, plate edge tether, and double pendulum.</p>
+          <p class="topic-desc">Fifteen official constraint problems: particles on cones and paraboloids, reaction forces in tangent/normal subspaces, and cable-connected systems.</p>
           <div class="topic-tags">
             <span class="topic-tag">Holonomic Constraints</span>
             <span class="topic-tag">Normal Reactions</span>
@@ -379,7 +385,7 @@
             <h2 class="topic-title">Topic 4: The Harmonic Oscillator (Free, Damped, Forced)</h2>
             <span class="topic-badge badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Base-excited vibrations, bumpy taxiway, vibrating rotor, resonance curves, and quality factors.</p>
+          <p class="topic-desc">Four official vibration problems: base-excited oscillator motion, harmonic runway taxiway forcing, resonance response curves, and quality factors.</p>
           <div class="topic-tags">
             <span class="topic-tag">Harmonic Oscillator</span>
             <span class="topic-tag">Damping</span>
@@ -417,6 +423,17 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

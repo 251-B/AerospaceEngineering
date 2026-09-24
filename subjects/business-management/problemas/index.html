@@ -11,6 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
   <style>
     :root {
       --font-display: 'Abril Fatface', cursive, Georgia, serif;
@@ -254,9 +260,9 @@
 
     .card-desc {
       color: var(--text-secondary);
-      font-size: 0.94rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      font-size: 0.90rem;
+      line-height: 1.58;
+      margin-bottom: 16px;
     }
 
     .exercise-list {
@@ -363,7 +369,7 @@
       <a href="topic-3-financial-statements.html" class="problem-card">
         <span class="card-badge">Official Problem Set • Topic 3</span>
         <h2 class="card-title">Financial Statements: Practice Problems 1 through 6</h2>
-        <p class="card-desc">Comprehensive solutions to all six official exercises from <code>T3_Financial Statements_EXERCISES.pdf</code>. Accrual vs cash flows, linear depreciation schedules, balanced financial statements, corporate tax calculations, and uncalled share capital adjustments.</p>
+        <p class="card-desc">Step-by-step solutions to the six official financial problems: accrual accounting, linear depreciation schedules, balanced balance sheets, and working capital.</p>
 
         <ul class="exercise-list">
           <li class="exercise-item">
@@ -448,6 +454,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

@@ -7,7 +7,11 @@
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 
   <style>
     :root {
@@ -216,7 +220,10 @@
     }
 
     .topic-desc {
-      font-size: 0.87rem; color: var(--text-secondary); line-height: 1.55;
+      font-size: 0.90rem;
+      color: var(--text-secondary);
+      line-height: 1.58;
+      margin-bottom: 4px;
     }
 
     .topic-tags {
@@ -318,7 +325,7 @@
         <div class="topic-body">
           <span class="topic-number" data-i18n="materials.topic_1_num">Tema 1 · Sesiones 1–2</span>
           <h2 class="topic-title">Bonding in Solids & Material Properties</h2>
-          <p class="topic-desc" data-i18n="materials.topic_1_desc">Enlace iónico, covalente, metálico y secundario. Energía de red, orbitales híbridos, teoría de bandas, pozos de potencial interatómico y relación con propiedades macroscópicas.</p>
+          <p class="topic-desc" data-i18n="materials.topic_1_desc">Atomic bonding mechanisms, interatomic potential well $E(r)$, lattice energy, and correlation with macroscopic properties.</p>
           <div class="content-badges">
             <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_1_badge_theory">6 módulos teóricos</span></span>
             <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_1_badge_problems">4 problemas de examen</span></span>
@@ -330,7 +337,7 @@
             <span class="tag" data-i18n="materials.tag_metallic">Metálico</span>
             <span class="tag">Born-Landé</span>
             <span class="tag" data-i18n="materials.tag_bands">Bandas de energía</span>
-            <span class="tag">E(r)</span>
+            <span class="tag">$E(r)$</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -341,7 +348,7 @@
         <div class="topic-body">
           <span class="topic-number" data-i18n="materials.topic_2_num">Tema 2 · Sesiones 3–4</span>
           <h2 class="topic-title">Structure of Materials I & II</h2>
-          <p class="topic-desc" data-i18n="materials.topic_2_desc">Cristalografía: 7 sistemas cristalinos, 14 redes de Bravais, FCC/BCC/HCP, sitios intersticiales, índices de Miller. Defectos: vacantes, dislocaciones, fronteras de grano, polimorfismo.</p>
+          <p class="topic-desc" data-i18n="materials.topic_2_desc">Crystal systems, Bravais lattices, Miller indices, and crystallographic analysis of point defects, dislocations, and grain boundaries.</p>
           <div class="content-badges">
             <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_2_badge_theory">13 módulos teóricos</span></span>
             <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_2_badge_problems">26 problemas resueltos</span></span>
@@ -353,7 +360,7 @@
             <span class="tag">Miller</span>
             <span class="tag" data-i18n="materials.tag_vacancies">Vacantes</span>
             <span class="tag" data-i18n="materials.tag_dislocations">Dislocaciones</span>
-            <span class="tag">Burgers</span>
+            <span class="tag">Burgers $\vec{b}$</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -364,7 +371,7 @@
         <div class="topic-body">
           <span class="topic-number" data-i18n="materials.topic_3_num">Tema 3 · Sesión 5</span>
           <h2 class="topic-title">Diffusion in Solids</h2>
-          <p class="topic-desc" data-i18n="materials.topic_3_desc">Mecanismos atómicos de difusión, leyes de Fick (1.ª y 2.ª), función error, relación de Arrhenius, carburación superficial, difusión en semiconductores y sinterización.</p>
+          <p class="topic-desc" data-i18n="materials.topic_3_desc">Fick's diffusion laws, Arrhenius thermal dependence $D(T)$, and non-steady-state error function solutions in solid mass transport.</p>
           <div class="content-badges">
             <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_3_badge_theory">6 módulos teóricos</span></span>
             <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_3_badge_problems">6 problemas resueltos</span></span>
@@ -373,7 +380,7 @@
           <div class="topic-tags">
             <span class="tag">Fick 1</span>
             <span class="tag">Fick 2</span>
-            <span class="tag">erf(z)</span>
+            <span class="tag">$\mathrm{erf}(z)$</span>
             <span class="tag">Arrhenius</span>
             <span class="tag" data-i18n="materials.tag_carburization">Carburación</span>
           </div>
@@ -434,6 +441,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

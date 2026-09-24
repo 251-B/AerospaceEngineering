@@ -8,7 +8,11 @@
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 
   <style>
     /* ========================================================
@@ -512,9 +516,10 @@
     }
 
     .topic-desc {
-      font-size: 0.92rem;
+      font-size: 0.90rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.58;
+      margin-bottom: 4px;
     }
 
     .topic-tags {
@@ -682,11 +687,7 @@
             <span class="topic-badge available">● Available</span>
           </div>
           <h3 class="topic-title">Topic 1: Introduction, Modeling and Classification of ODEs</h3>
-          <p class="topic-desc">
-            Foundations of differential equations, order and the official UC3M linearity criterion, Picard-Lindelöf existence and uniqueness theorem, 
-            branching non-uniqueness and finite-time blow-up, fundamental first-order physical models (Malthus, isotope decay, Newton's law of cooling, CSTR mixing), 
-            the Verhulst logistic growth model with carrying capacity saturation, and Navier-Stokes reduction to axisymmetric Poiseuille flow.
-          </p>
+          <p class="topic-desc">ODE classification and linearity criteria, Picard-Lindelöf existence and uniqueness, finite-time blow-up singularities, and classical growth models.</p>
           <div class="topic-tags">
             <span class="tag">ODEs vs PDEs</span>
             <span class="tag">Linearity Criterion</span>
@@ -708,12 +709,7 @@
             <span class="topic-badge available">● Available</span>
           </div>
           <h3 class="topic-title">Topic 2: First-Order ODEs and Qualitative Dynamics</h3>
-          <p class="topic-desc">
-            Direct integration and separable equations with Gaussian blow-up thresholds, the integrating factor method and asymptotic relaxation ($x \to b/a$), 
-            exact differential equations and potential function reconstruction, special integrating factors $\mu(x)$, Bernoulli linearization ($z = y^{1-\alpha}$), 
-            Picard-Lindelöf existence-uniqueness theory and pathologies (branching non-uniqueness, blow-up, domain singularities), 
-            and 1D autonomous phase lines with pitchfork bifurcations.
-          </p>
+          <p class="topic-desc">First-order analytical integration methods, integrating factor $\mu(x)$, exact equations, Bernoulli linearization, and 1D autonomous phase line bifurcations.</p>
           <div class="topic-tags">
             <span class="tag">Direct Integration</span>
             <span class="tag">Separable Forms</span>
@@ -737,12 +733,7 @@
             <span class="topic-badge available">● Available</span>
           </div>
           <h3 class="topic-title">Topic 3: Second-Order Linear ODEs: General Theory and Constant Coefficients</h3>
-          <p class="topic-desc">
-            Canonical forms and Newtonian oscillator modeling, Robinson's Theorem 11.1 (existence, uniqueness, and global duration without blow-up), 
-            vectorization into planar first-order systems, the differential operator $L$ and superposition in $\ker(L)$, linear independence, 
-            the Wronskian determinant $W[x_1, x_2](t)$, constructive proof that $\dim(\ker(L)) = 2$, Abel's identity and Wronskian dichotomy, 
-            and constant-coefficient homogeneous equations with full classification of the three characteristic regimes ($\Delta > 0$, $\Delta = 0$ with $t e^{kt}$, $\Delta < 0$ with Euler oscillations and polar amplitude-phase representation).
-          </p>
+          <p class="topic-desc">Second-order linear theory, linear operator $L$ and Wronskian determinant $W(t)$, Abel's identity, and harmonic oscillator regimes with constant coefficients.</p>
           <div class="topic-tags">
             <span class="tag">Second-Order ODEs</span>
             <span class="tag">Existence & Uniqueness</span>
@@ -778,10 +769,7 @@
             <span class="topic-badge soon">Coming Soon</span>
           </div>
           <h3 class="topic-title">Topic 4: Systems of ODEs & Phase Plane Analysis</h3>
-          <p class="topic-desc">
-            First-order linear vector systems $\dot{\mathbf{x}} = A\mathbf{x}$, matrix exponential, eigenvalue and eigenvector analysis, 
-            topological classification of phase portraits (nodes, saddles, centers, spirals), and Hartman-Grobman linearization of nonlinear dynamics.
-          </p>
+          <p class="topic-desc">First-order linear vector systems $\dot{\mathbf{x}} = A\mathbf{x}$, matrix exponential $e^{At}$, phase portrait topology (saddles, spirals), and Hartman-Grobman linearization.</p>
           <div class="topic-tags">
             <span class="tag">Matrix Exponential</span>
             <span class="tag">Phase Plane</span>
@@ -814,10 +802,7 @@
             <span class="topic-badge soon">Coming Soon</span>
           </div>
           <h3 class="topic-title">Topic 5: Classical PDEs & Fourier Analysis</h3>
-          <p class="topic-desc">
-            Classification of second-order linear PDEs (elliptic, parabolic, hyperbolic), separation of variables, the 1D wave equation (d'Alembert's formula), 
-            thermal diffusion (heat equation), Laplace's equation in aerodynamic potentials, and orthogonal Fourier series expansions.
-          </p>
+          <p class="topic-desc">Second-order linear PDEs (wave, heat, Laplace), separation of variables, d'Alembert's traveling wave solution, and orthogonal Fourier series expansions.</p>
           <div class="topic-tags">
             <span class="tag">Wave Equation</span>
             <span class="tag">Heat Equation</span>
@@ -838,10 +823,7 @@
             <span class="topic-badge soon">Coming Soon</span>
           </div>
           <h3 class="topic-title">Topic 6: Laplace Transforms & Complex Analysis</h3>
-          <p class="topic-desc">
-            The unilateral Laplace transform, convolution theorem, Dirac delta impulse responses, aerospace transfer functions, 
-            complex analytic functions, Cauchy-Riemann relations, and contour residue integration.
-          </p>
+          <p class="topic-desc">Unilateral Laplace transforms, transfer functions and convolution, complex analytic functions, Cauchy-Riemann equations, and Cauchy residue integration.</p>
           <div class="topic-tags">
             <span class="tag">Laplace Transform</span>
             <span class="tag">Transfer Functions</span>
@@ -914,6 +896,17 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

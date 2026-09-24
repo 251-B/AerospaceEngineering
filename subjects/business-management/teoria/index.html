@@ -11,6 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
   <style>
     :root {
       --font-display: 'Abril Fatface', cursive, Georgia, serif;
@@ -258,9 +264,9 @@
 
     .topic-desc {
       color: var(--text-secondary);
-      font-size: 0.94rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
+      font-size: 0.90rem;
+      line-height: 1.58;
+      margin-bottom: 14px;
     }
 
     .topic-meta {
@@ -342,7 +348,7 @@
       <a href="topic-1.html" class="topic-card">
         <span class="topic-badge">Topic 1</span>
         <h2 class="topic-title">The Firm: Types and Objectives</h2>
-        <p class="topic-desc">The economic nature of the firm, circular flow of income between households and enterprises, business functional areas, Henri Fayol's management process, evolutionary entrepreneurship theories (Knight, Schumpeter, Kirzner), legal forms of ownership, and corporate governance mechanisms resolving the Agency Problem.</p>
+        <p class="topic-desc">Economic nature of the enterprise, circular income flow, management functions, entrepreneurial theories, legal ownership forms, and corporate agency problems.</p>
         <div class="topic-meta">
           <span class="meta-tag">Inputs & Outputs</span>
           <span class="meta-tag">Circular Flow</span>
@@ -357,7 +363,7 @@
       <a href="topic-2.html" class="topic-card">
         <span class="topic-badge">Topic 2</span>
         <h2 class="topic-title">Value Creation: Environment and Competitive Advantage</h2>
-        <p class="topic-desc">Critique of classical profit maximization, stakeholder theory, and the unified value creation vision. Hierarchy of strategic decisions, corporate diversification and vertical integration, drivers of cost leadership and differentiation, macro-environmental PESTEL analysis, Porter's Five Forces, and Porter's Value Chain.</p>
+        <p class="topic-desc">Strategic value creation and stakeholder analysis, competitive advantage drivers (cost vs. differentiation), PESTEL macro-environment, and Porter's Five Forces.</p>
         <div class="topic-meta">
           <span class="meta-tag">Value Creation</span>
           <span class="meta-tag">Diversification</span>
@@ -373,14 +379,14 @@
       <a href="topic-3.html" class="topic-card">
         <span class="topic-badge">Topic 3</span>
         <h2 class="topic-title">Financial Management (I): Financial Statements & Capital Structure</h2>
-        <p class="topic-desc">Duality between the Economic Structure (Assets) and Financial Structure (Liabilities & Equity). Construction and interpretation of the Multi-Step Income Statement (COGS, EBIT, EBT, Net Income) and the Balance Sheet. Classification of internal equity, shares, long-term bonds/loans/leasing, short-term credit/factoring, financial leverage, and WACC.</p>
+        <p class="topic-desc">Financial statement mechanics (Balance Sheet and Income Statement), capital structure financing sources, financial leverage, and WACC valuation.</p>
         <div class="topic-meta">
           <span class="meta-tag">Income Statement (P&L)</span>
           <span class="meta-tag">Balance Sheet</span>
           <span class="meta-tag">Equity & Debt</span>
           <span class="meta-tag">Leasing & Factoring</span>
           <span class="meta-tag">D/E Ratio</span>
-          <span class="meta-tag">WACC</span>
+          <span class="meta-tag">$\mathrm{WACC}$</span>
         </div>
       </a>
 
@@ -433,6 +439,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

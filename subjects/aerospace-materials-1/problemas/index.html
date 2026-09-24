@@ -9,6 +9,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
   <style>
     :root {
       --font-display: 'Abril Fatface', cursive, Georgia, serif;
@@ -213,7 +219,7 @@
     }
 
     .topic-desc {
-      font-size: 0.87rem; color: var(--text-secondary); line-height: 1.55;
+      font-size: 0.90rem; color: var(--text-secondary); line-height: 1.58;
     }
 
     .content-badges {
@@ -307,7 +313,7 @@
         <div class="topic-body">
           <span class="topic-number" data-i18n="materials.prob_topic_2_num">Tema 2 · Estructura de Materiales y Defectos</span>
           <h2 class="topic-title">Solved Problems — Structure of Materials & Defects</h2>
-          <p class="topic-desc" data-i18n="materials.prob_topic_2_desc">26 problemas resueltos oficiales: redes de Bravais, empaquetamiento FCC/BCC/HCP, densidades lineal y planar, difracción XRD y ley de Bragg, concentración de vacantes térmicas, reglas de Hume-Rothery, vector de Burgers y ecuación de Hall-Petch.</p>
+          <p class="topic-desc" data-i18n="materials.prob_topic_2_desc">26 solved problems: FCC/BCC/HCP atomic packing, XRD diffraction with Bragg's law, Burgers vector $\vec{b}$, and Hall-Petch strengthening.</p>
           <div class="content-badges">
             <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.prob_topic_2_badge">26 problemas resueltos</span></span>
             <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.prob_topic_2_pills">Navegación por píldoras</span></span>
@@ -316,7 +322,7 @@
             <span class="tag">Bravais</span>
             <span class="tag">Miller</span>
             <span class="tag" data-i18n="materials.tag_vacancies">Vacantes</span>
-            <span class="tag">Burgers</span>
+            <span class="tag">Burgers $\vec{b}$</span>
             <span class="tag">Hume-Rothery</span>
             <span class="tag">Hall-Petch</span>
           </div>
@@ -329,7 +335,7 @@
         <div class="topic-body">
           <span class="topic-number" data-i18n="materials.prob_topic_3_num">Tema 3 · Difusión en Sólidos</span>
           <h2 class="topic-title">Solved Problems — Diffusion in Solids</h2>
-          <p class="topic-desc" data-i18n="materials.prob_topic_3_desc">6 problemas numéricos completos: carburación de acero (AISI 1018/1010), difusión de Al en Si monocristalino, energía de activación, transporte iónico en MgO y purificación de H₂ con membrana de Pd.</p>
+          <p class="topic-desc" data-i18n="materials.prob_topic_3_desc">6 solved numerical problems: steel carburization, transient diffusion with $\mathrm{erf}(z)$, activation energy $Q$, and $\mathrm{H}_2$ purification.</p>
           <div class="content-badges">
             <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.prob_topic_3_badge">6 problemas resueltos</span></span>
             <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg><span data-i18n="materials.prob_topic_3_calc">Interpolador erf(z)</span></span>
@@ -337,7 +343,7 @@
           <div class="topic-tags">
             <span class="tag">Fick 1</span>
             <span class="tag">Fick 2</span>
-            <span class="tag">erf(z)</span>
+            <span class="tag">$\mathrm{erf}(z)$</span>
             <span class="tag">Arrhenius</span>
             <span class="tag" data-i18n="materials.tag_carburization">Carburación</span>
           </div>
@@ -398,6 +404,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

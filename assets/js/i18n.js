@@ -181,7 +181,7 @@
       'materials.theory_subtitle': 'Teoría y Conceptos — Índice de Temas',
       'materials.problems_subtitle': 'Problemas y Exámenes Resueltos — Paso a Paso',
       'materials.topic_1_num': 'Tema 1 · Sesiones 1–2',
-      'materials.topic_1_desc': 'Enlace iónico, covalente, metálico y secundario. Energía de red, orbitales híbridos, teoría de bandas, pozos de potencial interatómico y relación con propiedades macroscópicas.',
+      'materials.topic_1_desc': 'Mecanismos de enlace atómico, pozo de potencial interatómico $E(r)$, energía de red y correlación con propiedades macroscópicas.',
       'materials.topic_1_badge_theory': '6 módulos teóricos',
       'materials.topic_1_badge_problems': '4 problemas de examen',
       'materials.topic_1_badge_sim': 'Visualizador interactivo',
@@ -190,24 +190,24 @@
       'materials.tag_metallic': 'Metálico',
       'materials.tag_bands': 'Bandas de energía',
       'materials.topic_2_num': 'Tema 2 · Sesiones 3–4',
-      'materials.topic_2_desc': 'Cristalografía: 7 sistemas cristalinos, 14 redes de Bravais, FCC/BCC/HCP, sitios intersticiales, índices de Miller. Defectos: vacantes, dislocaciones, fronteras de grano, polimorfismo.',
+      'materials.topic_2_desc': 'Sistemas cristalinos, redes de Bravais, índices de Miller y análisis de defectos puntuales, dislocaciones y bordes de grano.',
       'materials.topic_2_badge_theory': '13 módulos teóricos',
       'materials.topic_2_badge_problems': '26 problemas resueltos',
       'materials.topic_2_badge_sim': 'Diagramas SVG',
       'materials.tag_vacancies': 'Vacantes',
       'materials.tag_dislocations': 'Dislocaciones',
       'materials.prob_topic_2_num': 'Tema 2 · Estructura de Materiales y Defectos',
-      'materials.prob_topic_2_desc': '26 problemas resueltos oficiales: redes de Bravais, empaquetamiento FCC/BCC/HCP, densidades lineal y planar, difracción XRD y ley de Bragg, concentración de vacantes térmicas, reglas de Hume-Rothery, vector de Burgers y ecuación de Hall-Petch.',
+      'materials.prob_topic_2_desc': '26 problemas resueltos: empaquetamiento FCC/BCC/HCP, difracción XRD con ley de Bragg, vector de Burgers $\\vec{b}$ y ecuación de Hall-Petch.',
       'materials.prob_topic_2_badge': '26 problemas resueltos',
       'materials.prob_topic_2_pills': 'Navegación por píldoras',
       'materials.topic_3_num': 'Tema 3 · Sesión 5',
-      'materials.topic_3_desc': 'Mecanismos atómicos de difusión, leyes de Fick (1.ª y 2.ª), función error, relación de Arrhenius, carburación superficial, difusión en semiconductores y sinterización.',
+      'materials.topic_3_desc': 'Leyes de Fick, dependencia térmica de Arrhenius $D(T)$ y soluciones no estacionarias con función error en difusión sólida.',
       'materials.topic_3_badge_theory': '6 módulos teóricos',
       'materials.topic_3_badge_problems': '6 problemas resueltos',
       'materials.topic_3_badge_sim': 'Diagramas SVG',
       'materials.tag_carburization': 'Carburación',
       'materials.prob_topic_3_num': 'Tema 3 · Difusión en Sólidos',
-      'materials.prob_topic_3_desc': '6 problemas numéricos completos: carburación de acero (AISI 1018/1010), difusión de Al en Si monocristalino, energía de activación, transporte iónico en MgO y purificación de H₂ con membrana de Pd.',
+      'materials.prob_topic_3_desc': '6 problemas numéricos resueltos: carburación de aceros, transporte transitorio con $\\mathrm{erf}(z)$, energía $Q$ y membranas de $\\mathrm{H}_2$.',
       'materials.prob_topic_3_badge': '6 problemas resueltos',
       'materials.prob_topic_3_calc': 'Interpolador erf(z)',
       'materials.footer': 'Aerospace Materials I · 2º Ingeniería Aeroespacial · UC3M',
@@ -366,7 +366,7 @@
       'materials.theory_subtitle': 'Theory & Concepts — Topic Index',
       'materials.problems_subtitle': 'Solved Problems & Exams — Step-by-Step',
       'materials.topic_1_num': 'Topic 1 · Sessions 1–2',
-      'materials.topic_1_desc': 'Ionic, covalent, metallic, and secondary bonding. Lattice energy, hybrid orbitals, band theory, interatomic potential wells, and macroscopic property relations.',
+      'materials.topic_1_desc': 'Atomic bonding mechanisms, interatomic potential well $E(r)$, lattice energy, and correlation with macroscopic properties.',
       'materials.topic_1_badge_theory': '6 theory modules',
       'materials.topic_1_badge_problems': '4 exam problems',
       'materials.topic_1_badge_sim': 'Interactive visualizer',
@@ -375,24 +375,24 @@
       'materials.tag_metallic': 'Metallic',
       'materials.tag_bands': 'Energy bands',
       'materials.topic_2_num': 'Topic 2 · Sessions 3–4',
-      'materials.topic_2_desc': 'Crystallography: 7 crystal systems, 14 Bravais lattices, FCC/BCC/HCP, interstitial sites, Miller indices. Defects: vacancies, dislocations, grain boundaries, polymorphism.',
+      'materials.topic_2_desc': 'Crystal systems, Bravais lattices, Miller indices, and crystallographic analysis of point defects, dislocations, and grain boundaries.',
       'materials.topic_2_badge_theory': '13 theory modules',
       'materials.topic_2_badge_problems': '26 solved problems',
       'materials.topic_2_badge_sim': 'SVG Diagrams',
       'materials.tag_vacancies': 'Vacancies',
       'materials.tag_dislocations': 'Dislocations',
       'materials.prob_topic_2_num': 'Topic 2 · Structure of Materials & Defects',
-      'materials.prob_topic_2_desc': '26 official solved problems: Bravais lattices, FCC/BCC/HCP packing, linear and planar densities, XRD diffraction and Bragg\'s law, thermal vacancy concentration, Hume-Rothery rules, Burgers vector, and Hall-Petch equation.',
+      'materials.prob_topic_2_desc': '26 solved problems: FCC/BCC/HCP atomic packing, XRD diffraction with Bragg\'s law, Burgers vector $\\vec{b}$, and Hall-Petch strengthening.',
       'materials.prob_topic_2_badge': '26 solved problems',
       'materials.prob_topic_2_pills': 'Pill-based quick navigation',
       'materials.topic_3_num': 'Topic 3 · Session 5',
-      'materials.topic_3_desc': 'Atomic mechanisms of diffusion, Fick\'s laws (1st and 2nd), error function, Arrhenius equation, case hardening carburization, semiconductor diffusion, and sintering.',
+      'materials.topic_3_desc': 'Fick\'s diffusion laws, Arrhenius thermal dependence $D(T)$, and non-steady-state error function solutions in solid mass transport.',
       'materials.topic_3_badge_theory': '6 theory modules',
       'materials.topic_3_badge_problems': '6 solved problems',
       'materials.topic_3_badge_sim': 'SVG Diagrams',
       'materials.tag_carburization': 'Carburization',
       'materials.prob_topic_3_num': 'Topic 3 · Diffusion in Solids',
-      'materials.prob_topic_3_desc': '6 complete numerical problems: steel carburization (AISI 1018/1010), Al diffusion in single-crystal Si, activation energy, ionic transport in MgO, and H₂ purification with Pd membrane.',
+      'materials.prob_topic_3_desc': '6 solved numerical problems: steel carburization, transient diffusion with $\\mathrm{erf}(z)$, activation energy $Q$, and $\\mathrm{H}_2$ purification.',
       'materials.prob_topic_3_badge': '6 solved problems',
       'materials.prob_topic_3_calc': 'erf(z) interpolator',
       'materials.footer': 'Aerospace Materials I · 2nd Year Aerospace Engineering · UC3M',
@@ -570,6 +570,21 @@
 
     // 9. Sync theme label if present on page
     syncThemeLabel();
+
+    // 10. Re-render math if KaTeX auto-render is present
+    if (typeof renderMathInElement === 'function') {
+      try {
+        renderMathInElement(root, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      } catch (e) {
+        // KaTeX render non-critical
+      }
+    }
   }
 
   /**

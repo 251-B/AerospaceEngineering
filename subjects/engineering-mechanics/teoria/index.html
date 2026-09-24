@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mechanics Applied to Aerospace Engineering — Theory Index</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
   <style>
     :root {
       --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -191,8 +194,10 @@
     }
 
     .topic-desc {
-      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;
-      margin-bottom: 12px;
+      font-size: 0.90rem;
+      color: var(--text-secondary);
+      line-height: 1.58;
+      margin-bottom: 10px;
     }
 
     .topic-tags {
@@ -355,7 +360,7 @@
             <h3 class="topic-title">Topic 1: Fundamentals and Particle Kinematics</h3>
             <span class="badge-status badge-available">● Available</span>
           </div>
-          <p class="topic-desc">Aerospace mechanical modeling, scalars, vectors, and tensors, orthonormal bases, rotation matrices [0R1], curvilinear coordinate systems (Cartesian, Cylindrical, Spherical), Frenet-Serret intrinsic basis, and analytical helical rocket trajectory case study.</p>
+          <p class="topic-desc">Mechanical modeling and reference frames, rotation matrices $[{}_0 R_1]$, curvilinear coordinates, Frenet-Serret intrinsic basis, and particle trajectory kinematics.</p>
           <div class="topic-tags">
             <span class="topic-tag">Mechanical Modeling</span>
             <span class="topic-tag">Rotation Matrices</span>
@@ -374,7 +379,7 @@
             <h3 class="topic-title">Topic 2: Point Particle Dynamics</h3>
             <span class="badge-status badge-available">● Available</span>
           </div>
-          <p class="topic-desc">Mass, linear momentum, kinetic energy, Newton's three laws, momentum conservation, work-energy theorem, conservative forces, 1D energy diagrams, Lyapunov stability, and the simple pendulum.</p>
+          <p class="topic-desc">Newtonian dynamics and conservation laws, kinetic energy, work-energy theorem, conservative fields, 1D potential energy landscapes, and Lyapunov stability.</p>
           <div class="topic-tags">
             <span class="topic-tag">Newton's Laws</span>
             <span class="topic-tag">Linear Momentum</span>
@@ -393,7 +398,7 @@
             <h3 class="topic-title">Topic 3: Constraints and Reaction Forces</h3>
             <span class="badge-status badge-available">● Available</span>
           </div>
-          <p class="topic-desc">Holonomic and non-holonomic constraints, configuration degrees of freedom (CDOFs), implicit vs. parametric surfaces and curves, normal ($V_N$) and tangent ($V_T$) vector subspaces, constraint reactions, dynamical decoupling, zero work theorem, multi-particle systems, Coulomb friction, and unilateral takeoff.</p>
+          <p class="topic-desc">Holonomic and non-holonomic constraints, configuration degrees of freedom, normal $V_N$ and tangent $V_T$ subspaces, reaction forces, and Coulomb dry friction.</p>
           <div class="topic-tags">
             <span class="topic-tag">Constraints</span>
             <span class="topic-tag">Normal Subspace</span>
@@ -412,7 +417,7 @@
             <h3 class="topic-title">Topic 4: The Harmonic Oscillator (Free, Damped, and Forced)</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Undamped motion, complex phasor representation, underdamped, critical, and overdamped regimes, quality factor Q, harmonic forcing, and resonance phenomena.</p>
+          <p class="topic-desc">Harmonic oscillations, complex phasors, free and damped regimes, quality factor $Q$, sinusoidal external forcing, and mechanical resonance peaks.</p>
           <div class="topic-tags">
             <span class="topic-tag">Vibrations</span>
             <span class="topic-tag">Damping</span>
@@ -429,7 +434,7 @@
             <h3 class="topic-title">Topic 5: The Newtonian Mechanics Approach I</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Systematic problem-solving methodology: degrees of freedom, coordinate selection, reference frames, force balance, reduction to quadratures, and stability.</p>
+          <p class="topic-desc">Systematic analytical methodology in Newtonian mechanics: frame selection, degrees of freedom, dynamic equations of motion, and quadrature integration.</p>
           <div class="topic-tags">
             <span class="topic-tag">Methodology</span>
             <span class="topic-tag">Quadratures</span>
@@ -446,7 +451,7 @@
             <h3 class="topic-title">Topic 6: Orbital Mechanics and Kepler's Problem</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Universal gravitation, analytical derivation of Kepler's three laws from Newtonian mechanics, conic orbital sections, vis-viva equation, circular and escape velocity.</p>
+          <p class="topic-desc">Central gravitational force fields, Newtonian derivation of Kepler's laws, orbital conic sections, energy integrals, and the vis-viva velocity equation.</p>
           <div class="topic-tags">
             <span class="topic-tag">Kepler's Laws</span>
             <span class="topic-tag">Vis-Viva</span>
@@ -470,7 +475,7 @@
             <h3 class="topic-title">Topic 8: Rigid Body Kinematics and Euler Angles</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Velocity and acceleration fields, instantaneous axis of rotation and slip (IAR), screw motion, 3-1-3 Euler angles and aerospace 3-2-1 yaw-pitch-roll conventions.</p>
+          <p class="topic-desc">Rigid body velocity fields, instantaneous axis of rotation, Chasles' screw theorem, and orientation parameterization via Euler angles.</p>
         </div>
       </div>
 
@@ -481,7 +486,7 @@
             <h3 class="topic-title">Topic 9: Mass Geometry, Inertia Tensor, and Steiner's Theorem</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Mass moments of continuous and discrete bodies, center of mass, moments and products of inertia, inertia tensor matrix, principal axes, and parallel axis theorem.</p>
+          <p class="topic-desc">Mass distribution geometry, inertia tensor matrix $\mathbf{I}_O$, principal axes of inertia, and Steiner's parallel axis translation theorem.</p>
         </div>
       </div>
 
@@ -492,7 +497,7 @@
             <h3 class="topic-title">Topic 10: Rigid Body Dynamics and Euler's Equations</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Evolution equations of linear and angular momentum, Euler's differential equations in principal axes, rolling without slipping, and Poinsot torque-free motion.</p>
+          <p class="topic-desc">Euler's dynamic equations in principal reference frames, angular momentum balance, torque-free Poinsot motion, and rolling without slip constraints.</p>
         </div>
       </div>
     </div>
@@ -511,7 +516,7 @@
             <h3 class="topic-title">Topic 11: Atmospheric Flight Elements and Aircraft Performance</h3>
             <span class="badge-status badge-soon">Coming Soon</span>
           </div>
-          <p class="topic-desc">Aircraft forces, lift, parasitic and induced drag, aerodynamic polar, maximum efficiency, level flight, steady climb/descent, gliding, coordinated turn, looping, and Breguet range/endurance formulas.</p>
+          <p class="topic-desc">Aerodynamic forces, parabolic drag polar, steady atmospheric flight regimes, coordinated turns, and Breguet range and endurance equations.</p>
         </div>
       </div>
     </div>
@@ -553,6 +558,17 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

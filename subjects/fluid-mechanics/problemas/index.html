@@ -7,7 +7,11 @@
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 
   <style>
     :root {
@@ -215,7 +219,10 @@
     }
 
     .topic-desc {
-      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;
+      font-size: 0.90rem;
+      color: var(--text-secondary);
+      line-height: 1.58;
+      margin-bottom: 4px;
     }
 
     .content-badges {
@@ -290,7 +297,7 @@
         </svg>
       </div>
       <h1><span class="accent">Fluid Mechanics</span></h1>
-      <p>Problemas y Exámenes Oficiales — Resolución Detallada Paso a Paso</p>
+      <p>Official Exam Problems — Step-by-Step Analytical Solutions</p>
     </header>
 
     <div class="topics-list">
@@ -300,7 +307,7 @@
         <div class="topic-body">
           <span class="topic-number">Tema 2 · Cinemática de Fluidos</span>
           <h2 class="topic-title">Problemas Resueltos: Flow Kinematics (K1 a K10)</h2>
-          <p class="topic-desc">Colección íntegra de los 10 problemas oficiales de cinemática resueltos paso a paso: flujo sobre pared porosa oscilante, flujo de Couette, fuentes 3D, semicuerpo de Rankine, dipolo plano oscilante, vórtice tridimensional de Burgers, estancamiento hiperbólico y tensores de velocidad de deformación.</p>
+          <p class="topic-desc">Complete step-by-step solutions to the 10 official kinematics problems: Couette flow, Rankine half-body, Burgers vortex, and strain rate tensor $\bar{\bar{T}}_d$.</p>
           <div class="content-badges">
             <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>10 problemas resueltos</span>
             <span class="cbadge verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>100% Soluciones Oficiales Cotejadas</span>
@@ -344,22 +351,15 @@
         initAerospaceQuote('#quoteContainer');
       }
     });
-  </script>
-  <script src="../../../assets/js/i18n.js"></script>
-  <script src="../../../assets/js/quotes.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
-      }
-    });
-  </script>
-  <script src="../../../assets/js/i18n.js"></script>
-  <script src="../../../assets/js/quotes.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>

@@ -8,7 +8,11 @@
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 
   <style>
     /* ========================================================
@@ -485,9 +489,10 @@
     }
 
     .set-desc {
-      font-size: 0.92rem;
+      font-size: 0.90rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.58;
+      margin-bottom: 4px;
     }
 
     /* Exercises breakdown pills */
@@ -687,11 +692,7 @@
             <span class="set-badge available">● 10 Solved Problems</span>
           </div>
           <h3 class="set-title">Chapter 1 Problem Set: Introduction, Modeling and Classification</h3>
-          <p class="set-desc">
-            Complete, rigorous step-by-step resolution of all 10 official problems: ODE/PDE taxonomy, Malthusian population doubling, 
-            Plutonium-239 nuclear half-life, Newton's law of cooling and forensic algor mortis, CSTR saline washout and equilibrium, 
-            free fall kinematics, simple pendulum dynamics, the Verhulst logistic growth model, and Hagen-Poiseuille laminar pipe flow reduction.
-          </p>
+          <p class="set-desc">Step-by-step solutions to all 10 official problems: ODE classification, radioactive half-life, Newton cooling, Verhulst logistic growth, and Poiseuille flow.</p>
           <div class="exercise-pills-list">
             <span class="ex-pill">P1.1: 10 DEs Classification</span>
             <span class="ex-pill">P1.2: Malthusian Dynamics</span>
@@ -717,12 +718,7 @@
             <span class="set-badge available">● 17 Solved Problems</span>
           </div>
           <h3 class="set-title">Chapter 2 Problem Set: First-Order ODEs and Qualitative Dynamics</h3>
-          <p class="set-desc">
-            Complete, rigorous step-by-step resolution of all 17 official problems: direct integration quadratures, separable ODEs with non-elementary Gaussian error integrals and blow-up thresholds, 
-            integrating factor method with asymptotic limits ($x \to b/a$), exact differential forms and potential reconstruction, integrating factor $\mu(x)=x$, universal exactness of separated forms, 
-            nonlinear substitutions ($z=y^2$), general Bernoulli reduction ($z=y^{1-\alpha}$), Lipschitz continuity testing, uniqueness via integrating transformation, ratio invariance of linear ODEs, 
-            No-Crossing Theorem trajectory bounds, multi-equilibria phase lines, non-Lipschitz branching pathology, domain singularities, pitchfork bifurcation flow, and the direct difference method.
-          </p>
+          <p class="set-desc">Step-by-step solutions to all 17 official problems: integrating factors $\mu(x)$, Bernoulli reduction, Lipschitz uniqueness tests, and pitchfork bifurcations.</p>
           <div class="exercise-pills-list">
             <span class="ex-pill">P2.1: Direct Integration (5 Eq.)</span>
             <span class="ex-pill">P2.2: Gauss & Blow-Up</span>
@@ -755,10 +751,7 @@
             <span class="set-badge soon">Coming Soon</span>
           </div>
           <h3 class="set-title">Chapter 3 Problem Set: Second-Order Linear ODEs & Oscillations</h3>
-          <p class="set-desc">
-            Homogeneous equations with constant coefficients, characteristic polynomial, fundamental solution sets and the Wronskian determinant, 
-            undetermined coefficients, variation of parameters, free damped oscillations, and aeroelastic resonance phenomena.
-          </p>
+          <p class="set-desc">Second-order linear ODEs with constant coefficients, fundamental sets, Wronskian $W(t)$, undetermined coefficients, and damped harmonic resonance.</p>
           <div class="exercise-pills-list">
             <span class="ex-pill">Second-Order ODEs</span>
             <span class="ex-pill">Wronskian Determinant</span>
@@ -780,10 +773,7 @@
             <span class="set-badge soon">Coming Soon</span>
           </div>
           <h3 class="set-title">Chapter 4 Problem Set: Systems of ODEs & Phase Plane Analysis</h3>
-          <p class="set-desc">
-            Matrix differential equations $\dot{\mathbf{x}} = A\mathbf{x}$, Jordan canonical forms, 2D phase portrait sketching, 
-            linearization of non-linear aerospace dynamic systems around equilibria, and stability classification.
-          </p>
+          <p class="set-desc">First-order linear systems $\dot{\mathbf{x}} = A\mathbf{x}$, phase plane trajectory sketching, equilibrium stability, and local Hartman-Grobman linearization.</p>
           <div class="exercise-pills-list">
             <span class="ex-pill">Linear Systems</span>
             <span class="ex-pill">Phase Portraits</span>
@@ -854,6 +844,17 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.initAerospaceQuote) {
         initAerospaceQuote('#quoteContainer');
+      }
+    });
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
       }
     });
   </script>
