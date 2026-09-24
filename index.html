@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="dark" data-celestial-subject="portal">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="assets/css/celestial-sky.css">
 
   <style>
     /* ========================================================
@@ -1338,9 +1341,9 @@
 <body>
 
   <!-- ============================================
-       ANIMATED STARFIELD BACKGROUND
+       ANIMATED CELESTIAL CANVAS BACKGROUND
        ============================================ -->
-  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
   <div class="app-wrapper">
 
@@ -2047,6 +2050,9 @@
   <!-- Aerospace Motivational Quotes Engine -->
   <script src="assets/js/quotes.js"></script>
 
+  <!-- Celestial Sky Engine -->
+  <script src="assets/js/celestial-sky.js"></script>
+
   <!-- ============================================
        JAVASCRIPT
        ============================================ -->
@@ -2067,30 +2073,6 @@
       const subjectCards = document.querySelectorAll('.subject-card');
       const emptyState = document.getElementById('emptyState');
       const shortcutsHint = document.getElementById('shortcutsHint');
-
-      /* ——————————————————————————————————————————
-         STARFIELD GENERATOR
-         —————————————————————————————————————————— */
-      function createStarfield() {
-        const container = document.getElementById('starfield');
-        if (!container) return;
-        const count = Math.min(80, Math.floor(window.innerWidth * window.innerHeight / 12000));
-        for (let i = 0; i < count; i++) {
-          const star = document.createElement('div');
-          star.classList.add('star');
-          const size = Math.random() * 2.5 + 0.5;
-          star.style.width = size + 'px';
-          star.style.height = size + 'px';
-          star.style.left = Math.random() * 100 + '%';
-          star.style.top = Math.random() * 100 + '%';
-          star.style.setProperty('--duration', (Math.random() * 4 + 2) + 's');
-          star.style.setProperty('--opacity-min', (Math.random() * 0.2 + 0.1).toFixed(2));
-          star.style.setProperty('--opacity-max', (Math.random() * 0.5 + 0.4).toFixed(2));
-          star.style.animationDelay = (Math.random() * 5) + 's';
-          container.appendChild(star);
-        }
-      }
-      createStarfield();
 
       /* ——————————————————————————————————————————
          THEME SYSTEM

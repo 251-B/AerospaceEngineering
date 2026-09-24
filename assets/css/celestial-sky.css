@@ -1,0 +1,464 @@
+/**
+ * CELESTIAL SKY & AEROSPACE GLASSMORPHISM SYSTEM
+ * Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)
+ * Dual-Theme Deep Space Nebula & Ethereal Stratospheric Cartography Architecture
+ */
+
+/* ========================================================
+   1. GLOBAL CELESTIAL CANVAS & STACKING CONTEXT
+   ======================================================== */
+
+#celestial-canvas,
+.celestial-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+/* Ensure all page content stacks safely above the celestial canvas */
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body > *:not(#celestial-canvas):not(.celestial-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Legacy .bg-glow gracefully blends into the celestial sky */
+.bg-glow {
+  pointer-events: none;
+  z-index: 0 !important;
+  opacity: 0.55;
+  transition: opacity 0.35s ease;
+}
+
+/* ========================================================
+   2. SUBJECT COLOR TOKENS & SYSTEM VARIABLES
+   ======================================================== */
+
+:root {
+  --sky-space-deep: #050811;
+  --sky-space-dark: #070b14;
+  --sky-dawn-base: #f8fafc;
+  --sky-dawn-surface: #f1f5f9;
+  --glass-border-hairline-dark: rgba(255, 255, 255, 0.08);
+  --glass-border-hairline-light: rgba(148, 163, 184, 0.22);
+  --glass-highlight-dark: rgba(255, 255, 255, 0.12);
+  --glass-highlight-light: rgba(255, 255, 255, 0.90);
+}
+
+/* --- 1. Portal (Grand Cosmic Harmony) --- */
+[data-celestial-subject="portal"] {
+  --subject-primary: #38bdf8;
+  --subject-hover: #0284c7;
+  --subject-neon: #00f0ff;
+  --subject-rgb: 56, 189, 248;
+  --nebula-glow-1: rgba(6, 182, 212, 0.14);
+  --nebula-glow-2: rgba(99, 102, 241, 0.13);
+  --nebula-glow-3: rgba(168, 85, 247, 0.09);
+  --nebula-glow-4: rgba(245, 158, 11, 0.07);
+  --dawn-glow-1: rgba(6, 182, 212, 0.06);
+  --dawn-glow-2: rgba(99, 102, 241, 0.05);
+  --dawn-glow-3: rgba(245, 158, 11, 0.03);
+}
+
+/* --- 2. Fluid Mechanics (Aerodynamics & Hydrodynamics) --- */
+[data-celestial-subject="fluid-mechanics"] {
+  --subject-primary: #06b6d4;
+  --subject-hover: #0891b2;
+  --subject-neon: #00f0ff;
+  --subject-rgb: 6, 182, 212;
+  --nebula-glow-1: rgba(6, 182, 212, 0.18);
+  --nebula-glow-2: rgba(14, 116, 144, 0.16);
+  --nebula-glow-3: rgba(0, 240, 255, 0.10);
+  --nebula-glow-4: rgba(3, 105, 161, 0.10);
+  --dawn-glow-1: rgba(6, 182, 212, 0.08);
+  --dawn-glow-2: rgba(14, 116, 144, 0.05);
+  --dawn-glow-3: rgba(0, 240, 255, 0.04);
+}
+
+/* --- 3. Aerospace Materials I (Crystalline Lattices & Metallurgy) --- */
+[data-celestial-subject="aerospace-materials-1"] {
+  --subject-primary: #f59e0b;
+  --subject-hover: #d97706;
+  --subject-neon: #ffb703;
+  --subject-rgb: 245, 158, 11;
+  --nebula-glow-1: rgba(245, 158, 11, 0.18);
+  --nebula-glow-2: rgba(217, 119, 6, 0.15);
+  --nebula-glow-3: rgba(251, 191, 36, 0.10);
+  --nebula-glow-4: rgba(180, 83, 9, 0.09);
+  --dawn-glow-1: rgba(245, 158, 11, 0.08);
+  --dawn-glow-2: rgba(217, 119, 6, 0.05);
+  --dawn-glow-3: rgba(251, 191, 36, 0.04);
+}
+
+/* --- 4. Engineering Mechanics (Orbital Mechanics & Kinematics) --- */
+[data-celestial-subject="engineering-mechanics"] {
+  --subject-primary: #10b981;
+  --subject-hover: #059669;
+  --subject-neon: #00f59b;
+  --subject-rgb: 16, 185, 129;
+  --nebula-glow-1: rgba(16, 185, 129, 0.18);
+  --nebula-glow-2: rgba(5, 150, 105, 0.15);
+  --nebula-glow-3: rgba(0, 245, 155, 0.10);
+  --nebula-glow-4: rgba(4, 120, 87, 0.09);
+  --dawn-glow-1: rgba(16, 185, 129, 0.08);
+  --dawn-glow-2: rgba(5, 150, 105, 0.05);
+  --dawn-glow-3: rgba(0, 245, 155, 0.04);
+}
+
+/* --- 5. Advanced Mathematics (Harmonic Calculus & Quantum Algebra) --- */
+[data-celestial-subject="advanced-maths"] {
+  --subject-primary: #6366f1;
+  --subject-hover: #4f46e5;
+  --subject-neon: #a78bfa;
+  --subject-rgb: 99, 102, 241;
+  --nebula-glow-1: rgba(99, 102, 241, 0.19);
+  --nebula-glow-2: rgba(139, 92, 246, 0.16);
+  --nebula-glow-3: rgba(167, 139, 250, 0.11);
+  --nebula-glow-4: rgba(79, 70, 229, 0.09);
+  --dawn-glow-1: rgba(99, 102, 241, 0.08);
+  --dawn-glow-2: rgba(139, 92, 246, 0.05);
+  --dawn-glow-3: rgba(167, 139, 250, 0.04);
+}
+
+/* --- 6. Business Management (Constellation Networks & Enterprise) --- */
+[data-celestial-subject="business-management"] {
+  --subject-primary: #ef4444;
+  --subject-hover: #dc2626;
+  --subject-neon: #ff0055;
+  --subject-rgb: 239, 68, 68;
+  --nebula-glow-1: rgba(239, 68, 68, 0.18);
+  --nebula-glow-2: rgba(244, 63, 94, 0.15);
+  --nebula-glow-3: rgba(255, 0, 85, 0.10);
+  --nebula-glow-4: rgba(190, 18, 60, 0.09);
+  --dawn-glow-1: rgba(239, 68, 68, 0.08);
+  --dawn-glow-2: rgba(244, 63, 94, 0.05);
+  --dawn-glow-3: rgba(255, 0, 85, 0.04);
+}
+
+/* ========================================================
+   3. DYNAMIC SUBJECT NEBULA BACKGROUNDS (DARK THEME)
+   ======================================================== */
+
+[data-theme="dark"] body {
+  background-color: var(--sky-space-deep);
+  background-image:
+    radial-gradient(ellipse 75% 55% at 18% 24%, var(--nebula-glow-1, rgba(6, 182, 212, 0.14)), transparent 60%),
+    radial-gradient(ellipse 65% 50% at 84% 68%, var(--nebula-glow-2, rgba(99, 102, 241, 0.13)), transparent 60%),
+    radial-gradient(ellipse 50% 38% at 50% 12%, var(--nebula-glow-3, rgba(168, 85, 247, 0.09)), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 75% 25%, var(--nebula-glow-4, rgba(245, 158, 11, 0.07)), transparent 50%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Dedicated subject nebula orientations */
+[data-theme="dark"][data-celestial-subject="fluid-mechanics"] body {
+  background-image:
+    radial-gradient(ellipse 80% 55% at 15% 25%, rgba(6, 182, 212, 0.18), transparent 60%),
+    radial-gradient(ellipse 65% 45% at 88% 70%, rgba(14, 116, 144, 0.16), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 48% 14%, rgba(0, 240, 255, 0.10), transparent 55%),
+    radial-gradient(ellipse 40% 30% at 72% 32%, rgba(3, 105, 161, 0.10), transparent 50%);
+}
+
+[data-theme="dark"][data-celestial-subject="aerospace-materials-1"] body {
+  background-image:
+    radial-gradient(ellipse 75% 55% at 20% 22%, rgba(245, 158, 11, 0.18), transparent 60%),
+    radial-gradient(ellipse 65% 48% at 82% 72%, rgba(217, 119, 6, 0.15), transparent 60%),
+    radial-gradient(ellipse 50% 38% at 52% 12%, rgba(251, 191, 36, 0.10), transparent 55%),
+    radial-gradient(ellipse 42% 32% at 74% 28%, rgba(180, 83, 9, 0.09), transparent 50%);
+}
+
+[data-theme="dark"][data-celestial-subject="engineering-mechanics"] body {
+  background-image:
+    radial-gradient(ellipse 75% 55% at 18% 26%, rgba(16, 185, 129, 0.18), transparent 60%),
+    radial-gradient(ellipse 65% 50% at 84% 66%, rgba(5, 150, 105, 0.15), transparent 60%),
+    radial-gradient(ellipse 50% 36% at 50% 12%, rgba(0, 245, 155, 0.10), transparent 55%),
+    radial-gradient(ellipse 42% 32% at 76% 26%, rgba(4, 120, 87, 0.09), transparent 50%);
+}
+
+[data-theme="dark"][data-celestial-subject="advanced-maths"] body {
+  background-image:
+    radial-gradient(ellipse 76% 56% at 16% 24%, rgba(99, 102, 241, 0.19), transparent 60%),
+    radial-gradient(ellipse 66% 50% at 85% 68%, rgba(139, 92, 246, 0.16), transparent 60%),
+    radial-gradient(ellipse 52% 38% at 50% 14%, rgba(167, 139, 250, 0.11), transparent 55%),
+    radial-gradient(ellipse 44% 34% at 74% 28%, rgba(79, 70, 229, 0.09), transparent 50%);
+}
+
+[data-theme="dark"][data-celestial-subject="business-management"] body {
+  background-image:
+    radial-gradient(ellipse 75% 55% at 18% 25%, rgba(239, 68, 68, 0.18), transparent 60%),
+    radial-gradient(ellipse 65% 50% at 84% 68%, rgba(244, 63, 94, 0.15), transparent 60%),
+    radial-gradient(ellipse 50% 38% at 52% 14%, rgba(255, 0, 85, 0.10), transparent 55%),
+    radial-gradient(ellipse 42% 32% at 75% 26%, rgba(190, 18, 60, 0.09), transparent 50%);
+}
+
+/* ========================================================
+   4. STRATOSPHERIC CARTOGRAPHY BACKGROUNDS (LIGHT THEME)
+   ======================================================== */
+
+[data-theme="light"] body {
+  background-color: var(--sky-dawn-base);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 16%, var(--dawn-glow-1, rgba(99, 102, 241, 0.06)), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 85% 72%, var(--dawn-glow-2, rgba(6, 182, 212, 0.05)), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.20) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 28px 28px;
+  background-attachment: fixed;
+  background-repeat: no-repeat, no-repeat, repeat;
+}
+
+[data-theme="light"][data-celestial-subject="fluid-mechanics"] body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 45% 18%, rgba(6, 182, 212, 0.08), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 85% 70%, rgba(14, 116, 144, 0.05), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.20) 1px, transparent 1px);
+}
+
+[data-theme="light"][data-celestial-subject="aerospace-materials-1"] body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 52% 18%, rgba(245, 158, 11, 0.08), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 82% 72%, rgba(217, 119, 6, 0.05), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(168, 162, 158, 0.22) 1px, transparent 1px);
+}
+
+[data-theme="light"][data-celestial-subject="engineering-mechanics"] body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 48% 18%, rgba(16, 185, 129, 0.08), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 86% 70%, rgba(5, 150, 105, 0.05), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.20) 1px, transparent 1px);
+}
+
+[data-theme="light"][data-celestial-subject="advanced-maths"] body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 18%, rgba(99, 102, 241, 0.08), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 85% 72%, rgba(139, 92, 246, 0.05), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.20) 1px, transparent 1px);
+}
+
+[data-theme="light"][data-celestial-subject="business-management"] body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 18%, rgba(239, 68, 68, 0.08), transparent 70%),
+    radial-gradient(ellipse 65% 45% at 85% 72%, rgba(244, 63, 94, 0.05), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.20) 1px, transparent 1px);
+}
+
+/* ========================================================
+   5. AEROSPACE GLASSMORPHISM & LUMINOUS HAIRLINE ELEVATION
+   ======================================================== */
+
+/* Dark Mode Glass Cards */
+[data-theme="dark"] .subject-card,
+[data-theme="dark"] .card,
+[data-theme="dark"] .topic-card,
+[data-theme="dark"] .problem-card,
+[data-theme="dark"] .formula-box,
+[data-theme="dark"] .formula-card,
+[data-theme="dark"] .solution-card,
+[data-theme="dark"] .block-container,
+[data-theme="dark"] .concept-card,
+[data-theme="dark"] .definition-box,
+[data-theme="dark"] .supernova-banner,
+[data-theme="dark"] .stat-card {
+  background: rgba(15, 23, 42, 0.74) !important;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid var(--glass-border-hairline-dark) !important;
+  box-shadow: inset 0 1px 0 0 var(--glass-highlight-dark),
+              0 8px 30px rgba(0, 0, 0, 0.40) !important;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Dark Mode Hover Glow */
+[data-theme="dark"] .subject-card:hover,
+[data-theme="dark"] .card:hover,
+[data-theme="dark"] .topic-card:hover,
+[data-theme="dark"] .problem-card:hover,
+[data-theme="dark"] .stat-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(var(--subject-rgb, 56, 189, 248), 0.48) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+              0 14px 44px rgba(0, 0, 0, 0.58),
+              0 0 24px rgba(var(--subject-rgb, 56, 189, 248), 0.22) !important;
+}
+
+/* Light Mode Glass Cards */
+[data-theme="light"] .subject-card,
+[data-theme="light"] .card,
+[data-theme="light"] .topic-card,
+[data-theme="light"] .problem-card,
+[data-theme="light"] .formula-box,
+[data-theme="light"] .formula-card,
+[data-theme="light"] .solution-card,
+[data-theme="light"] .block-container,
+[data-theme="light"] .concept-card,
+[data-theme="light"] .definition-box,
+[data-theme="light"] .supernova-banner,
+[data-theme="light"] .stat-card {
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--glass-border-hairline-light) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Light Mode Hover Glow */
+[data-theme="light"] .subject-card:hover,
+[data-theme="light"] .card:hover,
+[data-theme="light"] .topic-card:hover,
+[data-theme="light"] .problem-card:hover,
+[data-theme="light"] .stat-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: var(--subject-primary, #6366f1) !important;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08),
+              0 0 20px rgba(var(--subject-rgb, 99, 102, 241), 0.16) !important;
+}
+
+/* Glassmorphism Header & Sticky Navigation */
+.site-header,
+.page-header,
+.top-nav,
+.sticky-nav {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  position: relative;
+  z-index: 100;
+}
+
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .page-header,
+[data-theme="dark"] .top-nav,
+[data-theme="dark"] .sticky-nav {
+  background: rgba(7, 11, 20, 0.82) !important;
+  border-bottom: 1px solid var(--glass-border-hairline-dark) !important;
+}
+
+[data-theme="light"] .site-header,
+[data-theme="light"] .page-header,
+[data-theme="light"] .top-nav,
+[data-theme="light"] .sticky-nav {
+  background: rgba(248, 250, 252, 0.86) !important;
+  border-bottom: 1px solid var(--glass-border-hairline-light) !important;
+}
+
+/* Glassmorphism Navigation Pills & Buttons */
+.nav-pill,
+.ex-pill,
+.filter-btn,
+.back-link,
+.btn-secondary {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .back-link,
+[data-theme="dark"] .nav-pill,
+[data-theme="dark"] .ex-pill {
+  border: 1px solid var(--glass-border-hairline-dark);
+}
+
+[data-theme="light"] .back-link,
+[data-theme="light"] .nav-pill,
+[data-theme="light"] .ex-pill {
+  border: 1px solid var(--glass-border-hairline-light);
+}
+
+/* ========================================================
+   6. KATEX MATHEMATICS & ACCESSIBILITY READABILITY
+   ======================================================== */
+
+.katex {
+  font-size: 1.05em;
+  text-rendering: geometricPrecision;
+}
+
+.katex-display {
+  display: block;
+  margin: 1.25rem 0 !important;
+  padding: 1.15rem 1.45rem !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  border-radius: 12px !important;
+  max-width: 100%;
+}
+
+[data-theme="dark"] .katex-display {
+  background: rgba(13, 19, 33, 0.78) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+  color: #f8fafc;
+}
+
+[data-theme="light"] .katex-display {
+  background: rgba(241, 245, 249, 0.88) !important;
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03) !important;
+  color: #0f172a;
+}
+
+/* KaTeX horizontal scrollbar */
+.katex-display::-webkit-scrollbar {
+  height: 5px;
+}
+
+.katex-display::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="dark"] .katex-display::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 3px;
+}
+
+[data-theme="light"] .katex-display::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+}
+
+/* High contrast readability for headings and body text */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .topic-title,
+[data-theme="dark"] .set-title {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] .topic-title,
+[data-theme="light"] .set-title {
+  color: #0f172a;
+}
+
+/* ========================================================
+   7. BATTERY & REDUCED MOTION PREFERENCES
+   ======================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  #celestial-canvas,
+  .celestial-canvas {
+    transition: none !important;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
