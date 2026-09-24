@@ -28,7 +28,7 @@ flowchart TD
     B3 --> B4["Bloque IV: Classical PDEs & Fourier Analysis"]
     
     style B1 fill:#e0e7ff,stroke:#6366f1,stroke-width:2px;
-    style B2 fill:#f1f5f9,stroke:#94a3b8,stroke-width:1px;
+    style B2 fill:#e0e7ff,stroke:#6366f1,stroke-width:2px;
     style B3 fill:#f1f5f9,stroke:#94a3b8,stroke-width:1px;
     style B4 fill:#f1f5f9,stroke:#94a3b8,stroke-width:1px;
 ```
@@ -70,29 +70,37 @@ flowchart TD
   * `[[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Sustituciones No Lineales y Ecuación de Bernoulli]]` — Linearizing reduction $z = y^{1-\alpha}$ for Bernoulli's ODE $y' - ay = b y^\alpha$, similarity ratios $u = y/x$ for homogeneous equations, and tailored substitutions.
   * `[[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Análisis Cualitativo de EDOs Autónomas y Estabilidad]]` — Autonomous flow $\dot{x} = f(x)$, equilibria $f(x^*) = 0$, linear stability via $f'(x^*)$, 1D phase line portraits, and Picard's No-Crossing Theorem for trajectory confinement.
 * **Problem Sheet 2 (Full 4-Phase Step-by-Step Solutions — 17 Problems):**
-  1. `[[04 - Advanced Maths/Problema - Ch2-P1 Direct Integration General Solutions|Problem 2.1: Direct Integration General Solutions]]` — 5 antiderivative solutions ($e^{3x}-x$, $1/x$, $x e^{x^2}$, $\frac{x}{1+x}$, $\frac{x}{1+x^2}$).
-  2. `[[04 - Advanced Maths/Problema - Ch2-P2 Separable ODEs and Asymptotic Integrals|Problem 2.2: Separable ODEs and Asymptotic Integrals]]` — 5 separable equations, including the Gaussian IVP and blow-up threshold $y_0 = \frac{2}{\sqrt{\pi}}$.
-  3. `[[04 - Advanced Maths/Problema - Ch2-P3 Integrating Factor Method and Asymptotics|Problem 2.3: Integrating Factor Method and Asymptotics]]` — 8 linear ODEs solved with $\mu(t)$, hyperbolic functions, cotangent, and $t \to \infty$ limits.
-  4. `[[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Differential Equations]]` — 4 exact equations, exactness verification and potential reconstruction $F(x, y) = C$.
-  5. `[[04 - Advanced Maths/Problema - Ch2-P5 Integrating Factor for Non-Exact Equations|Problem 2.5: Integrating Factor for Non-Exact Equations]]` — Special integrating factor $\mu(x) = x$ and potential $x^3 y + \frac{1}{2} x^2 y^2 = C$.
-  6. `[[04 - Advanced Maths/Problema - Ch2-P6 Exactness of Separated Differential Forms|Problem 2.6: Exactness of Separated Differential Forms]]` — Universal proof that separated equations are exact, with applications to energy conservation and Lotka-Volterra orbits.
-  7. `[[04 - Advanced Maths/Problema - Ch2-P7 Nonlinear Change of Variables|Problem 2.7: Nonlinear Change of Variables]]` — Substitution $z = y^2$ linearizing $y' = y + x/y$, obtaining $y(x) = \sqrt{\frac{3}{2}e^{2x} - x - \frac{1}{2}}$.
-  8. `[[04 - Advanced Maths/Problema - Ch2-P8 General Bernoulli Equation Reduction|Problem 2.8: General Bernoulli Equation Reduction]]` — General transformation $z = y^{1-\alpha}$ and detailed analysis of degenerate linear cases $\alpha = 0, 1$.
-  9. `[[04 - Advanced Maths/Problema - Ch2-P9 Solution Uniqueness and Lipschitz Analysis|Problem 2.9: Solution Uniqueness and Lipschitz Analysis]]` — Rigorous Lipschitz derivative testing at $x_0 = 0$ for 5 powers of $x$.
+  1. `[[04 - Advanced Maths/Problema - Ch2-P1 Direct Integration General Solutions|Problem 2.1: Direct Integration General Solutions]]` — 5 antiderivative solutions.
+  2. `[[04 - Advanced Maths/Problema - Ch2-P2 Separable ODEs and Asymptotic Integrals|Problem 2.2: Separable ODEs and Asymptotic Integrals]]` — 5 separable equations with Gaussian blow-up threshold $y_0 = \frac{2}{\sqrt{\pi}}$.
+  3. `[[04 - Advanced Maths/Problema - Ch2-P3 Integrating Factor Method and Asymptotics|Problem 2.3: Integrating Factor Method and Asymptotics]]` — 8 linear ODEs solved with $\mu(t)$ and $t \to \infty$ limits.
+  4. `[[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Differential Equations]]` — 4 exact equations and potential reconstruction $F(x, y) = C$.
+  5. `[[04 - Advanced Maths/Problema - Ch2-P5 Integrating Factor for Non-Exact Equations|Problem 2.5: Integrating Factor for Non-Exact Equations]]` — Special integrating factor $\mu(x) = x$.
+  6. `[[04 - Advanced Maths/Problema - Ch2-P6 Exactness of Separated Differential Forms|Problem 2.6: Exactness of Separated Differential Forms]]` — Universal proof that separated equations are exact.
+  7. `[[04 - Advanced Maths/Problema - Ch2-P7 Nonlinear Change of Variables|Problem 2.7: Nonlinear Change of Variables]]` — Substitution $z = y^2$ linearizing $y' = y + x/y$.
+  8. `[[04 - Advanced Maths/Problema - Ch2-P8 General Bernoulli Equation Reduction|Problem 2.8: General Bernoulli Equation Reduction]]` — General transformation $z = y^{1-\alpha}$.
+  9. `[[04 - Advanced Maths/Problema - Ch2-P9 Solution Uniqueness and Lipschitz Analysis|Problem 2.9: Solution Uniqueness and Lipschitz Analysis]]` — Rigorous Lipschitz derivative testing at $x_0 = 0$.
   10. `[[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Uniqueness via Integrating Transformation]]` — Non-Picard uniqueness proof via $z(t) = y(t)\exp(\int p ds)$.
-  11. `[[04 - Advanced Maths/Problema - Ch2-P11 Invariance of Solution Ratios in Linear ODEs|Problem 2.11: Invariance of Solution Ratios in Linear ODEs]]` — Quotient rule proof that $\frac{d}{dt}\left(\frac{y_1}{y_2}\right) = 0$, proving 1D solution space and zero Wronskian.
-  12. `[[04 - Advanced Maths/Problema - Ch2-P12 Trajectory Crossing and Uniqueness Bounds|Problem 2.12: Trajectory Crossing and Uniqueness Bounds]]` — No-crossing theorem bounds: $y(t) > -2$ and $-t-1 < y(t) < t^2+1$.
-  13. `[[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Multi-Equilibria Autonomous Phase Line Dynamics]]` — Confinement across 4 invariant intervals for $y' = y(y-2)(y-3)$.
-  14. `[[04 - Advanced Maths/Problema - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem|Problem 2.14: Non-Lipschitz Branching Pathology in Picard Theorem]]` — Dual solutions $y_1 = t^3, y_2 = 0$ and resolution of the apparent Picard contradiction.
-  15. `[[04 - Advanced Maths/Problema - Ch2-P15 Singular ODE and Domain of Definition|Problem 2.15: Singular ODE and Domain of Definition]]` — Coexistence of multiple solutions at $t = 0$ for $y' = \frac{2y+1}{t}$ due to coordinate singularity.
-  16. `[[04 - Advanced Maths/Problema - Ch2-P16 Pitchfork Phase Line and Stability Regimes|Problem 2.16: Pitchfork Phase Line and Stability Regimes]]` — Stationary points $0, \pm\kappa$, exact analytical solution, and bistable pitchfork attractor dynamics.
+  11. `[[04 - Advanced Maths/Problema - Ch2-P11 Invariance of Solution Ratios in Linear ODEs|Problem 2.11: Invariance of Solution Ratios in Linear ODEs]]` — Quotient rule proof that $\frac{d}{dt}(y_1/y_2) = 0$.
+  12. `[[04 - Advanced Maths/Problema - Ch2-P12 Trajectory Crossing and Uniqueness Bounds|Problem 2.12: Trajectory Crossing and Uniqueness Bounds]]` — No-crossing theorem bounds.
+  13. `[[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Multi-Equilibria Autonomous Phase Line Dynamics]]` — Confinement across 4 invariant intervals.
+  14. `[[04 - Advanced Maths/Problema - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem|Problem 2.14: Non-Lipschitz Branching Pathology in Picard Theorem]]` — Dual solutions and Picard Lipschitz violation.
+  15. `[[04 - Advanced Maths/Problema - Ch2-P15 Singular ODE and Domain of Definition|Problem 2.15: Singular ODE and Domain of Definition]]` — Coexistence of multiple solutions at $t = 0$ due to domain singularity.
+  16. `[[04 - Advanced Maths/Problema - Ch2-P16 Pitchfork Phase Line and Stability Regimes|Problem 2.16: Pitchfork Phase Line and Stability Regimes]]` — Stationary points and pitchfork bifurcation.
   17. `[[04 - Advanced Maths/Problema - Ch2-P17 Direct Difference Method for Uniqueness|Problem 2.17: Direct Difference Method for Uniqueness]]` — Solution by inspection and uniqueness via energy functional $E(t) = [w(t)]^2$.
 
 ---
 
 ### ⚙️ Bloque II: Second-Order Linear ODEs and Oscillations
-* **Topics:** Homogeneous and non-homogeneous equations, linear independence, the Wronskian determinant, reduction of order, characteristic equations (real, repeated, and complex conjugate roots), method of undetermined coefficients, variation of parameters, forced mechanical oscillations and resonance.
-* *Status: Scheduled for upcoming unit development.*
+
+#### Unit 3: Second-Order Linear ODEs: General Theory and Constant Coefficients
+* **Unit Guide:** `[[04 - Advanced Maths/Tema 3 - Second-Order Linear ODEs General Theory and Constant Coefficients|Tema 3: Second-Order Linear ODEs General Theory and Constant Coefficients]]`
+* **Theoretical Concepts:**
+  * `[[04 - Advanced Maths/Concepto - Teorema de Existencia y Unicidad para EDOs de Segundo Orden|Teorema de Existencia y Unicidad para EDOs de Segundo Orden]]` — Standard normalized form $x'' + p(t)x' + q(t)x = f(t)$, Robinson Theorem 11.1, two initial conditions $x(t_0)=x_0, x'(t_0)=y_0$, global existence without finite-time blow-up, and reduction to $2\times 2$ first-order system.
+  * `[[04 - Advanced Maths/Concepto - Operador Lineal y Principio de Superposicion|Operador Lineal y Principio de Superposición]]` — Differential operator $L[x] = x'' + p(t)x' + q(t)x$, linearity proof, Superposition Principle for homogeneous equations, algebraic structure $\ker(L) \subset C^2(I)$, and general non-homogeneous decomposition $x = x_h + x_p$.
+  * `[[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Independencia Lineal de Funciones y Determinante Wronskiano]]` — Linear independence definition, IVP solvability, the Wronskian determinant $W[x_1, x_2](t) = x_1 x_2' - x_2 x_1'$, fundamental solution sets, and constructive proof that $\dim(\ker(L)) = 2$.
+  * `[[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Identidad de Abel y Propiedades del Wronskiano]]` — Derivation of $W'(t) = -p(t)W(t)$, Abel's identity $W(t) = W(t_0)\exp(-\int p ds)$, the Wronskian Dichotomy (either non-zero everywhere or identically zero), and d'Alembert reduction of order.
+  * `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas con Coeficientes Constantes y Ecuación Característica]]` — Exponential ansatz $x = e^{kt}$, characteristic equation $a k^2 + b k + c = 0$, distinct real roots ($\Delta > 0$), repeated root ($\Delta = 0$) with proof of $t e^{kt}$, complex conjugate roots ($\Delta < 0$) via Euler's formula, polar amplitude-phase form $M e^{\rho t}\cos(\omega t - \phi)$, and mechanical damping regimes.
+* *Problem Sets: Scheduled for upcoming unit development (ProblemsCh3.pdf).*
 
 ---
 

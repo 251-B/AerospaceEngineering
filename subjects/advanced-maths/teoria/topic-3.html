@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3: Second-Order Linear ODEs: General Theory and Constant Coefficients — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(20, 30, 55, 0.90);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      --code-bg: #090d16;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.90);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --code-bg: #f1f5f9;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      right: 10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT
+       ======================================================== */
+    .article-container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-lead {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 860px;
+    }
+
+    .source-banner {
+      margin-top: 20px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Quick Jump Table of Contents */
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 44px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .toc-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+
+    .toc-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateX(4px);
+    }
+
+    .toc-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 22px;
+    }
+
+    /* ========================================================
+       SECTION & TYPOGRAPHY
+       ======================================================== */
+    section.topic-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 80px;
+    }
+
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .heading-pill {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h3.subheading {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 28px 0 14px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text-body);
+    }
+
+    ul, ol {
+      margin: 12px 0 20px 24px;
+      color: var(--text-body);
+    }
+
+    li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    /* ========================================================
+       SPECIAL CALLOUT & THEOREM BOXES
+       ======================================================== */
+    .callout {
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin: 24px 0;
+      border: 1px solid transparent;
+      position: relative;
+    }
+
+    .callout-theorem {
+      background: var(--bg-card);
+      border-color: var(--accent-border);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-definition {
+      background: var(--bg-card);
+      border-color: rgba(16, 185, 129, 0.3);
+      border-left: 4px solid #10b981;
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.05);
+      border-color: rgba(245, 158, 11, 0.3);
+      border-left: 4px solid #f59e0b;
+    }
+
+    .callout-example {
+      background: var(--bg-card);
+      border-color: rgba(6, 182, 212, 0.3);
+      border-left: 4px solid #06b6d4;
+    }
+
+    .callout-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+
+    .callout-theorem .callout-header { color: var(--accent); }
+    .callout-definition .callout-header { color: #10b981; }
+    .callout-warning .callout-header { color: #f59e0b; }
+    .callout-example .callout-header { color: #06b6d4; }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Math Formula Highlighting Box */
+    .formula-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      margin: 20px 0;
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    .formula-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* Table styling */
+    .regime-table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+    }
+
+    table.regime-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    table.regime-table th {
+      background: var(--bg-input);
+      color: var(--text-heading);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    table.regime-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+      vertical-align: middle;
+    }
+
+    table.regime-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.regime-table tr:hover td {
+      background: var(--accent-soft);
+    }
+
+    /* Proof step list */
+    .proof-steps {
+      list-style: none;
+      margin: 16px 0;
+      padding-left: 0;
+    }
+
+    .proof-step-item {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 16px;
+    }
+
+    .step-marker {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========================================================
+       BOTTOM NAVIGATION
+       ======================================================== */
+    .topic-nav-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .nav-btn-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .nav-btn-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    footer.site-footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 24px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ============================================
+       TOP HEADER
+       ============================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="index.html" class="back-link">
+          <span>←</span>
+          <span>Theory Index</span>
+        </a>
+        <a href="../../../index.html" class="back-link">
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">Topic 3 • 2nd-Order Linear ODEs</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../problemas/index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><path d="M10.5 7L4 21m9.5-14L20 21"/><path d="M7 15h10"/></svg>
+          <span>Problems Hub</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Light / Dark theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       MAIN ARTICLE CONTENT
+       ============================================ -->
+  <main class="article-container">
+    
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Topic 03 • Lecture Notes</span>
+        <span class="course-tag">UC3M Aerospace Engineering • Year 2 • Fall Semester</span>
+      </div>
+      <h1 class="article-title">Second-Order Linear ODEs:<br>General Theory and Constant Coefficients</h1>
+      <p class="article-lead">
+        A rigorous academic presentation of the analytical and algebraic theory of second-order linear differential equations.
+        Covering standard canonical forms, Robinson's fundamental Existence and Uniqueness Theorem, vectorization into first-order systems, 
+        the differential operator $L$ and the Superposition Principle, linear independence, the Wronskian determinant, 
+        the constructive proof that $\dim(\ker(L)) = 2$, Abel's identity and the Wronskian dichotomy, and an exhaustive analysis of 
+        constant-coefficient systems across distinct real, critically repeated, and complex conjugate harmonic oscillatory regimes.
+      </p>
+
+      <div class="source-banner">
+        <span>📖 Primary Source: J.C. Robinson, <em>An Introduction to Ordinary Differential Equations</em> (Chapters 11 &amp; 12)</span>
+        <span>•</span>
+        <span>Lecture Schedule: September 22nd Session</span>
+      </div>
+    </header>
+
+    <!-- Table of Contents Quick Jump -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span>Table of Contents &amp; Core Sections</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#section-1" class="toc-link">
+          <span class="toc-num">01</span>
+          <span>Canonical Forms &amp; Physical Oscillations</span>
+        </a>
+        <a href="#section-2" class="toc-link">
+          <span class="toc-num">02</span>
+          <span>Existence &amp; Uniqueness for 2nd-Order IVPs</span>
+        </a>
+        <a href="#section-3" class="toc-link">
+          <span class="toc-num">03</span>
+          <span>The Linear Operator $L$ &amp; Superposition</span>
+        </a>
+        <a href="#section-4" class="toc-link">
+          <span class="toc-num">04</span>
+          <span>Linear Independence &amp; The Wronskian</span>
+        </a>
+        <a href="#section-5" class="toc-link">
+          <span class="toc-num">05</span>
+          <span>Abel's Identity &amp; Wronskian Dichotomy</span>
+        </a>
+        <a href="#section-6" class="toc-link">
+          <span class="toc-num">06</span>
+          <span>Constant-Coefficient Homogeneous ODEs</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- ========================================================
+         SECTION 1
+         ======================================================== -->
+    <section id="section-1" class="topic-section">
+      <h2 class="section-heading">
+        <span class="heading-pill">Section 1</span>
+        <span>Introduction, Canonical Forms &amp; Physical Oscillations</span>
+      </h2>
+
+      <p>
+        In engineering mechanics and aerospace applications, dynamic laws are overwhelmingly formulated as second-order differential equations. 
+        Newton's Second Law ($\mathbf{F} = m \mathbf{a} = m \ddot{\mathbf{x}}$) establishes that the second time derivative of displacement—the acceleration—is determined by forces 
+        which may depend on time $t$, position $x(t)$, and velocity $\dot{x}(t)$.
+      </p>
+
+      <h3 class="subheading">1.1 General and Normalized Standard Forms</h3>
+      <p>
+        A general second-order linear ordinary differential equation in the unknown real-valued function $x(t)$ defined on an open interval $I \subseteq \mathbb{R}$ takes the form:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">General Form</span>
+        $$ a_2(t) \frac{d^2 x}{dt^2} + a_1(t) \frac{dx}{dt} + a_0(t) x(t) = g(t) $$
+      </div>
+
+      <p>
+        where $a_2(t), a_1(t), a_0(t)$, and $g(t)$ are given continuous functions on $I$. On any open subinterval where the leading coefficient function does not vanish ($a_2(t) \neq 0$), 
+        we divide through by $a_2(t)$ to obtain the <strong>normalized canonical standard form</strong>:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Normalized Standard Form</span>
+        $$ \frac{d^2 x}{dt^2} + p(t) \frac{dx}{dt} + q(t) x(t) = f(t) \quad \iff \quad x'' + p(t)x' + q(t)x = f(t) $$
+      </div>
+
+      <p>
+        where the normalized coefficient functions and non-homogeneous source term are defined by:
+      </p>
+      $$ p(t) \equiv \frac{a_1(t)}{a_2(t)}, \quad q(t) \equiv \frac{a_0(t)}{a_2(t)}, \quad f(t) \equiv \frac{g(t)}{a_2(t)} $$
+
+      <div class="callout callout-warning">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Singular Points of the Differential Equation</span>
+        </div>
+        <p>
+          Any point $t_s \in \mathbb{R}$ at which $a_2(t_s) = 0$ is a <strong>singular point</strong> of the differential equation. 
+          At such points, $p(t)$ or $q(t)$ may become unbounded, and the fundamental existence and uniqueness theory does not guarantee the smooth continuation of solutions across $t_s$. 
+          Analytical domain boundaries must always be chosen within intervals where $a_2(t) \neq 0$.
+        </p>
+      </div>
+
+      <h3 class="subheading">1.2 Physical Paradigm: Damped Mechanical Oscillators</h3>
+      <p>
+        Consider a classic spring-mass-damper system, representative of an aircraft oleo-pneumatic landing gear strut, an aeroelastic wing section, or a satellite attitude suspension:
+      </p>
+      $$ m \ddot{x} + c \dot{x} + k x = F_{\text{ext}}(t) $$
+      <p>
+        Dividing by the inertia mass $m > 0$:
+      </p>
+      $$ \ddot{x} + \frac{c}{m}\dot{x} + \frac{k}{m}x = \frac{F_{\text{ext}}(t)}{m} \implies \ddot{x} + 2\zeta \omega_n \dot{x} + \omega_n^2 x = \frac{F_{\text{ext}}(t)}{m} $$
+      <p>
+        where $\omega_n = \sqrt{k/m}$ is the undamped natural frequency and $\zeta = \frac{c}{2\sqrt{km}}$ is the damping ratio. 
+        Notice that in order to uniquely predict the trajectory of the mass forwards and backwards in time, knowing the initial position $x(t_0) = x_0$ alone is insufficient; 
+        one must also prescribe its initial velocity $\dot{x}(t_0) = y_0$. This physical requirement establishes the mathematical structure of the Second-Order Initial Value Problem (IVP).
+      </p>
+
+      <div class="callout callout-definition">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>Definition: Second-Order Initial Value Problem (IVP)</span>
+        </div>
+        <p>
+          Given an open interval $I \subseteq \mathbb{R}$, continuous functions $p, q, f: I \to \mathbb{R}$, a base point $t_0 \in I$, and arbitrary initial data $x_0, y_0 \in \mathbb{R}$, 
+          the <strong>Second-Order Initial Value Problem</strong> consists of finding a twice-differentiable function $x: I \to \mathbb{R}$ satisfying:
+        </p>
+        $$ \begin{cases} x'' + p(t)x' + q(t)x = f(t) \\ x(t_0) = x_0 \\ x'(t_0) = y_0 \end{cases} $$
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2
+         ======================================================== -->
+    <section id="section-2" class="topic-section">
+      <h2 class="section-heading">
+        <span class="heading-pill">Section 2</span>
+        <span>Existence and Uniqueness for Second-Order IVPs</span>
+      </h2>
+
+      <p>
+        The bedrock of linear differential equation theory is that solutions to linear Initial Value Problems not only exist and are strictly unique, 
+        but their domain of definition is determined completely and globally by the continuity of the coefficient functions.
+      </p>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Theorem 11.1 (Robinson: Fundamental Existence and Uniqueness Theorem)</span>
+        </div>
+        <p>
+          Let the coefficient functions $p(t)$, $q(t)$, and the forcing term $f(t)$ be <strong>continuous</strong> on an open interval $I = (a, b) \subseteq \mathbb{R}$. 
+          Let $t_0 \in I$ be any arbitrary point, and let $x_0, y_0 \in \mathbb{R}$ be arbitrary prescribed constants.
+        </p>
+        <p style="margin-top: 10px;">
+          Then there exists a <strong>unique solution</strong> $x(t)$ to the initial value problem:
+        </p>
+        $$ \begin{cases} x'' + p(t)x' + q(t)x = f(t) \\ x(t_0) = x_0 \\ x'(t_0) = y_0 \end{cases} $$
+        <p style="margin-top: 10px;">
+          Furthermore, this unique solution $x(t)$ is twice continuously differentiable ($x \in C^2(I)$) and is defined on the <strong>entire interval $I$</strong>.
+        </p>
+      </div>
+
+      <h3 class="subheading">2.1 Vectorization: Reduction to a First-Order $2 \times 2$ Planar System</h3>
+      <p>
+        The rigorous proof of Theorem 11.1 rests on converting the scalar second-order ODE into an equivalent system of two coupled first-order ODEs. 
+        We introduce the phase-space state vector $\mathbf{X}(t) \in \mathbb{R}^2$:
+      </p>
+      $$ \mathbf{X}(t) = \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix} \equiv \begin{pmatrix} x(t) \\ x'(t) \end{pmatrix} $$
+      <p>
+        Differentiating $\mathbf{X}(t)$ with respect to time $t$:
+      </p>
+      $$ x_1'(t) = x'(t) = x_2(t) $$
+      $$ x_2'(t) = x''(t) = -q(t)x(t) - p(t)x'(t) + f(t) = -q(t)x_1(t) - p(t)x_2(t) + f(t) $$
+      <p>
+        Expressing this in matrix-vector form yields the non-autonomous first-order planar system:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Equivalent $2 \times 2$ First-Order System</span>
+        $$ \frac{d\mathbf{X}}{dt} = \begin{pmatrix} 0 & 1 \\ -q(t) & -p(t) \end{pmatrix} \mathbf{X}(t) + \begin{pmatrix} 0 \\ f(t) \end{pmatrix}, \quad \mathbf{X}(t_0) = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} $$
+      </div>
+
+      <p>
+        Because the matrix entries $0, 1, -q(t), -p(t)$ and the vector $(0, f(t))^T$ are continuous on $I$, the vector field $\mathbf{F}(t, \mathbf{X}) = A(t)\mathbf{X} + \mathbf{b}(t)$ 
+        is globally Lipschitz continuous with respect to $\mathbf{X}$ on every compact subinterval $[t_1, t_2] \subset I$. 
+        By the Picard-Lindelöf Theorem for vector systems, there exists a unique solution $\mathbf{X}(t)$ defined for all $t \in I$. 
+        The first component $x_1(t) = x(t)$ provides the unique solution to the original scalar equation.
+      </p>
+
+      <h3 class="subheading">2.2 Absence of Finite-Time Blow-Up in Linear Equations</h3>
+      <p>
+        A profound property of <em>linear</em> differential equations—in sharp contrast to nonlinear equations—is that <strong>solutions cannot undergo finite-time blow-up</strong> within the interval of continuity $I$.
+      </p>
+      <ul>
+        <li>
+          <strong>Nonlinear contrast:</strong> For the nonlinear IVP $x' = x^2, x(0) = 1$, the right-hand side is $C^\infty(\mathbb{R})$, yet the unique solution $x(t) = \frac{1}{1-t}$ experiences finite-time blow-up at $t^* = 1$.
+        </li>
+        <li>
+          <strong>Linear global guarantee:</strong> In a linear ODE $x'' + p(t)x' + q(t)x = f(t)$, the maximal interval of existence of the solution $x(t)$ is guaranteed to be <em>at least as large</em> as the common interval of continuity of $p(t), q(t)$, and $f(t)$. Singularities in the solution can only occur where $p(t), q(t)$, or $f(t)$ are singular, or where the leading coefficient $a_2(t) = 0$.
+        </li>
+      </ul>
+
+      <div class="callout callout-example">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Example: Determining the Maximal Interval of Existence</span>
+        </div>
+        <p>
+          Consider the initial value problem:
+        </p>
+        $$ (t^2 - 4) x'' + 3t x' + x = \ln(t + 1), \quad x(1) = 2, \quad x'(1) = -1 $$
+        <p>
+          First, put the equation into normalized canonical form:
+        </p>
+        $$ x'' + \frac{3t}{(t-2)(t+2)} x' + \frac{1}{(t-2)(t+2)} x = \frac{\ln(t+1)}{(t-2)(t+2)} $$
+        <p>
+          Identify the domains of continuity of the individual terms:
+        </p>
+        <ul style="margin-bottom: 8px;">
+          <li>Leading coefficient $a_2(t) = t^2 - 4 = 0 \implies t = \pm 2$.</li>
+          <li>Source term $f(t) = \frac{\ln(t+1)}{t^2 - 4}$ requires $t + 1 > 0 \implies t > -1$ and $t \neq 2$.</li>
+        </ul>
+        <p>
+          The continuous intervals for all coefficients simultaneously are $(-1, 2)$ and $(2, \infty)$. 
+          Since the initial base point is $t_0 = 1 \in (-1, 2)$, Theorem 11.1 guarantees that the unique solution $x(t)$ exists on the <strong>entire interval $I = (-1, 2)$</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3
+         ======================================================== -->
+    <section id="section-3" class="topic-section">
+      <h2 class="section-heading">
+        <span class="heading-pill">Section 3</span>
+        <span>The Linear Operator $L$ &amp; The Superposition Principle</span>
+      </h2>
+
+      <p>
+        The algebraic structure of solutions to linear differential equations is governed by operator theory on infinite-dimensional function spaces.
+      </p>
+
+      <h3 class="subheading">3.1 Definition of the Differential Operator $L$</h3>
+      <p>
+        Let $C^2(I)$ denote the vector space of real-valued functions defined on an open interval $I$ with continuous second derivatives, 
+        and let $C^0(I)$ denote the space of continuous functions on $I$. We define the <strong>second-order linear differential operator</strong> $L: C^2(I) \to C^0(I)$ by:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Linear Differential Operator</span>
+        $$ L[x](t) \equiv x''(t) + p(t)x'(t) + q(t)x(t) $$
+      </div>
+
+      <p>
+        With this operator notation:
+      </p>
+      <ul>
+        <li>The non-homogeneous equation is written compactly as: $L[x] = f$.</li>
+        <li>The homogeneous equation (where $f(t) \equiv 0$) is written as: $L[x] = 0$.</li>
+      </ul>
+
+      <h3 class="subheading">3.2 Formal Proof of Operator Linearity</h3>
+      <p>
+        Recall that an operator $L$ is <em>linear</em> if it preserves vector addition and scalar multiplication: 
+        $L[\alpha x_1 + \beta x_2] = \alpha L[x_1] + \beta L[x_2]$ for all $x_1, x_2 \in C^2(I)$ and all $\alpha, \beta \in \mathbb{R}$.
+      </p>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Theorem: Linearity of the Differential Operator $L$</span>
+        </div>
+        <p><strong>Proof:</strong></p>
+        <p>Let $x_1, x_2 \in C^2(I)$ and let $\alpha, \beta \in \mathbb{R}$. Consider the linear combination $y(t) = \alpha x_1(t) + \beta x_2(t)$. 
+        By the fundamental linearity of ordinary differentiation:
+        </p>
+        $$ y'(t) = \frac{d}{dt}\left[\alpha x_1(t) + \beta x_2(t)\right] = \alpha x_1'(t) + \beta x_2'(t) $$
+        $$ y''(t) = \frac{d^2}{dt^2}\left[\alpha x_1(t) + \beta x_2(t)\right] = \alpha x_1''(t) + \beta x_2''(t) $$
+        <p>Substituting $y(t), y'(t)$, and $y''(t)$ into the definition of $L$:</p>
+        $$ \begin{aligned}
+        L[\alpha x_1 + \beta x_2] &= (\alpha x_1'' + \beta x_2'') + p(t)(\alpha x_1' + \beta x_2') + q(t)(\alpha x_1 + \beta x_2) \\
+        &= \left[ \alpha x_1'' + \alpha p(t)x_1' + \alpha q(t)x_1 \right] + \left[ \beta x_2'' + \beta p(t)x_2' + \beta q(t)x_2 \right] \\
+        &= \alpha \left[ x_1'' + p(t)x_1' + q(t)x_1 \right] + \beta \left[ x_2'' + p(t)x_2' + q(t)x_2 \right] \\
+        &= \alpha L[x_1] + \beta L[x_2]
+        \end{aligned} $$
+        <p>This completes the proof. $\blacksquare$</p>
+      </div>
+
+      <h3 class="subheading">3.3 The Superposition Principle and the Solution Subspace $\ker(L)$</h3>
+      <p>
+        An immediate and powerful consequence of the linearity of $L$ is the <strong>Principle of Superposition</strong> for homogeneous differential equations:
+      </p>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>The Superposition Principle for Homogeneous Equations</span>
+        </div>
+        <p>
+          If $x_1(t)$ and $x_2(t)$ are any two solutions of the homogeneous equation $L[x] = 0$ on the interval $I$, then for any arbitrary constants $c_1, c_2 \in \mathbb{R}$, 
+          the linear combination:
+        </p>
+        $$ x(t) = c_1 x_1(t) + c_2 x_2(t) $$
+        <p>is also a solution of $L[x] = 0$ on $I$.</p>
+        <p style="margin-top: 8px;"><strong>Proof:</strong> Applying linearity: $L[c_1 x_1 + c_2 x_2] = c_1 L[x_1] + c_2 L[x_2] = c_1(0) + c_2(0) = 0$. $\blacksquare$</p>
+      </div>
+
+      <p>
+        In algebraic terms, the set of all solutions to the homogeneous equation is precisely the <strong>kernel</strong> (or null space) of $L$:
+      </p>
+      $$ S_H \equiv \{ x \in C^2(I) : L[x] = 0 \} = \ker(L) $$
+      <p>
+        Since $L$ is linear, $\ker(L)$ is an authentic <strong>vector subspace</strong> of $C^2(I)$, closed under addition and scalar multiplication.
+      </p>
+
+      <h3 class="subheading">3.4 Affine Structure of the Non-Homogeneous Solution</h3>
+      <p>
+        For the non-homogeneous equation $L[x] = f(t)$, the solution set is an affine subspace:
+      </p>
+      $$ x(t) = x_h(t) + x_p(t) $$
+      <p>
+        where $x_h \in \ker(L)$ is the general complementary solution to the homogeneous equation, and $x_p \in C^2(I)$ is <em>any</em> particular solution satisfying $L[x_p] = f$. 
+        Indeed, if $x_A$ and $x_B$ are any two solutions of $L[x] = f$, their difference satisfies:
+      </p>
+      $$ L[x_A - x_B] = L[x_A] - L[x_B] = f - f = 0 \implies x_A - x_B \in \ker(L) $$
+    </section>
+
+    <!-- ========================================================
+         SECTION 4
+         ======================================================== -->
+    <section id="section-4" class="topic-section">
+      <h2 class="section-heading">
+        <span class="heading-pill">Section 4</span>
+        <span>Linear Independence of Functions &amp; The Wronskian Determinant</span>
+      </h2>
+
+      <p>
+        Having established that the set of homogeneous solutions $\ker(L)$ is a vector space, our central objective is to determine its <strong>dimension</strong> 
+        and construct a <strong>basis</strong>.
+      </p>
+
+      <h3 class="subheading">4.1 Definition of Linear Independence</h3>
+
+      <div class="callout callout-definition">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>Definition 11.2 (Robinson): Linearly Independent Functions</span>
+        </div>
+        <p>
+          Two functions $x_1, x_2: I \to \mathbb{R}$ are said to be <strong>linearly dependent</strong> on an interval $I$ if there exist constants $c_1, c_2 \in \mathbb{R}$, 
+          not both zero ($c_1^2 + c_2^2 \neq 0$), such that:
+        </p>
+        $$ c_1 x_1(t) + c_2 x_2(t) = 0 \quad \text{for all } t \in I $$
+        <p style="margin-top: 8px;">
+          Conversely, $x_1(t)$ and $x_2(t)$ are <strong>linearly independent</strong> on $I$ if the only linear combination that vanishes identically on $I$ is the trivial one:
+        </p>
+        $$ c_1 x_1(t) + c_2 x_2(t) = 0 \quad \forall t \in I \implies c_1 = 0 \text{ and } c_2 = 0 $$
+      </div>
+
+      <p>
+        For exactly two functions, linear dependence on $I$ simply means that one function is a constant multiple of the other: $x_2(t) = k x_1(t)$ or $x_1(t) = k x_2(t)$ for all $t \in I$.
+      </p>
+
+      <h3 class="subheading">4.2 Fitting Initial Conditions: Derivation of the Wronskian</h3>
+      <p>
+        Suppose we have found two solutions $x_1(t), x_2(t)$ of $L[x] = 0$. By superposition, $x(t) = c_1 x_1(t) + c_2 x_2(t)$ is a solution for any $c_1, c_2 \in \mathbb{R}$. 
+        Can we always find constants $c_1, c_2$ to satisfy arbitrary prescribed initial conditions at an arbitrary base point $t_0 \in I$?
+      </p>
+      $$ \begin{cases} x(t_0) = x_0 \\ x'(t_0) = y_0 \end{cases} $$
+      <p>
+        Evaluating $x(t)$ and its derivative $x'(t) = c_1 x_1'(t) + c_2 x_2'(t)$ at $t = t_0$ produces the linear algebraic system:
+      </p>
+      $$ \begin{cases} c_1 x_1(t_0) + c_2 x_2(t_0) = x_0 \\ c_1 x_1'(t_0) + c_2 x_2'(t_0) = y_0 \end{cases} \iff \begin{pmatrix} x_1(t_0) & x_2(t_0) \\ x_1'(t_0) & x_2'(t_0) \end{pmatrix} \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} $$
+      <p>
+        By elementary linear algebra, this $2 \times 2$ system has a <strong>unique solution</strong> $(c_1, c_2)$ for <em>any</em> prescribed vector $(x_0, y_0)^T$ 
+        if and only if the coefficient matrix is invertible—that is, its determinant is non-zero.
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Definition: The Wronskian Determinant</span>
+        $$ W[x_1, x_2](t) \equiv \det \begin{pmatrix} x_1(t) & x_2(t) \\ x_1'(t) & x_2'(t) \end{pmatrix} = x_1(t) x_2'(t) - x_2(t) x_1'(t) $$
+      </div>
+
+      <p>
+        By Cramer's Rule, when $W(t_0) \neq 0$, the unique coefficients are given explicitly by:
+      </p>
+      $$ c_1 = \frac{x_0 x_2'(t_0) - y_0 x_2(t_0)}{W[x_1, x_2](t_0)}, \quad c_2 = \frac{y_0 x_1(t_0) - x_0 x_1'(t_0)}{W[x_1, x_2](t_0)} $$
+
+      <h3 class="subheading">4.3 Constructive Proof that $\dim(\ker(L)) = 2$</h3>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Theorem: Dimension of the Solution Space</span>
+        </div>
+        <p>
+          Let $p(t)$ and $q(t)$ be continuous on the open interval $I$. The vector space of solutions to the homogeneous second-order linear differential equation:
+        </p>
+        $$ S_H = \ker(L) = \{ x \in C^2(I) : x'' + p(t)x' + q(t)x = 0 \} $$
+        <p>has dimension <strong>exactly 2</strong>: $\dim(\ker(L)) = 2$.</p>
+      </div>
+
+      <p><strong>Rigorous Constructive Proof:</strong></p>
+      <ul class="proof-steps">
+        <li class="proof-step-item">
+          <span class="step-marker">1</span>
+          Fix an arbitrary base point $t_0 \in I$.
+        </li>
+        <li class="proof-step-item">
+          <span class="step-marker">2</span>
+          By Theorem 11.1 (Existence and Uniqueness), there exist two unique solutions $u_1(t)$ and $u_2(t)$ on $I$ defined by the canonical initial conditions:
+          $$ \begin{cases} u_1(t_0) = 1 \\ u_1'(t_0) = 0 \end{cases} \quad \text{and} \quad \begin{cases} u_2(t_0) = 0 \\ u_2'(t_0) = 1 \end{cases} $$
+        </li>
+        <li class="proof-step-item">
+          <span class="step-marker">3</span>
+          Compute the Wronskian of $\{u_1, u_2\}$ at $t_0$:
+          $$ W[u_1, u_2](t_0) = \det \begin{pmatrix} u_1(t_0) & u_2(t_0) \\ u_1'(t_0) & u_2'(t_0) \end{pmatrix} = \det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = (1)(1) - (0)(0) = 1 \neq 0 $$
+          Since $W(t_0) = 1 \neq 0$, the solutions $u_1$ and $u_2$ are linearly independent.
+        </li>
+        <li class="proof-step-item">
+          <span class="step-marker">4</span>
+          Now, let $x(t)$ be <strong>any</strong> arbitrary solution of $L[x] = 0$ on $I$. Let its values at $t_0$ be $x(t_0) = x_0$ and $x'(t_0) = y_0$.
+        </li>
+        <li class="proof-step-item">
+          <span class="step-marker">5</span>
+          Construct the linear combination function $v(t) \equiv x_0 u_1(t) + y_0 u_2(t)$. 
+          Since $u_1, u_2 \in \ker(L)$, by superposition $L[v] = 0$. 
+          Evaluating the initial values of $v(t)$ at $t_0$:
+          $$ v(t_0) = x_0 u_1(t_0) + y_0 u_2(t_0) = x_0(1) + y_0(0) = x_0 $$
+          $$ v'(t_0) = x_0 u_1'(t_0) + y_0 u_2'(t_0) = x_0(0) + y_0(1) = y_0 $$
+        </li>
+        <li class="proof-step-item">
+          <span class="step-marker">6</span>
+          Both $x(t)$ and $v(t)$ satisfy the identical homogeneous ODE $L[y] = 0$ and the identical initial conditions $(x_0, y_0)$ at $t_0$. 
+          By the <strong>Uniqueness Theorem</strong> (Theorem 11.1), they must coincide on the entire interval $I$:
+          $$ x(t) \equiv v(t) = x_0 u_1(t) + y_0 u_2(t) \quad \forall t \in I $$
+        </li>
+        <li class="proof-step-item">
+          <span class="step-marker">7</span>
+          Therefore, $\{u_1, u_2\}$ spans $\ker(L)$. Because $\{u_1, u_2\}$ is both linearly independent and spans $\ker(L)$, it constitutes a <strong>basis</strong> for $\ker(L)$. 
+          Since the basis contains exactly two functions:
+          $$ \mathbf{\dim(\ker(L)) = 2} \quad \blacksquare $$
+        </li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Exam Warning: Wronskian of Arbitrary Functions vs. ODE Solutions</span>
+        </div>
+        <p>
+          Do not confuse the Wronskian of <em>arbitrary functions</em> with the Wronskian of <em>solutions to a linear ODE</em>:
+        </p>
+        <ul>
+          <li>
+            For <strong>arbitrary functions</strong>, $W[f, g](t) \equiv 0$ does <em>not</em> imply linear dependence. 
+            For instance, $f(t) = t^3$ and $g(t) = |t|^3$ on $\mathbb{R}$ are linearly independent on $(-1, 1)$, yet $W[f, g](t) \equiv 0$ everywhere!
+          </li>
+          <li>
+            For <strong>solutions of $x'' + p(t)x' + q(t)x = 0$</strong> with continuous coefficients, the equivalence is absolute: 
+            $W(t) \neq 0 \iff \{x_1, x_2\}$ are linearly independent. This crucial equivalence is guaranteed by Abel's Identity.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5
+         ======================================================== -->
+    <section id="section-5" class="topic-section">
+      <h2 class="section-heading">
+        <span class="heading-pill">Section 5</span>
+        <span>Abel's Identity &amp; The Wronskian Dichotomy</span>
+      </h2>
+
+      <p>
+        Abel's Theorem establishes a remarkable differential equation governing the evolution of the Wronskian of any two solutions, 
+        independent of the coefficient $q(t)$.
+      </p>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Theorem 11.3 (Abel's Theorem / Liouville's Formula)</span>
+        </div>
+        <p>
+          Let $x_1(t)$ and $x_2(t)$ be any two solutions of the homogeneous equation $x'' + p(t)x' + q(t)x = 0$ on the open interval $I$, 
+          where $p(t)$ and $q(t)$ are continuous. Then their Wronskian $W(t) = W[x_1, x_2](t)$ satisfies the first-order linear differential equation:
+        </p>
+        $$ \frac{dW}{dt} = -p(t) W(t) $$
+        <p style="margin-top: 10px;">
+          Consequently, for any fixed reference point $t_0 \in I$:
+        </p>
+        <div class="formula-block">
+          <span class="formula-badge">Abel's Identity</span>
+          $$ W(t) = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) $$
+        </div>
+      </div>
+
+      <h3 class="subheading">5.1 Complete Step-by-Step Derivation</h3>
+      <p>
+        We begin directly from the definition of the Wronskian:
+      </p>
+      $$ W(t) = x_1(t) x_2'(t) - x_2(t) x_1'(t) $$
+      <p>
+        Differentiating both sides with respect to $t$ using the product rule:
+      </p>
+      $$ \begin{aligned}
+      \frac{dW}{dt} &= \frac{d}{dt}\left[ x_1(t) x_2'(t) \right] - \frac{d}{dt}\left[ x_2(t) x_1'(t) \right] \\
+      &= \left[ x_1'(t) x_2'(t) + x_1(t) x_2''(t) \right] - \left[ x_2'(t) x_1'(t) + x_2(t) x_1''(t) \right]
+      \end{aligned} $$
+      <p>
+        Notice that the first-derivative cross terms are identical and cancel out: $x_1'(t) x_2'(t) - x_2'(t) x_1'(t) = 0$. Thus:
+      </p>
+      $$ \frac{dW}{dt} = x_1(t) x_2''(t) - x_2(t) x_1''(t) $$
+      <p>
+        Now, because $x_1$ and $x_2$ are solutions to $x'' + p(t)x' + q(t)x = 0$, we substitute their second derivatives:
+      </p>
+      $$ x_1''(t) = -p(t) x_1'(t) - q(t) x_1(t) $$
+      $$ x_2''(t) = -p(t) x_2'(t) - q(t) x_2(t) $$
+      <p>
+        Substituting into the expression for $\frac{dW}{dt}$:
+      </p>
+      $$ \begin{aligned}
+      \frac{dW}{dt} &= x_1(t) \left[ -p(t) x_2'(t) - q(t) x_2(t) \right] - x_2(t) \left[ -p(t) x_1'(t) - q(t) x_1(t) \right] \\
+      &= -p(t) x_1(t) x_2'(t) - q(t) x_1(t) x_2(t) + p(t) x_2(t) x_1'(t) + q(t) x_1(t) x_2(t)
+      \end{aligned} $$
+      <p>
+        The terms proportional to $q(t)$ cancel identically: $-q(t) x_1 x_2 + q(t) x_1 x_2 = 0$. Regrouping the remaining terms:
+      </p>
+      $$ \frac{dW}{dt} = -p(t) \left[ x_1(t) x_2'(t) - x_2(t) x_1'(t) \right] = -p(t) W(t) $$
+      <p>
+        This is a first-order linear separable ODE. Integrating from $t_0$ to $t$:
+      </p>
+      $$ \int_{W(t_0)}^{W(t)} \frac{dW}{W} = -\int_{t_0}^t p(s) \, ds \implies \ln\left| \frac{W(t)}{W(t_0)} \right| = -\int_{t_0}^t p(s) \, ds $$
+      <p>
+        Exponentiating both sides yields Abel's Identity:
+      </p>
+      $$ W(t) = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) \quad \blacksquare $$
+
+      <h3 class="subheading">5.2 The Fundamental Wronskian Dichotomy</h3>
+      <p>
+        Because the exponential function $\exp\left(-\int_{t_0}^t p(s) ds\right)$ is <strong>strictly positive</strong> for all $t \in I$ whenever $p(s)$ is continuous, 
+        Abel's Identity proves the <strong>Wronskian Dichotomy Principle</strong>:
+      </p>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>The Wronskian Dichotomy Principle</span>
+        </div>
+        <p>
+          For any two solutions $x_1(t), x_2(t)$ of $x'' + p(t)x' + q(t)x = 0$ on an interval $I$ with continuous $p, q$:
+        </p>
+        <ul>
+          <li><strong>Either:</strong> $W(t) \neq 0$ for <em>all</em> $t \in I$ (meaning $\{x_1, x_2\}$ is linearly independent everywhere on $I$).</li>
+          <li><strong>Or:</strong> $W(t) \equiv 0$ for <em>all</em> $t \in I$ (meaning $\{x_1, x_2\}$ is linearly dependent everywhere on $I$).</li>
+        </ul>
+        <p style="margin-top: 8px;">
+          <strong>The Wronskian of solutions can never vanish at an isolated point!</strong> If $W(t_0) = 0$ at a single point $t_0 \in I$, then $W(t)$ is identically zero across the entire interval $I$.
+        </p>
+      </div>
+
+      <h3 class="subheading">5.3 Application: Reduction of Order (d'Alembert's Formula)</h3>
+      <p>
+        If one non-zero solution $x_1(t)$ of $x'' + p(t)x' + q(t)x = 0$ is known, Abel's Identity allows us to construct a second, linearly independent solution $x_2(t)$ via the ansatz $x_2(t) = v(t) x_1(t)$:
+      </p>
+      $$ W[x_1, x_2](t) = x_1 (v' x_1 + v x_1') - (v x_1) x_1' = x_1(t)^2 v'(t) $$
+      <p>
+        Equating this to Abel's Identity $W(t) = C \exp\left(-\int p(t) dt\right)$ (setting $C = 1$ for a basis function):
+      </p>
+      $$ x_1(t)^2 v'(t) = \exp\left(-\int p(t) dt\right) \implies v'(t) = \frac{\exp\left(-\int p(t) dt\right)}{[x_1(t)]^2} $$
+      <p>
+        Integrating $v'(t)$ gives <strong>d'Alembert's Reduction of Order Formula</strong>:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Reduction of Order Formula</span>
+        $$ x_2(t) = x_1(t) \int \frac{\exp\left( -\int p(t) \, dt \right)}{[x_1(t)]^2} \, dt $$
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 6
+         ======================================================== -->
+    <section id="section-6" class="topic-section">
+      <h2 class="section-heading">
+        <span class="heading-pill">Section 6</span>
+        <span>Constant-Coefficient Homogeneous ODEs</span>
+      </h2>
+
+      <p>
+        We now focus on the fundamental class of equations where the coefficient functions are real constants:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Constant-Coefficient Homogeneous Equation</span>
+        $$ a \frac{d^2 x}{dt^2} + b \frac{dx}{dt} + c x(t) = 0 \quad (a, b, c \in \mathbb{R}, \; a \neq 0) $$
+      </div>
+
+      <h3 class="subheading">6.1 The Exponential Ansatz and the Characteristic Equation</h3>
+      <p>
+        Motivated by first-order equations where the rate of change is proportional to the function, we test the <strong>exponential trial ansatz</strong>:
+      </p>
+      $$ x(t) = e^{kt} $$
+      <p>
+        where $k$ is an unknown constant parameter. Differentiating $x(t)$ with respect to $t$:
+      </p>
+      $$ x'(t) = k e^{kt}, \quad x''(t) = k^2 e^{kt} $$
+      <p>
+        Substitute these into the differential equation:
+      </p>
+      $$ a (k^2 e^{kt}) + b (k e^{kt}) + c (e^{kt}) = 0 \implies (a k^2 + b k + c) e^{kt} = 0 $$
+      <p>
+        Since $e^{kt} \neq 0$ for all $t \in \mathbb{R}$, this holds if and only if $k$ satisfies the <strong>characteristic algebraic polynomial</strong>:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Characteristic Equation</span>
+        $$ a k^2 + b k + c = 0 $$
+      </div>
+
+      <p>
+        The roots are given by the quadratic formula:
+      </p>
+      $$ k = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
+      <p>
+        The algebraic sign of the <strong>discriminant</strong> $\Delta \equiv b^2 - 4ac$ uniquely partitions the dynamic response into three exhaustive regimes:
+      </p>
+
+      <!-- REGIME TABLE SUMMARY -->
+      <div class="regime-table-wrap">
+        <table class="regime-table">
+          <thead>
+            <tr>
+              <th>Regime</th>
+              <th>Discriminant</th>
+              <th>Characteristic Roots</th>
+              <th>Fundamental Set $\{x_1, x_2\}$</th>
+              <th>General Solution $x(t)$</th>
+              <th>Wronskian $W(t)$</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Case 1: Overdamped</strong></td>
+              <td>$\Delta > 0$</td>
+              <td>$k_1 \neq k_2 \in \mathbb{R}$</td>
+              <td>$\{e^{k_1 t}, e^{k_2 t}\}$</td>
+              <td>$c_1 e^{k_1 t} + c_2 e^{k_2 t}$</td>
+              <td>$(k_2 - k_1) e^{(k_1+k_2)t} \neq 0$</td>
+            </tr>
+            <tr>
+              <td><strong>Case 2: Critically Damped</strong></td>
+              <td>$\Delta = 0$</td>
+              <td>$k = -\frac{b}{2a}$ (mult. 2)</td>
+              <td>$\{e^{kt}, t e^{kt}\}$</td>
+              <td>$(c_1 + c_2 t) e^{kt}$</td>
+              <td>$e^{2kt} \neq 0$</td>
+            </tr>
+            <tr>
+              <td><strong>Case 3: Underdamped</strong></td>
+              <td>$\Delta < 0$</td>
+              <td>$k = \rho \pm i\omega \quad (\omega > 0)$</td>
+              <td>$\{e^{\rho t}\cos\omega t, e^{\rho t}\sin\omega t\}$</td>
+              <td>$e^{\rho t}(A \cos\omega t + B \sin\omega t)$</td>
+              <td>$\omega e^{2\rho t} \neq 0$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CASE 1 -->
+      <h3 class="subheading">6.2 Case 1: Distinct Real Roots ($\Delta = b^2 - 4ac > 0$)</h3>
+      <p>
+        When $\Delta > 0$, the characteristic polynomial yields two distinct real numbers:
+      </p>
+      $$ k_1 = \frac{-b + \sqrt{\Delta}}{2a}, \quad k_2 = \frac{-b - \sqrt{\Delta}}{2a} \quad (k_1 \neq k_2) $$
+      <p>
+        This produces two exponential solutions: $x_1(t) = e^{k_1 t}$ and $x_2(t) = e^{k_2 t}$. 
+        Verifying their linear independence via the Wronskian determinant:
+      </p>
+      $$ W[x_1, x_2](t) = \det \begin{pmatrix} e^{k_1 t} & e^{k_2 t} \\ k_1 e^{k_1 t} & k_2 e^{k_2 t} \end{pmatrix} = e^{k_1 t} (k_2 e^{k_2 t}) - e^{k_2 t} (k_1 e^{k_1 t}) = (k_2 - k_1) e^{(k_1 + k_2)t} $$
+      <p>
+        Since $k_1 \neq k_2$ and the exponential never vanishes, $W(t) \neq 0$ for all $t \in \mathbb{R}$. 
+        Thus, $\{e^{k_1 t}, e^{k_2 t}\}$ forms a fundamental set of solutions, and the general solution is:
+      </p>
+      <div class="formula-block">
+        <span class="formula-badge">Case 1 General Solution</span>
+        $$ x(t) = c_1 e^{k_1 t} + c_2 e^{k_2 t} \quad (c_1, c_2 \in \mathbb{R}) $$
+      </div>
+
+      <!-- CASE 2 -->
+      <h3 class="subheading">6.3 Case 2: Repeated Real Root ($\Delta = b^2 - 4ac = 0$)</h3>
+      <p>
+        When the discriminant vanishes, the characteristic polynomial possesses a single repeated real root of multiplicity 2:
+      </p>
+      $$ k = -\frac{b}{2a} \implies 2a k + b = 0 $$
+      <p>
+        The ansatz yields only one exponential solution: $x_1(t) = e^{kt}$. 
+        Since $\dim(\ker(L)) = 2$, we require a second, linearly independent solution.
+      </p>
+
+      <div class="callout callout-theorem">
+        <div class="callout-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Theorem: The Repeated Root Solution is $x_2(t) = t e^{kt}$</span>
+        </div>
+        <p><strong>Proof 1 (Direct Differential Verification):</strong></p>
+        <p>Let $x_2(t) = t e^{kt}$. Differentiating using the product rule:</p>
+        $$ x_2'(t) = 1 \cdot e^{kt} + t \cdot (k e^{kt}) = (1 + kt) e^{kt} $$
+        $$ x_2''(t) = k e^{kt} + k(1 + kt) e^{kt} = (2k + k^2 t) e^{kt} $$
+        <p>Substitute $x_2, x_2'$, and $x_2''$ into the operator $L[x_2] = a x_2'' + b x_2' + c x_2$:</p>
+        $$ \begin{aligned}
+        L[x_2] &= a (2k + k^2 t) e^{kt} + b (1 + kt) e^{kt} + c (t) e^{kt} \\
+        &= \left[ t (a k^2 + b k + c) + (2a k + b) \right] e^{kt}
+        \end{aligned} $$
+        <p>Examine the two bracketed terms:</p>
+        <ol>
+          <li>$a k^2 + b k + c = 0$ because $k$ is a root of the characteristic polynomial.</li>
+          <li>$2a k + b = 2a\left(-\frac{b}{2a}\right) + b = -b + b = 0$.</li>
+        </ol>
+        <p>Therefore: $L[x_2] = [t \cdot 0 + 0] e^{kt} \equiv 0$ for all $t \in \mathbb{R}$.</p>
+        <p style="margin-top: 10px;"><strong>Proof 2 (Derivation via Reduction of Order):</strong></p>
+        <p>Using d'Alembert's reduction of order formula with $p = b/a = -2k$ and $x_1(t) = e^{kt}$:</p>
+        $$ x_2(t) = e^{kt} \int \frac{\exp\left( -\int \frac{b}{a} dt \right)}{[e^{kt}]^2} \, dt = e^{kt} \int \frac{e^{- (b/a) t}}{e^{2kt}} \, dt = e^{kt} \int \frac{e^{2kt}}{e^{2kt}} \, dt = e^{kt} \int 1 \, dt = t e^{kt} $$
+        <p>This confirms that $x_2(t) = t e^{kt}$ is an exact solution. $\blacksquare$</p>
+      </div>
+
+      <p>
+        Now compute the Wronskian of $\{e^{kt}, t e^{kt}\}$:
+      </p>
+      $$ W[e^{kt}, t e^{kt}](t) = \det \begin{pmatrix} e^{kt} & t e^{kt} \\ k e^{kt} & (1 + kt) e^{kt} \end{pmatrix} = e^{kt}(1 + kt)e^{kt} - t e^{kt}(k e^{kt}) = e^{2kt} \neq 0 $$
+      <p>
+        The Wronskian is non-zero everywhere. Thus, the general solution for Case 2 is:
+      </p>
+      <div class="formula-block">
+        <span class="formula-badge">Case 2 General Solution</span>
+        $$ x(t) = (c_1 + c_2 t) e^{kt} = c_1 e^{kt} + c_2 t e^{kt} \quad (c_1, c_2 \in \mathbb{R}) $$
+      </div>
+
+      <!-- CASE 3 -->
+      <h3 class="subheading">6.4 Case 3: Complex Conjugate Roots ($\Delta = b^2 - 4ac < 0$)</h3>
+      <p>
+        When $\Delta < 0$, $\sqrt{\Delta} = \sqrt{-(4ac - b^2)} = i \sqrt{4ac - b^2}$ where $4ac - b^2 > 0$. The roots form a complex conjugate pair:
+      </p>
+      $$ k = \rho \pm i \omega $$
+      <p>
+        with real part $\rho$ and imaginary frequency $\omega > 0$ given by:
+      </p>
+      $$ \rho = -\frac{b}{2a}, \quad \omega = \frac{\sqrt{4ac - b^2}}{2a} $$
+      <p>
+        The exponential trial ansatz generates two complex-valued solutions:
+      </p>
+      $$ z_1(t) = e^{(\rho + i\omega)t} = e^{\rho t} e^{i\omega t}, \quad z_2(t) = e^{(\rho - i\omega)t} = e^{\rho t} e^{-i\omega t} $$
+
+      <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading); margin: 20px 0 10px;">Derivation via Euler's Formula</h4>
+      <p>
+        Recall <strong>Euler's Formula</strong>, which relates complex exponentials to trigonometric functions:
+      </p>
+      $$ e^{i\theta} = \cos\theta + i\sin\theta $$
+      <p>
+        Applying Euler's formula to $z_1(t)$ and $z_2(t)$:
+      </p>
+      $$ z_1(t) = e^{\rho t} \left[ \cos(\omega t) + i \sin(\omega t) \right] $$
+      $$ z_2(t) = e^{\rho t} \left[ \cos(-\omega t) + i \sin(-\omega t) \right] = e^{\rho t} \left[ \cos(\omega t) - i \sin(\omega t) \right] $$
+      <p>
+        Because the differential operator $L$ has strictly real coefficients, the real and imaginary parts of any complex solution are individually real-valued solutions! 
+        Using the Superposition Principle:
+      </p>
+      $$ u(t) \equiv \frac{z_1(t) + z_2(t)}{2} = e^{\rho t} \cos(\omega t) $$
+      $$ v(t) \equiv \frac{z_1(t) - z_2(t)}{2i} = e^{\rho t} \sin(\omega t) $$
+
+      <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading); margin: 20px 0 10px;">Wronskian of the Real Oscillatory Solutions</h4>
+      <p>
+        To prove that $\{u(t), v(t)\}$ forms an authentic real basis, we calculate their Wronskian determinant:
+      </p>
+      $$ u'(t) = e^{\rho t} \left( \rho \cos\omega t - \omega \sin\omega t \right) $$
+      $$ v'(t) = e^{\rho t} \left( \rho \sin\omega t + \omega \cos\omega t \right) $$
+      <p>
+        Substituting into $W[u, v](t) = u v' - v u'$:
+      </p>
+      $$ \begin{aligned}
+      W[u, v](t) &= \left( e^{\rho t} \cos\omega t \right) \left[ e^{\rho t}(\rho \sin\omega t + \omega \cos\omega t) \right] - \left( e^{\rho t} \sin\omega t \right) \left[ e^{\rho t}(\rho \cos\omega t - \omega \sin\omega t) \right] \\
+      &= e^{2\rho t} \left[ \rho \cos\omega t \sin\omega t + \omega \cos^2\omega t - \rho \sin\omega t \cos\omega t + \omega \sin^2\omega t \right] \\
+      &= e^{2\rho t} \left[ \omega (\cos^2\omega t + \sin^2\omega t) \right] \\
+      &= \mathbf{\omega e^{2\rho t}}
+      \end{aligned} $$
+      <p>
+        Since $\omega > 0$ and the exponential never vanishes, $W(t) = \omega e^{2\rho t} \neq 0$ for all $t \in \mathbb{R}$. 
+        Therefore, $\{e^{\rho t} \cos\omega t, e^{\rho t} \sin\omega t\}$ is a true real fundamental solution set, and the general real solution is:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Case 3 General Real Solution</span>
+        $$ x(t) = e^{\rho t} \left[ A \cos(\omega t) + B \sin(\omega t) \right] \quad (A, B \in \mathbb{R}) $$
+      </div>
+
+      <h3 class="subheading">6.5 Amplitude-Phase Polar Representation</h3>
+      <p>
+        In vibration mechanics, acoustics, and flutter analysis, the Cartesian linear combination $A \cos\omega t + B \sin\omega t$ is rewritten as a single shifted harmonic cosine:
+      </p>
+
+      <div class="formula-block">
+        <span class="formula-badge">Amplitude-Phase Form</span>
+        $$ x(t) = M e^{\rho t} \cos(\omega t - \phi) $$
+      </div>
+
+      <p>
+        Using the cosine addition formula $\cos(\omega t - \phi) = \cos\omega t \cos\phi + \sin\omega t \sin\phi$:
+      </p>
+      $$ M \cos(\omega t - \phi) = (M \cos\phi) \cos\omega t + (M \sin\phi) \sin\omega t $$
+      <p>
+        Equating coefficients with $A \cos\omega t + B \sin\omega t$:
+      </p>
+      $$ A = M \cos\phi, \quad B = M \sin\phi $$
+      <p>
+        Squaring and adding both equations yields the <strong>initial amplitude</strong> $M$:
+      </p>
+      $$ A^2 + B^2 = M^2 (\cos^2\phi + \sin^2\phi) = M^2 \implies \mathbf{M = \sqrt{A^2 + B^2}} $$
+      <p>
+        Dividing the second equation by the first yields the <strong>phase lag</strong> $\phi$:
+      </p>
+      $$ \tan\phi = \frac{B}{A} \implies \mathbf{\phi = \text{atan2}(B, A) \in (-\pi, \pi]} $$
+      <ul>
+        <li><strong>Pseudo-frequency:</strong> $\omega = \frac{\sqrt{4ac - b^2}}{2a}$ (rad/s)</li>
+        <li><strong>Pseudo-period:</strong> $T = \frac{2\pi}{\omega}$ (s)</li>
+        <li><strong>Decaying Exponential Envelope:</strong> $\pm M e^{\rho t}$ (bounds oscillations when $\rho < 0$)</li>
+      </ul>
+    </section>
+
+    <!-- ========================================================
+         NAVIGATION BUTTONS
+         ======================================================== -->
+    <nav class="topic-nav-bottom" aria-label="Topic navigation">
+      <a href="topic-2.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Topic</span>
+        <span class="nav-btn-title">Topic 2: First-Order ODEs and Qualitative Dynamics</span>
+      </a>
+      <a href="index.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Upward Index →</span>
+        <span class="nav-btn-title">Theory Syllabus Hub (Topics 1, 2 &amp; 3 Active)</span>
+      </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Topic 3 Study Guide • Academic Rigor &amp; Closed-Form Excellence</p>
+      <p style="margin-top: 8px;">
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       THEME CONTROLLER JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+
+      function getInitialTheme() {
+        try {
+          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('ae_theme', theme);
+          localStorage.setItem('aero-portal-theme', theme);
+        } catch (e) {}
+      }
+
+      const currentTheme = getInitialTheme();
+      applyTheme(currentTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+    })();
+  </script>
+  <script src="../../../assets/js/i18n.js"></script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+</body>
+</html>
