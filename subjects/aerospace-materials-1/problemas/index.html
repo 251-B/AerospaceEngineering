@@ -227,6 +227,16 @@
     .cbadge.problems { background: rgba(16, 185, 129, 0.12); color: #34d399; }
     .cbadge.interactive { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
 
+    .topic-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+    }
+    .tag {
+      font-size: 0.68rem; font-weight: 600;
+      padding: 2px 9px; border-radius: 10px;
+      background: var(--bg-input); color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
     .topic-arrow {
       display: flex; align-items: center; padding: 0 20px;
       font-size: 1.2rem; color: var(--text-muted);
@@ -287,6 +297,28 @@
     </header>
 
     <div class="topics-list">
+
+      <a href="topic-2-problems.html" class="topic-card">
+        <div class="topic-accent-bar"></div>
+        <div class="topic-body">
+          <span class="topic-number" data-i18n="materials.prob_topic_2_num">Tema 2 · Estructura de Materiales y Defectos</span>
+          <h2 class="topic-title">Solved Problems — Structure of Materials & Defects</h2>
+          <p class="topic-desc" data-i18n="materials.prob_topic_2_desc">26 problemas resueltos oficiales: redes de Bravais, empaquetamiento FCC/BCC/HCP, densidades lineal y planar, difracción XRD y ley de Bragg, concentración de vacantes térmicas, reglas de Hume-Rothery, vector de Burgers y ecuación de Hall-Petch.</p>
+          <div class="content-badges">
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.prob_topic_2_badge">26 problemas resueltos</span></span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.prob_topic_2_pills">Navegación por píldoras</span></span>
+          </div>
+          <div class="topic-tags">
+            <span class="tag">Bravais</span>
+            <span class="tag">Miller</span>
+            <span class="tag" data-i18n="materials.tag_vacancies">Vacantes</span>
+            <span class="tag">Burgers</span>
+            <span class="tag">Hume-Rothery</span>
+            <span class="tag">Hall-Petch</span>
+          </div>
+        </div>
+        <div class="topic-arrow">→</div>
+      </a>
 
       <a href="topic-3-diffusion.html" class="topic-card">
         <div class="topic-accent-bar"></div>

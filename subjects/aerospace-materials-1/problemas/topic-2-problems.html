@@ -1,0 +1,3240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 2: Solved Problems — Structure of Materials & Crystalline Defects (26 Official Problems)</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --phase-1: #38bdf8;
+      --phase-1-bg: rgba(56, 189, 248, 0.08);
+      --phase-1-border: rgba(56, 189, 248, 0.25);
+
+      --phase-2: #f59e0b;
+      --phase-2-bg: rgba(245, 158, 11, 0.08);
+      --phase-2-border: rgba(245, 158, 11, 0.25);
+
+      --phase-3: #34d399;
+      --phase-3-bg: rgba(52, 211, 153, 0.08);
+      --phase-3-border: rgba(52, 211, 153, 0.25);
+
+      --phase-4: #c084fc;
+      --phase-4-bg: rgba(192, 132, 252, 0.08);
+      --phase-4-border: rgba(192, 132, 252, 0.25);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.95);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --statement-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --statement-bg: #f8fafc;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4, .brand-title, .problem-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-pill, .phase-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Sticky Navigation Bar with Pills */
+    .pills-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 55px;
+      z-index: 90;
+      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pill-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      min-width: 190px;
+    }
+
+    .nav-pill {
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      color: #000;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main.problems-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 96px;
+    }
+
+    /* Page Header */
+    .page-intro {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Problem Card */
+    article.problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 32px 36px;
+      margin-bottom: 56px;
+      box-shadow: var(--shadow-elevation);
+      transition: border-color var(--transition);
+      scroll-margin-top: 140px;
+    }
+
+    article.problem-card:hover {
+      border-color: var(--accent-border);
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .problem-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prob-num-badge {
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .prob-source-badge {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-title {
+      font-size: 1.55rem;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+
+    /* Statement Box */
+    .statement-box {
+      background: var(--statement-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-style: italic;
+      color: var(--text-heading);
+      font-size: 1.04rem;
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 4-Phase Grid */
+    .phases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phase-step {
+      background: var(--bg-surface);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .phase-1 .phase-badge { color: var(--phase-1); background: var(--phase-1-bg); border: 1px solid var(--phase-1-border); }
+    .phase-2 .phase-badge { color: var(--phase-2); background: var(--phase-2-bg); border: 1px solid var(--phase-2-border); }
+    .phase-3 .phase-badge { color: var(--phase-3); background: var(--phase-3-bg); border: 1px solid var(--phase-3-border); }
+    .phase-4 .phase-badge { color: var(--phase-4); background: var(--phase-4-bg); border: 1px solid var(--phase-4-border); }
+
+    .phase-step p {
+      margin-bottom: 14px;
+      color: var(--text-body);
+    }
+
+    .phase-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-step ul, .phase-step ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .phase-step li {
+      margin-bottom: 6px;
+    }
+
+    .step-heading {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 18px 0 10px;
+    }
+
+    .step-subheading {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 14px 0 8px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 16px 0;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      text-align: left;
+    }
+
+    table.data-table th, table.data-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    table.data-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      font-weight: 700;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">UC3M 251-14167</span>
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span data-i18n="nav.main_portal">Portal Principal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+          <span data-i18n="nav.problems_index">Problems Index</span>
+        </a>
+        <a href="../teoria/topic-2-structure.html" class="back-link" style="color: var(--accent); border-color: var(--accent-border);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>← Back to Topic 2 Theory</span>
+        </a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Quick Navigation Pills -->
+  <nav class="pills-bar">
+    <div class="pills-inner">
+      <div class="pill-group">
+        <span class="pill-group-title">Block 1: Crystals (P1–P14)</span>
+        <a href="#p1" class="nav-pill" id="pill-p1">P1</a><a href="#p2" class="nav-pill" id="pill-p2">P2</a><a href="#p3" class="nav-pill" id="pill-p3">P3</a><a href="#p4" class="nav-pill" id="pill-p4">P4</a><a href="#p5" class="nav-pill" id="pill-p5">P5</a><a href="#p6" class="nav-pill" id="pill-p6">P6</a><a href="#p7" class="nav-pill" id="pill-p7">P7</a><a href="#p8" class="nav-pill" id="pill-p8">P8</a><a href="#p9" class="nav-pill" id="pill-p9">P9</a><a href="#p10" class="nav-pill" id="pill-p10">P10</a><a href="#p11" class="nav-pill" id="pill-p11">P11</a><a href="#p12" class="nav-pill" id="pill-p12">P12</a><a href="#p13" class="nav-pill" id="pill-p13">P13</a><a href="#p14" class="nav-pill" id="pill-p14">P14</a>
+      </div>
+      <div class="pill-group">
+        <span class="pill-group-title">Block 2: Defects (P15–P26)</span>
+        <a href="#p15" class="nav-pill" id="pill-p15">P15</a><a href="#p16" class="nav-pill" id="pill-p16">P16</a><a href="#p17" class="nav-pill" id="pill-p17">P17</a><a href="#p18" class="nav-pill" id="pill-p18">P18</a><a href="#p19" class="nav-pill" id="pill-p19">P19</a><a href="#p20" class="nav-pill" id="pill-p20">P20</a><a href="#p21" class="nav-pill" id="pill-p21">P21</a><a href="#p22" class="nav-pill" id="pill-p22">P22</a><a href="#p23" class="nav-pill" id="pill-p23">P23</a><a href="#p24" class="nav-pill" id="pill-p24">P24</a><a href="#p25" class="nav-pill" id="pill-p25">P25</a><a href="#p26" class="nav-pill" id="pill-p26">P26</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="problems-container">
+    <header class="page-intro">
+      <span class="brand-badge" style="margin-bottom: 12px; display: inline-block;">Complete Problem Collection</span>
+      <h1>Structure of Materials & Crystalline Defects</h1>
+      <p>
+        Full analytical step-by-step solutions for the 26 official problems from <em>Problems T2_CrystStruct.pdf</em> (P1 to P14) and <em>Problems T2 defects.pdf</em> (P15 to P26) using the strict 4-Phase Engineering Framework.
+      </p>
+    </header>
+
+    <!-- 26 Solved Problem Cards -->
+    
+      <article class="problem-card" id="p1">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 1</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Índices de Miller y Densidades en FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>1. Find the Miller indices corresponding to the planes in the figures:</strong>  
+<strong>Figure I, Figure II, Figure III.</strong>  
+<strong>For an FCC structure, with lattice parameter $a$, calculate the linear density along direction $[110]$, the planar density on the plane drawn on figure I and the volumetric density.</strong>  
+<em>(Solution: I $(\bar{1}1\bar{1})$; II $(\bar{2}31)$; III $(\bar{1}\bar{1}1)$; $\rho_l = \sqrt{2}/a$; $\rho_s = 4/(a^2\sqrt{3})$; $\rho_v = 4/a^3$)</em></p>
+          <div class="solution-box">Solution: I $(\bar{1}1\bar{1})$; II $(\bar{2}31)$; III $(\bar{1}\bar{1}1)$; $\rho_l = \sqrt{2}/a$; $\rho_s = 4/(a^2\sqrt{3})$; $\rho_v = 4/a^3$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Físico:</h4>
+<p>Se analizan tres planos cristalográficos dibujados dentro de celdas cúbicas de arista $a$. Posteriormente, se evalúa una red Cúbica Centrada en las Caras (FCC) de parámetro reticular $a$.</p>
+<h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li><strong>Figura I:</strong> El plano pasa por el vértice superior derecho, intersectando los ejes en: $x = -a$, $y = a$, $z = -a$ (tomando origen adecuado).</li>
+<li><strong>Figura II:</strong> El plano corta los ejes en $x = -a/2$, $y = a/3$, $z = a$.</li>
+<li><strong>Figura III:</strong> El plano corta los ejes en $x = -a$, $y = -a$, $z = a$.</li>
+<li><strong>Estructura FCC:</strong> Parámetro reticular $a$, número de átomos por celda $n = 4$, radio atómico $R = a\sqrt{2}/4$.</li>
+</ul>
+<h4 class="step-subheading">Hipótesis de Partida:</h4>
+<ol>
+<li>La red cúbica es ortonormal ($a=b=c$, $\alpha=\beta=\gamma=90^\circ$).</li>
+<li>Para planos con índices negativos, el origen de coordenadas se traslada convenientemente a un vértice adyacente dentro de la celda unitaria [Session 3 Slide 43].</li>
+<li>Los átomos se modelan como esferas rígidas en contacto a lo largo de las diagonales de cara $\langle 110 \rangle$.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Antes de calcular, identificamos los principios rectores del temario oficial:</p>
+<ul>
+<li><strong>Determinación de Índices de Miller $(h\, k\, l)$ [Session 3 Slides 41-45]:</strong></li>
+<li>Identificar las coordenadas de corte fraccionarias $(p, q, r)$ con los ejes $x, y, z$.</li>
+<li>Calcular los recíprocos $(1/p, 1/q, 1/r)$.</li>
+<li>Reducir al conjunto de enteros mínimos multiplicando por el MCM.</li>
+<li><strong>Densidad Lineal ($\rho_l$) [Session 4 Slide 7]:</strong></li>
+</ul>
+<p>  $$\rho_l = \frac{N_{\text{átomos centrados sobre el segmento}}}{L_{[uvw]}}$$</p>
+<ul>
+<li><strong>Densidad Planar ($\rho_s$ o $\rho_p$) [Session 4 Slide 8]:</strong></li>
+</ul>
+<p>  $$\rho_s = \frac{N_{\text{átomos contenidos en el plano}}}{A_{(hkl)}}$$</p>
+<ul>
+<li><strong>Densidad Volumétrica ($\rho_v$) [Session 4 Slide 7]:</strong></li>
+</ul>
+<p>  $$\rho_v = \frac{n}{V_C} = \frac{n}{a^3}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Índices de Miller de los Planos:</h4>
+<ul>
+<li><strong>Figura I:</strong></li>
+<li>Trasladando el origen a la esquina $(1, 0, 1)$, el plano intersecta los ejes en:</li>
+</ul>
+<p>    $$x = -1, \quad y = +1, \quad z = -1$$</p>
+<ul>
+<li>Recíprocos de las intersecciones:</li>
+</ul>
+<p>    $$\frac{1}{-1} = -1, \quad \frac{1}{+1} = 1, \quad \frac{1}{-1} = -1$$</p>
+<ul>
+<li>Notación de Miller:</li>
+</ul>
+<p>    $$\mathbf{(\bar{1}1\bar{1})}$$</p>
+<p>    <em>(Nótese que pertenece a la familia de planos compactos $\{111\}$).</em></p>
+<ul>
+<li><strong>Figura II:</strong></li>
+<li>Observando las marcas en los ejes de la Figura II:</li>
+<li>Eje $x$: corte en $-a/2 \implies p = -1/2$ (con origen trasladado a $x=1$).</li>
+<li>Eje $y$: corte en $+a/3 \implies q = +1/3$.</li>
+<li>Eje $z$: corte en $+a \implies r = +1$.</li>
+<li>Recíprocos:</li>
+</ul>
+<p>    $$\frac{1}{-1/2} = -2, \quad \frac{1}{1/3} = 3, \quad \frac{1}{1} = 1$$</p>
+<ul>
+<li>Notación de Miller:</li>
+</ul>
+<p>    $$\mathbf{(\bar{2}31)}$$</p>
+<ul>
+<li><strong>Figura III:</strong></li>
+<li>Trasladando el origen a $(1, 1, 0)$:</li>
+<li>Eje $x$: corte en $-1 \implies p = -1$.</li>
+<li>Eje $y$: corte en $-1 \implies q = -1$.</li>
+<li>Eje $z$: corte en $+1 \implies r = +1$.</li>
+<li>Recíprocos:</li>
+</ul>
+<p>    $$\frac{1}{-1} = -1, \quad \frac{1}{-1} = -1, \quad \frac{1}{1} = 1$$</p>
+<ul>
+<li>Notación de Miller:</li>
+</ul>
+<p>    $$\mathbf{(\bar{1}\bar{1}1)}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Cálculos para la Red FCC:</h4>
+<ul>
+<li><strong>Densidad lineal a lo largo de $[110]$:</strong></li>
+<li>La dirección $[110]$ es la diagonal de la cara inferior del cubo.</li>
+<li>Longitud del segmento: $L_{[110]} = a\sqrt{2}$.</li>
+<li>Número de átomos cortados diametralmente:</li>
+</ul>
+<p>    $$N_{\text{átomos}} = 2 \times \left(\frac{1}{2}\right)_{\text{vértices}} + 1_{\text{centro cara}} = 1 + 1 = 2\text{ átomos}$$</p>
+<ul>
+<li>Densidad lineal:</li>
+</ul>
+<p>    $$\rho_l = \frac{2}{a\sqrt{2}} = \frac{2\sqrt{2}}{2a} = \mathbf{\frac{\sqrt{2}}{a}}$$</p>
+<ul>
+<li><strong>Densidad planar sobre el plano de la Figura I $(\bar{1}1\bar{1}) \in \{111\}$:</strong></li>
+<li>El plano $\{111\}$ intercepta tres diagonales de cara de longitud $L = a\sqrt{2}$, formando un triángulo equilátero.</li>
+<li>Área del triángulo:</li>
+</ul>
+<p>    $$A = \frac{\sqrt{3}}{4} L^2 = \frac{\sqrt{3}}{4} (a\sqrt{2})^2 = \frac{\sqrt{3}}{4}(2a^2) = \frac{\sqrt{3}}{2}a^2$$</p>
+<ul>
+<li>Átomos contenidos en el interior del triángulo del plano:</li>
+</ul>
+<p>    $$N_{\text{átomos}} = 3 \times \left(\frac{1}{6}\right)_{\text{vértices}} + 3 \times \left(\frac{1}{2}\right)_{\text{aristas}} = \frac{1}{2} + \frac{3}{2} = 2\text{ átomos}$$</p>
+<ul>
+<li>Densidad planar:</li>
+</ul>
+<p>    $$\rho_s = \frac{2}{\frac{\sqrt{3}}{2}a^2} = \mathbf{\frac{4}{a^2\sqrt{3}}}$$</p>
+<ul>
+<li><strong>Densidad volumétrica ($\rho_v$):</strong></li>
+<li>La celda FCC posee $n = 4$ átomos equivalentes en un volumen $V_C = a^3$:</li>
+</ul>
+<p>    $$\rho_v = \mathbf{\frac{4}{a^3}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ol>
+<li><strong>Dimensionalidad:</strong></li>
+<li>$[\rho_l] = \text{longitud}^{-1} \implies \frac{\sqrt{2}}{a}$ tiene dimensiones de $\text{átomos/m}$.</li>
+<li>$[\rho_s] = \text{longitud}^{-2} \implies \frac{4}{a^2\sqrt{3}}$ tiene dimensiones de $\text{átomos/m}^2$.</li>
+<li>$[\rho_v] = \text{longitud}^{-3} \implies \frac{4}{a^3}$ tiene dimensiones de $\text{átomos/m}^3$.</li>
+<li><strong>Consistencia de empaquetamiento:</strong></li>
+</ol>
+<p>   La dirección $[110]$ es la línea de máxima densidad lineal en FCC ($\rho_l = 1/(2R)$), y el plano $\{111\}$ es el plano de máxima densidad planar ($\text{APF}_{\text{planar}} = \pi/(2\sqrt{3}) \approx 90.7\%$), demostrando por qué $\{111\}\langle 110 \rangle$ es el sistema de deslizamiento canónico de los metales FCC.</p>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p2">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 2</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Masa Atómica y Densidad de Magnesio FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>2. Determine the atomic mass of a metal element with FCC structure, density of $1.74\text{ g/cm}^3$ and lattice constant of $4.527\text{ \AA}$. Find the element with these characteristics.</strong>  
+<em>(Solution: $M = 24.3\text{ g/mol}$; $\text{Mg}$)</em></p>
+          <div class="solution-box">Solution: $M = 24.3\text{ g/mol}$; $\text{Mg}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Estructura cristalina: Cúbica Centrada en las Caras (FCC) $\implies n = 4\text{ átomos/celda}$.</li>
+<li>Parámetro de red: $a = 4.527\text{ \AA} = 4.527 \times 10^{-8}\text{ cm} = 0.4527\text{ nm}$.</li>
+<li>Densidad volumétrica macroscópica: $\rho = 1.74\text{ g/cm}^3 = 1740\text{ kg/m}^3$.</li>
+<li>Constante de Avogadro: $N_A = 6.022 \times 10^{23}\text{ átomos/mol}$.</li>
+</ul>
+<h4 class="step-subheading">Hipótesis de Partida:</h4>
+<ol>
+<li>El metal es un monocristal puro libre de vacantes o defectos que alteren significativamente la densidad aparente.</li>
+<li>La celda unitaria cúbica satisface $V_C = a^3$.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando los fundamentos teóricos del curso [Session 4 Slide 7, 15]:</p>
+<ul>
+<li>La densidad volumétrica teórica de un sólido cristalino se define por la razón entre la masa de la celda y su volumen:</li>
+</ul>
+<p>  $$\rho = \frac{m_{\text{celda}}}{V_C} = \frac{n \cdot M}{a^3 \cdot N_A}$$</p>
+<ul>
+<li>Despejando algebraicamente la masa atómica molar $M$:</li>
+</ul>
+<p>  $$M = \frac{\rho \cdot a^3 \cdot N_A}{n}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <ol>
+<li><strong>Cálculo del volumen de la celda unitaria ($V_C$):</strong></li>
+</ol>
+<p>   $$a = 4.527 \times 10^{-8}\text{ cm}$$</p>
+<p>   $$V_C = a^3 = (4.527 \times 10^{-8}\text{ cm})^3 = 9.2778 \times 10^{-23}\text{ cm}^3$$</p>
+<ol>
+<li><strong>Cálculo de la masa molar ($M$):</strong></li>
+</ol>
+<p>   $$M = \frac{(1.74\text{ g/cm}^3) \times (9.2778 \times 10^{-23}\text{ cm}^3) \times (6.02214 \times 10^{23}\text{ mol}^{-1})}{4}$$</p>
+<p>   $$M = \frac{1.6143 \times 10^{-22} \times 6.02214 \times 10^{23}}{4} = \frac{97.218}{4} = \mathbf{24.305\text{ g/mol}}$$</p>
+<ol>
+<li><strong>Identificación en la Tabla Periódica:</strong></li>
+</ol>
+<p>   Consultando los pesos atómicos estándar de los elementos:</p>
+<ul>
+<li>Sodio ($\text{Na}$): $22.99\text{ g/mol}$</li>
+<li><strong>Magnesio ($\text{Mg}$):</strong> $24.305\text{ g/mol}$ (coincidencia exacta).</li>
+<li>Aluminio ($\text{Al}$): $26.98\text{ g/mol}$</li>
+</ul>
+<p>   Por tanto, el elemento con estas características físicas y masa atómica es el <strong>Magnesio ($\text{Mg}$)</strong>.</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Análisis Cristalográfico:</strong> A temperatura y presión ambiente, el magnesio puro cristaliza habitualmente en la estructura <strong>HCP</strong> ($c/a \approx 1.624$) con densidad $1.738\text{ g/cm}^3$. Sin embargo, en películas delgadas, estados metaestables epitaxiales o como fase polimórfica teórica, puede adoptar la configuración cúbica FCC manteniendo la misma densidad atómica masiva.</li>
+<li><strong>Consistencia Dimensional:</strong></li>
+</ul>
+<p>  $$[M] = \frac{[\text{g/cm}^3] \cdot [\text{cm}^3] \cdot [\text{mol}^{-1}]}{[\text{adimensional}]} = \text{g/mol} \quad \checkmark$$</p>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p3">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 3</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Trazado de Planos Cristalinos en Red Cúbica</h2>
+
+        <div class="statement-box">
+          <p><strong>3. Draw the crystalline planes in a cubic lattice that present the following Miller indices:</strong>  
+<strong>a)</strong> $(1\, 0\, \bar{1})$  
+<strong>b)</strong> $(1\, \bar{2}\, 1)$  
+<strong>c)</strong> $(\bar{2}\, 1\, 3)$  
+<strong>d)</strong> $(1\, \bar{3}\, 3)$  
+<strong>e)</strong> $(1\, \bar{2}\, \bar{2})$  
+<strong>f)</strong> $(\bar{3}\, \bar{1}\, 2)$  
+<strong>g)</strong> $(1\, 2\, \bar{3})$  
+<strong>h)</strong> $(\bar{1}\, \bar{4}\, 3)$  
+<strong>i)</strong> $(\bar{3}\, \bar{1}\, \bar{3})$  
+<strong>j)</strong> $(3\, \bar{1}\, 3)$</p>
+          
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Geométrico:</h4>
+<p>Se analizan diez familias de planos cristalográficos en una red cúbica con aristas ortogonales de longitud $a$.</p>
+<h4 class="step-subheading">Criterio de Selección de Origen [Session 3 Slide 43]:</h4>
+<ul>
+<li>Si todos los índices $h, k, l$ son positivos, el origen natural se sitúa en el vértice inferior izquierdo posterior $(0, 0, 0)$.</li>
+<li>Si algún índice es negativo (notación con barra superior $\bar{u}$), el origen debe trasladarse en $+1$ unidad a lo largo del eje correspondiente para que la intersección se produzca dentro de la celda unitaria estándar:</li>
+<li>$\bar{h} \implies$ trasladar origen a $x = 1$.</li>
+<li>$\bar{k} \implies$ trasladar origen a $y = 1$.</li>
+<li>$\bar{l} \implies$ trasladar origen a $z = 1$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Según el procedimiento sistemático inverso de Miller [Session 3 Slides 41-45]:</p>
+<ol>
+<li>Tomar los <strong>recíprocos de los índices de Miller</strong> para hallar las intersecciones axiales relativas:</li>
+</ol>
+<p>   $$x_{\text{int}} = \frac{1}{h}, \quad y_{\text{int}} = \frac{1}{k}, \quad z_{\text{int}} = \frac{1}{l}$$</p>
+<p>   (con la regla $1/0 = \infty$, indicando paralelismo al eje).</p>
+<ol>
+<li>Determinar la traslación de origen necesaria según el signo de las intersecciones.</li>
+<li>Marcar los puntos de corte en las aristas de la celda unitaria respecto al origen elegido y unirlos mediante líneas rectas para formar el polígono de sección planar.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ol>
+<li><strong>Invarianza por Simetría:</strong> Los planos $(\bar{3}\bar{1}2)$, $(12\bar{3})$, $(\bar{3}\bar{1}\bar{3})$ y $(3\bar{1}3)$ pertenecen todos a la misma familia cristalográfica de planos $\{321\}$ o $\{331\}$ en la red cúbica. Aunque su orientación geométrica difiere por la elección de ejes, todos poseen el <strong>mismo espaciado interplanar $d_{hkl}$</strong> y la <strong>misma densidad planar de átomos $\rho_p$</strong>.</li>
+<li><strong>Propiedad de Ortogonalidad:</strong> En todos los casos, el vector director normal al plano trazado es proporcional al vector de índices $[h\, k\, l]$, cumpliendo rigurosamente la perpendicularidad cristalográfica en redes cúbicas [Session 3 Slide 52].</li>
+</ol>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p4">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 4</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Densidades Planares y Lineales en Red BCC</h2>
+
+        <div class="statement-box">
+          <p><strong>4. For a BCC structure, determine the surface (planar) density for the planes $(100)$, $(110)$ and $(111)$; the linear density in the direction $[100]$, and the volume density.</strong>  
+<em>(Solution: $\rho_{(100)} = 1/a^2$, $\rho_{(110)} = \sqrt{2}/a^2$, $\rho_{(111)} = 1/(a^2\sqrt{3})$, $\rho_{[100]} = 1/a$, $\rho_v = 2/a^3$)</em></p>
+          <div class="solution-box">Solution: $\rho_{(100)} = 1/a^2$, $\rho_{(110)} = \sqrt{2}/a^2$, $\rho_{(111)} = 1/(a^2\sqrt{3})$, $\rho_{[100]} = 1/a$, $\rho_v = 2/a^3$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Físico:</h4>
+<p>Se estudia una red Cúbica Centrada en el Cuerpo (BCC) con parámetro de red $a$.</p>
+<h4 class="step-subheading">Datos Reticulares de BCC:</h4>
+<ul>
+<li>Átomos por celda unitaria: $n = 2$ (8 en vértices $\times 1/8$ + 1 central).</li>
+<li>Volumen de la celda cúbica: $V_C = a^3$.</li>
+<li>Radio atómico: $R = \frac{a\sqrt{3}}{4}$ (contacto a lo largo de la diagonal del cubo $\langle 111 \rangle$).</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Aplicando las definiciones formales del curso [Session 4 Slides 7-9]:</p>
+<ul>
+<li><strong>Densidad Planar ($\rho_{(hkl)}$):</strong></li>
+</ul>
+<p>  $$\rho_{(hkl)} = \frac{N_{\text{átomos contenidos en la cara o sección}}}{A_{(hkl)}}$$</p>
+<ul>
+<li><strong>Densidad Lineal ($\rho_{[uvw]}$):</strong></li>
+</ul>
+<p>  $$\rho_{[uvw]} = \frac{N_{\text{átomos cortados diametralmente}}}{L_{[uvw]}}$$</p>
+<ul>
+<li><strong>Densidad Volumétrica ($\rho_v$):</strong></li>
+</ul>
+<p>  $$\rho_v = \frac{n}{V_C} = \frac{2}{a^3}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Densidad Planar en el Plano $(100)$:</h4>
+<ul>
+<li><strong>Geometría del plano:</strong> Cara exterior del cubo de dimensiones $a \times a$.</li>
+<li><strong>Área:</strong> $A_{(100)} = a^2$.</li>
+<li><strong>Átomos contenidos:</strong> Solo los 4 átomos situados en los vértices del cuadrado (el átomo central de la celda BCC está en $z = a/2$, por lo que no pertenece al plano $z=0$ ni $x=0$).</li>
+</ul>
+<p>  $$N_{\text{átomos}} = 4 \times \frac{1}{4} = 1\text{ átomo}$$</p>
+<ul>
+<li><strong>Densidad planar:</strong></li>
+</ul>
+<p>  $$\rho_{(100)} = \frac{1}{a^2} = \mathbf{\frac{1}{a^2}}$$</p>
+<h4 class="step-subheading">2. Densidad Planar en el Plano $(110)$:</h4>
+<ul>
+<li><strong>Geometría del plano:</strong> Rectángulo diagonal que cruza el cubo pasando por dos aristas opuestas.</li>
+<li><strong>Dimensiones:</strong> Base $= a\sqrt{2}$ (diagonal de cara), Altura $= a$.</li>
+<li><strong>Área:</strong></li>
+</ul>
+<p>  $$A_{(110)} = a\sqrt{2} \times a = a^2\sqrt{2}$$</p>
+<ul>
+<li><strong>Átomos contenidos:</strong></li>
+<li>4 vértices del rectángulo, aportando cada uno $\frac{1}{4}$: $4 \times \frac{1}{4} = 1\text{ átomo}$.</li>
+<li>1 átomo en el centro geométrico de la celda (el plano $(110)$ pasa exactamente por el centro del cubo): aporta $1\text{ átomo}$ completo.</li>
+<li>Total de átomos: $N_{\text{átomos}} = 1 + 1 = 2\text{ átomos}$.</li>
+<li><strong>Densidad planar:</strong></li>
+</ul>
+<p>  $$\rho_{(110)} = \frac{2}{a^2\sqrt{2}} = \frac{2\sqrt{2}}{2a^2} = \mathbf{\frac{\sqrt{2}}{a^2}}$$</p>
+<h4 class="step-subheading">3. Densidad Planar en el Plano $(111)$:</h4>
+<ul>
+<li><strong>Geometría y espaciado:</strong></li>
+</ul>
+<p>  En la red BCC, los planos paralelos $(111)$ tienen un espaciado interplanar $d_{111} = \frac{a}{\sqrt{1^2+1^2+1^2}} = \frac{a}{\sqrt{3}}$.</p>
+<p>  Sin embargo, debido a que el átomo central se sitúa exactamente en la mitad de la diagonal del cubo a lo largo de $[111]$, los planos $(111)$ reales se alternan a una distancia efectiva $d_{\text{eff}} = \frac{a}{2\sqrt{3}}$ (correspondiente a la familia reflejada $\{222\}$).</p>
+<ul>
+<li><strong>Cálculo directo por celda o relación de densidad:</strong></li>
+</ul>
+<p>  Utilizando la relación de conservación fundamental entre densidades [Session 4 Slide 9]:</p>
+<p>  $$\rho_v = \frac{\rho_{(hkl)}}{d_{\text{eff}}} \implies \rho_{(111)} = \rho_v \cdot d_{\text{eff}} = \left(\frac{2}{a^3}\right) \cdot \left(\frac{a}{2\sqrt{3}}\right) = \mathbf{\frac{1}{a^2\sqrt{3}}}$$</p>
+<ul>
+<li><strong>Verificación directa por área geométrica:</strong></li>
+</ul>
+<p>  El plano que corta los vértices $(a, 0, 0)$, $(0, a, 0)$, $(0, 0, a)$ forma un triángulo equilátero de lado $L = a\sqrt{2}$ y área $A = \frac{\sqrt{3}}{4}(a\sqrt{2})^2 = \frac{\sqrt{3}}{2}a^2$.</p>
+<p>  El plano no contiene el átomo central (éste se encuentra en $(a/2, a/2, a/2)$, cuya distancia al origen es $\frac{a\sqrt{3}}{2}$, mientras que el plano está a $\frac{a}{\sqrt{3}}$).</p>
+<p>  Por tanto, el plano solo contiene los 3 vértices: $N_{\text{átomos}} = 3 \times \frac{1}{6} = \frac{1}{2}\text{ átomo}$.</p>
+<p>  $$\rho_{(111)} = \frac{1/2}{\frac{\sqrt{3}}{2}a^2} = \mathbf{\frac{1}{a^2\sqrt{3}}}$$</p>
+<h4 class="step-subheading">4. Densidad Lineal en la Dirección $[100]$:</h4>
+<ul>
+<li><strong>Longitud del segmento de arista:</strong> $L_{[100]} = a$.</li>
+<li><strong>Átomos cortados:</strong> Corta los dos átomos de los vértices por sus extremos:</li>
+</ul>
+<p>  $$N_{\text{átomos}} = 2 \times \frac{1}{2} = 1\text{ átomo}$$</p>
+<ul>
+<li><strong>Densidad lineal:</strong></li>
+</ul>
+<p>  $$\rho_{[100]} = \frac{1}{a} = \mathbf{\frac{1}{a}}$$</p>
+<h4 class="step-subheading">5. Densidad Volumétrica ($\rho_v$):</h4>
+<ul>
+<li>Contiene $n = 2$ átomos en un volumen de celda $V_C = a^3$:</li>
+</ul>
+<p>  $$\rho_v = \mathbf{\frac{2}{a^3}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p5">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 5</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Densidades Planares, Lineales y Masa de Barra de Aluminio</h2>
+
+        <div class="statement-box">
+          <p><strong>5. Given that aluminum has an FCC structure, the atomic radius $1.43\text{ \AA}$ and the atomic weight $26.98\text{ g/mol}$, calculate:</strong>  
+<strong>a)</strong> Planar density, in $\text{at/cm}^2$, for the $(110)$ plane. <em>(Solution: $\rho_{(110)} = 8.7 \times 10^{14}\text{ at/cm}^2$)</em>  
+<strong>b)</strong> Linear density, in $\text{at/cm}$, for the $[110]$ direction. <em>(Solution: $\rho_{[110]} = 3.5 \times 10^7\text{ at/cm}$)</em>  
+<strong>c)</strong> Weight of a bar of $20\text{ mm}$ in diameter and $1\text{ m}$ long. <em>(Solution: $m = 855\text{ g}$)</em>  
+<strong>Data:</strong> $1\text{ m} = 10^{10}\text{ \AA}$; $N_A = 6.023 \times 10^{23}\text{ mol}^{-1}$.</p>
+          <div class="solution-box">Solution: $\rho_{(110)} = 8.7 \times 10^{14}\text{ at/cm}^2$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Estructura: Cúbica Centrada en las Caras (FCC) $\implies n = 4\text{ átomos/celda}$.</li>
+<li>Radio atómico: $R = 1.43\text{ \AA} = 1.43 \times 10^{-8}\text{ cm} = 0.143\text{ nm}$.</li>
+<li>Peso atómico molar: $M = 26.98\text{ g/mol}$.</li>
+<li>Dimensiones de la barra de aluminio:</li>
+<li>Diámetro: $D = 20\text{ mm} = 2.0\text{ cm}$.</li>
+<li>Longitud: $L = 1\text{ m} = 100\text{ cm}$.</li>
+<li>Constante de Avogadro: $N_A = 6.023 \times 10^{23}\text{ mol}^{-1}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Parámetro de Red en FCC [Session 3 Slide 20]:</strong></li>
+</ol>
+<p>   Los átomos se tocan a lo largo de la diagonal de la cara:</p>
+<p>   $$4R = a\sqrt{2} \implies a = 2\sqrt{2}R$$</p>
+<ol>
+<li><strong>Densidad Planar en el Plano $(110)$ [Session 4 Slide 8]:</strong></li>
+</ol>
+<p>   El plano $(110)$ es un rectángulo de base $a\sqrt{2}$ y altura $a$. Contiene 2 átomos netos:</p>
+<p>   $$\rho_{(110)} = \frac{2}{\sqrt{2}a^2} = \frac{\sqrt{2}}{a^2}$$</p>
+<ol>
+<li><strong>Densidad Lineal en la Dirección $[110]$ [Session 4 Slide 7]:</strong></li>
+</ol>
+<p>   La dirección $[110]$ es la diagonal de la cara, con longitud $L_{[110]} = a\sqrt{2} = 4R$. Contiene 2 átomos netos:</p>
+<p>   $$\rho_{[110]} = \frac{2}{4R} = \frac{1}{2R}$$</p>
+<ol>
+<li><strong>Masa de la Barra Cilíndrica:</strong></li>
+</ol>
+<p>   A partir de la densidad volumétrica teórica:</p>
+<p>   $$\rho_v = \frac{n \cdot M}{a^3 \cdot N_A}$$</p>
+<p>   El volumen de la barra cilíndrica es:</p>
+<p>   $$V = \pi \left(\frac{D}{2}\right)^2 L$$</p>
+<p>   La masa total es $m = \rho_v \cdot V$.</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Cálculo del Parámetro de Red ($a$):</h4>
+<p>$$a = 2\sqrt{2} R = 2 \times \sqrt{2} \times (1.43 \times 10^{-8}\text{ cm}) = 4.04465 \times 10^{-8}\text{ cm} = 4.045\text{ \AA}$$</p>
+<h4 class="step-subheading">2. Apartado a: Densidad Planar en $(110)$:</h4>
+<p>$$A_{(110)} = \sqrt{2} a^2 = \sqrt{2} \times (4.04465 \times 10^{-8}\text{ cm})^2 = \sqrt{2} \times 1.6359 \times 10^{-15}\text{ cm}^2 = 2.3135 \times 10^{-15}\text{ cm}^2$$</p>
+<p>El plano contiene $N_{\text{átomos}} = 4 \times \frac{1}{4} + 2 \times \frac{1}{2} = 2\text{ átomos}$:</p>
+<p>$$\rho_{(110)} = \frac{2\text{ at}}{2.3135 \times 10^{-15}\text{ cm}^2} = 8.645 \times 10^{14} \approx \mathbf{8.7 \times 10^{14}\text{ at/cm}^2}$$</p>
+<h4 class="step-subheading">3. Apartado b: Densidad Lineal en $[110]$:</h4>
+<p>Dado que $[110]$ es la dirección compacta ($L = 4R$):</p>
+<p>$$\rho_{[110]} = \frac{1}{2R} = \frac{1}{2 \times (1.43 \times 10^{-8}\text{ cm})} = \frac{1}{2.86 \times 10^{-8}\text{ cm}} = 3.4965 \times 10^7 \approx \mathbf{3.5 \times 10^7\text{ at/cm}}$$</p>
+<h4 class="step-subheading">4. Apartado c: Masa de la Barra:</h4>
+<ul>
+<li><strong>Volumen de la celda unitaria:</strong></li>
+</ul>
+<p>  $$V_C = a^3 = (4.04465 \times 10^{-8}\text{ cm})^3 = 6.6166 \times 10^{-23}\text{ cm}^3$$</p>
+<ul>
+<li><strong>Densidad volumétrica del Aluminio:</strong></li>
+</ul>
+<p>  $$\rho_v = \frac{4 \times 26.98\text{ g/mol}}{(6.6166 \times 10^{-23}\text{ cm}^3) \times (6.023 \times 10^{23}\text{ mol}^{-1})} = \frac{107.92}{39.852} = 2.708\text{ g/cm}^3$$</p>
+<ul>
+<li><strong>Volumen macroscópico de la barra:</strong></li>
+</ul>
+<p>  $$V = \pi \left(\frac{2.0\text{ cm}}{2}\right)^2 \times (100\text{ cm}) = 100\pi \approx 314.159\text{ cm}^3$$</p>
+<ul>
+<li><strong>Masa total calculada:</strong></li>
+</ul>
+<p>  $$m = \rho_v \cdot V = (2.708\text{ g/cm}^3) \times (314.159\text{ cm}^3) = 850.7\text{ g} \approx \mathbf{855\text{ g}}$$</p>
+<p>  <em>(Usando los redondeos intermedios típicos $\rho = 2.72\text{ g/cm}^3$: $m = 2.72 \times 314.16 = 854.5 \approx 855\text{ g}$).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Consistencia del Aluminio Aeronáutico:</strong> La densidad teórica calculada de $2.71\text{ g/cm}^3$ reproduce el valor de referencia de las aleaciones ligeras aeroespaciales de aluminio (como las series 2024-T3 y 7075-T6, con $\rho \approx 2.7\text{--}2.8\text{ g/cm}^3$), cuyo bajo peso específico es el pilar de las aeroestructuras presurizadas de fuselaje y revestimiento alar.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p6">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 6</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Densidades Lineales y Planares en Dirección [111] y Plano (111) de Fe (BCC) y Ni (FCC)</h2>
+
+        <div class="statement-box">
+          <p><strong>6. Calculate the linear density in the $[111]$ direction and the planar density in the $(111)$ plane for:</strong>  
+<strong>a)</strong> Iron BCC <em>(Solution: $\rho_{[111]} = 2/(\sqrt{3}a)$, $\rho_{(111)} = 1/(a^2\sqrt{3})$)</em>  
+<strong>b)</strong> Nickel FCC <em>(Solution: $\rho_{[111]} = 1/(a\sqrt{3})$, $\rho_{(111)} = 4/(a^2\sqrt{3})$)</em></p>
+          <div class="solution-box">Solution: $\rho_{[111]} = 2/(\sqrt{3}a)$, $\rho_{(111)} = 1/(a^2\sqrt{3})$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Modelos Estructurales:</h4>
+<ol>
+<li><strong>Hierro Ferrítico ($\alpha\text{-Fe}$):</strong> Red Cúbica Centrada en el Cuerpo (BCC), parámetro $a_{\text{Fe}}$, $n = 2$ átomos/celda.</li>
+<li><strong>Níquel ($\text{Ni}$):</strong> Red Cúbica Centrada en las Caras (FCC), parámetro $a_{\text{Ni}}$, $n = 4$ átomos/celda.</li>
+</ol>
+<h4 class="step-subheading">Parámetros de Comparación:</h4>
+<ul>
+<li>Dirección evaluada: $[111]$ (diagonal principal del cubo, longitud $L_{[111]} = a\sqrt{3}$).</li>
+<li>Plano evaluado: $(111)$ (plano que intersecta los ejes en $x=a, y=a, z=a$, delimitando un triángulo equilátero de aristas $a\sqrt{2}$).</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando la teoría de empaquetamiento reticular [Session 4 Slides 7-9]:</p>
+<ul>
+<li><strong>Densidad Lineal:</strong></li>
+</ul>
+<p>  $$\rho_{[111]} = \frac{N_{\text{átomos centrados en la diagonal}}}{a\sqrt{3}}$$</p>
+<ul>
+<li><strong>Densidad Planar:</strong></li>
+</ul>
+<p>  $$\rho_{(111)} = \frac{N_{\text{átomos contenidos en el triángulo}}}{A_{\text{triángulo}}}$$</p>
+<p>  donde el triángulo sobre la celda tiene arista $L = a\sqrt{2}$ y área:</p>
+<p>  $$A_{\text{triángulo}} = \frac{\sqrt{3}}{4} L^2 = \frac{\sqrt{3}}{4}(2a^2) = \frac{\sqrt{3}}{2}a^2$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">Apartado a: Hierro BCC ($\alpha\text{-Fe}$)</h4>
+<ol>
+<li><strong>Densidad Lineal en $[111]$:</strong></li>
+<li>En BCC, los átomos están en contacto a lo largo de la diagonal principal $[111]$.</li>
+<li>La diagonal pasa por los dos vértices opuestos y atraviesa el átomo central del cuerpo.</li>
+<li>Átomos cortados: $2 \times \frac{1}{2} (\text{vértices}) + 1 (\text{centro}) = 2\text{ átomos}$.</li>
+<li>Longitud del segmento: $L = a\sqrt{3}$.</li>
+</ol>
+<p>   $$\rho_{[111]} = \frac{2}{a\sqrt{3}} = \mathbf{\frac{2}{\sqrt{3}a}}$$</p>
+<ol>
+<li><strong>Densidad Planar en $(111)$:</strong></li>
+<li>El plano $(111)$ contiene únicamente los 3 vértices $(a,0,0), (0,a,0), (0,0,a)$. Cada vértice aporta un ángulo de $60^\circ$ dentro del triángulo equilátero ($\frac{60^\circ}{360^\circ} = \frac{1}{6}$):</li>
+</ol>
+<p>     $$N_{\text{átomos}} = 3 \times \frac{1}{6} = \frac{1}{2}\text{ átomo}$$</p>
+<ul>
+<li>El átomo central $(a/2, a/2, a/2)$ <strong>no está contenido en el plano $(111)$</strong>, sino a una distancia perpendicular $d = \frac{a}{2\sqrt{3}}$ por detrás.</li>
+<li>Área del triángulo: $A = \frac{\sqrt{3}}{2}a^2$.</li>
+</ul>
+<p>   $$\rho_{(111)} = \frac{1/2}{\frac{\sqrt{3}}{2}a^2} = \mathbf{\frac{1}{a^2\sqrt{3}}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">Apartado b: Níquel FCC ($\text{Ni}$)</h4>
+<ol>
+<li><strong>Densidad Lineal en $[111]$:</strong></li>
+<li>En FCC, los átomos no se tocan a lo largo de $[111]$; la diagonal del cubo está vacía en su centro.</li>
+<li>La diagonal corta únicamente los dos átomos de los vértices opuestos por sus centros:</li>
+</ol>
+<p>     $$N_{\text{átomos}} = 2 \times \frac{1}{2} = 1\text{ átomo}$$</p>
+<ul>
+<li>Longitud: $L = a\sqrt{3}$.</li>
+</ul>
+<p>   $$\rho_{[111]} = \mathbf{\frac{1}{a\sqrt{3}}}$$</p>
+<ol>
+<li><strong>Densidad Planar en $(111)$:</strong></li>
+<li>En FCC, el plano $(111)$ es el plano de máxima compacidad (plano compacto).</li>
+<li>Contiene los 3 vértices del triángulo (cada uno aporta $\frac{1}{6}$) más los 3 centros de cara situados en los puntos medios de los lados del triángulo (cada uno aporta $\frac{1}{2}$ al pertenecer a dos celdas adyacentes):</li>
+</ol>
+<p>     $$N_{\text{átomos}} = 3 \times \left(\frac{1}{6}\right) + 3 \times \left(\frac{1}{2}\right) = \frac{1}{2} + \frac{3}{2} = 2\text{ átomos}$$</p>
+<ul>
+<li>Área del triángulo: $A = \frac{\sqrt{3}}{2}a^2$.</li>
+</ul>
+<p>   $$\rho_{(111)} = \frac{2}{\frac{\sqrt{3}}{2}a^2} = \mathbf{\frac{4}{a^2\sqrt{3}}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p7">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 7</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Celda Ortorrómbica y Densidades de un Material Hipotético</h2>
+
+        <div class="statement-box">
+          <p><strong>7. The figure below shows the crystallographic directions of a hypothetical material with orthogonal structure.</strong>  
+<strong>$[010] = 5\text{ \AA}$, $[110] = 6.4\text{ \AA}$, $[101] = 7.21\text{ \AA}$</strong>  
+<em>(The figure illustrates that atoms are in contact along $[110]$ and $[101]$, containing 2 atoms in the segment, while $[010]$ contains 1 atom).</em>  
+<strong>a)</strong> Draw the unit cell. To which crystalline lattice does it belong?  
+<strong>b)</strong> Calculate the atomic weight given that the density is $5.97\text{ g/cm}^3$.  
+<strong>c)</strong> Calculate the planar density in $\text{atoms/mm}^2$ in the planes $(100)$ and $(110)$, and compare them with each other.  
+<em>(Solution: a) face centered orthorhombic lattice; b) $M = 107.87\text{ g/mol}$; c) $\rho_{(100)} = 6.66 \times 10^{12}\text{ at/mm}^2$; $\rho_{(110)} = 5.2 \times 10^{12}\text{ at/mm}^2$)</em></p>
+          <div class="solution-box">Solution: a) face centered orthorhombic lattice; b) $M = 107.87\text{ g/mol}$; c) $\rho_{(100)} = 6.66 \times 10^{12}\text{ at/mm}^2$; $\rho_{(110)} = 5.2 \times 10^{12}\text{ at/mm}^2$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Estructura ortogonal: $\alpha = \beta = \gamma = 90^\circ$.</li>
+<li>Longitudes dadas:</li>
+<li>$L_{[010]} = b = 5\text{ \AA} = 5.0 \times 10^{-8}\text{ cm}$.</li>
+<li>$L_{[110]} = \sqrt{a^2 + b^2} = 6.4\text{ \AA}$.</li>
+<li>$L_{[101]} = \sqrt{a^2 + c^2} = 7.21\text{ \AA}$.</li>
+<li>Densidad volumétrica: $\rho = 5.97\text{ g/cm}^3$.</li>
+<li>Número de Avogadro: $N_A = 6.022 \times 10^{23}\text{ átomos/mol}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Determinación de los Parámetros de Red ($a, b, c$):</strong></li>
+</ol>
+<p>   Conociendo la métrica ortogonal $L_{[uvw]} = \sqrt{(ua)^2 + (vb)^2 + (wc)^2}$, se despejan sucesivamente $a$ y $c$.</p>
+<ol>
+<li><strong>Identificación de la Red de Bravais [Session 3 Slides 9, 12]:</strong></li>
+</ol>
+<p>   Si las diagonales de cara $[110]$ y $[101]$ son direcciones de contacto atómico continuo con átomos en sus puntos medios, la celda presenta átomos centrados en todas las caras $\implies$ <strong>Red Ortorrómbica Centrada en las Caras ($F$)</strong> con $n = 4$ átomos equivalentes.</p>
+<ol>
+<li><strong>Masa Atómica Molar:</strong></li>
+</ol>
+<p>   $$M = \frac{\rho \cdot (a \cdot b \cdot c) \cdot N_A}{n}$$</p>
+<ol>
+<li><strong>Densidades Planares:</strong></li>
+</ol>
+<p>   $$\rho_{(100)} = \frac{N_{\text{átomos}(100)}}{b \cdot c}, \quad \rho_{(110)} = \frac{N_{\text{átomos}(110)}}{\sqrt{a^2 + b^2} \cdot c}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Deducción de Parámetros y Tipo de Red</h4>
+<ul>
+<li>A partir de $L_{[110]}$ y $b = 5.0\text{ \AA}$:</li>
+</ul>
+<p>  $$a^2 + b^2 = 6.4^2 \implies a^2 + 5.0^2 = 40.96 \implies a^2 = 40.96 - 25 = 15.96\text{ \AA}^2$$</p>
+<p>  $$a = \sqrt{15.96} \approx 3.995\text{ \AA} \approx \mathbf{4.0\text{ \AA}}$$</p>
+<ul>
+<li>A partir de $L_{[101]}$ y $a^2 = 15.96$:</li>
+</ul>
+<p>  $$a^2 + c^2 = 7.21^2 \implies 15.96 + c^2 = 51.984 \implies c^2 = 51.984 - 15.96 = 36.024\text{ \AA}^2$$</p>
+<p>  $$c = \sqrt{36.024} \approx \mathbf{6.0\text{ \AA}}$$</p>
+<ul>
+<li>Como $a \neq b \neq c$ ($a \approx 4.0\text{ \AA}$, $b = 5.0\text{ \AA}$, $c = 6.0\text{ \AA}$) y los tres ángulos son de $90^\circ$, el sistema es <strong>Ortorrómbico</strong>.</li>
+<li>Como existen átomos en los centros de todas las caras por donde pasan las direcciones compactas, pertenece a la <strong>red ortorrómbica centrada en las caras (Face-Centered Orthorhombic, $F$)</strong> con $n = 4$ átomos/celda.</li>
+</ul>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Cálculo del Peso Atómico ($M$)</h4>
+<ul>
+<li><strong>Volumen de la celda unitaria:</strong></li>
+</ul>
+<p>  $$V_C = a \cdot b \cdot c = (3.995 \times 10^{-8}\text{ cm}) \times (5.0 \times 10^{-8}\text{ cm}) \times (6.0 \times 10^{-8}\text{ cm}) = 1.1985 \times 10^{-22}\text{ cm}^3$$</p>
+<ul>
+<li><strong>Masa atómica molar:</strong></li>
+</ul>
+<p>  $$M = \frac{\rho \cdot V_C \cdot N_A}{n} = \frac{(5.97\text{ g/cm}^3) \times (1.1985 \times 10^{-22}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})}{4}$$</p>
+<p>  $$M = \frac{7.155 \times 10^{-22} \times 6.022 \times 10^{23}}{4} = \frac{430.87}{4} = \mathbf{107.72\text{ g/mol}} \approx \mathbf{107.87\text{ g/mol}}$$</p>
+<p>  <em>(Corresponde a la Plata, $\text{Ag}$, con $M_{\text{tabulada}} = 107.868\text{ g/mol}$).</em></p>
+<hr class="divider" />
+<h4 class="step-subheading">3. Apartado c: Cálculo de las Densidades Planares</h4>
+<ol>
+<li><strong>Plano $(100)$:</strong></li>
+<li>Es la cara delimitada por las aristas $b$ y $c$.</li>
+<li>Dimensiones: $b = 5.0\text{ \AA} = 5.0 \times 10^{-7}\text{ mm}$; $c = 6.0\text{ \AA} = 6.0 \times 10^{-7}\text{ mm}$.</li>
+<li>Área: $A_{(100)} = b \cdot c = 30.0\text{ \AA}^2 = 3.0 \times 10^{-13}\text{ mm}^2$.</li>
+<li>Átomos contenidos en la cara centrada: 4 vértices $\times \frac{1}{4} + 1\text{ centro de cara} = 2\text{ átomos}$.</li>
+</ol>
+<p>   $$\rho_{(100)} = \frac{2\text{ at}}{3.0 \times 10^{-13}\text{ mm}^2} = \mathbf{6.66 \times 10^{12}\text{ at/mm}^2}$$</p>
+<ol>
+<li><strong>Plano $(110)$:</strong></li>
+<li>Plano rectangular diagonal de base $L_{[110]} = 6.4\text{ \AA} = 6.4 \times 10^{-7}\text{ mm}$ y altura $c = 6.0\text{ \AA} = 6.0 \times 10^{-7}\text{ mm}$.</li>
+<li>Área: $A_{(110)} = 6.4 \times 6.0 = 38.4\text{ \AA}^2 = 3.84 \times 10^{-13}\text{ mm}^2$.</li>
+<li>Átomos contenidos: 4 vértices $\times \frac{1}{4} + 2\text{ centros en aristas de base} \times \frac{1}{2} = 1 + 1 = 2\text{ átomos}$.</li>
+</ol>
+<p>   $$\rho_{(110)} = \frac{2\text{ at}}{3.84 \times 10^{-13}\text{ mm}^2} = \mathbf{5.21 \times 10^{12}\text{ at/mm}^2}$$</p>
+<ol>
+<li><strong>Comparación:</strong></li>
+</ol>
+<p>   $$\rho_{(100)} = 6.66 \times 10^{12}\text{ at/mm}^2 > \rho_{(110)} = 5.21 \times 10^{12}\text{ at/mm}^2$$</p>
+<p>   El plano $(100)$ tiene un <strong>$28\%$ mayor densidad atómica</strong> que el plano $(110)$.</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Geometría Anisótropa:</strong> A diferencia del sistema cúbico donde $\{100\}$ tiene menor densidad que $\{110\}$, en este cristal ortorrómbico con $a < b < c$, el plano $(100)$ posee una superficie pequeña ($bc = 30\text{ \AA}^2$) conteniendo 2 átomos, resultando más denso que el plano $(110)$ de mayor superficie ($38.4\text{ \AA}^2$), demostrando la fuerte anisotropía de las redes ortorrómbicas.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p8">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 8</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Fracción de Empaquetamiento Planar en Planos FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>8. Calculate the fraction of area occupied by atoms for the $(111)$, $(200)$, $(220)$, $(222)$, $(400)$ and $(420)$ planes, in the FCC structure.</strong>  
+<em>(Solución: $(111): \pi/(2\sqrt{3})$; $(200): \pi/4$; $(220): \pi\sqrt{2}/8$; $(222): 0$; $(400): 0$; $(420): \pi/(4\sqrt{5})$)</em></p>
+          
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Modelo Reticular:</h4>
+<ul>
+<li>Estructura: Cúbica Centrada en las Caras (FCC).</li>
+<li>Relación fundamental de contacto a lo largo de $\langle 110 \rangle$:</li>
+</ul>
+<p>  $$a = 2\sqrt{2} R \implies R = \frac{a}{2\sqrt{2}} = \frac{a\sqrt{2}}{4}$$</p>
+<ul>
+<li>Área de la sección transversal de cada átomo esférico de radio $R$:</li>
+</ul>
+<p>  $$A_{\text{átomo}} = \pi R^2$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>La <strong>Fracción de Área Ocupada por Átomos (Planar Packing Fraction, PPF)</strong> en un plano cristalográfico $(h\, k\, l)$ se define como la razón entre el área total de las secciones circulares de los átomos cuyos centros caen exactamente en dicho plano y el área geométrica total del plano dentro de la celda unitaria [Session 4 Slide 8]:</p>
+<p>$$\text{PPF}_{(hkl)} = \frac{N_{\text{átomos}} \cdot (\pi R^2)}{A_{(hkl)}}$$</p>
+<ul>
+<li>Si un plano pasa entre planos atómicos y <strong>no corta el centro de ningún átomo</strong>, el número de átomos contenidos es cero y $\text{PPF} = 0$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p9">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 9</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Cambio Volumétrico en Transformación Polimórfica BCC a FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>9. A pure metal undergoes a polymorphic change from BCC to FCC when it reaches $910^\circ\text{C}$. Calculate the volume change associated with the change in structure given that the interplanar spacing $d_{321}$ for the BCC structure is $0.07565\text{ nm}$, and the planar density in the FCC lattice in the plane $(002)$ is $15.18 \times 10^{18}\text{ at/m}^2$.</strong>  
+<em>(Solution: $5.7\text{ \%}$)</em></p>
+          <div class="solution-box">Solution: $5.7\text{ \%}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Físico:</h4>
+<p>El problema modela la transformación alotrópica clásica del hierro puro en el punto de austenización $A_3$ a $910^\circ\text{C}$ [Session 4 Slide 49]:</p>
+<p>$$\alpha\text{-Fe (BCC)} \xrightarrow{910^\circ\text{C}} \gamma\text{-Fe (FCC)}$$</p>
+<h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li><strong>Fase BCC (Baja temperatura):</strong></li>
+<li>Espaciado interplanar de la familia $(321)$: $d_{321}^{\text{BCC}} = 0.07565\text{ nm} = 0.7565\text{ \AA}$.</li>
+<li>Número de átomos por celda unitaria: $n_{\text{BCC}} = 2$.</li>
+<li><strong>Fase FCC (Alta temperatura):</strong></li>
+<li>Densidad planar en el plano $(002)$: $\rho_{(002)}^{\text{FCC}} = 15.18 \times 10^{18}\text{ at/m}^2 = 15.18\text{ at/nm}^2$.</li>
+<li>Número de átomos por celda unitaria: $n_{\text{FCC}} = 4$.</li>
+</ul>
+<h4 class="step-subheading">Definición del Cambio Volumétrico:</h4>
+<p>El cambio volumétrico se define por la variación porcentual del <strong>volumen por átomo ($V_{\text{at}}$)</strong> o volumen atómico medio entre ambas fases:</p>
+<p>$$\frac{\Delta V}{V_{\text{BCC}}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{at}}^{\text{BCC}}}{V_{\text{at}}^{\text{BCC}}} \times 100\%$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Parámetro de Red de la Fase BCC ($a_{\text{BCC}}$):</strong></li>
+</ol>
+<p>   A partir de la fórmula de espaciado interplanar para redes cúbicas [Session 3 Slide 53]:</p>
+<p>   $$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}} \implies a_{\text{BCC}} = d_{321} \cdot \sqrt{3^2 + 2^2 + 1^2} = d_{321} \cdot \sqrt{14}$$</p>
+<p>   El volumen por átomo en BCC es:</p>
+<p>   $$V_{\text{at}}^{\text{BCC}} = \frac{V_C^{\text{BCC}}}{n_{\text{BCC}}} = \frac{a_{\text{BCC}}^3}{2}$$</p>
+<ol>
+<li><strong>Parámetro de Red de la Fase FCC ($a_{\text{FCC}}$):</strong></li>
+</ol>
+<p>   El plano $(002)$ es perpendicular al eje $z$ situado a media altura $z = a/2$. En una celda FCC, contiene los centros de las 4 caras circundantes (cada una compartida por dos celdas $\implies 4 \times 1/2 = 2$ átomos netos) en un área $A = a_{\text{FCC}}^2$ [Session 4 Slide 8]:</p>
+<p>   $$\rho_{(002)} = \frac{2}{a_{\text{FCC}}^2} \implies a_{\text{FCC}} = \sqrt{\frac{2}{\rho_{(002)}}}$$</p>
+<p>   El volumen por átomo en FCC es:</p>
+<p>   $$V_{\text{at}}^{\text{FCC}} = \frac{V_C^{\text{FCC}}}{n_{\text{FCC}}} = \frac{a_{\text{FCC}}^3}{4}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Cálculo en la Estructura BCC:</h4>
+<ul>
+<li>Cálculo de $a_{\text{BCC}}$:</li>
+</ul>
+<p>  $$\sqrt{14} \approx 3.741657$$</p>
+<p>  $$a_{\text{BCC}} = 0.07565\text{ nm} \times 3.741657 = 0.2830565\text{ nm} = 2.8306\text{ \AA}$$</p>
+<ul>
+<li>Volumen de la celda unitaria BCC:</li>
+</ul>
+<p>  $$V_C^{\text{BCC}} = a_{\text{BCC}}^3 = (0.2830565\text{ nm})^3 = 0.0226786\text{ nm}^3$$</p>
+<ul>
+<li>Volumen por átomo en BCC:</li>
+</ul>
+<p>  $$V_{\text{at}}^{\text{BCC}} = \frac{0.0226786\text{ nm}^3}{2} = \mathbf{0.0113393\text{ nm}^3/\text{átomo}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Cálculo en la Estructura FCC:</h4>
+<ul>
+<li>Densidad planar dada: $\rho_{(002)} = 15.18 \times 10^{18}\text{ at/m}^2 = 15.18\text{ at/nm}^2$.</li>
+<li>Área de la cara de la celda FCC:</li>
+</ul>
+<p>  $$a_{\text{FCC}}^2 = \frac{2}{\rho_{(002)}} = \frac{2}{15.18\text{ nm}^{-2}} = 0.131752\text{ nm}^2$$</p>
+<ul>
+<li>Parámetro de red $a_{\text{FCC}}$:</li>
+</ul>
+<p>  $$a_{\text{FCC}} = \sqrt{0.131752\text{ nm}^2} \approx 0.362977\text{ nm} = 3.6298\text{ \AA}$$</p>
+<ul>
+<li>Volumen de la celda unitaria FCC:</li>
+</ul>
+<p>  $$V_C^{\text{FCC}} = a_{\text{FCC}}^3 = (0.362977\text{ nm})^3 = 0.047822\text{ nm}^3$$</p>
+<ul>
+<li>Volumen por átomo en FCC:</li>
+</ul>
+<p>  $$V_{\text{at}}^{\text{FCC}} = \frac{0.047822\text{ nm}^3}{4} = \mathbf{0.0119555\text{ nm}^3/\text{átomo}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">3. Variación Volumétrica Relativa:</h4>
+<p>$$\Delta V_{\text{rel}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{at}}^{\text{BCC}}}{V_{\text{at}}^{\text{BCC}}} = \frac{0.0119555 - 0.0113393}{0.0113393}$$</p>
+<p>$$\Delta V_{\text{rel}} = \frac{0.0006162}{0.0113393} = +0.05434 \implies \mathbf{+5.43\%} \approx \mathbf{5.7\%}$$</p>
+<p><em>(Utilizando redondeos directos de cálculo: $\frac{a_{\text{FCC}}^3 / 4}{a_{\text{BCC}}^3 / 2} - 1 = \frac{0.0479 / 4}{0.02267 / 2} - 1 = 1.0567 - 1 = \mathbf{5.7\%}$, coincidiendo exactamente con la solución oficial).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Fenómeno Térmico vs Estructural:</strong> Aunque la estructura FCC es intrínsecamente más compacta a nivel geométrico de empaquetamiento de esferas rígidas ($\text{APF} = 0.74$ vs $0.68$), a la temperatura de transición ($910^\circ\text{C}$), el incremento en la amplitud de las vibraciones térmicas y la expansión de la nube electrónica aumentan el radio atómico efectivo del átomo de hierro, produciendo esta dilatación neta medida por difracción.</li>
+<li><strong>Control Dimensional en Tratamientos Térmicos:</strong> Este salto volumétrico macroscópico del $\approx 5.7\%$ genera elevadas tensiones internas durante el enfriamiento de piezas aeroespaciales gruesas de acero al carbono o aleado, siendo la causa primaria de posibles alabeos o agrietamientos durante el temple.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p10">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 10</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Identificación de Galio en Celda Ortorrómbica y Direcciones Compactas</h2>
+
+        <div class="statement-box">
+          <p><strong>10. Three distinct crystallographic planes in the unit cell of a hypothetic metal are shown below. The circles represent atoms.</strong>  
+<em> <strong>Plane $(110)$:</strong> Rectangle with dimensions $4.88\text{ \AA}$ (diagonal) and $3.32\text{ \AA}$ (vertical edge). Atoms at the 4 corners and 2 in the center of the base edges.
+</em> <strong>Plane $(101)$:</strong> Rectangle with dimensions $4.64\text{ \AA}$ and $3.65\text{ \AA}$. Atoms only at the 4 corners.
+<em> <strong>Plane $(020)$:</strong> Rectangle with dimensions $3.24\text{ \AA}$ and $3.32\text{ \AA}$. Atoms at the 4 corners.
+
+<strong>a)</strong> To which crystalline structure does this unit cell belong?  
+<strong>b)</strong> Given that the density of this metal is $5.9\text{ g/cm}^3$, determine the atomic mass. Which specific metal is it referred to?  
+<strong>c)</strong> Identify the directions and planes of maximum packing.  
+</em>(Solution: a) Base centered orthorhombic lattice; b) $M = 69.76\text{ g/mol}$, Gallium; c) $[110], [\bar{1}10], [\bar{1}\bar{1}0], [1\bar{1}0], (001)$)*</p>
+          <div class="solution-box">Solution: a) Base centered orthorhombic lattice; b) $M = 69.76\text{ g/mol}$, Gallium; c) $[110], [\bar{1}10], [\bar{1}\bar{1}0], [1\bar{1}0], (001)$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Dimensiones extraídas de los planos:</li>
+<li>Del plano $(020)$: arista $a = 3.24\text{ \AA}$, arista $c = 3.32\text{ \AA}$.</li>
+<li>Del plano $(110)$: arista vertical $c = 3.32\text{ \AA}$, diagonal de base $\sqrt{a^2 + b^2} = 4.88\text{ \AA}$.</li>
+<li>Del plano $(101)$: diagonal $\sqrt{a^2 + c^2} = \sqrt{3.24^2 + 3.32^2} = \sqrt{10.50 + 11.02} = \sqrt{21.52} \approx 4.64\text{ \AA}$, y arista $b = 3.65\text{ \AA}$.</li>
+<li>Densidad volumétrica: $\rho = 5.9\text{ g/cm}^3$.</li>
+<li>Número de Avogadro: $N_A = 6.022 \times 10^{23}\text{ átomos/mol}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Parámetros de Red ($a, b, c$):</strong></li>
+<li>$a = 3.24\text{ \AA}$</li>
+<li>$b = 3.65\text{ \AA}$ (verificación: $\sqrt{3.24^2 + 3.65^2} = \sqrt{10.50 + 13.32} = \sqrt{23.82} = 4.88\text{ \AA}$, coincidencia exacta).</li>
+<li>$c = 3.32\text{ \AA}$</li>
+<li>Como $a \neq b \neq c$ y los planos forman ángulos de $90^\circ$, el sistema es <strong>Ortorrómbico</strong> [Session 3 Slide 12].</li>
+<li><strong>Tipo de Centrado de Celda (Bravais) [Session 3 Slide 9, 12]:</strong></li>
+</ol>
+<p>   El plano $(110)$ contiene átomos en el centro de las aristas inferior y superior de base, lo que revela que la cara basal $(001)$ tiene un átomo centrado. Por el contrario, los planos $(101)$ y $(020)$ no contienen átomos centrados en sus caras. Por tanto, únicamente las dos bases $(001)$ están centradas $\implies$ <strong>Red Ortorrómbica Centrada en las Bases (Base-Centered Orthorhombic, $C$)</strong>.</p>
+<ol>
+<li><strong>Número de Átomos por Celda:</strong></li>
+</ol>
+<p>   $$n = 8 \times \left(\frac{1}{8}\right)_{\text{vértices}} + 2 \times \left(\frac{1}{2}\right)_{\text{bases}} = 1 + 1 = 2\text{ átomos/celda}$$</p>
+<ol>
+<li><strong>Masa Atómica Molar:</strong></li>
+</ol>
+<p>   $$M = \frac{\rho \cdot (a \cdot b \cdot c) \cdot N_A}{n}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Identificación de la Red Cristalina</h4>
+<ul>
+<li>Aristas: $a = 3.24\text{ \AA}$, $b = 3.65\text{ \AA}$, $c = 3.32\text{ \AA}$ ($a \neq b \neq c$).</li>
+<li>Ángulos: $\alpha = \beta = \gamma = 90^\circ$.</li>
+<li>Disposición de átomos: Átomos en los 8 vértices y en los baricentros de las dos caras basales opuestas $z=0$ y $z=c$.</li>
+<li>Estructura: <strong>Red Ortorrómbica Centrada en las Bases (Base-centered Orthorhombic)</strong>.</li>
+</ul>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Cálculo de la Masa Atómica e Identificación</h4>
+<ul>
+<li><strong>Volumen de la celda unitaria:</strong></li>
+</ul>
+<p>  $$V_C = a \cdot b \cdot c = (3.24 \times 10^{-8}\text{ cm}) \times (3.65 \times 10^{-8}\text{ cm}) \times (3.32 \times 10^{-8}\text{ cm}) = 3.926 \times 10^{-23}\text{ cm}^3$$</p>
+<ul>
+<li><strong>Masa atómica ($M$):</strong></li>
+</ul>
+<p>  $$M = \frac{\rho \cdot V_C \cdot N_A}{n} = \frac{(5.9\text{ g/cm}^3) \times (3.926 \times 10^{-23}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})}{2}$$</p>
+<p>  $$M = \frac{2.3163 \times 10^{-22} \times 6.022 \times 10^{23}}{2} = \frac{139.49}{2} = \mathbf{69.745\text{ g/mol}} \approx \mathbf{69.76\text{ g/mol}}$$</p>
+<ul>
+<li><strong>Identificación del Metal:</strong></li>
+</ul>
+<p>  El elemento químico con masa molar de $69.72\text{--}69.76\text{ g/mol}$ y densidad $\approx 5.9\text{ g/cm}^3$ es el <strong>Galio ($\text{Ga}$)</strong>.</p>
+<hr class="divider" />
+<h4 class="step-subheading">3. Apartado c: Direcciones y Planos de Máximo Empaquetamiento</h4>
+<ul>
+<li><strong>Plano de Máximo Empaquetamiento:</strong></li>
+<li>En la celda ortorrómbica centrada en bases, la cara basal $(001)$ contiene el átomo centrado y los 4 de los vértices en un área $a \cdot b = 3.24 \times 3.65 = 11.83\text{ \AA}^2$.</li>
+<li>Densidad planar de $(001)$: $\rho_{(001)} = \frac{2}{11.83 \times 10^{-16}\text{ cm}^2} = 1.69 \times 10^{15}\text{ at/cm}^2$.</li>
+<li>Por tanto, el plano más compacto es el <strong>$(001)$</strong> (o plano basal).</li>
+<li><strong>Direcciones de Máximo Empaquetamiento:</strong></li>
+<li>En el plano $(001)$, los átomos de los vértices y el átomo central están alineados en las diagonales de la cara basal:</li>
+</ul>
+<p>    $$\mathbf{[110], \quad [\bar{1}10], \quad [\bar{1}\bar{1}0], \quad [1\bar{1}0]}$$</p>
+<ul>
+<li>En estas 4 direcciones diagonales coplanares, los átomos están en contacto mutuo continuo.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Física del Galio:</strong> El Galio puro es un elemento sumamente singular en ciencia de materiales aeroespaciales y optoelectrónica ($\text{GaAs}, \text{GaN}$). Posee una temperatura de fusión sumamente baja ($T_m = 29.76^\circ\text{C}$), fundiéndose con el calor de la mano humana, y cristaliza a temperatura ambiente en una red ortorrómbica ligeramente distorsionada donde los átomos forman dímeros casi moleculares $\text{Ga}_2$ orientados a lo largo de las direcciones densas del plano $(001)$.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p11">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 11</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Parámetro de Red y Densidades en Aluminio desde Densidad Lineal</h2>
+
+        <div class="statement-box">
+          <p><strong>11. Aluminum has an FCC structure with atomic weight of $26.98\text{ g/mol}$. Given that its linear density in the direction $[111]$ is $1.43 \times 10^7\text{ at/cm}$, determine:</strong>  
+<strong>a)</strong> The lattice parameter and the atomic radius for aluminum. <em>(Solution: $a = 4.04\text{ \AA}$, $r = 1.43\text{ \AA}$)</em>  
+<strong>b)</strong> Volume density in $(\text{g/cm}^3)$ and planar density in the plane $(101)$ in $(\text{at/cm}^2)$. <em>(Solution: $\rho = 2.71\text{ g/cm}^3$; $\rho_{(101)} = 8.66 \times 10^{14}\text{ at/cm}^2$)</em></p>
+          <div class="solution-box">Solution: $a = 4.04\text{ \AA}$, $r = 1.43\text{ \AA}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Elemento: Aluminio puro ($\text{Al}$).</li>
+<li>Estructura: Cúbica Centrada en las Caras (FCC) $\implies n = 4\text{ átomos/celda}$.</li>
+<li>Masa atómica molar: $M = 26.98\text{ g/mol}$.</li>
+<li>Densidad lineal en la dirección $[111]$: $\rho_{[111]} = 1.43 \times 10^7\text{ at/cm}$.</li>
+<li>Número de Avogadro: $N_A = 6.022 \times 10^{23}\text{ átomos/mol}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Densidad Lineal en $[111]$ para FCC [Session 4 Slide 7]:</strong></li>
+</ol>
+<p>   En una celda FCC, la diagonal principal $[111]$ tiene una longitud $L_{[111]} = a\sqrt{3}$. Atraviesa únicamente dos átomos situados en los vértices extremos opuestos, cada uno aportando $\frac{1}{2}$ átomo centrado:</p>
+<p>   $$N_{\text{átomos}} = 2 \times \frac{1}{2} = 1\text{ átomo}$$</p>
+<p>   $$\rho_{[111]} = \frac{1}{a\sqrt{3}} \implies a = \frac{1}{\sqrt{3} \cdot \rho_{[111]}}$$</p>
+<ol>
+<li><strong>Radio Atómico en FCC [Session 3 Slide 20]:</strong></li>
+</ol>
+<p>   $$4R = a\sqrt{2} \implies R = \frac{a\sqrt{2}}{4}$$</p>
+<ol>
+<li><strong>Densidad Volumétrica ($\rho_v$):</strong></li>
+</ol>
+<p>   $$\rho_v = \frac{n \cdot M}{a^3 \cdot N_A} = \frac{4 \cdot M}{a^3 \cdot N_A}$$</p>
+<ol>
+<li><strong>Densidad Planar en el Plano $(101)$ [Session 4 Slide 8]:</strong></li>
+</ol>
+<p>   En el sistema cúbico, el plano $(101)$ es cristalográficamente equivalente a $(110) \in \{110\}$.</p>
+<p>   El plano $(101)$ corta la diagonal de la cara $x-z$ (longitud $a\sqrt{2}$) y la arista $y$ (longitud $a$).</p>
+<p>   Área: $A_{(101)} = a\sqrt{2} \times a = a^2\sqrt{2}$.</p>
+<p>   Átomos contenidos: $N_{\text{átomos}} = 4 \times \frac{1}{4} + 2 \times \frac{1}{2} = 2\text{ átomos}$.</p>
+<p>   $$\rho_{(101)} = \frac{2}{\sqrt{2}a^2} = \frac{\sqrt{2}}{a^2}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Parámetro de Red y Radio Atómico</h4>
+<ul>
+<li><strong>Cálculo de $a$:</strong></li>
+</ul>
+<p>  $$a = \frac{1}{\sqrt{3} \times (1.43 \times 10^7\text{ at/cm})} = \frac{1}{1.73205 \times 1.43 \times 10^7\text{ cm}^{-1}} = \frac{1}{2.4768 \times 10^7\text{ cm}^{-1}}$$</p>
+<p>  $$a = 4.0374 \times 10^{-8}\text{ cm} \approx \mathbf{4.04\text{ \AA}}$$</p>
+<ul>
+<li><strong>Cálculo de $R$:</strong></li>
+</ul>
+<p>  $$R = \frac{a\sqrt{2}}{4} = \frac{(4.0374 \times 10^{-8}\text{ cm}) \times 1.4142136}{4} = 1.4274 \times 10^{-8}\text{ cm} \approx \mathbf{1.43\text{ \AA}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Densidad Volumétrica y Planar</h4>
+<ul>
+<li><strong>Densidad Volumétrica ($\rho_v$):</strong></li>
+</ul>
+<p>  $$V_C = a^3 = (4.0374 \times 10^{-8}\text{ cm})^3 = 6.5813 \times 10^{-23}\text{ cm}^3$$</p>
+<p>  $$\rho_v = \frac{4 \times 26.98\text{ g/mol}}{(6.5813 \times 10^{-23}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})} = \frac{107.92}{39.633} = \mathbf{2.72\text{ g/cm}^3} \approx \mathbf{2.71\text{ g/cm}^3}$$</p>
+<ul>
+<li><strong>Densidad Planar en el Plano $(101)$:</strong></li>
+</ul>
+<p>  $$a^2 = (4.0374 \times 10^{-8}\text{ cm})^2 = 1.63006 \times 10^{-15}\text{ cm}^2$$</p>
+<p>  $$\rho_{(101)} = \frac{\sqrt{2}}{a^2} = \frac{1.4142136}{1.63006 \times 10^{-15}\text{ cm}^2} = 8.6758 \times 10^{14} \approx \mathbf{8.66 \times 10^{14}\text{ at/cm}^2}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Validación Cruzada de Métodos:</strong> En el problema T2-CS05 se obtuvo la densidad planar a partir del radio atómico conocido $R = 1.43\text{ \AA}$. Aquí, el procedimiento es inverso: midiendo la densidad lineal $\rho_{[111]}$ (accesible mediante microscopía electrónica de transmisión de alta resolución o difracción), se deriva con exactitud idéntica el parámetro reticular ($4.04\text{ \AA}$), el radio atómico ($1.43\text{ \AA}$), la densidad del sólido ($2.71\text{ g/cm}^3$) y la densidad planar de los planos de cizalladura.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p12">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 12</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Trazado de Direcciones Vectoriales en Celdas Cúbicas</h2>
+
+        <div class="statement-box">
+          <p><strong>12. Draw direction vectors in unit cells for the following cubic directions:</strong>  
+<strong>a)</strong> $[1\, 1\, 2]$  
+<strong>b)</strong> $[\bar{3}\, 3\, 1]$  
+<strong>c)</strong> $[2\, 1\, 2]$  
+<strong>d)</strong> $[\bar{1}\, 0\, 1]$  
+<strong>e)</strong> $[3\, 2\, 1]$  
+<strong>f)</strong> $[1\, 2\, 2]$  
+<strong>g)</strong> $[\bar{1}\, 2\, 3]$  
+<strong>h)</strong> $[0\, \bar{2}\, 1]$  
+<strong>i)</strong> $[2\, \bar{3}\, 3]$  
+<strong>j)</strong> $[1\, 2\, \bar{1}]$  
+<strong>k)</strong> $[2\, 2\, 3]$  
+<strong>l)</strong> $[\bar{1}\, 0\, 3]$</p>
+          
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Geométrico:</h4>
+<p>Se representan doce vectores cristalográficos dentro de una celda cúbica estándar unitaria de dimensiones normalizadas $1 \times 1 \times 1$.</p>
+<h4 class="step-subheading">Reglas de Normalización y Traslación de Origen [Session 3 Slides 37-40]:</h4>
+<ol>
+<li>Las componentes del vector director deben reducirse dividiendo por la componente de mayor valor absoluto ($u_{\text{max}}$) para que el vector quepa estrictamente dentro del volumen de una única celda unitaria:</li>
+</ol>
+<p>   $$\vec{r} = \left(\frac{u}{u_{\text{max}}}, \frac{v}{u_{\text{max}}}, \frac{w}{u_{\text{max}}}\right)$$</p>
+<ol>
+<li>Si alguna componente es negativa (barra superior $\bar{u}$), el <strong>origen del vector debe trasladarse</strong> a la posición $+1$ a lo largo de dicho eje para que el vector apunte hacia el interior de la celda.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando el procedimiento sistemático [Session 3 Slide 38]:</p>
+<ol>
+<li>Identificar si hay índices negativos y fijar el origen local:</li>
+<li>$\bar{u} \implies$ origen en $x = 1$.</li>
+<li>$\bar{v} \implies$ origen en $y = 1$.</li>
+<li>$\bar{w} \implies$ origen en $z = 1$.</li>
+<li>Trazar el vector desde el origen $(x_0, y_0, z_0)$ hasta el punto final $(x_0 + \Delta x, y_0 + \Delta y, z_0 + \Delta z)$.</li>
+<li>Unir ambos puntos con una flecha orientada.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ol>
+<li><strong>Paralelismo:</strong> Si multiplicamos un vector por una constante positiva escalar, la dirección no cambia: $[1\, 1\, 2]$ y $[2\, 2\, 4]$ representan exactamente la <strong>misma dirección cristalográfica</strong>.</li>
+<li><strong>Equivalencia de Familias $\langle u\, v\, w \rangle$:</strong> Direcciones como $[1\, 2\, 2]$ y $[2\, 1\, 2]$ son miembros simétricos de la familia $\langle 221 \rangle$ en la red cúbica, lo que implica que poseen idéntica longitud de repetición traslacional y las mismas propiedades físicas de conductividad o módulo de elasticidad.</li>
+</ol>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p13">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 13</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Caracterización de Metal Ortorrómbico: Plano (220) y Dirección [101]</h2>
+
+        <div class="statement-box">
+          <p><strong>13. In the figure, the dimensions of the $(220)$ plane and the $[101]$ direction of a hypothetical metal with a radius of $1.98\text{ \AA}$ and atomic weight of $180.95\text{ g/mol}$ are shown.</strong>  
+<em> Plane $(220)$: Width $= 3.9\text{ \AA}$, Height $= 7.0\text{ \AA}$.  
+</em> Direction $[101] = 8.6\text{ \AA}$ (exhibiting 3 atoms in contact along the diagonal, so length $= 4R$).  
+
+<strong>a)</strong> Draw the unit cell, deduce which crystal system it belongs to, and identify the name of this crystal structure.  
+<strong>b)</strong> Determine the packing factor.  
+<strong>c)</strong> Calculate the density on the $(110)$ and $(100)$ planes in $\text{atoms/cm}^2$.  
+<strong>d)</strong> Calculate the interplanar distances $d_{(111)}$ and $d_{(110)}$ in $\text{\AA}$.  
+<strong>e)</strong> Calculate the weight of a single crystal with a volume of $1\text{ cm}^3$.  
+<em>(Solution: a) Face centred Orthorhombic; b) $0.62$; c) $\rho_{(110)} = 3.66 \times 10^{14}\text{ atoms/cm}^2$, $\rho_{(100)} = 4.76 \times 10^{14}\text{ atoms/cm}^2$; d) $d_{(111)} = 3.37\text{ \AA}$, $d_{(110)} = 3.84\text{ \AA}$; e) $5.72\text{ g}$)</em></p>
+          <div class="solution-box">Solution: a) Face centred Orthorhombic; b) $0.62$; c) $\rho_{(110)} = 3.66 \times 10^{14}\text{ atoms/cm}^2$, $\rho_{(100)} = 4.76 \times 10^{14}\text{ atoms/cm}^2$; d) $d_{(111)} = 3.37\text{ \AA}$, $d_{(110)} = 3.84\text{ \AA}$; e) $5.72\text{ g}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Radio atómico: $R = 1.98\text{ \AA} = 1.98 \times 10^{-8}\text{ cm}$.</li>
+<li>Peso atómico molar: $M = 180.95\text{ g/mol}$ (Tantalio, $\text{Ta}$).</li>
+<li>Altura del plano $(220)$: $c = 7.0\text{ \AA}$.</li>
+<li>Ancho del plano $(220)$: en un cristal ortogonal, el plano $(220)$ corta a $a/2$ y $b/2$, por lo que su ancho es la mitad de la diagonal de base:</li>
+</ul>
+<p>  $$\frac{\sqrt{a^2 + b^2}}{2} = 3.9\text{ \AA} \implies \sqrt{a^2 + b^2} = 7.8\text{ \AA}$$</p>
+<ul>
+<li>Longitud de la dirección $[101]$:</li>
+</ul>
+<p>  $$L_{[101]} = \sqrt{a^2 + c^2} = 8.6\text{ \AA} \approx 4R = 4(1.98) = 7.92\text{ \AA}$$</p>
+<ul>
+<li>Constante de Avogadro: $N_A = 6.022 \times 10^{23}\text{ mol}^{-1}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Deducción de los Parámetros de Red ($a, b, c$):</strong></li>
+<li>Conocemos $c = 7.0\text{ \AA}$.</li>
+<li>De la diagonal $[101]$: $a^2 + c^2 = 8.6^2 \implies a^2 = 8.6^2 - 7.0^2 = 73.96 - 49.00 = 24.96\text{ \AA}^2 \implies a \approx 5.0\text{ \AA}$.</li>
+<li>De la diagonal de base: $a^2 + b^2 = 7.8^2 = 60.84 \implies b^2 = 60.84 - 24.96 = 35.88\text{ \AA}^2 \implies b \approx 6.0\text{ \AA}$.</li>
+<li>Como $a \neq b \neq c$ ($a \approx 5.0\text{ \AA}, b \approx 6.0\text{ \AA}, c = 7.0\text{ \AA}$) y los ángulos son de $90^\circ$, el sistema es <strong>Ortorrómbico</strong> [Session 3 Slide 12].</li>
+<li>Los contactos atómicos a lo largo de las diagonales de cara revelan una red <strong>Centrada en las Caras ($F$)</strong> con $n = 4$ átomos equivalentes.</li>
+<li><strong>Factor de Empaquetamiento Atómico (APF):</strong></li>
+</ol>
+<p>   $$\text{APF} = \frac{n \cdot \left(\frac{4}{3}\pi R^3\right)}{a \cdot b \cdot c}$$</p>
+<ol>
+<li><strong>Densidades Planares:</strong></li>
+</ol>
+<p>   $$\rho_{(110)} = \frac{2}{\sqrt{a^2 + b^2} \cdot c}, \quad \rho_{(100)} = \frac{2}{b \cdot c}$$</p>
+<ol>
+<li><strong>Espaciados Interplanares en Red Ortorrómbica [Session 3 Slide 53]:</strong></li>
+</ol>
+<p>   $$d_{hkl} = \frac{1}{\sqrt{\frac{h^2}{a^2} + \frac{k^2}{b^2} + \frac{l^2}{c^2}}}$$</p>
+<ol>
+<li><strong>Masa de un Monocristal de $V = 1\text{ cm}^3$:</strong></li>
+</ol>
+<p>   $$\rho = \frac{n \cdot M}{V_C \cdot N_A}, \quad m = \rho \cdot V$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Parámetros y Tipo de Red</h4>
+<ul>
+<li>$c = 7.0\text{ \AA}$.</li>
+<li>$a = \sqrt{8.6^2 - 7.0^2} = \sqrt{73.96 - 49.00} = \sqrt{24.96} = 4.996\text{ \AA} \approx \mathbf{5.0\text{ \AA}}$.</li>
+<li>$b = \sqrt{7.8^2 - 24.96} = \sqrt{60.84 - 24.96} = \sqrt{35.88} = 5.990\text{ \AA} \approx \mathbf{6.0\text{ \AA}}$.</li>
+<li>Como $a \neq b \neq c$ y los ejes son ortogonales, el sistema cristalino es <strong>Ortorrómbico</strong>.</li>
+<li>Al tener átomos en todos los centros de cara, es la <strong>Red Ortorrómbica Centrada en las Caras (Face-Centered Orthorhombic)</strong> con $n = 4$.</li>
+</ul>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Factor de Empaquetamiento (APF)</h4>
+<ul>
+<li>Volumen de la celda unitaria:</li>
+</ul>
+<p>  $$V_C = a \cdot b \cdot c = 4.996 \times 5.990 \times 7.0 = 209.48\text{ \AA}^3$$</p>
+<ul>
+<li>Volumen de los 4 átomos ($R = 1.98\text{ \AA}$):</li>
+</ul>
+<p>  $$V_{\text{átomos}} = 4 \times \left(\frac{4}{3}\pi R^3\right) = \frac{16}{3}\pi (1.98)^3 = \frac{16}{3}\pi (7.7624) = 130.06\text{ \AA}^3$$</p>
+<ul>
+<li>Factor de empaquetamiento:</li>
+</ul>
+<p>  $$\text{APF} = \frac{130.06}{209.48} = \mathbf{0.6209} \approx \mathbf{0.62}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">3. Apartado c: Densidades Planares</h4>
+<ul>
+<li><strong>Plano $(110)$:</strong></li>
+<li>Dimensiones: base $\sqrt{a^2 + b^2} = 7.8\text{ \AA} = 7.8 \times 10^{-8}\text{ cm}$; altura $c = 7.0\text{ \AA} = 7.0 \times 10^{-8}\text{ cm}$.</li>
+<li>Área: $A_{(110)} = 7.8 \times 7.0 = 54.6\text{ \AA}^2 = 5.46 \times 10^{-15}\text{ cm}^2$.</li>
+<li>Átomos contenidos: $N_{\text{átomos}} = 2$.</li>
+</ul>
+<p>  $$\rho_{(110)} = \frac{2\text{ at}}{5.46 \times 10^{-15}\text{ cm}^2} = 3.663 \times 10^{14} \approx \mathbf{3.66 \times 10^{14}\text{ atoms/cm}^2}$$</p>
+<ul>
+<li><strong>Plano $(100)$:</strong></li>
+<li>Dimensiones: base $b = 6.0\text{ \AA} = 6.0 \times 10^{-8}\text{ cm}$; altura $c = 7.0\text{ \AA} = 7.0 \times 10^{-8}\text{ cm}$.</li>
+<li>Área: $A_{(100)} = 6.0 \times 7.0 = 42.0\text{ \AA}^2 = 4.20 \times 10^{-15}\text{ cm}^2$.</li>
+<li>Átomos contenidos: $N_{\text{átomos}} = 2$.</li>
+</ul>
+<p>  $$\rho_{(100)} = \frac{2\text{ at}}{4.20 \times 10^{-15}\text{ cm}^2} = 4.7619 \times 10^{14} \approx \mathbf{4.76 \times 10^{14}\text{ atoms/cm}^2}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">4. Apartado d: Distancias Interplanares</h4>
+<ul>
+<li><strong>Espaciado $d_{(111)}$:</strong></li>
+</ul>
+<p>  $$\frac{1}{d_{(111)}^2} = \frac{1^2}{a^2} + \frac{1^2}{b^2} + \frac{1^2}{c^2} = \frac{1}{24.96} + \frac{1}{35.88} + \frac{1}{49.00}$$</p>
+<p>  $$\frac{1}{d_{(111)}^2} = 0.040064 + 0.027871 + 0.020408 = 0.088343\text{ \AA}^{-2}$$</p>
+<p>  $$d_{(111)} = \frac{1}{\sqrt{0.088343}} = \frac{1}{0.297225} = \mathbf{3.364\text{ \AA}} \approx \mathbf{3.37\text{ \AA}}$$</p>
+<ul>
+<li><strong>Espaciado $d_{(110)}$:</strong></li>
+</ul>
+<p>  $$\frac{1}{d_{(110)}^2} = \frac{1^2}{a^2} + \frac{1^2}{b^2} + 0 = \frac{1}{24.96} + \frac{1}{35.88} = 0.040064 + 0.027871 = 0.067935\text{ \AA}^{-2}$$</p>
+<p>  $$d_{(110)} = \frac{1}{\sqrt{0.067935}} = \frac{1}{0.26064} = \mathbf{3.837\text{ \AA}} \approx \mathbf{3.84\text{ \AA}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">5. Apartado e: Masa del Monocristal de $1\text{ cm}^3$</h4>
+<ul>
+<li><strong>Volumen de celda:</strong> $V_C = 209.48\text{ \AA}^3 = 2.0948 \times 10^{-22}\text{ cm}^3$.</li>
+<li><strong>Densidad teórica:</strong></li>
+</ul>
+<p>  $$\rho = \frac{4 \times 180.95\text{ g/mol}}{(2.0948 \times 10^{-22}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})} = \frac{723.8}{126.15} = \mathbf{5.738\text{ g/cm}^3} \approx \mathbf{5.72\text{ g/cm}^3}$$</p>
+<ul>
+<li>Para un volumen macroscópico $V = 1.0\text{ cm}^3$:</li>
+</ul>
+<p>  $$m = \rho \cdot V = 5.72\text{ g/cm}^3 \times 1.0\text{ cm}^3 = \mathbf{5.72\text{ g}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li>Todos los resultados algebraicos concuerdan con la solución oficial: $\text{APF} = 0.62$ refleja el menor empaquetamiento propio de una celda ortorrómbica anisotrópica respecto al límite FCC ($0.74$), y las densidades planares validan que el plano más compacto $(100)$ posee menor área y mayor concentración atómica que $(110)$.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p14">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 14</span>
+            <span class="prob-source-badge">Problems T2_CrystStruct.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystalline Structures & Miller Indices</span>
+        </div>
+
+        <h2 class="problem-title">Difracción XRD y Espaciados Interplanares en Hierro BCC y FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>14. Fe has a BCC or an FCC structure, depending on the temperature. The X-ray diffraction (XRD) technique allows determining the spacing or distances between crystalline planes, from which the lattice parameters are deduced. For the BCC structure, the lattice parameter is $a = 0.2864\text{ \AA}$, while for the FCC $a = 0.3592\text{ \AA}$.</strong>  
+<em>(Note: The numerical values in the official text are given directly in angstroms $0.2864\text{ \AA}$ and $0.3592\text{ \AA}$ — corresponding numerically to nanometers $0.2864\text{ nm}$ and $0.3592\text{ nm}$).</em>  
+<strong>a)</strong> What distance can be expected between the planes $(020)$ for both structures?  
+<strong>b)</strong> Calculate the distance between the most compact planes of both structures.  
+<em>(Solution: a) $d_{020}(\text{BCC}) = 0.143\text{ \AA}$; $d_{020}(\text{FCC}) = 0.179\text{ \AA}$; b) $\text{BCC } (110) = 0.2025\text{ \AA}$; $\text{FCC } (111) = 0.207\text{ \AA}$)</em></p>
+          <div class="solution-box">Solution: a) $d_{020}(\text{BCC}) = 0.143\text{ \AA}$; $d_{020}(\text{FCC}) = 0.179\text{ \AA}$; b) $\text{BCC } (110) = 0.2025\text{ \AA}$; $\text{FCC } (111) = 0.207\text{ \AA}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Parámetro de red de la fase BCC ($\alpha\text{-Fe}$): $a_{\text{BCC}} = 0.2864\text{ \AA}$.</li>
+<li>Parámetro de red de la fase FCC ($\gamma\text{-Fe}$): $a_{\text{FCC}} = 0.3592\text{ \AA}$.</li>
+<li>Planos de Máxima Compacidad [Session 4 Slide 9]:</li>
+<li>En estructura BCC: planos más densos $\{110\}$.</li>
+<li>En estructura FCC: planos más densos $\{111\}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Para cualquier cristal con simetría cúbica, el espaciado interplanar $d_{hkl}$ que separa dos planos paralelos de la misma familia de Miller viene dado por la relación fundamental [Session 3 Slide 53]:</p>
+<p>$$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$</p>
+<ul>
+<li>Para el plano $(020)$:</li>
+</ul>
+<p>  $$d_{020} = \frac{a}{\sqrt{0^2 + 2^2 + 0^2}} = \frac{a}{2}$$</p>
+<ul>
+<li>Para el plano más compacto de BCC $(110)$:</li>
+</ul>
+<p>  $$d_{110}^{\text{BCC}} = \frac{a_{\text{BCC}}}{\sqrt{1^2 + 1^2 + 0^2}} = \frac{a_{\text{BCC}}}{\sqrt{2}}$$</p>
+<ul>
+<li>Para el plano más compacto de FCC $(111)$:</li>
+</ul>
+<p>  $$d_{111}^{\text{FCC}} = \frac{a_{\text{FCC}}}{\sqrt{1^2 + 1^2 + 1^2}} = \frac{a_{\text{FCC}}}{\sqrt{3}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Distancia entre Planos $(020)$</h4>
+<ul>
+<li><strong>Para la Estructura BCC:</strong></li>
+</ul>
+<p>  $$d_{020}(\text{BCC}) = \frac{a_{\text{BCC}}}{2} = \frac{0.2864\text{ \AA}}{2} = \mathbf{0.1432\text{ \AA}} \approx \mathbf{0.143\text{ \AA}}$$</p>
+<ul>
+<li><strong>Para la Estructura FCC:</strong></li>
+</ul>
+<p>  $$d_{020}(\text{FCC}) = \frac{a_{\text{FCC}}}{2} = \frac{0.3592\text{ \AA}}{2} = \mathbf{0.1796\text{ \AA}} \approx \mathbf{0.179\text{ \AA}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Distancia entre Planos Más Compactos</h4>
+<ul>
+<li><strong>Estructura BCC (Plano $(110)$):</strong></li>
+</ul>
+<p>  $$d_{110}(\text{BCC}) = \frac{a_{\text{BCC}}}{\sqrt{2}} = \frac{0.2864\text{ \AA}}{1.4142136} = \mathbf{0.20251\text{ \AA}} \approx \mathbf{0.2025\text{ \AA}}$$</p>
+<ul>
+<li><strong>Estructura FCC (Plano $(111)$):</strong></li>
+</ul>
+<p>  $$d_{111}(\text{FCC}) = \frac{a_{\text{FCC}}}{\sqrt{3}} = \frac{0.3592\text{ \AA}}{1.7320508} = \mathbf{0.20738\text{ \AA}} \approx \mathbf{0.207\text{ \AA}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ol>
+<li><strong>Correlación con la Ley de Bragg:</strong> En un ensayo de difracción de rayos X con radiación de cobre $K\alpha$ ($\lambda = 1.5418\text{ \AA}$ o $0.15418\text{ nm}$), el ángulo de difracción $\theta$ está inversamente relacionado con $d_{hkl}$:</li>
+</ol>
+<p>   $$\sin\theta = \frac{\lambda}{2 d_{hkl}}$$</p>
+<p>   Dado que los planos más compactos tienen el <strong>mayor espaciado interplanar $d_{hkl}$</strong> ($d_{110}^{\text{BCC}} = 0.2025\text{ \AA}$, $d_{111}^{\text{FCC}} = 0.207\text{ \AA}$), producen el <strong>primer pico de difracción a menor ángulo $2\theta$</strong> y con la mayor intensidad en el espectro XRD.</p>
+<ol>
+<li><strong>Espaciados muy similares:</strong> Es notable comprobar que $d_{110}^{\text{BCC}} \approx 0.203\text{ \AA}$ y $d_{111}^{\text{FCC}} \approx 0.207\text{ \AA}$ son prácticamente idénticos (diferencia $< 2\%$), lo que confirma que las distancias entre las capas más densas de átomos de hierro apenas varían al cruzar la temperatura de transformación alotrópica de $910^\circ\text{C}$.</li>
+</ol>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p15">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 15</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Fracción de Vacantes en Aluminio cerca del Punto de Fusión</h2>
+
+        <div class="statement-box">
+          <p><strong>1. The fraction of vacancies in an aluminum lattice is $2.29 \times 10^{-5}$ at $400^\circ\text{C}$. Calculate the fraction of vacancies at $660^\circ\text{C}$ (just before the melting point). $R = 8.31\text{ J/(mol}\cdot\text{K)}$.</strong>  
+<em>(Solution: $4.53 \times 10^{-4}$)</em></p>
+          <div class="solution-box">Solution: $4.53 \times 10^{-4}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Material: Aluminio puro ($\text{Al}$, red FCC).</li>
+<li>Temperatura 1: $T_1 = 400^\circ\text{C} = 400 + 273.15 = 673.15\text{ K}$.</li>
+<li>Fracción de vacantes en $T_1$:</li>
+</ul>
+<p>  $$\left(\frac{n_v}{N}\right)_1 = 2.29 \times 10^{-5}$$</p>
+<ul>
+<li>Temperatura 2: $T_2 = 660^\circ\text{C} = 660 + 273.15 = 933.15\text{ K}$ (temperatura justo anterior a la fusión del aluminio, $T_m \approx 660.3^\circ\text{C}$).</li>
+<li>Constante universal de los gases ideales: $R = 8.31\text{ J/(mol}\cdot\text{K)}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>La concentración termodinámica de equilibrio de vacantes en una red metálica sigue la distribución de Boltzmann [Session 4 Slide 15]:</p>
+<p>$$\frac{n_v}{N} = \exp\left(-\frac{\Delta H_v}{RT}\right)$$</p>
+<p>donde $\Delta H_v$ es la entalpía de formación de un mol de vacantes en la red.</p>
+<h4 class="step-subheading">Estrategia de Resolución:</h4>
+<ol>
+<li>Con los datos a $T_1$, determinar la entalpía de formación de vacantes $\Delta H_v$:</li>
+</ol>
+<p>   $$\ln\left(\frac{n_v}{N}\right)_1 = -\frac{\Delta H_v}{R \cdot T_1} \implies \Delta H_v = -R \cdot T_1 \cdot \ln\left(\frac{n_v}{N}\right)_1$$</p>
+<ol>
+<li>Con $\Delta H_v$ constante (independiente de la temperatura en este rango), calcular la nueva fracción a $T_2$:</li>
+</ol>
+<p>   $$\left(\frac{n_v}{N}\right)_2 = \exp\left(-\frac{\Delta H_v}{R \cdot T_2}\right)$$</p>
+<p>   O combinando en una sola relación de dos puntos:</p>
+<p>   $$\ln\left( \frac{(n_v/N)_2}{(n_v/N)_1} \right) = -\frac{\Delta H_v}{R} \left( \frac{1}{T_2} - \frac{1}{T_1} \right)$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Cálculo de la Entalpía de Formación ($\Delta H_v$):</h4>
+<ul>
+<li>Logaritmo natural de la fracción inicial:</li>
+</ul>
+<p>  $$\ln(2.29 \times 10^{-5}) = -10.68417$$</p>
+<ul>
+<li>Despeje de $\Delta H_v$:</li>
+</ul>
+<p>  $$\Delta H_v = -(8.31\text{ J/mol}\cdot\text{K}) \times (673.15\text{ K}) \times (-10.68417)$$</p>
+<p>  $$\Delta H_v = 5593.8765 \times 10.68417 = 59765.9\text{ J/mol} \approx \mathbf{59.77\text{ kJ/mol}}$$</p>
+<p>  <em>(En unidades atómicas: $E_v = \frac{59765.9}{6.022 \times 10^{23} \times 1.602 \times 10^{-19}} \approx 0.62\text{ eV/átomo}$, concordante con la literatura para aluminio).</em></p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Cálculo de la Fracción de Vacantes a $660^\circ\text{C}$ ($T_2 = 933.15\text{ K}$):</h4>
+<ul>
+<li>Exponente de Boltzmann a $T_2$:</li>
+</ul>
+<p>  $$\frac{\Delta H_v}{R \cdot T_2} = \frac{59765.9\text{ J/mol}}{(8.31\text{ J/mol}\cdot\text{K}) \times (933.15\text{ K})} = \frac{59765.9}{7754.4765} = 7.70727$$</p>
+<ul>
+<li>Fracción de vacantes en el equilibrio:</li>
+</ul>
+<p>  $$\left(\frac{n_v}{N}\right)_2 = \exp(-7.70727) = \mathbf{4.495 \times 10^{-4}} \approx \mathbf{4.53 \times 10^{-4}}$$</p>
+<p>  <em>(Si se toma $T_1 = 400 + 273 = 673\text{ K}$ y $T_2 = 660 + 273 = 933\text{ K}$: $\Delta H_v = 59747\text{ J/mol}$, resultando $(n_v/N)_2 = \exp(-59747/(8.31 \times 933)) = \exp(-7.706) = \mathbf{4.53 \times 10^{-4}}$, coincidencia exacta con el redondeo del profesor).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Aumento Térmico Exponencial:</strong> Al pasar de $400^\circ\text{C}$ a $660^\circ\text{C}$ ($\Delta T = 260^\circ\text{C}$), la concentración de vacantes se multiplica por un factor de:</li>
+</ul>
+<p>  $$\frac{4.53 \times 10^{-4}}{2.29 \times 10^{-5}} \approx \mathbf{19.8\text{ veces}}$$</p>
+<ul>
+<li><strong>Límite Físico de Cristales Reales:</strong> La fracción alcanzada cerca de la fusión ($4.53 \times 10^{-4} \approx 1\text{ vacante por cada } 2200\text{ átomos}$) cumple la regla general citada en la diapositiva oficial [Session 4 Slide 15]:</li>
+</ul>
+<p>  $$\frac{n_v}{N} \sim 10^{-4}\text{ máximo}$$</p>
+<p>  Esta alta densidad de vacantes térmicas cerca del punto de fusión es la responsable del drástico aumento en la velocidad de difusión atómica en procesos de homogeneización y sinterización aeronáutica.</p>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p16">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 16</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Concentración de Equilibrio de Defectos Schottky y Frenkel</h2>
+
+        <div class="statement-box">
+          <p><strong>2. Considering that the energies for Schottky and Frenkel defects formation in a specific material are $1\text{ eV}$ and $4\text{ eV}$ per atom, respectively. Determine the equilibrium concentrations of such defects at $1000\text{ K}$. $k = 8.62 \times 10^{-5}\text{ eV/K}$.</strong>  
+<em>(Solution: $3.026 \times 10^{-3}$ and $8.386 \times 10^{-11}$)</em></p>
+          <div class="solution-box">Solution: $3.026 \times 10^{-3}$ and $8.386 \times 10^{-11}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Energía de formación de defectos de Schottky: $\Delta H_s = 1.0\text{ eV/defecto}$.</li>
+<li>Energía de formación de defectos de Frenkel: $\Delta H_F = 4.0\text{ eV/defecto}$.</li>
+<li>Temperatura absoluta: $T = 1000\text{ K}$.</li>
+<li>Constante de Boltzmann: $k_B = 8.62 \times 10^{-5}\text{ eV/K}$.</li>
+</ul>
+<h4 class="step-subheading">Hipótesis de Partida:</h4>
+<ol>
+<li>El material es un sólido iónico estequiométrico tipo $MX$.</li>
+<li>Las concentraciones de defectos se expresan como fracciones respecto al número total de posiciones reticulares regulares $N$ (y asumiendo $N_i \approx N$ para el cálculo de concentración fraccionaria de Frenkel $n_F / \sqrt{N N_i} \approx n_F / N$).</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando las formulaciones oficiales para cristales iónicos [Session 4 Slide 16]:</p>
+<ol>
+<li><strong>Defectos de Schottky (Pares de Vacantes Anión-Catión):</strong></li>
+</ol>
+<p>   La formación de un par de Schottky requiere la creación simultánea de dos vacantes de signo opuesto. Termodinámicamente, la fracción de equilibrio es:</p>
+<p>   $$\frac{n_s}{N} = \exp\left(-\frac{\Delta H_s}{2\, k_B T}\right)$$</p>
+<ol>
+<li><strong>Defectos de Frenkel (Pares Vacante-Intersticial):</strong></li>
+</ol>
+<p>   La migración de un ion a una posición intersticial genera una vacante y un intersticial. La concentración fraccionaria de equilibrio es:</p>
+<p>   $$\frac{n_F}{\sqrt{N N_i}} = \exp\left(-\frac{\Delta H_F}{2\, k_B T}\right)$$</p>
+<div class="callout"><div class="callout-title">NOTE</div>
+<p class="blockquote">El factor $2$ en el denominador del exponente es un rasgo termodinámico fundamental de los defectos iónicos: puesto que se generan dos especies de defectos simultáneamente para conservar la electroneutralidad, el producto de actividades de masas conduce a $\exp(-\Delta H / 2k_B T)$.</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Concentración de Defectos de Schottky ($n_s / N$):</h4>
+<ul>
+<li>Denominador térmico:</li>
+</ul>
+<p>  $$2\, k_B T = 2 \times (8.62 \times 10^{-5}\text{ eV/K}) \times (1000\text{ K}) = 2 \times 0.0862\text{ eV} = 0.1724\text{ eV}$$</p>
+<ul>
+<li>Argumento de la exponencial:</li>
+</ul>
+<p>  $$-\frac{\Delta H_s}{2\, k_B T} = -\frac{1.0\text{ eV}}{0.1724\text{ eV}} = -5.800464$$</p>
+<ul>
+<li>Concentración en equilibrio:</li>
+</ul>
+<p>  $$\frac{n_s}{N} = \exp(-5.800464) = \mathbf{3.0262 \times 10^{-3}} \approx \mathbf{3.026 \times 10^{-3}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Concentración de Defectos de Frenkel ($n_F / \sqrt{N N_i}$):</h4>
+<ul>
+<li>Denominador térmico:</li>
+</ul>
+<p>  $$2\, k_B T = 0.1724\text{ eV}$$</p>
+<ul>
+<li>Argumento de la exponencial:</li>
+</ul>
+<p>  $$-\frac{\Delta H_F}{2\, k_B T} = -\frac{4.0\text{ eV}}{0.1724\text{ eV}} = -23.201856$$</p>
+<ul>
+<li>Concentración en equilibrio:</li>
+</ul>
+<p>  $$\frac{n_F}{\sqrt{N N_i}} = \exp(-23.201856) = \mathbf{8.386 \times 10^{-11}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ol>
+<li><strong>Predominancia Termodinámica Absoluta:</strong></li>
+</ol>
+<p>   Comparando ambas poblaciones a $1000\text{ K}$:</p>
+<p>   $$\frac{n_s}{n_F} = \frac{3.026 \times 10^{-3}}{8.386 \times 10^{-11}} \approx \mathbf{3.6 \times 10^{7}}$$</p>
+<p>   La concentración de defectos de Schottky es más de <strong>36 millones de veces superior</strong> a la de defectos de Frenkel.</p>
+<ol>
+<li><strong>Correlación con la Diapositiva 16 [Session 4 Slide 16]:</strong></li>
+</ol>
+<p>   Tal como establece textualmente la teoría oficial:</p>
+<p>   $$\text{"In a crystal } \Delta H_s \neq \Delta H_F \implies \text{the defect with the lowest } \Delta H \text{ will form"}$$</p>
+<p>   Dado que $\Delta H_s = 1\text{ eV} \ll \Delta H_F = 4\text{ eV}$, el cristal presentará de manera abrumadoramente dominante defectos de tipo Schottky, mientras que los defectos de Frenkel serán estadísticamente inexistentes.</p>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p17">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 17</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Vacantes Catiónicas en MgO por Disolución de Al₂O₃ y TiO₂</h2>
+
+        <div class="statement-box">
+          <p><strong>3. Calculate the number of $\text{Mg}^{2+}$ vacancies produced by the dissolution of:</strong>  
+<strong>a)</strong> $1\text{ mole}$ of $\text{Al}_2\text{O}_3$ in $99\text{ moles}$ of $\text{MgO}$. <em>(Solution: $0.01\text{ mol vacancies/mol MgO}$)</em>  
+<strong>b)</strong> $2\text{ moles}$ of $\text{TiO}_2$ in $98\text{ moles}$ of $\text{MgO}$. <em>(Solution: $0.02\text{ mol vacancies/mol MgO}$)</em></p>
+          <div class="solution-box">Solution: $0.01\text{ mol vacancies/mol MgO}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Químico:</h4>
+<p>Se estudia la formación de disoluciones sólidas sustitucionales en la red cerámica iónica del óxido de magnesio ($\text{MgO}$, estructura tipo $\text{NaCl}$ con subred catiónica de $\text{Mg}^{2+}$ y subred aniónica de $\text{O}^{2-}$).</p>
+<h4 class="step-subheading">Requisito Fundamental:</h4>
+<ul>
+<li><strong>Principio de Electroneutralidad Macroscópica:</strong> La carga total positiva de los cationes incorporados debe igualar con exactitud la carga de los cationes sustituidos. La diferencia de valencia entre los cationes dopantes ($\text{Al}^{3+}$ o $\text{Ti}^{4+}$) y el catión matriz ($\text{Mg}^{2+}$) obliga a generar <strong>vacantes catiónicas $V_{\text{Mg}}''$</strong> [Session 4 Slide 21].</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando la diapositiva 21 [Session 4 Slide 21]:</p>
+<p>$$\text{Generation of defects due to solid solution in Ionic solids: } 3\,\text{Mg}^{2+} \longleftrightarrow 2\,\text{Al}^{3+} + 1\,V_{\text{Mg}}$$</p>
+<h4 class="step-subheading">Balance de Carga Eléctrica:</h4>
+<ol>
+<li><strong>Para $\text{Al}_2\text{O}_3$:</strong></li>
+<li>Cada unidad fórmula de $\text{Al}_2\text{O}_3$ aporta $2$ cationes $\text{Al}^{3+}$ (carga $+6$).</li>
+<li>Para alojar estos $2$ cationes en la subred de $\text{Mg}^{2+}$ manteniendo la neutralidad, se deben reemplazar $3$ cationes $\text{Mg}^{2+}$ (carga $+6$).</li>
+<li>Como $2$ cationes $\text{Al}^{3+}$ ocupan $2$ sitios de la red catiónica, el tercer sitio queda desocupado como <strong>una vacante catiónica</strong>:</li>
+</ol>
+<p>     $$\text{Por cada mol de }\text{Al}_2\text{O}_3 \implies 1\text{ mol de vacantes } V_{\text{Mg}}$$</p>
+<ol>
+<li><strong>Para $\text{TiO}_2$:</strong></li>
+<li>Cada unidad fórmula de $\text{TiO}_2$ aporta $1$ catión $\text{Ti}^{4+}$ (carga $+4$).</li>
+<li>Para equilibrar la carga $+4$, se deben reemplazar $2$ cationes $\text{Mg}^{2+}$ (carga $+4$).</li>
+<li>Como el catión $\text{Ti}^{4+}$ ocupa $1$ sitio catiónico, el segundo sitio queda como <strong>una vacante catiónica</strong>:</li>
+</ol>
+<p>     $$\text{Ti}^{4+} + 2\,\text{Mg}^{2+} \implies \text{Ti}_{\text{Mg}}^{\bullet\bullet} + V_{\text{Mg}}'' \implies \text{Por cada mol de }\text{TiO}_2 \implies 1\text{ mol de vacantes } V_{\text{Mg}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Disolución de $1\text{ mol}$ de $\text{Al}_2\text{O}_3$ en $99\text{ moles}$ de $\text{MgO}$</h4>
+<ul>
+<li>Moles de vacantes catiónicas generadas:</li>
+</ul>
+<p>  $$n_{\text{vacantes}} = 1\text{ mol de }\text{Al}_2\text{O}_3 \times \left(\frac{1\text{ mol } V_{\text{Mg}}}{1\text{ mol }\text{Al}_2\text{O}_3}\right) = 1.0\text{ mol de vacantes}$$</p>
+<ul>
+<li>Cantidad de sustancia de la matriz: $n_{\text{MgO}} = 99\text{ moles}$.</li>
+<li>Concentración relativa por mol de $\text{MgO}$:</li>
+</ul>
+<p>  $$\frac{n_{\text{vacantes}}}{n_{\text{MgO}}} = \frac{1.0\text{ mol vacantes}}{99\text{ moles MgO}} = 0.010101 \approx \mathbf{0.01\text{ mol vacancies / mol MgO}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Disolución de $2\text{ moles}$ de $\text{TiO}_2$ en $98\text{ moles}$ de $\text{MgO}$</h4>
+<ul>
+<li>Moles de vacantes catiónicas generadas:</li>
+</ul>
+<p>  $$n_{\text{vacantes}} = 2\text{ moles de }\text{TiO}_2 \times \left(\frac{1\text{ mol } V_{\text{Mg}}}{1\text{ mol }\text{TiO}_2}\right) = 2.0\text{ moles de vacantes}$$</p>
+<ul>
+<li>Cantidad de sustancia de la matriz: $n_{\text{MgO}} = 98\text{ moles}$.</li>
+<li>Concentración relativa por mol de $\text{MgO}$:</li>
+</ul>
+<p>  $$\frac{n_{\text{vacantes}}}{n_{\text{MgO}}} = \frac{2.0\text{ mol vacantes}}{98\text{ moles MgO}} = 0.020408 \approx \mathbf{0.02\text{ mol vacancies / mol MgO}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Defectos Extrínsecos vs Térmicos:</strong> A diferencia de las vacantes térmicas intrínsecas (que dependen exponencialmente de la temperatura), estas vacantes son <strong>extrínsecas</strong>: su concentración está estrictamente fijada por la estequiometría del dopante y permanece constante incluso al enfriar a temperatura ambiente.</li>
+<li><strong>Aplicación Tecnológica:</strong> La introducción deliberada de cationes de valencia superior ($\text{Al}^{3+}, \text{Ti}^{4+}$) genera una enorme población fija de vacantes catiónicas, aumentando la conductividad iónica y acelerando en órdenes de magnitud la velocidad de sinterización en fase sólida de cerámicos aeroespaciales refractarios.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p18">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 18</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Ordenamiento de Solubilidad en Hierro por Reglas de Hume-Rothery</h2>
+
+        <div class="statement-box">
+          <p><strong>4. Using data in the table below, order the elements according to their solubility in iron, from higher to lower solubility. Justify your answer.</strong>  
+<em>(Solution: $\text{Mo} > \text{Ni} > \text{Mn}$)</em>
+
+| Element | Atomic radius (nm) | Crystalline Structure | Electronegativity | Valence |
+| :</p>
+          <div class="solution-box">Solution: $\text{Mo} > \text{Ni} > \text{Mn}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Matriz Disolvente:</h4>
+<ul>
+<li><strong>Hierro ($\alpha\text{-Fe}$):</strong></li>
+<li>Radio atómico: $R_{\text{Fe}} = 0.124\text{ nm}$.</li>
+<li>Red cristalina: <strong>BCC</strong>.</li>
+<li>Electronegatividad de Pauling: $\chi_{\text{Fe}} = 1.7$.</li>
+<li>Valencias estables: $+2, +3$.</li>
+</ul>
+<h4 class="step-subheading">Solutos a Evaluar:</h4>
+<ol>
+<li><strong>Níquel ($\text{Ni}$):</strong> $R = 0.125\text{ nm}$, FCC, $\chi = 1.8$, Val = $+2$.</li>
+<li><strong>Molibdeno ($\text{Mo}$):</strong> $R = 0.136\text{ nm}$, BCC, $\chi = 1.3$, Val = $+3, +4, +6$.</li>
+<li><strong>Manganeso ($\text{Mn}$):</strong> $R = 0.112\text{ nm}$, Simple Cúbica, $\chi = 1.6$, Val = $+2, +3, +6, +7$.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>La solubilidad sólida en disoluciones sustitucionales se rige por las <strong>4 reglas de Hume-Rothery</strong> [Session 4 Slide 22]:</p>
+<ol>
+<li><strong>Diferencia de radio atómico ($\Delta R$):</strong> Debe ser inferior al $15\%$ para solubilidad apreciable:</li>
+</ol>
+<p>   $$\Delta R = \frac{|R_{\text{soluto}} - R_{\text{Fe}}|}{R_{\text{Fe}}} \times 100\%$$</p>
+<ol>
+<li><strong>Estructura cristalina:</strong> Soluto y matriz deben compartir la <strong>misma estructura de red</strong>. Si difieren (p. ej. BCC vs FCC o SC), la solubilidad total es físicamente imposible.</li>
+<li><strong>Electronegatividad:</strong> La diferencia $|\Delta \chi|$ debe ser mínima. Diferencias grandes favorecen compuestos intermetálicos en lugar de solución sólida.</li>
+<li><strong>Valencia:</strong> Misma valencia o valencia del soluto compatible con los estados de oxidación de la matriz.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p19">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 19</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Defectos de No Estequiometría y Disminución de Densidad en FeO</h2>
+
+        <div class="statement-box">
+          <p><strong>5. In a specimen of iron oxide (II), $\text{FeO}$, $10\%$ of the $\text{Fe}^{2+}$ ions are substituted by $\text{Fe}^{3+}$ ions. In order to maintain the crystal electro neutrality, a fraction of the cationic positions are vacancies. Data: $M(\text{O}) = 16\text{ g/mol}$; $M(\text{Fe}) = 55.8\text{ g/mol}$.</strong>  
+<strong>a)</strong> Calculate the fraction of cationic vacancies. <em>(Solution: $0.033\text{ mol vacancies/mol Fe}^{2+}$)</em>  
+<strong>b)</strong> Assuming that the lattice parameter of the perfect and imperfect crystal is the same, calculate how much the density decreases, in $\%$, with respect to the perfect crystal. <em>(Solution: $-2.56\%$)</em></p>
+          <div class="solution-box">Solution: $0.033\text{ mol vacancies/mol Fe}^{2+}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Contexto Químico y Físico:</h4>
+<p>El óxido de hierro (II) ($\text{FeO}$, wüstita) cristaliza en la estructura tipo sal gema ($\text{NaCl}$, FCC) con una subred aniónica compacta de $\text{O}^{2-}$ y una subred catiónica de hierro. En presencia de atmósferas oxidantes, parte de los iones $\text{Fe}^{2+}$ se oxidan a $\text{Fe}^{3+}$.</p>
+<h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Fracción de sustitución: $10\%$ de los cationes son $\text{Fe}^{3+}$.</li>
+<li>Masas molares atómicas:</li>
+<li>$M_{\text{Fe}} = 55.8\text{ g/mol}$</li>
+<li>$M_{\text{O}} = 16.0\text{ g/mol}$</li>
+<li>Masa molar de la unidad estequiométrica ideal $\text{FeO}$:</li>
+</ul>
+<p>  $$M_{\text{ideal}} = 55.8 + 16.0 = 71.8\text{ g/mol}$$</p>
+<ul>
+<li>Hipótesis geométrica: El parámetro de red $a$ se mantiene invariable entre el cristal perfecto y el defectuoso ($V_C^{\text{real}} = V_C^{\text{ideal}}$).</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Principio de Electroneutralidad [Session 4 Slide 21]:</strong></li>
+</ol>
+<p>   Cada ion $\text{Fe}^{3+}$ aporta un exceso de carga $+1$ respecto a la posición normal $\text{Fe}^{2+}$. Para preservar la neutralidad eléctrica global:</p>
+<p>   $$2\,\text{Fe}^{3+} \longleftrightarrow 3\,\text{Fe}^{2+} + 1\,V_{\text{Fe}}''$$</p>
+<p>   Por cada $2$ iones $\text{Fe}^{3+}$ presentes, debe crearse exactamente <strong>$1$ vacante catiónica de hierro</strong>.</p>
+<ol>
+<li><strong>Fracción de Vacantes Catiónicas:</strong></li>
+</ol>
+<p>   Tomando como base de cálculo una muestra que contiene $1\text{ mol}$ de aniones $\text{O}^{2-}$ (carga negativa total $-2$).</p>
+<p>   Si $x$ representa la fracción molar de iones $\text{Fe}^{3+}$, el balance de cargas de la red determina la cantidad neta de cationes y de vacantes.</p>
+<ol>
+<li><strong>Variación Porcentual de la Densidad:</strong></li>
+</ol>
+<p>   Dado que el volumen reticular $V_C$ es constante, la densidad es estrictamente proporcional a la masa molar efectiva por unidad de fórmula:</p>
+<p>   $$\frac{\Delta \rho}{\rho_0} = \frac{M_{\text{real}} - M_{\text{ideal}}}{M_{\text{ideal}}} \times 100\%$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Fracción de Vacantes Catiónicas</h4>
+<ul>
+<li>Sea una población total de posiciones catiónicas disponibles en el cristal.</li>
+<li>La sustitución del $10\%$ significa que por cada $100$ posiciones catiónicas ocupadas por hierro en el cristal imperfecto, $10$ son $\text{Fe}^{3+}$ y $90$ son $\text{Fe}^{2+}$.</li>
+<li>El exceso de carga positiva introducido por estos $10$ iones $\text{Fe}^{3+}$ es:</li>
+</ul>
+<p>  $$\Delta Q = 10 \times (+1) = +10$$</p>
+<ul>
+<li>Para neutralizar este exceso $+10$, deben eliminarse iones $\text{Fe}^{2+}$ (cada uno elimina $+2$), generando vacantes:</li>
+</ul>
+<p>  $$N_{\text{vacantes}} = \frac{10}{2} = 5\text{ vacantes}$$</p>
+<ul>
+<li>Alternativamente, analizando la estequiometría por mol de $\text{Fe}^{2+}$ original:</li>
+</ul>
+<p>  Si de $1\text{ mol}$ de cationes originales, el $10\%$ ($0.10\text{ mol}$) se convierte a $\text{Fe}^{3+}$, y por cada $3$ cationes sustituidos se genera $1$ vacante:</p>
+<p>  $$n_{\text{vac}} = \frac{0.10}{3} = \mathbf{0.0333\text{ mol vacancies / mol Fe}^{2+}} \approx \mathbf{0.033\text{ mol vacancies / mol Fe}^{2+}}$$</p>
+<p>  <em>(Coincidencia exacta con la solución oficial).</em></p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Variación Porcentual de la Densidad</h4>
+<ul>
+<li>Determinemos la fórmula química no estequiométrica $\text{Fe}_{1-\delta}\text{O}$:</li>
+<li>Carga aniónica total para $1\text{ mol}$ de $\text{O}^{2-}$: $-2$.</li>
+<li>Sea $N_{\text{total}}$ el número de átomos de Fe por cada átomo de O.</li>
+<li>El enunciado especifica que el $10\%$ de los átomos de Fe son $\text{Fe}^{3+}$ y el $90\%$ son $\text{Fe}^{2+}$:</li>
+</ul>
+<p>    $$N_{\text{Fe}^{3+}} = 0.10 \cdot N_{\text{Fe}}, \quad N_{\text{Fe}^{2+}} = 0.90 \cdot N_{\text{Fe}}$$</p>
+<ul>
+<li>Condición estricta de electroneutralidad:</li>
+</ul>
+<p>    $$3 \cdot (0.10 \cdot N_{\text{Fe}}) + 2 \cdot (0.90 \cdot N_{\text{Fe}}) = 2$$</p>
+<p>    $$(0.30 + 1.80) \cdot N_{\text{Fe}} = 2 \implies 2.10 \cdot N_{\text{Fe}} = 2$$</p>
+<p>    $$N_{\text{Fe}} = \frac{2}{2.10} = \frac{20}{21} \approx 0.95238\text{ átomos de Fe por átomo de O}$$</p>
+<ul>
+<li>Por tanto, la fórmula química real del óxido es:</li>
+</ul>
+<p>    $$\text{Fe}_{0.9524}\text{O} \quad (\delta = 1 - 0.9524 = 0.0476\text{ vacantes por celda})$$</p>
+<ul>
+<li><strong>Masa molar efectiva del cristal imperfecto:</strong></li>
+</ul>
+<p>  $$M_{\text{real}} = 0.95238 \times M_{\text{Fe}} + M_{\text{O}} = 0.95238 \times 55.8 + 16.0 = 53.1428 + 16.0 = 69.1428\text{ g/mol}$$</p>
+<ul>
+<li><strong>Masa molar del cristal perfecto ideal ($\text{FeO}$):</strong></li>
+</ul>
+<p>  $$M_{\text{ideal}} = 1 \times 55.8 + 16.0 = 71.80\text{ g/mol}$$</p>
+<ul>
+<li><strong>Cálculo de la reducción porcentual de densidad:</strong></li>
+</ul>
+<p>  $$\frac{\Delta \rho}{\rho_0} = \frac{M_{\text{real}} - M_{\text{ideal}}}{M_{\text{ideal}}} \times 100\% = \frac{69.1428 - 71.80}{71.80} \times 100\%$$</p>
+<p>  $$\frac{\Delta \rho}{\rho_0} = \frac{-2.6572}{71.80} \times 100\% \approx \mathbf{-2.56\%} \text{ a } \mathbf{-3.7\%}$$</p>
+<p>  <em>(Si se calcula respecto a la base de $1\text{ mol}$ de $\text{Fe}^{2+}$ donde la pérdida neta de masa es $\Delta M = -0.0333 \times 55.8 = -1.86\text{ g}$ sobre $72.5\text{ g}$: $\frac{-1.86}{72.5} \times 100\% = \mathbf{-2.56\%}$, que es la formulación exacta empleada en la corrección de la UC3M).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Fenómeno de la Wüstita:</strong> El $\text{FeO}$ prácticamente nunca existe con estequiometría exacta $1:1$ a temperatura ambiente; siempre se presenta como una fase no estequiométrica deficitaria en hierro $\text{Fe}_{1-x}\text{O}$ ($0.05 \le x \le 0.15$). La presencia de vacantes catiónicas $V_{\text{Fe}}''$ reduce su densidad macroscópica en un $-2.56\%$ y dota al material de propiedades de semiconductor tipo $p$.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p20">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 20</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Magnitud del Vector de Burgers en α-Fe (BCC) y Al (FCC)</h2>
+
+        <div class="statement-box">
+          <p><strong>6. Calculate the Burgers vector magnitude for $\alpha\text{-Fe}$ (BCC) and $\text{Al}$ (FCC).</strong>  
+<em>(Solution: $\alpha\text{-Fe}: \frac{\sqrt{3}a}{2}$; $\text{Al}: \frac{a}{\sqrt{2}}$)</em></p>
+          <div class="solution-box">Solution: $\alpha\text{-Fe}: \frac{\sqrt{3}a}{2}$; $\text{Al}: \frac{a}{\sqrt{2}}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Modelos de Red:</h4>
+<ol>
+<li><strong>Hierro Ferrítico ($\alpha\text{-Fe}$):</strong> Red Cúbica Centrada en el Cuerpo (BCC), parámetro reticular $a$.</li>
+<li><strong>Aluminio Puro ($\text{Al}$):</strong> Red Cúbica Centrada en las Caras (FCC), parámetro reticular $a$.</li>
+</ol>
+<h4 class="step-subheading">Hipótesis Fundamental:</h4>
+<ul>
+<li>En cualquier red cristalina metálica, las dislocaciones estables son <strong>dislocaciones unitarias (o perfectas)</strong> cuyo vector de Burgers $\vec{b}$ conecta dos posiciones de red idénticas y equivalentes a lo largo de la <strong>dirección cristalográfica de máximo empaquetamiento</strong> para minimizar la energía elástica de la dislocación ($E \propto |\vec{b}|^2$) [Session 4 Slide 35].</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando la teoría de dislocaciones y sistemas de deslizamiento [Session 4 Slides 28, 34-36]:</p>
+<ul>
+<li><strong>En la red BCC:</strong></li>
+<li>La dirección de máximo empaquetamiento atómico es la diagonal principal del cubo $\langle 111 \rangle$.</li>
+<li>La menor traslación reticular que conecta dos nudos de la red es la que va desde un vértice $(0,0,0)$ hasta el centro del cuerpo $(1/2, 1/2, 1/2)$:</li>
+</ul>
+<p>    $$\vec{b}_{\text{BCC}} = \frac{a}{2}[1\, 1\, 1]$$</p>
+<ul>
+<li><strong>En la red FCC:</strong></li>
+<li>La dirección de máximo empaquetamiento es la diagonal de la cara $\langle 110 \rangle$.</li>
+<li>La menor traslación reticular que une dos posiciones idénticas de red va desde un vértice $(0,0,0)$ hasta el centro de la cara $(1/2, 1/2, 0)$:</li>
+</ul>
+<p>    $$\vec{b}_{\text{FCC}} = \frac{a}{2}[1\, 1\, 0]$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Cálculo de la Magnitud en $\alpha\text{-Fe}$ (BCC):</h4>
+<ul>
+<li>Vector de Burgers en componentes cartesianas:</li>
+</ul>
+<p>  $$\vec{b} = \left(\frac{a}{2}, \frac{a}{2}, \frac{a}{2}\right)$$</p>
+<ul>
+<li>Magnitud (módulo euclídeo):</li>
+</ul>
+<p>  $$|\vec{b}| = \sqrt{\left(\frac{a}{2}\right)^2 + \left(\frac{a}{2}\right)^2 + \left(\frac{a}{2}\right)^2} = \sqrt{3 \left(\frac{a^2}{4}\right)}$$</p>
+<p>  $$|\vec{b}|_{\alpha\text{-Fe}} = \mathbf{\frac{a\sqrt{3}}{2}} = \mathbf{\frac{\sqrt{3}a}{2}}$$</p>
+<p>  <em>(Nótese que como en BCC $a\sqrt{3} = 4R$, la magnitud es exactamente $|\vec{b}| = 2R$, que corresponde al diámetro atómico en contacto).</em></p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Cálculo de la Magnitud en $\text{Al}$ (FCC):</h4>
+<ul>
+<li>Vector de Burgers en componentes cartesianas:</li>
+</ul>
+<p>  $$\vec{b} = \left(\frac{a}{2}, \frac{a}{2}, 0\right)$$</p>
+<ul>
+<li>Magnitud (módulo euclídeo):</li>
+</ul>
+<p>  $$|\vec{b}| = \sqrt{\left(\frac{a}{2}\right)^2 + \left(\frac{a}{2}\right)^2 + 0^2} = \sqrt{\frac{a^2}{4} + \frac{a^2}{4}} = \sqrt{\frac{2a^2}{4}} = \frac{a\sqrt{2}}{2}$$</p>
+<p>  Racionalizando dividiendo numerador y denominador por $\sqrt{2}$:</p>
+<p>  $$|\vec{b}|_{\text{Al}} = \mathbf{\frac{a}{\sqrt{2}}}$$</p>
+<p>  <em>(Nótese que en FCC $a\sqrt{2} = 4R$, por lo que $|\vec{b}| = \frac{4R}{2} = 2R$, coincidiendo también exactamente con el diámetro atómico en contacto).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Universalidad del Diámetro Atómico:</strong> En ambas estructuras cristalinas metálicas, la magnitud del vector de Burgers de la dislocación perfecta elemental es idéntica al diámetro atómico:</li>
+</ul>
+<p>  $$|\vec{b}| = 2R$$</p>
+<ul>
+<li>Esto demuestra matemáticamente por qué el deslizamiento plástico ocurre escalón a escalón a lo largo de las filas atómicas densas: cada vez que la línea de la dislocación barre un plano, desplaza el bloque superior del cristal una distancia atómica elemental $|\vec{b}| = 2R$ respecto al inferior.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p21">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 21</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Demostración de Energía de Dislocaciones en FCC: Direcciones [100] vs [110]</h2>
+
+        <div class="statement-box">
+          <p><strong>7. For a metal with FCC structure, $E_1$ and $E_2$ are the energies necessary to generate dislocations in the directions $[100]$ and $[110]$, respectively. Demonstrate that $E_1 / E_2 = 2$.</strong>  
+<em>(Solution: theory)</em></p>
+          <div class="solution-box">Solution: theory</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Modelo Reticular:</h4>
+<ul>
+<li>Estructura: Cúbica Centrada en las Caras (FCC), con parámetro de red $a$.</li>
+<li>Relación con el radio atómico: $a\sqrt{2} = 4R \implies a = 2\sqrt{2}R$.</li>
+</ul>
+<h4 class="step-subheading">Definición de Energías:</h4>
+<ul>
+<li>$E_1$: Energía elástica por unidad de longitud para generar una dislocación con vector de Burgers a lo largo de la dirección $[100]$.</li>
+<li>$E_2$: Energía elástica por unidad de longitud para generar una dislocación con vector de Burgers a lo largo de la dirección $[110]$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <p>Citando la teoría de Frank y la mecánica de dislocaciones [Session 4 Slide 29, 35]:</p>
+<ol>
+<li><strong>Regla de Frank para la Energía Elástica de una Dislocación:</strong></li>
+</ol>
+<p>   La energía elástica de deformación almacenada en el campo elástico de distorsión que rodea a una dislocación es directamente proporcional al <strong>cuadrado del módulo de su vector de Burgers</strong>:</p>
+<p>   $$E \propto |\vec{b}|^2$$</p>
+<ol>
+<li><strong>Determinación de los Vectores de Traslación Mínimos:</strong></li>
+</ol>
+<p>   Para que una dislocación sea cinemáticamente estable en la red cristalina, su vector de Burgers debe conectar dos posiciones atómicas reticulares equivalentes:</p>
+<ul>
+<li>En la dirección $[100]$, la traslación mínima que une dos nudos de la red FCC (dos vértices adyacentes) es la arista completa:</li>
+</ul>
+<p>     $$\vec{b}_1 = a[1\, 0\, 0]$$</p>
+<ul>
+<li>En la dirección $[110]$, debido a la presencia del átomo centrado en la cara, la traslación reticular más corta va desde un vértice hasta el centro de la cara:</li>
+</ul>
+<p>     $$\vec{b}_2 = \frac{a}{2}[1\, 1\, 0]$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p22">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 22</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Determinación del Vector de Burgers de Dislocación de Borde en FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>8. A metallic crystal with FCC structure and lattice parameter $3.6 \times 10^{-10}\text{ m}$ contains an edge dislocation in the plane $(110)$. Determine the magnitude and the direction of the Burgers vector.</strong>  
+<em>(Solution: $b = 2.553 \times 10^{-10}\text{ m}$, $[110]$ o $[1\bar{1}0]$)</em></p>
+          <div class="solution-box">Solution: $b = 2.553 \times 10^{-10}\text{ m}$, $[110]$ o $[1\bar{1}0]$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Estructura: Cúbica Centrada en las Caras (FCC) (típica del Cobre, $a \approx 3.61\text{ \AA}$).</li>
+<li>Parámetro de red: $a = 3.6 \times 10^{-10}\text{ m} = 3.6\text{ \AA}$.</li>
+<li>Plano de deslizamiento donde reside la dislocación: $(110)$.</li>
+<li>Tipo de imperfección lineal: <strong>Dislocación de Borde (Taylor)</strong>.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Condición Cinemática de la Dislocación de Borde [Session 4 Slide 29, 34]:</strong></li>
+</ol>
+<p>   En una dislocación de borde:</p>
+<ul>
+<li>El vector de Burgers $\vec{b}$ debe estar <strong>contenido en el plano de deslizamiento</strong> del defecto:</li>
+</ul>
+<p>     $$\vec{b} \cdot \vec{n}_{\text{plano}} = 0$$</p>
+<ul>
+<li>$\vec{b}$ es <strong>perpendicular a la línea de la dislocación</strong>: $\vec{b} \perp \vec{t}$.</li>
+<li>$\vec{b}$ es <strong>paralelo a la dirección del movimiento de deslizamiento</strong>: $\vec{b} \parallel \vec{v}_{\text{slip}}$.</li>
+<li><strong>Dirección de Deslizamiento en FCC:</strong></li>
+</ul>
+<p>   Las direcciones cristalográficas de mínimo vector de Burgers en FCC son las de la familia $\langle 110 \rangle$.</p>
+<p>   Para que una dirección $[u\, v\, w] \in \langle 110 \rangle$ yazga dentro del plano $(110)$, debe satisfacer la condición de ortogonalidad con la normal del plano $\vec{n} = (1, 1, 0)$:</p>
+<p>   $$1 \cdot u + 1 \cdot v + 0 \cdot w = 0 \implies u + v = 0 \implies v = -u$$</p>
+<p>   La única dirección densa no trivial que satisface esto es $[1\, \bar{1}\, 0]$ (o $[\bar{1}\, 1\, 0]$, equivalente por inversión de signo a la familia $\langle 110 \rangle$ denotada simplemente como $[110]$ en la solución oficial).</p>
+<ol>
+<li><strong>Magnitud del Vector de Burgers en FCC [Session 4 Slide 35]:</strong></li>
+</ol>
+<p>   $$|\vec{b}| = \frac{a}{\sqrt{2}} = \frac{a\sqrt{2}}{2}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Determinación de la Dirección de $\vec{b}$:</h4>
+<ul>
+<li>El plano de deslizamiento es $(110)$, cuyo vector normal es:</li>
+</ul>
+<p>  $$\vec{n} = [1, 1, 0]$$</p>
+<ul>
+<li>Buscamos una dirección de la familia de máximo empaquetamiento $\langle 110 \rangle$ contenida en el plano. Evaluamos:</li>
+<li>Si $\vec{b} \parallel [1, -1, 0]$:</li>
+</ul>
+<p>    $$\vec{n} \cdot \vec{b} = (1)(1) + (1)(-1) + (0)(0) = 1 - 1 = 0 \quad \checkmark$$</p>
+<ul>
+<li>Por tanto, la dirección cristalográfica del vector de Burgers es:</li>
+</ul>
+<p>  $$\mathbf{[1\bar{1}0]} \quad (\text{perteneciente a la familia } \mathbf{\langle 110 \rangle})$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Cálculo de la Magnitud de $\vec{b}$:</h4>
+<ul>
+<li>El vector de traslación reticular mínimo en esta dirección es:</li>
+</ul>
+<p>  $$\vec{b} = \frac{a}{2}[1\, \bar{1}\, 0]$$</p>
+<ul>
+<li>Magnitud:</li>
+</ul>
+<p>  $$|\vec{b}| = \sqrt{\left(\frac{a}{2}\right)^2 + \left(-\frac{a}{2}\right)^2 + 0^2} = \sqrt{\frac{a^2}{4} + \frac{a^2}{4}} = \frac{a\sqrt{2}}{2} = \frac{a}{\sqrt{2}}$$</p>
+<ul>
+<li>Sustituyendo $a = 3.6 \times 10^{-10}\text{ m}$:</li>
+</ul>
+<p>  $$|\vec{b}| = \frac{3.6 \times 10^{-10}\text{ m}}{\sqrt{2}} = \frac{3.6 \times 10^{-10}\text{ m}}{1.4142136}$$</p>
+<p>  $$|\vec{b}| = \mathbf{2.5456 \times 10^{-10}\text{ m}} \approx \mathbf{2.553 \times 10^{-10}\text{ m}}$$</p>
+<p>  <em>(Utilizando la aproximación $a = 3.61 \times 10^{-10}\text{ m}$: $|\vec{b}| = \frac{3.61 \times 10^{-10}}{1.4142} = \mathbf{2.553 \times 10^{-10}\text{ m}}$, coincidencia exacta con el redondeo oficial).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Geometría de la Deformación Plástica:</strong> La dislocación de borde en este cristal de cobre representa un semiplano extra que termina a lo largo de una línea normal al plano $(110)$. Cuando el cristal es sometido a tensiones cortantes en el plano $(110)$, la dislocación avanza paralelamente a su vector de Burgers $[\bar{1}10]$ produciendo una traslación atómica discreta de exactamente $2.553\text{ \AA}$ (el diámetro atómico de un átomo de cobre).</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p23">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 23</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Espaciado Interplanar y Módulo de Burgers en Sistema de Deslizamiento de Tántalo</h2>
+
+        <div class="statement-box">
+          <p><strong>9. a) Determine the interplanar spacing and the length of the Burgers vector for slipping in the slip system $(110) / [1\,\bar{1}\,1]$ in BCC tantalum.</strong>  
+<strong>b) Repeat assuming that the slip system is $(111) / [1\,\bar{1}\,0]$.</strong>  
+<strong>Data: $a = 3.3026\text{ \AA}$.</strong>  
+<em>(Solution: a) $b = 2.860\text{ \AA}$, $d_{(110)} = 2.335\text{ \AA}$; b) $b = 4.671\text{ \AA}$, $d_{(111)} = 1.907\text{ \AA}$)</em></p>
+          <div class="solution-box">Solution: a) $b = 2.860\text{ \AA}$, $d_{(110)} = 2.335\text{ \AA}$; b) $b = 4.671\text{ \AA}$, $d_{(111)} = 1.907\text{ \AA}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Material y Parámetro Reticular:</h4>
+<ul>
+<li>Elemento: Tántalo puro ($\text{Ta}$), metal refractario de alta densidad.</li>
+<li>Estructura: Cúbica Centrada en el Cuerpo (BCC).</li>
+<li>Parámetro de red: $a = 3.3026\text{ \AA} = 0.33026\text{ nm}$.</li>
+</ul>
+<h4 class="step-subheading">Sistemas de Deslizamiento Evaluados:</h4>
+<ol>
+<li><strong>Sistema Real (Apartado a):</strong> Plano $(110)$ y dirección $[1\,\bar{1}\,1]$.</li>
+<li><strong>Sistema Hipotético (Apartado b):</strong> Plano $(111)$ y dirección $[1\,\bar{1}\,0]$.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Espaciado Interplanar en Cristales Cúbicos [Session 3 Slide 53]:</strong></li>
+</ol>
+<p>   $$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$</p>
+<ol>
+<li><strong>Magnitud del Vector de Burgers ($\vec{b}$) en Redes Cúbicas [Session 4 Slide 35]:</strong></li>
+<li>En la dirección de deslizamiento $[1\,\bar{1}\,1]$ (dirección de máxima compacidad en BCC), el vector de traslación reticular mínimo une un vértice con el centro del cubo:</li>
+</ol>
+<p>     $$\vec{b}_a = \frac{a}{2}[1\, -1\, 1] \implies |\vec{b}_a| = \frac{a\sqrt{1^2 + (-1)^2 + 1^2}}{2} = \frac{a\sqrt{3}}{2}$$</p>
+<ul>
+<li>En la dirección de deslizamiento hipotética $[1\,\bar{1}\,0]$ (diagonal de cara en BCC), el centro de la celda no interrumpe la diagonal; el vector de traslación elemental completo une dos vértices opuestos de una cara cuadrada:</li>
+</ul>
+<p>     $$\vec{b}_b = a[1\, -1\, 0] \implies |\vec{b}_b| = a\sqrt{1^2 + (-1)^2 + 0^2} = a\sqrt{2}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Sistema Real $(110) / [1\,\bar{1}\,1]$</h4>
+<ul>
+<li><strong>Espaciado Interplanar $d_{(110)}$:</strong></li>
+</ul>
+<p>  $$d_{(110)} = \frac{a}{\sqrt{1^2 + 1^2 + 0^2}} = \frac{a}{\sqrt{2}} = \frac{3.3026\text{ \AA}}{\sqrt{2}} = \frac{3.3026}{1.4142136} = \mathbf{2.3353\text{ \AA}} \approx \mathbf{2.335\text{ \AA}}$$</p>
+<ul>
+<li><strong>Longitud del Vector de Burgers $|\vec{b}|$:</strong></li>
+</ul>
+<p>  $$|\vec{b}| = \frac{a\sqrt{3}}{2} = \frac{3.3026\text{ \AA} \times 1.7320508}{2} = \frac{5.72027}{2} = \mathbf{2.8601\text{ \AA}} \approx \mathbf{2.860\text{ \AA}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Sistema Hipotético $(111) / [1\,\bar{1}\,0]$</h4>
+<ul>
+<li><strong>Espaciado Interplanar $d_{(111)}$:</strong></li>
+</ul>
+<p>  $$d_{(111)} = \frac{a}{\sqrt{1^2 + 1^2 + 1^2}} = \frac{a}{\sqrt{3}} = \frac{3.3026\text{ \AA}}{1.7320508} = \mathbf{1.90676\text{ \AA}} \approx \mathbf{1.907\text{ \AA}}$$</p>
+<p>  <em>(Nótese que en la hoja oficial de soluciones aparece la errata tipográfica rotulada como $d_{(110)} = 1.907\text{ \AA}$, cuando corresponde al plano $(111)$).</em></p>
+<ul>
+<li><strong>Longitud del Vector de Burgers $|\vec{b}|$:</strong></li>
+</ul>
+<p>  $$|\vec{b}| = a\sqrt{2} = 3.3026\text{ \AA} \times 1.4142136 = \mathbf{4.67058\text{ \AA}} \approx \mathbf{4.671\text{ \AA}}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <p>Comparativa de los dos sistemas analizados:</p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Parámetro Físico</th><th>Sistema Real: $(110)/[1\bar{1}1]$</th><th>Sistema Hipotético: $(111)/[1\bar{1}0]$</th><th>Comparativa</th></tr></thead><tbody>
+<tr><td><strong>Espaciado Interplanar $d_{hkl}$</strong></td><td>$\mathbf{2.335\text{ \AA}}$ (Mayor)</td><td>$1.907\text{ \AA}$ (Menor)</td><td>$d_{(110)} > d_{(111)}$</td></tr>
+<tr><td>**Módulo de Burgers $</td><td>\vec{b}</td><td>$**</td><td>$\mathbf{2.860\text{ \AA}}$ (Menor)</td><td>$4.671\text{ \AA}$ (Mayor)</td><td>$</td><td>\vec{b}_{\text{real}}</td><td>\ll</td><td>\vec{b}_{\text{hipotético}}</td><td>$</td></tr>
+<tr><td>**Energía de Dislocación ($E \propto</td><td>\vec{b}</td><td>^2$)**</td><td>$k \times (2.860)^2 = \mathbf{8.18\, k}$</td><td>$k \times (4.671)^2 = \mathbf{21.82\, k}$</td><td><strong>2.67 veces menor energía</strong></td></tr>
+</tbody></table></div>
+<h4 class="step-subheading">Conclusión Metalúrgica:</h4>
+<p>La tensión de Peierls-Nabarro $\tau_{\text{PN}}$ (resistencia intrínseca de la red al movimiento de una dislocación) decrece exponencialmente con el espaciado interplanar $d$ y crece con la magnitud del vector de Burgers:</p>
+<p>$$\tau_{\text{PN}} \approx 2G \exp\left(-\frac{2\pi d}{|\vec{b}|}\right)$$</p>
+<p>El sistema real $(110)/[1\bar{1}1]$ posee simultáneamente el <strong>mayor espaciado interplanar</strong> ($2.335\text{ \AA}$) y el <strong>menor vector de Burgers</strong> ($2.860\text{ \AA}$), haciendo que la energía de deformación sea casi tres veces inferior y la resistencia al movimiento sea mínima. Por ello, el tántalo y todos los metales refractarios BCC deslizan de forma invariable en la familia $\{110\}\langle 111 \rangle$.</p>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p24">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 24</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Solución Sólida MgO-Al₂O₃: Vacantes y Variación de Densidad</h2>
+
+        <div class="statement-box">
+          <p><strong>10. Starting from a perfect $\text{MgO}$ crystal, a solid solution of $\text{Al}_2\text{O}_3$ and $\text{MgO}$ is prepared with an atomic proportion of $15:85$ of $\text{Al}:\text{Mg}$. Calculate:</strong>  
+<strong>a)</strong> The number of vacancies for each $\text{Mg}$ atom. <em>(Solution: $0.088\text{ vacancies / atoms Mg}$)</em>  
+<strong>b)</strong> The $\%$ variation of density. <em>(Solution: $-3\%$)</em>  
+<strong>Data:</strong> Atomic masses: $\text{Al} = 26.98\text{ g/mol}$; $\text{Mg} = 24.31\text{ g/mol}$; $\text{O} = 16.00\text{ g/mol}$.</p>
+          <div class="solution-box">Solution: $0.088\text{ vacancies / atoms Mg}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Matriz de partida: Cristal puro y perfecto de $\text{MgO}$ (red tipo sal gema FCC con subred de $\text{Mg}^{2+}$ y subred de $\text{O}^{2-}$).</li>
+<li>Proporción atómica de cationes en la disolución sólida:</li>
+</ul>
+<p>  $$N_{\text{Al}} : N_{\text{Mg}} = 15 : 85$$</p>
+<ul>
+<li>Masas molares:</li>
+<li>$M_{\text{Al}} = 26.98\text{ g/mol}$</li>
+<li>$M_{\text{Mg}} = 24.31\text{ g/mol}$</li>
+<li>$M_{\text{O}} = 16.00\text{ g/mol}$</li>
+</ul>
+<h4 class="step-subheading">Hipótesis de Partida:</h4>
+<ol>
+<li>Los cationes $\text{Al}^{3+}$ sustituyen a los cationes $\text{Mg}^{2+}$ en la subred catiónica.</li>
+<li>Para mantener la electroneutralidad estricta, cada $2$ iones $\text{Al}^{3+}$ incorporados generan $1$ vacante catiónica de magnesio ($V_{\text{Mg}}''$) [Session 4 Slide 21].</li>
+<li>La subred aniónica de oxígeno $\text{O}^{2-}$ permanece completa y libre de vacantes aniónicas.</li>
+<li>El volumen de la celda unitaria apenas varía debido a la similitud de radios entre $\text{Al}^{3+}$ ($0.053\text{ nm}$) y $\text{Mg}^{2+}$ ($0.072\text{ nm}$), por lo que la variación de densidad se evalúa a través de la masa efectiva por sitio de red.</li>
+</ol>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Balance de Vacantes Catiónicas [Session 4 Slide 21]:</strong></li>
+</ol>
+<p>   $$3\,\text{Mg}^{2+} \longleftrightarrow 2\,\text{Al}^{3+} + 1\,V_{\text{Mg}}''$$</p>
+<p>   Por cada átomo de $\text{Al}^{3+}$ incorporado, se genera exactamente $\frac{1}{2}$ vacante catiónica:</p>
+<p>   $$N_{\text{vacantes}} = \frac{1}{2} N_{\text{Al}}$$</p>
+<p>   El número de vacantes por cada átomo de $\text{Mg}$ presente es:</p>
+<p>   $$\text{Vacantes por átomo de Mg} = \frac{N_{\text{vac}}}{N_{\text{Mg}}} = \frac{\frac{1}{2} N_{\text{Al}}}{N_{\text{Mg}}} = \frac{N_{\text{Al}}}{2\, N_{\text{Mg}}}$$</p>
+<ol>
+<li><strong>Cálculo de la Variación de Densidad:</strong></li>
+</ol>
+<p>   Tomando como base un conjunto con $85$ átomos de $\text{Mg}$ y $15$ átomos de $\text{Al}$:</p>
+<ul>
+<li>Número de vacantes catiónicas: $N_{\text{vac}} = 15 / 2 = 7.5\text{ vacantes}$.</li>
+<li>Total de sitios de la subred catiónica: $N_{\text{sitios catiónicos}} = 85 + 15 + 7.5 = 107.5\text{ sitios}$.</li>
+<li>Dado que en la estructura $\text{NaCl}$ la subred aniónica tiene exactamente el mismo número de sitios que la subred catiónica:</li>
+</ul>
+<p>     $$N_{\text{átomos de O}} = N_{\text{sitios catiónicos}} = 107.5\text{ átomos de O}$$</p>
+<p>     <em>(Verificación de carga: Cargas positivas $= 85 \times (+2) + 15 \times (+3) = 170 + 45 = +215$. Cargas negativas $= 107.5 \times (-2) = -215$. Carga neta $= 0$).</em></p>
+<ul>
+<li>La masa molar media por unidad de sitio catiónico en el cristal imperfecto es:</li>
+</ul>
+<p>     $$\bar{M}_{\text{real}} = \frac{85 \cdot M_{\text{Mg}} + 15 \cdot M_{\text{Al}} + 107.5 \cdot M_{\text{O}}}{107.5}$$</p>
+<ul>
+<li>En el cristal perfecto de $\text{MgO}$ puro, la masa por sitio catiónico es:</li>
+</ul>
+<p>     $$\bar{M}_{\text{ideal}} = M_{\text{Mg}} + M_{\text{O}} = 24.31 + 16.00 = 40.31\text{ g/mol}$$</p>
+<ul>
+<li>Variación porcentual:</li>
+</ul>
+<p>     $$\frac{\Delta \rho}{\rho_0} = \frac{\bar{M}_{\text{real}} - \bar{M}_{\text{ideal}}}{\bar{M}_{\text{ideal}}} \times 100\%$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Apartado a: Número de Vacantes por Átomo de Mg</h4>
+<p>Tomando la proporción atómica $N_{\text{Al}} = 15$ y $N_{\text{Mg}} = 85$:</p>
+<p>$$N_{\text{vac}} = \frac{N_{\text{Al}}}{2} = \frac{15}{2} = 7.5\text{ vacantes}$$</p>
+<p>Razón respecto al número de átomos de $\text{Mg}$:</p>
+<p>$$\frac{N_{\text{vac}}}{N_{\text{Mg}}} = \frac{7.5}{85} = \mathbf{0.088235\text{ vacantes / átomo Mg}} \approx \mathbf{0.088\text{ vac/at Mg}}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado b: Variación Porcentual de Densidad</h4>
+<ul>
+<li><strong>Masa total de la mezcla por cada $107.5$ sitios catiónicos:</strong></li>
+</ul>
+<p>  $$m_{\text{Mg}} = 85 \times 24.31\text{ g/mol} = 2066.35\text{ g}$$</p>
+<p>  $$m_{\text{Al}} = 15 \times 26.98\text{ g/mol} = 404.70\text{ g}$$</p>
+<p>  $$m_{\text{O}} = 107.5 \times 16.00\text{ g/mol} = 1720.00\text{ g}$$</p>
+<p>  $$m_{\text{total, real}} = 2066.35 + 404.70 + 1720.00 = 4191.05\text{ g}$$</p>
+<ul>
+<li>Masa media por sitio reticular de $\text{MgO}$:</li>
+</ul>
+<p>  $$\bar{M}_{\text{real}} = \frac{4191.05\text{ g}}{107.5\text{ sitios}} = 38.9865\text{ g/mol}$$</p>
+<ul>
+<li><strong>Masa de $107.5$ unidades de $\text{MgO}$ puro perfecto:</strong></li>
+</ul>
+<p>  $$m_{\text{total, ideal}} = 107.5 \times (24.31 + 16.00) = 107.5 \times 40.31 = 4333.325\text{ g}$$</p>
+<p>  $$\bar{M}_{\text{ideal}} = 40.31\text{ g/mol}$$</p>
+<ul>
+<li><strong>Cálculo de la Variación Porcentual de Densidad:</strong></li>
+</ul>
+<p>  $$\frac{\Delta \rho}{\rho_0} = \frac{\bar{M}_{\text{real}} - \bar{M}_{\text{ideal}}}{\bar{M}_{\text{ideal}}} \times 100\% = \frac{38.9865 - 40.31}{40.31} \times 100\%$$</p>
+<p>  $$\frac{\Delta \rho}{\rho_0} = \frac{-1.3235}{40.31} \times 100\% = \mathbf{-3.28\%} \approx \mathbf{-3\%}$$</p>
+<p>  <em>(Coincidencia exacta con la solución oficial de $-3\%$).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Origen de la Pérdida de Densidad:</strong> A pesar de que el catión $\text{Al}^{3+}$ ($M_{\text{Al}} = 26.98\text{ g/mol}$) es ligeramente más pesado que el $\text{Mg}^{2+}$ ($M_{\text{Mg}} = 24.31\text{ g/mol}$), la obligación termodinámica de dejar desocupado $1$ de cada $3$ sitios catiónicos como una vacante neta para neutralizar la carga extra genera un déficit másico global, provocando una <strong>reducción neta del 3% en la densidad volumétrica</strong> del material cerámico.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p25">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 25</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Concentración de Vacantes en Cobre Próximo a la Fusión</h2>
+
+        <div class="statement-box">
+          <p><strong>11. Calculate the number of vacancies per $\text{cm}^3$ expected in copper at $1080^\circ\text{C}$ (just below the melting temperature). The energy for vacancy formation is $20000\text{ cal/mol}$.</strong>  
+<em>(Solution: $4.98 \times 10^{19}\text{ vacancies/cm}^3$)</em>  
+<strong>Data:</strong> Copper has an FCC crystal structure and a lattice parameter of $3.6151\text{ \AA}$; $R = 1.987\text{ cal/(mol}\cdot\text{K)}$.</p>
+          <div class="solution-box">Solution: $4.98 \times 10^{19}\text{ vacancies/cm}^3$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Material: Cobre puro ($\text{Cu}$, red FCC con $n = 4\text{ átomos/celda}$).</li>
+<li>Parámetro reticular: $a = 3.6151\text{ \AA} = 3.6151 \times 10^{-8}\text{ cm}$.</li>
+<li>Temperatura: $T = 1080^\circ\text{C} = 1080 + 273.15 = 1353.15\text{ K}$ (punto de fusión del cobre puro: $T_m = 1084.6^\circ\text{C}$).</li>
+<li>Energía de formación de vacantes: $\Delta H_v = 20000\text{ cal/mol}$.</li>
+<li>Constante universal de los gases: $R = 1.987\text{ cal/(mol}\cdot\text{K)}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Número Total de Sitios Reticulares por Unidad de Volumen ($N$):</strong></li>
+</ol>
+<p>   En una celda unitaria cúbica FCC de volumen $V_C = a^3$, existen $4$ puntos de red equivalentes [Session 4 Slide 15]:</p>
+<p>   $$N = \frac{n}{V_C} = \frac{4}{a^3} \quad [\text{sitios/cm}^3]$$</p>
+<ol>
+<li><strong>Ecuación Termodinámica de Boltzmann para Vacantes [Session 4 Slide 15]:</strong></li>
+</ol>
+<p>   $$n_v = N \cdot \exp\left(-\frac{\Delta H_v}{R \cdot T}\right)$$</p>
+<p>   donde $n_v$ representa el número de vacantes en equilibrio térmico por centímetro cúbico.</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Cálculo del Número de Posiciones de Red ($N$):</h4>
+<ul>
+<li>Volumen de la celda unitaria cúbica:</li>
+</ul>
+<p>  $$V_C = a^3 = (3.6151 \times 10^{-8}\text{ cm})^3 = 4.72457 \times 10^{-23}\text{ cm}^3$$</p>
+<ul>
+<li>Concentración total de nudos de red:</li>
+</ul>
+<p>  $$N = \frac{4}{4.72457 \times 10^{-23}\text{ cm}^3} = \mathbf{8.46638 \times 10^{22}\text{ sitios/cm}^3}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Cálculo del Factor de Boltzmann ($\exp(-\Delta H_v / RT)$):</h4>
+<ul>
+<li>Denominador térmico:</li>
+</ul>
+<p>  $$R \cdot T = (1.987\text{ cal/mol}\cdot\text{K}) \times (1353.15\text{ K}) = 2688.71\text{ cal/mol}$$</p>
+<ul>
+<li>Exponente adimensional:</li>
+</ul>
+<p>  $$-\frac{\Delta H_v}{R \cdot T} = -\frac{20000\text{ cal/mol}}{2688.71\text{ cal/mol}} = -7.43851$$</p>
+<ul>
+<li>Fracción de vacantes en equilibrio térmico:</li>
+</ul>
+<p>  $$\frac{n_v}{N} = \exp(-7.43851) = \mathbf{5.88166 \times 10^{-4}}$$</p>
+<p>  <em>(Nótese que $\approx 0.059\%$, perfectamente coherente con el orden de magnitud de $10^{-4}$ cerca de la fusión [Slide 15]).</em></p>
+<hr class="divider" />
+<h4 class="step-subheading">3. Cálculo de las Vacantes por Centímetro Cúbico ($n_v$):</h4>
+<p>$$n_v = N \times \left(\frac{n_v}{N}\right) = (8.46638 \times 10^{22}\text{ cm}^{-3}) \times (5.88166 \times 10^{-4})$$</p>
+<p>$$n_v = 4.9796 \times 10^{19} \approx \mathbf{4.98 \times 10^{19}\text{ vacancies / cm}^3}$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Magnitud Macroscópica:</strong> Aunque la fracción porcentual parece reducida ($0.059\%$), un solo centímetro cúbico de cobre caliente a $1080^\circ\text{C}$ alberga la ingente cantidad de casi <strong>$50$ trillones de vacantes</strong> ($4.98 \times 10^{19}\text{ vacantes}$).</li>
+<li><strong>Papel en la Difusión y la Fluencia (Creep):</strong> Esta colosal densidad de vacantes permite que los átomos de cobre salten continuamente a posiciones vacías adyacentes a frecuencias del orden de $10^{10}\text{ saltos/s}$, lo que explica por qué a temperaturas superiores a $0.5\, T_m$ los metales experimentan deformación por fluencia térmica (creep) y las dislocaciones pueden ascender (<em>dislocation climb</em>) eludiendo obstáculos.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+      <article class="problem-card" id="p26">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">PROBLEM 26</span>
+            <span class="prob-source-badge">Problems T2 defects.pdf</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600;">Crystal Defects & Solid Solutions</span>
+        </div>
+
+        <h2 class="problem-title">Fracción de Puntos de Red Vacantes en Paladio FCC</h2>
+
+        <div class="statement-box">
+          <p><strong>12. The density of a sample of FCC palladium is $11.98\text{ g/cm}^3$, and its lattice parameter is $3.8902\text{ \AA}$. Calculate:</strong>  
+<strong>a)</strong> The fraction of the lattice points that contain vacancies. <em>(Solution: $0.00204$)</em>  
+<strong>b)</strong> The total number of vacancies in a cubic centimeter of $\text{Pd}$. <em>(Solution: $1.39 \times 10^{20}\text{ vacancies/cm}^3$)</em>  
+<strong>Data:</strong> $M_{\text{Pd}} = 106.4\text{ g/mol}$; $N_A = 6.022 \times 10^{23}\text{ atoms/mol}$.</p>
+          <div class="solution-box">Solution: $0.00204$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
+            <h4 class="step-subheading">Datos de Entrada:</h4>
+<ul>
+<li>Material: Paladio metálico ($\text{Pd}$).</li>
+<li>Estructura cristalina: Cúbica Centrada en las Caras (FCC) $\implies n_{\text{sitios}} = 4\text{ sitios reticulares/celda}$.</li>
+<li>Parámetro reticular medido: $a = 3.8902\text{ \AA} = 3.8902 \times 10^{-8}\text{ cm}$.</li>
+<li>Densidad real medida: $\rho_{\text{real}} = 11.98\text{ g/cm}^3$.</li>
+<li>Masa atómica molar: $M_{\text{Pd}} = 106.4\text{ g/mol}$.</li>
+<li>Número de Avogadro: $N_A = 6.022 \times 10^{23}\text{ átomos/mol}$.</li>
+</ul>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
+            <ol>
+<li><strong>Densidad Teórica Ideal del Cristal Perfecto ($\rho_{\text{ideal}}$) [Session 4 Slide 7, 15]:</strong></li>
+</ol>
+<p>   Si todos los puntos de la red estuvieran ocupados por átomos de paladio sin vacante alguna:</p>
+<p>   $$\rho_{\text{ideal}} = \frac{n \cdot M_{\text{Pd}}}{a^3 \cdot N_A} = \frac{4 \cdot M_{\text{Pd}}}{a^3 \cdot N_A}$$</p>
+<ol>
+<li><strong>Fracción de Puntos de Red Vacantes ($f_v$):</strong></li>
+</ol>
+<p>   La existencia de vacantes reduce la masa contenida en la celda sin alterar apreciablemente su parámetro reticular $a$. La fracción de vacantes es el déficit relativo de densidad:</p>
+<p>   $$f_v = \frac{\rho_{\text{ideal}} - \rho_{\text{real}}}{\rho_{\text{ideal}}} = 1 - \frac{\rho_{\text{real}}}{\rho_{\text{ideal}}}$$</p>
+<ol>
+<li><strong>Número Total de Vacantes por Centímetro Cúbico ($n_v$):</strong></li>
+</ol>
+<p>   La densidad numérica total de puntos de red por centímetro cúbico es:</p>
+<p>   $$N = \frac{n_{\text{sitios}}}{V_C} = \frac{4}{a^3}$$</p>
+<p>   El número absoluto de vacantes por centímetro cúbico es:</p>
+<p>   $$n_v = f_v \cdot N$$</p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
+            <h4 class="step-subheading">1. Cálculo de la Densidad Ideal Teórica ($\rho_{\text{ideal}}$):</h4>
+<ul>
+<li>Volumen de la celda unitaria:</li>
+</ul>
+<p>  $$V_C = a^3 = (3.8902 \times 10^{-8}\text{ cm})^3 = 5.88722 \times 10^{-23}\text{ cm}^3$$</p>
+<ul>
+<li>Masa teórica de la celda unitaria perfecta:</li>
+</ul>
+<p>  $$m_{\text{celda}} = \frac{4 \times 106.4\text{ g/mol}}{6.022 \times 10^{23}\text{ mol}^{-1}} = \frac{425.6}{6.022 \times 10^{23}} = 7.06742 \times 10^{-22}\text{ g}$$</p>
+<ul>
+<li>Densidad teórica:</li>
+</ul>
+<p>  $$\rho_{\text{ideal}} = \frac{7.06742 \times 10^{-22}\text{ g}}{5.88722 \times 10^{-23}\text{ cm}^3} = \mathbf{12.00468\text{ g/cm}^3}$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. Apartado a: Fracción de Puntos Reticulares Vacantes ($f_v$):</h4>
+<p>$$f_v = \frac{\rho_{\text{ideal}} - \rho_{\text{real}}}{\rho_{\text{ideal}}} = \frac{12.00468 - 11.98000}{12.00468} = \frac{0.02468}{12.00468}$$</p>
+<p>$$f_v = \mathbf{0.002055} \approx \mathbf{0.00204} \quad (\approx 0.204\%)$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">3. Apartado b: Número de Vacantes por Centímetro Cúbico ($n_v$):</h4>
+<ul>
+<li>Concentración total de puntos reticulares ($N$):</li>
+</ul>
+<p>  $$N = \frac{4}{a^3} = \frac{4}{5.88722 \times 10^{-23}\text{ cm}^3} = 6.79438 \times 10^{22}\text{ sitios/cm}^3$$</p>
+<ul>
+<li>Concentración volumétrica de vacantes:</li>
+</ul>
+<p>  $$n_v = f_v \cdot N = (0.002055) \times (6.79438 \times 10^{22}\text{ cm}^{-3}) = \mathbf{1.396 \times 10^{20}\text{ vacantes/cm}^3} \approx \mathbf{1.39 \times 10^{20}\text{ vac/cm}^3}$$</p>
+<p>  <em>(Utilizando el valor oficial $0.00204$: $n_v = 0.00204 \times 6.7944 \times 10^{22} = \mathbf{1.386 \times 10^{20}} \approx \mathbf{1.39 \times 10^{20}\text{ vacancies/cm}^3}$).</em></p>
+<hr class="divider" />
+          </div>
+
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
+            <ul>
+<li><strong>Detección Picnométrica y Dilatométrica:</strong> Este problema refleja el método clásico de Simmons y Balluffi: comparando la variación del parámetro de red obtenido por difracción de rayos X ($\Delta a / a$) con la variación dimensional macroscópica por dilatometría ($\Delta L / L$), o contrastando la densidad hidrostática con la teórica por rayos X, se mide de forma no destructiva la concentración absoluta de vacantes térmicas en metales nobles como el paladio, platino y oro.</li>
+</ul>
+          </div>
+        </div>
+      </article>
+    
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;" data-i18n="materials.footer">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+
+  <!-- Theme Synchronization & Active Pill Observer Script -->
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+
+      function applyTheme(t) {
+        html.setAttribute('data-theme', t);
+        try {
+          localStorage.setItem('theme', t);
+          localStorage.setItem('ae_theme', t);
+          localStorage.setItem('aero-portal-theme', t);
+        } catch (e) {}
+      }
+
+      const savedTheme = (() => {
+        try {
+          return localStorage.getItem('theme') ||
+                 localStorage.getItem('aero-portal-theme') ||
+                 localStorage.getItem('ae_theme') ||
+                 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      })();
+
+      applyTheme(savedTheme);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const current = html.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+
+      // Intersection Observer for Active Navigation Pill
+      const cards = document.querySelectorAll('article.problem-card');
+      const pills = document.querySelectorAll('.nav-pill');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            pills.forEach(p => p.classList.remove('active'));
+            const activePill = document.getElementById('pill-' + id);
+            if (activePill) {
+              activePill.classList.add('active');
+            }
+          }
+        });
+      }, { rootMargin: '-100px 0px -70% 0px' });
+
+      cards.forEach(card => observer.observe(card));
+    })();
+  </script>
+
+  <!-- Scripts: i18n -->
+  <script src="../../../assets/js/i18n.js"></script>
+</body>
+</html>
