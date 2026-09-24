@@ -18,13 +18,20 @@
 
   <style>
     :root {
-
-    :root {
       --font-display: 'Abril Fatface', cursive, Georgia, serif;
       --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
       --accent: #f59e0b;
       --accent-soft: rgba(245, 158, 11, 0.12);
       --accent-border: rgba(245, 158, 11, 0.28);
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     [data-theme="dark"] {
@@ -37,31 +44,84 @@
       --text-body: #cbd5e1;
       --text-muted: #94a3b8;
       --text-faint: #64748b;
-      --academic-navy-light: rgba(30, 58, 138, 0.3);
+
+      --academic-navy: #60a5fa;
+      --academic-navy-light: rgba(30, 58, 138, 0.35);
       --academic-navy-border: rgba(59, 130, 246, 0.3);
+
+      --forest-teal: #2dd4bf;
       --forest-teal-light: rgba(15, 118, 110, 0.25);
       --forest-teal-border: rgba(20, 184, 166, 0.3);
+
+      --warm-amber: #fbbf24;
       --warm-amber-light: rgba(245, 158, 11, 0.15);
       --warm-amber-border: rgba(245, 158, 11, 0.3);
+
+      --wine-red: #f87171;
       --wine-red-light: rgba(153, 27, 27, 0.25);
       --wine-red-border: rgba(239, 68, 68, 0.3);
+
+      --purple-accent: #c084fc;
+      --purple-accent-light: rgba(107, 33, 168, 0.25);
+      --purple-accent-border: rgba(168, 85, 247, 0.3);
     }
 
     [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+
+      --academic-navy: #1E3A8A;
+      --academic-navy-light: #EFF6FF;
+      --academic-navy-border: #BFDBFE;
+
+      --forest-teal: #0F766E;
+      --forest-teal-light: #F0FDFA;
+      --forest-teal-border: #99F6E4;
+
+      --warm-amber: #92400E;
+      --warm-amber-light: #FEF3C7;
+      --warm-amber-border: #FDE68A;
+
+      --wine-red: #991B1B;
+      --wine-red-light: #FEF2F2;
+      --wine-red-border: #FECACA;
+
+      --purple-accent: #6B21A8;
+      --purple-accent-light: #FAF5FF;
+      --purple-accent-border: #E9D5FF;
+
       background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
       background-size: 32px 32px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
     }
 
     h1, h2, h3, .brand-title, .section-title, .page-header h1 {
       font-family: var(--font-display) !important;
       font-weight: 400 !important;
       letter-spacing: 0.015em;
-    }
-
-    body {
-      font-family: var(--font-body) !important;
-      font-size: 1.05rem;
-      line-height: 1.75;
     }
 
     code, pre, .tag, .brand-badge {
@@ -111,56 +171,6 @@
     .lang-divider {
       color: var(--border-subtle);
       font-size: 10px;
-    }
-
-      --bg-base: #F8FAFC;
-      --bg-surface: #FFFFFF;
-      --bg-subtle: #F1F5F9;
-      --border-subtle: #E2E8F0;
-      --border-strong: #CBD5E1;
-      
-      --text-heading: #0F172A;
-      --text-body: #334155;
-      --text-muted: #64748B;
-      --text-faint: #94A3B8;
-
-      --academic-navy: #1E3A8A;
-      --academic-navy-light: #EFF6FF;
-      --academic-navy-border: #BFDBFE;
-
-      --forest-teal: #0F766E;
-      --forest-teal-light: #F0FDFA;
-      --forest-teal-border: #99F6E4;
-
-      --warm-amber: #92400E;
-      --warm-amber-light: #FEF3C7;
-      --warm-amber-border: #FDE68A;
-
-      --wine-red: #991B1B;
-      --wine-red-light: #FEF2F2;
-      --wine-red-border: #FECACA;
-
-      --font-serif: "Newsreader", Charter, Georgia, serif;
-      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
-
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-base);
-      color: var(--text-body);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.68;
-      -webkit-font-smoothing: antialiased;
     }
 
     /* Masthead */
@@ -916,8 +926,6 @@
           <span class="lang-divider">/</span>
           <button class="lang-btn active" data-lang="en">EN</button>
         </div>
-        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
-      </div>
         <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
       </div>
     </div>
@@ -4437,16 +4445,34 @@
   </section>
   <script>
     (function () {
-      var saved = localStorage.getItem('theme') || localStorage.getItem('ae_theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', saved);
+      function applyTheme(t) {
+        document.documentElement.setAttribute('data-theme', t);
+        try {
+          localStorage.setItem('theme', t);
+          localStorage.setItem('ae_theme', t);
+          localStorage.setItem('aero-portal-theme', t);
+        } catch (e) {}
+      }
+
+      var saved = (() => {
+        try {
+          return localStorage.getItem('theme') ||
+                 localStorage.getItem('aero-portal-theme') ||
+                 localStorage.getItem('ae_theme') ||
+                 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      })();
+
+      applyTheme(saved);
+
       var toggle = document.getElementById('themeToggle');
       if (toggle) {
         toggle.addEventListener('click', function () {
           var current = document.documentElement.getAttribute('data-theme');
           var next = current === 'dark' ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
-          localStorage.setItem('ae_theme', next);
+          applyTheme(next);
         });
       }
     })();

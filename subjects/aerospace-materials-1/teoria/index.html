@@ -21,11 +21,6 @@
       --accent-border: rgba(245, 158, 11, 0.28);
       --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-      --accent: #f59e0b;
-      --accent-soft: rgba(245, 158, 11, 0.12);
-      --accent-border: rgba(245, 158, 11, 0.25);
-      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
 
     [data-theme="dark"] {
       --bg-primary: #070b14;
@@ -397,13 +392,35 @@
     (function () {
       const html = document.documentElement;
       const toggle = document.getElementById('themeToggle');
-      const stored = (() => { try { return localStorage.getItem('aero-portal-theme'); } catch { return null; } })();
-      if (stored) html.setAttribute('data-theme', stored);
-      toggle.addEventListener('click', () => {
-        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        try { localStorage.setItem('aero-portal-theme', next); } catch {}
-      });
+
+      function applyTheme(t) {
+        html.setAttribute('data-theme', t);
+        try {
+          localStorage.setItem('theme', t);
+          localStorage.setItem('ae_theme', t);
+          localStorage.setItem('aero-portal-theme', t);
+        } catch (e) {}
+      }
+
+      const savedTheme = (() => {
+        try {
+          return localStorage.getItem('theme') ||
+                 localStorage.getItem('aero-portal-theme') ||
+                 localStorage.getItem('ae_theme') ||
+                 'dark';
+        } catch (e) {
+          return 'dark';
+        }
+      })();
+
+      applyTheme(savedTheme);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
     })();
   </script>
   <script src="../../../assets/js/i18n.js"></script>
