@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subchapter 3.3: Linear Momentum &amp; Reaction Forces — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge, .alg-step {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Algorithm Container */
+    .alg-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 24px 0;
+    }
+
+    .alg-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .alg-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .alg-step {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #070b14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .alg-content h4 {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .alg-content p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.55;
+    }
+
+    /* Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+</head>
+<body>
+  <!-- Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 3 · Subchapter 3.3</span>
+      </div>
+      <div class="nav-actions">
+        <a href="topic-3.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="index.html" class="back-link">Theory Index</a>
+        <a href="../problemas/index.html" class="back-link">Problems</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Subchapter Navigation Bar -->
+  <nav class="subchapter-nav-bar">
+    <div class="container">
+      <div class="pills-wrapper">
+        <a href="topic-3-1-rtt.html" class="pill-link">3.1 RTT &amp; CV Strategy</a>
+        <a href="topic-3-2-mass.html" class="pill-link">3.2 Mass Continuity</a>
+        <a href="topic-3-3-momentum.html" class="pill-link active">3.3 Linear Momentum</a>
+        <a href="topic-3-4-angular-momentum.html" class="pill-link">3.4 Angular Momentum</a>
+        <a href="topic-3-5-energy.html" class="pill-link">3.5 Total Energy</a>
+        <a href="topic-3-6-stresses.html" class="pill-link">3.6 Stress Tensor &amp; Friction</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <!-- Header -->
+      <header class="article-header">
+        <div class="article-category">Subchapter 3.3 · Momentum Dynamics</div>
+        <h1 class="article-title">Conservation of Linear Momentum &amp; Reaction Forces</h1>
+        <p class="article-meta">Master 5-term balance breakdown, the atmospheric gauge pressure cancellation trick, fluid vs solid reactions, and the 5-stage exam algorithm.</p>
+      </header>
+
+      <!-- Section 1: The Master Momentum Equation -->
+      <section>
+        <h2 class="section-heading">1. The Master Linear Momentum Equation</h2>
+        <p>Newton's Second Law for a closed material fluid system $V_f(t)$ states that the rate of change of linear momentum equals the resultant vector sum of all external forces (surface forces and body forces) acting on the fluid:</p>
+
+        <div class="math-block">
+          $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV $$
+          <div class="math-caption">[Eq. 3.34] Newton's second law for a closed material fluid system.</div>
+        </div>
+
+        <p>Substituting intensive linear momentum $\vec{b} = \vec{v}$ into the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>Master Linear Momentum Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
+
+        <div class="math-block">
+          $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\vec{v} \, dV\right] + \int_{\Sigma_c(t)} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma = -\int_{\Sigma_c(t)} p\vec{n} \, d\sigma + \int_{\Sigma_c(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_c(t)} \rho\vec{f}_m \, dV} $$
+          <div class="math-caption">[Eq. 3.35] Master Integral Linear Momentum Equation for an arbitrary moving control volume.</div>
+        </div>
+
+        <div class="callout-box">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Rigorous Term-by-Term Physical Anatomy
+          </div>
+          <ol style="padding-left: 20px; font-size: 0.94rem;">
+            <li><strong>$\frac{d}{dt}\int_{V_c} \rho\vec{v} dV$:</strong> Unsteady accumulation rate of linear momentum stored inside the geometric boundaries of $V_c$. (Identically zero for steady flows).</li>
+            <li><strong>$\int_{\Sigma_c} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] d\sigma$:</strong> Net convective flux of linear momentum carried out of the control volume across $\Sigma_c$ by the relative velocity $(\vec{v}-\vec{v}_c)$.</li>
+            <li><strong>$-\int_{\Sigma_c} p\vec{n} d\sigma$:</strong> Net normal pressure force exerted on the control surface. (The negative sign reflects the fact that pressure compresses inward, opposite to outward normal $\vec{n}$).</li>
+            <li><strong>$\int_{\Sigma_c} \bar{\bar{\tau}}'\cdot\vec{n} d\sigma$:</strong> Net viscous shear force (skin friction and viscous stresses) exerted on $\Sigma_c$. Often negligible across open flow apertures at high Reynolds numbers.</li>
+            <li><strong>$\int_{V_c} \rho\vec{f}_m dV$:</strong> Net volumetric body force acting on fluid elements inside $V_c$ (gravity $\rho\vec{g}$, plus inertial forces if non-inertial reference frame).</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Section 2: Gauge Pressure Trick & Reaction Forces -->
+      <section>
+        <h2 class="section-heading">2. The Gauge Pressure Trick &amp; Solid vs Fluid Conventions</h2>
+        <p>In almost every practical engineering problem, the fluid system operates under ambient atmospheric pressure $p_a$. If we evaluate absolute pressure $p$, we must integrate large constants over complex geometries. The <strong>Gauge Pressure Trick</strong> eliminates this burden entirely.</p>
+
+        <h3 class="sub-heading">Mathematical Proof</h3>
+        <p>Consider a closed control surface $\Sigma_c$. By Gauss's Divergence Theorem, integrating any uniform constant scalar field $p_a$ over a closed boundary yields:</p>
+        <div class="math-block">
+          $$ \oint_{\Sigma_c} p_a \vec{n} \, d\sigma = \int_{V_c} \nabla(p_a) \, dV = \vec{0} \qquad (\text{since } \nabla p_a = \vec{0}) $$
+        </div>
+        <p>Because this closed integral is strictly zero, we can subtract it from the absolute pressure integral without altering the net force balance in any way:</p>
+        <div class="math-block">
+          $$ -\int_{\Sigma_c} p\vec{n} \, d\sigma = -\int_{\Sigma_c} p\vec{n} \, d\sigma + \oint_{\Sigma_c} p_a \vec{n} \, d\sigma = -\int_{\Sigma_c} (p - p_a)\vec{n} \, d\sigma = \mathbf{-\int_{\Sigma_c} p_{\text{gauge}} \vec{n} \, d\sigma} $$
+        </div>
+
+        <div class="callout-box">
+          <div class="callout-title">The Game-Changing Practical Advantage</div>
+          At any open discharge aperture or free liquid surface exposed to the atmosphere, $p = p_a \implies p_{\text{gauge}} = 0$. Consequently, <strong>the pressure integral across all free atmospheric jets drops to zero automatically</strong>! Only pressurized boundaries ($p > p_a$) contribute to the surface integral.
+        </div>
+
+        <h3 class="sub-heading">Forces on Fluid vs Forces on Solid (Newton's 3rd Law)</h3>
+        <p>When our control surface cuts across solid anchoring bolts, pipe flanges, or engine test stand mounts, the momentum equation calculates the reaction force exerted <strong>by the solid mounting structure on the fluid</strong> ($\vec{R}_{\text{solid}\to\text{fluid}}$):</p>
+        <div class="math-block">
+          $$ \sum \vec{F}_{\text{on fluid}} = \vec{R}_{\text{solid}\to\text{fluid}} - \int_{\Sigma_c} p_{\text{gauge}}\vec{n} \, d\sigma + \int_{V_c}\rho\vec{g} \, dV $$
+        </div>
+        <p>By Newton's Third Law of Action-Reaction, the holding force exerted <strong>by the fluid on the solid structure / anchor</strong> is the exact opposite:</p>
+        <div class="math-block">
+          $$ \mathbf{\vec{F}_{\text{fluid}\to\text{structure}} = -\vec{R}_{\text{solid}\to\text{fluid}}} $$
+        </div>
+      </section>
+
+      <!-- Section 3: 5-Stage Algorithm -->
+      <section>
+        <h2 class="section-heading">3. The 5-Stage Algorithm for ANY Momentum Exam Problem</h2>
+        <p>Follow this exact chronological blueprint to solve every linear momentum exam problem cleanly:</p>
+
+        <div class="alg-container">
+          <div class="alg-item">
+            <span class="alg-step">1</span>
+            <div class="alg-content">
+              <h4>Define Control Volume $V_c$ &amp; Coordinate System</h4>
+              <p>Place inlet and outlet boundaries perpendicular to the flow streamlines (so $\vec{v}\parallel\vec{n}$). Cut across structural flanges where reaction forces $\vec{R}$ act. Set up a clear Cartesian coordinate frame $(x, y, z)$.</p>
+            </div>
+          </div>
+
+          <div class="alg-item">
+            <span class="alg-step">2</span>
+            <div class="alg-content">
+              <h4>Establish Continuity (Mass Conservation)</h4>
+              <p>Relate inlet and outlet velocities, cross-sectional areas, and mass flow rates: $\dot{m} = \rho v_1 A_1 = \rho v_2 A_2$. Solve for unknown velocities before touching forces.</p>
+            </div>
+          </div>
+
+          <div class="alg-item">
+            <span class="alg-step">3</span>
+            <div class="alg-content">
+              <h4>Compute Net Convective Momentum Flux</h4>
+              <p>For 1D streams, evaluate the vector sum: $\sum \dot{m}_{\text{out}}\vec{v}_{\text{out}} - \sum \dot{m}_{\text{in}}\vec{v}_{\text{in}}$. Respect signs carefully according to your coordinate axes.</p>
+            </div>
+          </div>
+
+          <div class="alg-item">
+            <span class="alg-step">4</span>
+            <div class="alg-content">
+              <h4>Inventory All External Forces (Using Gauge Pressures)</h4>
+              <p>Include gauge pressure forces on cut fluid surfaces ($p_{g} A \vec{n}_{\text{inward}}$), unknown structural reaction vector $\vec{R} = (R_x, R_y, R_z)$, and fluid weight $\vec{W} = -m_f g \hat{j}$ if non-negligible.</p>
+            </div>
+          </div>
+
+          <div class="alg-item">
+            <span class="alg-step">5</span>
+            <div class="alg-content">
+              <h4>Project onto Axes &amp; Solve for Unknown Reactions</h4>
+              <p>Equate $\sum F_x = \dot{M}_{\text{out}, x} - \dot{M}_{\text{in}, x}$ and $\sum F_y = \dot{M}_{\text{out}, y} - \dot{M}_{\text{in}, y}$. Invert for $R_x, R_y$. Finally, invert signs for forces acting on the solid body!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Canonical Walkthroughs -->
+      <section>
+        <!-- Walkthrough 1: Pipe Elbow -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 1 · CL3 Setup</span>
+          <h2 class="walkthrough-title">Reducing 90° Pipe Elbow &amp; Mouthpiece</h2>
+          <p><strong>Problem:</strong> Water ($\rho$) flows steadily through a horizontal reducing 90° elbow. Inlet 1 has area $A_1$, velocity $v_1\hat{i}$, and gauge pressure $p_{g1}$. Exit 2 has area $A_2 < A_1$, points vertically $+y$ ($v_2\hat{j}$), and discharges into the atmosphere ($p_{g2} = 0$). Fluid mass inside the bend is $m_f$. Determine the anchoring force $\vec{R}$ required to hold the elbow stationary.</p>
+
+          <div class="step-box">
+            <div class="step-header">
+              <span class="step-badge">1 &amp; 2</span>
+              <span class="step-title">Continuity &amp; Momentum Fluxes</span>
+            </div>
+            <p>From mass conservation: $\dot{m} = \rho A_1 v_1 = \rho A_2 v_2 \implies v_2 = v_1 \frac{A_1}{A_2}$.</p>
+            <p>Net convective momentum flux:</p>
+            <ul>
+              <li>$\vec{v}_{\text{in}} = v_1 \hat{i}$, with $\dot{m}_{\text{in}} = \dot{m}$</li>
+              <li>$\vec{v}_{\text{out}} = v_2 \hat{j}$, with $\dot{m}_{\text{out}} = \dot{m}$</li>
+              <li>Convective flux: $\sum \dot{m}_{\text{out}}\vec{v}_{\text{out}} - \sum \dot{m}_{\text{in}}\vec{v}_{\text{in}} = -\dot{m} v_1 \hat{i} + \dot{m} v_2 \hat{j}$</li>
+            </ul>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header">
+              <span class="step-badge">3 &amp; 4</span>
+              <span class="step-title">Forces Inventory &amp; Projection</span>
+            </div>
+            <p>External forces acting on the fluid volume:</p>
+            <ul>
+              <li>Inlet gauge pressure: $\vec{F}_{p1} = -p_{g1} A_1 (-\hat{i}) = +p_{g1} A_1 \hat{i}$ (compresses inward into $V_c$).</li>
+              <li>Exit gauge pressure: $\vec{F}_{p2} = 0$ (atmospheric discharge).</li>
+              <li>Anchoring reaction from pipe bolts: $\vec{R} = R_x \hat{i} + R_y \hat{j}$.</li>
+              <li>Weight of fluid: $\vec{W} = -m_f g \hat{j}$.</li>
+            </ul>
+            <p>Projecting onto Cartesian axes:</p>
+            <div class="math-block">
+              $$ x\text{-axis}: \quad p_{g1} A_1 + R_x = -\dot{m} v_1 \implies \mathbf{R_x = -p_{g1} A_1 - \dot{m} v_1} $$
+              $$ y\text{-axis}: \quad R_y - m_f g = \dot{m} v_2 \implies \mathbf{R_y = \dot{m} v_2 + m_f g} $$
+            </div>
+            <p>The force exerted <em>by the fluid on the elbow</em> is $\vec{F}_{\text{fluid}\to\text{elbow}} = -\vec{R} = (p_{g1} A_1 + \dot{m} v_1)\hat{i} - (\dot{m} v_2 + m_f g)\hat{j}$.</p>
+          </div>
+        </div>
+
+        <!-- Walkthrough 2: Testbench Rocket Thrust -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 2 · CL5 Setup</span>
+          <h2 class="walkthrough-title">Testbench Rocket / Turboreactor Thrust</h2>
+          <p><strong>Problem:</strong> A jet engine is mounted on a horizontal test bench. Air enters at mass flow rate $\dot{m}_a$ with speed $v_a$ at atmospheric pressure $p_a$. Fuel is burned at rate $\dot{m}_f$. Combustion gases exhaust through nozzle area $A_e$ at speed $v_e$ with exit static pressure $p_e \neq p_a$. Determine the horizontal thrust $F_T$ transmitted to the test stand anchor.</p>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">Analysis</span><span class="step-title">Control Volume &amp; Momentum Balance</span></div>
+            <p>Select a control volume tightly enclosing the engine outer casing, cutting across the inlet (area $A_a$), nozzle exit (area $A_e$), and the structural load cell pin $R_x$ holding the engine against thrust.</p>
+            <p>Continuity: $\dot{m}_e = \dot{m}_a + \dot{m}_f$.</p>
+            <p>Linear momentum balance along the thrust axis $+x$:</p>
+            <div class="math-block">
+              $$ \sum F_x = \dot{m}_e v_e - \dot{m}_a v_a $$
+            </div>
+            <p>External forces acting on the fluid/engine system (using ambient pressure $p_a$ as reference):</p>
+            <div class="math-block">
+              $$ \sum F_x = R_x - (p_e - p_a)A_e $$
+            </div>
+            <p>Equating forces to momentum flux:</p>
+            <div class="math-block">
+              $$ R_x - (p_e - p_a)A_e = \dot{m}_e v_e - \dot{m}_a v_a \implies R_x = \dot{m}_e v_e - \dot{m}_a v_a + (p_e - p_a)A_e $$
+            </div>
+            <p>The net forward propulsive thrust delivered to the aircraft mount is:</p>
+            <div class="math-block">
+              $$ \mathbf{F_{\text{thrust}} = \dot{m}_e v_e - \dot{m}_a v_a + (p_e - p_a)A_e} $$
+            </div>
+            <p>Composed of <em>momentum thrust</em> $\dot{m}_e v_e - \dot{m}_a v_a$ and <em>pressure thrust</em> $(p_e - p_a)A_e$.</p>
+          </div>
+        </div>
+
+        <!-- Walkthrough 3: Airfoil Drag from Wake Deficit -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 3 · CL1 Setup</span>
+          <h2 class="walkthrough-title">Airfoil Drag Evaluation from Wake Deficit (Momentum Integral)</h2>
+          <p><strong>Problem:</strong> Using the downstream wake deficit profile from Subchapter 3.2 ($v(y) = v_\infty[1 - \Delta(1 - |y|/b)]$ for $|y| \le b$), compute the total aerodynamic drag force $D$ per unit span acting on the airfoil.</p>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">Derivation</span><span class="step-title">The Squire-Young Momentum Deficit Formula</span></div>
+            <p>Select a large rectangular control volume of length $2L$ and height $2H > 2b$. Far upstream and downstream, static pressure has recovered to free stream $p_\infty$, so net pressure forces vanish ($\oint (p-p_\infty)\vec{n}d\sigma = \vec{0}$).</p>
+            <p>The drag force $D$ is the horizontal force exerted by the airfoil on the fluid, opposing motion (pushes $-x$ on fluid):</p>
+            <div class="math-block">
+              $$ -D = \int_{\Sigma_c} \rho v_x (\vec{v}\cdot\vec{n}) \, d\sigma $$
+            </div>
+            <p>Convective flux splits into inlet ($-x$), outlet ($+x$), and lateral outflow escaping through top/bottom at speed $v_\infty$:</p>
+            <div class="math-block">
+              $$ \int_{\Sigma_{\text{out}}} \rho v_x^2 dy + \dot{m}_{\text{lateral}} v_\infty - \int_{\Sigma_{\text{in}}} \rho v_\infty^2 dy = -D $$
+            </div>
+            <p>Using continuity $\dot{m}_{\text{lateral}} = \dot{m}_{\text{in}} - \dot{m}_{\text{wake}} = \int_{-H}^H \rho v_\infty dy - \int_{-b}^b \rho v(y) dy$, the uniform outer portions cancel identically, yielding the universal <strong>Wake Deficit Drag Integral</strong>:</p>
+            <div class="math-block">
+              $$ \mathbf{D = \rho \int_{-b}^b v(y) [v_\infty - v(y)] \, dy} $$
+            </div>
+            <p>Substitute $v(y) = v_\infty[1 - \delta]$ where $\delta(y) = \Delta(1 - y/b)$:</p>
+            <div class="math-block">
+              $$ D = 2\rho v_\infty^2 \int_0^b [1 - \delta(y)] \delta(y) \, dy = 2\rho v_\infty^2 \left[ \int_0^b \delta(y) dy - \int_0^b \delta^2(y) dy \right] $$
+            </div>
+            <p>Evaluating each integral with variable substitution $\xi = 1 - y/b$ ($dy = -b d\xi$):</p>
+            <div class="math-block">
+              $$ \int_0^b \delta(y) dy = \Delta b \int_0^1 \xi d\xi = \frac{\Delta b}{2}, \qquad \int_0^b \delta^2(y) dy = \Delta^2 b \int_0^1 \xi^2 d\xi = \frac{\Delta^2 b}{3} $$
+            </div>
+            <p>Combining the integrals yields the exact analytical drag per unit span:</p>
+            <div class="math-block">
+              $$ \mathbf{D = 2\rho v_\infty^2 b \left( \frac{\Delta}{2} - \frac{\Delta^2}{3} \right) = \rho v_\infty^2 b \Delta \left(1 - \frac{2}{3}\Delta\right)} $$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <a href="topic-3-2-mass.html" class="bottom-nav-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>3.2 Mass Continuity</span>
+        </a>
+        <a href="topic-3.html" class="bottom-nav-btn center">
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="topic-3-4-angular-momentum.html" class="bottom-nav-btn">
+          <span>Next: 3.4 Angular Momentum</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Theme Script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      localStorage.setItem('ae_theme', t);
+    }
+
+    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>

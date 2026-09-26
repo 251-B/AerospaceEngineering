@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subchapter 3.2: Conservation of Mass (Continuity) — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Canonical Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+</head>
+<body>
+  <!-- Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 3 · Subchapter 3.2</span>
+      </div>
+      <div class="nav-actions">
+        <a href="topic-3.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="index.html" class="back-link">Theory Index</a>
+        <a href="../problemas/index.html" class="back-link">Problems</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Subchapter Navigation Bar -->
+  <nav class="subchapter-nav-bar">
+    <div class="container">
+      <div class="pills-wrapper">
+        <a href="topic-3-1-rtt.html" class="pill-link">3.1 RTT &amp; CV Strategy</a>
+        <a href="topic-3-2-mass.html" class="pill-link active">3.2 Mass Continuity</a>
+        <a href="topic-3-3-momentum.html" class="pill-link">3.3 Linear Momentum</a>
+        <a href="topic-3-4-angular-momentum.html" class="pill-link">3.4 Angular Momentum</a>
+        <a href="topic-3-5-energy.html" class="pill-link">3.5 Total Energy</a>
+        <a href="topic-3-6-stresses.html" class="pill-link">3.6 Stress Tensor &amp; Friction</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <!-- Header -->
+      <header class="article-header">
+        <div class="article-category">Subchapter 3.2 · Continuity Balances</div>
+        <h1 class="article-title">Conservation of Mass (Continuity) in Problem Solving</h1>
+        <p class="article-meta">Global mass balances, 1D streamtube formulations, unsteady tank drainage, and upstream streamtube capture width determination.</p>
+      </header>
+
+      <!-- Section 1: The Master Continuity Equation -->
+      <section>
+        <h2 class="section-heading">1. The Master Integral Continuity Equation</h2>
+        <p>In classical fluid mechanics, matter is neither created nor destroyed. For any closed material fluid system $V_f(t)$, the rate of change of mass is identically zero:</p>
+
+        <div class="math-block">
+          $$ \frac{d M_{\text{sys}}}{dt} = \frac{d}{dt}\left[\int_{V_f(t)} \rho \, dV\right] = 0 $$
+          <div class="math-caption">[Eq. 3.9] Axiom of mass conservation for a material fluid system.</div>
+        </div>
+
+        <p>Setting the intensive property $b = 1$ in the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>Master Integral Mass Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
+
+        <div class="math-block">
+          $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho \, dV\right] + \int_{\Sigma_c(t)} \rho [(\vec{v} - \vec{v}_c)\cdot\vec{n}] \, d\sigma = 0} $$
+          <div class="math-caption">[Eq. 3.10] Integral continuity equation for an arbitrary moving control volume.</div>
+        </div>
+
+        <p>For a fixed, rigid control volume ($V_0, \vec{v}_c = \vec{0}$), this simplifies to the Eulerian storage and convective flux balance:</p>
+
+        <div class="math-block">
+          $$ \int_{V_0} \frac{\partial \rho}{\partial t} \, dV + \int_{\Sigma_0} \rho (\vec{v}\cdot\vec{n}) \, d\sigma = 0 $$
+          <div class="math-caption">[Eq. 3.11] Continuity equation for a fixed spatial control volume.</div>
+        </div>
+      </section>
+
+      <!-- Section 2: Incompressible and 1D Streamtubes -->
+      <section>
+        <h2 class="section-heading">2. Incompressible Fluids &amp; 1D Streamtubes</h2>
+        <p>When the fluid density is spatially and temporally constant ($\rho = \text{const}$, valid for liquids and for gas flows where the Mach number $Ma = v/a < 0.3$), the density factors out of both integrals. For a fixed control volume:</p>
+
+        <div class="math-block">
+          $$ \int_{\Sigma_0} \vec{v}\cdot\vec{n} \, d\sigma = 0 \implies \sum_k Q_{\text{in}, k} = \sum_j Q_{\text{out}, j} $$
+        </div>
+
+        <p>where $Q = \int_A (\vec{v}\cdot\vec{n}) dA$ is the volumetric flow rate ($\text{m}^3/\text{s}$).</p>
+
+        <h3 class="sub-heading">1D Streamtube Approximation &amp; Average Velocity</h3>
+        <p>Across any duct or streamtube cross-section $A$, the mass flow rate $\dot{m}$ ($\text{kg/s}$) is:</p>
+        <div class="math-block">
+          $$ \dot{m} = \int_A \rho (\vec{v}\cdot\vec{n}) \, dA = \rho \bar{v} A $$
+        </div>
+        <p>where the <strong>area-averaged bulk velocity</strong> $\bar{v}$ is defined by:</p>
+        <div class="math-block">
+          $$ \bar{v} = \frac{1}{A} \int_A v(\vec{x}) \, dA $$
+        </div>
+
+        <div class="callout-box">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Velocity Profiles &amp; Bulk Velocity
+          </div>
+          <p>In laminar circular pipe flow (Poiseuille), $v(r) = v_{\max}[1 - (r/R)^2]$, so the bulk velocity is $\bar{v} = \frac{1}{2}v_{\max}$. In turbulent pipe flow, the profile is fuller ($1/7\text{th}$ power law), yielding $\bar{v} \approx 0.817 v_{\max}$. Always integrate the profile explicitly when given!</p>
+        </div>
+      </section>
+
+      <!-- Section 3: Unsteady Storage in Draining Tanks -->
+      <section>
+        <h2 class="section-heading">3. Unsteady Storage: Filling &amp; Emptying Tanks</h2>
+        <p>When the mass inside the control volume changes with time, the unsteady storage term must be evaluated by tracking the moving liquid level $h(t)$.</p>
+
+        <p>Consider a tank of horizontal cross-sectional area $A_T$ with an inlet flow rate $Q_{\text{in}}$ and a bottom discharge orifice of area $A_e \ll A_T$. Defining a control volume that encloses the liquid inside the tank up to the free surface $z = h(t)$:</p>
+
+        <div class="math-block">
+          $$ \frac{d}{dt}\left[\int_{V_c} \rho \, dV\right] = \rho \frac{d}{dt}\left[A_T h(t)\right] = \rho A_T \frac{dh}{dt} $$
+        </div>
+
+        <p>Net mass flux across the boundaries:</p>
+        <div class="math-block">
+          $$ \int_{\Sigma_c} \rho (\vec{v}\cdot\vec{n}) \, d\sigma = \rho Q_{\text{out}} - \rho Q_{\text{in}} $$
+        </div>
+
+        <p>Applying Torricelli's law for inviscid discharge from the bottom orifice, $v_e(t) = \sqrt{2gh(t)}$, so $Q_{\text{out}} = A_e \sqrt{2gh(t)}$. Substituting into the continuity equation:</p>
+
+        <div class="math-block">
+          $$ A_T \frac{dh}{dt} = Q_{\text{in}} - A_e \sqrt{2gh(t)} $$
+        </div>
+
+        <p>For a draining tank with no inflow ($Q_{\text{in}} = 0$) and initial height $H_0$, separating variables and integrating yields the classical draining time:</p>
+
+        <div class="math-block">
+          $$ \int_{H_0}^0 \frac{dh}{\sqrt{h}} = -\frac{A_e \sqrt{2g}}{A_T} \int_0^{t_{\text{drain}}} dt \implies \mathbf{t_{\text{drain}} = \frac{2 A_T \sqrt{H_0}}{A_e \sqrt{2g}}} $$
+        </div>
+      </section>
+
+      <!-- Section 4: Canonical Walkthrough (CL1) -->
+      <section>
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Problem Walkthrough · CL1 Setup</span>
+          <h2 class="walkthrough-title">Airfoil Wake Deficit: Determining Upstream Capture Width</h2>
+          <p><strong>Physical Setup:</strong> An airfoil is tested in a uniform wind tunnel flow of velocity $v_\infty$ and density $\rho$. Far downstream, boundary layer skin friction and wake mixing generate a symmetric velocity deficit over a wake band of width $2b$ ($|y| \le b$):</p>
+          <div class="math-block">
+            $$ v(y) = v_\infty \left[ 1 - \Delta \left(1 - \frac{|y|}{b}\right) \right] \quad \text{for } |y| \le b; \qquad v(y) = v_\infty \quad \text{for } |y| > b $$
+          </div>
+          <p>where $0 < \Delta < 1$ is the centerline fractional velocity defect. Far upstream where the flow is completely uniform ($v = v_\infty$), all the fluid that eventually exits through the wake $[-b, b]$ passed through a capture band $[-y_{-\infty}, y_{-\infty}]$.</p>
+          <p><strong>Objective:</strong> Determine the upstream capture semi-width $y_{-\infty}$ from conservation of mass.</p>
+
+          <div class="step-box">
+            <div class="step-header">
+              <span class="step-badge">Stage 1</span>
+              <span class="step-title">Select the Wake Streamtube Control Volume</span>
+            </div>
+            <p>Define a 2D control volume bounded by:</p>
+            <ul>
+              <li><strong>Upstream inlet face ($\Sigma_{\text{in}}$):</strong> Located at $x = -\infty$, extending across $y \in [-y_{-\infty}, y_{-\infty}]$ where velocity is uniform $v_x = v_\infty$.</li>
+              <li><strong>Downstream exit face ($\Sigma_{\text{out}}$):</strong> Located at $x = +\infty$, spanning the exact wake thickness $y \in [-b, b]$ with velocity profile $v(y)$.</li>
+              <li><strong>Upper and lower boundaries ($\Sigma_{\text{streamline}}$):</strong> The limiting streamlines that pass through $(\pm b)$ at downstream infinity. By definition, <em>no fluid crosses a streamline</em>: $(\vec{v}\cdot\vec{n}) \equiv 0$.</li>
+            </ul>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header">
+              <span class="step-badge">Stage 2</span>
+              <span class="step-title">Evaluate Upstream Inflow Mass Rate</span>
+            </div>
+            <p>For unit span ($W = 1$) into the page, integrating over the upstream aperture:</p>
+            <div class="math-block">
+              $$ \dot{m}_{\text{in}} = \int_{-y_{-\infty}}^{y_{-\infty}} \rho v_\infty \, dy = 2\rho v_\infty y_{-\infty} $$
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header">
+              <span class="step-badge">Stage 3</span>
+              <span class="step-title">Evaluate Downstream Wake Outflow Mass Rate</span>
+            </div>
+            <p>Exploiting symmetry between upper and lower halves of the wake:</p>
+            <div class="math-block">
+              $$ \dot{m}_{\text{out}} = \int_{-b}^b \rho v(y) \, dy = 2\rho v_\infty \int_0^b \left[ 1 - \Delta \left(1 - \frac{y}{b}\right) \right] dy $$
+            </div>
+            <p>Evaluating the spatial integral across the shear layer:</p>
+            <div class="math-block">
+              $$ \int_0^b \left[ 1 - \Delta + \Delta \frac{y}{b} \right] dy = \left[ (1 - \Delta)y + \Delta \frac{y^2}{2b} \right]_0^b = (1 - \Delta)b + \frac{\Delta b}{2} = b \left(1 - \frac{\Delta}{2}\right) $$
+            </div>
+            <p>Therefore, the total wake mass flow rate is:</p>
+            <div class="math-block">
+              $$ \dot{m}_{\text{out}} = 2\rho v_\infty b \left(1 - \frac{\Delta}{2}\right) $$
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header">
+              <span class="step-badge">Stage 4</span>
+              <span class="step-title">Solve for Upstream Width $y_{-\infty}$</span>
+            </div>
+            <p>Since the flow is steady and no mass escapes through the bounding streamlines, $\dot{m}_{\text{in}} = \dot{m}_{\text{out}}$:</p>
+            <div class="math-block">
+              $$ 2\rho v_\infty y_{-\infty} = 2\rho v_\infty b \left(1 - \frac{\Delta}{2}\right) $$
+            </div>
+            <p>Dividing by $2\rho v_\infty$ gives the exact analytical result:</p>
+            <div class="math-block">
+              $$ \mathbf{y_{-\infty} = b \left(1 - \frac{\Delta}{2}\right)} $$
+            </div>
+          </div>
+
+          <div class="callout-box" style="margin-bottom:0;">
+            <div class="callout-title">Aerospace Exam Warning: The Lateral Leakage Trap</div>
+            Notice that because $\Delta > 0$, we have $y_{-\infty} < b$! Because fluid in the wake has been slowed down by aerodynamic drag, each fluid package moves slower, requiring a larger cross-sectional area to carry the same mass flux. Consequently, <strong>streamlines diverge around and behind the airfoil</strong>.<br><br>
+            If you choose a rigid rectangular control volume of fixed height $2H > 2b$ instead of streamline boundaries, fluid <em>must leak outward through the top and bottom surfaces</em> with mass rate $\dot{m}_{\text{lateral}} = 2\rho v_\infty (b - y_{-\infty}) = \rho v_\infty b \Delta$. Failing to include this lateral mass escape is the most frequent exam mistake in wake momentum balances!
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <a href="topic-3-1-rtt.html" class="bottom-nav-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>3.1 RTT &amp; CV Strategy</span>
+        </a>
+        <a href="topic-3.html" class="bottom-nav-btn center">
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="topic-3-3-momentum.html" class="bottom-nav-btn">
+          <span>Next: 3.3 Linear Momentum</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Theme Script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      localStorage.setItem('ae_theme', t);
+    }
+
+    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>

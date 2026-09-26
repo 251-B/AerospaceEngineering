@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Topic 3: Conservation Laws (Integral Form) — Fluid Mechanics</title>
+  <title>Topic 3: Conservation Laws (Integral Form) — Fluid Mechanics Hub</title>
   
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
   
   <!-- KaTeX -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
-          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 
   <style>
     :root {
@@ -27,32 +27,44 @@
       --accent: #06b6d4;
       --accent-soft: rgba(6, 182, 212, 0.12);
       --accent-border: rgba(6, 182, 212, 0.28);
-
-      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --accent-hover: rgba(6, 182, 212, 0.22);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     [data-theme="dark"] {
-      --bg-base: #070b14;
+      --bg-primary: #070b14;
       --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
       --bg-subtle: #1e293b;
       --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
       --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
       --border-strong: rgba(255, 255, 255, 0.18);
-      --text-heading: #f8fafc;
-      --text-body: #cbd5e1;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      --shadow-hover: 0 12px 36px rgba(6, 182, 212, 0.22);
     }
 
     [data-theme="light"] {
-      --bg-base: #f8fafc;
+      --bg-primary: #f8fafc;
       --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
       --bg-subtle: #f1f5f9;
       --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
       --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
       --border-strong: #cbd5e1;
-      --text-heading: #0f172a;
-      --text-body: #334155;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
       --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 12px 36px rgba(6, 182, 212, 0.15);
     }
 
     *, *::before, *::after {
@@ -62,81 +74,52 @@
     }
 
     body {
-      background-color: var(--bg-base);
-      color: var(--text-body);
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
       font-family: var(--font-body);
       font-size: 1.05rem;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
     }
 
-    h1, h2, h3, .article-title, .section-title {
-      font-family: var(--font-display);
-      font-weight: 400;
+    h1, h2, h3, .article-title, .section-title, .hub-title, .card-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
       letter-spacing: 0.015em;
+      color: var(--text-primary);
     }
 
-    code, pre, .tag, .badge, .brand-badge {
+    code, pre, .tag, .badge, .brand-badge, .subchapter-num, .cbadge {
       font-family: var(--font-mono);
     }
 
-    /* Universal Bilingual Switcher */
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 2px 8px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      gap: 4px;
-    }
-    .lang-btn {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 2px 4px;
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-      transition: color var(--transition);
-      border-radius: 4px;
-    }
-    .lang-btn.active, .lang-btn:hover {
-      color: var(--accent);
-    }
-    .lang-divider {
-      color: var(--border-subtle);
-      font-size: 10px;
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    /* Celestial light background & dark neon glow */
-    [data-theme="light"] {
-      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    /* Top Navigation */
+    /* Top Navigation Header */
     header.site-header {
-      background: var(--bg-surface);
+      background: var(--bg-glass);
       border-bottom: 1px solid var(--border-subtle);
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
     }
 
     .header-inner {
-      max-width: 900px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .brand-area {
@@ -151,8 +134,8 @@
       font-weight: 600;
       color: var(--accent);
       background: var(--accent-soft);
-      padding: 3px 8px;
-      border-radius: 4px;
+      padding: 4px 9px;
+      border-radius: 5px;
       border: 1px solid var(--accent-border);
       letter-spacing: 0.5px;
     }
@@ -161,6 +144,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .back-link {
@@ -171,8 +155,8 @@
       font-weight: 500;
       color: var(--text-muted);
       text-decoration: none;
-      padding: 5px 12px;
-      border-radius: 6px;
+      padding: 6px 12px;
+      border-radius: 7px;
       background: var(--bg-input);
       border: 1px solid var(--border-subtle);
       transition: all var(--transition);
@@ -181,17 +165,19 @@
     .back-link:hover {
       color: var(--accent);
       border-color: var(--accent-border);
+      background: var(--accent-soft);
     }
 
     .theme-toggle {
-      width: 40px;
-      height: 22px;
-      border-radius: 11px;
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
       background: var(--bg-input);
       border: 1px solid var(--border-subtle);
       cursor: pointer;
       position: relative;
       transition: background var(--transition);
+      margin-left: 4px;
     }
 
     .theme-toggle::after {
@@ -199,10 +185,10 @@
       position: absolute;
       top: 2px;
       left: 2px;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      background: var(--text-heading);
+      background: var(--text-primary);
       transition: transform var(--transition);
     }
 
@@ -210,1018 +196,758 @@
       transform: translateX(18px);
     }
 
-    /* Article Container */
-    main.article-container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 44px 24px 88px;
+    /* Hero Section */
+    .page-hero {
+      text-align: center;
+      padding: 48px 0 32px;
     }
 
-    /* Page Header */
-    .article-header {
-      margin-bottom: 36px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .article-category {
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-family: var(--font-mono);
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-weight: 600;
       color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    h1.article-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      font-weight: 600;
-      color: var(--text-heading);
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-
-    .article-meta {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .source-box {
-      margin-top: 14px;
-      padding: 8px 14px;
-      border-radius: 6px;
-      background: var(--bg-input);
+      background: var(--accent-soft);
       border: 1px solid var(--accent-border);
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      color: var(--accent);
-      display: inline-block;
-    }
-
-    /* Table of contents mini-nav */
-    .toc-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 24px 0 36px;
-    }
-
-    .toc-title {
-      font-family: var(--font-mono);
-      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      font-weight: 600;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      line-height: 1.2;
       margin-bottom: 10px;
     }
 
-    .toc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 6px 16px;
-      font-size: 13.5px;
-    }
-
-    .toc-grid a {
-      color: var(--text-body);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    .toc-grid a:hover {
-      color: var(--accent);
-    }
-
-    /* Headings */
-    h2.section-heading {
-      font-family: var(--font-serif);
-      font-size: 1.55rem;
-      font-weight: 600;
-      color: var(--text-heading);
-      margin: 44px 0 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    h3.sub-heading {
-      font-family: var(--font-sans);
+    .page-hero p.subtitle {
+      color: var(--text-muted);
       font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-heading);
-      margin: 26px 0 10px;
+      max-width: 680px;
+      margin: 0 auto 20px;
     }
 
-    p {
+    /* Mode Switcher */
+    .view-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+
+    .switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .switch-btn.active {
+      background: var(--accent);
+      color: #070b14;
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(6, 182, 212, 0.35);
+    }
+
+    .switch-btn:not(.active) {
+      background: var(--bg-card);
+      color: var(--text-muted);
+    }
+
+    .switch-btn:not(.active):hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Grid of Subchapters */
+    .subchapters-section {
+      margin: 36px 0 48px;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .section-title-wrap h2 {
+      font-size: 1.45rem;
+    }
+
+    .section-hint {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .subchapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .subchapter-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subchapter-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.5;
+      transition: opacity var(--transition);
+    }
+
+    .subchapter-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .subchapter-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .subchapter-num {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
       margin-bottom: 16px;
     }
 
-    /* Cards & Blocks */
-    .card {
-      background: var(--bg-surface);
+    .formula-preview {
+      background: var(--bg-input);
       border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 22px 24px;
-      margin: 20px 0;
-    }
-
-    .math-block {
-      background: var(--bg-surface);
-      border: 1px solid var(--accent-border);
       border-radius: 8px;
-      padding: 16px 20px;
-      margin: 18px 0;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      margin-bottom: 14px;
       text-align: center;
       overflow-x: auto;
     }
 
-    .math-caption {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 6px;
-      font-style: italic;
-    }
-
-    .note-box {
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 22px 0;
-      font-size: 14.5px;
-      background: var(--accent-soft);
-      border-left: 4px solid var(--accent);
-    }
-
-    .note-title {
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--accent);
       font-weight: 600;
-      color: var(--text-heading);
-      margin-bottom: 6px;
     }
 
-    /* Tables */
+    .card-arrow {
+      transition: transform var(--transition);
+    }
+
+    .subchapter-card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Formula Cheat Sheet Table Section */
+    .cheat-sheet-section {
+      margin: 48px 0 64px;
+    }
+
     .table-wrapper {
       overflow-x: auto;
-      margin: 22px 0;
+      margin: 20px 0;
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      box-shadow: var(--shadow-card);
     }
 
     table.data-table {
       width: 100%;
       border-collapse: collapse;
-      background: var(--bg-surface);
-      font-size: 13.5px;
+      font-size: 0.92rem;
       text-align: left;
     }
 
     table.data-table th {
       background: var(--bg-subtle);
-      color: var(--text-heading);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
       font-weight: 600;
-      padding: 10px 14px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border-strong);
       white-space: nowrap;
     }
 
     table.data-table td {
-      padding: 10px 14px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+
+    table.data-table tr:hover td {
+      background: var(--accent-soft);
     }
 
     table.data-table tr:last-child td {
       border-bottom: none;
     }
 
-    ul, ol {
-      padding-left: 24px;
-      margin-bottom: 16px;
+    .eq-num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
     }
 
-    li {
-      margin-bottom: 6px;
+    .eq-math {
+      font-size: 0.98rem;
+    }
+
+    .eq-scope {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .header-inner { flex-direction: column; align-items: stretch; }
+      .nav-actions { justify-content: space-between; }
+      .subchapters-grid { grid-template-columns: 1fr; }
     }
   </style>
-  <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
   <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
-  <!-- Top Navigation Header -->
-  <!-- Top Navigation Header -->
+  <!-- Site Navigation Header -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-area">
         <span class="brand-badge">FLUID MECHANICS</span>
-        <span style="font-size: 13px; color: var(--text-muted);">Topic 3: Conservation Laws (Reynolds)</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 3 Hub · UC3M</span>
       </div>
       <div class="nav-actions">
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Theory Index</span>
+        </a>
         <a href="../problemas/index.html" class="back-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><path d="M10.5 7L4 21m9.5-14L20 21"/><path d="M7 15h10"/></svg>
-          <span>Problems</span>
+          <span>Problems Index</span>
         </a>
-        <a href="index.html" class="back-link">← Theory Index</a>
-        <a href="../../../index.html" class="back-link">← Main Portal</a>
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
       </div>
     </div>
   </header>
 
-  <!-- Main Document Container -->
-  <main class="article-container">
-
-    <article>
-      <!-- Title Header -->
-      <header class="article-header">
-        <div class="article-category">Chapter 3 · Core Theory</div>
-        <h1 class="article-title">Conservation Laws (Integral Form)</h1>
-        <p class="article-meta">Fluid Mechanics — 2nd Year Bachelor's Degree in Aerospace Engineering (UC3M)</p>
-        <div class="source-box">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Reference sources: Notes.pdf (Chapter 3, pp. 25–36) · Profs. Antonio L. Sánchez &amp; Javier Rodríguez-Rodríguez
-        </div>
-      </header>
-
-      <!-- Mini Table of Contents -->
-      <nav class="toc-box" aria-label="Table of contents">
-        <div class="toc-title">Chapter 3 Outline</div>
-        <div class="toc-grid">
-          <a href="#sec-1">1. Reynolds Transport Theorem (RTT)</a>
-          <a href="#sec-2">2. Integral Mass Conservation</a>
-          <a href="#sec-3">3. Body and Surface Forces</a>
-          <a href="#sec-4">4. The Cauchy Stress Tensor</a>
-          <a href="#sec-5">5. The Navier-Poisson Constitutive Equation</a>
-          <a href="#sec-6">6. Forces and Moments on Submerged Bodies</a>
-          <a href="#sec-7">7. Linear Momentum Conservation</a>
-          <a href="#sec-8">8. Angular Momentum Conservation</a>
-          <a href="#sec-9">9. Heat Conduction and Fourier's Law</a>
-          <a href="#sec-10">10. Integral Total Energy Conservation</a>
-          <a href="#sec-11">11. Comprehensive Formula Summary (Eqs. 3.1–3.46)</a>
-        </div>
-      </nav>
-
-      <!-- SECTION 1 -->
-      <section id="sec-1">
-        <h2 class="section-heading">1. Introduction and the Reynolds Transport Theorem (RTT)</h2>
-        
-        <p>In classical mechanics, the conservation laws of mass, linear momentum, angular momentum, and energy are formulated for <strong>closed material systems</strong>: invariant collections of matter continually formed by the exact same particles. In fluid mechanics, a material system occupies a deformable volume $V_f(t)$ bounded by a material surface $\Sigma_f(t)$ that moves and distorts continuously with the local flow.</p>
-
-        <p>Let $\Phi(t)$ denote any total extensive property of the fluid (total mass, momentum, or energy). This property is evaluated by integrating its associated volumetric density $\phi(\vec{x}, t)$ over the material volume:</p>
-
-        <div class="math-block">
-          $$ \Phi(t) = \int_{V_f(t)} \phi(\vec{x},t) \, dV \qquad \text{with } \phi = \rho, \; \rho\vec{v}, \; \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}], \; \rho\left(e + \frac{|\vec{v}|^2}{2}\right) $$
-          <div class="math-caption">[Eq. 3.1] Definition of a global extensive property from the intensive property $\phi(\vec{x},t)$.</div>
-        </div>
-
-        <p>Because both the integrand $\phi(\vec{x},t)$ and the spatial boundaries of the domain $V_f(t)$ vary simultaneously with time $t$, the global time derivative $\frac{d\Phi}{dt}$ does not coincide with the integral of the local partial derivative $\frac{\partial\phi}{\partial t}$. To evaluate it with mathematical rigor, we apply the analytical limit definition:</p>
-
-        <div class="math-block">
-          $$ \frac{d}{dt}\left[\int_{V_f(t)} \phi(\vec{x},t) \, dV\right] = \lim_{\Delta t \to 0} \frac{1}{\Delta t}\left[ \int_{V_f(t+\Delta t)} \phi(\vec{x}, t+\Delta t) \, dV - \int_{V_f(t)} \phi(\vec{x}, t) \, dV \right] $$
-          <div class="math-caption">[Eq. 3.2] Formal limit definition of the time derivative of a material fluid volume.</div>
-        </div>
-
-        <p>Decomposing the domain at time $t+\Delta t$ into the original volume $V_f(t)$ and the incremental region swept by the moving boundary $V_f(t+\Delta t) - V_f(t)$, the limit splits into two independent physical contributions:</p>
-
-        <div class="math-block">
-          $$ \lim_{\Delta t \to 0} \frac{1}{\Delta t}\left[ \int_{V_f(t)} [\phi(\vec{x}, t+\Delta t) - \phi(\vec{x}, t)] \, dV + \int_{V_f(t+\Delta t) - V_f(t)} \phi(\vec{x}, t+\Delta t) \, dV \right] $$
-          <div class="math-caption">[Eq. 3.3] Splitting into internal storage and moving-boundary terms.</div>
-        </div>
-
-        <p>Evaluating each term separately:</p>
-        <ol>
-          <li><strong>Unsteadiness contribution:</strong> With $V_f(t)$ held fixed during the limiting process, applying a Taylor series expansion $\phi(t+\Delta t) - \phi(t) = \frac{\partial\phi}{\partial t}\Delta t + \mathcal{O}(\Delta t^2)$ yields:
-            <div class="math-block">
-              $$ \lim_{\Delta t \to 0} \frac{1}{\Delta t} \int_{V_f(t)} [\phi(\vec{x}, t+\Delta t) - \phi(\vec{x}, t)] \, dV = \int_{V_f(t)} \frac{\partial \phi(\vec{x},t)}{\partial t} \, dV $$
-              <div class="math-caption">[Eq. 3.4] Intrinsic rate of change within the instantaneous volume.</div>
-            </div>
-          </li>
-          <li><strong>Fluid motion contribution (Convective sweeping):</strong> Over the infinitesimal interval $\Delta t$, a surface element $d\sigma$ of $\Sigma_f(t)$ with outward unit normal $\vec{n}$ moves at the fluid velocity $\vec{v}$. The volume swept out corresponds to an elementary oblique cylinder with base $d\sigma$ and height $(\vec{v}\Delta t)\cdot\vec{n}$, such that $dV = (\vec{v}\cdot\vec{n})\Delta t \, d\sigma$. Integrating across the entire closed surface $\Sigma_f(t)$:
-            <div class="math-block">
-              $$ \lim_{\Delta t \to 0} \frac{1}{\Delta t} \int_{V_f(t+\Delta t) - V_f(t)} \phi(\vec{x}, t+\Delta t) \, dV = \int_{\Sigma_f(t)} \phi \, \vec{v}\cdot\vec{n} \, d\sigma $$
-              <div class="math-caption">[Eq. 3.5] Net convective flux leaving the deformable boundary.</div>
-            </div>
-          </li>
-        </ol>
-
-        <p>Summing both contributions yields the canonical form of the <strong>Reynolds Transport Theorem (RTT)</strong> for a material fluid volume:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\frac{d}{dt}\left[\int_{V_f(t)} \phi(\vec{x},t) \, dV\right] = \int_{V_f(t)} \frac{\partial \phi}{\partial t} \, dV + \int_{\Sigma_f(t)} \phi \, \vec{v}\cdot\vec{n} \, d\sigma} $$
-          <div class="math-caption">[Eq. 3.6] Reynolds Transport Theorem for a material fluid volume $V_f(t)$.</div>
-        </div>
-
-        <h3 class="sub-heading">Extension to an Arbitrary Moving Control Volume $V_c(t)$</h3>
-        <p>In aerospace engineering, one rarely tracks an individual fluid mass stretching downstream of a rocket engine or turbine blade. Instead, one defines a <strong>geometric control volume</strong> $V_c(t)$ bounded by a control surface $\Sigma_c(t)$ moving at an arbitrary, known spatial velocity $\vec{v}_c(\vec{x}, t)$. Applying the same derivation to $V_c(t)$:</p>
-
-        <div class="math-block">
-          $$ \frac{d}{dt}\left[\int_{V_c(t)} \phi(\vec{x},t) \, dV\right] = \int_{V_c(t)} \frac{\partial \phi}{\partial t} \, dV + \int_{\Sigma_c(t)} \phi \, \vec{v}_c\cdot\vec{n} \, d\sigma $$
-          <div class="math-caption">[Eq. 3.7] Rate of change of $\Phi$ stored within the geometric control volume $V_c(t)$.</div>
-        </div>
-
-        <p>Matching the control volume with the material volume instantaneously at time $t$ ($V_c(t) \equiv V_f(t)$ and $\Sigma_c(t) \equiv \Sigma_f(t)$), the volume integrals of $\partial\phi/\partial t$ in (3.6) and (3.7) are identical. Subtracting equation (3.7) from (3.6) yields the <strong>universal Reynolds transport relation</strong>:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\frac{d}{dt}\left[\int_{V_f(t)} \phi \, dV\right] = \frac{d}{dt}\left[\int_{V_c(t)} \phi \, dV\right] + \int_{\Sigma_c(t)} \phi \, (\vec{v} - \vec{v}_c)\cdot\vec{n} \, d\sigma} $$
-          <div class="math-caption">[Eq. 3.8] Universal Reynolds equation: material derivative expressed in terms of the moving control volume.</div>
-        </div>
-
-        <div class="note-box">
-          <div class="note-title">Universal Physical Interpretation of RTT</div>
-          The material derivative of any extensive property contained within the fluid system $V_f(t)$ equals the time rate of storage within the control volume $V_c(t)$ plus the net convective flux escaping through the control surface $\Sigma_c(t)$, carried by the <strong>relative fluid velocity with respect to the control boundary</strong> $(\vec{v} - \vec{v}_c)$.
-        </div>
-      </section>
-
-      <!-- SECTION 2 -->
-      <section id="sec-2">
-        <h2 class="section-heading">2. Integral Conservation of Mass (Continuity)</h2>
-
-        <p>In non-relativistic Newtonian mechanics, the mass of a closed material fluid system is neither created nor destroyed:</p>
-
-        <div class="math-block">
-          $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho \, dV\right] = 0 $$
-          <div class="math-caption">[Eq. 3.9] Fundamental principle of mass conservation for a material fluid volume.</div>
-        </div>
-
-        <p>Substituting $\phi = \rho$ into the universal RTT (Eq. 3.8) yields the <strong>integral mass conservation equation for an arbitrary moving control volume $V_c(t)$</strong>:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho \, dV\right] + \int_{\Sigma_c(t)} \rho \, (\vec{v} - \vec{v}_c)\cdot\vec{n} \, d\sigma = 0} $$
-          <div class="math-caption">[Eq. 3.10] Integral continuity equation for a moving control volume $V_c(t)$.</div>
-        </div>
-
-        <h3 class="sub-heading">Control Volume Fixed in Space ($V_0, \vec{v}_c = 0$)</h3>
-        <p>For a rigid control volume fixed in the frame of reference ($\vec{v}_c \equiv 0$ and $V_c(t) \equiv V_0$), the exterior ordinary derivative becomes the local partial derivative inside the volume integral:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\int_{V_0} \frac{\partial \rho}{\partial t} \, dV + \int_{\Sigma_0} \rho \, \vec{v}\cdot\vec{n} \, d\sigma = 0} $$
-          <div class="math-caption">[Eq. 3.11] Continuity equation for a fixed control volume $V_0$.</div>
-        </div>
-
-        <p>Two essential practical simplifications follow directly from this equation:</p>
-        <ul>
-          <li><strong>Steady state ($\partial\rho/\partial t = 0$):</strong> Net outgoing mass flow rate equals net incoming mass flow rate:
-            $$ \int_{\Sigma_0} \rho \vec{v}\cdot\vec{n} \, d\sigma = 0 \implies \sum \dot{m}_{\text{out}} = \sum \dot{m}_{\text{in}} $$
-          </li>
-          <li><strong>Incompressible fluid ($\rho = \text{constant}$):</strong> Density factors out of the integral, reducing to volumetric flow rate conservation:
-            $$ \int_{\Sigma_0} \vec{v}\cdot\vec{n} \, d\sigma = 0 \implies \sum Q_{\text{out}} = \sum Q_{\text{in}} $$
-          </li>
-        </ul>
-      </section>
-
-      <!-- SECTION 3 -->
-      <section id="sec-3">
-        <h2 class="section-heading">3. Body (Mass) and Surface Forces</h2>
-
-        <p>The dynamic force balance governing fluid acceleration requires distinguishing between long-range actions at a distance and contact forces:</p>
-
-        <h3 class="sub-heading">A. Body or Mass Forces ($\vec{f}_m$) — Long Range</h3>
-        <p>Possess an effective range vastly exceeding the intermolecular spacing $d$. They act on the bulk of every fluid particle of mass $dm = \rho dV$:</p>
-
-        <div class="math-block">
-          $$ d\vec{F}_m = \rho \vec{f}_m(\vec{x},t) \, dV $$
-          <div class="math-caption">[Eq. 3.12] Infinitesimal body force acting on the fluid element.</div>
-        </div>
-
-        <p>In the general framework of a <strong>non-inertial reference frame</strong> undergoing translational acceleration of its origin $\vec{a}_0(t)$ and angular rotation $\vec{\Omega}(t)$, the specific body force $\vec{f}_m$ incorporates gravity alongside the classical inertial forces:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\vec{f}_m(\vec{x},t) = \vec{g} - \vec{a}_0 - \frac{d\vec{\Omega}}{dt}\wedge\vec{x} - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) - 2\vec{\Omega}\wedge\vec{v}} $$
-          <div class="math-caption">[Eq. 3.13] Net body force in a non-inertial frame: gravity + translational inertia + angular acceleration + centrifugal force + Coriolis force.</div>
-        </div>
-
-        <p>When the non-inertial frame undergoes steady rotation and constant translation ($\vec{a}_0 = \text{const}$, $\vec{\Omega} = \text{const}$), gravity, translational inertia, and centrifugal forces are conservative and derive from a unified scalar potential $U(\vec{x})$:</p>
-
-        <div class="math-block">
-          $$ \vec{g} - \vec{a}_0 - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) = -\nabla\left[ -\vec{g}\cdot\vec{x} + \vec{a}_0\cdot\vec{x} - \frac{1}{2}|\vec{\Omega}\wedge\vec{x}|^2 \right] = -\nabla U $$
-          <div class="math-caption">[Eq. 3.14] Gradient of the unified potential of steady conservative body forces.</div>
-        </div>
-
-        <h3 class="sub-heading">B. Surface Forces — Short Range</h3>
-        <p>Arise from molecular collisions and intermolecular electromagnetic interactions at the scale $d \sim 10^{-9}\text{ m}$. Across an area element $d\sigma$ with outward unit normal $\vec{n}$, the fluid on the side toward which $\vec{n}$ points exerts a contact force:</p>
-
-        <div class="math-block">
-          $$ d\vec{F}_s = \vec{f}_n(\vec{n}, \vec{x}, t) \, d\sigma $$
-          <div class="math-caption">[Eq. 3.15] Surface stress vector $\vec{f}_n$ (force per unit area, SI units $\text{Pa} = \text{N/m}^2$).</div>
-        </div>
-      </section>
-
-      <!-- SECTION 4 -->
-      <section id="sec-4">
-        <h2 class="section-heading">4. The Cauchy Stress Tensor</h2>
-
-        <p>Augustin-Louis Cauchy proved that the directional dependence of the stress vector $\vec{f}_n$ on the unit normal $\vec{n} = (n_1, n_2, n_3)$ is strictly linear. Consider an infinitesimal tetrahedron with three faces perpendicular to the coordinate axes having areas $dA_1, dA_2, dA_3$ and outward normals $-\vec{e}_1, -\vec{e}_2, -\vec{e}_3$, and an inclined face of area $dA$ with arbitrary outward unit normal $\vec{n}$:</p>
-
-        <div class="math-block">
-          $$ dA \, \vec{f}_n - dA_1 \vec{f}_1 - dA_2 \vec{f}_2 - dA_3 \vec{f}_3 = \rho dV \left(\frac{D\vec{v}}{Dt} - \vec{f}_m\right) \to 0 $$
-          <div class="math-caption">[Eq. 3.16] Dynamic equilibrium on Cauchy's tetrahedron as $h \to 0$ (surface area $\mathcal{O}(h^2)$ dominates over volume $\mathcal{O}(h^3)$).</div>
-        </div>
-
-        <p>Using the geometric projections $dA_i = n_i dA$ and dividing by the inclined face area $dA$:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\vec{f}_n = n_1 \vec{f}_1 + n_2 \vec{f}_2 + n_3 \vec{f}_3 = \vec{n}\cdot\bar{\bar{\tau}} = \bar{\bar{\tau}}\cdot\vec{n}} $$
-          <div class="math-caption">[Eq. 3.17] Cauchy's stress theorem: the stress vector is the projection of the stress tensor $\bar{\bar{\tau}}$.</div>
-        </div>
-
-        <p>Where the matrix of the <strong>Cauchy Stress Tensor</strong> is defined by its 9 components:</p>
-
-        <div class="math-block">
-          $$ \bar{\bar{\tau}} = \begin{bmatrix} \tau_{11} & \tau_{12} & \tau_{13} \\ \tau_{21} & \tau_{22} & \tau_{23} \\ \tau_{31} & \tau_{32} & \tau_{33} \end{bmatrix} $$
-          <div class="math-caption">[Eq. 3.18] Stress tensor: $\tau_{ij}$ represents the force per unit area in direction $\vec{e}_j$ acting on a face with unit normal $\vec{e}_i$.</div>
-        </div>
-
-        <h3 class="sub-heading">Symmetry of the Stress Tensor ($\tau_{ij} = \tau_{ji}$)</h3>
-        <p>Evaluating angular momentum conservation for an infinitesimal cube $dx_1 dx_2 dx_3$ about its center of mass reveals that the moment of inertia and body forces scale as $\mathcal{O}(dx^5)$ and $\mathcal{O}(dx^4)$, whereas the torque produced by shear stresses scales as $(\tau_{12} - \tau_{21}) dx_1 dx_2 dx_3 \sim \mathcal{O}(dx^3)$. In the limit $dx \to 0$, preventing unbounded angular accelerations dictates that:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\tau_{ij} = \tau_{ji} \implies \bar{\bar{\tau}} = \bar{\bar{\tau}}^T} \qquad \text{and therefore} \qquad \vec{f}_n = \begin{bmatrix} \tau_{11} & \tau_{12} & \tau_{13} \\ \tau_{12} & \tau_{22} & \tau_{23} \\ \tau_{13} & \tau_{23} & \tau_{33} \end{bmatrix}\cdot\vec{n} $$
-          <div class="math-caption">[Eq. 3.19] Rigorous symmetry of the Cauchy stress tensor in the absence of distributed body couples.</div>
-        </div>
-
-        <h3 class="sub-heading">Principal Directions and Principal Stresses</h3>
-        <p>There exist three privileged spatial orientations along which the stress vector is strictly collinear with the normal ($\vec{f}_n \parallel \vec{n}$), causing shear stresses to vanish identically:</p>
-
-        <div class="math-block">
-          $$ \bar{\bar{\tau}}\cdot\vec{n} = \lambda \vec{n} \qquad \text{[Eq. 3.20]} \qquad \iff \qquad |\bar{\bar{\tau}} - \lambda \bar{\bar{I}}| = 0 \qquad \text{[Eq. 3.21]} $$
-          <div class="math-caption">[Eqs. 3.20–3.21] Eigenvalue problem and secular characteristic equation.</div>
-        </div>
-
-        <p>By the spectral theorem for real symmetric matrices, the three principal stresses $(\lambda_1, \lambda_2, \lambda_3)$ are strictly <strong>real</strong>, and their corresponding principal directions $(\vec{n}_1, \vec{n}_2, \vec{n}_3)$ are <strong>mutually orthogonal</strong>.</p>
-
-        <h3 class="sub-heading">Global Surface Force and Cauchy Divergence</h3>
-        <p>The global surface force acting on a closed surface $\Sigma$ enclosing volume $V$ is converted via the Gauss divergence theorem:</p>
-
-        <div class="math-block">
-          $$ \vec{F}_s = \int_\Sigma \bar{\bar{\tau}}\cdot\vec{n} \, d\sigma = \int_V (\nabla\cdot\bar{\bar{\tau}}) \, dV $$
-          <div class="math-caption">[Eqs. 3.22–3.23] The divergence $\nabla\cdot\bar{\bar{\tau}}$ represents the net resultant surface force per unit volume.</div>
-        </div>
-
-        <p>Applying Newton's second law to an infinitesimal element $dV$ yields Cauchy's differential equation of motion:</p>
-
-        <div class="math-block">
-          $$ \rho dV \frac{D\vec{v}}{Dt} = (\nabla\cdot\bar{\bar{\tau}})dV + \rho\vec{f}_m dV \quad \implies \quad \mathbf{\rho \frac{D\vec{v}}{Dt} = \nabla\cdot\bar{\bar{\tau}} + \rho\vec{f}_m} $$
-          <div class="math-caption">[Eqs. 3.24–3.25] Cauchy's equation of motion for any continuum medium.</div>
-        </div>
-      </section>
-
-      <!-- SECTION 5 -->
-      <section id="sec-5">
-        <h2 class="section-heading">5. The Navier-Poisson Constitutive Equation</h2>
-
-        <p>To achieve dynamic closure of the equations of motion, the stress tensor $\bar{\bar{\tau}}$ must be linked to flow kinematics ($\vec{v}$) and the thermodynamic state ($p, T$).</p>
-
-        <h3 class="sub-heading">Hydrostatic State vs. Fluid in Motion</h3>
-        <p>In a fluid at rest or undergoing rigid-body motion ($\bar{\bar{T}}_d = 0$), shear stresses vanish identically, and the surface force is isotropic and purely compressive:</p>
-
-        <div class="math-block">
-          $$ \vec{f}_n = -p\vec{n} \quad \implies \quad \bar{\bar{\tau}} = -p\bar{\bar{I}} $$
-          <div class="math-caption">[Eqs. 3.26–3.27] Hydrostatic stress tensor governed by the scalar thermodynamic pressure $p$.</div>
-        </div>
-
-        <p>In a flow with relative strain ($\bar{\bar{T}}_d \neq 0$), viscous friction generates additional stresses. The stress tensor is universally decomposed as:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'} $$
-          <div class="math-caption">[Ec. 3.28] Decomposition into hydrostatic spherical part and viscous stress tensor $\bar{\bar{\tau}}'$.</div>
-        </div>
-
-        <h3 class="sub-heading">Isotropic Newtonian Fluid Hypothesis</h3>
-        <p>Under the hypothesis of constitutive linearity ($\tau'_{ij} = \alpha_{ijkl}\gamma_{kl}$, Eq. 3.29) and spatial isotropy, the viscous stress tensor depends exclusively on two viscosity coefficients:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\bar{\bar{\tau}}' = 2\mu \bar{\bar{T}}_d + \lambda (\nabla\cdot\vec{v})\bar{\bar{I}}} $$
-          <div class="math-caption">[Eq. 3.30] Navier-Poisson relation in terms of dynamic shear viscosity $\mu$ and second viscosity $\lambda$.</div>
-        </div>
-
-        <p>Introducing the <strong>bulk (volumetric) viscosity</strong> $\mu_B = \lambda + \frac{2}{3}\mu$, the constitutive equation assumes its canonical form:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\bar{\bar{\tau}}' = 2\mu \bar{\bar{T}}_d + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\bar{\bar{I}}} $$
-          <div class="math-caption">[Eq. 3.31] Canonical Navier-Poisson constitutive equation.</div>
-        </div>
-
-        <div class="note-box">
-          <div class="note-title">Stokes Hypothesis ($\mu_B = 0$) and Incompressible Flow</div>
-          <ul>
-            <li><strong>Stokes Hypothesis (1845):</strong> Assumes $\mu_B \approx 0 \implies \lambda = -\frac{2}{3}\mu$. It is rigorously exact for monatomic gases and an extensively validated engineering standard in subsonic and supersonic aerodynamics.</li>
-            <li><strong>Incompressible Flow ($\nabla\cdot\vec{v} = 0$):</strong> The volumetric dilation term vanishes identically, reducing to:
-              $$ \mathbf{\bar{\bar{\tau}}' = 2\mu \bar{\bar{T}}_d} $$
-            </li>
-          </ul>
-        </div>
-
-        <h3 class="sub-heading">Thermal Behavior: Air vs. Water</h3>
-        <p>Dynamic viscosity $\mu(T)$ depends fundamentally on temperature:</p>
-        <ul>
-          <li><strong>Gases (Air):</strong> Viscous momentum transport occurs via molecular momentum exchange during thermal collisions ($v_{\text{th}}\propto \sqrt{T}$). Hence, $\mu$ <strong>increases with $T$</strong>. At $288\text{ K}$, $\mu_a \approx 1.78\times 10^{-5}\text{ Pa}\cdot\text{s}$.</li>
-          <li><strong>Liquids (Water):</strong> Momentum transport is governed by cohesive intermolecular forces. As $T$ rises, thermal energy breaks molecular bonds and $\mu$ <strong>drops sharply</strong>. At $288\text{ K}$, $\mu_w \approx 1.14\times 10^{-3}\text{ Pa}\cdot\text{s}$.</li>
-        </ul>
-
-        <div class="table-wrapper">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Fluid</th>
-                <th>Density $\rho$ ($288\text{ K}$)</th>
-                <th>Dynamic Viscosity $\mu$</th>
-                <th>Kinematic Viscosity $\nu = \mu/\rho$</th>
-                <th>Temperature Dependence</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Atmospheric Air</strong></td>
-                <td>$1.225\text{ kg/m}^3$</td>
-                <td>$1.78 \times 10^{-5}\text{ Pa}\cdot\text{s}$</td>
-                <td>$\mathbf{1.45 \times 10^{-5}\text{ m}^2/\text{s}}$</td>
-                <td>$\mu$ increases with temperature ($\propto T^{1/2}$ / Sutherland)</td>
-              </tr>
-              <tr>
-                <td><strong>Liquid Water</strong></td>
-                <td>$1000\text{ kg/m}^3$</td>
-                <td>$1.14 \times 10^{-3}\text{ Pa}\cdot\text{s}$</td>
-                <td>$\mathbf{1.14 \times 10^{-6}\text{ m}^2/\text{s}}$</td>
-                <td>$\mu$ decreases exponentially with temperature</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p><em>Note that the kinematic viscosity of air is nearly 13 times higher than that of water, diffusing momentum per unit mass considerably faster!</em></p>
-      </section>
-
-      <!-- SECTION 6 -->
-      <section id="sec-6">
-        <h2 class="section-heading">6. Forces and Moments on Submerged Bodies</h2>
-
-        <p>When an aerodynamic body (airfoil, fuselage, turbine blade, or missile) is immersed in a moving fluid, the total aerodynamic action exerted by the fluid on its wetted surface $\Sigma$ arises solely from the distribution of pressure and viscous shear stresses.</p>
-
-        <p>Taking the outward unit normal vector $\vec{n}$ pointing <strong>into the fluid</strong> (out of the solid body):</p>
-
-        <div class="math-block">
-          $$ \mathbf{\vec{F} = -\int_\Sigma p\vec{n} \, d\sigma + \int_\Sigma \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma} $$
-          <div class="math-caption">[Eq. 3.32] Net aerodynamic force: normal pressure integral + tangential viscous shear integral.</div>
-        </div>
-
-        <div class="math-block">
-          $$ \mathbf{\vec{M}_{\vec{x}_0} = -\int_\Sigma (\vec{x} - \vec{x}_0)\wedge(p\vec{n}) \, d\sigma + \int_\Sigma (\vec{x} - \vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma} $$
-          <div class="math-caption">[Eq. 3.33] Net aerodynamic moment about reduction point $\vec{x}_0$.</div>
-        </div>
-
-        <p>Projecting $\vec{F}$ onto relative wind axes directly yields <strong>aerodynamic lift</strong> $L$ (perpendicular to $\vec{v}_\infty$) and <strong>aerodynamic drag</strong> $D$ (parallel to $\vec{v}_\infty$), the latter splitting into pressure drag (form/wave) and skin-friction drag.</p>
-      </section>
-
-      <!-- SECTION 7 -->
-      <section id="sec-7">
-        <h2 class="section-heading">7. Integral Conservation of Linear Momentum</h2>
-
-        <p>Newton's second law postulates that the time rate of change of the total linear momentum of a closed material fluid system $V_f(t)$ equals the resultant of all external forces (pressure, viscous stresses, and body forces):</p>
-
-        <div class="math-block">
-          $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV $$
-          <div class="math-caption">[Eq. 3.34] Linear momentum balance for a material fluid volume $V_f(t)$.</div>
-        </div>
-
-        <p>Substituting $\phi = \rho\vec{v}$ into the Reynolds Transport Theorem (Eq. 3.8) yields the <strong>integral linear momentum equation for an arbitrary moving control volume $V_c(t)$</strong>:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\vec{v} \, dV\right] + \int_{\Sigma_c(t)} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma = -\int_{\Sigma_c(t)} p\vec{n} \, d\sigma + \int_{\Sigma_c(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_c(t)} \rho\vec{f}_m \, dV} $$
-          <div class="math-caption">[Eq. 3.35] Integral linear momentum conservation equation for a moving control volume $V_c(t)$.</div>
-        </div>
-
-        <h3 class="sub-heading">Control Volume Fixed in Space ($V_0, \vec{v}_c = 0$)</h3>
-        <div class="math-block">
-          $$ \mathbf{\int_{V_0} \frac{\partial(\rho\vec{v})}{\partial t} \, dV + \int_{\Sigma_0} \rho\vec{v}(\vec{v}\cdot\vec{n}) \, d\sigma = -\int_{\Sigma_0} p\vec{n} \, d\sigma + \int_{\Sigma_0} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_0} \rho\vec{f}_m \, dV} $$
-          <div class="math-caption">[Eq. 3.36] Linear momentum conservation for a fixed control volume $V_0$.</div>
-        </div>
-
-        <div class="card">
-          <h3 class="sub-heading" style="margin-top: 0;">Physical Breakdown of the 5 Terms in the Momentum Equation</h3>
-          <ol>
-            <li><strong>$\frac{d}{dt}\int_{V_c} \rho\vec{v} dV$ (Local Inertia / Storage):</strong> Time variation of momentum stored within the control cavity. Identically zero in steady state.</li>
-            <li><strong>$\int_{\Sigma_c} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] d\sigma$ (Net Outgoing Convective Flux):</strong> Net rate of momentum efflux across open inlet and outlet control boundaries carried by the relative mass flow.</li>
-            <li><strong>$-\int_{\Sigma_c} p\vec{n} d\sigma$ (Net External Pressure Force):</strong> Distributed normal compressive force over the control boundaries. For problems vented to ambient atmosphere, gauge pressure $(p - p_a)$ can be used directly.</li>
-            <li><strong>$\int_{\Sigma_c} \bar{\bar{\tau}}'\cdot\vec{n} d\sigma$ (Net Viscous Force):</strong> Tangential friction shear stresses acting along wetted solid walls.</li>
-            <li><strong>$\int_{V_c} \rho\vec{f}_m dV$ (Body Forces):</strong> Total fluid weight within the volume ($\int \rho\vec{g} dV$) plus fictitious inertial forces if the reference frame is non-inertial.</li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- SECTION 8 -->
-      <section id="sec-8">
-        <h2 class="section-heading">8. Integral Conservation of Angular Momentum (Moment of Momentum)</h2>
-
-        <p>The angular momentum balance about a fixed reference point $\vec{x}_0$ for a material fluid volume $V_f(t)$ states:</p>
-
-        <div class="math-block">
-          $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho(\vec{x}-\vec{x}_0)\wedge\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} (\vec{x}-\vec{x}_0)\wedge(p\vec{n}) \, d\sigma + \int_{\Sigma_f(t)} (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma + \int_{V_f(t)} \rho(\vec{x}-\vec{x}_0)\wedge\vec{f}_m \, dV $$
-          <div class="math-caption">[Eq. 3.37] Angular momentum balance for a material fluid volume $V_f(t)$.</div>
-        </div>
-
-        <p>Applying the Reynolds Transport Theorem yields the general formulation for a <strong>moving control volume $V_c(t)$</strong>:</p>
-
-        <div class="math-block">
-          $$ \begin{aligned}
-          \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}] \, dV\right] + \int_{\Sigma_c(t)} \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma =} \\
-          \mathbf{-\int_{\Sigma_c(t)} (\vec{x}-\vec{x}_0)\wedge(p\vec{n}) \, d\sigma + \int_{\Sigma_c(t)} (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma + \int_{V_c(t)} \rho[(\vec{x}-\vec{x}_0)\wedge\vec{f}_m] \, dV}
-          \end{aligned} $$
-          <div class="math-caption">[Eq. 3.38] Integral angular momentum equation for a moving control volume $V_c(t)$.</div>
-        </div>
-
-        <div class="note-box">
-          <div class="note-title">Key Aerospace Application: Euler's Turbomachinery Equation</div>
-          In gas turbine rotors and aircraft compressors rotating at angular velocity $\vec{\Omega} = \Omega \vec{e}_z$, the steady mechanical shaft torque depends solely on the mass flow rate $\dot{m}$ and the change in specific angular momentum between exit ($r_2, v_{\theta 2}$) and inlet ($r_1, v_{\theta 1}$):
-          $$ T_{\text{shaft}} = \dot{m}(r_2 v_{\theta 2} - r_1 v_{\theta 1}) \implies \mathbf{w_{\text{Euler}} = \frac{\dot{W}_{\text{shaft}}}{\dot{m}} = u_2 v_{\theta 2} - u_1 v_{\theta 1}} $$
-          where $u = \Omega r$ is the blade peripheral velocity.
-        </div>
-      </section>
-
-      <!-- SECTION 9 -->
-      <section id="sec-9">
-        <h2 class="section-heading">9. Conductive Heat Transfer and Fourier's Law</h2>
-
-        <p>The conductive heat flow rate across an infinitesimal surface element $d\sigma$ with outward unit normal $\vec{n}$ is given by:</p>
-
-        <div class="math-block">
-          $$ d\dot{Q}_{\text{cond}} = q_n(\vec{n}, \vec{x}, t) \, d\sigma $$
-          <div class="math-caption">[Eq. 3.39] Conductive heat flux density in the direction of the unit normal $\vec{n}$.</div>
-        </div>
-
-        <p>Applying energy conservation to Cauchy's infinitesimal tetrahedron in the limit $h \to 0$:</p>
-
-        <div class="math-block">
-          $$ q_n dA = q_1 dA_1 + q_2 dA_2 + q_3 dA_3 \quad \implies \quad \mathbf{q_n = \vec{q}\cdot\vec{n}} $$
-          <div class="math-caption">[Eqs. 3.40–3.41] The scalar heat flux $q_n$ is the projection of the heat flux density vector $\vec{q} = (q_1, q_2, q_3)$.</div>
-        </div>
-
-        <p>For a closed surface $\Sigma$ bounding volume $V$, the total conductive heat loss to the surroundings and its divergence theorem equivalent are:</p>
-
-        <div class="math-block">
-          $$ \dot{Q}_{\text{net}} = \int_\Sigma \vec{q}\cdot\vec{n} \, d\sigma = \int_V (\nabla\cdot\vec{q}) \, dV $$
-          <div class="math-caption">[Eqs. 3.42–3.43] $\nabla\cdot\vec{q}$ represents the conductive heat loss rate per unit volume.</div>
-        </div>
-
-        <h3 class="sub-heading">Fourier's Law of Heat Conduction</h3>
-        <p>Molecular heat transport obeys Joseph Fourier's linear phenomenological law:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\vec{q} = -k \nabla T} $$
-          <div class="math-caption">[Eq. 3.44] Fourier's Law: linear proportionality to temperature gradient $\nabla T$ (the negative sign ensures heat flows from hot to cold regions).</div>
-        </div>
-
-        <h3 class="sub-heading">Thermal Diffusivity ($\alpha$) and Prandtl Number ($\mathrm{Pr}$)</h3>
-        <p>Molecular thermal diffusivity is given by $\alpha = \frac{k}{\rho c_p}$ (SI units $\text{m}^2/\text{s}$). The ratio of momentum diffusivity ($\nu = \mu/\rho$) to thermal diffusivity ($\alpha$) defines the dimensionless <strong>Prandtl number</strong>:</p>
-
-        <div class="math-block">
-          $$ \mathbf{\mathrm{Pr} = \frac{\nu}{\alpha} = \frac{\mu c_p}{k}} $$
-          <div class="math-caption">Canonical definition of the Prandtl number.</div>
-        </div>
-
-        <div class="table-wrapper">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Fluid Type</th>
-                <th>Order of Magnitude of $\mathrm{Pr}$</th>
-                <th>Underlying Physical Mechanism</th>
-                <th>Aerospace Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Gases (Air)</strong></td>
-                <td>$\mathbf{\approx 0.72}$</td>
-                <td>Same molecular kinetic transport mechanism. Viscous and thermal boundary layers have comparable thickness ($\delta_v \approx \delta_T$).</td>
-                <td>Flow over airfoils, fuselages, and propulsion nozzles.</td>
-              </tr>
-              <tr>
-                <td><strong>Liquid Water</strong></td>
-                <td>$\mathbf{1.8 - 8.1}$</td>
-                <td>Hydrogen-bonded molecular structure. Strong temperature sensitivity ($\mathrm{Pr}=8.14$ at $288\text{ K}$, $\mathrm{Pr}=1.82$ at $368\text{ K}$).</td>
-                <td>Hydrodynamic towing tanks and cavitation testing.</td>
-              </tr>
-              <tr>
-                <td><strong>Liquid Metals</strong></td>
-                <td>$\mathbf{\ll 1} \; (0.005 - 0.03)$</td>
-                <td>Free conduction electrons transport heat with extraordinary rapidity. Thermal diffusion vastly dominates over viscous diffusion ($\delta_T \gg \delta_v$).</td>
-                <td>Compact cooling in space nuclear reactors.</td>
-              </tr>
-              <tr>
-                <td><strong>Lubricating Oils</strong></td>
-                <td>$\mathbf{\gg 1} \; (100 - 10,000)$</td>
-                <td>Large organic molecules with high internal friction and low thermal conductivity. Ultra-thin thermal boundary layer ($\delta_T \ll \delta_v$).</td>
-                <td>High-speed shaft bearings in aviation turbojets.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- SECTION 10 -->
-      <section id="sec-10">
-        <h2 class="section-heading">10. Integral Conservation of Total Energy</h2>
-
-        <p>The total energy per unit mass of a fluid particle comprises its microscopic internal energy $e$ and its macroscopic kinetic energy $\frac{1}{2}|\vec{v}|^2$. In accordance with the First Law of Thermodynamics, the rate of change of energy in a material fluid volume $V_f(t)$ equals the mechanical power of external forces plus the net heat added:</p>
-
-        <div class="math-block">
-          $$ \begin{aligned}
-          \frac{d}{dt}\left[\int_{V_f(t)} \rho\left(e + \frac{|\vec{v}|^2}{2}\right) dV\right] = & -\int_{\Sigma_f(t)} p\vec{v}\cdot\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m\cdot\vec{v} \, dV \\
-          & -\int_{\Sigma_f(t)} \vec{q}\cdot\vec{n} \, d\sigma + \int_{V_f(t)} (Q_c + Q_r) \, dV
-          \end{aligned} $$
-          <div class="math-caption">[Eq. 3.45] First Law of Thermodynamics for a closed material fluid volume $V_f(t)$.</div>
-        </div>
-
-        <p>Applying the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>master integral total energy conservation equation for an arbitrary moving control volume $V_c(t)$</strong>:</p>
-
-        <div class="math-block">
-          $$ \begin{aligned}
-          \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\left(e + \frac{|\vec{v}|^2}{2}\right) dV\right] + \int_{\Sigma_c(t)} \rho\left(e + \frac{|\vec{v}|^2}{2}\right)[(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma =} \\
-          \mathbf{-\int_{\Sigma_c(t)} p\vec{v}\cdot\vec{n} \, d\sigma + \int_{\Sigma_c(t)} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_c(t)} \rho\vec{f}_m\cdot\vec{v} \, dV} \\
-          \mathbf{-\int_{\Sigma_c(t)} \vec{q}\cdot\vec{n} \, d\sigma + \int_{V_c(t)} (Q_c + Q_r) \, dV}
-          \end{aligned} $$
-          <div class="math-caption">[Eq. 3.46] Master integral total energy conservation equation for a moving control volume $V_c(t)$.</div>
-        </div>
-
-        <div class="card">
-          <h3 class="sub-heading" style="margin-top: 0;">Detailed Physical Breakdown of Energy Transfer Mechanisms</h3>
-          <ul>
-            <li><strong>Unsteady storage:</strong> Rate of increase of internal and kinetic energy stored within $V_c(t)$.</li>
-            <li><strong>Net outgoing convection:</strong> Convective energy flux across open boundaries with relative velocity $(\vec{v}-\vec{v}_c)\cdot\vec{n}$.</li>
-            <li><strong>Flow pressure work ($-\int_{\Sigma_c} p\vec{v}\cdot\vec{n} d\sigma$):</strong> Mechanical power exerted by external pressure. Combined at flow cross-sections with convected internal energy $e$, this naturally gives rise to <strong>specific enthalpy</strong> $h = e + p/\rho$ and <strong>stagnation (total) enthalpy</strong> $h_0 = h + |\vec{v}|^2/2$.</li>
-            <li><strong>Viscous stress work ($\int_{\Sigma_c} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} d\sigma$):</strong> Power transmitted by viscous shear across moving boundaries or dissipated within the boundary layer.</li>
-            <li><strong>Body force work rate ($\int_{V_c} \rho\vec{f}_m\cdot\vec{v} dV$):</strong> Power developed by gravitational or inertial fields on the moving fluid.</li>
-            <li><strong>Boundary heat conduction ($-\int_{\Sigma_c} \vec{q}\cdot\vec{n} d\sigma$):</strong> Heat conducted across solid boundaries according to Fourier's Law ($\vec{q} = -k\nabla T$).</li>
-            <li><strong>Internal volumetric heat sources ($Q_c, Q_r$):</strong>
-              <ul>
-                <li>$Q_c$: Volumetric heat release rate from chemical reactions (combustion chambers, ramjets, afterburners).</li>
-                <li>$Q_r = -\nabla\cdot\vec{q}_r$: Net radiative heating or emission in high-temperature gases.</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- SECTION 11 -->
-      <section id="sec-11">
-        <h2 class="section-heading">11. Comprehensive Summary of Fundamental Equations (Eqs. 3.1 to 3.46)</h2>
-        <p>Below is the complete reference table of all governing integral equations derived in Chapter 3 of <em>Notes.pdf</em>:</p>
-
-        <div class="table-wrapper">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th style="width: 70px;">Eq.</th>
-                <th>Mathematical Expression</th>
-                <th>Physical Meaning and Official Designation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>3.1</strong></td>
-                <td>$\Phi(t) = \int_{V_f(t)}\phi \, dV, \quad \phi = \rho, \, \rho\vec{v}, \, \rho(e + |\vec{v}|^2/2)$</td>
-                <td>Definition of an extensive property from its intensive density $\phi$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.2</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f(t)}\phi dV\right] = \lim_{\Delta t\to 0}\frac{1}{\Delta t}\left[\int_{V_f(t+\Delta t)}\phi(t+\Delta t)dV - \int_{V_f(t)}\phi(t)dV\right]$</td>
-                <td>Formal limit definition of the time derivative of a material fluid volume.</td>
-              </tr>
-              <tr>
-                <td><strong>3.3</strong></td>
-                <td>$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\left[\int_{V_f(t)}[\phi(t+\Delta t)-\phi(t)]dV + \int_{V_f(t+\Delta t)-V_f(t)}\phi(t+\Delta t)dV\right]$</td>
-                <td>Splitting of limit into internal storage and boundary swept volume.</td>
-              </tr>
-              <tr>
-                <td><strong>3.4</strong></td>
-                <td>$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\int_{V_f(t)}[\phi(t+\Delta t)-\phi(t)]dV = \int_{V_f(t)}\frac{\partial\phi}{\partial t}dV$</td>
-                <td>Local accumulation rate due to flow unsteadiness.</td>
-              </tr>
-              <tr>
-                <td><strong>3.5</strong></td>
-                <td>$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\int_{V_f(t+\Delta t)-V_f(t)}\phi(t+\Delta t)dV = \int_{\Sigma_f(t)}\phi\vec{v}\cdot\vec{n}d\sigma$</td>
-                <td>Net convective flux escaping across the moving boundary.</td>
-              </tr>
-              <tr>
-                <td><strong>3.6</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f(t)}\phi dV\right] = \int_{V_f(t)}\frac{\partial\phi}{\partial t}dV + \int_{\Sigma_f(t)}\phi\vec{v}\cdot\vec{n}d\sigma$</td>
-                <td><strong>Reynolds Transport Theorem (RTT)</strong> for a material fluid volume $V_f(t)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.7</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_c(t)}\phi dV\right] = \int_{V_c(t)}\frac{\partial\phi}{\partial t}dV + \int_{\Sigma_c(t)}\phi\vec{v}_c\cdot\vec{n}d\sigma$</td>
-                <td>RTT applied to arbitrary moving control volume $V_c(t)$ with surface velocity $\vec{v}_c$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.8</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f(t)}\phi dV\right] = \frac{d}{dt}\left[\int_{V_c(t)}\phi dV\right] + \int_{\Sigma_c(t)}\phi(\vec{v}-\vec{v}_c)\cdot\vec{n}d\sigma$</td>
-                <td><strong>Universal RTT:</strong> Connection between material system and moving control volume.</td>
-              </tr>
-              <tr>
-                <td><strong>3.9</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f(t)}\rho dV\right] = 0$</td>
-                <td>Fundamental principle of mass conservation for a closed material volume.</td>
-              </tr>
-              <tr>
-                <td><strong>3.10</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_c(t)}\rho dV\right] + \int_{\Sigma_c(t)}\rho(\vec{v}-\vec{v}_c)\cdot\vec{n}d\sigma = 0$</td>
-                <td><strong>Integral Mass Conservation</strong> for moving control volume $V_c(t)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.11</strong></td>
-                <td>$\int_{V_0}\frac{\partial\rho}{\partial t}dV + \int_{\Sigma_0}\rho\vec{v}\cdot\vec{n}d\sigma = 0$</td>
-                <td>Integral mass conservation for fixed spatial control volume ($V_0$).</td>
-              </tr>
-              <tr>
-                <td><strong>3.12</strong></td>
-                <td>$d\vec{F}_m = \rho\vec{f}_m(\vec{x},t)dV$</td>
-                <td>Infinitesimal body (mass) force on a fluid particle.</td>
-              </tr>
-              <tr>
-                <td><strong>3.13</strong></td>
-                <td>$\vec{f}_m = \vec{g} - \vec{a}_0 - \frac{d\vec{\Omega}}{dt}\wedge\vec{x} - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) - 2\vec{\Omega}\wedge\vec{v}$</td>
-                <td>Net body force in non-inertial frame (gravity + 4 inertial forces).</td>
-              </tr>
-              <tr>
-                <td><strong>3.14</strong></td>
-                <td>$\vec{g} - \vec{a}_0 - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) = -\nabla U$</td>
-                <td>Unified potential $U$ for steady conservative body forces.</td>
-              </tr>
-              <tr>
-                <td><strong>3.15</strong></td>
-                <td>$d\vec{F}_s = \vec{f}_n(\vec{n}, \vec{x}, t)d\sigma$</td>
-                <td>Surface contact force: surface stress vector $\vec{f}_n$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.16</strong></td>
-                <td>$dA\vec{f}_n - dA_1\vec{f}_1 - dA_2\vec{f}_2 - dA_3\vec{f}_3 = 0$</td>
-                <td>Force balance on Cauchy's tetrahedron in the limit $h \to 0$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.17</strong></td>
-                <td>$\vec{f}_n = n_1\vec{f}_1 + n_2\vec{f}_2 + n_3\vec{f}_3 = \vec{n}\cdot\bar{\bar{\tau}} = \bar{\bar{\tau}}\cdot\vec{n}$</td>
-                <td><strong>Cauchy's Theorem:</strong> Linear projection of stress tensor $\bar{\bar{\tau}}$ onto normal $\vec{n}$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.18</strong></td>
-                <td>$\bar{\bar{\tau}} = [\tau_{ij}]$ ($3\times 3$)</td>
-                <td>Matrix representation of the Cauchy Stress Tensor.</td>
-              </tr>
-              <tr>
-                <td><strong>3.19</strong></td>
-                <td>$\tau_{ij} = \tau_{ji} \implies \bar{\bar{\tau}} = \bar{\bar{\tau}}^T$</td>
-                <td><strong>Stress tensor symmetry</strong> via infinitesimal cube angular balance.</td>
-              </tr>
-              <tr>
-                <td><strong>3.20</strong></td>
-                <td>$\bar{\bar{\tau}}\cdot\vec{n} = \lambda\vec{n}$</td>
-                <td>Eigenvalue problem for principal directions and principal stresses (zero shear).</td>
-              </tr>
-              <tr>
-                <td><strong>3.21</strong></td>
-                <td>$|\bar{\bar{\tau}} - \lambda\bar{\bar{I}}| = 0$</td>
-                <td>Secular characteristic equation: guarantees three real, mutually orthogonal principal stresses.</td>
-              </tr>
-              <tr>
-                <td><strong>3.22</strong></td>
-                <td>$\vec{F}_s = \int_\Sigma \bar{\bar{\tau}}\cdot\vec{n}d\sigma$</td>
-                <td>Global resultant surface force over control surface $\Sigma$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.23</strong></td>
-                <td>$\int_\Sigma \bar{\bar{\tau}}\cdot\vec{n}d\sigma = \int_V (\nabla\cdot\bar{\bar{\tau}})dV$</td>
-                <td>Gauss divergence theorem: $\nabla\cdot\bar{\bar{\tau}}$ is the net surface force per unit volume.</td>
-              </tr>
-              <tr>
-                <td><strong>3.24</strong></td>
-                <td>$\rho dV \frac{D\vec{v}}{Dt} = (\nabla\cdot\bar{\bar{\tau}})dV + \rho\vec{f}_m dV$</td>
-                <td>Newton's 2nd law applied to differential fluid element $dV$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.25</strong></td>
-                <td>$\rho \frac{D\vec{v}}{Dt} = \nabla\cdot\bar{\bar{\tau}} + \rho\vec{f}_m$</td>
-                <td><strong>Cauchy's differential equation of motion</strong> for any continuum medium.</td>
-              </tr>
-              <tr>
-                <td><strong>3.26</strong></td>
-                <td>$\vec{f}_n = -p\vec{n}$</td>
-                <td>Purely normal hydrostatic stress in fluid at rest or in rigid-body motion.</td>
-              </tr>
-              <tr>
-                <td><strong>3.27</strong></td>
-                <td>$\bar{\bar{\tau}} = -p\bar{\bar{I}}$</td>
-                <td>Isotropic hydrostatic stress tensor.</td>
-              </tr>
-              <tr>
-                <td><strong>3.28</strong></td>
-                <td>$\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'$</td>
-                <td>Decomposition of stress tensor into thermodynamic pressure and viscous stress tensor $\bar{\bar{\tau}}'$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.29</strong></td>
-                <td>$\tau'_{ij} = \alpha_{ijkl}\gamma_{kl}$</td>
-                <td>Newtonian fluid hypothesis: linear constitutive relationship with strain rate.</td>
-              </tr>
-              <tr>
-                <td><strong>3.30</strong></td>
-                <td>$\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + \lambda(\nabla\cdot\vec{v})\bar{\bar{I}}$</td>
-                <td>Navier-Poisson equation with dynamic viscosity $\mu$ and second viscosity $\lambda$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.31</strong></td>
-                <td>$\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + (\mu_B - \frac{2}{3}\mu)(\nabla\cdot\vec{v})\bar{\bar{I}}$</td>
-                <td><strong>Canonical Navier-Poisson equation</strong> with bulk viscosity $\mu_B$ (Stokes: $\mu_B=0$).</td>
-              </tr>
-              <tr>
-                <td><strong>3.32</strong></td>
-                <td>$\vec{F} = -\int_\Sigma p\vec{n}d\sigma + \int_\Sigma \bar{\bar{\tau}}'\cdot\vec{n}d\sigma$</td>
-                <td><strong>Net aerodynamic force on submerged body</strong> (pressure + skin friction).</td>
-              </tr>
-              <tr>
-                <td><strong>3.33</strong></td>
-                <td>$\vec{M}_{\vec{x}_0} = -\int_\Sigma (\vec{x}-\vec{x}_0)\wedge(p\vec{n})d\sigma + \int_\Sigma (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n})d\sigma$</td>
-                <td><strong>Net aerodynamic moment on submerged body</strong> about $\vec{x}_0$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.34</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f}\rho\vec{v}dV\right] = -\int_{\Sigma_f}p\vec{n}d\sigma + \int_{\Sigma_f}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m dV$</td>
-                <td>Newton's 2nd law for a closed material fluid volume $V_f(t)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.35</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_c}\rho\vec{v}dV\right] + \int_{\Sigma_c}\rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = -\int_{\Sigma_c}p\vec{n}d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_c}\rho\vec{f}_m dV$</td>
-                <td><strong>Integral Linear Momentum Conservation</strong> for moving control volume $V_c(t)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.36</strong></td>
-                <td>$\int_{V_0}\frac{\partial(\rho\vec{v})}{\partial t}dV + \int_{\Sigma_0}\rho\vec{v}(\vec{v}\cdot\vec{n})d\sigma = -\int_{\Sigma_0}p\vec{n}d\sigma + \int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_0}\rho\vec{f}_m dV$</td>
-                <td>Linear momentum conservation for fixed spatial control volume ($V_0$).</td>
-              </tr>
-              <tr>
-                <td><strong>3.37</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f}\rho(\vec{x}-\vec{x}_0)\wedge\vec{v}dV\right] = \sum \vec{M}_{\vec{x}_0, \text{ext}}$</td>
-                <td>Angular momentum conservation for material volume $V_f(t)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.38</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_c}\rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}]dV\right] + \int_{\Sigma_c}\rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = \sum \vec{M}_{\vec{x}_0, \text{ext}}$</td>
-                <td><strong>Integral Angular Momentum Conservation</strong> for moving volume $V_c(t)$ (Turbomachinery).</td>
-              </tr>
-              <tr>
-                <td><strong>3.39</strong></td>
-                <td>$d\dot{Q}_{\text{cond}} = q_n(\vec{n}, \vec{x}, t)d\sigma$</td>
-                <td>Heat conduction per unit area in direction of normal $\vec{n}$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.40</strong></td>
-                <td>$q_n dA = q_1 dA_1 + q_2 dA_2 + q_3 dA_3$</td>
-                <td>Thermal equilibrium in Cauchy's tetrahedron as $h \to 0$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.41</strong></td>
-                <td>$q_n = \vec{q}\cdot\vec{n}$</td>
-                <td>Heat flux density vector $\vec{q} = (q_1, q_2, q_3)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.42</strong></td>
-                <td>$\dot{Q}_{\text{cond}} = \int_\Sigma \vec{q}\cdot\vec{n}d\sigma$</td>
-                <td>Net conductive heat loss through finite surface $\Sigma$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.43</strong></td>
-                <td>$\int_\Sigma \vec{q}\cdot\vec{n}d\sigma = \int_V (\nabla\cdot\vec{q})dV$</td>
-                <td>Thermal Gauss theorem: $\nabla\cdot\vec{q}$ is heat loss per unit volume.</td>
-              </tr>
-              <tr>
-                <td><strong>3.44</strong></td>
-                <td>$\vec{q} = -k\nabla T$</td>
-                <td><strong>Fourier's Law of heat conduction</strong> ($k$: thermal conductivity).</td>
-              </tr>
-              <tr>
-                <td><strong>3.45</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_f}\rho(e+\frac{|\vec{v}|^2}{2})dV\right] = -\int_{\Sigma_f}p\vec{v}\cdot\vec{n}d\sigma + \int_{\Sigma_f}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m\cdot\vec{v}dV - \int_{\Sigma_f}\vec{q}\cdot\vec{n}d\sigma + \int_{V_f}(Q_c+Q_r)dV$</td>
-                <td><strong>First Law of Thermodynamics</strong> for closed material fluid volume $V_f(t)$.</td>
-              </tr>
-              <tr>
-                <td><strong>3.46</strong></td>
-                <td>$\frac{d}{dt}\left[\int_{V_c}\rho(e+\frac{|\vec{v}|^2}{2})dV\right] + \int_{\Sigma_c}\rho(e+\frac{|\vec{v}|^2}{2})[(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = -\int_{\Sigma_c}p\vec{v}\cdot\vec{n}d\sigma + \int_{\Sigma_c}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_c}\rho\vec{f}_m\cdot\vec{v}dV - \int_{\Sigma_c}\vec{q}\cdot\vec{n}d\sigma + \int_{V_c}(Q_c+Q_r)dV$</td>
-                <td><strong>Integral Total Energy Conservation</strong> for moving control volume $V_c(t)$.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-    </article>
-
-    <!-- Aerospace Motivational Quote Component -->
-    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Header -->
+    <section class="page-hero">
+      <div class="hero-badge">Integral Balances &amp; Reynolds Transport</div>
+      <h1>Topic 3: Conservation Laws (Integral Form)</h1>
+      <p class="subtitle">Practical Subchapters &amp; Problem-Solving Guide for 2nd Year Aerospace Engineering</p>
+      
+      <div class="view-switcher">
+        <a href="index.html" class="switch-btn active">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Theory Syllabus</span>
+        </a>
+        <a href="../problemas/index.html" class="switch-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><path d="M10.5 7L4 21m9.5-14L20 21"/><path d="M7 15h10"/></svg>
+          <span>Problems &amp; Exams</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Subchapters Grid -->
+    <section class="subchapters-section">
+      <div class="section-title-wrap">
+        <h2>Modular Practical Subchapters</h2>
+        <span class="section-hint">Select a subchapter for in-depth theory, step-by-step algorithms, and canonical exam walkthroughs</span>
+      </div>
+
+      <div class="subchapters-grid">
+        <!-- 3.1 RTT -->
+        <a href="topic-3-1-rtt.html" class="subchapter-card">
+          <div class="card-top">
+            <span class="subchapter-num">Subchapter 3.1</span>
+            <span class="card-pill">Kinematic Tool</span>
+          </div>
+          <h3 class="card-title">Reynolds Transport Theorem &amp; Control Volumes</h3>
+          <p class="card-desc">Control volume selection strategy (fixed, moving, deformable), the moving reference frame trick for unsteady waves, and boundary decomposition.</p>
+          <div class="formula-preview">
+            $$\frac{dB_{\text{sys}}}{dt} = \frac{d}{dt}\int_{V_c}\rho b \, dV + \int_{\Sigma_c}\rho b [(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma$$
+          </div>
+          <div class="card-footer">
+            <span>Canonical: The Hydraulic Bore / Moving Shock (CL2)</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 3.2 Mass -->
+        <a href="topic-3-2-mass.html" class="subchapter-card">
+          <div class="card-top">
+            <span class="subchapter-num">Subchapter 3.2</span>
+            <span class="card-pill">Continuity</span>
+          </div>
+          <h3 class="card-title">Conservation of Mass in Problem Solving</h3>
+          <p class="card-desc">Integral continuity balances, incompressible mass flow conservation, 1D streamtube approximations, and unsteady storage in draining tanks.</p>
+          <div class="formula-preview">
+            $$\frac{d}{dt}\int_{V_c}\rho \, dV + \int_{\Sigma_c}\rho(\vec{v}\cdot\vec{n}) \, d\sigma = 0$$
+          </div>
+          <div class="card-footer">
+            <span>Canonical: Airfoil Wake Deficit Mass Balance (CL1)</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 3.3 Momentum -->
+        <a href="topic-3-3-momentum.html" class="subchapter-card">
+          <div class="card-top">
+            <span class="subchapter-num">Subchapter 3.3</span>
+            <span class="card-pill">Reaction Forces</span>
+          </div>
+          <h3 class="card-title">Linear Momentum &amp; Reaction Forces</h3>
+          <p class="card-desc">Breakdown of the 5 momentum terms, the atmospheric gauge pressure trick, fluid vs solid force conventions, and the 5-stage exam algorithm.</p>
+          <div class="formula-preview">
+            $$\sum \vec{F}_{\text{ext}} = \frac{d}{dt}\int_{V_c}\rho\vec{v}\,dV + \int_{\Sigma_c}\rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}]\,d\sigma$$
+          </div>
+          <div class="card-footer">
+            <span>Canonical: Pipe Elbow (CL3), Rocket Thrust (CL5), Airfoil Drag (CL1)</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 3.4 Angular Momentum -->
+        <a href="topic-3-4-angular-momentum.html" class="subchapter-card">
+          <div class="card-top">
+            <span class="subchapter-num">Subchapter 3.4</span>
+            <span class="card-pill">Turbomachinery</span>
+          </div>
+          <h3 class="card-title">Angular Momentum &amp; Turbomachinery Torque</h3>
+          <p class="card-desc">Strategic pivot selection to eliminate unknown reactions, moment balance of 1D streamtubes, and Euler's turbomachinery equation for rotors.</p>
+          <div class="formula-preview">
+            $$\sum \vec{M}_{\vec{x}_0} = \sum \dot{m}_{\text{out}}(\vec{r}_{\text{out}}\times\vec{v}_{\text{out}}) - \sum \dot{m}_{\text{in}}(\vec{r}_{\text{in}}\times\vec{v}_{\text{in}})$$
+          </div>
+          <div class="card-footer">
+            <span>Canonical: Pipe Bend Torque (CL3/CL15) &amp; Euler Rotor</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 3.5 Energy -->
+        <a href="topic-3-5-energy.html" class="subchapter-card">
+          <div class="card-top">
+            <span class="subchapter-num">Subchapter 3.5</span>
+            <span class="card-pill">1st Law</span>
+          </div>
+          <h3 class="card-title">Total Energy Conservation &amp; Thermodynamics</h3>
+          <p class="card-desc">Enthalpy grouping $h=e+p/\rho$, stagnation enthalpy $h_0$, engineering energy balance with heat transfer, and mechanical shaft work.</p>
+          <div class="formula-preview">
+            $$\dot{Q} + \dot{W}_{\text{shaft}} = \sum \dot{m}_{\text{out}}h_{0,\text{out}} - \sum \dot{m}_{\text{in}}h_{0,\text{in}}$$
+          </div>
+          <div class="card-footer">
+            <span>Canonical: Mixing Stream Temperature (CL15) &amp; Fan Power (CL10)</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 3.6 Stresses -->
+        <a href="topic-3-6-stresses.html" class="subchapter-card">
+          <div class="card-top">
+            <span class="subchapter-num">Subchapter 3.6</span>
+            <span class="card-pill">Navier-Poisson</span>
+          </div>
+          <h3 class="card-title">Stress Tensor, Navier-Poisson &amp; Skin Friction</h3>
+          <p class="card-desc">Cauchy stress decomposition into hydrostatic pressure and viscous deviator $\bar{\bar{\tau}}'$, wall shear stress $\tau_w$, and skin friction drag integration.</p>
+          <div class="formula-preview">
+            $$\bar{\bar{\tau}} = -p\bar{\bar{I}} + 2\mu\bar{\bar{T}}_d + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\bar{\bar{I}}$$
+          </div>
+          <div class="card-footer">
+            <span>Canonical: Wall Friction Drag &amp; Rotating Viscometer Torque</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Formula Cheat Sheet Table (Eqs 3.1 to 3.46) -->
+    <section class="cheat-sheet-section">
+      <div class="section-title-wrap">
+        <h2>Master Formula Cheat Sheet (Eqs. 3.1 to 3.46)</h2>
+        <span class="section-hint">Complete reference handbook from official UC3M lecture notes</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 70px;">Eq. #</th>
+              <th>Mathematical Formulation</th>
+              <th>Physical Meaning &amp; Nomenclature</th>
+              <th>Hypothesis / Scope</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="eq-num">3.1</td>
+              <td class="eq-math">$$\Phi(t) = \int_{V_f(t)} \phi(\vec{x},t) \, dV$$</td>
+              <td>Definition of extensive property from volumetric density $\phi = \rho, \rho\vec{v}, \rho(e+v^2/2)$.</td>
+              <td class="eq-scope">Closed material system $V_f(t)$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.2</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f(t)} \phi dV\right] = \lim_{\Delta t\to 0}\frac{1}{\Delta t}\left[\int_{V_f(t+\Delta t)}\phi(t+\Delta t)dV - \int_{V_f(t)}\phi(t)dV\right]$$</td>
+              <td>Formal limit definition of ordinary material derivative of volume integral.</td>
+              <td class="eq-scope">General continuum mechanics.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.3</td>
+              <td class="eq-math">$$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\left[\int_{V_f(t)}[\phi(t+\Delta t)-\phi(t)]dV + \int_{V_f(t+\Delta t)-V_f(t)}\phi(t+\Delta t)dV\right]$$</td>
+              <td>Decomposition into internal unsteadiness storage and boundary swept volume.</td>
+              <td class="eq-scope">Domain splitting.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.4</td>
+              <td class="eq-math">$$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\int_{V_f(t)}[\phi(t+\Delta t)-\phi(t)]dV = \int_{V_f(t)}\frac{\partial\phi}{\partial t}dV$$</td>
+              <td>Internal limit contribution: local unsteadiness within instantaneous volume.</td>
+              <td class="eq-scope">1st-order Taylor expansion.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.5</td>
+              <td class="eq-math">$$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\int_{V_f(t+\Delta t)-V_f(t)}\phi(t+\Delta t)dV = \int_{\Sigma_f(t)}\phi \vec{v}\cdot\vec{n} \, d\sigma$$</td>
+              <td>Swept volume limit: net convective flux escaping through moving boundary $\Sigma_f(t)$.</td>
+              <td class="eq-scope">Differential geometry: $dV = (\vec{v}\Delta t)\cdot\vec{n}d\sigma$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.6</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f(t)} \phi \, dV\right] = \int_{V_f(t)} \frac{\partial \phi}{\partial t} \, dV + \int_{\Sigma_f(t)} \phi \, \vec{v}\cdot\vec{n} \, d\sigma$$</td>
+              <td><strong>Reynolds Transport Theorem (RTT)</strong> for a closed material fluid volume $V_f(t)$.</td>
+              <td class="eq-scope">Material boundary moving at fluid velocity $\vec{v}$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.7</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_c(t)} \phi \, dV\right] = \int_{V_c(t)} \frac{\partial \phi}{\partial t} \, dV + \int_{\Sigma_c(t)} \phi \, \vec{v}_c\cdot\vec{n} \, d\sigma$$</td>
+              <td>RTT applied to an arbitrary moving geometric control volume $V_c(t)$ with surface speed $\vec{v}_c$.</td>
+              <td class="eq-scope">Arbitrary geometric volume.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.8</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f(t)} \phi \, dV\right] = \frac{d}{dt}\left[\int_{V_c(t)} \phi \, dV\right] + \int_{\Sigma_c(t)} \phi \, (\vec{v} - \vec{v}_c)\cdot\vec{n} \, d\sigma$$</td>
+              <td><strong>Universal Reynolds Relation:</strong> connects material derivative to moving control volume.</td>
+              <td class="eq-scope">Relative convective velocity $(\vec{v}-\vec{v}_c)$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.9</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f(t)} \rho \, dV\right] = 0$$</td>
+              <td>Principle of mass conservation for a closed material fluid volume.</td>
+              <td class="eq-scope">Classical non-relativistic mechanics.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.10</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_c(t)} \rho \, dV\right] + \int_{\Sigma_c(t)} \rho (\vec{v} - \vec{v}_c)\cdot\vec{n} \, d\sigma = 0$$</td>
+              <td><strong>Integral Continuity Equation</strong> for an arbitrary moving control volume $V_c(t)$.</td>
+              <td class="eq-scope">Moving control volume.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.11</td>
+              <td class="eq-math">$$\int_{V_0} \frac{\partial \rho}{\partial t} \, dV + \int_{\Sigma_0} \rho \vec{v}\cdot\vec{n} \, d\sigma = 0$$</td>
+              <td>Mass conservation for a fixed spatial control volume ($V_0, \vec{v}_c = 0$).</td>
+              <td class="eq-scope">Rigid, stationary control volume.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.12</td>
+              <td class="eq-math">$$d\vec{F}_m = \rho \vec{f}_m(\vec{x},t) \, dV$$</td>
+              <td>Elemental volumetric (body / mass) force acting on fluid particle.</td>
+              <td class="eq-scope">Long-range external forces.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.13</td>
+              <td class="eq-math">$$\vec{f}_m = \vec{g} - \vec{a}_0 - \frac{d\vec{\Omega}}{dt}\wedge\vec{x} - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) - 2\vec{\Omega}\wedge\vec{v}$$</td>
+              <td>Body force in non-inertial frame: gravity + translation + angular + centrifugal + Coriolis.</td>
+              <td class="eq-scope">Accelerating / rotating frame.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.14</td>
+              <td class="eq-math">$$\vec{g} - \vec{a}_0 - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) = -\nabla U$$</td>
+              <td>Conservative potential $U = -\vec{g}\cdot\vec{x} + \vec{a}_0\cdot\vec{x} - \frac{1}{2}\|\vec{\Omega}\wedge\vec{x}\|^2$.</td>
+              <td class="eq-scope">Steady rotation and linear translation.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.15</td>
+              <td class="eq-math">$$d\vec{F}_s = \vec{f}_n(\vec{n}, \vec{x}, t) \, d\sigma$$</td>
+              <td>Surface contact force (stress vector $\vec{f}_n$) across surface element with normal $\vec{n}$.</td>
+              <td class="eq-scope">Intermolecular contact force.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.16</td>
+              <td class="eq-math">$$dA \vec{f}_n - dA_1 \vec{f}_1 - dA_2 \vec{f}_2 - dA_3 \vec{f}_3 = 0$$</td>
+              <td>Force equilibrium on Cauchy's differential tetrahedron as size $h \to 0$.</td>
+              <td class="eq-scope">Surface forces $\sim h^2 \gg$ mass forces $\sim h^3$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.17</td>
+              <td class="eq-math">$$\vec{f}_n = \bar{\bar{\tau}}\cdot\vec{n}$$</td>
+              <td><strong>Cauchy's Stress Principle:</strong> linear mapping from normal $\vec{n}$ to stress vector $\vec{f}_n$.</td>
+              <td class="eq-scope">Classical continuum media.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.18</td>
+              <td class="eq-math">$$\bar{\bar{\tau}} = [\tau_{ij}]$$</td>
+              <td>Components of Cauchy stress tensor in Cartesian coordinate system.</td>
+              <td class="eq-scope">3x3 tensor matrix.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.19</td>
+              <td class="eq-math">$$\tau_{ij} = \tau_{ji}$$</td>
+              <td><strong>Symmetry of Cauchy stress tensor:</strong> proved via angular momentum balance on cube.</td>
+              <td class="eq-scope">No body couples / micropolar effects.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.20</td>
+              <td class="eq-math">$$\bar{\bar{\tau}}\cdot\vec{n} = \lambda \vec{n}$$</td>
+              <td>Eigenvalue equation for principal stress directions and magnitudes (zero shear stress).</td>
+              <td class="eq-scope">Principal axes of stress.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.21</td>
+              <td class="eq-math">$$|\bar{\bar{\tau}} - \lambda \bar{\bar{I}}| = 0$$</td>
+              <td>Secular characteristic equation: yields 3 real eigenvalues and orthogonal eigenvectors.</td>
+              <td class="eq-scope">Guaranteed by symmetry of $\bar{\bar{\tau}}$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.22</td>
+              <td class="eq-math">$$\vec{F}_s = \int_\Sigma \bar{\bar{\tau}}\cdot\vec{n} \, d\sigma$$</td>
+              <td>Resultant surface force acting on a finite surface $\Sigma$.</td>
+              <td class="eq-scope">Any fluid surface.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.23</td>
+              <td class="eq-math">$$\int_\Sigma \bar{\bar{\tau}}\cdot\vec{n} \, d\sigma = \int_V (\nabla\cdot\bar{\bar{\tau}}) \, dV$$</td>
+              <td>Divergence theorem: $\nabla\cdot\bar{\bar{\tau}}$ represents net surface force per unit volume.</td>
+              <td class="eq-scope">Closed boundary enclosing volume $V$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.24</td>
+              <td class="eq-math">$$\rho dV \frac{D\vec{v}}{Dt} = (\nabla\cdot\bar{\bar{\tau}})dV + \rho\vec{f}_m dV$$</td>
+              <td>Newton's second law applied to an infinitesimal fluid particle.</td>
+              <td class="eq-scope">Fluid parcel element.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.25</td>
+              <td class="eq-math">$$\rho \frac{D\vec{v}}{Dt} = \nabla\cdot\bar{\bar{\tau}} + \rho\vec{f}_m$$</td>
+              <td><strong>Cauchy's Differential Equation of Motion</strong> for any continuum medium.</td>
+              <td class="eq-scope">Universal continuum balance.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.26</td>
+              <td class="eq-math">$$\vec{f}_n = -p\vec{n}$$</td>
+              <td>Purely normal hydrostatic stress in fluid at rest or in rigid body motion.</td>
+              <td class="eq-scope">Zero velocity gradients ($\bar{\bar{T}}_d = 0$).</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.27</td>
+              <td class="eq-math">$$\bar{\bar{\tau}} = -p\bar{\bar{I}}$$</td>
+              <td>Isotropic spherical hydrostatic stress tensor.</td>
+              <td class="eq-scope">Static fluid state.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.28</td>
+              <td class="eq-math">$$\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'$$</td>
+              <td>Stress decomposition into thermodynamic pressure $p$ and viscous deviatoric stress $\bar{\bar{\tau}}'$.</td>
+              <td class="eq-scope">Moving fluid.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.29</td>
+              <td class="eq-math">$$\tau'_{ij} = \alpha_{ijkl} \gamma_{kl}$$</td>
+              <td>Newtonian fluid hypothesis: linear constitutive relationship with strain rate tensor.</td>
+              <td class="eq-scope">Newtonian fluid assumption.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.30</td>
+              <td class="eq-math">$$\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + \lambda(\nabla\cdot\vec{v})\bar{\bar{I}}$$</td>
+              <td>Navier-Poisson equation with dynamic shear viscosity $\mu$ and second viscosity $\lambda$.</td>
+              <td class="eq-scope">Isotropic Newtonian fluid.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.31</td>
+              <td class="eq-math">$$\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\bar{\bar{I}}$$</td>
+              <td><strong>Canonical Navier-Poisson Equation:</strong> formulated with bulk viscosity $\mu_B = \lambda + \frac{2}{3}\mu$.</td>
+              <td class="eq-scope">Stokes hypothesis: $\mu_B \approx 0 \implies \lambda = -\frac{2}{3}\mu$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.32</td>
+              <td class="eq-math">$$\vec{F} = -\int_\Sigma p\vec{n}d\sigma + \int_\Sigma \bar{\bar{\tau}}'\cdot\vec{n}d\sigma$$</td>
+              <td><strong>Aerodynamic Force on Submerged Body:</strong> pressure lift/form drag + viscous skin friction.</td>
+              <td class="eq-scope">Wetted body surface ($\vec{n}$ outwards into fluid).</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.33</td>
+              <td class="eq-math">$$\vec{M}_{\vec{x}_0} = -\int_\Sigma (\vec{x}-\vec{x}_0)\wedge(p\vec{n})d\sigma + \int_\Sigma (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n})d\sigma$$</td>
+              <td><strong>Aerodynamic Moment on Submerged Body</strong> about reduction point $\vec{x}_0$.</td>
+              <td class="eq-scope">Pitching / yawing moments.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.34</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f}\rho\vec{v}dV\right] = -\int_{\Sigma_f}p\vec{n}d\sigma + \int_{\Sigma_f}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m dV$$</td>
+              <td>Newton's 2nd law for a closed material fluid volume $V_f(t)$.</td>
+              <td class="eq-scope">Closed fluid system.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.35</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_c}\rho\vec{v}dV\right] + \int_{\Sigma_c}\rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = -\int_{\Sigma_c}p\vec{n}d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_c}\rho\vec{f}_m dV$$</td>
+              <td><strong>Integral Linear Momentum Conservation</strong> for arbitrary moving control volume $V_c(t)$.</td>
+              <td class="eq-scope">Fundamental equation for thrust &amp; forces.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.36</td>
+              <td class="eq-math">$$\int_{V_0}\frac{\partial(\rho\vec{v})}{\partial t}dV + \int_{\Sigma_0}\rho\vec{v}(\vec{v}\cdot\vec{n})d\sigma = -\int_{\Sigma_0}p\vec{n}d\sigma + \int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_0}\rho\vec{f}_m dV$$</td>
+              <td>Linear momentum conservation for fixed spatial control volume ($V_0, \vec{v}_c = 0$).</td>
+              <td class="eq-scope">Pipes, nozzles, wind tunnels.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.37</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f}\rho(\vec{x}-\vec{x}_0)\wedge\vec{v}dV\right] = \sum \vec{M}_{\vec{x}_0, \text{ext}}$$</td>
+              <td>Angular momentum conservation for material volume $V_f(t)$.</td>
+              <td class="eq-scope">Closed material mass.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.38</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_c}\rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}]dV\right] + \int_{\Sigma_c}\rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = \sum \vec{M}_{\vec{x}_0, \text{ext}}$$</td>
+              <td><strong>Integral Angular Momentum Conservation</strong> for moving control volume $V_c(t)$.</td>
+              <td class="eq-scope">Turbomachinery rotors, fans, elbows.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.39</td>
+              <td class="eq-math">$$d\dot{Q}_{\text{cond}} = q_n(\vec{n}, \vec{x}, t)d\sigma$$</td>
+              <td>Heat conduction rate per unit area across surface element in direction $\vec{n}$.</td>
+              <td class="eq-scope">Molecular thermal transfer.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.40</td>
+              <td class="eq-math">$$q_n dA = q_1 dA_1 + q_2 dA_2 + q_3 dA_3$$</td>
+              <td>Thermal equilibrium in Cauchy's tetrahedron as size $h \to 0$.</td>
+              <td class="eq-scope">Local heat flux equilibrium.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.41</td>
+              <td class="eq-math">$$q_n = \vec{q}\cdot\vec{n}$$</td>
+              <td>Thermal Cauchy relation: scalar heat flux is projection of heat flux vector $\vec{q}$.</td>
+              <td class="eq-scope">Continuous thermal medium.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.42</td>
+              <td class="eq-math">$$\dot{Q}_{\text{cond}} = \int_\Sigma \vec{q}\cdot\vec{n}d\sigma$$</td>
+              <td>Total heat conducted through a finite surface $\Sigma$.</td>
+              <td class="eq-scope">Thermal boundaries.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.43</td>
+              <td class="eq-math">$$\int_\Sigma \vec{q}\cdot\vec{n}d\sigma = \int_V (\nabla\cdot\vec{q})dV$$</td>
+              <td>Thermal Gauss theorem: $\nabla\cdot\vec{q}$ is net heat loss rate per unit volume.</td>
+              <td class="eq-scope">Closed boundary.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.44</td>
+              <td class="eq-math">$$\vec{q} = -k\nabla T$$</td>
+              <td><strong>Fourier's Law of Heat Conduction:</strong> heat flows against the thermal gradient.</td>
+              <td class="eq-scope">Isotropic thermal conductivity $k$.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.45</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f}\rho(e+\frac{|\vec{v}|^2}{2})dV\right] = -\int_{\Sigma_f}p\vec{v}\cdot\vec{n}d\sigma + \int_{\Sigma_f}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m\cdot\vec{v}dV - \int_{\Sigma_f}\vec{q}\cdot\vec{n}d\sigma + \int_{V_f}(Q_c+Q_r)dV$$</td>
+              <td><strong>First Law of Thermodynamics</strong> for closed material fluid volume $V_f(t)$.</td>
+              <td class="eq-scope">Conservation of total energy.</td>
+            </tr>
+            <tr>
+              <td class="eq-num">3.46</td>
+              <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_c}\rho(e+\frac{|\vec{v}|^2}{2})dV\right] + \int_{\Sigma_c}\rho(e+\frac{|\vec{v}|^2}{2})[(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = -\int_{\Sigma_c}p\vec{v}\cdot\vec{n}d\sigma + \int_{\Sigma_c}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_c}\rho\vec{f}_m\cdot\vec{v}dV - \int_{\Sigma_c}\vec{q}\cdot\vec{n}d\sigma + \int_{V_c}(Q_c+Q_r)dV$$</td>
+              <td><strong>Integral Total Energy Conservation</strong> for arbitrary moving control volume $V_c(t)$.</td>
+              <td class="eq-scope">Master energy balance with work &amp; heat.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Motivational Aerospace Quote -->
+    <section style="max-width: 900px; margin: 48px auto 24px;">
       <div id="quoteContainer"></div>
     </section>
   </main>
 
-  <!-- Theme Toggle & Storage Persistence -->
+  <!-- Theme Script & Storage Sync -->
   <script>
     const themeToggle = document.getElementById('themeToggle');
     const root = document.documentElement;
@@ -1232,13 +958,15 @@
       localStorage.setItem('ae_theme', t);
     }
 
-    const savedTheme = localStorage.getItem('theme') || localStorage.getItem('ae_theme') || 'dark';
+    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
     applyTheme(savedTheme);
 
-    themeToggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-    });
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
   </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
@@ -1252,5 +980,3 @@
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>
 </html>
-
-

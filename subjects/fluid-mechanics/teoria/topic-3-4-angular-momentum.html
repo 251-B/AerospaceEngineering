@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subchapter 3.4: Angular Momentum &amp; Turbomachinery Torque — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+</head>
+<body>
+  <!-- Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 3 · Subchapter 3.4</span>
+      </div>
+      <div class="nav-actions">
+        <a href="topic-3.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="index.html" class="back-link">Theory Index</a>
+        <a href="../problemas/index.html" class="back-link">Problems</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Subchapter Navigation Bar -->
+  <nav class="subchapter-nav-bar">
+    <div class="container">
+      <div class="pills-wrapper">
+        <a href="topic-3-1-rtt.html" class="pill-link">3.1 RTT &amp; CV Strategy</a>
+        <a href="topic-3-2-mass.html" class="pill-link">3.2 Mass Continuity</a>
+        <a href="topic-3-3-momentum.html" class="pill-link">3.3 Linear Momentum</a>
+        <a href="topic-3-4-angular-momentum.html" class="pill-link active">3.4 Angular Momentum</a>
+        <a href="topic-3-5-energy.html" class="pill-link">3.5 Total Energy</a>
+        <a href="topic-3-6-stresses.html" class="pill-link">3.6 Stress Tensor &amp; Friction</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <!-- Header -->
+      <header class="article-header">
+        <div class="article-category">Subchapter 3.4 · Rotational Dynamics &amp; Turbomachinery</div>
+        <h1 class="article-title">Conservation of Angular Momentum &amp; Turbomachinery Torque</h1>
+        <p class="article-meta">Moment balance about strategic reduction centers $\vec{x}_0$, elimination of unknown reactions, and Euler's fundamental turbomachinery equation.</p>
+      </header>
+
+      <!-- Section 1: The Master Angular Momentum Equation -->
+      <section>
+        <h2 class="section-heading">1. The Master Angular Momentum Equation</h2>
+        <p>In continuum mechanics, the moment of momentum (angular momentum) of a closed material fluid system $V_f(t)$ about an arbitrary fixed point in space $\vec{x}_0$ changes at a rate equal to the resultant external moment acting on the fluid:</p>
+
+        <div class="math-block">
+          $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho [(\vec{x}-\vec{x}_0)\times\vec{v}] \, dV\right] = \sum \vec{M}_{\vec{x}_0, \text{ext}} $$
+          <div class="math-caption">[Eq. 3.37] Angular momentum principle for a material fluid volume.</div>
+        </div>
+
+        <p>Substituting intensive angular momentum $\vec{b} = (\vec{x} - \vec{x}_0)\times\vec{v}$ into the universal Reynolds Transport Theorem yields the <strong>Master Integral Angular Momentum Equation</strong> for any moving control volume $V_c(t)$:</p>
+
+        <div class="math-block">
+          $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho [(\vec{x}-\vec{x}_0)\times\vec{v}] \, dV\right] + \int_{\Sigma_c(t)} \rho [(\vec{x}-\vec{x}_0)\times\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma = \sum \vec{M}_{\vec{x}_0, \text{ext}}} $$
+          <div class="math-caption">[Eq. 3.38] Universal Integral Angular Momentum Conservation Equation.</div>
+        </div>
+
+        <p>The external moments $\sum \vec{M}_{\vec{x}_0, \text{ext}}$ consist of pressure forces, viscous shear forces, body forces (e.g., gravity), and mechanical holding torques applied by shaft couplings or mounting flanges:</p>
+
+        <div class="math-block">
+          $$ \sum \vec{M}_{\vec{x}_0, \text{ext}} = -\int_{\Sigma_c} (\vec{x}-\vec{x}_0)\times(p\vec{n}) \, d\sigma + \int_{\Sigma_c} (\vec{x}-\vec{x}_0)\times(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma + \int_{V_c} \rho (\vec{x}-\vec{x}_0)\times\vec{f}_m \, dV + \vec{\mathcal{M}}_{\text{shaft}} $$
+        </div>
+      </section>
+
+      <!-- Section 2: Strategic Pivot Selection -->
+      <section>
+        <h2 class="section-heading">2. Strategic Pivot Selection Strategy</h2>
+        <p>In many exam problems (such as pipe elbows, nozzle mounts, and rotating sprinklers), several complex linear reaction forces $\vec{R}$ act at physical supports, bearings, or hinges. Solving for these linear reaction forces simultaneously with moments can be tedious and prone to algebraic errors.</p>
+
+        <div class="callout-box">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            The Strategic Pivot Rule
+          </div>
+          <p>Always place the reference reduction point $\vec{x}_0$ <strong>directly at the support hinge, bearing axis, or bolt circle</strong> where unknown linear reaction forces act!</p>
+          <p style="margin-bottom:0;">Because the position vector from $\vec{x}_0$ to the reaction point is zero ($\vec{r} = \vec{x} - \vec{x}_0 = \vec{0}$), the moment arm is zero: $\vec{r}\times\vec{R} = \vec{0}$. The unknown linear reaction forces <strong>completely vanish from the moment balance</strong>, allowing direct solution for holding torque or shaft power in a single line!</p>
+        </div>
+
+        <h3 class="sub-heading">1D Streams Approximation</h3>
+        <p>For discrete 1D inlets and outlets with mass flow rates $\dot{m}_i$, position vectors $\vec{r}_i = \vec{x}_i - \vec{x}_0$, and mean velocities $\vec{v}_i$, steady angular momentum reduces to:</p>
+        <div class="math-block">
+          $$ \sum_j \dot{m}_{\text{out}, j} (\vec{r}_{\text{out}, j} \times \vec{v}_{\text{out}, j}) - \sum_k \dot{m}_{\text{in}, k} (\vec{r}_{\text{in}, k} \times \vec{v}_{\text{in}, k}) = \sum \vec{M}_{\vec{x}_0, \text{ext}} $$
+        </div>
+      </section>
+
+      <!-- Section 3: Canonical Walkthroughs -->
+      <section>
+        <!-- Walkthrough 1: Pipe Bend Torque -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 1 · CL3 &amp; CL15 Setup</span>
+          <h2 class="walkthrough-title">Holding Torque on an Offset Pipe Bend / Mixing Elbow</h2>
+          <p><strong>Physical Setup:</strong> Consider a horizontal planar pipe bend in the $xy$-plane. Water enters at inlet 1 located at $\vec{r}_1 = (0, -L_1, 0)$ flowing in $+y$ direction with speed $v_1$, area $A_1$, and gauge pressure $p_{g1}$. It is deflected through $90^\circ$ and exits at $\vec{r}_2 = (L_2, 0, 0)$ discharging in $+x$ direction with speed $v_2$, area $A_2$, at atmospheric pressure ($p_{g2} = 0$). Mass flow rate is $\dot{m} = \rho A_1 v_1$.</p>
+          <p>The pipe is anchored to a central mounting hub at the origin $\vec{x}_0 = (0,0,0)$. Determine the holding torque $\vec{\mathcal{M}}_0 = \mathcal{M}_z \hat{k}$ that the support must exert to prevent the elbow from spinning.</p>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">1</span><span class="step-title">Angular Momentum Fluxes</span></div>
+            <p>Compute the convective angular momentum cross-products about $\vec{x}_0 = \vec{0}$:</p>
+            <ul>
+              <li><strong>Inlet flux:</strong> Position $\vec{r}_1 = -L_1 \hat{j}$, velocity $\vec{v}_1 = v_1 \hat{j}$.
+                $$\vec{r}_1 \times \vec{v}_1 = (-L_1 \hat{j}) \times (v_1 \hat{j}) = \vec{0} \qquad (\text{parallel vectors!})$$
+              </li>
+              <li><strong>Outlet flux:</strong> Position $\vec{r}_2 = L_2 \hat{i}$, velocity $\vec{v}_2 = v_2 \hat{i}$.
+                $$\vec{r}_2 \times \vec{v}_2 = (L_2 \hat{i}) \times (v_2 \hat{i}) = \vec{0} \qquad (\text{parallel vectors!})$$
+              </li>
+            </ul>
+            <p>Thus, in this symmetric offset orientation, the convective angular momentum flux is zero! What creates the torque?</p>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">2</span><span class="step-title">Moments of External Pressure Forces</span></div>
+            <p>Evaluate moments of surface gauge pressure forces:</p>
+            <ul>
+              <li><strong>Inlet pressure force:</strong> Pushes inward ($+y$): $\vec{F}_{p1} = p_{g1} A_1 \hat{j}$.
+                $$\vec{r}_1 \times \vec{F}_{p1} = (-L_1 \hat{j}) \times (p_{g1} A_1 \hat{j}) = \vec{0}$$
+              </li>
+              <li><strong>Outlet pressure force:</strong> Zero because $p_{g2} = 0$ (atmospheric).</li>
+            </ul>
+            <p><strong>General Offset Case:</strong> Now suppose the exit is offset by a moment arm $d$ from the $x$-axis, so $\vec{r}_2 = L_2 \hat{i} + d \hat{j}$.</p>
+            <p>Then $\vec{r}_2 \times \vec{v}_2 = (L_2 \hat{i} + d \hat{j}) \times (v_2 \hat{i}) = -d v_2 \hat{k}$.</p>
+            <p>The angular momentum balance yields:</p>
+            <div class="math-block">
+              $$ \dot{m} (-d v_2 \hat{k}) = \vec{\mathcal{M}}_{\text{anchor}} \implies \mathbf{\vec{\mathcal{M}}_{\text{anchor}} = -\dot{m} d v_2 \hat{k}} $$
+            </div>
+            <p>The anchor must apply a clockwise holding torque of magnitude $\dot{m} d v_2$ to resist the jet's reaction moment!</p>
+          </div>
+        </div>
+
+        <!-- Walkthrough 2: Euler's Turbomachinery Equation -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 2 · Turbomachinery Principle</span>
+          <h2 class="walkthrough-title">Euler's Turbomachinery Equation (Rotor Shaft Power)</h2>
+          <p><strong>Problem:</strong> A centrifugal compressor or pump rotor rotates at steady angular velocity $\vec{\Omega} = \Omega \hat{e}_z$. Fluid of density $\rho$ enters at inner radius $r_1$ with mass flow rate $\dot{m}$ and tangential velocity component $v_{\theta 1}$, and exits at outer radius $r_2$ with tangential velocity component $v_{\theta 2}$. Determine the torque $M_z$ and shaft power $\dot{W}_{\text{shaft}}$ transmitted from the impeller to the fluid.</p>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">Derivation</span><span class="step-title">Angular Momentum Balance about Axis of Rotation</span></div>
+            <p>Select a fixed cylindrical control volume enclosing the rotating impeller. In cylindrical coordinates $(r, \theta, z)$, position vectors from the axis are $\vec{r}_1 = r_1 \hat{e}_r$ and $\vec{r}_2 = r_2 \hat{e}_r$.</p>
+            <p>The cross product of radius with velocity $\vec{v} = v_r \hat{e}_r + v_\theta \hat{e}_\theta + v_z \hat{e}_z$ isolates the tangential velocity component:</p>
+            <div class="math-block">
+              $$ \vec{r} \times \vec{v} = (r \hat{e}_r) \times (v_r \hat{e}_r + v_\theta \hat{e}_\theta + v_z \hat{e}_z) = r v_\theta \hat{e}_z - r v_z \hat{e}_\theta $$
+            </div>
+            <p>Projecting onto the axis of rotation $z$, the angular momentum per unit mass is simply $r v_\theta$.</p>
+            <p>For steady flow, the net torque $M_z$ exerted by the rotor blades on the fluid equals the net outflow of angular momentum:</p>
+            <div class="math-block">
+              $$ \mathbf{M_z = \dot{m} (r_2 v_{\theta 2} - r_1 v_{\theta 1})} $$
+            </div>
+            <p>Multiplying torque by rotor angular speed $\Omega$ gives the shaft mechanical power $\dot{W}_{\text{shaft}}$ delivered to the fluid:</p>
+            <div class="math-block">
+              $$ \dot{W}_{\text{shaft}} = \Omega M_z = \dot{m} (\Omega r_2 v_{\theta 2} - \Omega r_1 v_{\theta 1}) $$
+            </div>
+            <p>Defining blade peripheral speeds $u_1 = \Omega r_1$ and $u_2 = \Omega r_2$, we obtain the celebrated <strong>Euler Turbomachinery Equation</strong>:</p>
+            <div class="math-block">
+              $$ \mathbf{w_{\text{Euler}} = \frac{\dot{W}_{\text{shaft}}}{\dot{m}} = u_2 v_{\theta 2} - u_1 v_{\theta 1}} $$
+            </div>
+          </div>
+
+          <div class="callout-box" style="margin-bottom:0;">
+            <div class="callout-title">Pumps vs Turbines Sign Interpretation</div>
+            <ul>
+              <li><strong>Pumps, Fans, and Compressors ($w_{\text{Euler}} > 0$):</strong> The impeller increases the fluid's whirl ($u_2 v_{\theta 2} > u_1 v_{\theta 1}$). Mechanical shaft work is consumed to raise fluid pressure and stagnation enthalpy.</li>
+              <li><strong>Turbines ($w_{\text{Euler}} < 0$):</strong> The fluid enters with high swirl created by stationary guide vanes/nozzles and leaves with reduced tangential velocity ($u_2 v_{\theta 2} < u_1 v_{\theta 1}$). Fluid delivers mechanical shaft work to drive aircraft generators or compressor spools!</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <a href="topic-3-3-momentum.html" class="bottom-nav-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>3.3 Linear Momentum</span>
+        </a>
+        <a href="topic-3.html" class="bottom-nav-btn center">
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="topic-3-5-energy.html" class="bottom-nav-btn">
+          <span>Next: 3.5 Total Energy</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Theme Script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      localStorage.setItem('ae_theme', t);
+    }
+
+    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>

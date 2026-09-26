@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subchapter 3.5: Total Energy Conservation &amp; Thermodynamics — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+</head>
+<body>
+  <!-- Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 3 · Subchapter 3.5</span>
+      </div>
+      <div class="nav-actions">
+        <a href="topic-3.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="index.html" class="back-link">Theory Index</a>
+        <a href="../problemas/index.html" class="back-link">Problems</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Subchapter Navigation Bar -->
+  <nav class="subchapter-nav-bar">
+    <div class="container">
+      <div class="pills-wrapper">
+        <a href="topic-3-1-rtt.html" class="pill-link">3.1 RTT &amp; CV Strategy</a>
+        <a href="topic-3-2-mass.html" class="pill-link">3.2 Mass Continuity</a>
+        <a href="topic-3-3-momentum.html" class="pill-link">3.3 Linear Momentum</a>
+        <a href="topic-3-4-angular-momentum.html" class="pill-link">3.4 Angular Momentum</a>
+        <a href="topic-3-5-energy.html" class="pill-link active">3.5 Total Energy</a>
+        <a href="topic-3-6-stresses.html" class="pill-link">3.6 Stress Tensor &amp; Friction</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <!-- Header -->
+      <header class="article-header">
+        <div class="article-category">Subchapter 3.5 · Thermodynamics &amp; Energy Balances</div>
+        <h1 class="article-title">Total Energy Conservation &amp; Thermodynamic Applications</h1>
+        <p class="article-meta">First Law of Thermodynamics for moving control volumes, enthalpy grouping, stagnation enthalpy $h_0$, and engineering shaft work.</p>
+      </header>
+
+      <!-- Section 1: The Master Total Energy Equation -->
+      <section>
+        <h2 class="section-heading">1. The Master Total Energy Conservation Equation</h2>
+        <p>The First Law of Thermodynamics for a closed material fluid system $V_f(t)$ states that the rate of increase of total energy (internal energy $e$ plus macroscopic kinetic energy $v^2/2$) equals the net mechanical power done on the fluid plus the net rate of heat transferred into the fluid:</p>
+
+        <div class="math-block">
+          $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\left(e + \frac{|\vec{v}|^2}{2}\right) dV\right] = \dot{W}_{\text{ext}} + \dot{Q} $$
+          <div class="math-caption">[Eq. 3.45] First Law of Thermodynamics for a closed material fluid system.</div>
+        </div>
+
+        <p>Substituting intensive total energy $b = e + \frac{|\vec{v}|^2}{2}$ into the universal Reynolds Transport Theorem yields the <strong>Master Integral Total Energy Equation</strong> for any moving control volume $V_c(t)$:</p>
+
+        <div class="math-block">
+          $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\left(e+\frac{|\vec{v}|^2}{2}\right)dV\right] + \int_{\Sigma_c(t)}\rho\left(e+\frac{|\vec{v}|^2}{2}\right)[(\vec{v}-\vec{v}_c)\cdot\vec{n}]\,d\sigma = \dot{W}_{\text{ext}} + \dot{Q}} $$
+          <div class="math-caption">[Eq. 3.46] Master Integral Total Energy Conservation Equation.</div>
+        </div>
+
+        <p>Here, the external power $\dot{W}_{\text{ext}}$ done on the fluid by boundary forces and body forces breaks down into:</p>
+        <div class="math-block">
+          $$ \dot{W}_{\text{ext}} = -\int_{\Sigma_c} p(\vec{v}\cdot\vec{n})\,d\sigma + \int_{\Sigma_c} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma + \int_{V_c} \rho\vec{f}_m\cdot\vec{v}\,dV + \dot{W}_{\text{shaft}} $$
+        </div>
+        <p>and total thermal heat transfer $\dot{Q}$ combines boundary conduction (Fourier's law $\vec{q} = -k\nabla T$) and internal sources (chemical combustion $Q_c$ and radiative absorption $Q_r$):</p>
+        <div class="math-block">
+          $$ \dot{Q} = -\int_{\Sigma_c} \vec{q}\cdot\vec{n}\,d\sigma + \int_{V_c} (Q_c + Q_r)\,dV $$
+        </div>
+      </section>
+
+      <!-- Section 2: Enthalpy and Stagnation Enthalpy -->
+      <section>
+        <h2 class="section-heading">2. Flow Work, Enthalpy, and Stagnation Enthalpy ($h_0$)</h2>
+        <p>A crucial step in fluid thermodynamics is recognizing that the normal pressure work term $-\int_{\Sigma_c} p(\vec{v}\cdot\vec{n}) d\sigma$ can be written as:</p>
+        <div class="math-block">
+          $$ -\int_{\Sigma_c} p(\vec{v}\cdot\vec{n}) \, d\sigma = -\int_{\Sigma_c} \frac{p}{\rho} \, \rho (\vec{v}\cdot\vec{n}) \, d\sigma $$
+        </div>
+        <p>Moving this "flow work" (the work done by pressure pushing fluid packets across the control surface) to the left-hand side of the energy balance groups it seamlessly with internal energy $e$ to define <strong>specific enthalpy</strong> $h$:</p>
+
+        <div class="math-block">
+          $$ h = e + \frac{p}{\rho} $$
+        </div>
+
+        <p>Combining specific enthalpy with kinetic energy and gravitational potential energy $gz$ defines the <strong>Stagnation (Total) Enthalpy</strong> $h_0$:</p>
+
+        <div class="math-block">
+          $$ \mathbf{h_0 = h + \frac{|\vec{v}|^2}{2} + gz} $$
+        </div>
+
+        <p>For a calorically perfect gas ($h = c_p T$), the stagnation enthalpy is directly proportional to the <strong>stagnation temperature</strong> $T_0$:</p>
+        <div class="math-block">
+          $$ h_0 = c_p T_0 = c_p T + \frac{|\vec{v}|^2}{2} $$
+        </div>
+
+        <h3 class="sub-heading">The Engineering Energy Equation for 1D Streams</h3>
+        <p>For steady flow through devices with discrete inlets and outlets, negligible viscous work at open ports, and steady shaft work $\dot{W}_{\text{shaft}}$ (from pumps, compressors, or turbines):</p>
+
+        <div class="math-block">
+          $$ \mathbf{\dot{Q} + \dot{W}_{\text{shaft}} = \sum_j \dot{m}_{\text{out}, j} h_{0,\text{out}, j} - \sum_k \dot{m}_{\text{in}, k} h_{0,\text{in}, k}} $$
+        </div>
+
+        <div class="callout-box">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Special Cases in Aerospace Propulsion
+          </div>
+          <ul>
+            <li><strong>Adiabatic Duct ($\dot{Q} = 0, \dot{W}_{\text{shaft}} = 0$):</strong> Stagnation enthalpy is strictly conserved: $h_{0,\text{out}} = h_{0,\text{in}}$. Kinetic energy increases only at the expense of static temperature ($T_{\text{out}} < T_{\text{in}}$).</li>
+            <li><strong>Combustor ($\dot{W}_{\text{shaft}} = 0$):</strong> Combustion heat release raises stagnation enthalpy: $\Delta h_0 = q_{\text{combustion}}$.</li>
+            <li><strong>Compressor ($\dot{W}_{\text{shaft}} > 0$):</strong> Mechanical work input raises total pressure and stagnation temperature: $w_{\text{in}} = c_p(T_{0,\text{out}} - T_{0,\text{in}})$.</li>
+            <li><strong>Turbine ($\dot{W}_{\text{shaft}} < 0$):</strong> Fluid delivers shaft power to drive the engine fan/compressor: $w_{\text{out}} = c_p(T_{0,\text{in}} - T_{0,\text{out}})$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 3: Canonical Walkthroughs -->
+      <section>
+        <!-- Walkthrough 1: Mixing Stream Temperature -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 1 · CL15 Setup</span>
+          <h2 class="walkthrough-title">Mixing Elbow Stream Exit Temperature $T_s$</h2>
+          <p><strong>Physical Setup:</strong> Two streams of an incompressible liquid (density $\rho$, specific heat $c_p$) enter an adiabatic, rigid mixing tee or elbow ($\dot{Q} = 0, \dot{W}_{\text{shaft}} = 0$). Stream 1 enters with mass flow rate $\dot{m}_1$ at temperature $T_1$ and speed $v_1$. Stream 2 enters with mass flow rate $\dot{m}_2$ at temperature $T_2$ and speed $v_2$. The mixed fluid exhausts into the atmosphere at state $s$ through an exit nozzle of area $A_s$.</p>
+          <p><strong>Objective:</strong> Determine the exit mixed temperature $T_s$.</p>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">1</span><span class="step-title">Mass Balance</span></div>
+            <p>From steady continuity:</p>
+            <div class="math-block">
+              $$ \dot{m}_s = \dot{m}_1 + \dot{m}_2 $$
+            </div>
+            <p>The exit discharge velocity is $v_s = \frac{\dot{m}_s}{\rho A_s}$.</p>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">2</span><span class="step-title">Total Energy Balance</span></div>
+            <p>For an adiabatic rigid mixer without shaft work ($\dot{Q} = 0, \dot{W}_{\text{shaft}} = 0$):</p>
+            <div class="math-block">
+              $$ \sum \dot{m}_{\text{in}} h_{0,\text{in}} = \dot{m}_s h_{0,s} \implies \dot{m}_1 h_{0,1} + \dot{m}_2 h_{0,2} = (\dot{m}_1 + \dot{m}_2) h_{0,s} $$
+            </div>
+            <p>Expanding the stagnation enthalpies ($h_0 = c_p T + \frac{v^2}{2}$):</p>
+            <div class="math-block">
+              $$ \dot{m}_1 \left(c_p T_1 + \frac{v_1^2}{2}\right) + \dot{m}_2 \left(c_p T_2 + \frac{v_2^2}{2}\right) = (\dot{m}_1 + \dot{m}_2) \left(c_p T_s + \frac{v_s^2}{2}\right) $$
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">3</span><span class="step-title">Solve for Exit Temperature $T_s$</span></div>
+            <p>In low-speed liquid flow, kinetic energy differences are negligible compared to thermal energy ($v^2/2 \ll c_p T$). The energy equation reduces to the weighted calorimetric average:</p>
+            <div class="math-block">
+              $$ \mathbf{T_s = \frac{\dot{m}_1 T_1 + \dot{m}_2 T_2}{\dot{m}_1 + \dot{m}_2}} $$
+            </div>
+            <p>When discharge kinetic energy is non-negligible (high-speed nozzle discharge):</p>
+            <div class="math-block">
+              $$ \mathbf{T_s = \frac{\dot{m}_1 T_1 + \dot{m}_2 T_2}{\dot{m}_1 + \dot{m}_2} + \frac{\dot{m}_1 v_1^2 + \dot{m}_2 v_2^2 - (\dot{m}_1+\dot{m}_2)v_s^2}{2 c_p (\dot{m}_1 + \dot{m}_2)}} $$
+            </div>
+          </div>
+        </div>
+
+        <!-- Walkthrough 2: Ventilation Fan Nozzle Power -->
+        <div class="walkthrough-box">
+          <span class="walkthrough-badge">Canonical Walkthrough 2 · CL10 Setup</span>
+          <h2 class="walkthrough-title">Ventilation Fan Nozzle Shaft Power $\dot{W}$</h2>
+          <p><strong>Physical Setup:</strong> An electric ventilation fan inside an adiabatic duct takes ambient air ($\rho, p_a, T_a$) from rest ($v_1 \approx 0$) and accelerates it through a contracting nozzle discharging into the room at high exit speed $v_e$, area $A_e$, at ambient pressure $p_e = p_a$. Total pressure loss due to friction across duct screens is $\Delta p_{\text{loss}}$.</p>
+          <p><strong>Objective:</strong> Calculate the minimum mechanical shaft power $\dot{W}_{\text{shaft}}$ that must be supplied by the electric motor.</p>
+
+          <div class="step-box">
+            <div class="step-header"><span class="step-badge">Analysis</span><span class="step-title">Energy Balance from Inlet to Exit</span></div>
+            <p>Mass flow rate through the nozzle: $\dot{m} = \rho A_e v_e$.</p>
+            <p>Applying the engineering energy equation across the fan and nozzle ($\dot{Q} = 0$, $z_1 \approx z_e$):</p>
+            <div class="math-block">
+              $$ \dot{W}_{\text{shaft}} = \dot{m}(h_{0,e} - h_{0,1}) = \dot{m}\left[ \left(h_e + \frac{v_e^2}{2}\right) - \left(h_1 + 0\right) \right] $$
+            </div>
+            <p>For an incompressible air flow ($\rho = \text{const}$), enthalpy changes arise from internal energy generation via viscous dissipation ($e_e - e_1 = \Delta p_{\text{loss}}/\rho$) and pressure differences ($p_e = p_1 = p_a \implies \Delta(p/\rho) = 0$):</p>
+            <div class="math-block">
+              $$ h_e - h_1 = (e_e - e_1) + \frac{p_e - p_1}{\rho} = \frac{\Delta p_{\text{loss}}}{\rho} $$
+            </div>
+            <p>Substituting into the shaft power expression:</p>
+            <div class="math-block">
+              $$ \dot{W}_{\text{shaft}} = \dot{m} \left( \frac{v_e^2}{2} + \frac{\Delta p_{\text{loss}}}{\rho} \right) = \mathbf{Q \left( \frac{1}{2}\rho v_e^2 + \Delta p_{\text{loss}} \right)} $$
+            </div>
+            <p>where $Q = A_e v_e$ is the volumetric airflow rate ($\text{m}^3/\text{s}$).</p>
+          </div>
+
+          <div class="callout-box" style="margin-bottom:0;">
+            <div class="callout-title">Physical Energy Breakdown</div>
+            The fan shaft power is partitioned into two clear physical duties:
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li><strong>Kinetic energy flux ($\frac{1}{2}\rho Q v_e^2$):</strong> The rate of kinetic energy carried away by the high-speed discharge jet.</li>
+              <li><strong>Viscous dissipation power ($Q \Delta p_{\text{loss}}$):</strong> The mechanical work converted irrecoverably into microscopic internal thermal energy due to friction across fan blades and duct screens.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <a href="topic-3-4-angular-momentum.html" class="bottom-nav-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>3.4 Angular Momentum</span>
+        </a>
+        <a href="topic-3.html" class="bottom-nav-btn center">
+          <span>Topic 3 Hub</span>
+        </a>
+        <a href="topic-3-6-stresses.html" class="bottom-nav-btn">
+          <span>Next: 3.6 Stress Tensor &amp; Friction</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Theme Script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      localStorage.setItem('ae_theme', t);
+    }
+
+    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>
