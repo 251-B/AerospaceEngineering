@@ -30,8 +30,8 @@
   'use strict';
 
   var STORAGE_KEY = 'ae_lang';
-  var DEFAULT_LANG = 'es';
-  var SUPPORTED_LANGS = ['es', 'en'];
+  var DEFAULT_LANG = 'en';
+  var SUPPORTED_LANGS = ['en'];
 
   /* ====================================================================
      TRANSLATION DICTIONARIES (ES / EN)
@@ -673,30 +673,8 @@
    * Bind event listeners for buttons and keyboard shortcut
    */
   function bindEvents() {
-    // Click delegation for language buttons
-    document.addEventListener('click', function (e) {
-      var target = e.target.closest('.lang-btn, [data-lang-switch]');
-      if (target) {
-        e.preventDefault();
-        var targetLang = target.getAttribute('data-lang') || target.getAttribute('data-lang-switch');
-        if (targetLang) {
-          setLanguage(targetLang);
-        }
-      }
-    });
-
-    // Keyboard shortcut: Press 'L' to switch language when not typing
-    document.addEventListener('keydown', function (e) {
-      var tag = (e.target && e.target.tagName) ? e.target.tagName : '';
-      var isInput = tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable);
-      
-      if ((e.key === 'l' || e.key === 'L') && !isInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
-        e.preventDefault();
-        toggleLanguage();
-      }
-    });
-
-    // Listen to theme changes to keep theme label translated
+    // Language switcher disabled: portal is clean English only.
+    // Listen to theme changes to keep theme label in sync if needed
     var themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
       themeToggle.addEventListener('click', function () {
@@ -709,18 +687,10 @@
    * Initialization
    */
   function init() {
-    var stored = getStoredLanguage();
-    if (stored) {
-      currentLang = stored;
-    } else {
-      // Optional check: navigator language
-      var navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (navLang.indexOf('en') === 0) {
-        currentLang = 'en';
-      } else {
-        currentLang = DEFAULT_LANG;
-      }
-    }
+    currentLang = 'en';
+    try {
+      localStorage.setItem(STORAGE_KEY, 'en');
+    } catch (e) {}
 
     applyTranslations();
     bindEvents();

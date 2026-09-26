@@ -615,9 +615,9 @@
   var activeInstances = [];
 
   function normalizeLang(lang) {
-    if (!lang || typeof lang !== 'string') return 'es';
+    if (!lang || typeof lang !== 'string') return 'en';
     var lower = lang.toLowerCase().trim();
-    return lower.indexOf('en') === 0 ? 'en' : 'es';
+    return lower.indexOf('es') === 0 ? 'es' : 'en';
   }
 
   function detectCurrentLanguage() {
@@ -662,8 +662,8 @@
       return normalizeLang(navigator.language);
     }
 
-    // Default to Spanish (primary portal language)
-    return 'es';
+    // Default to English (primary portal language)
+    return 'en';
   }
 
   function notifyLanguageChanged(newLang) {

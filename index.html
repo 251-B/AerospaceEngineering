@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="es" data-theme="dark" data-celestial-subject="portal">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="portal">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="site.title">Portal de Estudio — 2º Ingeniería Aeroespacial</title>
-  <meta name="description" content="Portal centralizado de estudio para el 2º curso del Grado en Ingeniería Aeroespacial.">
+  <title>Study Portal — 2nd Year Aerospace Engineering</title>
+  <meta name="description" content="Centralized study portal for the 2nd Year of the Bachelor's Degree in Aerospace Engineering.">
 
   <!-- Google Fonts: Abril Fatface, Newsreader, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -347,42 +347,6 @@
       gap: 10px;
     }
 
-    /* Language Switcher */
-    .lang-switcher {
-      display: inline-flex;
-      align-items: center;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 2px;
-      gap: 2px;
-      margin-right: 6px;
-    }
-
-    .lang-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 4px 9px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      letter-spacing: 0.04em;
-      line-height: 1.2;
-    }
-
-    .lang-btn:hover {
-      color: var(--text-primary);
-    }
-
-    .lang-btn.active {
-      background: var(--bg-card-hover);
-      color: var(--accent-fluid);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-    }
 
     /* Theme Toggle with Vector Sun / Moon */
     .theme-toggle {
@@ -1364,20 +1328,16 @@
           </div>
           <div class="brand-text">
             <h1 class="brand-title">
-              <span data-i18n="brand.title">Ingeniería Aeroespacial</span>
-              <span class="course-badge" data-i18n="brand.course">2º Curso</span>
+              Aerospace Engineering
+              <span class="course-badge">2nd Year</span>
             </h1>
-            <span class="subtitle" data-i18n="brand.subtitle">Portal de Estudio</span>
+            <span class="subtitle">Study Portal</span>
           </div>
         </div>
         <div class="header-actions">
-          <div class="lang-switcher" role="group" aria-label="Language selector">
-            <button class="lang-btn active" data-lang="es" aria-label="Español" title="Español (L)" data-i18n-title="lang.toggle_aria_es">ES</button>
-            <button class="lang-btn" data-lang="en" aria-label="English" title="English (L)" data-i18n-title="lang.toggle_aria_en">EN</button>
-          </div>
-          <span class="theme-toggle-label" id="themeLabel" data-i18n="theme.dark">Oscuro</span>
+          <span class="theme-toggle-label" id="themeLabel">Dark</span>
           <!-- Theme Toggle with Crisp Geometric Sun & Moon SVGs -->
-          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema (T)" data-i18n-aria-label="theme.toggle_aria" data-i18n-title="theme.toggle_title">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme (T)">
             <span class="theme-toggle-track">
               <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -1406,20 +1366,20 @@
     <main>
       <!-- HERO -->
       <section class="hero container">
-        <h2><span class="gradient-text" data-i18n="hero.title_p1">Tu centro de estudio</span><br><span data-i18n="hero.title_p2">para Ingeniería Aeroespacial</span></h2>
-        <p data-i18n="hero.subtitle">Accede a teoría, problemas resueltos, formularios y herramientas interactivas para cada asignatura del curso.</p>
+        <h2><span class="gradient-text">Your study hub</span><br><span>for Aerospace Engineering</span></h2>
+        <p>Access theory notes, step-by-step solved problems, formula sheets, and interactive tools for each course.</p>
         <div class="stats-bar">
           <div class="stat-item">
             <span class="stat-value" style="color: var(--accent-fluid);">5</span>
-            <span class="stat-label" data-i18n="hero.stat_q1_label">Asignaturas Q1</span>
+            <span class="stat-label">Q1 Subjects</span>
           </div>
           <div class="stat-item">
             <span class="stat-value" style="color: var(--accent-maths);">5</span>
-            <span class="stat-label" data-i18n="hero.stat_areas_label">Áreas por materia</span>
+            <span class="stat-label">Areas per subject</span>
           </div>
           <div class="stat-item">
             <span class="stat-value" style="color: var(--accent-mechanics);">2</span>
-            <span class="stat-label" data-i18n="hero.stat_semesters_label">Cuatrimestres</span>
+            <span class="stat-label">Semesters</span>
           </div>
         </div>
       </section>
@@ -1438,18 +1398,16 @@
             <input
               type="text"
               id="searchInput"
-              placeholder="Buscar asignatura, tema o concepto…"
-              aria-label="Buscar asignaturas"
+              placeholder="Search subject, topic, or concept…"
+              aria-label="Search subjects"
               autocomplete="off"
-              data-i18n-placeholder="search.placeholder"
-              data-i18n-aria-label="search.aria_label"
             >
             <kbd class="search-kbd" aria-hidden="true">/</kbd>
           </div>
-          <div class="semester-tabs" role="tablist" aria-label="Filtrar por cuatrimestre" data-i18n-aria-label="nav.tabs_aria">
-            <button class="semester-tab active" role="tab" data-semester="all" aria-selected="true" data-i18n="nav.all">Todos</button>
-            <button class="semester-tab" role="tab" data-semester="q1" aria-selected="false" data-i18n="nav.q1">1.er Cuatrimestre</button>
-            <button class="semester-tab" role="tab" data-semester="q2" aria-selected="false" data-i18n="nav.q2">2.º Cuatrimestre</button>
+          <div class="semester-tabs" role="tablist" aria-label="Filter by semester">
+            <button class="semester-tab active" role="tab" data-semester="all" aria-selected="true">All</button>
+            <button class="semester-tab" role="tab" data-semester="q1" aria-selected="false">1st Semester</button>
+            <button class="semester-tab" role="tab" data-semester="q2" aria-selected="false">2nd Semester</button>
           </div>
         </div>
       </section>
@@ -1459,9 +1417,9 @@
            ============================================ -->
       <section class="container" id="sectionQ1" data-semester-section="q1">
         <div class="section-title">
-          <h3 data-i18n="section.q1_title">Primer Cuatrimestre</h3>
-          <span class="count-badge" data-i18n="section.q1_count">5 asignaturas</span>
-          <span class="semester-badge active-sem" data-i18n="section.q1_badge">● Activo</span>
+          <h3>First Semester</h3>
+          <span class="count-badge">5 subjects</span>
+          <span class="semester-badge active-sem">● Active</span>
         </div>
 
         <div class="subjects-grid" id="subjectsGridQ1">
@@ -1487,11 +1445,11 @@
                 </svg>
               </div>
               <div class="card-title-group">
-                <h4 class="card-title" data-i18n="subject.fluid.title">Fluid Mechanics</h4>
-                <span class="card-subtitle" data-i18n="subject.fluid.subtitle">Mecánica de Fluidos</span>
+                <h4 class="card-title">Fluid Mechanics</h4>
+                <span class="card-subtitle">Fluid Mechanics</span>
               </div>
             </div>
-            <p class="card-description" data-i18n="subject.fluid.desc">Estática de fluidos, cinemática, ecuaciones de Navier-Stokes, análisis dimensional, flujo potencial, capa límite y compresibilidad.</p>
+            <p class="card-description">Fluid statics, kinematics, Navier-Stokes equations, dimensional analysis, potential flow, boundary layer theory, and compressibility.</p>
             <div class="area-list">
               <a class="area-link" href="subjects/fluid-mechanics/teoria/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1502,8 +1460,8 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.theory">Teoría y Conceptos</span>
-                <span class="area-badge available" data-i18n="count.3_topics">3 temas</span>
+                <span class="area-name">Theory & Concepts</span>
+                <span class="area-badge available">3 topics</span>
               </a>
               <a class="area-link" href="subjects/fluid-mechanics/problemas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1514,8 +1472,8 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.problems">Problemas y Exámenes</span>
-                <span class="area-badge available" data-i18n="count.10_problems">10 problemas</span>
+                <span class="area-name">Problems & Exams</span>
+                <span class="area-badge available">10 problems</span>
               </a>
               <a class="area-link" href="subjects/fluid-mechanics/formulas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1524,8 +1482,8 @@
                     <path d="M8 8h8l-5 4 5 4H8"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.formulas">Formularios y Prontuarios</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Formula Sheets</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/fluid-mechanics/laboratorio/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1534,8 +1492,8 @@
                     <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.lab">Laboratorio / Simuladores</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Laboratory & Simulators</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/fluid-mechanics/tests/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1548,8 +1506,8 @@
                     <line x1="18" y1="12" x2="22" y2="12"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.tests">Tests y Quizzes</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Quizzes & Practice</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
             </div>
           </article>
@@ -1584,11 +1542,11 @@
                 </svg>
               </div>
               <div class="card-title-group">
-                <h4 class="card-title" data-i18n="subject.materials.title">Aerospace Materials I</h4>
-                <span class="card-subtitle" data-i18n="subject.materials.subtitle">Materiales Aeroespaciales I</span>
+                <h4 class="card-title">Aerospace Materials I</h4>
+                <span class="card-subtitle">Aerospace Materials I</span>
               </div>
             </div>
-            <p class="card-description" data-i18n="subject.materials.desc">Estructura cristalina, diagramas de fase, tratamientos térmicos, aleaciones de aluminio, titanio y níquel, fatiga y mecánica de fractura.</p>
+            <p class="card-description">Crystal structures, phase diagrams, heat treatments, aluminum, titanium, and nickel alloys, fatigue, and fracture mechanics.</p>
             <div class="area-list">
               <a class="area-link" href="subjects/aerospace-materials-1/teoria/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1599,8 +1557,8 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.theory">Teoría y Conceptos</span>
-                <span class="area-badge available" data-i18n="count.3_topics">3 temas</span>
+                <span class="area-name">Theory & Concepts</span>
+                <span class="area-badge available">3 topics</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/problemas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1611,8 +1569,8 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.problems">Problemas y Exámenes</span>
-                <span class="area-badge available" data-i18n="count.38_problems_3_topics">3 temas (38 prob.)</span>
+                <span class="area-name">Problems & Exams</span>
+                <span class="area-badge available">3 topics (38 prob.)</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/formulas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1621,8 +1579,8 @@
                     <path d="M8 8h8l-5 4 5 4H8"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.formulas">Formularios y Prontuarios</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Formula Sheets</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/laboratorio/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1631,8 +1589,8 @@
                     <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.lab">Laboratorio / Simuladores</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Laboratory & Simulators</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/aerospace-materials-1/tests/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1645,8 +1603,8 @@
                     <line x1="18" y1="12" x2="22" y2="12"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.tests">Tests y Quizzes</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Quizzes & Practice</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
             </div>
           </article>
@@ -1673,11 +1631,11 @@
                 </svg>
               </div>
               <div class="card-title-group">
-                <h4 class="card-title" data-i18n="subject.mechanics.title">Engineering Mechanics</h4>
-                <span class="card-subtitle" data-i18n="subject.mechanics.subtitle">Mechanics Applied to Aerospace Engineering</span>
+                <h4 class="card-title">Engineering Mechanics</h4>
+                <span class="card-subtitle">Mechanics Applied to Aerospace Engineering</span>
               </div>
             </div>
-            <p class="card-description" data-i18n="subject.mechanics.desc">Cinemática y dinámica del punto material, movimiento relativo, osciladores, dinámica 3D del sólido rígido, tensores de inercia, ecuaciones de Euler y mecánica de vuelo atmosférico.</p>
+            <p class="card-description">Point particle kinematics and dynamics, relative motion, oscillators, 3D rigid body dynamics, inertia tensors, Euler equations, and atmospheric flight mechanics.</p>
             <div class="area-list">
               <a class="area-link" href="subjects/engineering-mechanics/teoria/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1688,8 +1646,8 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.theory">Teoría y Conceptos</span>
-                <span class="area-badge available" data-i18n="count.3_topics">3 temas</span>
+                <span class="area-name">Theory & Concepts</span>
+                <span class="area-badge available">3 topics</span>
               </a>
               <a class="area-link" href="subjects/engineering-mechanics/problemas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1700,8 +1658,8 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.problems">Problemas y Exámenes</span>
-                <span class="area-badge available" data-i18n="count.35_problems_3_topics">3 temas (35 prob.)</span>
+                <span class="area-name">Problems & Exams</span>
+                <span class="area-badge available">3 topics (35 prob.)</span>
               </a>
               <a class="area-link" href="subjects/engineering-mechanics/formulas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1710,8 +1668,8 @@
                     <path d="M8 8h8l-5 4 5 4H8"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.formulas">Formularios y Prontuarios</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Formula Sheets</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/engineering-mechanics/laboratorio/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1720,8 +1678,8 @@
                     <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.lab">Laboratorio / Simuladores</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Laboratory & Simulators</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/engineering-mechanics/tests/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1734,8 +1692,8 @@
                     <line x1="18" y1="12" x2="22" y2="12"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.tests">Tests y Quizzes</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Quizzes & Practice</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
             </div>
           </article>
@@ -1764,11 +1722,11 @@
                 </svg>
               </div>
               <div class="card-title-group">
-                <h4 class="card-title" data-i18n="subject.maths.title">Advanced Maths</h4>
-                <span class="card-subtitle" data-i18n="subject.maths.subtitle">Matemáticas Avanzadas</span>
+                <h4 class="card-title">Advanced Maths</h4>
+                <span class="card-subtitle">Advanced Mathematics</span>
               </div>
             </div>
-            <p class="card-description" data-i18n="subject.maths.desc">EDOs de orden superior, EDPs clásicas (calor, onda, Laplace), series y transformadas de Fourier y Laplace, variable compleja.</p>
+            <p class="card-description">Higher-order ODEs, classic PDEs (heat, wave, Laplace), Fourier and Laplace series and transforms, complex variable theory.</p>
             <div class="area-list">
               <a class="area-link" href="subjects/advanced-maths/teoria/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1779,8 +1737,8 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.theory">Teoría y Conceptos</span>
-                <span class="area-badge available" data-i18n="count.3_topics">3 temas</span>
+                <span class="area-name">Theory & Concepts</span>
+                <span class="area-badge available">3 topics</span>
               </a>
               <a class="area-link" href="subjects/advanced-maths/problemas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1791,8 +1749,8 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.problems">Problemas y Exámenes</span>
-                <span class="area-badge available" data-i18n="count.38_problems_3_topics">3 temas (38 prob.)</span>
+                <span class="area-name">Problems & Exams</span>
+                <span class="area-badge available">3 topics (38 prob.)</span>
               </a>
               <a class="area-link" href="subjects/advanced-maths/formulas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1801,8 +1759,8 @@
                     <path d="M8 8h8l-5 4 5 4H8"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.formulas">Formularios y Prontuarios</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Formula Sheets</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/advanced-maths/laboratorio/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1811,8 +1769,8 @@
                     <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.lab">Laboratorio / Simuladores</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Laboratory & Simulators</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/advanced-maths/tests/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1825,8 +1783,8 @@
                     <line x1="18" y1="12" x2="22" y2="12"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.tests">Tests y Quizzes</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Quizzes & Practice</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
             </div>
           </article>
@@ -1858,11 +1816,11 @@
                 </svg>
               </div>
               <div class="card-title-group">
-                <h4 class="card-title" data-i18n="subject.business.title">Business Management</h4>
-                <span class="card-subtitle" data-i18n="subject.business.subtitle">Gestión de Empresas</span>
+                <h4 class="card-title">Business Management</h4>
+                <span class="card-subtitle">Business Management & Industrial Organization</span>
               </div>
             </div>
-            <p class="card-description" data-i18n="subject.business.desc">Organización industrial, gestión de proyectos aeroespaciales (Gantt/PERT), costes y viabilidad, contabilidad analítica y finanzas.</p>
+            <p class="card-description">Industrial organization, aerospace project management (Gantt/PERT), cost accounting, investment appraisal, and corporate finance.</p>
             <div class="area-list">
               <a class="area-link" href="subjects/business-management/teoria/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1873,8 +1831,8 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.theory">Teoría y Conceptos</span>
-                <span class="area-badge available" data-i18n="count.3_topics">3 temas</span>
+                <span class="area-name">Theory & Concepts</span>
+                <span class="area-badge available">3 topics</span>
               </a>
               <a class="area-link" href="subjects/business-management/problemas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1885,8 +1843,8 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.problems">Problemas y Exámenes</span>
-                <span class="area-badge available" data-i18n="count.6_problems_1_topic">1 tema (6 prob.)</span>
+                <span class="area-name">Problems & Exams</span>
+                <span class="area-badge available">1 topic (6 prob.)</span>
               </a>
               <a class="area-link" href="subjects/business-management/formulas/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1895,8 +1853,8 @@
                     <path d="M8 8h8l-5 4 5 4H8"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.formulas">Formularios y Prontuarios</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Formula Sheets</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/business-management/laboratorio/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1905,8 +1863,8 @@
                     <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.lab">Laboratorio / Simuladores</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Laboratory & Simulators</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
               <a class="area-link" href="subjects/business-management/tests/index.html" onclick="return handleAreaClick(event)">
                 <span class="area-icon" aria-hidden="true">
@@ -1919,8 +1877,8 @@
                     <line x1="18" y1="12" x2="22" y2="12"/>
                   </svg>
                 </span>
-                <span class="area-name" data-i18n="area.tests">Tests y Quizzes</span>
-                <span class="area-badge soon" data-i18n="badge.soon">Próximamente</span>
+                <span class="area-name">Quizzes & Practice</span>
+                <span class="area-badge soon">Coming Soon</span>
               </a>
             </div>
           </article>
@@ -1933,8 +1891,8 @@
            ============================================ -->
       <section class="container" id="sectionQ2" data-semester-section="q2">
         <div class="section-title">
-          <h3 data-i18n="section.q2_title">Segundo Cuatrimestre</h3>
-          <span class="semester-badge upcoming-sem" data-i18n="section.q2_badge">◯ Próximamente</span>
+          <h3>Second Semester</h3>
+          <span class="semester-badge upcoming-sem">◯ Coming Soon</span>
         </div>
 
         <!-- Dedicated Q2 Supernova Card -->
@@ -1960,12 +1918,12 @@
               </div>
               <div class="supernova-badge">
                 <span class="pulsar-dot" aria-hidden="true"></span>
-                <span data-i18n="upcoming.badge">En preparación</span>
+                <span>In Preparation</span>
                 <span class="supernova-countdown-badge">T-Minus Q2</span>
               </div>
             </div>
-            <h4 class="supernova-title" data-i18n="upcoming.title">En preparación</h4>
-            <p class="supernova-witty-text" data-i18n="upcoming.supernova">En preparación: lo bueno ya llegará ;) ✨ — Colapsando materia estelar para forjar las nuevas asignaturas</p>
+            <h4 class="supernova-title">In preparation: the best is yet to come ;) ✨</h4>
+            <p class="supernova-witty-text">In preparation: the best is yet to come ;) ✨ — Collapsing cosmic dust into upcoming courses</p>
             <div class="supernova-meta">
               <span class="supernova-meta-pill">
                 <span class="meta-label">STATUS:</span>
@@ -1998,8 +1956,8 @@
               <circle cx="31" cy="17" r="1.5" fill="currentColor"/>
             </svg>
           </div>
-          <h4 data-i18n="empty.title">Sin resultados</h4>
-          <p data-i18n="empty.desc">No se encontraron asignaturas que coincidan con tu búsqueda.</p>
+          <h4>No results found</h4>
+          <p>No subjects matching your search criteria were found.</p>
         </div>
       </div>
 
@@ -2024,12 +1982,12 @@
             <polygon points="12,3 14.5,10 21,12 14.5,14 12,21 9.5,14 3,12 9.5,10" fill="currentColor" fill-opacity="0.18"/>
             <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
           </svg>
-          <span data-i18n="footer.brand">Portal de Estudio — 2º Ingeniería Aeroespacial</span>
+          <span>Study Portal — 2nd Year Aerospace Engineering</span>
         </span>
         <span class="footer-separator" aria-hidden="true"></span>
-        <span data-i18n="footer.academic_year">Curso 2026 – 2027</span>
+        <span>Academic Year 2026 – 2027</span>
         <span class="footer-separator" aria-hidden="true"></span>
-        <span data-i18n="footer.built_with">Construido con precisión y determinación</span>
+        <span>Built with precision and determination</span>
       </div>
     </footer>
 
@@ -2037,15 +1995,11 @@
 
   <!-- Keyboard Shortcuts hint -->
   <div class="shortcuts-hint" id="shortcutsHint">
-    <div class="shortcut-row"><kbd>/</kbd> <span data-i18n="shortcut.search">Buscar</span></div>
-    <div class="shortcut-row"><kbd>T</kbd> <span data-i18n="shortcut.theme">Cambiar tema</span></div>
-    <div class="shortcut-row"><kbd>L</kbd> <span data-i18n="shortcut.lang">Cambiar idioma</span></div>
-    <div class="shortcut-row"><kbd>Esc</kbd> <span data-i18n="shortcut.clear">Limpiar búsqueda</span></div>
-    <div class="shortcut-row"><kbd>?</kbd> <span data-i18n="shortcut.shortcuts">Mostrar atajos</span></div>
+    <div class="shortcut-row"><kbd>/</kbd> <span>Search</span></div>
+    <div class="shortcut-row"><kbd>T</kbd> <span>Toggle theme</span></div>
+    <div class="shortcut-row"><kbd>Esc</kbd> <span>Clear search</span></div>
+    <div class="shortcut-row"><kbd>?</kbd> <span>Show shortcuts</span></div>
   </div>
-
-  <!-- Internationalization System -->
-  <script src="assets/js/i18n.js"></script>
 
   <!-- Aerospace Motivational Quotes Engine -->
   <script src="assets/js/quotes.js"></script>
@@ -2083,11 +2037,8 @@
 
       function setTheme(theme) {
         html.setAttribute('data-theme', theme);
-        const t = window.AE_I18N ? window.AE_I18N.t : null;
         if (themeLabel) {
-          themeLabel.textContent = theme === 'dark' 
-            ? (t ? t('theme.dark', 'Oscuro') : 'Oscuro') 
-            : (t ? t('theme.light', 'Claro') : 'Claro');
+          themeLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
         }
         try { localStorage.setItem('aero-portal-theme', theme); } catch {}
       }
@@ -2102,16 +2053,6 @@
           setTheme(current === 'dark' ? 'light' : 'dark');
         });
       }
-
-      // Synchronize theme label and filters on language change
-      document.addEventListener('ae:languageChange', function () {
-        const currentTheme = html.getAttribute('data-theme') || 'dark';
-        const t = window.AE_I18N ? window.AE_I18N.t : null;
-        if (themeLabel && t) {
-          themeLabel.textContent = currentTheme === 'dark' ? t('theme.dark', 'Oscuro') : t('theme.light', 'Claro');
-        }
-        applyFilters();
-      });
 
       /* ——————————————————————————————————————————
          SEMESTER FILTER
@@ -2260,3 +2201,5 @@
 
 </body>
 </html>
+
+
