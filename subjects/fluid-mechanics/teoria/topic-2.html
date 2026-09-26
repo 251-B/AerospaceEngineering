@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tema 2: Flow Kinematics — Fluid Mechanics</title>
+  <title>Topic 2: Flow Kinematics — Fluid Mechanics</title>
   
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -416,7 +416,7 @@
     <div class="header-inner">
       <div class="brand-area">
         <span class="brand-badge">FLUID MECHANICS</span>
-        <span style="font-size: 13px; color: var(--text-muted);">Tema 2: Cinemática</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 2: Flow Kinematics</span>
       </div>
       <div class="nav-actions">
         <a href="../problemas/topic-2-kinematics.html" class="back-link" style="color: var(--accent); border-color: var(--accent-border);">
@@ -436,40 +436,40 @@
     <article>
       <!-- Title Header -->
       <header class="article-header">
-        <div class="article-category">Capítulo 2 · Teoría Fundamental</div>
+        <div class="article-category">Chapter 2 · Core Theory</div>
         <h1 class="article-title">Flow Kinematics</h1>
-        <p class="article-meta">Mecánica de Fluidos — 2º Curso del Grado en Ingeniería Aeroespacial (UC3M)</p>
+        <p class="article-meta">Fluid Mechanics — 2nd Year Bachelor's Degree in Aerospace Engineering (UC3M)</p>
         <div class="source-box">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Fuentes de referencia: Notes.pdf (Capítulo 2, Págs. 9–24) | slides_Chapters1-2.pdf (2.0–2.24) · Profs. Antonio L. Sánchez & Javier Rodríguez-Rodríguez
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Reference sources: Notes.pdf (Chapter 2, pp. 9–24) | slides_Chapters1-2.pdf (2.0–2.24) · Profs. Antonio L. Sánchez &amp; Javier Rodríguez-Rodríguez
         </div>
       </header>
 
       <!-- Mini Table of Contents -->
-      <nav class="toc-box" aria-label="Índice de apartados">
-        <div class="toc-title">Estructura del Capítulo 2</div>
+      <nav class="toc-box" aria-label="Table of contents">
+        <div class="toc-title">Chapter 2 Outline</div>
         <div class="toc-grid">
-          <a href="#sec1">1. Fórmulas Vectoriales y Tensoriales</a>
-          <a href="#sec2">2. Descripciones Euleriana y Lagrangiana</a>
-          <a href="#sec3">3. Trayectorias y Líneas de Trayectoria</a>
-          <a href="#sec4">4. Líneas, Superficies y Volúmenes Fluidos</a>
-          <a href="#sec5">5. Líneas, Superficies y Tubos de Corriente</a>
-          <a href="#sec6">6. Derivada Material y Aceleración</a>
-          <a href="#sec7">7. Circulación, Vorticidad y Potencial</a>
-          <a href="#sec8">8. Flujo Convectivo</a>
-          <a href="#sec9">9. La Función de Corriente ($\psi$)</a>
-          <a href="#sec10">10. Cinemática de la Deformación</a>
-          <a href="#sec11">11. Prontuario de Ecuaciones</a>
+          <a href="#sec1">1. Vector and Tensor Formulas</a>
+          <a href="#sec2">2. Eulerian and Lagrangian Descriptions</a>
+          <a href="#sec3">3. Trajectories and Pathlines</a>
+          <a href="#sec4">4. Fluid Lines, Surfaces, and Volumes</a>
+          <a href="#sec5">5. Streamlines, Stream Surfaces, and Streamtubes</a>
+          <a href="#sec6">6. Material Derivative and Acceleration</a>
+          <a href="#sec7">7. Circulation, Vorticity, and Velocity Potential</a>
+          <a href="#sec8">8. Convective Flux</a>
+          <a href="#sec9">9. The Stream Function ($\psi$)</a>
+          <a href="#sec10">10. Kinematics of Deformation</a>
+          <a href="#sec11">11. Formula Summary</a>
         </div>
       </nav>
 
-      <!-- SECCIÓN 1: FÓRMULAS VECTORIALES Y TENSORIALES -->
+      <!-- SECTION 1: VECTOR AND TENSOR FORMULAS -->
       <section id="sec1">
-        <h2 class="section-heading">1. Fórmulas Vectoriales y Tensoriales en Coordenadas Curvilíneas Ortogonales</h2>
+        <h2 class="section-heading">1. Vector and Tensor Formulas in Orthogonal Curvilinear Coordinates</h2>
         
-        <p>El estudio riguroso de los flujos aeroespaciales requiere operar en sistemas de coordenadas ortogonales adaptados a la geometría del problema. Consideremos una base ortonormal local de vectores unitarios $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$ en cada punto del espacio.</p>
+        <p>The rigorous analysis of aerospace flows requires working in orthogonal coordinate systems adapted to the geometry of the flow. Consider a local orthonormal unit-vector basis $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$ at each point in space.</p>
 
-        <h3 class="sub-heading">Factores de Escala ($h_1, h_2, h_3$) y Elemento Diferencial de Línea</h3>
-        <p>El vector desplazamiento diferencial de posición se expresa universalmente como:</p>
+        <h3 class="sub-heading">Scale Factors ($h_1, h_2, h_3$) and Differential Line Element</h3>
+        <p>The differential displacement vector is universally expressed as:</p>
         <div class="math-block">
           $$ d\vec{x} = h_1 dx_1 \vec{e}_1 + h_2 dx_2 \vec{e}_2 + h_3 dx_3 \vec{e}_3 $$
         </div>
@@ -478,27 +478,27 @@
           <table class="data-table">
             <thead>
               <tr>
-                <th>Sistema de Coordenadas</th>
-                <th>Coordenadas $(x_1, x_2, x_3)$</th>
-                <th>Factores de Escala $(h_1, h_2, h_3)$</th>
-                <th>Diferencial de Línea $d\vec{x}$</th>
+                <th>Coordinate System</th>
+                <th>Coordinates $(x_1, x_2, x_3)$</th>
+                <th>Scale Factors $(h_1, h_2, h_3)$</th>
+                <th>Differential Line Element $d\vec{x}$</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Cartesianas</strong></td>
+                <td><strong>Cartesian</strong></td>
                 <td>$(x, y, z)$</td>
                 <td>$h_1 = 1, \; h_2 = 1, \; h_3 = 1$</td>
                 <td>$(dx, dy, dz)$</td>
               </tr>
               <tr>
-                <td><strong>Cilíndricas</strong></td>
+                <td><strong>Cylindrical</strong></td>
                 <td>$(r, \theta, z)$</td>
                 <td>$h_1 = 1, \; h_2 = r, \; h_3 = 1$</td>
                 <td>$(dr, r d\theta, dz)$</td>
               </tr>
               <tr>
-                <td><strong>Esféricas</strong></td>
+                <td><strong>Spherical</strong></td>
                 <td>$(r, \theta, \phi)$</td>
                 <td>$h_1 = 1, \; h_2 = r, \; h_3 = r\sin\theta$</td>
                 <td>$(dr, r d\theta, r\sin\theta d\phi)$</td>
@@ -507,270 +507,270 @@
           </table>
         </div>
 
-        <h3 class="sub-heading">Definiciones Fundamentales del Álgebra Tensorial</h3>
+        <h3 class="sub-heading">Fundamental Definitions of Tensor Algebra</h3>
         <div class="card">
           <ul>
-            <li><strong>Tensor de segundo orden ($\bar{\bar{A}}$):</strong> Operador lineal que transforma un vector $\vec{a}$ en otro vector $\vec{b} = \bar{\bar{A}} \cdot \vec{a}$, con componentes $b_i = \sum_j A_{ij} a_j$.</li>
-            <li><strong>Tensor traspuesto ($\bar{\bar{A}}^T$):</strong> Satisface $(\bar{\bar{A}}^T)_{ij} = A_{ji}$ y la identidad $\vec{a} \cdot \bar{\bar{A}} = \bar{\bar{A}}^T \cdot \vec{a}$.</li>
-            <li><strong>Tensor unidad ($\bar{\bar{I}}$):</strong> $I_{ii} = 1$, $I_{ij} = 0$ ($i \neq j$), tal que $\bar{\bar{I}} \cdot \vec{a} = \vec{a}$.</li>
-            <li><strong>Producto diádico de dos vectores ($\vec{a}\vec{b}$):</strong> Produce un tensor de componentes $(\vec{a}\vec{b})_{ij} = a_i b_j$.</li>
-            <li><strong>Contracción doble de tensores ($\bar{\bar{A}} : \bar{\bar{B}}$):</strong> Produce un escalar definido por $\bar{\bar{A}} : \bar{\bar{B}} = \sum_i \sum_j A_{ij} B_{ij}$. (Difiere sustancialmente del producto tensorial $\bar{\bar{A}} \cdot \bar{\bar{B}}$, cuyas componentes son $(\bar{\bar{A}} \cdot \bar{\bar{B}})_{ij} = \sum_k A_{ik} B_{kj}$).</li>
-            <li><strong>Producto vectorial vector-tensor ($\vec{a} \wedge \bar{\bar{A}}$):</strong>
+            <li><strong>Second-order tensor ($\bar{\bar{A}}$):</strong> Linear operator transforming a vector $\vec{a}$ into another vector $\vec{b} = \bar{\bar{A}} \cdot \vec{a}$, with components $b_i = \sum_j A_{ij} a_j$.</li>
+            <li><strong>Transpose tensor ($\bar{\bar{A}}^T$):</strong> Satisfies $(\bar{\bar{A}}^T)_{ij} = A_{ji}$ and the identity $\vec{a} \cdot \bar{\bar{A}} = \bar{\bar{A}}^T \cdot \vec{a}$.</li>
+            <li><strong>Identity tensor ($\bar{\bar{I}}$):</strong> $I_{ii} = 1$, $I_{ij} = 0$ ($i \neq j$), such that $\bar{\bar{I}} \cdot \vec{a} = \vec{a}$.</li>
+            <li><strong>Dyadic product of two vectors ($\vec{a}\vec{b}$):</strong> Yields a tensor with components $(\vec{a}\vec{b})_{ij} = a_i b_j$.</li>
+            <li><strong>Double contraction of tensors ($\bar{\bar{A}} : \bar{\bar{B}}$):</strong> Produces a scalar defined by $\bar{\bar{A}} : \bar{\bar{B}} = \sum_i \sum_j A_{ij} B_{ij}$. (Distinct from the tensor dot product $\bar{\bar{A}} \cdot \bar{\bar{B}}$, whose components are $(\bar{\bar{A}} \cdot \bar{\bar{B}})_{ij} = \sum_k A_{ik} B_{kj}$).</li>
+            <li><strong>Cross product of a vector and a tensor ($\vec{a} \wedge \bar{\bar{A}}$):</strong>
               <div class="math-block">
-                $$ \vec{a} \wedge \bar{\bar{A}} = \begin{bmatrix} 0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0 \end{bmatrix} \bar{\bar{A}} \qquad \text{[Ec. 2.2]} $$
+                $$ \vec{a} \wedge \bar{\bar{A}} = \begin{bmatrix} 0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0 \end{bmatrix} \bar{\bar{A}} \qquad \text{[Eq. 2.2]} $$
               </div>
             </li>
           </ul>
         </div>
 
-        <h3 class="sub-heading">Operadores Diferenciales Invariantes (Notes.pdf, Ecs. 2.3–2.8)</h3>
-        <p>Definiendo el determinante métrico $h = h_1 h_2 h_3$, los operadores diferenciales adoptan su formulación general independiente del sistema de coordenadas:</p>
+        <h3 class="sub-heading">Invariant Differential Operators (Notes.pdf, Eqs. 2.3–2.8)</h3>
+        <p>Defining the metric determinant $h = h_1 h_2 h_3$, the differential operators adopt their general coordinate-invariant formulation:</p>
 
         <div class="card">
-          <p><strong>1. Gradiente de un Escalar $\Phi$:</strong></p>
-          $$ \nabla\Phi = \left( \frac{1}{h_1}\frac{\partial \Phi}{\partial x_1}, \, \frac{1}{h_2}\frac{\partial \Phi}{\partial x_2}, \, \frac{1}{h_3}\frac{\partial \Phi}{\partial x_3} \right) \qquad \text{[Ec. 2.3]} $$
+          <p><strong>1. Gradient of a Scalar $\Phi$:</strong></p>
+          $$ \nabla\Phi = \left( \frac{1}{h_1}\frac{\partial \Phi}{\partial x_1}, \, \frac{1}{h_2}\frac{\partial \Phi}{\partial x_2}, \, \frac{1}{h_3}\frac{\partial \Phi}{\partial x_3} \right) \qquad \text{[Eq. 2.3]} $$
 
-          <p><strong>2. Laplaciano de un Escalar $\Phi$:</strong></p>
-          $$ \nabla^2\Phi = \frac{1}{h_1 h_2 h_3} \left[ \frac{\partial}{\partial x_1}\left(\frac{h_2 h_3}{h_1}\frac{\partial \Phi}{\partial x_1}\right) + \frac{\partial}{\partial x_2}\left(\frac{h_1 h_3}{h_2}\frac{\partial \Phi}{\partial x_2}\right) + \frac{\partial}{\partial x_3}\left(\frac{h_1 h_2}{h_3}\frac{\partial \Phi}{\partial x_3}\right) \right] \qquad \text{[Ec. 2.4]} $$
+          <p><strong>2. Laplacian of a Scalar $\Phi$:</strong></p>
+          $$ \nabla^2\Phi = \frac{1}{h_1 h_2 h_3} \left[ \frac{\partial}{\partial x_1}\left(\frac{h_2 h_3}{h_1}\frac{\partial \Phi}{\partial x_1}\right) + \frac{\partial}{\partial x_2}\left(\frac{h_1 h_3}{h_2}\frac{\partial \Phi}{\partial x_2}\right) + \frac{\partial}{\partial x_3}\left(\frac{h_1 h_2}{h_3}\frac{\partial \Phi}{\partial x_3}\right) \right] \qquad \text{[Eq. 2.4]} $$
 
-          <p><strong>3. Divergencia de un Vector $\vec{a}$:</strong></p>
-          $$ \nabla \cdot \vec{a} = \frac{1}{h_1 h_2 h_3} \left[ \frac{\partial}{\partial x_1}(h_2 h_3 a_1) + \frac{\partial}{\partial x_2}(h_1 h_3 a_2) + \frac{\partial}{\partial x_3}(h_1 h_2 a_3) \right] \qquad \text{[Ec. 2.5]} $$
+          <p><strong>3. Divergence of a Vector $\vec{a}$:</strong></p>
+          $$ \nabla \cdot \vec{a} = \frac{1}{h_1 h_2 h_3} \left[ \frac{\partial}{\partial x_1}(h_2 h_3 a_1) + \frac{\partial}{\partial x_2}(h_1 h_3 a_2) + \frac{\partial}{\partial x_3}(h_1 h_2 a_3) \right] \qquad \text{[Eq. 2.5]} $$
 
-          <p><strong>4. Rotacional de un Vector $\vec{a}$:</strong></p>
-          $$ \nabla \wedge \vec{a} = \frac{1}{h_1 h_2 h_3} \begin{vmatrix} h_1 \vec{e}_1 & h_2 \vec{e}_2 & h_3 \vec{e}_3 \\ \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \frac{\partial}{\partial x_3} \\ h_1 a_1 & h_2 a_2 & h_3 a_3 \end{vmatrix} \qquad \text{[Ec. 2.6]} $$
+          <p><strong>4. Curl of a Vector $\vec{a}$:</strong></p>
+          $$ \nabla \wedge \vec{a} = \frac{1}{h_1 h_2 h_3} \begin{vmatrix} h_1 \vec{e}_1 & h_2 \vec{e}_2 & h_3 \vec{e}_3 \\ \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \frac{\partial}{\partial x_3} \\ h_1 a_1 & h_2 a_2 & h_3 a_3 \end{vmatrix} \qquad \text{[Eq. 2.6]} $$
 
-          <p><strong>5. Gradiente de un Campo Vectorial ($\nabla\vec{a}$):</strong></p>
-          $$ (\nabla\vec{a})_{ii} = \frac{1}{h_i}\frac{\partial a_i}{\partial x_i} + \sum_{k \neq i} \frac{a_k}{h_i h_k}\frac{\partial h_i}{\partial x_k}, \qquad (\nabla\vec{a})_{ij} = \frac{1}{h_i}\frac{\partial a_j}{\partial x_i} - \frac{a_i}{h_i h_j}\frac{\partial h_i}{\partial x_j} \; (i \neq j) \qquad \text{[Ec. 2.7]} $$
+          <p><strong>5. Gradient of a Vector Field ($\nabla\vec{a}$):</strong></p>
+          $$ (\nabla\vec{a})_{ii} = \frac{1}{h_i}\frac{\partial a_i}{\partial x_i} + \sum_{k \neq i} \frac{a_k}{h_i h_k}\frac{\partial h_i}{\partial x_k}, \qquad (\nabla\vec{a})_{ij} = \frac{1}{h_i}\frac{\partial a_j}{\partial x_i} - \frac{a_i}{h_i h_j}\frac{\partial h_i}{\partial x_j} \; (i \neq j) \qquad \text{[Eq. 2.7]} $$
 
-          <p><strong>6. Divergencia de un Tensor ($\nabla \cdot \bar{\bar{A}}$):</strong></p>
-          $$ (\nabla \cdot \bar{\bar{A}})_i = \frac{h_i}{h}\sum_j \frac{\partial}{\partial x_j}\left( \frac{h A_{ij}}{h_i h_j} \right) + \sum_j \frac{A_{ij} + A_{ji}}{h_i h_j}\frac{\partial h_i}{\partial x_j} - \sum_j \frac{A_{jj}}{h_i h_j}\frac{\partial h_j}{\partial x_i} \qquad \text{[Ec. 2.8]} $$
+          <p><strong>6. Divergence of a Tensor ($\nabla \cdot \bar{\bar{A}}$):</strong></p>
+          $$ (\nabla \cdot \bar{\bar{A}})_i = \frac{h_i}{h}\sum_j \frac{\partial}{\partial x_j}\left( \frac{h A_{ij}}{h_i h_j} \right) + \sum_j \frac{A_{ij} + A_{ji}}{h_i h_j}\frac{\partial h_i}{\partial x_j} - \sum_j \frac{A_{jj}}{h_i h_j}\frac{\partial h_j}{\partial x_i} \qquad \text{[Eq. 2.8]} $$
         </div>
 
         <div class="note-box">
-          <div class="note-title">Teorema General de Gauss (Notes.pdf, Ec. 2.9)</div>
+          <div class="note-title">General Gauss Divergence Theorem (Notes.pdf, Eq. 2.9)</div>
           $$ \int_\Sigma (\vec{n} \circ \phi) \, d\sigma = \int_V (\nabla \circ \phi) \, dV $$
-          donde $\phi$ representa un campo escalar, vectorial o tensorial, $V$ es el dominio acotado por la superficie cerrada $\Sigma$, y el símbolo $\circ$ representa el producto escalar, diádico o tensorial correspondiente.
+          where $\phi$ represents a scalar, vector, or tensor field, $V$ is the domain bounded by the closed surface $\Sigma$, and the symbol $\circ$ denotes the appropriate scalar, dyadic, or tensor product.
         </div>
       </section>
 
-      <!-- SECCIÓN 2: DESCRIPCIÓN EULERIANA Y LAGRANGIANA -->
+      <!-- SECTION 2: EULERIAN AND LAGRANGIAN DESCRIPTIONS -->
       <section id="sec2">
-        <h2 class="section-heading">2. Descripciones Cinemáticas: Euleriana frente a Lagrangiana</h2>
+        <h2 class="section-heading">2. Kinematic Descriptions: Eulerian vs. Lagrangian</h2>
 
-        <p>Existen dos aproximaciones conceptuales para describir el movimiento de un fluido continuo:</p>
+        <p>There are two conceptual frameworks to describe the motion of a continuum fluid:</p>
 
         <div class="card">
           <ul>
-            <li><strong>Descripción Lagrangiana:</strong> Adopta un punto de vista discreto, tratando el fluido como un conjunto de partículas fluidas individualizadas por su posición inicial $\vec{x}_0$ en el instante $t_0$. El flujo se describe mediante las trayectorias:
-              $$\vec{x} = \vec{x}_T(\vec{x}_0, t) \qquad \text{[Ec. 2.10]}$$
-              La velocidad y la aceleración se obtienen por derivación temporal directa: $\vec{v} = \frac{\partial \vec{x}_T}{\partial t}$, $\vec{a} = \frac{\partial^2 \vec{x}_T}{\partial t^2}$.
+            <li><strong>Lagrangian Description:</strong> Adopts a discrete perspective, tracking individual fluid particles identified by their initial position $\vec{x}_0$ at time $t_0$. The flow is described via trajectories:
+              $$\vec{x} = \vec{x}_T(\vec{x}_0, t) \qquad \text{[Eq. 2.10]}$$
+              Velocity and acceleration are obtained by direct time differentiation: $\vec{v} = \frac{\partial \vec{x}_T}{\partial t}$, $\vec{a} = \frac{\partial^2 \vec{x}_T}{\partial t^2}$.
             </li>
-            <li><strong>Descripción Euleriana:</strong> Asume que la velocidad es un campo vectorial continuo dependiente de la posición fija espacial $\vec{x}$ y del tiempo $t$:
+            <li><strong>Eulerian Description:</strong> Treats velocity as a continuous vector field dependent on the fixed spatial position $\vec{x}$ and time $t$:
               $$\vec{v} = \vec{v}(\vec{x}, t)$$
-              Esta es la descripción adoptada sistemáticamente en mecánica de fluidos, ya que simplifica notablemente la formulación de las leyes integrales y diferenciales de conservación.
+              This is the framework systematically adopted in fluid mechanics, as it substantially simplifies the formulation of integral and differential conservation laws.
             </li>
           </ul>
         </div>
 
-        <h3 class="sub-heading">Conceptos Cinemáticos Preliminares</h3>
+        <h3 class="sub-heading">Preliminary Kinematic Concepts</h3>
         <ul>
-          <li><strong>Flujo Uniforme:</strong> Las variaciones espaciales de todas las propiedades son idénticamente nulas. El campo de velocidades depende únicamente del tiempo: $\vec{v} = \vec{v}(t)$.</li>
-          <li><strong>Flujo Estacionario (*Steady*):</strong> Las propiedades en cada punto espacial no varían en el tiempo: $\frac{\partial \vec{v}}{\partial t} = 0 \implies \vec{v} = \vec{v}(\vec{x})$.</li>
-          <li><strong>Relatividad del Observador:</strong> El carácter estacionario o inestacionario de un flujo depende del sistema de referencia seleccionado. Alrededor de una aeronave que vuela a velocidad de crucero constante, el flujo es no estacionario para un observador fijo en tierra ($\vec{v}(\vec{x}, t)$), pero estrictamente estacionario para un observador ligado al avión o en un túnel de viento.</li>
-          <li><strong>Punto de Remanso (*Stagnation Point*):</strong> Punto donde la velocidad del fluido se anula simultáneamente en sus tres componentes:
-            $$\vec{v}(\vec{x}, t) = 0 \qquad \text{[Ec. 2.11]}$$
-            La posición de los puntos de remanso varía al cambiar el sistema de referencia.
+          <li><strong>Uniform Flow:</strong> Spatial variations of all properties are identically zero. The velocity field depends solely on time: $\vec{v} = \vec{v}(t)$.</li>
+          <li><strong>Steady Flow:</strong> Flow properties at every spatial point do not vary with time: $\frac{\partial \vec{v}}{\partial t} = 0 \implies \vec{v} = \vec{v}(\vec{x})$.</li>
+          <li><strong>Frame Relativity:</strong> Whether a flow is steady or unsteady depends on the chosen frame of reference. Around an aircraft cruising at constant velocity, the flow is unsteady to a ground-fixed observer ($\vec{v}(\vec{x}, t)$), but strictly steady to an observer attached to the aircraft or in a wind tunnel.</li>
+          <li><strong>Stagnation Point:</strong> A spatial point where fluid velocity vanishes simultaneously in all three components:
+            $$\vec{v}(\vec{x}, t) = 0 \qquad \text{[Eq. 2.11]}$$
+            The spatial location of stagnation points changes under a change of reference frame.
           </li>
         </ul>
       </section>
 
-      <!-- SECCIÓN 3: TRAYECTORIAS -->
+      <!-- SECTION 3: TRAJECTORIES AND PATHLINES -->
       <section id="sec3">
-        <h2 class="section-heading">3. Trayectorias y Líneas de Trayectoria (*Path lines*)</h2>
+        <h2 class="section-heading">3. Trajectories and Pathlines</h2>
 
-        <p>Una partícula fluida inicialmente situada en $\vec{x}_0$ en el instante $t_0$ cambia su posición en el tiempo siguiendo la ley de evolución impuesta por el campo euleriano de velocidades:</p>
+        <p>A fluid particle initially located at $\vec{x}_0$ at time $t_0$ evolves in space following the trajectory dictated by the Eulerian velocity field:</p>
 
         <div class="math-block">
-          $$ \frac{d\vec{x}}{dt} = \vec{v}(\vec{x}, t), \qquad \text{con condición inicial } \vec{x}(t_0) = \vec{x}_0 \qquad \text{[Ec. 2.12]} $$
+          $$ \frac{d\vec{x}}{dt} = \vec{v}(\vec{x}, t), \qquad \text{with initial condition } \vec{x}(t_0) = \vec{x}_0 \qquad \text{[Eq. 2.12]} $$
         </div>
 
-        <p>En coordenadas curvilíneas generales, este sistema de ecuaciones diferenciales ordinarias se escribe como:</p>
+        <p>In general curvilinear coordinates, this system of ordinary differential equations reads:</p>
         <div class="math-block">
-          $$ dt = \frac{h_1 dx_1}{v_1(x_1, x_2, x_3, t)} = \frac{h_2 dx_2}{v_2(x_1, x_2, x_3, t)} = \frac{h_3 dx_3}{v_3(x_1, x_2, x_3, t)} \qquad \text{[Ec. 2.13]} $$
+          $$ dt = \frac{h_1 dx_1}{v_1(x_1, x_2, x_3, t)} = \frac{h_2 dx_2}{v_2(x_1, x_2, x_3, t)} = \frac{h_3 dx_3}{v_3(x_1, x_2, x_3, t)} \qquad \text{[Eq. 2.13]} $$
         </div>
 
-        <p>La solución temporal representa la <strong>trayectoria</strong> $\vec{x} = \vec{x}_T(\vec{x}_0, t)$ (Ec. 2.14 en cartesianas). La trayectoria contiene información completa sobre la curva espacial recorrida y sobre la velocidad con la que la partícula viaja sobre ella.</p>
+        <p>The time-dependent solution represents the trajectory $\vec{x} = \vec{x}_T(\vec{x}_0, t)$ (Eq. 2.14 in Cartesian coordinates). The trajectory contains complete information regarding both the geometric spatial curve and the instantaneous speed at which the particle traverses it.</p>
 
-        <p>Eliminando el parámetro temporal $t$ de las ecuaciones de la trayectoria, se obtienen las <strong>líneas de trayectoria</strong> (*path lines*), expresadas como la intersección de dos superficies implícitas:</p>
+        <p>Eliminating the time parameter $t$ from the parametric trajectory equations yields the geometric <strong>pathlines</strong>, expressed as the intersection of two implicit surfaces:</p>
         <div class="math-block">
-          $$ f(x_0, y_0, z_0, x, y, z) = 0 \quad \text{y} \quad g(x_0, y_0, z_0, x, y, z) = 0 \qquad \text{[Ec. 2.15]} $$
+          $$ f(x_0, y_0, z_0, x, y, z) = 0 \quad \text{and} \quad g(x_0, y_0, z_0, x, y, z) = 0 \qquad \text{[Eq. 2.15]} $$
         </div>
       </section>
 
-      <!-- SECCIÓN 4: LÍNEAS, SUPERFICIES Y VOLÚMENES FLUIDOS -->
+      <!-- SECTION 4: FLUID LINES, SURFACES, AND VOLUMES -->
       <section id="sec4">
-        <h2 class="section-heading">4. Líneas Fluidas, Superficies Fluidas y Volúmenes Fluidos</h2>
+        <h2 class="section-heading">4. Fluid Lines, Fluid Surfaces, and Fluid Volumes</h2>
 
         <div class="card">
-          <p><strong>Línea Fluida:</strong> Las partículas fluidas que en el instante inicial $t_0$ yacen a lo largo de una curva parametrizada $\vec{x} = \vec{x}_l(\lambda)$ continuarán formando una curva continua en cualquier instante posterior:</p>
-          $$ \vec{x} = \vec{x}_T(\vec{x}_l(\lambda), t) \qquad \text{[Ec. 2.17]} $$
+          <p><strong>Fluid Line:</strong> Fluid particles that lie along a parameterized curve $\vec{x} = \vec{x}_l(\lambda)$ at the initial instant $t_0$ will continue to form a continuous curve at any subsequent instant:</p>
+          $$ \vec{x} = \vec{x}_T(\vec{x}_l(\lambda), t) \qquad \text{[Eq. 2.17]} $$
 
-          <p><strong>Superficie Fluida:</strong> De forma análoga, partículas que forman una superficie inicial $\vec{x} = \vec{x}_s(\alpha, \beta)$ evolucionan formando una superficie fluida $\vec{x} = \vec{x}_T(\vec{x}_s(\alpha, \beta), t)$ (Ec. 2.19), expresable de forma implícita como $f(\vec{x}, t) = 0$ (Ec. 2.20).</p>
+          <p><strong>Fluid Surface:</strong> Similarly, particles forming an initial surface $\vec{x} = \vec{x}_s(\alpha, \beta)$ evolve into a fluid surface $\vec{x} = \vec{x}_T(\vec{x}_s(\alpha, \beta), t)$ (Eq. 2.19), expressible implicitly as $f(\vec{x}, t) = 0$ (Eq. 2.20).</p>
 
-          <p><strong>Condición Cinemática de Superficie Fluida:</strong> Dado que las partículas que forman la superficie nunca la abandonan, el valor de $f(\vec{x}, t) = 0$ se conserva siguiendo el movimiento de las partículas, lo que impone:</p>
+          <p><strong>Kinematic Boundary Condition for a Fluid Surface:</strong> Because particles belonging to the surface never leave it, the value $f(\vec{x}, t) = 0$ is conserved along the motion of the particles, requiring:</p>
           $$ \frac{Df}{Dt} = \frac{\partial f}{\partial t} + \vec{v} \cdot \nabla f = 0 $$
 
-          <p><strong>Volumen Fluido:</strong> Es el volumen finito de fluido delimitado por una superficie fluida cerrada. Puesto que la velocidad del fluido se definió como la velocidad del centro de masas molecular de la partícula, <strong>la masa no puede atravesar una superficie fluida</strong>. Por tanto, la masa de un volumen fluido permanece estrictamente constante en el tiempo:</p>
-          $$ \frac{d}{dt} \int_{V_f(t)} \rho \, dV = 0 \qquad \text{[Primer Principio de Conservación]} $$
+          <p><strong>Fluid Volume:</strong> The finite volume of fluid bounded by a closed fluid surface. Because fluid velocity is defined as the center-of-mass velocity of the molecular cluster, <strong>mass cannot cross a fluid surface</strong>. Consequently, the mass of a fluid volume remains strictly constant in time:</p>
+          $$ \frac{d}{dt} \int_{V_f(t)} \rho \, dV = 0 \qquad \text{[First Principle of Conservation]} $$
         </div>
       </section>
 
-      <!-- SECCIÓN 5: LÍNEAS DE CORRIENTE -->
+      <!-- SECTION 5: STREAMLINES -->
       <section id="sec5">
-        <h2 class="section-heading">5. Líneas de Corriente (*Stream lines*), Superficies y Tubos de Corriente</h2>
+        <h2 class="section-heading">5. Streamlines, Stream Surfaces, and Streamtubes</h2>
 
-        <p>Las <strong>líneas de corriente</strong> en un instante determinado $t$ son las líneas tangentes en cada punto al vector velocidad instantáneo:</p>
+        <p>The <strong>streamlines</strong> at a given time $t$ are curves whose tangent at every point is collinear with the instantaneous velocity vector:</p>
 
         <div class="math-block">
-          $$ d\vec{x} \wedge \vec{v} = 0 \iff \frac{h_1 dx_1}{v_1(x_1, x_2, x_3, t)} = \frac{h_2 dx_2}{v_2(x_1, x_2, x_3, t)} = \frac{h_3 dx_3}{v_3(x_1, x_2, x_3, t)} \qquad \text{[Ec. 2.21]} $$
+          $$ d\vec{x} \wedge \vec{v} = 0 \iff \frac{h_1 dx_1}{v_1(x_1, x_2, x_3, t)} = \frac{h_2 dx_2}{v_2(x_1, x_2, x_3, t)} = \frac{h_3 dx_3}{v_3(x_1, x_2, x_3, t)} \qquad \text{[Eq. 2.21]} $$
         </div>
 
         <ul>
-          <li>En coordenadas cartesianas: $\frac{dx}{v_x} = \frac{dy}{v_y} = \frac{dz}{v_z}$.</li>
-          <li>En coordenadas cilíndricas: $\frac{dr}{v_r} = \frac{r d\theta}{v_\theta} = \frac{dz}{v_z}$.</li>
-          <li>En coordenadas esféricas: $\frac{dr}{v_r} = \frac{r d\theta}{v_\theta} = \frac{r\sin\theta d\phi}{v_\phi}$.</li>
+          <li>In Cartesian coordinates: $\frac{dx}{v_x} = \frac{dy}{v_y} = \frac{dz}{v_z}$.</li>
+          <li>In Cylindrical coordinates: $\frac{dr}{v_r} = \frac{r d\theta}{v_\theta} = \frac{dz}{v_z}$.</li>
+          <li>In Spherical coordinates: $\frac{dr}{v_r} = \frac{r d\theta}{v_\theta} = \frac{r\sin\theta d\phi}{v_\phi}$.</li>
         </ul>
 
         <div class="note-box">
-          <div class="note-title">Distinción Física Fundamental: Trayectoria frente a Línea de Corriente</div>
-          <p>Aunque las ecuaciones (2.13) y (2.21) poseen una forma visual similar, representan conceptos físicos y matemáticos completamente distintos:</p>
+          <div class="note-title">Fundamental Physical Distinction: Trajectory vs. Streamline</div>
+          <p>Although equations (2.13) and (2.21) appear algebraically similar, they represent completely distinct physical and mathematical concepts:</p>
           <ul>
-            <li>En la <strong>trayectoria</strong>, el tiempo $t$ es la variable de integración dinámica de un problema de Cauchy que sigue a una partícula a través de su historia temporal.</li>
-            <li>En la <strong>línea de corriente</strong>, el tiempo $t$ está "congelado"; actúa meramente como un parámetro fijo que define una fotografía instantánea del campo vectorial en el espacio.</li>
-            <li><strong>Teorema de Coincidencia:</strong> Las trayectorias y las líneas de corriente <strong>coinciden</strong> en flujos estacionarios ($\vec{v} = \vec{v}(\vec{x})$) o, más en general, en flujos donde la orientación del vector velocidad no cambia con el tiempo: $\vec{v}(\vec{x}, t) = f(t)\vec{V}(\vec{x})$.</li>
+            <li>In a <strong>trajectory</strong>, time $t$ is the dynamic integration variable of an initial value (Cauchy) problem tracking an individual particle through history.</li>
+            <li>In a <strong>streamline</strong>, time $t$ is "frozen"; it acts purely as a fixed parameter defining an instantaneous snapshot of the vector field in space.</li>
+            <li><strong>Coincidence Theorem:</strong> Trajectories, streamlines, and pathlines <strong>coincide</strong> in steady flows ($\vec{v} = \vec{v}(\vec{x})$), or more generally, in flows where the direction of the velocity vector is time-invariant: $\vec{v}(\vec{x}, t) = f(t)\vec{V}(\vec{x})$.</li>
           </ul>
         </div>
 
-        <p><strong>Superficie de Corriente:</strong> Es la superficie formada por todas las líneas de corriente que cortan una curva directriz dada. Puesto que $\vec{v}$ es tangente a la superficie en todo punto, ningún flujo convectivo atraviesa una superficie de corriente ($\vec{v} \cdot \vec{n} = 0$).</p>
-        <p><strong>Tubo de Corriente:</strong> Superficie de corriente generada por una directriz cerrada. Constituye un "conducto fluido impermeable" a través del cual la masa viaja confinada.</p>
+        <p><strong>Stream Surface:</strong> The surface formed by all streamlines passing through a given directrix curve. Because $\vec{v}$ is everywhere tangent to the surface, no convective flux crosses a stream surface ($\vec{v} \cdot \vec{n} = 0$).</p>
+        <p><strong>Streamtube:</strong> A stream surface generated by a closed directrix curve. It acts as an "impermeable fluid conduit" through which mass flows confined.</p>
       </section>
 
-      <!-- SECCIÓN 6: DERIVADA MATERIAL Y ACELERACIÓN -->
+      <!-- SECTION 6: MATERIAL DERIVATIVE AND ACCELERATION -->
       <section id="sec6">
-        <h2 class="section-heading">6. Derivada Material y Campo de Aceleración</h2>
+        <h2 class="section-heading">6. Material Derivative and Acceleration Field</h2>
 
-        <p>Para cuantificar la rapidez con la que cambia una propiedad intensiva escalar $\phi(\vec{x}, t)$ (densidad, presión, temperatura) experimentada por una partícula fluida en su movimiento diferencial $d\vec{x} = \vec{v} dt$:</p>
+        <p>To quantify the rate of change of an intensive scalar property $\phi(\vec{x}, t)$ (density, pressure, temperature) experienced by a fluid particle during its differential displacement $d\vec{x} = \vec{v} dt$:</p>
 
         <div class="math-block">
-          $$ d\phi = \phi(\vec{x} + d\vec{x}, t + dt) - \phi(\vec{x}, t) = \frac{\partial \phi}{\partial t} dt + d\vec{x} \cdot \nabla\phi \qquad \text{[Ec. 2.22]} $$
+          $$ d\phi = \phi(\vec{x} + d\vec{x}, t + dt) - \phi(\vec{x}, t) = \frac{\partial \phi}{\partial t} dt + d\vec{x} \cdot \nabla\phi \qquad \text{[Eq. 2.22]} $$
         </div>
 
-        <p>Dividiendo entre $dt$ se obtiene el <strong>operador derivada material</strong>:</p>
+        <p>Dividing by $dt$ yields the <strong>material derivative operator</strong>:</p>
 
         <div class="math-block">
-          $$ \mathbf{\frac{D\phi}{Dt} = \underbrace{\frac{\partial \phi}{\partial t}}_{\text{Variación Local}} + \underbrace{\vec{v} \cdot \nabla\phi}_{\text{Variación Convectiva}}} \qquad \text{[Ecs. 2.23, 2.24]} $$
+          $$ \mathbf{\frac{D\phi}{Dt} = \underbrace{\frac{\partial \phi}{\partial t}}_{\text{Local Rate of Change}} + \underbrace{\vec{v} \cdot \nabla\phi}_{\text{Convective Rate of Change}}} \qquad \text{[Eqs. 2.23, 2.24]} $$
         </div>
 
-        <h3 class="sub-heading">El Vector Aceleración de una Partícula Fluida</h3>
-        <p>Aplicando el operador material al campo de velocidad $\vec{v}(\vec{x}, t)$:</p>
+        <h3 class="sub-heading">The Acceleration Vector of a Fluid Particle</h3>
+        <p>Applying the material operator to the velocity field $\vec{v}(\vec{x}, t)$:</p>
 
         <div class="math-block">
-          $$ \vec{a} = \frac{D\vec{v}}{Dt} = \frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot (\nabla\vec{v}) \qquad \text{[Ec. 2.25]} $$
+          $$ \vec{a} = \frac{D\vec{v}}{Dt} = \frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot (\nabla\vec{v}) \qquad \text{[Eq. 2.25]} $$
         </div>
 
         <div class="card">
-          <p><strong>Expresión Intrínseca Universal (Notes.pdf, Ec. 2.26):</strong></p>
-          <p>Mediante identidades vectoriales, la aceleración se escribe independientemente del sistema de coordenadas como:</p>
+          <p><strong>Universal Intrinsic Expression (Notes.pdf, Eq. 2.26):</strong></p>
+          <p>Via vector calculus identities, acceleration can be expressed in coordinate-free form as:</p>
           $$ \mathbf{\vec{a} = \frac{\partial \vec{v}}{\partial t} + \nabla\left(\frac{|\vec{v}|^2}{2}\right) - \vec{v} \wedge (\nabla \wedge \vec{v})} $$
-          donde $-\vec{v} \wedge (\nabla \wedge \vec{v}) = -\vec{v} \wedge \vec{\omega}$ es la aceleración de Lamb debida a la vorticidad.
+          where $-\vec{v} \wedge (\nabla \wedge \vec{v}) = -\vec{v} \wedge \vec{\omega}$ is the Lamb acceleration due to vorticity.
         </div>
 
-        <p>En coordenadas cartesianas, cada componente de la aceleración equivale a la derivada material de la componente de velocidad correspondiente:</p>
+        <p>In Cartesian coordinates, each acceleration component equals the material derivative of the corresponding velocity component:</p>
         <div class="math-block">
-          $$ a_i = \frac{Dv_i}{Dt} = \frac{\partial v_i}{\partial t} + \sum_j v_j \frac{\partial v_i}{\partial x_j} = \frac{\partial v_i}{\partial t} + v_x\frac{\partial v_i}{\partial x} + v_y\frac{\partial v_i}{\partial y} + v_z\frac{\partial v_i}{\partial z} \qquad \text{[Ec. 2.27]} $$
+          $$ a_i = \frac{Dv_i}{Dt} = \frac{\partial v_i}{\partial t} + \sum_j v_j \frac{\partial v_i}{\partial x_j} = \frac{\partial v_i}{\partial t} + v_x\frac{\partial v_i}{\partial x} + v_y\frac{\partial v_i}{\partial y} + v_z\frac{\partial v_i}{\partial z} \qquad \text{[Eq. 2.27]} $$
         </div>
-        <p style="font-size: 13.5px; color: var(--text-muted);"><em>Nota de rigor:</em> Esta descomposición componente a componente directa no es válida en coordenadas curvilíneas debido a la derivada espacial de los vectores de la base local.</p>
+        <p style="font-size: 13.5px; color: var(--text-muted);"><em>Analytical note:</em> This direct component-by-component decomposition does not hold in curvilinear coordinates due to the spatial derivatives of the local basis unit vectors.</p>
 
-        <h3 class="sub-heading">Aceleración en Sistemas de Referencia No Inerciales</h3>
-        <p>Si el sistema de referencia acelera con traslación $\vec{a}_0(t)$ y gira con velocidad angular $\vec{\Omega}(t)$, la aceleración aparente del sistema es:</p>
+        <h3 class="sub-heading">Acceleration in Non-Inertial Reference Frames</h3>
+        <p>If the reference frame undergoes translational acceleration $\vec{a}_0(t)$ and rotates with angular velocity $\vec{\Omega}(t)$, the apparent acceleration of the system is:</p>
         <div class="math-block">
-          $$ \vec{a}_s = \vec{a}_0 + \frac{d\vec{\Omega}}{dt} \wedge \vec{x} + \vec{\Omega} \wedge (\vec{\Omega} \wedge \vec{x}) + 2\vec{\Omega} \wedge \vec{v} \qquad \text{[Ec. 2.28]} $$
+          $$ \vec{a}_s = \vec{a}_0 + \frac{d\vec{\Omega}}{dt} \wedge \vec{x} + \vec{\Omega} \wedge (\vec{\Omega} \wedge \vec{x}) + 2\vec{\Omega} \wedge \vec{v} \qquad \text{[Eq. 2.28]} $$
         </div>
       </section>
 
-      <!-- SECCIÓN 7: CIRCULACIÓN, VORTICIDAD Y POTENCIAL -->
+      <!-- SECTION 7: CIRCULATION, VORTICITY, AND POTENTIAL -->
       <section id="sec7">
-        <h2 class="section-heading">7. Circulación, Vorticidad y Flujo Irrotacional</h2>
+        <h2 class="section-heading">7. Circulation, Vorticity, and Irrotational Flow</h2>
 
-        <p>La <strong>circulación</strong> $\Gamma$ a lo largo de una curva orientada $L$ se define como la integral curvilínea:</p>
+        <p>The <strong>circulation</strong> $\Gamma$ along an oriented curve $L$ is defined as the line integral:</p>
         <div class="math-block">
-          $$ \Gamma = \int_L \vec{v} \cdot d\vec{l} = \int_{\lambda_1}^{\lambda_2} \vec{v}(\vec{x}_l(\lambda), t) \cdot \frac{d\vec{x}_l}{d\lambda} d\lambda \qquad \text{[Ecs. 2.29, 2.31]} $$
+          $$ \Gamma = \int_L \vec{v} \cdot d\vec{l} = \int_{\lambda_1}^{\lambda_2} \vec{v}(\vec{x}_l(\lambda), t) \cdot \frac{d\vec{x}_l}{d\lambda} d\lambda \qquad \text{[Eqs. 2.29, 2.31]} $$
         </div>
 
-        <p>Para una curva cerrada $L$, el <strong>Teorema de Stokes</strong> establece:</p>
+        <p>For a closed curve $L$, <strong>Stokes' Theorem</strong> states:</p>
         <div class="math-block">
-          $$ \mathbf{\Gamma = \oint_L \vec{v} \cdot d\vec{l} = \int_\Sigma (\nabla \wedge \vec{v}) \cdot \vec{n} \, d\sigma} \qquad \text{[Ec. 2.32]} $$
+          $$ \mathbf{\Gamma = \oint_L \vec{v} \cdot d\vec{l} = \int_\Sigma (\nabla \wedge \vec{v}) \cdot \vec{n} \, d\sigma} \qquad \text{[Eq. 2.32]} $$
         </div>
-        <p>donde $\Sigma$ es cualquier superficie abierta cuyo borde sea $L$, y el vector <strong>vorticidad</strong> se define como:</p>
+        <p>where $\Sigma$ is any open surface bounded by $L$, and the <strong>vorticity vector</strong> is defined as:</p>
         <div class="math-block">
           $$ \mathbf{\vec{\omega} = \nabla \wedge \vec{v}} $$
         </div>
 
-        <p>Para un elemento diferencial plano de área $d\sigma$ normal a $\vec{n}$, $\oint_L \vec{v}\cdot d\vec{l} = (\nabla \wedge \vec{v}) \cdot \vec{n} d\sigma$ (Ec. 2.33). Por tanto, $(\nabla \wedge \vec{v})\cdot \vec{n}$ representa físicamente la <strong>circulación por unidad de superficie orientada según $\vec{n}$</strong>.</p>
+        <p>For a planar differential element of area $d\sigma$ normal to $\vec{n}$, $\oint_L \vec{v}\cdot d\vec{l} = (\nabla \wedge \vec{v}) \cdot \vec{n} d\sigma$ (Eq. 2.33). Hence, $(\nabla \wedge \vec{v})\cdot \vec{n}$ physically represents the <strong>circulation per unit area oriented along $\vec{n}$</strong>.</p>
 
-        <h3 class="sub-heading">Flujo Irrotacional y Función Potencial de Velocidades ($\phi$)</h3>
-        <p>Un flujo es irrotacional cuando $\vec{\omega} = \nabla \wedge \vec{v} \equiv 0$. En tales condiciones, existe una función escalar potencial $\phi(\vec{x}, t)$ tal que:</p>
+        <h3 class="sub-heading">Irrotational Flow and Velocity Potential Function ($\phi$)</h3>
+        <p>A flow is irrotational when $\vec{\omega} = \nabla \wedge \vec{v} \equiv 0$. Under such conditions, there exists a scalar potential function $\phi(\vec{x}, t)$ such that:</p>
         <div class="math-block">
-          $$ \mathbf{\vec{v} = \nabla\phi} \qquad \text{[Ec. 2.34]} $$
+          $$ \mathbf{\vec{v} = \nabla\phi} \qquad \text{[Eq. 2.34]} $$
         </div>
 
         <div class="note-box">
-          <div class="note-title">Topología del Dominio y Generación de Sustentación (Notes.pdf, pág. 16)</div>
-          <p>Si la circulación a lo largo de cualquier curva cerrada es cero, el flujo es necesariamente irrotacional. No obstante, <strong>lo contrario no siempre se cumple</strong>: en dominios múltiplemente conexos (como el flujo alrededor de un perfil alar 2D), existen curvas cerradas que no pueden colapsarse a un punto sin salir del dominio fluido. En tales curvas, la circulación $\Gamma \neq 0$ a pesar de que $\nabla \wedge \vec{v} = 0$ en todo el fluido exterior, originando la fuerza de sustentación de los perfiles aerodinámicos (Teorema de Kutta-Joukowski: $L' = \rho_\infty V_\infty \Gamma$).</p>
+          <div class="note-title">Domain Topology and Lift Generation (Notes.pdf, p. 16)</div>
+          <p>If circulation along every closed curve is zero, the flow is necessarily irrotational. However, <strong>the converse is not universally true</strong>: in multiply-connected domains (such as flow around a 2D airfoil), closed curves exist that cannot be contracted to a point within the fluid domain. Along such curves, circulation $\Gamma \neq 0$ even though $\nabla \wedge \vec{v} = 0$ everywhere throughout the exterior fluid, generating the aerodynamic lift force on airfoils (Kutta-Joukowski Theorem: $L' = \rho_\infty V_\infty \Gamma$).</p>
         </div>
       </section>
 
-      <!-- SECCIÓN 8: FLUJO CONVECTIVO -->
+      <!-- SECTION 8: CONVECTIVE FLUX -->
       <section id="sec8">
-        <h2 class="section-heading">8. Flujo Convectivo de Magnitudes Extensivas</h2>
+        <h2 class="section-heading">8. Convective Flux of Extensive Properties</h2>
 
-        <p>Considerando una magnitud del fluido $\phi(\vec{x}, t)$ expresada por unidad de volumen, el ritmo de transporte neto que cruza una superficie fija $\Sigma_0$ por unidad de tiempo es el <strong>flujo convectivo</strong>:</p>
+        <p>Considering a fluid property $\phi(\vec{x}, t)$ expressed per unit volume, the net transport rate crossing a fixed surface $\Sigma_0$ per unit time is the <strong>convective flux</strong>:</p>
 
         <div class="math-block">
-          $$ \mathbf{\Phi_{\text{conv}} = \int_{\Sigma_0} \phi \, \vec{v} \cdot \vec{n} \, d\sigma} \qquad \text{[Ec. 2.35]} $$
+          $$ \mathbf{\Phi_{\text{conv}} = \int_{\Sigma_0} \phi \, \vec{v} \cdot \vec{n} \, d\sigma} \qquad \text{[Eq. 2.35]} $$
         </div>
 
         <div class="table-wrapper">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Magnitud Transportada</th>
-                <th>Densidad Volumétrica ($\phi$)</th>
-                <th>Flujo Convectivo Específico ($\phi\vec{v}$)</th>
-                <th>Flujo Total a través de $\Sigma_0$</th>
+                <th>Transported Quantity</th>
+                <th>Volumetric Density ($\phi$)</th>
+                <th>Specific Convective Flux ($\phi\vec{v}$)</th>
+                <th>Total Flux across $\Sigma_0$</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Volumen</strong></td>
+                <td><strong>Volume</strong></td>
                 <td>$\phi = 1$</td>
-                <td>$\vec{v}$ (vector caudal de volumen)</td>
-                <td>$Q = \int_{\Sigma_0} \vec{v} \cdot \vec{n} \, d\sigma$ (Caudal volumétrico, Ec. 2.36)</td>
+                <td>$\vec{v}$ (volume flux vector)</td>
+                <td>$Q = \int_{\Sigma_0} \vec{v} \cdot \vec{n} \, d\sigma$ (Volumetric flow rate, Eq. 2.36)</td>
               </tr>
               <tr>
-                <td><strong>Masa</strong></td>
+                <td><strong>Mass</strong></td>
                 <td>$\phi = \rho$</td>
-                <td>$\rho\vec{v}$ (vector flujo de masa)</td>
-                <td>$\dot{m} = \int_{\Sigma_0} \rho \vec{v} \cdot \vec{n} \, d\sigma$ (Gasto másico)</td>
+                <td>$\rho\vec{v}$ (mass flux vector)</td>
+                <td>$\dot{m} = \int_{\Sigma_0} \rho \vec{v} \cdot \vec{n} \, d\sigma$ (Mass flow rate)</td>
               </tr>
               <tr>
-                <td><strong>Cantidad de Movimiento</strong></td>
+                <td><strong>Linear Momentum</strong></td>
                 <td>$\phi = \rho\vec{v}$</td>
-                <td>$\rho\vec{v}\vec{v}$ (tensor de flujo de momento)</td>
+                <td>$\rho\vec{v}\vec{v}$ (momentum flux tensor)</td>
                 <td>$\int_{\Sigma_0} \rho\vec{v}(\vec{v} \cdot \vec{n}) \, d\sigma$</td>
               </tr>
               <tr>
-                <td><strong>Energía Total</strong></td>
+                <td><strong>Total Energy</strong></td>
                 <td>$\phi = \rho\left(e + \frac{|\vec{v}|^2}{2}\right)$</td>
                 <td>$\rho\left(e + \frac{|\vec{v}|^2}{2}\right)\vec{v}$</td>
                 <td>$\dot{E} = \int_{\Sigma_0} \rho\left(e + \frac{|\vec{v}|^2}{2}\right)\vec{v} \cdot \vec{n} \, d\sigma$</td>
@@ -779,193 +779,193 @@
           </table>
         </div>
 
-        <p>Para una superficie cerrada que encierra el volumen $V_0$, el Teorema de Gauss establece:</p>
+        <p>For a closed surface enclosing volume $V_0$, the Gauss Divergence Theorem states:</p>
         <div class="math-block">
-          $$ \int_{\Sigma_0} \phi \, \vec{v} \cdot \vec{n} \, d\sigma = \int_{V_0} \nabla \cdot (\phi\vec{v}) \, dV \qquad \text{[Ec. 2.37]} $$
+          $$ \int_{\Sigma_0} \phi \, \vec{v} \cdot \vec{n} \, d\sigma = \int_{V_0} \nabla \cdot (\phi\vec{v}) \, dV \qquad \text{[Eq. 2.37]} $$
         </div>
-        <p>Por tanto, $\nabla \cdot \vec{v}$ representa la tasa de pérdida de volumen por unidad de volumen (**tasa de dilatación o expansión volumétrica**). Para un líquido perfecto o fluido incompresible, cuya densidad es estrictamente constante:</p>
+        <p>Therefore, $\nabla \cdot \vec{v}$ represents the rate of volume loss per unit volume (<strong>volumetric expansion or dilation rate</strong>). For a perfect liquid or incompressible fluid whose density is strictly constant:</p>
         <div class="math-block">
-          $$ \mathbf{\nabla \cdot \vec{v} = 0} \qquad \text{[Ec. 2.38]} $$
+          $$ \mathbf{\nabla \cdot \vec{v} = 0} \qquad \text{[Eq. 2.38]} $$
         </div>
-        <p>Para una superficie móvil $\Sigma_c(t)$ con velocidad $\vec{v}_c$, el flujo se evalúa con la velocidad relativa: $\int_{\Sigma_c} \phi (\vec{v} - \vec{v}_c) \cdot \vec{n} \, d\sigma$ (Ec. 2.39).</p>
+        <p>For a moving control surface $\Sigma_c(t)$ with velocity $\vec{v}_c$, the flux is evaluated using the relative velocity: $\int_{\Sigma_c} \phi (\vec{v} - \vec{v}_c) \cdot \vec{n} \, d\sigma$ (Eq. 2.39).</p>
       </section>
 
-      <!-- SECCIÓN 9: FUNCIÓN DE CORRIENTE -->
+      <!-- SECTION 9: STREAM FUNCTION -->
       <section id="sec9">
-        <h2 class="section-heading">9. La Función de Corriente ($\psi$) para Flujos Planos</h2>
+        <h2 class="section-heading">9. The Stream Function ($\psi$) for Planar Flows</h2>
 
-        <p>Para un flujo plano bidimensional incompresible en el plano cartesiano $x-y$, la condición de divergencia nula adopta la forma:</p>
+        <p>For an incompressible two-dimensional planar flow in the Cartesian $x-y$ plane, the zero-divergence condition takes the form:</p>
         <div class="math-block">
-          $$ \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0 \qquad \text{[Ec. 2.40]} $$
+          $$ \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0 \qquad \text{[Eq. 2.40]} $$
         </div>
 
-        <p>Se introduce la <strong>función de corriente</strong> $\psi(x, y, t)$ definida mediante:</p>
+        <p>The <strong>stream function</strong> $\psi(x, y, t)$ is defined by:</p>
         <div class="math-block">
-          $$ \mathbf{v_x = \frac{\partial \psi}{\partial y}}, \qquad \mathbf{v_y = -\frac{\partial \psi}{\partial x}} \qquad \text{[Ec. 2.41]} $$
+          $$ \mathbf{v_x = \frac{\partial \psi}{\partial y}}, \qquad \mathbf{v_y = -\frac{\partial \psi}{\partial x}} \qquad \text{[Eq. 2.41]} $$
         </div>
 
-        <h3 class="sub-heading">Propiedades Matemáticas y Físicas de la Función de Corriente</h3>
+        <h3 class="sub-heading">Mathematical and Physical Properties of the Stream Function</h3>
         <div class="card">
-          <p><strong>1. Las isolíneas $\psi = \text{constante}$ son Líneas de Corriente:</strong></p>
-          <p>Diferenciando $\psi$ a lo largo de una línea de nivel:</p>
-          $$ d\psi = \frac{\partial \psi}{\partial x} dx + \frac{\partial \psi}{\partial y} dy = -v_y dx + v_x dy = 0 \implies \mathbf{\frac{dx}{v_x} = \frac{dy}{v_y}} \qquad \text{[Ecs. 2.42, 2.43]} $$
-          que coincide idénticamente con la ecuación diferencial de las líneas de corriente.
+          <p><strong>1. Level curves $\psi = \text{constant}$ are Streamlines:</strong></p>
+          <p>Differentiating $\psi$ along a level curve:</p>
+          $$ d\psi = \frac{\partial \psi}{\partial x} dx + \frac{\partial \psi}{\partial y} dy = -v_y dx + v_x dy = 0 \implies \mathbf{\frac{dx}{v_x} = \frac{dy}{v_y}} \qquad \text{[Eqs. 2.42, 2.43]} $$
+          which is identical to the differential equation of streamlines.
 
-          <p><strong>2. El salto $\Delta\psi = \psi_2 - \psi_1$ mide el Caudal Volumétrico Circulante:</strong></p>
-          <p>Integrando $d\psi$ entre dos líneas de corriente 1 y 2 a lo largo de una curva cualquiera de normal unitaria $\vec{n}$:</p>
-          $$ \psi_2 - \psi_1 = \int_1^2 d\psi = \int_1^2 (-v_y dx + v_x dy) = \mathbf{\int_1^2 \vec{v} \cdot \vec{n} \, dl = Q'} \qquad \text{[Ecs. 2.44, 2.45]} $$
-          donde $Q'$ es el caudal volumétrico por unidad de longitud en la dirección perpendicular al plano del flujo.
+          <p><strong>2. The difference $\Delta\psi = \psi_2 - \psi_1$ measures the Volume Flow Rate:</strong></p>
+          <p>Integrating $d\psi$ between two streamlines 1 and 2 along an arbitrary curve with unit normal $\vec{n}$:</p>
+          $$ \psi_2 - \psi_1 = \int_1^2 d\psi = \int_1^2 (-v_y dx + v_x dy) = \mathbf{\int_1^2 \vec{v} \cdot \vec{n} \, dl = Q'} \qquad \text{[Eqs. 2.44, 2.45]} $$
+          where $Q'$ is the volumetric flow rate per unit depth normal to the flow plane.
         </div>
       </section>
 
-      <!-- SECCIÓN 10: CINEMÁTICA DE LA DEFORMACIÓN -->
+      <!-- SECTION 10: KINEMATICS OF DEFORMATION -->
       <section id="sec10">
-        <h2 class="section-heading">10. Cinemática de la Deformación: Tensores de Deformación y Rotación</h2>
+        <h2 class="section-heading">10. Kinematics of Deformation: Strain Rate and Rotation Tensors</h2>
 
-        <p>La fuerza que ejerce una porción de fluido sobre otra adyacente es proporcional a la tasa a la que el fluido se deforma. La diferencia de velocidad entre los extremos de un elemento de línea fluida $d\vec{x}$ viene dada en primera aproximación por:</p>
+        <p>The force that adjacent fluid elements exert on one another is proportional to the rate at which the fluid deforms. To first order, the velocity difference across a differential fluid element $d\vec{x}$ is given by:</p>
         <div class="math-block">
-          $$ d\vec{v} = d\vec{x} \cdot \nabla\vec{v} \qquad \text{[Ec. 2.46]} $$
+          $$ d\vec{v} = d\vec{x} \cdot \nabla\vec{v} \qquad \text{[Eq. 2.46]} $$
         </div>
 
-        <h3 class="sub-heading">Descomposición de Helmholtz (Notes.pdf, Ecs. 2.47–2.52)</h3>
-        <p>El tensor gradiente de velocidad $\nabla\vec{v}$ se descompone de forma exacta en una parte simétrica $\bar{\bar{T}}_d$ y una parte antisimétrica $\bar{\bar{T}}_r$:</p>
+        <h3 class="sub-heading">Helmholtz Decomposition (Notes.pdf, Eqs. 2.47–2.52)</h3>
+        <p>The velocity gradient tensor $\nabla\vec{v}$ is decomposed uniquely into a symmetric part $\bar{\bar{T}}_d$ and an antisymmetric part $\bar{\bar{T}}_r$:</p>
 
         <div class="math-block">
-          $$ \mathbf{\nabla\vec{v} = \underbrace{\frac{1}{2}(\nabla\vec{v} + \nabla\vec{v}^T)}_{\bar{\bar{T}}_d \text{ (Tensor velocidad de deformación)}} + \underbrace{\frac{1}{2}(\nabla\vec{v} - \nabla\vec{v}^T)}_{\bar{\bar{T}}_r \text{ (Tensor velocidad de rotación)}}} \qquad \text{[Ec. 2.47]} $$
+          $$ \mathbf{\nabla\vec{v} = \underbrace{\frac{1}{2}(\nabla\vec{v} + \nabla\vec{v}^T)}_{\bar{\bar{T}}_d \text{ (Rate-of-strain tensor)}} + \underbrace{\frac{1}{2}(\nabla\vec{v} - \nabla\vec{v}^T)}_{\bar{\bar{T}}_r \text{ (Rate-of-rotation tensor)}}} \qquad \text{[Eq. 2.47]} $$
         </div>
 
         <div class="card">
-          <p><strong>A. Tensor Velocidad de Rotación ($\bar{\bar{T}}_r$) y Rotación Rígida:</strong></p>
-          $$ \bar{\bar{T}}_r = \frac{1}{2} \begin{bmatrix} 0 & \omega_3 & -\omega_2 \\ -\omega_3 & 0 & \omega_1 \\ \omega_2 & -\omega_1 & 0 \end{bmatrix} \qquad \text{[Ec. 2.50]} $$
-          La acción de $\bar{\bar{T}}_r$ sobre el elemento $d\vec{x}$ produce una rotación de sólido rígido:
-          $$ d\vec{v}_r = d\vec{x} \cdot \bar{\bar{T}}_r = \frac{1}{2}(\nabla \wedge \vec{v}) \wedge d\vec{x} = \mathbf{\frac{1}{2}\vec{\omega} \wedge d\vec{x}} \qquad \text{[Ec. 2.52]} $$
-          con velocidad angular del elemento dada por $\vec{\Omega}_f = \frac{1}{2}\vec{\omega}$. Si $\bar{\bar{T}}_d \equiv 0$, el fluido se comporta exactamente como un sólido rígido (traslación + rotación pura).
+          <p><strong>A. Rate-of-Rotation Tensor ($\bar{\bar{T}}_r$) and Rigid-Body Rotation:</strong></p>
+          $$ \bar{\bar{T}}_r = \frac{1}{2} \begin{bmatrix} 0 & \omega_3 & -\omega_2 \\ -\omega_3 & 0 & \omega_1 \\ \omega_2 & -\omega_1 & 0 \end{bmatrix} \qquad \text{[Eq. 2.50]} $$
+          The action of $\bar{\bar{T}}_r$ on the element $d\vec{x}$ produces rigid-body rotation:
+          $$ d\vec{v}_r = d\vec{x} \cdot \bar{\bar{T}}_r = \frac{1}{2}(\nabla \wedge \vec{v}) \wedge d\vec{x} = \mathbf{\frac{1}{2}\vec{\omega} \wedge d\vec{x}} \qquad \text{[Eq. 2.52]} $$
+          with local angular velocity $\vec{\Omega}_f = \frac{1}{2}\vec{\omega}$. If $\bar{\bar{T}}_d \equiv 0$, the fluid moves purely as a rigid body (pure translation + rigid rotation).
 
-          <p><strong>B. Tensor Velocidad de Deformación ($\bar{\bar{T}}_d$):</strong></p>
-          $$ \bar{\bar{T}}_d = \begin{bmatrix} \frac{\partial v_1}{\partial x_1} & \frac{1}{2}\left(\frac{\partial v_2}{\partial x_1} + \frac{\partial v_1}{\partial x_2}\right) & \frac{1}{2}\left(\frac{\partial v_3}{\partial x_1} + \frac{\partial v_1}{\partial x_3}\right) \\ \frac{1}{2}\left(\frac{\partial v_2}{\partial x_1} + \frac{\partial v_1}{\partial x_2}\right) & \frac{\partial v_2}{\partial x_2} & \frac{1}{2}\left(\frac{\partial v_3}{\partial x_2} + \frac{\partial v_2}{\partial x_3}\right) \\ \frac{1}{2}\left(\frac{\partial v_3}{\partial x_1} + \frac{\partial v_1}{\partial x_3}\right) & \frac{1}{2}\left(\frac{\partial v_3}{\partial x_2} + \frac{\partial v_2}{\partial x_3}\right) & \frac{\partial v_3}{\partial x_3} \end{bmatrix} \qquad \text{[Ec. 2.48]} $$
-          Expresando $d\vec{x} = \vec{n} ds$, la tasa de deformación es $d\vec{v}_d = \bar{\bar{T}}_d \cdot \vec{n} ds$ (Ec. 2.53):
+          <p><strong>B. Rate-of-Strain Tensor ($\bar{\bar{T}}_d$):</strong></p>
+          $$ \bar{\bar{T}}_d = \begin{bmatrix} \frac{\partial v_1}{\partial x_1} & \frac{1}{2}\left(\frac{\partial v_2}{\partial x_1} + \frac{\partial v_1}{\partial x_2}\right) & \frac{1}{2}\left(\frac{\partial v_3}{\partial x_1} + \frac{\partial v_1}{\partial x_3}\right) \\ \frac{1}{2}\left(\frac{\partial v_2}{\partial x_1} + \frac{\partial v_1}{\partial x_2}\right) & \frac{\partial v_2}{\partial x_2} & \frac{1}{2}\left(\frac{\partial v_3}{\partial x_2} + \frac{\partial v_2}{\partial x_3}\right) \\ \frac{1}{2}\left(\frac{\partial v_3}{\partial x_1} + \frac{\partial v_1}{\partial x_3}\right) & \frac{1}{2}\left(\frac{\partial v_3}{\partial x_2} + \frac{\partial v_2}{\partial x_3}\right) & \frac{\partial v_3}{\partial x_3} \end{bmatrix} \qquad \text{[Eq. 2.48]} $$
+          Writing $d\vec{x} = \vec{n} ds$, the strain rate velocity increment is $d\vec{v}_d = \bar{\bar{T}}_d \cdot \vec{n} ds$ (Eq. 2.53):
           <ul>
-            <li><strong>Tasa de extensión unitaria en la dirección $\vec{n}$:</strong> $\dot{\epsilon}_n = \vec{n} \cdot \bar{\bar{T}}_d \cdot \vec{n}$.</li>
-            <li><strong>Tasa de deformación por cizalladura:</strong> $[\bar{\bar{T}}_d \cdot \vec{n} - (\vec{n} \cdot \bar{\bar{T}}_d \cdot \vec{n})\vec{n}]ds$.</li>
+            <li><strong>Unit rate of extension in direction $\vec{n}$:</strong> $\dot{\epsilon}_n = \vec{n} \cdot \bar{\bar{T}}_d \cdot \vec{n}$.</li>
+            <li><strong>Shear strain rate:</strong> $[\bar{\bar{T}}_d \cdot \vec{n} - (\vec{n} \cdot \bar{\bar{T}}_d \cdot \vec{n})\vec{n}]ds$.</li>
           </ul>
         </div>
 
-        <h3 class="sub-heading">Direcciones Principales de Deformación (Notes.pdf, Ecs. 2.54–2.55)</h3>
-        <p>Existen tres direcciones ortogonales del espacio $(\vec{n}_1, \vec{n}_2, \vec{n}_3)$ a lo largo de las cuales no existe cizalladura alguna (la deformación se reduce a extensión o compresión pura). Se obtienen resolviendo el problema de autovalores:</p>
+        <h3 class="sub-heading">Principal Directions of Strain (Notes.pdf, Eqs. 2.54–2.55)</h3>
+        <p>There exist three mutually orthogonal spatial directions $(\vec{n}_1, \vec{n}_2, \vec{n}_3)$ along which shear strain vanishes identically (deformation consists purely of normal extension or compression). These are found by solving the eigenvalue problem:</p>
         <div class="math-block">
-          $$ \bar{\bar{T}}_d \cdot \vec{n} = \lambda \vec{n} \iff |\bar{\bar{T}}_d - \lambda \bar{\bar{I}}| = 0 \qquad \text{[Ecs. 2.54, 2.55]} $$
+          $$ \bar{\bar{T}}_d \cdot \vec{n} = \lambda \vec{n} \iff |\bar{\bar{T}}_d - \lambda \bar{\bar{I}}| = 0 \qquad \text{[Eqs. 2.54, 2.55]} $$
         </div>
-        <p>Al ser $\bar{\bar{T}}_d$ real y simétrico, sus autovalores $(\lambda_1, \lambda_2, \lambda_3)$ son reales y sus autovectores son mutuamente perpendiculares.</p>
+        <p>Since $\bar{\bar{T}}_d$ is real and symmetric, its eigenvalues $(\lambda_1, \lambda_2, \lambda_3)$ are real and its eigenvectors are mutually orthogonal.</p>
 
-        <h3 class="sub-heading">Deformación de Elementos Cuadrado y Cúbico: Dilatación Volumétrica</h3>
-        <p>Considerando la evolución de un elemento cúbico infinitesimal de arista $dl$ y volumen inicial $V_0 = dl^3$, el nuevo volumen tras un tiempo $dt$ viene dado por el determinante de la transformación:</p>
+        <h3 class="sub-heading">Deformation of Fluid Elements: Volumetric Dilation</h3>
+        <p>Considering the evolution of an infinitesimal cubic element of side length $dl$ and initial volume $V_0 = dl^3$, the volume after time $dt$ is given by the transformation determinant:</p>
         <div class="math-block">
-          $$ V_f = dl^3 \begin{vmatrix} 1 + \frac{\partial v_1}{\partial x_1}dt & \frac{\partial v_2}{\partial x_1}dt & \frac{\partial v_3}{\partial x_1}dt \\ \frac{\partial v_1}{\partial x_2}dt & 1 + \frac{\partial v_2}{\partial x_2}dt & \frac{\partial v_3}{\partial x_2}dt \\ \frac{\partial v_1}{\partial x_3}dt & \frac{\partial v_2}{\partial x_3}dt & 1 + \frac{\partial v_3}{\partial x_3}dt \end{vmatrix} \simeq dl^3 + dl^3 dt \left( \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} \right) \qquad \text{[Ec. 2.62]} $$
+          $$ V_f = dl^3 \begin{vmatrix} 1 + \frac{\partial v_1}{\partial x_1}dt & \frac{\partial v_2}{\partial x_1}dt & \frac{\partial v_3}{\partial x_1}dt \\ \frac{\partial v_1}{\partial x_2}dt & 1 + \frac{\partial v_2}{\partial x_2}dt & \frac{\partial v_3}{\partial x_2}dt \\ \frac{\partial v_1}{\partial x_3}dt & \frac{\partial v_2}{\partial x_3}dt & 1 + \frac{\partial v_3}{\partial x_3}dt \end{vmatrix} \simeq dl^3 + dl^3 dt \left( \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} \right) \qquad \text{[Eq. 2.62]} $$
         </div>
 
         <div class="note-box">
-          <div class="note-title">Significado Físico de la Divergencia de la Velocidad</div>
-          <p>La divergencia de la velocidad $\nabla \cdot \vec{v}$ representa exactamente la **tasa de cambio de volumen por unidad de volumen** (tasa de dilatación o expansión volumétrica) y coincide con la traza de los tensores $\nabla\vec{v}$ y $\bar{\bar{T}}_d$:</p>
+          <div class="note-title">Physical Meaning of Velocity Divergence</div>
+          <p>Velocity divergence $\nabla \cdot \vec{v}$ represents the rate of volume change per unit volume (<strong>volumetric expansion or dilation rate</strong>) and equals the trace of $\nabla\vec{v}$ and $\bar{\bar{T}}_d$:</p>
           $$ \mathbf{\frac{1}{V}\frac{dV}{dt} = \nabla \cdot \vec{v} = \text{tr}(\bar{\bar{T}}_d) = \lambda_1 + \lambda_2 + \lambda_3} $$
-          <p>Para un líquido perfecto (densidad constante), el volumen de la partícula fluida no puede cambiar:</p>
-          $$ \mathbf{\nabla \cdot \vec{v} = 0 \iff \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} = 0} \qquad \text{[Ec. 2.63]} $$
-          Por consiguiente, para que un fluido incompresible se deforme preservando el volumen, las tasas de extensión $(\partial_1 v_1, \partial_2 v_2, \partial_3 v_3)$ **no pueden tener todas el mismo signo**: toda elongación en una dirección debe compensarse con una compresión en las restantes.
+          <p>For a perfect liquid (constant density), fluid particle volume cannot change:</p>
+          $$ \mathbf{\nabla \cdot \vec{v} = 0 \iff \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} = 0} \qquad \text{[Eq. 2.63]} $$
+          Consequently, for an incompressible fluid to deform while preserving volume, the extension rates $(\partial_1 v_1, \partial_2 v_2, \partial_3 v_3)$ <strong>cannot all have the same sign</strong>: any elongation in one direction must be balanced by compression in the others.
         </div>
       </section>
 
-      <!-- SECCIÓN 11: PRONTUARIO DE ECUACIONES -->
+      <!-- SECTION 11: FORMULA SUMMARY -->
       <section id="sec11">
-        <h2 class="section-heading">11. Prontuario Completo de Fórmulas del Capítulo 2</h2>
+        <h2 class="section-heading">11. Comprehensive Formula Summary of Chapter 2</h2>
 
         <div class="table-wrapper">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Concepto Cinemático</th>
-                <th>Expresión Matemática</th>
-                <th>Ecuación en Notes.pdf</th>
+                <th>Kinematic Concept</th>
+                <th>Mathematical Expression</th>
+                <th>Equation in Notes.pdf</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Diferencial métrico general</strong></td>
+                <td><strong>General metric differential</strong></td>
                 <td>$d\vec{x} = (h_1 dx_1, h_2 dx_2, h_3 dx_3)$</td>
-                <td>Pág. 10</td>
+                <td>p. 10</td>
               </tr>
               <tr>
-                <td><strong>Gradiente de escalar</strong></td>
+                <td><strong>Gradient of a scalar</strong></td>
                 <td>$\nabla\Phi = \left(\frac{1}{h_1}\frac{\partial\Phi}{\partial x_1}, \frac{1}{h_2}\frac{\partial\Phi}{\partial x_2}, \frac{1}{h_3}\frac{\partial\Phi}{\partial x_3}\right)$</td>
-                <td>Ec. 2.3</td>
+                <td>Eq. 2.3</td>
               </tr>
               <tr>
-                <td><strong>Divergencia de vector</strong></td>
+                <td><strong>Divergence of a vector</strong></td>
                 <td>$\nabla\cdot\vec{a} = \frac{1}{h_1 h_2 h_3}\sum_i \frac{\partial}{\partial x_i}\left(\frac{h_1 h_2 h_3}{h_i}a_i\right)$</td>
-                <td>Ec. 2.5</td>
+                <td>Eq. 2.5</td>
               </tr>
               <tr>
-                <td><strong>Rotacional de vector</strong></td>
+                <td><strong>Curl of a vector</strong></td>
                 <td>$\nabla\wedge\vec{a} = \frac{1}{h_1 h_2 h_3}\det[h_i \vec{e}_i, \partial/\partial x_i, h_i a_i]$</td>
-                <td>Ec. 2.6</td>
+                <td>Eq. 2.6</td>
               </tr>
               <tr>
-                <td><strong>Teorema de Gauss</strong></td>
+                <td><strong>Gauss divergence theorem</strong></td>
                 <td>$\int_\Sigma (\vec{n}\circ\phi)d\sigma = \int_V (\nabla\circ\phi)dV$</td>
-                <td>Ec. 2.9</td>
+                <td>Eq. 2.9</td>
               </tr>
               <tr>
-                <td><strong>Trayectoria fluida</strong></td>
+                <td><strong>Fluid trajectory</strong></td>
                 <td>$d\vec{x}/dt = \vec{v}(\vec{x}, t), \quad \vec{x}(t_0) = \vec{x}_0$</td>
-                <td>Ec. 2.12</td>
+                <td>Eq. 2.12</td>
               </tr>
               <tr>
-                <td><strong>Superficie fluida</strong></td>
+                <td><strong>Fluid surface</strong></td>
                 <td>$\frac{Df}{Dt} = \frac{\partial f}{\partial t} + \vec{v}\cdot\nabla f = 0$</td>
-                <td>Pág. 14</td>
+                <td>p. 14</td>
               </tr>
               <tr>
-                <td><strong>Línea de corriente</strong></td>
+                <td><strong>Streamline</strong></td>
                 <td>$\frac{h_1 dx_1}{v_1} = \frac{h_2 dx_2}{v_2} = \frac{h_3 dx_3}{v_3}$</td>
-                <td>Ec. 2.21</td>
+                <td>Eq. 2.21</td>
               </tr>
               <tr>
-                <td><strong>Derivada material</strong></td>
+                <td><strong>Material derivative</strong></td>
                 <td>$\frac{D\phi}{Dt} = \frac{\partial\phi}{\partial t} + \vec{v}\cdot\nabla\phi$</td>
-                <td>Ec. 2.24</td>
+                <td>Eq. 2.24</td>
               </tr>
               <tr>
-                <td><strong>Aceleración intrínseca</strong></td>
+                <td><strong>Intrinsic acceleration</strong></td>
                 <td>$\vec{a} = \frac{\partial\vec{v}}{\partial t} + \nabla\left(\frac{|\vec{v}|^2}{2}\right) - \vec{v}\wedge(\nabla\wedge\vec{v})$</td>
-                <td>Ec. 2.26</td>
+                <td>Eq. 2.26</td>
               </tr>
               <tr>
-                <td><strong>Circulación y Vorticidad</strong></td>
+                <td><strong>Circulation and Vorticity</strong></td>
                 <td>$\Gamma = \oint_L \vec{v}\cdot d\vec{l} = \int_\Sigma (\nabla\wedge\vec{v})\cdot\vec{n}d\sigma, \quad \vec{\omega}=\nabla\wedge\vec{v}$</td>
-                <td>Ec. 2.32</td>
+                <td>Eq. 2.32</td>
               </tr>
               <tr>
-                <td><strong>Potencial de velocidades</strong></td>
+                <td><strong>Velocity potential</strong></td>
                 <td>$\vec{\omega}=0 \implies \vec{v} = \nabla\phi$</td>
-                <td>Ec. 2.34</td>
+                <td>Eq. 2.34</td>
               </tr>
               <tr>
-                <td><strong>Flujo convectivo</strong></td>
+                <td><strong>Convective flux</strong></td>
                 <td>$\Phi_{\text{conv}} = \int_\Sigma \phi \vec{v}\cdot\vec{n}d\sigma, \quad Q = \int_\Sigma \vec{v}\cdot\vec{n}d\sigma$</td>
-                <td>Ecs. 2.35, 2.36</td>
+                <td>Eqs. 2.35, 2.36</td>
               </tr>
               <tr>
-                <td><strong>Función de corriente</strong></td>
+                <td><strong>Stream function</strong></td>
                 <td>$v_x = \frac{\partial\psi}{\partial y}, \; v_y = -\frac{\partial\psi}{\partial x}, \quad Q' = \psi_2 - \psi_1$</td>
-                <td>Ecs. 2.41, 2.45</td>
+                <td>Eqs. 2.41, 2.45</td>
               </tr>
               <tr>
-                <td><strong>Descomposición de Helmholtz</strong></td>
+                <td><strong>Helmholtz decomposition</strong></td>
                 <td>$\nabla\vec{v} = \bar{\bar{T}}_d + \bar{\bar{T}}_r, \quad d\vec{v}_r = \frac{1}{2}\vec{\omega}\wedge d\vec{x}$</td>
-                <td>Ecs. 2.47, 2.52</td>
+                <td>Eqs. 2.47, 2.52</td>
               </tr>
               <tr>
-                <td><strong>Tasa de dilatación volumétrica</strong></td>
+                <td><strong>Volumetric dilation rate</strong></td>
                 <td>$\frac{1}{V}\frac{dV}{dt} = \nabla\cdot\vec{v} = \text{tr}(\bar{\bar{T}}_d)$</td>
-                <td>Ec. 2.62</td>
+                <td>Eq. 2.62</td>
               </tr>
             </tbody>
           </table>

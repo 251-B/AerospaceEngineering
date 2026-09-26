@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tema 1: Introductory Remarks and Starting Assumptions — Fluid Mechanics</title>
+  <title>Topic 1: Introductory Remarks and Starting Assumptions — Fluid Mechanics</title>
   
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -380,7 +380,7 @@
     <div class="header-inner">
       <div class="brand-area">
         <span class="brand-badge">FLUID MECHANICS</span>
-        <span style="font-size: 13px; color: var(--text-muted);">Tema 1: Fundamentos</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 1: Fundamentals</span>
       </div>
       <div class="nav-actions">
         <a href="../problemas/index.html" class="back-link">
@@ -400,50 +400,50 @@
     <article>
       <!-- Title Header -->
       <header class="article-header">
-        <div class="article-category">Capítulo 1 · Teoría Fundamental</div>
+        <div class="article-category">Chapter 1 · Core Theory</div>
         <h1 class="article-title">Introductory Remarks and Starting Assumptions</h1>
-        <p class="article-meta">Mecánica de Fluidos — 2º Curso del Grado en Ingeniería Aeroespacial (UC3M)</p>
+        <p class="article-meta">Fluid Mechanics — 2nd Year Bachelor's Degree in Aerospace Engineering (UC3M)</p>
         <div class="source-box">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Fuentes de referencia: Notes.pdf (Capítulo 1, Págs. 1–8) | slides_Chapters1-2.pdf (1.0–1.8) · Profs. Antonio L. Sánchez & Javier Rodríguez-Rodríguez
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Reference sources: Notes.pdf (Chapter 1, pp. 1–8) | slides_Chapters1-2.pdf (1.0–1.8) · Profs. Antonio L. Sánchez &amp; Javier Rodríguez-Rodríguez
         </div>
       </header>
 
-      <!-- SECCIÓN 1: SÓLIDOS, LÍQUIDOS Y GASES -->
+      <!-- SECTION 1: SOLIDS, LIQUIDS AND GASES -->
       <section>
-        <h2 class="section-heading">1. Sólidos, Líquidos y Gases: Comportamiento Mecánico y Estructura Microscópica</h2>
+        <h2 class="section-heading">1. Solids, Liquids, and Gases: Mechanical Behavior and Microscopic Structure</h2>
         
-        <p>A nivel macroscópico, la distinción fundamental entre sólidos y fluidos radica en su respuesta mecánica ante la acción de un esfuerzo cortante tangencial $\tau$:</p>
+        <p>At the macroscopic level, the fundamental physical distinction between solids and fluids lies in their mechanical response to an applied tangential shear stress $\tau$:</p>
 
         <div class="card">
           <ul>
-            <li><strong>Sólidos:</strong> Al aplicar una fuerza externa pequeña responden con una deformación finita. La fuerza interna que contrarresta la acción externa es proporcional a la <strong>deformación</strong>:
+            <li><strong>Solids:</strong> Under a small external shear force, solids respond with a finite deformation. The internal restoring force is proportional to the <strong>deformation</strong>:
               $$\tau \propto d\theta$$
-              El sólido conserva una forma geométrica propia y fija.
+              The solid retains an intrinsic, fixed geometric shape.
             </li>
-            <li><strong>Fluidos (Líquidos y Gases):</strong> Se deforman continuamente bajo la acción de esfuerzos tangenciales, por pequeños que sean; son incapaces de mantener el reposo bajo cortadura. La fuerza interna resistiva es proporcional a la <strong>tasa de deformación</strong>:
+            <li><strong>Fluids (Liquids and Gases):</strong> Deform continuously under the action of tangential shear stresses, no matter how small; they are fundamentally incapable of remaining at rest under shear. The internal resistive force is proportional to the <strong>rate of strain</strong>:
               $$\tau \propto \frac{d\theta}{dt}$$
-              Como consecuencia directa, los fluidos carecen de forma propia y se adaptan a la geometría del recipiente que los confina.
+              Consequently, fluids lack a preferred shape and conform to the geometry of their confining container.
             </li>
           </ul>
         </div>
 
-        <h3 class="sub-heading">Líquidos frente a Gases: Densidad y Compresibilidad</h3>
-        <p>Las diferencias mecánicas entre líquidos y gases son menos fundamentales y se centran en dos propiedades:</p>
+        <h3 class="sub-heading">Liquids vs. Gases: Density and Compressibility</h3>
+        <p>The mechanical differences between liquids and gases are less fundamental and center on two properties:</p>
         <ul>
-          <li><strong>Densidad:</strong> $\rho_{\text{líquido}} \gg \rho_{\text{gas}}$. Debido a su gran masa por unidad de volumen, la fuerza requerida para acelerar una masa líquida es órdenes de magnitud mayor que la necesaria para mover un gas.</li>
-          <li><strong>Compresibilidad:</strong> El incremento de densidad provocado por una sobrepresión isoterma es insignificante en los líquidos en comparación con los gases:
+          <li><strong>Density:</strong> $\rho_{\text{liquid}} \gg \rho_{\text{gas}}$. Due to their substantial mass per unit volume, the force required to accelerate a given volume of liquid is orders of magnitude larger than that needed for a gas.</li>
+          <li><strong>Compressibility:</strong> The increase in density caused by an isothermal overpressure is negligible in liquids compared to gases:
             <div class="math-block">
-              $$ \left(\frac{\partial \rho}{\partial p}\right)_{T,\text{líquido}} \ll \left(\frac{\partial \rho}{\partial p}\right)_{T,\text{gas}} \qquad \text{[Notes.pdf, Ec. 1.1]} $$
-              <div class="math-caption">Para reducir a la mitad el volumen específico del agua dulce se requiere una sobrepresión colosal del orden de $10^6\text{ atmósferas}$.</div>
+              $$ \left(\frac{\partial \rho}{\partial p}\right)_{T,\text{liquid}} \ll \left(\frac{\partial \rho}{\partial p}\right)_{T,\text{gas}} \qquad \text{[Notes.pdf, Eq. 1.1]} $$
+              <div class="math-caption">Halving the specific volume of liquid water requires a colossal overpressure on the order of $10^6\text{ atmospheres}$.</div>
             </div>
-            Por esta razón, bajo la mayoría de condiciones de ingeniería los líquidos pueden considerarse fluidos de densidad constante (**"líquidos perfectos"**).
+            For this reason, under most engineering conditions, liquids can be modeled as fluids of constant density (<strong>"perfect liquids"</strong>).
           </li>
         </ul>
 
-        <h3 class="sub-heading">Origen Microscópico: Fuerzas Intermoleculares y Distancia Media ($d$)</h3>
-        <p>Estas propiedades macroscópicas son consecuencia directa de la estructura microscópica de la materia. La fuerza neta $F(d)$ entre dos moléculas presenta una zona de repulsión intensa a distancias muy cortas y atracción a distancias mayores, alcanzando el equilibrio estable a una distancia crítica característica $d_0 \sim 3 \times 10^{-10}\text{ m} = 3\text{ \AA}$.</p>
+        <h3 class="sub-heading">Microscopic Origin: Intermolecular Forces and Mean Spacing ($d$)</h3>
+        <p>These macroscopic properties are direct consequences of the microscopic structure of matter. The net intermolecular force $F(d)$ exhibits strong repulsion at very short ranges and attraction at larger distances, reaching stable equilibrium at a characteristic critical spacing $d_0 \sim 3 \times 10^{-10}\text{ m} = 3\text{ \AA}$.</p>
 
-        <p>Conocida la densidad $\rho$, la masa molar $W$ y el número de Avogadro $N_A = 6.022 \times 10^{23}\text{ moléculas/mol}$, la masa de una molécula es $W/N_A$. Suponiendo que cada molécula ocupa un cubo de lado medio $d$, se obtiene:</p>
+        <p>Given the density $\rho$, molar mass $W$, and Avogadro's number $N_A = 6.022 \times 10^{23}\text{ molecules/mol}$, the mass of a single molecule is $W/N_A$. Assuming each molecule occupies a cube of mean side $d$, we find:</p>
 
         <div class="math-block">
           $$ \rho = \frac{W / N_A}{d^3} \implies \mathbf{d = \left(\frac{W}{\rho N_A}\right)^{1/3}} $$
@@ -453,232 +453,232 @@
           <table class="data-table">
             <thead>
               <tr>
-                <th>Magnitud</th>
-                <th>Aire (Gas estándar a nivel del mar)</th>
-                <th>Agua (Líquido)</th>
+                <th>Quantity</th>
+                <th>Air (Standard Sea-Level Gas)</th>
+                <th>Water (Liquid)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Densidad ($\rho$)</strong></td>
+                <td><strong>Density ($\rho$)</strong></td>
                 <td>$1.2\text{ kg/m}^3$</td>
                 <td>$1000\text{ kg/m}^3$</td>
               </tr>
               <tr>
-                <td><strong>Masa molar ($W$)</strong></td>
+                <td><strong>Molar Mass ($W$)</strong></td>
                 <td>$28.96\text{ g/mol}$</td>
                 <td>$18.02\text{ g/mol}$</td>
               </tr>
               <tr>
-                <td><strong>Distancia intermolecular ($d$)</strong></td>
+                <td><strong>Intermolecular Spacing ($d$)</strong></td>
                 <td>$\mathbf{d \approx 3.4 \times 10^{-9}\text{ m}} \approx 10\,d_0$</td>
                 <td>$\mathbf{d \approx 3.1 \times 10^{-10}\text{ m}} \approx d_0$</td>
               </tr>
               <tr>
-                <td><strong>Moléculas en $1\text{ mm}^3$</strong></td>
-                <td>$\sim 10^{16}\text{ moléculas}$</td>
-                <td>$\sim 10^{19}\text{ moléculas}$</td>
+                <td><strong>Molecules in $1\text{ mm}^3$</strong></td>
+                <td>$\sim 10^{16}\text{ molecules}$</td>
+                <td>$\sim 10^{19}\text{ molecules}$</td>
               </tr>
               <tr>
-                <td><strong>Comportamiento dinámico</strong></td>
-                <td>Vuelo libre; interacciones únicamente por colisiones binarias.</td>
-                <td>Empaquetamiento denso; fuerzas intermoleculares cohesivas permanentes.</td>
+                <td><strong>Dynamic Behavior</strong></td>
+                <td>Free molecular flight; interactions occur solely via binary collisions.</td>
+                <td>Dense packing; permanent cohesive intermolecular forces.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- SECCIÓN 2: MEDIO CONTINUO Y PARTÍCULA FLUIDA -->
+      <!-- SECTION 2: CONTINUUM HYPOTHESIS AND FLUID PARTICLE -->
       <section>
-        <h2 class="section-heading">2. La Hipótesis de Medio Continuo y el Concepto de Partícula Fluida</h2>
+        <h2 class="section-heading">2. The Continuum Hypothesis and the Concept of Fluid Particle</h2>
         
-        <p>El ingente número de moléculas involucradas ($10^{16}\text{ en 1 mm}^3$ de aire) hace totalmente inviable resolver las ecuaciones de movimiento de Newton para cada partícula individual. Para describir el flujo macroscópico se adopta la **hipótesis de medio continuo**.</p>
+        <p>The vast number of molecules involved ($10^{16}\text{ in 1 mm}^3$ of air) renders solving Newton's equations of motion for individual molecules utterly intractable. To describe the macroscopic flow, we adopt the <strong>continuum hypothesis</strong>.</p>
 
-        <h3 class="sub-heading">La Escala Macroscópica ($L$)</h3>
-        <p>Definimos la distancia macroscópica característica $L$ como la escala espacial necesaria para observar variaciones significativas en las propiedades del flujo (por ejemplo, en el aire de una habitación $L \sim 10\text{ cm}$; sobre un perfil aerodinámico, $L \sim \text{cuerda alar}$).</p>
+        <h3 class="sub-heading">The Macroscopic Scale ($L$)</h3>
+        <p>We define the characteristic macroscopic length scale $L$ as the spatial distance over which significant variations in flow properties occur (for example, in a room $L \sim 10\text{ cm}$; over an airfoil, $L \sim \text{chord length}$).</p>
 
-        <h3 class="sub-heading">La Partícula Fluida ($\delta V$) y la Condición de Doble Acotación</h3>
-        <p>Dividimos el fluido en pequeños elementos de volumen $\delta V$ centrados en la posición $\vec{x}$ en el instante $t$. Para que las variables macroscópicas estén unívocamente definidas, el tamaño $(\delta V)^{1/3}$ debe satisfacer estrictamente:</p>
+        <h3 class="sub-heading">The Fluid Particle ($\delta V$) and the Double-Bounding Condition</h3>
+        <p>We subdivide the fluid into small volume elements $\delta V$ centered at position $\vec{x}$ at time $t$. For macroscopic field variables to be uniquely defined, the size $(\delta V)^{1/3}$ must strictly satisfy:</p>
 
         <div class="math-block">
-          $$ \mathbf{d \ll (\delta V)^{1/3} \ll L} \qquad \text{[Notes.pdf, Ec. 1.2]} $$
+          $$ \mathbf{d \ll (\delta V)^{1/3} \ll L} \qquad \text{[Notes.pdf, Eq. 1.2]} $$
         </div>
 
         <ul>
-          <li><strong>Cota inferior ($(\delta V)^{1/3} \gg d$):</strong> El volumen debe contener millones de moléculas para que las propiedades promedio no sufran fluctuaciones estadísticas discontinuas. Si representamos la densidad aparente $\sum m_i / \delta V$ frente al tamaño $(\delta V)^{1/3}$, para volúmenes diminutos se observan saltos abruptos cada vez que una molécula entra o sale del volumen. Al superar la escala microscópica $d$, la densidad alcanza un valor constante e independiente del volumen: la <strong>meseta continua (*plateau*)</strong>.</li>
-          <li><strong>Cota superior ($(\delta V)^{1/3} \ll L$):</strong> La partícula debe ser suficientemente pequeña frente a las dimensiones globales del flujo para poder considerarse un punto material matemático diferencial en $\vec{x}$.</li>
+          <li><strong>Lower bound ($(\delta V)^{1/3} \gg d$):</strong> The volume must contain millions of molecules so that statistical averaging is free from discontinuous fluctuations. Plotting apparent density $\sum m_i / \delta V$ versus volume size $(\delta V)^{1/3}$ shows abrupt statistical jumps for tiny volumes each time a molecule enters or leaves. Beyond the microscopic scale $d$, the density reaches a constant, volume-independent value: the <strong>continuum plateau</strong>.</li>
+          <li><strong>Upper bound ($(\delta V)^{1/3} \ll L$):</strong> The particle must be sufficiently small compared to the global flow dimensions so that it can be treated as a mathematical differential point at $\vec{x}$.</li>
         </ul>
 
         <div class="note-box">
-          <div class="note-title">Criterio de Validez del Medio Continuo</div>
-          <p>La hipótesis de medio continuo es rigurosamente aplicable siempre que se cumpla la relación:</p>
+          <div class="note-title">Validity Criterion of the Continuum Medium</div>
+          <p>The continuum hypothesis is rigorously applicable whenever the following condition holds:</p>
           $$\frac{d}{L} \ll 1$$
-          <p>Para aire a condiciones normales, $d \approx 3.4\text{ nm}$, por lo que prácticamente todos los flujos de ingeniería aeronáutica satisfacen esta condición con holgura. La aproximación de medio continuo <strong>deja de ser válida</strong> en flujos hiperenrarecidos (reentrada espacial de satélites en la termosfera a altitudes $h > 100\text{ km}$, donde $d \sim L$) y en dispositivos microelectromecánicos (MEMS/nanofluídica).</p>
+          <p>For air at standard atmospheric conditions, $d \approx 3.4\text{ nm}$, meaning virtually all aeronautical engineering flows satisfy this condition with wide margins. The continuum approximation <strong>ceases to be valid</strong> in highly rarefied flows (satellite atmospheric re-entry in the thermosphere at altitudes $h > 100\text{ km}$, where $d \sim L$) and in microelectromechanical systems (MEMS/nanofluidics).</p>
         </div>
       </section>
 
-      <!-- SECCIÓN 3: CAMPOS MACROSCÓPICOS -->
+      <!-- SECTION 3: MACROSCOPIC FIELDS -->
       <section>
-        <h2 class="section-heading">3. Definición de los Campos Macroscópicos: Densidad, Velocidad y Energía Interna</h2>
+        <h2 class="section-heading">3. Definition of Macroscopic Fields: Density, Velocity, and Internal Energy</h2>
         
-        <p>A partir del concepto de partícula fluida $\delta V$, se formulan matemáticamente los campos continuos:</p>
+        <p>From the concept of a fluid particle $\delta V$, the continuous macroscopic fields are formulated mathematically:</p>
 
         <div class="card">
-          <p><strong>1. Campo de Densidad ($\rho$):</strong></p>
-          $$ \rho(\vec{x}, t) = \lim_{\delta V \to 0, \, (\delta V)^{1/3} \gg d} \frac{\sum m_i}{\delta V} \qquad \text{[Ec. 1.3]} $$
+          <p><strong>1. Density Field ($\rho$):</strong></p>
+          $$ \rho(\vec{x}, t) = \lim_{\delta V \to 0, \, (\delta V)^{1/3} \gg d} \frac{\sum m_i}{\delta V} \qquad \text{[Eq. 1.3]} $$
 
-          <p><strong>2. Campo de Velocidad del Flujo ($\vec{v}$):</strong></p>
-          <p>Representa la velocidad del centro de masas del conjunto de moléculas contenidas en la partícula fluida:</p>
-          $$ \vec{v}(\vec{x}, t) = \lim_{\delta V \to 0} \frac{\sum m_i \vec{v}_i}{\sum m_i} \qquad \text{[Ec. 1.4]} $$
+          <p><strong>2. Flow Velocity Field ($\vec{v}$):</strong></p>
+          <p>Represents the center-of-mass velocity of the set of molecules contained within the fluid particle:</p>
+          $$ \vec{v}(\vec{x}, t) = \lim_{\delta V \to 0} \frac{\sum m_i \vec{v}_i}{\sum m_i} \qquad \text{[Eq. 1.4]} $$
 
-          <p><strong>3. Energía Total y Descomposición de la Energía Interna ($e$):</strong></p>
-          <p>La energía específica total por unidad de masa se descompone exactamente en la energía cinética macroscópica del flujo y la energía interna térmica:</p>
-          $$ \lim_{\delta V \to 0} \frac{\sum E_i}{\sum m_i} = e(\vec{x}, t) + \frac{|\vec{v}|^2}{2} \qquad \text{[Ec. 1.5]} $$
-          donde la <strong>energía interna</strong> $e$ agrupa la energía cinética del movimiento molecular aleatorio relativo al centro de masas junto con las energías intramoleculares de vibración $E_{v,i}$ y rotación $E_{r,i}$:</p>
-          $$ \mathbf{e = \lim_{\delta V \to 0} \frac{\sum m_i \frac{|\vec{v}_i - \vec{v}|^2}{2} + E_{v,i} + E_{r,i} + \cdots}{\sum m_i}} \qquad \text{[Ec. 1.6]} $$
-          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;">El término $\frac{|\vec{v}_i - \vec{v}|^2}{2}$ corresponde a la agitación térmica desordenada, magnitud directamente asociada a la definición microscópica de la <strong>temperatura ($T$)</strong>.</p>
+          <p><strong>3. Total Energy and Decomposition of Internal Energy ($e$):</strong></p>
+          <p>The total specific energy per unit mass is decomposed exactly into the macroscopic kinetic energy of the flow and the thermal internal energy:</p>
+          $$ \lim_{\delta V \to 0} \frac{\sum E_i}{\sum m_i} = e(\vec{x}, t) + \frac{|\vec{v}|^2}{2} \qquad \text{[Eq. 1.5]} $$
+          where the <strong>internal energy</strong> $e$ collects the kinetic energy of random molecular motion relative to the center of mass together with intramolecular vibrational ($E_{v,i}$) and rotational ($E_{r,i}$) energies:
+          $$ \mathbf{e = \lim_{\delta V \to 0} \frac{\sum m_i \frac{|\vec{v}_i - \vec{v}|^2}{2} + E_{v,i} + E_{r,i} + \cdots}{\sum m_i}} \qquad \text{[Eq. 1.6]} $$
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;">The term $\frac{|\vec{v}_i - \vec{v}|^2}{2}$ corresponds to disordered thermal agitation, a quantity directly tied to the microscopic definition of <strong>temperature ($T$)</strong>.</p>
         </div>
       </section>
 
-      <!-- SECCIÓN 4: EQUILIBRIO TERMODINÁMICO LOCAL (ETL) -->
+      <!-- SECTION 4: LOCAL THERMODYNAMIC EQUILIBRIUM (LTE) -->
       <section>
-        <h2 class="section-heading">4. Hipótesis de Equilibrio Termodinámico Local (ETL / LTE)</h2>
+        <h2 class="section-heading">4. Local Thermodynamic Equilibrium Hypothesis (LTE)</h2>
         
-        <p>La termodinámica clásica de equilibrio asume sistemas homogéneos con propiedades constantes. En mecánica de fluidos, sin embargo, las propiedades cambian en el espacio y en el tiempo. A pesar de ello, se comprueba que los resultados de la termodinámica de equilibrio son válidos localmente: un observador que se desplace con la velocidad local $\vec{v}(\vec{x}, t)$ del fluido puede describir el estado térmico mediante las mismas <strong>ecuaciones de estado</strong> que rigen en equilibrio estricto.</p>
+        <p>Classical equilibrium thermodynamics assumes homogeneous systems with invariant properties. In fluid mechanics, however, properties vary continuously across space and time. Nevertheless, equilibrium thermodynamic relations hold locally: an observer moving with the local fluid velocity $\vec{v}(\vec{x}, t)$ can describe the local thermal state using the very same <strong>equations of state</strong> that govern strict thermodynamic equilibrium.</p>
 
-        <h3 class="sub-heading">El Mecanismo Físico: Las Colisiones Moleculares</h3>
-        <p>En los gases, las moléculas intercambian cantidad de movimiento y energía mediante colisiones continuas, adaptando rápidamente su distribución de velocidades al estado local. Este proceso determina dos escalas microscópicas clave:</p>
+        <h3 class="sub-heading">The Physical Mechanism: Molecular Collisions</h3>
+        <p>In gases, molecules continually exchange momentum and energy through collisions, rapidly adjusting their velocity distribution to the local state. This process determines two key microscopic scales:</p>
         
         <ul>
-          <li><strong>Recorrido libre medio ($\lambda$):</strong> Distancia media que recorre una molécula entre dos colisiones sucesivas. Igualando el volumen barrido en su trayectoria ($d_0^2 \lambda$) al volumen por molécula disponible en el gas ($d^3$):
+          <li><strong>Mean free path ($\lambda$):</strong> The average distance traveled by a molecule between two successive collisions. Equating the volume swept out along its path ($d_0^2 \lambda$) to the available volume per molecule in the gas ($d^3$):
             <div class="math-block">
-              $$ \frac{\lambda}{d} \simeq \left(\frac{d}{d_0}\right)^2 \implies \mathbf{\lambda \approx 4 \times 10^{-7}\text{ m}} = 0.4\ \mu\text{m} \quad \text{(aire a nivel del mar)} $$
+              $$ \frac{\lambda}{d} \simeq \left(\frac{d}{d_0}\right)^2 \implies \mathbf{\lambda \approx 4 \times 10^{-7}\text{ m}} = 0.4\ \mu\text{m} \quad \text{(sea-level air)} $$
             </div>
           </li>
-          <li><strong>Tiempo característico entre colisiones ($\tau$):</strong> Siendo $a \approx \sqrt{\gamma R T} \approx 340\text{ m/s}$ la velocidad térmica promedio (orden de la velocidad del sonido):
+          <li><strong>Characteristic collision time ($\tau$):</strong> With $a \approx \sqrt{\gamma R T} \approx 340\text{ m/s}$ as the mean thermal speed (on the order of the speed of sound):
             <div class="math-block">
-              $$ \tau = \frac{\lambda}{a} \approx \frac{4 \times 10^{-7}\text{ m}}{340\text{ m/s}} \approx \mathbf{10^{-9}\text{ s}} = 1\text{ nanosegundo} $$
+              $$ \tau = \frac{\lambda}{a} \approx \frac{4 \times 10^{-7}\text{ m}}{340\text{ m/s}} \approx \mathbf{10^{-9}\text{ s}} = 1\text{ nanosecond} $$
             </div>
           </li>
         </ul>
 
-        <h3 class="sub-heading">Criterio del Número de Knudsen ($Kn$)</h3>
-        <p>Para que una molécula sufra miles de choques y alcance el equilibrio antes de desplazarse hacia regiones con propiedades macroscópicas notablemente distintas, se debe cumplir que el recorrido libre medio sea insignificante frente a la escala macroscópica $L$:</p>
+        <h3 class="sub-heading">Knudsen Number Criterion ($Kn$)</h3>
+        <p>For a molecule to undergo thousands of collisions and achieve equilibrium before migrating into regions with noticeably different macroscopic properties, the mean free path must be negligible compared to the macroscopic scale $L$:</p>
 
         <div class="math-block">
-          $$ \mathbf{Kn = \frac{\lambda}{L} \ll 1} \qquad \text{[Notes.pdf, Ec. 1.7]} $$
-          <div class="math-caption">Para flujos no estacionarios con escala de tiempo macroscópica $T_{\text{macro}}$, se exige análogamente que $T_{\text{macro}} \gg \tau \approx 10^{-9}\text{ s}$.</div>
+          $$ \mathbf{Kn = \frac{\lambda}{L} \ll 1} \qquad \text{[Notes.pdf, Eq. 1.7]} $$
+          <div class="math-caption">For unsteady flows with a characteristic macroscopic time scale $T_{\text{macro}}$, we analogously require $T_{\text{macro}} \gg \tau \approx 10^{-9}\text{ s}$.</div>
         </div>
 
         <div class="note-box">
-          <div class="note-title">Observación Fundamental sobre el Número de Knudsen</div>
-          <p>El criterio de Equilibrio Termodinámico Local ($Kn = \lambda/L \ll 1$) es <strong>estrictamente más restrictivo</strong> que el de la hipótesis de medio continuo ($d/L \ll 1$). En los gases, el recorrido libre medio molecular es casi dos órdenes de magnitud mayor que la distancia intermolecular ($\lambda \approx 400\text{ nm} \gg d \approx 3.4\text{ nm}$).</p>
+          <div class="note-title">Fundamental Remark on the Knudsen Number</div>
+          <p>The Local Thermodynamic Equilibrium criterion ($Kn = \lambda/L \ll 1$) is <strong>strictly more restrictive</strong> than the continuum medium hypothesis ($d/L \ll 1$). In gases, the molecular mean free path is nearly two orders of magnitude larger than the intermolecular spacing ($\lambda \approx 400\text{ nm} \gg d \approx 3.4\text{ nm}$).</p>
         </div>
       </section>
 
-      <!-- SECCIÓN 5: VARIABLES TERMODINÁMICAS Y MODELOS DE ESTADO -->
+      <!-- SECTION 5: THERMODYNAMIC VARIABLES AND EQUATIONS OF STATE -->
       <section>
-        <h2 class="section-heading">5. Variables Termodinámicas y Ecuaciones de Estado</h2>
+        <h2 class="section-heading">5. Thermodynamic Variables and Equations of State</h2>
         
-        <p>Bajo la validez del ETL, la relación termodinámica fundamental de Gibbs relaciona la energía interna específica $e$, la entropía $s$ y la densidad $\rho$:</p>
+        <p>Under the validity of LTE, the fundamental Gibbs thermodynamic relation links specific internal energy $e$, entropy $s$, and density $\rho$:</p>
 
         <div class="math-block">
-          $$ de = T ds - p \, d\left(\frac{1}{\rho}\right) = T ds + \frac{p}{\rho^2} d\rho \qquad \text{[Ec. 1.8]} $$
+          $$ de = T ds - p \, d\left(\frac{1}{\rho}\right) = T ds + \frac{p}{\rho^2} d\rho \qquad \text{[Eq. 1.8]} $$
         </div>
 
-        <p>De esta relación se deducen las definiciones operativas de temperatura, presión y entalpía específica $h$:</p>
+        <p>From this relation, the operational definitions of temperature, pressure, and specific enthalpy $h$ follow:</p>
         <div class="math-block">
-          $$ T = \left(\frac{\partial e}{\partial s}\right)_\rho \quad \text{[Ec. 1.9]}, \qquad p = -\left(\frac{\partial e}{\partial \rho^{-1}}\right)_s \quad \text{[Ec. 1.10]}, \qquad h = e + \frac{p}{\rho} $$
+          $$ T = \left(\frac{\partial e}{\partial s}\right)_\rho \quad \text{[Eq. 1.9]}, \qquad p = -\left(\frac{\partial e}{\partial \rho^{-1}}\right)_s \quad \text{[Eq. 1.10]}, \qquad h = e + \frac{p}{\rho} $$
         </div>
 
-        <p>El manual de la cátedra formula dos modelos canónicos fundamentales para la ingeniería aeroespacial:</p>
+        <p>The course syllabus formulates two fundamental canonical models for aerospace engineering:</p>
 
-        <!-- Modelo 1: Líquido Perfecto -->
+        <!-- Model 1: Perfect Liquid -->
         <div class="card">
-          <h3 style="color: var(--accent); margin-bottom: 8px;">A. Modelo de Líquido Perfecto (Incompresible)</h3>
-          <p>Un líquido perfecto se caracteriza por tener <strong>densidad constante $\rho_0$</strong> y <strong>calor específico constante $c$</strong>:</p>
-          $$ \mathbf{\rho = \rho_0} \qquad \text{[Ec. 1.11]} $$
-          $$ \mathbf{e = c T + e_0} \qquad \text{[Ec. 1.12]} $$
-          $$ \mathbf{h = c T + e_0 + \frac{p}{\rho_0}} \qquad \text{[Ec. 1.13]} $$
-          $$ \mathbf{s = c \ln(T) + s_0} \qquad \text{[Ec. 1.14]} $$
-          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;">donde $e_0$ y $s_0$ son constantes de referencia. En la inmensa mayoría de aplicaciones hidráulicas y de combustible líquido, el agua se modela como líquido perfecto con $\rho_0 = 1000\text{ kg/m}^3$ y $c = 4180\text{ J/(kg}\cdot\text{K)}$.</p>
+          <h3 style="color: var(--accent); margin-bottom: 8px;">A. Perfect Liquid Model (Incompressible)</h3>
+          <p>A perfect liquid is characterized by <strong>constant density $\rho_0$</strong> and <strong>constant specific heat $c$</strong>:</p>
+          $$ \mathbf{\rho = \rho_0} \qquad \text{[Eq. 1.11]} $$
+          $$ \mathbf{e = c T + e_0} \qquad \text{[Eq. 1.12]} $$
+          $$ \mathbf{h = c T + e_0 + \frac{p}{\rho_0}} \qquad \text{[Eq. 1.13]} $$
+          $$ \mathbf{s = c \ln(T) + s_0} \qquad \text{[Eq. 1.14]} $$
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;">where $e_0$ and $s_0$ are reference constants. In the vast majority of hydraulic and liquid propellant systems, water is modeled as a perfect liquid with $\rho_0 = 1000\text{ kg/m}^3$ and $c = 4180\text{ J/(kg}\cdot\text{K)}$.</p>
         </div>
 
-        <!-- Modelo 2: Gas Perfecto -->
+        <!-- Model 2: Perfect Gas -->
         <div class="card">
-          <h3 style="color: var(--accent); margin-bottom: 8px;">B. Modelo de Gas Perfecto (Calóricamente Perfecto)</h3>
-          <p>La ecuación de estado térmica de los gases ideales relaciona presión, densidad y temperatura:</p>
-          $$ \mathbf{\frac{p}{\rho} = R_g T} \qquad \text{[Ec. 1.15]} $$
-          donde la constante específica del gas es $R_g = R_0/W$, siendo $R_0 = 8.314\text{ J/(mol}\cdot\text{K)}$ la constante universal de los gases y $W$ la masa molecular media.</p>
+          <h3 style="color: var(--accent); margin-bottom: 8px;">B. Perfect Gas Model (Calorically Perfect)</h3>
+          <p>The thermal equation of state for ideal gases relates pressure, density, and temperature:</p>
+          $$ \mathbf{\frac{p}{\rho} = R_g T} \qquad \text{[Eq. 1.15]} $$
+          where the specific gas constant is $R_g = R_0/W$, with $R_0 = 8.314\text{ J/(mol}\cdot\text{K)}$ being the universal gas constant and $W$ the mean molecular mass.</p>
           
-          <p>Las ecuaciones de estado calóricas para la energía interna, la entalpía y la entropía son:</p>
-          $$ \mathbf{e = c_v T + e_0} \qquad \text{[Ec. 1.16]} $$
-          $$ \mathbf{h = c_p T + e_0} \qquad \text{[Ec. 1.17]} $$
-          $$ \mathbf{s = c_v \ln\left(\frac{p}{\rho^\gamma}\right) + s_0} \qquad \text{[Ec. 1.18]} $$
+          <p>The caloric equations of state for internal energy, enthalpy, and entropy are:</p>
+          $$ \mathbf{e = c_v T + e_0} \qquad \text{[Eq. 1.16]} $$
+          $$ \mathbf{h = c_p T + e_0} \qquad \text{[Eq. 1.17]} $$
+          $$ \mathbf{s = c_v \ln\left(\frac{p}{\rho^\gamma}\right) + s_0} \qquad \text{[Eq. 1.18]} $$
 
-          <p>donde $c_v$ y $c_p$ son los calores específicos a volumen y a presión constante, ligados por la **relación de Mayer**:</p>
+          <p>where $c_v$ and $c_p$ are the specific heats at constant volume and constant pressure, linked by <strong>Mayer's relation</strong>:</p>
           $$ c_p = c_v + R_g $$
-          <p>El cociente de calores específicos $\gamma = c_p/c_v$ vale $\mathbf{\gamma = 7/5 = 1.4}$ para gases diatómicos ($N_2, O_2$, aire). Para el aire seco estándar en régimen subsónico y supersónico moderado:</p>
+          <p>The heat capacity ratio $\gamma = c_p/c_v$ is $\mathbf{\gamma = 7/5 = 1.4}$ for diatomic gases ($N_2, O_2$, air). For standard dry air in subsonic and moderate supersonic regimes:</p>
           $$ R_g = 287\text{ J/(kg}\cdot\text{K)}, \quad c_v = 717\text{ J/(kg}\cdot\text{K)}, \quad c_p = 1004\text{ J/(kg}\cdot\text{K)} $$
           
-          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;"><em>Límites del modelo:</em> A presiones extremas o temperaturas criogénicas deben aplicarse ecuaciones reales (ej. Van der Waals). Asimismo, cuando las variaciones de temperatura son muy pronunciadas (ej. cámaras de combustión o toberas cohete), los calores específicos dejan de ser constantes y pasan a ser funciones de la temperatura $c_p(T), c_v(T)$.</p>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 0;"><em>Model limits:</em> At extreme pressures or cryogenic temperatures, real gas equations of state (e.g., Van der Waals) must be used. Furthermore, when temperature variations are substantial (e.g., combustion chambers or rocket nozzles), specific heats cease to be constant and become functions of temperature $c_p(T), c_v(T)$.</p>
         </div>
       </section>
 
-      <!-- SECCIÓN 6: RESUMEN Y PRONTUARIO -->
+      <!-- SECTION 6: FORMULA SUMMARY -->
       <section>
-        <h2 class="section-heading">6. Resumen de Fórmulas y Órdenes de Magnitud</h2>
+        <h2 class="section-heading">6. Summary of Formulas and Orders of Magnitude</h2>
 
         <div class="table-wrapper">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Concepto / Magnitud</th>
-                <th>Expresión Matemática</th>
-                <th>Valores Típicos (Aire a nivel del mar)</th>
+                <th>Concept / Quantity</th>
+                <th>Mathematical Expression</th>
+                <th>Typical Values (Sea-Level Air)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Distancia intermolecular</strong></td>
+                <td><strong>Intermolecular Spacing</strong></td>
                 <td>$d = \left(\frac{W}{\rho N_A}\right)^{1/3}$</td>
                 <td>$d \approx 3.4 \times 10^{-9}\text{ m} = 3.4\text{ nm}$</td>
               </tr>
               <tr>
-                <td><strong>Condición de partícula fluida</strong></td>
+                <td><strong>Fluid Particle Condition</strong></td>
                 <td>$d \ll (\delta V)^{1/3} \ll L$</td>
                 <td>$3.4\text{ nm} \ll (\delta V)^{1/3} \ll 10\text{ cm}$</td>
               </tr>
               <tr>
-                <td><strong>Criterio de medio continuo</strong></td>
+                <td><strong>Continuum Hypothesis Criterion</strong></td>
                 <td>$\frac{d}{L} \ll 1$</td>
-                <td>$\frac{d}{L} \sim 10^{-8} \lll 1$ (muy holgado)</td>
+                <td>$\frac{d}{L} \sim 10^{-8} \lll 1$ (broad margin)</td>
               </tr>
               <tr>
-                <td><strong>Recorrido libre medio</strong></td>
+                <td><strong>Mean Free Path</strong></td>
                 <td>$\frac{\lambda}{d} \simeq \left(\frac{d}{d_0}\right)^2$</td>
                 <td>$\lambda \approx 4 \times 10^{-7}\text{ m} = 0.4\ \mu\text{m}$</td>
               </tr>
               <tr>
-                <td><strong>Tiempo entre colisiones</strong></td>
+                <td><strong>Mean Collision Time</strong></td>
                 <td>$\tau = \frac{\lambda}{a}$</td>
                 <td>$\tau \approx 10^{-9}\text{ s} = 1\text{ ns}$</td>
               </tr>
               <tr>
-                <td><strong>Criterio de Knudsen (ETL)</strong></td>
+                <td><strong>Knudsen Criterion (LTE)</strong></td>
                 <td>$Kn = \frac{\lambda}{L} \ll 1$</td>
-                <td>$Kn \sim 10^{-6} \ll 1$ (más restrictivo que $d/L$)</td>
+                <td>$Kn \sim 10^{-6} \ll 1$ (more restrictive than $d/L$)</td>
               </tr>
               <tr>
-                <td><strong>Ecuación gas perfecto</strong></td>
+                <td><strong>Perfect Gas Equation</strong></td>
                 <td>$p = \rho R_g T$</td>
                 <td>$R_g = 287\text{ J/(kg}\cdot\text{K)}, \gamma = 1.4$</td>
               </tr>
               <tr>
-                <td><strong>Calor específico líquido</strong></td>
+                <td><strong>Perfect Liquid Specific Heat</strong></td>
                 <td>$e = c T + e_0, \quad \rho = \rho_0$</td>
-                <td>Agua: $\rho_0 = 1000\text{ kg/m}^3, c = 4180\text{ J/(kg}\cdot\text{K)}$</td>
+                <td>Water: $\rho_0 = 1000\text{ kg/m}^3, c = 4180\text{ J/(kg}\cdot\text{K)}$</td>
               </tr>
             </tbody>
           </table>

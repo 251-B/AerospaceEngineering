@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tema 3: Conservation Laws (Integral Form) — Fluid Mechanics</title>
+  <title>Topic 3: Conservation Laws (Integral Form) — Fluid Mechanics</title>
   
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -412,11 +412,12 @@
   <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
   <!-- Top Navigation Header -->
+  <!-- Top Navigation Header -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-area">
         <span class="brand-badge">FLUID MECHANICS</span>
-        <span style="font-size: 13px; color: var(--text-muted);">Tema 3: Leyes de Conservación (Reynolds)</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 3: Conservation Laws (Reynolds)</span>
       </div>
       <div class="nav-actions">
         <a href="../problemas/index.html" class="back-link">
@@ -436,503 +437,503 @@
     <article>
       <!-- Title Header -->
       <header class="article-header">
-        <div class="article-category">Capítulo 3 · Teoría Fundamental</div>
+        <div class="article-category">Chapter 3 · Core Theory</div>
         <h1 class="article-title">Conservation Laws (Integral Form)</h1>
-        <p class="article-meta">Mecánica de Fluidos — 2º Curso del Grado en Ingeniería Aeroespacial (UC3M)</p>
+        <p class="article-meta">Fluid Mechanics — 2nd Year Bachelor's Degree in Aerospace Engineering (UC3M)</p>
         <div class="source-box">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Fuentes de referencia: Notes.pdf (Capítulo 3, Págs. 25–36) · Profs. Antonio L. Sánchez & Javier Rodríguez-Rodríguez
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Reference sources: Notes.pdf (Chapter 3, pp. 25–36) · Profs. Antonio L. Sánchez &amp; Javier Rodríguez-Rodríguez
         </div>
       </header>
 
       <!-- Mini Table of Contents -->
-      <nav class="toc-box" aria-label="Índice de apartados">
-        <div class="toc-title">Estructura del Capítulo 3</div>
+      <nav class="toc-box" aria-label="Table of contents">
+        <div class="toc-title">Chapter 3 Outline</div>
         <div class="toc-grid">
-          <a href="#sec-1">1. Teorema de Transporte de Reynolds (RTT)</a>
-          <a href="#sec-2">2. Conservación Integral de Masa</a>
-          <a href="#sec-3">3. Fuerzas Volumétricas y Superficiales</a>
-          <a href="#sec-4">4. El Tensor de Esfuerzos de Cauchy</a>
-          <a href="#sec-5">5. Ecuación de Navier-Poisson</a>
-          <a href="#sec-6">6. Fuerzas y Momentos en Cuerpos Sumergidos</a>
-          <a href="#sec-7">7. Conservación de Cantidad de Movimiento</a>
-          <a href="#sec-8">8. Conservación de Momento Cinético</a>
-          <a href="#sec-9">9. Conducción Térmica y Ley de Fourier</a>
-          <a href="#sec-10">10. Conservación Integral de Energía Total</a>
-          <a href="#sec-11">11. Prontuario Completo (Ecs. 3.1–3.46)</a>
+          <a href="#sec-1">1. Reynolds Transport Theorem (RTT)</a>
+          <a href="#sec-2">2. Integral Mass Conservation</a>
+          <a href="#sec-3">3. Body and Surface Forces</a>
+          <a href="#sec-4">4. The Cauchy Stress Tensor</a>
+          <a href="#sec-5">5. The Navier-Poisson Constitutive Equation</a>
+          <a href="#sec-6">6. Forces and Moments on Submerged Bodies</a>
+          <a href="#sec-7">7. Linear Momentum Conservation</a>
+          <a href="#sec-8">8. Angular Momentum Conservation</a>
+          <a href="#sec-9">9. Heat Conduction and Fourier's Law</a>
+          <a href="#sec-10">10. Integral Total Energy Conservation</a>
+          <a href="#sec-11">11. Comprehensive Formula Summary (Eqs. 3.1–3.46)</a>
         </div>
       </nav>
 
-      <!-- SECCIÓN 1 -->
+      <!-- SECTION 1 -->
       <section id="sec-1">
-        <h2 class="section-heading">1. Introducción y el Teorema de Transporte de Reynolds (RTT)</h2>
+        <h2 class="section-heading">1. Introduction and the Reynolds Transport Theorem (RTT)</h2>
         
-        <p>En mecánica clásica, las leyes de conservación de masa, cantidad de movimiento, momento angular y energía se formulan para <strong>sistemas materiales cerrados</strong>: conjuntos invariables de materia constituidos siempre por las mismas partículas. En fluidos, un sistema material ocupa un volumen deformable $V_f(t)$ acotado por una superficie material $\Sigma_f(t)$ que se desplaza y distorsiona continuamente con el flujo local.</p>
+        <p>In classical mechanics, the conservation laws of mass, linear momentum, angular momentum, and energy are formulated for <strong>closed material systems</strong>: invariant collections of matter continually formed by the exact same particles. In fluid mechanics, a material system occupies a deformable volume $V_f(t)$ bounded by a material surface $\Sigma_f(t)$ that moves and distorts continuously with the local flow.</p>
 
-        <p>Sea $\Phi(t)$ cualquier propiedad extensiva total del fluido (masa total, momento o energía). Dicha magnitud se calcula integrando su densidad volumétrica asociada $\phi(\vec{x}, t)$ sobre el volumen material:</p>
+        <p>Let $\Phi(t)$ denote any total extensive property of the fluid (total mass, momentum, or energy). This property is evaluated by integrating its associated volumetric density $\phi(\vec{x}, t)$ over the material volume:</p>
 
         <div class="math-block">
-          $$ \Phi(t) = \int_{V_f(t)} \phi(\vec{x},t) \, dV \qquad \text{con } \phi = \rho, \; \rho\vec{v}, \; \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}], \; \rho\left(e + \frac{|\vec{v}|^2}{2}\right) $$
-          <div class="math-caption">[Ec. 3.1] Definición de magnitud extensiva global a partir de la propiedad intensiva $\phi(\vec{x},t)$.</div>
+          $$ \Phi(t) = \int_{V_f(t)} \phi(\vec{x},t) \, dV \qquad \text{with } \phi = \rho, \; \rho\vec{v}, \; \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}], \; \rho\left(e + \frac{|\vec{v}|^2}{2}\right) $$
+          <div class="math-caption">[Eq. 3.1] Definition of a global extensive property from the intensive property $\phi(\vec{x},t)$.</div>
         </div>
 
-        <p>Dado que tanto el integrando $\phi(\vec{x},t)$ como los límites espaciales del dominio $V_f(t)$ dependen simultáneamente del tiempo $t$, la derivada temporal global $\frac{d\Phi}{dt}$ no coincide con la integral de la derivada parcial local $\frac{\partial\phi}{\partial t}$. Para evaluarla con rigor matemático, aplicamos la definición analítica de límite:</p>
+        <p>Because both the integrand $\phi(\vec{x},t)$ and the spatial boundaries of the domain $V_f(t)$ vary simultaneously with time $t$, the global time derivative $\frac{d\Phi}{dt}$ does not coincide with the integral of the local partial derivative $\frac{\partial\phi}{\partial t}$. To evaluate it with mathematical rigor, we apply the analytical limit definition:</p>
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \phi(\vec{x},t) \, dV\right] = \lim_{\Delta t \to 0} \frac{1}{\Delta t}\left[ \int_{V_f(t+\Delta t)} \phi(\vec{x}, t+\Delta t) \, dV - \int_{V_f(t)} \phi(\vec{x}, t) \, dV \right] $$
-          <div class="math-caption">[Ec. 3.2] Definición formal de la derivada temporal del volumen material fluido.</div>
+          <div class="math-caption">[Eq. 3.2] Formal limit definition of the time derivative of a material fluid volume.</div>
         </div>
 
-        <p>Descomponiendo el dominio en el instante $t+\Delta t$ en el volumen original $V_f(t)$ y la región incremental barrida por la superficie móvil $V_f(t+\Delta t) - V_f(t)$, el límite se desdobla exactamente en dos contribuciones físicas independientes:</p>
+        <p>Decomposing the domain at time $t+\Delta t$ into the original volume $V_f(t)$ and the incremental region swept by the moving boundary $V_f(t+\Delta t) - V_f(t)$, the limit splits into two independent physical contributions:</p>
 
         <div class="math-block">
           $$ \lim_{\Delta t \to 0} \frac{1}{\Delta t}\left[ \int_{V_f(t)} [\phi(\vec{x}, t+\Delta t) - \phi(\vec{x}, t)] \, dV + \int_{V_f(t+\Delta t) - V_f(t)} \phi(\vec{x}, t+\Delta t) \, dV \right] $$
-          <div class="math-caption">[Ec. 3.3] Desdoblamiento en término de almacenamiento interno y término de frontera móvil.</div>
+          <div class="math-caption">[Eq. 3.3] Splitting into internal storage and moving-boundary terms.</div>
         </div>
 
-        <p>Evaluemos cada término por separado:</p>
+        <p>Evaluating each term separately:</p>
         <ol>
-          <li><strong>Contribución de no estacionariedad (Unsteadiness):</strong> Al ser $V_f(t)$ fijo frente al paso al límite, aplicamos el desarrollo en serie de Taylor $\phi(t+\Delta t) - \phi(t) = \frac{\partial\phi}{\partial t}\Delta t + \mathcal{O}(\Delta t^2)$:
+          <li><strong>Unsteadiness contribution:</strong> With $V_f(t)$ held fixed during the limiting process, applying a Taylor series expansion $\phi(t+\Delta t) - \phi(t) = \frac{\partial\phi}{\partial t}\Delta t + \mathcal{O}(\Delta t^2)$ yields:
             <div class="math-block">
               $$ \lim_{\Delta t \to 0} \frac{1}{\Delta t} \int_{V_f(t)} [\phi(\vec{x}, t+\Delta t) - \phi(\vec{x}, t)] \, dV = \int_{V_f(t)} \frac{\partial \phi(\vec{x},t)}{\partial t} \, dV $$
-              <div class="math-caption">[Ec. 3.4] Tasa de variación intrínseca dentro del volumen instantáneo.</div>
+              <div class="math-caption">[Eq. 3.4] Intrinsic rate of change within the instantaneous volume.</div>
             </div>
           </li>
-          <li><strong>Contribución de movimiento del fluido (Convective sweeping):</strong> Durante el intervalo infinitesimal $\Delta t$, un elemento de superficie $d\sigma$ de $\Sigma_f(t)$ con vector normal unitario exterior $\vec{n}$ se desplaza a la velocidad del fluido $\vec{v}$. El volumen barrido corresponde a un cilindro oblicuo elemental de base $d\sigma$ y altura $(\vec{v}\Delta t)\cdot\vec{n}$, por lo que $dV = (\vec{v}\cdot\vec{n})\Delta t \, d\sigma$. Integrando sobre toda la superficie cerrada $\Sigma_f(t)$:
+          <li><strong>Fluid motion contribution (Convective sweeping):</strong> Over the infinitesimal interval $\Delta t$, a surface element $d\sigma$ of $\Sigma_f(t)$ with outward unit normal $\vec{n}$ moves at the fluid velocity $\vec{v}$. The volume swept out corresponds to an elementary oblique cylinder with base $d\sigma$ and height $(\vec{v}\Delta t)\cdot\vec{n}$, such that $dV = (\vec{v}\cdot\vec{n})\Delta t \, d\sigma$. Integrating across the entire closed surface $\Sigma_f(t)$:
             <div class="math-block">
               $$ \lim_{\Delta t \to 0} \frac{1}{\Delta t} \int_{V_f(t+\Delta t) - V_f(t)} \phi(\vec{x}, t+\Delta t) \, dV = \int_{\Sigma_f(t)} \phi \, \vec{v}\cdot\vec{n} \, d\sigma $$
-              <div class="math-caption">[Ec. 3.5] Flujo convectivo neto que abandona la frontera deformable.</div>
+              <div class="math-caption">[Eq. 3.5] Net convective flux leaving the deformable boundary.</div>
             </div>
           </li>
         </ol>
 
-        <p>Sumando ambas contribuciones se deduce la forma canónica del <strong>Teorema de Transporte de Reynolds (RTT)</strong> para un volumen fluido material:</p>
+        <p>Summing both contributions yields the canonical form of the <strong>Reynolds Transport Theorem (RTT)</strong> for a material fluid volume:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_f(t)} \phi(\vec{x},t) \, dV\right] = \int_{V_f(t)} \frac{\partial \phi}{\partial t} \, dV + \int_{\Sigma_f(t)} \phi \, \vec{v}\cdot\vec{n} \, d\sigma} $$
-          <div class="math-caption">[Ec. 3.6] Teorema de Transporte de Reynolds para un volumen material fluido $V_f(t)$.</div>
+          <div class="math-caption">[Eq. 3.6] Reynolds Transport Theorem for a material fluid volume $V_f(t)$.</div>
         </div>
 
-        <h3 class="sub-heading">Extensión a un Volumen de Control Móvil Arbitrario $V_c(t)$</h3>
-        <p>En ingeniería aeroespacial rara vez se sigue una masa de fluido que se estira aguas abajo de un motor o un álabe. Se define, en su lugar, un <strong>volumen de control geométrico</strong> $V_c(t)$ delimitado por una superficie de control $\Sigma_c(t)$ que se mueve a una velocidad espacial arbitraria conocida $\vec{v}_c(\vec{x}, t)$. Aplicando idéntico desarrollo a $V_c(t)$:</p>
+        <h3 class="sub-heading">Extension to an Arbitrary Moving Control Volume $V_c(t)$</h3>
+        <p>In aerospace engineering, one rarely tracks an individual fluid mass stretching downstream of a rocket engine or turbine blade. Instead, one defines a <strong>geometric control volume</strong> $V_c(t)$ bounded by a control surface $\Sigma_c(t)$ moving at an arbitrary, known spatial velocity $\vec{v}_c(\vec{x}, t)$. Applying the same derivation to $V_c(t)$:</p>
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_c(t)} \phi(\vec{x},t) \, dV\right] = \int_{V_c(t)} \frac{\partial \phi}{\partial t} \, dV + \int_{\Sigma_c(t)} \phi \, \vec{v}_c\cdot\vec{n} \, d\sigma $$
-          <div class="math-caption">[Ec. 3.7] Tasa de variación de $\Phi$ almacenada en el volumen geométrico de control $V_c(t)$.</div>
+          <div class="math-caption">[Eq. 3.7] Rate of change of $\Phi$ stored within the geometric control volume $V_c(t)$.</div>
         </div>
 
-        <p>Haciendo coincidir instantáneamente en el tiempo $t$ el volumen de control con el volumen material ($V_c(t) \equiv V_f(t)$ y $\Sigma_c(t) \equiv \Sigma_f(t)$), las integrales de volumen de $\partial\phi/\partial t$ en (3.6) y (3.7) resultan idénticas. Restando directamente ambas ecuaciones se obtiene la <strong>relación universal de transporte de Reynolds</strong>:</p>
+        <p>Matching the control volume with the material volume instantaneously at time $t$ ($V_c(t) \equiv V_f(t)$ and $\Sigma_c(t) \equiv \Sigma_f(t)$), the volume integrals of $\partial\phi/\partial t$ in (3.6) and (3.7) are identical. Subtracting equation (3.7) from (3.6) yields the <strong>universal Reynolds transport relation</strong>:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_f(t)} \phi \, dV\right] = \frac{d}{dt}\left[\int_{V_c(t)} \phi \, dV\right] + \int_{\Sigma_c(t)} \phi \, (\vec{v} - \vec{v}_c)\cdot\vec{n} \, d\sigma} $$
-          <div class="math-caption">[Ec. 3.8] Ecuación de Reynolds universal: derivada material expresada en términos del volumen de control móvil.</div>
+          <div class="math-caption">[Eq. 3.8] Universal Reynolds equation: material derivative expressed in terms of the moving control volume.</div>
         </div>
 
         <div class="note-box">
-          <div class="note-title">Interpretación Física Universal del RTT</div>
-          La derivada material de cualquier propiedad extensiva contenida en el sistema de partículas fluidas $V_f(t)$ equivale a la tasa temporal de almacenamiento dentro del volumen de control $V_c(t)$ más el flujo convectivo neto que escapa a través de la superficie de control $\Sigma_c(t)$, transportado por la <strong>velocidad relativa del fluido respecto a la frontera de control</strong> $(\vec{v} - \vec{v}_c)$.
+          <div class="note-title">Universal Physical Interpretation of RTT</div>
+          The material derivative of any extensive property contained within the fluid system $V_f(t)$ equals the time rate of storage within the control volume $V_c(t)$ plus the net convective flux escaping through the control surface $\Sigma_c(t)$, carried by the <strong>relative fluid velocity with respect to the control boundary</strong> $(\vec{v} - \vec{v}_c)$.
         </div>
       </section>
 
-      <!-- SECCIÓN 2 -->
+      <!-- SECTION 2 -->
       <section id="sec-2">
-        <h2 class="section-heading">2. Conservación Integral de Masa (Continuidad)</h2>
+        <h2 class="section-heading">2. Integral Conservation of Mass (Continuity)</h2>
 
-        <p>En mecánica newtoniana no relativista, la masa de un sistema material fluido cerrado no se crea ni se destruye:</p>
+        <p>In non-relativistic Newtonian mechanics, the mass of a closed material fluid system is neither created nor destroyed:</p>
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho \, dV\right] = 0 $$
-          <div class="math-caption">[Ec. 3.9] Principio fundamental de conservación de la masa para un volumen material fluido.</div>
+          <div class="math-caption">[Eq. 3.9] Fundamental principle of mass conservation for a material fluid volume.</div>
         </div>
 
-        <p>Sustituyendo $\phi = \rho$ en el RTT universal (Ec. 3.8), se obtiene la <strong>ecuación integral de conservación de masa para un volumen de control móvil arbitrario $V_c(t)$</strong>:</p>
+        <p>Substituting $\phi = \rho$ into the universal RTT (Eq. 3.8) yields the <strong>integral mass conservation equation for an arbitrary moving control volume $V_c(t)$</strong>:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho \, dV\right] + \int_{\Sigma_c(t)} \rho \, (\vec{v} - \vec{v}_c)\cdot\vec{n} \, d\sigma = 0} $$
-          <div class="math-caption">[Ec. 3.10] Ecuación integral de continuidad para volumen de control móvil $V_c(t)$.</div>
+          <div class="math-caption">[Eq. 3.10] Integral continuity equation for a moving control volume $V_c(t)$.</div>
         </div>
 
-        <h3 class="sub-heading">Volumen de Control Fijo en el Espacio ($V_0, \vec{v}_c = 0$)</h3>
-        <p>Para un volumen de control indeformable e inmóvil en el sistema de referencia ($\vec{v}_c \equiv 0$ y $V_c(t) \equiv V_0$), la derivada ordinaria exterior pasa a ser la derivada parcial bajo el signo integral:</p>
+        <h3 class="sub-heading">Control Volume Fixed in Space ($V_0, \vec{v}_c = 0$)</h3>
+        <p>For a rigid control volume fixed in the frame of reference ($\vec{v}_c \equiv 0$ and $V_c(t) \equiv V_0$), the exterior ordinary derivative becomes the local partial derivative inside the volume integral:</p>
 
         <div class="math-block">
           $$ \mathbf{\int_{V_0} \frac{\partial \rho}{\partial t} \, dV + \int_{\Sigma_0} \rho \, \vec{v}\cdot\vec{n} \, d\sigma = 0} $$
-          <div class="math-caption">[Ec. 3.11] Ecuación de continuidad para volumen de control fijo $V_0$.</div>
+          <div class="math-caption">[Eq. 3.11] Continuity equation for a fixed control volume $V_0$.</div>
         </div>
 
-        <p>De esta relación se desprenden dos simplificaciones inmediatas de gran trascendencia práctica:</p>
+        <p>Two essential practical simplifications follow directly from this equation:</p>
         <ul>
-          <li><strong>Régimen estacionario ($\partial\rho/\partial t = 0$):</strong> El flujo másico total saliente iguala al entrante:
+          <li><strong>Steady state ($\partial\rho/\partial t = 0$):</strong> Net outgoing mass flow rate equals net incoming mass flow rate:
             $$ \int_{\Sigma_0} \rho \vec{v}\cdot\vec{n} \, d\sigma = 0 \implies \sum \dot{m}_{\text{out}} = \sum \dot{m}_{\text{in}} $$
           </li>
-          <li><strong>Fluido incompresible ($\rho = \text{cte}$):</strong> La densidad sale de la integral, reduciéndose a la conservación del caudal volumétrico:
+          <li><strong>Incompressible fluid ($\rho = \text{constant}$):</strong> Density factors out of the integral, reducing to volumetric flow rate conservation:
             $$ \int_{\Sigma_0} \vec{v}\cdot\vec{n} \, d\sigma = 0 \implies \sum Q_{\text{out}} = \sum Q_{\text{in}} $$
           </li>
         </ul>
       </section>
 
-      <!-- SECCIÓN 3 -->
+      <!-- SECTION 3 -->
       <section id="sec-3">
-        <h2 class="section-heading">3. Fuerzas Volumétricas (Másicas) y Superficiales</h2>
+        <h2 class="section-heading">3. Body (Mass) and Surface Forces</h2>
 
-        <p>El balance dinámico de fuerzas que gobierna la aceleración de un fluido requiere discriminar entre acciones a distancia y fuerzas de contacto:</p>
+        <p>The dynamic force balance governing fluid acceleration requires distinguishing between long-range actions at a distance and contact forces:</p>
 
-        <h3 class="sub-heading">A. Fuerzas Volumétricas o Másicas ($\vec{f}_m$) — Largo Alcance</h3>
-        <p>Poseen un radio de acción muy superior a la distancia intermolecular $d$. Actúan sobre el seno de cada partícula de masa $dm = \rho dV$:</p>
+        <h3 class="sub-heading">A. Body or Mass Forces ($\vec{f}_m$) — Long Range</h3>
+        <p>Possess an effective range vastly exceeding the intermolecular spacing $d$. They act on the bulk of every fluid particle of mass $dm = \rho dV$:</p>
 
         <div class="math-block">
           $$ d\vec{F}_m = \rho \vec{f}_m(\vec{x},t) \, dV $$
-          <div class="math-caption">[Ec. 3.12] Fuerza másica infinitesimal actuando sobre el elemento fluido.</div>
+          <div class="math-caption">[Eq. 3.12] Infinitesimal body force acting on the fluid element.</div>
         </div>
 
-        <p>En el marco general de un <strong>sistema de referencia no inercial</strong> dotado de aceleración lineal del origen $\vec{a}_0(t)$ y velocidad angular $\vec{\Omega}(t)$, la fuerza másica específica $\vec{f}_m$ incorpora la gravedad y las cuatro fuerzas de inercia clásicas:</p>
+        <p>In the general framework of a <strong>non-inertial reference frame</strong> undergoing translational acceleration of its origin $\vec{a}_0(t)$ and angular rotation $\vec{\Omega}(t)$, the specific body force $\vec{f}_m$ incorporates gravity alongside the classical inertial forces:</p>
 
         <div class="math-block">
           $$ \mathbf{\vec{f}_m(\vec{x},t) = \vec{g} - \vec{a}_0 - \frac{d\vec{\Omega}}{dt}\wedge\vec{x} - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) - 2\vec{\Omega}\wedge\vec{v}} $$
-          <div class="math-caption">[Ec. 3.13] Fuerza másica neta en sistema no inercial: gravedad + inercia de traslación + aceleración angular + fuerza centrífuga + fuerza de Coriolis.</div>
+          <div class="math-caption">[Eq. 3.13] Net body force in a non-inertial frame: gravity + translational inertia + angular acceleration + centrifugal force + Coriolis force.</div>
         </div>
 
-        <p>Cuando el sistema no inercial gira y se traslada a ritmo estacionario ($\vec{a}_0 = \text{cte}$, $\vec{\Omega} = \text{cte}$), las fuerzas de gravedad, arrastre lineal y centrífuga son conservativas y derivan de un potencial escalar único $U(\vec{x})$:</p>
+        <p>When the non-inertial frame undergoes steady rotation and constant translation ($\vec{a}_0 = \text{const}$, $\vec{\Omega} = \text{const}$), gravity, translational inertia, and centrifugal forces are conservative and derive from a unified scalar potential $U(\vec{x})$:</p>
 
         <div class="math-block">
           $$ \vec{g} - \vec{a}_0 - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) = -\nabla\left[ -\vec{g}\cdot\vec{x} + \vec{a}_0\cdot\vec{x} - \frac{1}{2}|\vec{\Omega}\wedge\vec{x}|^2 \right] = -\nabla U $$
-          <div class="math-caption">[Ec. 3.14] Gradiente del potencial unificado de fuerzas volumétricas conservativas.</div>
+          <div class="math-caption">[Eq. 3.14] Gradient of the unified potential of steady conservative body forces.</div>
         </div>
 
-        <h3 class="sub-heading">B. Fuerzas Superficiales — Corto Alcance</h3>
-        <p>Originadas por el choque térmico y las interacciones electromagnéticas entre moléculas contiguas a escala $d \sim 10^{-9}\text{ m}$. Sobre un elemento de área $d\sigma$ con normal exterior unitaria $\vec{n}$, el fluido situado del lado al que apunta $\vec{n}$ ejerce una fuerza de contacto:</p>
+        <h3 class="sub-heading">B. Surface Forces — Short Range</h3>
+        <p>Arise from molecular collisions and intermolecular electromagnetic interactions at the scale $d \sim 10^{-9}\text{ m}$. Across an area element $d\sigma$ with outward unit normal $\vec{n}$, the fluid on the side toward which $\vec{n}$ points exerts a contact force:</p>
 
         <div class="math-block">
           $$ d\vec{F}_s = \vec{f}_n(\vec{n}, \vec{x}, t) \, d\sigma $$
-          <div class="math-caption">[Ec. 3.15] Vector tensión superficial $\vec{f}_n$ (fuerza por unidad de área, unidades $\text{Pa} = \text{N/m}^2$).</div>
+          <div class="math-caption">[Eq. 3.15] Surface stress vector $\vec{f}_n$ (force per unit area, SI units $\text{Pa} = \text{N/m}^2$).</div>
         </div>
       </section>
 
-      <!-- SECCIÓN 4 -->
+      <!-- SECTION 4 -->
       <section id="sec-4">
-        <h2 class="section-heading">4. El Tensor de Esfuerzos de Cauchy</h2>
+        <h2 class="section-heading">4. The Cauchy Stress Tensor</h2>
 
-        <p>Augustin-Louis Cauchy demostró que la dependencia direccional del vector tensión $\vec{f}_n$ respecto al vector normal $\vec{n} = (n_1, n_2, n_3)$ es estrictamente lineal. Consideremos un tetraedro infinitesimal con tres caras perpendiculares a los ejes coordenados de áreas $dA_1, dA_2, dA_3$ con vectores normales $-\vec{e}_1, -\vec{e}_2, -\vec{e}_3$, y una cara inclinada de área $dA$ con normal exterior arbitraria $\vec{n}$:</p>
+        <p>Augustin-Louis Cauchy proved that the directional dependence of the stress vector $\vec{f}_n$ on the unit normal $\vec{n} = (n_1, n_2, n_3)$ is strictly linear. Consider an infinitesimal tetrahedron with three faces perpendicular to the coordinate axes having areas $dA_1, dA_2, dA_3$ and outward normals $-\vec{e}_1, -\vec{e}_2, -\vec{e}_3$, and an inclined face of area $dA$ with arbitrary outward unit normal $\vec{n}$:</p>
 
         <div class="math-block">
           $$ dA \, \vec{f}_n - dA_1 \vec{f}_1 - dA_2 \vec{f}_2 - dA_3 \vec{f}_3 = \rho dV \left(\frac{D\vec{v}}{Dt} - \vec{f}_m\right) \to 0 $$
-          <div class="math-caption">[Ec. 3.16] Equilibrio dinámico en el tetraedro de Cauchy en el límite $h \to 0$ (orden de superficie $\mathcal{O}(h^2)$ domina al volumen $\mathcal{O}(h^3)$).</div>
+          <div class="math-caption">[Eq. 3.16] Dynamic equilibrium on Cauchy's tetrahedron as $h \to 0$ (surface area $\mathcal{O}(h^2)$ dominates over volume $\mathcal{O}(h^3)$).</div>
         </div>
 
-        <p>Aplicando las proyecciones geométricas $dA_i = n_i dA$ y dividiendo entre el área inclinada $dA$:</p>
+        <p>Using the geometric projections $dA_i = n_i dA$ and dividing by the inclined face area $dA$:</p>
 
         <div class="math-block">
           $$ \mathbf{\vec{f}_n = n_1 \vec{f}_1 + n_2 \vec{f}_2 + n_3 \vec{f}_3 = \vec{n}\cdot\bar{\bar{\tau}} = \bar{\bar{\tau}}\cdot\vec{n}} $$
-          <div class="math-caption">[Ec. 3.17] Principio de Cauchy: el vector tensión es la proyección del tensor de esfuerzos $\bar{\bar{\tau}}$.</div>
+          <div class="math-caption">[Eq. 3.17] Cauchy's stress theorem: the stress vector is the projection of the stress tensor $\bar{\bar{\tau}}$.</div>
         </div>
 
-        <p>Donde la matriz del <strong>Tensor de Esfuerzos de Cauchy</strong> se define mediante sus 9 componentes:</p>
+        <p>Where the matrix of the <strong>Cauchy Stress Tensor</strong> is defined by its 9 components:</p>
 
         <div class="math-block">
           $$ \bar{\bar{\tau}} = \begin{bmatrix} \tau_{11} & \tau_{12} & \tau_{13} \\ \tau_{21} & \tau_{22} & \tau_{23} \\ \tau_{31} & \tau_{32} & \tau_{33} \end{bmatrix} $$
-          <div class="math-caption">[Ec. 3.18] Tensor de esfuerzos: $\tau_{ij}$ es la fuerza por unidad de superficie en dirección $\vec{e}_j$ sobre una cara con normal $\vec{e}_i$.</div>
+          <div class="math-caption">[Eq. 3.18] Stress tensor: $\tau_{ij}$ represents the force per unit area in direction $\vec{e}_j$ acting on a face with unit normal $\vec{e}_i$.</div>
         </div>
 
-        <h3 class="sub-heading">Simetría del Tensor de Esfuerzos ($\tau_{ij} = \tau_{ji}$)</h3>
-        <p>Evaluando el balance de momento angular en un elemento cúbico diferencial $dx_1 dx_2 dx_3$ en torno a su centro de masas, el momento de inercia y las fuerzas másicas escalan como $\mathcal{O}(dx^5)$ y $\mathcal{O}(dx^4)$, mientras que el par de cizalladura originado por las tensiones tangenciales escala como $(\tau_{12} - \tau_{21}) dx_1 dx_2 dx_3 \sim \mathcal{O}(dx^3)$. En el límite $dx \to 0$, para evitar aceleraciones angulares infinitas se deduce inexorablemente que:</p>
+        <h3 class="sub-heading">Symmetry of the Stress Tensor ($\tau_{ij} = \tau_{ji}$)</h3>
+        <p>Evaluating angular momentum conservation for an infinitesimal cube $dx_1 dx_2 dx_3$ about its center of mass reveals that the moment of inertia and body forces scale as $\mathcal{O}(dx^5)$ and $\mathcal{O}(dx^4)$, whereas the torque produced by shear stresses scales as $(\tau_{12} - \tau_{21}) dx_1 dx_2 dx_3 \sim \mathcal{O}(dx^3)$. In the limit $dx \to 0$, preventing unbounded angular accelerations dictates that:</p>
 
         <div class="math-block">
-          $$ \mathbf{\tau_{ij} = \tau_{ji} \implies \bar{\bar{\tau}} = \bar{\bar{\tau}}^T} \qquad \text{y por tanto} \qquad \vec{f}_n = \begin{bmatrix} \tau_{11} & \tau_{12} & \tau_{13} \\ \tau_{12} & \tau_{22} & \tau_{23} \\ \tau_{13} & \tau_{23} & \tau_{33} \end{bmatrix}\cdot\vec{n} $$
-          <div class="math-caption">[Ec. 3.19] Simetría rigurosa del tensor de esfuerzos de Cauchy en ausencia de micro-pares volumétricos.</div>
+          $$ \mathbf{\tau_{ij} = \tau_{ji} \implies \bar{\bar{\tau}} = \bar{\bar{\tau}}^T} \qquad \text{and therefore} \qquad \vec{f}_n = \begin{bmatrix} \tau_{11} & \tau_{12} & \tau_{13} \\ \tau_{12} & \tau_{22} & \tau_{23} \\ \tau_{13} & \tau_{23} & \tau_{33} \end{bmatrix}\cdot\vec{n} $$
+          <div class="math-caption">[Eq. 3.19] Rigorous symmetry of the Cauchy stress tensor in the absence of distributed body couples.</div>
         </div>
 
-        <h3 class="sub-heading">Direcciones y Esfuerzos Principales</h3>
-        <p>Existen tres orientaciones espaciales privilegiadas en las que el vector tensión es estrictamente colineal con la normal ($\vec{f}_n \parallel \vec{n}$), anulándose completamente el esfuerzo cortante de cizalladura:</p>
+        <h3 class="sub-heading">Principal Directions and Principal Stresses</h3>
+        <p>There exist three privileged spatial orientations along which the stress vector is strictly collinear with the normal ($\vec{f}_n \parallel \vec{n}$), causing shear stresses to vanish identically:</p>
 
         <div class="math-block">
-          $$ \bar{\bar{\tau}}\cdot\vec{n} = \lambda \vec{n} \qquad \text{[Ec. 3.20]} \qquad \iff \qquad |\bar{\bar{\tau}} - \lambda \bar{\bar{I}}| = 0 \qquad \text{[Ec. 3.21]} $$
-          <div class="math-caption">[Ecs. 3.20–3.21] Problema de autovalores y ecuación característica secular.</div>
+          $$ \bar{\bar{\tau}}\cdot\vec{n} = \lambda \vec{n} \qquad \text{[Eq. 3.20]} \qquad \iff \qquad |\bar{\bar{\tau}} - \lambda \bar{\bar{I}}| = 0 \qquad \text{[Eq. 3.21]} $$
+          <div class="math-caption">[Eqs. 3.20–3.21] Eigenvalue problem and secular characteristic equation.</div>
         </div>
 
-        <p>Por el teorema espectral de matrices simétricas reales, las tres tensiones principales $(\lambda_1, \lambda_2, \lambda_3)$ son estrictamente <strong>reales</strong> y sus tres direcciones principales $(\vec{n}_1, \vec{n}_2, \vec{n}_3)$ son <strong>mutuamente perpendiculares</strong>.</p>
+        <p>By the spectral theorem for real symmetric matrices, the three principal stresses $(\lambda_1, \lambda_2, \lambda_3)$ are strictly <strong>real</strong>, and their corresponding principal directions $(\vec{n}_1, \vec{n}_2, \vec{n}_3)$ are <strong>mutually orthogonal</strong>.</p>
 
-        <h3 class="sub-heading">Resultante Superficial y Divergencia de Cauchy</h3>
-        <p>La fuerza superficial global que actúa sobre una superficie cerrada $\Sigma$ que encierra un volumen $V$ se transforma mediante el teorema de Gauss:</p>
+        <h3 class="sub-heading">Global Surface Force and Cauchy Divergence</h3>
+        <p>The global surface force acting on a closed surface $\Sigma$ enclosing volume $V$ is converted via the Gauss divergence theorem:</p>
 
         <div class="math-block">
           $$ \vec{F}_s = \int_\Sigma \bar{\bar{\tau}}\cdot\vec{n} \, d\sigma = \int_V (\nabla\cdot\bar{\bar{\tau}}) \, dV $$
-          <div class="math-caption">[Ecs. 3.22–3.23] La divergencia $\nabla\cdot\bar{\bar{\tau}}$ es la fuerza superficial resultante neta por unidad de volumen.</div>
+          <div class="math-caption">[Eqs. 3.22–3.23] The divergence $\nabla\cdot\bar{\bar{\tau}}$ represents the net resultant surface force per unit volume.</div>
         </div>
 
-        <p>Aplicando la 2ª Ley de Newton a un elemento infinitesimal $dV$, se obtiene la forma diferencial del momento de Cauchy:</p>
+        <p>Applying Newton's second law to an infinitesimal element $dV$ yields Cauchy's differential equation of motion:</p>
 
         <div class="math-block">
           $$ \rho dV \frac{D\vec{v}}{Dt} = (\nabla\cdot\bar{\bar{\tau}})dV + \rho\vec{f}_m dV \quad \implies \quad \mathbf{\rho \frac{D\vec{v}}{Dt} = \nabla\cdot\bar{\bar{\tau}} + \rho\vec{f}_m} $$
-          <div class="math-caption">[Ecs. 3.24–3.25] Ecuación de movimiento de Cauchy para cualquier medio continuo.</div>
+          <div class="math-caption">[Eqs. 3.24–3.25] Cauchy's equation of motion for any continuum medium.</div>
         </div>
       </section>
 
-      <!-- SECCIÓN 5 -->
+      <!-- SECTION 5 -->
       <section id="sec-5">
-        <h2 class="section-heading">5. Ecuación Constitutiva de Navier-Poisson</h2>
+        <h2 class="section-heading">5. The Navier-Poisson Constitutive Equation</h2>
 
-        <p>Para cerrar dinámicamente las ecuaciones de movimiento, es necesario relacionar el tensor de esfuerzos $\bar{\bar{\tau}}$ con la cinemática del flujo ($\vec{v}$) y el estado termodinámico ($p, T$).</p>
+        <p>To achieve dynamic closure of the equations of motion, the stress tensor $\bar{\bar{\tau}}$ must be linked to flow kinematics ($\vec{v}$) and the thermodynamic state ($p, T$).</p>
 
-        <h3 class="sub-heading">Estado Hidrostático vs Fluido en Movimiento</h3>
-        <p>En un fluido en reposo o con movimiento de sólido rígido ($\bar{\bar{T}}_d = 0$), los esfuerzos cortantes se anulan idénticamente y la fuerza superficial es isotrópica y puramente compresiva:</p>
+        <h3 class="sub-heading">Hydrostatic State vs. Fluid in Motion</h3>
+        <p>In a fluid at rest or undergoing rigid-body motion ($\bar{\bar{T}}_d = 0$), shear stresses vanish identically, and the surface force is isotropic and purely compressive:</p>
 
         <div class="math-block">
           $$ \vec{f}_n = -p\vec{n} \quad \implies \quad \bar{\bar{\tau}} = -p\bar{\bar{I}} $$
-          <div class="math-caption">[Ecs. 3.26–3.27] Tensor de esfuerzos hidrostático gobernado por la presión termodinámica escalar $p$.</div>
+          <div class="math-caption">[Eqs. 3.26–3.27] Hydrostatic stress tensor governed by the scalar thermodynamic pressure $p$.</div>
         </div>
 
-        <p>En un flujo con deformación relativa ($\bar{\bar{T}}_d \neq 0$), la fricción viscosa genera esfuerzos suplementarios. El tensor de esfuerzos se descompone universalmente como:</p>
+        <p>In a flow with relative strain ($\bar{\bar{T}}_d \neq 0$), viscous friction generates additional stresses. The stress tensor is universally decomposed as:</p>
 
         <div class="math-block">
           $$ \mathbf{\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'} $$
-          <div class="math-caption">[Ec. 3.28] Descomposición en parte esférica hidrostática y tensor de esfuerzos viscosos $\bar{\bar{\tau}}'$.</div>
+          <div class="math-caption">[Ec. 3.28] Decomposition into hydrostatic spherical part and viscous stress tensor $\bar{\bar{\tau}}'$.</div>
         </div>
 
-        <h3 class="sub-heading">Hipótesis del Fluido Newtoniano Isótropo</h3>
-        <p>Bajo la hipótesis de linealidad constitutiva ($\tau'_{ij} = \alpha_{ijkl}\gamma_{kl}$, Ec. 3.29) e isotropía espacial, el tensor de tensiones viscosas depende exclusivamente de dos coeficientes de viscosidad:</p>
+        <h3 class="sub-heading">Isotropic Newtonian Fluid Hypothesis</h3>
+        <p>Under the hypothesis of constitutive linearity ($\tau'_{ij} = \alpha_{ijkl}\gamma_{kl}$, Eq. 3.29) and spatial isotropy, the viscous stress tensor depends exclusively on two viscosity coefficients:</p>
 
         <div class="math-block">
           $$ \mathbf{\bar{\bar{\tau}}' = 2\mu \bar{\bar{T}}_d + \lambda (\nabla\cdot\vec{v})\bar{\bar{I}}} $$
-          <div class="math-caption">[Ec. 3.30] Relación de Navier-Poisson en función de la viscosidad dinámica $\mu$ y la segunda viscosidad $\lambda$.</div>
+          <div class="math-caption">[Eq. 3.30] Navier-Poisson relation in terms of dynamic shear viscosity $\mu$ and second viscosity $\lambda$.</div>
         </div>
 
-        <p>Introduciendo la <strong>viscosidad volumétrica o de bulto</strong> $\mu_B = \lambda + \frac{2}{3}\mu$, la ecuación constitutiva adopta su forma canónica:</p>
+        <p>Introducing the <strong>bulk (volumetric) viscosity</strong> $\mu_B = \lambda + \frac{2}{3}\mu$, the constitutive equation assumes its canonical form:</p>
 
         <div class="math-block">
           $$ \mathbf{\bar{\bar{\tau}}' = 2\mu \bar{\bar{T}}_d + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\bar{\bar{I}}} $$
-          <div class="math-caption">[Ec. 3.31] Ecuación constitutiva canónica de Navier-Poisson.</div>
+          <div class="math-caption">[Eq. 3.31] Canonical Navier-Poisson constitutive equation.</div>
         </div>
 
         <div class="note-box">
-          <div class="note-title">Hipótesis de Stokes ($\mu_B = 0$) y Flujo Incompresible</div>
+          <div class="note-title">Stokes Hypothesis ($\mu_B = 0$) and Incompressible Flow</div>
           <ul>
-            <li><strong>Hipótesis de Stokes (1845):</strong> Establece que $\mu_B \approx 0 \implies \lambda = -\frac{2}{3}\mu$. Es rigurosamente exacta para gases monoatómicos y un estándar de ingeniería plenamente contrastado en aerodinámica subsónica y supersónica.</li>
-            <li><strong>Flujo Incompresible ($\nabla\cdot\vec{v} = 0$):</strong> El término de dilatación volumétrica se anula idénticamente, quedando:
+            <li><strong>Stokes Hypothesis (1845):</strong> Assumes $\mu_B \approx 0 \implies \lambda = -\frac{2}{3}\mu$. It is rigorously exact for monatomic gases and an extensively validated engineering standard in subsonic and supersonic aerodynamics.</li>
+            <li><strong>Incompressible Flow ($\nabla\cdot\vec{v} = 0$):</strong> The volumetric dilation term vanishes identically, reducing to:
               $$ \mathbf{\bar{\bar{\tau}}' = 2\mu \bar{\bar{T}}_d} $$
             </li>
           </ul>
         </div>
 
-        <h3 class="sub-heading">Comportamiento Térmico: Aire frente a Agua</h3>
-        <p>La viscosidad dinámica $\mu(T)$ depende fundamentalmente de la temperatura:</p>
+        <h3 class="sub-heading">Thermal Behavior: Air vs. Water</h3>
+        <p>Dynamic viscosity $\mu(T)$ depends fundamentally on temperature:</p>
         <ul>
-          <li><strong>Gases (Aire):</strong> El transporte viscoso se debe al intercambio de momento por agitación molecular ($v_{\text{th}}\propto \sqrt{T}$). Por tanto, $\mu$ <strong>aumenta con $T$</strong>. A $288\text{ K}$, $\mu_a \approx 1.78\times 10^{-5}\text{ Pa}\cdot\text{s}$.</li>
-          <li><strong>Líquidos (Agua):</strong> El transporte se debe a las fuerzas de cohesión intermoleculares. Al subir $T$, las moléculas se liberan de las ligaduras y $\mu$ <strong>disminuye drásticamente</strong>. A $288\text{ K}$, $\mu_w \approx 1.14\times 10^{-3}\text{ Pa}\cdot\text{s}$.</li>
+          <li><strong>Gases (Air):</strong> Viscous momentum transport occurs via molecular momentum exchange during thermal collisions ($v_{\text{th}}\propto \sqrt{T}$). Hence, $\mu$ <strong>increases with $T$</strong>. At $288\text{ K}$, $\mu_a \approx 1.78\times 10^{-5}\text{ Pa}\cdot\text{s}$.</li>
+          <li><strong>Liquids (Water):</strong> Momentum transport is governed by cohesive intermolecular forces. As $T$ rises, thermal energy breaks molecular bonds and $\mu$ <strong>drops sharply</strong>. At $288\text{ K}$, $\mu_w \approx 1.14\times 10^{-3}\text{ Pa}\cdot\text{s}$.</li>
         </ul>
 
         <div class="table-wrapper">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Fluido</th>
-                <th>Densidad $\rho$ ($288\text{ K}$)</th>
-                <th>Viscosidad Dinámica $\mu$</th>
-                <th>Viscosidad Cinemática $\nu = \mu/\rho$</th>
-                <th>Comportamiento con Temperatura</th>
+                <th>Fluid</th>
+                <th>Density $\rho$ ($288\text{ K}$)</th>
+                <th>Dynamic Viscosity $\mu$</th>
+                <th>Kinematic Viscosity $\nu = \mu/\rho$</th>
+                <th>Temperature Dependence</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Aire atmosférico</strong></td>
+                <td><strong>Atmospheric Air</strong></td>
                 <td>$1.225\text{ kg/m}^3$</td>
                 <td>$1.78 \times 10^{-5}\text{ Pa}\cdot\text{s}$</td>
                 <td>$\mathbf{1.45 \times 10^{-5}\text{ m}^2/\text{s}}$</td>
-                <td>$\mu$ sube al calentar ($\propto T^{1/2}$ / Sutherland)</td>
+                <td>$\mu$ increases with temperature ($\propto T^{1/2}$ / Sutherland)</td>
               </tr>
               <tr>
-                <td><strong>Agua líquida</strong></td>
+                <td><strong>Liquid Water</strong></td>
                 <td>$1000\text{ kg/m}^3$</td>
                 <td>$1.14 \times 10^{-3}\text{ Pa}\cdot\text{s}$</td>
                 <td>$\mathbf{1.14 \times 10^{-6}\text{ m}^2/\text{s}}$</td>
-                <td>$\mu$ cae exponencialmente al calentar</td>
+                <td>$\mu$ decreases exponentially with temperature</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p><em>¡Nótese que la viscosidad cinemática del aire es casi 13 veces mayor que la del agua, difundiendo el momento por unidad de masa con mayor rapidez!</em></p>
+        <p><em>Note that the kinematic viscosity of air is nearly 13 times higher than that of water, diffusing momentum per unit mass considerably faster!</em></p>
       </section>
 
-      <!-- SECCIÓN 6 -->
+      <!-- SECTION 6 -->
       <section id="sec-6">
-        <h2 class="section-heading">6. Fuerzas y Momentos sobre Cuerpos Sumergidos</h2>
+        <h2 class="section-heading">6. Forces and Moments on Submerged Bodies</h2>
 
-        <p>Cuando un cuerpo aeronáutico (ala, fuselaje, álabe de turbina o misil) se encuentra sumergido en un fluido en movimiento, la acción aerodinámica total que el fluido ejerce sobre su superficie mojada $\Sigma$ proviene exclusivamente de la distribución de presión y de los esfuerzos de fricción viscosa.</p>
+        <p>When an aerodynamic body (airfoil, fuselage, turbine blade, or missile) is immersed in a moving fluid, the total aerodynamic action exerted by the fluid on its wetted surface $\Sigma$ arises solely from the distribution of pressure and viscous shear stresses.</p>
 
-        <p>Tomando el vector normal unitario $\vec{n}$ apuntando <strong>hacia el interior del fluido</strong> (saliendo del cuerpo sólido):</p>
+        <p>Taking the outward unit normal vector $\vec{n}$ pointing <strong>into the fluid</strong> (out of the solid body):</p>
 
         <div class="math-block">
           $$ \mathbf{\vec{F} = -\int_\Sigma p\vec{n} \, d\sigma + \int_\Sigma \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma} $$
-          <div class="math-caption">[Ec. 3.32] Fuerza aerodinámica resultante: integral de presión normal + integral de fricción tangencial.</div>
+          <div class="math-caption">[Eq. 3.32] Net aerodynamic force: normal pressure integral + tangential viscous shear integral.</div>
         </div>
 
         <div class="math-block">
           $$ \mathbf{\vec{M}_{\vec{x}_0} = -\int_\Sigma (\vec{x} - \vec{x}_0)\wedge(p\vec{n}) \, d\sigma + \int_\Sigma (\vec{x} - \vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma} $$
-          <div class="math-caption">[Ec. 3.33] Momento aerodinámico resultante respecto al punto de reducción $\vec{x}_0$.</div>
+          <div class="math-caption">[Eq. 3.33] Net aerodynamic moment about reduction point $\vec{x}_0$.</div>
         </div>
 
-        <p>Proyectando $\vec{F}$ en los ejes del viento relativo se obtienen directamente la <strong>sustentación</strong> $L$ (perpendicular a $\vec{v}_\infty$) y la <strong>resistencia aerodinámica</strong> $D$ (paralela a $\vec{v}_\infty$), descomponiéndose esta última en resistencia de presión (forma/onda) y resistencia de fricción superficial.</p>
+        <p>Projecting $\vec{F}$ onto relative wind axes directly yields <strong>aerodynamic lift</strong> $L$ (perpendicular to $\vec{v}_\infty$) and <strong>aerodynamic drag</strong> $D$ (parallel to $\vec{v}_\infty$), the latter splitting into pressure drag (form/wave) and skin-friction drag.</p>
       </section>
 
-      <!-- SECCIÓN 7 -->
+      <!-- SECTION 7 -->
       <section id="sec-7">
-        <h2 class="section-heading">7. Ecuación Integral de Conservación de Cantidad de Movimiento</h2>
+        <h2 class="section-heading">7. Integral Conservation of Linear Momentum</h2>
 
-        <p>La 2ª Ley de Newton postula que la tasa de variación temporal de la cantidad de movimiento total de una masa fluida cerrada $V_f(t)$ equivale a la resultante de las fuerzas externas (presión, viscosidad y fuerzas másicas):</p>
+        <p>Newton's second law postulates that the time rate of change of the total linear momentum of a closed material fluid system $V_f(t)$ equals the resultant of all external forces (pressure, viscous stresses, and body forces):</p>
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV $$
-          <div class="math-caption">[Ec. 3.34] Balance de cantidad de movimiento para un volumen material fluido $V_f(t)$.</div>
+          <div class="math-caption">[Eq. 3.34] Linear momentum balance for a material fluid volume $V_f(t)$.</div>
         </div>
 
-        <p>Sustituyendo $\phi = \rho\vec{v}$ en el Teorema de Transporte de Reynolds (Ec. 3.8), se formula la <strong>ecuación integral de cantidad de movimiento para un volumen de control móvil arbitrario $V_c(t)$</strong>:</p>
+        <p>Substituting $\phi = \rho\vec{v}$ into the Reynolds Transport Theorem (Eq. 3.8) yields the <strong>integral linear momentum equation for an arbitrary moving control volume $V_c(t)$</strong>:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\vec{v} \, dV\right] + \int_{\Sigma_c(t)} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma = -\int_{\Sigma_c(t)} p\vec{n} \, d\sigma + \int_{\Sigma_c(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_c(t)} \rho\vec{f}_m \, dV} $$
-          <div class="math-caption">[Ec. 3.35] Ecuación integral de conservación de cantidad de movimiento para volumen de control móvil $V_c(t)$.</div>
+          <div class="math-caption">[Eq. 3.35] Integral linear momentum conservation equation for a moving control volume $V_c(t)$.</div>
         </div>
 
-        <h3 class="sub-heading">Volumen de Control Fijo en el Espacio ($V_0, \vec{v}_c = 0$)</h3>
+        <h3 class="sub-heading">Control Volume Fixed in Space ($V_0, \vec{v}_c = 0$)</h3>
         <div class="math-block">
           $$ \mathbf{\int_{V_0} \frac{\partial(\rho\vec{v})}{\partial t} \, dV + \int_{\Sigma_0} \rho\vec{v}(\vec{v}\cdot\vec{n}) \, d\sigma = -\int_{\Sigma_0} p\vec{n} \, d\sigma + \int_{\Sigma_0} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_0} \rho\vec{f}_m \, dV} $$
-          <div class="math-caption">[Ec. 3.36] Conservación de cantidad de movimiento en volumen de control fijo $V_0$.</div>
+          <div class="math-caption">[Eq. 3.36] Linear momentum conservation for a fixed control volume $V_0$.</div>
         </div>
 
         <div class="card">
-          <h3 class="sub-heading" style="margin-top: 0;">Desglose Físico de los 5 Términos en la Ecuación del Momento</h3>
+          <h3 class="sub-heading" style="margin-top: 0;">Physical Breakdown of the 5 Terms in the Momentum Equation</h3>
           <ol>
-            <li><strong>$\frac{d}{dt}\int_{V_c} \rho\vec{v} dV$ (Inercia Local / Acumulación):</strong> Variación temporal de la cantidad de movimiento almacenada en la cavidad. Nula en régimen estacionario.</li>
-            <li><strong>$\int_{\Sigma_c} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] d\sigma$ (Flujo Convectivo Saliente):</strong> Tasa neta de expulsión de momento a través de las fronteras abiertas de entrada y salida transportada por el flujo másico relativo.</li>
-            <li><strong>$-\int_{\Sigma_c} p\vec{n} d\sigma$ (Fuerza Neta de Presión Externa):</strong> Fuerza normal distribuida sobre las fronteras de control. En problemas abiertos a la atmósfera, puede calcularse usando presiones manométricas $(p - p_a)$.</li>
-            <li><strong>$\int_{\Sigma_c} \bar{\bar{\tau}}'\cdot\vec{n} d\sigma$ (Fuerza Neta Viscosa):</strong> Esfuerzos cortantes de fricción tangencial en paredes sólidas mojadas.</li>
-            <li><strong>$\int_{V_c} \rho\vec{f}_m dV$ (Fuerzas Volumétricas):</strong> Peso total del fluido en el volumen ($\int \rho\vec{g} dV$) y fuerzas ficticias de inercia si el marco es no inercial.</li>
+            <li><strong>$\frac{d}{dt}\int_{V_c} \rho\vec{v} dV$ (Local Inertia / Storage):</strong> Time variation of momentum stored within the control cavity. Identically zero in steady state.</li>
+            <li><strong>$\int_{\Sigma_c} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] d\sigma$ (Net Outgoing Convective Flux):</strong> Net rate of momentum efflux across open inlet and outlet control boundaries carried by the relative mass flow.</li>
+            <li><strong>$-\int_{\Sigma_c} p\vec{n} d\sigma$ (Net External Pressure Force):</strong> Distributed normal compressive force over the control boundaries. For problems vented to ambient atmosphere, gauge pressure $(p - p_a)$ can be used directly.</li>
+            <li><strong>$\int_{\Sigma_c} \bar{\bar{\tau}}'\cdot\vec{n} d\sigma$ (Net Viscous Force):</strong> Tangential friction shear stresses acting along wetted solid walls.</li>
+            <li><strong>$\int_{V_c} \rho\vec{f}_m dV$ (Body Forces):</strong> Total fluid weight within the volume ($\int \rho\vec{g} dV$) plus fictitious inertial forces if the reference frame is non-inertial.</li>
           </ol>
         </div>
       </section>
 
-      <!-- SECCIÓN 8 -->
+      <!-- SECTION 8 -->
       <section id="sec-8">
-        <h2 class="section-heading">8. Ecuación Integral de Momento Cinético (Momento Angular)</h2>
+        <h2 class="section-heading">8. Integral Conservation of Angular Momentum (Moment of Momentum)</h2>
 
-        <p>El balance del momento de la cantidad de movimiento respecto a un punto de referencia fijo $\vec{x}_0$ para un volumen material fluido $V_f(t)$ establece:</p>
+        <p>The angular momentum balance about a fixed reference point $\vec{x}_0$ for a material fluid volume $V_f(t)$ states:</p>
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho(\vec{x}-\vec{x}_0)\wedge\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} (\vec{x}-\vec{x}_0)\wedge(p\vec{n}) \, d\sigma + \int_{\Sigma_f(t)} (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma + \int_{V_f(t)} \rho(\vec{x}-\vec{x}_0)\wedge\vec{f}_m \, dV $$
-          <div class="math-caption">[Ec. 3.37] Balance de momento cinético para un volumen material fluido $V_f(t)$.</div>
+          <div class="math-caption">[Eq. 3.37] Angular momentum balance for a material fluid volume $V_f(t)$.</div>
         </div>
 
-        <p>Aplicando el Teorema de Transporte de Reynolds se obtiene la formulación general para un <strong>volumen de control móvil $V_c(t)$</strong>:</p>
+        <p>Applying the Reynolds Transport Theorem yields the general formulation for a <strong>moving control volume $V_c(t)$</strong>:</p>
 
         <div class="math-block">
           $$ \begin{aligned}
           \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}] \, dV\right] + \int_{\Sigma_c(t)} \rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma =} \\
           \mathbf{-\int_{\Sigma_c(t)} (\vec{x}-\vec{x}_0)\wedge(p\vec{n}) \, d\sigma + \int_{\Sigma_c(t)} (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n}) \, d\sigma + \int_{V_c(t)} \rho[(\vec{x}-\vec{x}_0)\wedge\vec{f}_m] \, dV}
           \end{aligned} $$
-          <div class="math-caption">[Ec. 3.38] Ecuación integral de momento cinético para volumen de control móvil $V_c(t)$.</div>
+          <div class="math-caption">[Eq. 3.38] Integral angular momentum equation for a moving control volume $V_c(t)$.</div>
         </div>
 
         <div class="note-box">
-          <div class="note-title">Aplicación Aeroespacial Clave: Ecuación de Euler para Turbomáquinas</div>
-          En rotores de turbinas de gas y compresores aeronáuticos que giran a velocidad angular $\vec{\Omega} = \Omega \vec{e}_z$, el par mecánico transmitido al eje en régimen estacionario depende únicamente del flujo másico $\dot{m}$ y del salto de momento cinético específico entre la salida ($r_2, v_{\theta 2}$) y la entrada ($r_1, v_{\theta 1}$):
-          $$ T_{\text{eje}} = \dot{m}(r_2 v_{\theta 2} - r_1 v_{\theta 1}) \implies \mathbf{w_{\text{Euler}} = \frac{\dot{W}_{\text{eje}}}{\dot{m}} = u_2 v_{\theta 2} - u_1 v_{\theta 1}} $$
-          donde $u = \Omega r$ es la velocidad periférica del álabe.
+          <div class="note-title">Key Aerospace Application: Euler's Turbomachinery Equation</div>
+          In gas turbine rotors and aircraft compressors rotating at angular velocity $\vec{\Omega} = \Omega \vec{e}_z$, the steady mechanical shaft torque depends solely on the mass flow rate $\dot{m}$ and the change in specific angular momentum between exit ($r_2, v_{\theta 2}$) and inlet ($r_1, v_{\theta 1}$):
+          $$ T_{\text{shaft}} = \dot{m}(r_2 v_{\theta 2} - r_1 v_{\theta 1}) \implies \mathbf{w_{\text{Euler}} = \frac{\dot{W}_{\text{shaft}}}{\dot{m}} = u_2 v_{\theta 2} - u_1 v_{\theta 1}} $$
+          where $u = \Omega r$ is the blade peripheral velocity.
         </div>
       </section>
 
-      <!-- SECCIÓN 9 -->
+      <!-- SECTION 9 -->
       <section id="sec-9">
-        <h2 class="section-heading">9. Transferencia de Calor por Conducción y Ley de Fourier</h2>
+        <h2 class="section-heading">9. Conductive Heat Transfer and Fourier's Law</h2>
 
-        <p>La potencia calorífica conducida a través de un elemento diferencial de superficie $d\sigma$ orientado con normal unitaria exterior $\vec{n}$ viene dada por:</p>
+        <p>The conductive heat flow rate across an infinitesimal surface element $d\sigma$ with outward unit normal $\vec{n}$ is given by:</p>
 
         <div class="math-block">
           $$ d\dot{Q}_{\text{cond}} = q_n(\vec{n}, \vec{x}, t) \, d\sigma $$
-          <div class="math-caption">[Ec. 3.39] Densidad de flujo de calor conductivo en dirección de la normal $\vec{n}$.</div>
+          <div class="math-caption">[Eq. 3.39] Conductive heat flux density in the direction of the unit normal $\vec{n}$.</div>
         </div>
 
-        <p>Aplicando el balance de energía en el límite infinitesimal sobre el tetraedro de Cauchy:</p>
+        <p>Applying energy conservation to Cauchy's infinitesimal tetrahedron in the limit $h \to 0$:</p>
 
         <div class="math-block">
           $$ q_n dA = q_1 dA_1 + q_2 dA_2 + q_3 dA_3 \quad \implies \quad \mathbf{q_n = \vec{q}\cdot\vec{n}} $$
-          <div class="math-caption">[Ecs. 3.40–3.41] El flujo térmico escalar $q_n$ es la proyección del vector densidad de flujo térmico $\vec{q} = (q_1, q_2, q_3)$.</div>
+          <div class="math-caption">[Eqs. 3.40–3.41] The scalar heat flux $q_n$ is the projection of the heat flux density vector $\vec{q} = (q_1, q_2, q_3)$.</div>
         </div>
 
-        <p>Para una superficie cerrada $\Sigma$ que delimita un volumen $V$, la tasa de pérdida de calor conductivo total hacia el exterior y su aplicación mediante el teorema de la divergencia de Gauss son:</p>
+        <p>For a closed surface $\Sigma$ bounding volume $V$, the total conductive heat loss to the surroundings and its divergence theorem equivalent are:</p>
 
         <div class="math-block">
-          $$ \dot{Q}_{\text{neto}} = \int_\Sigma \vec{q}\cdot\vec{n} \, d\sigma = \int_V (\nabla\cdot\vec{q}) \, dV $$
-          <div class="math-caption">[Ecs. 3.42–3.43] $\nabla\cdot\vec{q}$ representa la tasa de calor conductivo perdido por unidad de volumen.</div>
+          $$ \dot{Q}_{\text{net}} = \int_\Sigma \vec{q}\cdot\vec{n} \, d\sigma = \int_V (\nabla\cdot\vec{q}) \, dV $$
+          <div class="math-caption">[Eqs. 3.42–3.43] $\nabla\cdot\vec{q}$ represents the conductive heat loss rate per unit volume.</div>
         </div>
 
-        <h3 class="sub-heading">La Ley de Fourier de la Conducción Térmica</h3>
-        <p>El flujo molecular de calor sigue la ley lineal de Joseph Fourier:</p>
+        <h3 class="sub-heading">Fourier's Law of Heat Conduction</h3>
+        <p>Molecular heat transport obeys Joseph Fourier's linear phenomenological law:</p>
 
         <div class="math-block">
           $$ \mathbf{\vec{q} = -k \nabla T} $$
-          <div class="math-caption">[Ec. 3.44] Ley de Fourier: proporcionalidad lineal con el gradiente de temperatura $T$ (el signo $-$ asegura que el calor fluya de zonas calientes a frías).</div>
+          <div class="math-caption">[Eq. 3.44] Fourier's Law: linear proportionality to temperature gradient $\nabla T$ (the negative sign ensures heat flows from hot to cold regions).</div>
         </div>
 
-        <h3 class="sub-heading">Difusividad Térmica ($\alpha$) y Número de Prandtl ($\mathrm{Pr}$)</h3>
-        <p>La difusividad molecular del calor viene dada por $\alpha = \frac{k}{\rho c_p}$ (unidades $\text{m}^2/\text{s}$). El cociente entre la difusión molecular de cantidad de movimiento ($\nu = \mu/\rho$) y la de calor ($\alpha$) define el <strong>número adimensional de Prandtl</strong>:</p>
+        <h3 class="sub-heading">Thermal Diffusivity ($\alpha$) and Prandtl Number ($\mathrm{Pr}$)</h3>
+        <p>Molecular thermal diffusivity is given by $\alpha = \frac{k}{\rho c_p}$ (SI units $\text{m}^2/\text{s}$). The ratio of momentum diffusivity ($\nu = \mu/\rho$) to thermal diffusivity ($\alpha$) defines the dimensionless <strong>Prandtl number</strong>:</p>
 
         <div class="math-block">
           $$ \mathbf{\mathrm{Pr} = \frac{\nu}{\alpha} = \frac{\mu c_p}{k}} $$
-          <div class="math-caption">Definición canónica del Número de Prandtl.</div>
+          <div class="math-caption">Canonical definition of the Prandtl number.</div>
         </div>
 
         <div class="table-wrapper">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Tipo de Fluido</th>
-                <th>Orden de Magnitud de $\mathrm{Pr}$</th>
-                <th>Fenómeno Físico Subyacente</th>
-                <th>Ejemplo Aeroespacial</th>
+                <th>Fluid Type</th>
+                <th>Order of Magnitude of $\mathrm{Pr}$</th>
+                <th>Underlying Physical Mechanism</th>
+                <th>Aerospace Example</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Gases (Aire)</strong></td>
+                <td><strong>Gases (Air)</strong></td>
                 <td>$\mathbf{\approx 0.72}$</td>
-                <td>Mismo mecanismo cinético molecular de transporte. Capas límite viscosa y térmica de espesor similar ($\delta_v \approx \delta_T$).</td>
-                <td>Flujo sobre perfiles alares, fuselajes y toberas propulsivas.</td>
+                <td>Same molecular kinetic transport mechanism. Viscous and thermal boundary layers have comparable thickness ($\delta_v \approx \delta_T$).</td>
+                <td>Flow over airfoils, fuselages, and propulsion nozzles.</td>
               </tr>
               <tr>
-                <td><strong>Agua líquida</strong></td>
+                <td><strong>Liquid Water</strong></td>
                 <td>$\mathbf{1.8 - 8.1}$</td>
-                <td>Estructura molecular con puentes de hidrógeno. Fuerte variación con la temperatura ($\mathrm{Pr}=8.14$ a $288\text{ K}$, $\mathrm{Pr}=1.82$ a $368\text{ K}$).</td>
-                <td>Túneles hidrodinámicos y ensayos de cavitación.</td>
+                <td>Hydrogen-bonded molecular structure. Strong temperature sensitivity ($\mathrm{Pr}=8.14$ at $288\text{ K}$, $\mathrm{Pr}=1.82$ at $368\text{ K}$).</td>
+                <td>Hydrodynamic towing tanks and cavitation testing.</td>
               </tr>
               <tr>
-                <td><strong>Metales líquidos</strong></td>
+                <td><strong>Liquid Metals</strong></td>
                 <td>$\mathbf{\ll 1} \; (0.005 - 0.03)$</td>
-                <td>Los electrones libres conducen calor con extrema rapidez. La difusión térmica supera con creces a la viscosa ($\delta_T \gg \delta_v$).</td>
-                <td>Refrigeración compacta de reactores nucleares espaciales.</td>
+                <td>Free conduction electrons transport heat with extraordinary rapidity. Thermal diffusion vastly dominates over viscous diffusion ($\delta_T \gg \delta_v$).</td>
+                <td>Compact cooling in space nuclear reactors.</td>
               </tr>
               <tr>
-                <td><strong>Aceites de lubricación</strong></td>
-                <td>$\mathbf{\gg 1} \; (100 - 10.000)$</td>
-                <td>Grandes moléculas orgánicas con alta fricción interna y baja conductividad. La capa límite térmica es ultrafina ($\delta_T \ll \delta_v$).</td>
-                <td>Cojinetes de alta velocidad en turborreactores de aviación.</td>
+                <td><strong>Lubricating Oils</strong></td>
+                <td>$\mathbf{\gg 1} \; (100 - 10,000)$</td>
+                <td>Large organic molecules with high internal friction and low thermal conductivity. Ultra-thin thermal boundary layer ($\delta_T \ll \delta_v$).</td>
+                <td>High-speed shaft bearings in aviation turbojets.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- SECCIÓN 10 -->
+      <!-- SECTION 10 -->
       <section id="sec-10">
-        <h2 class="section-heading">10. Ecuación Integral de Conservación de Energía Total</h2>
+        <h2 class="section-heading">10. Integral Conservation of Total Energy</h2>
 
-        <p>La energía total por unidad de masa de una partícula fluida comprende su energía interna microscópica $e$ y su energía cinética macroscópica $\frac{1}{2}|\vec{v}|^2$. De acuerdo con el Primer Principio de la Termodinámica, la variación de energía en un volumen material fluido $V_f(t)$ se debe a la potencia de las fuerzas exteriores más el calor transferido:</p>
+        <p>The total energy per unit mass of a fluid particle comprises its microscopic internal energy $e$ and its macroscopic kinetic energy $\frac{1}{2}|\vec{v}|^2$. In accordance with the First Law of Thermodynamics, the rate of change of energy in a material fluid volume $V_f(t)$ equals the mechanical power of external forces plus the net heat added:</p>
 
         <div class="math-block">
           $$ \begin{aligned}
           \frac{d}{dt}\left[\int_{V_f(t)} \rho\left(e + \frac{|\vec{v}|^2}{2}\right) dV\right] = & -\int_{\Sigma_f(t)} p\vec{v}\cdot\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m\cdot\vec{v} \, dV \\
           & -\int_{\Sigma_f(t)} \vec{q}\cdot\vec{n} \, d\sigma + \int_{V_f(t)} (Q_c + Q_r) \, dV
           \end{aligned} $$
-          <div class="math-caption">[Ec. 3.45] Primer Principio de la Termodinámica para un volumen material fluido cerrado $V_f(t)$.</div>
+          <div class="math-caption">[Eq. 3.45] First Law of Thermodynamics for a closed material fluid volume $V_f(t)$.</div>
         </div>
 
-        <p>Aplicando el Teorema de Transporte de Reynolds universal (Ec. 3.8), se obtiene la <strong>ecuación integral de conservación de energía total para un volumen de control móvil arbitrario $V_c(t)$</strong>:</p>
+        <p>Applying the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>master integral total energy conservation equation for an arbitrary moving control volume $V_c(t)$</strong>:</p>
 
         <div class="math-block">
           $$ \begin{aligned}
@@ -940,270 +941,272 @@
           \mathbf{-\int_{\Sigma_c(t)} p\vec{v}\cdot\vec{n} \, d\sigma + \int_{\Sigma_c(t)} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_c(t)} \rho\vec{f}_m\cdot\vec{v} \, dV} \\
           \mathbf{-\int_{\Sigma_c(t)} \vec{q}\cdot\vec{n} \, d\sigma + \int_{V_c(t)} (Q_c + Q_r) \, dV}
           \end{aligned} $$
-          <div class="math-caption">[Ec. 3.46] Ecuación maestra integral de conservación de energía total para volumen de control móvil $V_c(t)$.</div>
+          <div class="math-caption">[Eq. 3.46] Master integral total energy conservation equation for a moving control volume $V_c(t)$.</div>
         </div>
 
         <div class="card">
-          <h3 class="sub-heading" style="margin-top: 0;">Desglose Exhaustivo de los Mecanismos Energéticos</h3>
+          <h3 class="sub-heading" style="margin-top: 0;">Detailed Physical Breakdown of Energy Transfer Mechanisms</h3>
           <ul>
-            <li><strong>Acumulación no estacionaria:</strong> Tasa a la que aumenta la energía interna y cinética almacenada dentro de $V_c(t)$.</li>
-            <li><strong>Convección neta saliente:</strong> Transporte convectivo de energía a través de las fronteras abiertas con velocidad relativa $(\vec{v}-\vec{v}_c)\cdot\vec{n}$.</li>
-            <li><strong>Trabajo de presión de flujo ($-\int_{\Sigma_c} p\vec{v}\cdot\vec{n} d\sigma$):</strong> Potencia mecánica ejercida por la presión exterior. Al combinarse en una sección de paso con la energía interna convectada $e$, origina la <strong>entalpía específica</strong> $h = e + p/\rho$ y la <strong>entalpía de remanso</strong> $h_0 = h + |\vec{v}|^2/2$.</li>
-            <li><strong>Trabajo de esfuerzos viscosos ($\int_{\Sigma_c} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} d\sigma$):</strong> Potencia transferida por cizalladura viscosa en fronteras móviles o disipada en la capa límite.</li>
-            <li><strong>Potencia de fuerzas másicas ($\int_{V_c} \rho\vec{f}_m\cdot\vec{v} dV$):</strong> Trabajo desarrollado por el campo gravitatorio o inercial sobre el fluido en movimiento.</li>
-            <li><strong>Conducción térmica en la frontera ($-\int_{\Sigma_c} \vec{q}\cdot\vec{n} d\sigma$):</strong> Calor conducido a través de las paredes según la Ley de Fourier ($\vec{q} = -k\nabla T$).</li>
-            <li><strong>Fuentes volumétricas internas ($Q_c, Q_r$):</strong>
-              * $Q_c$: Densidad de calor liberado por reacciones químicas de combustión (quema de combustible en cámaras de empuje y estatorreactores).
-              * $Q_r = -\nabla\cdot\vec{q}_r$: Calentamiento o disipación radiativa de gases incandescentes.
+            <li><strong>Unsteady storage:</strong> Rate of increase of internal and kinetic energy stored within $V_c(t)$.</li>
+            <li><strong>Net outgoing convection:</strong> Convective energy flux across open boundaries with relative velocity $(\vec{v}-\vec{v}_c)\cdot\vec{n}$.</li>
+            <li><strong>Flow pressure work ($-\int_{\Sigma_c} p\vec{v}\cdot\vec{n} d\sigma$):</strong> Mechanical power exerted by external pressure. Combined at flow cross-sections with convected internal energy $e$, this naturally gives rise to <strong>specific enthalpy</strong> $h = e + p/\rho$ and <strong>stagnation (total) enthalpy</strong> $h_0 = h + |\vec{v}|^2/2$.</li>
+            <li><strong>Viscous stress work ($\int_{\Sigma_c} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} d\sigma$):</strong> Power transmitted by viscous shear across moving boundaries or dissipated within the boundary layer.</li>
+            <li><strong>Body force work rate ($\int_{V_c} \rho\vec{f}_m\cdot\vec{v} dV$):</strong> Power developed by gravitational or inertial fields on the moving fluid.</li>
+            <li><strong>Boundary heat conduction ($-\int_{\Sigma_c} \vec{q}\cdot\vec{n} d\sigma$):</strong> Heat conducted across solid boundaries according to Fourier's Law ($\vec{q} = -k\nabla T$).</li>
+            <li><strong>Internal volumetric heat sources ($Q_c, Q_r$):</strong>
+              <ul>
+                <li>$Q_c$: Volumetric heat release rate from chemical reactions (combustion chambers, ramjets, afterburners).</li>
+                <li>$Q_r = -\nabla\cdot\vec{q}_r$: Net radiative heating or emission in high-temperature gases.</li>
+              </ul>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- SECCIÓN 11 -->
+      <!-- SECTION 11 -->
       <section id="sec-11">
-        <h2 class="section-heading">11. Prontuario Completo de Ecuaciones Fundamentales (Ecs. 3.1 a 3.46)</h2>
-        <p>A continuación se resume el compendio exhaustivo de todas las ecuaciones desarrolladas en el Capítulo 3 de <em>Notes.pdf</em>:</p>
+        <h2 class="section-heading">11. Comprehensive Summary of Fundamental Equations (Eqs. 3.1 to 3.46)</h2>
+        <p>Below is the complete reference table of all governing integral equations derived in Chapter 3 of <em>Notes.pdf</em>:</p>
 
         <div class="table-wrapper">
           <table class="data-table">
             <thead>
               <tr>
-                <th style="width: 70px;">Ec.</th>
-                <th>Expresión Matemática</th>
-                <th>Significado y Denominación Oficial</th>
+                <th style="width: 70px;">Eq.</th>
+                <th>Mathematical Expression</th>
+                <th>Physical Meaning and Official Designation</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>3.1</strong></td>
                 <td>$\Phi(t) = \int_{V_f(t)}\phi \, dV, \quad \phi = \rho, \, \rho\vec{v}, \, \rho(e + |\vec{v}|^2/2)$</td>
-                <td>Definición de magnitud extensiva a partir de su densidad intensiva $\phi$.</td>
+                <td>Definition of an extensive property from its intensive density $\phi$.</td>
               </tr>
               <tr>
                 <td><strong>3.2</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f(t)}\phi dV\right] = \lim_{\Delta t\to 0}\frac{1}{\Delta t}\left[\int_{V_f(t+\Delta t)}\phi(t+\Delta t)dV - \int_{V_f(t)}\phi(t)dV\right]$</td>
-                <td>Definición de la derivada temporal del volumen material fluido como límite.</td>
+                <td>Formal limit definition of the time derivative of a material fluid volume.</td>
               </tr>
               <tr>
                 <td><strong>3.3</strong></td>
                 <td>$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\left[\int_{V_f(t)}[\phi(t+\Delta t)-\phi(t)]dV + \int_{V_f(t+\Delta t)-V_f(t)}\phi(t+\Delta t)dV\right]$</td>
-                <td>Desdoblamiento del límite en término interno y volumen incremental barrido.</td>
+                <td>Splitting of limit into internal storage and boundary swept volume.</td>
               </tr>
               <tr>
                 <td><strong>3.4</strong></td>
                 <td>$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\int_{V_f(t)}[\phi(t+\Delta t)-\phi(t)]dV = \int_{V_f(t)}\frac{\partial\phi}{\partial t}dV$</td>
-                <td>Tasa de acumulación local debida a la no estacionariedad del flujo (*unsteadiness*).</td>
+                <td>Local accumulation rate due to flow unsteadiness.</td>
               </tr>
               <tr>
                 <td><strong>3.5</strong></td>
                 <td>$\lim_{\Delta t\to 0}\frac{1}{\Delta t}\int_{V_f(t+\Delta t)-V_f(t)}\phi(t+\Delta t)dV = \int_{\Sigma_f(t)}\phi\vec{v}\cdot\vec{n}d\sigma$</td>
-                <td>Flujo convectivo neto transportado por el movimiento de la frontera deformable.</td>
+                <td>Net convective flux escaping across the moving boundary.</td>
               </tr>
               <tr>
                 <td><strong>3.6</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f(t)}\phi dV\right] = \int_{V_f(t)}\frac{\partial\phi}{\partial t}dV + \int_{\Sigma_f(t)}\phi\vec{v}\cdot\vec{n}d\sigma$</td>
-                <td><strong>Teorema de Transporte de Reynolds (RTT)</strong> para volumen material fluido $V_f(t)$.</td>
+                <td><strong>Reynolds Transport Theorem (RTT)</strong> for a material fluid volume $V_f(t)$.</td>
               </tr>
               <tr>
                 <td><strong>3.7</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_c(t)}\phi dV\right] = \int_{V_c(t)}\frac{\partial\phi}{\partial t}dV + \int_{\Sigma_c(t)}\phi\vec{v}_c\cdot\vec{n}d\sigma$</td>
-                <td>RTT aplicado a volumen de control arbitrario móvil $V_c(t)$ con velocidad $\vec{v}_c$.</td>
+                <td>RTT applied to arbitrary moving control volume $V_c(t)$ with surface velocity $\vec{v}_c$.</td>
               </tr>
               <tr>
                 <td><strong>3.8</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f(t)}\phi dV\right] = \frac{d}{dt}\left[\int_{V_c(t)}\phi dV\right] + \int_{\Sigma_c(t)}\phi(\vec{v}-\vec{v}_c)\cdot\vec{n}d\sigma$</td>
-                <td><strong>RTT Universal:</strong> Conexión entre volumen material y volumen de control móvil.</td>
+                <td><strong>Universal RTT:</strong> Connection between material system and moving control volume.</td>
               </tr>
               <tr>
                 <td><strong>3.9</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f(t)}\rho dV\right] = 0$</td>
-                <td>Principio fundamental de conservación de masa en un volumen material cerrado.</td>
+                <td>Fundamental principle of mass conservation for a closed material volume.</td>
               </tr>
               <tr>
                 <td><strong>3.10</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_c(t)}\rho dV\right] + \int_{\Sigma_c(t)}\rho(\vec{v}-\vec{v}_c)\cdot\vec{n}d\sigma = 0$</td>
-                <td><strong>Conservación Integral de Masa</strong> para volumen de control móvil $V_c(t)$.</td>
+                <td><strong>Integral Mass Conservation</strong> for moving control volume $V_c(t)$.</td>
               </tr>
               <tr>
                 <td><strong>3.11</strong></td>
                 <td>$\int_{V_0}\frac{\partial\rho}{\partial t}dV + \int_{\Sigma_0}\rho\vec{v}\cdot\vec{n}d\sigma = 0$</td>
-                <td>Conservación integral de masa para volumen de control fijo en el espacio ($V_0$).</td>
+                <td>Integral mass conservation for fixed spatial control volume ($V_0$).</td>
               </tr>
               <tr>
                 <td><strong>3.12</strong></td>
                 <td>$d\vec{F}_m = \rho\vec{f}_m(\vec{x},t)dV$</td>
-                <td>Fuerza volumétrica (másica) ejercida sobre una partícula fluida elemental.</td>
+                <td>Infinitesimal body (mass) force on a fluid particle.</td>
               </tr>
               <tr>
                 <td><strong>3.13</strong></td>
                 <td>$\vec{f}_m = \vec{g} - \vec{a}_0 - \frac{d\vec{\Omega}}{dt}\wedge\vec{x} - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) - 2\vec{\Omega}\wedge\vec{v}$</td>
-                <td>Fuerza másica neta en sistema no inercial (gravedad + 4 fuerzas de inercia).</td>
+                <td>Net body force in non-inertial frame (gravity + 4 inertial forces).</td>
               </tr>
               <tr>
                 <td><strong>3.14</strong></td>
                 <td>$\vec{g} - \vec{a}_0 - \vec{\Omega}\wedge(\vec{\Omega}\wedge\vec{x}) = -\nabla U$</td>
-                <td>Potencial unificado $U$ de fuerzas másicas conservativas estacionarias.</td>
+                <td>Unified potential $U$ for steady conservative body forces.</td>
               </tr>
               <tr>
                 <td><strong>3.15</strong></td>
                 <td>$d\vec{F}_s = \vec{f}_n(\vec{n}, \vec{x}, t)d\sigma$</td>
-                <td>Fuerza superficial de contacto: vector tensión o esfuerzo superficial $\vec{f}_n$.</td>
+                <td>Surface contact force: surface stress vector $\vec{f}_n$.</td>
               </tr>
               <tr>
                 <td><strong>3.16</strong></td>
                 <td>$dA\vec{f}_n - dA_1\vec{f}_1 - dA_2\vec{f}_2 - dA_3\vec{f}_3 = 0$</td>
-                <td>Equilibrio de fuerzas en el tetraedro de Cauchy en el límite $h \to 0$.</td>
+                <td>Force balance on Cauchy's tetrahedron in the limit $h \to 0$.</td>
               </tr>
               <tr>
                 <td><strong>3.17</strong></td>
                 <td>$\vec{f}_n = n_1\vec{f}_1 + n_2\vec{f}_2 + n_3\vec{f}_3 = \vec{n}\cdot\bar{\bar{\tau}} = \bar{\bar{\tau}}\cdot\vec{n}$</td>
-                <td><strong>Postulado de Cauchy:</strong> Relación lineal entre el vector tensión $\vec{f}_n$ y el tensor $\bar{\bar{\tau}}$.</td>
+                <td><strong>Cauchy's Theorem:</strong> Linear projection of stress tensor $\bar{\bar{\tau}}$ onto normal $\vec{n}$.</td>
               </tr>
               <tr>
                 <td><strong>3.18</strong></td>
                 <td>$\bar{\bar{\tau}} = [\tau_{ij}]$ ($3\times 3$)</td>
-                <td>Matriz del Tensor de Esfuerzos de Cauchy.</td>
+                <td>Matrix representation of the Cauchy Stress Tensor.</td>
               </tr>
               <tr>
                 <td><strong>3.19</strong></td>
                 <td>$\tau_{ij} = \tau_{ji} \implies \bar{\bar{\tau}} = \bar{\bar{\tau}}^T$</td>
-                <td><strong>Simetría del tensor de esfuerzos</strong> por equilibrio angular del cubo infinitesimal.</td>
+                <td><strong>Stress tensor symmetry</strong> via infinitesimal cube angular balance.</td>
               </tr>
               <tr>
                 <td><strong>3.20</strong></td>
                 <td>$\bar{\bar{\tau}}\cdot\vec{n} = \lambda\vec{n}$</td>
-                <td>Ecuación de autovalores para direcciones y tensiones principales (cizalladura nula).</td>
+                <td>Eigenvalue problem for principal directions and principal stresses (zero shear).</td>
               </tr>
               <tr>
                 <td><strong>3.21</strong></td>
                 <td>$|\bar{\bar{\tau}} - \lambda\bar{\bar{I}}| = 0$</td>
-                <td>Ecuación característica secular: garantiza tres tensiones principales reales y ortogonales.</td>
+                <td>Secular characteristic equation: guarantees three real, mutually orthogonal principal stresses.</td>
               </tr>
               <tr>
                 <td><strong>3.22</strong></td>
                 <td>$\vec{F}_s = \int_\Sigma \bar{\bar{\tau}}\cdot\vec{n}d\sigma$</td>
-                <td>Fuerza superficial global sobre una superficie de control $\Sigma$.</td>
+                <td>Global resultant surface force over control surface $\Sigma$.</td>
               </tr>
               <tr>
                 <td><strong>3.23</strong></td>
                 <td>$\int_\Sigma \bar{\bar{\tau}}\cdot\vec{n}d\sigma = \int_V (\nabla\cdot\bar{\bar{\tau}})dV$</td>
-                <td>Teorema de Gauss: la divergencia $\nabla\cdot\bar{\bar{\tau}}$ es la fuerza superficial por unidad de volumen.</td>
+                <td>Gauss divergence theorem: $\nabla\cdot\bar{\bar{\tau}}$ is the net surface force per unit volume.</td>
               </tr>
               <tr>
                 <td><strong>3.24</strong></td>
                 <td>$\rho dV \frac{D\vec{v}}{Dt} = (\nabla\cdot\bar{\bar{\tau}})dV + \rho\vec{f}_m dV$</td>
-                <td>2ª Ley de Newton aplicada al elemento fluido infinitesimal $dV$.</td>
+                <td>Newton's 2nd law applied to differential fluid element $dV$.</td>
               </tr>
               <tr>
                 <td><strong>3.25</strong></td>
                 <td>$\rho \frac{D\vec{v}}{Dt} = \nabla\cdot\bar{\bar{\tau}} + \rho\vec{f}_m$</td>
-                <td><strong>Ecuación diferencial de Cauchy</strong> para la cantidad de movimiento.</td>
+                <td><strong>Cauchy's differential equation of motion</strong> for any continuum medium.</td>
               </tr>
               <tr>
                 <td><strong>3.26</strong></td>
                 <td>$\vec{f}_n = -p\vec{n}$</td>
-                <td>Esfuerzo hidrostático puramente normal en un fluido en reposo o con movimiento rígido.</td>
+                <td>Purely normal hydrostatic stress in fluid at rest or in rigid-body motion.</td>
               </tr>
               <tr>
                 <td><strong>3.27</strong></td>
                 <td>$\bar{\bar{\tau}} = -p\bar{\bar{I}}$</td>
-                <td>Tensor de esfuerzos hidrostático isotrópico.</td>
+                <td>Isotropic hydrostatic stress tensor.</td>
               </tr>
               <tr>
                 <td><strong>3.28</strong></td>
                 <td>$\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'$</td>
-                <td>Descomposición del tensor de esfuerzos en presión termodinámica y tensor viscoso $\bar{\bar{\tau}}'$.</td>
+                <td>Decomposition of stress tensor into thermodynamic pressure and viscous stress tensor $\bar{\bar{\tau}}'$.</td>
               </tr>
               <tr>
                 <td><strong>3.29</strong></td>
                 <td>$\tau'_{ij} = \alpha_{ijkl}\gamma_{kl}$</td>
-                <td>Hipótesis de fluido newtoniano: relación lineal constitutiva con la tasa de deformación.</td>
+                <td>Newtonian fluid hypothesis: linear constitutive relationship with strain rate.</td>
               </tr>
               <tr>
                 <td><strong>3.30</strong></td>
                 <td>$\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + \lambda(\nabla\cdot\vec{v})\bar{\bar{I}}$</td>
-                <td>Ecuación de Navier-Poisson con viscosidad dinámica $\mu$ y segunda viscosidad $\lambda$.</td>
+                <td>Navier-Poisson equation with dynamic viscosity $\mu$ and second viscosity $\lambda$.</td>
               </tr>
               <tr>
                 <td><strong>3.31</strong></td>
                 <td>$\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + (\mu_B - \frac{2}{3}\mu)(\nabla\cdot\vec{v})\bar{\bar{I}}$</td>
-                <td><strong>Ecuación canónica de Navier-Poisson</strong> con viscosidad de bulto $\mu_B$ (Stokes: $\mu_B=0$).</td>
+                <td><strong>Canonical Navier-Poisson equation</strong> with bulk viscosity $\mu_B$ (Stokes: $\mu_B=0$).</td>
               </tr>
               <tr>
                 <td><strong>3.32</strong></td>
                 <td>$\vec{F} = -\int_\Sigma p\vec{n}d\sigma + \int_\Sigma \bar{\bar{\tau}}'\cdot\vec{n}d\sigma$</td>
-                <td><strong>Fuerza aerodinámica neta sobre cuerpo sumergido</strong> (presión + fricción).</td>
+                <td><strong>Net aerodynamic force on submerged body</strong> (pressure + skin friction).</td>
               </tr>
               <tr>
                 <td><strong>3.33</strong></td>
                 <td>$\vec{M}_{\vec{x}_0} = -\int_\Sigma (\vec{x}-\vec{x}_0)\wedge(p\vec{n})d\sigma + \int_\Sigma (\vec{x}-\vec{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\vec{n})d\sigma$</td>
-                <td><strong>Momento aerodinámico neto sobre cuerpo sumergido</strong> respecto a $\vec{x}_0$.</td>
+                <td><strong>Net aerodynamic moment on submerged body</strong> about $\vec{x}_0$.</td>
               </tr>
               <tr>
                 <td><strong>3.34</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f}\rho\vec{v}dV\right] = -\int_{\Sigma_f}p\vec{n}d\sigma + \int_{\Sigma_f}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m dV$</td>
-                <td>2ª Ley de Newton para un volumen material fluido cerrado $V_f(t)$.</td>
+                <td>Newton's 2nd law for a closed material fluid volume $V_f(t)$.</td>
               </tr>
               <tr>
                 <td><strong>3.35</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_c}\rho\vec{v}dV\right] + \int_{\Sigma_c}\rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = -\int_{\Sigma_c}p\vec{n}d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_c}\rho\vec{f}_m dV$</td>
-                <td><strong>Conservación Integral de Cantidad de Movimiento</strong> para volumen de control móvil $V_c(t)$.</td>
+                <td><strong>Integral Linear Momentum Conservation</strong> for moving control volume $V_c(t)$.</td>
               </tr>
               <tr>
                 <td><strong>3.36</strong></td>
                 <td>$\int_{V_0}\frac{\partial(\rho\vec{v})}{\partial t}dV + \int_{\Sigma_0}\rho\vec{v}(\vec{v}\cdot\vec{n})d\sigma = -\int_{\Sigma_0}p\vec{n}d\sigma + \int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_0}\rho\vec{f}_m dV$</td>
-                <td>Conservación de cantidad de movimiento para volumen de control fijo en el espacio ($V_0$).</td>
+                <td>Linear momentum conservation for fixed spatial control volume ($V_0$).</td>
               </tr>
               <tr>
                 <td><strong>3.37</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f}\rho(\vec{x}-\vec{x}_0)\wedge\vec{v}dV\right] = \sum \vec{M}_{\vec{x}_0, \text{ext}}$</td>
-                <td>Conservación de momento cinético para volumen material $V_f(t)$.</td>
+                <td>Angular momentum conservation for material volume $V_f(t)$.</td>
               </tr>
               <tr>
                 <td><strong>3.38</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_c}\rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}]dV\right] + \int_{\Sigma_c}\rho[(\vec{x}-\vec{x}_0)\wedge\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = \sum \vec{M}_{\vec{x}_0, \text{ext}}$</td>
-                <td><strong>Conservación Integral de Momento Cinético</strong> para volumen móvil $V_c(t)$ (Turbomáquinas).</td>
+                <td><strong>Integral Angular Momentum Conservation</strong> for moving volume $V_c(t)$ (Turbomachinery).</td>
               </tr>
               <tr>
                 <td><strong>3.39</strong></td>
                 <td>$d\dot{Q}_{\text{cond}} = q_n(\vec{n}, \vec{x}, t)d\sigma$</td>
-                <td>Flujo de calor por unidad de superficie en dirección de la normal $\vec{n}$.</td>
+                <td>Heat conduction per unit area in direction of normal $\vec{n}$.</td>
               </tr>
               <tr>
                 <td><strong>3.40</strong></td>
                 <td>$q_n dA = q_1 dA_1 + q_2 dA_2 + q_3 dA_3$</td>
-                <td>Equilibrio térmico en el tetraedro de Cauchy en el límite $h \to 0$.</td>
+                <td>Thermal equilibrium in Cauchy's tetrahedron as $h \to 0$.</td>
               </tr>
               <tr>
                 <td><strong>3.41</strong></td>
                 <td>$q_n = \vec{q}\cdot\vec{n}$</td>
-                <td>Vector densidad de flujo térmico $\vec{q} = (q_1, q_2, q_3)$.</td>
+                <td>Heat flux density vector $\vec{q} = (q_1, q_2, q_3)$.</td>
               </tr>
               <tr>
                 <td><strong>3.42</strong></td>
                 <td>$\dot{Q}_{\text{cond}} = \int_\Sigma \vec{q}\cdot\vec{n}d\sigma$</td>
-                <td>Pérdida neta de calor conducido a través de una superficie finita $\Sigma$.</td>
+                <td>Net conductive heat loss through finite surface $\Sigma$.</td>
               </tr>
               <tr>
                 <td><strong>3.43</strong></td>
                 <td>$\int_\Sigma \vec{q}\cdot\vec{n}d\sigma = \int_V (\nabla\cdot\vec{q})dV$</td>
-                <td>Teorema de Gauss térmico: $\nabla\cdot\vec{q}$ es la pérdida de calor por unidad de volumen.</td>
+                <td>Thermal Gauss theorem: $\nabla\cdot\vec{q}$ is heat loss per unit volume.</td>
               </tr>
               <tr>
                 <td><strong>3.44</strong></td>
                 <td>$\vec{q} = -k\nabla T$</td>
-                <td><strong>Ley de Fourier de la conducción térmica</strong> ($k$: conductividad térmica).</td>
+                <td><strong>Fourier's Law of heat conduction</strong> ($k$: thermal conductivity).</td>
               </tr>
               <tr>
                 <td><strong>3.45</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_f}\rho(e+\frac{|\vec{v}|^2}{2})dV\right] = -\int_{\Sigma_f}p\vec{v}\cdot\vec{n}d\sigma + \int_{\Sigma_f}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m\cdot\vec{v}dV - \int_{\Sigma_f}\vec{q}\cdot\vec{n}d\sigma + \int_{V_f}(Q_c+Q_r)dV$</td>
-                <td><strong>Primer Principio de la Termodinámica</strong> para un volumen material fluido cerrado $V_f(t)$.</td>
+                <td><strong>First Law of Thermodynamics</strong> for closed material fluid volume $V_f(t)$.</td>
               </tr>
               <tr>
                 <td><strong>3.46</strong></td>
                 <td>$\frac{d}{dt}\left[\int_{V_c}\rho(e+\frac{|\vec{v}|^2}{2})dV\right] + \int_{\Sigma_c}\rho(e+\frac{|\vec{v}|^2}{2})[(\vec{v}-\vec{v}_c)\cdot\vec{n}]d\sigma = -\int_{\Sigma_c}p\vec{v}\cdot\vec{n}d\sigma + \int_{\Sigma_c}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_c}\rho\vec{f}_m\cdot\vec{v}dV - \int_{\Sigma_c}\vec{q}\cdot\vec{n}d\sigma + \int_{V_c}(Q_c+Q_r)dV$</td>
-                <td><strong>Conservación Integral de Energía Total</strong> para volumen de control móvil $V_c(t)$.</td>
+                <td><strong>Integral Total Energy Conservation</strong> for moving control volume $V_c(t)$.</td>
               </tr>
             </tbody>
           </table>
