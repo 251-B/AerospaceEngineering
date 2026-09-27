@@ -220,14 +220,16 @@
     }
 
     /* Quick Problem Bar */
+    body > nav.quick-nav,
     .quick-nav {
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
       padding: 10px 0;
-      position: sticky;
-      top: 47px;
-      z-index: 90;
-      backdrop-filter: blur(8px);
+      position: sticky !important;
+      top: 53px;
+      z-index: 95 !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .quick-nav-inner {
@@ -269,6 +271,14 @@
       color: var(--accent);
       border-color: var(--accent);
       background: var(--accent-soft);
+    }
+
+    .p-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.45);
     }
 
     /* Main Container */
@@ -330,7 +340,7 @@
       border-radius: 12px;
       padding: 32px 28px;
       margin-bottom: 40px;
-      scroll-margin-top: 100px;
+      scroll-margin-top: 120px;
       transition: border-color var(--transition);
     }
 
@@ -1352,16 +1362,192 @@
   <!-- THEME SCRIPT -->
   <script>
     (function () {
-      var saved = localStorage.getItem('ae_theme') ||
+      var saved = localStorage.getItem('theme') || localStorage.getItem('ae_theme') ||
         (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
       document.documentElement.setAttribute('data-theme', saved);
 
-      document.getElementById('themeToggle').addEventListener('click', function () {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('ae_theme', next);
+      var toggleBtn = document.getElementById('themeToggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('ae_theme', next);
+          localStorage.setItem('theme', next);
+          if (window.CelestialSkyEngine && typeof window.CelestialSkyEngine.rebuild === 'function') {
+            window.CelestialSkyEngine.rebuild();
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- QUICK NAVIGATION PILL INTERACTION & SCROLL SPY SCRIPT -->
+  <script>
+    (function () {
+      const siteHeader = document.querySelector('.site-header');
+      const quickNav = document.querySelector('.quick-nav');
+      const pills = Array.from(document.querySelectorAll('.quick-nav .p-pill'));
+      const cards = Array.from(document.querySelectorAll('.problem-card'));
+
+      if (!quickNav || pills.length === 0 || cards.length === 0) return;
+
+      function getHeaderHeight() {
+        return siteHeader ? siteHeader.offsetHeight : 54;
+      }
+      function getNavHeight() {
+        return quickNav ? quickNav.offsetHeight : 44;
+      }
+      function getTotalOffset() {
+        return getHeaderHeight() + getNavHeight() + 12;
+      }
+
+      function syncQuickNavTop() {
+        if (siteHeader && quickNav) {
+          quickNav.style.top = getHeaderHeight() + 'px';
+        }
+      }
+      window.addEventListener('resize', syncQuickNavTop, { passive: true });
+      syncQuickNavTop();
+
+      let isClickScrolling = false;
+      let clickTimer = null;
+
+      function setActivePill(targetId) {
+        if (!targetId) return;
+        pills.forEach(pill => {
+          const href = pill.getAttribute('href');
+          if (href === '#' + targetId) {
+            if (!pill.classList.contains('active')) {
+              pill.classList.add('active');
+            }
+            pill.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }
+
+      function scrollToCard(targetEl, updateHash) {
+        if (!targetEl) return;
+        const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - getTotalOffset();
+        window.scrollTo({
+          top: Math.max(0, targetPos),
+          behavior: 'smooth'
+        });
+        if (updateHash && targetEl.id) {
+          try {
+            history.pushState(null, '', '#' + targetEl.id);
+          } catch (e) {
+            window.location.hash = targetEl.id;
+          }
+        }
+      }
+
+      // Pill click handling
+      pills.forEach(pill => {
+        pill.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').replace('#', '');
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+
+          isClickScrolling = true;
+          clearTimeout(clickTimer);
+
+          setActivePill(targetId);
+          scrollToCard(targetEl, true);
+
+          clickTimer = setTimeout(() => {
+            isClickScrolling = false;
+          }, 800);
+        });
       });
+
+      // IntersectionObserver for ScrollSpy
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (isClickScrolling) return;
+
+          const currentOffset = getTotalOffset();
+          let bestCard = null;
+          let minDistance = Infinity;
+
+          cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.bottom > currentOffset && rect.top < window.innerHeight * 0.75) {
+              const dist = Math.abs(rect.top - currentOffset);
+              if (dist < minDistance) {
+                minDistance = dist;
+                bestCard = card;
+              }
+            }
+          });
+
+          if (bestCard) {
+            setActivePill(bestCard.id);
+          }
+        }, {
+          threshold: [0, 0.3, 0.6]
+        });
+
+        cards.forEach(card => observer.observe(card));
+
+        // Supplementary scroll listener for super-responsive active pill updating
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (isClickScrolling || ticking) return;
+          window.requestAnimationFrame(() => {
+            if (!isClickScrolling) {
+              const currentOffset = getTotalOffset();
+              let bestCard = null;
+              let minDistance = Infinity;
+
+              cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.bottom > currentOffset && rect.top < window.innerHeight * 0.75) {
+                  const dist = Math.abs(rect.top - currentOffset);
+                  if (dist < minDistance) {
+                    minDistance = dist;
+                    bestCard = card;
+                  }
+                }
+              });
+
+              if (bestCard) {
+                setActivePill(bestCard.id);
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }, { passive: true });
+      }
+
+      // Initial load handling
+      function handleInitialLoad() {
+        syncQuickNavTop();
+        if (window.location.hash) {
+          const hashId = window.location.hash.replace('#', '');
+          const targetEl = document.getElementById(hashId);
+          if (targetEl) {
+            setActivePill(hashId);
+            setTimeout(() => {
+              scrollToCard(targetEl, false);
+            }, 300);
+            return;
+          }
+        }
+        if (cards.length > 0) {
+          setActivePill(cards[0].id);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', handleInitialLoad);
+      } else {
+        handleInitialLoad();
+      }
     })();
   </script>
   <script src="../../../assets/js/quotes.js"></script>

@@ -27,9 +27,30 @@ body {
   margin: 0;
 }
 
-body > *:not(#celestial-canvas):not(.celestial-canvas) {
+:where(body > *:not(.celestial-canvas):not(#celestial-canvas)) {
   position: relative;
   z-index: 1;
+}
+
+/* Preserve sticky positioning and proper stacking contexts for universal headers & sticky navigation */
+body > header.site-header,
+body > .site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+body > nav.pills-bar,
+body > .pills-bar {
+  position: sticky !important;
+  top: 58px !important;
+  z-index: 90 !important;
+}
+
+body > nav.quick-nav,
+body > .quick-nav {
+  position: sticky !important;
+  z-index: 95 !important;
 }
 
 /* Legacy .bg-glow gracefully blends into the celestial sky */

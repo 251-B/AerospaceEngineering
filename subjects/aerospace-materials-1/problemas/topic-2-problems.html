@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
 <head>
   <meta charset="UTF-8" />
@@ -244,11 +244,12 @@
     }
 
     /* Sticky Navigation Bar with Pills */
+    nav.pills-bar,
     .pills-bar {
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
       position: sticky;
-      top: 55px;
+      top: 58px;
       z-index: 90;
       padding: 10px 24px;
       backdrop-filter: blur(12px);
@@ -289,6 +290,10 @@
       background: var(--bg-input);
       border: 1px solid var(--border-subtle);
       transition: all var(--transition);
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .nav-pill:hover, .nav-pill.active {
@@ -518,6 +523,15 @@
       font-family: var(--font-sans);
       font-size: 13px;
       color: var(--text-faint);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 10px 16px; }
+      nav.pills-bar,
+      .pills-bar {
+        padding: 8px 16px;
+        top: 96px;
+      }
     }
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
