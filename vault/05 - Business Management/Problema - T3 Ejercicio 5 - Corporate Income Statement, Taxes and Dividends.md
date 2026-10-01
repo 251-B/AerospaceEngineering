@@ -32,6 +32,17 @@ Prepare the **Income Statement** of a company with the following information fro
 
 ---
 
+> [!TIP] 🎯 Exam Day Strategy: Discount Eligibility, Social Security & Dividend Flow
+> * **Commercial Discount Eligibility:**
+>   $$\text{Type A Volume} = 40\% \times 2,002.00 \text{ M\euro} = \mathbf{800.80 \text{ M\euro}} > 120 \text{ M\euro} \implies \text{Qualifies}$$
+>   $$\text{Discount} = 3\% \times 800.80 = \mathbf{24.024 \text{ M\euro}} \implies \text{Net Sales} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
+> * **Workforce Labor Cost (Gross Salary + Employer Social Security):**
+>   $$\text{Base Wages} = 7,800 \times 30,000 \text{ \euro} = 234.00 \text{ M\euro}$$
+>   $$\text{Employer Social Security} = 30\% \times 234.00 = 70.20 \text{ M\euro} \implies \text{Total Labor Expense} = \mathbf{304.20 \text{ M\euro}}$$
+> * **Exam Trap 1 — Discount Scope:** Never apply the 3% discount to the full 2,002 M€! Only Type A customers (40%) qualify.
+> * **Exam Trap 2 — Principal Repayment vs Interest:** The loan principal ($225 \text{ M\euro}$) matures in 2020. Principal repayments are debt movements, **NEVER Income Statement expenses!** Only the annual interest ($6\% \times 225 = 13.50 \text{ M\euro}$) enters the P&L.
+> * **Exam Trap 3 — Dividend Payout Base:** Apply the $50\%$ dividend rate to **Net Income (profit after taxes)**, never to EBIT or EBT!
+
 ## 📊 1. Mathematical Breakdown of Components
 
 ### A. Net Sales & Trade Discount

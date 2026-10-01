@@ -31,6 +31,16 @@ $$\begin{array}{|lr|lr|}
 
 ---
 
+> [!TIP] 🎯 Exam Day Strategy: Inventory Variation, Extraordinary Gains & Multi-Step P&L
+> * **Standard Multi-Step P&L Structure:**
+>   $$\text{Sales Revenue} \xrightarrow{-\text{COGS}} \text{Gross Profit} \xrightarrow{-\text{Op. Expenses}} \text{EBIT} \xrightarrow{+\text{Non-Op} \pm \text{Financial}} \text{EBT} \xrightarrow{-\text{Taxes}} \text{Net Income}$$
+> * **Cost of Goods Sold (COGS) Identity:**
+>   $$\mathbf{\text{COGS} = \text{Beginning Inventory} + \text{Purchases} - \text{Ending Inventory}} = 600 + 84,000 - 500 = \mathbf{84,100 \text{ \euro}}$$
+>   *Economic intuition:* Ending inventory fell by $100 \text{ \euro}$ ($600 - 500$). This stock depletion was sold, increasing cost of sales ($84,000 + 100 = 84,100$).
+> * **Exam Trap 1 — Extraordinary Property Sale:** "Property sold to another company (€10,500)" is an extraordinary capital gain on fixed asset disposal, **NOT regular operating sales**! Place it under **Non-Operating / Extraordinary Income**.
+> * **Exam Trap 2 — Financial Interests:** Interests received ($+€15,200$) is financial income; debt interest ($-€5,500$) is financial expense $\implies$ Net Financial Result $= +€9,700$.
+> * **Exam Trap 3 — Corporate Tax Base:** Apply 30% tax to **EBT** (€52,000), NEVER to EBIT (€31,800)!
+
 ## 📊 1. Methodological Formulation & Justification
 
 The Income Statement structures revenues and expenses according to operational vs non-operational activity:

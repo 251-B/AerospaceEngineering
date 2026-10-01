@@ -37,6 +37,17 @@ The company follows a **strict self-financing strategy**.
 
 ---
 
+> [!TIP] 🎯 Exam Day Strategy: Full Annual Cycle, Treasury Ledger & Contra-Equity
+> * **Opening Cash Position on 1/1/2017:**
+>   $$\text{Cash}_{1/1} = \text{Share Capital} - (\text{Land} + \text{Equipment} + \text{Materials}) = 100.0 - (20.0 + 20.0 + 20.0) = \mathbf{40.0 \text{ mu}}$$
+> * **Operating Cycle & COGS:** Half of raw materials processed $\implies \text{COGS} = 20.0 / 2 = \mathbf{10.0 \text{ mu}}$. The remaining $10.0 \text{ mu}$ remains in warehouse inventory as a **Current Asset**.
+> * **Exam Trap 1 — Land Depreciation:** **Land is indestructible and never depreciates!** Only Equipment depreciates ($20.0 / 10 = \mathbf{2.0 \text{ mu}}$). Depreciating land is a critical exam mistake.
+> * **Exam Trap 2 — Accounts Receivable Delay:** Sales occur uniformly over the year with an average collection period of 3 months ($0.25 \text{ year}$).
+>   $$\mathbf{\text{Ending Receivables}} = 50.0 \times \frac{3 \text{ months}}{12 \text{ months}} = \mathbf{12.5 \text{ mu}} \implies \text{Collections} = 50.0 - 12.5 = \mathbf{37.5 \text{ mu}}$$
+>   Never assume all 50 mu was collected in cash!
+> * **Exam Trap 3 — Corporate Tax Settlement:** The prompt states tax ($8.4 \text{ mu}$) is *paid on December 31st, 2017*. Thus it is a **cash outflow**, leaving **zero tax liability** pending on the balance sheet.
+> * **Exam Trap 4 — Question 2 (Uncalled Capital):** If shareholders only pay $90\%$, uncalled capital is $10 \text{ mu}$. Uncalled capital does NOT change P&L, revenues, or expenses. It lowers starting cash by $10 \text{ mu}$ (ending cash becomes $49.1 \text{ mu}$) and is presented in Equity as a negative contra-equity line ($100 - 10 + 19.6 = 109.6 \text{ mu}$).
+
 ## 📊 1. Step-by-Step Resolution: Question 1
 
 To build the Balance Sheet as of December 31st, 2017, we must develop the full accounting cycle:

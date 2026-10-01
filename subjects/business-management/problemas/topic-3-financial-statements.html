@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-celestial-subject="business-management">
 <head>
   <meta charset="UTF-8" />
@@ -238,6 +238,23 @@
       font-style: italic;
     }
 
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     h3.phase-title {
       font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
       margin: 24px 0 10px; padding-bottom: 6px;
@@ -307,6 +324,7 @@
       </div>
       <div class="nav-actions">
         <a href="index.html" class="back-link">Problems Hub</a>
+        <a href="topic-3-extra-exam-problems.html" class="back-link" style="border-color: var(--accent-border); color: var(--accent); font-weight: 600;">⚡ Extra Exam Problems (4)</a>
         <a href="../teoria/topic-3.html" class="back-link">Topic 3 Theory</a>
         <a href="../../../index.html" class="back-link">Main Portal</a>
         <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
@@ -320,7 +338,7 @@
         <div class="article-category">Official Course Problem Solutions • Zero Skipped Steps</div>
         <h1 class="article-title">Topic 3: Financial Statements (Exercises 1 to 6)</h1>
         <div class="article-meta">
-          <strong>Source Document:</strong> <code>T3_Financial Statements_EXERCISES.pdf</code> (UC3M Business Management) • Solved with exhaustive mathematical and accounting steps.
+          <strong>Source Document:</strong> <code>T3_Financial Statements_EXERCISES.pdf</code> (UC3M Business Management) • Solved with exhaustive mathematical and accounting steps, exam-day strategies, and balanced statements.
         </div>
 
         <nav class="quick-jump">
@@ -331,6 +349,7 @@
           <a href="#exercise-4" class="jump-btn">Exercise 4 (Hawkins Partners)</a>
           <a href="#exercise-5" class="jump-btn">Exercise 5 (Corporate P&L)</a>
           <a href="#exercise-6" class="jump-btn">Exercise 6 (Company X)</a>
+          <a href="topic-3-extra-exam-problems.html" class="jump-btn" style="border-color: var(--accent-border); color: var(--accent); font-weight: 600;">⚡ Extra Exam Problems (4)</a>
         </nav>
       </header>
 
@@ -338,7 +357,7 @@
            EXERCISE 1
            ========================================== -->
       <section class="problem-box" id="exercise-1">
-        <span class="problem-tag">Exercise 1</span>
+        <span class="problem-tag">Exercise 1 • Foundational Accounting Principles</span>
         <h2 class="problem-title">Accrual vs Cash Basis, Linear Depreciation & Inventory Sensitivity</h2>
 
         <div class="statement-box">
@@ -348,54 +367,154 @@
           • Machinery: 300 m.u. (Duration 10 years)<br>
           • Transport equipment: 100 m.u. (Duration 5 years)<br>
           Information corresponding to the 1st quarter is as follows: personnel salaries of the quarter 450 m.u. (75 m.u. pending after 31/3), materials purchases and used in production 700 m.u. (125 m.u. pending after 31/3), energy consumption estimated in 230 m.u. (nothing paid till date), sales invoiced to customers 1.930 m.u. (315 m.u. pending after 31/3). In manufacturing all sold units, the entire purchased materials have been consumed. Ignore corporation taxes.<br>
-          <strong>a)</strong> Calculate at 31/3: income, expenses, collections/cash inflows, payments/cash outflows, investments and depreciation/amortization of the quarter.<br>
+          <strong>a)</strong> Calculate at 31/3: income, expenses, collections/cash inflows, payments/cash outflows, investments and depreciation/amortization of the quarter (assume linear depreciation of the goods along their lifetime).<br>
           <strong>b)</strong> How will the response change if only half of the purchased materials had been consumed?
         </div>
 
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Accrual vs Cash & Quarterly Pro-Rata Alignment</div>
+          <ul>
+            <li><strong>Horizon & Pro-Rata Time:</strong> 1st Quarter ($t = 3 \text{ months} = \frac{1}{4} \text{ year} = 0.25$). Goods bought on 31/12 of the previous year $\implies$ exactly one quarter of depreciation has accrued on 31/3. Straight-line formula: $D_{\text{quarter}} = \frac{\text{Acquisition Cost}}{4 \times n}$.</li>
+            <li><strong>Accrual Principle (Devengo) vs Cash Flow (Tesorería):</strong>
+              <ul>
+                <li><strong>Revenues (Ingresos):</strong> Recognized upon commercial delivery and invoice generation ($1,930 \text{ mu}$), independent of payment terms.</li>
+                <li><strong>Collections (Cobros):</strong> Physical cash collected $= 1,930 - 315 = \mathbf{1,615 \text{ mu}}$. The pending $315 \text{ mu}$ becomes an asset (Accounts Receivable) on the Balance Sheet.</li>
+                <li><strong>Expenses (Gastos):</strong> Consumed productive factors and non-cash asset wear: Salaries ($450$) + Materials consumed ($700$) + Energy consumed ($230$) + Depreciation ($30$) $= \mathbf{1,410 \text{ mu}}$.</li>
+                <li><strong>Payments (Pagos):</strong> Actual treasury disbursements $= (450 - 75) + (700 - 125) + 0 = 375 + 575 = \mathbf{950 \text{ mu}}$.</li>
+              </ul>
+            </li>
+            <li><strong>Exam Trap 1 — Depreciation Cash Flow:</strong> Depreciation ($30 \text{ mu}$) is an accounting charge for physical/technological wear and tear. It entails <strong>zero cash payment ($0 \text{ mu}$)</strong>. Never add depreciation to cash outflows!</li>
+            <li><strong>Exam Trap 2 — Capital Investments (Capex):</strong> The $2,900 \text{ mu}$ of fixed assets were purchased on 31/12 prior year. During the 1st quarter itself, no additional fixed assets were acquired $\implies \mathbf{\text{Q1 Capex} = 0 \text{ mu}}$.</li>
+            <li><strong>Exam Trap 3 — Inventory Sensitivity (Part b):</strong> If only 50% of materials are consumed ($350 \text{ mu}$), the remaining $350 \text{ mu}$ is stored as an <strong>Inventory Asset</strong>. Operating expenses drop by $350 \text{ mu}$, but <strong>supplier payments remain strictly $575 \text{ mu}$</strong> because payments depend on purchases invoiced, not physical consumption!</li>
+          </ul>
+        </div>
+
         <h3 class="phase-title">Phase 1: Quarterly Linear Depreciation Computation</h3>
-        <p>The time elapsed is the 1st Quarter ($t = 3 \text{ months} = \frac{1}{4} \text{ year}$). The straight-line quarterly depreciation is:</p>
-        $$D_{\text{quarter}} = \frac{\text{Acquisition Cost}}{4 \times n}$$
+        <p>The time elapsed is the 1st Quarter ($t = 3 \text{ months} = \frac{1}{4} \text{ year}$). The straight-line quarterly depreciation allocates asset cost evenly over its lifespan:</p>
+        $$D_{\text{quarter}} = \frac{\text{Annual Depreciation}}{4} = \frac{\text{Acquisition Cost}}{4 \times n}$$
         <ul>
-          <li>Factory building: $\frac{1,000}{4 \times 25} = \frac{1,000}{100} = 10.0 \text{ m.u.}$</li>
-          <li>Office building: $\frac{1,500}{4 \times 50} = \frac{1,500}{200} = 7.5 \text{ m.u.}$</li>
-          <li>Machinery: $\frac{300}{4 \times 10} = \frac{300}{40} = 7.5 \text{ m.u.}$</li>
-          <li>Transport equipment: $\frac{100}{4 \times 5} = \frac{100}{20} = 5.0 \text{ m.u.}$</li>
+          <li><strong>Factory building:</strong> $\frac{1,000}{4 \times 25} = \frac{1,000}{100} = \mathbf{10.0 \text{ m.u.}}$</li>
+          <li><strong>Office building:</strong> $\frac{1,500}{4 \times 50} = \frac{1,500}{200} = \mathbf{7.5 \text{ m.u.}}$</li>
+          <li><strong>Machinery:</strong> $\frac{300}{4 \times 10} = \frac{300}{40} = \mathbf{7.5 \text{ m.u.}}$</li>
+          <li><strong>Transport equipment:</strong> $\frac{100}{4 \times 5} = \frac{100}{20} = \mathbf{5.0 \text{ m.u.}}$</li>
           <li><strong>Total Depreciation for the Quarter:</strong> $10.0 + 7.5 + 7.5 + 5.0 = \mathbf{30.0 \text{ m.u.}}$</li>
         </ul>
 
         <h3 class="phase-title">Phase 2: Resolution of Part (a) — 100% Consumed</h3>
         <ol>
-          <li><strong>Income (Revenues):</strong> Under the accrual principle, revenue is recognized upon commercial invoicing regardless of collection:
-            $$\mathbf{\text{Income}} = \mathbf{1,930.0 \text{ m.u.}}$$
+          <li><strong>Income / Revenues (Ingresos):</strong> Under the accrual principle, revenue is recognized upon commercial invoicing regardless of collection date:
+            $$\mathbf{\text{Income}} = \text{Total Sales Invoiced} = \mathbf{1,930.0 \text{ m.u.}}$$
           </li>
-          <li><strong>Expenses:</strong> Consumed factor inputs plus equipment depreciation:
-            $$\mathbf{\text{Expenses}} = 450 \text{ (Salaries)} + 700 \text{ (Materials)} + 230 \text{ (Energy)} + 30 \text{ (Depreciation)} = \mathbf{1,410.0 \text{ m.u.}}$$
-            *(Net Income $= 1,930 - 1,410 = 520.0 \text{ m.u.}$).*
+          <li><strong>Expenses (Gastos):</strong> Value of all factor inputs consumed in operations during the quarter:
+            $$\begin{aligned}
+            \text{Salaries Expense} &= 450.0 \text{ m.u.} \\
+            \text{Materials Consumed} &= 700.0 \text{ m.u.} \quad (\text{100\% consumed in production}) \\
+            \text{Energy Consumed} &= 230.0 \text{ m.u.} \\
+            \text{Depreciation} &= 30.0 \text{ m.u.} \\
+            \hline
+            \mathbf{\text{Total Expenses}} &= 450.0 + 700.0 + 230.0 + 30.0 = \mathbf{1,410.0 \text{ m.u.}}
+            \end{aligned}$$
+            *(Quarterly Net Profit $= \text{Income} - \text{Expenses} = 1,930.0 - 1,410.0 = \mathbf{520.0 \text{ m.u.}}$).*
           </li>
-          <li><strong>Collections (Cash Inflows):</strong> Physical cash collected from customers during the quarter:
-            $$\mathbf{\text{Collections}} = 1,930 - 315 \text{ (uncollected)} = \mathbf{1,615.0 \text{ m.u.}}$$
+          <li><strong>Collections / Cash Inflows (Cobros):</strong> Actual liquid treasury received into the bank till:
+            $$\mathbf{\text{Collections}} = \text{Total Invoiced} - \text{Pending at 31/3} = 1,930.0 - 315.0 = \mathbf{1,615.0 \text{ m.u.}}$$
+            *(The uncollected $315.0 \text{ m.u.}$ is a Current Asset: Accounts Receivable).*
           </li>
-          <li><strong>Payments (Cash Outflows):</strong> Physical disbursements from treasury:
-            $$\mathbf{\text{Payments}} = (450 - 75) + (700 - 125) + 0 \text{ (Energy)} = 375 + 575 = \mathbf{950.0 \text{ m.u.}}$$
-            *(Depreciation is a non-cash expense and requires no payment).*
+          <li><strong>Payments / Cash Outflows (Pagos):</strong> Physical disbursements from company treasury:
+            $$\begin{aligned}
+            \text{Salaries Paid} &= 450.0 - 75.0 = 375.0 \text{ m.u.} \quad (\text{with } 75 \text{ mu Salaries Payable}) \\
+            \text{Materials Paid} &= 700.0 - 125.0 = 575.0 \text{ m.u.} \quad (\text{with } 125 \text{ mu Accounts Payable}) \\
+            \text{Energy Paid} &= 230.0 - 230.0 = 0.0 \text{ m.u.} \quad (\text{entirely pending liability}) \\
+            \text{Depreciation Paid} &= 0.0 \text{ m.u.} \quad (\text{non-cash accounting charge}) \\
+            \hline
+            \mathbf{\text{Total Payments}} &= 375.0 + 575.0 + 0.0 + 0.0 = \mathbf{950.0 \text{ m.u.}}
+            \end{aligned}$$
+            *(Net Cash Generated in Quarter $= \text{Collections} - \text{Payments} = 1,615.0 - 950.0 = \mathbf{+665.0 \text{ m.u.}}$).*
           </li>
-          <li><strong>Investments:</strong> Total capital goods acquired on 31/12 were $1,000 + 1,500 + 300 + 100 = 2,900.0 \text{ m.u.}$ No new fixed asset investments were made during Q1 ($\text{Q1 Capex} = 0 \text{ m.u.}$).</li>
-          <li><strong>Depreciation:</strong> $\mathbf{30.0 \text{ m.u.}}$</li>
+          <li><strong>Investments (Inversiones):</strong> Initial productive capacity was capitalized on 31/12 of the previous year ($1,000 + 1,500 + 300 + 100 = 2,900.0 \text{ m.u.}$). During Q1, no new fixed capital acquisitions occurred:
+            $$\mathbf{\text{Q1 Fixed Capital Investments}} = \mathbf{0.0 \text{ m.u.}}$$
+          </li>
+          <li><strong>Depreciation / Amortization:</strong> Straight-line quarterly asset wear $= \mathbf{30.0 \text{ m.u.}}$</li>
         </ol>
 
-        <h3 class="phase-title">Phase 3: Resolution of Part (b) — 50% Consumed</h3>
-        <p>If only half of the materials are consumed in production ($700 / 2 = 350 \text{ m.u.}$), the remaining $350 \text{ m.u.}$ is stored in warehouse as an inventory asset:</p>
+        <h3 class="phase-title">Phase 3: Resolution of Part (b) — Inventory Sensitivity (50% Consumed)</h3>
+        <p>If only half of the purchased materials are consumed in production ($700.0 / 2 = 350.0 \text{ m.u.}$), the remaining $350.0 \text{ m.u.}$ remains untouched in the warehouse as a balance sheet asset:</p>
         <ul>
-          <li><strong>Expenses:</strong> Decrease by $350 \text{ m.u.}$:
-            $$\mathbf{\text{New Expenses}} = 450 + 350 + 230 + 30 = \mathbf{1,060.0 \text{ m.u.}} \quad (\text{Net Profit rises to } 1,930 - 1,060 = \mathbf{870.0 \text{ m.u.}})$$
+          <li><strong>Operating Expenses:</strong> Materials expense drops from $700 \text{ mu}$ to $350 \text{ mu}$:
+            $$\mathbf{\text{New Expenses}} = 450.0 + \mathbf{350.0} + 230.0 + 30.0 = \mathbf{1,060.0 \text{ m.u.}} \quad (\Delta \text{Expenses} = -350.0 \text{ m.u.})$$
+            $$\mathbf{\text{New Net Income}} = 1,930.0 - 1,060.0 = \mathbf{870.0 \text{ m.u.}} \quad (\text{increased by } +350.0 \text{ m.u.})$$
           </li>
-          <li><strong>Payments (Cash Outflows):</strong> <strong>Completely unchanged at $950.0 \text{ m.u.}$!</strong> Supplier payments are governed by raw materials purchased ($700 - 125 = 575 \text{ m.u.}$), regardless of physical shop-floor consumption.</li>
+          <li><strong>Payments / Cash Outflows:</strong> <strong>Completely unchanged at $950.0 \text{ m.u.}$!</strong> Supplier payments are governed by raw materials purchased and credit terms ($700 - 125 = 575 \text{ m.u.}$), regardless of physical shop-floor consumption.</li>
           <li><strong>Incomes and Collections:</strong> Unchanged at $1,930.0 \text{ m.u.}$ and $1,615.0 \text{ m.u.}$ respectively.</li>
+          <li><strong>Balance Sheet Asset Impact:</strong> Warehouse Ending Inventory increases by $+350.0 \text{ m.u.}$ under Current Assets.</li>
         </ul>
 
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Financial Magnitude</th>
+                <th>Part (a): 100% Consumed</th>
+                <th>Part (b): 50% Consumed</th>
+                <th>Variation $\Delta$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Income (Revenues)</td>
+                <td>1,930.0 m.u.</td>
+                <td>1,930.0 m.u.</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Operating Expenses</td>
+                <td>1,410.0 m.u.</td>
+                <td>1,060.0 m.u.</td>
+                <td>-350.0 m.u.</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>Net Income (Profit)</td>
+                <td>520.0 m.u.</td>
+                <td>870.0 m.u.</td>
+                <td>+350.0 m.u.</td>
+              </tr>
+              <tr>
+                <td>Collections (Cash Inflows)</td>
+                <td>1,615.0 m.u.</td>
+                <td>1,615.0 m.u.</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Payments (Cash Outflows)</td>
+                <td>950.0 m.u.</td>
+                <td>950.0 m.u.</td>
+                <td>0</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>Net Treasury Cash Flow</td>
+                <td>+665.0 m.u.</td>
+                <td>+665.0 m.u.</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Ending Inventory Asset</td>
+                <td>0.0 m.u.</td>
+                <td>350.0 m.u.</td>
+                <td>+350.0 m.u.</td>
+              </tr>
+              <tr>
+                <td>Quarterly Depreciation</td>
+                <td>30.0 m.u.</td>
+                <td>30.0 m.u.</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="result-callout">
-          <div class="result-callout-title">Pedagogical Conclusion</div>
-          Unconsumed purchased materials represent a <strong>Balance Sheet Asset (Inventory)</strong>, not an Income Statement expense. While Net Income increases by $350 \text{ m.u.}$, treasury cash flow remains identical.
+          <div class="result-callout-title">Pedagogical Conclusion & Golden Rule</div>
+          Unconsumed purchased materials represent a <strong>Balance Sheet Current Asset (Inventory)</strong>, not an Income Statement expense. While Net Income increases by $350 \text{ m.u.}$, treasury cash flow remains identical. <strong>Profit $\neq$ Cash Flow!</strong>
         </div>
       </section>
 
@@ -403,21 +522,55 @@
            EXERCISE 2
            ========================================== -->
       <section class="problem-box" id="exercise-2">
-        <span class="problem-tag">Exercise 2</span>
-        <h2 class="problem-title">JUGA S.A. Opening Balance Sheet</h2>
+        <span class="problem-tag">Exercise 2 • Opening Balance Sheet & Mixed Contributions</span>
+        <h2 class="problem-title">JUGA S.A. Opening Balance Sheet with In-Kind Contributions</h2>
 
         <div class="statement-box">
           The JUGA S.A. Firm is started with a shareholders contribution of 60.000 Euros. Of those 30.000 are paid in and deposited in a Bank account and the remaining are corresponding to the transfer of a patent for a value of 30.000 Euros. With the cash of the Bank account, raw materials have been purchased for a total amount of 10.500 Euros and machinery for 15.000 Euros. Please detail the balance sheet at the operations start.
         </div>
 
-        <h3 class="phase-title">Phase 1: Journaling Cash Flows & Balances</h3>
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: In-Kind Contributions & Cash Ledger Tracking</div>
+          <ul>
+            <li><strong>Initial Equity Structure:</strong> Subscribed Share Capital $= €60,000$.
+              <ul>
+                <li>Monetary cash contributed to bank account: $+€30,000$.</li>
+                <li>In-kind non-monetary contribution: Industrial Patent valued at $+€30,000$ $\implies$ <strong>Intangible Non-Current Asset</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Asset Reallocation Funded by Bank Cash:</strong> The problem explicitly states that purchases are made <em>with the cash of the bank account</em>:
+              <ul>
+                <li>Raw materials purchased: $+€10,500$ (Current Asset: Inventories).</li>
+                <li>Machinery purchased: $+€15,000$ (Non-Current Tangible Asset: PP&E).</li>
+                <li>Total cash disbursed: $10,500 + 15,000 = €25,500$.</li>
+                <li><strong>Ending Bank Balance:</strong> $30,000 - 25,500 = \mathbf{€4,500}$.</li>
+              </ul>
+            </li>
+            <li><strong>Exam Trap 1 — Raw Materials Treatment:</strong> Since the firm is at the <em>operations start</em> (no manufacturing has occurred and no sales have been made), raw materials are <strong>100% an Inventory Asset</strong> on the Balance Sheet, NOT an expense on an income statement.</li>
+            <li><strong>Exam Trap 2 — Bank Balance Adjustment:</strong> Do not leave the bank balance at €30,000 while also adding machinery and raw materials. That would cause assets to total €85,500 against €60,000 of equity, violating the fundamental accounting identity!</li>
+            <li><strong>Exam Trap 3 — Patent Classification:</strong> An industrial patent is an <em>Intangible Fixed Asset (Inmovilizado Intangible)</em>, not an expense and not a current asset.</li>
+            <li><strong>Exam-Day Checkpoint:</strong> Verify that $\text{Total Assets} = 45,000 \text{ (NCA)} + 15,000 \text{ (CA)} = \mathbf{€60,000} \equiv \text{Stockholders' Equity} = \mathbf{€60,000}$, with $\text{Liabilities} = \mathbf{€0}$.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Phase 1: Step-by-Step Journaling & Cash Ledger</h3>
         <ol>
-          <li>Initial capital contributed: Subscribed Share Capital = €60,000 (Monetary: €30,000 cash; In-kind: €30,000 industrial patent).</li>
-          <li>Purchases funded by bank cash:
-            $$\text{Cash Outflows} = 10,500 \text{ (Raw Materials)} + 15,000 \text{ (Machinery)} = 25,500 \text{ \euro}$$
+          <li><strong>Initial Capital Subscription:</strong>
+            $$\text{Subscribed Share Capital} = \mathbf{60,000 \text{ \euro}}$$
+            Formed by:
+            * Bank account deposit (Monetary): $+30,000 \text{ \euro}$
+            * Industrial Patent contribution (In-kind Intangible Asset): $+30,000 \text{ \euro}$
           </li>
-          <li>Residual bank cash balance:
-            $$\text{Bank Balance} = 30,000 - 25,500 = \mathbf{4,500 \text{ \euro}}$$
+          <li><strong>Asset Acquisitions Funded from Bank Liquidity:</strong>
+            $$\begin{aligned}
+            \text{Raw Materials Purchased (Inventory)} &= +10,500 \text{ \euro} \quad (\text{Current Asset}) \\
+            \text{Machinery Purchased (PP\&E)} &= +15,000 \text{ \euro} \quad (\text{Non-Current Tangible Asset}) \\
+            \hline
+            \text{Total Cash Outflows} &= 10,500 + 15,000 = \mathbf{25,500 \text{ \euro}}
+            \end{aligned}$$
+          </li>
+          <li><strong>Ending Treasury Cash Balance at Bank:</strong>
+            $$\text{Bank Account Balance} = 30,000 - 25,500 = \mathbf{4,500 \text{ \euro}}$$
           </li>
         </ol>
 
@@ -434,9 +587,9 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>NON-CURRENT ASSETS (Activo No Corriente)</strong></td>
                 <td><strong>45,000</strong></td>
-                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY (Patrimonio Neto)</strong></td>
                 <td><strong>60,000</strong></td>
               </tr>
               <tr>
@@ -452,22 +605,28 @@
                 <td></td>
               </tr>
               <tr>
-                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>CURRENT ASSETS (Activo Corriente)</strong></td>
                 <td><strong>15,000</strong></td>
-                <td><strong>NON-CURRENT LIABILITIES</strong></td>
+                <td><strong>NON-CURRENT LIABILITIES (Pasivo No Corriente)</strong></td>
                 <td><strong>0</strong></td>
               </tr>
               <tr>
                 <td>• Inventories: Raw Materials</td>
                 <td>10,500</td>
-                <td><strong>CURRENT LIABILITIES</strong></td>
-                <td><strong>0</strong></td>
+                <td>• Long-term bank debt</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>• Cash & Cash Equivalents (Bank account)</td>
                 <td>4,500</td>
+                <td><strong>CURRENT LIABILITIES (Pasivo Corriente)</strong></td>
+                <td><strong>0</strong></td>
+              </tr>
+              <tr>
                 <td></td>
                 <td></td>
+                <td>• Accounts payable (Suppliers)</td>
+                <td>0</td>
               </tr>
               <tr style="font-weight: 700; background: var(--bg-subtle);">
                 <td>TOTAL ASSETS</td>
@@ -480,8 +639,9 @@
         </div>
 
         <div class="result-callout">
-          <div class="result-callout-title">Equilibrium Verification</div>
+          <div class="result-callout-title">Structural & Solvency Verdict</div>
           $$\mathbf{\text{Assets } (60,000 \text{ \euro}) \equiv \text{Liabilities } (0 \text{ \euro}) + \text{Equity } (60,000 \text{ \euro})}$$
+          <p>The company starts with zero debt leverage ($\text{Debt/Equity} = 0$), financed $100\%$ by equity capital. Working capital is $\text{WC} = \text{CA} - \text{CL} = 15,000 - 0 = \mathbf{+15,000 \text{ \euro}}$, providing absolute short-term liquidity safety.</p>
         </div>
       </section>
 
@@ -489,15 +649,39 @@
            EXERCISE 3
            ========================================== -->
       <section class="problem-box" id="exercise-3">
-        <span class="problem-tag">Exercise 3</span>
-        <h2 class="problem-title">Libby's Company Balance Sheet Classification & Working Capital</h2>
+        <span class="problem-tag">Exercise 3 • Balance Sheet Classification & Working Capital</span>
+        <h2 class="problem-title">Libby's Company Balance Sheet Classification & Solvency Audit</h2>
 
         <div class="statement-box">
           Prepare the BALANCE SHEET of Libby's Company using the following figures (in euros):<br>
           Short-term loan debts 15.500 | Long-term loan debts 3.000 | Money on its bank account 3.000 | Cash 500 | Paid-in capital 12.000 | Accounts receivable 3.500 | Accounts payable 1.500 | Equipment 13.000 | Raw materials (purchased this year but not used yet) 12.500 | Furniture 1.500 | Retained earnings from the year 2.000.
         </div>
 
-        <h3 class="phase-title">Phase 1: Standard Account Categorization</h3>
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Standard Account Classification & Double WC Verification</div>
+          <ul>
+            <li><strong>5-Block Balance Sheet Architecture:</strong> Always group accounts into standard financial blocks:
+              <ol>
+                <li><strong>Non-Current Assets (Activo No Corriente):</strong> Productive durable capital ($> 1 \text{ year}$) $\implies$ Equipment (€13,000) + Furniture (€1,500) $= \mathbf{€14,500}$.</li>
+                <li><strong>Current Assets (Activo Corriente):</strong> Operating cycle liquid items ($\le 1 \text{ year}$) $\implies$ Raw materials inventory (€12,500) + Accounts receivable (€3,500) + Bank (€3,000) + Cash (€500) $= \mathbf{€19,500}$.</li>
+                <li><strong>Stockholders' Equity (Patrimonio Neto):</strong> Owner funding & internal retained profits $\implies$ Paid-in capital (€12,000) + Retained earnings (€2,000) $= \mathbf{€14,000}$.</li>
+                <li><strong>Non-Current Liabilities (Pasivo No Corriente):</strong> External obligations with maturity $> 1 \text{ year}$ $\implies$ Long-term loan debts $= \mathbf{€3,000}$.</li>
+                <li><strong>Current Liabilities (Pasivo Corriente):</strong> Short-term obligations due within 1 year $\implies$ Short-term loan debts (€15,500) + Accounts payable (€1,500) $= \mathbf{€17,000}$.</li>
+              </ol>
+            </li>
+            <li><strong>Dual Verification of Working Capital (Fondo de Maniobra):</strong>
+              $$\text{Method 1 (Operational): } \mathbf{WC} = \text{Current Assets} - \text{Current Liabilities} = 19,500 - 17,000 = \mathbf{+2,500 \text{ \euro}}$$
+              $$\text{Method 2 (Financing): } \mathbf{WC} = (\text{Equity} + \text{Non-Current Liabilities}) - \text{Non-Current Assets} = (14,000 + 3,000) - 14,500 = \mathbf{+2,500 \text{ \euro}}$$
+              *(Both methods MUST yield identical values. If they differ, an account was misclassified).*
+            </li>
+            <li><strong>Exam Trap 1 — Retained Earnings Placement:</strong> "Retained earnings from the year" represents accumulated profits belonging to owners; it is part of <strong>Stockholders' Equity</strong>, never a liability!</li>
+            <li><strong>Exam Trap 2 — Receivables vs Payables:</strong> "Accounts receivable" (Deudores comerciales/Clientes) is an Asset (money owed to Libby's); "Accounts payable" (Acreedores/Proveedores) is a Current Liability (money Libby's owes to suppliers).</li>
+            <li><strong>Exam Trap 3 — Loan Debt Horizon:</strong> Short-term loan debt (€15,500) must be clearly separated from long-term loan debt (€3,000). Grouping them together forfeits solvency points.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Phase 1: Standard Account Categorization Matrix</h3>
+        <p>Assigning each ledger line item to its statutory destination:</p>
         <ul>
           <li><strong>Non-Current Assets:</strong> Equipment (€13,000) + Furniture (€1,500) = <strong>€14,500</strong>.</li>
           <li><strong>Current Assets:</strong> Raw materials inventory (€12,500) + Accounts receivable (€3,500) + Bank (€3,000) + Cash (€500) = <strong>€19,500</strong>.</li>
@@ -506,7 +690,7 @@
           <li><strong>Current Liabilities:</strong> Short-term loan debts (€15,500) + Accounts payable (€1,500) = <strong>€17,000</strong>.</li>
         </ul>
 
-        <h3 class="phase-title">Phase 2: Formal Balanced Presentation</h3>
+        <h3 class="phase-title">Phase 2: Formal Balanced Balance Sheet</h3>
         <div class="table-container">
           <table>
             <thead>
@@ -519,51 +703,51 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>NON-CURRENT ASSETS (Activo No Corriente)</strong></td>
                 <td><strong>14,500</strong></td>
-                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY (Patrimonio Neto)</strong></td>
                 <td><strong>14,000</strong></td>
               </tr>
               <tr>
-                <td>• Equipment</td>
+                <td>• Tangible Fixed Assets: Equipment</td>
                 <td>13,000</td>
-                <td>• Paid-in capital</td>
+                <td>• Paid-in Share Capital</td>
                 <td>12,000</td>
               </tr>
               <tr>
-                <td>• Furniture</td>
+                <td>• Tangible Fixed Assets: Furniture</td>
                 <td>1,500</td>
-                <td>• Retained earnings from the year</td>
+                <td>• Retained Earnings from the year</td>
                 <td>2,000</td>
               </tr>
               <tr>
-                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>CURRENT ASSETS (Activo Corriente)</strong></td>
                 <td><strong>19,500</strong></td>
-                <td><strong>NON-CURRENT LIABILITIES</strong></td>
+                <td><strong>NON-CURRENT LIABILITIES (Pasivo No Corriente)</strong></td>
                 <td><strong>3,000</strong></td>
               </tr>
               <tr>
-                <td>• Inventories (Raw materials)</td>
+                <td>• Inventories (Raw materials not used yet)</td>
                 <td>12,500</td>
                 <td>• Long-term loan debts</td>
                 <td>3,000</td>
               </tr>
               <tr>
-                <td>• Accounts receivable</td>
+                <td>• Accounts Receivable (Customers)</td>
                 <td>3,500</td>
-                <td><strong>CURRENT LIABILITIES</strong></td>
+                <td><strong>CURRENT LIABILITIES (Pasivo Corriente)</strong></td>
                 <td><strong>17,000</strong></td>
               </tr>
               <tr>
-                <td>• Cash at bank</td>
+                <td>• Cash & Cash Equivalents: Bank account</td>
                 <td>3,000</td>
                 <td>• Short-term loan debts</td>
                 <td>15,500</td>
               </tr>
               <tr>
-                <td>• Cash on hand</td>
+                <td>• Cash & Cash Equivalents: Cash on hand</td>
                 <td>500</td>
-                <td>• Accounts payable (Suppliers)</td>
+                <td>• Accounts payable (Trade suppliers)</td>
                 <td>1,500</td>
               </tr>
               <tr style="font-weight: 700; background: var(--bg-subtle);">
@@ -577,9 +761,11 @@
         </div>
 
         <div class="result-callout">
-          <div class="result-callout-title">Solvency & Working Capital Audit</div>
-          $$\text{Working Capital} = \text{Current Assets} - \text{Current Liabilities} = 19,500 - 17,000 = \mathbf{+2,500 \text{ \euro}}$$
-          $$\text{Debt-to-Equity Ratio} = \frac{L}{E} = \frac{3,000 + 17,000}{14,000} = \frac{20,000}{14,000} = \mathbf{1.43}$$
+          <div class="result-callout-title">Solvency, Liquidity & Leverage Ratios</div>
+          <p><strong>1. Working Capital:</strong> $\text{WC} = \text{CA} - \text{CL} = 19,500 - 17,000 = \mathbf{+2,500 \text{ \euro}}$ (Positive safety cushion: permanent resources finance all non-current assets plus $12.8\%$ of current assets).</p>
+          <p><strong>2. Current Ratio (Short-Term Solvency):</strong> $\text{CR} = \frac{\text{CA}}{\text{CL}} = \frac{19,500}{17,000} = \mathbf{1.147}$ (Adequate coverage $> 1.0$, but tightly bound to inventory liquidation).</p>
+          <p><strong>3. Acid-Test (Quick Ratio):</strong> $\text{QR} = \frac{\text{Cash} + \text{Receivables}}{\text{CL}} = \frac{3,500 + 3,500}{17,000} = \frac{7,000}{17,000} = \mathbf{0.412}$ (Highlights that $64.1\%$ of current assets are tied up in raw materials).</p>
+          <p><strong>4. Debt Structure & Leverage:</strong> $\text{Total Debt} = 3,000 + 17,000 = 20,000 \text{ \euro}$. Debt-to-Equity $= \frac{20,000}{14,000} = \mathbf{1.429}$. Crucially, $\frac{15,500}{20,000} = \mathbf{77.5\%}$ of total indebtedness matures in the short term, requiring proactive refinancing.</p>
         </div>
       </section>
 
@@ -587,41 +773,70 @@
            EXERCISE 4
            ========================================== -->
       <section class="problem-box" id="exercise-4">
-        <span class="problem-tag">Exercise 4</span>
-        <h2 class="problem-title">Hawkins Partners Income Statement & Inventories</h2>
+        <span class="problem-tag">Exercise 4 • Multi-Step Income Statement</span>
+        <h2 class="problem-title">Hawkins Partners Income Statement & Inventory Adjustments</h2>
 
         <div class="statement-box">
           Prepare the Income Statement for Hawkins Partners using the following figures and knowing that corporate tax applicable rate is 30% (figures in euros):<br>
           1. Initial inventory: 600 | 2. Purchase of goods (sold 100%): 84.000 | 3. Rental costs: 1.000 | 4. Property sold to another company (income): 10.500 | 5. Interests received: 15.200 | 6. Interests from long-term debt: 5.500 | 7. Wages and salaries: 12.700 | 8. Water, gas and electricity: 1.200 | 9. Sales: 130.800 | 10. Inventory at end of period: 500.
         </div>
 
-        <h3 class="phase-title">Phase 1: Mathematical Step-by-Step Derivation</h3>
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Inventory Variation, Extraordinary Gains & Multi-Step P&L</div>
+          <ul>
+            <li><strong>Standard Multi-Step P&L Structure:</strong>
+              $$\text{Sales Revenue} \xrightarrow{-\text{COGS}} \text{Gross Profit} \xrightarrow{-\text{Op. Expenses}} \text{EBIT} \xrightarrow{+\text{Non-Op} \pm \text{Financial}} \text{EBT} \xrightarrow{-\text{Taxes}} \text{Net Income}$$
+            </li>
+            <li><strong>Cost of Goods Sold (COGS) Identity:</strong>
+              $$\mathbf{\text{COGS} = \text{Beginning Inventory} + \text{Purchases} - \text{Ending Inventory}}$$
+              $$\text{COGS} = 600 + 84,000 - 500 = \mathbf{84,100 \text{ \euro}}$$
+              <em>Economic intuition:</em> Ending inventory dropped by $100 \text{ \euro}$ ($600 - 500$). This inventory depletion was sold to customers, so it must be added to purchases ($84,000 + 100 = 84,100$).
+            </li>
+            <li><strong>Exam Trap 1 — Extraordinary Property Sale:</strong> "Property sold to another company (€10,500)" is a capital gain from the disposal of a non-current asset, <strong>NOT regular commercial turnover</strong>! It must NOT be mixed into operating sales, but placed under <strong>Non-Operating / Extraordinary Income</strong>.</li>
+            <li><strong>Exam Trap 2 — Financial Interests Separation:</strong> "Interests received (€15,200)" is financial income; "Interests from long-term debt (€5,500)" is financial expense. Net Financial Result $= +15,200 - 5,500 = \mathbf{+9,700 \text{ \euro}}$.</li>
+            <li><strong>Exam Trap 3 — Corporate Tax Base:</strong> Apply the $30\%$ tax rate to <strong>EBT</strong> (€52,000), NEVER to EBIT (€31,800). Corporate income tax covers all profits: operating, extraordinary, and financial.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Phase 1: Step-by-Step Arithmetic Deductions</h3>
         <ol>
           <li><strong>Cost of Goods Sold (COGS):</strong>
             $$\text{COGS} = \text{Initial Inventory} + \text{Purchases} - \text{Ending Inventory} = 600 + 84,000 - 500 = \mathbf{84,100 \text{ \euro}}$$
           </li>
-          <li><strong>Gross Profit:</strong>
-            $$\text{Gross Profit} = \text{Sales} - \text{COGS} = 130,800 - 84,100 = \mathbf{46,700 \text{ \euro}}$$
+          <li><strong>Gross Profit (Margen Bruto):</strong>
+            $$\mathbf{\text{Gross Profit}} = \text{Sales Revenue} - \text{COGS} = 130,800 - 84,100 = \mathbf{46,700 \text{ \euro}}$$
           </li>
-          <li><strong>Operating Expenses:</strong>
-            $$\text{Total Operating Expenses} = 12,700 \text{ (Wages)} + 1,000 \text{ (Rent)} + 1,200 \text{ (Utilities)} = \mathbf{14,900 \text{ \euro}}$$
+          <li><strong>Operating Expenses (Gastos de Explotación):</strong>
+            $$\begin{aligned}
+            \text{Wages and salaries} &= 12,700 \text{ \euro} \\
+            \text{Rental costs} &= 1,000 \text{ \euro} \\
+            \text{Water, gas and electricity (Utilities)} &= 1,200 \text{ \euro} \\
+            \hline
+            \mathbf{\text{Total Operating Expenses}} &= 12,700 + 1,000 + 1,200 = \mathbf{14,900 \text{ \euro}}
+            \end{aligned}$$
           </li>
-          <li><strong>Operating Profit (EBIT):</strong>
-            $$\text{EBIT} = 46,700 - 14,900 = \mathbf{31,800 \text{ \euro}}$$
+          <li><strong>Operating Income / EBIT (Resultado de Explotación):</strong>
+            $$\mathbf{\text{EBIT}} = \text{Gross Profit} - \text{Operating Expenses} = 46,700 - 14,900 = \mathbf{31,800 \text{ \euro}}$$
           </li>
-          <li><strong>Non-Operating & Financial Items:</strong>
-            $$\text{Net Non-Operating} = +10,500 \text{ (Property gain)} + 15,200 \text{ (Interest rec.)} - 5,500 \text{ (Debt interest)} = \mathbf{+20,200 \text{ \euro}}$$
+          <li><strong>Non-Operating & Financial Items (Resultados Financieros y Extraordinarios):</strong>
+            $$\begin{aligned}
+            \text{Gain on property sold (Non-operating)} &= +10,500 \text{ \euro} \\
+            \text{Interests received (Financial income)} &= +15,200 \text{ \euro} \\
+            \text{Interests on debt (Financial expense)} &= -5,500 \text{ \euro} \\
+            \hline
+            \mathbf{\text{Net Non-Operating \& Financial}} &= +10,500 + 15,200 - 5,500 = \mathbf{+20,200 \text{ \euro}}
+            \end{aligned}$$
           </li>
-          <li><strong>Earnings Before Taxes (EBT):</strong>
-            $$\text{EBT} = 31,800 + 20,200 = \mathbf{52,000 \text{ \euro}}$$
+          <li><strong>Earnings Before Taxes / EBT (Resultado Antes de Impuestos):</strong>
+            $$\mathbf{\text{EBT}} = \text{EBIT} + \text{Net Non-Operating \& Financial} = 31,800 + 20,200 = \mathbf{52,000 \text{ \euro}}$$
           </li>
-          <li><strong>Corporate Tax & Net Income:</strong>
-            $$\text{Corporate Tax } (30\%) = 0.30 \times 52,000 = \mathbf{15,600 \text{ \euro}}$$
-            $$\mathbf{\text{Net Income}} = 52,000 - 15,600 = \mathbf{36,400 \text{ \euro}}$$
+          <li><strong>Corporate Income Tax ($30\%$) and Net Profit:</strong>
+            $$\mathbf{\text{Corporate Tax}} = 30\% \times \text{EBT} = 0.30 \times 52,000 = \mathbf{15,600 \text{ \euro}}$$
+            $$\mathbf{\text{Net Income (Net Profit)}} = \text{EBT} - \text{Corporate Tax} = 52,000 - 15,600 = \mathbf{36,400 \text{ \euro}}$$
           </li>
         </ol>
 
-        <h3 class="phase-title">Phase 2: Multi-Step Income Statement</h3>
+        <h3 class="phase-title">Phase 2: Formal Multi-Step Income Statement</h3>
         <div class="table-container">
           <table>
             <thead>
@@ -633,7 +848,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>Sales Revenue</td>
+                <td>Sales Revenue (Turnover)</td>
                 <td></td>
                 <td>130,800</td>
               </tr>
@@ -642,28 +857,68 @@
                 <td></td>
                 <td>(84,100)</td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>= GROSS PROFIT</td>
+              <tr>
+                <td>&nbsp;&nbsp;• Initial inventory</td>
+                <td>600</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• Purchases of merchandise</td>
+                <td>84,000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• (-) Ending inventory</td>
+                <td>(500)</td>
+                <td></td>
+              </tr>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= GROSS PROFIT (Margen Bruto)</td>
                 <td></td>
                 <td>46,700</td>
               </tr>
               <tr>
-                <td>(-) Operating Expenses (Wages, Rent, Utilities)</td>
+                <td>(-) Operating Expenses</td>
                 <td></td>
                 <td>(14,900)</td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>= OPERATING INCOME (EBIT)</td>
+              <tr>
+                <td>&nbsp;&nbsp;• Personnel (Wages and salaries)</td>
+                <td>(12,700)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• Rental costs</td>
+                <td>(1,000)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;• Utilities (Water, gas, electricity)</td>
+                <td>(1,200)</td>
+                <td></td>
+              </tr>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= OPERATING INCOME / EBIT (Resultado de Explotación)</td>
                 <td></td>
                 <td>31,800</td>
               </tr>
               <tr>
-                <td>(+) Non-Operating Items (Property sale €10.5k + Interests net €9.7k)</td>
+                <td>(+) Extraordinary Gain: Property sold to another company</td>
                 <td></td>
-                <td>+20,200</td>
+                <td>+10,500</td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>= EARNINGS BEFORE TAXES (EBT)</td>
+              <tr>
+                <td>(+) Financial Income: Interests received</td>
+                <td></td>
+                <td>+15,200</td>
+              </tr>
+              <tr>
+                <td>(-) Financial Expenses: Interests on long-term debt</td>
+                <td></td>
+                <td>(5,500)</td>
+              </tr>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= EARNINGS BEFORE TAXES / EBT (Resultado Antes de Impuestos)</td>
                 <td></td>
                 <td>52,000</td>
               </tr>
@@ -672,22 +927,32 @@
                 <td></td>
                 <td>(15,600)</td>
               </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
-                <td>NET INCOME (NET PROFIT)</td>
+              <tr style="font-weight: 700; background: var(--accent-soft);">
+                <td>NET INCOME / NET PROFIT (Resultado del Ejercicio)</td>
                 <td></td>
                 <td>36,400</td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Economic Margin Insights</div>
+          <p><strong>Gross Margin:</strong> $\frac{\text{Gross Profit}}{\text{Sales}} = \frac{46,700}{130,800} = \mathbf{35.70\%}$</p>
+          <p><strong>Operating Margin (ROS):</strong> $\frac{\text{EBIT}}{\text{Sales}} = \frac{31,800}{130,800} = \mathbf{24.31\%}$</p>
+          <p><strong>Net Margin:</strong> $\frac{\text{Net Income}}{\text{Sales}} = \frac{36,400}{130,800} = \mathbf{27.83\%}$ (Boosted significantly by extraordinary property gain and financial investments).</p>
+        </div>
       </section>
 
       <!-- ==========================================
            EXERCISE 5
            ========================================== -->
+      <!-- ==========================================
+           EXERCISE 5
+           ========================================== -->
       <section class="problem-box" id="exercise-5">
-        <span class="problem-tag">Exercise 5</span>
-        <h2 class="problem-title">Corporate Income Statement, Trade Discounts, Taxes & Dividends</h2>
+        <span class="problem-tag">Exercise 5 • Corporate Income Statement & Trade Discounts</span>
+        <h2 class="problem-title">Corporate Income Statement, Tiered Discounts, Taxes & Dividends</h2>
 
         <div class="statement-box">
           Prepare the Income Statement of a company with the following information from year 2017:<br>
@@ -700,64 +965,90 @@
           • Corporate tax rate: 30%. Agreed dividend: 50%.
         </div>
 
-        <h3 class="phase-title">Phase 1: Step-by-Step Numerical Calculations</h3>
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Discount Eligibility, Social Security & Dividend Flow</div>
+          <ul>
+            <li><strong>Commercial Discount Eligibility:</strong>
+              $$\text{Type A Customer Purchases} = 40\% \times 2,002.00 \text{ M\euro} = \mathbf{800.80 \text{ M\euro}}$$
+              Since $800.80 \text{ M\euro} > 120 \text{ M\euro}$, the tier qualifies for the $3\%$ discount:
+              $$\text{Discount} = 3\% \times 800.80 = \mathbf{24.024 \text{ M\euro}} \implies \text{Net Sales} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
+            </li>
+            <li><strong>Workforce Labor Cost (Gross Salary + Employer Social Security):</strong>
+              $$\text{Base Wages} = 7,800 \times 30,000 \text{ \euro} = 234.00 \text{ M\euro}$$
+              $$\text{Employer Social Security} = 30\% \times 234.00 = 70.20 \text{ M\euro} \implies \text{Total Labor Expense} = \mathbf{304.20 \text{ M\euro}}$$
+            </li>
+            <li><strong>Exam Trap 1 — Discount Scope:</strong> Never apply the 3% discount to the full 2,002 M€! The prompt states only Type A customers (40%) qualify. Applying the discount to total sales deducts $60.06 \text{ M\euro}$ instead of $24.024 \text{ M\euro}$, distorting all downstream figures.</li>
+            <li><strong>Exam Trap 2 — Principal Repayment vs Interest:</strong> The loan principal ($225 \text{ M\euro}$) matures in 2020. <strong>Principal repayments are Balance Sheet cash/debt movements, NEVER Income Statement expenses!</strong> Only the annual interest ($6\% \times 225 = 13.50 \text{ M\euro}$) is recorded in the P&L.</li>
+            <li><strong>Exam Trap 3 — Dividend Payout Base:</strong> Apply the $50\%$ dividend rate to <strong>Net Income (profit after corporate taxes)</strong>, never to EBIT or EBT. Dividends represent profit distribution to shareholders after all statutory obligations are fulfilled.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Phase 1: Step-by-Step Numerical Deductions</h3>
         <ol>
-          <li><strong>Gross Sales & Discount:</strong>
-            $$\text{Type A Sales} = 40\% \times 2,002.00 = 800.80 \text{ M\euro} > 120 \text{ M\euro} \implies \text{Qualifies}$$
-            $$\text{Discount} = 3\% \times 800.80 = \mathbf{24.024 \text{ M\euro}}$$
-            $$\mathbf{\text{Net Sales}} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
+          <li><strong>Gross Sales, Commercial Discount & Net Sales:</strong>
+            $$\text{Type A Volume} = 0.40 \times 2,002.00 = 800.80 \text{ M\euro} > 120 \text{ M\euro} \implies \text{Condition Satisfied}$$
+            $$\mathbf{\text{Commercial Discount}} = 0.03 \times 800.80 = \mathbf{24.024 \text{ M\euro}}$$
+            $$\mathbf{\text{Net Sales Turnover}} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
           </li>
-          <li><strong>Cost of Goods Sold (Raw Materials):</strong>
-            $$\mathbf{\text{COGS}} = \mathbf{962.00 \text{ M\euro}} \implies \mathbf{\text{Gross Profit}} = 1,977.976 - 962.00 = \mathbf{1,015.976 \text{ M\euro}}$$
+          <li><strong>Cost of Goods Sold (COGS):</strong>
+            Because raw material stocks did not change ($\Delta \text{Stock} = 0$):
+            $$\mathbf{\text{COGS}} = \text{Purchases of Raw Materials} = \mathbf{962.000 \text{ M\euro}}$$
+            $$\mathbf{\text{Gross Profit}} = \text{Net Sales} - \text{COGS} = 1,977.976 - 962.000 = \mathbf{1,015.976 \text{ M\euro}}$$
           </li>
-          <li><strong>Operating Expenses:</strong>
-            * Workforce: $7,800 \times 30,000 \text{ \euro} = 234.00 \text{ M\euro}$. Social Security ($30\%$): $0.30 \times 234 = 70.20 \text{ M\euro}$.
-            $$\text{Total Personnel} = 234.00 + 70.20 = 304.20 \text{ M\euro}$$
-            * Other operating expenses: $457.00 \text{ M\euro}$.
-            * Linear Depreciation: $\frac{1,200.00}{10} = 120.00 \text{ M\euro}$.
-            $$\mathbf{\text{Total Operating Expenses}} = 304.20 + 457.00 + 120.00 = \mathbf{881.20 \text{ M\euro}}$$
+          <li><strong>Operating Expenses (Gastos de Explotación):</strong>
+            $$\begin{aligned}
+            \text{Base Salaries (7,800 workers } \times 30,000 \text{ \euro)} &= 234.000 \text{ M\euro} \\
+            \text{Employer Social Security (30\% on salaries)} &= +70.200 \text{ M\euro} \\
+            \text{Total Personnel Expense} &= \mathbf{304.200 \text{ M\euro}} \\
+            \text{Other Operating Expenses} &= \mathbf{457.000 \text{ M\euro}} \\
+            \text{Linear Depreciation } \left(\frac{1,200.00}{10 \text{ yrs}}\right) &= \mathbf{120.000 \text{ M\euro}} \\
+            \hline
+            \mathbf{\text{Total Operating Expenses}} &= 304.200 + 457.000 + 120.000 = \mathbf{881.200 \text{ M\euro}}
+            \end{aligned}$$
           </li>
-          <li><strong>Operating Income (EBIT):</strong>
-            $$\mathbf{\text{EBIT}} = 1,015.976 - 881.20 = \mathbf{134.776 \text{ M\euro}}$$
+          <li><strong>Operating Income / EBIT (Resultado de Explotación):</strong>
+            $$\mathbf{\text{EBIT}} = \text{Gross Profit} - \text{Operating Expenses} = 1,015.976 - 881.200 = \mathbf{134.776 \text{ M\euro}}$$
           </li>
-          <li><strong>Financial Interest Expense:</strong>
-            $$\text{Interest} = 6\% \times 225.00 \text{ M\euro} = \mathbf{13.50 \text{ M\euro}}$$
+          <li><strong>Financial Expenses (Intereses de la Deuda):</strong>
+            Outstanding loan balance in 2017 is $225 \text{ M\euro}$ at $6\%$ per annum:
+            $$\mathbf{\text{Financial Interest Expense}} = 0.06 \times 225.00 = \mathbf{13.500 \text{ M\euro}}$$
           </li>
-          <li><strong>Earnings Before Taxes (EBT):</strong>
-            $$\mathbf{\text{EBT}} = 134.776 - 13.50 = \mathbf{121.276 \text{ M\euro}}$$
+          <li><strong>Earnings Before Taxes / EBT (Resultado Antes de Impuestos):</strong>
+            $$\mathbf{\text{EBT}} = \text{EBIT} - \text{Interest Expense} = 134.776 - 13.500 = \mathbf{121.276 \text{ M\euro}}$$
           </li>
-          <li><strong>Corporate Taxes ($30\%$) and Net Income:</strong>
-            $$\text{Taxes} = 30\% \times 121.276 = \mathbf{36.383 \text{ M\euro}}$$
-            $$\mathbf{\text{Net Income}} = 121.276 - 36.383 = \mathbf{84.893 \text{ M\euro}}$$
+          <li><strong>Corporate Income Taxes ($30\%$) & Net Income:</strong>
+            $$\mathbf{\text{Corporate Tax}} = 30\% \times \text{EBT} = 0.30 \times 121.276 = \mathbf{36.3828 \text{ M\euro}}$$
+            $$\mathbf{\text{Net Income (Net Profit)}} = 121.276 - 36.3828 = \mathbf{84.8932 \text{ M\euro}}$$
           </li>
-          <li><strong>Profit Distribution ($50\%$ Dividends, $50\%$ Retained):</strong>
-            $$\mathbf{\text{Dividends}} = 50\% \times 84.893 = \mathbf{42.447 \text{ M\euro}}, \qquad \mathbf{\text{Retained Earnings}} = \mathbf{42.447 \text{ M\euro}}$$
+          <li><strong>Profit Appropriation (Dividends vs Retained Reserves):</strong>
+            $$\mathbf{\text{Dividends to Shareholders (50\% Payout)}} = 0.50 \times 84.8932 = \mathbf{42.4466 \text{ M\euro}}$$
+            $$\mathbf{\text{Retained Earnings to Equity Reserves (50\% Retention)}} = 0.50 \times 84.8932 = \mathbf{42.4466 \text{ M\euro}}$$
           </li>
         </ol>
 
-        <h3 class="phase-title">Phase 2: Formal Income Statement (Year 2017)</h3>
+        <h3 class="phase-title">Phase 2: Formal Corporate Income Statement (Year 2017)</h3>
         <div class="table-container">
           <table>
             <thead>
               <tr>
-                <th>INCOME STATEMENT — YEAR 2017</th>
+                <th>INCOME STATEMENT — FISCAL YEAR 2017</th>
                 <th>Detail (M€)</th>
                 <th>Amount (M€)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Gross Sales Revenue</td>
+                <td>Gross Sales Turnover</td>
                 <td>2,002.000</td>
                 <td></td>
               </tr>
               <tr>
-                <td>(-) Commercial Discounts (3% on Type A)</td>
+                <td>(-) Commercial Discounts (3% on Type A customers)</td>
                 <td>(24.024)</td>
                 <td></td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>TOTAL NET SALES REVENUE</td>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= NET SALES REVENUE</td>
                 <td></td>
                 <td>1,977.976</td>
               </tr>
@@ -766,8 +1057,8 @@
                 <td></td>
                 <td>(962.000)</td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>GROSS PROFIT</td>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= GROSS PROFIT</td>
                 <td></td>
                 <td>1,015.976</td>
               </tr>
@@ -791,18 +1082,18 @@
                 <td>(120.000)</td>
                 <td></td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>OPERATING INCOME (EBIT)</td>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= OPERATING INCOME / EBIT</td>
                 <td></td>
                 <td>134.776</td>
               </tr>
               <tr>
-                <td>(-) Financial Interest Expenses (6% of 225 M€)</td>
+                <td>(-) Financial Interest Expenses (6% of 225 M€ loan)</td>
                 <td></td>
                 <td>(13.500)</td>
               </tr>
-              <tr style="font-weight: 600;">
-                <td>EARNINGS BEFORE TAXES (EBT)</td>
+              <tr style="font-weight: 600; background: var(--bg-subtle);">
+                <td>= EARNINGS BEFORE TAXES / EBT</td>
                 <td></td>
                 <td>121.276</td>
               </tr>
@@ -811,23 +1102,30 @@
                 <td></td>
                 <td>(36.383)</td>
               </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
+              <tr style="font-weight: 700; background: var(--accent-soft);">
                 <td>NET INCOME FOR THE YEAR</td>
                 <td></td>
                 <td>84.893</td>
               </tr>
               <tr>
-                <td>• Dividends to be distributed (50%)</td>
+                <td>• Dividends to be distributed (50% payout)</td>
                 <td></td>
                 <td>42.447</td>
               </tr>
               <tr>
-                <td>• Retained Earnings transferred to Equity (50%)</td>
+                <td>• Retained Earnings transferred to Equity reserves (50%)</td>
                 <td></td>
                 <td>42.447</td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Financial Ratios & Payout Summary</div>
+          <p><strong>Operating Return on Sales (ROS):</strong> $\frac{\text{EBIT}}{\text{Net Sales}} = \frac{134.776}{1,977.976} = \mathbf{6.81\%}$</p>
+          <p><strong>Net Profit Margin:</strong> $\frac{\text{Net Income}}{\text{Net Sales}} = \frac{84.893}{1,977.976} = \mathbf{4.29\%}$</p>
+          <p><strong>Interest Coverage Ratio (TIE):</strong> $\frac{\text{EBIT}}{\text{Interest}} = \frac{134.776}{13.500} = \mathbf{9.98 \times}$ (Strong solvency: operating profit covers debt interest nearly 10 times over).</p>
         </div>
       </section>
 
@@ -835,7 +1133,7 @@
            EXERCISE 6
            ========================================== -->
       <section class="problem-box" id="exercise-6">
-        <span class="problem-tag">Exercise 6</span>
+        <span class="problem-tag">Exercise 6 • Full Accounting Cycle & Uncalled Capital</span>
         <h2 class="problem-title">Company X Full Accounting Cycle, Balance Sheet & Uncalled Capital</h2>
 
         <div class="statement-box">
@@ -845,33 +1143,71 @@
           <strong>2.</strong> Indicate and explain changes if shareholders had paid only 90% of the 100 m.u. subscribed.
         </div>
 
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Full Annual Cycle, Treasury Ledger & Contra-Equity</div>
+          <ul>
+            <li><strong>Opening Cash Position on 1/1/2017:</strong>
+              $$\text{Cash}_{1/1} = \text{Share Capital} - (\text{Land} + \text{Equipment} + \text{Materials}) = 100.0 - (20.0 + 20.0 + 20.0) = \mathbf{40.0 \text{ mu}}$$
+            </li>
+            <li><strong>Operating Cycle & COGS:</strong> Only half of raw materials are processed $\implies \text{COGS} = 20.0 / 2 = \mathbf{10.0 \text{ mu}}$. The remaining $10.0 \text{ mu}$ remains in warehouse inventory as a <strong>Current Asset</strong>.</li>
+            <li><strong>Exam Trap 1 — Depreciation of Land:</strong> <strong>Land is indestructible and never depreciates!</strong> Only Equipment depreciates ($20.0 / 10 = \mathbf{2.0 \text{ mu}}$). Depreciating land is an immediate exam penalty.</li>
+            <li><strong>Exam Trap 2 — Accounts Receivable Delay:</strong> Sales occur uniformly over 365 days with an average collection period of 3 months ($0.25 \text{ year}$).
+              $$\mathbf{\text{Ending Receivables}} = 50.0 \times \frac{3 \text{ months}}{12 \text{ months}} = \mathbf{12.5 \text{ mu}} \implies \text{Collections} = 50.0 - 12.5 = \mathbf{37.5 \text{ mu}}$$
+              Never assume that all 50 mu of sales were collected in cash!
+            </li>
+            <li><strong>Exam Trap 3 — Corporate Tax Settlement:</strong> The problem states that corporate tax ($30\% \times 28 = 8.4 \text{ mu}$) is <em>paid on December 31st, 2017</em>. Thus, it is a <strong>cash outflow</strong> during 2017, leaving <strong>zero tax liability</strong> pending on the year-end balance sheet!</li>
+            <li><strong>Exam Trap 4 — Question 2 (Uncalled Capital):</strong> If shareholders only pay $90\%$, uncalled capital is $10 \text{ mu}$. Uncalled capital does NOT change revenues, expenses, or taxes. It decreases starting cash by $10 \text{ mu}$ (ending cash becomes $49.1 \text{ mu}$) and is presented in Equity as a negative contra-equity line ($100 - 10 + 19.6 = 109.6 \text{ mu}$).</li>
+          </ul>
+        </div>
+
         <h3 class="phase-title">Phase 1: Operational Cycle & P&L Statement (Question 1)</h3>
         <ol>
-          <li><strong>Sales Revenue:</strong> $50.0 \text{ m.u.}$</li>
-          <li><strong>Raw Materials Consumed (COGS):</strong> Half of $20.0 \text{ m.u.} = \mathbf{10.0 \text{ m.u.}}$ (Remaining inventory in warehouse $= 10.0 \text{ m.u.}$).</li>
-          <li><strong>Gross Profit:</strong> $50.0 - 10.0 = \mathbf{40.0 \text{ m.u.}}$</li>
-          <li><strong>Operating Expenses:</strong>
-            * Employee cost: $10.0 \text{ m.u.}$
-            * Equipment depreciation ($20 / 10 \text{ yrs}$): $2.0 \text{ m.u.}$ (Land is non-depreciable).
-            $$\text{Total Expenses} = 10.0 + 2.0 = \mathbf{12.0 \text{ m.u.}}$$
+          <li><strong>Sales Revenue:</strong> $\mathbf{\text{Sales}} = \mathbf{50.0 \text{ m.u.}}$</li>
+          <li><strong>Raw Materials Consumed (COGS):</strong>
+            $$\text{COGS} = \frac{20.0}{2} = \mathbf{10.0 \text{ m.u.}} \quad (\text{Ending Inventory stored in warehouse} = 10.0 \text{ m.u.})$$
+            $$\mathbf{\text{Gross Profit}} = 50.0 - 10.0 = \mathbf{40.0 \text{ m.u.}}$$
           </li>
-          <li><strong>Operating Income (EBIT) & EBT:</strong> $40.0 - 12.0 = \mathbf{28.0 \text{ m.u.}}$</li>
-          <li><strong>Corporate Tax ($30\%$ paid in cash on 31/12):</strong> $30\% \times 28.0 = \mathbf{8.4 \text{ m.u.}}$</li>
-          <li><strong>Net Income & Retained Earnings:</strong> $\mathbf{19.6 \text{ m.u.}}$ (100% retained under strict self-financing).</li>
+          <li><strong>Operating Expenses (Gastos de Explotación):</strong>
+            * Employee labor cost: $10.0 \text{ m.u.}$
+            * Equipment depreciation ($20 / 10 \text{ yrs}$): $2.0 \text{ m.u.}$
+            $$\mathbf{\text{Total Operating Expenses}} = 10.0 + 2.0 = \mathbf{12.0 \text{ m.u.}}$$
+          </li>
+          <li><strong>Operating Income (EBIT) & EBT:</strong>
+            $$\mathbf{\text{EBIT}} = 40.0 - 12.0 = \mathbf{28.0 \text{ m.u.}} \implies \mathbf{\text{EBT}} = \mathbf{28.0 \text{ m.u.}}$$
+          </li>
+          <li><strong>Corporate Income Tax ($30\%$ paid in cash on 31/12):</strong>
+            $$\mathbf{\text{Corporate Tax}} = 30\% \times 28.0 = \mathbf{8.4 \text{ m.u.}}$$
+          </li>
+          <li><strong>Net Income & Self-Financing Appropriation:</strong>
+            $$\mathbf{\text{Net Income}} = 28.0 - 8.4 = \mathbf{19.6 \text{ m.u.}}$$
+            Under strict self-financing, $\text{Dividends} = 0 \text{ m.u.}$ and the full profit is retained into reserves:
+            $$\mathbf{\text{Retained Earnings (Addition to Equity)}} = \mathbf{+19.6 \text{ m.u.}}$$
+          </li>
         </ol>
 
         <h3 class="phase-title">Phase 2: Working Capital & Treasury Cash Reconciliation</h3>
-        <ul>
-          <li><strong>Accounts Receivable (3-month collection period):</strong>
-            $$\text{Receivables} = 50.0 \times \frac{3 \text{ months}}{12 \text{ months}} = \mathbf{12.5 \text{ m.u.}} \implies \text{Cash Collected} = 50.0 - 12.5 = 37.5 \text{ m.u.}$$
+        <ol>
+          <li><strong>Accounts Receivable (Trade Debtors):</strong>
+            $$\mathbf{\text{Ending Accounts Receivable}} = \text{Sales} \times \frac{3 \text{ months}}{12 \text{ months}} = 50.0 \times \frac{1}{4} = \mathbf{12.5 \text{ m.u.}}$$
+            $$\text{Cash Collections from Customers} = 50.0 - 12.5 = \mathbf{37.5 \text{ m.u.}}$$
           </li>
-          <li><strong>Ending Cash on 31/12/2017:</strong>
-            $$\text{Initial Cash (100 - 20 land - 20 equip - 20 materials)} = 40.0 \text{ m.u.}$$
-            $$\text{Ending Cash} = 40.0 + 37.5 \text{ (Collections)} - 10.0 \text{ (Salaries)} - 8.4 \text{ (Taxes)} = \mathbf{59.1 \text{ m.u.}}$$
+          <li><strong>Treasury Cash Ledger Reconciliation on 31/12/2017:</strong>
+            $$\begin{array}{|lr|}
+            \hline
+            \textbf{Cash Ledger Item} & \textbf{Amount (m.u.)} \\
+            \hline
+            \text{Cash balance on 1/1/2017 (100 equity } - 60 \text{ capex \& stock)} & 40.0 \\
+            \text{(+) Collections from customers} & +37.5 \\
+            \text{(-) Employee salaries paid} & (10.0) \\
+            \text{(-) Corporate tax paid on 31/12} & (8.4) \\
+            \hline
+            \mathbf{\text{Ending Cash Balance on 31/12/2017}} & \mathbf{59.1} \\
+            \hline
+            \end{array}$$
           </li>
-        </ul>
+        </ol>
 
-        <h3 class="phase-title">Phase 3: Balance Sheet as on 31/12/2017 (100% Paid)</h3>
+        <h3 class="phase-title">Phase 3: Balance Sheet as on 31/12/2017 (100% Paid — Question 1)</h3>
         <div class="table-container">
           <table>
             <thead>
@@ -884,52 +1220,52 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>NON-CURRENT ASSETS (Activo No Corriente)</strong></td>
                 <td><strong>38.0</strong></td>
-                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY (Patrimonio Neto)</strong></td>
                 <td><strong>119.6</strong></td>
               </tr>
               <tr>
-                <td>• Land / Area (Non-depreciable)</td>
+                <td>• Land / Industrial Area (Non-depreciable)</td>
                 <td>20.0</td>
                 <td>• Subscribed & Paid-in Share Capital</td>
                 <td>100.0</td>
               </tr>
               <tr>
-                <td>• Equipment (Historical cost)</td>
+                <td>• Productive Equipment (Historical cost)</td>
                 <td>20.0</td>
-                <td>• Retained Earnings (Year 2017 profit)</td>
+                <td>• Retained Earnings (Year 2017 Net Profit)</td>
                 <td>19.6</td>
               </tr>
               <tr>
-                <td>• (-) Accumulated Depreciation</td>
+                <td>• (-) Accumulated Depreciation: Equipment</td>
                 <td>(2.0)</td>
                 <td></td>
                 <td></td>
               </tr>
               <tr>
-                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>CURRENT ASSETS (Activo Corriente)</strong></td>
                 <td><strong>81.6</strong></td>
-                <td><strong>LIABILITIES (DEBT)</strong></td>
+                <td><strong>NON-CURRENT LIABILITIES</strong></td>
                 <td><strong>0.0</strong></td>
               </tr>
               <tr>
-                <td>• Inventories (Raw Materials)</td>
+                <td>• Inventories: Unprocessed Raw Materials</td>
                 <td>10.0</td>
-                <td>• Long-term liabilities</td>
+                <td>• Long-term bank borrowing</td>
                 <td>0.0</td>
               </tr>
               <tr>
-                <td>• Accounts Receivable (Customers)</td>
+                <td>• Accounts Receivable (Customers, 3-month term)</td>
                 <td>12.5</td>
-                <td>• Current liabilities</td>
-                <td>0.0</td>
+                <td><strong>CURRENT LIABILITIES</strong></td>
+                <td><strong>0.0</strong></td>
               </tr>
               <tr>
-                <td>• Cash & Cash Equivalents</td>
+                <td>• Cash & Cash Equivalents (Treasury account)</td>
                 <td>59.1</td>
-                <td></td>
-                <td></td>
+                <td>• Accounts payable / Unpaid taxes</td>
+                <td>0.0</td>
               </tr>
               <tr style="font-weight: 700; background: var(--bg-subtle);">
                 <td>TOTAL ASSETS</td>
@@ -942,25 +1278,40 @@
         </div>
 
         <h3 class="phase-title">Phase 4: Impact of Uncalled Capital (90% Paid — Question 2)</h3>
-        <p>If shareholders contribute only $90\%$ of subscribed shares ($90 \text{ m.u.}$ in cash), $10 \text{ m.u.}$ represents **Uncalled Capital**:</p>
+        <p>If shareholders contributed only $90\%$ of subscribed shares in cash ($90 \text{ m.u.}$), the remaining $10 \text{ m.u.}$ represents **Uncalled Capital** (*Accionistas por desembolsos no exigidos*):</p>
         <ol>
-          <li><strong>Income Statement:</strong> Completely unaffected ($\text{Net Income} = 19.6 \text{ m.u.}$).</li>
-          <li><strong>Ending Cash:</strong> Drops by exactly $10.0 \text{ m.u.}$ because the starting cash balance was lower:
-            $$\text{New Cash} = 59.1 - 10.0 = \mathbf{49.1 \text{ m.u.}}$$
-            $$\text{New Current Assets} = 10.0 + 12.5 + 49.1 = \mathbf{71.6 \text{ m.u.}} \implies \mathbf{\text{New Total Assets}} = 38.0 + 71.6 = \mathbf{109.6 \text{ m.u.}}$$
+          <li><strong>Income Statement & Net Profit:</strong> Completely unaffected ($\text{Net Income} = \mathbf{19.6 \text{ m.u.}}$). Operations, billing, wages, depreciation, and taxes do not depend on the equity disbursement fraction.</li>
+          <li><strong>Cash & Current Assets:</strong> Starting cash on 1/1/2017 was $90.0 - 60.0 = 30.0 \text{ m.u.}$ (exactly $10.0 \text{ m.u.}$ lower).
+            $$\mathbf{\text{New Ending Cash}} = 59.1 - 10.0 = \mathbf{49.1 \text{ m.u.}}$$
+            $$\mathbf{\text{New Current Assets}} = 10.0 + 12.5 + 49.1 = \mathbf{71.6 \text{ m.u.}}$$
+            $$\mathbf{\text{New Total Assets}} = 38.0 \text{ (NCA)} + 71.6 \text{ (CA)} = \mathbf{109.6 \text{ m.u.}}$$
           </li>
-          <li><strong>Stockholders' Equity:</strong> Uncalled Capital is presented as a negative contra-equity line:
-            $$\text{Subscribed Capital } (100.0) - \text{Uncalled Capital } (10.0) + \text{Retained Earnings } (19.6) = \mathbf{109.6 \text{ m.u.}}$$
+          <li><strong>Stockholders' Equity (Statutory Contra-Equity Presentation):</strong>
+            Under standard European / Spanish General Accounting Plan rules, uncalled capital appears as a negative contra-equity line directly beneath subscribed capital:
+            $$\begin{array}{|lr|}
+            \hline
+            \textbf{Equity Component (Question 2)} & \textbf{Amount (m.u.)} \\
+            \hline
+            \text{Subscribed Share Capital} & 100.0 \\
+            \text{(-) Shareholders for Uncalled Capital} & (10.0) \\
+            \text{(+) Retained Earnings (Year 2017)} & +19.6 \\
+            \hline
+            \mathbf{\text{Total Stockholders' Equity}} & \mathbf{109.6} \\
+            \hline
+            \end{array}$$
+          </li>
         </ol>
 
         <div class="result-callout">
           <div class="result-callout-title">Balance Check with Uncalled Capital</div>
           $$\mathbf{\text{Total Assets } (109.6 \text{ m.u.}) \equiv \text{Total Liabilities \& Equity } (109.6 \text{ m.u.})}$$
+          <p><em>Alternative Accounting Presentation Note:</em> Under US GAAP, uncalled capital is occasionally presented as a receivable asset. However, under standard Spanish PGC and IAS/IFRS, presenting it as a negative contra-equity line within Net Equity is the standard, ensuring that net equity accurately reflects resources physically contributed plus retained profit.</p>
         </div>
       </section>
 
       <footer class="topic-nav">
         <a href="index.html">← Back to Problems Hub</a>
+        <a href="topic-3-extra-exam-problems.html" style="color: var(--accent); font-weight: 600;">⚡ Extra Exam Problems (4) →</a>
         <a href="../teoria/topic-3.html">Back to Topic 3 Theory →</a>
       </footer>
     </article>

@@ -36,6 +36,17 @@ Information corresponding to the 1st quarter is as follows:
 
 ---
 
+> [!TIP] 🎯 Exam Day Strategy: Accrual vs Cash & Quarterly Pro-Rata Alignment
+> * **Horizon & Pro-Rata Time:** 1st Quarter ($t = 3 \text{ months} = \frac{1}{4} \text{ year} = 0.25$). Fixed goods bought on 31/12 prior year $\implies$ exactly one full quarter of depreciation has accrued on 31/3. Straight-line formula: $D_{\text{quarter}} = \frac{\text{Acquisition Cost}}{4 \times n}$.
+> * **Accrual Principle (Devengo) vs Cash Flow (Tesorería):**
+>   * **Revenues (Ingresos):** Recognized upon commercial invoice generation ($1,930 \text{ mu}$), independent of payment terms.
+>   * **Collections (Cobros):** Physical cash received $= 1,930 - 315 = \mathbf{1,615 \text{ mu}}$. The pending $315 \text{ mu}$ becomes an asset (Accounts Receivable) on the Balance Sheet.
+>   * **Expenses (Gastos):** Consumed factor inputs: Salaries ($450$) + Materials consumed ($700$) + Energy consumed ($230$) + Depreciation ($30$) $= \mathbf{1,410 \text{ mu}}$.
+>   * **Payments (Pagos):** Actual disbursements $= (450 - 75) + (700 - 125) + 0 = 375 + 575 = \mathbf{950 \text{ mu}}$.
+> * **Exam Trap 1 — Depreciation Cash Flow:** Depreciation ($30 \text{ mu}$) is a non-cash accounting charge for asset wear. **Never include depreciation in cash payments ($0 \text{ mu}$ paid)!**
+> * **Exam Trap 2 — Capital Investments (Capex):** The $2,900 \text{ mu}$ of fixed assets were purchased on 31/12 prior year. During Q1 itself, no new fixed capital acquisitions took place $\implies \mathbf{\text{Q1 Capex} = 0 \text{ mu}}$.
+> * **Exam Trap 3 — Inventory Sensitivity (Part b):** If only 50% of materials are consumed ($350 \text{ mu}$), the remaining $350 \text{ mu}$ is stored as an **Inventory Asset**. Expenses drop by $350 \text{ mu}$, but **supplier payments remain strictly $575 \text{ mu}$** because payments depend on purchases invoiced, not physical consumption!
+
 ## 📊 1. Data Identification & Accounting Principles
 
 ### Accounting Period:

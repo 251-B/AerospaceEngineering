@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3: Extra Exam-Type Problems (Circonsa, Infopymes, Wifinet, Cemed) | Business Management</title>
+  <meta name="description" content="Step-by-step analytical solutions to official exam-type finance problems for Topic 3: Circonsa, Infopymes, Wifinet, and Cemed. UC3M Aerospace Engineering." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 52px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 18px 20px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.65;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700; color: var(--accent);
+      margin-bottom: 8px; font-size: 1rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.18rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">EXAM-TYPE PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="back-link">Problems Hub</a>
+        <a href="topic-3-financial-statements.html" class="back-link">Standard Problems (1–6)</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Topic 3: Financial Management • High-Priority Exam Practice</div>
+        <h1 class="article-title">Extra Exam Problems: Circonsa, Infopymes, Wifinet, and Cemed</h1>
+        <div class="article-meta">
+          <strong>Official Source Document:</strong> <code>T3_Additional_EXERCISES.pdf</code> (UC3M Aerospace Engineering) • Step-by-step exam strategy, analytical deductions, and balanced financial statements.
+        </div>
+
+        <nav class="quick-jump">
+          <span style="font-size: 12px; font-weight: 600; color: var(--text-muted); align-self: center; margin-right: 4px;">Jump to Problem:</span>
+          <a href="#problem-1" class="jump-btn">Problem 1: CIRCONSA</a>
+          <a href="#problem-2" class="jump-btn">Problem 2: INFOPYMES</a>
+          <a href="#problem-3" class="jump-btn">Problem 3: WIFINET S.L.</a>
+          <a href="#problem-4" class="jump-btn">Problem 4: CEMED</a>
+        </nav>
+      </header>
+
+      <!-- ==========================================
+           EXAM PROBLEM 1: CIRCONSA
+           ========================================== -->
+      <section class="problem-box" id="problem-1">
+        <span class="problem-tag">Exam Problem 1 • High Difficulty</span>
+        <h2 class="problem-title">CIRCONSA — Semester Financial Statements & Cash Reconciliation</h2>
+
+        <div class="statement-box">
+          The financial director of <strong>CIRCONSA</strong> is working on its financial statements (Balance Sheet and Income Statement) as of <strong>30 June 2015 (30/06/2015)</strong>. Starting from the Balance Sheet at 31/12/2014 (Current Assets: 5,400 [Cash 1,200, Receivables 1,800, Stock 2,400]; Non-Current Assets: Machinery 500 less Accum Dep 50 = 450; Current Liabilities: 800 [Taxes 350, Suppliers 450]; Owners' Equity: 5,050 [Retained Earnings 850, Capital 4,200]; Total = 5,850 m.u.), evaluate the semester operations from 01/01/2015 to 30/06/2015:<br>
+          • <strong>i. Sales:</strong> 1,200 units at 20 mu/u (200 u/month). 30-day payment term. VIP client (30% of sales) receives a 10% commercial discount.<br>
+          • <strong>ii. Purchases:</strong> 1,000 units (40% in Q1, 60% in Q2) at 12 mu/u. 90-day supplier payment term.<br>
+          • <strong>iii. Initial Stock:</strong> 200 units at 12 mu/u (2,400 mu).<br>
+          • <strong>iv. Prior Year Liabilities:</strong> Q1 2015 paid 2014 unpaid taxes (350 mu) and supplier balance (450 mu).<br>
+          • <strong>v. Prior Year Receivables:</strong> Q1 2015 collected 2014 customer debt except 300 mu deferred to July 2016.<br>
+          • <strong>vi. Operating Expenses:</strong> Personnel 350 mu/mo + Social Security 150 mu/mo (paid in month produced); Overheads 300 mu/mo (paid 2 months after).<br>
+          • <strong>vii. Renting:</strong> 1 April 2015 computer renting for 400 mu/month, payment term 120 days.<br>
+          • <strong>viii. Patent:</strong> 1 April 2015 purchased patent for 2,400 mu, payable 1 July 2015. 4-year linear amortization.<br>
+          • <strong>ix. Bank Credit:</strong> 1 Feb 2015 borrowed 2,000 mu at 12% per annum, principal + interest due 1 Feb 2016.<br>
+          • <strong>x. Machine 1:</strong> Bought 1 July 2014, amortized linearly with 20% residual value.<br>
+          • <strong>xi. Capital & Machine 2:</strong> 1 Feb 2015 cash capital increase 10,000 mu. Same date bought Machine 2 for 12,000 mu (paid 8,000 mu cash, 4,000 mu payable 1 July 2015; 4-year life, 0 residual value).<br>
+          • <strong>xii. Corporate Tax:</strong> 20% tax, recorded as "taxes to pay" on 30 June 2015.
+        </div>
+
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Time Horizons & Deferred Payables</div>
+          <ul>
+            <li><strong>Semester Duration:</strong> $t = 6 \text{ months} = 0.5 \text{ year}$. Multiply monthly figures by 6 (or active months).</li>
+            <li><strong>Payable on 1 July 2015:</strong> The patent debt ($2,400 \text{ mu}$) and Machine 2 debt ($4,000 \text{ mu}$) are payable <em>the day after</em> the balance date. Therefore, they are <strong>Current Liabilities on 30/06/2015</strong>, not cash outflows!</li>
+            <li><strong>Customer Deferral:</strong> The $300 \text{ mu}$ deferred to July 2016 is $> 1 \text{ year}$ away $\implies$ <strong>Non-Current Account Receivable</strong>.</li>
+            <li><strong>Payment Terms:</strong> 30-day customer delay means June sales are unpaid on 30 June; 90-day supplier delay means all Q2 purchases are unpaid on 30 June.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Analytical Deductions Step-by-Step</h3>
+        <ol>
+          <li><strong>Net Sales:</strong> Total gross sales $= 1,200 \times 20 = 24,000 \text{ mu}$. VIP client ($30\% = 7,200 \text{ mu}$) discount of $10\% = 720 \text{ mu}$.
+            $$\mathbf{\text{Net Sales}} = 24,000 - 720 = \mathbf{23,280 \text{ mu}}$$
+            June sales ($1/6$ of total) $= 3,880 \text{ mu}$ are uncollected on 30/06 $\implies$ **Current Accounts Receivable** $= \mathbf{3,880 \text{ mu}}$. Collections $= 23,280 - 3,880 = \mathbf{19,400 \text{ mu}}$.
+          </li>
+          <li><strong>COGS & Ending Inventory:</strong>
+            Available units $= 200 \text{ init} + 1,000 \text{ purch} = 1,200 \text{ units}$. Sold $= 1,200 \text{ units} \implies$ **Ending Inventory** $= \mathbf{0 \text{ mu}}$.
+            $$\mathbf{\text{COGS}} = 1,200 \times 12 = \mathbf{14,400 \text{ mu}}$$
+            Q2 purchases ($600 \text{ units} \times 12 = 7,200 \text{ mu}$) payable at 90 days are unpaid on 30 June $\implies$ **Accounts Payable (Suppliers)** $= \mathbf{7,200 \text{ mu}}$.
+          </li>
+          <li><strong>Personnel, Overheads & Renting:</strong>
+            * Personnel: $6 \text{ months} \times (350 + 150) = \mathbf{3,000 \text{ mu}}$ (paid in full).
+            * Overheads: $6 \text{ months} \times 300 = \mathbf{1,800 \text{ mu}}$. May and June ($600 \text{ mu}$) unpaid $\implies$ **Overheads Payable** $= \mathbf{600 \text{ mu}}$.
+            * Renting (Apr–Jun, 3 months): $3 \times 400 = \mathbf{1,200 \text{ mu}}$. Payable at 120 days $\implies$ **Renting Debt** $= \mathbf{1,200 \text{ mu}}$.
+          </li>
+          <li><strong>Depreciation & Amortization:</strong>
+            * Patent ($2,400 / 48 \text{ mo} \times 3 \text{ mo}$): $\mathbf{150 \text{ mu}}$ (Net BV $= 2,250 \text{ mu}$).
+            * Machine 1 ($500 - 100 \text{ res val} = 400 \text{ base}$ over $4 \text{ yrs}$, semester dep): $\mathbf{50 \text{ mu}}$ (Accum dep $= 100 \text{ mu}$).
+            * Machine 2 ($12,000 / 48 \text{ mo} \times 5 \text{ mo active}$): $\mathbf{1,250 \text{ mu}}$ (Accum dep $= 1,250 \text{ mu}$).
+            * Total Depreciation in P&L: $150 + 50 + 1,250 = \mathbf{1,450 \text{ mu}}$.
+          </li>
+          <li><strong>Bank Credit Interest:</strong> $2,000 \times 12\% \times \frac{5}{12} = \mathbf{100 \text{ mu}}$ (Accrued interest payable $= 100 \text{ mu}$).</li>
+          <li><strong>EBIT, Tax & Net Income:</strong>
+            $$\text{EBIT} = 23,280 - 14,400 - (3,000 + 1,800 + 1,200 + 1,450) = 8,880 - 7,450 = \mathbf{1,430 \text{ mu}}$$
+            $$\text{EBT} = 1,430 - 100 = \mathbf{1,330 \text{ mu}}$$
+            $$\text{Corporate Tax } (20\%) = 20\% \times 1,330 = \mathbf{266 \text{ mu}} \implies \mathbf{\text{Net Profit}} = 1,330 - 266 = \mathbf{1,064 \text{ mu}}$$
+        </ol>
+
+        <h3 class="phase-title">Balanced Financial Statements at 30 June 2015</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ASSETS (Activo)</th>
+                <th>Amount (mu)</th>
+                <th>LIABILITIES & EQUITY (Pasivo y PN)</th>
+                <th>Amount (mu)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NON-CURRENT ASSETS</strong></td>
+                <td><strong>13,700</strong></td>
+                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
+                <td><strong>16,114</strong></td>
+              </tr>
+              <tr>
+                <td>• Patent (Net Book Value: 2,400 - 150)</td>
+                <td>2,250</td>
+                <td>• Paid-in Capital (4,200 + 10,000)</td>
+                <td>14,200</td>
+              </tr>
+              <tr>
+                <td>• Machinery (Net BV: 12,500 - 1,350)</td>
+                <td>11,150</td>
+                <td>• Retained Earnings (2014)</td>
+                <td>850</td>
+              </tr>
+              <tr>
+                <td>• Long-term Customer Debt (July 2016)</td>
+                <td>300</td>
+                <td>• Net Profit for Semester</td>
+                <td>1,064</td>
+              </tr>
+              <tr>
+                <td><strong>CURRENT ASSETS</strong></td>
+                <td><strong>20,180</strong></td>
+                <td><strong>CURRENT LIABILITIES</strong></td>
+                <td><strong>17,766</strong></td>
+              </tr>
+              <tr>
+                <td>• Inventories (Stock)</td>
+                <td>0</td>
+                <td>• Short-term bank credit</td>
+                <td>2,000</td>
+              </tr>
+              <tr>
+                <td>• Accounts Receivable (June sales)</td>
+                <td>3,880</td>
+                <td>• Accrued loan interest</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>• Cash & Bank Deposits (Reconciled)</td>
+                <td>16,300</td>
+                <td>• Accounts payable (Suppliers Q2)</td>
+                <td>7,200</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Debt for Machine 2 (due 1/7)</td>
+                <td>4,000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Debt for Patent (due 1/7)</td>
+                <td>2,400</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Overheads payable (May & June)</td>
+                <td>600</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Renting debt payable (Apr–Jun)</td>
+                <td>1,200</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Taxes to pay (20% Corporate Tax)</td>
+                <td>266</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>33,880</td>
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>33,880</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="result-callout">
+          <div class="result-callout-title">Equilibrium Verification</div>
+          $$\mathbf{\text{Assets } (33,880 \text{ mu}) \equiv \text{Liabilities } (17,766 \text{ mu}) + \text{Equity } (16,114 \text{ mu}) = 33,880 \text{ mu}}$$
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXAM PROBLEM 2: INFOPYMES
+           ========================================== -->
+      <section class="problem-box" id="problem-2">
+        <span class="problem-tag">Exam Problem 2 • Multi-Year Horizon</span>
+        <h2 class="problem-title">INFOPYMES — Full Cycle Financial Statements, 2016–2017 & ROA/ROE</h2>
+
+        <div class="statement-box">
+          Three entrepreneurs founded <strong>INFOPYMES</strong> on 1 January 2016 with 100,000 € equity capital. A bank granted a 5-year loan of 100,000 € at 10% annual interest, returning 20,000 € principal each 31 December plus due interest. Computer equipment was bought on 01/01/2016 for 100,000 € (paid 01/04/2016; 5-year life, linear, 0 residual value). Online revenues: 300,000 €. Premises rent: 1,000 €/month. Permanent staff: 5,000 €/month. Utilities: 500 €/month. Variable consulting staff: 174,000 €. Results declared at 23:59 on 31 December; corporate tax 30% paid immediately; dividends 40% paid to partners.<br>
+          <strong>1.</strong> Construct 2016 Income Statement.<br>
+          <strong>2.</strong> Construct 31/12/2016 Balance Sheet at 24:00.<br>
+          <strong>3.</strong> Construct 31/12/2017 Balance Sheet at 24:00 (assume no new investments, cash and retained earnings unchanged).<br>
+          <strong>4.</strong> Determine ROA and ROE in 2017.
+        </div>
+
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Understanding "At 24:00 after payments"</div>
+          <p>Because the prompt specifies that taxes, loan repayments, and dividends are paid <em>immediately before 24:00</em> on 31 December:</p>
+          <ul>
+            <li>No corporate taxes payable appear on the 2016 balance sheet.</li>
+            <li>No dividends payable appear on the 2016 balance sheet.</li>
+            <li>The bank loan principal drops immediately from €100,000 to €80,000.</li>
+            <li>In 2017, the second repayment drops the loan principal from €80,000 to €60,000, while accumulated depreciation reaches €40,000.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Calculations & Financial Statements</h3>
+        <ol>
+          <li><strong>2016 Income Statement:</strong>
+            * Operating Expenses: Rent €12,000 + Permanent Staff €60,000 + Utilities €6,000 + Variable Wages €174,000 + Depreciation €20,000 ($100\text{k}/5$) = <strong>€272,000</strong>.
+            * $\text{EBIT} = 300,000 - 272,000 = \mathbf{28,000 \text{ \euro}}$.
+            * Financial Interest ($10\%$ of €100,000): $\mathbf{10,000 \text{ \euro}}$.
+            * $\text{EBT} = 28,000 - 10,000 = \mathbf{18,000 \text{ \euro}}$.
+            * Tax ($30\%$): $0.30 \times 18,000 = \mathbf{5,400 \text{ \euro}}$.
+            * $\text{Net Income} = \mathbf{12,600 \text{ \euro}} \implies \text{Dividends } (40\%) = \mathbf{5,040 \text{ \euro}}, \text{ Retained Earnings } (60\%) = \mathbf{7,560 \text{ \euro}}$.
+          </li>
+          <li><strong>Ending Cash at 31/12/2016:</strong>
+            $$\text{Inflows } (100\text{k} + 100\text{k} + 300\text{k}) - \text{Outflows } (100\text{k} + 12\text{k} + 60\text{k} + 6\text{k} + 174\text{k} + 20\text{k} + 10\text{k} + 5.4\text{k} + 5.04\text{k}) = \mathbf{107,560 \text{ \euro}}$$
+        </ol>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>BALANCE SHEET COMPARISON</th>
+                <th>At 31/12/2016 (€)</th>
+                <th>At 31/12/2017 (€)</th>
+                <th>Account Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>• Computer Equipment (Cost)</td>
+                <td>100,000</td>
+                <td>100,000</td>
+                <td>Fixed capital asset</td>
+              </tr>
+              <tr>
+                <td>• (-) Accumulated Depreciation</td>
+                <td>(20,000)</td>
+                <td>(40,000)</td>
+                <td>1 year vs 2 years linear wear</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>TOTAL NON-CURRENT ASSETS</td>
+                <td>80,000</td>
+                <td>60,000</td>
+                <td>Net Book Value</td>
+              </tr>
+              <tr>
+                <td>• Cash & Liquid Treasury</td>
+                <td>107,560</td>
+                <td>107,560</td>
+                <td>Stated unchanged by prompt</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>187,560</td>
+                <td>167,560</td>
+                <td>Balanced Asset Base</td>
+              </tr>
+              <tr>
+                <td>• Subscribed Share Capital</td>
+                <td>100,000</td>
+                <td>100,000</td>
+                <td>Partners' equity</td>
+              </tr>
+              <tr>
+                <td>• Retained Earnings</td>
+                <td>7,560</td>
+                <td>7,560</td>
+                <td>Stated unchanged by prompt</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>TOTAL OWNERS' EQUITY</td>
+                <td>107,560</td>
+                <td>107,560</td>
+                <td>Net Worth</td>
+              </tr>
+              <tr>
+                <td>• Long-term Bank Debt</td>
+                <td>60,000</td>
+                <td>40,000</td>
+                <td>Remaining balance > 1 year</td>
+              </tr>
+              <tr>
+                <td>• Short-term Bank Debt</td>
+                <td>20,000</td>
+                <td>20,000</td>
+                <td>Principal due next 31 Dec</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>187,560</td>
+                <td>167,560</td>
+                <td>Perfect Match!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="phase-title">Determination of ROA and ROE in 2017</h3>
+        $$\mathbf{\text{ROA}_{2017}} = \frac{\text{EBIT}_{2017}}{\text{Total Assets}_{2017}} = \frac{28,000 \text{ \euro}}{167,560 \text{ \euro}} \approx \mathbf{16.71\%}$$
+        $$\mathbf{\text{ROE}_{2017}} = \frac{\text{Net Income}_{2017}}{\text{Total Equity}_{2017}} = \frac{14,000 \text{ \euro}}{107,560 \text{ \euro}} \approx \mathbf{13.02\%}$$
+        <p>*(Where $\text{Net Income}_{2017} = (28,000 - 10\% \times 80,000) \times (1 - 0.30) = 20,000 \times 0.70 = 14,000 \text{ \euro}$).*</p>
+      </section>
+
+      <!-- ==========================================
+           EXAM PROBLEM 3: WIFINET S.L.
+           ========================================== -->
+      <section class="problem-box" id="problem-3">
+        <span class="problem-tag">Exam Problem 3 • Advanced Equity & Dividends</span>
+        <h2 class="problem-title">WIFINET S.L. — Telecommunications Accounting Cycle & Dividend Policies</h2>
+
+        <div class="statement-box">
+          Wifinet S.L. incorporated 1/1/2016 with 6,003 mu registered capital. In 2016 took a 2,000 mu loan at 5% (due 2019), bought equipment for 5,371 mu (20-year life, 26 mu accum dep in 2016), technology licenses for 206 mu (5-year life), and financial shares for 636 mu. 2016 reflected a loss of 340 mu and cash of 1,476 mu.<br>
+          In 2017: 5,000 clients paying 0.032 mu/mo subscription fees, plus 46 mu online sales (receivables at end of year: 164 mu). Purchased 680 mu materials (560 mu paid immediately, rest deferred; half consumed in sales). Staff costs 559 mu paid in full. Outside services 312 mu paid in full. Administrative costs 300 mu (40% paid, 60% deferred). Corporate tax rate 30% payable Q1 2018. Retain all profits to offset 2016 losses.<br>
+          <strong>1.</strong> Prepare 2017 Income Statement.<br>
+          <strong>2.</strong> Construct 31/12/2017 Balance Sheet.<br>
+          <strong>3.</strong> What changes if a 20% dividend is paid at 24:00 on 31/12/2017?<br>
+          <strong>4.</strong> What changes if a 20% dividend is approved before year-end to be paid on 30 June 2018?
+        </div>
+
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Dividend Payment vs Dividend Declaration</div>
+          <ul>
+            <li><strong>Paid on 31 Dec (Cash Outflow):</strong> Cash decreases by dividend amount; Retained Earnings decrease by dividend amount. Total Assets and Total Equity contract.</li>
+            <li><strong>Payable in the Future (Accrued Debt):</strong> No cash leaves the company in 2017! Retained Earnings decrease, but a current liability (**Dividends Payable**) is created. Total Assets remain unchanged!</li>
+            <li><strong>Prior Year Loss:</strong> The 340 mu loss sits in Equity as a negative line item, offset by 2017's net profit.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Calculations & Statements</h3>
+        <ul>
+          <li><strong>Revenues:</strong> $5,000 \times 0.032 \times 12 + 46 = 1,920 + 46 = \mathbf{1,966.00 \text{ mu}}$.</li>
+          <li><strong>COGS:</strong> Half of $680 = \mathbf{340.00 \text{ mu}}$ (Inventory $= 340.00 \text{ mu}$).</li>
+          <li><strong>Depreciation:</strong> Equipment ($5,371 / 20 = 268.55$) + Licenses ($206 / 5 = 41.20$) $= \mathbf{309.75 \text{ mu}}$.</li>
+          <li><strong>Operating Expenses:</strong> $340 + 559 + 312 + 300 + 309.75 = \mathbf{1,820.75 \text{ mu}}$.</li>
+          <li><strong>EBIT, EBT & Net Income:</strong> $\text{EBIT} = 1,966 - 1,820.75 = 145.25 \text{ mu}$. Interest $= 5\% \times 2,000 = 100 \text{ mu}$. $\text{EBT} = 45.25 \text{ mu}$. Tax ($30\%$) $= 13.575 \text{ mu}$. $\mathbf{\text{Net Income}} = \mathbf{31.675 \text{ mu}}$.</li>
+          <li><strong>Ending Cash:</strong> $1,476 + 1,802 \text{ (collections)} - 560 - 559 - 312 - 120 - 100 = \mathbf{1,627.00 \text{ mu}}$.</li>
+        </ul>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ASSETS at 31/12/2017</th>
+                <th>Amount (mu)</th>
+                <th>LIABILITIES & EQUITY at 31/12/2017</th>
+                <th>Amount (mu)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>• Licenses (Net BV: 206 - 41.20)</td>
+                <td>164.800</td>
+                <td>• Subscribed Share Capital</td>
+                <td>6,003.000</td>
+              </tr>
+              <tr>
+                <td>• Technical Equipment (Net: 5,371 - 294.55)</td>
+                <td>5,076.450</td>
+                <td>• (-) Prior Year Loss (2016)</td>
+                <td>(340.000)</td>
+              </tr>
+              <tr>
+                <td>• Financial Shares in other companies</td>
+                <td>636.000</td>
+                <td>• Net Income Year 2017</td>
+                <td>31.675</td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>TOTAL NON-CURRENT ASSETS</td>
+                <td>5,877.250</td>
+                <td>TOTAL OWNERS' EQUITY</td>
+                <td>5,694.675</td>
+              </tr>
+              <tr>
+                <td>• Inventories (Supplies)</td>
+                <td>340.000</td>
+                <td>• Long-term Bank Loan (due 2019)</td>
+                <td>2,000.000</td>
+              </tr>
+              <tr>
+                <td>• Accounts Receivable</td>
+                <td>164.000</td>
+                <td>• Accounts Payable (Suppliers)</td>
+                <td>120.000</td>
+              </tr>
+              <tr>
+                <td>• Cash & Bank Deposits</td>
+                <td>1,627.000</td>
+                <td>• Other Creditors (Admin expenses)</td>
+                <td>180.000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Taxes Payable (due Q1 2018)</td>
+                <td>13.575</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>8,008.250</td>
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>8,008.250</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Dividend Policy Comparison (Questions 3 & 4)</div>
+          <p><strong>20% Dividend Amount:</strong> $20\% \times 31.675 = \mathbf{6.335 \text{ mu}}$.</p>
+          <ul>
+            <li><strong>If Paid on 31/12/2017:</strong> Cash drops to $1,620.665 \text{ mu}$. Equity drops to $5,688.340 \text{ mu}$. Total Balance $= 8,001.915 \text{ mu}$.</li>
+            <li><strong>If Payable on 30/06/2018:</strong> Cash remains $1,627.000 \text{ mu}$. Current Liabilities increase by $+6.335 \text{ mu}$ (**Dividends Payable**), Equity drops to $5,688.340 \text{ mu}$. Total Balance remains balanced at **8,008.250 mu**!</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           EXAM PROBLEM 4: CEMED
+           ========================================== -->
+      <section class="problem-box" id="problem-4">
+        <span class="problem-tag">Exam Problem 4 • Industrial Manufacturing</span>
+        <h2 class="problem-title">CEMED — Industrial Manufacturing Accounting Cycle & Trade Discount Analysis</h2>
+
+        <div class="statement-box">
+          CERÁMICAS DEL MEDITERRÁNEO (CEMED) was created 1/1/2016 by 3 partners contributing 7 mu each in cash (total 21 mu).<br>
+          • 1/2/2016: bought land for 10 mu (50% cash, 50% payable 1 year later); factory building for 6 mu in cash financed by a 10-year mortgage at 5% (20-year linear life, returns 10% principal each 31 Dec + interest).<br>
+          • 1/4/2016: borrowed 5 mu at 6% from bank, returning 20% each semester for 2.5 years (1st repayment 1/10/2016, 2nd 1/4/2017). Purchased machinery for 3 mu (60-day payment delay; 10-year linear life).<br>
+          • 1/7/2016: bought 150 tons raw material at 0.03 mu/ton (half used in sales; 60% paid at 90 days, 40% pending).<br>
+          • Sales: 50 mu (70% collected). Personnel & SS: 0.8 mu paid in full. Tax: 30% paid on 15/01/2017. Reserves: 40% of net profits, 60% dividends payable on 31/12/2016.<br>
+          <strong>1.</strong> Prepare 2016 Income Statement and Balance Sheet at 24:00 on 31/12/2016.<br>
+          <strong>2.</strong> Analyze impact of 5% raw material purchase discount in exchange for paying the 60% in cash.
+        </div>
+
+        <div class="strategy-callout">
+          <div class="strategy-title">🎯 Exam Day Strategy: Semiannual vs Annual Loan Calculations</div>
+          <ul>
+            <li><strong>Factory Building (11 months):</strong> $D = \frac{6.00}{20} \times \frac{11}{12} = 0.275 \text{ mu}$. Mortgage interest: $6.00 \times 5\% \times \frac{11}{12} = 0.275 \text{ mu}$. Principal returned on 31 Dec $= 0.60 \text{ mu}$.</li>
+            <li><strong>Bank Loan (Repayments & Accruals):</strong> On 1 Oct returned $1.00 \text{ mu}$ principal + paid $0.15 \text{ mu}$ interest ($5 \times 6\% \times 0.5$). For Q4 (1 Oct to 31 Dec), remaining principal is $4.00 \text{ mu}$, accruing $4 \times 6\% \times \frac{3}{12} = \mathbf{0.06 \text{ mu}}$ unpaid interest payable in April 2017!</li>
+            <li><strong>Machinery (9 months):</strong> $D = \frac{3.00}{10} \times \frac{9}{12} = 0.225 \text{ mu}$.</li>
+          </ul>
+        </div>
+
+        <h3 class="phase-title">Statements & Balanced Verification</h3>
+        <p>$\text{COGS} = 2.25 \text{ mu}$. $\text{Operating Expenses} = 2.25 + 0.80 + 0.50 \text{ (dep)} = 3.55 \text{ mu}$. $\text{EBIT} = 50.00 - 3.55 = \mathbf{46.45 \text{ mu}}$. Financial Interest $= 0.275 + 0.210 = \mathbf{0.485 \text{ mu}}$. $\text{EBT} = 45.965 \text{ mu}$. Tax ($30\%$) $= 13.7895 \text{ mu}$. $\mathbf{\text{Net Income}} = \mathbf{32.1755 \text{ mu}}$ (Reserves: $12.8702 \text{ mu}$, Dividends: $19.3053 \text{ mu}$).</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ASSETS at 31/12/2016</th>
+                <th>Amount (mu)</th>
+                <th>LIABILITIES & EQUITY at 31/12/2016</th>
+                <th>Amount (mu)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>• Land (Non-depreciable)</td>
+                <td>10.0000</td>
+                <td>• Subscribed Share Capital</td>
+                <td>21.0000</td>
+              </tr>
+              <tr>
+                <td>• Factory Building (Net: 6.00 - 0.275)</td>
+                <td>5.7250</td>
+                <td>• Retained Reserves (40% of Net Income)</td>
+                <td>12.8702</td>
+              </tr>
+              <tr>
+                <td>• Machinery (Net: 3.00 - 0.225)</td>
+                <td>2.7750</td>
+                <td><strong>TOTAL EQUITY</strong></td>
+                <td><strong>33.8702</strong></td>
+              </tr>
+              <tr style="font-weight: 600;">
+                <td>TOTAL NON-CURRENT ASSETS</td>
+                <td>18.5000</td>
+                <td>• Long-term Mortgage (4.80) & Loan (2.00)</td>
+                <td>6.8000</td>
+              </tr>
+              <tr>
+                <td>• Inventories (Raw Materials)</td>
+                <td>2.2500</td>
+                <td>• Land debt due 1/2/2017</td>
+                <td>5.0000</td>
+              </tr>
+              <tr>
+                <td>• Accounts Receivable (30% of sales)</td>
+                <td>15.0000</td>
+                <td>• Short-term Mortgage (0.60) & Loan (2.00)</td>
+                <td>2.6000</td>
+              </tr>
+              <tr>
+                <td>• Cash & Liquid Treasury</td>
+                <td>28.1697</td>
+                <td>• Accrued bank loan interest</td>
+                <td>0.0600</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Accounts Payable (Raw materials 40%)</td>
+                <td>1.8000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>• Taxes Payable (due 15/01/2017)</td>
+                <td>13.7895</td>
+              </tr>
+              <tr style="font-weight: 700; background: var(--bg-subtle);">
+                <td>TOTAL ASSETS</td>
+                <td>63.9197</td>
+                <td>TOTAL LIABILITIES & EQUITY</td>
+                <td>63.9197</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="result-callout">
+          <div class="result-callout-title">Trade Discount Negotiation Verdict (Question 2)</div>
+          <p>A $5\%$ discount on purchases reduces material cost by $0.225 \text{ mu}$. Because half was consumed, <strong>COGS decreases by $0.1125 \text{ mu}$</strong>, expanding EBIT by $+0.1125 \text{ mu}$ and Net Profit by $+0.1125 \times 0.70 = \mathbf{+0.07875 \text{ mu}}$. Profit is strictly higher, and paying 90 days earlier is optimal because the company held surplus idle cash earning zero return.</p>
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="index.html">← Back to Problems Hub</a>
+        <a href="topic-3-financial-statements.html">View Standard Problems (1–6) →</a>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 900px; margin: 36px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <footer class="site-footer" style="border-top: 1px solid var(--border-subtle); padding: 32px 0; text-align: center; color: var(--text-muted); font-size: 0.86rem;">
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+      <p>Zero Hallucinations Guarantee — 100% Grounded in Official Department Materials</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      try {
+        localStorage.setItem('ae_theme', t);
+        localStorage.setItem('theme', t);
+        localStorage.setItem('aero-portal-theme', t);
+      } catch (e) {}
+    }
+
+    const savedTheme = (() => {
+      try {
+        return localStorage.getItem('ae_theme') || localStorage.getItem('theme') || localStorage.getItem('aero-portal-theme') || 'dark';
+      } catch (e) { return 'dark'; }
+    })();
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>

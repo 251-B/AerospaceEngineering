@@ -31,6 +31,20 @@ $$\begin{array}{|lr|lr|}
 
 ---
 
+> [!TIP] 🎯 Exam Day Strategy: Standard Account Classification & Double WC Verification
+> * **5-Block Balance Sheet Architecture:** Group accounts strictly into the standard 5 blocks:
+>   1. **Non-Current Assets:** Equipment (€13,000) + Furniture (€1,500) $= \mathbf{€14,500}$.
+>   2. **Current Assets:** Raw materials (€12,500) + Receivables (€3,500) + Bank (€3,000) + Cash (€500) $= \mathbf{€19,500}$.
+>   3. **Stockholders' Equity:** Paid-in capital (€12,000) + Retained earnings (€2,000) $= \mathbf{€14,000}$.
+>   4. **Non-Current Liabilities:** Long-term loan debts $= \mathbf{€3,000}$.
+>   5. **Current Liabilities:** Short-term loan debts (€15,500) + Accounts payable (€1,500) $= \mathbf{€17,000}$.
+> * **Dual Verification of Working Capital (Fondo de Maniobra):**
+>   $$\text{Method 1: } \mathbf{WC} = \text{Current Assets} - \text{Current Liabilities} = 19,500 - 17,000 = \mathbf{+2,500 \text{ \euro}}$$
+>   $$\text{Method 2: } \mathbf{WC} = (\text{Equity} + \text{Non-Current Liabilities}) - \text{Non-Current Assets} = (14,000 + 3,000) - 14,500 = \mathbf{+2,500 \text{ \euro}}$$
+> * **Exam Trap 1 — Retained Earnings:** Belongs in **Stockholders' Equity**, never in liabilities!
+> * **Exam Trap 2 — Receivables vs Payables:** "Accounts receivable" (Asset) vs "Accounts payable" (Current Liability).
+> * **Exam Trap 3 — Loan Debt Split:** Separate short-term loan debt (€15,500) from long-term loan debt (€3,000). Short-term accounts for $\frac{15,500}{20,000} = \mathbf{77.5\%}$ of total debt!
+
 ## 📊 1. Accounting Account Classification
 
 To construct the official balance sheet, each account must be assigned to its precise standardized accounting category:

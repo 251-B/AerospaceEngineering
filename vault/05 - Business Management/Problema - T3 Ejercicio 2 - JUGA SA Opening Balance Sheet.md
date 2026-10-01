@@ -22,6 +22,20 @@ With the cash of the Bank account, raw materials have been purchased for a total
 
 ---
 
+> [!TIP] 🎯 Exam Day Strategy: In-Kind Contributions & Cash Ledger Tracking
+> * **Initial Equity Structure:** Subscribed Share Capital $= €60,000$.
+>   * Monetary cash contributed to bank account: $+€30,000$.
+>   * In-kind non-monetary contribution: Industrial Patent valued at $+€30,000$ $\implies$ **Intangible Non-Current Asset**.
+> * **Asset Reallocation Funded by Bank Cash:** Purchases are funded *with the cash of the bank account*:
+>   * Raw materials purchased: $+€10,500$ (Current Asset: Inventories).
+>   * Machinery purchased: $+€15,000$ (Non-Current Tangible Asset: PP&E).
+>   * Total cash disbursed: $10,500 + 15,000 = €25,500$.
+>   * **Ending Bank Balance:** $30,000 - 25,500 = \mathbf{€4,500}$.
+> * **Exam Trap 1 — Raw Materials Treatment:** Because the firm is at the *operations start* (no manufacturing or sales have occurred), raw materials are **100% an Inventory Asset**, NOT an expense.
+> * **Exam Trap 2 — Bank Balance Adjustment:** Do not leave the bank balance at €30,000 while also recording machinery and raw materials. That would cause assets to total €85,500 against €60,000 equity, violating double-entry balance!
+> * **Exam Trap 3 — Patent Classification:** An industrial patent is an *Intangible Fixed Asset (Inmovilizado Intangible)*, not an expense and not a current asset.
+> * **Exam-Day Checkpoint:** Verify that $\text{Total Assets} = 45,000 \text{ (NCA)} + 15,000 \text{ (CA)} = \mathbf{€60,000} \equiv \text{Stockholders' Equity} = \mathbf{€60,000}$, with $\text{Liabilities} = \mathbf{€0}$.
+
 ## 📊 1. Accounting Identification & Step-by-Step Journaling
 
 ### Step 1: Corporate Formation & Initial Contribution

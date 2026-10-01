@@ -48,6 +48,11 @@
   * `[[05 - Business Management/Problema - T3 Ejercicio 4 - Hawkins Partners Income Statement and Inventories|Problem 4: Hawkins Partners Income Statement and Inventory Adjustments]]`
   * `[[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement, Customer Discount Policies, Taxes and Dividends]]`
   * `[[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Accounting Cycle, Balance Sheet & Impact of Uncalled Capital]]`
+* **Additional Exam-Type Problems (T3 Additional Exercises):**
+  * `[[05 - Business Management/Problema - T3 Extra 1 - Circonsa Balance Sheet and Income Statement|Exam Problem 1: CIRCONSA — Semester Financial Statements & Cash Reconciliation]]`
+  * `[[05 - Business Management/Problema - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE|Exam Problem 2: INFOPYMES — 2016–2017 Full Cycle & ROA/ROE Ratios]]`
+  * `[[05 - Business Management/Problema - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Exam Problem 3: WIFINET S.L. — Telecommunications Accounting Cycle & Dividend Policies]]`
+  * `[[05 - Business Management/Problema - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Exam Problem 4: CEMED — Industrial Accounting Cycle & Trade Discount Analysis]]`
 
 ---
 
