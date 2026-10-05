@@ -10,6 +10,7 @@ Este es el nodo raíz de la bóveda de conocimiento de 2º curso del Grado en In
 
 ### 🌊 [[01 - Fluid Mechanics/Mecanica de Fluidos MOC|Mecánica de Fluidos]]
 * **Temas principales:** Estática de fluidos, Cinemática, Ecuaciones integrales y diferenciales (Navier-Stokes), Análisis dimensional, Flujo potencial, Capa límite y Compresibilidad.
+* **Prácticas de Laboratorio:** `[[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Lab 1: Jet Impact on Surfaces (RTT & Momentum)]]`
 * **Cuaderno NotebookLM asociado:** `3080c1f2-5689-4a39-90c3-091d58f39684`
 * **Página Web:** `subjects/fluid-mechanics/`
 

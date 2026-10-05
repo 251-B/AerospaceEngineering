@@ -56,3 +56,10 @@
   * `[[01 - Fluid Mechanics/Problema - Compuerta Sumergida Inclinada con Momento de Apertura|Problem: Hinged Submerged Gate with Closing Force]]`
   * `[[01 - Fluid Mechanics/Problema - Manometro Diferencial Multiliquido con Gas|Problem: Multi-Fluid Differential Manometer]]`
 * `[[01 - Fluid Mechanics/Tema 6 - Dimensional Analysis|Topic 6: Dimensional Analysis (Buckingham Pi Theorem)]]`
+
+### 🧪 Experimental Sessions & Laboratory Practicals
+* `[[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]`
+  * Integral momentum balance via Reynolds Transport Theorem (RTT).
+  * Impact on flat, oblique ($30^\circ / 45^\circ$), and hemispherical surfaces.
+  * 11-point calibration curve data reduction, drag coefficient $C_d$, and physical discrepancy diagnostics.
+

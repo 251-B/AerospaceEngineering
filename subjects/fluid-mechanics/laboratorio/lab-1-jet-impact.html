@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 1: Jet Impact on Surfaces &amp; Momentum Conservation — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- Celestial Sky CSS -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --accent-hover: rgba(6, 182, 212, 0.20);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    [data-theme="dark"] body {
+      background-color: #050811;
+      background-image: 
+        radial-gradient(ellipse 70% 55% at 20% 25%, rgba(6, 182, 212, 0.16), transparent 60%),
+        radial-gradient(ellipse 65% 50% at 85% 65%, rgba(14, 116, 144, 0.14), transparent 60%),
+        radial-gradient(ellipse 50% 35% at 50% 12%, rgba(0, 240, 255, 0.10), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 75% 20%, rgba(3, 105, 161, 0.08), transparent 50%);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    [data-theme="light"] body {
+      background-color: #f8fafc;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 16%, rgba(6, 182, 212, 0.06), transparent 70%),
+        radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+      background-size: 100% 100%, 28px 28px;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, .article-title, .section-heading {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge, .table-code {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Navigation Header */
+    header.site-header {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+    }
+
+    .nav-breadcrumbs a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .nav-breadcrumbs a:hover { color: var(--accent); }
+
+    .nav-breadcrumbs .separator {
+      color: var(--border-strong);
+      font-size: 0.75rem;
+    }
+
+    .nav-breadcrumbs .current {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .portal-return-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      font-family: var(--font-sans);
+    }
+    .portal-return-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+    .theme-toggle-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Sticky Quick Navigation Pills */
+    nav.quick-nav {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+      position: sticky;
+      top: 61px;
+      z-index: 90;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .quick-nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .quick-nav-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-right: 6px;
+      flex-shrink: 0;
+    }
+
+    .p-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+    .p-pill:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Hero / Lab Header */
+    .lab-hero {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .hero-badge.green {
+      background: rgba(16, 185, 129, 0.12);
+      color: #10b981;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .lab-hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+      max-width: 820px;
+    }
+
+    /* Content Layout */
+    .content-area {
+      padding: 40px 0 64px;
+    }
+
+    section.report-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 130px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .section-heading {
+      font-size: 1.65rem;
+      line-height: 1.25;
+    }
+
+    /* Cards, Callouts and Notes */
+    .app-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .app-card-title {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .aerospace-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 24px 0;
+    }
+
+    .aero-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all var(--transition);
+      border-left: 4px solid var(--accent);
+    }
+    .aero-box:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+    .aero-box h4 {
+      font-family: var(--font-sans);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .aero-box p {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    /* Math and Derivation Blocks */
+    .math-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 4px 0;
+    }
+
+    .step-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .step-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.data-table th,
+    table.data-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    table.data-table th {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    .highlight-cell {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .error-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .error-tag.good { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .error-tag.warn { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .error-tag.high { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+    /* SVG Chart Wrapper */
+    .chart-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 28px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chart-title-group h3 {
+      font-family: var(--font-sans) !important;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .chart-title-group p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .chart-svg-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .chart-svg-wrap svg {
+      width: 100%;
+      height: auto;
+      min-width: 680px;
+      display: block;
+    }
+
+    /* Diagnostics Callouts */
+    .diagnostic-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 20px 0;
+      border-left: 5px solid #f59e0b;
+    }
+    .diagnostic-box h4 {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f59e0b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Page Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+    }
+
+    @media (max-width: 768px) {
+      .lab-hero h1 { font-size: 2.1rem; }
+      .section-heading { font-size: 1.45rem; }
+      .aerospace-grid { grid-template-columns: 1fr; }
+      table.data-table th, table.data-table td { padding: 8px 10px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <nav class="nav-breadcrumbs" aria-label="Breadcrumbs">
+        <a href="../../../index.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+          Portal
+        </a>
+        <span class="separator">/</span>
+        <a href="../teoria/index.html">Fluid Mechanics</a>
+        <span class="separator">/</span>
+        <a href="index.html">Laboratory</a>
+        <span class="separator">/</span>
+        <span class="current">Lab 1: Jet Impact</span>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../../../index.html" class="portal-return-btn" title="Return to Master Portal">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Portal
+        </a>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Dark/Light Mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Quick Navigation Bar -->
+  <nav class="quick-nav" aria-label="Section Quick Links">
+    <div class="quick-nav-inner">
+      <span class="quick-nav-label">Sections:</span>
+      <a href="#overview" class="p-pill">Overview</a>
+      <a href="#theoretical-framework" class="p-pill">Theoretical Framework</a>
+      <a href="#experimental-setup" class="p-pill">Experimental Setup</a>
+      <a href="#data-reduction" class="p-pill">Data Reduction</a>
+      <a href="#graphical-analysis" class="p-pill">Graphical Analysis</a>
+      <a href="#physical-diagnostics" class="p-pill">Physical Diagnostics</a>
+      <a href="#conclusions" class="p-pill">Conclusions</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Hero / Title Header -->
+    <header class="lab-hero">
+      <div class="hero-meta">
+        <span class="hero-badge">Laboratory Session 1</span>
+        <span class="hero-badge green">Experimental Reduction</span>
+        <span class="hero-badge">Reynolds Transport Theorem</span>
+      </div>
+      <h1>Laboratory 1: Jet Impact on Surfaces</h1>
+      <p class="hero-lead">
+        Experimental quantification of dynamic impact forces and hydrodynamic drag coefficients ($C_d$) produced by a vertical water jet on flat, oblique ($30^\circ / 45^\circ$), and hemispherical surfaces, validated via the integral linear momentum conservation equation.
+      </p>
+    </header>
+
+    <div class="content-area">
+
+      <!-- 1. OVERVIEW & AEROSPACE CONTEXT -->
+      <section id="overview" class="report-section">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-heading">Overview &amp; Aerospace Relevance</h2>
+        </div>
+
+        <p>
+          The primary objective of this laboratory investigation is to measure the vertical reaction force exerted by a steady, high-speed liquid jet impinging onto three solid obstacles of varying deflection geometry: a <strong>flat plate</strong> ($90^\circ$ deflection), an <strong>oblique / conical deflector</strong> ($30^\circ$ theoretical guide / $45^\circ$ hardware marking), and a <strong>hemispherical cup</strong> ($180^\circ$ full flow reversal). By contrasting experimental data with analytical predictions, we directly confirm the validity of the <strong>Reynolds Transport Theorem (RTT)</strong> for open fluid control volumes.
+        </p>
+
+        <div class="aerospace-grid">
+          <div class="aero-box">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              Pelton Hydraulic Impulse Turbines
+            </h4>
+            <p>
+              In high-head hydroelectric generators, water jets impinge upon double-cup hemispherical buckets. Reversing the relative velocity vector by nearly $180^\circ$ doubles the momentum transfer ($F \approx 2 \rho Q^2 / A$), achieving hydraulic extraction efficiencies above $90\%$.
+            </p>
+          </div>
+
+          <div class="aero-box">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              </svg>
+              Rocket Launch Flame Deflectors
+            </h4>
+            <p>
+              Launch umbilical towers (LUT) and launch pads feature heavy water deluge systems and refractory wedge flame trenches. Supersonic rocket exhaust jets impinge on inclined or curved deflectors to safely turn massive momentum fluxes away from ground support equipment.
+            </p>
+          </div>
+
+          <div class="aero-box">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m10 15 5-3-5-3v6z"/>
+              </svg>
+              Turbofan Thrust Reversers
+            </h4>
+            <p>
+              Aircraft target/bucket thrust reversers deploy mechanical clamshell doors into the bypass jet exhaust, turning the hot and cold gas stream forward ($130^\circ - 150^\circ$), producing a net deceleration force $F_{\text{rev}} \propto (1 + \cos\theta)\dot{m}v$ to brake the aircraft.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. THEORETICAL FRAMEWORK -->
+      <section id="theoretical-framework" class="report-section">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-heading">Theoretical Framework &amp; Integral RTT Derivations</h2>
+        </div>
+
+        <p>
+          To predict the force exerted by the jet on each obstacle, we apply the <strong>Reynolds Transport Theorem (RTT)</strong> to a fixed control volume $V_c$ bounded by a control surface $\Sigma_c$. The control volume is defined by:
+        </p>
+        <ul style="margin: 12px 0 18px 28px; line-height: 1.8;">
+          <li>The jet cross-section at the nozzle exit ($\Sigma_i$, area $A_i = A$).</li>
+          <li>The lateral/annular cross-section of the discharged water sheet leaving the target ($\Sigma_o$, area $A_s$).</li>
+          <li>The free surface of the water jet open to ambient atmosphere ($\Sigma_{\text{free}}$).</li>
+          <li>The wetted wall of the obstacle ($\Sigma_w$).</li>
+        </ul>
+
+        <div class="step-box">
+          <div class="step-header">
+            <span class="step-badge">Principle</span>
+            <span class="step-title">Integral Linear Momentum Conservation</span>
+          </div>
+          <p>The general momentum equation for a fixed control volume states:</p>
+          $$\frac{d}{dt}\int_{V_c} \rho \vec{v}\, dV + \int_{\Sigma_c} \rho \vec{v} \left( \vec{v} \cdot \vec{n} \right) d\sigma = \sum \vec{F}_{\text{ext}} = \int_{\Sigma_c} (-p \vec{n} + \bar{\bar{\tau}}\cdot\vec{n})\, d\sigma + \int_{V_c} \rho \vec{g}\, dV$$
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Key Physical Assumptions &amp; Justifications
+          </div>
+          <ol style="margin-left: 20px; line-height: 1.75;">
+            <li><strong>Steady State:</strong> Flow rate is maintained constant by the hydraulic bench pump, hence $\frac{\partial}{\partial t}\int_{V_c} \rho \vec{v}\, dV = 0$.</li>
+            <li><strong>High Reynolds Number ($Re_d \gg 1$):</strong> Across the tested flow rates ($22{,}000 \le Re_d \le 66{,}000$), viscous shear forces on the plate surface are orders of magnitude lower than the convective momentum flux. Thus, $\int_{\Sigma_w} \bar{\bar{\tau}}\cdot\vec{n}\, d\sigma \approx 0$.</li>
+            <li><strong>High Froude Number ($Fr \gg 1$):</strong> Inside the thin deflection layer, dynamic inertia dominates over hydrostatic pressure ($Fr = v/\sqrt{gh} \ge 4.7 \gg 1$), making $\int_{V_c} \rho \vec{g}\, dV \approx 0$.</li>
+            <li><strong>Atmospheric Pressure Cancellation:</strong> Atmospheric pressure $p_a$ acts on $\Sigma_{\text{free}}$, $\Sigma_i$, $\Sigma_o$, and the dry back face of the plate. Formulating gauge pressure $(p - p_a)$, the only non-zero surface pressure is the net force exerted by the plate on the fluid: $-\vec{F}$.</li>
+            <li><strong>Bernoulli Along the Free Surface:</strong> Since $p = p_a$ and elevation variations across the thin sheet are negligible, Bernoulli's equation dictates that the sheet exit velocity equals the inlet jet velocity: $v_s = v = Q/A$.</li>
+            <li><strong>Mass Conservation:</strong> For an incompressible fluid ($\rho = \text{const}$), $\rho v_i A_i = \rho v_s A_s \implies A_s = A = \frac{\pi d^2}{4}$.</li>
+          </ol>
+        </div>
+
+        <!-- DERIVATION CARDS -->
+        <div class="step-box">
+          <div class="step-header">
+            <span class="step-badge">Geometry (a)</span>
+            <span class="step-title">Flat Surface ($\theta = 90^\circ$ Deflection)</span>
+          </div>
+          <p>
+            The incident vertical jet carries velocity $\vec{v}_i = v \vec{e}_y$ through the inlet section with outward normal $\vec{n}_i = -\vec{e}_y$, so $\vec{v}_i \cdot \vec{n}_i = -v$. The water leaves tangentially along the flat surface in purely horizontal radial directions: $\vec{v}_o \cdot \vec{e}_y = 0$.
+          </p>
+          $$\int_{\Sigma_i} \rho (\vec{v}_i \cdot \vec{e}_y)(\vec{v}_i \cdot \vec{n}_i)\, d\sigma + \int_{\Sigma_o} \rho (\vec{v}_o \cdot \vec{e}_y)(\vec{v}_o \cdot \vec{n}_o)\, d\sigma = -F_y$$
+          $$\rho v (-v) A + 0 = -F_y \implies \mathbf{F_y = \rho v^2 A = \rho \frac{Q^2}{A}}$$
+          <p>Defining the hydrodynamic drag coefficient:</p>
+          $$C_d = \frac{F_y}{\frac{1}{2}\rho v^2 A} = \frac{\rho v^2 A}{\frac{1}{2}\rho v^2 A} = \mathbf{2.0}$$
+        </div>
+
+        <div class="step-box">
+          <div class="step-header">
+            <span class="step-badge">Geometry (b)</span>
+            <span class="step-title">Oblique Surface ($30^\circ$ &amp; $45^\circ$ Conical Deflector)</span>
+          </div>
+          <p>
+            The water sheet is ejected at a downward inclination angle $\theta$ relative to the horizontal plane:
+            $\vec{v}_o = v \cos\theta\, \vec{e}_r - v \sin\theta\, \vec{e}_y$.
+            The outward normal to the exit sheet is aligned with the velocity, so $\vec{v}_o \cdot \vec{n}_o = +v$.
+          </p>
+          $$-\rho v^2 A + \int_{\Sigma_o} \rho (-v \sin\theta)(+v)\, d\sigma = -F_y$$
+          $$-\rho v^2 A - \rho v^2 \sin\theta A = -F_y \implies \mathbf{F_y = (1 + \sin\theta)\rho \frac{Q^2}{A}}$$
+          <p><strong>Case 1 — Official Syllabus Model ($\theta = 30^\circ$):</strong></p>
+          $$\sin(30^\circ) = 0.5 \implies F_y = 1.5 \rho \frac{Q^2}{A} = \frac{3}{2}\rho \frac{Q^2}{A}, \quad \mathbf{C_d = 3.0}$$
+          <p><strong>Case 2 — Equipment Label Angle ($\theta = 45^\circ$):</strong></p>
+          $$\sin(45^\circ) = \frac{\sqrt{2}}{2} \approx 0.7071 \implies F_y = 1.707 \rho \frac{Q^2}{A}, \quad \mathbf{C_d = 3.414}$$
+        </div>
+
+        <div class="step-box">
+          <div class="step-header">
+            <span class="step-badge">Geometry (c)</span>
+            <span class="step-title">Hemispherical Cup ($180^\circ$ Total Flow Reversal)</span>
+          </div>
+          <p>
+            The incident jet travels upwards with $\vec{v}_i = v \vec{e}_y$. Due to the smooth internal hemispherical curvature, the annular sheet turns completely around and exits vertically downwards: $\vec{v}_o = -v \vec{e}_y$. The outward normal is $\vec{n}_o = -\vec{e}_y$, giving $\vec{v}_o \cdot \vec{n}_o = (-v)(-1) = +v$.
+          </p>
+          $$\int_{\Sigma_i} \rho (v)(-v) A + \int_{\Sigma_o} \rho (-v)(+v) A = -F_y$$
+          $$-\rho v^2 A - \rho v^2 A = -F_y \implies -2\rho v^2 A = -F_y$$
+          $$\mathbf{F_y = 2\rho v^2 A = 2\rho \frac{Q^2}{A}}$$
+          <p>Drag coefficient:</p>
+          $$C_d = \frac{2\rho v^2 A}{\frac{1}{2}\rho v^2 A} = \mathbf{4.0}$$
+        </div>
+      </section>
+
+      <!-- 3. EXPERIMENTAL SETUP -->
+      <section id="experimental-setup" class="report-section">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-heading">Experimental Setup &amp; Methodology</h2>
+        </div>
+
+        <p>
+          The experiment was carried out in the Fluid Mechanics Laboratory using an <strong>Edibon FME02 Hydraulic Bench</strong> and the <strong>Edibon FME01 Jet Impact Apparatus</strong>:
+        </p>
+
+        <div class="app-card">
+          <div class="app-card-title">Technical Specifications of the Test Rig</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 10px;">
+            <div><strong>Nozzle Diameter ($d$):</strong> $8.0\text{ mm} = 0.008\text{ m}$</div>
+            <div><strong>Nozzle Area ($A$):</strong> $5.0265 \times 10^{-5}\text{ m}^2$</div>
+            <div><strong>Water Density ($\rho$):</strong> $1000\text{ kg/m}^3$</div>
+            <div><strong>Water Viscosity ($\mu$):</strong> $1.002 \times 10^{-3}\text{ Pa}\cdot\text{s}$</div>
+            <div><strong>Distance Nozzle-Plate ($h$):</strong> $\approx 35\text{ mm} = 0.035\text{ m}$</div>
+            <div><strong>Mass Weights:</strong> Slotted brass discs ($50\text{ g}$ increments)</div>
+          </div>
+        </div>
+
+        <p>
+          <strong>Measurement Protocol:</strong> For each surface, the apparatus is leveled. A predetermined mass $m$ is placed on the counterbalance pan. The water flow is started and adjusted via the bench flow control valve until the level pointer aligns precisely with the dial gauge datum line, establishing dynamic force equilibrium:
+        </p>
+        $$W = m \cdot g = F_y$$
+        <p>
+          The corresponding volumetric flow rate $Q$ is recorded in liters per hour ($\text{l/h}$). The procedure is repeated for 11 flow rates from $1500\text{ l/h}$ down to $500\text{ l/h}$ in steps of $100\text{ l/h}$.
+        </p>
+      </section>
+
+      <!-- 4. DATA REDUCTION -->
+      <section id="data-reduction" class="report-section">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2 class="section-heading">Experimental Data Reduction (11-Point Calibration)</h2>
+        </div>
+
+        <p>
+          The experimental readings from test record <code>MedidasLab1_261005_223351 (1).jpg</code> were processed into standard SI units. Dynamic reference force is calculated as $F_{\text{dyn}} = \frac{1}{2}\rho v^2 A = \frac{1}{2}\rho \frac{Q^2}{A}$.
+        </p>
+
+        <!-- Base Parameters Table -->
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Pt.</th>
+                <th>$Q$ (l/h)</th>
+                <th>$Q$ ($\text{m}^3/\text{s}$)</th>
+                <th>Velocity $v$ (m/s)</th>
+                <th>Reynolds $Re_d$</th>
+                <th>Dyn. Force $F_{\text{dyn}}$ (N)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>1500</td><td>$4.167 \times 10^{-4}$</td><td>8.289</td><td>66,182</td><td class="highlight-cell">1.727</td></tr>
+              <tr><td>2</td><td>1400</td><td>$3.889 \times 10^{-4}$</td><td>7.737</td><td>61,770</td><td class="highlight-cell">1.504</td></tr>
+              <tr><td>3</td><td>1300</td><td>$3.611 \times 10^{-4}$</td><td>7.184</td><td>57,358</td><td class="highlight-cell">1.297</td></tr>
+              <tr><td>4</td><td>1200</td><td>$3.333 \times 10^{-4}$</td><td>6.631</td><td>52,946</td><td class="highlight-cell">1.105</td></tr>
+              <tr><td>5</td><td>1100</td><td>$3.056 \times 10^{-4}$</td><td>6.079</td><td>48,534</td><td class="highlight-cell">0.929</td></tr>
+              <tr><td>6</td><td>1000</td><td>$2.778 \times 10^{-4}$</td><td>5.526</td><td>44,121</td><td class="highlight-cell">0.768</td></tr>
+              <tr><td>7</td><td>900</td><td>$2.500 \times 10^{-4}$</td><td>4.974</td><td>39,709</td><td class="highlight-cell">0.622</td></tr>
+              <tr><td>8</td><td>800</td><td>$2.222 \times 10^{-4}$</td><td>4.421</td><td>35,297</td><td class="highlight-cell">0.491</td></tr>
+              <tr><td>9</td><td>700</td><td>$1.944 \times 10^{-4}$</td><td>3.868</td><td>30,885</td><td class="highlight-cell">0.376</td></tr>
+              <tr><td>10</td><td>600</td><td>$1.667 \times 10^{-4}$</td><td>3.316</td><td>26,473</td><td class="highlight-cell">0.276</td></tr>
+              <tr><td>11</td><td>500</td><td>$1.389 \times 10^{-4}$</td><td>2.763</td><td>22,061</td><td class="highlight-cell">0.192</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Target A: Flat Plate Table -->
+        <h3 style="margin: 32px 0 12px; font-family: var(--font-sans) !important; font-size: 1.25rem;">
+          Target A: Flat Plate ($C_{d,\text{th}} = 2.0$)
+        </h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>$Q$ (l/h)</th>
+                <th>Measured $m_f$ (g)</th>
+                <th>Measured Force $W_f$ (N)</th>
+                <th>Theoretical $F_{\text{th},f}$ (N)</th>
+                <th>Experimental $C_{d,f}$</th>
+                <th>Relative Error $\epsilon$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1500</td><td>350</td><td>3.434</td><td>3.454</td><td class="highlight-cell">1.99</td><td><span class="error-tag good">-0.6%</span></td></tr>
+              <tr><td>1400</td><td>300</td><td>2.943</td><td>3.009</td><td class="highlight-cell">1.96</td><td><span class="error-tag good">-2.2%</span></td></tr>
+              <tr><td>1300</td><td>250</td><td>2.453</td><td>2.594</td><td class="highlight-cell">1.89</td><td><span class="error-tag good">-5.5%</span></td></tr>
+              <tr><td>1200</td><td>250</td><td>2.453</td><td>2.210</td><td class="highlight-cell">2.22</td><td><span class="error-tag warn">+10.9%</span></td></tr>
+              <tr><td>1100</td><td>200</td><td>1.962</td><td>1.857</td><td class="highlight-cell">2.11</td><td><span class="error-tag good">+5.6%</span></td></tr>
+              <tr><td>1000</td><td>200</td><td>1.962</td><td>1.535</td><td class="highlight-cell">2.56</td><td><span class="error-tag warn">+27.8%</span></td></tr>
+              <tr><td>900</td><td>150</td><td>1.472</td><td>1.243</td><td class="highlight-cell">2.37</td><td><span class="error-tag warn">+18.3%</span></td></tr>
+              <tr><td>800</td><td>100</td><td>0.981</td><td>0.982</td><td class="highlight-cell">2.00</td><td><span class="error-tag good">-0.1%</span></td></tr>
+              <tr><td>700</td><td>100</td><td>0.981</td><td>0.752</td><td class="highlight-cell">2.61</td><td><span class="error-tag warn">+30.4%</span></td></tr>
+              <tr><td>600</td><td>50</td><td>0.491</td><td>0.553</td><td class="highlight-cell">1.78</td><td><span class="error-tag warn">-11.2%</span></td></tr>
+              <tr><td>500</td><td>0</td><td>0.000</td><td>0.384</td><td class="highlight-cell">0.00</td><td><span class="error-tag high">-100.0%*</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: -12px;">
+          *At $Q = 500\text{ l/h}$, the theoretical force ($0.384\text{ N}$) was below the minimum single weight threshold ($50\text{ g} = 0.4905\text{ N}$), resulting in a zero recorded balance mass.
+        </p>
+
+        <!-- Target B: Oblique Deflector Table -->
+        <h3 style="margin: 32px 0 12px; font-family: var(--font-sans) !important; font-size: 1.25rem;">
+          Target B: Oblique Deflector ($C_{d,\text{th}} = 3.0$ for $30^\circ$)
+        </h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>$Q$ (l/h)</th>
+                <th>Measured $m_o$ (g)</th>
+                <th>Measured Force $W_o$ (N)</th>
+                <th>Theoretical $F_{\text{th},o}$ (N)</th>
+                <th>Experimental $C_{d,o}$</th>
+                <th>Relative Error $\epsilon$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1500</td><td>400</td><td>3.924</td><td>5.181</td><td class="highlight-cell">2.27</td><td><span class="error-tag warn">-24.3%</span></td></tr>
+              <tr><td>1400</td><td>350</td><td>3.434</td><td>4.513</td><td class="highlight-cell">2.28</td><td><span class="error-tag warn">-23.9%</span></td></tr>
+              <tr><td>1300</td><td>350</td><td>3.434</td><td>3.891</td><td class="highlight-cell">2.65</td><td><span class="error-tag good">-11.8%</span></td></tr>
+              <tr><td>1200</td><td>300</td><td>2.943</td><td>3.316</td><td class="highlight-cell">2.66</td><td><span class="error-tag good">-11.2%</span></td></tr>
+              <tr><td>1100</td><td>250</td><td>2.453</td><td>2.786</td><td class="highlight-cell">2.64</td><td><span class="error-tag good">-12.0%</span></td></tr>
+              <tr><td>1000</td><td>200</td><td>1.962</td><td>2.303</td><td class="highlight-cell">2.56</td><td><span class="error-tag good">-14.8%</span></td></tr>
+              <tr><td>900</td><td>150</td><td>1.472</td><td>1.865</td><td class="highlight-cell">2.37</td><td><span class="error-tag warn">-21.1%</span></td></tr>
+              <tr><td>800</td><td>150</td><td>1.472</td><td>1.474</td><td class="highlight-cell">3.00</td><td><span class="error-tag good">-0.1%</span></td></tr>
+              <tr><td>700</td><td>100</td><td>0.981</td><td>1.128</td><td class="highlight-cell">2.61</td><td><span class="error-tag good">-13.1%</span></td></tr>
+              <tr><td>600</td><td>100</td><td>0.981</td><td>0.829</td><td class="highlight-cell">3.55</td><td><span class="error-tag warn">+18.3%</span></td></tr>
+              <tr><td>500</td><td>50</td><td>0.491</td><td>0.576</td><td class="highlight-cell">2.56</td><td><span class="error-tag good">-14.8%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Target C: Hemispherical Cup Table -->
+        <h3 style="margin: 32px 0 12px; font-family: var(--font-sans) !important; font-size: 1.25rem;">
+          Target C: Hemispherical Cup ($C_{d,\text{th}} = 4.0$)
+        </h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>$Q$ (l/h)</th>
+                <th>Measured $m_h$ (g)</th>
+                <th>Measured Force $W_h$ (N)</th>
+                <th>Theoretical $F_{\text{th},h}$ (N)</th>
+                <th>Experimental $C_{d,h}$</th>
+                <th>Relative Error $\epsilon$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1500</td><td>550</td><td>5.396</td><td>6.908</td><td class="highlight-cell">3.12</td><td><span class="error-tag warn">-21.9%</span></td></tr>
+              <tr><td>1400</td><td>500</td><td>4.905</td><td>6.017</td><td class="highlight-cell">3.26</td><td><span class="error-tag warn">-18.5%</span></td></tr>
+              <tr><td>1300</td><td>450</td><td>4.415</td><td>5.189</td><td class="highlight-cell">3.40</td><td><span class="error-tag good">-14.9%</span></td></tr>
+              <tr><td>1200</td><td>350</td><td>3.434</td><td>4.421</td><td class="highlight-cell">3.11</td><td><span class="error-tag warn">-22.3%</span></td></tr>
+              <tr><td>1100</td><td>300</td><td>2.943</td><td>3.715</td><td class="highlight-cell">3.17</td><td><span class="error-tag warn">-20.8%</span></td></tr>
+              <tr><td>1000</td><td>250</td><td>2.453</td><td>3.070</td><td class="highlight-cell">3.20</td><td><span class="error-tag warn">-20.1%</span></td></tr>
+              <tr><td>900</td><td>200</td><td>1.962</td><td>2.487</td><td class="highlight-cell">3.16</td><td><span class="error-tag warn">-21.1%</span></td></tr>
+              <tr><td>800</td><td>150</td><td>1.472</td><td>1.965</td><td class="highlight-cell">3.00</td><td><span class="error-tag warn">-25.1%</span></td></tr>
+              <tr><td>700</td><td>100</td><td>0.981</td><td>1.504</td><td class="highlight-cell">2.61</td><td><span class="error-tag warn">-34.8%</span></td></tr>
+              <tr><td>600</td><td>100</td><td>0.981</td><td>1.105</td><td class="highlight-cell">3.55</td><td><span class="error-tag good">-11.2%</span></td></tr>
+              <tr><td>500</td><td>50</td><td>0.491</td><td>0.768</td><td class="highlight-cell">2.56</td><td><span class="error-tag warn">-36.1%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 5. GRAPHICAL ANALYSIS -->
+      <section id="graphical-analysis" class="report-section">
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <h2 class="section-heading">Graphical Analysis (Vector SVG Plots)</h2>
+        </div>
+
+        <p>
+          Below are the high-precision vector graphs illustrating the experimental force measurements against the theoretical momentum curves, followed by the drag coefficient $C_d$ distribution as a function of Reynolds number $Re_d$.
+        </p>
+
+        <!-- CHART 1: F vs Q -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <div class="chart-title-group">
+              <h3>Figure 1: Impact Force $F$ vs Volumetric Flow Rate $Q$</h3>
+              <p>Continuous lines represent theoretical quadratic curves $F \propto Q^2$; markers represent experimental points.</p>
+            </div>
+          </div>
+          <div class="chart-svg-wrap">
+            <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Force versus Flow Rate Plot">
+              <!-- Definitions for markers and filters -->
+              <defs>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <!-- Plot Background -->
+              <rect x="65" y="40" width="575" height="365" fill="rgba(15, 23, 42, 0.45)" rx="4" />
+
+              <!-- Grid Lines (Horizontal: 0, 1, 2, 3, 4, 5, 6, 7 N) -->
+              <!-- y = 405 - (F / 7.5)*365 -->
+              <line x1="65" y1="405.0" x2="640" y2="405.0" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="65" y1="356.3" x2="640" y2="356.3" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="307.7" x2="640" y2="307.7" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="259.0" x2="640" y2="259.0" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="210.3" x2="640" y2="210.3" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="161.7" x2="640" y2="161.7" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="113.0" x2="640" y2="113.0" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="64.3"  x2="640" y2="64.3"  stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+
+              <!-- Grid Lines (Vertical: 400, 600, 800, 1000, 1200, 1400, 1600 l/h) -->
+              <line x1="65.0"  y1="40" x2="65.0"  y2="405" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="160.8" y1="40" x2="160.8" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="256.7" y1="40" x2="256.7" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="352.5" y1="40" x2="352.5" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="448.3" y1="40" x2="448.3" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="544.2" y1="40" x2="544.2" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="640.0" y1="40" x2="640.0" y2="405" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+              <!-- Y-Axis Labels -->
+              <text x="55" y="409" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">0.0</text>
+              <text x="55" y="360" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">1.0</text>
+              <text x="55" y="311" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">2.0</text>
+              <text x="55" y="263" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">3.0</text>
+              <text x="55" y="214" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">4.0</text>
+              <text x="55" y="165" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">5.0</text>
+              <text x="55" y="117" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">6.0</text>
+              <text x="55" y="68"  fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">7.0</text>
+
+              <!-- X-Axis Labels -->
+              <text x="65.0"  y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">400</text>
+              <text x="160.8" y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">600</text>
+              <text x="256.7" y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">800</text>
+              <text x="352.5" y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">1000</text>
+              <text x="448.3" y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">1200</text>
+              <text x="544.2" y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">1400</text>
+              <text x="640.0" y="426" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">1600</text>
+
+              <!-- Axis Titles -->
+              <text x="352" y="450" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="12" text-anchor="middle">Volumetric Flow Rate Q (l/h)</text>
+              <text x="22" y="222" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="12" text-anchor="middle" transform="rotate(-90 22 222)">Force F (N)</text>
+
+              <!-- Theoretical Curves (Smooth continuous vectors) -->
+              <!-- Flat Plate Theory (Cyan) -->
+              <path d="M65.0,393.0 L89.0,389.9 L112.9,386.3 L136.9,382.4 L160.8,378.1 L184.8,373.4 L208.8,368.4 L232.7,363.0 L256.7,357.2 L280.6,351.0 L304.6,344.5 L328.5,337.6 L352.5,330.3 L376.5,322.6 L400.4,314.6 L424.4,306.2 L448.3,297.4 L472.3,288.3 L496.3,278.7 L520.2,268.8 L544.2,258.6 L568.1,247.9 L592.1,236.9 L616.0,225.5 L640.0,213.8" fill="none" stroke="#06b6d4" stroke-width="2.5" />
+
+              <!-- Oblique Deflector Theory (Amber / 30 deg) -->
+              <path d="M65.0,387.1 L89.0,382.3 L112.9,377.0 L136.9,371.1 L160.8,364.7 L184.8,357.7 L208.8,350.1 L232.7,342.0 L256.7,333.3 L280.6,324.0 L304.6,314.2 L328.5,303.9 L352.5,292.9 L376.5,281.5 L400.4,269.4 L424.4,256.8 L448.3,243.6 L472.3,229.9 L496.3,215.6 L520.2,200.8 L544.2,185.4 L568.1,169.4 L592.1,152.9 L616.0,135.8 L640.0,118.1" fill="none" stroke="#f59e0b" stroke-width="2.5" />
+
+              <!-- Hemispherical Cup Theory (Violet / 180 deg) -->
+              <path d="M65.0,381.1 L89.0,374.7 L112.9,367.6 L136.9,359.8 L160.8,351.2 L184.8,341.9 L208.8,331.8 L232.7,321.0 L256.7,309.4 L280.6,297.0 L304.6,284.0 L328.5,270.2 L352.5,255.6 L376.5,240.3 L400.4,224.2 L424.4,207.4 L448.3,189.8 L472.3,171.5 L496.3,152.5 L520.2,132.7 L544.2,112.2 L568.1,90.9 L592.1,68.8 L616.0,46.0 L640.0,22.5" fill="none" stroke="#a855f7" stroke-width="2.5" />
+
+              <!-- Experimental Points: Target A Flat (Cyan Circles) -->
+              <circle cx="592.1" cy="237.9" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=1500, F=3.434N</title></circle>
+              <circle cx="544.2" cy="261.8" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=1400, F=2.943N</title></circle>
+              <circle cx="496.3" cy="285.6" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=1300, F=2.453N</title></circle>
+              <circle cx="448.3" cy="285.6" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=1200, F=2.453N</title></circle>
+              <circle cx="400.4" cy="309.5" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=1100, F=1.962N</title></circle>
+              <circle cx="352.5" cy="309.5" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=1000, F=1.962N</title></circle>
+              <circle cx="304.6" cy="333.4" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=900, F=1.472N</title></circle>
+              <circle cx="256.7" cy="357.3" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=800, F=0.981N</title></circle>
+              <circle cx="208.8" cy="357.3" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=700, F=0.981N</title></circle>
+              <circle cx="160.8" cy="381.1" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=600, F=0.491N</title></circle>
+              <circle cx="112.9" cy="405.0" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.5"><title>Flat: Q=500, F=0.000N</title></circle>
+
+              <!-- Experimental Points: Target B Oblique (Amber Triangles) -->
+              <!-- polygon centered at (cx, cy) -->
+              <polygon points="592.1,208.5 597.1,217.5 587.1,217.5" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=1500, F=3.924N</title></polygon>
+              <polygon points="544.2,232.4 549.2,241.4 539.2,241.4" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=1400, F=3.434N</title></polygon>
+              <polygon points="496.3,232.4 501.3,241.4 491.3,241.4" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=1300, F=3.434N</title></polygon>
+              <polygon points="448.3,256.3 453.3,265.3 443.3,265.3" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=1200, F=2.943N</title></polygon>
+              <polygon points="400.4,280.1 405.4,289.1 395.4,289.1" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=1100, F=2.453N</title></polygon>
+              <polygon points="352.5,304.0 357.5,313.0 347.5,313.0" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=1000, F=1.962N</title></polygon>
+              <polygon points="304.6,327.9 309.6,336.9 299.6,336.9" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=900, F=1.472N</title></polygon>
+              <polygon points="256.7,327.9 261.7,336.9 251.7,336.9" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=800, F=1.472N</title></polygon>
+              <polygon points="208.8,351.8 213.8,360.8 203.8,360.8" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=700, F=0.981N</title></polygon>
+              <polygon points="160.8,351.8 165.8,360.8 155.8,360.8" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=600, F=0.981N</title></polygon>
+              <polygon points="112.9,375.6 117.9,384.6 107.9,384.6" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Q=500, F=0.491N</title></polygon>
+
+              <!-- Experimental Points: Target C Hemisphere (Violet Squares) -->
+              <rect x="588.1" y="138.4" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=1500, F=5.396N</title></rect>
+              <rect x="540.2" y="162.3" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=1400, F=4.905N</title></rect>
+              <rect x="492.3" y="186.2" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=1300, F=4.415N</title></rect>
+              <rect x="444.3" y="233.9" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=1200, F=3.434N</title></rect>
+              <rect x="396.4" y="257.8" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=1100, F=2.943N</title></rect>
+              <rect x="348.5" y="281.6" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=1000, F=2.453N</title></rect>
+              <rect x="300.6" y="305.5" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=900, F=1.962N</title></rect>
+              <rect x="252.7" y="329.4" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=800, F=1.472N</title></rect>
+              <rect x="204.8" y="353.3" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=700, F=0.981N</title></rect>
+              <rect x="156.8" y="353.3" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=600, F=0.981N</title></rect>
+              <rect x="108.9" y="377.1" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Q=500, F=0.491N</title></rect>
+
+              <!-- Legend Box -->
+              <g transform="translate(655, 60)">
+                <rect x="0" y="0" width="135" height="185" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255,255,255,0.12)" rx="8"/>
+                <text x="12" y="22" fill="#f8fafc" font-family="'Inter', sans-serif" font-weight="700" font-size="11">LEGEND</text>
+
+                <!-- Flat Plate -->
+                <line x1="12" y1="42" x2="32" y2="42" stroke="#06b6d4" stroke-width="2"/>
+                <circle cx="22" cy="42" r="3.5" fill="#06b6d4"/>
+                <text x="38" y="45" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">Flat (Theory)</text>
+                <text x="38" y="58" fill="#06b6d4" font-family="'JetBrains Mono', monospace" font-size="9">Cd = 2.0</text>
+
+                <!-- Oblique -->
+                <line x1="12" y1="82" x2="32" y2="82" stroke="#f59e0b" stroke-width="2"/>
+                <polygon points="22,78 25,84 19,84" fill="#f59e0b"/>
+                <text x="38" y="85" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">Oblique (30°)</text>
+                <text x="38" y="98" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9">Cd = 3.0</text>
+
+                <!-- Hemisphere -->
+                <line x1="12" y1="122" x2="32" y2="122" stroke="#a855f7" stroke-width="2"/>
+                <rect x="19" y="119" width="6" height="6" fill="#a855f7"/>
+                <text x="38" y="125" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">Hemisphere</text>
+                <text x="38" y="138" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="9">Cd = 4.0</text>
+
+                <!-- Data Note -->
+                <text x="12" y="165" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="8.5">Markers: Exp. data</text>
+                <text x="12" y="176" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="8.5">Lines: Theoretical</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- CHART 2: Cd vs Red -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <div class="chart-title-group">
+              <h3>Figure 2: Hydrodynamic Drag Coefficient $C_d$ vs Reynolds Number $Re_d$</h3>
+              <p>Dashed lines indicate theoretical asymptotic values; markers depict experimental reduction.</p>
+            </div>
+          </div>
+          <div class="chart-svg-wrap">
+            <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drag Coefficient versus Reynolds Number Plot">
+              <!-- Plot Background -->
+              <rect x="65" y="40" width="575" height="325" fill="rgba(15, 23, 42, 0.45)" rx="4" />
+
+              <!-- Y Grid Lines (Cd: 0, 1, 2, 3, 4) -->
+              <!-- y = 365 - (Cd / 4.5)*325 -->
+              <line x1="65" y1="365.0" x2="640" y2="365.0" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="65" y1="292.8" x2="640" y2="292.8" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="65" y1="220.6" x2="640" y2="220.6" stroke="rgba(6,182,212,0.3)" stroke-width="1.2" stroke-dasharray="5,4"/>
+              <line x1="65" y1="148.3" x2="640" y2="148.3" stroke="rgba(245,158,11,0.3)" stroke-width="1.2" stroke-dasharray="5,4"/>
+              <line x1="65" y1="76.1"  x2="640" y2="76.1"  stroke="rgba(168,85,247,0.3)" stroke-width="1.2" stroke-dasharray="5,4"/>
+
+              <!-- X Grid Lines (Re: 20k, 30k, 40k, 50k, 60k, 70k) -->
+              <!-- x = 65 + ((Re - 20000)/50000)*575 -->
+              <line x1="65.0"  y1="40" x2="65.0"  y2="365" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="180.0" y1="40" x2="180.0" y2="365" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="295.0" y1="40" x2="295.0" y2="365" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="410.0" y1="40" x2="410.0" y2="365" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="525.0" y1="40" x2="525.0" y2="365" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="640.0" y1="40" x2="640.0" y2="365" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+              <!-- Y Labels -->
+              <text x="55" y="369" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">0.0</text>
+              <text x="55" y="296" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="end">1.0</text>
+              <text x="55" y="224" fill="#06b6d4" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="end">2.0</text>
+              <text x="55" y="152" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="end">3.0</text>
+              <text x="55" y="80"  fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="end">4.0</text>
+
+              <!-- X Labels -->
+              <text x="65.0"  y="384" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">20k</text>
+              <text x="180.0" y="384" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">30k</text>
+              <text x="295.0" y="384" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">40k</text>
+              <text x="410.0" y="384" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">50k</text>
+              <text x="525.0" y="384" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">60k</text>
+              <text x="640.0" y="384" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">70k</text>
+
+              <!-- Axis Titles -->
+              <text x="352" y="408" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="12" text-anchor="middle">Jet Reynolds Number Red = ρvd / μ</text>
+              <text x="22" y="202" fill="#cbd5e1" font-family="'Inter', sans-serif" font-weight="600" font-size="12" text-anchor="middle" transform="rotate(-90 22 202)">Drag Coefficient Cd</text>
+
+              <!-- Theoretical Asymptotes -->
+              <!-- Cd = 2.0 (Flat) -->
+              <line x1="65" y1="220.6" x2="640" y2="220.6" stroke="#06b6d4" stroke-width="2" stroke-dasharray="6,4"/>
+              <!-- Cd = 3.0 (Oblique) -->
+              <line x1="65" y1="148.3" x2="640" y2="148.3" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,4"/>
+              <!-- Cd = 4.0 (Hemisphere) -->
+              <line x1="65" y1="76.1"  x2="640" y2="76.1"  stroke="#a855f7" stroke-width="2" stroke-dasharray="6,4"/>
+
+              <!-- Target A Exp Points (Flat, Cyan circles) -->
+              <circle cx="596.1" cy="221.4" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=66182, Cd=1.99</title></circle>
+              <circle cx="545.4" cy="223.7" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=61770, Cd=1.96</title></circle>
+              <circle cx="494.6" cy="228.4" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=57358, Cd=1.89</title></circle>
+              <circle cx="443.9" cy="204.7" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=52946, Cd=2.22</title></circle>
+              <circle cx="393.1" cy="212.4" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=48534, Cd=2.11</title></circle>
+              <circle cx="342.4" cy="180.4" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=44121, Cd=2.56</title></circle>
+              <circle cx="291.7" cy="194.1" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=39709, Cd=2.37</title></circle>
+              <circle cx="240.9" cy="220.8" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=35297, Cd=2.00</title></circle>
+              <circle cx="190.2" cy="176.6" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=30885, Cd=2.61</title></circle>
+              <circle cx="139.4" cy="236.8" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=26473, Cd=1.78</title></circle>
+              <circle cx="88.7"  cy="365.0" r="4.5" fill="#06b6d4" stroke="#070b14" stroke-width="1.2"><title>Flat: Re=22061, Cd=0.00</title></circle>
+
+              <!-- Target B Exp Points (Oblique, Amber triangles) -->
+              <polygon points="596.1,196.4 600.6,204.4 591.6,204.4" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=66182, Cd=2.27</title></polygon>
+              <polygon points="545.4,195.7 549.9,203.7 540.9,203.7" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=61770, Cd=2.28</title></polygon>
+              <polygon points="494.6,169.3 499.1,177.3 490.1,177.3" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=57358, Cd=2.65</title></polygon>
+              <polygon points="443.9,168.2 448.4,176.2 439.4,176.2" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=52946, Cd=2.66</title></polygon>
+              <polygon points="393.1,169.8 397.6,177.8 388.6,177.8" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=48534, Cd=2.64</title></polygon>
+              <polygon points="342.4,175.9 346.9,183.9 337.9,183.9" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=44121, Cd=2.56</title></polygon>
+              <polygon points="291.7,189.6 296.2,197.6 287.2,197.6" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=39709, Cd=2.37</title></polygon>
+              <polygon points="240.9,144.2 245.4,152.2 236.4,152.2" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=35297, Cd=3.00</title></polygon>
+              <polygon points="190.2,172.1 194.7,180.1 185.7,180.1" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=30885, Cd=2.61</title></polygon>
+              <polygon points="139.4,104.1 143.9,112.1 134.9,112.1" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=26473, Cd=3.55</title></polygon>
+              <polygon points="88.7,175.9 93.2,183.9 84.2,183.9" fill="#f59e0b" stroke="#070b14" stroke-width="1.2"><title>Oblique: Re=22061, Cd=2.56</title></polygon>
+
+              <!-- Target C Exp Points (Hemisphere, Violet squares) -->
+              <rect x="592.1" y="135.4" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=66182, Cd=3.12</title></rect>
+              <rect x="541.4" y="125.5" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=61770, Cd=3.26</title></rect>
+              <rect x="490.6" y="115.2" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=57358, Cd=3.40</title></rect>
+              <rect x="439.9" y="136.6" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=52946, Cd=3.11</title></rect>
+              <rect x="389.1" y="132.1" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=48534, Cd=3.17</title></rect>
+              <rect x="338.4" y="130.2" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=44121, Cd=3.20</title></rect>
+              <rect x="287.7" y="133.1" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=39709, Cd=3.16</title></rect>
+              <rect x="236.9" y="144.7" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=35297, Cd=3.00</title></rect>
+              <rect x="186.2" y="172.6" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=30885, Cd=2.61</title></rect>
+              <rect x="135.4" y="104.6" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=26473, Cd=3.55</title></rect>
+              <rect x="84.7"  y="176.4" width="8" height="8" fill="#a855f7" stroke="#070b14" stroke-width="1.2"><title>Hemi: Re=22061, Cd=2.56</title></rect>
+
+              <!-- Legend Box -->
+              <g transform="translate(655, 60)">
+                <rect x="0" y="0" width="135" height="150" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255,255,255,0.12)" rx="8"/>
+                <text x="12" y="20" fill="#f8fafc" font-family="'Inter', sans-serif" font-weight="700" font-size="11">TARGETS</text>
+
+                <!-- Flat Plate -->
+                <circle cx="20" cy="40" r="4" fill="#06b6d4"/>
+                <text x="32" y="44" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">Flat Plate</text>
+                <text x="32" y="55" fill="#06b6d4" font-family="'JetBrains Mono', monospace" font-size="9">Th. Cd = 2.0</text>
+
+                <!-- Oblique -->
+                <polygon points="20,73 24,80 16,80" fill="#f59e0b"/>
+                <text x="32" y="79" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">Oblique</text>
+                <text x="32" y="90" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9">Th. Cd = 3.0</text>
+
+                <!-- Hemisphere -->
+                <rect x="16" y="106" width="7" height="7" fill="#a855f7"/>
+                <text x="32" y="113" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">Hemisphere</text>
+                <text x="32" y="124" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="9">Th. Cd = 4.0</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. PHYSICAL DIAGNOSTICS -->
+      <section id="physical-diagnostics" class="report-section">
+        <div class="section-header">
+          <span class="section-num">06</span>
+          <h2 class="section-heading">Physical Diagnostics of Experimental Discrepancies</h2>
+        </div>
+
+        <p>
+          While the flat plate demonstrates excellent theoretical agreement at higher flow rates ($\overline{C}_{d,\text{flat}} = 1.99$ at $1500\text{ l/h}$), the oblique deflector and hemispherical cup reveal systematic deficits compared to ideal frictionless potential flow models ($C_{d,\text{exp}} \approx 2.3-2.6$ vs $3.0$, and $C_{d,\text{exp}} \approx 3.1-3.4$ vs $4.0$). Rigorous physical diagnosis highlights four fundamental mechanisms:
+        </p>
+
+        <!-- Diagnostic 1: Gravitational Deceleration -->
+        <div class="diagnostic-box">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 17l-5 5-5-5"/>
+            </svg>
+            1. Gravitational Deceleration Over Height $h \approx 35\text{ mm}$
+          </h4>
+          <p>
+            The water jet exits the nozzle with velocity $v_0 = Q/A$ and travels vertically upward across distance $h \approx 35\text{ mm}$ before striking the target. Applying Torricelli's ballistic deceleration:
+          </p>
+          $$v_{\text{imp}} = \sqrt{v_0^2 - 2 g h}$$
+          <p>
+            At high flow ($Q = 1500\text{ l/h}$, $v_0 = 8.289\text{ m/s}$): $v_{\text{imp}} = \sqrt{68.71 - 0.687} = 8.247\text{ m/s}$, representing a velocity drop of only $0.5\%$ and a force loss of $\approx 1.0\%$.<br>
+            However, at low flow ($Q = 500\text{ l/h}$, $v_0 = 2.763\text{ m/s}$):
+          </p>
+          $$v_{\text{imp}} = \sqrt{7.634 - 0.687} = 2.636\text{ m/s} \quad \implies \quad \frac{\Delta v}{v_0} = -4.6\%$$
+          <p>
+            Since force scales with velocity squared ($F \propto v^2$), the effective impact force is diminished by:
+          </p>
+          $$\frac{\Delta F}{F_{\text{th}}} \approx \frac{2gh}{v_0^2} = \frac{0.687}{7.634} \approx 9.0\%$$
+          <p>
+            This explains why analytical predictions based strictly on nozzle exit velocity systematically overpredict the measured forces at lower flow rates.
+          </p>
+        </div>
+
+        <!-- Diagnostic 2: Chamber Interference -->
+        <div class="diagnostic-box">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+            2. Splashback, Droplet Interference &amp; Annular Collision in Enclosed Chamber
+          </h4>
+          <p>
+            The testing chamber consists of an enclosed transparent acrylic cylinder:
+          </p>
+          <ul style="margin: 8px 0 8px 24px; line-height: 1.7;">
+            <li><strong>Hemispherical Reversal Collision:</strong> In the hemispherical cup, the water sheet reverses direction by $180^\circ$ and descends vertically as a dense annular curtain enclosing the upward-shooting core jet. Strong shear stress, air entrainment, and turbulent droplet collisions between the upward core and downward curtain rob momentum from the exiting stream, reducing the net momentum exchange from $4.0$ to $\sim 3.2$.</li>
+            <li><strong>Wall Impingement &amp; Lever Rain:</strong> The deflected water sheet strikes the cylindrical acrylic shroud, atomizing into fine mist and heavy droplets that accumulate and fall onto the target mounting rod and counterbalance arm, introducing parasitic vertical weight.</li>
+          </ul>
+        </div>
+
+        <!-- Diagnostic 3: Mass Quantization -->
+        <div class="diagnostic-box">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M10 4v4M14 4v4M2 12h20M10 16v4M14 16v4"/>
+            </svg>
+            3. Quantization Threshold of $50\text{ g}$ Counterbalance Masses
+          </h4>
+          <p>
+            The balance lever uses discrete slotted brass weights with a minimum quantum of $\Delta m = 50\text{ g}$. The force resolution is strictly:
+          </p>
+          $$\Delta W = \Delta m \cdot g = 0.050\text{ kg} \times 9.81\text{ m/s}^2 = 0.4905\text{ N}$$
+          <p>
+            This quantization explains two prominent experimental artifacts:
+          </p>
+          <ul style="margin: 8px 0 8px 24px; line-height: 1.7;">
+            <li><strong>Zero Measurement at Low Flow:</strong> At $Q = 500\text{ l/h}$ on the flat plate, the theoretical impact force is $F_{\text{th}} = 0.384\text{ N}$. Because $0.384\text{ N} < 0.4905\text{ N}$, placing a single $50\text{ g}$ weight immediately tipped the balance past the gauge mark. The operator had no choice but to record $m = 0\text{ g}$, yielding an apparent $-100\%$ error.</li>
+            <li><strong>Plateaus in Data:</strong> At intermediate flow rates, the continuous quadratic increase in force is discretized into staircases (e.g., $m_f = 250\text{ g}$ for both $1300$ and $1200\text{ l/h}$, and $m_o = 100\text{ g}$ for both $700$ and $600\text{ l/h}$), creating artificial jumps in experimental $C_d$.</li>
+          </ul>
+        </div>
+
+        <!-- Diagnostic 4: Boundary Layer Friction -->
+        <div class="diagnostic-box">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="4" y1="21" x2="4" y2="14"/>
+              <line x1="4" y1="10" x2="4" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12" y2="3"/>
+              <line x1="20" y1="21" x2="20" y2="16"/>
+              <line x1="20" y1="12" x2="20" y2="3"/>
+            </svg>
+            4. Wall Skin Friction Along Curved Deflector Surfaces
+          </h4>
+          <p>
+            In ideal Euler flow, exit velocity $v_s = v_0$. On real curved solid surfaces, boundary layer growth causes skin friction drag $\tau_w$, resulting in an exit velocity coefficient $c_v = v_s / v_0 < 1$. With typical hydraulic deflector velocity coefficients of $c_v \approx 0.90 - 0.94$, the downstream momentum flux is reduced to $\dot{m} v_s = c_v \rho Q^2 / A$, yielding theoretical drag coefficients closer to $C_{d,\text{eff}} = 1 + c_v \approx 1.92$ for flat and $C_{d,\text{eff}} = 1 + c_v \approx 3.2 - 3.4$ for hemisphere, matching our experimental measurements.
+          </p>
+        </div>
+      </section>
+
+      <!-- 7. CONCLUSIONS -->
+      <section id="conclusions" class="report-section">
+        <div class="section-header">
+          <span class="section-num">07</span>
+          <h2 class="section-heading">Conclusions &amp; Pedagogical Takeaways</h2>
+        </div>
+
+        <div class="app-card" style="border-left: 5px solid #10b981;">
+          <div class="app-card-title" style="color: #10b981;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            Summary of Experimental Findings
+          </div>
+          <ol style="margin-left: 20px; line-height: 1.8;">
+            <li><strong>Quadratic Scaling Verified:</strong> The experimental reaction force is shown to scale quadratically with flow rate ($F \propto Q^2$), firmly validating the momentum flux term $\int \rho \vec{v}(\vec{v}\cdot\vec{n})\, d\sigma$ in the Reynolds Transport Theorem.</li>
+            <li><strong>Geometric Momentum Multiplier:</strong> Target geometry is the decisive factor governing reaction force:
+              $$\overline{C}_{d,\text{flat}} \approx 2.01 \quad < \quad \overline{C}_{d,\text{oblique}} \approx 2.58 \quad < \quad \overline{C}_{d,\text{hemisphere}} \approx 3.19$$
+              Reversing fluid momentum by $180^\circ$ in the hemispherical cup yields roughly <strong>$1.6\times$</strong> the force of the flat plate under identical flow conditions, demonstrating the foundational physics behind impulse turbines and rocket flame diverters.</li>
+            <li><strong>Engineering Realism in Discrepancy Analysis:</strong> The systematic deviations observed in the enclosed rig underscore the importance of secondary aerodynamic and hydraulic effects: Torricelli deceleration ($2gh/v^2$), annular curtain collision, splashback water accumulation, and weight quantization limits.</li>
+          </ol>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section style="margin: 32px 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Aerospace Engineering Study Portal &bull; Universidad Carlos III de Madrid &bull; Fluid Mechanics Laboratory</p>
+    </footer>
+  </main>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      localStorage.setItem('ae_theme', t);
+      if (window.CelestialSkyEngine && typeof window.CelestialSkyEngine.rebuild === 'function') {
+        window.CelestialSkyEngine.rebuild();
+      }
+    }
+
+    const savedTheme = localStorage.getItem('theme') || localStorage.getItem('ae_theme') ||
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+  </script>
+
+  <!-- Aerospace Motivational Quotes JS -->
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+
+  <!-- Celestial Sky Engine JS -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>
