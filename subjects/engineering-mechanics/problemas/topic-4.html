@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="engineering-mechanics">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 4: Angular Momentum & Central Forces - Problems | Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Google Fonts & KaTeX CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Abril+Fatface&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.25s ease;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-input: #0f172a;
+      --text-main: #e2e8f0;
+      --text-heading: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-strong: #334155;
+      --border-card: #273549;
+      --badge-bg: #1e293b;
+      --badge-text: #38bdf8;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-input: #e2e8f0;
+      --text-main: #1e293b;
+      --text-heading: #0f172a;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: #cbd5e1;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0284c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 15.5px;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
+      max-width: 960px; margin: 0 auto; padding: 12px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+    .page-title-crumb { font-size: 0.95rem; font-weight: 600; color: var(--text-heading); }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .theme-toggle-btn {
+      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
+      border-radius: 8px; width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text-main); transition: var(--transition);
+    }
+    .theme-toggle-btn:hover { border-color: var(--accent-border); }
+
+    .main-container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .page-hero { margin-bottom: 32px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--badge-bg); color: var(--badge-text);
+      font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid var(--accent-border); font-family: var(--font-mono);
+    }
+    .page-hero h1 {
+      font-family: 'Abril Fatface', Georgia, serif;
+      font-size: 2.2rem; font-weight: 400; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+    .page-hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 780px; font-family: var(--font-serif); }
+
+    .cross-nav-pills {
+      display: flex; gap: 12px; margin-bottom: 28px; background: var(--bg-surface);
+      padding: 6px; border-radius: 10px; border: 1px solid var(--border-subtle);
+    }
+    .cross-nav-btn {
+      flex: 1; text-align: center; padding: 10px 16px; border-radius: 8px; text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: var(--transition); color: var(--text-muted);
+    }
+    .cross-nav-btn.active {
+      background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);
+    }
+    .cross-nav-btn:hover:not(.active) { color: var(--text-heading); background: var(--bg-subtle); }
+
+    .quick-jump-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px;
+      padding: 12px 16px; background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+    }
+    .jump-link {
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
+      color: var(--accent); text-decoration: none; padding: 4px 10px;
+      background: var(--bg-subtle); border-radius: 6px; border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+    .jump-link:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+    .problem-card {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent); border-radius: 12px;
+      padding: 28px; margin-bottom: 36px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    .problem-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 16px; margin-bottom: 16px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .problem-num {
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 4px;
+    }
+    .problem-title {
+      font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700;
+      color: var(--text-heading); line-height: 1.3;
+    }
+    .problem-badge {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+      background: var(--bg-subtle); color: var(--text-muted);
+      padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);
+    }
+
+    .problem-statement {
+      font-size: 1rem; line-height: 1.75; margin-bottom: 20px; color: var(--text-main); font-family: var(--font-serif);
+    }
+    .problem-statement p { margin-bottom: 10px; }
+
+    .solution-box {
+      background: var(--bg-subtle); border: 1px solid var(--border-strong);
+      border-radius: 8px; padding: 22px; margin-top: 18px;
+    }
+    .solution-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .phase-badge {
+      display: inline-block; font-family: var(--font-mono); font-size: 0.75rem;
+      font-weight: 700; background: var(--accent-soft); color: var(--accent);
+      padding: 3px 8px; border-radius: 4px; margin: 12px 0 6px;
+    }
+    .solution-box p, .solution-box li { font-family: var(--font-serif); font-size: 0.98rem; margin-bottom: 8px; }
+    .solution-box ul, .solution-box ol { margin: 8px 0 14px 22px; }
+
+    .formula-box {
+      background: var(--bg-primary); border: 1px solid var(--border-strong);
+      border-radius: 6px; padding: 12px; margin: 12px 0; text-align: center; overflow-x: auto;
+    }
+
+    .article-nav {
+      display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; flex-wrap: wrap;
+    }
+    .nav-btn {
+      flex: 1; min-width: 220px; background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--text-main);
+      transition: var(--transition);
+    }
+    .nav-btn:hover { border-color: var(--accent-border); transform: translateY(-2px); }
+    .nav-btn-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    .nav-btn-title { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Portal
+        </a>
+        <span style="color: var(--border-strong);">/</span>
+        <a href="index.html" class="back-link">Problem Sets</a>
+        <span style="color: var(--border-strong);">/</span>
+        <span class="page-title-crumb">Topic 4 Problems</span>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <header class="page-hero">
+      <div class="hero-badges">
+        <span class="badge">UNIT 04</span>
+        <span class="badge">SOLVED PROBLEM SET</span>
+        <span class="badge">5 OFFICIAL PROBLEMS</span>
+      </div>
+      <h1>Topic 4: Angular Momentum & Central Forces — Solved Problems</h1>
+      <p>Exhaustive step-by-step analytical solutions to official course problems from <code>Problems.pdf</code>. Every solution follows the rigorous 4-phase pedagogical methodology with zero algebraic omissions and SI dimensional checks.</p>
+    </header>
+
+    <!-- Cross-Nav Switcher -->
+    <div class="cross-nav-pills">
+      <a href="../teoria/topic-4.html" class="cross-nav-btn">📖 Theory Guide</a>
+      <a href="topic-4.html" class="cross-nav-btn active">✏️ Solved Problems (5)</a>
+    </div>
+
+    <!-- Quick Jump Bar -->
+    <nav class="quick-jump-bar" aria-label="Quick jump to problem">
+      <span style="font-size: 0.82rem; color: var(--text-muted); align-self: center; margin-right: 4px;">Jump to:</span>
+      <a href="#prob-17" class="jump-link">Prob 17 (Linear Central)</a>
+      <a href="#prob-39" class="jump-link">Prob 39 (String on Plate)</a>
+      <a href="#prob-42" class="jump-link">Prob 42 (Power-Law Binet)</a>
+      <a href="#prob-43" class="jump-link">Prob 43 (Dual Connected)</a>
+      <a href="#prob-44" class="jump-link">Prob 44 (Little Prince Orbit)</a>
+    </nav>
+
+    <!-- Problem 17 -->
+    <article id="prob-17" class="problem-card">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 17 · Slide 6 Benchmark</div>
+          <h2 class="problem-title">Linear Central Force under Gravity</h2>
+        </div>
+        <span class="problem-badge">Slide 6 / Problems.pdf P10</span>
+      </div>
+
+      <div class="problem-statement">
+        <p>A force attracts a heavy particle $M$ of mass $m$ to a point $O$. The attractive force is proportional to the mass of the particle and to the distance $OM$, with proportionality constant $k^2$ ($\mathbf{F}_{\text{attract}} = -m k^2\mathbf{r}$). The coordinate system $Oxyz$ has origin at the center of attraction $O$ and axis $Oz$ is vertically oriented with gravity $\mathbf{g} = -g\mathbf{k}$.</p>
+        <p>Initially at $t = 0$: $(x_0, y_0, z_0) = \left(\frac{\sqrt{3}g}{k^2}, 0, 0\right)$ and $(\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right)$.</p>
+        <p><strong>(a)</strong> Describe the motion of $M$, specifying clearly the shape of the path.<br>
+        <strong>(b)</strong> What is the velocity of the particle as a function of $t$?</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
+        
+        <span class="phase-badge">Phase 1: Statement & Hypotheses</span>
+        <p>Free particle in 3D ($\text{CDOF} = 3$). Inertial Cartesian frame $S_0$. Total force $\mathbf{F} = -m k^2 \mathbf{r} - mg\mathbf{k}$.</p>
+
+        <span class="phase-badge">Phase 2: Vector Equations of Motion</span>
+        <p>By Newton's Second Law, the Cartesian equations decouple completely:</p>
+        <div class="formula-box">
+          $$ \ddot{x} + k^2 x = 0, \qquad \ddot{y} + k^2 y = 0, \qquad \ddot{z} + k^2 z = -g $$
+        </div>
+
+        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
+        <ol>
+          <li>Integrating $x(t)$: $x(t) = \frac{\sqrt{3}g}{k^2}\cos(kt)$.</li>
+          <li>Integrating $y(t)$: $y(t) = \frac{2g}{k^2}\sin(kt)$.</li>
+          <li>Integrating $z(t)$: Equilibrium is $z_{\text{eq}} = -g/k^2$. With $z(0) = 0, \dot{z}(0) = 0$, $z(t) = \frac{g}{k^2}(\cos(kt) - 1)$.</li>
+          <li><strong>Planar Confinement:</strong> Eliminating $\cos(kt)$ between $x$ and $z$:
+            $$ z(t) = \frac{x(t)}{\sqrt{3}} - \frac{g}{k^2} \implies x - \sqrt{3}z - \frac{\sqrt{3}g}{k^2} = 0 $$
+            The motion is strictly confined to an inclined plane forming $30^\circ$ with the vertical.
+          </li>
+          <li><strong>Elliptic Trajectory:</strong> Eliminating time $t$ between $x$ and $y$:
+            $$ \left(\frac{x}{\sqrt{3}g/k^2}\right)^2 + \left(\frac{y}{2g/k^2}\right)^2 = \cos^2(kt) + \sin^2(kt) = 1 $$
+            The path is an <strong>ellipse</strong> centered at $(0, 0, -g/k^2)$ with semi-axes $a_x = \frac{\sqrt{3}g}{k^2}$ and $b_y = \frac{2g}{k^2}$.
+          </li>
+          <li><strong>Velocity Vector and Constant Speed:</strong>
+            $$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin(kt)\,\mathbf{i} + \frac{2g}{k}\cos(kt)\,\mathbf{j} - \frac{g}{k}\sin(kt)\,\mathbf{k} $$
+            $$ \|\mathbf{v}(t)\|^2 = \frac{g^2}{k^2}(3\sin^2(kt) + 4\cos^2(kt) + \sin^2(kt)) = \frac{4g^2}{k^2} \implies \|\mathbf{v}(t)\| = \frac{2g}{k} = \text{const} $$
+          </li>
+        </ol>
+
+        <span class="phase-badge">Phase 4: Physical Interpretation</span>
+        <p>The speed is strictly constant despite the elliptical trajectory due to the circular symmetry of the total potential energy about the displaced center $(0, 0, -g/k^2)$. Dimensional verification: $[v] = [g/k] = \text{m/s}$.</p>
+      </div>
+    </article>
+
+    <!-- Problem 42 -->
+    <article id="prob-42" class="problem-card">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 42 · Advanced Power-Law Field</div>
+          <h2 class="problem-title">Particle Attracted to the Origin ($F = m\mu / r^\alpha$)</h2>
+        </div>
+        <span class="problem-badge">Problems.pdf P29</span>
+      </div>
+
+      <div class="problem-statement">
+        <p>A point particle $P$ of mass $m$ is attracted by the origin $O$ of inertial frame $S_0$ by a force with magnitude $F = \frac{m\mu}{r^\alpha}$, where $\mu, \alpha > 0$.</p>
+        <p><strong>(a)</strong> Show that angular momentum $\mathbf{H}_O$ and mechanical energy $E$ are conserved, and that motion is planar.<br>
+        <strong>(b)</strong> Using polar coordinates, derive a 2nd-order ODE for $u \equiv 1/r$ as a function of $\theta$.<br>
+        <strong>(c)</strong> Find a first integral and determine for $\alpha = 1, 2, 3, 4$ under which conditions: (i) particle escapes to infinity ($u \to 0$); (ii) particle reaches origin ($u \to \infty$); (iii) particle oscillates between two radii.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
+        
+        <span class="phase-badge">Phase 1 & 2: Planar Central Motion</span>
+        <p>Torque $\mathbf{M}_O = \mathbf{r} \times \mathbf{F} \equiv \mathbf{0} \implies \mathbf{H}_O = \text{const}$. Since $\mathbf{r} \cdot \mathbf{H}_O = 0$ and $\mathbf{v} \cdot \mathbf{H}_O = 0$, motion is planar. Because $\nabla \times \mathbf{F} = \mathbf{0}$, energy $\xi = \frac{1}{2}v^2 + V_0(r) = \text{const}$.</p>
+
+        <span class="phase-badge">Phase 3: Generalized Binet Equation</span>
+        <p>Using specific angular momentum $h = r^2\dot{\theta}$ and $u = 1/r$:</p>
+        <div class="formula-box">
+          $$ \dot{r} = -h\frac{du}{d\theta}, \qquad \ddot{r} = -h^2 u^2 \frac{d^2u}{d\theta^2} $$
+          $$ \ddot{r} - r\dot{\theta}^2 = -\mu u^\alpha \implies \frac{d^2u}{d\theta^2} + u = \frac{\mu}{h^2} u^{\alpha - 2} $$
+        </div>
+
+        <p><strong>First Integral & Effective Potential:</strong> Multiplying by $u'$ and integrating:</p>
+        <div class="formula-box">
+          $$ (u')^2 + W_{\text{eff}}(u) = \frac{2\xi}{h^2} \equiv E^*, \qquad W_{\text{eff}}(u) = u^2 + \frac{2V_0(1/u)}{h^2} $$
+        </div>
+
+        <p><strong>Regime Analysis for $\alpha \in \{1, 2, 3, 4\}$:</strong></p>
+        <ul>
+          <li><strong>$\alpha = 2$ (Kepler):</strong> $u'' + u = \mu/h^2$, $W(u) = u^2 - \frac{2\mu}{h^2}u$. Parabola with minimum at $u = \mu/h^2$. Escapes to infinity if $E^* \ge 0$. Collapsing to $r = 0$ is impossible due to the centrifugal barrier. Bounded oscillation (ellipses) occurs for $-(\mu/h^2)^2 < E^* < 0$.</li>
+          <li><strong>$\alpha = 1$ ($F \propto 1/r$):</strong> $W(u) = u^2 - \frac{2\mu}{h^2}\ln(u)$. Since $W(u) \to +\infty$ both as $u \to 0$ and $u \to \infty$, escape to infinity and collision with origin are both impossible. All orbits are bound and oscillate.</li>
+          <li><strong>$\alpha = 3$ ($F \propto 1/r^3$):</strong> $u'' + (1 - \mu/h^2)u = 0$, $W(u) = (1 - \mu/h^2)u^2$. If $h^2 < \mu$, $u(\theta)$ grows exponentially and the particle collapses into the center $r = 0$!</li>
+          <li><strong>$\alpha = 4$ ($F \propto 1/r^4$):</strong> $W(u) = u^2 - \frac{2\mu}{3h^2}u^3$. A cubic barrier with maximum at $u_{\text{barrier}} = h^2/\mu$. If $E^*$ exceeds the barrier, the particle overcomes the centrifugal barrier and plunges into $r = 0$.</li>
+        </ul>
+
+        <span class="phase-badge">Phase 4: Physical Interpretation</span>
+        <p>For $\alpha \ge 3$, the attractive central force overcomes the repulsive centrifugal potential ($1/r^2$) at short distances, enabling orbital plunge.</p>
+      </div>
+    </article>
+
+    <!-- Problem 43 -->
+    <article id="prob-43" class="problem-card">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 43 · Holonomic Multi-Particle System</div>
+          <h2 class="problem-title">Two Connected Particles, Plane with Hole</h2>
+        </div>
+        <span class="problem-badge">Problems.pdf P30</span>
+      </div>
+
+      <div class="problem-statement">
+        <p>A smooth horizontal plane has a small hole at $O$. A massless cord of length $2a$ passes through the hole, connecting two particles $P_1$ and $P_2$ of identical mass $m$. $P_1$ moves on the plane and $P_2$ moves vertically below the hole. Initially $r(0) = a$, and $P_1$ is pushed with transverse speed $v_0$.</p>
+        <p><strong>(a)</strong> Find $v_0$ for circular motion.<br>
+        <strong>(b)</strong> Find the cord tension in circular motion.<br>
+        <strong>(c)</strong> If $v_0 = \sqrt{8ag/3}$, reduce the problem to quadratures.<br>
+        <strong>(d)</strong> Show that $P_1$ oscillates between $r = a$ and $r = 2a$.<br>
+        <strong>(e)</strong> Show that cord tension is $T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right)$.<br>
+        <strong>(f)</strong> Write new equations if the plane has friction $\mu$.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
+        
+        <span class="phase-badge">Phase 1 & 2: Holonomic System</span>
+        <p>Constraint $r - z_2 = 2a \implies z_2 = r - 2a$. Energy $E = m\dot{r}^2 + \frac{1}{2}m\frac{h^2}{r^2} + mgr - 2mga = \text{const}$. Specific angular momentum $h = a v_0 = \text{const}$.</p>
+
+        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
+        <ol>
+          <li><strong>(a) Circular motion ($r \equiv a$):</strong>
+            $$ T = m\frac{v_0^2}{a} = mg \implies v_0 = \sqrt{ag} $$
+          </li>
+          <li><strong>(b) Tension in circular orbit:</strong> $T = mg$.</li>
+          <li><strong>(c) Quadratures for $v_0 = \sqrt{8ag/3}$ ($h^2 = \frac{8}{3}a^3 g$):</strong>
+            Initial energy: $E = \frac{1}{2}m(8ag/3) - mga = \frac{1}{3}mga$.
+            $$ \dot{r}^2 = \frac{g}{3r^2}\left[ -3r^3 + 7a r^2 - 4a^3 \right] \implies \int_a^r \frac{r'\,dr'}{\sqrt{-3r'^3 + 7a r'^2 - 4a^3}} = \pm \sqrt{\frac{g}{3}}\,t $$
+          </li>
+          <li><strong>(d) Oscillation Limits:</strong>
+            Factoring with $x = r/a$: $-3x^3 + 7x^2 - 4 = -(x - 1)(x - 2)(3x + 2) \ge 0$.
+            Because $r > 0$, $(3x+2) > 0$. Thus $-(x-1)(x-2) \ge 0 \implies 1 \le x \le 2 \implies a \le r(t) \le 2a$. The turning points are $r = a$ and $r = 2a$.
+          </li>
+          <li><strong>(e) Cord Tension:</strong>
+            For $P_2$: $m\ddot{r} = T - mg \implies T = m(g + \ddot{r})$.
+            Differentiating $\dot{r}^2 = \frac{7}{3}ga - gr - \frac{4a^3 g}{3r^2}$:
+            $$ 2\dot{r}\ddot{r} = \left(-g + \frac{8a^3 g}{3r^3}\right)\dot{r} \implies \ddot{r} = -\frac{g}{2} + \frac{4a^3 g}{3r^3} $$
+            $$ T = m\left(g - \frac{g}{2} + \frac{4a^3 g}{3r^3}\right) = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right) \quad \text{Q.E.D.} $$
+          </li>
+          <li><strong>(f) Equations with Friction $\mu$:</strong>
+            $$ 2m\ddot{r} - mr\dot{\theta}^2 = -mg - \mu mg \frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}, \qquad \frac{d}{dt}\left(r^2\dot{\theta}\right) = -\mu g \frac{r^2\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$
+          </li>
+        </ol>
+
+        <span class="phase-badge">Phase 4: Physical Checks</span>
+        <p>At $r = a$, $T = \frac{11}{6}mg > 0$; at $r = 2a$, $T = \frac{2}{3}mg > 0$. Cord remains strictly under tension at all times.</p>
+      </div>
+    </article>
+
+    <!-- Problem 44 -->
+    <article id="prob-44" class="problem-card">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 44 · Orbital Mechanics</div>
+          <h2 class="problem-title">The Little Prince Throwing Seeds</h2>
+        </div>
+        <span class="problem-badge">Problems.pdf P31</span>
+      </div>
+
+      <div class="problem-statement">
+        <p>The little Prince sits on his spherical, non-rotating asteroid of radius $R$ and mass $M$. He launches a baobab seed with initial velocity of magnitude $v_0$ and angle $\beta = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of $r_a = 3R$ before falling back, determine $v_0$ as a function of $G, M, R$.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
+        
+        <span class="phase-badge">Phase 1 & 2: Launch Kinematics</span>
+        <p>At surface $r = R$, launch velocity has components $v_{r0} = v_0\sin(60^\circ) = \frac{\sqrt{3}}{2}v_0$ and $v_{\theta 0} = v_0\cos(60^\circ) = \frac{1}{2}v_0$. Central gravity $\mathbf{F}_g = -\frac{GMm}{r^2}\mathbf{e}_r$.</p>
+
+        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
+        <ol>
+          <li><strong>Specific Angular Momentum Conservation:</strong>
+            $$ h = R v_{\theta 0} = \frac{1}{2} R v_0 $$
+            At apocenter $r_a = 3R$, velocity is purely transverse:
+            $$ h = r_a v_a = 3R v_a \implies v_a = \frac{h}{3R} = \frac{1}{6}v_0 $$
+          </li>
+          <li><strong>Specific Mechanical Energy Conservation:</strong>
+            $$ \xi = \frac{1}{2}v_0^2 - \frac{GM}{R} = \frac{1}{2}v_a^2 - \frac{GM}{r_a} $$
+            Substitute $v_a = v_0/6$ and $r_a = 3R$:
+            $$ \frac{1}{2}v_0^2 - \frac{GM}{R} = \frac{1}{2}\left(\frac{v_0}{6}\right)^2 - \frac{GM}{3R} = \frac{v_0^2}{72} - \frac{GM}{3R} $$
+          </li>
+          <li><strong>Algebraic Isolation of $v_0$:</strong>
+            $$ \left(\frac{1}{2} - \frac{1}{72}\right)v_0^2 = \left(1 - \frac{1}{3}\right)\frac{GM}{R} $$
+            $$ \frac{35}{72}v_0^2 = \frac{2}{3}\frac{GM}{R} \implies v_0^2 = \frac{2}{3}\cdot\frac{72}{35}\frac{GM}{R} = \frac{48}{35}\frac{GM}{R} $$
+            $$ v_0 = \sqrt{\frac{48}{35}\frac{GM}{R}} $$
+          </li>
+        </ol>
+
+        <span class="phase-badge">Phase 4: Physical Interpretation</span>
+        <p>Escape velocity is $v_e = \sqrt{2GM/R} = \sqrt{\frac{70}{35}\frac{GM}{R}}$. Since $\frac{48}{35} \approx 1.371 < 2$, $v_0 < v_e$, confirming the seed is gravitationally bound and returns. Dimensional verification: $[v_0] = \sqrt{[G][M]/[R]} = \text{m/s}$.</p>
+      </div>
+    </article>
+
+    <!-- Problem 39 -->
+    <article id="prob-39" class="problem-card">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 39 · Constrained Hanging Cable</div>
+          <h2 class="problem-title">Particle on a String with a Plate</h2>
+        </div>
+        <span class="problem-badge">Problems.pdf P27</span>
+      </div>
+
+      <div class="problem-statement">
+        <p>A heavy particle $P$ of mass $m$ is connected to origin $O$ on a horizontal thin square plate by a massless inextensible string of length $\ell$. Distance to plate edge is $d$. String hangs over the edge at $Q$. Initially $\theta(0) = \phi(0) = \pi/3$, $v_0^P(0) = \sqrt{\ell g}$.</p>
+        <p><strong>(a)</strong> How many degrees of freedom does the system have?<br>
+        <strong>(b)</strong> Obtain unit vector $\mathbf{u}_{QP}$ as function of $\theta$ and $\phi$.<br>
+        <strong>(c)</strong> Obtain position, velocity, and acceleration vectors of $Q$ and $P$.<br>
+        <strong>(d)</strong> Formulate equations of motion and discuss conservation laws.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
+        
+        <span class="phase-badge">Phase 1 & 2: Geometry & Kinematics</span>
+        <p>Total $\text{CDOF} = 2$ (angles $\theta$ and $\phi$). Inextensible string constraint $L_{OQ} + L_{QP} = \ell$ with $L_{OQ} = \frac{d}{\sin\theta}$. Contact point $\mathbf{r}_0^Q = d\cot\theta\,\mathbf{i}_0 + d\,\mathbf{j}_0$.</p>
+
+        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
+        <ol>
+          <li><strong>(a) CDOF:</strong> 2 degrees of freedom ($\theta, \phi$).</li>
+          <li><strong>(b) Unit vector:</strong> $\mathbf{u}_{QP} = \sin\phi\cos\theta\,\mathbf{i}_0 + \sin\phi\sin\theta\,\mathbf{j}_0 - \cos\phi\,\mathbf{k}_0$.</li>
+          <li><strong>(c) Kinematic vectors:</strong>
+            $$ \mathbf{r}_0^P = \mathbf{r}_0^Q + \left(\ell - \frac{d}{\sin\theta}\right)\mathbf{u}_{QP} $$
+            $$ \mathbf{v}_0^Q = -d\frac{\dot{\theta}}{\sin^2\theta}\,\mathbf{i}_0, \qquad \mathbf{v}_0^P = \mathbf{v}_0^Q + \frac{d\dot{\theta}\cos\theta}{\sin^2\theta}\mathbf{u}_{QP} + \left(\ell - \frac{d}{\sin\theta}\right)\frac{d\mathbf{u}_{QP}}{dt} $$
+          </li>
+          <li><strong>(d) Energy Conservation:</strong> Because string slides without friction over the edge, constraint reaction does no work. Mechanical energy $E = \frac{1}{2}m(v_0^P)^2 - mg z_P = \text{const}$.</li>
+        </ol>
+
+        <span class="phase-badge">Phase 4: Physical Interpretation</span>
+        <p>Hanging length $\ell - d/\sin\theta$ varies smoothly with angle $\theta$. Energy is strictly conserved.</p>
+      </div>
+    </article>
+
+    <!-- Bottom Navigation -->
+    <div class="article-nav">
+      <a href="topic-3.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Problem Set</span>
+        <span class="nav-btn-title">Topic 3: Constraints & Reaction Forces (15)</span>
+      </a>
+      <a href="../teoria/topic-4.html" class="nav-btn" style="text-align: center; border-color: var(--accent-border);">
+        <span class="nav-btn-label">Theory Guide</span>
+        <span class="nav-btn-title" style="color: var(--accent);">📖 Topic 4 Theory</span>
+      </a>
+      <a href="index.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Back to Problem Hub →</span>
+        <span class="nav-btn-title">All Problem Sets</span>
+      </a>
+    </div>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+
+  </main>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+  <script src="../../../assets/js/celestial-sky.js"></script>
+</body>
+</html>

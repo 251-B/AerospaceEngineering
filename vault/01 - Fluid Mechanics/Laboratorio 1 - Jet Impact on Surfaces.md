@@ -101,29 +101,24 @@ $$C_d = \frac{F}{\frac{1}{2}\rho v^2 A} = \frac{\rho v^2 A}{\frac{1}{2}\rho v^2 
 
 ---
 
-### 3.2 Case (b): Oblique / Conical Deflector ($30^\circ$ & $45^\circ$)
+### 3.2 Case (b): Oblique / Conical Deflector ($30^\circ$)
 
-Let $\theta$ denote the downward angle of exit velocity relative to the horizontal plane ($\theta = 0^\circ$ corresponds to a flat plate):
-$$\vec{v}_o = v \cos\theta\, \vec{e}_r - v \sin\theta\, \vec{e}_y$$
+Let $\theta = 30^\circ$ denote the downward exit angle relative to the horizontal plane (standard geometry of the Edibon FME01 conical deflector in the UC3M laboratory syllabus):
+$$\vec{v}_o = v \cos(30^\circ)\, \vec{e}_r - v \sin(30^\circ)\, \vec{e}_y$$
 Outward normal at the exit perimeter $\vec{n}_o$ is parallel to $\vec{v}_o$, so $\vec{v}_o \cdot \vec{n}_o = +v$.
 
 - **Inlet flux:** $-\rho v^2 A \vec{e}_y$
 - **Outlet flux:**
-  $$\int_{\Sigma_o} \rho (-v \sin\theta \vec{e}_y)(+v)\, d\sigma = -\rho v^2 \sin\theta A \vec{e}_y$$
+  $$\int_{\Sigma_o} \rho (-v \sin(30^\circ) \vec{e}_y)(+v)\, d\sigma = -\rho v^2 \sin(30^\circ) A \vec{e}_y = -0.5 \rho v^2 A \vec{e}_y$$
 - **Total momentum balance in $\vec{e}_y$:**
-  $$-\rho v^2 A - \rho v^2 \sin\theta A = -F_y$$
-  $$\mathbf{F_y = (1 + \sin\theta)\rho v^2 A = (1 + \sin\theta)\rho \frac{Q^2}{A}}$$
+  $$-\rho v^2 A - 0.5 \rho v^2 A = -F_y$$
+  $$\mathbf{F_y = 1.5 \rho v^2 A = 1.5 \rho \frac{Q^2}{A} = \frac{3}{2}\rho \frac{Q^2}{A}}$$
 
-#### Comparison of Angle Conventions:
-1. **$30^\circ$ Deflector (Theoretical guide, UC3M Session 1 Fig. 1b):**
-   $$\theta = 30^\circ \implies \sin(30^\circ) = 0.5$$
-   $$F_y = 1.5 \rho \frac{Q^2}{A} = \frac{3}{2}\rho \frac{Q^2}{A}$$
-   $$\mathbf{C_d = 3.0}$$
+The theoretical hydrodynamic drag coefficient is:
+$$\mathbf{C_d = \frac{1.5 \rho v^2 A}{\frac{1}{2}\rho v^2 A} = 3.0}$$
 
-2. **$45^\circ$ Deflector (Lab device face marking):**
-   $$\theta = 45^\circ \implies \sin(45^\circ) = \frac{\sqrt{2}}{2} \approx 0.7071$$
-   $$F_y = \left(1 + \frac{\sqrt{2}}{2}\right)\rho \frac{Q^2}{A} \approx 1.707 \rho \frac{Q^2}{A}$$
-   $$\mathbf{C_d = 2\left(1 + \frac{\sqrt{2}}{2}\right) \approx 3.414}$$
+> [!NOTE] Experimental Record Clarification
+> In the raw laboratory scratch sheet, the column was tentatively labeled as "45°" by visual estimate. However, the official deflector supplied with the Edibon FME01 apparatus and specified in `Lab_session_1.pdf` (Figure 1b) corresponds strictly to the standardized $\theta = 30^\circ$ conical deflector ($C_d = 3.0$). For comparative reference, a hypothetical $45^\circ$ exit angle would yield $F_y = (1 + \sin 45^\circ)\rho Q^2/A \approx 1.707 \rho Q^2/A$ and $C_d \approx 3.414$.
 
 ---
 

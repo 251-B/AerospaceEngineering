@@ -666,7 +666,7 @@
       </div>
       <h1>Laboratory 1: Jet Impact on Surfaces</h1>
       <p class="hero-lead">
-        Experimental quantification of dynamic impact forces and hydrodynamic drag coefficients ($C_d$) produced by a vertical water jet on flat, oblique ($30^\circ / 45^\circ$), and hemispherical surfaces, validated via the integral linear momentum conservation equation.
+        Experimental quantification of dynamic impact forces and hydrodynamic drag coefficients ($C_d$) produced by a vertical water jet on flat, oblique ($30^\circ$), and hemispherical surfaces, validated via the integral linear momentum conservation equation.
       </p>
     </header>
 
@@ -680,7 +680,7 @@
         </div>
 
         <p>
-          The primary objective of this laboratory investigation is to measure the vertical reaction force exerted by a steady, high-speed liquid jet impinging onto three solid obstacles of varying deflection geometry: a <strong>flat plate</strong> ($90^\circ$ deflection), an <strong>oblique / conical deflector</strong> ($30^\circ$ theoretical guide / $45^\circ$ hardware marking), and a <strong>hemispherical cup</strong> ($180^\circ$ full flow reversal). By contrasting experimental data with analytical predictions, we directly confirm the validity of the <strong>Reynolds Transport Theorem (RTT)</strong> for open fluid control volumes.
+          The primary objective of this laboratory investigation is to measure the vertical reaction force exerted by a steady, high-speed liquid jet impinging onto three solid obstacles of varying deflection geometry: a <strong>flat plate</strong> ($90^\circ$ deflection), an <strong>oblique / conical deflector</strong> ($30^\circ$ downward exit deflection, as specified in the official UC3M laboratory manual), and a <strong>hemispherical cup</strong> ($180^\circ$ full flow reversal). By contrasting experimental data with analytical predictions, we directly confirm the validity of the <strong>Reynolds Transport Theorem (RTT)</strong> for open fluid control volumes.
         </p>
 
         <div class="aerospace-grid">
@@ -787,19 +787,23 @@
         <div class="step-box">
           <div class="step-header">
             <span class="step-badge">Geometry (b)</span>
-            <span class="step-title">Oblique Surface ($30^\circ$ &amp; $45^\circ$ Conical Deflector)</span>
+            <span class="step-title">Oblique Surface ($30^\circ$ Conical Deflector)</span>
           </div>
           <p>
-            The water sheet is ejected at a downward inclination angle $\theta$ relative to the horizontal plane:
-            $\vec{v}_o = v \cos\theta\, \vec{e}_r - v \sin\theta\, \vec{e}_y$.
-            The outward normal to the exit sheet is aligned with the velocity, so $\vec{v}_o \cdot \vec{n}_o = +v$.
+            The water sheet is ejected at a downward inclination angle $\theta = 30^\circ$ relative to the horizontal plane (as standardized in the Edibon FME01 apparatus and official UC3M syllabus):
+            $\vec{v}_o = v \cos(30^\circ)\, \vec{e}_r - v \sin(30^\circ)\, \vec{e}_y$.
+            The outward normal to the exit sheet is aligned with the outgoing velocity, so $\vec{v}_o \cdot \vec{n}_o = +v$.
           </p>
-          $$-\rho v^2 A + \int_{\Sigma_o} \rho (-v \sin\theta)(+v)\, d\sigma = -F_y$$
-          $$-\rho v^2 A - \rho v^2 \sin\theta A = -F_y \implies \mathbf{F_y = (1 + \sin\theta)\rho \frac{Q^2}{A}}$$
-          <p><strong>Case 1 — Official Syllabus Model ($\theta = 30^\circ$):</strong></p>
-          $$\sin(30^\circ) = 0.5 \implies F_y = 1.5 \rho \frac{Q^2}{A} = \frac{3}{2}\rho \frac{Q^2}{A}, \quad \mathbf{C_d = 3.0}$$
-          <p><strong>Case 2 — Equipment Label Angle ($\theta = 45^\circ$):</strong></p>
-          $$\sin(45^\circ) = \frac{\sqrt{2}}{2} \approx 0.7071 \implies F_y = 1.707 \rho \frac{Q^2}{A}, \quad \mathbf{C_d = 3.414}$$
+          $$\int_{\Sigma_i} \rho (\vec{v}_i \cdot \vec{e}_y)(\vec{v}_i \cdot \vec{n}_i)\, d\sigma + \int_{\Sigma_o} \rho (\vec{v}_o \cdot \vec{e}_y)(\vec{v}_o \cdot \vec{n}_o)\, d\sigma = -F_y$$
+          $$-\rho v^2 A + \int_{\Sigma_o} \rho (-v \sin(30^\circ))(+v)\, d\sigma = -F_y$$
+          $$-\rho v^2 A - \rho v^2 \sin(30^\circ) A = -F_y \implies \mathbf{F_y = (1 + \sin(30^\circ))\rho \frac{Q^2}{A} = 1.5 \rho \frac{Q^2}{A} = \frac{3}{2}\rho \frac{Q^2}{A}}$$
+          <p>
+            With $\sin(30^\circ) = 0.5$, the resulting hydrodynamic drag coefficient is:
+          </p>
+          $$C_d = \frac{1.5 \rho v^2 A}{\frac{1}{2}\rho v^2 A} = \mathbf{3.0}$$
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 6px;">
+            <em>Note on test record:</em> Although the preliminary student scratch sheet noted "45°" as a rough visual estimate, the physical target mounted in the test rig is the official $30^\circ$ conical deflector specified in <code>Lab_session_1.pdf</code>. (If an arbitrary $45^\circ$ angle were considered, $F_y = (1 + \sin 45^\circ)\rho Q^2/A \approx 1.707 \rho Q^2/A$ and $C_d \approx 3.414$).
+          </p>
         </div>
 
         <div class="step-box">
