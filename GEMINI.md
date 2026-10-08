@@ -65,7 +65,7 @@ The project uses a specialized multi-agent workflow focused strictly on two core
 ### Agent 2: `aerospace_pedagogue`
 * **Role:** Ingeniero Aeroespacial & Pedagogo Mayor (Model tier: `pro`).
 * **Tools:** Read-only / deep reasoning.
-* **System Prompt / Task:** Redactar la teoría con máxima claridad pedagógica y rigor analítico. Resolver todos los problemas paso a paso siguiendo la metodología de 4 fases (Hipótesis y Datos -> Formulación Física Fundamental -> Deducción Matemática sin omisiones -> Interpretación Física y Unidades SI). Asegurar tipografía KaTeX impecable ($...$ inline, $$...$$ bloques).
+* **System Prompt / Task:** Redactar la teoría con máxima claridad pedagógica y rigor analítico. Resolver todos los problemas paso a paso siguiendo la metodología de 4 fases (Hipótesis y Datos -> Formulación Física Fundamental -> Deducción Matemática sin omisiones -> Interpretación Física y Unidades SI). Asegurar tipografía KaTeX impecable (`$...$` inline, `$$...$$` bloques).
 
 ### Agent 3: `subject_web_builder`
 * **Role:** Desarrollador Web Frontend del Portal.
@@ -75,7 +75,7 @@ The project uses a specialized multi-agent workflow focused strictly on two core
 ### Agent 4: `web_qa_reviewer`
 * **Role:** Auditor de Calidad (QA) y Revisor Técnico.
 * **Tools:** Write/command tools enabled (read, test, lint, git checks).
-* **System Prompt / Task:** Auditar la integridad de enlaces relativos (`../../../index.html`), balance y sintaxis de delimitadores KaTeX ($ y $$), legibilidad responsive y control de cambios en Git.
+* **System Prompt / Task:** Auditar la integridad de enlaces relativos (`../../../index.html`), balance y sintaxis de delimitadores KaTeX ($...$ y $$...$$), legibilidad responsive y control de cambios en Git.
 
 ### Agent 5: `problem_step_mentor`
 * **Role:** Mentor Pedagógico de Problemas & Auditor de Rigor Analítico (Model tier: `pro`).
@@ -115,4 +115,35 @@ The local knowledge base resides in `vault/` inside the repository. It serves as
 ### Mandatory Workflow Pipeline: Obsidian First → Web Second
 1. **Fase 1 (Ingesta en Obsidian):** Toda la información extraída de los cuadernos de NotebookLM, apuntes o problemas debe estructurarse y guardarse **primero** en la bóveda de Obsidian (`vault/`), utilizando las plantillas de `vault/Templates/` y vinculándola al MOC correspondiente.
 2. **Fase 2 (Desarrollo Web desde Obsidian):** Una vez consolidado el contenido en `vault/`, se utiliza como base de conocimiento ("Ground Truth") para que los agentes diseñen la teoría, resuelvan problemas paso a paso, creen los simuladores y generen las páginas HTML finales en `subjects/`. No se crea ninguna web sin tener antes su respaldo estructurado en Obsidian.
+
+---
+
+## 7. Flujo de Detección Automática y Enrutamiento de Skills & Plugins
+
+Ante cualquier prompt del usuario, la IA debe clasificar la intención y activar de forma proactiva el plugin, skill o subagente idóneo:
+
+| Intención / Disparador | Herramienta / Plugin Primario | Rol / Subagente Activado | Acción y Protocolo Obligatorio |
+| :--- | :--- | :--- | :--- |
+| **Error, bug, 404, fórmula rota** | `superpowers:systematic-debugging` | `web_qa_reviewer` | Formular hipótesis falsificable, reparar causa raíz y verificar. |
+| **Nuevo módulo, temario o refactor** | `superpowers:brainstorming` + `bm:plan-phase` | `aerospace_pedagogue` | Preguntas socráticas y diseño de plan antes de editar archivos. |
+| **Búsqueda en PDFs de `sources/`** | `context-mode` (`ctx_search`, `ctx_execute`) | `source_researcher` | Ingesta oficial sin alucinaciones. Extraer LaTeX limpio. |
+| **Redacción de Teoría y Apuntes** | `aerospace_pedagogue` | Obsidian First (`vault/`) | Rigor analítico en inglés, deducción desde primeros principios. |
+| **Resolución de Problemas** | `problem_step_mentor` | Metodología de 4 Fases | 1. Hipótesis $\rightarrow$ 2. Marcos y $[{}_0 R_1]$ $\rightarrow$ 3. Derivadas (regla de la cadena) e integrales (Barrow) $\rightarrow$ 4. Unidades SI. |
+| **Maquetación y Estilos Web** | `subject_web_builder` | `web_qa_reviewer` | KaTeX CDN, modo oscuro/claro con `localStorage('ae_theme')`, retorno `../../../index.html`. |
+| **Hitos globales o trabajo paralelo** | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | `claude-agents` | Spawning de 3-5 compañeros con alcances aislados en `vault/` y `subjects/`. |
+| **Revisión estándar de tarea unitaria** | `review-ultrareview` (Modo: `review`) | `web_qa_reviewer` | Verificar KaTeX, enlace `../../../index.html`, idioma en inglés y metadatos YAML. |
+| **Hito completo, examen o auditoría profunda** | `review-ultrareview` (Modo: `ultrareview`) | Equipo Completo (Adversarial) | Auditoría en 4 dimensiones: cero saltos algebraicos, Barrow, SI, fuentes oficiales, KaTeX, memoria. |
+| **Creación o ajuste de skills** | `skill-creator` | `superpowers:writing-skills` | Evaluar con `run_eval.py` y optimizar descripción. |
+| **Recuperación tras desconexión** | `claude-mem` | Auto-Memory | Recuperar decisiones arquitectónicas y progreso histórico. |
+
+---
+
+## 8. Directrices de Eficiencia de Tokens, Memoria y Optimización de Caché
+
+1. **Prompt Caching:** Instrucciones y definiciones estables e invariantes; no inyectar timestamps dinámicos en los prefijos.
+2. **Blindaje de Contexto (`Context Shielding`):** No volcar PDFs ni archivos masivos al contexto; usar herramientas selectivas (`context-mode`, lecturas acotadas por líneas).
+3. **Persistencia en Memoria (`claude-mem`):** Almacenar resúmenes de decisiones arquitectónicas y fórmulas en `claude-mem` para recuperarlas en <100 tokens en futuras sesiones.
+4. **Respuestas Concisas:** No repetir en el mensaje de respuesta archivos ya guardados en disco; usar enlaces markdown, resúmenes de cambios y pruebas de validación.
+
+
 

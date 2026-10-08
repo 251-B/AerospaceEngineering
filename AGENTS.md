@@ -92,3 +92,44 @@ Whenever starting **ANY** new conversation, session, or task in this repository,
 
 ## Directiva de Trabajo Multi-Agente
 Queda terminantemente prohibido que el agente orquestador desarrolle tareas de manera monolítica cuando corresponda a alguno de estos roles. El orquestador DEBE invocar a los subagentes correspondientes (`invoke_subagent`), esperar sus resultados y coordinar el flujo.
+
+---
+
+## Flujo de Detección Automática y Enrutamiento (Plugins & Skills)
+
+Ante cualquier instrucción del usuario, el orquestador DEBE clasificar automáticamente la solicitud y activar el flujo correspondiente sin requerir comandos manuales:
+
+1. **Detección de Errores o Fallos Matemáticos / Web:**
+   - Activar protocolo de depuración sistemática (`superpowers:systematic-debugging`).
+   - Aislar la causa raíz con `web_qa_reviewer` antes de aplicar parches.
+2. **Consultas de Temario o Extracción de Fórmulas:**
+   - Activar `source_researcher` e invocar herramientas de bajo consumo de contexto (`context-mode` o lecturas selectivas) sobre `sources/`.
+3. **Elaboración de Teoría o Nuevos Apuntes:**
+   - Activar `aerospace_pedagogue`. Respetar el flujo obligatorio **Obsidian First (`vault/`) $\rightarrow$ Web Second (`subjects/`)**. Redacción estrictamente en inglés.
+4. **Resolución de Ejercicios y Exámenes:**
+   - Activar `problem_step_mentor`. Aplicar estrictamente la **Metodología de 4 Fases**:
+     - Fase 1: Hipótesis, grados de libertad y datos con unidades SI.
+     - Fase 2: Sistemas de referencia y matriz de rotación/cambio de base $[{}_0 R_1]$.
+     - Fase 3: Deducción paso a paso sin saltos algebraicos, regla de la cadena explícita e integrales con diferenciales y límites de Barrow desarrollados.
+     - Fase 4: Interpretación física, órdenes de magnitud y verificación dimensional.
+5. **Maquetación y Ajuste Frontend:**
+   - Activar `subject_web_builder`. Asegurar KaTeX CDN, modo oscuro/claro persistente (`localStorage('ae_theme')`) y enlace relativo `../../../index.html`.
+6. **Auditoría de Cierre Obligatoria (review y ultrareview):**
+   - **`review` (Cierre de Tarea Unitaria):** Comprobación estándar de delimitadores KaTeX ($...$ y $$...$$), enlaces de retorno `../../../index.html`, idioma en inglés y metadatos YAML.
+   - **`ultrareview` (Cierre de Hito, Capítulo, Hoja de Problemas o Examen):** Auditoría adversarial profunda de 4 dimensiones:
+     1. Rigor analítico: cero saltos algebraicos, regla de la cadena explícita, integrales por Barrow con límites y verificación dimensional homogénea en SI.
+     2. Trazabilidad: concordancia 100% con fuentes oficiales (`sources/`).
+     3. Integridad Frontend: renderizado KaTeX y persistencia dark/light theme.
+     4. Memoria y caché: persistencia en `claude-mem` y limpieza de archivos temporales.
+
+---
+
+## Directivas de Eficiencia de Tokens, Memoria y Optimización de Caché
+
+Para evitar el agotamiento de contexto y minimizar latencia:
+1. **Prompt Caching:** Instrucciones y definiciones estables e invariantes; no inyectar timestamps dinámicos en los prefijos.
+2. **Blindaje de Contexto (`Context Shielding`):** No volcar PDFs ni archivos masivos al contexto; usar herramientas selectivas (`context-mode`, `grep_search`, rangos de líneas).
+3. **Persistencia en Memoria (`claude-mem`):** Almacenar resúmenes de decisiones arquitectónicas y fórmulas en `claude-mem` para recuperarlas en <100 tokens en futuras sesiones.
+4. **Respuestas Concisas:** No repetir en el mensaje de respuesta archivos ya guardados en disco; usar enlaces markdown, resúmenes de cambios y pruebas de verificación.
+
+

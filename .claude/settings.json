@@ -1,0 +1,13 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "teammateMode": "in-process",
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "bm@buildomator": true,
+    "context-mode@context-mode": true,
+    "claude-mem@thedotmack": true
+  }
+}
