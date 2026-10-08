@@ -130,9 +130,10 @@ From the repository root (pure-stdlib Python 3, no installs):
 
 ## Git
 
-- Do not commit or push unless the user asks. Pushing to `origin` requires explicit confirmation each time. *(The partner's version had the QA agent push to `origin/main` routinely; that has been changed here.)*
+- The `web_qa_reviewer` role manages version control: `git status`, `git add`, `git commit` with a descriptive message, and `git push` to `origin/main`, as part of closing a task.
+- Other agents do not commit or push unless the user asks.
 - Commit messages: `type(scope): summary` (e.g. `feat(fluids): ...`, `chore(maths): ...`).
-- The working tree may contain unrelated uncommitted changes. Stage only the files you touched.
+- The working tree may contain unrelated uncommitted changes. Stage only the files relevant to the task.
 - The vault is committed to Git so every team member shares the same notes. Obsidian workspace and cache files, and `graphify-out/`, are gitignored.
 
 ## Skills
