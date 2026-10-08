@@ -88,6 +88,88 @@ $$ \mathbf{\frac{d}{dt}\left[\int_{V_f(t)} \phi \, dV\right] = \frac{d}{dt}\left
 
 ---
 
+## Step-by-Step Derivation of the Reynolds Transport Theorem (Notes.pdf, Eqs. 3.2-3.8)
+
+This section expands every step that the compact derivation above skips. Throughout, $\phi(\vec{x},t)$ is the volumetric density of the extensive property (in the notation $B=\int\rho b\,dV$ used elsewhere, $\phi=\rho b$). It is assumed twice continuously differentiable in space and time, and the surfaces $\Sigma_f(t)$ and $\Sigma_c(t)$ are smooth and closed, with $\vec{n}$ the outward unit normal. Equation numbers are those of Notes.pdf, Chapter 3.
+
+### Step 1: Split the difference quotient (Eqs. 3.2 and 3.3)
+
+The material volume at $t+dt$ is the volume at $t$ plus the thin shell $\delta V=V_f(t+dt)-V_f(t)$ swept by its boundary. The shell is counted algebraically: where the boundary moves inward it removes volume. Add and subtract $\int_{V_f(t)}\phi(\vec{x},t+dt)\,dV$ in the numerator of the limit definition (Eq. 3.2):
+
+$$ \int_{V_f(t+dt)}\phi(\vec{x},t+dt)\,dV-\int_{V_f(t)}\phi(\vec{x},t)\,dV=\int_{V_f(t)}\big[\phi(\vec{x},t+dt)-\phi(\vec{x},t)\big]dV+\int_{\delta V}\phi(\vec{x},t+dt)\,dV $$
+
+*Eq. 3.2 rewritten as Eq. 3.3 (before the limit)*
+
+The first integral has a fixed domain $V_f(t)$ and measures how the field changes at fixed points. The second integral contains the field only over the thin shell and measures how much the domain grows.
+
+### Step 2: The unsteadiness term (Eq. 3.4)
+
+Taylor-expand the integrand at a fixed point $\vec{x}$:
+
+$$ \phi(\vec{x},t+dt)-\phi(\vec{x},t)=\frac{\partial\phi}{\partial t}\,dt+O(dt^{2}) $$
+
+Because $\phi$ is $C^2$ and $V_f(t)$ is bounded, the remainder is uniformly $O(dt^2)$ over the domain, so it can be integrated. Dividing by $dt$ and letting $dt\to0$ (the domain $V_f(t)$ does not depend on $dt$):
+
+$$ \lim_{dt\to0}\frac{1}{dt}\int_{V_f(t)}\big[\phi(\vec{x},t+dt)-\phi(\vec{x},t)\big]dV=\int_{V_f(t)}\frac{\partial\phi}{\partial t}\,dV $$
+
+*Eq. 3.4*
+
+### Step 3: The swept-volume term (Eq. 3.5)
+
+A point $\vec{x}_s$ of the material surface moves in the time $dt$ to $\vec{x}_s+\vec{v}\,dt+O(dt^2)$. Its displacement along the outward normal is $(\vec{v}\cdot\vec{n})\,dt$. The tangential part only slides the point along the surface and adds no volume. The shell above a surface element $d\sigma$ is therefore a prism of base $d\sigma$ and height $(\vec{v}\cdot\vec{n})\,dt$ (an oblique prism has the same volume as a right prism of equal base and height). Where $\vec{v}\cdot\vec{n}\lt0$ the height is negative and the shell removes volume, which is the algebraic counting adopted in Step 1:
+
+$$ d(\delta V)=(\vec{v}\cdot\vec{n})\,dt\,d\sigma+O(dt^{2}) $$
+
+Since $\phi(\vec{x},t+dt)=\phi(\vec{x},t)+O(dt)$, the integrand can be evaluated at time $t$ at the cost of an $O(dt^2)$ error:
+
+$$ \int_{\delta V}\phi(\vec{x},t+dt)\,dV=dt\int_{\Sigma_f(t)}\phi(\vec{x},t)\,\vec{v}\cdot\vec{n}\,d\sigma+O(dt^{2}) $$
+
+Dividing by $dt$ and taking the limit gives the convective flux through the moving boundary:
+
+$$ \lim_{dt\to0}\frac{1}{dt}\int_{\delta V}\phi(\vec{x},t+dt)\,dV=\int_{\Sigma_f(t)}\phi\,\vec{v}\cdot\vec{n}\,d\sigma $$
+
+*Eq. 3.5*
+
+### Step 4: Add both contributions (Eq. 3.6)
+
+The limit of the sum is the sum of the limits, so Eqs. 3.4 and 3.5 give Eq. 3.6:
+
+$$ \frac{d}{dt}\int_{V_f(t)}\phi\,dV=\int_{V_f(t)}\frac{\partial\phi}{\partial t}\,dV+\int_{\Sigma_f(t)}\phi\,\vec{v}\cdot\vec{n}\,d\sigma $$
+
+*Eq. 3.6*
+
+### Step 5: Arbitrary moving control volume (Eq. 3.7)
+
+A control volume $V_c(t)$ is a geometric region whose boundary points move with a prescribed velocity $\vec{v}_c(\vec{x},t)$, not necessarily equal to the fluid velocity. Steps 1 to 4 used the velocity of the boundary only to compute the displacement $(\vec{v}\cdot\vec{n})\,dt$ of the surface. Repeating them with the boundary velocity $\vec{v}_c$ in place of $\vec{v}$ gives
+
+$$ \frac{d}{dt}\int_{V_c(t)}\phi\,dV=\int_{V_c(t)}\frac{\partial\phi}{\partial t}\,dV+\int_{\Sigma_c(t)}\phi\,\vec{v}_c\cdot\vec{n}\,d\sigma $$
+
+*Eq. 3.7*
+
+### Step 6: Subtraction at the instant of coincidence (Eq. 3.8)
+
+Choose $V_c(t)$ so that at the instant $t$ it occupies exactly the same region as $V_f(t)$, hence $\Sigma_c(t)=\Sigma_f(t)$ and the normal $\vec{n}$ is the same. (At later times the two volumes differ, which is why only the instantaneous values of the derivatives are compared.) The integrals of $\partial\phi/\partial t$ in Eqs. 3.6 and 3.7 are then identical. Subtracting Eq. 3.7 from Eq. 3.6:
+
+$$ \frac{d}{dt}\int_{V_f}\phi\,dV-\frac{d}{dt}\int_{V_c}\phi\,dV=\int_{\Sigma_c}\phi\,\vec{v}\cdot\vec{n}\,d\sigma-\int_{\Sigma_c}\phi\,\vec{v}_c\cdot\vec{n}\,d\sigma $$
+
+Combining the two surface integrals gives Eq. 3.8:
+
+$$ \frac{d}{dt}\int_{V_f(t)}\phi\,dV=\frac{d}{dt}\int_{V_c(t)}\phi\,dV+\int_{\Sigma_c(t)}\phi\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
+
+*Eq. 3.8*
+
+### Step 7: Checks (extension, not in the Notes)
+
+**One-dimensional check with the Leibniz rule.** Take a one-dimensional "volume" $a(t)\le x\le b(t)$. The outward normals are $n=+1$ at $x=b$ and $n=-1$ at $x=a$, and the boundary velocities are $\dot b$ and $\dot a$. Eq. 3.7 gives $\int_a^b\partial\phi/\partial t\,dx+\phi(b,t)\dot b-\phi(a,t)\dot a$. Differentiating $F(t)=\int_{a(t)}^{b(t)}\phi(x,t)\,dx$ directly with the chain rule for $F(t,a,b)$ and Barrow's rule $\partial F/\partial b=\phi(b,t)$, $\partial F/\partial a=-\phi(a,t)$:
+
+$$ \frac{dF}{dt}=\frac{\partial F}{\partial t}+\frac{\partial F}{\partial b}\dot b+\frac{\partial F}{\partial a}\dot a=\int_a^b\frac{\partial\phi}{\partial t}\,dx+\phi(b,t)\,\dot b-\phi(a,t)\,\dot a $$
+
+Both results coincide, which confirms the sign convention of the flux term.
+
+**Dimensional check.** If $[\phi]$ denotes the units of the density, then $[d\Phi/dt]=[\phi]\,\mathrm{m^3/s}$, the unsteady term has units $[\phi]\,\mathrm{m^3/s}$, and the flux term has units $[\phi]\cdot(\mathrm{m/s})\cdot\mathrm{m^2}=[\phi]\,\mathrm{m^3/s}$.
+
+**Limiting case.** If $\vec{v}_c=\vec{v}$ at the boundary, the relative velocity vanishes and Eq. 3.8 reduces to the identity $d\Phi_f/dt=d\Phi_c/dt$, as expected for a volume that moves with the fluid.
+
 ## ⚙️ 4. Special Cases of Practical Interest
 
 ### A. Control Volume Fixed in Space ($V_0, \vec{v}_c = 0$)

@@ -502,6 +502,60 @@
         </div>
       </section>
 
+      <section>
+        <h2 class="section-heading">Total Energy: Complete Derivation Chain (Notes.pdf, Eqs. 3.39-3.46)</h2>
+        <h3 class="sub-heading">Step 1: Origin of each term of the First Law (Eq. 3.45)</h3>
+        <p>The total energy of a fluid volume is $\int_{V_f}\rho(e+|\vec{v}|^2/2)\,dV$. Its rate of change equals the power of the forces plus the heat added (First Law). Each contribution is built from an elementary power on a surface element $d\sigma$ or a volume element $dV$.</p>
+        <ul>
+          <li><strong>Surface forces.</strong> The stress vector $(\bar{\bar{\tau}}\cdot\vec{n})\,d\sigma$ acts on material that moves with velocity $\vec{v}$, so its power is $\vec{v}\cdot\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma$. With $\bar{\bar{\tau}}=-p\bar{\bar{I}}+\bar{\bar{\tau}}'$ and $\vec{v}\cdot(p\bar{\bar{I}})\cdot\vec{n}=p\,\vec{v}\cdot\vec{n}$, the total is $-\int p\,\vec{v}\cdot\vec{n}\,d\sigma+\int\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma$.</li>
+          <li><strong>Body force.</strong> The force $\rho\vec{f}_m\,dV$ has power $\rho\vec{f}_m\cdot\vec{v}\,dV$.</li>
+          <li><strong>Heat conduction.</strong> By Eqs. 3.41 and 3.43, $\vec{q}\cdot\vec{n}\,d\sigma$ is the conductive heat leaving through $d\sigma$ (its divergence is the heat loss per unit volume), so the heat added is $-\int\vec{q}\cdot\vec{n}\,d\sigma$.</li>
+          <li><strong>Volumetric sources.</strong> Chemical reaction and radiation add $\int(Q_c+Q_r)\,dV$.</li>
+        </ul>
+        <p>Summing these contributions gives Eq. 3.45:</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_f}\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)dV=-\int_{\Sigma_f}p\,\vec{v}\cdot\vec{n}\,d\sigma+\int_{\Sigma_f}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_f}\rho\vec{f}_m\cdot\vec{v}\,dV-\int_{\Sigma_f}\vec{q}\cdot\vec{n}\,d\sigma+\int_{V_f}(Q_c+Q_r)\,dV $$
+          <div class="math-caption">Eq. 3.45</div>
+        </div>
+        <h3 class="sub-heading">Step 2: Transfer to a moving control volume (Eq. 3.46)</h3>
+        <p>Apply Eq. 3.8 with $\phi=\rho(e+|\vec{v}|^2/2)$ to the left-hand side of Eq. 3.45 and evaluate the right-hand side on $\Sigma_c$ and $V_c$, which coincide with $\Sigma_f$ and $V_f$ at the instant considered. Moving the convective flux to the left gives</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_c}\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)dV+\int_{\Sigma_c}\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]d\sigma=-\int_{\Sigma_c}p\,\vec{v}\cdot\vec{n}\,d\sigma+\int_{\Sigma_c}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_c}\rho\vec{f}_m\cdot\vec{v}\,dV-\int_{\Sigma_c}\vec{q}\cdot\vec{n}\,d\sigma+\int_{V_c}(Q_c+Q_r)\,dV $$
+          <div class="math-caption">Eq. 3.46</div>
+        </div>
+        <h3 class="sub-heading">Step 3: Flow work and specific enthalpy (extension)</h3>
+        <p><strong>Extension, not in the Notes.</strong> For a fixed control volume ($\vec{v}_c=\vec{0}$), move the pressure work to the left-hand side and write $p\,\vec{v}\cdot\vec{n}=(p/\rho)\,\rho\,\vec{v}\cdot\vec{n}$:</p>
+        <div class="math-block">
+          $$ \int_{\Sigma_0}\Big[\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)+p\Big]\vec{v}\cdot\vec{n}\,d\sigma=\int_{\Sigma_0}\rho\Big(e+\frac{p}{\rho}+\frac{|\vec{v}|^2}{2}\Big)\vec{v}\cdot\vec{n}\,d\sigma=\int_{\Sigma_0}\rho\Big(h+\frac{|\vec{v}|^2}{2}\Big)\vec{v}\cdot\vec{n}\,d\sigma $$
+        </div>
+        <p>with $h=e+p/\rho$. The balance for a fixed volume becomes</p>
+        <div class="math-block">
+          $$ \int_{V_0}\frac{\partial}{\partial t}\Big[\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)\Big]dV+\int_{\Sigma_0}\rho\Big(h+\frac{|\vec{v}|^2}{2}\Big)\vec{v}\cdot\vec{n}\,d\sigma=\int_{\Sigma_0}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_0}\rho\vec{f}_m\cdot\vec{v}\,dV-\int_{\Sigma_0}\vec{q}\cdot\vec{n}\,d\sigma+\int_{V_0}(Q_c+Q_r)\,dV $$
+        </div>
+        <p>For a moving boundary, $p\,\vec{v}\cdot\vec{n}=p\,(\vec{v}-\vec{v}_c)\cdot\vec{n}+p\,\vec{v}_c\cdot\vec{n}$. The first part joins the enthalpy flux in the same way and the second part is the work of the pressure on the moving boundary, which stays on the right-hand side.</p>
+        <h3 class="sub-heading">Step 4: Gravity and the total enthalpy $h_0$ (extension)</h3>
+        <p><strong>Extension, not in the Notes.</strong> For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. 3.14 with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.5) lets the body-force power be written as a divergence:</p>
+        <div class="math-block">
+          $$ \rho\vec{f}_m\cdot\vec{v}=-\rho\vec{v}\cdot\nabla(gz)=-\nabla\cdot(\rho\,gz\,\vec{v})+gz\,\nabla\cdot(\rho\vec{v})=-\nabla\cdot(\rho\,gz\,\vec{v}) $$
+        </div>
+        <p>Gauss' theorem converts the volume integral into $-\int_{\Sigma_0}\rho\,gz\,\vec{v}\cdot\vec{n}\,d\sigma$. Moving it to the left-hand side adds $gz$ inside the convective flux:</p>
+        <div class="math-block">
+          $$ \int_{\Sigma_0}\rho\,h_0\,\vec{v}\cdot\vec{n}\,d\sigma,\qquad h_0=h+\frac{|\vec{v}|^2}{2}+gz $$
+        </div>
+        <h3 class="sub-heading">Step 5: Steady engineering energy equation (extension)</h3>
+        <p><strong>Extension, not in the Notes.</strong> For a steady flow in a fixed control volume, split the boundary into ports, stationary solid walls and moving blades.</p>
+        <ul>
+          <li>On stationary walls the no-slip condition gives $\vec{v}=\vec{0}$, so the pressure and viscous work vanish; the heat conducted through the walls defines $\dot Q=-\int_{\text{walls}}\vec{q}\cdot\vec{n}\,d\sigma+\int(Q_c+Q_r)\,dV$.</li>
+          <li>On the moving blades of a machine, the (time-averaged) power of pressure and viscous forces on the fluid is defined as $\dot W_{\text{shaft}}$.</li>
+          <li>At the ports, viscous work and conduction are negligible against convection (high Reynolds and Peclet numbers) and $h_0$, $\rho$, $\vec{v}$ are taken uniform, so $\int_{A_k}\rho h_0\,\vec{v}\cdot\vec{n}\,d\sigma=\dot m_k h_{0,k}$.</li>
+        </ul>
+        <p>The balance of Step 4 then gives the form used in the engineering applications:</p>
+        <div class="math-block">
+          $$ \sum_{\text{out}}|\dot m|\,h_0-\sum_{\text{in}}|\dot m|\,h_0=\dot Q+\dot W_{\text{shaft}} $$
+        </div>
+        <p>Dimensional check: each term has units $\mathrm{kg\,s^{-1}\cdot J\,kg^{-1}}=\mathrm{W}$.</p>
+      </section>
+
       <!-- Section 2: Enthalpy and Stagnation Enthalpy -->
       <section>
         <h2 class="section-heading">2. Flow Work, Enthalpy, and Stagnation Enthalpy ($h_0$)</h2>

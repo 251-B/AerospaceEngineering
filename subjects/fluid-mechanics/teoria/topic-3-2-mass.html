@@ -500,6 +500,63 @@
         </div>
       </section>
 
+      <section>
+        <h2 class="section-heading">Mass Conservation: Complete Derivation Chain (Notes.pdf, Eqs. 3.9-3.11 and 4.4-4.7)</h2>
+        <h3 class="sub-heading">Step 1: Mass balance for an arbitrary moving control volume (Eq. 3.10)</h3>
+        <p>The principle (Eq. 3.9) states that the mass of a fluid volume does not change, $dM/dt=0$ with $M=\int_{V_f(t)}\rho\,dV$. Choose $\phi=\rho$ in the Reynolds Transport Theorem (Eq. 3.8) and replace the left-hand side by zero:</p>
+        <div class="math-block">
+          $$ 0=\frac{d}{dt}\int_{V_f(t)}\rho\,dV=\frac{d}{dt}\int_{V_c(t)}\rho\,dV+\int_{\Sigma_c(t)}\rho\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
+        </div>
+        <p>Moving the flux term to the other side shows the physical meaning: the rate of change of the mass stored in the control volume equals minus the net mass flux out through its boundary, that is, the mass flux entering.</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_c(t)}\rho\,dV=-\int_{\Sigma_c(t)}\rho\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
+          <div class="math-caption">Eq. 3.10, rearranged</div>
+        </div>
+        <h3 class="sub-heading">Step 2: Fixed control volume (Eq. 3.11)</h3>
+        <p>For a fixed volume $V_0$ with surface $\Sigma_0$ we have $\vec{v}_c=\vec{0}$ and the domain does not depend on $t$. The limits of integration are therefore constants, no boundary term appears, and the time derivative passes inside the integral (compare Eq. 3.7 with $\vec{v}_c=\vec{0}$):</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_0}\rho\,dV=\int_{V_0}\frac{\partial\rho}{\partial t}\,dV $$
+        </div>
+        <p>Substituting into Eq. 3.10 with $\vec{v}_c=\vec{0}$ gives</p>
+        <div class="math-block">
+          $$ \int_{V_0}\frac{\partial\rho}{\partial t}\,dV+\int_{\Sigma_0}\rho\,\vec{v}\cdot\vec{n}\,d\sigma=0 $$
+          <div class="math-caption">Eq. 3.11</div>
+        </div>
+        <h3 class="sub-heading">Step 3: Mass flow rate and sign convention</h3>
+        <p>With $\vec{n}$ outward, the algebraic mass flow rate through a part $A$ of the control surface is</p>
+        <div class="math-block">
+          $$ \dot m_A=\int_A\rho\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
+        </div>
+        <p>It is positive at outlets, negative at inlets and zero on impermeable walls, where no fluid crosses the surface and $(\vec{v}-\vec{v}_c)\cdot\vec{n}=0$. Eq. 3.10 then reads $dM_c/dt=-\sum_A\dot m_A$. For a steady flow in a fixed volume the left-hand side vanishes and $\sum\dot m_{\text{out}}=\sum\dot m_{\text{in}}$ (magnitudes). On a port of area $A_k$ with uniform $\rho_k$ and uniform velocity $v_k$ normal to the port, $|\dot m_k|=\rho_kv_kA_k$.</p>
+        <h3 class="sub-heading">Step 4: Differential form (Eqs. 4.4-4.7 of Notes.pdf, Chapter 4)</h3>
+        <p>The following steps belong to Chapter 4 of the Notes and are reproduced here to close the logical chain between the integral and the local statement. Apply Eq. 3.6 with $\phi=\rho$ to Eq. 3.9:</p>
+        <div class="math-block">
+          $$ \int_{V_f(t)}\frac{\partial\rho}{\partial t}\,dV+\int_{\Sigma_f(t)}\rho\,\vec{v}\cdot\vec{n}\,d\sigma=0 $$
+        </div>
+        <p>Gauss' theorem (Eq. 2.9), $\int_\Sigma\vec{A}\cdot\vec{n}\,d\sigma=\int_V\nabla\cdot\vec{A}\,dV$ with $\vec{A}=\rho\vec{v}$, turns the surface integral into a volume integral over the same domain:</p>
+        <div class="math-block">
+          $$ \int_{V_f(t)}\left[\frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\vec{v})\right]dV=0 $$
+          <div class="math-caption">Eq. 4.4</div>
+        </div>
+        <p><strong>Arbitrary-volume argument.</strong> Let $g(\vec{x},t)=\partial\rho/\partial t+\nabla\cdot(\rho\vec{v})$, a continuous function. Eq. 4.4 holds for every fluid volume. Suppose $g(\vec{x}^{*},t)\neq0$ at some point, say $g(\vec{x}^{*},t)\gt0$. By continuity $g\gt0$ in a ball $B_\varepsilon(\vec{x}^{*})$. The fluid volume that occupies this ball at time $t$ then gives $\int_{B_\varepsilon}g\,dV\gt0$, which contradicts Eq. 4.4. The case $g\lt0$ is identical. Hence $g\equiv0$ at every point:</p>
+        <div class="math-block">
+          $$ \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\vec{v})=0 $$
+          <div class="math-caption">Eq. 4.5</div>
+        </div>
+        <p>Expand the divergence, $\nabla\cdot(\rho\vec{v})=\vec{v}\cdot\nabla\rho+\rho\,\nabla\cdot\vec{v}$, and use the material derivative $D\rho/Dt=\partial\rho/\partial t+\vec{v}\cdot\nabla\rho$:</p>
+        <div class="math-block">
+          $$ \frac{1}{\rho}\frac{D\rho}{Dt}=-\nabla\cdot\vec{v} $$
+          <div class="math-caption">Eq. 4.6</div>
+        </div>
+        <p>For a constant-density fluid $D\rho/Dt=0$, so $\nabla\cdot\vec{v}=0$ (Eq. 4.7). For a steady flow of a gas, $\partial\rho/\partial t=0$ and Eq. 4.5 gives $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.8).</p>
+        <h3 class="sub-heading">Step 5: Control volume bounded by a moving free surface (extension)</h3>
+        <p><strong>Extension, not in the Notes.</strong> For a tank, the free surface $z=h(t)$ is part of $\Sigma_c$ and moves with $\vec{v}_c=\dot h\,\vec{e}_z$. It is a material surface (no fluid crosses it), so the kinematic condition $\vec{v}\cdot\vec{n}=\vec{v}_c\cdot\vec{n}$ holds. Therefore $(\vec{v}-\vec{v}_c)\cdot\vec{n}=0$ on it and it contributes no flux to Eq. 3.10. Only the inlet and the outlet contribute. With constant density and a tank of constant horizontal area $A_T$, the stored mass is $\rho A_Th(t)$ and Eq. 3.10 gives</p>
+        <div class="math-block">
+          $$ \rho A_T\frac{dh}{dt}=\rho Q_{\text{in}}-\rho Q_{\text{out}}\;\Longrightarrow\;A_T\frac{dh}{dt}=Q_{\text{in}}-Q_{\text{out}} $$
+        </div>
+        <p>The discharge law $Q_{\text{out}}=A_e\sqrt{2gh}$ (Torricelli) is an input of the problem. It follows from Bernoulli's equation for steady inviscid flow, which is not derived in Topic 3 of the Notes, so it is taken here as an assumption.</p>
+      </section>
+
       <!-- Section 2: Incompressible and 1D Streamtubes -->
       <section>
         <h2 class="section-heading">2. Incompressible Fluids &amp; 1D Streamtubes</h2>

@@ -555,6 +555,58 @@
         </div>
       </section>
 
+      <section>
+        <h2 class="section-heading">Linear Momentum: Complete Derivation Chain (Notes.pdf, Eqs. 3.34-3.36 and 4.9-4.10)</h2>
+        <h3 class="sub-heading">Step 1: Newton's second law for a fluid volume (Eq. 3.34)</h3>
+        <p>The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. 3.19 and 3.22) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. 3.12). Newton's second law gives Eq. 3.34 in terms of the full stress tensor:</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_f(t)}\rho\vec{v}\,dV=\int_{\Sigma_f(t)}\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma+\int_{V_f(t)}\rho\vec{f}_m\,dV $$
+          <div class="math-caption">Eq. 3.34</div>
+        </div>
+        <p>Insert the decomposition $\bar{\bar{\tau}}=-p\bar{\bar{I}}+\bar{\bar{\tau}}'$ (Eq. 3.28). Because $(p\bar{\bar{I}})\cdot\vec{n}=p\vec{n}$,</p>
+        <div class="math-block">
+          $$ \int_{\Sigma}\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma=-\int_{\Sigma}p\,\vec{n}\,d\sigma+\int_{\Sigma}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma $$
+        </div>
+        <p>so the right-hand side splits into a pressure force, a viscous force and a body force. This is the form of the right-hand side of Eq. 3.35 (and of Eq. 4.2).</p>
+        <h3 class="sub-heading">Step 2: Transfer to a moving control volume (Eq. 3.35)</h3>
+        <p>Eq. 3.8 holds for each Cartesian component of the vector density $\vec{\phi}=\rho\vec{v}$:</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_f(t)}\rho\vec{v}\,dV=\frac{d}{dt}\int_{V_c(t)}\rho\vec{v}\,dV+\int_{\Sigma_c(t)}\rho\vec{v}\,\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]\,d\sigma $$
+        </div>
+        <p>At the instant considered $V_c=V_f$ and $\Sigma_c=\Sigma_f$, so the force integrals of Step 1 can be evaluated on $\Sigma_c$ and $V_c$. Equating the right-hand side of Step 1 to the right-hand side above and moving the convective flux to the other side gives Eq. 3.35:</p>
+        <div class="math-block">
+          $$ \frac{d}{dt}\int_{V_c(t)}\rho\vec{v}\,dV+\int_{\Sigma_c(t)}\rho\vec{v}\,\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]\,d\sigma=-\int_{\Sigma_c(t)}p\,\vec{n}\,d\sigma+\int_{\Sigma_c(t)}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_c(t)}\rho\vec{f}_m\,dV $$
+          <div class="math-caption">Eq. 3.35</div>
+        </div>
+        <h3 class="sub-heading">Step 3: Fixed control volume (Eq. 3.36)</h3>
+        <p>For a fixed volume $\vec{v}_c=\vec{0}$, the domain is constant and $d/dt$ passes inside the integral (see the mass section). The convective term becomes $\rho\vec{v}(\vec{v}\cdot\vec{n})$:</p>
+        <div class="math-block">
+          $$ \int_{V_0}\frac{\partial(\rho\vec{v})}{\partial t}\,dV+\int_{\Sigma_0}\rho\vec{v}\,(\vec{v}\cdot\vec{n})\,d\sigma=-\int_{\Sigma_0}p\,\vec{n}\,d\sigma+\int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_0}\rho\vec{f}_m\,dV $$
+          <div class="math-caption">Eq. 3.36</div>
+        </div>
+        <h3 class="sub-heading">Step 4: Reduction to uniform ports (extension)</h3>
+        <p><strong>Extension, not in the Notes.</strong> On a port $A_k$ of a fixed control volume where $\rho_k$ and $\vec{v}_k$ are uniform and $\vec{v}_k$ is normal to the port, the momentum flux integral is evaluated without approximation:</p>
+        <div class="math-block">
+          $$ \int_{A_k}\rho\vec{v}\,(\vec{v}\cdot\vec{n})\,d\sigma=\rho_k\vec{v}_k\,(\vec{v}_k\cdot\vec{n})\,A_k=\dot m_k\,\vec{v}_k,\qquad \dot m_k=\rho_k(\vec{v}_k\cdot\vec{n})A_k $$
+        </div>
+        <p>where $\dot m_k$ is negative at inlets (algebraic convention of the mass section). On impermeable walls $\vec{v}\cdot\vec{n}=0$ and the flux vanishes. For steady flow Eq. 3.36 becomes</p>
+        <div class="math-block">
+          $$ \sum_k\dot m_k\vec{v}_k=\sum_{\text{out}}|\dot m|\,\vec{v}-\sum_{\text{in}}|\dot m|\,\vec{v}=-\int_{\Sigma_0}p\,\vec{n}\,d\sigma+\int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_0}\rho\vec{f}_m\,dV $$
+        </div>
+        <p>This is the "outgoing minus incoming momentum flux equals the sum of forces" statement used in the five-stage algorithm. If the velocity profile at a port is not uniform, the true flux $\int\rho v^2\,dA$ exceeds $\dot m\,\bar v$ and a momentum-flux correction coefficient is needed.</p>
+        <h3 class="sub-heading">Step 5: Differential momentum equation (Eq. 4.9) and consistency with Eq. 3.25</h3>
+        <p>Apply Eq. 3.6 to Eq. 3.34 with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives</p>
+        <div class="math-block">
+          $$ \frac{\partial(\rho\vec{v})}{\partial t}+\nabla\cdot(\rho\vec{v}\vec{v})=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m $$
+          <div class="math-caption">Eq. 4.9</div>
+        </div>
+        <p>Expand component $i$ of the left-hand side with the product rule:</p>
+        <div class="math-block">
+          $$ \frac{\partial(\rho v_i)}{\partial t}+\frac{\partial(\rho v_iv_j)}{\partial x_j}=v_i\left[\frac{\partial\rho}{\partial t}+\frac{\partial(\rho v_j)}{\partial x_j}\right]+\rho\left[\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}\right]=0+\rho\frac{Dv_i}{Dt} $$
+        </div>
+        <p>The first bracket vanishes by the continuity equation (Eq. 4.5). Hence $\rho\,D\vec{v}/Dt=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m$ (Eq. 4.10), which is Eq. 3.25 with $\nabla\cdot(-p\bar{\bar{I}})=-\nabla p$. The integral law (Eq. 3.35) and Cauchy's local law (Eq. 3.25) are therefore the same statement.</p>
+      </section>
+
       <!-- Section 2: Gauge Pressure Trick & Reaction Forces -->
       <section>
         <h2 class="section-heading">2. The Gauge Pressure Trick &amp; Solid vs Fluid Conventions</h2>
@@ -742,6 +794,52 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <h2 class="section-heading">Wake Momentum Integral: Every Step of the Drag Formula</h2>
+        <p>This section expands the derivation of the wake-deficit drag integral of the airfoil example (profile $v(y)=v_\infty[1-\delta(y)]$, $\delta(y)=\Delta(1-|y|/b)$ for $|y|\le b$, and $v=v_\infty$ outside). It is an application of Eq. 3.36 and Eq. 3.11 (extension, not in the Notes). Per unit span, steady incompressible flow.</p>
+        <h3 class="sub-heading">Step 1: Control volume and momentum equation</h3>
+        <p>Take the fixed rectangle $-L\le x\le L$, $-H\le y\le H$ with $H\gt b$, from which the airfoil is excluded, so the airfoil surface is part of the boundary. There $\vec{v}\cdot\vec{n}=0$ (no flux through a solid wall) and the fluid receives the force $-D\,\vec{e}_x$, where $D$ is the drag of the fluid on the airfoil. Pressure equals $p_\infty$ on the outer boundary, whose net force vanishes (the gauge-pressure argument of the text), and viscous stresses and body forces on the outer boundary are neglected. The $x$ component of Eq. 3.36 for steady flow gives</p>
+        <div class="math-block">
+          $$ -D=\int_{\Sigma_0}\rho\,v_x\,(\vec{v}\cdot\vec{n})\,d\sigma $$
+        </div>
+        <h3 class="sub-heading">Step 2: Mass flux through each side</h3>
+        <p>Inlet $x=-L$: $\vec{n}=-\vec{e}_x$, $v_x=v_\infty$. Outlet $x=L$: $\vec{n}=+\vec{e}_x$, $v_x=v(y)$ and the wake occupies $|y|\le b$. Top and bottom $y=\pm H$: fluid leaves through them with total mass flow $\dot m_{\text{lat}}$ and with axial velocity $v_x\approx v_\infty$ (outside the wake the streamlines are only slightly displaced; this is the assumption of the example). Eq. 3.11 in steady state states that the outflow equals the inflow:</p>
+        <div class="math-block">
+          $$ \underbrace{\rho v_\infty\,2H}_{\text{in}}=\underbrace{\rho v_\infty(2H-2b)+\rho\int_{-b}^{b}v\,dy}_{\text{outlet}}+\dot m_{\text{lat}}\;\Longrightarrow\;\dot m_{\text{lat}}=\rho\int_{-b}^{b}\big(v_\infty-v\big)\,dy $$
+        </div>
+        <p>The outlet mass flow has been split into the uniform part outside the wake, of total width $2H-2b$, and the wake itself. This is the lateral leakage that a rigid rectangular control volume must include.</p>
+        <h3 class="sub-heading">Step 3: Momentum flux through each side</h3>
+        <p>The three contributions to the right-hand side of the momentum equation are</p>
+        <div class="math-block">
+          $$ \text{inlet: }-\rho v_\infty^{2}\,2H,\qquad \text{outlet: }\rho v_\infty^{2}(2H-2b)+\rho\int_{-b}^{b}v^{2}\,dy,\qquad \text{lateral: }\dot m_{\text{lat}}\,v_\infty $$
+        </div>
+        <p>Adding them and substituting $\dot m_{\text{lat}}$ from Step 2:</p>
+        <div class="math-block">
+          $$ -D=-2H\rho v_\infty^{2}+(2H-2b)\rho v_\infty^{2}+\rho\int_{-b}^{b}v^{2}\,dy+\rho v_\infty\int_{-b}^{b}(v_\infty-v)\,dy $$
+        </div>
+        <p>The terms in $H$ cancel. Using $\int_{-b}^{b}v_\infty^{2}\,dy=2b\,v_\infty^{2}$ to cancel the remaining constant $-2b\rho v_\infty^{2}$:</p>
+        <div class="math-block">
+          $$ -D=\rho\int_{-b}^{b}\big(v^{2}-v_\infty v\big)\,dy\;\Longrightarrow\;D=\rho\int_{-b}^{b}v\,(v_\infty-v)\,dy $$
+        </div>
+        <h3 class="sub-heading">Step 4: Evaluation of the integral with explicit limits</h3>
+        <p>Since $v=v_\infty(1-\delta)$ and $v_\infty-v=v_\infty\delta$, the integrand is $v_\infty^{2}(1-\delta)\delta$. It is even in $y$, so</p>
+        <div class="math-block">
+          $$ D=2\rho v_\infty^{2}\int_{0}^{b}\big(\delta-\delta^{2}\big)\,dy,\qquad \delta(y)=\Delta\Big(1-\frac{y}{b}\Big) $$
+        </div>
+        <p>Substitute $\xi=1-y/b$, so that $\delta=\Delta\xi$ and $dy=-b\,d\xi$. The limits are $y=0\Rightarrow\xi=1$ and $y=b\Rightarrow\xi=0$. Applying Barrow's rule after reversing the limits:</p>
+        <div class="math-block">
+          $$ \int_{0}^{b}\delta\,dy=\int_{\xi=1}^{\xi=0}\Delta\xi\,(-b\,d\xi)=\Delta b\int_{0}^{1}\xi\,d\xi=\Delta b\left[\frac{\xi^{2}}{2}\right]_{0}^{1}=\frac{\Delta b}{2} $$
+        </div>
+        <div class="math-block">
+          $$ \int_{0}^{b}\delta^{2}\,dy=\Delta^{2}b\int_{0}^{1}\xi^{2}\,d\xi=\Delta^{2}b\left[\frac{\xi^{3}}{3}\right]_{0}^{1}=\frac{\Delta^{2}b}{3} $$
+        </div>
+        <p>Therefore</p>
+        <div class="math-block">
+          $$ D=2\rho v_\infty^{2}\left(\frac{\Delta b}{2}-\frac{\Delta^{2}b}{3}\right)=\rho v_\infty^{2}\,b\,\Delta\left(1-\frac{2}{3}\Delta\right) $$
+        </div>
+        <p><strong>Checks.</strong> Dimensions: $[\rho v_\infty^{2}b]=\mathrm{kg\,m^{-3}\,m^{2}s^{-2}\,m}=\mathrm{N/m}$, a force per unit span, as required. Limit $\Delta\to0$ gives $D\to0$ (no wake, no drag). Limit $\Delta\to1$ gives $D\to\rho v_\infty^{2}b/3$, finite and positive.</p>
       </section>
 
       <!-- Bottom Navigation -->
