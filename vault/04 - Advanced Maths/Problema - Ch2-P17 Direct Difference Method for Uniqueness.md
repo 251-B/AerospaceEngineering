@@ -5,165 +5,123 @@ origen: "ProblemsCh2.pdf — Exercise 2.17"
 dificultad: media
 tags:
   - problema-resuelto
-  - metodo-de-la-diferencia
-  - metodo-de-energia
-  - existencia-inspeccion
-  - unicidad-lineal
+  - uniqueness
+  - existence
+  - difference-method
+  - energy-method
+  - linear-odes
 ---
 
-# ✏️ Problem 2.17: Direct Difference Method for Uniqueness
+# Problem 2.17: Direct Difference Method for Uniqueness
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 17 (page 4). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Show existence and uniqueness for the initial value problem (IVP):
-$$ \frac{dy}{dt} + ay = 0, \quad y(t_0) = y_0 $$
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Section 5.2 (general solutions and initial conditions) and Section 9.1 (constant coefficients).
+
+## Problem Statement
+
+Show existence and uniqueness for the initial value problem (IVP)
+
+$$
+\frac{dy}{dt} + a\,y = 0, \qquad y(t_0) = y_0.
+$$
+
 For existence, just find a solution by inspection. Then suppose that there are two different solutions and argue that they have to be the same by taking their difference.
 
 ---
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+## Phase 1: Classification, Hypotheses and Domain
 
-### Mathematical Setting:
-* **Differential Equation:** $y'(t) + a y(t) = 0$ (linear homogeneous with constant parameter $a \in \mathbb{R}$).
-* **Initial Condition:** $y(t_0) = y_0 \in \mathbb{R}$.
-* **Objective:**
-  1. Prove **existence** by verifying an explicit candidate solution found by inspection.
-  2. Prove **uniqueness** by analyzing the difference $w(t) = y_1(t) - y_2(t)$ between two arbitrary solutions without invoking the general Picard-Lindelöf theorem.
+Data: a constant $a \in \mathbb{R}$ (of either sign), an initial time $t_0$ and an initial value $y_0 \in \mathbb{R}$. A solution is a differentiable function $y: \mathbb{R} \to \mathbb{R}$ with $y' + a y = 0$ and $y(t_0) = y_0$. This is a special case of $y' + p(t)y = 0$ with $p \equiv a$ continuous, so the result also follows from Problem 2.10 or from Picard's theorem; here we are asked for a direct proof.
+
+We prove two statements: (E) a solution exists, (U) two solutions of the same IVP coincide. Tools allowed: differentiation, linearity of the derivative, and the fact that a function with zero derivative on an interval is constant (Mean Value Theorem).
 
 ---
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
+## Phase 2: Choice of Method and Change of Variables
 
-```mermaid
-flowchart TD
-    IVP["IVP: y' + ay = 0, y(t₀) = y₀"] --> Exist["1. Existence: Propose y(t) = y₀ e^(-a(t - t₀)) by inspection"]
-    Exist --> Check["Verify ODE & Initial Condition => Existence PROVED"]
-    
-    IVP --> Uniq["2. Uniqueness: Suppose y₁(t) and y₂(t) are two solutions"]
-    Uniq --> Diff["Define Difference: w(t) = y₁(t) - y₂(t)"]
-    Diff --> Homog["w' + aw = 0, with w(t₀) = 0"]
-    Homog --> Energy["Method A: Energy Function E(t) = [w(t)]² >= 0"]
-    Energy --> Dissip["dE/dt = -2a E(t) => d/dt[E e^(2a(t-t₀))] = 0 => E(t) = E(t₀) e^(-2a(t-t₀))"]
-    Dissip --> Zero["E(t₀) = 0 => E(t) ≡ 0 => w(t) ≡ 0 => y₁(t) ≡ y₂(t)"]
-```
+Existence by inspection: the exponential function reproduces itself under differentiation up to a constant factor, which is exactly the behavior required by $y' = -a\,y$. We propose $y(t) = y_0 e^{-a(t - t_0)}$ and verify it.
 
-1. **Existence by Inspection:** The exponential function $e^{-at}$ satisfies $\frac{d}{dt}(e^{-at}) = -a e^{-at}$. Scaling by $y_0$ and shifting time by $t_0$ yields the candidate $y(t) = y_0 e^{-a(t - t_0)}$.
-2. **Uniqueness via the Difference Method:**
-   * Assume two hypothetical solutions $y_1(t)$ and $y_2(t)$ exist for the same initial data.
-   * Define the error/difference function $w(t) \equiv y_1(t) - y_2(t)$.
-   * By linearity of the differential operator, $w(t)$ satisfies the identical homogeneous ODE with a **zero initial condition**: $w(t_0) = 0$.
-   * Construct an energy functional $E(t) = [w(t)]^2$ (or apply an integrating factor to $w$) to prove that $w(t) \equiv 0$ for all $t$.
-   * Conclude that $y_1(t) \equiv y_2(t)$, proving uniqueness.
+Uniqueness by the difference: since the equation is linear and homogeneous, the difference of two solutions solves the same equation with zero initial data. So it is enough to prove that the only solution of $w' + a w = 0$, $w(t_0) = 0$, is $w \equiv 0$. Two routes are given.
+
+- Approach A (squared difference): $E = w^2 \geq 0$ satisfies $E' = -2a\,E$, and $\left(E\,e^{2a(t-t_0)}\right)' = 0$.
+- Approach B (integrating factor): $\left(w\,e^{a(t-t_0)}\right)' = 0$ directly.
+
+In both approaches we must not write down the solution formula of the equation for $w$ or $E$, because that formula presupposes the uniqueness we are proving. We only differentiate a product and apply the Mean Value Theorem.
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 3: Step-by-Step Derivation
 
-### Step 1: Proof of Existence by Inspection
+### Existence
 
-#### Propose Candidate Solution:
-Consider the trial function:
-$$ y(t) = y_0 e^{-a(t - t_0)} \tag{1} $$
+Candidate: $y(t) = y_0\,e^{-a(t - t_0)}$. Initial condition: $y(t_0) = y_0 e^{0} = y_0$. Differentiate with the chain rule, $\frac{d}{dt}\left[-a(t - t_0)\right] = -a$:
 
-#### Verification of Initial Condition:
-Evaluate equation $(1)$ at $t = t_0$:
-$$ y(t_0) = y_0 e^{-a(t_0 - t_0)} = y_0 e^0 = y_0 \cdot 1 = y_0 \quad \checkmark $$
+$$
+y'(t) = y_0\,e^{-a(t-t_0)}\cdot(-a) = -a\,y(t) \quad\Longrightarrow\quad y'(t) + a\,y(t) = 0 \quad \forall t \in \mathbb{R}.
+$$
 
-#### Verification of Differential Equation:
-Differentiate $y(t)$ with respect to $t$ using the chain rule:
-$$ \frac{dy}{dt} = \frac{d}{dt}\left[ y_0 e^{-a(t - t_0)} \right] = y_0 \left( -a e^{-a(t - t_0)} \right) = -a \left[ y_0 e^{-a(t - t_0)} \right] = -a y(t) $$
-Substitute into the left-hand side of the ODE:
-$$ \frac{dy}{dt} + a y(t) = -a y(t) + a y(t) \equiv 0 \quad \forall t \in \mathbb{R} \quad \checkmark $$
-Because $y(t) = y_0 e^{-a(t - t_0)}$ is continuously differentiable and satisfies both the equation and the initial state, **existence is completely proved**. $\blacksquare$
+So $y$ is a solution and existence is proved.
 
----
+### Uniqueness: the difference
 
-### Step 2: Proof of Uniqueness via the Difference Method
+Let $y_1, y_2$ be two solutions of the same IVP and define $w = y_1 - y_2$. Then $w(t_0) = y_0 - y_0 = 0$, and by linearity of the derivative
 
-#### Definition of the Error State:
-Suppose there exist two solutions $y_1(t)$ and $y_2(t)$ satisfying the same IVP:
-$$ \begin{cases} y_1'(t) + a y_1(t) = 0, & y_1(t_0) = y_0 \\ y_2'(t) + a y_2(t) = 0, & y_2(t_0) = y_0 \end{cases} \tag{2} $$
+$$
+w' + a\,w = (y_1' + a y_1) - (y_2' + a y_2) = 0 - 0 = 0.
+$$
 
-Define their difference:
-$$ w(t) \equiv y_1(t) - y_2(t) \tag{3} $$
+### Approach A: squared difference
 
-#### Initial State of the Difference:
-$$ w(t_0) = y_1(t_0) - y_2(t_0) = y_0 - y_0 = 0 \tag{4} $$
+Let $E(t) = w(t)^2 \geq 0$. By the chain rule, $E' = 2\,w\,w'$, and using $w' = -a\,w$:
 
-#### Governing ODE for the Difference:
-Differentiate $w(t)$:
-$$ w'(t) = y_1'(t) - y_2'(t) $$
-From $(2)$, substitute $y_1' = -a y_1$ and $y_2' = -a y_2$:
-$$ w'(t) = -a y_1(t) - (-a y_2(t)) = -a \left[ y_1(t) - y_2(t) \right] = -a w(t) $$
-Rearranging:
-$$ \mathbf{w'(t) + a w(t) = 0} \tag{5} $$
+$$
+E' = 2w\,(-a\,w) = -2a\,w^2 = -2a\,E, \qquad\text{i.e.}\quad E' + 2a\,E = 0.
+$$
 
-We now show that $w(t) \equiv 0$ using two independent mathematical techniques:
+Multiply by $e^{2a(t - t_0)}$ and use the product rule:
 
----
+$$
+\frac{d}{dt}\left[E(t)\,e^{2a(t-t_0)}\right] = \left(E' + 2a\,E\right)e^{2a(t-t_0)} = 0.
+$$
 
-#### Approach A: The Energy / Lyapunov Functional Method
-Define the scalar "energy" of the error:
-$$ E(t) \equiv [w(t)]^2 \ge 0 \tag{6} $$
-$E(t)$ is non-negative and vanishes if and only if $w(t) = 0$.
+By the Mean Value Theorem, $E(t)\,e^{2a(t-t_0)}$ is constant, equal to its value at $t_0$, which is $E(t_0)\,e^{0} = w(t_0)^2 = 0$. Since $e^{2a(t-t_0)} > 0$, we can divide:
 
-Differentiate $E(t)$ with respect to time using the chain rule:
-$$ \frac{dE}{dt} = \frac{d}{dt}\left[ w(t)^2 \right] = 2 w(t) w'(t) $$
-Substitute $w'(t) = -a w(t)$ from equation $(5)$:
-$$ \frac{dE}{dt} = 2 w(t) \left[ -a w(t) \right] = -2a [w(t)]^2 = -2a E(t) \tag{7} $$
+$$
+E(t) = 0 \quad \forall t \in \mathbb{R}, \qquad\text{so}\quad w(t)^2 = 0 \ \Longrightarrow\ w(t) = 0.
+$$
 
-Equation $(7)$ is a first-order linear ODE for $E(t)$:
-$$ \frac{dE}{dt} + 2a E(t) = 0 $$
-We must not simply write down its solution $E(t_0)e^{-2a(t-t_0)}$: that formula presupposes that the solution of this IVP is unique, which is what is being proved. Instead multiply by $e^{2a(t - t_0)}$ and use the product and chain rules:
-$$ \frac{d}{dt}\left[ E(t)\, e^{2a(t - t_0)} \right] = \left( \frac{dE}{dt} + 2a E(t) \right) e^{2a(t - t_0)} = 0 $$
-A function with zero derivative on an interval is constant (Mean Value Theorem), so for all $t \in \mathbb{R}$:
-$$ E(t)\, e^{2a(t - t_0)} = E(t_0)\, e^{0} = E(t_0) \tag{8} $$
+This holds for either sign of $a$. The shorter argument 'E decreases and is non-negative, hence zero' would only work for $a \geq 0$ and forward in time, which is why the product $E\,e^{2a(t-t_0)}$ is used.
 
-Evaluate at the initial time $t = t_0$:
-From $(4)$, $w(t_0) = 0$, so:
-$$ E(t_0) = [w(t_0)]^2 = 0^2 = 0 $$
+### Approach B: integrating factor on $w$
 
-Substitute $E(t_0) = 0$ into equation $(8)$ and divide by $e^{2a(t - t_0)} > 0$:
-$$ E(t) = 0 \cdot e^{-2a(t - t_0)} \equiv 0 \quad \forall t \in \mathbb{R} \tag{9} $$
-This holds for every sign of $a$. (Note that $\frac{dE}{dt} = -2aE \le 0$ would only hold for $a \ge 0$, so the shortcut "$E$ is non-increasing, hence $E \equiv 0$" is valid only forward in time and for $a \ge 0$.)
+Multiply $w' + a w = 0$ by $e^{a(t-t_0)}$:
 
-Since $E(t) = [w(t)]^2 \equiv 0$, the square of a real number is zero if and only if the number itself is zero:
-$$ w(t) \equiv 0 \quad \forall t \in \mathbb{R} \tag{10} $$
+$$
+\frac{d}{dt}\left[w(t)\,e^{a(t-t_0)}\right] = \left(w' + a\,w\right)e^{a(t-t_0)} = 0.
+$$
 
-From the definition of $w(t) = y_1(t) - y_2(t)$:
-$$ y_1(t) - y_2(t) = 0 \implies \mathbf{y_1(t) \equiv y_2(t) \quad \forall t \in \mathbb{R}} $$
-Therefore, the two solutions must be identical, proving **uniqueness**. $\blacksquare$
+By the Mean Value Theorem $w(t)\,e^{a(t-t_0)} = w(t_0)\,e^{0} = 0$, and since the exponential never vanishes, $w(t) = 0$ for all $t$.
+
+In both approaches $w \equiv 0$, i.e. $y_1 \equiv y_2$. Uniqueness is proved.
 
 ---
 
-#### Approach B: Direct Integrating Factor Transformation
-Multiply equation $(5)$ by the integrating factor $e^{a(t - t_0)}$:
-$$ e^{a(t - t_0)} w'(t) + a e^{a(t - t_0)} w(t) = 0 $$
-$$ \frac{d}{dt} \left[ w(t) e^{a(t - t_0)} \right] = 0 $$
-By the Mean Value Theorem:
-$$ w(t) e^{a(t - t_0)} = C $$
-At $t = t_0$:
-$$ C = w(t_0) e^0 = 0 \cdot 1 = 0 $$
-Thus:
-$$ w(t) e^{a(t - t_0)} = 0 $$
-Since $e^{a(t - t_0)} > 0$ never vanishes, divide by $e^{a(t - t_0)}$:
-$$ w(t) \equiv 0 \implies \mathbf{y_1(t) \equiv y_2(t)} \quad \blacksquare $$
+## Phase 4: Verification, Limits and Interpretation
+
+Numerical sanity check: $a = 2$, $t_0 = 1$, $y_0 = 3$: $y(t) = 3e^{-2(t-1)}$, $y(1) = 3$, $y'(t) = -6e^{-2(t-1)} = -2y$. For $a = -1.5$ the same formula gives exponential growth, and the uniqueness argument is unchanged.
+
+Why the restriction to the difference is legitimate: linearity. For a non-linear equation, the difference of two solutions would not solve the same equation and more work (a Lipschitz estimate or Gronwall's inequality) would be needed, which is the content of Picard's theorem.
+
+Relation to other exercises: Approach B is exactly the proof of Problem 2.10 with $p \equiv a$ and $y_0 = 0$; Approach A uses the quantity $w^2$, the one-dimensional analogue of an energy functional.
+
+#### Result
+
+Existence: $y(t) = y_0\,e^{-a(t-t_0)}$. Uniqueness: the difference $w$ of two solutions satisfies $w' + a w = 0$, $w(t_0) = 0$, and both $\left(w^2 e^{2a(t-t_0)}\right)' = 0$ and $\left(w\,e^{a(t-t_0)}\right)' = 0$ force $w \equiv 0$.
 
 ---
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+## Related Notes
 
-### Master Summary:
-1. **Existence:** Verified by direct inspection:
-   $$ \mathbf{y(t) = y_0 e^{-a(t - t_0)}} $$
-2. **Uniqueness:** Proved via the difference function $w = y_1 - y_2$:
-   $$ w' + aw = 0, \quad w(t_0) = 0 \implies [w(t)]^2 = 0 \implies \mathbf{y_1(t) \equiv y_2(t)} $$
-
-### Aerospace & Mechanical Significance (The Energy Method):
-The direct difference and energy method illustrated here ($\frac{d}{dt} [w^2] = -2a w^2$) is the 1D prototype of the **Energy Method in Continuum Mechanics and Partial Differential Equations (PDEs)**. In fluid mechanics and aeroelastic wing flutter, uniqueness of the Navier-Stokes velocity field or beam deflection is proven not by Picard iteration, but by demonstrating that the $L^2$-energy norm of the perturbation $\int_\Omega \|\vec{u}_1 - \vec{u}_2\|^2 d\Omega$ dissipates to zero.
-
----
-
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Uniqueness Theory]]
-* [[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Integrating Transformation Uniqueness]]
+- [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard theorem and well-posedness]]
+- [[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: uniqueness via an integrating transformation]]

@@ -5,131 +5,123 @@ origen: "ProblemsCh2.pdf — Exercise 2.8"
 dificultad: media
 tags:
   - problema-resuelto
-  - ecuacion-bernoulli
-  - reduccion-lineal
-  - cambio-variable
+  - bernoulli-equation
+  - change-of-variables
+  - integrating-factor
+  - linear-reduction
 ---
 
-# ✏️ Problem 2.8: General Bernoulli Equation Reduction
+# Problem 2.8: General Bernoulli Equation Reduction
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 8 (page 2). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Show that the Bernoulli equation:
-$$ y'(x) = a(x) y(x) + b(x) y(x)^\alpha $$
-where $\alpha \neq 0, 1$, can be transformed into a linear ODE with the change of variable $z(x) = y(x)^{1 - \alpha}$ and find the solution. What happens if $\alpha = 0$ or $\alpha = 1$?
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 10, Section 10.2 (substitution methods) and Section 9.2 (integrating factors).
 
----
+## Problem Statement
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+Show that the Bernoulli equation
 
-### Mathematical Structure:
-* **Bernoulli ODE:** $\frac{dy}{dx} - a(x) y = b(x) y^\alpha$.
-* **Coefficient functions:** $a(x), b(x) \in C^0(I)$.
-* **Parameter:** Exponent $\alpha \in \mathbb{R}$.
-* **Prescribed Transformation:** $z(x) \equiv [y(x)]^{1 - \alpha}$.
+$$
+y'(x) = a(x)\,y(x) + b(x)\,y(x)^{\alpha},
+$$
 
----
-
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
-
-1. For $\alpha \neq 0, 1$, the equation is nonlinear due to $y^\alpha$.
-2. Divide the ODE by $y^\alpha$ to create the leading term $y^{-\alpha} y'$.
-3. Differentiate the proposed transformation $z(x) = y^{1-\alpha}$ using the chain rule:
-   $$ z'(x) = (1 - \alpha) y^{-\alpha} y'(x) \implies y^{-\alpha} y' = \frac{z'}{1 - \alpha} $$
-4. Substitute $z$ and $z'$ into the equation to yield a standard first-order **linear ODE** in $z(x)$.
-5. Formulate the general solution for $z(x)$ using an integrating factor and invert to obtain $y(x) = [z(x)]^{\frac{1}{1-\alpha}}$.
-6. Analyze the degenerate cases $\alpha = 0$ and $\alpha = 1$, demonstrating why they are already linear without transformation.
+where $\alpha \neq 0, 1$, can be transformed into a linear ODE with the change of variable $z(x) = y(x)^{1-\alpha}$ and find the solution. What happens if $\alpha = 0$ or $\alpha = 1$?
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 1: Classification, Hypotheses and Domain
 
-### Step 1: Algebraic Division by $y^\alpha$
-Starting from:
-$$ \frac{dy}{dx} - a(x) y = b(x) y^\alpha \tag{1} $$
+Assume $a$ and $b$ are continuous on an interval $I$ and $\alpha \in \mathbb{R}$, $\alpha \neq 0, 1$. The power $y^{\alpha}$ and $y^{1-\alpha}$ must make sense, so we work with $y > 0$ (for rational $\alpha$ with odd denominators other branches can be treated analogously). On $y > 0$, $f(x,y) = a y + b y^{\alpha}$ and $\partial f/\partial y = a + \alpha b\,y^{\alpha-1}$ are continuous, so IVPs with $y(x_0) = y_0 > 0$ have unique local solutions.
 
-Assuming $y(x) \neq 0$, divide both sides of $(1)$ by $y^\alpha$:
-$$ y^{-\alpha} \frac{dy}{dx} - a(x) \frac{y}{y^\alpha} = b(x) $$
-Using laws of exponents $\frac{y}{y^\alpha} = y^{1 - \alpha}$:
-$$ y^{-\alpha} \frac{dy}{dx} - a(x) y^{1 - \alpha} = b(x) \tag{2} $$
+The equation is non-linear because $y^{\alpha}$ with $\alpha \neq 0, 1$ is not affine in $y$. When $\alpha > 0$, $y \equiv 0$ is also a solution; it is excluded by the assumption $y > 0$ and has to be added by hand (for $0 < \alpha < 1$ uniqueness at $y = 0$ may fail, as in Problem 2.14).
 
 ---
 
-### Step 2: Differentiation of the Substitution $z(x)$
-Define the new dependent variable:
-$$ z(x) \equiv [y(x)]^{1 - \alpha} \tag{3} $$
+## Phase 2: Choice of Method and Change of Variables
 
-Differentiating with respect to $x$ via the chain rule:
-$$ \frac{dz}{dx} = \frac{d}{dx}\left[ y(x)^{1 - \alpha} \right] = (1 - \alpha) y(x)^{(1 - \alpha) - 1} \frac{dy}{dx} $$
-$$ \frac{dz}{dx} = (1 - \alpha) y(x)^{-\alpha} \frac{dy}{dx} \tag{4} $$
+Why this substitution: dividing by $y^{\alpha}$ gives $y^{-\alpha}y' = a\,y^{1-\alpha} + b$, where the left side is, up to a constant factor, the derivative of $y^{1-\alpha}$ and the right side contains $y^{1-\alpha}$ linearly. So the natural unknown is $z = y^{1-\alpha}$.
 
-Since $\alpha \neq 1$, the factor $(1 - \alpha) \neq 0$. Dividing equation $(4)$ by $(1 - \alpha)$:
-$$ y^{-\alpha} \frac{dy}{dx} = \frac{1}{1 - \alpha} \frac{dz}{dx} \tag{5} $$
+Change of variables written explicitly: $z = y^{1-\alpha}$, $\ z' = (1-\alpha)\,y^{-\alpha}\,y'$ (chain rule), $\ y = z^{1/(1-\alpha)}$.
 
 ---
 
-### Step 3: Linearized Differential Equation in $z(x)$
-Substitute $(3)$ and $(5)$ directly into $(2)$:
-$$ \frac{1}{1 - \alpha} \frac{dz}{dx} - a(x) z(x) = b(x) $$
+## Phase 3: Step-by-Step Derivation
 
-Multiply the entire equation by the non-zero scalar $(1 - \alpha)$:
-$$ \mathbf{\frac{dz}{dx} - (1 - \alpha) a(x) z(x) = (1 - \alpha) b(x)} \tag{6} $$
+### Step 1: derive the linear equation
 
-Equation $(6)$ is in canonical linear standard form $z' + P(x) z = Q(x)$ with:
-$$ P(x) = -(1 - \alpha) a(x), \quad Q(x) = (1 - \alpha) b(x) $$
-This completes the proof of linear transformation. $\blacksquare$
+Differentiate $z = y^{1-\alpha}$ with the chain rule and substitute the equation for $y'$:
 
----
+$$
+z' = (1-\alpha)\,y^{-\alpha}\,y' = (1-\alpha)\,y^{-\alpha}\left(a\,y + b\,y^{\alpha}\right) = (1-\alpha)\left(a\,y^{1-\alpha} + b\right).
+$$
 
-### Step 4: Analytical General Solution
-1. **Integrating Factor for $z(x)$:**
-   $$ \mu(x) = \exp\left( \int -(1 - \alpha) a(x) \, dx \right) = \exp\left( (\alpha - 1) \int a(x) \, dx \right) \tag{7} $$
-2. **Total Derivative:**
-   $$ \frac{d}{dx} \left[ z(x) \mu(x) \right] = (1 - \alpha) b(x) \mu(x) $$
-3. **Quadrature:**
-   $$ z(x) = \frac{1}{\mu(x)} \left[ (1 - \alpha) \int b(x) \mu(x) \, dx + C \right] \tag{8} $$
-4. **Recovery of Original Variable $y(x)$:**
-   Since $z = y^{1 - \alpha}$:
-   $$ \mathbf{y(x) = \left\{ \frac{1}{\mu(x)} \left[ (1 - \alpha) \int b(x) \mu(x) \, dx + C \right] \right\}^{\frac{1}{1 - \alpha}}} \tag{9} $$
-   *(In addition, if $\alpha > 0$, the trivial function $y(x) \equiv 0$ is also a solution).*
+Since $y^{1-\alpha} = z$:
 
----
+$$
+z' - (1-\alpha)\,a(x)\,z = (1-\alpha)\,b(x).
+$$
 
-### Step 5: Analysis of Cases $\alpha = 0$ and $\alpha = 1$
+This is linear first order in $z$, with $p(x) = -(1-\alpha)a(x)$ and $q(x) = (1-\alpha)b(x)$, both continuous.
 
-#### Case $\alpha = 0$:
-Substitute $\alpha = 0$ into equation $(1)$:
-$$ y'(x) = a(x) y(x) + b(x) y^0 $$
-Since $y^0 = 1$:
-$$ \mathbf{y'(x) - a(x) y(x) = b(x)} \tag{10} $$
-* **Conclusion:** The equation is **already a linear non-homogeneous first-order ODE**. No nonlinear transformation is needed. The integrating factor is $\mu(x) = \exp\left(-\int a(x) dx\right)$.
+### Step 2: solve it with an integrating factor
 
-#### Case $\alpha = 1$:
-Substitute $\alpha = 1$ into equation $(1)$:
-$$ y'(x) = a(x) y(x) + b(x) y^1 = [a(x) + b(x)] y(x) $$
-Rearranging:
-$$ \mathbf{y'(x) - [a(x) + b(x)] y(x) = 0} \tag{11} $$
-* **Conclusion:** The equation is **already a linear homogeneous first-order ODE**. It is separable and solved directly by:
-  $$ \frac{dy}{y} = [a(x) + b(x)] dx \implies y(x) = C \exp\left( \int [a(x) + b(x)] \, dx \right) $$
+Fix $x_0 \in I$ and define $A(x) = \int_{x_0}^{x} a(s)\,ds$. Then $\int p\,dx = -(1-\alpha)A(x)$ and
 
----
+$$
+\mu(x) = e^{-(1-\alpha)A(x)}, \qquad \mu(x_0) = 1, \qquad (\mu z)' = (1-\alpha)\,b(x)\,\mu(x).
+$$
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+Integrate from $x_0$ to $x$ (Barrow's rule), with $z_0 = z(x_0) = y_0^{1-\alpha}$:
 
-### Master Summary:
-* **Transformation:** $z = y^{1-\alpha}$ reduces Bernoulli's equation to:
-  $$ \mathbf{z' - (1 - \alpha) a(x) z = (1 - \alpha) b(x)} $$
-* **General Solution:**
-  $$ \mathbf{y(x) = [z(x)]^{\frac{1}{1 - \alpha}}} $$
-* **Special Cases:**
-  * **$\alpha = 0$:** Linear inhomogeneous ODE: $y' - ay = b$.
-  * **$\alpha = 1$:** Linear homogeneous ODE: $y' - (a + b)y = 0$.
+$$
+\mu(x)z(x) - z_0 = (1-\alpha)\int_{x_0}^{x} b(s)\,e^{-(1-\alpha)A(s)}\,ds.
+$$
 
-### Aerospace Engineering Applications:
-* **Aerodynamic Drag:** When an aircraft or projectile travels at high speed, aerodynamic drag is quadratic in velocity ($F_D \propto v^2$). Newton's law gives $m \dot{v} = T - c_D v^2$, which is a Bernoulli equation with $\alpha = 2$. Setting $z = v^{1-2} = v^{-1}$ transforms the quadratic drag equation into a linear ODE for momentum inverse.
+Multiply by $1/\mu(x) = e^{(1-\alpha)A(x)}$:
+
+$$
+z(x) = e^{(1-\alpha)A(x)}\left[z_0 + (1-\alpha)\int_{x_0}^{x} b(s)\,e^{-(1-\alpha)A(s)}\,ds\right].
+$$
+
+### Step 3: return to $y$
+
+Since $y = z^{1/(1-\alpha)}$, wherever the bracket is positive (so that $y > 0$):
+
+$$
+y(x) = \left\{ e^{(1-\alpha)A(x)}\left[y_0^{1-\alpha} + (1-\alpha)\int_{x_0}^{x} b(s)\,e^{-(1-\alpha)A(s)}\,ds\right]\right\}^{\frac{1}{1-\alpha}}.
+$$
+
+The solution exists as long as the expression in braces stays positive; if it reaches $0$ at a finite point the solution ceases to exist there (the substitution is valid only for $y > 0$).
+
+### Step 4: the excluded cases $\alpha = 0$ and $\alpha = 1$
+
+- $\alpha = 1$: the equation is $y' = (a + b)\,y$, already linear and homogeneous. The substitution would give $z = y^{0} = 1$, a constant that carries no information (the formula above has the factor $1-\alpha = 0$, so it degenerates to $z' = 0$). The solution is obtained directly: $y(x) = y_0\exp\left(\int_{x_0}^{x}(a + b)\,ds\right)$.
+- $\alpha = 0$: the equation is $y' = a\,y + b$, already linear (inhomogeneous). The substitution gives $z = y^{1} = y$, the identity, and the formula above with $1-\alpha = 1$ reproduces the variation-of-constants solution $y = e^{A}\left[y_0 + \int_{x_0}^{x} b\,e^{-A}\,ds\right]$. No transformation is needed.
 
 ---
 
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Bernoulli Equation Theory]]
-* [[04 - Advanced Maths/Problema - Ch2-P7 Nonlinear Change of Variables|Problem 2.7: Nonlinear Substitution]]
+## Phase 4: Verification, Limits and Interpretation
+
+Check the general solution by differentiation. Put $B(x) = z_0 + (1-\alpha)\int_{x_0}^{x} b\,e^{-(1-\alpha)A}\,ds$, so $z = e^{(1-\alpha)A}B$ and
+
+$$
+z' = (1-\alpha)a\,e^{(1-\alpha)A}B + e^{(1-\alpha)A}(1-\alpha)\,b\,e^{-(1-\alpha)A} = (1-\alpha)a\,z + (1-\alpha)b.
+$$
+
+This is the linear equation of Step 1, and $z(x_0) = e^0 z_0 = z_0$. Undoing the change of variables is reversible for $y > 0$, so $y = z^{1/(1-\alpha)}$ solves the Bernoulli equation.
+
+Consistency with Problem 2.7: for $a = 1$, $b = x$, $\alpha = -1$ the formula gives $1-\alpha = 2$, $A = x$, $z' - 2z = 2x$, which is the equation obtained there for $z = y^2$.
+
+Check with a constant-coefficient case ($a$, $b$ constants, $\alpha = 2$, so $1-\alpha = -1$): $z' + a z = -b$, giving $z = -\frac{b}{a} + \left(z_0 + \frac{b}{a}\right)e^{-a(x-x_0)}$ and $y = 1/z$, which is the logistic-type solution of $y' = ay + by^2$. A sympy substitution of this closed form into $y' = a y + b y^2$ (with $a, b > 0$ symbols and $y_0 = 1$) gives residual $0$.
+
+#### Result
+
+$z = y^{1-\alpha}$ turns the Bernoulli equation into $z' - (1-\alpha)a z = (1-\alpha)b$, with solution $z = e^{(1-\alpha)A}\left[z_0 + (1-\alpha)\int b\,e^{-(1-\alpha)A}\right]$ and $y = z^{1/(1-\alpha)}$. For $\alpha = 1$ and $\alpha = 0$ the equation is already linear and the substitution is trivial or degenerate.
+
+---
+
+## Related Notes
+
+- [[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Nonlinear substitutions and the Bernoulli equation]]
+- [[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Integrating factor theory]]
+- [[04 - Advanced Maths/Problema - Ch2-P7 Nonlinear Change of Variables|Problem 2.7: the case alpha = -1]]

@@ -5,169 +5,149 @@ origen: "ProblemsCh2.pdf — Exercise 2.16"
 dificultad: alta
 tags:
   - problema-resuelto
-  - bifurcacion-pitchfork
-  - estabilidad-asintotica
-  - retrato-de-fase
-  - dinamica-cualitativa
+  - autonomous-odes
+  - phase-line
+  - pitchfork-bifurcation
+  - stability
+  - bernoulli-equation
 ---
 
-# ✏️ Problem 2.16: Pitchfork Phase Line and Stability Regimes
+# Problem 2.16: Pitchfork Phase Line and Stability Regimes
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 16 (page 4). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Consider the autonomous equation:
-$$ \frac{dx}{dt} = x(\kappa^2 - x^2) $$
-with a general initial condition $x(0) = x_0$ and parameter $\kappa > 0$.
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 7 (Sections 7.1 to 7.3 and 7.6, the pitchfork bifurcation) and Section 10.2 (substitution methods).
 
-(i) Calculate the stationary solutions, which satisfy $\frac{dx}{dt} = 0$.  
-(ii) Calculate and sketch the solutions for $t > 0$, discussing the different behaviors which can be obtained in terms of the relative values of $\kappa > 0$ and $x_0$, with the help of the uniqueness theorem.
+## Problem Statement
 
----
+Consider the autonomous equation
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+$$
+\frac{dx}{dt} = x\,(\kappa^2 - x^2)
+$$
 
-### Mathematical Structure:
-* **Autonomous Equation:** $\dot{x} = f(x)$, where $f(x) = x(\kappa^2 - x^2) = \kappa^2 x - x^3$.
-* **Parameter:** $\kappa > 0$ (constant scale factor).
-* **Initial State:** $x(0) = x_0 \in \mathbb{R}$.
-* **Regularity:** $f(x)$ is a smooth odd polynomial of degree 3 ($f \in C^\infty(\mathbb{R})$).
-  The Picard-Lindelöf Existence and Uniqueness Theorem applies globally across all of $\mathbb{R}$.
+with a general initial condition $x(0) = x_0$.
 
----
-
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
-
-```mermaid
-flowchart TD
-    ODE["dx/dt = x(κ² - x²)"] --> Stat["(i) Find stationary solutions f(x*) = 0"]
-    Stat --> Roots["x* = -κ,  x* = 0,  x* = +κ"]
-    Roots --> Stab["Stability: f'(x) = κ² - 3x²"]
-    Stab --> Eval0["f'(0) = +κ² > 0 => UNSTABLE REPELLOR"]
-    Stab --> EvalPM["f'(±κ) = -2κ² < 0 => ASYMPTOTICALLY STABLE ATTRACTORS"]
-    
-    ODE --> Analyt["(ii) Analytical Integration: Bernoulli z = x⁻²"]
-    Analyt --> ClosedForm["x(t) = κ x₀ / sqrt( x₀² + (κ² - x₀²) e^(-2κ² t) )"]
-    ClosedForm --> Asymp["As t → ∞: x(t) → +κ (if x₀ > 0) or -κ (if x₀ < 0)"]
-```
-
-1. **Part (i):** Factor $f(x)$ to obtain the roots $f(x^*) = 0$.
-2. **Part (ii):**
-   * Perform stability analysis by evaluating $f'(x^*)$.
-   * Use the **No-Crossing Theorem** to partition the phase line into invariant regions.
-   * Solve the equation analytically for general $x_0$ using the Bernoulli substitution $z = x^{-2}$ or partial fractions.
-   * Classify trajectories into regimes and evaluate their asymptotic limits as $t \to \infty$.
+(i) Calculate the stationary solutions, which satisfy $dx/dt = 0$;  
+(ii) Calculate and sketch the solutions for $t > 0$, discussing the different behaviors which can be obtained in terms of the relative values of $\kappa > 0$ and $x_0$, with the help of the uniqueness theorem.  
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 1: Classification, Hypotheses and Domain
 
-### Part (i): Calculation of Stationary Solutions
-Stationary solutions satisfy $\frac{dx}{dt} = 0$:
-$$ f(x) = x(\kappa^2 - x^2) = 0 $$
-Factoring as a difference of squares:
-$$ x(\kappa - x)(\kappa + x) = 0 $$
+Autonomous equation $\dot{x} = f(x)$ with $f(x) = x(\kappa^2 - x^2) = \kappa^2 x - x^3$ and parameter $\kappa > 0$. We have
 
-Since $\kappa > 0$, this yields exactly three distinct real roots:
-$$ \mathbf{x_1^* = -\kappa, \quad x_2^* = 0, \quad x_3^* = +\kappa} \tag{1} $$
+$$
+f'(x) = \kappa^2 - 3x^2.
+$$
 
-The corresponding constant solutions are:
-$$ x(t) \equiv -\kappa, \quad x(t) \equiv 0, \quad x(t) \equiv +\kappa \quad \forall t \in \mathbb{R} $$
+Both $f$ and $f'$ are polynomials, hence continuous on $\mathbb{R}$: the IVP has a unique solution for every $x_0 \in \mathbb{R}$, on a maximal interval of existence. The right-hand side is odd, $f(-x) = -f(x)$, so if $x(t)$ is a solution then $-x(t)$ is also a solution (symmetry $x \to -x$).
 
 ---
 
-### Part (ii): Qualitative Dynamics, Analytical Solution, and Regimes
+## Phase 2: Choice of Method and Change of Variables
 
-#### 1. Stability Analysis via Linearization
-Compute the derivative of the vector field:
-$$ f'(x) = \frac{d}{dx}\left( \kappa^2 x - x^3 \right) = \kappa^2 - 3x^2 \tag{2} $$
+Why these methods: (a) the phase line (sign of $f$ between equilibria) and the no-crossing consequence of uniqueness give the qualitative picture for every $x_0$ without solving; (b) the equation is a Bernoulli equation ($\alpha = 3$, see Problem 2.8), so the substitution $w = x^{-2}$ turns it into a linear equation and gives the exact solution to confirm the qualitative picture and to find timescales.
 
-* **At $x = 0$:**
-  $$ f'(0) = \kappa^2 - 0 = +\kappa^2 > 0 \implies \mathbf{Unstable\ Equilibrium\ (Repellor)} $$
-* **At $x = \pm\kappa$:**
-  $$ f'(\pm\kappa) = \kappa^2 - 3(\pm\kappa)^2 = \kappa^2 - 3\kappa^2 = -2\kappa^2 < 0 \implies \mathbf{Asymptotically\ Stable\ (Attractors)} $$
+Change of variables written explicitly: $w = x^{1-\alpha} = x^{-2}$ (valid for $x \neq 0$), $\ w' = -2x^{-3}x'$, $\ w(0) = 1/x_0^2$.
 
 ---
 
-#### 2. Exact Analytical Integration
-Equation $\frac{dx}{dt} = \kappa^2 x - x^3$ is a **Bernoulli equation** with $\alpha = 3$.
-Divide by $x^3$ (for $x \neq 0$):
-$$ x^{-3} \frac{dx}{dt} - \kappa^2 x^{-2} = -1 $$
+## Phase 3: Step-by-Step Derivation
 
-Let $z(t) = [x(t)]^{-2}$. Then $\frac{dz}{dt} = -2 x^{-3} \frac{dx}{dt} \implies x^{-3} \frac{dx}{dt} = -\frac{1}{2} \frac{dz}{dt}$:
-$$ -\frac{1}{2} \frac{dz}{dt} - \kappa^2 z = -1 \iff \mathbf{\frac{dz}{dt} + 2\kappa^2 z = 2} \tag{3} $$
+### Part (i): stationary solutions
 
-This is a first-order linear ODE with constant coefficients:
-* Integrating factor: $\mu(t) = e^{2\kappa^2 t}$.
-* Total derivative: $\frac{d}{dt}[z e^{2\kappa^2 t}] = 2 e^{2\kappa^2 t}$.
-* Integration:
-  $$ z(t) e^{2\kappa^2 t} = \frac{2}{2\kappa^2} e^{2\kappa^2 t} + C = \frac{1}{\kappa^2} e^{2\kappa^2 t} + C $$
-  $$ z(t) = \frac{1}{\kappa^2} + C e^{-2\kappa^2 t} $$
+Solve $f(x^*) = x^*(\kappa - x^*)(\kappa + x^*) = 0$ using $\kappa^2 - x^2 = (\kappa - x)(\kappa + x)$:
 
-Apply initial condition $z(0) = \frac{1}{x_0^2}$:
-$$ \frac{1}{x_0^2} = \frac{1}{\kappa^2} + C \implies C = \frac{1}{x_0^2} - \frac{1}{\kappa^2} = \frac{\kappa^2 - x_0^2}{\kappa^2 x_0^2} $$
+$$
+x^* = 0, \qquad x^* = \kappa, \qquad x^* = -\kappa.
+$$
 
-Substitute $C$ back into $z(t)$:
-$$ z(t) = \frac{1}{\kappa^2} + \frac{\kappa^2 - x_0^2}{\kappa^2 x_0^2} e^{-2\kappa^2 t} = \frac{x_0^2 + (\kappa^2 - x_0^2)e^{-2\kappa^2 t}}{\kappa^2 x_0^2} $$
+Stability from $f'(x^*)$: $f'(0) = \kappa^2 > 0$ (unstable); $f'(\pm\kappa) = \kappa^2 - 3\kappa^2 = -2\kappa^2 < 0$ (asymptotically stable). Therefore the constant solutions are $x \equiv 0$ (unstable) and $x \equiv \pm\kappa$ (stable).
 
-Since $x(t) = \frac{\text{sgn}(x_0)}{\sqrt{z(t)}}$:
-$$ \mathbf{x(t) = \frac{\kappa x_0}{\sqrt{x_0^2 + (\kappa^2 - x_0^2) e^{-2\kappa^2 t}}}} \tag{4} $$
+### Part (ii), step 1: phase line from uniqueness
 
----
+By uniqueness solutions cannot cross the equilibria, so the equilibria $-\kappa, 0, \kappa$ split $\mathbb{R}$ into four invariant intervals. Sign of $f = x(\kappa - x)(\kappa + x)$:
 
-#### 3. Trajectory Regimes & Uniqueness Confinement
-By the No-Crossing Theorem, solutions cannot cross the barrier lines $x = -\kappa$, $x = 0$, and $x = +\kappa$. The behavior is classified into five distinct regimes:
+| Region | Signs of $x$, $\kappa - x$, $\kappa + x$ | Sign of $f$ | Motion |
+| :--- | :--- | :--- | :--- |
+| $x > \kappa$ | $+,\ -,\ +$ | $-$ | decreases to $\kappa$ |
+| $0 < x < \kappa$ | $+,\ +,\ +$ | $+$ | increases to $\kappa$ |
+| $-\kappa < x < 0$ | $-,\ +,\ +$ | $-$ | decreases to $-\kappa$ |
+| $x < -\kappa$ | $-,\ +,\ -$ | $+$ | increases to $-\kappa$ |
 
-1. **Regime 1 ($x_0 > \kappa$):**
-   * $x_0^2 > \kappa^2 \implies \kappa^2 - x_0^2 < 0 \implies f(x) < 0$.
-   * $\dot{x} < 0$: the solution is **strictly decreasing**.
-   * It is bounded below by the barrier $x = \kappa$: $x(t) > \kappa$ for all $t \ge 0$.
-   * As $t \to \infty$: $e^{-2\kappa^2 t} \to 0 \implies \mathbf{\lim_{t\to\infty} x(t) = +\kappa}$.
-2. **Regime 2 ($0 < x_0 < \kappa$):**
-   * $0 < x_0^2 < \kappa^2 \implies \kappa^2 - x_0^2 > 0 \implies f(x) > 0$.
-   * $\dot{x} > 0$: the solution is **strictly increasing** (sigmoidal).
-   * Trapped inside the corridor: $0 < x(t) < \kappa$ for all $t$.
-   * As $t \to \infty$: $\mathbf{\lim_{t\to\infty} x(t) = +\kappa}$.
-3. **Regime 3 ($x_0 = 0$):**
-   * Stationary state: $\mathbf{x(t) \equiv 0}$ for all $t$.
-4. **Regime 4 ($-\kappa < x_0 < 0$):**
-   * $x_0 < 0$ and $x_0^2 < \kappa^2 \implies f(x) < 0$.
-   * $\dot{x} < 0$: the solution is **strictly decreasing**.
-   * Trapped inside the corridor: $-\kappa < x(t) < 0$ for all $t$.
-   * As $t \to \infty$: $\mathbf{\lim_{t\to\infty} x(t) = -\kappa}$.
-5. **Regime 5 ($x_0 < -\kappa$):**
-   * $x_0 < 0$ and $x_0^2 > \kappa^2 \implies f(x) > 0$.
-   * $\dot{x} > 0$: the solution is **strictly increasing**.
-   * Bounded above by the barrier $x = -\kappa$: $x(t) < -\kappa$ for all $t \ge 0$.
-   * As $t \to \infty$: $\mathbf{\lim_{t\to\infty} x(t) = -\kappa}$.
+In each region the solution is monotone and bounded by the neighboring equilibria, hence global in time, with a limit that is an equilibrium: all solutions with $x_0 > 0$ tend to $\kappa$, all with $x_0 < 0$ tend to $-\kappa$, and $x_0 = 0$ stays at $0$.
 
----
+### Part (ii), step 2: exact solution
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+Let $x_0 \neq 0$ (then $x(t) \neq 0$ for all $t$, by uniqueness). Compute $w = x^{-2}$ using the chain rule:
 
-### Master Summary:
-* **(i) Stationary Equilibria:**
-  $$ \mathbf{x^* \in \{-\kappa, \, 0, \, +\kappa\}} $$
-* **(ii) Analytical Solution:**
-  $$ \mathbf{x(t) = \frac{\kappa x_0}{\sqrt{x_0^2 + (\kappa^2 - x_0^2) e^{-2\kappa^2 t}}}} $$
-* **Bistable Asymptotic Attractors:**
-  $$ \lim_{t \to \infty} x(t) = \begin{cases} +\kappa & \text{if } x_0 > 0 \\ 0 & \text{if } x_0 = 0 \\ -\kappa & \text{if } x_0 < 0 \end{cases} $$
+$$
+w' = -2x^{-3}x' = -2x^{-3}\left(\kappa^2 x - x^3\right) = -2\kappa^2 x^{-2} + 2 = -2\kappa^2 w + 2.
+$$
 
-```mermaid
-xychart-beta
-    title "Pitchfork Dynamics: Dual Stable Attractors at +κ and -κ"
-    x-axis "Time t" [0, 1, 2, 3, 4, 5, 6]
-    y-axis "State x(t)" -2 --> 2
-    line [1.8, 1.35, 1.12, 1.03, 1.01, 1.0, 1.0]
-    line [0.2, 0.45, 0.78, 0.94, 0.98, 1.0, 1.0]
-    line [-0.2, -0.45, -0.78, -0.94, -0.98, -1.0, -1.0]
-    line [-1.8, -1.35, -1.12, -1.03, -1.01, -1.0, -1.0]
-```
+Linear equation $w' + 2\kappa^2 w = 2$. Integrating factor: $\int 2\kappa^2\,dt = 2\kappa^2 t$, $\mu = e^{2\kappa^2 t}$, $\mu(0) = 1$, and $(\mu w)' = 2e^{2\kappa^2 t}$. Barrow from $0$ to $t$:
 
-### Aerospace & Aeroelastic Context:
-This equation is the canonical normal form of a **supercritical pitchfork bifurcation**. In transonic aerodynamics, it models the divergence of a symmetric airfoil experiencing aerodynamic pitch instability: the neutral symmetric state ($x = 0$) becomes unstable, and the wing settles onto one of two stable non-zero trim angles ($+\kappa$ or $-\kappa$).
+$$
+w(t)\,e^{2\kappa^2 t} - w(0) = \int_0^t 2e^{2\kappa^2 s}\,ds = \frac{1}{\kappa^2}\left[e^{2\kappa^2 s}\right]_0^t = \frac{1}{\kappa^2}\left(e^{2\kappa^2 t} - 1\right).
+$$
+
+Hence, with $w(0) = 1/x_0^2$,
+
+$$
+w(t) = \frac{1}{\kappa^2} + \left(\frac{1}{x_0^2} - \frac{1}{\kappa^2}\right)e^{-2\kappa^2 t} = \frac{x_0^2 + (\kappa^2 - x_0^2)\,e^{-2\kappa^2 t}}{\kappa^2 x_0^2}.
+$$
+
+Since $x = \pm w^{-1/2}$ with the sign fixed by $x_0$ (a solution cannot change sign), and $x(0) = x_0$:
+
+$$
+x(t) = \frac{\kappa\,x_0}{\sqrt{x_0^2 + (\kappa^2 - x_0^2)\,e^{-2\kappa^2 t}}}, \qquad x_0 \neq 0.
+$$
+
+(For $x_0 = 0$ the solution is $x \equiv 0$, which the formula does not cover.) Check: at $t = 0$, the square root is $\sqrt{\kappa^2} = \kappa$, so $x(0) = x_0$.
+
+### Part (ii), step 3: behavior for $t > 0$
+
+Write $E(t) = e^{-2\kappa^2 t} \in (0, 1]$ for $t \geq 0$. The radicand is $x_0^2(1 - E) + \kappa^2 E$, a convex combination of $x_0^2 > 0$ and $\kappa^2 > 0$, hence positive for all $t \geq 0$: the solution exists for all $t > 0$. As $t \to \infty$, $E \to 0$, the radicand $\to x_0^2$ and
+
+$$
+x(t) \to \frac{\kappa\,x_0}{\lvert x_0\rvert} = \kappa\,\operatorname{sgn}(x_0).
+$$
+
+| Initial condition | Behavior for $t > 0$ | Limit as $t \to \infty$ |
+| :--- | :--- | :--- |
+| $x_0 > \kappa$ | decreasing, stays above $\kappa$ | $\kappa$ |
+| $x_0 = \kappa$ | constant $x \equiv \kappa$ | $\kappa$ |
+| $0 < x_0 < \kappa$ | increasing, stays below $\kappa$ | $\kappa$ |
+| $x_0 = 0$ | constant $x \equiv 0$ | $0$ (unstable) |
+| $-\kappa < x_0 < 0$ | decreasing, stays above $-\kappa$ | $-\kappa$ |
+| $x_0 = -\kappa$ | constant $x \equiv -\kappa$ | $-\kappa$ |
+| $x_0 < -\kappa$ | increasing, stays below $-\kappa$ | $-\kappa$ |
+
+Shape of the sketch: for $0 < x_0 < \kappa$ the curve is sigmoidal if $x_0 < \kappa/\sqrt{3}$ (inflection point where $x'' = f'(x)\,x' = 0$, i.e. $f'(x) = \kappa^2 - 3x^2 = 0$, at $x = \kappa/\sqrt{3}$, where the slope is maximal), and concave without inflection if $x_0 \geq \kappa/\sqrt{3}$. The curves for $x_0 < 0$ are mirror images ($x \to -x$).
+
+Behavior backward in time (for completeness): the radicand vanishes when $E = x_0^2/(x_0^2 - \kappa^2)$, which requires $\lvert x_0\rvert > \kappa$ and happens at $t = -\frac{1}{2\kappa^2}\ln\frac{x_0^2}{x_0^2 - \kappa^2} < 0$. So solutions with $\lvert x_0\rvert > \kappa$ blow up in finite negative time, while those with $0 < \lvert x_0\rvert < \kappa$ exist for all $t < 0$ and tend to $0$ as $t \to -\infty$.
 
 ---
 
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Autonomous Dynamics & Bifurcations]]
-* [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Multi-Equilibria Phase Line]]
+## Phase 4: Verification, Limits and Interpretation
+
+Check the ODE by differentiating the explicit solution. With $D(t) = x_0^2 + (\kappa^2 - x_0^2)e^{-2\kappa^2 t}$: $x = \kappa x_0 D^{-1/2}$, $x' = -\frac12\kappa x_0 D^{-3/2}D'$, and $D' = -2\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}$. Also $\kappa^2 - x^2 = \kappa^2 - \frac{\kappa^2 x_0^2}{D} = \frac{\kappa^2(D - x_0^2)}{D} = \frac{\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}}{D}$, so $x(\kappa^2 - x^2) = \kappa x_0 D^{-1/2}\cdot\frac{\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}}{D}$. This equals $x'$: $-\frac12\kappa x_0 D^{-3/2}\cdot\left(-2\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}\right) = \kappa x_0 D^{-3/2}\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}$. They agree.
+
+Numerical check (computed): for $\kappa = 1$, a fourth-order Runge-Kutta integration over $t \in [0, 5]$ (20000 steps) matches the closed form to better than $10^{-14}$ for $x_0 = 0.3,\ 2,\ -0.5,\ -3$. At $t = 5$ the distance to $\kappa = 1$ is $2.3\times 10^{-4}$ for $x_0 = 0.3$ and $1.7\times 10^{-5}$ for $x_0 = 2$, consistent with the time constant $1/(2\kappa^2) = 0.5$.
+
+Time scale and dimensions: the linearization at $x = \pm\kappa$ has rate $f'(\pm\kappa) = -2\kappa^2$, so the approach to $\pm\kappa$ is exponential with time constant $1/(2\kappa^2)$ (visible in the factor $e^{-2\kappa^2 t}$), and at $x = 0$ the repulsion rate is $\kappa^2$. The equation is written in non-dimensional form: $\kappa^2$ is a rate with units $[t]^{-1}$, and $x$ is measured in units for which the cubic coefficient equals $1$.
+
+Bifurcation context (Robinson, Section 7.6): for the parameter $\mu = \kappa^2$ the equation $\dot{x} = \mu x - x^3$ has one equilibrium $x = 0$ (stable) for $\mu < 0$, and for $\mu > 0$ the origin becomes unstable and two stable branches $\pm\sqrt{\mu}$ appear: a supercritical pitchfork. Here $\kappa > 0$ is the case $\mu > 0$.
+
+#### Result
+
+Equilibria $0$ (unstable) and $\pm\kappa$ (stable). For $x_0 \neq 0$: $x(t) = \kappa x_0\big/\sqrt{x_0^2 + (\kappa^2 - x_0^2)e^{-2\kappa^2 t}} \to \kappa\,\operatorname{sgn}(x_0)$ as $t \to \infty$.
+
+---
+
+## Related Notes
+
+- [[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Qualitative analysis of autonomous ODEs and stability]]
+- [[04 - Advanced Maths/Problema - Ch2-P8 General Bernoulli Equation Reduction|Problem 2.8: Bernoulli reduction]]
+- [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: phase line with three equilibria]]

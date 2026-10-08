@@ -2,131 +2,135 @@
 materia: "Advanced Maths"
 tema: "Tema 2: First-Order ODEs and Qualitative Dynamics"
 origen: "ProblemsCh2.pdf — Exercise 2.6"
-dificultad: media
+dificultad: baja
 tags:
   - problema-resuelto
-  - formas-separadas
-  - ecuaciones-exactas
-  - conservacion-energia
-  - dinamica-lotka-volterra
+  - exact-equations
+  - separable-equations
+  - potential-function
+  - conserved-quantity
 ---
 
-# ✏️ Problem 2.6: Exactness of Separated Differential Forms
+# Problem 2.6: Exactness of Separated Differential Forms
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 6 (page 2). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Show that any equation that can be written in the form:
-$$ f(x) + g(y) \frac{dy}{dx} = 0 $$
-is exact, and find its solution in terms of integrals of $f$ and $g$. Hence find the solutions of:
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 10, Section 10.1 (exact equations); this is also Exercise 10.3 of the book.
 
-(i) $V'(x) + 2y \frac{dy}{dx} = 0$  
-(ii) $\left( \frac{1}{y} - a \right) \frac{dy}{dx} + \frac{2}{x} - b = 0$, for $x, y > 0$.
+## Problem Statement
 
----
+Show that any equation that can be written in the form
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+$$
+f(x) + g(y)\frac{dy}{dx} = 0
+$$
 
-### Mathematical Structure:
-An equation where the velocity field is separated additively into single-variable components:
-$$ f(x) \, dx + g(y) \, dy = 0 $$
-with $M(x, y) = f(x)$ and $N(x, y) = g(y)$.
+is exact, and find its solution in terms of integrals of $f$ and $g$. Hence find the solutions of
 
-### Particular Cases:
-* **(i)** $f(x) = V'(x)$, $g(y) = 2y$.
-* **(ii)** $f(x) = \frac{2}{x} - b$, $g(y) = \frac{1}{y} - a$, with domain restricted to the first quadrant $x > 0, y > 0$. Parameters $a, b > 0$.
+(i) $V'(x) + 2y\dfrac{dy}{dx} = 0$,  
+(ii) $\left[\dfrac{1}{y} - a\right]\dfrac{dy}{dx} + \dfrac{2}{x} - b = 0$, for $x, y > 0$.  
 
 ---
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
+## Phase 1: Classification, Hypotheses and Domain
 
-1. Compute the mixed partial derivatives $\frac{\partial M}{\partial y}$ and $\frac{\partial N}{\partial x}$. Because $f(x)$ is independent of $y$ and $g(y)$ is independent of $x$, both partials vanish identically, establishing universal exactness.
-2. Integrate the total differential $dF = f(x) dx + g(y) dy = 0$ to construct the potential $F(x, y) = \int f(x) dx + \int g(y) dy = C$.
-3. Apply this general formula directly to solve parts (i) and (ii).
+General form: $M(x,y) + N(x,y)\,y' = 0$ with $M = f(x)$ depending on $x$ only and $N = g(y)$ depending on $y$ only. Assume $f$ continuous on an interval $I_x$ and $g$ continuous on an interval $I_y$, so that $M$ and $N$ are continuous on the rectangle $\Omega = I_x \times I_y$ (a simply connected set).
 
----
-
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
-
-### Step 1: General Proof of Exactness
-Write the equation in standard differential form:
-$$ M(x, y) \, dx + N(x, y) \, dy = 0 $$
-where:
-$$ M(x, y) = f(x), \quad N(x, y) = g(y) $$
-
-Compute the cross partial derivatives:
-$$ \frac{\partial M}{\partial y} = \frac{\partial}{\partial y} [f(x)] = 0 $$
-$$ \frac{\partial N}{\partial x} = \frac{\partial}{\partial x} [g(y)] = 0 $$
-Since:
-$$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} = 0 $$
-on any domain where $f$ and $g$ are defined, **every separated differential equation is automatically exact**. $\blacksquare$
+- (i) $f(x) = V'(x)$, with $V \in C^1$ so that $V'$ is continuous; $g(y) = 2y$. Rectangle: $I_x$ any interval, $I_y = \mathbb{R}$.
+- (ii) $f(x) = \frac{2}{x} - b$, $g(y) = \frac{1}{y} - a$. Continuous on $x > 0$ and $y > 0$ (the stated domain), so $\Omega = (0,\infty)\times(0,\infty)$.
 
 ---
 
-### Step 2: General Solution in Terms of Integrals
-Because the differential form is exact, there exists a potential function $F(x, y)$ such that $dF = f(x) dx + g(y) dy$:
-$$ \frac{\partial F}{\partial x} = f(x) \implies F(x, y) = \int f(x) \, dx + h(y) $$
-Differentiating with respect to $y$:
-$$ \frac{\partial F}{\partial y} = h'(y) = N(x, y) = g(y) \implies h(y) = \int g(y) \, dy $$
-Therefore, the general potential function is:
-$$ \mathbf{F(x, y) = \int f(x) \, dx + \int g(y) \, dy = C} \tag{1} $$
+## Phase 2: Choice of Method and Change of Variables
+
+Why this method: the exactness criterion $M_y = N_x$ (Robinson, Section 10.1) is the hypothesis for a potential function $F$ with $F_x = M$, $F_y = N$ to exist on $\Omega$. Here both partial derivatives are trivial, so the criterion can be checked at once, and the potential can be constructed by integrating each variable separately.
+
+Construction: integrate $F_x = f(x)$ in $x$, then fix the $y$-dependent integration function $h(y)$ from $F_y = g(y)$. Level sets of $F$ are the solutions.
 
 ---
 
-### Part (i): $V'(x) + 2y \frac{dy}{dx} = 0$
-Here $f(x) = V'(x)$ and $g(y) = 2y$.
-Applying formula $(1)$:
-$$ \int V'(x) \, dx + \int 2y \, dy = C $$
-By the Fundamental Theorem of Calculus:
-$$ \int V'(x) \, dx = V(x) $$
-$$ \int 2y \, dy = y^2 $$
-$$ \mathbf{V(x) + y^2 = C} \tag{2} $$
+## Phase 3: Step-by-Step Derivation
 
-*Aerospace / Mechanical Interpretation:* If $x$ is position and $y = \frac{\dot{x}}{\sqrt{2m}}$, this equation expresses the **conservation of total mechanical energy** in a conservative potential:
-$$ E = \frac{1}{2} m \dot{x}^2 + V(x) = \text{constant} $$
+### General case
+
+$M = f(x)$ does not depend on $y$, and $N = g(y)$ does not depend on $x$:
+
+$$
+\frac{\partial M}{\partial y} = 0 = \frac{\partial N}{\partial x}.
+$$
+
+The exactness condition holds, so the equation is exact. Construct $F$: from $F_x = f(x)$,
+
+$$
+F(x,y) = \int_{x_0}^{x} f(s)\,ds + h(y).
+$$
+
+Differentiate in $y$: $F_y = h'(y)$, and this must equal $N = g(y)$. So $h'(y) = g(y)$ and
+
+$$
+h(y) = \int_{y_0}^{y} g(r)\,dr.
+$$
+
+Hence the solutions are the level curves
+
+$$
+\boxed{\ \int_{x_0}^{x} f(s)\,ds + \int_{y_0}^{y} g(r)\,dr = C\ }, \qquad C \in \mathbb{R}.
+$$
+
+If a solution passes through $(x_0,y_0)$, then $C = 0$ with these lower limits (Barrow's rule fixes the constant). The same result follows from separation of variables: $g(y)\,dy = -f(x)\,dx$, then integrate both sides.
+
+### Part (i): $V'(x) + 2y\,y' = 0$
+
+Here $f = V'$ and $g = 2y$. The integrals are $\int V'(x)\,dx = V(x)$ and $\int 2y\,dy = y^2$. Therefore
+
+$$
+V(x) + y^2 = C.
+$$
+
+Equivalent explicit form: $y = \pm\sqrt{C - V(x)}$, defined where $V(x) \leq C$. The equation says $\frac{d}{dx}\left[V(x) + y^2\right] = V' + 2yy' = 0$, i.e. $V + y^2$ is conserved along the solution.
+
+### Part (ii): $\left[\frac1y - a\right]y' + \frac2x - b = 0$, $x,y>0$
+
+Here $f(x) = \frac{2}{x} - b$ and $g(y) = \frac{1}{y} - a$. Integrate each, using $x > 0$ and $y > 0$ so no absolute values are needed:
+
+$$
+\int\left(\frac2x - b\right)dx = 2\ln x - bx, \qquad \int\left(\frac1y - a\right)dy = \ln y - ay.
+$$
+
+The solutions are therefore
+
+$$
+2\ln x - bx + \ln y - ay = C.
+$$
+
+Combine the logarithms and exponentiate: $\ln(x^2 y) = C + bx + ay$, so with $K = e^{C} > 0$,
+
+$$
+x^2\,y\,e^{-bx - ay} = K.
+$$
 
 ---
 
-### Part (ii): $\left( \frac{1}{y} - a \right) \frac{dy}{dx} + \frac{2}{x} - b = 0$, for $x, y > 0$
-Write in differential form:
-$$ \left( \frac{2}{x} - b \right) dx + \left( \frac{1}{y} - a \right) dy = 0 $$
-Here:
-$$ f(x) = \frac{2}{x} - b, \quad g(y) = \frac{1}{y} - a $$
+## Phase 4: Verification, Limits and Interpretation
 
-Applying formula $(1)$:
-$$ \int \left( \frac{2}{x} - b \right) dx + \int \left( \frac{1}{y} - a \right) dy = C $$
-Since $x > 0$ and $y > 0$:
-$$ \int \frac{2}{x} \, dx - \int b \, dx = 2\ln(x) - bx $$
-$$ \int \frac{1}{y} \, dy - \int a \, dy = \ln(y) - ay $$
+Check by implicit differentiation:
 
-Summing the terms:
-$$ 2\ln(x) - bx + \ln(y) - ay = C \tag{3} $$
-Combine the logarithmic terms:
-$$ \ln(x^2) + \ln(y) - (bx + ay) = C $$
-$$ \ln\left( x^2 y \right) - (bx + ay) = C \tag{4} $$
+- General case: $\frac{d}{dx}\left[\int_{x_0}^{x}f\,ds + \int_{y_0}^{y(x)}g\,dr\right] = f(x) + g(y)\,y'$, using the Fundamental Theorem of Calculus and the chain rule; this vanishes by the ODE.
+- (i) $\frac{d}{dx}\left[V(x) + y^2\right] = V'(x) + 2y\,y' = 0$.
+- (ii) $\frac{d}{dx}\left[2\ln x - bx + \ln y - ay\right] = \frac{2}{x} - b + \left(\frac{1}{y} - a\right)y' = 0$, the original equation.
 
-Exponentiating both sides:
-$$ \exp\left( \ln(x^2 y) - (bx + ay) \right) = e^C $$
-$$ \mathbf{x^2 y \, e^{-(bx + ay)} = C_1} \tag{5} $$
-where $C_1 = e^C > 0$.
+Dimensional remark for (ii): $\ln x$ and $\ln y$ require dimensionless arguments, so $x$ and $y$ are understood as measured in fixed reference units; then $bx$ and $ay$ are dimensionless, which means $[b] = [x]^{-1}$ and $[a] = [y]^{-1}$, consistent with the terms $\frac{2}{x} - b$ and $\frac{1}{y} - a$ being summed.
 
-*Ecological / Flight Dynamics Interpretation:* Equation $(5)$ defines the closed orbital trajectories (first integral) of the classical **Lotka-Volterra predator-prey system**, proving periodic oscillations around the coexistence equilibrium.
+Domain: in (ii) the level set $x^2 y e^{-bx-ay} = K$ in the open quadrant is a union of curves; $y$ is a function of $x$ locally wherever $F_y = \frac1y - a \neq 0$, i.e. away from $y = 1/a$ when $a > 0$.
+
+#### Results
+
+General form: $\int f\,dx + \int g\,dy = C$. (i) $V(x) + y^2 = C$. (ii) $2\ln x - bx + \ln y - ay = C$, i.e. $x^2 y\,e^{-bx-ay} = K > 0$.
 
 ---
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+## Related Notes
 
-### Summary of Results:
-* **General Proof:**
-  $$ \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}[f(x)] = 0 = \frac{\partial}{\partial x}[g(y)] = \frac{\partial N}{\partial x} \implies \text{Always Exact} $$
-  General solution: $\mathbf{\int f(x) dx + \int g(y) dy = C}$.
-* **(i) Solution:**
-  $$ \mathbf{V(x) + y^2 = C} $$
-* **(ii) Solution:**
-  $$ \mathbf{2\ln x - bx + \ln y - ay = C \iff x^2 y \, e^{-(bx + ay)} = C_1} $$
-
----
-
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact Equations Theory]]
-* [[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Separable Equations]]
-* [[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Equations]]
+- [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact equations and special integrating factors]]
+- [[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Direct integration and separable equations]]
+- [[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: exact equations]]

@@ -5,131 +5,98 @@ origen: "ProblemsCh2.pdf — Exercise 2.14"
 dificultad: media
 tags:
   - problema-resuelto
-  - no-unicidad
-  - teorema-picard
-  - condicion-lipschitz
-  - bifurcacion-soluciones
+  - picard-theorem
+  - non-uniqueness
+  - lipschitz-continuity
+  - branching-solutions
 ---
 
-# ✏️ Problem 2.14: Non-Lipschitz Branching Pathology in Picard Theorem
+# Problem 2.14: Non-Lipschitz Branching and Picard's Theorem
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 14 (page 4). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Given the initial value problem (IVP):
-$$ \frac{dy}{dt} = 3 y^{2/3}, \quad y(0) = 0 $$
-on the rectangle $R = \{ (y, t) \in \mathbb{R}^2 : |y| \le 1, \, |t| \le 1 \}$.
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 6, Section 6.2 (Theorem 6.2 and the example with $x^{1/2}$).
 
-Show that both $y_1(t) = t^3$ and $y_2(t) = 0$ are solutions. Does this contradict Picard's theorem?
+## Problem Statement
 
----
+Given the IVP
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+$$
+\frac{dy}{dt} = 3y^{2/3}, \qquad y(0) = 0,
+$$
 
-### Mathematical Setting:
-* **Differential Equation:** $\frac{dy}{dt} = f(t, y)$ with $f(t, y) = 3 y^{2/3}$.
-* **Initial Condition:** $y(0) = 0$ at $t_0 = 0$.
-* **Domain:** Closed compact rectangle $R = [-1, 1] \times [-1, 1] \subset \mathbb{R}^2$.
-* **Proposed Candidate Solutions:**
-  * Candidate 1: $y_1(t) = t^3$
-  * Candidate 2: $y_2(t) \equiv 0$
+on the rectangle $R = \{(y,t) \in \mathbb{R}^2 : \lvert y\rvert \leq 1,\ \lvert t\rvert \leq 1\}$. Show that both $y_1(t) = t^3$ and $y_2(t) = 0$ are solutions. Does this contradict Picard's theorem?
 
 ---
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
+## Phase 1: Classification, Hypotheses and Domain
 
-1. Verify by direct substitution that both candidate functions $y_1(t)$ and $y_2(t)$ satisfy the differential equation and the initial condition on $[-1, 1]$.
-2. Review the exact hypotheses required by the **Picard-Lindelöf Existence and Uniqueness Theorem**:
-   * Hypothesis A: $f(t, y)$ must be continuous on $R$ (guarantees *existence* via Peano's Theorem).
-   * Hypothesis B: $f(t, y)$ must be **Lipschitz continuous with respect to $y$** on $R$ (guarantees *uniqueness*).
-3. Compute the partial derivative $\frac{\partial f}{\partial y}$ and evaluate its boundedness on $R$, particularly near $y = 0$.
-4. Determine whether Picard's theorem applies. If its hypotheses are not satisfied, explain why the presence of multiple solutions does not constitute a contradiction.
+Right-hand side $f(y,t) = 3y^{2/3}$, where $y^{2/3} = (y^{1/3})^2 = \lvert y\rvert^{2/3} \geq 0$ is defined for all real $y$ (real cube root). It is continuous on $R$. Its partial derivative is
 
----
+$$
+\frac{\partial f}{\partial y} = 2\,y^{-1/3} \quad (y \neq 0),
+$$
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
-
-### Step 1: Verification of Candidate 2 ($y_2(t) \equiv 0$)
-* **Initial Condition:**
-  $$ y_2(0) = 0 \quad \checkmark $$
-* **Derivative:**
-  $$ \frac{dy_2}{dt} = \frac{d}{dt}[0] = 0 $$
-* **Right-Hand Side:**
-  $$ 3 [y_2(t)]^{2/3} = 3 [0]^{2/3} = 0 $$
-Since $0 = 0$, $y_2(t) \equiv 0$ is a valid solution on $[-1, 1]$.
+which is unbounded as $y \to 0$ and not defined at $y = 0$, which is precisely the initial value $y(0) = 0$. So the hypotheses of Picard's theorem (continuity of $f$ and $\partial f/\partial y$ near the initial point, or a Lipschitz condition in $y$) are not satisfied at $(0,0)$.
 
 ---
 
-### Step 2: Verification of Candidate 1 ($y_1(t) = t^3$)
-* **Initial Condition:**
-  $$ y_1(0) = 0^3 = 0 \quad \checkmark $$
-* **Derivative:**
-  $$ \frac{dy_1}{dt} = \frac{d}{dt}\left[ t^3 \right] = 3 t^2 $$
-* **Right-Hand Side:**
-  $$ 3 [y_1(t)]^{2/3} = 3 \left[ t^3 \right]^{2/3} = 3 \left( t^3 \right)^{2/3} = 3 \left( t^{3 \cdot \frac{2}{3}} \right) = 3 t^2 $$
-Because $\frac{dy_1}{dt} = 3t^2$ and the right-hand side is $3t^2$, they match identically for all $t \in [-1, 1]$.
-Furthermore, for $t \in [-1, 1]$, $|y_1(t)| = |t^3| \le 1$, so the trajectory remains inside the rectangle $R$.
-* **Conclusion:** Both $y_1(t)$ and $y_2(t)$ are valid solutions to the IVP on $R$.
+## Phase 2: Choice of Method and Change of Variables
+
+Why this method: to show that a candidate is a solution of an IVP we verify the ODE and the initial condition by direct substitution. To decide whether the non-uniqueness contradicts Picard's theorem, we test the Lipschitz condition $\lvert f(y,t) - f(\tilde{y},t)\rvert \leq L\lvert y - \tilde{y}\rvert$ near $y = 0$; if it fails, the theorem does not apply and no contradiction arises.
 
 ---
 
-### Step 3: Investigation of Picard's Theorem Hypotheses
-The Picard-Lindelöf theorem states:
-> If $f(t, y)$ is continuous on $R$ and satisfies a Lipschitz condition with respect to $y$ on $R$:
-> $$ |f(t, y_a) - f(t, y_b)| \le L |y_a - y_b| \quad \forall (t, y_a), (t, y_b) \in R $$
-> then there exists a **unique** solution to the IVP.
+## Phase 3: Step-by-Step Derivation
 
-#### 1. Continuity Test:
-$f(t, y) = 3 y^{2/3}$ is the composition of continuous functions, hence $f$ is continuous on the entire rectangle $R$. Peano's Theorem guarantees that **at least one solution exists**.
+### Verification of $y_1(t) = t^3$
 
-#### 2. Lipschitz Continuity Test:
-Compute the partial derivative with respect to $y$:
-$$ \frac{\partial f}{\partial y} = \frac{\partial}{\partial y}\left( 3 y^{2/3} \right) = 3 \cdot \frac{2}{3} y^{\frac{2}{3} - 1} = 2 y^{-1/3} = \frac{2}{y^{1/3}} \tag{1} $$
+Initial condition: $y_1(0) = 0$. Derivative: $y_1'(t) = 3t^2$. Right-hand side with the real cube root: $y_1^{1/3} = (t^3)^{1/3} = t$, so $y_1^{2/3} = t^2$ and $3y_1^{2/3} = 3t^2$. Both sides agree for all $t$. The graph stays in $R$ for $\lvert t\rvert \leq 1$, since $\lvert y_1\rvert = \lvert t\rvert^3 \leq 1$.
 
-Evaluate the limit as $y$ approaches the initial value $y = 0$:
-$$ \lim_{y \to 0^+} \frac{\partial f}{\partial y} = \lim_{y \to 0^+} \frac{2}{y^{1/3}} = +\infty $$
-$$ \lim_{y \to 0^-} \frac{\partial f}{\partial y} = \lim_{y \to 0^-} \frac{2}{y^{1/3}} = -\infty $$
+### Verification of $y_2(t) = 0$
 
-The derivative $\frac{\partial f}{\partial y}$ is **unbounded** in any neighborhood containing the initial point $y = 0$.
+$y_2' = 0$ and $3\cdot 0^{2/3} = 0$, and $y_2(0) = 0$. It is a solution, and its graph is inside $R$.
 
-#### Direct Verification via the Difference Quotient:
-Take $y_a = y$ and $y_b = 0$:
-$$ \frac{|f(t, y) - f(t, 0)|}{|y - 0|} = \frac{|3 y^{2/3} - 0|}{|y|} = 3 \frac{|y|^{2/3}}{|y|} = \frac{3}{|y|^{1/3}} $$
-As $y \to 0$:
-$$ \lim_{y \to 0} \frac{|f(t, y) - f(t, 0)|}{|y - 0|} = \lim_{y \to 0} \frac{3}{|y|^{1/3}} = +\infty $$
-There exists **no finite constant $L < \infty$** such that $|f(t, y) - f(t, 0)| \le L |y|$.
-Therefore, $f(t, y)$ **violates the Lipschitz condition on $R$**.
+Two distinct solutions, $y_1(t) = t^3$ and $y_2(t) = 0$, of the same IVP exist on $[-1,1]$.
 
----
+### Failure of the Lipschitz condition
 
-### Step 4: Resolution of the Apparent Contradiction
-* **Does this contradict Picard's Theorem?**
-  **NO, it does not.**
-* **Epistemological Reason:**
-  Picard's theorem is an implication of the form:
-  $$ \text{Continuity} + \text{Lipschitz Condition} \implies \text{Existence and Uniqueness} $$
-  If the hypothesis (Lipschitz condition) is not satisfied, the theorem makes **no assertion whatsoever** about uniqueness. It does not state that uniqueness must fail; it simply cannot guarantee that uniqueness will hold.
-  The coexistence of two solutions ($y_1(t) = t^3$ and $y_2(t) \equiv 0$) is entirely compatible with mathematical logic: when the Lipschitz premise fails, the conclusion of uniqueness is no longer assured.
+Take $\tilde{y} = 0$ and $y > 0$:
+
+$$
+\frac{\lvert f(y,t) - f(0,t)\rvert}{\lvert y - 0\rvert} = \frac{3y^{2/3}}{y} = 3\,y^{-1/3} \longrightarrow +\infty \quad (y \to 0^+).
+$$
+
+No constant $L$ bounds this quotient, so $f$ is not Lipschitz in $y$ on any neighborhood of $y = 0$ in $R$. Consistently, $\partial f/\partial y = 2y^{-1/3}$ is unbounded.
+
+### Where the branching comes from
+
+For $y > 0$ the equation is separable: $\dfrac{dy}{3y^{2/3}} = dt$. Integrating, $y^{1/3} = t + c$, so $y = (t + c)^3$ for $t + c > 0$. For every $c \in [0,1]$ define
+
+$$
+y_c(t) = \begin{cases} 0, & -1 \leq t \leq c,\\ (t - c)^3, & c < t \leq 1. \end{cases}
+$$
+
+At $t = c$ the one-sided derivatives are both $0$ ($\frac{d}{dt}(t-c)^3 = 3(t-c)^2 \to 0$), so $y_c$ is $C^1$, it satisfies the ODE on each piece and $y_c(0) = 0$. Hence the IVP has infinitely many solutions, and $y_1 = t^3$ (with $c = 0$) and $y_2 = 0$ (the limit $c \geq 1$) are two members of a larger family (the same can be done on the negative side with $y = (t-c)^3$, $t < c \leq 0$).
 
 ---
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+## Phase 4: Verification, Limits and Interpretation
 
-### Final Answers:
-1. **Verification:**
-   * $y_1(t) = t^3 \implies y_1'(t) = 3t^2 = 3(t^3)^{2/3} \quad \checkmark$
-   * $y_2(t) = 0 \implies y_2'(t) = 0 = 3(0)^{2/3} \quad \checkmark$
-2. **Contradiction with Picard's Theorem:**
-   **No contradiction exists.** Picard's theorem requires $f$ to be locally Lipschitz in $y$. Here:
-   $$ \frac{\partial f}{\partial y} = \frac{2}{y^{1/3}} \to \infty \quad \text{as } y \to 0 $$
-   Because the Lipschitz condition is violated at the initial point $(0, 0)$, Picard's theorem does not apply.
+Answer to the question: no contradiction. Picard's theorem (Robinson, Theorem 6.2) guarantees uniqueness only if $f$ and $\partial f/\partial y$ are continuous (or $f$ is Lipschitz in $y$) near the initial point. Here $f$ is continuous but $\partial f/\partial y = 2y^{-1/3}$ is not defined at $y = 0$ and the Lipschitz quotient is unbounded, so the hypotheses fail exactly at the initial point $(0,0)$. The theorem is silent in that case, and non-uniqueness is possible.
 
-### Infinite Family of Branching Solutions:
-In fact, the IVP possesses an **infinite continuum of solutions** indexed by an arbitrary branching time $c \in [0, 1]$:
-$$ y_c(t) = \begin{cases} 0 & 0 \le t \le c \\ (t - c)^3 & c < t \le 1 \end{cases} $$
-Every such function is continuously differentiable ($C^1$) and satisfies the IVP identically, demonstrating total loss of determinism at a non-Lipschitz singularity.
+Contrast: for any initial value $y_0 \neq 0$ with $t_0 \in (-1,1)$, $f$ and $\partial f/\partial y$ are continuous in a neighborhood and the solution is unique; the branching occurs only from the equilibrium $y = 0$ (compare Problem 2.9 (iii) and (iv)).
+
+Why the solution can leave $y=0$: the time to travel from $0$ to $y$ is $\int_0^{y} ds/(3s^{2/3}) = y^{1/3}$, which is finite and tends to $0$ as $y \to 0$. For Lipschitz right-hand sides this integral diverges (compare $f = y$, where $\int_0 ds/s = \infty$), so an equilibrium cannot be left in finite time.
+
+#### Result
+
+$y_1 = t^3$ and $y_2 = 0$ both solve $\dot{y} = 3y^{2/3}$, $y(0) = 0$. No contradiction with Picard's theorem: its hypotheses fail at $(0,0)$ because $\partial f/\partial y = 2y^{-1/3}$ is unbounded.
 
 ---
 
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard-Lindelöf Existence and Uniqueness Theory]]
-* [[04 - Advanced Maths/Problema - Ch2-P9 Solution Uniqueness and Lipschitz Analysis|Problem 2.9: Lipschitz Analysis of Exponents]]
+## Related Notes
+
+- [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard theorem and well-posedness]]
+- [[04 - Advanced Maths/Problema - Ch2-P9 Solution Uniqueness and Lipschitz Analysis|Problem 2.9: Lipschitz analysis]]
+- [[04 - Advanced Maths/Problema - Ch2-P15 Singular ODE and Domain of Definition|Problem 2.15: a singular equation]]

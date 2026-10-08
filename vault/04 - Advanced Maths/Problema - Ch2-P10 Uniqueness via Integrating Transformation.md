@@ -5,139 +5,93 @@ origen: "ProblemsCh2.pdf — Exercise 2.10"
 dificultad: media
 tags:
   - problema-resuelto
-  - demostracion-unicidad
-  - transformacion-integrante
-  - sin-picard
-  - pvi-lineal
+  - uniqueness
+  - linear-odes
+  - integrating-factor
+  - mean-value-theorem
 ---
 
-# ✏️ Problem 2.10: Uniqueness via Integrating Transformation
+# Problem 2.10: Uniqueness via an Integrating Transformation
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 10 (page 3). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Without using Picard's theorem, show that the initial value problem (IVP):
-$$ \frac{dy}{dt} + p(t) y = 0, \quad y(t_0) = y_0 $$
-with $p(t)$ a continuous function, has a unique solution, and calculate it. What solution do we obtain if $y_0 = 0$?
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Section 9.2 (integrating factors); compare Theorem 6.2.
 
-*Hint:* Consider the function:
-$$ z(t) = y(t) \exp\left( \int_{t_0}^t p(s) \, ds \right) $$
-where $y(t)$ solves the IVP; show that $z(t)$ is constant and deduce $y(t)$.
+## Problem Statement
 
----
+Without using Picard's theorem, show that the IVP
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+$$
+\frac{dy}{dt} + p(t)\,y = 0, \qquad y(t_0) = y_0
+$$
 
-### Mathematical Setting:
-* **Differential Equation:** $\frac{dy}{dt} + p(t) y(t) = 0$ (first-order linear homogeneous ODE).
-* **Initial Condition:** $y(t_0) = y_0 \in \mathbb{R}$.
-* **Hypothesis on Coefficient:** $p: I \to \mathbb{R}$ is continuous on an open interval $I$ containing $t_0$.
-* **Constraint:** Picard's theorem must **not** be invoked. Uniqueness must be established strictly from first principles of single-variable differential calculus.
+with $p(t)$ a continuous function has a unique solution, and calculate it. What solution do we obtain if $y_0 = 0$? Hint: consider the function $z(t) = y(t)\,e^{\int_{t_0}^{t}p(s)\,ds}$, where $y(t)$ solves the IVP, show that $z(t)$ is constant and deduce $y(t)$.
 
 ---
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
+## Phase 1: Classification, Hypotheses and Domain
 
-1. Let $y(t)$ be an *arbitrary* continuously differentiable function satisfying the IVP.
-2. Define the auxiliary transformed function:
-   $$ z(t) \equiv y(t) \exp\left( \int_{t_0}^t p(s) \, ds \right) $$
-3. Differentiate $z(t)$ with respect to time $t$ using the product rule and the Fundamental Theorem of Calculus.
-4. Exploit the differential equation $y' + p(t)y = 0$ to prove that $z'(t) \equiv 0$ on all of $I$.
-5. A basic theorem of calculus states that any function with an identically zero derivative on an interval is constant: $z(t) \equiv C$.
-6. Evaluate $C$ at $t = t_0$ to determine $y(t)$ uniquely.
-7. Conclude that any solution must be identically equal to this formula, proving existence and uniqueness simultaneously.
+Data: $p$ continuous on an open interval $I \ni t_0$; $y_0 \in \mathbb{R}$ arbitrary. A solution is a differentiable function $y: J \to \mathbb{R}$ on an interval $J \subseteq I$ containing $t_0$ with $y' = -p(t)\,y$ and $y(t_0) = y_0$. Linearity of the equation means that no non-linear terms can cause finite-time blow-up, so we may expect solutions on all of $I$.
+
+We must prove two statements: (a) any solution is given by one explicit formula (this gives uniqueness), (b) that formula really is a solution (existence). Picard's theorem is not to be used; only the Fundamental Theorem of Calculus and the fact that a function with zero derivative on an interval is constant (Mean Value Theorem) are allowed.
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 2: Choice of Method and Change of Variables
 
-### Step 1: Definition of the Transformed Function
-Let $y(t) \in C^1(I)$ be any solution to the initial value problem:
-$$ \begin{cases} y'(t) + p(t) y(t) = 0 \\ y(t_0) = y_0 \end{cases} \tag{1} $$
+Why this method (the hint): the function $P(t) = \int_{t_0}^{t}p(s)\,ds$ is differentiable with $P' = p$ because $p$ is continuous (Fundamental Theorem of Calculus). The function $e^{P(t)}$ is exactly an integrating factor $\mu$ for $y' + p y = 0$. For any solution $y$, the product $z = y\,e^{P}$ should have zero derivative, which forces $z$ to be constant.
 
-Define the auxiliary function:
-$$ z(t) = y(t) \Phi(t) \tag{2} $$
-where:
-$$ \Phi(t) \equiv \exp\left( \int_{t_0}^t p(s) \, ds \right) \tag{3} $$
-Note that because the exponential function is strictly positive, $\Phi(t) > 0$ for all $t \in I$.
+Change of unknown, written explicitly: $z(t) = y(t)\,e^{P(t)}$, $P(t) = \int_{t_0}^{t}p(s)\,ds$, $P(t_0) = 0$, hence $z(t_0) = y_0$.
 
 ---
 
-### Step 2: Differentiation of the Integrating Factor $\Phi(t)$
-By the Fundamental Theorem of Calculus, since $p(s)$ is continuous:
-$$ \frac{d}{dt} \left[ \int_{t_0}^t p(s) \, ds \right] = p(t) $$
+## Phase 3: Step-by-Step Derivation
 
-Applying the chain rule to $\Phi(t) = e^{u(t)}$ with $u(t) = \int_{t_0}^t p(s) ds$:
-$$ \frac{d\Phi}{dt} = \frac{d}{dt}\left[ e^{u(t)} \right] = u'(t) e^{u(t)} = p(t) \exp\left( \int_{t_0}^t p(s) \, ds \right) = p(t) \Phi(t) \tag{4} $$
+### Uniqueness
 
----
+Let $y$ be any solution. Differentiate $z = y\,e^{P}$ with the product rule and the chain rule ($\frac{d}{dt}e^{P} = P'\,e^{P} = p\,e^{P}$):
 
-### Step 3: Differentiation of $z(t)$
-Differentiating $z(t) = y(t) \Phi(t)$ with respect to $t$ via the product rule:
-$$ \frac{dz}{dt} = \frac{dy}{dt} \Phi(t) + y(t) \frac{d\Phi}{dt} $$
+$$
+z'(t) = y'(t)\,e^{P(t)} + y(t)\,p(t)\,e^{P(t)} = e^{P(t)}\left[y'(t) + p(t)\,y(t)\right] = e^{P(t)}\cdot 0 = 0.
+$$
 
-Substitute the derivative of $\Phi(t)$ from equation $(4)$:
-$$ \frac{dz}{dt} = y'(t) \Phi(t) + y(t) \left[ p(t) \Phi(t) \right] $$
+A function whose derivative vanishes on an interval is constant (Mean Value Theorem), so $z(t) = z(t_0)$ for all $t \in J$. Evaluate at $t_0$: $z(t_0) = y(t_0)\,e^{0} = y_0$. Hence $y(t)\,e^{P(t)} = y_0$, and since $e^{P(t)} > 0$,
 
-Factor out $\Phi(t)$:
-$$ \frac{dz}{dt} = \left[ y'(t) + p(t) y(t) \right] \Phi(t) \tag{5} $$
+$$
+y(t) = y_0\,e^{-P(t)} = y_0\exp\left(-\int_{t_0}^{t}p(s)\,ds\right).
+$$
 
----
+Every solution coincides with this expression, so there is at most one solution.
 
-### Step 4: Vanishing of the Derivative
-From the differential equation $(1)$, $y(t)$ satisfies $y'(t) + p(t) y(t) = 0$ for all $t \in I$. Substituting this into $(5)$:
-$$ \frac{dz}{dt} = [0] \cdot \Phi(t) = 0 \quad \forall t \in I \tag{6} $$
+### Existence
 
----
+Define $y(t) = y_0\,e^{-P(t)}$ on $I$. It is differentiable, with $y' = y_0\,e^{-P}\cdot(-P') = -p(t)\,y(t)$, i.e. $y' + p y = 0$, and $y(t_0) = y_0 e^{0} = y_0$. So the IVP has this solution on all of $I$.
 
-### Step 5: Deduction of Constancy
-By the **Mean Value Theorem**, if a differentiable function on an interval $I$ has zero derivative everywhere on $I$, it is identically constant:
-$$ z(t) \equiv C \quad \forall t \in I \tag{7} $$
-where $C \in \mathbb{R}$ is a constant.
+### The case $y_0 = 0$
 
-To evaluate $C$, evaluate equation $(2)$ at the initial time $t = t_0$:
-$$ z(t_0) = y(t_0) \exp\left( \int_{t_0}^{t_0} p(s) \, ds \right) $$
-Since $\int_{t_0}^{t_0} p(s) ds = 0$ and $e^0 = 1$:
-$$ z(t_0) = y_0 \cdot 1 = y_0 $$
-
-Therefore, the constant is uniquely determined:
-$$ C = y_0 \implies z(t) = y_0 \quad \forall t \in I \tag{8} $$
+The formula gives $y(t) = 0\cdot e^{-P(t)} \equiv 0$, the trivial solution. By the uniqueness just proved it is the only solution with $y(t_0) = 0$. Equivalently: if a solution vanishes at one time $t_1$, apply the result with initial time $t_1$ to get $y \equiv 0$; so a non-trivial solution of this equation never vanishes (since $e^{-P} > 0$, it keeps the sign of $y_0$).
 
 ---
 
-### Step 6: Isolation of $y(t)$ and Uniqueness Proof
-Substitute $z(t) = y_0$ back into equation $(2)$:
-$$ y_0 = y(t) \exp\left( \int_{t_0}^t p(s) \, ds \right) $$
+## Phase 4: Verification, Limits and Interpretation
 
-Since the exponential term is non-zero, divide both sides by $\exp\left(\int_{t_0}^t p(s) ds\right)$:
-$$ \mathbf{y(t) = y_0 \exp\left( -\int_{t_0}^t p(s) \, ds \right)} \tag{9} $$
+Check with $p(t) = 2t$, $t_0 = 0$, $y_0 = 3$: $P = t^2$, $y = 3e^{-t^2}$, $y' = -6t\,e^{-t^2} = -2t\,y$. Correct.
 
-#### Rigorous Uniqueness Conclusion:
-We did not assume what $y(t)$ looked like; we only assumed that $y(t)$ was *some* solution to $(1)$. The derivation proves that **any** solution $y(t)$ must necessarily and inescapably satisfy formula $(9)$.
-Because the right-hand side of $(9)$ is uniquely defined for any given $y_0$, there is **at most one solution**. Since direct substitution verifies that $(9)$ indeed solves $(1)$, this establishes **existence and uniqueness** simultaneously without Picard's theorem. $\blacksquare$
+The same formula follows from the integrating-factor method (Problem 2.3): $\mu = e^{P}$, $(\mu y)' = 0$. The point of this exercise is that the argument above proves uniqueness directly, i.e. it does not presuppose the formula.
 
----
+Interval of existence: the solution exists on the whole interval $I$ where $p$ is continuous, in agreement with the explicit formula, which is finite wherever $p$ is continuous. This contrasts with non-linear equations such as Problem 2.13, where solutions can blow up in finite time.
 
-### Step 7: Case $y_0 = 0$
-If the initial condition is $y(t_0) = 0$:
-$$ y(t) = 0 \cdot \exp\left( -\int_{t_0}^t p(s) \, ds \right) \equiv 0 \quad \forall t \in I $$
-* **Conclusion:** If $y_0 = 0$, the only solution is the **trivial zero solution**:
-  $$ \mathbf{y(t) \equiv 0} $$
-  A linear homogeneous system released from rest remains identically at rest.
+#### Result
+
+$$
+y(t) = y_0\exp\left(-\int_{t_0}^{t}p(s)\,ds\right), \qquad y_0 = 0 \ \Longrightarrow\ y \equiv 0.
+$$
 
 ---
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+## Related Notes
 
-### Master Solution Summary:
-* **Explicit Unique Solution:**
-  $$ \mathbf{y(t) = y_0 \exp\left( -\int_{t_0}^t p(s) \, ds \right)} $$
-* **Case $y_0 = 0$:**
-  $$ \mathbf{y(t) \equiv 0} $$
-* **Methodological Significance:** This proof demonstrates that for linear first-order differential equations, the **Fundamental Theorem of Calculus and the Mean Value Theorem** alone are sufficient to establish global existence and uniqueness, circumventing the need for the Picard-Lindelöf contraction mapping machinery.
-
----
-
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Integrating Factor Theory]]
-* [[04 - Advanced Maths/Problema - Ch2-P11 Invariance of Solution Ratios in Linear ODEs|Problem 2.11: Solution Ratios Invariance]]
-* [[04 - Advanced Maths/Problema - Ch2-P17 Direct Difference Method for Uniqueness|Problem 2.17: Direct Difference Method]]
+- [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard theorem and well-posedness]]
+- [[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Integrating factor theory]]
+- [[04 - Advanced Maths/Problema - Ch2-P11 Invariance of Solution Ratios in Linear ODEs|Problem 2.11: ratio of solutions]]
+- [[04 - Advanced Maths/Problema - Ch2-P17 Direct Difference Method for Uniqueness|Problem 2.17: uniqueness by the difference method]]

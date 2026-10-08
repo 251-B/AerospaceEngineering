@@ -5,129 +5,136 @@ origen: "ProblemsCh2.pdf — Exercise 2.5"
 dificultad: media
 tags:
   - problema-resuelto
-  - factor-integrante-especial
-  - ecuaciones-no-exactas
-  - funcion-potencial
+  - exact-equations
+  - integrating-factor
+  - non-exact-equations
 ---
 
-# ✏️ Problem 2.5: Integrating Factor for Non-Exact Equations
+# Problem 2.5: Integrating Factor for a Non-Exact Equation
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 5 (page 2). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Find an integrating factor depending only on $x$ that makes the equation:
-$$ (3xy + y^2) + (x^2 + xy) \frac{dy}{dx} = 0 $$
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 10, Section 10.1 (exact equations).
+
+## Problem Statement
+
+Find an integrating factor depending only on $x$ that makes the equation
+
+$$
+3xy + y^2 + (x^2 + xy)\frac{dy}{dx} = 0
+$$
+
 exact, and find its solution.
 
 ---
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+## Phase 1: Classification, Hypotheses and Domain
 
-### Mathematical Structure:
-The differential equation is written in differential form:
-$$ M(x, y) \, dx + N(x, y) \, dy = 0 $$
-with:
-$$ M(x, y) = 3xy + y^2, \quad N(x, y) = x^2 + xy $$
+Write the equation as $M + N\,y' = 0$ with
 
-### Objective:
-1. Show that the equation is not exact in its current form.
-2. Determine an integrating factor $\mu = \mu(x)$ depending solely on $x$.
-3. Multiply the equation by $\mu(x)$, verify exactness of the new system, and compute the potential function $F(x, y) = C$.
+$$
+M(x,y) = 3xy + y^2, \qquad N(x,y) = x^2 + xy = x(x+y).
+$$
 
----
+$M$, $N$ and their partial derivatives are polynomials, hence continuous on $\mathbb{R}^2$. Exactness test:
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
+$$
+M_y = 3x + 2y, \qquad N_x = 2x + y.
+$$
 
-1. Compute $\frac{\partial M}{\partial y}$ and $\frac{\partial N}{\partial x}$ to demonstrate non-exactness.
-2. Form the difference $\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}$.
-3. Check if $\frac{M_y - N_x}{N}$ depends exclusively on $x$.
-4. Calculate the integrating factor via $\mu(x) = \exp\left( \int \frac{M_y - N_x}{N} dx \right)$.
-5. Multiply the equation by $\mu(x)$ and reconstruct the potential function $F(x, y)$ such that $\nabla F = (\mu M, \mu N)$.
+$M_y - N_x = x + y$, which is not identically zero, so the equation is not exact. We look for $\mu = \mu(x)$ (nowhere zero on the domain considered) such that $\mu M + \mu N\,y' = 0$ is exact. We work on a region where $x \neq 0$ (the line $x = 0$ is excluded because $N(0,y) = 0$ there).
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 2: Choice of Method and Change of Variables
 
-### Step 1: Verification of Non-Exactness
-Compute the partial derivatives:
-$$ \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(3xy + y^2) = 3x + 2y $$
-$$ \frac{\partial N}{\partial x} = \frac{\partial}{\partial x}(x^2 + xy) = 2x + y $$
+Why this method: multiplying the equation by a nonzero function does not change its solution set (on the region where the factor is nonzero) but can restore exactness. The requirement is $(\mu M)_y = (\mu N)_x$. If $\mu$ depends only on $x$, then $(\mu M)_y = \mu M_y$ and $(\mu N)_x = \mu' N + \mu N_x$, so the condition becomes
 
-Comparing the two expressions:
-$$ \frac{\partial M}{\partial y} - \frac{\partial N}{\partial x} = (3x + 2y) - (2x + y) = x + y \neq 0 $$
-Because $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, the equation is **not exact**.
+$$
+\mu M_y = \mu' N + \mu N_x \quad\Longleftrightarrow\quad \frac{\mu'}{\mu} = \frac{M_y - N_x}{N}.
+$$
 
----
-
-### Step 2: Derivation of the Integrating Factor $\mu(x)$
-An integrating factor depending only on $x$ exists if and only if the ratio $\frac{M_y - N_x}{N}$ is a function solely of $x$:
-$$ \frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N} = \frac{x + y}{x^2 + xy} $$
-
-Factor the denominator $N(x, y) = x(x + y)$:
-$$ \frac{x + y}{x(x + y)} = \frac{1}{x} \quad (\text{for } x + y \neq 0) $$
-This ratio depends strictly and solely on $x$:
-$$ \phi(x) = \frac{1}{x} $$
-
-Compute the integrating factor:
-$$ \mu(x) = \exp\left( \int \phi(x) \, dx \right) = \exp\left( \int \frac{1}{x} \, dx \right) = \exp(\ln|x|) = |x| $$
-Selecting the positive branch for $x > 0$:
-$$ \mathbf{\mu(x) = x} \tag{1} $$
+This ordinary differential equation for $\mu(x)$ is solvable only if the right-hand side depends on $x$ alone (otherwise no integrating factor of the form $\mu(x)$ exists). Then we integrate it, and continue with the standard exact-equation construction $F_x = \mu M$, $F_y = \mu N$.
 
 ---
 
-### Step 3: Formulation of the Exact System
-Multiply the entire original differential equation by $\mu(x) = x$:
-$$ x (3xy + y^2) \, dx + x (x^2 + xy) \, dy = 0 $$
-$$ \tilde{M}(x, y) \, dx + \tilde{N}(x, y) \, dy = 0 $$
-where:
-$$ \tilde{M}(x, y) = 3x^2 y + x y^2 $$
-$$ \tilde{N}(x, y) = x^3 + x^2 y $$
+## Phase 3: Step-by-Step Derivation
 
-#### Verification of Exactness:
-$$ \frac{\partial \tilde{M}}{\partial y} = \frac{\partial}{\partial y}(3x^2 y + x y^2) = 3x^2 + 2xy $$
-$$ \frac{\partial \tilde{N}}{\partial x} = \frac{\partial}{\partial x}(x^3 + x^2 y) = 3x^2 + 2xy $$
-Since $\frac{\partial \tilde{M}}{\partial y} = \frac{\partial \tilde{N}}{\partial x} = 3x^2 + 2xy$, **the transformed equation is exact**.
+### Step 1: find $\mu(x)$
+
+Compute the quotient, factoring $N = x(x+y)$:
+
+$$
+\frac{M_y - N_x}{N} = \frac{x + y}{x(x+y)} = \frac{1}{x} \qquad (x + y \neq 0).
+$$
+
+This depends only on $x$, so $\mu$ exists. Solve $\mu'/\mu = 1/x$:
+
+$$
+\int\frac{d\mu}{\mu} = \int\frac{dx}{x} \ \Longrightarrow\ \ln\lvert\mu\rvert = \ln\lvert x\rvert + c \ \Longrightarrow\ \mu(x) = x \quad (\text{taking the constant multiple equal to }1).
+$$
+
+### Step 2: check exactness of the new equation
+
+Multiply by $\mu = x$:
+
+$$
+\tilde{M} = x M = 3x^2y + xy^2, \qquad \tilde{N} = xN = x^3 + x^2y.
+$$
+
+$$
+\tilde{M}_y = 3x^2 + 2xy, \qquad \tilde{N}_x = 3x^2 + 2xy.
+$$
+
+They coincide, so the new equation is exact.
+
+### Step 3: potential function
+
+Integrate $F_x = \tilde{M}$ in $x$ at fixed $y$:
+
+$$
+F = \int(3x^2y + xy^2)\,dx + h(y) = x^3 y + \frac{x^2y^2}{2} + h(y).
+$$
+
+Impose $F_y = \tilde{N}$:
+
+$$
+F_y = x^3 + x^2 y + h'(y) = x^3 + x^2y \ \Longrightarrow\ h'(y) = 0.
+$$
+
+So $h$ is constant and the solution in implicit form is
+
+$$
+x^3y + \frac{1}{2}x^2y^2 = C \qquad\Longleftrightarrow\qquad x^2y^2 + 2x^3y = K, \quad K = 2C.
+$$
+
+### Step 4: explicit form
+
+Complete the square in $y$: $x^2y^2 + 2x^3y = x^2\left[(y + x)^2 - x^2\right]$. Then $x^2(y+x)^2 = K + x^4$, so
+
+$$
+y(x) = -x \pm \frac{\sqrt{x^4 + K}}{\lvert x\rvert}, \qquad x \neq 0,\ x^4 + K \geq 0.
+$$
+
+Remark: on the line $y = -x$ the coefficient $N = x(x+y)$ vanishes. Direct substitution of $y = -x$ gives $M = -3x^2 + x^2 = -2x^2$ and $N = 0$, so $M + N y' = -2x^2 \neq 0$ and $y = -x$ is not a solution.
 
 ---
 
-### Step 4: Reconstruction of the Potential Function $F(x, y)$
-Integrate $\tilde{M}(x, y)$ with respect to $x$:
-$$ F(x, y) = \int \tilde{M}(x, y) \, dx = \int (3x^2 y + x y^2) \, dx $$
-$$ F(x, y) = 3y \left( \frac{x^3}{3} \right) + y^2 \left( \frac{x^2}{2} \right) + h(y) = x^3 y + \frac{1}{2} x^2 y^2 + h(y) \tag{2} $$
+## Phase 4: Verification, Limits and Interpretation
 
-Differentiate $F(x, y)$ with respect to $y$ and equate to $\tilde{N}(x, y)$:
-$$ \frac{\partial F}{\partial y} = x^3 + x^2 y + h'(y) = \tilde{N}(x, y) = x^3 + x^2 y $$
+Check the potential: $F = x^3y + \tfrac12 x^2y^2$ has $F_x = 3x^2y + xy^2 = x(3xy + y^2) = xM$ and $F_y = x^3 + x^2y = x(x^2 + xy) = xN$, as required.
 
-Subtract $x^3 + x^2 y$ from both sides:
-$$ h'(y) = 0 \implies h(y) = 0 $$
+Check along a solution curve: implicit differentiation of $x^3y + \tfrac12x^2y^2 = C$ gives $(3x^2y + xy^2) + (x^3 + x^2y)y' = 0$. Dividing by $x \neq 0$ gives back $(3xy + y^2) + (x^2 + xy)y' = 0$, the original equation. The division by $x$ is why the line $x = 0$ must be excluded from the region of validity.
 
-Thus, the potential function is:
-$$ F(x, y) = x^3 y + \frac{1}{2} x^2 y^2 $$
+Numeric spot check of the explicit branch: with $K = 3$ and $x = 1$, $y = -1 + \sqrt{1 + 3} = 1$; then $F = 1 + \tfrac12 = \tfrac32 = K/2$, consistent. The slope from the ODE is $y' = -\frac{3xy + y^2}{x^2 + xy} = -\frac{4}{2} = -2$, and the derivative of $y = -x + \sqrt{x^4+3}/x$ is $-1 + \frac{x^4 - 3}{x^2\sqrt{x^4+3}}$, which equals $-1 + \frac{-2}{1\cdot 2} = -2$ at $x = 1$.
 
-The general solution is given by $F(x, y) = C$:
-$$ \mathbf{x^3 y + \frac{1}{2} x^2 y^2 = C} \tag{3} $$
-Multiplying by $2$ to clear fractions:
-$$ \mathbf{2 x^3 y + x^2 y^2 = C_1} \tag{4} $$
+#### Result
+
+Integrating factor $\mu(x) = x$ (up to a constant factor). Solution: $x^3y + \tfrac12x^2y^2 = C$ on regions with $x \neq 0$.
 
 ---
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+## Related Notes
 
-### Final Answers:
-* **Integrating Factor:**
-  $$ \mathbf{\mu(x) = x} $$
-* **General Implicit Solution:**
-  $$ \mathbf{x^3 y + \frac{1}{2} x^2 y^2 = C \iff x^2 y \left( x + \frac{1}{2} y \right) = C} $$
-
-### Verification by Implicit Differentiation:
-Differentiate $2 x^3 y + x^2 y^2 = C_1$ with respect to $x$:
-$$ \frac{d}{dx}\left[ 2 x^3 y + x^2 y^2 \right] = 0 $$
-$$ \left( 6 x^2 y + 2 x y^2 \right) + \left( 2 x^3 + 2 x^2 y \right) \frac{dy}{dx} = 0 $$
-Divide the entire equation by $2x$:
-$$ (3xy + y^2) + (x^2 + xy) \frac{dy}{dx} = 0 $$
-which recovers the original non-exact ODE identically.
-
----
-
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Special Integrating Factors]]
-* [[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Equations]]
+- [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact equations and special integrating factors]]
+- [[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: exact equations]]

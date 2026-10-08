@@ -5,128 +5,86 @@ origen: "ProblemsCh2.pdf — Exercise 2.12"
 dificultad: media
 tags:
   - problema-resuelto
-  - no-interseccion
-  - teorema-picard
-  - barreras-de-solucion
-  - confinamiento-trayectorias
+  - uniqueness
+  - no-crossing
+  - comparison
+  - intermediate-value-theorem
 ---
 
-# ✏️ Problem 2.12: Trajectory Crossing and Uniqueness Bounds
+# Problem 2.12: Trajectory Crossing and Uniqueness Bounds
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 12 (page 3). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Consider $\frac{dy}{dt} = f(y, t)$, where $f$ satisfies the hypotheses of the existence and uniqueness theorem.
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 6, Section 6.2 (Theorem 6.2).
 
-(i) $y_1(t) = -2$ for all $t$ is a solution, and we are studying a different solution for which $y(0) = 0$.  
-(ii) $y_1(t) = -t - 1$ and $y_2(t) = t^2 + 1$ are solutions, and $y(0) = 0$.
+## Problem Statement
+
+Consider $\dfrac{dy}{dt} = f(y,t)$, where $f$ satisfies the hypothesis of the existence and uniqueness theorem. Suppose that
+
+(i) $y_1(t) = -2$ for all $t$ is a solution and we are studying a different solution for which $y(0) = 0$.  
+(ii) $y_1(t) = -t - 1$ and $y_2(t) = t^2 + 1$ are solutions and $y(0) = 0$.  
 
 Based on the uniqueness theorem, what can you conclude about the solutions in each case?
 
 ---
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
+## Phase 1: Classification, Hypotheses and Domain
 
-### Mathematical Setting:
-* **Differential Equation:** $\frac{dy}{dt} = f(y, t)$.
-* **Hypothesis on $f$:** $f$ and $\frac{\partial f}{\partial y}$ are continuous on $\mathbb{R}^2$, satisfying the conditions of the **Picard-Lindelöf Existence and Uniqueness Theorem**.
-* **Known Solutions & Initial Conditions:**
-  * **Part (i):** Known constant solution $y_1(t) \equiv -2$. Target solution $y(t)$ satisfies $y(0) = 0$.
-  * **Part (ii):** Known solutions $y_1(t) = -t - 1$ and $y_2(t) = t^2 + 1$. Target solution $y(t)$ satisfies $y(0) = 0$.
+Hypothesis of the theorem: $f$ and $\partial f/\partial y$ are continuous on an open set $\Omega \subseteq \mathbb{R}^2$ containing the graphs of all the solutions considered. Then through every point $(t_*, y_*) \in \Omega$ passes exactly one solution (on its maximal interval of existence).
 
----
+Consequence used below (no-crossing principle): if two solutions $u, v$ of this ODE satisfy $u(t_*) = v(t_*)$ at some time $t_*$ in the common interval, then they solve the same IVP at $t_*$, so $u \equiv v$ on the common interval. Contrapositive: two different solutions never meet. Hence $u - v$ has no zeros on the common interval.
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
-
-```mermaid
-flowchart TD
-    Picard["Picard-Lindelöf Uniqueness Theorem"] --> NoCross["No-Crossing Theorem: Distinct solution curves cannot intersect"]
-    NoCross --> Part1["Part (i): y₁(0) = -2 < y(0) = 0 => y(t) > -2 for all t"]
-    NoCross --> Part2["Part (ii): Check y₁(0) = -1 < y(0) = 0 < y₂(0) = 1"]
-    Part2 --> Confine["Confinement Corridor: -t - 1 < y(t) < t² + 1 for all t"]
-```
-
-1. **The No-Crossing Principle:** Under Picard's theorem, through every point $(t^*, y^*)$ in the phase plane passes **one and only one** solution curve. Therefore, two distinct solution curves cannot intersect, touch, or cross each other.
-2. In each part, compare the initial condition $y(0)$ with the values of the known solutions at $t = 0$.
-3. Because solutions are continuous functions, an inequality established at $t = 0$ must persist for all $t$ in the common interval of existence.
+The function $f$ is not given explicitly, and we only use that the theorem applies. All conclusions are therefore restricted to the common interval of existence $J \ni 0$ of the solutions involved (a connected interval containing $t = 0$).
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 2: Choice of Method and Change of Variables
 
-### The Fundamental No-Crossing Lemma
-Let $u(t)$ and $v(t)$ be two solutions of $\frac{dy}{dt} = f(y, t)$ defined on an open interval $I$. If there exists a point $t_0 \in I$ such that $u(t_0) < v(t_0)$, then:
-$$ u(t) < v(t) \quad \forall t \in I $$
-
-*Proof by Contradiction:*
-Suppose there exists $t_1 \in I$ such that $u(t_1) \ge v(t_1)$.
-Define the difference function $\Delta(t) = v(t) - u(t)$. By hypothesis, $\Delta(t)$ is continuous on $I$, with $\Delta(t_0) = v(t_0) - u(t_0) > 0$ and $\Delta(t_1) = v(t_1) - u(t_1) \le 0$.
-By the **Intermediate Value Theorem**, there must exist a point $t^* \in [t_0, t_1]$ (or $[t_1, t_0]$) such that:
-$$ \Delta(t^*) = 0 \iff u(t^*) = v(t^*) \equiv y^* $$
-Now consider the Initial Value Problem:
-$$ \begin{cases} \dfrac{dy}{dt} = f(y, t) \\ y(t^*) = y^* \end{cases} $$
-Both $u(t)$ and $v(t)$ satisfy this IVP. But by the Picard-Lindelöf Theorem, this IVP has a **strictly unique** local solution, which implies $u(t) \equiv v(t)$ everywhere on $I$. This contradicts our initial assumption that $u(t_0) < v(t_0)$.
-Therefore, no such intersection point $t^*$ can exist, and $u(t) < v(t)$ for all $t \in I$. $\blacksquare$
+Why this method: the Intermediate Value Theorem states that a continuous function with no zeros on an interval has constant sign there. Apply it to $u - v$ for two solutions that never meet. The sign at $t = 0$, known from the initial data, then fixes the sign on all of $J$. This gives bounds without knowing $f$.
 
 ---
 
-### Part (i): Analysis with Barrier $y_1(t) = -2$
-* We have a known solution $y_1(t) = -2$ for all $t \in \mathbb{R}$.
-* We examine a distinct solution $y(t)$ with $y(0) = 0$.
-* Compare at the initial time $t = 0$:
-  $$ y(0) = 0 > -2 = y_1(0) $$
-* Applying the No-Crossing Lemma with $u(t) = y_1(t)$ and $v(t) = y(t)$:
-  $$ y(t) > y_1(t) \quad \forall t $$
-  $$ \mathbf{y(t) > -2 \quad \forall t \in \text{Domain}(y)} \tag{1} $$
+## Phase 3: Step-by-Step Derivation
 
-*Conclusion:* The solution $y(t)$ can never cross or reach the value $-2$. The line $y = -2$ acts as an impermeable lower barrier.
+### Part (i): $y_1 \equiv -2$ and a different solution $y$ with $y(0) = 0$
 
----
+$y_1$ is a solution and $y \not\equiv y_1$ (indeed $y(0) = 0 \neq -2 = y_1(0)$). Define $d(t) = y(t) - y_1(t) = y(t) + 2$. By the no-crossing principle, $d(t) \neq 0$ for all $t \in J$. $d$ is continuous and $d(0) = 0 + 2 = 2 > 0$. By the Intermediate Value Theorem, a continuous function that changes sign must vanish somewhere between; since $d$ never vanishes, it keeps the sign it has at $t=0$:
 
-### Part (ii): Analysis with Barriers $y_1(t) = -t - 1$ and $y_2(t) = t^2 + 1$
+$$
+y(t) + 2 > 0 \quad\Longleftrightarrow\quad y(t) > -2 \qquad \text{for all } t \in J.
+$$
 
-#### Step 1: Verification of Non-Intersection of the Barrier Solutions
-First check whether the barrier curves $y_1(t)$ and $y_2(t)$ intersect each other:
-$$ y_2(t) - y_1(t) = (t^2 + 1) - (-t - 1) = t^2 + t + 2 $$
-The discriminant of this quadratic is:
-$$ \Delta = 1^2 - 4(1)(2) = 1 - 8 = -7 < 0 $$
-Because the discriminant is negative and the leading coefficient is positive ($1 > 0$):
-$$ y_2(t) - y_1(t) > 0 \iff y_1(t) < y_2(t) \quad \forall t \in \mathbb{R} $$
-The two known solutions never intersect each other.
+Conclusion: the solution starting at $y(0) = 0$ stays strictly above the constant solution $y = -2$ for all time; it is bounded below by $-2$ and can never reach it.
 
-#### Step 2: Evaluation at Initial Time $t = 0$
-Evaluate both barrier solutions at $t = 0$:
-$$ y_1(0) = -0 - 1 = -1 $$
-$$ y_2(0) = 0^2 + 1 = 1 $$
+### Part (ii): $y_1 = -t-1$, $y_2 = t^2 + 1$ and a solution $y$ with $y(0) = 0$
 
-Compare with the target initial condition $y(0) = 0$:
-$$ y_1(0) = -1 < y(0) = 0 < y_2(0) = 1 $$
+First, check how the two given solutions are placed with respect to each other: $y_2(t) - y_1(t) = t^2 + t + 2$. Its discriminant is $1 - 8 = -7 < 0$, so $t^2 + t + 2 > 0$ for all $t$ (its minimum is $7/4$ at $t = -\frac12$). So $y_1 < y_2$ for all $t$, consistent with the no-crossing principle (they never meet).
 
-#### Step 3: Application of the Confinement Lemma
-Applying the No-Crossing Lemma to both boundaries simultaneously:
-1. Since $y_1(0) < y(0)$, $y(t) > y_1(t)$ for all $t$.
-2. Since $y(0) < y_2(0)$, $y(t) < y_2(t)$ for all $t$.
+Initial position of $y$: $y_1(0) = -1$, $y_2(0) = 1$, so $y_1(0) < y(0) = 0 < y_2(0)$. Apply the argument to each pair. $d_1 = y - y_1$ is continuous, $d_1(0) = 0 - (-1) = 1 > 0$ and never vanishes, hence $d_1 > 0$ on $J$. $d_2 = y_2 - y$ is continuous, $d_2(0) = 1 - 0 = 1 > 0$ and never vanishes, hence $d_2 > 0$ on $J$. Therefore
 
-Combining the two strict inequalities:
-$$ \mathbf{-t - 1 < y(t) < t^2 + 1 \quad \forall t \in \text{Domain}(y)} \tag{2} $$
+$$
+-t - 1 < y(t) < t^2 + 1 \qquad \text{for all } t \in J.
+$$
+
+The solution is trapped between the two given solutions for as long as it exists.
 
 ---
 
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
+## Phase 4: Verification, Limits and Interpretation
 
-### Final Conclusions:
-* **(i) Lower Bound:**
-  $$ \mathbf{y(t) > -2 \quad \forall t} $$
-  The solution trajectory is strictly bounded from below by the constant solution $-2$.
-* **(ii) Confinement Corridor:**
-  $$ \mathbf{-t - 1 < y(t) < t^2 + 1 \quad \forall t} $$
-  The solution trajectory is permanently trapped inside the region between the straight line $y = -t - 1$ and the parabola $y = t^2 + 1$.
+Sanity check of the geometry: in (i), the line $y = -2$ and the curve $y(t)$ with $y(0) = 0$ are separated by a vertical gap $2$ at $t = 0$; the gap is positive for all $t$. In (ii), the vertical gap between $y_1$ and $y_2$ at $t=0$ is $2$ and $y(0) = 0$ lies strictly inside; at $t = 1$ the bounds are $-2 < y(1) < 2$, and at $t = -1$ they are $0 < y(-1) < 2$.
 
-### Physical & Qualitative Significance:
-* **Barrier Method / Comparison Theorems:** In aerospace engineering (e.g., flight envelope protection, re-entry thermal bounds), differential equations are often too complex to solve in closed form. The No-Crossing Theorem allows engineers to prove that a spacecraft trajectory or temperature profile **remains safely bounded within a certified flight corridor** simply by constructing upper and lower analytical barrier solutions.
+Limits of the conclusion: it holds only on the common interval of existence $J$; the bounds say nothing about whether $y$ exists globally. If $f$ were not Lipschitz (for example $y' = 3y^{2/3}$, Problem 2.14), different solutions could touch or merge, and the bounds would be lost.
+
+The data in (ii) are a consistency condition for $f$ as well: two solutions that do not meet can coexist, whereas two that cross (say $y_1 = t$, $y_2 = -t$ intersecting at $t = 0$) would contradict the uniqueness hypothesis.
+
+#### Conclusions
+
+(i) $y(t) > -2$ for all $t$ in the interval of existence. (ii) $-t - 1 < y(t) < t^2 + 1$ for all $t$ in the interval of existence.
 
 ---
 
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Autonomous Dynamics & No-Crossing]]
-* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Uniqueness Theorem]]
-* [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Equilibrium Confinement]]
+## Related Notes
+
+- [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard theorem and well-posedness]]
+- [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: barriers on the phase line]]

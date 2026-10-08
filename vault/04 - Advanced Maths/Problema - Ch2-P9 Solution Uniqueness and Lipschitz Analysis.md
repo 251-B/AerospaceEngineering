@@ -5,142 +5,117 @@ origen: "ProblemsCh2.pdf — Exercise 2.9"
 dificultad: media
 tags:
   - problema-resuelto
-  - teorema-picard
-  - condicion-lipschitz
-  - unicidad
-  - no-unicidad
+  - uniqueness
+  - lipschitz-continuity
+  - picard-theorem
+  - non-uniqueness
+  - finite-time-blow-up
 ---
 
-# ✏️ Problem 2.9: Solution Uniqueness and Lipschitz Analysis
+# Problem 2.9: Uniqueness and Lipschitz Analysis
 
-## 📄 Enunciado (Problem Statement)
+Source: ProblemsCh2.pdf, Exercise 9 (page 2). File: sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf
 
-Which of the following differential equations have unique solutions (at least on some small time interval) for any non-negative initial condition $x(0) \ge 0$?
+Theory reference: Robinson, An Introduction to Ordinary Differential Equations (BookODE's.pdf), Chapter 6, Section 6.2 (Theorem 6.2 and its footnote on Lipschitz continuity).
 
-(i) $\dot{x} = x(1 - x^2)$  
-(ii) $\dot{x} = x^3$  
-(iii) $\dot{x} = x^{1/3}$  
-(iv) $\dot{x} = x^{1/2}(1 + x)^2$  
-(v) $\dot{x} = (1 + x)^{3/2}$
+## Problem Statement
 
----
+Which of the following differential equations have unique solutions (at least on some small time interval) for any non-negative initial condition $x(0) \geq 0$?
 
-## 📊 1. Identificación de Datos e Hipótesis (Phase 1)
-
-### Mathematical Setting:
-We consider autonomous Initial Value Problems (IVPs):
-$$ \begin{cases} \dot{x} = f(x) \\ x(0) = x_0 \ge 0 \end{cases} $$
-where the initial condition $x_0$ can be any non-negative real number in $[0, \infty)$.
-
-### The Picard-Lindelöf Criterion for Uniqueness:
-By the **Picard-Lindelöf Theorem**, the IVP has a unique local solution on an interval $(-\delta, \delta)$ if the function $f(x)$ is continuous and satisfies a **local Lipschitz condition** with respect to $x$ in a neighborhood of $x_0$:
-$$ |f(x_1) - f(x_2)| \le L |x_1 - x_2| $$
-A sufficient and practically necessary condition for $C^1$ functions on open sets is that the derivative $f'(x)$ is **bounded**:
-$$ |f'(x)| \le L < \infty $$
-
-### Crucial Observation on the Test Domain:
-For strictly positive initial states $x_0 > 0$, all five candidate functions are smooth ($C^1$ or $C^\infty$) on $(0, \infty)$. Therefore, local uniqueness can only fail at the boundary point **$x_0 = 0$**.
+(i) $\dot{x} = x(1 - x^2)$,  
+(ii) $\dot{x} = x^3$,  
+(iii) $\dot{x} = x^{1/3}$,  
+(iv) $\dot{x} = x^{1/2}(1+x)^2$,  
+(v) $\dot{x} = (1+x)^{3/2}$.  
 
 ---
 
-## 🧠 2. Estrategia y Planteamiento Físico (Phase 2)
+## Phase 1: Classification, Hypotheses and Domain
 
-For each equation $\dot{x} = f(x)$:
-1. Verify continuity of $f(x)$ on $[0, \infty)$ (guarantees *existence* by Peano's Theorem).
-2. Compute the derivative $f'(x) = \frac{df}{dx}$.
-3. Evaluate the behavior of $f'(x)$ as $x \to 0^+$.
-   * If $\lim_{x \to 0^+} |f'(x)| < \infty$, the derivative is bounded in a neighborhood of $x_0 = 0$, guaranteeing **local uniqueness**.
-   * If $\lim_{x \to 0^+} |f'(x)| = +\infty$, the Lipschitz condition fails at the origin, allowing **branching non-uniqueness** where both the trivial solution $x(t) \equiv 0$ and non-trivial solutions coexist.
+Each equation is autonomous: $\dot{x} = f(x)$ with initial condition $x(0) = x_0 \geq 0$.
+
+Uniqueness criterion used (Robinson, Theorem 6.2): if $f$ and $\partial f/\partial x$ are continuous in an open neighborhood of $(t_0, x_0)$, then the IVP has a unique solution on some open interval containing $t_0$. This is a sufficient condition, not a necessary one: a more general sufficient condition is that $f$ be locally Lipschitz in $x$, $\lvert f(x) - f(y)\rvert \leq L\lvert x - y\rvert$. When the condition fails at a point, uniqueness there must be examined directly.
+
+| Part | $f(x)$ | $f'(x)$ | Where $f'$ is continuous |
+| :--- | :--- | :--- | :--- |
+| (i) | $x - x^3$ | $1 - 3x^2$ | all $x$ |
+| (ii) | $x^3$ | $3x^2$ | all $x$ |
+| (iii) | $x^{1/3}$ | $\frac13 x^{-2/3}$ | $x \neq 0$ |
+| (iv) | $x^{1/2}(1+x)^2$ | $\frac12 x^{-1/2}(1+x)^2 + 2x^{1/2}(1+x)$ | $x > 0$ |
+| (v) | $(1+x)^{3/2}$ | $\frac32(1+x)^{1/2}$ | $x > -1$ (so all $x \geq 0$) |
 
 ---
 
-## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
+## Phase 2: Choice of Method and Change of Variables
+
+Why this method: for each $f$, check where $f$ and $f'$ are continuous. On those sets Theorem 6.2 applies. At any point $x_0 \geq 0$ where it does not apply (here only $x_0 = 0$ in (iii) and (iv), where $f'$ is unbounded), decide uniqueness by constructing two solutions (separation of variables) or by showing that they cannot exist.
+
+For a decisive non-uniqueness test at $x_0 = 0$ with $f(0) = 0$ and $f > 0$ for $x > 0$: the constant $x \equiv 0$ is always a solution, and by separation of variables, $t = \int_0^x ds/f(s)$ defines a second solution $x(t) > 0$ for $t > 0$ whenever the integral $\int_0^{\varepsilon} ds/f(s)$ is finite (the time needed to leave $0$ is then finite).
+
+---
+
+## Phase 3: Step-by-Step Derivation
 
 ### Part (i): $\dot{x} = x(1 - x^2)$
-* **Vector Field:** $f(x) = x - x^3$.
-* **Continuity:** Polynomial, continuous everywhere on $\mathbb{R}$.
-* **Derivative:**
-  $$ f'(x) = \frac{d}{dx}(x - x^3) = 1 - 3x^2 $$
-* **Evaluation at $x_0 = 0$:**
-  $$ \lim_{x \to 0^+} f'(x) = f'(0) = 1 - 0 = 1 < \infty $$
-  On any compact interval $[0, b]$, $|f'(x)| \le 1 + 3b^2 = L < \infty$.
-* **Conclusion:** $f(x)$ is locally Lipschitz on $[0, \infty)$. The solution is **strictly unique** for any $x(0) \ge 0$.
 
----
+$f(x) = x - x^3$ and $f'(x) = 1 - 3x^2$ are polynomials, continuous everywhere. Theorem 6.2 applies at every $x_0 \geq 0$. Answer: unique solution for all $x_0 \geq 0$.
 
 ### Part (ii): $\dot{x} = x^3$
-* **Vector Field:** $f(x) = x^3$.
-* **Continuity:** Smooth monomial on $\mathbb{R}$.
-* **Derivative:**
-  $$ f'(x) = 3x^2 $$
-* **Evaluation at $x_0 = 0$:**
-  $$ \lim_{x \to 0^+} f'(x) = f'(0) = 0 < \infty $$
-  On any neighborhood $[0, b]$, $|f'(x)| \le 3b^2 = L < \infty$.
-* **Conclusion:** $f(x)$ is locally Lipschitz everywhere on $[0, \infty)$. By Picard-Lindelöf, the solution is **strictly unique** locally for any $x(0) \ge 0$.  
-  *(Note: While solutions with $x_0 > 0$ blow up at finite time $t^* = \frac{1}{2x_0^2}$, uniqueness holds up to the blow-up boundary).*
 
----
+$f = x^3$, $f' = 3x^2$, continuous everywhere. Answer: unique solution for all $x_0 \geq 0$ (locally in time). Remark: the solution blows up in finite time. Separating, $\int_{x_0}^{x} s^{-3}\,ds = t$ gives $-\frac{1}{2x^2} + \frac{1}{2x_0^2} = t$, so $x(t) = \left(x_0^{-2} - 2t\right)^{-1/2}$ for $x_0 > 0$, which exists only for $t < T^* = \frac{1}{2x_0^2}$. This is why the problem says 'at least on some small time interval'.
 
 ### Part (iii): $\dot{x} = x^{1/3}$
-* **Vector Field:** $f(x) = x^{1/3}$.
-* **Continuity:** Continuous for all $x \ge 0$.
-* **Derivative:**
-  $$ f'(x) = \frac{d}{dx}\left( x^{1/3} \right) = \frac{1}{3} x^{-2/3} = \frac{1}{3 x^{2/3}} $$
-* **Evaluation at $x_0 = 0$:**
-  $$ \lim_{x \to 0^+} f'(x) = \lim_{x \to 0^+} \frac{1}{3 x^{2/3}} = +\infty $$
-  The derivative is unbounded in every neighborhood of $x = 0$. The Lipschitz condition is **violated at the origin**.
-* **Proof of Non-Uniqueness for $x(0) = 0$:**
-  1. $x_1(t) \equiv 0$ is a valid solution ($\dot{x}_1 = 0 = 0^{1/3}$).
-  2. By separation of variables, $\int x^{-1/3} dx = \int dt \implies \frac{3}{2} x^{2/3} = t \implies x_2(t) = \left(\frac{2}{3} t\right)^{3/2}$ is also a valid solution for $t \ge 0$ satisfying $x_2(0) = 0$.
-* **Conclusion:** **Uniqueness fails** for $x(0) = 0$.
+
+$f = x^{1/3}$ is continuous, but $f'(x) = \frac13 x^{-2/3} \to \infty$ as $x \to 0^+$. For $x_0 > 0$, $f$ and $f'$ are continuous near $x_0$, so the solution is unique. For $x_0 = 0$ the theorem does not apply, and uniqueness in fact fails: the constant $x \equiv 0$ is a solution, and separating variables with $x \geq 0$,
+
+$$
+\int_0^{x} s^{-1/3}\,ds = \left[\tfrac32 s^{2/3}\right]_0^{x} = \tfrac32 x^{2/3} = t \quad\Longrightarrow\quad x(t) = \left(\tfrac{2t}{3}\right)^{3/2}, \quad t \geq 0,
+$$
+
+is a second solution with $x(0) = 0$. Check: $\dot{x} = \frac32\cdot\frac23\left(\frac{2t}{3}\right)^{1/2} = \left(\frac{2t}{3}\right)^{1/2}$ and $x^{1/3} = \left(\frac{2t}{3}\right)^{1/2}$. So there are at least two solutions from $x_0 = 0$ (indeed infinitely many, obtained by staying at $0$ until any time $c \geq 0$ and then following $\left(\frac{2(t-c)}{3}\right)^{3/2}$). Answer: unique for $x_0 > 0$, not unique for $x_0 = 0$.
+
+### Part (iv): $\dot{x} = x^{1/2}(1+x)^2$
+
+$f(x) = \sqrt{x}\,(1+x)^2$ is continuous on $x \geq 0$ and $f'(x) = \frac{(1+x)^2}{2\sqrt{x}} + 2\sqrt{x}\,(1+x) \to \infty$ as $x \to 0^+$. For $x_0 > 0$ Theorem 6.2 applies and the solution is unique. At $x_0 = 0$ the theorem does not apply. We show non-uniqueness: besides $x \equiv 0$, separate variables for $x > 0$ and substitute $s = r^2$, $ds = 2r\,dr$ (so $\sqrt{s} = r$):
+
+$$
+t = \int_0^{x}\frac{ds}{\sqrt{s}\,(1+s)^2} = \int_0^{\sqrt{x}}\frac{2\,dr}{(1+r^2)^2} = \left[\frac{r}{1+r^2} + \arctan r\right]_0^{\sqrt{x}} = \frac{\sqrt{x}}{1+x} + \arctan\sqrt{x}.
+$$
+
+The primitive is checked by differentiation: $\frac{d}{dr}\left[\frac{r}{1+r^2} + \arctan r\right] = \frac{1 - r^2}{(1+r^2)^2} + \frac{1}{1+r^2} = \frac{2}{(1+r^2)^2}$. The function $T(x) = \frac{\sqrt{x}}{1+x} + \arctan\sqrt{x}$ is continuous and strictly increasing on $x \geq 0$ (its derivative is $1/(\sqrt{x}(1+x)^2) > 0$), with $T(0) = 0$ and $T(x) \to \pi/2$ as $x \to \infty$. Its inverse $x(t) = T^{-1}(t)$, $0 \leq t < \pi/2$, is a solution with $x(0) = 0$ and $x(t) > 0$ for $t > 0$. So at $x_0 = 0$ there are at least two solutions. Answer: unique for $x_0 > 0$, not unique for $x_0 = 0$.
+
+### Part (v): $\dot{x} = (1+x)^{3/2}$
+
+$f = (1+x)^{3/2}$ and $f' = \frac32(1+x)^{1/2}$ are continuous for $x > -1$, in particular for every $x_0 \geq 0$. Answer: unique solution for all $x_0 \geq 0$. The solution exists only up to a finite time: separating,
+
+$$
+\int_{x_0}^{x}(1+s)^{-3/2}\,ds = \left[-2(1+s)^{-1/2}\right]_{x_0}^{x} = -\frac{2}{\sqrt{1+x}} + \frac{2}{\sqrt{1+x_0}} = t,
+$$
+
+so $x(t) = \left(\frac{1}{\sqrt{1+x_0}} - \frac{t}{2}\right)^{-2} - 1$, which blows up at $T^* = \frac{2}{\sqrt{1+x_0}}$ (for $x_0 = 0$, $T^* = 2$).
 
 ---
 
-### Part (iv): $\dot{x} = x^{1/2}(1 + x)^2$
-* **Vector Field:** $f(x) = \sqrt{x}(1 + x)^2$.
-* **Continuity:** Continuous for all $x \ge 0$.
-* **Derivative:** Using the product rule:
-  $$ f'(x) = \frac{1}{2\sqrt{x}} (1 + x)^2 + \sqrt{x} \cdot 2(1 + x) = \frac{(1 + x)^2}{2\sqrt{x}} + 2\sqrt{x}(1 + x) $$
-* **Evaluation at $x_0 = 0$:**
-  $$ \lim_{x \to 0^+} f'(x) = \lim_{x \to 0^+} \left[ \frac{(1 + 0)^2}{2\sqrt{x}} + 0 \right] = \lim_{x \to 0^+} \frac{1}{2\sqrt{x}} = +\infty $$
-  Due to the $\frac{1}{\sqrt{x}}$ singularity, $f'(x)$ is unbounded near $0$.
-* **Proof of Non-Uniqueness for $x(0) = 0$:**
-  1. $x_1(t) \equiv 0$ is a solution.
-  2. Near $x = 0$, $(1 + x)^2 \approx 1$, so the equation behaves like $\dot{x} \approx x^{1/2}$, yielding non-trivial branching solutions $x_2(t) \approx \frac{1}{4} t^2$.
-* **Conclusion:** **Uniqueness fails** for $x(0) = 0$.
+## Phase 4: Verification, Limits and Interpretation
+
+Summary of the criterion check and numerical cross-checks: for (iii), with $x(t) = (2t/3)^{3/2}$ the residual $\dot{x} - x^{1/3}$ evaluated at $t = 0.7, 1.3, 5$ is of order $10^{-17}$ (rounding); for (iv), sympy gives $T'(x)\,f(x) = 1$ identically; for (ii) and (v) the closed forms give residual $0$ symbolically.
+
+Non-uniqueness and the Lipschitz condition are consistent: in (iii) and (iv), $\frac{\lvert f(x) - f(0)\rvert}{x} = x^{-2/3}$ and $\sim x^{-1/2}$ respectively, which are unbounded as $x \to 0^+$, so no Lipschitz constant exists near $0$. (For (iii) and (iv) the integral $\int_0 ds/f(s)$ converges, which is exactly what allows the solution to leave $0$ in finite time.) By contrast, in (i), (ii), (v) $f$ is Lipschitz on every bounded interval, and uniqueness holds.
+
+#### Answer
+
+| Part | Unique for every $x_0 \geq 0$? | Comment |
+| :--- | :--- | :--- |
+| (i) | Yes | $f \in C^1$; solutions stay bounded |
+| (ii) | Yes (locally in time) | blow-up at $T^* = 1/(2x_0^2)$ for $x_0 > 0$ |
+| (iii) | No | fails at $x_0 = 0$: $x \equiv 0$ and $x = (2t/3)^{3/2}$ |
+| (iv) | No | fails at $x_0 = 0$: $x \equiv 0$ and $x = T^{-1}(t)$ |
+| (v) | Yes (locally in time) | blow-up at $T^* = 2/\sqrt{1+x_0}$ |
 
 ---
 
-### Part (v): $\dot{x} = (1 + x)^{3/2}$
-* **Vector Field:** $f(x) = (1 + x)^{3/2}$.
-* **Continuity:** Continuous for all $x \ge -1$, hence on $[0, \infty)$.
-* **Derivative:**
-  $$ f'(x) = \frac{3}{2}(1 + x)^{1/2} = \frac{3}{2}\sqrt{1 + x} $$
-* **Evaluation at $x_0 = 0$:**
-  $$ \lim_{x \to 0^+} f'(x) = \frac{3}{2}\sqrt{1 + 0} = \frac{3}{2} < \infty $$
-  For any $x \in [0, b]$, $|f'(x)| \le \frac{3}{2}\sqrt{1 + b} = L < \infty$. The derivative is uniformly bounded on bounded intervals.
-* **Conclusion:** $f(x)$ is locally Lipschitz on $[0, \infty)$. The solution is **strictly unique** for any $x(0) \ge 0$.
+## Related Notes
 
----
-
-## 🎯 4. Resultado Final y Análisis Físico (Phase 4)
-
-### Master Classification Summary:
-
-| Item | Equation | $f'(x)$ near $x \to 0^+$ | Lipschitz at $x_0 = 0$? | Local Uniqueness for all $x(0) \ge 0$? |
-| :---: | :--- | :---: | :---: | :---: |
-| **(i)** | $\dot{x} = x(1 - x^2)$ | $1$ | **Yes** | **UNIQUE** |
-| **(ii)** | $\dot{x} = x^3$ | $0$ | **Yes** | **UNIQUE** |
-| **(iii)** | $\dot{x} = x^{1/3}$ | $+\infty$ | **No** | **NOT UNIQUE** (Multiple solutions at $x_0=0$) |
-| **(iv)** | $\dot{x} = x^{1/2}(1+x)^2$ | $+\infty$ | **No** | **NOT UNIQUE** (Multiple solutions at $x_0=0$) |
-| **(v)** | $\dot{x} = (1+x)^{3/2}$ | $3/2$ | **Yes** | **UNIQUE** |
-
-### Final Answer:
-The differential equations that have unique solutions for every non-negative initial condition $x(0) \ge 0$ are:
-$$ \mathbf{\text{(i), (ii), and (v)}} $$
-
----
-
-## 🔗 Related Notes
-* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Well-Posed Problems and Picard-Lindelöf Theorem]]
-* [[04 - Advanced Maths/Problema - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem|Problem 2.14: Picard Branching Pathology]]
+- [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard theorem and well-posedness]]
+- [[04 - Advanced Maths/Problema - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem|Problem 2.14: non-Lipschitz branching]]
+- [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: finite-time blow-up on the phase line]]
