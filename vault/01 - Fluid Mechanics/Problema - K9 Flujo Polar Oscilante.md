@@ -4,26 +4,23 @@ tema: "Tema 2: Flow Kinematics"
 tags:
   - problema-examen
   - cinematica
-  - flujo-polar
-  - potencial-velocidades
-  - funcion-corriente
+  - dipolo
+  - polares
   - linea-fluida
-  - aceleracion-polar
-dificultad: alta
+  - aceleracion
+dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K9.pdf"
 ---
 
-# ✏️ Problema K9: Flujo Polar Oscilante y Deformación de una Línea Fluida
+# Problem K9: Oscillating Polar Flow (Planar Dipole)
 
-> **Origen:** Hoja de Problemas de Cinemática, UC3M (Prof. Antonio L. Sánchez & Javier Rodríguez-Rodríguez). Solución manuscrita oficial cotejada.
+> Official UC3M kinematics problem collection (Introduction to Fluid Mechanics). Part of [[Tema 2 - Flow Kinematics]]. Related concepts: [[Concepto - Derivada Material y Aceleracion del Fluido|acceleration]], [[Concepto - Vorticidad, Circulacion y Potencial de Velocidades|vorticity and potential]], [[Concepto - Flujo Convectivo y Funcion de Corriente|stream function]], [[Concepto - Descripcion Euleriana vs Lagrangiana y Lineas de Flujo|fluid lines]].
 
----
-
-## 📋 Enunciado
+## Statement
 
 For the planar velocity field
 
-$$ v_r = -A \sin(\Omega t) \frac{\sin\theta}{r^2}, \qquad v_\theta = A \sin(\Omega t) \frac{\cos\theta}{r^2} $$
+$$ v_r = -A\sin(\Omega t)\,\frac{\sin\theta}{r^2}, \qquad v_\theta = A\sin(\Omega t)\,\frac{\cos\theta}{r^2}, $$
 
 where $A$ and $\Omega$ are known constants,
 
@@ -31,123 +28,104 @@ where $A$ and $\Omega$ are known constants,
 2. Compute the expansion rate.
 3. Comment on the existence of velocity potential and stream function and, if they do exist, compute them.
 4. Find the acceleration for points along the line $\theta = 0$.
-5. Obtain the trajectories & streamlines.
+5. Obtain the trajectories and streamlines.
 6. Determine the fluid line that at $t = 0$ is given by $\theta = 0$ and $0 < r < \infty$.
 
----
+Source: K9.pdf (page 1). Notes.pdf, Chapter 2: curl and divergence in orthogonal coordinates Eqs. (2.5)-(2.6); potential Eq. (2.34); acceleration Eqs. (2.25)-(2.26); stream function Eqs. (2.40)-(2.45); trajectories Eq. (2.12); fluid lines Eqs. (2.16)-(2.17); stream lines Eq. (2.21).
 
-## 🎯 1. Planteamiento Físico e Hipótesis
+## Phase 1: Hypotheses, Degrees of Freedom and Data
 
-* **Geometría:** Flujo plano bidimensional en coordenadas polares $(r, \theta)$.
-* **Naturaleza del campo:** Dipolo plano ortogonal oscilatorio (orientado según el eje $y$, con decaimiento radial $\sim 1/r^2$).
-* **Régimen:** No estacionario, sinusoidal en el tiempo con frecuencia angular $\Omega$, partiendo del reposo en $t = 0$.
+- Planar, unsteady flow in the plane $(r,\theta)$, for $r > 0$; the origin is singular and excluded. Write $\sigma(t) \equiv \sin\Omega t$; the velocity is the product of the time function $\sigma$ and a steady spatial field. Both components decay as $r^{-2}$.
+- Degrees of freedom: $(r,\theta)$ and time.
+- Units: $v = A/r^2$ has units m/s, so $A$ has units m$^3$/s.
+- Hypothesis used in part 6: $A > 0$, $\Omega > 0$, and the time interval is such that the particle does not reach the singular point (discussed in Phase 4).
 
----
+| Symbol | Meaning | SI unit |
+| :--- | :--- | :--- |
+| $A$ | dipole strength (per unit depth) | m$^3$/s |
+| $\Omega$ | angular frequency | s$^{-1}$ |
+| $(r_0,\theta_0)$ | initial position of a particle | m, rad |
+| $\lambda$ | material label, $r_0 = \lambda$ on the line $\theta_0 = 0$ | m |
 
-## 🔍 2. Resolución Matemática Paso a Paso
+## Phase 2: Coordinates, Frames and Changes of Variable
 
-### Apartado 1: Campo de Vorticidad $\vec{\omega}$
+- Inertial frame with the singular point at the origin; polar coordinates $(r,\theta)$, scale factors $(1,r)$, $x = r\cos\theta$, $y = r\sin\theta$, $\mathbf{e}_z = \mathbf{e}_r\wedge\mathbf{e}_\theta$.
+- Operators (Eqs. 2.3, 2.5, 2.6): $\nabla\varphi = \partial_r\varphi\,\mathbf{e}_r + r^{-1}\partial_\theta\varphi\,\mathbf{e}_\theta$, $\nabla\cdot\mathbf{v} = r^{-1}\left[\partial_r(rv_r) + \partial_\theta v_\theta\right]$, $\omega_z = r^{-1}\left[\partial_r(rv_\theta) - \partial_\theta v_r\right]$.
+- Stream function in polar coordinates. In Cartesian variables $v_x = \partial_y\psi$, $v_y = -\partial_x\psi$ (Eq. 2.41). Projecting on the polar basis, $v_r = v_x\cos\theta + v_y\sin\theta = \cos\theta\,\partial_y\psi - \sin\theta\,\partial_x\psi = r^{-1}\partial_\theta\psi$ and $v_\theta = -v_x\sin\theta + v_y\cos\theta = -\left(\sin\theta\,\partial_y\psi + \cos\theta\,\partial_x\psi\right) = -\partial_r\psi$, using $\partial_\theta = -r\sin\theta\,\partial_x + r\cos\theta\,\partial_y$ and $\partial_r = \cos\theta\,\partial_x + \sin\theta\,\partial_y$. Hence $v_r = r^{-1}\partial_\theta\psi$, $v_\theta = -\partial_r\psi$.
+- For the acceleration, the coordinate-free form of Eq. (2.26) is used, since the Cartesian component form of Eq. (2.27) does not hold in polar coordinates.
+- Material variables: initial position $(r_0,\theta_0)$ at $t = 0$.
 
-En coordenadas polares cilíndricas:
-$$ \vec{\omega} = \nabla \wedge \vec{v} = \omega_z \vec{e}_z = \frac{1}{r}\left[ \frac{\partial(r v_\theta)}{\partial r} - \frac{\partial v_r}{\partial \theta} \right] \vec{e}_z $$
-Calculando cada término:
-$$ r v_\theta = A \sin(\Omega t) \frac{\cos\theta}{r} \implies \frac{\partial(r v_\theta)}{\partial r} = -A \sin(\Omega t) \frac{\cos\theta}{r^2} $$
-$$ \frac{\partial v_r}{\partial \theta} = \frac{\partial}{\partial \theta}\left[ -A \sin(\Omega t) \frac{\sin\theta}{r^2} \right] = -A \sin(\Omega t) \frac{\cos\theta}{r^2} $$
-Restando ambas derivadas:
-$$ \omega_z = \frac{1}{r}\left[ -A \sin(\Omega t) \frac{\cos\theta}{r^2} - \left(-A \sin(\Omega t) \frac{\cos\theta}{r^2}\right) \right] = \mathbf{0} $$
-El flujo es estrictamente **irrotacional** en todo el plano ($r > 0$).
+## Phase 3: Step-by-Step Derivation
 
----
+### 3.1 Vorticity
 
-### Apartado 2: Tasa de Expansión Volumétrica $\nabla \cdot \vec{v}$
+Why this tool: $\omega_z = r^{-1}\left[\partial_r(rv_\theta) - \partial_\theta v_r\right]$ is twice the angular velocity of the fluid element (Eq. 2.52).
+$$ r\,v_\theta = \frac{A\sigma\cos\theta}{r} \Rightarrow \frac{\partial(rv_\theta)}{\partial r} = -\frac{A\sigma\cos\theta}{r^2}, \qquad \frac{\partial v_r}{\partial\theta} = -\frac{A\sigma\cos\theta}{r^2}, $$
+$$ \omega_z = \frac{1}{r}\left[-\frac{A\sigma\cos\theta}{r^2} + \frac{A\sigma\cos\theta}{r^2}\right] = \boxed{\,0.\,} $$
 
-$$ \nabla \cdot \vec{v} = \frac{1}{r}\left[ \frac{\partial(r v_r)}{\partial r} + \frac{\partial v_\theta}{\partial \theta} \right] $$
-$$ r v_r = -A \sin(\Omega t) \frac{\sin\theta}{r} \implies \frac{\partial(r v_r)}{\partial r} = +A \sin(\Omega t) \frac{\sin\theta}{r^2} $$
-$$ \frac{\partial v_\theta}{\partial \theta} = \frac{\partial}{\partial \theta}\left[ A \sin(\Omega t) \frac{\cos\theta}{r^2} \right] = -A \sin(\Omega t) \frac{\sin\theta}{r^2} $$
-Sumando:
-$$ \nabla \cdot \vec{v} = \frac{1}{r}\left[ A \sin(\Omega t) \frac{\sin\theta}{r^2} - A \sin(\Omega t) \frac{\sin\theta}{r^2} \right] = \mathbf{0} $$
-El fluido es estrictamente **incompresible**.
+### 3.2 Expansion rate
 
----
+Why this tool: $\nabla\cdot\mathbf{v}$ is the rate of volume change per unit volume (Eqs. 2.62-2.63).
+$$ r\,v_r = -\frac{A\sigma\sin\theta}{r} \Rightarrow \frac{\partial(rv_r)}{\partial r} = \frac{A\sigma\sin\theta}{r^2}, \qquad \frac{\partial v_\theta}{\partial\theta} = -\frac{A\sigma\sin\theta}{r^2}, $$
+$$ \nabla\cdot\mathbf{v} = \frac{1}{r}\left[\frac{A\sigma\sin\theta}{r^2} - \frac{A\sigma\sin\theta}{r^2}\right] = \boxed{\,0.\,} $$
 
-### Apartado 3: Potencial de Velocidades ($\phi$) y Función de Corriente ($\psi$)
+### 3.3 Existence of potential and stream function
 
-#### 1. Potencial de Velocidades $\phi(r, \theta, t)$:
-Existe debido a que $\nabla \wedge \vec{v} = 0$:
-$$ v_r = \frac{\partial \phi}{\partial r} = -A \sin(\Omega t) \frac{\sin\theta}{r^2} \implies \phi(r, \theta, t) = A \sin(\Omega t) \frac{\sin\theta}{r} + f(\theta, t) $$
-Derivando respecto a $\theta$:
-$$ v_\theta = \frac{1}{r} \frac{\partial \phi}{\partial \theta} = A \sin(\Omega t) \frac{\cos\theta}{r^2} + \frac{1}{r} \frac{\partial f}{\partial \theta} $$
-Comparando con la expresión dada de $v_\theta$:
-$$ \frac{\partial f}{\partial \theta} = 0 \implies f = \phi_0(t) $$
-$$ \mathbf{\phi(r, \theta, t) = A \sin(\Omega t) \frac{\sin\theta}{r} + \phi_0} $$
+Because $\nabla\wedge\mathbf{v} = 0$ (3.1) in the region $r > 0$, a velocity potential exists (Eq. 2.34): $\mathbf{v} = \nabla\varphi$. Because the planar flow is also solenoidal (3.2), a stream function exists (Eq. 2.41). Both are single-valued here: the circulation around the origin is $\oint v_\theta\,r\,d\theta = A\sigma\int_0^{2\pi}\cos\theta\,d\theta/r = 0$ and the flux through a circle $\oint v_r\,r\,d\theta = -A\sigma\int_0^{2\pi}\sin\theta\,d\theta/r = 0$.
 
-#### 2. Función de Corriente $\psi(r, \theta, t)$:
-Existe debido a que $\nabla \cdot \vec{v} = 0$:
-$$ r v_r = \frac{\partial \psi}{\partial \theta} = -A \sin(\Omega t) \frac{\sin\theta}{r} \implies \psi(r, \theta, t) = A \sin(\Omega t) \frac{\cos\theta}{r} + g(r, t) $$
-Derivando respecto a $r$:
-$$ v_\theta = -\frac{\partial \psi}{\partial r} = A \sin(\Omega t) \frac{\cos\theta}{r^2} - \frac{\partial g}{\partial r} = A \sin(\Omega t) \frac{\cos\theta}{r^2} \implies \frac{\partial g}{\partial r} = 0 \implies g = \psi_0(t) $$
-$$ \mathbf{\psi(r, \theta, t) = A \sin(\Omega t) \frac{\cos\theta}{r} + \psi_0} $$
+Potential. From $v_r = \partial_r\varphi = -A\sigma\sin\theta/r^2$, integrate in $r$ (primitive of $r^{-2}$ is $-r^{-1}$): $\varphi = A\sigma\sin\theta/r + f(\theta,t)$. Then
+$$ v_\theta = \frac{1}{r}\frac{\partial\varphi}{\partial\theta} = \frac{A\sigma\cos\theta}{r^2} + \frac{1}{r}\frac{\partial f}{\partial\theta} = \frac{A\sigma\cos\theta}{r^2} \;\Longrightarrow\; \frac{\partial f}{\partial\theta} = 0, $$
+$$ \boxed{\,\varphi = \frac{A\sin(\Omega t)\sin\theta}{r} + \varphi_0(t) = A\sin(\Omega t)\,\frac{y}{x^2+y^2} + \varphi_0(t).\,} $$
+Stream function. From $r\,v_r = \partial_\theta\psi = -A\sigma\sin\theta/r$, integrate in $\theta$: $\psi = A\sigma\cos\theta/r + g(r,t)$. Then
+$$ v_\theta = -\frac{\partial\psi}{\partial r} = \frac{A\sigma\cos\theta}{r^2} - \frac{\partial g}{\partial r} = \frac{A\sigma\cos\theta}{r^2} \;\Longrightarrow\; \frac{\partial g}{\partial r} = 0, $$
+$$ \boxed{\,\psi = \frac{A\sin(\Omega t)\cos\theta}{r} + \psi_0(t) = A\sin(\Omega t)\,\frac{x}{x^2+y^2} + \psi_0(t).\,} $$
+This is the field of a planar dipole aligned with $y$ whose strength oscillates as $\sin\Omega t$.
 
----
+### 3.4 Acceleration along $\theta = 0$
 
-### Apartado 4: Aceleración de Puntos a lo Largo de la Línea $\theta = 0$
+Why this tool: $\mathbf{a} = D\mathbf{v}/Dt$ (Eq. 2.25). Since $\nabla\wedge\mathbf{v} = 0$, Eq. (2.26) reduces to $\mathbf{a} = \partial_t\mathbf{v} + \nabla(\lvert\mathbf{v}\rvert^2/2)$ in any coordinate system.
 
-Empleando la formulación con la identidad de Lamb-Gromeka ($\nabla \wedge \vec{v} = 0$):
-$$ \vec{a} = \frac{\partial \vec{v}}{\partial t} + \nabla\left(\frac{v^2}{2}\right) $$
-Calculando la energía cinética específica:
-$$ \frac{v^2}{2} = \frac{v_r^2 + v_\theta^2}{2} = \frac{A^2 \sin^2(\Omega t)(\sin^2\theta + \cos^2\theta)}{2 r^4} = \frac{A^2 \sin^2(\Omega t)}{2 r^4} $$
-Nuevamente, $v^2/2$ es independiente de $\theta$, luego:
-$$ \nabla\left(\frac{v^2}{2}\right) = \frac{\partial}{\partial r}\left(\frac{v^2}{2}\right)\vec{e}_r = -\frac{2 A^2 \sin^2(\Omega t)}{r^5} \vec{e}_r $$
+$\lvert\mathbf{v}\rvert^2 = v_r^2 + v_\theta^2 = A^2\sigma^2\left(\sin^2\theta + \cos^2\theta\right)/r^4 = A^2\sigma^2/r^4$, so
+$$ \frac{\lvert\mathbf{v}\rvert^2}{2} = \frac{A^2\sigma^2}{2r^4}, \qquad \frac{\partial}{\partial r}\left(\frac{\lvert\mathbf{v}\rvert^2}{2}\right) = -\frac{2A^2\sigma^2}{r^5}, \qquad \frac{1}{r}\frac{\partial}{\partial\theta}\left(\frac{\lvert\mathbf{v}\rvert^2}{2}\right) = 0. $$
+Local term, with $\partial_t\sigma = \Omega\cos\Omega t$: $\partial_tv_r = -A\Omega\cos(\Omega t)\sin\theta/r^2$ and $\partial_tv_\theta = A\Omega\cos(\Omega t)\cos\theta/r^2$. Therefore, for any $\theta$,
+$$ a_r = -\frac{A\Omega\cos(\Omega t)\sin\theta}{r^2} - \frac{2A^2\sin^2(\Omega t)}{r^5}, \qquad a_\theta = \frac{A\Omega\cos(\Omega t)\cos\theta}{r^2}. $$
+On the line $\theta = 0$ ($\sin\theta = 0$, $\cos\theta = 1$):
+$$ \boxed{\,a_r = -\frac{2A^2\sin^2(\Omega t)}{r^5},\qquad a_\theta = \frac{A\Omega\cos(\Omega t)}{r^2}.\,} $$
 
-Componentes de la aceleración local:
-$$ \frac{\partial v_r}{\partial t} = -A \Omega \cos(\Omega t) \frac{\sin\theta}{r^2} $$
-$$ \frac{\partial v_\theta}{\partial t} = +A \Omega \cos(\Omega t) \frac{\cos\theta}{r^2} $$
+### 3.5 Trajectories and streamlines
 
-Aceleración total en el plano:
-$$ a_r = -A \Omega \cos(\Omega t) \frac{\sin\theta}{r^2} - \frac{2 A^2 \sin^2(\Omega t)}{r^5} $$
-$$ a_\theta = +A \Omega \cos(\Omega t) \frac{\cos\theta}{r^2} $$
+Why this tool: trajectories solve $d\mathbf{x}/dt = \mathbf{v}$ (Eq. 2.12) and streamlines the tangency condition (Eq. 2.21).
 
-Evaluando a lo largo del semieje polar $\theta = 0$ ($\sin 0 = 0, \cos 0 = 1$):
-$$ \mathbf{\left. a_r \right|_{\theta = 0} = -\frac{2 A^2 \sin^2(\Omega t)}{r^5}} $$
-$$ \mathbf{\left. a_\theta \right|_{\theta = 0} = \frac{A \Omega \cos(\Omega t)}{r^2}} $$
+Streamlines at a frozen instant ($\sigma \neq 0$): $dr/v_r = r\,d\theta/v_\theta$ gives
+$$ \frac{dr}{r\,d\theta} = \frac{v_r}{v_\theta} = -\frac{\sin\theta}{\cos\theta} \;\Longrightarrow\; \frac{dr}{r} = -\tan\theta\,d\theta \;\Longrightarrow\; \ln\frac{r}{r_0} = \ln\left\lvert\frac{\cos\theta}{\cos\theta_0}\right\rvert, \qquad \boxed{\,r = r_0\frac{\cos\theta}{\cos\theta_0} = C\cos\theta,\,} $$
+because $\int-\tan\theta\,d\theta = \ln\lvert\cos\theta\rvert$. In Cartesian variables $x^2 + y^2 = Cx$: circles of diameter $C$ centred at $(C/2, 0)$, tangent to the $y$-axis at the origin. This is the dipole pattern, independent of $t$.
 
----
+Trajectories: the system $dr/dt = v_r$, $r\,d\theta/dt = v_\theta$ contains the same ratio, so dividing the equations removes $t$ and $\sigma(t)$ and gives the same relation; therefore the path lines are the same circles, $r = r_0\cos\theta/\cos\theta_0$.
 
-### Apartado 5: Líneas de Corriente y Trayectorias
+Time law. Insert $r^3 = r_0^3\cos^3\theta/\cos^3\theta_0$ in $d\theta/dt = v_\theta/r = A\sigma\cos\theta/r^3$:
+$$ \frac{d\theta}{dt} = \frac{A\cos^3\theta_0}{r_0^3}\,\frac{\sin\Omega t}{\cos^2\theta} \;\Longrightarrow\; \cos^2\theta\,d\theta = \frac{A\cos^3\theta_0}{r_0^3}\sin\Omega t\,dt. $$
+Integrate with Barrow's rule between $(\theta_0, 0)$ and $(\theta, t)$. For the left side use $\cos^2\theta' = (1 + \cos 2\theta')/2$, whose primitive is $\theta'/2 + \sin 2\theta'/4$; for the right side $\int_0^t\sin\Omega t'\,dt' = (1 - \cos\Omega t)/\Omega$:
+$$ \frac{\theta - \theta_0}{2} + \frac{\sin 2\theta - \sin 2\theta_0}{4} = \frac{A\cos^3\theta_0}{r_0^3\Omega}\left(1 - \cos\Omega t\right), $$
+$$ \boxed{\,\theta - \theta_0 + \frac{\sin 2\theta - \sin 2\theta_0}{2} = \frac{2A\cos^3\theta_0}{r_0^3\,\Omega}\left(1 - \cos\Omega t\right),\qquad r = r_0\frac{\cos\theta}{\cos\theta_0}.\,} $$
+The right-hand side vanishes at $\Omega t = 2n\pi$, so the particle oscillates with the period $2\pi/\Omega$ and returns to its initial position at the end of each period.
 
-#### Líneas de Corriente:
-$$ \frac{dr}{v_r} = \frac{r d\theta}{v_\theta} \implies \frac{dr}{-\sin\theta} = \frac{r d\theta}{\cos\theta} \implies \frac{dr}{r} = -\frac{\sin\theta}{\cos\theta} d\theta = \frac{d(\cos\theta)}{\cos\theta} $$
-Integrando entre $(r_0, \theta_0)$ y $(r, \theta)$:
-$$ \ln\left(\frac{r}{r_0}\right) = \ln\left(\frac{\cos\theta}{\cos\theta_0}\right) \implies \mathbf{r = r_0 \frac{\cos\theta}{\cos\theta_0}} $$
-En cartesianas: $r = C \cos\theta \implies r^2 = C r \cos\theta \implies x^2 + y^2 = C x \implies (x - C/2)^2 + y^2 = (C/2)^2$.
-Son **circunferencias tangentes al eje $y$ en el origen**.
+### 3.6 Fluid line initially at $\theta = 0$, $0 < r < \infty$
 
-#### Trayectorias y Líneas de Trayectoria:
-Dividiendo $dr/dt$ entre $r d\theta/dt$ se obtiene idéntica relación geométrica:
-$$ \mathbf{\text{Líneas de Trayectoria} \equiv \text{Líneas de Corriente}: \quad r = r_0 \frac{\cos\theta}{\cos\theta_0}} $$
+Why this tool: the fluid line is the image of the initial curve under the trajectories (Eq. 2.17), with the material label eliminated afterwards. Label the particles by $\lambda = r_0$, with $\theta_0 = 0$ (so $\cos\theta_0 = 1$, $\sin 2\theta_0 = 0$).
 
-Evolución temporal de $\theta(t)$:
-$$ \frac{d\theta}{dt} = \frac{v_\theta}{r} = \frac{A \sin(\Omega t)\cos\theta}{r^3} = \frac{A \sin(\Omega t)\cos\theta}{\left(r_0 \frac{\cos\theta}{\cos\theta_0}\right)^3} = \frac{A \cos^3\theta_0}{r_0^3} \frac{\sin(\Omega t)}{\cos^2\theta} $$
-Separando variables e integrando usando $\cos^2\theta = \frac{1+\cos 2\theta}{2}$:
-$$ \int_{\theta_0}^\theta \cos^2\theta' \, d\theta' = \frac{A \cos^3\theta_0}{r_0^3} \int_0^t \sin(\Omega t') dt' $$
-$$ \mathbf{\frac{\theta - \theta_0}{2} + \frac{\sin(2\theta) - \sin(2\theta_0)}{4} = \frac{A \cos^3\theta_0}{r_0^3 \Omega} \left[ 1 - \cos(\Omega t) \right]} $$
+From 3.5, the path and the time law reduce to
+$$ \frac{r}{\cos\theta} = \lambda, \qquad \theta + \frac{\sin 2\theta}{2} = \frac{2A}{\lambda^3\Omega}\left(1 - \cos\Omega t\right). $$
+Eliminate $\lambda$ (change of variable from label to current position) with $\lambda = r/\cos\theta$, $\lambda^{-3} = \cos^3\theta/r^3$:
+$$ \theta + \frac{\sin 2\theta}{2} = \frac{2A\cos^3\theta}{r^3\,\Omega}\left(1 - \cos\Omega t\right) \;\Longrightarrow\; \boxed{\,\frac{r^3}{2\cos^3\theta}\left(\theta + \frac{\sin 2\theta}{2}\right) = \frac{A}{\Omega}\left[1 - \cos(\Omega t)\right].\,} $$
+At $t = 0$ the right-hand side is $0$ and the equation gives $\theta = 0$ (the initial line), as it must.
 
----
+> [!warning] Reading of the official handwritten solution
+> In K9.pdf (part 6) the boxed final equation reads, as legible in the scan, $\frac{r^3}{2\cos^3\theta}\left(\theta + \frac{\sin 2\theta}{2}\right) = \frac{A}{\Omega}\left[1 + \cos(\Omega t)\right]$, whereas the line immediately above it in the same solution has $\frac{A}{\Omega}\left[1 - \cos(\Omega t)\right] = \frac{\lambda^3}{2}\left(\theta + \frac{\sin 2\theta}{2}\right)$. With $1 + \cos\Omega t$ the right-hand side would be $2A/\Omega$ at $t = 0$ and the initial line $\theta = 0$ would not be recovered; the correct sign is $1 - \cos\Omega t$, as derived above. Numerical test with $A = 0.7$ m$^3$/s, $\Omega = 1.6$ s$^{-1}$, $\lambda = 1.2$ m, $t = 1.4$ s: integrating the particle ODE gives $r^3(\theta + \sin 2\theta/2)/(2\cos^3\theta) = 0.708908$, equal to $(A/\Omega)(1 - \cos\Omega t) = 0.708908$, while the "plus" form would give $0.166092$.
 
-### Apartado 6: Deformación de la Línea Fluida Inicial $\theta = 0, 0 < r < \infty$
+## Phase 4: Interpretation, Limits and Dimensional Check
 
-En el instante inicial $t = 0$, la línea de partículas está situada sobre el eje positivo de abscisas:
-$$ \theta_0 = 0, \qquad r_0 = \lambda > 0 \quad (\lambda \in (0, \infty)) $$
-Para estas partículas, $\cos\theta_0 = \cos(0) = 1$ y $\sin(2\theta_0) = 0$.
-
-De la ecuación de su línea de trayectoria:
-$$ r = \lambda \cos\theta \implies \lambda = \frac{r}{\cos\theta} $$
-De la evolución temporal:
-$$ \frac{\theta}{2} + \frac{\sin(2\theta)}{4} = \frac{A}{\lambda^3 \Omega} \left[ 1 - \cos(\Omega t) \right] $$
-Eliminando el parámetro lagrangiano $\lambda$ sustituyendo $\lambda = \frac{r}{\cos\theta}$:
-$$ \frac{1}{2}\left( \theta + \frac{\sin 2\theta}{2} \right) = \frac{A \cos^3\theta}{r^3 \Omega} \left[ 1 - \cos(\Omega t) \right] $$
-Multiplicando por $\frac{r^3}{\cos^3\theta}$:
-$$ \mathbf{\frac{r^3}{2\cos^3\theta}\left(\theta + \frac{\sin 2\theta}{2}\right) = \frac{A}{\Omega}\left[1 - \cos(\Omega t)\right]} $$
-Despejando explícitamente $r(\theta, t)$:
-$$ \mathbf{r(\theta, t) = \left[ \frac{2 A \left[1 - \cos(\Omega t)\right] \cos^3\theta}{\Omega \left(\theta + \frac{\sin 2\theta}{2}\right)} \right]^{1/3}} $$
-La línea fluida, inicialmente recta horizontal, se abomba progresivamente curvándose alrededor del origen con pulsación periódica.
+- The field is the oscillating field of a planar dipole: irrotational and incompressible, with circular streamlines through the singular point; the particles slosh back and forth along the circles ($\theta$ varies with $1 - \cos\Omega t \ge 0$, so for $A > 0$ the particle first moves towards larger $\theta$ and then returns).
+- Existence of the fluid line: since $\theta + \tfrac12\sin 2\theta \le \pi/2$ for $\theta \le \pi/2$, particles of the line with $\dfrac{2A}{\lambda^3\Omega}\cdot 2 \ge \dfrac{\pi}{2}$, i.e. $\lambda^3 \le \dfrac{8A}{\pi\Omega}$, reach $\theta = \pi/2$ and $r = 0$ (the singular point) within a cycle. The formula holds for the particles that stay at $\lvert\theta\rvert < \pi/2$ ($\lambda > (8A/\pi\Omega)^{1/3}$, which is $1.0367$ m for $A = 0.7$ m$^3$/s and $\Omega = 1.6$ s$^{-1}$).
+- Consistency: parts 1-2 imply 3 (potential and stream function exist); $\psi = $ const reproduces the streamlines $\cos\theta/r = $ const of 3.5; the acceleration of 3.4 is the field value at $\theta = 0$ (the acceleration of the particle that is there at time $t$).
+- Dimensions (SI): $[v] = [A/r^2] = \text{m/s}$; $[\varphi] = [\psi] = [A/r] = \text{m}^2/\text{s}$; $[A\Omega/r^2] = (\text{m}^3\text{/s})(\text{s}^{-1})/\text{m}^2 = \text{m/s}^2$ and $[A^2/r^5] = (\text{m}^6/\text{s}^2)/\text{m}^5 = \text{m/s}^2$; $A/(r_0^3\Omega)$ is dimensionless; the fluid-line equation has units m$^3$ on both sides.
+- Numerical cross-check: symbolic differentiation returns $\omega_z = 0$, $\nabla\cdot\mathbf{v} = 0$, $\nabla\varphi = \mathbf{v}$ and the polar stream-function relations exactly, and the full material derivative in polar components gives $a_r = -2A^2\sigma^2/r^5$, $a_\theta = A\Omega\cos\Omega t/r^2$ at $\theta = 0$. For the time law of 3.5, with $A = 0.7$ m$^3$/s, $\Omega = 1.6$ s$^{-1}$, $r_0 = 1.5$ m, $\theta_0 = 0.4$ rad, $t = 0.8$ s, the ODE integration gives $0.144498$ for the left side and the formula $0.144498$ for the right side.
