@@ -105,9 +105,10 @@ The supreme governing body elected by shareholders to oversee senior management:
 * **Proprietary Directors (Consejeros Dominicales):** Directors representing substantial shareholding blocks.
 * **Independent Directors (Consejeros Independientes):** External, impartial professionals chosen for prestige and competence, free from managerial or shareholder conflicts.
 * **CNMV Good Governance Recommendations (Spain / IBEX 35):**
-  * *Size (Rec. 13):* Board size should ideally range between **10 and 15 members**.
-  * *Executive Directors (Rec. 15):* Must constitute a strict minority of the board.
-  * *Independent Directors (Rec. 17):* Should represent at least **50% of total board seats** in large listed firms.
+  * *Size (Rec. 13):* The recommended board size range is between **five and fifteen members**.
+  * *Executive Directors (Rec. 15):* Proprietary and independent directors should form an ample majority; executive directors should be the minimum practical.
+  * *Proprietary Directors (Rec. 16):* The share of proprietary directors among non-executive directors should be no greater than the proportion between the capital they represent and the remaining capital.
+  * *Independent Directors (Rec. 17):* At least **half of the total directors**; at least **one third** if the company is not highly capitalised, or is highly capitalised but has shareholders (individually or in concert) controlling more than $30\%$ of the capital.
 
 ### 2. Incentive-Aligned Compensation Contracts
 * Structuring executive compensation with a substantial performance-contingent variable component: stock options, restricted stock grants, and multi-year bonuses tied to Return on Invested Capital ($\text{ROIC}$) and Total Shareholder Return ($\text{TSR}$).

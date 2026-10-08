@@ -103,9 +103,9 @@ where:
 
 ## ⚠️ 5. Strategic Hurdle Rate in Project Appraisal
 > [!IMPORTANT] Investment Decision Rule
-> In corporate investment decisions (Topic 4 preview):
+> General principle for investment decisions (a standard finance rule that is not developed in the Topic 3 slides, which define $K_{WACC}$ only as the weighted cost of the financial resources):
 > * A capital expenditure project creates economic value if and only if:
->   $$\text{Expected Project Return (IRR)} > K_{WACC}$$
+>   $$\text{Expected Project Return} > K_{WACC}$$
 > * If a project earns less than $K_{WACC}$, executing the project destroys shareholder wealth, even if the project yields a positive accounting profit.
 
 ---

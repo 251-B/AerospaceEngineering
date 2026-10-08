@@ -210,16 +210,24 @@ $$\mathbf{\text{Balance Check: } \text{Total Assets } (63.9197 \text{ mu}) \equi
    $$\text{New Ending Inventory} = \mathbf{2.1375 \text{ mu}} \quad (-0.1125 \text{ mu})$$
 2. **Cash Outflows to Supplier:**
    * $60\%$ paid immediately in cash: $60\% \times 4.275 = \mathbf{2.565 \text{ mu}}$ (compared to $2.70 \text{ mu}$ originally, saving $0.135 \text{ mu}$ in cash).
-   * Even though cash is paid 90 days earlier (1 July instead of 1 October), by 31 December both dates have passed, meaning the company actually holds **more cash** at year end.
-   * Total year-end cash increases by $+0.05625 \text{ mu}$.
+   * Even though cash is paid earlier (1 July instead of 1 October), both dates fall before 31 December, so the only year-end effect of the payment is the smaller amount paid.
 3. **Accounts Payable (Suppliers):** The remaining $40\%$ pending at year end drops to:
    $$\text{New Accounts Payable} = 40\% \times 4.275 = \mathbf{1.710 \text{ mu}} \quad (-0.090 \text{ mu})$$
-4. **Stockholders' Equity:** Reserves increase by $40\% \times 0.07875 = +0.0315 \text{ mu}$.
-
+4. **Taxes Payable:** The extra tax is not paid until 15 January 2017, so it stays in current liabilities: $13.7895 + 0.03375 = \mathbf{13.82325 \text{ mu}}$ ($+0.03375 \text{ mu}$).
+5. **Stockholders' Equity:** The extra net profit is split $40\%/60\%$ as in Part 1:
+   * Reserves: $+40\% \times 0.07875 = +0.0315 \text{ mu}$ (new reserves $12.9017 \text{ mu}$).
+   * Extra dividend: $60\% \times 0.07875 = 0.04725 \text{ mu}$, paid in cash on 31 December (new dividend $19.35255 \text{ mu}$).
+6. **Year-end Cash:** Only the extra dividend, not the whole increase in net profit, leaves the company (the extra tax is still unpaid and the extra profit is not cash):
+   $$\Delta \text{Cash} = \underbrace{(2.70 - 2.565)}_{\text{smaller supplier payment}} - \underbrace{0.04725}_{\text{extra dividend}} = 0.135 - 0.04725 = \mathbf{+0.08775 \text{ mu}}$$
+   $$\text{New Cash} = 28.1697 + 0.08775 = \mathbf{28.25745 \text{ mu}}$$
+7. **Balance check** (all changes with respect to Part 1):
+   $$\Delta \text{Assets} = \underbrace{-0.1125}_{\text{inventory}} + \underbrace{0.08775}_{\text{cash}} = \mathbf{-0.02475 \text{ mu}}$$
+   $$\Delta (\text{Liabilities} + \text{Equity}) = \underbrace{-0.09}_{\text{payables}} + \underbrace{0.03375}_{\text{taxes payable}} + \underbrace{0.0315}_{\text{reserves}} = \mathbf{-0.02475 \text{ mu}}$$
+   $$\text{New Total Assets} = 63.9197 - 0.02475 = 63.89495 \text{ mu} = \text{New Total Liabilities} + \text{Equity}$$
 ### 4. Concluding Managerial Discussion:
 > **In which case is the profit higher? Why?**
 > Profit is strictly **higher under the 5% discount agreement** (Net Profit increases by $+0.07875 \text{ m.u.}$).
-> *Reasoning:* A commercial purchase discount reduces the unit acquisition cost of inventory. Through the matching principle, this lowers Cost of Goods Sold in the Income Statement, expanding both Gross Margin and Operating Income. Because CEMED already held abundant liquidity (€28+ m.u.), paying the supplier 90 days earlier in cash incurred zero borrowing cost while locking in a guaranteed risk-free return of $5\%$ on purchases.
+> *Reasoning:* A commercial purchase discount reduces the unit acquisition cost of inventory. Through the matching principle, this lowers Cost of Goods Sold in the Income Statement, expanding both Gross Margin and Operating Income. The income statement does not record the time value of paying 90 days earlier (the problem gives no interest on cash), and both payment dates fall within 2016, so the accounting profit is higher by the full after-tax saving. Year-end cash is also higher ($+0.08775 \text{ mu}$ after the extra dividend), as shown in the balance check above.
 
 ---
 

@@ -1,3 +1,14 @@
+---
+materia: Business Management
+tema: "Map of Content - Business Management (Units 1-3 with material; Units 4-6 pending)"
+fuentes:
+  - "sources/cuatrimestre-1/05-business-management/ (unit-01 to unit-06)"
+tags:
+  - moc
+  - business-management
+  - segundo-curso
+---
+
 # 📊 Business Management — Map of Content (MOC)
 
 > **Course:** Business Management (2nd Year — BSc in Aerospace Engineering, UC3M)  
@@ -56,7 +67,10 @@
 
 ---
 
-### Block III: Upcoming Course Topics (Pending Official Syllabus Release)
-* *Topic 4: Investment Project Appraisal (NPV, IRR, Payback, WACC)* — Pending upload to `sources/`.
-* *Topic 5: Cost Accounting and Break-Even Analysis* — Pending upload to `sources/`.
-* *Topic 6: Project Management and Scheduling (Gantt, CPM, PERT)* — Pending upload to `sources/`.
+### Block III: Remaining Units in `sources/` (Not Yet Covered in the Vault)
+The units below are the folders present in `sources/cuatrimestre-1/05-business-management/`; their titles come from the folder names, and no note has been written for them yet.
+* *Unit 4: Financial Analysis and Ratios* (`unit-04-financial-analysis-ratios/`) — (no source material yet).
+* *Unit 5: Operations and Marketing* (`unit-05-operations-marketing/`) — (no source material yet).
+* *Unit 6: Business Plan* (`unit-06-business-plan/`) — source PDFs present (`BUSINESS PLAN_guide_26_27.pdf`, `Engineers  Managing_Business Plan_26-27 W1.pdf`, `how-to-write-a-business-plan.pdf`); not yet covered.
+* *Practice 3: Internal Analysis, Strategy and Resources* — `W3 Practice_3_Int_Analysis_Strategy_Resources.pdf` (in `unit-02-value-creation-environment/problemas/`); not yet covered.
+* *Official exams* (`examenes/`) and *course schedule* (`schedule/`) — no files yet.
