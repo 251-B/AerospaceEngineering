@@ -96,6 +96,6 @@ donde $Q'$ es el **caudal volumétrico que circula entre las dos superficies de 
 ---
 
 ## 🔗 Conceptos Relacionados
-* `[[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]`
-* `[[01 - Fluid Mechanics/Concepto - Descripcion Euleriana vs Lagrangiana y Lineas de Flujo|Concepto: Líneas de Corriente]]`
-* `[[01 - Fluid Mechanics/Concepto - Vorticidad, Circulacion y Potencial de Velocidades|Concepto: Potencial de Velocidades]]`
+* [[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]
+* [[01 - Fluid Mechanics/Concepto - Descripcion Euleriana vs Lagrangiana y Lineas de Flujo|Concepto: Líneas de Corriente]]
+* [[01 - Fluid Mechanics/Concepto - Vorticidad, Circulacion y Potencial de Velocidades|Concepto: Potencial de Velocidades]]

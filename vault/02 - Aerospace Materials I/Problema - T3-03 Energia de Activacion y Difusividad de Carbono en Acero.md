@@ -120,8 +120,8 @@ $$D_3 = D_2 \cdot \exp\left[\frac{E_D}{R}\left(\frac{1}{T_2} - \frac{1}{T_3}\rig
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]`
-* `[[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]`
-* `[[Problema - T3-02 Difusion de Aluminio en Silicio Monocristalino]]`
-* `[[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]
+* [[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]
+* [[Problema - T3-02 Difusion de Aluminio en Silicio Monocristalino]]
+* [[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]

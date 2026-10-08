@@ -133,5 +133,5 @@ $$ \mathbf{y(x) = \sqrt{\frac{3}{2} e^{2x} - x - \frac{1}{2}}} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Nonlinear Substitutions Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P8 General Bernoulli Equation Reduction|Problem 2.8: General Bernoulli Reduction]]`
+* [[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Nonlinear Substitutions Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P8 General Bernoulli Equation Reduction|Problem 2.8: General Bernoulli Reduction]]

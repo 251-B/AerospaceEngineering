@@ -113,8 +113,8 @@ Energy E
 ---
 
 ## 🔗 Related Notes
-* `[[Tema 1 - Bonding in Solids and Material Properties]]`
-* `[[Concepto - Enlace Covalente y Caracter Polar]]`
-* `[[Concepto - Curvas de Energia Potencial Interatomica y Propiedades Macroscopicas]]`
-* `[[Problema - Cuestion 1 Examen T1 Enlace Metalico vs Covalente]]`
-* `[[Problema - Cuestion 2 Examen T1 Curvas de Potencial Titanio vs Aluminio]]`
+* [[Tema 1 - Bonding in Solids and Material Properties]]
+* [[Concepto - Enlace Covalente y Caracter Polar]]
+* [[Concepto - Curvas de Energia Potencial Interatomica y Propiedades Macroscopicas]]
+* [[Problema - Cuestion 1 Examen T1 Enlace Metalico vs Covalente]]
+* [[Problema - Cuestion 2 Examen T1 Curvas de Potencial Titanio vs Aluminio]]

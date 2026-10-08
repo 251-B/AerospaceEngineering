@@ -152,8 +152,8 @@ flowchart TD
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas con Coeficientes Constantes]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P6 Amplitude-Phase Transformation for Oscillations|Problem 3.6: Amplitude-Phase Transformation]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P7 Simple Pendulum Energy and Small Oscillations|Problem 3.7: Simple Pendulum]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P10 Parachutist Linear Drag and Terminal Velocity|Problem 3.10: Linear Drag Dynamics]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas con Coeficientes Constantes]]
+* [[04 - Advanced Maths/Problema - Ch3-P6 Amplitude-Phase Transformation for Oscillations|Problem 3.6: Amplitude-Phase Transformation]]
+* [[04 - Advanced Maths/Problema - Ch3-P7 Simple Pendulum Energy and Small Oscillations|Problem 3.7: Simple Pendulum]]
+* [[04 - Advanced Maths/Problema - Ch3-P10 Parachutist Linear Drag and Terminal Velocity|Problem 3.10: Linear Drag Dynamics]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

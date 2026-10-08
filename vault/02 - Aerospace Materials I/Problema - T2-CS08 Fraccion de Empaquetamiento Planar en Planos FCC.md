@@ -111,4 +111,4 @@ $$\text{PPF}_{(420)} = \frac{\frac{1}{2}\pi R^2}{2\sqrt{5} R^2} = \mathbf{\frac{
 | **$(420)$** | 1/2 | $2\sqrt{5}R^2$ | $\mathbf{\frac{\pi}{4\sqrt{5}}}$ | **35.1%** | Plano oblicuo de baja densidad |
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

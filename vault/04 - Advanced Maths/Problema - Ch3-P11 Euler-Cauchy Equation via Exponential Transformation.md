@@ -182,7 +182,7 @@ $$ \boxed{y(x) = c_1 x + \frac{c_2}{x^3} + x \ln x, \quad x > 0} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas]]`
-* `[[04 - Advanced Maths/Concepto - Operador Lineal y Principio de Superposicion|Operador Lineal y Superposición]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P4 Second Order Homogeneous Linear ODEs with IVPs|Problem 3.4: Homogeneous Linear ODEs]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas]]
+* [[04 - Advanced Maths/Concepto - Operador Lineal y Principio de Superposicion|Operador Lineal y Superposición]]
+* [[04 - Advanced Maths/Problema - Ch3-P4 Second Order Homogeneous Linear ODEs with IVPs|Problem 3.4: Homogeneous Linear ODEs]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

@@ -115,5 +115,5 @@ Esta igualdad confirma que los planos más compactos (mayor $\rho_p$) son simult
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Notacion de Miller para Direcciones y Planos Cubicos y Hexagonales|⬅️ Anterior: Notación de Miller]]`
-* `[[Concepto - Difraccion de Rayos X y Ley de Bragg|Siguiente: Difracción de Rayos X y Ley de Bragg ➡️]]`
+* [[Concepto - Notacion de Miller para Direcciones y Planos Cubicos y Hexagonales|⬅️ Anterior: Notación de Miller]]
+* [[Concepto - Difraccion de Rayos X y Ley de Bragg|Siguiente: Difracción de Rayos X y Ley de Bragg ➡️]]

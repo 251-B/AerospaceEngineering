@@ -95,5 +95,5 @@ Debido a que sus tres aristas son mutuamente desiguales ($a \neq b \neq c$), añ
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]`
-* `[[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento|Siguiente: Estructuras Metálicas FCC, BCC, HCP y APF ➡️]]`
+* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]
+* [[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento|Siguiente: Estructuras Metálicas FCC, BCC, HCP y APF ➡️]]

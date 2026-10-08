@@ -144,5 +144,5 @@ The negative sign confirms that death occurred prior to the discovery time of $3
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P4 Newton Law of Cooling Modeling|Problem 1.4: Newton's Law of Cooling Formulation]]`
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Problema - Ch1-P4 Newton Law of Cooling Modeling|Problem 1.4: Newton's Law of Cooling Formulation]]

@@ -89,5 +89,5 @@ $$ \vec{a}_s = \vec{a}_0 + \frac{d\vec{\Omega}}{dt} \wedge \vec{x} + \vec{\Omega
 ---
 
 ## 🔗 Conceptos Relacionados
-* `[[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]`
-* `[[01 - Fluid Mechanics/Concepto - Vorticidad, Circulacion y Potencial de Velocidades|Concepto: Vorticidad y Circulación]]`
+* [[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]
+* [[01 - Fluid Mechanics/Concepto - Vorticidad, Circulacion y Potencial de Velocidades|Concepto: Vorticidad y Circulación]]

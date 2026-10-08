@@ -81,5 +81,5 @@ $$ (\nabla \cdot \bar{\bar{A}})_i = \frac{h_i}{h}\sum_j \frac{\partial}{\partial
 ---
 
 ## 🔗 Conceptos Relacionados
-* `[[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]`
-* `[[01 - Fluid Mechanics/Concepto - Derivada Material y Aceleracion del Fluido|Concepto: Derivada Material y Aceleración]]`
+* [[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]
+* [[01 - Fluid Mechanics/Concepto - Derivada Material y Aceleracion del Fluido|Concepto: Derivada Material y Aceleración]]

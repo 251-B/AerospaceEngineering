@@ -144,6 +144,6 @@ Taking the total derivative $dF = \frac{\partial F}{\partial x} dx + \frac{\part
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact Equations Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P5 Integrating Factor for Non-Exact Equations|Problem 2.5: Special Integrating Factors]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P6 Exactness of Separated Differential Forms|Problem 2.6: Separated Forms are Exact]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact Equations Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P5 Integrating Factor for Non-Exact Equations|Problem 2.5: Special Integrating Factors]]
+* [[04 - Advanced Maths/Problema - Ch2-P6 Exactness of Separated Differential Forms|Problem 2.6: Separated Forms are Exact]]

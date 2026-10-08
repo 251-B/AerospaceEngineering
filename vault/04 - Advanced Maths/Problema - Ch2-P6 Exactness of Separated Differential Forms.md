@@ -127,6 +127,6 @@ where $C_1 = e^C > 0$.
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact Equations Theory]]`
-* `[[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Separable Equations]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Equations]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Exact Equations Theory]]
+* [[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Separable Equations]]
+* [[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Equations]]

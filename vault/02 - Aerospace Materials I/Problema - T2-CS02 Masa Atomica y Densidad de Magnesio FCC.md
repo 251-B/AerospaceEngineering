@@ -71,4 +71,4 @@ Citando los fundamentos teóricos del curso [Session 4 Slide 7, 15]:
   $$[M] = \frac{[\text{g/cm}^3] \cdot [\text{cm}^3] \cdot [\text{mol}^{-1}]}{[\text{adimensional}]} = \text{g/mol} \quad \checkmark$$
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

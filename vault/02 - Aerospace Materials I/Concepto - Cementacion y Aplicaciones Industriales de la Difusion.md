@@ -106,10 +106,10 @@ La difusión de vapores y gases ($\text{H}_2\text{O}$, $\text{O}_2$, $\text{CO}_
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]`
-* `[[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]`
-* `[[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]`
-* `[[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]`
-* `[[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]`
-* `[[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]
+* [[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]
+* [[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]
+* [[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]
+* [[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]
+* [[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]

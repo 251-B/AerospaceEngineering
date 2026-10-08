@@ -89,4 +89,4 @@ $$\rho_{[110]} = \frac{1}{2R} = \frac{1}{2 \times (1.43 \times 10^{-8}\text{ cm}
 * **Consistencia del Aluminio Aeronáutico:** La densidad teórica calculada de $2.71\text{ g/cm}^3$ reproduce el valor de referencia de las aleaciones ligeras aeroespaciales de aluminio (como las series 2024-T3 y 7075-T6, con $\rho \approx 2.7\text{--}2.8\text{ g/cm}^3$), cuyo bajo peso específico es el pilar de las aeroestructuras presurizadas de fuselaje y revestimiento alar.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

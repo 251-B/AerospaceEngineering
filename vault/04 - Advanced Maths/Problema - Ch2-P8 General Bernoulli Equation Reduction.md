@@ -131,5 +131,5 @@ $$ \mathbf{y'(x) - [a(x) + b(x)] y(x) = 0} \tag{11} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Bernoulli Equation Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P7 Nonlinear Change of Variables|Problem 2.7: Nonlinear Substitution]]`
+* [[04 - Advanced Maths/Concepto - Sustituciones No Lineales y Ecuacion de Bernoulli|Bernoulli Equation Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P7 Nonlinear Change of Variables|Problem 2.7: Nonlinear Substitution]]

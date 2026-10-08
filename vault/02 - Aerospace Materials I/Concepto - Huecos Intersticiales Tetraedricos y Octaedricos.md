@@ -106,5 +106,5 @@ La red BCC **no es compacta** ($\text{APF} = 0.68$). Aunque posee más volumen l
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento|⬅️ Anterior: Estructuras Metálicas FCC, BCC, HCP]]`
-* `[[Concepto - Notacion de Miller para Direcciones y Planos Cubicos y Hexagonales|Siguiente: Notación de Miller para Direcciones y Planos ➡️]]`
+* [[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento|⬅️ Anterior: Estructuras Metálicas FCC, BCC, HCP]]
+* [[Concepto - Notacion de Miller para Direcciones y Planos Cubicos y Hexagonales|Siguiente: Notación de Miller para Direcciones y Planos ➡️]]

@@ -106,6 +106,6 @@ Boiling Point (°C)
 ---
 
 ## 🔗 Related Notes
-* `[[Tema 1 - Bonding in Solids and Material Properties]]`
-* `[[Concepto - Enlace Covalente y Caracter Polar]]`
-* `[[Concepto - Curvas de Energia Potencial Interatomica y Propiedades Macroscopicas]]`
+* [[Tema 1 - Bonding in Solids and Material Properties]]
+* [[Concepto - Enlace Covalente y Caracter Polar]]
+* [[Concepto - Curvas de Energia Potencial Interatomica y Propiedades Macroscopicas]]

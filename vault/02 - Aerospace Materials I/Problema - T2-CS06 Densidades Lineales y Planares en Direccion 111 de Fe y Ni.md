@@ -95,4 +95,4 @@ Citando la teoría de empaquetamiento reticular [Session 4 Slides 7-9]:
 * En **Níquel FCC**, el plano $(111)$ tiene una densidad planar cuatro veces mayor ($\frac{4}{a^2\sqrt{3}} \approx \frac{2.309}{a^2}$), constituyendo el plano compacto canónico de las superaleaciones de base níquel utilizadas en álabes de turbinas monocristalinos.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

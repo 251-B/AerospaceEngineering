@@ -106,5 +106,5 @@ $$ \mathbf{\frac{d}{dt}\left[ \frac{y_1(t)}{y_2(t)} \right] = \frac{-p y_1 y_2 -
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Linear First-Order Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Uniqueness via Transformation]]`
+* [[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Linear First-Order Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Uniqueness via Transformation]]

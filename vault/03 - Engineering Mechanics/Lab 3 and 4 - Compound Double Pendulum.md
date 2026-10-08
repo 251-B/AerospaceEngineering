@@ -19,9 +19,9 @@ sources:
 # ⛓️ Laboratory 3 & 4: Compound Double Pendulum (Experimental & Numerical)
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Document:** `[[mechanics_labs.pdf]]` (pp. 19–26)  
-> **Theoretical Prerequisites:** `[[Topic 7 - Kinematics of Rigid Bodies and Euler Angles]]`, `[[Topic 8 - Geometry of Masses and Inertia Tensor]]`, `[[Topic 10 - Rigid Body Dynamics and Euler's Equations]]`  
-> **Navigation:** `[[Lab - Guidelines and Scientific Report Standards|Guidelines]]` | `[[Mecanica de Estructuras MOC|⬅️ Mechanics MOC]]`
+> **Source Document:** [[mechanics_labs.pdf]] (pp. 19–26)  
+> **Theoretical Prerequisites:** [[Topic 7 - Kinematics of Rigid Bodies and Euler Angles]], [[Topic 8 - Geometry of Masses and Inertia Tensor]], [[Topic 10 - Rigid Body Dynamics and Euler's Equations]]  
+> **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Mecanica de Estructuras MOC|⬅️ Mechanics MOC]]
 
 ---
 

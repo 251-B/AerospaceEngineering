@@ -119,6 +119,6 @@ Since $a_1(t), a_0(t), b(t)$ do not depend on the dependent variable $T$, and $T
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P5 Forensic Time of Death Estimation|Problem 1.5: Forensic Time of Death Estimation]]`
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]
+* [[04 - Advanced Maths/Problema - Ch1-P5 Forensic Time of Death Estimation|Problem 1.5: Forensic Time of Death Estimation]]

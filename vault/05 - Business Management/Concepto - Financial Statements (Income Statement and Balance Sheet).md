@@ -47,7 +47,7 @@ The Income Statement details operational efficiency and profitability over a fis
 
 $$\begin{array}{llr}
 & \text{Gross Sales Revenue} & 2,002.00 \\
-- & \text{Commercial Discounts & Allowances} & (24.02) \\
+- & \text{Commercial Discounts \& Allowances} & (24.02) \\
 \hline
 = & \mathbf{\text{Net Sales Revenue}} & \mathbf{1,977.98} \\
 - & \text{Cost of Goods Sold (COGS)} & (962.00) \\
@@ -56,7 +56,7 @@ $$\begin{array}{llr}
 - & \text{Operating Expenses (Wages, Utilities, Depreciation)} & (881.40) \\
 \hline
 = & \mathbf{\text{Operating Profit (EBIT / Income from Operations)}} & \mathbf{134.58} \\
-\pm & \text{Financial & Non-Operating Results (Interest Expense/Revenue)} & (13.50) \\
+\pm & \text{Financial \& Non-Operating Results (Interest Expense/Revenue)} & (13.50) \\
 \hline
 = & \mathbf{\text{Earnings Before Taxes (EBT / Income Before Taxes)}} & \mathbf{121.08} \\
 - & \text{Corporate Income Tax } (t = 30\%) & (36.32) \\
@@ -123,9 +123,9 @@ When a company closes its fiscal year, the undistributed portion of Net Income f
 ---
 
 ## 🔗 Related Notes & Solved Problems
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 1 - Accrual vs Cash Basis and Linear Depreciation|Problem 1: Accrual vs Cash Basis]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]
+* [[05 - Business Management/Problema - T3 Ejercicio 1 - Accrual vs Cash Basis and Linear Depreciation|Problem 1: Accrual vs Cash Basis]]
+* [[05 - Business Management/Problema - T3 Ejercicio 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]
+* [[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]
+* [[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]

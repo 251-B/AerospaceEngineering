@@ -87,6 +87,6 @@ $$ \nabla \cdot (\nabla\phi) = \nabla^2\phi = 0 $$
 ---
 
 ## 🔗 Conceptos Relacionados
-* `[[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]`
-* `[[01 - Fluid Mechanics/Concepto - Flujo Convectivo y Funcion de Corriente|Concepto: Función de Corriente]]`
-* `[[01 - Fluid Mechanics/Concepto - Deformacion, Rotacion y Tensor de Velocidad de Deformacion|Concepto: Tensor de Deformación y Rotación]]`
+* [[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]
+* [[01 - Fluid Mechanics/Concepto - Flujo Convectivo y Funcion de Corriente|Concepto: Función de Corriente]]
+* [[01 - Fluid Mechanics/Concepto - Deformacion, Rotacion y Tensor de Velocidad de Deformacion|Concepto: Tensor de Deformación y Rotación]]

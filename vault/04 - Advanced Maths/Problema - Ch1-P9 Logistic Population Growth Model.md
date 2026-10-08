@@ -166,6 +166,6 @@ $$ \lim_{M \to \infty} p(t) = \frac{p_0}{0 + (1 - 0) e^{-k(t - t_0)}} = \frac{p_
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Logistic Equation and Carrying Capacity|Logistic Equation and Carrying Capacity]]`
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Malthusian Population Dynamics]]`
+* [[04 - Advanced Maths/Concepto - Logistic Equation and Carrying Capacity|Logistic Equation and Carrying Capacity]]
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Problema - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Malthusian Population Dynamics]]

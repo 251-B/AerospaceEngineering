@@ -104,4 +104,4 @@ $$\rho_{(110)} > \rho_{(100)} > \rho_{(111)}$$
 El plano $(110)$ es el plano de **mayor densidad atómica de la estructura BCC**, confirmando rigurosamente por qué la familia $\{110\}$ constituye el plano de deslizamiento preferencial de las dislocaciones en metales BCC como el hierro ferrítico ($\alpha\text{-Fe}$), molibdeno, tantalio y wolframio [Session 4 Slide 36].
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

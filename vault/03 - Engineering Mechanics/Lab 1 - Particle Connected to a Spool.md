@@ -19,9 +19,9 @@ sources:
 # 🌀 Laboratory 1: Particle Connected to a Spool
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Documents:** `[[mechanics_labs.pdf]]` (pp. 14–16) | `[[Lab1_notes.pptx]]`  
-> **Theoretical Prerequisites:** `[[Topic 1 - Fundamentals and Particle Kinematics]]`, `[[Topic 2 - Point Particle Dynamics]]`, `[[Topic 3 - Constraints and Reaction Forces]]`  
-> **Navigation:** `[[Lab - Guidelines and Scientific Report Standards|Guidelines]]` | `[[Mecanica de Estructuras MOC|⬅️ Mechanics MOC]]`
+> **Source Documents:** [[mechanics_labs.pdf]] (pp. 14–16) | [[Lab1_notes.pptx]]  
+> **Theoretical Prerequisites:** [[Topic 1 - Fundamentals and Particle Kinematics]], [[Topic 2 - Point Particle Dynamics]], [[Topic 3 - Constraints and Reaction Forces]]  
+> **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Mecanica de Estructuras MOC|⬅️ Mechanics MOC]]
 
 ---
 

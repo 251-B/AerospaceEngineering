@@ -135,8 +135,8 @@ These three fundamental pairs constitute the complete modal alphabet of linear t
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Independencia Lineal de Funciones y Determinante Wronskiano]]`
-* `[[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Identidad de Abel y Propiedades del Wronskiano]]`
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas con Coeficientes Constantes]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P2 Abels Identity and Wronskian Dichotomy|Problem 3.2: Abel's Identity and Wronskian Dichotomy]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Independencia Lineal de Funciones y Determinante Wronskiano]]
+* [[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Identidad de Abel y Propiedades del Wronskiano]]
+* [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas con Coeficientes Constantes]]
+* [[04 - Advanced Maths/Problema - Ch3-P2 Abels Identity and Wronskian Dichotomy|Problem 3.2: Abel's Identity and Wronskian Dichotomy]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

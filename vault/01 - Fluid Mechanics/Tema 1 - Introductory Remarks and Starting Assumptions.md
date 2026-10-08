@@ -48,4 +48,4 @@ dificultad: baja
 ---
 
 ## 🔗 Nota Conceptual Detallada
-* `[[01 - Fluid Mechanics/Concepto - Hipotesis de Medio Continuo y Propiedades Termofisicas|Ver Nota Teórica Exhaustiva del Tema 1]]`
+* [[01 - Fluid Mechanics/Concepto - Hipotesis de Medio Continuo y Propiedades Termofisicas|Ver Nota Teórica Exhaustiva del Tema 1]]

@@ -77,4 +77,4 @@ Según el procedimiento sistemático inverso de Miller [Session 3 Slides 41-45]:
 2. **Propiedad de Ortogonalidad:** En todos los casos, el vector director normal al plano trazado es proporcional al vector de índices $[h\, k\, l]$, cumpliendo rigurosamente la perpendicularidad cristalográfica en redes cúbicas [Session 3 Slide 52].
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

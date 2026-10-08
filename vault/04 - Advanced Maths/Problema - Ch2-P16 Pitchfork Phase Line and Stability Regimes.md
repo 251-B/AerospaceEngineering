@@ -169,5 +169,5 @@ This equation is the canonical normal form of a **supercritical pitchfork bifurc
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Autonomous Dynamics & Bifurcations]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Multi-Equilibria Phase Line]]`
+* [[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Autonomous Dynamics & Bifurcations]]
+* [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Multi-Equilibria Phase Line]]

@@ -121,6 +121,6 @@ The supreme governing body elected by shareholders to oversee senior management:
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 1 - The Firm - Types and Objectives|Topic 1: The Firm — Types and Objectives]]`
-* `[[05 - Business Management/Practica 1.2 - Corporate Governance and CNMV Good Governance Code|Practice 1.2: Corporate Governance in the IBEX 35]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 1 - The Firm - Types and Objectives|Topic 1: The Firm — Types and Objectives]]
+* [[05 - Business Management/Practica 1.2 - Corporate Governance and CNMV Good Governance Code|Practice 1.2: Corporate Governance in the IBEX 35]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

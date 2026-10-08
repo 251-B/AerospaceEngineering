@@ -99,6 +99,6 @@ To maintain the circular flow efficiently, an enterprise organizes into three in
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 1 - The Firm - Types and Objectives|Topic 1: The Firm — Types and Objectives]]`
-* `[[05 - Business Management/Concepto - Legal Forms of Business Ownership and Agency Problem|Concept: Legal Forms & Agency Problem]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 1 - The Firm - Types and Objectives|Topic 1: The Firm — Types and Objectives]]
+* [[05 - Business Management/Concepto - Legal Forms of Business Ownership and Agency Problem|Concept: Legal Forms & Agency Problem]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

@@ -99,15 +99,15 @@ $$\begin{array}{|lrr|}
 \hline
 \textbf{WIFINET S.L. — INCOME STATEMENT (YEAR 2017)} & \textbf{Detail (mu)} & \textbf{Amount (mu)} \\
 \hline
-\text{Revenues from Subscriptions & Online Sales} & & 1,966.000 \\
+\text{Revenues from Subscriptions \& Online Sales} & & 1,966.000 \\
 \text{(-) Cost of Goods Sold (Consumed supplies)} & & (340.000) \\
 \hline
 \mathbf{\text{GROSS MARGIN}} & & \mathbf{1,626.000} \\
 \text{(-) Operating Expenses:} & & (1,480.750) \\
-\quad \text{• Staff salaries & labor costs} & (559.000) & \\
-\quad \text{• Supplies & outside services} & (312.000) & \\
+\quad \text{• Staff salaries \& labor costs} & (559.000) & \\
+\quad \text{• Supplies \& outside services} & (312.000) & \\
 \quad \text{• Administrative expenditures} & (300.000) & \\
-\quad \text{• Depreciation & Amortization (268.55 + 41.20)} & (309.750) & \\
+\quad \text{• Depreciation \& Amortization (268.55 + 41.20)} & (309.750) & \\
 \hline
 \mathbf{\text{OPERATING INCOME (EBIT)}} & & \mathbf{145.250} \\
 \text{(-) Financial Interest on Bank Loan (5\% of 2,000)} & & (100.000) \\
@@ -154,7 +154,7 @@ $$\begin{array}{|lr|lr|}
 \textbf{CURRENT ASSETS} & \mathbf{2,131.000} & \textbf{NON-CURRENT LIABILITIES} & \mathbf{2,000.000} \\
 \text{• Inventories (Installation materials)} & 340.000 & \text{• Bank Loan (repayable in 2019)} & 2,000.000 \\
 \text{• Accounts Receivable (Customers)} & 164.000 & & \\
-\text{• Cash & Bank Deposits} & 1,627.000 & \textbf{CURRENT LIABILITIES} & \mathbf{313.575} \\
+\text{• Cash \& Bank Deposits} & 1,627.000 & \textbf{CURRENT LIABILITIES} & \mathbf{313.575} \\
 & & \text{• Accounts Payable (Suppliers)} & 120.000 \\
 & & \text{• Other Creditors (Admin expenses)} & 180.000 \\
 & & \text{• Corporate Taxes to Pay (due Q1 2018)} & 13.575 \\
@@ -196,6 +196,6 @@ $$\mathbf{\text{Balance Check: } \text{Total Assets } (8,008.250 \text{ mu}) \eq
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Problema - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE|Previous Problem: INFOPYMES]]`
-* `[[05 - Business Management/Problema - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Next Problem: CEMED]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Problema - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE|Previous Problem: INFOPYMES]]
+* [[05 - Business Management/Problema - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Next Problem: CEMED]]

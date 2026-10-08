@@ -16,7 +16,7 @@ Bienvenido a la bóveda central de conocimiento de 2º curso de Ingeniería Aero
 
 ## 📂 Organización de la Bóveda
 
-* **`[[00 - Indice Central/Indice Maestro|00 - Índice Central]]`**: El mapa de contenidos principal (MOC) desde donde navegar a cualquier materia.
+* **[[00 - Indice Central/Indice Maestro|00 - Índice Central]]**: El mapa de contenidos principal (MOC) desde donde navegar a cualquier materia.
 * **`01 - Fluid Mechanics/`**: Mecánica de Fluidos.
 * **`02 - Aerospace Materials I/`**: Materiales Aeroespaciales I.
 * **`03 - Engineering Mechanics/`**: Mecánica de Estructuras y Sólidos Deformables.
@@ -28,7 +28,7 @@ Bienvenido a la bóveda central de conocimiento de 2º curso de Ingeniería Aero
 
 ## 🔗 Convención de Enlaces y Buenas Prácticas
 
-* **Enlaces bidireccionales:** Usa `[[Nombre del Concepto]]` cada vez que menciones una ley, teorema o propiedad (ej: `[[Ecuaciones de Navier-Stokes]]` o `[[Diagrama de Fases Fe-C]]`).
+* **Enlaces bidireccionales:** Usa [[Nombre del Concepto]] cada vez que menciones una ley, teorema o propiedad (ej: [[Ecuaciones de Navier-Stokes]] o [[Diagrama de Fases Fe-C]]).
 * **Fórmulas en LaTeX:**
   * En línea: `$ \rho \frac{D\vec{v}}{Dt} = -\nabla p + \mu \nabla^2 \vec{v} + \rho \vec{g} $`
   * En bloque:

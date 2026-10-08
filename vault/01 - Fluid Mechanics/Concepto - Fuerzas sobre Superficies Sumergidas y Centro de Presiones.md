@@ -89,5 +89,5 @@ $$ F_R = \sqrt{F_H^2 + F_V^2}, \quad \tan\alpha = \frac{F_V}{F_H} $$
 ---
 
 ## 🔗 Práctica y Ejercicios
-* `[[01 - Fluid Mechanics/Problema - Compuerta Sumergida Inclinada con Momento de Apertura|Problema Resuelto: Compuerta con Bisagra]]`
-* `[[01 - Fluid Mechanics/Concepto - Principio de Arquimedes y Estabilidad de Cuerpos Flotantes|Siguiente: Principio de Arquímedes y Cuerpos Flotantes]]`
+* [[01 - Fluid Mechanics/Problema - Compuerta Sumergida Inclinada con Momento de Apertura|Problema Resuelto: Compuerta con Bisagra]]
+* [[01 - Fluid Mechanics/Concepto - Principio de Arquimedes y Estabilidad de Cuerpos Flotantes|Siguiente: Principio de Arquímedes y Cuerpos Flotantes]]

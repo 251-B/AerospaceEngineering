@@ -75,14 +75,14 @@ Una aplicación industrial y aeroespacial fundamental de la primera ley de Fick 
 * Igualando con la Primera Ley de Fick:
   $$\frac{\dot{m}}{A} = D \frac{C_{\text{alta}} - C_{\text{baja}}}{\Delta x} \implies \Delta x = \frac{D \cdot A \cdot (C_{\text{alta}} - C_{\text{baja}})}{\dot{m}}$$
 
-*(Véase resolución numérica detallada en `[[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]`).*
+*(Véase resolución numérica detallada en [[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]).*
 
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]`
-* `[[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]`
-* `[[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]`
-* `[[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]]`
-* `[[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]
+* [[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]
+* [[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]
+* [[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]]
+* [[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]

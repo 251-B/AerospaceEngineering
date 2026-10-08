@@ -103,7 +103,7 @@ $$[T] = \frac{[E_D]}{[R] \cdot [\text{adimensional}]} = \frac{\text{cal/mol}}{(\
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]`
-* `[[Problema - T3-03 Energia de Activacion y Difusividad de Carbono en Acero]]`
-* `[[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]
+* [[Problema - T3-03 Energia de Activacion y Difusividad de Carbono en Acero]]
+* [[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]

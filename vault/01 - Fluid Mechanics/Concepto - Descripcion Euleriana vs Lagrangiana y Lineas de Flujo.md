@@ -97,6 +97,6 @@ Las trayectorias y las líneas de corriente **coinciden** en dos casos fundament
 ---
 
 ## 🔗 Conceptos Relacionados
-* `[[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]`
-* `[[01 - Fluid Mechanics/Concepto - Derivada Material y Aceleracion del Fluido|Concepto: Derivada Material y Aceleración]]`
-* `[[01 - Fluid Mechanics/Concepto - Flujo Convectivo y Funcion de Corriente|Concepto: Función de Corriente]]`
+* [[01 - Fluid Mechanics/Tema 2 - Flow Kinematics|Tema 2: Flow Kinematics]]
+* [[01 - Fluid Mechanics/Concepto - Derivada Material y Aceleracion del Fluido|Concepto: Derivada Material y Aceleración]]
+* [[01 - Fluid Mechanics/Concepto - Flujo Convectivo y Funcion de Corriente|Concepto: Función de Corriente]]

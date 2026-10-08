@@ -79,4 +79,4 @@ tags:
 * **Validación Cruzada de Métodos:** En el problema T2-CS05 se obtuvo la densidad planar a partir del radio atómico conocido $R = 1.43\text{ \AA}$. Aquí, el procedimiento es inverso: midiendo la densidad lineal $\rho_{[111]}$ (accesible mediante microscopía electrónica de transmisión de alta resolución o difracción), se deriva con exactitud idéntica el parámetro reticular ($4.04\text{ \AA}$), el radio atómico ($1.43\text{ \AA}$), la densidad del sólido ($2.71\text{ g/cm}^3$) y la densidad planar de los planos de cizalladura.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

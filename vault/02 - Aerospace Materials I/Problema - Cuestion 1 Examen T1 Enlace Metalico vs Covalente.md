@@ -81,4 +81,4 @@ Before contrasting the properties, we identify the governing equations and physi
 | **Typical Materials** | $\text{Al}, \text{Ti}, \text{Fe}, \text{Ni}, \text{Cu}$ | $\text{Diamond}, \text{Si}, \text{SiO}_2, \text{SiC}, \text{BN}$ |
 
 ---
-*Retorno:* `[[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

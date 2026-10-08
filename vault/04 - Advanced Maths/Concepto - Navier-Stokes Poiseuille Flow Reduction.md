@@ -158,6 +158,6 @@ From the parabolic velocity profile $(10)$, key macroscopic quantities are deter
 ---
 
 ## 🔗 Related Concepts and Problems
-* `[[04 - Advanced Maths/Tema 1 - Introduction, Modeling and Classification of ODEs|Tema 1 Guide]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P10 Laminar Viscous Poiseuille Flow|Problem 1.10: Detailed 4-Phase Resolution of Poiseuille Flow]]`
-* `[[01 - Fluid Mechanics/Mecanica de Fluidos MOC|Fluid Mechanics: Internal Viscous Flows]]`
+* [[04 - Advanced Maths/Tema 1 - Introduction, Modeling and Classification of ODEs|Tema 1 Guide]]
+* [[04 - Advanced Maths/Problema - Ch1-P10 Laminar Viscous Poiseuille Flow|Problem 1.10: Detailed 4-Phase Resolution of Poiseuille Flow]]
+* [[01 - Fluid Mechanics/Mecanica de Fluidos MOC|Fluid Mechanics: Internal Viscous Flows]]

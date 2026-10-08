@@ -106,8 +106,8 @@ $$ \boxed{M = \sqrt{A^2 + B^2}, \qquad \phi = \arctan\left(\frac{B}{A}\right)} $
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P1 Linear Independence via Wronskian|Problem 3.1: Wronskian Independence]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P7 Simple Pendulum Energy and Small Oscillations|Problem 3.7: Simple Pendulum Oscillations]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P8 Damped Harmonic Oscillator Regimes|Problem 3.8: Damped Oscillator Regimes]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas]]
+* [[04 - Advanced Maths/Problema - Ch3-P1 Linear Independence via Wronskian|Problem 3.1: Wronskian Independence]]
+* [[04 - Advanced Maths/Problema - Ch3-P7 Simple Pendulum Energy and Small Oscillations|Problem 3.7: Simple Pendulum Oscillations]]
+* [[04 - Advanced Maths/Problema - Ch3-P8 Damped Harmonic Oscillator Regimes|Problem 3.8: Damped Oscillator Regimes]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

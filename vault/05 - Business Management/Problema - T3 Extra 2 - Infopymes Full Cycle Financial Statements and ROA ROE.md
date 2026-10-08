@@ -92,7 +92,7 @@ $$\begin{array}{|lrr|}
 \text{Revenues from Online Consultations} & & 300,000 \\
 \text{(-) Operating Expenses:} & & (272,000) \\
 \quad \text{• Rent of premises (1,000 $\times$ 12)} & (12,000) & \\
-\quad \text{• Permanent staff salaries & SS (5,000 $\times$ 12)} & (60,000) & \\
+\quad \text{• Permanent staff salaries \& SS (5,000 $\times$ 12)} & (60,000) & \\
 \quad \text{• Utilities: electricity, phone (500 $\times$ 12)} & (6,000) & \\
 \quad \text{• Variable wages of consulting staff} & (174,000) & \\
 \quad \text{• Linear Depreciation of Computer Equipment} & (20,000) & \\
@@ -144,11 +144,11 @@ $$\begin{array}{|lr|lr|}
 \textbf{ASSETS (Activo) at 31/12/2016} & \textbf{Amount (\euro)} & \textbf{LIABILITIES \& EQUITY at 31/12/2016} & \textbf{Amount (\euro)} \\
 \hline
 \textbf{NON-CURRENT ASSETS} & \mathbf{80,000} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{107,560} \\
-\text{• Computer Equipment} & 100,000 & \text{• Subscribed & Paid Capital} & 100,000 \\
+\text{• Computer Equipment} & 100,000 & \text{• Subscribed \& Paid Capital} & 100,000 \\
 \text{• (-) Accumulated Depreciation} & (20,000) & \text{• Retained Earnings (2016)} & 7,560 \\
 & & & \\
 \textbf{CURRENT ASSETS} & \mathbf{107,560} & \textbf{NON-CURRENT LIABILITIES} & \mathbf{60,000} \\
-\text{• Cash & Bank Liquidity} & 107,560 & \text{• Long-term bank debt} & 60,000 \\
+\text{• Cash \& Bank Liquidity} & 107,560 & \text{• Long-term bank debt} & 60,000 \\
 & & & \\
 & & \textbf{CURRENT LIABILITIES} & \mathbf{20,000} \\
 & & \text{• Short-term bank debt (due 2017)} & 20,000 \\
@@ -187,11 +187,11 @@ $$\begin{array}{|lr|lr|}
 \textbf{ASSETS (Activo) at 31/12/2017} & \textbf{Amount (\euro)} & \textbf{LIABILITIES \& EQUITY at 31/12/2017} & \textbf{Amount (\euro)} \\
 \hline
 \textbf{NON-CURRENT ASSETS} & \mathbf{60,000} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{107,560} \\
-\text{• Computer Equipment} & 100,000 & \text{• Subscribed & Paid Capital} & 100,000 \\
+\text{• Computer Equipment} & 100,000 & \text{• Subscribed \& Paid Capital} & 100,000 \\
 \text{• (-) Accumulated Depreciation} & (40,000) & \text{• Retained Earnings} & 7,560 \\
 & & & \\
 \textbf{CURRENT ASSETS} & \mathbf{107,560} & \textbf{NON-CURRENT LIABILITIES} & \mathbf{40,000} \\
-\text{• Cash & Bank Liquidity} & 107,560 & \text{• Long-term bank debt} & 40,000 \\
+\text{• Cash \& Bank Liquidity} & 107,560 & \text{• Long-term bank debt} & 40,000 \\
 & & & \\
 & & \textbf{CURRENT LIABILITIES} & \mathbf{20,000} \\
 & & \text{• Short-term bank debt (due 2018)} & 20,000 \\
@@ -229,6 +229,6 @@ $$\mathbf{\text{ROA}_{2017}} = \frac{28,000 \text{ \euro}}{167,560 \text{ \euro}
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Problema - T3 Extra 1 - Circonsa Balance Sheet and Income Statement|Previous Problem: CIRCONSA]]`
-* `[[05 - Business Management/Problema - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Next Problem: WIFINET S.L.]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Problema - T3 Extra 1 - Circonsa Balance Sheet and Income Statement|Previous Problem: CIRCONSA]]
+* [[05 - Business Management/Problema - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Next Problem: WIFINET S.L.]]

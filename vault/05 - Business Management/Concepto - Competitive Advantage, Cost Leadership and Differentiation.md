@@ -111,7 +111,7 @@ Differentiation entails creating product or service offerings that buyers percei
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 2 - Value Creation - Environment and Competitive Advantage|Topic 2: Value Creation — Environment and Competitive Advantage]]`
-* `[[05 - Business Management/Concepto - Corporate Strategy, Diversification and Vertical Integration|Concept: Corporate Strategy]]`
-* `[[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept: Porter's Value Chain Analysis]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 2 - Value Creation - Environment and Competitive Advantage|Topic 2: Value Creation — Environment and Competitive Advantage]]
+* [[05 - Business Management/Concepto - Corporate Strategy, Diversification and Vertical Integration|Concept: Corporate Strategy]]
+* [[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept: Porter's Value Chain Analysis]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

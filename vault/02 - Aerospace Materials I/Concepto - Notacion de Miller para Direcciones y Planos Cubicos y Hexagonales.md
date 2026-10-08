@@ -95,5 +95,5 @@ $$u = \frac{1}{3}(2u' - v'), \quad v = \frac{1}{3}(2v' - u'), \quad t = -(u + v)
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Huecos Intersticiales Tetraedricos y Octaedricos|⬅️ Anterior: Huecos Intersticiales]]`
-* `[[Concepto - Densidad Volumetrica Lineal y Planar en Redes Cristalinas|Siguiente: Densidad Volumétrica, Lineal y Planar ➡️]]`
+* [[Concepto - Huecos Intersticiales Tetraedricos y Octaedricos|⬅️ Anterior: Huecos Intersticiales]]
+* [[Concepto - Densidad Volumetrica Lineal y Planar en Redes Cristalinas|Siguiente: Densidad Volumétrica, Lineal y Planar ➡️]]

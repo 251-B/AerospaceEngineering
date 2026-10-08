@@ -118,7 +118,7 @@ $$[t] = \frac{[\Delta x] \cdot [\Delta h]}{[D]} = \frac{\text{cm} \cdot \text{cm
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]`
-* `[[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]`
-* `[[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]
+* [[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]
+* [[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]

@@ -105,7 +105,7 @@ $$[\Delta x] = \frac{[D] \cdot [\Delta C]}{[J]} = \frac{(\text{m}^2/\text{s}) \c
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]`
-* `[[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]`
-* `[[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]
+* [[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]
+* [[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]]

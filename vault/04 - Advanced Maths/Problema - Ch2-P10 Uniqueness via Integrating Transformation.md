@@ -138,6 +138,6 @@ $$ y(t) = 0 \cdot \exp\left( -\int_{t_0}^t p(s) \, ds \right) \equiv 0 \quad \fo
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Integrating Factor Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P11 Invariance of Solution Ratios in Linear ODEs|Problem 2.11: Solution Ratios Invariance]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P17 Direct Difference Method for Uniqueness|Problem 2.17: Direct Difference Method]]`
+* [[04 - Advanced Maths/Concepto - Factor Integrante y Ecuaciones Lineales de Primer Orden|Integrating Factor Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P11 Invariance of Solution Ratios in Linear ODEs|Problem 2.11: Solution Ratios Invariance]]
+* [[04 - Advanced Maths/Problema - Ch2-P17 Direct Difference Method for Uniqueness|Problem 2.17: Direct Difference Method]]

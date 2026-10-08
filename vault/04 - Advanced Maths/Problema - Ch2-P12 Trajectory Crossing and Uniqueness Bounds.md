@@ -127,6 +127,6 @@ $$ \mathbf{-t - 1 < y(t) < t^2 + 1 \quad \forall t \in \text{Domain}(y)} \tag{2}
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Autonomous Dynamics & No-Crossing]]`
-* `[[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Uniqueness Theorem]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Equilibrium Confinement]]`
+* [[04 - Advanced Maths/Concepto - Analisis Cualitativo de EDOs Autonomas y Estabilidad|Autonomous Dynamics & No-Crossing]]
+* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Uniqueness Theorem]]
+* [[04 - Advanced Maths/Problema - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics|Problem 2.13: Equilibrium Confinement]]

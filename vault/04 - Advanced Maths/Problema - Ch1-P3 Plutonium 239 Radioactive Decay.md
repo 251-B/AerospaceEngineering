@@ -122,5 +122,5 @@ $$ \mathbf{k = \frac{\ln 2}{24{,}000}\text{ yr}^{-1} \approx 2.888 \times 10^{-5
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Doubling Time vs. Half-Life]]`
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Problema - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Doubling Time vs. Half-Life]]

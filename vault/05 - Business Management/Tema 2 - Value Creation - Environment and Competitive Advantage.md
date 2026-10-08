@@ -182,9 +182,9 @@ Michael Porter disaggregates a firm into strategically interrelated discrete act
 ---
 
 ## 🔗 Related Notes & Study Hubs
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
-* `[[05 - Business Management/Concepto - Corporate Strategy, Diversification and Vertical Integration|Concept Note: Corporate Strategy & Integration]]`
-* `[[05 - Business Management/Concepto - Competitive Advantage, Cost Leadership and Differentiation|Concept Note: Competitive Advantage]]`
-* `[[05 - Business Management/Concepto - External Environment Analysis (PESTEL and Porters 5 Forces)|Concept Note: PESTEL & 5 Forces]]`
-* `[[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept Note: Value Chain Analysis]]`
-* `[[05 - Business Management/Practica 2 - Business Environment and Porter 5 Forces Analysis|Practical Session 2: Sector Environment Analysis]]`
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]
+* [[05 - Business Management/Concepto - Corporate Strategy, Diversification and Vertical Integration|Concept Note: Corporate Strategy & Integration]]
+* [[05 - Business Management/Concepto - Competitive Advantage, Cost Leadership and Differentiation|Concept Note: Competitive Advantage]]
+* [[05 - Business Management/Concepto - External Environment Analysis (PESTEL and Porters 5 Forces)|Concept Note: PESTEL & 5 Forces]]
+* [[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept Note: Value Chain Analysis]]
+* [[05 - Business Management/Practica 2 - Business Environment and Porter 5 Forces Analysis|Practical Session 2: Sector Environment Analysis]]

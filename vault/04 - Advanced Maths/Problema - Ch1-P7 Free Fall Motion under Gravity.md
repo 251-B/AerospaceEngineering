@@ -118,5 +118,5 @@ $$ \mathbf{y(t) = y_0 - \frac{1}{2} g t^2} \tag{4} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P8 Simple Pendulum Equation of Motion|Problem 1.8: Simple Pendulum Equation of Motion]]`
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Problema - Ch1-P8 Simple Pendulum Equation of Motion|Problem 1.8: Simple Pendulum Equation of Motion]]

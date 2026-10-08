@@ -101,4 +101,4 @@ tags:
 * **Geometría Anisótropa:** A diferencia del sistema cúbico donde $\{100\}$ tiene menor densidad que $\{110\}$, en este cristal ortorrómbico con $a < b < c$, el plano $(100)$ posee una superficie pequeña ($bc = 30\text{ \AA}^2$) conteniendo 2 átomos, resultando más denso que el plano $(110)$ de mayor superficie ($38.4\text{ \AA}^2$), demostrando la fuerte anisotropía de las redes ortorrómbicas.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

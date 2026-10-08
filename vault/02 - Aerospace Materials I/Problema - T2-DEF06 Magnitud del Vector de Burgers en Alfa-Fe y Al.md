@@ -76,4 +76,4 @@ Citando la teoría de dislocaciones y sistemas de deslizamiento [Session 4 Slide
 * Esto demuestra matemáticamente por qué el deslizamiento plástico ocurre escalón a escalón a lo largo de las filas atómicas densas: cada vez que la línea de la dislocación barre un plano, desplaza el bloque superior del cristal una distancia atómica elemental $|\vec{b}| = 2R$ respecto al inferior.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

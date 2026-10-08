@@ -107,7 +107,7 @@ To build the Balance Sheet as of December 31st, 2017, we must develop the full a
    \hline
    \textbf{Cash Flow Component} & \textbf{Amount (m.u.)} \\
    \hline
-   \text{Cash Balance on 1/1/2017 (after Capex & Materials)} & 40.0 \\
+   \text{Cash Balance on 1/1/2017 (after Capex \& Materials)} & 40.0 \\
    \text{(+) Cash Collections from Customers} & +37.5 \\
    \text{(-) Employee Cost Paid} & (10.0) \\
    \text{(-) Corporate Income Tax Paid on 31/12/2017} & (8.4) \\
@@ -125,14 +125,14 @@ $$\begin{array}{|lr|lr|}
 \textbf{ASSETS (Activo)} & \textbf{Amount (m.u.)} & \textbf{LIABILITIES \& EQUITY (Pasivo y PN)} & \textbf{Amount (m.u.)} \\
 \hline
 \textbf{NON-CURRENT ASSETS} & \mathbf{38.0} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{119.6} \\
-\text{• Land / Area (Non-depreciable)} & 20.0 & \text{• Subscribed & Paid-in Share Capital} & 100.0 \\
+\text{• Land / Area (Non-depreciable)} & 20.0 & \text{• Subscribed \& Paid-in Share Capital} & 100.0 \\
 \text{• Equipment (Historical Cost)} & 20.0 & \text{• Retained Earnings (Year 2017 Net Profit)} & 19.6 \\
 \text{• (-) Accumulated Depreciation} & (2.0) & & \\
 & & \textbf{NON-CURRENT LIABILITIES} & \mathbf{0.0} \\
 \textbf{CURRENT ASSETS} & \mathbf{81.6} & \text{• Long-term debt} & 0.0 \\
 \text{• Inventories (Raw Materials)} & 10.0 & & \\
 \text{• Accounts Receivable (Customers)} & 12.5 & \textbf{CURRENT LIABILITIES} & \mathbf{0.0} \\
-\text{• Cash & Cash Equivalents} & 59.1 & \text{• Accounts payable (Suppliers)} & 0.0 \\
+\text{• Cash \& Cash Equivalents} & 59.1 & \text{• Accounts payable (Suppliers)} & 0.0 \\
 & & \text{• Corporate tax payable} & 0.0 \\
 \hline
 \mathbf{\text{TOTAL ASSETS}} & \mathbf{119.6} & \mathbf{\text{TOTAL LIABILITIES \& EQUITY}} & \mathbf{119.6} \\
@@ -181,7 +181,7 @@ $$\begin{array}{|lr|lr|}
 \textbf{CURRENT ASSETS} & \mathbf{71.6} & & \\
 \text{• Inventories (Raw Materials)} & 10.0 & \textbf{LIABILITIES} & \mathbf{0.0} \\
 \text{• Accounts Receivable} & 12.5 & \text{• Non-current liabilities} & 0.0 \\
-\text{• Cash & Cash Equivalents} & 49.1 & \text{• Current liabilities} & 0.0 \\
+\text{• Cash \& Cash Equivalents} & 49.1 & \text{• Current liabilities} & 0.0 \\
 \hline
 \mathbf{\text{TOTAL ASSETS}} & \mathbf{109.6} & \mathbf{\text{TOTAL LIABILITIES \& EQUITY}} & \mathbf{109.6} \\
 \hline
@@ -192,8 +192,8 @@ $$\mathbf{\text{Total Assets } (109.6 \text{ m.u.}) \equiv \text{Total Liabiliti
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]`
-* `[[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
+* [[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]
+* [[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

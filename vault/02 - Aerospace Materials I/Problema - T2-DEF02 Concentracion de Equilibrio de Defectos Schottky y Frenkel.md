@@ -85,4 +85,4 @@ Citando las formulaciones oficiales para cristales iónicos [Session 4 Slide 16]
    Dado que $\Delta H_s = 1\text{ eV} \ll \Delta H_F = 4\text{ eV}$, el cristal presentará de manera abrumadoramente dominante defectos de tipo Schottky, mientras que los defectos de Frenkel serán estadísticamente inexistentes.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

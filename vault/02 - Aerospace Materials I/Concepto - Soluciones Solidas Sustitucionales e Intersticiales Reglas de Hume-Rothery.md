@@ -88,5 +88,5 @@ En soluciones sólidas sustitucionales con elementos de electronegatividad simil
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Defectos Puntuales Vacantes Termicas Schottky y Frenkel|⬅️ Anterior: Defectos Puntuales]]`
-* `[[Concepto - Dislocaciones Vector de Burgers y Deslizamiento en Metales|Siguiente: Dislocaciones y Deslizamiento ➡️]]`
+* [[Concepto - Defectos Puntuales Vacantes Termicas Schottky y Frenkel|⬅️ Anterior: Defectos Puntuales]]
+* [[Concepto - Dislocaciones Vector de Burgers y Deslizamiento en Metales|Siguiente: Dislocaciones y Deslizamiento ➡️]]

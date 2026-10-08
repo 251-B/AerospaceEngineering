@@ -142,7 +142,7 @@ $$ \begin{cases} \dfrac{dy}{dt} = y^2 \\ y(0) = y_0 > 0 \end{cases} $$
 ---
 
 ## 🔗 Related Concepts and Problems
-* `[[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]`
-* `[[04 - Advanced Maths/Concepto - Logistic Equation and Carrying Capacity|Logistic Equation (Saturation vs. Blow-up)]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Malthusian Population Dynamics]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P9 Logistic Population Growth Model|Problem 1.9: Logistic Population Growth Model]]`
+* [[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]
+* [[04 - Advanced Maths/Concepto - Logistic Equation and Carrying Capacity|Logistic Equation (Saturation vs. Blow-up)]]
+* [[04 - Advanced Maths/Problema - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Malthusian Population Dynamics]]
+* [[04 - Advanced Maths/Problema - Ch1-P9 Logistic Population Growth Model|Problem 1.9: Logistic Population Growth Model]]

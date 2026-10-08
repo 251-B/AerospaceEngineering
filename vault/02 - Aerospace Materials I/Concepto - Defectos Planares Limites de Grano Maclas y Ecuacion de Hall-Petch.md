@@ -91,5 +91,5 @@ La superficie externa que confina cualquier sólido cristalino es el defecto pla
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Dislocaciones Vector de Burgers y Deslizamiento en Metales|⬅️ Anterior: Dislocaciones y Deslizamiento]]`
-* `[[Concepto - Polimorfismo y Alotropia en Metales y Ceramicos|Siguiente: Polimorfismo y Alotropía ➡️]]`
+* [[Concepto - Dislocaciones Vector de Burgers y Deslizamiento en Metales|⬅️ Anterior: Dislocaciones y Deslizamiento]]
+* [[Concepto - Polimorfismo y Alotropia en Metales y Ceramicos|Siguiente: Polimorfismo y Alotropía ➡️]]

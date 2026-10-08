@@ -132,5 +132,5 @@ Differentiating each result recovers the original ODE identically:
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Direct Integration & Separable Equations]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P2 Separable ODEs and Asymptotic Integrals|Problem 2.2: Separable Equations]]`
+* [[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Direct Integration & Separable Equations]]
+* [[04 - Advanced Maths/Problema - Ch2-P2 Separable ODEs and Asymptotic Integrals|Problem 2.2: Separable Equations]]

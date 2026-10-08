@@ -103,4 +103,4 @@ Energy E(r)
 * **Engineering Impact:** In supersonic aircraft structures and compressor stages of jet engines (e.g., Eurofighter Typhoon, CFM LEAP engines), aerodynamic skin friction heats components to $200\text{--}450^\circ\text{C}$. Aluminum rapidly loses its stiffness and expands excessively above $150^\circ\text{C}$, whereas Titanium retains superior stiffness ($E$), resists creep, and maintains tight aerodynamic clearances due to its low $\alpha$.
 
 ---
-*Retorno:* `[[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

@@ -166,7 +166,7 @@ The energy conservation calculation matches our ODE solution with exact precisio
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P5 Saddle Invariant Manifold and Asymptotic Decay|Problem 3.5: Saddle Invariant Manifold]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P7 Simple Pendulum Energy and Small Oscillations|Problem 3.7: Pendulum Energy]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuaciones Homogéneas]]
+* [[04 - Advanced Maths/Problema - Ch3-P5 Saddle Invariant Manifold and Asymptotic Decay|Problem 3.5: Saddle Invariant Manifold]]
+* [[04 - Advanced Maths/Problema - Ch3-P7 Simple Pendulum Energy and Small Oscillations|Problem 3.7: Pendulum Energy]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

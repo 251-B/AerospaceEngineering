@@ -107,6 +107,6 @@ $$\begin{array}{|lr|lr|}
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]`
-* `[[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
+* [[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]

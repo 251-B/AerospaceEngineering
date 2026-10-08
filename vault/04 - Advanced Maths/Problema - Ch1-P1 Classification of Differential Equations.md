@@ -215,5 +215,5 @@ $$ \dot{x} = x(4 - 2x - y), \quad \dot{y} = y(9 - 3x - 3y) $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]`
-* `[[04 - Advanced Maths/Tema 1 - Introduction, Modeling and Classification of ODEs|Tema 1 Guide]]`
+* [[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]
+* [[04 - Advanced Maths/Tema 1 - Introduction, Modeling and Classification of ODEs|Tema 1 Guide]]

@@ -132,8 +132,8 @@ $$T = 1174.95 - 273.15 = \mathbf{901.8^\circ\text{C}} \approx \mathbf{902^\circ\
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]`
-* `[[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]`
-* `[[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]`
-* `[[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]
+* [[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]
+* [[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]
+* [[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]

@@ -118,7 +118,7 @@ $$\begin{array}{|lrr|}
 \quad \text{• Water, gas and electricity} & (1,200) & \\
 \hline
 \mathbf{\text{OPERATING INCOME (EBIT)}} & & \mathbf{31,800} \\
-\text{(+) Non-Operating & Financial Items} & & \mathbf{+20,200} \\
+\text{(+) Non-Operating \& Financial Items} & & \mathbf{+20,200} \\
 \quad \text{• Property sold (gain on asset)} & +10,500 & \\
 \quad \text{• Interests received} & +15,200 & \\
 \quad \text{• (-) Interests from long-term debt} & (5,500) & \\
@@ -140,6 +140,6 @@ $$\begin{array}{|lrr|}
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
+* [[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]

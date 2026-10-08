@@ -80,4 +80,4 @@ Citando el procedimiento sistemático [Session 3 Slide 38]:
 2. **Equivalencia de Familias $\langle u\, v\, w \rangle$:** Direcciones como $[1\, 2\, 2]$ y $[2\, 1\, 2]$ son miembros simétricos de la familia $\langle 221 \rangle$ en la red cúbica, lo que implica que poseen idéntica longitud de repetición traslacional y las mismas propiedades físicas de conductividad o módulo de elasticidad.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

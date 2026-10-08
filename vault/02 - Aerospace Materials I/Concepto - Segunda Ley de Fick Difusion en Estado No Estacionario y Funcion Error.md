@@ -129,9 +129,9 @@ $$z = \frac{x}{2\sqrt{Dt}} \implies t = \frac{x^2}{4 z^2 D} \quad \text{o} \quad
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]`
-* `[[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]`
-* `[[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]`
-* `[[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]`
-* `[[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]
+* [[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]
+* [[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]
+* [[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]
+* [[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]

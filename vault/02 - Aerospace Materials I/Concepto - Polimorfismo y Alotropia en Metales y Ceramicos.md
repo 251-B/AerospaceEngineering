@@ -71,5 +71,5 @@ $$\text{Monoclínica} \xrightarrow{1170^\circ\text{C}} \text{Tetragonal} \xright
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Defectos Planares Limites de Grano Maclas y Ecuacion de Hall-Petch|⬅️ Anterior: Defectos Planares y Hall-Petch]]`
-* `[[Tema 2 - Structure of Materials and Crystalline Defects|Volver al MOC de Tema 2 🏠]]`
+* [[Concepto - Defectos Planares Limites de Grano Maclas y Ecuacion de Hall-Petch|⬅️ Anterior: Defectos Planares y Hall-Petch]]
+* [[Tema 2 - Structure of Materials and Crystalline Defects|Volver al MOC de Tema 2 🏠]]

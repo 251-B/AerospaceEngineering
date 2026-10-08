@@ -93,6 +93,6 @@ $$\begin{array}{|lr|lr|}
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
+* [[05 - Business Management/Problema - T3 Ejercicio 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]

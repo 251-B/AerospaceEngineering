@@ -89,5 +89,5 @@ Debido a la interferencia destructiva de planos atómicos intermedios en celdas 
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Densidad Volumetrica Lineal y Planar en Redes Cristalinas|⬅️ Anterior: Densidades Cristalográficas]]`
-* `[[Concepto - Defectos Puntuales Vacantes Termicas Schottky y Frenkel|Siguiente: Defectos Puntuales ➡️]]`
+* [[Concepto - Densidad Volumetrica Lineal y Planar en Redes Cristalinas|⬅️ Anterior: Densidades Cristalográficas]]
+* [[Concepto - Defectos Puntuales Vacantes Termicas Schottky y Frenkel|Siguiente: Defectos Puntuales ➡️]]

@@ -72,5 +72,5 @@ $$ \left.\frac{d\mathbf{A}}{dt}\right|_0 = \left.\frac{d\mathbf{A}}{dt}\right|_1
 ---
 
 ## 🔗 Related Concepts
-* `[[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]`
-* `[[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame]]`
+* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]
+* [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame]]

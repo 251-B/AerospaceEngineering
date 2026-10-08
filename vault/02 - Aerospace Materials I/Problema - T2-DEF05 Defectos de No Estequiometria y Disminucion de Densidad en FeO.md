@@ -99,4 +99,4 @@ El óxido de hierro (II) ($\text{FeO}$, wüstita) cristaliza en la estructura ti
 * **Fenómeno de la Wüstita:** El $\text{FeO}$ prácticamente nunca existe con estequiometría exacta $1:1$ a temperatura ambiente; siempre se presenta como una fase no estequiométrica deficitaria en hierro $\text{Fe}_{1-x}\text{O}$ ($0.05 \le x \le 0.15$). La presencia de vacantes catiónicas $V_{\text{Fe}}''$ reduce su densidad macroscópica en un $-2.56\%$ y dota al material de propiedades de semiconductor tipo $p$.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

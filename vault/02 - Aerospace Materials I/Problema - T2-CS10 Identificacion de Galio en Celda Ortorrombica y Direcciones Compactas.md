@@ -93,4 +93,4 @@ tags:
 * **Física del Galio:** El Galio puro es un elemento sumamente singular en ciencia de materiales aeroespaciales y optoelectrónica ($\text{GaAs}, \text{GaN}$). Posee una temperatura de fusión sumamente baja ($T_m = 29.76^\circ\text{C}$), fundiéndose con el calor de la mano humana, y cristaliza a temperatura ambiente en una red ortorrómbica ligeramente distorsionada donde los átomos forman dímeros casi moleculares $\text{Ga}_2$ orientados a lo largo de las direcciones densas del plano $(001)$.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

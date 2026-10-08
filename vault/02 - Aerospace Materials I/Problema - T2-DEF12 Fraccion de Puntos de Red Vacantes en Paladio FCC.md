@@ -82,4 +82,4 @@ $$f_v = \mathbf{0.002055} \approx \mathbf{0.00204} \quad (\approx 0.204\%)$$
 * **Detección Picnométrica y Dilatométrica:** Este problema refleja el método clásico de Simmons y Balluffi: comparando la variación del parámetro de red obtenido por difracción de rayos X ($\Delta a / a$) con la variación dimensional macroscópica por dilatometría ($\Delta L / L$), o contrastando la densidad hidrostática con la teórica por rayos X, se mide de forma no destructiva la concentración absoluta de vacantes térmicas en metales nobles como el paladio, platino y oro.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

@@ -131,5 +131,5 @@ Every such function is continuously differentiable ($C^1$) and satisfies the IVP
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard-Lindelöf Existence and Uniqueness Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P9 Solution Uniqueness and Lipschitz Analysis|Problem 2.9: Lipschitz Analysis of Exponents]]`
+* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard-Lindelöf Existence and Uniqueness Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P9 Solution Uniqueness and Lipschitz Analysis|Problem 2.9: Lipschitz Analysis of Exponents]]

@@ -154,6 +154,6 @@ $$ \mathbf{\frac{d^2\theta}{dt^2} + \frac{g}{l} \sin\theta = 0} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P1 Classification of Differential Equations|Problem 1.1: Equation (viii) Newton's Law in Potential]]`
-* `[[03 - Engineering Mechanics/Mecanica de Estructuras MOC|Engineering Mechanics: Rotational Dynamics]]`
+* [[04 - Advanced Maths/Concepto - Linearity and Order of Differential Equations|Linearity and Order of Differential Equations]]
+* [[04 - Advanced Maths/Problema - Ch1-P1 Classification of Differential Equations|Problem 1.1: Equation (viii) Newton's Law in Potential]]
+* [[03 - Engineering Mechanics/Mecanica de Estructuras MOC|Engineering Mechanics: Rotational Dynamics]]

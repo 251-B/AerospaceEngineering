@@ -128,5 +128,5 @@ Because the very first hypothesis of the Picard-Lindelöf Theorem (continuity on
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard-Lindelöf Theorem and Singularities]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem|Problem 2.14: Non-Lipschitz Branching]]`
+* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard-Lindelöf Theorem and Singularities]]
+* [[04 - Advanced Maths/Problema - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem|Problem 2.14: Non-Lipschitz Branching]]

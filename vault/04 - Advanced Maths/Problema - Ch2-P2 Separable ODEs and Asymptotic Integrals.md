@@ -190,5 +190,5 @@ We analyze the denominator $D(t) = 1 - y_0 I(t)$ according to the value of $y_0$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Separable Equations and Blow-up Theory]]`
-* `[[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Theorem: Local vs. Global Existence]]`
+* [[04 - Advanced Maths/Concepto - Metodos de Integracion Directa y Ecuaciones Separables|Separable Equations and Blow-up Theory]]
+* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Theorem: Local vs. Global Existence]]

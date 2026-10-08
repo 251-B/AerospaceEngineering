@@ -102,4 +102,4 @@ $$\frac{N_{\text{vac}}}{N_{\text{Mg}}} = \frac{7.5}{85} = \mathbf{0.088235\text{
 * **Origen de la Pérdida de Densidad:** A pesar de que el catión $\text{Al}^{3+}$ ($M_{\text{Al}} = 26.98\text{ g/mol}$) es ligeramente más pesado que el $\text{Mg}^{2+}$ ($M_{\text{Mg}} = 24.31\text{ g/mol}$), la obligación termodinámica de dejar desocupado $1$ de cada $3$ sitios catiónicos como una vacante neta para neutralizar la carga extra genera un déficit másico global, provocando una **reducción neta del 3% en la densidad volumétrica** del material cerámico.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

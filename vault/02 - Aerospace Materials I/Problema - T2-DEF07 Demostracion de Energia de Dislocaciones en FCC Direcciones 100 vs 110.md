@@ -91,4 +91,4 @@ $$\mathbf{\frac{E_1}{E_2} = 2} \quad \blacksquare \text{ Q.E.D.}$$
 * Esto constituye la demostración analítica definitiva de la diapositiva 35 [Session 4 Slide 35] de por qué el deslizamiento plástico en metales FCC se restringe exclusivamente a las direcciones $\langle 110 \rangle$.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

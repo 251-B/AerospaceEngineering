@@ -157,7 +157,7 @@ $$\begin{array}{|lrr|}
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 4 - Hawkins Partners Income Statement and Inventories|Problem 4: Hawkins Partners Income Statement]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
+* [[05 - Business Management/Problema - T3 Ejercicio 4 - Hawkins Partners Income Statement and Inventories|Problem 4: Hawkins Partners Income Statement]]
+* [[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]

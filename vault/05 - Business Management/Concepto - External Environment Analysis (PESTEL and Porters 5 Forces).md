@@ -114,8 +114,8 @@ In the commercial aerospace airframe manufacturing industry:
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 2 - Value Creation - Environment and Competitive Advantage|Topic 2: Value Creation — Environment and Competitive Advantage]]`
-* `[[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept: Porter's Value Chain Analysis]]`
-* `[[05 - Business Management/Concepto - Competitive Advantage, Cost Leadership and Differentiation|Concept: Competitive Advantage]]`
-* `[[05 - Business Management/Practica 2 - Business Environment and Porter 5 Forces Analysis|Practice 2: Sector Environment Analysis]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 2 - Value Creation - Environment and Competitive Advantage|Topic 2: Value Creation — Environment and Competitive Advantage]]
+* [[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept: Porter's Value Chain Analysis]]
+* [[05 - Business Management/Concepto - Competitive Advantage, Cost Leadership and Differentiation|Concept: Competitive Advantage]]
+* [[05 - Business Management/Practica 2 - Business Environment and Porter 5 Forces Analysis|Practice 2: Sector Environment Analysis]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

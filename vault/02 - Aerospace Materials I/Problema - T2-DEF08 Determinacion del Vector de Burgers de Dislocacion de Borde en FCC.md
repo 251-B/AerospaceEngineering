@@ -78,4 +78,4 @@ tags:
 * **Geometría de la Deformación Plástica:** La dislocación de borde en este cristal de cobre representa un semiplano extra que termina a lo largo de una línea normal al plano $(110)$. Cuando el cristal es sometido a tensiones cortantes en el plano $(110)$, la dislocación avanza paralelamente a su vector de Burgers $[\bar{1}10]$ produciendo una traslación atómica discreta de exactamente $2.553\text{ \AA}$ (el diámetro atómico de un átomo de cobre).
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

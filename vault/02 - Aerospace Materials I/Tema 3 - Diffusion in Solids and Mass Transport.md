@@ -101,15 +101,15 @@ $$D_{\text{BCC}} > D_{\text{FCC}} \quad (\text{para igual soluto e igual } T)$$
 
 ## 📚 3. Índice de Notas Conceptuales Atómicas (5 Conceptos)
 
-1. `[[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]`  
+1. [[Concepto - Mecanismos de Difusion Vacantes e Intersticios]]  
    *Definición de transporte térmico, fuerza impulsora por gradiente de potencial químico, auto-difusión e interdifusión con reglas de Hume-Rothery, correlación $E_a\text{--}T_m$ y cinética acelerada de solutos intersticiales ($\text{C}, \text{H}, \text{N}$).*
-2. `[[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]`  
+2. [[Concepto - Primera Ley de Fick Difusion en Estado Estacionario]]  
    *Definición de flujo difusional $J$, condiciones de estado estacionario ($\partial C/\partial t = 0$), signo negativo del gradiente, perfiles lineales en membranas planas y formulación del transporte másico.*
-3. `[[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]`  
+3. [[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]  
    *Deducción por continuidad diferencial, hipótesis $D \neq f(C)$, sólido semi-infinito con $C_s$ y $C_0$, definición de $\text{erf}(z)$, tabla oficial completa de $z = 0$ a $2.0$ y algoritmo de interpolación lineal.*
-4. `[[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]`  
+4. [[Concepto - Ecuacion de Arrhenius y Factores que Influyen en la Difusividad]]  
    *Dependencia térmica $D(T)$, linealización logarítmica y método de dos temperaturas, factores moduladores (tamaño atómico, red abierta BCC vs compacta FCC, difusión en cortocircuito en grano y superficie).*
-5. `[[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]`  
+5. [[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]  
    *Tratamiento termoquímico de cementación gaseosa (*case hardening*) en aceros para engranajes, membranas de paladio para $\text{H}_2$, sinterización de cerámicos, soldadura por difusión DB/SPF en álabes Rolls-Royce Trent 500 y barreras poliméricas.*
 
 ---
@@ -118,17 +118,17 @@ $$D_{\text{BCC}} > D_{\text{FCC}} \quad (\text{para igual soluto e igual } T)$$
 
 | Código | Título del Problema | Tema y Fenómeno Físico | Resultado Oficial |
 | :---: | :--- | :--- | :---: |
-| **T3-01** | `[[Problema - T3-01 Carburacion de Engranaje de Acero 1018]]` | Fick 2 · Sólido Semi-infinito · Interpolación $\text{erf}(z)$ | $t = 6636\text{ s} = 1.84\text{ h}$ |
-| **T3-02** | `[[Problema - T3-02 Difusion de Aluminio en Silicio Monocristalino]]` | Arrhenius inverso · Dopaje semiconductor | $T = 1566\text{ K} = 1293^\circ\text{C}$ |
-| **T3-03** | `[[Problema - T3-03 Energia de Activacion y Difusividad de Carbono en Acero]]` | Método 2 temperaturas · $E_D$ y extrapolación $D(1000^\circ\text{C})$ | $E_D = 36\text{ kcal/mol}$, $D = 3.23 \times 10^{-11}\text{ m}^2/\text{s}$ |
-| **T3-04** | `[[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]]` | Fick 1 · Transporte iónico en cerámico · Red FCC $\text{Ni}$ | $t = 309\text{ h}$ |
-| **T3-05** | `[[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]` | Acoplamiento Fick 2 + Arrhenius · Diseño térmico | $T = 1175\text{ K} = 902^\circ\text{C}$ |
-| **T3-06** | `[[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]]` | Fick 1 · Permeación en membrana $\text{Pd}$ · Flujo másico | $\Delta x = 5\text{ mm}$ |
+| **T3-01** | [[Problema - T3-01 Carburacion de Engranaje de Acero 1018]] | Fick 2 · Sólido Semi-infinito · Interpolación $\text{erf}(z)$ | $t = 6636\text{ s} = 1.84\text{ h}$ |
+| **T3-02** | [[Problema - T3-02 Difusion de Aluminio en Silicio Monocristalino]] | Arrhenius inverso · Dopaje semiconductor | $T = 1566\text{ K} = 1293^\circ\text{C}$ |
+| **T3-03** | [[Problema - T3-03 Energia de Activacion y Difusividad de Carbono en Acero]] | Método 2 temperaturas · $E_D$ y extrapolación $D(1000^\circ\text{C})$ | $E_D = 36\text{ kcal/mol}$, $D = 3.23 \times 10^{-11}\text{ m}^2/\text{s}$ |
+| **T3-04** | [[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]] | Fick 1 · Transporte iónico en cerámico · Red FCC $\text{Ni}$ | $t = 309\text{ h}$ |
+| **T3-05** | [[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]] | Acoplamiento Fick 2 + Arrhenius · Diseño térmico | $T = 1175\text{ K} = 902^\circ\text{C}$ |
+| **T3-06** | [[Problema - T3-06 Purificacion de Hidrogeno con Membrana de Paladio]] | Fick 1 · Permeación en membrana $\text{Pd}$ · Flujo másico | $\Delta x = 5\text{ mm}$ |
 
 ---
 
 ## 🔗 Navegación y Retorno
-* `[[Materiales Aeroespaciales I MOC|⬅️ Volver al MOC de Asignatura]]`
-* `[[00 - Indice Central/Indice Maestro|🗺️ Índice Maestro de la Bóveda]]`
+* [[Materiales Aeroespaciales I MOC|⬅️ Volver al MOC de Asignatura]]
+* [[00 - Indice Central/Indice Maestro|🗺️ Índice Maestro de la Bóveda]]
 * Portal Web de Teoría: `subjects/aerospace-materials-1/teoria/topic-3-diffusion.html`
 * Portal Web de Problemas: `subjects/aerospace-materials-1/problemas/topic-3-diffusion.html`

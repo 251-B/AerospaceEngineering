@@ -85,4 +85,4 @@ $$\tau_{\text{PN}} \approx 2G \exp\left(-\frac{2\pi d}{|\vec{b}|}\right)$$
 El sistema real $(110)/[1\bar{1}1]$ posee simultáneamente el **mayor espaciado interplanar** ($2.335\text{ \AA}$) y el **menor vector de Burgers** ($2.860\text{ \AA}$), haciendo que la energía de deformación sea casi tres veces inferior y la resistencia al movimiento sea mínima. Por ello, el tántalo y todos los metales refractarios BCC deslizan de forma invariable en la familia $\{110\}\langle 111 \rangle$.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

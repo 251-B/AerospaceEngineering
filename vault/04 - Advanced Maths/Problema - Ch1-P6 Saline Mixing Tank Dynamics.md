@@ -162,5 +162,5 @@ $$ C_\infty = \lim_{t \to \infty} \frac{x(t)}{V} = \frac{s V}{V} = \mathbf{s} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P4 Newton Law of Cooling Modeling|Problem 1.4: Thermal Relaxation Analogy]]`
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Problema - Ch1-P4 Newton Law of Cooling Modeling|Problem 1.4: Thermal Relaxation Analogy]]

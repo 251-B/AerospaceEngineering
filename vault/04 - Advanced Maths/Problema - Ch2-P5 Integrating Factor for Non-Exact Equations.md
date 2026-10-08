@@ -129,5 +129,5 @@ which recovers the original non-exact ODE identically.
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Special Integrating Factors]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Equations]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Exactas y Factores Integrantes Especiales|Special Integrating Factors]]
+* [[04 - Advanced Maths/Problema - Ch2-P4 Exact Differential Equations|Problem 2.4: Exact Equations]]

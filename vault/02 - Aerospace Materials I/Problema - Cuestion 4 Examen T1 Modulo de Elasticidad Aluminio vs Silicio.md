@@ -87,4 +87,4 @@ $$\mathbf{E_{\text{Si}} \gg E_{\text{Al}}}$$
   * Silicon's extreme stiffness is accompanied by complete **room-temperature brittleness**, making monolithic silicon unsuitable for macroscopic structural airframe loads, but ideal for rigid, dimensionally stable micro-electro-mechanical systems (MEMS accelerometers and gyroscopes) in aerospace inertial navigation units.
 
 ---
-*Retorno:* `[[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

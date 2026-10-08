@@ -124,4 +124,4 @@ tags:
 * Todos los resultados algebraicos concuerdan con la solución oficial: $\text{APF} = 0.62$ refleja el menor empaquetamiento propio de una celda ortorrómbica anisotrópica respecto al límite FCC ($0.74$), y las densidades planares validan que el plano más compacto $(100)$ posee menor área y mayor concentración atómica que $(110)$.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

@@ -120,5 +120,5 @@ Secuencia FCC: A - B - C - A - B - C ...  (Periodo de 3 capas a lo largo de [111
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Sistemas Cristalinos y Redes de Bravais|⬅️ Anterior: Sistemas Cristalinos y Redes de Bravais]]`
-* `[[Concepto - Huecos Intersticiales Tetraedricos y Octaedricos|Siguiente: Huecos Intersticiales Tetraédricos y Octaédricos ➡️]]`
+* [[Concepto - Sistemas Cristalinos y Redes de Bravais|⬅️ Anterior: Sistemas Cristalinos y Redes de Bravais]]
+* [[Concepto - Huecos Intersticiales Tetraedricos y Octaedricos|Siguiente: Huecos Intersticiales Tetraédricos y Octaédricos ➡️]]

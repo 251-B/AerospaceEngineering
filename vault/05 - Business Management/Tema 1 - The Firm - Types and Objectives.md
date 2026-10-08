@@ -135,8 +135,8 @@ The entrepreneur is the central catalyst of economic enterprise, though economic
 ---
 
 ## 🔗 Related Notes & Study Hubs
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
-* `[[05 - Business Management/Concepto - Economic Nature of the Firm and Circular Flow of Income|Concept Note: Circular Flow of Income]]`
-* `[[05 - Business Management/Concepto - Legal Forms of Business Ownership and Agency Problem|Concept Note: Legal Forms and Corporate Governance]]`
-* `[[05 - Business Management/Practica 1.1 - Elevator Pitch and Value Proposition|Practical Session 1.1: Elevator Pitch]]`
-* `[[05 - Business Management/Practica 1.2 - Corporate Governance and CNMV Good Governance Code|Practical Session 1.2: CNMV Good Governance Code]]`
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]
+* [[05 - Business Management/Concepto - Economic Nature of the Firm and Circular Flow of Income|Concept Note: Circular Flow of Income]]
+* [[05 - Business Management/Concepto - Legal Forms of Business Ownership and Agency Problem|Concept Note: Legal Forms and Corporate Governance]]
+* [[05 - Business Management/Practica 1.1 - Elevator Pitch and Value Proposition|Practical Session 1.1: Elevator Pitch]]
+* [[05 - Business Management/Practica 1.2 - Corporate Governance and CNMV Good Governance Code|Practical Session 1.2: CNMV Good Governance Code]]

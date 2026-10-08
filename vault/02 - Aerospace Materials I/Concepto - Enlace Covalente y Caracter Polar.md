@@ -109,8 +109,8 @@ $$\text{Bond Order } \uparrow \implies \text{Bond Length } (d) \downarrow \impli
 ---
 
 ## 🔗 Related Notes
-* `[[Tema 1 - Bonding in Solids and Material Properties]]`
-* `[[Concepto - Enlace Ionico y Energia Reticular de Born-Lande]]`
-* `[[Concepto - Fuerzas Intermoleculares y Enlaces Secundarios]]`
-* `[[Problema - Cuestion 1 Examen T1 Enlace Metalico vs Covalente]]`
-* `[[Problema - Cuestion 4 Examen T1 Modulo de Elasticidad Aluminio vs Silicio]]`
+* [[Tema 1 - Bonding in Solids and Material Properties]]
+* [[Concepto - Enlace Ionico y Energia Reticular de Born-Lande]]
+* [[Concepto - Fuerzas Intermoleculares y Enlaces Secundarios]]
+* [[Problema - Cuestion 1 Examen T1 Enlace Metalico vs Covalente]]
+* [[Problema - Cuestion 4 Examen T1 Modulo de Elasticidad Aluminio vs Silicio]]

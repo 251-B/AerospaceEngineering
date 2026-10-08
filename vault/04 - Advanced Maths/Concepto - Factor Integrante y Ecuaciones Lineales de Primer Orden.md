@@ -124,7 +124,7 @@ $$ \frac{dx}{dt} + \left( a + \frac{1}{t} \right) x = b \quad (a > 0) $$
 ---
 
 ## 🔗 Related Concepts and Problems
-* `[[04 - Advanced Maths/Tema 2 - First-Order ODEs and Qualitative Dynamics|Tema 2 Guide]]`
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models (Newton Cooling, CSTR)]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P3 Integrating Factor Method and Asymptotics|Problem 2.3: 8 Integrating Factor Problems]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Uniqueness Proof via Integrating Transformation]]`
+* [[04 - Advanced Maths/Tema 2 - First-Order ODEs and Qualitative Dynamics|Tema 2 Guide]]
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models (Newton Cooling, CSTR)]]
+* [[04 - Advanced Maths/Problema - Ch2-P3 Integrating Factor Method and Asymptotics|Problem 2.3: 8 Integrating Factor Problems]]
+* [[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Uniqueness Proof via Integrating Transformation]]

@@ -96,5 +96,5 @@ $$ \tan\theta = \frac{a_x}{g + a_z} $$
 ---
 
 ## 🔗 Conceptos Relacionados
-* `[[01 - Fluid Mechanics/Concepto - Manometria y Medida de Presion|Siguiente: Manometría y Cálculo de Presiones]]`
-* `[[01 - Fluid Mechanics/Concepto - Fuerzas sobre Superficies Sumergidas y Centro de Presiones|Fuerzas Hidrostáticas]]`
+* [[01 - Fluid Mechanics/Concepto - Manometria y Medida de Presion|Siguiente: Manometría y Cálculo de Presiones]]
+* [[01 - Fluid Mechanics/Concepto - Fuerzas sobre Superficies Sumergidas y Centro de Presiones|Fuerzas Hidrostáticas]]

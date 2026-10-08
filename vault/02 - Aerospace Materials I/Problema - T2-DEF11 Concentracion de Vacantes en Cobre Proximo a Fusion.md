@@ -77,4 +77,4 @@ $$n_v = 4.9796 \times 10^{19} \approx \mathbf{4.98 \times 10^{19}\text{ vacancie
 * **Papel en la Difusión y la Fluencia (Creep):** Esta colosal densidad de vacantes permite que los átomos de cobre salten continuamente a posiciones vacías adyacentes a frecuencias del orden de $10^{10}\text{ saltos/s}$, lo que explica por qué a temperaturas superiores a $0.5\, T_m$ los metales experimentan deformación por fluencia térmica (creep) y las dislocaciones pueden ascender (*dislocation climb*) eludiendo obstáculos.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

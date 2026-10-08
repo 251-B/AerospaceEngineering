@@ -77,4 +77,4 @@ $$\text{Generation of defects due to solid solution in Ionic solids: } 3\,\text{
 * **Aplicación Tecnológica:** La introducción deliberada de cationes de valencia superior ($\text{Al}^{3+}, \text{Ti}^{4+}$) genera una enorme población fija de vacantes catiónicas, aumentando la conductividad iónica y acelerando en órdenes de magnitud la velocidad de sinterización en fase sólida de cerámicos aeroespaciales refractarios.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

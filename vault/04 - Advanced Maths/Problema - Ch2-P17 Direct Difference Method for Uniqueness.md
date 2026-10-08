@@ -160,5 +160,5 @@ The direct difference and energy method illustrated here ($\frac{d}{dt} [w^2] = 
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Uniqueness Theory]]`
-* `[[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Integrating Transformation Uniqueness]]`
+* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Picard Uniqueness Theory]]
+* [[04 - Advanced Maths/Problema - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Integrating Transformation Uniqueness]]

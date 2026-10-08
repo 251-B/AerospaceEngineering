@@ -131,12 +131,12 @@ $$ \mathbf{t_d = \frac{\ln(2)}{k}} \tag{4} $$
 2. **Independence of Initial Population:**
    The doubling time $t_d$ depends strictly on the growth rate $k$ and is entirely **independent of the initial population size $x_0$**. Whether the colony starts with 10 or $10^6$ organisms, doubling requires the exact same duration.
 3. **Physical Limitation:**
-   As $t \to \infty$, $x(t) \to \infty$ violates physical reality because finite physical space and nutrient resources impose a carrying capacity. This necessitates the **logistic model** developed in `[[04 - Advanced Maths/Problema - Ch1-P9 Logistic Population Growth Model|Problem 1.9]]`.
+   As $t \to \infty$, $x(t) \to \infty$ violates physical reality because finite physical space and nutrient resources impose a carrying capacity. This necessitates the **logistic model** developed in [[04 - Advanced Maths/Problema - Ch1-P9 Logistic Population Growth Model|Problem 1.9]].
 
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]`
-* `[[04 - Advanced Maths/Concepto - Logistic Equation and Carrying Capacity|Logistic Equation and Carrying Capacity]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P3 Plutonium 239 Radioactive Decay|Problem 1.3: Radioactive Decay Constant]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P9 Logistic Population Growth Model|Problem 1.9: Logistic Growth Model]]`
+* [[04 - Advanced Maths/Concepto - First-Order Physical Models|First-Order Physical Models]]
+* [[04 - Advanced Maths/Concepto - Logistic Equation and Carrying Capacity|Logistic Equation and Carrying Capacity]]
+* [[04 - Advanced Maths/Problema - Ch1-P3 Plutonium 239 Radioactive Decay|Problem 1.3: Radioactive Decay Constant]]
+* [[04 - Advanced Maths/Problema - Ch1-P9 Logistic Population Growth Model|Problem 1.9: Logistic Growth Model]]

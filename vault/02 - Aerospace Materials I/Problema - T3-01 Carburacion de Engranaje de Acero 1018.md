@@ -123,7 +123,7 @@ $$[t] = \frac{[x]^2}{[z]^2 \cdot [D]} = \frac{\text{m}^2}{1 \cdot (\text{m}^2/\t
 ---
 
 ## 🔗 Enlaces Relacionados
-* `[[Tema 3 - Diffusion in Solids and Mass Transport]]` (MOC Maestro del Tema 3)
-* `[[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]`
-* `[[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]`
-* `[[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]`
+* [[Tema 3 - Diffusion in Solids and Mass Transport]] (MOC Maestro del Tema 3)
+* [[Concepto - Segunda Ley de Fick Difusion en Estado No Estacionario y Funcion Error]]
+* [[Concepto - Cementacion y Aplicaciones Industriales de la Difusion]]
+* [[Problema - T3-05 Temperatura de Cementacion de Acero 1010 en 8 Horas]]

@@ -78,4 +78,4 @@ $$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$
 2. **Espaciados muy similares:** Es notable comprobar que $d_{110}^{\text{BCC}} \approx 0.203\text{ \AA}$ y $d_{111}^{\text{FCC}} \approx 0.207\text{ \AA}$ son prácticamente idénticos (diferencia $< 2\%$), lo que confirma que las distancias entre las capas más densas de átomos de hierro apenas varían al cruzar la temperatura de transformación alotrópica de $910^\circ\text{C}$.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

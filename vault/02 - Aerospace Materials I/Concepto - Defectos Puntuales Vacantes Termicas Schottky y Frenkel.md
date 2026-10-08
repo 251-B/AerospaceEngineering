@@ -93,5 +93,5 @@ En cualquier cristal iónico real, $\Delta H_s \neq \Delta H_F$. **El defecto qu
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Difraccion de Rayos X y Ley de Bragg|⬅️ Anterior: Difracción de Rayos X]]`
-* `[[Concepto - Soluciones Solidas Sustitucionales e Intersticiales Reglas de Hume-Rothery|Siguiente: Soluciones Sólidas y Hume-Rothery ➡️]]`
+* [[Concepto - Difraccion de Rayos X y Ley de Bragg|⬅️ Anterior: Difracción de Rayos X]]
+* [[Concepto - Soluciones Solidas Sustitucionales e Intersticiales Reglas de Hume-Rothery|Siguiente: Soluciones Sólidas y Hume-Rothery ➡️]]

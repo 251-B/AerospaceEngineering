@@ -136,7 +136,7 @@ $$\begin{array}{|lr|lr|}
   $$\mathbf{\text{Debt for Patent Purchase (Current Liability)}} = \mathbf{2,400 \text{ mu}}$$
 * Useful life: $4 \text{ years} = 48 \text{ months}$. Monthly amortization $= \frac{2,400}{48} = 50 \text{ mu/month}$.
 * Active months (Apr, May, Jun): $3 \text{ months}$.
-  $$\mathbf{\text{Amortization Expense (P&L)}} = 3 \times 50 = \mathbf{150 \text{ mu}}$$
+  $$\mathbf{\text{Amortization Expense (P\&L)}} = 3 \times 50 = \mathbf{150 \text{ mu}}$$
   $$\mathbf{\text{Net Book Value Patent}} = 2,400 - 150 = \mathbf{2,250 \text{ mu}}$$
 
 ---
@@ -146,7 +146,7 @@ $$\begin{array}{|lr|lr|}
 * Due date: 1 February 2016 ($\le 1 \text{ year}$) $\implies$ **Short-Term Bank Loan** $= \mathbf{2,000 \text{ mu}}$.
 * Annual interest rate: $12\%$.
 * Time elapsed in semester (Feb 1 to Jun 30): $5 \text{ months}$.
-  $$\mathbf{\text{Interest Expense (P&L)}} = 2,000 \times 12\% \times \frac{5}{12} = \mathbf{100 \text{ mu}}$$
+  $$\mathbf{\text{Interest Expense (P\&L)}} = 2,000 \times 12\% \times \frac{5}{12} = \mathbf{100 \text{ mu}}$$
   Since interest is payable on 1 Feb 2016, nothing has been paid:
   $$\mathbf{\text{Accrued Interest Payable (Current Liability)}} = \mathbf{100 \text{ mu}}$$
 
@@ -195,10 +195,10 @@ $$\begin{array}{|lrr|}
 \hline
 \mathbf{\text{GROSS PROFIT}} & & \mathbf{8,880} \\
 \text{(-) Operating Expenses:} & & (7,450) \\
-\quad \text{• Personnel & Social Security (500 mu/mo $\times$ 6 mo)} & (3,000) & \\
+\quad \text{• Personnel \& Social Security (500 mu/mo $\times$ 6 mo)} & (3,000) & \\
 \quad \text{• General Overheads (300 mu/mo $\times$ 6 mo)} & (1,800) & \\
 \quad \text{• Computer Renting Expense (400 mu/mo $\times$ 3 mo)} & (1,200) & \\
-\quad \text{• Depreciation & Amortization (50 + 1,250 + 150)} & (1,450) & \\
+\quad \text{• Depreciation \& Amortization (50 + 1,250 + 150)} & (1,450) & \\
 \hline
 \mathbf{\text{OPERATING INCOME (EBIT)}} & & \mathbf{1,430} \\
 \text{(-) Financial Interest Expense (12\% $\times$ 2,000 $\times$ 5/12)} & & (100) \\
@@ -231,7 +231,7 @@ $$\begin{array}{|lr|}
 \text{(-) Payment of 2014 Unpaid Taxes} & (350) \\
 \text{(-) Payment of 2014 Suppliers} & (450) \\
 \text{(-) Payment of 2015 Q1 Purchases (400 units $\times$ 12)} & (4,800) \\
-\text{(-) Payment of Personnel & Social Security} & (3,000) \\
+\text{(-) Payment of Personnel \& Social Security} & (3,000) \\
 \text{(-) Payment of Overheads (Jan–Apr: 4 months $\times$ 300)} & (1,200) \\
 \text{(-) Cash Paid for Machine 2 (Down payment)} & (8,000) \\
 \hline
@@ -260,10 +260,10 @@ $$\begin{array}{|lr|lr|}
 \textbf{CURRENT ASSETS} & \mathbf{20,180} & \textbf{CURRENT LIABILITIES} & \mathbf{17,766} \\
 \text{• Inventories (Stock)} & 0 & \text{• Short-term bank credit} & 2,000 \\
 \text{• Accounts Receivable (June 2015 sales)} & 3,880 & \text{• Accrued interest on credit} & 100 \\
-\text{• Cash & Bank Deposits} & 16,300 & \text{• Accounts payable (Suppliers Q2 purchases)} & 7,200 \\
+\text{• Cash \& Bank Deposits} & 16,300 & \text{• Accounts payable (Suppliers Q2 purchases)} & 7,200 \\
 & & \text{• Debt for Machine 2 (due 1/7/2015)} & 4,000 \\
 & & \text{• Debt for Patent (due 1/7/2015)} & 2,400 \\
-& & \text{• Overheads payable (May & June)} & 600 \\
+& & \text{• Overheads payable (May \& June)} & 600 \\
 & & \text{• Renting debt payable (Apr–Jun)} & 1,200 \\
 & & \text{• Taxes to pay (20\% Corporate Tax)} & 266 \\
 \hline
@@ -276,6 +276,6 @@ $$\mathbf{\text{Balance Equilibrium Verification: } \text{Total Assets } (33,880
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

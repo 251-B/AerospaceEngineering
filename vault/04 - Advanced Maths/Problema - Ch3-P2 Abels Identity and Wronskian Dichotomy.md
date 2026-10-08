@@ -133,7 +133,7 @@ $$ \boxed{W(t) = W(t_0) \exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} $$
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Identidad de Abel y Propiedades del Wronskiano]]`
-* `[[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Determinante Wronskiano]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P3 Peano Counterexample on Wronskian Vanishing|Problem 3.3: Peano Counterexample]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Identidad de Abel y Propiedades del Wronskiano]]
+* [[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Determinante Wronskiano]]
+* [[04 - Advanced Maths/Problema - Ch3-P3 Peano Counterexample on Wronskian Vanishing|Problem 3.3: Peano Counterexample]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

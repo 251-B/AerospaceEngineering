@@ -98,4 +98,4 @@ $$\Delta V_{\text{rel}} = \frac{0.0006162}{0.0113393} = +0.05434 \implies \mathb
 * **Control Dimensional en Tratamientos Térmicos:** Este salto volumétrico macroscópico del $\approx 5.7\%$ genera elevadas tensiones internas durante el enfriamiento de piezas aeroespaciales gruesas de acero al carbono o aleado, siendo la causa primaria de posibles alabeos o agrietamientos durante el temple.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

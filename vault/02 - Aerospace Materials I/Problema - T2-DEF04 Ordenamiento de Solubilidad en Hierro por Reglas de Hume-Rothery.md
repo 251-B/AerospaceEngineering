@@ -97,4 +97,4 @@ $$\mathbf{Mo > Ni > Mn}$$
 3. **Manganeso ($\text{Mn}$):** Presenta la menor solubilidad en la red de hierro debido a su estructura cristalina cúbica simple.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

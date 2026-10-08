@@ -139,7 +139,7 @@ $$\begin{array}{|lr|}
 \text{(-) Factory Building Paid in Cash} & (6.0000) \\
 \text{(-) Machinery Paid (after 60 days)} & (3.0000) \\
 \text{(-) Raw Materials Paid (60\% at 90 days)} & (2.7000) \\
-\text{(-) Personnel & Social Security Paid} & (0.8000) \\
+\text{(-) Personnel \& Social Security Paid} & (0.8000) \\
 \text{(-) Mortgage Principal Repayment (10\%)} & (0.6000) \\
 \text{(-) Mortgage Interest Paid} & (0.2750) \\
 \text{(-) Bank Loan Repayment 1 (20\%)} & (1.0000) \\
@@ -169,7 +169,7 @@ $$\begin{array}{|lr|lr|}
 \textbf{CURRENT ASSETS} & \mathbf{45.4197} & \text{• Mortgage Principal (> 1 year: 5.4 - 0.6)} & 4.8000 \\
 \text{• Inventories (Raw Materials)} & 2.2500 & \text{• Bank Loan Principal (> 1 year: 4.0 - 2.0)} & 2.0000 \\
 \text{• Accounts Receivable (30\% of 50)} & 15.0000 & & \\
-\text{• Cash & Liquid Deposits} & 28.1697 & \textbf{CURRENT LIABILITIES} & \mathbf{23.2495} \\
+\text{• Cash \& Liquid Deposits} & 28.1697 & \textbf{CURRENT LIABILITIES} & \mathbf{23.2495} \\
 & & \text{• Debt for Land Purchase (due 1/2/2017)} & 5.0000 \\
 & & \text{• Short-term Mortgage (due 31/12/2017)} & 0.6000 \\
 & & \text{• Short-term Bank Loan (2 sem. in 2017)} & 2.0000 \\
@@ -224,6 +224,6 @@ $$\mathbf{\text{Balance Check: } \text{Total Assets } (63.9197 \text{ mu}) \equi
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]`
-* `[[05 - Business Management/Problema - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Previous Problem: WIFINET S.L.]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Tema 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
+* [[05 - Business Management/Problema - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Previous Problem: WIFINET S.L.]]
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]

@@ -188,7 +188,7 @@ Because ionic bonds are non-directional, geometric coordination is governed pure
 ---
 
 ## 🔗 Related Notes
-* `[[Tema 1 - Bonding in Solids and Material Properties]]`
-* `[[Concepto - Curvas de Energia Potencial Interatomica y Propiedades Macroscopicas]]`
-* `[[Concepto - Enlace Covalente y Caracter Polar]]`
-* `[[Problema - Cuestion 3 Examen T1 Modulo de Elasticidad MgO vs Mg]]`
+* [[Tema 1 - Bonding in Solids and Material Properties]]
+* [[Concepto - Curvas de Energia Potencial Interatomica y Propiedades Macroscopicas]]
+* [[Concepto - Enlace Covalente y Caracter Polar]]
+* [[Problema - Cuestion 3 Examen T1 Modulo de Elasticidad MgO vs Mg]]

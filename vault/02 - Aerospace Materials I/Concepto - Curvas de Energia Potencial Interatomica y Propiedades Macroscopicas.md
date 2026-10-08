@@ -150,9 +150,9 @@ Where $k_B = 1.38 \times 10^{-23}\text{ J/K}$ is Boltzmann's constant.
 ---
 
 ## 🔗 Related Notes
-* `[[Tema 1 - Bonding in Solids and Material Properties]]`
-* `[[Concepto - Enlace Ionico y Energia Reticular de Born-Lande]]`
-* `[[Concepto - Enlace Metalico y Teoria de Bandas de Energia]]`
-* `[[Problema - Cuestion 2 Examen T1 Curvas de Potencial Titanio vs Aluminio]]`
-* `[[Problema - Cuestion 3 Examen T1 Modulo de Elasticidad MgO vs Mg]]`
-* `[[Problema - Cuestion 4 Examen T1 Modulo de Elasticidad Aluminio vs Silicio]]`
+* [[Tema 1 - Bonding in Solids and Material Properties]]
+* [[Concepto - Enlace Ionico y Energia Reticular de Born-Lande]]
+* [[Concepto - Enlace Metalico y Teoria de Bandas de Energia]]
+* [[Problema - Cuestion 2 Examen T1 Curvas de Potencial Titanio vs Aluminio]]
+* [[Problema - Cuestion 3 Examen T1 Modulo de Elasticidad MgO vs Mg]]
+* [[Problema - Cuestion 4 Examen T1 Modulo de Elasticidad Aluminio vs Silicio]]

@@ -89,51 +89,51 @@ TEMA 2: ESTRUCTURA DE MATERIALES Y DEFECTOS CRISTALINOS
 
 ## 📚 3. Índice de Notas Conceptuales Atómicas
 
-1. `[[Concepto - Sistemas Cristalinos y Redes de Bravais]]` — 7 sistemas cristalinos, 4 tipos de celda (P, I, F, C) y deducción de las 14 redes de Bravais.
-2. `[[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento]]` — Deducciones de $a(R)$, volúmenes de celda, APF, números de coordinación y secuencias de apilamiento $ABAB\dots$ vs $ABCABC\dots$.
-3. `[[Concepto - Huecos Intersticiales Tetraedricos y Octaedricos]]` — Multiplicidad $2n$ y $n$, posiciones espaciales y radios de huecos en FCC, BCC y HCP.
-4. `[[Concepto - Notacion de Miller para Direcciones y Planos Cubicos y Hexagonales]]` — Índices $[uvw]$, $(hkl)$, perpendicularidad en cúbicas y sistema Miller-Bravais $(hkil)$ y $[uvtw]$.
-5. `[[Concepto - Densidad Volumetrica Lineal y Planar en Redes Cristalinas]]` — Definición física, cálculos paso a paso y relación con el espaciado interplanar.
-6. `[[Concepto - Difraccion de Rayos X y Ley de Bragg]]` — Interferencia constructiva, cálculo de espaciados interplanares y caracterización estructural.
-7. `[[Concepto - Defectos Puntuales Vacantes Termicas Schottky y Frenkel]]` — Termodinámica estadística ($\Delta G = \Delta H - T\Delta S$), concentraciones de equilibrio y tabla de entalpías.
-8. `[[Concepto - Soluciones Solidas Sustitucionales e Intersticiales Reglas de Hume-Rothery]]` — 4 reglas de solubilidad, compensación de carga en cerámicos y orden-desorden a $390^\circ\text{C}$ en Cu-Au.
-9. `[[Concepto - Dislocaciones Vector de Burgers y Deslizamiento en Metales]]` — Dislocaciones Taylor, Burgers y mixtas, energía $E \propto |\vec{b}|^2$ y sistemas de deslizamiento en metales.
-10. `[[Concepto - Defectos Planares Limites de Grano Maclas y Ecuacion de Hall-Petch]]` — Límites de grano, ecuación de Hall-Petch, maclas, fallas de apilamiento y energía superficial.
-11. `[[Concepto - Polimorfismo y Alotropia en Metales y Ceramicos]]` — Carbono (diamante/grafito), $\text{ZrO}_2$ y tenacificación martensítica, transformaciones del hierro ($\alpha \to \gamma \to \delta$).
+1. [[Concepto - Sistemas Cristalinos y Redes de Bravais]] — 7 sistemas cristalinos, 4 tipos de celda (P, I, F, C) y deducción de las 14 redes de Bravais.
+2. [[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento]] — Deducciones de $a(R)$, volúmenes de celda, APF, números de coordinación y secuencias de apilamiento $ABAB\dots$ vs $ABCABC\dots$.
+3. [[Concepto - Huecos Intersticiales Tetraedricos y Octaedricos]] — Multiplicidad $2n$ y $n$, posiciones espaciales y radios de huecos en FCC, BCC y HCP.
+4. [[Concepto - Notacion de Miller para Direcciones y Planos Cubicos y Hexagonales]] — Índices $[uvw]$, $(hkl)$, perpendicularidad en cúbicas y sistema Miller-Bravais $(hkil)$ y $[uvtw]$.
+5. [[Concepto - Densidad Volumetrica Lineal y Planar en Redes Cristalinas]] — Definición física, cálculos paso a paso y relación con el espaciado interplanar.
+6. [[Concepto - Difraccion de Rayos X y Ley de Bragg]] — Interferencia constructiva, cálculo de espaciados interplanares y caracterización estructural.
+7. [[Concepto - Defectos Puntuales Vacantes Termicas Schottky y Frenkel]] — Termodinámica estadística ($\Delta G = \Delta H - T\Delta S$), concentraciones de equilibrio y tabla de entalpías.
+8. [[Concepto - Soluciones Solidas Sustitucionales e Intersticiales Reglas de Hume-Rothery]] — 4 reglas de solubilidad, compensación de carga en cerámicos y orden-desorden a $390^\circ\text{C}$ en Cu-Au.
+9. [[Concepto - Dislocaciones Vector de Burgers y Deslizamiento en Metales]] — Dislocaciones Taylor, Burgers y mixtas, energía $E \propto |\vec{b}|^2$ y sistemas de deslizamiento en metales.
+10. [[Concepto - Defectos Planares Limites de Grano Maclas y Ecuacion de Hall-Petch]] — Límites de grano, ecuación de Hall-Petch, maclas, fallas de apilamiento y energía superficial.
+11. [[Concepto - Polimorfismo y Alotropia en Metales y Ceramicos]] — Carbono (diamante/grafito), $\text{ZrO}_2$ y tenacificación martensítica, transformaciones del hierro ($\alpha \to \gamma \to \delta$).
 
 ---
 
 ## ✏️ 4. Colección Oficial de los 26 Problemas Resueltos
 
 ### Bloque 1: Estructuras Cristalinas e Índices de Miller (`Problems T2_CrystStruct.pdf`)
-* `[[Problema - T2-CS01 Indices de Miller y Densidades en FCC]]` — Índices de Miller de planos en figuras I, II, III y densidades lineal, planar y volumétrica en FCC.
-* `[[Problema - T2-CS02 Masa Atomica y Densidad de Magnesio FCC]]` — Determinación de la masa atómica $M=24.31\text{ g/mol}$ e identificación de Magnesio en red FCC.
-* `[[Problema - T2-CS03 Trazado de Planos Cristalinos en Cubica]]` — Determinación analítica y esquemas de 10 planos de Miller cúbicos con traslaciones de origen.
-* `[[Problema - T2-CS04 Densidades Planares y Lineales en Red BCC]]` — Densidades superficiales de $(100), (110), (111)$, densidad lineal en $[100]$ y volumétrica en BCC.
-* `[[Problema - T2-CS05 Densidades Planares Lineales y Masa de Barra de Aluminio]]` — Densidades en Al FCC y masa de barra cilíndrica de $\varnothing 20\text{ mm} \times 1\text{ m}$ ($m = 855\text{ g}$).
-* `[[Problema - T2-CS06 Densidades Lineales y Planares en Direccion 111 de Fe y Ni]]` — Análisis comparativo de densidad lineal $[111]$ y planar $(111)$ en Hierro BCC vs Níquel FCC.
-* `[[Problema - T2-CS07 Celda Ortorrombica y Densidades de Material Hipotetico]]` — Deducción de celda ortorrómbica centrada en las caras, masa molar de Plata y densidades planares.
-* `[[Problema - T2-CS08 Fraccion de Empaquetamiento Planar en Planos FCC]]` — Cálculo de la fracción de área atómica en planos $(111), (200), (220), (222), (400), (420)$ en FCC.
-* `[[Problema - T2-CS09 Cambio Volumetrico en Transformacion Polimorfica BCC a FCC]]` — Cálculo del salto volumétrico del $+5.7\%$ a partir de $d_{321}$ en BCC y $\rho_{(002)}$ en FCC a $910^\circ\text{C}$.
-* `[[Problema - T2-CS10 Identificacion de Galio en Celda Ortorrombica y Direcciones Compactas]]` — Celda ortorrómbica centrada en bases, identificación de Galio ($M=69.76\text{ g/mol}$) y direcciones densas.
-* `[[Problema - T2-CS11 Parametro de Red y Densidades en Aluminio desde Densidad Lineal]]` — Obtención de $a=4.04\text{ \AA}$ a partir de $\rho_{[111]}$ y cálculo de densidades volumétrica y planar.
-* `[[Problema - T2-CS12 Trazado de Direcciones Vectoriales en Celdas Cubicas]]` — Representación vectorial de 12 direcciones cristalográficas cúbicas con traslaciones de origen.
-* `[[Problema - T2-CS13 Caracterizacion de Metal Ortorrombico Plano 220 y Direccion 101]]` — Red ortorrómbica centrada en las caras, APF, distancias interplanares y masa de un monocristal de $1\text{ cm}^3$.
-* `[[Problema - T2-CS14 Difraccion XRD y Espaciados Interplanares en Fe BCC y FCC]]` — Espaciados $d_{020}$ y distancias entre planos más compactos de Ferrita BCC y Austenita FCC.
+* [[Problema - T2-CS01 Indices de Miller y Densidades en FCC]] — Índices de Miller de planos en figuras I, II, III y densidades lineal, planar y volumétrica en FCC.
+* [[Problema - T2-CS02 Masa Atomica y Densidad de Magnesio FCC]] — Determinación de la masa atómica $M=24.31\text{ g/mol}$ e identificación de Magnesio en red FCC.
+* [[Problema - T2-CS03 Trazado de Planos Cristalinos en Cubica]] — Determinación analítica y esquemas de 10 planos de Miller cúbicos con traslaciones de origen.
+* [[Problema - T2-CS04 Densidades Planares y Lineales en Red BCC]] — Densidades superficiales de $(100), (110), (111)$, densidad lineal en $[100]$ y volumétrica en BCC.
+* [[Problema - T2-CS05 Densidades Planares Lineales y Masa de Barra de Aluminio]] — Densidades en Al FCC y masa de barra cilíndrica de $\varnothing 20\text{ mm} \times 1\text{ m}$ ($m = 855\text{ g}$).
+* [[Problema - T2-CS06 Densidades Lineales y Planares en Direccion 111 de Fe y Ni]] — Análisis comparativo de densidad lineal $[111]$ y planar $(111)$ en Hierro BCC vs Níquel FCC.
+* [[Problema - T2-CS07 Celda Ortorrombica y Densidades de Material Hipotetico]] — Deducción de celda ortorrómbica centrada en las caras, masa molar de Plata y densidades planares.
+* [[Problema - T2-CS08 Fraccion de Empaquetamiento Planar en Planos FCC]] — Cálculo de la fracción de área atómica en planos $(111), (200), (220), (222), (400), (420)$ en FCC.
+* [[Problema - T2-CS09 Cambio Volumetrico en Transformacion Polimorfica BCC a FCC]] — Cálculo del salto volumétrico del $+5.7\%$ a partir de $d_{321}$ en BCC y $\rho_{(002)}$ en FCC a $910^\circ\text{C}$.
+* [[Problema - T2-CS10 Identificacion de Galio en Celda Ortorrombica y Direcciones Compactas]] — Celda ortorrómbica centrada en bases, identificación de Galio ($M=69.76\text{ g/mol}$) y direcciones densas.
+* [[Problema - T2-CS11 Parametro de Red y Densidades en Aluminio desde Densidad Lineal]] — Obtención de $a=4.04\text{ \AA}$ a partir de $\rho_{[111]}$ y cálculo de densidades volumétrica y planar.
+* [[Problema - T2-CS12 Trazado de Direcciones Vectoriales en Celdas Cubicas]] — Representación vectorial de 12 direcciones cristalográficas cúbicas con traslaciones de origen.
+* [[Problema - T2-CS13 Caracterizacion de Metal Ortorrombico Plano 220 y Direccion 101]] — Red ortorrómbica centrada en las caras, APF, distancias interplanares y masa de un monocristal de $1\text{ cm}^3$.
+* [[Problema - T2-CS14 Difraccion XRD y Espaciados Interplanares en Fe BCC y FCC]] — Espaciados $d_{020}$ y distancias entre planos más compactos de Ferrita BCC y Austenita FCC.
 
 ### Bloque 2: Defectos Cristalinos y Soluciones Sólidas (`Problems T2 defects.pdf`)
-* `[[Problema - T2-DEF01 Fraccion de Vacantes en Aluminio cerca de Fusion]]` — Cálculo de la fracción de vacantes en Al a $660^\circ\text{C}$ ($n_v/N = 4.53 \times 10^{-4}$) desde datos a $400^\circ\text{C}$.
-* `[[Problema - T2-DEF02 Concentracion de Equilibrio de Defectos Schottky y Frenkel]]` — Concentración de defectos de Schottky ($3.03 \times 10^{-3}$) y Frenkel ($8.39 \times 10^{-11}$) a $1000\text{ K}$.
-* `[[Problema - T2-DEF03 Vacantes Cationicas en MgO por Disolucion de Al2O3 y TiO2]]` — Cuantificación de vacantes catiónicas por neutralidad de carga tras disolver $\text{Al}_2\text{O}_3$ y $\text{TiO}_2$ en $\text{MgO}$.
-* `[[Problema - T2-DEF04 Ordenamiento de Solubilidad en Hierro por Reglas de Hume-Rothery]]` — Justificación rigurosa del orden de solubilidad en Hierro: $\text{Mo} > \text{Ni} > \text{Mn}$.
-* `[[Problema - T2-DEF05 Defectos de No Estequiometria y Disminucion de Densidad en FeO]]` — Cálculo de vacantes catiónicas ($0.033\text{ mol/mol}$) y disminución de densidad ($-2.56\%$) en $\text{FeO}$ no estequiométrico.
-* `[[Problema - T2-DEF06 Magnitud del Vector de Burgers en Alfa-Fe y Al]]` — Deducción analítica de $|\vec{b}|$ para $\alpha\text{-Fe}$ (BCC: $\frac{a\sqrt{3}}{2}$) y Aluminio (FCC: $\frac{a}{\sqrt{2}}$).
-* `[[Problema - T2-DEF07 Demostracion de Energia de Dislocaciones en FCC Direcciones 100 vs 110]]` — Demostración teórica formal de la relación de energías elásticas $E_1/E_2 = 2$.
-* `[[Problema - T2-DEF08 Determinacion del Vector de Burgers de Dislocacion de Borde en FCC]]` — Determinación de magnitud ($2.553 \times 10^{-10}\text{ m}$) y dirección $[\bar{1}10]$ en plano $(110)$.
-* `[[Problema - T2-DEF09 Espaciado Interplanar y Modulo de Burgers en Sistema de Deslizamiento de Tantalo]]` — Análisis del sistema real $(110)[1\bar{1}1]$ vs hipotético $(111)[1\bar{1}0]$ en Tántalo BCC ($a=3.3026\text{ \AA}$).
-* `[[Problema - T2-DEF10 Solucion Solida MgO Al2O3 Vacantes y Variacion de Densidad]]` — Cálculo de $0.088\text{ vacantes/átomo Mg}$ y variación porcentual de densidad de $-3\%$ para proporción 15:85.
-* `[[Problema - T2-DEF11 Concentracion de Vacantes en Cobre Proximo a Fusion]]` — Cálculo de vacantes por centímetro cúbico en Cobre a $1080^\circ\text{C}$ ($4.98 \times 10^{19}\text{ vacantes/cm}^3$).
-* `[[Problema - T2-DEF12 Fraccion de Puntos de Red Vacantes en Paladio FCC]]` — Fracción de puntos vacantes ($0.00204$) y vacantes por $\text{cm}^3$ ($1.39 \times 10^{20}$) en Paladio FCC.
+* [[Problema - T2-DEF01 Fraccion de Vacantes en Aluminio cerca de Fusion]] — Cálculo de la fracción de vacantes en Al a $660^\circ\text{C}$ ($n_v/N = 4.53 \times 10^{-4}$) desde datos a $400^\circ\text{C}$.
+* [[Problema - T2-DEF02 Concentracion de Equilibrio de Defectos Schottky y Frenkel]] — Concentración de defectos de Schottky ($3.03 \times 10^{-3}$) y Frenkel ($8.39 \times 10^{-11}$) a $1000\text{ K}$.
+* [[Problema - T2-DEF03 Vacantes Cationicas en MgO por Disolucion de Al2O3 y TiO2]] — Cuantificación de vacantes catiónicas por neutralidad de carga tras disolver $\text{Al}_2\text{O}_3$ y $\text{TiO}_2$ en $\text{MgO}$.
+* [[Problema - T2-DEF04 Ordenamiento de Solubilidad en Hierro por Reglas de Hume-Rothery]] — Justificación rigurosa del orden de solubilidad en Hierro: $\text{Mo} > \text{Ni} > \text{Mn}$.
+* [[Problema - T2-DEF05 Defectos de No Estequiometria y Disminucion de Densidad en FeO]] — Cálculo de vacantes catiónicas ($0.033\text{ mol/mol}$) y disminución de densidad ($-2.56\%$) en $\text{FeO}$ no estequiométrico.
+* [[Problema - T2-DEF06 Magnitud del Vector de Burgers en Alfa-Fe y Al]] — Deducción analítica de $|\vec{b}|$ para $\alpha\text{-Fe}$ (BCC: $\frac{a\sqrt{3}}{2}$) y Aluminio (FCC: $\frac{a}{\sqrt{2}}$).
+* [[Problema - T2-DEF07 Demostracion de Energia de Dislocaciones en FCC Direcciones 100 vs 110]] — Demostración teórica formal de la relación de energías elásticas $E_1/E_2 = 2$.
+* [[Problema - T2-DEF08 Determinacion del Vector de Burgers de Dislocacion de Borde en FCC]] — Determinación de magnitud ($2.553 \times 10^{-10}\text{ m}$) y dirección $[\bar{1}10]$ en plano $(110)$.
+* [[Problema - T2-DEF09 Espaciado Interplanar y Modulo de Burgers en Sistema de Deslizamiento de Tantalo]] — Análisis del sistema real $(110)[1\bar{1}1]$ vs hipotético $(111)[1\bar{1}0]$ en Tántalo BCC ($a=3.3026\text{ \AA}$).
+* [[Problema - T2-DEF10 Solucion Solida MgO Al2O3 Vacantes y Variacion de Densidad]] — Cálculo de $0.088\text{ vacantes/átomo Mg}$ y variación porcentual de densidad de $-3\%$ para proporción 15:85.
+* [[Problema - T2-DEF11 Concentracion de Vacantes en Cobre Proximo a Fusion]] — Cálculo de vacantes por centímetro cúbico en Cobre a $1080^\circ\text{C}$ ($4.98 \times 10^{19}\text{ vacantes/cm}^3$).
+* [[Problema - T2-DEF12 Fraccion de Puntos de Red Vacantes en Paladio FCC]] — Fracción de puntos vacantes ($0.00204$) y vacantes por $\text{cm}^3$ ($1.39 \times 10^{20}$) en Paladio FCC.
 
 ---
-*Retorno:* `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|⬅️ Volver a Materiales Aeroespaciales I MOC]]` | `[[00 - Indice Central/Indice Maestro|🗺️ Índice Maestro]]`
+*Retorno:* [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|⬅️ Volver a Materiales Aeroespaciales I MOC]] | [[00 - Indice Central/Indice Maestro|🗺️ Índice Maestro]]

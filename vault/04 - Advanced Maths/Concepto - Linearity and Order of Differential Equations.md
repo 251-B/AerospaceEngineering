@@ -121,6 +121,6 @@ $$ y(x) y'(x) = 1 $$
 ---
 
 ## 🔗 Related Concepts and Problems
-* `[[04 - Advanced Maths/Tema 1 - Introduction, Modeling and Classification of ODEs|Tema 1 Guide]]`
-* `[[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Well-Posed Problems and Picard Theorem]]`
-* `[[04 - Advanced Maths/Problema - Ch1-P1 Classification of Differential Equations|Problem 1.1: Complete Classification of 10 Differential Equations]]`
+* [[04 - Advanced Maths/Tema 1 - Introduction, Modeling and Classification of ODEs|Tema 1 Guide]]
+* [[04 - Advanced Maths/Concepto - Well-Posed Problems and Picard Theorem|Well-Posed Problems and Picard Theorem]]
+* [[04 - Advanced Maths/Problema - Ch1-P1 Classification of Differential Equations|Problem 1.1: Complete Classification of 10 Differential Equations]]

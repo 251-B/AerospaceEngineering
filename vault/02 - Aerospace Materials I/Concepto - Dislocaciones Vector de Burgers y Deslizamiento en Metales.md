@@ -100,5 +100,5 @@ Para que un policristal sufra deformación plástica uniforme sin agrietarse en 
 
 ---
 *Enlaces Bidireccionales:*
-* `[[Concepto - Soluciones Solidas Sustitucionales e Intersticiales Reglas de Hume-Rothery|⬅️ Anterior: Soluciones Sólidas]]`
-* `[[Concepto - Defectos Planares Limites de Grano Maclas y Ecuacion de Hall-Petch|Siguiente: Defectos Planares y Hall-Petch ➡️]]`
+* [[Concepto - Soluciones Solidas Sustitucionales e Intersticiales Reglas de Hume-Rothery|⬅️ Anterior: Soluciones Sólidas]]
+* [[Concepto - Defectos Planares Limites de Grano Maclas y Ecuacion de Hall-Petch|Siguiente: Defectos Planares y Hall-Petch ➡️]]

@@ -60,5 +60,5 @@ El factor de amplificación de lectura es $\frac{1}{\sin\theta}$ (si $\theta = 5
 ---
 
 ## 🔗 Práctica y Ejercicios
-* `[[01 - Fluid Mechanics/Problema - Manometro Diferencial Multiliquido con Gas|Resolver Problema Tipo Examen: Manómetro con Gas]]`
-* `[[01 - Fluid Mechanics/Concepto - Fuerzas sobre Superficies Sumergidas y Centro de Presiones|Siguiente: Fuerzas sobre Compuertas y Presas]]`
+* [[01 - Fluid Mechanics/Problema - Manometro Diferencial Multiliquido con Gas|Resolver Problema Tipo Examen: Manómetro con Gas]]
+* [[01 - Fluid Mechanics/Concepto - Fuerzas sobre Superficies Sumergidas y Centro de Presiones|Siguiente: Fuerzas sobre Compuertas y Presas]]

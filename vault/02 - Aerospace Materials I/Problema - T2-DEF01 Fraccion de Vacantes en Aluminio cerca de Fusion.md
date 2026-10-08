@@ -80,4 +80,4 @@ donde $\Delta H_v$ es la entalpía de formación de un mol de vacantes en la red
   Esta alta densidad de vacantes térmicas cerca del punto de fusión es la responsable del drástico aumento en la velocidad de difusión atómica en procesos de homogeneización y sinterización aeronáutica.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

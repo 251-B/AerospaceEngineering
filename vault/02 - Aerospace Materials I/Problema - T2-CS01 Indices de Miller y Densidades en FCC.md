@@ -125,4 +125,4 @@ Antes de calcular, identificamos los principios rectores del temario oficial:
    La dirección $[110]$ es la línea de máxima densidad lineal en FCC ($\rho_l = 1/(2R)$), y el plano $\{111\}$ es el plano de máxima densidad planar ($\text{APF}_{\text{planar}} = \pi/(2\sqrt{3}) \approx 90.7\%$), demostrando por qué $\{111\}\langle 110 \rangle$ es el sistema de deslizamiento canónico de los metales FCC.
 
 ---
-*Retorno:* `[[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

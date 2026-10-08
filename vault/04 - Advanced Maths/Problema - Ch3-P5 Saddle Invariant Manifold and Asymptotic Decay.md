@@ -133,7 +133,7 @@ flowchart LR
 ---
 
 ## 🔗 Related Notes
-* `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuación Característica]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P4 Second Order Homogeneous Linear ODEs with IVPs|Problem 3.4: Homogeneous Linear ODEs]]`
-* `[[04 - Advanced Maths/Problema - Ch3-P9 Falling Chain from Table and Hyperbolic Motion|Problem 3.9: Falling Chain Hyperbolic Instability]]`
-* `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]`
+* [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Ecuación Característica]]
+* [[04 - Advanced Maths/Problema - Ch3-P4 Second Order Homogeneous Linear ODEs with IVPs|Problem 3.4: Homogeneous Linear ODEs]]
+* [[04 - Advanced Maths/Problema - Ch3-P9 Falling Chain from Table and Hyperbolic Motion|Problem 3.9: Falling Chain Hyperbolic Instability]]
+* [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Central Advanced Maths MOC]]

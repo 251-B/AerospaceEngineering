@@ -161,13 +161,13 @@ Every financial resource carries a cost:
 ---
 
 ## 🔗 Related Notes & Solved Problems
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
-* `[[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept Note: Financial Statements]]`
-* `[[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept Note: Capital Structure & WACC]]`
-* `[[05 - Business Management/Formulario - Business Management and Financial Analysis|Formula Sheet: Financial Ratios]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 1 - Accrual vs Cash Basis and Linear Depreciation|Problem 1: Accrual vs Cash Basis]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 2 - JUGA SA Opening Balance Sheet|Problem 2: JUGA S.A. Opening Balance Sheet]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 4 - Hawkins Partners Income Statement and Inventories|Problem 4: Hawkins Partners Income Statement]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]`
-* `[[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]`
+* [[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]
+* [[05 - Business Management/Concepto - Financial Statements (Income Statement and Balance Sheet)|Concept Note: Financial Statements]]
+* [[05 - Business Management/Concepto - Capital Structure, Financial Leverage and WACC|Concept Note: Capital Structure & WACC]]
+* [[05 - Business Management/Formulario - Business Management and Financial Analysis|Formula Sheet: Financial Ratios]]
+* [[05 - Business Management/Problema - T3 Ejercicio 1 - Accrual vs Cash Basis and Linear Depreciation|Problem 1: Accrual vs Cash Basis]]
+* [[05 - Business Management/Problema - T3 Ejercicio 2 - JUGA SA Opening Balance Sheet|Problem 2: JUGA S.A. Opening Balance Sheet]]
+* [[05 - Business Management/Problema - T3 Ejercicio 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]
+* [[05 - Business Management/Problema - T3 Ejercicio 4 - Hawkins Partners Income Statement and Inventories|Problem 4: Hawkins Partners Income Statement]]
+* [[05 - Business Management/Problema - T3 Ejercicio 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]
+* [[05 - Business Management/Problema - T3 Ejercicio 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]

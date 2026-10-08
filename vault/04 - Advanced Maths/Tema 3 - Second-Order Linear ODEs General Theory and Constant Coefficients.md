@@ -67,15 +67,15 @@ graph TD
 ```
 
 ### Core Concept Modules:
-1. `[[04 - Advanced Maths/Concepto - Teorema de Existencia y Unicidad para EDOs de Segundo Orden|Concept 1: Teorema de Existencia y Unicidad para EDOs de Segundo Orden]]`  
+1. [[04 - Advanced Maths/Concepto - Teorema de Existencia y Unicidad para EDOs de Segundo Orden|Concept 1: Teorema de Existencia y Unicidad para EDOs de Segundo Orden]]  
    Canonical forms (general vs. normalized), Newton's second law physical motivation, formulation of the 2nd-order IVP with two initial conditions, statement of Robinson's Theorem 11.1, absence of finite-time blow-up in linear ODEs, and reduction to a $2 \times 2$ first-order system.
-2. `[[04 - Advanced Maths/Concepto - Operador Lineal y Principio de Superposicion|Concept 2: Operador Lineal y Principio de Superposición]]`  
+2. [[04 - Advanced Maths/Concepto - Operador Lineal y Principio de Superposicion|Concept 2: Operador Lineal y Principio de Superposición]]  
    Differential operator $L[x] = x'' + p(t)x' + q(t)x$, proof of operator linearity on $C^2(I)$, the Superposition Principle for homogeneous equations, algebraic structure of the solution space as $\ker(L)$, and decomposition of the non-homogeneous general solution ($x = x_h + x_p$).
-3. `[[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Concept 3: Independencia Lineal de Funciones y Determinante Wronskiano]]`  
+3. [[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Concept 3: Independencia Lineal de Funciones y Determinante Wronskiano]]  
    Definition of linear independence on an interval $I$, algebraic system for matching initial conditions, definition and properties of the Wronskian determinant $W[x_1, x_2](t)$, definition of fundamental solution sets, and the constructive proof that $\dim(\ker(L)) = 2$.
-4. `[[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Concept 4: Identidad de Abel y Propiedades del Wronskiano]]`  
+4. [[04 - Advanced Maths/Concepto - Identidad de Abel y Propiedades del Wronskiano|Concept 4: Identidad de Abel y Propiedades del Wronskiano]]  
    Rigorous derivation of Abel's differential equation $\frac{dW}{dt} = -p(t)W(t)$, derivation of Abel's identity $W(t) = W(t_0)\exp(-\int p ds)$, the Dichotomy Principle (solutions' Wronskian is either non-zero everywhere or identically zero), and d'Alembert's reduction of order formula.
-5. `[[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Concept 5: Ecuaciones Homogéneas con Coeficientes Constantes y Ecuación Característica]]`  
+5. [[04 - Advanced Maths/Concepto - Ecuaciones Homogeneas con Coeficientes Constantes y Ecuacion Caracteristica|Concept 5: Ecuaciones Homogéneas con Coeficientes Constantes y Ecuación Característica]]  
    Canonical equation $a x'' + b x' + c x = 0$, the exponential ansatz $x(t) = e^{kt}$, deduction of the characteristic polynomial $a k^2 + b k + c = 0$, exhaustive treatment of the three discriminant regimes ($\Delta > 0, \Delta = 0, \Delta < 0$), proof of the second solution $t e^{kt}$ for repeated roots, Euler's formula derivation of real oscillatory solutions, and amplitude-phase polar representation.
 
 ---
@@ -102,6 +102,6 @@ Second-order linear ODEs model essential dynamic phenomena across aerospace stru
 ---
 
 ## ⬅️ Navigation & Syllabus Map
-* **Upward Navigation:** `[[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Advanced Mathematics MOC]]`
-* **Previous Unit:** `[[04 - Advanced Maths/Tema 2 - First-Order ODEs and Qualitative Dynamics|Tema 2: First-Order ODEs and Qualitative Dynamics]]`
-* **Central Master Index:** `[[00 - Indice Central/Indice Maestro|⬅️ Central Master Index]]`
+* **Upward Navigation:** [[04 - Advanced Maths/Matematicas Avanzadas MOC|⬅️ Advanced Mathematics MOC]]
+* **Previous Unit:** [[04 - Advanced Maths/Tema 2 - First-Order ODEs and Qualitative Dynamics|Tema 2: First-Order ODEs and Qualitative Dynamics]]
+* **Central Master Index:** [[00 - Indice Central/Indice Maestro|⬅️ Central Master Index]]

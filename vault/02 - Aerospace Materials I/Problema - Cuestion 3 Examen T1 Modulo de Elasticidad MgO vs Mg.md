@@ -93,4 +93,4 @@ $$\left.\frac{d^2 E}{dr^2}\right|_{r_0, \text{MgO}} \gg \left.\frac{d^2 E}{dr^2}
 * **Aerospace Application Note:** While $\text{MgO}$ possesses superior stiffness and refractoriness ($T_m = 2852^\circ\text{C}$), its ionic brittleness precludes its use as a primary monolithic structural airframe metal. Instead, Magnesium alloys are favored for lightweight airframe casings due to their ductility, while oxide ceramics are employed as thermal barrier coatings and structural reinforcements.
 
 ---
-*Retorno:* `[[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]]` | `[[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]`
+*Retorno:* [[Tema 1 - Bonding in Solids and Material Properties|⬅️ Volver a Tema 1]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]
