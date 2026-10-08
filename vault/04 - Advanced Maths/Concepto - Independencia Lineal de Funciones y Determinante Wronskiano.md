@@ -110,7 +110,7 @@ The vector space $S_H = \ker(L) = \{ x \in C^2(I) : x'' + p(t)x' + q(t)x = 0 \}$
 
 #### Rigorous Constructive Proof:
 1. Fix an arbitrary base point $t_0 \in I$.
-2. By the Fundamental Existence and Uniqueness Theorem (Theorem 11.1), there exist two unique solutions $u_1(t)$ and $u_2(t)$ on $I$ defined by the canonical canonical initial conditions:
+2. By the Fundamental Existence and Uniqueness Theorem (global form for linear IVPs; see the Existence and Uniqueness concept note), there exist two unique solutions $u_1(t)$ and $u_2(t)$ on $I$ defined by the canonical canonical initial conditions:
    $$ \begin{cases} u_1(t_0) = 1 \\ u_1'(t_0) = 0 \end{cases} \quad \text{and} \quad \begin{cases} u_2(t_0) = 0 \\ u_2'(t_0) = 1 \end{cases} \tag{11} $$
 3. Compute the Wronskian of $\{u_1, u_2\}$ at $t_0$:
    $$ W[u_1, u_2](t_0) = \det \begin{pmatrix} u_1(t_0) & u_2(t_0) \\ u_1'(t_0) & u_2'(t_0) \end{pmatrix} = \det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = 1 \neq 0 $$
@@ -123,7 +123,7 @@ The vector space $S_H = \ker(L) = \{ x \in C^2(I) : x'' + p(t)x' + q(t)x = 0 \}$
      $$ v(t_0) = x_0 u_1(t_0) + y_0 u_2(t_0) = x_0(1) + y_0(0) = x_0 $$
      $$ v'(t_0) = x_0 u_1'(t_0) + y_0 u_2'(t_0) = x_0(0) + y_0(1) = y_0 $$
 6. Both $x(t)$ and $v(t)$ satisfy the identical Initial Value Problem with initial conditions $(x_0, y_0)$ at $t_0$.
-7. By the **Uniqueness Theorem** (Theorem 11.1), they must be the exact same function on the entire interval $I$:
+7. By the **Uniqueness Theorem** (linear IVPs), they must be the exact same function on the entire interval $I$:
    $$ x(t) \equiv v(t) = x_0 u_1(t) + y_0 u_2(t) \quad \forall t \in I $$
 8. Thus, $\{u_1, u_2\}$ spans $\ker(L)$. Since they are also linearly independent, $\{u_1, u_2\}$ is a **basis** of $\ker(L)$.
 9. Because the basis contains exactly 2 functions, we conclude:

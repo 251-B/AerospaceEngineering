@@ -27,7 +27,7 @@ Grounded in **Chapters 11 and 12 of Robinson (Book ODE's)** and the syllabus del
 1. **Analytical Foundations of Second-Order Linear ODEs:**
    * Formulate equations in general $a_2(t)x'' + a_1(t)x' + a_0(t)x = g(t)$ and normalized standard form $x'' + p(t)x' + q(t)x = f(t)$.
    * Understand the physical necessity of prescribing two initial conditions ($x(t_0) = x_0$ and $x'(t_0) = y_0$) based on Newton's Second Law for mechanical oscillators ($m \ddot{x} + c \dot{x} + k x = F(t)$).
-   * Apply **Theorem 11.1 (Existence and Uniqueness)**, understanding that linear ODE solutions exist globally across the entire interval of continuity $I$ without finite-time blow-up.
+   * Apply the **Existence and Uniqueness Theorem** (local form: Robinson Theorem 11.1), understanding that linear ODE solutions exist globally across the entire interval of continuity $I$ without finite-time blow-up.
 2. **Linear Operator and Algebraic Vector Space Structure:**
    * Define the linear differential operator $L[x] \equiv x'' + p(t)x' + q(t)x$ mapping $C^2(I) \to C^0(I)$.
    * Prove the **Superposition Principle** for homogeneous equations ($L[c_1 x_1 + c_2 x_2] = 0$) and establish that the solution space is the vector subspace $\ker(L) \subset C^2(I)$.
@@ -68,7 +68,7 @@ graph TD
 
 ### Core Concept Modules:
 1. [[04 - Advanced Maths/Concepto - Teorema de Existencia y Unicidad para EDOs de Segundo Orden|Concept 1: Teorema de Existencia y Unicidad para EDOs de Segundo Orden]]  
-   Canonical forms (general vs. normalized), Newton's second law physical motivation, formulation of the 2nd-order IVP with two initial conditions, statement of Robinson's Theorem 11.1, absence of finite-time blow-up in linear ODEs, and reduction to a $2 \times 2$ first-order system.
+   Canonical forms (general vs. normalized), Newton's second law physical motivation, formulation of the 2nd-order IVP with two initial conditions, statement of the existence and uniqueness theorem (local form: Robinson's Theorem 11.1), absence of finite-time blow-up in linear ODEs, and reduction to a $2 \times 2$ first-order system.
 2. [[04 - Advanced Maths/Concepto - Operador Lineal y Principio de Superposicion|Concept 2: Operador Lineal y Principio de Superposición]]  
    Differential operator $L[x] = x'' + p(t)x' + q(t)x$, proof of operator linearity on $C^2(I)$, the Superposition Principle for homogeneous equations, algebraic structure of the solution space as $\ker(L)$, and decomposition of the non-homogeneous general solution ($x = x_h + x_p$).
 3. [[04 - Advanced Maths/Concepto - Independencia Lineal de Funciones y Determinante Wronskiano|Concept 3: Independencia Lineal de Funciones y Determinante Wronskiano]]  

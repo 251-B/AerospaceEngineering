@@ -23,6 +23,9 @@ where $p, q$ are real constants and $x > 0$.
 $$ \frac{d^2y}{dz^2} + (p - 1)\frac{dy}{dz} + q y = g(e^z) $$
 **(ii)** Take $p = 3$, $q = -3$, and $g(x) = 4x$, make the previous transformation and compute the general solution.
 
+> [!warning] Erratum in the printed sheet
+> In ProblemsCh3.pdf, Exercise 11 (i), the transformed equation is printed as $\frac{d^2y}{dz^2} + (p-1)\frac{dy}{dz} + y = g(e^z)$, i.e. with "$+\,y$". The correct coefficient is $q$ (the term $q\,y(x)$ is unchanged by $x = e^z$), so the equation above, with "$+\,q\,y$", is the one derived below and used in part (ii).
+
 ---
 
 ## 📊 1. Identificación de Datos e Hipótesis (Phase 1)

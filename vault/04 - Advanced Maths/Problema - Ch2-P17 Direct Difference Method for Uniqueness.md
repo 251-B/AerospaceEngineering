@@ -43,7 +43,7 @@ flowchart TD
     Uniq --> Diff["Define Difference: w(t) = y₁(t) - y₂(t)"]
     Diff --> Homog["w' + aw = 0, with w(t₀) = 0"]
     Homog --> Energy["Method A: Energy Function E(t) = [w(t)]² >= 0"]
-    Energy --> Dissip["dE/dt = -2a E(t) => E(t) = E(t₀) e^(-2a(t-t₀))"]
+    Energy --> Dissip["dE/dt = -2a E(t) => d/dt[E e^(2a(t-t₀))] = 0 => E(t) = E(t₀) e^(-2a(t-t₀))"]
     Dissip --> Zero["E(t₀) = 0 => E(t) ≡ 0 => w(t) ≡ 0 => y₁(t) ≡ y₂(t)"]
 ```
 
@@ -112,15 +112,20 @@ $$ \frac{dE}{dt} = \frac{d}{dt}\left[ w(t)^2 \right] = 2 w(t) w'(t) $$
 Substitute $w'(t) = -a w(t)$ from equation $(5)$:
 $$ \frac{dE}{dt} = 2 w(t) \left[ -a w(t) \right] = -2a [w(t)]^2 = -2a E(t) \tag{7} $$
 
-Equation $(7)$ is a standard first-order linear ODE for $E(t)$:
-$$ \frac{dE}{dt} + 2a E(t) = 0 \implies E(t) = E(t_0) e^{-2a(t - t_0)} \tag{8} $$
+Equation $(7)$ is a first-order linear ODE for $E(t)$:
+$$ \frac{dE}{dt} + 2a E(t) = 0 $$
+We must not simply write down its solution $E(t_0)e^{-2a(t-t_0)}$: that formula presupposes that the solution of this IVP is unique, which is what is being proved. Instead multiply by $e^{2a(t - t_0)}$ and use the product and chain rules:
+$$ \frac{d}{dt}\left[ E(t)\, e^{2a(t - t_0)} \right] = \left( \frac{dE}{dt} + 2a E(t) \right) e^{2a(t - t_0)} = 0 $$
+A function with zero derivative on an interval is constant (Mean Value Theorem), so for all $t \in \mathbb{R}$:
+$$ E(t)\, e^{2a(t - t_0)} = E(t_0)\, e^{0} = E(t_0) \tag{8} $$
 
 Evaluate at the initial time $t = t_0$:
 From $(4)$, $w(t_0) = 0$, so:
 $$ E(t_0) = [w(t_0)]^2 = 0^2 = 0 $$
 
-Substitute $E(t_0) = 0$ into equation $(8)$:
+Substitute $E(t_0) = 0$ into equation $(8)$ and divide by $e^{2a(t - t_0)} > 0$:
 $$ E(t) = 0 \cdot e^{-2a(t - t_0)} \equiv 0 \quad \forall t \in \mathbb{R} \tag{9} $$
+This holds for every sign of $a$. (Note that $\frac{dE}{dt} = -2aE \le 0$ would only hold for $a \ge 0$, so the shortcut "$E$ is non-increasing, hence $E \equiv 0$" is valid only forward in time and for $a \ge 0$.)
 
 Since $E(t) = [w(t)]^2 \equiv 0$, the square of a real number is zero if and only if the number itself is zero:
 $$ w(t) \equiv 0 \quad \forall t \in \mathbb{R} \tag{10} $$

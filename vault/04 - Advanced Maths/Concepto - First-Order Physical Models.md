@@ -78,7 +78,7 @@ mindmap
   $$ N(t_{1/2}) = \frac{1}{2} N_0 \implies e^{-k t_{1/2}} = \frac{1}{2} \implies -k t_{1/2} = -\ln 2 \implies \mathbf{t_{1/2} = \frac{\ln 2}{k}} \tag{7} $$
   Conversely, given the experimental half-life:
   $$ k = \frac{\ln 2}{t_{1/2}} $$
-* **Aerospace Context:** Plutonium-239 ($^{239}\text{Pu}$) used in Radioisotope Thermoelectric Generators (RTGs) for deep-space probes has $t_{1/2} \approx 24{,}000\text{ years}$, yielding $k \approx 2.888 \times 10^{-5}\text{ yr}^{-1}$.
+* **Nuclear Context:** Plutonium-239 ($^{239}\text{Pu}$), a by-product of nuclear reactors, has $t_{1/2} \approx 24{,}000\text{ years}$, yielding $k \approx 2.888 \times 10^{-5}\text{ yr}^{-1}$. (The Radioisotope Thermoelectric Generators of deep-space probes such as Voyager, Cassini and Curiosity use $^{238}\text{Pu}$, $t_{1/2} \approx 87.7\text{ years}$, not $^{239}\text{Pu}$.)
 
 ---
 

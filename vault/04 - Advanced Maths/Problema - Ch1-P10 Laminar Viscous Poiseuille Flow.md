@@ -63,18 +63,17 @@ flowchart TD
     Gov["Governing ODE: (1/r) d/dr( r dV/dr ) = -P"] --> Mult["Multiply by r: d/dr( r dV/dr ) = -Pr"]
     Mult --> Int1["Integrate once: r dV/dr = -Pr²/2 + c"]
     Int1 --> Grad["Divide by r: dV/dr = -Pr/2 + c/r"]
-    Grad --> Reg["Centerline Regularity at r=0: c/r blows up => c = 0"]
-    Reg --> CleanGrad["dV/dr = -Pr/2"]
-    CleanGrad --> Int2["Integrate again: V(r) = -Pr²/4 + C₂"]
-    Int2 --> NoSlip["No-slip at wall r=a: V(a) = -Pa²/4 + C₂ = 0 => C₂ = Pa²/4"]
+    Grad --> Int2["Integrate again: V(r) = -Pr²/4 + c ln r + C₂"]
+    Int2 --> Reg["Finite V at r=0: c ln r → -∞ unless c = 0"]
+    Reg --> NoSlip["No-slip at wall r=a: V(a) = -Pa²/4 + C₂ = 0 => C₂ = Pa²/4"]
     NoSlip --> Final["V(r) = (P/4)(a² - r²)"]
 ```
 
 1. Multiply the governing second-order differential equation by $r$ to make the left-hand side an exact derivative.
 2. Integrate once with respect to $r$, generating the first integration constant $c$.
 3. Divide by $r$ to obtain the velocity gradient $\frac{dV}{dr}$.
-4. Enforce physical regularity at the pipe center $r = 0$: because $\lim_{r\to 0} \frac{1}{r} = \infty$, the constant $c$ must vanish ($c = 0$) to keep fluid velocity and shear stress finite.
-5. Integrate a second time to find the velocity profile with second constant $C_2$.
+4. Integrate a second time, keeping $c$, to find the velocity profile $V(r) = -\frac{Pr^2}{4} + c\ln r + C_2$ with second constant $C_2$.
+5. Enforce finiteness of the velocity at the pipe center $r = 0$: because $\lim_{r\to 0^+} \ln r = -\infty$, the constant $c$ must vanish ($c = 0$).
 6. Enforce the no-slip condition at the solid wall $V(a) = 0$ to determine $C_2$, concluding with the classic parabolic Poiseuille distribution.
 
 ---
@@ -100,30 +99,30 @@ This proves the first required intermediate relation.
 
 ---
 
-### Step 2: Enforcement of Centerline Regularity ($r = 0$)
-Condition (i) states that the velocity and its gradient must remain **finite at all points in the pipe**, specifically including the pipe center $r = 0$.
-
-Examining equation $(4)$ as $r \to 0^+$:
-$$ \lim_{r \to 0^+} \frac{dV}{dr} = \lim_{r \to 0^+} \left( -\frac{P r}{2} + \frac{c}{r} \right) = 0 + \lim_{r \to 0^+} \frac{c}{r} $$
-
-If $c \neq 0$:
-$$ \lim_{r \to 0^+} \frac{c}{r} = \begin{cases} +\infty & \text{if } c > 0 \\ -\infty & \text{if } c < 0 \end{cases} $$
-A divergent velocity gradient at the centerline corresponds to infinite shear stress ($\tau_{rz} = \mu \frac{dV}{dr} \to \pm \infty$) and infinite viscous dissipation, which is physically impossible in a smooth pipe flow without a line vortex or concentrated force.
-
-Therefore, physical regularity strictly requires:
-$$ \mathbf{c = 0} \tag{5} $$
-
-Substituting $c = 0$ into equation $(4)$ simplifies the velocity gradient to:
-$$ \mathbf{\frac{dV}{dr} = -\frac{P r}{2}} \tag{6} $$
+### Step 2: Second Integration (Velocity Field), keeping $c$
+Integrate equation $(4)$ directly with respect to $r$ on $r > 0$, using $\int r\,dr = \frac{r^2}{2}$ and $\int \frac{dr}{r} = \ln r$:
+$$ V(r) = \int \left( -\frac{P r}{2} + \frac{c}{r} \right) \, dr $$
+$$ V(r) = -\frac{P}{2} \left( \frac{r^2}{2} \right) + c \ln r + C_2 $$
+$$ \mathbf{V(r) = -\frac{P r^2}{4} + c \ln r + C_2} \tag{5} $$
+where $C_2$ is a second integration constant.
 
 ---
 
-### Step 3: Second Integration (Velocity Field)
-Integrate equation $(6)$ directly with respect to $r$:
-$$ V(r) = \int \left( -\frac{P r}{2} \right) \, dr $$
-$$ V(r) = -\frac{P}{2} \left( \frac{r^2}{2} \right) + C_2 $$
+### Step 3: Condition (i), Finite Velocity at the Centerline ($r = 0$)
+Condition (i) states that the velocity must remain **finite at all points in the pipe**, specifically including the pipe center $r = 0$.
+
+Examining equation $(5)$ as $r \to 0^+$, the term $-\frac{P r^2}{4} \to 0$ and $C_2$ is fixed, so
+$$ \lim_{r \to 0^+} V(r) = C_2 + c \lim_{r \to 0^+} \ln r $$
+
+If $c \neq 0$:
+$$ c \lim_{r \to 0^+} \ln r = \begin{cases} -\infty & \text{if } c > 0 \\ +\infty & \text{if } c < 0 \end{cases} $$
+The velocity would diverge on the centerline (and so would $\frac{dV}{dr} = \frac{c}{r}$ and the shear stress $\tau_{rz} = \mu \frac{dV}{dr}$), which is physically impossible in a smooth pipe flow without a line vortex or concentrated force.
+
+Therefore, finiteness of the velocity strictly requires:
+$$ \mathbf{c = 0} \tag{6} $$
+
+Substituting $c = 0$ into equation $(5)$ gives
 $$ \mathbf{V(r) = -\frac{P r^2}{4} + C_2} \tag{7} $$
-where $C_2$ is a second integration constant.
 
 ---
 

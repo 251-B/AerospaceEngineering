@@ -43,7 +43,7 @@ $$ a \frac{d^2 u}{dt^2} + b \frac{du}{dt} + c u = 0, \qquad a \neq 0 $$
 equipped with Cauchy initial conditions at $t_0 = 0$:
 $$ u(0) = u_0, \qquad \dot{u}(0) = v_0 $$
 
-By Robinson Theorem 11.1 (Existence and Uniqueness for Linear ODEs), since the coefficients $a, b, c$ are constants and continuous on all of $\mathbb{R}$, each IVP possesses a **unique classical solution defined globally** on $I = (-\infty, \infty)$.
+By the Existence and Uniqueness Theorem for linear ODEs (global form; local version: Robinson Theorem 11.1), since the coefficients $a, b, c$ are constants and continuous on all of $\mathbb{R}$, each IVP possesses a **unique classical solution defined globally** on $I = (-\infty, \infty)$.
 
 ---
 

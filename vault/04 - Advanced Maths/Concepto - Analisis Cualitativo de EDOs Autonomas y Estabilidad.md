@@ -43,7 +43,7 @@ flowchart LR
     Roots --> Eval["Compute derivative f'(x*)"]
     Eval -- "f'(x*) < 0" --> Stable["Asymptotically Stable Attractor (Sink)"]
     Eval -- "f'(x*) > 0" --> Unstable["Unstable Repellor (Source)"]
-    Eval -- "f'(x*) = 0" --> Semi["Non-Hyperbolic / Semi-stable (Higher order test)"]
+    Eval -- "f'(x*) = 0" --> Semi["Non-Hyperbolic: inconclusive (higher order test)"]
 ```
 
 ---
@@ -70,8 +70,8 @@ $$ \xi(t) = \xi_0 \exp\left( f'(x^*) t \right) \tag{5} $$
    Perturbations decay exponentially: $\lim_{t \to \infty} \xi(t) = 0$. Nearby trajectories converge asymptotically to $x^*$.
 2. **Unstable (Repellor / Source):** $f'(x^*) > 0$.
    Perturbations grow exponentially: $|\xi(t)| \to \infty$ as $t$ advances. Trajectories are pushed away from $x^*$.
-3. **Non-Hyperbolic / Semistable:** $f'(x^*) = 0$.
-   Linearization is inconclusive. Stability is determined by the sign of the first non-vanishing higher derivative $f^{(k)}(x^*)$.
+3. **Non-Hyperbolic:** $f'(x^*) = 0$.
+   Linearization is inconclusive: $f'(x^*) = 0$ does **not** mean semi-stable. At $x^* = 0$, $\dot{x} = -x^3$ is asymptotically stable, $\dot{x} = x^3$ is unstable and $\dot{x} = x^2$ is semi-stable (attracting from one side only). If some derivative of $f$ at $x^*$ is non-zero, the first non-vanishing derivative $f^{(k)}(x^*)$ decides: even $k$ gives semi-stable, odd $k$ gives stable if $f^{(k)}(x^*) < 0$ and unstable if $f^{(k)}(x^*) > 0$.
 
 ---
 

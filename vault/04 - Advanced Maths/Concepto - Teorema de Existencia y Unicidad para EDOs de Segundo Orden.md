@@ -81,18 +81,18 @@ for a specified base time $t_0 \in I$ and given initial constants $x_0, y_0 \in 
 
 ## 📜 3. The Fundamental Existence and Uniqueness Theorem
 
-The central analytical foundation of second-order linear differential equations is given by Robinson's Theorem 11.1:
+The central analytical foundation of second-order linear differential equations is the following existence and uniqueness theorem. Note on the source: Robinson's Theorem 11.1 (p. 102) is the *local* theorem for the general equation $\ddot{x} = f(\dot{x}, x, t)$ (with $f$, $\partial f/\partial x_1$, $\partial f/\partial x_2$ continuous), giving a unique solution on *some* interval containing $t_0$; the global statement for linear equations below follows from the linear-system argument of Section 4.2.
 
 ```mermaid
 flowchart TD
     Hyp["Hypothesis: p(t), q(t), f(t) are continuous on an open interval I"] --> Base["Choose any base point t₀ ∈ I and any initial data x₀, y₀ ∈ ℝ"]
-    Base --> Thm["Theorem 11.1 (Robinson)"]
+    Base --> Thm["Existence and Uniqueness Theorem for linear IVPs (local form: Robinson Thm 11.1)"]
     Thm --> Exist["Existence: There exists a solution x(t)"]
     Thm --> Unique["Uniqueness: The solution is strictly unique"]
     Thm --> Global["Global Domain: The solution is defined on the ENTIRE interval I"]
 ```
 
-### Theorem 11.1 (Existence and Uniqueness for 2nd-Order Linear ODEs)
+### Theorem (Existence and Uniqueness for 2nd-Order Linear ODEs, global form)
 Let the coefficient functions $p(t)$, $q(t)$, and the forcing term $f(t)$ be **continuous** on an open interval $I = (a, b) \subseteq \mathbb{R}$. Let $t_0 \in I$ be any arbitrary point, and let $x_0, y_0 \in \mathbb{R}$ be arbitrary prescribed real numbers.
 
 Then there exists a **unique solution** $x(t)$ to the initial value problem:
@@ -111,7 +111,7 @@ A profound property of *linear* differential equations (in stark contrast to non
 * In linear ODEs, the maximal interval of existence of the solution $x(t)$ is **at least as large as the common interval of continuity** of $p(t), q(t)$, and $f(t)$. Singularities in $x(t)$ can only occur where $p(t)$, $q(t)$, or $f(t)$ possess singularities (or where $a_2(t) = 0$).
 
 ### 4.2 Reduction to a First-Order $2 \times 2$ Vector System
-The rigorous proof of Theorem 11.1 relies on transforming the scalar second-order equation into an equivalent first-order planar system. Defining the phase-space state vector:
+The proof of the global statement relies on transforming the scalar second-order equation into an equivalent first-order planar system. Defining the phase-space state vector:
 
 $$ \mathbf{X}(t) = \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix} \equiv \begin{pmatrix} x(t) \\ x'(t) \end{pmatrix} \tag{6} $$
 
@@ -128,7 +128,7 @@ Since the matrix elements are continuous on $I$, the vector field satisfies a gl
 ## ⚠️ 5. Typical Exam Pitfalls
 
 > [!WARNING] The Hidden Singular Points from Normalization
-> Given an equation like $(t - 2) x'' + t x' + x = \sin t$ with initial conditions at $t_0 = 0$, normalization gives $p(t) = \frac{t}{t-2}$. The continuity interval containing $t_0 = 0$ is $I = (-\infty, 2)$. Theorem 11.1 guarantees existence and uniqueness on $(-\infty, 2)$, but **not** across the singularity at $t = 2$.
+> Given an equation like $(t - 2) x'' + t x' + x = \sin t$ with initial conditions at $t_0 = 0$, normalization gives $p(t) = \frac{t}{t-2}$. The continuity interval containing $t_0 = 0$ is $I = (-\infty, 2)$. The theorem guarantees existence and uniqueness on $(-\infty, 2)$, but **not** across the singularity at $t = 2$.
 
 > [!CAUTION] Prescribing Only One Initial Condition
 > For a second-order ODE, prescribing only $x(t_0) = x_0$ leaves an entire 1-parameter family of solutions (differing by their initial slope $x'(t_0)$). Uniqueness fails if both conditions are not specified.

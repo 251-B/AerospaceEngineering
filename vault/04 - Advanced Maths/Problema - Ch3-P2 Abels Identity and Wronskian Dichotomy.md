@@ -41,7 +41,7 @@ Deduce either that $W(t) = 0$ for all $t$, or that $W(t) \neq 0$ for all $t$.
 1. **Differentiate the Wronskian:** Apply the Leibniz product rule to compute $\frac{dW}{dt}$. Notice the natural cancellation of symmetric terms $\dot{x}_1 \dot{x}_2$.
 2. **Substitute the ODEs:** Express $\ddot{x}_1$ and $\ddot{x}_2$ in terms of first and zeroth derivatives using the fact that both satisfy $L[x] = 0$.
 3. **Derive Abel's Differential Equation:** Factor out $-p_1(t)$ and note that the remaining term proportional to $p_2(t)$ identically vanishes.
-4. **Integrate to Abel's Formula:** Solve the first-order separable linear ODE for $W(t)$ using an integrating factor or separation of variables.
+4. **Integrate to Abel's Formula:** Solve the first-order linear ODE for $W(t)$ using an integrating factor (no division by $W$, which may vanish).
 5. **Deduce the Wronskian Dichotomy:** Use the strict positivity of the exponential function $\exp(-\int p_1 ds) > 0$ to prove the binary behavior.
 
 ---
@@ -85,15 +85,16 @@ This completes the first part of the proof.
 
 ### Step 4: Analytical Integration — Abel's Identity
 Equation (3) is a linear, homogeneous, first-order ordinary differential equation for the unknown function $W(t)$.
-Separating variables on any subinterval where $W(t) \neq 0$:
-$$ \frac{1}{W(t)} \frac{dW}{dt} = -p_1(t) \implies \frac{d}{dt}\left( \ln|W(t)| \right) = -p_1(t) $$
-Integrating both sides from an arbitrary reference point $t_0 \in I$ to $t$:
-$$ \int_{t_0}^t \frac{d}{ds}\left( \ln|W(s)| \right) ds = -\int_{t_0}^t p_1(s)\,ds $$
-$$ \ln|W(t)| - \ln|W(t_0)| = -\int_{t_0}^t p_1(s)\,ds $$
-Exponentiating both sides:
-$$ \left| \frac{W(t)}{W(t_0)} \right| = \exp\left( -\int_{t_0}^t p_1(s)\,ds \right) $$
-Resolving the absolute value and noting continuity:
-$$ \mathbf{W(t) = W(t_0) \exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} \tag{4} $$
+We do **not** divide by $W$ (it may vanish, and the dichotomy is deduced afterwards, so that would be circular). Fix a reference point $t_0 \in I$ and define the integrating factor
+$$ \mu(t) = \exp\left( \int_{t_0}^t p_1(s)\,ds \right) $$
+By the Fundamental Theorem of Calculus and the chain rule $\frac{d}{dt}e^{u} = e^{u}u'$ with $u(t) = \int_{t_0}^t p_1(s)\,ds$:
+$$ \mu'(t) = p_1(t)\mu(t), \qquad \mu(t_0) = e^{0} = 1, \qquad \mu(t) > 0 $$
+Using the product rule and equation (3):
+$$ \frac{d}{dt}\left[ \mu W \right] = \mu' W + \mu W' = p_1\mu W - p_1\mu W = 0 $$
+Integrating from $t_0$ to $t$ (Barrow's rule):
+$$ \mu(t)W(t) - \mu(t_0)W(t_0) = \int_{t_0}^t 0\,ds = 0 \implies \mu(t)W(t) = W(t_0) $$
+Dividing by $\mu(t) > 0$, which is valid for every value of $W(t_0)$, including $0$:
+$$ \mathbf{W(t) = \frac{W(t_0)}{\mu(t)} = W(t_0) \exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} \tag{4} $$
 
 ---
 

@@ -38,7 +38,7 @@ flowchart TD
     Factor --> Int["Integrate: W(t) = W(t₀) exp( -∫ p(s) ds ) (Abel's Identity)"]
 ```
 
-### Theorem 11.3 (Abel's Theorem / Liouville's Formula)
+### Abel's Theorem (Abel's Identity; cf. Robinson, Exercise 11.2)
 Let $x_1(t)$ and $x_2(t)$ be solutions of $x'' + p(t)x' + q(t)x = 0$ on $I$. Then their Wronskian $W(t) = W[x_1, x_2](t)$ satisfies the first-order linear differential equation:
 
 $$ \mathbf{\frac{dW}{dt} = -p(t) W(t)} \tag{2} $$
@@ -84,10 +84,17 @@ $$ \frac{dW}{dt} = -p(t) \left[ x_1(t) x_2'(t) - x_2(t) x_1'(t) \right] $$
 Recognizing the bracketed term as $W(t)$:
 $$ \frac{dW}{dt} = -p(t) W(t) $$
 
-### Step 3: Solve the Separable Equation
-Equation $(2)$ is a first-order separable linear ODE for $W(t)$:
-$$ \frac{1}{W} \, dW = -p(t) \, dt \implies \int_{W(t_0)}^{W(t)} \frac{1}{w} \, dw = -\int_{t_0}^t p(s) \, ds $$
-$$ \ln\left| \frac{W(t)}{W(t_0)} \right| = -\int_{t_0}^t p(s) \, ds \implies W(t) = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) \quad \blacksquare $$
+### Step 3: Solve with an Integrating Factor
+Equation $(2)$ is a first-order linear ODE for $W(t)$. We do **not** divide by $W$: $W$ may vanish, and the dichotomy of Section 3 is deduced from the result, so separating variables would be circular. Define
+$$ \mu(t) = \exp\left( \int_{t_0}^t p(s) \, ds \right) $$
+By the Fundamental Theorem of Calculus ($p$ continuous) and the chain rule $\frac{d}{dt}e^{u(t)} = e^{u(t)}u'(t)$ with $u(t) = \int_{t_0}^t p(s)\,ds$:
+$$ \mu'(t) = p(t)\,\mu(t), \qquad \mu(t_0) = e^{0} = 1, \qquad \mu(t) > 0 $$
+By the product rule and equation $(2)$:
+$$ \frac{d}{dt}\left[ \mu(t) W(t) \right] = \mu' W + \mu W' = p\mu W - p\mu W = 0 $$
+Integrating from $t_0$ to $t$ (Barrow's rule):
+$$ \mu(t) W(t) - \mu(t_0) W(t_0) = \int_{t_0}^t 0 \, ds = 0 \implies \mu(t) W(t) = W(t_0) $$
+Dividing by $\mu(t) > 0$, for every value of $W(t_0)$, including $W(t_0) = 0$:
+$$ W(t) = \frac{W(t_0)}{\mu(t)} = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) \quad \blacksquare $$
 
 ---
 

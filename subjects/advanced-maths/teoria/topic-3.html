@@ -806,7 +806,7 @@
       <div class="callout callout-theorem">
         <div class="callout-header">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Theorem 11.1 (Robinson: Fundamental Existence and Uniqueness Theorem)</span>
+          <span>Existence and Uniqueness Theorem for Linear IVPs (global form)</span>
         </div>
         <p>
           Let the coefficient functions $p(t)$, $q(t)$, and the forcing term $f(t)$ be <strong>continuous</strong> on an open interval $I = (a, b) \subseteq \mathbb{R}$. 
@@ -821,9 +821,13 @@
         </p>
       </div>
 
+      <p>
+        <strong>Source note.</strong> Robinson's Theorem 11.1 (p. 102) is the <em>local</em> theorem for the general (nonlinear) equation $\ddot{x} = f(\dot{x}, x, t)$ with $f$, $\partial f/\partial x_1$ and $\partial f/\partial x_2$ continuous: it gives a unique solution on <em>some</em> interval containing $t_0$. Applied to the linear case $f = f(t) - p(t)\dot{x} - q(t)x$ it supplies local existence and uniqueness; the statement above, that the solution exists on the whole interval $I$, is the linear-system argument of Section 2.1 below and is not part of Theorem 11.1 as printed.
+      </p>
+
       <h3 class="subheading">2.1 Vectorization: Reduction to a First-Order $2 \times 2$ Planar System</h3>
       <p>
-        The rigorous proof of Theorem 11.1 rests on converting the scalar second-order ODE into an equivalent system of two coupled first-order ODEs. 
+        The proof of the global statement above rests on converting the scalar second-order ODE into an equivalent system of two coupled first-order ODEs. 
         We introduce the phase-space state vector $\mathbf{X}(t) \in \mathbb{R}^2$:
       </p>
       $$ \mathbf{X}(t) = \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix} \equiv \begin{pmatrix} x(t) \\ x'(t) \end{pmatrix} $$
@@ -883,7 +887,7 @@
         </ul>
         <p>
           The continuous intervals for all coefficients simultaneously are $(-1, 2)$ and $(2, \infty)$. 
-          Since the initial base point is $t_0 = 1 \in (-1, 2)$, Theorem 11.1 guarantees that the unique solution $x(t)$ exists on the <strong>entire interval $I = (-1, 2)$</strong>.
+          Since the initial base point is $t_0 = 1 \in (-1, 2)$, the Existence and Uniqueness Theorem above guarantees that the unique solution $x(t)$ exists on the <strong>entire interval $I = (-1, 2)$</strong>.
         </p>
       </div>
     </section>
@@ -1069,7 +1073,7 @@
         </li>
         <li class="proof-step-item">
           <span class="step-marker">2</span>
-          By Theorem 11.1 (Existence and Uniqueness), there exist two unique solutions $u_1(t)$ and $u_2(t)$ on $I$ defined by the canonical initial conditions:
+          By the Existence and Uniqueness Theorem for linear IVPs (Section 2), there exist two unique solutions $u_1(t)$ and $u_2(t)$ on $I$ defined by the canonical initial conditions:
           $$ \begin{cases} u_1(t_0) = 1 \\ u_1'(t_0) = 0 \end{cases} \quad \text{and} \quad \begin{cases} u_2(t_0) = 0 \\ u_2'(t_0) = 1 \end{cases} $$
         </li>
         <li class="proof-step-item">
@@ -1093,7 +1097,7 @@
         <li class="proof-step-item">
           <span class="step-marker">6</span>
           Both $x(t)$ and $v(t)$ satisfy the identical homogeneous ODE $L[y] = 0$ and the identical initial conditions $(x_0, y_0)$ at $t_0$. 
-          By the <strong>Uniqueness Theorem</strong> (Theorem 11.1), they must coincide on the entire interval $I$:
+          By the <strong>Uniqueness Theorem</strong> (Section 2), they must coincide on the entire interval $I$:
           $$ x(t) \equiv v(t) = x_0 u_1(t) + y_0 u_2(t) \quad \forall t \in I $$
         </li>
         <li class="proof-step-item">
@@ -1142,7 +1146,7 @@
       <div class="callout callout-theorem">
         <div class="callout-header">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Theorem 11.3 (Abel's Theorem / Liouville's Formula)</span>
+          <span>Abel's Theorem (Abel's Identity; cf. Robinson, Exercise 11.2)</span>
         </div>
         <p>
           Let $x_1(t)$ and $x_2(t)$ be any two solutions of the homogeneous equation $x'' + p(t)x' + q(t)x = 0$ on the open interval $I$, 
@@ -1191,13 +1195,25 @@
       </p>
       $$ \frac{dW}{dt} = -p(t) \left[ x_1(t) x_2'(t) - x_2(t) x_1'(t) \right] = -p(t) W(t) $$
       <p>
-        This is a first-order linear separable ODE. Integrating from $t_0$ to $t$:
+        This is a first-order linear ODE. We must not divide by $W$ (the case $W(t_0) = 0$ has to be covered as well, and the dichotomy below is derived from the result), so we use an integrating factor. Define
       </p>
-      $$ \int_{W(t_0)}^{W(t)} \frac{dW}{W} = -\int_{t_0}^t p(s) \, ds \implies \ln\left| \frac{W(t)}{W(t_0)} \right| = -\int_{t_0}^t p(s) \, ds $$
+      $$ \mu(t) = \exp\left( \int_{t_0}^t p(s) \, ds \right) $$
       <p>
-        Exponentiating both sides yields Abel's Identity:
+        Since $p$ is continuous, the Fundamental Theorem of Calculus gives $\frac{d}{dt}\int_{t_0}^t p(s)\,ds = p(t)$, and the chain rule $\frac{d}{dt}e^{u(t)} = e^{u(t)}\,u'(t)$ with $u(t) = \int_{t_0}^t p(s)\,ds$ gives
       </p>
-      $$ W(t) = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) \quad \blacksquare $$
+      $$ \mu'(t) = p(t)\,\mu(t), \qquad \mu(t_0) = e^{0} = 1, \qquad \mu(t) > 0 $$
+      <p>
+        Then, by the product rule and $W' = -pW$:
+      </p>
+      $$ \frac{d}{dt}\left[ \mu(t) W(t) \right] = \mu'(t) W(t) + \mu(t) W'(t) = p(t)\mu(t) W(t) - p(t)\mu(t) W(t) = 0 $$
+      <p>
+        Integrating from $t_0$ to $t$ (Barrow's rule):
+      </p>
+      $$ \mu(t) W(t) - \mu(t_0) W(t_0) = \int_{t_0}^t 0 \, ds = 0 \implies \mu(t) W(t) = W(t_0) $$
+      <p>
+        Dividing by $\mu(t) > 0$ yields Abel's Identity, valid for every value of $W(t_0)$, including $W(t_0) = 0$:
+      </p>
+      $$ W(t) = \frac{W(t_0)}{\mu(t)} = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) \quad \blacksquare $$
 
       <h3 class="subheading">5.2 The Fundamental Wronskian Dichotomy</h3>
       <p>

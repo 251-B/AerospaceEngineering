@@ -1077,8 +1077,9 @@
           <li>Define the difference function $w(t) \equiv y_1(t) - y_2(t)$, satisfying $w(t_0) = 0$.</li>
           <li>Construct the Lyapunov energy function $E(t) \equiv [w(t)]^2 \ge 0$.</li>
           <li>Differentiate with respect to $t$: $\dot{E}(t) = 2 w(t) \dot{w}(t) = 2 w(t) [f(t, y_1) - f(t, y_2)]$.</li>
-          <li>If $\dot{E}(t) \le 0$ for all $t \ge t_0$, then $0 \le E(t) \le E(t_0) = 0 \implies E(t) \equiv 0 \implies w(t) \equiv 0$.</li>
-          <li>Therefore $y_1(t) \equiv y_2(t)$, proving unconditional uniqueness.</li>
+          <li>If $\dot{E}(t) \le 0$ for all $t \ge t_0$, then $0 \le E(t) \le E(t_0) = 0 \implies E(t) \equiv 0 \implies w(t) \equiv 0$ for $t \ge t_0$. This sign condition is <em>not</em> automatic: for $y' + ay = 0$ one gets $\dot{E} = -2aE$, which is $\le 0$ only if $a \ge 0$, and only forward in time.</li>
+          <li>Without any sign assumption, use the exact relation $\dot{E} = -2aE$ with the factor $e^{2a(t-t_0)}$: by the product and chain rules, $\frac{d}{dt}\left[ E(t)\, e^{2a(t-t_0)} \right] = \left( \dot{E} + 2aE \right) e^{2a(t-t_0)} = 0$. Hence $E(t)\, e^{2a(t-t_0)} = E(t_0) = 0$, so $E(t) \equiv 0$ for all $t$ and every sign of $a$ (the formula $E = E(t_0)e^{-2a(t-t_0)}$ is a conclusion of this step, not an assumption).</li>
+          <li>Therefore $w(t) \equiv 0$ and $y_1(t) \equiv y_2(t)$: uniqueness holds for this linear IVP. For a general $f(t, y)$ the same argument proves uniqueness only when $\dot{E}$ is controlled in this way (e.g. $\dot{E} \le 0$ for $t \ge t_0$, or $\dot{E} \le 2LE$ with a Lipschitz constant $L$).</li>
         </ol>
       </div>
     </section>
@@ -1104,7 +1105,7 @@
       <ul>
         <li><strong>$f'(x^*) < 0$:</strong> Asymptotically Stable Attractor (Sink). Trajectories converge to $x^*$.</li>
         <li><strong>$f'(x^*) > 0$:</strong> Unstable Repellor (Source). Trajectories diverge away from $x^*$.</li>
-        <li><strong>$f'(x^*) = 0$:</strong> Non-hyperbolic / Semistable. Higher-order Taylor derivatives dictate flow.</li>
+        <li><strong>$f'(x^*) = 0$:</strong> Non-hyperbolic: the linearization is inconclusive and higher-order terms decide the flow. All three behaviours occur at $x^* = 0$: $x' = -x^3$ is asymptotically stable, $x' = x^3$ is unstable and $x' = x^2$ is semistable (attracting from one side only).</li>
       </ul>
 
       <h3 class="sub-title">6.2 The No-Crossing Theorem and Invariant Confinement Corridors</h3>
