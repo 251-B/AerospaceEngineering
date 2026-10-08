@@ -111,8 +111,8 @@
       font-size: 16px; transition: all var(--transition);
     }
     .theme-toggle:hover { border-color: var(--accent); background: var(--accent-soft); }
-    [data-theme="dark"] .theme-toggle::before { content: "??"; }
-    [data-theme="light"] .theme-toggle::before { content: "??"; }
+    [data-theme="dark"] .theme-toggle::before { content: "\2600\FE0F"; }
+    [data-theme="light"] .theme-toggle::before { content: "\1F319"; }
 
     .article-container {
       max-width: 920px; margin: 0 auto;
@@ -420,7 +420,7 @@
       <div class="article-category">Mechanics Applied to Aerospace Engineering - Part I</div>
       <h1 class="article-title">Topic 1: Fundamentals and Particle Kinematics - Problem Sets</h1>
       <div class="article-meta">
-        Department of Continuum Mechanics and Aeronautical Engineering ï BSc in Aerospace Engineering, UC3M
+        Department of Continuum Mechanics and Aeronautical Engineering ‚Ä¢ BSc in Aerospace Engineering, UC3M
       </div>
       <div class="source-box">
         Ground Truth: sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf (2026 Edition)
@@ -428,7 +428,7 @@
     </header>
 
     <div class="note-banner">
-      <strong>?? Verbatim Problem Statements:</strong> All problem statements below are transcribed with 100% fidelity from the official UC3M problem collection. Solutions will be added in subsequent analytical development phases.
+      <strong>Verbatim Problem Statements:</strong> All problem statements below are transcribed with 100% fidelity from the official UC3M problem collection. Solutions will be added in subsequent analytical development phases.
     </div>
 
 
@@ -483,8 +483,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -626,19 +626,18 @@
 <h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional Check:</strong></li>
-<li>Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent ?).</li>
-<li>Curvature center offset: $\left[\frac{v_z^2}{a\omega^2}\right] = \frac{[\text{m/s}]^2}{[\text{m}][\text{s}^{-1}]^2} = \frac{\text{m}^2/\text{s}^2}{\text{m}/\text{s}^2} = \text{m}$ (Consistent ?).</li>
+<li>Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent).</li>
+<li>Curvature center offset: $\left[\frac{v_z^2}{a\omega^2}\right] = \frac{[\text{m/s}]^2}{[\text{m}][\text{s}^{-1}]^2} = \frac{\text{m}^2/\text{s}^2}{\text{m}/\text{s}^2} = \text{m}$ (Consistent).</li>
 <li><strong>Limiting Asymptotic Cases:</strong></li>
 <li>If $v_z \to 0$ (planar circular motion): $\rho = a$, and $C = (0, 0, 0)$, the origin of the circle as expected physically.</li>
 <li>If $\omega \to 0$ (pure vertical line ascent): $\rho \to \infty$, curvature vanishes, and the trajectory becomes a straight vertical line.</li>
 </ul>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Taken from MIT OCW)</span>
       </div>
     </div>
@@ -680,8 +679,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -703,7 +702,7 @@
 </ul>
 <div class="math-block">$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Time Derivatives of Polar Unit Vectors (Notes Sec. 3.1, Eq. 3.4):</strong></li>
+<li><strong>Time Derivatives of Polar Unit Vectors (Notes Sec. 2.6.2, Eqs. 2.25‚Äì2.26):</strong></li>
 </ul>
 <div class="math-block">$$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$</div>
 </div><div class="phase-block">
@@ -724,7 +723,7 @@
 <div class="math-block">$$ v_r = \dot{r} = \beta n\delta t^{n-1} r $$</div>
 <div class="math-block">$$ v_\theta = r\dot{\theta} = n\delta t^{n-1} r $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Radial and Transverse Acceleration Components</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The acceleration in polar coordinates (Notes Eq. 3.6) accounts for the curvature of the polar grid:</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The acceleration in polar coordinates (Notes Eq. 2.30) accounts for the curvature of the polar grid:</div>
 <div class="math-block">$$ \mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta = (\ddot{r} - r\dot{\theta}^2)\mathbf{e}_r + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\mathbf{e}_\theta $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Second Time Derivatives (Explicit Product Rule):</strong></li>
@@ -783,16 +782,15 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Geometric Invariance:</strong> In a logarithmic spiral $r = \alpha e^{\beta\theta}$, the angle $\psi$ between the radial line and the tangent vector satisfies $\tan\psi = \frac{r}{dr/d\theta} = \frac{r}{\beta r} = \frac{1}{\beta} = \text{constant}$. This is the celebrated equiangular spiral property!</li>
 <li><strong>Radius of Curvature:</strong> $\rho = r\sqrt{1 + \beta^2}$ is strictly proportional to current radial distance $r$.</li>
-<li><strong>Units Check:</strong> $[\rho] = [r][\sqrt{1+\beta^2}] = \text{m} \cdot 1 = \text{m}$ (Consistent ?).</li>
+<li><strong>Units Check:</strong> $[\rho] = [r][\sqrt{1+\beta^2}] = \text{m} \cdot 1 = \text{m}$ (Consistent).</li>
 <li><strong>Limiting Case $\beta \to 0$:</strong> The spiral degenerates into a pure circle $r = \alpha$, where $\rho = r\sqrt{1 + 0} = r$, recovering the circle radius of curvature.</li>
 </ul>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 6)</span>
       </div>
     </div>
@@ -816,8 +814,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -876,7 +874,7 @@
 <div class="math-block">$$ \sin\phi = \sqrt{\frac{k}{3a}}\,t $$</div>
 <p style="margin-bottom: 10px;">Applying the inverse sine function:</p>
 <div class="math-block">$$ \phi(t) = \arcsin\left( \sqrt{\frac{k}{3a}}\,t \right) $$</div>
-<p style="margin-bottom: 10px;">*(Note on Problem Keys: Matches page 72 of `Problems.pdf`: $\phi = \arcsin\sqrt{\frac{k}{3a}t^2} = \arcsin(\sqrt{\frac{k}{3a}}t)$).*</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section): $\phi = \arcsin\sqrt{\frac{k}{3a}t^2} = \arcsin(\sqrt{\frac{k}{3a}}t)$.)</em></p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Step 4: Evolution of the Cartesian Position as a Function of Time</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> Substituting $\phi(t)$ into the parametric definitions of the astroid:</div>
 <p style="margin-bottom: 10px;">Using trigonometric identities: $\sin\phi = \sqrt{\frac{k}{3a}}t$ and $\cos\phi = \sqrt{1 - \sin^2\phi} = \sqrt{1 - \frac{k t^2}{3a}}$:</p>
@@ -897,13 +895,12 @@
 </ul>
 <div class="math-block">$$ \sqrt{\frac{k}{3a}}t_{\text{cusp}} = 1 \implies t_{\text{cusp}} = \sqrt{\frac{3a}{k}} $$</div>
 <p style="margin-bottom: 10px;">At $t_{\text{cusp}}$, $x(t_{\text{cusp}}) = 0, y(t_{\text{cusp}}) = a$.</p>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 6)</span>
       </div>
     </div>
@@ -944,8 +941,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1030,13 +1027,12 @@
 <div class="math-block">$$ \mathbf{a} = \ddot{x}\mathbf{i}_0 + \ddot{y}\mathbf{j}_0 = a_x\mathbf{i}_0 + 0\mathbf{j}_0 = a_x\mathbf{i}_0 $$</div>
 <p style="margin-bottom: 10px;">Converting Cartesian $\mathbf{i}_0$ into polar: $\mathbf{i}_0 = \cos\theta\mathbf{e}_r - \sin\theta\mathbf{e}_\theta = \frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta$.</p>
 <p style="margin-bottom: 10px;">Substituting gives identically $\mathbf{a} = a_x\left(\frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta\right)$. The match is mathematically exact!</p>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 7)</span>
       </div>
     </div>
@@ -1056,8 +1052,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1100,7 +1096,7 @@
 <li><strong>Magnitude of Velocity $v_{B/0}$:</strong></li>
 </ul>
 <div class="math-block">$$ v_{B/0} = \|\mathbf{v}_{B/0}\| = \sqrt{(v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2} $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 solution key in `Problems.pdf` exactly!)*</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Acceleration of Glider $B$</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> Acceleration is the time derivative of velocity $\mathbf{a}_{B/0} = \frac{d\mathbf{v}_{B/0}}{dt}$.</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -1127,7 +1123,7 @@
 <div class="math-block">$$ a_{B/0}^2 = r^2\ddot{\theta}^2(\sin^2\theta + \cos^2\theta) + r^2\dot{\theta}^4(\cos^2\theta + \sin^2\theta) = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4 $$</div>
 <p style="margin-bottom: 10px;">Taking the square root:</p>
 <div class="math-block">$$ a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4} $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 solution key in `Problems.pdf` exactly!)*</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
@@ -1135,13 +1131,12 @@
 <li><strong>Plane Motion Decoupling:</strong> Notice that the acceleration magnitude $a_{B/0}$ is completely independent of the tow plane's cruise velocity $v_A$ because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The acceleration felt by the glider is purely relative circular motion around $A$!</li>
 <li><strong>Limiting Case $\ddot{\theta} = 0$:</strong> If the cable turns at a constant angular rate $\dot{\theta} = \Omega$, the acceleration reduces to pure centripetal acceleration: $a_{B/0} = \sqrt{r^2\Omega^4} = r\Omega^2$.</li>
 </ul>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 7)</span>
       </div>
     </div>
@@ -1183,8 +1178,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1253,14 +1248,13 @@
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Radius of Curvature $\rho(x)$</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> Using $a_n = \frac{v^2}{\rho}$:</div>
 <div class="math-block">$$ \rho(x) = \frac{v^2}{|a_n|} = \frac{1 + \cos^2 x}{\frac{|\sin x|}{\sqrt{1 + \cos^2 x}}} = \frac{(1 + \cos^2 x)^{3/2}}{|\sin x|} $$</div>
-<p style="margin-bottom: 10px;">*(Notice this matches the standard Cartesian curvature formula $\rho = \frac{(1 + y'^2)^{3/2}}{|y''|}$ with $y' = \cos x, y'' = -\sin x$!).*</p>
-<p style="margin-bottom: 10px;">---</p>
+<p style="margin-bottom: 10px;"><em>(Notice this matches the standard Cartesian curvature formula $\rho = \frac{(1 + y'^2)^{3/2}}{|y''|}$ with $y' = \cos x, y'' = -\sin x$!)</em></p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 7)</span>
       </div>
     </div>
@@ -1302,8 +1296,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1311,7 +1305,7 @@
 <h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A vehicle $A$ moves counterclockwise at constant speed $\omega$ along a circle of radius $a$. Skater $B$ on a frictionless horizontal plane is towed by vehicle $A$ via a massless bar of length $l = a$.</li>
-<li><strong>Initial Conditions:</strong> Vehicle $A$ is at $(a, 0)$, skater $B$ is at rest at $(2a, 0)$, meaning at $t = 0$, $\psi(0) = 0$ and $\dot{\psi}(0) = 0$.</li>
+<li><strong>Initial Conditions:</strong> Vehicle $A$ is at $(a, 0)$, skater $B$ is at rest at $(2a, 0)$, meaning at $t = 0$, $\psi(0) = 0$. Because the skater is at rest in the inertial frame, $\dot{\psi}(0) = -2\omega$ (derived in part (c)).</li>
 <li><strong>Parameters & Units:</strong> Radius and bar length $a\text{ [m]}$, angular speed $\omega\text{ [rad/s]}$, skater mass $m\text{ [kg]}$.</li>
 </ul>
 </div><div class="phase-block">
@@ -1355,13 +1349,13 @@
 <div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2(\omega\mathbf{k}_1) \times (-a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1) $$</div>
 <p style="margin-bottom: 10px;">Using $\mathbf{k}_1 \times \mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1$:</p>
 <div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2\omega\left( -a\dot{\psi}\sin\psi\,\mathbf{j}_1 - a\dot{\psi}\cos\psi\,\mathbf{i}_1 \right) = -2a\omega\dot{\psi}(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1) $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf` exactly!)*</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Centripetal / Centrifugal Acceleration Term:</strong></li>
 </ul>
 <p style="margin-bottom: 10px;">Since $\mathbf{r}_B$ lies entirely in the $x_1 y_1$ plane, $\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_B$:</p>
 <div class="math-block">$$ \mathbf{a}_{\text{cf}} = -\omega^2\mathbf{r}_B = -a\omega^2[(1 + \cos\psi)\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1] $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf` exactly!)*</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Reduction of Equation of Motion to Integrals (Quadrature)</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> The only force acting on skater $B$ in the horizontal plane is the tension $\mathbf{T}$ from the bar, which acts along the bar: $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$. Therefore, the total acceleration of $B$ in the direction perpendicular to the bar $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ must vanish: $\mathbf{a}_B \cdot \mathbf{u}_\perp = 0$.</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -1376,33 +1370,42 @@
 </ul>
 <p style="margin-bottom: 10px;">Therefore:</p>
 <div class="math-block">$$ a\ddot{\psi} + a\omega^2\sin\psi = 0 \implies \ddot{\psi} + \omega^2\sin\psi = 0 $$</div>
-<p style="margin-bottom: 10px;">Multiplying by $2\dot{\psi}$:</p>
-<div class="math-block">$$ 2\dot{\psi}\ddot{\psi} + 2\omega^2\sin\psi\,\dot{\psi} = 0 \implies \frac{d}{dt}(\dot{\psi}^2) = 2\omega^2\cos\psi\,\dot{\psi} $$</div>
-<p style="margin-bottom: 10px;">Integrating with initial condition $\dot{\psi}(0) = 0$ at $\psi = 0$:</p>
-<div class="math-block">$$ \dot{\psi}^2 = 2\omega^2\int_0^\psi -\sin u\,du = 2\omega^2(\cos\psi - 1) = -4\omega^2\sin^2\left(\frac{\psi}{2}\right) $$</div>
-<p style="margin-bottom: 10px;">Wait, with correct orientation of angle $\psi$, the relative pendulum equation yields:</p>
+<p style="margin-bottom: 10px;">Multiplying by $2\dot{\psi}$ and using the chain rule $\frac{d}{dt}(\dot{\psi}^2) = 2\dot{\psi}\ddot{\psi}$ and $\frac{d}{dt}(\cos\psi) = -\sin\psi\,\dot{\psi}$:</p>
+<div class="math-block">$$ 2\dot{\psi}\ddot{\psi} = -2\omega^2\sin\psi\,\dot{\psi} \implies \frac{d}{dt}(\dot{\psi}^2) = -2\omega^2\sin\psi\,\dot{\psi} = 2\omega^2\frac{d}{dt}(\cos\psi) $$</div>
+<p style="margin-bottom: 10px;">Initial conditions. The skater starts at rest in the inertial frame, $\mathbf{v}_B(0) = \mathbf{0}$, at $\mathbf{r}_B(0) = 2a\,\mathbf{i}_1$ (so $\psi(0) = 0$). Since $\mathbf{v}_B = \boldsymbol{\omega}_{1/0}\times\mathbf{r}_B + \mathbf{v}_{\text{rel}}$:</p>
+<div class="math-block">$$ \mathbf{v}_{\text{rel}}(0) = -\omega\mathbf{k}_1 \times 2a\,\mathbf{i}_1 = -2a\omega\,\mathbf{j}_1, \qquad \mathbf{v}_{\text{rel}}(0) = a\dot{\psi}(0)\,\mathbf{j}_1 \implies \dot{\psi}(0) = -2\omega $$</div>
+<p style="margin-bottom: 10px;">Integrating with Barrow's rule between $t = 0$ ($\psi = 0$, $\dot{\psi} = -2\omega$) and a generic instant, with $u$ a dummy variable ($du = \dot{\psi}\,dt$ along the motion):</p>
+<div class="math-block">$$ \dot{\psi}^2 - (-2\omega)^2 = 2\omega^2\int_0^\psi (-\sin u)\,du = 2\omega^2\left[\cos u\right]_0^\psi = 2\omega^2(\cos\psi - 1) $$</div>
+<div class="math-block">$$ \dot{\psi}^2 = 2\omega^2(1 + \cos\psi) = 4\omega^2\cos^2\!\left(\frac{\psi}{2}\right) \quad \text{using } 1 + \cos\psi = 2\cos^2(\psi/2) $$</div>
+<p style="margin-bottom: 10px;">Taking the square root, $\dot{\psi} = \pm 2\omega\cos(\psi/2)$. For $-\pi < \psi < \pi$ the factor $\cos(\psi/2)$ is positive, so the sign cannot change, and $\dot{\psi}(0) = -2\omega$ selects the minus sign ($\psi$ decreases from zero):</p>
 <div class="math-block">$$ \dot{\psi} = -2\omega\cos\left(\frac{\psi}{2}\right) \quad \text{for } -\pi < \psi \le 0 $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf`!).*</p>
-<p style="margin-bottom: 10px;">Separating variables:</p>
-<div class="math-block">$$ \int \frac{d\psi}{2\cos(\psi/2)} = -\int \omega\,dt $$</div>
+<p style="margin-bottom: 10px;">This agrees with the official key (Problems.pdf, PDF page 72).</p>
+<p style="margin-bottom: 10px;">Separating variables and integrating from $(t, \psi) = (0, 0)$, with the substitution $w = u/2$, $du = 2\,dw$:</p>
+<div class="math-block">$$ \int_0^\psi \frac{du}{2\cos(u/2)} = -\omega\int_0^t dt' \implies \int_0^{\psi/2}\frac{dw}{\cos w} = \ln\left|\sec\frac{\psi}{2} + \tan\frac{\psi}{2}\right| = -\omega t $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Tension on the Bar</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> The tension is obtained from the radial force balance along the bar:</div>
 <div class="math-block">$$ T = -m(\mathbf{a}_{\text{total}} \cdot \mathbf{u}_{AB}) $$</div>
-<p style="margin-bottom: 10px;">Evaluating the terms along $\mathbf{u}_{AB}$:</p>
+<p style="margin-bottom: 10px;">Evaluating the terms along $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$:</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>$\mathbf{a}_{\text{rel}}\cdot\mathbf{u}_{AB} = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\cos\psi + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\sin\psi = -a\dot{\psi}^2$.</li>
+<li>$\mathbf{a}_{\text{cor}}\cdot\mathbf{u}_{AB} = -2a\omega\dot{\psi}(\cos^2\psi + \sin^2\psi) = -2a\omega\dot{\psi}$.</li>
+<li>$\mathbf{a}_{\text{cf}}\cdot\mathbf{u}_{AB} = -a\omega^2[(1+\cos\psi)\cos\psi + \sin^2\psi] = -a\omega^2(1 + \cos\psi)$.</li>
+</ul>
+<div class="math-block">$$ T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1+\cos\psi)\right] $$</div>
+<p style="margin-bottom: 10px;">With $c = \cos(\psi/2)$: $\dot{\psi}^2 = 4\omega^2c^2$, $\dot{\psi} = -2\omega c$, $1 + \cos\psi = 2c^2$, hence $T = ma\omega^2(4c^2 - 4c + 2c^2) = ma\omega^2(6c^2 - 4c)$:</p>
 <div class="math-block">$$ T = 2ma\omega^2\cos\left(\frac{\psi}{2}\right)\left( 3\cos\left(\frac{\psi}{2}\right) - 2 \right) $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf`!).*</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Loose String Condition</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> A flexible string cannot support compression ($T \ge 0$). The string becomes loose when the tension drops to zero: $T = 0$.</div>
 <div class="math-block">$$ 3\cos\left(\frac{\psi}{2}\right) - 2 = 0 \implies \cos\left(\frac{\psi}{2}\right) = \frac{2}{3} $$</div>
 <div class="math-block">$$ \frac{\psi}{2} = -\arccos\left(\frac{2}{3}\right) \implies \psi = -2\arccos\left(\frac{2}{3}\right) \approx -96.38^\circ $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 72 key in `Problems.pdf`!).*</p>
-<p style="margin-bottom: 10px;">---</p>
+<p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 8)</span>
       </div>
     </div>
@@ -1423,8 +1426,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1472,13 +1475,12 @@
 <li><strong>Magnitude of Relative Velocity:</strong></li>
 </ul>
 <div class="math-block">$$ v_{\text{rel}} = \sqrt{\left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]^2 + v_B^2\sin^2\left(\frac{v_B t}{R}\right)} = \sqrt{v_B^2 + v_A^2 - 2v_A v_B\cos\left(\frac{v_B t}{R}\right)} $$</div>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 8)</span>
       </div>
     </div>
@@ -1512,8 +1514,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1551,7 +1553,7 @@
 <div class="math-block">$$ g_{\text{felt}} = a_n = \frac{v_{\text{abs}}^2}{R} = \frac{(\omega R \pm u)^2}{R} = \omega^2 R \left( 1 \pm \frac{u}{\omega R} \right)^2 = g \left( 1 \pm \frac{u}{\omega R} \right)^2 $$</div>
 <p style="margin-bottom: 10px;">Expanding:</p>
 <div class="math-block">$$ g_{\text{felt}} = \frac{\omega^2 R^2 \pm 2\omega R u + u^2}{R} = g \pm 2\omega u + \frac{u^2}{R} $$</div>
-<p style="margin-bottom: 10px;">*(The term $2\omega u$ represents the Coriolis acceleration felt by the running astronaut!).*</p>
+<p style="margin-bottom: 10px;"><em>(The term $2\omega u$ represents the Coriolis acceleration felt by the running astronaut!)</em></p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Condition to Feel No Artificial Gravity At All</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> For the astronaut to become completely weightless ($g_{\text{felt}} = 0$):</div>
 <div class="math-block">$$ \frac{(\omega R \pm u)^2}{R} = 0 \implies \omega R \pm u = 0 $$</div>
@@ -1560,13 +1562,12 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical Explanation:</strong> Running backwards at the exact hull speed cancels out her inertial circular motion. She becomes stationary relative to the non-rotating inertial space, floating weightlessly while the floor slips beneath her feet!</li>
 </ul>
-<p style="margin-bottom: 10px;">---</p>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 8)</span>
       </div>
     </div>
@@ -1586,8 +1587,8 @@
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>?? Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ] ?</span>
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
@@ -1596,7 +1597,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A reconnaissance satellite spins about its body-fixed $z$-axis at constant rate $\omega$. A solar panel rotates about the body-fixed $x$-axis by an arbitrary prescribed angle $\theta(t)$.</li>
 <li><strong>Goal:</strong> Determine absolute velocity $\mathbf{v}_{B/0}$ and acceleration $\mathbf{a}_{B/0}$ of tip $B$ relative to inertial frame centered at $A$.</li>
-<li><strong>Geometric Parameters:</strong> Dimensions $W$ (panel width) and $H$ (hub height).</li>
+<li><strong>Geometric Parameters:</strong> $H$ is the distance from $A$ to $B$ measured along the $x$-axis and $W$ is the distance from the $x$-axis to $B$ (panel width), as read from the figure in Problems.pdf (PDF page 29).</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
@@ -1620,47 +1621,40 @@
 <div class="math-block">$$ \boldsymbol{\alpha}_{2/0} = \frac{d\boldsymbol{\omega}_{2/0}}{dt}\Big|_{\mathcal{S}_0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\boldsymbol{\omega}_{1/0} \times \mathbf{i}_1) + \dot{\omega}\mathbf{k}_1 + \omega(\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1) $$</div>
 <p style="margin-bottom: 10px;">Since $\omega = \text{const}$, $\dot{\omega} = 0$ and $\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1 = \mathbf{0}$.</p>
 <div class="math-block">$$ \boldsymbol{\alpha}_{2/0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\omega\mathbf{k}_1 \times \mathbf{i}_1) = \ddot{\theta}\mathbf{i}_1 + \omega\dot{\theta}\mathbf{j}_1 $$</div>
+<p style="margin-bottom: 10px;">The hinge axis is the body-fixed $x$-axis ($\mathbf{i}_1$); $C$ denotes the point of this axis at the abscissa of $B$, so $\mathbf{r}_{AC} = H\mathbf{i}_1$ is fixed in $\mathcal{S}_1$ and does not rotate with the panel. The axes of $\mathcal{S}_2$ expressed in $\mathcal{S}_1$ are the columns of $[{}_1 R_2]$: $\mathbf{i}_2 = \mathbf{i}_1$, $\mathbf{j}_2 = \cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1$, $\mathbf{k}_2 = -\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1$. Orthonormality check: $\det[{}_1 R_2] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_1 R_2][{}_1 R_2]^T = \mathrm{diag}\!\left(1,\ \begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}\begin{pmatrix}\cos\theta & \sin\theta\\ -\sin\theta & \cos\theta\end{pmatrix}\right) = I$.</p>
+<p style="margin-bottom: 10px;"><strong>Geometry assumption.</strong> The statement text does not fix the geometry; it is read from the figure in Problems.pdf (PDF page 29): the panel lies along the $x$-axis, $B$ is the panel corner at distance $H$ from $A$ measured along $x$ and at distance $W$ from the $x$-axis, and $\theta$ is measured about $+\mathbf{i}_1$ from the $\mathbf{j}_1$ direction (so $\mathbf{r}_{CB} = W\mathbf{j}_2$). The zero reference of $\theta$ (panel along $+\mathbf{j}_1$ at $\theta = 0$) cannot be read unambiguously from the statement; it is the choice consistent with the official key.</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Position of Point $B$ in Basis $\mathcal{B}_1$</h4>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Point $B$ is located on the edge of the panel:</li>
-</ul>
-<div class="math-block">$$ \mathbf{r}_{B/A} = H\mathbf{k}_1 - W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$</div>
-<p style="margin-bottom: 10px;">Wait, according to Ginsberg's diagram orientation:</p>
-<div class="math-block">$$ \mathbf{r}_B = H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1 $$</div>
+<p style="margin-bottom: 10px;">Decompose $\mathbf{r}_{AB} = \mathbf{r}_{AC} + \mathbf{r}_{CB}$. The first part is fixed in $\mathcal{S}_1$; the second is fixed in the panel frame $\mathcal{S}_2$ ($\mathbf{r}_{CB} = W\mathbf{j}_2$), and is brought to $\mathcal{S}_1$ with $[{}_1 R_2]$:</p>
+<div class="math-block">$$ \mathbf{r}_{AC} = H\mathbf{i}_1, \qquad \{\mathbf{r}_{CB}\}_1 = [{}_1 R_2]\begin{pmatrix}0\\ W\\ 0\end{pmatrix} = \begin{pmatrix}0\\ W\cos\theta\\ W\sin\theta\end{pmatrix} $$</div>
+<div class="math-block">$$ \mathbf{r}_{AB} = H\mathbf{i}_1 + W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Absolute Velocity of Point $B$</h4>
+<p style="margin-bottom: 10px;">Since $A$ is the origin of the inertial frame, $\mathbf{v}_{B/0} = \frac{d\mathbf{r}_{AB}}{dt}\Big|_{\mathcal{S}_0}$. By the Poisson formula, a vector fixed in $\mathcal{S}_1$ obeys $\frac{d}{dt}\Big|_{\mathcal{S}_0} = \boldsymbol{\omega}_{1/0}\times$ and a vector fixed in $\mathcal{S}_2$ obeys $\frac{d}{dt}\Big|_{\mathcal{S}_0} = \boldsymbol{\omega}_{2/0}\times$. The hub offset $H\mathbf{i}_1$ rotates only with the satellite ($\boldsymbol{\omega}_{1/0}$), not with the panel:</p>
+<div class="math-block">$$ \mathbf{v}_{B/0} = \boldsymbol{\omega}_{1/0}\times\mathbf{r}_{AC} + \boldsymbol{\omega}_{2/0}\times\mathbf{r}_{CB} = \omega\mathbf{k}_1\times H\mathbf{i}_1 + (\dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1)\times W(\cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1) $$</div>
+<p style="margin-bottom: 10px;">Cross products: $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{i}_1\times\mathbf{j}_1 = \mathbf{k}_1$, $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$. Term by term:</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Velocity Equation:</strong></li>
+<li>$\omega\mathbf{k}_1\times H\mathbf{i}_1 = H\omega\,\mathbf{j}_1$</li>
+<li>$\dot{\theta}\mathbf{i}_1\times W\cos\theta\,\mathbf{j}_1 = W\dot{\theta}\cos\theta\,\mathbf{k}_1$</li>
+<li>$\dot{\theta}\mathbf{i}_1\times W\sin\theta\,\mathbf{k}_1 = -W\dot{\theta}\sin\theta\,\mathbf{j}_1$</li>
+<li>$\omega\mathbf{k}_1\times W\cos\theta\,\mathbf{j}_1 = -W\omega\cos\theta\,\mathbf{i}_1$</li>
+<li>$\omega\mathbf{k}_1\times W\sin\theta\,\mathbf{k}_1 = \mathbf{0}$</li>
 </ul>
-<div class="math-block">$$ \mathbf{v}_{B/0} = \boldsymbol{\omega}_{2/0} \times \mathbf{r}_B + \mathbf{v}_{A/0} = (\dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1) \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Cross Product Calculation:</strong></li>
-</ul>
-<div class="math-block">$$ \mathbf{i}_1 \times \mathbf{k}_1 = -\mathbf{j}_1, \quad \mathbf{i}_1 \times \mathbf{j}_1 = \mathbf{k}_1, \quad \mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1, \quad \mathbf{k}_1 \times \mathbf{k}_1 = \mathbf{0} $$</div>
-<p style="margin-bottom: 10px;">Computing the cross products term by term:</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>From $\dot{\theta}\mathbf{i}_1$:</li>
-</ul>
-<div class="math-block">$$ \dot{\theta}\mathbf{i}_1 \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) = -H\dot{\theta}\mathbf{j}_1 - W\dot{\theta}\sin\theta\,\mathbf{k}_1 - W\dot{\theta}\cos\theta\,\mathbf{j}_1 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>From $\omega\mathbf{k}_1$:</li>
-</ul>
-<div class="math-block">$$ \omega\mathbf{k}_1 \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) = 0 - W\omega\sin\theta(-\mathbf{i}_1) + 0 = W\omega\sin\theta\,\mathbf{i}_1 $$</div>
-<p style="margin-bottom: 10px;">Re-arranging according to Ginsberg's geometry:</p>
+<p style="margin-bottom: 10px;">Adding the five terms:</p>
 <div class="math-block">$$ \mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + (H\omega - W\dot{\theta}\sin\theta)\,\mathbf{j}_1 + W\dot{\theta}\cos\theta\,\mathbf{k}_1 $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 75 solution key in `Problems.pdf` identically!)*</p>
+<p style="margin-bottom: 10px;">This agrees with the official key (Problems.pdf, PDF page 76).</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Absolute Acceleration of Point $B$</h4>
+<p style="margin-bottom: 10px;">Differentiate $\mathbf{v}_{B/0} = v_x\mathbf{i}_1 + v_y\mathbf{j}_1 + v_z\mathbf{k}_1$ in $\mathcal{S}_0$: the components are differentiated with the chain rule and product rule, and the Poisson formula gives $\dot{\mathbf{i}}_1 = \omega\mathbf{j}_1$, $\dot{\mathbf{j}}_1 = -\omega\mathbf{i}_1$, $\dot{\mathbf{k}}_1 = \mathbf{0}$:</p>
+<div class="math-block">$$ \mathbf{a}_{B/0} = \dot{v}_x\mathbf{i}_1 + \dot{v}_y\mathbf{j}_1 + \dot{v}_z\mathbf{k}_1 + \omega\mathbf{k}_1\times\mathbf{v}_{B/0} = (\dot{v}_x - \omega v_y)\mathbf{i}_1 + (\dot{v}_y + \omega v_x)\mathbf{j}_1 + \dot{v}_z\mathbf{k}_1 $$</div>
+<p style="margin-bottom: 10px;">With $\frac{d}{dt}\cos\theta = -\dot{\theta}\sin\theta$ and $\frac{d}{dt}\sin\theta = \dot{\theta}\cos\theta$ ($\omega$, $H$, $W$ constant):</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Acceleration Equation:</strong></li>
-</ul>
-<div class="math-block">$$ \mathbf{a}_{B/0} = \boldsymbol{\alpha}_{2/0} \times \mathbf{r}_B + \boldsymbol{\omega}_{2/0} \times (\boldsymbol{\omega}_{2/0} \times \mathbf{r}_B) = \boldsymbol{\alpha}_{2/0} \times \mathbf{r}_B + \boldsymbol{\omega}_{2/0} \times \mathbf{v}_{B/0} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Term-by-term evaluation in $\mathcal{B}_1$:</strong></li>
+<li>$\dot{v}_x = W\omega\dot{\theta}\sin\theta$, $\quad v_y = H\omega - W\dot{\theta}\sin\theta$, $\quad \dot{v}_x - \omega v_y = 2W\omega\dot{\theta}\sin\theta - H\omega^2$</li>
+<li>$\dot{v}_y = -W(\ddot{\theta}\sin\theta + \dot{\theta}^2\cos\theta)$, $\quad \omega v_x = -W\omega^2\cos\theta$</li>
+<li>$\dot{v}_z = W(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta)$</li>
 </ul>
 <div class="math-block">$$ \mathbf{a}_{B/0} = (2W\omega\dot{\theta}\sin\theta - H\omega^2)\mathbf{i}_1 - (W\ddot{\theta}\sin\theta + W\dot{\theta}^2\cos\theta + W\omega^2\cos\theta)\mathbf{j}_1 + (W\ddot{\theta}\cos\theta - W\dot{\theta}^2\sin\theta)\mathbf{k}_1 $$</div>
-<p style="margin-bottom: 10px;">*(Matches page 75 solution key in `Problems.pdf` identically!)*</p>
+<p style="margin-bottom: 10px;">This agrees with the official key (Problems.pdf, PDF page 76).</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
@@ -1668,14 +1662,14 @@
 <li><strong>Coriolis Coupling:</strong> The term $2W\omega\dot{\theta}\sin\theta\,\mathbf{i}_1$ represents the Coriolis acceleration arising from the cross-coupling between satellite spin $\omega$ and panel deployment rate $\dot{\theta}$.</li>
 <li><strong>Dimensional Consistency:</strong></li>
 <li>Every velocity component has units $[\text{length}] \cdot [\text{time}]^{-1} = \text{m/s}$.</li>
-<li>Every acceleration component has units $[\text{length}] \cdot [\text{time}]^{-2} = \text{m/s}^2$ (Consistent ?).</li>
+<li>Every acceleration component has units $[\text{length}] \cdot [\text{time}]^{-2} = \text{m/s}^2$ (Consistent).</li>
 </ul>
 </div>
         </div>
       </details>
 
 <div class="problem-footer">
-        <span class="status-solved">? SoluciÛn Completa Paso a Paso</span>
+        <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Ginsberg, Cambridge Univ. Press, 2008)</span>
       </div>
     </div>
@@ -1683,15 +1677,15 @@
 
     <div class="article-nav">
       <a href="index.html" class="nav-btn">
-        <span class="nav-btn-label">? Back to Overview</span>
+        <span class="nav-btn-label">‚Üê Back to Overview</span>
         <span class="nav-btn-title">Problems Hub</span>
       </a>
       <a href="../teoria/topic-1.html" class="nav-btn" style="text-align: center;">
         <span class="nav-btn-label">Theory Reference</span>
-        <span class="nav-btn-title">Review Topic Theory ?</span>
+        <span class="nav-btn-title">Review Topic Theory ‚Üí</span>
       </a>
       <a href="topic-2.html" class="nav-btn" style="text-align: right;">
-        <span class="nav-btn-label">Next Topic ?</span>
+        <span class="nav-btn-label">Next Topic ‚Üí</span>
         <span class="nav-btn-title">Topic 2: Particle Dynamics</span>
       </a>
     </div>

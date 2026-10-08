@@ -20,8 +20,8 @@ sources:
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
 > **Source Document:** [[mechanics_labs.pdf]] (pp. 19–26)  
-> **Theoretical Prerequisites:** [[Topic 7 - Kinematics of Rigid Bodies and Euler Angles]], [[Topic 8 - Geometry of Masses and Inertia Tensor]], [[Topic 10 - Rigid Body Dynamics and Euler's Equations]]  
-> **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Mecanica de Estructuras MOC|⬅️ Mechanics MOC]]
+> **Theoretical Prerequisites:** Unit 7 (Rigid Body Kinematics and Euler Angles) and Unit 8 (Rigid Body Dynamics, including mass geometry and Euler's equations) of the course, whose notes are still planned (see [[Engineering Mechanics MOC]])  
+> **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Engineering Mechanics MOC|⬅️ Mechanics MOC]]
 
 ---
 

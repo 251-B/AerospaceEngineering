@@ -88,14 +88,13 @@ $$ z(t) = \frac{g}{k^2}\left(\cos(kt) - 1\right) $$
   $$ z(t) = \frac{g}{k^2}\left( \frac{k^2 x(t)}{\sqrt{3}g} - 1 \right) = \frac{x(t)}{\sqrt{3}} - \frac{g}{k^2} $$
   Rearranging into standard plane form $Ax + By + Cz + D = 0$:
   $$ x - \sqrt{3}z - \frac{\sqrt{3}g}{k^2} = 0 $$
-  *The entire motion is strictly planar, contained in a plane inclined at $30^\circ$ to the vertical!*
+  *The entire motion is strictly planar. The plane contains the direction $\mathbf{d} = (\sqrt{3}, 0, 1)$ (since $\mathbf{n}\cdot\mathbf{d} = 1\cdot\sqrt{3} - \sqrt{3}\cdot 1 = 0$ for $\mathbf{n} = (1, 0, -\sqrt{3})$), whose angle with the horizontal is $\arctan(1/\sqrt{3}) = 30^\circ$: the plane is inclined $30^\circ$ to the horizontal (equivalently, its normal makes $30^\circ$ with the vertical).*
 
-* **Conic Trajectory Shape:**
-  Eliminating time $t$ between $x(t)$ and $y(t)$ using the Pythagorean trigonometric identity $\cos^2(kt) + \sin^2(kt) \equiv 1$:
-  $$ \left(\frac{x(t)}{\sqrt{3}g/k^2}\right)^2 + \left(\frac{y(t)}{2g/k^2}\right)^2 = 1 $$
-  The projection onto the $Oxy$ plane is an **ellipse** with semi-axes:
-  $$ a_x = \frac{\sqrt{3}g}{k^2}, \qquad b_y = \frac{2g}{k^2} $$
-  Because the intersection of an elliptic cylinder with an oblique non-parallel plane is an ellipse, the **true 3D trajectory is an ellipse centered at $(0, 0, -g/k^2)$**.
+* **Shape of the Trajectory (circle):**
+  Squaring the components of $\mathbf{r}(t) - \mathbf{C}$ with $\mathbf{C} = (0, 0, -g/k^2)$:
+  $$ |\mathbf{r}(t) - \mathbf{C}|^2 = x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \left(\frac{g}{k^2}\right)^2\left[3\cos^2(kt) + 4\sin^2(kt) + \cos^2(kt)\right] = \frac{4g^2}{k^4} $$
+  so the path lies on the sphere $x^2 + y^2 + (z + g/k^2)^2 = 4g^2/k^4$ and, as shown above, on the plane $x - \sqrt{3}z = \sqrt{3}g/k^2$. The distance from the sphere centre $\mathbf{C}$ to the plane is $\dfrac{|0 - \sqrt{3}(-g/k^2) - \sqrt{3}g/k^2|}{\sqrt{1 + 3}} = 0$, so the plane passes through the centre and the intersection is a **great circle of radius $R = 2g/k^2$ centred at $(0, 0, -g/k^2)$**, traversed with angular rate $k$ ($v = kR = 2g/k$).
+  Only the projection onto the $Oxy$ plane is an ellipse (semi-axes $\sqrt{3}g/k^2$ and $2g/k^2$, from $(x/(\sqrt{3}g/k^2))^2 + (y/(2g/k^2))^2 = 1$), because the circle is seen obliquely; the true 3D trajectory is a circle (official key: Problems.pdf, PDF page 73).
 
 #### 6. Velocity Vector and Magnitude
 Differentiating the position components:
@@ -107,7 +106,7 @@ Taking the square root:
 $$ v(t) = \frac{2g}{k} = \text{constant} $$
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-* **Constant Speed Property:** Although the path is an ellipse, the speed is constant because the conservative potential is $V(x,y,z) = \frac{1}{2}m k^2(x^2 + y^2 + z^2) + mgz = \frac{1}{2}m k^2[x^2 + y^2 + (z + g/k^2)^2] - \frac{mg^2}{2k^2}$, which possesses circular symmetry around the displaced equilibrium center.
+* **Constant Speed Property:** The path is a circle about the displaced centre, so the speed is constant: the conservative potential is $V(x,y,z) = \frac{1}{2}m k^2(x^2 + y^2 + z^2) + mgz = \frac{1}{2}m k^2[x^2 + y^2 + (z + g/k^2)^2] - \frac{mg^2}{2k^2}$, which depends only on the distance to the displaced equilibrium centre $\mathbf{C}$; that distance is constant along the path, so $V$ is constant and energy conservation gives a constant speed.
 * **Dimensional Checks:**
   - Coordinates: $[x] = [g/k^2] = \frac{\text{m/s}^2}{\text{s}^{-2}} = \text{m}$ (Correct).
   - Velocity: $[v] = [g/k] = \frac{\text{m/s}^2}{\text{s}^{-1}} = \text{m/s}$ (Correct).
@@ -208,10 +207,15 @@ Physical motion exists only in regions where $E^* \ge W_{\text{eff}}(u)$. Turnin
 * Analysis:
   - Derivative: $W'(u) = 2u - \frac{2\mu}{h^2}u^2 = 2u(1 - \frac{\mu}{h^2}u)$.
   - Extrema: Minimum at $u = 0$ ($W = 0$), local maximum (potential barrier) at $u_{\text{barrier}} = \frac{h^2}{\mu}$ with $W_{\max} = \frac{h^4}{3\mu^2}$.
-  - For $u > u_{\text{barrier}}$, the $-u^3$ term dominates and $W_{\text{eff}}(u) \to -\infty$.
-  - **i. Escape to infinity ($u \to 0$):** Occurs if $E^* \ge 0$ and $u(0) < u_{\text{barrier}}$.
-  - **ii. Collision with origin ($u \to \infty$):** Occurs whenever $E^* > W_{\max}$, or if $u(0) > u_{\text{barrier}}$ with $u'(0) > 0$. The particle overcomes the centrifugal barrier and plunges into $r = 0$!
-  - **iii. Bounded oscillation:** Occurs in the potential well $0 < E^* < W_{\max}$ with $u < u_{\text{barrier}}$.
+  - For $u > u_{\text{barrier}}$, the $-u^3$ term dominates and $W_{\text{eff}}(u) \to -\infty$. $W_{\text{eff}}$ vanishes again at $u_0 = \frac{3h^2}{2\mu} > u_{\text{barrier}}$, since $W_{\text{eff}} = u^2\left(1 - \frac{2\mu}{3h^2}u\right)$.
+  - There is **no interior minimum**: $W_{\text{eff}}$ increases monotonically from $W_{\text{eff}}(0) = 0$ up to $W_{\max}$ and then decreases without bound, so the allowed region $\{u : W_{\text{eff}}(u) \le E^*\}$ either contains $u = 0$ ($r \to \infty$) or extends to $u \to \infty$ ($r \to 0$). Since $\theta$ increases monotonically with $t$ ($\dot{\theta} = hu^2 > 0$), $u'$ has the sign of $\dot{u}$.
+  - **Case $0 \le E^* < W_{\max}$:** $W_{\text{eff}}(u) = E^*$ has two roots $u_1 \in [0, u_{\text{barrier}})$ and $u_2 > u_{\text{barrier}}$, and the allowed set is $u \le u_1$ or $u \ge u_2$. If $u(0) \le u_1$ the particle is reflected at $u_1$ and escapes. If $u(0) \ge u_2$ it is reflected at $u_2$ and falls to the origin.
+  - **Case $E^* < 0$:** the only allowed region is $u \ge u_2$ with $u_2 > u_0$, so the particle always reaches $r = 0$.
+  - **Case $E^* > W_{\max}$:** there are no turning points and the direction of $u'(0)$ decides: $u'(0) < 0$ (moving outward) escapes, $u'(0) > 0$ (moving inward) falls to the origin.
+  - **Case $E^* = W_{\max}$:** besides the unstable circular orbit $u = u_{\text{barrier}}$, the particle approaches it asymptotically.
+  - **i. Escape to infinity ($u \to 0$):** occurs if $0 \le E^* < W_{\max}$ and $u(0) < u_{\text{barrier}}$, or if $E^* > W_{\max}$ and $u'(0) < 0$.
+  - **ii. Collision with origin ($u \to \infty$):** occurs if $E^* < 0$, or if $0 \le E^* < W_{\max}$ and $u(0) > u_{\text{barrier}}$, or if $E^* > W_{\max}$ and $u'(0) > 0$. For $\alpha = 4$ the attractive $1/r^4$ force beats the centrifugal barrier at small $r$.
+  - **iii. Bounded oscillation between two values of $u$:** does **not** occur for $\alpha = 4$ (the only bounded motion is the unstable circular orbit $u = u_{\text{barrier}}$, $E^* = W_{\max}$). The statement "oscillation for $0 < E^* < W_{\max}$" would require an interior minimum of $W_{\text{eff}}$, which does not exist; for such energies the particle on the inner branch is reflected once and escapes.
 
 ---
 
@@ -402,38 +406,40 @@ $$ v_0 = \sqrt{\frac{48}{35}\frac{GM}{R}} $$
 * **Physical System:** A heavy point particle $P$ of mass $m$ is connected to origin $O$ on a horizontal thin square plate by a massless inextensible cord of length $\ell$. The distance from $O$ to the plate edge is $d$. The string hangs over the straight edge at a contact point $Q$.
 * **Configuration Degrees of Freedom:**
   - $P$ is constrained by the inextensible string length: $\|\mathbf{OQ}\| + \|\mathbf{QP}\| = \ell$.
-  - String stays in contact with the edge and remains taut at all times.
-  - The edge of the plate is a straight line $y = d$ in the plate plane.
-  - The position of $Q$ along the edge is parametrized by polar angle $\theta$ from $Ox_0$.
-  - The hanging segment $QP$ is free to swing in space, described by angle $\phi$.
+  - The string stays in contact with the edge and remains taut at all times.
+  - The edge of the plate is the straight line $x_0 = d$ in the plate plane, parallel to $\mathbf{j}_0$ (geometry read from the figure, Problems.pdf PDF page 27).
+  - The position of $Q$ along the edge is parametrized by the angle $\theta$ between $Ox_0$ and $OQ$.
+  - The hanging segment $QP$ swings in space, described by the angle $\phi$ between the vertical and the line through $P$ perpendicular to the edge.
   - Total CDOF $= 2$ (angles $\theta$ and $\phi$).
 * **Initial State ($t = 0$):**
   - $\theta(0) = \phi(0) = \pi/3\text{ rad}$.
   - $v_0^P(0) = \sqrt{\ell g}$.
 * **Parameters:** $m > 0$ [kg], $\ell > 0$ [m], $d > 0$ [m], $g > 0$ [m/s$^2$].
+* **Scope of this note:** only parts (a)-(c) and (f) are worked below. Parts (d), (e) and (g) of the official statement (forces, differential equations of motion, mechanical energy and its initial value) are not solved here; see [[Solutions - Topic 3 Constraints and Reaction Forces]] for an outline.
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-* **Inertial Reference Frame:** $S_0 : \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $Ox_0 y_0$ in the plate plane, $Oz_0$ upwards, and plate edge along $y_0 = d$.
+* **Inertial Reference Frame:** $S_0 : \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $Ox_0 y_0$ in the plate plane, $Oz_0$ upwards, and the plate edge along the line $x_0 = d$.
+* **Geometry assumption:** the statement text does not fix the direction of the edge; it is read from the figure ($Ox_0$ perpendicular to the edge). If the figure were read differently, $\mathbf{r}_0^Q$ and $\mathbf{u}_{QP}$ below would change.
 * **Contact Point $Q$:**
-  $$ \mathbf{r}_0^Q = \frac{d}{\sin\theta}\left(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0\right) = d\cot\theta\,\mathbf{i}_0 + d\,\mathbf{j}_0 $$
-  Length of segment $OQ$: $L_{OQ} = \frac{d}{\sin\theta}$.
+  $$ \mathbf{r}_0^Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0 $$
+  Length of segment $OQ$: $L_{OQ} = \dfrac{d}{\cos\theta}$.
 * **Hanging Segment $QP$:**
-  Remaining length: $L_{QP} = \ell - L_{OQ} = \ell - \frac{d}{\sin\theta}$.
-  Unit vector along $QP$:
-  $$ \mathbf{u}_{QP} = \sin\phi\cos\theta\,\mathbf{i}_0 + \sin\phi\sin\theta\,\mathbf{j}_0 - \cos\phi\,\mathbf{k}_0 $$
+  Remaining length: $L_{QP} = \ell - L_{OQ} = \ell - \dfrac{d}{\cos\theta}$.
+  The unit vector from $Q$ to $O$ is $-(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$. By the hint (equal angles with the edge, as required for a frictionless edge) $\mathbf{u}_{QP}\cdot\mathbf{j}_0 = \sin\theta$; the remaining part lies in the plane normal to the edge, along $\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$, with magnitude $\cos\theta$:
+  $$ \mathbf{u}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0, \qquad |\mathbf{u}_{QP}|^2 = \cos^2\theta + \sin^2\theta = 1 $$
 * **Position of Particle $P$:**
-  $$ \mathbf{r}_0^P = \mathbf{r}_0^Q + \left(\ell - \frac{d}{\sin\theta}\right)\mathbf{u}_{QP} $$
+  $$ \mathbf{r}_0^P = \mathbf{r}_0^Q + \left(\ell - \frac{d}{\cos\theta}\right)\mathbf{u}_{QP} $$
 
 ### Phase 3: Step-by-Step Mathematical Deduction
-* **Velocity of $Q$:**
-  $$ \mathbf{v}_0^Q = \frac{d\mathbf{r}_0^Q}{dt} = -d\frac{\dot{\theta}}{\sin^2\theta}\,\mathbf{i}_0 $$
-* **Velocity of $P$:**
-  Applying the product rule and chain rule to $\mathbf{r}_0^P$:
-  $$ \mathbf{v}_0^P = \mathbf{v}_0^Q + \left(-\frac{d(-\cos\theta)\dot{\theta}}{\sin^2\theta}\right)\mathbf{u}_{QP} + \left(\ell - \frac{d}{\sin\theta}\right)\frac{d\mathbf{u}_{QP}}{dt} $$
-  $$ \mathbf{v}_0^P = -\frac{d\dot{\theta}}{\sin^2\theta}\mathbf{i}_0 + \frac{d\dot{\theta}\cos\theta}{\sin^2\theta}\mathbf{u}_{QP} + \left(\ell - \frac{d}{\sin\theta}\right)\left(\dot{\phi}\frac{\partial\mathbf{u}_{QP}}{\partial\phi} + \dot{\theta}\frac{\partial\mathbf{u}_{QP}}{\partial\theta}\right) $$
-* **Equations of Motion & Energy:**
-  Because the string is frictionless over the plate edge, the constraint does no work. Gravity is conservative. The mechanical energy $E = T + V = \frac{1}{2}m(v_0^P)^2 - mg z_P$ is strictly conserved.
+* **Velocity of $Q$** (chain rule, $\frac{d}{dt}\tan\theta = \dot{\theta}/\cos^2\theta$):
+  $$ \mathbf{v}_0^Q = \frac{d\mathbf{r}_0^Q}{dt} = \frac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0 $$
+* **Velocity of $P$** (product rule, with $\rho = \ell - d/\cos\theta$ and $\dot{\rho} = -\dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta}$):
+  $$ \mathbf{v}_0^P = \mathbf{v}_0^Q + \dot{\rho}\,\mathbf{u}_{QP} + \rho\left(\dot{\phi}\frac{\partial\mathbf{u}_{QP}}{\partial\phi} + \dot{\theta}\frac{\partial\mathbf{u}_{QP}}{\partial\theta}\right) $$
+* **Tension does no work (part f):** since $|\mathbf{u}_{QP}| = 1$, $\mathbf{u}_{QP}\cdot\dot{\mathbf{u}}_{QP} = 0$, so
+  $$ \mathbf{u}_{QP}\cdot\mathbf{v}_0^P = \mathbf{u}_{QP}\cdot\mathbf{v}_0^Q + \dot{\rho} = \sin\theta\,\frac{d\dot{\theta}}{\cos^2\theta} - \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} = 0 $$
+  hence the tension power $-T\,\mathbf{u}_{QP}\cdot\mathbf{v}_0^P$ vanishes (official key: Problems.pdf, PDF page 76).
+* **Mechanical energy (setup only):** with $Oz_0$ pointing up, gravity gives $V = +mgz_P$, where $z_P = -\rho\cos\theta\cos\phi$ (the $\mathbf{k}_0$ component of $\mathbf{r}_0^P$). Hence $E = \tfrac{1}{2}m(v_0^P)^2 + mgz_P$; because the tension does no work and gravity is conservative, $E$ is constant along the motion. Its initial value and the equations of motion are not worked out in this note.
 
 ### Phase 4: Physical Interpretation & Verification
-* When $\theta = \pi/2$, $Q$ is at the closest approach distance $d$, and the hanging length is maximized ($\ell - d$).
+* When $\theta = 0$, $Q$ is at the closest approach distance $d$ from $O$ (foot of the perpendicular to the edge), and the hanging length is maximized ($\ell - d$).
 * Dimensional consistency: all lengths scale with $\ell, d$, velocities with $\sqrt{\ell g}$.

@@ -189,7 +189,7 @@ $$ x_{stop} = +a $$
   | **(a)** $E > 0$ | None | $(-\infty, +\infty)$ | Unbounded: traverses from $-\infty$ to $+\infty$ (or vice versa). |
   | **(b)** $E < -\frac{1}{2}ca^4$ | $\pm x_{out}$ | $(-\infty, -x_{out}] \cup [x_{out}, +\infty)$ | Unbounded with reflection at $\pm x_{out}$ back to $\pm\infty$. Inner well forbidden. |
   | **(c)** $-\frac{1}{2}ca^4 < E < 0$ | $\pm x_{in}, \pm x_{out}$ | $[-x_{in}, x_{in}]$ OR $\vert x \vert \ge x_{out}$ | Bounded periodic oscillation in well $[-x_{in}, x_{in}]$, OR reflection at $\pm x_{out}$ back to $\pm\infty$. |
-* **Confirmation with UC3M Solution Keys:** Directly verifies the qualitative classification in `Problems.pdf` page 72.
+* **Confirmation with UC3M Solution Keys:** The qualitative classification can be compared with the official solution key (Problems.pdf, Solution keys section).
 
 ---
 
@@ -444,7 +444,7 @@ $$ v_{0,crit}^2 = 2Ka^2 \implies v_{0,crit} = a\sqrt{2K} $$
    - **Conclusion:** The particle crosses the origin and moves towards $-\infty$.
 
 ### Phase 4: Physical Interpretation & Verification
-* Exact agreement with `Problems.pdf` page 72:
+* Compare with the official solution key (Problems.pdf, Solution keys section):
   - If $v_0 > a\sqrt{2K}$, particle moves towards $-\infty$.
   - If $v_0 < a\sqrt{2K}$, particle moves towards $+\infty$ after decelerating before arriving to $x = 0$.
   - If $v_0 = a\sqrt{2K}$, particle takes infinite time to reach $x = 0$.
@@ -494,7 +494,7 @@ Therefore, the differential equation reads:
 $$ \ddot{x} + \frac{9\nu}{4r^2}\,\dot{x} = \frac{1}{2}g $$
 Multiplying through by $4r^2$:
 $$ 4r^2 \ddot{x} + 9\nu \dot{x} = 2r^2 g $$
-This matches the official equation of motion in `Problems.pdf` page 73.
+Compare with the official equation of motion in the official solution key (Problems.pdf, Solution keys section).
 
 #### 2. Computation of Terminal Velocity $v_t$
 * **Pedagogical Justification:** The terminal velocity is reached when the viscous drag balances the effective weight, so acceleration ceases ($\ddot{x} = 0$).
@@ -527,7 +527,7 @@ Multiply the inside by $4r^2$ and divide the outside prefactor by $4r^2$:
 $$ \frac{8r^4 g}{81\nu^2} = \frac{2r^2 g}{81\nu^2} \cdot 4r^2 $$
 $$ x(t) = \frac{2r^2 g}{81\nu^2}\left[ 4r^2\left(\frac{9\nu}{4r^2}t\right) - 4r^2 + 4r^2 e^{-\frac{9\nu}{4r^2}t} \right] $$
 $$ x(t) = \frac{2r^2 g}{81\nu^2}\left[ -4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t \right] $$
-This reproduces the exact closed-form solution from `Problems.pdf` page 73.
+Compare with the closed-form solution in the official solution key (Problems.pdf, Solution keys section).
 
 ### Phase 4: Physical Interpretation & Limiting Cases
 * **Short Times ($t \ll \gamma^{-1}$):**

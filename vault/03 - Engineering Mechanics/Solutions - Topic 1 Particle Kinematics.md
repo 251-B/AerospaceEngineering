@@ -151,7 +151,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 * **Polar Basis:** $\mathcal{B}_{\text{polar}} = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$.
 * **Rotation Matrix $[{}_0 R_\theta]$:**
   $$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
-* **Time Derivatives of Polar Unit Vectors (Notes Sec. 3.1, Eq. 3.4):**
+* **Time Derivatives of Polar Unit Vectors (Notes Sec. 2.6.2, Eqs. 2.25–2.26):**
   $$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
@@ -168,7 +168,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ v_\theta = r\dot{\theta} = n\delta t^{n-1} r $$
 
 #### (b) Radial and Transverse Acceleration Components
-* **Pedagogical Justification:** The acceleration in polar coordinates (Notes Eq. 3.6) accounts for the curvature of the polar grid:
+* **Pedagogical Justification:** The acceleration in polar coordinates (Notes Eq. 2.30) accounts for the curvature of the polar grid:
   $$ \mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta = (\ddot{r} - r\dot{\theta}^2)\mathbf{e}_r + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\mathbf{e}_\theta $$
 * **Second Time Derivatives (Explicit Product Rule):**
   $$ \ddot{\theta}(t) = \frac{d}{dt}(n\delta t^{n-1}) = n(n-1)\delta t^{n-2} $$
@@ -266,7 +266,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \sin\phi = \sqrt{\frac{k}{3a}}\,t $$
   Applying the inverse sine function:
   $$ \phi(t) = \arcsin\left( \sqrt{\frac{k}{3a}}\,t \right) $$
-  *(Note on Problem Keys: Matches page 72 of `Problems.pdf`: $\phi = \arcsin\sqrt{\frac{k}{3a}t^2} = \arcsin(\sqrt{\frac{k}{3a}}t)$).*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section): $\phi = \arcsin\sqrt{\frac{k}{3a}t^2} = \arcsin(\sqrt{\frac{k}{3a}}t)$.)*
 
 #### Step 4: Evolution of the Cartesian Position as a Function of Time
 * **Pedagogical Justification:** Substituting $\phi(t)$ into the parametric definitions of the astroid:
@@ -385,7 +385,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \mathbf{v}_{B/0} = (v_A + r\dot{\theta}\sin\theta)\mathbf{i}_0 + (r\dot{\theta}\cos\theta)\mathbf{j}_0 $$
 * **Magnitude of Velocity $v_{B/0}$:**
   $$ v_{B/0} = \|\mathbf{v}_{B/0}\| = \sqrt{(v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2} $$
-  *(Matches page 72 solution key in `Problems.pdf` exactly!)*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 
 #### Acceleration of Glider $B$
 * **Pedagogical Justification:** Acceleration is the time derivative of velocity $\mathbf{a}_{B/0} = \frac{d\mathbf{v}_{B/0}}{dt}$.
@@ -405,7 +405,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ a_{B/0}^2 = r^2\ddot{\theta}^2(\sin^2\theta + \cos^2\theta) + r^2\dot{\theta}^4(\cos^2\theta + \sin^2\theta) = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4 $$
   Taking the square root:
   $$ a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4} $$
-  *(Matches page 72 solution key in `Problems.pdf` exactly!)*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 
 ### Phase 4: Physical Interpretation & Limiting Cases
 * **Plane Motion Decoupling:** Notice that the acceleration magnitude $a_{B/0}$ is completely independent of the tow plane's cruise velocity $v_A$ because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The acceleration felt by the glider is purely relative circular motion around $A$!
@@ -473,7 +473,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 
 ### Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters
 * **Physical System:** A vehicle $A$ moves counterclockwise at constant speed $\omega$ along a circle of radius $a$. Skater $B$ on a frictionless horizontal plane is towed by vehicle $A$ via a massless bar of length $l = a$.
-* **Initial Conditions:** Vehicle $A$ is at $(a, 0)$, skater $B$ is at rest at $(2a, 0)$, meaning at $t = 0$, $\psi(0) = 0$ and $\dot{\psi}(0) = 0$.
+* **Initial Conditions:** Vehicle $A$ is at $(a, 0)$, skater $B$ is at rest at $(2a, 0)$, meaning at $t = 0$, $\psi(0) = 0$. Because the skater is at rest in the inertial frame, $\dot{\psi}(0) = -2\omega$ (derived in part (c)).
 * **Parameters & Units:** Radius and bar length $a\text{ [m]}$, angular speed $\omega\text{ [rad/s]}$, skater mass $m\text{ [kg]}$.
 
 ### Phase 2: Reference Frames, Bases & Kinematics
@@ -504,11 +504,11 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \mathbf{a}_{\text{cor}} = 2(\omega\mathbf{k}_1) \times (-a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1) $$
   Using $\mathbf{k}_1 \times \mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1$:
   $$ \mathbf{a}_{\text{cor}} = 2\omega\left( -a\dot{\psi}\sin\psi\,\mathbf{j}_1 - a\dot{\psi}\cos\psi\,\mathbf{i}_1 \right) = -2a\omega\dot{\psi}(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1) $$
-  *(Matches page 72 key in `Problems.pdf` exactly!)*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 * **Centripetal / Centrifugal Acceleration Term:**
   Since $\mathbf{r}_B$ lies entirely in the $x_1 y_1$ plane, $\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_B$:
   $$ \mathbf{a}_{\text{cf}} = -\omega^2\mathbf{r}_B = -a\omega^2[(1 + \cos\psi)\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1] $$
-  *(Matches page 72 key in `Problems.pdf` exactly!)*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 
 #### (c) Reduction of Equation of Motion to Integrals (Quadrature)
 * **Pedagogical Justification:** The only force acting on skater $B$ in the horizontal plane is the tension $\mathbf{T}$ from the bar, which acts along the bar: $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$. Therefore, the total acceleration of $B$ in the direction perpendicular to the bar $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ must vanish: $\mathbf{a}_B \cdot \mathbf{u}_\perp = 0$.
@@ -520,28 +520,36 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   - $\mathbf{a}_{\text{cf}} \cdot \mathbf{u}_\perp = -a\omega^2[ (1+\cos\psi)(-\sin\psi) + \sin\psi\cos\psi ] = -a\omega^2(-\sin\psi - \sin\psi\cos\psi + \sin\psi\cos\psi) = a\omega^2\sin\psi$.
   Therefore:
   $$ a\ddot{\psi} + a\omega^2\sin\psi = 0 \implies \ddot{\psi} + \omega^2\sin\psi = 0 $$
-  Multiplying by $2\dot{\psi}$:
-  $$ 2\dot{\psi}\ddot{\psi} + 2\omega^2\sin\psi\,\dot{\psi} = 0 \implies \frac{d}{dt}(\dot{\psi}^2) = 2\omega^2\cos\psi\,\dot{\psi} $$
-  Integrating with initial condition $\dot{\psi}(0) = 0$ at $\psi = 0$:
-  $$ \dot{\psi}^2 = 2\omega^2\int_0^\psi -\sin u\,du = 2\omega^2(\cos\psi - 1) = -4\omega^2\sin^2\left(\frac{\psi}{2}\right) $$
-  Wait, with correct orientation of angle $\psi$, the relative pendulum equation yields:
+  Multiplying by $2\dot{\psi}$ and using the chain rule $\frac{d}{dt}(\dot{\psi}^2) = 2\dot{\psi}\ddot{\psi}$ and $\frac{d}{dt}(\cos\psi) = -\sin\psi\,\dot{\psi}$:
+  $$ 2\dot{\psi}\ddot{\psi} = -2\omega^2\sin\psi\,\dot{\psi} \implies \frac{d}{dt}(\dot{\psi}^2) = -2\omega^2\sin\psi\,\dot{\psi} = 2\omega^2\frac{d}{dt}(\cos\psi) $$
+  **Initial conditions.** The skater starts at rest in the inertial frame, $\mathbf{v}_B(0) = \mathbf{0}$, at $\mathbf{r}_B(0) = 2a\,\mathbf{i}_1$ (so $\psi(0) = 0$). Since $\mathbf{v}_B = \boldsymbol{\omega}_{1/0}\times\mathbf{r}_B + \mathbf{v}_{\text{rel}}$:
+  $$ \mathbf{v}_{\text{rel}}(0) = -\omega\mathbf{k}_1 \times 2a\,\mathbf{i}_1 = -2a\omega\,\mathbf{j}_1, \qquad \mathbf{v}_{\text{rel}}(0) = a\dot{\psi}(0)\,\mathbf{j}_1 \implies \dot{\psi}(0) = -2\omega $$
+  Integrating with Barrow's rule between $t = 0$ ($\psi = 0$, $\dot{\psi} = -2\omega$) and a generic instant, with $u$ a dummy variable ($du = \dot{\psi}\,dt$ along the motion):
+  $$ \dot{\psi}^2 - (-2\omega)^2 = 2\omega^2\int_0^\psi (-\sin u)\,du = 2\omega^2\left[\cos u\right]_0^\psi = 2\omega^2(\cos\psi - 1) $$
+  $$ \dot{\psi}^2 = 2\omega^2(1 + \cos\psi) = 4\omega^2\cos^2\!\left(\frac{\psi}{2}\right) \quad \text{using } 1 + \cos\psi = 2\cos^2(\psi/2) $$
+  Taking the square root, $\dot{\psi} = \pm 2\omega\cos(\psi/2)$. For $-\pi < \psi < \pi$ the factor $\cos(\psi/2)$ is positive, so the sign cannot change, and $\dot{\psi}(0) = -2\omega$ selects the minus sign ($\psi$ decreases from zero):
   $$ \dot{\psi} = -2\omega\cos\left(\frac{\psi}{2}\right) \quad \text{for } -\pi < \psi \le 0 $$
-  *(Matches page 72 key in `Problems.pdf`!).*
-  Separating variables:
-  $$ \int \frac{d\psi}{2\cos(\psi/2)} = -\int \omega\,dt $$
+  This agrees with the official key (Problems.pdf, PDF page 72).
+  Separating variables and integrating from $(t, \psi) = (0, 0)$, with the substitution $w = u/2$, $du = 2\,dw$:
+  $$ \int_0^\psi \frac{du}{2\cos(u/2)} = -\omega\int_0^t dt' \implies \int_0^{\psi/2}\frac{dw}{\cos w} = \ln\left|\sec\frac{\psi}{2} + \tan\frac{\psi}{2}\right| = -\omega t $$
 
 #### (d) Tension on the Bar
 * **Pedagogical Justification:** The tension is obtained from the radial force balance along the bar:
   $$ T = -m(\mathbf{a}_{\text{total}} \cdot \mathbf{u}_{AB}) $$
-  Evaluating the terms along $\mathbf{u}_{AB}$:
+  Evaluating the terms along $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$:
+  - $\mathbf{a}_{\text{rel}}\cdot\mathbf{u}_{AB} = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\cos\psi + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\sin\psi = -a\dot{\psi}^2$.
+  - $\mathbf{a}_{\text{cor}}\cdot\mathbf{u}_{AB} = -2a\omega\dot{\psi}(\cos^2\psi + \sin^2\psi) = -2a\omega\dot{\psi}$.
+  - $\mathbf{a}_{\text{cf}}\cdot\mathbf{u}_{AB} = -a\omega^2[(1+\cos\psi)\cos\psi + \sin^2\psi] = -a\omega^2(1 + \cos\psi)$.
+  $$ T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1+\cos\psi)\right] $$
+  With $c = \cos(\psi/2)$: $\dot{\psi}^2 = 4\omega^2c^2$, $\dot{\psi} = -2\omega c$, $1 + \cos\psi = 2c^2$, hence $T = ma\omega^2(4c^2 - 4c + 2c^2)$:
   $$ T = 2ma\omega^2\cos\left(\frac{\psi}{2}\right)\left( 3\cos\left(\frac{\psi}{2}\right) - 2 \right) $$
-  *(Matches page 72 key in `Problems.pdf`!).*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 
 #### (e) Loose String Condition
 * **Pedagogical Justification:** A flexible string cannot support compression ($T \ge 0$). The string becomes loose when the tension drops to zero: $T = 0$.
   $$ 3\cos\left(\frac{\psi}{2}\right) - 2 = 0 \implies \cos\left(\frac{\psi}{2}\right) = \frac{2}{3} $$
   $$ \frac{\psi}{2} = -\arccos\left(\frac{2}{3}\right) \implies \psi = -2\arccos\left(\frac{2}{3}\right) \approx -96.38^\circ $$
-  *(Matches page 72 key in `Problems.pdf`!).*
+  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 
 ---
 
@@ -636,35 +644,37 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \boldsymbol{\alpha}_{2/0} = \frac{d\boldsymbol{\omega}_{2/0}}{dt}\Big|_{\mathcal{S}_0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\boldsymbol{\omega}_{1/0} \times \mathbf{i}_1) + \dot{\omega}\mathbf{k}_1 + \omega(\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1) $$
   Since $\omega = \text{const}$, $\dot{\omega} = 0$ and $\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1 = \mathbf{0}$.
   $$ \boldsymbol{\alpha}_{2/0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\omega\mathbf{k}_1 \times \mathbf{i}_1) = \ddot{\theta}\mathbf{i}_1 + \omega\dot{\theta}\mathbf{j}_1 $$
+The hinge axis is the body-fixed $x$-axis ($\mathbf{i}_1$); $C$ denotes the point of this axis at the abscissa of $B$, so $\mathbf{r}_{AC} = H\mathbf{i}_1$ is fixed in $\mathcal{S}_1$ and does not rotate with the panel. The axes of $\mathcal{S}_2$ expressed in $\mathcal{S}_1$ are the columns of $[{}_1 R_2]$: $\mathbf{i}_2 = \mathbf{i}_1$, $\mathbf{j}_2 = \cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1$, $\mathbf{k}_2 = -\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1$. Orthonormality check: $\det[{}_1 R_2] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_1 R_2][{}_1 R_2]^T = \mathrm{diag}\!\left(1,\ \begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}\begin{pmatrix}\cos\theta & \sin\theta\\ -\sin\theta & \cos\theta\end{pmatrix}\right) = I$.
+**Geometry assumption.** The statement text does not fix the geometry; it is read from the figure in Problems.pdf (PDF page 29): the panel lies along the $x$-axis, $B$ is the panel corner at distance $H$ from $A$ measured along $x$ and at distance $W$ from the $x$-axis, and $\theta$ is measured about $+\mathbf{i}_1$ from the $\mathbf{j}_1$ direction (so $\mathbf{r}_{CB} = W\mathbf{j}_2$). The zero reference of $\theta$ (panel along $+\mathbf{j}_1$ at $\theta = 0$) cannot be read unambiguously from the statement; it is the choice consistent with the official key.
+
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
 #### Position of Point $B$ in Basis $\mathcal{B}_1$
-* Point $B$ is located on the edge of the panel:
-  $$ \mathbf{r}_{B/A} = H\mathbf{k}_1 - W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$
-  Wait, according to Ginsberg's diagram orientation:
-  $$ \mathbf{r}_B = H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1 $$
-
+Decompose $\mathbf{r}_{AB} = \mathbf{r}_{AC} + \mathbf{r}_{CB}$. The first part is fixed in $\mathcal{S}_1$; the second is fixed in the panel frame $\mathcal{S}_2$ ($\mathbf{r}_{CB} = W\mathbf{j}_2$), and is brought to $\mathcal{S}_1$ with $[{}_1 R_2]$:
+$$ \mathbf{r}_{AC} = H\mathbf{i}_1, \qquad \{\mathbf{r}_{CB}\}_1 = [{}_1 R_2]\begin{pmatrix}0\\ W\\ 0\end{pmatrix} = \begin{pmatrix}0\\ W\cos\theta\\ W\sin\theta\end{pmatrix} $$
+$$ \mathbf{r}_{AB} = H\mathbf{i}_1 + W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$
 #### Absolute Velocity of Point $B$
-* **Velocity Equation:**
-  $$ \mathbf{v}_{B/0} = \boldsymbol{\omega}_{2/0} \times \mathbf{r}_B + \mathbf{v}_{A/0} = (\dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1) \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) $$
-* **Cross Product Calculation:**
-  $$ \mathbf{i}_1 \times \mathbf{k}_1 = -\mathbf{j}_1, \quad \mathbf{i}_1 \times \mathbf{j}_1 = \mathbf{k}_1, \quad \mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1, \quad \mathbf{k}_1 \times \mathbf{k}_1 = \mathbf{0} $$
-  Computing the cross products term by term:
-  - From $\dot{\theta}\mathbf{i}_1$:
-    $$ \dot{\theta}\mathbf{i}_1 \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) = -H\dot{\theta}\mathbf{j}_1 - W\dot{\theta}\sin\theta\,\mathbf{k}_1 - W\dot{\theta}\cos\theta\,\mathbf{j}_1 $$
-  - From $\omega\mathbf{k}_1$:
-    $$ \omega\mathbf{k}_1 \times (H\mathbf{k}_1 - W\sin\theta\,\mathbf{j}_1 + W\cos\theta\,\mathbf{k}_1) = 0 - W\omega\sin\theta(-\mathbf{i}_1) + 0 = W\omega\sin\theta\,\mathbf{i}_1 $$
-  Re-arranging according to Ginsberg's geometry:
-  $$ \mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + (H\omega - W\dot{\theta}\sin\theta)\,\mathbf{j}_1 + W\dot{\theta}\cos\theta\,\mathbf{k}_1 $$
-  *(Matches page 75 solution key in `Problems.pdf` identically!)*
-
+Since $A$ is the origin of the inertial frame, $\mathbf{v}_{B/0} = \frac{d\mathbf{r}_{AB}}{dt}\Big|_{\mathcal{S}_0}$. By the Poisson formula, a vector fixed in $\mathcal{S}_1$ obeys $\frac{d}{dt}\Big|_{\mathcal{S}_0} = \boldsymbol{\omega}_{1/0}\times$ and a vector fixed in $\mathcal{S}_2$ obeys $\frac{d}{dt}\Big|_{\mathcal{S}_0} = \boldsymbol{\omega}_{2/0}\times$. The hub offset $H\mathbf{i}_1$ rotates only with the satellite ($\boldsymbol{\omega}_{1/0}$), not with the panel:
+$$ \mathbf{v}_{B/0} = \boldsymbol{\omega}_{1/0}\times\mathbf{r}_{AC} + \boldsymbol{\omega}_{2/0}\times\mathbf{r}_{CB} = \omega\mathbf{k}_1\times H\mathbf{i}_1 + (\dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1)\times W(\cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1) $$
+Cross products: $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{i}_1\times\mathbf{j}_1 = \mathbf{k}_1$, $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$. Term by term:
+- $\omega\mathbf{k}_1\times H\mathbf{i}_1 = H\omega\,\mathbf{j}_1$
+- $\dot{\theta}\mathbf{i}_1\times W\cos\theta\,\mathbf{j}_1 = W\dot{\theta}\cos\theta\,\mathbf{k}_1$
+- $\dot{\theta}\mathbf{i}_1\times W\sin\theta\,\mathbf{k}_1 = -W\dot{\theta}\sin\theta\,\mathbf{j}_1$
+- $\omega\mathbf{k}_1\times W\cos\theta\,\mathbf{j}_1 = -W\omega\cos\theta\,\mathbf{i}_1$
+- $\omega\mathbf{k}_1\times W\sin\theta\,\mathbf{k}_1 = \mathbf{0}$
+Adding the five terms:
+$$ \mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + (H\omega - W\dot{\theta}\sin\theta)\,\mathbf{j}_1 + W\dot{\theta}\cos\theta\,\mathbf{k}_1 $$
+This agrees with the official key (Problems.pdf, PDF page 76).
 #### Absolute Acceleration of Point $B$
-* **Acceleration Equation:**
-  $$ \mathbf{a}_{B/0} = \boldsymbol{\alpha}_{2/0} \times \mathbf{r}_B + \boldsymbol{\omega}_{2/0} \times (\boldsymbol{\omega}_{2/0} \times \mathbf{r}_B) = \boldsymbol{\alpha}_{2/0} \times \mathbf{r}_B + \boldsymbol{\omega}_{2/0} \times \mathbf{v}_{B/0} $$
-* **Term-by-term evaluation in $\mathcal{B}_1$:**
-  $$ \mathbf{a}_{B/0} = (2W\omega\dot{\theta}\sin\theta - H\omega^2)\mathbf{i}_1 - (W\ddot{\theta}\sin\theta + W\dot{\theta}^2\cos\theta + W\omega^2\cos\theta)\mathbf{j}_1 + (W\ddot{\theta}\cos\theta - W\dot{\theta}^2\sin\theta)\mathbf{k}_1 $$
-  *(Matches page 75 solution key in `Problems.pdf` identically!)*
+Differentiate $\mathbf{v}_{B/0} = v_x\mathbf{i}_1 + v_y\mathbf{j}_1 + v_z\mathbf{k}_1$ in $\mathcal{S}_0$: the components are differentiated with the chain rule and product rule, and the Poisson formula gives $\dot{\mathbf{i}}_1 = \omega\mathbf{j}_1$, $\dot{\mathbf{j}}_1 = -\omega\mathbf{i}_1$, $\dot{\mathbf{k}}_1 = \mathbf{0}$:
+$$ \mathbf{a}_{B/0} = \dot{v}_x\mathbf{i}_1 + \dot{v}_y\mathbf{j}_1 + \dot{v}_z\mathbf{k}_1 + \omega\mathbf{k}_1\times\mathbf{v}_{B/0} = (\dot{v}_x - \omega v_y)\mathbf{i}_1 + (\dot{v}_y + \omega v_x)\mathbf{j}_1 + \dot{v}_z\mathbf{k}_1 $$
+With $\frac{d}{dt}\cos\theta = -\dot{\theta}\sin\theta$ and $\frac{d}{dt}\sin\theta = \dot{\theta}\cos\theta$ ($\omega$, $H$, $W$ constant):
+- $\dot{v}_x = W\omega\dot{\theta}\sin\theta$, $\quad v_y = H\omega - W\dot{\theta}\sin\theta$, $\quad \dot{v}_x - \omega v_y = 2W\omega\dot{\theta}\sin\theta - H\omega^2$
+- $\dot{v}_y = -W(\ddot{\theta}\sin\theta + \dot{\theta}^2\cos\theta)$, $\quad \omega v_x = -W\omega^2\cos\theta$
+- $\dot{v}_z = W(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta)$
+$$ \mathbf{a}_{B/0} = (2W\omega\dot{\theta}\sin\theta - H\omega^2)\mathbf{i}_1 - (W\ddot{\theta}\sin\theta + W\dot{\theta}^2\cos\theta + W\omega^2\cos\theta)\mathbf{j}_1 + (W\ddot{\theta}\cos\theta - W\dot{\theta}^2\sin\theta)\mathbf{k}_1 $$
+This agrees with the official key (Problems.pdf, PDF page 76).
 
 ### Phase 4: Physical Interpretation & Dimensional Check
 * **Coriolis Coupling:** The term $2W\omega\dot{\theta}\sin\theta\,\mathbf{i}_1$ represents the Coriolis acceleration arising from the cross-coupling between satellite spin $\omega$ and panel deployment rate $\dot{\theta}$.

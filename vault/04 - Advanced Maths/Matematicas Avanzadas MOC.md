@@ -129,5 +129,5 @@ flowchart TD
 
 ## 🔗 Cross-Subject Aerospace Connections
 * **Fluid Mechanics (`01 - Fluid Mechanics`):** Direct application of Navier-Stokes simplification to Hagen-Poiseuille pipe flow ([[04 - Advanced Maths/Concepto - Navier-Stokes Poiseuille Flow Reduction|Navier-Stokes Reduction]] $\leftrightarrow$ [[01 - Fluid Mechanics/Mecanica de Fluidos MOC|Fluid Mechanics MOC]]).
-* **Engineering Mechanics (`03 - Engineering Mechanics`):** Pendulum and mass-spring dynamics ([[04 - Advanced Maths/Problema - Ch1-P8 Simple Pendulum Equation of Motion|Pendulum Equation]] $\leftrightarrow$ [[03 - Engineering Mechanics/Mecanica de Estructuras MOC|Engineering Mechanics MOC]]).
+* **Engineering Mechanics (`03 - Engineering Mechanics`):** Pendulum and mass-spring dynamics ([[04 - Advanced Maths/Problema - Ch1-P8 Simple Pendulum Equation of Motion|Pendulum Equation]] $\leftrightarrow$ [[03 - Engineering Mechanics/Engineering Mechanics MOC|Engineering Mechanics MOC]]).
 * **Aerodynamics & Aeroelastic Stability:** Pitchfork bifurcation and trim stability ([[04 - Advanced Maths/Problema - Ch2-P16 Pitchfork Phase Line and Stability Regimes|Problem 2.16]]).

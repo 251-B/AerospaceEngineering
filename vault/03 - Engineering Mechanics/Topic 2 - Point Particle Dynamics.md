@@ -297,12 +297,12 @@ A point particle of mass $m$ is suspended from a fixed pivot $O$ by a massless, 
 ---
 
 ### Step 1: Coordinates, Basis, and Kinematic Constraints (Explicit Calculus)
-* The motion is planar in $Oxy$. We adopt polar coordinates $\{R, \theta\}$ with local orthonormal basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$:
-  $$ \mathbf{e}_R(\theta) = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 $$
-  $$ \mathbf{e}_\theta(\theta) = -\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0 $$
+* The motion is planar in $Oxy$. We adopt polar coordinates $\{R, \theta\}$ with local orthonormal basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$. The angle $\theta$ is measured from the downward vertical (so $\theta = 0$ is the hanging equilibrium and $\mathbf{e}_R(0) = -\mathbf{j}_0$), counter-clockwise in the $Oxy$ plane:
+  $$ \mathbf{e}_R(\theta) = \sin\theta\,\mathbf{i}_0 - \cos\theta\,\mathbf{j}_0 $$
+  $$ \mathbf{e}_\theta(\theta) = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 $$
 * Differentiating the basis vectors with respect to time using the **chain rule** ($\frac{d}{dt} = \frac{d\theta}{dt}\frac{\partial}{\partial\theta} = \dot{\theta}\frac{\partial}{\partial\theta}$):
-  $$ \frac{d\mathbf{e}_R}{dt} = \frac{\partial\mathbf{e}_R}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\cos\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\sin\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0)\dot{\theta} = \dot{\theta}\,\mathbf{e}_\theta $$
-  $$ \frac{d\mathbf{e}_\theta}{dt} = \frac{\partial\mathbf{e}_\theta}{\partial\theta}\frac{d\theta}{dt} = \left(-\frac{d(\sin\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\cos\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{j}_0)\dot{\theta} = -\dot{\theta}\,\mathbf{e}_R $$
+  $$ \frac{d\mathbf{e}_R}{dt} = \frac{\partial\mathbf{e}_R}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\sin\theta)}{d\theta}\mathbf{i}_0 - \frac{d(\cos\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)\dot{\theta} = \dot{\theta}\,\mathbf{e}_\theta $$
+  $$ \frac{d\mathbf{e}_\theta}{dt} = \frac{\partial\mathbf{e}_\theta}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\cos\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\sin\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0)\dot{\theta} = -\dot{\theta}\,\mathbf{e}_R $$
 * The inextensibility of the rod establishes a holonomic constraint:
   $$ R(t) = \ell = \text{constant} \implies \dot{R} = 0, \quad \ddot{R} = 0 $$
 * **Position Vector:**
@@ -318,7 +318,8 @@ A point particle of mass $m$ is suspended from a fixed pivot $O$ by a massless, 
 Forces acting on $P$:
 1. **Weight $\mathbf{W}$:** Expressed in the fixed Cartesian basis as $\mathbf{W} = -mg\mathbf{j}_0$.
    Projecting onto the polar basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$:
-   $$ \mathbf{W} = (\mathbf{W}\cdot\mathbf{e}_R)\mathbf{e}_R + (\mathbf{W}\cdot\mathbf{e}_\theta)\mathbf{e}_\theta = (-mg\mathbf{j}_0\cdot(\cos\theta\mathbf{i}_0+\sin\theta\mathbf{j}_0))\mathbf{e}_R + (-mg\mathbf{j}_0\cdot(-\sin\theta\mathbf{i}_0+\cos\theta\mathbf{j}_0))\mathbf{e}_\theta $$
+   $$ \mathbf{W}\cdot\mathbf{e}_R = -mg\mathbf{j}_0\cdot(\sin\theta\,\mathbf{i}_0 - \cos\theta\,\mathbf{j}_0) = mg\cos\theta, \qquad \mathbf{W}\cdot\mathbf{e}_\theta = -mg\mathbf{j}_0\cdot(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0) = -mg\sin\theta $$
+   $$ \mathbf{W} = (\mathbf{W}\cdot\mathbf{e}_R)\mathbf{e}_R + (\mathbf{W}\cdot\mathbf{e}_\theta)\mathbf{e}_\theta $$
    $$ \mathbf{W} = mg\cos\theta\,\mathbf{e}_R - mg\sin\theta\,\mathbf{e}_\theta $$
 2. **Rod Tension $\mathbf{T}$:** Acts purely along the rod towards the pivot:
    $$ \mathbf{T} = -T\,\mathbf{e}_R $$

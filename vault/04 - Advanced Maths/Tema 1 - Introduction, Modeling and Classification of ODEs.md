@@ -87,7 +87,7 @@ Every exercise from the official course problem sheet is completely solved follo
 ## 🔬 4. Interdisciplinary Aerospace Applications
 
 * **Aerodynamics and Fluid Mechanics:** The exact reduction performed in Problem 1.10 and Concept 5 is the foundation of internal pipe flows (Hagen-Poiseuille law) and wall shear stress calculations ($\tau_w = -\mu \left.\frac{dV}{dr}\right|_{r=a} = \frac{\mu P a}{2}$) covered in [[01 - Fluid Mechanics/Mecanica de Fluidos MOC|Fluid Mechanics]].
-* **Flight Dynamics and Structural Vibrations:** The Duffing oscillator analyzed in Problem 1.1(iii) models geometric nonlinearities in aircraft wing flutter, while the pendulum equation in Problem 1.8 represents large-amplitude pitch oscillations without small-angle approximations, studied in [[03 - Engineering Mechanics/Mecanica de Estructuras MOC|Engineering Mechanics]].
+* **Flight Dynamics and Structural Vibrations:** The Duffing oscillator analyzed in Problem 1.1(iii) models geometric nonlinearities in aircraft wing flutter, while the pendulum equation in Problem 1.8 represents large-amplitude pitch oscillations without small-angle approximations, studied in [[03 - Engineering Mechanics/Engineering Mechanics MOC|Engineering Mechanics]].
 
 ---
 

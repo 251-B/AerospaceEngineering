@@ -1089,7 +1089,7 @@
 
         <h5 style="color: var(--accent); margin: 16px 0 8px; font-size: 0.95rem;">Step 1: Polar Kinematics &amp; Chain Rule</h5>
         <p>
-          Position vector: $\mathbf{r}_0^P = a\,\mathbf{e}_R(\theta) = a(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$.
+          Position vector: $\mathbf{r}_0^P = a\,\mathbf{e}_R(\theta) = a(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$, with $\theta$ measured from the $+Ox$ axis (this differs from the pendulum of Topic 2, where $\theta$ is measured from the downward vertical).
           Applying the chain rule ($\frac{d}{dt} = \dot{\theta}\frac{\partial}{\partial\theta}$):
           $$ \frac{d\mathbf{e}_R}{dt} = \dot{\theta}\,\mathbf{e}_\theta, \quad \frac{d\mathbf{e}_\theta}{dt} = -\dot{\theta}\,\mathbf{e}_R $$
           Differentiating position using the product rule ($a = \text{const}$):
@@ -1232,7 +1232,7 @@
     <section id="sec-7">
       <h2 class="section-heading"><span>7.</span> Coulomb Friction on Curves and Surfaces</h2>
       <p>
-        When surfaces or curves are rough, contact forces develop a tangential component: the **friction force $\mathbf{F}_R$** (Slides 18–20 &amp; Notes Sec. 6.6). We model this via the Coulomb friction law with coefficient $\mu$.
+        When surfaces or curves are rough, contact forces develop a tangential component: the <strong>friction force $\mathbf{F}_R$</strong> (Slides 18–20 &amp; Notes Sec. 6.6). We model this via the Coulomb friction law with coefficient $\mu$.
       </p>
 
       <div class="table-wrapper">
@@ -1390,9 +1390,11 @@
         <p><strong>Step-by-step Solution:</strong></p>
         <ol>
           <li>Constraint equation: $z(t) = ct - L_0$.
-            * Algebraic relation in coordinates $\implies$ <strong>Holonomic</strong>.
-            * Explicit time dependence ($\frac{\partial f}{\partial t} = c \neq 0$) $\implies$ <strong>Rheonomic</strong>.
-            * Strict equality $\implies$ <strong>Bilateral</strong>.
+            <ul>
+              <li>Algebraic relation in coordinates $\implies$ <strong>Holonomic</strong>.</li>
+              <li>Explicit time dependence ($\frac{\partial f}{\partial t} = c \neq 0$) $\implies$ <strong>Rheonomic</strong>.</li>
+              <li>Strict equality $\implies$ <strong>Bilateral</strong>.</li>
+            </ul>
           </li>
           <li>Velocity: $\dot{z} = \frac{d}{dt}(ct - L_0) = c$. Acceleration: $\ddot{z} = 0$.</li>
           <li>Newton's equation along vertical axis:

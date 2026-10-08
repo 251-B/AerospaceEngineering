@@ -734,7 +734,7 @@
 
       <h3 class="sub-heading">4.2 State-Space Form and Initial Conditions (Slide 10)</h3>
       <p>
-        The 3 second-order ODEs can be recast as a system of **6 first-order ordinary differential equations**:
+        The 3 second-order ODEs can be recast as a system of <strong>6 first-order ordinary differential equations</strong>:
       </p>
       <div class="math-block">
         $$ \begin{cases}
@@ -745,7 +745,7 @@
         <div class="math-caption">Standard state-space formulation suitable for integration and numerical solvers</div>
       </div>
       <p>
-        The general solution contains **6 integration constants**, which are uniquely determined by the **initial conditions** at $t = 0$:
+        The general solution contains <strong>6 integration constants</strong>, which are uniquely determined by the <strong>initial conditions</strong> at $t = 0$:
         $$ \mathbf{r}_0^P(0) = [x_0, y_0, z_0]^T, \quad \mathbf{v}_0^P(0) = [\dot{x}_0, \dot{y}_0, \dot{z}_0]^T $$
       </p>
 
@@ -877,7 +877,7 @@
         <p style="margin-bottom: 0;">
           Expressing velocity in the intrinsic Frenet-Serret frame ($\mathbf{v}_0^P = v_0\,\mathbf{e}_t$), power becomes:
           $$ P = \mathbf{F} \cdot (v_0\,\mathbf{e}_t) = F_t\,v_0 $$
-          <strong>A force exerts non-zero power and performs work if and only if it produces tangential acceleration ($F_t \neq 0$).</strong> Forces perpendicular to the trajectory (normal constraints, string tension, magnetic Lorentz forces) do **identically zero work** ($W \equiv 0$).
+          <strong>A force exerts non-zero power and performs work if and only if it produces tangential acceleration ($F_t \neq 0$).</strong> Forces perpendicular to the trajectory (normal constraints, string tension, magnetic Lorentz forces) do <strong>identically zero work</strong> ($W \equiv 0$).
         </p>
       </div>
     </section>
@@ -891,7 +891,7 @@
 
       <h3 class="sub-heading">6.1 Conservative Forces (Slide 14)</h3>
       <p>
-        A force $\mathbf{F}$ is **conservative** if the work it performs between two points is **strictly path-independent**:
+        A force $\mathbf{F}$ is <strong>conservative</strong> if the work it performs between two points is <strong>strictly path-independent</strong>:
         $$ \int_{\Gamma_A} \mathbf{F}\cdot d\mathbf{r} = \int_{\Gamma_B} \mathbf{F}\cdot d\mathbf{r} \iff \oint_{\mathcal{C}} \mathbf{F}\cdot d\mathbf{r} = 0 \quad \text{along any closed curve } \mathcal{C} $$
       </p>
 
@@ -910,7 +910,7 @@
 
       <h3 class="sub-heading">6.3 Mathematical Condition: The Curl Test (Slide 16)</h3>
       <p>
-        In a simply-connected domain, a continuously differentiable force field $\mathbf{F}(\mathbf{r})$ is conservative **if and only if its curl vanishes identically**:
+        In a simply-connected domain, a continuously differentiable force field $\mathbf{F}(\mathbf{r})$ is conservative <strong>if and only if its curl vanishes identically</strong>:
       </p>
       <div class="math-block">
         $$ \nabla \times \mathbf{F} = \mathbf{0} \iff \text{curl}(\mathbf{F}) = \mathbf{0} $$
@@ -998,14 +998,14 @@
         $$ m_P\,\mathbf{a}_0^P = \mathbf{F}_C + \mathbf{F}_N = -\nabla V_0 + \mathbf{F}_N $$
         Taking the scalar product with velocity $\mathbf{v}_0^P$:
         $$ \frac{dT_0}{dt} = -\nabla V_0 \cdot \mathbf{v}_0^P + \mathbf{F}_N \cdot \mathbf{v}_0^P = -\frac{dV_0}{dt} + \mathbf{F}_N \cdot \mathbf{v}_0^P $$
-        Defining the **Total Mechanical Energy $E_0$**:
+        Defining the <strong>Total Mechanical Energy $E_0$</strong>:
       </p>
       <div class="math-block">
         $$ E_0 = T_0 + V_0 \implies \frac{dE_0}{dt} = \mathbf{F}_N \cdot \mathbf{v}_0^P $$
         <div class="math-caption">The rate of change of mechanical energy equals the power exerted by non-conservative forces</div>
       </div>
       <p>
-        If non-conservative forces do zero work ($\mathbf{F}_N \cdot \mathbf{v}_0^P = 0$), then $E_0 = \text{constant}$ (a **first integral of motion**).
+        If non-conservative forces do zero work ($\mathbf{F}_N \cdot \mathbf{v}_0^P = 0$), then $E_0 = \text{constant}$ (a <strong>first integral of motion</strong>).
       </p>
 
       <h3 class="sub-heading">8.1 1D Qualitative Motion Analysis (Slide 20)</h3>
@@ -1130,16 +1130,16 @@
 
       <h3 class="sub-heading">9.1 Equilibrium Configuration (Slide 21)</h3>
       <p>
-        A configuration $\mathbf{r}_*$ is an **equilibrium configuration** if a particle released at $\mathbf{r}_*$ with zero velocity remains permanently at rest:
+        A configuration $\mathbf{r}_*$ is an <strong>equilibrium configuration</strong> if a particle released at $\mathbf{r}_*$ with zero velocity remains permanently at rest:
         $$ \mathbf{a}_0^P = \mathbf{0} \iff \sum \mathbf{F}(\mathbf{r}_*) = \mathbf{0} \iff \nabla V_0(\mathbf{r}_*) = \mathbf{0} $$
         In 1D, equilibrium positions correspond to the critical points of the potential energy function: $\left.\frac{dV_0}{dx}\right|_{x_*} = 0$.
       </p>
 
       <h3 class="sub-heading">9.2 Formal Definition of Stability (Lyapunov Criterion)</h3>
       <p>
-        An equilibrium position $\mathbf{r}_*$ is **stable** if for any arbitrarily chosen position and velocity tolerances $\varepsilon_r, \varepsilon_v > 0$, there exist bounds $\delta_r, \delta_v > 0$ such that if the particle is perturbed initially with $\|\mathbf{r}(0) - \mathbf{r}_*\| < \delta_r$ and $\|\mathbf{v}(0)\| < \delta_v$, then:
+        An equilibrium position $\mathbf{r}_*$ is <strong>stable</strong> if for any arbitrarily chosen position and velocity tolerances $\varepsilon_r, \varepsilon_v > 0$, there exist bounds $\delta_r, \delta_v > 0$ such that if the particle is perturbed initially with $\|\mathbf{r}(0) - \mathbf{r}_*\| < \delta_r$ and $\|\mathbf{v}(0)\| < \delta_v$, then:
         $$ \|\mathbf{r}(t) - \mathbf{r}_*\| < \varepsilon_r \quad \text{and} \quad \|\mathbf{v}(t)\| < \varepsilon_v \quad \forall t \ge 0 $$
-        Otherwise, the equilibrium configuration is **unstable**.
+        Otherwise, the equilibrium configuration is <strong>unstable</strong>.
       </p>
 
       <h3 class="sub-heading">9.3 Second-Derivative Curvature Criterion in 1D (Slide 22)</h3>
@@ -1150,11 +1150,11 @@
       <ul>
         <li>
           <strong>Stable Equilibrium ($\frac{d^2V_0}{dx^2}\big|_{x_*} > 0$):</strong>
-          $x_*$ is a **local minimum** (potential well). The force is restoring ($F \approx -k(x - x_*)$), pushing the particle back towards $x_*$.
+          $x_*$ is a <strong>local minimum</strong> (potential well). The force is restoring ($F \approx -k(x - x_*)$), pushing the particle back towards $x_*$.
         </li>
         <li>
           <strong>Unstable Equilibrium ($\frac{d^2V_0}{dx^2}\big|_{x_*} < 0$):</strong>
-          $x_*$ is a **local maximum** (potential crest). The force is repulsive ($F \approx +k(x - x_*)$), driving the particle away from $x_*$.
+          $x_*$ is a <strong>local maximum</strong> (potential crest). The force is repulsive ($F \approx +k(x - x_*)$), driving the particle away from $x_*$.
         </li>
         <li>
           <strong>Neutral / Indeterminate Equilibrium ($\frac{d^2V_0}{dx^2}\big|_{x_*} = 0$):</strong>
@@ -1234,14 +1234,14 @@
 
         <h4 class="minor-heading" style="color: var(--text-heading); border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">Step 1: Coordinates, Basis, and Kinematic Constraints (Explicit Calculus)</h4>
         <p>
-          <strong>Pedagogical Justification:</strong> The rod maintains a constant distance $R = \ell$ from pivot $O$, constraining the particle to a circular trajectory in the vertical $Oxy$ plane. We define polar coordinates $\{R, \theta\}$ with fixed origin at pivot $O$, equipped with the local orthonormal basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$:
-          $$ \mathbf{e}_R(\theta) = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 $$
-          $$ \mathbf{e}_\theta(\theta) = -\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0 $$
+          <strong>Pedagogical Justification:</strong> The rod maintains a constant distance $R = \ell$ from pivot $O$, constraining the particle to a circular trajectory in the vertical $Oxy$ plane. We define polar coordinates $\{R, \theta\}$ with fixed origin at pivot $O$, equipped with the local orthonormal basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$. The angle $\theta$ is measured from the downward vertical (so $\theta = 0$ is the hanging equilibrium and $\mathbf{e}_R(0) = -\mathbf{j}_0$), counter-clockwise in the $Oxy$ plane:
+          $$ \mathbf{e}_R(\theta) = \sin\theta\,\mathbf{i}_0 - \cos\theta\,\mathbf{j}_0 $$
+          $$ \mathbf{e}_\theta(\theta) = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 $$
         </p>
         <p>
           We differentiate the rotating basis vectors with respect to time applying the <strong>chain rule</strong> ($\frac{d}{dt} = \frac{d\theta}{dt}\frac{\partial}{\partial\theta} = \dot{\theta}\frac{\partial}{\partial\theta}$):
-          $$ \frac{d\mathbf{e}_R}{dt} = \frac{\partial\mathbf{e}_R}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\cos\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\sin\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0)\dot{\theta} = \dot{\theta}\,\mathbf{e}_\theta $$
-          $$ \frac{d\mathbf{e}_\theta}{dt} = \frac{\partial\mathbf{e}_\theta}{\partial\theta}\frac{d\theta}{dt} = \left(-\frac{d(\sin\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\cos\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{j}_0)\dot{\theta} = -\dot{\theta}\,\mathbf{e}_R $$
+          $$ \frac{d\mathbf{e}_R}{dt} = \frac{\partial\mathbf{e}_R}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\sin\theta)}{d\theta}\mathbf{i}_0 - \frac{d(\cos\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)\dot{\theta} = \dot{\theta}\,\mathbf{e}_\theta $$
+          $$ \frac{d\mathbf{e}_\theta}{dt} = \frac{\partial\mathbf{e}_\theta}{\partial\theta}\frac{d\theta}{dt} = \left(\frac{d(\cos\theta)}{d\theta}\mathbf{i}_0 + \frac{d(\sin\theta)}{d\theta}\mathbf{j}_0\right)\dot{\theta} = (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0)\dot{\theta} = -\dot{\theta}\,\mathbf{e}_R $$
         </p>
         <p>
           The rigidity and inextensibility of the rod impose the holonomic constraint:
@@ -1264,13 +1264,13 @@
           Two forces act on particle $P$:
         </p>
         <ol>
-          <li><strong>Rod Tension $\mathbf{T}$:**</strong> Acts radially inwards toward pivot $O$:
+          <li><strong>Rod Tension $\mathbf{T}$:</strong> Acts radially inwards toward pivot $O$:
             $$ \mathbf{T} = -T\,\mathbf{e}_R \quad (T \ge 0) $$
           </li>
-          <li><strong>Weight $\mathbf{W}$:**</strong> Acts vertically downwards ($\mathbf{W} = -mg\mathbf{j}_0$). We project it onto the polar basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$ via orthogonal scalar projections:
+          <li><strong>Weight $\mathbf{W}$:</strong> Acts vertically downwards ($\mathbf{W} = -mg\mathbf{j}_0$). We project it onto the polar basis $\{\mathbf{e}_R, \mathbf{e}_\theta\}$ via orthogonal scalar projections:
             $$ \mathbf{W} = (\mathbf{W}\cdot\mathbf{e}_R)\mathbf{e}_R + (\mathbf{W}\cdot\mathbf{e}_\theta)\mathbf{e}_\theta $$
-            $$ \mathbf{W}\cdot\mathbf{e}_R = -mg\mathbf{j}_0 \cdot (\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0) = mg\cos\theta $$
-            $$ \mathbf{W}\cdot\mathbf{e}_\theta = -mg\mathbf{j}_0 \cdot (-\sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0) = -mg\sin\theta $$
+            $$ \mathbf{W}\cdot\mathbf{e}_R = -mg\mathbf{j}_0 \cdot (\sin\theta\,\mathbf{i}_0 - \cos\theta\,\mathbf{j}_0) = mg\cos\theta $$
+            $$ \mathbf{W}\cdot\mathbf{e}_\theta = -mg\mathbf{j}_0 \cdot (\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0) = -mg\sin\theta $$
             $$ \mathbf{W} = mg\cos\theta\,\mathbf{e}_R - mg\sin\theta\,\mathbf{e}_\theta $$
           </li>
         </ol>

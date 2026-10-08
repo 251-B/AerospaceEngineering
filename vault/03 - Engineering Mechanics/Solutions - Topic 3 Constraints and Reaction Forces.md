@@ -43,7 +43,7 @@ Exhaustive, step-by-step analytical solutions for all 15 solvable problems from 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### 1. Conservation of Angular Momentum about $Oz$
-* **Pedagogical Justification:** The forces acting on the particle are gravity $\mathbf{F}_g = -mg\mathbf{k}$ and the constraint reaction $\mathbf{N}$. Gravity is parallel to $Oz$, so its torque about $O$ has no $z$-component. The normal to the cone $f(r, z) = r - z = 0$ is $\mathbf{n} = \frac{1}{\sqrt{2}}(\mathbf{e}_r - \mathbf{k})$, which lies entirely in the meridian plane $\text{span}\{\mathbf{e}_r, \mathbf{k}\}$ and intersects the $Oz$ axis. Thus, $\mathbf{N}$ exerts zero torque about the vertical axis $Oz$. By the angular momentum theorem (Notes.pdf Section 2.4), $L_z$ is an invariant of motion.
+* **Pedagogical Justification:** The forces acting on the particle are gravity $\mathbf{F}_g = -mg\mathbf{k}$ and the constraint reaction $\mathbf{N}$. Gravity is parallel to $Oz$, so its torque about $O$ has no $z$-component. The normal to the cone $f(r, z) = r - z = 0$ is $\mathbf{n} = \frac{1}{\sqrt{2}}(\mathbf{e}_r - \mathbf{k})$, which lies entirely in the meridian plane $\text{span}\{\mathbf{e}_r, \mathbf{k}\}$ and intersects the $Oz$ axis. Thus, $\mathbf{N}$ exerts zero torque about the vertical axis $Oz$. By the angular momentum theorem (Notes.pdf Section 4.8), $L_z$ is an invariant of motion.
 
 $$ L_z = [\mathbf{r} \times m\mathbf{v}] \cdot \mathbf{k} = m r^2 \dot{\theta} = \text{constant} = C_z $$
 Evaluate $C_z$ at $t = 0$:
@@ -142,7 +142,7 @@ $$ \dot{r}^2\left(1 + \frac{4r^2}{a^2}\right) + r^2\left(\frac{a v_0}{r^2}\right
 $$ \dot{r}^2\left(1 + \frac{4r^2}{a^2}\right) + \frac{a^2 v_0^2}{r^2} + \frac{2gr^2}{a} = v_0^2 + 2ga $$
 Grouping terms:
 $$ \dot{r}^2\left(1 + \frac{4r^2}{a^2}\right) + r^2\left(\dot{\theta}^2 + \frac{2g}{a}\right) = v_0^2 + 2ga $$
-This reproduces the exact quadrature formula given in `Problems.pdf` page 73.
+Compare with the quadrature formula in the official solution key (Problems.pdf, Solution keys section).
 
 #### 3. Reduction to Quadratures
 Isolating $\dot{r}$:
@@ -179,7 +179,7 @@ $$ u_2 = \frac{a v_0^2}{2g} \implies r_2 = v_0\sqrt{\frac{a}{2g}} $$
   $r_2 = v_0\sqrt{\frac{a}{2g}} > a$.
   $$ r_{min} = a, \qquad r_{max} = v_0\sqrt{\frac{a}{2g}} $$
   The particle climbs up the paraboloid to $r_{max}$, then falls back to $a$.
-* Matches `Problems.pdf` page 73 verbatim!
+* Compare with the official solution key (Problems.pdf, Solution keys section).
 
 ---
 
@@ -589,7 +589,7 @@ $$ N = mg\sin\alpha + m\cos\alpha\left[\frac{g(1 - \cos\alpha)}{\sin\alpha}\righ
    $$ V_{total} = mg z_1 + mg z_2 = -mg\xi\cos\alpha - mg(\ell - \xi) = mg\xi(1 - \cos\alpha) - mg\ell $$
    Conserved total energy $E = T_{total} + V_{total}$:
    $$ 2\dot{\xi}^2 + \xi^2\dot{\theta}^2\sin^2\alpha + 2g\xi(1 - \cos\alpha) = C_2 $$
-   Matches `Problems.pdf` page 74 verbatim!
+   Compare with the official solution key (Problems.pdf, Solution keys section).
 
 ### Phase 4: Physical Interpretation
 * The effective potential $V_{eff}(\xi) = \frac{m C_1^2\sin^2\alpha}{2\xi^2} + mg\xi(1 - \cos\alpha)$ exhibits a stable minimum corresponding to the circular parallel orbit.
@@ -639,12 +639,12 @@ For $\omega \neq 0$, the constraint is **rheonomic** (explicitly time-dependent)
 Projecting along the tangent $\mathbf{u}_t$ and normal $\mathbf{u}_r$:
 $$ a\left[(3\pi - \omega t + \phi)\ddot{\phi} - 2\omega\dot{\phi} + \dot{\phi}^2\right] = -g\sin\phi $$
 $$ T = m a(3\pi - \omega t + \phi)\dot{\phi}^2 + mg\cos\phi $$
-Matches `Problems.pdf` page 75 verbatim!
+Compare with the official solution key (Problems.pdf, Solution keys section).
 
 #### Part (f): Case $\omega = 0$ (Static Spool)
 When $\omega = 0$, the constraint is scleronomic and the string does zero work. Mechanical energy is strictly conserved:
 $$ E = \frac{1}{2}m [a(3\pi + \phi)]^2 \dot{\phi}^2 + mg\left[a\sin\phi - a(3\pi + \phi)\cos\phi\right] = \text{constant} $$
-Matches `Problems.pdf` page 75 verbatim!
+Compare with the official solution key (Problems.pdf, Solution keys section).
 
 ### Phase 4: Physical Interpretation
 * The system behaves as an involute pendulum whose effective string length increases or decreases linearly as it unwinds.
@@ -673,7 +673,7 @@ Spring force on $P$ and $Q$:
 $$ \mathbf{F}_{S,P} = -\mathbf{F}_{S,Q} = k\mathbf{PQ} = k(\mathbf{r}_Q - \mathbf{r}_P) $$
 Expressing $\mathbf{r}_P$ and $\mathbf{r}_Q$ via tangency points:
 $$ \mathbf{F}_{S,P} = k R(\mathbf{e}_B - \mathbf{e}_A) + k[L - \xi - R(\psi - \theta)]\mathbf{e}_\psi + k\xi\mathbf{e}_\theta $$
-Matches `Problems.pdf` page 75 verbatim!
+Compare with the official solution key (Problems.pdf, Solution keys section).
 
 #### Part (d)-(f): Symmetric Configurations and Small-Angle Oscillations
 For symmetric configurations about $Oy$: $\psi = \pi - \theta$ and $\xi_P = \xi_Q$.
@@ -712,7 +712,7 @@ The attractive force exerted by $Q$ on $P$ is:
 $$ \mathbf{F}_P = k(\mathbf{r}_Q - \mathbf{r}_P) = 2(\mathbf{r}_Q - \mathbf{r}_P) $$
 Substitute $\mathbf{r}_Q = \xi\mathbf{i}_0 + \eta\mathbf{j}_0$ and $\mathbf{r}_P$:
 $$ \mathbf{F}_P = 2[\xi - (2 + \cos\phi)\sin\theta]\mathbf{i}_0 + 2[\eta - \sin\phi]\mathbf{j}_0 - 2[4 + (2 + \cos\phi)\cos\theta]\mathbf{k}_0 $$
-Matches `Problems.pdf` page 75 verbatim!
+Compare with the official solution key (Problems.pdf, Solution keys section).
 
 #### Part (e)-(g): Scalar Conservation Law & Reachability of Torus Summit
 * Both gravity and the mutual attractive spring force are conservative. The normal constraint forces do zero work.
@@ -745,8 +745,9 @@ Matches `Problems.pdf` page 75 verbatim!
 * Frame $S_0: \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$. Plate in horizontal plane $z_0 = 0$.
 * Distance from $O$ to edge point $Q$: $r_Q = \frac{d}{\cos\theta}$.
 * Hanging segment length: $\rho = \ell - r_Q = \ell - \frac{d}{\cos\theta}$.
-* Unit vector $\mathbf{e}_{QP}$ pointing from $Q$ to $P$:
-  $$ \mathbf{e}_{QP} = \sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0 $$
+* **Geometry assumption (read from the figure, Problems.pdf PDF page 27).** The plate edge is the straight line $x_0 = d$, parallel to $\mathbf{j}_0$ (so $Ox_0$ is perpendicular to the edge); $\theta$ is the angle between $Ox_0$ and $OQ$, and $\phi$ is the angle between the vertical and the line through $P$ perpendicular to the edge, which lies in a plane normal to the edge. The statement text alone does not fix the direction of the edge, so this reading relies on the figure.
+* Unit vector $\mathbf{e}_{QP}$ pointing from $Q$ to $P$. The edge is frictionless, so the two string segments make equal angles with it (the hint of the statement): the unit vector from $Q$ to $O$ is $\mathbf{e}_{QO} = -(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$, hence $\mathbf{e}_{QP}\cdot\mathbf{j}_0 = -\mathbf{e}_{QO}\cdot\mathbf{j}_0 = \sin\theta$. The remaining part of $\mathbf{e}_{QP}$ lies in the plane normal to the edge, along $\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$, with magnitude $\sqrt{1 - \sin^2\theta} = \cos\theta$:
+  $$ \mathbf{e}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0, \qquad |\mathbf{e}_{QP}|^2 = \cos^2\theta(\sin^2\phi + \cos^2\phi) + \sin^2\theta = 1 $$
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -756,7 +757,7 @@ $$ \mathbf{r}_Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0 $$
 Velocity of $Q$:
 $$ \mathbf{v}_Q = \frac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0 $$
 Position of particle $P$:
-$$ \mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP} = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0 + \left(\ell - \frac{d}{\cos\theta}\right)(\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0) $$
+$$ \mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP} = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0 + \left(\ell - \frac{d}{\cos\theta}\right)(\cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0) $$
 Velocity $\mathbf{v}_P$ is found by differentiating $\mathbf{r}_P(t)$ with respect to time.
 
 #### Part (d): Forces on $P$
@@ -767,20 +768,19 @@ Velocity $\mathbf{v}_P$ is found by differentiating $\mathbf{r}_P(t)$ with respe
 Projecting Newton's second law along the independent tangent directions yields two coupled second-order ODEs for $\theta(t)$ and $\phi(t)$.
 
 #### Part (f): Work Done by Tension on $P$
-* **Pedagogical Justification:** The string is inextensible, and the contact point $Q$ moves exclusively along the plate edge (direction $\mathbf{j}_0$).
-Notice that:
-$$ \mathbf{e}_{QP} \cdot \mathbf{v}_Q = (\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0) \cdot \left(\frac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0\right) = 0 $$
-Furthermore, the rate of change of the hanging length is $\dot{\rho} = -\frac{d\dot{\theta}\sin\theta}{\cos^2\theta}$.
-Computing the dot product of tension and particle velocity:
-$$ \mathbf{T} \cdot \mathbf{v}_P = -T \mathbf{e}_{QP} \cdot \mathbf{v}_P = 0 $$
-The tension force is strictly orthogonal to the relative motion at the edge, so **tension does no work** on $P$ ($W_T = 0$).
-Matches `Problems.pdf` page 76 verbatim!
+* **Pedagogical Justification:** The tension acts along $-\mathbf{e}_{QP}$ on $P$, so its power is $-T\,\mathbf{e}_{QP}\cdot\mathbf{v}_P$. The string is inextensible, so the hanging length $\rho = \ell - d/\cos\theta$ changes only because $Q$ slides along the edge (direction $\mathbf{j}_0$).
+Differentiate $\mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP}$ (product rule): $\mathbf{v}_P = \mathbf{v}_Q + \dot{\rho}\,\mathbf{e}_{QP} + \rho\,\dot{\mathbf{e}}_{QP}$. Since $|\mathbf{e}_{QP}| = 1$, $\mathbf{e}_{QP}\cdot\dot{\mathbf{e}}_{QP} = \tfrac{1}{2}\frac{d}{dt}|\mathbf{e}_{QP}|^2 = 0$, so
+$$ \mathbf{e}_{QP}\cdot\mathbf{v}_P = \mathbf{e}_{QP}\cdot\mathbf{v}_Q + \dot{\rho} $$
+$\mathbf{v}_Q = \dfrac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0$ has only a $\mathbf{j}_0$ component, so $\mathbf{e}_{QP}\cdot\mathbf{v}_Q = \sin\theta\,\dfrac{d\dot{\theta}}{\cos^2\theta}$. With the chain rule $\frac{d}{dt}\left(\frac{1}{\cos\theta}\right) = \frac{\sin\theta}{\cos^2\theta}\dot{\theta}$, the rate of change of the hanging length is $\dot{\rho} = -\dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta}$. Therefore
+$$ \mathbf{e}_{QP}\cdot\mathbf{v}_P = \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} - \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} = 0 \implies \mathbf{T}\cdot\mathbf{v}_P = -T\,\mathbf{e}_{QP}\cdot\mathbf{v}_P = 0 $$
+The tension therefore does no work on $P$ ($W_T = 0$), in agreement with the official key (Problems.pdf, PDF page 76).
 
 #### Part (g): Mechanical Energy Conservation
-Since the plate is stationary (scleronomic constraint) and tension does zero work, mechanical energy is **strictly conserved**:
-$$ E = \frac{1}{2}m |\mathbf{v}_P|^2 - mg\left(\ell - \frac{d}{\cos\theta}\right)\cos\phi = \text{constant} $$
-Evaluating at $t = 0$:
-$$ E_0 = \frac{1}{2}m(\ell g) - mg\left(\ell - \frac{d}{\cos(\pi/3)}\right)\cos(\pi/3) = \frac{1}{2}mg\ell - mg(\ell - 2d)\frac{1}{2} = mgd $$
+Since the plate is stationary (scleronomic constraint), the tension does no work (part (f)) and gravity is conservative, so $E$ is conserved. With $z_0$ upwards, $z_P = -\rho\cos\theta\cos\phi = -(\ell\cos\theta - d)\cos\phi$ and the gravitational potential energy is $+mgz_P$:
+$$ E = \frac{1}{2}m|\mathbf{v}_P|^2 + mgz_P = \frac{1}{2}m|\mathbf{v}_P|^2 - mg(\ell\cos\theta - d)\cos\phi = \text{constant} $$
+At $t = 0$: $|\mathbf{v}_P|^2 = \ell g$, $\cos\theta = \cos\phi = \tfrac{1}{2}$, so
+$$ E_0 = \frac{1}{2}m\ell g - mg\left(\frac{\ell}{2} - d\right)\frac{1}{2} = \frac{mg\ell}{4} + \frac{mgd}{2} $$
+Parts (d) and (e) are only outlined here: the explicit coupled differential equations for $\theta$ and $\phi$ are not derived in this note.
 
 ### Phase 4: Physical Interpretation
 * The system acts as a variable-length spherical pendulum where string length changes deterministically as $Q$ slides along the boundary.
@@ -843,19 +843,13 @@ In the physical domain $r \in [a, 2a]$, $(x - 1) \ge 0$, $(2 - x) \ge 0$, and $(
 The particle comes to rest at $r = a$ and $r = 2a$, oscillating periodically between them. $\blacksquare$
 
 #### Part (e): Cord Tension $T(r)$
-Applying Newton's second law to $P_2$:
-$$ m\ddot{z}_2 = T - mg \implies m(-\ddot{r}) = T - mg \implies T = m(g - \ddot{r}) $$
+Applying Newton's second law to $P_2$ with the vertical axis pointing up: the depth below the hole is $h = 2a - r$, so $z_2 = -h = r - 2a$ and $\ddot{z}_2 = \ddot{r}$; the tension acts upward and the weight downward:
+$$ m\ddot{z}_2 = T - mg \implies m\ddot{r} = T - mg \implies T = m(g + \ddot{r}) $$
 To find $\ddot{r}$, differentiate the energy equation $\dot{r}^2 = \frac{7}{3}ga - gr - \frac{4ga^3}{3r^2}$:
 $$ 2\dot{r}\ddot{r} = -g\dot{r} + \frac{8ga^3}{3r^3}\dot{r} \implies \ddot{r} = -\frac{1}{2}g + \frac{4ga^3}{3r^3} $$
 Substitute into $T$:
-$$ T = m\left[ g - \left(-\frac{1}{2}g + \frac{4ga^3}{3r^3}\right) \right] = m\left( \frac{3}{2}g - \frac{4ga^3}{3r^3} \right) $$
-Wait, let's check the sign convention of $z_2$:
-If depth is $h = 2a - r$, $z_2 = -h = r - 2a \implies \ddot{z}_2 = \ddot{r}$.
-Newton's law on $P_2$ with upward vertical axis:
-$$ m\ddot{z}_2 = T - mg \implies m\ddot{r} = T - mg \implies T = m(g + \ddot{r}) $$
-Substitute $\ddot{r} = -\frac{1}{2}g + \frac{4ga^3}{3r^3}$:
 $$ T = m\left[ g + \left(-\frac{1}{2}g + \frac{4ga^3}{3r^3}\right) \right] = mg\left( \frac{1}{2} + \frac{4a^3}{3r^3} \right) $$
-Matches the problem statement formula verbatim! $\blacksquare$
+This is the formula requested in the problem statement. $\blacksquare$
 
 #### Part (f): Equations with Friction Coefficient $\mu$
 On the rough horizontal plane, normal force is $N_1 = mg$.

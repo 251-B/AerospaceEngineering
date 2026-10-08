@@ -704,7 +704,7 @@
       <div class="callout callout-info">
         <div class="callout-title">
           <span>🌐</span>
-          <span>Principio of Observer Invariance</span>
+          <span>Principle of Observer Invariance</span>
         </div>
         <p style="margin-bottom: 0;">
           <strong>Genuine physical quantities are intrinsic to nature and do not depend on the mathematical coordinate basis chosen to describe them.</strong> If the freestream wind velocity is $250\text{ m/s}$ towards the northeast, that physical vector is unique. Changing from a Cartesian basis to a cylindrical basis changes the numerical triad of components, but the physical geometric vector and its magnitude remain strictly invariant.
@@ -916,7 +916,7 @@
         $$ \left.\frac{d\mathbf{b}}{dt}\right|_0 \neq \left.\frac{d\mathbf{b}}{dt}\right|_1 $$
         If frame $S_1$ rotates with angular velocity $\boldsymbol{\omega}_{10}$ relative to the fixed frame $S_0$, the basis vectors of $S_1$ vary in time when viewed from $S_0$:
         $$ \left.\frac{d\mathbf{i}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10} \times \mathbf{i}_1, \quad \left.\frac{d\mathbf{j}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10} \times \mathbf{j}_1, \quad \left.\frac{d\mathbf{k}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10} \times \mathbf{k}_1 $$
-        Applying the product rule to $\mathbf{A} = A_{x1}\mathbf{i}_1 + A_{y1}\mathbf{j}_1 + A_{z1}\mathbf{k}_1$, we obtain the **Kinematic Transport Formula (Poisson's Theorem)**:
+        Applying the product rule to $\mathbf{A} = A_{x1}\mathbf{i}_1 + A_{y1}\mathbf{j}_1 + A_{z1}\mathbf{k}_1$, we obtain the <strong>Kinematic Transport Formula (Poisson's Theorem)</strong>:
       </p>
       <div class="math-block">
         $$ \left.\frac{d\mathbf{A}}{dt}\right|_0 = \left.\frac{d\mathbf{A}}{dt}\right|_1 + \boldsymbol{\omega}_{10} \times \mathbf{A} $$
@@ -1043,7 +1043,7 @@
 
       <h3 class="sub-heading">6.2 Spherical Coordinates $\{r, \theta, \phi\}$</h3>
       <p>
-        Described by the radial distance $r$, azimuthal longitude $\theta$, and the **latitude $\phi$** (the angle measured relative to the equatorial plane $Oxy$, with $\phi \in [-\pi/2, \pi/2]$):
+        Described by the radial distance $r$, azimuthal longitude $\theta$, and the <strong>latitude $\phi$</strong> (the angle measured relative to the equatorial plane $Oxy$, with $\phi \in [-\pi/2, \pi/2]$):
       </p>
       <div class="math-block">
         $$ \begin{cases} x = r\cos\phi\cos\theta \\ y = r\cos\phi\sin\theta \\ z = r\sin\phi \end{cases} \iff \begin{cases} r = \sqrt{x^2+y^2+z^2} \\ \theta = \arctan(y/x) \\ \phi = \arctan\left(\frac{z}{\sqrt{x^2+y^2}}\right) \end{cases} $$
@@ -1054,7 +1054,7 @@
         $$ \begin{cases}
         \mathbf{e}_r = \cos\phi\cos\theta\,\mathbf{i} + \cos\phi\sin\theta\,\mathbf{j} + \sin\phi\,\mathbf{k} \\
         \mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j} \\
-        \mathbf{e}_phi = -\sin\phi\cos\theta\,\mathbf{i} - \sin\phi\sin\theta\,\mathbf{j} + \cos\phi\,\mathbf{k}
+        \mathbf{e}_\phi = -\sin\phi\cos\theta\,\mathbf{i} - \sin\phi\sin\theta\,\mathbf{j} + \cos\phi\,\mathbf{k}
         \end{cases} $$
         $$ \dot{\mathbf{e}}_r = \dot{\theta}\cos\phi\,\mathbf{e}_\theta + \dot{\phi}\,\mathbf{e}_\phi, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\cos\phi\,\mathbf{e}_r + \dot{\theta}\sin\phi\,\mathbf{e}_\phi, \quad \dot{\mathbf{e}}_\phi = -\dot{\phi}\,\mathbf{e}_r - \dot{\theta}\sin\phi\,\mathbf{e}_\theta $$
       </div>

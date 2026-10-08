@@ -421,7 +421,9 @@ Furthermore, eliminating the parameter $t$ between $x(t)$ and $y(t)$:
 $$ \left(\frac{x}{\sqrt{3}g/k^2}\right)^2 + \left(\frac{y}{2g/k^2}\right)^2 = \cos^2(kt) + \sin^2(kt) = 1 $$
 The projection of the trajectory onto the $Oxy$ plane is an **ellipse** of semi-axes:
 $$ a_x = \frac{\sqrt{3}g}{k^2}, \qquad b_y = \frac{2g}{k^2} $$
-Because the intersection of an elliptic cylinder with an oblique plane is an ellipse, the **3D trajectory of particle $M$ is a planar ellipse** contained in the inclined plane $x - \sqrt{3}z = \frac{\sqrt{3}g}{k^2}$, centered at $(0, 0, -g/k^2)$.
+but the true 3D trajectory is a **circle**. Indeed,
+$$ x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \left(\frac{g}{k^2}\right)^2\left[3\cos^2(kt) + 4\sin^2(kt) + \cos^2(kt)\right] = \frac{4g^2}{k^4}, $$
+so the path lies on a sphere of radius $2g/k^2$ centred at $(0, 0, -g/k^2)$. The plane $x - \sqrt{3}z = \sqrt{3}g/k^2$ passes through this centre (distance $|0 + \sqrt{3}g/k^2 - \sqrt{3}g/k^2|/2 = 0$), hence the path is a great circle of radius $R = 2g/k^2$, run at angular rate $k$. The plane contains the direction $(\sqrt{3}, 0, 1)$, so it is inclined $30^\circ$ to the horizontal (official key: Problems.pdf, PDF page 73).
 
 #### Step 6: Velocity Vector as a Function of Time
 Differentiating $\mathbf{r}(t)$:

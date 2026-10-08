@@ -1,4 +1,14 @@
-# 🏗️ Mechanics Applied to Aerospace Engineering — MOC (Map of Content)
+---
+subject: Engineering Mechanics
+moc: true
+tags:
+  - moc
+  - engineering-mechanics
+  - grado-aeroespacial
+  - uc3m
+---
+
+# 🏗️ Engineering Mechanics (Mechanics Applied to Aerospace Engineering) — MOC (Map of Content)
 
 > **Official Course:** Mechanics Applied to Aerospace Engineering (MAAE) — UC3M Code: 251-14165  
 > **Degree:** Bachelor in Aerospace Engineering (2nd Year)  
@@ -9,59 +19,51 @@
 ---
 
 ## 📌 Course Overview
-The *Mechanics Applied to Aerospace Engineering* course provides the core physical and mathematical foundation for analyzing the dynamics of atmospheric and space flight vehicles. The curriculum is divided into three major parts:
+The *Mechanics Applied to Aerospace Engineering* course provides the core physical and mathematical foundation for analyzing the dynamics of atmospheric and space flight vehicles. The units below follow the folders of the official course material in `sources/cuatrimestre-1/03-engineering-mechanics/` (unit-01 to unit-08):
 
-1. **Mechanics of the Point Particle:** Kinematics, relative motion, Newtonian dynamics, harmonic oscillators, and orbital mechanics (Kepler's problem).
-2. **Mechanics of the Rigid Body:** Kinematics with Euler angles, geometry of masses and inertia tensor, dynamics via Euler's equations, rolling motion, and torque-free motion (Poinsot construction).
-3. **Atmospheric Flight Mechanics:** Aerodynamic force modeling, aircraft point-particle performance (level flight, climbing, gliding, turns, looping), and integral figures of merit (Breguet formulas for range and endurance).
+1. **Mechanics of the Point Particle (units 1-5):** kinematics, Newtonian dynamics, constraints and reaction forces, angular momentum and central forces, and relative motion.
+2. **Mechanics of Systems and Rigid Bodies (units 6-8):** particle systems, rigid-body kinematics, and rigid-body dynamics.
 
 ---
 
 ## 📑 Official Syllabus & Learning Units (Ground Truth)
 
+Entries shown as plain text with "(planned)" do not have a note in the vault yet.
+
 ### 🚀 Part I: Mechanics of the Point Particle
-* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]] *(Fully Developed)*
+* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]] *(unit-01-particle-kinematics; Fully Developed)*
   * [[Concept - Mechanical Modeling and Physical Quantities|Concept: Mechanical Modeling and Physical Quantities (Scalars, Vectors, Tensors)]]
   * [[Concept - Vector Bases Rotation Matrices and Poisson Theorem|Concept: Vector Bases, Rotation Matrices, and Poisson's Theorem]]
   * [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Cartesian, Cylindrical, and Spherical Coordinate Systems]]
   * [[Concept - Intrinsic Frenet-Serret Frame and Intrinsic Acceleration|Concept: Intrinsic Frenet-Serret Frame and Intrinsic Acceleration]]
   * [[Concept - Degrees of Freedom Generalized Coordinates and Constraints|Concept: Degrees of Freedom, Generalized Coordinates, and Constraints]]
-* [[Topic 2 - Point Particle Dynamics|Topic 2: Point Particle Dynamics]] *(Fully Developed)*
+* [[Topic 2 - Point Particle Dynamics|Topic 2: Point Particle Dynamics]] *(unit-02-particle-dynamics; Fully Developed)*
   * [[Concept - Newton Laws and Equations of Motion|Concept: Newton's Laws and Equations of Motion]]
   * [[Concept - Work Power and Kinetic Energy Theorem|Concept: Work, Power, and the Kinetic Energy Theorem]]
   * [[Concept - Conservative Forces and Potential Energy|Concept: Conservative Forces and Potential Energy]]
   * [[Concept - Conservation of Mechanical Energy and Energy Diagrams|Concept: Conservation of Mechanical Energy and Energy Diagrams]]
   * [[Concept - Equilibrium Configurations and Stability Criteria|Concept: Equilibrium Configurations and Stability Criteria]]
-  * [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization|Concept: The Simple Pendulum — Nonlinear Dynamics and Linearization]]
-* [[Topic 3 - Constraints and Reaction Forces|Topic 3: Constraints and Reaction Forces]] *(Fully Developed)*
+  * [[Concept - The Simple Pendulum Nonlinear Dynamics and Linearization|Concept: The Simple Pendulum - Nonlinear Dynamics and Linearization]]
+* [[Topic 3 - Constraints and Reaction Forces|Topic 3: Constraints and Reaction Forces]] *(unit-03-constraints-reactions; Fully Developed)*
   * [[Concept - Classification of Constraints Holonomic Rheonomic and Unilateral|Concept: Classification of Constraints (Holonomic, Rheonomic, Unilateral)]]
   * [[Concept - Normal and Tangent Subspaces for Surfaces and Curves|Concept: Normal and Tangent Subspaces for Surfaces and Curves]]
   * [[Concept - Constraint and Reaction Forces Dynamical Decoupling|Concept: Constraint and Reaction Forces Dynamical Decoupling]]
   * [[Concept - Work and Power of Constraint Forces and Energy Preservation|Concept: Work and Power of Constraint Forces and Energy Preservation]]
   * [[Concept - Coulomb Friction as Applied Force and Tangent Reaction|Concept: Coulomb Friction as Applied Force and Tangent Reaction]]
   * [[Concept - Constraints on Multi-Particle Systems and Pulleys|Concept: Constraints on Multi-Particle Systems and Pulleys]]
-* [[Topic 4 - Angular Momentum and Central Forces|Topic 4: Angular Momentum and Central Forces (Kepler's Problem)]] *(Current Target)*
+* [[Topic 4 - Angular Momentum and Central Forces|Topic 4: Angular Momentum and Central Forces (Kepler's Problem)]] *(unit-04-angular-momentum-central-forces; Current Target)*
   * [[Concept - Angular Momentum Vector and Torque of Forces|Concept: Angular Momentum Vector and Torque of Forces]]
   * [[Concept - Differential Equation of Angular Momentum with Moving Origins|Concept: Differential Equation of Angular Momentum with Moving Origins]]
   * [[Concept - Conservation Laws and Planar Character of Central Force Fields|Concept: Conservation Laws and Planar Character of Central Force Fields]]
   * [[Concept - Kepler Laws and Barycentric Two-Body Reduction|Concept: Kepler's Laws and Barycentric Two-Body Reduction]]
   * [[Concept - Binet Equation and Conic Section Trajectories|Concept: Binet Equation and Conic Section Trajectories]]
   * [[Concept - Vis-Viva Energy Integral and Orbital Velocities|Concept: Vis-Viva Energy Integral and Characteristic Orbital Velocities]]
-* [[Topic 5 - Relative Motion and Non-Inertial Dynamics|Topic 5: Relative Motion and Non-Inertial Dynamics]] *(Upcoming Target)*
+* Topic 5: Relative Motion and Non-Inertial Dynamics *(unit-05-relative-motion; planned)*
 
-### 🛰️ Part II: Mechanics of the Rigid Body
-* [[Topic 6 - Kinematics of Rigid Bodies and Euler Angles|Topic 6: Rigid Body Kinematics, Velocity Fields, and Euler Angles]]
-* [[Topic 7 - Geometry of Masses and Inertia Tensor|Topic 7: Mass Distributions, Inertia Tensor, and Steiner's Theorem]]
-* [[Topic 8 - Linear Momentum Angular Momentum and Kinetic Energy|Topic 8: Linear Momentum, Angular Momentum, and Kinetic Energy]]
-* [[Topic 9 - Rigid Body Dynamics and Euler's Equations|Topic 9: Rigid Body Dynamics and Euler's Equations]]
-* [[Topic 10 - Constraints Rolling Motion and Systems of Rigid Bodies|Topic 10: Constraints, Rolling Without Slipping, and Multi-Body Systems]]
-* [[Topic 11 - The Newtonian Mechanics Approach II|Topic 11: The Newtonian Mechanics Approach II (Multi-Body Systems)]]
-* [[Topic 12 - Torque-Free Motion and Poinsot Construction|Topic 12: Torque-Free Motion, Poinsot Construction, and Dzhanibekov Effect]]
-
-### ✈️ Part III: Atmospheric Flight Mechanics
-* [[Topic 13 - Elements of Atmospheric Flight and Aerodynamic Forces|Topic 13: Atmospheric Flight Elements and Aerodynamic Forces (Lift, Drag, Polar)]]
-* [[Topic 14 - Aircraft Motion as a Point Particle|Topic 14: Aircraft Point-Particle Flight Performance (Cruise, Climb, Gliding, Turns, Loop)]]
-* [[Topic 15 - Integral Figures of Merit and Breguet Formulas|Topic 15: Integral Performance and Breguet Formulas (Range & Endurance)]]
+### 🛰️ Part II: Particle Systems and Rigid Bodies
+* Topic 6: Particle Systems *(unit-06-particle-systems; planned)*
+* Topic 7: Rigid Body Kinematics and Euler Angles *(unit-07-rigid-body-kinematics; planned)*
+* Topic 8: Rigid Body Dynamics *(unit-08-rigid-body-dynamics; planned)*
 
 ---
 
