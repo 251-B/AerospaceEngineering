@@ -92,14 +92,16 @@ $$\frac{N_{\text{vac}}}{N_{\text{Mg}}} = \frac{7.5}{85} = \mathbf{0.088235\text{
 
 * **Cálculo de la Variación Porcentual de Densidad:**
   $$\frac{\Delta \rho}{\rho_0} = \frac{\bar{M}_{\text{real}} - \bar{M}_{\text{ideal}}}{\bar{M}_{\text{ideal}}} \times 100\% = \frac{38.9865 - 40.31}{40.31} \times 100\%$$
-  $$\frac{\Delta \rho}{\rho_0} = \frac{-1.3235}{40.31} \times 100\% = \mathbf{-3.28\%} \approx \mathbf{-3\%}$$
-  *(Coincidencia exacta con la solución oficial de $-3\%$).*
+  $$\frac{\Delta \rho}{\rho_0} = \frac{-1.3235}{40.31} \times 100\% = \mathbf{-3.28\%} \approx \mathbf{-3.3\%}$$
+
+> [!warning] Discrepancy with the official solution
+> The official key states $-3\%$. The computed value is $-3.28\%$; the key agrees only to one significant figure, so it is quoted as $-3.3\%$ rather than forced to $-3\%$.
 
 ---
 
 ## 🎯 4. Fase 4: Interpretación Física y Verificación
 
-* **Origen de la Pérdida de Densidad:** A pesar de que el catión $\text{Al}^{3+}$ ($M_{\text{Al}} = 26.98\text{ g/mol}$) es ligeramente más pesado que el $\text{Mg}^{2+}$ ($M_{\text{Mg}} = 24.31\text{ g/mol}$), la obligación termodinámica de dejar desocupado $1$ de cada $3$ sitios catiónicos como una vacante neta para neutralizar la carga extra genera un déficit másico global, provocando una **reducción neta del 3% en la densidad volumétrica** del material cerámico.
+* **Origen de la Pérdida de Densidad:** A pesar de que el catión $\text{Al}^{3+}$ ($M_{\text{Al}} = 26.98\text{ g/mol}$) es ligeramente más pesado que el $\text{Mg}^{2+}$ ($M_{\text{Mg}} = 24.31\text{ g/mol}$), la obligación de neutralizar la carga extra deja $7.5$ de los $107.5$ sitios catiónicos ($7\%$) como vacantes, lo que genera un déficit másico global y una **reducción neta de $\approx 3.3\%$ en la densidad volumétrica** del material cerámico.
 
 ---
 *Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

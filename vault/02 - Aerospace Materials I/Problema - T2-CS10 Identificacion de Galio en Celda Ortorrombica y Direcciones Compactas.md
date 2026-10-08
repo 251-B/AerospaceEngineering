@@ -43,7 +43,7 @@ tags:
 
 1. **Parámetros de Red ($a, b, c$):**
    * $a = 3.24\text{ \AA}$
-   * $b = 3.65\text{ \AA}$ (verificación: $\sqrt{3.24^2 + 3.65^2} = \sqrt{10.50 + 13.32} = \sqrt{23.82} = 4.88\text{ \AA}$, coincidencia exacta).
+   * $b = 3.65\text{ \AA}$ (verificación: $\sqrt{3.24^2 + 3.65^2} = \sqrt{10.50 + 13.32} = \sqrt{23.82} = 4.881\text{ \AA}$, in agreement with the $4.88\text{ \AA}$ read from the figure).
    * $c = 3.32\text{ \AA}$
    * Como $a \neq b \neq c$ y los planos forman ángulos de $90^\circ$, el sistema es **Ortorrómbico** [Session 3 Slide 12].
 2. **Tipo de Centrado de Celda (Bravais) [Session 3 Slide 9, 12]:**
@@ -67,12 +67,15 @@ tags:
 
 ### 2. Apartado b: Cálculo de la Masa Atómica e Identificación
 * **Volumen de la celda unitaria:**
-  $$V_C = a \cdot b \cdot c = (3.24 \times 10^{-8}\text{ cm}) \times (3.65 \times 10^{-8}\text{ cm}) \times (3.32 \times 10^{-8}\text{ cm}) = 3.926 \times 10^{-23}\text{ cm}^3$$
+  $$V_C = a \cdot b \cdot c = (3.24 \times 10^{-8}\text{ cm}) \times (3.65 \times 10^{-8}\text{ cm}) \times (3.32 \times 10^{-8}\text{ cm}) = 3.9262 \times 10^{-23}\text{ cm}^3$$
 * **Masa atómica ($M$):**
-  $$M = \frac{\rho \cdot V_C \cdot N_A}{n} = \frac{(5.9\text{ g/cm}^3) \times (3.926 \times 10^{-23}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})}{2}$$
-  $$M = \frac{2.3163 \times 10^{-22} \times 6.022 \times 10^{23}}{2} = \frac{139.49}{2} = \mathbf{69.745\text{ g/mol}} \approx \mathbf{69.76\text{ g/mol}}$$
+  $$M = \frac{\rho \cdot V_C \cdot N_A}{n} = \frac{(5.9\text{ g/cm}^3) \times (3.9262 \times 10^{-23}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})}{2}$$
+  $$M = \frac{2.3165 \times 10^{-22} \times 6.022 \times 10^{23}}{2} = \frac{139.50}{2} = \mathbf{69.75\text{ g/mol}}$$
+
+> [!warning] Discrepancy with the official solution
+> The official key gives $69.76\text{ g/mol}$. With the $N_A = 6.022\times10^{23}\text{ mol}^{-1}$ used throughout this page the result is $69.75\text{ g/mol}$; the key's value follows from $N_A = 6.023\times10^{23}$ (the value supplied in Problem 5 of the same sheet), $0.015\%$ higher. The difference is a constant-rounding effect and no data were altered. Both identify gallium ($69.72\text{ g/mol}$).
 * **Identificación del Metal:**
-  El elemento químico con masa molar de $69.72\text{--}69.76\text{ g/mol}$ y densidad $\approx 5.9\text{ g/cm}^3$ es el **Galio ($\text{Ga}$)**.
+  El elemento químico con masa molar de $\approx 69.7\text{ g/mol}$ y densidad $\approx 5.9\text{ g/cm}^3$ es el **Galio ($\text{Ga}$)**.
 
 ---
 

@@ -54,26 +54,26 @@ tags:
 
 ### 1. Cálculo de la Densidad Ideal Teórica ($\rho_{\text{ideal}}$):
 * Volumen de la celda unitaria:
-  $$V_C = a^3 = (3.8902 \times 10^{-8}\text{ cm})^3 = 5.88722 \times 10^{-23}\text{ cm}^3$$
+  $$V_C = a^3 = (3.8902 \times 10^{-8}\text{ cm})^3 = 5.88729 \times 10^{-23}\text{ cm}^3$$
 * Masa teórica de la celda unitaria perfecta:
   $$m_{\text{celda}} = \frac{4 \times 106.4\text{ g/mol}}{6.022 \times 10^{23}\text{ mol}^{-1}} = \frac{425.6}{6.022 \times 10^{23}} = 7.06742 \times 10^{-22}\text{ g}$$
 * Densidad teórica:
-  $$\rho_{\text{ideal}} = \frac{7.06742 \times 10^{-22}\text{ g}}{5.88722 \times 10^{-23}\text{ cm}^3} = \mathbf{12.00468\text{ g/cm}^3}$$
+  $$\rho_{\text{ideal}} = \frac{7.06742 \times 10^{-22}\text{ g}}{5.88729 \times 10^{-23}\text{ cm}^3} = \mathbf{12.0045\text{ g/cm}^3}$$
 
 ---
 
 ### 2. Apartado a: Fracción de Puntos Reticulares Vacantes ($f_v$):
-$$f_v = \frac{\rho_{\text{ideal}} - \rho_{\text{real}}}{\rho_{\text{ideal}}} = \frac{12.00468 - 11.98000}{12.00468} = \frac{0.02468}{12.00468}$$
-$$f_v = \mathbf{0.002055} \approx \mathbf{0.00204} \quad (\approx 0.204\%)$$
+$$f_v = \frac{\rho_{\text{ideal}} - \rho_{\text{real}}}{\rho_{\text{ideal}}} = \frac{12.0045 - 11.9800}{12.0045} = \frac{0.0245}{12.0045}$$
+$$f_v = \mathbf{0.00204} \quad (\approx 0.204\%)$$
 
 ---
 
 ### 3. Apartado b: Número de Vacantes por Centímetro Cúbico ($n_v$):
 * Concentración total de puntos reticulares ($N$):
-  $$N = \frac{4}{a^3} = \frac{4}{5.88722 \times 10^{-23}\text{ cm}^3} = 6.79438 \times 10^{22}\text{ sitios/cm}^3$$
+  $$N = \frac{4}{a^3} = \frac{4}{5.88729 \times 10^{-23}\text{ cm}^3} = 6.7943 \times 10^{22}\text{ sitios/cm}^3$$
 * Concentración volumétrica de vacantes:
-  $$n_v = f_v \cdot N = (0.002055) \times (6.79438 \times 10^{22}\text{ cm}^{-3}) = \mathbf{1.396 \times 10^{20}\text{ vacantes/cm}^3} \approx \mathbf{1.39 \times 10^{20}\text{ vac/cm}^3}$$
-  *(Utilizando el valor oficial $0.00204$: $n_v = 0.00204 \times 6.7944 \times 10^{22} = \mathbf{1.386 \times 10^{20}} \approx \mathbf{1.39 \times 10^{20}\text{ vacancies/cm}^3}$).*
+  $$n_v = f_v \cdot N = (0.002043) \times (6.7943 \times 10^{22}\text{ cm}^{-3}) = \mathbf{1.388 \times 10^{20}\text{ vacantes/cm}^3} \approx \mathbf{1.39 \times 10^{20}\text{ vac/cm}^3}$$
+  The unrounded fraction $f_v = 0.0020432$ gives $n_v = 1.388 \times 10^{20}\text{ cm}^{-3}$; both results agree with the official $0.00204$ and $1.39 \times 10^{20}\text{ cm}^{-3}$.
 
 ---
 

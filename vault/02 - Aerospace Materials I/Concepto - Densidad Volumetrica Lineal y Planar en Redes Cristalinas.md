@@ -35,10 +35,10 @@ donde:
 ### Ejemplo Canónico: Cobre Puro ($\text{Cu}$, FCC) [Session 4 Slide 7]
 * Datos: $M = 63.546\text{ g/mol}$, $R = 1.28\text{ \AA} = 1.28 \times 10^{-8}\text{ cm}$, $n = 4$.
 * Parámetro de red FCC: $a = 2\sqrt{2} R = 2\sqrt{2}(1.28 \times 10^{-8}) = 3.62 \times 10^{-8}\text{ cm}$.
-* Volumen de celda: $V_C = a^3 = (3.62 \times 10^{-8}\text{ cm})^3 = 4.74 \times 10^{-23}\text{ cm}^3$.
+* Volumen de celda: $V_C = a^3 = (3.6204 \times 10^{-8}\text{ cm})^3 = 4.745 \times 10^{-23}\text{ cm}^3$.
 * Densidad teórica:
-  $$\rho_v = \frac{4 \times 63.546}{4.74 \times 10^{-23} \times 6.022 \times 10^{23}} = \mathbf{8.89\text{ g/cm}^3}$$
-  *(Coincide con el valor experimental de $8.9\text{ g/cm}^3$ medido en probetas macroscópicas).*
+  $$\rho_v = \frac{4 \times 63.546}{4.745 \times 10^{-23} \times 6.022 \times 10^{23}} = \frac{254.18}{28.58} = \mathbf{8.90\text{ g/cm}^3}$$
+  *(The slide, with $M = 63.5$ and $N_A = 6.023 \times 10^{23}$, obtains $8.89\text{ g/cm}^3$; it quotes $8.94\text{ g/cm}^3$ from the bibliography. The $0.5\%$ gap comes from the rounded $R = 1.28\text{ \AA}$: with $a = 3.615\text{ \AA}$ the same formula gives $8.935\text{ g/cm}^3$).*
 
 ---
 
@@ -107,11 +107,13 @@ $$\rho_p = \frac{N_{\text{átomos contenidos en el plano}}}{A_{(h\, k\, l)}}$$
 
 ## 💡 4. Relación Fundamental entre Densidades y Espaciado Interplanar
 
-En cualquier cristal ortogonal, la densidad volumétrica $\rho_v$ de puntos de red se relaciona exactamente con la densidad planar $\rho_p$ de una familia de planos $(hkl)$ y su espaciado interplanar $d_{hkl}$:
+The volumetric density $\rho_v$ of atoms is related to the planar density $\rho_p$ of a family of planes $(hkl)$ by the spacing $d_p$ between **consecutive planes that contain atoms**:
 
-$$\rho_v = \frac{\rho_p(hkl)}{d_{hkl}}$$
+$$\rho_v = \frac{\rho_p(hkl)}{d_p}$$
 
-Esta igualdad confirma que los planos más compactos (mayor $\rho_p$) son simultáneamente aquellos con el **mayor espaciado interplanar $d_{hkl}$**, lo que explica por qué son los planos preferenciales de deslizamiento de dislocaciones (menor resistencia de red Peierls-Nabarro).
+$d_p$ equals the crystallographic $d_{hkl} = a/\sqrt{h^2+k^2+l^2}$ only when every plane of the family is populated (BCC $(110)$: $\rho_p = \sqrt{2}/a^2$, $d_p = a/\sqrt{2}$, $\rho_v = 2/a^3$; FCC $(111)$: $\rho_p = 4/(\sqrt{3}a^2)$, $d_p = a/\sqrt{3}$, $\rho_v = 4/a^3$). When a mid-plane is also populated, $d_p = d_{hkl}/2$: BCC $(100)$ has $\rho_p = 1/a^2$ (corner atoms) plus a second set of atoms in the plane at $a/2$, so $d_p = a/2$ and $\rho_v = (1/a^2)/(a/2) = 2/a^3$ (using $d_{100} = a$ would give the wrong $1/a^3$); likewise FCC $(100)$: $\rho_p = 2/a^2$, $d_p = a/2$, $\rho_v = 4/a^3$.
+
+Con esta relación, los planos más compactos (mayor $\rho_p$) son simultáneamente aquellos con el **mayor espaciado $d_p$ entre planos atómicos**, lo que explica por qué son los planos preferenciales de deslizamiento de dislocaciones (menor resistencia de red Peierls-Nabarro).
 
 ---
 *Enlaces Bidireccionales:*

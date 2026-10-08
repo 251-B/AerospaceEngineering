@@ -65,7 +65,10 @@ $$a = 2\sqrt{2} R = 2 \times \sqrt{2} \times (1.43 \times 10^{-8}\text{ cm}) = 4
 ### 2. Apartado a: Densidad Planar en $(110)$:
 $$A_{(110)} = \sqrt{2} a^2 = \sqrt{2} \times (4.04465 \times 10^{-8}\text{ cm})^2 = \sqrt{2} \times 1.6359 \times 10^{-15}\text{ cm}^2 = 2.3135 \times 10^{-15}\text{ cm}^2$$
 El plano contiene $N_{\text{átomos}} = 4 \times \frac{1}{4} + 2 \times \frac{1}{2} = 2\text{ átomos}$:
-$$\rho_{(110)} = \frac{2\text{ at}}{2.3135 \times 10^{-15}\text{ cm}^2} = 8.645 \times 10^{14} \approx \mathbf{8.7 \times 10^{14}\text{ at/cm}^2}$$
+$$\rho_{(110)} = \frac{2\text{ at}}{2.3135 \times 10^{-15}\text{ cm}^2} = 8.645 \times 10^{14} \approx \mathbf{8.6 \times 10^{14}\text{ at/cm}^2}$$
+
+> [!warning] Discrepancy with the official solution
+> The official key gives $8.7\times10^{14}\text{ at/cm}^2$; the given radius ($R = 1.43\text{ \AA}$) yields $8.645\times10^{14}\text{ at/cm}^2$, i.e. $8.6\times10^{14}$ to two significant figures. The official figure is reproduced only if $a$ is first rounded to $4.04\text{ \AA}$ ($8.66\times10^{14}$); that rounding is not applied here.
 
 ### 3. Apartado b: Densidad Lineal en $[110]$:
 Dado que $[110]$ es la dirección compacta ($L = 4R$):
@@ -73,20 +76,22 @@ $$\rho_{[110]} = \frac{1}{2R} = \frac{1}{2 \times (1.43 \times 10^{-8}\text{ cm}
 
 ### 4. Apartado c: Masa de la Barra:
 * **Volumen de la celda unitaria:**
-  $$V_C = a^3 = (4.04465 \times 10^{-8}\text{ cm})^3 = 6.6166 \times 10^{-23}\text{ cm}^3$$
+  $$V_C = a^3 = (4.04465 \times 10^{-8}\text{ cm})^3 = 6.6167 \times 10^{-23}\text{ cm}^3$$
 * **Densidad volumétrica del Aluminio:**
-  $$\rho_v = \frac{4 \times 26.98\text{ g/mol}}{(6.6166 \times 10^{-23}\text{ cm}^3) \times (6.023 \times 10^{23}\text{ mol}^{-1})} = \frac{107.92}{39.852} = 2.708\text{ g/cm}^3$$
+  $$\rho_v = \frac{4 \times 26.98\text{ g/mol}}{(6.6167 \times 10^{-23}\text{ cm}^3) \times (6.023 \times 10^{23}\text{ mol}^{-1})} = \frac{107.92}{39.853} = 2.708\text{ g/cm}^3$$
 * **Volumen macroscópico de la barra:**
   $$V = \pi \left(\frac{2.0\text{ cm}}{2}\right)^2 \times (100\text{ cm}) = 100\pi \approx 314.159\text{ cm}^3$$
 * **Masa total calculada:**
-  $$m = \rho_v \cdot V = (2.708\text{ g/cm}^3) \times (314.159\text{ cm}^3) = 850.7\text{ g} \approx \mathbf{855\text{ g}}$$
-  *(Usando los redondeos intermedios típicos $\rho = 2.72\text{ g/cm}^3$: $m = 2.72 \times 314.16 = 854.5 \approx 855\text{ g}$).*
+  $$m = \rho_v \cdot V = (2.708\text{ g/cm}^3) \times (314.159\text{ cm}^3) = \mathbf{850.7\text{ g}} \approx \mathbf{851\text{ g}}$$
+
+> [!warning] Discrepancy with the official solution
+> The official key gives $m = 855\text{ g}$. The given data ($R = 1.43\text{ \AA}$, $M = 26.98\text{ g/mol}$, $N_A = 6.023\times10^{23}\text{ mol}^{-1}$) give $\rho = 2.708\text{ g/cm}^3$ and $m = 850.7\text{ g}$ ($\approx 851\text{ g}$, $0.5\%$ below the key). $855\text{ g}$ would require $\rho \approx 2.72\text{ g/cm}^3$, which is inconsistent with the computed $2.708\text{ g/cm}^3$ and is not used.
 
 ---
 
 ## 🎯 4. Fase 4: Interpretación Física y Verificación
 
-* **Consistencia del Aluminio Aeronáutico:** La densidad teórica calculada de $2.71\text{ g/cm}^3$ reproduce el valor de referencia de las aleaciones ligeras aeroespaciales de aluminio (como las series 2024-T3 y 7075-T6, con $\rho \approx 2.7\text{--}2.8\text{ g/cm}^3$), cuyo bajo peso específico es el pilar de las aeroestructuras presurizadas de fuselaje y revestimiento alar.
+* **Consistencia del Aluminio Aeronáutico:** La densidad teórica calculada de $2.708\text{ g/cm}^3$ reproduce el valor de referencia de las aleaciones ligeras aeroespaciales de aluminio (como las series 2024-T3 y 7075-T6, con $\rho \approx 2.7\text{--}2.8\text{ g/cm}^3$), cuyo bajo peso específico es el pilar de las aeroestructuras presurizadas de fuselaje y revestimiento alar.
 
 ---
 *Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

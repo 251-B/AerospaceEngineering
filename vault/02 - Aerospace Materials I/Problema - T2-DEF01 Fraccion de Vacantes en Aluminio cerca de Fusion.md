@@ -54,28 +54,31 @@ donde $\Delta H_v$ es la entalpía de formación de un mol de vacantes en la red
 
 ### 1. Cálculo de la Entalpía de Formación ($\Delta H_v$):
 * Logaritmo natural de la fracción inicial:
-  $$\ln(2.29 \times 10^{-5}) = -10.68417$$
+  $$\ln(2.29 \times 10^{-5}) = -10.68437$$
 * Despeje de $\Delta H_v$:
-  $$\Delta H_v = -(8.31\text{ J/mol}\cdot\text{K}) \times (673.15\text{ K}) \times (-10.68417)$$
-  $$\Delta H_v = 5593.8765 \times 10.68417 = 59765.9\text{ J/mol} \approx \mathbf{59.77\text{ kJ/mol}}$$
-  *(En unidades atómicas: $E_v = \frac{59765.9}{6.022 \times 10^{23} \times 1.602 \times 10^{-19}} \approx 0.62\text{ eV/átomo}$, concordante con la literatura para aluminio).*
+  $$\Delta H_v = -(8.31\text{ J/mol}\cdot\text{K}) \times (673.15\text{ K}) \times (-10.68437)$$
+  $$\Delta H_v = 5593.8765 \times 10.68437 = 59767.1\text{ J/mol} \approx \mathbf{59.77\text{ kJ/mol}}$$
+  *(En unidades atómicas: $E_v = \frac{59767.1}{6.022 \times 10^{23} \times 1.602 \times 10^{-19}} \approx 0.62\text{ eV/átomo}$, concordante con la literatura para aluminio).*
 
 ---
 
 ### 2. Cálculo de la Fracción de Vacantes a $660^\circ\text{C}$ ($T_2 = 933.15\text{ K}$):
 * Exponente de Boltzmann a $T_2$:
-  $$\frac{\Delta H_v}{R \cdot T_2} = \frac{59765.9\text{ J/mol}}{(8.31\text{ J/mol}\cdot\text{K}) \times (933.15\text{ K})} = \frac{59765.9}{7754.4765} = 7.70727$$
+  $$\frac{\Delta H_v}{R \cdot T_2} = \frac{59767.1\text{ J/mol}}{(8.31\text{ J/mol}\cdot\text{K}) \times (933.15\text{ K})} = \frac{59767.1}{7754.4765} = 7.70743$$
 * Fracción de vacantes en el equilibrio:
-  $$\left(\frac{n_v}{N}\right)_2 = \exp(-7.70727) = \mathbf{4.495 \times 10^{-4}} \approx \mathbf{4.53 \times 10^{-4}}$$
-  *(Si se toma $T_1 = 400 + 273 = 673\text{ K}$ y $T_2 = 660 + 273 = 933\text{ K}$: $\Delta H_v = 59747\text{ J/mol}$, resultando $(n_v/N)_2 = \exp(-59747/(8.31 \times 933)) = \exp(-7.706) = \mathbf{4.53 \times 10^{-4}}$, coincidencia exacta con el redondeo del profesor).*
+  $$\left(\frac{n_v}{N}\right)_2 = \exp(-7.70743) = \mathbf{4.49 \times 10^{-4}}$$
+  Check with $T = 273 + t$ (i.e. $T_1 = 673\text{ K}$, $T_2 = 933\text{ K}$): $\Delta H_v = 8.31 \times 673 \times 10.68437 = 59754\text{ J/mol}$ and $(n_v/N)_2 = \exp(-59754/(8.31 \times 933)) = \exp(-7.7069) = 4.50 \times 10^{-4}$.
+
+> [!warning] Discrepancy with the official solution
+> The official key gives $4.53\times10^{-4}$. Recomputing from the given data ($2.29\times10^{-5}$ at $400^\circ\text{C}$, $R = 8.31\text{ J/(mol K)}$) gives $\exp(-7.7074) = 4.49\times10^{-4}$ with $T = 273.15 + t$, and $\exp(-7.7069) = 4.50\times10^{-4}$ with $T = 273 + t$ ($\Delta H_v = 59.75\text{ kJ/mol}$). The key's $4.53\times10^{-4}$ ($\approx 0.8\%$ higher) is not reproduced by either convention; no value was adjusted.
 
 ---
 
 ## 🎯 4. Fase 4: Interpretación Física y Verificación
 
 * **Aumento Térmico Exponencial:** Al pasar de $400^\circ\text{C}$ a $660^\circ\text{C}$ ($\Delta T = 260^\circ\text{C}$), la concentración de vacantes se multiplica por un factor de:
-  $$\frac{4.53 \times 10^{-4}}{2.29 \times 10^{-5}} \approx \mathbf{19.8\text{ veces}}$$
-* **Límite Físico de Cristales Reales:** La fracción alcanzada cerca de la fusión ($4.53 \times 10^{-4} \approx 1\text{ vacante por cada } 2200\text{ átomos}$) cumple la regla general citada en la diapositiva oficial [Session 4 Slide 15]:
+  $$\frac{4.49 \times 10^{-4}}{2.29 \times 10^{-5}} \approx \mathbf{19.6\text{ veces}}$$
+* **Límite Físico de Cristales Reales:** La fracción alcanzada cerca de la fusión ($4.49 \times 10^{-4} \approx 1\text{ vacante por cada } 2200\text{ átomos}$) cumple la regla general citada en la diapositiva oficial [Session 4 Slide 15]:
   $$\frac{n_v}{N} \sim 10^{-4}\text{ máximo}$$
   Esta alta densidad de vacantes térmicas cerca del punto de fusión es la responsable del drástico aumento en la velocidad de difusión atómica en procesos de homogeneización y sinterización aeronáutica.
 

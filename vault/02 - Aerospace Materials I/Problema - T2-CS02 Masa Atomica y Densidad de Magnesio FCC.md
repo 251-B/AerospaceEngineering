@@ -48,16 +48,16 @@ Citando los fundamentos teóricos del curso [Session 4 Slide 7, 15]:
 
 1. **Cálculo del volumen de la celda unitaria ($V_C$):**
    $$a = 4.527 \times 10^{-8}\text{ cm}$$
-   $$V_C = a^3 = (4.527 \times 10^{-8}\text{ cm})^3 = 9.2778 \times 10^{-23}\text{ cm}^3$$
+   $$V_C = a^3 = (4.527 \times 10^{-8}\text{ cm})^3 = 9.2775 \times 10^{-23}\text{ cm}^3$$
 
 2. **Cálculo de la masa molar ($M$):**
-   $$M = \frac{(1.74\text{ g/cm}^3) \times (9.2778 \times 10^{-23}\text{ cm}^3) \times (6.02214 \times 10^{23}\text{ mol}^{-1})}{4}$$
-   $$M = \frac{1.6143 \times 10^{-22} \times 6.02214 \times 10^{23}}{4} = \frac{97.218}{4} = \mathbf{24.305\text{ g/mol}}$$
+   $$M = \frac{(1.74\text{ g/cm}^3) \times (9.2775 \times 10^{-23}\text{ cm}^3) \times (6.02214 \times 10^{23}\text{ mol}^{-1})}{4}$$
+   $$M = \frac{1.6143 \times 10^{-22} \times 6.02214 \times 10^{23}}{4} = \frac{97.215}{4} = \mathbf{24.304\text{ g/mol}}$$
 
 3. **Identificación en la Tabla Periódica:**
    Consultando los pesos atómicos estándar de los elementos:
    * Sodio ($\text{Na}$): $22.99\text{ g/mol}$
-   * **Magnesio ($\text{Mg}$):** $24.305\text{ g/mol}$ (coincidencia exacta).
+   * **Magnesio ($\text{Mg}$):** $24.305\text{ g/mol}$ (our $24.304\text{ g/mol}$ agrees to $0.004\%$; the official key rounds to $24.3$).
    * Aluminio ($\text{Al}$): $26.98\text{ g/mol}$
 
    Por tanto, el elemento con estas características físicas y masa atómica es el **Magnesio ($\text{Mg}$)**.

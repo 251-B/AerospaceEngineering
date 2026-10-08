@@ -118,7 +118,7 @@ $$D_{\text{BCC}} > D_{\text{FCC}} \quad (\text{para igual soluto e igual } T)$$
 
 | Código | Título del Problema | Tema y Fenómeno Físico | Resultado Oficial |
 | :---: | :--- | :--- | :---: |
-| **T3-01** | [[Problema - T3-01 Carburacion de Engranaje de Acero 1018]] | Fick 2 · Sólido Semi-infinito · Interpolación $\text{erf}(z)$ | $t = 6636\text{ s} = 1.84\text{ h}$ |
+| **T3-01** | [[Problema - T3-01 Carburacion de Engranaje de Acero 1018]] | Fick 2 · Sólido Semi-infinito · Interpolación $\text{erf}(z)$ | $t = 6638\text{ s} = 1.84\text{ h}$ (oficial $6636\text{ s}$) |
 | **T3-02** | [[Problema - T3-02 Difusion de Aluminio en Silicio Monocristalino]] | Arrhenius inverso · Dopaje semiconductor | $T = 1566\text{ K} = 1293^\circ\text{C}$ |
 | **T3-03** | [[Problema - T3-03 Energia de Activacion y Difusividad de Carbono en Acero]] | Método 2 temperaturas · $E_D$ y extrapolación $D(1000^\circ\text{C})$ | $E_D = 36\text{ kcal/mol}$, $D = 3.23 \times 10^{-11}\text{ m}^2/\text{s}$ |
 | **T3-04** | [[Problema - T3-04 Transporte Ionico de Niquel a Traves de Placa de MgO]] | Fick 1 · Transporte iónico en cerámico · Red FCC $\text{Ni}$ | $t = 309\text{ h}$ |

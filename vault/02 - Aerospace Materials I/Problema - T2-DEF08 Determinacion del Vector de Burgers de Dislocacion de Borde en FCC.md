@@ -68,14 +68,16 @@ tags:
   $$|\vec{b}| = \sqrt{\left(\frac{a}{2}\right)^2 + \left(-\frac{a}{2}\right)^2 + 0^2} = \sqrt{\frac{a^2}{4} + \frac{a^2}{4}} = \frac{a\sqrt{2}}{2} = \frac{a}{\sqrt{2}}$$
 * Sustituyendo $a = 3.6 \times 10^{-10}\text{ m}$:
   $$|\vec{b}| = \frac{3.6 \times 10^{-10}\text{ m}}{\sqrt{2}} = \frac{3.6 \times 10^{-10}\text{ m}}{1.4142136}$$
-  $$|\vec{b}| = \mathbf{2.5456 \times 10^{-10}\text{ m}} \approx \mathbf{2.553 \times 10^{-10}\text{ m}}$$
-  *(Utilizando la aproximación $a = 3.61 \times 10^{-10}\text{ m}$: $|\vec{b}| = \frac{3.61 \times 10^{-10}}{1.4142} = \mathbf{2.553 \times 10^{-10}\text{ m}}$, coincidencia exacta con el redondeo oficial).*
+  $$|\vec{b}| = \mathbf{2.5456 \times 10^{-10}\text{ m}}$$
+
+> [!warning] Discrepancy with the official solution
+> The official key gives $B = 2.553\times10^{-10}\text{ m}$, which corresponds to $a = 3.61\times10^{-10}\text{ m}$ (the lattice parameter of copper). The statement gives $a = 3.6\times10^{-10}\text{ m}$, for which $|\vec{b}| = a/\sqrt{2} = 2.5456\times10^{-10}\text{ m}$ ($0.3\%$ lower). The given value is used; $a$ was not changed to match the key.
 
 ---
 
 ## 🎯 4. Fase 4: Interpretación Física y Verificación
 
-* **Geometría de la Deformación Plástica:** La dislocación de borde en este cristal de cobre representa un semiplano extra que termina a lo largo de una línea normal al plano $(110)$. Cuando el cristal es sometido a tensiones cortantes en el plano $(110)$, la dislocación avanza paralelamente a su vector de Burgers $[\bar{1}10]$ produciendo una traslación atómica discreta de exactamente $2.553\text{ \AA}$ (el diámetro atómico de un átomo de cobre).
+* **Geometría de la Deformación Plástica:** La dislocación de borde en este cristal de cobre representa un semiplano extra que termina a lo largo de una línea normal al plano $(110)$. Cuando el cristal es sometido a tensiones cortantes en el plano $(110)$, la dislocación avanza paralelamente a su vector de Burgers $[\bar{1}10]$ produciendo una traslación atómica discreta de $2.546\text{ \AA}$ con los datos dados (igual al diámetro atómico de esfera dura, $b = a/\sqrt{2} = 2R$ en FCC).
 
 ---
 *Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

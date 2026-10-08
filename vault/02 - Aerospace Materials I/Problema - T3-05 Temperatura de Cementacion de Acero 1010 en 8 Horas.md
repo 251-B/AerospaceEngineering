@@ -107,14 +107,14 @@ Calculamos la relación entre $D$ y el factor pre-exponencial $D_0 = 16.2 \times
 $$\frac{D}{D_0} = \frac{1.21207 \times 10^{-11}\text{ m}^2/\text{s}}{16.2 \times 10^{-6}\text{ m}^2/\text{s}} \approx 7.48191 \times 10^{-7}$$
 
 Tomando el logaritmo natural:
-$$\ln\left(\frac{D}{D_0}\right) = \ln(7.48191 \times 10^{-7}) \approx -\mathbf{14.10657}$$
+$$\ln\left(\frac{D}{D_0}\right) = \ln(7.48191 \times 10^{-7}) = 2.01249 - 16.11810 = -\mathbf{14.10561}$$
 
 Despejando la temperatura absoluta $T$:
-$$T = \frac{-E_D}{R \cdot \ln(D / D_0)} = \frac{-137\,800\text{ J/mol}}{(8.314\text{ J/mol}\cdot\text{K}) \times (-14.10657)}$$
-$$T = \frac{137\,800}{117.282} \approx \mathbf{1174.95\text{ K}} \approx \mathbf{1175\text{ K}}$$
+$$T = \frac{-E_D}{R \cdot \ln(D / D_0)} = \frac{-137\,800\text{ J/mol}}{(8.314\text{ J/mol}\cdot\text{K}) \times (-14.10561)}$$
+$$T = \frac{137\,800}{117.275} \approx \mathbf{1175.02\text{ K}} \approx \mathbf{1175\text{ K}}$$
 
 ### Conversión a Escala Celsius:
-$$T = 1174.95 - 273.15 = \mathbf{901.8^\circ\text{C}} \approx \mathbf{902^\circ\text{C}}$$
+$$T = 1175.02 - 273.15 = \mathbf{901.87^\circ\text{C}} \approx \mathbf{902^\circ\text{C}}$$
 
 ---
 
@@ -127,7 +127,7 @@ $$T = 1174.95 - 273.15 = \mathbf{901.8^\circ\text{C}} \approx \mathbf{902^\circ\
 ### Interpretación y Relevancia en Ingeniería:
 1. **Control de Tiempo de Ciclo de Turno de Trabajo:** En la industria automotriz y aeroespacial, un ciclo de cementación de exactamente **8 horas** se sincroniza con un turno laboral completo. Conocer la temperatura precisa ($902^\circ\text{C}$) permite al ingeniero programar el horno con certeza de alcanzar la profundidad requerida de capa ($1.16\text{ mm}$ a $0.30\text{ wt}\%$) sin sobrecalentar la pieza [Slide 30].
 2. **Estructura Austenítica Estable:** A $902^\circ\text{C}$ ($1175\text{ K}$), el acero AISI 1010 se sitúa holgadamente en el campo austenítico homogéneo ($\gamma\text{-Fe}$), donde la solubilidad de carbono alcanza hasta el $1.31\text{ wt}\%$ fijado superficialmente [Slides 23, 30].
-3. **Optimización Energética:** Si se operara a una temperatura menor, e.g. $850^\circ\text{C}$, el tiempo requerido se triplicaría, reduciendo la productividad de la planta; por el contrario, temperaturas por encima de $950^\circ\text{C}$ acelerarían el proceso pero causarían un crecimiento indeseable del tamaño de grano austenítico, degradando la tenacidad final del núcleo del componente [Session 4 Slide 45; Session 5 Slide 30].
+3. **Optimización Energética:** Si se operara a una temperatura menor, e.g. $850^\circ\text{C}$ ($1123.15\text{ K}$), $D$ cae en un factor $\exp\!\left[\frac{E_D}{R}\left(\frac{1}{1123.15} - \frac{1}{1175.02}\right)\right] = e^{0.6516} = 1.92$, de modo que el tiempo requerido se multiplicaría por $\approx 1.9$ (casi el doble, no el triple); por el contrario, a temperaturas mayores $D$ crece exponencialmente y el tiempo disminuye [Session 5 Slide 26].
 
 ---
 

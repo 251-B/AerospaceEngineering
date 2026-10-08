@@ -42,7 +42,7 @@ We are asked to compare the elastic modulus (Young's modulus $E$) of Magnesium O
 ### Justificación Teórica Previa:
 To determine which material exhibits the higher modulus of elasticity, we link macroscopic stiffness to the second derivative of the interatomic potential energy at equilibrium [Slides 8, 10, 13]:
 
-$$E_{\text{Young}} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = \frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
+$$E_{\text{Young}} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = -\frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
 
 For an ionic crystal lattice, the attractive potential energy per ion pair is given by Coulomb's law incorporating the Madelung constant $A$ [Slide 9]:
 

@@ -65,7 +65,7 @@ $$J = -D \frac{\Delta C}{\Delta x} = -D \left(\frac{C_2 - C_1}{\Delta x}\right) 
   $$\frac{\dot{m}}{A} = \frac{1.73 \times 10^{-3}\text{ kg/h}}{0.2\text{ m}^2} = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h}$$
 * Conversión a segundos ($1\text{ h} = 3600\text{ s}$):
   $$J = \frac{8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h}}{3600\text{ s/h}} \approx \mathbf{2.4028 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}}$$
-  *(En Session 5 Slide 35 el profesor aproxima directamente $J = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$).*
+  *(The worked solution stored in the text layer of Session 5 Slide 35 gives $J = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h} = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$; the answer box on the rendered slide appears empty).*
 
 ---
 
@@ -85,7 +85,7 @@ Sustituyendo los valores numéricos:
 $$\Delta x = \frac{(1.0 \times 10^{-8}\text{ m}^2/\text{s}) \times (1.2\text{ kg/m}^3)}{2.4028 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}}$$
 $$\Delta x = \frac{1.2 \times 10^{-8}}{2.4028 \times 10^{-6}}\text{ m} \approx \mathbf{4.994 \times 10^{-3}\text{ m}} \approx \mathbf{5.0 \times 10^{-3}\text{ m}}$$
 
-*(Utilizando el redondeo del profesor de $J = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$ [Slide 35]: $\Delta x = \frac{1.2 \times 10^{-8}}{2.4 \times 10^{-6}} = 5.0 \times 10^{-3}\text{ m}$).*
+*(Using the rounded $J = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$ of Slide 35: $\Delta x = \frac{1.2 \times 10^{-8}}{2.4 \times 10^{-6}} = 5.0 \times 10^{-3}\text{ m}$, consistent with the unrounded $4.994 \times 10^{-3}\text{ m}$).*
 
 ### Expresión en Milímetros:
 $$\Delta x = 5.0 \times 10^{-3}\text{ m} \times 1000\text{ mm/m} = \mathbf{5\text{ mm}}$$
@@ -98,9 +98,9 @@ $$\Delta x = 5.0 \times 10^{-3}\text{ m} \times 1000\text{ mm/m} = \mathbf{5\tex
 $$[\Delta x] = \frac{[D] \cdot [\Delta C]}{[J]} = \frac{(\text{m}^2/\text{s}) \cdot (\text{kg/m}^3)}{\text{kg}/(\text{m}^2\cdot\text{s})} = \frac{\text{kg}/(\text{m}\cdot\text{s})}{\text{kg}/(\text{m}^2\cdot\text{s})} = \text{m} \quad \checkmark$$
 
 ### Interpretación Físico-Aeroespacial:
-1. **Compromiso Estructural vs Difusional:** Un espesor de **$5\text{ mm}$** proporciona una resistencia estructural mecánica excelente para soportar diferenciales significativos de presión entre la cámara de gas impuro y la cámara de purificado sin riesgo de rotura o deformación por pandeo de la membrana [Slide 35].
+1. **Thickness-flux relation:** At fixed concentrations $J \propto 1/\Delta x$ [Slide 16], so **$5\text{ mm}$** is the thickness at which steady-state permeation equals the required purified flow [Slide 35].
 2. **Cinética Intersticial del Hidrógeno:** La difusividad del hidrógeno en paladio ($D = 10^{-8}\text{ m}^2/\text{s}$) es excepcionalmente elevada en comparación con otros solutos metálicos (típicamente $10^{-12}\text{--}10^{-16}\text{ m}^2/\text{s}$), debido a que el átomo de hidrógeno es el elemento químico más pequeño del universo y se desliza a través de los huecos octaédricos y tetraédricos de la red FCC del $\text{Pd}$ con una energía de activación sumamente baja [Slides 13, 23].
-3. **Aplicación en Células de Combustible Espaciales:** Esta tecnología de purificación por difusión en membranas de $\text{Pd}$ o aleaciones $\text{Pd-Ag}$ es el método estándar en sistemas aeroespaciales para garantizar que el hidrógeno suministrado a las pilas de combustible tipo PEM (*Proton Exchange Membrane*) esté libre de monóxido de carbono ($\text{CO}$), el cual envenenaría de forma irreversible los catalizadores de platino del electrodo [Slide 35].
+3. **Application:** Slide 35 presents this calculation as the example of $\text{H}_2$ purification through a $\text{Pd}$ layer; no further application is claimed here.
 
 ---
 

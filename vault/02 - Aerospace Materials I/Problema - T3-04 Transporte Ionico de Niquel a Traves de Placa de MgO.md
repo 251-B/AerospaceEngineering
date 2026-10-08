@@ -113,7 +113,7 @@ $$[t] = \frac{[\Delta x] \cdot [\Delta h]}{[D]} = \frac{\text{cm} \cdot \text{cm
 
 ### Interpretación Físico-Cerámica:
 1. **Barrera de Difusión Cerámica:** Los óxidos cerámicos refractarios como el $\text{MgO}$ (estructura cristalina tipo sal gema $\text{NaCl}$) poseen energías reticulares muy elevadas y fuertes enlaces iónicos $\text{Mg}^{2+}\text{--}\text{O}^{2-}$. Por ello, a pesar de someter el sistema a una temperatura extrema de $1400^\circ\text{C}$ (próxima a la fusión del níquel, $T_m = 1452^\circ\text{C}$), el coeficiente de difusión del níquel es sumamente bajo ($9 \times 10^{-12}\text{ cm}^2/\text{s}$).
-2. **Durabilidad Temporal:** Se requieren **$309\text{ horas}$** (casi 13 días continuos) para desgastar apenas una micra superficial ($1\ \mu\text{m}$) de níquel. Esto demuestra por qué las capas cerámicas delgadas de óxido se emplean masivamente en ingeniería aeroespacial como **recubrimientos de barrera térmica y de difusión** (*diffusion barriers*) en superaleaciones de álabes de turbina para evitar la interdifusión destructiva entre metales disímiles [Session 5 Slide 33].
+2. **Durabilidad Temporal:** Se requieren **$309\text{ horas}$** (casi 13 días continuos) para desgastar apenas una micra superficial ($1\ \mu\text{m}$) de níquel. This shows how slow ionic transport is in a dense oxide: diffusion is slower for charged species and in materials with high $T_m$ [Session 5 Slide 27], so the MgO plate acts as an effective diffusion barrier between the two metal blocks.
 
 ---
 

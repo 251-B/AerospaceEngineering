@@ -101,12 +101,13 @@ $$x^2 = (6.0 \times 10^{-4}\text{ m})^2 = 3.60 \times 10^{-7}\text{ m}^2$$
 $$4 \cdot z^2 \cdot D = 4 \times 1.05930 \times 1.28 \times 10^{-11}\text{ m}^2/\text{s} = 5.4236 \times 10^{-11}\text{ m}^2/\text{s}$$
 
 Efectuando el cociente:
-$$t = \frac{3.60 \times 10^{-7}\text{ m}^2}{5.4236 \times 10^{-11}\text{ m}^2/\text{s}} \approx \mathbf{6637.6\text{ s}}$$
+$$t = \frac{3.60 \times 10^{-7}\text{ m}^2}{5.4236 \times 10^{-11}\text{ m}^2/\text{s}} \approx \mathbf{6638\text{ s}}$$
 
-*(Tomando redondeos intermedios típicos de examen: $t \approx \mathbf{6636\text{ s}}$).*
+> [!warning] Discrepancy with the official solution
+> The official key gives $t = 6636\text{ s}$. Linear interpolation in the table gives $z = 1.0292$ and $t = 6637.6\text{ s} \approx 6638\text{ s}$ (the exact inverse error function, $z = 1.0271$, would give $6665\text{ s}$ because the table is linear between $1.00$ and $1.10$). The key is $0.02\%$ below the interpolated value; this is a rounding difference, and the interpolated value is reported.
 
 ### Conversión a Horas:
-$$t = \frac{6636\text{ s}}{3600\text{ s/h}} \approx \mathbf{1.843\text{ h}} \quad (\approx 1\text{ hora, } 50\text{ minutos y } 36\text{ segundos})$$
+$$t = \frac{6638\text{ s}}{3600\text{ s/h}} \approx \mathbf{1.844\text{ h}} \quad (\approx 1\text{ hora, } 50\text{ minutos y } 38\text{ segundos})$$
 
 ---
 

@@ -82,10 +82,10 @@ Sustituyendo los valores en unidades consistentes de calorías ($\text{cal}$):
   $$R \cdot \ln\left(\frac{D_0}{D}\right) = (1.987\text{ cal/mol}\cdot\text{K}) \times (23.464106) = 46.62318\text{ cal/mol}\cdot\text{K}$$
 
 Efectuando el cociente final:
-$$T = \frac{73\,000\text{ cal/mol}}{46.62318\text{ cal/mol}\cdot\text{K}} \approx \mathbf{1565.77\text{ K}} \approx \mathbf{1566\text{ K}}$$
+$$T = \frac{73\,000\text{ cal/mol}}{46.62318\text{ cal/mol}\cdot\text{K}} \approx \mathbf{1565.74\text{ K}} \approx \mathbf{1566\text{ K}}$$
 
 ### Conversión a Escala Celsius:
-$$T = 1565.77 - 273.15 = \mathbf{1292.62^\circ\text{C}} \approx \mathbf{1293^\circ\text{C}}$$
+$$T = 1565.74 - 273.15 = \mathbf{1292.59^\circ\text{C}} \approx \mathbf{1293^\circ\text{C}}$$
 
 ---
 

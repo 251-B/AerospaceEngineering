@@ -48,6 +48,11 @@ Energy E(r)
    * Net interatomic force:
      $$F_{\text{net}}(r) = -\frac{dE_{\text{net}}}{dr}$$
      $$\left.F_{\text{net}}\right|_{r = r_0} = -\left.\frac{dE_{\text{net}}}{dr}\right|_{r = r_0} = 0$$
+   * For $E_{\text{net}}(r) = -A/r^m + B/r^n$ ($n > m$) the force is
+     $$F_{\text{net}}(r) = -\frac{mA}{r^{m+1}} + \frac{nB}{r^{n+1}}$$
+     and the integral relation with explicit limits is
+     $$E_{\text{net}}(r) = -\int_\infty^r F_{\text{net}}(r')\,dr' = -\left[\frac{A}{r'^{\,m}} - \frac{B}{r'^{\,n}}\right]_{\infty}^{r} = -\frac{A}{r^m} + \frac{B}{r^n}$$
+     The equilibrium condition is $mA/r_0^{m+1} = nB/r_0^{n+1}$.
    * $r_0$ determines the equilibrium lattice parameter and macroscopic mass density $\rho$.
 2. **Binding Energy / Well Depth ($E_0$):**
    * The energy required to separate the bonded atoms from equilibrium $r_0$ to infinite distance ($r \to \infty$):
@@ -73,11 +78,11 @@ $$F(r) \approx \left.\frac{dF}{dr}\right|_{r_0}\Delta r$$
 
 The microscopic atomic stiffness / spring constant $S_0$ is defined as:
 
-$$S_0 = \left.\frac{dF}{dr}\right|_{r_0} = -\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r_0}$$
+$$S_0 = -\left.\frac{dF}{dr}\right|_{r_0} = \left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r_0} = \frac{m(n-m)A}{r_0^{m+2}} > 0$$
 
-*(Note: Depending on sign conventions for force, with $F_{\text{net}} = -\nabla E$, the restorative slope $dF/dr$ relates to the positive curvature $\left.\frac{d^2 E}{dr^2}\right|_{r_0} > 0$).*
+*(Note: with $F_{\text{net}} = -dE_{\text{net}}/dr$, the slope $dF/dr$ at $r_0$ is negative (restoring force, $F \approx -S_0\,\Delta r$), while the curvature $d^2E/dr^2|_{r_0}$ is positive; $S_0$ is defined as the positive quantity. The closed form follows from the equilibrium condition above.)*
 
-Relating microscopic atomic force to macroscopic stress ($\sigma = F/r_0^2$) and strain ($\varepsilon = \Delta r/r_0$):
+Relating the magnitude of the microscopic restoring force to macroscopic stress ($\sigma = |F|/r_0^2$) and strain ($\varepsilon = \Delta r/r_0$):
 
 $$\sigma = \frac{F}{r_0^2} = \frac{S_0 \Delta r}{r_0^2} = \left(\frac{S_0}{r_0}\right)\left(\frac{\Delta r}{r_0}\right) = \left(\frac{S_0}{r_0}\right)\varepsilon$$
 

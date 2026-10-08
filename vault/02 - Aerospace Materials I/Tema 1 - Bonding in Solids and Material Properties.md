@@ -90,7 +90,7 @@ $$E_{\text{net}}(r) = E_{\text{att}}(r) + E_{\text{rep}}(r) = -\frac{A}{r^m} + \
 * **Equilibrium Distance ($r_0$):** Interatomic spacing where attractive and repulsive forces cancel ($F(r_0) = 0$).
 * **Melting Point ($T_m$):** Proportional to well depth / binding energy $E_0$. Deeper well $\implies$ higher thermal energy required to disrupt lattice $\implies$ higher $T_m$.
 * **Elastic / Young's Modulus ($E$):** Governed by the curvature at the minimum:
-  $$E \propto \left.\frac{d^2 E}{dr^2}\right|_{r = r_0} = \left.\frac{dF}{dr}\right|_{r = r_0}$$
+  $$E \propto \left.\frac{d^2 E}{dr^2}\right|_{r = r_0} = -\left.\frac{dF}{dr}\right|_{r = r_0}$$
   A narrower, steeper well yields a larger curvature and higher resistance to elastic strain.
 * **Thermal Expansion Coefficient ($\alpha$):** Governed by the **asymmetry (anharmonicity)** of the potential well. Thermal excitation causes non-symmetric vibrational excursions, shifting the mean atomic position $\bar{r}(T)$ outwards. Deep, symmetric wells exhibit low $\alpha$.
 

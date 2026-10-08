@@ -1,3 +1,12 @@
+---
+materia: "Aerospace Materials I"
+subject: Aerospace Materials I
+tags:
+  - moc
+  - aerospace-materials-1
+  - segundo-curso
+---
+
 # 🔬 Materiales Aeroespaciales I — MOC (Map of Content)
 
 > **Asignatura:** Aerospace Materials I (2º Grado en Ingeniería Aeroespacial UC3M)  
@@ -57,7 +66,7 @@
     * [[02 - Aerospace Materials I/Problema - T2-CS10 Identificacion de Galio en Celda Ortorrombica y Direcciones Compactas|Problema T2-CS10: Identificación de Galio en Celda Ortorrómbica y Direcciones Compactas]]
     * [[02 - Aerospace Materials I/Problema - T2-CS11 Parametro de Red y Densidades en Aluminio desde Densidad Lineal|Problema T2-CS11: Parámetro de Red y Densidades en Aluminio desde Densidad Lineal]]
     * [[02 - Aerospace Materials I/Problema - T2-CS12 Trazado de Direcciones Vectoriales en Celdas Cubicas|Problema T2-CS12: Trazado de Direcciones Vectoriales en Celdas Cúbicas]]
-    * `[[02 - Aerospace Materials I/Problema - T2-CS13 Caracterizacion de Metal Ortorrombico Plano 220 y Direccion 101|Problema T2-CS13: Caracterización de Metal Ortorrómbico Plano (220) y Dirección [101]]]`
+    * [[02 - Aerospace Materials I/Problema - T2-CS13 Caracterizacion de Metal Ortorrombico Plano 220 y Direccion 101|Problema T2-CS13: Caracterización de Metal Ortorrómbico Plano (220) y Dirección 101]]
     * [[02 - Aerospace Materials I/Problema - T2-CS14 Difraccion XRD y Espaciados Interplanares en Fe BCC y FCC|Problema T2-CS14: Difracción XRD y Espaciados Interplanares en Fe BCC y FCC]]
   * *Bloque 2: Crystal Defects & Solid Solutions (Problems T2 defects.pdf)*
     * [[02 - Aerospace Materials I/Problema - T2-DEF01 Fraccion de Vacantes en Aluminio cerca de Fusion|Problema T2-DEF01: Fracción de Vacantes en Aluminio cerca de la Fusión]]
@@ -66,7 +75,7 @@
     * [[02 - Aerospace Materials I/Problema - T2-DEF04 Ordenamiento de Solubilidad en Hierro por Reglas de Hume-Rothery|Problema T2-DEF04: Ordenamiento de Solubilidad en Hierro por Reglas de Hume-Rothery]]
     * [[02 - Aerospace Materials I/Problema - T2-DEF05 Defectos de No Estequiometria y Disminucion de Densidad en FeO|Problema T2-DEF05: Defectos de No Estequiometría y Disminución de Densidad en FeO]]
     * [[02 - Aerospace Materials I/Problema - T2-DEF06 Magnitud del Vector de Burgers en Alfa-Fe y Al|Problema T2-DEF06: Magnitud del Vector de Burgers en α-Fe y Al]]
-    * `[[02 - Aerospace Materials I/Problema - T2-DEF07 Demostracion de Energia de Dislocaciones en FCC Direcciones 100 vs 110|Problema T2-DEF07: Demostración de Energía de Dislocaciones en FCC Direcciones [100] vs [110]]]`
+    * [[02 - Aerospace Materials I/Problema - T2-DEF07 Demostracion de Energia de Dislocaciones en FCC Direcciones 100 vs 110|Problema T2-DEF07: Demostración de Energía de Dislocaciones en FCC Direcciones 100 vs 110]]
     * [[02 - Aerospace Materials I/Problema - T2-DEF08 Determinacion del Vector de Burgers de Dislocacion de Borde en FCC|Problema T2-DEF08: Determinación del Vector de Burgers de Dislocación de Borde en FCC]]
     * [[02 - Aerospace Materials I/Problema - T2-DEF09 Espaciado Interplanar y Modulo de Burgers en Sistema de Deslizamiento de Tantalo|Problema T2-DEF09: Espaciado Interplanar y Módulo de Burgers en Sistema de Deslizamiento de Tántalo]]
     * [[02 - Aerospace Materials I/Problema - T2-DEF10 Solucion Solida MgO Al2O3 Vacantes y Variacion de Densidad|Problema T2-DEF10: Solución Sólida MgO-Al2O3: Vacantes y Variación de Densidad]]
@@ -96,7 +105,7 @@
 
 ### ⚖️ Bloque II: Diagramas de Fases y Solidificación
 
-#### [[02 - Aerospace Materials I/Tema 4 - Phase Diagrams and Solidification|Tema 4: Phase Diagrams & Solidification]]
+#### Tema 4: Phase Diagrams & Solidification (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html`
 * **Fuentes Oficiales:**
@@ -113,7 +122,7 @@
 
 ### ⚙️ Bloque III: Propiedades Mecánicas y Ensayos
 
-#### [[02 - Aerospace Materials I/Tema 5 - Mechanical Properties of Materials|Tema 5: Mechanical Properties]]
+#### Tema 5: Mechanical Properties (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html`
 * **Fuentes Oficiales:**
@@ -130,7 +139,7 @@
 
 ### ⚡ Bloque IV: Propiedades Funcionales: Eléctricas, Magnéticas y Térmicas
 
-#### [[02 - Aerospace Materials I/Tema 6 - Electrical Properties of Materials|Tema 6: Electrical Properties]]
+#### Tema 6: Electrical Properties (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html`
 * **Fuentes Oficiales:**
@@ -141,7 +150,7 @@
   * Teoría cuántica de bandas: conductores metálicos, aislantes y semiconductores.
   * Semiconductores intrínsecos y extrínsecos (dopado tipo $n$ y tipo $p$). Conducción en cerámicos y polímeros.
 
-#### [[02 - Aerospace Materials I/Tema 7 - Magnetic and Thermal Properties of Materials|Tema 7: Magnetic & Thermal Properties]]
+#### Tema 7: Magnetic & Thermal Properties (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
 * **Fuentes Oficiales:**
@@ -156,7 +165,7 @@
 
 ### 🧪 Bloque V: Materiales Estructurales Avanzados: Cerámicos, Polímeros, Compuestos y Adhesivos
 
-#### [[02 - Aerospace Materials I/Tema 8 - Ceramic Materials and Processing|Tema 8: Ceramic Materials & Processing]]
+#### Tema 8: Ceramic Materials & Processing (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-8-ceramics.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-8-ceramics.html`
 * **Fuentes Oficiales:**
@@ -167,7 +176,7 @@
   * Propiedades mecánicas de cerámicos: fragilidad, módulo de rotura (flexión en 3/4 puntos), distribución de Weibull.
   * Procesado de cerámicos: molienda, conformado (prensado, colaje, extrusión) y sinterización.
 
-#### [[02 - Aerospace Materials I/Tema 9 - Polymeric Materials and Processing|Tema 9: Polymers & Processing]]
+#### Tema 9: Polymers & Processing (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-9-polymers.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-9-polymers.html`
 * **Fuentes Oficiales:**
@@ -178,7 +187,7 @@
   * Clasificación: termoplásticos, termoestables y elastómeros. Transición vítrea ($T_g$) y fusión ($T_m$).
   * Comportamiento viscoelástico (módulos de relajación, fluencia plástica). Procesado de polímeros (extrusión, inyección, moldeo por soplado).
 
-#### [[02 - Aerospace Materials I/Tema 10 - Composite Materials and Reinforcements|Tema 10: Composite Materials & Reinforcements]]
+#### Tema 10: Composite Materials & Reinforcements (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-10-composites.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-10-composites.html`
 * **Fuentes Oficiales:**
@@ -189,7 +198,7 @@
   * Micromecánica de láminas unidireccionales: regla de mezclas longitudinal y transversal ($E_1, E_2, \nu_{12}, G_{12}$).
   * Fabricación aeronáutica: preimpregnados (prepregs), autoclave, infusión de resina (RTM/VARTM), bobinado filamentario.
 
-#### [[02 - Aerospace Materials I/Tema 11 - Structural Adhesives and Joint Design|Tema 11: Structural Adhesives & Joint Design]]
+#### Tema 11: Structural Adhesives & Joint Design (planned)
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-11-adhesives.html`
 * **Fuentes Oficiales:**
   * Teoria: `Session 24 T11 Adhesives.pdf`

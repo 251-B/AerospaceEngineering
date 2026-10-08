@@ -594,8 +594,9 @@
       </p>
 
       <div class="math-block">
-        $$F_{\text{net}}(r) = F_{\text{attractive}}(r) + F_{\text{repulsive}}(r) = -\frac{A}{r^m} - \frac{n B}{r^{n+1}} \quad (n > m)$$
-        $$E_{\text{net}}(r) = -\int_\infty^r F_{\text{net}}(r')\,dr' = -\frac{A}{r^m} + \frac{B}{r^n}$$
+        $$E_{\text{net}}(r) = -\frac{A}{r^m} + \frac{B}{r^n} \quad (n > m), \qquad F_{\text{net}}(r) = -\frac{dE_{\text{net}}}{dr} = -\frac{mA}{r^{m+1}} + \frac{nB}{r^{n+1}}$$
+        $$E_{\text{net}}(r) = -\int_\infty^r F_{\text{net}}(r')\,dr' = -\left[\frac{A}{r'^{\,m}} - \frac{B}{r'^{\,n}}\right]_{\infty}^{r} = -\frac{A}{r^m} + \frac{B}{r^n}$$
+        (the attractive term $-mA/r^{m+1} < 0$ pulls the atoms together, the repulsive term $+nB/r^{n+1} > 0$ pushes them apart; $E_{\text{net}}(\infty) = 0$ because $m, n > 0$).
       </div>
 
       <p>
@@ -603,7 +604,7 @@
       </p>
 
       <div class="math-block">
-        $$\left.F_{\text{net}}\right|_{r = r_0} = -\left.\frac{dE_{\text{net}}}{dr}\right|_{r = r_0} = 0 \iff E_{\text{net}}(r_0) = -E_0$$
+        $$\left.F_{\text{net}}\right|_{r = r_0} = -\left.\frac{dE_{\text{net}}}{dr}\right|_{r = r_0} = 0 \iff \frac{mA}{r_0^{m+1}} = \frac{nB}{r_0^{n+1}} \iff E_{\text{net}}(r_0) = -E_0$$
       </div>
 
       <div class="diagram-card">
@@ -662,7 +663,8 @@
           </li>
           <li style="margin-bottom: 12px;">
             <strong>Young's Modulus of Elasticity ($E$) [Slide 13]:</strong> Governed by the local curvature (second derivative) at the bottom of the well:
-            $$E_{\text{Young}} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = \frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
+            $$E_{\text{Young}} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = -\frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
+            (since $F_{\text{net}} = -dE_{\text{net}}/dr$, the slope of the force curve at $r_0$ is negative, so $-dF_{\text{net}}/dr > 0$). Using the equilibrium condition, $\left.d^2E_{\text{net}}/dr^2\right|_{r_0} = \dfrac{m(n-m)A}{r_0^{m+2}} > 0$.
             A steep, narrow potential well requires immense mechanical force per unit displacement to stretch bonds, yielding a high elastic modulus.
           </li>
           <li style="margin-bottom: 12px;">

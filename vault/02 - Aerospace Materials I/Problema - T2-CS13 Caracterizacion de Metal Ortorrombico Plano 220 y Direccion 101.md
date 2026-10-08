@@ -91,10 +91,10 @@ tags:
   $$\rho_{(110)} = \frac{2\text{ at}}{5.46 \times 10^{-15}\text{ cm}^2} = 3.663 \times 10^{14} \approx \mathbf{3.66 \times 10^{14}\text{ atoms/cm}^2}$$
 
 * **Plano $(100)$:**
-  * Dimensiones: base $b = 6.0\text{ \AA} = 6.0 \times 10^{-8}\text{ cm}$; altura $c = 7.0\text{ \AA} = 7.0 \times 10^{-8}\text{ cm}$.
-  * Área: $A_{(100)} = 6.0 \times 7.0 = 42.0\text{ \AA}^2 = 4.20 \times 10^{-15}\text{ cm}^2$.
+  * Dimensiones: base $b = 5.990\text{ \AA} = 5.990 \times 10^{-8}\text{ cm}$; altura $c = 7.0\text{ \AA} = 7.0 \times 10^{-8}\text{ cm}$.
+  * Área: $A_{(100)} = 5.990 \times 7.0 = 41.93\text{ \AA}^2 = 4.193 \times 10^{-15}\text{ cm}^2$.
   * Átomos contenidos: $N_{\text{átomos}} = 2$.
-  $$\rho_{(100)} = \frac{2\text{ at}}{4.20 \times 10^{-15}\text{ cm}^2} = 4.7619 \times 10^{14} \approx \mathbf{4.76 \times 10^{14}\text{ atoms/cm}^2}$$
+  $$\rho_{(100)} = \frac{2\text{ at}}{4.193 \times 10^{-15}\text{ cm}^2} = 4.770 \times 10^{14} \approx \mathbf{4.77 \times 10^{14}\text{ atoms/cm}^2}$$
 
 ---
 
@@ -102,7 +102,7 @@ tags:
 * **Espaciado $d_{(111)}$:**
   $$\frac{1}{d_{(111)}^2} = \frac{1^2}{a^2} + \frac{1^2}{b^2} + \frac{1^2}{c^2} = \frac{1}{24.96} + \frac{1}{35.88} + \frac{1}{49.00}$$
   $$\frac{1}{d_{(111)}^2} = 0.040064 + 0.027871 + 0.020408 = 0.088343\text{ \AA}^{-2}$$
-  $$d_{(111)} = \frac{1}{\sqrt{0.088343}} = \frac{1}{0.297225} = \mathbf{3.364\text{ \AA}} \approx \mathbf{3.37\text{ \AA}}$$
+  $$d_{(111)} = \frac{1}{\sqrt{0.088343}} = \frac{1}{0.297225} = \mathbf{3.364\text{ \AA}} \approx \mathbf{3.36\text{ \AA}}$$
 
 * **Espaciado $d_{(110)}$:**
   $$\frac{1}{d_{(110)}^2} = \frac{1^2}{a^2} + \frac{1^2}{b^2} + 0 = \frac{1}{24.96} + \frac{1}{35.88} = 0.040064 + 0.027871 = 0.067935\text{ \AA}^{-2}$$
@@ -113,15 +113,18 @@ tags:
 ### 5. Apartado e: Masa del Monocristal de $1\text{ cm}^3$
 * **Volumen de celda:** $V_C = 209.48\text{ \AA}^3 = 2.0948 \times 10^{-22}\text{ cm}^3$.
 * **Densidad teórica:**
-  $$\rho = \frac{4 \times 180.95\text{ g/mol}}{(2.0948 \times 10^{-22}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})} = \frac{723.8}{126.15} = \mathbf{5.738\text{ g/cm}^3} \approx \mathbf{5.72\text{ g/cm}^3}$$
+  $$\rho = \frac{4 \times 180.95\text{ g/mol}}{(2.0948 \times 10^{-22}\text{ cm}^3) \times (6.022 \times 10^{23}\text{ mol}^{-1})} = \frac{723.8}{126.15} = \mathbf{5.738\text{ g/cm}^3} \approx \mathbf{5.74\text{ g/cm}^3}$$
 * Para un volumen macroscópico $V = 1.0\text{ cm}^3$:
-  $$m = \rho \cdot V = 5.72\text{ g/cm}^3 \times 1.0\text{ cm}^3 = \mathbf{5.72\text{ g}}$$
+  $$m = \rho \cdot V = 5.74\text{ g/cm}^3 \times 1.0\text{ cm}^3 = \mathbf{5.74\text{ g}}$$
+
+> [!warning] Discrepancy with the official solution
+> The official key ($\rho_{(100)} = 4.76\times10^{14}$, $d_{(111)} = 3.37\text{ \AA}$, $m = 5.72\text{ g}$) is reproduced only if the cell is first rounded to $a = 5.0$, $b = 6.0$, $c = 7.0\text{ \AA}$ ($V = 210\text{ \AA}^3$: $\rho = 5.723\text{ g/cm}^3$, $d_{(111)} = 3.367\text{ \AA}$). Without that rounding, the cell obtained from the figure data ($a = 4.996$, $b = 5.990$, $c = 7.0\text{ \AA}$) gives $\rho_{(100)} = 4.77\times10^{14}\text{ atoms/cm}^2$, $d_{(111)} = 3.36\text{ \AA}$ and $m = 5.74\text{ g}$ ($0.3$-$0.4\%$ differences, within the two-significant-figure precision of the figure). The unrounded values are reported.
 
 ---
 
 ## 🎯 4. Fase 4: Interpretación Física y Verificación
 
-* Todos los resultados algebraicos concuerdan con la solución oficial: $\text{APF} = 0.62$ refleja el menor empaquetamiento propio de una celda ortorrómbica anisotrópica respecto al límite FCC ($0.74$), y las densidades planares validan que el plano más compacto $(100)$ posee menor área y mayor concentración atómica que $(110)$.
+* Los resultados coinciden con la solución oficial salvo diferencias de redondeo (ver nota de discrepancia): $\text{APF} = 0.62$ refleja el menor empaquetamiento propio de una celda ortorrómbica anisotrópica respecto al límite FCC ($0.74$), y las densidades planares validan que el plano más compacto $(100)$ posee menor área y mayor concentración atómica que $(110)$.
 
 ---
 *Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]

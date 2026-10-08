@@ -32,7 +32,7 @@ tags:
 ## 📊 1. Fase 1: Hipótesis y Parámetros
 
 ### Hipótesis Físicas:
-1. **Comportamiento Arrhenius Monotónico:** La dependencia de la difusividad del carbono en la red austenítica del acero dulce ($\gamma\text{-Fe}$, FCC) sigue estrictamente la ley de Arrhenius en el intervalo térmico $850^\circ\text{C}\text{--}1000^\circ\text{C}$ sin que ocurran cambios de fase alotrópica en dicho rango ($T > 727^\circ\text{C}$, el acero se encuentra permanentemente en el campo austenítico) [Session 5 Slides 23-26].
+1. **Comportamiento Arrhenius Monotónico:** La dependencia de la difusividad del carbono en la red austenítica del acero dulce ($\gamma\text{-Fe}$, FCC) sigue estrictamente la ley de Arrhenius en el intervalo térmico $850^\circ\text{C}\text{--}1000^\circ\text{C}$ sin que ocurran cambios de fase alotrópica en dicho rango (assumption: the steel is fully austenitic over the whole interval, i.e. above its $A_3$ temperature; the slides do not give $A_3$, which depends on the carbon content) [Session 5 Slides 23-26].
 2. **Invarianza de $E_D$ y $D_0$:** La energía de activación $E_D$ y el factor pre-exponencial $D_0$ permanecen constantes en el rango térmico considerado.
 
 ### Parámetros de Entrada:
@@ -102,7 +102,7 @@ $$D_3 = D_2 \cdot \exp\left[\frac{E_D}{R}\left(\frac{1}{T_2} - \frac{1}{T_3}\rig
    $$\exp(\Delta_{\text{exp}}) = e^{0.581857} \approx 1.78936$$
    $$D_3 = D_2 \times 1.78936 = (1.805 \times 10^{-11}\text{ m}^2/\text{s}) \times 1.78936 \approx \mathbf{3.2298 \times 10^{-11}\text{ m}^2/\text{s}} \approx \mathbf{3.23 \times 10^{-11}\text{ m}^2/\text{s}}$$
 
-*(Nótese que la tabla oficial de Session 5 Slide 23 recoge exactamente este orden de magnitud: $D_{\text{C en Fe-FCC}} \approx 3 \times 10^{-11}\text{ m}^2/\text{s}$ a $1000^\circ\text{C}$).*
+*(Session 5 Slide 23 lists $D_{\text{C en Fe-FCC}} \approx 3 \times 10^{-11}\text{ m}^2/\text{s}$ at $1000^\circ\text{C}$: same order of magnitude as the $3.23 \times 10^{-11}$ obtained, the slide value being a one-significant-figure figure).*
 
 ---
 
@@ -115,7 +115,7 @@ $$D_3 = D_2 \cdot \exp\left[\frac{E_D}{R}\left(\frac{1}{T_2} - \frac{1}{T_3}\rig
 2. **Sensibilidad Térmica en Aceros:** Un incremento de solo $50^\circ\text{C}$ (de $950^\circ\text{C}$ a $1000^\circ\text{C}$) aumenta la difusividad en un factor de:
    $$\frac{D_{1000^\circ\text{C}}}{D_{950^\circ\text{C}}} = \frac{3.23 \times 10^{-11}}{1.805 \times 10^{-11}} \approx 1.79 \quad (+79\%)$$
    Esto explica por qué en tratamientos industriales de cementación se busca la máxima temperatura admisible de austenización, ya que acorta de forma drástica los tiempos de horno y reduce los costes energéticos, siempre que no se promueva un crecimiento de grano excesivo [Slides 25, 30].
-3. **Magnitud de la Energía de Activación:** El valor de $E_D \approx 36\text{ kcal/mol} \approx 150.7\text{ kJ/mol}$ es característico de un mecanismo **intersticial** (donde el átomo de carbono migra entre huecos octaédricos de la red FCC sin necesidad de crear vacantes). Para auto-difusión sustitucional del hierro en la misma red FCC, la energía de activación requerida es casi el doble ($E_a \approx 290\text{ kJ/mol} \approx 70\text{ kcal/mol}$) [Slide 9].
+3. **Magnitud de la Energía de Activación:** El valor de $E_D \approx 36\text{ kcal/mol} \approx 150.7\text{ kJ/mol}$ es característico de un mecanismo **intersticial** (donde el átomo de carbono migra entre huecos octaédricos de la red FCC sin necesidad de crear vacantes). Para auto-difusión sustitucional del hierro en la misma red FCC, la energía de activación requerida es mayor (e.g. $\alpha\text{-Fe}$: $E_a = 240\text{ kJ/mol} = 57.5\text{ kcal/mol}$) [Slide 9].
 
 ---
 

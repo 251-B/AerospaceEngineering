@@ -40,7 +40,7 @@ Consider two ions of valences $Z_1$ and $Z_2$ (where $Z_1$ is positive and $Z_2$
 
 $$F_{\text{net}}(a) = F_{\text{attractive}}(a) + F_{\text{repulsive}}(a)$$
 
-$$F_{\text{net}}(a) = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a^2} - \frac{n b}{a^{n+1}}$$
+$$F_{\text{net}}(a) = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a^2} + \frac{n b}{a^{n+1}}$$
 
 Where:
 * $Z_1, Z_2$: Formal valence charges (number of electrons transferred, dimensionless).
@@ -53,7 +53,9 @@ Where:
 ### 2.2 Net Potential Energy Function $E_{\text{net}}(a)$ [Slide 8]
 Integrating the net force with respect to interionic distance $a$ (with the reference state $E(\infty) = 0$ at infinite separation):
 
-$$E_{\text{net}}(a) = -\int_\infty^a F_{\text{net}}(r)\, dr = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a} + \frac{b}{a^n}$$
+$$E_{\text{net}}(a) = -\int_\infty^a F_{\text{net}}(r)\, dr = -\left[\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 r} - \frac{b}{r^n}\right]_{\infty}^{a} = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a} + \frac{b}{a^n}$$
+
+(the antiderivative of $F_{\text{net}}$ is $\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 r} - \frac{b}{r^n}$, which vanishes at $r \to \infty$ since $n > 0$; equivalently $F_{\text{net}} = -dE_{\text{net}}/da$.)
 
 $$\underbrace{E_{\text{attraction}} = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a}}_{\text{Attractive Energy (Negative, Exothermic)}} \quad + \quad \underbrace{E_{\text{repulsion}} = +\frac{b}{a^n}}_{\text{Repulsive Energy (Positive, Endothermic)}}$$
 

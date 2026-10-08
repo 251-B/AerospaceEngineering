@@ -104,6 +104,8 @@ La red BCC **no es compacta** ($\text{APF} = 0.68$). Aunque posee más volumen l
 | **BCC** | 2 | $0.32$ | **6** (caras y aristas) | **0.155** | **12** (4 en cada cara) | **0.291** |
 | **HCP** | 6 | $0.26$ | **6** | **0.414** | **12** | **0.225** |
 
+Per atom ($N/n$): FCC $2$ tetrahedral and $1$ octahedral; HCP $2$ tetrahedral and $1$ octahedral; BCC $6$ tetrahedral and $3$ octahedral (BCC has $12$ and $6$ sites per cell with $n = 2$, so the compact-structure rule $N_{\text{tet}} = 2n$, $N_{\text{oct}} = n$ does not apply to BCC).
+
 ---
 *Enlaces Bidireccionales:*
 * [[Concepto - Estructuras Metalicas FCC BCC HCP y Factor de Empaquetamiento|⬅️ Anterior: Estructuras Metálicas FCC, BCC, HCP]]

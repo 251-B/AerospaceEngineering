@@ -65,9 +65,9 @@ $$\frac{\Delta V}{V_{\text{BCC}}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{
   $$\sqrt{14} \approx 3.741657$$
   $$a_{\text{BCC}} = 0.07565\text{ nm} \times 3.741657 = 0.2830565\text{ nm} = 2.8306\text{ \AA}$$
 * Volumen de la celda unitaria BCC:
-  $$V_C^{\text{BCC}} = a_{\text{BCC}}^3 = (0.2830565\text{ nm})^3 = 0.0226786\text{ nm}^3$$
+  $$V_C^{\text{BCC}} = a_{\text{BCC}}^3 = (0.2830565\text{ nm})^3 = 0.0226787\text{ nm}^3$$
 * Volumen por átomo en BCC:
-  $$V_{\text{at}}^{\text{BCC}} = \frac{0.0226786\text{ nm}^3}{2} = \mathbf{0.0113393\text{ nm}^3/\text{átomo}}$$
+  $$V_{\text{at}}^{\text{BCC}} = \frac{0.0226787\text{ nm}^3}{2} = \mathbf{0.0113394\text{ nm}^3/\text{átomo}}$$
 
 ---
 
@@ -78,24 +78,27 @@ $$\frac{\Delta V}{V_{\text{BCC}}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{
 * Parámetro de red $a_{\text{FCC}}$:
   $$a_{\text{FCC}} = \sqrt{0.131752\text{ nm}^2} \approx 0.362977\text{ nm} = 3.6298\text{ \AA}$$
 * Volumen de la celda unitaria FCC:
-  $$V_C^{\text{FCC}} = a_{\text{FCC}}^3 = (0.362977\text{ nm})^3 = 0.047822\text{ nm}^3$$
+  $$V_C^{\text{FCC}} = a_{\text{FCC}}^3 = (0.362977\text{ nm})^3 = 0.047823\text{ nm}^3$$
 * Volumen por átomo en FCC:
-  $$V_{\text{at}}^{\text{FCC}} = \frac{0.047822\text{ nm}^3}{4} = \mathbf{0.0119555\text{ nm}^3/\text{átomo}}$$
+  $$V_{\text{at}}^{\text{FCC}} = \frac{0.047823\text{ nm}^3}{4} = \mathbf{0.0119558\text{ nm}^3/\text{átomo}}$$
 
 ---
 
 ### 3. Variación Volumétrica Relativa:
-$$\Delta V_{\text{rel}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{at}}^{\text{BCC}}}{V_{\text{at}}^{\text{BCC}}} = \frac{0.0119555 - 0.0113393}{0.0113393}$$
-$$\Delta V_{\text{rel}} = \frac{0.0006162}{0.0113393} = +0.05434 \implies \mathbf{+5.43\%} \approx \mathbf{5.7\%}$$
+$$\Delta V_{\text{rel}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{at}}^{\text{BCC}}}{V_{\text{at}}^{\text{BCC}}} = \frac{0.0119558 - 0.0113394}{0.0113394}$$
+$$\Delta V_{\text{rel}} = \frac{0.0006164}{0.0113394} = +0.05436 \implies \mathbf{+5.4\%}$$
 
-*(Utilizando redondeos directos de cálculo: $\frac{a_{\text{FCC}}^3 / 4}{a_{\text{BCC}}^3 / 2} - 1 = \frac{0.0479 / 4}{0.02267 / 2} - 1 = 1.0567 - 1 = \mathbf{5.7\%}$, coincidiendo exactamente con la solución oficial).*
+Cross-check without intermediate rounding: $\dfrac{a_{\text{FCC}}^3 / 4}{a_{\text{BCC}}^3 / 2} - 1 = \dfrac{0.047823 / 4}{0.022679 / 2} - 1 = 1.0544 - 1 = +5.4\%$.
+
+> [!warning] Discrepancy with the official solution
+> The official key states $5.7\%$. With the data as given ($d_{321}^{\text{BCC}} = 0.07565\text{ nm}$ and $\rho_{(002)}^{\text{FCC}} = 15.18\times10^{18}\text{ at/m}^2$, using $\rho_{(002)} = 2/a_{\text{FCC}}^2$) the result is $+5.4\%$. Rounding the intermediate values to 3-5 significant figures gives $5.4$-$5.5\%$ and never $5.7\%$; no input was altered to force a match.
 
 ---
 
 ## 🎯 4. Fase 4: Interpretación Física y Verificación
 
-* **Fenómeno Térmico vs Estructural:** Aunque la estructura FCC es intrínsecamente más compacta a nivel geométrico de empaquetamiento de esferas rígidas ($\text{APF} = 0.74$ vs $0.68$), a la temperatura de transición ($910^\circ\text{C}$), el incremento en la amplitud de las vibraciones térmicas y la expansión de la nube electrónica aumentan el radio atómico efectivo del átomo de hierro, produciendo esta dilatación neta medida por difracción.
-* **Control Dimensional en Tratamientos Térmicos:** Este salto volumétrico macroscópico del $\approx 5.7\%$ genera elevadas tensiones internas durante el enfriamiento de piezas aeroespaciales gruesas de acero al carbono o aleado, siendo la causa primaria de posibles alabeos o agrietamientos durante el temple.
+* **Interpretation of the sign and size of the result:** Both phases are compared at the same temperature ($910^\circ\text{C}$), so thermal vibration cannot explain the difference. The positive sign follows only from the data supplied: they give $a_{\text{BCC}} = 0.2831\text{ nm}$ and $a_{\text{FCC}} = 0.3630\text{ nm}$, hence $V_{\text{at}}^{\text{FCC}} > V_{\text{at}}^{\text{BCC}}$. These numbers are those of a hypothetical metal, not of real iron: real iron contracts by roughly $1\%$ in the $\alpha \to \gamma$ transformation, so a close-packed FCC phase is not expected to have a larger atomic volume than BCC. The packing factors ($\text{APF} = 0.74$ for FCC vs $0.68$ for BCC) only apply at equal atomic radius.
+* **Control Dimensional en Tratamientos Térmicos:** Un salto volumétrico macroscópico de este orden ($\approx 5.4\%$ con los datos dados) genera elevadas tensiones internas durante el enfriamiento de piezas aeroespaciales gruesas de acero al carbono o aleado, siendo la causa primaria de posibles alabeos o agrietamientos durante el temple.
 
 ---
 *Retorno:* [[Tema 2 - Structure of Materials and Crystalline Defects|⬅️ Volver a Tema 2]] | [[02 - Aerospace Materials I/Materiales Aeroespaciales I MOC|🔬 MOC Asignatura]]
