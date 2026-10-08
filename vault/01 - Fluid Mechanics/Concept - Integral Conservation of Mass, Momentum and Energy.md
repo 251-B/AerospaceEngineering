@@ -278,7 +278,7 @@ $$ \begin{aligned}
 \end{aligned} \qquad \text{[Eq. 3.38]} $$
 
 ### Application to Aerospace Turbomachinery: Euler Equation
-In the rotor of an axial compressor or gas turbine rotating at constant angular velocity $\vec{\Omega}$, the torque exerted by the fluid on the rotor in steady regime is:
+In the rotor of an axial compressor or gas turbine rotating at constant angular velocity $\vec{\Omega}$, the torque exerted by the rotor on the fluid in steady regime (the torque of the fluid on the rotor is its negative) is:
 $$ T_{\text{shaft}} = \dot{m} (r_2 v_{\theta 2} - r_1 v_{\theta 1}) $$
 Multiplying by $\Omega$, the mechanical power exchanged per unit mass flow rate is the **Euler turbomachinery formula**:
 $$ w_{\text{Euler}} = u_2 v_{\theta 2} - u_1 v_{\theta 1} $$

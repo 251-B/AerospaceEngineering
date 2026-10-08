@@ -389,10 +389,13 @@ $$ \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T =
 * **Position of Plane $A$:**
   $$ \mathbf{r}_A(t) = (x_{A0} + v_A t)\mathbf{i}_0 $$
 * **Relative Position of Glider $B$ with Respect to $A$:**
-  Since the glider is behind and above/below $A$, the vector from $A$ to $B$ is oriented at angle $\theta$ below the negative horizontal:
+  Since the glider is behind $A$ and gaining altitude while $\theta$ increases, the vector from $A$ to $B$ points at angle $\theta$ above the negative horizontal:
   $$ \mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 $$
   The total position of glider $B$ in $\mathcal{S}_0$ is:
   $$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = (x_{A0} + v_A t - r\cos\theta)\mathbf{i}_0 + (r\sin\theta)\mathbf{j}_0 $$
+
+> [!warning] Erratum
+> The first version said that the vector from $A$ to $B$ is at angle $\theta$ below the negative horizontal, which contradicts $\mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0$ (positive vertical component). The glider is behind and above $A$, at angle $\theta$ above the negative horizontal; this is the only reading compatible with the glider gaining altitude as $\theta$ increases, and the formulas for $\mathbf{v}_{B/0}$ and $\mathbf{a}_{B/0}$ are unchanged. Numeric check: the altitude $r\sin\theta$ has derivative $r\dot{\theta}\cos\theta > 0$ for $0 < \theta < \pi/2$ and $\dot{\theta} > 0$.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -459,7 +462,7 @@ $$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos 
 * **Unit Tangent Vector $\mathbf{e}_t$:**
   $$ \mathbf{e}_t = \frac{d\mathbf{r}/dx}{\|d\mathbf{r}/dx\|} = \frac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{\sqrt{1 + \cos^2 x}} $$
 * **Unit Principal Normal Vector $\mathbf{e}_n$:**
-  In a 2D plane, the normal vector $\mathbf{e}_n$ is perpendicular to $\mathbf{e}_t$ oriented toward the center of curvature.
+  In a 2D plane, the normal vector $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t$ is perpendicular to $\mathbf{e}_t$ and oriented to its left (a $+90^\circ$ turn). It points toward the centre of curvature only where the signed curvature is positive.
   Differentiating $\mathbf{e}_t$ with respect to arc length $s$:
   $$ \frac{d\mathbf{e}_t}{ds} = \frac{d\mathbf{e}_t}{dx}\frac{dx}{ds} = \frac{1}{\sqrt{1 + \cos^2 x}}\frac{d}{dx}\left[ (1 + \cos^2 x)^{-1/2}(\mathbf{i}_0 + \cos x\,\mathbf{j}_0) \right] $$
   Applying the quotient/product rule:
@@ -468,7 +471,10 @@ $$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos 
   Putting over the common denominator $(1 + \cos^2 x)^{3/2}$:
   $$ = \frac{\sin x\cos x\,\mathbf{i}_0 + \sin x\cos^2 x\,\mathbf{j}_0 - \sin x(1 + \cos^2 x)\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = \frac{\sin x\cos x\,\mathbf{i}_0 - \sin x\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = -\frac{\sin x}{(1 + \cos^2 x)^{3/2}}(-\cos x\,\mathbf{i}_0 + \mathbf{j}_0) $$
   Normalizing to unit length:
-  $$ \mathbf{e}_n = \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \quad (\text{sign adjusted to point to the concave side}) $$
+  $$ \mathbf{e}_n = \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \quad (\text{left normal } \mathbf{k}_0 \times \mathbf{e}_t) $$
+
+> [!warning] Erratum
+> The first version called $\mathbf{e}_n$ the normal pointing to the concave side. It is the left normal $\mathbf{k}_0 \times \mathbf{e}_t$ and, since $d\mathbf{e}_t/ds = -\dfrac{\sin x}{(1 + \cos^2 x)^{3/2}}\,\mathbf{e}_n$, it points away from the centre of curvature for $0 < x < \pi$ (where $a_n < 0$) and toward it for $\pi < x < 2\pi$ (where $a_n > 0$). Numeric check: sympy gives $a_n(\pi/2) = -1\ \text{m/s}^2$, with the centre of curvature below the crest.
 
 #### (b) Arc Length Parameter $s(x)$
 * **Pedagogical Justification:** The relation between $x$ and arc length $s$ is given by integrating the metric differential:

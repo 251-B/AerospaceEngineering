@@ -61,7 +61,7 @@ Consider an infinitesimal fluid element in the shape of a tetrahedron with three
 
 By elementary geometric projection of the tetrahedron:
 $$ dA_1 = n_1 dA, \quad dA_2 = n_2 dA, \quad dA_3 = n_3 dA $$
-The volume of the tetrahedron is of order $dV \sim \frac{1}{6} h dA$, where $h$ is the height perpendicular to the oblique face.
+The volume of the tetrahedron is of order $dV = \frac{1}{3} h\, dA$ (one third of the base times the height), where $h$ is the height perpendicular to the oblique face; in terms of the edges, $dV = \frac{1}{6}\,dx_1 dx_2 dx_3$.
 
 Applying Newton's 2nd Law to the fluid tetrahedron:
 $$ \rho dV \frac{D\vec{v}}{Dt} = \vec{f}_n dA + \vec{f}_{-e_1} dA_1 + \vec{f}_{-e_2} dA_2 + \vec{f}_{-e_3} dA_3 + \rho \vec{f}_m dV $$

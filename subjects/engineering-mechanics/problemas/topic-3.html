@@ -983,8 +983,9 @@
 <span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The potential well has width $2\pi a$ and barrier height $2ga$. Rotation creates a centrifugal destabilizing potential $-\frac{1}{2}m\Omega^2 x_1^2$ that flattens the well and can create bifurcated off-center equilibria when $\Omega^2 > g/a$.</li>
+<li>The potential well has width $2\pi a$ and barrier height $2ga$. Rotation creates a centrifugal destabilizing potential $-\frac{1}{2}m\Omega^2 x_1^2$ so that the origin loses stability for $\Omega^2 > g/a$. Off-centre equilibria satisfy $\sin u = \lambda u$ with $u = x_1/a$ and $\lambda = \Omega^2 a/g$; since $\sin u/u$ decreases monotonically from $1$ to $0$ on $(0, \pi]$, they exist (one pair $\pm u^*$ with $0 < u^* < \pi$) only for $\lambda < 1$, i.e. $\Omega^2 < g/a$, and there they are unstable ($V_{eff}'' = (mg/a)(\cos u^* - \lambda) < 0$).</li>
 </ul>
+<div class="justification-box"><strong>Erratum:</strong> The first version stated that off-centre equilibria appear for $\Omega^2 > g/a$; they exist only for $\Omega^2 < g/a$ (subcritical case) and are unstable. Numeric check: a scan of $\sin u = \lambda u$ on $(0, \pi]$ finds one root for $\lambda = 0.5$ ($u^* = 1.8955$) and for $0.9$, and none for $\lambda = 1, 1.1, 2$.</div>
 </div>
         </div>
       </details>
@@ -1092,7 +1093,7 @@
 <p style="margin-bottom: 10px;">Equilibrium requires $\frac{dV}{d\theta} = 0$:</p>
 <div class="math-block">$$ \frac{dV}{d\theta} = (mg - k\beta a)a\cos\theta = 0 $$</div>
 <p style="margin-bottom: 10px;">Two cases emerge:</p>
-<p style="margin-bottom: 10px;">1. If $mg - k\beta a \neq 0$: $\cos\theta = 0 \implies \theta_1 = \frac{\pi}{2}$ (top) and \theta_2 = -\frac{\pi}{2} (bottom).</p>
+<p style="margin-bottom: 10px;">1. If $mg - k\beta a \neq 0$: $\cos\theta = 0 \implies \theta_1 = \frac{\pi}{2}$ (top) and $\theta_2 = -\frac{\pi}{2}$ (bottom).</p>
 <p style="margin-bottom: 10px;">2. If $\beta = \frac{mg}{ka}$: $\frac{dV}{d\theta} \equiv 0$ for <strong>all</strong> $\theta$. Every point along the circumference is an equilibrium position (neutral equilibrium)!</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Reduction of Motion to Quadratures</h4>
 <p style="margin-bottom: 10px;">Conservation of mechanical energy:</p>
@@ -1117,11 +1118,12 @@
 <p style="margin-bottom: 10px;">Integrate for position $\theta(t) = \int_0^t \omega(t')dt'$ with $\theta(0) = 0$:</p>
 <div class="math-block">$$ \theta(t) = \frac{v_0}{a}\int_0^t e^{-2\mu t'}dt' = \frac{v_0}{a}\left[ -\frac{1}{2\mu}e^{-2\mu t'} \right]_0^t = \frac{v_0}{2\mu a}\left(1 - e^{-2\mu t}\right) $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Reaction of the Circumference</h4>
-<p style="margin-bottom: 10px;">Radial Newton's second law along $-\mathbf{e}_r$:</p>
-<div class="math-block">$$ m a \dot{\theta}^2 = N - \mathbf{F}_g \cdot \mathbf{e}_r - \mathbf{F}_s \cdot \mathbf{e}_r $$</div>
-<div class="math-block">$$ N(t) = m a [\dot{\theta}(t)]^2 + mg\sin\theta(t) + k a(1 - \beta\sin\theta(t)) $$</div>
+<p style="margin-bottom: 10px;">Radial Newton's second law, with $N$ the component of the reaction along $+\mathbf{e}_r$ (outward), $\mathbf{F}_g \cdot \mathbf{e}_r = -mg\sin\theta$ and $\mathbf{F}_s \cdot \mathbf{e}_r = -ka(1 - \beta\sin\theta)$:</p>
+<div class="math-block">$$ -m a \dot{\theta}^2 = N + \mathbf{F}_g \cdot \mathbf{e}_r + \mathbf{F}_s \cdot \mathbf{e}_r $$</div>
+<div class="math-block">$$ N(t) = -m a [\dot{\theta}(t)]^2 + mg\sin\theta(t) + k a(1 - \beta\sin\theta(t)) $$</div>
 <p style="margin-bottom: 10px;">Substitute $\beta = \frac{mg}{ka}$:</p>
-<div class="math-block">$$ N(t) = m a \left(\frac{v_0}{a}\right)^2 e^{-4\mu t} + ka = \frac{m v_0^2}{a}e^{-4\mu t} + ka $$</div>
+<div class="math-block">$$ N(t) = ka - m a \left(\frac{v_0}{a}\right)^2 e^{-4\mu t} = ka - \frac{m v_0^2}{a}e^{-4\mu t} $$</div>
+<div class="justification-box"><strong>Erratum:</strong> The first version of part (f) had the sign of the reaction wrong ($N = ma\dot{\theta}^2 + mg\sin\theta + ka(1 - \beta\sin\theta)$, which follows from no sign convention). With $N$ the outward component, $N = -ma\dot{\theta}^2 + mg\sin\theta + ka(1 - \beta\sin\theta)$, i.e. $N\,\mathbf{e}_r = ka - (mv_0^2/a)e^{-4\mu t}$ for $\beta = mg/(ka)$ (inward component $-N$). Numeric check: sympy solving $m\mathbf{a} = \mathbf{F}_g + \mathbf{F}_s + N\mathbf{e}_r$ reproduces the general expression with zero residual.</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
@@ -1188,7 +1190,7 @@
 <h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A particle of mass $m$ slides smoothly along a half-circumference wire of radius $a$ lying in the $X_1Y_1$ plane, which rotates around the vertical $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.</li>
-<li><strong>CDOFs:</strong> 1 degree of freedom ($	heta \in [0, \pi]$).</li>
+<li><strong>CDOFs:</strong> 1 degree of freedom ($\theta \in [0, \pi]$).</li>
 <li><strong>Initial State:</strong> At $t = 0$, $x_1(0) = 0, \theta(0) = 0$, velocity $\mathbf{v}_0 = v_0\mathbf{i}_1$.</li>
 <li><strong>Parameters:</strong> $m, a, \Omega, g, v_0 > 0$.</li>
 </ul>
@@ -1311,7 +1313,7 @@
 <h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A particle of mass $m$ moves without friction on an infinitely long circular cylinder of radius $R$ whose axis $Oz$ forms an angle $\alphalpha$ with the vertical.</li>
-<li><strong>CDOFs:</strong> 2 degrees of freedom: axial coordinate $z(t)$ and azimuthal angle $	heta(t)$.</li>
+<li><strong>CDOFs:</strong> 2 degrees of freedom: axial coordinate $z(t)$ and azimuthal angle $\theta(t)$.</li>
 <li><strong>Initial State ($t = 0$):</strong> $z(0) = 0, \theta(0) = \pi/2$, with $\dot{z}(0) = v_0$ and $\dot{\theta}(0) = \omega_0$.</li>
 <li><strong>Parameters:</strong> $m, R, \alpha, g, v_0, \omega_0$.</li>
 </ul>
@@ -1324,7 +1326,8 @@
 <li>Axial component along $-Oz$: $g_z = -g\cos\alpha$.</li>
 <li>Transverse horizontal/vertical component in cross-section: $g_\perp = g\sin\alpha$.</li>
 </ul>
-<div class="math-block">$$ \mathbf{g} = -g\sin\alpha\sin\theta\,\mathbf{e}_\theta - g\sin\alpha\cos\theta\,\mathbf{e}_r - g\cos\alpha\,\mathbf{k} $$</div>
+<div class="math-block">$$ \mathbf{g} = -g\sin\alpha\sin\theta\,\mathbf{e}_\theta + g\sin\alpha\cos\theta\,\mathbf{e}_r - g\cos\alpha\,\mathbf{k} $$</div>
+<p style="margin-bottom: 10px;">From the figure, $\mathbf{z} = \sin\alpha\,\mathbf{i}_1 + \cos\alpha\,\mathbf{k}_1$ and $\mathbf{x} = \cos\alpha\,\mathbf{i}_1 - \sin\alpha\,\mathbf{k}_1$, so $-g\mathbf{k}_1 = g\sin\alpha\,\mathbf{x} - g\cos\alpha\,\mathbf{z}$: $\theta = 0$ is the lowest generator of the cylinder.</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
@@ -1346,14 +1349,15 @@
 <p style="margin-bottom: 10px;">Separation of variables:</p>
 <div class="math-block">$$ \int_{\pi/2}^{\theta(t)} \frac{d\theta'}{\sqrt{\omega_0^2 + \frac{2g\sin\alpha}{R}\cos\theta'}} = \pm t $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Normal Reaction Force $N(\theta)$</h4>
-<p style="margin-bottom: 10px;">Radial equation along $-\mathbf{e}_r$:</p>
+<p style="margin-bottom: 10px;">Radial equation along $-\mathbf{e}_r$ ($N$ is the inward reaction; gravity has component $+mg\sin\alpha\cos\theta$ along $+\mathbf{e}_r$, hence $-mg\sin\alpha\cos\theta$ along $-\mathbf{e}_r$):</p>
 <div class="math-block">$$ m R \dot{\theta}^2 = N - mg\sin\alpha\cos\theta $$</div>
 <div class="math-block">$$ N(\theta) = m R \dot{\theta}^2 + mg\sin\alpha\cos\theta = m R\left(\omega_0^2 + \frac{2g\sin\alpha}{R}\cos\theta\right) + mg\sin\alpha\cos\theta $$</div>
 <div class="math-block">$$ N(\theta) = m R \omega_0^2 + 3mg\sin\alpha\cos\theta $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Case $\omega_0^2 = \frac{g\sin\alpha}{R}$</h4>
 <div class="math-block">$$ \dot{\theta}^2 = \frac{g\sin\alpha}{R}(1 + 2\cos\theta) $$</div>
-<p style="margin-bottom: 10px;">Turning point occurs when $\dot{\theta} = 0 \implies \cos\theta = -1/2 \implies \theta = \frac{2\pi}{3}$.</p>
-<p style="margin-bottom: 10px;">The particle undergoes bounded angular oscillations between $\pi/3$ and $2\pi/3$ around the bottom of the cylinder while accelerating parabolically along the axis $Oz$.</p>
+<p style="margin-bottom: 10px;">Turning point occurs when $\dot{\theta} = 0 \implies \cos\theta = -1/2 \implies \theta = \pm\frac{2\pi}{3}$.</p>
+<p style="margin-bottom: 10px;">The particle undergoes bounded angular oscillations between $-2\pi/3$ and $+2\pi/3$ about the bottom generator $\theta = 0$ (for $\omega_0 > 0$ it first reaches $2\pi/3$, then swings through $\theta = 0$ to $-2\pi/3$ and back) while accelerating parabolically along the axis $Oz$.</p>
+<div class="justification-box"><strong>Erratum:</strong> The first version had $\mathbf{g}\cdot\mathbf{e}_r = -g\sin\alpha\cos\theta$ and an oscillation between $\pi/3$ and $2\pi/3$. From the figure $\mathbf{g}\cdot\mathbf{e}_r = +g\sin\alpha\cos\theta$ and $\mathbf{g}\cdot\mathbf{e}_\theta = -g\sin\alpha\sin\theta$, so $\theta = 0$ is the stable bottom and the motion in (d) is symmetric about it. The result of (c) was already the inward reaction $N = mR\omega_0^2 + 3mg\sin\alpha\cos\theta$. Numeric check: RK4 of $\ddot{\theta} = -(g\sin\alpha/R)\sin\theta$ from $\theta(0) = \pi/2$ with $\omega_0^2 = g\sin\alpha/R$ gives $\theta_{min}/\pi = -0.6667$ and $\theta_{max}/\pi = +0.6667$; for $\omega_0^2 = 4g\sin\alpha/R$ the particle revolves without stopping.</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (e): Case $\omega_0^2 = \frac{4g\sin\alpha}{R}$</h4>
 <p style="margin-bottom: 10px;">At the top of the cylinder ($\theta = \pi, \cos\pi = -1$):</p>
 <div class="math-block">$$ \dot{\theta}^2(\pi) = \frac{4g\sin\alpha}{R} - \frac{2g\sin\alpha}{R} = \frac{2g\sin\alpha}{R} > 0 $$</div>
@@ -1464,7 +1468,7 @@
 <p style="margin-bottom: 10px;">Velocity:</p>
 <div class="math-block">$$ \mathbf{v}_1 = \dot{\xi}\mathbf{e}_\xi + \xi\sin\alpha\dot{\theta}\mathbf{e}_\theta $$</div>
 <p style="margin-bottom: 10px;">Acceleration:</p>
-<div class="math-block">$$ \mathbf{a}_1 = (\ddot{\xi} - \xi\dot{\theta}^2\sin^2\alpha)\mathbf{e}_\xi + (2\dot{\xi}\dot{\theta}\sin\alpha + \xi\ddot{\theta}\sin\alpha)\mathbf{e}_\theta + \xi\dot{\theta}^2\sin\alpha\cos\alpha\,\mathbf{n} $$</div>
+<div class="math-block">$$ \mathbf{a}_1 = (\ddot{\xi} - \xi\dot{\theta}^2\sin^2\alpha)\mathbf{e}_\xi + (2\dot{\xi}\dot{\theta}\sin\alpha + \xi\ddot{\theta}\sin\alpha)\mathbf{e}_\theta - \xi\dot{\theta}^2\sin\alpha\cos\alpha\,\mathbf{n} $$</div>
 <p style="margin-bottom: 10px;">2. <strong>For $P_2$:</strong></p>
 <div class="math-block">$$ \mathbf{v}_2 = \dot{\xi}\mathbf{k} $$</div>
 <div class="math-block">$$ \mathbf{a}_2 = \ddot{\xi}\mathbf{k} $$</div>
@@ -1493,7 +1497,7 @@
 <div class="math-block">$$ m(\xi\ddot{\theta}\sin\alpha + 2\dot{\xi}\dot{\theta}\sin\alpha) = 0 \implies \xi\ddot{\theta} + 2\dot{\xi}\dot{\theta} = 0 $$</div>
 <div class="math-block">$$ \frac{d}{dt}(\xi^2\dot{\theta}) = 0 $$</div>
 <p style="margin-bottom: 10px;">4. $P_1$ along normal $\mathbf{n}$:</p>
-<div class="math-block">$$ N = mg\sin\alpha + m\xi\dot{\theta}^2\sin\alpha\cos\alpha $$</div>
+<div class="math-block">$$ m\,\mathbf{a}_1\cdot\mathbf{n} = N - mg\sin\alpha \implies N = mg\sin\alpha - m\xi\dot{\theta}^2\sin\alpha\cos\alpha $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Condition for String to Remain Taut</h4>
 <p style="margin-bottom: 10px;">For the string to remain in tension ($T > 0$):</p>
 <div class="math-block">$$ T = m(g + \ddot{\xi}) > 0 \implies \ddot{\xi} > -g $$</div>
@@ -1504,7 +1508,8 @@
 <div class="math-block">$$ \dot{\theta} = \frac{1}{\sin\alpha}\sqrt{\frac{g(1 - \cos\alpha)}{\xi}} $$</div>
 <p style="margin-bottom: 10px;">Values of Tension and Normal Force:</p>
 <div class="math-block">$$ T = mg $$</div>
-<div class="math-block">$$ N = mg\sin\alpha + m\cos\alpha\left[\frac{g(1 - \cos\alpha)}{\sin\alpha}\right] = \frac{mg}{\sin\alpha}(\sin^2\alpha + \cos\alpha - \cos^2\alpha) = \frac{mg(1 - \cos\alpha)}{\sin\alpha} $$</div>
+<div class="math-block">$$ N = mg\sin\alpha - m\cos\alpha\left[\frac{g(1 - \cos\alpha)}{\sin\alpha}\right] = \frac{mg}{\sin\alpha}(\sin^2\alpha - \cos\alpha + \cos^2\alpha) = \frac{mg(1 - \cos\alpha)}{\sin\alpha} $$</div>
+<div class="justification-box"><strong>Erratum:</strong> The first version had $\mathbf{a}_1\cdot\mathbf{n} = +\xi\dot{\theta}^2\sin\alpha\cos\alpha$ and $N = mg\sin\alpha + m\xi\dot{\theta}^2\sin\alpha\cos\alpha$ (its own algebra in (e) did not reach the quoted result). The centripetal term points against the outward normal: $\mathbf{a}_1\cdot\mathbf{n} = -\xi\dot{\theta}^2\sin\alpha\cos\alpha$, hence $N = mg\sin\alpha - m\xi\dot{\theta}^2\sin\alpha\cos\alpha$, which gives the same final value $N = mg(1 - \cos\alpha)/\sin\alpha$. Numeric check: sympy differentiation of $\mathbf{r}_1$ gives $\mathbf{a}_1\cdot\mathbf{n} = -\tfrac{1}{2}\xi\dot{\theta}^2\sin 2\alpha$ and $N/(mg) = 0.5774$ at $\alpha = 60^\circ$, equal to $(1 - \cos\alpha)/\sin\alpha$.</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Two First Integrals of Motion</h4>
 <p style="margin-bottom: 10px;">1. <strong>Angular Momentum First Integral:</strong></p>
 <div class="math-block">$$ \xi^2\dot{\theta} = C_1 $$</div>
@@ -1594,7 +1599,7 @@
 <li>Position of contact point $B$: $\mathbf{r}_B = a\cos\phi\,\mathbf{i} + a\sin\phi\,\mathbf{j}$.</li>
 <li>Unit vectors at $B$:</li>
 <li>Radial: $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$.</li>
-<li>Tangential: $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$.</li>
+<li>Tangential: $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent; the straight segment leaves $B$ clockwise, towards the lower right in the figure, i.e. along $-\mathbf{u}_t$).</li>
 <li>Straight segment length:</li>
 </ul>
 <p style="margin-bottom: 10px;">The initial wrapped length was $l$. As the spool rotates at rate $\omega$, the length of the unwound free segment $BP$ is:</p>
@@ -1602,7 +1607,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>Position of particle $P$:</li>
 </ul>
-<div class="math-block">$$ \mathbf{r}_P = \mathbf{r}_B + s(t)\mathbf{u}_t = a\cos\phi\,\mathbf{i} + a\sin\phi\,\mathbf{j} + a(3\pi - \omega t + \phi)(-\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}) $$</div>
+<div class="math-block">$$ \mathbf{r}_P = \mathbf{r}_B - s(t)\mathbf{u}_t = a\cos\phi\,\mathbf{i} + a\sin\phi\,\mathbf{j} - a(3\pi - \omega t + \phi)(-\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}) $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
@@ -1612,13 +1617,15 @@
 </ul>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Velocity and Acceleration Vectors</h4>
 <p style="margin-bottom: 10px;">Differentiating $\mathbf{r}_P(t)$ with respect to time:</p>
-<div class="math-block">$$ \mathbf{v}_P = \frac{d\mathbf{r}_P}{dt} = a\dot{\phi}\mathbf{u}_t + \dot{s}\mathbf{u}_t + s\dot{\phi}(-\mathbf{u}_r) $$</div>
+<div class="math-block">$$ \mathbf{v}_P = \frac{d\mathbf{r}_P}{dt} = a\dot{\phi}\mathbf{u}_t - \dot{s}\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r $$</div>
 <p style="margin-bottom: 10px;">Since $s(t) = a(3\pi - \omega t + \phi) \implies \dot{s} = a(\dot{\phi} - \omega)$:</p>
-<div class="math-block">$$ \mathbf{v}_P = a(2\dot{\phi} - \omega)\mathbf{u}_t - s\dot{\phi}\mathbf{u}_r $$</div>
-<p style="margin-bottom: 10px;">Differentiating once more yields the acceleration $\mathbf{a}_P$.</p>
+<div class="math-block">$$ \mathbf{v}_P = a\omega\,\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r $$</div>
+<p style="margin-bottom: 10px;">Differentiating once more, with $\dot{\mathbf{u}}_t = -\dot{\phi}\mathbf{u}_r$ and $\dot{\mathbf{u}}_r = \dot{\phi}\mathbf{u}_t$:</p>
+<div class="math-block">$$ \mathbf{a}_P = \left[s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}\right]\mathbf{u}_r + s\dot{\phi}^2\mathbf{u}_t $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Forces Acting on $P$</h4>
 <p style="margin-bottom: 10px;">1. Gravity: $\mathbf{F}_g = -mg\mathbf{j} = -mg(\sin\phi\,\mathbf{u}_r + \cos\phi\,\mathbf{u}_t)$.</p>
-<p style="margin-bottom: 10px;">2. Tension: $\mathbf{T} = -T\mathbf{u}_t$ ($T > 0$ directed towards $B$).</p>
+<p style="margin-bottom: 10px;">2. Tension: $\mathbf{T} = +T\mathbf{u}_t$ ($T > 0$ directed towards $B$, since $\mathbf{r}_B - \mathbf{r}_P = s\,\mathbf{u}_t$).</p>
+<div class="justification-box"><strong>Erratum:</strong> The first version placed the particle at $\mathbf{r}_B + s\mathbf{u}_t$ (up and to the left of $B$), which contradicts the figure where the segment $BP$ leaves $B$ towards the lower right. Correct: $\mathbf{r}_P = \mathbf{r}_B - s\mathbf{u}_t$, $\mathbf{v}_P = a\omega\,\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r$, $\mathbf{a}_P = [s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}]\mathbf{u}_r + s\dot{\phi}^2\mathbf{u}_t$ and tension $+T\mathbf{u}_t$; the equations of part (e) and the energy of part (f) were already consistent with this. Numeric check: sympy differentiation of $\mathbf{r}_P$ reproduces $\mathbf{v}_P$ and $\mathbf{a}_P$, and RK4 of (e) with $\omega = 0$ conserves the energy of (f) to $10^{-13}$ with $T > 0$.</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Mechanical Energy Discussion</h4>
 <p style="margin-bottom: 10px;">For $\omega \neq 0$, the constraint is <strong>rheonomic</strong> (explicitly time-dependent). The contact point $B$ moves with velocity $\mathbf{v}_B = a\omega\mathbf{u}_t$, so the string tension does work on $P$. Mechanical energy is <strong>not conserved</strong> for $\omega \neq 0$.</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (e): Closed Set of Equations</h4>
