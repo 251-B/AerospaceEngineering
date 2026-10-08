@@ -39,4 +39,4 @@ Because $\mathbf{H}$ is a non-zero constant vector fixed in space, both position
 2. **Strictly 2D Motion:** Confined to the plane $z = 0$ perpendicular to $\mathbf{H}$.
 3. **Polar Coordinates:** Trajectory described by $(r, \theta)$ in the plane.
 4. **Inverse Speed-Radius Scaling:** Specific angular momentum $h = r^2\dot{\theta} = \text{const} \implies \dot{\theta} = h/r^2$. Angular rate increases as radius decreases.
-5. **Origin Inaccessibility ($r \to 0$ Barrier):** A particle with $h \ne 0$ can never reach the center $O$, because the centrifugal kinetic barrier $\frac{m h^2}{2r^2} \to +\infty$ as $r \to 0$.
+5. **Origin Inaccessibility ($r \to 0$ Barrier):** For the Newtonian attraction (and any central force weaker than $1/r^3$) a particle with $h \ne 0$ cannot reach the center $O$, because the centrifugal kinetic barrier $\frac{m h^2}{2r^2} \to +\infty$ as $r \to 0$ (Notes Sec. 4.8.1, property 5). This is not general: for $F \propto 1/r^3$ with $h^2 < \mu$ and for $F \propto 1/r^4$ (Problem 42) the attraction wins and the particle reaches $r = 0$.

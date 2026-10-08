@@ -3,19 +3,29 @@ title: "Problems - Topic 4: Angular Momentum and Central Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
-type: "Verbatim Problem Statements"
+type: "Problem Statements"
 language: "English"
+tags:
+  - problems
+  - topic-4
+  - angular-momentum
+  - central-forces
 ---
 
 # 📝 Topic 4: Angular Momentum and Central Forces - Problem Statements
 
-Official problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, Chapter 1). These problems test angular momentum, central force fields, torque about fixed and moving points, effective potential diagrams, two-body gravitational dynamics, Kepler's laws, the Binet equation, and the Vis-Viva energy relation.
+Problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, "Particle exercises and problems"). These problems exercise angular momentum, central force fields, the Binet equation, effective-potential discussions, constraint problems with a string, and the Kepler two-body relations.
 
 > [!NOTE]
-> **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
-> 
-> [!SUCCESS] Complete Analytical Solutions Ready
-> All problems have full, step-by-step pedagogical solutions developed in: [[Solutions - Topic 4 Angular Momentum and Central Forces]].
+> **Status:** The statements below follow `Problems.pdf` (version 2026); where the wording is shortened or the notation is changed, the change is flagged in the problem. Worked solutions: [[Solutions - Topic 4 Angular Momentum and Central Forces]]. Theory: [[Topic 4 - Angular Momentum and Central Forces]].
+
+| Problem | Problems.pdf page | Key page | Topic of the problem |
+| :---: | :---: | :---: | :--- |
+| 17 | 9-10 | 73 | Linear central force plus gravity |
+| 39 | 27 | 76 (part f only) | Particle on a string over a plate edge |
+| 42 | 29 | none | Power-law central force, discussion with $u = 1/r$ |
+| 43 | 30 | none | Two particles connected through a hole |
+| 44 | 31 | none | Seed thrown from an asteroid (apocenter) |
 
 ---
 
@@ -29,7 +39,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 * **(a)** Describe the motion of $M$, specifying clearly the shape of the path.
 * **(b)** What is the velocity of the particle as a function of $t$?
 
-*(Note: This problem is directly featured as the foundational benchmark example on Slide 6 of `04_-_Angular_momentum.pdf`).*
+*(Note: this problem is the example on Slide 6 of `04_-_Angular_momentum.pdf`.)*
 
 ---
 
@@ -37,16 +47,19 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 
 A heavy point particle $P$ with mass $m$ is connected with point $O$ on the upper surface of a thin square plate by a massless, inextensible string of length $\ell$. The distance between $O$ and the edge of the plate is $d$. The string hangs over the edge of the plate and can slide without friction. You can assume that the string remains tense and in contact with the plate at all times.
 
-We denote the geometric point where the string is in contact with the plate edge as $Q$. We define the inertial reference frame $S_0 : \{O, \mathcal{B}_0\}$, with $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ as shown in the figure. We define the angle $\theta$ between the $Ox_0$ axis and the string segment $OQ$, and the angle $\phi$ between a vertical plane containing the plate edge and the line perpendicular to the plate edge that passes through $P$.
-
-Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3\text{ rad}$, and the modulus of the velocity of $P$ is $v_0^P(0) = \sqrt{\ell g}$, where $g$ is the magnitude of the acceleration due to gravity.
+We denote the geometric point where the string is in contact with the plate edge as $Q$. We define the inertial reference frame $S_0 : \{O, \mathcal{B}_0\}$, with $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ as shown in the figure (Problems.pdf, PDF page 27). We define the angle $\theta$ between the $Ox_0$ axis and the string segment $OQ$, and the angle $\phi$ between a vertical plane containing the plate edge and the line perpendicular to the plate edge that passes through $P$. Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3\text{ rad}$, and the modulus of the velocity of $P$ is $v_0^P(0) = \sqrt{\ell g}$, where $g$ is the magnitude of the acceleration due to gravity.
 
 *Hint: Note that under the conditions of the problem, the two angles marked with dashed lines are equal.*
 
 * **(a)** How many degrees of freedom does the system have?
 * **(b)** Obtain the general expression of a unit vector in the direction from $Q$ to $P$ as a function of $\theta$ and $\phi$.
-* **(c)** Obtain the general expression for the position, velocity, and acceleration vectors of $Q$ and $P$.
-* **(d)** Formulate the equations of motion of the system and discuss the conservation of angular momentum and mechanical energy.
+* **(c)** Obtain the general expression for the position, velocity, and acceleration vectors of $Q$ and $P$ in $S_0$ as a function of $\theta$, $\phi$, their derivatives, and the parameters of the problem.
+* **(d)** Identify and express mathematically all the forces acting on $P$.
+* **(e)** Find a set of second order differential equations to determine the evolution of $\theta$ and $\phi$ in time, free of any other unknowns.
+* **(f)** Does the tension force exert work on $P$? Provide proof of your answer.
+* **(g)** Derive the general expression of the mechanical energy of $P$ in $S_0$ and compute its value initially. Is this a conserved quantity of motion? Justify your answer.
+
+*(Figure reading used in the solution: the plate edge is the line $x_0 = d$ parallel to $\mathbf{j}_0$, $Oz_0$ points up and gravity acts along $-\mathbf{k}_0$.)*
 
 ---
 
@@ -56,6 +69,9 @@ Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3\text{ rad}$, and the mod
 $$ F = \frac{m\mu}{r^\alpha} $$
 where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known positive constants.
 
+> [!NOTE] Notation
+> The official text writes the force as $F = m\alpha/r^\beta$ (strength $\alpha$, exponent $\beta$) and asks for $\beta = 1, 2, 3, 4$. Here the strength is renamed $\mu$ and the exponent $\alpha$, so that "$\alpha = 1, 2, 3, 4$" below corresponds to the official "$\beta = 1, 2, 3, 4$" and "$\mu/h^2$" to the official "$\alpha/h^2$".
+
 * **(a)** Show that the angular momentum vector and the mechanical energy of $P$ are conserved quantities of motion, and that the motion of $P$ occurs in a plane.
 * **(b)** Using polar coordinates $(r, \theta)$ in the plane of motion, find a second-order differential equation to solve for $u \equiv 1/r$ as a function of $\theta$ (i.e., $u = u(\theta)$).
 * **(c)** Find a first integral of this equation and discuss the limits of motion of $u$ as a function of $\mu/h^2$, $\alpha$, and the values of $u$ and $u' \equiv du/d\theta$ at $t = 0$, where $h$ is the magnitude of the angular momentum vector about the origin per unit mass. For $\alpha = 1, 2, 3,$ and $4$, determine under which conditions:
@@ -63,7 +79,7 @@ where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known posit
   * **ii.** The particle reaches $r = 0$ ($u \to \infty$).
   * **iii.** The particle oscillates between two values of $u$.
 
-*(Hint: try to solve first the problem with $\alpha = 2$, and then try the other values).*
+*(Hint: try to solve first the problem with $\alpha = 2$, and then try the other values.)*
 
 ---
 
@@ -81,7 +97,7 @@ Initially, half of the cord lies under the plane and half of the cord is on the 
   $$ T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right) $$
 * **(f)** Write down the new equations of motion if the plane on which $P_1$ moves is rough, with a friction coefficient $\mu$.
 
-*(Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1$, $x_2 = 2$, and $x_3 = -2/3$).*
+*(Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1$, $x_2 = 2$, and $x_3 = -2/3$.)*
 
 ---
 

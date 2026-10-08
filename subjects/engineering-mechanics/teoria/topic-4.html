@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topic 4: Angular Momentum & Kepler's Problem | Mechanics Applied to Aerospace Engineering</title>
+  <title>Topic 4: Angular Momentum and Central Forces | Mechanics Applied to Aerospace Engineering</title>
 
   <!-- Google Fonts & KaTeX CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,11 @@
       --badge-text: #0369a1;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background-color: var(--bg-primary);
@@ -74,386 +78,1123 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Top Sticky Navigation */
     .site-header {
-      position: sticky; top: 0; z-index: 50;
+      position: sticky;
+      top: 0;
+      z-index: 50;
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
       backdrop-filter: blur(8px);
     }
+
     .header-inner {
-      max-width: 960px; margin: 0 auto; padding: 12px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
-    .brand-area { display: flex; align-items: center; gap: 12px; }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .back-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
       transition: color var(--transition);
     }
-    .back-link:hover { color: var(--accent); }
-    .page-title-crumb { font-size: 0.95rem; font-weight: 600; color: var(--text-heading); }
 
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle-btn {
-      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
-      border-radius: 8px; width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: var(--text-main); transition: var(--transition);
+    .back-link:hover {
+      color: var(--accent);
     }
-    .theme-toggle-btn:hover { border-color: var(--accent-border); }
 
-    .main-container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
 
-    .page-hero { margin-bottom: 36px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--badge-bg); color: var(--badge-text);
-      font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
-      border: 1px solid var(--accent-border); font-family: var(--font-mono);
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .page-hero h1 {
-      font-family: 'Abril Fatface', Georgia, serif;
-      font-size: 2.2rem; font-weight: 400; color: var(--text-heading);
-      line-height: 1.25; margin-bottom: 12px;
-    }
-    .page-hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 780px; font-family: var(--font-serif); }
 
-    .cross-nav-pills {
-      display: flex; gap: 12px; margin-bottom: 32px; background: var(--bg-surface);
-      padding: 6px; border-radius: 10px; border: 1px solid var(--border-subtle);
+    .theme-toggle {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all var(--transition);
     }
-    .cross-nav-btn {
-      flex: 1; text-align: center; padding: 10px 16px; border-radius: 8px; text-decoration: none;
-      font-weight: 600; font-size: 0.9rem; transition: var(--transition); color: var(--text-muted);
-    }
-    .cross-nav-btn.active {
-      background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);
-    }
-    .cross-nav-btn:hover:not(.active) { color: var(--text-heading); background: var(--bg-subtle); }
 
-    .theory-section {
-      background: var(--bg-surface); border: 1px solid var(--border-subtle);
-      border-radius: 12px; padding: 28px; margin-bottom: 28px;
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
     }
-    .theory-section h2 {
-      font-family: 'Abril Fatface', Georgia, serif;
-      font-size: 1.5rem; color: var(--text-heading); margin-bottom: 16px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
-    .theory-section h3 {
-      font-size: 1.15rem; color: var(--accent); margin: 20px 0 10px; font-weight: 600;
-    }
-    .theory-section p { margin-bottom: 14px; font-family: var(--font-serif); font-size: 1.05rem; }
-    .theory-section ul, .theory-section ol { margin: 12px 0 16px 24px; font-family: var(--font-serif); }
-    .theory-section li { margin-bottom: 8px; }
 
+    [data-theme="dark"] .theme-toggle::before {
+      content: "☀️";
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+      content: "🌙";
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0 36px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-item:hover {
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 30px 0 12px;
+    }
+
+    h4.minor-heading {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Callout Boxes */
     .callout {
-      background: var(--accent-soft); border-left: 4px solid var(--accent);
-      padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0;
-    }
-    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; font-size: 0.95rem; }
-
-    .formula-box {
-      background: var(--bg-subtle); border: 1px solid var(--border-strong);
-      border-radius: 8px; padding: 16px; margin: 16px 0; text-align: center; overflow-x: auto;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      border: 1px solid;
     }
 
-    .table-container { overflow-x: auto; margin: 18px 0; }
-    table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.92rem; }
-    th, td { padding: 10px 14px; border: 1px solid var(--border-subtle); text-align: left; }
-    th { background: var(--bg-subtle); color: var(--text-heading); font-weight: 600; }
+    .callout-info {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
 
+    .callout-key {
+      background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+      border-color: var(--accent-border);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-warning .callout-title { color: #f59e0b; }
+    .callout-key .callout-title { color: var(--accent); }
+
+    /* Math Blocks */
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .math-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 26px 0;
+      text-align: center;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Example Box */
     .example-card {
-      background: var(--bg-subtle); border: 1px solid var(--accent-border);
-      border-radius: 10px; padding: 22px; margin: 20px 0;
-    }
-    .example-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-    .example-badge {
-      background: var(--accent); color: #000; font-weight: 700; font-size: 0.75rem;
-      padding: 2px 8px; border-radius: 4px; font-family: var(--font-mono);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 32px 0;
     }
 
+    .example-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .example-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Footer Navigation */
     .article-nav {
-      display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; flex-wrap: wrap;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
     }
+
     .nav-btn {
-      flex: 1; min-width: 220px; background: var(--bg-surface); border: 1px solid var(--border-subtle);
-      border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--text-main);
-      transition: var(--transition);
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      min-width: 220px;
     }
-    .nav-btn:hover { border-color: var(--accent-border); transform: translateY(-2px); }
-    .nav-btn-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-    .nav-btn-title { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-top: 4px; }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    /* Editorial Typography & Minimalist Space Aesthetic */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    
+    h1.article-title, .problem-title {
+      font-family: var(--font-display);
+      letter-spacing: 0.01em;
+    }
+    
+    /* Language Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+    
+    /* Celestial light background & Neon dark glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
   </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
 </head>
 <body>
+  <!-- Animated Celestial Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
-  <!-- Top Sticky Navigation Bar -->
+  <!-- Top Sticky Bar -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-area">
         <a href="../../../index.html" class="back-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Portal
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
         </a>
-        <span style="color: var(--border-strong);">/</span>
-        <a href="index.html" class="back-link">Mechanics Theory</a>
-        <span style="color: var(--border-strong);">/</span>
-        <span class="page-title-crumb">Topic 4: Angular Momentum</span>
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Mechanics Index</span>
+        </a>
+        <a href="../problemas/topic-4.html" class="back-link" style="color: var(--accent); border-color: var(--accent-border);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+          <span>Problems (5)</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
       </div>
-      <div class="header-actions">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
       </div>
     </div>
   </header>
 
-  <main class="main-container">
-    <!-- Page Hero Header -->
-    <header class="page-hero">
-      <div class="hero-badges">
-        <span class="badge">UNIT 04</span>
-        <span class="badge">ANGULAR MOMENTUM & KEPLER'S PROBLEM</span>
-        <span class="badge">SLIDES 04 & NOTES CH. 4.8 / 8</span>
+  <!-- Main Article Content -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering — Part I</div>
+      <h1 class="article-title">Topic 4: Angular Momentum and Central Forces (Kepler's Problem)</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • BSc in Aerospace Engineering, UC3M
       </div>
-      <h1>Angular Momentum, Central Forces & Kepler's Problem</h1>
-      <p>Comprehensive analytical development of the moment of momentum vector, torque evolution about moving reference points, planar central force fields, two-body barycentric reduction, the Binet differential equation, conic trajectories, and the Vis-Viva energy integral.</p>
+      <div class="source-box">
+        Sources: slides/04_-_Angular_momentum.pdf &amp; teoria/Notes.pdf (Section 4.8, Chapter 8). Equation numbers are those printed in Notes.pdf.
+      </div>
     </header>
 
-    <!-- Cross-Nav Switcher -->
-    <div class="cross-nav-pills">
-      <a href="topic-4.html" class="cross-nav-btn active">📖 Theory Guide</a>
-      <a href="../problemas/topic-4.html" class="cross-nav-btn">✏️ Solved Problems (5)</a>
-    </div>
+    <!-- Table of Contents -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📌</span>
+        <span>Topic Outline</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#sec-1" class="toc-item"><span>1.</span> Angular Momentum and Torque</a>
+        <a href="#sec-2" class="toc-item"><span>2.</span> The Angular Momentum Theorem (Moving Origin)</a>
+        <a href="#sec-3" class="toc-item"><span>3.</span> Conservation of Angular Momentum</a>
+        <a href="#sec-4" class="toc-item"><span>4.</span> Central Force Motion</a>
+        <a href="#sec-5" class="toc-item"><span>5.</span> Kepler's Problem: Two-Body Reduction</a>
+        <a href="#sec-6" class="toc-item"><span>6.</span> Polar Kinematics, $h$, and Kepler's Second Law</a>
+        <a href="#sec-7" class="toc-item"><span>7.</span> The Binet Equation</a>
+        <a href="#sec-8" class="toc-item"><span>8.</span> Conic Trajectories and Orbit Geometry</a>
+        <a href="#sec-9" class="toc-item"><span>9.</span> Orbital Period and Kepler's Third Law</a>
+        <a href="#sec-10" class="toc-item"><span>10.</span> Energy and the Vis-Viva Equation</a>
+        <a href="#sec-11" class="toc-item"><span>11.</span> Effective Potential in the Variable $u$</a>
+        <a href="#sec-12" class="toc-item"><span>12.</span> Worked Numerical Examples</a>
+        <a href="#sec-13" class="toc-item"><span>13.</span> Source Map</a>
+      </div>
+    </nav>
 
-    <!-- Section 1 -->
-    <section class="theory-section">
-      <h2>1. Angular Momentum Vector and Torque of Forces</h2>
-      <p>In linear dynamics, the fundamental dynamical vector of a point particle $P$ is its linear momentum $\mathbf{p}_0 = m^P \mathbf{v}_0^P$. In rotational mechanics about an arbitrary reference point $A$, the central physical quantity is the <strong>moment of linear momentum</strong>, termed the <strong>angular momentum vector</strong> (Slide 3 & Notes Eq. 4.48):</p>
-      
-      <div class="formula-box">
-        $$ \mathbf{H}_{A0}^P = \mathbf{AP} \times \mathbf{p}_0^P = \left(\mathbf{r}_0^P - \mathbf{r}_0^A\right) \times m^P \mathbf{v}_0^P $$
+    <!-- SECTION 1 -->
+    <section id="sec-1">
+      <h2 class="section-heading"><span>1.</span> Angular Momentum and Torque</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why introduce a new quantity?</span></div>
+        <p style="margin-bottom: 0;">
+          Newton's second law gives the evolution of the linear momentum $\mathbf{p}_0 = m\mathbf{v}_0^P$. In many problems the forces have a simple <em>moment</em> about a point (for example, a force that always points to a fixed centre has no moment about that centre), and the quantity whose evolution is governed by the moment of the force is the moment of the momentum. This is the angular momentum (Slide 3, Notes Sec. 4.8).
+        </p>
       </div>
 
-      <h3>Vector Properties & Units</h3>
+      <h3 class="sub-heading">1.1 Definition and Properties</h3>
+      <p>
+        For a particle $P$ of mass $m$ moving with velocity $\mathbf{v}_0^P$ in an inertial frame $S_0$, the angular momentum about an arbitrary point $A$ (fixed or moving) is
+      </p>
+      <div class="math-block">
+        $$ \mathbf{H}_{A,0}^P = \mathbf{r}_A^P \times m\mathbf{v}_0^P = \left(\mathbf{r}_0^P - \mathbf{r}_0^A\right) \times m\mathbf{v}_0^P \qquad \text{(Notes Eq. 4.48)} $$
+        <div class="math-caption">$\mathbf{r}_A^P = \mathbf{AP}$ is the position of $P$ relative to $A$.</div>
+      </div>
       <ul>
-        <li><strong>Orthogonality:</strong> $\mathbf{H}_{A0}^P$ is an axial pseudo-vector perpendicular to both the displacement vector $\mathbf{AP}$ and the velocity $\mathbf{v}_0^P$ ($\mathbf{H}_{A0}^P \cdot \mathbf{AP} = 0, \mathbf{H}_{A0}^P \cdot \mathbf{v}_0^P = 0$).</li>
-        <li><strong>Base Point Sensitivity:</strong> Translating the origin from $A$ to another point $B$ introduces a lever arm correction:
-          $$ \mathbf{H}_{B0}^P = \mathbf{H}_{A0}^P + \mathbf{BA} \times m^P \mathbf{v}_0^P $$
-        </li>
-        <li><strong>SI Units:</strong> $\text{kg}\cdot\text{m}^2/\text{s} = \text{J}\cdot\text{s}$ (Dimensions: $[M][L]^2[T]^{-1}$).</li>
+        <li><strong>Direction:</strong> $\mathbf{H}_{A,0}^P$ is perpendicular to both $\mathbf{AP}$ and $\mathbf{v}_0^P$, because it is their cross product.</li>
+        <li><strong>Units:</strong> $[\mathbf{H}] = \text{kg}\cdot\text{m}^2/\text{s}$.</li>
+        <li><strong>Dependence on the point.</strong> For another point $B$, write $\mathbf{BP} = \mathbf{BA} + \mathbf{AP}$:
+          $$ \mathbf{H}_{B,0}^P = \left(\mathbf{BA} + \mathbf{AP}\right) \times m\mathbf{v}_0^P = \mathbf{H}_{A,0}^P + \mathbf{BA} \times m\mathbf{v}_0^P $$
+          The value also depends on the frame, because $\mathbf{v}_0^P$ is measured in $S_0$.</li>
       </ul>
 
-      <h3>Torque (Moment of Force)</h3>
-      <p>The torque of a force $\mathbf{F}$ applied to particle $P$ about point $A$ is defined as:</p>
-      <div class="formula-box">
-        $$ \mathbf{M}_A = \mathbf{AP} \times \mathbf{F} = \left(\mathbf{r}_0^P - \mathbf{r}_0^A\right) \times \mathbf{F} \quad [\text{N}\cdot\text{m}] $$
+      <h3 class="sub-heading">1.2 Torque (Moment of a Force)</h3>
+      <p>
+        If $\mathbf{F}$ is the resultant force on $P$, its moment about $A$ is the <strong>torque</strong> (Notes Eq. 4.51)
+      </p>
+      <div class="math-block">
+        $$ \mathbf{M}_A = \mathbf{AP} \times \mathbf{F} = \left(\mathbf{r}_0^P - \mathbf{r}_0^A\right) \times \mathbf{F}, \qquad [\mathbf{M}_A] = \text{N}\cdot\text{m} $$
+      </div>
+      <p>
+        <strong>Line of action.</strong> Split $\mathbf{AP} = \mathbf{AP}_\parallel + \mathbf{AP}_\perp$ into the parts parallel and perpendicular to $\mathbf{F}$. Then $\mathbf{AP}_\parallel \times \mathbf{F} = \mathbf{0}$ and $\mathbf{M}_A = \mathbf{AP}_\perp \times \mathbf{F}$, with modulus $d\,\|\mathbf{F}\|$, where $d = \|\mathbf{AP}_\perp\|$ is the distance from $A$ to the line of action. Sliding the force along its line does not change the torque.
+      </p>
+
+      <h3 class="sub-heading">1.3 Action and Reaction</h3>
+      <p>
+        Two particles $P$ and $Q$ interact with forces $\mathbf{F}^P$ on $P$ and $\mathbf{F}^Q = -\mathbf{F}^P$ on $Q$, directed along the line $PQ$. About any point $A$:
+      </p>
+      <div class="math-block">
+        $$ \mathbf{M}_A^P + \mathbf{M}_A^Q = \mathbf{AP} \times \mathbf{F}^P - \mathbf{AQ} \times \mathbf{F}^P = \left(\mathbf{AP} - \mathbf{AQ}\right) \times \mathbf{F}^P = \mathbf{QP} \times \mathbf{F}^P = \mathbf{0} $$
+      </div>
+      <p>
+        because $\mathbf{QP}$ is parallel to $\mathbf{F}^P$. Hence internal torques cancel in pairs and only external torques act on a system as a whole (Slide 3).
+      </p>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2">
+      <h2 class="section-heading"><span>2.</span> The Angular Momentum Theorem with a Moving Origin</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why this equation?</span></div>
+        <p style="margin-bottom: 0;">
+          We want the rate of change of $\mathbf{H}_{A,0}^P$. It is obtained by differentiating the definition and using Newton's second law; nothing is assumed about how $A$ moves, so a term appears that vanishes only in special cases (Slide 4, Notes Eqs. 4.49–4.52).
+        </p>
       </div>
 
-      <div class="callout">
-        <div class="callout-title">Action-Reaction Symmetry of Internal Torques (Slide 3)</div>
-        <p>For any two particles $P$ and $Q$ interacting through collinear mutual forces $\mathbf{F}^P = -\mathbf{F}^Q \parallel \mathbf{PQ}$, the internal torques about any origin $A$ cancel identically:</p>
-        $$ \mathbf{M}_A^P + \mathbf{M}_A^Q = \mathbf{AP} \times \mathbf{F}^P + \mathbf{AQ} \times (-\mathbf{F}^P) = (\mathbf{AP} - \mathbf{AQ}) \times \mathbf{F}^P = \mathbf{QP} \times \mathbf{F}^P \equiv \mathbf{0} $$
+      <h3 class="sub-heading">2.1 Derivation</h3>
+      <p><strong>Step 1: product rule</strong> on $\left(\mathbf{r}_0^P - \mathbf{r}_0^A\right) \times m\mathbf{v}_0^P$ with the derivative taken in $S_0$:</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{H}_{A,0}^P}{dt}\right|_0 = \left(\mathbf{v}_0^P - \mathbf{v}_0^A\right) \times m\mathbf{v}_0^P + \left(\mathbf{r}_0^P - \mathbf{r}_0^A\right) \times m\mathbf{a}_0^P \qquad \text{(Eq. 4.49)} $$
+      </div>
+      <p><strong>Step 2: cross product of a vector with itself.</strong> $\mathbf{v}_0^P \times \mathbf{v}_0^P = \mathbf{0}$, so the first term reduces to $-\mathbf{v}_0^A \times m\mathbf{v}_0^P$ (Eq. 4.50).</p>
+      <p><strong>Step 3: Newton's second law</strong> $m\mathbf{a}_0^P = \mathbf{F}$ turns the second term into $\mathbf{AP} \times \mathbf{F} = \mathbf{M}_A$ (Eq. 4.51). Therefore</p>
+      <div class="math-block">
+        $$ \boxed{\left.\frac{d\mathbf{H}_{A,0}^P}{dt}\right|_0 = \mathbf{M}_A - \mathbf{v}_0^A \times m\mathbf{v}_0^P} \qquad \text{(Eq. 4.52)} $$
+      </div>
+
+      <h3 class="sub-heading">2.2 Special Cases</h3>
+      <ul>
+        <li><strong>$A$ fixed in $S_0$</strong> ($\mathbf{v}_0^A = \mathbf{0}$), or $\mathbf{v}_0^A \parallel \mathbf{v}_0^P$ (so that $\mathbf{v}_0^A \times \mathbf{v}_0^P = \mathbf{0}$):
+          $$ \left.\frac{d\mathbf{H}_{A,0}^P}{dt}\right|_0 = \mathbf{M}_A \qquad \text{(Eq. 4.53)} $$
+          This is the rotational analogue of $\dot{\mathbf{p}}_0 = \mathbf{F}$.</li>
+        <li><strong>$A$ moves with constant velocity.</strong> Use the auxiliary frame $S_A : \{A; \mathcal{B}_0\}$ with parallel axes. There is no rotation (the change-of-basis matrix is the identity), so $\mathbf{v}_0^P = \mathbf{v}_0^A + \mathbf{v}_A^P$ and $\mathbf{a}_0^P = \mathbf{a}_0^A + \mathbf{a}_A^P$ (Eq. 4.54). If $\mathbf{a}_0^A = \mathbf{0}$, then $\mathbf{a}_A^P = \mathbf{a}_0^P$ and, with $\mathbf{H}_{A,A} = \mathbf{AP} \times m\mathbf{v}_A^P$,
+          $$ \left.\frac{d\mathbf{H}_{A,A}}{dt}\right|_A = \mathbf{v}_A^P \times m\mathbf{v}_A^P + \mathbf{AP} \times m\mathbf{a}_A^P = \mathbf{AP} \times \mathbf{F} = \mathbf{M}_A \qquad \text{(Eq. 4.55)} $$
+          because the derivative of $\mathbf{AP}$ in $S_A$ is $\mathbf{v}_A^P$ and $\mathbf{v}_A^P \times \mathbf{v}_A^P = \mathbf{0}$. This is the reason why the barycentre of a two-body system (which moves uniformly, Section 5) can be used as the origin.</li>
+      </ul>
+      <div class="callout callout-info">
+        <div class="callout-title"><span>ℹ️</span><span>No new physics</span></div>
+        <p style="margin-bottom: 0;">
+          The angular momentum equation is a consequence of Newton's second law, so it adds no information that the force equation did not already contain (Notes, after Eq. 4.53). Its use is that it gives first integrals directly and projects naturally on any basis.
+        </p>
       </div>
     </section>
 
-    <!-- Section 2 -->
-    <section class="theory-section">
-      <h2>2. Differential Evolution Equation with Moving Reference Points</h2>
-      <p>Differentiating the angular momentum vector $\mathbf{H}_{A0}^P$ with respect to time in the inertial frame $S_0$ (Slide 4 & Notes Eq. 4.52):</p>
-      
-      <div class="formula-box">
-        $$ \frac{d\mathbf{H}_{A0}^P}{dt}\Bigg|_0 = \left(\frac{d\mathbf{r}_0^P}{dt}\Bigg|_0 - \frac{d\mathbf{r}_0^A}{dt}\Bigg|_0\right) \times m^P \mathbf{v}_0^P + (\mathbf{r}_0^P - \mathbf{r}_0^A) \times m^P \frac{d\mathbf{v}_0^P}{dt}\Bigg|_0 $$
+    <!-- SECTION 3 -->
+    <section id="sec-3">
+      <h2 class="section-heading"><span>3.</span> Conservation of Angular Momentum</h2>
+      <p>
+        <strong>Single particle.</strong> If $A$ is fixed and $\mathbf{M}_A = \mathbf{0}$ at all times, Eq. 4.53 gives $d\mathbf{H}_{A,0}^P/dt = \mathbf{0}$, so $\mathbf{H}_{A,0}^P$ is a constant vector: three scalar first integrals
+      </p>
+      <div class="math-block">
+        $$ H_x = m(y\dot{z} - z\dot{y}), \qquad H_y = m(z\dot{x} - x\dot{z}), \qquad H_z = m(x\dot{y} - y\dot{x}) $$
+      </div>
+      <p>
+        If only the component of $\mathbf{M}_A$ along a fixed direction $\mathbf{n}$ vanishes, then $\mathbf{H}_{A,0}^P \cdot \mathbf{n}$ is conserved (Notes, text after Eq. 4.53); the remaining components are not.
+      </p>
+      <p>
+        <strong>System of particles.</strong> Adding $\mathbf{H}_{A,0} = \sum_i \mathbf{AP}_i \times m_i\mathbf{v}_0^{P_i}$ and differentiating about a fixed $A$ gives the sum of the torques of all forces; by Section 1.3 the internal torques cancel in pairs, so $d\mathbf{H}_{A,0}/dt = \mathbf{M}_A^{\text{ext}}$. An isolated system conserves its angular momentum (Slide 5).
+      </p>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4">
+      <h2 class="section-heading"><span>4.</span> Central Force Motion</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why study central forces separately?</span></div>
+        <p style="margin-bottom: 0;">
+          Gravity from a body treated as a point is a central force, and the torque of a central force about its centre is zero by construction. The conservation law of Section 3 then applies and gives, without solving any equation of motion, strong information about the trajectory (Slide 7, Notes Sec. 4.8.1).
+        </p>
       </div>
 
-      <p>Substituting $\dot{\mathbf{r}}_0^P = \mathbf{v}_0^P$, $\dot{\mathbf{r}}_0^A = \mathbf{v}_0^A$, and Newton's Second Law $m^P \dot{\mathbf{v}}_0^P = \mathbf{F}$:</p>
-      <div class="formula-box">
-        $$ \frac{d\mathbf{H}_{A0}^P}{dt}\Bigg|_0 = \mathbf{M}_A - \mathbf{v}_0^A \times m^P \mathbf{v}_0^P $$
+      <p>
+        A force is <strong>central</strong> about a fixed point $O$ if its line of action always passes through $O$:
+      </p>
+      <div class="math-block">
+        $$ \mathbf{F} = F\,\mathbf{e}_r, \qquad \mathbf{e}_r = \frac{\mathbf{r}_0^P}{r} \qquad \text{(Eq. 4.56)} $$
+      </div>
+      <p><strong>Torque and angular momentum.</strong> With $\mathbf{r}_0^P = r\mathbf{e}_r$ taken from the fixed point $O$:</p>
+      <div class="math-block">
+        $$ \mathbf{M}_O = \mathbf{r}_0^P \times \mathbf{F} = r F\left(\mathbf{e}_r \times \mathbf{e}_r\right) = \mathbf{0} \;\; \text{(Eq. 4.57)} \implies \mathbf{H}_{O,0} = \mathbf{r}_0^P \times m\mathbf{v}_0^P = \text{const} \;\; \text{(Eq. 4.58)} $$
       </div>
 
-      <h3>Key Simplifications:</h3>
+      <h3 class="sub-heading">4.1 Properties</h3>
       <ol>
-        <li><strong>Fixed Base Point in $S_0$ ($\mathbf{v}_0^A = \mathbf{0}$):</strong>
-          $$ \frac{d\mathbf{H}_{A0}^P}{dt}\Bigg|_0 = \mathbf{M}_A $$
-          This is the exact rotational counterpart to Newton's Second Law ($\dot{\mathbf{p}}_0 = \mathbf{F}$).
-        </li>
-        <li><strong>Origin Moving Parallel to Particle ($\mathbf{v}_0^A \parallel \mathbf{v}_0^P$):</strong>
-          The cross product vanishes identically: $\frac{d\mathbf{H}_{A0}^P}{dt}\big|_0 = \mathbf{M}_A$.
-        </li>
-        <li><strong>Origin Translating at Constant Velocity ($\mathbf{a}_0^A = \mathbf{0}$):</strong>
-          The frame $S_A$ is an inertial reference frame, so the relative angular momentum satisfies $\frac{d\mathbf{H}_{AA}}{dt}\big|_A = \mathbf{M}_A$.
-        </li>
+        <li><strong>Three scalar conservation laws</strong>, from $\mathbf{H}_{O,0} = \text{const}$.</li>
+        <li><strong>The motion is planar.</strong> By definition $\mathbf{H}_{O,0}$ is perpendicular to $\mathbf{r}_0^P$ and $\mathbf{v}_0^P$: $\mathbf{r}\cdot\mathbf{H} = \mathbf{r}\cdot(\mathbf{r}\times m\mathbf{v}) = 0$ and $\mathbf{v}\cdot\mathbf{H} = 0$. A fixed vector $\mathbf{H} \ne \mathbf{0}$ therefore keeps $P$ in the plane through $O$ perpendicular to $\mathbf{H}$. (If $\mathbf{H} = \mathbf{0}$, $\mathbf{r}$ and $\mathbf{v}$ are parallel and the motion is rectilinear through $O$.)</li>
+        <li><strong>Polar coordinates in the plane.</strong> Choosing $\mathbf{k}_0$ along $\mathbf{H}$, the motion lies in $z = 0$ and the natural coordinates are $(r, \theta)$ (Section 6).</li>
+        <li><strong>Speed-radius relation.</strong> In polar coordinates $H = m r^2\dot{\theta} = \text{const}$ (derived in Section 6), so $\dot{\theta} = h/r^2$ increases when $r$ decreases.</li>
+        <li><strong>The centre is not reached</strong> if $h \ne 0$, for a sufficiently weak attraction. The transverse kinetic energy is $\tfrac{1}{2}m(r\dot{\theta})^2 = \tfrac{1}{2}mh^2/r^2 \to \infty$ as $r \to 0$, which for the Newtonian potential $-\mu/r$ cannot be supplied by the potential energy. This is not true for every central force: in Problem 42 the attractions $F \propto 1/r^3$ (with $h^2 \lt \mu$) and $F \propto 1/r^4$ carry particles with $h \ne 0$ to $r = 0$ (Section 11).</li>
       </ol>
     </section>
 
-    <!-- Section 3 -->
-    <section class="theory-section">
-      <h2>3. Central Force Dynamics & Planar Trajectories</h2>
-      <p>A force field is <strong>central</strong> with respect to a fixed origin $O$ if its line of action passes through $O$ at every instant (Slide 7):</p>
-      <div class="formula-box">
-        $$ \mathbf{F} = F(r)\,\mathbf{e}_r = F(r)\,\frac{\mathbf{r}}{r} $$
+    <!-- SECTION 5 -->
+    <section id="sec-5">
+      <h2 class="section-heading"><span>5.</span> Kepler's Problem: Reduction of the Two-Body Problem</h2>
+
+      <h3 class="sub-heading">5.1 Kepler's Empirical Laws (Slide 8, Notes Sec. 8.1)</h3>
+      <ol>
+        <li>The orbits of the planets are ellipses with the Sun at one focus.</li>
+        <li>The line joining a planet to the Sun sweeps out equal areas in equal times.</li>
+        <li>The square of the period is proportional to the cube of the major axis: $\tau^2 \propto a^3$.</li>
+      </ol>
+      <p>
+        Kepler gave no explanation. The goal of the next sections is to derive the three laws from Newton's second law and the law of universal gravitation $F_g = G m^P m^S/d^2$.
+      </p>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why reduce the problem?</span></div>
+        <p style="margin-bottom: 0;">
+          Two bodies attract each other, so each equation of motion contains both position vectors. Notes Chapter 8 skips this step by assuming $m^P \ll m^S$ and placing the origin at the central body (Eq. 8.1); Slides 9–11 give the general reduction, which is shown here. Adding the two equations eliminates the interaction and gives the motion of the barycentre; subtracting them isolates the relative motion, which is the only part that determines the orbit.
+        </p>
       </div>
 
-      <div class="callout">
-        <div class="callout-title">The Five Fundamental Properties of Central Forces (Slide 7 & Notes 4.8.1)</div>
-        <ol>
-          <li><strong>Invariant Angular Momentum:</strong> $\mathbf{M}_O = \mathbf{r} \times \mathbf{F} \equiv \mathbf{0} \implies \mathbf{H}_{O0}^P = \text{constant vector}$ (3 scalar conservation laws).</li>
-          <li><strong>Strictly Planar Motion:</strong> Because $\mathbf{r}(t) \cdot \mathbf{H}_O = 0$ and $\mathbf{v}(t) \cdot \mathbf{H}_O = 0$, both position and velocity remain in the plane orthogonal to $\mathbf{H}_O$ passing through $O$.</li>
-          <li><strong>Natural Polar Coordinate Formulation:</strong> Motion is fully described by $(r, \theta)$ in the orbital plane ($z = 0$).</li>
-          <li><strong>Specific Angular Momentum Conservation:</strong> $h = r^2\dot{\theta} = \text{const} \implies \dot{\theta} = h/r^2$. Angular speed increases as radius decreases.</li>
-          <li><strong>Origin Inaccessibility:</strong> The centrifugal barrier $T_\theta = \frac{1}{2}m h^2 / r^2 \to +\infty$ prevents any particle with $h \ne 0$ from reaching the center $O$.</li>
-        </ol>
+      <h3 class="sub-heading">5.2 Equations of Motion in $S_0$</h3>
+      <p>For the planet or satellite $P$ and the central body $S$, with $\mathbf{r} \equiv \mathbf{r}_0^P - \mathbf{r}_0^S$ and $r = \|\mathbf{r}\|$:</p>
+      <div class="math-block">
+        $$ m^P\ddot{\mathbf{r}}_0^P = -\frac{G m^P m^S}{r^3}\,\mathbf{r}, \qquad m^S\ddot{\mathbf{r}}_0^S = +\frac{G m^P m^S}{r^3}\,\mathbf{r} $$
       </div>
+
+      <h3 class="sub-heading">5.3 Sum: the Barycentre Moves Uniformly</h3>
+      <p>Define $M_{\text{tot}} = m^P + m^S$ and the barycentre $\mathbf{r}_0^G = \left(m^P\mathbf{r}_0^P + m^S\mathbf{r}_0^S\right)/M_{\text{tot}}$. Adding the equations, the forces cancel:</p>
+      <div class="math-block">
+        $$ m^P\ddot{\mathbf{r}}_0^P + m^S\ddot{\mathbf{r}}_0^S = M_{\text{tot}}\,\ddot{\mathbf{r}}_0^G = \mathbf{0} \;\implies\; \mathbf{r}_0^G(t) = \mathbf{r}_0^G(0) + \mathbf{v}_0^G\,t $$
+      </div>
+      <p>
+        Two successive integrations give a uniform straight-line motion. A frame $S_G$ with origin at $G$ and axes parallel to $S_0$ differs from $S_0$ by a translation at constant velocity (change-of-basis matrix equal to the identity, $\det = 1$), so $S_G$ is also inertial and $d/dt|_G = d/dt|_0$.
+      </p>
+
+      <h3 class="sub-heading">5.4 Difference: the Relative Motion</h3>
+      <p>Divide the first equation by $m^P$, the second by $m^S$, and subtract:</p>
+      <div class="math-block">
+        $$ \ddot{\mathbf{r}} = \ddot{\mathbf{r}}_0^P - \ddot{\mathbf{r}}_0^S = -\frac{G m^S}{r^3}\mathbf{r} - \frac{G m^P}{r^3}\mathbf{r} = -\frac{G\left(m^S + m^P\right)}{r^3}\mathbf{r} $$
+      </div>
+      <p>With the <strong>standard gravitational parameter</strong> $\mu \equiv G(m^S + m^P)$, the relative motion obeys the one-body Kepler equation (Slide 11):</p>
+      <div class="math-block">
+        $$ \boxed{\frac{d^2\mathbf{r}}{dt^2} = -\frac{\mu}{r^3}\,\mathbf{r} = -\frac{\mu}{r^2}\,\mathbf{e}_r} $$
+      </div>
+
+      <h3 class="sub-heading">5.5 Reduced Mass</h3>
+      <p>
+        Multiplying the last equation by $m_{\text{red}} \equiv m^P m^S/(m^P + m^S)$ and using $m_{\text{red}}\,G(m^S + m^P) = G m^P m^S$ gives
+        $m_{\text{red}}\,\ddot{\mathbf{r}} = -G m^P m^S\,\mathbf{e}_r/r^2$:
+        the relative vector moves like a single particle of mass $m_{\text{red}}$ attracted to a fixed centre by the full gravitational force. After solving for $\mathbf{r}(t)$, each body is recovered from
+      </p>
+      <div class="math-block">
+        $$ \mathbf{r}_0^P = \mathbf{r}_0^G + \frac{m^S}{M_{\text{tot}}}\,\mathbf{r}, \qquad \mathbf{r}_0^S = \mathbf{r}_0^G - \frac{m^P}{M_{\text{tot}}}\,\mathbf{r} $$
+      </div>
+      <p>
+        which follows from the definition of $\mathbf{r}_0^G$ and $\mathbf{r} = \mathbf{r}_0^P - \mathbf{r}_0^S$. Both bodies describe similar conics about $G$.
+      </p>
+      <p>
+        <strong>Aerospace limit.</strong> If $m^S \gg m^P$ (satellite around the Earth), $m_{\text{red}} \to m^P$, $G \approx S$ and $\mu \approx G m^S$ (Notes Eq. 8.1). For the Earth, $\mu_\oplus = G M_\oplus \approx 3.986004418 \times 10^{14}\ \text{m}^3/\text{s}^2$. The mass of $P$ does not appear in the equation, so mass-specific quantities (per unit mass) are used from now on.
+      </p>
+      <p>
+        The reduced equation is a <strong>central force problem</strong>: Section 4 applies, so $\mathbf{H}$ is conserved and the motion is planar. The force is also conservative with specific potential energy $V_0 = -\mu/r$ (Section 10).
+      </p>
     </section>
 
-    <!-- Section 4 -->
-    <section class="theory-section">
-      <h2>4. Kepler's Problem & Barycentric Two-Body Reduction</h2>
-      <p>Consider two masses $m^P$ (satellite/planet) and $m^S$ (Earth/Sun) interacting via Newton's Universal Law of Gravitation (Slides 8–10):</p>
-      <div class="formula-box">
-        $$ \mathbf{F}_g = -\frac{G m^P m^S}{\|\mathbf{r}_0^P - \mathbf{r}_0^S\|^2} \frac{\mathbf{r}_0^P - \mathbf{r}_0^S}{\|\mathbf{r}_0^P - \mathbf{r}_0^S\|} $$
+    <!-- SECTION 6 -->
+    <section id="sec-6">
+      <h2 class="section-heading"><span>6.</span> Polar Kinematics, the Constant $h$, and Kepler's Second Law</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why a rotating basis?</span></div>
+        <p style="margin-bottom: 0;">
+          The force always points along $\mathbf{r}$, so its components are simplest along the direction of $\mathbf{r}$ and the perpendicular direction. Those directions rotate with $P$, so we attach to $P$ the polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$ and compute its time derivatives (Notes Eqs. 8.2–8.3, Slide 12).
+        </p>
       </div>
 
-      <p>Because the barycenter $G$ has zero acceleration ($(m^S + m^P)\ddot{\mathbf{r}}_0^G = \mathbf{0}$), a reference frame $S_G$ attached to $G$ is inertial. Subtracting the equations of motion yields the <strong>one-body relative Kepler equation</strong>:</p>
-      <div class="formula-box">
-        $$ \frac{d^2\mathbf{r}}{dt^2} = -\frac{\mu}{r^3}\mathbf{r} = -\frac{\mu}{r^2}\mathbf{e}_r, \qquad \mu \equiv G(m^S + m^P) \approx G m^S $$
+      <h3 class="sub-heading">6.1 Change of Basis and Poisson Formula</h3>
+      <p>With $\mathbf{k}_0$ along $\mathbf{H}$, $\mathcal{B}_1$ is obtained from $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ by a rotation $\theta$ about $\mathbf{k}_0$:</p>
+      <div class="math-block">
+        $$ \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix}, \qquad [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
+        <div class="math-caption">Columns of $[{}_0R_1]$: components of $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0$ in $\mathcal{B}_0$ (Notes Eq. 8.2).</div>
+      </div>
+      <p>
+        <strong>Checks.</strong> $\det[{}_0R_1] = \cos^2\theta + \sin^2\theta = 1$. Each column has unit modulus and $\mathbf{e}_r\cdot\mathbf{e}_\theta = -\cos\theta\sin\theta + \sin\theta\cos\theta = 0$, so $[{}_0R_1]^T[{}_0R_1] = I$.
+      </p>
+      <p>The angular velocity of $\mathcal{B}_1$ with respect to $\mathcal{B}_0$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}_0$, and Poisson's formula $\dot{\mathbf{e}} = \boldsymbol{\omega}_{10}\times\mathbf{e}$ gives</p>
+      <div class="math-block">
+        $$ \dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{k}_0 \times \mathbf{e}_r = \dot{\theta}\,\mathbf{e}_\theta, \qquad \dot{\mathbf{e}}_\theta = \dot{\theta}\,\mathbf{k}_0 \times \mathbf{e}_\theta = -\dot{\theta}\,\mathbf{e}_r $$
       </div>
 
-      <h3>Kepler's Second Law (Areal Velocity)</h3>
-      <p>Projecting into polar coordinates, the transverse equation yields $r\ddot{\theta} + 2\dot{r}\dot{\theta} = 0 \implies h = r^2\dot{\theta} = \text{const}$. The area swept per unit time is constant (Slide 12):</p>
-      <div class="formula-box">
-        $$ \frac{dA}{dt} = \frac{1}{2} r^2 \dot{\theta} = \frac{h}{2} = \text{constant} $$
+      <h3 class="sub-heading">6.2 Velocity and Acceleration</h3>
+      <p>Differentiate $\mathbf{r} = r\mathbf{e}_r$ with the product rule:</p>
+      <div class="math-block">
+        $$ \mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\mathbf{e}}_r = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta $$
+        $$ \mathbf{a} = \ddot{r}\,\mathbf{e}_r + \dot{r}\dot{\theta}\,\mathbf{e}_\theta + \left(\dot{r}\dot{\theta} + r\ddot{\theta}\right)\mathbf{e}_\theta + r\dot{\theta}\left(-\dot{\theta}\,\mathbf{e}_r\right) = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta \qquad \text{(Eq. 8.3)} $$
       </div>
+
+      <h3 class="sub-heading">6.3 Equations of Motion and the Constant $h$</h3>
+      <p>Newton's law $\mathbf{a} = -(\mu/r^2)\,\mathbf{e}_r$ (Eq. 8.4), projected on $\mathbf{e}_r$ and $\mathbf{e}_\theta$:</p>
+      <div class="math-block">
+        $$ \ddot{r} - r\dot{\theta}^2 = -\frac{\mu}{r^2} \quad \text{(Eq. 8.5)}, \qquad r\ddot{\theta} + 2\dot{r}\dot{\theta} = 0 \quad \text{(Eq. 8.6)} $$
+      </div>
+      <p>
+        <strong>Why multiply by $r$.</strong> The product $r\,(r\ddot{\theta} + 2\dot{r}\dot{\theta}) = r^2\ddot{\theta} + 2r\dot{r}\dot{\theta}$ is the total derivative $\dfrac{d}{dt}\left(r^2\dot{\theta}\right)$ (product rule: $\dfrac{d}{dt}(r^2) = 2r\dot{r}$). Then Eq. 8.6 reads $\dfrac{d}{dt}(r^2\dot{\theta}) = 0$ and
+      </p>
+      <div class="math-block">
+        $$ \boxed{h = r^2\dot{\theta} = \text{const}} \qquad \text{(Eq. 8.7)} $$
+        <div class="math-caption">$h$ is the modulus of the mass-specific angular momentum, $h = \|\mathbf{r}\times\mathbf{v}\|$, in $\text{m}^2/\text{s}$; its value comes from the initial conditions.</div>
+      </div>
+
+      <h3 class="sub-heading">6.4 Kepler's Second Law (Areal Velocity)</h3>
+      <p>
+        In $dt$ the radius vector turns by $d\theta$ and sweeps a thin triangle of base $r\,d\theta$ and height $r$, of area $dA = \tfrac{1}{2}r^2\,d\theta$. Dividing by $dt$:
+      </p>
+      <div class="math-block">
+        $$ \frac{dA}{dt} = \frac{1}{2}r^2\dot{\theta} = \frac{h}{2} = \text{const} \qquad \text{(Eq. 8.8)} $$
+      </div>
+      <p>
+        Equal areas are swept in equal times: this is Kepler's second law. It holds for any central force, not only for gravity.
+      </p>
     </section>
 
-    <!-- Section 5 -->
-    <section class="theory-section">
-      <h2>5. The Binet Equation & Conic Orbit Trajectories</h2>
-      <p>Eliminating time $t$ in favor of polar angle $\theta$ via the reciprocal substitution $u(\theta) \equiv 1/r(\theta)$ and $\dot{\theta} = h u^2$ (Slide 13 & Notes 8.4):</p>
-      <div class="formula-box">
-        $$ \dot{r} = -h\frac{du}{d\theta}, \qquad \ddot{r} = -h^2 u^2 \frac{d^2u}{d\theta^2} $$
-      </div>
-      <p>Substituting into the radial equation of motion $\ddot{r} - r\dot{\theta}^2 = -\mu/r^2$ yields the <strong>Binet Equation</strong>:</p>
-      <div class="formula-box">
-        $$ \frac{d^2u}{d\theta^2} + u = \frac{\mu}{h^2} $$
+    <!-- SECTION 7 -->
+    <section id="sec-7">
+      <h2 class="section-heading"><span>7.</span> The Binet Equation</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why change variables?</span></div>
+        <p style="margin-bottom: 0;">
+          Eq. 8.5 is nonlinear in $r(t)$. We look for the shape $r(\theta)$ of the orbit rather than the time law. Because $\dot{\theta} = h/r^2$ has a fixed sign, $\theta$ is a monotonic function of $t$ and can replace it as independent variable; with $u = 1/r$ the equation becomes linear (Slide 13, Notes Eqs. 8.9–8.12).
+        </p>
       </div>
 
-      <p>The general solution describes a <strong>conic section</strong> with the gravitational focus at the origin (Kepler's First Law):</p>
-      <div class="formula-box">
-        $$ r(\theta) = \frac{p}{1 + e\cos\theta} = \frac{h^2/\mu}{1 + e\cos\theta} $$
-      </div>
-      <p>where $p = h^2/\mu$ is the semi-latus rectum and $e \ge 0$ is the eccentricity.</p>
+      <p>Define $u(\theta) \equiv 1/r(\theta)$ and write $' = d/d\theta$. From Eq. 8.7, $\dot{\theta} = h/r^2 = h u^2$, so the time derivative of any function of $\theta$ is $\dot{f} = f'\,\dot{\theta} = h u^2 f'$.</p>
 
-      <div class="table-container">
+      <h3 class="sub-heading">7.1 Derivatives of $r$</h3>
+      <p><strong>Step 1: chain rule for $r = u^{-1}$.</strong> Since $\dfrac{d}{du}u^{-1} = -u^{-2}$,</p>
+      <div class="math-block">
+        $$ \frac{dr}{d\theta} = \frac{d\left(1/u\right)}{d\theta} = \frac{d\left(u^{-1}\right)}{du}\,\frac{du}{d\theta} = -\frac{u'}{u^2} $$
+      </div>
+      <p><strong>Step 2: radial velocity.</strong></p>
+      <div class="math-block">
+        $$ \dot{r} = \frac{dr}{d\theta}\,\dot{\theta} = \left(-\frac{u'}{u^2}\right)\left(h u^2\right) = -h\,u' \qquad \text{(Eq. 8.10)} $$
+      </div>
+      <p><strong>Step 3: radial acceleration.</strong> Differentiate $\dot{r} = -h\,u'(\theta)$ in time with the chain rule ($h$ is constant):</p>
+      <div class="math-block">
+        $$ \ddot{r} = \frac{d}{dt}\left(-h\,u'\right) = -h\,u''\,\dot{\theta} = -h\,u''\left(h u^2\right) = -h^2 u^2\,u'' \qquad \text{(Eq. 8.11)} $$
+      </div>
+      <p><strong>Step 4: centrifugal term.</strong></p>
+      <div class="math-block">
+        $$ r\dot{\theta}^2 = \frac{1}{u}\left(h u^2\right)^2 = h^2 u^3 $$
+      </div>
+
+      <h3 class="sub-heading">7.2 Binet Equation for the Inverse-Square Force</h3>
+      <p>Insert Steps 3 and 4 in Eq. 8.5, with $-\mu/r^2 = -\mu u^2$:</p>
+      <div class="math-block">
+        $$ -h^2 u^2\,u'' - h^2 u^3 = -\mu u^2 \quad\overset{\div\,(-h^2u^2)}{\Longrightarrow}\quad \boxed{\frac{d^2u}{d\theta^2} + u = \frac{\mu}{h^2}} \qquad \text{(Eq. 8.12)} $$
+      </div>
+      <p>
+        The division is allowed because $u \ne 0$ at finite distance. This is a forced harmonic oscillator in the variable $\theta$. For a general central force $F(r)\mathbf{e}_r$ the same steps give $u'' + u = -F(1/u)/(m h^2 u^2)$, which is the form used for the power-law force of Problem 42.
+      </p>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sec-8">
+      <h2 class="section-heading"><span>8.</span> Conic Trajectories and Orbit Geometry</h2>
+
+      <h3 class="sub-heading">8.1 Solution of the Binet Equation</h3>
+      <ol>
+        <li><strong>Homogeneous equation</strong> $u_h'' + u_h = 0$: characteristic roots $\lambda = \pm i$, so $u_h = C_1\cos\theta + C_2\sin\theta$.</li>
+        <li><strong>Particular solution:</strong> a constant $u_p = c$ gives $c = \mu/h^2$.</li>
+        <li><strong>General solution</strong> (Eq. 8.13):
+          $$ u(\theta) = \frac{\mu}{h^2} + C_1\cos\theta + C_2\sin\theta $$</li>
+      </ol>
+      <p>
+        <strong>Constants from the initial data.</strong> At the initial angle (taken as $\theta = 0$ for this step) the particle has $u = u_i = 1/r_i$ and, from $\dot{r} = -h u'$, $u' = u_i' = -\dot{r}_i/h$. Then
+      </p>
+      <div class="math-block">
+        $$ u(0) = \frac{\mu}{h^2} + C_1 = u_i \implies C_1 = u_i - \frac{\mu}{h^2}, \qquad u'(0) = C_2 = u_i' $$
+      </div>
+      <p>Write $C_1\cos\theta + C_2\sin\theta = A\cos(\theta - \theta_0)$ with $A = \sqrt{C_1^2 + C_2^2}$, $A\cos\theta_0 = C_1$, $A\sin\theta_0 = C_2$, and define the <strong>eccentricity</strong></p>
+      <div class="math-block">
+        $$ e \equiv \frac{A h^2}{\mu} = \frac{h^2}{\mu}\sqrt{\left(u_i - \frac{\mu}{h^2}\right)^2 + u_i'^2} \ge 0, \qquad u(\theta) = \frac{\mu}{h^2}\left[1 + e\cos(\theta - \theta_0)\right] $$
+      </div>
+      <p>
+        <strong>Choice of the polar axis.</strong> The closest point to the focus is where $u$ is maximum: at $\theta = \theta_0$ one has $u' = -(\mu e/h^2)\sin(\theta - \theta_0) = 0$ and $u'' = -(\mu e/h^2) \lt 0$. Redefine the polar axis so that $\theta = 0$ points to this periapsis, which means $\theta_0 = 0$ (a rotation of the plane basis by $\theta_0$, with the same matrix $[{}_0R_1]$ as in Section 6.1, $\det = 1$, $R^TR = I$). Then
+      </p>
+      <div class="math-block">
+        $$ \frac{1}{r} = \frac{\mu}{h^2}\left(1 + e\cos\theta\right) \;\implies\; \boxed{r(\theta) = \frac{h^2/\mu}{1 + e\cos\theta} = \frac{p}{1 + e\cos\theta}}, \qquad p \equiv \frac{h^2}{\mu} \qquad \text{(Eq. 8.14)} $$
+      </div>
+      <p>
+        This is the polar equation of a <strong>conic section with one focus at $O$</strong>, with semi-latus rectum $p$ and eccentricity $e$ fixed by the initial position and velocity. For $e \lt 1$ the orbit is an ellipse with the central body at a focus: Kepler's first law.
+      </p>
+
+      <div class="table-wrapper">
         <table>
           <thead>
-            <tr>
-              <th>Eccentricity</th>
-              <th>Semi-Major Axis $a$</th>
-              <th>Geometric Conic</th>
-              <th>Specific Energy $\xi$</th>
-              <th>Orbital Regime</th>
-            </tr>
+            <tr><th>Eccentricity</th><th>Curve</th><th>Semi-major axis $a$</th><th>Bound?</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>$e = 0$</td>
-              <td>$a = p > 0$</td>
-              <td>Circle</td>
-              <td>$\xi < 0$</td>
-              <td>Bound</td>
-            </tr>
-            <tr>
-              <td>$0 < e < 1$</td>
-              <td>$a > 0$</td>
-              <td>Ellipse</td>
-              <td>$\xi < 0$</td>
-              <td>Bound (Planetary / Satellite)</td>
-            </tr>
-            <tr>
-              <td>$e = 1$</td>
-              <td>$a \to \infty$</td>
-              <td>Parabola</td>
-              <td>$\xi = 0$</td>
-              <td>Critical Escape Threshold</td>
-            </tr>
-            <tr>
-              <td>$e > 1$</td>
-              <td>$a < 0$</td>
-              <td>Hyperbola</td>
-              <td>$\xi > 0$</td>
-              <td>Unbound (Interplanetary Flyby)</td>
-            </tr>
+            <tr><td>$e = 0$</td><td>Circle</td><td>$a = p \gt 0$</td><td>Bound</td></tr>
+            <tr><td>$0 \lt e \lt 1$</td><td>Ellipse</td><td>$a \gt 0$</td><td>Bound</td></tr>
+            <tr><td>$e = 1$</td><td>Parabola</td><td>$a \to \infty$</td><td>Escape threshold</td></tr>
+            <tr><td>$e \gt 1$</td><td>Hyperbola</td><td>$a \lt 0$</td><td>Unbound</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">8.2 Geometry of the Ellipse (Eqs. 8.14–8.16)</h3>
+      <p>Evaluate $r(\theta)$ at the two apsides, $\theta = 0$ and $\theta = \pi$:</p>
+      <div class="math-block">
+        $$ r_p = \frac{p}{1 + e}, \qquad r_a = \frac{p}{1 - e} $$
+      </div>
+      <p>The major axis is $2a = r_p + r_a$ (Eq. 8.15), hence</p>
+      <div class="math-block">
+        $$ 2a = \frac{p(1 - e) + p(1 + e)}{(1 + e)(1 - e)} = \frac{2p}{1 - e^2} \;\implies\; p = a\left(1 - e^2\right) $$
+      </div>
+      <p>so that $r_p = a(1 - e)$, $r_a = a(1 + e)$. Combining $p = a(1 - e^2)$ with $p = h^2/\mu$ (Eq. 8.16):</p>
+      <div class="math-block">
+        $$ \boxed{h^2 = \mu p = \mu a\left(1 - e^2\right), \qquad h = \sqrt{\mu a\left(1 - e^2\right)}} $$
+      </div>
+      <p>
+        The distance from the centre of the ellipse to a focus is $c = a - r_p = ae$. At the end of the minor axis the two focal distances are equal and their sum is $2a$, so each is $a$ and $b^2 + c^2 = a^2$, which gives $b = a\sqrt{1 - e^2}$. For circles and ellipses $a \gt 0$, for parabolas $a \to \infty$ and for hyperbolas $a \lt 0$.
+      </p>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="sec-9">
+      <h2 class="section-heading"><span>9.</span> Orbital Period and Kepler's Third Law</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why the areal velocity?</span></div>
+        <p style="margin-bottom: 0;">
+          The trajectory equation gives $r(\theta)$ but not $\theta(t)$. Over one full orbit, however, the swept area is known (the area of the ellipse) and the swept area per unit time is constant, which fixes the period without solving for $\theta(t)$ (Slide 15, Notes Eqs. 8.16–8.18).
+        </p>
+      </div>
+
+      <p>The area of an ellipse is $A_e = \pi a b$. Integrate $dA/dt = h/2$ over one period $\tau$ (Barrow's rule on each side):</p>
+      <div class="math-block">
+        $$ \int_0^\tau \frac{h}{2}\,dt = \int_0^{A_e} dA \;\implies\; \frac{h}{2}\,\tau = \pi a b \;\implies\; \tau = \frac{2\pi a b}{h} $$
+      </div>
+      <p>Substitute $b = a\sqrt{1 - e^2}$ and $h = \sqrt{\mu a(1 - e^2)}$ (Section 8.2):</p>
+      <div class="math-block">
+        $$ \tau = \frac{2\pi a\cdot a\sqrt{1 - e^2}}{\sqrt{\mu a}\,\sqrt{1 - e^2}} = \frac{2\pi a^{3/2}}{\sqrt{\mu}} = 2\pi\sqrt{\frac{a^3}{\mu}} \qquad \text{(Eq. 8.18)}, \qquad \tau^2 = \frac{4\pi^2}{\mu}\,a^3 \qquad \text{(Eq. 8.17)} $$
+      </div>
+      <p>
+        The factor $\sqrt{1 - e^2}$ cancels, so the period depends only on $a$ and $\mu$, not on the eccentricity: Kepler's third law. (With $m^S \gg m^P$ the constant $4\pi^2/\mu$ is practically the same for all planets of the same star.)
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>Kepler's law</th><th>Statement</th><th>Where it was derived</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>First</td><td>Elliptical orbit with the central body at a focus</td><td>Section 8.1, from the Binet equation (also parabolas and hyperbolas for $e \ge 1$)</td></tr>
+            <tr><td>Second</td><td>$dA/dt = h/2 = \text{const}$</td><td>Section 6.4, any central force</td></tr>
+            <tr><td>Third</td><td>$\tau^2 = 4\pi^2 a^3/\mu$</td><td>Section 9, inverse-square force only</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- Section 6 -->
-    <section class="theory-section">
-      <h2>6. Kepler's 3rd Law & The Vis-Viva Equation</h2>
-      <h3>Kepler's Third Law (Harmonic Law)</h3>
-      <p>Integrating areal velocity over one complete orbital period $\tau$ (Slide 15):</p>
-      <div class="formula-box">
-        $$ \frac{h}{2}\tau = \pi a b = \pi a^2 \sqrt{1 - e^2} \implies \tau = 2\pi\sqrt{\frac{a^3}{\mu}} \implies \tau^2 = \frac{4\pi^2}{\mu} a^3 $$
-      </div>
-      <p>The orbital period depends strictly on the semi-major axis $a$ and gravitational parameter $\mu$, completely independent of eccentricity $e$!</p>
+    <!-- SECTION 10 -->
+    <section id="sec-10">
+      <h2 class="section-heading"><span>10.</span> Energy and the Vis-Viva Equation</h2>
 
-      <h3>The Vis-Viva Energy Equation (Slide 16)</h3>
-      <p>The mass-specific mechanical energy $\xi \equiv \frac{1}{2}v^2 - \frac{\mu}{r}$ is constant. Evaluating at periapsis yields $\xi = -\frac{\mu}{2a}$, leading to the famous <strong>Vis-Viva equation</strong>:</p>
-      <div class="formula-box">
-        $$ v^2 = \mu\left(\frac{2}{r} - \frac{1}{a}\right) $$
+      <h3 class="sub-heading">10.1 Specific Energy</h3>
+      <p>
+        <strong>Why.</strong> The gravitational force is conservative, so mechanical energy is conserved and gives a relation between speed and position that needs no time integration (Slides 11, 16, Notes Sec. 8.5). The potential energy per unit mass follows from the work of the force with Barrow's rule (reference at infinity):
+      </p>
+      <div class="math-block">
+        $$ V_0(r) = -\int_\infty^r \left(-\frac{\mu}{s^2}\right)ds = \mu\left[-\frac{1}{s}\right]_\infty^r = -\frac{\mu}{r}, \qquad \xi = \frac{1}{2}v^2 - \frac{\mu}{r} = \text{const} \qquad \text{(Eq. 8.19)} $$
       </div>
 
-      <h3>Fundamental Orbital Velocities</h3>
-      <ul>
-        <li><strong>Circular Velocity ($r = a$):</strong> $v_c = \sqrt{\frac{\mu}{r}}$</li>
-        <li><strong>Escape Velocity ($a \to \infty$):</strong> $v_e = \sqrt{\frac{2\mu}{r}} = \sqrt{2}\,v_c$</li>
-        <li><strong>Periapsis Speed ($r_p = a(1-e)$):</strong> $v_p = \sqrt{\frac{\mu}{a}\frac{1+e}{1-e}}$</li>
-        <li><strong>Apoapsis Speed ($r_a = a(1+e)$):</strong> $v_a = \sqrt{\frac{\mu}{a}\frac{1-e}{1+e}}$</li>
-      </ul>
+      <h3 class="sub-heading">10.2 Value of the Constant</h3>
+      <p>
+        At the apsides $\dot{r} = 0$ (because $u' \propto \sin\theta$ vanishes), so the velocity is purely transverse and $h = r v$ gives $v$ directly.
+      </p>
+      <p><strong>Periapsis</strong> ($r_p = a(1 - e)$):</p>
+      <div class="math-block">
+        $$ v_p = \frac{h}{r_p} = \frac{\sqrt{\mu a(1 - e^2)}}{a(1 - e)} = \sqrt{\frac{\mu}{a}\,\frac{(1 + e)(1 - e)}{(1 - e)^2}} = \sqrt{\frac{\mu}{a}\,\frac{1 + e}{1 - e}} $$
+        $$ \xi = \frac{v_p^2}{2} - \frac{\mu}{r_p} = \frac{\mu}{2a}\frac{1 + e}{1 - e} - \frac{\mu}{a(1 - e)} = \frac{\mu}{2a(1 - e)}\left[(1 + e) - 2\right] = -\frac{\mu}{2a} $$
+      </div>
+      <p><strong>Apoapsis</strong> ($r_a = a(1 + e)$):</p>
+      <div class="math-block">
+        $$ v_a = \frac{h}{r_a} = \sqrt{\frac{\mu}{a}\,\frac{1 - e}{1 + e}}, \qquad \xi = \frac{\mu}{2a}\frac{1 - e}{1 + e} - \frac{\mu}{a(1 + e)} = \frac{\mu}{2a(1 + e)}\left[(1 - e) - 2\right] = -\frac{\mu}{2a} $$
+      </div>
+      <p>
+        <strong>Check at any $\theta$.</strong> With $u = \tfrac{\mu}{h^2}(1 + e\cos\theta)$, $u' = -\tfrac{\mu}{h^2}e\sin\theta$, $\dot{r} = -h u'$ and $r\dot{\theta} = h u$, the energy is $\xi = \tfrac{1}{2}h^2\left[(u')^2 + u^2\right] - \mu u$:
+      </p>
+      <div class="math-block">
+        $$ \xi = \frac{\mu^2}{2h^2}\left[e^2\sin^2\theta + (1 + e\cos\theta)^2\right] - \frac{\mu^2}{h^2}(1 + e\cos\theta) = \frac{\mu^2}{2h^2}\left(e^2 - 1\right) = -\frac{\mu}{2a} $$
+      </div>
+      <p>where the last equality uses $h^2 = \mu a(1 - e^2)$. The result is independent of $\theta$, as it must be.</p>
+
+      <h3 class="sub-heading">10.3 Vis-Viva Equation and Characteristic Speeds</h3>
+      <div class="math-block">
+        $$ \frac{1}{2}v^2 - \frac{\mu}{r} = -\frac{\mu}{2a} \;\implies\; \boxed{v^2 = \mu\left(\frac{2}{r} - \frac{1}{a}\right)} \qquad \text{(Eq. 8.19)} $$
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>Quantity</th><th>Expression</th><th>Derivation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Energy sign</td><td>$\xi \lt 0$ ellipse, $\xi = 0$ parabola, $\xi \gt 0$ hyperbola</td><td>$\xi = -\mu/(2a)$ with $a \gt 0$, $a \to \infty$, $a \lt 0$</td></tr>
+            <tr><td>Circular speed</td><td>$v_c = \sqrt{\mu/r}$ (Eq. 8.20)</td><td>$r = a$ in the vis-viva equation</td></tr>
+            <tr><td>Escape speed</td><td>$v_e = \sqrt{2\mu/r} = \sqrt{2}\,v_c$ (Eq. 8.21)</td><td>$\xi = 0$, i.e. $a \to \infty$</td></tr>
+            <tr><td>Periapsis speed</td><td>$v_p = \sqrt{\dfrac{\mu}{a}\dfrac{1 + e}{1 - e}}$</td><td>Section 10.2</td></tr>
+            <tr><td>Apoapsis speed</td><td>$v_a = \sqrt{\dfrac{\mu}{a}\dfrac{1 - e}{1 + e}}$</td><td>Section 10.2</td></tr>
+            <tr><td>Apsidal ratio</td><td>$\dfrac{v_p}{v_a} = \dfrac{1 + e}{1 - e} = \dfrac{r_a}{r_p}$</td><td>$r_p v_p = r_a v_a = h$</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        For a hyperbola the speed at infinity is $v_\infty = \sqrt{-\mu/a}$, from $\xi = v_\infty^2/2$ and $\xi = -\mu/(2a)$ with $a \lt 0$.
+      </p>
     </section>
 
-    <!-- Benchmark Example -->
-    <section class="theory-section">
-      <h2>7. Solved Benchmark Example: Linear Central Force under Gravity</h2>
+    <!-- SECTION 11 -->
+    <section id="sec-11">
+      <h2 class="section-heading"><span>11.</span> Effective Potential in the Variable $u$ and General Power Laws</h2>
+
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why a first integral in $u$?</span></div>
+        <p style="margin-bottom: 0;">
+          For a central force other than the inverse-square law (as in Problem 42), the equation $u'' + u = \cdots$ is not a linear oscillator and cannot be solved in closed form for every exponent. A first integral still tells us where the motion can go (escape, collision with the centre, or oscillation) without solving it. This section extends Notes Chapter 8; Notes.pdf does not discuss it.
+        </p>
+      </div>
+
+      <h3 class="sub-heading">11.1 First Integral</h3>
+      <p>Let the central force be conservative with specific potential $V_0(r)$. With $\dot{r} = -h u'$ and $r\dot{\theta} = h u$ the specific energy is</p>
+      <div class="math-block">
+        $$ \xi = \frac{1}{2}\left(\dot{r}^2 + r^2\dot{\theta}^2\right) + V_0 = \frac{1}{2}h^2\left[(u')^2 + u^2\right] + V_0\!\left(\frac{1}{u}\right) $$
+        $$ \boxed{(u')^2 + W_{\text{eff}}(u) = \frac{2\xi}{h^2} \equiv E^*}, \qquad W_{\text{eff}}(u) = u^2 + \frac{2V_0(1/u)}{h^2} $$
+      </div>
+      <p>
+        Since $(u')^2 \ge 0$, motion is possible only where $W_{\text{eff}}(u) \le E^*$, and turning points ($u' = 0$) are the roots of $W_{\text{eff}}(u) = E^*$. Differentiating the first integral with respect to $\theta$ and dividing by $2u'$ gives $u'' + \tfrac{1}{2}W_{\text{eff}}'(u) = 0$. For the Newtonian potential $V_0 = -\mu u$:
+      </p>
+      <div class="math-block">
+        $$ W_{\text{eff}}(u) = u^2 - \frac{2\mu}{h^2}u = \left(u - \frac{\mu}{h^2}\right)^2 - \left(\frac{\mu}{h^2}\right)^2, \qquad u'' = -\frac{1}{2}W_{\text{eff}}' = -u + \frac{\mu}{h^2} $$
+      </div>
+      <p>
+        which is the Binet equation again. The minimum at $u = \mu/h^2$ is the circular orbit $r = p$; $E^* \lt 0$ gives two turning points (ellipse), $E^* \ge 0$ reaches $u = 0$ (escape).
+      </p>
+
+      <h3 class="sub-heading">11.2 Power-Law Attraction $F = -m\mu/r^\alpha$</h3>
+      <p>
+        Here $V_0 = -\mu/((\alpha - 1)r^{\alpha - 1})$ for $\alpha \ne 1$ and $V_0 = \mu\ln r$ for $\alpha = 1$ (potential obtained as in Section 10.1). The Binet equation and effective potential are
+      </p>
+      <div class="math-block">
+        $$ u'' + u = \frac{\mu}{h^2}\,u^{\alpha - 2}, \qquad W_{\text{eff}}(u) = u^2 - \frac{2\mu}{(\alpha - 1)h^2}u^{\alpha - 1} \;\;(\alpha \ne 1), \qquad W_{\text{eff}}(u) = u^2 - \frac{2\mu}{h^2}\ln u \;\;(\alpha = 1) $$
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>$\alpha$</th><th>$W_{\text{eff}}(u)$</th><th>Behaviour</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>$1$</td><td>$u^2 - \dfrac{2\mu}{h^2}\ln u$</td><td>$W_{\text{eff}} \to +\infty$ at both $u \to 0$ and $u \to \infty$: every orbit is bounded and oscillates between two turning points.</td></tr>
+            <tr><td>$2$</td><td>$u^2 - \dfrac{2\mu}{h^2}u$</td><td>Kepler: bounded for $E^* \lt 0$, escape for $E^* \ge 0$, no collision if $h \ne 0$.</td></tr>
+            <tr><td>$3$</td><td>$\left(1 - \dfrac{\mu}{h^2}\right)u^2$</td><td>$h^2 \gt \mu$: always escapes. $h^2 \lt \mu$: collapse or escape depending on $u_0'$ (sign of $C_1$). No oscillation.</td></tr>
+            <tr><td>$4$</td><td>$u^2 - \dfrac{2\mu}{3h^2}u^3$</td><td>Minimum only at $u = 0$, barrier $W_{\max} = h^4/(3\mu^2)$ at $u = h^2/\mu$. No bounded oscillation: escape or collapse.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The full case-by-case discussion with initial data $(u_0, u_0')$ is worked in Problem 42.</p>
+
+      <h3 class="sub-heading">11.3 Circular Orbits and Their Stability</h3>
+      <p>
+        A circular orbit has $u' = 0$ and $u'' = 0$, so it sits at a stationary point of $W_{\text{eff}}$: $W_{\text{eff}}'(u_0) = 2u_0 - 2\mu u_0^{\alpha - 2}/h^2 = 0$, that is $u_0^{\alpha - 3} = h^2/\mu$. The second derivative is $W_{\text{eff}}''(u_0) = 2 - 2(\alpha - 2)\,\dfrac{\mu}{h^2}\,u_0^{\alpha - 3}$, and inserting $u_0^{\alpha - 3} = h^2/\mu$ gives $W_{\text{eff}}''(u_0) = 2 - 2(\alpha - 2) = 2(3 - \alpha)$. A minimum (stable circular orbit) therefore exists for $\alpha \lt 3$, and a maximum (unstable) for $\alpha \gt 3$; $\alpha = 3$ is marginal. This is consistent with Kepler's circular orbit ($\alpha = 2$, minimum) and with the unstable circle of Problem 42 for $\alpha = 4$.
+      </p>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section id="sec-12">
+      <h2 class="section-heading"><span>12.</span> Worked Numerical Examples</h2>
+
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example: Problem 17 (Slide 6 Benchmark)</h4>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Decoupled Cartesian harmonic equations & 3D elliptical trajectory</span>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Low Earth Circular Orbit</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Circular speed, escape speed and period</span>
           </div>
-          <span class="example-badge">Slide 6</span>
+          <span class="example-badge">Eqs. 8.18, 8.20, 8.21</span>
         </div>
-        <p><strong>Problem Statement:</strong> A force attracts a particle $M$ of mass $m$ to origin $O$ with $\mathbf{F} = -m k^2 \mathbf{r}$ under vertical gravity $\mathbf{g} = -g\mathbf{k}$. Initial conditions: $\mathbf{r}(0) = \frac{\sqrt{3}g}{k^2}\mathbf{i}$, $\mathbf{v}(0) = \frac{2g}{k}\mathbf{j}$. Determine the motion, path shape, and velocity $\mathbf{v}(t)$.</p>
-        <p><strong>Step-by-step Solution:</strong></p>
+        <p><strong>Data.</strong> $\mu_\oplus = 3.986004418 \times 10^{14}\ \text{m}^3/\text{s}^2$ and orbital radius $r = 6.778 \times 10^{6}\ \text{m}$ (about $400\ \text{km}$ altitude).</p>
         <ol>
-          <li>Equations of motion: $m\ddot{\mathbf{r}} = -m k^2\mathbf{r} - mg\mathbf{k} \implies \ddot{x} + k^2 x = 0, \ddot{y} + k^2 y = 0, \ddot{z} + k^2 z = -g$.</li>
-          <li>Integration:
-            $$ x(t) = \frac{\sqrt{3}g}{k^2}\cos(kt), \qquad y(t) = \frac{2g}{k^2}\sin(kt), \qquad z(t) = \frac{g}{k^2}(\cos(kt) - 1) $$
-          </li>
-          <li>Planar confinement: $z(t) = \frac{x(t)}{\sqrt{3}} - \frac{g}{k^2} \implies x - \sqrt{3}z - \frac{\sqrt{3}g}{k^2} = 0$. The path lies in a plane inclined at $30^\circ$.</li>
-          <li>Elliptic path: $\left(\frac{x}{\sqrt{3}g/k^2}\right)^2 + \left(\frac{y}{2g/k^2}\right)^2 = 1$. The 3D trajectory is an ellipse centered at $(0, 0, -g/k^2)$.</li>
-          <li>Constant speed: $\mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin(kt)\mathbf{i} + \frac{2g}{k}\cos(kt)\mathbf{j} - \frac{g}{k}\sin(kt)\mathbf{k} \implies \|\mathbf{v}(t)\| = \frac{2g}{k} = \text{constant}$.</li>
+          <li>Circular speed: $v_c = \sqrt{\mu/r} = \sqrt{3.986004418\times 10^{14}/6.778\times 10^{6}} \approx 7.669\times 10^{3}\ \text{m/s}$.</li>
+          <li>Escape speed at the same radius: $v_e = \sqrt{2}\,v_c \approx 1.0845\times 10^{4}\ \text{m/s}$.</li>
+          <li>Period with $a = r$: $\tau = 2\pi\sqrt{r^3/\mu} \approx 5.553\times 10^{3}\ \text{s} \approx 92.6\ \text{min}$.</li>
+          <li>Dimensions: $[\mu/r] = \text{m}^3\text{s}^{-2}/\text{m} = \text{m}^2/\text{s}^2$, so $v$ is in m/s; $[r^3/\mu] = \text{s}^2$, so $\tau$ is in s.</li>
         </ol>
       </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Elliptic Transfer Orbit (Vis-Viva)</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Periapsis and apoapsis from the given apsides</span>
+          </div>
+          <span class="example-badge">Section 10</span>
+        </div>
+        <p><strong>Data.</strong> Periapsis radius $r_p = 6.778\times 10^{6}\ \text{m}$ and apoapsis radius $r_a = 4.2164\times 10^{7}\ \text{m}$ around the Earth.</p>
+        <ol>
+          <li>Semi-major axis and eccentricity: $a = (r_p + r_a)/2 = 2.4471\times 10^{7}\ \text{m}$ and $e = (r_a - r_p)/(r_a + r_p) = 0.7230$.</li>
+          <li>Specific energy: $\xi = -\mu/(2a) \approx -8.144\times 10^{6}\ \text{J/kg}$.</li>
+          <li>Vis-viva at periapsis: $v_p = \sqrt{\mu(2/r_p - 1/a)} \approx 1.0066\times 10^{4}\ \text{m/s}$; at apoapsis $v_a = \sqrt{\mu(2/r_a - 1/a)} \approx 1.618\times 10^{3}\ \text{m/s}$.</li>
+          <li>Consistency: $r_pv_p = r_av_a = h \approx 6.823\times 10^{10}\ \text{m}^2/\text{s}$, equal to $\sqrt{\mu a(1 - e^2)}$, and $v_p/v_a = 6.221 = r_a/r_p$.</li>
+          <li>Period: $\tau = 2\pi\sqrt{a^3/\mu} \approx 3.81\times 10^{4}\ \text{s} \approx 10.58\ \text{h}$.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section id="sec-13">
+      <h2 class="section-heading"><span>13.</span> Source Map</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>Topic</th><th>Notes.pdf (printed pages)</th><th>Slides</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Angular momentum and torque</td><td>Sec. 4.8, Eqs. 4.48 and 4.51 (pp. 49–50)</td><td>3</td></tr>
+            <tr><td>Theorem with a moving origin</td><td>Eqs. 4.49–4.55 (pp. 50–51)</td><td>4</td></tr>
+            <tr><td>Conservation</td><td>Text after Eq. 4.53 (p. 51)</td><td>5</td></tr>
+            <tr><td>Central forces</td><td>Sec. 4.8.1, Eqs. 4.56–4.58 and properties 1–5 (pp. 51–52)</td><td>7</td></tr>
+            <tr><td>Two-body reduction</td><td>Not in the Notes (Ch. 8 assumes $m^P \ll m^S$, Eq. 8.1, p. 71)</td><td>8–11</td></tr>
+            <tr><td>Polar kinematics, $h$, areal velocity</td><td>Eqs. 8.2–8.8 (p. 72)</td><td>12</td></tr>
+            <tr><td>Binet equation and conic orbit</td><td>Eqs. 8.9–8.16 (pp. 72–73)</td><td>13–14</td></tr>
+            <tr><td>Period and third law</td><td>Eqs. 8.16–8.18 (p. 73)</td><td>15</td></tr>
+            <tr><td>Vis-viva and characteristic speeds</td><td>Sec. 8.5, Eqs. 8.19–8.21 (p. 74)</td><td>16</td></tr>
+            <tr><td>Effective potential in $u$, power laws, circular-orbit stability</td><td>Not in the Notes; derived from Eq. 8.19 and used in Problem 42</td><td>none</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Worked problems (Problems 17, 39, 42, 43, 44) follow the four-phase protocol on the <a href="../problemas/topic-4.html">Topic 4 problems page</a>.
+      </p>
     </section>
 
     <!-- Bottom Navigation -->
     <div class="article-nav">
       <a href="topic-3.html" class="nav-btn">
         <span class="nav-btn-label">← Previous Topic</span>
-        <span class="nav-btn-title">Topic 3: Constraints & Reaction Forces</span>
+        <span class="nav-btn-title">Topic 3: Constraints and Reaction Forces</span>
       </a>
       <a href="../problemas/topic-4.html" class="nav-btn" style="text-align: center; border-color: var(--accent-border);">
         <span class="nav-btn-label">Practice Problems</span>
-        <span class="nav-btn-title" style="color: var(--accent);">✏️ Topic 4 Problems (5 Solved)</span>
+        <span class="nav-btn-title" style="color: var(--accent);">✏️ Topic 4 Problems (5)</span>
       </a>
       <a href="index.html" class="nav-btn" style="text-align: right;">
         <span class="nav-btn-label">Back to Syllabus →</span>
-        <span class="nav-btn-title">Mechanics Theory Index</span>
+        <span class="nav-btn-title">Mechanics Applied Index</span>
       </a>
     </div>
 
@@ -461,18 +1202,21 @@
     <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
       <div id="quoteContainer"></div>
     </section>
-
   </main>
 
   <script>
+    // Theme toggle with localStorage persistence
     const toggle = document.getElementById('themeToggle');
     const html = document.documentElement;
+
     function setTheme(theme) {
       html.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
     }
+
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
+
     toggle.addEventListener('click', () => {
       const current = html.getAttribute('data-theme');
       setTheme(current === 'dark' ? 'light' : 'dark');
@@ -490,3 +1234,4 @@
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>
 </html>
+
