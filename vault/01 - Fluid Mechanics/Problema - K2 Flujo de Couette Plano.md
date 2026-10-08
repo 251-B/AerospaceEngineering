@@ -9,7 +9,7 @@ tags:
   - vorticidad
   - circulacion
 dificultad: media
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K2.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K2.pdf"
 ---
 
 # ✏️ Problema K2: Flujo de Couette Plano y Análisis de Deformación / Rotación

@@ -1,7 +1,7 @@
 # 🌊 Fluid Mechanics — MOC (Map of Content)
 
 > **Subject:** Fluid Mechanics (2nd Year Aerospace Engineering, UC3M)  
-> **Official Sources:** `sources/01-fluid-mechanics/` (*Notes.pdf* & *slides_Chapters1-2.pdf*, Antonio L. Sánchez & Javier Rodríguez-Rodríguez)  
+> **Official Sources:** `sources/cuatrimestre-1/01-fluid-mechanics/` (*Notes.pdf* & *slides_Chapters1-2.pdf*, Antonio L. Sánchez & Javier Rodríguez-Rodríguez)  
 > **Return:** `[[00 - Indice Central/Indice Maestro|⬅️ Master Index]]`
 
 ---
@@ -56,10 +56,16 @@
   * `[[01 - Fluid Mechanics/Problema - Compuerta Sumergida Inclinada con Momento de Apertura|Problem: Hinged Submerged Gate with Closing Force]]`
   * `[[01 - Fluid Mechanics/Problema - Manometro Diferencial Multiliquido con Gas|Problem: Multi-Fluid Differential Manometer]]`
 * `[[01 - Fluid Mechanics/Tema 6 - Dimensional Analysis|Topic 6: Dimensional Analysis (Buckingham Pi Theorem)]]`
+  * Fuentes oficiales: `DA1.pdf` a `DA14.pdf` (14 problemas resueltos).
+* `[[01 - Fluid Mechanics/Tema 7 - Viscous Flows|Topic 7: Viscous Flows & Boundary Layer Theory]]`
+  * Fuentes oficiales: `VF2_w_solution.pdf`, `VF3.pdf` a `VF20.pdf` (19 problemas resueltos).
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
-* `[[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]`
-  * Integral momentum balance via Reynolds Transport Theorem (RTT).
-  * Impact on flat, oblique ($30^\circ / 45^\circ$), and hemispherical surfaces.
-  * 11-point calibration curve data reduction, drag coefficient $C_d$, and physical discrepancy diagnostics.
+* **Estructura Oficial:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`
+  * `general-instructions/`: `LAB_BLUEPRINT.md` (normas de redacción y formato de informes).
+  * `lab-1/`: `[[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]`
+    * Fuentes: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, medidas experimentales y figuras.
+  * `lab-2/`: Laboratory 2 (Ensayos aerodinámicos / túnel de viento).
+  * `lab-3/`: Laboratory 3 (Viscosimetría y manometría).
+  * `lab-4/`: Laboratory 4 (Pérdidas de carga y capa límite en tuberías).
 

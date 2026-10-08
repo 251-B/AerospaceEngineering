@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vault/01 - Fluid Mechanics/Mecanica de Fluidos MOC.md",
+                "file": "GEMINI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mecanica de Fluidos MOC"
+              "title": "GEMINI"
             }
           }
         ]
@@ -190,6 +190,10 @@
   },
   "active": "28ed09c7033e5a6b",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "AGENTS.md",
+    "vault/01 - Fluid Mechanics/Concepto - Conservacion Integral de Masa Momento y Energia.md",
+    "vault/01 - Fluid Mechanics/Mecanica de Fluidos MOC.md",
     "GEMINI.md"
   ]
 }

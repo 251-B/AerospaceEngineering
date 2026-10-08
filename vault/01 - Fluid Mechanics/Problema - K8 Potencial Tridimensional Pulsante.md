@@ -9,7 +9,7 @@ tags:
   - superficie-fluida
   - elipsoide-pulsante
 dificultad: alta
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K8.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K8.pdf"
 ---
 
 # ✏️ Problema K8: Flujo Tridimensional Pulsante y Deformación de Superficie Esférica

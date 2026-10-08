@@ -9,7 +9,7 @@ tags:
   - aceleracion-material
   - vorticidad
 dificultad: alta
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K5.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K5.pdf"
 ---
 
 # ✏️ Problema K5: Dipolo Plano Pulsante / Oscilante

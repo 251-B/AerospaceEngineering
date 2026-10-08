@@ -9,7 +9,7 @@ tags:
   - coordenadas-cilindricas
   - estiramiento-vortice
 dificultad: media
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K6.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K6.pdf"
 ---
 
 # ✏️ Problema K6: Vórtice Tridimensional de Burgers con Estiramiento Axial

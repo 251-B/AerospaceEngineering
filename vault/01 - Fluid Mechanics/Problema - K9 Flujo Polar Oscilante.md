@@ -10,7 +10,7 @@ tags:
   - linea-fluida
   - aceleracion-polar
 dificultad: alta
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K9.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K9.pdf"
 ---
 
 # ✏️ Problema K9: Flujo Polar Oscilante y Deformación de una Línea Fluida

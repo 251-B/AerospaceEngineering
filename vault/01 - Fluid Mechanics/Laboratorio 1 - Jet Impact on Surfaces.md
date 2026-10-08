@@ -10,7 +10,7 @@ tags:
   - experimental-aerospace
 dificultad: intermedia
 fuentes:
-  - sources/01-fluid-mechanics/Labs/Lab_session_1.pdf
+  - sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/Lab_session_1.pdf
   - MedidasLab1_261005_223351 (1).jpg
 ---
 
@@ -21,7 +21,7 @@ fuentes:
 > - Theoretical Framework: [[01 - Fluid Mechanics/Tema 3 - Conservation Laws]]
 > - Fundamental Theorem: [[01 - Fluid Mechanics/Concepto - Teorema de Transporte de Reynolds]]
 > - Master Index: [[00 - Indice Central/Indice Maestro]]
-> - Primary Sources: `sources/01-fluid-mechanics/Labs/Lab_session_1.pdf` & Experimental Measurements `MedidasLab1_261005_223351 (1).jpg`
+> - Primary Sources: `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/Lab_session_1.pdf` & Experimental Measurements `MedidasLab1_261005_223351 (1).jpg`
 
 ---
 

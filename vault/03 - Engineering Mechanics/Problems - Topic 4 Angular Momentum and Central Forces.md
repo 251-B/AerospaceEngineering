@@ -2,7 +2,7 @@
 title: "Problems - Topic 4: Angular Momentum and Central Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
-source: "sources/03-engineering-mechanics/problemas/Problems.pdf"
+source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
 type: "Verbatim Problem Statements"
 language: "English"
 ---

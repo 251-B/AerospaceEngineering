@@ -7,7 +7,7 @@ tags:
   - pared-porosa
   - stokes
 dificultad: alta
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K1.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K1.pdf"
 ---
 
 # ✏️ Problema K1: Flujo sobre Pared Porosa Oscilante con Succión/Soplado

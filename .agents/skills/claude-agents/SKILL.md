@@ -87,7 +87,7 @@ Para invocar compañeros de equipo basados en las definiciones del proyecto, esp
 
 ```text
 Spawn 3 teammates to analyze Chapter 4 of Advanced Maths:
-- One teammate using the source-researcher agent type to index all PDE problems in sources/04-advanced-maths/.
+- One teammate using the source-researcher agent type to index all PDE problems in sources/cuatrimestre-1/04-advanced-maths/.
 - One teammate using the aerospace-pedagogue agent type to structure the analytical theory.
 - One teammate using the problem-step-mentor agent type to draft the step-by-step resolution.
 Have them populate the shared task list and coordinate findings.

@@ -214,12 +214,12 @@ To continue numerical integration:
 
 ## 📁 7. Deliverables & Validated Code Repository
 
-* **MATLAB Solver Package:** `sources/03-engineering-mechanics/Labs/code_LA_S1_S2_S3/`
+* **MATLAB Solver Package:** `sources/cuatrimestre-1/03-engineering-mechanics/Labs/code_LA_S1_S2_S3/`
   * `main.m`: Automated master script executing all 5 cases and exporting 7 figures.
   * `diffeq.m`: State-space ODE function.
   * `stopfun.m`: Event detection function for $\xi \le 0$ and $T \le 0$.
   * `simulate_case4_ballistic.m`: Ballistic continuation simulator for Question 11.
-* **LaTeX Report Package (Overleaf Ready):** `sources/03-engineering-mechanics/Labs/report_LA_S1_S2_S3/`
+* **LaTeX Report Package (Overleaf Ready):** `sources/cuatrimestre-1/03-engineering-mechanics/Labs/report_LA_S1_S2_S3/`
   * `Report_LA_S1_S2_S3.tex`: Full 10-page professional technical report conforming to UC3M guidelines.
   * `references.bib`: Cited literature.
   * `Report_Overleaf_Package.zip`: Ready-to-upload archive for instant Overleaf compilation.

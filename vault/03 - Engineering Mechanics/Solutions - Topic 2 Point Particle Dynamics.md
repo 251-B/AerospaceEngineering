@@ -2,7 +2,7 @@
 title: "Solutions - Topic 2: Point Particle Dynamics"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
-source: "sources/03-engineering-mechanics/problemas/Problems.pdf"
+source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
 type: "Full Analytical Solutions (4-Phase Methodology)"
 language: "English"
 ---

@@ -9,7 +9,7 @@ tags:
   - linea-fluida
   - tubo-corriente
 dificultad: media
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K3.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K3.pdf"
 ---
 
 # ✏️ Problema K3: Fuente Tridimensional Puntual en el Origen

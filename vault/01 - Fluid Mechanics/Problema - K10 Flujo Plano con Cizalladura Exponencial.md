@@ -9,7 +9,7 @@ tags:
   - funcion-corriente
   - tensor-deformacion
 dificultad: media
-fuente: "sources/01-fluid-mechanics/problemas/1.Kinematics/K10.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K10.pdf"
 ---
 
 # ✏️ Problema K10: Flujo Plano con Cizalladura Exponencial y Deformación Pura

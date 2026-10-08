@@ -94,17 +94,128 @@
 
 ---
 
-### ⚙️ Bloque II: Propiedades Mecánicas, Ensayos y Mecánica de la Fractura
-* **Tema 4:** Elastic & Plastic Deformation, Dislocation Glide, Strengthening Mechanisms
-* **Tema 5:** Tensile, Hardness, and Impact Testing
-* **Tema 6:** Fracture Mechanics, Fatigue (S-N Curves, Paris Law), and Creep
+### ⚖️ Bloque II: Diagramas de Fases y Solidificación
+
+#### [[02 - Aerospace Materials I/Tema 4 - Phase Diagrams and Solidification|Tema 4: Phase Diagrams & Solidification]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 7 T4 Phase diagrams I_2025.pdf`, `Session 8 T4 Phase diagrams II.pdf`, `Session 9 T4 Phase diagrams III.pdf`, `Session 10 T4 Phase diagrams IV.pdf`
+  * Problemas: `Problems T4_PhaseDiagrams I.pdf`, `Problems T4_PhaseDiagrams II.pdf`
+  * Soluciones Oficiales: `Solution problems Phase diagrams I.pdf`, `Solution problems Phase diagrams II.pdf`
+* **Contenido Principal:**
+  * Regla de las Fases de Gibbs, sistemas isomorfos y regla de la palanca.
+  * Sistemas eutécticos binarios, transformaciones en estado sólido y reacciones invariantes (eutéctica, eutectoide, peritéctica, peritectoide).
+  * Diagrama metaestable $Fe\text{-}Fe_3C$: aceros hipoeutectoides, eutectoides e hipereutectoides, transformaciones perlíticas.
+  * Diagramas de fases cerámicos y diagramas ternarios.
 
 ---
 
-### ✈️ Bloque III: Diagramas de Fases y Aleaciones Aeroespaciales
-* **Tema 7:** Binary Phase Diagrams, Lever Rule, Eutectic & Peritectic Solidification
-* **Tema 8:** Light Aerospace Alloys (Al-Cu, Al-Zn, Ti-6Al-4V, Mg Alloys)
-* **Tema 9:** High-Temperature Superalloys (Ni-based, Single Crystals, Thermal Barrier Coatings)
+### ⚙️ Bloque III: Propiedades Mecánicas y Ensayos
+
+#### [[02 - Aerospace Materials I/Tema 5 - Mechanical Properties of Materials|Tema 5: Mechanical Properties]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 11 T5 Mechanical properties I.pdf`, `Session 12 T5 Mechanical properties II.pdf`
+  * Problemas: `Problems T5_MechanicalProperties.pdf`
+* **Contenido Principal:**
+  * Ensayo de tracción uniaxial: régimen elástico, ley de Hooke, módulo de Young, coeficiente de Poisson.
+  * Deformación plástica, límite elástico convencional ($\sigma_{0.2}$), resistencia a la tracción ($\sigma_u$), ductilidad.
+  * Curvas de tensión-deformación verdaderas ($\sigma_T - \epsilon_T$) y estricción.
+  * Sistemas de deslizamiento en metales (ley de Schmid) y mecanismos de endurecimiento (grano/Hall-Petch, solución sólida, deformación en frío/acritud, precipitación).
+  * Ensayos de dureza (Brinell, Rockwell, Vickers, Knoop).
+
+---
+
+### ⚡ Bloque IV: Propiedades Funcionales: Eléctricas, Magnéticas y Térmicas
+
+#### [[02 - Aerospace Materials I/Tema 6 - Electrical Properties of Materials|Tema 6: Electrical Properties]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 13 T6 Electrical properties.pdf`
+  * Problemas: `Problems T6andT7_Electric and Magnetic Properties.pdf`
+* **Contenido Principal:**
+  * Modelo clásico de conducción de Drude y ley de Ohm microscópica ($\vec{J} = \sigma \vec{E}$).
+  * Teoría cuántica de bandas: conductores metálicos, aislantes y semiconductores.
+  * Semiconductores intrínsecos y extrínsecos (dopado tipo $n$ y tipo $p$). Conducción en cerámicos y polímeros.
+
+#### [[02 - Aerospace Materials I/Tema 7 - Magnetic and Thermal Properties of Materials|Tema 7: Magnetic & Thermal Properties]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 15 T7 Magnetic and thermal properties.pdf`
+  * Problemas: `Problems T6andT7_Electric and Magnetic Properties.pdf`
+* **Contenido Principal:**
+  * Origen atómico del momento magnético (spin y orbital). Diamagnetismo, paramagnetismo, ferromagnetismo, antiferromagnetismo y ferrimagnetismo.
+  * Dominios magnéticos, ciclos de histéresis $B\text{-}H$, materiales magnéticos blandos y duros.
+  * Propiedades térmicas: capacidad calorífica ($C_p, C_v$), coeficiente de dilatación térmica ($\alpha_L$), conductividad térmica ($k$) y choque térmico.
+
+---
+
+### 🧪 Bloque V: Materiales Estructurales Avanzados: Cerámicos, Polímeros, Compuestos y Adhesivos
+
+#### [[02 - Aerospace Materials I/Tema 8 - Ceramic Materials and Processing|Tema 8: Ceramic Materials & Processing]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-8-ceramics.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-8-ceramics.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 16 T8 Ceramic materials.pdf`, `Session 18 T8 Processing of ceramic materials.pdf`
+  * Problemas: `Problems T8_CeramicMaterials.pdf`
+* **Contenido Principal:**
+  * Estructuras cerámicas cristalinas (tipo $NaCl$, $CsCl$, perovskitas, silicatos). Vidrios y materiales vitrocerámicos.
+  * Propiedades mecánicas de cerámicos: fragilidad, módulo de rotura (flexión en 3/4 puntos), distribución de Weibull.
+  * Procesado de cerámicos: molienda, conformado (prensado, colaje, extrusión) y sinterización.
+
+#### [[02 - Aerospace Materials I/Tema 9 - Polymeric Materials and Processing|Tema 9: Polymers & Processing]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-9-polymers.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-9-polymers.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 19 T9 Polymers.pdf`, `Session 20 T9 Classification and Polymer Processing.pdf`
+  * Problemas: `Problems T9_Polymers.pdf`
+* **Contenido Principal:**
+  * Estructura química, monómeros, polimerización por adición y condensación. Grado de polimerización y masa molecular ($M_n, M_w$).
+  * Clasificación: termoplásticos, termoestables y elastómeros. Transición vítrea ($T_g$) y fusión ($T_m$).
+  * Comportamiento viscoelástico (módulos de relajación, fluencia plástica). Procesado de polímeros (extrusión, inyección, moldeo por soplado).
+
+#### [[02 - Aerospace Materials I/Tema 10 - Composite Materials and Reinforcements|Tema 10: Composite Materials & Reinforcements]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-10-composites.html`
+* **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-10-composites.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 21 T10 Composites I.pdf`, `Session 22 T10 Composites II.pdf`, `Session 23 T10 Composites III.pdf`
+  * Problemas: `Problems T10_CompositeMaterials.pdf`
+* **Contenido Principal:**
+  * Definición y sinergia de fases: matrices poliméricas (epoxi, BMI, PEEK) y refuerzos (fibras de carbono, vidrio, aramida).
+  * Micromecánica de láminas unidireccionales: regla de mezclas longitudinal y transversal ($E_1, E_2, \nu_{12}, G_{12}$).
+  * Fabricación aeronáutica: preimpregnados (prepregs), autoclave, infusión de resina (RTM/VARTM), bobinado filamentario.
+
+#### [[02 - Aerospace Materials I/Tema 11 - Structural Adhesives and Joint Design|Tema 11: Structural Adhesives & Joint Design]]
+* **Página Web:** `subjects/aerospace-materials-1/teoria/topic-11-adhesives.html`
+* **Fuentes Oficiales:**
+  * Teoria: `Session 24 T11 Adhesives.pdf`
+* **Contenido Principal:**
+  * Mecanismos de adhesión (mecánica, fisicoquímica, difusión).
+  * Modos de fallo en uniones adhesivas (adhesivo vs cohesivo vs delaminación de sustrato).
+  * Tipos de adhesivos estructurales (epoxis, poliuretanos, acrílicos). Diseño de uniones y ensayos mecánicos.
+
+---
+
+### 🔬 Sesiones de Laboratorio (Laboratory Practicals)
+* **Guías Oficiales:** `INTRO LAB_Mat.Aer I_INGLÉS-Ing. Aeroespacial.pdf`, `LabGuide_AerospaceMaterialsI.pdf`, `Lab_session_1.pdf`
+* **Prácticas del Cuatrimestre:**
+  * **Lab 1:** Crystalline Structures (Modelos de esferas duras, parámetros de red, densidades y empaquetamiento).
+  * **Lab 2:** Tensile Testing of Metallic Alloys (Máquina universal de ensayos, curvas $\sigma\text{-}\epsilon$, estricción).
+  * **Lab 3:** Composite Materials Manufacturing & Testing (Fabricación e inspección de probetas de material compuesto).
+  * **Lab 4:** Identification and Thermal Analysis of Polymers (Métodos analíticos y comportamiento térmico).
+
+---
+
+### 📝 Evaluación Oficial y Exámenes
+* **Test 1 (Primer Parcial):** Temas 1, 2 y 3.
+  * Fuentes: `1stPartial2022.pdf`, `1stPartial2023.pdf`, `1stPartialTipoTestsVariados.pdf`, `First Partial Aerospace Materials.pdf`.
+* **Test 2 (Segundo Parcial):** Temas 4, 5, 6 y 7.
+* **Test 3 (Tercer Parcial):** Temas 8, 9, 10 y 11.
+* **Examen Final:** Convocatoria ordinaria y extraordinaria.
 
 ---
 *Retorno:* `[[00 - Indice Central/Indice Maestro|🗺️ Índice Maestro]]`
