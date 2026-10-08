@@ -1,60 +1,60 @@
 ---
 materia: "Aerospace Materials I"
-tema: "Tema 2: Structure of Materials and Crystalline Defects"
+tema: "Topic 2: Structure of Materials and Crystalline Defects"
 origen: "Problems T2 defects.pdf, Problem 5"
-dificultad: alta
+dificultad: high
 tags:
-  - problema-oficial
-  - resuelto
+  - official-problem
+  - solved
   - non-stoichiometry
   - wustite
   - cationic-vacancies
   - density-variation
 ---
 
-# ✏️ Problema: T2-DEF05 — Defectos de No Estequiometría y Disminución de Densidad en FeO
+# ✏️ Problem: T2-DEF05: Non-Stoichiometry Defects and Density Decrease in FeO
 
-## 📄 Enunciado Oficial
+## 📄 Official Statement
 > **5. In a specimen of iron oxide (II), $\text{FeO}$, $10\%$ of the $\text{Fe}^{2+}$ ions are substituted by $\text{Fe}^{3+}$ ions. In order to maintain the crystal electro neutrality, a fraction of the cationic positions are vacancies. Data: $M(\text{O}) = 16\text{ g/mol}$; $M(\text{Fe}) = 55.8\text{ g/mol}$.**  
 > **a)** Calculate the fraction of cationic vacancies. *(Solution: $0.033\text{ mol vacancies/mol Fe}^{2+}$)*  
 > **b)** Assuming that the lattice parameter of the perfect and imperfect crystal is the same, calculate how much the density decreases, in $\%$, with respect to the perfect crystal. *(Solution: $-2.56\%$)*
 
 ---
 
-## 📊 1. Fase 1: Hipótesis y Parámetros
+## 📊 1. Phase 1: Hypotheses and Parameters
 
-### Contexto Químico y Físico:
-El óxido de hierro (II) ($\text{FeO}$, wüstita) cristaliza en la estructura tipo sal gema ($\text{NaCl}$, FCC) con una subred aniónica compacta de $\text{O}^{2-}$ y una subred catiónica de hierro. En presencia de atmósferas oxidantes, parte de los iones $\text{Fe}^{2+}$ se oxidan a $\text{Fe}^{3+}$.
+### Chemical and Physical Context:
+Iron(II) oxide ($\text{FeO}$, wüstite) crystallises in the rock-salt structure ($\text{NaCl}$, FCC) with a close-packed anionic sublattice of $\text{O}^{2-}$ and a cationic iron sublattice. In oxidising atmospheres, part of the $\text{Fe}^{2+}$ ions oxidise to $\text{Fe}^{3+}$.
 
-### Datos de Entrada:
+### Input Data:
 * Substitution: $10\%$ of the original $\text{Fe}^{2+}$ positions are replaced following $3\,\text{Fe}^{2+} \to 2\,\text{Fe}^{3+} + 1\,V_{\text{Fe}}''$.
-* Masas molares atómicas:
+* Atomic molar masses:
   * $M_{\text{Fe}} = 55.8\text{ g/mol}$
   * $M_{\text{O}} = 16.0\text{ g/mol}$
-* Masa molar de la unidad estequiométrica ideal $\text{FeO}$:
+* Molar mass of the ideal stoichiometric $\text{FeO}$ unit:
   $$M_{\text{ideal}} = 55.8 + 16.0 = 71.8\text{ g/mol}$$
-* Hipótesis geométrica: El parámetro de red $a$ se mantiene invariable entre el cristal perfecto y el defectuoso ($V_C^{\text{real}} = V_C^{\text{ideal}}$).
+* Geometric hypothesis: the lattice parameter $a$ is the same for the perfect and the defective crystal ($V_C^{\text{real}} = V_C^{\text{ideal}}$).
 
 ---
 
-## 🧠 2. Fase 2: Formulación y Justificación Pedagógica
+## 🧠 2. Phase 2: Formulation and Justification
 
-1. **Principio de Electroneutralidad [Session 4 Slide 21]:**
-   Cada ion $\text{Fe}^{3+}$ aporta un exceso de carga $+1$ respecto a la posición normal $\text{Fe}^{2+}$. Para preservar la neutralidad eléctrica global:
+1. **Electroneutrality principle [Session 4 Slide 21]:**
+   Each $\text{Fe}^{3+}$ ion carries an excess charge of $+1$ relative to the normal $\text{Fe}^{2+}$ position. To preserve global electrical neutrality:
    $$3\,\text{Fe}^{2+} \longrightarrow 2\,\text{Fe}^{3+} + 1\,V_{\text{Fe}}''$$
-   Por cada $2$ iones $\text{Fe}^{3+}$ presentes, debe crearse exactamente **$1$ vacante catiónica de hierro**.
-2. **Fracción de Vacantes Catiónicas:**
+   For every $2$ $\text{Fe}^{3+}$ ions present, exactly **$1$ cationic iron vacancy** must be created.
+2. **Cationic vacancy fraction:**
    Basis: $1\text{ mol}$ of cation sites of the perfect crystal ($1\text{ mol}$ of $\text{Fe}^{2+}$, with $1\text{ mol}$ of $\text{O}^{2-}$, total anionic charge $-2$).
    The replacement of $10\%$ of the $\text{Fe}^{2+}$ positions follows the reaction $3\,\text{Fe}^{2+} \to 2\,\text{Fe}^{3+} + 1\,V_{\text{Fe}}''$, so every $3$ replaced ions give $1$ vacancy; this is the single rule used in part a).
-3. **Variación Porcentual de la Densidad:**
-   Dado que el volumen reticular $V_C$ es constante, la densidad es estrictamente proporcional a la masa molar efectiva por unidad de fórmula:
+3. **Percentage density change:**
+   Since the lattice volume $V_C$ is constant, the density is strictly proportional to the effective molar mass per formula unit:
    $$\frac{\Delta \rho}{\rho_0} = \frac{M_{\text{real}} - M_{\text{ideal}}}{M_{\text{ideal}}} \times 100\%$$
 
 ---
 
-## 🔢 3. Fase 3: Desarrollo Matemático Paso a Paso
+## 🔢 3. Phase 3: Step-by-Step Derivation
 
-### 1. Apartado a: Fracción de Vacantes Catiónicas
+### 1. Part a: Cationic Vacancy Fraction
 * Basis: $1\text{ mol}$ of cation sites of the perfect crystal, i.e. $1\text{ mol}$ of $\text{Fe}^{2+}$ and $1\text{ mol}$ of $\text{O}^{2-}$ (the unit used in the official answer, "mol vacancies/mol $\text{Fe}^{2+}$").
 * Reading of the statement: $10\%$ of the original $\text{Fe}^{2+}$ positions are replaced, i.e. $0.10\text{ mol}$ of the original $\text{Fe}^{2+}$ are involved in the reaction
   $$3\,\text{Fe}^{2+} \longrightarrow 2\,\text{Fe}^{3+} + 1\,V_{\text{Fe}}''$$
@@ -68,7 +68,7 @@ Value coincides with the official answer $0.033$.
 
 ---
 
-### 2. Apartado b: Variación Porcentual de la Densidad
+### 2. Part b: Percentage Density Change
 * Fe atoms per formula unit (per $\text{O}$): $0.90 + 0.06667 = 0.96667$, i.e. the crystal is $\text{Fe}_{0.9667}\text{O}$ ($=1 - 0.03333$).
 * **Effective molar mass of the defective crystal (per formula unit):**
   $$M_{\text{real}} = 0.96667 \times 55.8 + 16.0 = 53.940 + 16.0 = 69.940\text{ g/mol}$$
@@ -82,9 +82,9 @@ Value coincides with the official answer $0.033$.
 
 ---
 
-## 🎯 4. Fase 4: Interpretación Física y Verificación
+## 🎯 4. Phase 4: Physical Interpretation and Verification
 
-* **Fenómeno de la Wüstita:** El $\text{FeO}$ prácticamente nunca existe con estequiometría exacta $1:1$ a temperatura ambiente; siempre se presenta como una fase no estequiométrica deficitaria en hierro $\text{Fe}_{1-x}\text{O}$ ($0.05 \le x \le 0.15$). La presencia de vacantes catiónicas $V_{\text{Fe}}''$ reduce su densidad macroscópica (en este problema, $\approx -2.6\%$) y dota al material de propiedades de semiconductor tipo $p$.
+* **The wüstite phenomenon:** $\text{FeO}$ practically never exists with exact $1:1$ stoichiometry at room temperature; it always appears as an iron-deficient non-stoichiometric phase $\text{Fe}_{1-x}\text{O}$ ($0.05 \le x \le 0.15$). The cationic vacancies $V_{\text{Fe}}''$ reduce its macroscopic density (in this problem, $\approx -2.6\%$) and give the material $p$-type semiconductor behaviour.
 
 ---
 *Back to:* [[Topic 2 - Structure of Materials and Crystalline Defects|⬅️ Back to Topic 2]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]

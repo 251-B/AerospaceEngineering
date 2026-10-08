@@ -2,56 +2,55 @@
 materia: ""
 tema: ""
 tags:
-  - teoria
-  - concepto-clave
-dificultad: media # baja | media | alta | crítica
+  - theory
+  - key-concept
+dificultad: medium # low | medium | high | critical
 prerrequisitos: []
 ---
 
 # 📖 {{title}}
 
-> **Idea clave en una frase:** Resumen conciso e intuitivo del concepto.
+> **Key idea in one sentence:** Concise, intuitive summary of the concept.
 
 ---
 
-## 🎯 1. Fundamento Físico e Intuición
-* ¿Qué fenómeno físico o matemático describe?
-* ¿Por qué es fundamental en ingeniería aeroespacial?
-* Analogías o visualización mental recomendada.
+## 🎯 1. Physical Basis and Intuition
+* What physical or mathematical phenomenon does it describe?
+* Why is it fundamental in aerospace engineering?
+* Analogies or recommended mental visualisation.
 
 ---
 
-## 📐 2. Formulación Matemática Rigurosa
+## 📐 2. Rigorous Mathematical Formulation
 
-### Ecuación Principal
-$$ \text{Ecuación Principal en LaTeX} $$
+### Main Equation
+$$ \text{Main equation in LaTeX} $$
 
-### Definición de Variables y Unidades SI
-* $ x $: Magnitud explicada $[m]$
-* $ \rho $: Densidad del fluido $[\frac{kg}{m^3}]$
-* $ \mu $: Viscosidad dinámica $[Pa \cdot s]$
+### Variables and SI Units
+* $ x $: quantity explained $[\mathrm{m}]$
+* $ \rho $: fluid density $[\mathrm{kg/m^3}]$
+* $ \mu $: dynamic viscosity $[\mathrm{Pa\cdot s}]$
 
-### Hipótesis de Aplicabilidad
-1. Hipótesis 1 (ej: flujo incompresible $\nabla \cdot \vec{v} = 0$).
-2. Hipótesis 2 (ej: régimen estacionario $\frac{\partial}{\partial t} = 0$).
-3. Hipótesis 3 (ej: fluido newtoniano).
-
----
-
-## 🔍 3. Deducción Paso a Paso
-Desarrollo matemático riguroso sin saltos algebraicos para comprender de dónde surge la ecuación:
-
-$$ \text{Paso 1} \implies \text{Paso 2} \implies \text{Paso Final} $$
+### Assumptions of Validity
+1. Assumption 1 (e.g. incompressible flow $\nabla \cdot \vec{v} = 0$).
+2. Assumption 2 (e.g. steady regime $\frac{\partial}{\partial t} = 0$).
+3. Assumption 3 (e.g. Newtonian fluid).
 
 ---
 
-## ⚠️ 4. Errores Típicos en Exámenes y Casos Límite
-> [!WARNING] Cuidado en Exámenes
-> Señalar el fallo clásico que cometen los alumnos (ej: olvidar términos convectivos, usar presiones absolutas en lugar de relativas, o no comprobar el número de Reynolds).
+## 🔍 3. Step-by-Step Derivation
+Rigorous development without algebraic skips, so it is clear where the equation comes from. Cite the official source (file and page) for every result taken from the course notes.
+
+$$ \text{Step 1} \implies \text{Step 2} \implies \text{Final step} $$
 
 ---
 
-## 🔗 Conceptos Relacionados
-* `[[Concepto Padre o General]]`
-* `[[Concepto Hermano o Derivado]]`
-* `[[Simulador Asociado]]`
+## ⚠️ 4. Typical Exam Mistakes and Limiting Cases
+> [!WARNING] Exam pitfall
+> State the classic error students make (e.g. forgetting convective terms, using absolute instead of gauge pressures, or not checking the Reynolds number).
+
+---
+
+## 🔗 Related Concepts
+* [[Parent or General Concept]]
+* [[Sibling or Derived Concept]]
