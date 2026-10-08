@@ -45,19 +45,19 @@
     * **Subchapter 3.4:** Conservation of Angular Momentum & Turbomachinery Torque
     * **Subchapter 3.5:** Total Energy Conservation & Thermodynamic Applications
     * **Subchapter 3.6:** Stress Tensor, Navier-Poisson & Wall Shear Stress
-* `[[01 - Fluid Mechanics/Tema 4 - The Navier-Stokes Equations|Topic 4: The Navier-Stokes Equations (Differential Dynamics)]]`
+* Topic 4: The Navier-Stokes Equations (Differential Dynamics) *(note pending)*
 
 ### Block III: Hydrostatics & Applications
-* `[[01 - Fluid Mechanics/Tema 5 - Hydrostatics|Topic 5: Hydrostatics (Fluid Statics)]]`
+* Topic 5: Hydrostatics (Fluid Statics) *(note pending)*
   * `[[01 - Fluid Mechanics/Concepto - Ecuacion Fundamental de la Estatica de Fluidos|Concept: Fundamental Equation of Fluid Statics and ISA Atmosphere]]`
   * `[[01 - Fluid Mechanics/Concepto - Manometria y Medida de Presion|Concept: Manometry and Piezometric Distribution]]`
   * `[[01 - Fluid Mechanics/Concepto - Fuerzas sobre Superficies Sumergidas y Centro de Presiones|Concept: Submerged Gates and Center of Pressure]]`
   * `[[01 - Fluid Mechanics/Concepto - Principio de Arquimedes y Estabilidad de Cuerpos Flotantes|Concept: Archimedes' Principle and Metacentric Height]]`
   * `[[01 - Fluid Mechanics/Problema - Compuerta Sumergida Inclinada con Momento de Apertura|Problem: Hinged Submerged Gate with Closing Force]]`
   * `[[01 - Fluid Mechanics/Problema - Manometro Diferencial Multiliquido con Gas|Problem: Multi-Fluid Differential Manometer]]`
-* `[[01 - Fluid Mechanics/Tema 6 - Dimensional Analysis|Topic 6: Dimensional Analysis (Buckingham Pi Theorem)]]`
+* Topic 6: Dimensional Analysis (Buckingham Pi Theorem) *(note pending)*
   * Fuentes oficiales: `DA1.pdf` a `DA14.pdf` (14 problemas resueltos).
-* `[[01 - Fluid Mechanics/Tema 7 - Viscous Flows|Topic 7: Viscous Flows & Boundary Layer Theory]]`
+* Topic 7: Viscous Flows & Boundary Layer Theory *(note pending)*
   * Fuentes oficiales: `VF2_w_solution.pdf`, `VF3.pdf` a `VF20.pdf` (19 problemas resueltos).
 
 ### 🧪 Experimental Sessions & Laboratory Practicals

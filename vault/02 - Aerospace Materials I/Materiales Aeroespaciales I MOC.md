@@ -96,7 +96,7 @@
 
 ### ⚖️ Bloque II: Diagramas de Fases y Solidificación
 
-#### [[02 - Aerospace Materials I/Tema 4 - Phase Diagrams and Solidification|Tema 4: Phase Diagrams & Solidification]]
+#### Tema 4: Phase Diagrams & Solidification *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html`
 * **Fuentes Oficiales:**
@@ -113,7 +113,7 @@
 
 ### ⚙️ Bloque III: Propiedades Mecánicas y Ensayos
 
-#### [[02 - Aerospace Materials I/Tema 5 - Mechanical Properties of Materials|Tema 5: Mechanical Properties]]
+#### Tema 5: Mechanical Properties *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html`
 * **Fuentes Oficiales:**
@@ -130,7 +130,7 @@
 
 ### ⚡ Bloque IV: Propiedades Funcionales: Eléctricas, Magnéticas y Térmicas
 
-#### [[02 - Aerospace Materials I/Tema 6 - Electrical Properties of Materials|Tema 6: Electrical Properties]]
+#### Tema 6: Electrical Properties *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-6-electrical-properties.html`
 * **Fuentes Oficiales:**
@@ -141,7 +141,7 @@
   * Teoría cuántica de bandas: conductores metálicos, aislantes y semiconductores.
   * Semiconductores intrínsecos y extrínsecos (dopado tipo $n$ y tipo $p$). Conducción en cerámicos y polímeros.
 
-#### [[02 - Aerospace Materials I/Tema 7 - Magnetic and Thermal Properties of Materials|Tema 7: Magnetic & Thermal Properties]]
+#### Tema 7: Magnetic & Thermal Properties *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html`
 * **Fuentes Oficiales:**
@@ -156,7 +156,7 @@
 
 ### 🧪 Bloque V: Materiales Estructurales Avanzados: Cerámicos, Polímeros, Compuestos y Adhesivos
 
-#### [[02 - Aerospace Materials I/Tema 8 - Ceramic Materials and Processing|Tema 8: Ceramic Materials & Processing]]
+#### Tema 8: Ceramic Materials & Processing *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-8-ceramics.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-8-ceramics.html`
 * **Fuentes Oficiales:**
@@ -167,7 +167,7 @@
   * Propiedades mecánicas de cerámicos: fragilidad, módulo de rotura (flexión en 3/4 puntos), distribución de Weibull.
   * Procesado de cerámicos: molienda, conformado (prensado, colaje, extrusión) y sinterización.
 
-#### [[02 - Aerospace Materials I/Tema 9 - Polymeric Materials and Processing|Tema 9: Polymers & Processing]]
+#### Tema 9: Polymers & Processing *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-9-polymers.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-9-polymers.html`
 * **Fuentes Oficiales:**
@@ -178,7 +178,7 @@
   * Clasificación: termoplásticos, termoestables y elastómeros. Transición vítrea ($T_g$) y fusión ($T_m$).
   * Comportamiento viscoelástico (módulos de relajación, fluencia plástica). Procesado de polímeros (extrusión, inyección, moldeo por soplado).
 
-#### [[02 - Aerospace Materials I/Tema 10 - Composite Materials and Reinforcements|Tema 10: Composite Materials & Reinforcements]]
+#### Tema 10: Composite Materials & Reinforcements *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-10-composites.html`
 * **Problemas Web:** `subjects/aerospace-materials-1/problemas/topic-10-composites.html`
 * **Fuentes Oficiales:**
@@ -189,7 +189,7 @@
   * Micromecánica de láminas unidireccionales: regla de mezclas longitudinal y transversal ($E_1, E_2, \nu_{12}, G_{12}$).
   * Fabricación aeronáutica: preimpregnados (prepregs), autoclave, infusión de resina (RTM/VARTM), bobinado filamentario.
 
-#### [[02 - Aerospace Materials I/Tema 11 - Structural Adhesives and Joint Design|Tema 11: Structural Adhesives & Joint Design]]
+#### Tema 11: Structural Adhesives & Joint Design *(note pending)*
 * **Página Web:** `subjects/aerospace-materials-1/teoria/topic-11-adhesives.html`
 * **Fuentes Oficiales:**
   * Teoria: `Session 24 T11 Adhesives.pdf`
