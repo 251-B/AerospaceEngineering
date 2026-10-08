@@ -18,6 +18,10 @@ vault/.obsidian/graph.json
 vault/.trash/
 .trash/
 
+# Python bytecode (tools/)
+__pycache__/
+*.pyc
+
 # Logs and temp files
 *.log
 npm-debug.log*

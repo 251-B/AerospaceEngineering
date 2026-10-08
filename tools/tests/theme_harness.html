@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>theme.js harness</title>
+<!-- Driven by test_theme.py through headless Edge (--dump-dom). Each scenario runs in a fresh iframe. -->
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+
+  function record(name, ok, detail) {
+    results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) });
+  }
+
+  // Fresh document per scenario: `setup` runs before theme.js; a probe runs right after it, while <body> is unparsed.
+  function frame(setup) {
+    return new Promise(function (resolve) {
+      var f = document.createElement('iframe');
+      f.onload = function () { resolve(f); };
+      f.srcdoc = '<!doctype html><html data-theme="dark"><head><script>' + setup + '<\/script>' +
+        '<script src="../../assets/js/theme.js"><\/script>' +
+        '<script>window.__headTheme = document.documentElement.getAttribute("data-theme");' +
+        'window.__bodyExistedAtHead = !!document.body;<\/script></head>' +
+        '<body><button id="themeToggle">t</button><span id="themeLabel">Dark</span></body></html>';
+      document.body.appendChild(f);
+    });
+  }
+
+  async function scenario(name, setup, check) {
+    try {
+      var f = await frame('localStorage.clear();' + setup);
+      var w = f.contentWindow;
+      if (!w.AETheme) { record(name, false, 'window.AETheme is not defined (theme.js missing or crashed)'); return; }
+      var verdict = check(w, w.document.documentElement.getAttribute('data-theme'), w.localStorage);
+      record(name, verdict === true, verdict);
+    } catch (e) {
+      record(name, false, 'exception: ' + e);
+    }
+  }
+
+  function expect(cond, msg) { return cond ? true : msg; }
+
+  (async function () {
+    await scenario('defaults to dark and writes nothing', '', function (w, t, ls) {
+      return expect(t === 'dark' && ls.getItem('ae_theme') === null && w.AETheme.get() === 'dark',
+        'theme=' + t + ' ae_theme=' + ls.getItem('ae_theme'));
+    });
+    await scenario('restores stored ae_theme', "localStorage.setItem('ae_theme','light');", function (w, t) {
+      return expect(t === 'light', 'theme=' + t);
+    });
+    await scenario('migrates legacy aero-portal-theme', "localStorage.setItem('aero-portal-theme','light');", function (w, t, ls) {
+      return expect(t === 'light' && ls.getItem('ae_theme') === 'light', 'theme=' + t + ' ae_theme=' + ls.getItem('ae_theme'));
+    });
+    await scenario('migrates legacy theme key', "localStorage.setItem('theme','light');", function (w, t, ls) {
+      return expect(t === 'light' && ls.getItem('ae_theme') === 'light', 'theme=' + t + ' ae_theme=' + ls.getItem('ae_theme'));
+    });
+    await scenario('ae_theme wins over legacy keys', "localStorage.setItem('ae_theme','dark');localStorage.setItem('theme','light');", function (w, t, ls) {
+      return expect(t === 'dark' && ls.getItem('ae_theme') === 'dark', 'theme=' + t);
+    });
+    await scenario('invalid ae_theme falls back to a valid legacy value', "localStorage.setItem('ae_theme','purple');localStorage.setItem('theme','light');", function (w, t) {
+      return expect(t === 'light', 'theme=' + t);
+    });
+    await scenario('invalid values only -> dark', "localStorage.setItem('ae_theme','purple');", function (w, t) {
+      return expect(t === 'dark', 'theme=' + t);
+    });
+    await scenario('toggle button flips theme, label and storage', '', function (w, t, ls) {
+      var d = w.document;
+      d.getElementById('themeToggle').click();
+      var first = d.documentElement.getAttribute('data-theme') + '/' + d.getElementById('themeLabel').textContent + '/' + ls.getItem('ae_theme');
+      d.getElementById('themeToggle').click();
+      var second = d.documentElement.getAttribute('data-theme') + '/' + d.getElementById('themeLabel').textContent + '/' + ls.getItem('ae_theme');
+      return expect(first === 'light/Light/light' && second === 'dark/Dark/dark', first + ' then ' + second);
+    });
+    await scenario('set() rejects invalid themes and accepts valid ones', '', function (w, t) {
+      var el = w.document.documentElement;
+      w.AETheme.set('bogus');
+      var afterBogus = el.getAttribute('data-theme');
+      w.AETheme.set('light');
+      return expect(afterBogus === 'dark' && el.getAttribute('data-theme') === 'light', 'afterBogus=' + afterBogus);
+    });
+    await scenario('syncs across tabs through the storage event', '', function (w) {
+      var el = w.document.documentElement;
+      w.dispatchEvent(new w.StorageEvent('storage', { key: 'other', newValue: 'light' }));
+      var ignored = el.getAttribute('data-theme');
+      w.dispatchEvent(new w.StorageEvent('storage', { key: 'ae_theme', newValue: 'light' }));
+      return expect(ignored === 'dark' && el.getAttribute('data-theme') === 'light', 'ignored=' + ignored);
+    });
+    await scenario('survives blocked storage', "Storage.prototype.getItem=function(){throw new Error('blocked')};Storage.prototype.setItem=function(){throw new Error('blocked')};", function (w, t) {
+      var el = w.document.documentElement;
+      w.AETheme.set('light');
+      return expect(t === 'dark' && el.getAttribute('data-theme') === 'light', 'initial=' + t);
+    });
+    await scenario('emits ae-theme-change on change', '', function (w) {
+      var seen = null;
+      w.document.addEventListener('ae-theme-change', function (e) { seen = e.detail && e.detail.theme; });
+      w.AETheme.toggle();
+      return expect(seen === 'light', 'detail.theme=' + seen);
+    });
+    await scenario('applies the theme before <body> is parsed (no flash)', "localStorage.setItem('ae_theme','light');", function (w) {
+      return expect(w.__headTheme === 'light' && w.__bodyExistedAtHead === false,
+        'headTheme=' + w.__headTheme + ' bodyExisted=' + w.__bodyExistedAtHead);
+    });
+    document.getElementById('results').textContent = JSON.stringify(results);
+  })();
+})();
+</script>
+</body>
+</html>
