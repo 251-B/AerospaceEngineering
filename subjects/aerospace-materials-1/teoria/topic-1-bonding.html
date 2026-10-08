@@ -500,6 +500,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -1302,43 +1303,6 @@
     </div>
   </footer>
 
-  <!-- Theme Synchronization Script -->
-  <script>
-    (function () {
-      const html = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
-
-      function applyTheme(t) {
-        html.setAttribute('data-theme', t);
-        try {
-          localStorage.setItem('theme', t);
-          localStorage.setItem('ae_theme', t);
-          localStorage.setItem('aero-portal-theme', t);
-        } catch (e) {}
-      }
-
-      const savedTheme = (() => {
-        try {
-          return localStorage.getItem('theme') ||
-                 localStorage.getItem('aero-portal-theme') ||
-                 localStorage.getItem('ae_theme') ||
-                 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      })();
-
-      applyTheme(savedTheme);
-
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const current = html.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-    })();
-  </script>
 
   <!-- Scripts: i18n & Motivational Quotes -->
   <script src="../../../assets/js/quotes.js"></script>

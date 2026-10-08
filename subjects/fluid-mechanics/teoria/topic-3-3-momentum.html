@@ -473,6 +473,7 @@
     }
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -760,27 +761,6 @@
     </article>
   </main>
 
-  <!-- Theme Script -->
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const root = document.documentElement;
-
-    function applyTheme(t) {
-      root.setAttribute('data-theme', t);
-      localStorage.setItem('theme', t);
-      localStorage.setItem('ae_theme', t);
-    }
-
-    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-      });
-    }
-  </script>
   <!-- Celestial Sky Engine -->
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>

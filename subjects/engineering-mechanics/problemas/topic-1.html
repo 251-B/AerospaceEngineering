@@ -389,6 +389,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -1697,20 +1698,6 @@
 
   </main>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    toggle.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

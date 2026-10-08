@@ -329,6 +329,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -404,27 +405,6 @@
     <p>2nd Year — Bachelor's Degree in Aerospace Engineering — Universidad Carlos III de Madrid</p>
   </footer>
 
-  <script>
-    (function () {
-      var saved = localStorage.getItem('theme') || localStorage.getItem('ae_theme') ||
-        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', saved);
-
-      var toggleBtn = document.getElementById('themeToggle');
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', function () {
-          var current = document.documentElement.getAttribute('data-theme');
-          var next = current === 'dark' ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
-          localStorage.setItem('ae_theme', next);
-          if (window.CelestialSkyEngine && typeof window.CelestialSkyEngine.rebuild === 'function') {
-            window.CelestialSkyEngine.rebuild();
-          }
-        });
-      }
-    })();
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

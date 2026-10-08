@@ -302,6 +302,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -520,24 +521,6 @@
     </footer>
   </div>
 
-  <script>
-    // Theme toggle
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-
-    const saved = localStorage.getItem('theme') || 'dark';
-    setTheme(saved);
-
-    toggle.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  </script>
 
     <!-- Aerospace Motivational Quote Component -->
     <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">

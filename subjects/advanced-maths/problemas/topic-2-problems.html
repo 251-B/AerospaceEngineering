@@ -645,6 +645,7 @@
       .pill-nav-inner { padding: 0 16px; }
     }
   </style>
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -2365,41 +2366,10 @@
   </main>
 
   <!-- ============================================
-       THEME CONTROLLER & PILL HIGHLIGHT JAVASCRIPT
+       PILL HIGHLIGHT JAVASCRIPT
        ============================================ -->
   <script>
     (function () {
-      // Theme controller
-      const themeToggle = document.getElementById('themeToggle');
-      const root = document.documentElement;
-
-      function getInitialTheme() {
-        try {
-          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      }
-
-      function applyTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        try {
-          localStorage.setItem('ae_theme', theme);
-          localStorage.setItem('aero-portal-theme', theme);
-        } catch (e) {}
-      }
-
-      const currentTheme = getInitialTheme();
-      applyTheme(currentTheme);
-
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          const current = root.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-
       // Active pill highlight on scroll
       const pills = document.querySelectorAll('.nav-pill');
       const cards = document.querySelectorAll('.problem-card');
