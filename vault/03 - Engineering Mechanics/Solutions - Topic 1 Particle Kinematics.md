@@ -44,6 +44,10 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \frac{d\mathbf{e}_R}{dt} = \boldsymbol{\omega} \times \mathbf{e}_R = (\omega\mathbf{e}_z) \times \mathbf{e}_R = \omega\mathbf{e}_\theta $$
   $$ \frac{d\mathbf{e}_\theta}{dt} = \boldsymbol{\omega} \times \mathbf{e}_\theta = (\omega\mathbf{e}_z) \times \mathbf{e}_\theta = -\omega\mathbf{e}_R $$
   $$ \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$
+* **Orthonormality of $[{}_0 R_{\text{cyl}}]$:** $\det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1$ and $[{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I$ (checked symbolically with sympy).
+* **Frenet basis from the cylindrical basis.** The components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$ (obtained in Phase 3, part (c)) are the columns of the second change-of-basis matrix, with $V = \sqrt{a^2\omega^2 + v_z^2}$:
+$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \ a\omega/V & 0 & -v_z/V \ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$
+* The three columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$). Both determinants and the products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -153,6 +157,10 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
 * **Time Derivatives of Polar Unit Vectors (Notes Sec. 2.6.2, Eqs. 2.25–2.26):**
   $$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$
+* **Orthonormality of $[{}_0 R_\theta]$:** $\det[{}_0 R_\theta] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_0 R_\theta][{}_0 R_\theta]^T = I$ (checked symbolically with sympy).
+* **Intrinsic basis from the polar basis.** Since $\mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta = r\dot{\theta}\,(\beta\,\mathbf{e}_r + \mathbf{e}_\theta)$ (Phase 3, part (a)), the unit tangent is $\mathbf{e}_t = (\beta\,\mathbf{e}_r + \mathbf{e}_\theta)/\sqrt{1+\beta^2}$ and the in-plane unit normal is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\mathbf{e}_r + \beta\,\mathbf{e}_\theta)/\sqrt{1+\beta^2}$. Their components in $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ are the columns of
+$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix} \beta & -1 \ 1 & \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$
+* This is a planar rotation by the constant angle $\psi = \arctan(1/\beta)$ (the equiangular property of the spiral). Sympy confirms that $\mathbf{a}\cdot\mathbf{e}_t$ and $\mathbf{a}\cdot\mathbf{e}_n$ reproduce the $a_t$ and $a_n$ of Phase 3, parts (d), with $a_n > 0$, so $\mathbf{e}_n$ points to the concave side.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -300,6 +308,10 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 * **Kinematics in $x$:**
   $$ \dot{x}(t) = v(t) = v_0 + a_x t, \quad \ddot{x}(t) = a_x $$
   $$ x(t) = v_0 t + \frac{1}{2}a_x t^2 $$
+* **Change of basis (radar polar basis).** With $\theta$ the angle of the line of sight measured from $+\mathbf{i}$, the polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$. The columns are the components of $\mathbf{e}_r$, $\mathbf{e}_\theta$, $\mathbf{k}$ in $\mathcal{B}_0$; using $\cos\theta = x/r$ and $\sin\theta = y_0/r$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \ \sin\theta & \cos\theta & 0 \ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x/r & -y_0/r & 0 \ y_0/r & x/r & 0 \ 0 & 0 & 1 \end{pmatrix} $$
+$$ \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* Both properties were verified symbolically with sympy. The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ (first row of $[{}_0 R_1]^T$ applied to the basis) is the one used in the Cartesian cross-check of Phase 3.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -353,6 +365,15 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \mathbf{a} = \ddot{x}\mathbf{i}_0 + \ddot{y}\mathbf{j}_0 = a_x\mathbf{i}_0 + 0\mathbf{j}_0 = a_x\mathbf{i}_0 $$
   Converting Cartesian $\mathbf{i}_0$ into polar: $\mathbf{i}_0 = \cos\theta\mathbf{e}_r - \sin\theta\mathbf{e}_\theta = \frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta$.
   Substituting gives identically $\mathbf{a} = a_x\left(\frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta\right)$. The match is mathematically exact!
+
+### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
+* **Dimensional check:**
+  - $[\dot{r}] = [v\,x/r] = \text{m/s}$; $\quad [\dot{\theta}] = [v\,y_0/r^2] = \dfrac{(\text{m/s})\,\text{m}}{\text{m}^2} = \text{s}^{-1}$ (rad/s).
+  - $[\ddot{r}] = \dfrac{(\text{m}^2/\text{s}^2)\,\text{m}^2}{\text{m}^3} = \text{m/s}^2$ and $\dfrac{(\text{m/s}^2)\,\text{m}\,\text{m}^2}{\text{m}^3} = \text{m/s}^2$; $\quad [\ddot{\theta}] = \dfrac{\text{m}\,(\text{m}^2/\text{s}^2)\,\text{m}}{\text{m}^4} = \text{s}^{-2}$ (Consistent).
+* **Limit $x \to \infty$ (aircraft far away):** $r \to x$, so $\dot{r} \to v$, $\dot{\theta} \to 0$, $a_r \to a_x$, $a_\theta \to 0$: the line of sight aligns with the flight direction and the motion is purely radial.
+* **Limit $x = 0$ (aircraft overhead, $t = 0$):** $\dot{r} = 0$, $\dot{\theta} = -v_0/y_0$, $a_r = 0$, $a_\theta = -a_x$. Then $\theta = \pi/2$ and $\mathbf{a} = a_x\mathbf{i} = -a_x\mathbf{e}_\theta$, as required by the change of basis.
+* **Invariance of the modulus:** $a_r^2 + a_\theta^2 = a_x^2\,\dfrac{x^2 + y_0^2}{r^2} = a_x^2$, equal to $\|a_x\mathbf{i}\|^2$ because $[{}_0 R_1]$ is orthogonal.
+* **Symbolic check (sympy):** differentiating $r = \sqrt{x^2 + y_0^2}$ and $\theta = \arctan(y_0/x)$ with $x = v_0 t + \tfrac{1}{2}a_x t^2$ reproduces the four identities (a)-(d) with zero residual, and gives $a_r = a_x x/r$, $a_\theta = -a_x y_0/r$ with zero residual; the three limits above were obtained with sympy as well.
 
 ---
 
@@ -410,6 +431,9 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 ### Phase 4: Physical Interpretation & Limiting Cases
 * **Plane Motion Decoupling:** Notice that the acceleration magnitude $a_{B/0}$ is completely independent of the tow plane's cruise velocity $v_A$ because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The acceleration felt by the glider is purely relative circular motion around $A$!
 * **Limiting Case $\ddot{\theta} = 0$:** If the cable turns at a constant angular rate $\dot{\theta} = \Omega$, the acceleration reduces to pure centripetal acceleration: $a_{B/0} = \sqrt{r^2\Omega^4} = r\Omega^2$.
+* **Dimensional check:** $[r\ddot{\theta}] = [r\dot{\theta}^2] = \text{m}\cdot\text{s}^{-2}$ and $[v_A + r\dot{\theta}\sin\theta] = \text{m/s}$, so $a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4}$ is in m/s$^2$ and $v_{B/0}$ in m/s.
+* **Limit $\dot{\theta} = 0$:** $\mathbf{v}_{B/0} = v_A\,\mathbf{i}_0$ and $\mathbf{a}_{B/0} = \mathbf{0}$, the glider moves rigidly with the tow plane.
+* **Symbolic check (sympy):** differentiating $\mathbf{r}_B$ twice for an arbitrary function $\theta(t)$ gives $\|\mathbf{v}_{B/0}\|^2 = (v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2$ and $\|\mathbf{a}_{B/0}\|^2 = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4$ with zero residual.
 
 ---
 
@@ -425,6 +449,9 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 * **Derivative Vector:** $\frac{d\mathbf{r}}{dx} = \mathbf{i}_0 + \cos x\,\mathbf{j}_0$.
 * **Differential Arc Length:**
   $$ ds = \left\| \frac{d\mathbf{r}}{dx} \right\|dx = \sqrt{1 + \cos^2 x}\,dx $$
+* **Change of basis (intrinsic basis).** Let $\alpha(x) = \arctan(\cos x)$ be the slope angle of the tangent, so that $\mathbf{e}_t = (\cos\alpha, \sin\alpha) = (1, \cos x)/\sqrt{1 + \cos^2x}$. The in-plane normal used in this solution is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\sin\alpha, \cos\alpha) = (-\cos x, 1)/\sqrt{1 + \cos^2x}$, the normal obtained by turning $\mathbf{e}_t$ by $+90^\circ$ (to its left). The columns are the components of $\mathbf{e}_t$, $\mathbf{e}_n$ in $\{\mathbf{i}_0, \mathbf{j}_0\}$:
+$$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos x & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \frac{1 + \cos^2x}{1 + \cos^2x} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* Because $\mathbf{e}_n$ is always the left normal, the sign of $a_n$ tells on which side the centre of curvature lies: $a_n < 0$ (as for $0 < x < \pi$, where $\sin x > 0$) places it to the right of the direction of motion, below the arch; $a_n > 0$ for $\pi < x < 2\pi$ places it above the curve. The matrix properties were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -467,6 +494,12 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \rho(x) = \frac{v^2}{|a_n|} = \frac{1 + \cos^2 x}{\frac{|\sin x|}{\sqrt{1 + \cos^2 x}}} = \frac{(1 + \cos^2 x)^{3/2}}{|\sin x|} $$
   *(Notice this matches the standard Cartesian curvature formula $\rho = \frac{(1 + y'^2)^{3/2}}{|y''|}$ with $y' = \cos x, y'' = -\sin x$!).*
 
+### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
+* **Dimensional check:** the data are in SI units with the length scale $1$ m inside the sine ($y = \sin x$ means $y = (1\ \text{m})\sin(x/1\ \text{m})$) and $\dot{x} = 1\ \text{m/s}$. Then $[v] = \text{m/s}$, $[a_t] = [a_n] = \text{m/s}^2$ and $[\rho] = [v^2/|a_n|] = \text{m}$, and $[s] = [\int\sqrt{1 + \cos^2u}\,du] = \text{m}$.
+* **Special points:** at the inflection points $x = k\pi$, $\sin x = 0$, so $a_n = 0$ and $\rho \to \infty$ (locally straight). At the crests $x = \pi/2$: $v = 1\ \text{m/s}$, $a_t = 0$, $a_n = -1\ \text{m/s}^2$ and $\rho = v^2/|a_n| = 1$ m, equal to $1/|y''| = 1$ m. At $x = \pi/4$: $\rho = (1 + \cos^2x)^{3/2}/|\sin x| = 3\sqrt{3}/2 = 2.598$ m.
+* **Arc length:** $s(\pi) = \int_0^\pi\sqrt{1 + \cos^2u}\,du = 3.8202$ m, greater than the horizontal distance $\pi$ m, as it must be.
+* **Symbolic check (sympy):** $a_t^2 + a_n^2 = \sin^2x = \|\mathbf{a}\|^2$ and $v^2/|a_n| = (1 + \cos^2x)^{3/2}/|\sin x|$ hold with zero residual.
+
 ---
 
 ## 📌 Problem 07: Skater Pulled by Vehicle on a Circumference
@@ -485,6 +518,11 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \mathbf{r}_{B/A} = a\cos\psi\,\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$
 * **Position of Skater $B$ in Rotating Frame:**
   $$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = a(1 + \cos\psi)\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$
+* **Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$.** The vehicle starts at $(a, 0)$ and turns counterclockwise at rate $\omega$, so $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$ and the columns of the matrix below are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \ \sin\omega t & \cos\omega t & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* **Bar basis $\mathcal{B}_1 \to \mathcal{B}_{\text{bar}}$.** The pair $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$, $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ used in parts (c) and (d) is obtained with
+$$ [{}_1 R_{\text{bar}}] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \ \sin\psi & \cos\psi & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_1 R_{\text{bar}}] = 1, \qquad [{}_1 R_{\text{bar}}][{}_1 R_{\text{bar}}]^T = I $$
+* The composition $[{}_0 R_{\text{bar}}] = [{}_0 R_1][{}_1 R_{\text{bar}}]$ is the planar rotation by $\omega t + \psi$ (the bar direction measured from the inertial $x$ axis). The determinants and the products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -551,6 +589,15 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \frac{\psi}{2} = -\arccos\left(\frac{2}{3}\right) \implies \psi = -2\arccos\left(\frac{2}{3}\right) \approx -96.38^\circ $$
   *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
 
+### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
+* **Dimensional check:**
+  - $[\ddot{\psi}] = [\omega^2\sin\psi] = \text{s}^{-2}$ and $[\dot{\psi}^2] = [2\omega^2(1 + \cos\psi)] = \text{s}^{-2}$ (the angle is dimensionless).
+  - $[T] = [m\,a\,\omega^2] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$.
+* **Limit $\omega \to 0$:** the vehicle is at rest, the skater is at rest, and $T \to 0$, $\dot{\psi} \to 0$, as expected.
+* **Independent check of $T$ at $t = 0$ ($\psi = 0$).** The closed form gives $T(0) = 2ma\omega^2\cdot 1\cdot(3 - 2) = 2ma\omega^2$. For a rigid bar of length $l = a$, the relative velocity $\mathbf{v}_B - \mathbf{v}_A$ is perpendicular to the bar, hence $(\mathbf{a}_B - \mathbf{a}_A)\cdot\mathbf{u}_{AB} = -\|\mathbf{v}_B - \mathbf{v}_A\|^2/a$. At $t = 0$: $\mathbf{v}_B = \mathbf{0}$, $\|\mathbf{v}_A\| = a\omega$, $\mathbf{a}_A = -a\omega^2\mathbf{i}_0$ and $\mathbf{u}_{AB} = \mathbf{i}_0$, so $\mathbf{a}_B\cdot\mathbf{u}_{AB} = -a\omega^2 - a\omega^2 = -2a\omega^2$ and $T = 2ma\omega^2$ (Consistent).
+* **Symbolic check (sympy).** Differentiating twice, in the inertial frame, the position $\mathbf{r}_B = [{}_0 R_1]\,a\,(1 + \cos\psi,\ \sin\psi,\ 0)^T$ and projecting on $\mathbf{u}_{AB}$ and $\mathbf{u}_\perp$ gives $\mathbf{a}_B\cdot\mathbf{u}_\perp = a(\ddot{\psi} + \omega^2\sin\psi)$ and $T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1 + \cos\psi)\right]$, identical to parts (c) and (d); substituting $\dot{\psi} = -2\omega\cos(\psi/2)$ reproduces $T = 2ma\omega^2\cos(\psi/2)\left(3\cos(\psi/2) - 2\right)$ with zero residual.
+* **When the string goes loose (numerical).** The closed form $\omega t = -\ln\left|\sec(\psi/2) + \tan(\psi/2)\right|$ evaluated at $\cos(\psi/2) = 2/3$ gives $\omega t_{\text{loose}} = \ln\dfrac{2}{3 - \sqrt{5}} = \ln\dfrac{3 + \sqrt{5}}{2} = 0.96242$. An RK4 integration (step $10^{-5}$, $\omega = 1$) of $\ddot{\psi} = -\omega^2\sin\psi$ with $\psi(0) = 0$, $\dot{\psi}(0) = -2\omega$ reaches $\cos(\psi/2) = 2/3$ at $\omega t = 0.96242$ with $\psi = -96.379^\circ$, in agreement with $-2\arccos(2/3) = -96.379^\circ$; there $\dot{\psi}^2 = 1.777787\,\omega^2$ against $2\omega^2(1 + \cos\psi) = 1.777787\,\omega^2$.
+
 ---
 
 ## 📌 Problem 08: Kinematics, Two Trains on Tracks
@@ -585,6 +632,16 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 * **Magnitude of Relative Velocity:**
   $$ v_{\text{rel}} = \sqrt{\left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]^2 + v_B^2\sin^2\left(\frac{v_B t}{R}\right)} = \sqrt{v_B^2 + v_A^2 - 2v_A v_B\cos\left(\frac{v_B t}{R}\right)} $$
 
+### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
+* **Dimensional check:** $[\mathbf{v}_{B/A}] = \text{m/s}$; in Case 2 the argument of the trigonometric functions is $\dfrac{v_B t}{R} = \dfrac{(\text{m/s})\,\text{s}}{\text{m}}$, which is dimensionless (rad), and $[v_B^2 + v_A^2 - 2v_Av_B\cos(\cdot)] = \text{m}^2/\text{s}^2$, so $v_{\text{rel}}$ is in m/s.
+* **Role of the separation $a$:** it does not appear in any relative velocity, because $\mathbf{v}_{B/A}$ is the time derivative of $\mathbf{r}_B - \mathbf{r}_A$ and $a$ only enters the constant offset of that vector.
+* **Limiting cases of Case 2 (sympy):**
+  - $t = 0$: $v_{\text{rel}} = \sqrt{v_A^2 + v_B^2 - 2v_Av_B} = |v_B - v_A|$, because both velocities are parallel to $\mathbf{i}_0$ at that instant.
+  - $R \to \infty$ (the circular track straightens): $\cos(v_Bt/R) \to 1$ and $v_{\text{rel}} \to |v_B - v_A|$, which is the Case 1 result.
+  - $v_A = v_B = v$: $v_{\text{rel}} = v\sqrt{2 - 2\cos(vt/R)} = 2v\left|\sin\dfrac{vt}{2R}\right|$, which starts at $0$ and never exceeds $2v$.
+  - $v_A = 0$: $v_{\text{rel}} = v_B$ for all $t$ (relative to a stationary train, only the speed of $B$ matters).
+* **Symbolic check:** $\|\mathbf{v}_B - \mathbf{v}_A\|^2$ computed from the components equals $v_B^2 + v_A^2 - 2v_Av_B\cos(v_Bt/R)$ with zero residual. Both cases are written in the single inertial basis $\mathcal{B}_0$, so no change-of-basis matrix is needed.
+
 ---
 
 ## 📌 Problem 09: 2001: A Space Odyssey (Artificial Gravity)
@@ -597,6 +654,9 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 ### Phase 2: Kinematics of Circular Motion
 * Intrinsic acceleration of a point on the rim rotating at speed $v_{\text{rim}} = \omega R$:
   $$ a_n = \frac{v_{\text{rim}}^2}{R} = \omega^2 R $$
+* **Hull-fixed rotating basis.** Take the inertial basis $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ along the axis of the cylinder, and the basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$ attached to the hull, rotating at constant rate $\omega$ about $\mathbf{k}_0$ (the angle is $\theta = \omega t$ for a point fixed to the hull). The columns are the components of $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0$ in $\mathcal{B}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \ \sin\omega t & \cos\omega t & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* By Poisson's formula with $\boldsymbol{\omega} = \omega\mathbf{k}_0$: $\dot{\mathbf{e}}_r = \omega\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\omega\mathbf{e}_r$. A point of the rim is $\mathbf{r} = R\,\mathbf{e}_r$, hence $\mathbf{v} = \omega R\,\mathbf{e}_\theta$ and $\mathbf{a} = -\omega^2 R\,\mathbf{e}_r$, which is the intrinsic acceleration $a_n = \omega^2R$ above, directed towards the axis. An astronaut running at speed $u$ relative to the floor along $\pm\mathbf{e}_\theta$ has absolute velocity $(\omega R \pm u)\,\mathbf{e}_\theta$. The determinant and the product $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -623,6 +683,14 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ u = \omega R $$
 * **Physical Explanation:** Running backwards at the exact hull speed cancels out her inertial circular motion. She becomes stationary relative to the non-rotating inertial space, floating weightlessly while the floor slips beneath her feet!
 
+### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
+* **Dimensional check:** $[\omega] = \sqrt{[g]/[R]} = \sqrt{(\text{m/s}^2)/\text{m}} = \text{s}^{-1}$; $[\omega^2R] = \text{m/s}^2$; $[2\omega u] = \text{s}^{-1}\cdot\text{m/s} = \text{m/s}^2$; $[u^2/R] = (\text{m}^2/\text{s}^2)/\text{m} = \text{m/s}^2$ (Consistent).
+* **Numerical values (Python, $R = 10$ m, $g = 9.81$ m/s$^2$):**
+  - $\omega = \sqrt{0.981} = 0.990454\ \text{rad/s} = 9.458\ \text{rpm}$ (quoted above as $\approx 9.46$ rpm) and rim speed $\omega R = 9.9045\ \text{m/s}$.
+  - Running at $u = 2$ m/s: prograde $g_{\text{felt}} = 14.17\ \text{m/s}^2$ ($1.44\,g$), retrograde $6.25\ \text{m/s}^2$ ($0.64\,g$). At $u = 5$ m/s: prograde $22.21\ \text{m/s}^2$ ($2.26\,g$), retrograde $2.41\ \text{m/s}^2$ ($0.25\,g$).
+  - Retrograde at $u = \omega R = 9.9045$ m/s gives $g_{\text{felt}} = 0$ exactly (part (c)); prograde at the same speed gives $4g = 39.24\ \text{m/s}^2$.
+* **Limiting cases:** $u \to 0$ gives $g_{\text{felt}} = g$. For $u \ll \omega R$, $g_{\text{felt}} \approx g \pm 2\omega u$, the Coriolis correction (at $u = 2$ m/s: $9.81 + 3.96 + 0.40 = 14.17\ \text{m/s}^2$, where $0.40 = u^2/R$ is the remaining quadratic term, so the expansion of part (b) is reproduced exactly). For $R \to \infty$ at fixed $g$, $\omega = \sqrt{g/R} \to 0$ (a larger hull needs fewer revolutions per minute).
+
 ---
 
 ## 📌 Problem 41: Simple Rotations, Satellite Solar Panels (Ginsberg)
@@ -646,7 +714,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \boldsymbol{\alpha}_{2/0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\omega\mathbf{k}_1 \times \mathbf{i}_1) = \ddot{\theta}\mathbf{i}_1 + \omega\dot{\theta}\mathbf{j}_1 $$
 The hinge axis is the body-fixed $x$-axis ($\mathbf{i}_1$); $C$ denotes the point of this axis at the abscissa of $B$, so $\mathbf{r}_{AC} = H\mathbf{i}_1$ is fixed in $\mathcal{S}_1$ and does not rotate with the panel. The axes of $\mathcal{S}_2$ expressed in $\mathcal{S}_1$ are the columns of $[{}_1 R_2]$: $\mathbf{i}_2 = \mathbf{i}_1$, $\mathbf{j}_2 = \cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1$, $\mathbf{k}_2 = -\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1$. Orthonormality check: $\det[{}_1 R_2] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_1 R_2][{}_1 R_2]^T = \mathrm{diag}\!\left(1,\ \begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}\begin{pmatrix}\cos\theta & \sin\theta\\ -\sin\theta & \cos\theta\end{pmatrix}\right) = I$.
 **Geometry assumption.** The statement text does not fix the geometry; it is read from the figure in Problems.pdf (PDF page 29): the panel lies along the $x$-axis, $B$ is the panel corner at distance $H$ from $A$ measured along $x$ and at distance $W$ from the $x$-axis, and $\theta$ is measured about $+\mathbf{i}_1$ from the $\mathbf{j}_1$ direction (so $\mathbf{r}_{CB} = W\mathbf{j}_2$). The zero reference of $\theta$ (panel along $+\mathbf{j}_1$ at $\theta = 0$) cannot be read unambiguously from the statement; it is the choice consistent with the official key.
-
+* **Orthonormality of $[{}_0 R_1]$:** $\det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1$ and $[{}_0 R_1][{}_0 R_1]^T = I$. Since $[{}_1 R_2]$ has the same two properties, the composition $[{}_0 R_2] = [{}_0 R_1][{}_1 R_2]$ is also a proper rotation ($\det = 1$, $R R^T = I$); all three checks were done symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
 
@@ -681,3 +749,7 @@ This agrees with the official key (Problems.pdf, PDF page 76).
 * **Dimensional Consistency:**
   - Every velocity component has units $[\text{length}] \cdot [\text{time}]^{-1} = \text{m/s}$.
   - Every acceleration component has units $[\text{length}] \cdot [\text{time}]^{-2} = \text{m/s}^2$ (Consistent ✅).
+* **Limiting cases:**
+  - $\dot{\theta} = 0$ (panel locked): $\mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + H\omega\,\mathbf{j}_1 = \omega\mathbf{k}_1 \times (H\mathbf{i}_1 + W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1)$, the rigid-body velocity of a point of the spinning satellite.
+  - $\omega = 0$ (no spin): $\mathbf{v}_{B/0} = W\dot{\theta}(-\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1)$ and the acceleration reduces to the circular-motion terms $-W\dot{\theta}^2\,\mathbf{e}_{\text{rad}} + W\ddot{\theta}\,\mathbf{e}_{\text{tan}}$ about the hinge axis ($\mathbf{e}_{\text{rad}} = \mathbf{j}_2$, $\mathbf{e}_{\text{tan}} = \mathbf{k}_2$, radius $W$).
+* **Symbolic check (sympy):** differentiating twice in the inertial frame the vector $[{}_0 R_1]\,(H,\ W\cos\theta,\ W\sin\theta)^T$ and projecting back on $\mathcal{B}_1$ with $[{}_0 R_1]^T$ gives exactly the $\mathbf{v}_{B/0}$ and $\mathbf{a}_{B/0}$ of Phase 3 (all components, zero residual).

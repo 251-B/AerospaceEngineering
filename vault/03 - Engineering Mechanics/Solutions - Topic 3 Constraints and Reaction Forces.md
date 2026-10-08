@@ -39,6 +39,12 @@ Exhaustive, step-by-step analytical solutions for all 15 solvable problems from 
     $$ \mathbf{v}(t) = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta + \dot{r}\mathbf{k} $$
   - Modulus of velocity squared:
     $$ v^2 = \dot{r}^2 + r^2\dot{\theta}^2 + \dot{r}^2 = 2\dot{r}^2 + r^2\dot{\theta}^2 $$
+* **Change of basis (cylindrical basis).** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$; the columns are the components of $\mathbf{e}_r$, $\mathbf{e}_\theta$, $\mathbf{k}$ in $\mathcal{B}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* The angular velocity of $\mathcal{B}_1$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$, as used above.
+* **Surface-adapted basis.** On the cone $z = r$ (slope $45^\circ$) the unit generator is $\mathbf{e}_g = (\mathbf{e}_r + \mathbf{k})/\sqrt{2}$ and the unit normal pointing into the cone, where the particle lies, is $\mathbf{n}_{in} = (\mathbf{k} - \mathbf{e}_r)/\sqrt{2}$. The triple $\{\mathbf{e}_g, \mathbf{e}_\theta, \mathbf{n}_{in}\}$ is right-handed ($\mathbf{e}_g \times \mathbf{e}_\theta = \mathbf{n}_{in}$) and its components in $\mathcal{B}_1$ are the columns of
+$$ [{}_1 R_2] = \begin{pmatrix} 1/\sqrt{2} & 0 & -1/\sqrt{2} \\ 0 & 1 & 0 \\ 1/\sqrt{2} & 0 & 1/\sqrt{2} \end{pmatrix}, \qquad \det[{}_1 R_2] = \tfrac{1}{2} + \tfrac{1}{2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
+* Both matrices were checked symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -101,6 +107,9 @@ $$ \dot{r}^2 = 0 \iff r(t) = a = \text{constant} $$
 * **Extremal Heights:**
   $$ z_{min} = z_{max} = a $$
   The particle maintains a constant altitude $z = a$ for all time, executing uniform circular motion with orbital frequency $\omega = \dot{\theta} = \sqrt{g/a}$.
+* **Dimensional check:** $[C_z] = [m\,a\sqrt{ga}] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-1}$ (angular momentum); $[\dot{r}^2] = \text{m}^2/\text{s}^2$ and $[g\,a^3/r^2] = (\text{m/s}^2)\,\text{m} = \text{m}^2/\text{s}^2$, so every term of the energy equation has the same units.
+* **Reaction on the steady orbit (sympy force balance):** with $\dot{\theta}^2 = g/a$ the horizontal acceleration is $-g\,\mathbf{e}_r$. Requiring $N\,\mathbf{n}_{in} - mg\,\mathbf{k} = -mg\,\mathbf{e}_r$ gives $\mathbf{N} = mg(\mathbf{k} - \mathbf{e}_r) = \sqrt{2}\,mg\,\mathbf{n}_{in}$, so $\|\mathbf{N}\| = \sqrt{2}\,mg$ [N], pointing into the cone, which is physically admissible (it presses the particle against the surface).
+* **Stability (small radial oscillations):** the effective inertia of the $r$-motion is $2m$ (the kinetic energy has $2\dot{r}^2$) and $V_{eff}''(a) = 3mg/a$, hence $\omega_r^2 = 3g/(2a)$. An RK4 integration (step $10^{-4}$, $g = a = 1$) of $2\ddot{r} = r\dot{\theta}^2 - g$ with $r(0) = 1.001$, $\dot{r}(0) = 0$ and $r^2\dot{\theta} = a\sqrt{ga}$ has period $5.1304$ against $2\pi/\sqrt{3/2} = 5.1302$ (in units of $\sqrt{a/g}$), confirming that the circular orbit is a stable minimum of $V_{eff}$.
 
 ---
 
@@ -123,6 +132,11 @@ $$ \dot{r}^2 = 0 \iff r(t) = a = \text{constant} $$
   $$ \mathbf{v} = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta + \frac{2r\dot{r}}{a}\mathbf{k} $$
   Velocity squared:
   $$ v^2 = \dot{r}^2\left(1 + \frac{4r^2}{a^2}\right) + r^2\dot{\theta}^2 $$
+* **Change of basis (cylindrical basis).** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is obtained from $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ by a rotation $\theta(t)$ about $\mathbf{k}$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* **Surface-adapted basis.** With $s = \sqrt{1 + 4r^2/a^2}$, the unit tangent along the meridian is $\mathbf{e}_g = (\mathbf{e}_r + \tfrac{2r}{a}\mathbf{k})/s$ and the unit normal pointing into the bowl is $\mathbf{n}_{in} = (\mathbf{k} - \tfrac{2r}{a}\mathbf{e}_r)/s$, proportional to $-\boldsymbol{\nabla}f$ of Phase 3. Since $\mathbf{e}_g \times \mathbf{e}_\theta = \mathbf{n}_{in}$ the triple is right-handed, and
+$$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2r/(as) \\ 0 & 1 & 0 \\ 2r/(as) & 0 & 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1}{s^2} + \frac{4r^2}{a^2s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
+* The determinants and products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -180,6 +194,10 @@ $$ u_2 = \frac{a v_0^2}{2g} \implies r_2 = v_0\sqrt{\frac{a}{2g}} $$
   $$ r_{min} = a, \qquad r_{max} = v_0\sqrt{\frac{a}{2g}} $$
   The particle climbs up the paraboloid to $r_{max}$, then falls back to $a$.
 * Compare with the official solution key (Problems.pdf, Solution keys section).
+* **Dimensional check:** $[v_0^2 + 2ga] = \text{m}^2/\text{s}^2$, $[a^2v_0^2/r^2] = \text{m}^2/\text{s}^2$ and $[2gr^2/a] = \text{m}^2/\text{s}^2$; the roots $r_2 = v_0\sqrt{a/(2g)}$ have units $(\text{m/s})\sqrt{\text{m}/(\text{m/s}^2)} = \text{m}$.
+* **Circular orbit (Case 2):** for $v_0^2 = 2ga$ the quadratic of Phase 3 becomes $2g\,u^2 - 4ga^2u + 2ga^4 = 2g\,(u - a^2)^2$, a double root at $u = a^2$, so $\dot{r} \equiv 0$. This agrees with the circular-orbit condition $v^2 = g\,r\tan\gamma$ with $\tan\gamma = dz/dr = 2r/a = 2$ at $r = a$.
+* **Limit $v_0 \to 0$:** $r_{min} = v_0\sqrt{a/(2g)} \to 0$, the particle drops to the vertex, as expected for a body released at rest.
+* **Numerical check ($g = a = v_0 = 1$, case 1):** the turning points are the roots of $v_0^2 + 2ga - a^2v_0^2/r^2 - 2gr^2/a = 0$; bisection gives $r_{min} = 0.707107$ against $v_0\sqrt{a/(2g)} = 0.707107$, and $r_{max} = a = 1$.
 
 ---
 
@@ -199,6 +217,11 @@ $$ u_2 = \frac{a v_0^2}{2g} \implies r_2 = v_0\sqrt{\frac{a}{2g}} $$
   $$ \mathbf{e}_\theta = \cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k} $$
 * **Relative Velocity in $\mathcal{F}_1$:**
   $$ \mathbf{v}' = R\dot{\theta}\mathbf{e}_\theta $$
+* **Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$ (rotating frame).** With the wire plane at azimuth $\omega t$, $\mathbf{e}_\rho = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$, $\mathbf{e}_\phi = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* **Change of basis $\mathcal{B}_1 \to \mathcal{B}_w$ (wire basis).** Since $\mathbf{e}_r \times \mathbf{e}_\theta = -\mathbf{e}_\phi$, the right-handed wire triple is $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_n\}$ with $\mathbf{e}_n = -\mathbf{e}_\phi$ (the ordering $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_\phi\}$ listed above has determinant $-1$; only the sign of the third vector is affected, and $N_\phi$ below is defined along $\mathbf{e}_\phi$). The columns are the components in $\{\mathbf{e}_\rho, \mathbf{e}_\phi, \mathbf{k}\}$:
+$$ [{}_1 R_w] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_1 R_w] = 1, \qquad [{}_1 R_w][{}_1 R_w]^T = I $$
+* Determinants and products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -240,6 +263,10 @@ $$ N_\phi(\theta) = \pm 2m\omega\cos\theta \sqrt{\frac{2}{m}\left( E' + mgR\cos\
 ### Phase 4: Physical Interpretation & Verification
 * The out-of-plane reaction $N_\phi$ is purely generated by the Coriolis acceleration: to keep the particle moving along the rotating meridian, the wire must exert a lateral force balancing the Coriolis effect.
 * At the equator ($\theta = \pi/2$), $\cos(\pi/2) = 0 \implies N_\phi = 0$. At this point, the velocity $\mathbf{v}'$ is parallel to $\boldsymbol{\omega}$, so the cross product $\boldsymbol{\omega} \times \mathbf{v}'$ vanishes.
+* **Dimensional check:** $[N_\phi] = [m\,\omega\,R\,\dot{\theta}] = \text{kg}\cdot\text{s}^{-1}\cdot\text{m}\cdot\text{s}^{-1} = \text{N}$; in $E'$ each of $\tfrac{1}{2}mR^2\dot{\theta}^2$, $mgR\cos\theta$ and $\tfrac{1}{2}m\omega^2R^2\sin^2\theta$ has units of joule.
+* **Limit $\omega \to 0$:** the wire is at rest, $N_\phi \to 0$ and $E' \to \tfrac{1}{2}mR^2\dot{\theta}^2 - mgR\cos\theta$, the energy of the simple pendulum.
+* **Independent check of $N_\phi$ (sympy, inertial frame):** differentiating twice $\mathbf{r} = R\sin\theta\,\mathbf{e}_\rho(\omega t) - R\cos\theta\,\mathbf{k}$ in the inertial frame gives $\mathbf{a}\cdot\mathbf{e}_\phi = 2\omega R\dot{\theta}\cos\theta$; since only $N_\phi$ acts along $\mathbf{e}_\phi$, $N_\phi = 2m\omega R\dot{\theta}\cos\theta$, identical to the rotating-frame result.
+* **Numerical check of $E'$ (RK4, step $10^{-3}$, $R = 1$ m, $\omega = 1.3$ rad/s, $g = 9.81$ m/s$^2$):** integrating $\ddot{\theta} = -(g/R)\sin\theta + \omega^2\sin\theta\cos\theta$ for $20$ s from $\theta = 0.4$, $\dot{\theta} = 0.3$, $E'/m$ stays at $-9.118750$ with a drift of $9\times 10^{-14}$.
 
 ---
 
@@ -407,6 +434,11 @@ $$ N(t) = m a \left(\frac{v_0}{a}\right)^2 e^{-4\mu t} + ka = \frac{m v_0^2}{a}e
 * Position on half-circle: $\mathbf{r}' = a\sin\theta\,\mathbf{i}_1 - a\cos\theta\,\mathbf{j}$.
 * Polar tangent on wire: $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{j}$.
 * Relative velocity: $\mathbf{v}' = a\dot{\theta}\mathbf{e}_\theta$.
+* **Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$ (rotation about $\mathbf{j}$).** $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}, \mathbf{k}_1\}$ is the inertial basis $\{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\Omega t$ about $\mathbf{j}$, so $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i} - \sin\Omega t\,\mathbf{k}$ and $\mathbf{k}_1 = \sin\Omega t\,\mathbf{i} + \cos\Omega t\,\mathbf{k}$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\Omega t & 0 & \sin\Omega t \\ 0 & 1 & 0 \\ -\sin\Omega t & 0 & \cos\Omega t \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* **Change of basis $\mathcal{B}_1 \to \mathcal{B}_w$ (wire basis).** With $\mathbf{e}_r = \sin\theta\,\mathbf{i}_1 - \cos\theta\,\mathbf{j}$, $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{j}$ and $\mathbf{e}_r \times \mathbf{e}_\theta = \mathbf{k}_1$, the triple $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_1\}$ is right-handed:
+$$ [{}_1 R_w] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ -\cos\theta & \sin\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_1 R_w] = \sin^2\theta + \cos^2\theta = 1, \qquad [{}_1 R_w][{}_1 R_w]^T = I $$
+* Both matrices were checked symbolically with sympy ($\mathbf{i}_1 \times \mathbf{j} = \mathbf{k}_1$ included).
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -445,6 +477,9 @@ Energy is conserved in $\mathcal{F}_1$ because the rotation rate $\Omega$ is con
 
 ### Phase 4: Physical Interpretation
 * Supercritical pitchfork bifurcation at $\Omega_c = \sqrt{g/a}$.
+* **Dimensional check:** $[m\Omega^2a] = \text{kg}\cdot\text{s}^{-2}\cdot\text{m} = \text{N}$ (centrifugal force); $[\Omega^2\cos\theta - g/a] = \text{s}^{-2}$; $[N_z] = [m\,\Omega\,a\,\dot{\theta}] = \text{N}$; in the expression of $\dot{\theta}$ every term has units $\text{s}^{-2}$ under the root.
+* **Limits:** for $\Omega \to 0$ the effective potential reduces to $-mga\cos\theta$ (simple pendulum with a single stable equilibrium at $\theta = 0$) and $N_z \to 0$; at $\Omega = \Omega_c = \sqrt{g/a}$ the off-axis equilibrium $\cos\theta_0 = g/(\Omega^2a) \to 1$ merges with $\theta = 0$; for $\Omega \to \infty$, $\theta_0 \to \pi/2$.
+* **Numerical check ($\Omega^2 = 2g/a$):** $\cos\theta_0 = 1/2$, $\theta_0 = 60^\circ$; $V_{eff}''(\theta_0) = mga\cos\theta_0 - m\Omega^2a^2\cos 2\theta_0 = 1.5\,mga > 0$ (stable) and the small-oscillation frequency is $\omega^2 = V_{eff}''/(ma^2) = 1.5\,g/a = \Omega^2\sin^2\theta_0$, which agree.
 
 ---
 
@@ -704,6 +739,11 @@ $$ \omega_n = \sqrt{\frac{g}{R} + \frac{2k}{m}} $$
   - For $P$: Toroidal angle $\theta$ and poloidal angle $\phi$.
   - For $Q$: Cartesian planar coordinates $(\xi, \eta)$ in the plane $z = 0$.
   - Total CDOFs: $2 + 2 = 4$.
+* **Toroidal basis.** With the toroidal angle $\theta$ (rotation about $\mathbf{j}_0$), $\mathcal{B}_1 = \{\mathbf{e}_\rho, \mathbf{e}_\theta, \mathbf{j}_0\}$ with $\mathbf{e}_\rho = \sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{k}_0$ and $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{k}_0$ (so that $\mathbf{e}_\rho \times \mathbf{e}_\theta = \mathbf{j}_0$). The columns are the components in $\mathcal{B}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \\ \cos\theta & -\sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* **Poloidal basis.** With the poloidal angle $\phi$ (rotation about $\mathbf{e}_\theta$), $\mathcal{B}_2 = \{\mathbf{n}, \mathbf{e}_\theta, \mathbf{t}_\phi\}$ with $\mathbf{n} = \cos\phi\,\mathbf{e}_\rho + \sin\phi\,\mathbf{j}_0$ (outward normal) and $\mathbf{t}_\phi = -\sin\phi\,\mathbf{e}_\rho + \cos\phi\,\mathbf{j}_0$. Its components in $\mathcal{B}_1$ are the columns of
+$$ [{}_1 R_2] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_1 R_2] = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
+* In these bases $\mathbf{r}_P = 4\mathbf{k}_0 + 2\mathbf{e}_\rho + \mathbf{n}$, and the two tangent vectors and the normal asked in the statement are $\partial\mathbf{r}_P/\partial\theta = (2 + \cos\phi)\,\mathbf{e}_\theta$, $\partial\mathbf{r}_P/\partial\phi = \mathbf{t}_\phi$ and $(\partial\mathbf{r}_P/\partial\theta) \times (\partial\mathbf{r}_P/\partial\phi) = (2 + \cos\phi)\,\mathbf{n}$. The initial position $\mathbf{r}_P(t_0) = 2\mathbf{i}_0 + \mathbf{j}_0 + 4\mathbf{k}_0$ corresponds to $\theta = \phi = \pi/2$. Both matrices and these vector identities were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -732,6 +772,9 @@ Compare with the official solution key (Problems.pdf, Solution keys section).
 
 ### Phase 4: Physical Interpretation
 * Energy budgeting definitively rules out reaching the summit regardless of the complex non-linear 4-DOF coupling.
+* **Dimensional check (SI):** $[k\,|\mathbf{r}_P - \mathbf{r}_Q|^2] = \text{N/m}\cdot\text{m}^2 = \text{J}$, $[m\,g\,z] = \text{kg}\cdot\text{m/s}^2\cdot\text{m} = \text{J}$ and $[m\,v^2] = \text{J}$, so every term of $E_0$ is an energy.
+* **Numerical values ($g = 9.81\ \text{m/s}^2$):** $E_0 = 19.5 + 4g = 58.74\ \text{J}$, whereas reaching the summit $z_{max} = 7\ \text{m}$ requires at least $m_Pgz_{max} = 7g = 68.67\ \text{J}$ (the kinetic and spring energies are non-negative, so the potential energy at the summit cannot exceed $E_0$). The deficit is $68.67 - 58.74 = 9.93\ \text{J} > 0$, hence the summit is unreachable.
+* **Robustness:** the same inequality holds for any spring constant that keeps $V_{spring} \ge 0$ and also for $k \to 0$ (then $E_0 = 2.5 + 4g = 41.74\ \text{J} < 7g$), so the conclusion does not depend on the value of $k$.
 
 ## 📌 Problem 39: Particle on a String with a Plate
 
@@ -748,6 +791,9 @@ Compare with the official solution key (Problems.pdf, Solution keys section).
 * **Geometry assumption (read from the figure, Problems.pdf PDF page 27).** The plate edge is the straight line $x_0 = d$, parallel to $\mathbf{j}_0$ (so $Ox_0$ is perpendicular to the edge); $\theta$ is the angle between $Ox_0$ and $OQ$, and $\phi$ is the angle between the vertical and the line through $P$ perpendicular to the edge, which lies in a plane normal to the edge. The statement text alone does not fix the direction of the edge, so this reading relies on the figure.
 * Unit vector $\mathbf{e}_{QP}$ pointing from $Q$ to $P$. The edge is frictionless, so the two string segments make equal angles with it (the hint of the statement): the unit vector from $Q$ to $O$ is $\mathbf{e}_{QO} = -(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$, hence $\mathbf{e}_{QP}\cdot\mathbf{j}_0 = -\mathbf{e}_{QO}\cdot\mathbf{j}_0 = \sin\theta$. The remaining part of $\mathbf{e}_{QP}$ lies in the plane normal to the edge, along $\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$, with magnitude $\sqrt{1 - \sin^2\theta} = \cos\theta$:
   $$ \mathbf{e}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0, \qquad |\mathbf{e}_{QP}|^2 = \cos^2\theta(\sin^2\phi + \cos^2\phi) + \sin^2\theta = 1 $$
+* **Swing basis.** The hanging segment $QP$ swings in the plane normal to the edge, i.e. about the edge direction $\mathbf{j}_0$. The basis $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_0, \mathbf{k}_1\}$ is the inertial basis rotated by $\phi$ about $\mathbf{j}_0$, with $\mathbf{i}_1 = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0$ and $\mathbf{k}_1 = -\sin\phi\,\mathbf{i}_0 + \cos\phi\,\mathbf{k}_0$; the columns are the components in $\mathcal{B}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\phi + \sin^2\phi = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* In this basis the unit vector of Phase 2 reads $\mathbf{e}_{QP} = \sin\theta\,\mathbf{j}_0 - \cos\theta\,\mathbf{k}_1$, since $-\mathbf{k}_1 = \sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$ is the direction of the line through $P$ perpendicular to the edge. Both the matrix properties and the identity with the expression of $\mathbf{e}_{QP}$ in $\mathcal{B}_0$ were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -784,6 +830,9 @@ Parts (d) and (e) are only outlined here: the explicit coupled differential equa
 
 ### Phase 4: Physical Interpretation
 * The system acts as a variable-length spherical pendulum where string length changes deterministically as $Q$ slides along the boundary.
+* **Dimensional check:** $[\rho] = [\ell - d/\cos\theta] = \text{m}$; $[mg\ell] = [mgd] = \text{J}$, so $E_0 = mg\ell/4 + mgd/2$ is an energy; $[\mathbf{e}_{QP}] = 1$.
+* **Limit $d \to 0$:** the edge passes through $O$, so $Q = O$, $\rho = \ell$ and $\mathbf{e}_{QP} = (\cos\theta\sin\phi,\ \sin\theta,\ -\cos\theta\cos\phi)$ is the unit vector of a spherical pendulum of length $\ell$ whose angle $\gamma$ with the downward vertical satisfies $\cos\gamma = \cos\theta\cos\phi$. The energy reduces to $E_0 = mg\ell/4$, which equals $\tfrac{1}{2}m\ell g - mg\ell\cos\theta\cos\phi = \tfrac{1}{2}m\ell g - mg\ell/4$ at $\theta = \phi = \pi/3$.
+* **Numerical check ($m = 1$ kg, $\ell = 2$ m, $d = 0.5$ m, $g = 9.81\ \text{m/s}^2$):** $E_0 = mg\ell/4 + mgd/2 = 7.3575\ \text{J}$, and directly $\tfrac{1}{2}m\ell g + mgz_P(0) = 9.81 - 2.4525 = 7.3575\ \text{J}$ with $z_P(0) = -(\ell/2 - d)/2 = -0.25\ \text{m}$.
 
 ---
 
@@ -803,6 +852,9 @@ Parts (d) and (e) are only outlined here: the explicit coupled differential equa
 * Vertical position of $P_2$: $\mathbf{r}_2 = -(2a - r)\mathbf{k}$, $\mathbf{v}_2 = \dot{r}\mathbf{k}$.
 * Total kinetic energy:
   $$ T = \frac{1}{2}m v_1^2 + \frac{1}{2}m v_2^2 = \frac{1}{2}m(\dot{r}^2 + r^2\dot{\theta}^2) + \frac{1}{2}m\dot{r}^2 = m\dot{r}^2 + \frac{1}{2}mr^2\dot{\theta}^2 $$
+* **Change of basis (polar basis of $P_1$).** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* With $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$, which produce the velocity $\mathbf{v}_1$ above. The matrix was checked symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -862,6 +914,9 @@ $$ m(r\ddot{\theta} + 2\dot{r}\dot{\theta}) = -\mu mg \frac{r\dot{\theta}}{\sqrt
 * When $r = a$: $T = mg(1/2 + 4/3) = \frac{11}{6}mg > mg$, pulling $P_2$ upwards.
 * When $r = 2a$: $T = mg(1/2 + 4/24) = mg(1/2 + 1/6) = \frac{2}{3}mg < mg$, letting $P_2$ accelerate downwards.
 * The tension oscillates smoothly between $\frac{2}{3}mg$ and $\frac{11}{6}mg$, maintaining the periodic radial cycle.
+* **Dimensional check:** $[\dot{r}^2] = \text{m}^2/\text{s}^2$ and $[g\,a^3/r^2] = [g\,r] = \text{m}^2/\text{s}^2$; $[T] = [m\,g] = \text{N}$; the tension formula $T = mg\left(\tfrac{1}{2} + \tfrac{4a^3}{3r^3}\right)$ is homogeneous because $a^3/r^3$ is dimensionless.
+* **Numerical check (RK4, step $10^{-4}$, $g = a = 1$, $v_0^2 = 8/3$):** integrating $\ddot{r} = -\tfrac{1}{2} + \tfrac{4}{3r^3}$ from $r = 1$, $\dot{r} = 0$ gives $r_{min} = 1.0000000$ and $r_{max} = 2.0000000$ (the oscillation of part (d)), and the tension $T = mg(\tfrac{1}{2} + \tfrac{4}{3r^3})$ evaluated along the orbit ranges between $0.666667\,mg$ at $r = 2a$ and $1.833333\,mg$ at $r = a$, equal to $\tfrac{2}{3}mg$ and $\tfrac{11}{6}mg$. The radial period is $6.3424\sqrt{a/g}$ (RK4, step $10^{-5}$).
+* **Limit (general launch speed):** differentiating the energy equation for an arbitrary $v_0$ gives $\ddot{r} = -\tfrac{1}{2}g + \dfrac{a^2v_0^2}{2r^3}$ (for $v_0^2 = 8ga/3$ this is the $\ddot{r}$ of part (e)). For $v_0^2 = ga$ it vanishes at $r = a$, recovering the circular orbit of part (a) with $T = m(g + \ddot{r}) = mg$.
 
 ---
 
@@ -888,6 +943,11 @@ $$ m(r\ddot{\theta} + 2\dot{r}\dot{\theta}) = -\mu mg \frac{r\dot{\theta}}{\sqrt
   Cord length constraint: $s_P + s_Q = \ell$.
   For small hole at origin with straight cord to $P$: $|\mathbf{r}_P| = \sqrt{R^2 + c^2 R^4} = R\sqrt{1 + c^2 R^2}$.
   Position of $Q$: $\mathbf{r}_Q = -(\ell - R\sqrt{1 + c^2 R^2})\mathbf{k}$.
+* **Change of basis (cylindrical basis).** $\mathcal{B}_1 = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ rotated by $\theta(t)$ about $\mathbf{k}$ ($\mathbf{k} = \mathbf{k}_0$):
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* **Surface-adapted basis.** With $s = \sqrt{1 + 4c^2R^2}$, the unit meridian tangent is $\mathbf{e}_g = (\mathbf{e}_R + 2cR\,\mathbf{k})/s$ (proportional to $\mathbf{t}_R$), the unit normal is $\hat{\mathbf{n}} = (-2cR\,\mathbf{e}_R + \mathbf{k})/s$ (proportional to $\mathbf{n}$ above) and $\mathbf{e}_g \times \mathbf{e}_\theta = \hat{\mathbf{n}}$, so $\{\mathbf{e}_g, \mathbf{e}_\theta, \hat{\mathbf{n}}\}$ is right-handed and
+$$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2cR/s \\ 0 & 1 & 0 \\ 2cR/s & 0 & 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1 + 4c^2R^2}{s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
+* Both determinants and products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -916,6 +976,11 @@ Setting $\dot{R} = 0$ in the conserved energy equation $E(R, \dot{R}=0) = E_0$ y
 
 ### Phase 4: Physical Interpretation
 * The particle executes bounded precessing orbits on the paraboloid, bounded between two parallel circles $R_{min}$ and $R_{max}$.
+* **Dimensional check:** $[c] = \text{m}^{-1}$, $[d] = \text{s}^{-1}$, $R(0) = 1/c$ is a length; $[cR^2] = \text{m}$ and $[c\,R] = 1$, so $\sqrt{1 + c^2R^2}$ is dimensionless.
+* **Explicit turning-point equation (part (h)).** At $\dot{R} = 0$ the kinetic energy reduces to $\tfrac{1}{2}mR^2\dot{\theta}^2$ with $R^2\dot{\theta}^2 = d^2/(c^4R^2)$ (from $L_z$), and the potential energy is $mg\,[cR^2 + R\sqrt{1 + c^2R^2}] - mg\ell$ (the term $-mg\ell$ cancels in $E - E_0$). Equating with the initial energy at $R(0) = 1/c$ (where $R\sqrt{1 + c^2R^2} = \sqrt{2}/c$), per unit mass:
+$$ f(R) = \frac{d^2}{2c^4R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) - \frac{d^2}{2c^2} - \frac{(1 + \sqrt{2})\,g}{c} = 0 $$
+  Each term has units m$^2$/s$^2$. The allowed radii are those with $f(R) \le 0$, and $R = 1/c$ is a root (sympy: $f(1/c) = 0$).
+* **Numerical example ($c = d = g = 1$):** the roots of $f$ are $R = 0.4828$ and $R = 1$ (the launch point is the outer turning point), $f(0.7) = -0.549$ and $f(0.9) = -0.276$ are negative (allowed band between the roots), and $f(0.4) = 0.802$, $f(1.2) = 0.747$ are positive (forbidden), so the orbit is bounded between $R_{min} = 0.4828/c$ and $R_{max} = 1/c$.
 
 ---
 
@@ -995,3 +1060,6 @@ $$ \omega_0 = \sqrt{\frac{3g}{5\ell}} $$
 
 ### Phase 4: Physical Interpretation & Synthesis
 * The mechanical coupling $\phi = 2\theta$ acts as an internal kinematic constraint that stiffens the double pendulum into an equivalent single degree of freedom harmonic oscillator with effective mass $10m$ and effective restoring stiffness $6mg/\ell$, yielding the frequency $\omega_0 = \sqrt{3g/(5\ell)}$.
+* **Dimensional check:** $[T] = [m\ell^2\dot{\theta}^2] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-2} = \text{J}$, $[V] = [mg\ell] = \text{J}$, and $[\omega_0] = \sqrt{[g]/[\ell]} = \text{s}^{-1}$ (the effective inertia $10m\ell^2$ and stiffness $6mg\ell$ are expressed in the coordinate $\theta$; with $x = \ell\theta$ they become $10m$ and $6mg/\ell$).
+* **Numerical check of part (e) (RK4, step $10^{-3}$, $g = 9.81\ \text{m/s}^2$, $m = \ell = 1$, 60 s from $\theta = \phi = \pi/4$ at rest):** the full nonlinear equations of part (c) give a maximum of $z_Q/\ell = -1.3375$, always negative, so $Q$ never reaches the $Ox$ axis, consistent with the energy bound $V \ge -mg\ell$ against $E_0 = -2.121\,mg\ell$.
+* **Numerical check of part (f):** the exact one-degree-of-freedom Lagrangian with $\phi = 2\theta$ (without the small-angle approximation) integrated by RK4 from $\theta = 10^{-3}$ rad has half-period $1.2950$ s, against $\pi/\omega_0 = \pi\sqrt{5\ell/(3g)} = 1.2949$ s.
