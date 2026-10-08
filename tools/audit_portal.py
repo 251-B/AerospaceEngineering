@@ -274,7 +274,7 @@ def check_badges(root):
             topics, problems = facts
             label = badge.group(1)
             line = line_of(text, article.start() + article.group(0).find(label))
-            claimed = re.search(r"(\d+)\s*topics?", label)
+            claimed = re.search(r"(\d+)\s*(?:of\s*\d+\s*)?(?:topics?|units?)\b", label)
             if claimed and int(claimed.group(1)) != topics:
                 out.append(Finding("badge-drift", "error", "index.html", line,
                                    f"{slug}/{area}: badge says {claimed.group(1)} topics, pages on disk cover {topics}"))

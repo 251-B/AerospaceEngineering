@@ -1,4 +1,4 @@
-"""assets/css/tokens.css must carry the exact design tokens of the current index.html."""
+﻿"""assets/css/tokens.css defines the design tokens; the hub must load it instead of inlining them."""
 import pathlib
 import re
 import unittest
@@ -33,11 +33,12 @@ class TokensTests(unittest.TestCase):
         blocks = token_blocks(self.tokens.read_text(encoding="utf-8"))
         self.assertEqual(sorted(blocks), [':root', '[data-theme="dark"]', '[data-theme="light"]'])
 
-    def test_tokens_match_index_html_exactly(self):
-        inline = token_blocks(self.index.read_text(encoding="utf-8"))
-        if len(inline) < 3:
-            self.skipTest("index.html no longer carries inline tokens (already migrated to tokens.css)")
-        self.assertEqual(token_blocks(self.tokens.read_text(encoding="utf-8")), inline)
+    def test_hub_uses_shared_assets_instead_of_inline_tokens_and_theme_code(self):
+        text = self.index.read_text(encoding="utf-8")
+        self.assertIn('href="assets/css/tokens.css"', text)
+        self.assertIn('src="assets/js/theme.js"', text)
+        self.assertLess(len(token_blocks(text)), 3, "index.html must not redefine the design tokens")
+        self.assertNotIn("localStorage", text, "theme storage belongs to assets/js/theme.js")
 
     def test_core_brand_tokens_are_present(self):
         blocks = token_blocks(self.tokens.read_text(encoding="utf-8"))

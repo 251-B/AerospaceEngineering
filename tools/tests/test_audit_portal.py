@@ -269,6 +269,12 @@ class BadgeTests(AuditCase):
         f = self.run_checks(files)
         self.assertEqual(self.of(f, "badge-drift"), [])
 
+    def test_of_total_units_badge_checks_the_built_count(self):
+        ok = self.run_checks(self.files("2 of 7 units", "2 problems"))
+        self.assertEqual(self.of(ok, "badge-drift"), [])
+        bad = self.run_checks(self.files("3 of 7 units", "2 problems"))
+        self.assertEqual(len(self.of(bad, "badge-drift")), 1)
+
     def test_text_badges_without_numbers_are_ignored(self):
         f = self.run_checks(self.files("Coming Soon", "Coming Soon"))
         self.assertEqual(self.of(f, "badge-drift"), [])

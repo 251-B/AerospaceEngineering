@@ -12,1295 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
 
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="assets/css/hub.css">
+  <script src="assets/js/theme.js"></script>
 
-  <style>
-    /* ========================================================
-       CSS VARIABLES & THEME SYSTEM
-       ======================================================== */
-    :root {
-      /* Typography System */
-      --font-display: 'Abril Fatface', cursive, Georgia, serif;
-      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
-      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-      /* Subject Accent Colors */
-      --accent-fluid:      #06b6d4;
-      --accent-materials:  #f59e0b;
-      --accent-mechanics:  #10b981;
-      --accent-maths:      #6366f1;
-      --accent-business:   #ef4444;
-
-      /* Subject Vibrant Electric Neon Accents (Dark Theme) */
-      --neon-fluid:      #00f0ff;
-      --neon-materials:  #ffb703;
-      --neon-mechanics:  #00f59b;
-      --neon-maths:      #a78bfa;
-      --neon-business:   #ff0055;
-
-      /* Transitions */
-      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-medium: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
-      /* Layout */
-      --max-width: 1280px;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 26px;
-    }
-
-    /* Dark theme (default) */
-    [data-theme="dark"] {
-      --bg-primary:    #070b14;
-      --bg-secondary:  #0d1321;
-      --bg-card:       rgba(15, 23, 42, 0.72);
-      --bg-card-hover: rgba(20, 31, 58, 0.92);
-      --bg-glass:      rgba(255, 255, 255, 0.04);
-      --bg-input:      rgba(255, 255, 255, 0.06);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-card:   rgba(255, 255, 255, 0.10);
-      --text-primary:  #f8fafc;
-      --text-secondary:#94a3b8;
-      --text-muted:    #64748b;
-      --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.45);
-      --shadow-card-hover: 0 16px 44px rgba(0, 0, 0, 0.6);
-      --bg-badge-soon: rgba(255, 255, 255, 0.08);
-      --text-badge-soon: #94a3b8;
-      --bg-overlay:    rgba(0, 0, 0, 0.6);
-    }
-
-    /* Light theme */
-    [data-theme="light"] {
-      --bg-primary:    #f8fafc;
-      --bg-secondary:  #f1f5f9;
-      --bg-card:       rgba(255, 255, 255, 0.92);
-      --bg-card-hover: rgba(255, 255, 255, 0.98);
-      --bg-glass:      rgba(0, 0, 0, 0.03);
-      --bg-input:      rgba(0, 0, 0, 0.04);
-      --border-subtle: rgba(0, 0, 0, 0.08);
-      --border-card:   rgba(0, 0, 0, 0.08);
-      --text-primary:  #0f172a;
-      --text-secondary:#334155;
-      --text-muted:    #64748b;
-      --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.06);
-      --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.10);
-      --bg-badge-soon: rgba(0, 0, 0, 0.06);
-      --text-badge-soon: #64748b;
-      --bg-overlay:    rgba(0, 0, 0, 0.3);
-    }
-
-    /* ========================================================
-       RESET & BASE
-       ======================================================== */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-size: 1.02rem;
-      line-height: 1.65;
-      letter-spacing: -0.003em;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      min-height: 100vh;
-      transition: background-color var(--transition-medium), color var(--transition-medium);
-    }
-
-    /* Dark Theme Cosmic Nebula Background */
-    [data-theme="dark"] body {
-      background-color: var(--bg-primary);
-      background-image: 
-        radial-gradient(ellipse 65% 50% at 20% 30%, rgba(6, 182, 212, 0.08), transparent 60%),
-        radial-gradient(ellipse 60% 45% at 85% 65%, rgba(99, 102, 241, 0.08), transparent 60%),
-        radial-gradient(ellipse 50% 35% at 50% 12%, rgba(168, 85, 247, 0.06), transparent 55%),
-        radial-gradient(ellipse 40% 30% at 75% 20%, rgba(0, 240, 255, 0.04), transparent 50%);
-      background-attachment: fixed;
-    }
-
-    /* Light Theme Celestial Constellation Pattern */
-    [data-theme="light"] body {
-      background-color: #f8fafc;
-      background-image:
-        radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.03) 0%, transparent 70%),
-        radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px),
-        radial-gradient(circle 3px at 48px 72px, rgba(100, 116, 139, 0.20) 100%, transparent),
-        radial-gradient(circle 2px at 152px 196px, rgba(148, 163, 184, 0.25) 100%, transparent),
-        radial-gradient(circle 2.5px at 280px 110px, rgba(99, 102, 241, 0.18) 100%, transparent);
-      background-size: 100% 100%, 28px 28px, 220px 220px, 310px 310px, 380px 380px;
-      background-attachment: fixed;
-    }
-
-    /* ========================================================
-       EDITORIAL TYPOGRAPHY
-       ======================================================== */
-    h1.brand-title,
-    .brand-text h1,
-    .hero h2,
-    .section-title h3,
-    .card-title,
-    .supernova-title,
-    .empty-state h4 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      letter-spacing: 0.015em;
-    }
-
-    .brand-text h1 {
-      font-size: 1.28rem;
-      letter-spacing: 0.015em;
-      line-height: 1.2;
-    }
-
-    .hero h2 {
-      font-size: clamp(2rem, 4.2vw, 3.2rem);
-      line-height: 1.18;
-      letter-spacing: 0.015em;
-      margin-bottom: 14px;
-    }
-
-    .section-title h3 {
-      font-size: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .card-title {
-      font-size: 1.35rem;
-      letter-spacing: 0.015em;
-      line-height: 1.22;
-      margin-bottom: 3px;
-    }
-
-    .card-subtitle {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-style: italic;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-    }
-
-    .card-description {
-      font-family: var(--font-body);
-      font-size: 1.02rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-    }
-
-    .area-name {
-      font-family: var(--font-body);
-      font-size: 0.98rem;
-      font-weight: 500;
-    }
-
-    .brand-text .subtitle,
-    .hero p {
-      font-family: var(--font-body);
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      line-height: 1.65;
-      color: var(--text-secondary);
-      max-width: 660px;
-      margin: 0 auto 30px;
-    }
-
-    .stat-value,
-    kbd,
-    .count-badge,
-    .semester-badge,
-    .area-badge,
-    .course-badge,
-    .telemetry-val,
-    .supernova-meta-pill {
-      font-family: var(--font-mono);
-    }
-
-    /* ========================================================
-       ANIMATED BACKGROUND — Dynamic Starfield
-       ======================================================== */
-    .starfield {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .starfield .star {
-      position: absolute;
-      border-radius: 50%;
-      background: white;
-      animation: twinkle var(--duration) ease-in-out infinite alternate;
-    }
-
-    @keyframes twinkle {
-      0%   { opacity: var(--opacity-min); transform: scale(1); }
-      100% { opacity: var(--opacity-max); transform: scale(1.3); }
-    }
-
-    [data-theme="light"] .starfield { opacity: 0.12; }
-
-    /* ========================================================
-       LAYOUT WRAPPER
-       ======================================================== */
-    .app-wrapper {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ========================================================
-       HEADER
-       ======================================================== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(20px) saturate(1.5);
-      -webkit-backdrop-filter: blur(20px) saturate(1.5);
-      background: var(--bg-glass);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background var(--transition-medium);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    /* Minimalist Orbital Satellite Brand Icon */
-    .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, #06b6d4, #6366f1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #ffffff;
-      box-shadow: 0 3px 12px rgba(6, 182, 212, 0.35);
-    }
-
-    .brand-icon-svg {
-      width: 26px;
-      height: 26px;
-    }
-
-    .brand-text .subtitle {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-weight: 400;
-    }
-
-    .course-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.15));
-      border: 1px solid rgba(6, 182, 212, 0.25);
-      color: #06b6d4;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-
-    /* Theme Toggle with Vector Sun / Moon */
-    .theme-toggle {
-      position: relative;
-      width: 58px;
-      height: 30px;
-      border-radius: 15px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      cursor: pointer;
-      padding: 0;
-      display: inline-flex;
-      align-items: center;
-      transition: all var(--transition-fast);
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .theme-toggle-track {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 7px;
-      position: relative;
-    }
-
-    .theme-icon {
-      width: 14px;
-      height: 14px;
-      z-index: 1;
-      transition: color var(--transition-fast), opacity var(--transition-fast);
-    }
-
-    .theme-toggle-thumb {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-      transition: transform var(--transition-fast), background var(--transition-fast);
-      z-index: 2;
-    }
-
-    [data-theme="dark"] .theme-toggle-thumb {
-      transform: translateX(0);
-      background: linear-gradient(135deg, #06b6d4, #6366f1);
-    }
-
-    [data-theme="dark"] .theme-icon-moon {
-      color: #ffffff;
-      opacity: 1;
-    }
-
-    [data-theme="dark"] .theme-icon-sun {
-      color: var(--text-muted);
-      opacity: 0.35;
-    }
-
-    [data-theme="light"] .theme-toggle-thumb {
-      transform: translateX(28px);
-      background: linear-gradient(135deg, #f59e0b, #f97316);
-    }
-
-    [data-theme="light"] .theme-icon-sun {
-      color: #ffffff;
-      opacity: 1;
-    }
-
-    [data-theme="light"] .theme-icon-moon {
-      color: var(--text-muted);
-      opacity: 0.35;
-    }
-
-    .theme-toggle-label {
-      font-size: 0.76rem;
-      font-family: var(--font-body);
-      color: var(--text-muted);
-      cursor: pointer;
-    }
-
-    /* Keyboard shortcut badge */
-    kbd {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 22px;
-      height: 22px;
-      padding: 0 6px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      border-radius: 5px;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      line-height: 1;
-    }
-
-    /* ========================================================
-       HERO SECTION
-       ======================================================== */
-    .hero {
-      text-align: center;
-      padding: 56px 0 36px;
-    }
-
-    .hero h2 .gradient-text {
-      background: linear-gradient(135deg, #06b6d4, #6366f1, #a855f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Stats bar */
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 36px;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .stat-value {
-      font-size: 1.6rem;
-      font-weight: 700;
-      font-family: var(--font-mono);
-    }
-
-    .stat-label {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-family: var(--font-mono);
-    }
-
-    /* ========================================================
-       TOOLBAR — Search + Semester Filters
-       ======================================================== */
-    .toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1;
-      min-width: 220px;
-      max-width: 440px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 12px 16px 12px 44px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      font-family: var(--font-body);
-      outline: none;
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .search-box input:focus {
-      border-color: #06b6d4;
-      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
-    }
-
-    .search-box input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .search-icon-svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .search-kbd {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    /* Semester tabs */
-    .semester-tabs {
-      display: flex;
-      gap: 6px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 4px;
-    }
-
-    .semester-tab {
-      padding: 8px 18px;
-      border: none;
-      border-radius: 10px;
-      background: transparent;
-      color: var(--text-secondary);
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      white-space: nowrap;
-    }
-
-    .semester-tab:hover {
-      color: var(--text-primary);
-      background: var(--bg-glass);
-    }
-
-    .semester-tab.active {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      font-weight: 600;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-    }
-
-    /* ========================================================
-       SECTION TITLES
-       ======================================================== */
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .section-title .count-badge {
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 2px 10px;
-      border-radius: 20px;
-    }
-
-    .section-title .semester-badge {
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 3px 12px;
-      border-radius: 20px;
-    }
-
-    .semester-badge.active-sem {
-      background: rgba(16, 185, 129, 0.12);
-      color: #10b981;
-      border: 1px solid rgba(16, 185, 129, 0.25);
-    }
-
-    .semester-badge.upcoming-sem {
-      background: var(--bg-badge-soon);
-      color: var(--text-badge-soon);
-      border: 1px solid var(--border-subtle);
-    }
-
-    /* ========================================================
-       SUBJECT CARDS GRID
-       ======================================================== */
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .subject-card {
-      position: relative;
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 28px 24px 24px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: var(--shadow-card);
-      transition: all var(--transition-medium);
-      overflow: hidden;
-    }
-
-    .subject-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--card-accent);
-      opacity: 0.8;
-      transition: opacity var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
-      z-index: 1;
-    }
-
-    .subject-card:hover {
-      background: var(--bg-card-hover);
-      box-shadow: var(--shadow-card-hover);
-      border-color: var(--card-accent);
-      transform: translateY(-3px);
-    }
-
-    .subject-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Dark Theme Electric Neon Glow on Hover */
-    [data-theme="dark"] .subject-card[data-subject="fluid-mechanics"]:hover {
-      border-color: var(--neon-fluid);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.7), 0 0 28px -2px rgba(0, 240, 255, 0.35);
-    }
-    [data-theme="dark"] .subject-card[data-subject="fluid-mechanics"]:hover::before {
-      background: var(--neon-fluid);
-      box-shadow: 0 0 14px var(--neon-fluid);
-    }
-    [data-theme="dark"] .subject-card[data-subject="aerospace-materials-1"]:hover {
-      border-color: var(--neon-materials);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.7), 0 0 28px -2px rgba(255, 183, 3, 0.35);
-    }
-    [data-theme="dark"] .subject-card[data-subject="aerospace-materials-1"]:hover::before {
-      background: var(--neon-materials);
-      box-shadow: 0 0 14px var(--neon-materials);
-    }
-    [data-theme="dark"] .subject-card[data-subject="engineering-mechanics"]:hover {
-      border-color: var(--neon-mechanics);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.7), 0 0 28px -2px rgba(0, 245, 155, 0.35);
-    }
-    [data-theme="dark"] .subject-card[data-subject="engineering-mechanics"]:hover::before {
-      background: var(--neon-mechanics);
-      box-shadow: 0 0 14px var(--neon-mechanics);
-    }
-    [data-theme="dark"] .subject-card[data-subject="advanced-maths"]:hover {
-      border-color: var(--neon-maths);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.7), 0 0 28px -2px rgba(167, 139, 250, 0.35);
-    }
-    [data-theme="dark"] .subject-card[data-subject="advanced-maths"]:hover::before {
-      background: var(--neon-maths);
-      box-shadow: 0 0 14px var(--neon-maths);
-    }
-    [data-theme="dark"] .subject-card[data-subject="business-management"]:hover {
-      border-color: var(--neon-business);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.7), 0 0 28px -2px rgba(255, 0, 85, 0.35);
-    }
-    [data-theme="dark"] .subject-card[data-subject="business-management"]:hover::before {
-      background: var(--neon-business);
-      box-shadow: 0 0 14px var(--neon-business);
-    }
-
-    /* Light Theme Soft Pastel Card Backgrounds & Borders */
-    [data-theme="light"] .subject-card[data-subject="fluid-mechanics"] {
-      background: #e0f2fe;
-      border-color: rgba(14, 165, 233, 0.30);
-      --card-accent: #0284c7;
-    }
-    [data-theme="light"] .subject-card[data-subject="aerospace-materials-1"] {
-      background: #fef3c7;
-      border-color: rgba(245, 158, 11, 0.30);
-      --card-accent: #d97706;
-    }
-    [data-theme="light"] .subject-card[data-subject="engineering-mechanics"] {
-      background: #d1fae5;
-      border-color: rgba(16, 185, 129, 0.30);
-      --card-accent: #059669;
-    }
-    [data-theme="light"] .subject-card[data-subject="advanced-maths"] {
-      background: #ede9fe;
-      border-color: rgba(139, 92, 246, 0.30);
-      --card-accent: #7c3aed;
-    }
-    [data-theme="light"] .subject-card[data-subject="business-management"] {
-      background: #ffe4e6;
-      border-color: rgba(244, 63, 94, 0.30);
-      --card-accent: #e11d48;
-    }
-    [data-theme="light"] .subject-card .area-link {
-      background: rgba(255, 255, 255, 0.7);
-      border-color: rgba(0, 0, 0, 0.05);
-    }
-    [data-theme="light"] .subject-card .area-link:hover {
-      background: rgba(255, 255, 255, 0.96);
-      border-color: color-mix(in srgb, var(--card-accent) 40%, transparent);
-    }
-
-    /* Card Watermarks / Motifs */
-    .card-watermark {
-      position: absolute;
-      right: -10px;
-      bottom: -10px;
-      width: 140px;
-      height: 140px;
-      pointer-events: none;
-      opacity: 0.05;
-      color: var(--card-accent);
-      transition: opacity var(--transition-medium), transform var(--transition-medium);
-      z-index: 0;
-    }
-
-    .subject-card:hover .card-watermark {
-      opacity: 0.14;
-      transform: scale(1.06) rotate(-2deg);
-    }
-
-    [data-theme="light"] .card-watermark {
-      opacity: 0.07;
-    }
-
-    [data-theme="light"] .subject-card:hover .card-watermark {
-      opacity: 0.17;
-    }
-
-    /* Card header */
-    .card-header {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: color-mix(in srgb, var(--card-accent) 15%, transparent);
-      border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
-      color: var(--card-accent);
-      transition: all var(--transition-fast);
-    }
-
-    .card-icon-svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .card-title-group {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .card-description {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Area links list */
-    .area-list {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .area-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-glass);
-      border: 1px solid transparent;
-      text-decoration: none;
-      color: var(--text-primary);
-      transition: all var(--transition-fast);
-      cursor: pointer;
-    }
-
-    .area-link:hover {
-      background: color-mix(in srgb, var(--card-accent) 12%, transparent);
-      border-color: color-mix(in srgb, var(--card-accent) 25%, transparent);
-    }
-
-    .area-link .area-icon {
-      width: 22px;
-      height: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--text-muted);
-      transition: color var(--transition-fast);
-    }
-
-    .area-link:hover .area-icon {
-      color: var(--card-accent);
-    }
-
-    .area-icon-svg {
-      width: 17px;
-      height: 17px;
-    }
-
-    .area-link .area-name {
-      flex: 1;
-    }
-
-    .area-link .area-badge {
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      flex-shrink: 0;
-    }
-
-    .area-badge.soon {
-      background: var(--bg-badge-soon);
-      color: var(--text-badge-soon);
-    }
-
-    .area-badge.available {
-      background: rgba(16, 185, 129, 0.12);
-      color: #10b981;
-    }
-
-    .area-badge.wip {
-      background: rgba(245, 158, 11, 0.12);
-      color: #f59e0b;
-    }
-
-    /* ========================================================
-       EMPTY STATE — No results
-       ======================================================== */
-    .empty-state {
-      text-align: center;
-      padding: 64px 24px;
-      color: var(--text-muted);
-      display: none;
-    }
-
-    .empty-state.visible {
-      display: block;
-    }
-
-    .empty-state .empty-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-    }
-
-    .empty-icon-svg {
-      width: 48px;
-      height: 48px;
-    }
-
-    .empty-state h4 {
-      font-size: 1.35rem;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-    }
-
-    .empty-state p {
-      font-size: 1.05rem;
-    }
-
-    /* ========================================================
-       Q2 SUPERNOVA CARD
-       ======================================================== */
-    .supernova-card {
-      position: relative;
-      border-radius: var(--radius-xl);
-      padding: 48px 36px;
-      text-align: center;
-      margin-bottom: 48px;
-      overflow: hidden;
-      border: 1px solid rgba(168, 85, 247, 0.32);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-      transition: all var(--transition-medium);
-    }
-
-    [data-theme="dark"] .supernova-card {
-      background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.18), rgba(6, 182, 212, 0.10) 40%, rgba(15, 23, 42, 0.75) 85%);
-      border-color: rgba(168, 85, 247, 0.35);
-    }
-
-    [data-theme="light"] .supernova-card {
-      background: radial-gradient(circle at 50% 0%, rgba(237, 233, 254, 0.85), rgba(224, 242, 254, 0.7) 50%, rgba(255, 255, 255, 0.95) 100%);
-      border-color: rgba(139, 92, 246, 0.32);
-      box-shadow: 0 10px 36px rgba(139, 92, 246, 0.12);
-    }
-
-    .supernova-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 50px rgba(168, 85, 247, 0.28);
-      border-color: rgba(168, 85, 247, 0.6);
-    }
-
-    .supernova-nebula-glow {
-      position: absolute;
-      top: -40%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 440px;
-      height: 320px;
-      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.32), rgba(6, 182, 212, 0.16), transparent 70%);
-      pointer-events: none;
-      animation: nebulaBreath 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes nebulaBreath {
-      0% { opacity: 0.5; transform: translateX(-50%) scale(0.9); }
-      100% { opacity: 0.9; transform: translateX(-50%) scale(1.15); }
-    }
-
-    .supernova-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .supernova-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .supernova-icon-box {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(6, 182, 212, 0.25));
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: #c084fc;
-      box-shadow: 0 0 24px rgba(168, 85, 247, 0.3);
-      animation: pulsarSpin 24s linear infinite;
-    }
-
-    @keyframes pulsarSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .supernova-icon-svg {
-      width: 34px;
-      height: 34px;
-    }
-
-    .supernova-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 14px;
-      border-radius: 9999px;
-      background: rgba(168, 85, 247, 0.12);
-      border: 1px solid rgba(168, 85, 247, 0.28);
-      color: #c084fc;
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .pulsar-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #00f0ff;
-      box-shadow: 0 0 10px #00f0ff;
-      animation: pulsarDot 1.6s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulsarDot {
-      0% { transform: scale(0.8); opacity: 0.6; }
-      100% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 14px #00f0ff, 0 0 20px #a855f7; }
-    }
-
-    .supernova-countdown-badge {
-      color: var(--text-muted);
-      padding-left: 6px;
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .supernova-title {
-      font-size: 1.85rem;
-      line-height: 1.2;
-      margin-bottom: 10px;
-      letter-spacing: 0.02em;
-    }
-
-    .supernova-witty-text {
-      font-family: var(--font-body);
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--text-secondary);
-      max-width: 620px;
-      margin: 0 auto 24px;
-      line-height: 1.65;
-    }
-
-    .supernova-meta {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .supernova-meta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-    }
-
-    .supernova-meta-pill .meta-label {
-      color: var(--text-muted);
-    }
-
-    .supernova-meta-pill .meta-val {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    /* ========================================================
-       FOOTER
-       ======================================================== */
-    .site-footer {
-      margin-top: auto;
-      padding: 28px 0;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 0.88rem;
-      font-family: var(--font-body);
-      color: var(--text-muted);
-    }
-
-    .footer-compass-svg {
-      width: 18px;
-      height: 18px;
-      color: var(--accent-fluid);
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 6px;
-      flex-shrink: 0;
-    }
-
-    .footer-separator {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--border-subtle);
-    }
-
-    /* ========================================================
-       KEYBOARD SHORTCUTS TOOLTIP
-       ======================================================== */
-    .shortcuts-hint {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 90;
-      background: var(--bg-card);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      font-size: 0.82rem;
-      font-family: var(--font-body);
-      color: var(--text-secondary);
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity var(--transition-medium), transform var(--transition-medium);
-      pointer-events: none;
-    }
-
-    .shortcuts-hint.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .shortcut-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .shortcut-row span {
-      flex: 1;
-    }
-
-    /* ========================================================
-       RESPONSIVE
-       ======================================================== */
-    @media (max-width: 768px) {
-      .header-inner {
-        padding: 12px 0;
-      }
-
-      .brand-icon {
-        width: 38px;
-        height: 38px;
-      }
-
-      .brand-icon-svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      .brand-text h1 {
-        font-size: 1.1rem;
-      }
-
-      .hero {
-        padding: 40px 0 28px;
-      }
-
-      .stats-bar {
-        gap: 20px;
-      }
-
-      .toolbar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .search-box {
-        max-width: none;
-      }
-
-      .semester-tabs {
-        justify-content: center;
-      }
-
-      .subjects-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .subject-card {
-        padding: 22px 18px 18px;
-      }
-
-      .search-kbd {
-        display: none;
-      }
-
-      .shortcuts-hint {
-        display: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 16px;
-      }
-
-      .header-actions {
-        width: 100%;
-        justify-content: flex-end;
-      }
-
-      .semester-tab {
-        padding: 7px 12px;
-        font-size: 0.82rem;
-      }
-    }
-
-    /* ========================================================
-       UTILITY / ANIMATIONS
-       ======================================================== */
-    .fade-in {
-      animation: fadeInUp 0.5s ease-out both;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .subject-card:nth-child(1) { animation-delay: 0.05s; }
-    .subject-card:nth-child(2) { animation-delay: 0.1s; }
-    .subject-card:nth-child(3) { animation-delay: 0.15s; }
-    .subject-card:nth-child(4) { animation-delay: 0.2s; }
-    .subject-card:nth-child(5) { animation-delay: 0.25s; }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
 </head>
 <body>
 
@@ -1367,19 +83,19 @@
       <!-- HERO -->
       <section class="hero container">
         <h2><span class="gradient-text">Your study hub</span><br><span>for Aerospace Engineering</span></h2>
-        <p>Access theory notes, step-by-step solved problems, formula sheets, and interactive tools for each course.</p>
+        <p>Theory notes, step-by-step solved problems and the original course PDFs for each subject.</p>
         <div class="stats-bar">
           <div class="stat-item">
             <span class="stat-value" style="color: var(--accent-fluid);">5</span>
             <span class="stat-label">Q1 Subjects</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value" style="color: var(--accent-maths);">5</span>
-            <span class="stat-label">Areas per subject</span>
+            <span class="stat-value" style="color: var(--accent-maths);">130</span>
+            <span class="stat-label">Solved problems</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value" style="color: var(--accent-mechanics);">2</span>
-            <span class="stat-label">Semesters</span>
+            <span class="stat-value" style="color: var(--accent-mechanics);">160</span>
+            <span class="stat-label">Official PDFs</span>
           </div>
         </div>
       </section>
@@ -1449,9 +165,9 @@
                 <span class="card-subtitle">Fluid Mechanics</span>
               </div>
             </div>
-            <p class="card-description">Fluid statics, kinematics, Navier-Stokes equations, dimensional analysis, potential flow, boundary layer theory, and compressibility.</p>
+            <p class="card-description">Flow kinematics (Eulerian and Lagrangian descriptions, streamlines, material lines and fluxes) and the integral conservation laws from the Reynolds transport theorem, with ten worked kinematics problems.</p>
             <div class="area-list">
-              <a class="area-link" href="subjects/fluid-mechanics/teoria/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/fluid-mechanics/teoria/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -1460,10 +176,10 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name">Theory & Concepts</span>
-                <span class="area-badge available">3 topics</span>
+                <span class="area-name">Theory</span>
+                <span class="area-badge available">3 of 7 units</span>
               </a>
-              <a class="area-link" href="subjects/fluid-mechanics/problemas/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/fluid-mechanics/problemas/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="5" r="2.2"/>
@@ -1472,10 +188,10 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name">Problems & Exams</span>
+                <span class="area-name">Solved Problems</span>
                 <span class="area-badge available">10 problems</span>
               </a>
-              <a class="area-link" href="subjects/fluid-mechanics/formulas/index.html" onclick="return handleAreaClick(event)">
+              <span class="area-link" aria-disabled="true">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -1483,31 +199,18 @@
                   </svg>
                 </span>
                 <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/fluid-mechanics/laboratorio/index.html" onclick="return handleAreaClick(event)">
+                <span class="area-badge soon">Soon</span>
+              </span>
+              <a class="area-link" href="subjects/fluid-mechanics/sources/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 13h4l3-7 4 14 3-7h4"/>
-                    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
                   </svg>
                 </span>
-                <span class="area-name">Laboratory & Simulators</span>
-                <span class="area-badge available">1 lab session</span>
-              </a>
-              <a class="area-link" href="subjects/fluid-mechanics/tests/index.html" onclick="return handleAreaClick(event)">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="8"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <line x1="12" y1="2" x2="12" y2="6"/>
-                    <line x1="12" y1="18" x2="12" y2="22"/>
-                    <line x1="2" y1="12" x2="6" y2="12"/>
-                    <line x1="18" y1="12" x2="22" y2="12"/>
-                  </svg>
-                </span>
-                <span class="area-name">Quizzes & Practice</span>
-                <span class="area-badge soon">Coming Soon</span>
+                <span class="area-name">Official PDFs</span>
+                <span class="area-badge available">96 files</span>
               </a>
             </div>
           </article>
@@ -1546,9 +249,9 @@
                 <span class="card-subtitle">Aerospace Materials I</span>
               </div>
             </div>
-            <p class="card-description">Crystal structures, phase diagrams, heat treatments, aluminum, titanium, and nickel alloys, fatigue, and fracture mechanics.</p>
+            <p class="card-description">Atomic bonding, crystal structures and defects, and diffusion in solids, with solved numerical problems on lattices, directions and planes, and Fick's laws.</p>
             <div class="area-list">
-              <a class="area-link" href="subjects/aerospace-materials-1/teoria/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/aerospace-materials-1/teoria/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -1557,10 +260,10 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name">Theory & Concepts</span>
-                <span class="area-badge available">3 topics</span>
+                <span class="area-name">Theory</span>
+                <span class="area-badge available">3 of 11 units</span>
               </a>
-              <a class="area-link" href="subjects/aerospace-materials-1/problemas/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/aerospace-materials-1/problemas/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="5" r="2.2"/>
@@ -1569,10 +272,10 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name">Problems & Exams</span>
-                <span class="area-badge available">3 topics (38 prob.)</span>
+                <span class="area-name">Solved Problems</span>
+                <span class="area-badge available">32 problems</span>
               </a>
-              <a class="area-link" href="subjects/aerospace-materials-1/formulas/index.html" onclick="return handleAreaClick(event)">
+              <span class="area-link" aria-disabled="true">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -1580,31 +283,18 @@
                   </svg>
                 </span>
                 <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/aerospace-materials-1/laboratorio/index.html" onclick="return handleAreaClick(event)">
+                <span class="area-badge soon">Soon</span>
+              </span>
+              <a class="area-link" href="subjects/aerospace-materials-1/sources/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 13h4l3-7 4 14 3-7h4"/>
-                    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
                   </svg>
                 </span>
-                <span class="area-name">Laboratory & Simulators</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/aerospace-materials-1/tests/index.html" onclick="return handleAreaClick(event)">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="8"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <line x1="12" y1="2" x2="12" y2="6"/>
-                    <line x1="12" y1="18" x2="12" y2="22"/>
-                    <line x1="2" y1="12" x2="6" y2="12"/>
-                    <line x1="18" y1="12" x2="22" y2="12"/>
-                  </svg>
-                </span>
-                <span class="area-name">Quizzes & Practice</span>
-                <span class="area-badge soon">Coming Soon</span>
+                <span class="area-name">Official PDFs</span>
+                <span class="area-badge available">38 files</span>
               </a>
             </div>
           </article>
@@ -1635,9 +325,9 @@
                 <span class="card-subtitle">Mechanics Applied to Aerospace Engineering</span>
               </div>
             </div>
-            <p class="card-description">Point particle kinematics and dynamics, relative motion, oscillators, 3D rigid body dynamics, inertia tensors, Euler equations, and atmospheric flight mechanics.</p>
+            <p class="card-description">Particle kinematics and dynamics, constraints and reactions, and angular momentum with central forces (Binet's equation, Kepler orbits), with 40 solved problems.</p>
             <div class="area-list">
-              <a class="area-link" href="subjects/engineering-mechanics/teoria/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/engineering-mechanics/teoria/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -1646,10 +336,10 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name">Theory & Concepts</span>
-                <span class="area-badge available">4 topics</span>
+                <span class="area-name">Theory</span>
+                <span class="area-badge available">4 of 8 units</span>
               </a>
-              <a class="area-link" href="subjects/engineering-mechanics/problemas/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/engineering-mechanics/problemas/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="5" r="2.2"/>
@@ -1658,10 +348,10 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name">Problems & Exams</span>
-                <span class="area-badge available">4 topics (40 prob.)</span>
+                <span class="area-name">Solved Problems</span>
+                <span class="area-badge available">40 problems</span>
               </a>
-              <a class="area-link" href="subjects/engineering-mechanics/formulas/index.html" onclick="return handleAreaClick(event)">
+              <span class="area-link" aria-disabled="true">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -1669,31 +359,18 @@
                   </svg>
                 </span>
                 <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/engineering-mechanics/laboratorio/index.html" onclick="return handleAreaClick(event)">
+                <span class="area-badge soon">Soon</span>
+              </span>
+              <a class="area-link" href="subjects/engineering-mechanics/sources/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 13h4l3-7 4 14 3-7h4"/>
-                    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
                   </svg>
                 </span>
-                <span class="area-name">Laboratory & Simulators</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/engineering-mechanics/tests/index.html" onclick="return handleAreaClick(event)">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="8"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <line x1="12" y1="2" x2="12" y2="6"/>
-                    <line x1="12" y1="18" x2="12" y2="22"/>
-                    <line x1="2" y1="12" x2="6" y2="12"/>
-                    <line x1="18" y1="12" x2="22" y2="12"/>
-                  </svg>
-                </span>
-                <span class="area-name">Quizzes & Practice</span>
-                <span class="area-badge soon">Coming Soon</span>
+                <span class="area-name">Official PDFs</span>
+                <span class="area-badge available">8 files</span>
               </a>
             </div>
           </article>
@@ -1726,9 +403,9 @@
                 <span class="card-subtitle">Advanced Mathematics</span>
               </div>
             </div>
-            <p class="card-description">Higher-order ODEs, classic PDEs (heat, wave, Laplace), Fourier and Laplace series and transforms, complex variable theory.</p>
+            <p class="card-description">Modelling with ordinary differential equations, first-order ODEs (separable, linear, exact, integrating factors, existence and uniqueness) and second-order linear ODEs.</p>
             <div class="area-list">
-              <a class="area-link" href="subjects/advanced-maths/teoria/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/advanced-maths/teoria/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -1737,10 +414,10 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name">Theory & Concepts</span>
-                <span class="area-badge available">3 topics</span>
+                <span class="area-name">Theory</span>
+                <span class="area-badge available">3 of 6 units</span>
               </a>
-              <a class="area-link" href="subjects/advanced-maths/problemas/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/advanced-maths/problemas/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="5" r="2.2"/>
@@ -1749,10 +426,10 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name">Problems & Exams</span>
-                <span class="area-badge available">3 topics (38 prob.)</span>
+                <span class="area-name">Solved Problems</span>
+                <span class="area-badge available">38 problems</span>
               </a>
-              <a class="area-link" href="subjects/advanced-maths/formulas/index.html" onclick="return handleAreaClick(event)">
+              <span class="area-link" aria-disabled="true">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -1760,31 +437,18 @@
                   </svg>
                 </span>
                 <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/advanced-maths/laboratorio/index.html" onclick="return handleAreaClick(event)">
+                <span class="area-badge soon">Soon</span>
+              </span>
+              <a class="area-link" href="subjects/advanced-maths/sources/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 13h4l3-7 4 14 3-7h4"/>
-                    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
                   </svg>
                 </span>
-                <span class="area-name">Laboratory & Simulators</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/advanced-maths/tests/index.html" onclick="return handleAreaClick(event)">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="8"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <line x1="12" y1="2" x2="12" y2="6"/>
-                    <line x1="12" y1="18" x2="12" y2="22"/>
-                    <line x1="2" y1="12" x2="6" y2="12"/>
-                    <line x1="18" y1="12" x2="22" y2="12"/>
-                  </svg>
-                </span>
-                <span class="area-name">Quizzes & Practice</span>
-                <span class="area-badge soon">Coming Soon</span>
+                <span class="area-name">Official PDFs</span>
+                <span class="area-badge available">7 files</span>
               </a>
             </div>
           </article>
@@ -1820,9 +484,9 @@
                 <span class="card-subtitle">Business Management & Industrial Organization</span>
               </div>
             </div>
-            <p class="card-description">Industrial organization, aerospace project management (Gantt/PERT), cost accounting, investment appraisal, and corporate finance.</p>
+            <p class="card-description">The firm, its objectives and its environment, and financial management: balance sheet, income statement and cash flow, with solved financial-statement problems.</p>
             <div class="area-list">
-              <a class="area-link" href="subjects/business-management/teoria/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/business-management/teoria/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -1831,10 +495,10 @@
                     <line x1="8" y1="10" x2="14" y2="10"/>
                   </svg>
                 </span>
-                <span class="area-name">Theory & Concepts</span>
-                <span class="area-badge available">3 topics</span>
+                <span class="area-name">Theory</span>
+                <span class="area-badge available">3 of 6 units</span>
               </a>
-              <a class="area-link" href="subjects/business-management/problemas/index.html" onclick="return handleAreaClick(event)">
+              <a class="area-link" href="subjects/business-management/problemas/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="5" r="2.2"/>
@@ -1843,10 +507,10 @@
                     <circle cx="12" cy="15" r="1" fill="currentColor"/>
                   </svg>
                 </span>
-                <span class="area-name">Problems & Exams</span>
-                <span class="area-badge available">1 topic (10 prob.)</span>
+                <span class="area-name">Solved Problems</span>
+                <span class="area-badge available">10 problems</span>
               </a>
-              <a class="area-link" href="subjects/business-management/formulas/index.html" onclick="return handleAreaClick(event)">
+              <span class="area-link" aria-disabled="true">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -1854,31 +518,18 @@
                   </svg>
                 </span>
                 <span class="area-name">Formula Sheets</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/business-management/laboratorio/index.html" onclick="return handleAreaClick(event)">
+                <span class="area-badge soon">Soon</span>
+              </span>
+              <a class="area-link" href="subjects/business-management/sources/index.html">
                 <span class="area-icon" aria-hidden="true">
                   <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 13h4l3-7 4 14 3-7h4"/>
-                    <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M12 12v6m0 0l-3-3m3 3l3-3"/>
                   </svg>
                 </span>
-                <span class="area-name">Laboratory & Simulators</span>
-                <span class="area-badge soon">Coming Soon</span>
-              </a>
-              <a class="area-link" href="subjects/business-management/tests/index.html" onclick="return handleAreaClick(event)">
-                <span class="area-icon" aria-hidden="true">
-                  <svg class="area-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="8"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <line x1="12" y1="2" x2="12" y2="6"/>
-                    <line x1="12" y1="18" x2="12" y2="22"/>
-                    <line x1="2" y1="12" x2="6" y2="12"/>
-                    <line x1="18" y1="12" x2="22" y2="12"/>
-                  </svg>
-                </span>
-                <span class="area-name">Quizzes & Practice</span>
-                <span class="area-badge soon">Coming Soon</span>
+                <span class="area-name">Official PDFs</span>
+                <span class="area-badge available">11 files</span>
               </a>
             </div>
           </article>
@@ -2019,7 +670,6 @@
          —————————————————————————————————————————— */
       const html = document.documentElement;
       const themeToggle = document.getElementById('themeToggle');
-      const themeLabel = document.getElementById('themeLabel');
       const searchInput = document.getElementById('searchInput');
       const semesterTabs = document.querySelectorAll('.semester-tab');
       const sectionQ1 = document.getElementById('sectionQ1');
@@ -2027,32 +677,6 @@
       const subjectCards = document.querySelectorAll('.subject-card');
       const emptyState = document.getElementById('emptyState');
       const shortcutsHint = document.getElementById('shortcutsHint');
-
-      /* ——————————————————————————————————————————
-         THEME SYSTEM
-         —————————————————————————————————————————— */
-      function getStoredTheme() {
-        try { return localStorage.getItem('aero-portal-theme'); } catch { return null; }
-      }
-
-      function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        if (themeLabel) {
-          themeLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
-        }
-        try { localStorage.setItem('aero-portal-theme', theme); } catch {}
-      }
-
-      // Initialize theme
-      const storedTheme = getStoredTheme();
-      if (storedTheme) setTheme(storedTheme);
-
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          const current = html.getAttribute('data-theme');
-          setTheme(current === 'dark' ? 'light' : 'dark');
-        });
-      }
 
       /* ——————————————————————————————————————————
          SEMESTER FILTER
@@ -2127,21 +751,6 @@
           }
         }
       }
-
-      /* ——————————————————————————————————————————
-         AREA CLICK HANDLER (Disabled links)
-         —————————————————————————————————————————— */
-      window.handleAreaClick = function (event) {
-        const badge = event.currentTarget.querySelector('.area-badge');
-        if (badge && (badge.classList.contains('soon') || badge.classList.contains('wip'))) {
-          event.preventDefault();
-          const link = event.currentTarget;
-          link.style.transform = 'scale(0.97)';
-          setTimeout(function () { link.style.transform = ''; }, 150);
-          return false;
-        }
-        return true;
-      };
 
       /* ——————————————————————————————————————————
          KEYBOARD SHORTCUTS
