@@ -23,7 +23,7 @@ This vault is the source of truth for the study portal. Notes are written here f
 
 ## Vault structure
 
-* **[[00 - Indice Central/Indice Maestro|00 - Central Index]]**: master map of content (MOC); start here.
+* **[[00 - Indice Central/Master Index|00 - Central Index]]**: master map of content (MOC); start here.
 * `01 - Fluid Mechanics/`: Fluid Mechanics.
 * `02 - Aerospace Materials I/`: Aerospace Materials I.
 * `03 - Engineering Mechanics/`: Mechanics Applied to Aerospace Engineering.

@@ -18,7 +18,7 @@ sources:
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
 > **Source Documents:** [[mechanics_labs.pdf]] | [[Lab1_notes.pptx]]  
-> **Navigation:** [[Engineering Mechanics MOC|⬅️ Mechanics MOC]] | [[00 - Indice Central/Indice Maestro|Master Index]]
+> **Navigation:** [[Engineering Mechanics MOC|⬅️ Mechanics MOC]] | [[00 - Indice Central/Master Index|Master Index]]
 
 ---
 

@@ -13,7 +13,7 @@ tags:
 > **Official Course:** Mechanics Applied to Aerospace Engineering (MAAE) — UC3M Code: 251-14165  
 > **Degree:** Bachelor in Aerospace Engineering (2nd Year)  
 > **NotebookLM Notebook:** `473546c3-3716-4426-b0c4-58de530f91c8`  
-> **Navigation:** [[00 - Indice Central/Indice Maestro|⬅️ Master Index]]  
+> **Navigation:** [[00 - Indice Central/Master Index|⬅️ Master Index]]  
 > **Web Portal:** `subjects/engineering-mechanics/`
 
 ---
@@ -89,7 +89,7 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 * [[Formula Sheet - Topic 2 Point Particle Dynamics|Formula Sheet: Topic 2 Point Particle Dynamics]]
 * [[Formula Sheet - Topic 3 Constraints and Reaction Forces|Formula Sheet: Topic 3 Constraints and Reaction Forces]]
 * [[Formula Sheet - Topic 4 Angular Momentum|Formula Sheet: Topic 4 Angular Momentum & Kepler's Problem]]
-* [[Templates/Plantilla Concepto Teorico|Template: Theoretical Concept]]
-* [[Templates/Plantilla Problema de Examen|Template: Solved Exam Problem]]
+* [[Templates/Template - Theory Concept|Template: Theoretical Concept]]
+* [[Templates/Template - Exam Problem|Template: Solved Exam Problem]]
 * [[Templates/Plantilla Formulario Resumen|Template: Formula Cheat Sheet]]
 
