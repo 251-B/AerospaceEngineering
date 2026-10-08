@@ -170,5 +170,5 @@ $$ \mathbf{s = c_v \ln\left(\frac{p}{\rho^\gamma}\right) + s_0} \quad \text{(Ec.
 ---
 
 ## 🔗 Enlaces Internos
-* [[01 - Fluid Mechanics/Tema 1 - Propiedades y Estatica de Fluidos|⬅️ Volver al Índice del Tema 1]]
+* [[01 - Fluid Mechanics/Tema 1 - Introductory Remarks and Starting Assumptions|⬅️ Volver al Índice del Tema 1]]
 * [[01 - Fluid Mechanics/Concepto - Viscosidad y Ley de Newton de la Viscosidad|➡️ Siguiente: Viscosidad y Ley de Newton]]

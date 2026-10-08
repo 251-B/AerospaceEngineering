@@ -7,7 +7,7 @@ tags:
   - pared-porosa
   - stokes
 dificultad: alta
-fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K1.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K1.pdf"
 ---
 
 # ✏️ Problema K1: Flujo sobre Pared Porosa Oscilante con Succión/Soplado
@@ -111,7 +111,15 @@ $$ \mathbf{\psi(x, y, t) = -Vx - \frac{U\delta}{2} e^{-y/\delta}\left[\cos\left(
 
 Para cada partícula, $y(t) = Vt + \lambda \implies \lambda = y - Vt$.
 Sustituyendo $\lambda$ en la solución de la trayectoria con condición inicial $x_0 = 0, y_0 = \lambda$:
-$$ x(y, t) = \frac{-U e^{-y/\delta}}{\left(\frac{V}{\delta}\right)^2 + \left(\Omega - \frac{V}{\delta}\right)^2} \left[ \frac{V}{\delta}\cos\left[\left(\Omega - \frac{V}{\delta}\right)t - \frac{y-Vt}{\delta}\right] + \left(\Omega - \frac{V}{\delta}\right)\sin\left[\left(\Omega - \frac{V}{\delta}\right)t - \frac{y-Vt}{\delta}\right] \right] + \frac{U e^{-\frac{y-Vt}{\delta}}}{\left(\frac{V}{\delta}\right)^2 + \left(\Omega - \frac{V}{\delta}\right)^2} \left[ \frac{V}{\delta}\cos\left(\frac{y-Vt}{\delta}\right) + \left(\Omega - \frac{V}{\delta}\right)\sin\left(\frac{y-Vt}{\delta}\right) \right] $$
+
+Explicit derivation (frame: fixed to the wall, $x$ along the wall, $y$ normal to it; Lagrangian label $\lambda = y_0$ at $t = 0$). With $y = Vt' + \lambda$ along the particle and $b \equiv \Omega - V/\delta$:
+$$ \frac{dx}{dt'} = U e^{-(Vt'+\lambda)/\delta}\cos\left(\Omega t' - \frac{Vt'+\lambda}{\delta}\right) = U e^{-\lambda/\delta}\, e^{-Vt'/\delta}\cos\left(b\,t' - \frac{\lambda}{\delta}\right) $$
+Using $\int e^{at'}\cos(bt'+\varphi)\,dt' = \frac{e^{at'}}{a^2+b^2}\left[a\cos(bt'+\varphi) + b\sin(bt'+\varphi)\right]$ with $a = -V/\delta$, $\varphi = -\lambda/\delta$ and $a^2+b^2 = D \equiv (V/\delta)^2 + (\Omega - V/\delta)^2$, Barrow's rule between $t'=0$ and $t'=t$ gives
+$$ x(\lambda,t) = \frac{U e^{-\lambda/\delta}}{D}\left\{ e^{-Vt/\delta}\left[-\frac{V}{\delta}\cos\left(bt - \frac{\lambda}{\delta}\right) + b\sin\left(bt - \frac{\lambda}{\delta}\right)\right] - \left[-\frac{V}{\delta}\cos\left(-\frac{\lambda}{\delta}\right) + b\sin\left(-\frac{\lambda}{\delta}\right)\right]\right\} $$
+Since $\cos$ is even and $\sin$ is odd, the lower-limit bracket equals $-\frac{V}{\delta}\cos\frac{\lambda}{\delta} - b\sin\frac{\lambda}{\delta}$, so subtracting it adds $\frac{V}{\delta}\cos\frac{\lambda}{\delta} + b\sin\frac{\lambda}{\delta}$. Finally $\lambda = y - Vt$ gives $e^{-\lambda/\delta}e^{-Vt/\delta} = e^{-y/\delta}$ and $bt - \lambda/\delta = (\Omega - V/\delta)t - (y-Vt)/\delta = \Omega t - y/\delta$:
+$$ x(y, t) = \frac{-U e^{-y/\delta}}{D} \left[ \frac{V}{\delta}\cos\left[\left(\Omega - \frac{V}{\delta}\right)t - \frac{y-Vt}{\delta}\right] - \left(\Omega - \frac{V}{\delta}\right)\sin\left[\left(\Omega - \frac{V}{\delta}\right)t - \frac{y-Vt}{\delta}\right] \right] + \frac{U e^{-\frac{y-Vt}{\delta}}}{D} \left[ \frac{V}{\delta}\cos\left(\frac{y-Vt}{\delta}\right) + \left(\Omega - \frac{V}{\delta}\right)\sin\left(\frac{y-Vt}{\delta}\right) \right] $$
+
+Numerical check (agrees with the official K1.pdf, whose first bracket is $\frac{V}{\delta}\cos[\cdot] - (\Omega - \frac{V}{\delta})\sin[\cdot]$): for $U=1.3$, $V=0.7$, $\delta=0.9$, $\Omega=2.1$, $y=0.8$, $t=1.7$, direct quadrature of $\int_0^t v_x\,dt'$ gives $0.420088$ and the expression above gives $0.420088$.
 
 ---
 

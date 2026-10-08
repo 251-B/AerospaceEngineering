@@ -79,5 +79,5 @@ $$ \mathbf{\overline{GM} = \overline{CM} \pm \overline{CG} = \frac{I_{0}}{V_{\te
 ---
 
 ## 🔗 Conceptos Relacionados
-* [[01 - Fluid Mechanics/Tema 1 - Propiedades y Estatica de Fluidos|Volver al Tema 1]]
+* [[01 - Fluid Mechanics/Tema 1 - Introductory Remarks and Starting Assumptions|Volver al Tema 1]]
 * [[01 - Fluid Mechanics/Formulario - Tema 1 Estatica y Propiedades|Ver Formulario Completo]]

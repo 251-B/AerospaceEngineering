@@ -9,7 +9,7 @@ tags:
   - punto-estancamiento
   - funcion-corriente
 dificultad: alta
-fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K4.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K4.pdf"
 ---
 
 # ✏️ Problema K4: Flujo Alrededor de un Semisólido de Rankine (Fuente + Corriente Uniforme)

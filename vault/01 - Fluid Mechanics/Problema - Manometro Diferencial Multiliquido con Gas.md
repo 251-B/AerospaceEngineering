@@ -1,7 +1,7 @@
 ---
 materia: Fluid Mechanics
 tema: "Tema 1: Estática de Fluidos"
-origen: "Examen Parcial Típico — 2º Curso Aeroespacial"
+origen: "NOT found among the ten official hydrostatics problem sheets in the unit-05-hydrostatics folder of the fluid-mechanics sources (fluid_statics_1 to fluid_statics_10); the statement ('Examen Parcial Típico') must be re-verified"
 dificultad: media
 tags:
   - problema-examen

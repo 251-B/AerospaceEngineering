@@ -9,7 +9,7 @@ tags:
   - tensor-deformacion
   - aceleracion-convectiva
 dificultad: media
-fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K7.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K7.pdf"
 ---
 
 # ✏️ Problema K7: Flujo de Estancamiento Hiperbólico Plano

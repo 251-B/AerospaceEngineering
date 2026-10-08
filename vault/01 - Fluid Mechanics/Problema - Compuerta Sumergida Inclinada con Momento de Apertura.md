@@ -1,7 +1,7 @@
 ---
 materia: Fluid Mechanics
 tema: "Tema 1: Estática de Fluidos"
-origen: "Examen Final Oficial — Mecánica de Fluidos"
+origen: "NOT found among the ten official hydrostatics problem sheets in the unit-05-hydrostatics folder of the fluid-mechanics sources (fluid_statics_1 to fluid_statics_10); the statement and the label 'Examen Final Oficial' must be re-verified against the original exam"
 dificultad: alta
 tags:
   - problema-examen
@@ -68,25 +68,27 @@ $$ d_{A-CP} = y_{CP} - y_A = 4.0063 - 2.3094 = \mathbf{1.6969\text{ m}} \approx 
 ---
 
 ### Apartado 3: Fuerza Horizontal de Cierre en $B$ ($F_{\text{cierre}}$)
-Planteamos el equilibrio estático de momentos respecto al eje de la bisagra $A$ ($\sum M_A = 0$):
+**Assumption (the statement does not say on which side of the gate the water lies).** Free-body diagram of the gate, axes with origin at the hinge $A$, $x$ horizontal (positive to the right), $y$ vertical (positive upward), $z$ out of the page. The gate runs from $A$ down to $B$ with $B$ at $\vec{r}_B = (L\cos\theta,\,-L\sin\theta)$ relative to $A$, i.e. to the right of and below $A$. **The water is assumed to lie on the lower-left face of the gate** (the gate leans over the water, the free surface being $h_A = 2.0\text{ m}$ above $A$), so the hydrostatic force acts on the gate along the outward normal $\vec{n} = (\sin\theta,\,\cos\theta)$ (upward and to the right). The horizontal force $F_{\text{cierre}}$ at $B$ points to the left, as in the statement of the closing force. Sign convention: $\sum M_A = 0$ with **counter-clockwise positive**, $M_z = r_x F_y - r_y F_x$ (moment arms measured from $A$).
 
-1. **Momento hidrostático (abre la compuerta en sentido antihorario):**
-   $$ M_{\text{hidro}} = F_R \cdot d_{A-CP} = 194\,179.14 \times 1.6969 = +329\,502.58\text{ N}\cdot\text{m} $$
-2. **Momento del peso propio (cierra la compuerta en sentido horario):**
-   El peso $W = 14\,715\text{ N}$ actúa en el $CG$ verticalmente hacia abajo. Su brazo horizontal respecto a $A$ es:
-   $$ d_{\text{peso}} = \frac{L}{2} \cos\theta = 1.5 \times \cos(60^\circ) = 1.5 \times 0.5 = 0.75\text{ m} $$
-   $$ M_{\text{peso}} = - W \cdot d_{\text{peso}} = - 14\,715 \times 0.75 = -11\,036.25\text{ N}\cdot\text{m} $$
-3. **Momento de la fuerza horizontal de cierre $F_{\text{cierre}}$ aplicada en $B$:**
-   La fuerza $F_{\text{cierre}}$ es horizontal hacia la izquierda. Su brazo vertical respecto a la bisagra $A$ es:
-   $$ h_{AB} = L \cdot \sin\theta = 3.0 \times \sin(60^\circ) = 2.5981\text{ m} $$
-   $$ M_{\text{cierre}} = - F_{\text{cierre}} \cdot (L \sin\theta) = - F_{\text{cierre}} \times 2.5981 $$
+1. **Hydrostatic moment.** $\vec{F}_R = F_R(\sin\theta,\cos\theta)$ acts at $\vec{r}_{CP} = d_{A-CP}(\cos\theta,-\sin\theta)$:
+   $$ M_{\text{hidro}} = r_x F_y - r_y F_x = d_{A-CP}F_R\left(\cos^2\theta + \sin^2\theta\right) = F_R\, d_{A-CP} = 194\,181 \times 1.6969 = +329\,503\text{ N}\cdot\text{m} $$
+   (counter-clockwise: it tends to open the gate). Cross-check by direct integration along the gate, $s\in[0,L]$ from $A$: $M = \rho g \sin\theta\, b\int_0^L (y_A + s)\,s\,ds = \rho g\sin\theta\, b\left(y_A\frac{L^2}{2} + \frac{L^3}{3}\right) = 329\,503\text{ N}\cdot\text{m}$.
+2. **Weight.** $\vec{W} = (0,-W)$, $W = 14\,715\text{ N}$, acts at $CG$, $\vec{r}_{CG} = \frac{L}{2}(\cos\theta,-\sin\theta)$. Horizontal moment arm $d_{\text{peso}} = \frac{L}{2}\cos\theta = 0.75\text{ m}$:
+   $$ M_{\text{peso}} = r_x F_y - r_y F_x = 0.75 \times (-W) - 0 = -14\,715 \times 0.75 = -11\,036.25\text{ N}\cdot\text{m} $$
+   (clockwise: it tends to close the gate).
+3. **Closing force.** $\vec{F}_{\text{cierre}} = (-F_{\text{cierre}},0)$ at $\vec{r}_B$. Vertical moment arm $h_{AB} = L\sin\theta = 3.0\times 0.8660 = 2.5981\text{ m}$:
+   $$ M_{\text{cierre}} = r_x F_y - r_y F_x = 0 - (-L\sin\theta)(-F_{\text{cierre}}) = - F_{\text{cierre}}\,(L\sin\theta) $$
+   (clockwise).
 
-### Ecuación de equilibrio ($\sum M_A = 0$):
-$$ M_{\text{hidro}} - M_{\text{peso}} - F_{\text{cierre}} (L \sin\theta) = 0 $$
-$$ 329\,502.58 - 11\,036.25 - F_{\text{cierre}} (2.5981) = 0 $$
-$$ 318\,466.33 = 2.5981 \cdot F_{\text{cierre}} $$
+### Ecuación de equilibrio ($\sum M_A = 0$, counter-clockwise positive):
+$$ M_{\text{hidro}} + M_{\text{peso}} + M_{\text{cierre}} = 0 $$
+$$ 329\,503 - 11\,036.25 - F_{\text{cierre}}\,(2.5981) = 0 $$
+$$ 318\,466 = 2.5981 \cdot F_{\text{cierre}} $$
 
-$$ \mathbf{F_{\text{cierre}} = \frac{318\,466.33}{2.5981} = 122\,576.62\text{ N} \approx 122.58\text{ kN}} $$
+$$ \mathbf{F_{\text{cierre}} = \frac{318\,466}{2.5981} = 122\,578\text{ N} \approx 122.58\text{ kN}\ \text{(to the left)}} $$
+
+> [!warning] Dependence on the water side
+> The weight reduces the force needed only if the hydrostatic moment and the weight moment have opposite senses, which holds for the configuration assumed above. If instead the water lay on the upper-right face of the same gate (gate sloping down under the water), the hydrostatic moment would be $-329\,503\text{ N}\cdot\text{m}$ (clockwise), the weight moment would still be $-11\,036.25\text{ N}\cdot\text{m}$, and a closing force pointing to the **right** would be needed: $F_{\text{cierre}} = (329\,503 + 11\,036.25)/2.5981 = 131.07\text{ kN}$. The value $122.58\text{ kN}$ is therefore specific to the stated assumption. The earlier line "$M_{\text{hidro}} - M_{\text{peso}} - \dots$" subtracted an already negative $M_{\text{peso}}$ while the numbers used it as a restoring moment; the equation above removes that sign inconsistency without changing the numerical value for this configuration.
 
 ---
 

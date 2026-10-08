@@ -85,5 +85,5 @@ xychart-beta
 ---
 
 ## 🔗 Conceptos Relacionados
-* [[01 - Fluid Mechanics/Tema 1 - Propiedades y Estatica de Fluidos|Volver al Tema 1]]
+* [[01 - Fluid Mechanics/Tema 1 - Introductory Remarks and Starting Assumptions|Volver al Tema 1]]
 * [[01 - Fluid Mechanics/Concepto - Ecuacion Fundamental de la Estatica de Fluidos|Siguiente: Estática de Fluidos]]

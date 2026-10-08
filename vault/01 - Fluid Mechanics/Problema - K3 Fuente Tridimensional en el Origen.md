@@ -9,7 +9,7 @@ tags:
   - linea-fluida
   - tubo-corriente
 dificultad: media
-fuente: "sources/cuatrimestre-1/01-fluid-mechanics/problemas/1.Kinematics/K3.pdf"
+fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K3.pdf"
 ---
 
 # ✏️ Problema K3: Fuente Tridimensional Puntual en el Origen
@@ -82,15 +82,19 @@ $$ \mathbf{r(t) = \left( R^3 + \frac{3}{4\pi}\int_0^t Q(t') dt' \right)^{1/3}} $
 ### Apartado 3: Evolución de una Línea Fluida Circular Inicial que Pasa por el Origen
 
 Consideramos una circunferencia de radio $R$ situada, por ejemplo, en el plano $\phi = 0$, que es tangente al eje polar o contiene al origen. En coordenadas esféricas, dicha circunferencia puede parametrizarse con el ángulo $\lambda \in [-\pi/2, \pi/2]$:
-$$ \phi_0 = 0, \qquad \theta_0 = \lambda, \qquad r_0 = R \cos\lambda $$
+$$ \phi_0 = 0, \qquad \theta_0 = \lambda, \qquad r_0 = 2R \cos\lambda $$
+(Here $\lambda$ is the signed polar angle in the plane $\phi = 0$ measured from the diameter through the origin; negative $\lambda$ labels the half-plane $\phi = \pi$.) Check of the initial curve: with $z_0 = r_0\cos\lambda = 2R\cos^2\lambda = R(1+\cos 2\lambda)$ and $x_0 = r_0\sin\lambda = R\sin 2\lambda$, $x_0^2 + (z_0 - R)^2 = R^2(\sin^2 2\lambda + \cos^2 2\lambda) = R^2$, a circle of radius $R$ through the origin (the origin is $\lambda = \pm\pi/2$, $r_0 = 0$).
 Sustituyendo estas condiciones iniciales en la ecuación de evolución lagrangiana:
 $$ \phi = 0, \qquad \theta = \lambda $$
-$$ \frac{4\pi}{3}\left(r^3 - R^3 \cos^3\lambda\right) = \int_0^t Q(t') dt' $$
+$$ \frac{4\pi}{3}\left(r^3 - 8R^3 \cos^3\lambda\right) = \int_0^t Q(t') dt' $$
 Eliminando el parámetro material $\lambda$ mediante $\lambda = \theta$:
-$$ \mathbf{\frac{4\pi}{3}\left(r^3 - R^3 \cos^3\theta\right) = \int_0^t Q(t') dt'} $$
+$$ \mathbf{\frac{4\pi}{3}\left(r^3 - 8R^3 \cos^3\theta\right) = \int_0^t Q(t') dt'} $$
 Despejando $r(\theta, t)$:
-$$ r(\theta, t) = \left( R^3 \cos^3\theta + \frac{3}{4\pi}\int_0^t Q(t') dt' \right)^{1/3} $$
+$$ r(\theta, t) = \left( 8R^3 \cos^3\theta + \frac{3}{4\pi}\int_0^t Q(t') dt' \right)^{1/3} $$
 La circunferencia inicial se deforma conforme el fluido se expande radialmente.
+
+> [!warning] Erratum in the official solution
+> The handwritten K3.pdf (part 3) takes $r_0 = R\cos\lambda$ and writes $\frac{4\pi}{3}(r^3 - R^3\cos^3\theta) = \int_0^t Q\,dt'$. The polar equation $r = R\cos\theta$ is a circle of diameter $R$ (radius $R/2$), not of radius $R$; a circle of radius $R$ through the origin is $r = 2R\cos\theta$, which gives the factor $8R^3$ above. The two results coincide only after the substitution $R \to 2R$.
 
 ---
 
@@ -138,15 +142,16 @@ Integrando se recupera exactamente la ley radial cúbica $\frac{4\pi}{3}(r^3 - r
 
 ### Apartado 6: Flujo Visto por un Observador en Movimiento a Velocidad Constante $U \vec{e}_x$
 
-Para un sistema de referencia móvil ligado al observador con velocidad $\vec{V}_{obs} = U \vec{e}_x$:
-$$ \vec{v}' = \vec{v} - U \vec{e}_x $$
-En componentes cartesianas relativas:
-$$ v_x' = \frac{Q(t)}{4\pi} \frac{x'}{(x'^2 + y'^2 + z'^2)^{3/2}} - U $$
-$$ v_y' = \frac{Q(t)}{4\pi} \frac{y'}{(x'^2 + y'^2 + z'^2)^{3/2}} $$
-$$ v_z' = \frac{Q(t)}{4\pi} \frac{z'}{(x'^2 + y'^2 + z'^2)^{3/2}} $$
+Para un sistema de referencia móvil ligado al observador con velocidad $\vec{V}_{obs} = U \vec{e}_x$ (the source stays fixed at the origin of the laboratory frame; axes parallel, observer and laboratory origins coincide at $t = 0$):
+$$ x' = x - U t, \qquad y' = y, \qquad z' = z, \qquad \vec{v}' = \vec{v} - U \vec{e}_x $$
+The laboratory field must be evaluated at the laboratory position $x = x' + Ut$. In the observer frame the source therefore sits at $x' = -Ut$, $y' = z' = 0$, and it moves. Defining $r_s^2 \equiv (x' + Ut)^2 + y'^2 + z'^2$, the relative velocity components are
+$$ v_x' = \frac{Q(t)}{4\pi} \frac{x' + Ut}{\left[(x' + Ut)^2 + y'^2 + z'^2\right]^{3/2}} - U $$
+$$ v_y' = \frac{Q(t)}{4\pi} \frac{y'}{\left[(x' + Ut)^2 + y'^2 + z'^2\right]^{3/2}} $$
+$$ v_z' = \frac{Q(t)}{4\pi} \frac{z'}{\left[(x' + Ut)^2 + y'^2 + z'^2\right]^{3/2}} $$
 
-* **Líneas de corriente relativas:**
-  $$ \frac{dx'}{\frac{Q x'}{4\pi r'^3} - U} = \frac{dy'}{\frac{Q y'}{4\pi r'^3}} = \frac{dz'}{\frac{Q z'}{4\pi r'^3}} $$
+* **Líneas de corriente relativas** (instantaneous curves: $t$ frozen in the field, $\vec{v}'$ is unsteady through $Ut$ and $Q(t)$):
+  $$ \frac{dx'}{\frac{Q\,(x' + Ut)}{4\pi r_s^3} - U} = \frac{dy'}{\frac{Q\, y'}{4\pi r_s^3}} = \frac{dz'}{\frac{Q\, z'}{4\pi r_s^3}} $$
 * **Trayectorias relativas:**
   $$ \frac{d\vec{x}'}{dt} = \vec{v}'(\vec{x}', t) $$
-  Este flujo relativo corresponde cinemáticamente a la superposición de una fuente puntual tridimensional y una corriente uniforme incidente de velocidad $-U \vec{e}_x$ (cuerpo semi-infinito de revolución tridimensional de Rankine).
+  Since $\vec{x}' = \vec{x} - Ut\,\vec{e}_x$ and $\vec{x}(t)$ is the radial path of Apartado 1 ($\vec{x} = r(t)\,\vec{e}_r(\theta_0,\phi_0)$ with $r(t)^3 = r_0^3 + \frac{3}{4\pi}\int_0^t Q\,dt'$), the relative trajectory is $\vec{x}'(t) = r(t)\,\vec{e}_r(\theta_0,\phi_0) - Ut\,\vec{e}_x$, which is curved in general.
+  This relative flow is **not** a steady three-dimensional Rankine body: with the source fixed in the laboratory frame, $\vec{v}'$ depends explicitly on $t$ even for constant $Q$. The superposition of a point source and a uniform stream $-U\vec{e}_x$ (steady Rankine half-body of revolution, when $Q$ is constant) is obtained only if the source **moves with the observer**, i.e. if the source sits at $x' = 0$, which gives the field $v_x' = \frac{Q}{4\pi}\frac{x'}{r'^3} - U$ with $r'^2 = x'^2 + y'^2 + z'^2$ (a different problem from the one stated here).

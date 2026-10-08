@@ -1,6 +1,6 @@
 ---
 materia: Fluid Mechanics
-tema: "Tema 1: Propiedades y Estática de Fluidos"
+tema: "Unit 05: Hydrostatics (plus supplementary fluid properties); not Notes.pdf Chapter 1"
 tags:
   - formulario
   - prontuario
@@ -10,7 +10,10 @@ tags:
 
 # 📋 Prontuario Rápido: Propiedades y Estática de Fluidos
 
-## ⚡ 1. Propiedades Fundamentales
+> [!note] Scope of this sheet
+> The hydrostatics content (sections 2-4: fundamental equation, ISA atmosphere, forces on submerged surfaces, buoyancy) belongs to **unit 05 (Hydrostatics)**, not to Chapter 1 of Notes.pdf (Introductory Remarks and Starting Assumptions, see [[01 - Fluid Mechanics/Tema 1 - Introductory Remarks and Starting Assumptions]]). Sutherland's law (section 1) is supplementary material, also not part of Notes.pdf Chapter 1. The file name keeps the old "Tema 1" label only to avoid breaking links.
+
+## ⚡ 1. Propiedades Fundamentales (supplementary; Sutherland's law is not in Notes.pdf Ch. 1)
 
 | Propiedad | Ecuación en LaTeX | Notas / Unidades |
 | :--- | :--- | :--- |
@@ -23,7 +26,7 @@ tags:
 
 ---
 
-## ⚡ 2. Ecuación Fundamental y Atmósfera ISA
+## ⚡ 2. Ecuación Fundamental y Atmósfera ISA (unit 05: Hydrostatics)
 
 * **Ecuación diferencial:**
   $$ \nabla p = \rho \vec{g} \implies \frac{dp}{dz} = -\rho g $$
@@ -35,7 +38,7 @@ tags:
 
 ---
 
-## ⚡ 3. Fuerzas sobre Compuertas y Superficies Sumergidas
+## ⚡ 3. Fuerzas sobre Compuertas y Superficies Sumergidas (unit 05: Hydrostatics)
 
 ### Superficie Plana Inclinada ($\theta$ con la horizontal)
 * **Fuerza Resultante:**
@@ -52,7 +55,7 @@ tags:
 
 ---
 
-## ⚡ 4. Flotabilidad y Estabilidad (Arquímedes)
+## ⚡ 4. Flotabilidad y Estabilidad (Arquímedes) (unit 05: Hydrostatics)
 * **Empuje boyante:** $E = \rho_{\text{fluido}} g V_{\text{sumergido}}$ (actúa en el Centro de Carena $C$).
 * **Radio Metacéntrico:** $\overline{CM} = \frac{I_{0}}{V_{\text{sumergido}}}$ ($I_0$ inercia del área de flotación).
 * **Altura Metacéntrica:** $\overline{GM} = \overline{CM} - \overline{CG}$.
