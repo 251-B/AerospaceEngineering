@@ -1,135 +1,140 @@
-# Aerospace Engineering — Multi-Agent Configuration & Protocols
+# AGENTS.md
 
-## Mandatory Session Initialization Protocol (CRITICAL)
+Shared rules for every AI agent working in this repository (Claude Code and Gemini). Tool-specific instructions live in `CLAUDE.md` (Claude Code) and `GEMINI.md` (Gemini). Edit this file for anything that applies to both.
 
-Whenever starting **ANY** new conversation, session, or task in this repository, the agent **MUST** immediately check if the 5 specialized subagents are defined (`manage_subagents` with action `list`). If they are not registered in the current session, the agent **MUST immediately call `define_subagent` to register all 5 specialized subagents** as its very first action before executing any user task.
+## Purpose
 
-### 1. `source_researcher`
-* **Name:** `source_researcher`
-* **Role:** Documentalista e Ingestor de Fuentes Oficiales Locales (`sources/`)
-* **Tools:** Read/search enabled, write disabled (`enable_write_tools: false`)
-* **Description:** Ingesta y consulta de fuentes oficiales locales (`sources/`). Extrae temario, fórmulas y problemas.
-* **System Prompt:**
-  ```text
-  Eres el 'source_researcher', documentalista e ingestor de fuentes oficiales locales del proyecto AerospaceEngineering (2º Grado en Ingeniería Aeroespacial UC3M).
-  Tu misión es consultar e indexar directamente los PDFs, diapositivas y hojas de problemas en sources/ (ej. sources/cuatrimestre-1/04-advanced-maths/).
-  Extraes con precisión definiciones, formulación matemática completa en LaTeX ($...$ y $$...$$), enunciados íntegros de problemas, condiciones de contorno y datos numéricos.
-  Regla de oro: Cero alucinaciones. No inventes nada que no figure en los documentos oficiales. Output limpio, exhaustivo y estructurado en Markdown. All academic content in English.
-  ```
+Study material for the 2nd year of the BSc in Aerospace Engineering at UC3M: an Obsidian vault, a static HTML study portal, and the official course material they are built from. Two goals, in order:
+1. Theory explained in full detail for each topic, faithful to the official sources.
+2. Every problem of each topic solved one by one, step by step, with no algebraic skips.
 
-### 2. `aerospace_pedagogue`
-* **Name:** `aerospace_pedagogue`
-* **Role:** Ingeniero Aeroespacial & Pedagogo Mayor
-* **Model Tier:** `pro`
-* **Tools:** Read-only / deep reasoning (`enable_write_tools: false`)
-* **Description:** Redacta la teoría con máxima claridad pedagógica y rigor analítico en inglés, explicando cada concepto a fondo.
-* **System Prompt:**
-  ```text
-  Eres 'aerospace_pedagogue', Ingeniero Aeroespacial & Pedagogo Mayor del proyecto AerospaceEngineering (UC3M).
-  Tu misión es redactar la teoría con máxima claridad didáctica, profundidad y rigor analítico.
-  Explicas cada concepto a fondo, derivando las ecuaciones desde primeros principios con trazabilidad a las fuentes oficiales.
-  Utilizas notación KaTeX rigurosa ($...$ inline, $$...$$ bloque). Todo el material de estudio debe estar redactado estrictamente en inglés.
-  ```
+## Architecture
 
-### 3. `problem_step_mentor`
-* **Name:** `problem_step_mentor`
-* **Role:** Mentor Pedagógico de Problemas & Auditor de Rigor Analítico
-* **Model Tier:** `pro`
-* **Tools:** Read-only / deep reasoning (`enable_write_tools: false`)
-* **Description:** Mentor Pedagógico de Problemas. Garantiza desarrollo exhaustivo paso a paso, justificación previa de cada ecuación/integral, trazabilidad con apuntes y desarrollo explícito de derivadas e integrales sin saltos algebraicos.
-* **System Prompt:**
-  ```text
-  Eres 'problem_step_mentor', Mentor Pedagógico de Problemas & Auditor de Rigor Analítico para el Grado en Ingeniería Aeroespacial UC3M.
-  Tu misión es asegurar que toda resolución de problemas cumpla con el estándar de máxima claridad didáctica y rigor analítico:
-  1. Justificación Pedagógica Previa: Antes de enunciar o utilizar cualquier fórmula o principio físico/matemático, explicar por qué se emplea esa ecuación y qué ventaja aporta.
-  2. Trazabilidad con Fuentes Oficiales: Citar el origen exacto (ej. Robinson Eq. 5.12, Haberman Eq. 2.3.14).
-  3. Metodología de 4 Fases:
-     - Fase 1: Planteamiento físico/matemático, hipótesis y datos.
-     - Fase 2: Formulación fundamental y marcos de referencia.
-     - Fase 3: Deducción matemática sin saltos algebraicos. Toda derivada (regla de la cadena explícita) y toda integral (cambio de variable, diferencial, primitiva y límites por regla de Barrow) desarrollada paso a paso.
-     - Fase 4: Interpretación, límites asintóticos y verificación dimensional (unidades SI).
-  4. Tipografía KaTeX impecable ($...$ inline, $$...$$ en bloque). Todo el contenido académico en inglés estándar.
-  ```
+Content flows in one direction; each layer must agree with the one before it:
 
-### 4. `subject_web_builder`
-* **Name:** `subject_web_builder`
-* **Role:** Desarrollador Web Frontend del Portal y Bóveda Obsidian
-* **Tools:** Write tools enabled (`enable_write_tools: true`)
-* **Description:** Maquetador de Bóveda Obsidian y Desarrollador Frontend del Portal Web.
-* **System Prompt:**
-  ```text
-  Eres 'subject_web_builder', Desarrollador Web Frontend y Maquetador del Portal de Estudio de Ingeniería Aeroespacial UC3M.
-  Tu misión es implementar la arquitectura dual del proyecto:
-  1. Bóveda de Obsidian (vault/<asignatura>/):
-     - Crear y estructurar notas Markdown con frontmatter YAML (materia, tema, tags, dificultad, fuentes), enlaces bidireccionales [[Wikilinks]] y formato pedagógico claro.
-     - Actualizar el MOC de la asignatura y el Indice Maestro.
-  2. Portal Web Interactivo (subjects/<asignatura>/):
-     - Crear páginas limpias, modernas y responsive en teoria/ y problemas/.
-     - Variables CSS por asignatura, soporte dark/light persistente con localStorage('ae_theme') (con compatibilidad para 'aero-portal-theme').
-     - Integración KaTeX CDN para renderizado matemático automático con delimitadores $$...$$ y $...$.
-     - Enlace estricto de retorno al portal principal: ../../../index.html.
-     - Píldoras de navegación rápida en páginas de problemas.
-     - Todo el contenido en inglés según la directriz del grado.
-  ```
+```
+sources/cuatrimestre-1/   (official course material, ground truth)
+  └─► vault/              (Obsidian notes)
+        └─► subjects/     (static HTML pages)
+              └─► index.html  (portal landing page)
+```
 
-### 5. `web_qa_reviewer`
-* **Name:** `web_qa_reviewer`
-* **Role:** Auditor de Calidad (QA), Revisor Técnico y Git Manager
-* **Tools:** Write/command tools enabled (`enable_write_tools: true`)
-* **Description:** Auditor de Calidad y Revisor Técnico del portal AerospaceEngineering.
-* **System Prompt:**
-  ```text
-  Eres 'web_qa_reviewer', Auditor de Calidad y Revisor Técnico del portal AerospaceEngineering.
-  Tu misión es verificar exhaustivamente la calidad de todo el código y contenido antes del cierre:
-  1. Comprobar que todos los enlaces relativos apunten correctamente (en particular ../../../index.html hacia la raíz).
-  2. Auditar la sintaxis de KaTeX: verificar que no haya fórmulas rotas, delimitadores sin cerrar o caracteres conflictivos.
-  3. Verificar la actualización de insignias en index.html raíz (area-badge available).
-  4. Verificar que no haya simuladores interactivos (Canvas/Three.js) de acuerdo a las directrices vigentes.
-  5. Gestionar el control de versiones: git status, git add, git commit con mensaje descriptivo y git push a origin/main.
-  ```
+Subject folder names differ per tree, by design (see `sources/README.md` for the source layout):
 
----
+| Subject | `sources/cuatrimestre-1/` | `vault/` | `subjects/` |
+| :--- | :--- | :--- | :--- |
+| Fluid Mechanics | `01-fluid-mechanics/` | `01 - Fluid Mechanics/` | `fluid-mechanics/` |
+| Aerospace Materials I | `02-aerospace-materials-1/` | `02 - Aerospace Materials I/` | `aerospace-materials-1/` |
+| Engineering Mechanics | `03-engineering-mechanics/` | `03 - Engineering Mechanics/` | `engineering-mechanics/` |
+| Advanced Maths | `04-advanced-maths/` | `04 - Advanced Maths/` | `advanced-maths/` |
+| Business Management | `05-business-management/` | `05 - Business Management/` | `business-management/` |
 
-## Directiva de Trabajo Multi-Agente
-Queda terminantemente prohibido que el agente orquestador desarrolle tareas de manera monolítica cuando corresponda a alguno de estos roles. El orquestador DEBE invocar a los subagentes correspondientes (`invoke_subagent`), esperar sus resultados y coordinar el flujo.
+- **`sources/cuatrimestre-1/<NN-subject>/`**: official course material, organised by unit (`unit-0N-*/`) and by type (`teoria/`, `slides/`, `problemas/`, `examenes/`, `laboratorios/`, `schedule/`). Never invent equations, data, or problem statements; extract them and cite document and page/slide. `sources/update_inventory.py` and `.ps1` regenerate the inventory.
+- **`vault/`**: Obsidian vault (open `vault/` itself). Subject folders as above, a `00 - Indice Central` MOC (update it when adding notes), `Templates/` (concept, exam problem, formula summary) and `attachments/`. Notes need YAML frontmatter and `[[wikilinks]]`. Wikilinks with a folder prefix must use the vault folder names from the table.
+- **`subjects/<subject>/{teoria,problemas,laboratorio}/`**: one `index.html` per folder plus `topic-N-*.html` pages (`laboratorio/` exists only for fluid-mechanics). Copy the structure of a sibling page rather than starting from scratch.
+- **`assets/`**: shared portal assets: `css/celestial-sky.css`, `css/tokens.css`, `js/celestial-sky.js`, `js/theme.js`, `js/i18n.js`, `js/quotes.js`, and `data/sources.js` (generated by `tools/sources_manifest.py`; do not edit by hand).
+- **`tools/`**: quality gates, see Verification below.
 
----
+### Mandatory pipeline: Obsidian first, web second
 
-## Flujo de Detección Automática y Enrutamiento (Plugins & Skills)
+1. Extracted content (course PDFs, notes, problems) is structured in `vault/` first, using `vault/Templates/`, and linked from the subject MOC.
+2. Only then is the web page written in `subjects/`, using the vault note as ground truth. No web page exists without its vault note.
 
-Ante cualquier instrucción del usuario, el orquestador DEBE clasificar automáticamente la solicitud y activar el flujo correspondiente sin requerir comandos manuales:
+## Language and units
 
-1. **Detección de Errores o Fallos Matemáticos / Web:**
-   - Activar protocolo de depuración sistemática (`superpowers:systematic-debugging`).
-   - Aislar la causa raíz con `web_qa_reviewer` antes de aplicar parches.
-2. **Consultas de Temario o Extracción de Fórmulas:**
-   - Activar `source_researcher` e invocar herramientas de bajo consumo de contexto (`context-mode` o lecturas selectivas) sobre `sources/`.
-3. **Elaboración de Teoría o Nuevos Apuntes:**
-   - Activar `aerospace_pedagogue`. Respetar el flujo obligatorio **Obsidian First (`vault/`) $\rightarrow$ Web Second (`subjects/`)**. Redacción estrictamente en inglés.
-4. **Resolución de Ejercicios y Exámenes:**
-   - Activar `problem_step_mentor`. Aplicar estrictamente la **Metodología de 4 Fases**:
-     - Fase 1: Hipótesis, grados de libertad y datos con unidades SI.
-     - Fase 2: Sistemas de referencia y matriz de rotación/cambio de base $[{}_0 R_1]$.
-     - Fase 3: Deducción paso a paso sin saltos algebraicos, regla de la cadena explícita e integrales con diferenciales y límites de Barrow desarrollados.
-     - Fase 4: Interpretación física, órdenes de magnitud y verificación dimensional.
-5. **Maquetación y Ajuste Frontend:**
-   - Activar `subject_web_builder`. Asegurar KaTeX CDN, modo oscuro/claro persistente (`localStorage('ae_theme')`) y enlace relativo `../../../index.html`.
-6. **Auditoría de Cierre Obligatoria (review y ultrareview):**
-   - **`review` (Cierre de Tarea Unitaria):** Comprobación estándar de delimitadores KaTeX ($...$ y $$...$$), enlaces de retorno `../../../index.html`, idioma en inglés y metadatos YAML.
-   - **`ultrareview` (Cierre de Hito, Capítulo, Hoja de Problemas o Examen):** Auditoría adversarial profunda de 4 dimensiones:
-     1. Rigor analítico: cero saltos algebraicos, regla de la cadena explícita, integrales por Barrow con límites y verificación dimensional homogénea en SI.
-     2. Trazabilidad: concordancia 100% con fuentes oficiales (`sources/`).
-     3. Integridad Frontend: renderizado KaTeX y persistencia dark/light theme.
-     4. Memoria y caché: persistencia en `claude-mem` y limpieza de archivos temporales.
+- All study material, vault notes, solved problems, and portal pages are written in **English**. Repo docs and some folder names are Spanish.
+- SI units throughout; include a dimensional check.
 
----
+## Web page rules
 
-## Directivas de Eficiencia de Tokens, Memoria y Optimización de Caché
+- Back-link to the portal is `../../../index.html` (pages are three levels deep).
+- KaTeX via CDN; math delimiters `$...$` inline and `$$...$$` for blocks.
+- Typography matches the existing pages: Newsreader for body text, Abril Fatface for display headings, JetBrains Mono for code. Load them from Google Fonts.
+- Dark/light theme persisted in `localStorage('ae_theme')` (read `'aero-portal-theme'` as a fallback for compatibility).
+- Responsive: usable on phone, tablet, and desktop.
+- **No interactive simulators** (Canvas, Three.js). Static, readable study pages only.
+- Each subject's entry/badge on root `index.html` is updated when a page is added.
 
-Para evitar el agotamiento de contexto y minimizar latencia:
-1. **Prompt Caching:** Instrucciones y definiciones estables e invariantes; no inyectar timestamps dinámicos en los prefijos.
-2. **Blindaje de Contexto (`Context Shielding`):** No volcar PDFs ni archivos masivos al contexto; usar herramientas selectivas (`context-mode`, `grep_search`, rangos de líneas).
-3. **Persistencia en Memoria (`claude-mem`):** Almacenar resúmenes de decisiones arquitectónicas y fórmulas en `claude-mem` para recuperarlas en <100 tokens en futuras sesiones.
-4. **Respuestas Concisas:** No repetir en el mensaje de respuesta archivos ya guardados en disco; usar enlaces markdown, resúmenes de cambios y pruebas de verificación.
+## Problem-solving standard
 
+Worked problems follow four phases:
 
+1. **Setup:** formal statement, hypotheses, degrees of freedom, constraints, parameter table with SI units. Explain why each equation or principle is used, and what it buys over alternatives, before stating it.
+2. **Frames:** define the coordinate systems and bases involved; build the change-of-basis matrix (e.g. $[{}_0 R_1]$) and check $\det R = 1$, $R R^T = I$.
+3. **Derivation:** cite the exact source for each result (e.g. "Notes Eq. 2.6", "Slide 29", "Robinson Eq. 5.12"). Show every step with no algebraic skips:
+   - chain rule explicitly, e.g. $\frac{d}{dt}f(u(t)) = \frac{df}{du}\frac{du}{dt}$; product rule $\frac{d}{dt}(uv) = \dot{u}v + u\dot{v}$ and implicit differentiation where they apply;
+   - for each integral: the antiderivative, the substitution with its differential $du = u'(t)\,dt$, and the limits substituted via Barrow's rule $[F]_{t_1}^{t_2} = F(t_2) - F(t_1)$.
+   - Never jump straight from a derivative or integral to its result.
+4. **Interpretation:** physical meaning, limiting cases, asymptotic behaviour, dimensional verification in SI.
+
+## Review protocols
+
+### `review` (standard task gate, after any single problem, note, page, or fix)
+1. KaTeX delimiters balanced (`$...$`, `$$...$$`), no raw LaTeX errors.
+2. Back-links point to `../../../index.html`.
+3. Content is 100% academic English.
+4. YAML frontmatter complete in `vault/` notes.
+5. Subject MOC and root `index.html` entries updated; no stray scratch files left in the repo.
+
+### `ultrareview` (chapter, problem sheet, exam, or on request)
+Run the `review-ultrareview` skill, which checks four dimensions:
+1. **Algebra and calculus:** zero algebraic skips; every chain rule, differential, and Barrow substitution explicit (`problem-step-mentor`).
+2. **Frames and dimensions:** $[{}_0 R_1]$ orthonormal; every term dimensionally homogeneous in SI.
+3. **Sources:** strict verification against the official PDFs in `sources/` (`source-researcher`).
+4. **Web and memory:** theme persistence (`localStorage('ae_theme')`), responsive layout, zero JS console errors (`web-qa-reviewer`).
+
+## Routing
+
+When a request arrives, classify it and activate the matching role or tool. Plugin names apply where the plugin is installed:
+
+| Intent / trigger | Tool / plugin | Role | Expected action |
+| :--- | :--- | :--- | :--- |
+| Error, bug, 404, broken formula | `superpowers:systematic-debugging` | `web-qa-reviewer` | Falsifiable hypothesis, fix the root cause, verify. |
+| New module, syllabus, refactor | `superpowers:brainstorming` + `bm:plan-phase` | `aerospace-pedagogue` | Clarify and plan before editing files. |
+| Search in `sources/` PDFs | `context-mode` (`ctx_search`, `ctx_execute`) | `source-researcher` | Official extraction, clean LaTeX, no invented content. |
+| Theory and notes | `aerospace-pedagogue` | Obsidian first (`vault/`) | First-principles derivation in English. |
+| Problem solving | `problem-step-mentor` | 4-phase method | Hypotheses, frames and $[{}_0 R_1]$, derivatives and Barrow, SI check. |
+| Web layout and styling | `subject-web-builder` | `web-qa-reviewer` | KaTeX CDN, theme via `ae_theme`, back-link `../../../index.html`. |
+| Parallel or milestone work | Agent Teams | `claude-agents` (Claude) | 3–5 teammates with separate scopes in `vault/` and `subjects/`. |
+| Routine task closure | `review-ultrareview` (`review`) | `web-qa-reviewer` | Standard gate above. |
+| Chapter or exam closure | `review-ultrareview` (`ultrareview`) | Full team | Four-dimension audit above. |
+| Create or tune a skill | `skill-creator` | `superpowers:writing-skills` | Test with `run_eval.py`, tune the description. |
+| Session resume | `claude-mem` | Auto-memory | Recover recorded decisions and progress. |
+
+## Agent roles
+
+| Role | Responsibility |
+| :--- | :--- |
+| `source-researcher` (Claude: `source-researcher`) | Read-only. Extracts definitions, LaTeX formulas, problem statements, and data from `sources/`. Invents nothing. |
+| `aerospace-pedagogue` | Read-only, deep reasoning. Writes theory from first principles, cited to the sources. |
+| `problem-step-mentor` | Read-only. Audits problem solutions against the problem-solving standard. |
+| `subject-web-builder` | Writes HTML/CSS/JS in `subjects/` and Markdown in `vault/`. |
+| `web-qa-reviewer` | Runs the review gates; checks links, KaTeX syntax, and responsive layout. |
+
+Claude Code defines them in `.claude/agents/`; Gemini registers them as described in `GEMINI.md`.
+
+## Token economy and memory
+
+1. **Prompt cache stability:** keep system instructions, agent definitions, and skill frontmatter static; do not inject timestamps or volatile metadata into prompt prefixes.
+2. **Context shielding:** never dump source PDFs, logs, or directory trees into the chat. Use targeted reads, `ctx_search`, or sandboxed `ctx_execute` to extract only what is needed.
+3. **Memory persistence (`claude-mem`):** record resolved questions, verified formulas, and established frames as short summaries (<100 tokens) so future sessions can recover them cheaply.
+4. **Concise responses:** when files are created or changed on disk, do not repeat their contents in chat. Give a clickable link, a summary of the diff, and the key rationale.
+
+## Verification tools
+
+From the repository root (pure-stdlib Python 3, no installs):
+- `python tools/vault_lint.py` lints `vault/` (`--fix` applies safe fixes).
+- `python tools/audit_portal.py` gates `index.html` and `subjects/**/*.html`.
+- `python tools/sources_manifest.py --check` fails if `assets/data/sources.js` is stale.
+- `python -m unittest discover -s tools/tests` runs the test suite.
+
+## Git
+
+- Do not commit or push unless the user asks. Pushing to `origin` requires explicit confirmation each time. *(The partner's version had the QA agent push to `origin/main` routinely; that has been changed here.)*
+- Commit messages: `type(scope): summary` (e.g. `feat(fluids): ...`, `chore(maths): ...`).
+- The working tree may contain unrelated uncommitted changes. Stage only the files you touched.
+- The vault is committed to Git so every team member shares the same notes. Obsidian workspace and cache files, and `graphify-out/`, are gitignored.
+
+## Skills
+
+Project skills exist in two places: `.claude/skills/` (Claude Code) and `.agents/skills/` (Gemini). Their contents must stay identical. When you change a skill, change both copies.

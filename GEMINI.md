@@ -1,149 +1,53 @@
-# Aerospace Engineering — Project Guidelines & Gemini Notebook Context
+# GEMINI.md
 
-## 0. Mandatory Session Initialization Protocol (CRITICAL)
+Gemini-specific instructions for this repository. **Read `AGENTS.md` first**: it holds the shared rules (architecture, language, web page rules, problem-solving standard, review protocols, routing, token economy, git policy, agent roles). This file adds only what is specific to Gemini.
 
-Whenever starting **ANY** new conversation, session, or task in this repository, the agent **MUST** immediately verify if the 5 specialized subagents are defined (`manage_subagents` with action `list`). If they are not registered in the session, the agent **MUST immediately call `define_subagent` to register all 5 specialized subagents** as its very first action before executing any user task:
-1. `source_researcher`: Documentalista e Ingestor de Fuentes Oficiales Locales (`sources/`). Read tools enabled, write disabled.
-2. `aerospace_pedagogue`: Ingeniero Aeroespacial & Pedagogo Mayor (model tier `pro`). Deep reasoning, theory development, zero hallucinations.
-3. `problem_step_mentor`: Mentor Pedagógico de Problemas & Auditor de Rigor Analítico (model tier `pro`). Supervisa que toda resolución siga la metodología de 4 fases, sin saltos algebraicos, con justificación previa de cada fórmula e integración/derivación explícita.
-4. `subject_web_builder`: Desarrollador Web Frontend del Portal y Bóveda Obsidian. Write tools enabled (`vault/` y `subjects/`).
-5. `web_qa_reviewer`: Auditor de Calidad (QA), Revisor Técnico y Git manager. Write/command tools enabled.
+## 0. Mandatory session initialization (Gemini)
 
-All future workflow phases **MUST** be delegated to these specialized subagents using `invoke_subagent` rather than performed monolithically by the main agent.
+At the start of any new conversation, session, or task, check whether the 5 subagents are registered (`manage_subagents` with action `list`). If any is missing, call `define_subagent` for each one as your first action, before the user's task:
 
----
+1. `source_researcher`: read/search tools enabled, write disabled. Reads `sources/` only.
+2. `aerospace_pedagogue`: model tier `pro`. Deep reasoning, theory, zero hallucinations.
+3. `problem_step_mentor`: model tier `pro`. Audits problem solutions against the standard in `AGENTS.md`.
+4. `subject_web_builder`: write tools enabled, limited to `vault/` and `subjects/`.
+5. `web_qa_reviewer`: write and command tools enabled. Runs the review gates in `AGENTS.md`.
 
-## 1. Primary Scope: Active 2nd Year Collection (`2ndYear`)
+Delegate role-specific work to these subagents with `invoke_subagent` rather than performing it monolithically in the main agent. Its results must be awaited and coordinated by the orchestrator.
 
-When assisting with study materials, querying notes, generating web pages, summaries, or quizzes, **ONLY** prioritize and consult the notebooks from the **`2ndYear`** collection:
+## 1. Notebook scope (NotebookLM)
 
-| Asignatura | Nombre del Cuaderno en Notebook | Notebook ID |
+When using study material from NotebookLM, consult only the **`2ndYear`** notebooks:
+
+| Asignatura | Notebook name | Notebook ID |
 | :--- | :--- | :--- |
-| **Fluid Mechanics** | `Fluid Mechanics` | `3080c1f2-5689-4a39-90c3-091d58f39684` |
-| **Aerospace Materials I** | `Aerospace Materials I` | `9b324478-69e9-482c-813c-5709ec031820` |
-| **Engineering Mechanics** | `Engineering Mechanics` | `473546c3-3716-4426-b0c4-58de530f91c8` |
-| **Advanced Maths** | `Advanced Maths` | `c27033c3-5a64-403f-a517-5847831aabcb` |
-| **Business Management** | `Business management` | `e691ea81-0acf-4032-98d1-b9e5a7b93d70` |
+| Fluid Mechanics | `Fluid Mechanics` | `3080c1f2-5689-4a39-90c3-091d58f39684` |
+| Aerospace Materials I | `Aerospace Materials I` | `9b324478-69e9-482c-813c-5709ec031820` |
+| Engineering Mechanics | `Engineering Mechanics` | `473546c3-3716-4426-b0c4-58de530f91c8` |
+| Advanced Maths | `Advanced Maths` | `c27033c3-5a64-403f-a517-5847831aabcb` |
+| Business Management | `Business management` | `e691ea81-0acf-4032-98d1-b9e5a7b93d70` |
 
-> [!NOTE]
-> En el segundo cuatrimestre se añadirán nuevas asignaturas a esta tabla a medida que se creen los cuadernos correspondientes.
+New second-semester subjects will be added to this table when their notebooks exist.
 
----
+Do **not** use, cite, or query these 1st-year notebooks unless the user explicitly asks for 1st-year content:
+- `Final Exam Prep Chemistry`
+- `Final Exam Prep Calculus 2`
+- `Physics 2 Final Exam Prep`
+- `Engineering Graphics Final Exam Prep`
 
-## 2. Excluded Notebooks (1st Year / Cursos Anteriores)
+## 2. Obsidian-first rule (NotebookLM content)
 
-Do **NOT** use, cite, or query the following notebooks unless the user explicitly mentions or requests content from 1st Year:
-* `Final Exam Prep Chemistry`
-* `Final Exam Prep Calculus 2`
-* `Physics 2 Final Exam Prep`
-* `Engineering Graphics Final Exam Prep`
+Material taken from NotebookLM notebooks is structured in `vault/` first (see the pipeline in `AGENTS.md`), then used for web pages.
 
----
+## 3. Gemini agent definitions
 
-## 3. Web Development & Language Guidelines
+Short descriptions for the Gemini subagent registration in section 0. The shared responsibilities are in `AGENTS.md`.
 
-* **Language Standard (Mandatory):** All study materials, Obsidian notes (`vault/`), solved problems, and web portal pages (`subjects/`) must be written strictly in **English**, as the degree (BSc in Aerospace Engineering at UC3M) and all official source materials (`sources/`) are taught and published entirely in English.
-* **Structure:** Clean, semantic HTML5 files organized by subject or topic.
-* **Design:** Modern, clean, responsive (mobile & tablet friendly for library/study sessions), with pleasant typography and dark/light contrast.
-* **Content:** Grounded in the lecture notes, problem sets, and study guides from the active 2nd Year notebooks and the Obsidian Vault (`vault/`).
+- **`source_researcher`:** ingest and index official PDFs, slides, and problem sheets from `sources/`. Extract definitions, LaTeX formulas, problem statements, boundary conditions, and numerical data. Output clean Markdown without inventing anything.
+- **`aerospace_pedagogue`:** write theory with maximum pedagogical clarity and analytical rigour. Solve problems step by step, following the 4-phase method in `AGENTS.md`.
+- **`problem_step_mentor`:** check that every solution, class exercise, and exam follows the problem-solving standard: justify each equation before using it, cite its source, connect coordinate changes to their change-of-basis matrices, leave no algebraic skips, and develop every derivative and integral explicitly.
+- **`subject_web_builder`:** build clean, readable study pages in `subjects/` with editorial typography, KaTeX, a working dark/light theme, and the back-link `../../../index.html`.
+- **`web_qa_reviewer`:** audit relative links, KaTeX delimiter balance, responsive layout, and git state. Commits and pushes are governed by the git rules in `AGENTS.md`.
 
----
+## 4. Scope notes
 
-## 4. Multi-Agent Team & Roles
-
-The project uses a specialized multi-agent workflow focused strictly on two core pillars:
-1. **Teoría explicada al detalle de cada tema**, rigurosa, clara y fiel al 100% a las fuentes oficiales de la cátedra (`sources/`).
-2. **Resolución de todos los problemas de cada tema uno por uno y paso a paso**, sin saltos algebraicos, con hipótesis, planteamiento físico, desarrollo matemático e interpretación.
-
-*(Nota: El agente de simuladores queda eliminado/inactivo por decisión del usuario para centrar el esfuerzo en la solidez del contenido teórico y analítico).*
-
-### Agent 1: `source_researcher` (ex `notebook_researcher`)
-* **Role:** Documentalista e Ingestor de Fuentes Oficiales Locales (`sources/`).
-* **Tools:** Read/search tools enabled, write disabled.
-* **System Prompt / Task:** Consultar e indexar directamente los PDFs, diapositivas y hojas de problemas en `sources/<asignatura>/`. Extraer definiciones, formulación matemática completa en LaTeX, enunciados de problemas, condiciones de contorno y datos numéricos. Output limpio y exhaustivo en Markdown sin inventar nada que no figure en los documentos.
-
-### Agent 2: `aerospace_pedagogue`
-* **Role:** Ingeniero Aeroespacial & Pedagogo Mayor (Model tier: `pro`).
-* **Tools:** Read-only / deep reasoning.
-* **System Prompt / Task:** Redactar la teoría con máxima claridad pedagógica y rigor analítico. Resolver todos los problemas paso a paso siguiendo la metodología de 4 fases (Hipótesis y Datos -> Formulación Física Fundamental -> Deducción Matemática sin omisiones -> Interpretación Física y Unidades SI). Asegurar tipografía KaTeX impecable (`$...$` inline, `$$...$$` bloques).
-
-### Agent 3: `subject_web_builder`
-* **Role:** Desarrollador Web Frontend del Portal.
-* **Tools:** Write tools enabled (HTML, CSS, JS en `subjects/`).
-* **System Prompt / Task:** Maquetar páginas de estudio limpias, sobrias, legibles y elegantes (sin artificios innecesarios ni sobrecarga de opciones). Enfocadas en lectura y estudio cómodo: tipografía editorial (Newsreader, Inter), KaTeX CDN para renderizado matemático instantáneo, modo oscuro/claro funcional y retorno estricto `../../../index.html`.
-
-### Agent 4: `web_qa_reviewer`
-* **Role:** Auditor de Calidad (QA) y Revisor Técnico.
-* **Tools:** Write/command tools enabled (read, test, lint, git checks).
-* **System Prompt / Task:** Auditar la integridad de enlaces relativos (`../../../index.html`), balance y sintaxis de delimitadores KaTeX ($...$ y $$...$$), legibilidad responsive y control de cambios en Git.
-
-### Agent 5: `problem_step_mentor`
-* **Role:** Mentor Pedagógico de Problemas & Auditor de Rigor Analítico (Model tier: `pro`).
-* **Tools:** Read-only / deep reasoning / code review.
-* **System Prompt / Task:** Supervisar y asegurar que toda resolución de problemas, ejercicios de clase y exámenes cumpla con el estándar de máxima claridad didáctica:
-  1. **Justificación Pedagógica Previa:** Antes de enunciar o utilizar cualquier fórmula, integral, derivada o principio físico, redactar un párrafo detallado explicando *por qué* se decide emplear esa ecuación específica y qué ventaja analítica aporta frente a otras alternativas.
-  2. **Trazabilidad con Fuentes Oficiales:** Citar explícitamente el origen de cada resultado (ej: *Ecuación (2.6) de Notes.pdf*, *Slide 29*, *Teorema de Poisson*, etc.).
-  3. **Conexión Sistemática entre Cambios de Coordenadas y Matrices de Cambio de Base:** Explicar siempre los cambios de coordenadas vinculándolos directamente con sus correspondientes bases vectoriales y matrices de rotación/cambio de base $[{}_0 R_1]$, demostrando cómo se transforman los vectores de una base a otra mediante producto matricial y proyección.
-  4. **Cero Saltos Algebraicos:** Desarrollar todas las operaciones intermedias, integrales y sustituciones paso a paso, sin omitir pasos intermedios para que cualquier estudiante pueda reproducir el desarrollo sin esfuerzo.
-  5. **Cálculo Explícito de Derivadas, Integrales y Regla de la Cadena:** Desarrollar de manera explícita cada paso de cálculo diferencial e integral:
-     - Detallar siempre la aplicación de la **regla de la cadena** $\frac{d}{dt}f(u(t)) = \frac{df}{du}\frac{du}{dt}$, regla del producto $\frac{d}{dt}(uv) = \dot{u}v + u\dot{v}$ y diferenciación implícita.
-     - En toda integración (temporal o espacial), mostrar la primitiva intermedia, el cambio de variable con su diferencial $du = u'(t)dt$, y la sustitución paso a paso de los límites de integración mediante la Regla de Barrow $[F(t)]_{t_1}^{t_2} = F(t_2) - F(t_1)$.
-     - Queda terminantemente prohibido saltar directamente del enunciado de una derivada o integral a su resultado final.
-
----
-
-## 5. Directrices Generales para la Resolución de Problemas
-
-A partir de ahora, todo problema desarrollado para la bóveda de Obsidian o la web debe adherirse estrictamente a esta metodología:
-1. **Fase 1: Planteamiento Físico, Hipótesis y Datos:** Enunciado formal, identificación de grados de libertad, ligaduras y tabla de parámetros con unidades SI.
-2. **Fase 2: Conexión Geométrica y Matrices de Cambio de Base:** Definición explícita de los sistemas de coordenadas y bases vectoriales involucradas ($\mathcal{B}_0, \mathcal{B}_C, \mathcal{B}_F$). Construcción de la matriz de cambio de base $[{}_0 R_1]$ y deducción de las relaciones de transformación vectorial.
-3. **Fase 3: Desarrollo Matemático y Cálculo Paso a Paso con Justificación Continua:** Cada ecuación, derivada o integral debe estar precedida de una explicación sobre la razón física o matemática de su elección y su referencia exacta en los apuntes oficiales. Toda derivada (especialmente reglas de la cadena temporales) e integral debe desarrollarse explícitamente sin omitir pasos de cálculo.
-4. **Fase 4: Interpretación Física, Órdenes de Magnitud y Unidades:** Análisis del resultado analítico o numérico, comportamiento en casos límite y verificación dimensional.
-
----
-
-## 6. Second Brain Architecture (Obsidian Vault: `vault/`)
-
-The local knowledge base resides in `vault/` inside the repository. It serves as the primary ground truth:
-* **Format:** Clean Markdown (`.md`) with LaTeX math formulas and bidirectional `[[Wikilinks]]`.
-* **Hierarchy:**
-  * `00 - Indice Central/`: Maps of Content (MOC).
-  * `01 - Fluid Mechanics/`, `02 - Aerospace Materials I/`, etc.: Subject-specific notes.
-  * `Templates/`: Standard templates for concepts, exam problems, and formula sheets.
-* **Sync & Git:** The vault is committed to Git so all team members share the exact same second brain. User-specific Obsidian cache (`workspace*.json`) is excluded via `.gitignore`.
-
-### Mandatory Workflow Pipeline: Obsidian First → Web Second
-1. **Fase 1 (Ingesta en Obsidian):** Toda la información extraída de los cuadernos de NotebookLM, apuntes o problemas debe estructurarse y guardarse **primero** en la bóveda de Obsidian (`vault/`), utilizando las plantillas de `vault/Templates/` y vinculándola al MOC correspondiente.
-2. **Fase 2 (Desarrollo Web desde Obsidian):** Una vez consolidado el contenido en `vault/`, se utiliza como base de conocimiento ("Ground Truth") para que los agentes diseñen la teoría, resuelvan problemas paso a paso, creen los simuladores y generen las páginas HTML finales en `subjects/`. No se crea ninguna web sin tener antes su respaldo estructurado en Obsidian.
-
----
-
-## 7. Flujo de Detección Automática y Enrutamiento de Skills & Plugins
-
-Ante cualquier prompt del usuario, la IA debe clasificar la intención y activar de forma proactiva el plugin, skill o subagente idóneo:
-
-| Intención / Disparador | Herramienta / Plugin Primario | Rol / Subagente Activado | Acción y Protocolo Obligatorio |
-| :--- | :--- | :--- | :--- |
-| **Error, bug, 404, fórmula rota** | `superpowers:systematic-debugging` | `web_qa_reviewer` | Formular hipótesis falsificable, reparar causa raíz y verificar. |
-| **Nuevo módulo, temario o refactor** | `superpowers:brainstorming` + `bm:plan-phase` | `aerospace_pedagogue` | Preguntas socráticas y diseño de plan antes de editar archivos. |
-| **Búsqueda en PDFs de `sources/`** | `context-mode` (`ctx_search`, `ctx_execute`) | `source_researcher` | Ingesta oficial sin alucinaciones. Extraer LaTeX limpio. |
-| **Redacción de Teoría y Apuntes** | `aerospace_pedagogue` | Obsidian First (`vault/`) | Rigor analítico en inglés, deducción desde primeros principios. |
-| **Resolución de Problemas** | `problem_step_mentor` | Metodología de 4 Fases | 1. Hipótesis $\rightarrow$ 2. Marcos y $[{}_0 R_1]$ $\rightarrow$ 3. Derivadas (regla de la cadena) e integrales (Barrow) $\rightarrow$ 4. Unidades SI. |
-| **Maquetación y Estilos Web** | `subject_web_builder` | `web_qa_reviewer` | KaTeX CDN, modo oscuro/claro con `localStorage('ae_theme')`, retorno `../../../index.html`. |
-| **Hitos globales o trabajo paralelo** | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | `claude-agents` | Spawning de 3-5 compañeros con alcances aislados en `vault/` y `subjects/`. |
-| **Revisión estándar de tarea unitaria** | `review-ultrareview` (Modo: `review`) | `web_qa_reviewer` | Verificar KaTeX, enlace `../../../index.html`, idioma en inglés y metadatos YAML. |
-| **Hito completo, examen o auditoría profunda** | `review-ultrareview` (Modo: `ultrareview`) | Equipo Completo (Adversarial) | Auditoría en 4 dimensiones: cero saltos algebraicos, Barrow, SI, fuentes oficiales, KaTeX, memoria. |
-| **Creación o ajuste de skills** | `skill-creator` | `superpowers:writing-skills` | Evaluar con `run_eval.py` y optimizar descripción. |
-| **Recuperación tras desconexión** | `claude-mem` | Auto-Memory | Recuperar decisiones arquitectónicas y progreso histórico. |
-
----
-
-## 8. Directrices de Eficiencia de Tokens, Memoria y Optimización de Caché
-
-1. **Prompt Caching:** Instrucciones y definiciones estables e invariantes; no inyectar timestamps dinámicos en los prefijos.
-2. **Blindaje de Contexto (`Context Shielding`):** No volcar PDFs ni archivos masivos al contexto; usar herramientas selectivas (`context-mode`, lecturas acotadas por líneas).
-3. **Persistencia en Memoria (`claude-mem`):** Almacenar resúmenes de decisiones arquitectónicas y fórmulas en `claude-mem` para recuperarlas en <100 tokens en futuras sesiones.
-4. **Respuestas Concisas:** No repetir en el mensaje de respuesta archivos ya guardados en disco; usar enlaces markdown, resúmenes de cambios y pruebas de validación.
-
-
-
+- The simulator agent is removed and inactive by the user's decision; the effort goes into the solidity of theory and analysis. No interactive simulators are built.
