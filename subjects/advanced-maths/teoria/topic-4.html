@@ -339,7 +339,7 @@
           differentiable function $\mathbf x : I \to \mathbb R^n$ with $\mathbf x(t_0) = \mathbf x_0$ and $\dot{\mathbf x}(t) = \mathbf f(\mathbf x(t), t)$ for all $t \in I$.
         </p>
       </div>
-      <p>The role of $\partial f/\partial x$ is now played by the matrix of all partial derivatives, the <strong>Jacobian</strong> <span class="cite">[Eq. (25.3), p. 250]</span>:</p>
+      <p>The role of $\partial f/\partial x$ is now played by the matrix of all partial derivatives, $D\mathbf f$ (usually called the <strong>Jacobian</strong>; Robinson just says "the matrix of partial derivatives") <span class="cite">[Eq. (25.3), p. 250]</span>:</p>
       $$D\mathbf f = \begin{pmatrix} \partial f_1/\partial x_1 & \cdots & \partial f_1/\partial x_n \\ \vdots & & \vdots \\ \partial f_n/\partial x_1 & \cdots & \partial f_n/\partial x_n\end{pmatrix}. \tag{25.3}$$
       <div class="callout thm">
         <div class="callout-title">Theorem 25.2 — existence and uniqueness for systems <span class="cite">[Robinson, p. 250]</span></div>
@@ -548,7 +548,7 @@
         <p>
           For $\begin{pmatrix} \lambda_1 & b \\ 0 & \lambda_2\end{pmatrix}$ the characteristic polynomial is $(\lambda_1 - \lambda)(\lambda_2 - \lambda) - b\cdot 0$, so the eigenvalues are the
           diagonal entries, and $(1, 0)^T$ is an eigenvector for $\lambda_1$. The same holds for lower-triangular matrices (with $(0, 1)^T$ for $\lambda_2$) and,
-          with both eigenvectors along the axes, for diagonal matrices. Robinson describes these as matrices "of the form $[\lambda_1\ b;\ 0\ \lambda_2]$"; the
+          with both eigenvectors along the axes, for diagonal matrices. Robinson simply treats matrices of the form $\begin{pmatrix} \lambda_1 & b \\ 0 & \lambda_2\end{pmatrix}$ without naming them; the
           lecture calls them triangular.
         </p>
       </div>
@@ -681,7 +681,7 @@
       <div class="callout lecture">
         <div class="callout-title">Terminology</div>
         <p>
-          The lecture notes mention a "saddle node"; Robinson says only "saddle point" or "saddle" and reserves "node" for stable and unstable nodes, so
+          The lecture notes mention a "saddle node"; in the phase-portrait chapters Robinson says only "saddle point" or "saddle" and reserves "node" for stable and unstable nodes, so
           the intended term is almost certainly "saddle". (In bifurcation theory, Topic 2, a <em>saddle-node</em> is something else.)
         </p>
       </div>

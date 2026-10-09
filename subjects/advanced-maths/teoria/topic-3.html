@@ -358,7 +358,7 @@
       <p>
         Here $x_1$ stands for $x$ and $x_2$ for $\dot x$: the theorem is Theorem 6.2 applied to the equivalent first-order system
         $\dot x_1 = x_2$, $\dot x_2 = f(x_2, x_1, t)$ (Topic 4, Theorem 25.3). For <em>linear</em> equations with continuous coefficients the
-        solution exists on the whole interval where the coefficients are continuous; with constant coefficients, for all $t \in \mathbb R$
+        solution in fact exists on the whole interval where the coefficients are continuous (a standard result, not stated in the book); with constant coefficients, for all $t \in \mathbb R$
         (Theorem 16.1, p. 150) — no blow-up is possible.
       </p>
 
@@ -562,7 +562,7 @@
         <p>
           For $a_nx^{(n)} + \dots + a_1\dot x + a_0x = 0$ the trial $e^{kt}$ gives $a_nk^n + \dots + a_0 = 0$. Each simple real root contributes
           $e^{kt}$; a root repeated $m$ times contributes $e^{kt}, te^{kt}, \dots, t^{m-1}e^{kt}$; each complex pair $\rho \pm i\omega$ contributes
-          $e^{\rho t}\cos\omega t$, $e^{\rho t}\sin\omega t$ (times $1, t, \dots$ if repeated). Example 16.2: $x^{(4)} - 16x = 0$ has $k^4 = 16$,
+          $e^{\rho t}\cos\omega t$, $e^{\rho t}\sin\omega t$ (times $1, t, \dots$ if repeated). The homogeneous part of Example 16.2 ($x^{(4)} - 16x = 64\sin 2t$): $x^{(4)} - 16x = 0$ has $k^4 = 16$,
           $k = \pm 2, \pm 2i$, so $x = Ae^{2t} + Be^{-2t} + C\cos 2t + D\sin 2t$.
         </p>
       </div>
@@ -784,9 +784,9 @@
       <p>For $\ddot x + \lambda\dot x + \omega^2x = a\cos\alpha t$ with $\lambda > 0$, try $x_p = C\sin\alpha t + D\cos\alpha t$. Matching sines and cosines:</p>
       $$C(\omega^2 - \alpha^2) = D\lambda\alpha, \qquad D(\omega^2 - \alpha^2) + C\lambda\alpha = a.$$
       <p>Solving (substitute $C$ from the first into the second):</p>
-      $$C = \frac{a\lambda\alpha}{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}, \qquad D = \frac{a(\omega^2 - \alpha^2)}{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}. \tag{15.5}$$
+      $$C = \frac{a\lambda\alpha}{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}, \qquad D = \frac{a(\omega^2 - \alpha^2)}{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}, \qquad x_p = C\sin\alpha t + D\cos\alpha t. \tag{15.5}$$
       <p>The complementary function decays (all roots have negative real part), so after a transient only $x_p$ remains, with amplitude</p>
-      $$R(\alpha) = \sqrt{C^2 + D^2} = \frac{a}{\sqrt{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}}. \tag{15.6}$$
+      $$R(\alpha) = \sqrt{C^2 + D^2} = \frac{a}{\sqrt{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}} = a\,F(\alpha), \qquad F(\alpha) = \frac{1}{\sqrt{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}}. \tag{15.6}$$
       <p>
         The denominator is smallest where $\frac{d}{d\alpha}\big[(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2\big] = -4\alpha(\omega^2 - \alpha^2) + 2\lambda^2\alpha = 0$
         (chain rule on the square), i.e. $2\alpha\,(2\alpha^2 - 2\omega^2 + \lambda^2) = 0$. For $\lambda^2 < 2\omega^2$ this gives an interior peak at $\alpha^2 = \omega^2 - \tfrac12\lambda^2$, where
