@@ -306,8 +306,8 @@ SUBJECT_CONFIGS = {
                 "desc": "General Guidelines & Plotting Standards: mechanics_labs.pdf in general-instructions/"
             },
             {
-                "key": "lab-1",
-                "desc": "Lab Session 1: Particle Connected to a Spool (Analytical vs numerical MATLAB simulation & Overleaf report in lab-1/)"
+                "key": "Lab1-Ismael",
+                "desc": "Lab Session 1: Particle Connected to a Spool (Analytical vs numerical MATLAB simulation & Overleaf report in Lab1-Ismael/)"
             },
             {
                 "key": "lab-2",
