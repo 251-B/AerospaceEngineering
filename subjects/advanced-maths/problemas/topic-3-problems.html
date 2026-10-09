@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chapter 3 Problem Set: Second-Order Linear ODEs & Oscillations ó Advanced Mathematics | UC3M</title>
+  <title>Chapter 3 Problem Set: Second-Order Linear ODEs & Oscillations ‚Äî Advanced Mathematics | UC3M</title>
   
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -645,6 +645,7 @@
       .pill-nav-inner { padding: 0 16px; }
     }
   </style>
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -659,14 +660,14 @@
     <div class="header-inner">
       <div class="brand-area">
         <a href="../../../index.html" class="back-link">
-          <span>?</span>
+          <span>‚Üê</span>
           <span>Main Portal</span>
         </a>
         <a href="index.html" class="back-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
           <span>Problems Index</span>
         </a>
-        <span class="brand-badge">ProblemsCh3 ï 11 Solved</span>
+        <span class="brand-badge">ProblemsCh3 ‚Ä¢ 11 Solved</span>
       </div>
       <div class="nav-actions">
         <a href="../teoria/topic-3.html" class="back-link">
@@ -703,8 +704,8 @@
 
     <header class="article-header">
       <div class="article-meta-top">
-        <span class="topic-pill">Problems Sheet 3 ï Official Solutions</span>
-        <span class="course-tag">Department of Mathematics ï UC3M Aerospace Engineering</span>
+        <span class="topic-pill">Problems Sheet 3 ‚Ä¢ Official Solutions</span>
+        <span class="course-tag">Department of Mathematics ‚Ä¢ UC3M Aerospace Engineering</span>
       </div>
       <h1 class="article-title">Chapter 3 Problem Set: Second-Order Linear ODEs & Oscillations</h1>
       <p class="article-lead">
@@ -715,7 +716,7 @@
         and Euler-Cauchy differential equations.
       </p>
       <div class="source-box">
-        <span>?? Source Document:</span>
+        <span>Source Document:</span>
         <code>sources/cuatrimestre-1/04-advanced-maths/problemas/ProblemsCh3.pdf (probls_ch3_2627.pdf)</code>
       </div>
     </header>
@@ -729,7 +730,7 @@
           <div class="problem-num-badge">Exercise 1</div>
           <h2 class="problem-title">Linear Independence of Canonical Solution Pairs via Wronskian</h2>
         </div>
-        <span class="problem-meta-badge">Wronskian Determinant ï Fundamental Bases</span>
+        <span class="problem-meta-badge">Wronskian Determinant ‚Ä¢ Fundamental Bases</span>
       </div>
 
       <!-- Phase 1 -->
@@ -798,7 +799,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Master Results</div>
         <div class="result-box">
-          <div class="result-box-title">? Master Wronskian Summary</div>
+          <div class="result-box-title">Master Wronskian Summary</div>
           <p><strong>(i) Distinct Exponentials:</strong> $W[e^{k_1 t}, e^{k_2 t}](t) = \mathbf{(k_2 - k_1) e^{(k_1 + k_2)t}} \neq 0$</p>
           <p><strong>(ii) Critical Damping Secular Mode:</strong> $W[e^{kt}, t e^{kt}](t) = \mathbf{e^{2kt}} > 0$</p>
           <p><strong>(iii) Damped Harmonic Oscillations:</strong> $W[e^{\rho t}\sin\omega t, e^{\rho t}\cos\omega t](t) = \mathbf{-\omega e^{2\rho t}} \neq 0$</p>
@@ -819,7 +820,7 @@
           <div class="problem-num-badge">Exercise 2</div>
           <h2 class="problem-title">Abel's Identity and the Wronskian Dichotomy</h2>
         </div>
-        <span class="problem-meta-badge">Abel's Formula ï Wronskian Dichotomy</span>
+        <span class="problem-meta-badge">Abel's Formula ‚Ä¢ Wronskian Dichotomy</span>
       </div>
 
       <!-- Phase 1 -->
@@ -861,9 +862,12 @@
         $$ \mathbf{\frac{dW(t)}{dt} = -p_1(t) W(t)} \tag{2} $$
 
         <p><strong>Step 3: Integrating to Abel's Formula</strong></p>
-        <p>Equation (2) is a separable first-order linear ODE. Integrating from $t_0$ to $t$:</p>
-        $$ \int_{W(t_0)}^{W(t)} \frac{dW}{W} = -\int_{t_0}^t p_1(s)\,ds \implies \ln\left| \frac{W(t)}{W(t_0)} \right| = -\int_{t_0}^t p_1(s)\,ds $$
-        $$ \mathbf{W(t) = W(t_0) \exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} \tag{3} $$
+        <p>Equation (2) is a first-order linear ODE. We do not divide by $W$ (it may vanish, and the dichotomy is deduced afterwards), so we use the integrating factor $\mu(t) = \exp\left( \int_{t_0}^t p_1(s)\,ds \right)$. By the Fundamental Theorem of Calculus and the chain rule $\frac{d}{dt}e^{u} = e^{u}u'$ with $u(t) = \int_{t_0}^t p_1(s)\,ds$:</p>
+        $$ \mu'(t) = p_1(t)\mu(t), \qquad \mu(t_0) = 1, \qquad \mu(t) > 0 $$
+        <p>Using (2) in the product rule:</p>
+        $$ \frac{d}{dt}\left[ \mu W \right] = \mu' W + \mu W' = p_1 \mu W - p_1 \mu W = 0 $$
+        <p>Integrating from $t_0$ to $t$ (Barrow's rule): $\mu(t)W(t) - \mu(t_0)W(t_0) = \int_{t_0}^t 0\,ds = 0$, hence $\mu(t)W(t) = W(t_0)$ and, dividing by $\mu(t) > 0$, for every value of $W(t_0)$ (including $0$):</p>
+        $$ \mathbf{W(t) = \frac{W(t_0)}{\mu(t)} = W(t_0) \exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} \tag{3} $$
 
         <p><strong>Step 4: Deduction of the Wronskian Dichotomy</strong></p>
         <p>Because $p_1(s)$ is continuous on $I$, the integral $\int_{t_0}^t p_1(s)\,ds$ is finite for all $t \in I$.
@@ -879,7 +883,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Master Results</div>
         <div class="result-box">
-          <div class="result-box-title">? Abel's Identity & Wronskian Dichotomy</div>
+          <div class="result-box-title">Abel's Identity & Wronskian Dichotomy</div>
           $$ \boxed{\frac{dW}{dt} = -p_1(t)W(t) \implies W(t) = W(t_0)\exp\left( -\int_{t_0}^t p_1(s)\,ds \right)} $$
           <p><strong>Conclusion:</strong> For any two solutions of a linear homogeneous second-order ODE with continuous coefficients, the Wronskian is <em>either identically zero everywhere on $I$, or non-zero at every point of $I$</em>. It can never cross zero isolatedly.</p>
         </div>
@@ -895,7 +899,7 @@
           <div class="problem-num-badge">Exercise 3</div>
           <h2 class="problem-title">Peano's Counterexample: Wronskian Vanishing vs Linear Independence</h2>
         </div>
-        <span class="problem-meta-badge">Peano Counterexample ï Rigorous Analysis</span>
+        <span class="problem-meta-badge">Peano Counterexample ‚Ä¢ Rigorous Analysis</span>
       </div>
 
       <!-- Phase 1 -->
@@ -959,7 +963,7 @@
           <p>
             If $f_1$ and $f_2$ were solutions of a regular second-order ODE $x'' + p_1(t)x' + p_2(t)x = 0$, $W \equiv 0$ would force linear dependence.
             However, constructing the ODE satisfied by $f_1$ and $f_2$ on $t > 0$ gives $t^2 x'' - 6x = 0 \iff x'' - \frac{6}{t^2}x = 0$.
-            The coefficient $p_2(t) = -6/t^2$ is <strong>singular at $t = 0$</strong>. Because the coefficient blows up at $t = 0$, the ODE is not regular, Picard-Lindelˆf existence-uniqueness breaks down, and Abel's theorem does not apply across $t = 0$.
+            The coefficient $p_2(t) = -6/t^2$ is <strong>singular at $t = 0$</strong>. Because the coefficient blows up at $t = 0$, the ODE is not regular, Picard-Lindel√∂f existence-uniqueness breaks down, and Abel's theorem does not apply across $t = 0$.
           </p>
         </div>
       </div>
@@ -974,7 +978,7 @@
           <div class="problem-num-badge">Exercise 4</div>
           <h2 class="problem-title">15 Second-Order Homogeneous Linear ODEs with Initial Conditions</h2>
         </div>
-        <span class="problem-meta-badge">Characteristic Polynomial ï 15 IVPs Solved</span>
+        <span class="problem-meta-badge">Characteristic Polynomial ‚Ä¢ 15 IVPs Solved</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1204,7 +1208,7 @@
           <div class="problem-num-badge">Exercise 5</div>
           <h2 class="problem-title">Saddle Point Invariant Manifold and Asymptotic Decay</h2>
         </div>
-        <span class="problem-meta-badge">Phase Plane ï Stable Separatrix</span>
+        <span class="problem-meta-badge">Phase Plane ‚Ä¢ Stable Separatrix</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1254,7 +1258,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Dynamical Systems</div>
         <div class="result-box">
-          <div class="result-box-title">? Asymptotic Decay Condition</div>
+          <div class="result-box-title">Asymptotic Decay Condition</div>
           $$ \boxed{y_0 = -k_2 x_0 \iff \dot{x}(0) = -k_2 x(0)} $$
           <p>When this relationship holds, $A = 0$ and $B = x_0$, giving the purely decaying trajectory $\mathbf{x(t) = x_0 e^{-k_2 t}}$.</p>
         </div>
@@ -1274,7 +1278,7 @@
           <div class="problem-num-badge">Exercise 6</div>
           <h2 class="problem-title">Amplitude-Phase Transformation for Harmonic Oscillations</h2>
         </div>
-        <span class="problem-meta-badge">Polar Representation ï Phasor Geometry</span>
+        <span class="problem-meta-badge">Polar Representation ‚Ä¢ Phasor Geometry</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1319,7 +1323,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Engineering Relevance</div>
         <div class="result-box">
-          <div class="result-box-title">? Polar Harmonic Formulas</div>
+          <div class="result-box-title">Polar Harmonic Formulas</div>
           $$ \boxed{x(t) = M\cos(\omega t - \phi), \qquad M = \sqrt{A^2 + B^2}, \qquad \phi = \arctan(B/A)} $$
         </div>
         <div class="note-box">
@@ -1338,7 +1342,7 @@
           <div class="problem-num-badge">Exercise 7</div>
           <h2 class="problem-title">Simple Pendulum Energy Conservation and Small Oscillations</h2>
         </div>
-        <span class="problem-meta-badge">Energy First Integral ï Pendulum Isochronism</span>
+        <span class="problem-meta-badge">Energy First Integral ‚Ä¢ Pendulum Isochronism</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1397,7 +1401,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Conceptual Answers & Master Results</div>
         <div class="result-box">
-          <div class="result-box-title">? Natural Frequency & Answers to Questions</div>
+          <div class="result-box-title">Natural Frequency & Answers to Questions</div>
           $$ \boxed{\omega = \sqrt{\frac{g}{L}} \quad [\text{rad/s}], \qquad T_0 = 2\pi\sqrt{\frac{L}{g}} \quad [\text{s}]} $$
           <p><strong>1. Does frequency depend on mass $m$?</strong> <strong>NO.</strong> Mass $m$ cancels identically from both terms in the equation of motion.</p>
           <p><strong>2. Does frequency depend on amplitude $M$?</strong> In the <em>linear small-amplitude approximation</em>, <strong>NO</strong> (Galileo's isochronism). In the <em>exact nonlinear pendulum</em>, the period lengthens with amplitude according to complete elliptic integrals: $T(M) \approx T_0(1 + \frac{1}{16}M^2 + \dots)$.</p>
@@ -1414,7 +1418,7 @@
           <div class="problem-num-badge">Exercise 8</div>
           <h2 class="problem-title">Physical Regimes of the Damped Harmonic Oscillator</h2>
         </div>
-        <span class="problem-meta-badge">Mechanical Damping ï Under/Critical/Overdamped</span>
+        <span class="problem-meta-badge">Mechanical Damping ‚Ä¢ Under/Critical/Overdamped</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1521,7 +1525,7 @@
           <div class="problem-num-badge">Exercise 9</div>
           <h2 class="problem-title">Falling Chain from Table and Hyperbolic Motion</h2>
         </div>
-        <span class="problem-meta-badge">Hyperbolic Motion ï Variable Hanging Mass</span>
+        <span class="problem-meta-badge">Hyperbolic Motion ‚Ä¢ Variable Hanging Mass</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1531,7 +1535,7 @@
           <p>
             A chain of length $\ell = 5\text{ m}$ and mass $m$, with uniform mass density, is sitting on a table.
             If the chain is initially at rest and $1\text{ m}$ of the chain hangs from the edge of the table,
-            apply Newtonís second law to calculate the time $t_*$ when the whole chain falls off the table, neglecting any friction.
+            apply Newton's second law to calculate the time $t_*$ when the whole chain falls off the table, neglecting any friction.
           </p>
           <p style="margin-top: 6px;"><em>Hint:</em> Formulate a second order ODE for the variable $x(t)$, which is the length of the portion of chain that is overhanging, as a function of time.</p>
         </div>
@@ -1580,7 +1584,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Interpretation & Conservation Check</div>
         <div class="result-box">
-          <div class="result-box-title">? Master Fall Time & Detachment Velocity</div>
+          <div class="result-box-title">Master Fall Time & Detachment Velocity</div>
           $$ \boxed{t_* = \frac{\operatorname{arcosh}(5)}{1.4} \approx 1.637\text{ s}} $$
           <p><strong>Detachment velocity:</strong> $v_* = \dot{x}(t_*) = x_0 \alpha \sinh(\alpha t_*) = 1 \times 1.4 \times \sqrt{5^2 - 1} = 1.4\sqrt{24} \approx \mathbf{6.859\text{ m/s}}$.</p>
           <p><strong>Energy Check:</strong> $\Delta E_p = mg\frac{\ell}{2} - mg\frac{x_0^2}{2\ell} = \frac{mg}{2\ell}(\ell^2 - x_0^2) = \frac{1}{2}m v_*^2 \implies v_* = \sqrt{\frac{g}{\ell}(\ell^2 - x_0^2)} = \sqrt{1.96(24)} \approx 6.859\text{ m/s}$. Exact match!</p>
@@ -1597,7 +1601,7 @@
           <div class="problem-num-badge">Exercise 10</div>
           <h2 class="problem-title">Parachutist with Linear Aerodynamic Drag and Terminal Speed</h2>
         </div>
-        <span class="problem-meta-badge">Linear Drag ï Terminal Velocity</span>
+        <span class="problem-meta-badge">Linear Drag ‚Ä¢ Terminal Velocity</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1655,7 +1659,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Master Summary & Flight Mechanics</div>
         <div class="result-box">
-          <div class="result-box-title">? Terminal Velocity & Velocity Profile</div>
+          <div class="result-box-title">Terminal Velocity & Velocity Profile</div>
           $$ \boxed{\frac{dv}{dt} + \frac{c}{m}v = g \implies v(t) = \frac{mg}{c}\left(1 - e^{-(c/m)t}\right)} $$
           $$ \boxed{v_\infty = \frac{mg}{c}} $$
         </div>
@@ -1671,7 +1675,7 @@
           <div class="problem-num-badge">Exercise 11</div>
           <h2 class="problem-title">Euler-Cauchy Equation via Exponential Transformation</h2>
         </div>
-        <span class="problem-meta-badge">Euler-Cauchy ï Coordinate Mapping ï Resonance</span>
+        <span class="problem-meta-badge">Euler-Cauchy ‚Ä¢ Coordinate Mapping ‚Ä¢ Resonance</span>
       </div>
 
       <!-- Phase 1 -->
@@ -1686,6 +1690,10 @@
             </li>
             <li>Take $p = 3, \; q = -3$ and $g(x) = 4x$, make the previous transformation and compute the general solution.</li>
           </ol>
+          <div class="note-box">
+            <div class="note-box-title">Erratum in the printed sheet</div>
+            <p>In ProblemsCh3.pdf, Exercise 11 (i), the transformed equation is printed as $\frac{d^2y}{dz^2} + (p-1)\frac{dy}{dz} + y = g(e^z)$, i.e. with "$+\,y$". The correct coefficient is $q$ (the term $q\,y(x)$ of the original equation is unchanged by $x = e^z$), so the equation above, with "$+\,q\,y$", is the one derived in Phase 3 and used in part 2.</p>
+          </div>
         </div>
       </div>
 
@@ -1744,7 +1752,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Master Verification & Aerospace Application</div>
         <div class="result-box">
-          <div class="result-box-title">? Master Solution & ODE Verification</div>
+          <div class="result-box-title">Master Solution & ODE Verification</div>
           $$ \boxed{y(x) = c_1 x + c_2 x^{-3} + x\ln x, \quad x > 0} $$
           <p><strong>Direct Verification:</strong></p>
           <p>$y'(x) = c_1 - 3c_2 x^{-4} + \ln x + 1$</p>
@@ -1757,21 +1765,21 @@
     <!-- ARTICLE BOTTOM NAVIGATION -->
     <nav class="article-nav" aria-label="Topic Navigation">
       <a href="topic-2-problems.html" class="nav-btn">
-        <span class="nav-btn-label">? Previous Problem Set</span>
+        <span class="nav-btn-label">‚Üê Previous Problem Set</span>
         <span class="nav-btn-title">Chapter 2: First-Order ODEs</span>
       </a>
       <a href="../teoria/topic-3.html" class="nav-btn" style="text-align: right;">
-        <span class="nav-btn-label">Review Foundations ?</span>
+        <span class="nav-btn-label">Review Foundations ‚Üí</span>
         <span class="nav-btn-title">Topic 3 Theory & Lecture Guide</span>
       </a>
     </nav>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-      <p>Bachelor in Aerospace Engineering ó Universidad Carlos III de Madrid (UC3M)</p>
-      <p>Advanced Mathematics ï Chapter 3 Complete Problem Solutions ï Grounded in ProblemsCh3.pdf</p>
+      <p>Bachelor in Aerospace Engineering ‚Äî Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics ‚Ä¢ Chapter 3 Complete Problem Solutions ‚Ä¢ Grounded in ProblemsCh3.pdf</p>
       <p style="margin-top: 8px;">
-        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">? Return to Main Aerospace Study Portal</a>
+        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">‚Üê Return to Main Aerospace Study Portal</a>
       </p>
     </footer>
 
@@ -1782,41 +1790,10 @@
   </main>
 
   <!-- ============================================
-       THEME CONTROLLER & PILL HIGHLIGHT JAVASCRIPT
+       PILL HIGHLIGHT JAVASCRIPT
        ============================================ -->
   <script>
     (function () {
-      // Theme controller
-      const themeToggle = document.getElementById('themeToggle');
-      const root = document.documentElement;
-
-      function getInitialTheme() {
-        try {
-          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      }
-
-      function applyTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        try {
-          localStorage.setItem('ae_theme', theme);
-          localStorage.setItem('aero-portal-theme', theme);
-        } catch (e) {}
-      }
-
-      const currentTheme = getInitialTheme();
-      applyTheme(currentTheme);
-
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          const current = root.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-
       // Active pill highlight on scroll
       const pills = document.querySelectorAll('.nav-pill');
       const cards = document.querySelectorAll('.problem-card');

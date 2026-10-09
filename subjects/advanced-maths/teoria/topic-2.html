@@ -614,6 +614,7 @@
     </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -714,6 +715,12 @@
             <span>Qualitative Analysis of Autonomous ODEs & Phase Lines</span>
           </a>
         </li>
+        <li>
+          <a href="#sec-7">
+            <span class="toc-num">07.</span>
+            <span>Worked Examples, One per Method</span>
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -760,7 +767,7 @@
         </p>
         <ol>
           <li><strong>Equilibrium roots:</strong> First determine all constant roots $y^*$ such that $h(y^*) = 0$. The constant function $y(x) \equiv y^*$ is an exact solution for all $x$.</li>
-          <li><strong>Non-equilibrium states ($h(y) \neq 0$):</strong> Divide equation (1.3) by $h(y(x))$:
+          <li><strong>Non-equilibrium states ($h(y) \neq 0$):</strong> (here $h$ is continuous, so $y(x)$ stays in an interval where $h\neq 0$ and $H'=1/h$ is defined there) Divide equation (1.3) by $h(y(x))$:
             $$ \frac{1}{h(y(x))} \frac{dy}{dx} = g(x) $$
           </li>
           <li>Let $H(y)$ be an antiderivative of $\frac{1}{h(y)}$, so that $H'(y) = \frac{1}{h(y)}$. By the chain rule:
@@ -993,7 +1000,7 @@
           </li>
         </ol>
         <p>
-          Equation (4.4) is a standard <strong>linear first-order ODE</strong> for $z(x)$, solved via integrating factor. The original solution is recovered via $y(x) = [z(x)]^{1/(1-\alpha)}$.
+          Equation (4.4) is a standard <strong>linear first-order ODE</strong> for $z(x)$, solved via integrating factor. For $\alpha>0$ the equilibrium $y\equiv0$ is lost when dividing by $y^\alpha$ and must be listed separately; for non-integer $\alpha$ take $y>0$. The original solution is recovered via $y(x) = [z(x)]^{1/(1-\alpha)}$.
         </p>
       </div>
 
@@ -1031,8 +1038,16 @@
       $$ |f(t, y_1) - f(t, y_2)| \le L |y_1 - y_2| \quad \forall (t, y_1), (t, y_2) \in D \tag{5.2} $$
       <p>
         A continuous bounded partial derivative $\left|\frac{\partial f}{\partial y}\right| \le L$ is a sufficient condition for (5.2). 
-        Under continuity and Lipschitz conditions on a rectangle $R$, Picard-Lindelöf guarantees the <strong>existence of a unique solution</strong> on $I = [t_0 - h, t_0 + h]$.
+        Under continuity and Lipschitz conditions on a rectangle $R = \{|t-t_0|\le a,\ |y-y_0|\le b\}$ with $|f|\le M$, Picard-Lindelöf guarantees the <strong>existence of a unique solution</strong> on $I = [t_0 - h, t_0 + h]$ with $h = \min(a, b/M)$.
       </p>
+      <div class="note-box">
+        <div class="note-box-title">Official form (Book ODE's, Definition 6.1 and Theorem 6.2, p. 40; Section 6.3, pp. 41-42)</div>
+        <p>
+          A <strong>solution</strong> on an open interval $I \ni t_0$ is a differentiable function $x(t)$ on $I$ with $x(t_0)=x_0$ and $\dot x = f(x,t)$ for all $t\in I$.
+          <strong>Theorem 6.2:</strong> if $f(x,t)$ and $\partial f/\partial x$ are continuous for $a<x<b$, $c<t<d$, then for every $x_0\in(a,b)$, $t_0\in(c,d)$ the IVP has a unique solution on <em>some</em> open interval $I\ni t_0$; the theorem says nothing about the size of $I$.
+          It suffices that $f$ be Lipschitz in $x$ (footnote 1, p. 40). The <strong>maximal interval of existence</strong> is the largest open interval containing $t_0$ on which the solution is defined; for $\dot x=x^2$ it is $(-\infty, x_0^{-1})$ when $x_0>0$ (see Example F in Section 7).
+        </p>
+      </div>
 
       <h3 class="sub-title">5.2 Analytical Dissection of Pathologies</h3>
 
@@ -1077,8 +1092,9 @@
           <li>Define the difference function $w(t) \equiv y_1(t) - y_2(t)$, satisfying $w(t_0) = 0$.</li>
           <li>Construct the Lyapunov energy function $E(t) \equiv [w(t)]^2 \ge 0$.</li>
           <li>Differentiate with respect to $t$: $\dot{E}(t) = 2 w(t) \dot{w}(t) = 2 w(t) [f(t, y_1) - f(t, y_2)]$.</li>
-          <li>If $\dot{E}(t) \le 0$ for all $t \ge t_0$, then $0 \le E(t) \le E(t_0) = 0 \implies E(t) \equiv 0 \implies w(t) \equiv 0$.</li>
-          <li>Therefore $y_1(t) \equiv y_2(t)$, proving unconditional uniqueness.</li>
+          <li>If $\dot{E}(t) \le 0$ for all $t \ge t_0$, then $0 \le E(t) \le E(t_0) = 0 \implies E(t) \equiv 0 \implies w(t) \equiv 0$ for $t \ge t_0$. This sign condition is <em>not</em> automatic: for $y' + ay = 0$ one gets $\dot{E} = -2aE$, which is $\le 0$ only if $a \ge 0$, and only forward in time.</li>
+          <li>Without any sign assumption, use the exact relation $\dot{E} = -2aE$ with the factor $e^{2a(t-t_0)}$: by the product and chain rules, $\frac{d}{dt}\left[ E(t)\, e^{2a(t-t_0)} \right] = \left( \dot{E} + 2aE \right) e^{2a(t-t_0)} = 0$. Hence $E(t)\, e^{2a(t-t_0)} = E(t_0) = 0$, so $E(t) \equiv 0$ for all $t$ and every sign of $a$ (the formula $E = E(t_0)e^{-2a(t-t_0)}$ is a conclusion of this step, not an assumption).</li>
+          <li>Therefore $w(t) \equiv 0$ and $y_1(t) \equiv y_2(t)$: uniqueness holds for this linear IVP. For a general $f(t, y)$ the same argument proves uniqueness only when $\dot{E}$ is controlled in this way (e.g. $\dot{E} \le 0$ for $t \ge t_0$, or $\dot{E} \le 2LE$ with a Lipschitz constant $L$).</li>
         </ol>
       </div>
     </section>
@@ -1104,7 +1120,7 @@
       <ul>
         <li><strong>$f'(x^*) < 0$:</strong> Asymptotically Stable Attractor (Sink). Trajectories converge to $x^*$.</li>
         <li><strong>$f'(x^*) > 0$:</strong> Unstable Repellor (Source). Trajectories diverge away from $x^*$.</li>
-        <li><strong>$f'(x^*) = 0$:</strong> Non-hyperbolic / Semistable. Higher-order Taylor derivatives dictate flow.</li>
+        <li><strong>$f'(x^*) = 0$:</strong> Non-hyperbolic: the linearization is inconclusive and higher-order terms decide the flow. All three behaviours occur at $x^* = 0$: $x' = -x^3$ is asymptotically stable, $x' = x^3$ is unstable and $x' = x^2$ is semistable (attracting from one side only).</li>
       </ul>
 
       <h3 class="sub-title">6.2 The No-Crossing Theorem and Invariant Confinement Corridors</h3>
@@ -1114,7 +1130,8 @@
           By Picard-Lindelöf uniqueness, two distinct solutions $y_1(t)$ and $y_2(t)$ of a smooth ODE $y' = f(t, y)$ 
           <strong>can never intersect or touch in the $(t, y)$ plane</strong>:
         </p>
-        $$ y_1(t_0) < y_2(t_0) \implies y_1(t) < y_2(t) \quad \forall t \text{ in their common domain} $$
+        $$ y_1(t_0) < y_2(t_0) \implies y_1(t) < y_2(t) \quad \forall t \text{ in their common interval of existence} $$
+        <p>Hypotheses: $f$ and $\partial f/\partial y$ continuous on the region swept by both graphs, so uniqueness holds at every point; continuity of $y_2-y_1$ plus the intermediate value theorem then forbids a sign change.</p>
         <p>
           <em>Consequence:</em> Any known particular solution acts as an impenetrable barrier. If $y_1(t) = -t-1$ and $y_2(t) = t^2+1$ 
           are solutions, a third solution starting at $y(0) = 0$ is forever trapped inside the invariant corridor:
@@ -1144,6 +1161,75 @@
       </ul>
     </section>
 
+    <!-- ========================================================
+         SECTION 7: WORKED EXAMPLES, ONE PER METHOD
+         ======================================================== -->
+    <section class="theory-section" id="sec-7">
+      <div class="section-header">
+        <div class="section-tag">Section 07</div>
+        <h2 class="section-title">7. Worked Examples, One per Method</h2>
+      </div>
+
+      <p>
+        Examples B to F come from the official notes (<em>Book ODE's</em>, J.C. Robinson; printed page cited, PDF page = printed page + 16).
+        Example A is an <strong>illustrative example</strong>. Each closed form was verified with sympy (zero residual in the ODE and in the initial datum) and with an RK4 integration.
+      </p>
+
+      <div class="result-box">
+        <div class="result-box-title">Example A (illustrative example): Separable, $y' = x\,e^{-y}$, $y(0)=0$</div>
+        <p>Here $g(x)=x$ and $h(y)=e^{-y}>0$: there are no equilibria, so dividing is legitimate. Multiply by $e^{y}$ and use the chain rule $\frac{d}{dx}e^{y(x)} = e^{y(x)}\,y'(x)$:</p>
+        $$ \frac{d}{dx}\left[e^{y(x)}\right] = x \;\Longrightarrow\; \int_{0}^{y(x)} e^{u}\,du = \int_0^x s\,ds \;\Longrightarrow\; \left[e^{u}\right]_{0}^{y(x)} = \left[\frac{s^2}{2}\right]_0^x $$
+        $$ e^{y} - 1 = \frac{x^2}{2} \;\Longrightarrow\; \mathbf{y(x) = \ln\left(1 + \frac{x^2}{2}\right)}, \quad x \in \mathbb{R} $$
+        <p>The argument of the logarithm is at least $1$, so the solution is global.</p>
+      </div>
+
+      <div class="result-box">
+        <div class="result-box-title">Example B: Linear with integrating factor, $x' + 3x = t$, $x(0) = \frac{8}{9}$ (Book, Example 9.1, p. 78)</div>
+        <p>With $p(t)=3$: $\mu(t) = \exp\left(\int_0^t 3\,ds\right) = e^{3t}$, so $\mu(0)=1$. By the product rule, $\frac{d}{dt}\left[x e^{3t}\right] = e^{3t}x' + 3e^{3t}x = t e^{3t}$. Integrate over $[0,t]$ (Barrow). By parts ($u=s$, $dv=e^{3s}ds$): $\int s e^{3s}ds = \frac{s e^{3s}}{3} - \frac{e^{3s}}{9}$.</p>
+        $$ x(t)e^{3t} - x(0) = \left[\frac{s e^{3s}}{3} - \frac{e^{3s}}{9}\right]_{0}^{t} = \frac{t e^{3t}}{3} - \frac{e^{3t}}{9} + \frac{1}{9} $$
+        <p>With $x(0)=\frac{8}{9}$ we get $x e^{3t} = \frac{t e^{3t}}{3} - \frac{e^{3t}}{9} + 1$, hence</p>
+        $$ \mathbf{x(t) = e^{-3t} + \frac{t}{3} - \frac{1}{9}} $$
+        <p>The solution is global on $\mathbb{R}$ (continuous coefficients). The term $e^{-3t}$ is the transient and $\frac{t}{3}-\frac{1}{9}$ is the forced response.</p>
+      </div>
+
+      <div class="result-box">
+        <div class="result-box-title">Example C: Exact equation, $\left(x^3 + \frac{y}{x}\right) + \left(y^2 + \ln x\right)y' = 0$, $x>0$ (Book, Example 10.1, p. 91)</div>
+        <p>Let $M = x^3 + \frac{y}{x}$ and $N = y^2 + \ln x$. <strong>Exactness check:</strong> $\frac{\partial M}{\partial y} = \frac{1}{x} = \frac{\partial N}{\partial x}$ on the simply connected domain $x>0$.</p>
+        <p><strong>Potential function:</strong> $F = \int M\,dx = \frac{x^4}{4} + y\ln x + C(y)$. Then $F_y = \ln x + C'(y)$ must equal $N = y^2 + \ln x$, so $C'(y) = y^2$ and $C(y) = \frac{y^3}{3}$.</p>
+        $$ \mathbf{F(x,y) = \frac{x^4}{4} + y\ln x + \frac{y^3}{3} = c} $$
+        <p>Check: $dF = \left(x^3 + \frac{y}{x}\right)dx + \left(\ln x + y^2\right)dy$. The solution is implicit (it cannot be solved for $y$). With $y(1)=1$: $c = \frac14 + 0 + \frac13 = \frac{7}{12}$.</p>
+      </div>
+
+      <div class="result-box">
+        <div class="result-box-title">Example D: Bernoulli, $y' - 6xy = 2xy^2$, $y(0)=\frac12$ (Book, Example 10.4, p. 96; initial datum added)</div>
+        <p>Here $\alpha = 2$, $a(x)=6x$, $b(x)=2x$. The equilibrium $y\equiv 0$ is lost when dividing by $y^2$ and must be listed separately. Divide by $y^2$ and set $u = y^{1-\alpha} = y^{-1}$; by the chain rule $u' = -y^{-2}y'$:</p>
+        $$ y^{-2}y' - 6x\,y^{-1} = 2x \;\Longrightarrow\; -u' - 6xu = 2x \;\Longrightarrow\; u' + 6x\,u = -2x, \quad u(0)=2. $$
+        <p>Integrating factor $\mu(x) = \exp\left(\int_0^x 6s\,ds\right) = e^{3x^2}$, so $\frac{d}{dx}\left[u e^{3x^2}\right] = -2x e^{3x^2}$. Integrate with Barrow, substituting $w = 3s^2$, $dw = 6s\,ds$ (so $2s\,ds = \frac{dw}{3}$, limits $0 \to 3x^2$):</p>
+        $$ u e^{3x^2} - 2 = -\frac13\int_0^{3x^2} e^{w}\,dw = -\frac13\left(e^{3x^2} - 1\right) \;\Longrightarrow\; u = \frac{7}{3}e^{-3x^2} - \frac13 $$
+        $$ \mathbf{y(x) = \frac{3}{7e^{-3x^2} - 1}} $$
+        <p>The denominator vanishes at $e^{-3x^2} = \frac17$, i.e. $x_* = \pm\sqrt{\frac{\ln 7}{3}} \approx \pm 0.805$. The maximal interval of existence is $(-x_*, x_*)$.</p>
+      </div>
+
+      <div class="result-box">
+        <div class="result-box-title">Example E: Autonomous phase line, $p' = kp\left(1 - \frac pM\right)$, $k,M>0$ (Book, Section 7.5.1, p. 51)</div>
+        <p>Equilibria: $f(p)=0 \iff p=0$ or $p=M$. Sign of $f$: $f<0$ on $(-\infty,0)$, $f>0$ on $(0,M)$, $f<0$ on $(M,\infty)$. Since $p$ increases where $f>0$ and decreases where $f<0$, the flow leaves $0$ on both sides (<strong>unstable</strong>) and enters $M$ from both sides (<strong>stable</strong>).</p>
+        <p>Analytic confirmation: $f'(p) = k - \frac{2kp}{M}$, so $f'(0)=k>0$ (unstable) and $f'(M) = -k<0$ (stable). If $f'(p^*)=0$ the test is inconclusive and the sign of $f$ on each side decides (for $x'=x^2$ the origin is semistable).</p>
+      </div>
+
+      <div class="warning-box">
+        <div class="warning-box-title">Example F: Finite-time blow-up and maximal interval, $x' = x^2$, $x(0)=x_0>0$ (Book, Example 8.1, p. 60; Section 6.3, pp. 41-42)</div>
+        <p>$f=x^2$ and $f_x=2x$ are continuous, so a unique local solution exists. Separate and apply Barrow:</p>
+        $$ \int_{x_0}^{x(t)} \frac{du}{u^2} = \int_0^t ds \;\Longrightarrow\; -\frac{1}{x(t)} + \frac{1}{x_0} = t \;\Longrightarrow\; \mathbf{x(t) = \frac{1}{x_0^{-1} - t}} $$
+        <p>The denominator vanishes at $T = x_0^{-1}$; equivalently $T = \int_{x_0}^{\infty}\frac{du}{u^2} = \frac{1}{x_0}$. As $t\to T^-$, $x\to+\infty$; as $t\to-\infty$, $x\to 0^+$. Hence the <strong>maximal interval of existence</strong> is $(-\infty, x_0^{-1})$. For $x_0<0$ it is $(x_0^{-1}, +\infty)$, and only $x_0=0$ gives a solution on all of $\mathbb{R}$.</p>
+      </div>
+
+      <div class="note-box">
+        <div class="note-box-title">Numerical verification (RK4, 2000 steps, against the closed forms)</div>
+        <p>A: $y(2)=1.0986122887$ vs $\ln 3$. B: $x(2)$ agrees to $1.5\times10^{-14}$. C: $F(1.5,y_{RK4})=0.58333333$ vs $c=\frac{7}{12}$. D: $y(0.5)=1.30063487$ in both. E ($k=1$, $M=2$): $p(20)=2.0000000$ from $p_0=0.5$ and from $p_0=3$. F ($x_0=2$): $x(0.49)=100.0000$ vs $\frac{1}{0.5-0.49}=100$.</p>
+      </div>
+    </section>
+
+
     <!-- ARTICLE BOTTOM NAVIGATION -->
     <nav class="article-nav" aria-label="Topic Navigation">
       <a href="topic-1.html" class="nav-btn">
@@ -1172,42 +1258,6 @@
     </section>
   </main>
 
-  <!-- ============================================
-       THEME CONTROLLER JAVASCRIPT
-       ============================================ -->
-  <script>
-    (function () {
-      const themeToggle = document.getElementById('themeToggle');
-      const root = document.documentElement;
-
-      function getInitialTheme() {
-        try {
-          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      }
-
-      function applyTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        try {
-          localStorage.setItem('ae_theme', theme);
-          localStorage.setItem('aero-portal-theme', theme);
-        } catch (e) {}
-      }
-
-      const currentTheme = getInitialTheme();
-      applyTheme(currentTheme);
-
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          const current = root.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-    })();
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

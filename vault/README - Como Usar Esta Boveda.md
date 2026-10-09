@@ -1,36 +1,66 @@
-# 🧠 Segundo Cerebro — 2º Ingeniería Aeroespacial
+---
+tags:
+  - vault
+  - guide
+subject: General
+---
 
-Bienvenido a la bóveda central de conocimiento de 2º curso de Ingeniería Aeroespacial. Este espacio funciona como el núcleo de información interconectada para todas las asignaturas.
+# Second Brain: 2nd Year Aerospace Engineering (UC3M)
+
+This vault is the source of truth for the study portal. Notes are written here first; the web pages under
+`subjects/` are generated from them (Obsidian first, web second).
 
 ---
 
-## 🚀 Cómo abrir esta bóveda en Obsidian
+## Opening the vault in Obsidian
 
-1. Abre la aplicación **Obsidian** en tu ordenador.
-2. Haz clic en **"Abrir carpeta como bóveda"** (*Open folder as vault*).
-3. Selecciona la carpeta:
-   `AerospaceEngineering/vault`
-4. ¡Listo! Ya tendrás acceso a todo el grafo de conocimiento, enlaces y apuntes.
-
----
-
-## 📂 Organización de la Bóveda
-
-* **`[[00 - Indice Central/Indice Maestro|00 - Índice Central]]`**: El mapa de contenidos principal (MOC) desde donde navegar a cualquier materia.
-* **`01 - Fluid Mechanics/`**: Mecánica de Fluidos.
-* **`02 - Aerospace Materials I/`**: Materiales Aeroespaciales I.
-* **`03 - Engineering Mechanics/`**: Mecánica de Estructuras y Sólidos Deformables.
-* **`04 - Advanced Maths/`**: Matemáticas Avanzadas (Cálculo Vectorial y EDPs).
-* **`05 - Business Management/`**: Organización de Empresas.
-* **`Templates/`**: Plantillas reutilizables para conceptos teóricos, problemas y formularios.
+1. Open **Obsidian**.
+2. Choose **Open folder as vault**.
+3. Select the folder `AerospaceEngineering/vault`.
+4. The knowledge graph, links and notes are now available.
 
 ---
 
-## 🔗 Convención de Enlaces y Buenas Prácticas
+## Vault structure
 
-* **Enlaces bidireccionales:** Usa `[[Nombre del Concepto]]` cada vez que menciones una ley, teorema o propiedad (ej: `[[Ecuaciones de Navier-Stokes]]` o `[[Diagrama de Fases Fe-C]]`).
-* **Fórmulas en LaTeX:**
-  * En línea: `$ \rho \frac{D\vec{v}}{Dt} = -\nabla p + \mu \nabla^2 \vec{v} + \rho \vec{g} $`
-  * En bloque:
-  $$ \oint_{\partial \Omega} \vec{v} \cdot d\vec{A} = 0 $$
-* **Etiquetas útiles:** `#teoria`, `#problema-examen`, `#formula-clave`, `#simulable`, `#duda`.
+* **[[00 - Indice Central/Master Index|00 - Central Index]]**: master map of content (MOC); start here.
+* `01 - Fluid Mechanics/`: Fluid Mechanics.
+* `02 - Aerospace Materials I/`: Aerospace Materials I.
+* `03 - Engineering Mechanics/`: Mechanics Applied to Aerospace Engineering.
+* `04 - Advanced Maths/`: Advanced Mathematics (ordinary and partial differential equations).
+* `05 - Business Management/`: Business Management.
+* `Templates/`: reusable templates for theory concepts, solved problems and formula sheets.
+* `attachments/`: embedded files.
+
+---
+
+## Conventions
+
+* **Links:** use bidirectional links whenever a note mentions a law, theorem or property. Write them as real
+  links, never inside backticks (inline code is not a link and breaks the graph). Syntax:
+
+  ```text
+  [[Note name]]            link to a note
+  [[Folder/Note name|text]] link with a display text
+  ```
+
+* **Math (KaTeX):** `$...$` inline and `$$...$$` for display equations. Inside `\text{...}` escape ampersands
+  as `\&`.
+* **Frontmatter:** every note starts with YAML containing at least `tags` and `subject` (plus `topic` where it
+  applies).
+* **Sources:** cite official material by path under `sources/cuatrimestre-1/` with page or equation numbers.
+  Never adjust a result to match an official answer: if they differ, show the honest result in a callout
+  `> [!warning] Discrepancy with the official solution`.
+* **Language:** academic English.
+* **Useful tags:** `#teoria`, `#problema-examen`, `#formula-clave`, `#duda`.
+
+---
+
+## Checking the vault
+
+From the repository root:
+
+```text
+python tools/vault_lint.py          report problems
+python tools/vault_lint.py --fix    apply the safe automatic fixes
+```

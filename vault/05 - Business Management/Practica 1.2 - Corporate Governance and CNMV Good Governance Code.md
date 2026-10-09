@@ -44,21 +44,22 @@ dificultad: media
 The analysis requires verifying compliance with four specific recommendations of the CNMV Unified Good Governance Code:
 
 ### Recommendation 13: Size of the Board of Directors
-* **CNMV Standard:** The Board of Directors should have a size that fosters efficient, participatory operation, ideally comprising between **10 and 15 members**.
+* **CNMV Standard:** The Board of Directors should have a size that fosters efficient, participatory operation, with a recommended range of between **five and fifteen members**.
 * **Audit Task:** Count the exact number of board members in the chosen company. Assess whether the board is excessively large (hindering decisive debate) or too small (lacking diversity of perspective).
 
 ### Recommendation 15: Proportion of Executive Directors
-* **CNMV Standard:** The number of executive directors should be the **minimum necessary**, taking into account the company's operational complexity and the percentage of capital held by the management team.
+* **CNMV Standard:** Proprietary and independent directors should constitute an ample majority, and the number of executive directors should be the **minimum practical**, bearing in mind the complexity of the group and the ownership interests the executives control.
 * **Audit Task:** Calculate:
   $$\% \text{ Executive Directors} = \frac{\text{Number of Executive Directors}}{\text{Total Board Members}}$$
 * **Rationale:** Minimizing executive directors ensures that the board acts as an independent supervisory body over management rather than a rubber-stamp committee.
 
 ### Recommendation 16: Proprietary vs Non-Executive Directors
-* **CNMV Standard:** The ratio of **proprietary directors** (representing significant shareholders) to non-executive directors should not be greater than the proportion between the capital represented by those proprietary directors and the rest of the company's capital.
+* **CNMV Standard:** The percentage of **proprietary directors** (representing significant shareholders) out of all non-executive directors should be no greater than the proportion between the ownership stake of the shareholders they represent and the remainder of the company's capital (this may be relaxed in large-cap companies where few or no stakes reach the legal threshold for significant shareholdings, or where several unrelated shareholders are represented).
 * **Audit Task:** Verify whether minority and free-float shareholders are fairly protected against dominant blockholders over-representing themselves on the board.
 
 ### Recommendation 17: Proportion of Independent Directors
-* **CNMV Standard:** The number of **independent directors** should represent at least **half (50%) of the total board members** (or at least one-third in companies with low free float or where a single shareholder controls $> 30\%$).
+* **CNMV Standard:** The number of **independent directors** should represent at least **half (50%) of the total board members** (or at least one-third when the company is not highly capitalised, or is highly capitalised but has one or more shareholders acting in concert controlling more than $30\%$ of the share capital).
+* *Source:* CNMV, *Good Governance Code of Listed Companies* (February 2015, revised June 2020), Recommendations 13, 15, 16 and 17. The course PDF (W1) points to the CNMV website without naming an edition; the recommendation numbers it cites match this edition.
 * **Audit Task:** Calculate:
   $$\% \text{ Independent Directors} = \frac{\text{Number of Independent Directors}}{\text{Total Board Members}} \ge 50\%$$
 * **Rationale:** Independent directors have no business, family, or employment ties to management or dominant shareholders, guaranteeing impartial defense of the company's general interest.
@@ -66,6 +67,6 @@ The analysis requires verifying compliance with four specific recommendations of
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 1 - The Firm - Types and Objectives|Topic 1: The Firm — Types and Objectives]]`
-* `[[05 - Business Management/Concepto - Legal Forms of Business Ownership and Agency Problem|Concept: Legal Forms & Agency Problem]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Topic 1 - The Firm - Types and Objectives|Topic 1: The Firm — Types and Objectives]]
+* [[05 - Business Management/Concept - Legal Forms of Business Ownership and Agency Problem|Concept: Legal Forms & Agency Problem]]
+* [[05 - Business Management/Business Management MOC|Back to Business Management MOC]]

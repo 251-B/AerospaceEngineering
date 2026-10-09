@@ -15,13 +15,13 @@ tags:
 ## 1. Physical Model and Constraints
 A point particle of mass $m$ is suspended by an inextensible massless rod of length $\ell$ from a fixed pivot $O$.
 * **Coordinate:** Angle $\theta(t)$ measured from the vertical downward equilibrium.
-* **Polar Basis:** $\{\mathbf{e}_R, \mathbf{e}_\theta\}$ with $R = \ell = \text{const}$.
+* **Polar Basis:** $\mathbf{e}_R = \sin\theta\,\mathbf{i}_0 - \cos\theta\,\mathbf{j}_0$, $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0$, with $R = \ell = \text{const}$ and $\theta = 0$ the hanging position.
 * **Acceleration:** $\mathbf{a}_0^P = -\ell\dot{\theta}^2\mathbf{e}_R + \ell\ddot{\theta}\mathbf{e}_\theta$.
 
 ---
 
 ## 2. Dynamic Force Balance
-* **Weight:** $\mathbf{W} = mg\cos\theta\,\mathbf{e}_R - mg\sin\theta\,\mathbf{e}_\theta$.
+* **Weight:** with $\mathbf{W} = -mg\mathbf{j}_0$, $\mathbf{W}\cdot\mathbf{e}_R = -mg\mathbf{j}_0\cdot(\sin\theta\,\mathbf{i}_0 - \cos\theta\,\mathbf{j}_0) = mg\cos\theta$ and $\mathbf{W}\cdot\mathbf{e}_\theta = -mg\mathbf{j}_0\cdot(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0) = -mg\sin\theta$, so $\mathbf{W} = mg\cos\theta\,\mathbf{e}_R - mg\sin\theta\,\mathbf{e}_\theta$.
 * **Tension:** $\mathbf{T} = -T\,\mathbf{e}_R$.
 * **Newton's Second Law ($m\mathbf{a} = \mathbf{W} + \mathbf{T}$):**
   * Radial: $-m\ell\dot{\theta}^2 = mg\cos\theta - T \implies T = m(g\cos\theta + \ell\dot{\theta}^2)$.

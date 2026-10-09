@@ -12,11 +12,12 @@ tags:
 
 # Concept: Binet Equation and Conic Section Trajectories
 
-## 1. Binet Coordinate Transformation (Slide 13, Notes 8.4)
+## 1. Binet Coordinate Transformation (Slide 13, Notes Eqs. 8.9-8.12)
 To eliminate time $t$ in favor of polar angle $\theta$, define the reciprocal radius:
 $$ u(\theta) \equiv \frac{1}{r(\theta)} $$
-Using $h = r^2\dot{\theta} \implies \dot{\theta} = h u^2$:
-$$ \dot{r} = \frac{dr}{d\theta}\dot{\theta} = -h\frac{du}{d\theta} = -h u' $$
+Using $h = r^2\dot{\theta} \implies \dot{\theta} = h u^2$, and the chain rule for $r = u^{-1}$:
+$$ \frac{dr}{d\theta} = \frac{d(1/u)}{d\theta} = -\frac{1}{u^2}\frac{du}{d\theta} = -\frac{u'}{u^2} $$
+$$ \dot{r} = \frac{dr}{d\theta}\dot{\theta} = \left(-\frac{u'}{u^2}\right)\left(h u^2\right) = -h u' $$
 $$ \ddot{r} = \frac{d}{dt}(-h u') = -h u'' \dot{\theta} = -h^2 u^2 u'' $$
 
 Substituting into the radial equation of motion $\ddot{r} - r\dot{\theta}^2 = -\mu u^2$:
@@ -26,9 +27,9 @@ This is the **Binet Equation** for an inverse-square central force field.
 ---
 
 ## 2. General Analytical Solution (Kepler's 1st Law)
-The Binet ODE has the general solution of a forced harmonic oscillator:
+The Binet ODE is a forced harmonic oscillator: homogeneous solution $C_1\cos\theta + C_2\sin\theta$ plus the particular solution $\mu/h^2$. From the initial data $(u_i, u_i')$ at $\theta = 0$, $C_1 = u_i - \mu/h^2$ and $C_2 = u_i'$, and with $A = \sqrt{C_1^2 + C_2^2}$, $e = Ah^2/\mu$:
 $$ u(\theta) = \frac{\mu}{h^2}\left[1 + e\cos(\theta - \omega)\right] $$
-Aligning $\theta = 0$ with pericenter ($\omega = 0$):
+Aligning $\theta = 0$ with pericenter ($\omega = 0$, the angle where $u$ is maximum and $u' = 0$):
 $$ r(\theta) = \frac{p}{1 + e\cos\theta} = \frac{h^2/\mu}{1 + e\cos\theta} $$
 where $p = h^2/\mu$ is the **semi-latus rectum** and $e \ge 0$ is the **eccentricity**. This is the polar equation of a conic section with focus at origin $O$.
 

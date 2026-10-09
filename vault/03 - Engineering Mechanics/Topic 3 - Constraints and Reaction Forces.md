@@ -235,7 +235,7 @@ When analyzing motion along a 3D smooth curve, formulating dynamics in the **Fre
 A particle $P$ of mass $m$ slides along a vertical circular wire of radius $a$ in $Oxy$ under gravity $\mathbf{g} = -g\mathbf{j}_0$.
 
 #### Step 1: Kinematics and Polar Basis
-* Polar coordinates: $\mathbf{r}_0^P = a\,\mathbf{e}_R(\theta) = a(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$.
+* Polar coordinates: $\mathbf{r}_0^P = a\,\mathbf{e}_R(\theta) = a(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$, with $\theta$ measured from the $+Ox$ axis (this differs from the pendulum of Topic 2, where $\theta$ is measured from the downward vertical).
 * Chain rule on polar unit vectors:
   $$ \frac{d\mathbf{e}_R}{dt} = \dot{\theta}\,\mathbf{e}_\theta, \quad \frac{d\mathbf{e}_\theta}{dt} = -\dot{\theta}\,\mathbf{e}_R $$
 * Velocity vector (product rule with $a = \text{const}$):

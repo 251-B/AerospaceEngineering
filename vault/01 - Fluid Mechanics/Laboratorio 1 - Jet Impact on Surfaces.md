@@ -17,10 +17,10 @@ fuentes:
 # 🎯 Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)
 
 > **Navigation & Context:**
-> - Parent Course MOC: [[Mecanica de Fluidos MOC]]
-> - Theoretical Framework: [[01 - Fluid Mechanics/Tema 3 - Conservation Laws]]
-> - Fundamental Theorem: [[01 - Fluid Mechanics/Concepto - Teorema de Transporte de Reynolds]]
-> - Master Index: [[00 - Indice Central/Indice Maestro]]
+> - Parent Course MOC: [[Fluid Mechanics MOC]]
+> - Theoretical Framework: [[01 - Fluid Mechanics/Topic 3 - Conservation Laws]]
+> - Fundamental Theorem: [[01 - Fluid Mechanics/Concept - Reynolds Transport Theorem]]
+> - Master Index: [[00 - Indice Central/Master Index]]
 > - Primary Sources: `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/Lab_session_1.pdf` & Experimental Measurements `MedidasLab1_261005_223351 (1).jpg`
 
 ---

@@ -83,5 +83,5 @@ $$ a_t = \ddot{s} = \dot{v}, \quad a_n = \frac{v^2}{\rho} = \kappa v^2, \quad a_
 ---
 
 ## 🔗 Related Concepts
-* `[[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]`
-* `[[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Coordinate Systems]]`
+* [[Topic 1 - Fundamentals and Particle Kinematics|Topic 1: Fundamentals and Particle Kinematics]]
+* [[Concept - Cartesian Cylindrical and Spherical Coordinate Systems|Concept: Coordinate Systems]]

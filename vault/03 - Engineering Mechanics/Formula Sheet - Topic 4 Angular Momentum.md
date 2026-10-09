@@ -5,6 +5,11 @@ course: "251-14165 (UC3M)"
 ground_truth: "slides/04_-_Angular_momentum.pdf & teoria/Notes.pdf (Ch. 4.8 & 8)"
 tier: "Formula Cheat Sheet"
 language: "English"
+tags:
+  - formula-sheet
+  - topic-4
+  - angular-momentum
+  - kepler-problem
 ---
 
 # 📑 Formula Sheet: Topic 4 — Angular Momentum & Kepler's Problem
@@ -45,7 +50,7 @@ language: "English"
 * **Central Force Field:**
   $$ \mathbf{F} = F(r)\,\mathbf{e}_r = F(r)\,\frac{\mathbf{r}}{r} \implies \mathbf{M}_O = \mathbf{r} \times \mathbf{F} = \mathbf{0} $$
 * **Invariant Angular Momentum:**
-  $$ \mathbf{H}_{O0}^P = \text{const} \implies \mathbf{r}(t) \perp \mathbf{H}_O, \quad \mathbf{v}(t) \perp \mathbf{H}_O \quad \implies \text{\textbf{Planar Motion}} $$
+  $$ \mathbf{H}_{O0}^P = \text{const} \implies \mathbf{r}(t) \perp \mathbf{H}_O, \quad \mathbf{v}(t) \perp \mathbf{H}_O \quad \implies \text{planar motion} $$
 * **Kinematics in Orbital Plane ($z = 0$):**
   $$ \mathbf{r} = r\,\mathbf{e}_r, \qquad \mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta $$
   $$ \mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta $$
@@ -67,6 +72,18 @@ language: "English"
 * **Conic Orbit Solution:**
   $$ r(\theta) = \frac{p}{1 + e\cos\theta} = \frac{h^2/\mu}{1 + e\cos\theta} $$
   where $p = h^2/\mu$ is the semi-latus rectum and $e$ is the orbit eccentricity.
+* **Constants from initial data** ($u_i = 1/r_i$, $u_i' = -\dot{r}_i/h$ at the initial polar angle):
+  $$ u(\theta) = \frac{\mu}{h^2} + C_1\cos\theta + C_2\sin\theta, \qquad e = \frac{h^2}{\mu}\sqrt{\left(u_i - \frac{\mu}{h^2}\right)^2 + u_i'^2} $$
+* **Derivative chain rule used in the Binet derivation:**
+  $$ \frac{d}{d\theta}\left(\frac{1}{u}\right) = -\frac{u'}{u^2}, \qquad \frac{d}{dt} = h u^2\,\frac{d}{d\theta} $$
+* **Rotation of the polar basis:**
+  $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \det = 1, \quad R^T R = I, \quad \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$
+
+* **Energy first integral in $u$ (any central force $F(r)$, $V_0$ per unit mass):**
+  $$ (u')^2 + W_{\text{eff}}(u) = \frac{2\xi}{h^2}, \qquad W_{\text{eff}}(u) = u^2 + \frac{2V_0(1/u)}{h^2} $$
+  Motion is allowed where $W_{\text{eff}}(u) \le 2\xi/h^2$; turning points are the roots of $W_{\text{eff}} = 2\xi/h^2$.
+* **Power law $F = -m\mu/r^\alpha$ (Problem 42):**
+  $$ u'' + u = \frac{\mu}{h^2}u^{\alpha-2}, \qquad W_{\text{eff}} = u^2 - \frac{2\mu}{(\alpha-1)h^2}u^{\alpha-1} \;(\alpha \ne 1), \qquad W_{\text{eff}} = u^2 - \frac{2\mu}{h^2}\ln u \;(\alpha = 1) $$
 
 ---
 
@@ -84,8 +101,18 @@ language: "English"
 * **Periapsis Distance:** $r_p = a(1 - e) = \frac{p}{1 + e}$
 * **Apoapsis Distance:** $r_a = a(1 + e) = \frac{p}{1 - e}$
 * **Semi-Minor Axis:** $b = a\sqrt{1 - e^2} = \sqrt{a p}$
+* **Linear Eccentricity:** $c = ae$, $\;b^2 + c^2 = a^2$
 * **Semi-Latus Rectum:** $p = a(1 - e^2) = \frac{b^2}{a} = \frac{h^2}{\mu}$
 * **Specific Angular Momentum:** $h = \sqrt{\mu p} = \sqrt{\mu a(1 - e^2)}$
+
+---
+
+## 5b. Two-Body Reduction
+
+* **Barycentre:** $\mathbf{r}_0^G = \dfrac{m^P\mathbf{r}_0^P + m^S\mathbf{r}_0^S}{m^P + m^S}$, with $\ddot{\mathbf{r}}_0^G = \mathbf{0}$ (uniform motion).
+* **Relative motion:** $\mathbf{r} = \mathbf{r}_0^P - \mathbf{r}_0^S$, $\ddot{\mathbf{r}} = -\dfrac{\mu}{r^3}\mathbf{r}$, $\mu = G(m^P + m^S)$.
+* **Reduced mass:** $m_{\text{red}} = \dfrac{m^P m^S}{m^P + m^S}$, $m_{\text{red}}\ddot{\mathbf{r}} = -\dfrac{G m^P m^S}{r^2}\mathbf{e}_r$.
+* **Bodies about $G$:** $\mathbf{r}_0^P - \mathbf{r}_0^G = \dfrac{m^S}{m^P + m^S}\mathbf{r}$, $\;\mathbf{r}_0^S - \mathbf{r}_0^G = -\dfrac{m^P}{m^P + m^S}\mathbf{r}$.
 
 ---
 

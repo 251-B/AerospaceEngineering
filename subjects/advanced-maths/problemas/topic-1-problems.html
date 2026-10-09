@@ -628,6 +628,7 @@
     </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -716,7 +717,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> Classify the following equations as ordinary or partial; give their order; and state whether they are linear or nonlinear. In each case identify the dependent and independent variables:</p>
+          <p><strong>Problem statement:</strong> Classify the following equations as ordinary or partial; give their order; and state whether they are linear or nonlinear. In each case identify the dependent and independent variables:</p>
           <ol style="margin-left: 20px;">
             <li>(i) <strong>Bessel's equation</strong> ($\nu$ is a parameter): $x^2 y'' + x y' + (x^2 - \nu^2)y = 0$</li>
             <li>(ii) <strong>Burgers' equation</strong> ($\nu$ is a parameter): $\frac{\partial u}{\partial t} - \nu \frac{\partial^2 u}{\partial x^2} + u \frac{\partial u}{\partial x} = 0$</li>
@@ -844,7 +845,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> Let $x(t)$ be the population of a certain species as a function of time, and suppose that the rate of change of this population is proportional to the existing population at each time, with constant of proportionality $k \in \mathbb{R}$.</p>
+          <p><strong>Problem statement:</strong> Let $x(t)$ be the population of a certain species as a function of time, and suppose that the rate of change of this population is proportional to the existing population at each time, with constant of proportionality $k \in \mathbb{R}$.</p>
           <p>(i) Write a differential equation for $x(t)$.<br>
           (ii) Solve it, determine the behavior of $x(t)$ as $t \to \infty$ and interpret it depending on the sign of $k$.<br>
           (iii) If the initial population is $x(0) = x_0$ and $k > 0$, determine the time needed for the population to double.</p>
@@ -909,7 +910,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> Plutonium 239, virtually nonexistent in nature, is one of the radioactive materials used in the production of nuclear weapons, and is a byproduct of the generation of power in a nuclear reactor. Its half-life (i.e., the time it takes for half of the radioactive isotope to decay) is approximately 24,000 years.</p>
+          <p><strong>Problem statement:</strong> Plutonium 239, virtually nonexistent in nature, is one of the radioactive materials used in the production of nuclear weapons, and is a byproduct of the generation of power in a nuclear reactor. Its half-life (i.e., the time it takes for half of the radioactive isotope to decay) is approximately 24,000 years.</p>
           <p>Using $\frac{dN}{dt} = -kN$ as an appropriate model for radioactive decay, where $N = N(t)$ is the number of isotopes at time $t$, what is the value of $k$ that should be used for this isotope?</p>
         </div>
       </div>
@@ -938,7 +939,7 @@
         <div class="result-box">
           <div class="result-box-title">Boxed Result</div>
           $$ k = \frac{\ln 2}{24{,}000} \approx 2.8881 \times 10^{-5}\text{ yr}^{-1} \approx 9.1519 \times 10^{-13}\text{ s}^{-1} $$
-          <p><strong>Physical Interpretation:</strong> The extremely minute decay constant explains why Plutonium-239 provides sustained, quasi-constant thermal power over centuries in space probes.</p>
+          <p><strong>Physical Interpretation:</strong> The extremely minute decay constant means that Plutonium-239 remains radioactive, essentially at constant activity, over many centuries (after $10\,t_{1/2} = 240{,}000$ years its activity is still $(1/2)^{10} \approx 0.098\%$ of the initial value). Note that space-probe RTGs (Voyager, Cassini, Curiosity) use the shorter-lived $^{238}\text{Pu}$ ($t_{1/2} \approx 87.7$ years), not $^{239}\text{Pu}$.</p>
         </div>
       </div>
     </article>
@@ -958,7 +959,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> A cup of hot chocolate is initially at temperature $T(0)$ and is left in the room with an ambient temperature $T_A(t)$. The rate of cooling of the hot chocolate is proportional to the difference between the current temperature $T(t)$ and the ambient temperature.</p>
+          <p><strong>Problem statement:</strong> A cup of hot chocolate is initially at temperature $T(0)$ and is left in the room with an ambient temperature $T_A(t)$. The rate of cooling of the hot chocolate is proportional to the difference between the current temperature $T(t)$ and the ambient temperature.</p>
           <p>(i) Which are the dependent variable, the independent variable, and the parameters?<br>
           (ii) Write a linear differential equation for the temperature of the hot chocolate that takes into account the heat exchange with the room. Such differential equation is known as Newton's law of cooling.</p>
         </div>
@@ -1016,7 +1017,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> A body is found in a cold room ($T_A = 5^\circ\text{C}$) at 3 pm, and its temperature then is $19^\circ\text{C}$. An hour later its temperature has dropped to $15^\circ\text{C}$. Use Newton's law of cooling to estimate the time of death, assuming that the living body temperature is $37^\circ\text{C}$ and measuring time in hours.</p>
+          <p><strong>Problem statement:</strong> A body is found in a cold room ($T_A = 5^\circ\text{C}$) at 3 pm, and its temperature then is $19^\circ\text{C}$. An hour later its temperature has dropped to $15^\circ\text{C}$. Use Newton's law of cooling to estimate the time of death, assuming that the living body temperature is $37^\circ\text{C}$ and measuring time in hours.</p>
         </div>
       </div>
 
@@ -1078,8 +1079,8 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> A tank contains 100 liters of water with 1 kg of salt dissolved in it (uniformly). At time $t_0 = 0$, water without salt flows into the tank at a rate of 1 liter per minute, while the mixture flows out at the same rate.</p>
-          <p>(i) Write a differential equation for $x(t)$, which is the number of kg of salt dissolved in the tank at time $t \ge 0$.<br>
+          <p><strong>Problem statement:</strong> A tank contains 100 liters of water with 1 kg of salt dissolved in it (uniformly). At time $t_0 = 0$, water without salt flows into the tank at a rate of 1 liter per minute, while the mixture flows out at the same rate.</p>
+          <p>(i) Write a differential equation for $x(t)$, which is the number of kg of salt per litre of water dissolved at time $t > 0$.<br>
           (ii) How much salt is dissolved in the tank as $t \to \infty$?<br>
           (iii) What happens if water with $s$ kg of salt per liter flows into the tank at a given rate while the mixture (that is kept uniform) flows out at the same rate?</p>
         </div>
@@ -1087,42 +1088,43 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
-        <p>Species conservation of dissolved salt mass: $\frac{dx}{dt} = \dot{m}_{\text{in}} - \dot{m}_{\text{out}} = Q_{\text{in}} C_{\text{in}} - Q_{\text{out}} \frac{x(t)}{V(t)}$. Since $Q_{\text{in}} = Q_{\text{out}} = Q$, $V(t) \equiv V_0 = 100\text{ L}$.</p>
+        <p>As in the official statement, $x(t)$ is the salt <strong>concentration</strong> (kg of salt per litre, units $\text{kg/L}$). The total dissolved salt mass is $M(t) = V(t)\,x(t)$ (units $\text{kg}$). Species conservation of dissolved salt mass: $\frac{dM}{dt} = \dot{m}_{\text{in}} - \dot{m}_{\text{out}} = Q_{\text{in}} C_{\text{in}} - Q_{\text{out}}\, x(t)$. Since $Q_{\text{in}} = Q_{\text{out}} = Q$, $V(t) \equiv V_0 = 100\text{ L}$, so $M(t) = 100\,x(t)$ and the initial concentration is $x(0) = \frac{1\text{ kg}}{100\text{ L}} = 0.01\text{ kg/L}$.</p>
       </div>
 
       <div class="phase-section">
         <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
         <p><strong>Part (i): Pure Water Flushing ($C_{\text{in}} = 0$):</strong></p>
-        $$ \dot{m}_{\text{in}} = 1 \times 0 = 0\text{ kg/min}, \quad \dot{m}_{\text{out}} = 1 \times \frac{x(t)}{100} = \frac{x(t)}{100}\text{ kg/min} $$
-        $$ \mathbf{\frac{dx}{dt} = -\frac{x(t)}{100}}, \quad x(0) = 1\text{ kg} \tag{1.6.1} $$
+        $$ \dot{m}_{\text{in}} = 1 \times 0 = 0\text{ kg/min}, \quad \dot{m}_{\text{out}} = 1 \times x(t) = x(t)\text{ kg/min} $$
+        <p>With $M = 100\,x$, the balance $\frac{dM}{dt} = \dot{m}_{\text{in}} - \dot{m}_{\text{out}}$ becomes $100\,\frac{dx}{dt} = -x(t)$, i.e.</p>
+        $$ \mathbf{\frac{dx}{dt} = -\frac{x(t)}{100}}, \quad x(0) = 0.01\text{ kg/L} \tag{1.6.1} $$
 
         <p><strong>Part (ii): Analytical Solution and Limit as $t \to \infty$:</strong></p>
-        $$ \int_1^{x(t)} \frac{d\xi}{\xi} = \int_0^t -\frac{1}{100} ds \implies \ln(x(t)) = -\frac{t}{100} \implies \mathbf{x(t) = e^{-t/100}\text{ kg}} $$
-        <p>Taking the limit as $t \to \infty$:</p>
-        $$ \lim_{t\to\infty} x(t) = \lim_{t\to\infty} e^{-t/100} = \mathbf{0\text{ kg}} $$
+        $$ \int_{0.01}^{x(t)} \frac{d\xi}{\xi} = \int_0^t -\frac{1}{100} ds \implies \ln\frac{x(t)}{0.01} = -\frac{t}{100} \implies \mathbf{x(t) = 0.01\,e^{-t/100}\text{ kg/L}} $$
+        <p>The dissolved salt mass is $M(t) = 100\,x(t) = e^{-t/100}\text{ kg}$. Taking the limit as $t \to \infty$:</p>
+        $$ \lim_{t\to\infty} x(t) = \mathbf{0\text{ kg/L}}, \qquad \lim_{t\to\infty} M(t) = \lim_{t\to\infty} e^{-t/100} = \mathbf{0\text{ kg}} $$
 
         <p><strong>Part (iii): Saline Inflow at Concentration $s\text{ kg/L}$:</strong></p>
-        <p>Now $\dot{m}_{\text{in}} = Q \cdot s = 1 \cdot s = s\text{ kg/min}$, leading to the inhomogeneous linear ODE:</p>
-        $$ \frac{dx}{dt} + \frac{1}{100} x(t) = s \tag{1.6.2} $$
+        <p>Now $\dot{m}_{\text{in}} = Q \cdot s = 1 \cdot s = s\text{ kg/min}$, so $100\,\frac{dx}{dt} = s - x(t)$, leading to the inhomogeneous linear ODE:</p>
+        $$ \frac{dx}{dt} + \frac{1}{100} x(t) = \frac{s}{100} \tag{1.6.2} $$
         <p>Multiplying by integrating factor $\mu(t) = \exp\left(\int \frac{1}{100} dt\right) = e^{t/100}$:</p>
-        $$ \frac{d}{dt}\left[ x(t) e^{t/100} \right] = s e^{t/100} $$
-        <p>Integrating both sides from $0$ to $t$:</p>
-        $$ x(t) e^{t/100} - x(0) = s \int_0^t e^{\tau/100} d\tau = 100 s \left[ e^{t/100} - 1 \right] $$
-        <p>With $x(0) = 1\text{ kg}$:</p>
-        $$ x(t) e^{t/100} = 1 + 100s e^{t/100} - 100s = 100s e^{t/100} + (1 - 100s) $$
+        $$ \frac{d}{dt}\left[ x(t) e^{t/100} \right] = \frac{s}{100} e^{t/100} $$
+        <p>Integrating both sides from $0$ to $t$ (Barrow's rule):</p>
+        $$ x(t) e^{t/100} - x(0) = \frac{s}{100} \int_0^t e^{\tau/100} d\tau = s \left[ e^{t/100} - 1 \right] $$
+        <p>With $x(0) = 0.01\text{ kg/L}$:</p>
+        $$ x(t) e^{t/100} = 0.01 + s e^{t/100} - s = s e^{t/100} + (0.01 - s) $$
         <p>Dividing by $e^{t/100}$:</p>
-        $$ \mathbf{x(t) = 100 s + (1 - 100 s) e^{-t/100}\text{ kg}} \tag{1.6.3} $$
-        <p>As $t \to \infty$, $e^{-t/100} \to 0$:</p>
-        $$ \lim_{t\to\infty} x(t) = \mathbf{100 s\text{ kg}} $$
+        $$ \mathbf{x(t) = s + (0.01 - s) e^{-t/100}\text{ kg/L}} \tag{1.6.3} $$
+        <p>The corresponding dissolved salt mass is $M(t) = 100\,x(t) = 100 s + (1 - 100 s) e^{-t/100}\text{ kg}$. As $t \to \infty$, $e^{-t/100} \to 0$:</p>
+        $$ \lim_{t\to\infty} x(t) = \mathbf{s\text{ kg/L}}, \qquad \lim_{t\to\infty} M(t) = \mathbf{100 s\text{ kg}} $$
       </div>
 
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Final Result & Analysis</div>
         <div class="result-box">
           <div class="result-box-title">Boxed Result</div>
-          $$ \text{Washout: } x(t) = e^{-t/100}, \; \lim_{t\to\infty} x(t) = 0 $$
-          $$ \text{Saline Inflow: } x(t) = 100s + (1 - 100s)e^{-t/100}, \; \lim_{t\to\infty} x(t) = 100s\text{ kg} $$
-          <p><strong>Physical Interpretation:</strong> The asymptotic equilibrium mass $100s\text{ kg}$ corresponds exactly to the tank volume $100\text{ L}$ multiplied by the inlet concentration $s\text{ kg/L}$.</p>
+          $$ \text{Washout: } x(t) = 0.01\,e^{-t/100}\text{ kg/L}, \; M(t) = e^{-t/100}\text{ kg}, \; \lim_{t\to\infty} M(t) = 0 $$
+          $$ \text{Saline Inflow: } x(t) = s + (0.01 - s)e^{-t/100}\text{ kg/L}, \; \lim_{t\to\infty} x(t) = s\text{ kg/L}, \; \lim_{t\to\infty} M(t) = 100s\text{ kg} $$
+          <p><strong>Physical Interpretation:</strong> The asymptotic equilibrium concentration is the inlet concentration $s\text{ kg/L}$, i.e. a dissolved mass $100s\text{ kg}$ (tank volume $100\text{ L}$ times $s\text{ kg/L}$).</p>
         </div>
       </div>
     </article>
@@ -1142,7 +1144,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> Consider an object in free fall from an initial point $y(0) = y_0$ and with initial velocity $0$, under the action of gravity and neglecting air friction. Write a differential equation for the position of the object $y(t)$ and solve it.</p>
+          <p><strong>Problem statement:</strong> Consider an object in free fall from an initial point $y(0) = y_0$ and with initial velocity $0$, under the action of gravity and neglecting air friction. Write a differential equation for the position of the object $y(t)$ and solve it.</p>
         </div>
       </div>
 
@@ -1187,7 +1189,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> Consider a simple pendulum consisting of a bob of mass $m$ at the end of a string of length $l$ and negligible mass, and denote by $\theta(t)$ the angle with respect to the vertical as a function of time $t$. Neglecting friction, apply Newton's second law to write a differential equation for $\theta(t)$.</p>
+          <p><strong>Problem statement:</strong> Consider a simple pendulum consisting of a bob of mass $m$ at the end of a string of length $l$ and negligible mass, and denote by $\theta(t)$ the angle with respect to the vertical as a function of time $t$. Neglecting friction, apply Newton's second law to write a differential equation for $\theta(t)$.</p>
         </div>
       </div>
 
@@ -1242,7 +1244,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> A refinement over Malthus' population growth model discussed in Chapter 1 is provided by the logistic equation:
+          <p><strong>Problem statement:</strong> A refinement over Malthus' population growth model discussed in Chapter 1 is provided by the logistic equation:
           $$ \frac{dp}{dt} = kp \left( 1 - \frac{p}{M} \right) $$
           where $p(t)$ is the population size at time $t$, $k$ is its growth rate (difference between birth rate and death rate), and $M$ is the maximum sustainable population (carrying capacity).</p>
           <p>Solve the equation for a generic initial condition $p(t_0) = p_0$ and discuss the evolution of the population for $t \to \infty$, comparing with Malthus' ($M \to \infty$) prediction.</p>
@@ -1311,7 +1313,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Problem Statement & Hypotheses</div>
         <div class="problem-statement-box">
-          <p><strong>Enunciado:</strong> In general, it is not possible to find explicit solutions of the Navier-Stokes equations that govern fluid flow. However, in certain cases the equations simplify very strongly. Suppose that a fluid is flowing down a pipe that has a circular cross-section of radius $a$. Assuming that the velocity $V$ of the fluid depends only on its distance from the centre of the pipe, the equation satisfied by $V$ is:
+          <p><strong>Problem statement:</strong> In general, it is not possible to find explicit solutions of the Navier-Stokes equations that govern fluid flow. However, in certain cases the equations simplify very strongly. Suppose that a fluid is flowing down a pipe that has a circular cross-section of radius $a$. Assuming that the velocity $V$ of the fluid depends only on its distance from the centre of the pipe, the equation satisfied by $V$ is:
           $$ \frac{1}{r} \frac{d}{dr}\left( r \frac{dV}{dr} \right) = -P $$
           where $P > 0$.</p>
           <p>Multiply by $r$ and integrate once to show that:
@@ -1342,15 +1344,14 @@
         $$ \mathbf{\frac{dV}{dr} = -\frac{Pr}{2} + \frac{c}{r}} \tag{1.10.1} $$
         <p>which rigorously proves the required intermediate formula.</p>
 
-        <p><strong>Step 2: Enforcement of Centerline Regularity ($r = 0$):</strong></p>
-        <p>Condition (i) dictates that velocity and velocity gradients must remain physically finite at all points inside the duct, including the centerline $r = 0$. Since $\lim_{r\to 0^+} \frac{c}{r} = \pm\infty$ for any $c \neq 0$, avoiding an infinite velocity gradient and infinite shear stress $\tau_{rz} = \mu \frac{dV}{dr}$ requires:</p>
-        $$ \mathbf{c = 0} $$
-        <p>Therefore, the velocity gradient simplifies to:</p>
-        $$ \frac{dV}{dr} = -\frac{Pr}{2} \tag{1.10.2} $$
-
-        <p><strong>Step 3: Second Integration (Velocity Field):</strong></p>
-        $$ V(r) = \int -\frac{Pr}{2} \, dr = -\frac{Pr^2}{4} + C_2 \tag{1.10.3} $$
+        <p><strong>Step 2: Second Integration (Velocity Field), keeping $c$:</strong></p>
+        <p>Integrate (1.10.1) with respect to $r$ on $r > 0$, using $\int r\,dr = \frac{r^2}{2}$ and $\int \frac{dr}{r} = \ln r$:</p>
+        $$ V(r) = \int \left( -\frac{Pr}{2} + \frac{c}{r} \right) dr = -\frac{P}{2}\cdot\frac{r^2}{2} + c\ln r + C_2 = -\frac{Pr^2}{4} + c\ln r + C_2 \tag{1.10.2} $$
         <p>where $C_2$ is the second constant of integration.</p>
+
+        <p><strong>Step 3: Condition (i), Finite Velocity at the Centerline ($r = 0$):</strong></p>
+        <p>The velocity must be finite at every point of the pipe, including $r = 0$. Since $\lim_{r\to 0^+} r^2 = 0$ but $\lim_{r\to 0^+} \ln r = -\infty$, the term $c\ln r$ makes $V(r) \to \mp\infty$ for any $c \neq 0$ (and $\frac{dV}{dr} = \frac{c}{r}$ diverges as well, so the shear stress $\tau_{rz} = \mu \frac{dV}{dr}$ would be unbounded). Finiteness therefore requires:</p>
+        $$ \mathbf{c = 0} \implies V(r) = -\frac{Pr^2}{4} + C_2 \tag{1.10.3} $$
 
         <p><strong>Step 4: Enforcement of No-Slip Boundary Condition ($r = a$):</strong></p>
         <p>Condition (ii) states that viscous fluids adhere to solid surfaces without slip: $V(a) = 0$. Imposing this on equation (1.10.3):</p>
@@ -1367,7 +1368,9 @@
           <p><strong>Engineering Metrics:</strong></p>
           <ul>
             <li>Centerline peak velocity: $V_{\max} = V(0) = \frac{P a^2}{4}$.</li>
-            <li>Volumetric Flow Rate (Hagen-Poiseuille Law): $Q = \int_0^a V(r) \cdot 2\pi r \, dr = \frac{\pi P a^4}{8} = \frac{\pi a^4}{8\mu}\left(-\frac{dp}{dz}\right)$.</li>
+            <li>Volumetric Flow Rate (Hagen-Poiseuille Law), integrating over the annular elements $dA = 2\pi r\,dr$ with Barrow's rule:
+              $$ Q = \int_0^a \frac{P}{4}\left(a^2 - r^2\right) 2\pi r \, dr = \frac{\pi P}{2}\int_0^a \left(a^2 r - r^3\right) dr = \frac{\pi P}{2}\left[ \frac{a^2 r^2}{2} - \frac{r^4}{4} \right]_0^a = \frac{\pi P}{2}\left( \frac{a^4}{2} - \frac{a^4}{4} \right) = \frac{\pi P a^4}{8} $$
+              With $P = -\frac{1}{\mu}\frac{dp}{dz}$ (see Phase 2) this gives $Q = \frac{\pi a^4}{8\mu}\left(-\frac{dp}{dz}\right)$.</li>
             <li>Wall shear stress: $\tau_w = -\mu \left.\frac{dV}{dr}\right|_{r=a} = \frac{\mu P a}{2} = \frac{a}{2}\left(-\frac{dp}{dz}\right)$.</li>
           </ul>
         </div>
@@ -1403,41 +1406,10 @@
   </main>
 
   <!-- ============================================
-       THEME CONTROLLER & PILL HIGHLIGHT JAVASCRIPT
+       PILL HIGHLIGHT JAVASCRIPT
        ============================================ -->
   <script>
     (function () {
-      // Theme controller
-      const themeToggle = document.getElementById('themeToggle');
-      const root = document.documentElement;
-
-      function getInitialTheme() {
-        try {
-          return localStorage.getItem('ae_theme') || localStorage.getItem('aero-portal-theme') || 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      }
-
-      function applyTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        try {
-          localStorage.setItem('ae_theme', theme);
-          localStorage.setItem('aero-portal-theme', theme);
-        } catch (e) {}
-      }
-
-      const currentTheme = getInitialTheme();
-      applyTheme(currentTheme);
-
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          const current = root.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-
       // Active pill highlight on scroll
       const pills = document.querySelectorAll('.nav-pill');
       const cards = document.querySelectorAll('.problem-card');

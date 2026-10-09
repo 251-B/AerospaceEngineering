@@ -95,6 +95,7 @@ $$ x_{stop} = +a $$
   - $[c] = \text{N}/\text{m}^3 = \text{kg}\cdot\text{m}\cdot\text{s}^{-2}\cdot\text{m}^{-3} = \text{kg}\cdot\text{m}^{-2}\cdot\text{s}^{-2}$.
   - $[v_0] = [a^2] \sqrt{[c]/[m]} = \text{m}^2 \sqrt{\frac{\text{kg}\cdot\text{m}^{-2}\cdot\text{s}^{-2}}{\text{kg}}} = \text{m}^2 \sqrt{\text{m}^{-2}\cdot\text{s}^{-2}} = \text{m}^2 \cdot \text{m}^{-1}\cdot\text{s}^{-1} = \text{m}/\text{s}$.
   The velocity dimensions match perfectly.
+* **Limit and numerical check:** the energy balance is dimensionally homogeneous, $[c\,a^4] = \text{N}\cdot\text{m}^{-3}\cdot\text{m}^4 = \text{J}$. For $a \to 0$ the release energy vanishes and $v_0 = a^2\sqrt{c/(2m)} \to 0$. An RK4 integration (step $10^{-4}$, $m = c = a = 1$ in SI) of $m\ddot{x} = -c x^3$ from $x = -1$ at rest gives $v = 0.707107\ \text{m/s}$ at $x = 0$ against $\sqrt{1/2} = 0.707107\ \text{m/s}$, and the next stop at $x = 0.99999999$ against $x_{stop} = +a = 1$.
 
 ---
 
@@ -189,7 +190,11 @@ $$ x_{stop} = +a $$
   | **(a)** $E > 0$ | None | $(-\infty, +\infty)$ | Unbounded: traverses from $-\infty$ to $+\infty$ (or vice versa). |
   | **(b)** $E < -\frac{1}{2}ca^4$ | $\pm x_{out}$ | $(-\infty, -x_{out}] \cup [x_{out}, +\infty)$ | Unbounded with reflection at $\pm x_{out}$ back to $\pm\infty$. Inner well forbidden. |
   | **(c)** $-\frac{1}{2}ca^4 < E < 0$ | $\pm x_{in}, \pm x_{out}$ | $[-x_{in}, x_{in}]$ OR $\vert x \vert \ge x_{out}$ | Bounded periodic oscillation in well $[-x_{in}, x_{in}]$, OR reflection at $\pm x_{out}$ back to $\pm\infty$. |
-* **Confirmation with UC3M Solution Keys:** Directly verifies the qualitative classification in `Problems.pdf` page 72.
+* **Confirmation with UC3M Solution Keys:** The qualitative classification can be compared with the official solution key (Problems.pdf, Solution keys section).
+* **Dimensional check:** $[c\,a^4] = (\text{J/m}^4)\,\text{m}^4 = \text{J}$, the same as $E$; $[2|E|/c] = \text{J}/(\text{J/m}^4) = \text{m}^4$, so $\sqrt{2|E|/c}$ is an area (m$^2$) and $x_{out} = \sqrt{a^2 + \sqrt{2|E|/c}}$ is a length.
+* **Limiting energies (sympy):**
+  - $E \to -\tfrac{1}{2}ca^4$ (bottom of the well): $x_{in}^2 = a^2 - \sqrt{2|E|/c} \to 0$ and $x_{out}^2 \to 2a^2$, so the inner region collapses to the stable point $x = 0$, where the small oscillations have $\omega^2 = V''(0)/m = 2ca^2/m$.
+  - $E \to 0^-$ (top of the barriers): $x_{in}, x_{out} \to a$, the four turning points merge pairwise at the unstable equilibria $x = \pm a$ (separatrix between cases (c) and (a)).
 
 ---
 
@@ -263,6 +268,14 @@ This completes the exact derivation. $\blacksquare$
   which recovers the classical harmonic period $\tau_0 = 2\pi/\omega_0$, completely independent of the amplitude $a$ (isochronism).
 * **Anharmonicity ($b > 0$):**
   For a softening spring ($b > 0$), the factor $\sqrt{1 - b(a^2 + x^2)} < 1$, which makes the integrand strictly larger than in the harmonic case, proving that $\tau > \tau_0$ and that the period grows with amplitude $a$.
+* **Dimensional check:** $[b] = \text{m}^{-2}$, so $b(a^2 + x^2)$ is dimensionless; $\int dx/\sqrt{a^2 - x^2}$ is dimensionless and $[\tau] = [1/\omega_0] = \text{s}$.
+* **Small anharmonicity:** with $x = a\sin\varphi$, $dx = a\cos\varphi\,d\varphi$ the period reads $\tau = \dfrac{2}{\omega_0}\displaystyle\int_{-\pi/2}^{\pi/2}\frac{d\varphi}{\sqrt{1 - ba^2(1 + \sin^2\varphi)}}$. Expanding to first order in $ba^2$ and using $\langle\sin^2\varphi\rangle = 1/2$ gives $\tau \approx \dfrac{2\pi}{\omega_0}\left(1 + \dfrac{3}{4}ba^2\right)$.
+* **Admissible amplitudes:** $V$ has its maximum at $x^2 = 1/(2b)$, so bounded oscillations require $a^2 < 1/(2b)$; as $a^2 \to 1/(2b)$ the factor $1 - b(a^2 + x^2)$ vanishes at the turning points and $\tau \to \infty$.
+* **Numerical check ($\omega_0 = 1$, $b = 1$; quadrature against RK4 of $\ddot{x} = -x + 2bx^3$, step $10^{-4}$):**
+  - $a = 0.1$: quadrature $6.3309$, RK4 $6.3312$, first-order estimate $6.3303$.
+  - $a = 0.3$: quadrature $6.7592$, RK4 $6.7592$, estimate $6.7073$.
+  - $a = 0.5$: quadrature $8.0086$, RK4 $8.0088$, estimate $7.4613$.
+  - $a = 0.7$ (close to $1/\sqrt{2} = 0.7071$): quadrature $16.947$, RK4 $16.948$; the period grows without bound as $a \to 0.7071$ ($36.6$ at $a = 0.7071$ in the quadrature).
 
 ---
 
@@ -364,6 +377,8 @@ $$ \text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) = \sqrt{\frac{3g}{2a}}\,t -
   During the return motion, the particle passes back through the potential minimum $x = a$ ($y = 1$), where its speed returns to its maximum value:
   $$ v = \sqrt{\frac{2}{m}[E - V(a)]} = \sqrt{\frac{2}{m}[2mga - (-2mga)]} = \sqrt{\frac{8mga}{m}} = \sqrt{8ga} $$
   which corresponds to the characteristic speed referenced in `Problems.pdf` page 72.
+* **Dimensional check:** $[\dot{y}^2] = [2g/a] = \text{s}^{-2}$, the argument of $\text{arctanh}$ is dimensionless, and $[t_1] = \sqrt{[a]/[g]} = \text{s}$.
+* **Numerical check (RK4, step $10^{-5}$, $g = a = 1$):** integrating $\ddot{y} = -(3g/a)(y^2 - 1)$ from $y = 1$, $\dot{y} = \sqrt{8g/a}$ gives the turning point $y = 2$ at $t = 0.53765\sqrt{a/g}$, in agreement with $t_1 = \sqrt{2a/(3g)}\,\text{arctanh}(1/\sqrt{3}) = 0.537646\sqrt{a/g}$, and $y(0.3) = 1.759553$ in agreement with the closed form $y = 2 - 3\tanh^2\left(\operatorname{arctanh}(1/\sqrt{3}) - \sqrt{3g/(2a)}\,t\right) = 1.759553$.
 
 ---
 
@@ -444,11 +459,14 @@ $$ v_{0,crit}^2 = 2Ka^2 \implies v_{0,crit} = a\sqrt{2K} $$
    - **Conclusion:** The particle crosses the origin and moves towards $-\infty$.
 
 ### Phase 4: Physical Interpretation & Verification
-* Exact agreement with `Problems.pdf` page 72:
+* Compare with the official solution key (Problems.pdf, Solution keys section):
   - If $v_0 > a\sqrt{2K}$, particle moves towards $-\infty$.
   - If $v_0 < a\sqrt{2K}$, particle moves towards $+\infty$ after decelerating before arriving to $x = 0$.
   - If $v_0 = a\sqrt{2K}$, particle takes infinite time to reach $x = 0$.
 * Dimensional verification: $[v_{0,crit}] = [a]\sqrt{[K]} = \text{m}\cdot\sqrt{\text{s}^{-2}} = \text{m}/\text{s}$. Correct.
+* **Dimensional check of the barrier:** $[mKa^2] = \text{kg}\cdot\text{s}^{-2}\cdot\text{m}^2 = \text{J}$, the same as $\tfrac{1}{2}mv_0^2$, so $v_0^2/(2Ka^2)$ is dimensionless and decides the regime.
+* **Limits:** for $K \to 0$ the force vanishes, $v_{0,crit} \to 0$ and every $v_0 > 0$ crosses the origin (free particle); for $v_0 \gg a\sqrt{2K}$ the barrier is negligible, $v(0) \to v_0$.
+* **Numerical check (RK4, step $10^{-4}$, $m = K = a = 1$, $v_{0,crit} = 1.41421$):** for $v_0 = 1.2$ the particle turns at $x = 0.60801$ (root of $-e^{x}(x - 1) = 0.72$ is $0.608007$) and returns to $+\infty$; for $v_0 = 1.6$ it crosses the origin and reaches $x = -6$ with $\dot{x} = -1.5891$, equal to $-\sqrt{2(E - V(-6))} = -1.5891$ from energy conservation.
 
 ---
 
@@ -494,7 +512,7 @@ Therefore, the differential equation reads:
 $$ \ddot{x} + \frac{9\nu}{4r^2}\,\dot{x} = \frac{1}{2}g $$
 Multiplying through by $4r^2$:
 $$ 4r^2 \ddot{x} + 9\nu \dot{x} = 2r^2 g $$
-This matches the official equation of motion in `Problems.pdf` page 73.
+Compare with the official equation of motion in the official solution key (Problems.pdf, Solution keys section).
 
 #### 2. Computation of Terminal Velocity $v_t$
 * **Pedagogical Justification:** The terminal velocity is reached when the viscous drag balances the effective weight, so acceleration ceases ($\ddot{x} = 0$).
@@ -527,7 +545,7 @@ Multiply the inside by $4r^2$ and divide the outside prefactor by $4r^2$:
 $$ \frac{8r^4 g}{81\nu^2} = \frac{2r^2 g}{81\nu^2} \cdot 4r^2 $$
 $$ x(t) = \frac{2r^2 g}{81\nu^2}\left[ 4r^2\left(\frac{9\nu}{4r^2}t\right) - 4r^2 + 4r^2 e^{-\frac{9\nu}{4r^2}t} \right] $$
 $$ x(t) = \frac{2r^2 g}{81\nu^2}\left[ -4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t \right] $$
-This reproduces the exact closed-form solution from `Problems.pdf` page 73.
+Compare with the closed-form solution in the official solution key (Problems.pdf, Solution keys section).
 
 ### Phase 4: Physical Interpretation & Limiting Cases
 * **Short Times ($t \ll \gamma^{-1}$):**
@@ -609,6 +627,8 @@ This gives the exact analytical position.
   $$ \ln\cosh(u) \approx u - \ln 2 = \frac{gt}{v_t} - \ln 2 $$
   $$ s(t) \approx \frac{v_t^2}{g}\left( \frac{gt}{v_t} - \ln 2 \right) = v_t t - \frac{v_t^2}{g}\ln 2 $$
   The ball reaches terminal velocity with a constant asymptotic positional delay.
+* **Dimensional check:** $[v_t] = \sqrt{[mg]/[\rho S C_D]} = \sqrt{\dfrac{\text{kg}\cdot\text{m}\cdot\text{s}^{-2}}{\text{kg}\cdot\text{m}^{-3}\cdot\text{m}^2}} = \text{m/s}$; the argument $gt/v_t$ of $\tanh$ is dimensionless; $[v_t^2/g] = \text{m}$, so $s(t)$ is a length.
+* **Numerical check (RK4, step $10^{-4}$, units with $g = v_t = 1$):** integrating $\dot{v} = 1 - v^2$, $\dot{s} = v$ up to $t = 1$ gives $v = 0.761594$ and $s = 0.433781$, equal to $\tanh 1 = 0.761594$ and $\ln\cosh 1 = 0.433781$.
 
 ---
 
@@ -715,6 +735,9 @@ The particle travels with strictly **constant speed**!
 ### Phase 4: Physical Interpretation & Synthesis
 * The motion of the particle is a **uniform circular motion** along a great circle of radius $R = \frac{2g}{k^2}$ with constant orbital speed $v = \frac{2g}{k}$ and angular frequency $\omega = \frac{v}{R} = k$.
 * The effective center of attraction is shifted from the origin $O$ to $C(0, 0, -g/k^2)$ because the linear restoring force combines with uniform gravity into an equivalent spring centered at the equilibrium point where $k^2 z_{eq} = -g$.
+* **Dimensional check:** $[x] = [g/k^2] = \dfrac{\text{m/s}^2}{\text{s}^{-2}} = \text{m}$; $[v] = [g/k] = \text{m/s}$; $[R] = [2g/k^2] = \text{m}$; and $\omega = v/R = k$ has units s$^{-1}$.
+* **Limit $k \to \infty$ (stiff attraction):** $R = 2g/k^2 \to 0$ and the equilibrium offset $z_{eq} = -g/k^2 \to 0$, so gravity becomes negligible against the central force. The centripetal consistency check holds for any $k$: $v^2/R = (4g^2/k^2)/(2g/k^2) = 2g$ equals the effective spring force per unit mass $k^2R = 2g$.
+* **Symbolic check (sympy):** the trajectory of Phase 3 satisfies $\ddot{\mathbf{r}} + k^2\mathbf{r} = -g\mathbf{k}$ with zero residual and the initial data $\mathbf{r}(0)$, $\mathbf{v}(0)$; $\|\mathbf{v}\|^2 = 4g^2/k^2$, the squared distance to $C$ is $4g^2/k^4$, and $x - \sqrt{3}z = \sqrt{3}g/k^2$ for all $t$ (the centre $C$ lies on this plane).
 
 ---
 
@@ -736,6 +759,9 @@ The particle travels with strictly **constant speed**!
   The inertial acceleration is purely centripetal:
   $$ \mathbf{a}_0 = \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{r}) = -\Omega^2 \boldsymbol{\rho} $$
   where $\boldsymbol{\rho}$ is the projection of the position vector onto the equatorial plane.
+* **Change of basis (planet-fixed rotating basis).** Let $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ be the inertial basis and $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}\}$ the basis fixed to the planet, rotating at $\Omega$ about the polar axis $\mathbf{k}$, with $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i} + \sin\Omega t\,\mathbf{j}$. The columns are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}$ in $\mathcal{B}_0$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \ \sin\Omega t & \cos\Omega t & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* A body fixed at the equator at longitude $\varphi_0$ has $\mathbf{r} = R\,[{}_0 R_1](\cos\varphi_0, \sin\varphi_0, 0)^T = R\,\mathbf{e}_r$, with $\mathbf{e}_r = \cos(\Omega t + \varphi_0)\,\mathbf{i} + \sin(\Omega t + \varphi_0)\,\mathbf{j}$. Poisson's formula $\dot{\mathbf{e}}_r = \Omega\,\mathbf{e}_\varphi$, $\dot{\mathbf{e}}_\varphi = -\Omega\,\mathbf{e}_r$ gives $\mathbf{a}_0 = -\Omega^2R\,\mathbf{e}_r$, the centripetal acceleration used in Phase 3. The determinant, $R R^T$ and this acceleration were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -783,6 +809,7 @@ $$ T_{day} = \frac{2\pi}{\Omega} = \frac{2\pi}{\sqrt{\frac{g_p}{2R}}} = 2\pi \sq
   The result is dimensionally sound.
 * **Centrifugal Breakup Limit:**
   A planet becomes gravitationally unbounded at the equator (weightlessness) when $\Omega_{crit} = \sqrt{g_p/R}$. Here $\Omega = \sqrt{g_p/(2R)} = \frac{1}{\sqrt{2}}\Omega_{crit} \approx 0.707\,\Omega_{crit}$, ensuring that objects remain resting on the equatorial surface.
+* **Numerical illustration (Python):** for $g_p = 9.81\ \text{m/s}^2$ and $R = 6.371\times 10^6\ \text{m}$, $\Omega = \sqrt{g_p/(2R)} = 8.774\times 10^{-4}\ \text{rad/s}$ and $T_{day} = 2\pi\sqrt{2R/g_p} = 7.161\times 10^3\ \text{s} = 1.99\ \text{h}$, which satisfies $\Omega^2R/g_p = 0.5$ (so $W_{equator} = \tfrac{1}{2}W_{pole}$ as imposed).
 
 ---
 
@@ -805,6 +832,10 @@ $$ T_{day} = \frac{2\pi}{\Omega} = \frac{2\pi}{\sqrt{\frac{g_p}{2R}}} = 2\pi \sq
   - Position: $\mathbf{r} = L\mathbf{e}_r$.
   - Velocity: $\mathbf{v} = L\dot{\theta}\mathbf{e}_\theta$.
   - Acceleration: $\mathbf{a} = -L\dot{\theta}^2\mathbf{e}_r + L\ddot{\theta}\mathbf{e}_\theta$.
+* **Change of basis.** The triple $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$ listed above has $\mathbf{e}_r \times \mathbf{e}_\theta = -\mathbf{j}$, so it is left-handed (determinant $-1$); the right-handed polar triple is $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_3\}$ with $\mathbf{e}_3 = -\mathbf{j}$ (the third vector plays no role in the planar kinematics). The columns are the components in $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$:
+$$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* The angular velocity of $\mathcal{B}_1$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{e}_3 = -\dot{\theta}\,\mathbf{j}$, and Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$, the identities behind $\mathbf{v} = L\dot{\theta}\,\mathbf{e}_\theta$ and $\mathbf{a} = -L\dot{\theta}^2\mathbf{e}_r + L\ddot{\theta}\,\mathbf{e}_\theta$.
+* For part (b) the track rotates about $\mathbf{k}$ at rate $\omega$: the rotating basis $\{\mathbf{e}_\rho, \mathbf{e}_\phi, \mathbf{k}\}$ is related to $\mathcal{B}_0$ by $\mathrm{R}_z(\omega t)$ (a rotation matrix with the same properties, $\det = 1$, $R R^T = I$), and inside it the pair $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ is written with $\mathbf{e}_\rho$ in place of $\mathbf{i}$. The determinant and the product $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -905,5 +936,8 @@ This equation is satisfied if either factor vanishes:
   - For slow rotation $\omega < \omega_c = \sqrt{g/R}$, the bottom $\theta = 0$ is the only stable equilibrium.
   - When the rotation rate crosses the critical threshold $\omega_c$, the bottom becomes unstable, and the particle naturally climbs up the wire to settle at the tilted angle $\theta_0 = \arccos\left(\frac{g}{\omega^2 R}\right)$, where the upward component of the centrifugal force balances gravity.
   - As $\omega \to \infty$, $\cos\theta_0 \to 0 \implies \theta_0 \to \pi/2$ (the particle moves toward the equator).
+* **Dimensional check:** $[N] = [mv_0^2/L] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$; $\cos\theta_d = (2gL - v_0^2)/(3gL)$ is dimensionless; $\omega_c = \sqrt{g/R}$ has units $\text{s}^{-1}$.
+* **Limits of the regimes:** at $v_0^2 = 2gL$, $\cos\theta_d = 0$ ($\theta_d = \pi/2$), the boundary between oscillation and detachment; at $v_0^2 = 5gL$, $\cos\theta_d = -1$ ($\theta_d = \pi$) and $N(\pi) = 0$, the boundary between detachment and full loops. For $\omega \to 0$ in part (b) the equation reduces to the simple pendulum $\ddot{\theta} + (g/R)\sin\theta = 0$.
+* **Numerical example ($g = L = 1$, $v_0^2 = 3.5$, regime 2):** $\cos\theta_d = (2 - 3.5)/3 = -0.5$, $\theta_d = 120^\circ$; $v^2(\theta_d) = (v_0^2 - 2gL)/3 = 0.5$ and $N(\theta_d) = v_0^2/L - g(2 - 3\cos\theta_d) = 3.5 - 3.5 = 0$, as required.
 
 ---

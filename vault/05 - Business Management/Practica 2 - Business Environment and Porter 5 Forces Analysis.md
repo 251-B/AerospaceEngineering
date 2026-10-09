@@ -95,7 +95,7 @@ Structure the response around three criteria:
 ---
 
 ## 🔗 Related Notes
-* `[[05 - Business Management/Tema 2 - Value Creation - Environment and Competitive Advantage|Topic 2: Value Creation — Environment and Competitive Advantage]]`
-* `[[05 - Business Management/Concepto - External Environment Analysis (PESTEL and Porters 5 Forces)|Concept: PESTEL & 5 Forces Analysis]]`
-* `[[05 - Business Management/Concepto - Porters Value Chain Analysis|Concept: Porter's Value Chain Analysis]]`
-* `[[05 - Business Management/Gestion de Empresas MOC|Back to Business Management MOC]]`
+* [[05 - Business Management/Topic 2 - Value Creation - Environment and Competitive Advantage|Topic 2: Value Creation — Environment and Competitive Advantage]]
+* [[05 - Business Management/Concept - External Environment Analysis (PESTEL and Porters 5 Forces)|Concept: PESTEL & 5 Forces Analysis]]
+* [[05 - Business Management/Concept - Porters Value Chain Analysis|Concept: Porter's Value Chain Analysis]]
+* [[05 - Business Management/Business Management MOC|Back to Business Management MOC]]

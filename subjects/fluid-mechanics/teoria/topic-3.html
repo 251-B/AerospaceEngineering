@@ -480,6 +480,7 @@
     }
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -859,9 +860,9 @@
               <td class="eq-scope">Pitching / yawing moments.</td>
             </tr>
             <tr>
-              <td class="eq-num">3.34</td>
+              <td class="eq-num">4.2</td>
               <td class="eq-math">$$\frac{d}{dt}\left[\int_{V_f}\rho\vec{v}dV\right] = -\int_{\Sigma_f}p\vec{n}d\sigma + \int_{\Sigma_f}\bar{\bar{\tau}}'\cdot\vec{n}d\sigma + \int_{V_f}\rho\vec{f}_m dV$$</td>
-              <td>Newton's 2nd law for a closed material fluid volume $V_f(t)$.</td>
+              <td>Newton's 2nd law for a closed material fluid volume $V_f(t)$ (Eq. 3.34 with Eq. 3.28 inserted; Eq. 3.34 itself uses $\bar{\bar{\tau}}\cdot\vec{n}$).</td>
               <td class="eq-scope">Closed fluid system.</td>
             </tr>
             <tr>
@@ -947,27 +948,6 @@
     </section>
   </main>
 
-  <!-- Theme Script & Storage Sync -->
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const root = document.documentElement;
-
-    function applyTheme(t) {
-      root.setAttribute('data-theme', t);
-      localStorage.setItem('theme', t);
-      localStorage.setItem('ae_theme', t);
-    }
-
-    const savedTheme = localStorage.getItem('ae_theme') || localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-      });
-    }
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

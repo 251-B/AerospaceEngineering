@@ -17,8 +17,8 @@ sources:
 # 🔬 Laboratory Guidelines & Scientific Report Standards
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Documents:** `[[mechanics_labs.pdf]]` | `[[Lab1_notes.pptx]]`  
-> **Navigation:** `[[Mecanica de Estructuras MOC|⬅️ Mechanics MOC]]` | `[[00 - Indice Central/Indice Maestro|Master Index]]`
+> **Source Documents:** [[mechanics_labs.pdf]] | [[Lab1_notes.pptx]]  
+> **Navigation:** [[Engineering Mechanics MOC|⬅️ Mechanics MOC]] | [[00 - Indice Central/Master Index|Master Index]]
 
 ---
 
@@ -30,10 +30,10 @@ The laboratory and computer sessions of *Mechanics Applied to Aerospace Engineer
 3. **Rigorous Scientific & Technical Reporting:** Communicating physical phenomena, mathematical formulations, and engineering results with absolute precision and professional typesetting.
 
 ### Course Laboratory Program (4 Sessions)
-* **Session 1:** `[[Lab 1 - Particle Connected to a Spool|Particle Connected to a Spool]]` (Numerical Integration & Discontinuous Events)
-* **Session 2:** `[[Lab 2 - Particle on Oscillating Loop|Particle on Oscillating Loop]]` (Dynamics in Rotating Non-Inertial Frames & Phase Space)
-* **Session 3:** `[[Lab 3 and 4 - Compound Double Pendulum|Compound Double Pendulum (Part I: Experimental Testing & Video Tracking)]]`
-* **Session 4:** `[[Lab 3 and 4 - Compound Double Pendulum|Compound Double Pendulum (Part II: Numerical Integration & Deterministic Chaos)]]`
+* **Session 1:** [[Lab 1 - Particle Connected to a Spool|Particle Connected to a Spool]] (Numerical Integration & Discontinuous Events)
+* **Session 2:** [[Lab 2 - Particle on Oscillating Loop|Particle on Oscillating Loop]] (Dynamics in Rotating Non-Inertial Frames & Phase Space)
+* **Session 3:** [[Lab 3 and 4 - Compound Double Pendulum|Compound Double Pendulum (Part I: Experimental Testing & Video Tracking)]]
+* **Session 4:** [[Lab 3 and 4 - Compound Double Pendulum|Compound Double Pendulum (Part II: Numerical Integration & Deterministic Chaos)]]
 
 ---
 

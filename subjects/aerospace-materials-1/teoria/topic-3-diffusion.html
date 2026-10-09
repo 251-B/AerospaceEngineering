@@ -496,6 +496,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -604,7 +605,7 @@
             <!-- Text label -->
             <text x="170" y="166" fill="var(--svg-accent)" font-family="var(--font-mono)" font-size="11" text-anchor="middle">Vacancy</text>
             <text x="110" y="166" fill="var(--svg-green)" font-family="var(--font-mono)" font-size="11" text-anchor="middle">Jumping Atom</text>
-            <text x="170" y="225" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12" text-anchor="middle">Requires: Vacancy Formation + Migration ($E_a = \Delta H_v + \Delta H_m$)</text>
+            <text x="170" y="225" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12" text-anchor="middle">Requires: Vacancy Formation + Migration (Eₐ = ΔHᵥ + ΔHₘ)</text>
           </g>
 
           <!-- Divider line -->
@@ -632,7 +633,7 @@
             <!-- Text label -->
             <text x="90" y="136" fill="var(--svg-red)" font-family="var(--font-mono)" font-size="11" text-anchor="middle">Solute (C, H, N)</text>
             <text x="170" y="136" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11" text-anchor="middle">Empty Void</text>
-            <text x="160" y="200" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12" text-anchor="middle">No matrix displacement ($E_i \ll E_v$)</text>
+            <text x="160" y="200" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12" text-anchor="middle">No matrix displacement (Eᵢ ≪ Eᵥ)</text>
             <text x="160" y="225" fill="var(--svg-green)" font-family="var(--font-mono)" font-weight="700" font-size="12" text-anchor="middle">Kinetic rate: 10⁴ – 10⁶ × faster</text>
           </g>
         </svg>
@@ -689,13 +690,13 @@
           <g transform="translate(60, 20)">
             <!-- Membrane block -->
             <rect x="220" y="20" width="160" height="170" fill="var(--bg-subtle)" stroke="var(--border-strong)" stroke-width="1.5" rx="4"/>
-            <text x="300" y="45" fill="var(--text-heading)" font-family="var(--font-sans)" font-size="13" font-weight="700" text-anchor="middle">Membrane ($\text{Pd}$)</text>
+            <text x="300" y="45" fill="var(--text-heading)" font-family="var(--font-sans)" font-size="13" font-weight="700" text-anchor="middle">Membrane (Pd)</text>
 
             <!-- Coordinate axes -->
             <line x1="80" y1="190" x2="560" y2="190" stroke="var(--text-muted)" stroke-width="1.5"/>
             <line x1="80" y1="20" x2="80" y2="190" stroke="var(--text-muted)" stroke-width="1.5"/>
-            <text x="560" y="210" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Position, $x$</text>
-            <text x="70" y="16" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Concentration, $C$</text>
+            <text x="560" y="210" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Position, x</text>
+            <text x="70" y="16" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Concentration, C</text>
 
             <!-- High and Low concentration levels -->
             <line x1="80" y1="50" x2="220" y2="50" stroke="var(--svg-accent)" stroke-width="2" stroke-dasharray="4,3"/>
@@ -778,8 +779,8 @@
             <!-- Axes -->
             <line x1="80" y1="220" x2="650" y2="220" stroke="var(--text-muted)" stroke-width="1.5"/>
             <line x1="80" y1="20" x2="80" y2="220" stroke="var(--text-muted)" stroke-width="1.5"/>
-            <text x="650" y="240" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Distance from surface, $x$</text>
-            <text x="70" y="16" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Concentration, $C$</text>
+            <text x="650" y="240" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Distance from surface, x</text>
+            <text x="70" y="16" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Concentration, C</text>
 
             <!-- Horizontal reference lines for Cs and C0 -->
             <line x1="80" y1="40" x2="650" y2="40" stroke="var(--svg-accent)" stroke-width="1.5" stroke-dasharray="4,4"/>
@@ -858,45 +859,57 @@
           <tbody>
             <tr>
               <td><strong>0.00</strong></td><td>0.0000</td>
-              <td><strong>0.20</strong></td><td>0.2227</td>
-              <td><strong>0.50</strong></td><td>0.5205</td>
-              <td><strong>1.00</strong></td><td>0.8427</td>
-            </tr>
-            <tr>
-              <td><strong>0.01</strong></td><td>0.0113</td>
               <td><strong>0.25</strong></td><td>0.2763</td>
-              <td><strong>0.55</strong></td><td>0.5633</td>
-              <td><strong>1.10</strong></td><td>0.8802</td>
-            </tr>
-            <tr>
-              <td><strong>0.02</strong></td><td>0.0226</td>
-              <td><strong>0.30</strong></td><td>0.3286</td>
-              <td><strong>0.60</strong></td><td>0.6039</td>
-              <td><strong>1.20</strong></td><td>0.9103</td>
-            </tr>
-            <tr>
-              <td><strong>0.03</strong></td><td>0.0338</td>
-              <td><strong>0.35</strong></td><td>0.3794</td>
-              <td><strong>0.65</strong></td><td>0.6420</td>
+              <td><strong>0.70</strong></td><td>0.6778</td>
               <td><strong>1.30</strong></td><td>0.9340</td>
             </tr>
             <tr>
-              <td><strong>0.04</strong></td><td>0.0451</td>
-              <td><strong>0.40</strong></td><td>0.4284</td>
-              <td><strong>0.70</strong></td><td>0.6778</td>
+              <td><strong>0.01</strong></td><td>0.0113</td>
+              <td><strong>0.30</strong></td><td>0.3286</td>
+              <td><strong>0.75</strong></td><td>0.7112</td>
               <td><strong>1.40</strong></td><td>0.9523</td>
             </tr>
             <tr>
-              <td><strong>0.05</strong></td><td>0.0564</td>
-              <td><strong>0.45</strong></td><td>0.4755</td>
+              <td><strong>0.02</strong></td><td>0.0226</td>
+              <td><strong>0.35</strong></td><td>0.3794</td>
               <td><strong>0.80</strong></td><td>0.7421</td>
               <td><strong>1.50</strong></td><td>0.9661</td>
             </tr>
             <tr>
-              <td><strong>0.10</strong></td><td>0.1125</td>
-              <td><strong>0.50</strong></td><td>0.5205</td>
+              <td><strong>0.03</strong></td><td>0.0338</td>
+              <td><strong>0.40</strong></td><td>0.4284</td>
+              <td><strong>0.85</strong></td><td>0.7707</td>
+              <td><strong>1.60</strong></td><td>0.9763</td>
+            </tr>
+            <tr>
+              <td><strong>0.04</strong></td><td>0.0451</td>
+              <td><strong>0.45</strong></td><td>0.4755</td>
               <td><strong>0.90</strong></td><td>0.7969</td>
+              <td><strong>1.70</strong></td><td>0.9838</td>
+            </tr>
+            <tr>
+              <td><strong>0.05</strong></td><td>0.0564</td>
+              <td><strong>0.50</strong></td><td>0.5205</td>
+              <td><strong>0.95</strong></td><td>0.8209</td>
+              <td><strong>1.80</strong></td><td>0.9891</td>
+            </tr>
+            <tr>
+              <td><strong>0.10</strong></td><td>0.1125</td>
+              <td><strong>0.55</strong></td><td>0.5633</td>
+              <td><strong>1.00</strong></td><td>0.8427</td>
+              <td><strong>1.90</strong></td><td>0.9928</td>
+            </tr>
+            <tr>
+              <td><strong>0.15</strong></td><td>0.1680</td>
+              <td><strong>0.60</strong></td><td>0.6039</td>
+              <td><strong>1.10</strong></td><td>0.8802</td>
               <td><strong>2.00</strong></td><td>0.9953</td>
+            </tr>
+            <tr>
+              <td><strong>0.20</strong></td><td>0.2227</td>
+              <td><strong>0.65</strong></td><td>0.6420</td>
+              <td><strong>1.20</strong></td><td>0.9103</td>
+              <td></td><td></td>
             </tr>
           </tbody>
         </table>
@@ -934,28 +947,28 @@
             <!-- Coordinate axes -->
             <line x1="80" y1="220" x2="650" y2="220" stroke="var(--text-muted)" stroke-width="1.5"/>
             <line x1="80" y1="20" x2="80" y2="220" stroke="var(--text-muted)" stroke-width="1.5"/>
-            <text x="650" y="240" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Reciprocal Temperature, $1/T$ ($\text{K}^{-1}$)</text>
-            <text x="70" y="16" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">$\ln D$ ($\text{m}^2/\text{s}$)</text>
+            <text x="650" y="240" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">Reciprocal Temperature, 1/T (K⁻¹)</text>
+            <text x="70" y="16" fill="var(--text-muted)" font-family="var(--font-sans)" font-size="12">ln D (m²/s)</text>
 
             <!-- Line 1: Surface Diffusion (Fastest, low slope) -->
             <line x1="120" y1="40" x2="580" y2="75" stroke="var(--svg-accent)" stroke-width="3"/>
-            <text x="590" y="78" fill="var(--svg-accent)" font-family="var(--font-mono)" font-size="11" font-weight="700">Surface Diffusion ($D_{\text{surf}}$)</text>
+            <text x="590" y="78" fill="var(--svg-accent)" font-family="var(--font-mono)" font-size="11" font-weight="700">Surface Diffusion (D_surf)</text>
 
             <!-- Line 2: Interstitial Carbon in Ferrita (BCC) -->
             <line x1="120" y1="70" x2="580" y2="120" stroke="var(--svg-green)" stroke-width="3"/>
-            <text x="590" y="123" fill="var(--svg-green)" font-family="var(--font-mono)" font-size="11" font-weight="700">Interstitial C in BCC ($Fe_\alpha$)</text>
+            <text x="590" y="123" fill="var(--svg-green)" font-family="var(--font-mono)" font-size="11" font-weight="700">Interstitial C in BCC (α-Fe)</text>
 
             <!-- Line 3: Interstitial Carbon in Austenite (FCC) -->
             <line x1="120" y1="100" x2="580" y2="165" stroke="var(--svg-blue)" stroke-width="3"/>
-            <text x="590" y="168" fill="var(--svg-blue)" font-family="var(--font-mono)" font-size="11" font-weight="700">Interstitial C in FCC ($Fe_\gamma$)</text>
+            <text x="590" y="168" fill="var(--svg-blue)" font-family="var(--font-mono)" font-size="11" font-weight="700">Interstitial C in FCC (γ-Fe)</text>
 
             <!-- Line 4: Volume Self-Diffusion (Slowest, steepest slope) -->
             <line x1="120" y1="130" x2="580" y2="215" stroke="var(--svg-red)" stroke-width="3"/>
-            <text x="590" y="215" fill="var(--svg-red)" font-family="var(--font-mono)" font-size="11" font-weight="700">Lattice Self-Diffusion ($D_{\text{vol}}$)</text>
+            <text x="590" y="215" fill="var(--svg-red)" font-family="var(--font-mono)" font-size="11" font-weight="700">Lattice Self-Diffusion (D_vol)</text>
 
             <!-- Slope indicator triangle on line 4 -->
             <path d="M 280 160 L 380 160 L 380 180" fill="none" stroke="var(--text-muted)" stroke-width="1.5"/>
-            <text x="330" y="152" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">$\Delta(1/T)$</text>
+            <text x="330" y="152" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="11">Δ(1/T)</text>
             <text x="395" y="174" fill="var(--svg-red)" font-family="var(--font-mono)" font-size="11" font-weight="700">Slope = -E_D / R</text>
           </g>
         </svg>
@@ -992,31 +1005,31 @@
 
       <h3 class="subsection-heading">1. Case Hardening (Gas Carburizing of Gears &amp; Shafts)</h3>
       <p>
-        Carburizing exposes low-carbon steel components (AISI 1018, 1010) to a hydrocarbon gas atmosphere ($\text{CH}_4 - \text{H}_2$) at austenitizing temperatures ($850^\circ\text{C}\text{--}950^\circ\text{C}$) [Slides 29-31]. Interstitial carbon diffuses inward, forming a gradient.
+        Carburizing exposes low-carbon steel components (AISI 1018, 1010) to a hydrocarbon gas atmosphere ($\text{CH}_4 - \text{H}_2$) at high temperature (e.g. $927^\circ\text{C}$ in Problem 1) [Slides 29-31]. Interstitial carbon diffuses inward, forming a gradient.
       </p>
       <ul class="editorial-list">
-        <li><strong>Dislocation Pinning:</strong> Diffused carbon atoms strain the iron lattice, locking dislocations and obstructing plastic deformation to dramatically elevate surface hardness ($\ge 60\text{ HRC}$) [Slide 30].</li>
-        <li><strong>Residual Compressive Stress:</strong> The subsequent martensitic quench expands the high-carbon case relative to the tough core, inducing intense <strong>compressive residual stresses</strong> that impede fatigue crack nucleation and extend cyclical life [Slide 30].</li>
-        <li><strong>Optimal Core/Case Compromise:</strong> Gears require an outer case that is wear-resistant to contact fatigue (*pitting*), surrounded by a tough, ductile inner core to absorb impact shock loads [Slide 30].</li>
+        <li><strong>Dislocation Pinning:</strong> The $\text{C}$ atoms "block" the movement of dislocations and deform the lattice, making plastic deformation more difficult and hardening the surface [Slide 30].</li>
+        <li><strong>Residual Compressive Stress:</strong> The excess of $\text{C}$ at the surface leaves a state of <strong>residual stresses in compression</strong> [Slide 30].</li>
+        <li><strong>Optimal Core/Case Compromise:</strong> Typical for gears and shafts: the inner core must be <em>tough</em> for fracture strength, while the outer case must be <em>hard</em> for wear resistance; machining is done in the soft state and hardening by gas carburizing afterwards [Slide 30].</li>
       </ul>
 
-      <h3 class="subsection-heading">2. Diffusion Bonding &amp; Superplastic Forming (DB/SPF) in Aerospace Turbofans</h3>
+      <h3 class="subsection-heading">2. Diffusion Bonding in Aerospace Turbofans</h3>
       <p>
-        Diffusion bonding is a solid-state joining process where clean metallic surfaces are held in intimate atomic contact at elevated temperatures ($T > 0.5 T_m$) under pressure in a vacuum [Slide 33]. Interdiffusion across the interface completely closes micro-voids, forming a monolithic metallurgical bond with base-metal strength.
+        Interdiffusion across the contact between two metals makes it possible to join them (diffusion welding / diffusion bonding) [Slides 10, 33].
       </p>
       <ul class="editorial-list">
-        <li><strong>Rolls-Royce Trent 500 Wide-Chord Fan Blades:</strong> Produced by combined Diffusion Bonding and Superplastic Forming (DB/SPF) using $\text{Ti-6Al-4V}$ titanium alloy sheets [Slide 33].</li>
-        <li><strong>Aerospace Advantage:</strong> Generates a hollow, internally stiffened aerodynamic blade that drastically reduces rotating fan disk weight while providing supreme impact resistance against <strong>Foreign Object Damage (FOD)</strong>, such as high-velocity bird strikes during takeoff [Slide 33].</li>
+        <li><strong>Cowlings and Fan Blades for Aeronautics:</strong> Slide 33 presents diffusion bonding for these components, with the Rolls-Royce Trent 500 wide-chord fan as the example.</li>
+        <li><strong>Aerospace Advantage:</strong> The wide-chord fan protects the engine against <strong>foreign object damage</strong> [Slide 33].</li>
       </ul>
 
       <h3 class="subsection-heading">3. Hydrogen Purification via Palladium Membranes</h3>
       <p>
-        Palladium ($\text{Pd}$) selectively dissolves hydrogen molecules catalytically on its high-pressure face, transporting $\text{H}$ atoms rapidly through its FCC interstitial matrix to the low-pressure side where pure $\text{H}_2$ desorbs [Slide 35]. This process achieves $99.9999\%$ purity, vital for spacecraft PEM fuel cell propulsion systems and ultra-clean hydrogen storage [Slide 35].
+        Palladium ($\text{Pd}$) selectively dissolves hydrogen molecules catalytically on its high-pressure face, transporting $\text{H}$ atoms rapidly through its FCC interstitial matrix to the low-pressure side where pure $\text{H}_2$ desorbs [Slide 35]. Slide 35 uses this as its worked example of $\text{H}_2$ purification (see Problem 6).
       </p>
 
       <h3 class="subsection-heading">4. Sintering of Advanced Aerospace Ceramics</h3>
       <p>
-        Sintering is the thermally activated mass transport process that consolidates loose ceramic or metallic powder particles into dense, high-strength monolithic components at temperatures below their melting point [Slide 32]. Driven by the minimization of surface free energy, vacancy and grain-boundary diffusion bridge adjacent particles (neck growth) and eliminate internal porosity, producing components such as ceramic thermal barrier turbine shrouds and hip prostheses [Slide 32].
+        Sintering is the thermally activated mass transport process that consolidates loose ceramic or metallic powder particles into dense, high-strength monolithic components at temperatures below their melting point [Slide 32]. Driven by the minimization of surface free energy, vacancy and grain-boundary diffusion bridge adjacent particles (neck growth) and eliminate internal porosity [Slide 32].
       </p>
 
       <!-- Solved Problems CTA Banner -->
@@ -1040,43 +1053,6 @@
     </div>
   </footer>
 
-  <!-- Theme Synchronization Script -->
-  <script>
-    (function () {
-      const html = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
-
-      function applyTheme(t) {
-        html.setAttribute('data-theme', t);
-        try {
-          localStorage.setItem('theme', t);
-          localStorage.setItem('ae_theme', t);
-          localStorage.setItem('aero-portal-theme', t);
-        } catch (e) {}
-      }
-
-      const savedTheme = (() => {
-        try {
-          return localStorage.getItem('theme') ||
-                 localStorage.getItem('aero-portal-theme') ||
-                 localStorage.getItem('ae_theme') ||
-                 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      })();
-
-      applyTheme(savedTheme);
-
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const current = html.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-    })();
-  </script>
 
   <!-- Scripts: i18n -->
   <!-- Celestial Sky Engine -->

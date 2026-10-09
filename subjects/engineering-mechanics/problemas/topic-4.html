@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topic 4: Angular Momentum & Central Forces - Problems | Mechanics Applied to Aerospace Engineering</title>
+  <title>Topic 4: Angular Momentum and Central Forces - Problem Sets | Mechanics Applied to Aerospace Engineering</title>
 
   <!-- Google Fonts & KaTeX CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,441 +81,996 @@
       border-bottom: 1px solid var(--border-subtle);
       backdrop-filter: blur(8px);
     }
+
     .header-inner {
-      max-width: 960px; margin: 0 auto; padding: 12px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 920px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
     }
-    .brand-area { display: flex; align-items: center; gap: 12px; }
+
+    .brand-area { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .back-link {
       display: inline-flex; align-items: center; gap: 6px;
-      color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 13px; font-weight: 500;
       transition: color var(--transition);
     }
     .back-link:hover { color: var(--accent); }
-    .page-title-crumb { font-size: 0.95rem; font-weight: 600; color: var(--text-heading); }
-
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle-btn {
-      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
-      border-radius: 8px; width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: var(--text-main); transition: var(--transition);
-    }
-    .theme-toggle-btn:hover { border-color: var(--accent-border); }
-
-    .main-container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
-
-    .page-hero { margin-bottom: 32px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px;
       background: var(--badge-bg); color: var(--badge-text);
-      font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
-      border: 1px solid var(--accent-border); font-family: var(--font-mono);
+      padding: 3px 8px; border-radius: 4px; font-weight: 600;
     }
-    .page-hero h1 {
-      font-family: 'Abril Fatface', Georgia, serif;
-      font-size: 2.2rem; font-weight: 400; color: var(--text-heading);
+
+    .theme-toggle {
+      background: var(--bg-subtle); border: 1px solid var(--border-subtle);
+      color: var(--text-main); width: 36px; height: 36px;
+      border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: all var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); background: var(--accent-soft); }
+    [data-theme="dark"] .theme-toggle::before { content: "\2600\FE0F"; }
+    [data-theme="light"] .theme-toggle::before { content: "\1F319"; }
+
+    .article-container {
+      max-width: 920px; margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 32px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--accent); font-weight: 700; margin-bottom: 8px;
+    }
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700; color: var(--text-heading);
       line-height: 1.25; margin-bottom: 12px;
     }
-    .page-hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 780px; font-family: var(--font-serif); }
+    .article-meta {
+      font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
+    }
+    .source-box {
+      margin-top: 14px; padding: 8px 14px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--accent-border);
+      font-family: var(--font-mono); font-size: 11.5px;
+      color: var(--accent); display: inline-block;
+    }
 
-    .cross-nav-pills {
-      display: flex; gap: 12px; margin-bottom: 28px; background: var(--bg-surface);
-      padding: 6px; border-radius: 10px; border: 1px solid var(--border-subtle);
+    .note-banner {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px; padding: 16px 20px;
+      margin-bottom: 36px; font-size: 0.92rem;
+      color: var(--text-main);
     }
-    .cross-nav-btn {
-      flex: 1; text-align: center; padding: 10px 16px; border-radius: 8px; text-decoration: none;
-      font-weight: 600; font-size: 0.9rem; transition: var(--transition); color: var(--text-muted);
-    }
-    .cross-nav-btn.active {
-      background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);
-    }
-    .cross-nav-btn:hover:not(.active) { color: var(--text-heading); background: var(--bg-subtle); }
-
-    .quick-jump-bar {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px;
-      padding: 12px 16px; background: var(--bg-surface); border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-    }
-    .jump-link {
-      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
-      color: var(--accent); text-decoration: none; padding: 4px 10px;
-      background: var(--bg-subtle); border-radius: 6px; border: 1px solid var(--border-subtle);
-      transition: var(--transition);
-    }
-    .jump-link:hover { border-color: var(--accent); transform: translateY(-1px); }
 
     .problem-card {
-      background: var(--bg-card); border: 1px solid var(--border-card);
-      border-left: 4px solid var(--accent); border-radius: 12px;
-      padding: 28px; margin-bottom: 36px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 26px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
+
     .problem-header {
       display: flex; align-items: flex-start; justify-content: space-between;
       gap: 16px; margin-bottom: 16px; padding-bottom: 14px;
-      border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
     }
+    .problem-title-area { flex: 1; }
     .problem-num {
       font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
-      color: var(--accent); text-transform: uppercase; margin-bottom: 4px;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 4px;
     }
     .problem-title {
-      font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700;
+      font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700;
       color: var(--text-heading); line-height: 1.3;
     }
     .problem-badge {
       font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
       background: var(--bg-subtle); color: var(--text-muted);
-      padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);
+      padding: 4px 10px; border-radius: 6px;
+      border: 1px solid var(--border-subtle);
     }
 
     .problem-statement {
-      font-size: 1rem; line-height: 1.75; margin-bottom: 20px; color: var(--text-main); font-family: var(--font-serif);
+      font-size: 0.98rem; line-height: 1.75;
+      margin-bottom: 18px; color: var(--text-main);
     }
-    .problem-statement p { margin-bottom: 10px; }
+    .problem-statement p { margin-bottom: 12px; }
 
-    .solution-box {
-      background: var(--bg-subtle); border: 1px solid var(--border-strong);
-      border-radius: 8px; padding: 22px; margin-top: 18px;
+    .questions-list {
+      list-style-type: none; margin: 16px 0;
+      display: flex; flex-direction: column; gap: 10px;
     }
-    .solution-title {
-      font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 14px;
-      display: flex; align-items: center; gap: 8px;
+    .question-item {
+      display: flex; gap: 12px; align-items: baseline;
+      padding: 8px 12px; border-radius: 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.94rem;
     }
-    .phase-badge {
-      display: inline-block; font-family: var(--font-mono); font-size: 0.75rem;
-      font-weight: 700; background: var(--accent-soft); color: var(--accent);
-      padding: 3px 8px; border-radius: 4px; margin: 12px 0 6px;
+    .question-label {
+      font-family: var(--font-mono); font-weight: 700;
+      color: var(--accent); min-width: 24px;
     }
-    .solution-box p, .solution-box li { font-family: var(--font-serif); font-size: 0.98rem; margin-bottom: 8px; }
-    .solution-box ul, .solution-box ol { margin: 8px 0 14px 22px; }
 
-    .formula-box {
-      background: var(--bg-primary); border: 1px solid var(--border-strong);
-      border-radius: 6px; padding: 12px; margin: 12px 0; text-align: center; overflow-x: auto;
+    .problem-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-top: 20px; padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+    .status-tag {
+      font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+      color: #f59e0b; background: rgba(245, 158, 11, 0.1);
+      padding: 3px 10px; border-radius: 4px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .source-tag {
+      font-family: var(--font-mono); font-size: 0.76rem;
+      color: var(--text-muted); font-style: italic;
+    }
+
+    .math-block {
+      overflow-x: auto; padding: 12px 16px; margin: 12px 0;
+      background: var(--bg-subtle); border-radius: 8px;
+      border: 1px solid var(--border-subtle); text-align: center;
     }
 
     .article-nav {
-      display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; flex-wrap: wrap;
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 50px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
     }
     .nav-btn {
-      flex: 1; min-width: 220px; background: var(--bg-surface); border: 1px solid var(--border-subtle);
-      border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--text-main);
-      transition: var(--transition);
+      display: inline-flex; flex-direction: column; text-decoration: none;
+      padding: 12px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
     }
-    .nav-btn:hover { border-color: var(--accent-border); transform: translateY(-2px); }
-    .nav-btn-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-    .nav-btn-title { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-top: 4px; }
+    .nav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .nav-btn-label { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+    .nav-btn-title { font-size: 0.92rem; font-weight: 600; color: var(--text-heading); }
+
+    /* Solution Accordion */
+    .solution-details {
+      margin-top: 24px;
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      background: var(--bg-surface);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .solution-details[open] {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .solution-summary {
+      padding: 12px 18px;
+      background: var(--accent-soft);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--accent);
+      user-select: none;
+      list-style: none;
+    }
+    .solution-summary::-webkit-details-marker { display: none; }
+    .solution-summary:hover {
+      background: rgba(16, 185, 129, 0.22);
+    }
+    .solution-content {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.92rem;
+      line-height: 1.68;
+    }
+    .phase-block {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
+    .phase-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .phase-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--bg-subtle);
+      border: 1px solid var(--accent-border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .phase-heading {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 8px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .justification-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+    }
+    .status-solved {
+      font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 10px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* Editorial Typography & Minimalist Space Aesthetic */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    
+    h1.article-title, .problem-title {
+      font-family: var(--font-display);
+      letter-spacing: 0.01em;
+    }
+    
+    /* Language Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+    
+    /* Celestial light background & Neon dark glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
   </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
+  <!-- Animated Celestial Canvas Background -->
+  <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
-  <!-- Top Header Navigation -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-area">
         <a href="../../../index.html" class="back-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Portal
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
         </a>
-        <span style="color: var(--border-strong);">/</span>
-        <a href="index.html" class="back-link">Problem Sets</a>
-        <span style="color: var(--border-strong);">/</span>
-        <span class="page-title-crumb">Topic 4 Problems</span>
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Problems Index</span>
+        </a>
+        <a href="../teoria/topic-4.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Topic Theory</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
       </div>
-      <div class="header-actions">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-      </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
     </div>
   </header>
 
-  <main class="main-container">
-    <header class="page-hero">
-      <div class="hero-badges">
-        <span class="badge">UNIT 04</span>
-        <span class="badge">SOLVED PROBLEM SET</span>
-        <span class="badge">5 OFFICIAL PROBLEMS</span>
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering - Part I</div>
+      <h1 class="article-title">Topic 4: Angular Momentum and Central Forces - Problem Sets</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • BSc in Aerospace Engineering, UC3M
       </div>
-      <h1>Topic 4: Angular Momentum & Central Forces — Solved Problems</h1>
-      <p>Exhaustive step-by-step analytical solutions to official course problems from <code>Problems.pdf</code>. Every solution follows the rigorous 4-phase pedagogical methodology with zero algebraic omissions and SI dimensional checks.</p>
+      <div class="source-box">
+        Source: sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf (2026 Edition)
+      </div>
     </header>
 
-    <!-- Cross-Nav Switcher -->
-    <div class="cross-nav-pills">
-      <a href="../teoria/topic-4.html" class="cross-nav-btn">📖 Theory Guide</a>
-      <a href="topic-4.html" class="cross-nav-btn active">✏️ Solved Problems (5)</a>
+    <div class="note-banner">
+      <strong>Statements and solutions:</strong> Each card gives the statement from the official collection (with the PDF page) and a worked solution in four phases: hypotheses and data, frames and change-of-basis matrices, step-by-step derivation, and interpretation with unit and limit checks. Only Problems 17 and 39 (part f) have an official key entry; the other results are derived here and checked numerically.
     </div>
-
-    <!-- Quick Jump Bar -->
-    <nav class="quick-jump-bar" aria-label="Quick jump to problem">
-      <span style="font-size: 0.82rem; color: var(--text-muted); align-self: center; margin-right: 4px;">Jump to:</span>
-      <a href="#prob-17" class="jump-link">Prob 17 (Linear Central)</a>
-      <a href="#prob-39" class="jump-link">Prob 39 (String on Plate)</a>
-      <a href="#prob-42" class="jump-link">Prob 42 (Power-Law Binet)</a>
-      <a href="#prob-43" class="jump-link">Prob 43 (Dual Connected)</a>
-      <a href="#prob-44" class="jump-link">Prob 44 (Little Prince Orbit)</a>
-    </nav>
 
     <!-- Problem 17 -->
-    <article id="prob-17" class="problem-card">
+    <div class="problem-card" id="prob-17">
       <div class="problem-header">
         <div class="problem-title-area">
-          <div class="problem-num">Problem 17 · Slide 6 Benchmark</div>
+          <div class="problem-num">Problem 17</div>
           <h2 class="problem-title">Linear Central Force under Gravity</h2>
         </div>
-        <span class="problem-badge">Slide 6 / Problems.pdf P10</span>
+        <span class="problem-badge">Central Force + Gravity</span>
       </div>
-
       <div class="problem-statement">
-        <p>A force attracts a heavy particle $M$ of mass $m$ to a point $O$. The attractive force is proportional to the mass of the particle and to the distance $OM$, with proportionality constant $k^2$ ($\mathbf{F}_{\text{attract}} = -m k^2\mathbf{r}$). The coordinate system $Oxyz$ has origin at the center of attraction $O$ and axis $Oz$ is vertically oriented with gravity $\mathbf{g} = -g\mathbf{k}$.</p>
-        <p>Initially at $t = 0$: $(x_0, y_0, z_0) = \left(\frac{\sqrt{3}g}{k^2}, 0, 0\right)$ and $(\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right)$.</p>
-        <p><strong>(a)</strong> Describe the motion of $M$, specifying clearly the shape of the path.<br>
-        <strong>(b)</strong> What is the velocity of the particle as a function of $t$?</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
-        
-        <span class="phase-badge">Phase 1: Statement & Hypotheses</span>
-        <p>Free particle in 3D ($\text{CDOF} = 3$). Inertial Cartesian frame $S_0$. Total force $\mathbf{F} = -m k^2 \mathbf{r} - mg\mathbf{k}$.</p>
-
-        <span class="phase-badge">Phase 2: Vector Equations of Motion</span>
-        <p>By Newton's Second Law, the Cartesian equations decouple completely:</p>
-        <div class="formula-box">
-          $$ \ddot{x} + k^2 x = 0, \qquad \ddot{y} + k^2 y = 0, \qquad \ddot{z} + k^2 z = -g $$
+        <p>A force attracts a heavy particle $M$ of mass $m$ to a point $O$. The attractive force is proportional to the mass of the particle and to the distance $OM$. The proportionality coefficient is $k^2$. The coordinate system $Oxyz$ has the origin at the centre of attraction $O$ and the axis $Oz$ is vertically oriented. Initially, the coordinates of $M$ are</p>
+        <div class="math-block">
+          $$ (x_0, y_0, z_0) = \left(\frac{\sqrt{3}g}{k^2}, 0, 0\right) $$
         </div>
-
-        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
-        <ol>
-          <li>Integrating $x(t)$: $x(t) = \frac{\sqrt{3}g}{k^2}\cos(kt)$.</li>
-          <li>Integrating $y(t)$: $y(t) = \frac{2g}{k^2}\sin(kt)$.</li>
-          <li>Integrating $z(t)$: Equilibrium is $z_{\text{eq}} = -g/k^2$. With $z(0) = 0, \dot{z}(0) = 0$, $z(t) = \frac{g}{k^2}(\cos(kt) - 1)$.</li>
-          <li><strong>Planar Confinement:</strong> Eliminating $\cos(kt)$ between $x$ and $z$:
-            $$ z(t) = \frac{x(t)}{\sqrt{3}} - \frac{g}{k^2} \implies x - \sqrt{3}z - \frac{\sqrt{3}g}{k^2} = 0 $$
-            The motion is strictly confined to an inclined plane forming $30^\circ$ with the vertical.
-          </li>
-          <li><strong>Elliptic Trajectory:</strong> Eliminating time $t$ between $x$ and $y$:
-            $$ \left(\frac{x}{\sqrt{3}g/k^2}\right)^2 + \left(\frac{y}{2g/k^2}\right)^2 = \cos^2(kt) + \sin^2(kt) = 1 $$
-            The path is an <strong>ellipse</strong> centered at $(0, 0, -g/k^2)$ with semi-axes $a_x = \frac{\sqrt{3}g}{k^2}$ and $b_y = \frac{2g}{k^2}$.
-          </li>
-          <li><strong>Velocity Vector and Constant Speed:</strong>
-            $$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin(kt)\,\mathbf{i} + \frac{2g}{k}\cos(kt)\,\mathbf{j} - \frac{g}{k}\sin(kt)\,\mathbf{k} $$
-            $$ \|\mathbf{v}(t)\|^2 = \frac{g^2}{k^2}(3\sin^2(kt) + 4\cos^2(kt) + \sin^2(kt)) = \frac{4g^2}{k^2} \implies \|\mathbf{v}(t)\| = \frac{2g}{k} = \text{const} $$
-          </li>
-        </ol>
-
-        <span class="phase-badge">Phase 4: Physical Interpretation</span>
-        <p>The speed is strictly constant despite the elliptical trajectory due to the circular symmetry of the total potential energy about the displaced center $(0, 0, -g/k^2)$. Dimensional verification: $[v] = [g/k] = \text{m/s}$.</p>
-      </div>
-    </article>
-
-    <!-- Problem 42 -->
-    <article id="prob-42" class="problem-card">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 42 · Advanced Power-Law Field</div>
-          <h2 class="problem-title">Particle Attracted to the Origin ($F = m\mu / r^\alpha$)</h2>
+        <p>and its initial velocity is</p>
+        <div class="math-block">
+          $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
         </div>
-        <span class="problem-badge">Problems.pdf P29</span>
-      </div>
-
-      <div class="problem-statement">
-        <p>A point particle $P$ of mass $m$ is attracted by the origin $O$ of inertial frame $S_0$ by a force with magnitude $F = \frac{m\mu}{r^\alpha}$, where $\mu, \alpha > 0$.</p>
-        <p><strong>(a)</strong> Show that angular momentum $\mathbf{H}_O$ and mechanical energy $E$ are conserved, and that motion is planar.<br>
-        <strong>(b)</strong> Using polar coordinates, derive a 2nd-order ODE for $u \equiv 1/r$ as a function of $\theta$.<br>
-        <strong>(c)</strong> Find a first integral and determine for $\alpha = 1, 2, 3, 4$ under which conditions: (i) particle escapes to infinity ($u \to 0$); (ii) particle reaches origin ($u \to \infty$); (iii) particle oscillates between two radii.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
-        
-        <span class="phase-badge">Phase 1 & 2: Planar Central Motion</span>
-        <p>Torque $\mathbf{M}_O = \mathbf{r} \times \mathbf{F} \equiv \mathbf{0} \implies \mathbf{H}_O = \text{const}$. Since $\mathbf{r} \cdot \mathbf{H}_O = 0$ and $\mathbf{v} \cdot \mathbf{H}_O = 0$, motion is planar. Because $\nabla \times \mathbf{F} = \mathbf{0}$, energy $\xi = \frac{1}{2}v^2 + V_0(r) = \text{const}$.</p>
-
-        <span class="phase-badge">Phase 3: Generalized Binet Equation</span>
-        <p>Using specific angular momentum $h = r^2\dot{\theta}$ and $u = 1/r$:</p>
-        <div class="formula-box">
-          $$ \dot{r} = -h\frac{du}{d\theta}, \qquad \ddot{r} = -h^2 u^2 \frac{d^2u}{d\theta^2} $$
-          $$ \ddot{r} - r\dot{\theta}^2 = -\mu u^\alpha \implies \frac{d^2u}{d\theta^2} + u = \frac{\mu}{h^2} u^{\alpha - 2} $$
-        </div>
-
-        <p><strong>First Integral & Effective Potential:</strong> Multiplying by $u'$ and integrating:</p>
-        <div class="formula-box">
-          $$ (u')^2 + W_{\text{eff}}(u) = \frac{2\xi}{h^2} \equiv E^*, \qquad W_{\text{eff}}(u) = u^2 + \frac{2V_0(1/u)}{h^2} $$
-        </div>
-
-        <p><strong>Regime Analysis for $\alpha \in \{1, 2, 3, 4\}$:</strong></p>
-        <ul>
-          <li><strong>$\alpha = 2$ (Kepler):</strong> $u'' + u = \mu/h^2$, $W(u) = u^2 - \frac{2\mu}{h^2}u$. Parabola with minimum at $u = \mu/h^2$. Escapes to infinity if $E^* \ge 0$. Collapsing to $r = 0$ is impossible due to the centrifugal barrier. Bounded oscillation (ellipses) occurs for $-(\mu/h^2)^2 < E^* < 0$.</li>
-          <li><strong>$\alpha = 1$ ($F \propto 1/r$):</strong> $W(u) = u^2 - \frac{2\mu}{h^2}\ln(u)$. Since $W(u) \to +\infty$ both as $u \to 0$ and $u \to \infty$, escape to infinity and collision with origin are both impossible. All orbits are bound and oscillate.</li>
-          <li><strong>$\alpha = 3$ ($F \propto 1/r^3$):</strong> $u'' + (1 - \mu/h^2)u = 0$, $W(u) = (1 - \mu/h^2)u^2$. If $h^2 < \mu$, $u(\theta)$ grows exponentially and the particle collapses into the center $r = 0$!</li>
-          <li><strong>$\alpha = 4$ ($F \propto 1/r^4$):</strong> $W(u) = u^2 - \frac{2\mu}{3h^2}u^3$. A cubic barrier with maximum at $u_{\text{barrier}} = h^2/\mu$. If $E^*$ exceeds the barrier, the particle overcomes the centrifugal barrier and plunges into $r = 0$.</li>
+        <ul class="questions-list">
+          <li class="question-item"><span class="question-label">(a)</span><span>Describe the motion of $M$, specifying clearly the shape of the path.</span></li>
+          <li class="question-item"><span class="question-label">(b)</span><span>What is the velocity of the particle as a function of $t$?</span></li>
         </ul>
-
-        <span class="phase-badge">Phase 4: Physical Interpretation</span>
-        <p>For $\alpha \ge 3$, the attractive central force overcomes the repulsive centrifugal potential ($1/r^2$) at short distances, enabling orbital plunge.</p>
       </div>
-    </article>
-
-    <!-- Problem 43 -->
-    <article id="prob-43" class="problem-card">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 43 · Holonomic Multi-Particle System</div>
-          <h2 class="problem-title">Two Connected Particles, Plane with Hole</h2>
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Worked Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>System:</strong> a heavy particle $M$ of mass $m$ under (i) a linear central attraction $\mathbf{F}_a = -mk^2\mathbf{r}$ towards $O$ and (ii) its weight $\mathbf{F}_g = -mg\mathbf{k}$ ($Oz$ points up).</li>
+<li><strong>Hypotheses:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ is inertial; no drag or friction; $m$, $g$, $k$ are positive constants.</li>
+<li><strong>Degrees of freedom:</strong> free particle in 3D space, $\text{CDOF} = 3$ with coordinates $(x, y, z)$.</li>
+<li><strong>Initial conditions ($t = 0$):</strong> $\mathbf{r}(0) = \dfrac{\sqrt{3}g}{k^2}\mathbf{i}$ and $\mathbf{v}(0) = \dfrac{2g}{k}\mathbf{j}$.</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$m$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">mass of $M$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$k$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">attraction coefficient is $k^2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">s$^{-1}$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$g$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">gravitational acceleration</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s$^2$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$g/k^2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">length scale of the problem</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$g/k$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">speed scale of the problem</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr>
+</tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial frame:</strong> $S_0 = \{O; \mathcal{B}_0\}$, $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$; $\mathbf{r} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}$, $\mathbf{v} = \dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k}$.</li>
+<li><strong>Orbit-plane basis</strong> (introduced after the planar result of Phase 3): $\mathcal{B}_1 = \{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3\}$ with</li>
+</ul>
+<div class="math-block">$$ \mathbf{e}_1 = \left(\tfrac{\sqrt{3}}{2}, 0, \tfrac{1}{2}\right), \qquad \mathbf{e}_2 = \mathbf{j}, \qquad \mathbf{e}_3 = \mathbf{e}_1 \times \mathbf{e}_2 = \left(-\tfrac{1}{2}, 0, \tfrac{\sqrt{3}}{2}\right) $$</div>
+<p style="margin-bottom: 10px;">Change-of-basis matrix (columns are the components of $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$ in $\mathcal{B}_0$):</p>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \sqrt{3}/2 & 0 & -1/2 \\ 0 & 1 & 0 \\ 1/2 & 0 & \sqrt{3}/2 \end{pmatrix} $$</div>
+<p style="margin-bottom: 10px;"><strong>Checks.</strong> $\mathbf{e}_1\cdot\mathbf{e}_1 = \tfrac{3}{4} + \tfrac{1}{4} = 1$, $\mathbf{e}_3\cdot\mathbf{e}_3 = \tfrac{1}{4} + \tfrac{3}{4} = 1$, $\mathbf{e}_1\cdot\mathbf{e}_3 = -\tfrac{\sqrt{3}}{4} + \tfrac{\sqrt{3}}{4} = 0$, hence $[{}_0R_1]^T[{}_0R_1] = I$; and $\det[{}_0R_1] = \tfrac{3}{4} + \tfrac{1}{4} = 1$.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Equations of motion</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> $m\mathbf{a} = \mathbf{F}_a + \mathbf{F}_g$ in the inertial frame. Because the restoring force is linear in $\mathbf{r}$, each Cartesian component decouples.</div>
+<div class="math-block">$$ m\left(\ddot{x}\mathbf{i} + \ddot{y}\mathbf{j} + \ddot{z}\mathbf{k}\right) = -mk^2\left(x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\right) - mg\mathbf{k} \implies \ddot{x} + k^2x = 0, \quad \ddot{y} + k^2y = 0, \quad \ddot{z} + k^2z = -g $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Integration of $x(t)$ and $y(t)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> $\ddot{q} + k^2q = 0$ is linear with constant coefficients; its characteristic roots are $\lambda = \pm ik$.</div>
+<div class="math-block">$$ x(t) = A_1\cos kt + B_1\sin kt, \qquad \dot{x}(t) = -kA_1\sin kt + kB_1\cos kt $$</div>
+<p style="margin-bottom: 10px;">Initial data $x(0) = \sqrt{3}g/k^2$, $\dot{x}(0) = 0$ give $A_1 = \sqrt{3}g/k^2$ and $kB_1 = 0$. Likewise $y(0) = 0 \Rightarrow A_2 = 0$ and $\dot{y}(0) = 2g/k \Rightarrow kB_2 = 2g/k \Rightarrow B_2 = 2g/k^2$:</p>
+<div class="math-block">$$ x(t) = \frac{\sqrt{3}g}{k^2}\cos kt, \qquad y(t) = \frac{2g}{k^2}\sin kt $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Integration of $z(t)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The equation $\ddot{z} + k^2z = -g$ is forced by a constant. A constant particular solution $z_p$ satisfies $k^2z_p = -g$, i.e. $z_p = -g/k^2$ (the equilibrium height), and the homogeneous part is as before.</div>
+<div class="math-block">$$ z(t) = -\frac{g}{k^2} + A_3\cos kt + B_3\sin kt, \qquad \dot{z}(t) = -kA_3\sin kt + kB_3\cos kt $$</div>
+<p style="margin-bottom: 10px;">$z(0) = 0 \Rightarrow A_3 = g/k^2$ and $\dot{z}(0) = 0 \Rightarrow B_3 = 0$:</p>
+<div class="math-block">$$ z(t) = \frac{g}{k^2}\left(\cos kt - 1\right) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Shape of the path</h4>
+<p style="margin-bottom: 10px;"><strong>Planar confinement.</strong> $x$ and $z$ share the phase function $\cos kt$: from $\cos kt = k^2x/(\sqrt{3}g)$,</p>
+<div class="math-block">$$ z = \frac{g}{k^2}\left(\frac{k^2x}{\sqrt{3}g} - 1\right) = \frac{x}{\sqrt{3}} - \frac{g}{k^2} \implies x - \sqrt{3}\,z - \frac{\sqrt{3}g}{k^2} = 0 $$</div>
+<p style="margin-bottom: 10px;">The plane has normal $\mathbf{n} = (1, 0, -\sqrt{3})/2$ and contains the direction $(\sqrt{3}, 0, 1)$, which makes $\arctan(1/\sqrt{3}) = 30^\circ$ with the horizontal: the plane is inclined $30^\circ$ to the horizontal.</p>
+<p style="margin-bottom: 10px;"><strong>Circle.</strong> With $\mathbf{C} = (0, 0, -g/k^2)$, the distance to $\mathbf{C}$ is constant:</p>
+<div class="math-block">$$ x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \frac{g^2}{k^4}\left[3\cos^2 kt + 4\sin^2 kt + \cos^2 kt\right] = \frac{4g^2}{k^4} $$</div>
+<p style="margin-bottom: 10px;">The distance from $\mathbf{C}$ to the plane is $\left|0 - \sqrt{3}(-g/k^2) - \sqrt{3}g/k^2\right|/\sqrt{4} = 0$, so the plane passes through the centre of the sphere and the path is a <strong>great circle of radius $R_c = 2g/k^2$</strong>, covered at angular rate $k$. In the plane basis of Phase 2 the three solutions combine into one vector identity:</p>
+<div class="math-block">$$ \mathbf{r}(t) - \mathbf{C} = R_c\left[\cos kt\,\mathbf{e}_1 + \sin kt\,\mathbf{e}_2\right] $$</div>
+<p style="margin-bottom: 10px;">since $R_c\cos kt\,\mathbf{e}_1 = \left(\tfrac{\sqrt{3}g}{k^2}\cos kt,\, 0,\, \tfrac{g}{k^2}\cos kt\right)$ reproduces $x(t)$ and $z(t) + g/k^2$, and $R_c\sin kt\,\mathbf{e}_2$ reproduces $y(t)$. The $\mathbf{e}_3$-component vanishes (planar motion) and $\mathbf{e}_3\cdot\mathbf{k} = \sqrt{3}/2$ confirms the $30^\circ$ inclination of the normal to the vertical. Only the projection on $Oxy$, $\left(\dfrac{x}{\sqrt{3}g/k^2}\right)^2 + \left(\dfrac{y}{2g/k^2}\right)^2 = 1$, is an ellipse; the circle is seen obliquely.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">5. Velocity (part b)</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Differentiate each component with respect to time (chain rule $\frac{d}{dt}\cos kt = -k\sin kt$).</div>
+<div class="math-block">$$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin kt\,\mathbf{i} + \frac{2g}{k}\cos kt\,\mathbf{j} - \frac{g}{k}\sin kt\,\mathbf{k} $$</div>
+<div class="math-block">$$ v^2 = \frac{g^2}{k^2}\left[3\sin^2 kt + 4\cos^2 kt + \sin^2 kt\right] = \frac{4g^2}{k^2}\left(\sin^2 kt + \cos^2 kt\right) = \frac{4g^2}{k^2} \implies v = \frac{2g}{k} = \text{const} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Why the speed is constant.</strong> The force is conservative with potential $V = \tfrac{1}{2}mk^2(x^2 + y^2 + z^2) + mgz = \tfrac{1}{2}mk^2\left[x^2 + y^2 + (z + g/k^2)^2\right] - \dfrac{mg^2}{2k^2}$, which depends only on the distance to $\mathbf{C}$. That distance is constant on the circle, so $V$ and therefore the kinetic energy are constant; also $v = kR_c = 2g/k$.</li>
+<li><strong>Initial-condition check:</strong> $\mathbf{r}(0) = (\sqrt{3}g/k^2, 0, 0)$ and $\mathbf{v}(0) = (0, 2g/k, 0)$ are reproduced by the formulas above.</li>
+<li><strong>Limit $g \to 0$:</strong> the centre $\mathbf{C} \to O$ and the path is the usual elliptic orbit of the isotropic oscillator, here in a plane through $O$.</li>
+<li><strong>Dimensions:</strong> $[g/k^2] = \dfrac{\text{m/s}^2}{\text{s}^{-2}} = \text{m}$, $[g/k] = \text{m/s}$, $[kt] = 1$.</li>
+<li><strong>Numerical check (Python, $g = 9.81$, $k = 2$):</strong> over $20$ s, $\max\left|\|\mathbf{r} - \mathbf{C}\| - R_c\right| = 9\times 10^{-16}$ m, $\max|v - 2g/k| = 2\times 10^{-15}$ m/s, the plane residual $x - \sqrt{3}z - \sqrt{3}g/k^2$ stays below $3\times 10^{-15}$ m, and the finite-difference residual of $\ddot{x} + k^2x = 0$ and $\ddot{z} + k^2z + g = 0$ is below $4\times 10^{-7}$.</li>
+<li><strong>Official key</strong> (Problems.pdf, PDF page 73): circle given by the sphere $x^2 + y^2 + (z + g/k^2)^2 = 4g^2/k^4$ and the plane $x - \sqrt{3}z = \sqrt{3}g/k^2$, constant speed $2g/k$.</li>
+</ul>
+</div>
         </div>
-        <span class="problem-badge">Problems.pdf P30</span>
+      </details>
+
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf (PDF pages 9-10); key on PDF page 73</span>
       </div>
-
-      <div class="problem-statement">
-        <p>A smooth horizontal plane has a small hole at $O$. A massless cord of length $2a$ passes through the hole, connecting two particles $P_1$ and $P_2$ of identical mass $m$. $P_1$ moves on the plane and $P_2$ moves vertically below the hole. Initially $r(0) = a$, and $P_1$ is pushed with transverse speed $v_0$.</p>
-        <p><strong>(a)</strong> Find $v_0$ for circular motion.<br>
-        <strong>(b)</strong> Find the cord tension in circular motion.<br>
-        <strong>(c)</strong> If $v_0 = \sqrt{8ag/3}$, reduce the problem to quadratures.<br>
-        <strong>(d)</strong> Show that $P_1$ oscillates between $r = a$ and $r = 2a$.<br>
-        <strong>(e)</strong> Show that cord tension is $T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right)$.<br>
-        <strong>(f)</strong> Write new equations if the plane has friction $\mu$.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
-        
-        <span class="phase-badge">Phase 1 & 2: Holonomic System</span>
-        <p>Constraint $r - z_2 = 2a \implies z_2 = r - 2a$. Energy $E = m\dot{r}^2 + \frac{1}{2}m\frac{h^2}{r^2} + mgr - 2mga = \text{const}$. Specific angular momentum $h = a v_0 = \text{const}$.</p>
-
-        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
-        <ol>
-          <li><strong>(a) Circular motion ($r \equiv a$):</strong>
-            $$ T = m\frac{v_0^2}{a} = mg \implies v_0 = \sqrt{ag} $$
-          </li>
-          <li><strong>(b) Tension in circular orbit:</strong> $T = mg$.</li>
-          <li><strong>(c) Quadratures for $v_0 = \sqrt{8ag/3}$ ($h^2 = \frac{8}{3}a^3 g$):</strong>
-            Initial energy: $E = \frac{1}{2}m(8ag/3) - mga = \frac{1}{3}mga$.
-            $$ \dot{r}^2 = \frac{g}{3r^2}\left[ -3r^3 + 7a r^2 - 4a^3 \right] \implies \int_a^r \frac{r'\,dr'}{\sqrt{-3r'^3 + 7a r'^2 - 4a^3}} = \pm \sqrt{\frac{g}{3}}\,t $$
-          </li>
-          <li><strong>(d) Oscillation Limits:</strong>
-            Factoring with $x = r/a$: $-3x^3 + 7x^2 - 4 = -(x - 1)(x - 2)(3x + 2) \ge 0$.
-            Because $r > 0$, $(3x+2) > 0$. Thus $-(x-1)(x-2) \ge 0 \implies 1 \le x \le 2 \implies a \le r(t) \le 2a$. The turning points are $r = a$ and $r = 2a$.
-          </li>
-          <li><strong>(e) Cord Tension:</strong>
-            For $P_2$: $m\ddot{r} = T - mg \implies T = m(g + \ddot{r})$.
-            Differentiating $\dot{r}^2 = \frac{7}{3}ga - gr - \frac{4a^3 g}{3r^2}$:
-            $$ 2\dot{r}\ddot{r} = \left(-g + \frac{8a^3 g}{3r^3}\right)\dot{r} \implies \ddot{r} = -\frac{g}{2} + \frac{4a^3 g}{3r^3} $$
-            $$ T = m\left(g - \frac{g}{2} + \frac{4a^3 g}{3r^3}\right) = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right) \quad \text{Q.E.D.} $$
-          </li>
-          <li><strong>(f) Equations with Friction $\mu$:</strong>
-            $$ 2m\ddot{r} - mr\dot{\theta}^2 = -mg - \mu mg \frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}, \qquad \frac{d}{dt}\left(r^2\dot{\theta}\right) = -\mu g \frac{r^2\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$
-          </li>
-        </ol>
-
-        <span class="phase-badge">Phase 4: Physical Checks</span>
-        <p>At $r = a$, $T = \frac{11}{6}mg > 0$; at $r = 2a$, $T = \frac{2}{3}mg > 0$. Cord remains strictly under tension at all times.</p>
-      </div>
-    </article>
-
-    <!-- Problem 44 -->
-    <article id="prob-44" class="problem-card">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 44 · Orbital Mechanics</div>
-          <h2 class="problem-title">The Little Prince Throwing Seeds</h2>
-        </div>
-        <span class="problem-badge">Problems.pdf P31</span>
-      </div>
-
-      <div class="problem-statement">
-        <p>The little Prince sits on his spherical, non-rotating asteroid of radius $R$ and mass $M$. He launches a baobab seed with initial velocity of magnitude $v_0$ and angle $\beta = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of $r_a = 3R$ before falling back, determine $v_0$ as a function of $G, M, R$.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
-        
-        <span class="phase-badge">Phase 1 & 2: Launch Kinematics</span>
-        <p>At surface $r = R$, launch velocity has components $v_{r0} = v_0\sin(60^\circ) = \frac{\sqrt{3}}{2}v_0$ and $v_{\theta 0} = v_0\cos(60^\circ) = \frac{1}{2}v_0$. Central gravity $\mathbf{F}_g = -\frac{GMm}{r^2}\mathbf{e}_r$.</p>
-
-        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
-        <ol>
-          <li><strong>Specific Angular Momentum Conservation:</strong>
-            $$ h = R v_{\theta 0} = \frac{1}{2} R v_0 $$
-            At apocenter $r_a = 3R$, velocity is purely transverse:
-            $$ h = r_a v_a = 3R v_a \implies v_a = \frac{h}{3R} = \frac{1}{6}v_0 $$
-          </li>
-          <li><strong>Specific Mechanical Energy Conservation:</strong>
-            $$ \xi = \frac{1}{2}v_0^2 - \frac{GM}{R} = \frac{1}{2}v_a^2 - \frac{GM}{r_a} $$
-            Substitute $v_a = v_0/6$ and $r_a = 3R$:
-            $$ \frac{1}{2}v_0^2 - \frac{GM}{R} = \frac{1}{2}\left(\frac{v_0}{6}\right)^2 - \frac{GM}{3R} = \frac{v_0^2}{72} - \frac{GM}{3R} $$
-          </li>
-          <li><strong>Algebraic Isolation of $v_0$:</strong>
-            $$ \left(\frac{1}{2} - \frac{1}{72}\right)v_0^2 = \left(1 - \frac{1}{3}\right)\frac{GM}{R} $$
-            $$ \frac{35}{72}v_0^2 = \frac{2}{3}\frac{GM}{R} \implies v_0^2 = \frac{2}{3}\cdot\frac{72}{35}\frac{GM}{R} = \frac{48}{35}\frac{GM}{R} $$
-            $$ v_0 = \sqrt{\frac{48}{35}\frac{GM}{R}} $$
-          </li>
-        </ol>
-
-        <span class="phase-badge">Phase 4: Physical Interpretation</span>
-        <p>Escape velocity is $v_e = \sqrt{2GM/R} = \sqrt{\frac{70}{35}\frac{GM}{R}}$. Since $\frac{48}{35} \approx 1.371 < 2$, $v_0 < v_e$, confirming the seed is gravitationally bound and returns. Dimensional verification: $[v_0] = \sqrt{[G][M]/[R]} = \text{m/s}$.</p>
-      </div>
-    </article>
-
-    <!-- Problem 39 -->
-    <article id="prob-39" class="problem-card">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 39 · Constrained Hanging Cable</div>
-          <h2 class="problem-title">Particle on a String with a Plate</h2>
-        </div>
-        <span class="problem-badge">Problems.pdf P27</span>
-      </div>
-
-      <div class="problem-statement">
-        <p>A heavy particle $P$ of mass $m$ is connected to origin $O$ on a horizontal thin square plate by a massless inextensible string of length $\ell$. Distance to plate edge is $d$. String hangs over the edge at $Q$. Initially $\theta(0) = \phi(0) = \pi/3$, $v_0^P(0) = \sqrt{\ell g}$.</p>
-        <p><strong>(a)</strong> How many degrees of freedom does the system have?<br>
-        <strong>(b)</strong> Obtain unit vector $\mathbf{u}_{QP}$ as function of $\theta$ and $\phi$.<br>
-        <strong>(c)</strong> Obtain position, velocity, and acceleration vectors of $Q$ and $P$.<br>
-        <strong>(d)</strong> Formulate equations of motion and discuss conservation laws.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="solution-title">✅ Full Analytical Solution (4-Phase Methodology)</div>
-        
-        <span class="phase-badge">Phase 1 & 2: Geometry & Kinematics</span>
-        <p>Total $\text{CDOF} = 2$ (angles $\theta$ and $\phi$). Inextensible string constraint $L_{OQ} + L_{QP} = \ell$ with $L_{OQ} = \frac{d}{\sin\theta}$. Contact point $\mathbf{r}_0^Q = d\cot\theta\,\mathbf{i}_0 + d\,\mathbf{j}_0$.</p>
-
-        <span class="phase-badge">Phase 3: Mathematical Deduction</span>
-        <ol>
-          <li><strong>(a) CDOF:</strong> 2 degrees of freedom ($\theta, \phi$).</li>
-          <li><strong>(b) Unit vector:</strong> $\mathbf{u}_{QP} = \sin\phi\cos\theta\,\mathbf{i}_0 + \sin\phi\sin\theta\,\mathbf{j}_0 - \cos\phi\,\mathbf{k}_0$.</li>
-          <li><strong>(c) Kinematic vectors:</strong>
-            $$ \mathbf{r}_0^P = \mathbf{r}_0^Q + \left(\ell - \frac{d}{\sin\theta}\right)\mathbf{u}_{QP} $$
-            $$ \mathbf{v}_0^Q = -d\frac{\dot{\theta}}{\sin^2\theta}\,\mathbf{i}_0, \qquad \mathbf{v}_0^P = \mathbf{v}_0^Q + \frac{d\dot{\theta}\cos\theta}{\sin^2\theta}\mathbf{u}_{QP} + \left(\ell - \frac{d}{\sin\theta}\right)\frac{d\mathbf{u}_{QP}}{dt} $$
-          </li>
-          <li><strong>(d) Energy Conservation:</strong> Because string slides without friction over the edge, constraint reaction does no work. Mechanical energy $E = \frac{1}{2}m(v_0^P)^2 - mg z_P = \text{const}$.</li>
-        </ol>
-
-        <span class="phase-badge">Phase 4: Physical Interpretation</span>
-        <p>Hanging length $\ell - d/\sin\theta$ varies smoothly with angle $\theta$. Energy is strictly conserved.</p>
-      </div>
-    </article>
-
-    <!-- Bottom Navigation -->
-    <div class="article-nav">
-      <a href="topic-3.html" class="nav-btn">
-        <span class="nav-btn-label">← Previous Problem Set</span>
-        <span class="nav-btn-title">Topic 3: Constraints & Reaction Forces (15)</span>
-      </a>
-      <a href="../teoria/topic-4.html" class="nav-btn" style="text-align: center; border-color: var(--accent-border);">
-        <span class="nav-btn-label">Theory Guide</span>
-        <span class="nav-btn-title" style="color: var(--accent);">📖 Topic 4 Theory</span>
-      </a>
-      <a href="index.html" class="nav-btn" style="text-align: right;">
-        <span class="nav-btn-label">Back to Problem Hub →</span>
-        <span class="nav-btn-title">All Problem Sets</span>
-      </a>
     </div>
 
+    <!-- Problem 39 -->
+    <div class="problem-card" id="prob-39">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 39</div>
+          <h2 class="problem-title">Particle on a String over a Plate Edge</h2>
+        </div>
+        <span class="problem-badge">String + Edge Constraint</span>
+      </div>
+      <div class="problem-statement">
+        <p>A heavy point particle $P$ with mass $m$ is connected with point $O$ on the upper surface of a thin square plate by a massless, inextensible string of length $\ell$. The distance between $O$ and the edge of the plate is $d$. The string hangs over the edge of the plate and can slide without friction. You can assume that the string remains tense and in contact with the plate at all times.</p>
+        <p>We denote the geometric point where the string is in contact with the plate edge as $Q$. We define the inertial reference frame $S_0 : \{O, \mathcal{B}_0\}$, with $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ as shown in the figure (Problems.pdf, PDF page 27). We define the angle $\theta$ between the $Ox_0$ axis and the string segment $OQ$, and the angle $\phi$ between a vertical plane containing the plate edge and the line perpendicular to the plate edge that passes through $P$. Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3$ rad, and the modulus of the velocity of $P$ is $v_0^P(0) = \sqrt{\ell g}$, where $g$ is the magnitude of the acceleration due to gravity.</p>
+        <p><em>Hint: Note that under the conditions of the problem, the two angles marked with dashed lines are equal.</em></p>
+        <ul class="questions-list">
+          <li class="question-item"><span class="question-label">(a)</span><span>How many degrees of freedom does the system have?</span></li>
+          <li class="question-item"><span class="question-label">(b)</span><span>Obtain the general expression of a unit vector in the direction from $Q$ to $P$ as a function of $\theta$ and $\phi$.</span></li>
+          <li class="question-item"><span class="question-label">(c)</span><span>Obtain the general expression for the position, velocity, and acceleration vectors of $Q$ and $P$ in $S_0$ as a function of $\theta$, $\phi$, their derivatives, and the parameters of the problem.</span></li>
+          <li class="question-item"><span class="question-label">(d)</span><span>Identify and express mathematically all the forces acting on $P$.</span></li>
+          <li class="question-item"><span class="question-label">(e)</span><span>Find a set of second order differential equations to determine the evolution of $\theta$ and $\phi$ in time, free of any other unknowns.</span></li>
+          <li class="question-item"><span class="question-label">(f)</span><span>Does the tension force exert work on $P$? Provide proof of your answer.</span></li>
+          <li class="question-item"><span class="question-label">(g)</span><span>Derive the general expression of the mechanical energy of $P$ in $S_0$ and compute its value initially. Is this a conserved quantity of motion? Justify your answer.</span></li>
+        </ul>
+      </div>
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Worked Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>System:</strong> heavy particle $P$ on a massless string of length $\ell$ that slides without friction over the straight edge of a plate; $Q$ is the contact point.</li>
+<li><strong>Hypotheses:</strong> $S_0$ is inertial and $\mathbf{g} = -g\mathbf{k}_0$ ($Oz_0$ up). The edge is the line $x_0 = d$, $z_0 = 0$, parallel to $\mathbf{j}_0$ (read from the figure). The edge is smooth and the string is massless, so the tension $T \ge 0$ is the same on both sides of $Q$ and the edge force on the string is normal to the edge. $P$ does not touch the plate. No drag.</li>
+<li><strong>Degrees of freedom:</strong> $P$ has $3$ coordinates and one holonomic constraint $\|\mathbf{OQ}\| + \|\mathbf{QP}\| = \ell$, so $\text{CDOF} = 3 - 1 = 2$ with generalized coordinates $(\theta, \phi)$.</li>
+<li><strong>Initial state:</strong> $\theta(0) = \phi(0) = \pi/3$ and $\|\mathbf{v}_0^P(0)\| = \sqrt{\ell g}$. The statement gives only the speed, not its direction; for numerical checks $\dot{\phi}(0) = 0$ is assumed (the initial energy does not depend on it).</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Value in the numerical check</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$m$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">mass of $P$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$1$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\ell$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">string length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$2.0$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$d$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">distance from $O$ to the edge</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0.4$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$g$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">gravitational acceleration</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s$^2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$9.81$</td></tr>
+</tbody></table></div>
+<p style="margin-bottom: 10px;">At $t = 0$ the hanging length is $\ell - d/\cos(\pi/3) = \ell - 2d$, so the data must satisfy $\ell \gt 2d$.</p>
+<div class="note-banner" style="margin: 14px 0;"><strong>Assumptions and absence of an official key.</strong> The official key (Problems.pdf, PDF page 76) answers only part (f). Parts (a)-(e) and (g) are derived here from the statement and the figure on PDF page 27, with two explicit assumptions: the edge is the line $x_0 = d$ parallel to $\mathbf{j}_0$, and $\phi$ is measured as described in the statement. For those parts there is no official result to compare with, so no discrepancy can be reported; the result for (f) agrees with the key.</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Contact point $Q$.</strong> It lies on the edge with $OQ$ at angle $\theta$ from $Ox_0$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_0^Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0, \qquad \|\mathbf{OQ}\| = \frac{d}{\cos\theta}, \qquad \hat{\mathbf{u}}_{OQ} = \cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 $$</div>
+<p style="margin-bottom: 10px;"><strong>Hanging length:</strong> $\rho \equiv \|\mathbf{QP}\| = \ell - d/\cos\theta$. Define $w \equiv \rho\cos\theta = \ell\cos\theta - d \gt 0$.</p>
+<p style="margin-bottom: 10px;"><strong>Why the dashed angles are equal.</strong> The string element at $Q$ is massless, so the forces on it add to zero: $-T\hat{\mathbf{u}}_{OQ}$ (pull towards $O$), $+T\hat{\mathbf{u}}_{QP}$ (pull towards $P$) and the edge force $\mathbf{N}$. A smooth edge pushes only normally to itself, so the $\mathbf{j}_0$-component gives $-T\,\hat{\mathbf{u}}_{OQ}\cdot\mathbf{j}_0 + T\,\hat{\mathbf{u}}_{QP}\cdot\mathbf{j}_0 = 0$, that is $\hat{\mathbf{u}}_{QP}\cdot\mathbf{j}_0 = \sin\theta$, the statement of the hint.</p>
+<p style="margin-bottom: 10px;"><strong>Part (b).</strong> The $\mathbf{j}_0$-component of $\hat{\mathbf{u}}_{QP}$ is $\sin\theta$; the remainder has modulus $\sqrt{1 - \sin^2\theta} = \cos\theta$ and lies in the plane normal to the edge, where a downward line making the angle $\phi$ with the vertical plane $x_0 = d$ has direction $\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$. Hence</p>
+<div class="math-block">$$ \hat{\mathbf{u}} \equiv \hat{\mathbf{u}}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0, \qquad \|\hat{\mathbf{u}}\|^2 = \cos^2\theta\left(\sin^2\phi + \cos^2\phi\right) + \sin^2\theta = 1 $$</div>
+<p style="margin-bottom: 10px;"><strong>Moving basis</strong> $\mathcal{B}_1 = \{\hat{\mathbf{u}}, \mathbf{e}_\theta, \mathbf{e}_\phi\}$. Differentiating $\hat{\mathbf{u}}$ with respect to $\theta$ and $\phi$ gives $\partial\hat{\mathbf{u}}/\partial\theta = \mathbf{e}_\theta$ and $\partial\hat{\mathbf{u}}/\partial\phi = \cos\theta\,\mathbf{e}_\phi$ with the unit vectors</p>
+<div class="math-block">$$ \mathbf{e}_\theta = -\sin\theta\sin\phi\,\mathbf{i}_0 + \cos\theta\,\mathbf{j}_0 + \sin\theta\cos\phi\,\mathbf{k}_0, \qquad \mathbf{e}_\phi = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0 $$</div>
+<p style="margin-bottom: 10px;">Change-of-basis matrix (columns are the components of $\hat{\mathbf{u}}, \mathbf{e}_\theta, \mathbf{e}_\phi$ in $\mathcal{B}_0$):</p>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta\sin\phi & -\sin\theta\sin\phi & \cos\phi \\ \sin\theta & \cos\theta & 0 \\ -\cos\theta\cos\phi & \sin\theta\cos\phi & \sin\phi \end{pmatrix} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Orthonormality ($R^TR = I$):</strong> $\hat{\mathbf{u}}\cdot\hat{\mathbf{u}} = 1$; $\mathbf{e}_\theta\cdot\mathbf{e}_\theta = \sin^2\theta\sin^2\phi + \cos^2\theta + \sin^2\theta\cos^2\phi = 1$; $\mathbf{e}_\phi\cdot\mathbf{e}_\phi = 1$; $\hat{\mathbf{u}}\cdot\mathbf{e}_\theta = \sin\theta\cos\theta\left(1 - \sin^2\phi - \cos^2\phi\right) = 0$; $\hat{\mathbf{u}}\cdot\mathbf{e}_\phi = \cos\theta\sin\phi\cos\phi - \cos\theta\cos\phi\sin\phi = 0$; $\mathbf{e}_\theta\cdot\mathbf{e}_\phi = -\sin\theta\sin\phi\cos\phi + \sin\theta\cos\phi\sin\phi = 0$.</li>
+<li><strong>Determinant:</strong> component by component, $\hat{\mathbf{u}}\times\mathbf{e}_\theta = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0 = \mathbf{e}_\phi$ (using $\sin^2\theta + \cos^2\theta = 1$), so the triad is right-handed and $\det[{}_0R_1] = +1$.</li>
+</ul>
+<p style="margin-bottom: 10px;"><strong>Derivatives of the moving basis</strong> (from the partial derivatives, $\dot{\mathbf{e}}_i = \dot{\theta}\,\partial\mathbf{e}_i/\partial\theta + \dot{\phi}\,\partial\mathbf{e}_i/\partial\phi$):</p>
+<div class="math-block">$$ \dot{\hat{\mathbf{u}}} = \dot{\theta}\,\mathbf{e}_\theta + \dot{\phi}\cos\theta\,\mathbf{e}_\phi, \qquad \dot{\mathbf{e}}_\theta = -\dot{\theta}\,\hat{\mathbf{u}} - \dot{\phi}\sin\theta\,\mathbf{e}_\phi, \qquad \dot{\mathbf{e}}_\phi = \dot{\phi}\left(-\cos\theta\,\hat{\mathbf{u}} + \sin\theta\,\mathbf{e}_\theta\right) $$</div>
+<p style="margin-bottom: 10px;">For instance $\partial\mathbf{e}_\theta/\partial\theta = (-\cos\theta\sin\phi, -\sin\theta, \cos\theta\cos\phi) = -\hat{\mathbf{u}}$ and $\partial\mathbf{e}_\phi/\partial\phi = (-\sin\phi, 0, \cos\phi) = -\cos\theta\,\hat{\mathbf{u}} + \sin\theta\,\mathbf{e}_\theta$. The matrix $[{}_0R_1]^T[{}_0\dot R_1]$ built from these relations is skew-symmetric, as required for a rotating orthonormal basis.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Degrees of freedom</h4>
+<p style="margin-bottom: 10px;">Two: $(\theta, \phi)$, as counted in Phase 1.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Unit vector from $Q$ to $P$</h4>
+<p style="margin-bottom: 10px;">Obtained in Phase 2: $\hat{\mathbf{u}} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0$.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Position, velocity and acceleration of $Q$ and $P$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> $Q$ slides along a straight edge, so only the chain rule on $\tan\theta$ is needed. $P$ is $Q$ plus a vector of variable length along a variable direction, so the product rule is needed.</div>
+<p style="margin-bottom: 10px;"><strong>Point $Q$</strong> (chain rule $\frac{d}{dt}\tan\theta = \dot{\theta}/\cos^2\theta$ and $\frac{d}{dt}\cos^{-2}\theta = 2\sin\theta\,\dot{\theta}/\cos^3\theta$):</p>
+<div class="math-block">$$ \mathbf{r}_0^Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0, \qquad \mathbf{v}_0^Q = \frac{d\,\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0, \qquad \mathbf{a}_0^Q = \frac{d}{\cos^2\theta}\left(\ddot{\theta} + 2\tan\theta\,\dot{\theta}^2\right)\mathbf{j}_0 $$</div>
+<p style="margin-bottom: 10px;"><strong>Position of $P$:</strong></p>
+<div class="math-block">$$ \mathbf{r}_0^P = \mathbf{r}_0^Q + \rho\,\hat{\mathbf{u}}, \qquad \rho = \ell - \frac{d}{\cos\theta}, \qquad \dot{\rho} = -\frac{d\sin\theta}{\cos^2\theta}\,\dot{\theta} $$</div>
+<p style="margin-bottom: 10px;"><strong>Velocity of $P$</strong> (product rule): $\mathbf{v}_0^P = \mathbf{v}_0^Q + \dot{\rho}\,\hat{\mathbf{u}} + \rho\,\dot{\hat{\mathbf{u}}}$. Project on $\mathcal{B}_1$ with $\mathbf{j}_0\cdot\hat{\mathbf{u}} = \sin\theta$, $\mathbf{j}_0\cdot\mathbf{e}_\theta = \cos\theta$, $\mathbf{j}_0\cdot\mathbf{e}_\phi = 0$:</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>$\hat{\mathbf{u}}$-component: $\dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta} + \dot{\rho} = \dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta} - \dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta} = 0$.</li>
+<li>$\mathbf{e}_\theta$-component: $\dfrac{d\dot{\theta}\cos\theta}{\cos^2\theta} + \rho\dot{\theta} = \dot{\theta}\left(\dfrac{d}{\cos\theta} + \ell - \dfrac{d}{\cos\theta}\right) = \ell\dot{\theta}$.</li>
+<li>$\mathbf{e}_\phi$-component: $0 + \rho\cos\theta\,\dot{\phi} = w\dot{\phi}$.</li>
+</ul>
+<div class="math-block">$$ \boxed{\mathbf{v}_0^P = \ell\dot{\theta}\,\mathbf{e}_\theta + w\dot{\phi}\,\mathbf{e}_\phi}, \qquad \|\mathbf{v}_0^P\|^2 = \ell^2\dot{\theta}^2 + w^2\dot{\phi}^2, \qquad w = \ell\cos\theta - d $$</div>
+<p style="margin-bottom: 10px;"><strong>Acceleration of $P$.</strong> Differentiate with the product rule, using $\dot{w} = -\ell\sin\theta\,\dot{\theta}$ and the basis derivatives of Phase 2:</p>
+<div class="math-block">$$ \frac{d}{dt}\left(\ell\dot{\theta}\,\mathbf{e}_\theta\right) = \ell\ddot{\theta}\,\mathbf{e}_\theta + \ell\dot{\theta}\left(-\dot{\theta}\,\hat{\mathbf{u}} - \dot{\phi}\sin\theta\,\mathbf{e}_\phi\right) $$</div>
+<div class="math-block">$$ \frac{d}{dt}\left(w\dot{\phi}\,\mathbf{e}_\phi\right) = \left(\dot{w}\dot{\phi} + w\ddot{\phi}\right)\mathbf{e}_\phi + w\dot{\phi}^2\left(-\cos\theta\,\hat{\mathbf{u}} + \sin\theta\,\mathbf{e}_\theta\right) $$</div>
+<p style="margin-bottom: 10px;">Adding both and collecting terms (the $\mathbf{e}_\phi$ coefficient gathers $-\ell\sin\theta\,\dot{\theta}\dot{\phi}$ from the first line and $\dot{w}\dot{\phi} = -\ell\sin\theta\,\dot{\theta}\dot{\phi}$ from the second):</p>
+<div class="math-block">$$ \boxed{\mathbf{a}_0^P = \left(-\ell\dot{\theta}^2 - w\cos\theta\,\dot{\phi}^2\right)\hat{\mathbf{u}} + \left(\ell\ddot{\theta} + w\sin\theta\,\dot{\phi}^2\right)\mathbf{e}_\theta + \left(w\ddot{\phi} - 2\ell\sin\theta\,\dot{\theta}\dot{\phi}\right)\mathbf{e}_\phi} $$</div>
+<p style="margin-bottom: 10px;">Components in $\mathcal{B}_0$ follow by multiplying the column of $\mathcal{B}_1$-components by $[{}_0R_1]$.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Forces on $P$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> $P$ is a free particle in contact only with the string, so the forces are its weight and the string tension. The edge force acts on the (massless) string at $Q$, not on $P$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Weight: $\mathbf{W} = -mg\,\mathbf{k}_0$. With $\mathbf{k}_0\cdot\hat{\mathbf{u}} = -\cos\theta\cos\phi$, $\mathbf{k}_0\cdot\mathbf{e}_\theta = \sin\theta\cos\phi$, $\mathbf{k}_0\cdot\mathbf{e}_\phi = \sin\phi$: $\;\mathbf{W} = mg\cos\theta\cos\phi\,\hat{\mathbf{u}} - mg\sin\theta\cos\phi\,\mathbf{e}_\theta - mg\sin\phi\,\mathbf{e}_\phi$.</li>
+<li>Tension: $\mathbf{T} = -T\,\hat{\mathbf{u}}$, directed towards $Q$, with $T \ge 0$ unknown.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Equations of motion free of $T$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Newton’s second law $m\mathbf{a}_0^P = \mathbf{W} + \mathbf{T}$ has the three unknowns $\ddot{\theta}, \ddot{\phi}, T$. Projecting on $\mathcal{B}_1$ isolates $T$ in the $\hat{\mathbf{u}}$ equation, because $\mathbf{T}$ has no component along $\mathbf{e}_\theta$ or $\mathbf{e}_\phi$.</div>
+<div class="math-block">$$ \hat{\mathbf{u}}: \; m\left(-\ell\dot{\theta}^2 - w\cos\theta\,\dot{\phi}^2\right) = mg\cos\theta\cos\phi - T $$</div>
+<div class="math-block">$$ \mathbf{e}_\theta: \; m\left(\ell\ddot{\theta} + w\sin\theta\,\dot{\phi}^2\right) = -mg\sin\theta\cos\phi $$</div>
+<div class="math-block">$$ \mathbf{e}_\phi: \; m\left(w\ddot{\phi} - 2\ell\sin\theta\,\dot{\theta}\dot{\phi}\right) = -mg\sin\phi $$</div>
+<p style="margin-bottom: 10px;">The last two contain only $\theta, \phi$ and their derivatives; they are the requested pair (with $w = \ell\cos\theta - d$):</p>
+<div class="math-block">$$ \boxed{\ddot{\theta} = -\frac{\sin\theta}{\ell}\left[\left(\ell\cos\theta - d\right)\dot{\phi}^2 + g\cos\phi\right]}, \qquad \boxed{\ddot{\phi} = \frac{2\ell\sin\theta\,\dot{\theta}\dot{\phi} - g\sin\phi}{\ell\cos\theta - d}} $$</div>
+<p style="margin-bottom: 10px;">The $\hat{\mathbf{u}}$ equation then gives the tension once the motion is known:</p>
+<div class="math-block">$$ T = m\left[g\cos\theta\cos\phi + \ell\dot{\theta}^2 + \left(\ell\cos\theta - d\right)\cos\theta\,\dot{\phi}^2\right] $$</div>
+<p style="margin-bottom: 10px;">which is positive whenever $\cos\phi \ge 0$ and $w \gt 0$, consistent with a taut string.</p>
+<p style="margin-bottom: 10px;"><strong>Cross-check by Lagrange’s equations.</strong> With kinetic energy $\tfrac{1}{2}m(\ell^2\dot{\theta}^2 + w^2\dot{\phi}^2)$ and $V = mgz_P$, $z_P = \mathbf{r}_0^P\cdot\mathbf{k}_0 = -\rho\cos\theta\cos\phi = -w\cos\phi$, the Lagrangian is $L = \tfrac{1}{2}m(\ell^2\dot{\theta}^2 + w^2\dot{\phi}^2) + mgw\cos\phi$. With $\partial w/\partial\theta = -\ell\sin\theta$:</p>
+<div class="math-block">$$ \frac{d}{dt}\frac{\partial L}{\partial\dot{\theta}} - \frac{\partial L}{\partial\theta} = m\ell^2\ddot{\theta} + m\ell\sin\theta\left(w\dot{\phi}^2 + g\cos\phi\right) = 0 $$</div>
+<div class="math-block">$$ \frac{d}{dt}\frac{\partial L}{\partial\dot{\phi}} - \frac{\partial L}{\partial\phi} = m\left(w^2\ddot{\phi} + 2w\dot{w}\dot{\phi}\right) + mgw\sin\phi = 0 $$</div>
+<p style="margin-bottom: 10px;">Dividing the first by $m\ell$ and the second by $mw$ reproduces the two boxed equations. A symbolic comparison at three random states confirmed that the Lagrange expressions equal the $\mathbf{e}_\theta$ and $\mathbf{e}_\phi$ Newton equations multiplied by $\ell$ and $w$ respectively (agreement to machine precision).</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(f) Work of the tension</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The power of the tension on $P$ is $\mathbf{T}\cdot\mathbf{v}_0^P$; it vanishes if $\mathbf{v}_0^P \perp \hat{\mathbf{u}}$.</div>
+<div class="math-block">$$ P_T = \mathbf{T}\cdot\mathbf{v}_0^P = -T\,\hat{\mathbf{u}}\cdot\left(\ell\dot{\theta}\,\mathbf{e}_\theta + w\dot{\phi}\,\mathbf{e}_\phi\right) = 0 $$</div>
+<p style="margin-bottom: 10px;">because $\hat{\mathbf{u}}$ is orthogonal to $\mathbf{e}_\theta$ and $\mathbf{e}_\phi$. Equivalently, the $\hat{\mathbf{u}}$-component of $\mathbf{v}_0^P$ in (c) cancelled: the string slides over the edge so that the hanging length grows at the rate at which $Q$ moves along $\hat{\mathbf{u}}$. <strong>No: the tension does no work on $P$</strong> (official key, PDF page 76: $\hat{\mathbf{u}}\cdot\mathbf{v}_0^P = 0$).</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(g) Mechanical energy</h4>
+<p style="margin-bottom: 10px;"><strong>General expression</strong> (kinetic energy from (c); gravitational potential energy with $Oz_0$ up and $V = 0$ on the plate plane):</p>
+<div class="math-block">$$ E = \tfrac{1}{2}m\|\mathbf{v}_0^P\|^2 + mgz_P = \tfrac{1}{2}m\left[\ell^2\dot{\theta}^2 + \left(\ell\cos\theta - d\right)^2\dot{\phi}^2\right] - mg\left(\ell\cos\theta - d\right)\cos\phi $$</div>
+<p style="margin-bottom: 10px;"><strong>Initial value.</strong> At $t = 0$: $\tfrac{1}{2}m\|\mathbf{v}_0^P\|^2 = \tfrac{1}{2}m\ell g$, $w(0) = \ell\cos(\pi/3) - d = \ell/2 - d$ and $\cos\phi(0) = 1/2$:</p>
+<div class="math-block">$$ E_0 = \tfrac{1}{2}m\ell g - mg\left(\frac{\ell}{2} - d\right)\frac{1}{2} = mg\left(\frac{\ell}{2} - \frac{\ell}{4} + \frac{d}{2}\right) = \frac{mg\,(\ell + 2d)}{4} $$</div>
+<p style="margin-bottom: 10px;"><strong>Conservation.</strong> By the work-energy theorem, $\frac{d}{dt}\tfrac{1}{2}m\|\mathbf{v}\|^2 = \mathbf{W}\cdot\mathbf{v} + \mathbf{T}\cdot\mathbf{v}$. The tension term is zero by (f), and $\mathbf{W}\cdot\mathbf{v} = -\frac{d}{dt}(mgz_P)$ because gravity is conservative. Hence $E$ is <strong>conserved</strong>. Direct check, differentiating $E$ and inserting the equations of (e):</p>
+<div class="math-block">$$ \frac{\dot{E}}{m} = \ell^2\dot{\theta}\ddot{\theta} + w^2\dot{\phi}\ddot{\phi} + w\dot{w}\dot{\phi}^2 - g\dot{w}\cos\phi + gw\sin\phi\,\dot{\phi} $$</div>
+<p style="margin-bottom: 10px;">with $\ell^2\dot{\theta}\ddot{\theta} = -\ell\sin\theta\,\dot{\theta}\left(w\dot{\phi}^2 + g\cos\phi\right)$, $w^2\dot{\phi}\ddot{\phi} = w\dot{\phi}\left(2\ell\sin\theta\,\dot{\theta}\dot{\phi} - g\sin\phi\right)$ and $\dot{w} = -\ell\sin\theta\,\dot{\theta}$. The terms in $\ell w\sin\theta\,\dot{\theta}\dot{\phi}^2$ add to $-1 + 2 - 1 = 0$, the terms in $g\ell\sin\theta\,\dot{\theta}\cos\phi$ add to $-1 + 1 = 0$, and the terms in $gw\dot{\phi}\sin\phi$ add to $-1 + 1 = 0$, so $\dot{E} = 0$.</p>
+<p style="margin-bottom: 10px;"><strong>Angular momentum about $O$ is not conserved.</strong> The torque of the tension about $O$ has the $\mathbf{k}_0$-component $-T\,(\mathbf{r}_0^Q\times\hat{\mathbf{u}})\cdot\mathbf{k}_0 = -Td\sin\theta\,(1 - \sin\phi)$, which is non-zero at $t = 0$, and the weight has a non-zero horizontal torque. No component of $\mathbf{H}_O$ is a first integral in general, so the energy is the conserved quantity asked about.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation &amp; Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Numerical check</strong> (Python, RK4 with step $10^{-4}$ s; $\ell = 2$ m, $d = 0.4$ m, $g = 9.81$ m/s$^2$, $\theta(0) = \phi(0) = \pi/3$, $\dot{\phi}(0) = 0$, hence $\dot{\theta}(0) = \sqrt{g/\ell} = 2.2147$ rad/s):</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Quantity</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Result</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Initial energy per unit mass</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$E_0/m = 6.8670$ J/kg, equal to $g(\ell + 2d)/4 = 6.8670$ J/kg</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Energy drift over $4$ s</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\max|E - E_0|/m = 6.5\times 10^{-11}$ J/kg</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Tension and hanging length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\min T/m = 2.94$ m/s$^2 \gt 0$ and $\min\rho = 0.38$ m $\gt 0$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">String-length constraint</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\|\mathbf{OQ}\| + \|\mathbf{QP}\| - \ell = 4\times 10^{-16}$ m</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Velocity formula of (c)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">finite-difference velocity of $\mathbf{r}_0^P$ equals the closed form to four decimals</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Angular momentum about $O$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">components of $\mathbf{H}_O/m$ vary (the $\mathbf{i}_0$ component runs from $-5.2$ to $7.3$ m$^2$/s)</td></tr>
+</tbody></table></div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Limit $d \to 0$:</strong> $Q \to O$, $w = \ell\cos\theta$ and $E = \tfrac{1}{2}m\ell^2(\dot{\theta}^2 + \cos^2\theta\,\dot{\phi}^2) - mg\ell\cos\theta\cos\phi$, the energy of a spherical pendulum of length $\ell$ in these angular coordinates.</li>
+<li><strong>Geometry:</strong> $\theta = 0$ puts $Q$ at the foot of the perpendicular from $O$ (distance $d$), where the hanging length $\ell - d$ is maximal. The equations are singular when $w = 0$ (zero hanging length), which the hypothesis of a taut string over the edge excludes.</li>
+<li><strong>Dimensions:</strong> $[\ell\ddot{\theta}] = [g] = \text{m/s}^2$, $[T] = \text{kg}\cdot\text{m/s}^2 = \text{N}$, $[E_0] = \text{kg}\cdot\text{m}^2/\text{s}^2 = \text{J}$.</li>
+</ul>
+</div>
+        </div>
+      </details>
+
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf (PDF page 27); key (part f only) on PDF page 76</span>
+      </div>
+    </div>
+
+    <!-- Problem 42 -->
+    <div class="problem-card" id="prob-42">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 42</div>
+          <h2 class="problem-title">Particle Attracted to the Origin by $F = m\mu/r^\alpha$</h2>
+        </div>
+        <span class="problem-badge">Binet + Effective Potential</span>
+      </div>
+      <div class="problem-statement">
+        <p><em>(Advanced problem.)</em> A point particle $P$ of mass $m$ is attracted by the origin of coordinates $O$ of the inertial reference frame $S_0$ by a force with magnitude</p>
+        <div class="math-block">
+          $$ F = \frac{m\mu}{r^\alpha} $$
+        </div>
+        <p>where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known positive constants.</p>
+        <div class="note-banner" style="margin: 12px 0;"><strong>Notation.</strong> The official text writes $F = m\alpha/r^\beta$ (strength $\alpha$, exponent $\beta$) and asks for $\beta = 1, 2, 3, 4$. Here the strength is called $\mu$ and the exponent $\alpha$, so the cases "$\alpha = 1, 2, 3, 4$" below are the official $\beta = 1, 2, 3, 4$, and $\mu/h^2$ is the official $\alpha/h^2$.</div>
+        <ul class="questions-list">
+          <li class="question-item"><span class="question-label">(a)</span><span>Show that the angular momentum vector and the mechanical energy of $P$ are conserved quantities of motion, and that the motion of $P$ occurs in a plane.</span></li>
+          <li class="question-item"><span class="question-label">(b)</span><span>Using polar coordinates $(r, \theta)$ in the plane of motion, find a second-order differential equation to solve for $u \equiv 1/r$ as a function of $\theta$ (i.e., $u = u(\theta)$).</span></li>
+          <li class="question-item"><span class="question-label">(c)</span><span>Find a first integral of this equation and discuss the limits of motion of $u$ as a function of $\mu/h^2$, $\alpha$, and the values of $u$ and $u' \equiv du/d\theta$ at $t = 0$, where $h$ is the magnitude of the angular momentum vector about the origin per unit mass. For $\alpha = 1, 2, 3,$ and $4$, determine under which conditions: (i) the particle escapes to infinity ($u \to 0$); (ii) the particle reaches $r = 0$ ($u \to \infty$); (iii) the particle oscillates between two values of $u$.</span></li>
+        </ul>
+        <p><em>Hint: try to solve first the problem with $\alpha = 2$, and then try the other values.</em></p>
+      </div>
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Worked Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>System:</strong> a particle $P$ of mass $m$ attracted to $O$ by $\mathbf{F} = -\dfrac{m\mu}{r^\alpha}\mathbf{e}_r$.</li>
+<li><strong>Hypotheses:</strong> $S_0$ inertial; $\mu \gt 0$, $\alpha \gt 0$ constants; no other forces; $h \ne 0$ unless stated.</li>
+<li><strong>Degrees of freedom:</strong> free particle, $\text{CDOF} = 3$; after part (a) the motion is planar, $\text{CDOF} = 2$ with coordinates $(r, \theta)$.</li>
+<li><strong>Variables:</strong> $u(\theta) = 1/r(\theta)$, $u' = du/d\theta$, $h = \|\mathbf{r}\times\mathbf{v}\|$ [m$^2$/s].</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mu$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">force strength per unit mass, $F/m = \mu/r^\alpha$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^{\alpha+1}$/s$^2$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$h$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">specific angular momentum</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^2$/s</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">reciprocal radius</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^{-1}$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\xi$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">specific mechanical energy</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">J/kg = m$^2$/s$^2$</td></tr>
+</tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Change of basis (polar basis in the plane of motion).</strong> Take $\mathbf{k}$ along $\mathbf{H}_O$. The polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$:</li>
+</ul>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$</div>
+<p style="margin-bottom: 10px;">The angular velocity of $\mathcal{B}_1$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$; Poisson's formula $\dot{\mathbf{e}} = \boldsymbol{\omega}\times\mathbf{e}$ gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$. The product rule on $\mathbf{r} = r\mathbf{e}_r$ yields</p>
+<div class="math-block">$$ \mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta, \qquad \mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a): conservation laws and planar motion</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The force line of action passes through the fixed point $O$, so its torque about $O$ vanishes, and the angular momentum theorem about a fixed point (Notes Eq. 4.53) gives a constant $\mathbf{H}_O$.</div>
+<div class="math-block">$$ \mathbf{M}_O = \mathbf{r}\times\mathbf{F} = r\mathbf{e}_r\times\left(-\frac{m\mu}{r^\alpha}\mathbf{e}_r\right) = \mathbf{0} \implies \left.\frac{d\mathbf{H}_O}{dt}\right|_0 = \mathbf{0} \implies \mathbf{H}_O = m\,\mathbf{r}\times\mathbf{v} = \text{const} $$</div>
+<p style="margin-bottom: 10px;">Since $\mathbf{r}\cdot\mathbf{H}_O \equiv 0$ and $\mathbf{v}\cdot\mathbf{H}_O \equiv 0$, $P$ stays in the plane through $O$ perpendicular to $\mathbf{H}_O$.</p>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The force is purely radial and depends only on $r$, so its elementary work $\mathbf{F}\cdot d\mathbf{r} = F(r)\,dr$ is the exact differential of a function of $r$ (equivalently $\nabla\times\mathbf{F} = \mathbf{0}$). The force is conservative, so the energy is conserved. The potential energy per unit mass follows from Barrow's rule with the reference at infinity (for $\alpha \gt 1$; for $\alpha \le 1$ the reference point is arbitrary):</div>
+<div class="math-block">$$ V_0(r) = -\int_\infty^r\left(-\frac{\mu}{s^\alpha}\right)ds = \mu\left[\frac{s^{1-\alpha}}{1 - \alpha}\right]_\infty^r = -\frac{\mu}{(\alpha - 1)\,r^{\alpha - 1}} \quad (\alpha \gt 1), \qquad V_0(r) = \mu\ln r \quad (\alpha = 1) $$</div>
+<div class="math-block">$$ \xi = \tfrac{1}{2}v^2 + V_0(r) = \text{const} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Binet equation for a power law</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Eliminate time with $h = r^2\dot{\theta} = \text{const}$, i.e. $\dot{\theta} = hu^2$. The chain rule for $r = u^{-1}$ gives $dr/d\theta = -u'/u^2$.</div>
+<div class="math-block">$$ \dot{r} = \frac{dr}{d\theta}\dot{\theta} = \left(-\frac{u'}{u^2}\right)\left(hu^2\right) = -hu', \qquad \ddot{r} = \frac{d}{dt}\left(-hu'\right) = -hu''\,\dot{\theta} = -h^2u^2u'' $$</div>
+<p style="margin-bottom: 10px;">The radial equation $\ddot{r} - r\dot{\theta}^2 = -\mu/r^\alpha = -\mu u^\alpha$ with $r\dot{\theta}^2 = \frac{1}{u}(hu^2)^2 = h^2u^3$ becomes</p>
+<div class="math-block">$$ -h^2u^2u'' - h^2u^3 = -\mu u^\alpha \quad\overset{\div\,(-h^2u^2)}{\Longrightarrow}\quad \boxed{u'' + u = \frac{\mu}{h^2}\,u^{\alpha - 2}} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): first integral</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Write the specific energy with $\dot{r} = -hu'$ and $r\dot{\theta} = hu$. Since $\xi$ is constant, this is a first integral; it can be checked by multiplying the Binet equation by $u'$ and integrating in $\theta$.</div>
+<div class="math-block">$$ \xi = \tfrac{1}{2}h^2\left[(u')^2 + u^2\right] + V_0\!\left(\frac{1}{u}\right) \implies \boxed{(u')^2 + W_{\text{eff}}(u) = E^*}, \quad E^* \equiv \frac{2\xi}{h^2}, \quad W_{\text{eff}}(u) = u^2 + \frac{2V_0(1/u)}{h^2} $$</div>
+<p style="margin-bottom: 10px;">Check: $\frac{d}{d\theta}\left[(u')^2 + W_{\text{eff}}\right] = 2u'u'' + W_{\text{eff}}'u' = 0$ gives $u'' = -\tfrac{1}{2}W_{\text{eff}}'$, which is the Binet equation. Motion exists only where $W_{\text{eff}}(u) \le E^*$; turning points ($u' = 0$) are the roots of $W_{\text{eff}}(u) = E^*$, and a minimum or a maximum of $W_{\text{eff}}$ is a circular orbit.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case $\alpha = 2$: inverse square (Kepler)</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Binet: $u'' + u = \mu/h^2$. Potential: $V_0 = -\mu u$, so $W_{\text{eff}} = u^2 - \dfrac{2\mu}{h^2}u = \left(u - \dfrac{\mu}{h^2}\right)^2 - \left(\dfrac{\mu}{h^2}\right)^2$, a parabola with minimum $-(\mu/h^2)^2$ at $u = \mu/h^2$.</li>
+<li><strong>(i) Escape ($u \to 0$):</strong> possible if $E^* \ge W_{\text{eff}}(0) = 0$, i.e. $\xi \ge 0$ (parabola or hyperbola).</li>
+<li><strong>(ii) Reaching $r = 0$:</strong> impossible for $h \ne 0$, because $W_{\text{eff}} \to +\infty$ as $u \to \infty$.</li>
+<li><strong>(iii) Oscillation:</strong> for $-(\mu/h^2)^2 \lt E^* \lt 0$, i.e. $-\mu^2/(2h^2) \lt \xi \lt 0$: $u$ oscillates between the two roots (periapsis and apoapsis of an ellipse); $E^* = -(\mu/h^2)^2$ is the circular orbit.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case $\alpha = 1$: $F \propto 1/r$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Binet: $u'' + u = \dfrac{\mu}{h^2u}$. Potential $V_0(1/u) = -\mu\ln u$, so $W_{\text{eff}} = u^2 - \dfrac{2\mu}{h^2}\ln u$.</li>
+<li>$W_{\text{eff}} \to +\infty$ both as $u \to 0$ (because $-\ln u \to +\infty$) and as $u \to \infty$. Its minimum is at $2u - \dfrac{2\mu}{h^2u} = 0$, i.e. $u_0 = \sqrt{\mu}/h$.</li>
+<li><strong>(i)</strong> Escape is impossible for any finite energy. <strong>(ii)</strong> Reaching $r = 0$ is impossible. <strong>(iii)</strong> Every orbit with $E^* \gt W_{\text{eff}}(u_0)$ oscillates between two finite turning points; $E^* = W_{\text{eff}}(u_0)$ is the circular orbit $r = h/\sqrt{\mu}$.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case $\alpha = 3$: $F \propto 1/r^3$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>$V_0 = -\dfrac{\mu}{2r^2} = -\dfrac{\mu}{2}u^2$. Binet: $u'' + \lambda u = 0$ with $\lambda \equiv 1 - \mu/h^2$. Then $W_{\text{eff}} = \lambda u^2$ and $(u')^2 + \lambda u^2 = E^*$.</li>
+<li><strong>$h^2 \gt \mu$ ($\lambda = \kappa^2 \gt 0$, $\kappa = \sqrt{1 - \mu/h^2}$):</strong> $u = A\cos(\kappa\theta + \delta)$ with $A = \sqrt{u_0^2 + (u_0'/\kappa)^2}$. The cosine vanishes at a finite angle, so $u \to 0$ in every case: <strong>(i) the particle always escapes</strong>; a particle moving inward ($u_0' \gt 0$) is first reflected at the periapsis $u = A$. <strong>(ii)</strong> never, since $u \le A$. <strong>(iii)</strong> no oscillation between two positive values.</li>
+<li><strong>$h^2 \lt \mu$ ($\lambda = -\kappa^2 \lt 0$, $\kappa = \sqrt{\mu/h^2 - 1}$):</strong> $u = C_1e^{\kappa\theta} + C_2e^{-\kappa\theta}$ with $C_1 = \tfrac{1}{2}(u_0 + u_0'/\kappa)$, $C_2 = \tfrac{1}{2}(u_0 - u_0'/\kappa)$. If $C_1 \gt 0$ (i.e. $u_0' \gt -\kappa u_0$), $u \to \infty$: <strong>(ii) the particle reaches the origin</strong>. If $C_1 \lt 0$ ($u_0' \lt -\kappa u_0$), $u$ reaches $0$ at a finite angle: <strong>(i) escape</strong>. If $C_1 = 0$, $u = u_0e^{-\kappa\theta} \to 0$ only asymptotically (spiral $r = r_0e^{\kappa\theta}$), a limiting case of escape. <strong>(iii)</strong> no oscillation.</li>
+<li><strong>$h^2 = \mu$ ($\lambda = 0$):</strong> $u'' = 0 \Rightarrow u = u_0 + u_0'\theta$ (reciprocal spiral). $u_0' \gt 0$: reaches the origin; $u_0' \lt 0$: escapes at $\theta = u_0/|u_0'|$; $u_0' = 0$: circle $r = 1/u_0$.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case $\alpha = 4$: $F \propto 1/r^4$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Binet: $u'' + u = \dfrac{\mu}{h^2}u^2$. $V_0 = -\dfrac{\mu}{3}u^3$, so $W_{\text{eff}} = u^2 - \dfrac{2\mu}{3h^2}u^3 = u^2\left(1 - \dfrac{2\mu}{3h^2}u\right)$.</li>
+<li>$W_{\text{eff}}'(u) = 2u - \dfrac{2\mu}{h^2}u^2 = 2u\left(1 - \dfrac{\mu}{h^2}u\right)$: stationary points $u = 0$ (minimum, $W = 0$) and $u_b = h^2/\mu$ (maximum, barrier $W_{\max} = u_b^2 - \dfrac{2\mu}{3h^2}u_b^3 = \dfrac{h^4}{3\mu^2}$). For $u \gt u_b$, $W_{\text{eff}}$ decreases without bound and crosses zero at $u_0 = 3h^2/(2\mu) \gt u_b$.</li>
+<li><strong>There is no interior minimum</strong>, so the allowed set $\{W_{\text{eff}} \le E^*\}$ either contains $u = 0$ or extends to $u \to \infty$. Because $\dot{\theta} = hu^2 \gt 0$, $u'$ has the sign of $\dot{u}$.</li>
+<li><strong>$0 \le E^* \lt W_{\max}$:</strong> two roots $u_1 \in [0, u_b)$ and $u_2 \gt u_b$; allowed $u \le u_1$ or $u \ge u_2$. If $u(0) \le u_1$ the particle is reflected at $u_1$ and escapes; if $u(0) \ge u_2$ it is reflected at $u_2$ and falls to the origin.</li>
+<li><strong>$E^* \lt 0$:</strong> only $u \ge u_2 \gt u_0$ is allowed; the particle reaches $r = 0$. <strong>$E^* \gt W_{\max}$:</strong> no turning points; $u'(0) \lt 0$ (moving outward) escapes and $u'(0) \gt 0$ (moving inward) falls to the origin. <strong>$E^* = W_{\max}$:</strong> the unstable circular orbit $u = u_b$ and asymptotic approaches to it.</li>
+<li><strong>(i)</strong> escape: $0 \le E^* \lt W_{\max}$ with $u(0) \lt u_b$, or $E^* \gt W_{\max}$ with $u'(0) \lt 0$. <strong>(ii)</strong> reaching $r = 0$: $E^* \lt 0$, or $0 \le E^* \lt W_{\max}$ with $u(0) \gt u_b$, or $E^* \gt W_{\max}$ with $u'(0) \gt 0$. <strong>(iii)</strong> bounded oscillation between two values of $u$: <strong>does not occur</strong>; it would need an interior minimum of $W_{\text{eff}}$, and the only bounded motion is the unstable circle $u = u_b$.</li>
+</ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Dimensional check:</strong> $[F/m] = \text{m/s}^2 = [\mu]/\text{m}^\alpha$ gives $[\mu] = \text{m}^{\alpha+1}/\text{s}^2$. With $[h^2] = \text{m}^4/\text{s}^2$ and $[u] = \text{m}^{-1}$, $\dfrac{\mu}{h^2}u^{\alpha - 2}$ has units $\text{m}^{\alpha - 3}\,\text{m}^{-(\alpha - 2)} = \text{m}^{-1}$, the same as $u$ and $u''$ ($\theta$ is dimensionless).</li>
+<li><strong>Stability of circular orbits (consequence of the first integral):</strong> for general $\alpha$, $W_{\text{eff}}'(u_0) = 0$ gives $u_0^{\alpha - 3} = h^2/\mu$ and $W_{\text{eff}}''(u_0) = 2(3 - \alpha)$, so the circular orbit is a minimum (stable) for $\alpha \lt 3$ and a maximum (unstable) for $\alpha \gt 3$, in agreement with the cases above ($\alpha = 4$: barrier at $u_b = h^2/\mu$).</li>
+<li><strong>Numerical check</strong> (Python, RK4 with step $10^{-4}$ rad on $u'' = -u + (\mu/h^2)u^{\alpha-2}$, units with $\mu = h = 1$ unless stated):</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Case</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Initial data $(u_0, u_0')$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Predicted</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Integration result</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1.5, 0)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">bounded, $0.5$ to $1.5$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u \in [0.5000, 1.5000]$ over $60$ rad</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(0.5, -0.9)$, $E^* \gt 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">escape</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 0$ at $\theta = 0.823$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(0.5, 0)$, $E^* = 1/6 \lt 1/3$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">reflected, then escape</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 0$ at $\theta = 2.078$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1.2, 0)$, $E^* = 0.288 \lt 1/3$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">collapse</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u \to \infty$ at $\theta = 3.713$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(0.5, 0.9)$, $E^* \gt 1/3$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">collapse</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u \to \infty$ at $\theta = 3.258$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(0.5, -0.9)$, $E^* \gt 1/3$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">escape</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 0$ at $\theta = 0.524$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1, 0)$, $E^* = W_{\max}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">unstable circular orbit</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 1$ for $20$ rad</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 3$, $\mu/h^2 = 2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1, 0.2)$, $C_1 \gt 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">collapse</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u \to \infty$ at $\theta = 4.423$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 3$, $\mu/h^2 = 2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1, -1.5)$, $C_1 \lt 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">escape</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 0$ at $\theta = 0.805$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 3$, $\mu/h^2 = 1/2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1, 0)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">escape</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 0$ at $\theta = 2.222$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 3$, $\mu = h^2$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(1, -0.1)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">escape at $\theta = 10$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u = 0$ at $\theta = 10.000$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\alpha = 1$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(0.5, 0.3)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">bounded</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$u \in [0.471, 1.653]$ over $100$ rad</td></tr>
+</tbody></table></div>
+<p style="margin-bottom: 10px;">The official key (Problems.pdf) gives no answer for Problem 42, so these checks are against the derived classification only.</p>
+</div>
+        </div>
+      </details>
+
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf (PDF page 29); no key available</span>
+      </div>
+    </div>
+
+    <!-- Problem 43 -->
+    <div class="problem-card" id="prob-43">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 43</div>
+          <h2 class="problem-title">Two Connected Particles through a Hole</h2>
+        </div>
+        <span class="problem-badge">Angular Momentum + Energy</span>
+      </div>
+      <div class="problem-statement">
+        <p>We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.</p>
+        <p>Initially, half of the cord lies under the plane and half of the cord is on the plane (so $r(0) = a$). At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.</p>
+        <ul class="questions-list">
+          <li class="question-item"><span class="question-label">(a)</span><span>What is the value of $v_0$ if $P_1$ describes a circumference?</span></li>
+          <li class="question-item"><span class="question-label">(b)</span><span>In that case, what is the value of the tension in the cord?</span></li>
+          <li class="question-item"><span class="question-label">(c)</span><span>If $v_0 = \sqrt{8ag/3}$, reduce the problem to integrals (i.e., quadratures).</span></li>
+          <li class="question-item"><span class="question-label">(d)</span><span>Show that for this value of $v_0$, $P_1$ oscillates between $r = a$ and $r = 2a$.</span></li>
+          <li class="question-item"><span class="question-label">(e)</span><span>Apply Newton's law to $P_2$ and show that the tension of the cord is $T = mg\left(\dfrac{1}{2} + \dfrac{4a^3}{3r^3}\right)$.</span></li>
+          <li class="question-item"><span class="question-label">(f)</span><span>Write down the new equations of motion if the plane on which $P_1$ moves is rough, with a friction coefficient $\mu$.</span></li>
+        </ul>
+        <p><em>Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1$, $x_2 = 2$ and $x_3 = -2/3$.</em></p>
+      </div>
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Worked Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>System:</strong> $P_1$ on a smooth horizontal plane at polar position $(r, \theta)$ and $P_2$ hanging on the vertical through the hole $O$, joined by an inextensible massless cord of length $2a$ passing through $O$.</li>
+<li><strong>Constraints and degrees of freedom:</strong> the cord length gives $r + \ell_2 = 2a$, where $\ell_2$ is the hanging length, so $z_2 = -\ell_2 = r - 2a$ ($Oz$ up). The generalized coordinates are $(r, \theta)$, $\text{CDOF} = 2$.</li>
+<li><strong>Hypotheses:</strong> inertial frame $S_0$ with $O$ at the hole; smooth hole and plane for parts (a)-(e); the cord stays taut; no drag.</li>
+<li><strong>Initial state:</strong> $r(0) = a$, $\dot{r}(0) = 0$, $r(0)\dot{\theta}(0) = v_0$, hence $\dot{\theta}(0) = v_0/a$ and $\dot{z}_2(0) = 0$.</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$m$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">mass of each particle</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$a$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">half of the cord length</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$v_0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">initial speed of $P_1$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$g$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">gravitational acceleration</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m/s$^2$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mu$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">friction coefficient (part f)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">1</td></tr>
+</tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$, horizontal plane $z = 0$, $\mathbf{k}$ up.</li>
+<li><strong>Change of basis (polar basis of $P_1$).</strong> $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:</li>
+</ul>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$</div>
+<p style="margin-bottom: 10px;">with $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$ (Poisson).</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Kinematics:</strong> $\mathbf{r}_1 = r\mathbf{e}_r$, $\mathbf{v}_1 = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta$; $\mathbf{r}_2 = (r - 2a)\mathbf{k}$, $\mathbf{v}_2 = \dot{r}\mathbf{k}$.</li>
+</ul>
+<div class="math-block">$$ T_{\text{kin}} = \tfrac{1}{2}m\left(\dot{r}^2 + r^2\dot{\theta}^2\right) + \tfrac{1}{2}m\dot{r}^2 = m\dot{r}^2 + \tfrac{1}{2}mr^2\dot{\theta}^2, \qquad V = mgz_2 = mg(r - 2a) $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Circular motion, $r \equiv a$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> On the plane the only horizontal force on $P_1$ is the tension $-T\mathbf{e}_r$, which is central. For $r = a$ the radial acceleration is purely centripetal; $P_2$ must stay at rest.</div>
+<div class="math-block">$$ P_1: \; m\left(\ddot{r} - r\dot{\theta}^2\right) = -T \;\xrightarrow{\;r = a,\ \ddot{r} = 0\;}\; T = ma\dot{\theta}^2 = \frac{mv_0^2}{a}, \qquad P_2: \; m\ddot{z}_2 = T - mg = 0 \implies T = mg $$</div>
+<div class="math-block">$$ \frac{mv_0^2}{a} = mg \implies v_0 = \sqrt{ag} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Tension in the circular case</h4>
+<div class="math-block">$$ T = mg $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Quadratures for $v_0 = \sqrt{8ag/3}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The tension on $P_1$ is central, so $h = r^2\dot{\theta}$ is constant; the plane and hole are smooth and the cord inextensible, so $E = T_{\text{kin}} + V$ is constant. The two first integrals leave one equation for $r(t)$.</div>
+<div class="math-block">$$ h = r^2\dot{\theta} = a v_0 = a\sqrt{\frac{8ag}{3}} \implies h^2 = \frac{8}{3}a^3g $$</div>
+<div class="math-block">$$ E = m\dot{r}^2 + \frac{mh^2}{2r^2} + mg(r - 2a), \qquad E(0) = \tfrac{1}{2}m\cdot\frac{8ag}{3} - mga = \frac{1}{3}mga $$</div>
+<p style="margin-bottom: 10px;">Equating, dividing by $m$ and isolating $\dot{r}^2$:</p>
+<div class="math-block">$$ \dot{r}^2 + \frac{4a^3g}{3r^2} + gr - 2ga = \frac{1}{3}ga \implies \dot{r}^2 = \frac{7}{3}ga - gr - \frac{4a^3g}{3r^2} = \frac{g}{3r^2}\left(7ar^2 - 3r^3 - 4a^3\right) $$</div>
+<p style="margin-bottom: 10px;">Separating variables and applying Barrow's rule from $r(0) = a$:</p>
+<div class="math-block">$$ \frac{dr}{dt} = \pm\sqrt{\frac{g}{3}}\,\frac{\sqrt{-3r^3 + 7ar^2 - 4a^3}}{r} \implies \int_a^r\frac{r'\,dr'}{\sqrt{-3r'^3 + 7ar'^2 - 4a^3}} = \pm\sqrt{\frac{g}{3}}\,t $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Oscillation between $r = a$ and $r = 2a$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Motion requires $\dot{r}^2 \ge 0$, i.e. $P(r) = -3r^3 + 7ar^2 - 4a^3 \ge 0$. With $x = r/a$ the polynomial is $a^3(-3x^3 + 7x^2 - 4)$, and the hint gives its roots.</div>
+<div class="math-block">$$ -3x^3 + 7x^2 - 4 = -(x - 1)(x - 2)(3x + 2) $$</div>
+<p style="margin-bottom: 10px;">Check of the roots: $x = 1$: $-3 + 7 - 4 = 0$; $x = 2$: $-24 + 28 - 4 = 0$; $x = -2/3$: $\frac{8}{9} + \frac{28}{9} - 4 = 0$. Since $r \gt 0$, $3x + 2 \gt 0$ and $P \ge 0$ requires $(x - 1)(x - 2) \le 0$:</p>
+<div class="math-block">$$ 1 \le x \le 2 \iff a \le r(t) \le 2a $$</div>
+<p style="margin-bottom: 10px;">The turning points ($\dot{r} = 0$) are $r_{\min} = a$ and $r_{\max} = 2a$, and the motion oscillates between them.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Tension of the cord</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Apply Newton's second law to $P_2$ (weight and tension) with $\ddot{z}_2 = \ddot{r}$, because $z_2 = r - 2a$.</div>
+<div class="math-block">$$ m\ddot{r} = T - mg \implies T = m\left(g + \ddot{r}\right) $$</div>
+<p style="margin-bottom: 10px;">Differentiate $\dot{r}^2 = \frac{7}{3}ga - gr - \frac{4a^3g}{3r^2}$ with respect to time (chain rule, $\frac{d}{dt}r^{-2} = -2r^{-3}\dot{r}$):</p>
+<div class="math-block">$$ 2\dot{r}\ddot{r} = \left(-g + \frac{8a^3g}{3r^3}\right)\dot{r} \implies \ddot{r} = -\frac{g}{2} + \frac{4a^3g}{3r^3} $$</div>
+<div class="math-block">$$ \boxed{T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right)} $$</div>
+<p style="margin-bottom: 10px;">$T \gt 0$ for all $r \in [a, 2a]$, so the cord stays taut.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(f) Rough plane</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Coulomb friction acts on $P_1$ opposite to its velocity, with magnitude $\mu N_1$. The normal force is $N_1 = mg$, because the cord is horizontal on the plane and only the weight acts vertically.</div>
+<div class="math-block">$$ \mathbf{F}_f = -\mu mg\,\frac{\mathbf{v}_1}{\|\mathbf{v}_1\|} = -\mu mg\,\frac{\dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$</div>
+<div class="math-block">$$ \mathbf{e}_r: \; m\left(\ddot{r} - r\dot{\theta}^2\right) = -T - \mu mg\frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$</div>
+<div class="math-block">$$ \mathbf{e}_\theta: \; m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = -\mu mg\frac{r\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}, \qquad P_2: \; m\ddot{r} = T - mg $$</div>
+<p style="margin-bottom: 10px;">Adding the $\mathbf{e}_r$ equation and the $P_2$ equation eliminates $T$; multiplying the $\mathbf{e}_\theta$ equation by $r$ gives the evolution of $h$:</p>
+<div class="math-block">$$ 2\ddot{r} - r\dot{\theta}^2 = -g - \mu g\frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}, \qquad \frac{d}{dt}\left(r^2\dot{\theta}\right) = -\mu g\,\frac{r^2\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$</div>
+<p style="margin-bottom: 10px;">Angular momentum and energy are no longer conserved (friction dissipates energy), so the problem cannot be reduced to the quadratures of (c).</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Tension at the turning points:</strong> $T(a) = mg\left(\tfrac{1}{2} + \tfrac{4}{3}\right) = \tfrac{11}{6}mg$ and $T(2a) = mg\left(\tfrac{1}{2} + \tfrac{4}{24}\right) = \tfrac{2}{3}mg$, both positive.</li>
+<li><strong>Consistency with (a):</strong> for $v_0^2 = ag$, $h^2 = a^3g$ and $\ddot{r}(a) = -\tfrac{g}{2} + \tfrac{h^2}{2a^3} = 0$, so $r = a$ is an equilibrium of the radial equation, as expected for the circular case.</li>
+<li><strong>Radial period</strong> (consequence of (c) and (d)): with $x = r/a$ and $x = \tfrac{3}{2} - \tfrac{1}{2}\cos s$, $(x - 1)(2 - x) = \tfrac{1}{4}\sin^2 s$ and $dx = \tfrac{1}{2}\sin s\,ds$, so $\tau_r = 2\sqrt{\dfrac{3a}{g}}\displaystyle\int_0^\pi\dfrac{x(s)\,ds}{\sqrt{3x(s) + 2}} \approx 6.342\sqrt{\dfrac{a}{g}}$.</li>
+<li><strong>Numerical check</strong> (Python, RK4 on $\ddot{r} = -g/2 + 4a^3g/(3r^3)$ with $a = g = 1$, $r(0) = 1$, $\dot{r}(0) = 0$): maximum radius $2.0000$, period $6.3425$ s (the quadrature gives $6.3424$), and the energy-integral residual stays below $4\times 10^{-14}$.</li>
+<li><strong>Dimensions:</strong> $[T] = [m][g] = \text{N}$ and $[v_0] = \sqrt{[a][g]} = \text{m/s}$.</li>
+<li><strong>Key:</strong> the official key (Problems.pdf) has no entry for Problem 43.</li>
+</ul>
+</div>
+        </div>
+      </details>
+
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf (PDF page 30); no key available</span>
+      </div>
+    </div>
+
+    <!-- Problem 44 -->
+    <div class="problem-card" id="prob-44">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 44</div>
+          <h2 class="problem-title">The Little Prince Throwing Seeds</h2>
+        </div>
+        <span class="problem-badge">Angular Momentum + Vis-Viva</span>
+      </div>
+      <div class="problem-statement">
+        <p>The little Prince is on his spherical asteroid, which has radius $R$ and mass $M$, and does not rotate. While he sits at the equator, he throws a baobab seed with an initial velocity of magnitude $v_0$ and angle $\beta = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of $r_a = 3R$ before falling back, determine $v_0$ as a function of the parameters of the problem and the universal gravitational constant $G$.</p>
+      </div>
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Worked Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>System:</strong> a seed of mass $m \ll M$ launched from the surface ($r_0 = R$) with speed $v_0$ at $60^\circ$ above the local horizontal; it reaches the apocenter $r_a = 3R$.</li>
+<li><strong>Hypotheses:</strong> spherically symmetric, non-rotating asteroid, so the gravitational force $\mathbf{F} = -\dfrac{GMm}{r^2}\mathbf{e}_r$ is central and conservative with $\mu = GM$; vacuum (no drag); inertial frame $S_0$ centred on the asteroid.</li>
+<li><strong>Degrees of freedom:</strong> free particle, planar motion by central-force conservation of $\mathbf{H}_O$; coordinates $(r, \theta)$.</li>
+<li><strong>Initial state:</strong> $r = R$, radial component $v_{r0} = v_0\sin 60^\circ = \tfrac{\sqrt{3}}{2}v_0$ and transverse component $v_{\theta 0} = v_0\cos 60^\circ = \tfrac{1}{2}v_0$.</li>
+</ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+<thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Symbol</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Meaning</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">SI unit</th></tr></thead>
+<tbody>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$M$, $R$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">mass and radius of the asteroid</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">kg, m</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$G$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">universal gravitational constant, $6.6743\times 10^{-11}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^3$/(kg s$^2$)</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\mu = GM$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">gravitational parameter</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">m$^3$/s$^2$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\beta$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">launch angle above the horizontal</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$60^\circ$</td></tr>
+<tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$r_a$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">apocenter radius</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$3R$</td></tr>
+</tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Change of basis (polar basis in the orbital plane).</strong> $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by the true anomaly $\theta$ about $\mathbf{k}$ (along $\mathbf{H}_O$):</li>
+</ul>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity in $\mathcal{B}_1$:</strong> $\mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta$; at launch $\dot{r} = v_0\sin 60^\circ$ and $r\dot{\theta} = v_0\cos 60^\circ$. At the apocenter $\dot{r} = 0$, so the velocity is purely transverse.</li>
+</ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Conservation of specific angular momentum</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The gravitational force passes through $O$, so $\mathbf{M}_O = \mathbf{0}$ and $h = \|\mathbf{r}\times\mathbf{v}\| = r^2\dot{\theta}$ is constant. Evaluate it at launch and at the apocenter, where $v_a = r_a\dot{\theta}_a$.</div>
+<div class="math-block">$$ h = R\left(v_0\cos 60^\circ\right) = \frac{1}{2}Rv_0, \qquad h = r_av_a = 3Rv_a \implies v_a = \frac{v_0}{6} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Conservation of specific energy</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Gravity is conservative with $V_0 = -\mu/r$ (derived with Barrow's rule, reference at infinity), so $\xi = \tfrac{1}{2}v^2 - GM/r$ takes the same value at launch and at the apocenter.</div>
+<div class="math-block">$$ \frac{1}{2}v_0^2 - \frac{GM}{R} = \frac{1}{2}\left(\frac{v_0}{6}\right)^2 - \frac{GM}{3R} = \frac{v_0^2}{72} - \frac{GM}{3R} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Solving for $v_0$</h4>
+<div class="math-block">$$ \left(\frac{1}{2} - \frac{1}{72}\right)v_0^2 = \left(1 - \frac{1}{3}\right)\frac{GM}{R} \implies \frac{35}{72}v_0^2 = \frac{2}{3}\frac{GM}{R} \implies v_0^2 = \frac{2}{3}\cdot\frac{72}{35}\frac{GM}{R} = \frac{48}{35}\frac{GM}{R} $$</div>
+<div class="math-block">$$ \boxed{v_0 = \sqrt{\frac{48}{35}\,\frac{GM}{R}}} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Bound orbit:</strong> the escape speed at the surface is $v_e = \sqrt{2GM/R}$, i.e. $v_e^2 = \tfrac{70}{35}GM/R$. Since $\tfrac{48}{35} \lt 2$, $v_0 \lt v_e$ and the orbit is an ellipse: the seed falls back.</li>
+<li><strong>Orbital parameters:</strong> $h^2 = \tfrac{1}{4}R^2v_0^2 = \tfrac{12}{35}GMR$, $p = h^2/\mu = \tfrac{12}{35}R$. From $r_a = p/(1 - e) = 3R$: $1 - e = \tfrac{4}{35}$ and $e = \tfrac{31}{35} \approx 0.8857$. The periapsis of the full conic is $r_p = p/(1 + e) = \tfrac{2}{11}R \lt R$, inside the asteroid; only the arc from the launch point to the apocenter is physical, and the seed lands before reaching the periapsis.</li>
+<li><strong>Independent check with the Binet solution.</strong> With $u = \tfrac{\mu}{h^2}(1 + e\cos\theta)$ and the launch values $u(\theta_0) = 1/R$, $u'(\theta_0) = -\dot{r}/h$ (here $\dot{r} = \tfrac{\sqrt{3}}{2}v_0$), the eccentricity formula of the theory page gives</li>
+</ul>
+<div class="math-block">$$ e = \frac{h^2}{\mu}\sqrt{\left(\frac{1}{R} - \frac{\mu}{h^2}\right)^2 + \left(\frac{\dot{r}}{h}\right)^2} = \frac{12R}{35}\sqrt{\frac{529}{144R^2} + \frac{3}{R^2}} = \frac{12R}{35}\cdot\frac{31}{12R} = \frac{31}{35} $$</div>
+<p style="margin-bottom: 10px;">and the launch angle follows from $\tan\beta = \dot{r}/(r\dot{\theta}) = \dfrac{R}{p}\,e\sin\theta_0$ with $\cos\theta_0 = \dfrac{p/R - 1}{e} = -\dfrac{23}{31}$, $\sin\theta_0 = \dfrac{\sqrt{432}}{31}$:</p>
+<div class="math-block">$$ \tan\beta = \frac{35}{12}\cdot\frac{31}{35}\cdot\frac{\sqrt{432}}{31} = \frac{\sqrt{432}}{12} = \sqrt{3} \implies \beta = 60^\circ $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Numerical check</strong> (Python, velocity-Verlet integration of $\ddot{\mathbf{r}} = -\mu\mathbf{r}/r^3$ with $\mu = R = 1$ and $v_0 = \sqrt{48/35}$): the maximum radius reached is $2.99999999981R$, in agreement with $r_a = 3R$.</li>
+<li><strong>Dimensions:</strong> $[v_0] = \sqrt{[G][M]/[R]} = \sqrt{\dfrac{\text{m}^3}{\text{kg}\,\text{s}^2}\cdot\dfrac{\text{kg}}{\text{m}}} = \text{m/s}$.</li>
+<li><strong>Key:</strong> the official key (Problems.pdf) has no entry for Problem 44.</li>
+</ul>
+</div>
+        </div>
+      </details>
+
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf (PDF page 31); no key available</span>
+      </div>
+    </div>
+
+
+    <div class="article-nav">
+      <a href="topic-3.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Topic</span>
+        <span class="nav-btn-title">Topic 3: Constraints and Reaction Forces</span>
+      </a>
+      <a href="../teoria/topic-4.html" class="nav-btn" style="text-align: center;">
+        <span class="nav-btn-label">Theory Reference</span>
+        <span class="nav-btn-title">Review Topic Theory →</span>
+      </a>
+      <a href="index.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Back to Syllabus →</span>
+        <span class="nav-btn-title">Problems Hub</span>
+      </a>
+    </div>
+  
     <!-- Aerospace Motivational Quote Component -->
     <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
       <div id="quoteContainer"></div>
@@ -523,20 +1078,6 @@
 
   </main>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    toggle.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -549,3 +1090,4 @@
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>
 </html>
+

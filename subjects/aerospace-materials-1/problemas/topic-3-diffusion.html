@@ -546,6 +546,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -615,28 +616,31 @@
           </thead>
           <tbody>
             <tr>
-              <td>0.00</td><td>0.0000</td><td>0.25</td><td>0.2763</td><td>0.60</td><td>0.6039</td><td>1.10</td><td>0.8802</td>
+              <td>0.00</td><td>0.0000</td><td>0.25</td><td>0.2763</td><td>0.70</td><td>0.6778</td><td>1.30</td><td>0.9340</td>
             </tr>
             <tr>
-              <td>0.01</td><td>0.0113</td><td>0.30</td><td>0.3286</td><td>0.65</td><td>0.6420</td><td>1.20</td><td>0.9103</td>
+              <td>0.01</td><td>0.0113</td><td>0.30</td><td>0.3286</td><td>0.75</td><td>0.7112</td><td>1.40</td><td>0.9523</td>
             </tr>
             <tr>
-              <td>0.02</td><td>0.0226</td><td>0.35</td><td>0.3794</td><td>0.70</td><td>0.6778</td><td>1.30</td><td>0.9340</td>
+              <td>0.02</td><td>0.0226</td><td>0.35</td><td>0.3794</td><td>0.80</td><td>0.7421</td><td>1.50</td><td>0.9661</td>
             </tr>
             <tr>
-              <td>0.03</td><td>0.0338</td><td>0.40</td><td>0.4284</td><td>0.75</td><td>0.7112</td><td>1.40</td><td>0.9523</td>
+              <td>0.03</td><td>0.0338</td><td>0.40</td><td>0.4284</td><td>0.85</td><td>0.7707</td><td>1.60</td><td>0.9763</td>
             </tr>
             <tr>
-              <td>0.04</td><td>0.0451</td><td>0.45</td><td>0.4755</td><td>0.80</td><td>0.7421</td><td>1.50</td><td>0.9661</td>
+              <td>0.04</td><td>0.0451</td><td>0.45</td><td>0.4755</td><td>0.90</td><td>0.7969</td><td>1.70</td><td>0.9838</td>
             </tr>
             <tr>
-              <td>0.05</td><td>0.0564</td><td>0.50</td><td>0.5205</td><td>0.85</td><td>0.7707</td><td>1.60</td><td>0.9763</td>
+              <td>0.05</td><td>0.0564</td><td>0.50</td><td>0.5205</td><td>0.95</td><td>0.8209</td><td>1.80</td><td>0.9891</td>
             </tr>
             <tr>
-              <td>0.10</td><td>0.1125</td><td>0.55</td><td>0.5633</td><td>0.90</td><td>0.7969</td><td>1.80</td><td>0.9891</td>
+              <td>0.10</td><td>0.1125</td><td>0.55</td><td>0.5633</td><td>1.00</td><td>0.8427</td><td>1.90</td><td>0.9928</td>
             </tr>
             <tr>
-              <td>0.20</td><td>0.2227</td><td>0.60</td><td>0.6039</td><td>0.95</td><td>0.8209</td><td>2.00</td><td>0.9953</td>
+              <td>0.15</td><td>0.1680</td><td>0.60</td><td>0.6039</td><td>1.10</td><td>0.8802</td><td>2.00</td><td>0.9953</td>
+            </tr>
+            <tr>
+              <td>0.20</td><td>0.2227</td><td>0.65</td><td>0.6420</td><td>1.20</td><td>0.9103</td><td></td><td></td>
             </tr>
           </tbody>
         </table>
@@ -707,7 +711,8 @@
             <p><strong>3. Time of Carburization:</strong></p>
             $$x^2 = (6.0 \times 10^{-4}\text{ m})^2 = 3.60 \times 10^{-7}\text{ m}^2$$
             $$4 \cdot z^2 \cdot D = 4 \times 1.05930 \times (1.28 \times 10^{-11}\text{ m}^2/\text{s}) = 5.4236 \times 10^{-11}\text{ m}^2/\text{s}$$
-            $$t = \frac{3.60 \times 10^{-7}\text{ m}^2}{5.4236 \times 10^{-11}\text{ m}^2/\text{s}} \approx \mathbf{6637.6\text{ s}} \approx \mathbf{6636\text{ s}} = \mathbf{1.843\text{ h}}$$
+            $$t = \frac{3.60 \times 10^{-7}\text{ m}^2}{5.4236 \times 10^{-11}\text{ m}^2/\text{s}} \approx \mathbf{6638\text{ s}} = \mathbf{1.844\text{ h}}$$
+            <p><strong>Discrepancy with the official solution.</strong> The official key gives $t = 6636\text{ s}$. Linear interpolation in the table gives $z = 1.0292$ and $t = 6637.6\text{ s} \approx 6638\text{ s}$ (the exact inverse error function, $z = 1.0271$, would give $6665\text{ s}$ because the table is linear between $1.00$ and $1.10$). The key is $0.02\%$ below the interpolated value; this is a rounding difference, and the interpolated value is reported.</p>
           </div>
 
           <!-- Phase 4 -->
@@ -778,10 +783,10 @@
             $$\ln(1.55 \times 10^{10}) = \ln(1.55) + 10 \cdot \ln(10) = 0.438255 + 23.025851 = 23.464106$$
 
             <p><strong>3. Absolute Temperature Calculation:</strong></p>
-            $$T = \frac{73\,000\text{ cal/mol}}{(1.987\text{ cal/mol}\cdot\text{K}) \times (23.464106)} = \frac{73\,000}{46.62318} \approx \mathbf{1565.77\text{ K}} \approx \mathbf{1566\text{ K}}$$
+            $$T = \frac{73\,000\text{ cal/mol}}{(1.987\text{ cal/mol}\cdot\text{K}) \times (23.464106)} = \frac{73\,000}{46.62318} \approx \mathbf{1565.74\text{ K}} \approx \mathbf{1566\text{ K}}$$
 
             <p><strong>Conversion to Celsius:</strong></p>
-            $$T = 1565.77 - 273.15 = \mathbf{1292.62^\circ\text{C}} \approx \mathbf{1293^\circ\text{C}}$$
+            $$T = 1565.74 - 273.15 = \mathbf{1292.59^\circ\text{C}} \approx \mathbf{1293^\circ\text{C}}$$
           </div>
 
           <!-- Phase 4 -->
@@ -789,7 +794,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[T] = \frac{\text{cal/mol}}{(\text{cal/mol}\cdot\text{K})} = \text{K}$.  
-              <strong>Physical Insight:</strong> Silicon melts at $T_m = 1414^\circ\text{C}$ ($1687\text{ K}$). The required processing temperature ($1293^\circ\text{C}$) corresponds to a homologous temperature $T / T_m \approx 0.93$. This ultra-high temperature is standard in semiconductor fabrication furnaces to drive trivalent acceptor dopants ($\text{Al}$) into deep $p\text{-}n$ junctions [Slides 29, 32].
+              <strong>Physical Insight:</strong> Silicon melts at $T_m = 1414^\circ\text{C}$ ($1687\text{ K}$). The required processing temperature ($1293^\circ\text{C}$) corresponds to a homologous temperature $T / T_m \approx 0.93$. This ultra-high temperature is standard in semiconductor fabrication furnaces to drive trivalent acceptor dopants ($\text{Al}$) into deep $p\text{-}n$ junctions [Slide 29: diffusion of impurities in Si wafers].
             </p>
           </div>
         </div>
@@ -829,7 +834,7 @@
           <div class="phase-step phase-1">
             <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
             <ul>
-              <li><strong>Phase Invariance:</strong> Above $727^\circ\text{C}$, mild steel is entirely austenitic ($\gamma\text{-Fe}$, FCC). No phase transformation occurs between $850^\circ\text{C}$ and $1000^\circ\text{C}$ [Session 5 Slide 24].</li>
+              <li><strong>Single Austenitic Regime (assumption):</strong> The problem uses one Arrhenius law and one $E_D$ for $\text{C}$ in mild steel from $850^\circ\text{C}$ to $1000^\circ\text{C}$. This presumes the steel is fully austenitic ($\gamma\text{-Fe}$, FCC) over the whole interval, i.e. above its $A_3$ temperature; the slides do not give $A_3$ (it depends on the carbon content), so this is an assumption, not a result [Session 5 Slide 24].</li>
               <li><strong>Parameters:</strong>  
                 $T_1 = 850^\circ\text{C} = 1123.15\text{ K}$, $D_1 = 4.826 \times 10^{-12}\text{ m}^2/\text{s}$  
                 $T_2 = 950^\circ\text{C} = 1223.15\text{ K}$, $D_2 = 1.805 \times 10^{-11}\text{ m}^2/\text{s}$  
@@ -870,8 +875,8 @@
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
-              <strong>Consistency with Official Data:</strong> The official reference table [Session 5 Slide 23] lists $D(\text{C in Fe-FCC}) \approx 3 \times 10^{-11}\text{ m}^2/\text{s}$ at $1000^\circ\text{C}$, matching our derived $3.23 \times 10^{-11}\text{ m}^2/\text{s}$ with total fidelity.  
-              <strong>Mechanism Check:</strong> $E_D \approx 36\text{ kcal/mol}$ is characteristic of interstitial diffusion of carbon in FCC iron. In contrast, vacancy-assisted self-diffusion of host iron requires $E_a \approx 70\text{ kcal/mol}$ [Slide 9].
+              <strong>Consistency with Official Data:</strong> The official reference table [Session 5 Slide 23] lists $D(\text{C in Fe-FCC}) \approx 3 \times 10^{-11}\text{ m}^2/\text{s}$ at $1000^\circ\text{C}$, matching our derived $3.23 \times 10^{-11}\text{ m}^2/\text{s}$; both are of the same order, the slide value being a one-significant-figure figure ($\approx 8\%$ lower).  
+              <strong>Mechanism Check:</strong> $E_D \approx 36\text{ kcal/mol}$ is characteristic of interstitial diffusion of carbon in FCC iron. In contrast, vacancy-assisted self-diffusion in a metal needs a larger activation energy, e.g. $57.5\text{ kcal/mol}$ ($240\text{ kJ/mol}$) for $\alpha\text{-Fe}$ [Slide 9].
             </p>
           </div>
         </div>
@@ -950,7 +955,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[t] = \frac{\text{cm} \cdot \text{cm}}{\text{cm}^2/\text{s}} = \text{s}$.  
-              <strong>Physical Insight:</strong> Requiring nearly 13 days ($309\text{ hours}$) at $1400^\circ\text{C}$ to consume merely $1\ \mu\text{m}$ of nickel illustrates why refractory ceramic oxides like $\text{MgO}$ and $\text{ZrO}_2$ are deployed as high-temperature diffusion barrier coatings in aerospace gas turbine superalloys [Slides 32, 33].
+              <strong>Physical Insight:</strong> Requiring nearly 13 days ($309\text{ hours}$) at $1400^\circ\text{C}$ to consume merely $1\ \mu\text{m}$ of nickel shows how slow ionic transport is in the dense $\text{MgO}$ plate: diffusion is slower for charged species and in materials with high $T_m$ [Slide 27], so the plate acts as an effective diffusion barrier between the two metal blocks.
             </p>
           </div>
         </div>
@@ -1028,9 +1033,9 @@
             $$D = \frac{1.3456 \times 10^{-6}\text{ m}^2}{111\,016.86\text{ s}} \approx \mathbf{1.21207 \times 10^{-11}\text{ m}^2/\text{s}}$$
 
             <p><strong>4. Inverting Arrhenius for Temperature $T$:</strong></p>
-            $$\frac{D}{D_0} = \frac{1.21207 \times 10^{-11}\text{ m}^2/\text{s}}{16.2 \times 10^{-6}\text{ m}^2/\text{s}} = 7.48191 \times 10^{-7} \implies \ln\left(\frac{D}{D_0}\right) \approx -14.10657$$
-            $$T = \frac{-137\,800\text{ J/mol}}{(8.314\text{ J/mol}\cdot\text{K}) \times (-14.10657)} = \frac{137\,800}{117.282} \approx \mathbf{1174.95\text{ K}} \approx \mathbf{1175\text{ K}}$$
-            $$T = 1174.95 - 273.15 = \mathbf{901.8^\circ\text{C}} \approx \mathbf{902^\circ\text{C}}$$
+            $$\frac{D}{D_0} = \frac{1.21207 \times 10^{-11}\text{ m}^2/\text{s}}{16.2 \times 10^{-6}\text{ m}^2/\text{s}} = 7.48191 \times 10^{-7} \implies \ln\left(\frac{D}{D_0}\right) = \ln(7.48191 \times 10^{-7}) = 2.01249 - 16.11810 = -14.10561$$
+            $$T = \frac{-137\,800\text{ J/mol}}{(8.314\text{ J/mol}\cdot\text{K}) \times (-14.10561)} = \frac{137\,800}{(8.314)(14.10561)} = \frac{137\,800}{117.275} \approx \mathbf{1175.02\text{ K}} \approx \mathbf{1175\text{ K}}$$
+            $$T = 1175.02 - 273.15 = \mathbf{901.87^\circ\text{C}} \approx \mathbf{902^\circ\text{C}}$$
           </div>
 
           <!-- Phase 4 -->
@@ -1099,7 +1104,7 @@
             <p><strong>1. Flux Density ($J$):</strong></p>
             $$\frac{\dot{m}}{A} = \frac{1.73 \times 10^{-3}\text{ kg/h}}{0.2\text{ m}^2} = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h}$$
             $$J = \frac{8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h}}{3600\text{ s/h}} \approx \mathbf{2.4028 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}}$$
-            *(Official Slide 35 rounds to $J = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$).*
+            <p><em>The worked solution stored in the text layer of Official Slide 35 gives $J = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h} = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$ and $\Delta x = 5\text{ mm}$ (the answer box on the rendered slide appears empty).</em></p>
 
             <p><strong>2. Concentration Difference:</strong></p>
             $$\Delta C = C_1 - C_2 = 1.5\text{ kg/m}^3 - 0.3\text{ kg/m}^3 = 1.2\text{ kg/m}^3$$
@@ -1113,7 +1118,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[\Delta x] = \frac{(\text{m}^2/\text{s}) \cdot (\text{kg/m}^3)}{\text{kg}/(\text{m}^2\cdot\text{s})} = \text{m}$.  
-              <strong>Aerospace Application:</strong> A $5\text{ mm}$ membrane provides structural rigidity to withstand trans-membrane pressure differentials while taking advantage of hydrogen's extraordinarily high interstitial diffusivity ($10^{-8}\text{ m}^2/\text{s}$) in FCC palladium to yield ultra-pure $99.9999\%$ hydrogen fuel for space missions [Slide 35].
+              <strong>Physical Insight:</strong> At fixed concentrations the flux scales as $J \propto 1/\Delta x$ [Slide 16], so $5\text{ mm}$ is the thickness at which steady-state permeation equals the required purified flow. Hydrogen is one of the small atoms that diffuse interstitially [Slide 13], consistent with the high diffusivity given ($10^{-8}\text{ m}^2/\text{s}$) [Slide 35: $\text{H}_2$ purification through $\text{Pd}$].
             </p>
           </div>
         </div>
@@ -1129,43 +1134,6 @@
     </div>
   </footer>
 
-  <!-- Theme Synchronization Script -->
-  <script>
-    (function () {
-      const html = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
-
-      function applyTheme(t) {
-        html.setAttribute('data-theme', t);
-        try {
-          localStorage.setItem('theme', t);
-          localStorage.setItem('ae_theme', t);
-          localStorage.setItem('aero-portal-theme', t);
-        } catch (e) {}
-      }
-
-      const savedTheme = (() => {
-        try {
-          return localStorage.getItem('theme') ||
-                 localStorage.getItem('aero-portal-theme') ||
-                 localStorage.getItem('ae_theme') ||
-                 'dark';
-        } catch (e) {
-          return 'dark';
-        }
-      })();
-
-      applyTheme(savedTheme);
-
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const current = html.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-        });
-      }
-    })();
-  </script>
 
   <!-- Scripts: i18n -->
   <!-- Celestial Sky Engine -->

@@ -273,6 +273,7 @@
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -385,7 +386,7 @@
             <h2 class="topic-title">Topic 4: Angular Momentum and Central Forces</h2>
             <span class="topic-badge">5 Problems Available</span>
           </div>
-          <p class="topic-desc">Five official problems: isotropic linear central forces, 3D hanging string dynamics over plate edges, general $F = m\mu/r^\alpha$ Binet orbits, tethered dual-particle systems, and Little Prince asteroid escape.</p>
+          <p class="topic-desc">Five official problems: isotropic linear central forces, 3D hanging string dynamics over plate edges, general $F = m\mu/r^\alpha$ Binet orbits, tethered dual-particle systems, and a seed launched from a small asteroid to a given apocenter.</p>
           <div class="topic-tags">
             <span class="topic-tag">Angular Momentum</span>
             <span class="topic-tag">Central Forces</span>
@@ -421,20 +422,6 @@
 
   </main>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    toggle.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

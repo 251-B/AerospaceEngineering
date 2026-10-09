@@ -20,17 +20,20 @@ tags:
 
 ---
 
-## 2. Barycentric Frame & Two-Body Reduction (Slides 9–10)
+## 2. Barycentric Frame & Two-Body Reduction (Slides 9–11)
 Newtonian gravitational interaction between two masses $m^P$ (satellite/planet) and $m^S$ (Earth/Sun):
 $$ m^P \ddot{\mathbf{r}}_0^P = -\frac{G m^P m^S}{\|\mathbf{r}_0^P - \mathbf{r}_0^S\|^3}(\mathbf{r}_0^P - \mathbf{r}_0^S), \qquad m^S \ddot{\mathbf{r}}_0^S = +\frac{G m^P m^S}{\|\mathbf{r}_0^P - \mathbf{r}_0^S\|^3}(\mathbf{r}_0^P - \mathbf{r}_0^S) $$
 
-Summing both equations shows that the center of mass (barycenter $G$) has zero acceleration:
-$$ (m^S + m^P)\ddot{\mathbf{r}}_0^G = \mathbf{0} \implies \text{Frame } S_G \text{ is inertial} $$
+Summing both equations (the internal forces cancel) shows that the center of mass (barycenter $G$, $\mathbf{r}_0^G = (m^P\mathbf{r}_0^P + m^S\mathbf{r}_0^S)/(m^S + m^P)$) has zero acceleration:
+$$ (m^S + m^P)\ddot{\mathbf{r}}_0^G = \mathbf{0} \implies \mathbf{r}_0^G(t) = \mathbf{r}_0^G(0) + \mathbf{v}_0^G t \implies \text{Frame } S_G \text{ is inertial} $$
 
 ### Relative Coordinate Equation:
 Defining relative position $\mathbf{r} \equiv \mathbf{r}_0^P - \mathbf{r}_0^S$:
 $$ \frac{d^2\mathbf{r}}{dt^2} = -\frac{G(m^S + m^P)}{r^3}\mathbf{r} = -\frac{\mu}{r^3}\mathbf{r} $$
-where $\mu \equiv G(m^S + m^P)$ is the **standard gravitational parameter**.
+where $\mu \equiv G(m^S + m^P)$ is the **standard gravitational parameter**. The step is: divide the first equation by $m^P$, the second by $m^S$, and subtract.
+
+### Reduced Mass:
+Multiplying by $m_{\text{red}} = \dfrac{m^P m^S}{m^P + m^S}$ gives $m_{\text{red}}\ddot{\mathbf{r}} = -\dfrac{G m^P m^S}{r^2}\mathbf{e}_r$: the relative vector moves like one particle of mass $m_{\text{red}}$ around a fixed center. The individual bodies are $\mathbf{r}_0^P = \mathbf{r}_0^G + \frac{m^S}{m^S + m^P}\mathbf{r}$ and $\mathbf{r}_0^S = \mathbf{r}_0^G - \frac{m^P}{m^S + m^P}\mathbf{r}$.
 
 In orbital mechanics where $m^S \gg m^P$:
 $$ \mu \approx G m^S $$
