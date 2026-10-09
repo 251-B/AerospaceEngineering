@@ -618,8 +618,8 @@
       <p>With $p = mv$, the product rule gives</p>
       $$\frac{dp}{dt} = \frac{d}{dt}(mv) = \frac{dm}{dt}\,v + m\,\frac{dv}{dt}.$$
       <p>
-        For constant mass $dm/dt = 0$, so $m\,\dfrac{dv}{dt} = F(t)$: the familiar $F = ma$. (For a rocket, $dm/dt \neq 0$ and the
-        first term cannot be dropped; that case is outside this course.)
+        For constant mass $dm/dt = 0$, so $m\,\dfrac{dv}{dt} = F(t)$: the familiar $F = ma$. (For variable-mass bodies such as rockets, $F = d(mv)/dt$ does not apply: the momentum carried away by the exhaust must be
+        included in a balance over the whole system, which is outside this course.)
       </p>
 
       <h3 class="sub-title">5.2 Free fall under gravity</h3>
@@ -792,7 +792,7 @@
         <div class="callout-title">Census test of the Malthus model (Robinson Sec. 8.3, pp. 63–64)</div>
         <p>Population of Great Britain and Ireland: 1801: 16 345 646; 1851: 27 533 755; 1901: 41 609 091 (Eq. 8.6).</p>
         <p>Fitting $k$ from 1801 and 1851, $p(1851) = p(1801)e^{50k}$:</p>
-        $$k = \frac{\ln p(1851) - \ln p(1801)}{50} = \frac{\ln(27\,533\,755/16\,345\,646)}{50} = \frac{0.52148}{50} = 0.01043\ \text{yr}^{-1}.$$
+        $$k = \frac{\ln p(1851) - \ln p(1801)}{50} = \frac{\ln(27\,533\,755/16\,345\,646)}{50} = \frac{0.52145}{50} = 0.01043\ \text{yr}^{-1}.$$
         <ul>
           <li>Prediction for 1901: $p(1801)e^{100k} = 46.4$ million (true: 41.6 million) — reasonable.</li>
           <li>Prediction for 2001: $p(1801)e^{200k} = 131.6$ million (true: about 63 million, UK plus Republic of Ireland) — more than twice too large.</li>
@@ -1017,7 +1017,7 @@
       <p>
         <strong>Interpretation.</strong> Two solutions that start $\varepsilon$ apart remain within $\varepsilon e^{L(t-t_0)}$ of each other:
         the error can grow, but at most exponentially, and it tends to zero with $\varepsilon$ on any finite time interval. This is
-        exactly continuous dependence on the initial data. For $\dot x = \lambda x$ the bound is attained: $|x(t) - y(t)| = |x_0 - y_0|e^{\lambda(t-t_0)}$.
+        exactly continuous dependence on the initial data. For $\dot x = \lambda x$ with $\lambda \ge 0$ (so $L = \lambda$) the bound is attained: $|x(t) - y(t)| = |x_0 - y_0|e^{\lambda(t-t_0)}$; for $\lambda < 0$ the solutions actually approach each other.
       </p>
 
       <h3 class="sub-title">8.3 Idea of the existence proof: Picard iteration</h3>
