@@ -3,9 +3,9 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
+    "superpowers@superpowers-marketplace": true,
     "skill-creator@claude-plugins-official": true,
-    "bm@buildomator": true,
+    "bm@gsd-plugin": true,
     "context-mode@context-mode": true,
     "claude-mem@thedotmack": true,
     "humanizer@synced": true,

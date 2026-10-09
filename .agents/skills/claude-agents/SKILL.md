@@ -147,7 +147,7 @@ El orquestador no espera órdenes manuales sobre qué plugin o rol invocar. Apli
 | **Fallo de renderizado / Bug KaTeX / Enlace roto** | `superpowers:systematic-debugging` | `web-qa-reviewer` | Reproducción, hipótesis falsificable, arreglo de causa raíz y test de verificación. |
 | **Inspección de múltiples archivos o logs** | `context-mode` (`ctx_execute`, `ctx_search`) | `source-researcher` | Ejecución en sandbox para parsear y resumir sin saturar la ventana de contexto. |
 | **Desarrollo de problemas o exámenes** | Ninguno (Rigor analítico puro) | `problem-step-mentor` | Desglose estricto en 4 fases, derivadas e integrales explícitas en KaTeX. |
-| **Hitos de larga duración / Sprints temáticos** | `buildomator` (`/bm:plan-phase`, `/bm:execute-phase`) | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | Lanzamiento coordinado de 3–5 compañeros con lista de tareas compartida. |
+| **Hitos de larga duración / Sprints temáticos** | `bm` (`/bm:plan-phase`, `/bm:execute-phase`) | Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`) | Lanzamiento coordinado de 3–5 compañeros con lista de tareas compartida. |
 | **Cierre de tarea puntual** | `review-ultrareview` (Modo: `review`) | `web-qa-reviewer` | Checklist rápido: KaTeX delimitadores, link `../../../index.html`, idioma y YAML. |
 | **Cierre de capítulo o examen** | `review-ultrareview` (Modo: `ultrareview`) | Equipo Completo (Adversarial) | Auditoría 4D: comprobación algebraica sin saltos, Barrow, SI, fuentes oficiales. |
 | **Diseño o ajuste de nuevas skills** | `skill-creator` + `superpowers:writing-skills` | Meta-skill | Pruebas de disparo con `run_eval.py` y optimización con `improve_description.py`. |
