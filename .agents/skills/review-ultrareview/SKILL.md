@@ -73,7 +73,7 @@ Se realiza una auditoría cruzada multi-rol y adversarial en **4 dimensiones**:
 
 ### Dimensión 3: Integridad Frontend y Web (`web-qa-reviewer` + `subject-web-builder`)
 - [ ] KaTeX CDN renderiza sin errores en consola ni fórmulas desbordadas.
-- [ ] Selector Dark/Light funcional con persistencia en `localStorage('ae_theme')` (y fallback `aero-portal-theme`).
+- [ ] Dark/light toggle works through `assets/js/theme.js` with persistence in `localStorage('ae_theme')` (no inline theme code, no other theme key).
 - [ ] Diseño responsive adaptado a móvil, tablet y escritorio.
 - [ ] Insignia de estado actualizada en el `index.html` raíz.
 
