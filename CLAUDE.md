@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Claude Code operating framework
 
-The workspace operates under an **Autonomous Triggering Engine** combining specialised subagents, Claude Code Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`), and installed plugins (`superpowers`, `context-mode`, `claude-mem`, `buildomator`, `skill-creator`).
+The workspace operates under an **Autonomous Triggering Engine** combining specialised subagents, Claude Code Agent Teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`), and installed plugins (`superpowers`, `context-mode`, `claude-mem`, `bm`, `skill-creator`).
 
 ### Triggering pipeline
 
@@ -26,7 +26,7 @@ Before editing, follow this five-stage pipeline:
          ▼                                      • Problem Set ──► problem-step-mentor (4-Phase Protocol)
 [ Stage 3: Autonomous Routing & Execution ]     • Web Page    ──► subject-web-builder (Obsidian-First)
   • Single Agent / Subagent vs. Agent Teams     • Skill Work  ──► skill-creator + superpowers:writing-skills
-  • Enforce Academic Standards (English, SI)    • Sprint/Milestone ──► Agent Teams + buildomator
+  • Enforce Academic Standards (English, SI)    • Sprint/Milestone ──► Agent Teams + bm
          │
          ▼
 [ Stage 4: Mandatory Closing Verification Gate ]
