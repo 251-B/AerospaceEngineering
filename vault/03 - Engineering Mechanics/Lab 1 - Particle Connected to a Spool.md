@@ -124,7 +124,7 @@ $$E = \tfrac12 m(\xi^2\dot\phi^2 + a^2\omega^2) + mg(a\sin\phi - \xi\cos\phi), \
 
 ## 📁 7. Deliverables & Validated Code Repository
 
-Location: `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/deliverable/`
+Location: `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/Lab1-Ismael/deliverable/`
 * `code_LA_Martin_Martin_Ranz/main.m`: single self-contained script (no user input; prints results, exports figures to `figures/`). Only what the guide asks for: integration of the 5 cases, one figure per case ($\phi$, $\xi$, $T$, trajectory), $E(t)$ for each case and $|\dot\phi|$ near contact in case 3. `diffeq`, `stopfun` and the plotting helpers are local functions at the end of the file, as in the professor's `example1.m`.
 * `overleaf_project/`: `main.tex` (10 pages including cover and table of contents, same layout as the Fluid Mechanics Lab 1 report), `references.bib`, `figures/`.
 * `Report_LA_Martin_Martin_Ranz.pdf`, `Overleaf_Lab1_Report.zip`, `Group_LA_Martin_Martin_Ranz.zip` (submission archive).
