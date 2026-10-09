@@ -81,6 +81,13 @@ Suppose:
 Then, the IVP $(1)$ has a **unique** solution $y(t)$ defined on the interval:
 $$ I = [t_0 - h, t_0 + h], \quad \text{where } h = \min\left( a, \, \frac{b}{M} \right) $$
 
+> [!NOTE] Official form of the theorem (Book ODE's, Definition 6.1 and Theorem 6.2, p. 40)
+> A **solution** of the IVP on an open interval $I \ni t_0$ is a differentiable function $x(t)$ on $I$ with $x(t_0)=x_0$ and $\dot x = f(x,t)$ for all $t \in I$. **Theorem 6.2:** if $f(x,t)$ and $\partial f/\partial x$ are continuous for $a<x<b$ and $c<t<d$, then for every $x_0 \in (a,b)$ and $t_0 \in (c,d)$ the IVP has a unique solution on some open interval $I$ containing $t_0$. The theorem gives no information on the size of $I$. Footnote 1 (p. 40): it suffices that $f$ be Lipschitz in $x$, i.e. $|f(x,t)-f(y,t)| \le L|x-y|$; every $C^1$ function is locally Lipschitz, but not conversely (for example $|x|$). A bound $|\partial f/\partial y| \le L$ implies Lipschitz in $y$ on a rectangle or strip, by the mean value theorem.
+
+> [!NOTE] Maximal interval of existence (Book ODE's, Section 6.3, pp. 41-42)
+> The **maximal interval of existence** is the largest open interval containing $t_0$ on which the solution can be defined. For $\dot x = x^2$, $x(0)=x_0>0$, the solution $x = 1/(x_0^{-1}-t)$ has maximal interval $(-\infty, x_0^{-1})$; at the right endpoint $x \to +\infty$ (finite-time blow-up). A solution is global only if its maximal interval is $\mathbb{R}$.
+
+
 ```mermaid
 graph LR
     Cont["Continuity of f(t,y)"] --> Peano["Peano's Theorem: EXISTENCE of ≥ 1 solution"]

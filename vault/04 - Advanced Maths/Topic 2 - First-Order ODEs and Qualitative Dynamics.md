@@ -94,6 +94,45 @@ Every problem from Sheet 2 is developed in 4 exhaustive phases with zero omitted
 
 ---
 
+## 🧪 4. Worked Examples, One per Method (verified)
+
+Examples B to F come from the official notes (Book ODE's, J.C. Robinson; the printed page is cited, the PDF page is printed page plus 16). Example A is an **illustrative example**. Every closed form was checked with sympy (residual 0 in the ODE and the initial datum) and with an RK4 integration in pure Python.
+
+### Example A (illustrative example) — Separable: $y' = x\,e^{-y}$, $y(0)=0$
+Here $g(x)=x$, $h(y)=e^{-y}>0$, so there are no equilibria and the division is legitimate. Multiply by $e^{y}$ and use the chain rule $\frac{d}{dx}e^{y(x)} = e^{y(x)}\,y'(x)$:
+$$ \frac{d}{dx}\left[e^{y(x)}\right] = x \;\Longrightarrow\; \int_{0}^{y(x)} e^{u}\,du = \int_0^x s\,ds \;\Longrightarrow\; \left[e^{u}\right]_{0}^{y(x)} = \left[\frac{s^2}{2}\right]_0^x $$
+$$ e^{y} - 1 = \frac{x^2}{2} \;\Longrightarrow\; \boxed{y(x) = \ln\left(1 + \frac{x^2}{2}\right)}, \quad x \in \mathbb{R}\ \text{(the argument is at least 1).} $$
+
+### Example B — Linear, integrating factor: $x' + 3x = t$, $x(0) = 8/9$ (Book, Example 9.1, p. 78)
+With $p(t)=3$: $\mu(t) = \exp\left(\int_0^t 3\,ds\right) = e^{3t}$, $\mu(0)=1$. By the product rule $\frac{d}{dt}\left[x e^{3t}\right] = e^{3t}x' + 3e^{3t}x = t e^{3t}$. Integrate over $[0,t]$ (Barrow), with $\int s e^{3s}ds = \frac{s e^{3s}}{3} - \frac{e^{3s}}{9}$ (by parts, $u=s$, $dv = e^{3s}ds$):
+$$ x(t)e^{3t} - x(0) = \left[\frac{s e^{3s}}{3} - \frac{e^{3s}}{9}\right]_{0}^{t} = \frac{t e^{3t}}{3} - \frac{e^{3t}}{9} + \frac{1}{9} $$
+Using $x(0)=\frac{8}{9}$: $x e^{3t} = \frac{t e^{3t}}{3} - \frac{e^{3t}}{9} + 1$, so $\boxed{x(t) = e^{-3t} + \frac{t}{3} - \frac{1}{9}}$, global on $\mathbb{R}$ (the coefficients are continuous). The term $e^{-3t}$ is the transient and $\frac{t}{3}-\frac{1}{9}$ the forced response.
+
+### Example C — Exact: $\left(x^3 + \frac{y}{x}\right) + \left(y^2 + \ln x\right)y' = 0$, $x>0$ (Book, Example 10.1, p. 91)
+$M = x^3 + \frac{y}{x}$, $N = y^2 + \ln x$. **Exactness check:** $\frac{\partial M}{\partial y} = \frac{1}{x} = \frac{\partial N}{\partial x}$ on the simply connected domain $x>0$. **Potential:** $F = \int M\,dx = \frac{x^4}{4} + y\ln x + C(y)$; then $F_y = \ln x + C'(y) = N = y^2 + \ln x \Rightarrow C'(y)=y^2 \Rightarrow C(y) = \frac{y^3}{3}$. Solution (implicit; it cannot be solved for $y$):
+$$ \boxed{F(x,y) = \frac{x^4}{4} + y\ln x + \frac{y^3}{3} = c} $$
+Check: $dF = \left(x^3 + \frac{y}{x}\right)dx + \left(\ln x + y^2\right)dy$. With $y(1)=1$: $c = \frac14 + 0 + \frac13 = \frac{7}{12}$.
+
+### Example D — Bernoulli: $y' - 6xy = 2xy^2$, $y(0) = \frac12$ (Book, Example 10.4, p. 96, with an added initial datum)
+Here $\alpha = 2$, $a=6x$, $b=2x$. The equilibrium $y\equiv 0$ is lost on dividing by $y^2$ and must be listed apart. Divide by $y^2$ and set $u = y^{1-\alpha} = y^{-1}$, so by the chain rule $u' = -y^{-2}y'$:
+$$ y^{-2}y' - 6x\,y^{-1} = 2x \;\Longrightarrow\; -u' - 6xu = 2x \;\Longrightarrow\; u' + 6x\,u = -2x, \quad u(0)=2. $$
+Integrating factor $\mu(x) = \exp\left(\int_0^x 6s\,ds\right) = e^{3x^2}$, so $\frac{d}{dx}\left[u e^{3x^2}\right] = -2x e^{3x^2}$. Barrow with $w = 3s^2$, $dw = 6s\,ds$ (so $2s\,ds = \frac{dw}{3}$, limits $0 \to 3x^2$):
+$$ u e^{3x^2} - 2 = -\frac13\int_0^{3x^2} e^{w}\,dw = -\frac13\left(e^{3x^2} - 1\right) \;\Longrightarrow\; u = \frac{7}{3}e^{-3x^2} - \frac13 $$
+$$ \boxed{y(x) = \frac{3}{7e^{-3x^2} - 1}} $$
+The denominator vanishes at $e^{-3x^2} = \frac17$, i.e. $x_* = \pm\sqrt{\frac{\ln 7}{3}} \approx \pm 0.805$, so the maximal interval is $(-x_*, x_*)$.
+
+### Example E — Autonomous phase line: $p' = kp\left(1 - \frac pM\right)$, $k, M > 0$ (Book, Section 7.5.1, p. 51)
+Equilibria: $f(p)=0 \iff p = 0$ or $p = M$. Sign of $f$: $f<0$ on $(-\infty,0)$, $f>0$ on $(0,M)$, $f<0$ on $(M,\infty)$. Since $p$ increases where $f>0$ and decreases where $f<0$: the flow leaves $0$ on both sides (unstable) and enters $M$ from both sides (stable). Analytic confirmation: $f'(p) = k - \frac{2kp}{M}$, $f'(0) = k > 0$ (unstable), $f'(M) = -k < 0$ (stable). If $f'(p^*)=0$ the test is inconclusive and the sign of $f$ decides (for $x' = x^2$ the origin is semistable).
+
+### Example F — Finite-time blow-up: $x' = x^2$, $x(0) = x_0 > 0$ (Book, Example 8.1, p. 60; Section 6.3, pp. 41-42)
+$f = x^2$ and $f_x = 2x$ are continuous, so a unique local solution exists. Separate and apply Barrow:
+$$ \int_{x_0}^{x(t)} \frac{du}{u^2} = \int_0^t ds \;\Longrightarrow\; -\frac{1}{x(t)} + \frac{1}{x_0} = t \;\Longrightarrow\; \boxed{x(t) = \frac{1}{x_0^{-1} - t}} $$
+The denominator vanishes at $T = x_0^{-1}$; equivalently $T = \int_{x_0}^{\infty} \frac{du}{u^2} = \frac{1}{x_0}$ (time to reach infinity). For $t\to T^-$, $x\to +\infty$. For $t \to -\infty$, $x \to 0^+$, so the **maximal interval of existence** is $(-\infty, x_0^{-1})$. For $x_0<0$ it is $(x_0^{-1}, +\infty)$ and only $x_0 = 0$ gives a solution on all of $\mathbb{R}$.
+
+**Verification record (one line per example):** sympy residual 0 and RK4 (2000 steps) vs closed form: A $y(2)=1.0986122887$ vs $\ln 3$; B $x(2)$ differs by $1.5\times10^{-14}$; C $F(1.5, y_{RK4})=0.58333333$ vs $c=7/12$; D $y(0.5)=1.30063487$ vs $1.30063487$; E $p(20)=2.0000000$ from $p_0=0.5$ and $p_0=3$ ($k=1$, $M=2$); F $x(0.49)=100.0000$ vs $1/(0.5-0.49)=100$ ($x_0=2$).
+
+---
+
 ## 🔗 Interdisciplinary Aerospace Connections
 * **Aerospace Propulsion & Combustion:** The Gaussian integral and blow-up threshold analyzed in Problem 2.2 model thermal runaway in adiabatic chemical reactors and rocket engine pre-burners.
 * **Flight Mechanics & Aerodynamic Stability:** The autonomous phase line dynamics and pitchfork bifurcation studied in Problem 2.16 govern roll-coupling stability and angle-of-attack trim states in transonic flight.
