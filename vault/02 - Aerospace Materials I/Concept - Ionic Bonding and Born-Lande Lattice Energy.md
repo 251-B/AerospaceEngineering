@@ -89,6 +89,25 @@ $$U = -\frac{Z_1 Z_2 e^2 N_A A}{4\pi\varepsilon_0 a_0}\left(1 - \frac{1}{n}\righ
   $$M^{z+}(g) + X^{z-}(g) \longrightarrow MX(s) \quad \Delta H = U < 0$$
   *(Conversely, the lattice dissociation energy is defined with a positive sign: $+|U|$).*
 
+### 3.3 Where the Madelung Constant Comes From (added derivation)
+Let $K = Z_1 Z_2 e^2/4\pi\varepsilon_0$. The Coulomb energy of one reference ion with all the others is $E_{\text{C}} = -\frac{K}{a_0}\sum_{j}\frac{(-1)^{s_j+1}}{r_j/a_0}$, with a plus sign for ions of opposite charge and a minus sign for like charges; the sum defines $A$. The simplest case that can be summed by hand is an infinite one-dimensional chain of alternating ions with spacing $a_0$. There are two neighbours (one on each side) at every distance $j\,a_0$, with alternating sign, so
+
+$$A_{1D} = 2\left(1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots\right) = 2\ln 2 = 1.3863$$
+
+using the series $\ln(1+x) = x - x^2/2 + x^3/3 - \cdots$ at $x = 1$. A numerical partial sum of $2\times10^6$ terms gives $1.386295$, against $2\ln 2 = 1.386294$.
+
+For the NaCl structure the shells around a Na$^+$ ion contain 6 Cl$^-$ at $a_0$, 12 Na$^+$ at $\sqrt2\,a_0$, 8 Cl$^-$ at $\sqrt3\,a_0$, 6 Na$^+$ at $2a_0$, 24 Cl$^-$ at $\sqrt5\,a_0$, and so on:
+
+$$A_{\text{NaCl}} = 6 - \frac{12}{\sqrt2} + \frac{8}{\sqrt3} - \frac{6}{2} + \frac{24}{\sqrt5} - \cdots = 1.7476$$
+
+The shell partial sums oscillate strongly ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\ \dots$) because the series is only conditionally convergent; the converged value $1.7476$ is obtained with Ewald or Evjen charge-neutral summation, which is why the constant is quoted rather than derived in the course. Writing the total energy per ion pair as the Madelung attraction plus a short-range repulsion $B/a^n$ gives $E(a) = -AK/a + B/a^n$, which has the same form as the single pair. Imposing $dE/da = 0$ at $a_0$:
+
+$$\frac{AK}{a_0^2} = \frac{nB}{a_0^{n+1}} \;\Rightarrow\; B = \frac{AK\,a_0^{\,n-1}}{n} \;\Rightarrow\; E(a_0) = -\frac{AK}{a_0} + \frac{AK}{n\,a_0} = -\frac{AK}{a_0}\left(1 - \frac1n\right)$$
+
+Multiplying by $N_A$ gives the Born-Lande equation of Section 3.2. 
+
+**Numerical check (extension).** For NaCl, $a_0 = 2.82\ \text{\AA}$, $A = 1.7476$, $K = 2.307\times10^{-28}\ \text{J}\cdot\text{m}$, $Z_1Z_2 = 1$: with $n = 8$, $U = -753\ \text{kJ/mol}$; with $n = 9$, $U = -765\ \text{kJ/mol}$ (the Born-Haber value from tables is about $-787\ \text{kJ/mol}$, so the model is within a few percent). For MgO ($a_0 = 2.10\ \text{\AA}$, $Z_1Z_2 = 4$, $n = 8$, same $A$): $U = -4047\ \text{kJ/mol}$, which is $5.4$ times the NaCl value. This quantifies the slide statement that a higher valence and a smaller $a_0$ raise $U$ and therefore $T_m$ (MgO melts near $2850\ ^\circ\text{C}$, NaCl near $801\ ^\circ\text{C}$).
+
 ---
 
 ## 🧪 4. The Born-Haber Thermochemical Cycle for $\text{KCl}$ [Slide 9]

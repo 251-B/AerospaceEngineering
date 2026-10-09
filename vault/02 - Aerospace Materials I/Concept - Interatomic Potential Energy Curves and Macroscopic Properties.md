@@ -59,6 +59,21 @@ Energy E(r)
      $$E_0 = -E_{\text{net}}(r_0)$$
    * Represents the cohesive bond strength of the solid.
 
+### 1.2 Closed Forms of $r_0$ and $E_0$ from $dE/dr = 0$ (added derivation)
+Start from $E_{\text{net}}(r) = -A/r^m + B/r^n$ and differentiate term by term, using $\frac{d}{dr}r^{-m} = -m\,r^{-m-1}$:
+
+$$\frac{dE_{\text{net}}}{dr} = \frac{mA}{r^{m+1}} - \frac{nB}{r^{n+1}}$$
+
+Setting $dE_{\text{net}}/dr = 0$ at $r = r_0$ and multiplying by $r_0^{n+1}$:
+
+$$mA\,r_0^{\,n-m} = nB \quad\Longrightarrow\quad r_0 = \left(\frac{nB}{mA}\right)^{1/(n-m)}, \qquad B = \frac{mA}{n}\,r_0^{\,n-m}$$
+
+Eliminate $B$ from $E_{\text{net}}(r_0)$:
+
+$$E_{\text{net}}(r_0) = -\frac{A}{r_0^m} + \frac{1}{r_0^n}\,\frac{mA}{n}\,r_0^{\,n-m} = -\frac{A}{r_0^m}\left(1 - \frac{m}{n}\right) \;\Longrightarrow\; \boxed{E_0 = \frac{A}{r_0^m}\left(1 - \frac{m}{n}\right) = \frac{A\,(n-m)}{n\,r_0^m}}$$
+
+Check with the ionic pair ($m = 1$, $A = Z_1 Z_2 e^2/4\pi\varepsilon_0$): $E_0 = \frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0}\left(1 - \frac{1}{n}\right)$, identical to the Born result of [[Concept - Ionic Bonding and Born-Lande Lattice Energy]]. Because $n > m$, $0 < E_0 < A/r_0^m$: the repulsion gives back a fraction $m/n$ of the attractive energy at equilibrium (about $1/n \approx 11\text{--}20\%$ for an ionic pair).
+
 ---
 
 ## 🏗️ 2. Young's Modulus ($E$) from Potential Well Curvature [Slide 13]
@@ -93,6 +108,15 @@ $$E_{\text{Young}} = \frac{S_0}{r_0} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net
 ### 2.2 Physical Meaning [Slide 13]:
 * **Steep, Deep Well:** A steep potential well possesses a large second derivative (sharp curvature). A very high external mechanical force is required to pull atoms away from $r_0$. Thus, **materials with deep, narrow wells exhibit high Young's modulus ($E$)**.
 * **Shallow, Broad Well:** Possesses low curvature, yielding a compliant material with low elastic modulus (e.g., lead or un-crosslinked polymers).
+
+### 2.3 Explicit Stiffness of an Ionic Pair and a Caution (extension)
+With $m = 1$ and $K \equiv Z_1 Z_2 e^2/4\pi\varepsilon_0$, $E_{\text{net}}(a) = -K/a + b/a^n$, and the equilibrium condition gives $b = K a_0^{\,n-1}/n$. Differentiating twice:
+
+$$\frac{d^2E_{\text{net}}}{da^2} = -\frac{2K}{a^3} + \frac{n(n+1)\,b}{a^{n+2}} \;\Longrightarrow\; S_0 = -\frac{2K}{a_0^3} + \frac{(n+1)K}{a_0^3} = \frac{(n-1)\,K}{a_0^3}$$
+
+which agrees with the general $S_0 = m(n-m)A/r_0^{m+2}$ for $m = 1$. Then $E_{\text{Young}} \sim S_0/a_0 = (n-1)K/a_0^4$.
+
+Numerical check for NaCl ($a_0 = 2.82\ \text{\AA}$, $n = 8$, $K = 2.307\times10^{-28}\ \text{J}\cdot\text{m}$): $S_0 = 72\ \text{N/m}$ and $S_0/a_0 \approx 255\ \text{GPa}$. The measured $E_{\text{NaCl}}$ is about $40\ \text{GPa}$, so this single-pair estimate is only an order-of-magnitude indicator: it ignores the Madelung sum, the lattice geometry and the conversion from a bond stiffness to the stiffness of a given crystal direction. The qualitative conclusion of the slides is unchanged: a larger $K$ (higher valences) and a smaller $a_0$ give a larger curvature, hence a larger $E$.
 
 ---
 
@@ -129,6 +153,19 @@ Energy
 * **Strong Bonds (Deep, Narrow Well):** High binding energy $E_0$ restricts vibration amplitudes and forces the trough to be more symmetric near the bottom. Hence, materials with strong bonds have **very low coefficients of thermal expansion ($\alpha$)**.
 * **Weak Bonds (Shallow, Asymmetric Well):** Flatter trough promotes massive vibrational asymmetry, leading to **high thermal expansion ($\alpha$)**.
 
+### 3.3 Quantitative Link Between Well Depth and $\alpha$ (extension, beyond the slides)
+Expand the well about $r_0$ with $x = r - r_0$ as $E(r) = -E_0 + c\,x^2 - g\,x^3$, where $c = \tfrac12 S_0$ and $g = -\tfrac16\,E^{(3)}(r_0)$. For the $(m, n)$ potential, differentiating the force expression once more gives $E^{(3)}(r_0) = -m(n-m)(m+n+3)A/r_0^{m+3}$, so $g = m(n-m)(m+n+3)A/(6\,r_0^{m+3})$.
+
+The thermal mean displacement follows from the Boltzmann average $\langle x\rangle = \int x\,e^{-E/k_BT}dx \big/ \int e^{-E/k_BT}dx$. To first order in the small cubic term, $e^{g x^3/k_BT} \approx 1 + g x^3/k_BT$, and with the Gaussian moments $\langle x^2\rangle_0 = k_BT/(2c)$ and $\langle x^4\rangle_0 = 3\langle x^2\rangle_0^2$:
+
+$$\langle x\rangle = \frac{g}{k_BT}\langle x^4\rangle_0 = \frac{g}{k_BT}\cdot 3\left(\frac{k_BT}{2c}\right)^2 = \frac{3g\,k_BT}{4c^2} = \frac{3g\,k_BT}{S_0^2}$$
+
+so $\alpha = \dfrac{1}{r_0}\dfrac{d\langle x\rangle}{dT} = \dfrac{3g\,k_B}{r_0 S_0^2}$. Substituting $g$, $S_0$ and $A\,r_0^{-m} = nE_0/(n-m)$:
+
+$$\boxed{\alpha = \frac{(m+n+3)\,k_B}{2\,m\,n\,E_0}}$$
+
+Hence $\alpha \propto 1/E_0$ at fixed exponents: a deeper well gives a smaller expansion coefficient, in agreement with the slide statement. A symmetric well has $g = 0$ and therefore $\alpha = 0$, as argued above. Verification: for the Lennard-Jones case ($m = 6$, $n = 12$) a direct numerical Boltzmann average at $k_BT = 0.002E_0$ gives $\langle x\rangle = 3.286\times10^{-4}\,r_0$-units, against $3.274\times10^{-4}$ from $3gk_BT/S_0^2$ (0.4 percent difference), and the formula gives $\alpha\,E_0/k_B = 21/144 = 0.1458$. This is a one-dimensional classical model, so absolute values are only indicative.
+
 ---
 
 ## 🔥 4. Melting Temperature ($T_m$) [Slide 10]
@@ -140,6 +177,13 @@ $$k_B T_m \propto E_0$$
 Where $k_B = 1.38 \times 10^{-23}\text{ J/K}$ is Boltzmann's constant.
 * Materials with deep potential wells (e.g., transition metals like Tungsten, covalent networks like Diamond, divalent ceramics like $\text{MgO}$) require immense thermal agitation to overcome the binding energy $E_0$, exhibiting **high melting temperatures ($T_m > 1500\text{--}3500^\circ\text{C}$)**.
 * Materials with shallow wells (e.g., alkali metals like Potassium, molecular solids) melt at very low temperatures ($T_m < 100^\circ\text{C}$).
+
+### 4.1 Why $T_m \propto E_0$ (Lindemann criterion, extension)
+Lindemann's empirical criterion states that a crystal melts when the root-mean-square vibration amplitude reaches a fraction $\delta \approx 0.1$ of the spacing, $\sqrt{\langle x^2\rangle} = \delta\,r_0$. In the harmonic region the equipartition theorem gives $\tfrac12 S_0\langle x^2\rangle = \tfrac12 k_BT$, hence $\langle x^2\rangle = k_BT/S_0$ and
+
+$$k_B T_m = S_0\,\delta^2 r_0^2$$
+
+By dimensional analysis $S_0 r_0^2 \sim E_0$ times a constant of order unity fixed by $m$ and $n$ (from the closed forms above, $S_0 r_0^2 = m\,n\,E_0$), so $k_BT_m = m\,n\,\delta^2\,E_0$ and $T_m \propto E_0$, the slide statement. Check with $m = 6$, $n = 12$, $\delta = 0.1$: $k_BT_m \approx 0.7E_0$, which is of the right order of magnitude for simple solids (the estimate is crude).
 
 ---
 

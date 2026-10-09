@@ -44,7 +44,7 @@ When a dislocation moves under an applied stress along its slip plane, it propag
 3. Dislocations pile up at the grain boundary (**dislocation pile-up**), accumulating a repulsive back-stress that slows the advance of the following dislocations.
 
 ### Hall-Petch Equation [Slide 41]:
-The smaller the grain size $d$, the larger the total grain-boundary area per unit volume and the shorter the mean free path of dislocations before they are blocked. This increases the yield strength of the material exponentially according to the **Hall-Petch relation**:
+The smaller the grain size $d$, the larger the total grain-boundary area per unit volume and the shorter the mean free path of dislocations before they are blocked. This increases the yield strength of the material as an inverse square-root power law in $d$ (not exponentially) according to the **Hall-Petch relation**:
 
 $$\sigma_y = \sigma_0 + k_y \cdot d^{-1/2}$$
 

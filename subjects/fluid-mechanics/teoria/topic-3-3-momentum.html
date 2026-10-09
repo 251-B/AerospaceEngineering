@@ -530,7 +530,7 @@
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV $$
-          <div class="math-caption">[Eq. 3.34] Newton's second law for a closed material fluid system.</div>
+          <div class="math-caption">[Eq. 4.2] Newton's second law for a closed material fluid system, with $\bar{\bar{\tau}}$ expanded by Eq. 3.28 (Eq. 3.34 is the same law written with $\bar{\bar{\tau}}\cdot\vec{n}$).</div>
         </div>
 
         <p>Substituting intensive linear momentum $\vec{b} = \vec{v}$ into the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>Master Linear Momentum Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
@@ -558,7 +558,7 @@
       <section>
         <h2 class="section-heading">Linear Momentum: Complete Derivation Chain (Notes.pdf, Eqs. 3.34-3.36 and 4.9-4.10)</h2>
         <h3 class="sub-heading">Step 1: Newton's second law for a fluid volume (Eq. 3.34)</h3>
-        <p>The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. 3.19 and 3.22) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. 3.12). Newton's second law gives Eq. 3.34 in terms of the full stress tensor:</p>
+        <p>The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. 3.19 and 3.22) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. 3.12). Newton's second law gives Eq. 3.34 in terms of the full stress tensor ($\bar{\bar{\tau}}\cdot\vec{n}$ form):</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f(t)}\rho\vec{v}\,dV=\int_{\Sigma_f(t)}\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma+\int_{V_f(t)}\rho\vec{f}_m\,dV $$
           <div class="math-caption">Eq. 3.34</div>
@@ -595,7 +595,7 @@
         </div>
         <p>This is the "outgoing minus incoming momentum flux equals the sum of forces" statement used in the five-stage algorithm. If the velocity profile at a port is not uniform, the true flux $\int\rho v^2\,dA$ exceeds $\dot m\,\bar v$ and a momentum-flux correction coefficient is needed.</p>
         <h3 class="sub-heading">Step 5: Differential momentum equation (Eq. 4.9) and consistency with Eq. 3.25</h3>
-        <p>Apply Eq. 3.6 to Eq. 3.34 with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives</p>
+        <p>Apply Eq. 3.6 to Eq. 4.2 (Eq. 3.34 with Eq. 3.28 inserted) with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives</p>
         <div class="math-block">
           $$ \frac{\partial(\rho\vec{v})}{\partial t}+\nabla\cdot(\rho\vec{v}\vec{v})=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m $$
           <div class="math-caption">Eq. 4.9</div>
@@ -776,7 +776,7 @@
             <div class="math-block">
               $$ \int_{\Sigma_{\text{out}}} \rho v_x^2 dy + \dot{m}_{\text{lateral}} v_\infty - \int_{\Sigma_{\text{in}}} \rho v_\infty^2 dy = -D $$
             </div>
-            <p>Using continuity $\dot{m}_{\text{lateral}} = \dot{m}_{\text{in}} - \dot{m}_{\text{wake}} = \int_{-H}^H \rho v_\infty dy - \int_{-b}^b \rho v(y) dy$, the uniform outer portions cancel identically, yielding the universal <strong>Wake Deficit Drag Integral</strong>:</p>
+            <p>Continuity gives the lateral leakage as inlet minus outlet mass flow. The outlet is uniform ($v=v_\infty$) outside the wake, so $\dot{m}_{\text{lateral}} = \int_{-H}^H \rho v_\infty dy - \Big[\int_{-H}^{-b}\rho v_\infty dy+\int_{-b}^b \rho v(y) dy+\int_{b}^{H}\rho v_\infty dy\Big] = \rho\int_{-b}^{b}\big(v_\infty - v(y)\big)dy$. (An earlier version of this page subtracted only the wake flux, $\int_{-H}^{H}\rho v_\infty dy-\int_{-b}^{b}\rho v\,dy$, which omits the uniform outlet flow outside the wake; the final drag is unchanged.) Substituting, the uniform outer portions cancel identically, yielding the universal <strong>Wake Deficit Drag Integral</strong>:</p>
             <div class="math-block">
               $$ \mathbf{D = \rho \int_{-b}^b v(y) [v_\infty - v(y)] \, dy} $$
             </div>

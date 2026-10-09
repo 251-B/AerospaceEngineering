@@ -134,9 +134,9 @@ It determines the pitching, rolling and yawing moments of the space or aeronauti
 ## 🎯 3. Integral Momentum Conservation Equation (Notes.pdf, Eqs. 3.34–3.36)
 
 ### For a Material Fluid Volume $V_f(t)$
-Applying Newton's 2nd Law ($\frac{d}{dt}\vec{P} = \sum \vec{F}_{\text{ext}}$) and substituting the Cauchy tensor $\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'$:
+Applying Newton's 2nd Law ($\frac{d}{dt}\vec{P} = \sum \vec{F}_{\text{ext}}$) and (Eq. 3.34, written with $\bar{\bar{\tau}}\cdot\vec{n}$) and substituting the Cauchy tensor $\bar{\bar{\tau}} = -p\bar{\bar{I}} + \bar{\bar{\tau}}'$ gives the form of Eq. 4.2:
 
-$$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}' \cdot \vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV \qquad \text{[Eq. 3.34]} $$
+$$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}' \cdot \vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV \qquad \text{[Eq. 4.2]} $$
 
 ### For an Arbitrary Moving Control Volume $V_c(t)$
 Applying the RTT (Eq. 3.8) with $\phi = \rho\vec{v}$:
@@ -159,7 +159,7 @@ $$ \mathbf{\int_{V_0} \frac{\partial(\rho\vec{v})}{\partial t} \, dV + \int_{\Si
 
 ### Step 1: Newton's second law for a fluid volume (Eq. 3.34)
 
-The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. 3.19 and 3.22) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. 3.12). Newton's second law gives Eq. 3.34 in terms of the full stress tensor:
+The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. 3.19 and 3.22) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. 3.12). Newton's second law gives Eq. 3.34 in terms of the full stress tensor ($\bar{\bar{\tau}}\cdot\vec{n}$ form):
 
 $$ \frac{d}{dt}\int_{V_f(t)}\rho\vec{v}\,dV=\int_{\Sigma_f(t)}\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma+\int_{V_f(t)}\rho\vec{f}_m\,dV $$
 
@@ -205,7 +205,7 @@ This is the "outgoing minus incoming momentum flux equals the sum of forces" sta
 
 ### Step 5: Differential momentum equation (Eq. 4.9) and consistency with Eq. 3.25
 
-Apply Eq. 3.6 to Eq. 3.34 with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives
+Apply Eq. 3.6 to Eq. 4.2 (Eq. 3.34 with Eq. 3.28 inserted) with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives
 
 $$ \frac{\partial(\rho\vec{v})}{\partial t}+\nabla\cdot(\rho\vec{v}\vec{v})=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m $$
 

@@ -727,6 +727,15 @@
             </div>
           </div>
 
+          <div class="callout-box">
+            <div class="callout-title">Note: thin-gap approximation and the exact result</div>
+            <p>The result $\tau_w=\mu\Omega R_1/h$ is the <strong>thin-gap approximation</strong>; its relative error is $O(h/R_1)$. In cylindrical coordinates the exact shear stress is $\tau_{r\theta}=\mu\,r\,\dfrac{d}{dr}\!\left(\dfrac{v_\theta}{r}\right)$ (rigid rotation, $v_\theta=\omega r$, gives zero stress). The azimuthal momentum balance for steady circular flow gives $v_\theta=Ar+B/r$. The conditions $v_\theta(R_1)=\Omega R_1$ and $v_\theta(R_2)=0$ give $B=\Omega R_1^2R_2^2/(R_2^2-R_1^2)$. Since $v_\theta/r=A+B/r^2$, then $\tau_{r\theta}=-2\mu B/r^2$. At $r=R_1$, $|\tau_{r\theta}|=2\mu\Omega R_2^2/(R_2^2-R_1^2)$, and the torque ($r^2\tau_{r\theta}$ is independent of $r$) is</p>
+            <div class="math-block">
+              $$ \mathcal{M}_{\text{exact}}=\frac{4\pi\mu\Omega L\,R_1^2R_2^2}{R_2^2-R_1^2},\qquad \frac{\mathcal{M}_{\text{exact}}}{\mathcal{M}_{\text{thin}}}=\frac{2(R_1+h)^2}{R_1(2R_1+h)}\approx 1+\frac{3h}{2R_1} $$
+            </div>
+            <p style="margin-bottom:0;">With $R_2^2-R_1^2=h(2R_1+h)\to 2R_1h$ for $h\ll R_1$ the exact torque reduces to the thin-gap formula above (extension, verified symbolically).</p>
+          </div>
+
           <div class="callout-box" style="margin-bottom:0;">
             <div class="callout-title">Aerospace Exam Insight: Mechanical Dissipation Power</div>
             The mechanical power consumed by the motor to overcome viscous friction is:

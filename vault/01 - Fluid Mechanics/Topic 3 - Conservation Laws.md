@@ -127,7 +127,7 @@ Every integral law of this chapter follows from one kinematic identity and one p
 
 1. Reynolds Transport Theorem, Eqs. 3.2 to 3.8 (limit definition, Taylor expansion, swept shell, subtraction of the two volumes): [[01 - Fluid Mechanics/Concept - Reynolds Transport Theorem|Concept: Reynolds Transport Theorem]].
 2. Mass: Eq. 3.9 plus Eq. 3.8 gives Eq. 3.10, the fixed-volume case gives Eq. 3.11, and Gauss' theorem with the arbitrary-volume argument gives the differential form (Notes, Eqs. 4.4 to 4.7): [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy|Concept: Integral Conservation of Mass, Momentum and Energy]].
-3. Momentum: Newton's law with the stress tensor (Eq. 3.34), then Eq. 3.8 gives Eq. 3.35 and Eq. 3.36, and the local form follows from Eq. 4.9 and continuity. Same note.
+3. Momentum: Newton's law with the stress tensor (Eq. 3.34, with the $p$ and $\tau'$ form of Eq. 4.2), then Eq. 3.8 gives Eq. 3.35 and Eq. 3.36, and the local form follows from Eq. 4.9 and continuity. Same note.
 4. Angular momentum: Eq. 3.37, its consistency with the symmetry of the stress tensor, Eq. 3.38 and the Euler turbomachinery equation. Same note.
 5. Energy: origin of each power and heat term (Eq. 3.45), Eq. 3.46, flow work, enthalpy and the engineering energy equation. Same note.
 6. Stress tensor: Cauchy tetrahedron (Eqs. 3.16 to 3.19), symmetry, principal stresses, Gauss' theorem and Eq. 3.25, and the wall shear stress: [[01 - Fluid Mechanics/Concept - Stress Tensor and Cauchy Principle|Concept: Cauchy Stress Tensor and Body Forces]]. The Navier-Poisson relation (Eqs. 3.29 to 3.31) is derived in [[01 - Fluid Mechanics/Concept - Navier-Poisson Constitutive Equation|Concept: Navier-Poisson Constitutive Equation]].

@@ -78,7 +78,7 @@ When a cationic oxide of a different valence is dissolved in an ionic ceramic ma
 In substitutional solid solutions with elements of similar electronegativity, the distribution of the solute atoms depends critically on temperature [Slide 23]:
 
 * **Disordered State ($T > T_c$):**
-  At high temperatures, the enthalpic term $-T\Delta S$ dominates the free energy. Solute and solvent atoms are distributed completely at random on any lattice site.
+  At high temperatures, the **entropic** term $-T\Delta S$ (not an enthalpic one: $\Delta S$ is the mixing entropy and $\Delta G = \Delta H - T\Delta S$) dominates the free energy. *(Erratum: an earlier version called this term enthalpic.)* Solute and solvent atoms are distributed completely at random on any lattice site.
 * **Ordered State ($T < T_c$):**
   On cooling below a critical temperature $T_c$, the slight energetic preference of heteronuclear bonds ($A-B$) over homonuclear ones ($A-A$ and $B-B$) causes the atoms to migrate to specific periodic crystal sublattices (superlattice).
 

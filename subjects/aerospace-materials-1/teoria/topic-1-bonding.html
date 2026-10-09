@@ -608,6 +608,17 @@
         $$\left.F_{\text{net}}\right|_{r = r_0} = -\left.\frac{dE_{\text{net}}}{dr}\right|_{r = r_0} = 0 \iff \frac{mA}{r_0^{m+1}} = \frac{nB}{r_0^{n+1}} \iff E_{\text{net}}(r_0) = -E_0$$
       </div>
 
+      <h3 class="sub-heading">Equilibrium Spacing and Bond Energy: Explicit Derivation</h3>
+      <p>Differentiate $E_{\text{net}} = -A/r^m + B/r^n$ term by term with $\frac{d}{dr}r^{-m} = -m\,r^{-m-1}$:</p>
+      <div class="math-block">
+        $$\frac{dE_{\text{net}}}{dr} = \frac{mA}{r^{m+1}} - \frac{nB}{r^{n+1}} = 0 \text{ at } r_0 \;\Longrightarrow\; mA\,r_0^{\,n-m} = nB \;\Longrightarrow\; r_0 = \left(\frac{nB}{mA}\right)^{1/(n-m)}, \quad B = \frac{mA}{n}\,r_0^{\,n-m}$$
+        $$E_{\text{net}}(r_0) = -\frac{A}{r_0^m} + \frac{1}{r_0^n}\,\frac{mA}{n}\,r_0^{\,n-m} = -\frac{A}{r_0^m}\left(1 - \frac{m}{n}\right) \;\Longrightarrow\; E_0 = \frac{A\,(n-m)}{n\,r_0^m}$$
+      </div>
+      <p>For the ionic pair ($m = 1$, $A = Z_1Z_2e^2/4\pi\varepsilon_0$) this is $E_0 = \frac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\left(1-\frac1n\right)$, the Born result of §3. The curvature follows from one more derivative and the same elimination of $B$:</p>
+      <div class="math-block">
+        $$\frac{d^2E_{\text{net}}}{dr^2} = -\frac{m(m+1)A}{r^{m+2}} + \frac{n(n+1)B}{r^{n+2}} \;\Longrightarrow\; S_0 = \left.\frac{d^2E_{\text{net}}}{dr^2}\right|_{r_0} = \frac{m(n-m)A}{r_0^{m+2}} = \frac{m\,n\,E_0}{r_0^{2}}$$
+      </div>
+
       <div class="diagram-card">
         <svg viewBox="0 0 760 380" width="100%" height="320" style="max-width: 700px; margin: 0 auto; display: block;">
           <defs>
@@ -677,6 +688,16 @@
           </li>
         </ol>
       </div>
+      <div class="card">
+        <h3 class="sub-heading" style="margin-top:0;">Extension (beyond the slides): quantitative $\alpha$, $T_m$ and the ionic-pair stiffness</h3>
+        <p><strong>Thermal expansion.</strong> Write $E(r) = -E_0 + c\,x^2 - g\,x^3$ with $x = r - r_0$, $c = \tfrac12 S_0$, $g = m(n-m)(m+n+3)A/(6\,r_0^{m+3})$. To first order in the cubic term, $\langle x\rangle = \frac{g}{k_BT}\langle x^4\rangle_0$ with $\langle x^2\rangle_0 = k_BT/2c$ and $\langle x^4\rangle_0 = 3\langle x^2\rangle_0^2$:</p>
+        <div class="math-block">
+          $$\langle x\rangle = \frac{3g\,k_BT}{4c^2} = \frac{3g\,k_BT}{S_0^2}, \qquad \alpha = \frac{1}{r_0}\frac{d\langle x\rangle}{dT} = \frac{3g\,k_B}{r_0S_0^2} = \frac{(m+n+3)\,k_B}{2\,m\,n\,E_0}$$
+        </div>
+        <p>so $\alpha \propto 1/E_0$: a deeper well gives a lower expansion coefficient; a symmetric well ($g = 0$) gives $\alpha = 0$. A numerical Boltzmann average for $m = 6$, $n = 12$ at $k_BT = 0.002E_0$ agrees with this formula to 0.4 percent.</p>
+        <p><strong>Melting.</strong> Lindemann's criterion, $\sqrt{\langle x^2\rangle} = \delta r_0$ with $\delta \approx 0.1$, and equipartition $\tfrac12 S_0\langle x^2\rangle = \tfrac12k_BT$ give $k_BT_m = S_0\delta^2r_0^2 = m\,n\,\delta^2E_0$, i.e. $T_m \propto E_0$ as in the slide.</p>
+        <p><strong>Ionic-pair stiffness.</strong> For $m = 1$: $S_0 = (n-1)Z_1Z_2e^2/(4\pi\varepsilon_0a_0^3)$. For NaCl ($a_0 = 2.82\ \text{Å}$, $n = 8$) $S_0 = 72\ \text{N/m}$ and $S_0/a_0 \approx 255\ \text{GPa}$, an order-of-magnitude estimate only (measured $E \approx 40\ \text{GPa}$) because it ignores the Madelung sum and the lattice geometry.</p>
+      </div>
     </section>
 
     <!-- SECTION 3 -->
@@ -709,6 +730,21 @@
         <li>$A$: Madelung constant ($A_{\text{NaCl}} = 1.7476$, $A_{\text{CsCl}} = 1.7627$).</li>
         <li>$n$: Born repulsion exponent ($n \in [5, 9]$) [Slide 7].</li>
       </ul>
+
+      <h3 class="sub-heading">Origin of the Madelung Constant and of the $(1 - 1/n)$ Factor</h3>
+      <p>With $K = Z_1Z_2e^2/4\pi\varepsilon_0$, the Coulomb energy of one ion with all the others is $-\frac{K}{a_0}\sum_j \pm\frac{a_0}{r_j}$ (plus for opposite charges, minus for like charges); this sum defines $A$. For an infinite chain of alternating ions there are two neighbours at each distance $j\,a_0$, so, using $\ln(1+x) = x - x^2/2 + x^3/3 - \cdots$ at $x = 1$:</p>
+      <div class="math-block">
+        $$A_{1D} = 2\left(1 - \frac12 + \frac13 - \frac14 + \cdots\right) = 2\ln 2 = 1.3863$$
+      </div>
+      <p>For NaCl the shells around a Na$^+$ ion hold 6 Cl$^-$ at $a_0$, 12 Na$^+$ at $\sqrt2a_0$, 8 Cl$^-$ at $\sqrt3a_0$, 6 Na$^+$ at $2a_0$, 24 Cl$^-$ at $\sqrt5a_0$:</p>
+      <div class="math-block">
+        $$A_{\text{NaCl}} = 6 - \frac{12}{\sqrt2} + \frac{8}{\sqrt3} - \frac62 + \frac{24}{\sqrt5} - \cdots = 1.7476$$
+      </div>
+      <p>The partial sums ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\dots$) oscillate because the series is only conditionally convergent; the value $1.7476$ comes from a charge-neutral (Evjen or Ewald) summation and is quoted, not derived, in the course. The energy per ion pair is $E(a) = -AK/a + B/a^n$, and the condition $dE/da = 0$ at $a_0$ gives</p>
+      <div class="math-block">
+        $$\frac{AK}{a_0^2} = \frac{nB}{a_0^{n+1}} \;\Rightarrow\; B = \frac{AK\,a_0^{\,n-1}}{n} \;\Rightarrow\; E(a_0) = -\frac{AK}{a_0} + \frac{AK}{n\,a_0} = -\frac{AK}{a_0}\left(1 - \frac1n\right)$$
+      </div>
+      <p>Multiplying by $N_A$ gives $U$ above. <em>Extension (not in the slides):</em> for NaCl ($a_0 = 2.82\ \text{Å}$, $A = 1.7476$, $n = 8$) $U = -753\ \text{kJ/mol}$ ($-765$ for $n = 9$; tabulated Born-Haber value about $-787\ \text{kJ/mol}$). For MgO ($a_0 = 2.10\ \text{Å}$, $Z_1Z_2 = 4$, $n = 8$) $U = -4047\ \text{kJ/mol}$, $5.4$ times larger, consistent with its much higher $T_m$.</p>
 
       <h3 class="sub-heading">The Born-Haber Cycle for $\text{KCl}$ [Slide 9]</h3>
       <p>

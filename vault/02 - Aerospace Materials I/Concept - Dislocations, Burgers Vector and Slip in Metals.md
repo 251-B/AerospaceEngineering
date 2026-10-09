@@ -96,7 +96,7 @@ A **slip system** consists of the combination of a **slip plane** (plane of maxi
 For a polycrystal to undergo uniform plastic deformation without cracking at the grain boundaries, at least **5 independent slip systems** are required.
 * **FCC:** It has 12 very dense, intersecting systems in 3D space $\implies$ maximum ductility and fracture toughness (basis of aerospace Al alloys and Ni superalloys).
 * **BCC:** Although it has 12 systems, the $\{110\}$ planes are not atomically close-packed, requiring thermal activation to overcome the Peierls barrier $\implies$ brittleness at low temperatures.
-* **HCP:** It has only 3 coplanar basal systems at $T_{\text{amb}} < 5$ $\implies$ intrinsic brittleness unless prismatic/pyramidal slip is activated at high temperature or mechanical twinning occurs.
+* **HCP:** At ambient temperature it has only the 3 coplanar basal systems, of which just 2 are independent, fewer than the 5 required $\implies$ intrinsic brittleness unless prismatic/pyramidal slip is activated at high temperature or mechanical twinning occurs.
 
 ---
 *Bidirectional Links:*

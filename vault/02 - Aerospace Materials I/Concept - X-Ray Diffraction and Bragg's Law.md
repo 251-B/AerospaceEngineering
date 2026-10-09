@@ -36,6 +36,13 @@ $$\frac{1}{d_{hkl}^2} = \frac{h^2 + k^2}{a^2} + \frac{l^2}{c^2}$$
 ### 4. Hexagonal System ($a = b \neq c$, $\gamma = 120^\circ$):
 $$\frac{1}{d_{hkl}^2} = \frac{4}{3}\left(\frac{h^2 + hk + k^2}{a^2}\right) + \frac{l^2}{c^2}$$
 
+### 1.1 Derivation of $d_{hkl}$ for the Cubic System (added)
+The plane $(h\,k\,l)$ nearest to the origin (not through it) cuts the axes at $x = a/h$, $y = a/k$, $z = a/l$. The vector $\vec{g} = (h, k, l)$ is normal to the family, since for any two points $P_1, P_2$ of the plane, $\vec{g}\cdot(P_1 - P_2) = h(x_1-x_2)+k(y_1-y_2)+l(z_1-z_2)$ vanishes (each intercept satisfies $\vec{g}\cdot P = a$). The unit normal is $\hat{n} = \vec{g}/\sqrt{h^2+k^2+l^2}$, and the distance from the origin plane to the next one is the projection of the intercept point $(a/h, 0, 0)$ on $\hat{n}$:
+
+$$d_{hkl} = \hat{n}\cdot\left(\frac{a}{h},0,0\right) = \frac{h}{\sqrt{h^2+k^2+l^2}}\cdot\frac{a}{h} = \frac{a}{\sqrt{h^2+k^2+l^2}}$$
+
+Combining with Bragg's law for a cubic crystal: $\sin\theta = \frac{\lambda}{2a}\sqrt{h^2+k^2+l^2}$, so $\sin^2\theta \propto N \equiv h^2+k^2+l^2$ and the peak positions identify the lattice (Section 3). Numerical check: $\alpha\text{-Fe}$ ($a = 2.866\ \text{\AA}$, Cu $K\alpha$, $\lambda = 1.5406\ \text{\AA}$): $d_{110} = 2.866/\sqrt2 = 2.027\ \text{\AA}$ and $2\theta = 44.68^\circ$.
+
 ---
 
 ## 🌊 2. Derivation of Bragg's Law
@@ -74,6 +81,13 @@ Because of destructive interference from intermediate atomic planes in centered 
 | **Simple Cubic (SC)** | Any combination $(hkl)$ | $(100), (110), (111), (200), (210), (211)$ | None |
 | **Body-Centered Cubic (BCC)** | $h + k + l = \text{even}$ | $(110), (200), (211), (220), (310), (222)$ | $(100), (111), (210), (300)$ |
 | **Face-Centered Cubic (FCC)** | $h, k, l$ all even or all odd | $(111), (200), (220), (311), (222), (400)$ | $(100), (110), (210), (211)$ |
+
+### 3.1 Why the Extinction Rules Hold (added derivation, beyond Slide 53)
+For a monatomic cell with atoms at fractional positions $(x_j, y_j, z_j)$, the scattered amplitude of reflection $(hkl)$ is $F_{hkl} = f\sum_j e^{2\pi i(hx_j + ky_j + lz_j)}$, with $f$ the atomic scattering factor. Use $e^{i\pi m} = (-1)^m$.
+* **BCC**, atoms at $(0,0,0)$ and $\left(\frac12,\frac12,\frac12\right)$: $F = f\left[1 + e^{i\pi(h+k+l)}\right] = f\left[1 + (-1)^{h+k+l}\right]$, which is $2f$ for $h+k+l$ even and $0$ for odd.
+* **FCC**, atoms at $(0,0,0)$, $\left(\frac12,\frac12,0\right)$, $\left(\frac12,0,\frac12\right)$, $\left(0,\frac12,\frac12\right)$: $F = f\left[1 + (-1)^{h+k} + (-1)^{h+l} + (-1)^{k+l}\right]$. If $h, k, l$ have the same parity all three signs are $+$ and $F = 4f$; for mixed parity exactly two of the sums are odd, so $F = f(1 + 1 - 1 - 1) = 0$ (or $1 - 1 - 1 + 1 = 0$), e.g. $(100)$: $1 - 1 - 1 + 1 = 0$.
+
+Consequence for the order of the peaks: the allowed values of $N = h^2+k^2+l^2$ are $2, 4, 6, 8, 10, 12, \dots$ for BCC (ratios $1:2:3:4:5:6$) and $3, 4, 8, 11, 12, 16, \dots$ for FCC (ratios $3:4:8:11:12:16$); the first two peak ratios $\sin^2\theta_2/\sin^2\theta_1$ are $2$ for BCC and $4/3$ for FCC. Check: Al (FCC, $a = 4.05\ \text{\AA}$, Cu $K\alpha$): the $(111)$ peak is at $2\theta = 38.47^\circ$.
 
 ---
 

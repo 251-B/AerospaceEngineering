@@ -44,6 +44,17 @@ $$\left( \frac{\partial \Delta G}{\partial n_v} \right)_T = \Delta H_v - k_B T \
 Since $n_v \ll N$ ($n_v/N \sim 10^{-4}$ near the melting point [Slide 15]):
 $$\ln\left(\frac{N}{n_v}\right) = \frac{\Delta H_v}{k_B T} \implies \frac{n_v}{N} = \exp\left(-\frac{\Delta H_v}{k_B T}\right) = \exp\left(-\frac{\Delta H_v}{RT}\right)$$
 
+### Explicit Differentiation Step (added)
+Using $\frac{d}{dn}\left[x\ln x\right] = \ln x + 1$ with the chain rule on $(N - n_v)$:
+
+$$\frac{\partial}{\partial n_v}\Big[-(N-n_v)\ln(N-n_v) - n_v\ln n_v\Big] = \big[\ln(N-n_v) + 1\big] - \big[\ln n_v + 1\big] = \ln\frac{N-n_v}{n_v}$$
+
+so $\partial S/\partial n_v = k_B\ln\frac{N-n_v}{n_v}$ and $\partial\Delta G/\partial n_v = E_v - k_BT\ln\frac{N-n_v}{n_v} = 0$, where $E_v$ is the formation energy **per vacancy**. For $n_v \ll N$, $\ln\frac{N-n_v}{n_v}\approx\ln\frac{N}{n_v}$ and
+
+$$\frac{n_v}{N} = \exp\left(-\frac{E_v}{k_BT}\right) = \exp\left(-\frac{\Delta H_v}{RT}\right), \qquad \Delta H_v = N_A E_v \ \text{(per mole)}, \quad R = N_Ak_B$$
+
+Use $E_v$ with $k_B$ (J or eV per vacancy) or $\Delta H_v$ with $R$ (J/mol) and never mix the two. If the vibrational formation entropy $\Delta S_v$ of each vacancy is kept (slide: $\Delta G = \Delta H - T\Delta S$), the result acquires the prefactor $e^{\Delta S_v/k_B}$ (extension). Numerical illustration (Python): $E_v = 1.0\ \text{eV}$ gives $n_v/N = 9.1\times10^{-6}$ at $1000\ \text{K}$ and $1.6\times10^{-17}$ at $300\ \text{K}$, so vacancies are quenched-in only if the metal is cooled fast.
+
 ### Equation Parameters:
 * $n_v$: equilibrium number of vacancies per unit volume ($\text{vacancies/cm}^3$).
 * $N$: number density of lattice sites ($\text{sites/cm}^3$):

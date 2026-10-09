@@ -764,6 +764,19 @@
           </tbody>
         </table>
       </div>
+
+      <h3 style="margin-top: 28px;">Derivation of $a(R)$, APF and the Ideal $c/a$</h3>
+      <p>Atoms are rigid touching spheres, so each lattice parameter follows from the direction of contact and Pythagoras. The cell volume then gives the APF.</p>
+      <ul>
+        <li><strong>SC</strong> (reference): contact along the edge, $a = 2R$, $n = 8\cdot\frac18 = 1$, so $\text{APF} = \dfrac{\frac43\pi R^3}{(2R)^3} = \dfrac{\pi}{6} \approx 0.5236$.</li>
+        <li><strong>BCC</strong>: contact along the body diagonal, $a\sqrt{3} = 4R \Rightarrow a = \dfrac{4R}{\sqrt3}$, $n = 8\cdot\frac18 + 1 = 2$, so $\text{APF} = \dfrac{2\cdot\frac43\pi R^3}{64R^3/(3\sqrt3)} = \dfrac{8\pi R^3/3}{64R^3/(3\sqrt3)} = \dfrac{\pi\sqrt3}{8} \approx 0.6802$.</li>
+        <li><strong>FCC</strong>: contact along the face diagonal, $a\sqrt{2} = 4R \Rightarrow a = 2\sqrt2R$, $n = 8\cdot\frac18 + 6\cdot\frac12 = 4$, so $\text{APF} = \dfrac{4\cdot\frac43\pi R^3}{(2\sqrt2R)^3} = \dfrac{16\pi R^3/3}{16\sqrt2R^3} = \dfrac{\pi}{3\sqrt2} \approx 0.7405$.</li>
+        <li><strong>HCP</strong>: contact in the basal plane, $a = 2R$. A regular tetrahedron of edge $a$ joins three atoms of the mid-plane and one atom of the basal plane, with height $c/2$. The distance from a vertex of an equilateral triangle of side $a$ to its centroid is $a/\sqrt3$, so
+          $$\left(\frac c2\right)^2 + \left(\frac{a}{\sqrt3}\right)^2 = a^2 \;\Rightarrow\; \frac{c^2}{4} = \frac{2a^2}{3} \;\Rightarrow\; \frac ca = \sqrt{\frac83} = 1.633$$
+          The base is six equilateral triangles, $A_{\text{base}} = \frac{3\sqrt3}{2}a^2$, so $V_C = \frac{3\sqrt3}{2}a^2c = 3\sqrt2\,a^3 = 24\sqrt2R^3$ and, with $n = 12\cdot\frac16 + 2\cdot\frac12 + 3 = 6$:
+          $$\text{APF}_{\text{HCP}} = \frac{6\cdot\frac43\pi R^3}{24\sqrt2R^3} = \frac{\pi}{3\sqrt2} = 0.7405$$
+          For a general $c/a$ with $a = 2R$ the APF is $2\pi/(3\sqrt3\,(c/a))$, which equals $0.7405$ only at the ideal ratio (extension).</li>
+      </ul>
     </section>
 
     <!-- SECTION 3 -->
@@ -823,7 +836,17 @@
         </table>
       </div>
 
+      <h3 style="margin-top: 28px;">Derivation of the Void Radii and of the $2n$ and $n$ Counts</h3>
+      <ul>
+        <li><strong>FCC octahedral</strong> (edge centre, e.g. $(\frac12,0,0)$): the two atoms on the edge, $a$ apart, enclose the void, so $2r + 2r_{\text{oct}} = a = 2\sqrt2\,r \Rightarrow r_{\text{oct}} = (\sqrt2-1)r = 0.414\,r$.</li>
+        <li><strong>FCC tetrahedral</strong> (sub-cube centre, e.g. $(\frac14,\frac14,\frac14)$): its <em>4</em> nearest atoms are the corner $(0,0,0)$ and the three adjacent face centres, all at distance $a\sqrt3/4$. Then $r + r_{\text{tet}} = \dfrac{a\sqrt3}{4} = \sqrt{\dfrac32}\,r \Rightarrow r_{\text{tet}} = \left(\sqrt{\tfrac32}-1\right)r = 0.225\,r$.</li>
+        <li><strong>BCC octahedral</strong> (face centre $(\frac12,\frac12,0)$): the nearest atoms are the two body centres at $a/2$, so $r + r_{\text{oct}} = \dfrac a2 = \dfrac{2r}{\sqrt3} \Rightarrow r_{\text{oct}} = \left(\dfrac{2}{\sqrt3}-1\right)r = 0.155\,r$.</li>
+        <li><strong>BCC tetrahedral</strong> ($(\frac12,\frac14,0)$): the 4 nearest atoms, corners $(0,0,0)$, $(1,0,0)$ and body centres $(\frac12,\frac12,\pm\frac12)$, are all at $a\sqrt{\frac1{16}+\frac14} = \frac{\sqrt5}{4}a$. Then $r + r_{\text{tet}} = \dfrac{\sqrt5}{4}\cdot\dfrac{4r}{\sqrt3} = \sqrt{\dfrac53}\,r \Rightarrow r_{\text{tet}} = 0.291\,r$.</li>
+        <li><strong>Counts in close-packed stacking.</strong> A layer of $N$ spheres has $2N$ triangular depressions ($6N/3$): $N$ of type B and $N$ of type C. A sphere in each B depression and its three supporting spheres touch pairwise, and four mutually touching spheres enclose a tetrahedral void: $N$ per gap, and each sphere is the apex of two of them (one on each side), so $N_{\text{tet}} = 2n$. The $N$ uncovered C depressions face a $180^\circ$-rotated triangle of the next layer, and two opposed triangles enclose an octahedral void: $N_{\text{oct}} = n$. BCC is not close-packed, so these rules do not hold there (6 and 12 sites for $n = 2$).</li>
+      </ul>
+
       <div class="callout">
+        <div class="callout-title">Aeronautical Insight: Carbon Solubility in Steels</div>      <div class="callout">
         <div class="callout-title">Aeronautical Insight: Carbon Solubility in Steels</div>
         In ferritic $\alpha\text{-Fe}$ (BCC), the octahedral void is severely flattened ($r_{\text{oct}} = 0.155\, r \approx 0.019\text{ nm}$), while in austenitic $\gamma\text{-Fe}$ (FCC) it is isotropic and spacious ($r_{\text{oct}} = 0.414\, r \approx 0.053\text{ nm}$). Because a carbon atom ($r_C \approx 0.071\text{ nm}$) causes massive tetragonal distortion in BCC, carbon solubility in ferrite is limited to $< 0.022\text{ wt\%}$ at $727^\circ\text{C}$, whereas austenite dissolves up to $2.14\text{ wt\%}$ C. Quenching traps this carbon, generating the ultra-hard martensitic phase used in aerospace landing gear forgings [Session 4 Slide 49].
       </div>
@@ -894,6 +917,15 @@
         $$\frac{1}{d_{hkl}^2} = \frac{h^2}{a^2} + \frac{k^2}{b^2} + \frac{l^2}{c^2} \implies d_{hkl}^{\text{cubic}} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$
         Under monochromatic X-ray diffraction, constructive interference obeys Bragg's law:
         $$\lambda = 2\, d_{hkl}\sin\theta$$
+      </p>
+
+      <p>
+        <strong>Derivation of the cubic $d_{hkl}$ and the extinction rules.</strong> The plane nearest the origin cuts the axes at $a/h$, $a/k$, $a/l$ and has normal $\vec g=(h,k,l)$ (every intercept satisfies $\vec g\cdot\vec P = a$). The unit normal is $\hat n=\vec g/\sqrt{h^2+k^2+l^2}$, so the spacing is the projection of the intercept point $(a/h,0,0)$ on $\hat n$:
+        $$d_{hkl}=\hat n\cdot\left(\frac ah,0,0\right)=\frac{h}{\sqrt{h^2+k^2+l^2}}\,\frac ah=\frac{a}{\sqrt{h^2+k^2+l^2}}$$
+        Bragg's path difference is the sum of two segments $d_{hkl}\sin\theta$, hence $n\lambda = 2d_{hkl}\sin\theta$. Combining both, $\sin^2\theta = \dfrac{\lambda^2}{4a^2}(h^2+k^2+l^2)$. Check: $\alpha\text{-Fe}$ ($a = 2.866\ \text{Å}$, Cu K$\alpha$ $\lambda = 1.5406\ \text{Å}$): $d_{110} = 2.027\ \text{Å}$, $2\theta = 44.68^\circ$.
+      </p>
+      <p>
+        <em>Extension (beyond Slide 53).</em> The amplitude of reflection $(hkl)$ is $F = f\sum_j e^{2\pi i(hx_j+ky_j+lz_j)}$. For BCC (atoms at $(0,0,0)$, $(\frac12,\frac12,\frac12)$): $F = f[1+(-1)^{h+k+l}]$, nonzero only for $h+k+l$ even. For FCC (atoms at $(0,0,0)$, $(\frac12,\frac12,0)$, $(\frac12,0,\frac12)$, $(0,\frac12,\frac12)$): $F = f[1+(-1)^{h+k}+(-1)^{h+l}+(-1)^{k+l}]$, which is $4f$ for $h,k,l$ all even or all odd and $0$ for mixed parity (for example $(100)$: $1-1-1+1 = 0$). The first allowed values of $N = h^2+k^2+l^2$ are $2,4,6,8,\dots$ (BCC) and $3,4,8,11,12,\dots$ (FCC).
       </p>
     </section>
 
@@ -987,6 +1019,9 @@
         <strong>1. 0D Point Defects:</strong>
         Vacancies are thermodynamically unavoidable at any $T > 0\text{ K}$ due to configurational entropy ($S = k_B \ln W$). In metals [Slide 15]:
         $$\frac{n_v}{N} = \exp\left(-\frac{\Delta H_v}{RT}\right), \quad N = \frac{\rho N_A}{M}$$
+        <em>Derivation.</em> With $W = \dfrac{N!}{(N-n_v)!\,n_v!}$ and Stirling's approximation $\ln x!\approx x\ln x - x$, $S = k_B[N\ln N-(N-n_v)\ln(N-n_v)-n_v\ln n_v]$. Using $\frac{d}{dn}(x\ln x)=\ln x+1$, $\dfrac{\partial S}{\partial n_v}=k_B\Big\{[\ln(N-n_v)+1]-[\ln n_v+1]\Big\}=k_B\ln\dfrac{N-n_v}{n_v}$. Minimising $\Delta G = n_vE_v - TS$ (with $E_v$ the energy per vacancy):
+        $$\frac{\partial\Delta G}{\partial n_v}=E_v-k_BT\ln\frac{N-n_v}{n_v}=0\;\Rightarrow\;\frac{n_v}{N}\approx\exp\left(-\frac{E_v}{k_BT}\right)=\exp\left(-\frac{\Delta H_v}{RT}\right),\quad n_v\ll N$$
+        where $\Delta H_v=N_AE_v$ is per mole: use $E_v$ with $k_B$ or $\Delta H_v$ with $R$, never mixed. Keeping a vibrational formation entropy $\Delta S_v$ multiplies the result by $e^{\Delta S_v/k_B}$ (extension). Illustration: $E_v = 1.0\ \text{eV}$ gives $9.1\times10^{-6}$ at $1000\ \text{K}$ and $1.6\times10^{-17}$ at $300\ \text{K}$.
         In ionic ceramics, charge neutrality mandates paired defects [Slide 16]: <strong>Schottky defects</strong> ($n_s = N\exp(-\Delta H_s / 2RT)$) and <strong>Frenkel defects</strong> ($n_F = \sqrt{N N_i}\exp(-\Delta H_F / 2RT)$).
       </p>
 

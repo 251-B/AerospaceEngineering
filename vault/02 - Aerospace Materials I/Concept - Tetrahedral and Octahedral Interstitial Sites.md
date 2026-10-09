@@ -35,6 +35,13 @@ Depending on the number of host-lattice atoms that surround and touch the void, 
    * **Multiplicity rule in close-packed structures (FCC, HCP):**
      $$N_{\text{octahedral}} = n$$
 
+### 1.1 Why $2n$ Tetrahedral and $n$ Octahedral Sites in Close-Packed Structures (added)
+Take one close-packed layer A of $N$ spheres. Its triangular depressions number $2N$ (each sphere is bordered by 6 depressions, each shared by 3 spheres: $6N/3 = 2N$), and they are of two types, $N$ of type B and $N$ of type C. Place the next layer on the $N$ B-type depressions.
+* Each sphere of the new layer rests on 3 spheres of layer A and touches all of them: 4 mutually touching spheres enclose a **tetrahedral** void. That gives $N$ tetrahedral voids per interlayer gap. The same argument applies at the other side of every layer, so each sphere is the apex of $2$ tetrahedra, $2N$ in total.
+* The $N$ C-type depressions of layer A stay uncovered; directly above each one the new layer presents a triangle of 3 spheres rotated by $180^\circ$. Two opposed triangles of 3 spheres enclose an **octahedral** void: $N$ octahedral voids per interlayer gap, that is $N$ per $N$ spheres.
+
+Hence $N_{\text{tet}} = 2n$ and $N_{\text{oct}} = n$ for FCC and HCP. BCC is not close-packed, so the rule does not apply there (Section 3).
+
 ---
 
 ## 🟦 2. Interstitial Sites in the FCC Structure ($n=4$)
@@ -54,7 +61,7 @@ In the FCC lattice there are $2 \times 4 = 8$ tetrahedral sites and $1 \times 4 
 
 ### Tetrahedral Sites in FCC ($N_{\text{tet}} = 8$):
 * **Spatial locations:**
-  * They are located within each of the 8 subcubes of edge $a/2$. Each site is at the center of a subcube, at a distance of $\frac{a\sqrt{3}}{4}$ from each of the 8 main vertices (coordinates $\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{4}\right)$, etc.).
+  * They are located within each of the 8 subcubes of edge $a/2$. Each site is at the center of a subcube (coordinates $\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{4}\right)$, etc.) at a distance $\frac{a\sqrt{3}}{4}$ from the **4 atoms** that surround it: one corner atom and the 3 face-centre atoms adjacent to that corner (for the site $\left(\frac14,\frac14,\frac14\right)$: the atoms at $(0,0,0)$, $\left(\frac12,\frac12,0\right)$, $\left(\frac12,0,\frac12\right)$ and $\left(0,\frac12,\frac12\right)$). The other 4 corners of the subcube are octahedral sites or empty positions, not atoms, so the earlier wording \"each of the 8 main vertices\" was wrong (erratum). The slide value $r_t = [\sqrt{3/2}-1]\,r$ (Session 4 Slide 10) follows only from 4 contacts at distance $a\sqrt3/4$.
   * Being entirely inside the cell: $8 \times 1 = 8\text{ tetrahedral sites/cell}$.
 * **Radius of the tetrahedral site ($r_{\text{tet}}$) [Session 4 Slide 9]:**
   The distance from the subcube vertex to its center is $\frac{\sqrt{3}}{2}\left(\frac{a}{2}\right) = \frac{a\sqrt{3}}{4}$. Along that half-diagonal:
@@ -82,6 +89,14 @@ The BCC lattice is **not close-packed** ($\text{APF} = 0.68$). Although it has m
     $$6_{\text{faces}} \times 4 \times \frac{1}{2} = 12\text{ tetrahedral sites/cell}$$
 * **Radius of the tetrahedral site ($r_{\text{tet}}$) [Session 4 Slide 9]:**
   $$r_{\text{tet}} = \left(\sqrt{\frac{5}{3}} - 1\right)r \approx \mathbf{0.291\, r}$$
+
+### 3.1 Derivation of the BCC Void Radii (added)
+Put the lattice atoms at the corners $(0,0,0)$ and the body centre $\left(\frac12,\frac12,\frac12\right)$, with contact along the body diagonal, $a = 4r/\sqrt3$.
+* **Tetrahedral site** at $\left(\frac12,\frac14,0\right)$ on a cube face. Its 4 nearest atoms are the corners $(0,0,0)$ and $(1,0,0)$ and the body centres $\left(\frac12,\frac12,\pm\frac12\right)$, all at the same distance $a\sqrt{\frac{1}{16}+\frac14} = \frac{\sqrt5}{4}a$ (for the corner $(0,0,0)$: $\sqrt{(\frac12)^2+(\frac14)^2+0^2}$; for the body centre $\left(\frac12,\frac12,\frac12\right)$: $\sqrt{0+(\frac14)^2+(\frac12)^2}$). Then
+  $$r + r_{\text{tet}} = \frac{\sqrt5}{4}\cdot\frac{4r}{\sqrt3} = \sqrt{\frac53}\,r \;\Rightarrow\; r_{\text{tet}} = \left(\sqrt{\tfrac53}-1\right)r = 0.291\,r$$
+* **Octahedral site** at $\left(\frac12,\frac12,0\right)$ (face centre). Its 2 nearest atoms are the body centres of the two cells sharing that face, at distance $a/2$ each:
+  $$r + r_{\text{oct}} = \frac a2 = \frac{2r}{\sqrt3} \;\Rightarrow\; r_{\text{oct}} = \left(\frac{2}{\sqrt3}-1\right)r = 0.155\,r$$
+  (This equals the form $2r + 2r_{\text{oct}} = a$ used in Section 3, because the two body-centre atoms and the void lie on a line of length $a$.)
 
 > [!IMPORTANT]
 > **The Void Paradox in BCC vs FCC:**

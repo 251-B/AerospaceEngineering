@@ -49,7 +49,7 @@ In substitutional alloys and in pure metals, the atoms of the crystal lattice ha
     2. Minimal atomic radius difference: $R_{\text{Cu}} = 128\text{ pm}$, $R_{\text{Ni}} = 124\text{ pm}$ ($\Delta R \approx 3.1\% \ll 15\%$).
     3. Nearly identical electronegativity: $\chi_{\text{Cu}} \approx 1.90$, $\chi_{\text{Ni}} \approx 1.91$.
     4. Same usual valence ($+2$).
-  * The net flow of atoms produces the gradual formation of a continuous solid solution and intermetallic compounds, which is the key basis of **diffusion bonding** [Slides 10, 33].
+  * The net flow of atoms produces a gradual, continuous Cu-Ni solid solution (the two metals are completely miscible, so no intermetallic compound forms in this couple). Interdiffusion in general can form alloys or intermetallics in other couples [Slide 10], and it is the key basis of **diffusion bonding** [Slides 10, 33]. *(Erratum: an earlier version attributed intermetallic compounds to the Cu-Ni couple.)*
 
 ### 2.2 Thermodynamics of the Self-Diffusion Activation Energy
 For a vacancy jump to occur, the vacancy must first be created in the lattice and then the neighboring atom must migrate into it. Therefore, the total self-diffusion activation energy is the sum of two terms [Slide 8]:
@@ -85,7 +85,7 @@ Interstitial diffusion describes the migration of atomic solutes of small relati
 1. **Conservation of the Host Lattice:** Interstitial atoms move **without permanently displacing** any matrix atom [Slide 13].
 2. **Abundance of Free Sites:** In any metallic crystal lattice, the vast majority of interstitial sites (octahedral and tetrahedral) are empty. The geometric probability of finding an adjacent free site is practically 1, unlike the substitutional mechanism where the vacancy concentration is minuscule ($n_v/N \sim 10^{-4}$ at high temperature).
 3. **Lower Energy Barrier ($E_i \ll E_v$):** No energy is required to form a vacancy ($\Delta H_v = 0$). Only the local elastic strain energy is needed for the small solute to slip between the matrix atoms [Slide 13].
-4. **Extraordinarily Faster Kinetics:** The interstitial diffusivity is **4 to 8 orders of magnitude higher** than the vacancy diffusivity at the same temperature [Slides 13, 24].
+4. **Extraordinarily Faster Kinetics:** The interstitial diffusivity is much higher than the vacancy diffusivity at the same temperature [Slides 13, 24]; the slide's own example (below) gives about 5 orders of magnitude ($1.5\times10^5$). *(Erratum: an earlier version quoted a general range of 4 to 8 orders of magnitude, which is not stated in the slides.)*
 
 ### Critical Comparison in Steels at $1000^\circ\text{C}$ ($\gamma\text{-Fe}$ FCC) [Slide 24]:
 * Interstitial carbon in austenite:

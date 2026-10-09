@@ -33,6 +33,13 @@ where:
 * $V_C$: total geometric volume of the unit cell.
 * $\text{NC}$ (Coordination Number): number of nearest atomic neighbors in direct contact with each atom.
 
+### 1.1 Reference Case: Simple Cubic (added)
+For the simple cubic (SC) cell the atoms touch along the cube edge, so $a = 2R$, there is $n = 8 \times \tfrac18 = 1$ atom per cell and the coordination number is $6$:
+
+$$\text{APF}_{\text{SC}} = \frac{1\cdot\frac43\pi R^3}{(2R)^3} = \frac{4\pi R^3/3}{8R^3} = \frac{\pi}{6} \approx 0.5236$$
+
+SC is rare in metals (only polonium) because it leaves $48\%$ of the volume empty. Ordering the four cases by APF, $0.52 < 0.68 < 0.74 = 0.74$, shows why metals prefer BCC, FCC or HCP. A Python check of all four expressions gives $0.5236$, $0.6802$, $0.7405$ and $0.7405$.
+
 ---
 
 ## 🟥 2. Body-Centered Cubic (BCC) Structure
@@ -90,6 +97,10 @@ The hexagonal close-packed cell consists of two hexagonal basal planes of parame
   $$V_C = 3\sqrt{2} (2R)^3 = 24\sqrt{2} R^3$$
 * **APF calculation [Slide 25]:**
   $$\text{APF}_{\text{HCP}} = \frac{6 \cdot \frac{4}{3}\pi R^3}{24\sqrt{2} R^3} = \frac{8\pi R^3}{24\sqrt{2} R^3} = \frac{\pi}{3\sqrt{2}} = \frac{\pi\sqrt{2}}{6} \approx 0.7405 \implies \mathbf{74\%}$$
+* **APF as a function of $c/a$ (added check):**
+  With $a = 2R$ the cell volume is $V_C = \frac{3\sqrt3}{2}a^2c = 6\sqrt3\,R^2c$, so
+  $$\text{APF}_{\text{HCP}} = \frac{6\cdot\frac43\pi R^3}{6\sqrt3\,R^2c} = \frac{4\pi}{3\sqrt3}\,\frac{R}{c} = \frac{2\pi}{3\sqrt3\,(c/a)}$$
+  For the ideal $c/a = \sqrt{8/3} = 1.6330$ this gives $\frac{2\pi}{3\sqrt3\sqrt{8/3}} = \frac{2\pi}{3\sqrt8} = \frac{\pi}{3\sqrt2} = 0.7405$, as above. If $a = 2R$ were kept for a larger $c/a$ (for example $1.856$ for zinc), the same formula would give a lower APF ($0.65$), which is why only the ideal ratio reaches the Kepler limit.
 * **Coordination number:** $\text{NC} = 12$ (6 in the basal plane itself, 3 in the plane below, 3 in the plane above).
 * **Representative metals:** $\alpha\text{-Ti}, \text{Mg}, \text{Zn}, \text{Be}, \text{Cd}, \text{Zr}$.
 
