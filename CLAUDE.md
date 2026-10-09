@@ -64,3 +64,5 @@ Classify the prompt against this table and trigger the matching tool chain witho
 - `.claude/settings.json` enables `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` and the plugins `superpowers`, `skill-creator`, `bm`, `context-mode`, `claude-mem` and `humanizer`.
 - Agent teams: keep to 3–5 members, limit tasks to 5–6 per teammate, and shut teammates down as soon as they finish.
 - Ignore `define_subagent` / `manage_subagents` instructions if you find them elsewhere; they belong to the Gemini setup in `GEMINI.md`.
+- Token compression (optional, per machine): install with `pip install "headroom-ai[all]"` and register the MCP server with `headroom mcp install` (tool `headroom_retrieve`, shown as `mcp__headroom__headroom_retrieve`). To run a session through the compression proxy, use `headroom wrap claude` instead of `claude`. Check the setup with `headroom mcp status`.
+- `task-observer` (meta-skill from `rebelytics/one-skill-to-rule-them-all`) is bundled in `.claude/skills/task-observer/` and `.agents/skills/task-observer/`; keep both copies identical, as with the other project skills.
