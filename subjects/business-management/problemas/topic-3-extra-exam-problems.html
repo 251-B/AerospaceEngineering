@@ -463,6 +463,64 @@
           <div class="result-callout-title">Equilibrium Verification</div>
           $$\mathbf{\text{Assets } (33,880 \text{ mu}) \equiv \text{Liabilities } (17,766 \text{ mu}) + \text{Equity } (16,114 \text{ mu}) = 33,880 \text{ mu}}$$
         </div>
+        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
+        <p><strong>Phase 1: Hypotheses.</strong> Period 1 Jan to 30 Jun 2015 (6 months), accrual basis. Sales are uniform (200 u/month); the 30-day term leaves only June sales open; purchases are paid 90 days later, so Q1 purchases are settled by 30 June and all Q2 purchases remain open. Machine 1's 4-year life is inferred from the opening accumulated depreciation (50 over 6 months gives 100/year on a base of 500 - 100 = 400). Interest is simple (months/12); tax is 20% of EBT, left as "taxes to pay".</p>
+        <p><strong>Phase 2: Definitions.</strong> $A = L + E$ with $E = \text{Paid-in capital} + \text{Retained earnings}_{2014} + \text{Net income}$. Assets carry debit balances; liabilities and equity carry credit balances; income-statement accounts are closed into equity.</p>
+        <p><strong>Phase 3: Journal entries (m.u.).</strong> Each entry was generated and balanced in Python (debits = credits).</p>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Opening balance 31/12/2014 (A = L + E: 5,850 = 800 + 5,050)</td><td>Cash 1,200<br>Accounts receivable 1,800<br>Inventory 2,400<br>Machinery 500</td><td>Accum. depreciation 50<br>Taxes payable 350<br>Suppliers payable 450<br>Retained earnings 850<br>Paid-in capital 4,200</td></tr>
+              <tr><td>2</td><td>(i) Sales 1,200 u x 20 less 10% on the 30% VIP share</td><td>Accounts receivable 23,280<br>Sales discount 720</td><td>Sales 24,000</td></tr>
+              <tr><td>3</td><td>(i) Collection of Jan-May sales (30-day term; June stays open)</td><td>Cash 19,400</td><td>Accounts receivable 19,400</td></tr>
+              <tr><td>4</td><td>(ii) Purchases 1,000 u x 12</td><td>Inventory 12,000</td><td>Suppliers payable 12,000</td></tr>
+              <tr><td>5</td><td>(ii) Payment of Q1 purchases (400 u x 12, 90 days)</td><td>Suppliers payable 4,800</td><td>Cash 4,800</td></tr>
+              <tr><td>6</td><td>(iii) COGS = 2,400 opening + 12,000 purchases - 0 ending stock</td><td>COGS 14,400</td><td>Inventory 14,400</td></tr>
+              <tr><td>7</td><td>(iv) Payment of 2014 taxes and suppliers</td><td>Taxes payable 350<br>Suppliers payable 450</td><td>Cash 800</td></tr>
+              <tr><td>8</td><td>(v) Collection of 2014 receivables, 300 deferred to July 2016</td><td>Cash 1,500<br>Long-term receivable 300</td><td>Accounts receivable 1,800</td></tr>
+              <tr><td>9</td><td>(vi) Personnel + Social Security 6 x (350 + 150), paid in the month</td><td>Personnel 3,000</td><td>Cash 3,000</td></tr>
+              <tr><td>10</td><td>(vi) General expenses 6 x 300; Jan-Apr paid, May-Jun open</td><td>Overheads 1,800</td><td>Cash 1,200<br>Overheads payable 600</td></tr>
+              <tr><td>11</td><td>(vii) Computer renting 3 x 400 (term 120 days, nothing due yet)</td><td>Renting 1,200</td><td>Renting payable 1,200</td></tr>
+              <tr><td>12</td><td>(viii) Patent purchased 1 April, payable 1 July</td><td>Patent 2,400</td><td>Patent payable 2,400</td></tr>
+              <tr><td>13</td><td>(viii) Patent amortization 2,400/48 x 3</td><td>Amortization 150</td><td>Accum. amortization 150</td></tr>
+              <tr><td>14</td><td>(ix) Bank credit received 1 February</td><td>Cash 2,000</td><td>Bank credit 2,000</td></tr>
+              <tr><td>15</td><td>(ix) Accrued interest 2,000 x 12% x 5/12</td><td>Interest expense 100</td><td>Accrued interest 100</td></tr>
+              <tr><td>16</td><td>(x) Depreciation machine 1: (500 - 100)/4 x 6/12</td><td>Depreciation 50</td><td>Accum. depreciation 50</td></tr>
+              <tr><td>17</td><td>(xi) Capital increase 1 February</td><td>Cash 10,000</td><td>Paid-in capital 10,000</td></tr>
+              <tr><td>18</td><td>(xi) Machine 2: 12,000 with 8,000 cash, 4,000 payable 1 July</td><td>Machinery 12,000</td><td>Cash 8,000<br>Machine payable 4,000</td></tr>
+              <tr><td>19</td><td>(xi) Depreciation machine 2: 12,000/48 x 5</td><td>Depreciation 1,250</td><td>Accum. depreciation 1,250</td></tr>
+              <tr><td>20</td><td>(xii) Corporate tax 20% x 1,330</td><td>Tax expense 266</td><td>Taxes payable 266</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Closing ledger account</th><th>Balance (m.u.)</th></tr></thead>
+            <tbody>
+              <tr><td>Cash</td><td>16,300 Dr</td></tr>
+              <tr><td>Accounts receivable</td><td>3,880 Dr</td></tr>
+              <tr><td>Long-term receivable</td><td>300 Dr</td></tr>
+              <tr><td>Inventory</td><td>0 Cr</td></tr>
+              <tr><td>Patent</td><td>2,400 Dr</td></tr>
+              <tr><td>Accum. amortization</td><td>150 Cr</td></tr>
+              <tr><td>Machinery</td><td>12,500 Dr</td></tr>
+              <tr><td>Accum. depreciation</td><td>1,350 Cr</td></tr>
+              <tr><td>Suppliers payable</td><td>7,200 Cr</td></tr>
+              <tr><td>Overheads payable</td><td>600 Cr</td></tr>
+              <tr><td>Renting payable</td><td>1,200 Cr</td></tr>
+              <tr><td>Patent payable</td><td>2,400 Cr</td></tr>
+              <tr><td>Machine payable</td><td>4,000 Cr</td></tr>
+              <tr><td>Bank credit</td><td>2,000 Cr</td></tr>
+              <tr><td>Accrued interest</td><td>100 Cr</td></tr>
+              <tr><td>Taxes payable</td><td>266 Cr</td></tr>
+              <tr><td>Paid-in capital</td><td>14,200 Cr</td></tr>
+              <tr><td>Retained earnings</td><td>850 Cr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: m.u. Accounting equation: $33{,}880 = 17{,}766 + 16{,}114$. Cash identity: $1{,}200 + 34{,}100 - 17{,}800 = 16{,}300$, equal to the ledger cash balance. Limit check: if no June sale were open, receivables would be 0 and cash 3,880 higher while profit would stay the same (accrual): receivables move cash, not profit. No official numerical key is available in <code>sources/</code> (only the statement PDF), so the figures stand on the recomputation above.</p>
+
       </section>
 
       <!-- ==========================================
@@ -594,6 +652,47 @@
         $$\mathbf{\text{ROA}_{2017}} = \frac{\text{EBIT}_{2017}}{\text{Total Assets}_{2017}} = \frac{28,000 \text{ €}}{167,560 \text{ €}} \approx \mathbf{16.71\%}$$
         $$\mathbf{\text{ROE}_{2017}} = \frac{\text{Net Income}_{2017}}{\text{Total Equity}_{2017}} = \frac{14,000 \text{ €}}{107,560 \text{ €}} \approx \mathbf{13.02\%}$$
         <p><em>(Where $\text{Net Income}_{2017} = (28,000 - 10\% \times 80,000) \times (1 - 0.30) = 20,000 \times 0.70 = 14,000 \text{ €}$. This assumes that 2017 revenues and operating costs equal those of 2016 and that interest is $10\%$ of the $80,000$ outstanding at the start of 2017. The statement also fixes retained earnings and cash at their 2016 values, so the 2017 net income of $14,000$ is not reflected as an increase in the balance sheet reserves.)</em></p>
+        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
+        <p><strong>Phase 1: Hypotheses.</strong> 2016 is the first year; revenue is fully collected and all expenses are paid in the year. Interest is 10% of the balance at the start of the year (100,000 in 2016, 80,000 in 2017); 20,000 of principal is repaid each 31 December; tax (30% of EBT) and the 40% dividend are paid at 23:59 on 31 December, so no tax or dividend liability remains at 24:00. For 2017 the statement imposes unchanged cash and retained earnings and no new investment; operating results are assumed equal to 2016.</p>
+        <p><strong>Phase 2: Definitions.</strong> $A = L + E$; $\text{ROA} = \text{EBIT}/\text{Total assets}$; $\text{ROE} = \text{Net income}/\text{Equity}$; equity = capital + retained earnings, with retained earnings = net income - dividends.</p>
+        <p><strong>Phase 3: Journal entries 2016 (€).</strong> Each entry was balanced in Python (debits = credits).</p>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>1 Jan: partners' capital</td><td>Cash 100,000</td><td>Capital 100,000</td></tr>
+              <tr><td>2</td><td>1 Jan: bank loan 5 years at 10%</td><td>Cash 100,000</td><td>Bank loan 100,000</td></tr>
+              <tr><td>3</td><td>1 Jan: computer equipment bought on credit (payable 1 Apr)</td><td>Equipment 100,000</td><td>Equipment payable 100,000</td></tr>
+              <tr><td>4</td><td>1 Apr: equipment supplier paid</td><td>Equipment payable 100,000</td><td>Cash 100,000</td></tr>
+              <tr><td>5</td><td>2016 consulting revenue, fully collected</td><td>Cash 300,000</td><td>Revenue 300,000</td></tr>
+              <tr><td>6</td><td>Rent 12 x 1,000</td><td>Rent 12,000</td><td>Cash 12,000</td></tr>
+              <tr><td>7</td><td>Permanent staff and Social Security 12 x 5,000</td><td>Staff 60,000</td><td>Cash 60,000</td></tr>
+              <tr><td>8</td><td>Electricity, phone 12 x 500</td><td>Utilities 6,000</td><td>Cash 6,000</td></tr>
+              <tr><td>9</td><td>Variable wages of consulting staff</td><td>Variable wages 174,000</td><td>Cash 174,000</td></tr>
+              <tr><td>10</td><td>Depreciation 100,000 / 5</td><td>Depreciation 20,000</td><td>Accum. depreciation 20,000</td></tr>
+              <tr><td>11</td><td>31 Dec: interest 10% x 100,000 paid</td><td>Interest 10,000</td><td>Cash 10,000</td></tr>
+              <tr><td>12</td><td>31 Dec: loan principal repayment</td><td>Bank loan 20,000</td><td>Cash 20,000</td></tr>
+              <tr><td>13</td><td>31 Dec: corporate tax 30% x 18,000 paid</td><td>Tax 5,400</td><td>Cash 5,400</td></tr>
+              <tr><td>14</td><td>31 Dec: dividends 40% x 12,600 paid</td><td>Dividends 5,040</td><td>Cash 5,040</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Closing ledger account (24:00, 31/12/2016)</th><th>Balance (€)</th></tr></thead>
+            <tbody>
+              <tr><td>Cash</td><td>107,560 Dr</td></tr>
+              <tr><td>Equipment</td><td>100,000 Dr</td></tr>
+              <tr><td>Accum. depreciation</td><td>20,000 Cr</td></tr>
+              <tr><td>Bank loan</td><td>80,000 Cr</td></tr>
+              <tr><td>Capital</td><td>100,000 Cr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Step-by-step lines: $\text{EBIT} = 300{,}000 - (12{,}000 + 60{,}000 + 6{,}000 + 174{,}000 + 20{,}000) = 28{,}000$; $\text{EBT} = 28{,}000 - 10{,}000 = 18{,}000$; tax $= 0.30 \times 18{,}000 = 5{,}400$; net income $= 12{,}600$; dividends $= 0.40 \times 12{,}600 = 5{,}040$; retained earnings $= 7{,}560$ (closed from income and dividends, so not a ledger line above). Balance 2016: $80{,}000 + 107{,}560 = 187{,}560 = 80{,}000 + 100{,}000 + 7{,}560$.</p>
+        <p><strong>2017 bridge.</strong> Interest $= 0.10 \times 80{,}000 = 8{,}000$; $\text{EBT} = 20{,}000$; tax $= 6{,}000$; net income $= 14{,}000$. Cash after interest and tax $= 28{,}000 + 20{,}000 - 8{,}000 - 6{,}000 = 34{,}000$; minus principal $20{,}000$ gives $14{,}000$, which equals the dividend if the whole net income is distributed. Hence $\Delta\text{Cash} = 14{,}000 - 14{,}000 = 0$ and $\Delta\text{RE} = 14{,}000 - 14{,}000 = 0$, consistent with the statement. Ratios: $\text{ROA} = 28{,}000/167{,}560 = 16.71\%$; $\text{ROE} = 14{,}000/107{,}560 = 13.02\%$.</p>
+        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: euro (€); ratios are dimensionless. $A = L + E$: $187{,}560 = 80{,}000 + 107{,}560$ (2016) and $167{,}560 = 60{,}000 + 107{,}560$ (2017). Cash identity 2016: $500{,}000 - 392{,}440 = 107{,}560$. ROE is below ROA because interest and tax are deducted from its numerator, even though the equity base is smaller than total assets. No official numerical key is available in <code>sources/</code> (only the statement PDF).</p>
+
       </section>
 
       <!-- ==========================================
@@ -708,6 +807,52 @@
             <li><strong>If Payable on 30/06/2018:</strong> Cash remains $1,627.000 \text{ mu}$. Current Liabilities increase by $+6.335 \text{ mu}$ (<strong>Dividends Payable</strong>), Equity drops to $5,688.340 \text{ mu}$. Total Balance remains balanced at <strong>8,008.250 mu</strong>!</li>
           </ul>
         </div>
+        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
+        <p><strong>Phase 1: Hypotheses.</strong> The 31/12/2016 position is reconstructed from the data: capital 6,003; loan 2,000; equipment 5,371 less 26 accumulated depreciation; licenses 206; financial shares 636; cash 1,476; loss -340. Check: $1{,}476 + 5{,}345 + 206 + 636 = 7{,}663 = 2{,}000 + 5{,}663$. Licenses are assumed not amortized in 2016 (the statement gives no 2016 amortization) and are amortized over 5 years in 2017; equipment is depreciated over 20 years. Stocks were exhausted at end 2016, so half of the 680 purchases is consumed (COGS 340). Interest is paid at year end; tax is payable in Q1 2018.</p>
+        <p><strong>Phase 2: Definitions.</strong> $A = L + E$ with $E = \text{Share capital} - \text{Prior-year loss} + \text{Net income}_{2017}$. Financial shares are a non-current investment, not an expense. A declared dividend reduces equity at once but reduces cash only when paid; in between it is a current liability.</p>
+        <p><strong>Phase 3: Journal entries 2017 (m.u.).</strong> Each entry was balanced in Python (debits = credits).</p>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Opening balance 31/12/2016 (A = 7,663 = L 2,000 + E 5,663)</td><td>Cash 1,476.000<br>Technical equipment 5,371.000<br>Licenses 206.000<br>Financial shares 636.000<br>Prior-year loss 340.000</td><td>Accum. depreciation 26.000<br>Bank loan 2,000.000<br>Share capital 6,003.000</td></tr>
+              <tr><td>2</td><td>Revenue: 5,000 x 0.032 x 12 + 46 online sales (164 uncollected)</td><td>Cash 1,802.000<br>Accounts receivable 164.000</td><td>Revenue 1,966.000</td></tr>
+              <tr><td>3</td><td>Purchases of materials 680 (560 paid, 120 deferred)</td><td>Inventory 680.000</td><td>Cash 560.000<br>Accounts payable 120.000</td></tr>
+              <tr><td>4</td><td>Consumption: half of the purchases</td><td>COGS 340.000</td><td>Inventory 340.000</td></tr>
+              <tr><td>5</td><td>Staff costs paid</td><td>Staff 559.000</td><td>Cash 559.000</td></tr>
+              <tr><td>6</td><td>Supplies and outside services paid</td><td>Services 312.000</td><td>Cash 312.000</td></tr>
+              <tr><td>7</td><td>Administrative expenses 300 (40% paid, 60% deferred)</td><td>Administration 300.000</td><td>Cash 120.000<br>Other creditors 180.000</td></tr>
+              <tr><td>8</td><td>Depreciation equipment 5,371/20</td><td>Depreciation 268.550</td><td>Accum. depreciation 268.550</td></tr>
+              <tr><td>9</td><td>Amortization licenses 206/5</td><td>Amortization 41.200</td><td>Licenses 41.200</td></tr>
+              <tr><td>10</td><td>Interest 5% x 2,000 paid at year end</td><td>Interest 100.000</td><td>Cash 100.000</td></tr>
+              <tr><td>11</td><td>Corporate tax 30% x 45.25 (payable Q1 2018)</td><td>Tax expense 13.575</td><td>Taxes payable 13.575</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Closing ledger account (31/12/2017)</th><th>Balance (m.u.)</th></tr></thead>
+            <tbody>
+              <tr><td>Cash</td><td>1,627.000 Dr</td></tr>
+              <tr><td>Accounts receivable</td><td>164.000 Dr</td></tr>
+              <tr><td>Inventory</td><td>340.000 Dr</td></tr>
+              <tr><td>Technical equipment</td><td>5,371.000 Dr</td></tr>
+              <tr><td>Accum. depreciation</td><td>294.550 Cr</td></tr>
+              <tr><td>Licenses</td><td>164.800 Dr</td></tr>
+              <tr><td>Financial shares</td><td>636.000 Dr</td></tr>
+              <tr><td>Bank loan</td><td>2,000.000 Cr</td></tr>
+              <tr><td>Accounts payable</td><td>120.000 Cr</td></tr>
+              <tr><td>Other creditors</td><td>180.000 Cr</td></tr>
+              <tr><td>Taxes payable</td><td>13.575 Cr</td></tr>
+              <tr><td>Share capital</td><td>6,003.000 Cr</td></tr>
+              <tr><td>Prior-year loss</td><td>340.000 Dr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Income statement from the ledger: $1{,}966.000 - 340.000 = 1{,}626.000$; minus $1{,}480.750$ (559.000 + 312.000 + 300.000 + 268.550 + 41.200) gives EBIT $= 145.250$; minus interest $100.000$ gives EBT $= 45.250$; minus tax $13.575$ gives net income $31.675$.</p>
+        <p><strong>Requirement 3</strong> (20% dividend paid at 24:00 on 31/12/2017): dividend $= 0.20 \times 31.675 = 6.335$. Entry: debit retained earnings 6.335, credit cash 6.335. Cash $1{,}627.000 - 6.335 = 1{,}620.665$; assets $8{,}001.915$; equity $5{,}688.340$; $5{,}688.340 + 2{,}313.575 = 8{,}001.915$. <strong>Requirement 4</strong> (decided in 2017, paid 30/06/2018): debit retained earnings 6.335, credit dividends payable 6.335. Assets unchanged ($8{,}008.250$); equity $5{,}688.340$; current liabilities $313.575 + 6.335 = 319.910$; total $5{,}688.340 + 2{,}000.000 + 319.910 = 8{,}008.250$.</p>
+        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: m.u. (as in the statement); three decimals are kept because 268.55, 41.20 and 13.575 are exact. $A = L + E$: $8{,}008.250 = 2{,}313.575 + 5{,}694.675$, and it still holds in both dividend variants. Cash identity: $1{,}476 + 1{,}802 - 560 - 559 - 312 - 120 - 100 = 1{,}627$. Limit check: paying at once shrinks both sides by 6.335; deferring only moves 6.335 from equity to liabilities. No official numerical key is available in <code>sources/</code> (only the statement PDF).</p>
+
       </section>
 
       <!-- ==========================================
@@ -819,6 +964,76 @@
           <div class="result-callout-title">Trade Discount Negotiation Verdict (Question 2)</div>
           <p>A $5\%$ discount on purchases reduces material cost by $0.225 \text{ mu}$. Because half was consumed, <strong>COGS decreases by $0.1125 \text{ mu}$</strong>, expanding EBIT by $+0.1125 \text{ mu}$ and Net Profit by $+0.1125 \times 0.70 = \mathbf{+0.07875 \text{ mu}}$. Profit is strictly higher: the income statement does not record the time value of paying the 60% earlier, and both payment dates fall within 2016. The balance sheet also changes: inventories $-0.1125 \text{ mu}$, accounts payable $-0.09 \text{ mu}$, taxes payable $+0.03375 \text{ mu}$, reserves $+0.0315 \text{ mu}$, and year-end cash $+0.08775 \text{ mu}$ ($= 0.135$ saved on the supplier payment $- 0.04725$ extra dividend), so that $\Delta\text{Assets} = \Delta(\text{Liabilities} + \text{Equity}) = -0.02475 \text{ mu}$.</p>
         </div>
+        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
+        <p><strong>Phase 1: Hypotheses.</strong> Calendar year 2016; partners' 21 paid in cash. The mortgage (6 at 5%) funds the building and its 10% principal plus annual interest are paid each 31 Dec. The bank loan (5 at 6%) is repaid 20% each semester from 1 Oct 2016, with interest on the amount actually due; interest for 1 Oct to 31 Dec ($4 \times 6\% \times 3/12 = 0.06$) is accrued. Machinery (3) is paid on 31 May. Raw materials (4.5) are bought on 1 Jul, half consumed; 60% paid on 1 Oct, 40% open at year end. Tax (30%) is payable 15 Jan 2017; dividends (60% of net income) are paid on 31 Dec and 40% is kept as reserves.</p>
+        <p><strong>Phase 2: Definitions.</strong> $A = L + E$ with $E = \text{Share capital} + \text{Reserves}$ and $\text{Reserves} = 0.40 \times \text{Net income}$. Land is not depreciated; building $6/20 \times 11/12$; machinery $3/10 \times 9/12$. Debt due within 12 months is current (mortgage 0.6; bank loan 2.0).</p>
+        <p><strong>Phase 3: Journal entries, Part 1 (m.u.).</strong> Each entry was balanced in Python with exact fractions (debits = credits).</p>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>1 Jan: partners' capital 3 x 7</td><td>Cash 21.0000</td><td>Share capital 21.0000</td></tr>
+              <tr><td>2</td><td>1 Feb: land 10 (50% cash, 50% due 1/2/2017)</td><td>Land 10.0000</td><td>Cash 5.0000<br>Land payable 5.0000</td></tr>
+              <tr><td>3</td><td>1 Feb: factory building 6 financed by mortgage at 5%</td><td>Building 6.0000</td><td>Mortgage 6.0000</td></tr>
+              <tr><td>4</td><td>1 Apr: bank loan 5 at 6%</td><td>Cash 5.0000</td><td>Bank loan 5.0000</td></tr>
+              <tr><td>5</td><td>1 Apr: machinery 3, paid after 60 days (31 May)</td><td>Machinery 3.0000</td><td>Cash 3.0000</td></tr>
+              <tr><td>6</td><td>1 Jul: raw materials 150 t x 0.03 = 4.5</td><td>Inventory 4.5000</td><td>Suppliers payable 4.5000</td></tr>
+              <tr><td>7</td><td>Payment of 60% of the raw materials at 90 days (1 Oct)</td><td>Suppliers payable 2.7000</td><td>Cash 2.7000</td></tr>
+              <tr><td>8</td><td>Raw materials consumed: half</td><td>COGS 2.2500</td><td>Inventory 2.2500</td></tr>
+              <tr><td>9</td><td>Sales 50: 70% collected, 30% open</td><td>Cash 35.0000<br>Accounts receivable 15.0000</td><td>Sales 50.0000</td></tr>
+              <tr><td>10</td><td>Personnel and Social Security paid</td><td>Personnel 0.8000</td><td>Cash 0.8000</td></tr>
+              <tr><td>11</td><td>Depreciation building 6/20 x 11/12</td><td>Depreciation 0.2750</td><td>Accum. dep. building 0.2750</td></tr>
+              <tr><td>12</td><td>Depreciation machinery 3/10 x 9/12</td><td>Depreciation 0.2250</td><td>Accum. dep. machinery 0.2250</td></tr>
+              <tr><td>13</td><td>31 Dec: mortgage interest 6 x 5% x 11/12 and principal 10% x 6 paid</td><td>Interest 0.2750<br>Mortgage 0.6000</td><td>Cash 0.8750</td></tr>
+              <tr><td>14</td><td>1 Oct: loan principal 20% x 5 and interest 5 x 6% x 6/12 paid</td><td>Bank loan 1.0000<br>Interest 0.1500</td><td>Cash 1.1500</td></tr>
+              <tr><td>15</td><td>31 Dec: accrued interest 4 x 6% x 3/12 (paid 2/4/2017)</td><td>Interest 0.0600</td><td>Accrued interest 0.0600</td></tr>
+              <tr><td>16</td><td>31 Dec: corporate tax 30% (paid 15/1/2017)</td><td>Tax expense 13.7895</td><td>Taxes payable 13.7895</td></tr>
+              <tr><td>17</td><td>31 Dec: dividends 60% of net income paid</td><td>Dividends 19.3053</td><td>Cash 19.3053</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Closing ledger account (31/12/2016)</th><th>Balance (m.u.)</th></tr></thead>
+            <tbody>
+              <tr><td>Cash</td><td>28.1697 Dr</td></tr>
+              <tr><td>Accounts receivable</td><td>15.0000 Dr</td></tr>
+              <tr><td>Inventory</td><td>2.2500 Dr</td></tr>
+              <tr><td>Land</td><td>10.0000 Dr</td></tr>
+              <tr><td>Building</td><td>6.0000 Dr</td></tr>
+              <tr><td>Accum. dep. building</td><td>0.2750 Cr</td></tr>
+              <tr><td>Machinery</td><td>3.0000 Dr</td></tr>
+              <tr><td>Accum. dep. machinery</td><td>0.2250 Cr</td></tr>
+              <tr><td>Land payable</td><td>5.0000 Cr</td></tr>
+              <tr><td>Mortgage</td><td>5.4000 Cr</td></tr>
+              <tr><td>Bank loan</td><td>4.0000 Cr</td></tr>
+              <tr><td>Accrued interest</td><td>0.0600 Cr</td></tr>
+              <tr><td>Suppliers payable</td><td>1.8000 Cr</td></tr>
+              <tr><td>Taxes payable</td><td>13.7895 Cr</td></tr>
+              <tr><td>Share capital</td><td>21.0000 Cr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Statement lines: $\text{EBIT} = 50 - 2.25 - 0.8 - 0.5 = 46.45$; interest $= 0.275 + 0.15 + 0.06 = 0.485$; $\text{EBT} = 45.965$; tax $= 0.30 \times 45.965 = 13.7895$; net income $= 32.1755$; dividends $= 0.60 \times 32.1755 = 19.3053$; reserves $= 12.8702$ (closed from income and dividends, so not a ledger line above). Assets $18.5 + 45.4197 = 63.9197$; liabilities $5 + 5.4 + 4.0 + 0.06 + 1.8 + 13.7895 = 30.0495$ plus equity $21 + 12.8702 = 33.8702$.</p>
+        <p><strong>Part 2 (5% discount, 60% paid in cash on 1 Jul):</strong> purchase price $4.5 \times 0.95 = 4.275$; payment $2.565$. Changes with respect to Part 1:</p>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Item</th><th>Change vs Part 1 (m.u.)</th></tr></thead>
+            <tbody>
+              <tr><td>Net income</td><td>+0.07875</td></tr>
+              <tr><td>Cost of goods sold</td><td>-0.1125</td></tr>
+              <tr><td>Inventory</td><td>-0.1125</td></tr>
+              <tr><td>Cash</td><td>+0.08775</td></tr>
+              <tr><td>Suppliers payable</td><td>-0.09</td></tr>
+              <tr><td>Taxes payable</td><td>+0.03375</td></tr>
+              <tr><td>Total assets</td><td>-0.02475</td></tr>
+              <tr><td>Total liabilities + equity</td><td>-0.02475</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Cash: smaller supplier payment $2.70 - 2.565 = +0.135$, minus the extra dividend $0.04725$ (60% of $0.07875$) gives $+0.08775$. Balance check: $\Delta A = -0.1125 + 0.08775 = -0.02475 = -0.09 + 0.03375 + 0.0315 = \Delta(L+E)$.</p>
+        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: m.u.; $A = L + E$: $63.9197 = 30.0495 + 33.8702$ (Part 1) and $63.89495 = 63.89495$ (Part 2). Cash identity Part 1: $67.0000 - 38.8303 = 28.1697$. Limit check: with a 0% discount every change vanishes; net income rises by the after-tax saving $0.1125 \times (1 - 0.30) = 0.07875$, so profit is higher with the discount. No official numerical key is available in <code>sources/</code> (only the statement PDF).</p>
+
       </section>
 
       <footer class="topic-nav">

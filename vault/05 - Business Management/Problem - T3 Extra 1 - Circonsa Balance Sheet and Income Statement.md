@@ -275,6 +275,76 @@ $$\mathbf{\text{Balance Equilibrium Verification: } \text{Total Assets } (33,880
 
 ---
 
+## 🧾 Four-Phase Audit Trail (journal entries and ledger)
+
+> [!info] Verification
+> Every entry below was generated and balanced in Python (each entry has total debits = total credits); the closing ledger reproduces cash 16,300, net income 1,064 and total assets 33,880 = liabilities 17,766 + equity 16,114. No official numerical key is available in `sources/` (only the statement PDF), so the figures stand on this recomputation.
+
+### Phase 1: Hypotheses
+* Period: 1 Jan to 30 Jun 2015 (6 months); accrual basis (revenue and expense when earned or incurred; cash tracked separately).
+* Sales are uniform (200 u/month); the 30-day term leaves only June sales open. Purchases are paid 90 days later, so Q1 purchases are settled by 30 June and all Q2 purchases remain open.
+* Machine 1's life of 4 years is inferred from the opening accumulated depreciation (50 over 6 months gives 100 per year on a base of 500 - 100 = 400).
+* Interest is simple (months/12); the tax is 20% of the earnings before taxes and is left as "taxes to pay".
+
+### Phase 2: Definitions and accounting equation
+$$A = L + E, \qquad E = \text{Paid-in capital} + \text{Retained earnings}_{2014} + \text{Net income}_{H1\,2015}$$
+* Assets carry debit balances (cash, receivables, inventory, patent, machinery net of accumulated depreciation); liabilities and equity carry credit balances; income-statement accounts are closed into equity at the end of the period.
+
+### Phase 3: Journal entries (m.u.)
+| # | Event | Debit | Credit |
+| :-: | :--- | :--- | :--- |
+| 1 | Opening balance 31/12/2014 (A = L + E: 5,850 = 800 + 5,050) | Cash 1,200; Accounts receivable 1,800; Inventory 2,400; Machinery 500 | Accum. depreciation 50; Taxes payable 350; Suppliers payable 450; Retained earnings 850; Paid-in capital 4,200 |
+| 2 | (i) Sales 1,200 u x 20 less 10% on the 30% VIP share | Accounts receivable 23,280; Sales discount 720 | Sales 24,000 |
+| 3 | (i) Collection of Jan-May sales (30-day term; June stays open) | Cash 19,400 | Accounts receivable 19,400 |
+| 4 | (ii) Purchases 1,000 u x 12 | Inventory 12,000 | Suppliers payable 12,000 |
+| 5 | (ii) Payment of Q1 purchases (400 u x 12, 90 days) | Suppliers payable 4,800 | Cash 4,800 |
+| 6 | (iii) COGS = 2,400 opening + 12,000 purchases - 0 ending stock | COGS 14,400 | Inventory 14,400 |
+| 7 | (iv) Payment of 2014 taxes and suppliers | Taxes payable 350; Suppliers payable 450 | Cash 800 |
+| 8 | (v) Collection of 2014 receivables, 300 deferred to July 2016 | Cash 1,500; Long-term receivable 300 | Accounts receivable 1,800 |
+| 9 | (vi) Personnel + Social Security 6 x (350 + 150), paid in the month | Personnel 3,000 | Cash 3,000 |
+| 10 | (vi) General expenses 6 x 300; Jan-Apr paid, May-Jun open | Overheads 1,800 | Cash 1,200; Overheads payable 600 |
+| 11 | (vii) Computer renting 3 x 400 (term 120 days, nothing due yet) | Renting 1,200 | Renting payable 1,200 |
+| 12 | (viii) Patent purchased 1 April, payable 1 July | Patent 2,400 | Patent payable 2,400 |
+| 13 | (viii) Patent amortization 2,400/48 x 3 | Amortization 150 | Accum. amortization 150 |
+| 14 | (ix) Bank credit received 1 February | Cash 2,000 | Bank credit 2,000 |
+| 15 | (ix) Accrued interest 2,000 x 12% x 5/12 | Interest expense 100 | Accrued interest 100 |
+| 16 | (x) Depreciation machine 1: (500 - 100)/4 x 6/12 | Depreciation 50 | Accum. depreciation 50 |
+| 17 | (xi) Capital increase 1 February | Cash 10,000 | Paid-in capital 10,000 |
+| 18 | (xi) Machine 2: 12,000 with 8,000 cash, 4,000 payable 1 July | Machinery 12,000 | Cash 8,000; Machine payable 4,000 |
+| 19 | (xi) Depreciation machine 2: 12,000/48 x 5 | Depreciation 1,250 | Accum. depreciation 1,250 |
+| 20 | (xii) Corporate tax 20% x 1,330 | Tax expense 266 | Taxes payable 266 |
+
+**Closing ledger (balance-sheet accounts):**
+
+| Account | Balance |
+| :--- | ---: |
+| Cash | 16,300 Dr |
+| Accounts receivable | 3,880 Dr |
+| Long-term receivable | 300 Dr |
+| Inventory | 0 Cr |
+| Patent | 2,400 Dr |
+| Accum. amortization | 150 Cr |
+| Machinery | 12,500 Dr |
+| Accum. depreciation | 1,350 Cr |
+| Suppliers payable | 7,200 Cr |
+| Overheads payable | 600 Cr |
+| Renting payable | 1,200 Cr |
+| Patent payable | 2,400 Cr |
+| Machine payable | 4,000 Cr |
+| Bank credit | 2,000 Cr |
+| Accrued interest | 100 Cr |
+| Taxes payable | 266 Cr |
+| Paid-in capital | 14,200 Cr |
+| Retained earnings | 850 Cr |
+
+**Income statement from the ledger:** sales 24,000 - discount 720 = 23,280; - COGS 14,400 = 8,880; - (personnel 3,000 + overheads 1,800 + renting 1,200 + amortization 150 + depreciation 1,300) = 1,430 EBIT; - interest 100 = 1,330 EBT; - tax 266 = 1,064 net income.
+
+### Phase 4: Units and sanity checks
+* Currency: m.u. (monetary units); every figure above is in m.u.
+* Accounting equation: $33{,}880 = 17{,}766 + 16{,}114$ holds.
+* Cash identity: opening 1,200 + inflows 34,100 - outflows 17,800 = 16,300, equal to the ledger balance of cash.
+* Limit check: if no June sale were open, receivables would be 0 and cash 3,880 higher while profit stays the same (accrual), so receivables move cash, not profit.
+
 ## 🔗 Related Notes
 * [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
 * [[05 - Business Management/Concept - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]

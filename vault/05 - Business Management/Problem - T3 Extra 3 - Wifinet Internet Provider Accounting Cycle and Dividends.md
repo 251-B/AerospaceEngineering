@@ -195,6 +195,65 @@ $$\mathbf{\text{Balance Check: } \text{Total Assets } (8,008.250 \text{ mu}) \eq
 
 ---
 
+## 🧾 Four-Phase Audit Trail (journal entries and ledger)
+
+> [!info] Verification
+> Entries were balanced in Python (debits = credits) starting from the 31/12/2016 position implied by the statement. Recomputed: revenue 1,966.000; COGS 340.000; EBIT 145.250; EBT 45.250; tax 13.575; net income 31.675; cash 1,627.000; total assets 8,008.250 = liabilities 2,313.575 + equity 5,694.675. No official numerical key is available in `sources/` (only the statement PDF).
+
+### Phase 1: Hypotheses
+* Opening position (31/12/2016) is reconstructed from the data: capital 6,003; loan 2,000; equipment 5,371 less 26 accumulated depreciation; licenses 206; financial shares 636; cash 1,476; loss -340. Check: assets 1,476 + 5,345 + 206 + 636 = 7,663 = loan 2,000 + equity 5,663.
+* Licenses are assumed not amortized in 2016 (the statement gives no 2016 amortization; the balance above only closes with the full 206) and are amortized over 5 years in 2017; the equipment is depreciated over 20 years in 2017.
+* Stocks were exhausted at end 2016, so half of the 680 purchases is consumed (COGS 340) and 340 remains as inventory. Interest (5% x 2,000) is paid at year end; tax is payable in Q1 2018.
+
+### Phase 2: Definitions and accounting equation
+$$A = L + E, \qquad E = \text{Share capital} - \text{Prior-year loss} + \text{Net income}_{2017}$$
+* Financial shares are a non-current financial investment, not an expense. A dividend declared reduces equity; it reduces cash only when it is paid, and in between it is a current liability (dividends payable).
+
+### Phase 3: Journal entries 2017 (m.u.)
+| # | Event | Debit | Credit |
+| :-: | :--- | :--- | :--- |
+| 1 | Opening balance 31/12/2016 (A = 7,663 = L 2,000 + E 5,663) | Cash 1,476.000; Technical equipment 5,371.000; Licenses 206.000; Financial shares 636.000; Prior-year loss 340.000 | Accum. depreciation 26.000; Bank loan 2,000.000; Share capital 6,003.000 |
+| 2 | Revenue: 5,000 x 0.032 x 12 + 46 online sales (164 uncollected) | Cash 1,802.000; Accounts receivable 164.000 | Revenue 1,966.000 |
+| 3 | Purchases of materials 680 (560 paid, 120 deferred) | Inventory 680.000 | Cash 560.000; Accounts payable 120.000 |
+| 4 | Consumption: half of the purchases | COGS 340.000 | Inventory 340.000 |
+| 5 | Staff costs paid | Staff 559.000 | Cash 559.000 |
+| 6 | Supplies and outside services paid | Services 312.000 | Cash 312.000 |
+| 7 | Administrative expenses 300 (40% paid, 60% deferred) | Administration 300.000 | Cash 120.000; Other creditors 180.000 |
+| 8 | Depreciation equipment 5,371/20 | Depreciation 268.550 | Accum. depreciation 268.550 |
+| 9 | Amortization licenses 206/5 | Amortization 41.200 | Licenses 41.200 |
+| 10 | Interest 5% x 2,000 paid at year end | Interest 100.000 | Cash 100.000 |
+| 11 | Corporate tax 30% x 45.25 (payable Q1 2018) | Tax expense 13.575 | Taxes payable 13.575 |
+
+**Closing ledger accounts at 31/12/2017:**
+
+| Account | Balance |
+| :--- | ---: |
+| Cash | 1,627.000 Dr |
+| Accounts receivable | 164.000 Dr |
+| Inventory | 340.000 Dr |
+| Technical equipment | 5,371.000 Dr |
+| Accum. depreciation | 294.550 Cr |
+| Licenses | 164.800 Dr |
+| Financial shares | 636.000 Dr |
+| Bank loan | 2,000.000 Cr |
+| Accounts payable | 120.000 Cr |
+| Other creditors | 180.000 Cr |
+| Taxes payable | 13.575 Cr |
+| Share capital | 6,003.000 Cr |
+| Prior-year loss | 340.000 Dr |
+
+**Income statement from the ledger:** revenue 1,966.000 - COGS 340.000 = 1,626.000; - (559.000 + 312.000 + 300.000 + 268.550 + 41.200 = 1,480.750) = 145.250 EBIT; - interest 100.000 = 45.250 EBT; - tax 13.575 = 31.675.
+
+**Requirement 3 (20% dividend paid at 24:00 on 31/12/2017):** dividend = 0.20 x 31.675 = 6.335. Entry: Debit Retained earnings 6.335; Credit Cash 6.335. Cash 1,627.000 - 6.335 = 1,620.665; total assets 8,008.250 - 6.335 = 8,001.915; equity 5,694.675 - 6.335 = 5,688.340; liabilities unchanged, so 5,688.340 + 2,313.575 = 8,001.915.
+
+**Requirement 4 (decided in 2017, paid 30/06/2018):** Entry: Debit Retained earnings 6.335; Credit Dividends payable 6.335. Assets unchanged (8,008.250); equity 5,688.340; current liabilities 313.575 + 6.335 = 319.910; total 5,688.340 + 2,000.000 + 319.910 = 8,008.250.
+
+### Phase 4: Units and sanity checks
+* Currency: m.u. (monetary units, as in the statement); three decimals are kept because 268.55, 41.20 and 13.575 are exact.
+* Accounting equation: $8{,}008.250 = 2{,}313.575 + 5{,}694.675$ holds; also after both dividend variants (8,001.915 and 8,008.250).
+* Cash identity: 1,476 + 1,802 - 560 - 559 - 312 - 120 - 100 = 1,627.
+* Limit check: paying the dividend at once shrinks both sides by 6.335; deferring it only moves 6.335 from equity to liabilities, leaving the total unchanged.
+
 ## 🔗 Related Notes
 * [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
 * [[05 - Business Management/Problem - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE|Previous Problem: INFOPYMES]]

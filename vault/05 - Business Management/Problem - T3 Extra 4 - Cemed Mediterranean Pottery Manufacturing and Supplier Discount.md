@@ -231,6 +231,85 @@ $$\mathbf{\text{Balance Check: } \text{Total Assets } (63.9197 \text{ mu}) \equi
 
 ---
 
+## 🧾 Four-Phase Audit Trail (journal entries and ledger)
+
+> [!info] Verification
+> Part 1 and Part 2 were each rebuilt as a balanced double-entry ledger in Python (exact fractions). Part 1 reproduces net income 32.1755, cash 28.1697 and total assets 63.9197 = liabilities 30.0495 + equity 33.8702. Part 2 reproduces $\Delta$Cash = +0.08775 and $\Delta$Net income = +0.07875. No official numerical key is available in `sources/` (only the statement PDF), so no discrepancy callout is needed.
+
+### Phase 1: Hypotheses
+* Calendar year 2016; partners' 21 paid in cash on 1 Jan. The mortgage (6 at 5%, 10 years) funds the building; its 10% principal and the annual interest are paid each 31 Dec.
+* The bank loan (5 at 6%) is repaid 20% each semester from 1 Oct 2016; interest is paid the day after each semester on the amount actually due; interest for 1 Oct to 31 Dec (4 x 6% x 3/12 = 0.06) is accrued.
+* Machinery (3) is paid after 60 days, i.e. on 31 May. Raw materials (4.5) on 1 Jul: half consumed; 60% is paid at 90 days (1 Oct, inside 2016); 40% stays open at year end.
+* Tax (30% of EBT) is payable on 15 Jan 2017; dividends (60% of net income) are paid on 31 Dec; 40% is kept as reserves.
+
+### Phase 2: Definitions and accounting equation
+$$A = L + E, \qquad E = \text{Share capital} + \text{Reserves}, \qquad \text{Reserves} = 0.40 \times \text{Net income}$$
+* Land is not depreciated; building: 6/20 per year over 11 months; machinery: 3/10 per year over 9 months. Debt due within 12 months is current (mortgage 0.6; bank loan 2.0 for the two 2017 repayments).
+
+### Phase 3: Journal entries, Part 1 (m.u.)
+| # | Event | Debit | Credit |
+| :-: | :--- | :--- | :--- |
+| 1 | 1 Jan: partners' capital 3 x 7 | Cash 21.0000 | Share capital 21.0000 |
+| 2 | 1 Feb: land 10 (50% cash, 50% due 1/2/2017) | Land 10.0000 | Cash 5.0000; Land payable 5.0000 |
+| 3 | 1 Feb: factory building 6 financed by mortgage at 5% | Building 6.0000 | Mortgage 6.0000 |
+| 4 | 1 Apr: bank loan 5 at 6% | Cash 5.0000 | Bank loan 5.0000 |
+| 5 | 1 Apr: machinery 3, paid after 60 days (31 May) | Machinery 3.0000 | Cash 3.0000 |
+| 6 | 1 Jul: raw materials 150 t x 0.03 = 4.5 | Inventory 4.5000 | Suppliers payable 4.5000 |
+| 7 | Payment of 60% of the raw materials at 90 days (1 Oct) | Suppliers payable 2.7000 | Cash 2.7000 |
+| 8 | Raw materials consumed: half | COGS 2.2500 | Inventory 2.2500 |
+| 9 | Sales 50: 70% collected, 30% open | Cash 35.0000; Accounts receivable 15.0000 | Sales 50.0000 |
+| 10 | Personnel and Social Security paid | Personnel 0.8000 | Cash 0.8000 |
+| 11 | Depreciation building 6/20 x 11/12 | Depreciation 0.2750 | Accum. dep. building 0.2750 |
+| 12 | Depreciation machinery 3/10 x 9/12 | Depreciation 0.2250 | Accum. dep. machinery 0.2250 |
+| 13 | 31 Dec: mortgage interest 6 x 5% x 11/12 and principal 10% x 6 paid | Interest 0.2750; Mortgage 0.6000 | Cash 0.8750 |
+| 14 | 1 Oct: loan principal 20% x 5 and interest 5 x 6% x 6/12 paid | Bank loan 1.0000; Interest 0.1500 | Cash 1.1500 |
+| 15 | 31 Dec: accrued interest 4 x 6% x 3/12 (paid 2/4/2017) | Interest 0.0600 | Accrued interest 0.0600 |
+| 16 | 31 Dec: corporate tax 30% (paid 15/1/2017) | Tax expense 13.7895 | Taxes payable 13.7895 |
+| 17 | 31 Dec: dividends 60% of net income paid | Dividends 19.3053 | Cash 19.3053 |
+
+**Closing ledger accounts at 31/12/2016** (reserves 12.8702 = 32.1755 - 19.3053 close from income and dividends):
+
+| Account | Balance |
+| :--- | ---: |
+| Cash | 28.1697 Dr |
+| Accounts receivable | 15.0000 Dr |
+| Inventory | 2.2500 Dr |
+| Land | 10.0000 Dr |
+| Building | 6.0000 Dr |
+| Accum. dep. building | 0.2750 Cr |
+| Machinery | 3.0000 Dr |
+| Accum. dep. machinery | 0.2250 Cr |
+| Land payable | 5.0000 Cr |
+| Mortgage | 5.4000 Cr |
+| Bank loan | 4.0000 Cr |
+| Accrued interest | 0.0600 Cr |
+| Suppliers payable | 1.8000 Cr |
+| Taxes payable | 13.7895 Cr |
+| Share capital | 21.0000 Cr |
+
+**Statement lines:** EBIT = 50 - 2.25 - 0.8 - 0.5 = 46.45; interest = 0.275 + 0.15 + 0.06 = 0.485; EBT = 45.965; tax = 0.30 x 45.965 = 13.7895; net income = 32.1755; dividends = 0.60 x 32.1755 = 19.3053; reserves = 12.8702. Balance: assets 18.5 + 45.4197 = 63.9197; liabilities 5 + 5.4 + 4.0 + 0.06 + 1.8 + 13.7895 = 30.0495 plus equity 21 + 12.8702 = 33.8702.
+
+**Part 2, 5% discount (raw materials 4.5 x 0.95 = 4.275, 60% = 2.565 paid in cash on 1 Jul):** changes with respect to Part 1:
+
+| Item | Change vs Part 1 (m.u.) |
+| :--- | ---: |
+| Net income | +0.07875 |
+| Cost of goods sold | -0.1125 |
+| Inventory | -0.1125 |
+| Cash | +0.08775 |
+| Suppliers payable | -0.09 |
+| Taxes payable | +0.03375 |
+| Total assets | -0.02475 |
+| Total liabilities + equity | -0.02475 |
+
+Cash: smaller supplier payment 2.70 - 2.565 = +0.135, minus the extra dividend 0.04725 (60% of +0.07875) gives +0.08775. Balance check: change in assets -0.1125 + 0.08775 = -0.02475 equals the change in liabilities and equity -0.09 + 0.03375 + 0.0315 = -0.02475.
+
+### Phase 4: Units and sanity checks
+* Currency: m.u. (monetary units); all CEMED figures are in m.u.
+* Accounting equation: $63.9197 = 30.0495 + 33.8702$ (Part 1) and $63.89495 = 63.89495$ (Part 2).
+* Cash identity Part 1: inflows 67.0000 - outflows 38.8303 = 28.1697 (equals the ledger cash).
+* Limit check: with a 0% discount all changes vanish; the net-income gain equals the after-tax saving $0.1125 \times (1 - 0.30) = 0.07875$, so it is higher with the discount.
+
 ## 🔗 Related Notes
 * [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
 * [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Previous Problem: WIFINET S.L.]]
