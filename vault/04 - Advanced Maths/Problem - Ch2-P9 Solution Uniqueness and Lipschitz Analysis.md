@@ -106,7 +106,7 @@ Non-uniqueness and the Lipschitz condition are consistent: in (iii) and (iv), $\
 
 | Part | Unique for every $x_0 \geq 0$? | Comment |
 | :--- | :--- | :--- |
-| (i) | Yes | $f \in C^1$; solutions stay bounded |
+| (i) | Yes | $f \in C^1$; forward in time the solutions stay bounded (they tend to the equilibria $0$ or $1$). Backward in time, for $x_0 > 1$ the solution escapes to $+\infty$ in finite negative time, because $\int^{\infty} dx/(x - x^3)$ converges |
 | (ii) | Yes (locally in time) | blow-up at $T^* = 1/(2x_0^2)$ for $x_0 > 0$ |
 | (iii) | No | fails at $x_0 = 0$: $x \equiv 0$ and $x = (2t/3)^{3/2}$ |
 | (iv) | No | fails at $x_0 = 0$: $x \equiv 0$ and $x = T^{-1}(t)$ |

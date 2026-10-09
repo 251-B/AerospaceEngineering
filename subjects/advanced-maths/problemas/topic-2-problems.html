@@ -1690,7 +1690,7 @@
           <div class="table-container"><table class="data-table">
             <thead><tr><th>Part</th><th>Unique for every $x_0 \geq 0$?</th><th>Comment</th></tr></thead>
             <tbody>
-              <tr><td>(i)</td><td>Yes</td><td>$f \in C^1$; solutions stay bounded</td></tr>
+              <tr><td>(i)</td><td>Yes</td><td>$f \in C^1$; forward in time the solutions stay bounded (they tend to the equilibria $0$ or $1$). Backward in time, for $x_0 &gt; 1$ the solution escapes to $+\infty$ in finite negative time, because $\int^{\infty} dx/(x - x^3)$ converges</td></tr>
               <tr><td>(ii)</td><td>Yes (locally in time)</td><td>blow-up at $T^* = 1/(2x_0^2)$ for $x_0 &gt; 0$</td></tr>
               <tr><td>(iii)</td><td>No</td><td>fails at $x_0 = 0$: $x \equiv 0$ and $x = (2t/3)^{3/2}$</td></tr>
               <tr><td>(iv)</td><td>No</td><td>fails at $x_0 = 0$: $x \equiv 0$ and $x = T^{-1}(t)$</td></tr>
@@ -1879,7 +1879,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Verification, Limits and Interpretation</div>
         <p>Sanity check of the geometry: in (i), the line $y = -2$ and the curve $y(t)$ with $y(0) = 0$ are separated by a vertical gap $2$ at $t = 0$; the gap is positive for all $t$. In (ii), the vertical gap between $y_1$ and $y_2$ at $t=0$ is $2$ and $y(0) = 0$ lies strictly inside; at $t = 1$ the bounds are $-2 &lt; y(1) &lt; 2$, and at $t = -1$ they are $0 &lt; y(-1) &lt; 2$.</p>
-        <p>Limits of the conclusion: it holds only on the common interval of existence $J$; the bounds say nothing about whether $y$ exists globally. If $f$ were not Lipschitz (for example $y' = 3y^{2/3}$, Problem 2.14), different solutions could touch or merge, and the bounds would be lost.</p>
+        <p>Limits of the conclusion: it holds only on the common interval of existence $J$; the bounds alone do not say how large $J$ is. Erratum: if $f$ satisfies the hypotheses of the theorem on the whole region $\mathbb{R}^2$ (continuous with $\partial f/\partial y$ continuous), then in (ii) the solution cannot blow up in finite time, since it is trapped between $y_1$ and $y_2$, which are bounded on every bounded interval; hence $y$ is defined for all $t \in \mathbb{R}$ (in (i) there is only a lower bound, so blow-up to $+\infty$ is not excluded). If $f$ is only defined on a smaller region, $J$ may be smaller. If $f$ were not Lipschitz (for example $y' = 3y^{2/3}$, Problem 2.14), different solutions could touch or merge, and the bounds would be lost.</p>
         <p>The data in (ii) are a consistency condition for $f$ as well: two solutions that do not meet can coexist, whereas two that cross (say $y_1 = t$, $y_2 = -t$ intersecting at $t = 0$) would contradict the uniqueness hypothesis.</p>
         <div class="result-box">
           <div class="result-box-title">Conclusions</div>
@@ -2065,7 +2065,7 @@
           <div class="sub-case-header">Where the branching comes from</div>
         <p>For $y &gt; 0$ the equation is separable: $\dfrac{dy}{3y^{2/3}} = dt$. Integrating, $y^{1/3} = t + c$, so $y = (t + c)^3$ for $t + c &gt; 0$. For every $c \in [0,1]$ define</p>
         $$ y_c(t) = \begin{cases} 0, &amp; -1 \leq t \leq c,\\ (t - c)^3, &amp; c &lt; t \leq 1. \end{cases} $$
-        <p>At $t = c$ the one-sided derivatives are both $0$ ($\frac{d}{dt}(t-c)^3 = 3(t-c)^2 \to 0$), so $y_c$ is $C^1$, it satisfies the ODE on each piece and $y_c(0) = 0$. Hence the IVP has infinitely many solutions, and $y_1 = t^3$ (with $c = 0$) and $y_2 = 0$ (the limit $c \geq 1$) are two members of a larger family (the same can be done on the negative side with $y = (t-c)^3$, $t &lt; c \leq 0$).</p>
+        <p>At $t = c$ the one-sided derivatives are both $0$ ($\frac{d}{dt}(t-c)^3 = 3(t-c)^2 \to 0$), so $y_c$ is $C^1$, it satisfies the ODE on each piece and $y_c(0) = 0$. Hence the IVP has infinitely many solutions, and $y_2 = 0$ (the limit $c \geq 1$) is a member of the family. Note that $y_c$ with $c = 0$ is $0$ for $t \leq 0$ and $t^3$ for $t &gt; 0$; the function $y_1 = t^3$ on all of $[-1,1]$ is a different solution, obtained by using the negative-side branch $y = (t-c)^3$, $t &lt; c$, with $c = 0$ (valid since $y^{1/3} = t - c$ requires only $y$ and $t-c$ to have the same sign, and $\frac{d}{dt}t^3 = 3t^2 = 3(t^3)^{2/3}$).</p>
         </div>
       </div>
 

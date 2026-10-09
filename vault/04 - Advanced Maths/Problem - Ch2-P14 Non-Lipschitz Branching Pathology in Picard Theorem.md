@@ -77,7 +77,7 @@ $$
 y_c(t) = \begin{cases} 0, & -1 \leq t \leq c,\\ (t - c)^3, & c < t \leq 1. \end{cases}
 $$
 
-At $t = c$ the one-sided derivatives are both $0$ ($\frac{d}{dt}(t-c)^3 = 3(t-c)^2 \to 0$), so $y_c$ is $C^1$, it satisfies the ODE on each piece and $y_c(0) = 0$. Hence the IVP has infinitely many solutions, and $y_1 = t^3$ (with $c = 0$) and $y_2 = 0$ (the limit $c \geq 1$) are two members of a larger family (the same can be done on the negative side with $y = (t-c)^3$, $t < c \leq 0$).
+At $t = c$ the one-sided derivatives are both $0$ ($\frac{d}{dt}(t-c)^3 = 3(t-c)^2 \to 0$), so $y_c$ is $C^1$, it satisfies the ODE on each piece and $y_c(0) = 0$. Hence the IVP has infinitely many solutions, and $y_2 = 0$ (the limit $c \geq 1$) is a member of the family. Note that $y_c$ with $c = 0$ is $0$ for $t \leq 0$ and $t^3$ for $t > 0$; the function $y_1 = t^3$ on all of $[-1,1]$ is a different solution, obtained by using the negative-side branch $y = (t-c)^3$, $t < c$, with $c = 0$ (valid since $\frac{d}{dt}t^3 = 3t^2 = 3(t^3)^{2/3}$).
 
 ---
 

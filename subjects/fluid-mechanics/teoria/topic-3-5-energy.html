@@ -534,7 +534,7 @@
         </div>
         <p>For a moving boundary, $p\,\vec{v}\cdot\vec{n}=p\,(\vec{v}-\vec{v}_c)\cdot\vec{n}+p\,\vec{v}_c\cdot\vec{n}$. The first part joins the enthalpy flux in the same way and the second part is the work of the pressure on the moving boundary, which stays on the right-hand side.</p>
         <h3 class="sub-heading">Step 4: Gravity and the total enthalpy $h_0$ (extension)</h3>
-        <p><strong>Extension, not in the Notes.</strong> For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. 3.14 with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.5) lets the body-force power be written as a divergence:</p>
+        <p><strong>Extension, not in the Notes.</strong> For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. 3.14 with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.8) lets the body-force power be written as a divergence:</p>
         <div class="math-block">
           $$ \rho\vec{f}_m\cdot\vec{v}=-\rho\vec{v}\cdot\nabla(gz)=-\nabla\cdot(\rho\,gz\,\vec{v})+gz\,\nabla\cdot(\rho\vec{v})=-\nabla\cdot(\rho\,gz\,\vec{v}) $$
         </div>
@@ -575,7 +575,7 @@
           $$ \mathbf{h_0 = h + \frac{|\vec{v}|^2}{2} + gz} $$
         </div>
 
-        <p>For a calorically perfect gas ($h = c_p T$), the stagnation enthalpy is directly proportional to the <strong>stagnation temperature</strong> $T_0$:</p>
+        <p>For a calorically perfect gas ($h = c_p T$), the stagnation enthalpy is directly proportional to the <strong>stagnation temperature</strong> $T_0$ (here the $gz$ term of $h_0$ is neglected, which is customary for gases because $g\,\Delta z \ll c_p T$):</p>
         <div class="math-block">
           $$ h_0 = c_p T_0 = c_p T + \frac{|\vec{v}|^2}{2} $$
         </div>
@@ -637,7 +637,7 @@
             <div class="math-block">
               $$ \mathbf{T_s = \frac{\dot{m}_1 T_1 + \dot{m}_2 T_2}{\dot{m}_1 + \dot{m}_2}} $$
             </div>
-            <p>When discharge kinetic energy is non-negligible (high-speed nozzle discharge):</p>
+            <p>When discharge kinetic energy is non-negligible (high-speed nozzle discharge; for a liquid this formula is consistent only if the pressure differences are negligible compared with $ho v^2$, since the neglected $p/ho$ terms are of the same order as $v^2/2$; for an ideal gas it is exact):</p>
             <div class="math-block">
               $$ \mathbf{T_s = \frac{\dot{m}_1 T_1 + \dot{m}_2 T_2}{\dot{m}_1 + \dot{m}_2} + \frac{\dot{m}_1 v_1^2 + \dot{m}_2 v_2^2 - (\dot{m}_1+\dot{m}_2)v_s^2}{2 c_p (\dot{m}_1 + \dot{m}_2)}} $$
             </div>

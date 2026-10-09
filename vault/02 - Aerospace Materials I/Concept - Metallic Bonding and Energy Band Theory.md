@@ -48,7 +48,7 @@ $$\text{Valence Electrons } Z \uparrow \implies \text{Charge Density of Electron
    * Melting Temperature: $\mathbf{851.0^\circ\text{C}}$ ($1124.2\text{ K}$)
 3. **Transition Metals (3d, 4d, 5d series — e.g., $\text{Ti}, \text{V}, \text{Cr}, \text{Fe}, \text{W}$):**
    * Transition metals involve both outer $s$ electrons and partially filled inner $d$ orbitals in bonding.
-   * The localized covalent-like overlap of directional $d$ orbitals reinforces the metallic electron sea, yielding exceptional cohesive energies ($E_b = 400\text{--}850\text{ kJ/mol}$) and very high melting points (e.g., Titanium $T_m = 1668^\circ\text{C}$, Tungsten $T_m = 3422^\circ\text{C}$).
+   * The localized covalent-like overlap of directional $d$ orbitals reinforces the metallic electron sea, yielding exceptional cohesive energies ($E_b = 400\text{--}850\text{ kJ/mol}$) and very high melting points (e.g., Titanium $T_m = 1660^\circ\text{C}$, Tungsten $T_m = 3422^\circ\text{C}$).
 
 ---
 

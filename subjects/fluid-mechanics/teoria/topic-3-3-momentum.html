@@ -692,7 +692,7 @@
         <div class="walkthrough-box">
           <span class="walkthrough-badge">Canonical Walkthrough 1 · CL3 Setup</span>
           <h2 class="walkthrough-title">Reducing 90° Pipe Elbow &amp; Mouthpiece</h2>
-          <p><strong>Problem:</strong> Water ($\rho$) flows steadily through a horizontal reducing 90° elbow. Inlet 1 has area $A_1$, velocity $v_1\hat{i}$, and gauge pressure $p_{g1}$. Exit 2 has area $A_2 < A_1$, points vertically $+y$ ($v_2\hat{j}$), and discharges into the atmosphere ($p_{g2} = 0$). Fluid mass inside the bend is $m_f$. Determine the anchoring force $\vec{R}$ required to hold the elbow stationary.</p>
+          <p><strong>Problem:</strong> Water ($\rho$) flows steadily through a reducing 90° elbow lying in the vertical plane $x$-$y$ ($\hat{j}$ pointing up, so gravity acts along $-\hat{j}$). Inlet 1 has area $A_1$, velocity $v_1\hat{i}$, and gauge pressure $p_{g1}$. Exit 2 has area $A_2 < A_1$, points vertically $+y$ ($v_2\hat{j}$), and discharges into the atmosphere ($p_{g2} = 0$). Fluid mass inside the bend is $m_f$. Determine the anchoring force $\vec{R}$ required to hold the elbow stationary.</p>
 
           <div class="step-box">
             <div class="step-header">
@@ -768,7 +768,7 @@
           <div class="step-box">
             <div class="step-header"><span class="step-badge">Derivation</span><span class="step-title">The Wake Momentum-Deficit Drag Integral</span></div>
             <p>Select a large rectangular control volume of length $2L$ and height $2H > 2b$. Far upstream and downstream, static pressure has recovered to free stream $p_\infty$, so net pressure forces vanish ($\oint (p-p_\infty)\vec{n}d\sigma = \vec{0}$).</p>
-            <p>The drag force $D$ is the horizontal force exerted by the airfoil on the fluid, opposing motion (pushes $-x$ on fluid):</p>
+            <p>The drag $D$ is the horizontal force exerted by the fluid on the airfoil (along $+x$, in the flow direction); by action and reaction the fluid receives $-D$ (pushes $-x$ on the fluid, opposing the flow):</p>
             <div class="math-block">
               $$ -D = \int_{\Sigma_c} \rho v_x (\vec{v}\cdot\vec{n}) \, d\sigma $$
             </div>

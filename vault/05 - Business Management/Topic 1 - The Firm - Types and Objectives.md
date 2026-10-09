@@ -52,7 +52,7 @@ The deck splits business functions into three groups and draws the cycle *Inputs
 Management process: **planning, organizing, leading and controlling** (Henri Fayol, 1841-1925, as cited on the slide).
 $$\text{Planning} \longrightarrow \text{Organizing} \longrightarrow \text{Leading} \longrightarrow \text{Controlling}$$
 
-*(standard reference, not on the slides; textbook descriptions)*
+*(descriptions paraphrase the four-stage cycle diagram on [Slide 14])*
 1. **Planning:** defining goals and strategies and developing plans to coordinate activities.
 2. **Organizing:** deciding which tasks are done, by whom, how they are grouped and who reports to whom.
 3. **Leading:** motivating, communicating and resolving conflicts.

@@ -22,7 +22,7 @@ prerrequisitos:
 ## 🎯 1. Fundamental Mechanism and Directionality
 
 ### 1.1 Orbital Overlap and Electron Sharing [Slide 17]
-* **Origin:** Forms predominantly between non-metallic elements positioned close to one another in the periodic table with small electronegativity differences ($\Delta\chi < 1.7$).
+* **Origin:** Forms predominantly between non-metallic elements positioned close to one another in the periodic table with small electronegativity differences ($\Delta\chi \lesssim 2$, a common textbook rule of thumb; the transition is continuous with no sharp threshold).
 * **Mechanism:** Rather than an outright loss or gain of electrons, atoms achieve a stable octet (noble gas configuration $s^2 p^6$) by sharing pairs of valence electrons in localized molecular orbitals situated directly between the bonded nuclei.
 * **Strict Directionality:** Unlike spherically symmetric ionic or metallic interactions, covalent bonds are **highly directional**. The electron density is concentrated along specific spatial vectors dictated by quantum mechanical orbital hybridization ($sp, sp^2, sp^3$).
 
@@ -67,8 +67,8 @@ Where:
 * Units: Measured in **Debye ($\text{D}$)**, where:
   $$1\text{ D} = 3.33 \times 10^{-30}\text{ C}\cdot\text{m}$$
 
-### 3.2 Percentage of Ionic Character (Hannay-Smyth Equation) [Slide 20]
-The transition between pure covalent and pure ionic bonding is a continuous spectrum governed by the electronegativity difference $\Delta\chi = |X_A - X_B|$. The percentage of ionic character is quantitatively modeled by the **Hannay-Smyth equation**:
+### 3.2 Percentage of Ionic Character (Pauling Relation) [Slide 20]
+The transition between pure covalent and pure ionic bonding is a continuous spectrum governed by the electronegativity difference $\Delta\chi = |X_A - X_B|$. The percentage of ionic character is quantitatively modeled by the **Pauling relation** (the slide gives the formula without a name; the Hannay-Smyth form is instead $16|\Delta\chi| + 3.5\,\Delta\chi^2$):
 
 $$\% \text{ Ionic Character} = \left[1 - \exp\left(-0.25\,(X_A - X_B)^2\right)\right] \times 100\%$$
 
@@ -91,9 +91,9 @@ $$\text{Bond Order } \uparrow \implies \text{Bond Length } (d) \downarrow \impli
 ### Experimental Carbon-Carbon Benchmark:
 | Bond Type | Bond Order | Average Bond Length ($d$) | Bond Dissociation Energy ($E_b$) |
 | :--- | :--- | :--- | :--- |
-| $\text{C}-\text{C}$ (Single) | $1$ | $0.154\text{ nm}$ ($1.54\text{ \AA}$) | $\mathbf{348\text{ kJ/mol}}$ ($83\text{ kcal/mol}$) |
-| $\text{C}=\text{C}$ (Double) | $2$ | $0.134\text{ nm}$ ($1.34\text{ \AA}$) | $\mathbf{614\text{ kJ/mol}}$ ($147\text{ kcal/mol}$) |
-| $\text{C}\equiv\text{C}$ (Triple) | $3$ | $0.120\text{ nm}$ ($1.20\text{ \AA}$) | $\mathbf{839\text{ kJ/mol}}$ ($201\text{ kcal/mol}$) |
+| $\text{C}-\text{C}$ (Single) | $1$ | $0.154\text{ nm}$ ($1.54\text{ \AA}$) | $\mathbf{370\text{ kJ/mol}}$ ($88\text{ kcal/mol}$) |
+| $\text{C}=\text{C}$ (Double) | $2$ | $0.13\text{ nm}$ ($1.3\text{ \AA}$) | $\mathbf{680\text{ kJ/mol}}$ ($162\text{ kcal/mol}$) |
+| $\text{C}\equiv\text{C}$ (Triple) | $3$ | $0.12\text{ nm}$ ($1.2\text{ \AA}$) | $\mathbf{890\text{ kJ/mol}}$ ($213\text{ kcal/mol}$) |
 
 * **Diatomic Gas Comparison [Slide 21]:**
   * $\text{F}_2$ (single bond $\text{F}-\text{F}$, bond order 1): $d = 1.42\text{ \AA}$, $E_b = 158\text{ kJ/mol}$.

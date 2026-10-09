@@ -314,7 +314,7 @@ The last term vanishes because $\epsilon_{kij}$ is antisymmetric in $(i,j)$ and 
 
 $$ \int_{V}\vec{r}\wedge(\nabla\cdot\bar{\bar{\tau}})\,dV=\int_{\Sigma}\vec{r}\wedge(\bar{\bar{\tau}}\cdot\vec{n})\,d\sigma $$
 
-which proves that Eq. 3.37 follows from Newton's law for linear momentum. The symmetry of the stress tensor is exactly the condition that makes both statements agree.
+which shows that linear momentum together with a symmetric stress tensor is equivalent to Eq. 3.37. The symmetry of the stress tensor is exactly the condition that makes both statements agree. Note that this is not a derivation of Eq. 3.37 from linear momentum alone: in Notes.pdf (pp. 29-30) the symmetry of $ar{ar{	au}}$ (Eq. 3.19) is itself obtained from angular momentum, so the argument would be circular if read that way.
 
 ### Step 3: Transfer to a moving control volume (Eq. 3.38)
 
@@ -424,7 +424,7 @@ For a moving boundary, $p\,\vec{v}\cdot\vec{n}=p\,(\vec{v}-\vec{v}_c)\cdot\vec{n
 
 ### Step 4: Gravity and the total enthalpy $h_0$ (extension)
 
-**Extension, not in the Notes.** For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. 3.14 with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.5) lets the body-force power be written as a divergence:
+**Extension, not in the Notes.** For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. 3.14 with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.8) lets the body-force power be written as a divergence:
 
 $$ \rho\vec{f}_m\cdot\vec{v}=-\rho\vec{v}\cdot\nabla(gz)=-\nabla\cdot(\rho\,gz\,\vec{v})+gz\,\nabla\cdot(\rho\vec{v})=-\nabla\cdot(\rho\,gz\,\vec{v}) $$
 

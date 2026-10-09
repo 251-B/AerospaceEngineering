@@ -101,9 +101,9 @@ Relating the magnitude of the microscopic restoring force to macroscopic stress 
 
 $$\sigma = \frac{F}{r_0^2} = \frac{S_0 \Delta r}{r_0^2} = \left(\frac{S_0}{r_0}\right)\left(\frac{\Delta r}{r_0}\right) = \left(\frac{S_0}{r_0}\right)\varepsilon$$
 
-Comparing with Hooke's Law ($\sigma = E \varepsilon$):
+Comparing with Hooke's Law ($\sigma = E \varepsilon$). *Note:* Slide 13 is qualitative (steep, narrow well gives high $E$); $E \propto S_0/r_0$ is an order-of-magnitude extension (for NaCl it gives about $255\text{ GPa}$ against about $40\text{ GPa}$ measured):
 
-$$E_{\text{Young}} = \frac{S_0}{r_0} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0}$$
+$$E_{\text{Young}} \sim \frac{S_0}{r_0} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0}$$
 
 ### 2.2 Physical Meaning [Slide 13]:
 * **Steep, Deep Well:** A steep potential well possesses a large second derivative (sharp curvature). A very high external mechanical force is required to pull atoms away from $r_0$. Thus, **materials with deep, narrow wells exhibit high Young's modulus ($E$)**.

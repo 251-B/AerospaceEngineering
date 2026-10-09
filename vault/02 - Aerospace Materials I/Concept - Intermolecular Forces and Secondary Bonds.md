@@ -25,7 +25,7 @@ prerrequisitos:
 ### 1.1 Energetic Contrast with Primary Bonds [Slide 29]
 While primary bonds (ionic, covalent, metallic) involve valence electron transfer, sharing, or delocalization with cohesive energies ranging from $100$ to over $1500\text{ kJ/mol}$, secondary bonds do not involve shared or transferred electrons. Instead, they arise from weak electrostatic attractions between localized electric charge centers:
 
-$$\text{Primary Bonds: } 125\text{--}370\text{ kcal/mol } (523\text{--}1548\text{ kJ/mol})$$
+$$\text{Primary Bonds: } 25\text{--}370\text{ kcal/mol } (105\text{--}1548\text{ kJ/mol}) \quad (\text{ionic } 150\text{--}370,\ \text{covalent } 125\text{--}300,\ \text{metallic } 25\text{--}200)$$
 $$\text{Secondary Bonds: } < 10\text{ kcal/mol } (< 42\text{ kJ/mol})$$
 
 ### 1.2 Origin of Dipoles [Slide 30]

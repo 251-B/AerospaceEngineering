@@ -252,7 +252,7 @@ Physical motion exists only in regions where $E^* \ge W_{\text{eff}}(u)$. Turnin
 | $\alpha = 4$ | $(0.5, 0.9)$, $E^* > 1/3$ | collapse | $u \to \infty$ at $\theta = 3.258$ |
 | $\alpha = 4$ | $(0.5, -0.9)$, $E^* > 1/3$ | escape | $u = 0$ at $\theta = 0.524$ |
 | $\alpha = 4$ | $(1, 0)$, $E^* = W_{\max}$ | unstable circular orbit | $u = 1$ for $20$ rad |
-| $\alpha = 3$, $\mu/h^2 = 2$ | $(1, 0.2)$, $C_1 > 0$ | collapse | $u \to \infty$ at $\theta = 4.423$ |
+| $\alpha = 3$, $\mu/h^2 = 2$ | $(1, 0.2)$, $C_1 > 0$ | collapse | $u = \cosh\theta + 0.2\sinh\theta$ is finite at every finite $\theta$ and $\to \infty$ only as $\theta \to \infty$ (the particle reaches $r = 0$ in finite time after infinitely many turns); $\theta = 4.423$ is the integrator cutoff |
 | $\alpha = 3$, $\mu/h^2 = 2$ | $(1, -1.5)$, $C_1 < 0$ | escape | $u = 0$ at $\theta = 0.805$ |
 | $\alpha = 3$, $\mu/h^2 = 1/2$ | $(1, 0)$ | escape | $u = 0$ at $\theta = 2.222$ |
 | $\alpha = 3$, $\mu = h^2$ | $(1, -0.1)$ | escape at $\theta = 10$ | $u = 0$ at $\theta = 10.000$ |

@@ -674,8 +674,8 @@
             $$k_B T_m \propto E_0 \implies \text{Deeper Well } (E_0 \uparrow) \implies T_m \uparrow$$
           </li>
           <li style="margin-bottom: 12px;">
-            <strong>Young's Modulus of Elasticity ($E$) [Slide 13]:</strong> Governed by the local curvature (second derivative) at the bottom of the well:
-            $$E_{\text{Young}} = \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = -\frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
+            <strong>Young's Modulus of Elasticity ($E$) [Slide 13]:</strong> Slide 13 states qualitatively that a steep, narrow well (large curvature) gives a high $E$. The relation below, $E \propto S_0/r_0$, is an order-of-magnitude extension (not on the slides), obtained by treating the bond as a spring of stiffness $S_0 = d^2E_{\text{net}}/dr^2|_{r_0}$ acting on a cross-section $\sim r_0^2$:
+            $$E_{\text{Young}} \sim \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = -\frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
             (since $F_{\text{net}} = -dE_{\text{net}}/dr$, the slope of the force curve at $r_0$ is negative, so $-dF_{\text{net}}/dr > 0$). Using the equilibrium condition, $\left.d^2E_{\text{net}}/dr^2\right|_{r_0} = \dfrac{m(n-m)A}{r_0^{m+2}} > 0$.
             A steep, narrow potential well requires immense mechanical force per unit displacement to stretch bonds, yielding a high elastic modulus.
           </li>
@@ -705,7 +705,7 @@
       <h2 class="section-heading"><span class="section-num">§ 3</span> Primary Bonding I — Ionic Bonding & Born-Landé Lattice Energy [Slides 4–15]</h2>
 
       <p>
-        Ionic bonding occurs between strongly electropositive metals and strongly electronegative non-metals ($\Delta\chi > 2.0$). Valence electrons are completely transferred from the metal atom (forming a contracted cation, $r_{c+} < r_{\text{atom}}$) to the non-metal (forming an expanded anion, $r_{a-} > r_{\text{atom}}$) [Slides 4–6].
+        Ionic bonding occurs between strongly electropositive metals and strongly electronegative non-metals ($\Delta\chi > 2.0$, a common textbook rule of thumb, not stated on the slides; the transition is continuous, see the ionic-character relation below). Valence electrons are completely transferred from the metal atom (forming a contracted cation, $r_{c+} < r_{\text{atom}}$) to the non-metal (forming an expanded anion, $r_{a-} > r_{\text{atom}}$) [Slides 4–6].
       </p>
 
       <p>
@@ -740,7 +740,7 @@
       <div class="math-block">
         $$A_{\text{NaCl}} = 6 - \frac{12}{\sqrt2} + \frac{8}{\sqrt3} - \frac62 + \frac{24}{\sqrt5} - \cdots = 1.7476$$
       </div>
-      <p>The partial sums ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\dots$) oscillate because the series is only conditionally convergent; the value $1.7476$ comes from a charge-neutral (Evjen or Ewald) summation and is quoted, not derived, in the course. The energy per ion pair is $E(a) = -AK/a + B/a^n$, and the condition $dE/da = 0$ at $a_0$ gives</p>
+      <p>The partial sums ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\dots$) oscillate because the series is only conditionally convergent; the value $1.7476$ comes from a charge-neutral (Evjen or Ewald) summation and is quoted, not derived. No Madelung value appears on the slides: $1.7476$ is the standard NaCl value (an extension). The energy per ion pair is $E(a) = -AK/a + B/a^n$, and the condition $dE/da = 0$ at $a_0$ gives</p>
       <div class="math-block">
         $$\frac{AK}{a_0^2} = \frac{nB}{a_0^{n+1}} \;\Rightarrow\; B = \frac{AK\,a_0^{\,n-1}}{n} \;\Rightarrow\; E(a_0) = -\frac{AK}{a_0} + \frac{AK}{n\,a_0} = -\frac{AK}{a_0}\left(1 - \frac1n\right)$$
       </div>
@@ -801,8 +801,8 @@
       <div class="card">
         <p><strong>1. Melting Temperature ($T_m$) [Slide 10]:</strong></p>
         <ul style="padding-left: 20px; margin-bottom: 12px;">
-          <li><strong>Valence effect:</strong> Increasing valence $Z$ massively scales $U \propto Z_1 Z_2$. For $\text{NaCl}$ ($Z=1$), $T_m = 801^\circ\text{C}$; for $\text{MgO}$ ($Z=2$), $T_m = 2852^\circ\text{C}$.</li>
-          <li><strong>Ionic size effect:</strong> In an isovalent series, increasing ion radius $a_0$ reduces $U \propto 1/a_0$, causing $T_m$ to decline monotonically ($\text{LiF} > \text{NaCl} > \text{KBr} > \text{CsI}$).</li>
+          <li><strong>Valence effect:</strong> Increasing valence $Z$ massively scales $U \propto Z_1 Z_2$. For $\text{NaCl}$ ($Z=1$), $T_m = 801^\circ\text{C}$; for $\text{MgO}$ ($Z=2$), $T_m = 2800^\circ\text{C}$ [Slide 10].</li>
+          <li><strong>Ionic size effect:</strong> In an isovalent series, increasing ion radius $a_0$ reduces $U \propto 1/a_0$, causing $T_m$ to fall with ion size for the chlorides on the slide (NaCl $801^\circ\text{C}$, KCl $776$, RbCl $715$, CsCl $646$). LiCl ($613^\circ\text{C}$) breaks a strictly monotonic trend, so the slide states only that larger ions generally lower $U$ and $T_m$ [Slide 10].</li>
         </ul>
 
         <p><strong>2. Mohs Hardness vs Interionic Distance ($d$) [Slide 11]:</strong></p>
@@ -857,7 +857,7 @@
       <h2 class="section-heading"><span class="section-num">§ 4</span> Primary Bonding II — Covalent Bonding & Polar Character [Slides 16–21, 38]</h2>
 
       <p>
-        Covalent bonding occurs predominantly between non-metallic elements with small differences in electronegativity ($\Delta\chi < 1.7$). Atoms share outer $s$ and $p$ valence electrons in localized molecular orbitals to attain closed-shell noble gas configurations ($s^2 p^6$) [Slide 17].
+        Covalent bonding occurs predominantly between non-metallic elements with small differences in electronegativity ($\Delta\chi \lesssim 2$, a common textbook rule of thumb; the covalent-ionic transition is continuous and has no sharp threshold). Atoms share outer $s$ and $p$ valence electrons in localized molecular orbitals to attain closed-shell noble gas configurations ($s^2 p^6$) [Slide 17].
       </p>
 
       <h3 class="sub-heading">Directionality and Tetrahedral Architecture [Slide 18]</h3>
@@ -880,7 +880,7 @@
         <li>Electrical insulators in both solid and molten states due to wide localized band gaps ($E_g > 3\text{--}6\text{ eV}$).</li>
       </ul>
 
-      <h3 class="sub-heading">Polarity and the Hannay-Smyth Relation [Slide 20]</h3>
+      <h3 class="sub-heading">Polarity and the Ionic-Character Relation [Slide 20]</h3>
       <p>
         When bonded atoms possess unequal electronegativities, electron sharing becomes unequal, generating a partial charge separation $\delta^+ - \delta^-$ and an electric dipole moment:
       </p>
@@ -890,7 +890,7 @@
       </div>
 
       <p>
-        The continuous transition between pure covalent and ionic bonding is quantified by the <strong>Hannay-Smyth equation</strong> [Slide 20]:
+        The continuous transition between pure covalent and ionic bonding is quantified by the <strong>Pauling relation</strong> [Slide 20] (the slide gives the formula without a name; it is Pauling's expression, whereas the Hannay-Smyth form is $16|\Delta\chi| + 3.5\,\Delta\chi^2$):
       </p>
 
       <div class="math-block">
@@ -903,7 +903,7 @@
       </p>
       <div class="math-block">
         $$\text{Bond Order } \uparrow \implies \text{Bond Length } (d) \downarrow \implies \text{Bond Energy } (E_b) \uparrow$$
-        $$\text{C}-\text{C } (1.54\text{ \AA}, 348\text{ kJ/mol}) \quad \longrightarrow \quad \text{C}=\text{C } (1.34\text{ \AA}, 614\text{ kJ/mol}) \quad \longrightarrow \quad \text{C}\equiv\text{C } (1.20\text{ \AA}, 839\text{ kJ/mol})$$
+        $$\text{C}-\text{C } (0.154\text{ nm}, 370\text{ kJ/mol}) \quad \longrightarrow \quad \text{C}=\text{C } (0.13\text{ nm}, 680\text{ kJ/mol}) \quad \longrightarrow \quad \text{C}\equiv\text{C } (0.12\text{ nm}, 890\text{ kJ/mol})$$
       </div>
     </section>
 
@@ -950,8 +950,8 @@
               <td><strong>Titanium ($\text{Ti}$)</strong></td>
               <td>$+4$ ($3d^2 4s^2$)</td>
               <td>$[\text{Ar}]\,3d^2 4s^2$</td>
-              <td><strong>$\approx 470\text{ kJ/mol}$</strong></td>
-              <td><strong>$1668.0^\circ\text{C}$</strong></td>
+              <td><strong>$473\text{ kJ/mol}$</strong></td>
+              <td><strong>$1660^\circ\text{C}$</strong></td>
             </tr>
           </tbody>
         </table>
@@ -1030,7 +1030,7 @@
       <h2 class="section-heading"><span class="section-num">§ 6</span> Secondary Bonding & Intermolecular Forces [Slides 28–35, 37–38]</h2>
 
       <p>
-        Secondary bonds (van der Waals interactions) are weak physical attractions ($< 10\text{ kcal/mol} \approx 42\text{ kJ/mol}$) arising from dipole-dipole electrostatic interactions, contrasting sharply with primary bonds ($125\text{--}370\text{ kcal/mol}$) [Slide 29]:
+        Secondary bonds (van der Waals interactions) are weak physical attractions ($< 10\text{ kcal/mol} \approx 42\text{ kJ/mol}$) arising from dipole-dipole electrostatic interactions, contrasting sharply with primary bonds ($25\text{--}370\text{ kcal/mol}$ overall: ionic $150\text{--}370$, covalent $125\text{--}300$, metallic $25\text{--}200$) [Slide 29]:
       </p>
 
       <div class="table-container">
@@ -1173,7 +1173,7 @@
             <span class="phase-badge phase-1">Phase 1: Official Physical Data</span>
             <p>
               $E_{\text{Ti}} \approx 115\text{ GPa} > E_{\text{Al}} \approx 69\text{ GPa}$; 
-              $T_{m,\text{Ti}} = 1668^\circ\text{C} \gg T_{m,\text{Al}} = 660^\circ\text{C}$; 
+              $T_{m,\text{Ti}} = 1660^\circ\text{C} \gg T_{m,\text{Al}} = 660^\circ\text{C}$; 
               $\alpha_{\text{Ti}} \approx 8.6 \times 10^{-6}\text{ K}^{-1} \ll \alpha_{\text{Al}} \approx 23.1 \times 10^{-6}\text{ K}^{-1}$; 
               $r_{0,\text{Ti}} \approx r_{0,\text{Al}} \approx 0.286\text{--}0.289\text{ nm}$.
             </p>
@@ -1217,11 +1217,11 @@
 
                 <line x1="80" y1="330" x2="280" y2="330" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" />
                 <circle cx="280" cy="330" r="5" fill="#f59e0b" />
-                <text x="75" y="334" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f59e0b" text-anchor="end">-E₀(Ti) [Tm = 1668°C]</text>
+                <text x="75" y="334" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f59e0b" text-anchor="end">-E₀(Ti) [Tm = 1660°C]</text>
 
                 <!-- Annotations -->
                 <text x="350" y="248" font-family="'Inter', sans-serif" font-size="11" fill="#3b82f6" font-weight="600">Aluminum: Lower curvature (E=69 GPa), Wide asymmetry (α=23·10⁻⁶ K⁻¹)</text>
-                <text x="330" y="318" font-family="'Inter', sans-serif" font-size="11" fill="#f59e0b" font-weight="600">Titanium: High curvature (E=115 GPa), Deep well (Tm=1668°C), Low α</text>
+                <text x="330" y="318" font-family="'Inter', sans-serif" font-size="11" fill="#f59e0b" font-weight="600">Titanium: High curvature (E=115 GPa), Deep well (Tm=1660°C), Low α</text>
               </svg>
               <div class="diagram-caption">Figure 7.1: Superimposed potential well curves for Titanium vs Aluminum [Slide 39, Q2].</div>
             </div>
@@ -1250,7 +1250,7 @@
           <div class="exam-step">
             <span class="phase-badge phase-1">Phase 1: Problem Statement and Experimental Data</span>
             <p>
-              Magnesium oxide ($\text{MgO}$): Refractory ceramic with $E_{\text{MgO}} \approx 250\text{--}300\text{ GPa}$, $T_m = 2852^\circ\text{C}$.<br>
+              Magnesium oxide ($\text{MgO}$): Refractory ceramic with $E_{\text{MgO}} \approx 250\text{--}300\text{ GPa}$, $T_m = 2800^\circ\text{C}$ (Slide 10).<br>
               Pure Magnesium ($\text{Mg}$): Lightweight metal with $E_{\text{Mg}} \approx 45\text{ GPa}$, $T_m = 650^\circ\text{C}$.
             </p>
           </div>

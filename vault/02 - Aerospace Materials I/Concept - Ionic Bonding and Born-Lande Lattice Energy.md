@@ -22,7 +22,7 @@ prerrequisitos:
 ## 🎯 1. Physical Foundations and Atomic Principles
 
 ### 1.1 Electron Transfer and Ion Formation [Slides 4-6]
-* **Mechanism:** Occurs between elements with a large electronegativity difference ($\Delta\chi > 2.0$, e.g., alkali/alkaline-earth metals and halogens/chalcogens). The electropositive metal atom loses its outer valence electron(s) to become a positively charged **cation**, while the electronegative non-metal gains electron(s) to become a negatively charged **anion**.
+* **Mechanism:** Occurs between elements with a large electronegativity difference ($\Delta\chi \gtrsim 2$ as a common textbook rule of thumb, not stated on the slides; e.g., alkali/alkaline-earth metals and halogens/chalcogens). The electropositive metal atom loses its outer valence electron(s) to become a positively charged **cation**, while the electronegative non-metal gains electron(s) to become a negatively charged **anion**.
 * **Ionic Radii Evolution:**
   * When a metal atom ionizes to form a cation ($M \to M^{z+} + z e^-$), the loss of valence electrons reduces electron-electron repulsion and often strips the outermost shell, causing the **cation radius to contract significantly** ($r_{c+} < r_{\text{atom}}$).
   * When a non-metal gains electrons ($X + z e^- \to X^{z-}$), the increased electron-electron shielding expands the electron cloud, causing the **anion radius to expand** ($r_{a-} > r_{\text{atom}}$).
@@ -100,7 +100,7 @@ For the NaCl structure the shells around a Na$^+$ ion contain 6 Cl$^-$ at $a_0$,
 
 $$A_{\text{NaCl}} = 6 - \frac{12}{\sqrt2} + \frac{8}{\sqrt3} - \frac{6}{2} + \frac{24}{\sqrt5} - \cdots = 1.7476$$
 
-The shell partial sums oscillate strongly ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\ \dots$) because the series is only conditionally convergent; the converged value $1.7476$ is obtained with Ewald or Evjen charge-neutral summation, which is why the constant is quoted rather than derived in the course. Writing the total energy per ion pair as the Madelung attraction plus a short-range repulsion $B/a^n$ gives $E(a) = -AK/a + B/a^n$, which has the same form as the single pair. Imposing $dE/da = 0$ at $a_0$:
+The shell partial sums oscillate strongly ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\ \dots$) because the series is only conditionally convergent; the converged value $1.7476$ is obtained with Ewald or Evjen charge-neutral summation, which is why the constant is quoted rather than derived. No Madelung value appears on the slides: $1.7476$ is the standard NaCl value (an extension). Writing the total energy per ion pair as the Madelung attraction plus a short-range repulsion $B/a^n$ gives $E(a) = -AK/a + B/a^n$, which has the same form as the single pair. Imposing $dE/da = 0$ at $a_0$:
 
 $$\frac{AK}{a_0^2} = \frac{nB}{a_0^{n+1}} \;\Rightarrow\; B = \frac{AK\,a_0^{\,n-1}}{n} \;\Rightarrow\; E(a_0) = -\frac{AK}{a_0} + \frac{AK}{n\,a_0} = -\frac{AK}{a_0}\left(1 - \frac1n\right)$$
 
@@ -159,7 +159,7 @@ $$-438 = (+281) + U \implies U = -438 - 281 = \mathbf{-719\text{ kJ/mol}}$$
 
 ### 5.1 Melting Temperature ($T_m$) [Slide 10]
 * **Influence of Ionic Size:** As the ionic radii increase within a given family (e.g., alkali halides: $\text{LiF} \to \text{NaCl} \to \text{KBr} \to \text{CsI}$), the equilibrium distance $a_0 = r_c + r_a$ increases. Because $U \propto 1/a_0$, **lattice energy decreases, leading to a direct drop in melting point $T_m$**.
-* **Dominant Influence of Valence ($Z_1 Z_2$):** Divalent ionic compounds ($Z_1 = +2, Z_2 = -2$, such as alkaline-earth oxides $\text{MgO}, \text{CaO}$) exhibit a product $Z_1 Z_2 = 4$, quadrupling the electrostatic attraction compared to monovalent halides ($Z_1 Z_2 = 1$). Consequently, $\text{MgO}$ has a massive lattice energy ($|U| \approx 3790\text{ kJ/mol}$) and a soaring melting temperature ($T_m \approx 2852^\circ\text{C}$), whereas $\text{NaCl}$ melts at $801^\circ\text{C}$.
+* **Dominant Influence of Valence ($Z_1 Z_2$):** Divalent ionic compounds ($Z_1 = +2, Z_2 = -2$, such as alkaline-earth oxides $\text{MgO}, \text{CaO}$) exhibit a product $Z_1 Z_2 = 4$, quadrupling the electrostatic attraction compared to monovalent halides ($Z_1 Z_2 = 1$). Consequently, $\text{MgO}$ has a massive lattice energy ($|U| \approx 3790\text{ kJ/mol}$) and a soaring melting temperature ($T_m \approx 2800^\circ\text{C}$), whereas $\text{NaCl}$ melts at $801^\circ\text{C}$.
 
 $$\text{Valence } Z \uparrow \implies U \uparrow \implies T_m \uparrow$$
 $$\text{Ion size } a_0 \uparrow \implies U \downarrow \implies T_m \downarrow$$

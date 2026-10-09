@@ -28,7 +28,7 @@ We are asked to compare the elastic modulus (Young's modulus $E$) of Magnesium O
 | Material | Chemical Nature | Bonding Type | Experimental Young's Modulus ($E$) | Melting Temp ($T_m$) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Magnesium ($\text{Mg}$)** | Pure elemental metal ($Z=12$) | **Metallic** (delocalized electron sea) | **$\approx 45\text{ GPa}$** | $650^\circ\text{C}$ ($923\text{ K}$) |
-| **Magnesium Oxide ($\text{MgO}$)** | Refractory ceramic compound | **Predominantly Ionic** ($\text{Mg}^{2+}\text{O}^{2-}$) | **$\approx 250\text{--}300\text{ GPa}$** | $2852^\circ\text{C}$ ($3125\text{ K}$) |
+| **Magnesium Oxide ($\text{MgO}$)** | Refractory ceramic compound | **Predominantly Ionic** ($\text{Mg}^{2+}\text{O}^{2-}$) | **$\approx 250\text{--}300\text{ GPa}$** | $2800^\circ\text{C}$ ($3073\text{ K}$) |
 
 ### Hipótesis de Partida:
 1. Young's modulus reflects the microscopic bond stiffness $S_0 = (d^2E/dr^2)_{r_0}$ resisting elastic displacement of atoms from equilibrium.
@@ -90,7 +90,7 @@ $$\left.\frac{d^2 E}{dr^2}\right|_{r_0, \text{MgO}} \gg \left.\frac{d^2 E}{dr^2}
 
 * **Definitive Answer:** **$\text{MgO}$ has a much higher modulus of elasticity than pure magnesium** (experimentally, $E_{\text{MgO}} \approx 250\text{--}300\text{ GPa}$ versus $E_{\text{Mg}} \approx 45\text{ GPa}$, a factor of nearly **$6\times$** greater).
 * **Physical Synthesis:** In $\text{MgO}$, the extremely intense localized electrostatic forces between divalent $\text{Mg}^{2+}$ and $\text{O}^{2-}$ ions create a remarkably stiff atomic spring constant. In metallic $\text{Mg}$, the delocalized electron gas provides far lower resistance to elastic bond stretching.
-* **Aerospace Application Note:** While $\text{MgO}$ possesses superior stiffness and refractoriness ($T_m = 2852^\circ\text{C}$), its ionic brittleness precludes its use as a primary monolithic structural airframe metal. Instead, Magnesium alloys are favored for lightweight airframe casings due to their ductility, while oxide ceramics are employed as thermal barrier coatings and structural reinforcements.
+* **Aerospace Application Note:** While $\text{MgO}$ possesses superior stiffness and refractoriness ($T_m = 2800^\circ\text{C}$), its ionic brittleness precludes its use as a primary monolithic structural airframe metal. Instead, Magnesium alloys are favored for lightweight airframe casings due to their ductility, while oxide ceramics are employed as thermal barrier coatings and structural reinforcements.
 
 ---
 *Back to:* [[Topic 1 - Bonding in Solids and Material Properties|⬅️ Back to Topic 1]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]

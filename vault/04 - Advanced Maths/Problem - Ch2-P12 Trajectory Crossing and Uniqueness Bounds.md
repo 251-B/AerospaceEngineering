@@ -74,7 +74,7 @@ The solution is trapped between the two given solutions for as long as it exists
 
 Sanity check of the geometry: in (i), the line $y = -2$ and the curve $y(t)$ with $y(0) = 0$ are separated by a vertical gap $2$ at $t = 0$; the gap is positive for all $t$. In (ii), the vertical gap between $y_1$ and $y_2$ at $t=0$ is $2$ and $y(0) = 0$ lies strictly inside; at $t = 1$ the bounds are $-2 < y(1) < 2$, and at $t = -1$ they are $0 < y(-1) < 2$.
 
-Limits of the conclusion: it holds only on the common interval of existence $J$; the bounds say nothing about whether $y$ exists globally. If $f$ were not Lipschitz (for example $y' = 3y^{2/3}$, Problem 2.14), different solutions could touch or merge, and the bounds would be lost.
+Limits of the conclusion: it holds only on the common interval of existence $J$; the bounds alone do not say how large $J$ is. Erratum: if $f$ satisfies the hypotheses of the theorem on the whole region $\mathbb{R}^2$ (continuous with $\partial f/\partial y$ continuous), then in (ii) the solution cannot blow up in finite time, since it is trapped between $y_1$ and $y_2$, which are bounded on every bounded interval; hence $y$ is defined for all $t \in \mathbb{R}$ (in (i) there is only a lower bound, so blow-up to $+\infty$ is not excluded). If $f$ is only defined on a smaller region, $J$ may be smaller. If $f$ were not Lipschitz (for example $y' = 3y^{2/3}$, Problem 2.14), different solutions could touch or merge, and the bounds would be lost.
 
 The data in (ii) are a consistency condition for $f$ as well: two solutions that do not meet can coexist, whereas two that cross (say $y_1 = t$, $y_2 = -t$ intersecting at $t = 0$) would contradict the uniqueness hypothesis.
 
