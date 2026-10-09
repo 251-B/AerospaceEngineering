@@ -1,0 +1,335 @@
+ODE LECTURE THEORY -> ROBINSON CHAPTER MAP
+Book: J. C. Robinson, "An Introduction to Ordinary Differential Equations"
+(Cambridge University Press, 2004)
+
+Only theory is listed (no exercises). Page numbers are the book's printed
+pages (PDF page minus 16). Lectures covered: Sep 8 to Oct 8 (the Oct 8 date is assumed, see below).
+
+======================================================================
+PART I - FIRST ORDER EQUATIONS
+======================================================================
+
+Ch. 3, Sec. 3.1 (p. 11)
+  - Definition of differential equation
+  - Examples of ODEs and PDEs
+  [Sep 8]
+
+Ch. 3, Sec. 3.2 (p. 13)
+  - Order of an ODE
+  [Sep 8]
+
+Ch. 3, Sec. 3.3 (p. 13)
+  - Linearity / nonlinearity (including the corrected version)
+  [Sep 8, Sep 10]
+
+Ch. 3, Eq. (3.9) (p. 15), then Ch. 25 (p. 249)
+  - Systems of ODEs
+  [Sep 8]
+
+Ch. 5, Sec. 5.3 (p. 29)
+  - Free fall of a body under gravity (Newton's second law, F = ma)
+  [Sep 8]
+
+Ch. 8, Sec. 8.2-8.3 (p. 61-62)
+  - Exponential (Malthus) population growth
+  [Sep 8]
+
+Ch. 8, Sec. 8.5 (p. 66)
+  - Logistic population growth
+  [Sep 8, Sep 10]
+
+Ch. 6, Sec. 6.1 (p. 38)
+  - Definition of IVP
+  - Definition and philosophy of well-posed problem
+  [Sep 10]
+
+Ch. 6, Sec. 6.2 (p. 40)
+  - Picard's theorem (the book's Theorem 6.2)
+  [Sep 10]
+
+Ch. 7, Sec. 7.1-7.2 (p. 46-48)
+  - Autonomous ODEs
+  - Stable / unstable critical points
+  - 1D phase portraits
+  [Sep 10]
+
+Ch. 8, Sec. 8.1 and 8.4 (p. 59, 64)
+  - Separable ODEs: definition and how to solve
+  [Sep 10]
+
+Ch. 9, Sec. 9.1-9.2 (p. 75-76)
+  - First-order linear ODEs by integrating factor
+  [Sep 17]
+
+Ch. 10, Sec. 10.1 (p. 89)
+  - Exact equations
+  [Sep 17]
+
+======================================================================
+PART II - SECOND ORDER LINEAR, CONSTANT COEFFICIENTS
+======================================================================
+
+Ch. 11, Sec. 11.1 (p. 101)
+  - Second-order linear ODEs: existence and uniqueness theorem
+  [Sep 22]
+
+Ch. 11, Sec. 11.2 (p. 102)
+  - Homogeneous vs. nonhomogeneous
+  - Superposition principle
+  [Sep 22]
+
+Ch. 11, Sec. 11.3 (p. 104)
+  - Linearly independent / dependent functions
+  - General solution = combination of two independent solutions
+  [Sep 22]
+
+Ch. 11, Sec. 11.4 (p. 106, starred section)
+  - Wronskian and the proof
+  [Sep 22]
+
+Ch. 13, Sec. 13.1 (p. 120)
+  - Mass-spring system
+  [Sep 22]
+
+Ch. 12, Sec. 12.1-12.3 (p. 112-115)
+  - Constant coefficients: two real roots, one repeated root,
+    complex conjugate pair of roots
+  [Sep 22]
+
+Ch. 14, Sec. 14.1 (p. 131)
+  - Inhomogeneous case
+  - Lemma: general solution = general solution of the homogeneous ODE
+    + a particular solution (and its proof)
+  [Sep 24]
+
+Ch. 14, Sec. 14.2 (p. 133)
+  - Particular solution when f is a polynomial
+  [Sep 24]
+
+Ch. 14, Sec. 14.3 (p. 135)
+  - Particular solution when f is exponential
+  [Sep 24]
+
+Ch. 14, Sec. 14.4 (p. 137)
+  - Particular solution when f is trigonometric
+  [Sep 24]
+
+Ch. 16, Sec. 16.1 (p. 150)
+  - Same strategy for higher-order equations
+  [Sep 24]
+
+Ch. 14, Sec. 14.5 (p. 139)
+  - General rule for the method of undetermined ("indeterminate")
+    coefficients
+  [Sep 29]
+
+======================================================================
+PART III - SECOND ORDER LINEAR, VARIABLE COEFFICIENTS
+======================================================================
+
+Ch. 17 (p. 159)
+  - Linear second-order ODEs with variable coefficients
+  - Reduction of order
+  [Sep 24, Sep 29]
+
+Ch. 18 (p. 164-167, starred chapter)
+  - Method of variation of constants (variation of constants formula,
+    Eq. 18.8) for finding a particular integral of the inhomogeneous
+    equation
+  [Oct 1]
+
+======================================================================
+PART IV - SYSTEMS OF FIRST ORDER ODEs (book Part V, Ch. 25 onwards)
+======================================================================
+
+Ch. 25, Eq. (25.1) and vector form (p. 249-250, starred chapter)
+  - Theory for systems of first-order ODEs
+  - Nonlinear first-order systems, vector notation dx/dt = f(x, t)
+  [Oct 6]
+
+Ch. 25, Definition 25.1 and Theorem 25.2 (p. 250)
+  - Theorem: existence and uniqueness for systems
+    (f and the matrix of partial derivatives Df continuous)
+  [Oct 6]
+
+Ch. 25, Sec. 25.1 (p. 251-252)
+  - How to convert a 2nd order ODE into a system of two first order
+    ODEs (x1 = x, x2 = x')
+  - Existence and uniqueness for the 2nd order equation (Theorem 25.3,
+    which is the same as Theorem 11.1)
+  [Oct 6]
+
+Ch. 26, Eq. (26.1) (p. 253)
+  - Definition of a first-order linear system (2 equations)
+  - Inhomogeneous case: forcing terms f(t), g(t) not zero;
+    homogeneous case: f = g = 0
+  [Oct 6]
+
+Ch. 27, Sec. 27.1 (p. 259-260)
+  - Homogeneous system with constant coefficients written in matrix
+    form: x' = Ax
+  - Superposition principle, Eq. (27.3)
+  [Oct 6]
+
+Ch. 26 (p. 253-256)
+  - Solution method: convert back to a second order ODE with constant
+    coefficients, Eq. (26.2)-(26.3), with Examples 26.1 and 26.2
+  [Oct 6]
+
+Ch. 27, Sec. 27.1-27.2 (p. 260-261)
+  - Solution method (preferred): linear algebra
+  - Reduction of the problem to the eigenvalue problem Av = lambda v
+    (trial solution e^(lambda t) v, Eq. 27.4-27.5; characteristic
+    equation, Eq. 27.8)
+  [Oct 6]
+
+Ch. 28, Sec. 28.1 (p. 270)
+  - General solution as a combination of the two eigenvector solutions
+    (Eq. 28.1), case of distinct real eigenvalues
+  [Oct 6, closest match; the book only fully develops this in Ch. 28]
+
+NOT IN THE BOOK (no section to point to):
+  - Linear independence of vector solutions
+  - Solutions of the homogeneous problem are l.i. if and only if the
+    Wronskian is not 0
+  - Fundamental set of solutions
+  - General solution of the complete system = general solution of the
+    homogeneous system + a particular solution
+  For these, the nearest book material is the scalar (second order)
+  version: Ch. 11, Sec. 11.3-11.4 (p. 104-106) for linear independence
+  and the Wronskian, and Ch. 14, Sec. 14.1 (p. 131) for the
+  "homogeneous + particular" structure.
+
+----------------------------------------------------------------------
+Oct 8 lecture (the date was not given; Oct 8 is assumed from the
+Tuesday/Thursday pattern of the other lectures)
+----------------------------------------------------------------------
+
+Ch. 27, Sec. 27.2 (p. 260-261)
+  - How to find eigenvalues and eigenvectors: solve (A - lambda I)v = 0;
+    nonzero v requires det(A - lambda I) = 0, the characteristic
+    equation, Eq. (27.8); then solve for v for each eigenvalue
+  [Oct 8]
+
+Ch. 27, Example 27.1 (p. 262-263)
+  - Example: find eigenvalues and eigenvectors
+    (A = [2 2; 6 3], lambda = 6 with v = (1, 2), lambda = -1 with
+    v = (2, -3))
+  [Oct 8]
+
+Ch. 27, Examples 27.2 and 27.3 (p. 264)
+  - Eigenvalues of upper-triangular matrices: they are the diagonal
+    entries. Example 27.2 is the diagonal case and Example 27.3 covers
+    both the upper-triangular and lower-triangular 2x2 matrices
+  [Oct 8]
+
+Ch. 27, end of Sec. 27.2 (p. 261) with Examples 27.1, 27.4, 27.5
+(p. 262-266)
+  - Three cases: two distinct real eigenvalues (Example 27.1), one
+    repeated real eigenvalue (Example 27.4, p. 265), complex conjugate
+    pair (Example 27.5, p. 265-266). The book then treats each case in
+    its own chapter: Ch. 28, Ch. 30 and Ch. 29 respectively
+  [Oct 8]
+
+Ch. 28, Sec. 28.1 (p. 270-271)
+  - Case 1) two distinct real eigenvalues
+  - General solution x(t) = A e^(lambda1 t) v1 + B e^(lambda2 t) v2,
+    Eq. (28.1), with Example 28.1 (p. 270-271)
+  [Oct 8]
+
+Ch. 28, Sec. 28.2 (p. 271-272) and Appendix B (p. 384)
+  - Proof that the two solutions are linearly independent. The book
+    states that eigenvectors for distinct eigenvalues are linearly
+    independent (p. 272) and proves it in Appendix B, "Linear
+    independence of eigenvectors" (p. 384). Example 28.2 (p. 274-275)
+    checks it directly: alpha v1 + beta v2 = 0 forces alpha = beta = 0
+  [Oct 8]
+
+Ch. 28, Sec. 28.2 (p. 271-274)
+  - Diagonalizable matrix and change of basis: write x = P x~ with
+    P = [v1 v2], so x~ = P^(-1) x, Eq. (28.4)-(28.5). The equation
+    becomes dx~/dt = P^(-1) A P x~ = diag(lambda1, lambda2) x~,
+    Eq. (28.7)-(28.9), which is uncoupled. Example 28.2 (p. 274-276)
+  [Oct 8]
+
+Ch. 28, Sec. 28.3 (p. 276-278)
+  - Phase portrait for the uncoupled system: stable node (both
+    eigenvalues negative, Fig. 28.2), unstable node (both positive,
+    Fig. 28.4), saddle (opposite signs, Fig. 28.5)
+  [Oct 8]
+
+Ch. 28, Sec. 28.4 (p. 279)
+  - Converting back to x: the x~ axes "twist" onto the eigenvectors.
+    Shortcut: draw the eigenvectors with arrows (away from the origin
+    if lambda > 0, towards it if lambda < 0), then fill in the rest
+  [Oct 8]
+
+Ch. 28, Example 28.3 (p. 279-280, Fig. 28.7-28.8)
+  - Example: found the general solution, need to draw the phase
+    portrait. The book's version uses the same matrix as Examples
+    28.1 and 28.2, A = [1 1; 4 -2] (lambda = 2 with v = (1, 1),
+    lambda = -3 with v = (1, -4)), so the origin is a saddle
+  [Oct 8]
+
+======================================================================
+NOTES ON DIFFERENCES BETWEEN LECTURE AND BOOK
+======================================================================
+
+- Order of presentation: the lecture runs ahead of the book in places.
+  The mass-spring example (Sep 22) is in Ch. 13, after the Ch. 12
+  solution methods, and logistic growth is in Ch. 8 although it was
+  seen together with the Ch. 7 phase portraits.
+
+- Terminology: the book never says "Picard's theorem" or "well-posed".
+  It states the result as Theorem 6.2 and discusses existence and
+  uniqueness in Sec. 6.1. The book calls the method "undetermined
+  coefficients".
+
+- Free fall: the book derives F = ma in Sec. 5.3 but treats free fall
+  only as Exercise 5.6 (an apple falling from height h), so the
+  derivation seen in class comes from Sec. 5.3.
+
+- Variation of constants (Oct 1): Ch. 18 is a starred chapter, which
+  the book marks as optional material. It assumes you already know two
+  independent solutions of the homogeneous equation, so it builds on
+  Ch. 11 and Ch. 17 (reduction of order). Ch. 18 has no numbered
+  sections.
+
+- Systems of ODEs (Sep 8 and Oct 6): the book only mentions them in
+  passing in Ch. 3. Their treatment is Part V (Ch. 25 onwards), which
+  the lecture reached on Oct 6.
+
+- Systems (Oct 6): the lecture develops the theory of linear systems
+  (Wronskian, fundamental set, homogeneous + particular) in a general
+  way, which the book does not do. Robinson is concerned with two
+  equations only (n = 2) and moves quickly to explicit solutions and
+  phase portraits. Ch. 25 is starred (optional in the book), and
+  Ch. 26 has no numbered sections.
+
+- Order of the two solution methods: the book presents "convert to a
+  second order ODE" first (Ch. 26) and the eigenvalue method after it
+  (Ch. 27-28), the same order as the lecture. Ch. 27 only sets up the
+  eigenvalue problem; the explicit solutions by eigenvectors are in
+  Ch. 28 (distinct real), Ch. 29 (complex) and Ch. 30 (repeated).
+
+- Eigenvalues and phase portraits (Oct 8): the lecture has reached
+  Case 1 (distinct real eigenvalues, Ch. 28). Still ahead are the
+  complex case (Ch. 29), the repeated eigenvalue (Ch. 30), the summary
+  of phase portraits (Ch. 31) and, within Ch. 28, Sec. 28.5 on stable
+  and unstable manifolds (p. 281).
+
+- Terminology (Oct 8): the book never says "diagonalizable" or
+  "triangular". It describes the same ideas as "changing coordinates"
+  (Sec. 28.2) and as matrices of the form [lambda1 b; 0 lambda2] (the
+  upper-triangular case, Example 27.3). It writes the new variable as
+  x~ (x with a tilde) where the lecture uses z, so z = P^(-1) x
+  corresponds to x~ = P^(-1) x, Eq. (28.5).
+
+- "Saddle node": the book only says "saddle point" or "saddle". The
+  word "node" is reserved for stable and unstable nodes (Sec. 28.3),
+  so "saddle node" in the lecture notes is probably "saddle".
+
+- Linear independence (Oct 8): the book proves independence of the
+  eigenvectors, not of the vector solutions e^(lambda t) v directly,
+  and it does not use the Wronskian for systems (see the Oct 6 note
+  above).
