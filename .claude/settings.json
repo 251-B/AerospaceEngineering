@@ -8,6 +8,7 @@
     "skill-creator@claude-plugins-official": true,
     "bm@buildomator": true,
     "context-mode@context-mode": true,
-    "claude-mem@thedotmack": true
+    "claude-mem@thedotmack": true,
+    "humanizer@synced": true
   }
 }
