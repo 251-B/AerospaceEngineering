@@ -1,16 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Topic 3: Second-Order Linear ODEs: General Theory and Constant Coefficients — Advanced Mathematics | UC3M</title>
-  
-  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <title>Topic 3: Second-Order Linear Equations and Vibrations — Advanced Mathematics | UC3M</title>
+  <meta name="description" content="Existence and uniqueness, superposition, linear independence and the Wronskian, constant-coefficient equations, the mass-spring-damper, undetermined coefficients, resonance, reduction of order and variation of parameters." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
-  
-  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
@@ -19,1533 +16,978 @@
               {left: '$$', right: '$$', display: true},
               {left: '$', right: '$', display: false}
             ],
+            ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg'],
             throwOnError: false
           });"></script>
-
   <style>
-    /* ========================================================
-       CSS VARIABLES & THEME SYSTEM
-       ======================================================== */
     :root {
-      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-display: 'Abril Fatface', Georgia, serif;
       --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
-      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
-
-      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
       --accent: #6366f1;
-      --accent-hover: #4f46e5;
+      --accent-strong: #4f46e5;
       --accent-light: #818cf8;
-      --accent-soft: rgba(99, 102, 241, 0.12);
-      --accent-border: rgba(99, 102, 241, 0.28);
-      --accent-glow: rgba(99, 102, 241, 0.18);
-
+      --accent-soft: rgba(99, 102, 241, 0.10);
+      --accent-border: rgba(99, 102, 241, 0.30);
+      --ok: #10b981;
+      --warn: #f59e0b;
+      --bad: #ef4444;
+      --aero: #06b6d4;
       --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 20px;
     }
-
     [data-theme="dark"] {
       --bg-primary: #070b14;
       --bg-surface: #0f172a;
-      --bg-subtle: #1e293b;
-      --bg-card: rgba(15, 23, 42, 0.72);
-      --bg-card-hover: rgba(20, 30, 55, 0.90);
-      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-glass: rgba(7, 11, 20, 0.72);
       --bg-input: rgba(255, 255, 255, 0.06);
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-card: rgba(255, 255, 255, 0.12);
+      --border-card: rgba(255, 255, 255, 0.13);
       --text-heading: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
+      --text-body: #d4dbe6;
+      --text-secondary: #a3b0c2;
+      --text-muted: #6b7a90;
       --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
-      --code-bg: #090d16;
+      --fig-grid: rgba(255, 255, 255, 0.06);
     }
-
     [data-theme="light"] {
       --bg-primary: #f8fafc;
       --bg-surface: #ffffff;
-      --bg-subtle: #f1f5f9;
-      --bg-card: rgba(255, 255, 255, 0.90);
-      --bg-card-hover: rgba(255, 255, 255, 0.98);
-      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-card: rgba(255, 255, 255, 0.94);
+      --bg-glass: rgba(248, 250, 252, 0.80);
       --bg-input: rgba(0, 0, 0, 0.04);
       --border-subtle: #e2e8f0;
       --border-card: #cbd5e1;
       --text-heading: #0f172a;
-      --text-body: #334155;
+      --text-body: #1e293b;
       --text-secondary: #475569;
       --text-muted: #94a3b8;
       --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
-      --code-bg: #f1f5f9;
+      --fig-grid: rgba(0, 0, 0, 0.06);
     }
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
       background-color: var(--bg-primary);
       color: var(--text-body);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.75;
+      font-family: var(--font-body);
+      font-size: 19px;
+      line-height: 1.7;
       min-height: 100vh;
       transition: background-color var(--transition), color var(--transition);
-      position: relative;
     }
+    a { color: var(--accent-light); }
+    [data-theme="light"] a { color: var(--accent-strong); }
 
-    .ambient-glow {
-      position: fixed;
-      top: 0;
-      right: 10%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ========================================================
-       TOP HEADER
-       ======================================================== */
+    /* ---------- header ---------- */
     header.site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: var(--bg-glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
     }
-
     .header-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      max-width: 1040px; margin: 0 auto; padding: 10px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
     }
-
-    .brand-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .brand-area, .nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .brand-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 3px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--accent-border);
-      letter-spacing: 0.5px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent);
+      background: var(--accent-soft); padding: 3px 10px; border-radius: 6px; border: 1px solid var(--accent-border);
     }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none; padding: 6px 12px;
+      border-radius: var(--radius-sm); background: var(--bg-input); border: 1px solid var(--border-subtle);
       transition: all var(--transition);
     }
-
-    .back-link:hover {
-      color: var(--accent);
-      background: var(--accent-soft);
-      border-color: var(--accent-border);
-    }
-
+    [data-theme="light"] .back-link { color: var(--text-secondary); }
+    .back-link:hover { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-border); }
     .theme-toggle {
-      width: 44px;
-      height: 24px;
-      border-radius: 12px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      cursor: pointer;
-      position: relative;
-      transition: background var(--transition);
-      display: flex;
-      align-items: center;
-      padding: 0 3px;
+      width: 44px; height: 24px; border-radius: 12px; background: var(--bg-input);
+      border: 1px solid var(--border-subtle); cursor: pointer; position: relative;
     }
-
     .theme-toggle::after {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-      transition: transform var(--transition);
+      content: ''; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 8px var(--accent); transition: transform var(--transition);
     }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
 
-    [data-theme="light"] .theme-toggle::after {
-      transform: translateX(20px);
-    }
-
-    /* ========================================================
-       ARTICLE LAYOUT
-       ======================================================== */
-    .article-container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 44px 24px 80px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .article-header {
-      margin-bottom: 40px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .article-meta-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
+    /* ---------- article ---------- */
+    .article-container { max-width: 1040px; margin: 0 auto; padding: 44px 24px 80px; position: relative; z-index: 1; overflow-x: clip; }
+    .article-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border-subtle); }
+    .article-meta-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
     .topic-pill {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 3px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); background: var(--accent-soft); padding: 3px 12px; border-radius: 6px; border: 1px solid var(--accent-border);
     }
-
-    .course-tag {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
+    .course-tag { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
     h1.article-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4.5vw, 2.85rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.25;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
+      font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text-heading); line-height: 1.15; margin-bottom: 16px;
     }
-
-    .article-lead {
-      font-size: 1.12rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 860px;
-    }
-
+    .article-lead { font-size: 1.15rem; color: var(--text-secondary); max-width: 880px; }
     .source-banner {
-      margin-top: 20px;
-      padding: 10px 16px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-input);
-      border: 1px solid var(--accent-border);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--accent-light);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    /* Quick Jump Table of Contents */
-    .toc-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      margin-bottom: 44px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .toc-title {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .toc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 10px;
-    }
-
-    .toc-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
+      margin-top: 20px; padding: 12px 16px; border-radius: var(--radius-sm); background: var(--bg-input);
+      border: 1px solid var(--accent-border); font-family: var(--font-mono); font-size: 12px; line-height: 1.6;
       color: var(--text-secondary);
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: var(--radius-sm);
-      transition: all var(--transition);
     }
+    .source-banner strong { color: var(--accent); }
+    .reading-meta { margin-top: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
 
-    .toc-link:hover {
-      color: var(--accent);
-      background: var(--accent-soft);
-      transform: translateX(4px);
+    .toc-card {
+      background: var(--bg-card); border: 1px solid var(--border-card); border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 48px; box-shadow: var(--shadow-card);
     }
+    .toc-title { font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-heading); margin-bottom: 12px; }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 6px 22px; list-style: none; margin: 0; }
+    .toc-grid li { margin: 0; }
+    .toc-grid a { color: var(--text-secondary); text-decoration: none; font-size: 0.98rem; display: inline-flex; gap: 8px; }
+    .toc-grid a:hover { color: var(--accent); }
+    .toc-num { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--accent); padding-top: 3px; }
 
-    .toc-num {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-      min-width: 22px;
-    }
+    .theory-section { margin-bottom: 64px; scroll-margin-top: 80px; }
+    .section-header { margin-bottom: 22px; padding-bottom: 10px; border-bottom: 1px solid var(--border-subtle); }
+    .section-tag { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+    h2.section-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3.6vw, 2.2rem); color: var(--text-heading); line-height: 1.2; }
+    h3.sub-title { font-family: var(--font-body); font-size: 1.4rem; font-weight: 700; color: var(--text-heading); margin: 34px 0 12px; scroll-margin-top: 80px; }
+    h4.sub-sub-title { font-family: var(--font-body); font-size: 1.12rem; font-weight: 700; font-style: italic; color: var(--text-heading); margin: 22px 0 8px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 18px 26px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--text-heading); font-weight: 700; }
+    code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg-input); padding: 1px 6px; border-radius: 4px; }
+    .cite { font-family: var(--font-mono); font-size: 0.72em; color: var(--accent); white-space: nowrap; }
+    [data-theme="light"] .cite { color: var(--accent-strong); }
+    .katex-display { overflow-x: auto; overflow-y: hidden; padding: 6px 0; }
 
-    /* ========================================================
-       SECTION & TYPOGRAPHY
-       ======================================================== */
-    section.topic-section {
-      margin-bottom: 56px;
-      scroll-margin-top: 80px;
-    }
-
-    h2.section-heading {
-      font-family: var(--font-serif);
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .heading-pill {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 2px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--accent-border);
-    }
-
-    h3.subheading {
-      font-family: var(--font-sans);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin: 28px 0 14px;
-    }
-
-    p {
-      margin-bottom: 16px;
-      color: var(--text-body);
-    }
-
-    ul, ol {
-      margin: 12px 0 20px 24px;
-      color: var(--text-body);
-    }
-
-    li {
-      margin-bottom: 8px;
-      padding-left: 4px;
-    }
-
-    /* ========================================================
-       SPECIAL CALLOUT & THEOREM BOXES
-       ======================================================== */
+    /* ---------- callouts ---------- */
     .callout {
-      border-radius: var(--radius-md);
-      padding: 22px 24px;
-      margin: 24px 0;
-      border: 1px solid transparent;
-      position: relative;
+      background: var(--bg-card); border: 1px solid var(--border-card); border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm); padding: 16px 22px; margin: 22px 0; box-shadow: var(--shadow-card);
+    }
+    .callout > :last-child { margin-bottom: 0; }
+    .callout-title {
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.def { border-left-color: var(--accent); background: var(--accent-soft); }
+    .callout.thm { border-left-color: var(--accent-strong); }
+    .callout.thm .callout-title { color: var(--accent-light); }
+    [data-theme="light"] .callout.thm .callout-title { color: var(--accent-strong); }
+    .callout.proof { border-left-color: var(--text-muted); background: transparent; box-shadow: none; }
+    .callout.proof .callout-title { color: var(--text-secondary); }
+    .callout.proof::after { content: '\220E'; display: block; text-align: right; color: var(--text-secondary); font-size: 1.2rem; }
+    .callout.example { border-left-color: var(--ok); }
+    .callout.example .callout-title { color: var(--ok); }
+    .callout.aero { border-left-color: var(--aero); }
+    .callout.aero .callout-title { color: var(--aero); }
+    .callout.warn { border-left-color: var(--warn); background: rgba(245, 158, 11, 0.07); }
+    .callout.warn .callout-title { color: var(--warn); }
+    .callout.danger { border-left-color: var(--bad); background: rgba(239, 68, 68, 0.06); }
+    .callout.danger .callout-title { color: var(--bad); }
+    .callout.result { border-left-color: var(--ok); background: rgba(16, 185, 129, 0.07); }
+    .callout.result .callout-title { color: var(--ok); }
+    .callout.lecture { border-left-color: #a78bfa; }
+    .callout.lecture .callout-title { color: #a78bfa; }
+    [data-theme="light"] .callout.lecture .callout-title { color: #7c3aed; }
+
+    /* numbered derivation steps */
+    ol.steps { list-style: none; counter-reset: step; margin-left: 0; }
+    ol.steps > li { counter-increment: step; position: relative; padding-left: 44px; margin-bottom: 12px; }
+    ol.steps > li::before {
+      content: counter(step); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--accent-soft); border: 1px solid var(--accent-border); color: var(--accent);
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
     }
 
-    .callout-theorem {
-      background: var(--bg-card);
-      border-color: var(--accent-border);
-      border-left: 4px solid var(--accent);
+    /* tables */
+    .table-container { overflow-x: auto; margin: 22px 0; border-radius: var(--radius-sm); border: 1px solid var(--border-card); }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left; }
+    table.data-table th {
+      background: var(--bg-surface); color: var(--text-heading); padding: 10px 14px; font-family: var(--font-mono);
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--accent);
     }
+    table.data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-subtle); background: var(--bg-card); vertical-align: top; }
 
-    .callout-definition {
-      background: var(--bg-card);
-      border-color: rgba(16, 185, 129, 0.3);
-      border-left: 4px solid #10b981;
+    /* figures (static inline SVG) */
+    figure.fig {
+      margin: 24px auto; padding: 14px; background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); max-width: 760px;
     }
+    figure.fig.pair { max-width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    figure.fig.pair figcaption { grid-column: 1 / -1; }
+    figure.fig svg { width: 100%; height: auto; display: block; overflow: hidden; }
+    figcaption { font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px; text-align: center; }
+    figcaption b { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+    svg .ax { stroke: var(--text-muted); stroke-width: 1.2; fill: none; }
+    svg .grid { stroke: var(--fig-grid); stroke-width: 1; fill: none; }
+    svg .c1 { stroke: var(--accent); stroke-width: 2.2; fill: none; }
+    svg .c2 { stroke: var(--ok); stroke-width: 2.2; fill: none; }
+    svg .c3 { stroke: var(--warn); stroke-width: 2.2; fill: none; }
+    svg .c4 { stroke: var(--bad); stroke-width: 2.2; fill: none; }
+    svg .c5 { stroke: var(--aero); stroke-width: 2.2; fill: none; }
+    svg .thin { stroke-width: 1.4; }
+    svg .legbg { fill: var(--bg-surface); stroke: var(--border-card); opacity: 0.92; }
+    svg .dash { stroke-dasharray: 6 5; }
+    svg .field { stroke: var(--text-muted); stroke-width: 1.1; fill: none; opacity: 0.8; }
+    svg .eig { stroke: var(--warn); stroke-width: 2.4; fill: none; }
+    svg .ah1 { fill: var(--accent); } svg .ah2 { fill: var(--ok); } svg .ah3 { fill: var(--warn); }
+    svg .ah4 { fill: var(--bad); } svg .ah5 { fill: var(--aero); } svg .ahm { fill: var(--text-muted); }
+    svg .st { fill: var(--ok); stroke: var(--ok); }
+    svg .un { fill: var(--bg-primary); stroke: var(--bad); stroke-width: 2.2; }
+    svg .semi { fill: var(--warn); stroke: var(--warn); }
+    svg text { fill: var(--text-secondary); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+    svg text.lbl { fill: var(--text-heading); font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; }
+    svg text.small { font-size: 10.5px; }
 
-    .callout-warning {
-      background: rgba(245, 158, 11, 0.05);
-      border-color: rgba(245, 158, 11, 0.3);
-      border-left: 4px solid #f59e0b;
-    }
-
-    .callout-example {
-      background: var(--bg-card);
-      border-color: rgba(6, 182, 212, 0.3);
-      border-left: 4px solid #06b6d4;
-    }
-
-    .callout-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 12px;
-    }
-
-    .callout-theorem .callout-header { color: var(--accent); }
-    .callout-definition .callout-header { color: #10b981; }
-    .callout-warning .callout-header { color: #f59e0b; }
-    .callout-example .callout-header { color: #06b6d4; }
-
-    .callout p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Math Formula Highlighting Box */
-    .formula-block {
-      background: var(--code-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 18px 24px;
-      margin: 20px 0;
-      overflow-x: auto;
-      text-align: center;
-    }
-
-    .formula-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-
-    /* Table styling */
-    .regime-table-wrap {
-      overflow-x: auto;
-      margin: 24px 0;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      background: var(--bg-card);
-    }
-
-    table.regime-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    table.regime-table th {
-      background: var(--bg-input);
-      color: var(--text-heading);
-      font-family: var(--font-sans);
-      font-weight: 700;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border-card);
-    }
-
-    table.regime-table td {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border-subtle);
-      color: var(--text-body);
-      vertical-align: middle;
-    }
-
-    table.regime-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    table.regime-table tr:hover td {
-      background: var(--accent-soft);
-    }
-
-    /* Proof step list */
-    .proof-steps {
-      list-style: none;
-      margin: 16px 0;
-      padding-left: 0;
-    }
-
-    .proof-step-item {
-      position: relative;
-      padding-left: 32px;
-      margin-bottom: 16px;
-    }
-
-    .step-marker {
-      position: absolute;
-      left: 0;
-      top: 2px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent-border);
-      color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ========================================================
-       BOTTOM NAVIGATION
-       ======================================================== */
-    .topic-nav-bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 60px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border-subtle);
-      flex-wrap: wrap;
-    }
-
+    /* bottom navigation & footer */
+    .article-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; }
     .nav-btn {
-      display: inline-flex;
-      flex-direction: column;
-      text-decoration: none;
-      padding: 16px 20px;
-      border-radius: var(--radius-md);
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      transition: all var(--transition);
-      flex: 1;
-      min-width: 240px;
+      display: inline-flex; flex-direction: column; text-decoration: none; padding: 14px 22px; border-radius: var(--radius-sm);
+      background: var(--bg-card); border: 1px solid var(--border-card); transition: all var(--transition); min-width: 240px;
     }
+    .nav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .nav-btn.next { text-align: right; margin-left: auto; }
+    .nav-btn-label { font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.5px; }
+    .nav-btn-title { font-size: 1rem; font-weight: 600; color: var(--text-heading); }
+    footer.site-footer { margin-top: 60px; padding: 32px 0; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+    footer.site-footer a { color: var(--accent); text-decoration: none; }
 
-    .nav-btn:hover {
-      border-color: var(--accent);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card);
+    @media (max-width: 640px) {
+      body { font-size: 17px; }
+      .article-container { padding: 28px 16px 60px; }
+      .header-inner { padding: 8px 14px; }
+      header.site-header { position: static; }
+      .callout { padding: 14px 14px; }
+      ol.steps > li { padding-left: 36px; }
+      .nav-btn { min-width: 0; width: 100%; }
+      .nav-btn.next { text-align: left; }
+      .cite { white-space: normal; }
+      p .katex, li .katex, td .katex { white-space: normal; }
+      .callout, p, li { overflow-wrap: anywhere; }
     }
-
-    .nav-btn-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .nav-btn-title {
-      font-family: var(--font-serif);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-heading);
-    }
-
-    footer.site-footer {
-      margin-top: 48px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-muted);
-      padding: 24px 0;
-      border-top: 1px solid var(--border-subtle);
+    @media print {
+      header.site-header, .article-nav, .celestial-canvas { display: none; }
+      body { background: #fff; color: #000; }
     }
   </style>
-  <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
-  <!-- Animated Celestial Canvas Background -->
   <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
-  <div class="ambient-glow" aria-hidden="true"></div>
-
-  <!-- ============================================
-       TOP HEADER
-       ============================================ -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-area">
-        <a href="index.html" class="back-link">
-          <span>←</span>
-          <span>Theory Index</span>
-        </a>
-        <a href="../../../index.html" class="back-link">
-          <span>Main Portal</span>
-        </a>
-        <span class="brand-badge">Topic 3 • 2nd-Order Linear ODEs</span>
+        <a href="../../../index.html" class="back-link"><span>←</span><span>Main Portal</span></a>
+        <a href="index.html" class="back-link"><span>Theory Index</span></a>
+        <span class="brand-badge">Advanced Maths • Topic 3</span>
       </div>
       <div class="nav-actions">
-        <a href="../problemas/index.html" class="back-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><path d="M10.5 7L4 21m9.5-14L20 21"/><path d="M7 15h10"/></svg>
-          <span>Problems Hub</span>
-        </a>
-        <button class="theme-toggle" id="themeToggle" title="Toggle Light / Dark theme" aria-label="Toggle theme"></button>
+        <a href="../problemas/topic-3-problems.html" class="back-link"><span>Solved problems</span></a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
       </div>
     </div>
   </header>
 
-  <!-- ============================================
-       MAIN ARTICLE CONTENT
-       ============================================ -->
   <main class="article-container">
-    
     <header class="article-header">
       <div class="article-meta-top">
-        <span class="topic-pill">Topic 03 • Lecture Notes</span>
-        <span class="course-tag">UC3M Aerospace Engineering • Year 2 • Fall Semester</span>
+        <span class="topic-pill">Topic 3 • Theory</span>
+        <span class="course-tag">Advanced Mathematics • BSc Aerospace Engineering • UC3M</span>
       </div>
-      <h1 class="article-title">Second-Order Linear ODEs:<br>General Theory and Constant Coefficients</h1>
-      <p class="article-lead">
-        A rigorous academic presentation of the analytical and algebraic theory of second-order linear differential equations.
-        Covering standard canonical forms, Robinson's fundamental Existence and Uniqueness Theorem, vectorization into first-order systems, 
-        the differential operator $L$ and the Superposition Principle, linear independence, the Wronskian determinant, 
-        the constructive proof that $\dim(\ker(L)) = 2$, Abel's identity and the Wronskian dichotomy, and an exhaustive analysis of 
-        constant-coefficient systems across distinct real, critically repeated, and complex conjugate harmonic oscillatory regimes.
-      </p>
-
-      <div class="source-banner">
-        <span>📖 Primary Source: J.C. Robinson, <em>An Introduction to Ordinary Differential Equations</em> (Chapters 11 &amp; 12)</span>
-        <span>•</span>
-        <span>Lecture Schedule: September 22nd Session</span>
-      </div>
+      <h1 class="article-title">Second-Order Linear Equations: General Theory, Vibrations and Forced Response</h1>
+      <p class="article-lead">The theory that governs every linear vibrating system: why two initial conditions are needed, why two independent solutions are enough, how the Wronskian decides independence, how to solve constant-coefficient equations in all three root cases, and how to find particular solutions by undetermined coefficients, reduction of order and Lagrange's variation of parameters.</p>
+      <div class="source-banner"><strong>Ground truth:</strong> Robinson (2004) Ch. 11 (pp. 101–110), Ch. 12 (pp. 111–119), Ch. 13 (pp. 120–130), Ch. 14 (pp. 131–140), Ch. 15 (pp. 141–149), Sec. 16.1 (p. 150), Ch. 17 (pp. 159–163), Ch. 18 (pp. 164–168) • Lecture map, Parts II–III (Sep 22 – Oct 1)</div>
+      <div class="reading-meta">≈ 30 min study time • 36 displayed equations • 4 figures</div>
     </header>
 
-    <!-- Table of Contents Quick Jump -->
-    <nav class="toc-card" aria-label="Table of Contents">
-      <div class="toc-title">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
-        <span>Table of Contents &amp; Core Sections</span>
-      </div>
-      <div class="toc-grid">
-        <a href="#section-1" class="toc-link">
-          <span class="toc-num">01</span>
-          <span>Canonical Forms &amp; Physical Oscillations</span>
-        </a>
-        <a href="#section-2" class="toc-link">
-          <span class="toc-num">02</span>
-          <span>Existence &amp; Uniqueness for 2nd-Order IVPs</span>
-        </a>
-        <a href="#section-3" class="toc-link">
-          <span class="toc-num">03</span>
-          <span>The Linear Operator $L$ &amp; Superposition</span>
-        </a>
-        <a href="#section-4" class="toc-link">
-          <span class="toc-num">04</span>
-          <span>Linear Independence &amp; The Wronskian</span>
-        </a>
-        <a href="#section-5" class="toc-link">
-          <span class="toc-num">05</span>
-          <span>Abel's Identity &amp; Wronskian Dichotomy</span>
-        </a>
-        <a href="#section-6" class="toc-link">
-          <span class="toc-num">06</span>
-          <span>Constant-Coefficient Homogeneous ODEs</span>
-        </a>
-      </div>
+    <nav class="toc-card" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-grid">
+        <li><a href="#sec-1"><span class="toc-num">01.</span><span>Second-order equations: two initial conditions</span></a></li>
+        <li><a href="#sec-2"><span class="toc-num">02.</span><span>Linear independence and the general solution</span></a></li>
+        <li><a href="#sec-3"><span class="toc-num">03.</span><span>Constant coefficients: the three root cases</span></a></li>
+        <li><a href="#sec-4"><span class="toc-num">04.</span><span>The mass–spring–damper</span></a></li>
+        <li><a href="#sec-5"><span class="toc-num">05.</span><span>Inhomogeneous equations: undetermined coefficients</span></a></li>
+        <li><a href="#sec-6"><span class="toc-num">06.</span><span>Forced vibrations and resonance</span></a></li>
+        <li><a href="#sec-7"><span class="toc-num">07.</span><span>Variable coefficients: reduction of order</span></a></li>
+        <li><a href="#sec-8"><span class="toc-num">08.</span><span>Variation of parameters (Lagrange)</span></a></li>
+        <li><a href="#sec-9"><span class="toc-num">09.</span><span>Summary and lecture map</span></a></li>
+      </ul>
     </nav>
 
-    <!-- ========================================================
-         SECTION 1
-         ======================================================== -->
-    <section id="section-1" class="topic-section">
-      <h2 class="section-heading">
-        <span class="heading-pill">Section 1</span>
-        <span>Introduction, Canonical Forms &amp; Physical Oscillations</span>
-      </h2>
-
-      <p>
-        In engineering mechanics and aerospace applications, dynamic laws are overwhelmingly formulated as second-order differential equations. 
-        Newton's Second Law ($\mathbf{F} = m \mathbf{a} = m \ddot{\mathbf{x}}$) establishes that the second time derivative of displacement—the acceleration—is determined by forces 
-        which may depend on time $t$, position $x(t)$, and velocity $\dot{x}(t)$.
-      </p>
-
-      <h3 class="subheading">1.1 General and Normalized Standard Forms</h3>
-      <p>
-        A general second-order linear ordinary differential equation in the unknown real-valued function $x(t)$ defined on an open interval $I \subseteq \mathbb{R}$ takes the form:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">General Form</span>
-        $$ a_2(t) \frac{d^2 x}{dt^2} + a_1(t) \frac{dx}{dt} + a_0(t) x(t) = g(t) $$
+    <!-- ===================================================== 1 -->
+    <section class="theory-section" id="sec-1">
+      <div class="section-header">
+        <div class="section-tag">Section 01 • Robinson Sec. 11.1–11.2 • Lecture Sep 22</div>
+        <h2 class="section-title">1. Second-order equations: two initial conditions</h2>
       </div>
-
       <p>
-        where $a_2(t), a_1(t), a_0(t)$, and $g(t)$ are given continuous functions on $I$. On any open subinterval where the leading coefficient function does not vanish ($a_2(t) \neq 0$), 
-        we divide through by $a_2(t)$ to obtain the <strong>normalized canonical standard form</strong>:
+        Newton's second law is second order: the force fixes the acceleration $\ddot x$, not the velocity. A general second-order equation reads
+        <span class="cite">[Robinson, Eq. (11.1), p. 101]</span>
       </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Normalized Standard Form</span>
-        $$ \frac{d^2 x}{dt^2} + p(t) \frac{dx}{dt} + q(t) x(t) = f(t) \quad \iff \quad x'' + p(t)x' + q(t)x = f(t) $$
-      </div>
-
+      $$\frac{d^2x}{dt^2} = f(\dot x, x, t). \tag{11.1}$$
+      <h3 class="sub-title">1.1 Why both $x(t_0)$ and $\dot x(t_0)$ are needed</h3>
+      <p>Take the simplest case $\ddot x = f(t)$ (11.2), the motion of a particle under a prescribed force per unit mass. Integrate twice from $t_0$:</p>
+      <ol class="steps">
+        <li>$\dot x(t) - \dot x(t_0) = \displaystyle\int_{t_0}^{t}f(s)\,ds$ (Barrow's rule on $\ddot x = \frac{d}{dt}\dot x$). One constant, $\dot x(t_0)$, appears.</li>
+        <li>$x(t) - x(t_0) = \displaystyle\int_{t_0}^{t}\dot x(s)\,ds = \dot x(t_0)(t - t_0) + \int_{t_0}^{t}\!\!\int_{t_0}^{s}f(r)\,dr\,ds$. A second constant, $x(t_0)$, appears.</li>
+      </ol>
       <p>
-        where the normalized coefficient functions and non-homogeneous source term are defined by:
+        Two integrations produce two arbitrary constants, so the position alone does not determine the motion: a piece of chalk can be dropped or
+        thrown from the same point <span class="cite">[p. 102]</span>.
       </p>
-      $$ p(t) \equiv \frac{a_1(t)}{a_2(t)}, \quad q(t) \equiv \frac{a_0(t)}{a_2(t)}, \quad f(t) \equiv \frac{g(t)}{a_2(t)} $$
-
-      <div class="callout callout-warning">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span>Singular Points of the Differential Equation</span>
-        </div>
+      <div class="callout thm">
+        <div class="callout-title">Theorem 11.1 — existence and uniqueness <span class="cite">[Robinson, p. 102]</span></div>
         <p>
-          Any point $t_s \in \mathbb{R}$ at which $a_2(t_s) = 0$ is a <strong>singular point</strong> of the differential equation. 
-          At such points, $p(t)$ or $q(t)$ may become unbounded, and the fundamental existence and uniqueness theory does not guarantee the smooth continuation of solutions across $t_s$. 
-          Analytical domain boundaries must always be chosen within intervals where $a_2(t) \neq 0$.
+          Suppose $f(x_2, x_1, t)$, $\partial f/\partial x_1$ and $\partial f/\partial x_2$ are continuous for $a_1 < x_1 < a_2$, $b_1 < x_2 < b_2$,
+          $t_1 < t < t_2$. Then for all initial conditions
+        </p>
+        $$x(t_0) = x_0, \qquad \dot x(t_0) = y_0 \tag{11.4}$$
+        <p>
+          with $a_1 < x_0 < a_2$, $b_1 < y_0 < b_2$, $t_1 < t_0 < t_2$, the equation $\ddot x = f(\dot x, x, t)$ has a unique solution, with two continuous
+          derivatives, on some interval $I$ containing $t_0$.
         </p>
       </div>
-
-      <h3 class="subheading">1.2 Physical Paradigm: Damped Mechanical Oscillators</h3>
       <p>
-        Consider a classic spring-mass-damper system, representative of an aircraft oleo-pneumatic landing gear strut, an aeroelastic wing section, or a satellite attitude suspension:
-      </p>
-      $$ m \ddot{x} + c \dot{x} + k x = F_{\text{ext}}(t) $$
-      <p>
-        Dividing by the inertia mass $m > 0$:
-      </p>
-      $$ \ddot{x} + \frac{c}{m}\dot{x} + \frac{k}{m}x = \frac{F_{\text{ext}}(t)}{m} \implies \ddot{x} + 2\zeta \omega_n \dot{x} + \omega_n^2 x = \frac{F_{\text{ext}}(t)}{m} $$
-      <p>
-        where $\omega_n = \sqrt{k/m}$ is the undamped natural frequency and $\zeta = \frac{c}{2\sqrt{km}}$ is the damping ratio. 
-        Notice that in order to uniquely predict the trajectory of the mass forwards and backwards in time, knowing the initial position $x(t_0) = x_0$ alone is insufficient; 
-        one must also prescribe its initial velocity $\dot{x}(t_0) = y_0$. This physical requirement establishes the mathematical structure of the Second-Order Initial Value Problem (IVP).
+        Here $x_1$ stands for $x$ and $x_2$ for $\dot x$: the theorem is Theorem 6.2 applied to the equivalent first-order system
+        $\dot x_1 = x_2$, $\dot x_2 = f(x_2, x_1, t)$ (Topic 4, Theorem 25.3). For <em>linear</em> equations with continuous coefficients the
+        solution exists on the whole interval where the coefficients are continuous; with constant coefficients, for all $t \in \mathbb R$
+        (Theorem 16.1, p. 150) — no blow-up is possible.
       </p>
 
-      <div class="callout callout-definition">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          <span>Definition: Second-Order Initial Value Problem (IVP)</span>
-        </div>
-        <p>
-          Given an open interval $I \subseteq \mathbb{R}$, continuous functions $p, q, f: I \to \mathbb{R}$, a base point $t_0 \in I$, and arbitrary initial data $x_0, y_0 \in \mathbb{R}$, 
-          the <strong>Second-Order Initial Value Problem</strong> consists of finding a twice-differentiable function $x: I \to \mathbb{R}$ satisfying:
-        </p>
-        $$ \begin{cases} x'' + p(t)x' + q(t)x = f(t) \\ x(t_0) = x_0 \\ x'(t_0) = y_0 \end{cases} $$
+      <h3 class="sub-title">1.2 Linear equations and the operator $L$</h3>
+      <p>
+        A second-order linear equation $a_2(t)\ddot x + a_1(t)\dot x + a_0(t)x = g(t)$ with $a_2(t) \neq 0$ can be divided by $a_2$ to give the
+        standard form <span class="cite">[Eqs. (11.6)–(11.7), pp. 102–103]</span>
+      </p>
+      $$\ddot x + p(t)\,\dot x + q(t)\,x = f(t) \quad\text{(inhomogeneous)}, \qquad \ddot x + p(t)\,\dot x + q(t)\,x = 0 \quad\text{(homogeneous)}. \tag{11.6–11.7}$$
+      <p>Writing $L[x] = \ddot x + p\dot x + qx$ (11.10), the equations are $L[x] = f$ and $L[x] = 0$, and $L$ is linear (11.11):</p>
+      $$L[\alpha x_1 + \beta x_2] = \alpha L[x_1] + \beta L[x_2].$$
+      <div class="callout thm">
+        <div class="callout-title">Principle of superposition <span class="cite">[Robinson, Eq. (11.8), p. 103]</span></div>
+        <p>If $x_1$ and $x_2$ solve the homogeneous equation (11.7), so does $x = \alpha x_1 + \beta x_2$ for any constants $\alpha$, $\beta$.</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>Differentiation is linear: $\dot x = \alpha\dot x_1 + \beta\dot x_2$ and $\ddot x = \alpha\ddot x_1 + \beta\ddot x_2$. Therefore</p>
+        $$\ddot x + p\dot x + qx = \alpha\big(\ddot x_1 + p\dot x_1 + qx_1\big) + \beta\big(\ddot x_2 + p\dot x_2 + qx_2\big) = \alpha\cdot 0 + \beta\cdot 0 = 0.$$
       </div>
     </section>
 
-    <!-- ========================================================
-         SECTION 2
-         ======================================================== -->
-    <section id="section-2" class="topic-section">
-      <h2 class="section-heading">
-        <span class="heading-pill">Section 2</span>
-        <span>Existence and Uniqueness for Second-Order IVPs</span>
-      </h2>
-
+    <!-- ===================================================== 2 -->
+    <section class="theory-section" id="sec-2">
+      <div class="section-header">
+        <div class="section-tag">Section 02 • Robinson Sec. 11.3–11.5 • Lecture Sep 22</div>
+        <h2 class="section-title">2. Linear independence and the general solution</h2>
+      </div>
+      <div class="callout def">
+        <div class="callout-title">Definition 11.2 — linear independence of functions <span class="cite">[Robinson, p. 104]</span></div>
+        <p>
+          The functions $x_1(t), \dots, x_n(t)$ are <strong>linearly independent</strong> on an interval $I$ if the only solution of
+          $\alpha_1x_1(t) + \dots + \alpha_nx_n(t) = 0$ for all $t \in I$ is $\alpha_1 = \dots = \alpha_n = 0$. Otherwise they are linearly dependent.
+        </p>
+      </div>
       <p>
-        The bedrock of linear differential equation theory is that solutions to linear Initial Value Problems not only exist and are strictly unique, 
-        but their domain of definition is determined completely and globally by the continuity of the coefficient functions.
+        For two functions this means "not proportional": if $x_2 = cx_1$ then $cx_1 - x_2 = 0$ is a non-trivial combination; conversely, if
+        $\alpha_1x_1 + \alpha_2x_2 = 0$ with $\alpha_1 \neq 0$, then $x_1 = -(\alpha_2/\alpha_1)x_2$ <span class="cite">[pp. 104–105]</span>.
+        So $e^{t}$ and $e^{2t}$ are independent, while $\sin 2t$ and $\sin t\cos t$ are not ($\sin 2t = 2\sin t\cos t$).
       </p>
 
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Existence and Uniqueness Theorem for Linear IVPs (global form)</span>
-        </div>
+      <div class="callout thm">
+        <div class="callout-title">Theorem — two independent solutions are necessary and sufficient <span class="cite">[Robinson, Sec. 11.3.2, pp. 105–106]</span></div>
         <p>
-          Let the coefficient functions $p(t)$, $q(t)$, and the forcing term $f(t)$ be <strong>continuous</strong> on an open interval $I = (a, b) \subseteq \mathbb{R}$. 
-          Let $t_0 \in I$ be any arbitrary point, and let $x_0, y_0 \in \mathbb{R}$ be arbitrary prescribed constants.
+          The homogeneous equation $\ddot x + p\dot x + qx = 0$ has two linearly independent solutions $x_1$, $x_2$, and every solution can be written
+          as $x(t) = \alpha x_1(t) + \beta x_2(t)$ for suitable constants $\alpha$, $\beta$ (11.12). One solution is not enough.
         </p>
-        <p style="margin-top: 10px;">
-          Then there exists a <strong>unique solution</strong> $x(t)$ to the initial value problem:
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          <strong>Two independent solutions exist.</strong> By Theorem 11.1 there are solutions with $x_1(t_0) = 1$, $\dot x_1(t_0) = 0$ and
+          $x_2(t_0) = 0$, $\dot x_2(t_0) = 1$. If $x_2 = cx_1$ then $x_2(t_0) = c$ forces $c = 0$, but then $\dot x_2(t_0) = 0 \neq 1$. So they are not proportional.
         </p>
-        $$ \begin{cases} x'' + p(t)x' + q(t)x = f(t) \\ x(t_0) = x_0 \\ x'(t_0) = y_0 \end{cases} $$
-        <p style="margin-top: 10px;">
-          Furthermore, this unique solution $x(t)$ is twice continuously differentiable ($x \in C^2(I)$) and is defined on the <strong>entire interval $I$</strong>.
+        <p>
+          <strong>Two are enough.</strong> Let $x_1$, $x_2$ be any two independent solutions and $x$ any solution, with $x(t_0) = x_0$,
+          $\dot x(t_0) = v_0$. We want $\alpha$, $\beta$ with $\alpha x_1 + \beta x_2$ matching these data:
+        </p>
+        $$\begin{pmatrix} x_1(t_0) & x_2(t_0) \\ \dot x_1(t_0) & \dot x_2(t_0)\end{pmatrix}\begin{pmatrix}\alpha \\ \beta\end{pmatrix} = \begin{pmatrix} x_0 \\ v_0\end{pmatrix}. \tag{11.15}$$
+        <p>
+          This is solvable for every right-hand side if and only if the determinant $x_1(t_0)\dot x_2(t_0) - x_2(t_0)\dot x_1(t_0)$ is non-zero. Suppose
+          instead it were zero (11.16). Then the columns are proportional: there is a constant $c$ with $x_1(t_0) = cx_2(t_0)$ and
+          $\dot x_1(t_0) = c\dot x_2(t_0)$ (11.17). (Robinson divides by $x_2(t_0)$ and $\dot x_2(t_0)$ to find $c$; they cannot both vanish,
+          because then uniqueness would force $x_2 \equiv 0$, and if one vanishes the same conclusion follows directly — footnote, p. 106.)
+          By superposition $y = cx_2$ is a solution, and it has the same data at $t_0$ as $x_1$. By uniqueness $x_1 = cx_2$ for all $t$,
+          contradicting independence. Hence the determinant is non-zero, (11.15) has a solution, and by uniqueness $x = \alpha x_1 + \beta x_2$ everywhere.
+        </p>
+      </div>
+      <div class="callout note">
+        <div class="callout-title">Linear-algebra reading (Robinson Sec. 11.5, starred)</div>
+        <p>
+          $L$ maps the vector space $C^2(I)$ of twice continuously differentiable functions to $C^0(I)$. The solution set of $L[x] = 0$ is its kernel,
+          a vector space, and the theorem says $\dim\ker L = 2$ with basis $\{x_1, x_2\}$. For an $n$th-order equation, $\dim\ker L = n$ (Sec. 16.2).
         </p>
       </div>
 
-      <p>
-        <strong>Source note.</strong> Robinson's Theorem 11.1 (p. 102) is the <em>local</em> theorem for the general (nonlinear) equation $\ddot{x} = f(\dot{x}, x, t)$ with $f$, $\partial f/\partial x_1$ and $\partial f/\partial x_2$ continuous: it gives a unique solution on <em>some</em> interval containing $t_0$. Applied to the linear case $f = f(t) - p(t)\dot{x} - q(t)x$ it supplies local existence and uniqueness; the statement above, that the solution exists on the whole interval $I$, is the linear-system argument of Section 2.1 below and is not part of Theorem 11.1 as printed.
-      </p>
-
-      <h3 class="subheading">2.1 Vectorization: Reduction to a First-Order $2 \times 2$ Planar System</h3>
-      <p>
-        The proof of the global statement above rests on converting the scalar second-order ODE into an equivalent system of two coupled first-order ODEs. 
-        We introduce the phase-space state vector $\mathbf{X}(t) \in \mathbb{R}^2$:
-      </p>
-      $$ \mathbf{X}(t) = \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix} \equiv \begin{pmatrix} x(t) \\ x'(t) \end{pmatrix} $$
-      <p>
-        Differentiating $\mathbf{X}(t)$ with respect to time $t$:
-      </p>
-      $$ x_1'(t) = x'(t) = x_2(t) $$
-      $$ x_2'(t) = x''(t) = -q(t)x(t) - p(t)x'(t) + f(t) = -q(t)x_1(t) - p(t)x_2(t) + f(t) $$
-      <p>
-        Expressing this in matrix-vector form yields the non-autonomous first-order planar system:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Equivalent $2 \times 2$ First-Order System</span>
-        $$ \frac{d\mathbf{X}}{dt} = \begin{pmatrix} 0 & 1 \\ -q(t) & -p(t) \end{pmatrix} \mathbf{X}(t) + \begin{pmatrix} 0 \\ f(t) \end{pmatrix}, \quad \mathbf{X}(t_0) = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} $$
+      <h3 class="sub-title">2.1 The Wronskian <span class="cite">[Robinson, Sec. 11.4, starred, pp. 106–107]</span></h3>
+      <div class="callout def">
+        <div class="callout-title">Definition — Wronskian</div>
+        $$W[x_1, x_2](t) = \begin{vmatrix} x_1(t) & x_2(t) \\ \dot x_1(t) & \dot x_2(t)\end{vmatrix} = x_1(t)\,\dot x_2(t) - x_2(t)\,\dot x_1(t).$$
       </div>
-
-      <p>
-        Because the matrix entries $0, 1, -q(t), -p(t)$ and the vector $(0, f(t))^T$ are continuous on $I$, the vector field $\mathbf{F}(t, \mathbf{X}) = A(t)\mathbf{X} + \mathbf{b}(t)$ 
-        is globally Lipschitz continuous with respect to $\mathbf{X}$ on every compact subinterval $[t_1, t_2] \subset I$. 
-        By the Picard-Lindelöf Theorem for vector systems, there exists a unique solution $\mathbf{X}(t)$ defined for all $t \in I$. 
-        The first component $x_1(t) = x(t)$ provides the unique solution to the original scalar equation.
-      </p>
-
-      <h3 class="subheading">2.2 Absence of Finite-Time Blow-Up in Linear Equations</h3>
-      <p>
-        A profound property of <em>linear</em> differential equations—in sharp contrast to nonlinear equations—is that <strong>solutions cannot undergo finite-time blow-up</strong> within the interval of continuity $I$.
-      </p>
-      <ul>
-        <li>
-          <strong>Nonlinear contrast:</strong> For the nonlinear IVP $x' = x^2, x(0) = 1$, the right-hand side is $C^\infty(\mathbb{R})$, yet the unique solution $x(t) = \frac{1}{1-t}$ experiences finite-time blow-up at $t^* = 1$.
-        </li>
-        <li>
-          <strong>Linear global guarantee:</strong> In a linear ODE $x'' + p(t)x' + q(t)x = f(t)$, the maximal interval of existence of the solution $x(t)$ is guaranteed to be <em>at least as large</em> as the common interval of continuity of $p(t), q(t)$, and $f(t)$. Singularities in the solution can only occur where $p(t), q(t)$, or $f(t)$ are singular, or where the leading coefficient $a_2(t) = 0$.
-        </li>
-      </ul>
-
-      <div class="callout callout-example">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span>Example: Determining the Maximal Interval of Existence</span>
-        </div>
+      <div class="callout thm">
+        <div class="callout-title">Theorem — Wronskian test (lecture, Sep 22; Robinson p. 107)</div>
+        <ol>
+          <li>For any two differentiable functions: if $W[x_1, x_2](t_0) \neq 0$ at some $t_0 \in I$, then $x_1$, $x_2$ are linearly independent on $I$.</li>
+          <li>For two <strong>solutions</strong> of $\ddot x + p\dot x + qx = 0$: they are linearly independent if and only if $W \neq 0$; and then $W(t) \neq 0$ for every $t \in I$.</li>
+        </ol>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
         <p>
-          Consider the initial value problem:
+          (1) Suppose $\alpha x_1(t) + \beta x_2(t) = 0$ for all $t \in I$. Differentiating, $\alpha\dot x_1(t) + \beta\dot x_2(t) = 0$ too. At $t = t_0$
+          these two equations read $\begin{pmatrix} x_1 & x_2 \\ \dot x_1 & \dot x_2\end{pmatrix}\begin{pmatrix}\alpha\\\beta\end{pmatrix} = \mathbf 0$ with a
+          matrix of determinant $W(t_0) \neq 0$, which is invertible; multiplying by its inverse gives $\alpha = \beta = 0$.
         </p>
-        $$ (t^2 - 4) x'' + 3t x' + x = \ln(t + 1), \quad x(1) = 2, \quad x'(1) = -1 $$
         <p>
-          First, put the equation into normalized canonical form:
+          (2) "If": part (1). "Only if": the proof of the previous theorem showed that if $W(t_0) = 0$ at any single point (equation (11.16)) the solutions
+          are proportional. So for independent solutions $W$ never vanishes; for dependent ones it vanishes identically.
         </p>
-        $$ x'' + \frac{3t}{(t-2)(t+2)} x' + \frac{1}{(t-2)(t+2)} x = \frac{\ln(t+1)}{(t-2)(t+2)} $$
+      </div>
+      <h4 class="sub-sub-title">Abel's identity (Robinson Exercise 11.2)</h4>
+      <p>Differentiate $W = x_1\dot x_2 - x_2\dot x_1$ with the product rule:</p>
+      $$\dot W = \dot x_1\dot x_2 + x_1\ddot x_2 - \dot x_2\dot x_1 - x_2\ddot x_1 = x_1\ddot x_2 - x_2\ddot x_1.$$
+      <p>Both are solutions, so $\ddot x_j = -p\dot x_j - qx_j$. Substituting,</p>
+      $$\dot W = x_1\big(-p\dot x_2 - qx_2\big) - x_2\big(-p\dot x_1 - qx_1\big) = -p\,\big(x_1\dot x_2 - x_2\dot x_1\big) - q\,(x_1x_2 - x_2x_1) = -p(t)\,W.$$
+      <p>This first-order linear equation (Topic 2) has the solution</p>
+      <div class="callout result">
+        <div class="callout-title">Abel's identity</div>
+        $$W(t) = W(t_0)\,\exp\!\left(-\int_{t_0}^{t}p(s)\,ds\right).$$
+        <p>The exponential is never zero, so $W$ is either identically zero or never zero on $I$. With constant coefficients $p$, $W(t) = W(t_0)e^{-p(t - t_0)}$.</p>
+      </div>
+      <div class="callout warn">
+        <div class="callout-title">The converse of (1) fails for arbitrary functions (Robinson Exercise 11.3)</div>
         <p>
-          Identify the domains of continuity of the individual terms:
-        </p>
-        <ul style="margin-bottom: 8px;">
-          <li>Leading coefficient $a_2(t) = t^2 - 4 = 0 \implies t = \pm 2$.</li>
-          <li>Source term $f(t) = \frac{\ln(t+1)}{t^2 - 4}$ requires $t + 1 > 0 \implies t > -1$ and $t \neq 2$.</li>
-        </ul>
-        <p>
-          The continuous intervals for all coefficients simultaneously are $(-1, 2)$ and $(2, \infty)$. 
-          Since the initial base point is $t_0 = 1 \in (-1, 2)$, the Existence and Uniqueness Theorem above guarantees that the unique solution $x(t)$ exists on the <strong>entire interval $I = (-1, 2)$</strong>.
+          $f_1 = t^2|t|$ and $f_2 = t^3$ are linearly independent on $\mathbb R$ (they agree for $t > 0$ and are opposite for $t < 0$, so no single constant
+          relates them), yet $\dot f_1 = 3t|t|$ and $W = t^2|t|\cdot 3t^2 - t^3\cdot 3t|t| = 0$ for every $t$. A zero Wronskian proves dependence only for
+          solutions of a linear ODE.
         </p>
       </div>
     </section>
 
-    <!-- ========================================================
-         SECTION 3
-         ======================================================== -->
-    <section id="section-3" class="topic-section">
-      <h2 class="section-heading">
-        <span class="heading-pill">Section 3</span>
-        <span>The Linear Operator $L$ &amp; The Superposition Principle</span>
-      </h2>
-
-      <p>
-        The algebraic structure of solutions to linear differential equations is governed by operator theory on infinite-dimensional function spaces.
-      </p>
-
-      <h3 class="subheading">3.1 Definition of the Differential Operator $L$</h3>
-      <p>
-        Let $C^2(I)$ denote the vector space of real-valued functions defined on an open interval $I$ with continuous second derivatives, 
-        and let $C^0(I)$ denote the space of continuous functions on $I$. We define the <strong>second-order linear differential operator</strong> $L: C^2(I) \to C^0(I)$ by:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Linear Differential Operator</span>
-        $$ L[x](t) \equiv x''(t) + p(t)x'(t) + q(t)x(t) $$
+    <!-- ===================================================== 3 -->
+    <section class="theory-section" id="sec-3">
+      <div class="section-header">
+        <div class="section-tag">Section 03 • Robinson Ch. 12, Sec. 16.1 • Lecture Sep 22–24</div>
+        <h2 class="section-title">3. Constant coefficients: the three root cases</h2>
       </div>
-
+      <p>For the homogeneous equation with constant coefficients <span class="cite">[Eq. (12.1), p. 111]</span></p>
+      $$a\ddot x + b\dot x + cx = 0, \qquad a \neq 0, \tag{12.1}$$
       <p>
-        With this operator notation:
+        try $x = e^{kt}$: it is the solution of $\dot x = kx$, and differentiating it only multiplies by $k$. With $\frac{d}{dt}e^{kt} = ke^{kt}$ and
+        $\frac{d^2}{dt^2}e^{kt} = k^2e^{kt}$ (chain rule), substitution gives $(ak^2 + bk + c)e^{kt} = 0$. Since $e^{kt} \neq 0$:
       </p>
-      <ul>
-        <li>The non-homogeneous equation is written compactly as: $L[x] = f$.</li>
-        <li>The homogeneous equation (where $f(t) \equiv 0$) is written as: $L[x] = 0$.</li>
-      </ul>
+      $$ak^2 + bk + c = 0 \qquad\text{(auxiliary or characteristic equation)}, \qquad k = \frac{-b \pm\sqrt{b^2 - 4ac}}{2a}. \tag{12.2}$$
 
-      <h3 class="subheading">3.2 Formal Proof of Operator Linearity</h3>
+      <h3 class="sub-title">3.1 Case 1: two distinct real roots, $b^2 > 4ac$ <span class="cite">[Sec. 12.1, p. 112]</span></h3>
       <p>
-        Recall that an operator $L$ is <em>linear</em> if it preserves vector addition and scalar multiplication: 
-        $L[\alpha x_1 + \beta x_2] = \alpha L[x_1] + \beta L[x_2]$ for all $x_1, x_2 \in C^2(I)$ and all $\alpha, \beta \in \mathbb{R}$.
+        Both $e^{k_1t}$ and $e^{k_2t}$ are solutions, and their Wronskian is
+        $W = e^{k_1t}\,k_2e^{k_2t} - e^{k_2t}\,k_1e^{k_1t} = (k_2 - k_1)e^{(k_1 + k_2)t} \neq 0$. Hence
       </p>
-
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Theorem: Linearity of the Differential Operator $L$</span>
-        </div>
-        <p><strong>Proof:</strong></p>
-        <p>Let $x_1, x_2 \in C^2(I)$ and let $\alpha, \beta \in \mathbb{R}$. Consider the linear combination $y(t) = \alpha x_1(t) + \beta x_2(t)$. 
-        By the fundamental linearity of ordinary differentiation:
-        </p>
-        $$ y'(t) = \frac{d}{dt}\left[\alpha x_1(t) + \beta x_2(t)\right] = \alpha x_1'(t) + \beta x_2'(t) $$
-        $$ y''(t) = \frac{d^2}{dt^2}\left[\alpha x_1(t) + \beta x_2(t)\right] = \alpha x_1''(t) + \beta x_2''(t) $$
-        <p>Substituting $y(t), y'(t)$, and $y''(t)$ into the definition of $L$:</p>
-        $$ \begin{aligned}
-        L[\alpha x_1 + \beta x_2] &= (\alpha x_1'' + \beta x_2'') + p(t)(\alpha x_1' + \beta x_2') + q(t)(\alpha x_1 + \beta x_2) \\
-        &= \left[ \alpha x_1'' + \alpha p(t)x_1' + \alpha q(t)x_1 \right] + \left[ \beta x_2'' + \beta p(t)x_2' + \beta q(t)x_2 \right] \\
-        &= \alpha \left[ x_1'' + p(t)x_1' + q(t)x_1 \right] + \beta \left[ x_2'' + p(t)x_2' + q(t)x_2 \right] \\
-        &= \alpha L[x_1] + \beta L[x_2]
-        \end{aligned} $$
-        <p>This completes the proof. $\blacksquare$</p>
-      </div>
-
-      <h3 class="subheading">3.3 The Superposition Principle and the Solution Subspace $\ker(L)$</h3>
-      <p>
-        An immediate and powerful consequence of the linearity of $L$ is the <strong>Principle of Superposition</strong> for homogeneous differential equations:
-      </p>
-
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>The Superposition Principle for Homogeneous Equations</span>
-        </div>
+      $$x(t) = Ae^{k_1t} + Be^{k_2t}.$$
+      <div class="callout example">
+        <div class="callout-title">Example 12.1 (p. 112): $\ddot x + \dot x - 6x = 0$, $x(0) = 1$, $\dot x(0) = 2$</div>
         <p>
-          If $x_1(t)$ and $x_2(t)$ are any two solutions of the homogeneous equation $L[x] = 0$ on the interval $I$, then for any arbitrary constants $c_1, c_2 \in \mathbb{R}$, 
-          the linear combination:
+          $k^2 + k - 6 = (k - 2)(k + 3) = 0$, so $k = 2, -3$ and $x = Ae^{2t} + Be^{-3t}$, $\dot x = 2Ae^{2t} - 3Be^{-3t}$. At $t = 0$: $A + B = 1$,
+          $2A - 3B = 2$. Subtracting twice the first, $-5B = 0$, so $B = 0$, $A = 1$: $\ x(t) = e^{2t}$.
         </p>
-        $$ x(t) = c_1 x_1(t) + c_2 x_2(t) $$
-        <p>is also a solution of $L[x] = 0$ on $I$.</p>
-        <p style="margin-top: 8px;"><strong>Proof:</strong> Applying linearity: $L[c_1 x_1 + c_2 x_2] = c_1 L[x_1] + c_2 L[x_2] = c_1(0) + c_2(0) = 0$. $\blacksquare$</p>
+      </div>
+      <p>If one root is $0$ (e.g. $\ddot x - 2\dot x = 0$, $k = 0, 2$), the corresponding solution is the constant $e^{0t} = 1$: $x = A + Be^{2t}$ (Example 12.2).</p>
+
+      <h3 class="sub-title">3.2 Case 2: a repeated root, $b^2 = 4ac$ <span class="cite">[Sec. 12.2, pp. 113–115]</span></h3>
+      <p>
+        With $\lambda = -b/(2a)$ and $c/a = b^2/(4a^2) = \lambda^2$, the equation is $\ddot x - 2\lambda\dot x + \lambda^2x = 0$ (12.5), and
+        $k^2 - 2\lambda k + \lambda^2 = (k - \lambda)^2 = 0$ gives only $e^{\lambda t}$. The second solution is $te^{\lambda t}$. Verification
+        (product rule):
+      </p>
+      $$\dot x = e^{\lambda t} + \lambda te^{\lambda t}, \qquad \ddot x = \lambda e^{\lambda t} + \lambda e^{\lambda t} + \lambda^2te^{\lambda t} = 2\lambda e^{\lambda t} + \lambda^2te^{\lambda t},$$
+      $$\ddot x - 2\lambda\dot x + \lambda^2x = \big(2\lambda + \lambda^2t - 2\lambda - 2\lambda^2t + \lambda^2t\big)e^{\lambda t} = 0\ ✓.$$
+      <p>
+        Their Wronskian is $e^{\lambda t}(e^{\lambda t} + \lambda te^{\lambda t}) - te^{\lambda t}\lambda e^{\lambda t} = e^{2\lambda t} \neq 0$, so (12.6):
+        $\ x(t) = (A + Bt)e^{\lambda t}$. Section 7 <em>derives</em> $te^{\lambda t}$ by reduction of order.
+      </p>
+      <div class="callout example">
+        <div class="callout-title">Example 12.3 (pp. 114–115): $\ddot x + 2\dot x + x = 0$, $x(0) = 0$, $\dot x(0) = 1$</div>
+        <p>$(k + 1)^2 = 0$, $k = -1$ twice. $x = (A + Bt)e^{-t}$, $\dot x = (B - A - Bt)e^{-t}$. Then $A = 0$ and $B - A = 1$: $\ x(t) = te^{-t}$.</p>
       </div>
 
+      <h3 class="sub-title">3.3 Case 3: complex conjugate roots, $b^2 < 4ac$ <span class="cite">[Sec. 12.3, pp. 115–117]</span></h3>
+      <p>The roots are $k = \rho \pm i\omega$ with $\rho = -b/(2a)$, $\omega = \sqrt{4ac - b^2}/(2a)$. The complex solutions combine into real ones:</p>
+      <ol class="steps">
+        <li>For real $x$ take $x = Ce^{(\rho + i\omega)t} + C^*e^{(\rho - i\omega)t}$ (12.8), $C = \alpha + i\beta$; the two terms are complex conjugates, so $x = 2\,\mathrm{Re}\big[Ce^{(\rho + i\omega)t}\big]$.</li>
+        <li>Euler's formula $e^{i\omega t} = \cos\omega t + i\sin\omega t$: $\ Ce^{(\rho + i\omega)t} = e^{\rho t}(\alpha + i\beta)(\cos\omega t + i\sin\omega t)$, whose real part is $e^{\rho t}(\alpha\cos\omega t - \beta\sin\omega t)$.</li>
+        <li>With $A = 2\alpha$, $B = -2\beta$ (arbitrary reals):</li>
+      </ol>
+      $$x(t) = e^{\rho t}\big(A\cos\omega t + B\sin\omega t\big). \tag{12.9}$$
       <p>
-        In algebraic terms, the set of all solutions to the homogeneous equation is precisely the <strong>kernel</strong> (or null space) of $L$:
+        $\rho < 0$: decaying oscillation; $\rho = 0$: pure oscillation (simple harmonic motion); $\rho > 0$: growing oscillation. The Wronskian of
+        $e^{\rho t}\cos\omega t$ and $e^{\rho t}\sin\omega t$ is $\omega e^{2\rho t} \neq 0$ (Exercise 11.1 (iii)).
       </p>
-      $$ S_H \equiv \{ x \in C^2(I) : L[x] = 0 \} = \ker(L) $$
-      <p>
-        Since $L$ is linear, $\ker(L)$ is an authentic <strong>vector subspace</strong> of $C^2(I)$, closed under addition and scalar multiplication.
-      </p>
-
-      <h3 class="subheading">3.4 Affine Structure of the Non-Homogeneous Solution</h3>
-      <p>
-        For the non-homogeneous equation $L[x] = f(t)$, the solution set is an affine subspace:
-      </p>
-      $$ x(t) = x_h(t) + x_p(t) $$
-      <p>
-        where $x_h \in \ker(L)$ is the general complementary solution to the homogeneous equation, and $x_p \in C^2(I)$ is <em>any</em> particular solution satisfying $L[x_p] = f$. 
-        Indeed, if $x_A$ and $x_B$ are any two solutions of $L[x] = f$, their difference satisfies:
-      </p>
-      $$ L[x_A - x_B] = L[x_A] - L[x_B] = f - f = 0 \implies x_A - x_B \in \ker(L) $$
-    </section>
-
-    <!-- ========================================================
-         SECTION 4
-         ======================================================== -->
-    <section id="section-4" class="topic-section">
-      <h2 class="section-heading">
-        <span class="heading-pill">Section 4</span>
-        <span>Linear Independence of Functions &amp; The Wronskian Determinant</span>
-      </h2>
-
-      <p>
-        Having established that the set of homogeneous solutions $\ker(L)$ is a vector space, our central objective is to determine its <strong>dimension</strong> 
-        and construct a <strong>basis</strong>.
-      </p>
-
-      <h3 class="subheading">4.1 Definition of Linear Independence</h3>
-
-      <div class="callout callout-definition">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          <span>Definition 11.2 (Robinson): Linearly Independent Functions</span>
-        </div>
+      <div class="callout example">
+        <div class="callout-title">Example 12.4 (pp. 117–118): $\ddot x + 2\dot x + 5x = 0$, $x(0) = 1$, $\dot x(0) = 0$</div>
         <p>
-          Two functions $x_1, x_2: I \to \mathbb{R}$ are said to be <strong>linearly dependent</strong> on an interval $I$ if there exist constants $c_1, c_2 \in \mathbb{R}$, 
-          not both zero ($c_1^2 + c_2^2 \neq 0$), such that:
-        </p>
-        $$ c_1 x_1(t) + c_2 x_2(t) = 0 \quad \text{for all } t \in I $$
-        <p style="margin-top: 8px;">
-          Conversely, $x_1(t)$ and $x_2(t)$ are <strong>linearly independent</strong> on $I$ if the only linear combination that vanishes identically on $I$ is the trivial one:
-        </p>
-        $$ c_1 x_1(t) + c_2 x_2(t) = 0 \quad \forall t \in I \implies c_1 = 0 \text{ and } c_2 = 0 $$
-      </div>
-
-      <p>
-        For exactly two functions, linear dependence on $I$ simply means that one function is a constant multiple of the other: $x_2(t) = k x_1(t)$ or $x_1(t) = k x_2(t)$ for all $t \in I$.
-      </p>
-
-      <h3 class="subheading">4.2 Fitting Initial Conditions: Derivation of the Wronskian</h3>
-      <p>
-        Suppose we have found two solutions $x_1(t), x_2(t)$ of $L[x] = 0$. By superposition, $x(t) = c_1 x_1(t) + c_2 x_2(t)$ is a solution for any $c_1, c_2 \in \mathbb{R}$. 
-        Can we always find constants $c_1, c_2$ to satisfy arbitrary prescribed initial conditions at an arbitrary base point $t_0 \in I$?
-      </p>
-      $$ \begin{cases} x(t_0) = x_0 \\ x'(t_0) = y_0 \end{cases} $$
-      <p>
-        Evaluating $x(t)$ and its derivative $x'(t) = c_1 x_1'(t) + c_2 x_2'(t)$ at $t = t_0$ produces the linear algebraic system:
-      </p>
-      $$ \begin{cases} c_1 x_1(t_0) + c_2 x_2(t_0) = x_0 \\ c_1 x_1'(t_0) + c_2 x_2'(t_0) = y_0 \end{cases} \iff \begin{pmatrix} x_1(t_0) & x_2(t_0) \\ x_1'(t_0) & x_2'(t_0) \end{pmatrix} \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} $$
-      <p>
-        By elementary linear algebra, this $2 \times 2$ system has a <strong>unique solution</strong> $(c_1, c_2)$ for <em>any</em> prescribed vector $(x_0, y_0)^T$ 
-        if and only if the coefficient matrix is invertible—that is, its determinant is non-zero.
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Definition: The Wronskian Determinant</span>
-        $$ W[x_1, x_2](t) \equiv \det \begin{pmatrix} x_1(t) & x_2(t) \\ x_1'(t) & x_2'(t) \end{pmatrix} = x_1(t) x_2'(t) - x_2(t) x_1'(t) $$
-      </div>
-
-      <p>
-        By Cramer's Rule, when $W(t_0) \neq 0$, the unique coefficients are given explicitly by:
-      </p>
-      $$ c_1 = \frac{x_0 x_2'(t_0) - y_0 x_2(t_0)}{W[x_1, x_2](t_0)}, \quad c_2 = \frac{y_0 x_1(t_0) - x_0 x_1'(t_0)}{W[x_1, x_2](t_0)} $$
-
-      <h3 class="subheading">4.3 Constructive Proof that $\dim(\ker(L)) = 2$</h3>
-
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Theorem: Dimension of the Solution Space</span>
-        </div>
-        <p>
-          Let $p(t)$ and $q(t)$ be continuous on the open interval $I$. The vector space of solutions to the homogeneous second-order linear differential equation:
-        </p>
-        $$ S_H = \ker(L) = \{ x \in C^2(I) : x'' + p(t)x' + q(t)x = 0 \} $$
-        <p>has dimension <strong>exactly 2</strong>: $\dim(\ker(L)) = 2$.</p>
-      </div>
-
-      <p><strong>Rigorous Constructive Proof:</strong></p>
-      <ul class="proof-steps">
-        <li class="proof-step-item">
-          <span class="step-marker">1</span>
-          Fix an arbitrary base point $t_0 \in I$.
-        </li>
-        <li class="proof-step-item">
-          <span class="step-marker">2</span>
-          By the Existence and Uniqueness Theorem for linear IVPs (Section 2), there exist two unique solutions $u_1(t)$ and $u_2(t)$ on $I$ defined by the canonical initial conditions:
-          $$ \begin{cases} u_1(t_0) = 1 \\ u_1'(t_0) = 0 \end{cases} \quad \text{and} \quad \begin{cases} u_2(t_0) = 0 \\ u_2'(t_0) = 1 \end{cases} $$
-        </li>
-        <li class="proof-step-item">
-          <span class="step-marker">3</span>
-          Compute the Wronskian of $\{u_1, u_2\}$ at $t_0$:
-          $$ W[u_1, u_2](t_0) = \det \begin{pmatrix} u_1(t_0) & u_2(t_0) \\ u_1'(t_0) & u_2'(t_0) \end{pmatrix} = \det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = (1)(1) - (0)(0) = 1 \neq 0 $$
-          Since $W(t_0) = 1 \neq 0$, the solutions $u_1$ and $u_2$ are linearly independent.
-        </li>
-        <li class="proof-step-item">
-          <span class="step-marker">4</span>
-          Now, let $x(t)$ be <strong>any</strong> arbitrary solution of $L[x] = 0$ on $I$. Let its values at $t_0$ be $x(t_0) = x_0$ and $x'(t_0) = y_0$.
-        </li>
-        <li class="proof-step-item">
-          <span class="step-marker">5</span>
-          Construct the linear combination function $v(t) \equiv x_0 u_1(t) + y_0 u_2(t)$. 
-          Since $u_1, u_2 \in \ker(L)$, by superposition $L[v] = 0$. 
-          Evaluating the initial values of $v(t)$ at $t_0$:
-          $$ v(t_0) = x_0 u_1(t_0) + y_0 u_2(t_0) = x_0(1) + y_0(0) = x_0 $$
-          $$ v'(t_0) = x_0 u_1'(t_0) + y_0 u_2'(t_0) = x_0(0) + y_0(1) = y_0 $$
-        </li>
-        <li class="proof-step-item">
-          <span class="step-marker">6</span>
-          Both $x(t)$ and $v(t)$ satisfy the identical homogeneous ODE $L[y] = 0$ and the identical initial conditions $(x_0, y_0)$ at $t_0$. 
-          By the <strong>Uniqueness Theorem</strong> (Section 2), they must coincide on the entire interval $I$:
-          $$ x(t) \equiv v(t) = x_0 u_1(t) + y_0 u_2(t) \quad \forall t \in I $$
-        </li>
-        <li class="proof-step-item">
-          <span class="step-marker">7</span>
-          Therefore, $\{u_1, u_2\}$ spans $\ker(L)$. Because $\{u_1, u_2\}$ is both linearly independent and spans $\ker(L)$, it constitutes a <strong>basis</strong> for $\ker(L)$. 
-          Since the basis contains exactly two functions:
-          $$ \mathbf{\dim(\ker(L)) = 2} \quad \blacksquare $$
-        </li>
-      </ul>
-
-      <div class="callout callout-warning">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span>Exam Warning: Wronskian of Arbitrary Functions vs. ODE Solutions</span>
-        </div>
-        <p>
-          Do not confuse the Wronskian of <em>arbitrary functions</em> with the Wronskian of <em>solutions to a linear ODE</em>:
-        </p>
-        <ul>
-          <li>
-            For <strong>arbitrary functions</strong>, $W[f, g](t) \equiv 0$ does <em>not</em> imply linear dependence. 
-            For instance, $f(t) = t^3$ and $g(t) = |t|^3$ on $\mathbb{R}$ are linearly independent on $(-1, 1)$, yet $W[f, g](t) \equiv 0$ everywhere!
-          </li>
-          <li>
-            For <strong>solutions of $x'' + p(t)x' + q(t)x = 0$</strong> with continuous coefficients, the equivalence is absolute: 
-            $W(t) \neq 0 \iff \{x_1, x_2\}$ are linearly independent. This crucial equivalence is guaranteed by Abel's Identity.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         SECTION 5
-         ======================================================== -->
-    <section id="section-5" class="topic-section">
-      <h2 class="section-heading">
-        <span class="heading-pill">Section 5</span>
-        <span>Abel's Identity &amp; The Wronskian Dichotomy</span>
-      </h2>
-
-      <p>
-        Abel's Theorem establishes a remarkable differential equation governing the evolution of the Wronskian of any two solutions, 
-        independent of the coefficient $q(t)$.
-      </p>
-
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Abel's Theorem (Abel's Identity; cf. Robinson, Exercise 11.2)</span>
-        </div>
-        <p>
-          Let $x_1(t)$ and $x_2(t)$ be any two solutions of the homogeneous equation $x'' + p(t)x' + q(t)x = 0$ on the open interval $I$, 
-          where $p(t)$ and $q(t)$ are continuous. Then their Wronskian $W(t) = W[x_1, x_2](t)$ satisfies the first-order linear differential equation:
-        </p>
-        $$ \frac{dW}{dt} = -p(t) W(t) $$
-        <p style="margin-top: 10px;">
-          Consequently, for any fixed reference point $t_0 \in I$:
-        </p>
-        <div class="formula-block">
-          <span class="formula-badge">Abel's Identity</span>
-          $$ W(t) = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) $$
-        </div>
-      </div>
-
-      <h3 class="subheading">5.1 Complete Step-by-Step Derivation</h3>
-      <p>
-        We begin directly from the definition of the Wronskian:
-      </p>
-      $$ W(t) = x_1(t) x_2'(t) - x_2(t) x_1'(t) $$
-      <p>
-        Differentiating both sides with respect to $t$ using the product rule:
-      </p>
-      $$ \begin{aligned}
-      \frac{dW}{dt} &= \frac{d}{dt}\left[ x_1(t) x_2'(t) \right] - \frac{d}{dt}\left[ x_2(t) x_1'(t) \right] \\
-      &= \left[ x_1'(t) x_2'(t) + x_1(t) x_2''(t) \right] - \left[ x_2'(t) x_1'(t) + x_2(t) x_1''(t) \right]
-      \end{aligned} $$
-      <p>
-        Notice that the first-derivative cross terms are identical and cancel out: $x_1'(t) x_2'(t) - x_2'(t) x_1'(t) = 0$. Thus:
-      </p>
-      $$ \frac{dW}{dt} = x_1(t) x_2''(t) - x_2(t) x_1''(t) $$
-      <p>
-        Now, because $x_1$ and $x_2$ are solutions to $x'' + p(t)x' + q(t)x = 0$, we substitute their second derivatives:
-      </p>
-      $$ x_1''(t) = -p(t) x_1'(t) - q(t) x_1(t) $$
-      $$ x_2''(t) = -p(t) x_2'(t) - q(t) x_2(t) $$
-      <p>
-        Substituting into the expression for $\frac{dW}{dt}$:
-      </p>
-      $$ \begin{aligned}
-      \frac{dW}{dt} &= x_1(t) \left[ -p(t) x_2'(t) - q(t) x_2(t) \right] - x_2(t) \left[ -p(t) x_1'(t) - q(t) x_1(t) \right] \\
-      &= -p(t) x_1(t) x_2'(t) - q(t) x_1(t) x_2(t) + p(t) x_2(t) x_1'(t) + q(t) x_1(t) x_2(t)
-      \end{aligned} $$
-      <p>
-        The terms proportional to $q(t)$ cancel identically: $-q(t) x_1 x_2 + q(t) x_1 x_2 = 0$. Regrouping the remaining terms:
-      </p>
-      $$ \frac{dW}{dt} = -p(t) \left[ x_1(t) x_2'(t) - x_2(t) x_1'(t) \right] = -p(t) W(t) $$
-      <p>
-        This is a first-order linear ODE. We must not divide by $W$ (the case $W(t_0) = 0$ has to be covered as well, and the dichotomy below is derived from the result), so we use an integrating factor. Define
-      </p>
-      $$ \mu(t) = \exp\left( \int_{t_0}^t p(s) \, ds \right) $$
-      <p>
-        Since $p$ is continuous, the Fundamental Theorem of Calculus gives $\frac{d}{dt}\int_{t_0}^t p(s)\,ds = p(t)$, and the chain rule $\frac{d}{dt}e^{u(t)} = e^{u(t)}\,u'(t)$ with $u(t) = \int_{t_0}^t p(s)\,ds$ gives
-      </p>
-      $$ \mu'(t) = p(t)\,\mu(t), \qquad \mu(t_0) = e^{0} = 1, \qquad \mu(t) > 0 $$
-      <p>
-        Then, by the product rule and $W' = -pW$:
-      </p>
-      $$ \frac{d}{dt}\left[ \mu(t) W(t) \right] = \mu'(t) W(t) + \mu(t) W'(t) = p(t)\mu(t) W(t) - p(t)\mu(t) W(t) = 0 $$
-      <p>
-        Integrating from $t_0$ to $t$ (Barrow's rule):
-      </p>
-      $$ \mu(t) W(t) - \mu(t_0) W(t_0) = \int_{t_0}^t 0 \, ds = 0 \implies \mu(t) W(t) = W(t_0) $$
-      <p>
-        Dividing by $\mu(t) > 0$ yields Abel's Identity, valid for every value of $W(t_0)$, including $W(t_0) = 0$:
-      </p>
-      $$ W(t) = \frac{W(t_0)}{\mu(t)} = W(t_0) \exp\left( -\int_{t_0}^t p(s) \, ds \right) \quad \blacksquare $$
-
-      <h3 class="subheading">5.2 The Fundamental Wronskian Dichotomy</h3>
-      <p>
-        Because the exponential function $\exp\left(-\int_{t_0}^t p(s) ds\right)$ is <strong>strictly positive</strong> for all $t \in I$ whenever $p(s)$ is continuous, 
-        Abel's Identity proves the <strong>Wronskian Dichotomy Principle</strong>:
-      </p>
-
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>The Wronskian Dichotomy Principle</span>
-        </div>
-        <p>
-          For any two solutions $x_1(t), x_2(t)$ of $x'' + p(t)x' + q(t)x = 0$ on an interval $I$ with continuous $p, q$:
-        </p>
-        <ul>
-          <li><strong>Either:</strong> $W(t) \neq 0$ for <em>all</em> $t \in I$ (meaning $\{x_1, x_2\}$ is linearly independent everywhere on $I$).</li>
-          <li><strong>Or:</strong> $W(t) \equiv 0$ for <em>all</em> $t \in I$ (meaning $\{x_1, x_2\}$ is linearly dependent everywhere on $I$).</li>
-        </ul>
-        <p style="margin-top: 8px;">
-          <strong>The Wronskian of solutions can never vanish at an isolated point!</strong> If $W(t_0) = 0$ at a single point $t_0 \in I$, then $W(t)$ is identically zero across the entire interval $I$.
+          $k = \frac{-2\pm\sqrt{4 - 20}}{2} = -1 \pm 2i$, so $x = e^{-t}(A\cos 2t + B\sin 2t)$ and, by the product rule,
+          $\dot x = e^{-t}\big[(2B - A)\cos 2t - (2A + B)\sin 2t\big]$. Then $A = 1$, $2B - A = 0$, so $B = \tfrac12$:
+          $\ x(t) = e^{-t}\big(\cos 2t + \tfrac12\sin 2t\big)$.
         </p>
       </div>
 
-      <h3 class="subheading">5.3 Application: Reduction of Order (d'Alembert's Formula)</h3>
-      <p>
-        If one non-zero solution $x_1(t)$ of $x'' + p(t)x' + q(t)x = 0$ is known, Abel's Identity allows us to construct a second, linearly independent solution $x_2(t)$ via the ansatz $x_2(t) = v(t) x_1(t)$:
-      </p>
-      $$ W[x_1, x_2](t) = x_1 (v' x_1 + v x_1') - (v x_1) x_1' = x_1(t)^2 v'(t) $$
-      <p>
-        Equating this to Abel's Identity $W(t) = C \exp\left(-\int p(t) dt\right)$ (setting $C = 1$ for a basis function):
-      </p>
-      $$ x_1(t)^2 v'(t) = \exp\left(-\int p(t) dt\right) \implies v'(t) = \frac{\exp\left(-\int p(t) dt\right)}{[x_1(t)]^2} $$
-      <p>
-        Integrating $v'(t)$ gives <strong>d'Alembert's Reduction of Order Formula</strong>:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Reduction of Order Formula</span>
-        $$ x_2(t) = x_1(t) \int \frac{\exp\left( -\int p(t) \, dt \right)}{[x_1(t)]^2} \, dt $$
-      </div>
-    </section>
-
-    <!-- ========================================================
-         SECTION 6
-         ======================================================== -->
-    <section id="section-6" class="topic-section">
-      <h2 class="section-heading">
-        <span class="heading-pill">Section 6</span>
-        <span>Constant-Coefficient Homogeneous ODEs</span>
-      </h2>
-
-      <p>
-        We now focus on the fundamental class of equations where the coefficient functions are real constants:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Constant-Coefficient Homogeneous Equation</span>
-        $$ a \frac{d^2 x}{dt^2} + b \frac{dx}{dt} + c x(t) = 0 \quad (a, b, c \in \mathbb{R}, \; a \neq 0) $$
-      </div>
-
-      <h3 class="subheading">6.1 The Exponential Ansatz and the Characteristic Equation</h3>
-      <p>
-        Motivated by first-order equations where the rate of change is proportional to the function, we test the <strong>exponential trial ansatz</strong>:
-      </p>
-      $$ x(t) = e^{kt} $$
-      <p>
-        where $k$ is an unknown constant parameter. Differentiating $x(t)$ with respect to $t$:
-      </p>
-      $$ x'(t) = k e^{kt}, \quad x''(t) = k^2 e^{kt} $$
-      <p>
-        Substitute these into the differential equation:
-      </p>
-      $$ a (k^2 e^{kt}) + b (k e^{kt}) + c (e^{kt}) = 0 \implies (a k^2 + b k + c) e^{kt} = 0 $$
-      <p>
-        Since $e^{kt} \neq 0$ for all $t \in \mathbb{R}$, this holds if and only if $k$ satisfies the <strong>characteristic algebraic polynomial</strong>:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Characteristic Equation</span>
-        $$ a k^2 + b k + c = 0 $$
-      </div>
-
-      <p>
-        The roots are given by the quadratic formula:
-      </p>
-      $$ k = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
-      <p>
-        The algebraic sign of the <strong>discriminant</strong> $\Delta \equiv b^2 - 4ac$ uniquely partitions the dynamic response into three exhaustive regimes:
-      </p>
-
-      <!-- REGIME TABLE SUMMARY -->
-      <div class="regime-table-wrap">
-        <table class="regime-table">
-          <thead>
-            <tr>
-              <th>Regime</th>
-              <th>Discriminant</th>
-              <th>Characteristic Roots</th>
-              <th>Fundamental Set $\{x_1, x_2\}$</th>
-              <th>General Solution $x(t)$</th>
-              <th>Wronskian $W(t)$</th>
-            </tr>
-          </thead>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Roots of $ak^2 + bk + c = 0$</th><th>Fundamental pair</th><th>General solution</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Case 1: Overdamped</strong></td>
-              <td>$\Delta > 0$</td>
-              <td>$k_1 \neq k_2 \in \mathbb{R}$</td>
-              <td>$\{e^{k_1 t}, e^{k_2 t}\}$</td>
-              <td>$c_1 e^{k_1 t} + c_2 e^{k_2 t}$</td>
-              <td>$(k_2 - k_1) e^{(k_1+k_2)t} \neq 0$</td>
-            </tr>
-            <tr>
-              <td><strong>Case 2: Critically Damped</strong></td>
-              <td>$\Delta = 0$</td>
-              <td>$k = -\frac{b}{2a}$ (mult. 2)</td>
-              <td>$\{e^{kt}, t e^{kt}\}$</td>
-              <td>$(c_1 + c_2 t) e^{kt}$</td>
-              <td>$e^{2kt} \neq 0$</td>
-            </tr>
-            <tr>
-              <td><strong>Case 3: Underdamped</strong></td>
-              <td>$\Delta < 0$</td>
-              <td>$k = \rho \pm i\omega \quad (\omega > 0)$</td>
-              <td>$\{e^{\rho t}\cos\omega t, e^{\rho t}\sin\omega t\}$</td>
-              <td>$e^{\rho t}(A \cos\omega t + B \sin\omega t)$</td>
-              <td>$\omega e^{2\rho t} \neq 0$</td>
-            </tr>
+            <tr><td>Real, $k_1 \neq k_2$</td><td>$e^{k_1t}$, $e^{k_2t}$</td><td>$Ae^{k_1t} + Be^{k_2t}$</td></tr>
+            <tr><td>Repeated, $k$</td><td>$e^{kt}$, $te^{kt}$</td><td>$(A + Bt)e^{kt}$</td></tr>
+            <tr><td>Complex, $\rho \pm i\omega$</td><td>$e^{\rho t}\cos\omega t$, $e^{\rho t}\sin\omega t$</td><td>$e^{\rho t}(A\cos\omega t + B\sin\omega t)$</td></tr>
           </tbody>
         </table>
       </div>
-
-      <!-- CASE 1 -->
-      <h3 class="subheading">6.2 Case 1: Distinct Real Roots ($\Delta = b^2 - 4ac > 0$)</h3>
-      <p>
-        When $\Delta > 0$, the characteristic polynomial yields two distinct real numbers:
-      </p>
-      $$ k_1 = \frac{-b + \sqrt{\Delta}}{2a}, \quad k_2 = \frac{-b - \sqrt{\Delta}}{2a} \quad (k_1 \neq k_2) $$
-      <p>
-        This produces two exponential solutions: $x_1(t) = e^{k_1 t}$ and $x_2(t) = e^{k_2 t}$. 
-        Verifying their linear independence via the Wronskian determinant:
-      </p>
-      $$ W[x_1, x_2](t) = \det \begin{pmatrix} e^{k_1 t} & e^{k_2 t} \\ k_1 e^{k_1 t} & k_2 e^{k_2 t} \end{pmatrix} = e^{k_1 t} (k_2 e^{k_2 t}) - e^{k_2 t} (k_1 e^{k_1 t}) = (k_2 - k_1) e^{(k_1 + k_2)t} $$
-      <p>
-        Since $k_1 \neq k_2$ and the exponential never vanishes, $W(t) \neq 0$ for all $t \in \mathbb{R}$. 
-        Thus, $\{e^{k_1 t}, e^{k_2 t}\}$ forms a fundamental set of solutions, and the general solution is:
-      </p>
-      <div class="formula-block">
-        <span class="formula-badge">Case 1 General Solution</span>
-        $$ x(t) = c_1 e^{k_1 t} + c_2 e^{k_2 t} \quad (c_1, c_2 \in \mathbb{R}) $$
+      <div class="callout note">
+        <div class="callout-title">Higher order: the same strategy (Robinson Sec. 16.1, lecture Sep 24)</div>
+        <p>
+          For $a_nx^{(n)} + \dots + a_1\dot x + a_0x = 0$ the trial $e^{kt}$ gives $a_nk^n + \dots + a_0 = 0$. Each simple real root contributes
+          $e^{kt}$; a root repeated $m$ times contributes $e^{kt}, te^{kt}, \dots, t^{m-1}e^{kt}$; each complex pair $\rho \pm i\omega$ contributes
+          $e^{\rho t}\cos\omega t$, $e^{\rho t}\sin\omega t$ (times $1, t, \dots$ if repeated). Example 16.2: $x^{(4)} - 16x = 0$ has $k^4 = 16$,
+          $k = \pm 2, \pm 2i$, so $x = Ae^{2t} + Be^{-2t} + C\cos 2t + D\sin 2t$.
+        </p>
       </div>
-
-      <!-- CASE 2 -->
-      <h3 class="subheading">6.3 Case 2: Repeated Real Root ($\Delta = b^2 - 4ac = 0$)</h3>
-      <p>
-        When the discriminant vanishes, the characteristic polynomial possesses a single repeated real root of multiplicity 2:
-      </p>
-      $$ k = -\frac{b}{2a} \implies 2a k + b = 0 $$
-      <p>
-        The ansatz yields only one exponential solution: $x_1(t) = e^{kt}$. 
-        Since $\dim(\ker(L)) = 2$, we require a second, linearly independent solution.
-      </p>
-
-      <div class="callout callout-theorem">
-        <div class="callout-header">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Theorem: The Repeated Root Solution is $x_2(t) = t e^{kt}$</span>
-        </div>
-        <p><strong>Proof 1 (Direct Differential Verification):</strong></p>
-        <p>Let $x_2(t) = t e^{kt}$. Differentiating using the product rule:</p>
-        $$ x_2'(t) = 1 \cdot e^{kt} + t \cdot (k e^{kt}) = (1 + kt) e^{kt} $$
-        $$ x_2''(t) = k e^{kt} + k(1 + kt) e^{kt} = (2k + k^2 t) e^{kt} $$
-        <p>Substitute $x_2, x_2'$, and $x_2''$ into the operator $L[x_2] = a x_2'' + b x_2' + c x_2$:</p>
-        $$ \begin{aligned}
-        L[x_2] &= a (2k + k^2 t) e^{kt} + b (1 + kt) e^{kt} + c (t) e^{kt} \\
-        &= \left[ t (a k^2 + b k + c) + (2a k + b) \right] e^{kt}
-        \end{aligned} $$
-        <p>Examine the two bracketed terms:</p>
-        <ol>
-          <li>$a k^2 + b k + c = 0$ because $k$ is a root of the characteristic polynomial.</li>
-          <li>$2a k + b = 2a\left(-\frac{b}{2a}\right) + b = -b + b = 0$.</li>
-        </ol>
-        <p>Therefore: $L[x_2] = [t \cdot 0 + 0] e^{kt} \equiv 0$ for all $t \in \mathbb{R}$.</p>
-        <p style="margin-top: 10px;"><strong>Proof 2 (Derivation via Reduction of Order):</strong></p>
-        <p>Using d'Alembert's reduction of order formula with $p = b/a = -2k$ and $x_1(t) = e^{kt}$:</p>
-        $$ x_2(t) = e^{kt} \int \frac{\exp\left( -\int \frac{b}{a} dt \right)}{[e^{kt}]^2} \, dt = e^{kt} \int \frac{e^{- (b/a) t}}{e^{2kt}} \, dt = e^{kt} \int \frac{e^{2kt}}{e^{2kt}} \, dt = e^{kt} \int 1 \, dt = t e^{kt} $$
-        <p>This confirms that $x_2(t) = t e^{kt}$ is an exact solution. $\blacksquare$</p>
-      </div>
-
-      <p>
-        Now compute the Wronskian of $\{e^{kt}, t e^{kt}\}$:
-      </p>
-      $$ W[e^{kt}, t e^{kt}](t) = \det \begin{pmatrix} e^{kt} & t e^{kt} \\ k e^{kt} & (1 + kt) e^{kt} \end{pmatrix} = e^{kt}(1 + kt)e^{kt} - t e^{kt}(k e^{kt}) = e^{2kt} \neq 0 $$
-      <p>
-        The Wronskian is non-zero everywhere. Thus, the general solution for Case 2 is:
-      </p>
-      <div class="formula-block">
-        <span class="formula-badge">Case 2 General Solution</span>
-        $$ x(t) = (c_1 + c_2 t) e^{kt} = c_1 e^{kt} + c_2 t e^{kt} \quad (c_1, c_2 \in \mathbb{R}) $$
-      </div>
-
-      <!-- CASE 3 -->
-      <h3 class="subheading">6.4 Case 3: Complex Conjugate Roots ($\Delta = b^2 - 4ac < 0$)</h3>
-      <p>
-        When $\Delta < 0$, $\sqrt{\Delta} = \sqrt{-(4ac - b^2)} = i \sqrt{4ac - b^2}$ where $4ac - b^2 > 0$. The roots form a complex conjugate pair:
-      </p>
-      $$ k = \rho \pm i \omega $$
-      <p>
-        with real part $\rho$ and imaginary frequency $\omega > 0$ given by:
-      </p>
-      $$ \rho = -\frac{b}{2a}, \quad \omega = \frac{\sqrt{4ac - b^2}}{2a} $$
-      <p>
-        The exponential trial ansatz generates two complex-valued solutions:
-      </p>
-      $$ z_1(t) = e^{(\rho + i\omega)t} = e^{\rho t} e^{i\omega t}, \quad z_2(t) = e^{(\rho - i\omega)t} = e^{\rho t} e^{-i\omega t} $$
-
-      <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading); margin: 20px 0 10px;">Derivation via Euler's Formula</h4>
-      <p>
-        Recall <strong>Euler's Formula</strong>, which relates complex exponentials to trigonometric functions:
-      </p>
-      $$ e^{i\theta} = \cos\theta + i\sin\theta $$
-      <p>
-        Applying Euler's formula to $z_1(t)$ and $z_2(t)$:
-      </p>
-      $$ z_1(t) = e^{\rho t} \left[ \cos(\omega t) + i \sin(\omega t) \right] $$
-      $$ z_2(t) = e^{\rho t} \left[ \cos(-\omega t) + i \sin(-\omega t) \right] = e^{\rho t} \left[ \cos(\omega t) - i \sin(\omega t) \right] $$
-      <p>
-        Because the differential operator $L$ has strictly real coefficients, the real and imaginary parts of any complex solution are individually real-valued solutions! 
-        Using the Superposition Principle:
-      </p>
-      $$ u(t) \equiv \frac{z_1(t) + z_2(t)}{2} = e^{\rho t} \cos(\omega t) $$
-      $$ v(t) \equiv \frac{z_1(t) - z_2(t)}{2i} = e^{\rho t} \sin(\omega t) $$
-
-      <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading); margin: 20px 0 10px;">Wronskian of the Real Oscillatory Solutions</h4>
-      <p>
-        To prove that $\{u(t), v(t)\}$ forms an authentic real basis, we calculate their Wronskian determinant:
-      </p>
-      $$ u'(t) = e^{\rho t} \left( \rho \cos\omega t - \omega \sin\omega t \right) $$
-      $$ v'(t) = e^{\rho t} \left( \rho \sin\omega t + \omega \cos\omega t \right) $$
-      <p>
-        Substituting into $W[u, v](t) = u v' - v u'$:
-      </p>
-      $$ \begin{aligned}
-      W[u, v](t) &= \left( e^{\rho t} \cos\omega t \right) \left[ e^{\rho t}(\rho \sin\omega t + \omega \cos\omega t) \right] - \left( e^{\rho t} \sin\omega t \right) \left[ e^{\rho t}(\rho \cos\omega t - \omega \sin\omega t) \right] \\
-      &= e^{2\rho t} \left[ \rho \cos\omega t \sin\omega t + \omega \cos^2\omega t - \rho \sin\omega t \cos\omega t + \omega \sin^2\omega t \right] \\
-      &= e^{2\rho t} \left[ \omega (\cos^2\omega t + \sin^2\omega t) \right] \\
-      &= \mathbf{\omega e^{2\rho t}}
-      \end{aligned} $$
-      <p>
-        Since $\omega > 0$ and the exponential never vanishes, $W(t) = \omega e^{2\rho t} \neq 0$ for all $t \in \mathbb{R}$. 
-        Therefore, $\{e^{\rho t} \cos\omega t, e^{\rho t} \sin\omega t\}$ is a true real fundamental solution set, and the general real solution is:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Case 3 General Real Solution</span>
-        $$ x(t) = e^{\rho t} \left[ A \cos(\omega t) + B \sin(\omega t) \right] \quad (A, B \in \mathbb{R}) $$
-      </div>
-
-      <h3 class="subheading">6.5 Amplitude-Phase Polar Representation</h3>
-      <p>
-        In vibration mechanics, acoustics, and flutter analysis, the Cartesian linear combination $A \cos\omega t + B \sin\omega t$ is rewritten as a single shifted harmonic cosine:
-      </p>
-
-      <div class="formula-block">
-        <span class="formula-badge">Amplitude-Phase Form</span>
-        $$ x(t) = M e^{\rho t} \cos(\omega t - \phi) $$
-      </div>
-
-      <p>
-        Using the cosine addition formula $\cos(\omega t - \phi) = \cos\omega t \cos\phi + \sin\omega t \sin\phi$:
-      </p>
-      $$ M \cos(\omega t - \phi) = (M \cos\phi) \cos\omega t + (M \sin\phi) \sin\omega t $$
-      <p>
-        Equating coefficients with $A \cos\omega t + B \sin\omega t$:
-      </p>
-      $$ A = M \cos\phi, \quad B = M \sin\phi $$
-      <p>
-        Squaring and adding both equations yields the <strong>initial amplitude</strong> $M$:
-      </p>
-      $$ A^2 + B^2 = M^2 (\cos^2\phi + \sin^2\phi) = M^2 \implies \mathbf{M = \sqrt{A^2 + B^2}} $$
-      <p>
-        Dividing the second equation by the first yields the <strong>phase lag</strong> $\phi$:
-      </p>
-      $$ \tan\phi = \frac{B}{A} \implies \mathbf{\phi = \text{atan2}(B, A) \in (-\pi, \pi]} $$
-      <ul>
-        <li><strong>Pseudo-frequency:</strong> $\omega = \frac{\sqrt{4ac - b^2}}{2a}$ (rad/s)</li>
-        <li><strong>Pseudo-period:</strong> $T = \frac{2\pi}{\omega}$ (s)</li>
-        <li><strong>Decaying Exponential Envelope:</strong> $\pm M e^{\rho t}$ (bounds oscillations when $\rho < 0$)</li>
-      </ul>
     </section>
 
-    <!-- ========================================================
-         NAVIGATION BUTTONS
-         ======================================================== -->
-    <nav class="topic-nav-bottom" aria-label="Topic navigation">
-      <a href="topic-2.html" class="nav-btn">
-        <span class="nav-btn-label">← Previous Topic</span>
-        <span class="nav-btn-title">Topic 2: First-Order ODEs and Qualitative Dynamics</span>
-      </a>
-      <a href="index.html" class="nav-btn" style="text-align: right;">
-        <span class="nav-btn-label">Upward Index →</span>
-        <span class="nav-btn-title">Theory Syllabus Hub (Topics 1, 2 &amp; 3 Active)</span>
-      </a>
+    <!-- ===================================================== 4 -->
+    <section class="theory-section" id="sec-4">
+      <div class="section-header">
+        <div class="section-tag">Section 04 • Robinson Ch. 13 • Lecture Sep 22</div>
+        <h2 class="section-title">4. The mass–spring–damper</h2>
+      </div>
+      <figure class="fig"><svg viewBox="0 0 640 170" role="img" aria-label="mass spring damper schematic" xmlns="http://www.w3.org/2000/svg"><line class="ax" x1="40" y1="20" x2="40" y2="140"/><line class="ax" x1="40" y1="24" x2="30" y2="34"/><line class="ax" x1="40" y1="36" x2="30" y2="46"/><line class="ax" x1="40" y1="48" x2="30" y2="58"/><line class="ax" x1="40" y1="60" x2="30" y2="70"/><line class="ax" x1="40" y1="72" x2="30" y2="82"/><line class="ax" x1="40" y1="84" x2="30" y2="94"/><line class="ax" x1="40" y1="96" x2="30" y2="106"/><line class="ax" x1="40" y1="108" x2="30" y2="118"/><line class="ax" x1="40" y1="120" x2="30" y2="130"/><line class="ax" x1="40" y1="132" x2="30" y2="142"/><path class="c1" d="M40,55 L90,55 L100,40 L120,70 L140,40 L160,70 L180,40 L200,70 L220,40 L240,70 L260,40 L280,70 L300,55 L360,55"/><text x="200" y="30" text-anchor="middle">spring, stiffness k  [N/m]</text><path class="c3" d="M40,110 L170,110 M170,92 L170,128 M150,92 L230,92 L230,128 L150,128 M230,110 L360,110"/><text x="200" y="150" text-anchor="middle">dashpot, damping μ  [N s/m]</text><rect class="c2" x="360" y="35" width="110" height="95" rx="6"/><text class="lbl" x="415" y="90" text-anchor="middle">m</text><line class="ax" x1="355" y1="140" x2="355" y2="160"/><line class="c4" x1="470" y1="82" x2="560" y2="82"/><polygon class="ah4" points="572,82 560,76 560,88"/><text x="520" y="72" text-anchor="middle">F(t)</text><line class="ax" x1="355" y1="152" x2="430" y2="152"/><polygon class="ahm" points="440,152 430,147 430,157"/><text class="lbl" x="452" y="157">x</text></svg><figcaption><b>Figure 3.1.</b> Mass–spring–damper. The displacement $x$ is measured from the equilibrium position, positive to the right. The spring pushes back with $-kx$ (Hooke's law), the dashpot with $-\mu\dot x$, and an external force $F(t)$ may act on the mass.</figcaption></figure>
+      <h3 class="sub-title">4.1 Model</h3>
+      <p>
+        <strong>Hypotheses.</strong> A rigid mass $m$ moves along one axis (one degree of freedom $x$, measured from equilibrium). The spring obeys
+        Hooke's law, restoring force $-kx$; the dashpot gives a force proportional and opposite to the velocity, $-\mu\dot x$, with $\mu > 0$
+        <span class="cite">[Robinson Sec. 13.1, p. 120; Sec. 13.3, p. 123]</span>. Newton's second law:
+      </p>
+      $$m\ddot x = -kx - \mu\dot x + F(t) \quad\Longleftrightarrow\quad m\ddot x + \mu\dot x + kx = F(t).$$
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead>
+          <tbody>
+            <tr><td>$m$</td><td>Mass</td><td>kg</td></tr>
+            <tr><td>$k$</td><td>Spring stiffness</td><td>N/m = kg/s²</td></tr>
+            <tr><td>$\mu$</td><td>Damping coefficient</td><td>N s/m = kg/s</td></tr>
+            <tr><td>$\omega = \sqrt{k/m}$</td><td>Natural angular frequency</td><td>rad/s</td></tr>
+            <tr><td>$\lambda = \mu/m$</td><td>Damping rate</td><td>s⁻¹</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Dividing by $m$, the free ($F = 0$) equation is <span class="cite">[Eq. (13.6), p. 124]</span></p>
+      $$\ddot x + \lambda\dot x + \omega^2x = 0, \qquad \lambda = \frac{\mu}{m} > 0, \quad \omega^2 = \frac{k}{m}. \tag{13.6}$$
+      <div class="callout danger">
+        <div class="callout-title">Erratum — Robinson p. 124</div>
+        <p>
+          The text says "dividing by $m$ … and setting $\lambda = \mu/k$". Dividing $m\ddot x + \mu\dot x + kx = 0$ by $m$ gives the coefficient
+          $\mu/m$ for $\dot x$, so the correct definition is $\lambda = \mu/m$. Dimensional check: $[\mu/m] = (\text{kg/s})/\text{kg} = \text{s}^{-1}$, as
+          required for $\lambda\dot x$ to have the units of $\ddot x$; $[\mu/k] = (\text{kg/s})/(\text{kg/s}^2) = \text{s}$ would not.
+        </p>
+      </div>
+
+      <h3 class="sub-title">4.2 No damping: simple harmonic motion</h3>
+      <p>
+        With $\lambda = 0$: $\ddot x = -\omega^2x$ (13.1), roots $\pm i\omega$, so $x = A\cos\omega t + B\sin\omega t$ (13.2). Writing
+        $M = \sqrt{A^2 + B^2}$ and choosing $\phi$ with $\cos\phi = A/M$, $\sin\phi = B/M$:
+      </p>
+      $$x = M\big(\cos\phi\cos\omega t + \sin\phi\sin\omega t\big) = M\cos(\omega t - \phi). \tag{13.3}$$
+      <p>
+        The motion has amplitude $M$, period $2\pi/\omega = 2\pi\sqrt{m/k}$ independent of the amplitude, and lags $M\cos\omega t$ by the time $\phi/\omega$.
+        The same equation governs the small oscillations of a pendulum, $\ddot\theta = -(g/L)\theta$, with period $2\pi\sqrt{L/g}$ (Sec. 13.2).
+      </p>
+
+      <h3 class="sub-title">4.3 The three damping regimes <span class="cite">[Sec. 13.3, pp. 124–126]</span></h3>
+      <p>The auxiliary equation $k^2 + \lambda k + \omega^2 = 0$ has roots $k = \tfrac12\big(-\lambda \pm\sqrt{\lambda^2 - 4\omega^2}\big)$.</p>
+      <ul>
+        <li>
+          <strong>Over-damped, $\lambda > 2\omega$:</strong> two real roots $-k_1$, $-k_2$, both negative because $0 < \sqrt{\lambda^2 - 4\omega^2} < \lambda$.
+          $x = Ae^{-k_1t} + Be^{-k_2t}$: decay with no oscillation.
+        </li>
+        <li>
+          <strong>Critically damped, $\lambda = 2\omega$:</strong> repeated root $-\lambda/2 = -\omega$. $x = (A + Bt)e^{-\omega t}$: no oscillation, and the
+          fastest return to equilibrium; any less damping allows oscillation.
+        </li>
+        <li>
+          <strong>Under-damped, $\lambda < 2\omega$:</strong> roots $-\lambda/2 \pm i\sigma$ with $\sigma = \tfrac12\sqrt{4\omega^2 - \lambda^2}$.
+          $$x = e^{-\lambda t/2}\big(A\cos\sigma t + B\sin\sigma t\big) = Me^{-\lambda t/2}\cos(\sigma t - \phi). \tag{13.7}$$
+          The amplitude decays exponentially and successive maxima are separated by the constant time $2\pi/\sigma$: setting
+          $\dot x = -Me^{-\lambda t/2}\big[\tfrac\lambda2\cos(\sigma t - \phi) + \sigma\sin(\sigma t - \phi)\big] = 0$ gives
+          $\tan(\sigma t - \phi) = -\lambda/(2\sigma)$, whose solutions are spaced by $\pi/\sigma$ (alternating maxima and minima).
+        </li>
+      </ul>
+      <figure class="fig"><svg viewBox="0 0 640.0 320.0" role="img" aria-label="damping regimes" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="142.0" y1="280.0" x2="142.0" y2="22.0"/><line class="grid" x1="238.0" y1="280.0" x2="238.0" y2="22.0"/><line class="grid" x1="334.0" y1="280.0" x2="334.0" y2="22.0"/><line class="grid" x1="430.0" y1="280.0" x2="430.0" y2="22.0"/><line class="grid" x1="526.0" y1="280.0" x2="526.0" y2="22.0"/><line class="grid" x1="622.0" y1="280.0" x2="622.0" y2="22.0"/><line class="grid" x1="46.0" y1="268.5" x2="622.0" y2="268.5"/><line class="grid" x1="46.0" y1="211.2" x2="622.0" y2="211.2"/><line class="grid" x1="46.0" y1="96.5" x2="622.0" y2="96.5"/><line class="grid" x1="46.0" y1="39.2" x2="622.0" y2="39.2"/><line class="ax" x1="46.0" y1="153.9" x2="622.0" y2="153.9"/><polygon class="ahm" points="622.0,153.9 614.7,157.1 614.7,150.6"/><line class="ax" x1="46.0" y1="280.0" x2="46.0" y2="22.0"/><polygon class="ahm" points="46.0,22.0 49.3,29.3 42.7,29.3"/><line class="ax" x1="142.0" y1="149.9" x2="142.0" y2="157.9"/><text class="small" x="142.0" y="170.9" text-anchor="middle">2</text><line class="ax" x1="238.0" y1="149.9" x2="238.0" y2="157.9"/><text class="small" x="238.0" y="170.9" text-anchor="middle">4</text><line class="ax" x1="334.0" y1="149.9" x2="334.0" y2="157.9"/><text class="small" x="334.0" y="170.9" text-anchor="middle">6</text><line class="ax" x1="430.0" y1="149.9" x2="430.0" y2="157.9"/><text class="small" x="430.0" y="170.9" text-anchor="middle">8</text><line class="ax" x1="526.0" y1="149.9" x2="526.0" y2="157.9"/><text class="small" x="526.0" y="170.9" text-anchor="middle">10</text><line class="ax" x1="622.0" y1="149.9" x2="622.0" y2="157.9"/><text class="small" x="622.0" y="170.9" text-anchor="middle">12</text><line class="ax" x1="42.0" y1="268.5" x2="50.0" y2="268.5"/><text class="small" x="39.0" y="272.5" text-anchor="end">−1</text><line class="ax" x1="42.0" y1="211.2" x2="50.0" y2="211.2"/><text class="small" x="39.0" y="215.2" text-anchor="end">−0.5</text><line class="ax" x1="42.0" y1="96.5" x2="50.0" y2="96.5"/><text class="small" x="39.0" y="100.5" text-anchor="end">0.5</text><line class="ax" x1="42.0" y1="39.2" x2="50.0" y2="39.2"/><text class="small" x="39.0" y="43.2" text-anchor="end">1</text><text class="lbl" x="618.0" y="145.9" text-anchor="end">ω t</text><text class="lbl" x="54.0" y="34.0" text-anchor="start">x / x₀</text><path class="c5 thin dash" d="M46.0,39.2 L48.9,39.4 L51.8,40.0 L54.6,41.1 L57.5,42.5 L60.4,44.3 L63.3,46.6 L65.2,48.3 L67.1,50.1 L69.0,52.2 L71.0,54.4 L72.9,56.7 L74.8,59.2 L76.7,61.9 L78.6,64.7 L80.6,67.7 L82.5,70.8 L84.4,74.0 L86.3,77.3 L88.2,80.8 L90.2,84.4 L92.1,88.1 L94.0,91.9 L95.9,95.8 L97.8,99.8 L99.8,103.9 L101.7,108.1 L103.6,112.3 L105.5,116.6 L107.4,121.0 L109.4,125.4 L111.3,129.9 L113.2,134.4 L115.1,138.9 L117.0,143.5 L119.0,148.0 L120.9,152.6 L122.8,157.2 L124.7,161.8 L126.6,166.4 L128.6,170.9 L130.5,175.4 L132.4,179.9 L134.3,184.4 L136.2,188.8 L138.2,193.1 L140.1,197.4 L142.0,201.6 L143.9,205.7 L145.8,209.8 L147.8,213.7 L149.7,217.6 L151.6,221.3 L153.5,225.0 L155.4,228.5 L157.4,232.0 L159.3,235.3 L161.2,238.4 L163.1,241.5 L165.0,244.3 L167.0,247.1 L168.9,249.7 L170.8,252.1 L172.7,254.4 L174.6,256.5 L176.6,258.5 L178.5,260.3 L180.4,261.9 L183.3,264.0 L186.2,265.7 L189.0,267.0 L191.9,267.9 L194.8,268.4 L197.7,268.5 L200.6,268.2 L203.4,267.4 L206.3,266.3 L209.2,264.7 L212.1,262.8 L215.0,260.4 L216.9,258.6 L218.8,256.7 L220.7,254.6 L222.6,252.3 L224.6,249.9 L226.5,247.3 L228.4,244.6 L230.3,241.7 L232.2,238.7 L234.2,235.5 L236.1,232.2 L238.0,228.8 L239.9,225.3 L241.8,221.6 L243.8,217.9 L245.7,214.0 L247.6,210.1 L249.5,206.0 L251.4,201.9 L253.4,197.7 L255.3,193.4 L257.2,189.1 L259.1,184.7 L261.0,180.3 L263.0,175.8 L264.9,171.3 L266.8,166.7 L268.7,162.2 L270.6,157.6 L272.6,153.0 L274.5,148.4 L276.4,143.8 L278.3,139.3 L280.2,134.7 L282.2,130.2 L284.1,125.8 L286.0,121.3 L287.9,117.0 L289.8,112.7 L291.8,108.4 L293.7,104.2 L295.6,100.1 L297.5,96.1 L299.4,92.2 L301.4,88.4 L303.3,84.7 L305.2,81.1 L307.1,77.6 L309.0,74.2 L311.0,71.0 L312.9,67.9 L314.8,64.9 L316.7,62.1 L318.6,59.4 L320.6,56.9 L322.5,54.5 L324.4,52.3 L326.3,50.3 L328.2,48.4 L330.2,46.7 L333.0,44.4 L335.9,42.6 L338.8,41.1 L341.7,40.1 L344.6,39.4 L347.4,39.2 L350.3,39.4 L353.2,40.0 L356.1,41.0 L359.0,42.4 L361.8,44.2 L364.7,46.4 L366.6,48.1 L368.6,50.0 L370.5,52.0 L372.4,54.2 L374.3,56.5 L376.2,59.0 L378.2,61.7 L380.1,64.5 L382.0,67.4 L383.9,70.5 L385.8,73.7 L387.8,77.1 L389.7,80.5 L391.6,84.1 L393.5,87.8 L395.4,91.6 L397.4,95.5 L399.3,99.5 L401.2,103.6 L403.1,107.7 L405.0,112.0 L407.0,116.3 L408.9,120.6 L410.8,125.1 L412.7,129.5 L414.6,134.0 L416.6,138.5 L418.5,143.1 L420.4,147.7 L422.3,152.3 L424.2,156.8 L426.2,161.4 L428.1,166.0 L430.0,170.6 L431.9,175.1 L433.8,179.6 L435.8,184.0 L437.7,188.4 L439.6,192.8 L441.5,197.0 L443.4,201.3 L445.4,205.4 L447.3,209.4 L449.2,213.4 L451.1,217.3 L453.0,221.1 L455.0,224.7 L456.9,228.3 L458.8,231.7 L460.7,235.0 L462.6,238.2 L464.6,241.2 L466.5,244.1 L468.4,246.9 L470.3,249.5 L472.2,251.9 L474.2,254.2 L476.1,256.4 L478.0,258.3 L479.9,260.1 L481.8,261.8 L484.7,263.9 L487.6,265.6 L490.5,267.0 L493.4,267.9 L496.2,268.4 L499.1,268.5 L502.0,268.2 L504.9,267.5 L507.8,266.4 L510.6,264.8 L513.5,262.9 L516.4,260.6 L518.3,258.8 L520.2,256.9 L522.2,254.8 L524.1,252.5 L526.0,250.1 L527.9,247.5 L529.8,244.8 L531.8,241.9 L533.7,238.9 L535.6,235.8 L537.5,232.5 L539.4,229.1 L541.4,225.6 L543.3,221.9 L545.2,218.2 L547.1,214.3 L549.0,210.4 L551.0,206.4 L552.9,202.2 L554.8,198.1 L556.7,193.8 L558.6,189.5 L560.6,185.1 L562.5,180.6 L564.4,176.1 L566.3,171.6 L568.2,167.1 L570.2,162.5 L572.1,157.9 L574.0,153.4 L575.9,148.8 L577.8,144.2 L579.8,139.6 L581.7,135.1 L583.6,130.6 L585.5,126.1 L587.4,121.7 L589.4,117.3 L591.3,113.0 L593.2,108.7 L595.1,104.6 L597.0,100.5 L599.0,96.5 L600.9,92.5 L602.8,88.7 L604.7,85.0 L606.6,81.4 L608.6,77.9 L610.5,74.5 L612.4,71.3 L614.3,68.1 L616.2,65.2 L618.2,62.3 L620.1,59.6 L622.0,57.1"/><path class="c1" d="M46.0,39.2 L48.9,39.4 L51.8,40.0 L54.6,41.0 L57.5,42.4 L60.4,44.1 L63.3,46.2 L66.2,48.6 L68.1,50.4 L70.0,52.4 L71.9,54.4 L73.8,56.6 L75.8,58.9 L77.7,61.3 L79.6,63.8 L81.5,66.5 L83.4,69.2 L85.4,72.0 L87.3,74.9 L89.2,77.9 L91.1,80.9 L93.0,84.1 L95.0,87.2 L96.9,90.5 L98.8,93.8 L100.7,97.1 L102.6,100.5 L104.6,103.9 L106.5,107.3 L108.4,110.7 L110.3,114.2 L112.2,117.7 L114.2,121.1 L116.1,124.6 L118.0,128.0 L119.9,131.5 L121.8,134.9 L123.8,138.3 L125.7,141.7 L127.6,145.0 L129.5,148.3 L131.4,151.6 L133.4,154.8 L135.3,157.9 L137.2,161.0 L139.1,164.1 L141.0,167.0 L143.0,169.9 L144.9,172.8 L146.8,175.5 L148.7,178.2 L150.6,180.8 L152.6,183.3 L154.5,185.7 L156.4,188.1 L158.3,190.3 L160.2,192.5 L162.2,194.5 L164.1,196.5 L166.0,198.4 L167.9,200.1 L169.8,201.8 L172.7,204.1 L175.6,206.1 L178.5,208.0 L181.4,209.6 L184.2,210.9 L187.1,212.0 L190.0,212.9 L192.9,213.6 L195.8,214.0 L198.6,214.2 L201.5,214.2 L204.4,214.0 L207.3,213.6 L210.2,212.9 L213.0,212.1 L215.9,211.1 L218.8,209.9 L221.7,208.5 L224.6,207.0 L227.4,205.3 L230.3,203.5 L233.2,201.5 L236.1,199.4 L239.0,197.2 L241.8,194.9 L244.7,192.5 L246.6,190.9 L248.6,189.2 L250.5,187.5 L252.4,185.8 L254.3,184.0 L256.2,182.3 L258.2,180.5 L260.1,178.7 L262.0,176.9 L263.9,175.1 L265.8,173.2 L267.8,171.4 L269.7,169.6 L271.6,167.8 L273.5,165.9 L275.4,164.1 L277.4,162.3 L279.3,160.6 L281.2,158.8 L283.1,157.1 L285.0,155.4 L287.0,153.7 L288.9,152.0 L290.8,150.4 L292.7,148.8 L295.6,146.4 L298.5,144.2 L301.4,142.0 L304.2,139.9 L307.1,137.9 L310.0,136.0 L312.9,134.3 L315.8,132.6 L318.6,131.1 L321.5,129.7 L324.4,128.4 L327.3,127.2 L330.2,126.1 L333.0,125.2 L335.9,124.4 L338.8,123.7 L341.7,123.1 L344.6,122.7 L347.4,122.4 L350.3,122.2 L353.2,122.1 L356.1,122.1 L359.0,122.2 L361.8,122.5 L364.7,122.9 L367.6,123.3 L370.5,123.9 L373.4,124.5 L376.2,125.3 L379.1,126.1 L382.0,127.0 L384.9,128.0 L387.8,129.0 L390.6,130.1 L393.5,131.3 L396.4,132.5 L399.3,133.8 L402.2,135.1 L405.0,136.5 L407.9,137.8 L410.8,139.2 L413.7,140.6 L416.6,142.1 L419.4,143.5 L422.3,145.0 L425.2,146.4 L428.1,147.8 L431.0,149.3 L433.8,150.7 L436.7,152.0 L439.6,153.4 L442.5,154.7 L445.4,156.0 L448.2,157.3 L451.1,158.5 L454.0,159.6 L456.9,160.7 L459.8,161.8 L462.6,162.8 L465.5,163.8 L468.4,164.7 L471.3,165.5 L474.2,166.3 L477.0,167.0 L479.9,167.7 L482.8,168.2 L485.7,168.8 L488.6,169.2 L491.4,169.6 L494.3,169.9 L497.2,170.2 L500.1,170.4 L503.0,170.5 L505.8,170.6 L508.7,170.6 L511.6,170.6 L514.5,170.5 L517.4,170.3 L520.2,170.1 L523.1,169.8 L526.0,169.5 L528.9,169.1 L531.8,168.7 L534.6,168.2 L537.5,167.7 L540.4,167.2 L543.3,166.6 L546.2,166.0 L549.0,165.4 L551.9,164.7 L554.8,164.1 L557.7,163.4 L560.6,162.6 L563.4,161.9 L566.3,161.2 L569.2,160.4 L572.1,159.7 L575.0,158.9 L577.8,158.1 L580.7,157.4 L583.6,156.6 L586.5,155.9 L589.4,155.1 L592.2,154.4 L595.1,153.7 L598.0,153.0 L600.9,152.4 L603.8,151.7 L606.6,151.1 L609.5,150.5 L612.4,149.9 L615.3,149.4 L618.2,148.9 L621.0,148.4 L622.0,148.2"/><path class="c2" d="M46.0,39.2 L48.9,39.4 L51.8,40.0 L54.6,40.8 L57.5,42.0 L60.4,43.4 L63.3,45.1 L66.2,46.9 L69.0,48.9 L71.9,51.0 L74.8,53.2 L77.7,55.5 L80.6,57.9 L82.5,59.5 L84.4,61.1 L86.3,62.8 L88.2,64.5 L90.2,66.1 L92.1,67.8 L94.0,69.5 L95.9,71.2 L97.8,72.9 L99.8,74.6 L101.7,76.2 L103.6,77.9 L105.5,79.5 L107.4,81.2 L109.4,82.8 L111.3,84.4 L114.2,86.8 L117.0,89.1 L119.9,91.4 L122.8,93.7 L125.7,95.9 L128.6,98.0 L131.4,100.1 L134.3,102.1 L137.2,104.1 L140.1,106.1 L143.0,107.9 L145.8,109.7 L148.7,111.5 L151.6,113.2 L154.5,114.9 L157.4,116.5 L160.2,118.0 L163.1,119.5 L166.0,120.9 L168.9,122.3 L171.8,123.6 L174.6,124.9 L177.5,126.2 L180.4,127.4 L183.3,128.5 L186.2,129.6 L189.0,130.7 L191.9,131.7 L194.8,132.7 L197.7,133.6 L200.6,134.5 L203.4,135.4 L206.3,136.2 L209.2,137.0 L212.1,137.8 L215.0,138.5 L217.8,139.2 L220.7,139.9 L223.6,140.5 L226.5,141.2 L229.4,141.7 L232.2,142.3 L235.1,142.9 L238.0,143.4 L240.9,143.9 L243.8,144.3 L246.6,144.8 L249.5,145.2 L252.4,145.6 L255.3,146.0 L258.2,146.4 L261.0,146.7 L263.9,147.1 L266.8,147.4 L269.7,147.7 L272.6,148.0 L275.4,148.3 L278.3,148.6 L281.2,148.8 L284.1,149.1 L287.0,149.3 L289.8,149.5 L292.7,149.7 L295.6,149.9 L298.5,150.1 L301.4,150.3 L304.2,150.5 L307.1,150.7 L310.0,150.8 L312.9,151.0 L315.8,151.1 L318.6,151.3 L321.5,151.4 L324.4,151.5 L327.3,151.6 L330.2,151.7 L333.0,151.8 L335.9,151.9 L338.8,152.0 L341.7,152.1 L344.6,152.2 L347.4,152.3 L350.3,152.4 L353.2,152.5 L356.1,152.5 L359.0,152.6 L361.8,152.7 L364.7,152.7 L367.6,152.8 L370.5,152.8 L373.4,152.9 L376.2,152.9 L379.1,153.0 L382.0,153.0 L384.9,153.1 L387.8,153.1 L390.6,153.2 L393.5,153.2 L396.4,153.2 L399.3,153.3 L402.2,153.3 L405.0,153.3 L407.9,153.3 L410.8,153.4 L413.7,153.4 L416.6,153.4 L419.4,153.4 L422.3,153.5 L425.2,153.5 L428.1,153.5 L431.0,153.5 L433.8,153.5 L436.7,153.6 L439.6,153.6 L442.5,153.6 L445.4,153.6 L448.2,153.6 L451.1,153.6 L454.0,153.6 L456.9,153.7 L459.8,153.7 L462.6,153.7 L465.5,153.7 L468.4,153.7 L471.3,153.7 L474.2,153.7 L477.0,153.7 L479.9,153.7 L482.8,153.7 L485.7,153.7 L488.6,153.8 L491.4,153.8 L494.3,153.8 L497.2,153.8 L500.1,153.8 L503.0,153.8 L505.8,153.8 L508.7,153.8 L511.6,153.8 L514.5,153.8 L517.4,153.8 L520.2,153.8 L523.1,153.8 L526.0,153.8 L528.9,153.8 L531.8,153.8 L534.6,153.8 L537.5,153.8 L540.4,153.8 L543.3,153.8 L546.2,153.8 L549.0,153.8 L551.9,153.8 L554.8,153.8 L557.7,153.8 L560.6,153.8 L563.4,153.8 L566.3,153.8 L569.2,153.8 L572.1,153.8 L575.0,153.8 L577.8,153.8 L580.7,153.8 L583.6,153.8 L586.5,153.8 L589.4,153.8 L592.2,153.9 L595.1,153.9 L598.0,153.9 L600.9,153.9 L603.8,153.9 L606.6,153.9 L609.5,153.9 L612.4,153.9 L615.3,153.9 L618.2,153.9 L621.0,153.9 L622.0,153.9"/><path class="c3" d="M46.0,39.2 L48.9,39.4 L51.8,39.9 L54.6,40.6 L57.5,41.5 L60.4,42.5 L63.3,43.6 L66.2,44.7 L69.0,45.9 L71.9,47.1 L74.8,48.4 L77.7,49.6 L80.6,50.9 L83.4,52.1 L86.3,53.4 L89.2,54.6 L92.1,55.8 L95.0,57.0 L97.8,58.2 L100.7,59.4 L103.6,60.6 L106.5,61.7 L109.4,62.9 L112.2,64.0 L115.1,65.1 L118.0,66.2 L120.9,67.3 L123.8,68.4 L126.6,69.4 L129.5,70.5 L132.4,71.5 L135.3,72.5 L138.2,73.6 L141.0,74.6 L143.9,75.5 L146.8,76.5 L149.7,77.5 L152.6,78.4 L155.4,79.4 L158.3,80.3 L161.2,81.2 L164.1,82.1 L167.0,83.0 L169.8,83.9 L172.7,84.8 L175.6,85.6 L178.5,86.5 L181.4,87.3 L184.2,88.1 L187.1,89.0 L190.0,89.8 L192.9,90.6 L195.8,91.4 L198.6,92.1 L201.5,92.9 L204.4,93.7 L207.3,94.4 L210.2,95.1 L213.0,95.9 L215.9,96.6 L218.8,97.3 L221.7,98.0 L224.6,98.7 L227.4,99.4 L230.3,100.1 L233.2,100.7 L236.1,101.4 L239.0,102.1 L241.8,102.7 L244.7,103.3 L247.6,104.0 L250.5,104.6 L253.4,105.2 L256.2,105.8 L259.1,106.4 L262.0,107.0 L264.9,107.6 L267.8,108.2 L270.6,108.7 L273.5,109.3 L276.4,109.8 L279.3,110.4 L282.2,110.9 L285.0,111.5 L287.9,112.0 L290.8,112.5 L293.7,113.0 L296.6,113.5 L299.4,114.0 L302.3,114.5 L305.2,115.0 L308.1,115.5 L311.0,116.0 L313.8,116.5 L316.7,116.9 L319.6,117.4 L322.5,117.8 L325.4,118.3 L328.2,118.7 L331.1,119.2 L334.0,119.6 L336.9,120.0 L339.8,120.4 L342.6,120.9 L345.5,121.3 L348.4,121.7 L351.3,122.1 L354.2,122.5 L357.0,122.9 L359.9,123.2 L362.8,123.6 L365.7,124.0 L368.6,124.4 L371.4,124.7 L374.3,125.1 L377.2,125.5 L380.1,125.8 L383.0,126.2 L385.8,126.5 L388.7,126.9 L391.6,127.2 L394.5,127.5 L397.4,127.8 L400.2,128.2 L403.1,128.5 L406.0,128.8 L408.9,129.1 L411.8,129.4 L414.6,129.7 L417.5,130.0 L420.4,130.3 L423.3,130.6 L426.2,130.9 L429.0,131.2 L431.9,131.5 L434.8,131.8 L437.7,132.0 L440.6,132.3 L443.4,132.6 L446.3,132.8 L449.2,133.1 L452.1,133.4 L455.0,133.6 L457.8,133.9 L460.7,134.1 L463.6,134.4 L466.5,134.6 L469.4,134.8 L472.2,135.1 L475.1,135.3 L478.0,135.5 L480.9,135.8 L483.8,136.0 L486.6,136.2 L489.5,136.4 L492.4,136.7 L495.3,136.9 L498.2,137.1 L501.0,137.3 L503.9,137.5 L506.8,137.7 L509.7,137.9 L512.6,138.1 L515.4,138.3 L518.3,138.5 L521.2,138.7 L524.1,138.9 L527.0,139.1 L529.8,139.2 L532.7,139.4 L535.6,139.6 L538.5,139.8 L541.4,140.0 L544.2,140.1 L547.1,140.3 L550.0,140.5 L552.9,140.6 L555.8,140.8 L558.6,141.0 L561.5,141.1 L564.4,141.3 L567.3,141.4 L570.2,141.6 L573.0,141.7 L575.9,141.9 L578.8,142.0 L581.7,142.2 L584.6,142.3 L587.4,142.5 L590.3,142.6 L593.2,142.8 L596.1,142.9 L599.0,143.0 L601.8,143.2 L604.7,143.3 L607.6,143.4 L610.5,143.6 L613.4,143.7 L616.2,143.8 L619.1,143.9 L622.0,144.1"/><rect class="legbg" x="404.8" y="195.5" width="181.2" height="68.0" rx="4"/><line class="c5 thin dash" x1="410.8" y1="205.5" x2="432.8" y2="205.5"/><text class="small" x="438.8" y="209.5" text-anchor="start">undamped, λ = 0</text><line class="c1" x1="410.8" y1="221.5" x2="432.8" y2="221.5"/><text class="small" x="438.8" y="225.5" text-anchor="start">under-damped, λ = 0.4ω</text><line class="c2" x1="410.8" y1="237.5" x2="432.8" y2="237.5"/><text class="small" x="438.8" y="241.5" text-anchor="start">critical, λ = 2ω</text><line class="c3" x1="410.8" y1="253.5" x2="432.8" y2="253.5"/><text class="small" x="438.8" y="257.5" text-anchor="start">over-damped, λ = 5ω</text></svg><figcaption><b>Figure 3.2.</b> Free response of $\ddot x + \lambda\dot x + \omega^2 x = 0$ released from rest at $x_0$: undamped (dashed), under-damped (indigo, decaying oscillation), critically damped (green, fastest return without overshoot) and over-damped (amber, slow creep). Compare Robinson Fig. 13.5.</figcaption></figure>
+      <div class="callout note">
+        <div class="callout-title">Engineering notation (complementary)</div>
+        <p>
+          Engineers write $\lambda = 2\zeta\omega$, i.e. $\zeta = \lambda/(2\omega) = \mu/(2\sqrt{km})$, the <strong>damping ratio</strong>: $\zeta < 1$
+          under-damped, $\zeta = 1$ critical, $\zeta > 1$ over-damped. The critical damping coefficient is $\mu_c = 2\sqrt{km}$ and the damped frequency
+          is $\sigma = \omega\sqrt{1 - \zeta^2}$.
+        </p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">A lightly damped structure (Robinson Exercise 13.8, the Millennium Bridge)</div>
+        <p>
+          Model $M\ddot x + k\dot x + \lambda x = 0$ with $M \approx 4\times10^5\ \text{kg}$, damping $k \approx 5\times10^4\ \text{kg/s}$, stiffness
+          $\lambda \approx 10^7\ \text{kg/s}^2$ (the exercise uses $k$ and $\lambda$ the other way round from Sec. 13.3). Natural frequency
+          $\sqrt{\lambda/M} = \sqrt{25} = 5\ \text{rad/s}$, i.e. $5/(2\pi) \approx 0.8\ \text{Hz}$. Critical damping would be
+          $2\sqrt{M\lambda} = 2\sqrt{4\times10^{12}} = 4\times10^6\ \text{kg/s}$, so the actual damping is $5\times10^4/4\times10^6 \approx 1.3\%$ of critical.
+          Pedestrians walking in step added a force $\approx 300\dot x$ each, i.e. <em>negative</em> damping: with enough people the net coefficient of
+          $\dot x$ changes sign and oscillations grow.
+        </p>
+      </div>
+      <div class="callout aero">
+        <div class="callout-title">Aerospace connection: landing gear (illustrative numbers)</div>
+        <p>
+          A landing-gear leg carrying $m = 2000\ \text{kg}$ on an oleo of stiffness $k = 2\times10^5\ \text{N/m}$ has $\omega = \sqrt{k/m} = 10\ \text{rad/s}$
+          and $\mu_c = 2\sqrt{km} = 2\sqrt{4\times10^8} = 4\times10^4\ \text{N s/m}$. Designers choose $\zeta$ of the order of $0.5$–$0.7$ to avoid repeated
+          bouncing (under-damping) without making the strut too stiff in compression (over-damping). With $\zeta = 0.6$: $\lambda = 12\ \text{s}^{-1}$,
+          $\sigma = 10\sqrt{1 - 0.36} = 8\ \text{rad/s}$, and the amplitude falls by $e^{-\lambda T/2} = e^{-6\cdot 2\pi/8} \approx 0.009$ per damped period
+          $T = 2\pi/\sigma$.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 5 -->
+    <section class="theory-section" id="sec-5">
+      <div class="section-header">
+        <div class="section-tag">Section 05 • Robinson Ch. 14 • Lecture Sep 24–29</div>
+        <h2 class="section-title">5. Inhomogeneous equations: undetermined coefficients</h2>
+      </div>
+      <div class="callout thm">
+        <div class="callout-title">Lemma — structure of the general solution <span class="cite">[Robinson, Sec. 14.1, pp. 131–132]</span></div>
+        <p>
+          Let $y(t) = Ay_1(t) + By_2(t)$ be the general solution of $L[y] = 0$ (the <strong>complementary function</strong>) and $x_p$ any one solution of
+          $L[x_p] = f$ (a <strong>particular integral</strong>). Then the general solution of $L[x] = f$ is
+        </p>
+        $$x(t) = Ay_1(t) + By_2(t) + x_p(t).$$
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          <strong>It is a solution:</strong> by linearity $L[y + x_p] = L[y] + L[x_p] = 0 + f = f$.
+          <strong>Every solution has this form:</strong> if $L[x] = f$, then $L[x - x_p] = L[x] - L[x_p] = f - f = 0$, so $x - x_p$ solves the homogeneous
+          equation and equals $Ay_1 + By_2$ for some $A$, $B$ (Section 2). The two constants fit any initial conditions.
+        </p>
+      </div>
+      <p>
+        For constant coefficients and right-hand sides built from polynomials, exponentials, sines and cosines, a particular integral has the same form
+        as $f$: guess it with unknown ("undetermined") coefficients and substitute <span class="cite">[Sec. 14.2–14.5]</span>.
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Forcing $f(t)$</th><th>Standard guess $x_p$</th><th>If a term of the guess solves $L[y] = 0$</th></tr></thead>
+          <tbody>
+            <tr><td>Polynomial of degree $n$</td><td>$c_nt^n + \dots + c_1t + c_0$ (all powers)</td><td>Multiply by $t$ (e.g. root $k = 0$)</td></tr>
+            <tr><td>$ce^{\kappa t}$</td><td>$Ce^{\kappa t}$</td><td>$Cte^{\kappa t}$; $Ct^2e^{\kappa t}$ if $\kappa$ is a repeated root</td></tr>
+            <tr><td>$\alpha\sin\sigma t + \beta\cos\sigma t$</td><td>$C\sin\sigma t + D\cos\sigma t$ (both, always)</td><td>$t(C\sin\sigma t + D\cos\sigma t)$ — resonance</td></tr>
+            <tr><td>Sum $\alpha f_1 + \beta f_2$</td><td>$\alpha x_1 + \beta x_2$ with $L[x_j] = f_j$</td><td>Treat each part separately (14.7)</td></tr>
+            <tr><td>Products, e.g. $te^{-t}\cos 2t$</td><td>Product of the guesses: $(At + B)e^{-t}\cos 2t + (Ct + D)e^{-t}\sin 2t$</td><td>As above</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout result">
+        <div class="callout-title">Rule of thumb <span class="cite">[Robinson, Sec. 14.5, p. 139]</span></div>
+        <p>
+          Take the standard guess. If it contains terms that satisfy the homogeneous equation, multiply the guess by $t$; repeat until no term of
+          the guess solves the homogeneous equation.
+        </p>
+      </div>
+
+      <div class="callout example">
+        <div class="callout-title">Example 14.4 (p. 134): polynomial forcing, $\ddot x + \dot x - 6x = 216t^3$</div>
+        <p>
+          The complementary function is $Ae^{2t} + Be^{-3t}$. Try the full cubic $x_p = Ct^3 + Dt^2 + Et + F$, so $\dot x_p = 3Ct^2 + 2Dt + E$ and
+          $\ddot x_p = 6Ct + 2D$. Substituting and collecting powers:
+        </p>
+        $$-6Ct^3 + (3C - 6D)t^2 + (6C + 2D - 6E)t + (2D + E - 6F) = 216t^3.$$
+        <p>
+          Matching coefficients from the top: $-6C = 216 \Rightarrow C = -36$; $3C - 6D = 0 \Rightarrow D = -18$; $6C + 2D - 6E = 0 \Rightarrow
+          E = (-216 - 36)/6 = -42$; $2D + E - 6F = 0 \Rightarrow F = (-36 - 42)/6 = -13$. Hence
+          $x = Ae^{2t} + Be^{-3t} - 36t^3 - 18t^2 - 42t - 13$. A bare $Ct^3$ would fail: its derivatives generate $t^2$, $t$ and constant terms that
+          must be cancelled.
+        </p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 14.8 (p. 136): exponential forcing that hits the complementary function, $\ddot x + \dot x - 6x = 5e^{-3t}$</div>
+        <p>
+          $e^{-3t}$ already solves the homogeneous equation, so $Ce^{-3t}$ gives $0 = 5e^{-3t}$. Multiply by $t$: $x_p = Cte^{-3t}$, with
+          $\dot x_p = C(1 - 3t)e^{-3t}$ and $\ddot x_p = C(-6 + 9t)e^{-3t}$ (product rule twice). Then
+        </p>
+        $$\ddot x_p + \dot x_p - 6x_p = C\big[(-6 + 9t) + (1 - 3t) - 6t\big]e^{-3t} = -5Ce^{-3t} = 5e^{-3t} \;\Rightarrow\; C = -1.$$
+        <p>The $te^{-3t}$ terms cancel, as they must. $x = Ae^{2t} + Be^{-3t} - te^{-3t}$.</p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 14.10 (pp. 137–138): sinusoidal forcing, $\ddot x + 2\dot x + x = 100\cos 2t$</div>
+        <p>
+          Complementary function $(A + Bt)e^{-t}$. Try $x_p = C\sin 2t + D\cos 2t$ (both terms: the $\dot x$ term turns cosines into sines).
+          $\dot x_p = 2C\cos 2t - 2D\sin 2t$, $\ddot x_p = -4C\sin 2t - 4D\cos 2t$, so
+        </p>
+        $$\ddot x_p + 2\dot x_p + x_p = (4C - 3D)\cos 2t - (3C + 4D)\sin 2t = 100\cos 2t.$$
+        <p>
+          $3C + 4D = 0$ and $4C - 3D = 100$ give $C = 16$, $D = -12$ (check: $64 + 36 = 100$, $48 - 48 = 0$). So
+          $x = (A + Bt)e^{-t} + 16\sin 2t - 12\cos 2t$. As $t \to \infty$ the transient dies and the steady oscillation has amplitude $\sqrt{16^2 + 12^2} = 20$.
+        </p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 14.11 (p. 138): resonance, $\ddot x + x = 8\cos t$</div>
+        <p>
+          $\cos t$ and $\sin t$ solve the homogeneous equation, so try $x_p = t(C\sin t + D\cos t)$. Differentiating twice with the product rule,
+          $\ddot x_p = 2C\cos t - 2D\sin t - t(C\sin t + D\cos t)$, so $\ddot x_p + x_p = 2C\cos t - 2D\sin t = 8\cos t$: $C = 4$, $D = 0$.
+          $x = A\sin t + B\cos t + 4t\sin t$: the forced part grows linearly in time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 6 -->
+    <section class="theory-section" id="sec-6">
+      <div class="section-header">
+        <div class="section-tag">Section 06 • Robinson Ch. 15</div>
+        <h2 class="section-title">6. Forced vibrations and resonance</h2>
+      </div>
+      <p>Force the oscillator at angular frequency $\alpha$: $\ \ddot x + \omega^2x = a\cos\alpha t$ (15.3).</p>
+      <ul>
+        <li>
+          <strong>$\alpha \neq \omega$</strong> <span class="cite">[Sec. 15.1.1]</span>: try $x_p = C\cos\alpha t$ (no sine needed — there is no $\dot x$ term):
+          $(-\alpha^2 + \omega^2)C = a$, so $x = M\cos(\omega t - \phi) + \dfrac{a}{\omega^2 - \alpha^2}\cos\alpha t$ (15.4). Bounded, but large when $\alpha \approx \omega$.
+          From rest, $x = \dfrac{\cos\alpha t - \cos\omega t}{\omega^2 - \alpha^2}\cdot a = \dfrac{2a}{\omega^2 - \alpha^2}\sin\dfrac{(\omega + \alpha)t}{2}\sin\dfrac{(\omega - \alpha)t}{2}$:
+          a fast oscillation modulated by a slow envelope — <strong>beats</strong> (Exercises 15.1–15.2).
+        </li>
+        <li>
+          <strong>$\alpha = \omega$</strong> <span class="cite">[Sec. 15.1.2]</span>: the rule of thumb gives $x_p = \dfrac{a}{2\omega}\,t\sin\omega t$: the amplitude
+          grows without bound. This is <strong>resonance</strong> (Robinson recalls the 1831 Broughton bridge collapse under marching troops).
+          The same result follows from the beats formula by letting $\alpha \to \omega$ with L'Hôpital's rule (Ex. 15.3).
+        </li>
+      </ul>
+      <figure class="fig"><svg viewBox="0 0 640.0 280.0" role="img" aria-label="resonance growth and beats" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="238.0" y1="240.0" x2="238.0" y2="22.0"/><line class="grid" x1="430.0" y1="240.0" x2="430.0" y2="22.0"/><line class="grid" x1="622.0" y1="240.0" x2="622.0" y2="22.0"/><line class="grid" x1="46.0" y1="199.1" x2="622.0" y2="199.1"/><line class="grid" x1="46.0" y1="62.9" x2="622.0" y2="62.9"/><line class="ax" x1="46.0" y1="131.0" x2="622.0" y2="131.0"/><polygon class="ahm" points="622.0,131.0 614.7,134.3 614.7,127.7"/><line class="ax" x1="46.0" y1="240.0" x2="46.0" y2="22.0"/><polygon class="ahm" points="46.0,22.0 49.3,29.3 42.7,29.3"/><line class="ax" x1="238.0" y1="127.0" x2="238.0" y2="135.0"/><text class="small" x="238.0" y="148.0" text-anchor="middle">10</text><line class="ax" x1="430.0" y1="127.0" x2="430.0" y2="135.0"/><text class="small" x="430.0" y="148.0" text-anchor="middle">20</text><line class="ax" x1="622.0" y1="127.0" x2="622.0" y2="135.0"/><text class="small" x="622.0" y="148.0" text-anchor="middle">30</text><line class="ax" x1="42.0" y1="199.1" x2="50.0" y2="199.1"/><text class="small" x="39.0" y="203.1" text-anchor="end">−10</text><line class="ax" x1="42.0" y1="62.9" x2="50.0" y2="62.9"/><text class="small" x="39.0" y="66.9" text-anchor="end">10</text><text class="lbl" x="618.0" y="123.0" text-anchor="end">t</text><text class="lbl" x="54.0" y="34.0" text-anchor="start">x</text><path class="c4 thin" d="M46.0,131.0 L48.9,130.9 L51.8,130.7 L54.6,130.3 L57.5,129.8 L60.4,129.3 L63.3,128.6 L66.2,127.9 L69.0,127.2 L71.9,126.5 L74.8,125.9 L77.7,125.4 L80.6,125.0 L83.4,124.8 L86.3,124.8 L89.2,125.0 L92.1,125.5 L95.0,126.2 L97.8,127.1 L100.7,128.2 L103.0,129.3 L105.3,130.5 L107.6,131.7 L109.9,133.1 L112.2,134.6 L114.5,136.1 L116.8,137.6 L119.2,139.0 L121.5,140.5 L123.8,141.9 L126.1,143.2 L128.4,144.3 L130.7,145.3 L133.6,146.4 L136.4,147.0 L139.3,147.4 L142.2,147.3 L145.1,146.8 L148.0,146.0 L150.3,144.9 L152.6,143.7 L154.9,142.1 L157.2,140.3 L159.5,138.3 L161.8,136.1 L164.1,133.8 L165.8,131.9 L167.5,130.0 L169.3,128.0 L171.0,126.0 L172.7,124.0 L174.4,122.0 L176.2,120.0 L177.9,118.0 L179.6,116.2 L181.4,114.3 L183.7,112.1 L186.0,110.0 L188.3,108.2 L190.6,106.7 L192.9,105.5 L195.8,104.5 L198.6,104.0 L201.5,104.2 L204.4,105.1 L206.7,106.2 L209.0,107.7 L211.3,109.7 L213.6,112.0 L215.3,113.9 L217.1,116.1 L218.8,118.4 L220.5,120.8 L222.3,123.4 L224.0,126.1 L225.7,128.9 L227.4,131.8 L229.2,134.7 L230.9,137.7 L232.6,140.6 L234.4,143.6 L236.1,146.4 L237.8,149.2 L239.5,151.9 L241.3,154.5 L243.0,156.9 L244.7,159.2 L246.4,161.2 L248.2,163.1 L250.5,165.1 L252.8,166.8 L255.1,167.9 L258.0,168.6 L260.8,168.4 L263.7,167.4 L266.0,165.9 L268.3,163.9 L270.1,162.0 L271.8,159.9 L273.5,157.5 L275.2,154.8 L277.0,151.9 L278.7,148.8 L280.4,145.5 L281.6,143.2 L282.7,140.8 L283.9,138.4 L285.0,135.9 L286.2,133.4 L287.3,130.8 L288.5,128.3 L289.6,125.7 L290.8,123.1 L292.0,120.5 L293.1,117.9 L294.3,115.3 L295.4,112.8 L296.6,110.3 L297.7,107.9 L298.9,105.5 L300.0,103.2 L301.7,100.0 L303.5,96.9 L305.2,94.0 L306.9,91.5 L308.7,89.2 L310.4,87.2 L312.7,85.1 L315.0,83.7 L317.9,82.8 L320.8,83.0 L323.6,84.3 L325.9,86.1 L327.7,88.0 L329.4,90.2 L331.1,92.7 L332.8,95.6 L334.6,98.9 L335.7,101.2 L336.9,103.7 L338.0,106.3 L339.2,108.9 L340.3,111.7 L341.5,114.6 L342.6,117.6 L343.8,120.6 L344.9,123.7 L346.1,126.9 L347.2,130.0 L348.4,133.3 L349.6,136.5 L350.7,139.7 L351.9,142.9 L353.0,146.2 L354.2,149.3 L355.3,152.5 L356.5,155.6 L357.6,158.6 L358.8,161.5 L359.9,164.4 L361.1,167.1 L362.2,169.7 L363.4,172.2 L364.5,174.6 L365.7,176.9 L367.4,179.9 L369.1,182.7 L370.9,185.0 L372.6,186.9 L374.9,188.7 L377.2,189.7 L380.1,189.8 L383.0,188.6 L385.3,186.6 L387.0,184.6 L388.7,182.1 L390.4,179.2 L392.2,175.9 L393.3,173.4 L394.5,170.8 L395.6,168.0 L396.8,165.1 L397.9,162.0 L399.1,158.8 L400.2,155.4 L401.4,152.0 L402.5,148.5 L403.7,144.8 L404.8,141.1 L406.0,137.3 L407.2,133.5 L408.3,129.7 L409.5,125.8 L410.6,121.9 L411.8,118.1 L412.9,114.2 L414.1,110.4 L415.2,106.7 L416.4,103.0 L417.5,99.4 L418.7,95.9 L419.8,92.4 L421.0,89.1 L422.1,86.0 L423.3,83.0 L424.4,80.1 L425.6,77.4 L426.7,74.9 L427.9,72.6 L429.6,69.4 L431.3,66.8 L433.1,64.6 L435.4,62.6 L437.7,61.5 L440.6,61.6 L442.9,62.8 L445.2,65.0 L446.9,67.3 L448.6,70.1 L450.4,73.4 L451.5,76.0 L452.7,78.7 L453.8,81.6 L455.0,84.8 L456.1,88.1 L457.3,91.6 L458.4,95.2 L459.6,99.0 L460.7,102.9 L461.9,107.0 L463.0,111.2 L464.2,115.5 L465.3,119.8 L466.5,124.2 L467.6,128.7 L468.8,133.2 L469.9,137.7 L471.1,142.2 L472.2,146.7 L473.4,151.1 L474.5,155.6 L475.7,159.9 L476.8,164.2 L478.0,168.3 L479.2,172.4 L480.3,176.3 L481.5,180.1 L482.6,183.7 L483.8,187.2 L484.9,190.5 L486.1,193.5 L487.2,196.4 L488.4,199.0 L489.5,201.4 L491.2,204.6 L493.0,207.2 L494.7,209.1 L497.0,210.8 L499.9,211.3 L502.8,209.9 L505.1,207.6 L506.8,205.0 L508.5,201.9 L509.7,199.4 L510.8,196.7 L512.0,193.8 L513.1,190.6 L514.3,187.2 L515.4,183.5 L516.6,179.7 L517.7,175.7 L518.9,171.4 L520.0,167.0 L521.2,162.5 L522.4,157.8 L523.5,153.0 L524.1,150.6 L524.7,148.1 L525.2,145.6 L525.8,143.1 L526.4,140.6 L527.0,138.1 L527.5,135.5 L528.1,132.9 L528.7,130.4 L529.3,127.8 L529.8,125.2 L530.4,122.7 L531.0,120.1 L531.6,117.5 L532.1,114.9 L532.7,112.4 L533.3,109.8 L533.9,107.3 L534.4,104.8 L535.0,102.3 L535.6,99.8 L536.2,97.4 L537.3,92.5 L538.5,87.8 L539.6,83.2 L540.8,78.8 L541.9,74.5 L543.1,70.4 L544.2,66.5 L545.4,62.9 L546.5,59.4 L547.7,56.2 L548.8,53.3 L550.0,50.6 L551.2,48.2 L552.9,45.2 L554.6,42.8 L556.9,40.8 L559.8,40.0 L562.7,41.3 L565.0,43.8 L566.7,46.5 L568.4,50.0 L569.6,52.6 L570.7,55.6 L571.9,58.8 L573.0,62.4 L574.2,66.2 L575.3,70.2 L576.5,74.5 L577.6,79.0 L578.8,83.7 L580.0,88.6 L580.5,91.1 L581.1,93.7 L581.7,96.3 L582.3,98.9 L582.8,101.6 L583.4,104.3 L584.0,107.0 L584.6,109.7 L585.1,112.5 L585.7,115.3 L586.3,118.2 L586.9,121.0 L587.4,123.9 L588.0,126.7 L588.6,129.6 L589.2,132.5 L589.7,135.4 L590.3,138.3 L590.9,141.2 L591.5,144.1 L592.0,147.0 L592.6,149.9 L593.2,152.7 L593.8,155.6 L594.4,158.4 L594.9,161.2 L595.5,164.0 L596.1,166.8 L596.7,169.6 L597.2,172.3 L597.8,175.0 L598.4,177.6 L599.0,180.2 L599.5,182.8 L600.1,185.3 L600.7,187.8 L601.3,190.3 L602.4,195.0 L603.6,199.6 L604.7,203.9 L605.9,207.9 L607.0,211.7 L608.2,215.2 L609.3,218.5 L610.5,221.4 L611.6,224.0 L612.8,226.3 L614.5,229.1 L616.2,231.1 L618.5,232.5 L621.4,232.3 L622.0,232.0"/><path class="c3 dash thin" d="M46.0,131.0 L622.0,28.8"/><path class="c3 dash thin" d="M46.0,131.0 L622.0,233.2"/><path class="c1 thin" d="M46.0,131.0 L48.9,130.9 L51.8,130.7 L54.6,130.3 L57.5,129.8 L60.4,129.2 L63.3,128.5 L66.2,127.8 L69.0,127.0 L71.9,126.2 L74.8,125.5 L77.7,124.8 L80.6,124.2 L83.4,123.8 L86.3,123.5 L89.2,123.4 L92.1,123.5 L95.0,123.8 L97.8,124.4 L100.7,125.2 L103.6,126.2 L105.9,127.2 L108.2,128.3 L110.5,129.5 L112.8,130.9 L115.1,132.3 L117.4,133.8 L119.7,135.4 L122.0,137.0 L124.3,138.6 L126.6,140.2 L128.9,141.8 L131.2,143.3 L133.6,144.7 L135.9,146.0 L138.2,147.1 L140.5,148.2 L143.3,149.2 L146.2,149.9 L149.1,150.2 L152.0,150.2 L154.9,149.8 L157.7,149.0 L160.6,147.8 L162.9,146.6 L165.2,145.1 L167.5,143.4 L169.8,141.5 L172.1,139.4 L174.4,137.1 L176.8,134.7 L178.5,132.8 L180.2,130.8 L181.9,128.8 L183.7,126.8 L185.4,124.8 L187.1,122.7 L188.8,120.7 L190.6,118.7 L192.3,116.8 L194.0,114.9 L196.3,112.5 L198.6,110.3 L200.9,108.3 L203.2,106.5 L205.6,105.0 L207.9,103.7 L210.7,102.6 L213.6,102.0 L216.5,101.9 L219.4,102.4 L222.3,103.4 L224.6,104.6 L226.9,106.2 L229.2,108.0 L231.5,110.2 L233.2,112.0 L234.9,114.0 L236.7,116.1 L238.4,118.4 L240.1,120.7 L241.8,123.2 L243.6,125.7 L245.3,128.3 L247.0,130.9 L248.8,133.6 L250.5,136.3 L252.2,138.9 L253.9,141.6 L255.7,144.2 L257.4,146.7 L259.1,149.2 L260.8,151.5 L262.6,153.7 L264.3,155.8 L266.0,157.8 L268.3,160.1 L270.6,162.1 L272.9,163.8 L275.2,165.1 L278.1,166.2 L281.0,166.6 L283.9,166.4 L286.8,165.5 L289.1,164.3 L291.4,162.7 L293.7,160.7 L296.0,158.4 L297.7,156.4 L299.4,154.2 L301.2,151.9 L302.9,149.4 L304.6,146.8 L306.4,144.1 L308.1,141.3 L309.8,138.4 L311.5,135.4 L313.3,132.4 L315.0,129.4 L316.7,126.4 L318.4,123.4 L320.2,120.4 L321.9,117.6 L323.6,114.7 L325.4,112.0 L327.1,109.5 L328.8,107.0 L330.5,104.7 L332.3,102.6 L334.0,100.7 L336.3,98.4 L338.6,96.5 L340.9,95.0 L343.2,94.0 L346.1,93.2 L349.0,93.2 L351.9,93.9 L354.2,95.0 L356.5,96.4 L358.8,98.3 L361.1,100.5 L362.8,102.5 L364.5,104.6 L366.3,106.8 L368.0,109.3 L369.7,111.9 L371.4,114.6 L373.2,117.4 L374.9,120.3 L376.6,123.2 L378.4,126.2 L380.1,129.2 L381.8,132.2 L383.5,135.2 L385.3,138.2 L387.0,141.1 L388.7,143.9 L390.4,146.7 L392.2,149.3 L393.9,151.8 L395.6,154.1 L397.4,156.3 L399.1,158.2 L401.4,160.6 L403.7,162.6 L406.0,164.2 L408.3,165.4 L411.2,166.3 L414.1,166.6 L416.9,166.2 L419.8,165.2 L422.1,163.9 L424.4,162.2 L426.7,160.2 L429.0,157.9 L430.8,156.0 L432.5,153.9 L434.2,151.7 L436.0,149.3 L437.7,146.9 L439.4,144.3 L441.1,141.8 L442.9,139.1 L444.6,136.5 L446.3,133.8 L448.0,131.1 L449.8,128.5 L451.5,125.9 L453.2,123.3 L455.0,120.9 L456.7,118.5 L458.4,116.3 L460.1,114.2 L461.9,112.2 L463.6,110.3 L465.9,108.1 L468.2,106.2 L470.5,104.7 L472.8,103.5 L475.7,102.4 L478.6,101.9 L481.5,102.0 L484.3,102.6 L487.2,103.7 L489.5,104.9 L491.8,106.4 L494.1,108.2 L496.4,110.2 L498.7,112.4 L501.0,114.8 L502.8,116.7 L504.5,118.6 L506.2,120.6 L508.0,122.6 L509.7,124.6 L511.4,126.7 L513.1,128.7 L514.9,130.7 L516.6,132.6 L518.3,134.5 L520.0,136.4 L522.4,138.7 L524.7,140.9 L527.0,142.8 L529.3,144.6 L531.6,146.1 L533.9,147.5 L536.2,148.5 L539.1,149.5 L541.9,150.1 L544.8,150.3 L547.7,150.1 L550.6,149.5 L553.5,148.6 L556.3,147.5 L558.6,146.3 L560.9,145.1 L563.2,143.7 L565.6,142.2 L567.9,140.7 L570.2,139.1 L572.5,137.5 L574.8,135.9 L577.1,134.3 L579.4,132.8 L581.7,131.3 L584.0,129.9 L586.3,128.7 L588.6,127.5 L590.9,126.5 L593.8,125.4 L596.7,124.6 L599.5,124.0 L602.4,123.6 L605.3,123.4 L608.2,123.5 L611.1,123.7 L613.9,124.1 L616.8,124.7 L619.7,125.3 L622.0,125.9"/><text class="small" x="612.4" y="29.6" text-anchor="end">α = ω: x = t sin t / 2</text><text class="small" x="55.6" y="223.0" text-anchor="start">α = 0.8ω: beats</text></svg><figcaption><b>Figure 3.3.</b> Undamped forcing $\ddot x + \omega^2 x = \cos\alpha t$, $\omega = 1$, from rest. Red: exact resonance $\alpha = \omega$, amplitude growing linearly, $x = t\sin t/2$ (Robinson Sec. 15.1.2, Ex. 15.3). Indigo: $\alpha = 0.8$, bounded beats $x = (\cos\alpha t - \cos\omega t)/(\omega^2 - \alpha^2)$ (Ex. 15.1–15.2).</figcaption></figure>
+      <h3 class="sub-title">6.1 Damped forcing: the frequency response <span class="cite">[Sec. 15.2, pp. 145–148]</span></h3>
+      <p>For $\ddot x + \lambda\dot x + \omega^2x = a\cos\alpha t$ with $\lambda > 0$, try $x_p = C\sin\alpha t + D\cos\alpha t$. Matching sines and cosines:</p>
+      $$C(\omega^2 - \alpha^2) = D\lambda\alpha, \qquad D(\omega^2 - \alpha^2) + C\lambda\alpha = a.$$
+      <p>Solving (substitute $C$ from the first into the second):</p>
+      $$C = \frac{a\lambda\alpha}{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}, \qquad D = \frac{a(\omega^2 - \alpha^2)}{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}. \tag{15.5}$$
+      <p>The complementary function decays (all roots have negative real part), so after a transient only $x_p$ remains, with amplitude</p>
+      $$R(\alpha) = \sqrt{C^2 + D^2} = \frac{a}{\sqrt{(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2}}. \tag{15.6}$$
+      <p>
+        The denominator is smallest where $\frac{d}{d\alpha}\big[(\omega^2 - \alpha^2)^2 + \lambda^2\alpha^2\big] = -4\alpha(\omega^2 - \alpha^2) + 2\lambda^2\alpha = 0$
+        (chain rule on the square), i.e. at $\alpha^2 = \omega^2 - \tfrac12\lambda^2$, where
+        $R_{\max} = \dfrac{2a}{\lambda\sqrt{4\omega^2 - \lambda^2}} \approx \dfrac{a}{\lambda\omega}$ for small $\lambda$. The response is finite for any $\lambda > 0$
+        but inversely proportional to the damping: <strong>pseudo-resonance</strong>.
+      </p>
+      <figure class="fig"><svg viewBox="0 0 640.0 340.0" role="img" aria-label="amplitude response curves" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="161.2" y1="300.0" x2="161.2" y2="22.0"/><line class="grid" x1="276.4" y1="300.0" x2="276.4" y2="22.0"/><line class="grid" x1="391.6" y1="300.0" x2="391.6" y2="22.0"/><line class="grid" x1="506.8" y1="300.0" x2="506.8" y2="22.0"/><line class="grid" x1="622.0" y1="300.0" x2="622.0" y2="22.0"/><line class="grid" x1="46.0" y1="235.3" x2="622.0" y2="235.3"/><line class="grid" x1="46.0" y1="170.7" x2="622.0" y2="170.7"/><line class="grid" x1="46.0" y1="106.0" x2="622.0" y2="106.0"/><line class="grid" x1="46.0" y1="41.4" x2="622.0" y2="41.4"/><line class="ax" x1="46.0" y1="300.0" x2="622.0" y2="300.0"/><polygon class="ahm" points="622.0,300.0 614.7,303.3 614.7,296.7"/><line class="ax" x1="46.0" y1="300.0" x2="46.0" y2="22.0"/><polygon class="ahm" points="46.0,22.0 49.3,29.3 42.7,29.3"/><line class="ax" x1="161.2" y1="296.0" x2="161.2" y2="304.0"/><text class="small" x="161.2" y="317.0" text-anchor="middle">0.5</text><line class="ax" x1="276.4" y1="296.0" x2="276.4" y2="304.0"/><text class="small" x="276.4" y="317.0" text-anchor="middle">1</text><line class="ax" x1="391.6" y1="296.0" x2="391.6" y2="304.0"/><text class="small" x="391.6" y="317.0" text-anchor="middle">1.5</text><line class="ax" x1="506.8" y1="296.0" x2="506.8" y2="304.0"/><text class="small" x="506.8" y="317.0" text-anchor="middle">2</text><line class="ax" x1="622.0" y1="296.0" x2="622.0" y2="304.0"/><text class="small" x="622.0" y="317.0" text-anchor="middle">2.5</text><line class="ax" x1="42.0" y1="235.3" x2="50.0" y2="235.3"/><text class="small" x="39.0" y="239.3" text-anchor="end">2</text><line class="ax" x1="42.0" y1="170.7" x2="50.0" y2="170.7"/><text class="small" x="39.0" y="174.7" text-anchor="end">4</text><line class="ax" x1="42.0" y1="106.0" x2="50.0" y2="106.0"/><text class="small" x="39.0" y="110.0" text-anchor="end">6</text><line class="ax" x1="42.0" y1="41.4" x2="50.0" y2="41.4"/><text class="small" x="39.0" y="45.4" text-anchor="end">8</text><text class="lbl" x="618.0" y="292.0" text-anchor="end">α / ω</text><text class="lbl" x="54.0" y="34.0" text-anchor="start">ω² × amplitude / a</text><path class="c3" d="M46.0,267.7 L48.8,267.7 L51.5,267.7 L54.3,267.7 L57.1,267.6 L59.8,267.6 L62.6,267.6 L65.4,267.6 L68.1,267.5 L70.9,267.5 L73.6,267.4 L76.4,267.4 L79.2,267.3 L81.9,267.3 L84.7,267.2 L87.5,267.2 L90.2,267.1 L93.0,267.0 L95.8,266.9 L98.5,266.8 L101.3,266.8 L104.1,266.7 L106.8,266.6 L109.6,266.5 L112.4,266.4 L115.1,266.3 L117.9,266.2 L120.6,266.0 L123.4,265.9 L126.2,265.8 L128.9,265.7 L131.7,265.6 L134.5,265.4 L137.2,265.3 L140.0,265.2 L142.8,265.0 L145.5,264.9 L148.3,264.8 L151.1,264.6 L153.8,264.5 L156.6,264.4 L159.4,264.2 L162.1,264.1 L164.9,264.0 L167.7,263.8 L170.4,263.7 L173.2,263.6 L175.9,263.5 L178.7,263.4 L181.5,263.3 L184.2,263.2 L187.0,263.1 L189.8,263.0 L192.5,262.9 L195.3,262.8 L198.1,262.8 L200.8,262.7 L203.6,262.7 L206.4,262.7 L209.1,262.7 L211.9,262.7 L214.7,262.7 L217.4,262.7 L220.2,262.8 L222.9,262.9 L225.7,263.0 L228.5,263.1 L231.2,263.2 L234.0,263.3 L236.8,263.5 L239.5,263.7 L242.3,263.9 L245.1,264.1 L247.8,264.3 L250.6,264.6 L253.4,264.9 L256.1,265.1 L258.9,265.4 L261.7,265.8 L264.4,266.1 L267.2,266.4 L269.9,266.8 L272.7,267.2 L275.5,267.5 L278.2,267.9 L281.0,268.3 L283.8,268.7 L286.5,269.2 L289.3,269.6 L292.1,270.0 L294.8,270.4 L297.6,270.8 L300.4,271.3 L303.1,271.7 L305.9,272.1 L308.7,272.6 L311.4,273.0 L314.2,273.4 L317.0,273.9 L319.7,274.3 L322.5,274.7 L325.2,275.1 L328.0,275.5 L330.8,275.9 L333.5,276.4 L336.3,276.7 L339.1,277.1 L341.8,277.5 L344.6,277.9 L347.4,278.3 L350.1,278.7 L352.9,279.0 L355.7,279.4 L358.4,279.7 L361.2,280.1 L364.0,280.4 L366.7,280.7 L369.5,281.1 L372.2,281.4 L375.0,281.7 L377.8,282.0 L380.5,282.3 L383.3,282.6 L386.1,282.9 L388.8,283.2 L391.6,283.4 L394.4,283.7 L397.1,284.0 L399.9,284.2 L402.7,284.5 L405.4,284.7 L408.2,285.0 L411.0,285.2 L413.7,285.5 L416.5,285.7 L419.2,285.9 L422.0,286.1 L424.8,286.3 L427.5,286.6 L430.3,286.8 L433.1,287.0 L435.8,287.2 L438.6,287.3 L441.4,287.5 L444.1,287.7 L446.9,287.9 L449.7,288.1 L452.4,288.3 L455.2,288.4 L458.0,288.6 L460.7,288.8 L463.5,288.9 L466.2,289.1 L469.0,289.2 L471.8,289.4 L474.5,289.5 L477.3,289.7 L480.1,289.8 L482.8,289.9 L485.6,290.1 L488.4,290.2 L491.1,290.3 L493.9,290.5 L496.7,290.6 L499.4,290.7 L502.2,290.8 L505.0,291.0 L507.7,291.1 L510.5,291.2 L513.3,291.3 L516.0,291.4 L518.8,291.5 L521.5,291.6 L524.3,291.7 L527.1,291.8 L529.8,291.9 L532.6,292.0 L535.4,292.1 L538.1,292.2 L540.9,292.3 L543.7,292.4 L546.4,292.5 L549.2,292.6 L552.0,292.7 L554.7,292.8 L557.5,292.8 L560.3,292.9 L563.0,293.0 L565.8,293.1 L568.5,293.2 L571.3,293.2 L574.1,293.3 L576.8,293.4 L579.6,293.5 L582.4,293.5 L585.1,293.6 L587.9,293.7 L590.7,293.7 L593.4,293.8 L596.2,293.9 L599.0,293.9 L601.7,294.0 L604.5,294.1 L607.3,294.1 L610.0,294.2 L612.8,294.2 L615.5,294.3 L618.3,294.4 L621.1,294.4 L622.0,294.4"/><path class="c2" d="M46.0,267.7 L48.8,267.7 L51.5,267.7 L54.3,267.6 L57.1,267.6 L59.8,267.6 L62.6,267.5 L65.4,267.5 L68.1,267.4 L70.9,267.3 L73.6,267.3 L76.4,267.2 L79.2,267.1 L81.9,267.0 L84.7,266.9 L87.5,266.7 L90.2,266.6 L93.0,266.5 L95.8,266.3 L98.5,266.1 L101.3,266.0 L104.1,265.8 L106.8,265.6 L109.6,265.4 L112.4,265.2 L115.1,265.0 L117.9,264.7 L120.6,264.5 L123.4,264.2 L126.2,263.9 L128.9,263.6 L131.7,263.3 L134.5,263.0 L137.2,262.7 L140.0,262.3 L142.8,262.0 L145.5,261.6 L148.3,261.2 L151.1,260.8 L153.8,260.4 L156.6,259.9 L159.4,259.4 L162.1,258.9 L164.9,258.4 L167.7,257.9 L170.4,257.4 L173.2,256.8 L175.9,256.2 L178.7,255.6 L181.5,254.9 L184.2,254.3 L187.0,253.6 L189.8,252.9 L192.5,252.1 L195.3,251.3 L198.1,250.6 L200.8,249.7 L203.6,248.9 L206.4,248.0 L209.1,247.1 L211.9,246.2 L214.7,245.3 L217.4,244.4 L220.2,243.4 L222.9,242.5 L225.7,241.5 L228.5,240.6 L231.2,239.6 L234.0,238.7 L236.8,237.8 L239.5,237.0 L242.3,236.2 L245.1,235.5 L247.8,234.8 L250.6,234.3 L253.4,233.8 L256.1,233.5 L258.9,233.3 L261.7,233.2 L264.4,233.3 L267.2,233.5 L269.9,233.9 L272.7,234.4 L275.5,235.1 L278.2,235.9 L281.0,236.8 L283.8,237.8 L286.5,239.0 L288.8,240.0 L291.1,241.0 L293.4,242.1 L295.8,243.2 L298.1,244.4 L300.4,245.6 L302.7,246.7 L305.0,247.9 L307.3,249.1 L309.6,250.3 L311.9,251.4 L314.2,252.6 L316.5,253.7 L318.8,254.8 L321.1,255.9 L323.4,257.0 L325.7,258.0 L328.0,259.0 L330.3,260.0 L333.1,261.2 L335.8,262.3 L338.6,263.4 L341.4,264.4 L344.1,265.4 L346.9,266.4 L349.7,267.3 L352.4,268.2 L355.2,269.1 L358.0,269.9 L360.7,270.7 L363.5,271.5 L366.3,272.2 L369.0,272.9 L371.8,273.6 L374.6,274.3 L377.3,274.9 L380.1,275.5 L382.8,276.1 L385.6,276.7 L388.4,277.2 L391.1,277.7 L393.9,278.2 L396.7,278.7 L399.4,279.2 L402.2,279.7 L405.0,280.1 L407.7,280.5 L410.5,281.0 L413.3,281.4 L416.0,281.8 L418.8,282.1 L421.6,282.5 L424.3,282.8 L427.1,283.2 L429.8,283.5 L432.6,283.8 L435.4,284.1 L438.1,284.5 L440.9,284.7 L443.7,285.0 L446.4,285.3 L449.2,285.6 L452.0,285.8 L454.7,286.1 L457.5,286.3 L460.3,286.6 L463.0,286.8 L465.8,287.0 L468.6,287.2 L471.3,287.5 L474.1,287.7 L476.8,287.9 L479.6,288.1 L482.4,288.3 L485.1,288.5 L487.9,288.6 L490.7,288.8 L493.4,289.0 L496.2,289.2 L499.0,289.3 L501.7,289.5 L504.5,289.6 L507.3,289.8 L510.0,290.0 L512.8,290.1 L515.6,290.2 L518.3,290.4 L521.1,290.5 L523.8,290.7 L526.6,290.8 L529.4,290.9 L532.1,291.0 L534.9,291.2 L537.7,291.3 L540.4,291.4 L543.2,291.5 L546.0,291.6 L548.7,291.7 L551.5,291.9 L554.3,292.0 L557.0,292.1 L559.8,292.2 L562.6,292.3 L565.3,292.4 L568.1,292.5 L570.9,292.6 L573.6,292.6 L576.4,292.7 L579.1,292.8 L581.9,292.9 L584.7,293.0 L587.4,293.1 L590.2,293.2 L593.0,293.2 L595.7,293.3 L598.5,293.4 L601.3,293.5 L604.0,293.6 L606.8,293.6 L609.6,293.7 L612.3,293.8 L615.1,293.8 L617.9,293.9 L620.6,294.0 L622.0,294.0"/><path class="c1" d="M46.0,267.7 L48.8,267.7 L51.5,267.7 L54.3,267.6 L57.1,267.6 L59.8,267.6 L62.6,267.5 L65.4,267.5 L68.1,267.4 L70.9,267.3 L73.6,267.2 L76.4,267.1 L79.2,267.0 L81.9,266.9 L84.7,266.8 L87.5,266.6 L90.2,266.5 L93.0,266.3 L95.8,266.1 L98.5,266.0 L101.3,265.8 L104.1,265.6 L106.8,265.3 L109.6,265.1 L112.4,264.9 L115.1,264.6 L117.9,264.3 L120.6,264.0 L123.4,263.7 L126.2,263.4 L128.9,263.1 L131.7,262.7 L134.5,262.3 L137.2,261.9 L140.0,261.5 L142.8,261.1 L145.5,260.6 L148.3,260.1 L151.1,259.6 L153.8,259.1 L156.6,258.5 L159.4,257.9 L162.1,257.3 L164.9,256.6 L167.7,255.9 L170.4,255.2 L173.2,254.4 L175.9,253.6 L178.7,252.7 L181.5,251.8 L184.2,250.8 L187.0,249.8 L189.8,248.7 L192.5,247.6 L194.8,246.5 L197.1,245.5 L199.4,244.3 L201.8,243.2 L204.1,241.9 L206.4,240.6 L208.7,239.2 L211.0,237.7 L213.3,236.2 L215.6,234.5 L217.9,232.8 L220.2,231.0 L222.5,229.0 L224.8,227.0 L226.6,225.2 L228.5,223.4 L230.3,221.5 L232.2,219.5 L234.0,217.4 L235.8,215.3 L237.7,213.0 L239.5,210.6 L241.4,208.1 L243.2,205.6 L245.1,202.9 L246.9,200.2 L248.3,198.1 L249.7,196.0 L251.1,193.8 L252.4,191.7 L253.8,189.5 L255.2,187.3 L256.6,185.2 L258.0,183.1 L259.8,180.4 L261.7,177.9 L263.5,175.6 L265.3,173.6 L267.6,171.6 L269.9,170.3 L272.7,169.7 L275.5,170.2 L277.8,171.6 L280.1,173.7 L281.9,175.9 L283.8,178.5 L285.2,180.6 L286.5,182.9 L287.9,185.3 L289.3,187.8 L290.7,190.3 L292.1,192.9 L293.4,195.5 L294.8,198.1 L296.2,200.7 L297.6,203.2 L299.0,205.7 L300.4,208.2 L301.7,210.6 L303.1,213.0 L304.5,215.3 L305.9,217.6 L307.3,219.7 L308.7,221.8 L310.5,224.5 L312.3,227.1 L314.2,229.6 L316.0,231.9 L317.9,234.2 L319.7,236.3 L321.6,238.3 L323.4,240.3 L325.2,242.1 L327.1,243.9 L329.4,245.9 L331.7,247.9 L334.0,249.8 L336.3,251.5 L338.6,253.2 L340.9,254.7 L343.2,256.2 L345.5,257.6 L347.8,258.9 L350.1,260.2 L352.4,261.4 L354.7,262.6 L357.0,263.6 L359.3,264.7 L361.6,265.7 L364.4,266.8 L367.2,267.9 L369.9,268.9 L372.7,269.8 L375.5,270.7 L378.2,271.6 L381.0,272.4 L383.8,273.2 L386.5,273.9 L389.3,274.7 L392.1,275.3 L394.8,276.0 L397.6,276.6 L400.4,277.2 L403.1,277.8 L405.9,278.3 L408.6,278.9 L411.4,279.4 L414.2,279.8 L416.9,280.3 L419.7,280.8 L422.5,281.2 L425.2,281.6 L428.0,282.0 L430.8,282.4 L433.5,282.8 L436.3,283.1 L439.1,283.5 L441.8,283.8 L444.6,284.1 L447.4,284.5 L450.1,284.8 L452.9,285.1 L455.7,285.3 L458.4,285.6 L461.2,285.9 L463.9,286.2 L466.7,286.4 L469.5,286.7 L472.2,286.9 L475.0,287.1 L477.8,287.3 L480.5,287.6 L483.3,287.8 L486.1,288.0 L488.8,288.2 L491.6,288.4 L494.4,288.6 L497.1,288.8 L499.9,288.9 L502.7,289.1 L505.4,289.3 L508.2,289.5 L510.9,289.6 L513.7,289.8 L516.5,289.9 L519.2,290.1 L522.0,290.2 L524.8,290.4 L527.5,290.5 L530.3,290.7 L533.1,290.8 L535.8,290.9 L538.6,291.0 L541.4,291.2 L544.1,291.3 L546.9,291.4 L549.7,291.5 L552.4,291.6 L555.2,291.8 L557.9,291.9 L560.7,292.0 L563.5,292.1 L566.2,292.2 L569.0,292.3 L571.8,292.4 L574.5,292.5 L577.3,292.6 L580.1,292.7 L582.8,292.8 L585.6,292.9 L588.4,292.9 L591.1,293.0 L593.9,293.1 L596.7,293.2 L599.4,293.3 L602.2,293.4 L605.0,293.4 L607.7,293.5 L610.5,293.6 L613.2,293.7 L616.0,293.7 L618.8,293.8 L621.5,293.9 L622.0,293.9"/><path class="c4" d="M46.0,267.7 L48.8,267.7 L51.5,267.7 L54.3,267.6 L57.1,267.6 L59.8,267.6 L62.6,267.5 L65.4,267.4 L68.1,267.4 L70.9,267.3 L73.6,267.2 L76.4,267.1 L79.2,267.0 L81.9,266.9 L84.7,266.7 L87.5,266.6 L90.2,266.4 L93.0,266.3 L95.8,266.1 L98.5,265.9 L101.3,265.7 L104.1,265.5 L106.8,265.3 L109.6,265.0 L112.4,264.8 L115.1,264.5 L117.9,264.2 L120.6,263.9 L123.4,263.6 L126.2,263.3 L128.9,262.9 L131.7,262.5 L134.5,262.1 L137.2,261.7 L140.0,261.3 L142.8,260.8 L145.5,260.3 L148.3,259.8 L151.1,259.3 L153.8,258.7 L156.6,258.1 L159.4,257.5 L162.1,256.8 L164.9,256.1 L167.7,255.4 L170.4,254.6 L173.2,253.7 L175.9,252.8 L178.7,251.9 L181.5,250.9 L184.2,249.8 L187.0,248.7 L189.3,247.7 L191.6,246.6 L193.9,245.5 L196.2,244.3 L198.5,243.1 L200.8,241.7 L203.1,240.3 L205.4,238.8 L207.7,237.2 L210.0,235.5 L212.3,233.6 L214.7,231.7 L217.0,229.6 L218.8,227.8 L220.6,225.8 L222.5,223.8 L224.3,221.6 L226.2,219.3 L228.0,216.8 L229.9,214.2 L231.2,212.1 L232.6,209.8 L234.0,207.5 L235.4,205.0 L236.8,202.3 L238.2,199.5 L239.5,196.6 L240.9,193.4 L242.3,190.1 L243.2,187.7 L244.1,185.3 L245.1,182.7 L246.0,180.0 L246.9,177.2 L247.8,174.3 L248.8,171.2 L249.7,168.0 L250.6,164.6 L251.5,161.1 L252.4,157.5 L253.4,153.6 L254.3,149.6 L255.2,145.4 L256.1,140.9 L257.0,136.3 L258.0,131.5 L258.4,129.1 L258.9,126.5 L259.4,123.9 L259.8,121.3 L260.3,118.6 L260.7,115.9 L261.2,113.1 L261.7,110.3 L262.1,107.5 L262.6,104.6 L263.0,101.6 L263.5,98.7 L264.0,95.7 L264.4,92.6 L264.9,89.6 L265.3,86.6 L265.8,83.5 L266.3,80.5 L266.7,77.5 L267.2,74.5 L267.6,71.5 L268.1,68.6 L268.6,65.8 L269.0,63.0 L269.5,60.3 L269.9,57.8 L270.9,53.0 L271.8,48.9 L272.7,45.5 L273.6,43.0 L275.5,40.9 L277.3,42.9 L278.2,45.5 L279.2,49.0 L280.1,53.3 L281.0,58.3 L281.5,61.0 L281.9,63.9 L282.4,66.8 L282.9,69.9 L283.3,73.0 L283.8,76.2 L284.2,79.5 L284.7,82.8 L285.2,86.1 L285.6,89.4 L286.1,92.7 L286.5,96.0 L287.0,99.3 L287.5,102.6 L287.9,105.9 L288.4,109.1 L288.8,112.3 L289.3,115.4 L289.8,118.5 L290.2,121.6 L290.7,124.6 L291.1,127.6 L291.6,130.4 L292.1,133.3 L292.5,136.1 L293.0,138.8 L293.4,141.5 L293.9,144.1 L294.4,146.6 L294.8,149.1 L295.8,154.0 L296.7,158.6 L297.6,163.0 L298.5,167.2 L299.4,171.2 L300.4,175.0 L301.3,178.7 L302.2,182.2 L303.1,185.5 L304.0,188.7 L305.0,191.7 L305.9,194.6 L306.8,197.4 L307.7,200.0 L308.7,202.6 L309.6,205.0 L310.5,207.3 L311.9,210.6 L313.3,213.7 L314.6,216.7 L316.0,219.4 L317.4,222.1 L318.8,224.5 L320.2,226.8 L321.6,229.1 L322.9,231.1 L324.8,233.8 L326.6,236.2 L328.5,238.5 L330.3,240.7 L332.2,242.7 L334.0,244.6 L335.8,246.4 L337.7,248.1 L340.0,250.1 L342.3,252.0 L344.6,253.7 L346.9,255.4 L349.2,256.9 L351.5,258.4 L353.8,259.7 L356.1,261.0 L358.4,262.2 L360.7,263.4 L363.0,264.5 L365.3,265.5 L367.6,266.5 L370.4,267.6 L373.2,268.7 L375.9,269.7 L378.7,270.6 L381.5,271.5 L384.2,272.4 L387.0,273.2 L389.8,273.9 L392.5,274.7 L395.3,275.4 L398.1,276.0 L400.8,276.7 L403.6,277.3 L406.3,277.8 L409.1,278.4 L411.9,278.9 L414.6,279.4 L417.4,279.9 L420.2,280.4 L422.9,280.9 L425.7,281.3 L428.5,281.7 L431.2,282.1 L434.0,282.5 L436.8,282.9 L439.5,283.2 L442.3,283.6 L445.1,283.9 L447.8,284.3 L450.6,284.6 L453.3,284.9 L456.1,285.2 L458.9,285.5 L461.6,285.7 L464.4,286.0 L467.2,286.3 L469.9,286.5 L472.7,286.8 L475.5,287.0 L478.2,287.2 L481.0,287.4 L483.8,287.7 L486.5,287.9 L489.3,288.1 L492.1,288.3 L494.8,288.5 L497.6,288.7 L500.3,288.9 L503.1,289.0 L505.9,289.2 L508.6,289.4 L511.4,289.5 L514.2,289.7 L516.9,289.9 L519.7,290.0 L522.5,290.2 L525.2,290.3 L528.0,290.5 L530.8,290.6 L533.5,290.7 L536.3,290.9 L539.1,291.0 L541.8,291.1 L544.6,291.2 L547.4,291.4 L550.1,291.5 L552.9,291.6 L555.6,291.7 L558.4,291.8 L561.2,291.9 L563.9,292.0 L566.7,292.1 L569.5,292.3 L572.2,292.4 L575.0,292.4 L577.8,292.5 L580.5,292.6 L583.3,292.7 L586.1,292.8 L588.8,292.9 L591.6,293.0 L594.4,293.1 L597.1,293.2 L599.9,293.2 L602.6,293.3 L605.4,293.4 L608.2,293.5 L610.9,293.6 L613.7,293.6 L616.5,293.7 L619.2,293.8 L622.0,293.9"/><rect class="legbg" x="443.2" y="44.3" width="82.2" height="68.0" rx="4"/><line class="c4" x1="449.2" y1="54.3" x2="471.2" y2="54.3"/><text class="small" x="477.2" y="58.3" text-anchor="start">λ = ω/8</text><line class="c1" x1="449.2" y1="70.3" x2="471.2" y2="70.3"/><text class="small" x="477.2" y="74.3" text-anchor="start">λ = ω/4</text><line class="c2" x1="449.2" y1="86.3" x2="471.2" y2="86.3"/><text class="small" x="477.2" y="90.3" text-anchor="start">λ = ω/2</text><line class="c3" x1="449.2" y1="102.3" x2="471.2" y2="102.3"/><text class="small" x="477.2" y="106.3" text-anchor="start">λ = ω</text></svg><figcaption><b>Figure 3.4.</b> Steady-state amplitude of $\ddot x + \lambda\dot x + \omega^2x = a\cos\alpha t$, scaled by $a/\omega^2$: $\omega^2 F(\alpha) = \omega^2/\sqrt{(\omega^2-\alpha^2)^2 + \lambda^2\alpha^2}$ (Robinson (15.6), Fig. 15.5). The peak sharpens and moves towards $\alpha = \omega$ as damping decreases.</figcaption></figure>
+      <ul>
+        <li><strong>Limits:</strong> $\alpha \to 0$: $R \to a/\omega^2$ (static deflection under a steady force); $\alpha \to \infty$: $R \approx a/\alpha^2 \to 0$ (inertia dominates).</li>
+        <li><strong>Dimensions:</strong> $a$ is force per unit mass [m/s²]; $[\omega^2 - \alpha^2] = [\lambda\alpha] = \text{s}^{-2}$, so $[R] = \text{m}$ ✓.</li>
+      </ul>
+      <div class="callout aero">
+        <div class="callout-title">Aerospace connection</div>
+        <p>
+          Rotor blades, engine mounts and wing structures are tuned so that their natural frequencies stay away from forcing frequencies such as rotor
+          or shaft speeds. Helicopter <em>ground resonance</em> and aeroelastic <em>flutter</em> are more dangerous still: as in the Millennium Bridge example,
+          the coupling with the excitation acts as negative damping, and the amplitude grows exponentially rather than linearly.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 7 -->
+    <section class="theory-section" id="sec-7">
+      <div class="section-header">
+        <div class="section-tag">Section 07 • Robinson Ch. 17 • Lecture Sep 24–29</div>
+        <h2 class="section-title">7. Variable coefficients: reduction of order</h2>
+      </div>
+      <p>
+        For $a(t)\ddot x + b(t)\dot x + c(t)x = 0$ there is no general recipe for solutions. But if <strong>one</strong> solution $u(t)$ is known,
+        a second one follows from a first-order equation <span class="cite">[Robinson, Ch. 17, pp. 159–160]</span>.
+      </p>
+      <ol class="steps">
+        <li>Substitute $x = u(t)\,y(t)$ (the constant $A$ in $Au$ is promoted to a function). Product rule: $\dot x = \dot uy + u\dot y$, $\ \ddot x = \ddot uy + 2\dot u\dot y + u\ddot y$.</li>
+        <li>
+          Substitute and group by $y$, $\dot y$, $\ddot y$:
+          $$y\,\big[a\ddot u + b\dot u + cu\big] + a\big(2\dot u\dot y + u\ddot y\big) + bu\dot y = 0.$$
+          The bracket is zero because $u$ is a solution — this is why the method works.
+        </li>
+        <li>$y$ itself has disappeared. With $z = \dot y$ we get the first-order linear equation $\ \big[a u\big]\dot z + \big[2a\dot u + bu\big]z = 0$ (17.3).</li>
+        <li>Solve for $z$ (separable or integrating factor), integrate once to get $y$, and set $x = uy$.</li>
+      </ol>
+      <p>
+        In the normalised form $\ddot x + p\dot x + qx = 0$ the result is $z = \dfrac{A\,e^{-\int p\,dt}}{u^2}$ (Robinson Exercise 17.7), so
+        $x_2 = u\displaystyle\int\frac{e^{-\int p\,dt}}{u^2}\,dt$. Robinson advises applying the method rather than memorising this formula.
+      </p>
+      <div class="callout example">
+        <div class="callout-title">Example 17.1 (pp. 160–161): deriving the repeated-root solution</div>
+        <p>
+          For $\ddot x - 2\lambda\dot x + \lambda^2x = 0$ with known $u = e^{\lambda t}$, set $x = ye^{\lambda t}$:
+          $\dot x = (\lambda y + \dot y)e^{\lambda t}$, $\ddot x = (\lambda^2y + 2\lambda\dot y + \ddot y)e^{\lambda t}$. Substituting and cancelling $e^{\lambda t} \neq 0$:
+        </p>
+        $$\lambda^2y + 2\lambda\dot y + \ddot y - 2\lambda^2y - 2\lambda\dot y + \lambda^2y = \ddot y = 0 \;\Longrightarrow\; y = A + Bt \;\Longrightarrow\; x = (A + Bt)e^{\lambda t}. \tag{17.4}$$
+        <p>The second solution $te^{\lambda t}$ of Section 3.2 is now derived, not guessed.</p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 17.2 (pp. 161–162): $t^2\ddot x - 2t\dot x - 4x = 0$, $t > 0$, with $u = 1/t$</div>
+        <ol class="steps">
+          <li>Check $u$: $\dot u = -t^{-2}$, $\ddot u = 2t^{-3}$, so $t^2(2t^{-3}) - 2t(-t^{-2}) - 4t^{-1} = (2 + 2 - 4)t^{-1} = 0$ ✓.</li>
+          <li>$x = y/t$: $\dot x = \dfrac{\dot y}{t} - \dfrac{y}{t^2}$, $\ddot x = \dfrac{\ddot y}{t} - \dfrac{2\dot y}{t^2} + \dfrac{2y}{t^3}$.</li>
+          <li>Substitute: $t\ddot y - 2\dot y + \dfrac{2y}{t} - 2\dot y + \dfrac{2y}{t} - \dfrac{4y}{t} = t\ddot y - 4\dot y = 0$.</li>
+          <li>$z = \dot y$: $\dot z - \dfrac4t z = 0$. Integrating factor $e^{-4\ln t} = t^{-4}$: $\frac{d}{dt}(t^{-4}z) = 0$, so $z = ct^4$.</li>
+          <li>$y = \int ct^4\,dt = \dfrac{c}{5}t^5 + b$ and $x = y/t = at^4 + b/t$. The new independent solution is $x_2 = t^4$.</li>
+        </ol>
+        <p>Check: $t^2(12t^2) - 2t(4t^3) - 4t^4 = (12 - 8 - 4)t^4 = 0$ ✓. Wronskian: $t^{-1}\cdot4t^3 - t^4\cdot(-t^{-2}) = 5t^2 \neq 0$ for $t > 0$ ✓.</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 8 -->
+    <section class="theory-section" id="sec-8">
+      <div class="section-header">
+        <div class="section-tag">Section 08 • Robinson Ch. 18 (starred) • Lecture Oct 1</div>
+        <h2 class="section-title">8. Variation of parameters (Lagrange)</h2>
+      </div>
+      <p>
+        Undetermined coefficients needs constant coefficients and special right-hand sides. Variation of parameters works for any continuous forcing
+        and any coefficients, provided two independent homogeneous solutions $x_1$, $x_2$ are known <span class="cite">[Robinson, Ch. 18, pp. 164–166]</span>.
+        Consider
+      </p>
+      $$\ddot x + p(t)\dot x + q(t)x = g(t). \tag{18.4}$$
+      <h3 class="sub-title">8.1 Derivation</h3>
+      <ol class="steps">
+        <li>
+          <strong>Ansatz.</strong> Replace the constants of the complementary function by functions (18.5):
+          $\ x(t) = u_1(t)x_1(t) + u_2(t)x_2(t)$.
+        </li>
+        <li>
+          <strong>First derivative</strong> (product rule, 18.6): $\ \dot x = \dot u_1x_1 + u_1\dot x_1 + \dot u_2x_2 + u_2\dot x_2$.
+        </li>
+        <li>
+          <strong>Auxiliary condition.</strong> Two unknown functions but one equation leaves one free condition. Choose it to stop second derivatives of
+          $u_j$ appearing:
+          $$\dot u_1x_1 + \dot u_2x_2 = 0, \tag{18.7}$$
+          so that $\dot x = u_1\dot x_1 + u_2\dot x_2$.
+        </li>
+        <li><strong>Second derivative:</strong> $\ \ddot x = \dot u_1\dot x_1 + u_1\ddot x_1 + \dot u_2\dot x_2 + u_2\ddot x_2$.</li>
+        <li>
+          <strong>Substitute into (18.4)</strong> and group:
+          $$u_1\big[\ddot x_1 + p\dot x_1 + qx_1\big] + u_2\big[\ddot x_2 + p\dot x_2 + qx_2\big] + \dot u_1\dot x_1 + \dot u_2\dot x_2 = g.$$
+          Both brackets vanish ($x_1$, $x_2$ solve the homogeneous equation), leaving $\dot u_1\dot x_1 + \dot u_2\dot x_2 = g$.
+        </li>
+        <li>
+          <strong>Linear system</strong> for $\dot u_1$, $\dot u_2$:
+          $$\begin{pmatrix} x_1 & x_2 \\ \dot x_1 & \dot x_2\end{pmatrix}\begin{pmatrix}\dot u_1 \\ \dot u_2\end{pmatrix} = \begin{pmatrix} 0 \\ g\end{pmatrix}.$$
+          Its determinant is the Wronskian $W = x_1\dot x_2 - x_2\dot x_1$, never zero for independent solutions. Cramer's rule:
+          $$\dot u_1 = \frac{\begin{vmatrix} 0 & x_2 \\ g & \dot x_2\end{vmatrix}}{W} = -\frac{x_2\,g}{W}, \qquad \dot u_2 = \frac{\begin{vmatrix} x_1 & 0 \\ \dot x_1 & g\end{vmatrix}}{W} = \frac{x_1\,g}{W}.$$
+        </li>
+        <li><strong>Integrate</strong> and substitute into the ansatz:</li>
+      </ol>
+      <div class="callout result">
+        <div class="callout-title">Variation of constants formula <span class="cite">[Robinson, Eq. (18.8), p. 166]</span></div>
+        $$x_p(t) = -x_1(t)\int\frac{x_2(t)\,g(t)}{W(t)}\,dt + x_2(t)\int\frac{x_1(t)\,g(t)}{W(t)}\,dt. \tag{18.8}$$
+        <p>Constants of integration only add multiples of $x_1$, $x_2$, which belong to the complementary function.</p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 18.1 (pp. 166–167): $\ddot x + \dot x - 6x = 5e^{-3t}$ again</div>
+        <p>
+          $x_1 = e^{-3t}$, $x_2 = e^{2t}$, $W = e^{-3t}\cdot 2e^{2t} - e^{2t}\cdot(-3e^{-3t}) = 5e^{-t}$. Then
+          $\dfrac{x_2g}{W} = \dfrac{e^{2t}\cdot5e^{-3t}}{5e^{-t}} = 1$ and $\dfrac{x_1g}{W} = \dfrac{e^{-3t}\cdot5e^{-3t}}{5e^{-t}} = e^{-5t}$, so
+        </p>
+        $$x_p = -e^{-3t}\int 1\,dt + e^{2t}\int e^{-5t}\,dt = -te^{-3t} + e^{2t}\left(-\frac{e^{-5t}}{5}\right) = -te^{-3t} - \frac15e^{-3t}.$$
+        <p>The second term is a multiple of $x_1$ and is absorbed into $Ae^{-3t}$: the particular integral $-te^{-3t}$ of Example 14.8 is recovered.</p>
+      </div>
+      <div class="callout danger">
+        <div class="callout-title">Erratum — Robinson p. 166</div>
+        <p>
+          The book writes the second integral as $5e^{2t}\int e^{-5t}dt$ and the result as $-te^{-3t} - e^{-3t}$. The factor $5$ was already cancelled
+          by $W = 5e^{-t}$, so the term is $e^{2t}\cdot(-\tfrac15e^{-5t}) = -\tfrac15e^{-3t}$. Check: $\frac{d}{dt}\big(-\tfrac15e^{-5t}\big) = e^{-5t}$, so $\int e^{-5t}dt = -\tfrac15e^{-5t}$. The slip is harmless for the general solution, since any multiple of
+          $e^{-3t}$ is absorbed into the arbitrary constant, as Robinson notes.
+        </p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 18.2 (pp. 167–168): $\ddot x + x = \tan t$ — beyond undetermined coefficients</div>
+        <ol class="steps">
+          <li>$x_1 = \sin t$, $x_2 = \cos t$; ansatz $x = u\sin t + v\cos t$ with $\dot u\sin t + \dot v\cos t = 0$ (18.10).</li>
+          <li>Then $\dot x = u\cos t - v\sin t$, $\ddot x = \dot u\cos t - u\sin t - \dot v\sin t - v\cos t$, and the equation reduces to $\dot u\cos t - \dot v\sin t = \tan t$ (18.11).</li>
+          <li>Multiply (18.10) by $\sin t$, (18.11) by $\cos t$ and add: $\dot u = \tan t\cos t = \sin t$. Multiply (18.10) by $\cos t$, (18.11) by $\sin t$ and subtract: $\dot v = -\dfrac{\sin^2t}{\cos t} = \cos t - \sec t$.</li>
+          <li>Integrate: $u = -\cos t$; $v = \sin t - \ln|\sec t + \tan t|$, using $\int\sec t\,dt = \ln|\sec t + \tan t|$ (differentiate to check: $\frac{\sec t\tan t + \sec^2t}{\sec t + \tan t} = \sec t$).</li>
+          <li>$x_p = -\cos t\sin t + \big(\sin t - \ln|\sec t + \tan t|\big)\cos t = -\cos t\,\ln|\sec t + \tan t|$.</li>
+        </ol>
+        <p>
+          <strong>Check</strong> (write $\ell = \ln|\sec t + \tan t|$, $\dot\ell = \sec t$): $\dot x_p = \sin t\,\ell - 1$, $\ddot x_p = \cos t\,\ell + \sin t\sec t = \cos t\,\ell + \tan t$,
+          so $\ddot x_p + x_p = \tan t$ ✓.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 9 -->
+    <section class="theory-section" id="sec-9">
+      <div class="section-header">
+        <div class="section-tag">Section 09 • Summary</div>
+        <h2 class="section-title">9. Summary and lecture map</h2>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Result</th><th>Statement</th><th>Robinson</th><th>Lecture</th></tr></thead>
+          <tbody>
+            <tr><td>Existence and uniqueness</td><td>Data $x(t_0)$, $\dot x(t_0)$ fix a unique solution</td><td>Thm 11.1, p. 102</td><td>Sep 22</td></tr>
+            <tr><td>Superposition</td><td>$\alpha x_1 + \beta x_2$ solves $L[x] = 0$</td><td>Sec. 11.2, p. 103</td><td>Sep 22</td></tr>
+            <tr><td>General solution</td><td>Two independent solutions, necessary and sufficient</td><td>Sec. 11.3, pp. 104–106</td><td>Sep 22</td></tr>
+            <tr><td>Wronskian</td><td>Independent ⟺ $W \neq 0$; Abel: $\dot W = -pW$</td><td>Sec. 11.4, Ex. 11.2</td><td>Sep 22</td></tr>
+            <tr><td>Constant coefficients</td><td>$e^{kt}$; three root cases</td><td>Ch. 12, Sec. 16.1</td><td>Sep 22–24</td></tr>
+            <tr><td>Mass–spring–damper</td><td>$\ddot x + \lambda\dot x + \omega^2x = 0$; over/critical/under-damped</td><td>Ch. 13</td><td>Sep 22</td></tr>
+            <tr><td>Inhomogeneous</td><td>$x = y_h + x_p$; undetermined coefficients; rule of thumb</td><td>Ch. 14</td><td>Sep 24–29</td></tr>
+            <tr><td>Resonance</td><td>$x_p \propto t\sin\omega t$; damped peak at $\alpha^2 = \omega^2 - \lambda^2/2$</td><td>Ch. 15</td><td>—</td></tr>
+            <tr><td>Reduction of order</td><td>$x = uy$ gives a first-order equation for $\dot y$</td><td>Ch. 17</td><td>Sep 24–29</td></tr>
+            <tr><td>Variation of parameters</td><td>Formula (18.8) with the Wronskian</td><td>Ch. 18</td><td>Oct 1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title">What comes next</div>
+        <p>
+          Topic 4 rewrites $\ddot x + p\dot x + qx = f$ as a first-order system for $(x, \dot x)$ and replaces "two independent solutions" by a fundamental matrix,
+          the Wronskian by a determinant of vector solutions, and the auxiliary equation by an eigenvalue problem.
+        </p>
+      </div>
+    </section>
+
+
+    <nav class="article-nav" aria-label="Topic navigation">
+      <a href="topic-2.html" class="nav-btn"><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">Topic 2: First-Order Equations — Qualitative and Analytical Methods</span></a>
+      <a href="topic-4.html" class="nav-btn next"><span class="nav-btn-label">Next →</span><span class="nav-btn-title">Topic 4: Systems of First-Order ODEs and the Phase Plane</span></a>
     </nav>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
-      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
-      <p>Advanced Mathematics • Topic 3 Study Guide • Academic Rigor &amp; Closed-Form Excellence</p>
-      <p style="margin-top: 8px;">
-        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
-      </p>
+      <p>Advanced Mathematics • Topic 3 • BSc in Aerospace Engineering, Universidad Carlos III de Madrid</p>
+      <p>Reference text: J. C. Robinson, <em>An Introduction to Ordinary Differential Equations</em>, Cambridge University Press, 2004. Page numbers are the book's printed pages.</p>
+      <p style="margin-top: 8px;"><a href="../../../index.html">← Return to the main study portal</a></p>
     </footer>
 
-    <!-- Aerospace Motivational Quote Component -->
-    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <section style="max-width: 920px; margin: 48px auto 24px;">
       <div id="quoteContainer"></div>
     </section>
   </main>
 
   <script src="../../../assets/js/quotes.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
-      }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initAerospaceQuote) { initAerospaceQuote('#quoteContainer'); }
     });
   </script>
-  <!-- Celestial Sky Engine -->
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>
 </html>
-

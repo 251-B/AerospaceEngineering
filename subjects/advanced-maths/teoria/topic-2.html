@@ -1,16 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Topic 2: First-Order ODEs and Qualitative Dynamics — Advanced Mathematics | UC3M</title>
-  
-  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <title>Topic 2: First-Order Equations — Qualitative and Analytical Methods — Advanced Mathematics | UC3M</title>
+  <meta name="description" content="Autonomous ODEs and phase lines, stability and bifurcations, separable equations, the integrating factor, exact equations and integrating factors mu(x), mu(y)." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
-  
-  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
@@ -19,1255 +16,913 @@
               {left: '$$', right: '$$', display: true},
               {left: '$', right: '$', display: false}
             ],
+            ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg'],
             throwOnError: false
           });"></script>
-
   <style>
-    /* ========================================================
-       CSS VARIABLES & THEME SYSTEM
-       ======================================================== */
     :root {
-      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-display: 'Abril Fatface', Georgia, serif;
       --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
-      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
-
-      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
       --accent: #6366f1;
-      --accent-hover: #4f46e5;
+      --accent-strong: #4f46e5;
       --accent-light: #818cf8;
-      --accent-soft: rgba(99, 102, 241, 0.12);
-      --accent-border: rgba(99, 102, 241, 0.28);
-      --accent-glow: rgba(99, 102, 241, 0.18);
-
+      --accent-soft: rgba(99, 102, 241, 0.10);
+      --accent-border: rgba(99, 102, 241, 0.30);
+      --ok: #10b981;
+      --warn: #f59e0b;
+      --bad: #ef4444;
+      --aero: #06b6d4;
       --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 20px;
     }
-
     [data-theme="dark"] {
       --bg-primary: #070b14;
       --bg-surface: #0f172a;
-      --bg-subtle: #1e293b;
-      --bg-card: rgba(15, 23, 42, 0.72);
-      --bg-card-hover: rgba(20, 30, 55, 0.90);
-      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-glass: rgba(7, 11, 20, 0.72);
       --bg-input: rgba(255, 255, 255, 0.06);
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-card: rgba(255, 255, 255, 0.12);
+      --border-card: rgba(255, 255, 255, 0.13);
       --text-heading: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
+      --text-body: #d4dbe6;
+      --text-secondary: #a3b0c2;
+      --text-muted: #6b7a90;
       --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
-      --code-bg: #090d16;
+      --fig-grid: rgba(255, 255, 255, 0.06);
     }
-
     [data-theme="light"] {
       --bg-primary: #f8fafc;
       --bg-surface: #ffffff;
-      --bg-subtle: #f1f5f9;
-      --bg-card: rgba(255, 255, 255, 0.90);
-      --bg-card-hover: rgba(255, 255, 255, 0.98);
-      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-card: rgba(255, 255, 255, 0.94);
+      --bg-glass: rgba(248, 250, 252, 0.80);
       --bg-input: rgba(0, 0, 0, 0.04);
       --border-subtle: #e2e8f0;
       --border-card: #cbd5e1;
       --text-heading: #0f172a;
-      --text-body: #334155;
+      --text-body: #1e293b;
       --text-secondary: #475569;
       --text-muted: #94a3b8;
       --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
-      --code-bg: #f1f5f9;
+      --fig-grid: rgba(0, 0, 0, 0.06);
     }
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
       background-color: var(--bg-primary);
       color: var(--text-body);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.75;
+      font-family: var(--font-body);
+      font-size: 19px;
+      line-height: 1.7;
       min-height: 100vh;
       transition: background-color var(--transition), color var(--transition);
-      position: relative;
     }
+    a { color: var(--accent-light); }
+    [data-theme="light"] a { color: var(--accent-strong); }
 
-    .ambient-glow {
-      position: fixed;
-      top: 0;
-      right: 10%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ========================================================
-       TOP HEADER
-       ======================================================== */
+    /* ---------- header ---------- */
     header.site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: var(--bg-glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
     }
-
     .header-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      max-width: 1040px; margin: 0 auto; padding: 10px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
     }
-
-    .brand-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .brand-area, .nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .brand-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 3px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--accent-border);
-      letter-spacing: 0.5px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent);
+      background: var(--accent-soft); padding: 3px 10px; border-radius: 6px; border: 1px solid var(--accent-border);
     }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none; padding: 6px 12px;
+      border-radius: var(--radius-sm); background: var(--bg-input); border: 1px solid var(--border-subtle);
       transition: all var(--transition);
     }
-
-    .back-link:hover {
-      color: var(--accent);
-      background: var(--accent-soft);
-      border-color: var(--accent-border);
-    }
-
+    [data-theme="light"] .back-link { color: var(--text-secondary); }
+    .back-link:hover { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-border); }
     .theme-toggle {
-      width: 44px;
-      height: 24px;
-      border-radius: 12px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-subtle);
-      cursor: pointer;
-      position: relative;
-      transition: background var(--transition);
-      display: flex;
-      align-items: center;
-      padding: 0 3px;
+      width: 44px; height: 24px; border-radius: 12px; background: var(--bg-input);
+      border: 1px solid var(--border-subtle); cursor: pointer; position: relative;
     }
-
     .theme-toggle::after {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-      transition: transform var(--transition);
+      content: ''; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 8px var(--accent); transition: transform var(--transition);
     }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
 
-    [data-theme="light"] .theme-toggle::after {
-      transform: translateX(20px);
-    }
-
-    /* ========================================================
-       ARTICLE LAYOUT
-       ======================================================== */
-    .article-container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 44px 24px 80px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .article-header {
-      margin-bottom: 40px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .article-meta-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
+    /* ---------- article ---------- */
+    .article-container { max-width: 1040px; margin: 0 auto; padding: 44px 24px 80px; position: relative; z-index: 1; overflow-x: clip; }
+    .article-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border-subtle); }
+    .article-meta-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
     .topic-pill {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 3px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); background: var(--accent-soft); padding: 3px 12px; border-radius: 6px; border: 1px solid var(--accent-border);
     }
-
-    .course-tag {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
+    .course-tag { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
     h1.article-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4.5vw, 2.85rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.25;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
+      font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text-heading); line-height: 1.15; margin-bottom: 16px;
     }
-
-    .article-lead {
-      font-size: 1.12rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 860px;
-    }
-
+    .article-lead { font-size: 1.15rem; color: var(--text-secondary); max-width: 880px; }
     .source-banner {
-      margin-top: 20px;
-      padding: 10px 16px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-input);
-      border: 1px solid var(--accent-border);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--accent-light);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    /* Quick Jump Table of Contents */
-    .toc-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-md);
-      padding: 22px 26px;
-      margin-bottom: 48px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .toc-title {
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-heading);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .toc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 10px 20px;
-      list-style: none;
-    }
-
-    .toc-grid a {
+      margin-top: 20px; padding: 12px 16px; border-radius: var(--radius-sm); background: var(--bg-input);
+      border: 1px solid var(--accent-border); font-family: var(--font-mono); font-size: 12px; line-height: 1.6;
       color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.92rem;
-      transition: color var(--transition), transform var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    }
+    .source-banner strong { color: var(--accent); }
+    .reading-meta { margin-top: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+
+    .toc-card {
+      background: var(--bg-card); border: 1px solid var(--border-card); border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 48px; box-shadow: var(--shadow-card);
+    }
+    .toc-title { font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-heading); margin-bottom: 12px; }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 6px 22px; list-style: none; margin: 0; }
+    .toc-grid li { margin: 0; }
+    .toc-grid a { color: var(--text-secondary); text-decoration: none; font-size: 0.98rem; display: inline-flex; gap: 8px; }
+    .toc-grid a:hover { color: var(--accent); }
+    .toc-num { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--accent); padding-top: 3px; }
+
+    .theory-section { margin-bottom: 64px; scroll-margin-top: 80px; }
+    .section-header { margin-bottom: 22px; padding-bottom: 10px; border-bottom: 1px solid var(--border-subtle); }
+    .section-tag { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+    h2.section-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3.6vw, 2.2rem); color: var(--text-heading); line-height: 1.2; }
+    h3.sub-title { font-family: var(--font-body); font-size: 1.4rem; font-weight: 700; color: var(--text-heading); margin: 34px 0 12px; scroll-margin-top: 80px; }
+    h4.sub-sub-title { font-family: var(--font-body); font-size: 1.12rem; font-weight: 700; font-style: italic; color: var(--text-heading); margin: 22px 0 8px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 18px 26px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--text-heading); font-weight: 700; }
+    code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg-input); padding: 1px 6px; border-radius: 4px; }
+    .cite { font-family: var(--font-mono); font-size: 0.72em; color: var(--accent); white-space: nowrap; }
+    [data-theme="light"] .cite { color: var(--accent-strong); }
+    .katex-display { overflow-x: auto; overflow-y: hidden; padding: 6px 0; }
+
+    /* ---------- callouts ---------- */
+    .callout {
+      background: var(--bg-card); border: 1px solid var(--border-card); border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm); padding: 16px 22px; margin: 22px 0; box-shadow: var(--shadow-card);
+    }
+    .callout > :last-child { margin-bottom: 0; }
+    .callout-title {
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.def { border-left-color: var(--accent); background: var(--accent-soft); }
+    .callout.thm { border-left-color: var(--accent-strong); }
+    .callout.thm .callout-title { color: var(--accent-light); }
+    [data-theme="light"] .callout.thm .callout-title { color: var(--accent-strong); }
+    .callout.proof { border-left-color: var(--text-muted); background: transparent; box-shadow: none; }
+    .callout.proof .callout-title { color: var(--text-secondary); }
+    .callout.proof::after { content: '\220E'; display: block; text-align: right; color: var(--text-secondary); font-size: 1.2rem; }
+    .callout.example { border-left-color: var(--ok); }
+    .callout.example .callout-title { color: var(--ok); }
+    .callout.aero { border-left-color: var(--aero); }
+    .callout.aero .callout-title { color: var(--aero); }
+    .callout.warn { border-left-color: var(--warn); background: rgba(245, 158, 11, 0.07); }
+    .callout.warn .callout-title { color: var(--warn); }
+    .callout.danger { border-left-color: var(--bad); background: rgba(239, 68, 68, 0.06); }
+    .callout.danger .callout-title { color: var(--bad); }
+    .callout.result { border-left-color: var(--ok); background: rgba(16, 185, 129, 0.07); }
+    .callout.result .callout-title { color: var(--ok); }
+    .callout.lecture { border-left-color: #a78bfa; }
+    .callout.lecture .callout-title { color: #a78bfa; }
+    [data-theme="light"] .callout.lecture .callout-title { color: #7c3aed; }
+
+    /* numbered derivation steps */
+    ol.steps { list-style: none; counter-reset: step; margin-left: 0; }
+    ol.steps > li { counter-increment: step; position: relative; padding-left: 44px; margin-bottom: 12px; }
+    ol.steps > li::before {
+      content: counter(step); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--accent-soft); border: 1px solid var(--accent-border); color: var(--accent);
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
     }
 
-    .toc-grid a:hover {
-      color: var(--accent);
-      transform: translateX(3px);
-    }
-
-    .toc-grid .toc-num {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    /* ========================================================
-       CONTENT TYPOGRAPHY & SECTIONS
-       ======================================================== */
-    .theory-section {
-      margin-bottom: 64px;
-      scroll-margin-top: 80px;
-    }
-
-    .section-header {
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .section-tag {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-
-    h2.section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    h3.sub-title {
-      font-family: var(--font-sans);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin: 32px 0 14px;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    p {
-      margin-bottom: 18px;
-    }
-
-    ul, ol {
-      margin: 0 0 20px 24px;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    strong {
-      color: var(--text-heading);
-      font-weight: 600;
-    }
-
-    .math-block {
-      overflow-x: auto;
-      padding: 16px 20px;
-      margin: 20px 0;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-sm);
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .note-box {
-      background: var(--accent-soft);
-      border: 1px solid var(--accent-border);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-sm);
-      padding: 18px 22px;
-      margin: 24px 0;
-      font-size: 0.95rem;
-    }
-
-    .note-box-title {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .result-box {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      border-left: 4px solid #10b981;
-      border-radius: var(--radius-sm);
-      padding: 20px 24px;
-      margin: 24px 0;
-      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.06);
-    }
-
-    .result-box-title {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #10b981;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .warning-box {
-      background: rgba(245, 158, 11, 0.08);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-left: 4px solid #f59e0b;
-      border-radius: var(--radius-sm);
-      padding: 18px 22px;
-      margin: 24px 0;
-      font-size: 0.95rem;
-    }
-
-    .warning-box-title {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #f59e0b;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .danger-box {
-      background: rgba(239, 68, 68, 0.08);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      border-left: 4px solid #ef4444;
-      border-radius: var(--radius-sm);
-      padding: 18px 22px;
-      margin: 24px 0;
-      font-size: 0.95rem;
-    }
-
-    .danger-box-title {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ef4444;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .table-container {
-      overflow-x: auto;
-      margin: 24px 0;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-card);
-      box-shadow: var(--shadow-card);
-    }
-
-    table.data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.92rem;
-      text-align: left;
-    }
-
+    /* tables */
+    .table-container { overflow-x: auto; margin: 22px 0; border-radius: var(--radius-sm); border: 1px solid var(--border-card); }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left; }
     table.data-table th {
-      background: var(--bg-surface);
-      color: var(--text-heading);
-      padding: 14px 18px;
-      font-weight: 600;
-      border-bottom: 2px solid var(--accent);
-      white-space: nowrap;
+      background: var(--bg-surface); color: var(--text-heading); padding: 10px 14px; font-family: var(--font-mono);
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--accent);
     }
+    table.data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-subtle); background: var(--bg-card); vertical-align: top; }
 
-    table.data-table td {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border-subtle);
-      background: var(--bg-card);
+    /* figures (static inline SVG) */
+    figure.fig {
+      margin: 24px auto; padding: 14px; background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); max-width: 760px;
     }
+    figure.fig.pair { max-width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    figure.fig.pair figcaption { grid-column: 1 / -1; }
+    figure.fig svg { width: 100%; height: auto; display: block; overflow: hidden; }
+    figcaption { font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px; text-align: center; }
+    figcaption b { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+    svg .ax { stroke: var(--text-muted); stroke-width: 1.2; fill: none; }
+    svg .grid { stroke: var(--fig-grid); stroke-width: 1; fill: none; }
+    svg .c1 { stroke: var(--accent); stroke-width: 2.2; fill: none; }
+    svg .c2 { stroke: var(--ok); stroke-width: 2.2; fill: none; }
+    svg .c3 { stroke: var(--warn); stroke-width: 2.2; fill: none; }
+    svg .c4 { stroke: var(--bad); stroke-width: 2.2; fill: none; }
+    svg .c5 { stroke: var(--aero); stroke-width: 2.2; fill: none; }
+    svg .thin { stroke-width: 1.4; }
+    svg .legbg { fill: var(--bg-surface); stroke: var(--border-card); opacity: 0.92; }
+    svg .dash { stroke-dasharray: 6 5; }
+    svg .field { stroke: var(--text-muted); stroke-width: 1.1; fill: none; opacity: 0.8; }
+    svg .eig { stroke: var(--warn); stroke-width: 2.4; fill: none; }
+    svg .ah1 { fill: var(--accent); } svg .ah2 { fill: var(--ok); } svg .ah3 { fill: var(--warn); }
+    svg .ah4 { fill: var(--bad); } svg .ah5 { fill: var(--aero); } svg .ahm { fill: var(--text-muted); }
+    svg .st { fill: var(--ok); stroke: var(--ok); }
+    svg .un { fill: var(--bg-primary); stroke: var(--bad); stroke-width: 2.2; }
+    svg .semi { fill: var(--warn); stroke: var(--warn); }
+    svg text { fill: var(--text-secondary); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+    svg text.lbl { fill: var(--text-heading); font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; }
+    svg text.small { font-size: 10.5px; }
 
-    table.data-table tr:hover td {
-      background: var(--bg-card-hover);
-    }
-
-    /* Bottom Navigation Bar */
-    .article-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 60px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border-subtle);
-      flex-wrap: wrap;
-    }
-
+    /* bottom navigation & footer */
+    .article-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; }
     .nav-btn {
-      display: inline-flex;
-      flex-direction: column;
-      text-decoration: none;
-      padding: 14px 22px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      transition: all var(--transition);
-      min-width: 240px;
+      display: inline-flex; flex-direction: column; text-decoration: none; padding: 14px 22px; border-radius: var(--radius-sm);
+      background: var(--bg-card); border: 1px solid var(--border-card); transition: all var(--transition); min-width: 240px;
     }
+    .nav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .nav-btn.next { text-align: right; margin-left: auto; }
+    .nav-btn-label { font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.5px; }
+    .nav-btn-title { font-size: 1rem; font-weight: 600; color: var(--text-heading); }
+    footer.site-footer { margin-top: 60px; padding: 32px 0; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+    footer.site-footer a { color: var(--accent); text-decoration: none; }
 
-    .nav-btn:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      transform: translateY(-2px);
+    @media (max-width: 640px) {
+      body { font-size: 17px; }
+      .article-container { padding: 28px 16px 60px; }
+      .header-inner { padding: 8px 14px; }
+      header.site-header { position: static; }
+      .callout { padding: 14px 14px; }
+      ol.steps > li { padding-left: 36px; }
+      .nav-btn { min-width: 0; width: 100%; }
+      .nav-btn.next { text-align: left; }
+      .cite { white-space: normal; }
+      p .katex, li .katex, td .katex { white-space: normal; }
+      .callout, p, li { overflow-wrap: anywhere; }
     }
-
-    .nav-btn-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
+    @media print {
+      header.site-header, .article-nav, .celestial-canvas { display: none; }
+      body { background: #fff; color: #000; }
     }
-
-    .nav-btn-title {
-      font-size: 0.96rem;
-      font-weight: 600;
-      color: var(--text-heading);
-    }
-
-    footer.site-footer {
-      margin-top: 60px;
-      padding: 36px 0;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-  
-        [data-theme="light"] {
-            background-color: #f8fafc;
-            background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-        [data-theme="dark"] {
-            background-color: #030712;
-            background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-    </style>
-  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
-  <!-- Animated Celestial Canvas Background -->
   <canvas id="celestial-canvas" class="celestial-canvas" aria-hidden="true"></canvas>
 
-  <div class="ambient-glow" aria-hidden="true"></div>
-
-  <!-- ============================================
-       TOP STICKY NAVIGATION
-       ============================================ -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-area">
-        <a href="../../../index.html" class="back-link">
-          <span>←</span>
-          <span>Main Portal</span>
-        </a>
-        <a href="index.html" class="back-link">
-          
-          <span>Theory Index</span>
-        </a>
+        <a href="../../../index.html" class="back-link"><span>←</span><span>Main Portal</span></a>
+        <a href="index.html" class="back-link"><span>Theory Index</span></a>
         <span class="brand-badge">Advanced Maths • Topic 2</span>
       </div>
       <div class="nav-actions">
-        <a href="../problemas/topic-2-problems.html" class="back-link">
-          
-          <span>Solved Problems (Ch. 2)</span>
-        </a>
+        <a href="../problemas/topic-2-problems.html" class="back-link"><span>Solved problems</span></a>
         <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
       </div>
     </div>
   </header>
 
-  <!-- ============================================
-       MAIN LECTURE COMPENDIUM
-       ============================================ -->
   <main class="article-container">
-
-    <!-- HEADER / HERO -->
     <header class="article-header">
       <div class="article-meta-top">
-        <span class="topic-pill">Unit 02 • Lecture Study Guide</span>
-        <span class="course-tag">Department of Mathematics • UC3M Bachelor in Aerospace Engineering</span>
+        <span class="topic-pill">Topic 2 • Theory</span>
+        <span class="course-tag">Advanced Mathematics • BSc Aerospace Engineering • UC3M</span>
       </div>
-      <h1 class="article-title">Topic 2: First-Order ODEs and Qualitative Dynamics</h1>
-      <p class="article-lead">
-        An exhaustive compendium of exact integration techniques (direct integration, separable equations, integrating factors, exact differentials, 
-        Bernoulli reductions) synthesized with the qualitative theory of dynamical systems (Picard-Lindelöf existence-uniqueness, trajectory 
-        non-crossing theorems, phase line dynamics, and pitchfork bifurcations).
-      </p>
-      <div class="source-banner">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px; margin-right:4px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Ground Truth Sources:
-        <span>• BookODE's.pdf (Caps. 5-10, J.C. Robinson)</span>
-        <span>• ProblemsCh2.pdf (Department of Mathematics, UC3M)</span>
-      </div>
+      <h1 class="article-title">First-Order Equations: Qualitative and Analytical Methods</h1>
+      <p class="article-lead">Two complementary ways of understanding a first-order equation: the qualitative phase line, which shows how every solution behaves without solving anything, and the analytical methods (separation, integrating factor, exact equations) that produce explicit formulas. Each method is derived, justified and applied to a physical model.</p>
+      <div class="source-banner"><strong>Ground truth:</strong> Robinson (2004) Ch. 7 (pp. 46–58), Ch. 8 (pp. 59–74), Ch. 9 (pp. 75–88), Ch. 10 (pp. 89–98) • Lecture map <code>ODE_lecture_theory_to_Robinson_chapters.txt</code>, Part I (Sep 10, Sep 17)</div>
+      <div class="reading-meta">≈ 30 min study time • 35 displayed equations • 6 figures</div>
     </header>
 
-    <!-- QUICK JUMP TABLE OF CONTENTS -->
-    <nav class="toc-card" aria-label="Table of Contents">
-      <div class="toc-title">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-        <span>Table of Contents & Lecture Outline</span>
-      </div>
+    <nav class="toc-card" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
       <ul class="toc-grid">
-        <li>
-          <a href="#sec-1">
-            <span class="toc-num">01.</span>
-            <span>Direct Integration & Separable ODEs</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sec-2">
-            <span class="toc-num">02.</span>
-            <span>Integrating Factors & Linear 1st-Order ODEs</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sec-3">
-            <span class="toc-num">03.</span>
-            <span>Exact Differential Equations & Potential Functions</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sec-4">
-            <span class="toc-num">04.</span>
-            <span>Nonlinear Substitutions & Bernoulli Equations</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sec-5">
-            <span class="toc-num">05.</span>
-            <span>Picard-Lindelöf Theorem & Analytical Pathologies</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sec-6">
-            <span class="toc-num">06.</span>
-            <span>Qualitative Analysis of Autonomous ODEs & Phase Lines</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sec-7">
-            <span class="toc-num">07.</span>
-            <span>Worked Examples, One per Method</span>
-          </a>
-        </li>
+        <li><a href="#sec-1"><span class="toc-num">01.</span><span>Autonomous equations and the phase line</span></a></li>
+        <li><a href="#sec-2"><span class="toc-num">02.</span><span>Stability of stationary points</span></a></li>
+        <li><a href="#sec-3"><span class="toc-num">03.</span><span>Structural stability and bifurcations</span></a></li>
+        <li><a href="#sec-4"><span class="toc-num">04.</span><span>Separable equations</span></a></li>
+        <li><a href="#sec-5"><span class="toc-num">05.</span><span>First-order linear equations: the integrating factor</span></a></li>
+        <li><a href="#sec-6"><span class="toc-num">06.</span><span>Exact equations</span></a></li>
+        <li><a href="#sec-7"><span class="toc-num">07.</span><span>Substitutions: homogeneous and Bernoulli equations</span></a></li>
+        <li><a href="#sec-8"><span class="toc-num">08.</span><span>Choosing a method</span></a></li>
       </ul>
     </nav>
 
-    <!-- ========================================================
-         SECTION 1: DIRECT INTEGRATION & SEPARABLE ODES
-         ======================================================== -->
+    <!-- ===================================================== 1 -->
     <section class="theory-section" id="sec-1">
       <div class="section-header">
-        <div class="section-tag">Section 01</div>
-        <h2 class="section-title">1. Direct Integration & Separable Differential Equations</h2>
+        <div class="section-tag">Section 01 • Robinson Sec. 7.1 • Lecture Sep 10</div>
+        <h2 class="section-title">1. Autonomous equations and the phase line</h2>
+      </div>
+      <p>
+        For a general first-order equation we will look for explicit formulas. For the special class of <strong>autonomous</strong> equations
+      </p>
+      $$\frac{dx}{dt} = f(x) \tag{7.1}$$
+      <p>
+        there is a faster and completely rigorous alternative: describe <em>how</em> the solutions behave ("every solution starting between
+        0 and 1 tends to 1") without writing them down. The method only needs the sign of $f$ <span class="cite">[Robinson, Ch. 7 intro, p. 46]</span>.
+      </p>
+
+      <h3 class="sub-title">1.1 The particle picture</h3>
+      <p>
+        By Theorem 6.2 (Topic 1), if $f$ and $f'$ are continuous, a solution of (7.1) is completely determined by its value at any one time.
+        Think of $x(t)$ as the position of a particle moving on a line, with velocity $\dot x = f(x)$ that depends only on where the particle is
+        <span class="cite">[Sec. 7.1, p. 46]</span>.
+      </p>
+      <div class="callout def">
+        <div class="callout-title">Definition — stationary point <span class="cite">[Robinson, p. 47]</span></div>
+        <p>
+          A <strong>stationary point</strong> of (7.1) is a value $x^*$ with $f(x^*) = 0$. The constant function $x(t) \equiv x^*$ is then a
+          solution, since $\dot x = 0 = f(x^*)$. (Other names: equilibrium point, critical point, fixed point; Robinson reserves the last two
+          for other meanings.)
+        </p>
+      </div>
+      <ul>
+        <li>Where $f(x) > 0$, $\dot x > 0$: $x(t)$ increases and the particle moves <strong>right</strong>.</li>
+        <li>Where $f(x) < 0$, $\dot x < 0$: $x(t)$ decreases and the particle moves <strong>left</strong>.</li>
+      </ul>
+      <div class="callout thm">
+        <div class="callout-title">Proposition — solutions are monotone and never reach a stationary point in finite time</div>
+        <p>If $f$ and $f'$ are continuous, a non-constant solution of $\dot x = f(x)$ cannot change direction and cannot cross or reach a stationary point.</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof <span class="cite">[Robinson p. 47; Exercise 7.8]</span></div>
+        <p>
+          Suppose the solution reversed direction at some time $t^*$. Then it is instantaneously at rest, $\dot x(t^*) = f(x(t^*)) = 0$, so
+          $x^* = x(t^*)$ is a stationary point. But $x(t) \equiv x^*$ is also a solution through the same point at the same time, and by
+          uniqueness the two solutions coincide: the particle never moved, a contradiction. The same argument rules out reaching a stationary
+          point at any finite time. So $\dot x = f(x(t))$ never vanishes, and by continuity it keeps one sign: $x(t)$ is strictly monotone.
+        </p>
       </div>
 
+      <h3 class="sub-title">1.2 Drawing the phase diagram</h3>
+      <ol class="steps">
+        <li>Sketch the graph of $f(x)$ against $x$ (only its sign matters).</li>
+        <li>Mark the zeros $x^*$ of $f$ on a horizontal line: these are the stationary points.</li>
+        <li>On each interval between stationary points draw an arrow to the right if $f > 0$ there and to the left if $f < 0$.</li>
+        <li>Read off the behaviour: a solution moves in the direction of the arrow and, being monotone, either tends to the next stationary point or to $\pm\infty$ (Robinson Exercise 7.10).</li>
+      </ol>
       <p>
-        The most elementary ordinary differential equations are those that can be resolved directly by quadrature—that is, 
-        by finding an antiderivative.
+        The resulting picture is the <strong>phase diagram</strong> (or <strong>phase portrait</strong>) <span class="cite">[p. 47, Figs. 7.1–7.2]</span>.
       </p>
-
-      <h3 class="sub-title">1.1 Direct Integration ($y' = f(x)$)</h3>
-      <p>
-        When the derivative of the unknown state $y(x)$ depends exclusively on the independent variable $x$:
-      </p>
-      $$ \frac{dy}{dx} = f(x) \tag{1.1} $$
-      <p>
-        By the <strong>Fundamental Theorem of Calculus (FTC)</strong>, if $f(x)$ is continuous on an open interval $I$, 
-        the general solution is the family of antiderivatives:
-      </p>
-      $$ y(x) = \int f(x) \, dx + C = F(x) + C $$
-      <p>
-        For an Initial Value Problem (IVP) with initial datum $y(x_0) = y_0$, we write the solution using dummy integration variables:
-      </p>
-      $$ \mathbf{y(x) = y_0 + \int_{x_0}^x f(s) \, ds} \tag{1.2} $$
-
-      <h3 class="sub-title">1.2 Separable Differential Equations ($y' = g(x) h(y)$)</h3>
-      <p>
-        A first-order ODE is <strong>separable</strong> if the velocity field factors multiplicatively:
-      </p>
-      $$ \frac{dy}{dx} = g(x) h(y) \tag{1.3} $$
-
-      <div class="result-box">
-        <div class="result-box-title">Rigorous Justification via the Chain Rule</div>
-        <p>
-          While physicists often manipulate differentials casually as $\frac{dy}{h(y)} = g(x) dx$, this operation is mathematically justified by the 
-          <strong>chain rule</strong> of differential calculus:
-        </p>
-        <ol>
-          <li><strong>Equilibrium roots:</strong> First determine all constant roots $y^*$ such that $h(y^*) = 0$. The constant function $y(x) \equiv y^*$ is an exact solution for all $x$.</li>
-          <li><strong>Non-equilibrium states ($h(y) \neq 0$):</strong> (here $h$ is continuous, so $y(x)$ stays in an interval where $h\neq 0$ and $H'=1/h$ is defined there) Divide equation (1.3) by $h(y(x))$:
-            $$ \frac{1}{h(y(x))} \frac{dy}{dx} = g(x) $$
-          </li>
-          <li>Let $H(y)$ be an antiderivative of $\frac{1}{h(y)}$, so that $H'(y) = \frac{1}{h(y)}$. By the chain rule:
-            $$ \frac{d}{dx} \left[ H(y(x)) \right] = H'(y(x)) \frac{dy}{dx} = \frac{1}{h(y(x))} \frac{dy}{dx} $$
-          </li>
-          <li>Integrating both sides with respect to $x$ across $[x_0, x]$:
-            $$ \int_{x_0}^x \frac{d}{ds}\left[ H(y(s)) \right] ds = \int_{x_0}^x g(s) \, ds \implies H(y(x)) - H(y(x_0)) = \int_{x_0}^x g(s) \, ds $$
-          </li>
-          <li>By change of variables ($u = y(s), du = y'(s) ds$):
-            $$ \mathbf{\int_{y_0}^{y(x)} \frac{1}{h(u)} \, du = \int_{x_0}^x g(s) \, ds} \tag{1.4} $$
-          </li>
-        </ol>
-      </div>
-
-      <h3 class="sub-title">1.3 Non-Elementary Gaussian Integrals & Finite-Time Blow-Up Thresholds</h3>
-      <p>
-        In aerospace diffusion processes and thermal boundary layer analysis, differential equations frequently lead to the non-elementary Gaussian integral:
-      </p>
-      $$ \int_0^\infty e^{-s^2} \, ds = \frac{\sqrt{\pi}}{2} \tag{1.5} $$
-
-      <div class="warning-box">
-        <div class="warning-box-title">Blow-Up Threshold Analysis (Problem 2.2)</div>
-        <p>
-          Consider the separable nonlinear problem modeling exothermic combustion:
-        </p>
-        $$ \frac{dy}{dt} = e^{-t^2} y^2, \quad y(0) = y_0 > 0 $$
-        <p>
-          Separating variables and integrating across $[0, t]$:
-        </p>
-        $$ \int_{y_0}^{y(t)} \frac{du}{u^2} = \int_0^t e^{-s^2} ds \implies -\frac{1}{y(t)} + \frac{1}{y_0} = \int_0^t e^{-s^2} ds $$
-        $$ \mathbf{y(t) = \frac{y_0}{1 - y_0 \int_0^t e^{-s^2} \, ds}} \tag{1.6} $$
-        <p>
-          Since $\int_0^t e^{-s^2} ds$ increases monotonically toward the upper bound $\frac{\sqrt{\pi}}{2}$ as $t \to \infty$:
-        </p>
-        <ul>
-          <li><strong>Subcritical Regime ($y_0 < \frac{2}{\sqrt{\pi}}$):</strong> The denominator never vanishes. The solution exists globally $\forall t \ge 0$, with asymptotic ceiling $y(\infty) = \frac{y_0}{1 - y_0 \sqrt{\pi}/2} < \infty$.</li>
-          <li><strong>Critical Threshold ($y_0 = \frac{2}{\sqrt{\pi}}$):</strong> The denominator approaches $0$ as $t \to \infty$, causing blow-up at infinite time ($y(t) \to +\infty$ as $t \to \infty$).</li>
-          <li><strong>Supercritical Regime ($y_0 > \frac{2}{\sqrt{\pi}}$):</strong> The denominator hits zero at a <strong>finite blow-up time $t^*$</strong>:
-            $$ \int_0^{t^*} e^{-s^2} ds = \frac{1}{y_0} < \frac{\sqrt{\pi}}{2} \implies \lim_{t \to t^{*-}} y(t) = +\infty $$
-            Thermal runaway occurs in finite time $t^*$.
-          </li>
-        </ul>
-      </div>
+      <figure class="fig"><svg viewBox="0 0 640.0 260.0" role="img" aria-label="graph of f(x) = -x(1-x)(2-x)" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="334.0" y1="220.0" x2="334.0" y2="22.0"/><line class="grid" x1="514.0" y1="220.0" x2="514.0" y2="22.0"/><line class="grid" x1="46.0" y1="170.5" x2="622.0" y2="170.5"/><line class="grid" x1="46.0" y1="71.5" x2="622.0" y2="71.5"/><line class="ax" x1="46.0" y1="121.0" x2="622.0" y2="121.0"/><polygon class="ahm" points="622.0,121.0 614.7,124.3 614.7,117.7"/><line class="ax" x1="154.0" y1="220.0" x2="154.0" y2="22.0"/><polygon class="ahm" points="154.0,22.0 157.3,29.3 150.7,29.3"/><line class="ax" x1="334.0" y1="117.0" x2="334.0" y2="125.0"/><text class="small" x="334.0" y="138.0" text-anchor="middle">1</text><line class="ax" x1="514.0" y1="117.0" x2="514.0" y2="125.0"/><text class="small" x="514.0" y="138.0" text-anchor="middle">2</text><line class="ax" x1="150.0" y1="170.5" x2="158.0" y2="170.5"/><text class="small" x="147.0" y="174.5" text-anchor="end">−0.5</text><line class="ax" x1="150.0" y1="71.5" x2="158.0" y2="71.5"/><text class="small" x="147.0" y="75.5" text-anchor="end">0.5</text><text class="lbl" x="618.0" y="113.0" text-anchor="end">x</text><text class="lbl" x="162.0" y="34.0" text-anchor="start">f(x)</text><path class="c1" d="M96.4,24.0 L98.8,29.5 L101.2,34.9 L103.6,40.1 L106.0,45.2 L108.4,50.2 L110.8,55.0 L113.2,59.7 L115.6,64.3 L118.0,68.7 L120.4,73.0 L122.8,77.2 L125.2,81.3 L127.6,85.3 L130.0,89.1 L132.4,92.8 L134.8,96.4 L137.2,99.9 L139.6,103.2 L142.0,106.5 L144.4,109.6 L146.8,112.6 L149.2,115.5 L151.6,118.3 L154.0,121.0 L156.4,123.6 L158.8,126.1 L161.2,128.5 L163.6,130.7 L166.0,132.9 L168.4,135.0 L170.8,137.0 L173.2,138.9 L175.6,140.7 L178.0,142.4 L180.4,144.0 L182.8,145.5 L185.2,146.9 L187.6,148.3 L190.0,149.5 L192.4,150.7 L194.8,151.8 L197.2,152.8 L199.6,153.7 L202.0,154.6 L204.4,155.3 L209.2,156.6 L214.0,157.7 L218.8,158.4 L223.6,158.9 L228.4,159.1 L233.2,159.1 L238.0,158.8 L242.8,158.3 L247.6,157.6 L252.4,156.7 L257.2,155.6 L262.0,154.3 L264.4,153.6 L266.8,152.8 L269.2,152.0 L271.6,151.2 L274.0,150.3 L276.4,149.4 L278.8,148.5 L281.2,147.5 L283.6,146.5 L286.0,145.5 L288.4,144.5 L290.8,143.4 L293.2,142.3 L295.6,141.2 L298.0,140.0 L300.4,138.8 L302.8,137.6 L305.2,136.4 L307.6,135.2 L310.0,134.0 L312.4,132.7 L314.8,131.4 L317.2,130.2 L319.6,128.9 L322.0,127.6 L324.4,126.3 L326.8,125.0 L329.2,123.6 L331.6,122.3 L334.0,121.0 L336.4,119.7 L338.8,118.4 L341.2,117.0 L343.6,115.7 L346.0,114.4 L348.4,113.1 L350.8,111.8 L353.2,110.6 L355.6,109.3 L358.0,108.0 L360.4,106.8 L362.8,105.6 L365.2,104.4 L367.6,103.2 L370.0,102.0 L372.4,100.8 L374.8,99.7 L377.2,98.6 L379.6,97.5 L382.0,96.5 L384.4,95.5 L386.8,94.5 L389.2,93.5 L391.6,92.6 L394.0,91.7 L396.4,90.8 L398.8,90.0 L401.2,89.2 L403.6,88.4 L406.0,87.7 L410.8,86.4 L415.6,85.3 L420.4,84.4 L425.2,83.7 L430.0,83.2 L434.8,82.9 L439.6,82.9 L444.4,83.1 L449.2,83.6 L454.0,84.3 L458.8,85.4 L463.6,86.7 L466.0,87.4 L468.4,88.3 L470.8,89.2 L473.2,90.2 L475.6,91.3 L478.0,92.5 L480.4,93.7 L482.8,95.1 L485.2,96.5 L487.6,98.0 L490.0,99.6 L492.4,101.3 L494.8,103.1 L497.2,105.0 L499.6,107.0 L502.0,109.1 L504.4,111.3 L506.8,113.5 L509.2,115.9 L511.6,118.4 L514.0,121.0 L516.4,123.7 L518.8,126.5 L521.2,129.4 L523.6,132.4 L526.0,135.5 L528.4,138.8 L530.8,142.1 L533.2,145.6 L535.6,149.2 L538.0,152.9 L540.4,156.7 L542.8,160.7 L545.2,164.8 L547.6,169.0 L550.0,173.3 L552.4,177.7 L554.8,182.3 L557.2,187.0 L559.6,191.8 L562.0,196.8 L564.4,201.9 L566.8,207.1 L569.2,212.5 L571.6,218.0 L574.0,220.0"/><text class="small" x="199.0" y="41.8" text-anchor="start">f > 0: x increases</text><text class="small" x="424.0" y="190.3" text-anchor="middle">f < 0: x decreases</text></svg><svg viewBox="0 0 640.0 86.0" role="img" aria-label="phase line for x" xmlns="http://www.w3.org/2000/svg"><line class="ax" x1="16.0" y1="43.0" x2="624.0" y2="43.0"/><polygon class="ahm" points="624.0,43.0 616.7,46.3 616.7,39.7"/><text class="lbl" x="622.0" y="33.0" text-anchor="end">x</text><line class="c1" x1="47.9" y1="43.0" x2="98.1" y2="43.0"/><polygon class="ah1" points="98.1,43.0 88.0,47.5 88.0,38.5"/><line class="c1" x1="266.8" y1="43.0" x2="183.2" y2="43.0"/><polygon class="ah1" points="183.2,43.0 193.2,38.5 193.2,47.5"/><line class="c1" x1="373.2" y1="43.0" x2="456.8" y2="43.0"/><polygon class="ah1" points="456.8,43.0 446.8,47.5 446.8,38.5"/><line class="c1" x1="581.8" y1="43.0" x2="537.9" y2="43.0"/><polygon class="ah1" points="537.9,43.0 548.0,38.5 548.0,47.5"/><circle class="st" cx="130.0" cy="43.0" r="6"/><text x="130.0" y="71.0" text-anchor="middle">0  (S)</text><circle class="un" cx="320.0" cy="43.0" r="6"/><text x="320.0" y="71.0" text-anchor="middle">1  (U)</text><circle class="st" cx="510.0" cy="43.0" r="6"/><text x="510.0" y="71.0" text-anchor="middle">2  (S)</text></svg><figcaption><b>Figure 2.1.</b> Building a phase diagram (method of Robinson Figs. 7.1–7.2) for $\dot x = -x(1-x)(2-x)$, Exercise 7.1 (iv). Top: the graph of $f$. Bottom: the phase line. Arrows point right where $f>0$ and left where $f<0$; filled points are stable (S), hollow points unstable (U).</figcaption></figure>
+      <figure class="fig"><svg viewBox="0 0 640.0 300.0" role="img" aria-label="solution curves of x' = -x(1-x)(2-x)" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="238.0" y1="260.0" x2="238.0" y2="22.0"/><line class="grid" x1="430.0" y1="260.0" x2="430.0" y2="22.0"/><line class="grid" x1="622.0" y1="260.0" x2="622.0" y2="22.0"/><line class="grid" x1="46.0" y1="141.0" x2="622.0" y2="141.0"/><line class="grid" x1="46.0" y1="66.6" x2="622.0" y2="66.6"/><line class="ax" x1="46.0" y1="215.4" x2="622.0" y2="215.4"/><polygon class="ahm" points="622.0,215.4 614.7,218.6 614.7,212.1"/><line class="ax" x1="46.0" y1="260.0" x2="46.0" y2="22.0"/><polygon class="ahm" points="46.0,22.0 49.3,29.3 42.7,29.3"/><line class="ax" x1="238.0" y1="211.4" x2="238.0" y2="219.4"/><text class="small" x="238.0" y="232.4" text-anchor="middle">2</text><line class="ax" x1="430.0" y1="211.4" x2="430.0" y2="219.4"/><text class="small" x="430.0" y="232.4" text-anchor="middle">4</text><line class="ax" x1="622.0" y1="211.4" x2="622.0" y2="219.4"/><text class="small" x="622.0" y="232.4" text-anchor="middle">6</text><line class="ax" x1="42.0" y1="141.0" x2="50.0" y2="141.0"/><text class="small" x="39.0" y="145.0" text-anchor="end">1</text><line class="ax" x1="42.0" y1="66.6" x2="50.0" y2="66.6"/><text class="small" x="39.0" y="70.6" text-anchor="end">2</text><text class="lbl" x="618.0" y="207.4" text-anchor="end">t</text><text class="lbl" x="54.0" y="34.0" text-anchor="start">x</text><path class="c1 thin" d="M46.0,256.3 L47.9,253.2 L49.8,250.5 L51.8,248.1 L53.7,245.9 L55.6,243.9 L57.5,242.1 L59.4,240.5 L62.3,238.3 L65.2,236.3 L68.1,234.6 L71.0,233.0 L73.8,231.7 L76.7,230.4 L79.6,229.3 L82.5,228.2 L85.4,227.3 L88.2,226.4 L91.1,225.7 L94.0,224.9 L96.9,224.3 L99.8,223.7 L102.6,223.1 L105.5,222.6 L108.4,222.1 L111.3,221.7 L114.2,221.3 L117.0,220.9 L119.9,220.5 L122.8,220.2 L125.7,219.9 L128.6,219.6 L131.4,219.3 L134.3,219.1 L137.2,218.9 L140.1,218.6 L143.0,218.4 L145.8,218.2 L148.7,218.1 L151.6,217.9 L154.5,217.7 L157.4,217.6 L160.2,217.5 L163.1,217.3 L166.0,217.2 L168.9,217.1 L171.8,217.0 L174.6,216.9 L177.5,216.8 L180.4,216.7 L183.3,216.7 L186.2,216.6 L189.0,216.5 L191.9,216.4 L194.8,216.4 L197.7,216.3 L200.6,216.3 L203.4,216.2 L206.3,216.2 L209.2,216.1 L212.1,216.1 L215.0,216.0 L217.8,216.0 L220.7,216.0 L223.6,215.9 L226.5,215.9 L229.4,215.9 L232.2,215.8 L235.1,215.8 L238.0,215.8 L240.9,215.8 L243.8,215.7 L246.6,215.7 L249.5,215.7 L252.4,215.7 L255.3,215.7 L258.2,215.6 L261.0,215.6 L263.9,215.6 L266.8,215.6 L269.7,215.6 L272.6,215.6 L275.4,215.6 L278.3,215.5 L281.2,215.5 L284.1,215.5 L287.0,215.5 L289.8,215.5 L292.7,215.5 L295.6,215.5 L298.5,215.5 L301.4,215.5 L304.2,215.5 L307.1,215.5 L310.0,215.5 L312.9,215.5 L315.8,215.5 L318.6,215.4 L321.5,215.4 L324.4,215.4 L327.3,215.4 L330.2,215.4 L333.0,215.4 L335.9,215.4 L338.8,215.4 L341.7,215.4 L344.6,215.4 L347.4,215.4 L350.3,215.4 L353.2,215.4 L356.1,215.4 L359.0,215.4 L361.8,215.4 L364.7,215.4 L367.6,215.4 L370.5,215.4 L373.4,215.4 L376.2,215.4 L379.1,215.4 L382.0,215.4 L384.9,215.4 L387.8,215.4 L390.6,215.4 L393.5,215.4 L396.4,215.4 L399.3,215.4 L402.2,215.4 L405.0,215.4 L407.9,215.4 L410.8,215.4 L413.7,215.4 L416.6,215.4 L419.4,215.4 L422.3,215.4 L425.2,215.4 L428.1,215.4 L431.0,215.4 L433.8,215.4 L436.7,215.4 L439.6,215.4 L442.5,215.4 L445.4,215.4 L448.2,215.4 L451.1,215.4 L454.0,215.4 L456.9,215.4 L459.8,215.4 L462.6,215.4 L465.5,215.4 L468.4,215.4 L471.3,215.4 L474.2,215.4 L477.0,215.4 L479.9,215.4 L482.8,215.4 L485.7,215.4 L488.6,215.4 L491.4,215.4 L494.3,215.4 L497.2,215.4 L500.1,215.4 L503.0,215.4 L505.8,215.4 L508.7,215.4 L511.6,215.4 L514.5,215.4 L517.4,215.4 L520.2,215.4 L523.1,215.4 L526.0,215.4 L528.9,215.4 L531.8,215.4 L534.6,215.4 L537.5,215.4 L540.4,215.4 L543.3,215.4 L546.2,215.4 L549.0,215.4 L551.9,215.4 L554.8,215.4 L557.7,215.4 L560.6,215.4 L563.4,215.4 L566.3,215.4 L569.2,215.4 L572.1,215.4 L575.0,215.4 L577.8,215.4 L580.7,215.4 L583.6,215.4 L586.5,215.4 L589.4,215.4 L592.2,215.4 L595.1,215.4 L598.0,215.4 L600.9,215.4 L603.8,215.4 L606.6,215.4 L609.5,215.4 L612.4,215.4 L615.3,215.4 L618.2,215.4 L621.0,215.4 L622.0,215.4"/><path class="c1 thin" d="M46.0,237.7 L48.9,235.8 L51.8,234.1 L54.6,232.6 L57.5,231.3 L60.4,230.1 L63.3,228.9 L66.2,227.9 L69.0,227.0 L71.9,226.2 L74.8,225.4 L77.7,224.7 L80.6,224.1 L83.4,223.5 L86.3,222.9 L89.2,222.4 L92.1,222.0 L95.0,221.5 L97.8,221.1 L100.7,220.8 L103.6,220.4 L106.5,220.1 L109.4,219.8 L112.2,219.5 L115.1,219.3 L118.0,219.0 L120.9,218.8 L123.8,218.6 L126.6,218.4 L129.5,218.2 L132.4,218.0 L135.3,217.9 L138.2,217.7 L141.0,217.6 L143.9,217.4 L146.8,217.3 L149.7,217.2 L152.6,217.1 L155.4,217.0 L158.3,216.9 L161.2,216.8 L164.1,216.7 L167.0,216.6 L169.8,216.6 L172.7,216.5 L175.6,216.4 L178.5,216.4 L181.4,216.3 L184.2,216.2 L187.1,216.2 L190.0,216.1 L192.9,216.1 L195.8,216.1 L198.6,216.0 L201.5,216.0 L204.4,215.9 L207.3,215.9 L210.2,215.9 L213.0,215.8 L215.9,215.8 L218.8,215.8 L221.7,215.8 L224.6,215.7 L227.4,215.7 L230.3,215.7 L233.2,215.7 L236.1,215.7 L239.0,215.6 L241.8,215.6 L244.7,215.6 L247.6,215.6 L250.5,215.6 L253.4,215.6 L256.2,215.6 L259.1,215.6 L262.0,215.5 L264.9,215.5 L267.8,215.5 L270.6,215.5 L273.5,215.5 L276.4,215.5 L279.3,215.5 L282.2,215.5 L285.0,215.5 L287.9,215.5 L290.8,215.5 L293.7,215.5 L296.6,215.5 L299.4,215.5 L302.3,215.4 L305.2,215.4 L308.1,215.4 L311.0,215.4 L313.8,215.4 L316.7,215.4 L319.6,215.4 L322.5,215.4 L325.4,215.4 L328.2,215.4 L331.1,215.4 L334.0,215.4 L336.9,215.4 L339.8,215.4 L342.6,215.4 L345.5,215.4 L348.4,215.4 L351.3,215.4 L354.2,215.4 L357.0,215.4 L359.9,215.4 L362.8,215.4 L365.7,215.4 L368.6,215.4 L371.4,215.4 L374.3,215.4 L377.2,215.4 L380.1,215.4 L383.0,215.4 L385.8,215.4 L388.7,215.4 L391.6,215.4 L394.5,215.4 L397.4,215.4 L400.2,215.4 L403.1,215.4 L406.0,215.4 L408.9,215.4 L411.8,215.4 L414.6,215.4 L417.5,215.4 L420.4,215.4 L423.3,215.4 L426.2,215.4 L429.0,215.4 L431.9,215.4 L434.8,215.4 L437.7,215.4 L440.6,215.4 L443.4,215.4 L446.3,215.4 L449.2,215.4 L452.1,215.4 L455.0,215.4 L457.8,215.4 L460.7,215.4 L463.6,215.4 L466.5,215.4 L469.4,215.4 L472.2,215.4 L475.1,215.4 L478.0,215.4 L480.9,215.4 L483.8,215.4 L486.6,215.4 L489.5,215.4 L492.4,215.4 L495.3,215.4 L498.2,215.4 L501.0,215.4 L503.9,215.4 L506.8,215.4 L509.7,215.4 L512.6,215.4 L515.4,215.4 L518.3,215.4 L521.2,215.4 L524.1,215.4 L527.0,215.4 L529.8,215.4 L532.7,215.4 L535.6,215.4 L538.5,215.4 L541.4,215.4 L544.2,215.4 L547.1,215.4 L550.0,215.4 L552.9,215.4 L555.8,215.4 L558.6,215.4 L561.5,215.4 L564.4,215.4 L567.3,215.4 L570.2,215.4 L573.0,215.4 L575.9,215.4 L578.8,215.4 L581.7,215.4 L584.6,215.4 L587.4,215.4 L590.3,215.4 L593.2,215.4 L596.1,215.4 L599.0,215.4 L601.8,215.4 L604.7,215.4 L607.6,215.4 L610.5,215.4 L613.4,215.4 L616.2,215.4 L619.1,215.4 L622.0,215.4"/><path class="c1 thin" d="M46.0,193.1 L48.9,193.9 L51.8,194.6 L54.6,195.4 L57.5,196.1 L60.4,196.9 L63.3,197.6 L66.2,198.3 L69.0,199.0 L71.9,199.7 L74.8,200.3 L77.7,201.0 L80.6,201.6 L83.4,202.2 L86.3,202.8 L89.2,203.3 L92.1,203.9 L95.0,204.4 L97.8,204.9 L100.7,205.4 L103.6,205.9 L106.5,206.4 L109.4,206.8 L112.2,207.2 L115.1,207.6 L118.0,208.0 L120.9,208.4 L123.8,208.7 L126.6,209.1 L129.5,209.4 L132.4,209.7 L135.3,210.0 L138.2,210.3 L141.0,210.5 L143.9,210.8 L146.8,211.0 L149.7,211.3 L152.6,211.5 L155.4,211.7 L158.3,211.9 L161.2,212.1 L164.1,212.3 L167.0,212.4 L169.8,212.6 L172.7,212.8 L175.6,212.9 L178.5,213.0 L181.4,213.2 L184.2,213.3 L187.1,213.4 L190.0,213.5 L192.9,213.6 L195.8,213.7 L198.6,213.8 L201.5,213.9 L204.4,214.0 L207.3,214.1 L210.2,214.1 L213.0,214.2 L215.9,214.3 L218.8,214.3 L221.7,214.4 L224.6,214.5 L227.4,214.5 L230.3,214.6 L233.2,214.6 L236.1,214.6 L239.0,214.7 L241.8,214.7 L244.7,214.8 L247.6,214.8 L250.5,214.8 L253.4,214.9 L256.2,214.9 L259.1,214.9 L262.0,214.9 L264.9,215.0 L267.8,215.0 L270.6,215.0 L273.5,215.0 L276.4,215.1 L279.3,215.1 L282.2,215.1 L285.0,215.1 L287.9,215.1 L290.8,215.1 L293.7,215.2 L296.6,215.2 L299.4,215.2 L302.3,215.2 L305.2,215.2 L308.1,215.2 L311.0,215.2 L313.8,215.2 L316.7,215.2 L319.6,215.2 L322.5,215.3 L325.4,215.3 L328.2,215.3 L331.1,215.3 L334.0,215.3 L336.9,215.3 L339.8,215.3 L342.6,215.3 L345.5,215.3 L348.4,215.3 L351.3,215.3 L354.2,215.3 L357.0,215.3 L359.9,215.3 L362.8,215.3 L365.7,215.3 L368.6,215.3 L371.4,215.3 L374.3,215.3 L377.2,215.3 L380.1,215.3 L383.0,215.3 L385.8,215.3 L388.7,215.3 L391.6,215.3 L394.5,215.3 L397.4,215.3 L400.2,215.4 L403.1,215.4 L406.0,215.4 L408.9,215.4 L411.8,215.4 L414.6,215.4 L417.5,215.4 L420.4,215.4 L423.3,215.4 L426.2,215.4 L429.0,215.4 L431.9,215.4 L434.8,215.4 L437.7,215.4 L440.6,215.4 L443.4,215.4 L446.3,215.4 L449.2,215.4 L452.1,215.4 L455.0,215.4 L457.8,215.4 L460.7,215.4 L463.6,215.4 L466.5,215.4 L469.4,215.4 L472.2,215.4 L475.1,215.4 L478.0,215.4 L480.9,215.4 L483.8,215.4 L486.6,215.4 L489.5,215.4 L492.4,215.4 L495.3,215.4 L498.2,215.4 L501.0,215.4 L503.9,215.4 L506.8,215.4 L509.7,215.4 L512.6,215.4 L515.4,215.4 L518.3,215.4 L521.2,215.4 L524.1,215.4 L527.0,215.4 L529.8,215.4 L532.7,215.4 L535.6,215.4 L538.5,215.4 L541.4,215.4 L544.2,215.4 L547.1,215.4 L550.0,215.4 L552.9,215.4 L555.8,215.4 L558.6,215.4 L561.5,215.4 L564.4,215.4 L567.3,215.4 L570.2,215.4 L573.0,215.4 L575.9,215.4 L578.8,215.4 L581.7,215.4 L584.6,215.4 L587.4,215.4 L590.3,215.4 L593.2,215.4 L596.1,215.4 L599.0,215.4 L601.8,215.4 L604.7,215.4 L607.6,215.4 L610.5,215.4 L613.4,215.4 L616.2,215.4 L619.1,215.4 L622.0,215.4"/><path class="c1 thin" d="M46.0,163.3 L48.9,163.9 L51.8,164.6 L54.6,165.2 L57.5,165.9 L60.4,166.5 L63.3,167.2 L66.2,167.9 L69.0,168.6 L71.9,169.3 L74.8,170.1 L77.7,170.8 L80.6,171.6 L83.4,172.3 L86.3,173.1 L89.2,173.9 L92.1,174.7 L95.0,175.5 L97.8,176.3 L100.7,177.1 L103.6,178.0 L106.5,178.8 L109.4,179.7 L112.2,180.5 L115.1,181.4 L118.0,182.2 L120.9,183.1 L123.8,183.9 L126.6,184.8 L129.5,185.6 L132.4,186.5 L135.3,187.4 L138.2,188.2 L141.0,189.0 L143.9,189.9 L146.8,190.7 L149.7,191.5 L152.6,192.3 L155.4,193.1 L158.3,193.9 L161.2,194.7 L164.1,195.5 L167.0,196.2 L169.8,197.0 L172.7,197.7 L175.6,198.4 L178.5,199.1 L181.4,199.7 L184.2,200.4 L187.1,201.0 L190.0,201.7 L192.9,202.3 L195.8,202.8 L198.6,203.4 L201.5,203.9 L204.4,204.5 L207.3,205.0 L210.2,205.5 L213.0,205.9 L215.9,206.4 L218.8,206.8 L221.7,207.3 L224.6,207.7 L227.4,208.0 L230.3,208.4 L233.2,208.8 L236.1,209.1 L239.0,209.4 L241.8,209.7 L244.7,210.0 L247.6,210.3 L250.5,210.6 L253.4,210.8 L256.2,211.1 L259.1,211.3 L262.0,211.5 L264.9,211.7 L267.8,211.9 L270.6,212.1 L273.5,212.3 L276.4,212.5 L279.3,212.6 L282.2,212.8 L285.0,212.9 L287.9,213.1 L290.8,213.2 L293.7,213.3 L296.6,213.4 L299.4,213.5 L302.3,213.6 L305.2,213.7 L308.1,213.8 L311.0,213.9 L313.8,214.0 L316.7,214.1 L319.6,214.1 L322.5,214.2 L325.4,214.3 L328.2,214.3 L331.1,214.4 L334.0,214.5 L336.9,214.5 L339.8,214.6 L342.6,214.6 L345.5,214.7 L348.4,214.7 L351.3,214.7 L354.2,214.8 L357.0,214.8 L359.9,214.8 L362.8,214.9 L365.7,214.9 L368.6,214.9 L371.4,215.0 L374.3,215.0 L377.2,215.0 L380.1,215.0 L383.0,215.0 L385.8,215.1 L388.7,215.1 L391.6,215.1 L394.5,215.1 L397.4,215.1 L400.2,215.1 L403.1,215.2 L406.0,215.2 L408.9,215.2 L411.8,215.2 L414.6,215.2 L417.5,215.2 L420.4,215.2 L423.3,215.2 L426.2,215.2 L429.0,215.2 L431.9,215.3 L434.8,215.3 L437.7,215.3 L440.6,215.3 L443.4,215.3 L446.3,215.3 L449.2,215.3 L452.1,215.3 L455.0,215.3 L457.8,215.3 L460.7,215.3 L463.6,215.3 L466.5,215.3 L469.4,215.3 L472.2,215.3 L475.1,215.3 L478.0,215.3 L480.9,215.3 L483.8,215.3 L486.6,215.3 L489.5,215.3 L492.4,215.3 L495.3,215.3 L498.2,215.3 L501.0,215.3 L503.9,215.3 L506.8,215.3 L509.7,215.4 L512.6,215.4 L515.4,215.4 L518.3,215.4 L521.2,215.4 L524.1,215.4 L527.0,215.4 L529.8,215.4 L532.7,215.4 L535.6,215.4 L538.5,215.4 L541.4,215.4 L544.2,215.4 L547.1,215.4 L550.0,215.4 L552.9,215.4 L555.8,215.4 L558.6,215.4 L561.5,215.4 L564.4,215.4 L567.3,215.4 L570.2,215.4 L573.0,215.4 L575.9,215.4 L578.8,215.4 L581.7,215.4 L584.6,215.4 L587.4,215.4 L590.3,215.4 L593.2,215.4 L596.1,215.4 L599.0,215.4 L601.8,215.4 L604.7,215.4 L607.6,215.4 L610.5,215.4 L613.4,215.4 L616.2,215.4 L619.1,215.4 L622.0,215.4"/><path class="c1 thin" d="M46.0,144.7 L48.9,144.8 L51.8,144.9 L54.6,145.1 L57.5,145.2 L60.4,145.3 L63.3,145.4 L66.2,145.6 L69.0,145.7 L71.9,145.9 L74.8,146.0 L77.7,146.2 L80.6,146.3 L83.4,146.5 L86.3,146.7 L89.2,146.8 L92.1,147.0 L95.0,147.2 L97.8,147.4 L100.7,147.6 L103.6,147.8 L106.5,148.0 L109.4,148.2 L112.2,148.4 L115.1,148.6 L118.0,148.8 L120.9,149.1 L123.8,149.3 L126.6,149.6 L129.5,149.8 L132.4,150.1 L135.3,150.4 L138.2,150.6 L141.0,150.9 L143.9,151.2 L146.8,151.5 L149.7,151.8 L152.6,152.2 L155.4,152.5 L158.3,152.8 L161.2,153.2 L164.1,153.6 L167.0,153.9 L169.8,154.3 L172.7,154.7 L175.6,155.1 L178.5,155.5 L181.4,155.9 L184.2,156.4 L187.1,156.8 L190.0,157.3 L192.9,157.8 L195.8,158.2 L198.6,158.7 L201.5,159.2 L204.4,159.8 L207.3,160.3 L210.2,160.8 L213.0,161.4 L215.9,162.0 L218.8,162.6 L221.7,163.2 L224.6,163.8 L227.4,164.4 L230.3,165.0 L233.2,165.7 L236.1,166.4 L239.0,167.0 L241.8,167.7 L244.7,168.4 L247.6,169.1 L250.5,169.9 L253.4,170.6 L256.2,171.4 L259.1,172.1 L262.0,172.9 L264.9,173.7 L267.8,174.5 L270.6,175.3 L273.5,176.1 L276.4,176.9 L279.3,177.8 L282.2,178.6 L285.0,179.4 L287.9,180.3 L290.8,181.1 L293.7,182.0 L296.6,182.9 L299.4,183.7 L302.3,184.6 L305.2,185.4 L308.1,186.3 L311.0,187.1 L313.8,188.0 L316.7,188.8 L319.6,189.7 L322.5,190.5 L325.4,191.3 L328.2,192.1 L331.1,192.9 L334.0,193.7 L336.9,194.5 L339.8,195.3 L342.6,196.0 L345.5,196.8 L348.4,197.5 L351.3,198.2 L354.2,198.9 L357.0,199.6 L359.9,200.2 L362.8,200.9 L365.7,201.5 L368.6,202.1 L371.4,202.7 L374.3,203.3 L377.2,203.8 L380.1,204.3 L383.0,204.9 L385.8,205.3 L388.7,205.8 L391.6,206.3 L394.5,206.7 L397.4,207.1 L400.2,207.6 L403.1,207.9 L406.0,208.3 L408.9,208.7 L411.8,209.0 L414.6,209.3 L417.5,209.7 L420.4,210.0 L423.3,210.2 L426.2,210.5 L429.0,210.8 L431.9,211.0 L434.8,211.2 L437.7,211.5 L440.6,211.7 L443.4,211.9 L446.3,212.1 L449.2,212.2 L452.1,212.4 L455.0,212.6 L457.8,212.7 L460.7,212.9 L463.6,213.0 L466.5,213.2 L469.4,213.3 L472.2,213.4 L475.1,213.5 L478.0,213.6 L480.9,213.7 L483.8,213.8 L486.6,213.9 L489.5,214.0 L492.4,214.1 L495.3,214.1 L498.2,214.2 L501.0,214.3 L503.9,214.3 L506.8,214.4 L509.7,214.4 L512.6,214.5 L515.4,214.5 L518.3,214.6 L521.2,214.6 L524.1,214.7 L527.0,214.7 L529.8,214.8 L532.7,214.8 L535.6,214.8 L538.5,214.9 L541.4,214.9 L544.2,214.9 L547.1,214.9 L550.0,215.0 L552.9,215.0 L555.8,215.0 L558.6,215.0 L561.5,215.1 L564.4,215.1 L567.3,215.1 L570.2,215.1 L573.0,215.1 L575.9,215.1 L578.8,215.2 L581.7,215.2 L584.6,215.2 L587.4,215.2 L590.3,215.2 L593.2,215.2 L596.1,215.2 L599.0,215.2 L601.8,215.2 L604.7,215.2 L607.6,215.3 L610.5,215.3 L613.4,215.3 L616.2,215.3 L619.1,215.3 L622.0,215.3"/><path class="c1 thin" d="M46.0,137.3 L48.9,137.2 L51.8,137.1 L54.6,136.9 L57.5,136.8 L60.4,136.7 L63.3,136.6 L66.2,136.4 L69.0,136.3 L71.9,136.1 L74.8,136.0 L77.7,135.8 L80.6,135.7 L83.4,135.5 L86.3,135.3 L89.2,135.2 L92.1,135.0 L95.0,134.8 L97.8,134.6 L100.7,134.4 L103.6,134.2 L106.5,134.0 L109.4,133.8 L112.2,133.6 L115.1,133.4 L118.0,133.2 L120.9,132.9 L123.8,132.7 L126.6,132.4 L129.5,132.2 L132.4,131.9 L135.3,131.6 L138.2,131.4 L141.0,131.1 L143.9,130.8 L146.8,130.5 L149.7,130.2 L152.6,129.8 L155.4,129.5 L158.3,129.2 L161.2,128.8 L164.1,128.4 L167.0,128.1 L169.8,127.7 L172.7,127.3 L175.6,126.9 L178.5,126.5 L181.4,126.1 L184.2,125.6 L187.1,125.2 L190.0,124.7 L192.9,124.2 L195.8,123.8 L198.6,123.3 L201.5,122.8 L204.4,122.2 L207.3,121.7 L210.2,121.2 L213.0,120.6 L215.9,120.0 L218.8,119.4 L221.7,118.8 L224.6,118.2 L227.4,117.6 L230.3,117.0 L233.2,116.3 L236.1,115.6 L239.0,115.0 L241.8,114.3 L244.7,113.6 L247.6,112.9 L250.5,112.1 L253.4,111.4 L256.2,110.6 L259.1,109.9 L262.0,109.1 L264.9,108.3 L267.8,107.5 L270.6,106.7 L273.5,105.9 L276.4,105.1 L279.3,104.2 L282.2,103.4 L285.0,102.6 L287.9,101.7 L290.8,100.9 L293.7,100.0 L296.6,99.1 L299.4,98.3 L302.3,97.4 L305.2,96.6 L308.1,95.7 L311.0,94.9 L313.8,94.0 L316.7,93.2 L319.6,92.3 L322.5,91.5 L325.4,90.7 L328.2,89.9 L331.1,89.1 L334.0,88.3 L336.9,87.5 L339.8,86.7 L342.6,86.0 L345.5,85.2 L348.4,84.5 L351.3,83.8 L354.2,83.1 L357.0,82.4 L359.9,81.8 L362.8,81.1 L365.7,80.5 L368.6,79.9 L371.4,79.3 L374.3,78.7 L377.2,78.2 L380.1,77.7 L383.0,77.1 L385.8,76.7 L388.7,76.2 L391.6,75.7 L394.5,75.3 L397.4,74.9 L400.2,74.4 L403.1,74.1 L406.0,73.7 L408.9,73.3 L411.8,73.0 L414.6,72.7 L417.5,72.3 L420.4,72.0 L423.3,71.8 L426.2,71.5 L429.0,71.2 L431.9,71.0 L434.8,70.8 L437.7,70.5 L440.6,70.3 L443.4,70.1 L446.3,69.9 L449.2,69.8 L452.1,69.6 L455.0,69.4 L457.8,69.3 L460.7,69.1 L463.6,69.0 L466.5,68.8 L469.4,68.7 L472.2,68.6 L475.1,68.5 L478.0,68.4 L480.9,68.3 L483.8,68.2 L486.6,68.1 L489.5,68.0 L492.4,67.9 L495.3,67.9 L498.2,67.8 L501.0,67.7 L503.9,67.7 L506.8,67.6 L509.7,67.6 L512.6,67.5 L515.4,67.5 L518.3,67.4 L521.2,67.4 L524.1,67.3 L527.0,67.3 L529.8,67.2 L532.7,67.2 L535.6,67.2 L538.5,67.1 L541.4,67.1 L544.2,67.1 L547.1,67.1 L550.0,67.0 L552.9,67.0 L555.8,67.0 L558.6,67.0 L561.5,66.9 L564.4,66.9 L567.3,66.9 L570.2,66.9 L573.0,66.9 L575.9,66.9 L578.8,66.8 L581.7,66.8 L584.6,66.8 L587.4,66.8 L590.3,66.8 L593.2,66.8 L596.1,66.8 L599.0,66.8 L601.8,66.8 L604.7,66.8 L607.6,66.7 L610.5,66.7 L613.4,66.7 L616.2,66.7 L619.1,66.7 L622.0,66.7"/><path class="c1 thin" d="M46.0,118.7 L48.9,118.1 L51.8,117.4 L54.6,116.8 L57.5,116.1 L60.4,115.5 L63.3,114.8 L66.2,114.1 L69.0,113.4 L71.9,112.7 L74.8,111.9 L77.7,111.2 L80.6,110.4 L83.4,109.7 L86.3,108.9 L89.2,108.1 L92.1,107.3 L95.0,106.5 L97.8,105.7 L100.7,104.9 L103.6,104.0 L106.5,103.2 L109.4,102.3 L112.2,101.5 L115.1,100.6 L118.0,99.8 L120.9,98.9 L123.8,98.1 L126.6,97.2 L129.5,96.4 L132.4,95.5 L135.3,94.6 L138.2,93.8 L141.0,93.0 L143.9,92.1 L146.8,91.3 L149.7,90.5 L152.6,89.7 L155.4,88.9 L158.3,88.1 L161.2,87.3 L164.1,86.5 L167.0,85.8 L169.8,85.0 L172.7,84.3 L175.6,83.6 L178.5,82.9 L181.4,82.3 L184.2,81.6 L187.1,81.0 L190.0,80.3 L192.9,79.7 L195.8,79.2 L198.6,78.6 L201.5,78.1 L204.4,77.5 L207.3,77.0 L210.2,76.5 L213.0,76.1 L215.9,75.6 L218.8,75.2 L221.7,74.7 L224.6,74.3 L227.4,74.0 L230.3,73.6 L233.2,73.2 L236.1,72.9 L239.0,72.6 L241.8,72.3 L244.7,72.0 L247.6,71.7 L250.5,71.4 L253.4,71.2 L256.2,70.9 L259.1,70.7 L262.0,70.5 L264.9,70.3 L267.8,70.1 L270.6,69.9 L273.5,69.7 L276.4,69.5 L279.3,69.4 L282.2,69.2 L285.0,69.1 L287.9,68.9 L290.8,68.8 L293.7,68.7 L296.6,68.6 L299.4,68.5 L302.3,68.4 L305.2,68.3 L308.1,68.2 L311.0,68.1 L313.8,68.0 L316.7,67.9 L319.6,67.9 L322.5,67.8 L325.4,67.7 L328.2,67.7 L331.1,67.6 L334.0,67.5 L336.9,67.5 L339.8,67.4 L342.6,67.4 L345.5,67.3 L348.4,67.3 L351.3,67.3 L354.2,67.2 L357.0,67.2 L359.9,67.2 L362.8,67.1 L365.7,67.1 L368.6,67.1 L371.4,67.0 L374.3,67.0 L377.2,67.0 L380.1,67.0 L383.0,67.0 L385.8,66.9 L388.7,66.9 L391.6,66.9 L394.5,66.9 L397.4,66.9 L400.2,66.9 L403.1,66.8 L406.0,66.8 L408.9,66.8 L411.8,66.8 L414.6,66.8 L417.5,66.8 L420.4,66.8 L423.3,66.8 L426.2,66.8 L429.0,66.8 L431.9,66.7 L434.8,66.7 L437.7,66.7 L440.6,66.7 L443.4,66.7 L446.3,66.7 L449.2,66.7 L452.1,66.7 L455.0,66.7 L457.8,66.7 L460.7,66.7 L463.6,66.7 L466.5,66.7 L469.4,66.7 L472.2,66.7 L475.1,66.7 L478.0,66.7 L480.9,66.7 L483.8,66.7 L486.6,66.7 L489.5,66.7 L492.4,66.7 L495.3,66.7 L498.2,66.7 L501.0,66.7 L503.9,66.7 L506.8,66.7 L509.7,66.6 L512.6,66.6 L515.4,66.6 L518.3,66.6 L521.2,66.6 L524.1,66.6 L527.0,66.6 L529.8,66.6 L532.7,66.6 L535.6,66.6 L538.5,66.6 L541.4,66.6 L544.2,66.6 L547.1,66.6 L550.0,66.6 L552.9,66.6 L555.8,66.6 L558.6,66.6 L561.5,66.6 L564.4,66.6 L567.3,66.6 L570.2,66.6 L573.0,66.6 L575.9,66.6 L578.8,66.6 L581.7,66.6 L584.6,66.6 L587.4,66.6 L590.3,66.6 L593.2,66.6 L596.1,66.6 L599.0,66.6 L601.8,66.6 L604.7,66.6 L607.6,66.6 L610.5,66.6 L613.4,66.6 L616.2,66.6 L619.1,66.6 L622.0,66.6"/><path class="c1 thin" d="M46.0,88.9 L48.9,88.1 L51.8,87.4 L54.6,86.6 L57.5,85.9 L60.4,85.1 L63.3,84.4 L66.2,83.7 L69.0,83.0 L71.9,82.3 L74.8,81.7 L77.7,81.0 L80.6,80.4 L83.4,79.8 L86.3,79.2 L89.2,78.7 L92.1,78.1 L95.0,77.6 L97.8,77.1 L100.7,76.6 L103.6,76.1 L106.5,75.6 L109.4,75.2 L112.2,74.8 L115.1,74.4 L118.0,74.0 L120.9,73.6 L123.8,73.3 L126.6,72.9 L129.5,72.6 L132.4,72.3 L135.3,72.0 L138.2,71.7 L141.0,71.5 L143.9,71.2 L146.8,71.0 L149.7,70.7 L152.6,70.5 L155.4,70.3 L158.3,70.1 L161.2,69.9 L164.1,69.7 L167.0,69.6 L169.8,69.4 L172.7,69.2 L175.6,69.1 L178.5,69.0 L181.4,68.8 L184.2,68.7 L187.1,68.6 L190.0,68.5 L192.9,68.4 L195.8,68.3 L198.6,68.2 L201.5,68.1 L204.4,68.0 L207.3,67.9 L210.2,67.9 L213.0,67.8 L215.9,67.7 L218.8,67.7 L221.7,67.6 L224.6,67.5 L227.4,67.5 L230.3,67.4 L233.2,67.4 L236.1,67.4 L239.0,67.3 L241.8,67.3 L244.7,67.2 L247.6,67.2 L250.5,67.2 L253.4,67.1 L256.2,67.1 L259.1,67.1 L262.0,67.1 L264.9,67.0 L267.8,67.0 L270.6,67.0 L273.5,67.0 L276.4,66.9 L279.3,66.9 L282.2,66.9 L285.0,66.9 L287.9,66.9 L290.8,66.9 L293.7,66.8 L296.6,66.8 L299.4,66.8 L302.3,66.8 L305.2,66.8 L308.1,66.8 L311.0,66.8 L313.8,66.8 L316.7,66.8 L319.6,66.8 L322.5,66.7 L325.4,66.7 L328.2,66.7 L331.1,66.7 L334.0,66.7 L336.9,66.7 L339.8,66.7 L342.6,66.7 L345.5,66.7 L348.4,66.7 L351.3,66.7 L354.2,66.7 L357.0,66.7 L359.9,66.7 L362.8,66.7 L365.7,66.7 L368.6,66.7 L371.4,66.7 L374.3,66.7 L377.2,66.7 L380.1,66.7 L383.0,66.7 L385.8,66.7 L388.7,66.7 L391.6,66.7 L394.5,66.7 L397.4,66.7 L400.2,66.6 L403.1,66.6 L406.0,66.6 L408.9,66.6 L411.8,66.6 L414.6,66.6 L417.5,66.6 L420.4,66.6 L423.3,66.6 L426.2,66.6 L429.0,66.6 L431.9,66.6 L434.8,66.6 L437.7,66.6 L440.6,66.6 L443.4,66.6 L446.3,66.6 L449.2,66.6 L452.1,66.6 L455.0,66.6 L457.8,66.6 L460.7,66.6 L463.6,66.6 L466.5,66.6 L469.4,66.6 L472.2,66.6 L475.1,66.6 L478.0,66.6 L480.9,66.6 L483.8,66.6 L486.6,66.6 L489.5,66.6 L492.4,66.6 L495.3,66.6 L498.2,66.6 L501.0,66.6 L503.9,66.6 L506.8,66.6 L509.7,66.6 L512.6,66.6 L515.4,66.6 L518.3,66.6 L521.2,66.6 L524.1,66.6 L527.0,66.6 L529.8,66.6 L532.7,66.6 L535.6,66.6 L538.5,66.6 L541.4,66.6 L544.2,66.6 L547.1,66.6 L550.0,66.6 L552.9,66.6 L555.8,66.6 L558.6,66.6 L561.5,66.6 L564.4,66.6 L567.3,66.6 L570.2,66.6 L573.0,66.6 L575.9,66.6 L578.8,66.6 L581.7,66.6 L584.6,66.6 L587.4,66.6 L590.3,66.6 L593.2,66.6 L596.1,66.6 L599.0,66.6 L601.8,66.6 L604.7,66.6 L607.6,66.6 L610.5,66.6 L613.4,66.6 L616.2,66.6 L619.1,66.6 L622.0,66.6"/><path class="c1 thin" d="M46.0,44.3 L48.9,46.2 L51.8,47.9 L54.6,49.4 L57.5,50.7 L60.4,51.9 L63.3,53.1 L66.2,54.1 L69.0,55.0 L71.9,55.8 L74.8,56.6 L77.7,57.3 L80.6,57.9 L83.4,58.5 L86.3,59.1 L89.2,59.6 L92.1,60.0 L95.0,60.5 L97.8,60.9 L100.7,61.2 L103.6,61.6 L106.5,61.9 L109.4,62.2 L112.2,62.5 L115.1,62.7 L118.0,63.0 L120.9,63.2 L123.8,63.4 L126.6,63.6 L129.5,63.8 L132.4,64.0 L135.3,64.1 L138.2,64.3 L141.0,64.4 L143.9,64.6 L146.8,64.7 L149.7,64.8 L152.6,64.9 L155.4,65.0 L158.3,65.1 L161.2,65.2 L164.1,65.3 L167.0,65.4 L169.8,65.4 L172.7,65.5 L175.6,65.6 L178.5,65.6 L181.4,65.7 L184.2,65.8 L187.1,65.8 L190.0,65.9 L192.9,65.9 L195.8,65.9 L198.6,66.0 L201.5,66.0 L204.4,66.1 L207.3,66.1 L210.2,66.1 L213.0,66.2 L215.9,66.2 L218.8,66.2 L221.7,66.2 L224.6,66.3 L227.4,66.3 L230.3,66.3 L233.2,66.3 L236.1,66.3 L239.0,66.4 L241.8,66.4 L244.7,66.4 L247.6,66.4 L250.5,66.4 L253.4,66.4 L256.2,66.4 L259.1,66.4 L262.0,66.5 L264.9,66.5 L267.8,66.5 L270.6,66.5 L273.5,66.5 L276.4,66.5 L279.3,66.5 L282.2,66.5 L285.0,66.5 L287.9,66.5 L290.8,66.5 L293.7,66.5 L296.6,66.5 L299.4,66.5 L302.3,66.6 L305.2,66.6 L308.1,66.6 L311.0,66.6 L313.8,66.6 L316.7,66.6 L319.6,66.6 L322.5,66.6 L325.4,66.6 L328.2,66.6 L331.1,66.6 L334.0,66.6 L336.9,66.6 L339.8,66.6 L342.6,66.6 L345.5,66.6 L348.4,66.6 L351.3,66.6 L354.2,66.6 L357.0,66.6 L359.9,66.6 L362.8,66.6 L365.7,66.6 L368.6,66.6 L371.4,66.6 L374.3,66.6 L377.2,66.6 L380.1,66.6 L383.0,66.6 L385.8,66.6 L388.7,66.6 L391.6,66.6 L394.5,66.6 L397.4,66.6 L400.2,66.6 L403.1,66.6 L406.0,66.6 L408.9,66.6 L411.8,66.6 L414.6,66.6 L417.5,66.6 L420.4,66.6 L423.3,66.6 L426.2,66.6 L429.0,66.6 L431.9,66.6 L434.8,66.6 L437.7,66.6 L440.6,66.6 L443.4,66.6 L446.3,66.6 L449.2,66.6 L452.1,66.6 L455.0,66.6 L457.8,66.6 L460.7,66.6 L463.6,66.6 L466.5,66.6 L469.4,66.6 L472.2,66.6 L475.1,66.6 L478.0,66.6 L480.9,66.6 L483.8,66.6 L486.6,66.6 L489.5,66.6 L492.4,66.6 L495.3,66.6 L498.2,66.6 L501.0,66.6 L503.9,66.6 L506.8,66.6 L509.7,66.6 L512.6,66.6 L515.4,66.6 L518.3,66.6 L521.2,66.6 L524.1,66.6 L527.0,66.6 L529.8,66.6 L532.7,66.6 L535.6,66.6 L538.5,66.6 L541.4,66.6 L544.2,66.6 L547.1,66.6 L550.0,66.6 L552.9,66.6 L555.8,66.6 L558.6,66.6 L561.5,66.6 L564.4,66.6 L567.3,66.6 L570.2,66.6 L573.0,66.6 L575.9,66.6 L578.8,66.6 L581.7,66.6 L584.6,66.6 L587.4,66.6 L590.3,66.6 L593.2,66.6 L596.1,66.6 L599.0,66.6 L601.8,66.6 L604.7,66.6 L607.6,66.6 L610.5,66.6 L613.4,66.6 L616.2,66.6 L619.1,66.6 L622.0,66.6"/><path class="c1 thin" d="M46.0,25.7 L47.9,28.8 L49.8,31.5 L51.8,33.9 L53.7,36.1 L55.6,38.1 L57.5,39.9 L59.4,41.5 L62.3,43.7 L65.2,45.7 L68.1,47.4 L71.0,49.0 L73.8,50.3 L76.7,51.6 L79.6,52.7 L82.5,53.8 L85.4,54.7 L88.2,55.6 L91.1,56.3 L94.0,57.1 L96.9,57.7 L99.8,58.3 L102.6,58.9 L105.5,59.4 L108.4,59.9 L111.3,60.3 L114.2,60.7 L117.0,61.1 L119.9,61.5 L122.8,61.8 L125.7,62.1 L128.6,62.4 L131.4,62.7 L134.3,62.9 L137.2,63.1 L140.1,63.4 L143.0,63.6 L145.8,63.8 L148.7,63.9 L151.6,64.1 L154.5,64.3 L157.4,64.4 L160.2,64.5 L163.1,64.7 L166.0,64.8 L168.9,64.9 L171.8,65.0 L174.6,65.1 L177.5,65.2 L180.4,65.3 L183.3,65.3 L186.2,65.4 L189.0,65.5 L191.9,65.6 L194.8,65.6 L197.7,65.7 L200.6,65.7 L203.4,65.8 L206.3,65.8 L209.2,65.9 L212.1,65.9 L215.0,66.0 L217.8,66.0 L220.7,66.0 L223.6,66.1 L226.5,66.1 L229.4,66.1 L232.2,66.2 L235.1,66.2 L238.0,66.2 L240.9,66.2 L243.8,66.3 L246.6,66.3 L249.5,66.3 L252.4,66.3 L255.3,66.3 L258.2,66.4 L261.0,66.4 L263.9,66.4 L266.8,66.4 L269.7,66.4 L272.6,66.4 L275.4,66.4 L278.3,66.5 L281.2,66.5 L284.1,66.5 L287.0,66.5 L289.8,66.5 L292.7,66.5 L295.6,66.5 L298.5,66.5 L301.4,66.5 L304.2,66.5 L307.1,66.5 L310.0,66.5 L312.9,66.5 L315.8,66.5 L318.6,66.6 L321.5,66.6 L324.4,66.6 L327.3,66.6 L330.2,66.6 L333.0,66.6 L335.9,66.6 L338.8,66.6 L341.7,66.6 L344.6,66.6 L347.4,66.6 L350.3,66.6 L353.2,66.6 L356.1,66.6 L359.0,66.6 L361.8,66.6 L364.7,66.6 L367.6,66.6 L370.5,66.6 L373.4,66.6 L376.2,66.6 L379.1,66.6 L382.0,66.6 L384.9,66.6 L387.8,66.6 L390.6,66.6 L393.5,66.6 L396.4,66.6 L399.3,66.6 L402.2,66.6 L405.0,66.6 L407.9,66.6 L410.8,66.6 L413.7,66.6 L416.6,66.6 L419.4,66.6 L422.3,66.6 L425.2,66.6 L428.1,66.6 L431.0,66.6 L433.8,66.6 L436.7,66.6 L439.6,66.6 L442.5,66.6 L445.4,66.6 L448.2,66.6 L451.1,66.6 L454.0,66.6 L456.9,66.6 L459.8,66.6 L462.6,66.6 L465.5,66.6 L468.4,66.6 L471.3,66.6 L474.2,66.6 L477.0,66.6 L479.9,66.6 L482.8,66.6 L485.7,66.6 L488.6,66.6 L491.4,66.6 L494.3,66.6 L497.2,66.6 L500.1,66.6 L503.0,66.6 L505.8,66.6 L508.7,66.6 L511.6,66.6 L514.5,66.6 L517.4,66.6 L520.2,66.6 L523.1,66.6 L526.0,66.6 L528.9,66.6 L531.8,66.6 L534.6,66.6 L537.5,66.6 L540.4,66.6 L543.3,66.6 L546.2,66.6 L549.0,66.6 L551.9,66.6 L554.8,66.6 L557.7,66.6 L560.6,66.6 L563.4,66.6 L566.3,66.6 L569.2,66.6 L572.1,66.6 L575.0,66.6 L577.8,66.6 L580.7,66.6 L583.6,66.6 L586.5,66.6 L589.4,66.6 L592.2,66.6 L595.1,66.6 L598.0,66.6 L600.9,66.6 L603.8,66.6 L606.6,66.6 L609.5,66.6 L612.4,66.6 L615.3,66.6 L618.2,66.6 L621.0,66.6 L622.0,66.6"/><path class="c2" d="M46.0,215.4 L622.0,215.4"/><path class="c4" d="M46.0,141.0 L622.0,141.0"/><path class="c2" d="M46.0,66.6 L622.0,66.6"/></svg><figcaption><b>Figure 2.2.</b> Solutions $x(t)$ of the same equation from several initial values (numerical integration). They are monotone, never cross the constant solutions $x=0,1,2$ and approach the stable ones; compare Robinson Fig. 7.8.</figcaption></figure>
     </section>
 
-    <!-- ========================================================
-         SECTION 2: INTEGRATING FACTOR METHOD
-         ======================================================== -->
+    <!-- ===================================================== 2 -->
     <section class="theory-section" id="sec-2">
       <div class="section-header">
-        <div class="section-tag">Section 02</div>
-        <h2 class="section-title">2. First-Order Linear Equations & The Integrating Factor Method</h2>
+        <div class="section-tag">Section 02 • Robinson Sec. 7.2–7.3, 7.5 • Lecture Sep 10</div>
+        <h2 class="section-title">2. Stability of stationary points</h2>
       </div>
-
-      <p>
-        A first-order linear ordinary differential equation can always be normalized into the standard canonical form:
-      </p>
-      $$ \frac{dx}{dt} + p(t) x(t) = q(t) \tag{2.1} $$
-      <p>
-        where $p(t)$ and $q(t)$ are continuous functions on an interval $I \subseteq \mathbb{R}$.
-      </p>
-
-      <h3 class="sub-title">2.1 Formal Derivation of the Integrating Factor $\mu(t)$</h3>
-      <p>
-        We seek a strictly positive multiplier $\mu(t) > 0$ such that multiplying equation (2.1) transforms the left-hand side into the exact derivative of the product $\mu(t) x(t)$:
-      </p>
-      $$ \mu(t) \frac{dx}{dt} + \mu(t) p(t) x(t) = \mu(t) q(t) \tag{2.2} $$
-      <p>
-        By the product rule:
-      </p>
-      $$ \frac{d}{dt}\left[ \mu(t) x(t) \right] = \mu(t) \frac{dx}{dt} + \frac{d\mu}{dt} x(t) \tag{2.3} $$
-      <p>
-        Equating (2.2) and (2.3) requires:
-      </p>
-      $$ \frac{d\mu}{dt} x(t) = \mu(t) p(t) x(t) \implies \frac{d\mu}{dt} = p(t) \mu(t) $$
-      <p>
-        Separating variables for $\mu > 0$:
-      </p>
-      $$ \int \frac{d\mu}{\mu} = \int p(t) \, dt \implies \ln \mu(t) = \int p(t) \, dt \implies \mathbf{\mu(t) = \exp\left( \int p(t) \, dt \right)} \tag{2.4} $$
-
-      <h3 class="sub-title">2.2 Closed-Form General Solution</h3>
-      <p>
-        Substituting $\mu(t)$ into (2.2):
-      </p>
-      $$ \frac{d}{dt}\left[ \mu(t) x(t) \right] = \mu(t) q(t) $$
-      <p>
-        Integrating with respect to $t$:
-      </p>
-      $$ \mu(t) x(t) = \int \mu(t) q(t) \, dt + C \implies \mathbf{x(t) = \frac{1}{\mu(t)} \left[ \int \mu(t) q(t) \, dt + C \right]} \tag{2.5} $$
-
-      <div class="result-box">
-        <div class="result-box-title">Definite IVP Representation: Transient vs. Forced Response</div>
-        <p>
-          With initial datum $x(t_0) = x_0$ and $\mu(t) = \exp\left(\int_{t_0}^t p(s) ds\right)$ (so $\mu(t_0) = 1$):
-        </p>
-        $$ \mathbf{x(t) = \underbrace{x_0 e^{-\int_{t_0}^t p(s) ds}}_{x_h(t) \text{ (Transient)}} + \underbrace{\int_{t_0}^t e^{-\int_s^t p(u) du} q(s) \, ds}_{x_p(t) \text{ (Forced Steady State)}}} \tag{2.6} $$
-      </div>
-
-      <h3 class="sub-title">2.3 Asymptotic Relaxation: Proof of $x(t) \to \frac{b}{a}$ (Problem 2.3)</h3>
-      <p>
-        Consider the dissipative dynamical model:
-      </p>
-      $$ \frac{dx}{dt} + \left( a + \frac{1}{t} \right) x = b \quad (a > 0, \; b \in \mathbb{R}) $$
-      <p>
-        1. Integrating factor:
-        $$ \int \left(a + \frac{1}{t}\right) dt = at + \ln t \implies \mu(t) = e^{at + \ln t} = t e^{at} $$
-      </p>
-      <p>
-        2. General solution via integration by parts ($\int t e^{at} dt = \frac{t e^{at}}{a} - \frac{e^{at}}{a^2}$):
-        $$ x(t) = \frac{1}{t e^{at}} \left[ b \int t e^{at} dt + C \right] = \frac{1}{t e^{at}} \left[ b \left( \frac{t e^{at}}{a} - \frac{e^{at}}{a^2} \right) + C \right] $$
-        $$ x(t) = \frac{b}{a} - \frac{b}{a^2 t} + \frac{C}{t} e^{-at} \tag{2.7} $$
-      </p>
-      <p>
-        3. Taking the long-time asymptotic limit as $t \to \infty$:
-        $$ \lim_{t \to \infty} x(t) = \frac{b}{a} - 0 + 0 = \mathbf{\frac{b}{a}} $$
-        The system undergoes exponential dissipation of its initial condition, asymptotically reaching the steady equilibrium $\frac{b}{a}$.
-      </p>
-    </section>
-
-    <!-- ========================================================
-         SECTION 3: EXACT EQUATIONS & INTEGRATING FACTORS
-         ======================================================== -->
-    <section class="theory-section" id="sec-3">
-      <div class="section-header">
-        <div class="section-tag">Section 03</div>
-        <h2 class="section-title">3. Exact Differential Equations & Special Integrating Factors</h2>
-      </div>
-
-      <p>
-        Consider a first-order differential equation expressed in differential form:
-      </p>
-      $$ M(x, y) \, dx + N(x, y) \, dy = 0 \tag{3.1} $$
-
-      <h3 class="sub-title">3.1 Definition and the Euler-Cauchy-Schwarz Criterion</h3>
-      <p>
-        Equation (3.1) is <strong>exact</strong> on a simply connected domain $D \subseteq \mathbb{R}^2$ if there exists a $C^2$ scalar 
-        potential function $F(x, y)$ such that its total differential satisfies $dF = M dx + N dy$. In that case, the ODE is $dF = 0$, with solution:
-      </p>
-      $$ \mathbf{F(x, y) = C} \tag{3.2} $$
-
-      <div class="result-box">
-        <div class="result-box-title">Theorem: Necessary and Sufficient Condition for Exactness</div>
-        <p>
-          Let $M, N, \frac{\partial M}{\partial y}, \frac{\partial N}{\partial x}$ be continuous on simply connected $D$. The form (3.1) is exact <strong>if and only if</strong>:
-        </p>
-        $$ \mathbf{\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}} \quad \forall (x, y) \in D \tag{3.3} $$
-        <p>
-          <em>Proof of Necessity:</em> If $F$ exists, $M = \frac{\partial F}{\partial x}$ and $N = \frac{\partial F}{\partial y}$. 
-          By Schwarz's theorem on the equality of mixed second partial derivatives of $C^2$ functions:
-          $$ \frac{\partial M}{\partial y} = \frac{\partial^2 F}{\partial y \partial x} = \frac{\partial^2 F}{\partial x \partial y} = \frac{\partial N}{\partial x} \quad \blacksquare $$
-        </p>
-      </div>
-
-      <h3 class="sub-title">3.2 Systematic Reconstruction of the Potential Function $F(x, y)$</h3>
-      <ol>
-        <li>Integrate $M(x, y)$ with respect to $x$ holding $y$ constant:
-          $$ F(x, y) = \int M(x, y) \, dx + h(y) \tag{3.4} $$
-        </li>
-        <li>Differentiate (3.4) with respect to $y$ and equate to $N(x, y)$:
-          $$ \frac{\partial F}{\partial y} = \frac{\partial}{\partial y} \left( \int M(x, y) \, dx \right) + h'(y) = N(x, y) $$
-        </li>
-        <li>Isolate $h'(y)$:
-          $$ h'(y) = N(x, y) - \frac{\partial}{\partial y} \left( \int M(x, y) \, dx \right) \tag{3.5} $$
-          Due to condition (3.3), the right-hand side is guaranteed to be <strong>completely independent of $x$</strong>.
-        </li>
-        <li>Integrate $h'(y)$ to find $h(y)$, yielding the implicit solution $F(x, y) = C$.</li>
-      </ol>
-
-      <h3 class="sub-title">3.3 Special Integrating Factors for Non-Exact Equations</h3>
-      <p>
-        If $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, we seek a multiplier $\mu(x, y)$ such that $\mu M dx + \mu N dy = 0$ is exact:
-      </p>
-      <ul>
-        <li>
-          <strong>Factor depending solely on $x$ ($\mu = \mu(x)$):</strong>
-          $$ \phi(x) \equiv \frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N} \implies \mathbf{\mu(x) = \exp\left( \int \phi(x) \, dx \right)} \tag{3.6} $$
-        </li>
-        <li>
-          <strong>Factor depending solely on $y$ ($\mu = \mu(y)$):</strong>
-          $$ \psi(y) \equiv \frac{\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}}{M} \implies \mathbf{\mu(y) = \exp\left( \int \psi(y) \, dy \right)} \tag{3.7} $$
-        </li>
-      </ul>
-
-      <div class="note-box">
-        <div class="note-box-title">Universal Exactness of Separated Equations (Problem 2.6)</div>
-        <p>
-          Every separable equation $f(x) + g(y) \frac{dy}{dx} = 0 \iff f(x) dx + g(y) dy = 0$ is <strong>unconditionally exact</strong>:
-          $$ M(x) = f(x) \implies \frac{\partial M}{\partial y} = 0, \quad N(y) = g(y) \implies \frac{\partial N}{\partial x} = 0 $$
-          Since $0 = 0$, exactness holds universally, with potential function $F(x, y) = \int f(x) dx + \int g(y) dy = C$.
-        </p>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         SECTION 4: NONLINEAR SUBSTITUTIONS & BERNOULLI
-         ======================================================== -->
-    <section class="theory-section" id="sec-4">
-      <div class="section-header">
-        <div class="section-tag">Section 04</div>
-        <h2 class="section-title">4. Nonlinear Substitutions & Bernoulli Equations</h2>
-      </div>
-
-      <p>
-        A powerful strategy for resolving nonlinear first-order ODEs is transforming the dependent variable to linearize the equation.
-      </p>
-
-      <h3 class="sub-title">4.1 The Canonical Bernoulli Equation</h3>
-      <p>
-        Introduced by Jacob Bernoulli in 1695, the <strong>Bernoulli differential equation</strong> is:
-      </p>
-      $$ \frac{dy}{dx} - a(x) y = b(x) y^\alpha \quad (\alpha \in \mathbb{R}) \tag{4.1} $$
-
-      <div class="result-box">
-        <div class="result-box-title">The Linearizing Transformation $z = y^{1-\alpha}$</div>
-        <p>
-          For $\alpha \neq 0, 1$, equation (4.1) is nonlinear. We linearize it through the following derivation:
-        </p>
-        <ol>
-          <li>Divide (4.1) by $y^\alpha$ (for $y \neq 0$):
-            $$ y^{-\alpha} \frac{dy}{dx} - a(x) y^{1-\alpha} = b(x) \tag{4.2} $$
-          </li>
-          <li>Define the new dependent variable:
-            $$ z(x) \equiv y(x)^{1-\alpha} \tag{4.3} $$
-          </li>
-          <li>Differentiating by the chain rule:
-            $$ \frac{dz}{dx} = (1 - \alpha) y^{-\alpha} \frac{dy}{dx} \implies y^{-\alpha} \frac{dy}{dx} = \frac{1}{1 - \alpha} \frac{dz}{dx} $$
-          </li>
-          <li>Substitute into (4.2) and multiply by $(1 - \alpha)$:
-            $$ \mathbf{\frac{dz}{dx} - (1 - \alpha) a(x) z(x) = (1 - \alpha) b(x)} \tag{4.4} $$
-          </li>
-        </ol>
-        <p>
-          Equation (4.4) is a standard <strong>linear first-order ODE</strong> for $z(x)$, solved via integrating factor. For $\alpha>0$ the equilibrium $y\equiv0$ is lost when dividing by $y^\alpha$ and must be listed separately; for non-integer $\alpha$ take $y>0$. The original solution is recovered via $y(x) = [z(x)]^{1/(1-\alpha)}$.
-        </p>
-      </div>
-
-      <h3 class="sub-title">4.2 Scale-Invariant Homogeneous Equations ($u = y/x$)</h3>
-      <p>
-        An ODE of the form $\frac{dy}{dx} = F\left(\frac{y}{x}\right)$ is invariant under uniform scale transformations $(x, y) \to (\lambda x, \lambda y)$.
-      </p>
-      <p>
-        Setting $u(x) \equiv \frac{y(x)}{x} \implies y(x) = x u(x)$, differentiation yields $\frac{dy}{dx} = u + x \frac{du}{dx}$. Substituting:
-      </p>
-      $$ u + x \frac{du}{dx} = F(u) \implies \mathbf{\frac{du}{F(u) - u} = \frac{dx}{x}} \tag{4.5} $$
-      <p>
-        Equation (4.5) is always separable.
-      </p>
-    </section>
-
-    <!-- ========================================================
-         SECTION 5: WELL-POSEDNESS & PICARD PATHOLOGIES
-         ======================================================== -->
-    <section class="theory-section" id="sec-5">
-      <div class="section-header">
-        <div class="section-tag">Section 05</div>
-        <h2 class="section-title">5. Well-Posedness, Picard-Lindelöf Theorem & Analytical Pathologies</h2>
-      </div>
-
-      <p>
-        Consider the initial value problem:
-      </p>
-      $$ \begin{cases} \dfrac{dy}{dt} = f(t, y) \\ y(t_0) = y_0 \end{cases} \tag{5.1} $$
-
-      <h3 class="sub-title">5.1 The Picard-Lindelöf Theorem & Lipschitz Continuity</h3>
-      <p>
-        A function $f(t, y)$ is <strong>Lipschitz continuous</strong> with respect to $y$ on domain $D$ if $\exists L < \infty$ such that:
-      </p>
-      $$ |f(t, y_1) - f(t, y_2)| \le L |y_1 - y_2| \quad \forall (t, y_1), (t, y_2) \in D \tag{5.2} $$
-      <p>
-        A continuous bounded partial derivative $\left|\frac{\partial f}{\partial y}\right| \le L$ is a sufficient condition for (5.2). 
-        Under continuity and Lipschitz conditions on a rectangle $R = \{|t-t_0|\le a,\ |y-y_0|\le b\}$ with $|f|\le M$, Picard-Lindelöf guarantees the <strong>existence of a unique solution</strong> on $I = [t_0 - h, t_0 + h]$ with $h = \min(a, b/M)$. (Note: this rectangle form with $h = \min(a, b/M)$ is the standard Picard-Lindelöf refinement, not the statement of Robinson's Theorem 6.2; it is an extension added here.)
-      </p>
-      <div class="note-box">
-        <div class="note-box-title">Official form (Book ODE's, Definition 6.1 and Theorem 6.2, p. 40; Section 6.3, pp. 41-42)</div>
-        <p>
-          A <strong>solution</strong> on an open interval $I \ni t_0$ is a differentiable function $x(t)$ on $I$ with $x(t_0)=x_0$ and $\dot x = f(x,t)$ for all $t\in I$.
-          <strong>Theorem 6.2:</strong> if $f(x,t)$ and $\partial f/\partial x$ are continuous for $a<x<b$, $c<t<d$, then for every $x_0\in(a,b)$, $t_0\in(c,d)$ the IVP has a unique solution on <em>some</em> open interval $I\ni t_0$; the theorem says nothing about the size of $I$.
-          It suffices that $f$ be Lipschitz in $x$ (footnote 1, p. 40). The <strong>maximal interval of existence</strong> is the largest open interval containing $t_0$ on which the solution is defined; for $\dot x=x^2$ it is $(-\infty, x_0^{-1})$ when $x_0>0$ (see Example F in Section 7).
-        </p>
-      </div>
-
-      <h3 class="sub-title">5.2 Analytical Dissection of Pathologies</h3>
-
-      <div class="danger-box">
-        <div class="danger-box-title">Pathology 1: Non-Lipschitz Branching Non-Uniqueness (Problem 2.14)</div>
-        <p>
-          Consider $y' = 3 y^{2/3}$ with $y(0) = 0$:
-        </p>
+      <div class="callout def">
+        <div class="callout-title">Definitions — stable, attracting, unstable <span class="cite">[Robinson, Sec. 7.2, Eqs. (7.2)–(7.3), p. 48]</span></div>
         <ul>
-          <li><strong>Derivative:</strong> $\frac{\partial f}{\partial y} = 2 y^{-1/3} \implies \lim_{y \to 0} \frac{\partial f}{\partial y} = \infty$. The Lipschitz condition fails at the origin.</li>
-          <li><strong>Dual Solutions:</strong>
-            (1) Trivial equilibrium: $y_1(t) \equiv 0$;<br>
-            (2) Separation: $\int y^{-2/3} dy = \int 3 dt \implies 3 y^{1/3} = 3t \implies y_2(t) = t^3$.
+          <li>
+            $x^*$ is <strong>stable</strong> if for every $\varepsilon > 0$ there is a $\delta > 0$ such that
+            $$|x_0 - x^*| < \delta \;\Longrightarrow\; |x(t) - x^*| < \varepsilon \quad\text{for all } t \ge 0. \tag{7.2}$$
+            "Start close enough and you stay close."
           </li>
-          <li>Both satisfy $y(0)=0$ and $y'(0)=0$. Determinism is breached: solutions can branch infinitely at any delay $c \ge 0$.</li>
+          <li>
+            $x^*$ is <strong>attracting</strong> if there is a $\delta > 0$ such that
+            $$|x_0 - x^*| < \delta \;\Longrightarrow\; x(t) \to x^* \ \text{ as } t \to +\infty. \tag{7.3}$$
+          </li>
+          <li>
+            $x^*$ is <strong>unstable</strong> if it is not stable: there is an $\varepsilon > 0$ such that for every $\delta > 0$ some $x_0$
+            with $|x_0 - x^*| < \delta$ gives $|x(t) - x^*| > \varepsilon$ for some $t > 0$.
+          </li>
         </ul>
       </div>
+      <p>
+        In one dimension attracting implies stable (Exercise 7.9), but stable does not imply attracting. Robinson's counterexample is
+        $\dot x = -x$ for $x < 0$, $\dot x = 0$ for $0 \le x \le 1$, $\dot x = 1 - x$ for $x > 1$: every point of $[0,1]$ is stationary and
+        stable, but none is attracting, because nearby points in $[0,1]$ do not move at all <span class="cite">[p. 48, Fig. 7.3]</span>.
+      </p>
 
-      <div class="warning-box">
-        <div class="warning-box-title">Pathology 2: Domain Singularity vs. Picard-Lindelöf (Problem 2.15)</div>
+      <h3 class="sub-title">2.1 The derivative test</h3>
+      <div class="callout thm">
+        <div class="callout-title">Stability criterion <span class="cite">[Robinson, Sec. 7.3, p. 49, Fig. 7.5]</span></div>
+        <p>Let $f(x^*) = 0$ with $f$ continuously differentiable.</p>
+        <ul>
+          <li>If $f'(x^*) < 0$, then $x^*$ is <strong>stable</strong> (in fact attracting).</li>
+          <li>If $f'(x^*) > 0$, then $x^*$ is <strong>unstable</strong>.</li>
+          <li>If $f'(x^*) = 0$, the test is inconclusive: the point may be stable, unstable, or <strong>semi-stable</strong> (stable on one side, unstable on the other) <span class="cite">[Fig. 7.6, p. 50]</span>.</li>
+        </ul>
+      </div>
+      <p>
+        <strong>Why it works (graphical argument, as in the book).</strong> If $f'(x^*) < 0$, the graph of $f$ crosses zero going downwards:
+        $f > 0$ just to the left of $x^*$ and $f < 0$ just to the right. Both arrows point towards $x^*$. If $f'(x^*) > 0$ the signs are reversed
+        and both arrows point away.
+      </p>
+      <p>
+        <strong>Why it works (linearisation — complementary derivation).</strong> Write $x(t) = x^* + \xi(t)$ with a small perturbation $\xi$.
+        Since $x^*$ is constant, $\dot x = \dot\xi$. Taylor's theorem gives
+        $f(x^* + \xi) = f(x^*) + f'(x^*)\,\xi + O(\xi^2) = f'(x^*)\,\xi + O(\xi^2)$. Dropping the quadratic term,
+      </p>
+      $$\dot\xi \approx f'(x^*)\,\xi \quad\Longrightarrow\quad \xi(t) \approx \xi(0)\,e^{f'(x^*)\,t}.$$
+      <p>
+        The perturbation decays if $f'(x^*) < 0$ and grows if $f'(x^*) > 0$. The quantity $1/|f'(x^*)|$ is the time scale of the approach
+        or departure. When $f'(x^*) = 0$ the linear term vanishes and the neglected $O(\xi^2)$ terms decide, which is why the test is then silent.
+      </p>
+
+      <div class="callout example">
+        <div class="callout-title">Example — the cubic of Figure 2.1</div>
         <p>
-          Consider $y' = \frac{2y+1}{t}$ with $y(0) = -\frac{1}{2}$:
-        </p>
-        <p>
-          General solution for $t \neq 0$: $y(t) = -\frac{1}{2} + C t^2$. For <em>any</em> value of $C \in \mathbb{R}$, $y(0) = -\frac{1}{2}$. 
-          Does this contradict Picard-Lindelöf?
-        </p>
-        <p>
-          <strong>No!</strong> The vector field $f(t, y) = \frac{2y+1}{t}$ has a division by zero at $t = 0$. Because $f$ is not even defined 
-          (let alone continuous) at the initial point, Picard's theorem does not apply!
+          $f(x) = -x(1-x)(2-x) = -(x^3 - 3x^2 + 2x)$, so $f'(x) = -(3x^2 - 6x + 2)$. Then $f'(0) = -2 < 0$ (stable),
+          $f'(1) = -(3 - 6 + 2) = 1 > 0$ (unstable), $f'(2) = -(12 - 12 + 2) = -2 < 0$ (stable), in agreement with the arrows.
         </p>
       </div>
 
-      <h3 class="sub-title">5.3 Independent Uniqueness Proof via the Direct Difference Method</h3>
-      <div class="result-box">
-        <div class="result-box-title">Energy Difference Method (Problem 2.17)</div>
+      <div class="callout example">
+        <div class="callout-title">Example — logistic population (Robinson Sec. 7.5.1, Eq. (7.4), p. 51)</div>
         <p>
-          To prove that an IVP has a unique solution without invoking Picard-Lindelöf:
+          $\dot p = f(p) = kp(1 - p/M)$, with $f'(p) = k - 2kp/M$ (product rule on $kp \cdot (1 - p/M)$, or expand $kp - kp^2/M$ first).
+          Stationary points $p = 0$ and $p = M$: $f'(0) = k > 0$, so extinction is <strong>unstable</strong>; $f'(M) = k - 2k = -k < 0$, so
+          the carrying capacity is <strong>stable</strong>. Every positive population tends to $M$, with relaxation time $1/k$ near $M$.
+          The phase diagram cannot, however, give $k$ or $M$ from data; that needs the explicit solution of Topic 1, Section 6.
         </p>
-        <ol>
-          <li>Suppose $y_1(t)$ and $y_2(t)$ are two solutions to $y' = f(t, y)$ with $y_1(t_0) = y_2(t_0) = y_0$.</li>
-          <li>Define the difference function $w(t) \equiv y_1(t) - y_2(t)$, satisfying $w(t_0) = 0$.</li>
-          <li>Construct the Lyapunov energy function $E(t) \equiv [w(t)]^2 \ge 0$.</li>
-          <li>Differentiate with respect to $t$: $\dot{E}(t) = 2 w(t) \dot{w}(t) = 2 w(t) [f(t, y_1) - f(t, y_2)]$.</li>
-          <li>If $\dot{E}(t) \le 0$ for all $t \ge t_0$, then $0 \le E(t) \le E(t_0) = 0 \implies E(t) \equiv 0 \implies w(t) \equiv 0$ for $t \ge t_0$. This sign condition is <em>not</em> automatic: for $y' + ay = 0$ one gets $\dot{E} = -2aE$, which is $\le 0$ only if $a \ge 0$, and only forward in time.</li>
-          <li>Without any sign assumption, use the exact relation $\dot{E} = -2aE$ with the factor $e^{2a(t-t_0)}$: by the product and chain rules, $\frac{d}{dt}\left[ E(t)\, e^{2a(t-t_0)} \right] = \left( \dot{E} + 2aE \right) e^{2a(t-t_0)} = 0$. Hence $E(t)\, e^{2a(t-t_0)} = E(t_0) = 0$, so $E(t) \equiv 0$ for all $t$ and every sign of $a$ (the formula $E = E(t_0)e^{-2a(t-t_0)}$ is a conclusion of this step, not an assumption).</li>
-          <li>Therefore $w(t) \equiv 0$ and $y_1(t) \equiv y_2(t)$: uniqueness holds for this linear IVP. For a general $f(t, y)$ the same argument proves uniqueness only when $\dot{E}$ is controlled in this way (e.g. $\dot{E} \le 0$ for $t \ge t_0$, or $\dot{E} \le 2LE$ with a Lipschitz constant $L$).</li>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example — terminal velocity (Robinson Sec. 7.5.2, Eq. (7.5), p. 52)</div>
+        <p>
+          For downward speed $v > 0$: $\dot v = f(v) = g - (k/m)v^2$. The unique positive stationary point is $v^* = \sqrt{mg/k}$, and
+          $f'(v) = -2kv/m$, so $f'(v^*) = -2\sqrt{gk/m} < 0$: terminal velocity is stable and attracts every initial speed. The explicit
+          $\tanh$ solution is derived in Topic 1, Section 5.3.
+        </p>
+      </div>
+      <div class="callout warn">
+        <div class="callout-title">What the phase line cannot tell you (Robinson Sec. 7.5.3, p. 53)</div>
+        <p>
+          $\dot x = |x|$ and $\dot x = x^2$ have the same phase diagram (one semi-stable point at $0$, arrows pointing right everywhere).
+          But for $x_0 > 0$ the first gives $x = x_0e^t$, defined for all time, while the second gives $x = 1/(x_0^{-1} - t)$, which blows up at
+          $t = 1/x_0$. The phase line captures the direction of motion, not its speed.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 3 -->
+    <section class="theory-section" id="sec-3">
+      <div class="section-header">
+        <div class="section-tag">Section 03 • Robinson Sec. 7.4, 7.6, Ex. 7.5–7.6</div>
+        <h2 class="section-title">3. Structural stability and bifurcations</h2>
+      </div>
+      <p>
+        Models contain parameters (a growth rate, a load, a drag coefficient) that are never known exactly. It matters whether a small change in
+        a parameter changes the picture qualitatively.
+      </p>
+      <div class="callout def">
+        <div class="callout-title">Definitions <span class="cite">[Robinson, Sec. 7.4, p. 50]</span></div>
+        <p>
+          If a small change to $f$ changes the phase diagram drastically, the equation has undergone a <strong>bifurcation</strong>. If no small
+          change to $f$ can change the qualitative phase diagram, $\dot x = f(x)$ is <strong>structurally stable</strong>.
+        </p>
+      </div>
+      <p>
+        If $f'(x^*) \neq 0$, a small change to $f$ (for instance adding a small constant, which shifts the graph up or down) still leaves a
+        nearby zero with the same sign of slope, hence a nearby stationary point of the same type (Exercise 7.11). So <strong>a bifurcation near
+        $x^*$ requires $f'(x^*) = 0$</strong> — exactly the degenerate case of the derivative test.
+      </p>
+
+      <h3 class="sub-title">3.1 The pitchfork bifurcation</h3>
+      <p>Robinson's worked example <span class="cite">[Sec. 7.6, Eq. (7.6), pp. 54–56]</span>:</p>
+      $$\dot x = x\,(k - x^2), \qquad f(x) = kx - x^3, \qquad f'(x) = k - 3x^2.$$
+      <ul>
+        <li><strong>$k < 0$:</strong> $k - x^2 < 0$ for every $x$, so the only stationary point is $x^* = 0$, with $f'(0) = k < 0$: stable.</li>
+        <li><strong>$k = 0$:</strong> $f(x) = -x^3$ and $f'(0) = 0$ — the test fails. The sign of $f$ ($> 0$ for $x < 0$, $< 0$ for $x > 0$) shows $0$ is still stable. The vanishing derivative signals a possible bifurcation.</li>
+        <li><strong>$k > 0$:</strong> three stationary points $x^* = 0, \pm\sqrt k$. $f'(0) = k > 0$: unstable. $f'(\pm\sqrt k) = k - 3k = -2k < 0$: both stable.</li>
+      </ul>
+      <figure class="fig"><svg viewBox="0 0 640.0 320.0" role="img" aria-label="pitchfork bifurcation diagram" xmlns="http://www.w3.org/2000/svg"><line class="ax" x1="46.0" y1="151.0" x2="622.0" y2="151.0"/><polygon class="ahm" points="622.0,151.0 614.7,154.3 614.7,147.7"/><line class="ax" x1="334.0" y1="280.0" x2="334.0" y2="22.0"/><polygon class="ahm" points="334.0,22.0 337.3,29.3 330.7,29.3"/><line class="ax" x1="190.0" y1="147.0" x2="190.0" y2="155.0"/><text class="small" x="190.0" y="168.0" text-anchor="middle">−1</text><line class="ax" x1="478.0" y1="147.0" x2="478.0" y2="155.0"/><text class="small" x="478.0" y="168.0" text-anchor="middle">1</text><line class="ax" x1="330.0" y1="226.9" x2="338.0" y2="226.9"/><text class="small" x="327.0" y="230.9" text-anchor="end">−1</text><line class="ax" x1="330.0" y1="75.1" x2="338.0" y2="75.1"/><text class="small" x="327.0" y="79.1" text-anchor="end">1</text><text class="lbl" x="618.0" y="143.0" text-anchor="end">k</text><text class="lbl" x="342.0" y="34.0" text-anchor="start">x*</text><path class="c2" d="M46.0,151.0 L334.0,151.0"/><path class="c4 dash" d="M334.0,151.0 L622.0,151.0"/><path class="c2" d="M334.0,151.0 L335.4,143.4 L336.9,140.3 L338.3,137.9 L341.2,134.0 L344.1,130.9 L347.0,128.2 L349.8,125.8 L352.7,123.6 L355.6,121.6 L358.5,119.7 L361.4,117.9 L364.2,116.2 L367.1,114.6 L370.0,113.1 L372.9,111.6 L375.8,110.1 L378.6,108.8 L381.5,107.4 L384.4,106.1 L387.3,104.8 L390.2,103.6 L393.0,102.4 L395.9,101.2 L398.8,100.1 L401.7,99.0 L404.6,97.9 L407.4,96.8 L410.3,95.8 L413.2,94.7 L416.1,93.7 L419.0,92.7 L421.8,91.7 L424.7,90.8 L427.6,89.8 L430.5,88.9 L433.4,88.0 L436.2,87.1 L439.1,86.2 L442.0,85.3 L444.9,84.4 L447.8,83.6 L450.6,82.7 L453.5,81.9 L456.4,81.0 L459.3,80.2 L462.2,79.4 L465.0,78.6 L467.9,77.8 L470.8,77.0 L473.7,76.3 L476.6,75.5 L479.4,74.7 L482.3,74.0 L485.2,73.2 L488.1,72.5 L491.0,71.8 L493.8,71.1 L496.7,70.3 L499.6,69.6 L502.5,68.9 L505.4,68.2 L508.2,67.5 L511.1,66.8 L514.0,66.2 L516.9,65.5 L519.8,64.8 L522.6,64.1 L525.5,63.5 L528.4,62.8 L531.3,62.2 L534.2,61.5 L537.0,60.9 L539.9,60.3 L542.8,59.6 L545.7,59.0 L548.6,58.4 L551.4,57.8 L554.3,57.1 L557.2,56.5 L560.1,55.9 L563.0,55.3 L565.8,54.7 L568.7,54.1 L571.6,53.5 L574.5,52.9 L577.4,52.4 L580.2,51.8 L583.1,51.2 L586.0,50.6 L588.9,50.0 L591.8,49.5 L594.6,48.9 L597.5,48.3 L600.4,47.8 L603.3,47.2 L606.2,46.7 L609.0,46.1 L611.9,45.6 L614.8,45.0 L617.7,44.5 L620.6,44.0 L622.0,43.7"/><path class="c2" d="M334.0,151.0 L335.4,158.6 L336.9,161.7 L338.3,164.1 L341.2,168.0 L344.1,171.1 L347.0,173.8 L349.8,176.2 L352.7,178.4 L355.6,180.4 L358.5,182.3 L361.4,184.1 L364.2,185.8 L367.1,187.4 L370.0,188.9 L372.9,190.4 L375.8,191.9 L378.6,193.2 L381.5,194.6 L384.4,195.9 L387.3,197.2 L390.2,198.4 L393.0,199.6 L395.9,200.8 L398.8,201.9 L401.7,203.0 L404.6,204.1 L407.4,205.2 L410.3,206.2 L413.2,207.3 L416.1,208.3 L419.0,209.3 L421.8,210.3 L424.7,211.2 L427.6,212.2 L430.5,213.1 L433.4,214.0 L436.2,214.9 L439.1,215.8 L442.0,216.7 L444.9,217.6 L447.8,218.4 L450.6,219.3 L453.5,220.1 L456.4,221.0 L459.3,221.8 L462.2,222.6 L465.0,223.4 L467.9,224.2 L470.8,225.0 L473.7,225.7 L476.6,226.5 L479.4,227.3 L482.3,228.0 L485.2,228.8 L488.1,229.5 L491.0,230.2 L493.8,230.9 L496.7,231.7 L499.6,232.4 L502.5,233.1 L505.4,233.8 L508.2,234.5 L511.1,235.2 L514.0,235.8 L516.9,236.5 L519.8,237.2 L522.6,237.9 L525.5,238.5 L528.4,239.2 L531.3,239.8 L534.2,240.5 L537.0,241.1 L539.9,241.7 L542.8,242.4 L545.7,243.0 L548.6,243.6 L551.4,244.2 L554.3,244.9 L557.2,245.5 L560.1,246.1 L563.0,246.7 L565.8,247.3 L568.7,247.9 L571.6,248.5 L574.5,249.1 L577.4,249.6 L580.2,250.2 L583.1,250.8 L586.0,251.4 L588.9,252.0 L591.8,252.5 L594.6,253.1 L597.5,253.7 L600.4,254.2 L603.3,254.8 L606.2,255.3 L609.0,255.9 L611.9,256.4 L614.8,257.0 L617.7,257.5 L620.6,258.0 L622.0,258.3"/><line class="c1 thin" x1="146.8" y1="264.8" x2="146.8" y2="238.3"/><polygon class="ah1" points="146.8,238.3 150.1,245.6 143.5,245.6"/><line class="c1 thin" x1="146.8" y1="37.2" x2="146.8" y2="63.7"/><polygon class="ah1" points="146.8,63.7 143.5,56.4 150.1,56.4"/><line class="c1 thin" x1="146.8" y1="181.4" x2="146.8" y2="154.8"/><polygon class="ah1" points="146.8,154.8 150.1,162.1 143.5,162.1"/><line class="c1 thin" x1="146.8" y1="120.6" x2="146.8" y2="147.2"/><polygon class="ah1" points="146.8,147.2 143.5,139.9 150.1,139.9"/><line class="c1 thin" x1="521.2" y1="264.8" x2="521.2" y2="238.3"/><polygon class="ah1" points="521.2,238.3 524.5,245.6 517.9,245.6"/><line class="c1 thin" x1="521.2" y1="37.2" x2="521.2" y2="63.7"/><polygon class="ah1" points="521.2,63.7 517.9,56.4 524.5,56.4"/><line class="c1 thin" x1="521.2" y1="181.4" x2="521.2" y2="207.9"/><polygon class="ah1" points="521.2,207.9 517.9,200.6 524.5,200.6"/><line class="c1 thin" x1="521.2" y1="120.6" x2="521.2" y2="94.1"/><polygon class="ah1" points="521.2,94.1 524.5,101.4 517.9,101.4"/><text class="small" x="190.0" y="143.0" text-anchor="middle">stable</text><text class="small" x="420.4" y="143.0" text-anchor="middle">unstable</text><text class="small" x="564.4" y="45.0" text-anchor="end">x* = +√k (stable)</text></svg><figcaption><b>Figure 2.3.</b> Bifurcation diagram of the pitchfork $\dot x = x(k - x^2)$ (Robinson Sec. 7.6, Fig. 7.14). Solid green: stable stationary points; dashed red: unstable. At $k = 0$ the single stable point $x^*=0$ splits into three.</figcaption></figure>
+      <div class="callout aero">
+        <div class="callout-title">Physical reading (complementary)</div>
+        <p>
+          The pitchfork is the generic picture of <strong>symmetric buckling</strong>: a slender strut under axial load stays straight
+          ($x^* = 0$) below the critical load and, above it, the straight state becomes unstable and the strut deflects to one of two mirror-image
+          positions $\pm\sqrt k$. Which one is chosen depends on imperfections — the same sensitivity that makes $k = 0$ structurally unstable.
+        </p>
+      </div>
+
+      <h3 class="sub-title">3.2 Saddle-node and transcritical bifurcations (Exercises 7.5 and 7.6)</h3>
+      <ul>
+        <li>
+          <strong>Saddle-node:</strong> $\dot x = x^2 - k$. For $k < 0$ there are no stationary points; for $k > 0$ there are two,
+          $x^* = \pm\sqrt k$, with $f'(x) = 2x$: $-\sqrt k$ stable ($f' = -2\sqrt k$), $+\sqrt k$ unstable. They are born together at $k = 0$.
+        </li>
+        <li>
+          <strong>Transcritical:</strong> $\dot x = kx - x^2 = x(k - x)$, stationary points $0$ and $k$, $f'(x) = k - 2x$. Then $f'(0) = k$
+          and $f'(k) = -k$: for $k < 0$, $0$ is stable and $k$ unstable; for $k > 0$ the roles swap. The two points exchange stability as they cross.
+        </li>
+      </ul>
+      <figure class="fig pair"><div><svg viewBox="0 0 320.0 260.0" role="img" aria-label="saddle-node bifurcation" xmlns="http://www.w3.org/2000/svg"><line class="ax" x1="30.0" y1="122.0" x2="308.0" y2="122.0"/><polygon class="ahm" points="308.0,122.0 300.7,125.3 300.7,118.7"/><line class="ax" x1="149.1" y1="230.0" x2="149.1" y2="14.0"/><polygon class="ahm" points="149.1,14.0 152.4,21.3 145.9,21.3"/><line class="ax" x1="228.6" y1="118.0" x2="228.6" y2="126.0"/><text class="small" x="228.6" y="139.0" text-anchor="middle">1</text><line class="ax" x1="145.1" y1="189.5" x2="153.1" y2="189.5"/><text class="small" x="142.1" y="193.5" text-anchor="end">−1</text><line class="ax" x1="145.1" y1="54.5" x2="153.1" y2="54.5"/><text class="small" x="142.1" y="58.5" text-anchor="end">1</text><text class="lbl" x="304.0" y="114.0" text-anchor="end">k</text><text class="lbl" x="157.1" y="26.0" text-anchor="start">x*</text><path class="c2" d="M149.1,122.0 L149.9,128.8 L150.7,131.5 L152.3,135.5 L153.9,138.5 L155.5,141.1 L157.1,143.3 L158.7,145.4 L161.1,148.1 L163.4,150.6 L165.8,152.9 L168.2,155.1 L170.6,157.1 L173.0,159.0 L175.4,160.8 L177.7,162.5 L180.1,164.2 L182.5,165.7 L184.9,167.3 L187.3,168.8 L189.7,170.2 L192.0,171.6 L194.4,173.0 L196.8,174.3 L199.2,175.6 L201.6,176.8 L203.9,178.1 L206.3,179.3 L208.7,180.5 L211.1,181.6 L213.5,182.8 L215.9,183.9 L218.2,185.0 L220.6,186.0 L223.0,187.1 L225.4,188.1 L227.8,189.2 L230.2,190.2 L232.5,191.2 L234.9,192.1 L237.3,193.1 L239.7,194.1 L242.1,195.0 L244.5,195.9 L246.8,196.9 L249.2,197.8 L251.6,198.7 L254.0,199.6 L256.4,200.4 L258.8,201.3 L261.1,202.2 L263.5,203.0 L265.9,203.8 L268.3,204.7 L270.7,205.5 L273.1,206.3 L275.4,207.1 L277.8,207.9 L280.2,208.7 L282.6,209.5 L285.0,210.3 L287.3,211.0 L289.7,211.8 L292.1,212.6 L295.3,213.6 L298.5,214.6 L301.6,215.5 L304.8,216.5 L308.0,217.5"/><path class="c4 dash" d="M149.1,122.0 L149.9,115.2 L150.7,112.5 L152.3,108.5 L153.9,105.5 L155.5,102.9 L157.1,100.7 L158.7,98.6 L161.1,95.9 L163.4,93.4 L165.8,91.1 L168.2,88.9 L170.6,86.9 L173.0,85.0 L175.4,83.2 L177.7,81.5 L180.1,79.8 L182.5,78.3 L184.9,76.7 L187.3,75.2 L189.7,73.8 L192.0,72.4 L194.4,71.0 L196.8,69.7 L199.2,68.4 L201.6,67.2 L203.9,65.9 L206.3,64.7 L208.7,63.5 L211.1,62.4 L213.5,61.2 L215.9,60.1 L218.2,59.0 L220.6,58.0 L223.0,56.9 L225.4,55.9 L227.8,54.8 L230.2,53.8 L232.5,52.8 L234.9,51.9 L237.3,50.9 L239.7,49.9 L242.1,49.0 L244.5,48.1 L246.8,47.1 L249.2,46.2 L251.6,45.3 L254.0,44.4 L256.4,43.6 L258.8,42.7 L261.1,41.8 L263.5,41.0 L265.9,40.2 L268.3,39.3 L270.7,38.5 L273.1,37.7 L275.4,36.9 L277.8,36.1 L280.2,35.3 L282.6,34.5 L285.0,33.7 L287.3,33.0 L289.7,32.2 L292.1,31.4 L295.3,30.4 L298.5,29.4 L301.6,28.5 L304.8,27.5 L308.0,26.5"/><text class="small" x="34.0" y="209.8" text-anchor="start">no stationary pts</text></svg></div><div><svg viewBox="0 0 320.0 260.0" role="img" aria-label="transcritical bifurcation" xmlns="http://www.w3.org/2000/svg"><line class="ax" x1="30.0" y1="122.0" x2="308.0" y2="122.0"/><polygon class="ahm" points="308.0,122.0 300.7,125.3 300.7,118.7"/><line class="ax" x1="169.0" y1="230.0" x2="169.0" y2="14.0"/><polygon class="ahm" points="169.0,14.0 172.3,21.3 165.7,21.3"/><line class="ax" x1="76.3" y1="118.0" x2="76.3" y2="126.0"/><text class="small" x="76.3" y="139.0" text-anchor="middle">−1</text><line class="ax" x1="261.7" y1="118.0" x2="261.7" y2="126.0"/><text class="small" x="261.7" y="139.0" text-anchor="middle">1</text><line class="ax" x1="165.0" y1="189.5" x2="173.0" y2="189.5"/><text class="small" x="162.0" y="193.5" text-anchor="end">−1</text><line class="ax" x1="165.0" y1="54.5" x2="173.0" y2="54.5"/><text class="small" x="162.0" y="58.5" text-anchor="end">1</text><text class="lbl" x="304.0" y="114.0" text-anchor="end">k</text><text class="lbl" x="177.0" y="26.0" text-anchor="start">x*</text><path class="c2" d="M30.0,122.0 L169.0,122.0"/><path class="c4 dash" d="M169.0,122.0 L308.0,122.0"/><path class="c4 dash" d="M30.0,223.2 L169.0,122.0"/><path class="c2" d="M169.0,122.0 L308.0,20.8"/></svg></div><figcaption><b>Figure 2.4.</b> Left: saddle-node bifurcation of $\dot x = x^2 - k$ (Robinson Exercise 7.5): two stationary points collide and disappear as $k$ decreases through $0$. Right: transcritical bifurcation of $\dot x = kx - x^2$ (Exercise 7.6): the branches $x^*=0$ and $x^*=k$ cross and exchange stability. Green solid: stable; red dashed: unstable.</figcaption></figure>
+    </section>
+
+    <!-- ===================================================== 4 -->
+    <section class="theory-section" id="sec-4">
+      <div class="section-header">
+        <div class="section-tag">Section 04 • Robinson Sec. 8.1, 8.4, 8.6 • Lecture Sep 10</div>
+        <h2 class="section-title">4. Separable equations</h2>
+      </div>
+      <div class="callout def">
+        <div class="callout-title">Definition — separable equation <span class="cite">[Robinson, Eq. (8.1), p. 59]</span></div>
+        $$\frac{dx}{dt} = f(x)\,g(t). \tag{8.1}$$
+        <p>The right-hand side is a product of a function of $x$ only and a function of $t$ only. Autonomous equations ($g \equiv 1$) and "trivial" equations $\dot x = g(t)$ ($f \equiv 1$) are special cases.</p>
+      </div>
+
+      <h3 class="sub-title">4.1 The recipe</h3>
+      <p>
+        Divide by $f(x)$, "multiply by $dt$" and integrate both sides <span class="cite">[Sec. 8.1, Eqs. (8.2)–(8.3), p. 60]</span>:
+      </p>
+      $$\int\frac{dx}{f(x)} = \int g(t)\,dt, \qquad\text{or, with } x(t_0) = x_0:\qquad \int_{x_0}^{x(t)}\frac{dx}{f(x)} = \int_{t_0}^{t}g(\tilde t)\,d\tilde t. \tag{8.3}$$
+      <p>
+        On the left the limits are the values of $x$ at the times $t_0$ and $t$; on the right they are the times themselves. Robinson warns
+        that "multiplying by $dt$" should make you uneasy — the next subsection shows why it nevertheless gives the right answer.
+      </p>
+
+      <h3 class="sub-title">4.2 Justification <span class="cite">[Robinson, Sec. 8.4, pp. 64–65]</span></h3>
+      <ol class="steps">
+        <li>
+          <strong>Constant solutions first.</strong> If $f(x(s)) = 0$ at some time $s$, then $x(t) \equiv x(s)$ solves the equation
+          ($\dot x = 0 = f(x(s))g(t)$), and by uniqueness it is the solution. So either $f(x(t)) = 0$ for every $t$, or $f(x(t)) \neq 0$ for every $t$.
+          These constant solutions are lost when dividing by $f$ and must be listed separately.
+        </li>
+        <li>In the second case divide: $\ \dfrac{1}{f(x)}\dfrac{dx}{dt} = g(t)$ (8.8).</li>
+        <li>
+          Let $H$ be an antiderivative of $1/f$, $H'(x) = 1/f(x)$. By the chain rule
+          $$\frac{d}{dt}H\big(x(t)\big) = H'\big(x(t)\big)\,\frac{dx}{dt} = \frac{1}{f(x)}\frac{dx}{dt} = g(t).$$
+        </li>
+        <li>
+          Let $G$ be an antiderivative of $g$. Two functions with the same derivative differ by a constant: $H(x(t)) = G(t) + c$ (8.9).
+          At $t = t_0$: $c = H(x_0) - G(t_0)$, so $H(x(t)) - H(x_0) = G(t) - G(t_0)$, which by Barrow's rule is exactly (8.3) = (8.11).
+        </li>
+      </ol>
+      <p>
+        No infinitesimals were manipulated: the "recipe" is the chain rule read backwards. To obtain $x(t)$ explicitly one must invert $H$;
+        sometimes the implicit relation $H(x) = G(t) + c$ is the best available.
+      </p>
+
+      <div class="callout example">
+        <div class="callout-title">Example 8.1 (Robinson p. 60): $\dot x = x^2$, $x(0) = x_0$</div>
+        <p>If $x_0 = 0$, $x \equiv 0$. Otherwise separate, $x^{-2}dx = dt$, and integrate between corresponding limits. An antiderivative of $x^{-2}$ is $-x^{-1}$:</p>
+        $$\int_{x_0}^{x(t)}\frac{dx}{x^2} = \int_0^t d\tilde t \;\Longrightarrow\; \Big[-\frac1x\Big]_{x_0}^{x(t)} = t \;\Longrightarrow\; -\frac{1}{x(t)} + \frac{1}{x_0} = t \;\Longrightarrow\; x(t) = \frac{1}{x_0^{-1} - t}.$$
+        <p>This is the blow-up solution (6.7) of Topic 1, now derived rather than guessed.</p>
+      </div>
+
+      <div class="callout example">
+        <div class="callout-title">Removing modulus signs with the phase diagram</div>
+        <p>
+          Integrals of $1/x$ produce $\ln|x|$. Robinson's advice is to remove the modulus with the phase diagram: a solution cannot cross a
+          stationary point, so $x(t)$ keeps the sign of $x_0$ (for $\dot x = \lambda x$) or the sign of $M - p_0$ (for the logistic equation).
+          Both full derivations are in Topic 1, Section 6.
+        </p>
+      </div>
+
+      <h3 class="sub-title">4.3 Partial fractions: the pitchfork equation solved <span class="cite">[Robinson, Sec. 8.6.1, pp. 68–70]</span></h3>
+      <p>Solve $\dot x = x(\kappa^2 - x^2)$, $x(0) = x_0$ (the pitchfork with $k = \kappa^2 > 0$). Separating,</p>
+      $$\frac{dx}{x(\kappa^2 - x^2)} = dt, \qquad \frac{1}{x(\kappa - x)(\kappa + x)} = \frac{1}{\kappa^2}\left[\frac1x + \frac{1}{2(\kappa - x)} - \frac{1}{2(\kappa + x)}\right].$$
+      <p>
+        (Check by putting the bracket over the common denominator $2x(\kappa - x)(\kappa + x)$: the numerator is
+        $2(\kappa^2 - x^2) + x(\kappa + x) - x(\kappa - x) = 2\kappa^2 - 2x^2 + 2x^2 = 2\kappa^2$ ✓.)
+        Integrate from $0$ to $t$; with $\int\frac{dx}{\kappa - x} = -\ln|\kappa - x|$ (substitution $u = \kappa - x$):
+      </p>
+      $$\Big[\ln|x| - \tfrac12\ln|\kappa - x| - \tfrac12\ln|\kappa + x|\Big]_{x_0}^{x(t)} = \kappa^2 t \;\Longrightarrow\; \ln\frac{|x(t)|\sqrt{|\kappa^2 - x_0^2|}}{|x_0|\sqrt{|\kappa^2 - x(t)^2|}} = \kappa^2 t.$$
+      <p>
+        Exponentiate and square: $x(t)^2|\kappa^2 - x_0^2| = x_0^2|\kappa^2 - x(t)^2|e^{2\kappa^2t}$ (8.15). The phase diagram shows that
+        $x^2 - \kappa^2$ keeps its sign, so the moduli go, and solving the linear equation for $x(t)^2$:
+      </p>
+      $$x(t) = \pm\sqrt{\frac{\kappa^2}{1 + e^{-2\kappa^2 t}\left(\kappa^2x_0^{-2} - 1\right)}}, \tag{8.16}$$
+      <p>with the sign of $x_0$. As $t \to \infty$, $e^{-2\kappa^2t} \to 0$ and $x \to \pm\kappa$: the two stable branches of the pitchfork.</p>
+    </section>
+
+    <!-- ===================================================== 5 -->
+    <section class="theory-section" id="sec-5">
+      <div class="section-header">
+        <div class="section-tag">Section 05 • Robinson Ch. 9 • Lecture Sep 17</div>
+        <h2 class="section-title">5. First-order linear equations: the integrating factor</h2>
+      </div>
+      <p>
+        The general linear first-order equation is $a_1(t)\dot x + a_0(t)x = f(t)$. Where $a_1 \neq 0$ we divide by it and obtain the standard form
+        <span class="cite">[Robinson, Eq. (9.1), p. 75]</span>
+      </p>
+      $$\frac{dx}{dt} + p(t)\,x = q(t). \tag{9.1}$$
+      <p>It is separable only when $p$ and $q$ are constants; the integrating factor works for all $p$, $q$.</p>
+
+      <h3 class="sub-title">5.1 The idea, with constant coefficients <span class="cite">[Sec. 9.1, pp. 75–76]</span></h3>
+      <p>For $\dot x + px = q$ with constants $p$, $q$, notice that by the product rule</p>
+      $$\frac{d}{dt}\big(x\,e^{pt}\big) = \dot x\,e^{pt} + x\,p\,e^{pt} = e^{pt}\big(\dot x + px\big). \tag{9.3}$$
+      <p>So multiplying the equation by $e^{pt}$ turns its left side into an exact derivative:</p>
+      $$\frac{d}{dt}\big(xe^{pt}\big) = qe^{pt} \;\Longrightarrow\; xe^{pt} = \frac{q}{p}e^{pt} + C \;\Longrightarrow\; x(t) = \frac qp + Ce^{-pt}. \tag{9.5}$$
+      <p>
+        If $p > 0$, every solution tends to $q/p$ as $t \to \infty$, whatever the initial condition. With $x(a) = x_a$:
+        $C = (x_a - q/p)e^{pa}$ and $x(t) = q/p + (x_a - q/p)e^{-p(t - a)}$ (9.6).
+      </p>
+
+      <h3 class="sub-title">5.2 Derivation of the integrating factor <span class="cite">[Sec. 9.2, pp. 76–78]</span></h3>
+      <p>For $\dot x + p(t)x = q(t)$ look for a function $I(t) > 0$ such that, after multiplying by $I$, the left side $I\dot x + Ipx$ is the derivative of $Ix$.</p>
+      <ol class="steps">
+        <li>Product rule: $\dfrac{d}{dt}(Ix) = \dot I\,x + I\,\dot x$.</li>
+        <li>We need $\dot I\,x + I\dot x = I\dot x + Ipx$, i.e. $\dot I\,x = Ipx$ for all $x$, i.e. $\ \dfrac{dI}{dt} = p(t)\,I$.</li>
+        <li>This is separable: $\dfrac{dI}{I} = p(t)\,dt$, so $\ln|I| = \int p(t)\,dt$. Choosing the positive root and dropping the constant (any non-zero multiple of an integrating factor is still one):</li>
+      </ol>
+      <div class="callout result">
+        <div class="callout-title">Integrating factor and solution formula</div>
+        $$I(t) = \exp\left(\int p(t)\,dt\right) = e^{P(t)}, \qquad P'(t) = p(t).$$
+        $$\frac{d}{dt}\Big[x(t)\,e^{P(t)}\Big] = q(t)\,e^{P(t)}. \tag{9.8}$$
+        <p>Integrating from $t_0$ to $t$ and using Barrow's rule on the left, $\big[x\,e^{P}\big]_{t_0}^{t} = x(t)e^{P(t)} - x_0e^{P(t_0)}$, so</p>
+        $$x(t) = e^{-P(t)}\left[x_0\,e^{P(t_0)} + \int_{t_0}^{t} q(s)\,e^{P(s)}\,ds\right].$$
+      </div>
+      <p>
+        The two terms have a clear meaning: the first is the free response, the initial value carried forward by the homogeneous dynamics
+        $e^{-(P(t) - P(t_0))}$; the second is the forced response, the accumulated effect of the input $q$. This "homogeneous + particular"
+        structure reappears for second-order equations in Topic 3.
+      </p>
+
+      <div class="callout example">
+        <div class="callout-title">Example 9.1 (Robinson pp. 78–79): $\dot x + 3x = t$, $x(0) = 8/9$</div>
+        <ol class="steps">
+          <li>$p = 3$, so $I = e^{\int 3\,dt} = e^{3t}$ and $\dfrac{d}{dt}\big(xe^{3t}\big) = te^{3t}$.</li>
+          <li>
+            Antiderivative of $se^{3s}$ by parts, with $u = s$, $dv = e^{3s}ds$, $du = ds$, $v = e^{3s}/3$:
+            $\displaystyle\int se^{3s}ds = \frac{se^{3s}}{3} - \int\frac{e^{3s}}{3}ds = \frac{se^{3s}}{3} - \frac{e^{3s}}{9}$.
+          </li>
+          <li>
+            Integrate from $0$ to $t$ (Barrow):
+            $$x(t)e^{3t} - x(0) = \Big[\frac{se^{3s}}{3} - \frac{e^{3s}}{9}\Big]_0^t = \frac{te^{3t}}{3} - \frac{e^{3t}}{9} - \Big(0 - \frac19\Big).$$
+          </li>
+          <li>With $x(0) = 8/9$: $\ xe^{3t} = \dfrac{te^{3t}}{3} - \dfrac{e^{3t}}{9} + 1$, so $\ x(t) = e^{-3t} + \dfrac t3 - \dfrac19$.</li>
+        </ol>
+        <p><strong>Check:</strong> $\dot x + 3x = (-3e^{-3t} + \tfrac13) + (3e^{-3t} + t - \tfrac13) = t$ ✓; $x(0) = 1 - \tfrac19 = \tfrac89$ ✓.</p>
+      </div>
+      <figure class="fig"><svg viewBox="0 0 640.0 300.0" role="img" aria-label="solutions of x' + 3x = t" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="238.0" y1="260.0" x2="238.0" y2="22.0"/><line class="grid" x1="430.0" y1="260.0" x2="430.0" y2="22.0"/><line class="grid" x1="622.0" y1="260.0" x2="622.0" y2="22.0"/><line class="grid" x1="46.0" y1="249.2" x2="622.0" y2="249.2"/><line class="grid" x1="46.0" y1="141.0" x2="622.0" y2="141.0"/><line class="grid" x1="46.0" y1="86.9" x2="622.0" y2="86.9"/><line class="grid" x1="46.0" y1="32.8" x2="622.0" y2="32.8"/><line class="ax" x1="46.0" y1="195.1" x2="622.0" y2="195.1"/><polygon class="ahm" points="622.0,195.1 614.7,198.4 614.7,191.8"/><line class="ax" x1="46.0" y1="260.0" x2="46.0" y2="22.0"/><polygon class="ahm" points="46.0,22.0 49.3,29.3 42.7,29.3"/><line class="ax" x1="238.0" y1="191.1" x2="238.0" y2="199.1"/><text class="small" x="238.0" y="212.1" text-anchor="middle">1</text><line class="ax" x1="430.0" y1="191.1" x2="430.0" y2="199.1"/><text class="small" x="430.0" y="212.1" text-anchor="middle">2</text><line class="ax" x1="622.0" y1="191.1" x2="622.0" y2="199.1"/><text class="small" x="622.0" y="212.1" text-anchor="middle">3</text><line class="ax" x1="42.0" y1="249.2" x2="50.0" y2="249.2"/><text class="small" x="39.0" y="253.2" text-anchor="end">−0.5</text><line class="ax" x1="42.0" y1="141.0" x2="50.0" y2="141.0"/><text class="small" x="39.0" y="145.0" text-anchor="end">0.5</text><line class="ax" x1="42.0" y1="86.9" x2="50.0" y2="86.9"/><text class="small" x="39.0" y="90.9" text-anchor="end">1</text><line class="ax" x1="42.0" y1="32.8" x2="50.0" y2="32.8"/><text class="small" x="39.0" y="36.8" text-anchor="end">1.5</text><text class="lbl" x="618.0" y="187.1" text-anchor="end">t</text><text class="lbl" x="54.0" y="34.0" text-anchor="start">x</text><path class="c3 dash thin" d="M46.0,207.1 L622.0,98.9"/><path class="c1 thin" d="M46.0,249.2 L47.9,247.6 L51.8,244.5 L55.6,241.5 L59.4,238.7 L63.3,236.0 L67.1,233.4 L71.0,230.9 L74.8,228.5 L78.6,226.2 L82.5,224.1 L86.3,221.9 L90.2,219.9 L94.0,218.0 L97.8,216.1 L101.7,214.3 L105.5,212.5 L109.4,210.8 L113.2,209.2 L117.0,207.6 L120.9,206.1 L124.7,204.6 L128.6,203.2 L132.4,201.8 L136.2,200.4 L140.1,199.1 L143.9,197.8 L147.8,196.6 L151.6,195.4 L155.4,194.2 L159.3,193.0 L163.1,191.9 L167.0,190.7 L170.8,189.7 L174.6,188.6 L178.5,187.5 L182.3,186.5 L186.2,185.5 L190.0,184.5 L193.8,183.5 L197.7,182.6 L201.5,181.6 L205.4,180.7 L209.2,179.7 L213.0,178.8 L216.9,177.9 L220.7,177.0 L224.6,176.2 L228.4,175.3 L232.2,174.4 L236.1,173.6 L239.9,172.7 L243.8,171.9 L247.6,171.1 L251.4,170.2 L255.3,169.4 L259.1,168.6 L263.0,167.8 L266.8,167.0 L270.6,166.2 L274.5,165.4 L278.3,164.6 L282.2,163.8 L286.0,163.0 L289.8,162.2 L293.7,161.5 L297.5,160.7 L301.4,159.9 L305.2,159.2 L309.0,158.4 L312.9,157.6 L316.7,156.9 L320.6,156.1 L324.4,155.4 L328.2,154.6 L332.1,153.9 L335.9,153.1 L339.8,152.4 L343.6,151.6 L347.4,150.9 L351.3,150.1 L355.1,149.4 L359.0,148.6 L362.8,147.9 L366.6,147.2 L370.5,146.4 L374.3,145.7 L378.2,145.0 L382.0,144.2 L385.8,143.5 L389.7,142.8 L393.5,142.0 L397.4,141.3 L401.2,140.6 L405.0,139.8 L408.9,139.1 L412.7,138.4 L416.6,137.6 L420.4,136.9 L424.2,136.2 L428.1,135.5 L431.9,134.7 L435.8,134.0 L439.6,133.3 L443.4,132.6 L447.3,131.8 L451.1,131.1 L455.0,130.4 L458.8,129.6 L462.6,128.9 L466.5,128.2 L470.3,127.5 L474.2,126.7 L478.0,126.0 L481.8,125.3 L485.7,124.6 L489.5,123.9 L493.4,123.1 L497.2,122.4 L501.0,121.7 L504.9,121.0 L508.7,120.2 L512.6,119.5 L516.4,118.8 L520.2,118.1 L524.1,117.3 L527.9,116.6 L531.8,115.9 L535.6,115.2 L539.4,114.5 L543.3,113.7 L547.1,113.0 L551.0,112.3 L554.8,111.6 L558.6,110.8 L562.5,110.1 L566.3,109.4 L570.2,108.7 L574.0,108.0 L577.8,107.2 L581.7,106.5 L585.5,105.8 L589.4,105.1 L593.2,104.3 L597.0,103.6 L600.9,102.9 L604.7,102.2 L608.6,101.5 L612.4,100.7 L616.2,100.0 L620.1,99.3 L622.0,98.9"/><path class="c1 thin" d="M46.0,195.1 L49.8,195.1 L53.7,195.0 L57.5,194.9 L61.4,194.8 L65.2,194.6 L69.0,194.4 L72.9,194.2 L76.7,193.9 L80.6,193.6 L84.4,193.3 L88.2,193.0 L92.1,192.6 L95.9,192.2 L99.8,191.8 L103.6,191.4 L107.4,191.0 L111.3,190.5 L115.1,190.0 L119.0,189.6 L122.8,189.1 L126.6,188.6 L130.5,188.0 L134.3,187.5 L138.2,187.0 L142.0,186.4 L145.8,185.8 L149.7,185.3 L153.5,184.7 L157.4,184.1 L161.2,183.5 L165.0,182.9 L168.9,182.3 L172.7,181.7 L176.6,181.0 L180.4,180.4 L184.2,179.8 L188.1,179.1 L191.9,178.5 L195.8,177.8 L199.6,177.2 L203.4,176.5 L207.3,175.9 L211.1,175.2 L215.0,174.5 L218.8,173.8 L222.6,173.2 L226.5,172.5 L230.3,171.8 L234.2,171.1 L238.0,170.5 L241.8,169.8 L245.7,169.1 L249.5,168.4 L253.4,167.7 L257.2,167.0 L261.0,166.3 L264.9,165.6 L268.7,164.9 L272.6,164.2 L276.4,163.5 L280.2,162.8 L284.1,162.1 L287.9,161.4 L291.8,160.7 L295.6,160.0 L299.4,159.3 L303.3,158.6 L307.1,157.9 L311.0,157.2 L314.8,156.4 L318.6,155.7 L322.5,155.0 L326.3,154.3 L330.2,153.6 L334.0,152.9 L337.8,152.2 L341.7,151.5 L345.5,150.7 L349.4,150.0 L353.2,149.3 L357.0,148.6 L360.9,147.9 L364.7,147.2 L368.6,146.5 L372.4,145.7 L376.2,145.0 L380.1,144.3 L383.9,143.6 L387.8,142.9 L391.6,142.1 L395.4,141.4 L399.3,140.7 L403.1,140.0 L407.0,139.3 L410.8,138.6 L414.6,137.8 L418.5,137.1 L422.3,136.4 L426.2,135.7 L430.0,135.0 L433.8,134.2 L437.7,133.5 L441.5,132.8 L445.4,132.1 L449.2,131.4 L453.0,130.6 L456.9,129.9 L460.7,129.2 L464.6,128.5 L468.4,127.8 L472.2,127.0 L476.1,126.3 L479.9,125.6 L483.8,124.9 L487.6,124.2 L491.4,123.4 L495.3,122.7 L499.1,122.0 L503.0,121.3 L506.8,120.6 L510.6,119.8 L514.5,119.1 L518.3,118.4 L522.2,117.7 L526.0,117.0 L529.8,116.2 L533.7,115.5 L537.5,114.8 L541.4,114.1 L545.2,113.3 L549.0,112.6 L552.9,111.9 L556.7,111.2 L560.6,110.5 L564.4,109.7 L568.2,109.0 L572.1,108.3 L575.9,107.6 L579.8,106.9 L583.6,106.1 L587.4,105.4 L591.3,104.7 L595.1,104.0 L599.0,103.3 L602.8,102.5 L606.6,101.8 L610.5,101.1 L614.3,100.4 L618.2,99.6 L622.0,98.9"/><path class="c1 thin" d="M46.0,151.8 L49.8,154.3 L53.7,156.6 L57.5,158.8 L61.4,160.7 L65.2,162.5 L69.0,164.2 L72.9,165.7 L76.7,167.1 L80.6,168.4 L84.4,169.6 L88.2,170.6 L92.1,171.5 L95.9,172.4 L99.8,173.1 L103.6,173.8 L107.4,174.4 L111.3,174.9 L115.1,175.4 L119.0,175.7 L122.8,176.0 L126.6,176.3 L130.5,176.5 L134.3,176.6 L138.2,176.7 L142.0,176.7 L145.8,176.7 L149.7,176.7 L153.5,176.6 L157.4,176.5 L161.2,176.3 L165.0,176.1 L168.9,175.9 L172.7,175.7 L176.6,175.4 L180.4,175.1 L184.2,174.8 L188.1,174.4 L191.9,174.0 L195.8,173.7 L199.6,173.2 L203.4,172.8 L207.3,172.4 L211.1,171.9 L215.0,171.4 L218.8,170.9 L222.6,170.4 L226.5,169.9 L230.3,169.4 L234.2,168.8 L238.0,168.3 L241.8,167.7 L245.7,167.2 L249.5,166.6 L253.4,166.0 L257.2,165.4 L261.0,164.8 L264.9,164.2 L268.7,163.6 L272.6,163.0 L276.4,162.3 L280.2,161.7 L284.1,161.1 L287.9,160.4 L291.8,159.8 L295.6,159.1 L299.4,158.5 L303.3,157.8 L307.1,157.1 L311.0,156.5 L314.8,155.8 L318.6,155.1 L322.5,154.4 L326.3,153.8 L330.2,153.1 L334.0,152.4 L337.8,151.7 L341.7,151.0 L345.5,150.3 L349.4,149.7 L353.2,149.0 L357.0,148.3 L360.9,147.6 L364.7,146.9 L368.6,146.2 L372.4,145.5 L376.2,144.8 L380.1,144.1 L383.9,143.4 L387.8,142.7 L391.6,142.0 L395.4,141.2 L399.3,140.5 L403.1,139.8 L407.0,139.1 L410.8,138.4 L414.6,137.7 L418.5,137.0 L422.3,136.3 L426.2,135.6 L430.0,134.9 L433.8,134.1 L437.7,133.4 L441.5,132.7 L445.4,132.0 L449.2,131.3 L453.0,130.6 L456.9,129.9 L460.7,129.1 L464.6,128.4 L468.4,127.7 L472.2,127.0 L476.1,126.3 L479.9,125.6 L483.8,124.8 L487.6,124.1 L491.4,123.4 L495.3,122.7 L499.1,122.0 L503.0,121.2 L506.8,120.5 L510.6,119.8 L514.5,119.1 L518.3,118.4 L522.2,117.6 L526.0,116.9 L529.8,116.2 L533.7,115.5 L537.5,114.8 L541.4,114.1 L545.2,113.3 L549.0,112.6 L552.9,111.9 L556.7,111.2 L560.6,110.5 L564.4,109.7 L568.2,109.0 L572.1,108.3 L575.9,107.6 L579.8,106.8 L583.6,106.1 L587.4,105.4 L591.3,104.7 L595.1,104.0 L599.0,103.2 L602.8,102.5 L606.6,101.8 L610.5,101.1 L614.3,100.4 L618.2,99.6 L622.0,98.9"/><path class="c1" d="M46.0,98.9 L47.9,101.8 L49.8,104.5 L51.8,107.2 L53.7,109.7 L55.6,112.2 L57.5,114.6 L59.4,116.9 L61.4,119.1 L63.3,121.3 L65.2,123.4 L67.1,125.4 L69.0,127.3 L71.0,129.2 L72.9,131.0 L74.8,132.7 L76.7,134.4 L78.6,136.0 L82.5,139.1 L86.3,141.9 L90.2,144.6 L94.0,147.0 L97.8,149.2 L101.7,151.3 L105.5,153.2 L109.4,155.0 L113.2,156.6 L117.0,158.1 L120.9,159.5 L124.7,160.7 L128.6,161.8 L132.4,162.8 L136.2,163.8 L140.1,164.6 L143.9,165.3 L147.8,165.9 L151.6,166.5 L155.4,167.0 L159.3,167.4 L163.1,167.8 L167.0,168.0 L170.8,168.3 L174.6,168.5 L178.5,168.6 L182.3,168.7 L186.2,168.7 L190.0,168.7 L193.8,168.6 L197.7,168.5 L201.5,168.4 L205.4,168.2 L209.2,168.0 L213.0,167.8 L216.9,167.5 L220.7,167.2 L224.6,166.9 L228.4,166.6 L232.2,166.2 L236.1,165.9 L239.9,165.5 L243.8,165.0 L247.6,164.6 L251.4,164.2 L255.3,163.7 L259.1,163.2 L263.0,162.7 L266.8,162.2 L270.6,161.7 L274.5,161.2 L278.3,160.6 L282.2,160.1 L286.0,159.5 L289.8,158.9 L293.7,158.3 L297.5,157.7 L301.4,157.1 L305.2,156.5 L309.0,155.9 L312.9,155.3 L316.7,154.7 L320.6,154.1 L324.4,153.4 L328.2,152.8 L332.1,152.1 L335.9,151.5 L339.8,150.8 L343.6,150.2 L347.4,149.5 L351.3,148.9 L355.1,148.2 L359.0,147.5 L362.8,146.8 L366.6,146.2 L370.5,145.5 L374.3,144.8 L378.2,144.1 L382.0,143.4 L385.8,142.7 L389.7,142.1 L393.5,141.4 L397.4,140.7 L401.2,140.0 L405.0,139.3 L408.9,138.6 L412.7,137.9 L416.6,137.2 L420.4,136.5 L424.2,135.8 L428.1,135.1 L431.9,134.4 L435.8,133.7 L439.6,133.0 L443.4,132.2 L447.3,131.5 L451.1,130.8 L455.0,130.1 L458.8,129.4 L462.6,128.7 L466.5,128.0 L470.3,127.3 L474.2,126.6 L478.0,125.8 L481.8,125.1 L485.7,124.4 L489.5,123.7 L493.4,123.0 L497.2,122.3 L501.0,121.6 L504.9,120.8 L508.7,120.1 L512.6,119.4 L516.4,118.7 L520.2,118.0 L524.1,117.3 L527.9,116.5 L531.8,115.8 L535.6,115.1 L539.4,114.4 L543.3,113.7 L547.1,112.9 L551.0,112.2 L554.8,111.5 L558.6,110.8 L562.5,110.1 L566.3,109.4 L570.2,108.6 L574.0,107.9 L577.8,107.2 L581.7,106.5 L585.5,105.8 L589.4,105.0 L593.2,104.3 L597.0,103.6 L600.9,102.9 L604.7,102.2 L608.6,101.4 L612.4,100.7 L616.2,100.0 L620.1,99.3 L622.0,98.9"/><path class="c1 thin" d="M46.0,32.8 L47.9,37.6 L49.8,42.2 L51.8,46.7 L53.7,51.1 L55.6,55.3 L57.5,59.4 L59.4,63.3 L61.4,67.1 L63.3,70.8 L65.2,74.4 L67.1,77.8 L69.0,81.2 L71.0,84.4 L72.9,87.5 L74.8,90.6 L76.7,93.5 L78.6,96.3 L80.6,99.1 L82.5,101.7 L84.4,104.2 L86.3,106.7 L88.2,109.1 L90.2,111.4 L92.1,113.6 L94.0,115.8 L95.9,117.8 L97.8,119.8 L99.8,121.8 L101.7,123.6 L103.6,125.4 L105.5,127.2 L107.4,128.8 L109.4,130.4 L113.2,133.5 L117.0,136.3 L120.9,139.0 L124.7,141.4 L128.6,143.6 L132.4,145.7 L136.2,147.6 L140.1,149.4 L143.9,151.0 L147.8,152.5 L151.6,153.8 L155.4,155.0 L159.3,156.1 L163.1,157.2 L167.0,158.1 L170.8,158.9 L174.6,159.6 L178.5,160.2 L182.3,160.8 L186.2,161.3 L190.0,161.7 L193.8,162.0 L197.7,162.3 L201.5,162.6 L205.4,162.7 L209.2,162.9 L213.0,162.9 L216.9,162.9 L220.7,162.9 L224.6,162.9 L228.4,162.8 L232.2,162.6 L236.1,162.5 L239.9,162.3 L243.8,162.0 L247.6,161.8 L251.4,161.5 L255.3,161.2 L259.1,160.8 L263.0,160.5 L266.8,160.1 L270.6,159.7 L274.5,159.3 L278.3,158.9 L282.2,158.4 L286.0,157.9 L289.8,157.5 L293.7,157.0 L297.5,156.4 L301.4,155.9 L305.2,155.4 L309.0,154.8 L312.9,154.3 L316.7,153.7 L320.6,153.2 L324.4,152.6 L328.2,152.0 L332.1,151.4 L335.9,150.8 L339.8,150.2 L343.6,149.6 L347.4,148.9 L351.3,148.3 L355.1,147.7 L359.0,147.0 L362.8,146.4 L366.6,145.7 L370.5,145.1 L374.3,144.4 L378.2,143.8 L382.0,143.1 L385.8,142.4 L389.7,141.8 L393.5,141.1 L397.4,140.4 L401.2,139.7 L405.0,139.0 L408.9,138.4 L412.7,137.7 L416.6,137.0 L420.4,136.3 L424.2,135.6 L428.1,134.9 L431.9,134.2 L435.8,133.5 L439.6,132.8 L443.4,132.1 L447.3,131.4 L451.1,130.7 L455.0,130.0 L458.8,129.3 L462.6,128.6 L466.5,127.9 L470.3,127.2 L474.2,126.5 L478.0,125.8 L481.8,125.1 L485.7,124.4 L489.5,123.6 L493.4,122.9 L497.2,122.2 L501.0,121.5 L504.9,120.8 L508.7,120.1 L512.6,119.4 L516.4,118.7 L520.2,117.9 L524.1,117.2 L527.9,116.5 L531.8,115.8 L535.6,115.1 L539.4,114.4 L543.3,113.6 L547.1,112.9 L551.0,112.2 L554.8,111.5 L558.6,110.8 L562.5,110.1 L566.3,109.3 L570.2,108.6 L574.0,107.9 L577.8,107.2 L581.7,106.5 L585.5,105.7 L589.4,105.0 L593.2,104.3 L597.0,103.6 L600.9,102.9 L604.7,102.1 L608.6,101.4 L612.4,100.7 L616.2,100.0 L620.1,99.3 L622.0,98.9"/><text class="small" x="612.4" y="90.9" text-anchor="end">x = t/3 − 1/9</text></svg><figcaption><b>Figure 2.5.</b> Solutions of $\dot x + 3x = t$ (Robinson Example 9.1) for several $x(0)$; the thick curve is $x(0) = 8/9$. Every solution approaches the line $x = t/3 - 1/9$ because the term $Ce^{-3t}$ decays.</figcaption></figure>
+
+      <div class="callout example">
+        <div class="callout-title">Example 9.2 (Robinson p. 79): $(x^2 + 1)\,y' + 4xy = 12x$</div>
+        <ol class="steps">
+          <li>Standard form (divide by $x^2 + 1 > 0$): $\ y' + \dfrac{4x}{x^2 + 1}y = \dfrac{12x}{x^2 + 1}$.</li>
+          <li>Integrating factor: substitute $u = x^2 + 1$, $du = 2x\,dx$: $\displaystyle\int\frac{4x}{x^2 + 1}dx = \int\frac{2\,du}{u} = 2\ln u$, so $I = e^{2\ln(x^2 + 1)} = (x^2 + 1)^2$.</li>
+          <li>$\dfrac{d}{dx}\big[y(x^2 + 1)^2\big] = 12x(x^2 + 1)$. With the same substitution, $\int 12x(x^2 + 1)\,dx = \int 6u\,du = 3u^2 = 3(x^2 + 1)^2$.</li>
+          <li>$y(x^2 + 1)^2 = 3(x^2 + 1)^2 + c$, so $\ y(x) = 3 + \dfrac{c}{(x^2 + 1)^2}$.</li>
+        </ol>
+      </div>
+
+      <h3 class="sub-title">5.3 Newton's law of cooling <span class="cite">[Robinson, Sec. 9.4, Eq. (9.9), pp. 79–86]</span></h3>
+      <p>
+        An object at temperature $T(t)$ in surroundings at temperature $A(t)$ exchanges heat at a rate proportional to the temperature difference:
+      </p>
+      $$\frac{dT}{dt} = -k\big(T - A(t)\big), \qquad k > 0\ [\text{s}^{-1}]. \tag{9.9}$$
+      <p>In standard form, $\dot T + kT = kA(t)$, with integrating factor $e^{kt}$.</p>
+      <div class="callout example">
+        <div class="callout-title">Constant surroundings: estimating the time of death (Sec. 9.4.1, pp. 80–81)</div>
+        <p>
+          With $A$ constant, integrating $\frac{d}{dt}[Te^{kt}] = kAe^{kt}$ between $t_1$ and $t_2$ gives
+          $T(t_2)e^{kt_2} - T(t_1)e^{kt_1} = A\big(e^{kt_2} - e^{kt_1}\big)$, i.e.
+        </p>
+        $$T(t_2) = A + \big[T(t_1) - A\big]e^{-k(t_2 - t_1)}.$$
+        <p>
+          Data (time in hours): room at $A = 24\,{}^\circ\text{C}$, body at $28\,{}^\circ\text{C}$ at 8 a.m. and $26\,{}^\circ\text{C}$ at 9 a.m.
+          Then $26 = 24 + 4e^{-k}$, so $e^{-k} = 1/2$ and $k = \ln 2\ \text{h}^{-1}$. The time of death $t_0$ satisfies $T(t_0) = 37$:
+          $28 = 24 + 13e^{-k(8 - t_0)}$, so $4 = 13e^{-k(8 - t_0)}$ and
+        </p>
+        $$8 - t_0 = \frac{\ln 4 - \ln 13}{-\ln 2} = \frac{\ln(13/4)}{\ln 2} = \frac{1.1787}{0.6931} = 1.70\ \text{h}.$$
+      </div>
+      <div class="callout danger">
+        <div class="callout-title">Erratum — Robinson p. 81</div>
+        <p>
+          The book's equation for $8 - t_0$ is correct, but it then states "$t_0 \approx 1.7$, putting the time of death at approximately 1:42 a.m.".
+          The value $1.7$ is $8 - t_0$, not $t_0$. The correct result is $t_0 = 8 - 1.70 = 6.30$, i.e. about <strong>6:18 a.m.</strong>
+        </p>
+        <p>
+          <strong>Check by substitution.</strong> With $t_0 = 6.30$: $T(8) = 24 + 13\cdot 2^{-1.70} = 24 + 13 \times 0.308 = 28.0\,{}^\circ\text{C}$ ✓.
+          With the book's $t_0 = 1.7$: $T(8) = 24 + 13\cdot 2^{-6.3} = 24 + 13\times 0.0127 = 24.2\,{}^\circ\text{C} \neq 28$ ✗.
+          Physically, a body that cools by $2\,{}^\circ\text{C}$ per hour near $28\,{}^\circ\text{C}$ cannot have been at $37\,{}^\circ\text{C}$ more than six hours earlier.
+        </p>
+      </div>
+
+      <h4 class="sub-sub-title">Periodic surroundings: amplitude attenuation and lag (Sec. 9.4.2–9.4.4)</h4>
+      <p>
+        Take $A(t) = \mu + a\cos\omega t$ (mean $\mu$, amplitude $a$, period $2\pi/\omega$). Integrating (9.9) from $0$ to $t$ gives
+        $T(t)e^{kt} - T(0) = k\int_0^t A(\tilde t)e^{k\tilde t}d\tilde t$ (9.10). Using the antiderivative (9.11)
+        $\int e^{kt}\cos\omega t\,dt = \dfrac{e^{kt}(k\cos\omega t + \omega\sin\omega t)}{k^2 + \omega^2}$ (verify by differentiating) and
+        combining $A\cos\omega t + B\sin\omega t = \sqrt{A^2 + B^2}\cos(\omega t - \phi)$, $\tan\phi = B/A$ (9.12)–(9.15), Robinson obtains
+      </p>
+      $$T(t) = \mu + \left(T(0) - \mu - \frac{ak^2}{k^2 + \omega^2}\right)e^{-kt} + \frac{ak}{\sqrt{k^2 + \omega^2}}\cos(\omega t - \phi), \qquad \phi = \tan^{-1}\frac{\omega}{k}. \tag{9.17}$$
+      <ul>
+        <li><strong>Transient:</strong> the middle term decays on the time scale $1/k$ and the memory of $T(0)$ is lost.</li>
+        <li><strong>Attenuation:</strong> the inside oscillation has amplitude $a\,k/\sqrt{k^2 + \omega^2} < a$ (9.18).</li>
+        <li><strong>Lag:</strong> it peaks a time $\phi/\omega = \omega^{-1}\tan^{-1}(\omega/k)$ after the outside (9.19).</li>
+        <li><strong>Limits:</strong> $k \gg \omega$ (good thermal contact): amplitude $\to a$, lag $\to 0$, the object follows its surroundings. $k \ll \omega$ (heavy insulation): amplitude $\approx ak/\omega \to 0$, lag $\to \pi/(2\omega)$, a quarter period.</li>
+      </ul>
+      <figure class="fig"><svg viewBox="0 0 640.0 300.0" role="img" aria-label="Newton cooling with periodic ambient temperature" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="238.0" y1="260.0" x2="238.0" y2="22.0"/><line class="grid" x1="430.0" y1="260.0" x2="430.0" y2="22.0"/><line class="grid" x1="622.0" y1="260.0" x2="622.0" y2="22.0"/><line class="grid" x1="46.0" y1="230.2" x2="622.0" y2="230.2"/><line class="grid" x1="46.0" y1="131.1" x2="622.0" y2="131.1"/><line class="grid" x1="46.0" y1="31.9" x2="622.0" y2="31.9"/><line class="ax" x1="46.0" y1="260.0" x2="622.0" y2="260.0"/><polygon class="ahm" points="622.0,260.0 614.7,263.3 614.7,256.7"/><line class="ax" x1="46.0" y1="260.0" x2="46.0" y2="22.0"/><polygon class="ahm" points="46.0,22.0 49.3,29.3 42.7,29.3"/><line class="ax" x1="238.0" y1="256.0" x2="238.0" y2="264.0"/><text class="small" x="238.0" y="277.0" text-anchor="middle">1</text><line class="ax" x1="430.0" y1="256.0" x2="430.0" y2="264.0"/><text class="small" x="430.0" y="277.0" text-anchor="middle">2</text><line class="ax" x1="622.0" y1="256.0" x2="622.0" y2="264.0"/><text class="small" x="622.0" y="277.0" text-anchor="middle">3</text><line class="ax" x1="42.0" y1="230.2" x2="50.0" y2="230.2"/><text class="small" x="39.0" y="234.2" text-anchor="end">0</text><line class="ax" x1="42.0" y1="131.1" x2="50.0" y2="131.1"/><text class="small" x="39.0" y="135.1" text-anchor="end">10</text><line class="ax" x1="42.0" y1="31.9" x2="50.0" y2="31.9"/><text class="small" x="39.0" y="35.9" text-anchor="end">20</text><text class="lbl" x="618.0" y="252.0" text-anchor="end">t</text><text class="lbl" x="54.0" y="34.0" text-anchor="start">temperature</text><path class="c3 thin" d="M46.0,41.8 L48.9,42.3 L51.8,43.6 L54.6,45.8 L56.6,47.7 L58.5,50.0 L60.4,52.6 L62.3,55.6 L64.2,59.0 L66.2,62.6 L68.1,66.6 L70.0,70.9 L71.9,75.4 L72.9,77.8 L73.8,80.2 L74.8,82.7 L75.8,85.3 L76.7,87.9 L77.7,90.5 L78.6,93.2 L79.6,96.0 L80.6,98.8 L81.5,101.6 L82.5,104.5 L83.4,107.4 L84.4,110.4 L85.4,113.3 L86.3,116.3 L87.3,119.4 L88.2,122.4 L89.2,125.5 L90.2,128.6 L91.1,131.7 L92.1,134.8 L93.0,137.9 L94.0,141.0 L95.0,144.1 L95.9,147.2 L96.9,150.3 L97.8,153.4 L98.8,156.5 L99.8,159.6 L100.7,162.6 L101.7,165.7 L102.6,168.7 L103.6,171.6 L104.6,174.6 L105.5,177.5 L106.5,180.4 L107.4,183.2 L108.4,186.0 L109.4,188.8 L110.3,191.5 L111.3,194.1 L112.2,196.7 L113.2,199.3 L114.2,201.8 L115.1,204.2 L116.1,206.6 L118.0,211.1 L119.9,215.4 L121.8,219.4 L123.8,223.0 L125.7,226.4 L127.6,229.4 L129.5,232.0 L131.4,234.3 L133.4,236.2 L136.2,238.4 L139.1,239.7 L142.0,240.2 L144.9,239.7 L147.8,238.4 L150.6,236.2 L152.6,234.3 L154.5,232.0 L156.4,229.4 L158.3,226.4 L160.2,223.0 L162.2,219.4 L164.1,215.4 L166.0,211.1 L167.9,206.6 L168.9,204.2 L169.8,201.8 L170.8,199.3 L171.8,196.7 L172.7,194.1 L173.7,191.5 L174.6,188.8 L175.6,186.0 L176.6,183.2 L177.5,180.4 L178.5,177.5 L179.4,174.6 L180.4,171.6 L181.4,168.7 L182.3,165.7 L183.3,162.6 L184.2,159.6 L185.2,156.5 L186.2,153.4 L187.1,150.3 L188.1,147.2 L189.0,144.1 L190.0,141.0 L191.0,137.9 L191.9,134.8 L192.9,131.7 L193.8,128.6 L194.8,125.5 L195.8,122.4 L196.7,119.4 L197.7,116.3 L198.6,113.3 L199.6,110.4 L200.6,107.4 L201.5,104.5 L202.5,101.6 L203.4,98.8 L204.4,96.0 L205.4,93.2 L206.3,90.5 L207.3,87.9 L208.2,85.3 L209.2,82.7 L210.2,80.2 L211.1,77.8 L212.1,75.4 L214.0,70.9 L215.9,66.6 L217.8,62.6 L219.8,59.0 L221.7,55.6 L223.6,52.6 L225.5,50.0 L227.4,47.7 L229.4,45.8 L232.2,43.6 L235.1,42.3 L238.0,41.8 L240.9,42.3 L243.8,43.6 L246.6,45.8 L248.6,47.7 L250.5,50.0 L252.4,52.6 L254.3,55.6 L256.2,59.0 L258.2,62.6 L260.1,66.6 L262.0,70.9 L263.9,75.4 L264.9,77.8 L265.8,80.2 L266.8,82.7 L267.8,85.3 L268.7,87.9 L269.7,90.5 L270.6,93.2 L271.6,96.0 L272.6,98.8 L273.5,101.6 L274.5,104.5 L275.4,107.4 L276.4,110.4 L277.4,113.3 L278.3,116.3 L279.3,119.4 L280.2,122.4 L281.2,125.5 L282.2,128.6 L283.1,131.7 L284.1,134.8 L285.0,137.9 L286.0,141.0 L287.0,144.1 L287.9,147.2 L288.9,150.3 L289.8,153.4 L290.8,156.5 L291.8,159.6 L292.7,162.6 L293.7,165.7 L294.6,168.7 L295.6,171.6 L296.6,174.6 L297.5,177.5 L298.5,180.4 L299.4,183.2 L300.4,186.0 L301.4,188.8 L302.3,191.5 L303.3,194.1 L304.2,196.7 L305.2,199.3 L306.2,201.8 L307.1,204.2 L308.1,206.6 L310.0,211.1 L311.9,215.4 L313.8,219.4 L315.8,223.0 L317.7,226.4 L319.6,229.4 L321.5,232.0 L323.4,234.3 L325.4,236.2 L328.2,238.4 L331.1,239.7 L334.0,240.2 L336.9,239.7 L339.8,238.4 L342.6,236.2 L344.6,234.3 L346.5,232.0 L348.4,229.4 L350.3,226.4 L352.2,223.0 L354.2,219.4 L356.1,215.4 L358.0,211.1 L359.9,206.6 L360.9,204.2 L361.8,201.8 L362.8,199.3 L363.8,196.7 L364.7,194.1 L365.7,191.5 L366.6,188.8 L367.6,186.0 L368.6,183.2 L369.5,180.4 L370.5,177.5 L371.4,174.6 L372.4,171.6 L373.4,168.7 L374.3,165.7 L375.3,162.6 L376.2,159.6 L377.2,156.5 L378.2,153.4 L379.1,150.3 L380.1,147.2 L381.0,144.1 L382.0,141.0 L383.0,137.9 L383.9,134.8 L384.9,131.7 L385.8,128.6 L386.8,125.5 L387.8,122.4 L388.7,119.4 L389.7,116.3 L390.6,113.3 L391.6,110.4 L392.6,107.4 L393.5,104.5 L394.5,101.6 L395.4,98.8 L396.4,96.0 L397.4,93.2 L398.3,90.5 L399.3,87.9 L400.2,85.3 L401.2,82.7 L402.2,80.2 L403.1,77.8 L404.1,75.4 L406.0,70.9 L407.9,66.6 L409.8,62.6 L411.8,59.0 L413.7,55.6 L415.6,52.6 L417.5,50.0 L419.4,47.7 L421.4,45.8 L424.2,43.6 L427.1,42.3 L430.0,41.8 L432.9,42.3 L435.8,43.6 L438.6,45.8 L440.6,47.7 L442.5,50.0 L444.4,52.6 L446.3,55.6 L448.2,59.0 L450.2,62.6 L452.1,66.6 L454.0,70.9 L455.9,75.4 L456.9,77.8 L457.8,80.2 L458.8,82.7 L459.8,85.3 L460.7,87.9 L461.7,90.5 L462.6,93.2 L463.6,96.0 L464.6,98.8 L465.5,101.6 L466.5,104.5 L467.4,107.4 L468.4,110.4 L469.4,113.3 L470.3,116.3 L471.3,119.4 L472.2,122.4 L473.2,125.5 L474.2,128.6 L475.1,131.7 L476.1,134.8 L477.0,137.9 L478.0,141.0 L479.0,144.1 L479.9,147.2 L480.9,150.3 L481.8,153.4 L482.8,156.5 L483.8,159.6 L484.7,162.6 L485.7,165.7 L486.6,168.7 L487.6,171.6 L488.6,174.6 L489.5,177.5 L490.5,180.4 L491.4,183.2 L492.4,186.0 L493.4,188.8 L494.3,191.5 L495.3,194.1 L496.2,196.7 L497.2,199.3 L498.2,201.8 L499.1,204.2 L500.1,206.6 L502.0,211.1 L503.9,215.4 L505.8,219.4 L507.8,223.0 L509.7,226.4 L511.6,229.4 L513.5,232.0 L515.4,234.3 L517.4,236.2 L520.2,238.4 L523.1,239.7 L526.0,240.2 L528.9,239.7 L531.8,238.4 L534.6,236.2 L536.6,234.3 L538.5,232.0 L540.4,229.4 L542.3,226.4 L544.2,223.0 L546.2,219.4 L548.1,215.4 L550.0,211.1 L551.9,206.6 L552.9,204.2 L553.8,201.8 L554.8,199.3 L555.8,196.7 L556.7,194.1 L557.7,191.5 L558.6,188.8 L559.6,186.0 L560.6,183.2 L561.5,180.4 L562.5,177.5 L563.4,174.6 L564.4,171.6 L565.4,168.7 L566.3,165.7 L567.3,162.6 L568.2,159.6 L569.2,156.5 L570.2,153.4 L571.1,150.3 L572.1,147.2 L573.0,144.1 L574.0,141.0 L575.0,137.9 L575.9,134.8 L576.9,131.7 L577.8,128.6 L578.8,125.5 L579.8,122.4 L580.7,119.4 L581.7,116.3 L582.6,113.3 L583.6,110.4 L584.6,107.4 L585.5,104.5 L586.5,101.6 L587.4,98.8 L588.4,96.0 L589.4,93.2 L590.3,90.5 L591.3,87.9 L592.2,85.3 L593.2,82.7 L594.2,80.2 L595.1,77.8 L596.1,75.4 L598.0,70.9 L599.9,66.6 L601.8,62.6 L603.8,59.0 L605.7,55.6 L607.6,52.6 L609.5,50.0 L611.4,47.7 L613.4,45.8 L616.2,43.6 L619.1,42.3 L622.0,41.8"/><path class="c1" d="M46.0,111.2 L47.9,109.2 L49.8,107.2 L51.8,105.3 L53.7,103.5 L55.6,101.8 L58.5,99.5 L61.4,97.4 L64.2,95.6 L67.1,94.1 L70.0,92.9 L72.9,92.1 L75.8,91.6 L78.6,91.5 L81.5,91.8 L84.4,92.4 L87.3,93.4 L90.2,94.8 L93.0,96.4 L95.9,98.5 L98.8,100.8 L100.7,102.6 L102.6,104.4 L104.6,106.4 L106.5,108.5 L108.4,110.7 L110.3,113.0 L112.2,115.4 L114.2,117.9 L116.1,120.5 L118.0,123.1 L119.9,125.7 L121.8,128.4 L123.8,131.2 L125.7,134.0 L127.6,136.7 L129.5,139.5 L131.4,142.3 L133.4,145.0 L135.3,147.7 L137.2,150.4 L139.1,153.1 L141.0,155.6 L143.0,158.1 L144.9,160.5 L146.8,162.9 L148.7,165.1 L150.6,167.2 L152.6,169.2 L154.5,171.1 L156.4,172.9 L158.3,174.5 L161.2,176.7 L164.1,178.5 L167.0,180.0 L169.8,181.1 L172.7,181.9 L175.6,182.2 L178.5,182.2 L181.4,181.8 L184.2,181.0 L187.1,179.9 L190.0,178.4 L192.9,176.5 L195.8,174.3 L197.7,172.7 L199.6,171.0 L201.5,169.1 L203.4,167.1 L205.4,165.0 L207.3,162.8 L209.2,160.5 L211.1,158.1 L213.0,155.7 L215.0,153.2 L216.9,150.6 L218.8,148.0 L220.7,145.4 L222.6,142.7 L224.6,140.1 L226.5,137.4 L228.4,134.8 L230.3,132.1 L232.2,129.5 L234.2,127.0 L236.1,124.5 L238.0,122.0 L239.9,119.7 L241.8,117.4 L243.8,115.2 L245.7,113.1 L247.6,111.1 L249.5,109.2 L251.4,107.5 L253.4,105.8 L256.2,103.7 L259.1,101.8 L262.0,100.3 L264.9,99.2 L267.8,98.4 L270.6,98.0 L273.5,98.0 L276.4,98.3 L279.3,99.1 L282.2,100.2 L285.0,101.6 L287.9,103.4 L290.8,105.5 L293.7,108.0 L295.6,109.8 L297.5,111.7 L299.4,113.7 L301.4,115.9 L303.3,118.1 L305.2,120.4 L307.1,122.8 L309.0,125.3 L311.0,127.8 L312.9,130.4 L314.8,133.1 L316.7,135.7 L318.6,138.4 L320.6,141.1 L322.5,143.8 L324.4,146.4 L326.3,149.1 L328.2,151.7 L330.2,154.3 L332.1,156.8 L334.0,159.3 L335.9,161.7 L337.8,164.0 L339.8,166.2 L341.7,168.3 L343.6,170.3 L345.5,172.2 L347.4,174.0 L349.4,175.6 L352.2,177.8 L355.1,179.7 L358.0,181.2 L360.9,182.4 L363.8,183.2 L366.6,183.6 L369.5,183.6 L372.4,183.3 L375.3,182.6 L378.2,181.5 L381.0,180.1 L383.9,178.3 L386.8,176.1 L389.7,173.7 L391.6,171.9 L393.5,170.0 L395.4,168.0 L397.4,165.9 L399.3,163.6 L401.2,161.3 L403.1,158.9 L405.0,156.5 L407.0,153.9 L408.9,151.4 L410.8,148.7 L412.7,146.1 L414.6,143.4 L416.6,140.7 L418.5,138.0 L420.4,135.4 L422.3,132.7 L424.2,130.1 L426.2,127.5 L428.1,125.0 L430.0,122.6 L431.9,120.2 L433.8,117.9 L435.8,115.7 L437.7,113.6 L439.6,111.6 L441.5,109.7 L443.4,107.9 L445.4,106.3 L448.2,104.1 L451.1,102.2 L454.0,100.7 L456.9,99.5 L459.8,98.7 L462.6,98.3 L465.5,98.3 L468.4,98.6 L471.3,99.3 L474.2,100.4 L477.0,101.9 L479.9,103.7 L482.8,105.8 L485.7,108.2 L487.6,110.0 L489.5,111.9 L491.4,113.9 L493.4,116.1 L495.3,118.3 L497.2,120.6 L499.1,123.0 L501.0,125.5 L503.0,128.0 L504.9,130.6 L506.8,133.2 L508.7,135.9 L510.6,138.5 L512.6,141.2 L514.5,143.9 L516.4,146.6 L518.3,149.2 L520.2,151.9 L522.2,154.4 L524.1,156.9 L526.0,159.4 L527.9,161.8 L529.8,164.1 L531.8,166.3 L533.7,168.4 L535.6,170.4 L537.5,172.3 L539.4,174.1 L541.4,175.7 L544.2,177.9 L547.1,179.8 L550.0,181.3 L552.9,182.4 L555.8,183.2 L558.6,183.7 L561.5,183.7 L564.4,183.4 L567.3,182.6 L570.2,181.6 L573.0,180.1 L575.9,178.3 L578.8,176.2 L581.7,173.8 L583.6,172.0 L585.5,170.1 L587.4,168.0 L589.4,165.9 L591.3,163.7 L593.2,161.4 L595.1,159.0 L597.0,156.5 L599.0,154.0 L600.9,151.4 L602.8,148.8 L604.7,146.1 L606.6,143.4 L608.6,140.8 L610.5,138.1 L612.4,135.4 L614.3,132.8 L616.2,130.1 L618.2,127.6 L620.1,125.0 L622.0,122.6"/><text class="small" x="103.6" y="36.9" text-anchor="start">ambient A(t)</text><text class="small" x="305.2" y="76.5" text-anchor="start">T(t)</text></svg><figcaption><b>Figure 2.6.</b> Newton's law of cooling with a periodic surrounding temperature $A(t) = 9 + 10\cos 2\pi t$, $k = 3$, $T(0) = 12$ (data of Robinson Fig. 9.3). After the transient dies out, $T$ oscillates with the same period, a smaller amplitude and a time lag.</figcaption></figure>
+
+      <div class="callout aero">
+        <div class="callout-title">Aerospace model — cabin ventilation as a stirred tank (complementary, beyond the reference text)</div>
+        <p>
+          A well-mixed volume $V$ [m³] (an aircraft cabin, a combustor, a continuously stirred tank) receives a volumetric flow $Q$ [m³/s]
+          of air with contaminant concentration $c_{\text{in}}$, and the same flow leaves with the cabin concentration $c(t)$ (perfect mixing).
+          Occupants add a source $S$ [kg/s]. The mass balance "rate of change = in − out + source" reads
+        </p>
+        $$\frac{d}{dt}\big(Vc\big) = Qc_{\text{in}} - Qc + S \quad\Longrightarrow\quad \frac{dc}{dt} + \frac{Q}{V}\,c = \frac{Qc_{\text{in}} + S}{V}.$$
+        <p>
+          This is (9.1) with constant $p = Q/V$ and $q = (Qc_{\text{in}} + S)/V$, so by (9.6)
+          $c(t) = c_\infty + (c_0 - c_\infty)e^{-t/\tau}$, with steady state $c_\infty = c_{\text{in}} + S/Q$ and
+          <strong>residence time</strong> $\tau = V/Q$. For a cabin of $V = 150\ \text{m}^3$ supplied with $Q = 0.5\ \text{m}^3/\text{s}$,
+          $\tau = 300\ \text{s}$: after a disturbance the air is 95% refreshed in $3\tau = 15$ minutes ($e^{-3} \approx 0.05$).
+          Dimensions: $[Q/V] = \text{s}^{-1}$ ✓, $[S/Q] = \text{kg/m}^3$ ✓. Newton's law of cooling is the same equation with $k = Q/V$.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================== 6 -->
+    <section class="theory-section" id="sec-6">
+      <div class="section-header">
+        <div class="section-tag">Section 06 • Robinson Sec. 10.1 • Lecture Sep 17</div>
+        <h2 class="section-title">6. Exact equations</h2>
+      </div>
+      <p>
+        Start from the answer. A relation $F(x, y) = c$ defines curves $y(x)$ implicitly <span class="cite">[Eq. (10.1), p. 89]</span>.
+        Differentiating $F(x, y(x)) = c$ with respect to $x$ by the multivariable chain rule gives a first-order ODE:
+      </p>
+      $$\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{dy}{dx} = 0. \tag{10.2}$$
+      <p>Exact equations are the ODEs that arise this way; solving them means recovering $F$.</p>
+      <div class="callout def">
+        <div class="callout-title">Definition — exact equation <span class="cite">[Robinson, Eqs. (10.3)–(10.4), p. 89]</span></div>
+        <p>The equation</p>
+        $$f(x, y) + g(x, y)\frac{dy}{dx} = 0 \tag{10.3}$$
+        <p>
+          is <strong>exact</strong> if there is a function $F(x, y)$ (a potential) with $\dfrac{\partial F}{\partial x} = f$ and
+          $\dfrac{\partial F}{\partial y} = g$. Its solutions are then given implicitly by $F(x, y) = c$.
+        </p>
+      </div>
+      <div class="callout thm">
+        <div class="callout-title">Test for exactness <span class="cite">[Robinson, Eq. (10.5), p. 90]</span></div>
+        $$\frac{\partial f}{\partial y} = \frac{\partial g}{\partial x} \tag{10.5}$$
+        <p>is necessary and sufficient for (10.3) to be exact (for smooth $f$, $g$ on a rectangle).</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          <strong>Necessity.</strong> If $f = F_x$ and $g = F_y$, then $f_y = F_{xy}$ and $g_x = F_{yx}$, and mixed second partial derivatives
+          of a smooth function are equal.
+        </p>
+        <p><strong>Sufficiency (constructive).</strong> Define $F$ by integrating $f$ in $x$, holding $y$ fixed, with a "constant" that may depend on $y$:</p>
+        $$F(x, y) = \int f(x, y)\,dx + C(y). \tag{10.6}$$
+        <p>Then $F_x = f$ automatically. We need $F_y = g$:</p>
+        $$\frac{\partial}{\partial y}\int f\,dx + C'(y) = g \quad\Longrightarrow\quad C'(y) = g(x, y) - \frac{\partial}{\partial y}\int f(x, y)\,dx. \tag{10.7}$$
+        <p>This defines $C(y)$ only if the right side does not depend on $x$. Differentiate it in $x$:</p>
+        $$\frac{\partial}{\partial x}\left[g - \frac{\partial}{\partial y}\int f\,dx\right] = \frac{\partial g}{\partial x} - \frac{\partial}{\partial y}\frac{\partial}{\partial x}\int f\,dx = \frac{\partial g}{\partial x} - \frac{\partial f}{\partial y} = 0$$
+        <p>by (10.5). So the right side of (10.7) is a function of $y$ alone, and integrating it gives $C(y)$.</p>
+      </div>
+
+      <div class="callout example">
+        <div class="callout-title">Example 10.1 (Robinson p. 91): $\left(x^3 + \dfrac yx\right) + \left(y^2 + \ln x\right)\dfrac{dy}{dx} = 0$, $x > 0$</div>
+        <ol class="steps">
+          <li>$f = x^3 + y/x$, $g = y^2 + \ln x$. Test: $f_y = 1/x$, $g_x = 1/x$: exact ✓.</li>
+          <li>Integrate $f$ in $x$: $F = \displaystyle\int\left(x^3 + \frac yx\right)dx = \frac{x^4}{4} + y\ln x + C(y)$.</li>
+          <li>Match $F_y = g$: $\ \ln x + C'(y) = y^2 + \ln x$, so $C'(y) = y^2$ (indeed independent of $x$) and $C(y) = y^3/3$.</li>
+          <li>Solution, implicitly: $\ \dfrac{x^4}{4} + y\ln x + \dfrac{y^3}{3} = c$.</li>
+        </ol>
+        <p><strong>Check:</strong> differentiating with (10.2): $F_x + F_yy' = (x^3 + y/x) + (\ln x + y^2)y' = f + gy'$ ✓.</p>
+      </div>
+
+      <h3 class="sub-title">6.1 Integrating factors for non-exact equations <span class="cite">[Robinson, Sec. 10.1.1, pp. 91–94]</span></h3>
+      <p>
+        Multiplying by a well-chosen $I(x, y)$ can make an equation exact. The linear equation $y' + p(x)y = 0$, written $p\,y + 1\cdot y' = 0$, is
+        not exact ($\partial_y(py) = p \neq 0 = \partial_x 1$) but $e^{P(x)}$ makes it exact: $\partial_y\big(pe^{P}y\big) = pe^{P} = \partial_x e^{P}$.
+        So the integrating factor of Section 5 is a special case.
+      </p>
+      <p>In general, $If + Ig\,y' = 0$ is exact when $\partial_y(If) = \partial_x(Ig)$. By the product rule this is</p>
+      $$I_y f + If_y = I_x g + Ig_x \quad\Longleftrightarrow\quad \left(\frac{\partial f}{\partial y} - \frac{\partial g}{\partial x}\right)I = g\frac{\partial I}{\partial x} - f\frac{\partial I}{\partial y}, \tag{10.9}$$
+      <p>a PDE for $I$ that is in general no easier than the original problem. It becomes an ODE if $I$ depends on one variable only.</p>
+      <div class="callout result">
+        <div class="callout-title">Special integrating factors</div>
+        <p><strong>$I = I(x)$</strong> (Robinson (10.10)–(10.11)): then $I_y = 0$ and (10.9) becomes</p>
+        $$\frac{dI}{dx} = \frac{1}{g}\left(\frac{\partial f}{\partial y} - \frac{\partial g}{\partial x}\right)I,$$
+        <p>which has a solution $I(x)$ provided $\dfrac{1}{g}\left(f_y - g_x\right)$ depends on $x$ only. Then $I(x) = \exp\displaystyle\int\frac{f_y - g_x}{g}\,dx$.</p>
+        <p><strong>$I = I(y)$</strong> (the symmetric case, not treated in the book): then $I_x = 0$ and (10.9) becomes</p>
+        $$\frac{dI}{dy} = \frac{1}{f}\left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right)I,$$
+        <p>which has a solution $I(y)$ provided $\dfrac{1}{f}\left(g_x - f_y\right)$ depends on $y$ only. Then $I(y) = \exp\displaystyle\int\frac{g_x - f_y}{f}\,dy$.</p>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 10.2 (Robinson pp. 93–94): an integrating factor $I(x)$</div>
+        $$\left(3\sin y + 5ye^{5x} + \frac{2ye^{5x}}{x}\right) + \left(x\cos y + e^{5x}\right)\frac{dy}{dx} = 0.$$
+        <ol class="steps">
+          <li>$f_y = 3\cos y + 5e^{5x} + \dfrac{2e^{5x}}{x}$ and $g_x = \cos y + 5e^{5x}$ (chain rule on $e^{5x}$). Not exact.</li>
+          <li>$\dfrac{f_y - g_x}{g} = \dfrac{2\cos y + 2e^{5x}/x}{x\cos y + e^{5x}} = \dfrac{(2/x)\,(x\cos y + e^{5x})}{x\cos y + e^{5x}} = \dfrac{2}{x}$ — a function of $x$ only.</li>
+          <li>$\dfrac{dI}{dx} = \dfrac{2}{x}I$, so $\ln I = 2\ln x$ and $I = x^2$.</li>
+          <li>New equation: $\big(3x^2\sin y + 5x^2ye^{5x} + 2xye^{5x}\big) + \big(x^3\cos y + x^2e^{5x}\big)y' = 0$. Test: both partials equal $3x^2\cos y + 5x^2e^{5x} + 2xe^{5x}$ ✓.</li>
+          <li>$F = \int \tilde g\,dy = x^3\sin y + x^2ye^{5x} + C(x)$; then $F_x = 3x^2\sin y + 2xye^{5x} + 5x^2ye^{5x} + C'(x) = \tilde f$ gives $C' = 0$.</li>
+          <li>Solution: $\ x^3\sin y + x^2ye^{5x} = c$.</li>
+        </ol>
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Illustration — an integrating factor $I(y)$</div>
+        <p>Solve $\ y + \big(2x + y^2\big)\dfrac{dy}{dx} = 0$, $y > 0$.</p>
+        <ol class="steps">
+          <li>$f = y$, $g = 2x + y^2$: $f_y = 1$, $g_x = 2$. Not exact.</li>
+          <li>$\dfrac{f_y - g_x}{g} = \dfrac{-1}{2x + y^2}$ depends on both variables, so no $I(x)$. But $\dfrac{g_x - f_y}{f} = \dfrac{1}{y}$ depends on $y$ only.</li>
+          <li>$\dfrac{dI}{dy} = \dfrac{I}{y}$, so $I(y) = y$.</li>
+          <li>New equation: $y^2 + (2xy + y^3)y' = 0$. Test: $\partial_y(y^2) = 2y = \partial_x(2xy + y^3)$ ✓.</li>
+          <li>$F = \int y^2\,dx = xy^2 + C(y)$; $F_y = 2xy + C'(y) = 2xy + y^3$, so $C(y) = y^4/4$.</li>
+          <li>Solution: $\ xy^2 + \dfrac{y^4}{4} = c$. Check: $\frac{d}{dx}$ gives $y^2 + 2xyy' + y^3y' = y\,[\,y + (2x + y^2)y'\,] = 0$ ✓.</li>
         </ol>
       </div>
     </section>
 
-    <!-- ========================================================
-         SECTION 6: QUALITATIVE ANALYSIS & PHASE LINES
-         ======================================================== -->
-    <section class="theory-section" id="sec-6">
-      <div class="section-header">
-        <div class="section-tag">Section 06</div>
-        <h2 class="section-title">6. Qualitative Analysis of Autonomous ODEs & Phase Lines</h2>
-      </div>
-
-      <p>
-        For an autonomous system $\frac{dx}{dt} = f(x)$, global qualitative trajectories can be characterized completely without analytical integration.
-      </p>
-
-      <h3 class="sub-title">6.1 Linear Stability Criterion for 1D Equilibria</h3>
-      <p>
-        Stationary states satisfy $f(x^*) = 0$. Expanding around $x^*$ for small perturbations $\xi(t) = x(t) - x^*$:
-      </p>
-      $$ \dot{\xi} \approx f'(x^*) \xi \implies \xi(t) = \xi_0 e^{f'(x^*) t} \tag{6.1} $$
-      <ul>
-        <li><strong>$f'(x^*) < 0$:</strong> Asymptotically Stable Attractor (Sink). Trajectories converge to $x^*$.</li>
-        <li><strong>$f'(x^*) > 0$:</strong> Unstable Repellor (Source). Trajectories diverge away from $x^*$.</li>
-        <li><strong>$f'(x^*) = 0$:</strong> Non-hyperbolic: the linearization is inconclusive and higher-order terms decide the flow. All three behaviours occur at $x^* = 0$: $x' = -x^3$ is asymptotically stable, $x' = x^3$ is unstable and $x' = x^2$ is semistable (attracting from one side only).</li>
-      </ul>
-
-      <h3 class="sub-title">6.2 The No-Crossing Theorem and Invariant Confinement Corridors</h3>
-      <div class="result-box">
-        <div class="result-box-title">The No-Crossing Theorem (Problem 2.12)</div>
-        <p>
-          By Picard-Lindelöf uniqueness, two distinct solutions $y_1(t)$ and $y_2(t)$ of a smooth ODE $y' = f(t, y)$ 
-          <strong>can never intersect or touch in the $(t, y)$ plane</strong>:
-        </p>
-        $$ y_1(t_0) < y_2(t_0) \implies y_1(t) < y_2(t) \quad \forall t \text{ in their common interval of existence} $$
-        <p>Hypotheses: $f$ and $\partial f/\partial y$ continuous on the region swept by both graphs, so uniqueness holds at every point; continuity of $y_2-y_1$ plus the intermediate value theorem then forbids a sign change.</p>
-        <p>
-          <em>Consequence:</em> Any known particular solution acts as an impenetrable barrier. If $y_1(t) = -t-1$ and $y_2(t) = t^2+1$ 
-          are solutions, a third solution starting at $y(0) = 0$ is forever trapped inside the invariant corridor:
-        </p>
-        $$ -t - 1 < y(t) < t^2 + 1 \quad \forall t \in \mathbb{R} $$
-      </div>
-
-      <h3 class="sub-title">6.3 Supercritical Pitchfork Bifurcations: $\dot{x} = x(\kappa^2 - x^2)$</h3>
-      <p>
-        In aerospace structural stability and roll-pitch coupling, qualitative dynamics change as parameters pass critical thresholds.
-      </p>
-      <p>
-        Consider $\dot{x} = x(\kappa^2 - x^2)$ with $\kappa > 0$ (Problem 2.16):
-      </p>
-      <ul>
-        <li><strong>Equilibria:</strong> $f(x) = 0 \implies x_1^* = -\kappa, \quad x_2^* = 0, \quad x_3^* = +\kappa$.</li>
-        <li><strong>Stability Derivative:</strong> $f'(x) = \kappa^2 - 3x^2$.
-          <ul>
-            <li>At $x_2^* = 0$: $f'(0) = \kappa^2 > 0 \implies$ <strong>Unstable Repellor</strong>.</li>
-            <li>At $x_{1,3}^* = \pm\kappa$: $f'(\pm\kappa) = \kappa^2 - 3\kappa^2 = -2\kappa^2 < 0 \implies$ <strong>Asymptotically Stable Attractors</strong>.</li>
-          </ul>
-        </li>
-        <li><strong>Phase Flow:</strong> The state space $\mathbb{R}$ splits into four invariant corridors:
-          $(-\infty, -\kappa) \to -\kappa$, $(-\kappa, 0) \to -\kappa$, $(0, \kappa) \to +\kappa$, and $(\kappa, \infty) \to +\kappa$. 
-          This is the canonical model of a <strong>supercritical pitchfork bifurcation</strong>.
-        </li>
-      </ul>
-    </section>
-
-    <!-- ========================================================
-         SECTION 7: WORKED EXAMPLES, ONE PER METHOD
-         ======================================================== -->
+    <!-- ===================================================== 7 -->
     <section class="theory-section" id="sec-7">
       <div class="section-header">
-        <div class="section-tag">Section 07</div>
-        <h2 class="section-title">7. Worked Examples, One per Method</h2>
+        <div class="section-tag">Section 07 • Robinson Sec. 10.2 (beyond the lecture map)</div>
+        <h2 class="section-title">7. Substitutions: homogeneous and Bernoulli equations</h2>
       </div>
-
       <p>
-        Examples B to F come from the official notes (<em>Book ODE's</em>, J.C. Robinson; printed page cited, PDF page = printed page + 16).
-        Example A is an <strong>illustrative example</strong>. Each closed form was verified with sympy (zero residual in the ODE and in the initial datum) and with an RK4 integration.
+        Robinson's Chapter 10 closes with two substitutions that turn special nonlinear equations into ones already solved. They are not in
+        the lecture map but appear in the problem sheets' style of questions.
       </p>
-
-      <div class="result-box">
-        <div class="result-box-title">Example A (illustrative example): Separable, $y' = x\,e^{-y}$, $y(0)=0$</div>
-        <p>Here $g(x)=x$ and $h(y)=e^{-y}>0$: there are no equilibria, so dividing is legitimate. Multiply by $e^{y}$ and use the chain rule $\frac{d}{dx}e^{y(x)} = e^{y(x)}\,y'(x)$:</p>
-        $$ \frac{d}{dx}\left[e^{y(x)}\right] = x \;\Longrightarrow\; \int_{0}^{y(x)} e^{u}\,du = \int_0^x s\,ds \;\Longrightarrow\; \left[e^{u}\right]_{0}^{y(x)} = \left[\frac{s^2}{2}\right]_0^x $$
-        $$ e^{y} - 1 = \frac{x^2}{2} \;\Longrightarrow\; \mathbf{y(x) = \ln\left(1 + \frac{x^2}{2}\right)}, \quad x \in \mathbb{R} $$
-        <p>The argument of the logarithm is at least $1$, so the solution is global.</p>
+      <ul>
+        <li>
+          <strong>Homogeneous equations</strong> $\dfrac{dy}{dx} = F\!\left(\dfrac yx\right)$ (a different meaning of "homogeneous" from the linear one).
+          Put $y = ux$; by the product rule $y' = u + xu'$, so $x\dfrac{du}{dx} = F(u) - u$, which is separable. Example 10.3: $xyy' = 2x^2 + 3y^2$
+          gives $y = \pm x\sqrt{\alpha x^4 - 1}$.
+        </li>
+        <li>
+          <strong>Bernoulli equations</strong> $\dfrac{dy}{dx} + p(x)y = q(x)y^n$ (10.13), $n \neq 0, 1$. Put $u = y^{1-n}$; by the chain rule
+          $u' = (1 - n)y^{-n}y' = (1 - n)y^{-n}\big(-py + qy^n\big) = (1 - n)(-pu + q)$, so
+          $$\frac{du}{dx} + (1 - n)p(x)\,u = (1 - n)q(x),$$
+          which is linear and solved by an integrating factor.
+        </li>
+      </ul>
+      <div class="callout example">
+        <div class="callout-title">Example 10.4 (Robinson p. 96): $y' - 6xy = 2xy^2$</div>
+        <p>
+          $n = 2$, $u = y^{-1}$, $u' = -y^{-2}y' = -y^{-2}(6xy + 2xy^2) = -6xu - 2x$, so $u' + 6xu = -2x$. Integrating factor $e^{\int 6x\,dx} = e^{3x^2}$:
+          $\frac{d}{dx}\big(ue^{3x^2}\big) = -2xe^{3x^2}$; with $w = 3x^2$, $dw = 6x\,dx$, $\int -2xe^{3x^2}dx = -\tfrac13e^{3x^2}$. Hence
+          $u = -\tfrac13 + ce^{-3x^2}$ and $y = 1/u = \dfrac{3}{Ce^{-3x^2} - 1}$ with $C = 3c$.
+        </p>
       </div>
+    </section>
 
-      <div class="result-box">
-        <div class="result-box-title">Example B: Linear with integrating factor, $x' + 3x = t$, $x(0) = \frac{8}{9}$ (Book, Example 9.1, p. 78)</div>
-        <p>With $p(t)=3$: $\mu(t) = \exp\left(\int_0^t 3\,ds\right) = e^{3t}$, so $\mu(0)=1$. By the product rule, $\frac{d}{dt}\left[x e^{3t}\right] = e^{3t}x' + 3e^{3t}x = t e^{3t}$. Integrate over $[0,t]$ (Barrow). By parts ($u=s$, $dv=e^{3s}ds$): $\int s e^{3s}ds = \frac{s e^{3s}}{3} - \frac{e^{3s}}{9}$.</p>
-        $$ x(t)e^{3t} - x(0) = \left[\frac{s e^{3s}}{3} - \frac{e^{3s}}{9}\right]_{0}^{t} = \frac{t e^{3t}}{3} - \frac{e^{3t}}{9} + \frac{1}{9} $$
-        <p>With $x(0)=\frac{8}{9}$ we get $x e^{3t} = \frac{t e^{3t}}{3} - \frac{e^{3t}}{9} + 1$, hence</p>
-        $$ \mathbf{x(t) = e^{-3t} + \frac{t}{3} - \frac{1}{9}} $$
-        <p>The solution is global on $\mathbb{R}$ (continuous coefficients). The term $e^{-3t}$ is the transient and $\frac{t}{3}-\frac{1}{9}$ is the forced response.</p>
+    <!-- ===================================================== 8 -->
+    <section class="theory-section" id="sec-8">
+      <div class="section-header">
+        <div class="section-tag">Section 08 • Summary</div>
+        <h2 class="section-title">8. Choosing a method</h2>
       </div>
-
-      <div class="result-box">
-        <div class="result-box-title">Example C: Exact equation, $\left(x^3 + \frac{y}{x}\right) + \left(y^2 + \ln x\right)y' = 0$, $x>0$ (Book, Example 10.1, p. 91)</div>
-        <p>Let $M = x^3 + \frac{y}{x}$ and $N = y^2 + \ln x$. <strong>Exactness check:</strong> $\frac{\partial M}{\partial y} = \frac{1}{x} = \frac{\partial N}{\partial x}$ on the simply connected domain $x>0$.</p>
-        <p><strong>Potential function:</strong> $F = \int M\,dx = \frac{x^4}{4} + y\ln x + C(y)$. Then $F_y = \ln x + C'(y)$ must equal $N = y^2 + \ln x$, so $C'(y) = y^2$ and $C(y) = \frac{y^3}{3}$.</p>
-        $$ \mathbf{F(x,y) = \frac{x^4}{4} + y\ln x + \frac{y^3}{3} = c} $$
-        <p>Check: $dF = \left(x^3 + \frac{y}{x}\right)dx + \left(\ln x + y^2\right)dy$. The solution is implicit (it cannot be solved for $y$). With $y(1)=1$: $c = \frac14 + 0 + \frac13 = \frac{7}{12}$.</p>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>If the equation is…</th><th>Recognise it by</th><th>Do this</th><th>Robinson</th></tr></thead>
+          <tbody>
+            <tr><td>Autonomous $\dot x = f(x)$</td><td>No explicit $t$</td><td>Phase line; stability by sign of $f'(x^*)$. Solve explicitly only if rates are needed.</td><td>Ch. 7</td></tr>
+            <tr><td>Separable $\dot x = f(x)g(t)$</td><td>Right side factorises</td><td>List constant solutions $f(x^*) = 0$; then integrate $\int dx/f = \int g\,dt$; remove moduli with the phase line.</td><td>Ch. 8</td></tr>
+            <tr><td>Linear $\dot x + p(t)x = q(t)$</td><td>$x$ and $\dot x$ appear to the first power</td><td>$I = e^{\int p\,dt}$, then $\frac{d}{dt}(Ix) = Iq$.</td><td>Ch. 9</td></tr>
+            <tr><td>Exact $f + gy' = 0$</td><td>$f_y = g_x$</td><td>Build $F$ with $F_x = f$, $F_y = g$; answer $F = c$.</td><td>Sec. 10.1</td></tr>
+            <tr><td>Not exact</td><td>$(f_y - g_x)/g$ depends on $x$ only, or $(g_x - f_y)/f$ on $y$ only</td><td>Multiply by $I(x)$ or $I(y)$, then as above.</td><td>Sec. 10.1.1</td></tr>
+            <tr><td>Homogeneous / Bernoulli</td><td>$y' = F(y/x)$ / $y' + py = qy^n$</td><td>$y = ux$ / $u = y^{1-n}$.</td><td>Sec. 10.2</td></tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="result-box">
-        <div class="result-box-title">Example D: Bernoulli, $y' - 6xy = 2xy^2$, $y(0)=\frac12$ (Book, Example 10.4, p. 96; initial datum added)</div>
-        <p>Here $\alpha = 2$, $a(x)=6x$, $b(x)=2x$. The equilibrium $y\equiv 0$ is lost when dividing by $y^2$ and must be listed separately. Divide by $y^2$ and set $u = y^{1-\alpha} = y^{-1}$; by the chain rule $u' = -y^{-2}y'$:</p>
-        $$ y^{-2}y' - 6x\,y^{-1} = 2x \;\Longrightarrow\; -u' - 6xu = 2x \;\Longrightarrow\; u' + 6x\,u = -2x, \quad u(0)=2. $$
-        <p>Integrating factor $\mu(x) = \exp\left(\int_0^x 6s\,ds\right) = e^{3x^2}$, so $\frac{d}{dx}\left[u e^{3x^2}\right] = -2x e^{3x^2}$. Integrate with Barrow, substituting $w = 3s^2$, $dw = 6s\,ds$ (so $2s\,ds = \frac{dw}{3}$, limits $0 \to 3x^2$):</p>
-        $$ u e^{3x^2} - 2 = -\frac13\int_0^{3x^2} e^{w}\,dw = -\frac13\left(e^{3x^2} - 1\right) \;\Longrightarrow\; u = \frac{7}{3}e^{-3x^2} - \frac13 $$
-        $$ \mathbf{y(x) = \frac{3}{7e^{-3x^2} - 1}} $$
-        <p>The denominator vanishes at $e^{-3x^2} = \frac17$, i.e. $x_* = \pm\sqrt{\frac{\ln 7}{3}} \approx \pm 0.805$. The maximal interval of existence is $(-x_*, x_*)$.</p>
-      </div>
-
-      <div class="result-box">
-        <div class="result-box-title">Example E: Autonomous phase line, $p' = kp\left(1 - \frac pM\right)$, $k,M>0$ (Book, Section 7.5.1, p. 51)</div>
-        <p>Equilibria: $f(p)=0 \iff p=0$ or $p=M$. Sign of $f$: $f<0$ on $(-\infty,0)$, $f>0$ on $(0,M)$, $f<0$ on $(M,\infty)$. Since $p$ increases where $f>0$ and decreases where $f<0$, the flow leaves $0$ on both sides (<strong>unstable</strong>) and enters $M$ from both sides (<strong>stable</strong>).</p>
-        <p>Analytic confirmation: $f'(p) = k - \frac{2kp}{M}$, so $f'(0)=k>0$ (unstable) and $f'(M) = -k<0$ (stable). If $f'(p^*)=0$ the test is inconclusive and the sign of $f$ on each side decides (for $x'=x^2$ the origin is semistable).</p>
-      </div>
-
-      <div class="warning-box">
-        <div class="warning-box-title">Example F: Finite-time blow-up and maximal interval, $x' = x^2$, $x(0)=x_0>0$ (Book, Example 8.1, p. 60; Section 6.3, pp. 41-42)</div>
-        <p>$f=x^2$ and $f_x=2x$ are continuous, so a unique local solution exists. Separate and apply Barrow:</p>
-        $$ \int_{x_0}^{x(t)} \frac{du}{u^2} = \int_0^t ds \;\Longrightarrow\; -\frac{1}{x(t)} + \frac{1}{x_0} = t \;\Longrightarrow\; \mathbf{x(t) = \frac{1}{x_0^{-1} - t}} $$
-        <p>The denominator vanishes at $T = x_0^{-1}$; equivalently $T = \int_{x_0}^{\infty}\frac{du}{u^2} = \frac{1}{x_0}$. As $t\to T^-$, $x\to+\infty$; as $t\to-\infty$, $x\to 0^+$. Hence the <strong>maximal interval of existence</strong> is $(-\infty, x_0^{-1})$. For $x_0<0$ it is $(x_0^{-1}, +\infty)$, and only $x_0=0$ gives a solution on all of $\mathbb{R}$.</p>
-      </div>
-
-      <div class="note-box">
-        <div class="note-box-title">Numerical verification (RK4, 2000 steps, against the closed forms)</div>
-        <p>A: $y(2)=1.0986122887$ vs $\ln 3$. B: $x(2)$ agrees to $1.5\times10^{-14}$. C: $F(1.5,y_{RK4})=0.58333333$ vs $c=\frac{7}{12}$. D: $y(0.5)=1.30063487$ in both. E ($k=1$, $M=2$): $p(20)=2.0000000$ from $p_0=0.5$ and from $p_0=3$. F ($x_0=2$): $x(0.49)=100.0000$ vs $\frac{1}{0.5-0.49}=100$.</p>
+      <div class="callout note">
+        <div class="callout-title">Always check</div>
+        <p>
+          Substitute the answer back into the equation and the initial condition. Look for lost constant solutions after dividing. Test the
+          limits $t \to 0$ and $t \to \infty$ against the phase line. Check the dimensions of every constant that appears.
+        </p>
       </div>
     </section>
 
 
-    <!-- ARTICLE BOTTOM NAVIGATION -->
-    <nav class="article-nav" aria-label="Topic Navigation">
-      <a href="topic-1.html" class="nav-btn">
-        <span class="nav-btn-label">← Previous Topic</span>
-        <span class="nav-btn-title">Topic 1: Introduction, Modeling and Classification</span>
-      </a>
-      <a href="../problemas/topic-2-problems.html" class="nav-btn" style="text-align: right;">
-        <span class="nav-btn-label">Next Step →</span>
-        <span class="nav-btn-title">Chapter 2 Solved Problems (17 Exercises)</span>
-      </a>
+    <nav class="article-nav" aria-label="Topic navigation">
+      <a href="topic-1.html" class="nav-btn"><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">Topic 1: Introduction, Modelling and the Theory of First-Order IVPs</span></a>
+      <a href="topic-3.html" class="nav-btn next"><span class="nav-btn-label">Next →</span><span class="nav-btn-title">Topic 3: Second-Order Linear Equations and Vibrations</span></a>
     </nav>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
-      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
-      <p>Advanced Mathematics • Topic 2 Study Guide • Prepared for Academic Excellence</p>
-      <p style="margin-top: 8px;">
-        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
-      </p>
+      <p>Advanced Mathematics • Topic 2 • BSc in Aerospace Engineering, Universidad Carlos III de Madrid</p>
+      <p>Reference text: J. C. Robinson, <em>An Introduction to Ordinary Differential Equations</em>, Cambridge University Press, 2004. Page numbers are the book's printed pages.</p>
+      <p style="margin-top: 8px;"><a href="../../../index.html">← Return to the main study portal</a></p>
     </footer>
 
-
-    <!-- Aerospace Motivational Quote Component -->
-    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <section style="max-width: 920px; margin: 48px auto 24px;">
       <div id="quoteContainer"></div>
     </section>
   </main>
 
   <script src="../../../assets/js/quotes.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.initAerospaceQuote) {
-        initAerospaceQuote('#quoteContainer');
-      }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initAerospaceQuote) { initAerospaceQuote('#quoteContainer'); }
     });
   </script>
-  <!-- Celestial Sky Engine -->
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>
 </html>
-
