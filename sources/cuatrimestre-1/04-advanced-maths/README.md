@@ -3,7 +3,7 @@
 > **Course Code:** `251-15331` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `c27033c3-5a64-403f-a517-5847831aabcb`  
 > **Portal Web:** `subjects/04-advanced-maths/` | **Obsidian Vault:** `vault/04-advanced-maths/`  
-> **Last Synchronized:** `2026-10-08 14:32` | **Total Official Files:** `8` (11.3 MB)
+> **Last Synchronized:** `2026-10-10 16:27` | **Total Official Files:** `10` (16.0 MB)
 
 ---
 
@@ -14,7 +14,7 @@
 | 📖 **Theory & Slides** | `3` | 🟢 Active | Consolidated Notes & Session Slides |
 | ✏️ **Problem Sheets & Solutions** | `4` | 🟢 Active | Official problem sets & step-by-step solutions |
 | 📝 **Official Exams** | `0` | 🟡 Incomplete | Partial midterms & final exams |
-| 📅 **Course Schedule** | `1` | 🟢 Available | Weekly lecture & evaluation calendar |
+| 📅 **Course Schedule** | `2` | 🟢 Available | Weekly lecture & evaluation calendar |
 
 ---
 
@@ -22,14 +22,16 @@
 
 | # | File Name | Category / Subfolder | Size | File Path |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
-| 2 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
-| 3 | `BookODE's.pdf` | 📖 Theory | 4.6 MB | `unit-01-introduction-ode-modeling/teoria/BookODE's.pdf` |
-| 4 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
-| 5 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
-| 6 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
-| 7 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
-| 8 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
+| 1 | `J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf` | Other | 4.6 MB | `J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf` |
+| 2 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 12.2 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
+| 3 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
+| 4 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
+| 5 | `BookODE's.pdf` | 📖 Theory | 4.6 MB | `unit-01-introduction-ode-modeling/teoria/BookODE's.pdf` |
+| 6 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
+| 7 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
+| 8 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
+| 9 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
+| 10 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
 
 ---
 
@@ -38,7 +40,7 @@
 This checklist tracks all academic materials required according to the official UC3M syllabus. It identifies existing items and highlights missing documents that should be uploaded when published.
 
 ### 1. Course Schedule & Organization
-- [x] **Official Syllabus & Calendar (`schedule/`):** Present (`view.htm`)
+- [x] **Official Syllabus & Calendar (`schedule/`):** Present (`ODE_lecture_theory_to_Robinson_chapters.txt`)
 
 ### 2. Syllabus Units & Weekly Topics
 
@@ -51,14 +53,14 @@ This checklist tracks all academic materials required according to the official 
 #### Unit 2: First-Order ODEs & Qualitative Dynamics (`unit-02-first-order-odes/`)
   * **Theory / Slides:**
     - [x] BookODE's.pdf (Ch 2)
-    - [ ] Lecture notes on integrating factors & exact equations
+    - [x] Lecture notes on integrating factors & exact equations
   * **Problems & Solutions:**
     - [x] ProblemsCh2.pdf
 
 #### Unit 3: Second-Order Linear ODEs & Vibrations (`unit-03-second-order-linear-odes/`)
   * **Theory / Slides:**
     - [x] BookODE's.pdf (Ch 3)
-    - [ ] Lecture notes on Wronskian & variation of parameters
+    - [x] Lecture notes on Wronskian & variation of parameters
   * **Problems & Solutions:**
     - [x] ProblemsCh3.pdf
     - [x] probls_ch3_2627.pdf

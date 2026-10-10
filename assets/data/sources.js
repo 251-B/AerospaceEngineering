@@ -5,7 +5,13 @@ window.AE_SOURCES = {
       "folder": "04-advanced-maths",
       "general": {
         "examenes": [],
-        "other": [],
+        "other": [
+          {
+            "bytes": 4875074,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf",
+            "name": "J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf"
+          }
+        ],
         "problemas": [],
         "schedule": [],
         "slides": [],
@@ -97,15 +103,6 @@ window.AE_SOURCES = {
             }
           ],
           "title": "Fourier Series Pdes"
-        },
-        {
-          "id": "unit-06-heat-wave-laplace",
-          "number": 6,
-          "other": [],
-          "problemas": [],
-          "slides": [],
-          "teoria": [],
-          "title": "Heat Wave Laplace"
         }
       ]
     },
@@ -518,24 +515,6 @@ window.AE_SOURCES = {
           "title": "Financial Management Statements"
         },
         {
-          "id": "unit-04-financial-analysis-ratios",
-          "number": 4,
-          "other": [],
-          "problemas": [],
-          "slides": [],
-          "teoria": [],
-          "title": "Financial Analysis Ratios"
-        },
-        {
-          "id": "unit-05-operations-marketing",
-          "number": 5,
-          "other": [],
-          "problemas": [],
-          "slides": [],
-          "teoria": [],
-          "title": "Operations Marketing"
-        },
-        {
           "id": "unit-06-business-plan",
           "number": 6,
           "other": [],
@@ -664,33 +643,6 @@ window.AE_SOURCES = {
           ],
           "teoria": [],
           "title": "Relative Motion"
-        },
-        {
-          "id": "unit-06-particle-systems",
-          "number": 6,
-          "other": [],
-          "problemas": [],
-          "slides": [],
-          "teoria": [],
-          "title": "Particle Systems"
-        },
-        {
-          "id": "unit-07-rigid-body-kinematics",
-          "number": 7,
-          "other": [],
-          "problemas": [],
-          "slides": [],
-          "teoria": [],
-          "title": "Rigid Body Kinematics"
-        },
-        {
-          "id": "unit-08-rigid-body-dynamics",
-          "number": 8,
-          "other": [],
-          "problemas": [],
-          "slides": [],
-          "teoria": [],
-          "title": "Rigid Body Dynamics"
         }
       ]
     },
