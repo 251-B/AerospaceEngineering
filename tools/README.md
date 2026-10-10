@@ -6,6 +6,7 @@ Pure-stdlib Python 3 (no installs). Run everything from the repository root.
 |---|---|---|
 | `python tools/audit_portal.py` | Static gate for `index.html` + `subjects/**/*.html` | 1 if any error |
 | `python tools/vault_lint.py` | Lint the Obsidian `vault/` (`--fix` applies the safe fixes) | 1 if any error |
+| `python tools/source_links.py` | Add deep links to the official PDFs (problem statements, topic panel, inline citations) from `tools/source_links.json`; `--check` = fail if stale, `--refresh-anchors` = re-resolve labels with `pdftotext`, `-v` = list unresolved citations | 1 if stale (`--check`) or a problem card has no PDF page |
 | `python tools/sources_manifest.py` | Regenerate `assets/data/sources.js` from `sources/cuatrimestre-1/` (`--check` = fail if stale) | 1 if stale (`--check`) |
 | `python -m unittest discover -s tools/tests` | Test suite for all of the above + `tokens.css` + `theme.js` (headless Edge/Chrome) | 1 on failure |
 

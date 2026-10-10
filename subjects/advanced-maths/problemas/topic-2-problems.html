@@ -646,6 +646,7 @@
     }
   </style>
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -724,6 +725,11 @@
         <span>Source Document:</span>
         <code>sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf</code>
       </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf" target="_blank" rel="noopener">ProblemsCh2.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=56" target="_blank" rel="noopener">Robinson, BookODE&#x27;s.pdf · p. 56</a>
+      </nav>
     </header>
 
     <!-- ============================================
@@ -734,6 +740,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 1</div>
           <h2 class="problem-title">Direct Integration: General Solutions</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf</a>
         </div>
         <span class="problem-meta-badge">Direct integration • Antiderivatives</span>
       </div>
@@ -764,7 +771,7 @@
           <li>(iv) $f(x) = x/(1+x)$, continuous on $(-\infty,-1)$ and on $(-1,\infty)$; at $x=-1$ the equation reads $0 = -1$, so no solution can be defined at $x=-1$.</li>
           <li>(v) $f(x) = x/(1+x^2)$, continuous on $\mathbb{R}$ because $1+x^2 \ge 1 &gt; 0$.</li>
         </ul>
-        <p>Unknown: a function $y$ differentiable on an interval $I$ on which $f$ is continuous. Because $f$ does not depend on $y$, the right-hand side is trivially Lipschitz in $y$ and the existence-uniqueness theorem (Robinson, Theorem 6.2) gives exactly one solution for each initial condition $y(x_0)=y_0$ on every such interval.</p>
+        <p>Unknown: a function $y$ differentiable on an interval $I$ on which $f$ is continuous. Because $f$ does not depend on $y$, the right-hand side is trivially Lipschitz in $y$ and the existence-uniqueness theorem (Robinson, Theorem <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=56" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 56">6.2</a>) gives exactly one solution for each initial condition $y(x_0)=y_0$ on every such interval.</p>
       </div>
 
       <div class="phase-section">
@@ -850,6 +857,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 2</div>
           <h2 class="problem-title">Separable Equations and Asymptotic Integrals</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf</a>
         </div>
         <span class="problem-meta-badge">Separation of variables • Blow-up</span>
       </div>
@@ -873,7 +881,7 @@
         <div class="phase-badge-title phase-1-badge">Phase 1: Classification, Hypotheses and Domain</div>
         <p>All five equations have the separable form $\dot{x} = g(t)\,h(x)$ (the letters $x(t)$, $y(x)$ or $y(t)$ are used as in the statement).</p>
         <ul style="margin-left: 20px;">
-          <li>(i) $g(t) = t^3$, $h(x) = 1-x$. $f(t,x) = t^3(1-x)$ and $\partial f/\partial x = -t^3$ are continuous on $\mathbb{R}^2$, so the IVP has a unique local solution (Robinson, Theorem 6.2). The only equilibrium is $x \equiv 1$; since $x(0)=3 \neq 1$ and solutions cannot cross an equilibrium (uniqueness), $x(t) &gt; 1$ for all $t$.</li>
+          <li>(i) $g(t) = t^3$, $h(x) = 1-x$. $f(t,x) = t^3(1-x)$ and $\partial f/\partial x = -t^3$ are continuous on $\mathbb{R}^2$, so the IVP has a unique local solution (Robinson, Theorem <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=56" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 56">6.2</a>). The only equilibrium is $x \equiv 1$; since $x(0)=3 \neq 1$ and solutions cannot cross an equilibrium (uniqueness), $x(t) &gt; 1$ for all $t$.</li>
           <li>(ii) $g(x) = \tan x$, $h(y) = 1+y^2$. $f$ and $\partial f/\partial y = 2y\tan x$ are continuous for $x \in (-\pi/2, \pi/2)$, which contains $x=0$. There are no equilibria because $1+y^2 \ge 1$.</li>
           <li>(iii) $g(t) = t^2$, $h(x) = x$: linear and homogeneous; $f$, $\partial f/\partial x = t^2$ continuous on $\mathbb{R}^2$. Equilibrium $x \equiv 0$.</li>
           <li>(iv) $h(x) = -x^2$: $f$, $\partial f/\partial x = -2x$ continuous on $\mathbb{R}^2$. Equilibrium $x \equiv 0$. Because $f$ grows quadratically, finite-time blow-up is possible.</li>
@@ -883,7 +891,7 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
-        <p>Why this method: if $\dot{x} = g(t)h(x)$ and $h(x_0) \neq 0$, then near the initial point $\frac{1}{h(x)}\dot{x} = g(t)$, and integrating both sides in $t$ (the left side by the substitution $x = x(t)$, $dx = \dot{x}\,dt$) gives $H(x(t)) - H(x_0) = G(t) - G(t_0)$, with $H' = 1/h$ and $G' = g$. This requires $h \neq 0$ along the solution (equilibria $h(x^*) = 0$ are treated separately and are excluded from the division) and $g$, $1/h$ continuous (Robinson, Section 8.4).</p>
+        <p>Why this method: if $\dot{x} = g(t)h(x)$ and $h(x_0) \neq 0$, then near the initial point $\frac{1}{h(x)}\dot{x} = g(t)$, and integrating both sides in $t$ (the left side by the substitution $x = x(t)$, $dx = \dot{x}\,dt$) gives $H(x(t)) - H(x_0) = G(t) - G(t_0)$, with $H' = 1/h$ and $G' = g$. This requires $h \neq 0$ along the solution (equilibria $h(x^*) = 0$ are treated separately and are excluded from the division) and $g$, $1/h$ continuous (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=80" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 80">8.4</a>).</p>
         <p>Procedure used throughout, written explicitly each time:</p>
         <ul style="margin-left: 20px;">
           <li>find the equilibria $h(x^*) = 0$ and the interval containing $x_0$ where $h \neq 0$;</li>
@@ -914,7 +922,7 @@
         $$ \arctan y = \frac{\pi}{4} - \ln(\cos x) \quad\Longrightarrow\quad y(x) = \tan\left(\frac{\pi}{4} - \ln\cos x\right). $$
         <p>Domain: $\arctan y \in (-\pi/2, \pi/2)$ is required. Since $\cos x \le 1$, $-\ln\cos x \ge 0$, so the argument $\pi/4 - \ln\cos x \ge \pi/4 &gt; -\pi/2$ and the constraint is $\frac{\pi}{4} - \ln\cos x &lt; \frac{\pi}{2}$, i.e. $\ln\cos x &gt; -\frac{\pi}{4}$, i.e. $\cos x &gt; e^{-\pi/4}$. This defines the symmetric interval $\lvert x\rvert &lt; x^*$ with</p>
         $$ x^* = \arccos\left(e^{-\pi/4}\right) \approx 1.0974 \ (&lt; \pi/2 \approx 1.5708). $$
-        <p>As $x \to x^{*-}$, $\arctan y \to \pi/2$, so $y \to +\infty$: the solution blows up at the finite point $x^*$ (and symmetrically at $-x^*$, because $\cos$ is even). The maximal interval of existence is $(-x^*, x^*)$, strictly smaller than the interval $(-\pi/2,\pi/2)$ where $f$ is continuous. This is the situation described in Robinson, Section 6.3.</p>
+        <p>As $x \to x^{*-}$, $\arctan y \to \pi/2$, so $y \to +\infty$: the solution blows up at the finite point $x^*$ (and symmetrically at $-x^*$, because $\cos$ is even). The maximal interval of existence is $(-x^*, x^*)$, strictly smaller than the interval $(-\pi/2,\pi/2)$ where $f$ is continuous. This is the situation described in Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=57" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 57">6.3</a>.</p>
         </div>
         <div class="sub-case-card">
           <div class="sub-case-header">Part (iii): $\dot{x} = t^2 x$ (general solution)</div>
@@ -979,6 +987,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 3</div>
           <h2 class="problem-title">Integrating Factor Method and Asymptotics</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf</a>
         </div>
         <span class="problem-meta-badge">Linear first-order • Integrating factor</span>
       </div>
@@ -1023,7 +1032,7 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
-        <p>Why this method: for a linear equation $\dot{x} + p x = q$ with $p$ continuous, choose $\mu(t) = \exp\left(\int p(t)\,dt\right)$. Since $\mu' = p\mu$, the product rule gives $(\mu x)' = \mu\dot{x} + p\mu x = \mu(\dot{x} + p x) = \mu q$, so the left side is an exact derivative and the equation can be integrated directly. Only continuity of $p$ and $q$ is needed (Robinson, Section 9.2).</p>
+        <p>Why this method: for a linear equation $\dot{x} + p x = q$ with $p$ continuous, choose $\mu(t) = \exp\left(\int p(t)\,dt\right)$. Since $\mu' = p\mu$, the product rule gives $(\mu x)' = \mu\dot{x} + p\mu x = \mu(\dot{x} + p x) = \mu q$, so the left side is an exact derivative and the equation can be integrated directly. Only continuity of $p$ and $q$ is needed (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=92" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 92">9.2</a>).</p>
         <p>Procedure: (1) read off $p$ and $q$; (2) compute $P(t) = \int p\,dt$ explicitly, any antiderivative will do, and set $\mu = e^{P}$; (3) write $(\mu x)' = \mu q$; (4) integrate, using Barrow's rule $\left[\mu x\right]_{t_0}^{t} = \int_{t_0}^{t}\mu q\,ds$ when an initial condition is given; (5) divide by $\mu$.</p>
         <p>Formula: $\displaystyle x(t) = \frac{1}{\mu(t)}\left[\mu(t_0)x_0 + \int_{t_0}^{t}\mu(s)q(s)\,ds\right]$.</p>
       </div>
@@ -1153,6 +1162,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 4</div>
           <h2 class="problem-title">Exact Differential Equations</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=2" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 2</a>
         </div>
         <span class="problem-meta-badge">Exactness test • Potential function</span>
       </div>
@@ -1176,7 +1186,7 @@
         <p>Each equation is written in the form</p>
         $$ M(x,y) + N(x,y)\,\frac{dy}{dx} = 0, \qquad\text{equivalently}\qquad M\,dx + N\,dy = 0. $$
         <p>The equation is exact if there is a function $F(x,y)$ of class $C^2$ with $F_x = M$ and $F_y = N$. Along any solution $y(x)$ one then has $\frac{d}{dx}F(x,y(x)) = F_x + F_y y' = M + N y' = 0$, so $F(x,y(x)) = C$.</p>
-        <p>Hypotheses: $M$, $N$ and their first partial derivatives continuous on a rectangle (or any simply connected open set) $\Omega$. Then (Robinson, Section 10.1, condition (10.5)) the equation is exact on $\Omega$ if and only if</p>
+        <p>Hypotheses: $M$, $N$ and their first partial derivatives continuous on a rectangle (or any simply connected open set) $\Omega$. Then (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=105" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 105">10.1</a>, condition (10.5)) the equation is exact on $\Omega$ if and only if</p>
         $$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}. $$
         <div class="table-container"><table class="data-table">
           <thead><tr><th>Part</th><th>$M$</th><th>$N$</th><th>Domain used</th></tr></thead>
@@ -1275,6 +1285,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 5</div>
           <h2 class="problem-title">Integrating Factor for a Non-Exact Equation</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=2" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 2</a>
         </div>
         <span class="problem-meta-badge">Non-exact • Integrating factor μ(x)</span>
       </div>
@@ -1358,6 +1369,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 6</div>
           <h2 class="problem-title">Exactness of Separated Differential Forms</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=2" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 2</a>
         </div>
         <span class="problem-meta-badge">Exact • Separated form f(x) + g(y)y'</span>
       </div>
@@ -1387,7 +1399,7 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
-        <p>Why this method: the exactness criterion $M_y = N_x$ (Robinson, Section 10.1) is the hypothesis for a potential function $F$ with $F_x = M$, $F_y = N$ to exist on $\Omega$. Here both partial derivatives are trivial, so the criterion can be checked at once, and the potential can be constructed by integrating each variable separately.</p>
+        <p>Why this method: the exactness criterion $M_y = N_x$ (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=105" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 105">10.1</a>) is the hypothesis for a potential function $F$ with $F_x = M$, $F_y = N$ to exist on $\Omega$. Here both partial derivatives are trivial, so the criterion can be checked at once, and the potential can be constructed by integrating each variable separately.</p>
         <p>Construction: integrate $F_x = f(x)$ in $x$, then fix the $y$-dependent integration function $h(y)$ from $F_y = g(y)$. Level sets of $F$ are the solutions.</p>
       </div>
 
@@ -1447,6 +1459,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 7</div>
           <h2 class="problem-title">Nonlinear Change of Variables</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=2" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 2</a>
         </div>
         <span class="problem-meta-badge">Substitution z = y² • Linear reduction</span>
       </div>
@@ -1528,6 +1541,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 8</div>
           <h2 class="problem-title">General Bernoulli Equation Reduction</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=2" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 2</a>
         </div>
         <span class="problem-meta-badge">Bernoulli • Substitution z = y^(1-α)</span>
       </div>
@@ -1610,6 +1624,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 9</div>
           <h2 class="problem-title">Uniqueness and Lipschitz Analysis</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=2" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 2</a>
         </div>
         <span class="problem-meta-badge">Existence-uniqueness • Non-Lipschitz points</span>
       </div>
@@ -1632,7 +1647,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-1-badge">Phase 1: Classification, Hypotheses and Domain</div>
         <p>Each equation is autonomous: $\dot{x} = f(x)$ with initial condition $x(0) = x_0 \geq 0$.</p>
-        <p>Uniqueness criterion used (Robinson, Theorem 6.2): if $f$ and $\partial f/\partial x$ are continuous in an open neighborhood of $(t_0, x_0)$, then the IVP has a unique solution on some open interval containing $t_0$. This is a sufficient condition, not a necessary one: a more general sufficient condition is that $f$ be locally Lipschitz in $x$, $\lvert f(x) - f(y)\rvert \leq L\lvert x - y\rvert$. When the condition fails at a point, uniqueness there must be examined directly.</p>
+        <p>Uniqueness criterion used (Robinson, Theorem <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=56" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 56">6.2</a>): if $f$ and $\partial f/\partial x$ are continuous in an open neighborhood of $(t_0, x_0)$, then the IVP has a unique solution on some open interval containing $t_0$. This is a sufficient condition, not a necessary one: a more general sufficient condition is that $f$ be locally Lipschitz in $x$, $\lvert f(x) - f(y)\rvert \leq L\lvert x - y\rvert$. When the condition fails at a point, uniqueness there must be examined directly.</p>
         <div class="table-container"><table class="data-table">
           <thead><tr><th>Part</th><th>$f(x)$</th><th>$f'(x)$</th><th>Where $f'$ is continuous</th></tr></thead>
           <tbody>
@@ -1709,6 +1724,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 10</div>
           <h2 class="problem-title">Uniqueness via an Integrating Transformation</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=3" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 3</a>
         </div>
         <span class="problem-meta-badge">Linear homogeneous • Uniqueness without Picard</span>
       </div>
@@ -1775,6 +1791,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 11</div>
           <h2 class="problem-title">Invariance of Solution Ratios in Linear ODEs</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=3" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 3</a>
         </div>
         <span class="problem-meta-badge">Linear homogeneous • Ratio is constant</span>
       </div>
@@ -1830,6 +1847,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 12</div>
           <h2 class="problem-title">Trajectory Crossing and Uniqueness Bounds</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=3" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 3</a>
         </div>
         <span class="problem-meta-badge">No crossing • Barrier solutions</span>
       </div>
@@ -1896,6 +1914,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 13</div>
           <h2 class="problem-title">Multi-Equilibria Autonomous Phase Line Dynamics</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=3" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 3</a>
         </div>
         <span class="problem-meta-badge">Phase line • Finite-time blow-up</span>
       </div>
@@ -2018,6 +2037,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 14</div>
           <h2 class="problem-title">Non-Lipschitz Branching and Picard's Theorem</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=4" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 4</a>
         </div>
         <span class="problem-meta-badge">Non-uniqueness • Failure of Lipschitz</span>
       </div>
@@ -2071,7 +2091,7 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-4-badge">Phase 4: Verification, Limits and Interpretation</div>
-        <p>Answer to the question: no contradiction. Picard's theorem (Robinson, Theorem 6.2) guarantees uniqueness only if $f$ and $\partial f/\partial y$ are continuous (or $f$ is Lipschitz in $y$) near the initial point. Here $f$ is continuous but $\partial f/\partial y = 2y^{-1/3}$ is not defined at $y = 0$ and the Lipschitz quotient is unbounded, so the hypotheses fail exactly at the initial point $(0,0)$. The theorem is silent in that case, and non-uniqueness is possible.</p>
+        <p>Answer to the question: no contradiction. Picard's theorem (Robinson, Theorem <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=56" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 56">6.2</a>) guarantees uniqueness only if $f$ and $\partial f/\partial y$ are continuous (or $f$ is Lipschitz in $y$) near the initial point. Here $f$ is continuous but $\partial f/\partial y = 2y^{-1/3}$ is not defined at $y = 0$ and the Lipschitz quotient is unbounded, so the hypotheses fail exactly at the initial point $(0,0)$. The theorem is silent in that case, and non-uniqueness is possible.</p>
         <p>Contrast: for any initial value $y_0 \neq 0$ with $t_0 \in (-1,1)$, $f$ and $\partial f/\partial y$ are continuous in a neighborhood and the solution is unique; the branching occurs only from the equilibrium $y = 0$ (compare Problem 2.9 (iii) and (iv)).</p>
         <p>Why the solution can leave $y=0$: the time to travel from $0$ to $y$ is $\int_0^{y} ds/(3s^{2/3}) = y^{1/3}$, which is finite and tends to $0$ as $y \to 0$. For Lipschitz right-hand sides this integral diverges (compare $f = y$, where $\int_0 ds/s = \infty$), so an equilibrium cannot be left in finite time.</p>
         <div class="result-box">
@@ -2089,6 +2109,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 15</div>
           <h2 class="problem-title">Singular ODE and Domain of Definition</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=4" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 4</a>
         </div>
         <span class="problem-meta-badge">Singular coefficient • Non-uniqueness at t = 0</span>
       </div>
@@ -2156,6 +2177,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 16</div>
           <h2 class="problem-title">Pitchfork Phase Line and Stability Regimes</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=4" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 4</a>
         </div>
         <span class="problem-meta-badge">Phase line • Stability • Explicit solution</span>
       </div>
@@ -2247,7 +2269,7 @@
         <p>Check the ODE by differentiating the explicit solution. With $D(t) = x_0^2 + (\kappa^2 - x_0^2)e^{-2\kappa^2 t}$: $x = \kappa x_0 D^{-1/2}$, $x' = -\frac12\kappa x_0 D^{-3/2}D'$, and $D' = -2\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}$. Also $\kappa^2 - x^2 = \kappa^2 - \frac{\kappa^2 x_0^2}{D} = \frac{\kappa^2(D - x_0^2)}{D} = \frac{\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}}{D}$, so $x(\kappa^2 - x^2) = \kappa x_0 D^{-1/2}\cdot\frac{\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}}{D}$. This equals $x'$: $-\frac12\kappa x_0 D^{-3/2}\cdot\left(-2\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}\right) = \kappa x_0 D^{-3/2}\kappa^2(\kappa^2 - x_0^2)e^{-2\kappa^2 t}$. They agree.</p>
         <p>Numerical check (computed): for $\kappa = 1$, a fourth-order Runge-Kutta integration over $t \in [0, 5]$ (20000 steps) matches the closed form to better than $10^{-14}$ for $x_0 = 0.3,\ 2,\ -0.5,\ -3$. At $t = 5$ the distance to $\kappa = 1$ is $2.3\times 10^{-4}$ for $x_0 = 0.3$ and $1.7\times 10^{-5}$ for $x_0 = 2$, consistent with the time constant $1/(2\kappa^2) = 0.5$.</p>
         <p>Time scale and dimensions: the linearization at $x = \pm\kappa$ has rate $f'(\pm\kappa) = -2\kappa^2$, so the approach to $\pm\kappa$ is exponential with time constant $1/(2\kappa^2)$ (visible in the factor $e^{-2\kappa^2 t}$), and at $x = 0$ the repulsion rate is $\kappa^2$. The equation is written in non-dimensional form: $\kappa^2$ is a rate with units $[t]^{-1}$, and $x$ is measured in units for which the cubic coefficient equals $1$.</p>
-        <p>Bifurcation context (Robinson, Section 7.6): for the parameter $\mu = \kappa^2$ the equation $\dot{x} = \mu x - x^3$ has one equilibrium $x = 0$ (stable) for $\mu &lt; 0$, and for $\mu &gt; 0$ the origin becomes unstable and two stable branches $\pm\sqrt{\mu}$ appear: a supercritical pitchfork. Here $\kappa &gt; 0$ is the case $\mu &gt; 0$.</p>
+        <p>Bifurcation context (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE%27s.pdf#page=70" target="_blank" rel="noopener" title="Open Robinson, BookODE&#x27;s.pdf at page 70">7.6</a>): for the parameter $\mu = \kappa^2$ the equation $\dot{x} = \mu x - x^3$ has one equilibrium $x = 0$ (stable) for $\mu &lt; 0$, and for $\mu &gt; 0$ the origin becomes unstable and two stable branches $\pm\sqrt{\mu}$ appear: a supercritical pitchfork. Here $\kappa &gt; 0$ is the case $\mu &gt; 0$.</p>
         <div class="result-box">
           <div class="result-box-title">Result</div>
           <p>Equilibria $0$ (unstable) and $\pm\kappa$ (stable). For $x_0 \neq 0$: $x(t) = \kappa x_0\big/\sqrt{x_0^2 + (\kappa^2 - x_0^2)e^{-2\kappa^2 t}} \to \kappa\,\operatorname{sgn}(x_0)$ as $t \to \infty$.</p>
@@ -2263,6 +2285,7 @@
         <div class="problem-title-group">
           <div class="problem-num-badge">Exercise 17</div>
           <h2 class="problem-title">Direct Difference Method for Uniqueness</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf#page=4" target="_blank" rel="noopener">Original statement · ProblemsCh2.pdf, p. 4</a>
         </div>
         <span class="problem-meta-badge">Existence by inspection • Uniqueness by difference</span>
       </div>

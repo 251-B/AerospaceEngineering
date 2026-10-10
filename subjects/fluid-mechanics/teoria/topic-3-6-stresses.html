@@ -426,6 +426,7 @@
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -473,6 +474,10 @@
         <div class="article-category">Subchapter 3.6 · Viscous Stresses &amp; Skin Friction</div>
         <h1 class="article-title">Stress Tensor, Navier-Poisson &amp; Wall Shear Stress</h1>
         <p class="article-meta">Cauchy stress tensor decomposition, Newtonian constitutive relations, stress vector projection $\vec{f}_n = \bar{\bar{\tau}}\cdot\vec{n}$, and friction drag integration.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener">Notes.pdf · p. 20</a>
+        </nav>
       </header>
 
       <!-- Section 1: The Cauchy Stress Tensor Decomposition -->
@@ -482,21 +487,21 @@
 
         <div class="math-block">
           $$ \bar{\bar{\tau}}_{\text{static}} = -p \bar{\bar{I}} $$
-          <div class="math-caption">[Eq. 3.27] Isotropic hydrostatic stress tensor.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.27</a>] Isotropic hydrostatic stress tensor.</div>
         </div>
 
         <p>When the fluid undergoes continuous deformation ($\bar{\bar{T}}_d \neq \vec{0}$), molecular momentum diffusion gives rise to additional viscous stresses. The total Cauchy stress tensor decomposes universally into:</p>
 
         <div class="math-block">
           $$ \mathbf{\bar{\bar{\tau}} = -p \bar{\bar{I}} + \bar{\bar{\tau}}'} $$
-          <div class="math-caption">[Eq. 3.28] Decomposition into thermodynamic pressure $p$ and viscous deviatoric stress tensor $\bar{\bar{\tau}}'$.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.28</a>] Decomposition into thermodynamic pressure $p$ and viscous deviatoric stress tensor $\bar{\bar{\tau}}'$.</div>
         </div>
 
         <p>By Cauchy's Stress Principle, the contact force per unit area (stress vector $\vec{f}_n$) acting on an imaginary or physical surface element with outward unit normal $\vec{n}$ is:</p>
 
         <div class="math-block">
           $$ \mathbf{\vec{f}_n = \bar{\bar{\tau}}\cdot\vec{n} = -p\vec{n} + \bar{\bar{\tau}}'\cdot\vec{n}} $$
-          <div class="math-caption">[Eq. 3.19] Stress vector on a surface with normal $\vec{n}$.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a>] Stress vector on a surface with normal $\vec{n}$.</div>
         </div>
 
         <ul>
@@ -506,9 +511,9 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Stress Tensor: Complete Derivation Chain (Notes.pdf, Eqs. 3.15-3.25)</h2>
+        <h2 class="section-heading">Stress Tensor: Complete Derivation Chain (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.15-3.25</a>)</h2>
         <h3 class="sub-heading">Step 1: Geometry of the Cauchy tetrahedron (Fig. 3.2)</h3>
-        <p>The tetrahedron has a vertex at the origin, three faces on the coordinate planes and one oblique face. Its edges along the axes are $dx_1,dx_2,dx_3$, so the coordinate face normal to $\vec{e}_i$ has area $dA_i$ and the volume is $dV=\tfrac16dx_1dx_2dx_3$ (Notes, p. 28). Let $\vec{n}$ be the outward unit normal of the oblique face, of area $dA$. The outward normals of the coordinate faces are $-\vec{e}_i$. For any closed surface $\oint\vec{n}\,d\sigma=\vec{0}$ (Gauss' theorem applied to a constant field). For the tetrahedron:</p>
+        <p>The tetrahedron has a vertex at the origin, three faces on the coordinate planes and one oblique face. Its edges along the axes are $dx_1,dx_2,dx_3$, so the coordinate face normal to $\vec{e}_i$ has area $dA_i$ and the volume is $dV=\tfrac16dx_1dx_2dx_3$ (Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">28</a>). Let $\vec{n}$ be the outward unit normal of the oblique face, of area $dA$. The outward normals of the coordinate faces are $-\vec{e}_i$. For any closed surface $\oint\vec{n}\,d\sigma=\vec{0}$ (Gauss' theorem applied to a constant field). For the tetrahedron:</p>
         <div class="math-block">
           $$ dA\,\vec{n}-dA_1\vec{e}_1-dA_2\vec{e}_2-dA_3\vec{e}_3=\vec{0} $$
         </div>
@@ -519,7 +524,7 @@
         <p>The volume of a pyramid is one third of base times height, so $dV=\tfrac13h\,dA$, with $h$ the distance from the origin to the oblique face. If all edges are scaled by $\varepsilon$, the face areas scale as $\varepsilon^2$ and the volume as $\varepsilon^3$.</p>
         <h3 class="sub-heading">Step 2: Stress vector on opposite faces</h3>
         <p><strong>Extension, not in the Notes.</strong> The Notes state the sign convention directly (the force through the face normal to $\vec{e}_i$ is $-dA_i\vec{f}_i$). It follows from Newton's law applied to a thin disc of area $d\sigma$ and thickness $\varepsilon$: the mass and the volume forces scale as $\varepsilon\,d\sigma$ and vanish faster than the two face forces, which gives $\vec{f}_n\,d\sigma+\vec{f}_{-n}\,d\sigma\to\vec{0}$, that is $\vec{f}_{-\vec{n}}=-\vec{f}_{\vec{n}}$. The stress vector on the face with outward normal $-\vec{e}_i$ is therefore $-\vec{f}_i$, with $\vec{f}_i=(\tau_{i1},\tau_{i2},\tau_{i3})$.</p>
-        <h3 class="sub-heading">Step 3: Newton's second law on the tetrahedron and the limit (Eqs. 3.16 and 3.17)</h3>
+        <h3 class="sub-heading">Step 3: Newton's second law on the tetrahedron and the limit (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.16</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.17</a>)</h3>
         <p>Mass times acceleration equals the surface forces plus the volume force:</p>
         <div class="math-block">
           $$ \rho\,dV\,\frac{D\vec{v}}{Dt}=\vec{f}_n\,dA-\vec{f}_1\,dA_1-\vec{f}_2\,dA_2-\vec{f}_3\,dA_3+\rho\vec{f}_m\,dV $$
@@ -528,13 +533,13 @@
         <div class="math-block">
           $$ \vec{f}_n-n_1\vec{f}_1-n_2\vec{f}_2-n_3\vec{f}_3=\frac{h}{3}\,\rho\left(\frac{D\vec{v}}{Dt}-\vec{f}_m\right) $$
         </div>
-        <p>Let the tetrahedron shrink to a point, $h\to0$, with the acceleration and the force per unit mass bounded. The right-hand side tends to zero because inertia and volume forces are of order $\varepsilon^3$, whereas the surface forces are of order $\varepsilon^2$. This is Eq. 3.16 divided by $dA$, and it yields</p>
+        <p>Let the tetrahedron shrink to a point, $h\to0$, with the acceleration and the force per unit mass bounded. The right-hand side tends to zero because inertia and volume forces are of order $\varepsilon^3$, whereas the surface forces are of order $\varepsilon^2$. This is Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.16</a> divided by $dA$, and it yields</p>
         <div class="math-block">
           $$ \vec{f}_n=n_1\vec{f}_1+n_2\vec{f}_2+n_3\vec{f}_3 $$
-          <div class="math-caption">Eq. 3.17</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.17</a></div>
         </div>
-        <p>In components, $(\vec{f}_n)_j=\sum_in_i\tau_{ij}$, so $\vec{f}_n=\vec{n}\cdot\bar{\bar{\tau}}$ with $\bar{\bar{\tau}}=[\tau_{ij}]$ (Eq. 3.18). The dependence on $\vec{n}$ is linear. The symmetry shown in the next step turns it into $\bar{\bar{\tau}}\cdot\vec{n}$ (Eq. 3.19).</p>
-        <h3 class="sub-heading">Step 4: Symmetry of the stress tensor (Eq. 3.19)</h3>
+        <p>In components, $(\vec{f}_n)_j=\sum_in_i\tau_{ij}$, so $\vec{f}_n=\vec{n}\cdot\bar{\bar{\tau}}$ with $\bar{\bar{\tau}}=[\tau_{ij}]$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.18</a>). The dependence on $\vec{n}$ is linear. The symmetry shown in the next step turns it into $\bar{\bar{\tau}}\cdot\vec{n}$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a>).</p>
+        <h3 class="sub-heading">Step 4: Symmetry of the stress tensor (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a>)</h3>
         <p>Apply the angular momentum balance about the centre of a cube of edge $dx$. The inertia term (moment of inertia of order $dx^5$) and the moment of the volume force (order $dx^4$) are negligible against the moment of the surface forces (order $dx^3$). Consider the $z$ component. The face $x_1=+dx/2$ has outward normal $+\vec{e}_1$ and area $dx^2$; its force has the component $\tau_{12}\,dx^2\,\vec{e}_2$ at the position $(dx/2)\vec{e}_1$. The opposite face has force $-\tau_{12}\,dx^2\,\vec{e}_2$ at $-(dx/2)\vec{e}_1$. Both give the same moment, using $\vec{e}_1\wedge\vec{e}_2=\vec{e}_3$:</p>
         <div class="math-block">
           $$ 2\times\frac{dx}{2}\,\vec{e}_1\wedge\big(\tau_{12}\,dx^{2}\,\vec{e}_2\big)=\tau_{12}\,dx^{3}\,\vec{e}_3 $$
@@ -543,28 +548,28 @@
         <div class="math-block">
           $$ \big(\tau_{12}-\tau_{21}\big)\,dx^{3}=O(dx^{4})\;\Longrightarrow\;\tau_{12}=\tau_{21} $$
         </div>
-        <p>after dividing by $dx^3$ and letting $dx\to0$. The same argument along $\vec{e}_1$ and $\vec{e}_2$ gives $\tau_{23}=\tau_{32}$ and $\tau_{13}=\tau_{31}$. The tensor has only six independent components and $\vec{n}\cdot\bar{\bar{\tau}}=\bar{\bar{\tau}}\cdot\vec{n}$, which is Eq. 3.19.</p>
-        <h3 class="sub-heading">Step 5: Principal stresses (Eqs. 3.20 and 3.21)</h3>
+        <p>after dividing by $dx^3$ and letting $dx\to0$. The same argument along $\vec{e}_1$ and $\vec{e}_2$ gives $\tau_{23}=\tau_{32}$ and $\tau_{13}=\tau_{31}$. The tensor has only six independent components and $\vec{n}\cdot\bar{\bar{\tau}}=\bar{\bar{\tau}}\cdot\vec{n}$, which is Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a>.</p>
+        <h3 class="sub-heading">Step 5: Principal stresses (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.20</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.21</a>)</h3>
         <p>The shear stress on a surface of normal $\vec{n}$ vanishes if and only if $\bar{\bar{\tau}}\cdot\vec{n}$ is parallel to $\vec{n}$, that is, if</p>
         <div class="math-block">
           $$ \bar{\bar{\tau}}\cdot\vec{n}=\lambda\vec{n}\;\Longleftrightarrow\;\big(\bar{\bar{\tau}}-\lambda\bar{\bar{I}}\big)\cdot\vec{n}=\vec{0} $$
-          <div class="math-caption">Eq. 3.20</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.20</a></div>
         </div>
-        <p>A non-trivial solution exists only if the determinant of the matrix vanishes (Eq. 3.21), a cubic equation in $\lambda$. <strong>Extension, not in the Notes.</strong> The roots are real because $\bar{\bar{\tau}}$ is symmetric: for an eigenpair, $\lambda\,\bar{\vec{n}}\cdot\vec{n}=\bar{\vec{n}}\cdot\bar{\bar{\tau}}\cdot\vec{n}$ is real (its complex conjugate equals itself by symmetry), and $\bar{\vec{n}}\cdot\vec{n}\gt0$. For two eigenpairs with different eigenvalues,</p>
+        <p>A non-trivial solution exists only if the determinant of the matrix vanishes (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.21</a>), a cubic equation in $\lambda$. <strong>Extension, not in the Notes.</strong> The roots are real because $\bar{\bar{\tau}}$ is symmetric: for an eigenpair, $\lambda\,\bar{\vec{n}}\cdot\vec{n}=\bar{\vec{n}}\cdot\bar{\bar{\tau}}\cdot\vec{n}$ is real (its complex conjugate equals itself by symmetry), and $\bar{\vec{n}}\cdot\vec{n}\gt0$. For two eigenpairs with different eigenvalues,</p>
         <div class="math-block">
           $$ \lambda_1\,\vec{n}_1\cdot\vec{n}_2=(\bar{\bar{\tau}}\cdot\vec{n}_1)\cdot\vec{n}_2=\vec{n}_1\cdot(\bar{\bar{\tau}}\cdot\vec{n}_2)=\lambda_2\,\vec{n}_1\cdot\vec{n}_2\;\Longrightarrow\;(\lambda_1-\lambda_2)\,\vec{n}_1\cdot\vec{n}_2=0 $$
         </div>
         <p>so the principal directions are mutually orthogonal.</p>
-        <h3 class="sub-heading">Step 6: Resultant surface force, Gauss' theorem and the local momentum equation (Eqs. 3.22 to 3.25)</h3>
-        <p>The surface force on a fluid volume $V$ of boundary $\Sigma$ is the integral of the stress vector (Eq. 3.22). Apply Gauss' theorem (Eq. 2.9) to the vector field with components $\tau_{ij}$ ($j=1,2,3$) for each fixed $i$:</p>
+        <h3 class="sub-heading">Step 6: Resultant surface force, Gauss' theorem and the local momentum equation (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.22 to 3.25</a>)</h3>
+        <p>The surface force on a fluid volume $V$ of boundary $\Sigma$ is the integral of the stress vector (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.22</a>). Apply Gauss' theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">2.9</a>) to the vector field with components $\tau_{ij}$ ($j=1,2,3$) for each fixed $i$:</p>
         <div class="math-block">
           $$ \int_\Sigma(\bar{\bar{\tau}}\cdot\vec{n})_i\,d\sigma=\int_\Sigma\tau_{ij}n_j\,d\sigma=\int_V\frac{\partial\tau_{ij}}{\partial x_j}\,dV=\int_V(\nabla\cdot\bar{\bar{\tau}})_i\,dV $$
-          <div class="math-caption">Eq. 3.23</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.23</a></div>
         </div>
-        <p>For a volume that shrinks around a point, $\nabla\cdot\bar{\bar{\tau}}=\lim_{V\to0}\frac1V\int_\Sigma\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma$, so $\nabla\cdot\bar{\bar{\tau}}$ is the surface force per unit volume. Newton's second law for a particle of mass $\rho\,dV$ then gives Eq. 3.24, and dividing by $dV$ gives Eq. 3.25:</p>
+        <p>For a volume that shrinks around a point, $\nabla\cdot\bar{\bar{\tau}}=\lim_{V\to0}\frac1V\int_\Sigma\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma$, so $\nabla\cdot\bar{\bar{\tau}}$ is the surface force per unit volume. Newton's second law for a particle of mass $\rho\,dV$ then gives Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.24</a>, and dividing by $dV$ gives Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a>:</p>
         <div class="math-block">
           $$ \rho\,dV\,\frac{D\vec{v}}{Dt}=(\nabla\cdot\bar{\bar{\tau}})\,dV+\rho\vec{f}_m\,dV\;\Longrightarrow\;\rho\frac{D\vec{v}}{Dt}=\nabla\cdot\bar{\bar{\tau}}+\rho\vec{f}_m $$
-          <div class="math-caption">Eqs. 3.24 and 3.25</div>
+          <div class="math-caption">Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.24</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a></div>
         </div>
       </section>
 
@@ -581,14 +586,14 @@
 
         <div class="math-block">
           $$ \bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + \lambda(\nabla\cdot\vec{v})\bar{\bar{I}} $$
-          <div class="math-caption">[Eq. 3.30] Navier-Poisson relation with dynamic shear viscosity $\mu$ and second viscosity $\lambda$.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.30</a>] Navier-Poisson relation with dynamic shear viscosity $\mu$ and second viscosity $\lambda$.</div>
         </div>
 
         <p>Expressing $\lambda$ in terms of the bulk (volume) viscosity $\mu_B = \lambda + \frac{2}{3}\mu$ yields the <strong>Canonical Navier-Poisson Equation</strong>:</p>
 
         <div class="math-block">
           $$ \mathbf{\bar{\bar{\tau}}' = 2\mu\bar{\bar{T}}_d + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\bar{\bar{I}}} $$
-          <div class="math-caption">[Eq. 3.31] Canonical Navier-Poisson equation.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.31</a>] Canonical Navier-Poisson equation.</div>
         </div>
 
         <div class="callout-box">
@@ -602,28 +607,28 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Navier-Poisson Relation: Derivation of Eqs. 3.29-3.31</h2>
-        <h3 class="sub-heading">Step 1: Starting point and principal axes (Eq. 3.29)</h3>
-        <p>A Newtonian fluid has a viscous stress linear in the rate of strain, $\tau'_{ij}=\alpha_{ijkl}\gamma_{kl}$, with $\gamma_{kl}=(\bar{\bar{T}}_d)_{kl}$. The velocity $\vec{v}$ and the rotation tensor $\bar{\bar{T}}_r$ cannot appear, because a reference frame can always be chosen in which both vanish at a point, whereas the existence of strain rates does not depend on the frame (Notes, p. 31). The rate-of-strain tensor is real and symmetric, so it has three real principal values $\gamma_1,\gamma_2,\gamma_3$ along orthogonal principal axes. For an isotropic fluid the principal axes of $\bar{\bar{\tau}}'$ coincide with those of $\bar{\bar{T}}_d$; call $\tau'_1,\tau'_2,\tau'_3$ the viscous stresses along them.</p>
+        <h2 class="section-heading">Navier-Poisson Relation: Derivation of Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.29-3.31</a></h2>
+        <h3 class="sub-heading">Step 1: Starting point and principal axes (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.29</a>)</h3>
+        <p>A Newtonian fluid has a viscous stress linear in the rate of strain, $\tau'_{ij}=\alpha_{ijkl}\gamma_{kl}$, with $\gamma_{kl}=(\bar{\bar{T}}_d)_{kl}$. The velocity $\vec{v}$ and the rotation tensor $\bar{\bar{T}}_r$ cannot appear, because a reference frame can always be chosen in which both vanish at a point, whereas the existence of strain rates does not depend on the frame (Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">31</a>). The rate-of-strain tensor is real and symmetric, so it has three real principal values $\gamma_1,\gamma_2,\gamma_3$ along orthogonal principal axes. For an isotropic fluid the principal axes of $\bar{\bar{\tau}}'$ coincide with those of $\bar{\bar{T}}_d$; call $\tau'_1,\tau'_2,\tau'_3$ the viscous stresses along them.</p>
         <h3 class="sub-heading">Step 2: Relation between principal values</h3>
         <p>Isotropy implies that $\tau'_1$ depends on $\gamma_1$ through a coefficient $\alpha$, and on the two perpendicular strain rates $\gamma_2,\gamma_3$ through one and the same coefficient $\lambda$, because no direction is privileged among the two perpendicular ones. Adding and subtracting $\lambda\gamma_1$:</p>
         <div class="math-block">
           $$ \tau'_1=\alpha\gamma_1+\lambda\gamma_2+\lambda\gamma_3=(\alpha-\lambda)\gamma_1+\lambda(\gamma_1+\gamma_2+\gamma_3) $$
         </div>
-        <p>The sum of the principal values is the trace of $\bar{\bar{T}}_d$, which is invariant under rotations and equals $\partial v_i/\partial x_i=\nabla\cdot\vec{v}$. Defining $\mu=(\alpha-\lambda)/2$ (Notes, p. 31) and repeating the argument for $\tau'_2$ and $\tau'_3$:</p>
+        <p>The sum of the principal values is the trace of $\bar{\bar{T}}_d$, which is invariant under rotations and equals $\partial v_i/\partial x_i=\nabla\cdot\vec{v}$. Defining $\mu=(\alpha-\lambda)/2$ (Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">31</a>) and repeating the argument for $\tau'_2$ and $\tau'_3$:</p>
         <div class="math-block">
           $$ \tau'_i=2\mu\,\gamma_i+\lambda\,\nabla\cdot\vec{v},\qquad i=1,2,3 $$
         </div>
-        <h3 class="sub-heading">Step 3: Tensor form (Eqs. 3.30 and 3.31)</h3>
+        <h3 class="sub-heading">Step 3: Tensor form (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.30</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.31</a>)</h3>
         <p>In the principal frame $\bar{\bar{T}}_d$ and $\bar{\bar{I}}$ are diagonal, so the three relations above are the diagonal form of</p>
         <div class="math-block">
           $$ \bar{\bar{\tau}}'=2\mu\,\bar{\bar{T}}_d+\lambda\,(\nabla\cdot\vec{v})\,\bar{\bar{I}} $$
-          <div class="math-caption">Eq. 3.30</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.30</a></div>
         </div>
         <p>Both sides are tensors, so an identity valid in one orthogonal frame is valid in every orthogonal frame, and the relation holds in general Cartesian coordinates. Introducing the bulk viscosity $\mu_B=\lambda+\tfrac23\mu$, that is $\lambda=\mu_B-\tfrac23\mu$:</p>
         <div class="math-block">
           $$ \bar{\bar{\tau}}'=2\mu\,\bar{\bar{T}}_d+\Big(\mu_B-\frac23\mu\Big)(\nabla\cdot\vec{v})\,\bar{\bar{I}} $$
-          <div class="math-caption">Eq. 3.31</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.31</a></div>
         </div>
         <h3 class="sub-heading">Step 4: Checks (extension, not in the Notes)</h3>
         <p>Taking the trace, with $\mathrm{tr}\,\bar{\bar{T}}_d=\nabla\cdot\vec{v}$ and $\mathrm{tr}\,\bar{\bar{I}}=3$:</p>
@@ -657,12 +662,12 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Wall Shear Stress from the Stress Tensor (Notes.pdf, Eqs. 3.17, 3.28, 3.30 and 3.32)</h2>
-        <p><strong>Extension, not in the Notes</strong> (worked application of Eqs. 3.30 and 3.32). Consider a flat wall at $y=0$ with the fluid at $y\gt0$. The unit normal pointing into the fluid is $\vec{n}=\vec{e}_y$. By Eq. 3.32 the force per unit area exerted by the fluid on the wall is the stress vector</p>
+        <h2 class="section-heading">Wall Shear Stress from the Stress Tensor (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.17</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.28</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.30</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.32</a>)</h2>
+        <p><strong>Extension, not in the Notes</strong> (worked application of Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.30</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.32</a>). Consider a flat wall at $y=0$ with the fluid at $y\gt0$. The unit normal pointing into the fluid is $\vec{n}=\vec{e}_y$. By Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.32</a> the force per unit area exerted by the fluid on the wall is the stress vector</p>
         <div class="math-block">
           $$ \vec{f}=\bar{\bar{\tau}}\cdot\vec{e}_y=-p\,\vec{e}_y+\bar{\bar{\tau}}'\cdot\vec{e}_y $$
         </div>
-        <p>In components, Eq. 3.30 reads $\tau'_{ij}=\mu\left(\frac{\partial v_i}{\partial x_j}+\frac{\partial v_j}{\partial x_i}\right)+\lambda(\nabla\cdot\vec{v})\,\delta_{ij}$, since $(T_d)_{ij}=\tfrac12(\partial v_i/\partial x_j+\partial v_j/\partial x_i)$. The tangential component of the force is</p>
+        <p>In components, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.30</a> reads $\tau'_{ij}=\mu\left(\frac{\partial v_i}{\partial x_j}+\frac{\partial v_j}{\partial x_i}\right)+\lambda(\nabla\cdot\vec{v})\,\delta_{ij}$, since $(T_d)_{ij}=\tfrac12(\partial v_i/\partial x_j+\partial v_j/\partial x_i)$. The tangential component of the force is</p>
         <div class="math-block">
           $$ f_x=\tau'_{xy}=\mu\left(\frac{\partial v_x}{\partial y}+\frac{\partial v_y}{\partial x}\right)+\lambda(\nabla\cdot\vec{v})\,\delta_{xy} $$
         </div>
@@ -670,7 +675,7 @@
         <div class="math-block">
           $$ \tau_w=f_x=\mu\left.\frac{\partial v_x}{\partial y}\right|_{y=0} $$
         </div>
-        <p>The normal component is $f_y=-p+\tau'_{yy}$ with $\tau'_{yy}=2\mu\,\partial v_y/\partial y+\lambda\nabla\cdot\vec{v}$. At the wall $v_x(x,0)=0$ for every $x$, so $\partial v_x/\partial x=0$ and $\nabla\cdot\vec{v}=\partial v_y/\partial y$. For an incompressible fluid $\nabla\cdot\vec{v}=0$, hence $\partial v_y/\partial y=0$, $\tau'_{yy}=0$ and $f_y=-p$: only pressure loads the wall in the normal direction, and the viscous contribution is purely tangential. The friction drag is the integral of $\tau_w$ over the wetted surface (second term of Eq. 3.32 projected on the flow direction).</p>
+        <p>The normal component is $f_y=-p+\tau'_{yy}$ with $\tau'_{yy}=2\mu\,\partial v_y/\partial y+\lambda\nabla\cdot\vec{v}$. At the wall $v_x(x,0)=0$ for every $x$, so $\partial v_x/\partial x=0$ and $\nabla\cdot\vec{v}=\partial v_y/\partial y$. For an incompressible fluid $\nabla\cdot\vec{v}=0$, hence $\partial v_y/\partial y=0$, $\tau'_{yy}=0$ and $f_y=-p$: only pressure loads the wall in the normal direction, and the viscous contribution is purely tangential. The friction drag is the integral of $\tau_w$ over the wetted surface (second term of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.32</a> projected on the flow direction).</p>
       </section>
 
       <!-- Section 4: Canonical Walkthrough -->

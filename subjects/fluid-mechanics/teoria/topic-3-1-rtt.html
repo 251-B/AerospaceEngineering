@@ -471,6 +471,7 @@
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -518,6 +519,10 @@
         <div class="article-category">Subchapter 3.1 · Fundamental Kinematics of Integral Systems</div>
         <h1 class="article-title">The Reynolds Transport Theorem (RTT) &amp; Control Volume Selection Strategy</h1>
         <p class="article-meta">Converting Lagrangian material derivatives into Eulerian flux balances across fixed, moving, and deformable control boundaries.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener">Notes.pdf · p. 34</a>
+        </nav>
       </header>
 
       <!-- Section 1: The Master Formula -->
@@ -529,21 +534,21 @@
 
         <div class="math-block">
           $$ B_{\text{sys}}(t) = \int_{V_f(t)} \rho b \, dV $$
-          <div class="math-caption">[Eq. 3.1] Total extensive property $B_{\text{sys}}$ as the volume integral of volumetric density $\phi = \rho b$.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3.1</a>] Total extensive property $B_{\text{sys}}$ as the volume integral of volumetric density $\phi = \rho b$.</div>
         </div>
 
         <p>To differentiate this integral with respect to time when both the integrand $\rho b$ and the spatial domain $V_f(t)$ vary simultaneously, we apply the formal analytical limit definition:</p>
 
         <div class="math-block">
           $$ \frac{dB_{\text{sys}}}{dt} = \lim_{\Delta t \to 0} \frac{1}{\Delta t} \left[ \int_{V_f(t+\Delta t)} \rho b(\vec{x}, t+\Delta t) \, dV - \int_{V_f(t)} \rho b(\vec{x}, t) \, dV \right] $$
-          <div class="math-caption">[Eq. 3.2] Analytical limit definition of the material time derivative.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.2</a>] Analytical limit definition of the material time derivative.</div>
         </div>
 
         <p>Over the infinitesimal time interval $\Delta t$, the material boundary moves with fluid velocity $\vec{v}$. An elementary surface patch $d\sigma$ sweeps out a cylindrical volume of base $d\sigma$ and height $(\vec{v}\Delta t)\cdot\vec{n}$, yielding $dV = (\vec{v}\cdot\vec{n})\Delta t \, d\sigma$. Splitting the limit into local unsteadiness and boundary convective sweeping yields the classical RTT for a material volume:</p>
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho b \, dV\right] = \int_{V_f(t)} \frac{\partial(\rho b)}{\partial t} \, dV + \int_{\Sigma_f(t)} \rho b (\vec{v}\cdot\vec{n}) \, d\sigma $$
-          <div class="math-caption">[Eq. 3.6] Reynolds Transport Theorem for a material fluid volume $V_f(t)$.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a>] Reynolds Transport Theorem for a material fluid volume $V_f(t)$.</div>
         </div>
 
         <h3 class="sub-heading">Universal Extension to an Arbitrary Moving Control Volume $V_c(t)$</h3>
@@ -551,7 +556,7 @@
 
         <div class="math-block">
           $$ \mathbf{\frac{dB_{\text{sys}}}{dt} = \frac{d}{dt}\left[\int_{V_c(t)} \rho b \, dV\right] + \int_{\Sigma_c(t)} \rho b [(\vec{v} - \vec{v}_c)\cdot\vec{n}] \, d\sigma} $$
-          <div class="math-caption">[Eq. 3.8] Universal Reynolds Transport Theorem with relative velocity $(\vec{v}-\vec{v}_c)$.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a>] Universal Reynolds Transport Theorem with relative velocity $(\vec{v}-\vec{v}_c)$.</div>
         </div>
 
         <div class="callout-box">
@@ -565,16 +570,16 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Step-by-Step Derivation of the Reynolds Transport Theorem (Notes.pdf, Eqs. 3.2-3.8)</h2>
-        <p>This section expands every step that the compact derivation above skips. Throughout, $\phi(\vec{x},t)$ is the volumetric density of the extensive property (in the notation $B=\int\rho b\,dV$ used elsewhere, $\phi=\rho b$). It is assumed twice continuously differentiable in space and time, and the surfaces $\Sigma_f(t)$ and $\Sigma_c(t)$ are smooth and closed, with $\vec{n}$ the outward unit normal. Equation numbers are those of Notes.pdf, Chapter 3.</p>
-        <h3 class="sub-heading">Step 1: Split the difference quotient (Eqs. 3.2 and 3.3)</h3>
-        <p>The material volume at $t+dt$ is the volume at $t$ plus the thin shell $\delta V=V_f(t+dt)-V_f(t)$ swept by its boundary. The shell is counted algebraically: where the boundary moves inward it removes volume. Add and subtract $\int_{V_f(t)}\phi(\vec{x},t+dt)\,dV$ in the numerator of the limit definition (Eq. 3.2):</p>
+        <h2 class="section-heading">Step-by-Step Derivation of the Reynolds Transport Theorem (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.2-3.8</a>)</h2>
+        <p>This section expands every step that the compact derivation above skips. Throughout, $\phi(\vec{x},t)$ is the volumetric density of the extensive property (in the notation $B=\int\rho b\,dV$ used elsewhere, $\phi=\rho b$). It is assumed twice continuously differentiable in space and time, and the surfaces $\Sigma_f(t)$ and $\Sigma_c(t)$ are smooth and closed, with $\vec{n}$ the outward unit normal. Equation numbers are those of Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>.</p>
+        <h3 class="sub-heading">Step 1: Split the difference quotient (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.2</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.3</a>)</h3>
+        <p>The material volume at $t+dt$ is the volume at $t$ plus the thin shell $\delta V=V_f(t+dt)-V_f(t)$ swept by its boundary. The shell is counted algebraically: where the boundary moves inward it removes volume. Add and subtract $\int_{V_f(t)}\phi(\vec{x},t+dt)\,dV$ in the numerator of the limit definition (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.2</a>):</p>
         <div class="math-block">
           $$ \int_{V_f(t+dt)}\phi(\vec{x},t+dt)\,dV-\int_{V_f(t)}\phi(\vec{x},t)\,dV=\int_{V_f(t)}\big[\phi(\vec{x},t+dt)-\phi(\vec{x},t)\big]dV+\int_{\delta V}\phi(\vec{x},t+dt)\,dV $$
-          <div class="math-caption">Eq. 3.2 rewritten as Eq. 3.3 (before the limit)</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.2</a> rewritten as Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.3</a> (before the limit)</div>
         </div>
         <p>The first integral has a fixed domain $V_f(t)$ and measures how the field changes at fixed points. The second integral contains the field only over the thin shell and measures how much the domain grows.</p>
-        <h3 class="sub-heading">Step 2: The unsteadiness term (Eq. 3.4)</h3>
+        <h3 class="sub-heading">Step 2: The unsteadiness term (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.4</a>)</h3>
         <p>Taylor-expand the integrand at a fixed point $\vec{x}$:</p>
         <div class="math-block">
           $$ \phi(\vec{x},t+dt)-\phi(\vec{x},t)=\frac{\partial\phi}{\partial t}\,dt+O(dt^{2}) $$
@@ -582,9 +587,9 @@
         <p>Because $\phi$ is $C^2$ and $V_f(t)$ is bounded, the remainder is uniformly $O(dt^2)$ over the domain, so it can be integrated. Dividing by $dt$ and letting $dt\to0$ (the domain $V_f(t)$ does not depend on $dt$):</p>
         <div class="math-block">
           $$ \lim_{dt\to0}\frac{1}{dt}\int_{V_f(t)}\big[\phi(\vec{x},t+dt)-\phi(\vec{x},t)\big]dV=\int_{V_f(t)}\frac{\partial\phi}{\partial t}\,dV $$
-          <div class="math-caption">Eq. 3.4</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.4</a></div>
         </div>
-        <h3 class="sub-heading">Step 3: The swept-volume term (Eq. 3.5)</h3>
+        <h3 class="sub-heading">Step 3: The swept-volume term (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.5</a>)</h3>
         <p>A point $\vec{x}_s$ of the material surface moves in the time $dt$ to $\vec{x}_s+\vec{v}\,dt+O(dt^2)$. Its displacement along the outward normal is $(\vec{v}\cdot\vec{n})\,dt$. The tangential part only slides the point along the surface and adds no volume. The shell above a surface element $d\sigma$ is therefore a prism of base $d\sigma$ and height $(\vec{v}\cdot\vec{n})\,dt$ (an oblique prism has the same volume as a right prism of equal base and height). Where $\vec{v}\cdot\vec{n}\lt0$ the height is negative and the shell removes volume, which is the algebraic counting adopted in Step 1:</p>
         <div class="math-block">
           $$ d(\delta V)=(\vec{v}\cdot\vec{n})\,dt\,d\sigma+O(dt^{2}) $$
@@ -596,38 +601,38 @@
         <p>Dividing by $dt$ and taking the limit gives the convective flux through the moving boundary:</p>
         <div class="math-block">
           $$ \lim_{dt\to0}\frac{1}{dt}\int_{\delta V}\phi(\vec{x},t+dt)\,dV=\int_{\Sigma_f(t)}\phi\,\vec{v}\cdot\vec{n}\,d\sigma $$
-          <div class="math-caption">Eq. 3.5</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.5</a></div>
         </div>
-        <h3 class="sub-heading">Step 4: Add both contributions (Eq. 3.6)</h3>
-        <p>The limit of the sum is the sum of the limits, so Eqs. 3.4 and 3.5 give Eq. 3.6:</p>
+        <h3 class="sub-heading">Step 4: Add both contributions (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a>)</h3>
+        <p>The limit of the sum is the sum of the limits, so Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.4</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.5</a> give Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a>:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f(t)}\phi\,dV=\int_{V_f(t)}\frac{\partial\phi}{\partial t}\,dV+\int_{\Sigma_f(t)}\phi\,\vec{v}\cdot\vec{n}\,d\sigma $$
-          <div class="math-caption">Eq. 3.6</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a></div>
         </div>
-        <h3 class="sub-heading">Step 5: Arbitrary moving control volume (Eq. 3.7)</h3>
+        <h3 class="sub-heading">Step 5: Arbitrary moving control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.7</a>)</h3>
         <p>A control volume $V_c(t)$ is a geometric region whose boundary points move with a prescribed velocity $\vec{v}_c(\vec{x},t)$, not necessarily equal to the fluid velocity. Steps 1 to 4 used the velocity of the boundary only to compute the displacement $(\vec{v}\cdot\vec{n})\,dt$ of the surface. Repeating them with the boundary velocity $\vec{v}_c$ in place of $\vec{v}$ gives</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_c(t)}\phi\,dV=\int_{V_c(t)}\frac{\partial\phi}{\partial t}\,dV+\int_{\Sigma_c(t)}\phi\,\vec{v}_c\cdot\vec{n}\,d\sigma $$
-          <div class="math-caption">Eq. 3.7</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.7</a></div>
         </div>
-        <h3 class="sub-heading">Step 6: Subtraction at the instant of coincidence (Eq. 3.8)</h3>
-        <p>Choose $V_c(t)$ so that at the instant $t$ it occupies exactly the same region as $V_f(t)$, hence $\Sigma_c(t)=\Sigma_f(t)$ and the normal $\vec{n}$ is the same. (At later times the two volumes differ, which is why only the instantaneous values of the derivatives are compared.) The integrals of $\partial\phi/\partial t$ in Eqs. 3.6 and 3.7 are then identical. Subtracting Eq. 3.7 from Eq. 3.6:</p>
+        <h3 class="sub-heading">Step 6: Subtraction at the instant of coincidence (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a>)</h3>
+        <p>Choose $V_c(t)$ so that at the instant $t$ it occupies exactly the same region as $V_f(t)$, hence $\Sigma_c(t)=\Sigma_f(t)$ and the normal $\vec{n}$ is the same. (At later times the two volumes differ, which is why only the instantaneous values of the derivatives are compared.) The integrals of $\partial\phi/\partial t$ in Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.7</a> are then identical. Subtracting Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.7</a> from Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a>:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f}\phi\,dV-\frac{d}{dt}\int_{V_c}\phi\,dV=\int_{\Sigma_c}\phi\,\vec{v}\cdot\vec{n}\,d\sigma-\int_{\Sigma_c}\phi\,\vec{v}_c\cdot\vec{n}\,d\sigma $$
         </div>
-        <p>Combining the two surface integrals gives Eq. 3.8:</p>
+        <p>Combining the two surface integrals gives Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a>:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f(t)}\phi\,dV=\frac{d}{dt}\int_{V_c(t)}\phi\,dV+\int_{\Sigma_c(t)}\phi\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
-          <div class="math-caption">Eq. 3.8</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a></div>
         </div>
         <h3 class="sub-heading">Step 7: Checks (extension, not in the Notes)</h3>
-        <p><strong>One-dimensional check with the Leibniz rule.</strong> Take a one-dimensional "volume" $a(t)\le x\le b(t)$. The outward normals are $n=+1$ at $x=b$ and $n=-1$ at $x=a$, and the boundary velocities are $\dot b$ and $\dot a$. Eq. 3.7 gives $\int_a^b\partial\phi/\partial t\,dx+\phi(b,t)\dot b-\phi(a,t)\dot a$. Differentiating $F(t)=\int_{a(t)}^{b(t)}\phi(x,t)\,dx$ directly with the chain rule for $F(t,a,b)$ and Barrow's rule $\partial F/\partial b=\phi(b,t)$, $\partial F/\partial a=-\phi(a,t)$:</p>
+        <p><strong>One-dimensional check with the Leibniz rule.</strong> Take a one-dimensional "volume" $a(t)\le x\le b(t)$. The outward normals are $n=+1$ at $x=b$ and $n=-1$ at $x=a$, and the boundary velocities are $\dot b$ and $\dot a$. Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.7</a> gives $\int_a^b\partial\phi/\partial t\,dx+\phi(b,t)\dot b-\phi(a,t)\dot a$. Differentiating $F(t)=\int_{a(t)}^{b(t)}\phi(x,t)\,dx$ directly with the chain rule for $F(t,a,b)$ and Barrow's rule $\partial F/\partial b=\phi(b,t)$, $\partial F/\partial a=-\phi(a,t)$:</p>
         <div class="math-block">
           $$ \frac{dF}{dt}=\frac{\partial F}{\partial t}+\frac{\partial F}{\partial b}\dot b+\frac{\partial F}{\partial a}\dot a=\int_a^b\frac{\partial\phi}{\partial t}\,dx+\phi(b,t)\,\dot b-\phi(a,t)\,\dot a $$
         </div>
         <p>Both results coincide, which confirms the sign convention of the flux term.</p>
         <p><strong>Dimensional check.</strong> If $[\phi]$ denotes the units of the density, then $[d\Phi/dt]=[\phi]\,\mathrm{m^3/s}$, the unsteady term has units $[\phi]\,\mathrm{m^3/s}$, and the flux term has units $[\phi]\cdot(\mathrm{m/s})\cdot\mathrm{m^2}=[\phi]\,\mathrm{m^3/s}$.</p>
-        <p><strong>Limiting case.</strong> If $\vec{v}_c=\vec{v}$ at the boundary, the relative velocity vanishes and Eq. 3.8 reduces to the identity $d\Phi_f/dt=d\Phi_c/dt$, as expected for a volume that moves with the fluid.</p>
+        <p><strong>Limiting case.</strong> If $\vec{v}_c=\vec{v}$ at the boundary, the relative velocity vanishes and Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a> reduces to the identity $d\Phi_f/dt=d\Phi_c/dt$, as expected for a volume that moves with the fluid.</p>
       </section>
 
       <!-- Section 2: The Control Volume Toolbox -->

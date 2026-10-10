@@ -390,6 +390,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -426,6 +427,10 @@
       <div class="source-box">
         Ground Truth: sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf (2026 Edition)
       </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=6" target="_blank" rel="noopener">Problems.pdf · p. 6</a>
+      </nav>
     </header>
 
     <div class="note-banner">
@@ -439,6 +444,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 01</div>
           <h2 class="problem-title">Rocket Helical Trajectory</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=6" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 6</a>
         </div>
         <span class="problem-badge">MIT OCW Benchmark</span>
       </div>
@@ -509,7 +515,7 @@
 <p style="margin-bottom: 10px;">The basis vector relationships are given by matrix-vector multiplication:</p>
 <div class="math-block">$$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. 3.2):</strong></li>
+<li><strong>Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.2</a>):</strong></li>
 </ul>
 <p style="margin-bottom: 10px;">Since $\mathcal{B}_{\text{cyl}}$ rotates at angular velocity $\boldsymbol{\omega} = \omega\mathbf{k}_0 = \omega\mathbf{e}_z$:</p>
 <div class="math-block">$$ \frac{d\mathbf{e}_R}{dt} = \boldsymbol{\omega} \times \mathbf{e}_R = (\omega\mathbf{e}_z) \times \mathbf{e}_R = \omega\mathbf{e}_\theta $$</div>
@@ -560,7 +566,7 @@
 </ul>
 <div class="math-block">$$ \mathbf{a}(t) = \frac{d}{dt}(a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z) = a\omega\frac{d\mathbf{e}_\theta}{dt} + 0 = a\omega(-\omega\mathbf{e}_R) = -a\omega^2\mathbf{e}_R $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Intrinsic Frenet-Serret Basis $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The Frenet-Serret intrinsic basis (Notes Sec. 2.4) decomposes motion naturally along the curve itself. The tangent vector $\mathbf{e}_t$ points in the direction of instantaneous velocity, the principal normal $\mathbf{e}_n$ points toward the center of curvature, and the binormal $\mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n$ completes the right-handed orthonormal triad.</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The Frenet-Serret intrinsic basis (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>) decomposes motion naturally along the curve itself. The tangent vector $\mathbf{e}_t$ points in the direction of instantaneous velocity, the principal normal $\mathbf{e}_n$ points toward the center of curvature, and the binormal $\mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n$ completes the right-handed orthonormal triad.</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Unit Tangent Vector $\mathbf{e}_t$:</strong></li>
 </ul>
@@ -568,7 +574,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Unit Principal Normal Vector $\mathbf{e}_n$:</strong></li>
 </ul>
-<p style="margin-bottom: 10px;">By definition of the intrinsic acceleration (Notes Eq. 2.14):</p>
+<p style="margin-bottom: 10px;">By definition of the intrinsic acceleration (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.14</a>):</p>
 <div class="math-block">$$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$</div>
 <p style="margin-bottom: 10px;">Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:</p>
 <div class="math-block">$$ \ddot{s} = \frac{dv}{dt} = 0 $$</div>
@@ -614,7 +620,7 @@
 <div class="math-block">$$ y(s) = a\sin\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$</div>
 <div class="math-block">$$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(g) Center of Curvature $C$ at $(a, 0, 0)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Eq. 2.15):</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.15</a>):</div>
 <div class="math-block">$$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Evaluation at $(a, 0, 0)$:</strong></li>
@@ -657,6 +663,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 02</div>
           <h2 class="problem-title">Kinematics, Spiral</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=6" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 6</a>
         </div>
         <span class="problem-badge">Polar Kinematics</span>
       </div>
@@ -711,7 +718,7 @@
 </ul>
 <div class="math-block">$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Time Derivatives of Polar Unit Vectors (Notes Sec. 2.6.2, Eqs. 2.25–2.26):</strong></li>
+<li><strong>Time Derivatives of Polar Unit Vectors (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=33" target="_blank" rel="noopener" title="Open Notes.pdf at page 33">2.6.2</a>, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25–2.26</a>):</strong></li>
 </ul>
 <div class="math-block">$$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -740,7 +747,7 @@
 <div class="math-block">$$ v_r = \dot{r} = \beta n\delta t^{n-1} r $$</div>
 <div class="math-block">$$ v_\theta = r\dot{\theta} = n\delta t^{n-1} r $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Radial and Transverse Acceleration Components</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The acceleration in polar coordinates (Notes Eq. 2.30) accounts for the curvature of the polar grid:</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The acceleration in polar coordinates (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.30</a>) accounts for the curvature of the polar grid:</div>
 <div class="math-block">$$ \mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta = (\ddot{r} - r\dot{\theta}^2)\mathbf{e}_r + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\mathbf{e}_\theta $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Second Time Derivatives (Explicit Product Rule):</strong></li>
@@ -818,6 +825,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 03</div>
           <h2 class="problem-title">Kinematics, Astroid</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=6" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 6</a>
         </div>
         <span class="problem-badge">Intrinsic Kinematics</span>
       </div>
@@ -928,6 +936,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 04</div>
           <h2 class="problem-title">Plane at Constant Altitude</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=7" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 7</a>
         </div>
         <span class="problem-badge">Coordinate Transformations</span>
       </div>
@@ -1080,6 +1089,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 05</div>
           <h2 class="problem-title">Plane and Glider</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=7" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 7</a>
         </div>
         <span class="problem-badge">Aerospace Towed Flight</span>
       </div>
@@ -1190,6 +1200,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 06</div>
           <h2 class="problem-title">Particle on Sinusoidal Curve</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=7" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 7</a>
         </div>
         <span class="problem-badge">Frenet-Serret Frame</span>
       </div>
@@ -1325,6 +1336,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 07</div>
           <h2 class="problem-title">Skater Pulled by Vehicle on a Circumference</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=8" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 8</a>
         </div>
         <span class="problem-badge">Relative Kinematics & Bar Constraint</span>
       </div>
@@ -1411,7 +1423,7 @@
 <div class="math-block">$$ \mathbf{a}_{\text{rel}} = \frac{d\mathbf{v}_{\text{rel}}}{dt}\Big|_{\mathcal{S}_1} = \frac{d}{dt}(-a\dot{\psi}\sin\psi)\mathbf{i}_1 + \frac{d}{dt}(a\dot{\psi}\cos\psi)\mathbf{j}_1 $$</div>
 <div class="math-block">$$ = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\mathbf{i}_1 + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\mathbf{j}_1 $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Coriolis and Centripetal Accelerations</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> By Coriolis' theorem of relative kinematics (Notes Sec. 4.9):</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> By Coriolis' theorem of relative kinematics (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.9</a>):</div>
 <div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2\boldsymbol{\omega}_{1/0} \times \mathbf{v}_{\text{rel}} $$</div>
 <div class="math-block">$$ \mathbf{a}_{\text{cf}} = \boldsymbol{\omega}_{1/0} \times (\boldsymbol{\omega}_{1/0} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_{B\perp} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -1499,6 +1511,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 08</div>
           <h2 class="problem-title">Kinematics, Two Trains on Tracks</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=8" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 8</a>
         </div>
         <span class="problem-badge">Relative Motion</span>
       </div>
@@ -1587,6 +1600,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 09</div>
           <h2 class="problem-title">2001: A Space Odyssey (Artificial Gravity)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=8" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 8</a>
         </div>
         <span class="problem-badge">Normal Acceleration & Rotating Cylinder</span>
       </div>
@@ -1692,6 +1706,7 @@
         <div class="problem-title-area">
           <div class="problem-num">Problem 41</div>
           <h2 class="problem-title">Simple Rotations, Satellite Solar Panels</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=29" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 29</a>
         </div>
         <span class="problem-badge">Rotational Kinematics</span>
       </div>

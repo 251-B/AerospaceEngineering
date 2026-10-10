@@ -497,6 +497,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -535,6 +536,10 @@
       <p class="article-lead">
         Thermally activated mass transport in crystalline solids: microscopic jump mechanisms, Fick's first and second laws, error function Gaussian solutions, Arrhenius activation kinetics, and aerospace industrial applications.
       </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf" target="_blank" rel="noopener">Session 5 T3 Diffusion.pdf</a>
+      </nav>
     </article>
 
     <!-- Section 1 -->
@@ -543,23 +548,23 @@
       <h2 class="section-heading">Concept of Diffusion &amp; Driving Forces</h2>
       
       <p>
-        In condensed matter physics and aerospace metallurgy, <strong>diffusion</strong> is defined as the phenomenon of transport of matter through atomic or molecular migration within a material [Slide 2]. While mass transport occurs readily and rapidly in gases and liquids through bulk convection and macroscopic turbulence, diffusion in crystalline solids is fundamentally governed by the movement of discrete atoms jumping between lattice sites under thermal excitation [Slides 2, 4].
+        In condensed matter physics and aerospace metallurgy, <strong>diffusion</strong> is defined as the phenomenon of transport of matter through atomic or molecular migration within a material [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 2">2</a>]. While mass transport occurs readily and rapidly in gases and liquids through bulk convection and macroscopic turbulence, diffusion in crystalline solids is fundamentally governed by the movement of discrete atoms jumping between lattice sites under thermal excitation [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 2">2</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 4">4</a>].
       </p>
 
       <div class="callout">
-        <strong>The Fundamental Driving Force:</strong> The primary thermodynamic driving force for solid-state diffusion is the <strong>gradient of chemical potential</strong>, which in dilute or ideal solid solutions manifests macroscopically as a <strong>concentration gradient</strong> ($\Delta C / \Delta x$). Diffusion proceeds spontaneously in the direction that minimizes chemical free energy and equalizes composition across the crystalline matrix [Slide 2].
+        <strong>The Fundamental Driving Force:</strong> The primary thermodynamic driving force for solid-state diffusion is the <strong>gradient of chemical potential</strong>, which in dilute or ideal solid solutions manifests macroscopically as a <strong>concentration gradient</strong> ($\Delta C / \Delta x$). Diffusion proceeds spontaneously in the direction that minimizes chemical free energy and equalizes composition across the crystalline matrix [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 2">2</a>].
       </div>
 
       <p>
-        At any temperature $T > 0\text{ K}$, the atoms in a solid lattice are not rigidly motionless; they execute high-frequency thermal vibrations around their equilibrium coordinate positions ($\nu_0 \sim 10^{13}\text{ s}^{-1}$). As thermal energy increases, an occasional atom acquires sufficient kinetic vibrational energy to overcome the local interatomic bond constraints and jump into an adjacent position, rendering diffusion a <strong>thermally activated process</strong> [Slides 2, 4].
+        At any temperature $T > 0\text{ K}$, the atoms in a solid lattice are not rigidly motionless; they execute high-frequency thermal vibrations around their equilibrium coordinate positions ($\nu_0 \sim 10^{13}\text{ s}^{-1}$). As thermal energy increases, an occasional atom acquires sufficient kinetic vibrational energy to overcome the local interatomic bond constraints and jump into an adjacent position, rendering diffusion a <strong>thermally activated process</strong> [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 2">2</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 4">4</a>].
       </p>
 
       <p>
-        For an atomic jump to occur successfully in a solid matrix, two physical conditions must be satisfied simultaneously [Slide 4]:
+        For an atomic jump to occur successfully in a solid matrix, two physical conditions must be satisfied simultaneously [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 4">4</a>]:
       </p>
       <ol class="editorial-list">
         <li><strong>An Empty Adjacent Site:</strong> There must be an unoccupied lattice site (a vacancy or an open interstitial void) immediately adjacent to the diffusing atom.</li>
-        <li><strong>Sufficient Thermal Energy ($E_{\text{thermal}} \ge E_a$):</strong> The jumping atom must possess energy equal to or greater than the <strong>activation energy</strong> ($E_a$) required to distort the surrounding host atoms as it passes through the narrow constriction between equilibrium positions [Slides 4, 5].</li>
+        <li><strong>Sufficient Thermal Energy ($E_{\text{thermal}} \ge E_a$):</strong> The jumping atom must possess energy equal to or greater than the <strong>activation energy</strong> ($E_a$) required to distort the surrounding host atoms as it passes through the narrow constriction between equilibrium positions [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 4">4</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=5" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 5">5</a>].</li>
       </ol>
     </section>
 
@@ -569,7 +574,7 @@
       <h2 class="section-heading">Atomic Mechanisms: Vacancy vs Interstitial Diffusion</h2>
 
       <p>
-        The atomic geometry of the crystalline host dictates two primary mechanisms for mass transport in metals and ceramics [Slide 6]:
+        The atomic geometry of the crystalline host dictates two primary mechanisms for mass transport in metals and ceramics [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=6" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 6">6</a>]:
       </p>
 
       <!-- SVG Diagram 1: Vacancy vs Interstitial Mechanism -->
@@ -638,32 +643,32 @@
           </g>
         </svg>
         <div class="diagram-caption">
-          Schematic representation of (A) vacancy-assisted substitutional diffusion requiring vacant lattice sites and (B) interstitial diffusion where small solute atoms jump directly between lattice voids without displacing the host matrix [Session 5 Slides 7, 13].
+          Schematic representation of (A) vacancy-assisted substitutional diffusion requiring vacant lattice sites and (B) interstitial diffusion where small solute atoms jump directly between lattice voids without displacing the host matrix [Session 5 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 7">7</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 13">13</a>].
         </div>
       </div>
 
       <h3 class="subsection-heading">1. Vacancy (Substitutional) Diffusion</h3>
       <p>
-        In vacancy diffusion, an atom migrates from a regular lattice position into an adjacent vacant lattice point [Slide 7]. Because vacancies exist as thermodynamic equilibrium defects whose concentration increases exponentially with temperature ($n_v/N = \exp(-\Delta H_v / RT)$), the diffusion rate is intrinsically coupled to the vacancy concentration in the lattice [Session 4 Slide 15; Session 5 Slide 7].
+        In vacancy diffusion, an atom migrates from a regular lattice position into an adjacent vacant lattice point [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 7">7</a>]. Because vacancies exist as thermodynamic equilibrium defects whose concentration increases exponentially with temperature ($n_v/N = \exp(-\Delta H_v / RT)$), the diffusion rate is intrinsically coupled to the vacancy concentration in the lattice [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=15" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 15">15</a>; Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 7">7</a>].
       </p>
       <ul class="editorial-list">
-        <li><strong>Self-Diffusion:</strong> Occurs in pure metals (e.g. $^{64}\text{Cu}$ in copper), where identical atoms exchange positions with vacancies without generating macroscopic concentration shifts [Slide 7]. The total activation energy is the sum of vacancy formation and vacancy migration enthalpies [Slide 8]:
+        <li><strong>Self-Diffusion:</strong> Occurs in pure metals (e.g. $^{64}\text{Cu}$ in copper), where identical atoms exchange positions with vacancies without generating macroscopic concentration shifts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 7">7</a>]. The total activation energy is the sum of vacancy formation and vacancy migration enthalpies [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=8" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 8">8</a>]:
         $$E_{\text{self}} = \Delta H_v + \Delta H_m$$
-        Because stronger interatomic bonds resist both vacancy formation and lattice deformation, the activation energy for self-diffusion increases monotonically with the metal's melting point $T_m$ [Slides 8, 9].</li>
-        <li><strong>Interdiffusion:</strong> Occurs in solid solution couples (e.g. Copper-Nickel couples, $\text{Cu}-\text{Ni}$), where atoms of one element dissolve and diffuse through the host lattice of another [Slides 10-12]. Because $\text{Cu}$ and $\text{Ni}$ both share FCC crystal structures, have nearly identical atomic radii ($128\text{ pm}$ vs $124\text{ pm}$, $\Delta R \approx 3\%$), identical valencies ($+2$), and similar electronegativities ($1.90$ vs $1.91$), they fulfill all four <strong>Hume-Rothery rules</strong>, allowing complete mutual solid solubility and forming the physical foundation of aerospace <strong>diffusion bonding</strong> [Slides 12, 33].</li>
+        Because stronger interatomic bonds resist both vacancy formation and lattice deformation, the activation energy for self-diffusion increases monotonically with the metal's melting point $T_m$ [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=8" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 8">8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 9">9</a>].</li>
+        <li><strong>Interdiffusion:</strong> Occurs in solid solution couples (e.g. Copper-Nickel couples, $\text{Cu}-\text{Ni}$), where atoms of one element dissolve and diffuse through the host lattice of another [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 10">10-12</a>]. Because $\text{Cu}$ and $\text{Ni}$ both share FCC crystal structures, have nearly identical atomic radii ($128\text{ pm}$ vs $124\text{ pm}$, $\Delta R \approx 3\%$), identical valencies ($+2$), and similar electronegativities ($1.90$ vs $1.91$), they fulfill all four <strong>Hume-Rothery rules</strong>, allowing complete mutual solid solubility and forming the physical foundation of aerospace <strong>diffusion bonding</strong> [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 12">12</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 33">33</a>].</li>
       </ul>
 
       <h3 class="subsection-heading">2. Interstitial Diffusion</h3>
       <p>
-        Interstitial diffusion involves the migration of solute atoms whose atomic radii are substantially smaller than those of the host matrix (e.g. $\text{C}$, $\text{H}$, $\text{N}$, $\text{O}$, $\text{B}$ in transition metals) [Slide 13].
+        Interstitial diffusion involves the migration of solute atoms whose atomic radii are substantially smaller than those of the host matrix (e.g. $\text{C}$, $\text{H}$, $\text{N}$, $\text{O}$, $\text{B}$ in transition metals) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 13">13</a>].
       </p>
       <p>
-        These tiny solutes reside in the octahedral and tetrahedral interstitial voids of the crystal structure and jump directly from void to void without permanently displacing any matrix atoms [Slide 13]. Consequently:
+        These tiny solutes reside in the octahedral and tetrahedral interstitial voids of the crystal structure and jump directly from void to void without permanently displacing any matrix atoms [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 13">13</a>]. Consequently:
       </p>
       <ul class="editorial-list">
         <li><strong>No Vacancy Creation Penalty:</strong> The activation energy consists solely of migration energy ($E_i \ll E_v$).</li>
         <li><strong>Vast Excess of Available Sites:</strong> Virtually all interstitial voids in the metal lattice are vacant, meaning an adjacent empty site is almost always available.</li>
-        <li><strong>Dramatically Faster Kinetics:</strong> At $1000^\circ\text{C}$ in austenite ($\gamma\text{-Fe}$ FCC), carbon diffuses at $D = 3 \times 10^{-11}\text{ m}^2/\text{s}$, whereas self-diffusion of iron by vacancies is $D = 2 \times 10^{-16}\text{ m}^2/\text{s}$—interstitial transport is <strong>$150\,000$ times faster</strong> [Slide 24].</li>
+        <li><strong>Dramatically Faster Kinetics:</strong> At $1000^\circ\text{C}$ in austenite ($\gamma\text{-Fe}$ FCC), carbon diffuses at $D = 3 \times 10^{-11}\text{ m}^2/\text{s}$, whereas self-diffusion of iron by vacancies is $D = 2 \times 10^{-16}\text{ m}^2/\text{s}$—interstitial transport is <strong>$150\,000$ times faster</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 24">24</a>].</li>
       </ul>
     </section>
 
@@ -673,13 +678,13 @@
       <h2 class="section-heading">Steady-State Diffusion &amp; Fick's First Law</h2>
 
       <p>
-        To quantitatively evaluate the mass transport rate, we define the <strong>diffusion flux</strong> ($J$) as the number of atoms, moles, or mass passing through a plane of unit area perpendicular to the diffusion direction per unit time [Slide 15]:
+        To quantitatively evaluate the mass transport rate, we define the <strong>diffusion flux</strong> ($J$) as the number of atoms, moles, or mass passing through a plane of unit area perpendicular to the diffusion direction per unit time [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=15" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 15">15</a>]:
       </p>
 
       $$J = \frac{M}{A \cdot t} \quad \left[\frac{\text{kg}}{\text{m}^2\cdot\text{s}}\right] \quad \text{or} \quad \left[\frac{\text{mol}}{\text{cm}^2\cdot\text{s}}\right]$$
 
       <p>
-        <strong>Steady-State Condition:</strong> A diffusion process operates in steady state when the concentration of solute at every spatial coordinate remains constant over time ($\partial C / \partial t = 0$), implying that the flux $J$ is completely independent of time ($\partial J / \partial t = 0$) [Slides 15-16].
+        <strong>Steady-State Condition:</strong> A diffusion process operates in steady state when the concentration of solute at every spatial coordinate remains constant over time ($\partial C / \partial t = 0$), implying that the flux $J$ is completely independent of time ($\partial J / \partial t = 0$) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=15" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 15">15-16</a>].
       </p>
 
       <!-- SVG Diagram 2: Fick's First Law Steady State -->
@@ -731,20 +736,20 @@
           </g>
         </svg>
         <div class="diagram-caption">
-          Linear concentration gradient across a solid membrane of thickness $\Delta x$ held between two reservoirs of constant solute concentration $C_{\text{ext}}$ and $C_{\text{int}}$ [Session 5 Slides 16, 17, 35].
+          Linear concentration gradient across a solid membrane of thickness $\Delta x$ held between two reservoirs of constant solute concentration $C_{\text{ext}}$ and $C_{\text{int}}$ [Session 5 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 17">17</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a>].
         </div>
       </div>
 
       <p>
-        In 1855, Adolf Fick formulated his <strong>First Law</strong>, stating that the diffusion flux is directly proportional to the negative spatial concentration gradient [Slide 16]:
+        In 1855, Adolf Fick formulated his <strong>First Law</strong>, stating that the diffusion flux is directly proportional to the negative spatial concentration gradient [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>]:
       </p>
 
       $$J = -D \frac{\partial C}{\partial x} \approx -D \frac{\Delta C}{\Delta x} = -D \left(\frac{C_2 - C_1}{x_2 - x_1}\right) = D \left(\frac{C_{\text{ext}} - C_{\text{int}}}{\Delta x}\right)$$
 
       <ul class="editorial-list">
-        <li><strong>Negative Sign Rationale:</strong> Mass spontaneously transports from regions of high concentration to regions of low concentration (down the gradient, where $\Delta C / \Delta x < 0$), ensuring a positive forward flux $J > 0$ [Slide 16].</li>
-        <li><strong>Linear Profile Derivation:</strong> In steady state without internal sources or sinks, $\frac{\partial C}{\partial t} = -\frac{\partial J}{\partial x} = 0 \implies \frac{d^2 C}{dx^2} = 0$. Integrating twice yields a rigorous linear profile $C(x) = C_1 - \left(\frac{C_1 - C_2}{\Delta x}\right)x$ [Slide 17].</li>
-        <li><strong>Purification Membrane Design:</strong> For a palladium plate of area $A$ purifying hydrogen gas at a mass flow rate $\dot{m}$, equating $J = \dot{m}/A$ to Fick's first law yields the plate thickness [Slide 35]:
+        <li><strong>Negative Sign Rationale:</strong> Mass spontaneously transports from regions of high concentration to regions of low concentration (down the gradient, where $\Delta C / \Delta x < 0$), ensuring a positive forward flux $J > 0$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>].</li>
+        <li><strong>Linear Profile Derivation:</strong> In steady state without internal sources or sinks, $\frac{\partial C}{\partial t} = -\frac{\partial J}{\partial x} = 0 \implies \frac{d^2 C}{dx^2} = 0$. Integrating twice yields a rigorous linear profile $C(x) = C_1 - \left(\frac{C_1 - C_2}{\Delta x}\right)x$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 17">17</a>].</li>
+        <li><strong>Purification Membrane Design:</strong> For a palladium plate of area $A$ purifying hydrogen gas at a mass flow rate $\dot{m}$, equating $J = \dot{m}/A$ to Fick's first law yields the plate thickness [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a>]:
         $$\Delta x = \frac{D \cdot A \cdot (C_{\text{high}} - C_{\text{low}})}{\dot{m}}$$
         </li>
       </ul>
@@ -756,19 +761,19 @@
       <h2 class="section-heading">Non-Steady-State Diffusion &amp; Fick's Second Law</h2>
 
       <p>
-        For the vast majority of engineering and thermal processing scenarios—such as gear carburization, silicon wafer doping, and transient gas saturation—the concentration of solute at any internal point changes continuously with time ($\partial C_x / \partial t \neq 0$). Under these transient conditions, the diffusion flux varies with both position and time: $J = J(x, t)$ [Slide 18].
+        For the vast majority of engineering and thermal processing scenarios—such as gear carburization, silicon wafer doping, and transient gas saturation—the concentration of solute at any internal point changes continuously with time ($\partial C_x / \partial t \neq 0$). Under these transient conditions, the diffusion flux varies with both position and time: $J = J(x, t)$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 18">18</a>].
       </p>
 
       <p>
-        Applying conservation of mass to an infinitesimal differential volume element of cross-sectional area $A$ and length $\Delta x$ yields the one-dimensional continuity equation [Slides 18, 19]:
+        Applying conservation of mass to an infinitesimal differential volume element of cross-sectional area $A$ and length $\Delta x$ yields the one-dimensional continuity equation [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 18">18</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 19">19</a>]:
       </p>
 
       $$\frac{\partial C_x}{\partial t} = -\frac{\partial J}{\partial x} = \frac{\partial}{\partial x}\left( D \frac{\partial C_x}{\partial x} \right)$$
 
       <div class="callout">
-        <strong>The Canonical Second Law ($D \neq f(C)$):</strong> When the diffusion coefficient $D$ does not depend on local concentration (valid for dilute solid solutions without atomic clustering), $D$ factors out of the spatial derivative, yielding <strong>Fick's Second Law</strong> [Slide 19]:
+        <strong>The Canonical Second Law ($D \neq f(C)$):</strong> When the diffusion coefficient $D$ does not depend on local concentration (valid for dilute solid solutions without atomic clustering), $D$ factors out of the spatial derivative, yielding <strong>Fick's Second Law</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 19">19</a>]:
         $$\frac{\partial C_x}{\partial t} = D \frac{\partial^2 C_x}{\partial x^2}$$
-        The rate of compositional change at any depth $x$ equals the diffusivity $D$ multiplied by the curvature (second derivative) of the spatial concentration profile [Slide 19].
+        The rate of compositional change at any depth $x$ equals the diffusivity $D$ multiplied by the curvature (second derivative) of the spatial concentration profile [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 19">19</a>].
       </div>
 
       <!-- SVG Diagram 3: Non-steady state error function profiles -->
@@ -826,20 +831,20 @@
       </ul>
 
       <p>
-        Solving the partial differential equation via Laplace transforms or the Boltzmann similarity variable $z = \frac{x}{2\sqrt{Dt}}$ yields the exact analytical closed-form solution [Slide 20]:
+        Solving the partial differential equation via Laplace transforms or the Boltzmann similarity variable $z = \frac{x}{2\sqrt{Dt}}$ yields the exact analytical closed-form solution [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 20">20</a>]:
       </p>
 
       $$\frac{C_x - C_0}{C_s - C_0} = 1 - \text{erf}\left(\frac{x}{2\sqrt{Dt}}\right) \iff \frac{C_s - C_x}{C_s - C_0} = \text{erf}\left(\frac{x}{2\sqrt{Dt}}\right)$$
 
       <p>
-        where $\text{erf}(z)$ is the <strong>Gaussian Error Function</strong>, defined as the normalized integral [Slide 20]:
+        where $\text{erf}(z)$ is the <strong>Gaussian Error Function</strong>, defined as the normalized integral [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 20">20</a>]:
       </p>
 
       $$\text{erf}(z) \equiv \frac{2}{\sqrt{\pi}} \int_0^z e^{-\xi^2} d\xi$$
 
       <h3 class="subsection-heading">Official Tabulated Values &amp; Linear Interpolation Algorithm</h3>
       <p>
-        In exam problems, students use the official table of $\text{erf}(z)$ values [Session 5 Slide 21]:
+        In exam problems, students use the official table of $\text{erf}(z)$ values [Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=21" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 21">21</a>]:
       </p>
 
       <div class="table-container">
@@ -928,13 +933,13 @@
       <h2 class="section-heading">Factors Affecting Diffusivity &amp; Arrhenius Equation</h2>
 
       <p>
-        Diffusivity is governed by the thermal energy available to overcome the barrier preventing atomic jumps. The temperature dependence of $D$ obeys the <strong>Arrhenius equation</strong> [Slide 26]:
+        Diffusivity is governed by the thermal energy available to overcome the barrier preventing atomic jumps. The temperature dependence of $D$ obeys the <strong>Arrhenius equation</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 26">26</a>]:
       </p>
 
       $$D = D_0 \exp\left(-\frac{E_D}{RT}\right)$$
 
       <p>
-        Taking the natural logarithm linearizes the relationship into slope-intercept form [Slide 26]:
+        Taking the natural logarithm linearizes the relationship into slope-intercept form [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 26">26</a>]:
       </p>
 
       $$\ln D = \ln D_0 - \left(\frac{E_D}{R}\right) \frac{1}{T}$$
@@ -973,24 +978,24 @@
           </g>
         </svg>
         <div class="diagram-caption">
-          Arrhenius plot showing $\ln D$ as a function of inverse absolute temperature $1/T$. The slope directly measures the activation energy $-E_D / R$, illustrating higher diffusivity in open structures and short-circuit paths [Session 5 Slides 24-26].
+          Arrhenius plot showing $\ln D$ as a function of inverse absolute temperature $1/T$. The slope directly measures the activation energy $-E_D / R$, illustrating higher diffusivity in open structures and short-circuit paths [Session 5 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 24">24-26</a>].
         </div>
       </div>
 
       <h3 class="subsection-heading">Physical Factors Modulating Diffusivity</h3>
       <p>
-        Based on experimental datasets, five principal factors govern the magnitude of $D$ [Slides 23-27]:
+        Based on experimental datasets, five principal factors govern the magnitude of $D$ [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 23">23-27</a>]:
       </p>
 
       <ul class="editorial-list">
-        <li><strong>Atomic Mechanism:</strong> Small interstitial atoms ($\text{C}, \text{H}, \text{N}$) diffuse orders of magnitude faster than host atoms diffusing via vacancies [Slide 24].</li>
-        <li><strong>Crystal Structure Openness:</strong> Open crystalline structures with lower Atomic Packing Factors (such as Body-Centered Cubic, $\text{BCC}$ with $\text{APF} = 0.68$) feature larger interatomic channels and exhibit higher diffusivities than close-packed structures (Face-Centered Cubic, $\text{FCC}$ with $\text{APF} = 0.74$) [Slide 24]:
+        <li><strong>Atomic Mechanism:</strong> Small interstitial atoms ($\text{C}, \text{H}, \text{N}$) diffuse orders of magnitude faster than host atoms diffusing via vacancies [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 24">24</a>].</li>
+        <li><strong>Crystal Structure Openness:</strong> Open crystalline structures with lower Atomic Packing Factors (such as Body-Centered Cubic, $\text{BCC}$ with $\text{APF} = 0.68$) feature larger interatomic channels and exhibit higher diffusivities than close-packed structures (Face-Centered Cubic, $\text{FCC}$ with $\text{APF} = 0.74$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 24">24</a>]:
         $$D(\text{C in Fe-}\alpha, \text{BCC}, 500^\circ\text{C}) = 10^{-12}\text{ m}^2/\text{s} \gg D(\text{C in Fe-}\gamma, \text{FCC}, 500^\circ\text{C}) = 5 \times 10^{-15}\text{ m}^2/\text{s}$$
         </li>
-        <li><strong>Crystal Imperfections &amp; Short-Circuit Paths:</strong> Defect regions provide dilated atomic volumes where jumping requires overcoming fewer interatomic bonds [Slide 25]:
+        <li><strong>Crystal Imperfections &amp; Short-Circuit Paths:</strong> Defect regions provide dilated atomic volumes where jumping requires overcoming fewer interatomic bonds [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 25">25</a>]:
         $$D_{\text{surface}} > D_{\text{grain boundary}} > D_{\text{volume}}$$
-        In polycrystalline silver at $500^\circ\text{C}$, grain boundary diffusion is $10^6$ times faster than lattice volume diffusion ($10^{-11}\text{ m}^2/\text{s}$ vs $10^{-17}\text{ m}^2/\text{s}$) [Slide 23].</li>
-        <li><strong>Melting Temperature ($T_m$):</strong> Materials with higher melting temperatures possess stronger cohesive bonding ($E_{\text{bond}}$), leading directly to higher activation energies $E_D$ and lower diffusivities at comparable homologous temperatures ($T/T_m$) [Slides 8, 9].</li>
+        In polycrystalline silver at $500^\circ\text{C}$, grain boundary diffusion is $10^6$ times faster than lattice volume diffusion ($10^{-11}\text{ m}^2/\text{s}$ vs $10^{-17}\text{ m}^2/\text{s}$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 23">23</a>].</li>
+        <li><strong>Melting Temperature ($T_m$):</strong> Materials with higher melting temperatures possess stronger cohesive bonding ($E_{\text{bond}}$), leading directly to higher activation energies $E_D$ and lower diffusivities at comparable homologous temperatures ($T/T_m$) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=8" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 8">8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 9">9</a>].</li>
       </ul>
     </section>
 
@@ -1000,36 +1005,36 @@
       <h2 class="section-heading">Industrial &amp; Aerospace Applications</h2>
 
       <p>
-        Far from being an abstract transport theory, solid-state diffusion enables cutting-edge manufacturing processes across mechanical, microelectronic, and aerospace engineering [Slides 29-35]:
+        Far from being an abstract transport theory, solid-state diffusion enables cutting-edge manufacturing processes across mechanical, microelectronic, and aerospace engineering [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 29">29-35</a>]:
       </p>
 
       <h3 class="subsection-heading">1. Case Hardening (Gas Carburizing of Gears &amp; Shafts)</h3>
       <p>
-        Carburizing exposes low-carbon steel components (AISI 1018, 1010) to a hydrocarbon gas atmosphere ($\text{CH}_4 - \text{H}_2$) at high temperature (e.g. $927^\circ\text{C}$ in Problem 1) [Slides 29-31]. Interstitial carbon diffuses inward, forming a gradient.
+        Carburizing exposes low-carbon steel components (AISI 1018, 1010) to a hydrocarbon gas atmosphere ($\text{CH}_4 - \text{H}_2$) at high temperature (e.g. $927^\circ\text{C}$ in Problem 1) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 29">29-31</a>]. Interstitial carbon diffuses inward, forming a gradient.
       </p>
       <ul class="editorial-list">
-        <li><strong>Dislocation Pinning:</strong> The $\text{C}$ atoms "block" the movement of dislocations and deform the lattice, making plastic deformation more difficult and hardening the surface [Slide 30].</li>
-        <li><strong>Residual Compressive Stress:</strong> The excess of $\text{C}$ at the surface leaves a state of <strong>residual stresses in compression</strong> [Slide 30].</li>
-        <li><strong>Optimal Core/Case Compromise:</strong> Typical for gears and shafts: the inner core must be <em>tough</em> for fracture strength, while the outer case must be <em>hard</em> for wear resistance; machining is done in the soft state and hardening by gas carburizing afterwards [Slide 30].</li>
+        <li><strong>Dislocation Pinning:</strong> The $\text{C}$ atoms "block" the movement of dislocations and deform the lattice, making plastic deformation more difficult and hardening the surface [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=30" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 30">30</a>].</li>
+        <li><strong>Residual Compressive Stress:</strong> The excess of $\text{C}$ at the surface leaves a state of <strong>residual stresses in compression</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=30" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 30">30</a>].</li>
+        <li><strong>Optimal Core/Case Compromise:</strong> Typical for gears and shafts: the inner core must be <em>tough</em> for fracture strength, while the outer case must be <em>hard</em> for wear resistance; machining is done in the soft state and hardening by gas carburizing afterwards [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=30" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 30">30</a>].</li>
       </ul>
 
       <h3 class="subsection-heading">2. Diffusion Bonding in Aerospace Turbofans</h3>
       <p>
-        Interdiffusion across the contact between two metals makes it possible to join them (diffusion welding / diffusion bonding) [Slides 10, 33].
+        Interdiffusion across the contact between two metals makes it possible to join them (diffusion welding / diffusion bonding) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 10">10</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 33">33</a>].
       </p>
       <ul class="editorial-list">
-        <li><strong>Cowlings and Fan Blades for Aeronautics:</strong> Slide 33 presents diffusion bonding for these components, with the Rolls-Royce Trent 500 wide-chord fan as the example.</li>
-        <li><strong>Aerospace Advantage:</strong> The wide-chord fan protects the engine against <strong>foreign object damage</strong> [Slide 33].</li>
+        <li><strong>Cowlings and Fan Blades for Aeronautics:</strong> Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 33">33</a> presents diffusion bonding for these components, with the Rolls-Royce Trent 500 wide-chord fan as the example.</li>
+        <li><strong>Aerospace Advantage:</strong> The wide-chord fan protects the engine against <strong>foreign object damage</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 33">33</a>].</li>
       </ul>
 
       <h3 class="subsection-heading">3. Hydrogen Purification via Palladium Membranes</h3>
       <p>
-        Palladium ($\text{Pd}$) selectively dissolves hydrogen molecules catalytically on its high-pressure face, transporting $\text{H}$ atoms rapidly through its FCC interstitial matrix to the low-pressure side where pure $\text{H}_2$ desorbs [Slide 35]. Slide 35 uses this as its worked example of $\text{H}_2$ purification (see Problem 6).
+        Palladium ($\text{Pd}$) selectively dissolves hydrogen molecules catalytically on its high-pressure face, transporting $\text{H}$ atoms rapidly through its FCC interstitial matrix to the low-pressure side where pure $\text{H}_2$ desorbs [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a>]. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a> uses this as its worked example of $\text{H}_2$ purification (see Problem 6).
       </p>
 
       <h3 class="subsection-heading">4. Sintering of Advanced Aerospace Ceramics</h3>
       <p>
-        Sintering is the thermally activated mass transport process that consolidates loose ceramic or metallic powder particles into dense, high-strength monolithic components at temperatures below their melting point [Slide 32]. Driven by the minimization of surface free energy, vacancy and grain-boundary diffusion bridge adjacent particles (neck growth) and eliminate internal porosity [Slide 32].
+        Sintering is the thermally activated mass transport process that consolidates loose ceramic or metallic powder particles into dense, high-strength monolithic components at temperatures below their melting point [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 32">32</a>]. Driven by the minimization of surface free energy, vacancy and grain-boundary diffusion bridge adjacent particles (neck growth) and eliminate internal porosity [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 32">32</a>].
       </p>
 
       <!-- Solved Problems CTA Banner -->

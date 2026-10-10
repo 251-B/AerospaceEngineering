@@ -407,6 +407,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -441,8 +442,13 @@
         <h1 class="article-title">Flow Kinematics</h1>
         <p class="article-meta">Fluid Mechanics — 2nd Year Bachelor's Degree in Aerospace Engineering (UC3M)</p>
         <div class="source-box">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Reference sources: Notes.pdf (Chapter 2, pp. 9–24) | slides_Chapters1-2.pdf (2.0–2.24) · Profs. Antonio L. Sánchez &amp; Javier Rodríguez-Rodríguez
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Reference sources: Notes.pdf (Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">9–24</a>) | slides_Chapters1-2.pdf (2.0–2.24) · Profs. Antonio L. Sánchez &amp; Javier Rodríguez-Rodríguez
         </div>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener">Notes.pdf, Chapter 2 · p. 18</a>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/slides/slides_Chapters1-2.pdf#page=10" target="_blank" rel="noopener">slides_Chapters1-2.pdf · p. 10</a>
+        </nav>
       </header>
 
       <!-- Mini Table of Contents -->
@@ -524,7 +530,7 @@
           </ul>
         </div>
 
-        <h3 class="sub-heading">Invariant Differential Operators (Notes.pdf, Eqs. 2.3–2.8)</h3>
+        <h3 class="sub-heading">Invariant Differential Operators (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=19" target="_blank" rel="noopener" title="Open Notes.pdf at page 19">2.3–2.8</a>)</h3>
         <p>Defining the metric determinant $h = h_1 h_2 h_3$, the differential operators adopt their general coordinate-invariant formulation:</p>
 
         <div class="card">
@@ -548,7 +554,7 @@
         </div>
 
         <div class="note-box">
-          <div class="note-title">General Gauss Divergence Theorem (Notes.pdf, Eq. 2.9)</div>
+          <div class="note-title">General Gauss Divergence Theorem (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">2.9</a>)</div>
           $$ \int_\Sigma (\vec{n} \circ \phi) \, d\sigma = \int_V (\nabla \circ \phi) \, dV $$
           where $\phi$ represents a scalar, vector, or tensor field, $V$ is the domain bounded by the closed surface $\Sigma$, and the symbol $\circ$ denotes the appropriate scalar, dyadic, or tensor product.
         </div>
@@ -680,7 +686,7 @@
         </div>
 
         <div class="card">
-          <p><strong>Universal Intrinsic Expression (Notes.pdf, Eq. 2.26):</strong></p>
+          <p><strong>Universal Intrinsic Expression (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=23" target="_blank" rel="noopener" title="Open Notes.pdf at page 23">2.26</a>):</strong></p>
           <p>Via vector calculus identities, acceleration can be expressed in coordinate-free form as:</p>
           $$ \mathbf{\vec{a} = \frac{\partial \vec{v}}{\partial t} + \nabla\left(\frac{|\vec{v}|^2}{2}\right) - \vec{v} \wedge (\nabla \wedge \vec{v})} $$
           where $-\vec{v} \wedge (\nabla \wedge \vec{v}) = -\vec{v} \wedge \vec{\omega}$ is the Lamb acceleration due to vorticity.
@@ -726,7 +732,7 @@
         </div>
 
         <div class="note-box">
-          <div class="note-title">Domain Topology and Lift Generation (Notes.pdf, p. 16)</div>
+          <div class="note-title">Domain Topology and Lift Generation (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">16</a>)</div>
           <p>If circulation along every closed curve is zero, the flow is necessarily irrotational. However, <strong>the converse is not universally true</strong>: in multiply-connected domains (such as flow around a 2D airfoil), closed curves exist that cannot be contracted to a point within the fluid domain. Along such curves, circulation $\Gamma \neq 0$ even though $\nabla \wedge \vec{v} = 0$ everywhere throughout the exterior fluid, generating the aerodynamic lift force on airfoils (Kutta-Joukowski Theorem: $L' = \rho_\infty V_\infty \Gamma$).</p>
         </div>
       </section>
@@ -828,7 +834,7 @@
           $$ d\vec{v} = d\vec{x} \cdot \nabla\vec{v} \qquad \text{[Eq. 2.46]} $$
         </div>
 
-        <h3 class="sub-heading">Helmholtz Decomposition (Notes.pdf, Eqs. 2.47–2.52)</h3>
+        <h3 class="sub-heading">Helmholtz Decomposition (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.47–2.52</a>)</h3>
         <p>The velocity gradient tensor $\nabla\vec{v}$ is decomposed uniquely into a symmetric part $\bar{\bar{T}}_d$ and an antisymmetric part $\bar{\bar{T}}_r$:</p>
 
         <div class="math-block">
@@ -851,7 +857,7 @@
           </ul>
         </div>
 
-        <h3 class="sub-heading">Principal Directions of Strain (Notes.pdf, Eqs. 2.54–2.55)</h3>
+        <h3 class="sub-heading">Principal Directions of Strain (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.54–2.55</a>)</h3>
         <p>There exist three mutually orthogonal spatial directions $(\vec{n}_1, \vec{n}_2, \vec{n}_3)$ along which shear strain vanishes identically (deformation consists purely of normal extension or compression). These are found by solving the eigenvalue problem:</p>
         <div class="math-block">
           $$ \bar{\bar{T}}_d \cdot \vec{n} = \lambda \vec{n} \iff |\bar{\bar{T}}_d - \lambda \bar{\bar{I}}| = 0 \qquad \text{[Eqs. 2.54, 2.55]} $$

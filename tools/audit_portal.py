@@ -12,6 +12,8 @@ Checks (all severity "error"):
     lab-reference        links to, or files of, laboratory pages (labs are not on the web)
     theme-key            localStorage theme key other than 'ae_theme'
     badge-drift          index.html badge counts that differ from the pages on disk
+    missing-source-link  problem card (problem-card / problem-box) without its "Original statement"
+                         link to the official PDF (add it with python tools/source_links.py)
 
 Badge contract (index.html): <article data-subject="SLUG"> ... <a href=".../teoria|problemas/...">
     <span class="area-badge ...">N topics / N prob.</span></a>
@@ -33,7 +35,7 @@ from urllib.parse import unquote
 
 CHECKS = (
     "broken-link", "missing-backlink", "katex-parity", "katex-text-ampersand", "debris",
-    "spanish-label", "false-claim", "lab-reference", "theme-key", "badge-drift",
+    "spanish-label", "false-claim", "lab-reference", "theme-key", "badge-drift", "missing-source-link",
 )
 
 
@@ -213,6 +215,24 @@ def check_labs_and_theme(rel, no_comments, visible):
     return out
 
 
+_CARD_OPEN = re.compile(r'<(?:article|div|details|section)\b[^>]*class="([^"]*)"[^>]*>')
+
+
+def check_source_links(rel, visible):
+    """Every problem card must carry the deep link to its statement in the official PDF."""
+    if "/problemas/" not in rel or rel.endswith("/index.html"):
+        return []
+    opens = [m for m in _CARD_OPEN.finditer(visible) if set(m.group(1).split()) & set(PROBLEM_MARKERS)]
+    out = []
+    for i, m in enumerate(opens):
+        end = opens[i + 1].start() if i + 1 < len(opens) else len(visible)
+        if not re.search(r'<a class="src-link"[^>]*href="[^"]+\.pdf(?:#page=\d+)?"', visible[m.start():end]):
+            card = re.search(r'\bid="([^"]+)"', m.group(0))
+            out.append(Finding("missing-source-link", "error", rel, line_of(visible, m.start()),
+                               f"problem card {card.group(1) if card else '?'} has no link to its official PDF"))
+    return out
+
+
 # --------------------------------------------------------------------------- site-level checks
 def check_lab_files(root, subject_files):
     out = []
@@ -307,6 +327,7 @@ def audit(root):
         findings += check_katex(rel, visible)
         findings += check_text(rel, no_comments, visible, text)
         findings += check_labs_and_theme(rel, no_comments, visible)
+        findings += check_source_links(rel, visible)
     findings += check_lab_files(root, subject_files)
     findings += check_badges(root)
     return sorted(findings, key=lambda f: (f.check, f.file, f.line))

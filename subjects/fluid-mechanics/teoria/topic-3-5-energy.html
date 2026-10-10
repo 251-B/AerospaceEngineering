@@ -426,6 +426,7 @@
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -473,6 +474,10 @@
         <div class="article-category">Subchapter 3.5 · Thermodynamics &amp; Energy Balances</div>
         <h1 class="article-title">Total Energy Conservation &amp; Thermodynamic Applications</h1>
         <p class="article-meta">First Law of Thermodynamics for moving control volumes, enthalpy grouping, stagnation enthalpy $h_0$, and engineering shaft work.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener">Notes.pdf · p. 35</a>
+        </nav>
       </header>
 
       <!-- Section 1: The Master Total Energy Equation -->
@@ -482,14 +487,14 @@
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\left(e + \frac{|\vec{v}|^2}{2}\right) dV\right] = \dot{W}_{\text{ext}} + \dot{Q} $$
-          <div class="math-caption">[Eq. 3.45] First Law of Thermodynamics for a closed material fluid system.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.45</a>] First Law of Thermodynamics for a closed material fluid system.</div>
         </div>
 
         <p>Substituting intensive total energy $b = e + \frac{|\vec{v}|^2}{2}$ into the universal Reynolds Transport Theorem yields the <strong>Master Integral Total Energy Equation</strong> for any moving control volume $V_c(t)$:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\left(e+\frac{|\vec{v}|^2}{2}\right)dV\right] + \int_{\Sigma_c(t)}\rho\left(e+\frac{|\vec{v}|^2}{2}\right)[(\vec{v}-\vec{v}_c)\cdot\vec{n}]\,d\sigma = \dot{W}_{\text{ext}} + \dot{Q}} $$
-          <div class="math-caption">[Eq. 3.46] Master Integral Total Energy Conservation Equation.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>] Master Integral Total Energy Conservation Equation.</div>
         </div>
 
         <p>Here, the external power $\dot{W}_{\text{ext}}$ done on the fluid by boundary forces and body forces breaks down into:</p>
@@ -503,25 +508,25 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Total Energy: Complete Derivation Chain (Notes.pdf, Eqs. 3.39-3.46)</h2>
-        <h3 class="sub-heading">Step 1: Origin of each term of the First Law (Eq. 3.45)</h3>
+        <h2 class="section-heading">Total Energy: Complete Derivation Chain (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=43" target="_blank" rel="noopener" title="Open Notes.pdf at page 43">3.39-3.46</a>)</h2>
+        <h3 class="sub-heading">Step 1: Origin of each term of the First Law (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.45</a>)</h3>
         <p>The total energy of a fluid volume is $\int_{V_f}\rho(e+|\vec{v}|^2/2)\,dV$. Its rate of change equals the power of the forces plus the heat added (First Law). Each contribution is built from an elementary power on a surface element $d\sigma$ or a volume element $dV$.</p>
         <ul>
           <li><strong>Surface forces.</strong> The stress vector $(\bar{\bar{\tau}}\cdot\vec{n})\,d\sigma$ acts on material that moves with velocity $\vec{v}$, so its power is $\vec{v}\cdot\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma$. With $\bar{\bar{\tau}}=-p\bar{\bar{I}}+\bar{\bar{\tau}}'$ and $\vec{v}\cdot(p\bar{\bar{I}})\cdot\vec{n}=p\,\vec{v}\cdot\vec{n}$, the total is $-\int p\,\vec{v}\cdot\vec{n}\,d\sigma+\int\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma$.</li>
           <li><strong>Body force.</strong> The force $\rho\vec{f}_m\,dV$ has power $\rho\vec{f}_m\cdot\vec{v}\,dV$.</li>
-          <li><strong>Heat conduction.</strong> By Eqs. 3.41 and 3.43, $\vec{q}\cdot\vec{n}\,d\sigma$ is the conductive heat leaving through $d\sigma$ (its divergence is the heat loss per unit volume), so the heat added is $-\int\vec{q}\cdot\vec{n}\,d\sigma$.</li>
+          <li><strong>Heat conduction.</strong> By Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=43" target="_blank" rel="noopener" title="Open Notes.pdf at page 43">3.41</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=43" target="_blank" rel="noopener" title="Open Notes.pdf at page 43">3.43</a>, $\vec{q}\cdot\vec{n}\,d\sigma$ is the conductive heat leaving through $d\sigma$ (its divergence is the heat loss per unit volume), so the heat added is $-\int\vec{q}\cdot\vec{n}\,d\sigma$.</li>
           <li><strong>Volumetric sources.</strong> Chemical reaction and radiation add $\int(Q_c+Q_r)\,dV$.</li>
         </ul>
-        <p>Summing these contributions gives Eq. 3.45:</p>
+        <p>Summing these contributions gives Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.45</a>:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f}\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)dV=-\int_{\Sigma_f}p\,\vec{v}\cdot\vec{n}\,d\sigma+\int_{\Sigma_f}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_f}\rho\vec{f}_m\cdot\vec{v}\,dV-\int_{\Sigma_f}\vec{q}\cdot\vec{n}\,d\sigma+\int_{V_f}(Q_c+Q_r)\,dV $$
-          <div class="math-caption">Eq. 3.45</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.45</a></div>
         </div>
-        <h3 class="sub-heading">Step 2: Transfer to a moving control volume (Eq. 3.46)</h3>
-        <p>Apply Eq. 3.8 with $\phi=\rho(e+|\vec{v}|^2/2)$ to the left-hand side of Eq. 3.45 and evaluate the right-hand side on $\Sigma_c$ and $V_c$, which coincide with $\Sigma_f$ and $V_f$ at the instant considered. Moving the convective flux to the left gives</p>
+        <h3 class="sub-heading">Step 2: Transfer to a moving control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</h3>
+        <p>Apply Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a> with $\phi=\rho(e+|\vec{v}|^2/2)$ to the left-hand side of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.45</a> and evaluate the right-hand side on $\Sigma_c$ and $V_c$, which coincide with $\Sigma_f$ and $V_f$ at the instant considered. Moving the convective flux to the left gives</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_c}\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)dV+\int_{\Sigma_c}\rho\Big(e+\frac{|\vec{v}|^2}{2}\Big)\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]d\sigma=-\int_{\Sigma_c}p\,\vec{v}\cdot\vec{n}\,d\sigma+\int_{\Sigma_c}\vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_c}\rho\vec{f}_m\cdot\vec{v}\,dV-\int_{\Sigma_c}\vec{q}\cdot\vec{n}\,d\sigma+\int_{V_c}(Q_c+Q_r)\,dV $$
-          <div class="math-caption">Eq. 3.46</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a></div>
         </div>
         <h3 class="sub-heading">Step 3: Flow work and specific enthalpy (extension)</h3>
         <p><strong>Extension, not in the Notes.</strong> For a fixed control volume ($\vec{v}_c=\vec{0}$), move the pressure work to the left-hand side and write $p\,\vec{v}\cdot\vec{n}=(p/\rho)\,\rho\,\vec{v}\cdot\vec{n}$:</p>
@@ -534,7 +539,7 @@
         </div>
         <p>For a moving boundary, $p\,\vec{v}\cdot\vec{n}=p\,(\vec{v}-\vec{v}_c)\cdot\vec{n}+p\,\vec{v}_c\cdot\vec{n}$. The first part joins the enthalpy flux in the same way and the second part is the work of the pressure on the moving boundary, which stays on the right-hand side.</p>
         <h3 class="sub-heading">Step 4: Gravity and the total enthalpy $h_0$ (extension)</h3>
-        <p><strong>Extension, not in the Notes.</strong> For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. 3.14 with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.8) lets the body-force power be written as a divergence:</p>
+        <p><strong>Extension, not in the Notes.</strong> For gravity with $z$ pointing upward, $\vec{f}_m=-\nabla(gz)$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.14</a> with $U=gz$). In a steady flow, the continuity equation $\nabla\cdot(\rho\vec{v})=0$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.8</a>) lets the body-force power be written as a divergence:</p>
         <div class="math-block">
           $$ \rho\vec{f}_m\cdot\vec{v}=-\rho\vec{v}\cdot\nabla(gz)=-\nabla\cdot(\rho\,gz\,\vec{v})+gz\,\nabla\cdot(\rho\vec{v})=-\nabla\cdot(\rho\,gz\,\vec{v}) $$
         </div>
@@ -637,7 +642,9 @@
             <div class="math-block">
               $$ \mathbf{T_s = \frac{\dot{m}_1 T_1 + \dot{m}_2 T_2}{\dot{m}_1 + \dot{m}_2}} $$
             </div>
-            <p>When discharge kinetic energy is non-negligible (high-speed nozzle discharge; for a liquid this formula is consistent only if the pressure differences are negligible compared with $ho v^2$, since the neglected $p/ho$ terms are of the same order as $v^2/2$; for an ideal gas it is exact):</p>
+            <p>When discharge kinetic energy is non-negligible (high-speed nozzle discharge; for a liquid this formula is consistent only if the pressure differences are negligible compared with $
+ho v^2$, since the neglected $p/
+ho$ terms are of the same order as $v^2/2$; for an ideal gas it is exact):</p>
             <div class="math-block">
               $$ \mathbf{T_s = \frac{\dot{m}_1 T_1 + \dot{m}_2 T_2}{\dot{m}_1 + \dot{m}_2} + \frac{\dot{m}_1 v_1^2 + \dot{m}_2 v_2^2 - (\dot{m}_1+\dot{m}_2)v_s^2}{2 c_p (\dot{m}_1 + \dot{m}_2)}} $$
             </div>

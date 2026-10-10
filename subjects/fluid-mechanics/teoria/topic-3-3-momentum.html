@@ -474,6 +474,7 @@
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -521,6 +522,10 @@
         <div class="article-category">Subchapter 3.3 · Momentum Dynamics</div>
         <h1 class="article-title">Conservation of Linear Momentum &amp; Reaction Forces</h1>
         <p class="article-meta">Master 5-term balance breakdown, the atmospheric gauge pressure cancellation trick, fluid vs solid reactions, and the 5-stage exam algorithm.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener">Notes.pdf · p. 35</a>
+        </nav>
       </header>
 
       <!-- Section 1: The Master Momentum Equation -->
@@ -530,14 +535,14 @@
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho\vec{v} \, dV\right] = -\int_{\Sigma_f(t)} p\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho\vec{f}_m \, dV $$
-          <div class="math-caption">[Eq. 4.2] Newton's second law for a closed material fluid system, with $\bar{\bar{\tau}}$ expanded by Eq. 3.28 (Eq. 3.34 is the same law written with $\bar{\bar{\tau}}\cdot\vec{n}$).</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.2</a>] Newton's second law for a closed material fluid system, with $\bar{\bar{\tau}}$ expanded by Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.28</a> (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.34</a> is the same law written with $\bar{\bar{\tau}}\cdot\vec{n}$).</div>
         </div>
 
-        <p>Substituting intensive linear momentum $\vec{b} = \vec{v}$ into the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>Master Linear Momentum Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
+        <p>Substituting intensive linear momentum $\vec{b} = \vec{v}$ into the universal Reynolds Transport Theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a>) yields the <strong>Master Linear Momentum Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho\vec{v} \, dV\right] + \int_{\Sigma_c(t)} \rho\vec{v}[(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma = -\int_{\Sigma_c(t)} p\vec{n} \, d\sigma + \int_{\Sigma_c(t)} \bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_c(t)} \rho\vec{f}_m \, dV} $$
-          <div class="math-caption">[Eq. 3.35] Master Integral Linear Momentum Equation for an arbitrary moving control volume.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a>] Master Integral Linear Momentum Equation for an arbitrary moving control volume.</div>
         </div>
 
         <div class="callout-box">
@@ -556,55 +561,55 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Linear Momentum: Complete Derivation Chain (Notes.pdf, Eqs. 3.34-3.36 and 4.9-4.10)</h2>
-        <h3 class="sub-heading">Step 1: Newton's second law for a fluid volume (Eq. 3.34)</h3>
-        <p>The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. 3.19 and 3.22) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. 3.12). Newton's second law gives Eq. 3.34 in terms of the full stress tensor ($\bar{\bar{\tau}}\cdot\vec{n}$ form):</p>
+        <h2 class="section-heading">Linear Momentum: Complete Derivation Chain (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.34-3.36</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.9-4.10</a>)</h2>
+        <h3 class="sub-heading">Step 1: Newton's second law for a fluid volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.34</a>)</h3>
+        <p>The surface force on a fluid volume is the integral of the stress vector $\vec{f}_n=\bar{\bar{\tau}}\cdot\vec{n}$ (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.22</a>) and the volume force is $\rho\vec{f}_m\,dV$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.12</a>). Newton's second law gives Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.34</a> in terms of the full stress tensor ($\bar{\bar{\tau}}\cdot\vec{n}$ form):</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f(t)}\rho\vec{v}\,dV=\int_{\Sigma_f(t)}\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma+\int_{V_f(t)}\rho\vec{f}_m\,dV $$
-          <div class="math-caption">Eq. 3.34</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.34</a></div>
         </div>
-        <p>Insert the decomposition $\bar{\bar{\tau}}=-p\bar{\bar{I}}+\bar{\bar{\tau}}'$ (Eq. 3.28). Because $(p\bar{\bar{I}})\cdot\vec{n}=p\vec{n}$,</p>
+        <p>Insert the decomposition $\bar{\bar{\tau}}=-p\bar{\bar{I}}+\bar{\bar{\tau}}'$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.28</a>). Because $(p\bar{\bar{I}})\cdot\vec{n}=p\vec{n}$,</p>
         <div class="math-block">
           $$ \int_{\Sigma}\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma=-\int_{\Sigma}p\,\vec{n}\,d\sigma+\int_{\Sigma}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma $$
         </div>
-        <p>so the right-hand side splits into a pressure force, a viscous force and a body force. This is the form of the right-hand side of Eq. 3.35 (and of Eq. 4.2).</p>
-        <h3 class="sub-heading">Step 2: Transfer to a moving control volume (Eq. 3.35)</h3>
-        <p>Eq. 3.8 holds for each Cartesian component of the vector density $\vec{\phi}=\rho\vec{v}$:</p>
+        <p>so the right-hand side splits into a pressure force, a viscous force and a body force. This is the form of the right-hand side of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a> (and of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.2</a>).</p>
+        <h3 class="sub-heading">Step 2: Transfer to a moving control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a>)</h3>
+        <p>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a> holds for each Cartesian component of the vector density $\vec{\phi}=\rho\vec{v}$:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f(t)}\rho\vec{v}\,dV=\frac{d}{dt}\int_{V_c(t)}\rho\vec{v}\,dV+\int_{\Sigma_c(t)}\rho\vec{v}\,\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]\,d\sigma $$
         </div>
-        <p>At the instant considered $V_c=V_f$ and $\Sigma_c=\Sigma_f$, so the force integrals of Step 1 can be evaluated on $\Sigma_c$ and $V_c$. Equating the right-hand side of Step 1 to the right-hand side above and moving the convective flux to the other side gives Eq. 3.35:</p>
+        <p>At the instant considered $V_c=V_f$ and $\Sigma_c=\Sigma_f$, so the force integrals of Step 1 can be evaluated on $\Sigma_c$ and $V_c$. Equating the right-hand side of Step 1 to the right-hand side above and moving the convective flux to the other side gives Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a>:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_c(t)}\rho\vec{v}\,dV+\int_{\Sigma_c(t)}\rho\vec{v}\,\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]\,d\sigma=-\int_{\Sigma_c(t)}p\,\vec{n}\,d\sigma+\int_{\Sigma_c(t)}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_c(t)}\rho\vec{f}_m\,dV $$
-          <div class="math-caption">Eq. 3.35</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a></div>
         </div>
-        <h3 class="sub-heading">Step 3: Fixed control volume (Eq. 3.36)</h3>
+        <h3 class="sub-heading">Step 3: Fixed control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>)</h3>
         <p>For a fixed volume $\vec{v}_c=\vec{0}$, the domain is constant and $d/dt$ passes inside the integral (see the mass section). The convective term becomes $\rho\vec{v}(\vec{v}\cdot\vec{n})$:</p>
         <div class="math-block">
           $$ \int_{V_0}\frac{\partial(\rho\vec{v})}{\partial t}\,dV+\int_{\Sigma_0}\rho\vec{v}\,(\vec{v}\cdot\vec{n})\,d\sigma=-\int_{\Sigma_0}p\,\vec{n}\,d\sigma+\int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_0}\rho\vec{f}_m\,dV $$
-          <div class="math-caption">Eq. 3.36</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a></div>
         </div>
         <h3 class="sub-heading">Step 4: Reduction to uniform ports (extension)</h3>
         <p><strong>Extension, not in the Notes.</strong> On a port $A_k$ of a fixed control volume where $\rho_k$ and $\vec{v}_k$ are uniform and $\vec{v}_k$ is normal to the port, the momentum flux integral is evaluated without approximation:</p>
         <div class="math-block">
           $$ \int_{A_k}\rho\vec{v}\,(\vec{v}\cdot\vec{n})\,d\sigma=\rho_k\vec{v}_k\,(\vec{v}_k\cdot\vec{n})\,A_k=\dot m_k\,\vec{v}_k,\qquad \dot m_k=\rho_k(\vec{v}_k\cdot\vec{n})A_k $$
         </div>
-        <p>where $\dot m_k$ is negative at inlets (algebraic convention of the mass section). On impermeable walls $\vec{v}\cdot\vec{n}=0$ and the flux vanishes. For steady flow Eq. 3.36 becomes</p>
+        <p>where $\dot m_k$ is negative at inlets (algebraic convention of the mass section). On impermeable walls $\vec{v}\cdot\vec{n}=0$ and the flux vanishes. For steady flow Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a> becomes</p>
         <div class="math-block">
           $$ \sum_k\dot m_k\vec{v}_k=\sum_{\text{out}}|\dot m|\,\vec{v}-\sum_{\text{in}}|\dot m|\,\vec{v}=-\int_{\Sigma_0}p\,\vec{n}\,d\sigma+\int_{\Sigma_0}\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma+\int_{V_0}\rho\vec{f}_m\,dV $$
         </div>
         <p>This is the "outgoing minus incoming momentum flux equals the sum of forces" statement used in the five-stage algorithm. If the velocity profile at a port is not uniform, the true flux $\int\rho v^2\,dA$ exceeds $\dot m\,\bar v$ and a momentum-flux correction coefficient is needed.</p>
-        <h3 class="sub-heading">Step 5: Differential momentum equation (Eq. 4.9) and consistency with Eq. 3.25</h3>
-        <p>Apply Eq. 3.6 to Eq. 4.2 (Eq. 3.34 with Eq. 3.28 inserted) with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives</p>
+        <h3 class="sub-heading">Step 5: Differential momentum equation (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.9</a>) and consistency with Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a></h3>
+        <p>Apply Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a> to Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.2</a> (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.34</a> with Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.28</a> inserted) with $\phi=\rho v_i$, and use Gauss' theorem for every surface integral: $\int_\Sigma p\,n_i\,d\sigma=\int_V\partial p/\partial x_i\,dV$, $\int_\Sigma\rho v_iv_jn_j\,d\sigma=\int_V\partial(\rho v_iv_j)/\partial x_j\,dV$ and $\int_\Sigma\tau'_{ij}n_j\,d\sigma=\int_V\partial\tau'_{ij}/\partial x_j\,dV$. The volume is arbitrary, so the arbitrary-volume argument of the mass section gives</p>
         <div class="math-block">
           $$ \frac{\partial(\rho\vec{v})}{\partial t}+\nabla\cdot(\rho\vec{v}\vec{v})=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m $$
-          <div class="math-caption">Eq. 4.9</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.9</a></div>
         </div>
         <p>Expand component $i$ of the left-hand side with the product rule:</p>
         <div class="math-block">
           $$ \frac{\partial(\rho v_i)}{\partial t}+\frac{\partial(\rho v_iv_j)}{\partial x_j}=v_i\left[\frac{\partial\rho}{\partial t}+\frac{\partial(\rho v_j)}{\partial x_j}\right]+\rho\left[\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}\right]=0+\rho\frac{Dv_i}{Dt} $$
         </div>
-        <p>The first bracket vanishes by the continuity equation (Eq. 4.5). Hence $\rho\,D\vec{v}/Dt=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m$ (Eq. 4.10), which is Eq. 3.25 with $\nabla\cdot(-p\bar{\bar{I}})=-\nabla p$. The integral law (Eq. 3.35) and Cauchy's local law (Eq. 3.25) are therefore the same statement.</p>
+        <p>The first bracket vanishes by the continuity equation (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.5</a>). Hence $\rho\,D\vec{v}/Dt=-\nabla p+\nabla\cdot\bar{\bar{\tau}}'+\rho\vec{f}_m$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.10</a>), which is Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a> with $\nabla\cdot(-p\bar{\bar{I}})=-\nabla p$. The integral law (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a>) and Cauchy's local law (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a>) are therefore the same statement.</p>
       </section>
 
       <!-- Section 2: Gauge Pressure Trick & Reaction Forces -->

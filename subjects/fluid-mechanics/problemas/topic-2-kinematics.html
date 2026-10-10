@@ -552,6 +552,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -602,6 +603,10 @@
       <p class="page-meta">
         Worked solutions to the ten problems of the flow-kinematics collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid. Every problem restates the official statement, then follows four phases: (1) hypotheses, degrees of freedom and data; (2) coordinates, frames and changes of variable; (3) step-by-step derivation; (4) interpretation, limits and dimensional check. Discrepancies found in the handwritten official solutions are flagged in the corresponding problem. References to Notes.pdf are to Chapter 2 (Flow kinematics).
       </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener">Notes.pdf, Chapter 2 · p. 18</a>
+      </nav>
     </div>
 
     <article class="problem-card" id="k1">
@@ -609,6 +614,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K1</div>
           <h2 class="problem-title">Flow over an Oscillating Porous Wall with Transverse Blowing</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K1.pdf" target="_blank" rel="noopener">Original statement · K1.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Stokes layer</span><span class="tag">Path lines</span><span class="tag">Fluid line</span><span class="tag">Circulation</span></div>
       </div>
@@ -619,7 +625,7 @@
 <div class="math-block">$$ v_x = U e^{-y/\delta}\cos\left(\Omega t - \frac{y}{\delta}\right), \qquad v_y = V, $$</div>
 <p>where the characteristic thickness $\delta = (2\nu/\Omega)^{1/2}$ depends on the kinematic viscosity of the fluid $\nu$.</p>
 <ol class="step-list"><li>Determine the trajectory and path of a fluid particle initially located at $x = 0$ and $y = 0$.</li><li>Obtain the streamline that intersects the point $x = 0$ and $y = 0$.</li><li>Compute the vorticity $\nabla \wedge \vec{v}$. If $\nabla \wedge \vec{v} = 0$, obtain also the velocity potential.</li><li>Calculate the rate of expansion $\nabla \cdot \vec{v}$. If $\nabla \cdot \vec{v} = 0$, obtain also the stream function.</li><li>Equation of the fluid line formed by the fluid particles initially located along the vertical axis $x = 0$.</li><li>Determine the volume flux crossing the plane $x = 0$ as a function of time $Q(t)$ along with its average value $Q_a = \int_t^{t+2\pi/\Omega} Q\,dt$.</li><li>Obtain the volume flux leaving the sphere of radius $R$ centered at $x = 0$ and $y = 2R$.</li><li>Compute the circulation around a square of side $L$ whose base lies parallel to the wall at a distance $y = L/2$. Redo the computation making use of Stokes theorem.</li></ol>
-<p class="source-line">Source: K1.pdf (page 1). Notes.pdf, Chapter 2: trajectories and path lines Eqs. (2.10)-(2.15), fluid lines Eqs. (2.16)-(2.17), stream lines Eq. (2.21), circulation and Stokes theorem Eqs. (2.29)-(2.33), potential Eq. (2.34), convective flux Eqs. (2.35)-(2.38), stream function Eqs. (2.40)-(2.45).</p>
+<p class="source-line">Source: K1.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: trajectories and path lines Eqs. (2.10)-(2.15), fluid lines Eqs. (2.16)-(2.17), stream lines Eq. (2.21), circulation and Stokes theorem Eqs. (2.29)-(2.33), potential Eq. (2.34), convective flux Eqs. (2.35)-(2.38), stream function Eqs. (2.40)-(2.45).</p>
       </div>
 
       <details class="solution-details">
@@ -644,7 +650,7 @@
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Derivation</h3>
 <h4 class="step-heading">3.1 Trajectory and path line of the particle starting at the origin</h4>
-<p>Why this tool: a trajectory is the solution of $d\mathbf{x}/dt = \mathbf{v}(\mathbf{x},t)$ with $\mathbf{x}(0) = \mathbf{x}_0$ (Notes Eq. 2.12); the path line is the curve in space obtained by eliminating $t$ (Eq. 2.15). The system is triangular: $v_y$ does not depend on $x$, so $y(t)$ is found first.</p>
+<p>Why this tool: a trajectory is the solution of $d\mathbf{x}/dt = \mathbf{v}(\mathbf{x},t)$ with $\mathbf{x}(0) = \mathbf{x}_0$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">2.12</a>); the path line is the curve in space obtained by eliminating $t$ (Eq. 2.15). The system is triangular: $v_y$ does not depend on $x$, so $y(t)$ is found first.</p>
 <p>Vertical motion:</p>
 <div class="math-block">$$ \frac{dy}{dt} = V \;\Longrightarrow\; \int_0^{y} dy' = \int_0^{t} V\,dt' \;\Longrightarrow\; y(t) = Vt. $$</div>
 <p>Along this particle, $e^{-y/\delta} = e^{-Vt/\delta}$ and $\Theta = \Omega t - Vt/\delta = bt$. Therefore</p>
@@ -657,7 +663,7 @@
 <div class="math-block">$$ x(y) = \frac{U}{D}\left[e^{-y/\delta}\left(-\frac{V}{\delta}\cos\!\left[\left(\frac{\Omega}{V} - \frac{1}{\delta}\right)y\right] + b\sin\!\left[\left(\frac{\Omega}{V} - \frac{1}{\delta}\right)y\right]\right) + \frac{V}{\delta}\right]. $$</div>
 <p>The trajectory carries the time law; the path line is a damped oscillation of the horizontal displacement versus height.</p>
 <h4 class="step-heading">3.2 Streamline through the origin</h4>
-<p>Why this tool: a streamline is tangent to $\mathbf{v}$ at a frozen instant (Notes Eq. 2.21), so $t$ is a parameter and not an integration variable. With $t$ frozen:</p>
+<p>Why this tool: a streamline is tangent to $\mathbf{v}$ at a frozen instant (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=22" target="_blank" rel="noopener" title="Open Notes.pdf at page 22">2.21</a>), so $t$ is a parameter and not an integration variable. With $t$ frozen:</p>
 <div class="math-block">$$ \frac{dx}{v_x} = \frac{dy}{v_y} \;\Longrightarrow\; \frac{dx}{dy} = \frac{U}{V}e^{-y/\delta}\cos\left(\Omega t - \frac{y}{\delta}\right). $$</div>
 <p>Apply (L) with $s = y'$, $a = -1/\delta$, $\beta = -1/\delta$, $c = \Omega t$; here $a^2 + \beta^2 = 2/\delta^2$:</p>
 <div class="math-block">$$ \int e^{-y'/\delta}\cos\Theta\,dy' = \frac{e^{-y'/\delta}}{2/\delta^2}\left[-\frac{1}{\delta}\cos\Theta - \frac{1}{\delta}\sin\Theta\right] = -\frac{\delta}{2}e^{-y'/\delta}\left(\cos\Theta + \sin\Theta\right), \qquad \Theta = \Omega t - \frac{y'}{\delta}. $$</div>
@@ -665,13 +671,13 @@
 <div class="math-block">$$ \boxed{\,x(y,t) = \frac{U\delta}{2V}\left[\cos\Omega t + \sin\Omega t - e^{-y/\delta}\left(\cos\Theta + \sin\Theta\right)\right],\quad \Theta = \Omega t - \frac{y}{\delta}.\,} $$</div>
 <p>Check by differentiation, using $\partial\Theta/\partial y = -1/\delta$: $\partial_y(\cos\Theta + \sin\Theta) = (\sin\Theta - \cos\Theta)/\delta$, so $\partial_y\left[e^{-y/\delta}(\cos\Theta+\sin\Theta)\right] = -\tfrac{1}{\delta}e^{-y/\delta}\left[(\cos\Theta+\sin\Theta) + (\cos\Theta - \sin\Theta)\right] = -\tfrac{2}{\delta}e^{-y/\delta}\cos\Theta$, hence $dx/dy = (U/V)e^{-y/\delta}\cos\Theta$ as required.</p>
 <h4 class="step-heading">3.3 Vorticity and velocity potential</h4>
-<p>Why this tool: vorticity $\boldsymbol{\omega} = \nabla\wedge\mathbf{v}$ measures twice the local angular velocity (Notes Eq. 2.52); a velocity potential $\mathbf{v} = \nabla\varphi$ (Eq. 2.34) exists only when $\boldsymbol{\omega} \equiv 0$ in a simply connected domain.</p>
+<p>Why this tool: vorticity $\boldsymbol{\omega} = \nabla\wedge\mathbf{v}$ measures twice the local angular velocity (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=29" target="_blank" rel="noopener" title="Open Notes.pdf at page 29">2.52</a>); a velocity potential $\mathbf{v} = \nabla\varphi$ (Eq. 2.34) exists only when $\boldsymbol{\omega} \equiv 0$ in a simply connected domain.</p>
 <div class="math-block">$$ \omega_z = \frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y} = 0 - \frac{\partial v_x}{\partial y}. $$</div>
 <p>Chain rule, using $\partial_y e^{-y/\delta} = -e^{-y/\delta}/\delta$ and $\partial_y\cos\Theta = -\sin\Theta\,\partial_y\Theta = \sin\Theta/\delta$:</p>
 <div class="math-block">$$ \frac{\partial v_x}{\partial y} = U e^{-y/\delta}\left[-\frac{1}{\delta}\cos\Theta + \frac{1}{\delta}\sin\Theta\right] \;\Longrightarrow\; \boxed{\,\omega_z = \frac{U}{\delta}e^{-y/\delta}\left(\cos\Theta - \sin\Theta\right)\neq 0.\,} $$</div>
 <p>For example, at $y = 0$ and $t = 0$: $\omega_z = U/\delta \neq 0$. The flow is rotational, so no velocity potential exists.</p>
 <h4 class="step-heading">3.4 Rate of expansion and stream function</h4>
-<p>Why this tool: $\nabla\cdot\mathbf{v}$ is the rate of change of volume per unit volume (Notes Eqs. 2.62-2.63). If it vanishes, a planar field admits a stream function with $v_x = \partial_y\psi$, $v_y = -\partial_x\psi$ (Eq. 2.41), whose level lines are stream lines (Eq. 2.42).</p>
+<p>Why this tool: $\nabla\cdot\mathbf{v}$ is the rate of change of volume per unit volume (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.62-2.63</a>). If it vanishes, a planar field admits a stream function with $v_x = \partial_y\psi$, $v_y = -\partial_x\psi$ (Eq. 2.41), whose level lines are stream lines (Eq. 2.42).</p>
 <div class="math-block">$$ \nabla\cdot\mathbf{v} = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0 + 0 = 0. $$</div>
 <p>Integrate $v_y = -\partial_x\psi = V$ with respect to $x$: $\psi = -Vx + f(y,t)$. Then $\partial_y\psi = f'(y,t) = v_x$, and by the primitive of 3.2,</p>
 <div class="math-block">$$ f(y,t) = U\int e^{-y/\delta}\cos\Theta\,dy = -\frac{U\delta}{2}e^{-y/\delta}\left(\cos\Theta + \sin\Theta\right) + \psi_0(t), $$</div>
@@ -723,6 +729,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K2</div>
           <h2 class="problem-title">Plane Couette Flow, Rotation and Strain</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K2.pdf" target="_blank" rel="noopener">Original statement · K2.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Couette flow</span><span class="tag">Vorticity</span><span class="tag">Strain rate</span><span class="tag">Fluid element</span></div>
       </div>
@@ -731,7 +738,7 @@
         <h4>Official Problem Statement</h4>
 <p>Consider the steady flow of a liquid confined between two parallel planar walls separated a distance $H$. If the top wall moves with constant velocity $U$, the resulting fluid motion exhibits a single velocity component $v_x = Uy/H$, where $y$ denotes the distance to the bottom wall, assumed to be at rest.</p>
 <ol class="step-list"><li>Determine the streamlines and the trajectories.</li><li>Obtain the vorticity field.</li><li>Compute the circulation $\Gamma$ around a rectangular line of side $L$ oriented parallel to the walls and height $h$.</li><li>Calculate the gradient of velocity, the rate-of-strain tensor and the expansion rate.</li><li>Obtain the principal directions of strain as well as the associated principal strain rates.</li><li>Investigate the evolution of a square fluid element of side $dl$ oriented parallel to the walls.</li></ol>
-<p class="source-line">Source: K2.pdf (page 1). Notes.pdf, Chapter 2: trajectories Eq. (2.12), stream lines Eq. (2.21), circulation and Stokes theorem Eqs. (2.29)-(2.33), velocity gradient and its decomposition Eqs. (2.46)-(2.52), principal directions Eqs. (2.54)-(2.55), square element Eqs. (2.56)-(2.61), expansion rate Eqs. (2.62)-(2.63).</p>
+<p class="source-line">Source: K2.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: trajectories Eq. (2.12), stream lines Eq. (2.21), circulation and Stokes theorem Eqs. (2.29)-(2.33), velocity gradient and its decomposition Eqs. (2.46)-(2.52), principal directions Eqs. (2.54)-(2.55), square element Eqs. (2.56)-(2.61), expansion rate Eqs. (2.62)-(2.63).</p>
       </div>
 
       <details class="solution-details">
@@ -806,6 +813,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K3</div>
           <h2 class="problem-title">Three-Dimensional Point Source at the Origin</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K3.pdf" target="_blank" rel="noopener">Original statement · K3.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Spherical coordinates</span><span class="tag">Fluid surface</span><span class="tag">Stream tube</span><span class="tag">Moving observer</span></div>
       </div>
@@ -814,7 +822,7 @@
         <h4>Official Problem Statement</h4>
 <p>A three-dimensional fluid source placed at the origin induces a radial motion given by $v_r = Q(t)/(4\pi r^2)$, with $v_\theta = v_\phi = 0$. Obtain:</p>
 <ol class="step-list"><li>Streamlines, trajectories and paths.</li><li>Equation for the fluid surface initially located at $r = R$.</li><li>Equation for the fluid line that corresponds at the initial instant with a circle of radius $R$ intersecting the origin.</li><li>Streamtube that intersects the circle defined by $r = R_1$ and $\theta = \theta_1$.</li><li>The velocity components in cartesian coordinates, as well as the corresponding streamlines and trajectories.</li><li>Equations for the streamlines and trajectories for an observer moving with velocity $U$.</li></ol>
-<p class="source-line">Source: K3.pdf (page 1). Notes.pdf, Chapter 2: spherical coordinates and scale factors (Fig. 2.1, Eqs. 2.3-2.7), trajectories Eq. (2.12), fluid lines and surfaces Eqs. (2.16)-(2.20), stream lines and stream tubes Eq. (2.21), observer dependence of steadiness (text before Eq. 2.11), convective flux Eqs. (2.35)-(2.38).</p>
+<p class="source-line">Source: K3.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: spherical coordinates and scale factors (Fig. 2.1, Eqs. 2.3-2.7), trajectories Eq. (2.12), fluid lines and surfaces Eqs. (2.16)-(2.20), stream lines and stream tubes Eq. (2.21), observer dependence of steadiness (text before Eq. 2.11), convective flux Eqs. (2.35)-(2.38).</p>
       </div>
 
       <details class="solution-details">
@@ -909,6 +917,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K4</div>
           <h2 class="problem-title">Source in a Uniform Stream (Rankine Half-Body)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K4.pdf" target="_blank" rel="noopener">Original statement · K4.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Potential flow</span><span class="tag">Stagnation point</span><span class="tag">Stream function</span><span class="tag">Linearisation</span></div>
       </div>
@@ -919,7 +928,7 @@
 <div class="math-block">$$ \varphi = \frac{Q}{2\pi}\ln r + U_\infty r\cos\theta, $$</div>
 <p>corresponding to the superposition of a uniform stream of velocity $U_\infty$ and a source of volumetric flux $Q$.</p>
 <ol class="step-list"><li>Determine the velocity components in cartesian and cylindrical coordinates.</li><li>Obtain the stream lines.</li><li>Compute the trajectories and paths.</li><li>Calculate the stagnation points, sketching the stream lines that reach them.</li><li>Consider the flow near the stagnation points, determining in particular the trajectories and the stream lines.</li></ol>
-<p class="source-line">Source: K4.pdf (page 1). Notes.pdf, Chapter 2: potential Eq. (2.34), gradient in orthogonal coordinates Eq. (2.3), stagnation points Eq. (2.11), trajectories Eqs. (2.12)-(2.15), stream lines Eq. (2.21), stream function Eqs. (2.40)-(2.45), velocity gradient Eq. (2.46).</p>
+<p class="source-line">Source: K4.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: potential Eq. (2.34), gradient in orthogonal coordinates Eq. (2.3), stagnation points Eq. (2.11), trajectories Eqs. (2.12)-(2.15), stream lines Eq. (2.21), stream function Eqs. (2.40)-(2.45), velocity gradient Eq. (2.46).</p>
       </div>
 
       <details class="solution-details">
@@ -1007,6 +1016,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K5</div>
           <h2 class="problem-title">Oscillating Planar Dipole</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K5.pdf" target="_blank" rel="noopener">Original statement · K5.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Velocity potential</span><span class="tag">Polar coordinates</span><span class="tag">Acceleration</span><span class="tag">Unsteady</span></div>
       </div>
@@ -1017,7 +1027,7 @@
 <div class="math-block">$$ \varphi = M\cos(\Omega t)\,\frac{\cos\theta}{r}, $$</div>
 <p>obtain:</p>
 <ol class="step-list"><li>Radial and azimuthal velocity components.</li><li>Expansion rate $\nabla\cdot\vec{v}$.</li><li>Vorticity.</li><li>Acceleration of the fluid particle initially located at $r = 1$ and $\theta = \pi/2$.</li><li>Initial value of the circulation around a circle of radius $R = 1/2$ centered at $(r = 1, \theta = \pi/2)$.</li><li>Streamlines.</li><li>Trajectories and particle paths.</li></ol>
-<p class="source-line">Source: K5.pdf (page 1). Notes.pdf, Chapter 2: gradient, divergence and curl in orthogonal coordinates Eqs. (2.3), (2.5), (2.6); potential Eq. (2.34); material derivative and acceleration Eqs. (2.23)-(2.27); circulation and Stokes theorem Eqs. (2.29)-(2.33); trajectories Eq. (2.12); stream lines Eq. (2.21).</p>
+<p class="source-line">Source: K5.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: gradient, divergence and curl in orthogonal coordinates Eqs. (2.3), (2.5), (2.6); potential Eq. (2.34); material derivative and acceleration Eqs. (2.23)-(2.27); circulation and Stokes theorem Eqs. (2.29)-(2.33); trajectories Eq. (2.12); stream lines Eq. (2.21).</p>
       </div>
 
       <details class="solution-details">
@@ -1097,6 +1107,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K6</div>
           <h2 class="problem-title">Three-Dimensional Burgers Vortex</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K6.pdf" target="_blank" rel="noopener">Original statement · K6.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Axisymmetric</span><span class="tag">Incompressibility</span><span class="tag">Spiral path lines</span></div>
       </div>
@@ -1107,7 +1118,7 @@
 <div class="math-block">$$ v_r = -\frac{r}{\tau_r}, \qquad v_\theta = \frac{\Gamma}{2\pi r}\left\{1 - \exp\left[-\left(\frac{r}{R_o}\right)^2\right]\right\}, \qquad v_z = \frac{z}{\tau_z}, $$</div>
 <p>where the constants $R_o$, $\tau_r$ and $\tau_z$ measure the radius of the inner core where viscous effects are important, and the characteristic times associated with radial convection and axial stretch, respectively.</p>
 <ol class="step-list"><li>Determine the condition required for the motion to be that of an incompressible fluid.</li><li>Compute streamlines and trajectories.</li></ol>
-<p class="source-line">Source: K6.pdf (page 1). Notes.pdf, Chapter 2: divergence in orthogonal coordinates Eq. (2.5) with the cylindrical scale factors $(1, r, 1)$; incompressibility Eq. (2.38) and (2.63); trajectories Eqs. (2.12)-(2.13); stream lines Eq. (2.21).</p>
+<p class="source-line">Source: K6.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: divergence in orthogonal coordinates Eq. (2.5) with the cylindrical scale factors $(1, r, 1)$; incompressibility Eq. (2.38) and (2.63); trajectories Eqs. (2.12)-(2.13); stream lines Eq. (2.21).</p>
       </div>
 
       <details class="solution-details">
@@ -1174,6 +1185,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K7</div>
           <h2 class="problem-title">Hyperbolic Stagnation-Point Flow</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K7.pdf" target="_blank" rel="noopener">Original statement · K7.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Potential</span><span class="tag">Stream function</span><span class="tag">Strain rate</span><span class="tag">Fluid element</span></div>
       </div>
@@ -1182,7 +1194,7 @@
         <h4>Official Problem Statement</h4>
 <p>Consider the planar motion of velocity components $v_x = ax$ and $v_y = by$, where $a$ and $b$ are known constants.</p>
 <ol class="step-list"><li>If the flow is irrotational compute the associated velocity potential.</li><li>Compute the value of $b$ for which the flow corresponds to that of an incompressible fluid (use that value in the solution of the following questions).</li><li>Obtain the stream lines and represent the result schematically.</li><li>Determine the trajectory and the path of a fluid particle initially located at $x_o = 0$ and $y_o = 1$. How long does it take to reach the origin?</li><li>Calculate the acceleration of fluid particles located along the axis $y = 0$.</li><li>Find the stream function for the flow.</li><li>Compute the rate-of-strain tensor.</li><li>Investigate the evolution of a fluid element whose initial shape is that of a square of sides $dl$,</li></ol>
-<p class="source-line">Source: K7.pdf (page 1). The statement of part 8 is cut off in the scan after "sides $dl$,"; the handwritten solution takes the sides parallel to the coordinate axes, which is assumed here. Notes.pdf, Chapter 2: potential Eq. (2.34), incompressibility Eq. (2.38), stream lines Eq. (2.21), acceleration Eqs. (2.25)-(2.27), stream function Eqs. (2.40)-(2.42), rate-of-strain tensor Eqs. (2.47)-(2.48), square element Eqs. (2.56)-(2.61).</p>
+<p class="source-line">Source: K7.pdf (page 1). The statement of part 8 is cut off in the scan after "sides $dl$,"; the handwritten solution takes the sides parallel to the coordinate axes, which is assumed here. Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: potential Eq. (2.34), incompressibility Eq. (2.38), stream lines Eq. (2.21), acceleration Eqs. (2.25)-(2.27), stream function Eqs. (2.40)-(2.42), rate-of-strain tensor Eqs. (2.47)-(2.48), square element Eqs. (2.56)-(2.61).</p>
       </div>
 
       <details class="solution-details">
@@ -1261,6 +1273,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K8</div>
           <h2 class="problem-title">Pulsating Three-Dimensional Potential Flow</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K8.pdf" target="_blank" rel="noopener">Original statement · K8.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Potential flow</span><span class="tag">Fluid surface</span><span class="tag">Path lines</span><span class="tag">Unsteady</span></div>
       </div>
@@ -1271,7 +1284,7 @@
 <div class="math-block">$$ \varphi = A\cos(\Omega t)\left(2x^2 - y^2 - z^2\right), $$</div>
 <p>where $A$ and $\Omega$ are known constants.</p>
 <ol class="step-list"><li>Determine the velocity field, verifying that $\nabla\wedge\vec{v} = 0$ and $\nabla\cdot\vec{v} = 0$.</li><li>Compute the streamlines, trajectories and particle paths.</li><li>Obtain the fluid surface that at the initial instant is a sphere of radius $R$ centered at $(x,y,z) = (-R/2, 0, 0)$.</li></ol>
-<p class="source-line">Source: K8.pdf (page 1). Notes.pdf, Chapter 2: potential Eq. (2.34); expansion rate Eqs. (2.37)-(2.38); trajectories and path lines Eqs. (2.12)-(2.15); fluid surfaces Eqs. (2.18)-(2.20); stream lines Eq. (2.21).</p>
+<p class="source-line">Source: K8.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: potential Eq. (2.34); expansion rate Eqs. (2.37)-(2.38); trajectories and path lines Eqs. (2.12)-(2.15); fluid surfaces Eqs. (2.18)-(2.20); stream lines Eq. (2.21).</p>
       </div>
 
       <details class="solution-details">
@@ -1338,6 +1351,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K9</div>
           <h2 class="problem-title">Oscillating Polar Flow (Planar Dipole)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K9.pdf" target="_blank" rel="noopener">Original statement · K9.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Dipole</span><span class="tag">Polar coordinates</span><span class="tag">Acceleration</span><span class="tag">Fluid line</span></div>
       </div>
@@ -1348,7 +1362,7 @@
 <div class="math-block">$$ v_r = -A\sin(\Omega t)\,\frac{\sin\theta}{r^2}, \qquad v_\theta = A\sin(\Omega t)\,\frac{\cos\theta}{r^2}, $$</div>
 <p>where $A$ and $\Omega$ are known constants,</p>
 <ol class="step-list"><li>Determine the vorticity.</li><li>Compute the expansion rate.</li><li>Comment on the existence of velocity potential and stream function and, if they do exist, compute them.</li><li>Find the acceleration for points along the line $\theta = 0$.</li><li>Obtain the trajectories and streamlines.</li><li>Determine the fluid line that at $t = 0$ is given by $\theta = 0$ and $0 &lt; r &lt; \infty$.</li></ol>
-<p class="source-line">Source: K9.pdf (page 1). Notes.pdf, Chapter 2: curl and divergence in orthogonal coordinates Eqs. (2.5)-(2.6); potential Eq. (2.34); acceleration Eqs. (2.25)-(2.26); stream function Eqs. (2.40)-(2.45); trajectories Eq. (2.12); fluid lines Eqs. (2.16)-(2.17); stream lines Eq. (2.21).</p>
+<p class="source-line">Source: K9.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: curl and divergence in orthogonal coordinates Eqs. (2.5)-(2.6); potential Eq. (2.34); acceleration Eqs. (2.25)-(2.26); stream function Eqs. (2.40)-(2.45); trajectories Eq. (2.12); fluid lines Eqs. (2.16)-(2.17); stream lines Eq. (2.21).</p>
       </div>
 
       <details class="solution-details">
@@ -1428,6 +1442,7 @@
         <div class="problem-title-group">
           <div class="problem-id">Problem K10</div>
           <h2 class="problem-title">Planar Flow with Exponentially Varying Shear (Quiz, 30 September 2013)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K10.pdf" target="_blank" rel="noopener">Original statement · K10.pdf</a>
         </div>
         <div class="tag-group"><span class="tag">Unsteady</span><span class="tag">Potential</span><span class="tag">Stream function</span><span class="tag">Pure shear</span></div>
       </div>
@@ -1438,7 +1453,7 @@
 <div class="math-block">$$ v_x = A e^{\Omega t}\,y \qquad\text{and}\qquad v_y = B e^{\Omega t}\,x, $$</div>
 <p>where $A$, $B$, and $\Omega$ are constants.</p>
 <ol class="step-list"><li>Determine the value of the volume dilation rate $\nabla\cdot\vec{v}$.</li><li>Obtain the value of $B$ for which the resulting flow is irrotational. Adopt this particular value in what follows.</li><li>Calculate the stream line that intersects the point $(x, y) = (x_0, y_0)$ at a given instant of time $t$. Sketch the resulting stream lines.</li><li>Compute the trajectory of a fluid particle located initially at $(x, y) = (x_0, y_0)$.</li><li>If they exist, calculate the velocity potential $\varphi$ and the stream function $\psi$.</li><li>Determine the rate-of-strain tensor $\bar{\bar{T}}_d$.</li><li>Describe the deformation of a fluid element of square shape whose sides of length $dl$ are initially oriented parallel to the axes.</li></ol>
-<p class="source-line">Source: K10.pdf (page 1). Notes.pdf, Chapter 2: expansion rate Eqs. (2.62)-(2.63); vorticity Eq. (2.52); stream lines Eq. (2.21); trajectories Eq. (2.12); potential Eq. (2.34); stream function Eqs. (2.40)-(2.45); velocity gradient and rate-of-strain tensor Eqs. (2.46)-(2.48); square element Eqs. (2.56)-(2.61).</p>
+<p class="source-line">Source: K10.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=18" target="_blank" rel="noopener" title="Open Notes.pdf at page 18">2</a>: expansion rate Eqs. (2.62)-(2.63); vorticity Eq. (2.52); stream lines Eq. (2.21); trajectories Eq. (2.12); potential Eq. (2.34); stream function Eqs. (2.40)-(2.45); velocity gradient and rate-of-strain tensor Eqs. (2.46)-(2.48); square element Eqs. (2.56)-(2.61).</p>
       </div>
 
       <details class="solution-details">

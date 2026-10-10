@@ -426,6 +426,7 @@
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -473,6 +474,10 @@
         <div class="article-category">Subchapter 3.4 · Rotational Dynamics &amp; Turbomachinery</div>
         <h1 class="article-title">Conservation of Angular Momentum &amp; Turbomachinery Torque</h1>
         <p class="article-meta">Moment balance about strategic reduction centers $\vec{x}_0$, elimination of unknown reactions, and Euler's fundamental turbomachinery equation.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener">Notes.pdf · p. 35</a>
+        </nav>
       </header>
 
       <!-- Section 1: The Master Angular Momentum Equation -->
@@ -482,14 +487,14 @@
 
         <div class="math-block">
           $$ \frac{d}{dt}\left[\int_{V_f(t)} \rho [(\vec{x}-\vec{x}_0)\times\vec{v}] \, dV\right] = \sum \vec{M}_{\vec{x}_0, \text{ext}} $$
-          <div class="math-caption">[Eq. 3.37] Angular momentum principle for a material fluid volume.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a>] Angular momentum principle for a material fluid volume.</div>
         </div>
 
         <p>Substituting intensive angular momentum $\vec{b} = (\vec{x} - \vec{x}_0)\times\vec{v}$ into the universal Reynolds Transport Theorem yields the <strong>Master Integral Angular Momentum Equation</strong> for any moving control volume $V_c(t)$:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho [(\vec{x}-\vec{x}_0)\times\vec{v}] \, dV\right] + \int_{\Sigma_c(t)} \rho [(\vec{x}-\vec{x}_0)\times\vec{v}][(\vec{v}-\vec{v}_c)\cdot\vec{n}] \, d\sigma = \sum \vec{M}_{\vec{x}_0, \text{ext}}} $$
-          <div class="math-caption">[Eq. 3.38] Universal Integral Angular Momentum Conservation Equation.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>] Universal Integral Angular Momentum Conservation Equation.</div>
         </div>
 
         <p>The external moments $\sum \vec{M}_{\vec{x}_0, \text{ext}}$ consist of pressure forces, viscous shear forces, body forces (e.g., gravity), and mechanical holding torques applied by shaft couplings or mounting flanges:</p>
@@ -500,36 +505,36 @@
       </section>
 
       <section>
-        <h2 class="section-heading">Angular Momentum: Complete Derivation Chain (Notes.pdf, Eqs. 3.37-3.38)</h2>
-        <h3 class="sub-heading">Step 1: Angular momentum of a fluid volume (Eq. 3.37)</h3>
-        <p>Let $\vec{r}=\vec{x}-\vec{x}_0$, with $\vec{x}_0$ a fixed point of an inertial frame. A fluid particle of mass $\rho\,dV$ has angular momentum $\vec{r}\wedge\rho\vec{v}\,dV$ about $\vec{x}_0$ (Notes, p. 33), so the angular momentum of the fluid volume is $\int_{V_f}\rho\,\vec{r}\wedge\vec{v}\,dV$. Newton's second law for angular momentum states that its rate of change equals the moment of the external forces about $\vec{x}_0$. The moment of the surface force $\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma$ on each element of the boundary and the moment of the body force $\rho\vec{f}_m\,dV$ on each particle give Eq. 3.37:</p>
+        <h2 class="section-heading">Angular Momentum: Complete Derivation Chain (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37-3.38</a>)</h2>
+        <h3 class="sub-heading">Step 1: Angular momentum of a fluid volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a>)</h3>
+        <p>Let $\vec{r}=\vec{x}-\vec{x}_0$, with $\vec{x}_0$ a fixed point of an inertial frame. A fluid particle of mass $\rho\,dV$ has angular momentum $\vec{r}\wedge\rho\vec{v}\,dV$ about $\vec{x}_0$ (Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">33</a>), so the angular momentum of the fluid volume is $\int_{V_f}\rho\,\vec{r}\wedge\vec{v}\,dV$. Newton's second law for angular momentum states that its rate of change equals the moment of the external forces about $\vec{x}_0$. The moment of the surface force $\bar{\bar{\tau}}\cdot\vec{n}\,d\sigma$ on each element of the boundary and the moment of the body force $\rho\vec{f}_m\,dV$ on each particle give Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a>:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f(t)}\rho\,\vec{r}\wedge\vec{v}\,dV=\int_{\Sigma_f(t)}\vec{r}\wedge(\bar{\bar{\tau}}\cdot\vec{n})\,d\sigma+\int_{V_f(t)}\rho\,\vec{r}\wedge\vec{f}_m\,dV $$
-          <div class="math-caption">Eq. 3.37</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a></div>
         </div>
         <h3 class="sub-heading">Step 2: Consistency with the local momentum equation (extension)</h3>
         <p><strong>Extension, not in the Notes.</strong> For a fluid particle the mass $\rho\,dV$ is constant and $D\vec{r}/Dt=\vec{v}$ because $\vec{x}_0$ is fixed. The product rule gives</p>
         <div class="math-block">
           $$ \frac{D}{Dt}\big[\vec{r}\wedge\rho\vec{v}\,dV\big]=\big[\vec{v}\wedge\vec{v}+\vec{r}\wedge\frac{D\vec{v}}{Dt}\big]\rho\,dV=\vec{r}\wedge\rho\frac{D\vec{v}}{Dt}\,dV $$
         </div>
-        <p>since $\vec{v}\wedge\vec{v}=\vec{0}$. Insert Cauchy's equation (Eq. 3.25), $\rho D\vec{v}/Dt=\nabla\cdot\bar{\bar{\tau}}+\rho\vec{f}_m$, and integrate over the volume:</p>
+        <p>since $\vec{v}\wedge\vec{v}=\vec{0}$. Insert Cauchy's equation (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a>), $\rho D\vec{v}/Dt=\nabla\cdot\bar{\bar{\tau}}+\rho\vec{f}_m$, and integrate over the volume:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_f}\rho\,\vec{r}\wedge\vec{v}\,dV=\int_{V_f}\vec{r}\wedge(\nabla\cdot\bar{\bar{\tau}})\,dV+\int_{V_f}\rho\,\vec{r}\wedge\vec{f}_m\,dV $$
         </div>
-        <p>It remains to show that the first integral on the right equals the surface integral of Eq. 3.37. With the permutation symbol $\epsilon_{kij}$, component $k$ of the integrand is $\epsilon_{kij}r_i\,\partial\tau_{lj}/\partial x_l$. The product rule and $\partial r_i/\partial x_l=\delta_{il}$ give</p>
+        <p>It remains to show that the first integral on the right equals the surface integral of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a>. With the permutation symbol $\epsilon_{kij}$, component $k$ of the integrand is $\epsilon_{kij}r_i\,\partial\tau_{lj}/\partial x_l$. The product rule and $\partial r_i/\partial x_l=\delta_{il}$ give</p>
         <div class="math-block">
           $$ \epsilon_{kij}\,r_i\frac{\partial\tau_{lj}}{\partial x_l}=\frac{\partial}{\partial x_l}\big(\epsilon_{kij}r_i\tau_{lj}\big)-\epsilon_{kij}\,\tau_{ij} $$
         </div>
-        <p>The last term vanishes because $\epsilon_{kij}$ is antisymmetric in $(i,j)$ and $\tau_{ij}$ is symmetric (Eq. 3.19). Gauss' theorem on the first term, together with $\tau_{lj}n_l=\tau_{jl}n_l=(\bar{\bar{\tau}}\cdot\vec{n})_j$, gives</p>
+        <p>The last term vanishes because $\epsilon_{kij}$ is antisymmetric in $(i,j)$ and $\tau_{ij}$ is symmetric (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a>). Gauss' theorem on the first term, together with $\tau_{lj}n_l=\tau_{jl}n_l=(\bar{\bar{\tau}}\cdot\vec{n})_j$, gives</p>
         <div class="math-block">
           $$ \int_{V}\vec{r}\wedge(\nabla\cdot\bar{\bar{\tau}})\,dV=\int_{\Sigma}\vec{r}\wedge(\bar{\bar{\tau}}\cdot\vec{n})\,d\sigma $$
         </div>
-        <p>which shows that linear momentum together with a symmetric stress tensor is equivalent to Eq. 3.37. The symmetry of the stress tensor is exactly the condition that makes both statements agree. Note that this is not a derivation of Eq. 3.37 from linear momentum alone: in Notes.pdf (pp. 29-30) the symmetry of $\bar{\bar{\tau}}$ (Eq. 3.19) is itself obtained from angular momentum, so the argument would be circular if read that way.</p>
-        <h3 class="sub-heading">Step 3: Transfer to a moving control volume (Eq. 3.38)</h3>
-        <p>Apply Eq. 3.8 with the density $\vec{\phi}=\rho\,\vec{r}\wedge\vec{v}$, evaluate the right-hand side of Eq. 3.37 on $\Sigma_c$, $V_c$ (coincident with $\Sigma_f$, $V_f$ at the instant considered) and split the stress with Eq. 3.28. Since $\vec{r}\wedge\big((-p\bar{\bar{I}})\cdot\vec{n}\big)=-\vec{r}\wedge(p\vec{n})$:</p>
+        <p>which shows that linear momentum together with a symmetric stress tensor is equivalent to Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a>. The symmetry of the stress tensor is exactly the condition that makes both statements agree. Note that this is not a derivation of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a> from linear momentum alone: in Notes.pdf (pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">29-30</a>) the symmetry of $\bar{\bar{\tau}}$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.19</a>) is itself obtained from angular momentum, so the argument would be circular if read that way.</p>
+        <h3 class="sub-heading">Step 3: Transfer to a moving control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>)</h3>
+        <p>Apply Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a> with the density $\vec{\phi}=\rho\,\vec{r}\wedge\vec{v}$, evaluate the right-hand side of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.37</a> on $\Sigma_c$, $V_c$ (coincident with $\Sigma_f$, $V_f$ at the instant considered) and split the stress with Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.28</a>. Since $\vec{r}\wedge\big((-p\bar{\bar{I}})\cdot\vec{n}\big)=-\vec{r}\wedge(p\vec{n})$:</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_c}\rho\,\vec{r}\wedge\vec{v}\,dV+\int_{\Sigma_c}\rho\,(\vec{r}\wedge\vec{v})\big[(\vec{v}-\vec{v}_c)\cdot\vec{n}\big]\,d\sigma=-\int_{\Sigma_c}\vec{r}\wedge(p\vec{n})\,d\sigma+\int_{\Sigma_c}\vec{r}\wedge(\bar{\bar{\tau}}'\cdot\vec{n})\,d\sigma+\int_{V_c}\rho\,\vec{r}\wedge\vec{f}_m\,dV $$
-          <div class="math-caption">Eq. 3.38</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a></div>
         </div>
         <p>Because $\vec{x}_0$ is fixed, $\vec{r}$ is not differentiated in the control-volume term; the point $\vec{x}_0$ may be placed anywhere, and the choice is a matter of convenience.</p>
         <h3 class="sub-heading">Step 4: Uniform ports and the pivot rule (extension)</h3>
@@ -543,7 +548,7 @@
         <div class="math-block">
           $$ (\vec{r}\wedge\vec{v})_z=r\,v_\theta $$
         </div>
-        <p>Convective flux in the $z$ component of Eq. 3.38. On the outlet $\vec{v}\cdot\vec{n}=+v_r$ and on the inlet $\vec{v}\cdot\vec{n}=-v_r$. The mass flow through each cylinder is the same, $\dot m=\int\rho v_r\,d\sigma$, by Eq. 3.11 in steady flow:</p>
+        <p>Convective flux in the $z$ component of Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>. On the outlet $\vec{v}\cdot\vec{n}=+v_r$ and on the inlet $\vec{v}\cdot\vec{n}=-v_r$. The mass flow through each cylinder is the same, $\dot m=\int\rho v_r\,d\sigma$, by Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a> in steady flow:</p>
         <div class="math-block">
           $$ \int_{\Sigma_0}\rho\,(r v_\theta)(\vec{v}\cdot\vec{n})\,d\sigma=r_2v_{\theta2}\,\dot m-r_1v_{\theta1}\,\dot m=\dot m\,(r_2v_{\theta2}-r_1v_{\theta1}) $$
         </div>

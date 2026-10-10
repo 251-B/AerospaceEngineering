@@ -1,0 +1,1259 @@
+{
+ "_comment": "Generated, then reviewed. Regenerate deep links with: python tools/source_links.py",
+ "pdfs": {
+  "fm-notes": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf",
+   "label": "Notes.pdf",
+   "pages": 191,
+   "offset": 9,
+   "body_start": 10
+  },
+  "fm-slides": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/slides/slides_Chapters1-2.pdf",
+   "label": "slides_Chapters1-2.pdf",
+   "pages": 55
+  },
+  "fm-k1": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K1.pdf",
+   "label": "K1.pdf",
+   "pages": 1
+  },
+  "fm-k2": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K2.pdf",
+   "label": "K2.pdf",
+   "pages": 1
+  },
+  "fm-k3": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K3.pdf",
+   "label": "K3.pdf",
+   "pages": 1
+  },
+  "fm-k4": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K4.pdf",
+   "label": "K4.pdf",
+   "pages": 1
+  },
+  "fm-k5": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K5.pdf",
+   "label": "K5.pdf",
+   "pages": 1
+  },
+  "fm-k6": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K6.pdf",
+   "label": "K6.pdf",
+   "pages": 1
+  },
+  "fm-k7": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K7.pdf",
+   "label": "K7.pdf",
+   "pages": 1
+  },
+  "fm-k8": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K8.pdf",
+   "label": "K8.pdf",
+   "pages": 1
+  },
+  "fm-k9": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K9.pdf",
+   "label": "K9.pdf",
+   "pages": 1
+  },
+  "fm-k10": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/problemas/K10.pdf",
+   "label": "K10.pdf",
+   "pages": 1
+  },
+  "mat-s2": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session 2 T1 Bonding_2025.pdf",
+   "label": "Session 2 T1 Bonding.pdf",
+   "pages": 39
+  },
+  "mat-s3": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session 3 T2 Structure of Materials I_2025.pdf",
+   "label": "Session 3 T2 Structure I.pdf",
+   "pages": 53
+  },
+  "mat-s4": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session 4 T2 Structure of Materials II_2025.pdf",
+   "label": "Session 4 T2 Structure II.pdf",
+   "pages": 50
+  },
+  "mat-s5": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session 5 T3  Difussion_2025.pdf",
+   "label": "Session 5 T3 Diffusion.pdf",
+   "pages": 35
+  },
+  "mat-t2cs": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems T2_CrystStruct.pdf",
+   "label": "Problems T2_CrystStruct.pdf",
+   "pages": 3
+  },
+  "mat-t2def": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems T2 defects.pdf",
+   "label": "Problems T2 defects.pdf",
+   "pages": 2
+  },
+  "mat-t3": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/problemas/Problems T3_Diffusion.pdf",
+   "label": "Problems T3_Diffusion.pdf",
+   "pages": 1
+  },
+  "mat-exam1": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/first-partial/First Partial Aerospace Materials.pdf",
+   "label": "First Partial Aerospace Materials.pdf",
+   "pages": 4
+  },
+  "em-notes": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf",
+   "label": "Notes.pdf",
+   "pages": 130,
+   "offset": 1,
+   "body_start": 9
+  },
+  "em-problems": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf",
+   "label": "Problems.pdf",
+   "pages": 81
+  },
+  "em-s1": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf",
+   "label": "01 Point particle kinematics.pdf",
+   "pages": 28
+  },
+  "em-s2": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf",
+   "label": "02 Point particle dynamics.pdf",
+   "pages": 24
+  },
+  "em-s3": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf",
+   "label": "03 Constraints.pdf",
+   "pages": 24
+  },
+  "em-s4": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-04-angular-momentum-central-forces/slides/04_-_Angular_momentum.pdf",
+   "label": "04 Angular momentum.pdf",
+   "pages": 17
+  },
+  "am-book": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE's.pdf",
+   "label": "Robinson, BookODE's.pdf",
+   "pages": 416,
+   "offset": 16,
+   "body_start": 17
+  },
+  "am-lin": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf",
+   "label": "definition_linear_ODE.pdf",
+   "pages": 1
+  },
+  "am-p1": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf",
+   "label": "ProblemsCh1.pdf",
+   "pages": 3
+  },
+  "am-p2": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf",
+   "label": "ProblemsCh2.pdf",
+   "pages": 4
+  },
+  "am-p3": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf",
+   "label": "ProblemsCh3.pdf",
+   "pages": 3
+  },
+  "bm-t1": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic 1_The Firm_Types  Objectives.pdf",
+   "label": "Topic 1 The Firm.pdf",
+   "pages": 29
+  },
+  "bm-w1": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/problemas/W1 Pr_Elevator Pitch  Governance.pdf",
+   "label": "W1 Elevator Pitch & Governance.pdf",
+   "pages": 9
+  },
+  "bm-t2": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/teoria/Topic 2_ Value creation.pdf",
+   "label": "Topic 2 Value creation.pdf",
+   "pages": 31
+  },
+  "bm-w2": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/problemas/W2 Practice_2_Business Environment.pdf",
+   "label": "W2 Business Environment.pdf",
+   "pages": 7
+  },
+  "bm-t3": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic 3_Financial Management (I).pdf",
+   "label": "Topic 3 Financial Management (I).pdf",
+   "pages": 37
+  },
+  "bm-t3ex": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf",
+   "label": "T3_Financial Statements_EXERCISES.pdf",
+   "pages": 3
+  },
+  "bm-t3add": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf",
+   "label": "T3_Additional_EXERCISES.pdf",
+   "pages": 7
+  }
+ },
+ "pages": {
+  "subjects/advanced-maths/problemas/topic-1-problems.html": {
+   "panel": [
+    [
+     "am-p1",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   },
+   "cards": {
+    "p1": [
+     "am-p1",
+     1
+    ],
+    "p2": [
+     "am-p1",
+     1
+    ],
+    "p3": [
+     "am-p1",
+     1
+    ],
+    "p4": [
+     "am-p1",
+     2
+    ],
+    "p5": [
+     "am-p1",
+     2
+    ],
+    "p6": [
+     "am-p1",
+     2
+    ],
+    "p7": [
+     "am-p1",
+     2
+    ],
+    "p8": [
+     "am-p1",
+     2
+    ],
+    "p9": [
+     "am-p1",
+     2
+    ],
+    "p10": [
+     "am-p1",
+     2
+    ]
+   }
+  },
+  "subjects/advanced-maths/problemas/topic-2-problems.html": {
+   "panel": [
+    [
+     "am-p2",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   },
+   "cards": {
+    "p1": [
+     "am-p2",
+     1
+    ],
+    "p2": [
+     "am-p2",
+     1
+    ],
+    "p3": [
+     "am-p2",
+     1
+    ],
+    "p4": [
+     "am-p2",
+     2
+    ],
+    "p5": [
+     "am-p2",
+     2
+    ],
+    "p6": [
+     "am-p2",
+     2
+    ],
+    "p7": [
+     "am-p2",
+     2
+    ],
+    "p8": [
+     "am-p2",
+     2
+    ],
+    "p9": [
+     "am-p2",
+     2
+    ],
+    "p10": [
+     "am-p2",
+     3
+    ],
+    "p11": [
+     "am-p2",
+     3
+    ],
+    "p12": [
+     "am-p2",
+     3
+    ],
+    "p13": [
+     "am-p2",
+     3
+    ],
+    "p14": [
+     "am-p2",
+     4
+    ],
+    "p15": [
+     "am-p2",
+     4
+    ],
+    "p16": [
+     "am-p2",
+     4
+    ],
+    "p17": [
+     "am-p2",
+     4
+    ]
+   }
+  },
+  "subjects/advanced-maths/problemas/topic-3-problems.html": {
+   "panel": [
+    [
+     "am-p3",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   },
+   "cards": {
+    "p1": [
+     "am-p3",
+     1
+    ],
+    "p2": [
+     "am-p3",
+     1
+    ],
+    "p3": [
+     "am-p3",
+     1
+    ],
+    "p4": [
+     "am-p3",
+     1
+    ],
+    "p5": [
+     "am-p3",
+     2
+    ],
+    "p6": [
+     "am-p3",
+     2
+    ],
+    "p7": [
+     "am-p3",
+     2
+    ],
+    "p8": [
+     "am-p3",
+     2
+    ],
+    "p9": [
+     "am-p3",
+     3
+    ],
+    "p10": [
+     "am-p3",
+     3
+    ],
+    "p11": [
+     "am-p3",
+     3
+    ]
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-1.html": {
+   "panel": [
+    [
+     "am-book",
+     "auto"
+    ],
+    [
+     "am-lin",
+     1
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-2.html": {
+   "panel": [
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-3.html": {
+   "panel": [
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-4.html": {
+   "panel": [
+    [
+     "am-book",
+     "auto"
+    ],
+    [
+     "am-lin",
+     1
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-2-problems.html": {
+   "panel": [
+    [
+     "mat-t2cs",
+     1
+    ],
+    [
+     "mat-t2def",
+     1
+    ]
+   ],
+   "cite": {
+    "sessions": {
+     "3": "mat-s3",
+     "4": "mat-s4"
+    }
+   },
+   "cards": {
+    "p1": [
+     "mat-t2cs",
+     1
+    ],
+    "p2": [
+     "mat-t2cs",
+     1
+    ],
+    "p3": [
+     "mat-t2cs",
+     1
+    ],
+    "p4": [
+     "mat-t2cs",
+     1
+    ],
+    "p5": [
+     "mat-t2cs",
+     1
+    ],
+    "p6": [
+     "mat-t2cs",
+     1
+    ],
+    "p7": [
+     "mat-t2cs",
+     1
+    ],
+    "p8": [
+     "mat-t2cs",
+     2
+    ],
+    "p9": [
+     "mat-t2cs",
+     2
+    ],
+    "p10": [
+     "mat-t2cs",
+     2
+    ],
+    "p11": [
+     "mat-t2cs",
+     2
+    ],
+    "p12": [
+     "mat-t2cs",
+     3
+    ],
+    "p13": [
+     "mat-t2cs",
+     3
+    ],
+    "p14": [
+     "mat-t2cs",
+     3
+    ],
+    "p15": [
+     "mat-t2def",
+     1
+    ],
+    "p16": [
+     "mat-t2def",
+     1
+    ],
+    "p17": [
+     "mat-t2def",
+     1
+    ],
+    "p18": [
+     "mat-t2def",
+     1
+    ],
+    "p19": [
+     "mat-t2def",
+     1
+    ],
+    "p20": [
+     "mat-t2def",
+     1
+    ],
+    "p21": [
+     "mat-t2def",
+     1
+    ],
+    "p22": [
+     "mat-t2def",
+     1
+    ],
+    "p23": [
+     "mat-t2def",
+     1
+    ],
+    "p24": [
+     "mat-t2def",
+     1
+    ],
+    "p25": [
+     "mat-t2def",
+     2
+    ],
+    "p26": [
+     "mat-t2def",
+     2
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-3-diffusion.html": {
+   "panel": [
+    [
+     "mat-t3",
+     1
+    ]
+   ],
+   "cite": {
+    "sessions": {
+     "5": "mat-s5"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t3",
+     1
+    ],
+    "prob-2": [
+     "mat-t3",
+     1
+    ],
+    "prob-3": [
+     "mat-t3",
+     1
+    ],
+    "prob-4": [
+     "mat-t3",
+     1
+    ],
+    "prob-5": [
+     "mat-t3",
+     1
+    ],
+    "prob-6": [
+     "mat-t3",
+     1
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-1-bonding.html": {
+   "panel": [
+    [
+     "mat-s2",
+     1
+    ],
+    [
+     "mat-exam1",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s2",
+    "sessions": {
+     "2": "mat-s2"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-2-structure.html": {
+   "panel": [
+    [
+     "mat-s3",
+     1
+    ],
+    [
+     "mat-s4",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s3",
+      0
+     ],
+     [
+      "mat-s4",
+      44718
+     ]
+    ],
+    "sessions": {
+     "3": "mat-s3",
+     "4": "mat-s4",
+     "5": "mat-s5"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-3-diffusion.html": {
+   "panel": [
+    [
+     "mat-s5",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s5",
+    "sessions": {
+     "4": "mat-s4",
+     "5": "mat-s5"
+    }
+   }
+  },
+  "subjects/business-management/problemas/topic-3-extra-exam-problems.html": {
+   "panel": [
+    [
+     "bm-t3add",
+     1
+    ],
+    [
+     "bm-t3",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3"
+   },
+   "cards": {
+    "problem-1": [
+     "bm-t3add",
+     1
+    ],
+    "problem-2": [
+     "bm-t3add",
+     3
+    ],
+    "problem-3": [
+     "bm-t3add",
+     4
+    ],
+    "problem-4": [
+     "bm-t3add",
+     5
+    ]
+   }
+  },
+  "subjects/business-management/problemas/topic-3-financial-statements.html": {
+   "panel": [
+    [
+     "bm-t3ex",
+     1
+    ],
+    [
+     "bm-t3",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3"
+   },
+   "cards": {
+    "exercise-1": [
+     "bm-t3ex",
+     1
+    ],
+    "exercise-2": [
+     "bm-t3ex",
+     1
+    ],
+    "exercise-3": [
+     "bm-t3ex",
+     2
+    ],
+    "exercise-4": [
+     "bm-t3ex",
+     2
+    ],
+    "exercise-5": [
+     "bm-t3ex",
+     2
+    ],
+    "exercise-6": [
+     "bm-t3ex",
+     3
+    ]
+   }
+  },
+  "subjects/business-management/teoria/topic-1.html": {
+   "panel": [
+    [
+     "bm-t1",
+     1
+    ],
+    [
+     "bm-w1",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t1"
+   }
+  },
+  "subjects/business-management/teoria/topic-2.html": {
+   "panel": [
+    [
+     "bm-t2",
+     1
+    ],
+    [
+     "bm-w2",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t2"
+   }
+  },
+  "subjects/business-management/teoria/topic-3.html": {
+   "panel": [
+    [
+     "bm-t3",
+     1
+    ],
+    [
+     "bm-t3ex",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3"
+   }
+  },
+  "subjects/engineering-mechanics/problemas/topic-1.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes"
+   },
+   "cards": {
+    "prob-01": [
+     "em-problems",
+     6
+    ],
+    "prob-02": [
+     "em-problems",
+     6
+    ],
+    "prob-03": [
+     "em-problems",
+     6
+    ],
+    "prob-04": [
+     "em-problems",
+     7
+    ],
+    "prob-05": [
+     "em-problems",
+     7
+    ],
+    "prob-06": [
+     "em-problems",
+     7
+    ],
+    "prob-07": [
+     "em-problems",
+     8
+    ],
+    "prob-08": [
+     "em-problems",
+     8
+    ],
+    "prob-09": [
+     "em-problems",
+     8
+    ],
+    "prob-41": [
+     "em-problems",
+     29
+    ]
+   }
+  },
+  "subjects/engineering-mechanics/problemas/topic-2.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes"
+   },
+   "cards": {
+    "prob-10": [
+     "em-problems",
+     9
+    ],
+    "prob-11": [
+     "em-problems",
+     9
+    ],
+    "prob-12": [
+     "em-problems",
+     9
+    ],
+    "prob-13": [
+     "em-problems",
+     9
+    ],
+    "prob-14": [
+     "em-problems",
+     9
+    ],
+    "prob-15": [
+     "em-problems",
+     9
+    ],
+    "prob-16": [
+     "em-problems",
+     9
+    ],
+    "prob-17": [
+     "em-problems",
+     9
+    ],
+    "prob-21": [
+     "em-problems",
+     10
+    ],
+    "prob-23": [
+     "em-problems",
+     11
+    ]
+   }
+  },
+  "subjects/engineering-mechanics/problemas/topic-3.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes"
+   },
+   "cards": {
+    "prob-18": [
+     "em-problems",
+     10
+    ],
+    "prob-19": [
+     "em-problems",
+     10
+    ],
+    "prob-20": [
+     "em-problems",
+     10
+    ],
+    "prob-22": [
+     "em-problems",
+     10
+    ],
+    "prob-24": [
+     "em-problems",
+     12
+    ],
+    "prob-26": [
+     "em-problems",
+     14
+    ],
+    "prob-29": [
+     "em-problems",
+     17
+    ],
+    "prob-31": [
+     "em-problems",
+     19
+    ],
+    "prob-32": [
+     "em-problems",
+     20
+    ],
+    "prob-35": [
+     "em-problems",
+     23
+    ],
+    "prob-38": [
+     "em-problems",
+     26
+    ],
+    "prob-39": [
+     "em-problems",
+     27
+    ],
+    "prob-43": [
+     "em-problems",
+     30
+    ],
+    "prob-48": [
+     "em-problems",
+     33
+    ],
+    "prob-50": [
+     "em-problems",
+     35
+    ]
+   }
+  },
+  "subjects/engineering-mechanics/problemas/topic-4.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes"
+   },
+   "cards": {
+    "prob-17": [
+     "em-problems",
+     9
+    ],
+    "prob-39": [
+     "em-problems",
+     27
+    ],
+    "prob-42": [
+     "em-problems",
+     29
+    ],
+    "prob-43": [
+     "em-problems",
+     30
+    ],
+    "prob-44": [
+     "em-problems",
+     31
+    ]
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-1.html": {
+   "panel": [
+    [
+     "em-s1",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s1",
+    "notes": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-2.html": {
+   "panel": [
+    [
+     "em-s2",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s2",
+    "notes": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-3.html": {
+   "panel": [
+    [
+     "em-s3",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s3",
+    "notes": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-4.html": {
+   "panel": [
+    [
+     "em-s4",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s4",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/fluid-mechanics/problemas/topic-2-kinematics.html": {
+   "panel": [
+    [
+     "fm-notes",
+     18,
+     "Notes.pdf, Chapter 2"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   },
+   "cards": {
+    "k1": [
+     "fm-k1",
+     1
+    ],
+    "k2": [
+     "fm-k2",
+     1
+    ],
+    "k3": [
+     "fm-k3",
+     1
+    ],
+    "k4": [
+     "fm-k4",
+     1
+    ],
+    "k5": [
+     "fm-k5",
+     1
+    ],
+    "k6": [
+     "fm-k6",
+     1
+    ],
+    "k7": [
+     "fm-k7",
+     1
+    ],
+    "k8": [
+     "fm-k8",
+     1
+    ],
+    "k9": [
+     "fm-k9",
+     1
+    ],
+    "k10": [
+     "fm-k10",
+     1
+    ]
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-1.html": {
+   "panel": [
+    [
+     "fm-notes",
+     10,
+     "Notes.pdf, Chapter 1"
+    ],
+    [
+     "fm-slides",
+     1
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-2.html": {
+   "panel": [
+    [
+     "fm-notes",
+     18,
+     "Notes.pdf, Chapter 2"
+    ],
+    [
+     "fm-slides",
+     10
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3-1-rtt.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3-2-mass.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3-3-momentum.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3-4-angular-momentum.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3-5-energy.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3-6-stresses.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/teoria/topic-3.html": {
+   "panel": [
+    [
+     "fm-notes",
+     34,
+     "Notes.pdf, Chapter 3"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   }
+  }
+ }
+}

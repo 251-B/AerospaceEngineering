@@ -1,0 +1,24 @@
+/* Deep links to the official PDFs in sources/ (inserted by tools/source_links.py). */
+.src-panel {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 16px 0 0; font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: 12px;
+}
+.src-panel-label {
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .75;
+}
+.src-panel a, a.src-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: 999px; line-height: 1.4;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  color: var(--accent, inherit); text-decoration: none; overflow-wrap: anywhere; min-width: 0; max-width: 100%;
+  font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: 12px; font-weight: 600;
+}
+.src-panel a::before, a.src-link::before { content: "\1F4C4"; font-size: 11px; }
+.src-panel a:hover, a.src-link:hover, .src-panel a:focus-visible, a.src-link:focus-visible {
+  background: color-mix(in srgb, currentColor 10%, transparent); text-decoration: none;
+}
+a.src-link { margin: 8px 0 12px; width: fit-content; max-width: 100%; }
+a.src-cite {
+  color: inherit; text-decoration: underline dotted; text-underline-offset: 2px;
+}
+a.src-cite:hover, a.src-cite:focus-visible { color: var(--accent, inherit); text-decoration-style: solid; }

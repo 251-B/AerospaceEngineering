@@ -426,6 +426,7 @@
   </style>
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Canvas Background -->
@@ -473,6 +474,10 @@
         <div class="article-category">Subchapter 3.2 · Continuity Balances</div>
         <h1 class="article-title">Conservation of Mass (Continuity) in Problem Solving</h1>
         <p class="article-meta">Global mass balances, 1D streamtube formulations, unsteady tank drainage, and upstream streamtube capture width determination.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener">Notes.pdf · p. 20</a>
+        </nav>
       </header>
 
       <!-- Section 1: The Master Continuity Equation -->
@@ -482,75 +487,75 @@
 
         <div class="math-block">
           $$ \frac{d M_{\text{sys}}}{dt} = \frac{d}{dt}\left[\int_{V_f(t)} \rho \, dV\right] = 0 $$
-          <div class="math-caption">[Eq. 3.9] Axiom of mass conservation for a material fluid system.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.9</a>] Axiom of mass conservation for a material fluid system.</div>
         </div>
 
-        <p>Setting the intensive property $b = 1$ in the universal Reynolds Transport Theorem (Eq. 3.8) yields the <strong>Master Integral Mass Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
+        <p>Setting the intensive property $b = 1$ in the universal Reynolds Transport Theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a>) yields the <strong>Master Integral Mass Conservation Equation</strong> for any moving control volume $V_c(t)$:</p>
 
         <div class="math-block">
           $$ \mathbf{\frac{d}{dt}\left[\int_{V_c(t)} \rho \, dV\right] + \int_{\Sigma_c(t)} \rho [(\vec{v} - \vec{v}_c)\cdot\vec{n}] \, d\sigma = 0} $$
-          <div class="math-caption">[Eq. 3.10] Integral continuity equation for an arbitrary moving control volume.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a>] Integral continuity equation for an arbitrary moving control volume.</div>
         </div>
 
         <p>For a fixed, rigid control volume ($V_0, \vec{v}_c = \vec{0}$), this simplifies to the Eulerian storage and convective flux balance:</p>
 
         <div class="math-block">
           $$ \int_{V_0} \frac{\partial \rho}{\partial t} \, dV + \int_{\Sigma_0} \rho (\vec{v}\cdot\vec{n}) \, d\sigma = 0 $$
-          <div class="math-caption">[Eq. 3.11] Continuity equation for a fixed spatial control volume.</div>
+          <div class="math-caption">[Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>] Continuity equation for a fixed spatial control volume.</div>
         </div>
       </section>
 
       <section>
-        <h2 class="section-heading">Mass Conservation: Complete Derivation Chain (Notes.pdf, Eqs. 3.9-3.11 and 4.4-4.7)</h2>
-        <h3 class="sub-heading">Step 1: Mass balance for an arbitrary moving control volume (Eq. 3.10)</h3>
-        <p>The principle (Eq. 3.9) states that the mass of a fluid volume does not change, $dM/dt=0$ with $M=\int_{V_f(t)}\rho\,dV$. Choose $\phi=\rho$ in the Reynolds Transport Theorem (Eq. 3.8) and replace the left-hand side by zero:</p>
+        <h2 class="section-heading">Mass Conservation: Complete Derivation Chain (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.9-3.11</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.4-4.7</a>)</h2>
+        <h3 class="sub-heading">Step 1: Mass balance for an arbitrary moving control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a>)</h3>
+        <p>The principle (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.9</a>) states that the mass of a fluid volume does not change, $dM/dt=0$ with $M=\int_{V_f(t)}\rho\,dV$. Choose $\phi=\rho$ in the Reynolds Transport Theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.8</a>) and replace the left-hand side by zero:</p>
         <div class="math-block">
           $$ 0=\frac{d}{dt}\int_{V_f(t)}\rho\,dV=\frac{d}{dt}\int_{V_c(t)}\rho\,dV+\int_{\Sigma_c(t)}\rho\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
         </div>
         <p>Moving the flux term to the other side shows the physical meaning: the rate of change of the mass stored in the control volume equals minus the net mass flux out through its boundary, that is, the mass flux entering.</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_c(t)}\rho\,dV=-\int_{\Sigma_c(t)}\rho\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
-          <div class="math-caption">Eq. 3.10, rearranged</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a>, rearranged</div>
         </div>
-        <h3 class="sub-heading">Step 2: Fixed control volume (Eq. 3.11)</h3>
-        <p>For a fixed volume $V_0$ with surface $\Sigma_0$ we have $\vec{v}_c=\vec{0}$ and the domain does not depend on $t$. The limits of integration are therefore constants, no boundary term appears, and the time derivative passes inside the integral (compare Eq. 3.7 with $\vec{v}_c=\vec{0}$):</p>
+        <h3 class="sub-heading">Step 2: Fixed control volume (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>)</h3>
+        <p>For a fixed volume $V_0$ with surface $\Sigma_0$ we have $\vec{v}_c=\vec{0}$ and the domain does not depend on $t$. The limits of integration are therefore constants, no boundary term appears, and the time derivative passes inside the integral (compare Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.7</a> with $\vec{v}_c=\vec{0}$):</p>
         <div class="math-block">
           $$ \frac{d}{dt}\int_{V_0}\rho\,dV=\int_{V_0}\frac{\partial\rho}{\partial t}\,dV $$
         </div>
-        <p>Substituting into Eq. 3.10 with $\vec{v}_c=\vec{0}$ gives</p>
+        <p>Substituting into Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a> with $\vec{v}_c=\vec{0}$ gives</p>
         <div class="math-block">
           $$ \int_{V_0}\frac{\partial\rho}{\partial t}\,dV+\int_{\Sigma_0}\rho\,\vec{v}\cdot\vec{n}\,d\sigma=0 $$
-          <div class="math-caption">Eq. 3.11</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a></div>
         </div>
         <h3 class="sub-heading">Step 3: Mass flow rate and sign convention</h3>
         <p>With $\vec{n}$ outward, the algebraic mass flow rate through a part $A$ of the control surface is</p>
         <div class="math-block">
           $$ \dot m_A=\int_A\rho\,(\vec{v}-\vec{v}_c)\cdot\vec{n}\,d\sigma $$
         </div>
-        <p>It is positive at outlets, negative at inlets and zero on impermeable walls, where no fluid crosses the surface and $(\vec{v}-\vec{v}_c)\cdot\vec{n}=0$. Eq. 3.10 then reads $dM_c/dt=-\sum_A\dot m_A$. For a steady flow in a fixed volume the left-hand side vanishes and $\sum\dot m_{\text{out}}=\sum\dot m_{\text{in}}$ (magnitudes). On a port of area $A_k$ with uniform $\rho_k$ and uniform velocity $v_k$ normal to the port, $|\dot m_k|=\rho_kv_kA_k$.</p>
-        <h3 class="sub-heading">Step 4: Differential form (Eqs. 4.4-4.7 of Notes.pdf, Chapter 4)</h3>
-        <p>The following steps belong to Chapter 4 of the Notes and are reproduced here to close the logical chain between the integral and the local statement. Apply Eq. 3.6 with $\phi=\rho$ to Eq. 3.9:</p>
+        <p>It is positive at outlets, negative at inlets and zero on impermeable walls, where no fluid crosses the surface and $(\vec{v}-\vec{v}_c)\cdot\vec{n}=0$. Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a> then reads $dM_c/dt=-\sum_A\dot m_A$. For a steady flow in a fixed volume the left-hand side vanishes and $\sum\dot m_{\text{out}}=\sum\dot m_{\text{in}}$ (magnitudes). On a port of area $A_k$ with uniform $\rho_k$ and uniform velocity $v_k$ normal to the port, $|\dot m_k|=\rho_kv_kA_k$.</p>
+        <h3 class="sub-heading">Step 4: Differential form (Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.4-4.7</a> of Notes.pdf, Chapter 4)</h3>
+        <p>The following steps belong to Chapter 4 of the Notes and are reproduced here to close the logical chain between the integral and the local statement. Apply Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a> with $\phi=\rho$ to Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.9</a>:</p>
         <div class="math-block">
           $$ \int_{V_f(t)}\frac{\partial\rho}{\partial t}\,dV+\int_{\Sigma_f(t)}\rho\,\vec{v}\cdot\vec{n}\,d\sigma=0 $$
         </div>
-        <p>Gauss' theorem (Eq. 2.9), $\int_\Sigma\vec{A}\cdot\vec{n}\,d\sigma=\int_V\nabla\cdot\vec{A}\,dV$ with $\vec{A}=\rho\vec{v}$, turns the surface integral into a volume integral over the same domain:</p>
+        <p>Gauss' theorem (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">2.9</a>), $\int_\Sigma\vec{A}\cdot\vec{n}\,d\sigma=\int_V\nabla\cdot\vec{A}\,dV$ with $\vec{A}=\rho\vec{v}$, turns the surface integral into a volume integral over the same domain:</p>
         <div class="math-block">
           $$ \int_{V_f(t)}\left[\frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\vec{v})\right]dV=0 $$
-          <div class="math-caption">Eq. 4.4</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.4</a></div>
         </div>
-        <p><strong>Arbitrary-volume argument.</strong> Let $g(\vec{x},t)=\partial\rho/\partial t+\nabla\cdot(\rho\vec{v})$, a continuous function. Eq. 4.4 holds for every fluid volume. Suppose $g(\vec{x}^{*},t)\neq0$ at some point, say $g(\vec{x}^{*},t)\gt0$. By continuity $g\gt0$ in a ball $B_\varepsilon(\vec{x}^{*})$. The fluid volume that occupies this ball at time $t$ then gives $\int_{B_\varepsilon}g\,dV\gt0$, which contradicts Eq. 4.4. The case $g\lt0$ is identical. Hence $g\equiv0$ at every point:</p>
+        <p><strong>Arbitrary-volume argument.</strong> Let $g(\vec{x},t)=\partial\rho/\partial t+\nabla\cdot(\rho\vec{v})$, a continuous function. Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.4</a> holds for every fluid volume. Suppose $g(\vec{x}^{*},t)\neq0$ at some point, say $g(\vec{x}^{*},t)\gt0$. By continuity $g\gt0$ in a ball $B_\varepsilon(\vec{x}^{*})$. The fluid volume that occupies this ball at time $t$ then gives $\int_{B_\varepsilon}g\,dV\gt0$, which contradicts Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.4</a>. The case $g\lt0$ is identical. Hence $g\equiv0$ at every point:</p>
         <div class="math-block">
           $$ \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\vec{v})=0 $$
-          <div class="math-caption">Eq. 4.5</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.5</a></div>
         </div>
         <p>Expand the divergence, $\nabla\cdot(\rho\vec{v})=\vec{v}\cdot\nabla\rho+\rho\,\nabla\cdot\vec{v}$, and use the material derivative $D\rho/Dt=\partial\rho/\partial t+\vec{v}\cdot\nabla\rho$:</p>
         <div class="math-block">
           $$ \frac{1}{\rho}\frac{D\rho}{Dt}=-\nabla\cdot\vec{v} $$
-          <div class="math-caption">Eq. 4.6</div>
+          <div class="math-caption">Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.6</a></div>
         </div>
-        <p>For a constant-density fluid $D\rho/Dt=0$, so $\nabla\cdot\vec{v}=0$ (Eq. 4.7). For a steady flow of a gas, $\partial\rho/\partial t=0$ and Eq. 4.5 gives $\nabla\cdot(\rho\vec{v})=0$ (Eq. 4.8).</p>
+        <p>For a constant-density fluid $D\rho/Dt=0$, so $\nabla\cdot\vec{v}=0$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.7</a>). For a steady flow of a gas, $\partial\rho/\partial t=0$ and Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.5</a> gives $\nabla\cdot(\rho\vec{v})=0$ (Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.8</a>).</p>
         <h3 class="sub-heading">Step 5: Control volume bounded by a moving free surface (extension)</h3>
-        <p><strong>Extension, not in the Notes.</strong> For a tank, the free surface $z=h(t)$ is part of $\Sigma_c$ and moves with $\vec{v}_c=\dot h\,\vec{e}_z$. It is a material surface (no fluid crosses it), so the kinematic condition $\vec{v}\cdot\vec{n}=\vec{v}_c\cdot\vec{n}$ holds. Therefore $(\vec{v}-\vec{v}_c)\cdot\vec{n}=0$ on it and it contributes no flux to Eq. 3.10. Only the inlet and the outlet contribute. With constant density and a tank of constant horizontal area $A_T$, the stored mass is $\rho A_Th(t)$ and Eq. 3.10 gives</p>
+        <p><strong>Extension, not in the Notes.</strong> For a tank, the free surface $z=h(t)$ is part of $\Sigma_c$ and moves with $\vec{v}_c=\dot h\,\vec{e}_z$. It is a material surface (no fluid crosses it), so the kinematic condition $\vec{v}\cdot\vec{n}=\vec{v}_c\cdot\vec{n}$ holds. Therefore $(\vec{v}-\vec{v}_c)\cdot\vec{n}=0$ on it and it contributes no flux to Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a>. Only the inlet and the outlet contribute. With constant density and a tank of constant horizontal area $A_T$, the stored mass is $\rho A_Th(t)$ and Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a> gives</p>
         <div class="math-block">
           $$ \rho A_T\frac{dh}{dt}=\rho Q_{\text{in}}-\rho Q_{\text{out}}\;\Longrightarrow\;A_T\frac{dh}{dt}=Q_{\text{in}}-Q_{\text{out}} $$
         </div>

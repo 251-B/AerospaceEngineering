@@ -534,6 +534,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -572,8 +573,13 @@
         Department of Continuum Mechanics and Aeronautical Engineering • Prof. Alberto Marín, Mario Merino, Manuel García-Villalba • BSc in Aerospace Engineering, UC3M
       </div>
       <div class="source-box">
-        Ground Truth: slides/02.PointParticleDynamics.pdf &amp; teoria/Notes.pdf (Chapter 4)
+        Ground Truth: slides/02.PointParticleDynamics.pdf &amp; teoria/Notes.pdf (Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">4</a>)
       </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf" target="_blank" rel="noopener">02 Point particle dynamics.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener">Notes.pdf · p. 42</a>
+      </nav>
     </header>
 
     <!-- Table of Contents -->
@@ -616,12 +622,12 @@
         </p>
         <ul style="margin-top: 8px; margin-bottom: 0;">
           <li>
-            <strong>Linear Momentum (Quantity of Motion) $\mathbf{p}_0$ (Slide 3):</strong>
+            <strong>Linear Momentum (Quantity of Motion) $\mathbf{p}_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=3" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 3">3</a>):</strong>
             $$ \mathbf{p}_0 = m_P\,\mathbf{v}_0^P \quad [\text{kg}\cdot\text{m/s}] $$
             A vector quantity strictly parallel to the instantaneous velocity vector.
           </li>
           <li>
-            <strong>Kinetic Energy $T_0$ (Slide 3):</strong>
+            <strong>Kinetic Energy $T_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=3" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 3">3</a>):</strong>
             $$ T_0 = \frac{1}{2}m_P\,\|\mathbf{v}_0^P\|^2 = \frac{1}{2}m_P\,v_0^2 \ge 0 \quad [\text{J} = \text{kg}\cdot\text{m}^2/\text{s}^2] $$
             A non-negative scalar quantity proportional to the square of the particle's speed $v_0$.
           </li>
@@ -646,7 +652,7 @@
         Classical dynamics is structured upon three empirical laws formulated by Sir Isaac Newton in his <em>Philosophiae Naturalis Principia Mathematica</em> (1687):
       </p>
 
-      <h3 class="sub-heading">2.1 First Law (Principle of Inertia — Slide 4)</h3>
+      <h3 class="sub-heading">2.1 First Law (Principle of Inertia — Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=4" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 4">4</a>)</h3>
       <p>
         <em>"A particle continues in its state of rest or of uniform rectilinear motion unless acted upon by a non-zero net external force."</em>
       </p>
@@ -658,7 +664,7 @@
         <strong>Axiomatic Importance:</strong> The First Law establishes the very existence of <strong>inertial reference frames</strong>: spatial reference frames in which unforced bodies do not accelerate.
       </p>
 
-      <h3 class="sub-heading">2.2 Second Law (Fundamental Law of Dynamics — Slide 5)</h3>
+      <h3 class="sub-heading">2.2 Second Law (Fundamental Law of Dynamics — Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=5" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 5">5</a>)</h3>
       <p>
         <em>"The time rate of change of linear momentum of a particle measured in an inertial frame is directly proportional to, and in the direction of, the resultant force acting upon it."</em>
       </p>
@@ -672,7 +678,7 @@
         where $\mathbf{F} = \sum_i \mathbf{F}_i$ is the vector sum of all concurrent forces acting on $P$.
       </p>
 
-      <h3 class="sub-heading">2.3 Third Law (Action-Reaction Principle — Slide 6)</h3>
+      <h3 class="sub-heading">2.3 Third Law (Action-Reaction Principle — Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=6" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 6">6</a>)</h3>
       <p>
         <em>"To every action there is always an equal and opposite reaction: the mutual interactions between two particles are always equal in magnitude, opposite in direction, and collinear along their line of centers."</em>
       </p>
@@ -686,11 +692,11 @@
     <section id="sec-3">
       <h2 class="section-heading"><span>3.</span> Systems of Particles and Momentum Conservation</h2>
       <p>
-        Consider a system composed of $N$ point particles $\{P_1, P_2, \dots, P_N\}$. The net force on particle $i$ decomposes into external forces $\mathbf{F}_i^{\text{ext}}$ exerted by the environment and internal interaction forces $\mathbf{F}_{ij}^{\text{int}}$ exerted by other particles within the system (Slide 7):
+        Consider a system composed of $N$ point particles $\{P_1, P_2, \dots, P_N\}$. The net force on particle $i$ decomposes into external forces $\mathbf{F}_i^{\text{ext}}$ exerted by the environment and internal interaction forces $\mathbf{F}_{ij}^{\text{int}}$ exerted by other particles within the system (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=7" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 7">7</a>):
         $$ \mathbf{F}_i = \mathbf{F}_i^{\text{ext}} + \sum_{j \neq i}^N \mathbf{F}_{ij}^{\text{int}} $$
       </p>
 
-      <h3 class="sub-heading">Total Linear Momentum and Conservation (Slide 8)</h3>
+      <h3 class="sub-heading">Total Linear Momentum and Conservation (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=8" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 8">8</a>)</h3>
       <p>
         The total linear momentum of the particle ensemble is the vector sum:
         $$ \mathbf{p}_{\text{tot}} = \sum_{i=1}^N \mathbf{p}_i = \sum_{i=1}^N m_i\,\mathbf{v}_0^{P_i} $$
@@ -717,7 +723,7 @@
     <section id="sec-4">
       <h2 class="section-heading"><span>4.</span> Equations of Motion and Trajectory Integration</h2>
       <p>
-        Newton's second law $\mathbf{F} = m_P\,\mathbf{a}_0^P$ is a second-order vector differential equation. To integrate it analytically or numerically, we project it onto coordinate bases (Slide 9).
+        Newton's second law $\mathbf{F} = m_P\,\mathbf{a}_0^P$ is a second-order vector differential equation. To integrate it analytically or numerically, we project it onto coordinate bases (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=9" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 9">9</a>).
       </p>
 
       <h3 class="sub-heading">4.1 Scalar Equations of Motion in Cartesian Coordinates</h3>
@@ -733,7 +739,7 @@
         <div class="math-caption">System of three coupled second-order scalar ODEs governing particle dynamics</div>
       </div>
 
-      <h3 class="sub-heading">4.2 State-Space Form and Initial Conditions (Slide 10)</h3>
+      <h3 class="sub-heading">4.2 State-Space Form and Initial Conditions (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=10" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 10">10</a>)</h3>
       <p>
         The 3 second-order ODEs can be recast as a system of <strong>6 first-order ordinary differential equations</strong>:
       </p>
@@ -755,10 +761,10 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Trajectory Under Gravity (Slide 11)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Trajectory Under Gravity (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=11" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 11">11</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Direct time-integration via the Fundamental Theorem of Calculus (Barrow's Rule)</span>
           </div>
-          <span class="example-badge">Slide 11</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=11" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 11">11</a></span>
         </div>
         <p>
           <strong>Problem Statement:</strong> A point particle $P$ ($m_P = 1\text{ kg}$) moves under uniform downward gravity $\mathbf{F} = -m_P g\,\mathbf{j}_0$ ($g = 10\text{ m/s}^2$). At $t = 0$, the particle is launched from the origin $\mathbf{r}_0^P(0) = \mathbf{0}$ with initial velocity $\mathbf{v}_0^P(0) = 2\,\mathbf{i}_0 + 5\,\mathbf{j}_0\text{ m/s}$. Determine the velocity field $\mathbf{v}_0^P(t)$, the position trajectory $\mathbf{r}_0^P(t)$, and the explicit path equation $y(x)$.
@@ -806,10 +812,10 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Inverse Dynamics (Slide 12)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Inverse Dynamics (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 12">12</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Finding the resultant force from prescribed kinematics via explicit Chain Rule</span>
           </div>
-          <span class="example-badge">Slide 12</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=12" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 12">12</a></span>
         </div>
         <p>
           <strong>Problem Statement:</strong> What instantaneous resultant force $\mathbf{F}(t)$ must act on a particle of mass $m_P = 2\text{ kg}$ so that its velocity vector evolves strictly as $\mathbf{v}_0^P(t) = 2at^2\,\mathbf{i}_0 + e^{bt}\,\mathbf{j}_0$ (where $a, b$ are positive dimensional constants)?
@@ -847,7 +853,7 @@
     <section id="sec-5">
       <h2 class="section-heading"><span>5.</span> Power, Work, and the Kinetic Energy Theorem</h2>
 
-      <h3 class="sub-heading">5.1 Instantaneous Power (Slide 13)</h3>
+      <h3 class="sub-heading">5.1 Instantaneous Power (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=13" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 13">13</a>)</h3>
       <p>
         The power $P$ exerted by a force $\mathbf{F}$ on particle $P$ moving with velocity $\mathbf{v}_0^P$ is the scalar product:
         $$ P = \mathbf{F} \cdot \mathbf{v}_0^P \quad [\text{W} = \text{J/s}] $$
@@ -890,7 +896,7 @@
         In general, the work integral $W_{12} = \int_{\Gamma} \mathbf{F}\cdot d\mathbf{r}$ depends on the path $\Gamma$ connecting the endpoints.
       </p>
 
-      <h3 class="sub-heading">6.1 Conservative Forces (Slide 14)</h3>
+      <h3 class="sub-heading">6.1 Conservative Forces (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=14" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 14">14</a>)</h3>
       <p>
         A force $\mathbf{F}$ is <strong>conservative</strong> if the work it performs between two points is <strong>strictly path-independent</strong>:
         $$ \int_{\Gamma_A} \mathbf{F}\cdot d\mathbf{r} = \int_{\Gamma_B} \mathbf{F}\cdot d\mathbf{r} \iff \oint_{\mathcal{C}} \mathbf{F}\cdot d\mathbf{r} = 0 \quad \text{along any closed curve } \mathcal{C} $$
@@ -909,7 +915,7 @@
         <div class="math-caption">A conservative force is always the negative gradient of its scalar potential energy function</div>
       </div>
 
-      <h3 class="sub-heading">6.3 Mathematical Condition: The Curl Test (Slide 16)</h3>
+      <h3 class="sub-heading">6.3 Mathematical Condition: The Curl Test (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=16" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 16">16</a>)</h3>
       <p>
         In a simply-connected domain, a continuously differentiable force field $\mathbf{F}(\mathbf{r})$ is conservative <strong>if and only if its curl vanishes identically</strong>:
       </p>
@@ -917,7 +923,7 @@
         $$ \nabla \times \mathbf{F} = \mathbf{0} \iff \text{curl}(\mathbf{F}) = \mathbf{0} $$
       </div>
 
-      <h3 class="sub-heading">6.4 Fundamental Aerospace Potential Functions (Slide 16)</h3>
+      <h3 class="sub-heading">6.4 Fundamental Aerospace Potential Functions (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=16" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 16">16</a>)</h3>
       <div class="table-wrapper">
         <table>
           <thead>
@@ -959,7 +965,7 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Radial Force $\mathbf{F} = aR\,\mathbf{e}_R$ (Slide 17)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Radial Force $\mathbf{F} = aR\,\mathbf{e}_R$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=17" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 17">17</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Is it conservative? If so, compute $V_0(R)$</span>
           </div>
           <span class="example-badge">Conservative</span>
@@ -978,7 +984,7 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Azimuthal Force $\mathbf{F} = bR^2\,\mathbf{e}_\theta$ (Slide 18)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Azimuthal Force $\mathbf{F} = bR^2\,\mathbf{e}_\theta$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=18" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 18">18</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Is it conservative?</span>
           </div>
           <span class="example-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">Non-Conservative</span>
@@ -995,7 +1001,7 @@
     <section id="sec-8">
       <h2 class="section-heading"><span>8.</span> Mechanical Energy and 1D Energy Diagrams</h2>
       <p>
-        Let a particle be acted upon simultaneously by conservative forces $\mathbf{F}_C = -\nabla V_0$ and non-conservative forces $\mathbf{F}_N$ (Slide 19):
+        Let a particle be acted upon simultaneously by conservative forces $\mathbf{F}_C = -\nabla V_0$ and non-conservative forces $\mathbf{F}_N$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=19" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 19">19</a>):
         $$ m_P\,\mathbf{a}_0^P = \mathbf{F}_C + \mathbf{F}_N = -\nabla V_0 + \mathbf{F}_N $$
         Taking the scalar product with velocity $\mathbf{v}_0^P$:
         $$ \frac{dT_0}{dt} = -\nabla V_0 \cdot \mathbf{v}_0^P + \mathbf{F}_N \cdot \mathbf{v}_0^P = -\frac{dV_0}{dt} + \mathbf{F}_N \cdot \mathbf{v}_0^P $$
@@ -1009,7 +1015,7 @@
         If non-conservative forces do zero work ($\mathbf{F}_N \cdot \mathbf{v}_0^P = 0$), then $E_0 = \text{constant}$ (a <strong>first integral of motion</strong>).
       </p>
 
-      <h3 class="sub-heading">8.1 1D Qualitative Motion Analysis (Slide 20)</h3>
+      <h3 class="sub-heading">8.1 1D Qualitative Motion Analysis (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=20" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 20">20</a>)</h3>
       <p>
         In a 1D conservative system:
         $$ T_0(x) = \frac{1}{2}m_P\,v^2 = E_0 - V_0(x) \ge 0 $$
@@ -1087,14 +1093,14 @@
         <li><strong>Instantaneous Speed:</strong> $v(x) = \sqrt{\frac{2(E_0 - V_0(x))}{m_P}}$. Speed is maximal at the local minimum of $V_0(x)$.</li>
       </ul>
 
-      <h3 class="sub-heading">8.2 Slide 15 Potential Example (Explicit Chain Rule Derivation)</h3>
+      <h3 class="sub-heading">8.2 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=15" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 15">15</a> Potential Example (Explicit Chain Rule Derivation)</h3>
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Force Field from 1D Potential Function (Slide 15)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Force Field from 1D Potential Function (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=15" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 15">15</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Analytical differentiation using the chain rule</span>
           </div>
-          <span class="example-badge">Slide 15</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=15" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 15">15</a></span>
         </div>
         <p>
           <strong>Problem:</strong> Determine the 1D force $F(x)$ associated with the potential energy function:
@@ -1129,7 +1135,7 @@
     <section id="sec-9">
       <h2 class="section-heading"><span>9.</span> Equilibrium Configurations and Formal Stability Criteria</h2>
 
-      <h3 class="sub-heading">9.1 Equilibrium Configuration (Slide 21)</h3>
+      <h3 class="sub-heading">9.1 Equilibrium Configuration (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=21" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 21">21</a>)</h3>
       <p>
         A configuration $\mathbf{r}_*$ is an <strong>equilibrium configuration</strong> if a particle released at $\mathbf{r}_*$ with zero velocity remains permanently at rest:
         $$ \mathbf{a}_0^P = \mathbf{0} \iff \sum \mathbf{F}(\mathbf{r}_*) = \mathbf{0} \iff \nabla V_0(\mathbf{r}_*) = \mathbf{0} $$
@@ -1143,7 +1149,7 @@
         Otherwise, the equilibrium configuration is <strong>unstable</strong>.
       </p>
 
-      <h3 class="sub-heading">9.3 Second-Derivative Curvature Criterion in 1D (Slide 22)</h3>
+      <h3 class="sub-heading">9.3 Second-Derivative Curvature Criterion in 1D (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=22" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 22">22</a>)</h3>
       <p>
         Expanding $V_0(x)$ in a Taylor series about equilibrium $x_*$:
         $$ F(x) = -\frac{dV_0}{dx} \approx -\left.\frac{d^2V_0}{dx^2}\right|_{x_*}(x - x_*) $$
@@ -1166,7 +1172,7 @@
 
     <!-- SECTION 10 -->
     <section id="sec-10">
-      <h2 class="section-heading"><span>10.</span> Solved Benchmark Problem: The Simple Pendulum (Slide 23 &amp; Notes Sec. 4.7)</h2>
+      <h2 class="section-heading"><span>10.</span> Solved Benchmark Problem: The Simple Pendulum (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=23" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 23">23</a> &amp; Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.7</a>)</h2>
 
       <div class="callout callout-info" style="border-left: 4px solid var(--accent);">
         <div class="callout-title" style="color: var(--accent);">
@@ -1181,7 +1187,7 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h3 style="margin: 0; font-size: 1.2rem; color: var(--text-heading);">The Simple Pendulum (Slide 23 &amp; Notes Sec. 4.7)</h3>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--text-heading);">The Simple Pendulum (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf#page=23" target="_blank" rel="noopener" title="Open 02 Point particle dynamics.pdf at page 23">23</a> &amp; Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.7</a>)</h3>
             <span style="font-size: 0.85rem; color: var(--text-muted);">Nonlinear dynamics, energy first integral, and harmonic linearization</span>
           </div>
           <span class="example-badge">UC3M Benchmark</span>

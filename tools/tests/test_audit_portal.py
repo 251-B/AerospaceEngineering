@@ -280,6 +280,25 @@ class BadgeTests(AuditCase):
         self.assertEqual(self.of(f, "badge-drift"), [])
 
 
+class SourceLinkTests(AuditCase):
+    CARD = '<article class="problem-card" id="p1"><h2>P1</h2>{link}<p>Statement</p></article>'
+    LINK = '<a class="src-link" data-srclink href="../../../s/sheet.pdf#page=2">Original statement</a>'
+
+    def test_problem_card_without_pdf_link_flagged(self):
+        f = self.run_checks({"subjects/a/problemas/topic-1.html": good_page() + self.CARD.format(link="")})
+        self.assertEqual(len(self.of(f, "missing-source-link")), 1)
+
+    def test_problem_card_with_pdf_link_passes(self):
+        f = self.run_checks({"subjects/a/problemas/topic-1.html": good_page() + self.CARD.format(link=self.LINK)})
+        self.assertEqual(self.of(f, "missing-source-link"), [])
+
+    def test_theory_pages_and_problem_index_are_not_checked(self):
+        card = self.CARD.format(link="")
+        f = self.run_checks({"subjects/a/teoria/topic-1.html": good_page() + card,
+                             "subjects/a/problemas/index.html": good_page() + card})
+        self.assertEqual(self.of(f, "missing-source-link"), [])
+
+
 class RunnerTests(AuditCase):
     def test_summary_counts_errors(self):
         root = self.repo({"subjects/a/teoria/t.html": "<p>Wait, no</p>"})

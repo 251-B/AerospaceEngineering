@@ -537,6 +537,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -575,8 +576,13 @@
         Department of Continuum Mechanics and Aeronautical Engineering • Prof. Alberto Marín, Mario Merino, Manuel García-Villalba • BSc in Aerospace Engineering, UC3M
       </div>
       <div class="source-box">
-        Ground Truth: slides/03_-_Constraints (1).pdf &amp; teoria/Notes.pdf (Chapter 6)
+        Ground Truth: slides/03_-_Constraints (1).pdf &amp; teoria/Notes.pdf (Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener" title="Open Notes.pdf at page 62">6</a>)
       </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf" target="_blank" rel="noopener">03 Constraints.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener">Notes.pdf · p. 62</a>
+      </nav>
     </header>
 
     <!-- Table of Contents -->
@@ -601,7 +607,7 @@
     <section id="sec-1">
       <h2 class="section-heading"><span>1.</span> Introduction to Constraints and Configuration Degrees of Freedom</h2>
       <p>
-        In physical engineering problems, particles are rarely free to move arbitrarily through 3D Euclidean space. Instead, their paths are constrained by contact with physical guides, rigid surfaces, or connecting links (Slide 3):
+        In physical engineering problems, particles are rarely free to move arbitrarily through 3D Euclidean space. Instead, their paths are constrained by contact with physical guides, rigid surfaces, or connecting links (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=3" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 3">3</a>):
       </p>
       <ul>
         <li>A ground vehicle or rolling aircraft constrained to remain upon the spherical surface of the Earth.</li>
@@ -626,7 +632,7 @@
 
       <h3 class="sub-heading">1.1 Configuration Degrees of Freedom (CDOFs)</h3>
       <p>
-        The number of <strong>Configuration Degrees of Freedom (CDOFs)</strong> represents the minimum number of independent scalar variables required to uniquely specify the spatial position of a mechanical system at any instant (Slide 4):
+        The number of <strong>Configuration Degrees of Freedom (CDOFs)</strong> represents the minimum number of independent scalar variables required to uniquely specify the spatial position of a mechanical system at any instant (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=4" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 4">4</a>):
       </p>
       <div class="table-wrapper">
         <table>
@@ -663,7 +669,7 @@
 
       <h3 class="sub-heading">1.2 Two Modeling Approaches: DAE vs. Generalized Coordinates</h3>
       <p>
-        When formulating constrained particle dynamics, two distinct paths exist (Slide 4):
+        When formulating constrained particle dynamics, two distinct paths exist (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=4" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 4">4</a>):
       </p>
       <ol>
         <li>
@@ -677,12 +683,12 @@
         </li>
       </ol>
 
-      <h3 class="sub-heading">1.3 Pedagogical Coordinate Selection Strategy (Notes Sec. 6.2)</h3>
+      <h3 class="sub-heading">1.3 Pedagogical Coordinate Selection Strategy (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=63" target="_blank" rel="noopener" title="Open Notes.pdf at page 63">6.2</a>)</h3>
       <p>
         While any complete coordinate system can theoretically describe the motion, selecting coordinates that mirror the constraint geometry simplifies the kinematics and decoupling immensely:
       </p>
       <ul>
-        <li><strong>Tethered Particle / Rigid Link:</strong> If particle $P$ is attached by a rigid link of length $\ell$ to fixed point $A$, it moves on a sphere of radius $\ell$ centered at $A$ (2 CDOFs). Natural generalized coordinates are the spherical angles $(\theta, \phi)$ (Notes Sec. 6.2).</li>
+        <li><strong>Tethered Particle / Rigid Link:</strong> If particle $P$ is attached by a rigid link of length $\ell$ to fixed point $A$, it moves on a sphere of radius $\ell$ centered at $A$ (2 CDOFs). Natural generalized coordinates are the spherical angles $(\theta, \phi)$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=63" target="_blank" rel="noopener" title="Open Notes.pdf at page 63">6.2</a>).</li>
         <li><strong>Particle on a Conical Guide:</strong> For motion on a cone of half-angle $\alpha$, the azimuthal angle $\theta$ and slant distance to the vertex $\rho$ (or vertical elevation $z$) provide the natural 2 CDOFs.</li>
         <li><strong>Particle on a Fixed Wire:</strong> For a 1D rigid curve, the Frenet arc length coordinate $s$ or one Cartesian coordinate parametrizing the curve provides the 1 CDOF.</li>
       </ul>
@@ -692,7 +698,7 @@
     <section id="sec-2">
       <h2 class="section-heading"><span>2.</span> Surfaces and Curves: Implicit and Parametric Representations</h2>
       <p>
-        To model physical constraints, we manipulate curves and surfaces interchangeably in implicit and parametric forms (Slide 5 &amp; Notes Sec. 6.1):
+        To model physical constraints, we manipulate curves and surfaces interchangeably in implicit and parametric forms (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=5" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 5">5</a> &amp; Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener" title="Open Notes.pdf at page 62">6.1</a>):
       </p>
 
       <div class="table-wrapper">
@@ -708,13 +714,13 @@
           <tbody>
             <tr>
               <td><strong>Surface (2-Manifold)</strong></td>
-              <td>$f(x, y, z) = 0$ (Notes Eq. 6.5)<br><small>e.g. Sphere: $x^2 + y^2 + z^2 - R^2 = 0$ (Eq. 6.6)</small></td>
+              <td>$f(x, y, z) = 0$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener" title="Open Notes.pdf at page 62">6.5</a>)<br><small>e.g. Sphere: $x^2 + y^2 + z^2 - R^2 = 0$ (Eq. 6.6)</small></td>
               <td>$x = x(\alpha, \beta), \; y = y(\alpha, \beta), \; z = z(\alpha, \beta)$ (Eq. 6.3)<br><small>e.g. $x = R\cos\phi\sin\theta, y = R\sin\phi\sin\theta, z = R\cos\theta$ (Eq. 6.4)</small></td>
               <td>Two parameters: $\alpha, \beta$</td>
             </tr>
             <tr>
               <td><strong>Curve (1-Manifold)</strong></td>
-              <td>$\begin{cases} f(x, y, z) = 0 \\ g(x, y, z) = 0 \end{cases}$ (Notes Eq. 6.7)<br><small>e.g. Circumference: cylinder $\cap$ plane (Eq. 6.8)</small></td>
+              <td>$\begin{cases} f(x, y, z) = 0 \\ g(x, y, z) = 0 \end{cases}$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=62" target="_blank" rel="noopener" title="Open Notes.pdf at page 62">6.7</a>)<br><small>e.g. Circumference: cylinder $\cap$ plane (Eq. 6.8)</small></td>
               <td>$x = x(\alpha), \; y = y(\alpha), \; z = z(\alpha)$ (Eq. 6.1)<br><small>e.g. $x = C_x + a\cos\theta, y = C_y + a\sin\theta, z = C_z$ (Eq. 6.2)</small></td>
               <td>One parameter: $\alpha$ (or arc length $s$)</td>
             </tr>
@@ -722,7 +728,7 @@
         </table>
       </div>
 
-      <h3 class="sub-heading">Official Slide Benchmark Examples (Slide 6)</h3>
+      <h3 class="sub-heading">Official Slide Benchmark Examples (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=6" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 6">6</a>)</h3>
 
       <div class="example-card">
         <div class="example-header">
@@ -730,7 +736,7 @@
             <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Parametric Elliptic Curve to Implicit Form</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Elimination of parameter $\alpha$ via trigonometric identities</span>
           </div>
-          <span class="example-badge">Slide 6</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=6" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 6">6</a></span>
         </div>
         <p><strong>Problem Statement:</strong> A curve shaped as an ellipse in the $Oxy$ plane is defined parametrically by:</p>
         <div class="math-block">
@@ -758,7 +764,7 @@
             <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Parametric Sphere to Implicit Form</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Elimination of azimuth $\alpha$ and elevation $\beta$</span>
           </div>
-          <span class="example-badge">Slide 6</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=6" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 6">6</a></span>
         </div>
         <p><strong>Problem Statement:</strong> A spherical surface of radius $a$ centered at origin $O$ is given by parameters $\alpha \in [0, 2\pi)$ and $\beta \in [-\pi/2, \pi/2]$:</p>
         <div class="math-block">
@@ -784,7 +790,7 @@
     <section id="sec-3">
       <h2 class="section-heading"><span>3.</span> Normal and Tangent Subspaces ($V_N, V_T$)</h2>
       <p>
-        At each point $P$ of a smooth manifold, Euclidean space decomposes into two orthogonal vector subspaces (Slides 7–8):
+        At each point $P$ of a smooth manifold, Euclidean space decomposes into two orthogonal vector subspaces (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=7" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 7">7–8</a>):
         $$ \mathbb{R}^3 = V_N \oplus V_T, \quad V_N \cap V_T = \{\mathbf{0}\} $$
       </p>
 
@@ -835,16 +841,16 @@
         <div class="diagram-caption">Figure 3.1: Vector decomposition on a surface constraint: 1D normal subspace $V_N$ spanned by gradient $\mathbf{n} = \nabla f$ and 2D tangent subspace $V_T$ spanned by $\{\mathbf{t}_\alpha, \mathbf{t}_\beta\}$.</div>
       </div>
 
-      <h3 class="sub-heading">3.1 Vectors on a Surface (Slides 7 &amp; 9, Notes Sec. 6.3)</h3>
+      <h3 class="sub-heading">3.1 Vectors on a Surface (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=7" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 7">7</a> &amp; <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=9" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 9">9</a>, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=63" target="_blank" rel="noopener" title="Open Notes.pdf at page 63">6.3</a>)</h3>
       <p>
         For a surface constraint: $\dim(V_N) = 1$ and $\dim(V_T) = 2$.
       </p>
       <ul>
         <li>
-          <strong>Normal Vector $\mathbf{n} \in V_N$ via Spatial Gradient (Notes Eq. 6.9):</strong>
+          <strong>Normal Vector $\mathbf{n} \in V_N$ via Spatial Gradient (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=64" target="_blank" rel="noopener" title="Open Notes.pdf at page 64">6.9</a>):</strong>
           $$ \mathbf{n} = \nabla f = \frac{\partial f}{\partial x}\mathbf{i}_0 + \frac{\partial f}{\partial y}\mathbf{j}_0 + \frac{\partial f}{\partial z}\mathbf{k}_0 $$
           The gradient vector $\nabla f$ points perpendicular to the level set $f=0$ in the direction of increasing $f$.
-          The unit normal vector is given by (Notes Eq. 6.10):
+          The unit normal vector is given by (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=64" target="_blank" rel="noopener" title="Open Notes.pdf at page 64">6.10</a>):
           $$ \mathbf{e}_n = \frac{\nabla f}{\|\nabla f\|} $$
         </li>
         <li>
@@ -890,7 +896,7 @@
         <div class="diagram-caption">Figure 3.2: Vector decomposition on a curve constraint: 1D tangent subspace $V_T$ spanned by $\mathbf{t} = d\mathbf{r}/d\alpha$ and 2D normal subspace $V_N$ spanned by $\{\mathbf{n}_f, \mathbf{n}_g\}$.</div>
       </div>
 
-      <h3 class="sub-heading">3.2 Vectors on a Curve (Slides 8 &amp; 10, Notes Sec. 6.3)</h3>
+      <h3 class="sub-heading">3.2 Vectors on a Curve (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=8" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 8">8</a> &amp; <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=10" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 10">10</a>, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=63" target="_blank" rel="noopener" title="Open Notes.pdf at page 63">6.3</a>)</h3>
       <p>
         For a curve constraint: $\dim(V_N) = 2$ and $\dim(V_T) = 1$.
       </p>
@@ -911,15 +917,15 @@
         </li>
       </ul>
 
-      <h3 class="sub-heading">Solved Benchmark Examples (Slides 11 &amp; 12)</h3>
+      <h3 class="sub-heading">Solved Benchmark Examples (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=11" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 11">11</a> &amp; <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=12" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 12">12</a>)</h3>
 
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Tangent and Normal Vectors for an Ellipse (Slide 11)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Tangent and Normal Vectors for an Ellipse (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=11" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 11">11</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Analytical derivatives, scalar products, and cross product alignment</span>
           </div>
-          <span class="example-badge">Slide 11</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=11" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 11">11</a></span>
         </div>
         <p><strong>Problem:</strong> For curve $x = a\cos\alpha, y = b\sin\alpha, z = 0$, find one tangent vector and two independent normal vectors.</p>
         <p><strong>Calculus Derivation:</strong></p>
@@ -946,10 +952,10 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Vectors on Paraboloid Surface $x^2 + y^2 = z$ (Slide 12)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Vectors on Paraboloid Surface $x^2 + y^2 = z$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=12" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 12">12</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Parametric tangent vectors and complete determinant minor expansion</span>
           </div>
-          <span class="example-badge">Slide 12</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=12" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 12">12</a></span>
         </div>
         <p><strong>Problem:</strong> Find two tangent vectors and a normal vector for the surface $x^2 + y^2 = z$ ($z > 0$).</p>
         <p><strong>Calculus Derivation:</strong></p>
@@ -978,14 +984,14 @@
     <section id="sec-4">
       <h2 class="section-heading"><span>4.</span> Constraint Reaction Forces and Dynamical Decoupling</h2>
       <p>
-        The physical agent enforcing a constraint is a <strong>constraint (or reaction) force $\mathbf{N}$</strong> (Slide 13). For smooth frictionless constraints, $\mathbf{N}$ resides strictly in the normal vector subspace:
+        The physical agent enforcing a constraint is a <strong>constraint (or reaction) force $\mathbf{N}$</strong> (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=13" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 13">13</a>). For smooth frictionless constraints, $\mathbf{N}$ resides strictly in the normal vector subspace:
         $$ \mathbf{N} \in V_N $$
       </p>
 
       <div class="callout callout-key">
         <div class="callout-title">
           <span>⚖️</span>
-          <span>Closure of Constrained Systems (Slide 13)</span>
+          <span>Closure of Constrained Systems (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=13" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 13">13</a>)</span>
         </div>
         <p style="margin-bottom: 0;">
           The components of $\mathbf{N}$ are unknown a priori:
@@ -997,7 +1003,7 @@
         </ul>
       </div>
 
-      <h3 class="sub-heading">4.1 Decoupling Strategy via Orthogonal Projection (Slide 14)</h3>
+      <h3 class="sub-heading">4.1 Decoupling Strategy via Orthogonal Projection (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=14" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 14">14</a>)</h3>
       <p>
         We systematically separate the equations of motion from the reaction unknowns:
       </p>
@@ -1010,23 +1016,23 @@
         </li>
       </ol>
 
-      <h3 class="sub-heading">4.2 Path Variables Formulation along Smooth Curves (Notes Sec. 6.5, Eqs. 6.14–6.19)</h3>
+      <h3 class="sub-heading">4.2 Path Variables Formulation along Smooth Curves (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.5</a>, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.14–6.19</a>)</h3>
       <p>
-        When a particle moves along an arbitrary smooth 3D curve, formulating dynamics in the intrinsic <strong>Frenet-Serret frame</strong> $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ makes the geometric decoupling transparent (Notes Sec. 6.5):
+        When a particle moves along an arbitrary smooth 3D curve, formulating dynamics in the intrinsic <strong>Frenet-Serret frame</strong> $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ makes the geometric decoupling transparent (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.5</a>):
       </p>
       <ul>
         <li>
-          <strong>Intrinsic Acceleration (Notes Eq. 6.14):</strong>
+          <strong>Intrinsic Acceleration (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.14</a>):</strong>
           $$ \mathbf{a}_0^P = \ddot{s}\,\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\,\mathbf{e}_n $$
           where $s(t)$ is the path arc length and $\rho(s)$ is the local radius of curvature. Notice that acceleration has zero component along the binormal direction $\mathbf{e}_b$.
         </li>
         <li>
-          <strong>Force Projections (Notes Eqs. 6.15–6.16):</strong>
+          <strong>Force Projections (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.15–6.16</a>):</strong>
           $$ \mathbf{F}_{\text{applied}} = F_t\,\mathbf{e}_t + F_n\,\mathbf{e}_n + F_b\,\mathbf{e}_b $$
           $$ \mathbf{N} = N_n\,\mathbf{e}_n + N_b\,\mathbf{e}_b \quad (\text{since } N_t = 0 \text{ for a smooth wire}) $$
         </li>
         <li>
-          <strong>Decoupled Equations of Motion (Notes Eqs. 6.17–6.19):</strong>
+          <strong>Decoupled Equations of Motion (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.17–6.19</a>):</strong>
           $$ \begin{cases}
           F_t = m\ddot{s} & \text{(Tangential: pure ODE for speed evolution } \dot{s}) \\
           F_n + N_n = m\frac{\dot{s}^2}{\rho} & \text{(Principal Normal: yields reaction } N_n) \\
@@ -1081,10 +1087,10 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Benchmark Case Study: Heavy Particle on a Vertical Circular Wire (Slide 15)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Benchmark Case Study: Heavy Particle on a Vertical Circular Wire (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=15" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 15">15</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Decoupling equation of motion from reaction force via polar basis projection</span>
           </div>
-          <span class="example-badge">Slide 15</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=15" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 15">15</a></span>
         </div>
         <p><strong>Problem Statement:</strong> A heavy particle $P$ of mass $m$ is constrained to slide along a smooth fixed circular wire of radius $a$ in the vertical $Oxy$ plane under gravity $\mathbf{g} = -g\mathbf{j}_0$. Obtain the equation of motion for angle $\theta(t)$ first, and subsequently determine the normal reaction force $N_R$.</p>
 
@@ -1143,14 +1149,14 @@
     <section id="sec-5">
       <h2 class="section-heading"><span>5.</span> Power, Work, and Conservation of Mechanical Energy</h2>
       <p>
-        The power exerted by a constraint reaction force $\mathbf{N}$ on particle $P$ is the scalar product (Slide 16):
+        The power exerted by a constraint reaction force $\mathbf{N}$ on particle $P$ is the scalar product (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=16" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 16">16</a>):
         $$ P_N = \mathbf{N} \cdot \mathbf{v}_0^P \quad [\text{W}] $$
       </p>
 
       <div class="callout callout-key">
         <div class="callout-title">
           <span>⚡</span>
-          <span>Stationary Constraint Work Theorem (Slide 16 &amp; Notes Sec. 6.4)</span>
+          <span>Stationary Constraint Work Theorem (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=16" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 16">16</a> &amp; Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=64" target="_blank" rel="noopener" title="Open Notes.pdf at page 64">6.4</a>)</span>
         </div>
         <p style="margin-bottom: 0;">
           For any <strong>stationary (time-independent / scleronomic)</strong> smooth constraint, the velocity vector is strictly tangent to the constraint manifold ($\mathbf{v}_0^P \in V_T$), while the reaction force is strictly normal ($\mathbf{N} \in V_N$):
@@ -1159,7 +1165,7 @@
         </p>
       </div>
 
-      <h3 class="sub-heading">5.1 Proof via Differential 1-Forms (Notes Eq. 6.12)</h3>
+      <h3 class="sub-heading">5.1 Proof via Differential 1-Forms (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=64" target="_blank" rel="noopener" title="Open Notes.pdf at page 64">6.12</a>)</h3>
       <p>
         For a surface constraint $f(x, y, z) = 0$, reaction $\mathbf{N} = \lambda\nabla f$. The differential work in an infinitesimal displacement $d\mathbf{r}$ is:
         $$ \delta W_N = \mathbf{N} \cdot d\mathbf{r} = (\lambda\nabla f) \cdot d\mathbf{r} = \lambda\left( \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz \right) = \lambda\,df $$
@@ -1177,7 +1183,7 @@
     <section id="sec-6">
       <h2 class="section-heading"><span>6.</span> Constraints on Systems of Particles</h2>
       <p>
-        In multi-particle systems, constraints often couple the motion of two or more particles (Slide 17), such as masses connected by an inextensible cable over pulleys:
+        In multi-particle systems, constraints often couple the motion of two or more particles (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=17" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 17">17</a>), such as masses connected by an inextensible cable over pulleys:
       </p>
       <ul>
         <li><strong>Kinematic Relation:</strong> The total length $L$ of an inextensible cable running over fixed and moving pulleys yields a holonomic constraint:
@@ -1194,7 +1200,7 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Worked Case Study: The Classical Atwood Machine (Slide 17)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Worked Case Study: The Classical Atwood Machine (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=17" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 17">17</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Kinematic constraint differentiation, acceleration, cable tension, and internal work cancellation</span>
           </div>
           <span class="example-badge">Multi-Particle</span>
@@ -1233,7 +1239,7 @@
     <section id="sec-7">
       <h2 class="section-heading"><span>7.</span> Coulomb Friction on Curves and Surfaces</h2>
       <p>
-        When surfaces or curves are rough, contact forces develop a tangential component: the <strong>friction force $\mathbf{F}_R$</strong> (Slides 18–20 &amp; Notes Sec. 6.6). We model this via the Coulomb friction law with coefficient $\mu$.
+        When surfaces or curves are rough, contact forces develop a tangential component: the <strong>friction force $\mathbf{F}_R$</strong> (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=18" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 18">18–20</a> &amp; Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.6</a>). We model this via the Coulomb friction law with coefficient $\mu$.
       </p>
 
       <div class="table-wrapper">
@@ -1275,7 +1281,7 @@
         </table>
       </div>
 
-      <h3 class="sub-heading">7.1 Switching Criteria (Slide 19)</h3>
+      <h3 class="sub-heading">7.1 Switching Criteria (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=19" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 19">19</a>)</h3>
       <ul>
         <li><strong>Static $\to$ Dynamic (Initiation of Slip):</strong> The particle remains stuck as long as the tangential reaction force required for equilibrium satisfies $\|\mathbf{F}_R\| \le \mu N$. The instant external forces require $\|\mathbf{F}_R\| > \mu N$, slip initiates immediately and we switch to the dynamic formulation with $\mathbf{F}_R = -\mu N \frac{\mathbf{v}_P^*}{v_P^*}$.</li>
         <li><strong>Dynamic $\to$ Static (Arrest / Sticking):</strong> When dynamic friction slows the particle until relative speed reaches zero ($\mathbf{v}_P^* = \mathbf{0}$), we re-evaluate whether tangential forces satisfy $\|\mathbf{F}_{\text{tangential}}\| \le \mu N$. If true, the particle locks into relative rest.</li>
@@ -1284,10 +1290,10 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Benchmark Problem: Particle on a Rough Circular Cylinder (Slide 20)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Benchmark Problem: Particle on a Rough Circular Cylinder (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=20" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 20">20</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Formulation of dynamic slip and static equilibrium regimes in cylindrical coordinates</span>
           </div>
-          <span class="example-badge">Slide 20</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=20" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 20">20</a></span>
         </div>
         <p><strong>Problem Statement:</strong> A particle $P$ of mass $m$ moves over the surface of a rough fixed circular cylinder of radius $a$ ($x^2 + y^2 = a^2$) with friction coefficient $\mu$. Formulate the equations of motion for both the dynamic applied-force case and the static constraint-force case.</p>
 
@@ -1330,7 +1336,7 @@
     <section id="sec-8">
       <h2 class="section-heading"><span>8.</span> Advanced Classification of Constraints</h2>
       <p>
-        In aerospace and multi-body dynamics, constraints are classified according to three fundamental mathematical pairs (Slide 21 &amp; Notes Sec. 6.5):
+        In aerospace and multi-body dynamics, constraints are classified according to three fundamental mathematical pairs (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=21" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 21">21</a> &amp; Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=65" target="_blank" rel="noopener" title="Open Notes.pdf at page 65">6.5</a>):
       </p>
 
       <div class="table-wrapper">
@@ -1377,15 +1383,15 @@
         </table>
       </div>
 
-      <h3 class="sub-heading">Solved Aerospace Classification Examples (Slides 22 &amp; 23)</h3>
+      <h3 class="sub-heading">Solved Aerospace Classification Examples (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=22" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 22">22</a> &amp; <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=23" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 23">23</a>)</h3>
 
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Rheonomic Constraint — Spool Reeling Cable (Slide 22)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 1: Rheonomic Constraint — Spool Reeling Cable (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=22" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 22">22</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Work and energy exchange in a time-dependent constraint</span>
           </div>
-          <span class="example-badge">Slide 22</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=22" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 22">22</a></span>
         </div>
         <p><strong>Problem Statement:</strong> A heavy particle $P$ of mass $m$ is suspended along the vertical axis by a string being wound onto a spool at origin $O$ at constant rate $c > 0$. At $t = 0$, length is $L_0$. Classify the constraint and evaluate its work.</p>
         <p><strong>Step-by-step Solution:</strong></p>
@@ -1450,10 +1456,10 @@
       <div class="example-card">
         <div class="example-header">
           <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Unilateral Constraint — Aircraft Runway Takeoff (Slide 23)</h4>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example 2: Unilateral Constraint — Aircraft Runway Takeoff (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=23" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 23">23</a>)</h4>
             <span style="font-size: 0.82rem; color: var(--text-muted);">Determination of liftoff speed from the zero-reaction condition</span>
           </div>
-          <span class="example-badge">Slide 23</span>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf#page=23" target="_blank" rel="noopener" title="Open 03 Constraints.pdf at page 23">23</a></span>
         </div>
         <p><strong>Problem Statement:</strong> An airplane of mass $m$ accelerates down a horizontal runway ($z = 0$) in calm air. Aerodynamic lift is $L = \frac{1}{2}\rho v^2 S C_L$. Determine the speed at which the aircraft lifts off the runway.</p>
         <p><strong>Step-by-step Solution:</strong></p>
