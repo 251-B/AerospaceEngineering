@@ -5,7 +5,7 @@ clc
 clear
 close all
 
-% Format of the plots for overleaf (LaTeX)
+% Plot formatting
 set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
 set(groot, 'defaultTextInterpreter', 'latex');
 set(groot, 'defaultLegendInterpreter', 'latex');
@@ -24,15 +24,15 @@ phi0 = 0;          % initial angle [rad]
 xi0 = 1;           % initial unspooled length [m]
 
 % Study cases
-omega_cases = [0.1 0 0 0 0.1];   % [rad/s]
-v0_cases = [0 -1 -10 4 1];       % xdotP(0) [m/s]
-tf_cases = [100 10 100 100 100]; % final time [s], only 10s in second because it never ends
+omega_cases = [0.1 0 0 0 0.1];       % [rad/s]
+v0_cases = [0 -1 -10 4 1];           % xdotP(0) [m/s]
+tf_cases = [100 10 100 100 100];     % final time [s], only 10s in second because it never ends
 
 th = linspace(0, 2*pi, 300);
 
 for k = 1:5
     omega = omega_cases(k);
-    phidot0 = v0_cases(k)/xi0; % at phi = 0, xdotP = xi*phidot
+    phidot0 = v0_cases(k)/xi0;       % at phi = 0, xdotP = xi*phidot
     X0 = [phi0; phidot0];
 
     % Integration (the step is limited so that ode45 does not skip the events)
@@ -42,7 +42,7 @@ for k = 1:5
     phi = X(:, 1);
     phidot = X(:, 2);
 
-    % Formulas of the report
+    %formulas of the report
     xi = xi0 - a*(omega*t - phi);
     T = m*xi.*phidot.^2 + m*g*cos(phi);
     x = a*cos(phi) + xi.*sin(phi);
@@ -52,15 +52,14 @@ for k = 1:5
     % Results of the case
     fprintf('\n=== Case %d: omega = %.1f rad/s, xP_dot(0) = %.0f m/s ===\n', k, omega, v0_cases(k));
     fprintf('phidot(0) = xP_dot(0)/xi0 = %.1f rad/s\n', phidot0);
-    % Check why does the simulation stop
-    if isempty(ie) 
+    if isempty(ie) %check why does the simulation stoped
         fprintf('event: none, final time reached\n');
     elseif ie(end) == 1
         fprintf('event: the particle hits the spool (xi = 0)\n');
     else
         fprintf('event: the string loses tension (T = 0)\n');
     end
-    %Printing of all the data
+    %print of all the data
     fprintf('t_end = %.5f s\n', t(end));
     fprintf('P(t_end) = (%.5f, %.5f) m\n', x(end), y(end));
     fprintf('E(0) = %.5f J, E(t_end) = %.5f J\n', E(1), E(end));
@@ -77,7 +76,7 @@ for k = 1:5
     end
     if k == 3
         fprintf('contact time t_c = %.6f s\n', t(end));
-        % Speed at the contact with te spool
+        % speed at the contact
         vc = sqrt(2*(E(1)/m - g*y(end)));
         fprintf('v_c from the energy = %.4f m/s, xi*|phidot| at the end = %.4f m/s\n', ...
             vc, xi(end)*abs(phidot(end)));
@@ -89,7 +88,7 @@ for k = 1:5
         fprintf('pi/2 = %.5f rad (phi_max must be below it)\n', pi/2);
     end
     if k == 5
-        % Swings to the right (max of phi) and to the left (min of phi)
+        % swings to the right (max of phi) and to the left (min of phi)
         pmax = phi(islocalmax(phi));
         imin = find(islocalmin(phi));
         fprintf('maxima of phi: first = %.4f rad, last = %.4f rad\n', pmax(1), pmax(end));
