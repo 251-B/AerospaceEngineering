@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 255" width="100%" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Families of directions &lt;111&gt; and &lt;100&gt;">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="125.0" y1="180.0" x2="125.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="125.0" y1="180.0" x2="235.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="125.0" y1="180.0" x2="78.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="125.0" y1="70.0" x2="235.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="125.0" y1="70.0" x2="78.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="235.0" y1="180.0" x2="235.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="235.0" y1="180.0" x2="188.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="235.0" y1="70.0" x2="188.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="208.6" x2="78.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="208.6" x2="188.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="98.6" x2="188.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="188.8" y1="208.6" x2="188.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="78.8" y1="208.6" x2="53.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M53.4,224.3 L58.6,217.0 L62.3,222.9 Z" fill="#8a94a6"/>
+<text x="45.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="235.0" y1="180.0" x2="284.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M284.5,180.0 L276.2,183.5 L276.2,176.5 Z" fill="#8a94a6"/>
+<text x="290.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="125.0" y1="70.0" x2="125.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M125.0,26.0 L128.5,34.3 L121.5,34.3 Z" fill="#8a94a6"/>
+<text x="125.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="125.0" y1="180.0" x2="188.8" y2="98.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M188.8,98.6 L186.4,107.3 L180.9,103.0 Z" fill="#f59e0b"/>
+<line x1="78.8" y1="208.6" x2="235.0" y2="70.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M235.0,70.0 L231.1,78.1 L226.5,72.9 Z" fill="#3b82f6"/>
+<line x1="235.0" y1="180.0" x2="78.8" y2="98.6" stroke="#10b981" stroke-width="2.6"/>
+<path d="M78.8,98.6 L87.8,99.3 L84.5,105.5 Z" fill="#10b981"/>
+<line x1="125.0" y1="70.0" x2="188.8" y2="208.6" stroke="#ec4899" stroke-width="2.6"/>
+<path d="M188.8,208.6 L182.2,202.5 L188.5,199.6 Z" fill="#ec4899"/>
+<text x="130.0" y="245.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">the 4 body diagonals &lt;1 1 1&gt;</text>
+<line x1="405.0" y1="180.0" x2="405.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="405.0" y1="180.0" x2="515.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="405.0" y1="180.0" x2="358.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="405.0" y1="70.0" x2="515.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="405.0" y1="70.0" x2="358.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="515.0" y1="180.0" x2="515.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="515.0" y1="180.0" x2="468.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="515.0" y1="70.0" x2="468.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="358.8" y1="208.6" x2="358.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="358.8" y1="208.6" x2="468.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="358.8" y1="98.6" x2="468.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="468.8" y1="208.6" x2="468.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="358.8" y1="208.6" x2="333.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M333.4,224.3 L338.6,217.0 L342.3,222.9 Z" fill="#8a94a6"/>
+<text x="325.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="515.0" y1="180.0" x2="564.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M564.5,180.0 L556.2,183.5 L556.2,176.5 Z" fill="#8a94a6"/>
+<text x="570.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="405.0" y1="70.0" x2="405.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M405.0,26.0 L408.5,34.3 L401.5,34.3 Z" fill="#8a94a6"/>
+<text x="405.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="405.0" y1="180.0" x2="358.8" y2="208.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M358.8,208.6 L364.0,201.3 L367.7,207.2 Z" fill="#f59e0b"/>
+<line x1="405.0" y1="180.0" x2="515.0" y2="180.0" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M515.0,180.0 L506.7,183.5 L506.7,176.5 Z" fill="#3b82f6"/>
+<line x1="405.0" y1="180.0" x2="405.0" y2="70.0" stroke="#10b981" stroke-width="2.6"/>
+<path d="M405.0,70.0 L408.5,78.3 L401.5,78.3 Z" fill="#10b981"/>
+<text x="410.0" y="245.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">the cube edges &lt;1 0 0&gt;</text>
+</g></svg>

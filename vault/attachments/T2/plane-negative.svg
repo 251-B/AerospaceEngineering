@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 265" width="100%" style="max-width:960px;margin:0 auto;display:block" role="img" aria-label="Planes with negative indices and their new origins">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="120.0" y1="180.0" x2="120.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="230.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="70.0" x2="230.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="120.0" y1="70.0" x2="73.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="230.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="183.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="230.0" y1="70.0" x2="183.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="73.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="183.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="98.6" x2="183.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="183.8" y1="208.6" x2="183.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="48.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M48.4,224.3 L53.6,217.0 L57.3,222.9 Z" fill="#8a94a6"/>
+<text x="40.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="230.0" y1="180.0" x2="279.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M279.5,180.0 L271.2,183.5 L271.2,176.5 Z" fill="#8a94a6"/>
+<text x="285.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="120.0" y1="70.0" x2="120.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M120.0,26.0 L123.5,34.3 L116.5,34.3 Z" fill="#8a94a6"/>
+<text x="120.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="230.0,70.0 230.0,180.0 120.0,180.0 120.0,70.0" fill="#f59e0b" fill-opacity="0.28" stroke="#f59e0b" stroke-width="1.8"/>
+<circle cx="120.0" cy="180.0" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="73.8" cy="208.6" r="4.5" fill="none" stroke="#4b5563" stroke-width="1"/>
+<text x="61.8" y="222.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="120.0" y="240.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">(<tspan text-decoration="overline">1</tspan>00)</text>
+<text x="120.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">O′ = (1,0,0): x = −1</text>
+<line x1="360.0" y1="180.0" x2="360.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="360.0" y1="180.0" x2="470.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="360.0" y1="180.0" x2="313.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="360.0" y1="70.0" x2="470.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="360.0" y1="70.0" x2="313.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="470.0" y1="180.0" x2="470.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="470.0" y1="180.0" x2="423.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="470.0" y1="70.0" x2="423.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="313.8" y1="208.6" x2="313.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="313.8" y1="208.6" x2="423.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="313.8" y1="98.6" x2="423.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="423.8" y1="208.6" x2="423.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="313.8" y1="208.6" x2="288.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M288.4,224.3 L293.6,217.0 L297.3,222.9 Z" fill="#8a94a6"/>
+<text x="280.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="470.0" y1="180.0" x2="519.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M519.5,180.0 L511.2,183.5 L511.2,176.5 Z" fill="#8a94a6"/>
+<text x="525.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="360.0" y1="70.0" x2="360.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M360.0,26.0 L363.5,34.3 L356.5,34.3 Z" fill="#8a94a6"/>
+<text x="360.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="423.8,208.6 423.8,98.6 360.0,70.0 360.0,180.0" fill="#3b82f6" fill-opacity="0.28" stroke="#3b82f6" stroke-width="1.8"/>
+<circle cx="423.8" cy="208.6" r="3.5" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="360.0" cy="180.0" r="3.5" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="470.0" cy="180.0" r="4.5" fill="none" stroke="#4b5563" stroke-width="1"/>
+<text x="458.0" y="194.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="360.0" y="240.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">(1<tspan text-decoration="overline">1</tspan>0)</text>
+<text x="360.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">O′ = (0,1,0): x = 1, y = −1</text>
+<line x1="600.0" y1="180.0" x2="600.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="600.0" y1="180.0" x2="710.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="600.0" y1="180.0" x2="553.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="600.0" y1="70.0" x2="710.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="600.0" y1="70.0" x2="553.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="710.0" y1="180.0" x2="710.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="710.0" y1="180.0" x2="663.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="710.0" y1="70.0" x2="663.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="553.8" y1="208.6" x2="553.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="553.8" y1="208.6" x2="663.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="553.8" y1="98.6" x2="663.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="663.8" y1="208.6" x2="663.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="553.8" y1="208.6" x2="528.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M528.4,224.3 L533.6,217.0 L537.3,222.9 Z" fill="#8a94a6"/>
+<text x="520.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="710.0" y1="180.0" x2="759.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M759.5,180.0 L751.2,183.5 L751.2,176.5 Z" fill="#8a94a6"/>
+<text x="765.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="600.0" y1="70.0" x2="600.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M600.0,26.0 L603.5,34.3 L596.5,34.3 Z" fill="#8a94a6"/>
+<text x="600.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="663.8,98.6 600.0,70.0 710.0,180.0" fill="#10b981" fill-opacity="0.28" stroke="#10b981" stroke-width="1.8"/>
+<circle cx="663.8" cy="98.6" r="3.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="600.0" cy="70.0" r="3.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="710.0" cy="180.0" r="3.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="710.0" cy="70.0" r="4.5" fill="none" stroke="#4b5563" stroke-width="1"/>
+<text x="698.0" y="84.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="600.0" y="240.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">(1<tspan text-decoration="overline">1</tspan><tspan text-decoration="overline">1</tspan>)</text>
+<text x="600.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">O′ = (0,1,1): 1, −1, −1</text>
+<line x1="840.0" y1="180.0" x2="840.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="840.0" y1="180.0" x2="950.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="840.0" y1="180.0" x2="793.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="840.0" y1="70.0" x2="950.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="840.0" y1="70.0" x2="793.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="950.0" y1="180.0" x2="950.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="950.0" y1="180.0" x2="903.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="950.0" y1="70.0" x2="903.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="793.8" y1="208.6" x2="793.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="793.8" y1="208.6" x2="903.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="793.8" y1="98.6" x2="903.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="903.8" y1="208.6" x2="903.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="793.8" y1="208.6" x2="768.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M768.4,224.3 L773.6,217.0 L777.3,222.9 Z" fill="#8a94a6"/>
+<text x="760.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="950.0" y1="180.0" x2="999.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M999.5,180.0 L991.2,183.5 L991.2,176.5 Z" fill="#8a94a6"/>
+<text x="1005.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="840.0" y1="70.0" x2="840.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M840.0,26.0 L843.5,34.3 L836.5,34.3 Z" fill="#8a94a6"/>
+<text x="840.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="793.8,98.6 903.8,208.6 816.9,194.3" fill="#ec4899" fill-opacity="0.28" stroke="#ec4899" stroke-width="1.8"/>
+<circle cx="816.9" cy="194.3" r="3.5" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<circle cx="903.8" cy="208.6" r="3.5" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<circle cx="793.8" cy="98.6" r="3.5" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<circle cx="793.8" cy="208.6" r="4.5" fill="none" stroke="#4b5563" stroke-width="1"/>
+<text x="781.8" y="222.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="840.0" y="240.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">(<tspan text-decoration="overline">2</tspan>11)</text>
+<text x="840.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">O′ = (1,0,0): −½, 1, 1</text>
+</g></svg>

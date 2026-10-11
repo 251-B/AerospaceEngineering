@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" width="100%" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Reading the indices of a drawn direction">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="140.0" y1="185.0" x2="140.0" y2="75.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="140.0" y1="185.0" x2="250.0" y2="185.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="140.0" y1="185.0" x2="93.8" y2="213.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="140.0" y1="75.0" x2="250.0" y2="75.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="140.0" y1="75.0" x2="93.8" y2="103.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="250.0" y1="185.0" x2="250.0" y2="75.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="250.0" y1="185.0" x2="203.8" y2="213.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="250.0" y1="75.0" x2="203.8" y2="103.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="93.8" y1="213.6" x2="93.8" y2="103.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="93.8" y1="213.6" x2="203.8" y2="213.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="93.8" y1="103.6" x2="203.8" y2="103.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="203.8" y1="213.6" x2="203.8" y2="103.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="93.8" y1="213.6" x2="68.4" y2="229.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M68.4,229.3 L73.6,222.0 L77.3,227.9 Z" fill="#8a94a6"/>
+<text x="60.4" y="233.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="250.0" y1="185.0" x2="299.5" y2="185.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M299.5,185.0 L291.2,188.5 L291.2,181.5 Z" fill="#8a94a6"/>
+<text x="305.5" y="189.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="140.0" y1="75.0" x2="140.0" y2="31.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M140.0,31.0 L143.5,39.3 L136.5,39.3 Z" fill="#8a94a6"/>
+<text x="140.0" y="25.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="93.8" y1="213.6" x2="250.0" y2="75.0" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M250.0,75.0 L246.1,83.1 L241.5,77.9 Z" fill="#f59e0b"/>
+<circle cx="93.8" cy="213.6" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<text x="93.8" y="231.6" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="middle">tail (1, 0, 0)</text>
+<text x="250.0" y="65.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="middle">head (0, 1, 1)</text>
+<text x="330.0" y="90.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">head − tail = (0−1, 1−0, 1−0)</text>
+<text x="330.0" y="118.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">= (−1, 1, 1)</text>
+<text x="330.0" y="146.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">already the smallest integers</text>
+<text x="330.0" y="174.0" fill="#4b5563" font-size="15" font-weight="700" text-anchor="start">→ [<tspan text-decoration="overline">1</tspan>11]</text>
+</g></svg>

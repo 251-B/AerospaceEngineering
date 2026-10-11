@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 255" width="100%" style="max-width:750px;margin:0 auto;display:block" role="img" aria-label="Linear and planar density examples in FCC">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="120.0" y1="180.0" x2="120.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="230.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="70.0" x2="230.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="120.0" y1="70.0" x2="73.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="230.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="183.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="230.0" y1="70.0" x2="183.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="73.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="183.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="73.8" y1="98.6" x2="183.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="183.8" y1="208.6" x2="183.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="#f59e0b" stroke-width="3"/>
+<circle cx="120.0" cy="180.0" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="73.8" cy="208.6" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<text x="125.0" y="236.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">[1 0 0] in FCC</text>
+<text x="125.0" y="253.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">2 × ½ = 1 atom over length a</text>
+<line x1="370.0" y1="180.0" x2="370.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="370.0" y1="180.0" x2="480.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="370.0" y1="180.0" x2="323.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="370.0" y1="70.0" x2="480.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="370.0" y1="70.0" x2="323.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="480.0" y1="180.0" x2="480.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="480.0" y1="180.0" x2="433.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="480.0" y1="70.0" x2="433.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="323.8" y1="208.6" x2="323.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="323.8" y1="208.6" x2="433.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="323.8" y1="98.6" x2="433.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="433.8" y1="208.6" x2="433.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<polygon points="433.8,208.6 433.8,98.6 323.8,98.6 323.8,208.6" fill="#3b82f6" fill-opacity="0.28" stroke="#3b82f6" stroke-width="1.8"/>
+<circle cx="323.8" cy="208.6" r="6" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="433.8" cy="208.6" r="6" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="323.8" cy="98.6" r="6" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="433.8" cy="98.6" r="6" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="378.8" cy="153.6" r="7" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<text x="375.0" y="236.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">(1 0 0) face in FCC</text>
+<text x="375.0" y="253.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1 + 4 × ¼ = 2 atoms over area a²</text>
+<line x1="620.0" y1="180.0" x2="620.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="620.0" y1="180.0" x2="730.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="620.0" y1="180.0" x2="573.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="620.0" y1="70.0" x2="730.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="620.0" y1="70.0" x2="573.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="730.0" y1="180.0" x2="730.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="730.0" y1="180.0" x2="683.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="730.0" y1="70.0" x2="683.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="573.8" y1="208.6" x2="573.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="573.8" y1="208.6" x2="683.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="573.8" y1="98.6" x2="683.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="683.8" y1="208.6" x2="683.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<circle cx="651.9" cy="194.3" r="4" fill="none" stroke="#8a94a6" stroke-width="1"/>
+<circle cx="651.9" cy="84.3" r="4" fill="none" stroke="#8a94a6" stroke-width="1"/>
+<circle cx="596.9" cy="139.3" r="4" fill="none" stroke="#8a94a6" stroke-width="1"/>
+<circle cx="706.9" cy="139.3" r="4" fill="none" stroke="#8a94a6" stroke-width="1"/>
+<circle cx="675.0" cy="125.0" r="4" fill="none" stroke="#8a94a6" stroke-width="1"/>
+<circle cx="628.8" cy="153.6" r="4" fill="none" stroke="#8a94a6" stroke-width="1"/>
+<line x1="620.0" y1="180.0" x2="683.8" y2="98.6" stroke="#10b981" stroke-width="3"/>
+<circle cx="620.0" cy="180.0" r="7" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="683.8" cy="98.6" r="7" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="625.0" y="236.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">[1 1 1] in FCC</text>
+<text x="625.0" y="253.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">only 2 × ½ = 1 atom over √3·a</text>
+</g></svg>

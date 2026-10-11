@@ -1,99 +1,41 @@
 ---
 materia: "Aerospace Materials I"
 tema: "Topic 2: Structure of Materials and Crystalline Defects"
-fuentes: "Session 3 T2 Structure of Materials I_2025.pdf, Slides 7-14"
+fuentes: "Session 3 T2 Structure of Materials I_2025.pdf, Slides 3-14"
 tags:
   - theory
-  - fundamental-concept
-  - crystallography
-  - bravais-lattices
+  - key-concept
   - crystal-systems
-dificultad: low
-prerrequisitos:
-  - "Topic 1: Bonding in Solids"
+  - bravais-lattices
+dificultad: medium
+prerrequisitos: []
 ---
 
-# 🔷 Concept: Crystal Systems and the 14 Bravais Lattices
+# 📖 Concept: Crystal Systems and Bravais Lattices
 
-> **Central Definition:** A **crystal system** is a geometric classification of three-dimensional space based on the length relations of its three cell base vectors ($a, b, c$) and the three interaxial angles ($\alpha, \beta, \gamma$). By combining the **7 crystal systems** with the **4 unit cell types** (Primitive $P$, Body-centered $I$, Face-centered $F$ and Base-centered $C$), the French physicist **Auguste Bravais (1848)** showed that there exist exactly **14 independent three-dimensional periodic lattices** capable of filling space without discontinuities or overlaps [Slides 9–10].
+> **Key idea in one sentence:** a crystal is a periodic arrangement of atoms described by a unit cell; its shape gives 7 crystal systems and the possible ways of placing atoms in it give 14 Bravais lattices.
 
----
+Full explanation: [[Topic 2 - Structure of Materials and Crystalline Defects]].
 
-## 📐 1. Unit Cell Lattice Parameters
+## 1. Crystalline vs amorphous [Session 3 Slides 3-4]
+- **Crystalline:** periodic long-range order (metals, most ceramics). Atoms take positions of minimum energy, and a dense ordered packing has the lowest energy.
+- **Amorphous:** no long-range order (glasses, some polymers).
 
-Any three-dimensional unit cell is formally defined by a common origin and three primary translation vectors $\vec{a}, \vec{b}, \vec{c}$ [Slide 8]:
-* **Axial lengths:** $a = |\vec{a}|$, $b = |\vec{b}|$, $c = |\vec{c}|$.
-* **Interaxial angles:**
-  * $\alpha$: angle subtended between $\vec{b}$ and $\vec{c}$.
-  * $\beta$: angle subtended between $\vec{a}$ and $\vec{c}$.
-  * $\gamma$: angle subtended between $\vec{a}$ and $\vec{b}$.
+## 2. Lattice and unit cell [Session 3 Slides 5-8]
+- **Lattice:** infinite 3-D arrangement of points. **Unit cell:** the smallest part that contains all its symmetry and, repeated, rebuilds the crystal.
+- The cell is defined by 3 vectors **a, b, c** and **6 parameters**: edges $a, b, c$ and angles $\alpha, \beta, \gamma$.
 
-$$\text{Unit Cell} \iff \{a, b, c;\, \alpha, \beta, \gamma\}$$
+| System | Edges | Angles |
+| :--- | :--- | :--- |
+| Cubic | $a = b = c$ | all 90° |
+| Hexagonal | $a = b \neq c$ | $\alpha = \beta = 90^\circ$, $\gamma = 120^\circ$ |
+| Tetragonal | $a = b \neq c$ | all 90° |
+| Rhombohedral | $a = b = c$ | all equal, $\neq 90^\circ$ |
+| Orthorhombic | $a \neq b \neq c$ | all 90° |
+| Monoclinic | $a \neq b \neq c$ | $\alpha = \gamma = 90^\circ \neq \beta$ |
+| Triclinic | $a \neq b \neq c$ | all different, $\neq 90^\circ$ |
 
----
+## 3. Bravais lattices [Session 3 Slides 9-14]
+Atoms can be placed as **simple (P)** (corners), **body-centred (I)**, **face-centred (F)** or **base-centred (C)**. Combined with the 7 systems this gives **14 Bravais lattices**: cubic P, I, F; tetragonal P, I; orthorhombic P, C, I, F; rhombohedral P; hexagonal P; monoclinic P, C; triclinic P.
 
-## 🏛️ 2. The 7 Crystal Systems
-
-The 7 crystal systems represent the highest possible metric symmetry classes in $\mathbb{R}^3$ [Slides 12–14]:
-
-| Crystal System | Edge Relations | Angle Relations | Characteristic Symmetry |
-| :--- | :--- | :--- | :--- |
-| **Cubic** | $a = b = c$ | $\alpha = \beta = \gamma = 90^\circ$ | 4 threefold rotation axes $\langle 111 \rangle$ |
-| **Tetragonal** | $a = b \neq c$ | $\alpha = \beta = \gamma = 90^\circ$ | 1 fourfold rotation axis $[001]$ |
-| **Orthorhombic** | $a \neq b \neq c$ | $\alpha = \beta = \gamma = 90^\circ$ | 3 perpendicular twofold axes |
-| **Rhombohedral (Trigonal)** | $a = b = c$ | $\alpha = \beta = \gamma \neq 90^\circ < 120^\circ$ | 1 threefold rotation axis |
-| **Hexagonal** | $a = b \neq c$ | $\alpha = \beta = 90^\circ,\, \gamma = 120^\circ$ | 1 sixfold rotation axis $[0001]$ |
-| **Monoclinic** | $a \neq b \neq c$ | $\alpha = \gamma = 90^\circ \neq \beta$ | 1 twofold rotation axis |
-| **Triclinic** | $a \neq b \neq c$ | $\alpha \neq \beta \neq \gamma \neq 90^\circ$ | Inversion center only ($C_i$) |
-
----
-
-## 📦 3. The 4 Types of Unit Cell Centering
-
-To locate the atomic motifs within the lattice volume, Bravais categorized four standard arrangements [Slide 10]:
-
-1. **Primitive ($P$ / Simple):**
-   * Lattice points located exclusively at the 8 corners of the cell.
-   * Effective contribution: $8 \times \frac{1}{8} = 1\text{ net lattice point}$.
-2. **Body-Centered ($I$ - *Innenzentrierte*):**
-   * Lattice points at the corners plus 1 point at the geometric center of the cell volume.
-   * Effective contribution: $8 \times \frac{1}{8} + 1 = 2\text{ net points}$.
-3. **Face-Centered ($F$ - *Flächenzentrierte*):**
-   * Lattice points at the 8 corners plus 1 point at the centroid of each of the 6 faces.
-   * Effective contribution: $8 \times \frac{1}{8} + 6 \times \frac{1}{2} = 4\text{ net points}$.
-4. **Base-Centered ($C$ - Base-Centered):**
-   * Lattice points at the 8 corners plus 1 point at the center of two opposite, parallel faces (usually the $(001)$ plane).
-   * Effective contribution: $8 \times \frac{1}{8} + 2 \times \frac{1}{2} = 2\text{ net points}$.
-
----
-
-## 🗺️ 4. Rigorous Distribution of the 14 Bravais Lattices
-
-Not all $7 \times 4 = 28$ combinations are independent; many reduce by change-of-basis operations to primitive cells of higher symmetry. The **14 unique lattices** are [Slides 12–14]:
-
-```
-7 Crystal Systems
- ├── 1. Cubic (3 lattices):          P (Simple), I (BCC), F (FCC)
- ├── 2. Tetragonal (2 lattices):     P (Simple), I (Body-centered)
- ├── 3. Orthorhombic (4 lattices):   P (Simple), C (Base-centered), I (Body-centered), F (Face-centered)
- ├── 4. Rhombohedral (1 lattice):    P (Simple)
- ├── 5. Hexagonal (1 lattice):       P (Simple)
- ├── 6. Monoclinic (2 lattices):     P (Simple), C (Base-centered)
- └── 7. Triclinic (1 lattice):       P (Simple)
- Total = 3 + 2 + 4 + 1 + 1 + 2 + 1 = 14 Bravais Lattices
-```
-
-### Why does the orthorhombic system have all 4 variants ($P, C, I, F$)?
-Because its three edges are mutually unequal ($a \neq b \neq c$), adding points on the faces or in the body never introduces an additional symmetry that would allow the cell to collapse into a smaller tetragonal or cubic one. Hence, the orthorhombic is the **only crystal system that exhibits all 4 Bravais lattice modes** [Slide 13].
-
----
-
-## 🚀 Aerospace Relevance
-
-* **Titanium Alloys ($\text{Ti}$):** It undergoes a polymorphic transition between the $\alpha$ phase (Hexagonal close-packed) and the high-temperature $\beta$ phase (Body-centered cubic), key for the forging of compressor disks and blades.
-* **Refractories and Zirconia ($\text{ZrO}_2$):** Its structure goes from monoclinic at room temperature to tetragonal and cubic at high temperature; stabilizing the tetragonal phase with yttria ($\text{Y}_2\text{O}_3$, YSZ) makes it possible to manufacture thermal barrier coatings (TBC) in aeronautical turbines.
-
----
-*Bidirectional Links:*
-* [[Topic 2 - Structure of Materials and Crystalline Defects|⬅️ Back to Topic 2]]
-* [[Concept - FCC, BCC and HCP Metallic Structures and Packing Factor|Next: FCC, BCC, HCP Metallic Structures and APF ➡️]]
+**Back to:** [[Topic 2 - Structure of Materials and Crystalline Defects]] · [[Aerospace Materials I MOC]]

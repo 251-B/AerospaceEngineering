@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" width="100%" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Hexagonal cell: the four axes and the (0 1 -1 0) plane">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="265.0" y1="225.0" x2="217.5" y2="264.5" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="217.5" y1="264.5" x2="122.5" y2="264.5" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="122.5" y1="264.5" x2="75.0" y2="225.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="75.0" y1="225.0" x2="122.5" y2="185.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="122.5" y1="185.5" x2="217.5" y2="185.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="217.5" y1="185.5" x2="265.0" y2="225.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="265.0" y1="105.3" x2="217.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="217.5" y1="144.8" x2="122.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="122.5" y1="144.8" x2="75.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="75.0" y1="105.3" x2="122.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="122.5" y1="65.8" x2="217.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="217.5" y1="65.8" x2="265.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="265.0" y1="225.0" x2="265.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="217.5" y1="264.5" x2="217.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="122.5" y1="264.5" x2="122.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="75.0" y1="225.0" x2="75.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="122.5" y1="185.5" x2="122.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="217.5" y1="185.5" x2="217.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="170.0" y1="225.0" x2="122.5" y2="264.5" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M122.5,264.5 L126.6,256.5 L131.1,261.9 Z" fill="#ec4899"/>
+<text x="110.5" y="280.5" fill="#ec4899" font-size="14" font-weight="700" text-anchor="middle">a₁</text>
+<line x1="170.0" y1="225.0" x2="265.0" y2="225.0" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M265.0,225.0 L256.7,228.5 L256.7,221.5 Z" fill="#ec4899"/>
+<text x="277.0" y="221.0" fill="#ec4899" font-size="14" font-weight="700" text-anchor="middle">a₂</text>
+<line x1="170.0" y1="225.0" x2="122.5" y2="185.5" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M122.5,185.5 L131.1,188.1 L126.6,193.5 Z" fill="#ec4899"/>
+<text x="110.5" y="181.5" fill="#ec4899" font-size="14" font-weight="700" text-anchor="middle">a₃</text>
+<line x1="170.0" y1="225.0" x2="170.0" y2="105.3" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M170.0,105.3 L173.5,113.6 L166.5,113.6 Z" fill="#ec4899"/>
+<text x="180.0" y="101.3" fill="#ec4899" font-size="14" font-weight="700" text-anchor="middle">c</text>
+<polygon points="265.0,225.0 217.5,264.5 217.5,144.8 265.0,105.3" fill="#f59e0b" fill-opacity="0.28" stroke="#f59e0b" stroke-width="1.8"/>
+<text x="380.0" y="70.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">4 axes: a₁, a₂, a₃ (120° apart, in the base)</text>
+<text x="380.0" y="90.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">and c (vertical)</text>
+<text x="380.0" y="130.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">shaded face:</text>
+<text x="380.0" y="150.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">a₁ = ∞, a₂ = 1, a₃ = −1, c = ∞</text>
+<text x="380.0" y="172.0" fill="#f59e0b" font-size="15" font-weight="700" text-anchor="start">(01<tspan text-decoration="overline">1</tspan>0) ≡ (010)</text>
+<text x="380.0" y="194.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">check: i = −(h + k) = −(0 + 1) = −1</text>
+</g></svg>

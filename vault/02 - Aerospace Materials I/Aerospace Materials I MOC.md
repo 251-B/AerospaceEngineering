@@ -46,11 +46,11 @@ tags:
   * [[02 - Aerospace Materials I/Concept - Tetrahedral and Octahedral Interstitial Sites|Concept: Tetrahedral and Octahedral Interstitial Sites]]
   * [[02 - Aerospace Materials I/Concept - Miller Notation for Cubic and Hexagonal Directions and Planes|Concept: Miller Notation for Cubic and Hexagonal Directions and Planes]]
   * [[02 - Aerospace Materials I/Concept - Volumetric, Linear and Planar Density in Crystal Lattices|Concept: Volumetric, Linear and Planar Density in Crystal Lattices]]
-  * [[02 - Aerospace Materials I/Concept - X-Ray Diffraction and Bragg's Law|Concept: X-Ray Diffraction and Bragg's Law]]
+  * [[02 - Aerospace Materials I/Concept - Interplanar Spacing in Cubic and Orthogonal Crystals|Concept: Interplanar Spacing in Cubic and Orthogonal Crystals]]
   * [[02 - Aerospace Materials I/Concept - Point Defects, Thermal Vacancies, Schottky and Frenkel|Concept: Point Defects, Thermal Vacancies, Schottky and Frenkel]]
   * [[02 - Aerospace Materials I/Concept - Substitutional and Interstitial Solid Solutions, Hume-Rothery Rules|Concept: Substitutional and Interstitial Solid Solutions and the Hume-Rothery Rules]]
   * [[02 - Aerospace Materials I/Concept - Dislocations, Burgers Vector and Slip in Metals|Concept: Dislocations, Burgers Vector and Slip in Metals]]
-  * [[02 - Aerospace Materials I/Concept - Planar Defects, Grain Boundaries, Twins and the Hall-Petch Equation|Concept: Planar Defects, Grain Boundaries, Twins and the Hall-Petch Equation]]
+  * [[02 - Aerospace Materials I/Concept - Planar Defects, Grain Boundaries, Twins and Stacking Faults|Concept: Planar Defects, Grain Boundaries, Twins and Stacking Faults]]
   * [[02 - Aerospace Materials I/Concept - Polymorphism and Allotropy in Metals and Ceramics|Concept: Polymorphism and Allotropy in Metals and Ceramics]]
 * **Official Solved Problems (26 Problems):**
   * *Block 1: Crystalline Structures and Miller Indices (Problems T2_CrystStruct.pdf)*

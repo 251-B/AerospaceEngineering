@@ -677,20 +677,9 @@
     ]
    ],
    "cite": {
-    "slides": [
-     [
-      "mat-s3",
-      0
-     ],
-     [
-      "mat-s4",
-      "Crystalline Density Calculations"
-     ]
-    ],
     "sessions": {
      "3": "mat-s3",
-     "4": "mat-s4",
-     "5": "mat-s5"
+     "4": "mat-s4"
     }
    }
   },

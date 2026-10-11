@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 255" width="100%" style="max-width:300px;margin:0 auto;display:block" role="img" aria-label="In a cube the [111] direction is perpendicular to the (111) plane">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="130.0" y1="180.0" x2="130.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="130.0" y1="180.0" x2="240.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="130.0" y1="180.0" x2="83.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="130.0" y1="70.0" x2="240.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="130.0" y1="70.0" x2="83.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="240.0" y1="180.0" x2="240.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="240.0" y1="180.0" x2="193.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="240.0" y1="70.0" x2="193.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="83.8" y1="208.6" x2="83.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="83.8" y1="208.6" x2="193.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="83.8" y1="98.6" x2="193.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="193.8" y1="208.6" x2="193.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="83.8" y1="208.6" x2="58.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M58.4,224.3 L63.6,217.0 L67.3,222.9 Z" fill="#8a94a6"/>
+<text x="50.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="240.0" y1="180.0" x2="289.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M289.5,180.0 L281.2,183.5 L281.2,176.5 Z" fill="#8a94a6"/>
+<text x="295.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="130.0" y1="70.0" x2="130.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M130.0,26.0 L133.5,34.3 L126.5,34.3 Z" fill="#8a94a6"/>
+<text x="130.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="83.8,208.6 240.0,180.0 130.0,70.0" fill="#3b82f6" fill-opacity="0.28" stroke="#3b82f6" stroke-width="1.8"/>
+<line x1="130.0" y1="180.0" x2="193.8" y2="98.6" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M193.8,98.6 L191.4,107.3 L185.9,103.0 Z" fill="#f59e0b"/>
+<circle cx="130.0" cy="180.0" r="4" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<text x="209.8" y="94.6" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="middle">[111]</text>
+<text x="221.8" y="193.4" fill="#3b82f6" font-size="14" font-weight="700" text-anchor="middle">(111)</text>
+</g></svg>

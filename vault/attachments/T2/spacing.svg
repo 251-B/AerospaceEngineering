@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" style="max-width:400px;margin:0 auto;display:block" role="img" aria-label="Spacing between parallel (110) planes">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="60" y="45" width="150" height="150" fill="none" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="15.0" y1="150.0" x2="255.0" y2="390.0" stroke="#3b82f6" stroke-width="2.2"/>
+<line x1="15.0" y1="0.0" x2="255.0" y2="240.0" stroke="#f59e0b" stroke-width="2.2"/>
+<line x1="15.0" y1="-150.0" x2="255.0" y2="90.0" stroke="#3b82f6" stroke-width="2.2"/>
+<text x="135.0" y="217.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">a</text>
+<text x="46.0" y="120.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">a</text>
+<line x1="97.5" y1="157.5" x2="135.0" y2="120.0" stroke="#4b5563" stroke-width="1.6"/>
+<path d="M135.0,120.0 L131.6,128.3 L126.7,123.4 Z" fill="#4b5563"/>
+<text x="91.5" y="149.5" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">d₁₁₀</text>
+<text x="285.0" y="80.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">view along z</text>
+<text x="285.0" y="102.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="start">(1 1 0) planes</text>
+<text x="285.0" y="124.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">d = a/√2</text>
+</g></svg>

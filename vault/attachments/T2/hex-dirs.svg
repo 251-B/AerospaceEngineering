@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 310" width="100%" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Directions in the hexagonal cell in 4-index notation">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="285.0" y1="225.0" x2="237.5" y2="264.5" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="237.5" y1="264.5" x2="142.5" y2="264.5" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="142.5" y1="264.5" x2="95.0" y2="225.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="95.0" y1="225.0" x2="142.5" y2="185.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="142.5" y1="185.5" x2="237.5" y2="185.5" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="237.5" y1="185.5" x2="285.0" y2="225.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="285.0" y1="105.3" x2="237.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="237.5" y1="144.8" x2="142.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="142.5" y1="144.8" x2="95.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="95.0" y1="105.3" x2="142.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="142.5" y1="65.8" x2="237.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="237.5" y1="65.8" x2="285.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="285.0" y1="225.0" x2="285.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="237.5" y1="264.5" x2="237.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="142.5" y1="264.5" x2="142.5" y2="144.8" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="95.0" y1="225.0" x2="95.0" y2="105.3" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="142.5" y1="185.5" x2="142.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="237.5" y1="185.5" x2="237.5" y2="65.8" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="190.0" y1="225.0" x2="142.5" y2="264.5" stroke="#f59e0b" stroke-width="2.6"/>
+<path d="M142.5,264.5 L146.6,256.5 L151.1,261.9 Z" fill="#f59e0b"/>
+<text x="112.5" y="286.5" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">[2<tspan text-decoration="overline">1</tspan><tspan text-decoration="overline">1</tspan>0] = [1 0 0]</text>
+<line x1="190.0" y1="225.0" x2="237.5" y2="264.5" stroke="#3b82f6" stroke-width="2.6"/>
+<path d="M237.5,264.5 L228.9,261.9 L233.4,256.5 Z" fill="#3b82f6"/>
+<text x="307.5" y="284.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">[11<tspan text-decoration="overline">2</tspan>0] = [1 1 0]</text>
+<line x1="190.0" y1="225.0" x2="190.0" y2="105.3" stroke="#10b981" stroke-width="2.6"/>
+<path d="M190.0,105.3 L193.5,113.6 L186.5,113.6 Z" fill="#10b981"/>
+<text x="190.0" y="95.3" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">[0 0 0 1] = [0 0 1]</text>
+<text x="400.0" y="70.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">[1 0 0] → h = ⅓(2·1 − 0) = ⅔</text>
+<text x="400.0" y="90.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">k = ⅓(2·0 − 1) = −⅓,  i = −⅓(1 + 0) = −⅓</text>
+<text x="400.0" y="110.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">×3 → [2<tspan text-decoration="overline">1</tspan><tspan text-decoration="overline">1</tspan>0]</text>
+<text x="400.0" y="145.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">[1 1 0] → h = ⅓, k = ⅓, i = −⅔</text>
+<text x="400.0" y="165.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="start">×3 → [11<tspan text-decoration="overline">2</tspan>0]</text>
+</g></svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="100%" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Stacking sequences of close-packed planes">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="40.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="72.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="104.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="136.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="168.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<text x="22.0" y="155.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">A</text>
+<circle cx="50.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="82.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="114.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="146.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="178.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<text x="22.0" y="127.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">B</text>
+<circle cx="40.0" cy="94.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="72.0" cy="94.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="104.0" cy="94.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="136.0" cy="94.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="168.0" cy="94.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<text x="22.0" y="99.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">A</text>
+<circle cx="50.6" cy="66.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="82.6" cy="66.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="114.6" cy="66.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="146.6" cy="66.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="178.6" cy="66.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<text x="22.0" y="71.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">B</text>
+<text x="130.0" y="190.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">HCP: A B A B …</text>
+<circle cx="320.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="352.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="384.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="416.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="448.0" cy="150.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<text x="302.0" y="155.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">A</text>
+<circle cx="330.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="362.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="394.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="426.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<circle cx="458.6" cy="122.0" r="16" fill="#3b82f6" fill-opacity="0.55" stroke="#3b82f6"/>
+<text x="302.0" y="127.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">B</text>
+<circle cx="341.1" cy="94.0" r="16" fill="#10b981" fill-opacity="0.55" stroke="#10b981"/>
+<circle cx="373.1" cy="94.0" r="16" fill="#10b981" fill-opacity="0.55" stroke="#10b981"/>
+<circle cx="405.1" cy="94.0" r="16" fill="#10b981" fill-opacity="0.55" stroke="#10b981"/>
+<circle cx="437.1" cy="94.0" r="16" fill="#10b981" fill-opacity="0.55" stroke="#10b981"/>
+<circle cx="469.1" cy="94.0" r="16" fill="#10b981" fill-opacity="0.55" stroke="#10b981"/>
+<text x="302.0" y="99.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">C</text>
+<circle cx="320.0" cy="66.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="352.0" cy="66.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="384.0" cy="66.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="416.0" cy="66.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<circle cx="448.0" cy="66.0" r="16" fill="#f59e0b" fill-opacity="0.55" stroke="#f59e0b"/>
+<text x="302.0" y="71.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">A</text>
+<text x="410.0" y="190.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">FCC: A B C A B C …</text>
+</g></svg>
