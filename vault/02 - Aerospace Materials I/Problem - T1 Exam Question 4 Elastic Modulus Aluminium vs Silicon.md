@@ -16,26 +16,26 @@ tags:
 ## 📄 Statement [Slide 39]
 > Aluminum and silicon are side-by-side in the periodic table. Which would you expect to have the higher modulus of elasticity (E)? Explain.
 
-Only the content of the slides is used. Theory: [[Topic 1 - Bonding in Solids and Material Properties]].
+Theory: [[Topic 1 - Bonding in Solids and Material Properties]].
 
 ---
 
 ## 1. Setup
-- **Aluminium** is a metal: metallic bonding [Slide 23].
-- **Silicon** forms covalent bonds: with valence four it forms four directional covalent bonds in a tetrahedral structure (109.5°) [Slide 18].
+- **Aluminium** is a metal: metallic bonding.
+- **Silicon** forms covalent bonds: with valence four it forms four directional covalent bonds in a tetrahedral structure (109.5°).
 - Being neighbours in the periodic table, the difference comes from the **type of bond**, not from the position.
-- The slides give no modulus values, so the answer is a reasoned comparison.
+- No modulus values are needed: the answer follows from comparing the bonds.
 
-## 2. What the slides say
-- A high binding energy (steep slope) → greater force to stretch the bonds → **higher Young's modulus** [Slide 13].
-- Covalent solids, formed by continuous covalent bonds (silicon carbide, quartz, diamond), are **hard and incompressible** with a **high $T_m$** [Slide 19]; covalent lattices are **very hard** with **very high** melting points [Slide 38].
-- Covalent bonds are **highly directional** [Slides 17-18].
-- Metals are **malleable**, ductile and workable [Slides 25, 38]; metallic bonds are **non-directional** [Slide 23].
+## 2. Key ideas
+- A high binding energy (steep slope) → greater force to stretch the bonds → **higher Young's modulus**.
+- Covalent solids, formed by continuous covalent bonds (silicon carbide, quartz, diamond), are **hard and incompressible** with a **high $T_m$**; covalent lattices are **very hard** with **very high** melting points.
+- Covalent bonds are **highly directional**.
+- Metals are **malleable**, ductile and workable; metallic bonds are **non-directional**.
 
 ## 3. Answer
-**Silicon** should have the higher modulus of elasticity. It is held together by a continuous network of strong, **directional** covalent bonds [Slides 18-19], which makes it hard and incompressible: a greater force is needed to stretch the bonds, which is what a high modulus means [Slide 13]. Aluminium is held by **non-directional** metallic bonds to an electron sea [Slide 23], which gives a malleable, workable material [Slides 25, 38].
+**Silicon** should have the higher modulus of elasticity. It is held together by a continuous network of strong, **directional** covalent bonds, which makes it hard and incompressible: a greater force is needed to stretch the bonds, which is what a high modulus means. Aluminium is held by **non-directional** metallic bonds to an electron sea, which gives a malleable, workable material.
 
 ## 4. Interpretation
-Two elements next to each other in the periodic table can behave very differently because they bond differently: Slide 38 lists covalent lattices as "very hard, brittle" and metals as "ductile and workable". Silicon's higher stiffness is the mechanical side of that difference.
+Two elements next to each other in the periodic table can behave very differently because they bond differently: covalent networks are very hard and brittle, metals are ductile and workable. Silicon's higher stiffness is the mechanical side of that difference.
 
 **Back to:** [[Topic 1 - Bonding in Solids and Material Properties]] · [[Aerospace Materials I MOC]]

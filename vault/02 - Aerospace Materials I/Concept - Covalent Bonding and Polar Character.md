@@ -13,14 +13,14 @@ prerrequisitos: []
 
 # 📖 Concept: Covalent Bonding and Polar Character
 
-> **Key idea in one sentence:** a covalent bond forms when two atoms share their outer s and p electrons to reach a noble-gas configuration; it is highly directional and leaves no free electrons [Slide 17].
+> **Key idea in one sentence:** a covalent bond forms when two atoms share their outer s and p electrons to reach a noble-gas configuration; it is highly directional and leaves no free electrons.
 
-Full explanation, in slide order: [[Topic 1 - Bonding in Solids and Material Properties]].
+Full explanation: [[Topic 1 - Bonding in Solids and Material Properties]].
 
 ## 1. What it is [Slides 17-18]
-- Usually between **nonmetals**, with small electronegativity differences, close in the periodic table [Slide 17].
-- Formed by **sharing electrons**; **highly directional**; no free electrons [Slide 17].
-- Silicon (valence 4) forms four bonds in a **tetrahedron** with **109.5°** between them; silica SiO₂ has the same tetrahedral structure [Slide 18].
+- Usually between **nonmetals**, with small electronegativity differences, close in the periodic table.
+- Formed by **sharing electrons**; **highly directional**; no free electrons.
+- Silicon (valence 4) forms four bonds in a **tetrahedron** with **109.5°** between them; silica SiO₂ has the same tetrahedral structure.
 
 ## 2. Properties [Slide 19]
 Covalent solids (diamond, boron nitride, quartz, SiC) are formed by continuous covalent bonds: non-conductive (solid and molten), hard and incompressible, high $T_m$ and non-volatile, insoluble.

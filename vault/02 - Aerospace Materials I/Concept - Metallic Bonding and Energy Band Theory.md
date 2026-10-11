@@ -13,9 +13,9 @@ prerrequisitos: []
 
 # 📖 Concept: Metallic Bonding and Energy Band Theory
 
-> **Key idea in one sentence:** in a metal the atoms give up their valence electrons to an electron sea, and the positive cores are held together by their attraction to these delocalized electrons [Slide 23].
+> **Key idea in one sentence:** in a metal the atoms give up their valence electrons to an electron sea, and the positive cores are held together by their attraction to these delocalized electrons.
 
-Full explanation, in slide order: [[Topic 1 - Bonding in Solids and Material Properties]].
+Full explanation: [[Topic 1 - Bonding in Solids and Material Properties]].
 
 ## 1. What it is [Slide 23]
 - Electrostatic attraction between metal cations and **delocalized electrons**.
@@ -30,8 +30,8 @@ Full explanation, in slide order: [[Topic 1 - Bonding in Solids and Material Pro
 - **Excellent conductors** of heat and electricity: the electron sea moves easily under a voltage.
 
 ## 4. Band theory [Slides 26-27]
-- Electrons in solids can only have energies within certain ranges [Slide 26].
-- The molecular orbitals of the free atoms join into a non-localized set called a **band**; the levels are so close that the energy is almost continuous; a metal is like a giant molecule (example: Li → Li_N) [Slide 26].
-- The band structure depends on the **interatomic distance**: the outer orbitals overlap and form a band (Li and Mg examples, valence and conduction bands) [Slide 27].
+- Electrons in solids can only have energies within certain ranges.
+- The molecular orbitals of the free atoms join into a non-localized set called a **band**; the levels are so close that the energy is almost continuous; a metal is like a giant molecule (example: Li → Li_N).
+- The band structure depends on the **interatomic distance**: the outer orbitals overlap and form a band (Li and Mg examples, valence and conduction bands).
 
 **Back to:** [[Topic 1 - Bonding in Solids and Material Properties]] · [[Aerospace Materials I MOC]]

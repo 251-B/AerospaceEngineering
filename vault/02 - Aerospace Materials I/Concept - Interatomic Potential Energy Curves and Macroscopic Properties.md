@@ -14,22 +14,22 @@ prerrequisitos:
 
 # 📖 Concept: Interatomic Potential Energy Curves and Macroscopic Properties
 
-> **Key idea in one sentence:** the shape of the energy-distance curve of a bond (how deep and how steep it is) sets the melting point, hardness, thermal expansion and Young's modulus of the material [Slides 11-13].
+> **Key idea in one sentence:** the shape of the energy-distance curve of a bond (how deep and how steep it is) sets the melting point, hardness, thermal expansion and Young's modulus of the material.
 
-Full explanation, in slide order: [[Topic 1 - Bonding in Solids and Material Properties]].
+Full explanation: [[Topic 1 - Bonding in Solids and Material Properties]].
 
 ## 1. The curves [Slides 7-8]
-- The net force is attraction plus repulsion; it is zero at the equilibrium distance $a_0$ [Slide 7].
-- The net energy is minimum at $a_0$; the attraction energy is released, the repulsion energy is absorbed [Slide 8].
+- The net force is attraction plus repulsion; it is zero at the equilibrium distance $a_0$.
+- The net energy is minimum at $a_0$; the attraction energy is released, the repulsion energy is absorbed.
 
 ## 2. Reading properties from the curve
-| Feature of the curve | Property | Slide |
-| :--- | :--- | :--- |
-| Deep minimum (high binding energy) | High melting temperature and hardness | 11 |
-| Deep, narrow trough (strong bonding) | Low thermal expansion coefficient | 12 |
-| Steep slope of the force curve at $a_0$ | High Young's modulus | 13 |
+| Feature of the curve | Property |
+| :--- | :--- |
+| Deep minimum (high binding energy) | High melting temperature and hardness |
+| Deep, narrow trough (strong bonding) | Low thermal expansion coefficient |
+| Steep slope of the force curve at $a_0$ | High Young's modulus |
 
-The **binding energy** is the energy needed to create or break the bond [Slide 11].
+The **binding energy** is the energy needed to create or break the bond.
 
 ## 3. Bonding and type of material [Slides 37-38]
 | Bond | Melting/boiling points | Mechanical properties | Solubility |
@@ -39,6 +39,6 @@ The **binding energy** is the energy needed to create or break the bond [Slide 1
 | Ionic | High | Hard, brittle | Soluble in polar solvents |
 | Metallic | High | Ductile, workable | Insoluble |
 
-Metals → metallic bonds (Fe, steels); ceramics and glasses → ionic/covalent (SiO₂); polymers → covalent and secondary (polyethylene) [Slide 37].
+Metals → metallic bonds (Fe, steels); ceramics and glasses → ionic/covalent (SiO₂); polymers → covalent and secondary (polyethylene).
 
 **Back to:** [[Topic 1 - Bonding in Solids and Material Properties]] · [[Aerospace Materials I MOC]]

@@ -16,24 +16,19 @@ prerrequisitos: []
 
 # 🌐 Topic 1: Bonding in Solids
 
-> **Central idea:** the way atoms are bonded decides the properties of a material, the properties decide what type of material it is, and that decides how it is processed and where it is used [Slide 2].
+> **Central idea:** how the atoms of a material are bonded decides its properties; the properties decide what kind of material it is, and that in turn decides how it can be processed and what it can be used for.
 
-This note follows the slides of `Session 2 T1 Bonding_2025.pdf` in their order and uses only what they contain. Every statement carries the slide it comes from. Short "Reading the slide" boxes explain a figure or join two formulas that are on the same slide; they add no new content.
-
-**Contents of the topic** [Slide 1]:
-1. Introduction
-2. Bonding in solids: ionic bonding, covalent bonding, metallic bonding, secondary bonding (intermolecular forces)
-3. Bonding and properties in materials
+The topic covers the three primary bonds (ionic, covalent and metallic), the weak secondary bonds between molecules, and how each type of bond shows up in the properties of a material.
 
 ---
 
 ## 1. Introduction [Slide 2]
 
-The slide links four ideas in a chain:
+Materials science links four ideas: **structure**, **properties**, **processing** and **applications**. They are often drawn as the four corners of a tetrahedron, because each one is connected to the other three: change the processing and the structure changes, change the structure and the properties change, and so on.
 
-$$\text{Nature of bonding} \;\leftrightarrow\; \text{properties} \;\leftrightarrow\; \text{type of materials} \;\leftrightarrow\; \text{processing and applications}$$
+At the root of this chain is the **nature of the bonding** between atoms:
 
-It draws them as a tetrahedron whose four corners are **Structure**, **Properties**, **Processing** and **Applications**. Each corner is connected to the other three: changing one of them changes the others.
+$$\text{Nature of bonding} \;\leftrightarrow\; \text{properties} \;\leftrightarrow\; \text{type of material} \;\leftrightarrow\; \text{processing and applications}$$
 
 ---
 
@@ -41,113 +36,110 @@ It draws them as a tetrahedron whose four corners are **Structure**, **Propertie
 
 See also [[Concept - Ionic Bonding and Lattice Energy]].
 
-### 2.1 Definition and basic properties [Slide 4]
+### 2.1 What an ionic bond is [Slide 4]
 
-**Ionic bonding** is the complete transfer of valence electron(s) between atoms. It is a type of chemical bond that generates two oppositely charged ions.
+An **ionic bond** forms when one or more valence electrons are **completely transferred** from one atom to another. The result is two ions with opposite charges that attract each other.
 
-Properties listed on the slide:
-- It forms between **metal and nonmetallic** elements.
-- Electrons are transferred **from the less electronegative atom to the more electronegative** one.
-- Bonding force: **electrostatic attraction** between the oppositely charged ions.
-- It is **non-directional**.
+- It forms between a **metal** and a **nonmetal**.
+- The electron goes from the **less electronegative** atom (the metal) to the **more electronegative** one (the nonmetal). The first becomes a positive **cation**, the second a negative **anion**.
+- What holds the ions together is the **electrostatic attraction** between opposite charges.
+- This attraction acts equally in all directions: the ionic bond is **non-directional**.
 
-The slide diagram: the electropositive element gives an electron to the electronegative atom; the first becomes a **cation** (positive charge), the second an **anion** (negative charge); the electrostatic attraction between them is the **ionic bond**. A periodic table shows how electronegativity varies.
+### 2.2 Example: sodium chloride [Slide 5]
 
-### 2.2 How the bond forms: NaCl [Slide 5]
+Sodium and chlorine have very different electronegativities. Sodium gives its single valence electron to chlorine; sodium becomes Na⁺ and chlorine becomes Cl⁻, and the two ions attract each other.
 
-An ionic bond is created between two unlike atoms with different electronegativities. When sodium gives its valence electron to chlorine, each becomes an ion (Na⁺ and Cl⁻), they attract each other, and the ionic bond is formed.
+Forming ions also changes their size:
+- a metal that becomes a **cation** gets **smaller**;
+- a nonmetal that becomes an **anion** gets **larger**.
 
-- When a metal forms a **cation**, its radius is **reduced**.
-- When a nonmetal forms an **anion**, its radius **increases**.
-- A **pure** ionic bond is an ideal case: there is **always some covalent participation**.
+A perfectly ionic bond is an ideal case. Real ionic bonds always have **some covalent character**.
 
-### 2.3 Fundamental principles of ionic structures [Slide 6]
+### 2.3 How ions are modelled [Slide 6]
 
-Ions are treated as:
-1. **Charged spheres**,
-2. **Elastic spheres**,
-3. **Polarizable** spheres: the electron cloud is distorted by the presence of other ions.
+To describe ionic solids, ions are treated as:
+1. **charged spheres**,
+2. **elastic spheres**,
+3. **polarizable spheres**: the electron cloud of an ion can be distorted by the ions around it.
 
-The slide compares electron-density maps: in a covalent bond (N₂) the electron density is shared between the two atoms; in an ionic bond (LiF) each ion keeps its own, separate cloud. A table gives the sizes of atoms and of their ions (in pm): cations are smaller than their atoms, anions are larger.
+The difference with a covalent bond is clear in the electron density: in a covalent bond (such as N₂) the electrons are shared in the region between the two atoms, while in an ionic bond (such as LiF) each ion keeps its own separate electron cloud.
 
-### 2.4 Interionic force for an ionic pair [Slide 7]
+### 2.4 Force between two ions [Slide 7]
 
-How the force between two ions depends on their distance:
-- **Too far:** they neither attract nor repel.
-- **Larger distances:** Coulombic **attraction** dominates.
-- **Smaller distances:** the electron clouds **repel**.
+How strongly two ions pull on each other depends on how far apart they are:
+- when they are **very far apart**, they do not interact;
+- at **large distances**, the Coulomb **attraction** between opposite charges dominates;
+- at **short distances**, the electron clouds overlap and **repel**.
 
-The net force is the sum of both:
+The net force is the sum of the two effects:
 
 $$F_{net} = F_{attractive} + F_{repulsive}$$
 
 $$F_{net} = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a^2} - \frac{n b}{a^{n+1}}$$
 
-| Symbol | Meaning (as on the slide) |
+| Symbol | Meaning |
 | :--- | :--- |
-| $Z_1, Z_2$ | number of electrons removed or added (the charge numbers of the ions) |
+| $Z_1, Z_2$ | number of electrons removed or added to each ion (its charge number) |
 | $e$ | electron charge, $1.6\times10^{-19}\ \text{C}$ |
-| $\varepsilon_0$ | permittivity of space, $8.85\times10^{-12}\ \text{C}^2/(\text{N}\cdot\text{m}^2)$ |
-| $b$ | constant |
+| $\varepsilon_0$ | permittivity of free space, $8.85\times10^{-12}\ \text{C}^2/(\text{N}\cdot\text{m}^2)$ |
+| $b$ | a constant |
 | $n$ | Born exponent, between 5 and 9 |
-| $a$ | interionic distance ($a_0$ at equilibrium) |
+| $a$ | distance between the ions |
 
-> [!info] Reading the slide
-> The graph on the slide plots attraction above the axis and repulsion below it. The two ions are drawn touching: the cation radius $r$ plus the anion radius $R$ gives the distance $r + R = a$. The net force is zero at $a_0$; at slightly larger distances it reaches a **maximum force** (the maximum attraction the pair can resist).
+If attraction is counted as positive and repulsion as negative, the net force is zero at one particular distance, $a_0$. Just beyond $a_0$ the attraction reaches a **maximum**: the largest force the pair can withstand before being pulled apart. When the two ions touch, $a_0$ equals the cation radius plus the anion radius, $r + R$.
 
-### 2.5 Net potential energy for an ionic pair [Slide 8]
+### 2.5 Energy of an ion pair [Slide 8]
 
-The energy of the pair is lowest (**minimum**) when the ions sit at one specific distance $a_0$. This is the **equilibrium distance**, where attractive and repulsive energies are balanced.
+Force and energy describe the same interaction: the force is the derivative of the energy with respect to distance, $F = \partial E/\partial a$. The net energy of the pair is
 
-The slide relates force and energy by $F = \left(\dfrac{\partial E}{\partial a}\right)$ and writes the net energy as:
+$$E_{net} = \underbrace{\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0}}_{\text{attraction: energy released}} + \underbrace{\frac{b}{a_0^{\,n}}}_{\text{repulsion: energy absorbed}}$$
 
-$$E_{net} = \underbrace{\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0}}_{\text{attraction energy (released)}} + \underbrace{\frac{b}{a_0^{\,n}}}_{\text{repulsion energy (absorbed)}}$$
+Because the two ions have charges of opposite sign, $Z_1 Z_2$ is negative and the attraction term lowers the energy; the repulsion term raises it.
 
-> [!info] Reading the slide
-> - $Z_1$ and $Z_2$ have opposite signs (one ion is positive, the other negative), so the attraction term is negative: energy is **released**. The repulsion term is positive: energy is **absorbed**.
-> - Differentiating $E_{net}$ with respect to $a$ gives back the force of Slide 7, term by term:
->   $\dfrac{\partial}{\partial a}\left(\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0}\,a^{-1}\right) = -\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a^2}$ and $\dfrac{\partial}{\partial a}\left(b\,a^{-n}\right) = -\dfrac{n b}{a^{n+1}}$.
-> - The graphs on the slide show the energy curve with its minimum at $a_0$, where $\dfrac{dU}{dr} = 0$, exactly where the net force crosses zero.
+The energy is **lowest** at the **equilibrium distance $a_0$**, where attraction and repulsion balance. This minimum is the same point where the net force is zero.
 
-### 2.6 Lattice energy U [Slide 9]
+> [!info] Checking the link between force and energy
+> Differentiating each term of $E_{net}$ with respect to $a$ gives back the two terms of the force:
+> $\dfrac{\partial}{\partial a}\left(\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0}\,a^{-1}\right) = -\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a^2}$ and $\dfrac{\partial}{\partial a}\left(b\,a^{-n}\right) = -\dfrac{n b}{a^{n+1}}$.
 
-**Lattice energy (U):** the energy needed to bring one mole of ions from an infinite distance to their fixed positions in a crystal.
+### 2.6 Lattice energy [Slide 9]
 
-Starting from the energy of one pair at equilibrium, the slide arrives at the lattice energy of one mole:
+The **lattice energy U** is the energy involved in bringing one mole of ions from infinitely far apart to their fixed positions in a crystal. An equivalent way to see it: the energy **released** when one mole of ionic solid forms from its ions in the gas state.
+
+It follows from the energy of one pair at equilibrium:
 
 $$E_{r=a_0} = \frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0} + \frac{b}{a_0^{\,n}} \quad\Longrightarrow\quad U = -\frac{Z_1 Z_2 e^2 N_A A}{4\pi\varepsilon_0 a_0}\left(1-\frac{1}{n}\right)$$
 
-$N_A$ is Avogadro's number (one mole of pairs). $A$ is a constant of the crystal; the slide does not detail it further.
+where $N_A$ is Avogadro's number (one mole of ion pairs) and $A$ is a constant that depends on the crystal.
 
-> [!info] Reading the slide: where the factor $(1 - 1/n)$ comes from
-> 1. At $a_0$ the force is zero, so the derivative of $E$ is zero: $-\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0^2} - \dfrac{n b}{a_0^{n+1}} = 0$.
-> 2. Solve for $b$: multiply by $a_0^{n+1}$ to get $-\dfrac{Z_1Z_2e^2 a_0^{n-1}}{4\pi\varepsilon_0} = n b$, so $b = -\dfrac{Z_1Z_2e^2 a_0^{n-1}}{4\pi\varepsilon_0\, n}$.
-> 3. Substitute $b$ in the repulsion term: $\dfrac{b}{a_0^n} = -\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\cdot\dfrac{1}{n}$.
-> 4. Add the attraction term: $E_{r=a_0} = \dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\left(1-\dfrac{1}{n}\right)$.
-> 5. Multiplying by $N_A A$ gives the bracket of $U$. In $U$ the slide writes $Z_1Z_2$ as positive charge numbers and puts the sign in front, so that $U$ comes out negative (Slide 10: "All energy values are negative").
+> [!info] Where the factor $(1 - 1/n)$ comes from
+> 1. At $a_0$ the force is zero: $-\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0^2} - \dfrac{n b}{a_0^{n+1}} = 0$.
+> 2. Multiplying by $a_0^{n+1}$ and solving for $b$: $b = -\dfrac{Z_1Z_2e^2 a_0^{n-1}}{4\pi\varepsilon_0\, n}$.
+> 3. The repulsion term then becomes $\dfrac{b}{a_0^n} = -\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\cdot\dfrac{1}{n}$.
+> 4. Adding the attraction term: $E_{r=a_0} = \dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\left(1-\dfrac{1}{n}\right)$.
+> 5. Multiplying by $N_A A$ gives $U$. In the expression for $U$ the charge numbers are taken as positive and the minus sign is written in front, so that $U$ is negative.
 >
-> Since $n$ is between 5 and 9, the repulsion only removes $1/n$ (between 11 % and 20 %) of the attraction energy.
+> With $n$ between 5 and 9, repulsion only takes away between 11 % and 20 % of the attraction energy.
 
-**Lattice energy, alternative view:** the energy **released** when one mole of ionic solid is formed from its ions in the gas state.
-
-The slide shows this with the **Born-Haber cycle for KCl**:
+The lattice energy cannot be measured directly, but it can be obtained from steps that can be measured, arranged in a closed loop called the **Born-Haber cycle**. For KCl:
 
 | Step | ΔH (kJ/mol) |
 | :--- | ---: |
-| K sublimation | +89 |
-| K(g) ionization | +425 |
-| Cl₂(g) dissociation | +244 |
-| Cl(g) ionization | −355 |
-| KCl formation | −438 |
+| Sublimation of K | +89 |
+| Ionization of K(g) | +425 |
+| Dissociation of Cl₂(g) | +244 |
+| Ionization of Cl(g) | −355 |
+| Formation of KCl | −438 |
 
-> [!info] Reading the slide: the cycle
-> The diagram climbs from K(s) + ½Cl₂(g) to K⁺(g) + e⁻(g) + Cl(g), then falls to KCl(s). Only half a mole of Cl₂ is needed, so the dissociation step drawn in the cycle is 244/2 = 122 kJ/mol. The cycle is closed by $U$, the step from K⁺(g) + Cl⁻(g) down to KCl(s). Going round the cycle with the slide's numbers:
+> [!info] Closing the cycle
+> Only half a mole of Cl₂ is needed per mole of KCl, so the dissociation step counts 244/2 = 122 kJ/mol. Going from K(s) + ½Cl₂(g) to the gas ions and then down to KCl(s), the lattice energy is what closes the loop:
 > $$U = -438 - (89 + 425 + 122 - 355) = -438 - 281 = -719\ \text{kJ/mol}$$
-> (This value is worked out from the slide's numbers; the slide itself does not print it.)
 
-### 2.7 Properties associated with the lattice energy [Slides 10-13]
+### 2.7 Properties that depend on the lattice energy [Slides 10-13]
 
-#### 1. Melting point [Slide 10]
+The stronger the bond (the larger the lattice energy), the more energy it takes to separate the ions. Four properties follow from this.
+
+#### Melting point [Slide 10]
 
 | Ionic solid | U (kJ/mol) | U (kcal/mol) | Melting point (°C) |
 | :--- | ---: | ---: | ---: |
@@ -161,64 +153,60 @@ The slide shows this with the **Born-Haber cycle for KCl**:
 | SrO | 3311 | 791 | 2430 |
 | BaO | 3127 | 747 | 1923 |
 
-All energy values are negative (the table gives their size).
+(All the energies are negative; the table gives their size.)
 
-- **Valence +1:** when the ion size increases ↑, the lattice energy decreases ↓ and $T_m$ decreases ↓.
-- **Valence +2:** a higher valence number ↑ gives a higher lattice energy ↑ and a higher $T_m$ ↑ (compare MgO, 2800 °C, with NaCl, 801 °C).
+- **Same valence (+1):** larger ions → lower lattice energy → lower melting point.
+- **Higher valence (+2):** more charge → much higher lattice energy → much higher melting point. MgO melts at 2800 °C, NaCl at 801 °C.
 
-> [!warning] Small exception in the slide's own data
-> In the valence +1 group, $T_m$ does not fall all the way: LiCl (613 °C) melts lower than NaCl (801 °C) even though its U is larger. The trend holds from NaCl to CsCl. This is only a reading of the table; the slide states the general trend.
+LiCl does not follow the first trend (it melts lower than NaCl although its U is larger); the trend holds from NaCl to CsCl.
 
-#### 2. Hardness [Slide 11]
+#### Hardness [Slide 11]
 
-**Hardness** is a measure of the resistance to localized plastic deformation caused by mechanical indentation or abrasion. Several scales exist, e.g. the Mohs scale (used by mineralogists).
+**Hardness** measures how well a material resists **localized plastic deformation**, caused by pressing into it (indentation) or by scratching (abrasion). Mineralogists use the Mohs scale.
 
 | | BeO | MgO | CaO | SrO | BaO |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | d (Å) | 1.65 | 2.10 | 2.40 | 2.57 | 2.77 |
 | Mohs hardness | 9.0 | 6.5 | 4.5 | 3.5 | 3.3 |
 
-For reference: hydroxyapatite 5, keratin (fingernail) 2.5. (1 Å = 0.1 nm.)
+For comparison: hydroxyapatite 5, keratin (fingernail) 2.5.
 
-$$r_{c^+} \downarrow \;\Rightarrow\; U \uparrow \;\Rightarrow\; \text{hardness} \uparrow$$
+$$\text{smaller cation } (r_{c^+}\downarrow) \;\Rightarrow\; U \uparrow \;\Rightarrow\; \text{harder}$$
 
-The **binding (potential) energy** is the energy needed to create or break the bond. Materials with a high binding energy have high melting temperatures and high hardness. The slide's figure shows the binding energy as the depth of the energy curve at the interatomic spacing.
+The **binding (potential) energy** is the energy needed to create or break the bond; on the energy-distance curve it is the depth of the minimum. Materials with a high binding energy have **high melting temperatures** and are **hard**.
 
-#### 3. Thermal expansion [Slide 12]
+#### Thermal expansion [Slide 12]
 
-**Thermal expansion** is the tendency of matter to change its volume in response to a change in temperature.
+**Thermal expansion** is the tendency of matter to change volume when its temperature changes. The **coefficient of thermal expansion** is the change in a linear dimension per degree of temperature, and it is related to the **strength of the bonds**.
 
-The **coefficient of thermal expansion** (the change in linear dimension of a material per degree of temperature) is related to the strength of the atomic bonds. Materials whose energy curve is steep, with a **deep interatomic energy (IAE) trough** caused by strong bonding, have **low** linear coefficients of thermal expansion.
+When a material is heated, its atoms gain energy and move up inside the energy well:
+- in a **deep, narrow** well (strong bonding) the average spacing between atoms barely changes → **low** thermal expansion;
+- in a **shallow, wide** well (weak bonding) the spacing grows a lot → **high** thermal expansion.
 
 | | NaF | NaCl | NaBr | NaI |
 | :--- | ---: | ---: | ---: | ---: |
 | $\alpha_V$ (10⁻⁶ °C⁻¹) | 39 | 40 | 43 | 48 |
 
-For reference: hydroxyapatite 12·10⁻⁶ °C⁻¹.
+For comparison: hydroxyapatite 12·10⁻⁶ °C⁻¹.
 
-$$r_{a^-} \uparrow \;\Rightarrow\; U \downarrow \;\Rightarrow\; \text{thermal expansion } (\alpha) \uparrow$$
+$$\text{larger anion } (r_{a^-}\uparrow) \;\Rightarrow\; U \downarrow \;\Rightarrow\; \alpha \uparrow$$
 
-> [!info] Reading the slide figure
-> Heating adds the same energy ΔIAE to two curves. In the **weak-bonding** curve (shallow, wide) the spacing between atoms grows a lot; in the **strong-bonding** curve (deep, narrow) it grows little. A larger separation after heating means a higher thermal expansion.
+#### Young's modulus [Slide 13]
 
-#### 4. Young's modulus [Slide 13]
-
-(The slide numbers this property "2", but it is the fourth property of the list.)
-
-A high binding energy (steep slope) means a greater force is needed to stretch the bonds, and so a **higher elastic (Young's) modulus**. The slide's figure shows the force-distance curves for strong and weak bonding: the slope $dF/da$ where the curve crosses the distance axis is steeper for strong bonding.
+A high binding energy goes with a **steep** energy curve: a larger force is needed to stretch the bonds, so the **elastic (Young's) modulus is higher**. On a force-distance curve this is the slope $dF/da$ where the curve crosses zero: steeper for strong bonds, gentler for weak ones.
 
 ### 2.8 General properties of ionic compounds [Slide 14]
 
-1. Strong electrostatic attraction → **high melting and evaporation points**.
-2. **Hard and brittle** solids at room temperature.
-3. They **do not conduct electricity**, except when molten or dissolved in water. When a voltage is applied, whole ions must move to carry a current; ions move slowly, so the electrical conductivity is poor.
-4. **Water soluble.**
+1. The strong electrostatic attraction gives **high melting and boiling points**.
+2. They are **hard and brittle** at room temperature.
+3. They are **electrical insulators**, except when molten or dissolved in water. To carry a current, whole ions have to move, and ions move slowly, so the conductivity is poor.
+4. They are **soluble in water**.
 
-### 2.9 Ion arrangements in ionic solids [Slide 15]
+### 2.9 How ions are arranged [Slide 15]
 
-- Ionic bonds are **non-directional**.
-- The ions take geometric arrangements in the solid that **keep the solid electrically neutral** (examples on the slide: the ionic packing of CsCl and NaCl).
-- As the ratio of **cation radius to anion radius decreases**, **fewer anions** surround the central cation.
+- Since the ionic bond is **non-directional**, each ion simply surrounds itself with ions of the opposite charge.
+- The arrangement always keeps the solid **electrically neutral** (NaCl and CsCl are typical examples).
+- The **smaller the cation compared with the anion**, the **fewer anions** fit around it.
 - Ionic compounds are **crystalline solids**.
 
 ---
@@ -227,59 +215,51 @@ A high binding energy (steep slope) means a greater force is needed to stretch t
 
 See also [[Concept - Covalent Bonding and Polar Character]].
 
-### 3.1 Definition [Slide 17]
+### 3.1 What a covalent bond is [Slide 17]
 
-- It usually forms between the **non-metallic** elements of the periodic table.
-- It forms by **sharing electrons**.
-- It is **highly directional**, and there are **no free electrons**.
-- It takes place between elements with **small differences in electronegativity** that are close to each other in the periodic table.
-- The outer **s and p electrons** are shared between two atoms so that each one reaches a **noble-gas configuration**.
+- It usually forms between **nonmetals**.
+- The atoms **share electrons** instead of transferring them.
+- It is **highly directional**, and it leaves **no free electrons**.
+- It appears between elements with a **small electronegativity difference**, close to each other in the periodic table.
+- The outer **s and p electrons** are shared so that each atom reaches the electron configuration of a **noble gas**.
 
-Examples on the slide: H• + •H → H:H (H–H, one bond pair); two Cl atoms form Cl–Cl, with one bond pair and lone pairs on each Cl.
+Simple examples: two H atoms share one pair of electrons to form H–H; two Cl atoms share one pair to form Cl–Cl, and each Cl keeps three lone pairs.
 
-### 3.2 Examples: silicon and silica [Slide 18]
+### 3.2 Silicon and silica [Slide 18]
 
-- **Silicon** has a valence of four, so it must form **four covalent bonds**. Because covalent bonds are **directional**, silicon forms a **tetrahedral structure** with **109.5°** between bonds.
-- **Silica (SiO₂)** has the same tetrahedral structure, with covalent bonds between silicon and oxygen atoms.
+- **Silicon** has a valence of four, so each atom must form **four covalent bonds**. Because these bonds are directional, they point to the corners of a **tetrahedron**, at **109.5°** from each other.
+- **Silica (SiO₂)** has the same tetrahedral structure, with covalent bonds between silicon and oxygen.
 
-### 3.3 Properties of compounds with covalent bonds [Slide 19]
+### 3.3 Properties of covalent materials [Slide 19]
 
-**Covalent solids:**
-- Formed by a system of **continuous covalent bonds**.
-- **Non-conductive** lattices, both solid and molten.
-- Examples: diamond, boron nitride, quartz (SiO₂), silicon carbide (SiC).
-- **Hard and incompressible**; **high $T_m$**, non-volatile; **insoluble**.
-- The slide shows the structures of graphite and diamond.
+**Covalent solids** are built from a **continuous network** of covalent bonds (diamond, boron nitride, quartz SiO₂, silicon carbide SiC). They are:
+- **electrical insulators**, both solid and molten;
+- **hard and incompressible**;
+- of **high melting point** and non-volatile;
+- **insoluble**.
 
-**Substances with covalent bonds:** the slide shows a polymer chain (–C–C–C– with H and R side groups) as an example.
+Covalent bonds also hold together individual molecules and polymer chains, which are **substances with covalent bonds** rather than covalent networks.
 
-### 3.4 Polar covalent bond [Slide 20]
+### 3.4 Polar covalent bonds [Slide 20]
 
-- A **polar covalent bond** exists when atoms with **different electronegativities** share electrons in a covalent bond.
-- In **nonpolar bonds** the bonding electrons are shared **equally** between the atoms.
+- In a **nonpolar** bond the shared electrons are split **equally** between the two atoms (H–H, Cl–Cl).
+- In a **polar** covalent bond the two atoms have **different electronegativities**, so the shared electrons spend more time near one of them (H–Cl). The centres of positive and negative charge no longer coincide.
 
-The slide's figure: in H–H and Cl–Cl the centres of positive and negative charge coincide (nonpolar); in H–Cl they are separated (polar).
-
-**Dipole moment:**
+The size of this separation of charge is the **dipole moment**:
 
 $$\mu = Q \times d$$
 
-$d$ = distance between atoms; $Q$ = charge. Unit: Debye, $1\ \text{D} = 3.33\times10^{-30}\ \text{C}\cdot\text{m}$.
+with $Q$ the charge and $d$ the distance between the atoms. It is measured in debye: $1\ \text{D} = 3.33\times10^{-30}\ \text{C}\cdot\text{m}$.
 
-**Percentage of ionic character** of a bond between atoms A and B:
+How ionic a bond between atoms A and B is depends on their electronegativities $X_A$ and $X_B$:
 
 $$\%\ \text{ionic character} = \left(1 - e^{-0.25\,(X_A - X_B)^2}\right)\times 100\%$$
 
-$X_i$ is the electronegativity of element $i$. The slide's graph plots this curve: the larger the electronegativity difference, the larger the ionic character (HI, HBr near the bottom; HF in the middle; KCl, LiF near the top).
-
-> [!info] Reading the formula
-> If $X_A = X_B$ the exponent is zero, $e^0 = 1$, and the ionic character is 0 % (a pure covalent, nonpolar bond). As the difference grows, $e^{-0.25(X_A-X_B)^2}$ tends to 0 and the ionic character tends to 100 %. This matches Slide 5: a pure ionic bond is an ideal that is never fully reached.
+If $X_A = X_B$, the exponential is 1 and the bond is 0 % ionic (purely covalent). As the difference grows, the exponential goes to 0 and the ionic character approaches 100 %, without ever reaching it: a purely ionic bond is an ideal. HI and HBr are nearly covalent, HF is in between, and KCl or LiF are mostly ionic.
 
 ### 3.5 Bond length, bond order and bond energy [Slide 21]
 
-For a given pair of atoms, a **higher bond order** gives a **shorter bond**, and a shorter bond has a **higher bond energy** (examples H₂, F₂, N₂).
-
-Selected values from the slide's table (all values are negative for bond formation, because energy is released):
+For a given pair of atoms, a **higher bond order** (single → double → triple) makes the bond **shorter**, and a shorter bond is **stronger** (higher bond energy). H₂, F₂ and N₂ follow this rule.
 
 | Bond | Bond energy (kJ/mol) | Bond length (nm) |
 | :--- | ---: | ---: |
@@ -292,28 +272,30 @@ Selected values from the slide's table (all values are negative for bond formati
 | F–F | 160 | 0.14 |
 | H–H | 435 | 0.074 |
 
+(The energies are released when the bond forms, so they are negative.)
+
 ---
 
 ## 4. Metallic bonding [Slides 23-27]
 
 See also [[Concept - Metallic Bonding and Energy Band Theory]].
 
-### 4.1 Definition [Slide 23]
+### 4.1 What a metallic bond is [Slide 23]
 
-The **metallic bond** forms when atoms give up their valence electrons, which then form an **electron sea**. The positively charged atom cores are bonded by their mutual attraction to the negatively charged electrons. In short, metallic bonds come from the **electrostatic attraction between metal cations and delocalized electrons**.
+In a metal, the atoms give up their valence electrons, which form a shared **"sea" of electrons**. What remains of each atom is a positive core, and the cores are held together by their attraction to the negative electron sea. In short: the metallic bond is the **electrostatic attraction between metal cations and delocalized electrons**.
 
-- Atoms in metals are **closely packed** in a crystal structure.
-- The electrons spread out among the atoms, forming **electron clouds**.
-- Because the outer electrons are shared by many atoms, metallic bonds are **non-directional**.
+- The atoms are **closely packed** in a crystal structure.
+- The electrons are spread among all the atoms as an **electron cloud**.
+- Since each outer electron is shared by many atoms, the bond is **non-directional**.
 
 ### 4.2 Bonding energy and valence electrons [Slide 24]
 
-- Metallic bonds **lower the overall energy** of the individual atoms.
-- The energy between atoms is **minimum at the equilibrium distance $a_0$**.
-- **Fewer** valence electrons → **lower** bonding energy. Example: K, valence +1 → bonding energy 89.6 kJ/mol, melting temperature 63.5 °C.
-- **More** valence electrons → **higher** bonding energy. Example: Ca, valence +2 → bonding energy 177 kJ/mol, melting temperature 851 °C.
+- Forming metallic bonds **lowers the energy** of the atoms.
+- As for any bond, the energy is lowest at the **equilibrium distance $a_0$**.
+- **Fewer valence electrons → weaker bond.** Potassium (valence +1): bonding energy 89.6 kJ/mol, melting point 63.5 °C.
+- **More valence electrons → stronger bond.** Calcium (valence +2): bonding energy 177 kJ/mol, melting point 851 °C.
 
-The slide's table for the fourth-period metals:
+Bonding energies and melting points of the fourth-period metals:
 
 | Element | Electron configuration | Bonding energy (kJ/mol) | Melting point (°C) |
 | :--- | :--- | ---: | ---: |
@@ -332,23 +314,21 @@ The slide's table for the fourth-period metals:
 | Ga | 4s²4p¹ | 272 | 29.8 |
 | Ge | 4s²4p² | 377 | 960 |
 
-### 4.3 Metallic bonds and material properties [Slide 25]
+### 4.3 What metallic bonding means for properties [Slide 25]
 
-- Pure metals are much more **malleable** than ionic or covalent networked materials. The strength of a pure metal can be increased a lot by **alloying**.
-- Pure metals are **excellent conductors of heat and electricity**. When a voltage is applied, the electrons of the electron sea move easily and carry a current.
+- Pure metals are much more **malleable** than ionic or covalent networks. Their strength can be raised considerably by **alloying**.
+- Pure metals are **excellent conductors of heat and electricity**: under a voltage, the electrons of the electron sea move freely and carry the current.
 
 ### 4.4 Band theory [Slides 26-27]
 
-**Band theory** is a model that describes the states of electrons in solids, which can only have energies within certain specific ranges [Slide 26].
+**Band theory** describes the electrons of a solid, which can only have energies inside certain ranges.
 
-- In a metallic crystal, all the molecular orbitals (MO) of the free atoms turn into a group of **non-localized orbitals** called a **band**. The energy difference between neighbouring MOs is so small that the energy is almost a **continuum**.
-- A metal can be seen as a **giant molecule** formed by a giant number of MOs.
-- The slide's example is Li [1s² 2s¹]: going from Li to Li₂, Li₃, …, Li_N, the 2s levels multiply until they form an **energy band**.
+When atoms join into a metallic crystal, the orbitals of the separate atoms combine into a set of orbitals that belong to the whole crystal. Each new atom adds more levels, and with a huge number of atoms the levels are so close together that they form an almost continuous range of energies: a **band**. A piece of metal behaves like a single giant molecule. Lithium shows it: Li, Li₂, Li₃, …, Li_N, with the 2s levels multiplying into a band.
 
-The **band structure depends on the interatomic distance**: the outermost atomic orbitals overlap and form an energy band [Slide 27]. The slide draws it for Li (Z = 3, 1s² 2s¹) and Mg (1s² 2s²), with a valence band and a conduction band for each.
+The band structure depends on the **distance between atoms**: the bands form because the outermost orbitals of neighbouring atoms overlap. In lithium and in magnesium this gives a valence band and a conduction band.
 
-> [!warning] Discrepancy in the slide
-> Slide 27 labels magnesium "Mg (Z=4) 1s² 2s²". That configuration (four electrons) is beryllium; magnesium has Z = 12. The diagram itself is read as written.
+> [!warning] Note on the official material
+> The magnesium example is labelled "Z = 4, 1s² 2s²". That is the configuration of beryllium; magnesium has Z = 12.
 
 ---
 
@@ -356,62 +336,54 @@ The **band structure depends on the interatomic distance**: the outermost atomic
 
 See also [[Concept - Intermolecular Forces and Secondary Bonds]].
 
-### 5.1 Recap: primary bonds are strong [Slide 29]
+### 5.1 Primary bonds are strong [Slide 29]
 
 | Primary bond | Energy (kcal/mol) | Mechanism |
 | :--- | :--- | :--- |
-| Ionic | 150-370 | transfer of e⁻ → cations and anions → Coulomb force (non-directional) |
-| Covalent | 125-300 | sharing of e⁻ (directional) |
-| Metallic | 25-200 | e⁻ shared externally and held very loosely by the nucleus (non-directional) |
+| Ionic | 150-370 | electrons transferred → cations and anions → Coulomb force (non-directional) |
+| Covalent | 125-300 | electrons shared (directional) |
+| Metallic | 25-200 | electrons shared by all the atoms, held only loosely by the nuclei (non-directional) |
 
-The slide illustrates the three with diagrams: Na giving an electron to Cl (ionic), two Cl atoms sharing a pair (covalent), and Cu²⁺ ion cores in an electron cloud of valence electrons (metallic).
+### 5.2 Secondary bonds are weak [Slide 30]
 
-### 5.2 Secondary bonds: weak (van der Waals) [Slide 30]
+**Secondary (van der Waals) bonds** are attractions between **electric dipoles** in atoms or molecules. A dipole appears when the electron charge is spread **unevenly**, so that the centre of positive charge and the centre of negative charge are in different places.
 
-Secondary bonds come from the **attraction between electric dipoles** in atoms or molecules. A dipole appears when the electron charge is distributed **asymmetrically**, so the centres of positive and negative charge are in different places.
+There are two kinds of dipole:
+- **permanent dipoles**, which do not change with time;
+- **fluctuating dipoles**, which appear and disappear as the electron cloud changes with time.
 
-There are two types of dipoles:
-- **Permanent dipoles:** do not fluctuate with time.
-- **Fluctuating dipoles:** the charge of the electron cloud changes with time.
+### 5.3 Permanent dipoles (1-10 kcal/mol) [Slide 31]
 
-### 5.3 Permanent dipole (1-10 kcal/mol) [Slide 31]
-
-It forms in molecules that:
+They form in molecules that:
 - have a **constant dipole moment μ**, and
-- are made of atoms with **different electronegativity** joined by **covalent** bonds.
+- are made of atoms of **different electronegativity** joined by **covalent** bonds.
 
-Example:
-- **CH₄:** the four C–H bonds are arranged **symmetrically** → **no dipole moment**.
-- **CH₃Cl:** the tetrahedral arrangement is **asymmetrical** → it **creates a dipole**.
+Whether a molecule has a dipole depends on its shape:
+- **CH₄:** the four C–H bonds are arranged **symmetrically**; their effects cancel and there is **no dipole moment**.
+- **CH₃Cl:** replacing one H by Cl makes the tetrahedron **asymmetrical**, and the molecule **has a dipole**.
 
 ### 5.4 Example: PVC [Slide 32]
 
-- (a) In polyvinyl chloride (PVC), the chlorine atoms on the polymer chain carry a negative charge and the hydrogen atoms a positive charge. The chains are weakly bonded to each other by van der Waals bonds. This extra bonding makes PVC **stiffer**.
-- (b) When a force is applied, the van der Waals bonds break and the chains **slide past one another**.
+In polyvinyl chloride (PVC) the chlorine atoms along the chain carry a negative charge and the hydrogen atoms a positive one. Neighbouring chains therefore attract each other through van der Waals bonds, and this extra bonding makes PVC **stiffer**. When a force is applied, these weak bonds break and the chains **slide past one another**.
 
-### 5.5 Hydrogen bond (permanent dipole, 7 kcal/mol in H₂O) [Slide 33]
+### 5.5 The hydrogen bond (≈ 7 kcal/mol in water) [Slide 33]
 
-In molecules with H and **electronegative atoms** (O–H, N–H, F–H) the charge is distributed asymmetrically → polar covalent bond → permanent dipole.
+The **hydrogen bond** is a strong case of permanent dipole. When hydrogen is bonded to a very **electronegative atom** (O–H, N–H, F–H), the charge is distributed very unevenly: the bond is polar and forms a permanent dipole. A hydrogen bond is the **dipole-dipole attraction between polar bonds that contain hydrogen**.
 
-- **Hydrogen bonds** are **dipole-dipole interactions** between polar bonds that contain a hydrogen atom.
-- Example: in water the dipole comes from the asymmetrical arrangement of the hydrogen atoms (the slide draws the H–O–H angle as 105°). Neighbouring molecules attract: the hydrogen of one molecule is attracted by the oxygen of the next.
+In **water**, the two hydrogens are not in a straight line with the oxygen (the H–O–H angle is about 105°), so the molecule is a dipole. The **oxygen** is the **negative** end and the **hydrogens** the **positive** end, and the hydrogen of one molecule is attracted to the oxygen of the next.
 
-> [!warning] Erratum in the slide
-> Slide 33 says "attraction between positive oxygen pole and negative hydrogen pole". The signs are swapped. Oxygen is the more electronegative atom, so it pulls the shared electrons and becomes the **negative** pole; hydrogen becomes the **positive** pole. This follows from the slide's own definitions: electrons move towards the more electronegative atom (Slide 4) and a polar bond forms between atoms of different electronegativity (Slide 20).
+> [!warning] Note on the official material
+> The official text writes "positive oxygen pole and negative hydrogen pole". The signs are swapped: oxygen, being more electronegative, pulls the shared electrons and is the negative pole.
 
-### 5.6 Fluctuating dipole (< 2 kcal/mol) [Slide 34]
+### 5.6 Fluctuating dipoles (< 2 kcal/mol) [Slide 34]
 
-It forms in **non-polar** molecules in a crystalline lattice. The electron charge distribution fluctuates instantaneously: at one instant it is symmetrical, at the next asymmetrical. Those changing asymmetries are **fluctuating dipoles**.
+Even **nonpolar** molecules attract each other weakly. At any instant the electron cloud may be slightly lopsided, creating a short-lived dipole; a moment later it is symmetrical again or lopsided the other way. These **fluctuating dipoles** are the weakest of the secondary bonds.
 
-### 5.7 Example: boiling points of molecular hydrides [Slide 35]
+### 5.7 Example: boiling points of the hydrides [Slide 35]
 
-- Elements in higher periods generally have higher melting points: their atoms share more electrons, which gives stronger forces holding the molecules together.
-- However, **strong hydrogen bonding** gives H₂O, HF and NH₃ a **much higher boiling point** than the trend predicts.
+Going down a group (to higher periods), the boiling points of the hydrides generally rise, because larger atoms with more electrons give stronger forces between the molecules (CH₄ → SiH₄ → GeH₄ → SnH₄).
 
-The slide's graph (groups 14 to 17, periods 2 to 5) shows it: CH₄, SiH₄, GeH₄, SnH₄ rise steadily with the period, while H₂O, HF and NH₃ break the trend at period 2.
-
-> [!note] Label of the graph
-> The caption reads "Variation of melting points of molecular hydrides", but the vertical axis of the graph is the **boiling point** (°C), as the text of the slide says.
+Water, HF and NH₃ break this trend: their **hydrogen bonds** are much stronger than ordinary van der Waals forces, and so their boiling points are **far higher** than the trend would predict.
 
 ---
 
@@ -419,20 +391,20 @@ The slide's graph (groups 14 to 17, periods 2 to 5) shows it: CH₄, SiH₄, GeH
 
 See also [[Concept - Interatomic Potential Energy Curves and Macroscopic Properties]].
 
-**Nature of bonding → properties → type of material** [Slide 37]:
+The type of bond largely defines the family of material:
 
 | Type of material | Character of bonding | Examples |
 | :--- | :--- | :--- |
-| Metal | Metallic | Fe, steels |
+| Metals | Metallic | Fe, steels |
 | Ceramics and glasses | Ionic / covalent | Silica (SiO₂) |
 | Polymers | Covalent and secondary | Polyethylene –(CH₂)– |
 
-**Summary of properties by bond** [Slide 38]:
+Summary of properties by type of bond:
 
 | Bond | Type of substance | Melting and boiling points | Mechanical properties | Solubility |
 | :--- | :--- | :--- | :--- | :--- |
 | Covalent | Molecular | Low | Soft in the solid state | Depends on the polarity of the molecules |
-| Covalent | Atomic, covalent or lattice | Very high | Very hard, brittle | Insoluble in all solvents |
+| Covalent | Atomic network (lattice) | Very high | Very hard, brittle | Insoluble in all solvents |
 | Ionic | Ionic | High | Hard and brittle | Soluble in polar solvents |
 | Metallic | Metallic | High | Ductile and workable | Insoluble in all solvents |
 
@@ -440,11 +412,10 @@ See also [[Concept - Interatomic Potential Energy Curves and Macroscopic Propert
 
 ## 7. Questions [Slide 39]
 
-The slide closes with four questions, solved in their own notes:
-1. Compare metallic and covalent primary bonds: nature of the bond, valence of the atoms, ductility → [[Problem - T1 Exam Question 1 Metallic vs Covalent Bonding]]
-2. Titanium is stiffer than aluminium, has a lower thermal expansion coefficient and a higher melting temperature: draw both potential-well curves → [[Problem - T1 Exam Question 2 Potential Curves Titanium vs Aluminium]]
-3. MgO or magnesium: which has the higher modulus of elasticity? → [[Problem - T1 Exam Question 3 Elastic Modulus MgO vs Mg]]
-4. Aluminium or silicon: which has the higher modulus of elasticity? → [[Problem - T1 Exam Question 4 Elastic Modulus Aluminium vs Silicon]]
+1. Compare metallic and covalent primary bonds: nature of the bond, valence of the atoms involved, and ductility of the materials → [[Problem - T1 Exam Question 1 Metallic vs Covalent Bonding]]
+2. Titanium is stiffer than aluminium, has a lower thermal expansion coefficient and a higher melting temperature. Sketch both potential-well curves on the same graph and show how these properties appear in them → [[Problem - T1 Exam Question 2 Potential Curves Titanium vs Aluminium]]
+3. Would MgO or magnesium have the higher modulus of elasticity? → [[Problem - T1 Exam Question 3 Elastic Modulus MgO vs Mg]]
+4. Aluminium and silicon are neighbours in the periodic table. Which would have the higher modulus of elasticity? → [[Problem - T1 Exam Question 4 Elastic Modulus Aluminium vs Silicon]]
 
 ---
 
