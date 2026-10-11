@@ -23,9 +23,9 @@ tags:
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 ### Physical Hypotheses:
-1. **Simple Thermal Activation Regime:** The diffusion of aluminium acceptor impurities in the diamond lattice of the silicon single crystal rigorously obeys the Arrhenius equation in the high wafer-doping temperature range [Session 5 Slides 5, 26, 29].
+1. **Arrhenius behaviour:** The diffusivity of aluminium in silicon follows the Arrhenius law $D = D_0 e^{-E_D/RT}$ in the temperature range of interest [Session 5 Slide 26].
 2. **Constancy of Kinetic Parameters:** Both the pre-exponential factor $D_0$ and the activation energy $E_D$ are considered independent of temperature in the thermodynamic interval of interest.
-3. **Crystalline Homogeneity:** Since this is a silicon single crystal free of grain boundaries, there are no short-circuit fast-diffusion paths; the only contribution is bulk diffusion in the pure crystal lattice [Slide 25].
+3. **Volume diffusion:** The silicon is a single crystal, so there are no grain boundaries; the diffusion takes place through the volume of the crystal, the slowest of the paths $D_{surface} > D_{grain\ boundary} > D_{volume}$ [Slide 25].
 
 ### Input Parameters:
 * Desired diffusion coefficient: $D = 10^{-14}\text{ m}^2/\text{s} = 1.0 \times 10^{-14}\text{ m}^2/\text{s}$
@@ -95,10 +95,8 @@ $$T = 1565.74 - 273.15 = \mathbf{1292.59^\circ\text{C}} \approx \mathbf{1293^\ci
 $$[T] = \frac{[E_D]}{[R] \cdot [\text{adimensional}]} = \frac{\text{cal/mol}}{(\text{cal/mol}\cdot\text{K})} = \text{K} \quad \checkmark$$
 
 ### Physical-Technological Interpretation:
-1. **Thermal Processing of Semiconductors:** The temperature obtained ($1293^\circ\text{C} = 1566\text{ K}$) lies below the melting point of pure silicon ($T_{m,\text{Si}} = 1414^\circ\text{C} = 1687\text{ K}$), satisfying the required solidity condition:
-   $$\frac{T}{T_m} = \frac{1566\text{ K}}{1687\text{ K}} \approx 0.928 \, T_m$$
-   This ultra-high temperature range ($1200\text{--}1300^\circ\text{C}$) is the one habitually used in tube diffusion furnaces with an inert argon atmosphere to create deep $p\text{-}n$ junctions in power electronics and aerospace solar cells [Slide 29].
-2. **High Activation Energy:** The value $E_D = 73\text{ kcal/mol} \approx 305.4\text{ kJ/mol}$ is very high because silicon has an extraordinarily rigid three-dimensional covalent diamond lattice with direct $sp^3$ bonds, where the motion of substitutional impurities such as aluminium requires breaking strong covalent bonds [Session 2 Slides 18–19; Session 5 Slide 9].
+1. **Temperature needed:** A diffusivity of $10^{-14}\text{ m}^2/\text{s}$ needs $1293^\circ\text{C}$ ($1566\text{ K}$). Because $D$ depends exponentially on $T$, small changes in temperature change $D$ a lot [Slide 26]. Diffusion of impurities in Si wafers is the process used to fabricate integrated circuits [Slide 29].
+2. **High activation energy:** $E_D = 73\text{ kcal/mol} \approx 305.4\text{ kJ/mol}$ is above every self-diffusion value in the table except Mo, so a high temperature is needed to give the atoms enough energy to jump [Slides 4, 9].
 
 ---
 

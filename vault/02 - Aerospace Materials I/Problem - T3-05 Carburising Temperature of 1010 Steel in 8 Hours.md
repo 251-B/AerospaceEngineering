@@ -26,9 +26,9 @@ tags:
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 ### Physical Hypotheses:
-1. **Non-Steady Semi-Infinite Model:** The required depth of the carburised layer ($x = 1.16\text{ mm}$) is small compared with the thickness of the part, allowing rigorous application of the semi-infinite solid solution of Fick's Second Law [Session 5 Slide 20].
-2. **Instantaneous Surface Saturation:** The carbon concentration at the surface is assumed to reach instantaneously the solubility limit in equilibrium with the carburising atmosphere and to remain fixed throughout the cycle: $C_s = 1.31\text{ wt}\%$ for all $t > 0$ [Slides 20, 30].
-3. **Interstitial Diffusion Governed by Arrhenius:** The diffusion coefficient $D$ of carbon in austenite ($\gamma\text{-Fe}$) obeys the Arrhenius law with the supplied kinetic parameters ($D_0$ and $E_D$) [Slide 26].
+1. **Non-Steady Semi-Infinite Model:** The required depth ($x = 1.16\text{ mm}$) is small compared with the thickness of the part, so the semi-infinite solid solution of Fick's second law applies [Session 5 Slide 20].
+2. **Constant surface concentration:** As the statement says, the surface reaches $C_s = 1.31\text{ wt}\%$ when carburizing starts and stays there for all $t > 0$ [Slide 20].
+3. **Arrhenius law:** The diffusivity of carbon in the steel obeys $D = D_0 e^{-E_D/RT}$ with the given $D_0$ and $E_D$ [Slide 26].
 
 ### Input Parameters:
 * Uniform initial carbon concentration in 1010 steel: $C_0 = 0.10\text{ wt}\%$
@@ -125,9 +125,8 @@ $$T = 1175.02 - 273.15 = \mathbf{901.87^\circ\text{C}} \approx \mathbf{902^\circ
 * $[T] = \frac{[E_D]}{[R] \cdot [\ln(D/D_0)]} = \frac{\text{J/mol}}{(\text{J/mol}\cdot\text{K}) \cdot 1} = \text{K} \quad \checkmark$
 
 ### Interpretation and Engineering Relevance:
-1. **Work-Shift Cycle Time Control:** In the automotive and aerospace industries, a carburising cycle of exactly **8 hours** is synchronised with a full work shift. Knowing the precise temperature ($902^\circ\text{C}$) allows the engineer to program the furnace with certainty of reaching the required case depth ($1.16\text{ mm}$ at $0.30\text{ wt}\%$) without overheating the part [Slide 30].
-2. **Stable Austenitic Structure:** At $902^\circ\text{C}$ ($1175\text{ K}$), AISI 1010 steel lies comfortably in the homogeneous austenitic field ($\gamma\text{-Fe}$), where the carbon solubility reaches up to the $1.31\text{ wt}\%$ fixed at the surface [Slides 23, 30].
-3. **Energy Optimisation:** If it were operated at a lower temperature, e.g. $850^\circ\text{C}$ ($1123.15\text{ K}$), $D$ falls by a factor $\exp\!\left[\frac{E_D}{R}\left(\frac{1}{1123.15} - \frac{1}{1175.02}\right)\right] = e^{0.6516} = 1.92$, so the required time would be multiplied by $\approx 1.9$ (almost double, not triple); conversely, at higher temperatures $D$ grows exponentially and the time decreases [Session 5 Slide 26].
+1. **Temperature for the given time:** To reach $0.30\text{ wt}\%$ at $1.16\text{ mm}$ in $8\text{ h}$ the steel has to be carburized at $902^\circ\text{C}$. Carburizing hardens the surface of gears and shafts by interstitial diffusion of carbon [Slide 30].
+2. **Sensitivity to temperature:** If it were operated at a lower temperature, e.g. $850^\circ\text{C}$ ($1123.15\text{ K}$), $D$ falls by a factor $\exp\!\left[\frac{E_D}{R}\left(\frac{1}{1123.15} - \frac{1}{1175.02}\right)\right] = e^{0.6516} = 1.92$, so the required time would be multiplied by $\approx 1.9$; at higher temperatures $D$ grows exponentially and the time decreases [Session 5 Slide 26].
 
 ---
 

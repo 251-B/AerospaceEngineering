@@ -24,10 +24,10 @@ tags:
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 ### Physical Hypotheses:
-1. **Semi-Infinite Solid:** Since the required carburising depth ($x = 0.6\text{ mm}$) is orders of magnitude smaller than the macroscopic dimensions of the gear tooth (typically $10\text{--}50\text{ mm}$), the diffusion can be modelled exactly as one-dimensional in a semi-infinite solid ($0 \le x < \infty$) [Session 5 Slide 20].
+1. **Semi-Infinite Solid:** The required carburising depth ($x = 0.6\text{ mm}$) is small compared with the size of the part, so the diffusion is modelled as one-dimensional in a semi-infinite solid ($0 \le x < \infty$) [Session 5 Slide 20].
 2. **Constant Surface Concentration:** The reactive methane and hydrogen gas atmosphere ($\text{CH}_4 - \text{H}_2$) maintains a constant carbon chemical activity at the surface of the part throughout the treatment: $C(0, t) = C_s = 1.0\text{ wt}\%$ for all $t > 0$ [Slides 20, 30].
 3. **Homogeneous Initial Composition:** The original AISI 1018 steel contains a uniform carbon mass fraction throughout its volume: $C(x, 0) = C_0 = 0.18\text{ wt}\%$.
-4. **Constant Diffusivity:** The diffusion coefficient of carbon in austenite ($\gamma\text{-Fe}$, FCC structure) is assumed invariant with local concentration in this compositional range ($0.18\text{--}1.0\text{ wt}\%$): $D \neq f(C)$ [Slide 19].
+4. **Constant Diffusivity:** The diffusion coefficient of carbon in the steel is taken as independent of concentration over the range $0.18\text{--}1.0\text{ wt}\%$, as the solution of Fick's second law requires: $D \neq f(C)$ [Slide 19].
 
 ### Input Parameters:
 * Uniform initial concentration in the steel: $C_0 = 0.18\text{ wt}\%$
@@ -117,9 +117,9 @@ $$t = \frac{6638\text{ s}}{3600\text{ s/h}} \approx \mathbf{1.844\text{ h}} \qua
 $$[t] = \frac{[x]^2}{[z]^2 \cdot [D]} = \frac{\text{m}^2}{1 \cdot (\text{m}^2/\text{s})} = \text{s} \quad \checkmark$$
 
 ### Physical-Metallurgical Interpretation:
-1. **Industrial Viability:** A treatment time of approximately **$1.84\text{ hours}$** at $927^\circ\text{C}$ is extraordinarily reasonable and economically viable for a surface carburising cycle in continuous industrial gear furnaces [Slide 30].
-2. **Effect of Temperature:** The chosen temperature ($927^\circ\text{C} = 1200\text{ K}$) places the steel in the pure austenitic phase ($\gamma\text{-Fe}$), where the maximum carbon solubility exceeds $1.0\text{ wt}\%$, making it possible to reach the desired $1\text{ wt}\%$ at the surface without premature precipitation of harmful massive carbides at the surface [Slide 24].
-3. **Fatigue Resistance:** Carbon diffusion to $0.6\text{ mm}$ ensures a hardened layer (*case depth*) sufficient to withstand the high Hertzian contact pressures between gear teeth and to generate compressive residual stresses that prevent fatigue cracking [Slide 30].
+1. **Treatment time:** About **$1.84\text{ hours}$** at $927^\circ\text{C}$ bring the carbon content at $0.6\text{ mm}$ from $0.18$ to $0.30\text{ wt}\%$. Carburizing is the gas process ($\text{CH}_4\text{--}\text{H}_2$) used for gears and shafts [Slides 29, 30].
+2. **Mechanism:** Carbon is small with respect to the iron atoms, so it diffuses interstitially, which is faster than vacancy diffusion [Slides 13, 24, 30].
+3. **Hardened case:** The carbon that reaches the surface layer blocks the movement of dislocations and makes plastic deformation more difficult, so the surface becomes hard for wear resistance while the core stays tough; the excess carbon at the surface also leaves residual compressive stresses [Slide 30].
 
 ---
 

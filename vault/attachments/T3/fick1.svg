@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 260" width="100%" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="Steady-state concentration profile">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="80.0" y1="210.0" x2="500.0" y2="210.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="210.0" stroke="#8a94a6" stroke-width="1.4"/>
+<text x="86.0" y="40.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Concentration C</text>
+<text x="500.0" y="230.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end">position x</text>
+<line x1="80.0" y1="60.0" x2="150.0" y2="60.0" stroke="#f59e0b" stroke-width="2.6"/>
+<line x1="150.0" y1="60.0" x2="400.0" y2="160.0" stroke="#f59e0b" stroke-width="2.6"/>
+<line x1="400.0" y1="160.0" x2="480.0" y2="160.0" stroke="#f59e0b" stroke-width="2.6"/>
+<line x1="150.0" y1="60.0" x2="150.0" y2="210.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="400.0" y1="160.0" x2="400.0" y2="210.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="150.0" y="228.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x₁</text>
+<text x="400.0" y="228.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x₂</text>
+<text x="142.0" y="52.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="end">C_ext</text>
+<text x="408.0" y="152.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">C_int</text>
+<line x1="230.0" y1="185.0" x2="330.0" y2="185.0" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M330.0,185.0 L321.7,188.5 L321.7,181.5 Z" fill="#3b82f6"/>
+<text x="280.0" y="175.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">flux J</text>
+<text x="300.0" y="70.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">constant slope ΔC/Δx</text>
+</g></svg>

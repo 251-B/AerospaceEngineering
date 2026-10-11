@@ -28,8 +28,8 @@ tags:
 1. **Quasi-Steady-State Regime:** Because of the relatively large thickness of the magnesium oxide ceramic plate ($\Delta x = 0.1\text{ cm} = 1000\ \mu\text{m}$) compared with the microscopic reduction of the nickel block ($\Delta h = 1\ \mu\text{m}$), the transport of $\text{Ni}^{2+}$ cations through the ceramic takes place under **steady-state** conditions according to Fick's First Law [Session 5 Slides 16-17].
 2. **Boundary Conditions at the Interfaces:**
    * At the left interface ($\text{Ni}/\text{MgO}$ at $x = 0$): the magnesium oxide is in intimate contact with the pure metallic nickel block, so the volumetric concentration of nickel available at the interface equals the atomic density of metallic nickel: $C_1 = \rho_{\text{at, Ni}}$.
-   * At the right interface ($\text{MgO}/\text{Ta}$ at $x = \Delta x$): tantalum acts as a perfect sink, instantly consuming or reacting with the emerging nickel ions to form intermetallics or dissolve, fixing a practically zero concentration: $C_2 \approx 0$ [Slide 16].
-3. **Crystal Structure of Nickel:** At $1400^\circ\text{C}$, metallic nickel crystallises in a Face-Centred Cubic (FCC) lattice, with $n = 4$ atoms per unit cell and lattice parameter $a = 3.6 \times 10^{-8}\text{ cm}$ [Session 3 Slides 24, 27; Session 5 Slide 23].
+   * At the right interface ($\text{MgO}/\text{Ta}$ at $x = \Delta x$): the nickel that crosses the plate is taken as removed at once, so the concentration there is practically zero: $C_2 \approx 0$ (assumption of the model) [Slide 16].
+3. **Crystal Structure of Nickel:** The statement gives nickel as FCC at $1400^\circ\text{C}$, with $n = 4$ atoms per unit cell and lattice parameter $a = 3.6 \times 10^{-8}\text{ cm}$.
 
 ### Input Parameters:
 * Thickness of the $\text{MgO}$ plate: $\Delta x = 0.1\text{ cm} = 1.0 \times 10^{-3}\text{ m}$
@@ -112,8 +112,8 @@ $$t = \frac{1.1111 \times 10^6\text{ s}}{3600\text{ s/h}} \approx \mathbf{308.64
 $$[t] = \frac{[\Delta x] \cdot [\Delta h]}{[D]} = \frac{\text{cm} \cdot \text{cm}}{\text{cm}^2/\text{s}} = \text{s} \quad \checkmark$$
 
 ### Physical-Ceramic Interpretation:
-1. **Ceramic Diffusion Barrier:** Refractory ceramic oxides such as $\text{MgO}$ (rock-salt $\text{NaCl}$-type crystal structure) have very high lattice energies and strong $\text{Mg}^{2+}\text{--}\text{O}^{2-}$ ionic bonds. For this reason, even though the system is subjected to an extreme temperature of $1400^\circ\text{C}$ (close to the melting of nickel, $T_m = 1452^\circ\text{C}$), the diffusion coefficient of nickel is extremely low ($9 \times 10^{-12}\text{ cm}^2/\text{s}$).
-2. **Time Durability:** **$309\text{ hours}$** (almost 13 continuous days) are required to wear away barely one surface micron ($1\ \mu\text{m}$) of nickel. This shows how slow ionic transport is in a dense oxide: diffusion is slower for charged species and in materials with high $T_m$ [Session 5 Slide 27], so the MgO plate acts as an effective diffusion barrier between the two metal blocks.
+1. **Slow diffusion in the oxide:** Even at $1400^\circ\text{C}$ the diffusivity of nickel in $\text{MgO}$ is only $9 \times 10^{-12}\text{ cm}^2/\text{s}$. Diffusion is slower for charged species, in compact structures and in materials with high $T_m$ [Session 5 Slide 27].
+2. **Time:** **$309\text{ hours}$** (almost 13 days) are needed to remove one micron of nickel, so the $\text{MgO}$ plate lets very little nickel through. At fixed concentrations the flux falls as $1/\Delta x$, so a thicker plate would take proportionally longer [Slide 16].
 
 ---
 

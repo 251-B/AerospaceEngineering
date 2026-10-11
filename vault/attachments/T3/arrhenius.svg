@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 260" width="100%" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="Arrhenius plot of the diffusivity">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="80.0" y1="220.0" x2="500.0" y2="220.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M500.0,220.0 L491.7,223.5 L491.7,216.5 Z" fill="#8a94a6"/>
+<line x1="80.0" y1="220.0" x2="80.0" y2="30.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M80.0,30.0 L83.5,38.3 L76.5,38.3 Z" fill="#8a94a6"/>
+<text x="500.0" y="240.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="end">1/T</text>
+<text x="90.0" y="40.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">ln D</text>
+<line x1="110.0" y1="60.0" x2="440.0" y2="200.0" stroke="#f59e0b" stroke-width="2.8"/>
+<line x1="250.0" y1="119.4" x2="330.0" y2="119.4" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="3,3"/>
+<line x1="330.0" y1="119.4" x2="330.0" y2="153.3" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="3,3"/>
+<text x="338.0" y="142.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">slope = −E_D/R</text>
+</g></svg>

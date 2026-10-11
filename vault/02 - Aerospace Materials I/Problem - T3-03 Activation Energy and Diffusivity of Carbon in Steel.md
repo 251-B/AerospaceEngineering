@@ -32,7 +32,7 @@ tags:
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 ### Physical Hypotheses:
-1. **Monotonic Arrhenius Behaviour:** The dependence of the diffusivity of carbon in the austenitic lattice of mild steel ($\gamma\text{-Fe}$, FCC) strictly follows the Arrhenius law in the thermal interval $850^\circ\text{C}\text{--}1000^\circ\text{C}$ with no allotropic phase changes occurring in that range (assumption: the steel is fully austenitic over the whole interval, i.e. above its $A_3$ temperature; the slides do not give $A_3$, which depends on the carbon content) [Session 5 Slides 23-26].
+1. **Arrhenius behaviour:** The diffusivity of carbon in mild steel follows a single Arrhenius law over the whole interval $850\text{--}1000^\circ\text{C}$ (assumption, as the statement asks in part b) [Session 5 Slide 26].
 2. **Invariance of $E_D$ and $D_0$:** The activation energy $E_D$ and the pre-exponential factor $D_0$ remain constant over the thermal range considered.
 
 ### Input Parameters:
@@ -114,8 +114,8 @@ $$D_3 = D_2 \cdot \exp\left[\frac{E_D}{R}\left(\frac{1}{T_2} - \frac{1}{T_3}\rig
    * $[D_3] = [D_2] \cdot [e^{\text{adimensional}}] = \text{m}^2/\text{s} \quad \checkmark$
 2. **Thermal Sensitivity in Steels:** An increase of only $50^\circ\text{C}$ (from $950^\circ\text{C}$ to $1000^\circ\text{C}$) raises the diffusivity by a factor of:
    $$\frac{D_{1000^\circ\text{C}}}{D_{950^\circ\text{C}}} = \frac{3.23 \times 10^{-11}}{1.805 \times 10^{-11}} \approx 1.79 \quad (+79\%)$$
-   This explains why industrial carburising treatments seek the maximum admissible austenitising temperature, since it drastically shortens furnace times and reduces energy costs, provided that excessive grain growth is not promoted [Slides 25, 30].
-3. **Magnitude of the Activation Energy:** The value $E_D \approx 36\text{ kcal/mol} \approx 150.7\text{ kJ/mol}$ is characteristic of an **interstitial** mechanism (where the carbon atom migrates between octahedral holes of the FCC lattice without needing to create vacancies). For substitutional self-diffusion of iron in the same FCC lattice, the required activation energy is higher (e.g. $\alpha\text{-Fe}$: $E_a = 240\text{ kJ/mol} = 57.5\text{ kcal/mol}$) [Slide 9].
+   $D$ depends exponentially on temperature, so a small rise in $T$ shortens the diffusion time considerably [Slides 26, 27].
+3. **Magnitude of the activation energy:** $E_D \approx 36\text{ kcal/mol} \approx 150.7\text{ kJ/mol}$ is lower than the activation energy for self-diffusion of iron ($\alpha\text{-Fe}$: $240\text{ kJ/mol} = 57.5\text{ kcal/mol}$). This agrees with carbon diffusing interstitially, which needs less energy than vacancy diffusion [Slides 9, 13].
 
 ---
 

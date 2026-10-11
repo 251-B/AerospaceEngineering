@@ -9,8 +9,9 @@ Each page configured in tools/topic_pages.json is generated from one vault note:
     - figure embeds ![[attachments/<folder>/<name>.svg]] are inlined from the topic's figure module
       in tools/figures/ (which also writes the vault copy of each SVG);
     - an optional "questions" list renders problem notes (statement, answer, interpretation) as cards
-      in the section whose title starts with "Questions".
-The page keeps its own <head>, site header and footer (or those of "template" for a new page), and
+      in the section whose title starts with "Questions";
+    - an optional "problems" {href, label} adds a closing link to the topic's problems page.
+The page keeps its own <head>, site header and footer (or those of "template", when given), and
 the PDF deep links of tools/source_links.py are applied before writing, so the output is the final page.
 
 Usage:
@@ -198,7 +199,7 @@ def build_page(page_rel, spec, cfg_links, anchors):
     vault = REPO / spec["note"]
     md = strip_frontmatter(vault.read_text(encoding="utf-8"))
     figure = FigureSet(spec.get("figures"))
-    shell_src = REPO / spec.get("template", page_rel) if not (REPO / page_rel).exists() else REPO / page_rel
+    shell_src = REPO / spec.get("template", page_rel)
     shell = sl.strip_links(shell_src.read_text(encoding="utf-8"))
     head = shell[:shell.index('<main class="article-container">')]
     tail = shell[shell.index("  </main>"):]
@@ -239,6 +240,11 @@ def build_page(page_rel, spec, cfg_links, anchors):
 {blocks(intro_rest, figure)}
     </section>
 '''
+    if "problems" in spec:
+        pr = spec["problems"]
+        parts.append(f'''    <section id="problems-link">
+      <div class="callout"><p><a href="{html.escape(pr["href"])}">{html.escape(pr["label"], quote=False)} →</a></p></div>
+    </section>''')
     page = head + header + "\n".join(parts) + "\n\n" + tail
     if page_rel in cfg_links["pages"]:
         page = sl.build_page(page_rel, page, cfg_links, anchors, {})

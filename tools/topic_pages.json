@@ -24,6 +24,20 @@
    "title": "Structure of Materials and Crystalline Defects",
    "subtitle": "Crystal lattices, the BCC, FCC and HCP structures, how to name positions, directions and planes, atomic densities, and the defects of real crystals.",
    "source": "Universidad Carlos III de Madrid · Session 3 T2 Structure of Materials I_2025.pdf and Session 4 T2 Structure of Materials II_2025.pdf"
+  },
+  "subjects/aerospace-materials-1/teoria/topic-3-diffusion.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 3 - Diffusion in Solids and Mass Transport.md",
+   "figures": "materials_t3",
+   "template": "subjects/aerospace-materials-1/teoria/topic-2-structure.html",
+   "html_title": "Topic 3: Diffusion in Solids and Mass Transport — Aerospace Materials I",
+   "category": "Topic 03 · Diffusion in Solids",
+   "title": "Diffusion in Solids and Mass Transport",
+   "subtitle": "How atoms move through a solid, the vacancy and interstitial mechanisms, Fick's first and second laws, the factors that control the diffusivity, and the industrial uses of diffusion.",
+   "source": "Universidad Carlos III de Madrid · Session 5 T3  Difussion_2025.pdf",
+   "problems": {
+    "href": "../problemas/topic-3-diffusion.html",
+    "label": "6 solved problems for this topic"
+   }
   }
  }
 }

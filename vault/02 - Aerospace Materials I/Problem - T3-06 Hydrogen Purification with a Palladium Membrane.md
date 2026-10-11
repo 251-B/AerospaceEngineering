@@ -99,8 +99,8 @@ $$[\Delta x] = \frac{[D] \cdot [\Delta C]}{[J]} = \frac{(\text{m}^2/\text{s}) \c
 
 ### Physical-Aerospace Interpretation:
 1. **Thickness-flux relation:** At fixed concentrations $J \propto 1/\Delta x$ [Slide 16], so **$5\text{ mm}$** is the thickness at which steady-state permeation equals the required purified flow [Slide 35].
-2. **Interstitial Kinetics of Hydrogen:** The diffusivity of hydrogen in palladium ($D = 10^{-8}\text{ m}^2/\text{s}$) is exceptionally high compared with other metallic solutes (typically $10^{-12}\text{--}10^{-16}\text{ m}^2/\text{s}$), because the hydrogen atom is the smallest chemical element in the universe and slips through the octahedral and tetrahedral holes of the FCC lattice of $\text{Pd}$ with an extremely low activation energy [Slides 13, 23].
-3. **Application:** Slide 35 presents this calculation as the example of $\text{H}_2$ purification through a $\text{Pd}$ layer; no further application is claimed here.
+2. **Fast hydrogen diffusion:** The diffusivity of hydrogen in palladium ($D = 10^{-8}\text{ m}^2/\text{s}$) is much higher than the values of the diffusivity table at $500^\circ\text{C}$ (from $10^{-11}$ down to $10^{-24}\text{ m}^2/\text{s}$). Hydrogen is small with respect to the matrix atoms, so it diffuses interstitially, which needs less energy and is faster [Slides 13, 23].
+3. **Application:** This calculation is the example of $\text{H}_2$ purification through a $\text{Pd}$ layer [Slide 35].
 
 ---
 

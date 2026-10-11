@@ -499,6 +499,7 @@
     }
 
     .table-container {
+      position: relative;
       overflow-x: auto;
     }
 
@@ -680,7 +681,7 @@
           <div class="phase-step phase-1">
             <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
             <ul>
-              <li><strong>Semi-Infinite Medium:</strong> The penetration depth $x = 0.6\text{ mm}$ is much smaller than the tooth thickness ($10\text{--}50\text{ mm}$), allowing one-dimensional semi-infinite modeling [Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 20">20</a>].</li>
+              <li><strong>Semi-Infinite Medium:</strong> The penetration depth $x = 0.6\text{ mm}$ is small compared with the size of the part, allowing one-dimensional semi-infinite modeling [Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 20">20</a>].</li>
               <li><strong>Constant Surface Concentration:</strong> The carburizing atmosphere maintains $C(0, t) = C_s = 1.0\text{ wt}\%$ for $t > 0$.</li>
               <li><strong>Homogeneous Initial State:</strong> The AISI 1018 steel core has initial carbon concentration $C(x, 0) = C_0 = 0.18\text{ wt}\%$.</li>
               <li><strong>Parameters:</strong> $C_0 = 0.18\text{ wt}\%$, $C_s = 1.00\text{ wt}\%$, $C_x = 0.30\text{ wt}\%$, $x = 0.6\text{ mm} = 6.0 \times 10^{-4}\text{ m}$, $D = 1.28 \times 10^{-11}\text{ m}^2/\text{s}$ at $T = 927^\circ\text{C}$.</li>
@@ -706,7 +707,7 @@
             <p><strong>1. Concentration Ratio:</strong></p>
             $$\frac{C_s - C_x}{C_s - C_0} = \frac{1.00 - 0.30}{1.00 - 0.18} = \frac{0.70}{0.82} \approx 0.8536585 \implies \text{erf}(z) = 0.8536585$$
 
-            <p><strong>2. Linear Interpolation in Error Function Table [Slide 21]:</strong></p>
+            <p><strong>2. Linear Interpolation in Error Function Table [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=21" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 21">21</a>]:</strong></p>
             <ul>
               <li>For $z_1 = 1.00 \implies \text{erf}(z_1) = 0.8427$</li>
               <li>For $z_2 = 1.10 \implies \text{erf}(z_2) = 0.8802$</li>
@@ -726,7 +727,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[t] = \frac{\text{m}^2}{\text{m}^2/\text{s}} = \text{s}$.  
-              <strong>Physical Insight:</strong> A treatment time of $1.84\text{ hours}$ at $927^\circ\text{C}$ in austenite ($\gamma\text{-Fe}$ FCC) is optimal for industrial gear processing. Carbon interstitials dissolve readily without forming brittle surface carbides, imparting a hardened martensitic case upon quenching while preserving a tough inner core resistant to gear tooth bending shock loads [Slide 30].
+              <strong>Physical Insight:</strong> About $1.84\text{ hours}$ at $927^\circ\text{C}$ bring the carbon content at $0.6\text{ mm}$ to $0.30\text{ wt}\%$. Carbon is small, so it diffuses interstitially [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 13">13</a>]; in the surface layer it blocks the movement of dislocations and hardens the steel for wear resistance, while the core stays tough, and the excess carbon leaves residual compressive stresses [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=30" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 30">30</a>].
             </p>
           </div>
         </div>
@@ -761,8 +762,8 @@
           <div class="phase-step phase-1">
             <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
             <ul>
-              <li><strong>Lattice Diffusion in Monocrystal:</strong> In defect-free single crystal silicon, short-circuit paths (grain boundaries) are absent; diffusion is entirely lattice-controlled [Slide 25].</li>
-              <li><strong>Arrhenius Behavior:</strong> The temperature dependence of $D$ obeys Arrhenius kinetics with constant $D_0$ and $E_D$ [Slide 26].</li>
+              <li><strong>Volume Diffusion in a Single Crystal:</strong> A single crystal has no grain boundaries, so diffusion takes place through the volume, the slowest path ($D_{surface} > D_{grain\ boundary} > D_{volume}$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 25">25</a>].</li>
+              <li><strong>Arrhenius Behavior:</strong> The temperature dependence of $D$ obeys Arrhenius kinetics with constant $D_0$ and $E_D$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 26">26</a>].</li>
               <li><strong>Parameters:</strong> $D = 10^{-14}\text{ m}^2/\text{s}$, $D_0 = 1.55 \times 10^{-4}\text{ m}^2/\text{s}$, $E_D = 73\,000\text{ cal/mol}$, $R = 1.987\text{ cal/mol}\cdot\text{K}$.</li>
             </ul>
           </div>
@@ -801,7 +802,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[T] = \frac{\text{cal/mol}}{(\text{cal/mol}\cdot\text{K})} = \text{K}$.  
-              <strong>Physical Insight:</strong> Silicon melts at $T_m = 1414^\circ\text{C}$ ($1687\text{ K}$). The required processing temperature ($1293^\circ\text{C}$) corresponds to a homologous temperature $T / T_m \approx 0.93$. This ultra-high temperature is standard in semiconductor fabrication furnaces to drive trivalent acceptor dopants ($\text{Al}$) into deep $p\text{-}n$ junctions [Slide 29: diffusion of impurities in Si wafers].
+              <strong>Physical Insight:</strong> A diffusivity of $10^{-14}\text{ m}^2/\text{s}$ needs $1293^\circ\text{C}$: $D$ depends exponentially on $T$, and the high activation energy ($73\text{ kcal/mol} \approx 305\text{ kJ/mol}$) means the atoms need a lot of thermal energy to jump [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 4">4</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 26">26</a>]. Diffusion of impurities in Si wafers is the process used to fabricate integrated circuits [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 29">29</a>].
             </p>
           </div>
         </div>
@@ -842,7 +843,7 @@
           <div class="phase-step phase-1">
             <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
             <ul>
-              <li><strong>Single Austenitic Regime (assumption):</strong> The problem uses one Arrhenius law and one $E_D$ for $\text{C}$ in mild steel from $850^\circ\text{C}$ to $1000^\circ\text{C}$. This presumes the steel is fully austenitic ($\gamma\text{-Fe}$, FCC) over the whole interval, i.e. above its $A_3$ temperature; the slides do not give $A_3$ (it depends on the carbon content), so this is an assumption, not a result [Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 24">24</a>].</li>
+              <li><strong>Single Arrhenius Law (assumption):</strong> The problem uses one Arrhenius law with constant $D_0$ and $E_D$ for $\text{C}$ in mild steel from $850^\circ\text{C}$ to $1000^\circ\text{C}$, as part b) states [Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 26">26</a>].</li>
               <li><strong>Parameters:</strong>  
                 $T_1 = 850^\circ\text{C} = 1123.15\text{ K}$, $D_1 = 4.826 \times 10^{-12}\text{ m}^2/\text{s}$  
                 $T_2 = 950^\circ\text{C} = 1223.15\text{ K}$, $D_2 = 1.805 \times 10^{-11}\text{ m}^2/\text{s}$  
@@ -884,7 +885,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Consistency with Official Data:</strong> The official reference table [Session 5 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 23">23</a>] lists $D(\text{C in Fe-FCC}) \approx 3 \times 10^{-11}\text{ m}^2/\text{s}$ at $1000^\circ\text{C}$, matching our derived $3.23 \times 10^{-11}\text{ m}^2/\text{s}$; both are of the same order, the slide value being a one-significant-figure figure ($\approx 8\%$ lower).  
-              <strong>Mechanism Check:</strong> $E_D \approx 36\text{ kcal/mol}$ is characteristic of interstitial diffusion of carbon in FCC iron. In contrast, vacancy-assisted self-diffusion in a metal needs a larger activation energy, e.g. $57.5\text{ kcal/mol}$ ($240\text{ kJ/mol}$) for $\alpha\text{-Fe}$ [Slide 9].
+              <strong>Mechanism Check:</strong> $E_D \approx 36\text{ kcal/mol}$ is lower than the activation energy for self-diffusion of iron ($57.5\text{ kcal/mol} = 240\text{ kJ/mol}$ for $\alpha\text{-Fe}$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 9">9</a>]. This agrees with carbon diffusing interstitially, which needs less energy than vacancy diffusion [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 13">13</a>].
             </p>
           </div>
         </div>
@@ -919,8 +920,8 @@
           <div class="phase-step phase-1">
             <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
             <ul>
-              <li><strong>Quasi-Steady State:</strong> Because the plate thickness ($\Delta x = 0.1\text{ cm} = 1000\ \mu\text{m}$) is much larger than the layer consumed ($\Delta h = 1\ \mu\text{m}$), flux through $\text{MgO}$ is in steady state [Slide 16].</li>
-              <li><strong>Interfacial Boundary Conditions:</strong> At the $\text{Ni}/\text{MgO}$ interface, the concentration equals the atomic density of nickel metal: $C_1 = \rho_{\text{at, Ni}} = 4/a^3$. At the $\text{MgO}/\text{Ta}$ interface, tantalum rapidly reacts/draws nickel: $C_2 \approx 0$.</li>
+              <li><strong>Quasi-Steady State:</strong> Because the plate thickness ($\Delta x = 0.1\text{ cm} = 1000\ \mu\text{m}$) is much larger than the layer consumed ($\Delta h = 1\ \mu\text{m}$), flux through $\text{MgO}$ is in steady state [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>].</li>
+              <li><strong>Interfacial Boundary Conditions:</strong> At the $\text{Ni}/\text{MgO}$ interface, the concentration equals the atomic density of nickel metal: $C_1 = \rho_{\text{at, Ni}} = 4/a^3$ (FCC, as the statement gives). At the $\text{MgO}/\text{Ta}$ interface, the nickel that arrives is taken as removed at once: $C_2 \approx 0$ (assumption of the model).</li>
               <li><strong>Parameters:</strong> $\Delta x = 0.1\text{ cm}$, $D = 9 \times 10^{-12}\text{ cm}^2/\text{s}$, $a = 3.6 \times 10^{-8}\text{ cm}$, $\Delta h = 1\ \mu\text{m} = 10^{-4}\text{ cm}$.</li>
             </ul>
           </div>
@@ -964,7 +965,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[t] = \frac{\text{cm} \cdot \text{cm}}{\text{cm}^2/\text{s}} = \text{s}$.  
-              <strong>Physical Insight:</strong> Requiring nearly 13 days ($309\text{ hours}$) at $1400^\circ\text{C}$ to consume merely $1\ \mu\text{m}$ of nickel shows how slow ionic transport is in the dense $\text{MgO}$ plate: diffusion is slower for charged species and in materials with high $T_m$ [Slide 27], so the plate acts as an effective diffusion barrier between the two metal blocks.
+              <strong>Physical Insight:</strong> Nearly 13 days ($309\text{ hours}$) at $1400^\circ\text{C}$ are needed to remove $1\ \mu\text{m}$ of nickel: diffusion is slower for charged species, in compact structures and in materials with high $T_m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=27" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 27">27</a>]. At fixed concentrations the flux falls as $1/\Delta x$, so a thicker plate would take proportionally longer [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>].
             </p>
           </div>
         </div>
@@ -1016,7 +1017,7 @@
             <span class="phase-badge">Phase 2 · Formulation &amp; Pedagogical Strategy</span>
             <p>
               1. Evaluate the concentration ratio $\text{erf}(z) = \frac{C_s - C_x}{C_s - C_0}$.<br>
-              2. Determine $z$ via linear interpolation in the official table [Slide 21].<br>
+              2. Determine $z$ via linear interpolation in the official table [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=21" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 21">21</a>].<br>
               3. Calculate the required diffusivity: $D = \frac{x^2}{4 \cdot z^2 \cdot t}$.<br>
               4. Invert the Arrhenius equation to calculate the processing temperature $T$:
             </p>
@@ -1029,7 +1030,7 @@
             <p><strong>1. Error Function Value:</strong></p>
             $$\text{erf}(z) = \frac{1.31 - 0.30}{1.31 - 0.10} = \frac{1.01}{1.21} \approx 0.83471074$$
 
-            <p><strong>2. Linear Interpolation in Error Function Table [Slide 21]:</strong></p>
+            <p><strong>2. Linear Interpolation in Error Function Table [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=21" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 21">21</a>]:</strong></p>
             <ul>
               <li>For $z_1 = 0.95 \implies \text{erf}(z_1) = 0.8209$</li>
               <li>For $z_2 = 1.00 \implies \text{erf}(z_2) = 0.8427$</li>
@@ -1052,7 +1053,7 @@
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
-              <strong>Engineering Sizing:</strong> In manufacturing workshops, an 8-hour furnace cycle corresponds to an exact 8-hour single shift. Knowing the exact temperature required ($902^\circ\text{C}$) ensures precise case depth ($1.16\text{ mm}$) without empirical trial-and-error, maximizing factory furnace throughput [Slide 30].
+              <strong>Sensitivity to Temperature:</strong> To reach $0.30\text{ wt}\%$ at $1.16\text{ mm}$ in $8\text{ h}$ the steel must be carburized at $902^\circ\text{C}$. Because $D$ grows exponentially with $T$, a lower temperature would need a much longer time and a higher one a shorter time [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 26">26</a>].
             </p>
           </div>
         </div>
@@ -1104,7 +1105,7 @@
             </p>
             $$J = \frac{\dot{m}}{A} \quad \left[\frac{\text{kg}}{\text{m}^2\cdot\text{s}}\right]$$
             <p>
-              2. Apply Fick's First Law across the flat membrane [Slide 16, 35]:
+              2. Apply Fick's First Law across the flat membrane [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a>]:
             </p>
             $$J = D \frac{\Delta C}{\Delta x} \implies \Delta x = \frac{D \cdot (C_1 - C_2)}{J}$$
           </div>
@@ -1115,7 +1116,7 @@
             <p><strong>1. Flux Density ($J$):</strong></p>
             $$\frac{\dot{m}}{A} = \frac{1.73 \times 10^{-3}\text{ kg/h}}{0.2\text{ m}^2} = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h}$$
             $$J = \frac{8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h}}{3600\text{ s/h}} \approx \mathbf{2.4028 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}}$$
-            <p><em>The worked solution stored in the text layer of Official Slide 35 gives $J = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h} = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$ and $\Delta x = 5\text{ mm}$ (the answer box on the rendered slide appears empty).</em></p>
+            <p><em>The worked solution stored in the text layer of Official Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a> gives $J = 8.65 \times 10^{-3}\text{ kg/m}^2\cdot\text{h} = 2.4 \times 10^{-6}\text{ kg/m}^2\cdot\text{s}$ and $\Delta x = 5\text{ mm}$ (the answer box on the rendered slide appears empty).</em></p>
 
             <p><strong>2. Concentration Difference:</strong></p>
             $$\Delta C = C_1 - C_2 = 1.5\text{ kg/m}^3 - 0.3\text{ kg/m}^3 = 1.2\text{ kg/m}^3$$
@@ -1129,7 +1130,7 @@
             <span class="phase-badge">Phase 4 · Physical &amp; Engineering Verification</span>
             <p>
               <strong>Dimensional Check:</strong> $[\Delta x] = \frac{(\text{m}^2/\text{s}) \cdot (\text{kg/m}^3)}{\text{kg}/(\text{m}^2\cdot\text{s})} = \text{m}$.  
-              <strong>Physical Insight:</strong> At fixed concentrations the flux scales as $J \propto 1/\Delta x$ [Slide 16], so $5\text{ mm}$ is the thickness at which steady-state permeation equals the required purified flow. Hydrogen is one of the small atoms that diffuse interstitially [Slide 13], consistent with the high diffusivity given ($10^{-8}\text{ m}^2/\text{s}$) [Slide 35: $\text{H}_2$ purification through $\text{Pd}$].
+              <strong>Physical Insight:</strong> At fixed concentrations the flux scales as $J \propto 1/\Delta x$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 16">16</a>], so $5\text{ mm}$ is the thickness at which steady-state permeation equals the required purified flow. Hydrogen is small with respect to the matrix, so it diffuses interstitially, which is faster [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 13">13</a>]; its diffusivity ($10^{-8}\text{ m}^2/\text{s}$) is far above the values of the diffusivity table [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 23">23</a>]. This is the example of $\text{H}_2$ purification through a $\text{Pd}$ layer [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-03-diffusion-in-solids/teoria/Session%205%20T3%20%20Difussion_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 5 T3 Diffusion.pdf at page 35">35</a>].
             </p>
           </div>
         </div>
