@@ -1,84 +1,45 @@
 ---
 materia: "Aerospace Materials I"
-tema: "Tema 1: Bonding in Solids"
-origen: "Session 2 T1 Bonding_2025.pdf, Slide 39, Question 1"
-dificultad: media
+tema: "Topic 1: Bonding in Solids"
+fuentes: "Session 2 T1 Bonding_2025.pdf, Slide 39, Question 1"
+dificultad: medium
 tags:
-  - problema-examen
-  - resuelto
+  - exam-problem
+  - solved
   - metallic-bonding
   - covalent-bonding
-  - ductility
 ---
 
-# ✏️ Problema: Cuestión 1 Examen T1 — Enlace Metálico vs Covalente
+# ✏️ Problem: T1 Question 1, Metallic vs Covalent Bonding
 
-## 📄 Enunciado Oficial [Slide 39]
-> **Compare and contrast metallic and covalent primary bonds in terms of:**  
-> **a)** the nature of the bond,  
-> **b)** the valence of the atoms involved, and  
-> **c)** the ductility of the materials bonded in these ways.
+## 📄 Statement [Slide 39]
+> Compare and contrast metallic and covalent primary bonds in terms of (a) the nature of the bond, (b) the valence of the atoms involved, and (c) the ductility of the materials bonded in these ways.
 
----
-
-## 📊 1. Fase 1: Planteamiento Físico, Hipótesis y Clasificación
-
-### Contexto Académico:
-Both metallic and covalent bonds belong to the category of **primary chemical bonds** characterized by substantial cohesive energies ($100\text{--}1200\text{ kJ/mol}$). However, their electronic configurations and spatial charge densities represent two fundamentally distinct quantum states of matter.
-
-### Hipótesis de Partida:
-1. Pure metallic bonding is modeled via the **Drude-Sommerfeld electron sea / band theory** framework (delocalized electrons in an isotropic potential).
-2. Pure covalent bonding is modeled via **localized valence bond / molecular orbital theory** with hybrid orbital directional overlap.
-3. Mechanical ductility is evaluated in terms of room-temperature crystalline slip, dislocation mobility, and resistance to cleavage fracture.
+Only the content of the slides is used. Theory: [[Topic 1 - Bonding in Solids and Material Properties]].
 
 ---
 
-## 🧠 2. Fase 2: Formulación Fundamental y Marcos Teóricos
+## 1. Setup
+- Both are **primary (strong) bonds**: covalent 125-300 kcal/mol, metallic 25-200 kcal/mol [Slide 29].
+- The question asks for three comparisons; each is answered from the slide that defines it.
 
-### Justificación Teórica Previa:
-Before contrasting the properties, we identify the governing equations and physical models from the lecture syllabus:
-* **Bond Directionality & Wavefunction Overlap:** In covalent bonds, molecular orbital wavefunctions $\psi_{\text{bond}} = c_A \phi_A + c_B \phi_B$ maximize electron density along specific angular vectors (e.g., $sp^3$ tetrahedral angle $\theta = 109.5^\circ$ [Slide 18]). In metallic bonds, the conduction electron wavefunctions are Bloch plane waves $\psi_{\vec{k}}(\vec{r}) = u_{\vec{k}}(\vec{r}) e^{i \vec{k}\cdot\vec{r}}$ that permeate the entire lattice homogeneously [Slide 26].
-* **Dislocation Glide Criterion:** Ductility requires that adjacent atomic planes slide past one another under a resolved shear stress $\tau$ without encountering catastrophic Coulombic repulsion or breaking localized directional bonds simultaneously.
-
----
-
-## 🔢 3. Fase 3: Deducción y Desarrollo Comparativo Paso a Paso
-
-### Sub-apartado a) Nature of the Bond [Slides 17, 23]
-* **Metallic Bond:**
-  * **Mechanism:** Metal atoms have low electronegativities and willingly shed their outer valence electrons into a crystal-wide delocalized **electron sea**. The cohesive force is the isotropic electrostatic attraction between the positively charged atomic ion cores (cations) and the pervasive, negatively charged conduction electron cloud.
-  * **Directionality:** **Non-directional**. There is no preferential angular orientation; the electron cloud uniformly blankets all cations.
-* **Covalent Bond:**
-  * **Mechanism:** Forms between elements with relatively high, comparable electronegativities. Rather than electron shedding, valence electrons are **shared pairwise** in localized bonding orbitals directly between adjacent atomic nuclei to achieve stable noble-gas closed shells ($s^2 p^6$).
-  * **Directionality:** **Highly directional**. The electron density is strictly concentrated along specific interatomic bond axes dictated by orbital hybridization ($sp, sp^2, sp^3$).
-
-### Sub-apartado b) Valence of the Atoms Involved [Slides 17, 24]
-* **Metallic Bond:**
-  * Involves electropositive elements with **few valence electrons** (typically $1, 2$, or $3$ outer $s$ and $p$ electrons, e.g., $\text{Na } (3s^1)$, $\text{Mg } (3s^2)$, $\text{Al } (3s^2 3p^1)$, or transition metals with partially filled inner $d$-orbitals like $\text{Ti } (3d^2 4s^2)$).
-  * Because the number of valence electrons is far smaller than the coordination number ($CN = 8$ or $12$), the atoms cannot form localized pair bonds with all neighbors, compelling the electrons to delocalize into the conduction band.
-* **Covalent Bond:**
-  * Involves electronegative non-metals and metalloids typically possessing **higher valences** ($4, 5, 6$, or $7$ valence electrons, e.g., Carbon and Silicon with 4 valence electrons, Nitrogen with 5, Oxygen with 6).
-  * The number of covalent bonds each atom must form satisfies the $(8 - N)$ rule, where $N$ is the number of valence electrons (e.g., Silicon forms $8 - 4 = 4$ covalent bonds).
-
-### Sub-apartado c) Ductility of the Materials Bonded [Slides 19, 25]
-* **Metallic Materials:**
-  * **Behavior:** Highly **ductile and malleable** at room temperature.
-  * **Microscopic Origin:** Under shear deformation, atomic planes slide past each other via dislocation motion. Because the metallic electron sea is non-directional, homogeneous, and fluid, the electron cloud instantly readjusts to new cation positions without disrupting the cohesive bond. No like charges collide, and no rigid angular constraints are violated.
-* **Covalent Network Materials:**
-  * **Behavior:** Extremely **brittle** and lack room-temperature ductility.
-  * **Microscopic Origin:** In covalent network solids (e.g., diamond, silicon, $\text{SiC}$), plastic deformation requires the catastrophic angular distortion and simultaneous breaking of highly directional, localized covalent bonds. The Peierls-Nabarro stress (lattice friction to dislocation motion) is exceptionally high. Consequently, stress concentrates at microscopic flaws, leading to catastrophic cleavage fracture before any macroscopic plastic strain can occur.
-
----
-
-## 🎯 4. Fase 4: Interpretación Física y Cuadro Sinóptico
-
-| Criterion | Metallic Primary Bond | Covalent Primary Bond |
+## 2. What the slides say
+| | Covalent | Metallic |
 | :--- | :--- | :--- |
-| **Electronic Mechanism** | Delocalized electron sea surrounding positive ion cores | Shared electron pairs localized between adjacent nuclei |
-| **Spatial Directionality** | **Non-directional** (isotropic electrostatic field) | **Highly directional** (fixed hybrid bond angles, e.g., $109.5^\circ$) |
-| **Valence of Elements** | Low ($1, 2, 3$ valence $e^-$, or incomplete $d$-shells) | High ($4, 5, 6, 7$ valence $e^-$, satisfying $8-N$ rule) |
-| **Room-Temp Ductility** | **High** (easy dislocation glide, planes slide smoothly) | **Negligible / Brittle** (rigid bond angles resist dislocation glide) |
-| **Typical Materials** | $\text{Al}, \text{Ti}, \text{Fe}, \text{Ni}, \text{Cu}$ | $\text{Diamond}, \text{Si}, \text{SiO}_2, \text{SiC}, \text{BN}$ |
+| How electrons are used | **Shared** between two atoms [Slide 17] | Given up to an **electron sea** shared by all the atoms [Slide 23] |
+| Direction | **Highly directional**, no free electrons [Slide 17] | **Non-directional** [Slide 23] |
+| Elements | Nonmetals, small electronegativity difference [Slide 17] | Metals: cation cores + delocalized electrons [Slide 23] |
+| Valence | Outer s and p electrons shared to reach a noble-gas configuration; silicon (valence 4) must form 4 bonds [Slides 17-18] | The valence electrons join the sea; more valence electrons → higher bonding energy (K +1: 89.6 kJ/mol; Ca +2: 177 kJ/mol) [Slide 24] |
+| Mechanical behaviour | Covalent solids are hard and incompressible [Slide 19]; covalent lattices are very hard and brittle [Slide 38] | Pure metals are much more malleable [Slide 25]; metallic substances are ductile and workable [Slide 38] |
 
----
-*Back to:* [[Topic 1 - Bonding in Solids and Material Properties|⬅️ Back to Topic 1]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]
+## 3. Answer
+**(a) Nature of the bond.** A covalent bond is a pair of electrons **shared between two specific atoms**, so it points in fixed directions (e.g. 109.5° in silicon) [Slides 17-18]. A metallic bond is the attraction between positive cores and a **sea of delocalized electrons** shared by all the atoms, so it has no direction [Slide 23].
+
+**(b) Valence.** In covalent bonding the valence fixes **how many bonds** an atom must form: silicon, with valence 4, forms exactly four [Slide 18]. In metallic bonding the valence fixes **how many electrons go to the sea**: the more valence electrons, the higher the bonding energy and the melting point (K → Ca) [Slide 24].
+
+**(c) Ductility.** Covalent materials are hard and brittle [Slides 19, 38]: their bonds have fixed directions. Metals are ductile, malleable and workable [Slides 25, 38]: their bonds are non-directional because the electron sea is shared by all the atoms [Slide 23].
+
+## 4. Interpretation
+The two differences, **directional vs non-directional** and **localized vs delocalized** electrons, explain the rest: the same pair of ideas gives conduction in metals (the electron sea moves under a voltage [Slide 25]) and its absence in covalent solids (no free electrons [Slide 17], non-conductive lattices [Slide 19]).
+
+**Back to:** [[Topic 1 - Bonding in Solids and Material Properties]] · [[Aerospace Materials I MOC]]

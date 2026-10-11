@@ -7,7 +7,8 @@ Unlike audit_portal's delimiter-parity check, this runs the real KaTeX auto-rend
     python tools/render_check.py subjects/advanced-maths/problemas/topic-2-problems.html ...
     python tools/render_check.py --all            # every subjects/**/*.html plus index.html
 
-Exit code 1 if any page has KaTeX errors, leftover raw $$ delimiters or fails to render.
+Exit code 1 if any page has KaTeX errors, leftover raw $$ delimiters, inline $...$ math left
+unrendered (a parse error that auto-render swallows) or fails to render.
 """
 from __future__ import annotations
 
@@ -46,22 +47,31 @@ class RenderResult:
     display: int = 0
     errors: list[str] = field(default_factory=list)
     leftover: int = 0
+    raw_inline: list[str] = field(default_factory=list)
     dom_kb: int = 0
 
     @property
     def ok(self) -> bool:
-        return not self.errors and self.leftover == 0 and self.dom_kb > 0
+        return not self.errors and self.leftover == 0 and not self.raw_inline and self.dom_kb > 0
+
+
+# Inline math that KaTeX could not parse stays in the page as "$...\\macro...$": auto-render
+# throws on it and leaves the text, so no katex-error element appears.
+_RAW_INLINE = re.compile(r"(?<![\\$])\$(?!\$)([^$<>\n]{0,200}\\[a-zA-Z]+[^$<>\n]{0,200})(?<!\\)\$(?!\$)")
 
 
 def analyse_dom(path: str, dom: str) -> RenderResult:
     """Pure function: count KaTeX output in a serialised DOM."""
-    body = re.sub(r"<script.*?</script>", "", dom, flags=re.S)
+    body = re.sub(r"<script.*?</script>|<style.*?</style>", "", dom, flags=re.S)
+    text = re.sub(r"<annotation\b.*?</annotation>", "", body, flags=re.S)
+    text = re.sub(r"<[^>]+>", "", text)
     return RenderResult(
         path=path,
         formulas=len(re.findall(r'class="katex"', dom)),
         display=len(re.findall(r'class="katex-display"', dom)),
         errors=re.findall(r'class="katex-error"[^>]*title="([^"]{0,160})', dom),
         leftover=len(re.findall(r"\$\$", body)),
+        raw_inline=[m.group(0)[:80] for m in _RAW_INLINE.finditer(text)],
         dom_kb=len(dom) // 1024,
     )
 
@@ -106,9 +116,11 @@ def main(argv: list[str] | None = None) -> int:
     for r in check(pages, browser):
         status = "ok " if r.ok else "BAD"
         print(f"{status} {r.path}: katex={r.formulas} display={r.display} errors={len(r.errors)} "
-              f"leftover-$$={r.leftover} dom={r.dom_kb}KB")
+              f"leftover-$$={r.leftover} raw-inline={len(r.raw_inline)} dom={r.dom_kb}KB")
         for e in r.errors[:5]:
             print("    ERR:", e)
+        for e in r.raw_inline[:5]:
+            print("    RAW:", e)
         bad += not r.ok
     print(f"{len(pages) - bad}/{len(pages)} pages clean")
     return 1 if bad else 0

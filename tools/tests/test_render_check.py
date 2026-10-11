@@ -21,6 +21,16 @@ class AnalyseDomTests(unittest.TestCase):
         self.assertIn("ParseError", r.errors[0])
         self.assertFalse(r.ok)
 
+    def test_unrendered_inline_math_fails(self):
+        r = rc.analyse_dom("x", "<p>value $8.85\\ \\text{N·m}$ here</p>" + "a" * 2000)
+        self.assertEqual(len(r.raw_inline), 1)
+        self.assertFalse(r.ok)
+
+    def test_rendered_math_annotation_and_currency_are_not_flagged(self):
+        dom = ('<span class="katex"><annotation encoding="application/x-tex">$\\alpha$</annotation></span>'
+               "<p>costs $5 and $10</p>" + "a" * 2000)
+        self.assertEqual(rc.analyse_dom("x", dom).raw_inline, [])
+
     def test_leftover_display_delimiters_fail_but_scripts_are_ignored(self):
         self.assertEqual(rc.analyse_dom("x", "<p>$$ x $$</p>" + "a" * 2000).leftover, 2)
         self.assertEqual(rc.analyse_dom("x", "<script>var s='$$';</script>" + "a" * 2000).leftover, 0)

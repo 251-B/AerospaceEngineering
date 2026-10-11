@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Topic 1: Bonding in Solids & Material Properties — Aerospace Materials I</title>
+  <title>Topic 1: Bonding in Solids — Aerospace Materials I</title>
   
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -497,6 +497,10 @@
       font-size: 0.88rem;
       color: var(--text-muted);
     }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    h4.sub-heading { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 600; color: var(--text-heading); margin: 26px 0 10px; }
+    .article-container ul, .article-container ol { margin: 0 0 18px 1.4em; color: var(--text-body); }
+    .article-container li { margin-bottom: 6px; }
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
@@ -524,15 +528,12 @@
   <!-- Continuous Article Layout -->
   <main class="article-container">
 
-    <!-- Document Header -->
     <header class="article-header">
-      <div class="article-category">Topic 01 · Bonding in Solids & Material Properties</div>
-      <h1 class="article-title">Bonding in Solids & Macroscopic Material Properties</h1>
-      <p class="article-subtitle">
-        A rigorous treatise on interatomic potential wells, Born-Landé lattice energy, primary and secondary bonding regimes, and their direct manifestation in mechanical stiffness, thermal expansion, hardness, and ductility.
-      </p>
+      <div class="article-category">Topic 01 · Bonding in Solids</div>
+      <h1 class="article-title">Bonding in Solids</h1>
+      <p class="article-subtitle">Ionic, covalent, metallic and secondary bonds, and how each one shapes the properties of a material. Explained in the order of the official slides, using only what the slides contain.</p>
       <div class="source-box">
-        <span>📖 Official Ground Truth: Universidad Carlos III de Madrid · Session 2 T1 Bonding_2025.pdf (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 1">1–39</a>)</span>
+        <span>📖 Source: Universidad Carlos III de Madrid · Session 2 T1 Bonding_2025.pdf (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 1">1–39</a>)</span>
       </div>
       <nav class="src-panel" data-srclink aria-label="Official material">
         <span class="src-panel-label">Official material</span>
@@ -541,799 +542,266 @@
       </nav>
     </header>
 
-    <!-- SECTION 1 -->
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> the way atoms are bonded decides the properties of a material, the properties decide what type of material it is, and that decides how it is processed and where it is used [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 2">2</a>].</p></div>
+<p>This page follows the slides of <code>Session 2 T1 Bonding_2025.pdf</code> in their order and uses only what they contain. Every statement carries the slide it comes from. Short "Reading the slide" boxes explain a figure or join two formulas that are on the same slide; they add no new content.</p>
+<p><strong>Contents of the topic</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 1">1</a>]:</p>
+<ol><li>Introduction</li><li>Bonding in solids: ionic bonding, covalent bonding, metallic bonding, secondary bonding (intermolecular forces)</li><li>Bonding and properties in materials</li></ol>
+    </section>
     <section id="section-1">
-      <h2 class="section-heading"><span class="section-num">§ 1</span> The Materials Science & Engineering Tetrahedron [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 2">2</a>]</h2>
-      
-      <p>
-        In modern aerospace engineering, materials science operates on a fundamental governing axiom: the physical and mechanical performance of an aerospace component is dictated by its properties, which in turn are determined by its internal atomic bonding and microstructure, both created and controlled through thermomechanical processing [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 2">2</a>].
-      </p>
-
-      <div class="diagram-card">
-        <svg viewBox="0 0 700 340" width="100%" height="280" style="max-width: 620px; margin: 0 auto; display: block;">
-          <defs>
-            <linearGradient id="gradTetra" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15" />
-              <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05" />
-            </linearGradient>
-          </defs>
-          <!-- Tetrahedron Frame -->
-          <polygon points="350,30 110,270 590,270" fill="url(#gradTetra)" stroke="var(--border-strong)" stroke-width="1.5" />
-          <polygon points="350,30 350,190 110,270" fill="none" stroke="var(--border-strong)" stroke-width="1" stroke-dasharray="4,4" />
-          <polygon points="350,30 350,190 590,270" fill="none" stroke="var(--border-strong)" stroke-width="1" stroke-dasharray="4,4" />
-          <line x1="350" y1="190" x2="350" y2="270" stroke="var(--border-strong)" stroke-width="1" stroke-dasharray="4,4" />
-
-          <!-- Nodes -->
-          <!-- Top: Processing -->
-          <circle cx="350" cy="30" r="22" fill="var(--bg-surface)" stroke="#f59e0b" stroke-width="2.5" />
-          <text x="350" y="34" font-family="'JetBrains Mono', monospace" font-size="14" fill="#f59e0b" text-anchor="middle" font-weight="700">⚙️</text>
-          <text x="350" y="-2" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="var(--text-heading)" text-anchor="middle">Processing & Synthesis</text>
-
-          <!-- Left: Structure & Bonding -->
-          <circle cx="110" cy="270" r="22" fill="var(--bg-surface)" stroke="#3b82f6" stroke-width="2.5" />
-          <text x="110" y="274" font-family="'JetBrains Mono', monospace" font-size="14" fill="#3b82f6" text-anchor="middle" font-weight="700">⚛️</text>
-          <text x="110" y="306" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="var(--text-heading)" text-anchor="middle">Atomic Structure & Bonding</text>
-
-          <!-- Right: Properties -->
-          <circle cx="590" cy="270" r="22" fill="var(--bg-surface)" stroke="#10b981" stroke-width="2.5" />
-          <text x="590" y="274" font-family="'JetBrains Mono', monospace" font-size="14" fill="#10b981" text-anchor="middle" font-weight="700">📊</text>
-          <text x="590" y="306" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="var(--text-heading)" text-anchor="middle">Engineering Properties</text>
-
-          <!-- Center: Applications & Performance -->
-          <circle cx="350" cy="190" r="24" fill="var(--bg-surface)" stroke="#ec4899" stroke-width="2.5" />
-          <text x="350" y="195" font-family="'JetBrains Mono', monospace" font-size="15" fill="#ec4899" text-anchor="middle" font-weight="700">🚀</text>
-          <text x="350" y="228" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="var(--text-heading)" text-anchor="middle">Applications & Performance</text>
-        </svg>
-        <div class="diagram-caption">Figure 1.1: The Materials Science Tetrahedron. Interdependence of structure, processing, properties, and applications [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 2">2</a>].</div>
-      </div>
-
-      <p>
-        The central paradigm establishes that no material property can be analyzed in isolation. Whether designing single-crystal nickel superalloy turbine blades or carbon-fiber composite wing skins, the ultimate limit of performance is governed by interatomic binding forces and the resulting potential energy well.
-      </p>
+      <h2 class="section-heading"><span class="section-num">§ 1</span> Introduction [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 2">2</a>]</h2>
+<p>The slide links four ideas in a chain:</p>
+<div class="math-block">$$\text{Nature of bonding} \;\leftrightarrow\; \text{properties} \;\leftrightarrow\; \text{type of materials} \;\leftrightarrow\; \text{processing and applications}$$</div>
+<p>It draws them as a tetrahedron whose four corners are <strong>Structure</strong>, <strong>Properties</strong>, <strong>Processing</strong> and <strong>Applications</strong>. Each corner is connected to the other three: changing one of them changes the others.</p>
+<div class="diagram-card">
+<svg viewBox="0 0 520 300" width="100%" style="max-width:480px;margin:0 auto;display:block" role="img" aria-label="Tetrahedron linking structure, properties, processing and applications">
+<g stroke="var(--border-strong)" stroke-width="2" fill="none">
+<line x1="260" y1="40" x2="110" y2="200"/><line x1="260" y1="40" x2="400" y2="170"/><line x1="260" y1="40" x2="280" y2="250"/>
+<line x1="110" y1="200" x2="400" y2="170"/><line x1="110" y1="200" x2="280" y2="250"/><line x1="400" y1="170" x2="280" y2="250"/></g>
+<g fill="var(--accent)"><circle cx="260" cy="40" r="14"/><circle cx="110" cy="200" r="14"/><circle cx="400" cy="170" r="14"/><circle cx="280" cy="250" r="14"/></g>
+<g font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="var(--text-heading)">
+<text x="284" y="36">Applications</text><text x="94" y="204" text-anchor="end">Structure</text>
+<text x="420" y="166">Properties</text><text x="300" y="268">Processing</text></g>
+</svg>
+<div class="diagram-caption">Figure 1. The four linked corners of materials science, as drawn on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=2" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 2">2</a>.</div>
+</div>
     </section>
-
-    <!-- SECTION 2 -->
     <section id="section-2">
-      <h2 class="section-heading"><span class="section-num">§ 2</span> Interatomic Forces, Potential Energy Well & Macroscopic Properties [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 7">7–13</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 20">20–21</a>]</h2>
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Ionic bonding [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 4">4-15</a>]</h2>
 
-      <p>
-        When two isolated atoms or ions approach one another from an infinite separation, the net interaction force $F_{\text{net}}(r)$ represents a competition between long-range electrostatic or orbital attraction and short-range quantum electron-cloud repulsion [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 7">7–8</a>]:
-      </p>
+<h3 class="sub-heading">2.1 Definition and basic properties [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 4">4</a>]</h3>
+<p><strong>Ionic bonding</strong> is the complete transfer of valence electron(s) between atoms. It is a type of chemical bond that generates two oppositely charged ions.</p>
+<p>Properties listed on the slide:</p>
+<ul><li>It forms between <strong>metal and nonmetallic</strong> elements.</li><li>Electrons are transferred <strong>from the less electronegative atom to the more electronegative</strong> one.</li><li>Bonding force: <strong>electrostatic attraction</strong> between the oppositely charged ions.</li><li>It is <strong>non-directional</strong>.</li></ul>
+<p>The slide diagram: the electropositive element gives an electron to the electronegative atom; the first becomes a <strong>cation</strong> (positive charge), the second an <strong>anion</strong> (negative charge); the electrostatic attraction between them is the <strong>ionic bond</strong>. A periodic table shows how electronegativity varies.</p>
+<h3 class="sub-heading">2.2 How the bond forms: NaCl [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=5" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 5">5</a>]</h3>
+<p>An ionic bond is created between two unlike atoms with different electronegativities. When sodium gives its valence electron to chlorine, each becomes an ion (Na⁺ and Cl⁻), they attract each other, and the ionic bond is formed.</p>
+<ul><li>When a metal forms a <strong>cation</strong>, its radius is <strong>reduced</strong>.</li><li>When a nonmetal forms an <strong>anion</strong>, its radius <strong>increases</strong>.</li><li>A <strong>pure</strong> ionic bond is an ideal case: there is <strong>always some covalent participation</strong>.</li></ul>
+<h3 class="sub-heading">2.3 Fundamental principles of ionic structures [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=6" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 6">6</a>]</h3>
+<p>Ions are treated as:</p>
+<ol><li><strong>Charged spheres</strong>,</li><li><strong>Elastic spheres</strong>,</li><li><strong>Polarizable</strong> spheres: the electron cloud is distorted by the presence of other ions.</li></ol>
+<p>The slide compares electron-density maps: in a covalent bond (N₂) the electron density is shared between the two atoms; in an ionic bond (LiF) each ion keeps its own, separate cloud. A table gives the sizes of atoms and of their ions (in pm): cations are smaller than their atoms, anions are larger.</p>
+<h3 class="sub-heading">2.4 Interionic force for an ionic pair [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 7">7</a>]</h3>
+<p>How the force between two ions depends on their distance:</p>
+<ul><li><strong>Too far:</strong> they neither attract nor repel.</li><li><strong>Larger distances:</strong> Coulombic <strong>attraction</strong> dominates.</li><li><strong>Smaller distances:</strong> the electron clouds <strong>repel</strong>.</li></ul>
+<p>The net force is the sum of both:</p>
+<div class="math-block">$$F_{net} = F_{attractive} + F_{repulsive}$$</div>
+<div class="math-block">$$F_{net} = -\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a^2} - \frac{n b}{a^{n+1}}$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning (as on the slide)</th></tr></thead><tbody><tr><td>$Z_1, Z_2$</td><td>number of electrons removed or added (the charge numbers of the ions)</td></tr><tr><td>$e$</td><td>electron charge, $1.6\times10^{-19}\ \text{C}$</td></tr><tr><td>$\varepsilon_0$</td><td>permittivity of space, $8.85\times10^{-12}\ \text{C}^2/(\text{N}\cdot\text{m}^2)$</td></tr><tr><td>$b$</td><td>constant</td></tr><tr><td>$n$</td><td>Born exponent, between 5 and 9</td></tr><tr><td>$a$</td><td>interionic distance ($a_0$ at equilibrium)</td></tr></tbody></table></div>
+<div class="callout"><div class="callout-title">Reading the slide</div><p>The graph on the slide plots attraction above the axis and repulsion below it. The two ions are drawn touching: the cation radius $r$ plus the anion radius $R$ gives the distance $r + R = a$. The net force is zero at $a_0$; at slightly larger distances it reaches a <strong>maximum force</strong> (the maximum attraction the pair can resist).</p></div>
+<h3 class="sub-heading">2.5 Net potential energy for an ionic pair [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=8" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 8">8</a>]</h3>
 
-      <div class="math-block">
-        $$E_{\text{net}}(r) = -\frac{A}{r^m} + \frac{B}{r^n} \quad (n > m), \qquad F_{\text{net}}(r) = -\frac{dE_{\text{net}}}{dr} = -\frac{mA}{r^{m+1}} + \frac{nB}{r^{n+1}}$$
-        $$E_{\text{net}}(r) = -\int_\infty^r F_{\text{net}}(r')\,dr' = -\left[\frac{A}{r'^{\,m}} - \frac{B}{r'^{\,n}}\right]_{\infty}^{r} = -\frac{A}{r^m} + \frac{B}{r^n}$$
-        (the attractive term $-mA/r^{m+1} < 0$ pulls the atoms together, the repulsive term $+nB/r^{n+1} > 0$ pushes them apart; $E_{\text{net}}(\infty) = 0$ because $m, n > 0$).
-      </div>
+<p>The energy of the pair is lowest (<strong>minimum</strong>) when the ions sit at one specific distance $a_0$. This is the <strong>equilibrium distance</strong>, where attractive and repulsive energies are balanced.</p>
+<p>The slide relates force and energy by $F = \left(\dfrac{\partial E}{\partial a}\right)$ and writes the net energy as:</p>
+<div class="math-block">$$E_{net} = \underbrace{\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0}}_{\text{attraction energy (released)}} + \underbrace{\frac{b}{a_0^{\,n}}}_{\text{repulsion energy (absorbed)}}$$</div>
+<div class="diagram-card">
+<svg viewBox="0 0 540 450" width="100%" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="Energy and force between two ions versus distance">
+<g font-family="Inter, sans-serif" font-size="13" fill="var(--text-body)">
+<line x1="70" y1="70" x2="500" y2="70" stroke="var(--border-strong)"/><line x1="70" y1="24" x2="70" y2="200" stroke="var(--border-strong)"/>
+<text x="76" y="28" font-weight="700">Energy</text><text x="500" y="64" text-anchor="end">distance a</text>
+<path d="M84.0,24.9 L85.8,27.7 L87.5,30.2 L89.2,32.6 L91.0,34.8 L92.8,36.8 L94.5,38.8 L96.2,40.5 L98.0,42.2 L99.8,43.8 L101.5,45.2 L103.2,46.6 L105.0,47.9 L106.8,49.1 L108.5,50.2 L110.3,51.3 L112.0,52.2 L113.8,53.2 L115.5,54.0 L117.2,54.9 L119.0,55.6 L120.8,56.4 L122.5,57.0 L124.2,57.7 L126.0,58.3 L127.8,58.9 L129.5,59.4 L131.2,59.9 L133.0,60.4 L134.8,60.8 L136.5,61.3 L138.3,61.7 L140.0,62.1 L141.7,62.4 L143.5,62.8 L145.2,63.1 L147.0,63.4 L148.8,63.7 L150.5,64.0 L152.2,64.2 L154.0,64.5 L155.8,64.7 L157.5,65.0 L159.2,65.2 L161.0,65.4 L162.8,65.6 L164.5,65.8 L166.2,65.9 L168.0,66.1 L169.8,66.3 L171.5,66.4 L173.2,66.6 L175.0,66.7 L176.8,66.8 L178.5,67.0 L180.2,67.1 L182.0,67.2 L183.8,67.3 L185.5,67.4 L187.2,67.5 L189.0,67.6 L190.8,67.7 L192.5,67.8 L194.2,67.9 L196.0,67.9 L197.8,68.0 L199.5,68.1 L201.2,68.2 L203.0,68.2 L204.8,68.3 L206.5,68.3 L208.3,68.4 L210.0,68.5 L211.8,68.5 L213.5,68.6 L215.3,68.6 L217.0,68.7 L218.8,68.7 L220.5,68.8 L222.2,68.8 L224.0,68.8 L225.8,68.9 L227.5,68.9 L229.2,68.9 L231.0,69.0 L232.8,69.0 L234.5,69.0 L236.2,69.1 L238.0,69.1 L239.7,69.1 L241.5,69.2 L243.2,69.2 L245.0,69.2 L246.8,69.2 L248.5,69.3 L250.2,69.3 L252.0,69.3 L253.8,69.3 L255.5,69.4 L257.2,69.4 L259.0,69.4 L260.8,69.4 L262.5,69.4 L264.2,69.4 L266.0,69.5 L267.8,69.5 L269.5,69.5 L271.2,69.5 L273.0,69.5 L274.8,69.5 L276.5,69.5 L278.2,69.6 L280.0,69.6 L281.8,69.6 L283.5,69.6 L285.2,69.6 L287.0,69.6 L288.8,69.6 L290.5,69.6 L292.2,69.7 L294.0,69.7 L295.8,69.7 L297.5,69.7 L299.2,69.7 L301.0,69.7 L302.8,69.7 L304.5,69.7 L306.2,69.7 L308.0,69.7 L309.8,69.7 L311.5,69.7 L313.2,69.7 L315.0,69.8 L316.8,69.8 L318.5,69.8 L320.3,69.8 L322.0,69.8 L323.7,69.8 L325.5,69.8 L327.2,69.8 L329.0,69.8 L330.8,69.8 L332.5,69.8 L334.3,69.8 L336.0,69.8 L337.8,69.8 L339.5,69.8 L341.2,69.8 L343.0,69.8 L344.8,69.8 L346.5,69.8 L348.3,69.8 L350.0,69.9 L351.8,69.9 L353.5,69.9 L355.2,69.9 L357.0,69.9 L358.7,69.9 L360.5,69.9 L362.2,69.9 L364.0,69.9 L365.8,69.9 L367.5,69.9 L369.2,69.9 L371.0,69.9 L372.7,69.9 L374.5,69.9 L376.2,69.9 L378.0,69.9 L379.8,69.9 L381.5,69.9 L383.2,69.9 L385.0,69.9 L386.8,69.9 L388.5,69.9 L390.2,69.9 L392.0,69.9 L393.8,69.9 L395.5,69.9 L397.3,69.9 L399.0,69.9 L400.8,69.9 L402.5,69.9 L404.2,69.9 L406.0,69.9 L407.8,69.9 L409.5,69.9 L411.3,69.9 L413.0,69.9 L414.8,69.9 L416.5,69.9 L418.2,69.9 L420.0,69.9 L421.7,69.9 L423.5,69.9 L425.2,69.9 L427.0,69.9 L428.8,69.9 L430.5,69.9 L432.2,69.9 L434.0,69.9 L435.7,70.0 L437.5,70.0 L439.2,70.0 L441.0,70.0 L442.8,70.0 L444.5,70.0 L446.3,70.0 L448.0,70.0 L449.7,70.0 L451.5,70.0 L453.3,70.0 L455.0,70.0 L456.8,70.0 L458.5,70.0 L460.3,70.0 L462.0,70.0 L463.8,70.0 L465.5,70.0 L467.2,70.0 L469.0,70.0 L470.8,70.0 L472.5,70.0 L474.3,70.0 L476.0,70.0 L477.7,70.0 L479.5,70.0 L481.2,70.0 L483.0,70.0 L484.8,70.0 L486.5,70.0 L488.3,70.0 L490.0,70.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-dasharray="5,4"/>
+<path d="M94.5,199.3 L96.2,198.0 L98.0,196.8 L99.8,195.5 L101.5,194.4 L103.2,193.2 L105.0,192.0 L106.8,190.9 L108.5,189.8 L110.3,188.7 L112.0,187.6 L113.8,186.6 L115.5,185.6 L117.2,184.6 L119.0,183.6 L120.8,182.6 L122.5,181.6 L124.2,180.7 L126.0,179.8 L127.8,178.8 L129.5,177.9 L131.2,177.1 L133.0,176.2 L134.8,175.3 L136.5,174.5 L138.3,173.7 L140.0,172.9 L141.7,172.1 L143.5,171.3 L145.2,170.5 L147.0,169.7 L148.8,169.0 L150.5,168.2 L152.2,167.5 L154.0,166.8 L155.8,166.1 L157.5,165.4 L159.2,164.7 L161.0,164.0 L162.8,163.3 L164.5,162.7 L166.2,162.0 L168.0,161.4 L169.8,160.7 L171.5,160.1 L173.2,159.5 L175.0,158.9 L176.8,158.3 L178.5,157.7 L180.2,157.1 L182.0,156.5 L183.8,156.0 L185.5,155.4 L187.2,154.9 L189.0,154.3 L190.8,153.8 L192.5,153.2 L194.2,152.7 L196.0,152.2 L197.8,151.7 L199.5,151.2 L201.2,150.7 L203.0,150.2 L204.8,149.7 L206.5,149.2 L208.3,148.7 L210.0,148.3 L211.8,147.8 L213.5,147.3 L215.3,146.9 L217.0,146.4 L218.8,146.0 L220.5,145.6 L222.2,145.1 L224.0,144.7 L225.8,144.3 L227.5,143.8 L229.2,143.4 L231.0,143.0 L232.8,142.6 L234.5,142.2 L236.2,141.8 L238.0,141.4 L239.7,141.0 L241.5,140.7 L243.2,140.3 L245.0,139.9 L246.8,139.5 L248.5,139.2 L250.2,138.8 L252.0,138.4 L253.8,138.1 L255.5,137.7 L257.2,137.4 L259.0,137.0 L260.8,136.7 L262.5,136.4 L264.2,136.0 L266.0,135.7 L267.8,135.4 L269.5,135.0 L271.2,134.7 L273.0,134.4 L274.8,134.1 L276.5,133.8 L278.2,133.5 L280.0,133.2 L281.8,132.9 L283.5,132.6 L285.2,132.3 L287.0,132.0 L288.8,131.7 L290.5,131.4 L292.2,131.1 L294.0,130.8 L295.8,130.5 L297.5,130.3 L299.2,130.0 L301.0,129.7 L302.8,129.4 L304.5,129.2 L306.2,128.9 L308.0,128.6 L309.8,128.4 L311.5,128.1 L313.2,127.9 L315.0,127.6 L316.8,127.3 L318.5,127.1 L320.3,126.8 L322.0,126.6 L323.7,126.4 L325.5,126.1 L327.2,125.9 L329.0,125.6 L330.8,125.4 L332.5,125.2 L334.3,124.9 L336.0,124.7 L337.8,124.5 L339.5,124.3 L341.2,124.0 L343.0,123.8 L344.8,123.6 L346.5,123.4 L348.3,123.2 L350.0,122.9 L351.8,122.7 L353.5,122.5 L355.2,122.3 L357.0,122.1 L358.7,121.9 L360.5,121.7 L362.2,121.5 L364.0,121.3 L365.8,121.1 L367.5,120.9 L369.2,120.7 L371.0,120.5 L372.7,120.3 L374.5,120.1 L376.2,119.9 L378.0,119.7 L379.8,119.5 L381.5,119.3 L383.2,119.2 L385.0,119.0 L386.8,118.8 L388.5,118.6 L390.2,118.4 L392.0,118.3 L393.8,118.1 L395.5,117.9 L397.3,117.7 L399.0,117.6 L400.8,117.4 L402.5,117.2 L404.2,117.0 L406.0,116.9 L407.8,116.7 L409.5,116.5 L411.3,116.4 L413.0,116.2 L414.8,116.1 L416.5,115.9 L418.2,115.7 L420.0,115.6 L421.7,115.4 L423.5,115.3 L425.2,115.1 L427.0,114.9 L428.8,114.8 L430.5,114.6 L432.2,114.5 L434.0,114.3 L435.7,114.2 L437.5,114.0 L439.2,113.9 L441.0,113.7 L442.8,113.6 L444.5,113.5 L446.3,113.3 L448.0,113.2 L449.7,113.0 L451.5,112.9 L453.3,112.7 L455.0,112.6 L456.8,112.5 L458.5,112.3 L460.3,112.2 L462.0,112.1 L463.8,111.9 L465.5,111.8 L467.2,111.7 L469.0,111.5 L470.8,111.4 L472.5,111.3 L474.3,111.1 L476.0,111.0 L477.7,110.9 L479.5,110.7 L481.2,110.6 L483.0,110.5 L484.8,110.4 L486.5,110.2 L488.3,110.1 L490.0,110.0" fill="none" stroke="#ec4899" stroke-width="1.6" stroke-dasharray="5,4"/>
+<path d="M70.0,143.7 L71.8,147.0 L73.5,150.0 L75.2,152.7 L77.0,155.1 L78.7,157.3 L80.5,159.2 L82.2,160.8 L84.0,162.3 L85.8,163.6 L87.5,164.8 L89.2,165.8 L91.0,166.6 L92.8,167.4 L94.5,168.0 L96.2,168.5 L98.0,169.0 L99.8,169.3 L101.5,169.6 L103.2,169.8 L105.0,169.9 L106.8,170.0 L108.5,170.0 L110.3,170.0 L112.0,169.9 L113.8,169.8 L115.5,169.6 L117.2,169.4 L119.0,169.2 L120.8,168.9 L122.5,168.7 L124.2,168.4 L126.0,168.0 L127.8,167.7 L129.5,167.3 L131.2,167.0 L133.0,166.6 L134.8,166.2 L136.5,165.8 L138.3,165.4 L140.0,164.9 L141.7,164.5 L143.5,164.0 L145.2,163.6 L147.0,163.1 L148.8,162.7 L150.5,162.2 L152.2,161.7 L154.0,161.3 L155.8,160.8 L157.5,160.3 L159.2,159.9 L161.0,159.4 L162.8,158.9 L164.5,158.4 L166.2,157.9 L168.0,157.5 L169.8,157.0 L171.5,156.5 L173.2,156.1 L175.0,155.6 L176.8,155.1 L178.5,154.7 L180.2,154.2 L182.0,153.7 L183.8,153.3 L185.5,152.8 L187.2,152.4 L189.0,151.9 L190.8,151.5 L192.5,151.0 L194.2,150.6 L196.0,150.1 L197.8,149.7 L199.5,149.3 L201.2,148.8 L203.0,148.4 L204.8,148.0 L206.5,147.6 L208.3,147.1 L210.0,146.7 L211.8,146.3 L213.5,145.9 L215.3,145.5 L217.0,145.1 L218.8,144.7 L220.5,144.3 L222.2,143.9 L224.0,143.5 L225.8,143.1 L227.5,142.8 L229.2,142.4 L231.0,142.0 L232.8,141.6 L234.5,141.3 L236.2,140.9 L238.0,140.5 L239.7,140.2 L241.5,139.8 L243.2,139.5 L245.0,139.1 L246.8,138.8 L248.5,138.4 L250.2,138.1 L252.0,137.8 L253.8,137.4 L255.5,137.1 L257.2,136.8 L259.0,136.4 L260.8,136.1 L262.5,135.8 L264.2,135.5 L266.0,135.2 L267.8,134.8 L269.5,134.5 L271.2,134.2 L273.0,133.9 L274.8,133.6 L276.5,133.3 L278.2,133.0 L280.0,132.7 L281.8,132.4 L283.5,132.2 L285.2,131.9 L287.0,131.6 L288.8,131.3 L290.5,131.0 L292.2,130.7 L294.0,130.5 L295.8,130.2 L297.5,129.9 L299.2,129.7 L301.0,129.4 L302.8,129.1 L304.5,128.9 L306.2,128.6 L308.0,128.4 L309.8,128.1 L311.5,127.9 L313.2,127.6 L315.0,127.4 L316.8,127.1 L318.5,126.9 L320.3,126.6 L322.0,126.4 L323.7,126.1 L325.5,125.9 L327.2,125.7 L329.0,125.4 L330.8,125.2 L332.5,125.0 L334.3,124.8 L336.0,124.5 L337.8,124.3 L339.5,124.1 L341.2,123.9 L343.0,123.6 L344.8,123.4 L346.5,123.2 L348.3,123.0 L350.0,122.8 L351.8,122.6 L353.5,122.4 L355.2,122.2 L357.0,122.0 L358.7,121.8 L360.5,121.6 L362.2,121.4 L364.0,121.2 L365.8,121.0 L367.5,120.8 L369.2,120.6 L371.0,120.4 L372.7,120.2 L374.5,120.0 L376.2,119.8 L378.0,119.6 L379.8,119.4 L381.5,119.3 L383.2,119.1 L385.0,118.9 L386.8,118.7 L388.5,118.5 L390.2,118.3 L392.0,118.2 L393.8,118.0 L395.5,117.8 L397.3,117.7 L399.0,117.5 L400.8,117.3 L402.5,117.1 L404.2,117.0 L406.0,116.8 L407.8,116.6 L409.5,116.5 L411.3,116.3 L413.0,116.1 L414.8,116.0 L416.5,115.8 L418.2,115.7 L420.0,115.5 L421.7,115.4 L423.5,115.2 L425.2,115.0 L427.0,114.9 L428.8,114.7 L430.5,114.6 L432.2,114.4 L434.0,114.3 L435.7,114.1 L437.5,114.0 L439.2,113.8 L441.0,113.7 L442.8,113.6 L444.5,113.4 L446.3,113.3 L448.0,113.1 L449.7,113.0 L451.5,112.8 L453.3,112.7 L455.0,112.6 L456.8,112.4 L458.5,112.3 L460.3,112.2 L462.0,112.0 L463.8,111.9 L465.5,111.8 L467.2,111.6 L469.0,111.5 L470.8,111.4 L472.5,111.2 L474.3,111.1 L476.0,111.0 L477.7,110.8 L479.5,110.7 L481.2,110.6 L483.0,110.5 L484.8,110.3 L486.5,110.2 L488.3,110.1 L490.0,110.0" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+<text x="104" y="54" fill="#3b82f6">repulsion (absorbed)</text>
+<text x="309" y="138" fill="var(--accent)">net energy</text>
+<text x="213" y="198" fill="#ec4899">attraction (released)</text>
+<line x1="108.2" y1="24" x2="108.2" y2="425" stroke="var(--text-faint)" stroke-dasharray="3,4"/>
+<text x="114.2" y="188">minimum at a&#8320;</text>
+<line x1="70" y1="335" x2="500" y2="335" stroke="var(--border-strong)"/><line x1="70" y1="236" x2="70" y2="425" stroke="var(--border-strong)"/>
+<text x="76" y="240" font-weight="700">Force</text><text x="500" y="329" text-anchor="end">distance a</text>
+<text x="440" y="279" fill="var(--text-muted)">+ attraction</text><text x="440" y="395" fill="var(--text-muted)">− repulsion</text>
+<path d="M154.0,237.4 L155.8,238.9 L157.5,240.3 L159.2,241.6 L161.0,243.0 L162.8,244.3 L164.5,245.6 L166.2,246.8 L168.0,248.0 L169.8,249.2 L171.5,250.4 L173.2,251.6 L175.0,252.7 L176.8,253.8 L178.5,254.9 L180.2,255.9 L182.0,257.0 L183.8,258.0 L185.5,259.0 L187.2,260.0 L189.0,261.0 L190.8,261.9 L192.5,262.8 L194.2,263.7 L196.0,264.6 L197.8,265.5 L199.5,266.4 L201.2,267.2 L203.0,268.0 L204.8,268.8 L206.5,269.6 L208.3,270.4 L210.0,271.2 L211.8,272.0 L213.5,272.7 L215.3,273.4 L217.0,274.1 L218.8,274.9 L220.5,275.5 L222.2,276.2 L224.0,276.9 L225.8,277.5 L227.5,278.2 L229.2,278.8 L231.0,279.5 L232.8,280.1 L234.5,280.7 L236.2,281.3 L238.0,281.9 L239.7,282.4 L241.5,283.0 L243.2,283.6 L245.0,284.1 L246.8,284.6 L248.5,285.2 L250.2,285.7 L252.0,286.2 L253.8,286.7 L255.5,287.2 L257.2,287.7 L259.0,288.2 L260.8,288.7 L262.5,289.1 L264.2,289.6 L266.0,290.0 L267.8,290.5 L269.5,290.9 L271.2,291.4 L273.0,291.8 L274.8,292.2 L276.5,292.6 L278.2,293.0 L280.0,293.4 L281.8,293.8 L283.5,294.2 L285.2,294.6 L287.0,295.0 L288.8,295.4 L290.5,295.8 L292.2,296.1 L294.0,296.5 L295.8,296.8 L297.5,297.2 L299.2,297.5 L301.0,297.9 L302.8,298.2 L304.5,298.5 L306.2,298.9 L308.0,299.2 L309.8,299.5 L311.5,299.8 L313.2,300.1 L315.0,300.4 L316.8,300.7 L318.5,301.0 L320.3,301.3 L322.0,301.6 L323.7,301.9 L325.5,302.2 L327.2,302.5 L329.0,302.8 L330.8,303.0 L332.5,303.3 L334.3,303.6 L336.0,303.8 L337.8,304.1 L339.5,304.3 L341.2,304.6 L343.0,304.8 L344.8,305.1 L346.5,305.3 L348.3,305.6 L350.0,305.8 L351.8,306.0 L353.5,306.3 L355.2,306.5 L357.0,306.7 L358.7,307.0 L360.5,307.2 L362.2,307.4 L364.0,307.6 L365.8,307.8 L367.5,308.0 L369.2,308.2 L371.0,308.4 L372.7,308.6 L374.5,308.8 L376.2,309.0 L378.0,309.2 L379.8,309.4 L381.5,309.6 L383.2,309.8 L385.0,310.0 L386.8,310.2 L388.5,310.4 L390.2,310.6 L392.0,310.7 L393.8,310.9 L395.5,311.1 L397.3,311.3 L399.0,311.4 L400.8,311.6 L402.5,311.8 L404.2,311.9 L406.0,312.1 L407.8,312.3 L409.5,312.4 L411.3,312.6 L413.0,312.8 L414.8,312.9 L416.5,313.1 L418.2,313.2 L420.0,313.4 L421.7,313.5 L423.5,313.7 L425.2,313.8 L427.0,314.0 L428.8,314.1 L430.5,314.2 L432.2,314.4 L434.0,314.5 L435.7,314.7 L437.5,314.8 L439.2,314.9 L441.0,315.1 L442.8,315.2 L444.5,315.3 L446.3,315.5 L448.0,315.6 L449.7,315.7 L451.5,315.8 L453.3,316.0 L455.0,316.1 L456.8,316.2 L458.5,316.3 L460.3,316.5 L462.0,316.6 L463.8,316.7 L465.5,316.8 L467.2,316.9 L469.0,317.0 L470.8,317.2 L472.5,317.3 L474.3,317.4 L476.0,317.5 L477.7,317.6 L479.5,317.7 L481.2,317.8 L483.0,317.9 L484.8,318.0 L486.5,318.1 L488.3,318.2 L490.0,318.3" fill="none" stroke="#ec4899" stroke-width="1.6" stroke-dasharray="5,4"/>
+<path d="M124.2,420.2 L126.0,415.3 L127.8,410.8 L129.5,406.5 L131.2,402.5 L133.0,398.8 L134.8,395.3 L136.5,392.0 L138.3,388.9 L140.0,386.0 L141.7,383.3 L143.5,380.7 L145.2,378.3 L147.0,376.1 L148.8,373.9 L150.5,371.9 L152.2,370.1 L154.0,368.3 L155.8,366.6 L157.5,365.0 L159.2,363.5 L161.0,362.1 L162.8,360.8 L164.5,359.6 L166.2,358.4 L168.0,357.3 L169.8,356.2 L171.5,355.2 L173.2,354.3 L175.0,353.4 L176.8,352.5 L178.5,351.7 L180.2,350.9 L182.0,350.2 L183.8,349.5 L185.5,348.9 L187.2,348.3 L189.0,347.7 L190.8,347.1 L192.5,346.6 L194.2,346.1 L196.0,345.6 L197.8,345.2 L199.5,344.7 L201.2,344.3 L203.0,343.9 L204.8,343.5 L206.5,343.2 L208.3,342.8 L210.0,342.5 L211.8,342.2 L213.5,341.9 L215.3,341.6 L217.0,341.4 L218.8,341.1 L220.5,340.9 L222.2,340.6 L224.0,340.4 L225.8,340.2 L227.5,340.0 L229.2,339.8 L231.0,339.6 L232.8,339.5 L234.5,339.3 L236.2,339.1 L238.0,339.0 L239.7,338.8 L241.5,338.7 L243.2,338.5 L245.0,338.4 L246.8,338.3 L248.5,338.2 L250.2,338.1 L252.0,337.9 L253.8,337.8 L255.5,337.7 L257.2,337.6 L259.0,337.5 L260.8,337.5 L262.5,337.4 L264.2,337.3 L266.0,337.2 L267.8,337.1 L269.5,337.1 L271.2,337.0 L273.0,336.9 L274.8,336.9 L276.5,336.8 L278.2,336.7 L280.0,336.7 L281.8,336.6 L283.5,336.6 L285.2,336.5 L287.0,336.5 L288.8,336.4 L290.5,336.4 L292.2,336.3 L294.0,336.3 L295.8,336.2 L297.5,336.2 L299.2,336.2 L301.0,336.1 L302.8,336.1 L304.5,336.1 L306.2,336.0 L308.0,336.0 L309.8,336.0 L311.5,335.9 L313.2,335.9 L315.0,335.9 L316.8,335.9 L318.5,335.8 L320.3,335.8 L322.0,335.8 L323.7,335.8 L325.5,335.7 L327.2,335.7 L329.0,335.7 L330.8,335.7 L332.5,335.7 L334.3,335.6 L336.0,335.6 L337.8,335.6 L339.5,335.6 L341.2,335.6 L343.0,335.5 L344.8,335.5 L346.5,335.5 L348.3,335.5 L350.0,335.5 L351.8,335.5 L353.5,335.5 L355.2,335.4 L357.0,335.4 L358.7,335.4 L360.5,335.4 L362.2,335.4 L364.0,335.4 L365.8,335.4 L367.5,335.4 L369.2,335.4 L371.0,335.4 L372.7,335.3 L374.5,335.3 L376.2,335.3 L378.0,335.3 L379.8,335.3 L381.5,335.3 L383.2,335.3 L385.0,335.3 L386.8,335.3 L388.5,335.3 L390.2,335.3 L392.0,335.3 L393.8,335.2 L395.5,335.2 L397.3,335.2 L399.0,335.2 L400.8,335.2 L402.5,335.2 L404.2,335.2 L406.0,335.2 L407.8,335.2 L409.5,335.2 L411.3,335.2 L413.0,335.2 L414.8,335.2 L416.5,335.2 L418.2,335.2 L420.0,335.2 L421.7,335.2 L423.5,335.2 L425.2,335.2 L427.0,335.2 L428.8,335.2 L430.5,335.1 L432.2,335.1 L434.0,335.1 L435.7,335.1 L437.5,335.1 L439.2,335.1 L441.0,335.1 L442.8,335.1 L444.5,335.1 L446.3,335.1 L448.0,335.1 L449.7,335.1 L451.5,335.1 L453.3,335.1 L455.0,335.1 L456.8,335.1 L458.5,335.1 L460.3,335.1 L462.0,335.1 L463.8,335.1 L465.5,335.1 L467.2,335.1 L469.0,335.1 L470.8,335.1 L472.5,335.1 L474.3,335.1 L476.0,335.1 L477.7,335.1 L479.5,335.1 L481.2,335.1 L483.0,335.1 L484.8,335.1 L486.5,335.1 L488.3,335.1 L490.0,335.1" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-dasharray="5,4"/>
+<path d="M94.5,413.4 L96.2,400.0 L98.0,387.8 L99.8,376.6 L101.5,366.4 L103.2,357.1 L105.0,348.6 L106.8,340.8 L108.5,333.8 L110.3,327.3 L112.0,321.4 L113.8,316.0 L115.5,311.1 L117.2,306.7 L119.0,302.6 L120.8,299.0 L122.5,295.6 L124.2,292.6 L126.0,289.8 L127.8,287.4 L129.5,285.1 L131.2,283.1 L133.0,281.3 L134.8,279.7 L136.5,278.2 L138.3,276.9 L140.0,275.8 L141.7,274.8 L143.5,273.9 L145.2,273.1 L147.0,272.5 L148.8,271.9 L150.5,271.4 L152.2,271.0 L154.0,270.7 L155.8,270.5 L157.5,270.3 L159.2,270.2 L161.0,270.1 L162.8,270.1 L164.5,270.1 L166.2,270.2 L168.0,270.3 L169.8,270.4 L171.5,270.6 L173.2,270.8 L175.0,271.1 L176.8,271.3 L178.5,271.6 L180.2,271.9 L182.0,272.2 L183.8,272.5 L185.5,272.9 L187.2,273.3 L189.0,273.6 L190.8,274.0 L192.5,274.4 L194.2,274.8 L196.0,275.2 L197.8,275.7 L199.5,276.1 L201.2,276.5 L203.0,277.0 L204.8,277.4 L206.5,277.8 L208.3,278.3 L210.0,278.7 L211.8,279.2 L213.5,279.6 L215.3,280.1 L217.0,280.5 L218.8,281.0 L220.5,281.4 L222.2,281.9 L224.0,282.3 L225.8,282.8 L227.5,283.2 L229.2,283.7 L231.0,284.1 L232.8,284.5 L234.5,285.0 L236.2,285.4 L238.0,285.8 L239.7,286.3 L241.5,286.7 L243.2,287.1 L245.0,287.5 L246.8,287.9 L248.5,288.3 L250.2,288.7 L252.0,289.2 L253.8,289.6 L255.5,289.9 L257.2,290.3 L259.0,290.7 L260.8,291.1 L262.5,291.5 L264.2,291.9 L266.0,292.3 L267.8,292.6 L269.5,293.0 L271.2,293.4 L273.0,293.7 L274.8,294.1 L276.5,294.4 L278.2,294.8 L280.0,295.1 L281.8,295.5 L283.5,295.8 L285.2,296.1 L287.0,296.5 L288.8,296.8 L290.5,297.1 L292.2,297.4 L294.0,297.8 L295.8,298.1 L297.5,298.4 L299.2,298.7 L301.0,299.0 L302.8,299.3 L304.5,299.6 L306.2,299.9 L308.0,300.2 L309.8,300.5 L311.5,300.8 L313.2,301.0 L315.0,301.3 L316.8,301.6 L318.5,301.9 L320.3,302.1 L322.0,302.4 L323.7,302.7 L325.5,302.9 L327.2,303.2 L329.0,303.4 L330.8,303.7 L332.5,303.9 L334.3,304.2 L336.0,304.4 L337.8,304.7 L339.5,304.9 L341.2,305.1 L343.0,305.4 L344.8,305.6 L346.5,305.8 L348.3,306.1 L350.0,306.3 L351.8,306.5 L353.5,306.7 L355.2,306.9 L357.0,307.2 L358.7,307.4 L360.5,307.6 L362.2,307.8 L364.0,308.0 L365.8,308.2 L367.5,308.4 L369.2,308.6 L371.0,308.8 L372.7,309.0 L374.5,309.2 L376.2,309.4 L378.0,309.6 L379.8,309.7 L381.5,309.9 L383.2,310.1 L385.0,310.3 L386.8,310.5 L388.5,310.6 L390.2,310.8 L392.0,311.0 L393.8,311.2 L395.5,311.3 L397.3,311.5 L399.0,311.7 L400.8,311.8 L402.5,312.0 L404.2,312.2 L406.0,312.3 L407.8,312.5 L409.5,312.6 L411.3,312.8 L413.0,312.9 L414.8,313.1 L416.5,313.2 L418.2,313.4 L420.0,313.5 L421.7,313.7 L423.5,313.8 L425.2,314.0 L427.0,314.1 L428.8,314.3 L430.5,314.4 L432.2,314.5 L434.0,314.7 L435.7,314.8 L437.5,314.9 L439.2,315.1 L441.0,315.2 L442.8,315.3 L444.5,315.5 L446.3,315.6 L448.0,315.7 L449.7,315.8 L451.5,316.0 L453.3,316.1 L455.0,316.2 L456.8,316.3 L458.5,316.4 L460.3,316.6 L462.0,316.7 L463.8,316.8 L465.5,316.9 L467.2,317.0 L469.0,317.1 L470.8,317.2 L472.5,317.4 L474.3,317.5 L476.0,317.6 L477.7,317.7 L479.5,317.8 L481.2,317.9 L483.0,318.0 L484.8,318.1 L486.5,318.2 L488.3,318.3 L490.0,318.4" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+<circle cx="162.5" cy="270.1" r="4" fill="var(--accent)"/>
+<text x="170.5" y="262.1" fill="var(--accent)">maximum force</text>
+<text x="114.2" y="351">zero force at a&#8320;</text>
+</g></svg>
+<div class="diagram-caption">Figure 2. Shape of the curves on Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 7">7</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=8" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 8">8</a> for an ionic pair: dashed lines are the attraction (pink) and repulsion (blue) parts, the solid line is their sum. The net energy is lowest at the equilibrium distance a&#8320;, where the net force is zero. Schematic curves, no numerical values.</div>
+</div>
+<div class="callout"><div class="callout-title">Reading the slide</div><ul><li>$Z_1$ and $Z_2$ have opposite signs (one ion is positive, the other negative), so the attraction term is negative: energy is <strong>released</strong>. The repulsion term is positive: energy is <strong>absorbed</strong>.</li><li>Differentiating $E_{net}$ with respect to $a$ gives back the force of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 7">7</a>, term by term: $\dfrac{\partial}{\partial a}\left(\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0}\,a^{-1}\right) = -\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a^2}$ and $\dfrac{\partial}{\partial a}\left(b\,a^{-n}\right) = -\dfrac{n b}{a^{n+1}}$.</li><li>The graphs on the slide show the energy curve with its minimum at $a_0$, where $\dfrac{dU}{dr} = 0$, exactly where the net force crosses zero.</li></ul></div>
+<h3 class="sub-heading">2.6 Lattice energy U [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 9">9</a>]</h3>
+<p><strong>Lattice energy (U):</strong> the energy needed to bring one mole of ions from an infinite distance to their fixed positions in a crystal.</p>
+<p>Starting from the energy of one pair at equilibrium, the slide arrives at the lattice energy of one mole:</p>
+<div class="math-block">$$E_{r=a_0} = \frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0} + \frac{b}{a_0^{\,n}} \quad\Longrightarrow\quad U = -\frac{Z_1 Z_2 e^2 N_A A}{4\pi\varepsilon_0 a_0}\left(1-\frac{1}{n}\right)$$</div>
+<p>$N_A$ is Avogadro's number (one mole of pairs). $A$ is a constant of the crystal; the slide does not detail it further.</p>
+<div class="callout"><div class="callout-title">Reading the slide: where the factor $(1 - 1/n)$ comes from</div><ol><li>At $a_0$ the force is zero, so the derivative of $E$ is zero: $-\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0^2} - \dfrac{n b}{a_0^{n+1}} = 0$.</li><li>Solve for $b$: multiply by $a_0^{n+1}$ to get $-\dfrac{Z_1Z_2e^2 a_0^{n-1}}{4\pi\varepsilon_0} = n b$, so $b = -\dfrac{Z_1Z_2e^2 a_0^{n-1}}{4\pi\varepsilon_0\, n}$.</li><li>Substitute $b$ in the repulsion term: $\dfrac{b}{a_0^n} = -\dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\cdot\dfrac{1}{n}$.</li><li>Add the attraction term: $E_{r=a_0} = \dfrac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\left(1-\dfrac{1}{n}\right)$.</li><li>Multiplying by $N_A A$ gives the bracket of $U$. In $U$ the slide writes $Z_1Z_2$ as positive charge numbers and puts the sign in front, so that $U$ comes out negative (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>: "All energy values are negative").</li></ol>
+<p>Since $n$ is between 5 and 9, the repulsion only removes $1/n$ (between 11 % and 20 %) of the attraction energy.</p></div>
+<p><strong>Lattice energy, alternative view:</strong> the energy <strong>released</strong> when one mole of ionic solid is formed from its ions in the gas state.</p>
+<p>The slide shows this with the <strong>Born-Haber cycle for KCl</strong>:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Step</th><th style="text-align:right">ΔH (kJ/mol)</th></tr></thead><tbody><tr><td>K sublimation</td><td style="text-align:right">+89</td></tr><tr><td>K(g) ionization</td><td style="text-align:right">+425</td></tr><tr><td>Cl₂(g) dissociation</td><td style="text-align:right">+244</td></tr><tr><td>Cl(g) ionization</td><td style="text-align:right">−355</td></tr><tr><td>KCl formation</td><td style="text-align:right">−438</td></tr></tbody></table></div>
+<div class="callout"><div class="callout-title">Reading the slide: the cycle</div><p>The diagram climbs from K(s) + ½Cl₂(g) to K⁺(g) + e⁻(g) + Cl(g), then falls to KCl(s). Only half a mole of Cl₂ is needed, so the dissociation step drawn in the cycle is 244/2 = 122 kJ/mol. The cycle is closed by $U$, the step from K⁺(g) + Cl⁻(g) down to KCl(s). Going round the cycle with the slide's numbers:</p>
+<div class="math-block">$$U = -438 - (89 + 425 + 122 - 355) = -438 - 281 = -719\ \text{kJ/mol}$$</div>
+<p>(This value is worked out from the slide's numbers; the slide itself does not print it.)</p></div>
+<h3 class="sub-heading">2.7 Properties associated with the lattice energy [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10-13</a>]</h3>
 
-      <p>
-        At the <strong>equilibrium interatomic spacing</strong> $r = r_0$, the attractive and repulsive forces reach exact mechanical equilibrium, causing the net force to vanish and the potential energy to attain its global minimum:
-      </p>
-
-      <div class="math-block">
-        $$\left.F_{\text{net}}\right|_{r = r_0} = -\left.\frac{dE_{\text{net}}}{dr}\right|_{r = r_0} = 0 \iff \frac{mA}{r_0^{m+1}} = \frac{nB}{r_0^{n+1}} \iff E_{\text{net}}(r_0) = -E_0$$
-      </div>
-
-      <h3 class="sub-heading">Equilibrium Spacing and Bond Energy: Explicit Derivation</h3>
-      <p>Differentiate $E_{\text{net}} = -A/r^m + B/r^n$ term by term with $\frac{d}{dr}r^{-m} = -m\,r^{-m-1}$:</p>
-      <div class="math-block">
-        $$\frac{dE_{\text{net}}}{dr} = \frac{mA}{r^{m+1}} - \frac{nB}{r^{n+1}} = 0 \text{ at } r_0 \;\Longrightarrow\; mA\,r_0^{\,n-m} = nB \;\Longrightarrow\; r_0 = \left(\frac{nB}{mA}\right)^{1/(n-m)}, \quad B = \frac{mA}{n}\,r_0^{\,n-m}$$
-        $$E_{\text{net}}(r_0) = -\frac{A}{r_0^m} + \frac{1}{r_0^n}\,\frac{mA}{n}\,r_0^{\,n-m} = -\frac{A}{r_0^m}\left(1 - \frac{m}{n}\right) \;\Longrightarrow\; E_0 = \frac{A\,(n-m)}{n\,r_0^m}$$
-      </div>
-      <p>For the ionic pair ($m = 1$, $A = Z_1Z_2e^2/4\pi\varepsilon_0$) this is $E_0 = \frac{Z_1Z_2e^2}{4\pi\varepsilon_0 a_0}\left(1-\frac1n\right)$, the Born result of §3. The curvature follows from one more derivative and the same elimination of $B$:</p>
-      <div class="math-block">
-        $$\frac{d^2E_{\text{net}}}{dr^2} = -\frac{m(m+1)A}{r^{m+2}} + \frac{n(n+1)B}{r^{n+2}} \;\Longrightarrow\; S_0 = \left.\frac{d^2E_{\text{net}}}{dr^2}\right|_{r_0} = \frac{m(n-m)A}{r_0^{m+2}} = \frac{m\,n\,E_0}{r_0^{2}}$$
-      </div>
-
-      <div class="diagram-card">
-        <svg viewBox="0 0 760 380" width="100%" height="320" style="max-width: 700px; margin: 0 auto; display: block;">
-          <defs>
-            <linearGradient id="gradWell" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.0" />
-              <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.15" />
-            </linearGradient>
-          </defs>
-          <!-- Axes -->
-          <line x1="80" y1="180" x2="720" y2="180" stroke="var(--border-strong)" stroke-width="1.5" />
-          <line x1="140" y1="20" x2="140" y2="350" stroke="var(--border-strong)" stroke-width="1.5" />
-          <text x="710" y="172" font-family="'Inter', sans-serif" font-size="12" fill="var(--text-muted)">r (Interatomic Distance)</text>
-          <text x="148" y="32" font-family="'Inter', sans-serif" font-size="12" fill="var(--text-muted)">E(r) (Potential Energy)</text>
-          <text x="120" y="175" font-family="'JetBrains Mono', monospace" font-size="12" fill="var(--text-muted)">0</text>
-
-          <!-- Repulsive Curve: B/r^n -->
-          <path d="M 148,25 Q 165,110 240,165" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,4" />
-          <text x="175" y="80" font-family="'JetBrains Mono', monospace" font-size="11" fill="#ef4444">E_rep = +B/rⁿ</text>
-
-          <!-- Attractive Curve: -A/r^m -->
-          <path d="M 160,280 Q 280,240 700,190" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,4" />
-          <text x="500" y="235" font-family="'JetBrains Mono', monospace" font-size="11" fill="#3b82f6">E_att = -A/rᵐ</text>
-
-          <!-- Net Potential Energy Well -->
-          <path d="M 152,40 C 160,240 210,330 280,330 C 370,330 480,205 700,185" fill="none" stroke="#f59e0b" stroke-width="3" />
-          
-          <!-- Well Minimum Point -->
-          <line x1="280" y1="180" x2="280" y2="330" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3,3" />
-          <line x1="80" y1="330" x2="280" y2="330" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3,3" />
-          <circle cx="280" cy="330" r="5" fill="#f59e0b" />
-          
-          <text x="280" y="170" font-family="'JetBrains Mono', monospace" font-size="12" fill="var(--accent)" text-anchor="middle" font-weight="700">r₀ (Equilibrium)</text>
-          <text x="75" y="334" font-family="'JetBrains Mono', monospace" font-size="12" fill="var(--accent)" text-anchor="end" font-weight="700">-E₀ (Bond Energy)</text>
-
-          <!-- Curvature / Parabola annotation -->
-          <path d="M 240,295 Q 280,345 320,295" fill="none" stroke="#10b981" stroke-width="1.5" />
-          <text x="350" y="310" font-family="'Inter', sans-serif" font-size="11" fill="#10b981">Curvature d²E/dr² ∝ Young's Modulus E</text>
-
-          <!-- Anharmonic Asymmetry (Thermal Expansion) -->
-          <line x1="225" y1="260" x2="360" y2="260" stroke="#a855f7" stroke-width="1.5" />
-          <circle cx="292.5" cy="260" r="3.5" fill="#a855f7" />
-          <text x="370" y="264" font-family="'Inter', sans-serif" font-size="11" fill="#c084fc">Thermal level T: Mean r̄(T) > r₀ (Thermal Expansion α)</text>
-        </svg>
-        <div class="diagram-caption">Figure 2.1: Interatomic potential energy well $E(r)$, showing bond energy $E_0$, equilibrium spacing $r_0$, elastic curvature, and anharmonic thermal expansion shift [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=8" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 8">8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10–13</a>].</div>
-      </div>
-
-      <h3 class="sub-heading">Mathematical Mapping to Macroscopic Properties</h3>
-      
-      <div class="card">
-        <ol style="padding-left: 20px;">
-          <li style="margin-bottom: 12px;">
-            <strong>Melting Temperature ($T_m$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>]:</strong> Governed directly by well depth $E_0$. Melting is a thermal phase transformation wherein lattice thermal agitation $k_B T_m$ overcomes the cohesive energy:
-            $$k_B T_m \propto E_0 \implies \text{Deeper Well } (E_0 \uparrow) \implies T_m \uparrow$$
-          </li>
-          <li style="margin-bottom: 12px;">
-            <strong>Young's Modulus of Elasticity ($E$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>]:</strong> Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a> states qualitatively that a steep, narrow well (large curvature) gives a high $E$. The relation below, $E \propto S_0/r_0$, is an order-of-magnitude extension (not on the slides), obtained by treating the bond as a spring of stiffness $S_0 = d^2E_{\text{net}}/dr^2|_{r_0}$ acting on a cross-section $\sim r_0^2$:
-            $$E_{\text{Young}} \sim \frac{1}{r_0}\left.\frac{d^2 E_{\text{net}}}{dr^2}\right|_{r = r_0} = -\frac{1}{r_0}\left.\frac{dF_{\text{net}}}{dr}\right|_{r = r_0}$$
-            (since $F_{\text{net}} = -dE_{\text{net}}/dr$, the slope of the force curve at $r_0$ is negative, so $-dF_{\text{net}}/dr > 0$). Using the equilibrium condition, $\left.d^2E_{\text{net}}/dr^2\right|_{r_0} = \dfrac{m(n-m)A}{r_0^{m+2}} > 0$.
-            A steep, narrow potential well requires immense mechanical force per unit displacement to stretch bonds, yielding a high elastic modulus.
-          </li>
-          <li style="margin-bottom: 12px;">
-            <strong>Coefficient of Thermal Expansion ($\alpha$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 12">12</a>]:</strong> Governed by the <em>anharmonic asymmetry</em> of the potential well. If the well were perfectly parabolic/symmetric ($E(r) = \frac{1}{2}k(r-r_0)^2$), the mean vibrational position $\bar{r}(T)$ would remain identical to $r_0$, resulting in zero thermal expansion ($\alpha = 0$). In real materials, the attractive wall ($r > r_0$) is flatter than the steep repulsive wall ($r < r_0$), causing the average atomic spacing $\bar{r}(T)$ to shift outwards as temperature rises:
-            $$\alpha = \frac{1}{r_0}\frac{d\bar{r}}{dT} \quad \implies \text{Deeper, steeper wells are more symmetric } \implies \alpha \downarrow$$
-          </li>
-          <li>
-            <strong>Mohs Hardness [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>]:</strong> Resistance to localized plastic scratching requires displacing atomic planes against the cohesive potential well. Materials with high binding energy and narrow potential wells exhibit elevated Mohs hardness.
-          </li>
-        </ol>
-      </div>
-      <div class="card">
-        <h3 class="sub-heading" style="margin-top:0;">Extension (beyond the slides): quantitative $\alpha$, $T_m$ and the ionic-pair stiffness</h3>
-        <p><strong>Thermal expansion.</strong> Write $E(r) = -E_0 + c\,x^2 - g\,x^3$ with $x = r - r_0$, $c = \tfrac12 S_0$, $g = m(n-m)(m+n+3)A/(6\,r_0^{m+3})$. To first order in the cubic term, $\langle x\rangle = \frac{g}{k_BT}\langle x^4\rangle_0$ with $\langle x^2\rangle_0 = k_BT/2c$ and $\langle x^4\rangle_0 = 3\langle x^2\rangle_0^2$:</p>
-        <div class="math-block">
-          $$\langle x\rangle = \frac{3g\,k_BT}{4c^2} = \frac{3g\,k_BT}{S_0^2}, \qquad \alpha = \frac{1}{r_0}\frac{d\langle x\rangle}{dT} = \frac{3g\,k_B}{r_0S_0^2} = \frac{(m+n+3)\,k_B}{2\,m\,n\,E_0}$$
-        </div>
-        <p>so $\alpha \propto 1/E_0$: a deeper well gives a lower expansion coefficient; a symmetric well ($g = 0$) gives $\alpha = 0$. A numerical Boltzmann average for $m = 6$, $n = 12$ at $k_BT = 0.002E_0$ agrees with this formula to 0.4 percent.</p>
-        <p><strong>Melting.</strong> Lindemann's criterion, $\sqrt{\langle x^2\rangle} = \delta r_0$ with $\delta \approx 0.1$, and equipartition $\tfrac12 S_0\langle x^2\rangle = \tfrac12k_BT$ give $k_BT_m = S_0\delta^2r_0^2 = m\,n\,\delta^2E_0$, i.e. $T_m \propto E_0$ as in the slide.</p>
-        <p><strong>Ionic-pair stiffness.</strong> For $m = 1$: $S_0 = (n-1)Z_1Z_2e^2/(4\pi\varepsilon_0a_0^3)$. For NaCl ($a_0 = 2.82\ \text{Å}$, $n = 8$) $S_0 = 72\ \text{N/m}$ and $S_0/a_0 \approx 255\ \text{GPa}$, an order-of-magnitude estimate only (measured $E \approx 40\ \text{GPa}$) because it ignores the Madelung sum and the lattice geometry.</p>
-      </div>
+<h4 class="sub-heading">1. Melting point [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>]</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Ionic solid</th><th style="text-align:right">U (kJ/mol)</th><th style="text-align:right">U (kcal/mol)</th><th style="text-align:right">Melting point (°C)</th></tr></thead><tbody><tr><td>LiCl</td><td style="text-align:right">829</td><td style="text-align:right">198</td><td style="text-align:right">613</td></tr><tr><td>NaCl</td><td style="text-align:right">766</td><td style="text-align:right">183</td><td style="text-align:right">801</td></tr><tr><td>KCl</td><td style="text-align:right">686</td><td style="text-align:right">164</td><td style="text-align:right">776</td></tr><tr><td>RbCl</td><td style="text-align:right">670</td><td style="text-align:right">160</td><td style="text-align:right">715</td></tr><tr><td>CsCl</td><td style="text-align:right">649</td><td style="text-align:right">155</td><td style="text-align:right">646</td></tr><tr><td>MgO</td><td style="text-align:right">3932</td><td style="text-align:right">940</td><td style="text-align:right">2800</td></tr><tr><td>CaO</td><td style="text-align:right">3583</td><td style="text-align:right">846</td><td style="text-align:right">2580</td></tr><tr><td>SrO</td><td style="text-align:right">3311</td><td style="text-align:right">791</td><td style="text-align:right">2430</td></tr><tr><td>BaO</td><td style="text-align:right">3127</td><td style="text-align:right">747</td><td style="text-align:right">1923</td></tr></tbody></table></div>
+<p>All energy values are negative (the table gives their size).</p>
+<ul><li><strong>Valence +1:</strong> when the ion size increases ↑, the lattice energy decreases ↓ and $T_m$ decreases ↓.</li><li><strong>Valence +2:</strong> a higher valence number ↑ gives a higher lattice energy ↑ and a higher $T_m$ ↑ (compare MgO, 2800 °C, with NaCl, 801 °C).</li></ul>
+<div class="callout callout-warning"><div class="callout-title">Small exception in the slide's own data</div><p>In the valence +1 group, $T_m$ does not fall all the way: LiCl (613 °C) melts lower than NaCl (801 °C) even though its U is larger. The trend holds from NaCl to CsCl. This is only a reading of the table; the slide states the general trend.</p></div>
+<h4 class="sub-heading">2. Hardness [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>]</h4>
+<p><strong>Hardness</strong> is a measure of the resistance to localized plastic deformation caused by mechanical indentation or abrasion. Several scales exist, e.g. the Mohs scale (used by mineralogists).</p>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th style="text-align:right">BeO</th><th style="text-align:right">MgO</th><th style="text-align:right">CaO</th><th style="text-align:right">SrO</th><th style="text-align:right">BaO</th></tr></thead><tbody><tr><td>d (Å)</td><td style="text-align:right">1.65</td><td style="text-align:right">2.10</td><td style="text-align:right">2.40</td><td style="text-align:right">2.57</td><td style="text-align:right">2.77</td></tr><tr><td>Mohs hardness</td><td style="text-align:right">9.0</td><td style="text-align:right">6.5</td><td style="text-align:right">4.5</td><td style="text-align:right">3.5</td><td style="text-align:right">3.3</td></tr></tbody></table></div>
+<p>For reference: hydroxyapatite 5, keratin (fingernail) 2.5. (1 Å = 0.1 nm.)</p>
+<div class="math-block">$$r_{c^+} \downarrow \;\Rightarrow\; U \uparrow \;\Rightarrow\; \text{hardness} \uparrow$$</div>
+<p>The <strong>binding (potential) energy</strong> is the energy needed to create or break the bond. Materials with a high binding energy have high melting temperatures and high hardness. The slide's figure shows the binding energy as the depth of the energy curve at the interatomic spacing.</p>
+<h4 class="sub-heading">3. Thermal expansion [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 12">12</a>]</h4>
+<p><strong>Thermal expansion</strong> is the tendency of matter to change its volume in response to a change in temperature.</p>
+<p>The <strong>coefficient of thermal expansion</strong> (the change in linear dimension of a material per degree of temperature) is related to the strength of the atomic bonds. Materials whose energy curve is steep, with a <strong>deep interatomic energy (IAE) trough</strong> caused by strong bonding, have <strong>low</strong> linear coefficients of thermal expansion.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th style="text-align:right">NaF</th><th style="text-align:right">NaCl</th><th style="text-align:right">NaBr</th><th style="text-align:right">NaI</th></tr></thead><tbody><tr><td>$\alpha_V$ (10⁻⁶ °C⁻¹)</td><td style="text-align:right">39</td><td style="text-align:right">40</td><td style="text-align:right">43</td><td style="text-align:right">48</td></tr></tbody></table></div>
+<p>For reference: hydroxyapatite 12·10⁻⁶ °C⁻¹.</p>
+<div class="math-block">$$r_{a^-} \uparrow \;\Rightarrow\; U \downarrow \;\Rightarrow\; \text{thermal expansion } (\alpha) \uparrow$$</div>
+<div class="callout"><div class="callout-title">Reading the slide figure</div><p>Heating adds the same energy ΔIAE to two curves. In the <strong>weak-bonding</strong> curve (shallow, wide) the spacing between atoms grows a lot; in the <strong>strong-bonding</strong> curve (deep, narrow) it grows little. A larger separation after heating means a higher thermal expansion.</p></div>
+<h4 class="sub-heading">4. Young's modulus [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>]</h4>
+<p>(The slide numbers this property "2", but it is the fourth property of the list.)</p>
+<p>A high binding energy (steep slope) means a greater force is needed to stretch the bonds, and so a <strong>higher elastic (Young's) modulus</strong>. The slide's figure shows the force-distance curves for strong and weak bonding: the slope $dF/da$ where the curve crosses the distance axis is steeper for strong bonding.</p>
+<h3 class="sub-heading">2.8 General properties of ionic compounds [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=14" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 14">14</a>]</h3>
+<ol><li>Strong electrostatic attraction → <strong>high melting and evaporation points</strong>.</li><li><strong>Hard and brittle</strong> solids at room temperature.</li><li>They <strong>do not conduct electricity</strong>, except when molten or dissolved in water. When a voltage is applied, whole ions must move to carry a current; ions move slowly, so the electrical conductivity is poor.</li><li><strong>Water soluble.</strong></li></ol>
+<h3 class="sub-heading">2.9 Ion arrangements in ionic solids [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=15" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 15">15</a>]</h3>
+<ul><li>Ionic bonds are <strong>non-directional</strong>.</li><li>The ions take geometric arrangements in the solid that <strong>keep the solid electrically neutral</strong> (examples on the slide: the ionic packing of CsCl and NaCl).</li><li>As the ratio of <strong>cation radius to anion radius decreases</strong>, <strong>fewer anions</strong> surround the central cation.</li><li>Ionic compounds are <strong>crystalline solids</strong>.</li></ul>
     </section>
-
-    <!-- SECTION 3 -->
     <section id="section-3">
-      <h2 class="section-heading"><span class="section-num">§ 3</span> Primary Bonding I — Ionic Bonding & Born-Landé Lattice Energy [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 4">4–15</a>]</h2>
+      <h2 class="section-heading"><span class="section-num">§ 3</span> Covalent bonding [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 17">17-21</a>]</h2>
 
-      <p>
-        Ionic bonding occurs between strongly electropositive metals and strongly electronegative non-metals ($\Delta\chi > 2.0$, a common textbook rule of thumb, not stated on the slides; the transition is continuous, see the ionic-character relation below). Valence electrons are completely transferred from the metal atom (forming a contracted cation, $r_{c+} < r_{\text{atom}}$) to the non-metal (forming an expanded anion, $r_{a-} > r_{\text{atom}}$) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 4">4–6</a>].
-      </p>
-
-      <p>
-        Because electrostatic fields are spherically symmetric, <strong>ionic bonds are non-directional</strong>. Geometric crystal arrangements are dictated by maintaining charge neutrality and maximizing electrostatic coordination without mutual anion-anion overlap (radius ratio rule $r_+/r_-$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=15" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 15">15</a>].
-      </p>
-
-      <h3 class="sub-heading">The Born-Landé Equation for Lattice Energy ($U$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 9">9</a>]</h3>
-      <p>
-        In an infinite three-dimensional crystal lattice, summing all infinite pairwise Coulomb attractions and repulsions introduces the dimensionless geometric <strong>Madelung constant ($A$)</strong>:
-      </p>
-
-      <div class="math-block">
-        $$U = -\frac{Z_1 Z_2 e^2 N_A A}{4\pi\varepsilon_0 a_0}\left(1 - \frac{1}{n}\right)$$
-      </div>
-
-      <p>Where:</p>
-      <ul style="padding-left: 24px; margin-bottom: 18px;">
-        <li>$Z_1, Z_2$: Formal valence charges (e.g., $+1$ and $-1$ for $\text{KCl}$; $+2$ and $-2$ for $\text{MgO}$).</li>
-        <li>$e$: Electron charge ($1.602 \times 10^{-19}\text{ C}$).</li>
-        <li>$\varepsilon_0$: Vacuum permittivity ($8.854 \times 10^{-12}\text{ C}^2/(\text{N}\cdot\text{m}^2)$).</li>
-        <li>$a_0$: Equilibrium interionic separation ($a_0 = r_{c+} + r_{a-}$).</li>
-        <li>$A$: Madelung constant ($A_{\text{NaCl}} = 1.7476$, $A_{\text{CsCl}} = 1.7627$).</li>
-        <li>$n$: Born repulsion exponent ($n \in [5, 9]$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=7" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 7">7</a>].</li>
-      </ul>
-
-      <h3 class="sub-heading">Origin of the Madelung Constant and of the $(1 - 1/n)$ Factor</h3>
-      <p>With $K = Z_1Z_2e^2/4\pi\varepsilon_0$, the Coulomb energy of one ion with all the others is $-\frac{K}{a_0}\sum_j \pm\frac{a_0}{r_j}$ (plus for opposite charges, minus for like charges); this sum defines $A$. For an infinite chain of alternating ions there are two neighbours at each distance $j\,a_0$, so, using $\ln(1+x) = x - x^2/2 + x^3/3 - \cdots$ at $x = 1$:</p>
-      <div class="math-block">
-        $$A_{1D} = 2\left(1 - \frac12 + \frac13 - \frac14 + \cdots\right) = 2\ln 2 = 1.3863$$
-      </div>
-      <p>For NaCl the shells around a Na$^+$ ion hold 6 Cl$^-$ at $a_0$, 12 Na$^+$ at $\sqrt2a_0$, 8 Cl$^-$ at $\sqrt3a_0$, 6 Na$^+$ at $2a_0$, 24 Cl$^-$ at $\sqrt5a_0$:</p>
-      <div class="math-block">
-        $$A_{\text{NaCl}} = 6 - \frac{12}{\sqrt2} + \frac{8}{\sqrt3} - \frac62 + \frac{24}{\sqrt5} - \cdots = 1.7476$$
-      </div>
-      <p>The partial sums ($6,\ -2.49,\ 2.13,\ -0.87,\ 9.87,\dots$) oscillate because the series is only conditionally convergent; the value $1.7476$ comes from a charge-neutral (Evjen or Ewald) summation and is quoted, not derived. No Madelung value appears on the slides: $1.7476$ is the standard NaCl value (an extension). The energy per ion pair is $E(a) = -AK/a + B/a^n$, and the condition $dE/da = 0$ at $a_0$ gives</p>
-      <div class="math-block">
-        $$\frac{AK}{a_0^2} = \frac{nB}{a_0^{n+1}} \;\Rightarrow\; B = \frac{AK\,a_0^{\,n-1}}{n} \;\Rightarrow\; E(a_0) = -\frac{AK}{a_0} + \frac{AK}{n\,a_0} = -\frac{AK}{a_0}\left(1 - \frac1n\right)$$
-      </div>
-      <p>Multiplying by $N_A$ gives $U$ above. <em>Extension (not in the slides):</em> for NaCl ($a_0 = 2.82\ \text{Å}$, $A = 1.7476$, $n = 8$) $U = -753\ \text{kJ/mol}$ ($-765$ for $n = 9$; tabulated Born-Haber value about $-787\ \text{kJ/mol}$). For MgO ($a_0 = 2.10\ \text{Å}$, $Z_1Z_2 = 4$, $n = 8$) $U = -4047\ \text{kJ/mol}$, $5.4$ times larger, consistent with its much higher $T_m$.</p>
-
-      <h3 class="sub-heading">The Born-Haber Cycle for $\text{KCl}$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 9">9</a>]</h3>
-      <p>
-        Because gaseous ions cannot be synthesized directly in a laboratory calorimeter, the lattice energy $U$ is deduced using Hess's Law through a closed thermodynamic cycle. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 9">9</a> provides the official thermochemical data:
-      </p>
-
-      <div class="table-container">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Thermochemical Reaction Step</th>
-              <th>Process Equation</th>
-              <th>Official $\Delta H$ ($\text{kJ/mol}$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 9">9</a>]</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>K Sublimation</strong> ($\Delta H_{\text{sub}}$)</td>
-              <td>$\text{K}(s) \longrightarrow \text{K}(g)$</td>
-              <td><strong>$+89$</strong></td>
-            </tr>
-            <tr>
-              <td><strong>$\text{K}(g)$ Ionization</strong> ($\text{IE}_1$)</td>
-              <td>$\text{K}(g) \longrightarrow \text{K}^+(g) + e^-$</td>
-              <td><strong>$+425$</strong></td>
-            </tr>
-            <tr>
-              <td><strong>$\text{Cl}_2(g)$ Dissociation</strong> ($D_{\text{Cl-Cl}}$)</td>
-              <td>$\text{Cl}_2(g) \longrightarrow 2\,\text{Cl}(g)$</td>
-              <td><strong>$+244$</strong> (or $+122$ for $\frac{1}{2}\text{Cl}_2$)</td>
-            </tr>
-            <tr>
-              <td><strong>$\text{Cl}(g)$ Electron Affinity</strong> ($\text{EA}$)</td>
-              <td>$\text{Cl}(g) + e^- \longrightarrow \text{Cl}^-(g)$</td>
-              <td><strong>$-355$</strong></td>
-            </tr>
-            <tr>
-              <td><strong>$\text{KCl}(s)$ Formation</strong> ($\Delta H_f^\circ$)</td>
-              <td>$\text{K}(s) + \frac{1}{2}\text{Cl}_2(g) \longrightarrow \text{KCl}(s)$</td>
-              <td><strong>$-438$</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="math-block">
-        $$\Delta H_f^\circ = \Delta H_{\text{sub}}(\text{K}) + \text{IE}_1(\text{K}) + \frac{1}{2}D(\text{Cl}_2) + \text{EA}(\text{Cl}) + U_{\text{latt}}$$
-        $$-438 = (+89) + (+425) + (+122) + (-355) + U_{\text{latt}}$$
-        $$-438 = +281 + U_{\text{latt}} \implies \mathbf{U_{\text{latt}} = -719\text{ kJ/mol}}$$
-      </div>
-
-      <h3 class="sub-heading">Empirical Correlations with Lattice Energy [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10–14</a>]</h3>
-
-      <div class="card">
-        <p><strong>1. Melting Temperature ($T_m$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>]:</strong></p>
-        <ul style="padding-left: 20px; margin-bottom: 12px;">
-          <li><strong>Valence effect:</strong> Increasing valence $Z$ massively scales $U \propto Z_1 Z_2$. For $\text{NaCl}$ ($Z=1$), $T_m = 801^\circ\text{C}$; for $\text{MgO}$ ($Z=2$), $T_m = 2800^\circ\text{C}$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>].</li>
-          <li><strong>Ionic size effect:</strong> In an isovalent series, increasing ion radius $a_0$ reduces $U \propto 1/a_0$, causing $T_m$ to fall with ion size for the chlorides on the slide (NaCl $801^\circ\text{C}$, KCl $776$, RbCl $715$, CsCl $646$). LiCl ($613^\circ\text{C}$) breaks a strictly monotonic trend, so the slide states only that larger ions generally lower $U$ and $T_m$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>].</li>
-        </ul>
-
-        <p><strong>2. Mohs Hardness vs Interionic Distance ($d$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>]:</strong></p>
-        <div class="table-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Compound</th>
-                <th>$\text{BeO}$</th>
-                <th>$\text{MgO}$</th>
-                <th>$\text{CaO}$</th>
-                <th>$\text{SrO}$</th>
-                <th>$\text{BaO}$</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Distance $d$ ($\text{\AA}$)</strong></td>
-                <td>$1.65$</td>
-                <td>$2.10$</td>
-                <td>$2.40$</td>
-                <td>$2.57$</td>
-                <td>$2.77$</td>
-              </tr>
-              <tr>
-                <td><strong>Mohs Hardness</strong></td>
-                <td><strong>$9.0$</strong></td>
-                <td><strong>$6.5$</strong></td>
-                <td><strong>$4.5$</strong></td>
-                <td><strong>$3.5$</strong></td>
-                <td><strong>$3.3$</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="font-size: 0.92rem; color: var(--text-muted);">Benchmarks: Hydroxyapatite $= 5.0$, Keratin fingernail $= 2.5$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>]. Cation radius $r_{c+} \downarrow \implies U \uparrow \implies \text{Hardness} \uparrow$.</p>
-
-        <p><strong>3. Volumetric Thermal Expansion ($\alpha_V$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 12">12</a>]:</strong></p>
-        <p>
-          $\text{NaF } (39 \times 10^{-6}\text{ }^\circ\text{C}^{-1}) < \text{NaCl } (40) < \text{NaBr } (43) < \text{NaI } (48 \times 10^{-6}\text{ }^\circ\text{C}^{-1})$. Larger anion radius weakens lattice energy, flattening the well and driving up thermal expansion.
-        </p>
-
-        <p><strong>4. Brittleness & Electrical Conductivity [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=14" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 14">14</a>]:</strong></p>
-        <p>
-          Ionic solids are brittle because shear slip brings like-charged ions into juxtaposition, causing catastrophic Coulombic repulsion. In the solid state, ions are locked in place and valence electrons are deeply localized in wide band gaps, making them electrical insulators. When melted or dissolved, ions become mobile, yielding high ionic conductivity.
-        </p>
-      </div>
+<h3 class="sub-heading">3.1 Definition [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 17">17</a>]</h3>
+<ul><li>It usually forms between the <strong>non-metallic</strong> elements of the periodic table.</li><li>It forms by <strong>sharing electrons</strong>.</li><li>It is <strong>highly directional</strong>, and there are <strong>no free electrons</strong>.</li><li>It takes place between elements with <strong>small differences in electronegativity</strong> that are close to each other in the periodic table.</li><li>The outer <strong>s and p electrons</strong> are shared between two atoms so that each one reaches a <strong>noble-gas configuration</strong>.</li></ul>
+<p>Examples on the slide: H• + •H → H:H (H–H, one bond pair); two Cl atoms form Cl–Cl, with one bond pair and lone pairs on each Cl.</p>
+<h3 class="sub-heading">3.2 Examples: silicon and silica [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 18">18</a>]</h3>
+<ul><li><strong>Silicon</strong> has a valence of four, so it must form <strong>four covalent bonds</strong>. Because covalent bonds are <strong>directional</strong>, silicon forms a <strong>tetrahedral structure</strong> with <strong>109.5°</strong> between bonds.</li><li><strong>Silica (SiO₂)</strong> has the same tetrahedral structure, with covalent bonds between silicon and oxygen atoms.</li></ul>
+<h3 class="sub-heading">3.3 Properties of compounds with covalent bonds [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 19">19</a>]</h3>
+<p><strong>Covalent solids:</strong></p>
+<ul><li>Formed by a system of <strong>continuous covalent bonds</strong>.</li><li><strong>Non-conductive</strong> lattices, both solid and molten.</li><li>Examples: diamond, boron nitride, quartz (SiO₂), silicon carbide (SiC).</li><li><strong>Hard and incompressible</strong>; <strong>high $T_m$</strong>, non-volatile; <strong>insoluble</strong>.</li><li>The slide shows the structures of graphite and diamond.</li></ul>
+<p><strong>Substances with covalent bonds:</strong> the slide shows a polymer chain (–C–C–C– with H and R side groups) as an example.</p>
+<h3 class="sub-heading">3.4 Polar covalent bond [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 20">20</a>]</h3>
+<ul><li>A <strong>polar covalent bond</strong> exists when atoms with <strong>different electronegativities</strong> share electrons in a covalent bond.</li><li>In <strong>nonpolar bonds</strong> the bonding electrons are shared <strong>equally</strong> between the atoms.</li></ul>
+<p>The slide's figure: in H–H and Cl–Cl the centres of positive and negative charge coincide (nonpolar); in H–Cl they are separated (polar).</p>
+<p><strong>Dipole moment:</strong></p>
+<div class="math-block">$$\mu = Q \times d$$</div>
+<p>$d$ = distance between atoms; $Q$ = charge. Unit: Debye, $1\ \text{D} = 3.33\times10^{-30}\ \text{C}\cdot\text{m}$.</p>
+<p><strong>Percentage of ionic character</strong> of a bond between atoms A and B:</p>
+<div class="math-block">$$\%\ \text{ionic character} = \left(1 - e^{-0.25\,(X_A - X_B)^2}\right)\times 100\%$$</div>
+<p>$X_i$ is the electronegativity of element $i$. The slide's graph plots this curve: the larger the electronegativity difference, the larger the ionic character (HI, HBr near the bottom; HF in the middle; KCl, LiF near the top).</p>
+<div class="callout"><div class="callout-title">Reading the formula</div><p>If $X_A = X_B$ the exponent is zero, $e^0 = 1$, and the ionic character is 0 % (a pure covalent, nonpolar bond). As the difference grows, $e^{-0.25(X_A-X_B)^2}$ tends to 0 and the ionic character tends to 100 %. This matches Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=5" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 5">5</a>: a pure ionic bond is an ideal that is never fully reached.</p></div>
+<h3 class="sub-heading">3.5 Bond length, bond order and bond energy [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=21" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 21">21</a>]</h3>
+<p>For a given pair of atoms, a <strong>higher bond order</strong> gives a <strong>shorter bond</strong>, and a shorter bond has a <strong>higher bond energy</strong> (examples H₂, F₂, N₂).</p>
+<p>Selected values from the slide's table (all values are negative for bond formation, because energy is released):</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Bond</th><th style="text-align:right">Bond energy (kJ/mol)</th><th style="text-align:right">Bond length (nm)</th></tr></thead><tbody><tr><td>C–C</td><td style="text-align:right">370</td><td style="text-align:right">0.154</td></tr><tr><td>C=C</td><td style="text-align:right">680</td><td style="text-align:right">0.13</td></tr><tr><td>C≡C</td><td style="text-align:right">890</td><td style="text-align:right">0.12</td></tr><tr><td>C–H</td><td style="text-align:right">435</td><td style="text-align:right">0.11</td></tr><tr><td>O–H</td><td style="text-align:right">500</td><td style="text-align:right">0.10</td></tr><tr><td>O–Si</td><td style="text-align:right">375</td><td style="text-align:right">0.16</td></tr><tr><td>F–F</td><td style="text-align:right">160</td><td style="text-align:right">0.14</td></tr><tr><td>H–H</td><td style="text-align:right">435</td><td style="text-align:right">0.074</td></tr></tbody></table></div>
     </section>
-
-    <!-- SECTION 4 -->
     <section id="section-4">
-      <h2 class="section-heading"><span class="section-num">§ 4</span> Primary Bonding II — Covalent Bonding & Polar Character [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 16">16–21</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a>]</h2>
+      <h2 class="section-heading"><span class="section-num">§ 4</span> Metallic bonding [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23-27</a>]</h2>
 
-      <p>
-        Covalent bonding occurs predominantly between non-metallic elements with small differences in electronegativity ($\Delta\chi \lesssim 2$, a common textbook rule of thumb; the covalent-ionic transition is continuous and has no sharp threshold). Atoms share outer $s$ and $p$ valence electrons in localized molecular orbitals to attain closed-shell noble gas configurations ($s^2 p^6$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 17">17</a>].
-      </p>
-
-      <h3 class="sub-heading">Directionality and Tetrahedral Architecture [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 18">18</a>]</h3>
-      <p>
-        Because bonding orbitals represent hybridized quantum states ($sp^3$), covalent bonds possess <strong>strict spatial directionality</strong>:
-      </p>
-      <ul style="padding-left: 24px; margin-bottom: 16px;">
-        <li><strong>Elemental Silicon ($\text{Si}$):</strong> Valence of 4 requires 4 covalent bonds. $sp^3$ hybridization forms a regular tetrahedron with equilibrium inter-bond angles of exactly <strong>$109.5^\circ$</strong>.</li>
-        <li><strong>Silica ($\text{SiO}_2$):</strong> Corner-sharing $\text{SiO}_4^{4-}$ tetrahedra linked by directional $\text{Si}-\text{O}$ bonds form the structural backbone of quartz, glass, and ceramic matrices.</li>
-      </ul>
-
-      <h3 class="sub-heading">Continuous Network Covalent Solids [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 19">19</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a>]</h3>
-      <p>
-        Substances composed of a continuous three-dimensional network of covalent bonds (e.g., <strong>diamond, cubic boron nitride, quartz $\text{SiO}_2$, silicon carbide $\text{SiC}$</strong>) display extraordinary mechanical and thermal extremes:
-      </p>
-      <ul style="padding-left: 24px; margin-bottom: 16px;">
-        <li>Extreme hardness and incompressibility (Mohs 9–10).</li>
-        <li>Extremely high melting / sublimation points ($T_m > 2000\text{--}3800^\circ\text{C}$).</li>
-        <li>Complete insolubility in all polar and non-polar solvents.</li>
-        <li>Electrical insulators in both solid and molten states due to wide localized band gaps ($E_g > 3\text{--}6\text{ eV}$).</li>
-      </ul>
-
-      <h3 class="sub-heading">Polarity and the Ionic-Character Relation [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 20">20</a>]</h3>
-      <p>
-        When bonded atoms possess unequal electronegativities, electron sharing becomes unequal, generating a partial charge separation $\delta^+ - \delta^-$ and an electric dipole moment:
-      </p>
-
-      <div class="math-block">
-        $$\mu = Q \times d \quad (\text{Units: Debye, D}; \quad 1\text{ D} = 3.33 \times 10^{-30}\text{ C}\cdot\text{m})$$
-      </div>
-
-      <p>
-        The continuous transition between pure covalent and ionic bonding is quantified by the <strong>Pauling relation</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 20">20</a>] (the slide gives the formula without a name; it is Pauling's expression, whereas the Hannay-Smyth form is $16|\Delta\chi| + 3.5\,\Delta\chi^2$):
-      </p>
-
-      <div class="math-block">
-        $$\% \text{ Ionic Character} = \left[1 - \exp\left(-0.25\,(X_A - X_B)^2\right)\right] \times 100\%$$
-      </div>
-
-      <h3 class="sub-heading">Bond Order, Length, and Energy [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=21" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 21">21</a>]</h3>
-      <p>
-        For a given atomic pair, multiplying shared electron pairs increases cohesive bond order, which tightens interatomic distance and elevates bond dissociation energy:
-      </p>
-      <div class="math-block">
-        $$\text{Bond Order } \uparrow \implies \text{Bond Length } (d) \downarrow \implies \text{Bond Energy } (E_b) \uparrow$$
-        $$\text{C}-\text{C } (0.154\text{ nm}, 370\text{ kJ/mol}) \quad \longrightarrow \quad \text{C}=\text{C } (0.13\text{ nm}, 680\text{ kJ/mol}) \quad \longrightarrow \quad \text{C}\equiv\text{C } (0.12\text{ nm}, 890\text{ kJ/mol})$$
-      </div>
+<h3 class="sub-heading">4.1 Definition [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>]</h3>
+<p>The <strong>metallic bond</strong> forms when atoms give up their valence electrons, which then form an <strong>electron sea</strong>. The positively charged atom cores are bonded by their mutual attraction to the negatively charged electrons. In short, metallic bonds come from the <strong>electrostatic attraction between metal cations and delocalized electrons</strong>.</p>
+<ul><li>Atoms in metals are <strong>closely packed</strong> in a crystal structure.</li><li>The electrons spread out among the atoms, forming <strong>electron clouds</strong>.</li><li>Because the outer electrons are shared by many atoms, metallic bonds are <strong>non-directional</strong>.</li></ul>
+<h3 class="sub-heading">4.2 Bonding energy and valence electrons [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 24">24</a>]</h3>
+<ul><li>Metallic bonds <strong>lower the overall energy</strong> of the individual atoms.</li><li>The energy between atoms is <strong>minimum at the equilibrium distance $a_0$</strong>.</li><li><strong>Fewer</strong> valence electrons → <strong>lower</strong> bonding energy. Example: K, valence +1 → bonding energy 89.6 kJ/mol, melting temperature 63.5 °C.</li><li><strong>More</strong> valence electrons → <strong>higher</strong> bonding energy. Example: Ca, valence +2 → bonding energy 177 kJ/mol, melting temperature 851 °C.</li></ul>
+<p>The slide's table for the fourth-period metals:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Element</th><th>Electron configuration</th><th style="text-align:right">Bonding energy (kJ/mol)</th><th style="text-align:right">Melting point (°C)</th></tr></thead><tbody><tr><td>K</td><td>4s¹</td><td style="text-align:right">89.6</td><td style="text-align:right">63.5</td></tr><tr><td>Ca</td><td>4s²</td><td style="text-align:right">177</td><td style="text-align:right">851</td></tr><tr><td>Sc</td><td>3d¹4s²</td><td style="text-align:right">342</td><td style="text-align:right">1397</td></tr><tr><td>Ti</td><td>3d²4s²</td><td style="text-align:right">473</td><td style="text-align:right">1660</td></tr><tr><td>V</td><td>3d³4s²</td><td style="text-align:right">515</td><td style="text-align:right">1730</td></tr><tr><td>Cr</td><td>3d⁵4s¹</td><td style="text-align:right">398</td><td style="text-align:right">1903</td></tr><tr><td>Mn</td><td>3d⁵4s²</td><td style="text-align:right">279</td><td style="text-align:right">1244</td></tr><tr><td>Fe</td><td>3d⁶4s²</td><td style="text-align:right">418</td><td style="text-align:right">1535</td></tr><tr><td>Co</td><td>3d⁷4s²</td><td style="text-align:right">383</td><td style="text-align:right">1490</td></tr><tr><td>Ni</td><td>3d⁸4s²</td><td style="text-align:right">423</td><td style="text-align:right">1455</td></tr><tr><td>Cu</td><td>3d¹⁰4s¹</td><td style="text-align:right">339</td><td style="text-align:right">1083</td></tr><tr><td>Zn</td><td>4s²</td><td style="text-align:right">131</td><td style="text-align:right">419</td></tr><tr><td>Ga</td><td>4s²4p¹</td><td style="text-align:right">272</td><td style="text-align:right">29.8</td></tr><tr><td>Ge</td><td>4s²4p²</td><td style="text-align:right">377</td><td style="text-align:right">960</td></tr></tbody></table></div>
+<h3 class="sub-heading">4.3 Metallic bonds and material properties [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>]</h3>
+<ul><li>Pure metals are much more <strong>malleable</strong> than ionic or covalent networked materials. The strength of a pure metal can be increased a lot by <strong>alloying</strong>.</li><li>Pure metals are <strong>excellent conductors of heat and electricity</strong>. When a voltage is applied, the electrons of the electron sea move easily and carry a current.</li></ul>
+<h3 class="sub-heading">4.4 Band theory [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 26">26-27</a>]</h3>
+<p><strong>Band theory</strong> is a model that describes the states of electrons in solids, which can only have energies within certain specific ranges [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 26">26</a>].</p>
+<ul><li>In a metallic crystal, all the molecular orbitals (MO) of the free atoms turn into a group of <strong>non-localized orbitals</strong> called a <strong>band</strong>. The energy difference between neighbouring MOs is so small that the energy is almost a <strong>continuum</strong>.</li><li>A metal can be seen as a <strong>giant molecule</strong> formed by a giant number of MOs.</li><li>The slide's example is Li [1s² 2s¹]: going from Li to Li₂, Li₃, …, Li_N, the 2s levels multiply until they form an <strong>energy band</strong>.</li></ul>
+<p>The <strong>band structure depends on the interatomic distance</strong>: the outermost atomic orbitals overlap and form an energy band [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=27" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 27">27</a>]. The slide draws it for Li (Z = 3, 1s² 2s¹) and Mg (1s² 2s²), with a valence band and a conduction band for each.</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy in the slide</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=27" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 27">27</a> labels magnesium "Mg (Z=4) 1s² 2s²". That configuration (four electrons) is beryllium; magnesium has Z = 12. The diagram itself is read as written.</p></div>
     </section>
-
-    <!-- SECTION 5 -->
     <section id="section-5">
-      <h2 class="section-heading"><span class="section-num">§ 5</span> Primary Bonding III — Metallic Bonding & Energy Band Theory [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=22" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 22">22–27</a>]</h2>
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Secondary bonding: intermolecular forces [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 29">29-35</a>]</h2>
 
-      <p>
-        In metallic crystals, electropositive atoms shed their outer valence electrons into a crystal-spanning, delocalized <strong>"electron sea"</strong>. Cohesive bonding is the isotropic electrostatic attraction between the positively charged ion cores (cations) and the pervasive, negatively charged conduction electron gas [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>].
-      </p>
-
-      <h3 class="sub-heading">Valence Dependence of Metallic Cohesive Energy [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 24">24</a>]</h3>
-      <p>
-        The cohesive strength of a metallic crystal scales directly with the number of valence electrons contributed per atom to the electron sea:
-      </p>
-
-      <div class="table-container">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Metal</th>
-              <th>Valence</th>
-              <th>Electron Configuration</th>
-              <th>Bonding Energy ($E_b$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 24">24</a>]</th>
-              <th>Melting Temp ($T_m$) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 24">24</a>]</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Potassium ($\text{K}$)</strong></td>
-              <td>$+1$</td>
-              <td>$[\text{Ar}]\,4s^1$</td>
-              <td><strong>$89.6\text{ kJ/mol}$</strong></td>
-              <td><strong>$63.5^\circ\text{C}$</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Calcium ($\text{Ca}$)</strong></td>
-              <td>$+2$</td>
-              <td>$[\text{Ar}]\,4s^2$</td>
-              <td><strong>$177.0\text{ kJ/mol}$</strong></td>
-              <td><strong>$851.0^\circ\text{C}$</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Titanium ($\text{Ti}$)</strong></td>
-              <td>$+4$ ($3d^2 4s^2$)</td>
-              <td>$[\text{Ar}]\,3d^2 4s^2$</td>
-              <td><strong>$473\text{ kJ/mol}$</strong></td>
-              <td><strong>$1660^\circ\text{C}$</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="sub-heading">Ductility vs Dislocation Slip Mechanism [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>]</h3>
-      <p>
-        Because the metallic electron sea is homogeneous, fluid, and completely <strong>non-directional</strong>, planes of metal cations slide past one another under shear stress without encountering like-charge repulsion. The electron sea instantly screens the moving cations, rendering pure metals exceptionally <strong>ductile and malleable</strong>.
-      </p>
-
-      <div class="diagram-card">
-        <svg viewBox="0 0 720 220" width="100%" height="200" style="max-width: 680px; margin: 0 auto; display: block;">
-          <!-- Left: Metallic Slip -->
-          <rect x="20" y="20" width="320" height="175" rx="8" fill="var(--bg-subtle)" stroke="var(--border-card)" />
-          <text x="180" y="44" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">Metallic Slip (High Ductility)</text>
-          
-          <!-- Electron Sea Background -->
-          <rect x="40" y="65" width="280" height="90" rx="6" fill="rgba(59, 130, 246, 0.12)" />
-          <text x="50" y="80" font-family="'JetBrains Mono', monospace" font-size="10" fill="#60a5fa">Electron Sea (e⁻ Cloud)</text>
-          
-          <!-- Cations Top Row -->
-          <circle cx="90" cy="95" r="14" fill="#3b82f6" /> <text x="90" y="100" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">+</text>
-          <circle cx="160" cy="95" r="14" fill="#3b82f6" /> <text x="160" y="100" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">+</text>
-          <circle cx="230" cy="95" r="14" fill="#3b82f6" /> <text x="230" y="100" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">+</text>
-          
-          <!-- Shear Arrow -->
-          <line x1="260" y1="95" x2="300" y2="95" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)" />
-          <text x="285" y="85" font-family="'JetBrains Mono', monospace" font-size="10" fill="#f59e0b">Shear τ</text>
-
-          <!-- Cations Bottom Row -->
-          <circle cx="70" cy="135" r="14" fill="#3b82f6" /> <text x="70" y="140" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">+</text>
-          <circle cx="140" cy="135" r="14" fill="#3b82f6" /> <text x="140" y="140" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">+</text>
-          <circle cx="210" cy="135" r="14" fill="#3b82f6" /> <text x="210" y="140" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">+</text>
-
-          <text x="180" y="180" font-family="'Inter', sans-serif" font-size="11" fill="var(--text-muted)" text-anchor="middle">Planes glide smoothly; bonds re-form continuously.</text>
-
-          <!-- Right: Ionic Slip Catastrophe -->
-          <rect x="380" y="20" width="320" height="175" rx="8" fill="var(--bg-subtle)" stroke="var(--border-card)" />
-          <text x="540" y="44" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">Ionic Slip (Catastrophic Cleavage)</text>
-
-          <!-- Top Row Ionic Shifted -->
-          <circle cx="450" cy="95" r="13" fill="#3b82f6" /> <text x="450" y="100" fill="#fff" font-size="13" text-anchor="middle" font-weight="700">+</text>
-          <circle cx="510" cy="95" r="13" fill="#10b981" /> <text x="510" y="99" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">−</text>
-          <circle cx="570" cy="95" r="13" fill="#3b82f6" /> <text x="570" y="100" fill="#fff" font-size="13" text-anchor="middle" font-weight="700">+</text>
-          
-          <line x1="600" y1="95" x2="640" y2="95" stroke="#ef4444" stroke-width="2.5" />
-          <text x="625" y="85" font-family="'JetBrains Mono', monospace" font-size="10" fill="#ef4444">Shear τ</text>
-
-          <!-- Bottom Row Ionic -->
-          <circle cx="450" cy="135" r="13" fill="#3b82f6" /> <text x="450" y="140" fill="#fff" font-size="13" text-anchor="middle" font-weight="700">+</text>
-          <circle cx="510" cy="135" r="13" fill="#10b981" /> <text x="510" y="139" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">−</text>
-          <circle cx="570" cy="135" r="13" fill="#3b82f6" /> <text x="570" y="140" fill="#fff" font-size="13" text-anchor="middle" font-weight="700">+</text>
-
-          <!-- Repulsion Flash -->
-          <line x1="450" y1="110" x2="450" y2="120" stroke="#ef4444" stroke-width="3" stroke-dasharray="2,2" />
-          <line x1="510" y1="110" x2="510" y2="120" stroke="#ef4444" stroke-width="3" stroke-dasharray="2,2" />
-          <line x1="570" y1="110" x2="570" y2="120" stroke="#ef4444" stroke-width="3" stroke-dasharray="2,2" />
-
-          <text x="540" y="180" font-family="'Inter', sans-serif" font-size="11" fill="#ef4444" text-anchor="middle">Like charges collide! Huge repulsion tears lattice apart.</text>
-        </svg>
-        <div class="diagram-caption">Figure 5.1: Comparative dislocation slip. Metallic screening enables ductile slip, whereas ionic plane shift induces Coulombic cleavage [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=14" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 14">14</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>].</div>
-      </div>
-
-      <h3 class="sub-heading">Band Theory in Metals [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 26">26–27</a>]</h3>
-      <p>
-        When $N$ atoms assemble into a crystalline solid, discrete molecular orbitals split into continuous energy bands containing $N$ quantum states [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=26" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 26">26</a>]:
-      </p>
-      <ul style="padding-left: 24px; margin-bottom: 16px;">
-        <li><strong>Monovalent Metals ($\text{Li}, 1s^2 2s^1$):</strong> The $2s$ valence band is half-filled. Electrons absorb infinitesimal energy to move into adjacent vacant states, granting high electrical conductivity.</li>
-        <li><strong>Divalent Metals ($\text{Mg}, 1s^2 2s^2 2p^6 3s^2$):</strong> Although the $3s$ subshell is fully occupied, at equilibrium spacing $a_0$, the empty $3p$ conduction band <strong>physically and energetically overlaps with the $3s$ valence band</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=27" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 27">27</a>], eliminating the band gap ($E_g = 0$) and enabling uninhibited metallic conduction.</li>
-      </ul>
+<h3 class="sub-heading">5.1 Recap: primary bonds are strong [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 29">29</a>]</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Primary bond</th><th>Energy (kcal/mol)</th><th>Mechanism</th></tr></thead><tbody><tr><td>Ionic</td><td>150-370</td><td>transfer of e⁻ → cations and anions → Coulomb force (non-directional)</td></tr><tr><td>Covalent</td><td>125-300</td><td>sharing of e⁻ (directional)</td></tr><tr><td>Metallic</td><td>25-200</td><td>e⁻ shared externally and held very loosely by the nucleus (non-directional)</td></tr></tbody></table></div>
+<p>The slide illustrates the three with diagrams: Na giving an electron to Cl (ionic), two Cl atoms sharing a pair (covalent), and Cu²⁺ ion cores in an electron cloud of valence electrons (metallic).</p>
+<h3 class="sub-heading">5.2 Secondary bonds: weak (van der Waals) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=30" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 30">30</a>]</h3>
+<p>Secondary bonds come from the <strong>attraction between electric dipoles</strong> in atoms or molecules. A dipole appears when the electron charge is distributed <strong>asymmetrically</strong>, so the centres of positive and negative charge are in different places.</p>
+<p>There are two types of dipoles:</p>
+<ul><li><strong>Permanent dipoles:</strong> do not fluctuate with time.</li><li><strong>Fluctuating dipoles:</strong> the charge of the electron cloud changes with time.</li></ul>
+<h3 class="sub-heading">5.3 Permanent dipole (1-10 kcal/mol) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=31" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 31">31</a>]</h3>
+<p>It forms in molecules that:</p>
+<ul><li>have a <strong>constant dipole moment μ</strong>, and</li><li>are made of atoms with <strong>different electronegativity</strong> joined by <strong>covalent</strong> bonds.</li></ul>
+<p>Example:</p>
+<ul><li><strong>CH₄:</strong> the four C–H bonds are arranged <strong>symmetrically</strong> → <strong>no dipole moment</strong>.</li><li><strong>CH₃Cl:</strong> the tetrahedral arrangement is <strong>asymmetrical</strong> → it <strong>creates a dipole</strong>.</li></ul>
+<h3 class="sub-heading">5.4 Example: PVC [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 32">32</a>]</h3>
+<ul><li>(a) In polyvinyl chloride (PVC), the chlorine atoms on the polymer chain carry a negative charge and the hydrogen atoms a positive charge. The chains are weakly bonded to each other by van der Waals bonds. This extra bonding makes PVC <strong>stiffer</strong>.</li><li>(b) When a force is applied, the van der Waals bonds break and the chains <strong>slide past one another</strong>.</li></ul>
+<h3 class="sub-heading">5.5 Hydrogen bond (permanent dipole, 7 kcal/mol in H₂O) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 33">33</a>]</h3>
+<p>In molecules with H and <strong>electronegative atoms</strong> (O–H, N–H, F–H) the charge is distributed asymmetrically → polar covalent bond → permanent dipole.</p>
+<ul><li><strong>Hydrogen bonds</strong> are <strong>dipole-dipole interactions</strong> between polar bonds that contain a hydrogen atom.</li><li>Example: in water the dipole comes from the asymmetrical arrangement of the hydrogen atoms (the slide draws the H–O–H angle as 105°). Neighbouring molecules attract: the hydrogen of one molecule is attracted by the oxygen of the next.</li></ul>
+<div class="callout callout-warning"><div class="callout-title">Erratum in the slide</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 33">33</a> says "attraction between positive oxygen pole and negative hydrogen pole". The signs are swapped. Oxygen is the more electronegative atom, so it pulls the shared electrons and becomes the <strong>negative</strong> pole; hydrogen becomes the <strong>positive</strong> pole. This follows from the slide's own definitions: electrons move towards the more electronegative atom (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=4" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 4">4</a>) and a polar bond forms between atoms of different electronegativity (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=20" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 20">20</a>).</p></div>
+<h3 class="sub-heading">5.6 Fluctuating dipole (&lt; 2 kcal/mol) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=34" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 34">34</a>]</h3>
+<p>It forms in <strong>non-polar</strong> molecules in a crystalline lattice. The electron charge distribution fluctuates instantaneously: at one instant it is symmetrical, at the next asymmetrical. Those changing asymmetries are <strong>fluctuating dipoles</strong>.</p>
+<h3 class="sub-heading">5.7 Example: boiling points of molecular hydrides [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 35">35</a>]</h3>
+<ul><li>Elements in higher periods generally have higher melting points: their atoms share more electrons, which gives stronger forces holding the molecules together.</li><li>However, <strong>strong hydrogen bonding</strong> gives H₂O, HF and NH₃ a <strong>much higher boiling point</strong> than the trend predicts.</li></ul>
+<p>The slide's graph (groups 14 to 17, periods 2 to 5) shows it: CH₄, SiH₄, GeH₄, SnH₄ rise steadily with the period, while H₂O, HF and NH₃ break the trend at period 2.</p>
+<div class="callout"><div class="callout-title">Label of the graph</div><p>The caption reads "Variation of melting points of molecular hydrides", but the vertical axis of the graph is the <strong>boiling point</strong> (°C), as the text of the slide says.</p></div>
     </section>
-
-    <!-- SECTION 6 -->
     <section id="section-6">
-      <h2 class="section-heading"><span class="section-num">§ 6</span> Secondary Bonding & Intermolecular Forces [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=28" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 28">28–35</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 37">37–38</a>]</h2>
-
-      <p>
-        Secondary bonds (van der Waals interactions) are weak physical attractions ($< 10\text{ kcal/mol} \approx 42\text{ kJ/mol}$) arising from dipole-dipole electrostatic interactions, contrasting sharply with primary bonds ($25\text{--}370\text{ kcal/mol}$ overall: ionic $150\text{--}370$, covalent $125\text{--}300$, metallic $25\text{--}200$) [Slide 29]:
-      </p>
-
-      <div class="table-container">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Bond Category</th>
-              <th>Energy Scale</th>
-              <th>Mechanism</th>
-              <th>Benchmark Examples</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Primary: Ionic</strong></td>
-              <td>$150\text{--}370\text{ kcal/mol}$</td>
-              <td>Valence $e^-$ transfer $\to$ Coulomb attraction</td>
-              <td>$\text{NaCl}, \text{MgO}, \text{Al}_2\text{O}_3$</td>
-            </tr>
-            <tr>
-              <td><strong>Primary: Covalent</strong></td>
-              <td>$125\text{--}300\text{ kcal/mol}$</td>
-              <td>Shared localized $e^-$ pairs</td>
-              <td>$\text{Diamond}, \text{Si}, \text{SiO}_2$</td>
-            </tr>
-            <tr>
-              <td><strong>Primary: Metallic</strong></td>
-              <td>$25\text{--}200\text{ kcal/mol}$</td>
-              <td>Delocalized electron sea</td>
-              <td>$\text{Al}, \text{Ti}, \text{Fe}, \text{Ni}$</td>
-            </tr>
-            <tr>
-              <td><strong>Secondary: Permanent Dipoles</strong></td>
-              <td>$1\text{--}10\text{ kcal/mol}$</td>
-              <td>Constant dipole moment in asymmetrical molecules</td>
-              <td>$\text{CH}_3\text{Cl}$, PVC inter-chain stiffness</td>
-            </tr>
-            <tr>
-              <td><strong>Secondary: Hydrogen Bond</strong></td>
-              <td>$\approx 7\text{ kcal/mol}$</td>
-              <td>$\text{H}$ bonded to compact $\text{F}, \text{O}, \text{N}$</td>
-              <td>$\text{H}_2\text{O}$ boiling point anomaly</td>
-            </tr>
-            <tr>
-              <td><strong>Secondary: Fluctuating Dipoles</strong></td>
-              <td>$< 2\text{ kcal/mol}$</td>
-              <td>Instantaneous quantum charge fluctuations (London)</td>
-              <td>Solid noble gases, Polyethylene</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="sub-heading">Polymer Chain Stiffening: Polyvinyl Chloride (PVC) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 32">32</a>]</h3>
-      <p>
-        In polyvinyl chloride ($-[\text{CH}_2-\text{CHCl}]_n-$), the strongly electronegative chlorine atoms ($\text{Cl}^{\delta-}$) attract the electropositive hydrogens ($\text{H}^{\delta+}$) on adjacent polymer chains. These secondary van der Waals cross-links restrict inter-chain sliding, significantly increasing the mechanical stiffness (modulus) of PVC. When an excessive external stress is applied, these weak secondary bonds break, permitting chains to slide past one another in plastic deformation [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 32">32</a>].
-      </p>
-
-      <h3 class="sub-heading">Hydrogen Bonding & Boiling Point Anomalies [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=33" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 33">33</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 35">35</a>]</h3>
-      <p>
-        In molecular hydrides of Group 14 ($\text{CH}_4 \to \text{SiH}_4 \to \text{GeH}_4 \to \text{SnH}_4$), boiling points increase smoothly with period number due to increased London dispersion forces. However, for Groups 15, 16, and 17, the lightest hydrides ($\text{H}_2\text{O}, \text{HF}, \text{NH}_3$) exhibit massive positive boiling point spikes due to extensive hydrogen bonding ($\approx 7\text{ kcal/mol}$), keeping water liquid up to $100^\circ\text{C}$ compared to $-60^\circ\text{C}$ for $\text{H}_2\text{S}$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=35" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 35">35</a>].
-      </p>
+      <h2 class="section-heading"><span class="section-num">§ 6</span> Bonding and properties in materials [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 37">37-38</a>]</h2>
+<p><strong>Nature of bonding → properties → type of material</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 37">37</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Type of material</th><th>Character of bonding</th><th>Examples</th></tr></thead><tbody><tr><td>Metal</td><td>Metallic</td><td>Fe, steels</td></tr><tr><td>Ceramics and glasses</td><td>Ionic / covalent</td><td>Silica (SiO₂)</td></tr><tr><td>Polymers</td><td>Covalent and secondary</td><td>Polyethylene –(CH₂)–</td></tr></tbody></table></div>
+<p><strong>Summary of properties by bond</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Bond</th><th>Type of substance</th><th>Melting and boiling points</th><th>Mechanical properties</th><th>Solubility</th></tr></thead><tbody><tr><td>Covalent</td><td>Molecular</td><td>Low</td><td>Soft in the solid state</td><td>Depends on the polarity of the molecules</td></tr><tr><td>Covalent</td><td>Atomic, covalent or lattice</td><td>Very high</td><td>Very hard, brittle</td><td>Insoluble in all solvents</td></tr><tr><td>Ionic</td><td>Ionic</td><td>High</td><td>Hard and brittle</td><td>Soluble in polar solvents</td></tr><tr><td>Metallic</td><td>Metallic</td><td>High</td><td>Ductile and workable</td><td>Insoluble in all solvents</td></tr></tbody></table></div>
     </section>
-
-    <!-- SECTION 7 -->
     <section id="section-7">
-      <h2 class="section-heading"><span class="section-num">§ 7</span> Official Exam Questions (UC3M Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 39">39</a>)</h2>
-      
-      <p>
-        The following four problems represent the official exam questions formulated by the Department of Materials Science & Engineering at UC3M [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 39">39</a>], resolved exhaustively following the 4-phase pedagogical methodology.
-      </p>
-
-      <!-- EXAM QUESTION 1 -->
-      <article class="exam-card" id="question-1">
-        <div class="exam-header">
-          <span class="exam-title">Question 1: Metallic vs Covalent Primary Bonds</span>
-          <span class="exam-badge">UC3M SLIDE 39 · Q1</span>
-        </div>
-        <div class="exam-body">
-          <p style="font-style: italic; color: var(--text-heading); margin-bottom: 20px;">
-            "Compare and contrast metallic and covalent primary bonds in terms of: a) the nature of the bond, b) the valence of the atoms involved, and c) the ductility of the materials bonded in these ways."
-          </p>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-1">Phase 1: Statement and Classification of Bonds</span>
-            <p>
-              Both bond types are primary chemical bonds with cohesive energies exceeding $100\text{ kJ/mol}$. We evaluate them across electronic wavefunctions, valence occupancy, and crystal slip dynamics.
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-2">Phase 2: Formulation and Physical Mechanisms</span>
-            <p>
-              Covalent bonding is defined by localized shared electron pairs occupying directional hybridized orbitals ($sp^3, 109.5^\circ$) governed by the $(8-N)$ rule [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 17">17–18</a>]. Metallic bonding is defined by delocalized electron gas screening an array of positive cations in an isotropic, non-directional potential [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>].
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-3">Phase 3: Step-by-Step Comparative Derivation</span>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 10px;">
-                <strong>a) Nature of the Bond:</strong>
-                <em>Metallic:</em> Non-directional electrostatic attraction between positive ion cores and a pervasive delocalized electron sea.
-                <em>Covalent:</em> Highly directional sharing of electron pairs in localized orbitals concentrated along specific bond vectors.
-              </li>
-              <li style="margin-bottom: 10px;">
-                <strong>b) Valence of the Atoms:</strong>
-                <em>Metallic:</em> Formed by electropositive elements with few valence electrons (1, 2, or 3, plus incomplete inner $d$-shells). The small number of valence electrons relative to high coordination numbers ($CN=8\text{ or }12$) compels electron delocalization.
-                <em>Covalent:</em> Formed by electronegative non-metals/metalloids with higher valences (4, 5, 6, 7) that satisfy the $(8-N)$ octet rule.
-              </li>
-              <li>
-                <strong>c) Ductility of Materials:</strong>
-                <em>Metallic:</em> Highly ductile. Under shear, dislocation slip translates cation planes smoothly through the fluid, non-directional electron sea without bond breakage.
-                <em>Covalent:</em> Extremely brittle. Plastic shear requires the catastrophic angular distortion and rupture of rigid, directional covalent bonds, resulting in cleavage fracture prior to plastic flow.
-              </li>
-            </ul>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-4">Phase 4: Physical Interpretation & Verification</span>
-            <p>
-              This fundamental electronic contrast explains why structural airframes use metallic alloys (e.g., Al, Ti) for fracture toughness, whereas covalent materials (e.g., SiC, diamond) are reserved for extreme hardness and wear-resistant coatings.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <!-- EXAM QUESTION 2 -->
-      <article class="exam-card" id="question-2">
-        <div class="exam-header">
-          <span class="exam-title">Question 2: Potential Well Curves for Titanium vs Aluminum</span>
-          <span class="exam-badge">UC3M SLIDE 39 · Q2</span>
-        </div>
-        <div class="exam-body">
-          <p style="font-style: italic; color: var(--text-heading); margin-bottom: 20px;">
-            "Titanium is stiffer than aluminum, has a lower thermal expansion coefficient than aluminum, and has a higher melting temperature than aluminum. On the same graph, carefully and schematically draw the potential well curves for both metals and showing how the physical properties are manifested in these curves."
-          </p>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-1">Phase 1: Official Physical Data</span>
-            <p>
-              $E_{\text{Ti}} \approx 115\text{ GPa} > E_{\text{Al}} \approx 69\text{ GPa}$; 
-              $T_{m,\text{Ti}} = 1660^\circ\text{C} \gg T_{m,\text{Al}} = 660^\circ\text{C}$; 
-              $\alpha_{\text{Ti}} \approx 8.6 \times 10^{-6}\text{ K}^{-1} \ll \alpha_{\text{Al}} \approx 23.1 \times 10^{-6}\text{ K}^{-1}$; 
-              $r_{0,\text{Ti}} \approx r_{0,\text{Al}} \approx 0.286\text{--}0.289\text{ nm}$.
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-2">Phase 2: Rigorous Mathematical Mapping</span>
-            <p>
-              1. $T_m \propto E_0$ (Trough Depth): Titanium's minimum is deeper ($E_{0,\text{Ti}} \gg E_{0,\text{Al}}$).<br>
-              2. $E \propto d^2E/dr^2|_{r_0}$ (Curvature): Titanium's well is narrower and sharper at the bottom.<br>
-              3. $\alpha \propto$ Asymmetry: Aluminum's well is broader, shallower, and strongly anharmonic on the attractive branch.
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-3">Phase 3: Comparative Plot of the Potential Wells</span>
-            
-            <div class="diagram-card" style="margin: 16px 0;">
-              <svg viewBox="0 0 720 360" width="100%" height="300" style="max-width: 660px; margin: 0 auto; display: block;">
-                <!-- Axes -->
-                <line x1="80" y1="170" x2="680" y2="170" stroke="var(--border-strong)" stroke-width="1.5" />
-                <line x1="140" y1="20" x2="140" y2="340" stroke="var(--border-strong)" stroke-width="1.5" />
-                <text x="670" y="162" font-family="'Inter', sans-serif" font-size="11" fill="var(--text-muted)">r</text>
-                <text x="148" y="32" font-family="'Inter', sans-serif" font-size="11" fill="var(--text-muted)">E(r)</text>
-                <text x="120" y="165" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-muted)">0</text>
-
-                <!-- Aluminum Potential Well (Shallower, Broader, Asymmetric) -->
-                <path d="M 155,50 C 165,190 220,260 280,260 C 370,260 480,185 660,172" fill="none" stroke="#3b82f6" stroke-width="2.5" />
-                
-                <!-- Titanium Potential Well (Deeper, Narrower, Sharper Curvature) -->
-                <path d="M 152,40 C 160,240 215,330 280,330 C 345,330 430,195 660,173" fill="none" stroke="#f59e0b" stroke-width="3" />
-
-                <!-- Equilibrium line r0 -->
-                <line x1="280" y1="170" x2="280" y2="330" stroke="var(--border-strong)" stroke-width="1" stroke-dasharray="3,3" />
-                <text x="280" y="160" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-heading)" text-anchor="middle">r₀(Ti) ≈ r₀(Al)</text>
-
-                <!-- Well depths -->
-                <line x1="80" y1="260" x2="280" y2="260" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3,3" />
-                <circle cx="280" cy="260" r="4.5" fill="#3b82f6" />
-                <text x="75" y="264" font-family="'JetBrains Mono', monospace" font-size="11" fill="#3b82f6" text-anchor="end">-E₀(Al) [Tm = 660°C]</text>
-
-                <line x1="80" y1="330" x2="280" y2="330" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" />
-                <circle cx="280" cy="330" r="5" fill="#f59e0b" />
-                <text x="75" y="334" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f59e0b" text-anchor="end">-E₀(Ti) [Tm = 1660°C]</text>
-
-                <!-- Annotations -->
-                <text x="350" y="248" font-family="'Inter', sans-serif" font-size="11" fill="#3b82f6" font-weight="600">Aluminum: Lower curvature (E=69 GPa), Wide asymmetry (α=23·10⁻⁶ K⁻¹)</text>
-                <text x="330" y="318" font-family="'Inter', sans-serif" font-size="11" fill="#f59e0b" font-weight="600">Titanium: High curvature (E=115 GPa), Deep well (Tm=1660°C), Low α</text>
-              </svg>
-              <div class="diagram-caption">Figure 7.1: Superimposed potential well curves for Titanium vs Aluminum [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 39">39</a>, Q2].</div>
-            </div>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-4">Phase 4: Physico-Chemical Interpretation</span>
-            <p>
-              Titanium's superior stiffness and refractoriness originate from its $3d^2 4s^2$ transition configuration, where localized $d$-band hybridization augments the metallic electron sea. Aluminum utilizes only simple $3s^2 3p^1$ valence electrons, forming a more compliant, shallower well.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <!-- EXAM QUESTION 3 -->
-      <article class="exam-card" id="question-3">
-        <div class="exam-header">
-          <span class="exam-title">Question 3: Modulus of Elasticity of MgO vs Magnesium</span>
-          <span class="exam-badge">UC3M SLIDE 39 · Q3</span>
-        </div>
-        <div class="exam-body">
-          <p style="font-style: italic; color: var(--text-heading); margin-bottom: 20px;">
-            "Would you expect MgO or magnesium to have the higher modulus of elasticity? Explain."
-          </p>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-1">Phase 1: Problem Statement and Experimental Data</span>
-            <p>
-              Magnesium oxide ($\text{MgO}$): Refractory ceramic with $E_{\text{MgO}} \approx 250\text{--}300\text{ GPa}$, $T_m = 2800^\circ\text{C}$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>).<br>
-              Pure Magnesium ($\text{Mg}$): Lightweight metal with $E_{\text{Mg}} \approx 45\text{ GPa}$, $T_m = 650^\circ\text{C}$.
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-2">Phase 2: Theoretical Formulation</span>
-            <p>
-              The elastic modulus scales with interionic potential curvature:
-              $$E \propto \left.\frac{d^2 E}{dr^2}\right|_{r = r_0} \propto \frac{Z_1 Z_2 e^2}{r_0^4}$$
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-3">Phase 3: Analytical Derivation</span>
-            <p>
-              In $\text{MgO}$, bonding is dominated by divalent ionic point charges: $\text{Mg}^{2+}$ ($Z_1 = +2$) and $\text{O}^{2-}$ ($Z_2 = -2$), giving a massive charge product $Z_1 Z_2 = 4$ across a very compact interionic spacing ($a_0 = 2.10\text{ \AA}$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>]). This produces an enormous lattice energy ($|U| \approx 3790\text{ kJ/mol}$) and a steep potential well with an extremely high second derivative.<br>
-              In metallic $\text{Mg}$, the divalent $\text{Mg}^{2+}$ cations are immersed in a smeared-out, delocalized electron gas ($r_0 \approx 3.20\text{ \AA}$). The diffuse electron gas provides far lower resistance to elastic bond stretching ($E_b \approx 146\text{ kJ/mol}$).
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-4">Phase 4: Final Conclusion</span>
-            <p>
-              <strong>$\text{MgO}$ has a far higher modulus of elasticity than pure magnesium</strong> ($E_{\text{MgO}} \approx 250\text{--}300\text{ GPa}$ vs $E_{\text{Mg}} \approx 45\text{ GPa}$, roughly a factor of $6\times$ higher), directly attributable to the intense Coulombic curvature of localized divalent ionic bonds.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <!-- EXAM QUESTION 4 -->
-      <article class="exam-card" id="question-4">
-        <div class="exam-header">
-          <span class="exam-title">Question 4: Modulus of Elasticity of Aluminum vs Silicon</span>
-          <span class="exam-badge">UC3M SLIDE 39 · Q4</span>
-        </div>
-        <div class="exam-body">
-          <p style="font-style: italic; color: var(--text-heading); margin-bottom: 20px;">
-            "Aluminum and silicon are side-by-side in the periodic table. Which would you expect to have the higher modulus of elasticity (E)? Explain."
-          </p>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-1">Phase 1: Problem Statement and Periodic Position</span>
-            <p>
-              Aluminum ($Z=13$, Group 13, $[\text{Ne}]\,3s^2 3p^1$): FCC metal, $E_{\text{Al}} \approx 69\text{ GPa}$, $T_m = 660^\circ\text{C}$.<br>
-              Silicon ($Z=14$, Group 14, $[\text{Ne}]\,3s^2 3p^2$): Diamond-cubic covalent network, $E_{\text{Si}} \approx 130\text{--}185\text{ GPa}$, $T_m = 1414^\circ\text{C}$.
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-2">Phase 2: Radial and Angular Stiffness Formulation</span>
-            <p>
-              In metallic Aluminum, elastic deformation entails only radial stretching against a non-directional electron sea. In covalent Silicon, four localized $sp^3$ hybrid bonds form a rigid tetrahedral network ($109.5^\circ$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 18">18</a>]). Elastic deformation requires both stretching covalent bonds and bending rigid bond angles:
-              $$S_{\text{eff}} = \left.\frac{d^2 E}{dr^2}\right|_{\text{stretch}} + \frac{k_\theta}{r_0^2}\left.\frac{d^2 E}{d\theta^2}\right|_{\text{bend}}$$
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-3">Phase 3: Step-by-Step Derivation</span>
-            <p>
-              Silicon's directional $sp^3$ covalent bonds exhibit strong orbital overlap resistance ($E_{\text{bond}} \approx 325\text{ kJ/mol}$, $T_m = 1414^\circ\text{C}$). The quantum mechanical resistance to bond bending ($k_\theta \gg 0$) adds massive mechanical stiffness. In Aluminum, the non-directional metallic sea provides zero angular stiffness ($k_\theta = 0$), yielding a more compliant lattice.
-            </p>
-          </div>
-
-          <div class="exam-step">
-            <span class="phase-badge phase-4">Phase 4: Final Conclusion</span>
-            <p>
-              <strong>Silicon has a significantly higher modulus of elasticity than Aluminum</strong> ($E_{\text{Si}} \approx 150\text{ GPa}$ vs $E_{\text{Al}} \approx 69\text{ GPa}$, more than double the stiffness). While Aluminum's ductility makes it the benchmark airframe structural metal, Silicon's high stiffness and dimensional stability make it the premier choice for aerospace MEMS gyroscopes and accelerometers.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- Aerospace Motivational Quote Component -->
-    <section style="margin: 48px auto 24px;">
-      <div id="quoteContainer"></div>
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Questions [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 39">39</a>]</h2>
+<p>The slide closes with four questions:</p>
+<ol><li>Compare metallic and covalent primary bonds: nature of the bond, valence of the atoms, ductility</li><li>Titanium is stiffer than aluminium, has a lower thermal expansion coefficient and a higher melting temperature: draw both potential-well curves</li><li>MgO or magnesium: which has the higher modulus of elasticity?</li><li>Aluminium or silicon: which has the higher modulus of elasticity?</li></ol>
+<div class="exam-card" id="question-1">
+  <div class="exam-header"><span class="exam-badge">Question 1</span><span class="exam-title">Metallic vs Covalent Bonding</span></div>
+  <div class="exam-body">
+    <p><em>Compare and contrast metallic and covalent primary bonds in terms of (a) the nature of the bond, (b) the valence of the atoms involved, and (c) the ductility of the materials bonded in these ways.</em></p>
+    <h4 class="sub-heading">Answer</h4>
+<p><strong>(a) Nature of the bond.</strong> A covalent bond is a pair of electrons <strong>shared between two specific atoms</strong>, so it points in fixed directions (e.g. 109.5° in silicon) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 17">17-18</a>]. A metallic bond is the attraction between positive cores and a <strong>sea of delocalized electrons</strong> shared by all the atoms, so it has no direction [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>].</p>
+<p><strong>(b) Valence.</strong> In covalent bonding the valence fixes <strong>how many bonds</strong> an atom must form: silicon, with valence 4, forms exactly four [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 18">18</a>]. In metallic bonding the valence fixes <strong>how many electrons go to the sea</strong>: the more valence electrons, the higher the bonding energy and the melting point (K → Ca) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=24" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 24">24</a>].</p>
+<p><strong>(c) Ductility.</strong> Covalent materials are hard and brittle [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 19">19</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a>]: their bonds have fixed directions. Metals are ductile, malleable and workable [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a>]: their bonds are non-directional because the electron sea is shared by all the atoms [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>].</p>
+    <h4 class="sub-heading">Interpretation</h4>
+<p>The two differences, <strong>directional vs non-directional</strong> and <strong>localized vs delocalized</strong> electrons, explain the rest: the same pair of ideas gives conduction in metals (the electron sea moves under a voltage [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>]) and its absence in covalent solids (no free electrons [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=17" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 17">17</a>], non-conductive lattices [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=19" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 19">19</a>]).</p>
+  </div>
+</div>
+<div class="exam-card" id="question-2">
+  <div class="exam-header"><span class="exam-badge">Question 2</span><span class="exam-title">Potential Curves of Titanium vs Aluminium</span></div>
+  <div class="exam-body">
+    <p><em>Titanium is stiffer than aluminum, has a lower thermal expansion coefficient than aluminum, and has a higher melting temperature than aluminum. On the same graph, carefully and schematically draw the potential well curves for both metals and showing how the physical properties are manifested in these curves.</em></p>
+    <h4 class="sub-heading">Answer</h4>
+<p>Draw both curves on the same axes (energy vs distance), with their minima close to each other in distance:</p>
+<ul><li><strong>Titanium:</strong> a <strong>deeper</strong> minimum (higher melting temperature, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>), a <strong>narrower</strong> trough (lower thermal expansion, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 12">12</a>) and <strong>steeper</strong> walls around $a_0$ (stiffer, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>).</li><li><strong>Aluminium:</strong> a <strong>shallower</strong> minimum, a <strong>wider</strong> trough and gentler walls.</li></ul>
+<div class="diagram-card">
+<svg viewBox="0 0 540 270" width="100%" style="max-width:500px;margin:0 auto;display:block" role="img" aria-label="Schematic potential wells of titanium and aluminium">
+<g font-family="Inter, sans-serif" font-size="13" fill="var(--text-body)">
+<line x1="60" y1="70" x2="500" y2="70" stroke="var(--border-strong)"/><line x1="60" y1="16" x2="60" y2="250" stroke="var(--border-strong)"/>
+<text x="66" y="24" font-weight="700">Energy</text><text x="500" y="64" text-anchor="end">distance</text>
+<path d="M60.0,97.9 L61.8,103.5 L63.6,108.7 L65.4,113.4 L67.2,117.7 L69.0,121.6 L70.8,125.2 L72.5,128.5 L74.3,131.5 L76.1,134.2 L77.9,136.6 L79.7,138.8 L81.5,140.8 L83.3,142.6 L85.1,144.2 L86.9,145.6 L88.7,146.8 L90.5,147.9 L92.3,148.9 L94.0,149.7 L95.8,150.4 L97.6,151.0 L99.4,151.4 L101.2,151.8 L103.0,152.1 L104.8,152.3 L106.6,152.4 L108.4,152.5 L110.2,152.5 L112.0,152.4 L113.8,152.3 L115.5,152.1 L117.3,151.9 L119.1,151.6 L120.9,151.3 L122.7,150.9 L124.5,150.6 L126.3,150.1 L128.1,149.7 L129.9,149.2 L131.7,148.7 L133.5,148.2 L135.2,147.7 L137.0,147.1 L138.8,146.6 L140.6,146.0 L142.4,145.4 L144.2,144.8 L146.0,144.2 L147.8,143.5 L149.6,142.9 L151.4,142.3 L153.2,141.6 L155.0,141.0 L156.8,140.3 L158.5,139.7 L160.3,139.0 L162.1,138.3 L163.9,137.7 L165.7,137.0 L167.5,136.3 L169.3,135.7 L171.1,135.0 L172.9,134.4 L174.7,133.7 L176.5,133.1 L178.2,132.4 L180.0,131.8 L181.8,131.1 L183.6,130.5 L185.4,129.8 L187.2,129.2 L189.0,128.6 L190.8,128.0 L192.6,127.3 L194.4,126.7 L196.2,126.1 L198.0,125.5 L199.7,124.9 L201.5,124.3 L203.3,123.7 L205.1,123.1 L206.9,122.6 L208.7,122.0 L210.5,121.4 L212.3,120.9 L214.1,120.3 L215.9,119.8 L217.7,119.2 L219.5,118.7 L221.3,118.2 L223.0,117.6 L224.8,117.1 L226.6,116.6 L228.4,116.1 L230.2,115.6 L232.0,115.1 L233.8,114.6 L235.6,114.1 L237.4,113.6 L239.2,113.2 L241.0,112.7 L242.7,112.2 L244.5,111.8 L246.3,111.3 L248.1,110.9 L249.9,110.4 L251.7,110.0 L253.5,109.6 L255.3,109.1 L257.1,108.7 L258.9,108.3 L260.7,107.9 L262.5,107.5 L264.2,107.1 L266.0,106.7 L267.8,106.3 L269.6,105.9 L271.4,105.5 L273.2,105.2 L275.0,104.8 L276.8,104.4 L278.6,104.1 L280.4,103.7 L282.2,103.4 L284.0,103.0 L285.8,102.7 L287.5,102.3 L289.3,102.0 L291.1,101.7 L292.9,101.3 L294.7,101.0 L296.5,100.7 L298.3,100.4 L300.1,100.1 L301.9,99.8 L303.7,99.5 L305.5,99.2 L307.2,98.9 L309.0,98.6 L310.8,98.3 L312.6,98.0 L314.4,97.7 L316.2,97.4 L318.0,97.2 L319.8,96.9 L321.6,96.6 L323.4,96.4 L325.2,96.1 L327.0,95.8 L328.8,95.6 L330.5,95.3 L332.3,95.1 L334.1,94.8 L335.9,94.6 L337.7,94.3 L339.5,94.1 L341.3,93.9 L343.1,93.6 L344.9,93.4 L346.7,93.2 L348.5,93.0 L350.2,92.7 L352.0,92.5 L353.8,92.3 L355.6,92.1 L357.4,91.9 L359.2,91.7 L361.0,91.5 L362.8,91.3 L364.6,91.1 L366.4,90.9 L368.2,90.7 L370.0,90.5 L371.8,90.3 L373.5,90.1 L375.3,89.9 L377.1,89.7 L378.9,89.6 L380.7,89.4 L382.5,89.2 L384.3,89.0 L386.1,88.9 L387.9,88.7 L389.7,88.5 L391.5,88.3 L393.2,88.2 L395.0,88.0 L396.8,87.9 L398.6,87.7 L400.4,87.5 L402.2,87.4 L404.0,87.2 L405.8,87.1 L407.6,86.9 L409.4,86.8 L411.2,86.6 L413.0,86.5 L414.8,86.3 L416.5,86.2 L418.3,86.0 L420.1,85.9 L421.9,85.8 L423.7,85.6 L425.5,85.5 L427.3,85.4 L429.1,85.2 L430.9,85.1 L432.7,85.0 L434.5,84.8 L436.3,84.7 L438.0,84.6 L439.8,84.5 L441.6,84.4 L443.4,84.2 L445.2,84.1 L447.0,84.0 L448.8,83.9 L450.6,83.8 L452.4,83.6 L454.2,83.5 L456.0,83.4 L457.7,83.3 L459.5,83.2 L461.3,83.1 L463.1,83.0 L464.9,82.9 L466.7,82.8 L468.5,82.7 L470.3,82.6 L472.1,82.5 L473.9,82.4 L475.7,82.3 L477.5,82.2 L479.3,82.1 L481.0,82.0 L482.8,81.9 L484.6,81.8 L486.4,81.7 L488.2,81.6 L490.0,81.5" fill="none" stroke="#3b82f6" stroke-width="2.4"/>
+<path d="M76.1,16.6 L77.9,48.4 L79.7,76.0 L81.5,100.0 L83.3,120.8 L85.1,138.7 L86.9,154.1 L88.7,167.3 L90.5,178.4 L92.3,187.8 L94.0,195.6 L95.8,202.0 L97.6,207.2 L99.4,211.4 L101.2,214.6 L103.0,216.9 L104.8,218.6 L106.6,219.6 L108.4,220.0 L110.2,219.9 L112.0,219.4 L113.8,218.5 L115.5,217.3 L117.3,215.9 L119.1,214.2 L120.9,212.3 L122.7,210.2 L124.5,208.0 L126.3,205.7 L128.1,203.2 L129.9,200.7 L131.7,198.2 L133.5,195.6 L135.2,193.0 L137.0,190.3 L138.8,187.7 L140.6,185.0 L142.4,182.4 L144.2,179.7 L146.0,177.1 L147.8,174.5 L149.6,172.0 L151.4,169.5 L153.2,167.0 L155.0,164.6 L156.8,162.2 L158.5,159.8 L160.3,157.5 L162.1,155.2 L163.9,153.0 L165.7,150.9 L167.5,148.8 L169.3,146.7 L171.1,144.7 L172.9,142.7 L174.7,140.8 L176.5,138.9 L178.2,137.1 L180.0,135.3 L181.8,133.6 L183.6,131.9 L185.4,130.3 L187.2,128.7 L189.0,127.1 L190.8,125.6 L192.6,124.1 L194.4,122.7 L196.2,121.3 L198.0,119.9 L199.7,118.6 L201.5,117.3 L203.3,116.1 L205.1,114.9 L206.9,113.7 L208.7,112.6 L210.5,111.4 L212.3,110.4 L214.1,109.3 L215.9,108.3 L217.7,107.3 L219.5,106.3 L221.3,105.4 L223.0,104.5 L224.8,103.6 L226.6,102.7 L228.4,101.9 L230.2,101.1 L232.0,100.3 L233.8,99.5 L235.6,98.8 L237.4,98.1 L239.2,97.4 L241.0,96.7 L242.7,96.0 L244.5,95.4 L246.3,94.7 L248.1,94.1 L249.9,93.5 L251.7,93.0 L253.5,92.4 L255.3,91.8 L257.1,91.3 L258.9,90.8 L260.7,90.3 L262.5,89.8 L264.2,89.3 L266.0,88.9 L267.8,88.4 L269.6,88.0 L271.4,87.5 L273.2,87.1 L275.0,86.7 L276.8,86.3 L278.6,86.0 L280.4,85.6 L282.2,85.2 L284.0,84.9 L285.8,84.5 L287.5,84.2 L289.3,83.9 L291.1,83.5 L292.9,83.2 L294.7,82.9 L296.5,82.6 L298.3,82.4 L300.1,82.1 L301.9,81.8 L303.7,81.5 L305.5,81.3 L307.2,81.0 L309.0,80.8 L310.8,80.6 L312.6,80.3 L314.4,80.1 L316.2,79.9 L318.0,79.7 L319.8,79.5 L321.6,79.2 L323.4,79.0 L325.2,78.9 L327.0,78.7 L328.8,78.5 L330.5,78.3 L332.3,78.1 L334.1,78.0 L335.9,77.8 L337.7,77.6 L339.5,77.5 L341.3,77.3 L343.1,77.2 L344.9,77.0 L346.7,76.9 L348.5,76.7 L350.2,76.6 L352.0,76.4 L353.8,76.3 L355.6,76.2 L357.4,76.1 L359.2,75.9 L361.0,75.8 L362.8,75.7 L364.6,75.6 L366.4,75.5 L368.2,75.4 L370.0,75.3 L371.8,75.2 L373.5,75.1 L375.3,75.0 L377.1,74.9 L378.9,74.8 L380.7,74.7 L382.5,74.6 L384.3,74.5 L386.1,74.4 L387.9,74.3 L389.7,74.2 L391.5,74.2 L393.2,74.1 L395.0,74.0 L396.8,73.9 L398.6,73.9 L400.4,73.8 L402.2,73.7 L404.0,73.6 L405.8,73.6 L407.6,73.5 L409.4,73.4 L411.2,73.4 L413.0,73.3 L414.8,73.3 L416.5,73.2 L418.3,73.1 L420.1,73.1 L421.9,73.0 L423.7,73.0 L425.5,72.9 L427.3,72.9 L429.1,72.8 L430.9,72.8 L432.7,72.7 L434.5,72.7 L436.3,72.6 L438.0,72.6 L439.8,72.5 L441.6,72.5 L443.4,72.4 L445.2,72.4 L447.0,72.4 L448.8,72.3 L450.6,72.3 L452.4,72.2 L454.2,72.2 L456.0,72.2 L457.7,72.1 L459.5,72.1 L461.3,72.0 L463.1,72.0 L464.9,72.0 L466.7,71.9 L468.5,71.9 L470.3,71.9 L472.1,71.8 L473.9,71.8 L475.7,71.8 L477.5,71.8 L479.3,71.7 L481.0,71.7 L482.8,71.7 L484.6,71.6 L486.4,71.6 L488.2,71.6 L490.0,71.6" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+<text x="142" y="230" fill="var(--accent)">Ti: deeper, narrower, steeper</text>
+<text x="259" y="150" fill="#3b82f6">Al: shallower, wider</text>
+</g></svg>
+<div class="diagram-caption">Schematic potential wells for Question 2: the deeper Ti minimum gives the higher melting temperature (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>), the narrower trough the lower thermal expansion (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 12">12</a>), the steeper walls the higher stiffness (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>). Shapes only, no numerical values.</div>
+</div>
+<p>How each property shows up:</p>
+<ol><li><strong>Melting temperature:</strong> the Ti minimum lies lower; more energy is needed to break its bonds [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>].</li><li><strong>Thermal expansion:</strong> heating adds the same energy to both curves; in the narrow Ti trough the spacing between atoms grows less than in the wide Al trough [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=12" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 12">12</a>].</li><li><strong>Stiffness:</strong> around $a_0$ the Ti curve is steeper, so a larger force is needed to stretch the bonds [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>].</li></ol>
+    <h4 class="sub-heading">Interpretation</h4>
+<p>All three facts point to the same thing: the bonds in titanium are <strong>stronger</strong> than in aluminium. One curve shape, deeper, narrower and steeper, carries the three properties at once.</p>
+  </div>
+</div>
+<div class="exam-card" id="question-3">
+  <div class="exam-header"><span class="exam-badge">Question 3</span><span class="exam-title">Elastic Modulus of MgO vs Mg</span></div>
+  <div class="exam-body">
+    <p><em>Would you expect MgO or magnesium to have the higher modulus of elasticity? Explain.</em></p>
+    <h4 class="sub-heading">Answer</h4>
+<p><strong>MgO</strong> should have the higher modulus of elasticity. Its ionic bond between Mg²⁺ and O²⁻ has a very high binding (lattice) energy [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10</a>], so its energy curve is deep and steep and a greater force is needed to stretch the bonds [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>]. Metallic Mg has a weaker, non-directional bond to an electron sea [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 29">29</a>], which gives a softer, more malleable material [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>].</p>
+    <h4 class="sub-heading">Interpretation</h4>
+<p>The same strong ionic bonding that gives MgO its high melting point (2800 °C) and hardness [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=10" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 10">10-11</a>] also gives it its stiffness: all of them come from the deep, steep energy curve of a high-binding-energy bond [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=11" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 11">11</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>].</p>
+  </div>
+</div>
+<div class="exam-card" id="question-4">
+  <div class="exam-header"><span class="exam-badge">Question 4</span><span class="exam-title">Elastic Modulus of Aluminium vs Silicon</span></div>
+  <div class="exam-body">
+    <p><em>Aluminum and silicon are side-by-side in the periodic table. Which would you expect to have the higher modulus of elasticity (E)? Explain.</em></p>
+    <h4 class="sub-heading">Answer</h4>
+<p><strong>Silicon</strong> should have the higher modulus of elasticity. It is held together by a continuous network of strong, <strong>directional</strong> covalent bonds [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=18" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 18">18-19</a>], which makes it hard and incompressible: a greater force is needed to stretch the bonds, which is what a high modulus means [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=13" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 13">13</a>]. Aluminium is held by <strong>non-directional</strong> metallic bonds to an electron sea [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 23">23</a>], which gives a malleable, workable material [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=25" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 25">25</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a>].</p>
+    <h4 class="sub-heading">Interpretation</h4>
+<p>Two elements next to each other in the periodic table can behave very differently because they bond differently: Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-01-atomic-bonding/teoria/Session%202%20T1%20Bonding_2025.pdf#page=38" target="_blank" rel="noopener" title="Open Session 2 T1 Bonding.pdf at page 38">38</a> lists covalent lattices as "very hard, brittle" and metals as "ductile and workable". Silicon's higher stiffness is the mechanical side of that difference.</p>
+  </div>
+</div>
     </section>
 
   </main>
@@ -1344,7 +812,6 @@
       Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
     </div>
   </footer>
-
 
   <!-- Scripts: i18n & Motivational Quotes -->
   <script src="../../../assets/js/quotes.js"></script>
@@ -1359,5 +826,4 @@
   <script src="../../../assets/js/celestial-sky.js"></script>
 </body>
 </html>
-
 

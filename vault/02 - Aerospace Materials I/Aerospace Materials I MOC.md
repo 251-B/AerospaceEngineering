@@ -24,8 +24,8 @@ tags:
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-1-bonding.html`
 * **Official Sources:** `Session 2 T1 Bonding_2025.pdf` (Slides 1–39)
 * **Atomic Theory Concepts:**
-  * [[02 - Aerospace Materials I/Concept - Ionic Bonding and Born-Lande Lattice Energy|Concept: Ionic Bonding and the Born-Landé Lattice Energy]]
-  * [[02 - Aerospace Materials I/Concept - Covalent Bonding and Polar Character|Concept: Covalent Bonding and Polar Character (Hannay-Smyth)]]
+  * [[02 - Aerospace Materials I/Concept - Ionic Bonding and Lattice Energy|Concept: Ionic Bonding and Lattice Energy]]
+  * [[02 - Aerospace Materials I/Concept - Covalent Bonding and Polar Character|Concept: Covalent Bonding and Polar Character]]
   * [[02 - Aerospace Materials I/Concept - Metallic Bonding and Energy Band Theory|Concept: Metallic Bonding and Energy Band Theory]]
   * [[02 - Aerospace Materials I/Concept - Intermolecular Forces and Secondary Bonds|Concept: Intermolecular Forces and Secondary Bonds (van der Waals)]]
   * [[02 - Aerospace Materials I/Concept - Interatomic Potential Energy Curves and Macroscopic Properties|Concept: Interatomic Potential Energy Curves and Macroscopic Properties]]
