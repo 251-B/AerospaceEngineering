@@ -39,18 +39,7 @@ Draw both curves on the same axes (energy vs distance), with their minima close 
 - **Titanium:** a **deeper** minimum (higher melting temperature), a **narrower** trough (lower thermal expansion) and **steeper** walls around $a_0$ (stiffer).
 - **Aluminium:** a **shallower** minimum, a **wider** trough and gentler walls.
 
-```
-Energy
-  |
-  |\   \
-  | \   \
---+--\---\------------------------- distance
-  |   \   \_______ Al: shallow, wide ______
-  |    \     __/
-  |     \___/
-  |      \    ___/   Ti: deep, narrow ______
-  |       \__/
-```
+![[attachments/T1/wells.svg]]
 
 How each property shows up:
 1. **Melting temperature:** the Ti minimum lies lower; more energy is needed to break its bonds.

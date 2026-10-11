@@ -30,6 +30,8 @@ At the root of this chain is the **nature of the bonding** between atoms:
 
 $$\text{Nature of bonding} \;\leftrightarrow\; \text{properties} \;\leftrightarrow\; \text{type of material} \;\leftrightarrow\; \text{processing and applications}$$
 
+![[attachments/T1/tetrahedron.svg]]
+
 ---
 
 ## 2. Ionic bonding [Slides 4-15]
@@ -97,6 +99,8 @@ $$E_{net} = \underbrace{\frac{Z_1 Z_2 e^2}{4\pi\varepsilon_0 a_0}}_{\text{attrac
 Because the two ions have charges of opposite sign, $Z_1 Z_2$ is negative and the attraction term lowers the energy; the repulsion term raises it.
 
 The energy is **lowest** at the **equilibrium distance $a_0$**, where attraction and repulsion balance. This minimum is the same point where the net force is zero.
+
+![[attachments/T1/force-energy.svg]]
 
 > [!info] Checking the link between force and energy
 > Differentiating each term of $E_{net}$ with respect to $a$ gives back the two terms of the force:

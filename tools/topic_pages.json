@@ -1,0 +1,29 @@
+{
+ "_comment": "Theory pages generated from vault notes by tools/build_topic_pages.py. Edit the vault note, then run the tool.",
+ "pages": {
+  "subjects/aerospace-materials-1/teoria/topic-1-bonding.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 1 - Bonding in Solids and Material Properties.md",
+   "figures": "materials_t1",
+   "html_title": "Topic 1: Bonding in Solids — Aerospace Materials I",
+   "category": "Topic 01 · Bonding in Solids",
+   "title": "Bonding in Solids",
+   "subtitle": "Ionic, covalent, metallic and secondary bonds, and how each one shapes the properties of a material.",
+   "source": "Universidad Carlos III de Madrid · Session 2 T1 Bonding_2025.pdf",
+   "questions": [
+    "Problem - T1 Exam Question 1 Metallic vs Covalent Bonding",
+    "Problem - T1 Exam Question 2 Potential Curves Titanium vs Aluminium",
+    "Problem - T1 Exam Question 3 Elastic Modulus MgO vs Mg",
+    "Problem - T1 Exam Question 4 Elastic Modulus Aluminium vs Silicon"
+   ]
+  },
+  "subjects/aerospace-materials-1/teoria/topic-2-structure.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 2 - Structure of Materials and Crystalline Defects.md",
+   "figures": "materials_t2",
+   "html_title": "Topic 2: Structure of Materials and Crystalline Defects — Aerospace Materials I",
+   "category": "Topic 02 · Structure of Materials and Crystalline Defects",
+   "title": "Structure of Materials and Crystalline Defects",
+   "subtitle": "Crystal lattices, the BCC, FCC and HCP structures, how to name positions, directions and planes, atomic densities, and the defects of real crystals.",
+   "source": "Universidad Carlos III de Madrid · Session 3 T2 Structure of Materials I_2025.pdf and Session 4 T2 Structure of Materials II_2025.pdf"
+  }
+ }
+}

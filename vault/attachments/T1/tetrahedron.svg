@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="100%" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="Tetrahedron linking structure, properties, processing and applications">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="260.0" y1="40.0" x2="110.0" y2="200.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="260.0" y1="40.0" x2="400.0" y2="170.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="260.0" y1="40.0" x2="280.0" y2="250.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="110.0" y1="200.0" x2="400.0" y2="170.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="110.0" y1="200.0" x2="280.0" y2="250.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="400.0" y1="170.0" x2="280.0" y2="250.0" stroke="#8a94a6" stroke-width="2"/>
+<circle cx="260" cy="40" r="14" fill="#f59e0b"/>
+<circle cx="110" cy="200" r="14" fill="#f59e0b"/>
+<circle cx="400" cy="170" r="14" fill="#f59e0b"/>
+<circle cx="280" cy="250" r="14" fill="#f59e0b"/>
+<text x="284.0" y="36.0" fill="#4b5563" font-size="15" font-weight="700" text-anchor="start">Applications</text>
+<text x="94.0" y="204.0" fill="#4b5563" font-size="15" font-weight="700" text-anchor="end">Structure</text>
+<text x="420.0" y="166.0" fill="#4b5563" font-size="15" font-weight="700" text-anchor="start">Properties</text>
+<text x="300.0" y="268.0" fill="#4b5563" font-size="15" font-weight="700" text-anchor="start">Processing</text>
+</g></svg>
