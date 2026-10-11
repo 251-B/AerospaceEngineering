@@ -19,7 +19,7 @@ Common flags for both linters: `-v` list every finding, `--json`, `--only a,b`, 
 `katex-text-ampersand` · `debris` (scratch "Wait", U+FFFD, `??` headers, raw markdown) ·
 `spanish-label` · `false-claim` ("fully verified", "zero hallucinations") ·
 `lab-reference` (labs are not on the web) · `theme-key` (only `ae_theme`) · `badge-drift` ·
-`missing-source-link` · `missing-ask-claude` (every `teoria/` and `problemas/` topic page loads `assets/js/ask-claude.js`).
+`missing-source-link` · `missing-ask-ai` (every `teoria/` and `problemas/` topic page loads `assets/js/ask-ai.js`).
 
 **Markup contracts the checks rely on**
 
@@ -39,7 +39,7 @@ Known limit: a link whose alias ends in `]` (`...[101]]]`) is ambiguous and must
 ## Shared assets
 
 - `assets/css/tokens.css`: design tokens, verbatim from the original `index.html`.
-- `assets/js/ask-claude.js` + `assets/css/ask-claude.css`: "Ask Claude" on selected text (opens claude.ai with a prefilled prompt; no API).
+- `assets/js/ask-ai.js` + `assets/css/ask-ai.css`: "Ask AI" (Claude or Gemini) on selected text and on every problem card (prefilled link or copied prompt; no API).
 - `assets/js/theme.js`: load synchronously in `<head>`. Single key `ae_theme`; migrates `aero-portal-theme`
   and `theme`; default dark; syncs tabs; `window.AETheme`; wires `#themeToggle` / `#themeLabel`.
 - `assets/data/sources.js`: `window.AE_SOURCES` = official PDFs (160 files) per subject / unit / category

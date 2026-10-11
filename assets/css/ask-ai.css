@@ -1,0 +1,199 @@
+/* "Ask AI" pill, problem bar and panel (assets/js/ask-ai.js). Colours and fonts come from the host
+   page's own variables, so the widget follows each subject's palette and the dark/light theme. */
+.ask-ai-pill, .ask-ai-panel, .ask-ai-bar {
+  --ai-accent: var(--accent, #f59e0b);
+  --ai-surface: var(--bg-surface, var(--bg-card, #14161c));
+  --ai-text: var(--text-heading, var(--text-primary, var(--text-main, var(--text-body, inherit))));
+  --ai-body: var(--text-body, var(--text-secondary, var(--text-main, var(--text-primary, inherit))));
+  --ai-muted: var(--text-muted, color-mix(in srgb, var(--ai-body) 65%, transparent));
+  --ai-border: var(--border-subtle, color-mix(in srgb, var(--ai-body) 18%, transparent));
+  --ai-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  --ai-serif: var(--font-body, var(--font-serif, "Newsreader", Georgia, serif));
+  --ai-display: var(--font-display, "Abril Fatface", Georgia, serif);
+  --ai-sans: var(--font-sans, "Inter", system-ui, sans-serif);
+  --ai-socratic: color-mix(in srgb, var(--ai-accent) 55%, #a78bfa);
+}
+
+/* ---------------------------------------------------------------- selection pill */
+.ask-ai-pill {
+  position: absolute; z-index: 1200; display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px 6px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--ai-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--ai-surface) 88%, var(--ai-accent));
+  color: var(--ai-accent); font: 600 12px/1.2 var(--ai-mono); letter-spacing: .02em;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .28), 0 0 0 4px color-mix(in srgb, var(--ai-accent) 10%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  opacity: 0; transform: translateY(4px) scale(.96); pointer-events: none;
+  transition: opacity .16s ease, transform .16s ease, background .16s ease;
+}
+.ask-ai-pill.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.ask-ai-pill:hover, .ask-ai-pill:focus-visible {
+  background: color-mix(in srgb, var(--ai-surface) 72%, var(--ai-accent)); outline: none;
+}
+
+/* ---------------------------------------------------------------- bar under each problem statement */
+.ask-ai-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 14px 0 18px; padding: 10px 12px; border-radius: 12px;
+  border: 1px dashed color-mix(in srgb, var(--ai-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--ai-accent) 5%, transparent);
+}
+.ask-ai-bar-label {
+  display: inline-flex; align-items: center; gap: 6px; margin-right: 4px;
+  font: 700 11px/1.3 var(--ai-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ai-accent);
+}
+.ask-ai-bar-btn {
+  padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--ai-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--ai-surface) 70%, transparent); color: var(--ai-text);
+  font: 500 13px/1.3 var(--ai-sans); transition: background .15s ease, border-color .15s ease;
+}
+.ask-ai-bar-btn:hover, .ask-ai-bar-btn:focus-visible {
+  border-color: var(--ai-accent); background: color-mix(in srgb, var(--ai-accent) 14%, transparent); outline: none;
+}
+.ask-ai-bar-btn.is-quiet { border-color: transparent; background: transparent; color: var(--ai-muted); }
+.ask-ai-bar-btn.is-quiet:hover, .ask-ai-bar-btn.is-quiet:focus-visible { color: var(--ai-text); }
+
+/* ---------------------------------------------------------------- panel */
+.ask-ai-backdrop {
+  position: fixed; inset: 0; z-index: 1300; background: rgba(4, 6, 12, .45);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease;
+}
+.ask-ai-backdrop.is-open { opacity: 1; pointer-events: auto; }
+html.ask-ai-lock { overflow: hidden; }
+
+.ask-ai-panel {
+  position: fixed; z-index: 1301; top: 50%; left: 50%; width: min(600px, calc(100vw - 32px));
+  max-height: min(88vh, 800px); overflow-y: auto; overflow-x: hidden; box-sizing: border-box; padding: 22px 24px 18px;
+  border-radius: 18px; border: 1px solid var(--ai-border); border-top: 3px solid var(--ai-accent);
+  background: var(--ai-surface); color: var(--ai-body);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+  opacity: 0; pointer-events: none; transform: translate(-50%, -46%) scale(.98);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.ask-ai-panel.is-open { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%); }
+
+.ask-ai-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ask-ai-title {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0;
+  font: 400 1.55rem/1.1 var(--ai-display); color: var(--ai-text); letter-spacing: .01em;
+}
+.ask-ai-title svg { width: 20px; height: 20px; color: var(--ai-accent); }
+.ask-ai-close {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--ai-border); cursor: pointer;
+  background: transparent; color: var(--ai-muted); font: 400 22px/1 var(--ai-sans);
+}
+.ask-ai-close:hover, .ask-ai-close:focus-visible { color: var(--ai-text); border-color: var(--ai-accent); outline: none; }
+
+.ask-ai-context {
+  margin: 8px 0 14px; font: 500 11.5px/1.5 var(--ai-mono); letter-spacing: .04em;
+  text-transform: uppercase; color: var(--ai-muted);
+}
+.ask-ai-quote {
+  margin: 0 0 18px; padding: 12px 16px; max-height: 200px; overflow: auto; min-width: 0; overflow-wrap: anywhere;
+  border-left: 3px solid var(--ai-accent); border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--ai-accent) 7%, transparent);
+  font: italic 1.02rem/1.6 var(--ai-serif); color: var(--ai-body);
+}
+.ask-ai-quote * { max-width: 100%; }
+/* the clone keeps the page's classes: drop its boxes (but not KaTeX, which draws lines with borders) */
+.ask-ai-quote *:not(.katex, .katex *) {
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  padding: 0 !important; position: static !important;
+  font-family: inherit; color: inherit;
+  width: auto !important; min-width: 0 !important; max-width: 100% !important; white-space: normal !important;
+  float: none !important; transform: none !important;
+}
+.ask-ai-quote hr, .ask-ai-quote .divider, .ask-ai-quote .source-line { display: none; }
+.ask-ai-quote p, .ask-ai-quote ol, .ask-ai-quote ul { margin: 0 0 .5em; }
+.ask-ai-quote .katex-display { margin: .4em 0; overflow-x: auto; overflow-y: hidden; }
+.ask-ai-quote table { font-size: .9em; border-collapse: collapse; }
+.ask-ai-quote h1, .ask-ai-quote h2, .ask-ai-quote h3, .ask-ai-quote h4, .ask-ai-quote h5 { font-size: 1em; margin: 0 0 .3em; }
+.ask-ai-quote > :first-child { margin-top: 0; }
+.ask-ai-quote-note {
+  margin: 10px 0 0; font: normal 500 11.5px/1.5 var(--ai-mono); color: var(--ai-muted); font-style: normal;
+}
+
+.ask-ai-label {
+  margin: 0 0 8px; font: 700 11px/1.4 var(--ai-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ai-muted);
+}
+.ask-ai-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.ask-ai-chip, .ask-ai-seg button {
+  padding: 6px 12px; border-radius: 999px; cursor: pointer; border: 1px solid var(--ai-border);
+  background: transparent; color: var(--ai-body); font: 500 13px/1.3 var(--ai-sans);
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.ask-ai-chip.is-socratic::before { content: "◇ "; color: var(--ai-socratic); }
+.ask-ai-chip:hover, .ask-ai-seg button:hover { border-color: color-mix(in srgb, var(--ai-accent) 60%, transparent); }
+.ask-ai-chip:focus-visible, .ask-ai-seg button:focus-visible, .ask-ai-btn:focus-visible,
+.ask-ai-question:focus-visible, .ask-ai-preview summary:focus-visible {
+  outline: 2px solid var(--ai-accent); outline-offset: 2px;
+}
+.ask-ai-chip[aria-pressed="true"], .ask-ai-seg button[aria-pressed="true"] {
+  border-color: var(--ai-accent); color: var(--ai-accent);
+  background: color-mix(in srgb, var(--ai-accent) 14%, transparent); font-weight: 600;
+}
+.ask-ai-hint { min-height: 1.4em; margin: 0 0 12px; font: italic .95rem/1.45 var(--ai-serif); color: var(--ai-muted); }
+
+.ask-ai-question {
+  display: block; width: 100%; box-sizing: border-box; margin: 0 0 14px; padding: 10px 12px; resize: vertical;
+  border-radius: 10px; border: 1px solid var(--ai-border);
+  background: var(--bg-input, color-mix(in srgb, var(--ai-surface) 90%, var(--ai-body)));
+  color: var(--ai-text); font: 1rem/1.5 var(--ai-serif);
+}
+.ask-ai-question::placeholder { color: var(--ai-muted); font-style: italic; }
+
+.ask-ai-lang { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.ask-ai-lang .ask-ai-label { margin: 0; }
+.ask-ai-seg { display: inline-flex; gap: 6px; }
+
+.ask-ai-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.ask-ai-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 18px; border-radius: 999px; cursor: pointer; text-decoration: none;
+  font: 600 14px/1.2 var(--ai-sans); border: 1px solid var(--ai-border); transition: filter .15s ease, background .15s ease;
+}
+.ask-ai-btn-ghost { background: transparent; color: var(--ai-body); margin-right: auto; }
+.ask-ai-btn-ghost:hover { background: color-mix(in srgb, var(--ai-body) 8%, transparent); }
+.ask-ai-btn-primary { border-color: var(--ai-accent); background: var(--ai-accent); color: var(--ai-on-accent, #0b0d12); }
+.ask-ai-btn-primary[data-provider="gemini"] {
+  background: transparent; color: var(--ai-accent);
+}
+.ask-ai-btn-primary[data-provider="gemini"]:hover { background: color-mix(in srgb, var(--ai-accent) 12%, transparent); }
+.ask-ai-btn-primary:hover { filter: brightness(1.08); text-decoration: none; }
+
+.ask-ai-status { min-height: 1.3em; margin: 10px 0 0; font: 600 12px/1.5 var(--ai-mono); color: var(--ai-accent); text-align: right; }
+
+.ask-ai-preview { margin: 10px 0 0; }
+.ask-ai-preview summary {
+  cursor: pointer; width: fit-content; font: 600 11.5px/1.5 var(--ai-mono); letter-spacing: .04em; color: var(--ai-muted);
+}
+.ask-ai-preview summary:hover { color: var(--ai-text); }
+.ask-ai-prompt {
+  margin: 8px 0 0; padding: 12px; max-height: 260px; overflow: auto; white-space: pre-wrap; word-break: break-word;
+  border-radius: 10px; border: 1px solid var(--ai-border);
+  background: color-mix(in srgb, var(--ai-surface) 85%, var(--ai-body));
+  font: 12px/1.5 var(--ai-mono); color: var(--ai-body);
+}
+.ask-ai-note { margin: 12px 0 0; font: 11.5px/1.5 var(--ai-mono); color: var(--ai-muted); }
+
+@media (max-width: 640px) {
+  .ask-ai-panel {
+    top: auto; bottom: 0; left: 0; width: 100%; max-height: 90vh; padding: 18px 16px 16px;
+    border-radius: 18px 18px 0 0; transform: translateY(24px);
+  }
+  .ask-ai-panel.is-open { transform: none; }
+  .ask-ai-title { font-size: 1.35rem; }
+  .ask-ai-actions .ask-ai-btn { flex: 1 1 auto; }
+  .ask-ai-btn-ghost { margin-right: 0; order: 3; flex-basis: 100%; }
+  .ask-ai-status { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ask-ai-pill, .ask-ai-panel, .ask-ai-backdrop { transition: none; }
+}
+
+@media print {
+  .ask-ai-pill, .ask-ai-panel, .ask-ai-backdrop, .ask-ai-bar { display: none !important; }
+}

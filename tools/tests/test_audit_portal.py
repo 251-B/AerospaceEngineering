@@ -22,7 +22,7 @@ $$ \\int_0^1 x\\,dx = \\tfrac12 $$</p></body></html>
 def good_page(depth=3):
     back = "../" * depth + "index.html"
     css = "../" * depth + "assets/css/celestial-sky.css"
-    js = "../" * depth + "assets/js/ask-claude.js"
+    js = "../" * depth + "assets/js/ask-ai.js"
     return GOOD_PAGE.format(back=back, css=css, js=js)
 
 
@@ -32,7 +32,7 @@ class AuditCase(unittest.TestCase):
         self.addCleanup(tmp.cleanup)
         root = pathlib.Path(tmp.name)
         base = {"index.html": "<html><body>hub</body></html>", "assets/css/celestial-sky.css": "/* css */",
-                "assets/js/ask-claude.js": "/* js */"}
+                "assets/js/ask-ai.js": "/* js */"}
         base.update(files)
         for rel, content in base.items():
             p = root / rel
@@ -315,21 +315,21 @@ class RunnerTests(AuditCase):
 
     def test_skip_option_removes_a_check(self):
         root = self.repo({"subjects/a/teoria/t.html": "<p>Wait, no</p>"})
-        self.assertEqual(ap.main(["--root", str(root), "--quiet", "--skip", "debris,missing-backlink,missing-ask-claude"]), 0)
+        self.assertEqual(ap.main(["--root", str(root), "--quiet", "--skip", "debris,missing-backlink,missing-ask-ai"]), 0)
 
 
-class AskClaudeTests(AuditCase):
-    TAG = '<script defer src="../../../assets/js/ask-claude.js"></script>'
+class AskAITests(AuditCase):
+    TAG = '<script defer src="../../../assets/js/ask-ai.js"></script>'
 
     def test_topic_page_without_the_script_is_flagged(self):
         f = self.run_checks({"subjects/a/teoria/topic-1.html": good_page().replace(self.TAG, "")})
-        self.assertEqual(len(self.of(f, "missing-ask-claude")), 1)
+        self.assertEqual(len(self.of(f, "missing-ask-ai")), 1)
 
     def test_topic_page_with_the_script_passes_and_index_pages_are_not_checked(self):
         f = self.run_checks({"subjects/a/problemas/topic-1.html": good_page(),
                              "subjects/a/teoria/index.html": good_page().replace(self.TAG, ""),
                              "subjects/a/sources/index.html": good_page().replace(self.TAG, "")})
-        self.assertEqual(self.of(f, "missing-ask-claude"), [])
+        self.assertEqual(self.of(f, "missing-ask-ai"), [])
 
 
 if __name__ == "__main__":
