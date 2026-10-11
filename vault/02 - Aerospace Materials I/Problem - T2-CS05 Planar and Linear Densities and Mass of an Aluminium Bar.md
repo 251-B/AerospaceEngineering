@@ -39,13 +39,13 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-1. **Lattice Parameter in FCC [Session 3 Slide 20]:**
+1. **Lattice Parameter in FCC [Session 3 Slide 27]:**
    The atoms touch along the face diagonal:
    $$4R = a\sqrt{2} \implies a = 2\sqrt{2}R$$
-2. **Planar Density on the $(110)$ Plane [Session 4 Slide 8]:**
+2. **Planar Density on the $(110)$ Plane [Session 4 Slide 9]:**
    The $(110)$ plane is a rectangle of base $a\sqrt{2}$ and height $a$. It contains 2 net atoms:
    $$\rho_{(110)} = \frac{2}{\sqrt{2}a^2} = \frac{\sqrt{2}}{a^2}$$
-3. **Linear Density in the $[110]$ Direction [Session 4 Slide 7]:**
+3. **Linear Density in the $[110]$ Direction [Session 4 Slide 8]:**
    The $[110]$ direction is the face diagonal, with length $L_{[110]} = a\sqrt{2} = 4R$. It contains 2 net atoms:
    $$\rho_{[110]} = \frac{2}{4R} = \frac{1}{2R}$$
 4. **Mass of the Cylindrical Bar:**

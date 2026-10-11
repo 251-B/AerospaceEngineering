@@ -97,8 +97,8 @@ $$[T] = \frac{[E_D]}{[R] \cdot [\text{adimensional}]} = \frac{\text{cal/mol}}{(\
 ### Physical-Technological Interpretation:
 1. **Thermal Processing of Semiconductors:** The temperature obtained ($1293^\circ\text{C} = 1566\text{ K}$) lies below the melting point of pure silicon ($T_{m,\text{Si}} = 1414^\circ\text{C} = 1687\text{ K}$), satisfying the required solidity condition:
    $$\frac{T}{T_m} = \frac{1566\text{ K}}{1687\text{ K}} \approx 0.928 \, T_m$$
-   This ultra-high temperature range ($1200\text{--}1300^\circ\text{C}$) is the one habitually used in tube diffusion furnaces with an inert argon atmosphere to create deep $p\text{-}n$ junctions in power electronics and aerospace solar cells [Slides 29, 32].
-2. **High Activation Energy:** The value $E_D = 73\text{ kcal/mol} \approx 305.4\text{ kJ/mol}$ is very high because silicon has an extraordinarily rigid three-dimensional covalent diamond lattice with direct $sp^3$ bonds, where the motion of substitutional impurities such as aluminium requires breaking strong covalent bonds [Session 2 Slide 20; Session 5 Slide 9].
+   This ultra-high temperature range ($1200\text{--}1300^\circ\text{C}$) is the one habitually used in tube diffusion furnaces with an inert argon atmosphere to create deep $p\text{-}n$ junctions in power electronics and aerospace solar cells [Slide 29].
+2. **High Activation Energy:** The value $E_D = 73\text{ kcal/mol} \approx 305.4\text{ kJ/mol}$ is very high because silicon has an extraordinarily rigid three-dimensional covalent diamond lattice with direct $sp^3$ bonds, where the motion of substitutional impurities such as aluminium requires breaking strong covalent bonds [Session 2 Slides 18–19; Session 5 Slide 9].
 
 ---
 

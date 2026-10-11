@@ -45,8 +45,8 @@ tags:
    * $a = 3.24\text{ \AA}$
    * $b = 3.65\text{ \AA}$ (check: $\sqrt{3.24^2 + 3.65^2} = \sqrt{10.50 + 13.32} = \sqrt{23.82} = 4.881\text{ \AA}$, in agreement with the $4.88\text{ \AA}$ read from the figure).
    * $c = 3.32\text{ \AA}$
-   * Since $a \neq b \neq c$ and the planes form angles of $90^\circ$, the system is **Orthorhombic** [Session 3 Slide 12].
-2. **Cell Centring Type (Bravais) [Session 3 Slide 9, 12]:**
+   * Since $a \neq b \neq c$ and the planes form angles of $90^\circ$, the system is **Orthorhombic** [Session 3 Slide 13].
+2. **Cell Centring Type (Bravais) [Session 3 Slides 10, 13]:**
    The $(110)$ plane contains atoms at the centre of the lower and upper base edges, which reveals that the basal face $(001)$ has a centred atom. By contrast, the $(101)$ and $(020)$ planes contain no atoms centred on their faces. Therefore, only the two $(001)$ bases are centred $\implies$ **Base-Centred Orthorhombic Lattice (Base-Centered Orthorhombic, $C$)**.
 3. **Number of Atoms per Cell:**
    $$n = 8 \times \left(\frac{1}{8}\right)_{\text{vértices}} + 2 \times \left(\frac{1}{2}\right)_{\text{bases}} = 1 + 1 = 2\text{ átomos/celda}$$

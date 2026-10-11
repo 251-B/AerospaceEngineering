@@ -42,7 +42,7 @@ tags:
 
 1. **Determination of the Lattice Parameters ($a, b, c$):**
    Using the orthogonal metric $L_{[uvw]} = \sqrt{(ua)^2 + (vb)^2 + (wc)^2}$, $a$ and $c$ are solved for successively.
-2. **Identification of the Bravais Lattice [Session 3 Slides 9, 12]:**
+2. **Identification of the Bravais Lattice [Session 3 Slides 10, 13]:**
    If the face diagonals $[110]$ and $[101]$ are directions of continuous atomic contact with atoms at their midpoints, the cell has atoms centred on all faces $\implies$ **Face-Centred Orthorhombic Lattice ($F$)** with $n = 4$ equivalent atoms.
 3. **Molar Atomic Mass:**
    $$M = \frac{\rho \cdot (a \cdot b \cdot c) \cdot N_A}{n}$$

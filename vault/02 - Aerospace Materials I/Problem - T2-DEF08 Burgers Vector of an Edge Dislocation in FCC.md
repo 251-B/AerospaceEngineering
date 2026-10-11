@@ -32,7 +32,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-1. **Kinematic Condition of the Edge Dislocation [Session 4 Slide 29, 34]:**
+1. **Kinematic Condition of the Edge Dislocation [Session 4 Slides 30, 35]:**
    In an edge dislocation:
    * The Burgers vector $\vec{b}$ must be **contained in the slip plane** of the defect:
      $$\vec{b} \cdot \vec{n}_{\text{plano}} = 0$$
@@ -43,7 +43,7 @@ tags:
    For a direction $[u\, v\, w] \in \langle 110 \rangle$ to lie within the $(110)$ plane, it must satisfy the orthogonality condition with the plane normal $\vec{n} = (1, 1, 0)$:
    $$1 \cdot u + 1 \cdot v + 0 \cdot w = 0 \implies u + v = 0 \implies v = -u$$
    The only non-trivial dense direction that satisfies this is $[1\, \bar{1}\, 0]$ (or $[\bar{1}\, 1\, 0]$, equivalent by sign inversion to the $\langle 110 \rangle$ family, denoted simply as $[110]$ in the official solution).
-3. **Magnitude of the Burgers Vector in FCC [Session 4 Slide 35]:**
+3. **Magnitude of the Burgers Vector in FCC [Session 4 Slide 36]:**
    $$|\vec{b}| = \frac{a}{\sqrt{2}} = \frac{a\sqrt{2}}{2}$$
 
 ---

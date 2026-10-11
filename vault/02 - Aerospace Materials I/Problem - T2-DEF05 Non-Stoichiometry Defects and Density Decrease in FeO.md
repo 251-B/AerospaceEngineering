@@ -39,7 +39,7 @@ Iron(II) oxide ($\text{FeO}$, wüstite) crystallises in the rock-salt structure 
 
 ## 🧠 2. Phase 2: Formulation and Justification
 
-1. **Electroneutrality principle [Session 4 Slide 21]:**
+1. **Electroneutrality principle [Session 4 Slide 22]:**
    Each $\text{Fe}^{3+}$ ion carries an excess charge of $+1$ relative to the normal $\text{Fe}^{2+}$ position. To preserve global electrical neutrality:
    $$3\,\text{Fe}^{2+} \longrightarrow 2\,\text{Fe}^{3+} + 1\,V_{\text{Fe}}''$$
    For every $2$ $\text{Fe}^{3+}$ ions present, exactly **$1$ cationic iron vacancy** must be created.

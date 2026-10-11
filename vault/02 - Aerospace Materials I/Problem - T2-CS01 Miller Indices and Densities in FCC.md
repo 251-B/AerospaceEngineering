@@ -36,7 +36,7 @@ Three crystallographic planes drawn inside cubic cells of edge $a$ are analysed.
 
 ### Starting Hypotheses:
 1. The cubic lattice is orthonormal ($a=b=c$, $\alpha=\beta=\gamma=90^\circ$).
-2. For planes with negative indices, the coordinate origin is conveniently translated to an adjacent vertex of the unit cell [Session 3 Slide 43].
+2. For planes with negative indices, the coordinate origin is conveniently translated to an adjacent vertex of the unit cell [Session 3 Slide 49].
 3. Atoms are modelled as rigid spheres in contact along the face diagonals $\langle 110 \rangle$.
 
 ---
@@ -44,13 +44,13 @@ Three crystallographic planes drawn inside cubic cells of edge $a$ are analysed.
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
 Before calculating, we identify the governing principles of the official syllabus:
-* **Determination of Miller Indices $(h\, k\, l)$ [Session 3 Slides 41-45]:**
+* **Determination of Miller Indices $(h\, k\, l)$ [Session 3 Slides 44–45]:**
   1. Identify the fractional intercept coordinates $(p, q, r)$ with the axes $x, y, z$.
   2. Compute the reciprocals $(1/p, 1/q, 1/r)$.
   3. Reduce to the smallest set of integers by multiplying by the LCM.
-* **Linear Density ($\rho_l$) [Session 4 Slide 7]:**
+* **Linear Density ($\rho_l$) [Session 4 Slide 8]:**
   $$\rho_l = \frac{N_{\text{átomos centrados sobre el segmento}}}{L_{[uvw]}}$$
-* **Planar Density ($\rho_s$ or $\rho_p$) [Session 4 Slide 8]:**
+* **Planar Density ($\rho_s$ or $\rho_p$) [Session 4 Slide 9]:**
   $$\rho_s = \frac{N_{\text{átomos contenidos en el plano}}}{A_{(hkl)}}$$
 * **Volumetric Density ($\rho_v$) [Session 4 Slide 7]:**
   $$\rho_v = \frac{n}{V_C} = \frac{n}{a^3}$$

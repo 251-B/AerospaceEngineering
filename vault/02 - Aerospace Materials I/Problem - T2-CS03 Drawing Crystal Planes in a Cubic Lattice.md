@@ -34,7 +34,7 @@ tags:
 ### Geometric Context:
 Ten families of crystallographic planes are analysed in a cubic lattice with orthogonal edges of length $a$.
 
-### Origin Selection Criterion [Session 3 Slide 43]:
+### Origin Selection Criterion [Session 3 Slides 45, 49]:
 * If all indices $h, k, l$ are positive, the natural origin is placed at the lower left rear vertex $(0, 0, 0)$.
 * If any index is negative (overbar notation $\bar{u}$), the origin must be translated by $+1$ unit along the corresponding axis so that the intercept falls inside the standard unit cell:
   * $\bar{h} \implies$ translate origin to $x = 1$.
@@ -45,7 +45,7 @@ Ten families of crystallographic planes are analysed in a cubic lattice with ort
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-According to Miller's systematic inverse procedure [Session 3 Slides 41-45]:
+According to Miller's systematic inverse procedure [Session 3 Slides 44, 48]:
 1. Take the **reciprocals of the Miller indices** to find the relative axial intercepts:
    $$x_{\text{int}} = \frac{1}{h}, \quad y_{\text{int}} = \frac{1}{k}, \quad z_{\text{int}} = \frac{1}{l}$$
    (with the rule $1/0 = \infty$, indicating parallelism to the axis).
@@ -74,7 +74,7 @@ According to Miller's systematic inverse procedure [Session 3 Slides 41-45]:
 ## 🎯 4. Phase 4: Units and Limits
 
 1. **Symmetry Invariance:** The planes $(\bar{3}\bar{1}2)$, $(12\bar{3})$, $(\bar{3}\bar{1}\bar{3})$ and $(3\bar{1}3)$ all belong to the same crystallographic family of planes $\{321\}$ or $\{331\}$ in the cubic lattice. Although their geometric orientation differs because of the choice of axes, they all have the **same interplanar spacing $d_{hkl}$** and the **same planar atomic density $\rho_p$**.
-2. **Orthogonality Property:** In all cases, the normal direction vector of the drawn plane is proportional to the index vector $[h\, k\, l]$, rigorously satisfying crystallographic perpendicularity in cubic lattices [Session 3 Slide 52].
+2. **Orthogonality Property:** In all cases, the normal direction vector of the drawn plane is proportional to the index vector $[h\, k\, l]$, rigorously satisfying crystallographic perpendicularity in cubic lattices [Session 3 Slide 45].
 
 ---
 *Return:* [[Topic 2 - Structure of Materials and Crystalline Defects|⬅️ Back to Topic 2]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]

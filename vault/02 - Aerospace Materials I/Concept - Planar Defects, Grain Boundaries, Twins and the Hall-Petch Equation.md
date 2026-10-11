@@ -18,15 +18,15 @@ prerrequisitos:
 
 # 🧱 Concept: Planar Defects, Grain Boundaries, Twins and the Hall-Petch Equation
 
-> **Definition:** **Planar or two-dimensional defects** are interfaces or boundaries that separate a crystalline material into different domains that have the same crystal structure but a different spatial orientation, or that represent discontinuities in the atomic stacking sequence [Slide 38].
+> **Definition:** **Planar or two-dimensional defects** are interfaces or boundaries that separate a crystalline material into different domains that have the same crystal structure but a different spatial orientation, or that represent discontinuities in the atomic stacking sequence [Slide 39].
 
 ---
 
 ## 🌾 1. Grain Boundaries
 
-A conventional structural metallic material is not a single crystal but a **polycrystal** made up of millions of individual crystallites called **grains**, formed during simultaneous solidification from multiple independent nuclei [Slide 39-40].
+A conventional structural metallic material is not a single crystal but a **polycrystal** made up of millions of individual crystallites called **grains**, formed during simultaneous solidification from multiple independent nuclei [Slides 40–41].
 
-### Structural and Thermodynamic Characteristics [Slide 41]:
+### Structural and Thermodynamic Characteristics [Slide 42]:
 * **Boundary width:** It is only **2 to 5 interatomic distances** thick ($0.5\text{--}1.5\text{ nm}$).
 * **Atomic mismatch:** In this narrow region, the atoms cannot reach the equilibrium spacing or full coordination.
 * **High interfacial energy ($\gamma_{\text{gb}}$):** Because of the lower atomic packing density and distorted bonds, grain boundaries are highly energetic zones:
@@ -38,12 +38,12 @@ A conventional structural metallic material is not a single crystal but a **poly
 
 ## 📈 2. Slip Barrier Effect and the Hall-Petch Equation
 
-When a dislocation moves under an applied stress along its slip plane, it propagates easily through the interior of the grain until it meets a grain boundary [Slide 41]:
+When a dislocation moves under an applied stress along its slip plane, it propagates easily through the interior of the grain until it meets a grain boundary [Slide 42]:
 1. The slip plane and direction change orientation abruptly on crossing the boundary.
 2. The atomic disorder at the boundary destroys the periodic continuity of the slip plane.
 3. Dislocations pile up at the grain boundary (**dislocation pile-up**), accumulating a repulsive back-stress that slows the advance of the following dislocations.
 
-### Hall-Petch Equation [Slide 41]:
+### Hall-Petch Equation [Slide 42]:
 The smaller the grain size $d$, the larger the total grain-boundary area per unit volume and the shorter the mean free path of dislocations before they are blocked. This increases the yield strength of the material as an inverse square-root power law in $d$ (not exponentially) according to the **Hall-Petch relation**:
 
 $$\sigma_y = \sigma_0 + k_y \cdot d^{-1/2}$$
@@ -62,16 +62,16 @@ where:
 
 ## 🪞 2. Twins (Twin Boundaries)
 
-A **twin** is a special planar boundary that separates two crystalline regions whose lattice orientation has a **mirror-symmetry (mirror image)** relationship with respect to a common crystal plane called the *twin plane* [Slide 42].
+A **twin** is a special planar boundary that separates two crystalline regions whose lattice orientation has a **mirror-symmetry (mirror image)** relationship with respect to a common crystal plane called the *twin plane* [Slide 43].
 
 * **Deformation Twins (Mechanical Twinning):** Produced by severe shear stress or dynamic impact at low temperatures. They are decisive in providing plastic deformability to HCP metals (such as $\text{Ti}$ and $\text{Mg}$) and BCC metals that lack enough active slip systems at low temperature.
-* **Annealing Twins:** They are generated during recrystallization heat treatments in FCC metals with low stacking-fault energy (e.g., AISI 304/316 austenitic stainless steels, $\text{Cu-Zn}$ brasses [Slide 43]).
+* **Annealing Twins:** They are generated during recrystallization heat treatments in FCC metals with low stacking-fault energy (e.g., AISI 304/316 austenitic stainless steels, $\text{Cu-Zn}$ brasses [Slides 43–44]).
 
 ---
 
 ## 📑 3. Stacking Faults
 
-A stacking fault is a local interruption of one or two atomic layers in the regular periodic close-packed stacking sequence [Slide 44]:
+A stacking fault is a local interruption of one or two atomic layers in the regular periodic close-packed stacking sequence [Slide 45]:
 
 * **Perfect sequence in FCC:** $\dots ABC\, ABC\, ABC \dots$
 * **Intrinsic stacking fault in FCC:**
@@ -83,7 +83,7 @@ A stacking fault is a local interruption of one or two atomic layers in the regu
 
 ## 🌐 4. External Surfaces and Surface Energy ($\gamma_s$)
 
-The external surface that confines any crystalline solid is the terminal planar defect [Slide 45]:
+The external surface that confines any crystalline solid is the terminal planar defect [Slide 46]:
 * Surface atoms lack their outer neighbors: their **coordination number is lower** than in the bulk ($\text{NC}_{\text{surf}} < \text{NC}_{\text{bulk}}$).
 * These broken or unsatisfied atomic bonds accumulate an excess of elastic and electrostatic energy called the **surface free energy ($\gamma_s$)**:
   $$E_{\text{surface}} > E_{\text{bulk}}$$

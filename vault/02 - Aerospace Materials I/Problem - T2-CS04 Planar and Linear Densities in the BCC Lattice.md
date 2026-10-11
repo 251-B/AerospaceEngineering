@@ -101,7 +101,7 @@ Comparing the planar densities obtained in the BCC lattice:
 
 $$\rho_{(110)} > \rho_{(100)} > \rho_{(111)}$$
 
-The $(110)$ plane is the plane of **highest atomic density of the BCC structure**, rigorously confirming why the $\{110\}$ family is the preferred slip plane for dislocations in BCC metals such as ferritic iron ($\alpha\text{-Fe}$), molybdenum, tantalum and tungsten [Session 4 Slide 36].
+The $(110)$ plane is the plane of **highest atomic density of the BCC structure**, rigorously confirming why the $\{110\}$ family is the preferred slip plane for dislocations in BCC metals such as ferritic iron ($\alpha\text{-Fe}$), molybdenum, tantalum and tungsten [Session 4 Slide 37].
 
 ---
 *Return:* [[Topic 2 - Structure of Materials and Crystalline Defects|⬅️ Back to Topic 2]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]

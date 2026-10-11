@@ -17,13 +17,13 @@ prerrequisitos:
 
 # 🌀 Concept: Dislocations, Burgers Vector and Slip in Metals
 
-> **The Theoretical Strength Paradox:** The theoretical calculation of the shear stress required to slip one plane of atoms simultaneously over another predicts $\tau_{\text{theoretical}} \approx \frac{G}{2\pi} \sim \frac{G}{10}$ (of the order of thousands of megapascals). However, real pure metals deform plastically at experimental stresses 100 to 1000 times lower ($\tau_{\text{exp}} \sim 10^{-4}\text{--}10^{-3}G$) [Slide 25]. This discrepancy is explained by the existence and sequential motion of **linear defects called dislocations** (proposed theoretically by Taylor, Orowan and Polanyi in 1934).
+> **The Theoretical Strength Paradox:** The theoretical calculation of the shear stress required to slip one plane of atoms simultaneously over another predicts $\tau_{\text{theoretical}} \approx \frac{G}{2\pi} \sim \frac{G}{10}$ (of the order of thousands of megapascals). However, real pure metals deform plastically at experimental stresses 100 to 1000 times lower ($\tau_{\text{exp}} \sim 10^{-4}\text{--}10^{-3}G$) [Slide 26]. This discrepancy is explained by the existence and sequential motion of **linear defects called dislocations** (proposed theoretically by Taylor, Orowan and Polanyi in 1934).
 
 ---
 
 ## 📐 1. Types of Dislocations and the Burgers Circuit
 
-A dislocation is a one-dimensional linear imperfection that separates a region that has undergone slip from one that remains intact [Slides 25, 28].
+A dislocation is a one-dimensional linear imperfection that separates a region that has undergone slip from one that remains intact [Slide 26].
 
 ```
 Dislocation type        Dislocation line (\vec{t}) vs Burgers vector (\vec{b})           Displacement vs \vec{b}
@@ -33,40 +33,40 @@ Screw dislocation       \vec{b} \parallel \vec{t}                               
 Mixed dislocation       Generic angle 0 < \theta < 90^\circ                            Combined behavior
 ```
 
-### 1. Edge or Taylor Dislocation [Slide 28-29]:
+### 1. Edge or Taylor Dislocation [Slides 29–30]:
 * It is created conceptually by inserting an **extra half-plane of atoms** into the upper half of the crystal.
 * The dislocation line ($\vec{t}$) is the lower terminating edge of that extra half-plane.
 * It generates an asymmetric elastic stress field: **compression** above the slip plane and **tension** below.
 
-### 2. Screw or Burgers Dislocation [Slide 30]:
+### 2. Screw or Burgers Dislocation [Slide 31]:
 * Produced by a shear stress that distorts the crystal so that the atomic planes become a continuous helical ramp around the dislocation axis.
 * It generates only a **pure shear** elastic field (with no volume change or hydrostatic dilatation).
 
-### 3. Mixed Dislocation [Slide 31]:
-* In a real crystal, dislocation lines are continuous curved loops. Regions with pure edge or screw orientation are limiting cases of a mixed dislocation whose Burgers vector $\vec{b}$ is identical along its entire path [Slide 31].
+### 3. Mixed Dislocation [Slide 32]:
+* In a real crystal, dislocation lines are continuous curved loops. Regions with pure edge or screw orientation are limiting cases of a mixed dislocation whose Burgers vector $\vec{b}$ is identical along its entire path [Slide 32].
 
 ---
 
 ## 🔄 2. Formal Definition of the Burgers Vector ($\vec{b}$)
 
-The **Burgers vector $\vec{b}$** defines the exact magnitude and crystallographic direction of the lattice distortion caused by the dislocation [Slide 28].
+The **Burgers vector $\vec{b}$** defines the exact magnitude and crystallographic direction of the lattice distortion caused by the dislocation [Slide 29].
 
 ### Burgers Circuit Procedure:
 1. In a perfect reference crystal, a closed loop is drawn by traveling $m$ atomic spacings to the right, $n$ downward, $m$ to the left and $n$ upward ($S \to E = 0$).
 2. The same closed path is drawn around the dislocation line in the real crystal.
-3. The circuit does not close; the vector needed to close the path (from the end to the start) is the **Burgers vector $\vec{b}$** [Slide 28].
+3. The circuit does not close; the vector needed to close the path (from the end to the start) is the **Burgers vector $\vec{b}$** [Slide 29].
 
 ---
 
 ## ⚡ 3. Stored Elastic Energy and the Minimum-Energy Criterion
 
-The presence of a dislocation introduces elastic distortions in the lattice that store elastic energy per unit length ($E$) [Slides 29, 35]:
+The presence of a dislocation introduces elastic distortions in the lattice that store elastic energy per unit length ($E$) [Slides 29, 36]:
 
 $$E \propto |\vec{b}|^2$$
 
 Specifically, for an edge dislocation $E_{\text{edge}} = \frac{G |\vec{b}|^2}{4\pi(1-\nu)} \ln\left(\frac{r_1}{r_0}\right)$ and for a screw dislocation $E_{\text{screw}} = \frac{G |\vec{b}|^2}{4\pi} \ln\left(\frac{r_1}{r_0}\right)$.
 
-### Why does slip occur along directions of maximum packing? [Slide 35]
+### Why does slip occur along directions of maximum packing? [Slide 36]
 The energy required to move a dislocation is directly proportional to the elastic energy it introduces:
 $$E_{\text{mov}} \propto |\vec{b}|^2$$
 
@@ -84,7 +84,7 @@ To minimize this energy, the crystal **always selects the shortest possible latt
 
 ## ✈️ 4. Slip Systems and the Origin of Ductility
 
-A **slip system** consists of the combination of a **slip plane** (plane of maximum planar density) and a **slip direction** (direction of maximum linear density) contained in that plane [Slide 34, 36].
+A **slip system** consists of the combination of a **slip plane** (plane of maximum planar density) and a **slip direction** (direction of maximum linear density) contained in that plane [Slides 35, 37].
 
 | Crystal Structure | Slip Plane | Slip Direction | Number of Active Systems | Macroscopic Ductility |
 | :--- | :--- | :--- | :--- | :--- |

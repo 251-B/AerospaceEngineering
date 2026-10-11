@@ -45,7 +45,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Solid solubility in substitutional solutions is governed by the **4 Hume-Rothery rules** [Session 4 Slide 22]:
+Solid solubility in substitutional solutions is governed by the **4 Hume-Rothery rules** [Session 4 Slide 23]:
 
 1. **Atomic radius difference ($\Delta R$):** It must be below $15\%$ for appreciable solubility:
    $$\Delta R = \frac{|R_{\text{soluto}} - R_{\text{Fe}}|}{R_{\text{Fe}}} \times 100\%$$

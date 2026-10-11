@@ -36,9 +36,9 @@ tags:
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
 1. **Total Number of Lattice Sites per Unit Volume ($N$):**
-   In an FCC cubic unit cell of volume $V_C = a^3$ there are $4$ equivalent lattice points [Session 4 Slide 15]:
+   In an FCC cubic unit cell of volume $V_C = a^3$ there are $4$ equivalent lattice points [Session 4 Slide 7]:
    $$N = \frac{n}{V_C} = \frac{4}{a^3} \quad [\text{sitios/cm}^3]$$
-2. **Boltzmann Thermodynamic Equation for Vacancies [Session 4 Slide 15]:**
+2. **Boltzmann Thermodynamic Equation for Vacancies [Session 4 Slide 16]:**
    $$n_v = N \cdot \exp\left(-\frac{\Delta H_v}{R \cdot T}\right)$$
    where $n_v$ is the number of vacancies in thermal equilibrium per cubic centimetre.
 
@@ -61,7 +61,7 @@ tags:
   $$-\frac{\Delta H_v}{R \cdot T} = -\frac{20000\text{ cal/mol}}{2688.71\text{ cal/mol}} = -7.43851$$
 * Vacancy fraction in thermal equilibrium:
   $$\frac{n_v}{N} = \exp(-7.43851) = \mathbf{5.88166 \times 10^{-4}}$$
-  *(Note that $\approx 0.059\%$, perfectly consistent with the order of magnitude of $10^{-4}$ near melting [Slide 15]).*
+  *(Note that $\approx 0.059\%$, perfectly consistent with the order of magnitude of $10^{-4}$ near melting [Slide 16]).*
 
 ---
 

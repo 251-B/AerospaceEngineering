@@ -15,13 +15,13 @@ prerrequisitos:
 
 # 🔷 Concept: Crystal Systems and the 14 Bravais Lattices
 
-> **Central Definition:** A **crystal system** is a geometric classification of three-dimensional space based on the length relations of its three cell base vectors ($a, b, c$) and the three interaxial angles ($\alpha, \beta, \gamma$). By combining the **7 crystal systems** with the **4 unit cell types** (Primitive $P$, Body-centered $I$, Face-centered $F$ and Base-centered $C$), the French physicist **Auguste Bravais (1848)** showed that there exist exactly **14 independent three-dimensional periodic lattices** capable of filling space without discontinuities or overlaps [Slide 8].
+> **Central Definition:** A **crystal system** is a geometric classification of three-dimensional space based on the length relations of its three cell base vectors ($a, b, c$) and the three interaxial angles ($\alpha, \beta, \gamma$). By combining the **7 crystal systems** with the **4 unit cell types** (Primitive $P$, Body-centered $I$, Face-centered $F$ and Base-centered $C$), the French physicist **Auguste Bravais (1848)** showed that there exist exactly **14 independent three-dimensional periodic lattices** capable of filling space without discontinuities or overlaps [Slides 9–10].
 
 ---
 
 ## 📐 1. Unit Cell Lattice Parameters
 
-Any three-dimensional unit cell is formally defined by a common origin and three primary translation vectors $\vec{a}, \vec{b}, \vec{c}$ [Slide 7]:
+Any three-dimensional unit cell is formally defined by a common origin and three primary translation vectors $\vec{a}, \vec{b}, \vec{c}$ [Slide 8]:
 * **Axial lengths:** $a = |\vec{a}|$, $b = |\vec{b}|$, $c = |\vec{c}|$.
 * **Interaxial angles:**
   * $\alpha$: angle subtended between $\vec{b}$ and $\vec{c}$.
@@ -34,7 +34,7 @@ $$\text{Unit Cell} \iff \{a, b, c;\, \alpha, \beta, \gamma\}$$
 
 ## 🏛️ 2. The 7 Crystal Systems
 
-The 7 crystal systems represent the highest possible metric symmetry classes in $\mathbb{R}^3$ [Slides 11-13]:
+The 7 crystal systems represent the highest possible metric symmetry classes in $\mathbb{R}^3$ [Slides 12–14]:
 
 | Crystal System | Edge Relations | Angle Relations | Characteristic Symmetry |
 | :--- | :--- | :--- | :--- |
@@ -50,7 +50,7 @@ The 7 crystal systems represent the highest possible metric symmetry classes in 
 
 ## 📦 3. The 4 Types of Unit Cell Centering
 
-To locate the atomic motifs within the lattice volume, Bravais categorized four standard arrangements [Slide 9]:
+To locate the atomic motifs within the lattice volume, Bravais categorized four standard arrangements [Slide 10]:
 
 1. **Primitive ($P$ / Simple):**
    * Lattice points located exclusively at the 8 corners of the cell.
@@ -69,7 +69,7 @@ To locate the atomic motifs within the lattice volume, Bravais categorized four 
 
 ## 🗺️ 4. Rigorous Distribution of the 14 Bravais Lattices
 
-Not all $7 \times 4 = 28$ combinations are independent; many reduce by change-of-basis operations to primitive cells of higher symmetry. The **14 unique lattices** are [Slides 11-13]:
+Not all $7 \times 4 = 28$ combinations are independent; many reduce by change-of-basis operations to primitive cells of higher symmetry. The **14 unique lattices** are [Slides 12–14]:
 
 ```
 7 Crystal Systems
@@ -84,7 +84,7 @@ Not all $7 \times 4 = 28$ combinations are independent; many reduce by change-of
 ```
 
 ### Why does the orthorhombic system have all 4 variants ($P, C, I, F$)?
-Because its three edges are mutually unequal ($a \neq b \neq c$), adding points on the faces or in the body never introduces an additional symmetry that would allow the cell to collapse into a smaller tetragonal or cubic one. Hence, the orthorhombic is the **only crystal system that exhibits all 4 Bravais lattice modes** [Slide 12].
+Because its three edges are mutually unequal ($a \neq b \neq c$), adding points on the faces or in the body never introduces an additional symmetry that would allow the cell to collapse into a smaller tetragonal or cubic one. Hence, the orthorhombic is the **only crystal system that exhibits all 4 Bravais lattice modes** [Slide 13].
 
 ---
 

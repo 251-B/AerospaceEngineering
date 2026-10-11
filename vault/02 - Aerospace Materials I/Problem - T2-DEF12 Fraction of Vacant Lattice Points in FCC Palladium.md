@@ -36,7 +36,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-1. **Ideal Theoretical Density of the Perfect Crystal ($\rho_{\text{ideal}}$) [Session 4 Slide 7, 15]:**
+1. **Ideal Theoretical Density of the Perfect Crystal ($\rho_{\text{ideal}}$) [Session 4 Slides 7, 16]:**
    If all lattice points were occupied by palladium atoms with no vacancies at all:
    $$\rho_{\text{ideal}} = \frac{n \cdot M_{\text{Pd}}}{a^3 \cdot N_A} = \frac{4 \cdot M_{\text{Pd}}}{a^3 \cdot N_A}$$
 2. **Fraction of Vacant Lattice Points ($f_v$):**

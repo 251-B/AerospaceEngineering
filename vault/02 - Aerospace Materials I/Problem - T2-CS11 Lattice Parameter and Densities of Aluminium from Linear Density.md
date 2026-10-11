@@ -35,15 +35,15 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-1. **Linear Density on $[111]$ for FCC [Session 4 Slide 7]:**
+1. **Linear Density on $[111]$ for FCC [Session 4 Slide 8]:**
    In an FCC cell, the main diagonal $[111]$ has length $L_{[111]} = a\sqrt{3}$. It passes through only two atoms located at the opposite end vertices, each contributing $\frac{1}{2}$ centred atom:
    $$N_{\text{átomos}} = 2 \times \frac{1}{2} = 1\text{ átomo}$$
    $$\rho_{[111]} = \frac{1}{a\sqrt{3}} \implies a = \frac{1}{\sqrt{3} \cdot \rho_{[111]}}$$
-2. **Atomic Radius in FCC [Session 3 Slide 20]:**
+2. **Atomic Radius in FCC [Session 3 Slide 27]:**
    $$4R = a\sqrt{2} \implies R = \frac{a\sqrt{2}}{4}$$
 3. **Volumetric Density ($\rho_v$):**
    $$\rho_v = \frac{n \cdot M}{a^3 \cdot N_A} = \frac{4 \cdot M}{a^3 \cdot N_A}$$
-4. **Planar Density on the $(101)$ Plane [Session 4 Slide 8]:**
+4. **Planar Density on the $(101)$ Plane [Session 4 Slide 9]:**
    In the cubic system, the $(101)$ plane is crystallographically equivalent to $(110) \in \{110\}$.
    The $(101)$ plane cuts the diagonal of the $x-z$ face (length $a\sqrt{2}$) and the $y$ edge (length $a$).
    Area: $A_{(101)} = a\sqrt{2} \times a = a^2\sqrt{2}$.

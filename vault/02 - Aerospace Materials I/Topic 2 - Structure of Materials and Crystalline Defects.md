@@ -17,7 +17,7 @@ prerrequisitos:
 
 # 🌐 Topic 2: Structure of Materials and Crystalline Defects
 
-> **Central Idea of the Topic:** The three-dimensional geometric arrangement of atoms in periodic crystal lattices (crystallography) and, even more decisively, the presence and behavior of **crystalline imperfections or defects** (point, line, planar and volumetric) absolutely govern the real mechanical properties, plastic deformability, fracture resistance and thermal response of aerospace metallic and ceramic materials [Session 3 Slide 2, Session 4 Slide 11].
+> **Central Idea of the Topic:** The three-dimensional geometric arrangement of atoms in periodic crystal lattices (crystallography) and, even more decisively, the presence and behavior of **crystalline imperfections or defects** (point, line, planar and volumetric) absolutely govern the real mechanical properties, plastic deformability, fracture resistance and thermal response of aerospace metallic and ceramic materials [Session 3 Slide 2, Session 4 Slide 12].
 
 $$\text{Crystal Structure (Bravais)} + \text{Defects (0D, 1D, 2D)} \implies \text{Mechanical and Aerospace Properties}$$
 

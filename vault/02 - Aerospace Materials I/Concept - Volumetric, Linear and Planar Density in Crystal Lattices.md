@@ -22,7 +22,7 @@ prerrequisitos:
 
 ## 🧊 1. Volumetric Density ($\rho$ or $\rho_v$)
 
-The theoretical volumetric density is the total mass contained within the unit cell divided by the volume of that cell [Slide 15, Session 4]:
+The theoretical volumetric density is the total mass contained within the unit cell divided by the volume of that cell [Session 4 Slide 7]:
 
 $$\rho_v = \frac{m_{\text{cell}}}{V_C} = \frac{n \cdot M}{V_C \cdot N_A}$$
 
@@ -44,7 +44,7 @@ where:
 
 ## 📏 2. Linear Density ($\rho_l$)
 
-The linear density represents the number of atomic diameters centered on a crystallographic direction vector or segment $[u\, v\, w]$ divided by the geometric length of that vector [Slide 7]:
+The linear density represents the number of atomic diameters centered on a crystallographic direction vector or segment $[u\, v\, w]$ divided by the geometric length of that vector [Slide 8]:
 
 $$\rho_l = \frac{N_{\text{atoms centered on the line}}}{L_{[u\, v\, w]}}$$
 
@@ -52,7 +52,7 @@ $$\rho_l = \frac{N_{\text{atoms centered on the line}}}{L_{[u\, v\, w]}}$$
 * If it cuts atoms at both ends of the edge or diagonal, each end contributes $\frac{1}{2}$ atom $\implies 2 \times \frac{1}{2} = 1$ atom.
 
 ### Examples in Cubic Lattices:
-1. **FCC along the $[100]$ direction [Slide 7]:**
+1. **FCC along the $[100]$ direction [Slide 8]:**
    * $L_{[100]} = a = 2\sqrt{2}R$.
    * It intersects 2 corners: $2 \times \frac{1}{2} = 1\text{ atom}$.
    * For Cu ($R = 1.28\text{ \AA}$):
@@ -71,7 +71,7 @@ $$\rho_l = \frac{N_{\text{atoms centered on the line}}}{L_{[u\, v\, w]}}$$
 
 ## 🗺️ 3. Planar Density ($\rho_p$)
 
-The planar density quantifies the number of atoms whose geometric centers are contained in the crystallographic plane $(h\, k\, l)$, divided by the two-dimensional area bounded by the unit cell in that plane [Slide 8]:
+The planar density quantifies the number of atoms whose geometric centers are contained in the crystallographic plane $(h\, k\, l)$, divided by the two-dimensional area bounded by the unit cell in that plane [Slide 9]:
 
 $$\rho_p = \frac{N_{\text{atoms contained in the plane}}}{A_{(h\, k\, l)}}$$
 
@@ -82,7 +82,7 @@ $$\rho_p = \frac{N_{\text{atoms contained in the plane}}}{A_{(h\, k\, l)}}$$
   * Atom entirely within the interior of the plane: contributes $1$.
 
 ### Examples in Cubic Lattices:
-1. **FCC in the $(100)$ plane [Slide 8]:**
+1. **FCC in the $(100)$ plane [Slide 9]:**
    * Area: $A_{(100)} = a^2$.
    * Atoms contained: 4 corners $\times \frac{1}{4} + 1\text{ face center} = 1 + 1 = 2\text{ atoms}$.
    * Analytical expression: $\rho_p (100) = \frac{2}{a^2}$.

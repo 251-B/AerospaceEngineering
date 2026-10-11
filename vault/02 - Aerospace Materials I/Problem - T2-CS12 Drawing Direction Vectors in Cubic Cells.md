@@ -45,7 +45,7 @@ Twelve crystallographic vectors are drawn inside a standard cubic unit cell of n
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing the systematic procedure [Session 3 Slide 38]:
+Citing the systematic procedure [Session 3 Slide 40]:
 1. Identify whether there are negative indices and fix the local origin:
    * $\bar{u} \implies$ origin at $x = 1$.
    * $\bar{v} \implies$ origin at $y = 1$.

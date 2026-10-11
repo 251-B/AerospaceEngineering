@@ -29,7 +29,7 @@ tags:
 2. **Boundary Conditions at the Interfaces:**
    * At the left interface ($\text{Ni}/\text{MgO}$ at $x = 0$): the magnesium oxide is in intimate contact with the pure metallic nickel block, so the volumetric concentration of nickel available at the interface equals the atomic density of metallic nickel: $C_1 = \rho_{\text{at, Ni}}$.
    * At the right interface ($\text{MgO}/\text{Ta}$ at $x = \Delta x$): tantalum acts as a perfect sink, instantly consuming or reacting with the emerging nickel ions to form intermetallics or dissolve, fixing a practically zero concentration: $C_2 \approx 0$ [Slide 16].
-3. **Crystal Structure of Nickel:** At $1400^\circ\text{C}$, metallic nickel crystallises in a Face-Centred Cubic (FCC) lattice, with $n = 4$ atoms per unit cell and lattice parameter $a = 3.6 \times 10^{-8}\text{ cm}$ [Session 3 Slide 15; Session 5 Slide 23].
+3. **Crystal Structure of Nickel:** At $1400^\circ\text{C}$, metallic nickel crystallises in a Face-Centred Cubic (FCC) lattice, with $n = 4$ atoms per unit cell and lattice parameter $a = 3.6 \times 10^{-8}\text{ cm}$ [Session 3 Slides 24, 27; Session 5 Slide 23].
 
 ### Input Parameters:
 * Thickness of the $\text{MgO}$ plate: $\Delta x = 0.1\text{ cm} = 1.0 \times 10^{-3}\text{ m}$
@@ -43,7 +43,7 @@ tags:
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
 ### 1. Atomic Density of the Nickel Block ($\rho_{\text{at, Ni}}$):
-In an FCC crystal lattice, the number of atoms per unit cell is $n = 4$, and the cell volume is $V_C = a^3$. The atomic volumetric density of nickel in the metallic block is given by [Session 3 Slide 15]:
+In an FCC crystal lattice, the number of atoms per unit cell is $n = 4$, and the cell volume is $V_C = a^3$. The atomic volumetric density of nickel in the metallic block is given by [Session 4 Slide 7]:
 
 $$\rho_{\text{at, Ni}} = \frac{n}{a^3} = \frac{4}{a^3} \quad \left[\frac{\text{átomos}}{\text{cm}^3}\right]$$
 

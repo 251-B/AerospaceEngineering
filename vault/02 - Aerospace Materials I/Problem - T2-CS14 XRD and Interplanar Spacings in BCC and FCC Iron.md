@@ -29,7 +29,7 @@ tags:
 ### Input Data:
 * Lattice parameter of the BCC phase ($\alpha\text{-Fe}$): $a_{\text{BCC}} = 0.2864\text{ nm}$.
 * Lattice parameter of the FCC phase ($\gamma\text{-Fe}$): $a_{\text{FCC}} = 0.3592\text{ nm}$.
-* Planes of Maximum Packing [Session 4 Slide 9]:
+* Planes of Maximum Packing [Session 4 Slide 10]:
   * In the BCC structure: densest planes $\{110\}$.
   * In the FCC structure: densest planes $\{111\}$.
 

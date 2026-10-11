@@ -94,6 +94,22 @@ def _first_label(token):
     return m.group(0) if m else None
 
 
+def resolve_rules(rules, text):
+    """Turn a slide-deck switch given as marker text into a character offset in this page."""
+    spec = rules.get("slides")
+    if not isinstance(spec, list):
+        return rules
+    resolved = []
+    for pdf_id, start in spec:
+        if isinstance(start, str):
+            at = text.find(start)
+            if at < 0:
+                raise SystemExit(f"source_links: slide-deck marker {start!r} not found on the page")
+            start = at
+        resolved.append([pdf_id, start])
+    return {**rules, "slides": resolved}
+
+
 class Linker:
     def __init__(self, page_rel, rules, pdfs, anchors):
         self.page_rel = page_rel
@@ -189,9 +205,9 @@ class Linker:
             elif kind == "trigger":
                 word = m.group(1)
                 if word.startswith("Robinson"):
-                    pdf_for = lambda k, p=rules.get("robinson"): p  # noqa: E731
+                    pdf_for = lambda k, p=rules.get("robinson"): self.slide_pdf(pos_in_page) if k == "slide" else p  # noqa: E731
                 elif word.startswith("Notes"):
-                    pdf_for = lambda k, p=rules.get("notes"): p  # noqa: E731
+                    pdf_for = lambda k, p=rules.get("notes"): self.slide_pdf(pos_in_page) if k == "slide" else p  # noqa: E731
                 else:
                     sess = rules.get("sessions", {}).get(m.group(2))
                     pdf_for = lambda k, p=sess: p if k == "slide" else None  # noqa: E731
@@ -299,11 +315,38 @@ def panel_indent(text):
     return h1.group(1) if h1 else "    "
 
 
-_CARD = re.compile(r'<(article|div|details|section)\b[^>]*class="[^"]*\b(?:problem-card|problem-box)\b[^"]*"[^>]*\bid="([^"]+)"[^>]*>')
+_CARD_TAG = re.compile(r'<(article|div|details|section)\b([^>]*)>')
+_CARD_CLASSES = {"problem-card", "problem-box"}
+
+
+class _Card:
+    def __init__(self, m, card_id):
+        self.m, self.card_id = m, card_id
+
+    def start(self):
+        return self.m.start()
+
+    def end(self):
+        return self.m.end()
+
+    def group(self, i):
+        return self.m.group(1) if i == 1 else self.card_id
+
+
+def find_cards(text):
+    """Problem-card opening tags, matching whole class names and attributes in any order."""
+    out = []
+    for m in _CARD_TAG.finditer(text):
+        cls = re.search(r'\bclass="([^"]*)"', m.group(2))
+        if not cls or not _CARD_CLASSES & set(cls.group(1).split()):
+            continue
+        ident = re.search(r'\bid="([^"]+)"', m.group(2))
+        out.append(_Card(m, ident.group(1) if ident else None))
+    return out
 
 
 def insert_cards(text, page_rel, cards, pdfs, missing):
-    matches = list(_CARD.finditer(text))
+    matches = find_cards(text)
     seen = set()
     for m in reversed(matches):
         card_id = m.group(2)
@@ -346,21 +389,20 @@ def build_page(page_rel, original, cfg, anchors, report):
     spec = cfg["pages"][page_rel]
     pdfs = cfg["pdfs"]
     text = strip_links(original)
-    linker = Linker(page_rel, spec.get("cite", {}), pdfs, anchors)
+    linker = Linker(page_rel, resolve_rules(spec.get("cite", {}), text), pdfs, anchors)
     text = link_citations(text, linker)
     missing = []
     if spec.get("cards"):
         text, absent = insert_cards(text, page_rel, spec["cards"], pdfs, missing)
-        if absent:
-            print(f"source_links: {page_rel}: configured cards not on the page: {absent}", file=sys.stderr)
+        missing.extend(f"{a} (configured, not on the page)" for a in absent)
     if spec.get("panel"):
         entries = []
         for entry in spec["panel"]:
             pdf_id, page = entry[0], entry[1]
             note = entry[2] if len(entry) > 2 else None
             if page == "auto":
-                pages = [int(m) for m in re.findall(
-                    re.escape(quote(pathlib.PurePosixPath(pdfs[pdf_id]["path"]).name, safe="")) + r"#page=(\d+)", text)]
+                pages = [int(m) if m else 1 for m in re.findall(
+                    "/" + re.escape(quote(pathlib.PurePosixPath(pdfs[pdf_id]["path"]).name, safe="")) + r'(?:#page=(\d+))?"', text)]
                 page = min(pages) if pages else 1
             entries.append((pdf_id, page, note))
         text = insert_panel(text, render_panel(page_rel, entries, pdfs, panel_indent(text)))
@@ -391,20 +433,33 @@ def _find(pages, start, rx):
     return None
 
 
+def _find_head(pages, start, rx, lines=4):
+    """First page whose opening non-empty lines match `rx` (chapter openers)."""
+    for i in range(max(start - 1, 0), len(pages)):
+        head = "\n".join([l for l in pages[i].splitlines() if l.strip()][:lines])
+        if rx.search(head):
+            return i + 1
+    return None
+
+
 def resolve_label(pages, pdf, kind, label):
     start = pdf.get("body_start", 1)
     lab = re.escape(label)
-    if kind == "eq":
-        return _find(pages, start, re.compile(rf"\({lab}\)"))
+    if kind == "eq":  # the defining line ends with the label; a first mention ("in (3.19)") is the fallback
+        return (_find(pages, start, re.compile(rf"(?m)\({lab}\)[\s,.;]*$"))
+                or _find(pages, start, re.compile(rf"\({lab}\)")))
     if kind == "sec":
         return _find(pages, start, re.compile(rf"(?m)^\s*{lab}\s+\*?[\u2018\u201c'\"A-Z]"))
     if kind == "chap":
         if "." in label:
             return None
-        return (_find(pages, start, re.compile(rf"(?m)^\s*Chapter\s+{lab}\b"))
+        return (_find_head(pages, start, re.compile(rf"(?m)^\s*{lab}\s*$"), lines=2)
+                or _find_head(pages, start, re.compile(rf"(?m)^\s*Chapter\s+{lab}\b"))
                 or _find(pages, start, re.compile(rf"(?m)^\s*{lab}\.1\s+[A-Z]")))
-    if kind == "fig":
-        return _find(pages, start, re.compile(rf"\bFig(?:ure|\.)\s*{lab}\b(?!\.\d)"))
+    if kind == "fig":  # prefer the caption ("Fig. 6.2. ..."); a first mention is the fallback
+        return (_find(pages, start, re.compile(rf"\bFig\.\s*{lab}\.(?!\d)"))
+                or _find(pages, start, re.compile(rf"\bFigure\s*{lab}\.(?!\d)"))
+                or _find(pages, start, re.compile(rf"\bFig(?:ure|\.)\s*{lab}\b(?!\.\d)")))
     if kind in ("example", "thm", "def"):
         word = {"example": "Example", "thm": "Theorem", "def": "Definition"}[kind]
         return _find(pages, start, re.compile(rf"\b{word}\s+{lab}\b(?!\.\d)"))
@@ -428,7 +483,7 @@ def refresh_anchors(cfg):
     wanted = set()
     for page_rel, spec in cfg["pages"].items():
         text = strip_links((REPO / page_rel).read_text(encoding="utf-8"))
-        collector = _Collect(page_rel, spec.get("cite", {}), cfg["pdfs"], {})
+        collector = _Collect(page_rel, resolve_rules(spec.get("cite", {}), text), cfg["pdfs"], {})
         link_citations(text, collector)
         wanted |= collector.wanted
     anchors = {}

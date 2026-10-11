@@ -59,6 +59,25 @@ class CitationTests(unittest.TestCase):
         out, _ = link("<p>by Eq. 2.26</p>", notes="notes", bare_eq="notes")
         self.assertEqual(pages_in(out), [("23", "2.26")])
 
+    def test_slide_inside_a_notes_chain_uses_the_slide_deck(self):
+        out, _ = link("<p>(Notes Eq. 2.26, Slide 12)</p>", notes="notes", slides="slides")
+        self.assertIn("Notes.pdf#page=23", out)
+        self.assertIn("Session%202%20T1.pdf#page=12", out)
+        self.assertNotIn("Notes.pdf#page=12", out)
+
+    def test_slide_map_handles_hidden_slides(self):
+        pdfs = {**PDFS, "deck": {**PDFS["slides"], "slide_map": {"29": 27}}}
+        linker = sl.Linker(PAGE, {"slides": "deck"}, pdfs, ANCHORS)
+        out = sl.link_citations("<body><p>(Slide 29) (Slide 21)</p></body>", linker)
+        self.assertEqual(pages_in(out), [("27", "29")])
+
+    def test_deck_switch_by_marker_text(self):
+        text = "<body><p>[Slide 3]</p><h2>Densities</h2><p>[Slide 3]</p></body>"
+        rules = sl.resolve_rules({"slides": [["slides", 0], ["s4", "Densities"]]}, text)
+        out = sl.link_citations(text, sl.Linker(PAGE, rules, PDFS, ANCHORS))
+        self.assertIn("Session%202%20T1.pdf#page=3", out)
+        self.assertIn("Session%204.pdf#page=3", out)
+
     def test_math_code_and_existing_links_are_never_touched(self):
         src = ("<p>$$x \\text{(Robinson p. 78)}$$ and $[Slide 3]$</p><code>[Slide 3]</code>"
                '<a href="#">[Slide 3]</a>')
@@ -100,6 +119,22 @@ class CardAndPanelTests(unittest.TestCase):
         cfg = {"pdfs": PDFS, "pages": {PAGE: {"panel": [["notes", 18, "Notes, Ch. 2"]],
                                               "cards": {"p1": ["notes", 3], "p2": ["s4", 1]}}}}
         self.assertEqual(sl.build_page(PAGE, out, cfg, ANCHORS, {}), out)
+
+    def test_card_attributes_in_any_order_and_whole_class_names(self):
+        page = ('<html><head>\n</head><body>\n<div id="a" class="x problem-card">\n<h2>A</h2>\n</div>\n'
+                '<div class="problem-card-header" id="hdr"><h2>H</h2></div>\n</body></html>')
+        cards = [c.card_id for c in sl.find_cards(page)]
+        self.assertEqual(cards, ["a"])
+
+    def test_configured_card_missing_from_the_page_fails(self):
+        _, rep = self.build({"p1": ["notes", 3], "p2": ["s4", 1], "gone": ["notes", 1]})
+        self.assertEqual(rep["missing_cards"], ["gone (configured, not on the page)"])
+
+    def test_auto_panel_counts_links_to_page_one(self):
+        cfg = {"pdfs": PDFS, "pages": {PAGE: {"panel": [["slides", "auto"]], "cite": {"slides": "slides"}}}}
+        html_ = '<html><head>\n</head><body>\n<header class="article-header">\n<h1>T</h1>\n</header><p>[Slide 1] [Slide 20]</p></body></html>'
+        out = sl.build_page(PAGE, html_, cfg, ANCHORS, {})
+        self.assertRegex(out, r'<nav class="src-panel"[\s\S]*Session%202%20T1\.pdf"')
 
     def test_unconfigured_card_is_reported(self):
         _, rep = self.build({"p1": ["notes", 3]})

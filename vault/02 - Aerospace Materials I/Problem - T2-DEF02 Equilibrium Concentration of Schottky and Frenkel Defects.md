@@ -36,7 +36,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing the official formulations for ionic crystals [Session 4 Slide 16]:
+Citing the official formulations for ionic crystals [Session 4 Slide 17]:
 
 1. **Schottky Defects (Anion-Cation Vacancy Pairs):**
    The formation of a Schottky pair requires the simultaneous creation of two vacancies of opposite sign. Thermodynamically, the equilibrium fraction is:
@@ -79,7 +79,7 @@ Citing the official formulations for ionic crystals [Session 4 Slide 16]:
    Comparing both populations at $1000\text{ K}$:
    $$\frac{n_s}{n_F} = \frac{3.026 \times 10^{-3}}{8.386 \times 10^{-11}} \approx \mathbf{3.6 \times 10^{7}}$$
    The concentration of Schottky defects is more than **36 million times higher** than that of Frenkel defects.
-2. **Correlation with Slide 16 [Session 4 Slide 16]:**
+2. **Correlation with Slide 17 [Session 4 Slide 17]:**
    As the official theory states verbatim:
    $$\text{"In a crystal } \Delta H_s \neq \Delta H_F \implies \text{the defect with the lowest } \Delta H \text{ will form"}$$
    Since $\Delta H_s = 1\text{ eV} \ll \Delta H_F = 4\text{ eV}$, the crystal will overwhelmingly present Schottky-type defects, while Frenkel defects will be statistically non-existent.

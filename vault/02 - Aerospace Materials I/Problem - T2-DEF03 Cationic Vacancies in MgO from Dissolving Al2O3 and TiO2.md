@@ -27,13 +27,13 @@ tags:
 The formation of substitutional solid solutions in the ionic ceramic lattice of magnesium oxide ($\text{MgO}$, $\text{NaCl}$-type structure with a cation sublattice of $\text{Mg}^{2+}$ and an anion sublattice of $\text{O}^{2-}$) is studied.
 
 ### Fundamental Requirement:
-* **Principle of Macroscopic Electroneutrality:** The total positive charge of the incorporated cations must exactly equal the charge of the substituted cations. The valence difference between the dopant cations ($\text{Al}^{3+}$ or $\text{Ti}^{4+}$) and the matrix cation ($\text{Mg}^{2+}$) forces the generation of **cationic vacancies $V_{\text{Mg}}''$** [Session 4 Slide 21].
+* **Principle of Macroscopic Electroneutrality:** The total positive charge of the incorporated cations must exactly equal the charge of the substituted cations. The valence difference between the dopant cations ($\text{Al}^{3+}$ or $\text{Ti}^{4+}$) and the matrix cation ($\text{Mg}^{2+}$) forces the generation of **cationic vacancies $V_{\text{Mg}}''$** [Session 4 Slide 22].
 
 ---
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing slide 21 [Session 4 Slide 21]:
+Citing slide 22 [Session 4 Slide 22]:
 $$\text{Generation of defects due to solid solution in Ionic solids: } 3\,\text{Mg}^{2+} \longleftrightarrow 2\,\text{Al}^{3+} + 1\,V_{\text{Mg}}$$
 
 ### Electric Charge Balance:

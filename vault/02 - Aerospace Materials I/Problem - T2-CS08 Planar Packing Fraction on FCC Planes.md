@@ -32,7 +32,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-The **Fraction of Area Occupied by Atoms (Planar Packing Fraction, PPF)** on a crystallographic plane $(h\, k\, l)$ is defined as the ratio between the total area of the circular sections of the atoms whose centres fall exactly on that plane and the total geometric area of the plane inside the unit cell [Session 4 Slide 8]:
+The **Fraction of Area Occupied by Atoms (Planar Packing Fraction, PPF)** on a crystallographic plane $(h\, k\, l)$ is defined as the ratio between the total area of the circular sections of the atoms whose centres fall exactly on that plane and the total geometric area of the plane inside the unit cell [Session 4 Slide 9]:
 
 $$\text{PPF}_{(hkl)} = \frac{N_{\text{átomos}} \cdot (\pi R^2)}{A_{(hkl)}}$$
 

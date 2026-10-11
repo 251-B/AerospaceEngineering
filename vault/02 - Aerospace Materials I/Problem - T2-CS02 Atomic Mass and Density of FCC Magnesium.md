@@ -36,7 +36,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing the theoretical foundations of the course [Session 4 Slide 7, 15]:
+Citing the theoretical foundations of the course [Session 4 Slide 7]:
 * The theoretical volumetric density of a crystalline solid is defined by the ratio of the cell mass to its volume:
   $$\rho = \frac{m_{\text{celda}}}{V_C} = \frac{n \cdot M}{a^3 \cdot N_A}$$
 * Solving algebraically for the molar atomic mass $M$:

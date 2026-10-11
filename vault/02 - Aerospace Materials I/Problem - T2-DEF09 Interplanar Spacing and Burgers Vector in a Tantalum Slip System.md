@@ -40,7 +40,7 @@ tags:
 
 1. **Interplanar Spacing in Cubic Crystals [Session 3 Slide 53]:**
    $$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$
-2. **Magnitude of the Burgers Vector ($\vec{b}$) in Cubic Lattices [Session 4 Slide 35]:**
+2. **Magnitude of the Burgers Vector ($\vec{b}$) in Cubic Lattices [Session 4 Slide 36]:**
    * Along the slip direction $[1\,\bar{1}\,1]$ (direction of maximum packing in BCC), the minimum lattice translation vector joins a vertex with the cube centre:
      $$\vec{b}_a = \frac{a}{2}[1\, -1\, 1] \implies |\vec{b}_a| = \frac{a\sqrt{1^2 + (-1)^2 + 1^2}}{2} = \frac{a\sqrt{3}}{2}$$
    * Along the hypothetical slip direction $[1\,\bar{1}\,0]$ (face diagonal in BCC), the cell centre does not interrupt the diagonal; the full elementary translation vector joins two opposite vertices of a square face:

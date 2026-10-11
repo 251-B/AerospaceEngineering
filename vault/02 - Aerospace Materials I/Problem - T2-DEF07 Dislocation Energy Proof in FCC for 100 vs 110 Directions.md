@@ -35,7 +35,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing Frank's theory and the mechanics of dislocations [Session 4 Slide 29, 35]:
+Citing Frank's theory and the mechanics of dislocations [Session 4 Slides 29, 36]:
 1. **Frank's Rule for the Elastic Energy of a Dislocation:**
    The elastic strain energy stored in the elastic distortion field surrounding a dislocation is directly proportional to the **square of the magnitude of its Burgers vector**:
    $$E \propto |\vec{b}|^2$$
@@ -88,7 +88,7 @@ $$\mathbf{\frac{E_1}{E_2} = 2} \quad \blacksquare \text{ Q.E.D.}$$
   The energy of the two dissociation products would be:
   $$E_{\text{productos}} \propto \left|\frac{a}{2}[110]\right|^2 + \left|\frac{a}{2}[1\bar{1}0]\right|^2 = \frac{a^2}{2} + \frac{a^2}{2} = a^2$$
   Since the vector $\vec{b}_2 = \frac{a}{2}\langle 110 \rangle$ is individually half as energetic ($E_2 = E_1 / 2$), the energy required to move or thermally activate slip along $[110]$ is half that along $[100]$.
-* This constitutes the definitive analytical proof of slide 35 [Session 4 Slide 35] of why plastic slip in FCC metals is restricted exclusively to the $\langle 110 \rangle$ directions.
+* This constitutes the definitive analytical proof of slide 36 [Session 4 Slide 36] of why plastic slip in FCC metals is restricted exclusively to the $\langle 110 \rangle$ directions.
 
 ---
 *Return:* [[Topic 2 - Structure of Materials and Crystalline Defects|⬅️ Back to Topic 2]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]

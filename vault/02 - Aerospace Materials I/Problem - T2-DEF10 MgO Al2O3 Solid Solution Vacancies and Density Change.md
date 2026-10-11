@@ -36,7 +36,7 @@ tags:
 
 ### Starting Hypotheses:
 1. The $\text{Al}^{3+}$ cations substitute for $\text{Mg}^{2+}$ cations in the cation sublattice.
-2. To maintain strict electroneutrality, every $2$ $\text{Al}^{3+}$ ions incorporated generate $1$ magnesium cationic vacancy ($V_{\text{Mg}}''$) [Session 4 Slide 21].
+2. To maintain strict electroneutrality, every $2$ $\text{Al}^{3+}$ ions incorporated generate $1$ magnesium cationic vacancy ($V_{\text{Mg}}''$) [Session 4 Slide 22].
 3. The oxygen anion sublattice $\text{O}^{2-}$ remains complete and free of anion vacancies.
 4. The unit cell volume hardly changes because of the similarity between the radii of $\text{Al}^{3+}$ ($0.053\text{ nm}$) and $\text{Mg}^{2+}$ ($0.072\text{ nm}$), so the density variation is evaluated through the effective mass per lattice site.
 
@@ -44,7 +44,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-1. **Cationic Vacancy Balance [Session 4 Slide 21]:**
+1. **Cationic Vacancy Balance [Session 4 Slide 22]:**
    $$3\,\text{Mg}^{2+} \longleftrightarrow 2\,\text{Al}^{3+} + 1\,V_{\text{Mg}}''$$
    For each $\text{Al}^{3+}$ atom incorporated, exactly $\frac{1}{2}$ cationic vacancy is generated:
    $$N_{\text{vacantes}} = \frac{1}{2} N_{\text{Al}}$$

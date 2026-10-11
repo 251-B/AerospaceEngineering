@@ -28,13 +28,13 @@ tags:
 2. **Pure Aluminium ($\text{Al}$):** Face-Centred Cubic (FCC) lattice, lattice parameter $a$.
 
 ### Fundamental Hypothesis:
-* In any metallic crystal lattice, stable dislocations are **unit (or perfect) dislocations** whose Burgers vector $\vec{b}$ connects two identical, equivalent lattice positions along the **crystallographic direction of maximum packing** in order to minimise the elastic energy of the dislocation ($E \propto |\vec{b}|^2$) [Session 4 Slide 35].
+* In any metallic crystal lattice, stable dislocations are **unit (or perfect) dislocations** whose Burgers vector $\vec{b}$ connects two identical, equivalent lattice positions along the **crystallographic direction of maximum packing** in order to minimise the elastic energy of the dislocation ($E \propto |\vec{b}|^2$) [Session 4 Slides 35–36].
 
 ---
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing the theory of dislocations and slip systems [Session 4 Slides 28, 34-36]:
+Citing the theory of dislocations and slip systems [Session 4 Slides 35–37]:
 * **In the BCC lattice:**
   * The direction of maximum atomic packing is the main cube diagonal $\langle 111 \rangle$.
   * The smallest lattice translation connecting two lattice nodes is the one going from a vertex $(0,0,0)$ to the body centre $(1/2, 1/2, 1/2)$:

@@ -38,7 +38,7 @@ A crystallographic direction is defined as a vector drawn from the coordinate or
 
 ## 📐 2. Miller Crystallographic Planes $(h\, k\, l)$
 
-A crystallographic plane represents an infinite family of parallel, equidistant planes [Slides 41-49].
+A crystallographic plane represents an infinite family of parallel, equidistant planes [Slides 44–50].
 
 ### Systematic Determination Procedure:
 1. **Origin and Intercept Rule:** The plane under analysis **cannot pass through the origin**. If it does, the coordinate origin is translated to an adjacent neighboring corner.
@@ -74,7 +74,7 @@ $$i = -(h + k)$$
 * The close-packed basal plane of HCP is: $(0001)$ (or the $\{0001\}$ plane).
 
 ### Miller-Bravais Directions $[u\, v\, t\, w]$:
-To transform a conventional three-dimensional direction $[u'\, v'\, w']$ to the 4-axis notation $[u\, v\, t\, w]$ [Slide 51]:
+To transform a conventional three-dimensional direction $[u'\, v'\, w']$ to the 4-axis notation $[u\, v\, t\, w]$ [Slide 52]:
 $$u = \frac{1}{3}(2u' - v'), \quad v = \frac{1}{3}(2v' - u'), \quad t = -(u + v) = -\frac{1}{3}(u' + v'), \quad w = w'$$
 * *Key examples in HCP:*
   * $[100] \to [2\bar{1}\bar{1}0]$ (direction of maximum packing in the basal plane).

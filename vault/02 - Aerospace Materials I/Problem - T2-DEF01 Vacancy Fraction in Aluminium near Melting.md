@@ -34,7 +34,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-The thermodynamic equilibrium concentration of vacancies in a metallic lattice follows the Boltzmann distribution [Session 4 Slide 15]:
+The thermodynamic equilibrium concentration of vacancies in a metallic lattice follows the Boltzmann distribution [Session 4 Slide 16]:
 
 $$\frac{n_v}{N} = \exp\left(-\frac{\Delta H_v}{RT}\right)$$
 
@@ -78,7 +78,7 @@ where $\Delta H_v$ is the enthalpy of formation of one mole of vacancies in the 
 
 * **Exponential Thermal Increase:** Going from $400^\circ\text{C}$ to $660^\circ\text{C}$ ($\Delta T = 260^\circ\text{C}$), the vacancy concentration is multiplied by a factor of:
   $$\frac{4.49 \times 10^{-4}}{2.29 \times 10^{-5}} \approx \mathbf{19.6\text{ veces}}$$
-* **Physical Limit of Real Crystals:** The fraction reached near melting ($4.49 \times 10^{-4} \approx 1\text{ vacante por cada } 2200\text{ átomos}$) satisfies the general rule quoted in the official slide [Session 4 Slide 15]:
+* **Physical Limit of Real Crystals:** The fraction reached near melting ($4.49 \times 10^{-4} \approx 1\text{ vacante por cada } 2200\text{ átomos}$) satisfies the general rule quoted in the official slide [Session 4 Slide 16]:
   $$\frac{n_v}{N} \sim 10^{-4}\text{ máximo}$$
   This high density of thermal vacancies near the melting point is responsible for the drastic increase in the rate of atomic diffusion in homogenisation and aeronautical sintering processes.
 

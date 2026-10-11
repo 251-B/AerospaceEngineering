@@ -49,7 +49,7 @@ tags:
    * We know $c = 7.0\text{ \AA}$.
    * From the diagonal $[101]$: $a^2 + c^2 = 8.6^2 \implies a^2 = 8.6^2 - 7.0^2 = 73.96 - 49.00 = 24.96\text{ \AA}^2 \implies a \approx 5.0\text{ \AA}$.
    * From the base diagonal: $a^2 + b^2 = 7.8^2 = 60.84 \implies b^2 = 60.84 - 24.96 = 35.88\text{ \AA}^2 \implies b \approx 6.0\text{ \AA}$.
-   * Since $a \neq b \neq c$ ($a \approx 5.0\text{ \AA}, b \approx 6.0\text{ \AA}, c = 7.0\text{ \AA}$) and the angles are $90^\circ$, the system is **Orthorhombic** [Session 3 Slide 12].
+   * Since $a \neq b \neq c$ ($a \approx 5.0\text{ \AA}, b \approx 6.0\text{ \AA}, c = 7.0\text{ \AA}$) and the angles are $90^\circ$, the system is **Orthorhombic** [Session 3 Slide 13].
    * The atomic contacts along the face diagonals reveal a **Face-Centred ($F$)** lattice with $n = 4$ equivalent atoms.
 2. **Atomic Packing Factor (APF):**
    $$\text{APF} = \frac{n \cdot \left(\frac{4}{3}\pi R^3\right)}{a \cdot b \cdot c}$$

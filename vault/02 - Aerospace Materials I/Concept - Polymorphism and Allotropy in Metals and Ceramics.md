@@ -18,13 +18,13 @@ prerrequisitos:
 
 # 🔄 Concept: Polymorphism and Allotropy in Metals and Ceramics
 
-> **Canonical Definitions [Slide 48]:**
+> **Canonical Definitions [Slide 49]:**
 > * **Polymorphism:** The ability of a solid material (element or chemical compound) to exist in **more than one different crystal structure** under different thermodynamic conditions of temperature and pressure.
 > * **Allotropy:** The specific case of polymorphism when it refers to a **pure chemical element**.
 
 ---
 
-## 💎 1. Carbon Allotropes: Diamond vs Graphite [Slide 48]
+## 💎 1. Carbon Allotropes: Diamond vs Graphite [Slide 49]
 
 Carbon illustrates how the same elemental composition acquires radically divergent properties depending on the electronic hybridization and the crystal symmetry:
 
@@ -40,7 +40,7 @@ Electrical Conductivity  Excellent electrical insulator (bandgap = 5.5 eV)  Exce
 
 ---
 
-## ⚙️ 2. Allotropic Transformations of Iron ($\text{Fe}$) [Slide 49]
+## ⚙️ 2. Allotropic Transformations of Iron ($\text{Fe}$) [Slide 50]
 
 Pure iron undergoes successive solid-state phase transitions on heating at standard atmospheric pressure:
 

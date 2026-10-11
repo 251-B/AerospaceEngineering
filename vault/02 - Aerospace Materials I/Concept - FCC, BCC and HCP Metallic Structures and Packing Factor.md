@@ -17,13 +17,13 @@ prerrequisitos:
 
 # 📦 Concept: FCC, BCC and HCP Metallic Structures and the Packing Factor
 
-> **Physical Principle:** In metals, because metallic bonding is essentially **non-directional**, atoms (rigid spheres of radius $R$) tend to arrange themselves so as to minimize the Gibbs free energy and maximize the spatial packing density. The three predominant structural metallic lattices are **BCC (Body-Centered Cubic)**, **FCC (Face-Centered Cubic)** and **HCP (Hexagonal Close-Packed)** [Slides 16-17].
+> **Physical Principle:** In metals, because metallic bonding is essentially **non-directional**, atoms (rigid spheres of radius $R$) tend to arrange themselves so as to minimize the Gibbs free energy and maximize the spatial packing density. The three predominant structural metallic lattices are **BCC (Body-Centered Cubic)**, **FCC (Face-Centered Cubic)** and **HCP (Hexagonal Close-Packed)** [Slides 24–25].
 
 ---
 
 ## 🧮 1. Definition of the Atomic Packing Factor (APF)
 
-The **Atomic Packing Factor (APF)** measures the volume fraction occupied by rigid atomic matter within the unit cell [Slide 16]:
+The **Atomic Packing Factor (APF)** measures the volume fraction occupied by rigid atomic matter within the unit cell [Slides 26–28]:
 
 $$\text{APF} = \frac{V_{\text{atoms}}}{V_{\text{cell}}} = \frac{n \cdot V_{\text{sphere}}}{V_C} = \frac{n \cdot \left(\frac{4}{3}\pi R^3\right)}{V_C}$$
 
@@ -44,14 +44,14 @@ SC is rare in metals (only polonium) because it leaves $48\%$ of the volume empt
 
 ## 🟥 2. Body-Centered Cubic (BCC) Structure
 
-### Geometry and Lattice Parameter [Slide 18]
+### Geometry and Lattice Parameter [Slide 26]
 * **Atomic contact:** Atoms touch along the main diagonal of the cube $[111]$.
 * **Geometric relation:**
   $$\text{Cube diagonal} = \sqrt{a^2 + a^2 + a^2} = a\sqrt{3} = 4R \implies a = \frac{4R}{\sqrt{3}}$$
 * **Number of net atoms ($n$):**
   $$n = 8 \times \left(\frac{1}{8}\right)_{\text{corners}} + 1_{\text{center}} = 2\text{ atoms/cell}$$
 * **Coordination number:** $\text{NC} = 8$ (the central atom touches the 8 corner atoms).
-* **APF calculation [Slide 19]:**
+* **APF calculation [Slide 26]:**
   $$V_C = a^3 = \left(\frac{4R}{\sqrt{3}}\right)^3 = \frac{64 R^3}{3\sqrt{3}}$$
   $$\text{APF}_{\text{BCC}} = \frac{2 \cdot \frac{4}{3}\pi R^3}{\frac{64 R^3}{3\sqrt{3}}} = \frac{\frac{8}{3}\pi R^3}{\frac{64}{3\sqrt{3}} R^3} = \frac{\pi\sqrt{3}}{8} \approx 0.6802 \implies \mathbf{68\%}$$
 * **Relative volume of interstices:** $V_{\text{voids}} / V_C = 1 - 0.68 = 0.32$ ($32\%$ free space).
@@ -61,14 +61,14 @@ SC is rare in metals (only polonium) because it leaves $48\%$ of the volume empt
 
 ## 🟦 3. Face-Centered Cubic (FCC) Structure
 
-### Geometry and Lattice Parameter [Slide 20]
+### Geometry and Lattice Parameter [Slide 27]
 * **Atomic contact:** Atoms are in direct contact along the face diagonals $\langle 110 \rangle$.
 * **Geometric relation:**
   $$\text{Face diagonal} = \sqrt{a^2 + a^2} = a\sqrt{2} = 4R \implies a = \frac{4R}{\sqrt{2}} = 2\sqrt{2} R$$
 * **Number of net atoms ($n$):**
   $$n = 8 \times \left(\frac{1}{8}\right)_{\text{corners}} + 6 \times \left(\frac{1}{2}\right)_{\text{faces}} = 1 + 3 = 4\text{ atoms/cell}$$
 * **Coordination number:** $\text{NC} = 12$ (each atom at a face center touches 4 corner atoms and 8 adjacent face centers).
-* **APF calculation [Slide 21]:**
+* **APF calculation [Slide 27]:**
   $$V_C = a^3 = (2\sqrt{2}R)^3 = 16\sqrt{2} R^3$$
   $$\text{APF}_{\text{FCC}} = \frac{4 \cdot \frac{4}{3}\pi R^3}{16\sqrt{2} R^3} = \frac{\frac{16}{3}\pi R^3}{16\sqrt{2} R^3} = \frac{\pi}{3\sqrt{2}} = \frac{\pi\sqrt{2}}{6} \approx 0.7405 \implies \mathbf{74\%}$$
 * **Relative volume of interstices:** $V_{\text{voids}} / V_C = 1 - 0.74 = 0.26$ ($26\%$ free space).
@@ -78,12 +78,12 @@ SC is rare in metals (only polonium) because it leaves $48\%$ of the volume empt
 
 ## 🟩 4. Hexagonal Close-Packed (HCP) Structure
 
-### Geometry and Ideal Axial Ratio $c/a$ [Slides 22-25]
+### Geometry and Ideal Axial Ratio $c/a$ [Slide 28]
 The hexagonal close-packed cell consists of two hexagonal basal planes of parameter $a$ and an intermediate plane with 3 atoms located at mid-height ($c/2$).
 * **Contact in the base:** $a = 2R$.
 * **Number of net atoms ($n$):**
   $$n = 12 \times \left(\frac{1}{6}\right)_{\text{corners}} + 2 \times \left(\frac{1}{2}\right)_{\text{base centers}} + 3_{\text{mid-plane}} = 2 + 1 + 3 = 6\text{ atoms/cell}$$
-* **Rigorous derivation of the ideal ratio $c/a$ [Slide 24]:**
+* **Rigorous derivation of the ideal ratio $c/a$ [Slide 28]:**
   Consider the regular tetrahedron formed by the three atoms of the intermediate plane and the central atom of the basal plane. The tetrahedron edge is $a$, and its height is $c/2$.
   The distance from a vertex of the base of the equilateral triangle of side $a$ to its centroid is $r_b = \frac{a}{\sqrt{3}}$.
   Applying the Pythagorean theorem:
@@ -95,7 +95,7 @@ The hexagonal close-packed cell consists of two hexagonal basal planes of parame
   $$V_C = A_{\text{base}} \cdot c = \frac{3\sqrt{3}}{2} a^2 c = \frac{3\sqrt{3}}{2} a^3 \sqrt{\frac{8}{3}} = 3\sqrt{2} a^3$$
   Substituting $a = 2R$:
   $$V_C = 3\sqrt{2} (2R)^3 = 24\sqrt{2} R^3$$
-* **APF calculation [Slide 25]:**
+* **APF calculation [Slide 28]:**
   $$\text{APF}_{\text{HCP}} = \frac{6 \cdot \frac{4}{3}\pi R^3}{24\sqrt{2} R^3} = \frac{8\pi R^3}{24\sqrt{2} R^3} = \frac{\pi}{3\sqrt{2}} = \frac{\pi\sqrt{2}}{6} \approx 0.7405 \implies \mathbf{74\%}$$
 * **APF as a function of $c/a$ (added check):**
   With $a = 2R$ the cell volume is $V_C = \frac{3\sqrt3}{2}a^2c = 6\sqrt3\,R^2c$, so
@@ -108,7 +108,7 @@ The hexagonal close-packed cell consists of two hexagonal basal planes of parame
 
 ## 🔄 5. Stacking Sequence Comparison: HCP ($ABAB\dots$) vs FCC ($ABCABC\dots$)
 
-Both FCC and HCP reach the theoretical maximum density limit for congruent rigid spheres in 3D ($\text{APF} = 0.7405$, Kepler's theorem). The only difference lies in the periodic stacking sequence of the close-packed planes [Slides 26-28]:
+Both FCC and HCP reach the theoretical maximum density limit for congruent rigid spheres in 3D ($\text{APF} = 0.7405$, Kepler's theorem). The only difference lies in the periodic stacking sequence of the close-packed planes [Slides 19–22]:
 
 ```
 Plane A: Initial close-packed hexagonal layer.

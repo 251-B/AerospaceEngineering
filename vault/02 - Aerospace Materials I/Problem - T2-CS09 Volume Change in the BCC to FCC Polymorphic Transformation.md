@@ -25,7 +25,7 @@ tags:
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 ### Physical Context:
-The problem models the classic allotropic transformation of pure iron at the $A_3$ austenitisation point at $910^\circ\text{C}$ [Session 4 Slide 49]:
+The problem models the classic allotropic transformation of pure iron at the $A_3$ austenitisation point at $910^\circ\text{C}$ [Session 4 Slide 50]:
 $$\alpha\text{-Fe (BCC)} \xrightarrow{910^\circ\text{C}} \gamma\text{-Fe (FCC)}$$
 
 ### Input Data:
@@ -51,7 +51,7 @@ $$\frac{\Delta V}{V_{\text{BCC}}} = \frac{V_{\text{at}}^{\text{FCC}} - V_{\text{
    $$V_{\text{at}}^{\text{BCC}} = \frac{V_C^{\text{BCC}}}{n_{\text{BCC}}} = \frac{a_{\text{BCC}}^3}{2}$$
 
 2. **Lattice Parameter of the FCC Phase ($a_{\text{FCC}}$):**
-   The $(002)$ plane is perpendicular to the $z$ axis, located at mid-height $z = a/2$. In an FCC cell, it contains the centres of the 4 surrounding faces (each shared by two cells $\implies 4 \times 1/2 = 2$ net atoms) over an area $A = a_{\text{FCC}}^2$ [Session 4 Slide 8]:
+   The $(002)$ plane is perpendicular to the $z$ axis, located at mid-height $z = a/2$. In an FCC cell, it contains the centres of the 4 surrounding faces (each shared by two cells $\implies 4 \times 1/2 = 2$ net atoms) over an area $A = a_{\text{FCC}}^2$ [Session 4 Slide 9]:
    $$\rho_{(002)} = \frac{2}{a_{\text{FCC}}^2} \implies a_{\text{FCC}} = \sqrt{\frac{2}{\rho_{(002)}}}$$
    The volume per atom in FCC is:
    $$V_{\text{at}}^{\text{FCC}} = \frac{V_C^{\text{FCC}}}{n_{\text{FCC}}} = \frac{a_{\text{FCC}}^3}{4}$$
