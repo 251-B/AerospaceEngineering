@@ -5,7 +5,13 @@ window.AE_SOURCES = {
       "folder": "04-advanced-maths",
       "general": {
         "examenes": [],
-        "other": [],
+        "other": [
+          {
+            "bytes": 4875074,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf",
+            "name": "J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf"
+          }
+        ],
         "problemas": [],
         "schedule": [],
         "slides": [],

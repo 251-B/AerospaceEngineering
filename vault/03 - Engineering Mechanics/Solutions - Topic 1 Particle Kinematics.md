@@ -712,7 +712,7 @@ $$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \ \sin\omega t 
   $$ [{}_0 R_1] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \boldsymbol{\omega}_{1/0} = \omega\mathbf{k}_1 $$
 * **Panel-Fixed Frame:** $\mathcal{S}_2 = \{C; \mathbf{i}_2, \mathbf{j}_2, \mathbf{k}_2\}$, obtained by rotating $\mathcal{S}_1$ by angle $\theta(t)$ about $\mathbf{i}_1$:
   $$ [{}_1 R_2] = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta \\ 0 & \sin\theta & \cos\theta \end{pmatrix}, \quad \boldsymbol{\omega}_{2/1} = \dot{\theta}\mathbf{i}_1 $$
-* **Total Angular Velocity Vector (Notes Sec. 3.3):**
+* **Total Angular Velocity Vector (Notes Sec. 3.1, Eq. 3.14):**
   $$ \boldsymbol{\omega}_{2/0} = \boldsymbol{\omega}_{1/0} + \boldsymbol{\omega}_{2/1} = \dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1 $$
 * **Angular Acceleration Vector:**
   $$ \boldsymbol{\alpha}_{2/0} = \frac{d\boldsymbol{\omega}_{2/0}}{dt}\Big|_{\mathcal{S}_0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\boldsymbol{\omega}_{1/0} \times \mathbf{i}_1) + \dot{\omega}\mathbf{k}_1 + \omega(\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1) $$

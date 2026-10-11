@@ -14,7 +14,9 @@ any other link on the page):
             that page of the cited PDF; text inside $...$ / $$...$$ is never touched
 
 Configuration lives in tools/source_links.json (PDFs, per-page panels, card
-pages and citation rules). Citation targets that need the PDF text (equation,
+pages and citation rules). "Slide N" means page N of the deck unless the PDF
+entry has a "slide_map" {printed slide number: PDF page}, for decks whose
+printed numbering skips hidden slides. Citation targets that need the PDF text (equation,
 section, figure labels) are resolved once into tools/source_anchors.json with
 `--refresh-anchors`, which needs poppler's `pdftotext`; applying the links is
 pure stdlib.
@@ -108,6 +110,8 @@ class Linker:
             return None
         if kind == "slide":
             n = int(label.split(".")[0])
+            if "slide_map" in pdf:  # deck whose printed slide numbers skip hidden slides
+                return pdf["slide_map"].get(str(n))
             return n if 1 <= n <= pdf.get("pages", 10**6) else None
         if kind == "page":
             n = int(label.split(".")[0]) + pdf.get("offset", 0)
@@ -393,7 +397,7 @@ def resolve_label(pages, pdf, kind, label):
     if kind == "eq":
         return _find(pages, start, re.compile(rf"\({lab}\)"))
     if kind == "sec":
-        return _find(pages, start, re.compile(rf"(?m)^\s*{lab}\s+\*?[A-Z]"))
+        return _find(pages, start, re.compile(rf"(?m)^\s*{lab}\s+\*?[\u2018\u201c'\"A-Z]"))
     if kind == "chap":
         if "." in label:
             return None

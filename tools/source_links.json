@@ -118,7 +118,37 @@
   "em-s1": {
    "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf",
    "label": "01 Point particle kinematics.pdf",
-   "pages": 28
+   "pages": 28,
+   "slide_map": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    "11": 11,
+    "12": 12,
+    "13": 13,
+    "14": 14,
+    "15": 15,
+    "16": 16,
+    "17": 17,
+    "19": 18,
+    "20": 19,
+    "22": 20,
+    "23": 21,
+    "24": 22,
+    "25": 23,
+    "26": 24,
+    "27": 25,
+    "28": 26,
+    "29": 27,
+    "30": 28
+   }
   },
   "em-s2": {
    "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf",
@@ -136,8 +166,8 @@
    "pages": 17
   },
   "am-book": {
-   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/teoria/BookODE's.pdf",
-   "label": "Robinson, BookODE's.pdf",
+   "path": "sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf",
+   "label": "Robinson (2004).pdf",
    "pages": 416,
    "offset": 16,
    "body_start": 17
