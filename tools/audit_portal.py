@@ -16,6 +16,7 @@ Checks (all severity "error"):
                          link to the official PDF (add it with python tools/source_links.py)
     missing-ask-ai       theory or problem page (teoria/ or problemas/, not index.html) that does not
                          load assets/js/ask-ai.js
+    missing-responsive   same pages without assets/css/responsive.css (the phone-width safety net)
 
 Badge contract (index.html): <article data-subject="SLUG"> ... <a href=".../teoria|problemas/...">
     <span class="area-badge ...">N topics / N prob.</span></a>
@@ -38,7 +39,7 @@ from urllib.parse import unquote
 CHECKS = (
     "broken-link", "missing-backlink", "katex-parity", "katex-text-ampersand", "debris",
     "spanish-label", "false-claim", "lab-reference", "theme-key", "badge-drift", "missing-source-link",
-    "missing-ask-ai",
+    "missing-ask-ai", "missing-responsive",
 )
 
 
@@ -239,13 +240,19 @@ def check_source_links(rel, visible):
 _ASK_AI = re.compile(r'<script\b[^>]*\bsrc="(?:\.\./)*assets/js/ask-ai\.js"')
 
 
+_RESPONSIVE = re.compile(r'<link\b[^>]*\bhref="(?:\.\./)*assets/css/responsive\.css"')
+
+
 def check_ask_ai(rel, visible):
-    """Every topic page carries the "Ask AI" selection and problem helper."""
+    """Every topic page carries the "Ask AI" helper and the shared phone-width stylesheet."""
     if not re.match(r"subjects/[^/]+/(?:teoria|problemas)/", rel) or rel.endswith("/index.html"):
         return []
-    if _ASK_AI.search(visible):
-        return []
-    return [Finding("missing-ask-ai", "error", rel, 1, "page does not load assets/js/ask-ai.js")]
+    out = []
+    if not _ASK_AI.search(visible):
+        out.append(Finding("missing-ask-ai", "error", rel, 1, "page does not load assets/js/ask-ai.js"))
+    if not _RESPONSIVE.search(visible):
+        out.append(Finding("missing-responsive", "error", rel, 1, "page does not load assets/css/responsive.css"))
+    return out
 
 
 # --------------------------------------------------------------------------- site-level checks

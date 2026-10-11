@@ -19,7 +19,7 @@ Common flags for both linters: `-v` list every finding, `--json`, `--only a,b`, 
 `katex-text-ampersand` · `debris` (scratch "Wait", U+FFFD, `??` headers, raw markdown) ·
 `spanish-label` · `false-claim` ("fully verified", "zero hallucinations") ·
 `lab-reference` (labs are not on the web) · `theme-key` (only `ae_theme`) · `badge-drift` ·
-`missing-source-link` · `missing-ask-ai` (every `teoria/` and `problemas/` topic page loads `assets/js/ask-ai.js`).
+`missing-source-link` · `missing-ask-ai` / `missing-responsive` (every `teoria/` and `problemas/` topic page loads `assets/js/ask-ai.js` and `assets/css/responsive.css`).
 
 **Markup contracts the checks rely on**
 

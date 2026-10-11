@@ -1,0 +1,18 @@
+/* Phone-width safety net shared by the topic pages (loaded last in <head>, after each page's own styles).
+   Nothing here changes the desktop layout. */
+
+/* KaTeX keeps a hidden MathML copy of each formula, absolutely positioned. Without a positioned
+   ancestor it escapes scroll boxes and widens the page; anchoring it to the formula keeps it inside. */
+.katex { position: relative; }
+.katex-display { overflow-x: auto; overflow-y: hidden; }
+
+@media (max-width: 640px) {
+  /* Header: brand badge and navigation buttons wrap instead of running off the screen. */
+  .header-inner { flex-wrap: wrap; row-gap: 8px; }
+  .brand-area, .nav-actions { flex-wrap: wrap; min-width: 0; row-gap: 6px; }
+  .sub-case-header { flex-wrap: wrap; }
+
+  /* Wide tables scroll inside their own box. */
+  main table, article table { display: block; max-width: 100%; overflow-x: auto; }
+  .table-wrapper, .table-container, .table-scroll { max-width: 100%; overflow-x: auto; }
+}
