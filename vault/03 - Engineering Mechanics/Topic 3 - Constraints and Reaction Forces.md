@@ -391,7 +391,7 @@ A particle $P$ of mass $m$ moves on the surface of a rough fixed circular cylind
 
 ---
 
-## 🚀 8. Advanced Classification of Constraints (Slides 21–23, Notes 6.5)
+## 🚀 8. Advanced Classification of Constraints (Slides 21–23, Notes 6.4)
 
 Constraints in aerospace and structural mechanics are classified according to three fundamental mathematical dichotomies:
 

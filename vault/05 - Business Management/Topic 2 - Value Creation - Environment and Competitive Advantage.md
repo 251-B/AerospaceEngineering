@@ -157,7 +157,7 @@ Forms: **forward** and **backward** vertical integration.
 
 ## 🔍 Audit log (slides vs previous version)
 * Removed as not traceable to the slides: "Cyert, March and Simon" attribution (kept as flagged reference); PESTEL six-factor list with its sub-items (now flagged as standard reference); "short-term accounting profit" and the formula $\Pi$ = Revenues - Costs; "non-reversible" strategic decisions; creditors, competitors and the Board as stakeholders on the slide; related/unrelated diversification definitions in terms of shared linkages or conglomerates; "hold-up risk", "elimination of markups" and "protection of know-how" as vertical-integration advantages; the vault's alternative cost-driver descriptions (dexterity, scrap, CIM, DFM, lean) and the extended five-forces conditions.
-* Added from the slides: stakeholder list and incentive-alignment slide [Slide 4]; unified survival-profit-growth scheme [Slide 7]; what makes a successful strategy [Slide 10]; generic and specific environment factors [Slide 11, Slide 12, Slide 13]; Porter determinants [Slide 15]; scope examples [Slide 19]; reasons for diversification [Slide 25].
+* Added from the slides: stakeholder list and incentive-alignment slide [Slide 5, Slide 4]; unified survival-profit-growth scheme [Slide 7]; what makes a successful strategy [Slide 10]; generic and specific environment factors [Slide 11, Slide 12, Slide 13]; Porter determinants [Slide 15]; scope examples [Slide 19]; reasons for diversification [Slide 25].
 
 ---
 

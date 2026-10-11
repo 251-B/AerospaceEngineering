@@ -39,7 +39,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
   The basis vector relationships are given by matrix-vector multiplication:
   $$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
-* **Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. 3.2):**
+* **Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. 3.1, Eqs. 3.3–3.5):**
   Since $\mathcal{B}_{\text{cyl}}$ rotates at angular velocity $\boldsymbol{\omega} = \omega\mathbf{k}_0 = \omega\mathbf{e}_z$:
   $$ \frac{d\mathbf{e}_R}{dt} = \boldsymbol{\omega} \times \mathbf{e}_R = (\omega\mathbf{e}_z) \times \mathbf{e}_R = \omega\mathbf{e}_\theta $$
   $$ \frac{d\mathbf{e}_\theta}{dt} = \boldsymbol{\omega} \times \mathbf{e}_\theta = (\omega\mathbf{e}_z) \times \mathbf{e}_\theta = -\omega\mathbf{e}_R $$
@@ -79,7 +79,7 @@ $$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \ a\omega/V & 0
 * **Unit Tangent Vector $\mathbf{e}_t$:**
   $$ \mathbf{e}_t = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
 * **Unit Principal Normal Vector $\mathbf{e}_n$:**
-  By definition of the intrinsic acceleration (Notes Eq. 2.14):
+  By definition of the intrinsic acceleration (Notes Eq. 2.17):
   $$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$
   Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:
   $$ \ddot{s} = \frac{dv}{dt} = 0 $$
@@ -119,7 +119,7 @@ $$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \ a\omega/V & 0
   $$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$
 
 #### (g) Center of Curvature $C$ at $(a, 0, 0)$
-* **Pedagogical Justification:** The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Eq. 2.15):
+* **Pedagogical Justification:** The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Sec. 2.4, Fig. 2.2):
   $$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$
 * **Evaluation at $(a, 0, 0)$:**
   At position $(a, 0, 0)$, $x(t) = a\cos(\omega t) = a \implies \omega t = 0 \implies t = 0$.
@@ -541,7 +541,7 @@ $$ [{}_1 R_{\text{bar}}] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \ \sin\psi &
   $$ = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\mathbf{i}_1 + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\mathbf{j}_1 $$
 
 #### (b) Coriolis and Centripetal Accelerations
-* **Pedagogical Justification:** By Coriolis' theorem of relative kinematics (Notes Sec. 4.9):
+* **Pedagogical Justification:** By Coriolis' theorem of relative kinematics (Notes Sec. 3.2, Eq. 3.27):
   $$ \mathbf{a}_{\text{cor}} = 2\boldsymbol{\omega}_{1/0} \times \mathbf{v}_{\text{rel}} $$
   $$ \mathbf{a}_{\text{cf}} = \boldsymbol{\omega}_{1/0} \times (\boldsymbol{\omega}_{1/0} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_{B\perp} $$
 * **Coriolis Calculation:**

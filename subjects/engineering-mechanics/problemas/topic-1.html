@@ -515,7 +515,7 @@
 <p style="margin-bottom: 10px;">The basis vector relationships are given by matrix-vector multiplication:</p>
 <div class="math-block">$$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.2</a>):</strong></li>
+<li><strong>Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.1</a>, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.3–3.5</a>):</strong></li>
 </ul>
 <p style="margin-bottom: 10px;">Since $\mathcal{B}_{\text{cyl}}$ rotates at angular velocity $\boldsymbol{\omega} = \omega\mathbf{k}_0 = \omega\mathbf{e}_z$:</p>
 <div class="math-block">$$ \frac{d\mathbf{e}_R}{dt} = \boldsymbol{\omega} \times \mathbf{e}_R = (\omega\mathbf{e}_z) \times \mathbf{e}_R = \omega\mathbf{e}_\theta $$</div>
@@ -574,7 +574,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Unit Principal Normal Vector $\mathbf{e}_n$:</strong></li>
 </ul>
-<p style="margin-bottom: 10px;">By definition of the intrinsic acceleration (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.14</a>):</p>
+<p style="margin-bottom: 10px;">By definition of the intrinsic acceleration (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.17</a>):</p>
 <div class="math-block">$$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$</div>
 <p style="margin-bottom: 10px;">Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:</p>
 <div class="math-block">$$ \ddot{s} = \frac{dv}{dt} = 0 $$</div>
@@ -620,7 +620,7 @@
 <div class="math-block">$$ y(s) = a\sin\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$</div>
 <div class="math-block">$$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(g) Center of Curvature $C$ at $(a, 0, 0)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=31" target="_blank" rel="noopener" title="Open Notes.pdf at page 31">2.15</a>):</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.4</a>, Fig. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=30" target="_blank" rel="noopener" title="Open Notes.pdf at page 30">2.2</a>):</div>
 <div class="math-block">$$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Evaluation at $(a, 0, 0)$:</strong></li>
@@ -1423,7 +1423,7 @@
 <div class="math-block">$$ \mathbf{a}_{\text{rel}} = \frac{d\mathbf{v}_{\text{rel}}}{dt}\Big|_{\mathcal{S}_1} = \frac{d}{dt}(-a\dot{\psi}\sin\psi)\mathbf{i}_1 + \frac{d}{dt}(a\dot{\psi}\cos\psi)\mathbf{j}_1 $$</div>
 <div class="math-block">$$ = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\mathbf{i}_1 + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\mathbf{j}_1 $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Coriolis and Centripetal Accelerations</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> By Coriolis' theorem of relative kinematics (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.9</a>):</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> By Coriolis' theorem of relative kinematics (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.2</a>, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.27</a>):</div>
 <div class="math-block">$$ \mathbf{a}_{\text{cor}} = 2\boldsymbol{\omega}_{1/0} \times \mathbf{v}_{\text{rel}} $$</div>
 <div class="math-block">$$ \mathbf{a}_{\text{cf}} = \boldsymbol{\omega}_{1/0} \times (\boldsymbol{\omega}_{1/0} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_{B\perp} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">

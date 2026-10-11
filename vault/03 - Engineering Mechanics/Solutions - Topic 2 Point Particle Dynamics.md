@@ -41,7 +41,7 @@ Exhaustive, step-by-step analytical solutions for all 10 solvable problems from 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### 1. Calculation of the Potential Energy Function $V(x)$
-* **Pedagogical Justification:** In a one-dimensional problem where the force depends exclusively on position $x$, the force field is automatically irrotational (curl is trivially zero in 1D) and conservative. By definition of a conservative force (Notes.pdf Section 2.3), the work done by the force corresponds to the negative variation of potential energy, $\mathbf{F} = -\boldsymbol{\nabla} V = -\frac{dV}{dx}\mathbf{i}$. Integrating this relation allows us to replace the second-order nonlinear differential equation $m\ddot{x} + cx^3 = 0$ with an algebraic energy conservation law (first integral of motion).
+* **Pedagogical Justification:** In a one-dimensional problem where the force depends exclusively on position $x$, the force field is automatically irrotational (curl is trivially zero in 1D) and conservative. By definition of a conservative force (Notes.pdf Section 4.4, Eqs. 4.14–4.16), the work done by the force corresponds to the negative variation of potential energy, $\mathbf{F} = -\boldsymbol{\nabla} V = -\frac{dV}{dx}\mathbf{i}$. Integrating this relation allows us to replace the second-order nonlinear differential equation $m\ddot{x} + cx^3 = 0$ with an algebraic energy conservation law (first integral of motion).
 
 We define the scalar potential energy $V(x)$ by choosing the reference datum $V(0) = 0$ at the origin:
 $$ V(x) - V(0) = -\int_{0}^{x} F_x(x')\,dx' $$

@@ -2,7 +2,7 @@
 title: "Concept: Classification of Constraints (Holonomic, Rheonomic, Unilateral)"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
-ground_truth: "slides/03_-_Constraints (1).pdf (Slide 21) & teoria/Notes.pdf (Section 6.5)"
+ground_truth: "slides/03_-_Constraints (1).pdf (Slide 21) & teoria/Notes.pdf (Section 6.4)"
 tier: "Atomic Concept Note"
 language: "English"
 ---
@@ -11,7 +11,7 @@ language: "English"
 
 ## 1. Mathematical Taxonomy of Constraints
 
-In classical aerospace mechanics, kinematic constraints on point particles and rigid bodies are systematically classified according to three fundamental mathematical criteria (Slide 21 & Notes Sec. 6.5):
+In classical aerospace mechanics, kinematic constraints on point particles and rigid bodies are systematically classified according to three fundamental mathematical criteria (Slide 21 & Notes Sec. 6.4):
 
 ```
                        KINEMATIC CONSTRAINTS
