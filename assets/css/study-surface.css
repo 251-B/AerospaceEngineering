@@ -1,0 +1,128 @@
+/**
+ * STUDY SURFACE — flat, high-contrast reading background for subject pages
+ * Loaded by every subjects/<subject>/{teoria,problemas}/*.html page right after
+ * celestial-sky.css (and before responsive.css). It switches off the nebula
+ * gradients, glass blur and translucent cards that celestial-sky.css gives the
+ * portal, so derivations and KaTeX blocks sit on a still, matte background.
+ * The animated canvas itself is portal-only (index.html); subject pages do not
+ * load assets/js/celestial-sky.js.
+ */
+
+:root {
+  --study-bg-dark: #0a0e17;
+  --study-surface-dark: #131b2b;
+  --study-inset-dark: #151e32;
+  --study-border-dark: rgba(255, 255, 255, 0.08);
+  --study-bg-light: #f6f8fa;
+  --study-surface-light: #ffffff;
+  --study-inset-light: #f8fafc;
+  --study-border-light: #e2e8f0;
+}
+
+/* 1. Flat page background: no nebula gradients, no dot grid (on html too:
+   some pages draw a starry dot pattern on [data-theme], i.e. the root) */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: var(--study-bg-dark) !important;
+}
+
+html[data-theme="light"],
+html[data-theme="light"] body {
+  background: var(--study-bg-light) !important;
+}
+
+/* Leftover decorative layers stay hidden */
+.celestial-canvas,
+#celestial-canvas,
+.bg-glow {
+  display: none !important;
+}
+
+/* 2. Opaque content surfaces (no blur, no see-through) */
+html[data-theme="dark"] :is(.problem-card, .concept-card, .exam-card, .topic-card, .card,
+  .info-card, .example-card, .diagram-card, .toc-card, .set-card, .subchapter-card,
+  .formula-box, .formula-card, .solution-card, .block-container, .definition-box) {
+  background: var(--study-surface-dark) !important;
+  border: 1px solid var(--study-border-dark) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="light"] :is(.problem-card, .concept-card, .exam-card, .topic-card, .card,
+  .info-card, .example-card, .diagram-card, .toc-card, .set-card, .subchapter-card,
+  .formula-box, .formula-card, .solution-card, .block-container, .definition-box) {
+  background: var(--study-surface-light) !important;
+  border: 1px solid var(--study-border-light) !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Statement boxes and tables: opaque, one step apart from the card around them */
+html[data-theme="dark"] :is(.statement-box, .problem-statement-box, .problem-statement,
+  .table-container, .table-wrapper) {
+  background: var(--study-inset-dark) !important;
+  border-color: var(--study-border-dark) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="light"] :is(.statement-box, .problem-statement-box, .problem-statement,
+  .table-container, .table-wrapper) {
+  background: var(--study-inset-light) !important;
+  border-color: var(--study-border-light) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Long reading cards stay still under the cursor; navigation cards keep their hover */
+:is(.problem-card, .concept-card, .exam-card, .diagram-card, .example-card, .info-card):hover {
+  transform: none !important;
+}
+
+html[data-theme="dark"] :is(.problem-card, .concept-card, .exam-card):hover {
+  border-color: var(--study-border-dark) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-theme="light"] :is(.problem-card, .concept-card, .exam-card):hover {
+  border-color: var(--study-border-light) !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* 3. Opaque header and navigation (they scroll over the text) */
+html[data-theme="dark"] :is(.site-header, .page-header, .top-nav, .sticky-nav) {
+  background: var(--study-bg-dark) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="light"] :is(.site-header, .page-header, .top-nav, .sticky-nav) {
+  background: var(--study-bg-light) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+:is(.nav-pill, .ex-pill, .filter-btn, .back-link, .btn-secondary) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 4. Display maths: opaque block, no glow */
+html[data-theme="dark"] .katex-display {
+  background: var(--study-inset-dark) !important;
+  border: 1px solid var(--study-border-dark) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="light"] .katex-display {
+  background: var(--study-inset-light) !important;
+  border: 1px solid var(--study-border-light) !important;
+  box-shadow: none !important;
+}
+
+/* Headings on a flat background need no glow */
+html[data-theme="dark"] :is(h1, h2, h3, .topic-title, .set-title) {
+  text-shadow: none;
+}

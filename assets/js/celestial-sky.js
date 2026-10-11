@@ -14,6 +14,15 @@
 (function () {
   'use strict';
 
+  // Portal-only: the animated sky runs on the landing page (index.html), which
+  // declares data-celestial-subject="portal" and ships its own #celestial-canvas.
+  // Subject study pages keep a flat background, so on any other page the engine
+  // does nothing and never injects a canvas.
+  function isPortalPage() {
+    return document.documentElement.getAttribute('data-celestial-subject') === 'portal' &&
+      !!document.getElementById('celestial-canvas');
+  }
+
   // ========================================================
   // 1. CONFIGURATION & COLOR PALETTES
   // ========================================================
@@ -204,15 +213,11 @@
   let nextMeteorInterval = 5;
 
   function ensureCanvas() {
+    // Never inject a canvas: only the portal's own #celestial-canvas is drawn on.
     canvas = document.getElementById('celestial-canvas');
-    if (!canvas) {
-      canvas = document.createElement('canvas');
-      canvas.id = 'celestial-canvas';
-      canvas.className = 'celestial-canvas';
-      canvas.setAttribute('aria-hidden', 'true');
-      document.body.prepend(canvas);
-    }
+    if (!canvas) return false;
     ctx = canvas.getContext('2d', { alpha: true });
+    return !!ctx;
   }
 
   // ========================================================
@@ -1035,6 +1040,7 @@
   }
 
   function rebuildStars() {
+    if (!ctx) return;
     currentPalette = PALETTES[currentSubject][currentTheme] || PALETTES['portal'][currentTheme];
     initEntities();
     draw();
@@ -1109,6 +1115,8 @@
   // ========================================================
 
   function init() {
+    if (!isPortalPage()) return;
+
     currentSubject = detectSubject();
     currentTheme = detectTheme();
 
@@ -1119,7 +1127,7 @@
 
     currentPalette = PALETTES[currentSubject][currentTheme] || PALETTES['portal'][currentTheme];
 
-    ensureCanvas();
+    if (!ensureCanvas()) return;
     handleResize();
     setupObservers();
     startAnimation();
