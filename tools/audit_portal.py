@@ -14,6 +14,8 @@ Checks (all severity "error"):
     badge-drift          index.html badge counts that differ from the pages on disk
     missing-source-link  problem card (problem-card / problem-box) without its "Original statement"
                          link to the official PDF (add it with python tools/source_links.py)
+    missing-ask-claude   theory or problem page (teoria/ or problemas/, not index.html) that does not
+                         load assets/js/ask-claude.js
 
 Badge contract (index.html): <article data-subject="SLUG"> ... <a href=".../teoria|problemas/...">
     <span class="area-badge ...">N topics / N prob.</span></a>
@@ -36,6 +38,7 @@ from urllib.parse import unquote
 CHECKS = (
     "broken-link", "missing-backlink", "katex-parity", "katex-text-ampersand", "debris",
     "spanish-label", "false-claim", "lab-reference", "theme-key", "badge-drift", "missing-source-link",
+    "missing-ask-claude",
 )
 
 
@@ -233,6 +236,18 @@ def check_source_links(rel, visible):
     return out
 
 
+_ASK_CLAUDE = re.compile(r'<script\b[^>]*\bsrc="(?:\.\./)*assets/js/ask-claude\.js"')
+
+
+def check_ask_claude(rel, visible):
+    """Every topic page carries the "Ask Claude" selection helper."""
+    if not re.match(r"subjects/[^/]+/(?:teoria|problemas)/", rel) or rel.endswith("/index.html"):
+        return []
+    if _ASK_CLAUDE.search(visible):
+        return []
+    return [Finding("missing-ask-claude", "error", rel, 1, "page does not load assets/js/ask-claude.js")]
+
+
 # --------------------------------------------------------------------------- site-level checks
 def check_lab_files(root, subject_files):
     out = []
@@ -328,6 +343,7 @@ def audit(root):
         findings += check_text(rel, no_comments, visible, text)
         findings += check_labs_and_theme(rel, no_comments, visible)
         findings += check_source_links(rel, visible)
+        findings += check_ask_claude(rel, visible)
     findings += check_lab_files(root, subject_files)
     findings += check_badges(root)
     return sorted(findings, key=lambda f: (f.check, f.file, f.line))

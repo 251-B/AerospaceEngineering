@@ -1,0 +1,140 @@
+/* "Ask Claude" pill and panel (assets/js/ask-claude.js). Colours and fonts come from the host
+   page's own variables, so the widget follows each subject's palette and the dark/light theme. */
+.ask-claude-pill, .ask-claude-panel {
+  --ac-accent: var(--accent, #f59e0b);
+  --ac-surface: var(--bg-surface, var(--bg-card, #14161c));
+  --ac-text: var(--text-heading, var(--text-primary, var(--text-main, var(--text-body, inherit))));
+  --ac-body: var(--text-body, var(--text-secondary, var(--text-main, var(--text-primary, inherit))));
+  --ac-muted: var(--text-muted, color-mix(in srgb, var(--ac-body) 65%, transparent));
+  --ac-border: var(--border-subtle, color-mix(in srgb, var(--ac-body) 18%, transparent));
+  --ac-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  --ac-serif: var(--font-body, var(--font-serif, "Newsreader", Georgia, serif));
+  --ac-display: var(--font-display, "Abril Fatface", Georgia, serif);
+  --ac-sans: var(--font-sans, "Inter", system-ui, sans-serif);
+}
+
+.ask-claude-pill {
+  position: absolute; z-index: 1200; display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px 6px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--ac-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--ac-surface) 88%, var(--ac-accent));
+  color: var(--ac-accent); font: 600 12px/1.2 var(--ac-mono); letter-spacing: .02em;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .28), 0 0 0 4px color-mix(in srgb, var(--ac-accent) 10%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  opacity: 0; transform: translateY(4px) scale(.96); pointer-events: none;
+  transition: opacity .16s ease, transform .16s ease, background .16s ease;
+}
+.ask-claude-pill.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.ask-claude-pill:hover, .ask-claude-pill:focus-visible {
+  background: color-mix(in srgb, var(--ac-surface) 72%, var(--ac-accent)); outline: none;
+}
+
+.ask-claude-backdrop {
+  position: fixed; inset: 0; z-index: 1300; background: rgba(4, 6, 12, .45);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease;
+}
+.ask-claude-backdrop.is-open { opacity: 1; pointer-events: auto; }
+html.ask-claude-lock { overflow: hidden; }
+
+.ask-claude-panel {
+  position: fixed; z-index: 1301; top: 50%; left: 50%; width: min(560px, calc(100vw - 32px));
+  max-height: min(86vh, 760px); overflow-y: auto; box-sizing: border-box; padding: 22px 24px 18px;
+  border-radius: 18px; border: 1px solid var(--ac-border);
+  border-top: 3px solid var(--ac-accent);
+  background: var(--ac-surface); color: var(--ac-body);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+  opacity: 0; pointer-events: none; transform: translate(-50%, -46%) scale(.98);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.ask-claude-panel.is-open { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%); }
+
+.ask-claude-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ask-claude-title {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0;
+  font: 400 1.55rem/1.1 var(--ac-display); color: var(--ac-text); letter-spacing: .01em;
+}
+.ask-claude-title svg { width: 20px; height: 20px; color: var(--ac-accent); }
+.ask-claude-close {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--ac-border); cursor: pointer;
+  background: transparent; color: var(--ac-muted); font: 400 22px/1 var(--ac-sans);
+}
+.ask-claude-close:hover, .ask-claude-close:focus-visible { color: var(--ac-text); border-color: var(--ac-accent); outline: none; }
+
+.ask-claude-context {
+  margin: 8px 0 14px; font: 500 11.5px/1.5 var(--ac-mono); letter-spacing: .04em;
+  text-transform: uppercase; color: var(--ac-muted);
+}
+.ask-claude-quote {
+  margin: 0 0 18px; padding: 12px 16px; max-height: 190px; overflow: auto;
+  border-left: 3px solid var(--ac-accent); border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--ac-accent) 7%, transparent);
+  font: italic 1.02rem/1.6 var(--ac-serif); color: var(--ac-body);
+}
+.ask-claude-quote * { max-width: 100%; }
+.ask-claude-quote .katex-display { margin: .4em 0; overflow-x: auto; overflow-y: hidden; }
+.ask-claude-quote table { font-size: .9em; border-collapse: collapse; }
+.ask-claude-quote h1, .ask-claude-quote h2, .ask-claude-quote h3, .ask-claude-quote h4 { font-size: 1em; margin: 0 0 .3em; }
+
+.ask-claude-label {
+  margin: 0 0 8px; font: 700 11px/1.4 var(--ac-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ac-muted);
+}
+.ask-claude-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.ask-claude-chip, .ask-claude-seg button {
+  padding: 6px 12px; border-radius: 999px; cursor: pointer; border: 1px solid var(--ac-border);
+  background: transparent; color: var(--ac-body); font: 500 13px/1.3 var(--ac-sans);
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.ask-claude-chip:hover, .ask-claude-seg button:hover { border-color: color-mix(in srgb, var(--ac-accent) 60%, transparent); }
+.ask-claude-chip:focus-visible, .ask-claude-seg button:focus-visible, .ask-claude-btn:focus-visible, .ask-claude-question:focus-visible {
+  outline: 2px solid var(--ac-accent); outline-offset: 2px;
+}
+.ask-claude-chip[aria-pressed="true"], .ask-claude-seg button[aria-pressed="true"] {
+  border-color: var(--ac-accent); color: var(--ac-accent);
+  background: color-mix(in srgb, var(--ac-accent) 14%, transparent); font-weight: 600;
+}
+
+.ask-claude-question {
+  display: block; width: 100%; box-sizing: border-box; margin: 0 0 14px; padding: 10px 12px; resize: vertical;
+  border-radius: 10px; border: 1px solid var(--ac-border);
+  background: var(--bg-input, color-mix(in srgb, var(--ac-surface) 90%, var(--ac-body)));
+  color: var(--ac-text); font: 1rem/1.5 var(--ac-serif);
+}
+.ask-claude-question::placeholder { color: var(--ac-muted); font-style: italic; }
+
+.ask-claude-lang { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.ask-claude-lang .ask-claude-label { margin: 0; }
+.ask-claude-seg { display: inline-flex; gap: 6px; }
+
+.ask-claude-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.ask-claude-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 18px; border-radius: 999px; cursor: pointer; text-decoration: none;
+  font: 600 14px/1.2 var(--ac-sans); border: 1px solid var(--ac-border); transition: filter .15s ease, background .15s ease;
+}
+.ask-claude-btn-ghost { background: transparent; color: var(--ac-body); }
+.ask-claude-btn-ghost:hover { background: color-mix(in srgb, var(--ac-body) 8%, transparent); }
+.ask-claude-btn-primary {
+  border-color: var(--ac-accent); background: var(--ac-accent);
+  color: var(--ac-on-accent, #0b0d12);
+}
+.ask-claude-btn-primary:hover { filter: brightness(1.08); text-decoration: none; }
+.ask-claude-note { margin: 14px 0 0; font: 11.5px/1.5 var(--ac-mono); color: var(--ac-muted); }
+
+@media (max-width: 640px) {
+  .ask-claude-panel {
+    top: auto; bottom: 0; left: 0; width: 100%; max-height: 88vh; padding: 18px 16px 16px;
+    border-radius: 18px 18px 0 0; transform: translateY(24px);
+  }
+  .ask-claude-panel.is-open { transform: none; }
+  .ask-claude-title { font-size: 1.35rem; }
+  .ask-claude-actions .ask-claude-btn { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ask-claude-pill, .ask-claude-panel, .ask-claude-backdrop { transition: none; }
+}
+
+@media print {
+  .ask-claude-pill, .ask-claude-panel, .ask-claude-backdrop { display: none !important; }
+}
