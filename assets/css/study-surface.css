@@ -19,11 +19,14 @@
   --study-border-light: #e2e8f0;
 }
 
-/* 1. Flat page background: no nebula gradients, no dot grid */
+/* 1. Flat page background: no nebula gradients, no dot grid (on html too:
+   some pages draw a starry dot pattern on [data-theme], i.e. the root) */
+html[data-theme="dark"],
 html[data-theme="dark"] body {
   background: var(--study-bg-dark) !important;
 }
 
+html[data-theme="light"],
 html[data-theme="light"] body {
   background: var(--study-bg-light) !important;
 }
