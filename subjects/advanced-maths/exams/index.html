@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Mathematics - Exams</title>
+  <meta name="description" content="Past partial and final exams of Advanced Mathematics (UC3M), sorted by year.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+  <script src="../../../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <style>
+    :root { --accent: var(--accent-maths); }
+    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
+    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
+    .back:hover { text-decoration: underline; }
+    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+    .tabs a, .tabs span { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border-card); color: var(--text-secondary); }
+    .tabs a:hover { border-color: var(--accent); color: var(--accent); }
+    .tabs [aria-current="page"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); font-weight: 600; }
+    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
+    .lead { color: var(--text-secondary); margin: 0 0 24px; }
+    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
+    li a:hover { color: var(--accent); text-decoration: underline; }
+    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
+    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
+    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
+    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
+    .year ul li { border-bottom: 0; padding: 2px 0; }
+    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
+    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
+    @media (max-width: 520px) {
+      .year { grid-template-columns: 1fr; }
+      .year-label { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="back" href="../../../index.html">&larr; Study Portal</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+    </div>
+    <nav class="tabs" aria-label="PDF pages"><a href="../sources/index.html">Theory &amp; Exercise PDFs</a><span aria-current="page">Exams</span></nav>
+    <h1>Advanced Mathematics: Exams</h1>
+    <p class="lead">54 past exams and solutions, grouped by exam and sorted by year, newest first. Ordinary and extraordinary calls are listed together under each year.</p>
+<nav class="jump" aria-label="Exams"><a href="#first">First partials</a><a href="#second">Second partials</a><a href="#final">Final exams</a></nav>
+<h2 id="first">First partials<span class="count">19 files</span></h2>
+<div class="year"><div class="year-label">2025</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G46.pdf">Group 46 · Exam</a><span class="size">161 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf">Group 47 · Solutions</a><span class="size">150 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2024</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2024.pdf">Exam</a><span class="size">97 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2021</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2021_G45_SOL.pdf">Group 45 · Solutions</a><span class="size">180 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2020</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G45_SOL.pdf">Group 45 · Solutions</a><span class="size">194 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G46_SOL.pdf">Group 46 · Solutions</a><span class="size">188 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G47_SOL.pdf">Group 47 · Solutions</a><span class="size">123 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2019</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT1.pdf">Midterm 1 · Exam</a><span class="size">84 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT1_SOL.pdf">Midterm 1 · Solutions</a><span class="size">861 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT2.pdf">Midterm 2 · Exam</a><span class="size">93 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT2_SOL.pdf">Midterm 2 · Solutions</a><span class="size">706 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2016</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2016.pdf">Exam</a><span class="size">402 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2016_PRACTICE.pdf">Practice exam · Exam</a><span class="size">82 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2015</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2015.pdf">Exam</a><span class="size">431 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2015_V2.pdf">Version 2 · Exam</a><span class="size">132 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2014</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2014.pdf">Exam</a><span class="size">136 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2013</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2013.pdf">Exam</a><span class="size">66 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2012</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2012.pdf">Exam</a><span class="size">129 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2011</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2011.pdf">Exam</a><span class="size">151 KB</span></li>
+</ul></div>
+<h2 id="second">Second partials<span class="count">12 files</span></h2>
+<div class="year"><div class="year-label">2025</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf">Group 46 · Solutions</a><span class="size">202 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf">Group 47 · Solutions</a><span class="size">368 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2024</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2024.pdf">Exam</a><span class="size">99 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2021</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2021_G45_SOL.pdf">Group 45 · Solutions</a><span class="size">185 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2020</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G45_SOL.pdf">Group 45 · Solutions</a><span class="size">172 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G46_SOL.pdf">Group 46 · Solutions</a><span class="size">184 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G47_SOL.pdf">Group 47 · Solutions</a><span class="size">191 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2019</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2019_MT3.pdf">Midterm 3 · Exam</a><span class="size">88 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf">Midterm 3 · Solutions</a><span class="size">554 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2018</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3.pdf">Midterm 3 · Exam</a><span class="size">186 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf">Midterm 3 · Group 45 · Solutions</a><span class="size">1.0 MB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf">Midterm 3 · Group 46 · Solutions</a><span class="size">885 KB</span></li>
+</ul></div>
+<h2 id="final">Final exams<span class="count">23 files</span></h2>
+<div class="year"><div class="year-label">2024</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2024_ORD.pdf">Ordinary call · Exam</a><span class="size">97 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2022</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2022_ORD_SOL.pdf">Ordinary call · Solutions</a><span class="size">211 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2022_EXTRA.pdf">Extraordinary call · Exam</a><span class="size">108 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2021</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2021_ORD_SOL.pdf">Ordinary call · Solutions</a><span class="size">359 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2020</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2020_ORD.pdf">Ordinary call · Exam</a><span class="size">102 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2019</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2019_ORD.pdf">Ordinary call · Exam</a><span class="size">112 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2019_ORD_SOL.pdf">Ordinary call · Solutions</a><span class="size">4.7 MB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2018</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_ORD_SOL.pdf">Ordinary call · Solutions</a><span class="size">1.4 MB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_EXTRA_SOL.pdf">Extraordinary call · Solutions</a><span class="size">3.6 MB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_PRACTICE.pdf">Practice exam · Exam</a><span class="size">87 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2016</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_A.pdf">Ordinary call · Model A · Exam</a><span class="size">131 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_B.pdf">Ordinary call · Model B · Exam</a><span class="size">543 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_C_SOL.pdf">Ordinary call · Model C · Solutions</a><span class="size">374 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_PRACTICE.pdf">Practice exam · Exam</a><span class="size">93 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2011–2014</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_COMPILATION_2011-2014_SOL.pdf">Compilation · Solutions</a><span class="size">989 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_COMPILATION_2011-2014_SOL_HIGHLIGHTED.pdf">Compilation · Solutions (highlighted)</a><span class="size">924 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2014</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_ORD_A.pdf">Ordinary call · Model A · Exam</a><span class="size">222 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_ORD_B.pdf">Ordinary call · Model B · Exam</a><span class="size">163 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_EXTRA.pdf">Extraordinary call · Exam</a><span class="size">73 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2013</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2013_ORD.pdf">Ordinary call · Exam</a><span class="size">80 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2013_EXTRA.pdf">Extraordinary call · Exam</a><span class="size">204 KB</span></li>
+</ul></div>
+<div class="year"><div class="year-label">2012</div>
+<ul>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2012_ORD.pdf">Ordinary call · Exam</a><span class="size">95 KB</span></li>
+<li><a href="../../../sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2012_EXTRA.pdf">Extraordinary call · Exam</a><span class="size">161 KB</span></li>
+</ul></div>
+    <p class="note">These are the exams as published by the lecturers at Universidad Carlos III de Madrid. They are linked here for personal study.</p>
+  </div>
+</body>
+</html>

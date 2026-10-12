@@ -3,28 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluid Mechanics - Official Material</title>
-  <meta name="description" content="Original course PDFs for Fluid Mechanics (UC3M).">
+  <title>Fluid Mechanics - Theory &amp; Exercise PDFs</title>
+  <meta name="description" content="Original course PDFs for Fluid Mechanics (UC3M): theory, slides and problem sheets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
   <style>
     :root { --accent: var(--accent-fluid); }
-    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+    body { margin: 0; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); font-size: 1.06rem; line-height: 1.6; }
     .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 64px; }
-    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; }
-    .back { color: var(--accent); text-decoration: none; font-family: var(--font-sans); font-size: 0.95rem; }
+    .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
     .back:hover { text-decoration: underline; }
-    .theme-toggle { font-family: var(--font-sans); background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    h1 { font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; margin: 0 0 4px; }
-    .lead { color: var(--text-secondary); margin: 0 0 28px; }
-    h2 { font-family: var(--font-sans); font-size: 1.05rem; margin: 28px 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
-    h3 { font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 14px 0 4px; }
+    .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+    .tabs a, .tabs span { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border-card); color: var(--text-secondary); }
+    .tabs a:hover { border-color: var(--accent); color: var(--accent); }
+    .tabs [aria-current="page"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); font-weight: 600; }
+    h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
+    .lead { color: var(--text-secondary); margin: 0 0 24px; }
+    h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+    h3 { font-family: var(--font-mono); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 4px; }
     ul { list-style: none; margin: 0; padding: 0; }
-    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; gap: 12px; }
+    li { padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
     li a { color: var(--text-primary); text-decoration: none; word-break: break-word; }
     li a:hover { color: var(--accent); text-decoration: underline; }
-    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.8rem; white-space: nowrap; }
-    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.92rem; }
+    .size { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
+    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+    .jump a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 4px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+    .jump a:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+    .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-left: 8px; letter-spacing: 0.04em; }
+    .year { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
+    .year-label { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--accent); }
+    .year ul li { border-bottom: 0; padding: 2px 0; }
+    .year ul li a .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-left: 6px; }
+    .note { margin-top: 36px; padding: 12px 16px; background: var(--bg-glass); border: 1px solid var(--border-card); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.95rem; }
+    @media (max-width: 520px) {
+      .year { grid-template-columns: 1fr; }
+      .year-label { font-size: 1.15rem; }
+    }
   </style>
 </head>
 <body>
@@ -33,8 +52,9 @@
       <a class="back" href="../../../index.html">&larr; Study Portal</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
     </div>
-    <h1>Fluid Mechanics: Official material</h1>
-    <p class="lead">135 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
+    <nav class="tabs" aria-label="PDF pages"><span aria-current="page">Theory &amp; Exercise PDFs</span><a href="../exams/index.html">Exams</a></nav>
+    <h1>Fluid Mechanics: Theory &amp; Exercise PDFs</h1>
+    <p class="lead">96 original PDFs from the course (theory, slides and problem sheets), grouped by unit.</p>
 <h2>Course-wide material</h2>
 <h3>Theory</h3>
 <ul>
@@ -43,48 +63,6 @@
 <h3>Slides</h3>
 <ul>
 <li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/slides/slides_Chapters1-2.pdf">slides_Chapters1-2.pdf</a><span class="size">991 KB</span></li>
-</ul>
-<h3>Exams</h3>
-<ul>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_EXTRA.pdf">FLUIDS_FINALEXAM_2012_EXTRA.pdf</a><span class="size">1.4 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_ORD.pdf">FLUIDS_FINALEXAM_2012_ORD.pdf</a><span class="size">1.4 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P1.pdf">FLUIDS_FINALEXAM_2014_ORD_SOL_P1.pdf</a><span class="size">296 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P2.pdf">FLUIDS_FINALEXAM_2014_ORD_SOL_P2.pdf</a><span class="size">366 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P3.pdf">FLUIDS_FINALEXAM_2014_ORD_SOL_P3.pdf</a><span class="size">310 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P4.pdf">FLUIDS_FINALEXAM_2014_ORD_SOL_P4.pdf</a><span class="size">346 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2015_EXTRA_SOL.pdf">FLUIDS_FINALEXAM_2015_EXTRA_SOL.pdf</a><span class="size">1.0 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2017_ORD.pdf">FLUIDS_FINALEXAM_2017_ORD.pdf</a><span class="size">963 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2021_ORD.pdf">FLUIDS_FINALEXAM_2021_ORD.pdf</a><span class="size">2.0 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2022_EXTRA.pdf">FLUIDS_FINALEXAM_2022_EXTRA.pdf</a><span class="size">2.5 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2022_ORD.pdf">FLUIDS_FINALEXAM_2022_ORD.pdf</a><span class="size">4.4 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2011.pdf">FLUIDS_FIRSTPARTIAL_2011.pdf</a><span class="size">412 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2013.pdf">FLUIDS_FIRSTPARTIAL_2013.pdf</a><span class="size">786 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2013_QUIZ.pdf">FLUIDS_FIRSTPARTIAL_2013_QUIZ.pdf</a><span class="size">344 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2014_QUIZ.pdf">FLUIDS_FIRSTPARTIAL_2014_QUIZ.pdf</a><span class="size">120 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2014_SOL.pdf">FLUIDS_FIRSTPARTIAL_2014_SOL.pdf</a><span class="size">470 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2016.pdf">FLUIDS_FIRSTPARTIAL_2016.pdf</a><span class="size">492 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2017_SOL.pdf">FLUIDS_FIRSTPARTIAL_2017_SOL.pdf</a><span class="size">1.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2020.pdf">FLUIDS_FIRSTPARTIAL_2020.pdf</a><span class="size">880 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2021.pdf">FLUIDS_FIRSTPARTIAL_2021.pdf</a><span class="size">992 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2024.pdf">FLUIDS_FIRSTPARTIAL_2024.pdf</a><span class="size">2.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2025.pdf">FLUIDS_FIRSTPARTIAL_2025.pdf</a><span class="size">1.6 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2011.pdf">FLUIDS_SECONDPARTIAL_2011.pdf</a><span class="size">445 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P1.pdf">FLUIDS_SECONDPARTIAL_2013_SOL_P1.pdf</a><span class="size">303 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P2.pdf">FLUIDS_SECONDPARTIAL_2013_SOL_P2.pdf</a><span class="size">370 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P3.pdf">FLUIDS_SECONDPARTIAL_2013_SOL_P3.pdf</a><span class="size">461 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P4.pdf">FLUIDS_SECONDPARTIAL_2013_SOL_P4.pdf</a><span class="size">386 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2014_SOL.pdf">FLUIDS_SECONDPARTIAL_2014_SOL.pdf</a><span class="size">1.2 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2015.pdf">FLUIDS_SECONDPARTIAL_2015.pdf</a><span class="size">702 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016.pdf">FLUIDS_SECONDPARTIAL_2016.pdf</a><span class="size">105 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016_RETAKE.pdf">FLUIDS_SECONDPARTIAL_2016_RETAKE.pdf</a><span class="size">151 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016_SOL.pdf">FLUIDS_SECONDPARTIAL_2016_SOL.pdf</a><span class="size">77 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2017.pdf">FLUIDS_SECONDPARTIAL_2017.pdf</a><span class="size">739 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2017_RETAKE.pdf">FLUIDS_SECONDPARTIAL_2017_RETAKE.pdf</a><span class="size">2.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P1.pdf">FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P1.pdf</a><span class="size">1.1 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P2.pdf">FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P2.pdf</a><span class="size">1.8 MB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2021.pdf">FLUIDS_SECONDPARTIAL_2021.pdf</a><span class="size">546 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf">FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf</a><span class="size">537 KB</span></li>
-<li><a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2025.pdf">FLUIDS_SECONDPARTIAL_2025.pdf</a><span class="size">1.7 MB</span></li>
 </ul>
 <h2>Unit 1: Introductory Remarks</h2>
 <h3>Slides</h3>

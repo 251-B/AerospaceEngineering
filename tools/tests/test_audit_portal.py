@@ -13,6 +13,7 @@ GOOD_PAGE = """<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>T</title>
 <link rel="stylesheet" href="{css}">
 <script defer src="{js}"></script>
+<script defer src="{pjs}"></script>
 <link rel="stylesheet" href="{rcss}">
 <script>try {{ localStorage.getItem('ae_theme'); }} catch (e) {{}}</script></head>
 <body><a href="{back}">Back</a><p>Energy $E=mc^2$ and
@@ -25,7 +26,8 @@ def good_page(depth=3):
     css = "../" * depth + "assets/css/celestial-sky.css"
     js = "../" * depth + "assets/js/ask-ai.js"
     rcss = "../" * depth + "assets/css/responsive.css"
-    return GOOD_PAGE.format(back=back, css=css, js=js, rcss=rcss)
+    pjs = "../" * depth + "assets/js/pdf-export.js"
+    return GOOD_PAGE.format(back=back, css=css, js=js, rcss=rcss, pjs=pjs)
 
 
 class AuditCase(unittest.TestCase):
@@ -34,7 +36,8 @@ class AuditCase(unittest.TestCase):
         self.addCleanup(tmp.cleanup)
         root = pathlib.Path(tmp.name)
         base = {"index.html": "<html><body>hub</body></html>", "assets/css/celestial-sky.css": "/* css */",
-                "assets/js/ask-ai.js": "/* js */", "assets/css/responsive.css": "/* css */"}
+                "assets/js/ask-ai.js": "/* js */", "assets/css/responsive.css": "/* css */",
+                "assets/js/pdf-export.js": "/* js */"}
         base.update(files)
         for rel, content in base.items():
             p = root / rel
@@ -317,7 +320,7 @@ class RunnerTests(AuditCase):
 
     def test_skip_option_removes_a_check(self):
         root = self.repo({"subjects/a/teoria/t.html": "<p>Wait, no</p>"})
-        self.assertEqual(ap.main(["--root", str(root), "--quiet", "--skip", "debris,missing-backlink,missing-ask-ai,missing-responsive"]), 0)
+        self.assertEqual(ap.main(["--root", str(root), "--quiet", "--skip", "debris,missing-backlink,missing-ask-ai,missing-responsive,missing-pdf-export"]), 0)
 
 
 class AskAITests(AuditCase):
@@ -332,6 +335,11 @@ class AskAITests(AuditCase):
                              "subjects/a/teoria/index.html": good_page().replace(self.TAG, ""),
                              "subjects/a/sources/index.html": good_page().replace(self.TAG, "")})
         self.assertEqual(self.of(f, "missing-ask-ai"), [])
+
+    def test_topic_page_without_the_pdf_buttons_is_flagged(self):
+        page = good_page().replace('<script defer src="../../../assets/js/pdf-export.js"></script>', "")
+        f = self.run_checks({"subjects/a/teoria/topic-1.html": page})
+        self.assertEqual(len(self.of(f, "missing-pdf-export")), 1)
 
     def test_topic_page_without_the_responsive_stylesheet_is_flagged(self):
         page = good_page().replace('<link rel="stylesheet" href="../../../assets/css/responsive.css">', "")
