@@ -5,6 +5,7 @@ A figure is drawn with colour tokens ("EDGE", "TEXT", "HEAD", "ACC", "BLUE", "PI
 to vault/attachments/<folder>/<name>.svg and keeps a web copy that uses the portal's CSS variables.
 """
 import math
+import re
 import pathlib
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
@@ -28,10 +29,23 @@ class Canvas:
     def add(self, s):
         self.parts.append(s)
 
+    def text_right(self):
+        """Rough right edge of the widest text label (labels near the edge must not be clipped)."""
+        right = 0
+        for part in self.parts:
+            m = re.match(r'<text x="([-\d.]+)" [^>]*font-size="([\d.]+)"[^>]*text-anchor="(\w+)"[^>]*>(.*)</text>$', part)
+            if not m:
+                continue
+            x, size, anchor = float(m.group(1)), float(m.group(2)), m.group(3)
+            width = len(re.sub(r"<[^>]+>|&[a-z]+;", "x", m.group(4))) * 0.58 * size
+            right = max(right, x + {"start": width, "middle": width / 2}.get(anchor, 0))
+        return right
+
     def svg(self, title):
         body = "\n".join(self.parts)
-        return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" width="100%" '
-                f'style="max-width:{self.w}px;margin:0 auto;display:block" role="img" aria-label="{title}">\n'
+        w = max(self.w, int(self.text_right() + 6))            # widen the canvas to fit its labels
+        return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {self.h}" width="100%" class="fig-kit" '
+                f'style="max-width:{w}px;margin:0 auto;display:block" role="img" aria-label="{title}">\n'
                 f'<g font-family="Inter, Arial, sans-serif" font-size="13" fill="EDGE">\n{body}\n</g></svg>')
 
 

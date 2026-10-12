@@ -224,6 +224,13 @@
           text[c] = (text[c] || 0) + clean(cell.textContent).length;
         }
       }
+      var longest = [];
+      for (var r2 = 0; r2 < rows.length; r2++) for (var c2 = 0; c2 < rows[r2].cells.length; c2++) {
+        var cell2 = rows[r2].cells[c2];
+        if (cell2.querySelector('.katex-display')) continue;
+        clean(cell2.textContent).split(' ').forEach(function (w) { longest[c2] = Math.max(longest[c2] || 0, w.length); });
+      }
+      var tw = t.parentElement.getBoundingClientRect().width || 670;
       var m = Object.keys(math).length, others = n - m, total = 0;
       if (!m || !n) return;
       for (var i = 0; i < n; i++) if (!math[i]) total += Math.max(text[i] || 0, 1);
@@ -231,7 +238,8 @@
       for (var j = 0; j < n; j++) {
         var col = el('col');
         /* maths columns share 60 %; the others share 40 % by their amount of text (at least 7 % each) */
-        var w = math[j] ? (others ? 60 / m : 100 / m) : Math.max(7, 40 * Math.max(text[j] || 0, 1) / total);
+        var minW = Math.min(30, ((longest[j] || 2) * 7.2 + 14) / tw * 100);     /* never split a word */
+        var w = math[j] ? (others ? 60 / m : 100 / m) : Math.max(7, minW, 40 * Math.max(text[j] || 0, 1) / total);
         col.style.width = w.toFixed(1) + '%';
         colgroup.appendChild(col);
       }
@@ -252,7 +260,7 @@
       /* the width the equation needs: its rows plus the equation number KaTeX places at the right */
       var need = 0, tag = k.querySelector('.tag');
       [].forEach.call(k.querySelectorAll('.katex-html > .base'), function (b) { need += b.getBoundingClientRect().width; });
-      if (tag) need += tag.getBoundingClientRect().width + 24;
+      if (tag) need += 2 * (tag.getBoundingClientRect().width + 14);   /* centred: the number needs its width on both sides */
       need = Math.max(need, k.scrollWidth);
       var avail = d.clientWidth;
       var floor = d.closest('td, th') ? 0.55 : 0.7;
@@ -272,7 +280,8 @@
   /* Keep a label or heading on the same page as the start of what it introduces: wrap it with the
      next ~120 px of content in one unbreakable block (break-after: avoid alone is not reliable). */
   var KEEP_SEL = 'h2, h3, h4, h5, [class*="phase-badge"], .phase-title, .phase-heading, .section-label, .pdf-summary, ' +
-    '.article-category, .callout-title, .result-callout-title, .strategy-title, .step-heading, .step-subheading, summary';
+    '.article-category, .callout-title, .result-callout-title, .strategy-title, .step-heading, .step-subheading, ' +
+    '.result-label, .result-title, .result-header, .result-box-title, .box-label, .box-title, summary';
   /* PDF only: open collapsible blocks become plain blocks, so their title can be kept with the content. */
   function flattenDetails() {
     [].forEach.call(document.querySelectorAll('details'), function (d) {
@@ -291,17 +300,36 @@
     });
   }
 
+  function hasLooseText(e) {
+    for (var c = e.firstChild; c; c = c.nextSibling) if (c.nodeType === 3 && /\S/.test(c.nodeValue)) return true;
+    return false;
+  }
+
+  function isBlock(e) {
+    return /^(block|flex|grid|table|list-item|flow-root)$/.test(getComputedStyle(e).display);
+  }
+
+  var NO_DESCEND = 'table, ul, ol, p, li, pre, .katex-display, .math-block, svg, figure, .figure, ' +
+    '.diagram-card, [class*="diagram"], [class*="figure"], [class*="table-"], .table-container, .table-wrapper';
+
   function keepWithNext() {
     [].forEach.call(document.querySelectorAll(KEEP_SEL), function (label) {
       if (label.closest('.pdf-keep, .katex, .pdf-print-head, [data-pdf-hidden]') || label.tagName === 'SUMMARY') return;
+      var parent = label.parentElement;
+      /* only blocks are regrouped, and never inside running text (that would pull words out of sentences) */
+      if (!parent || hasLooseText(parent) || !(isBlock(label) || getComputedStyle(label).display === 'inline-block')) return;
       var group = [label], h = label.getBoundingClientRect().height, n = label.nextElementSibling, depth = 0;
       while (n && h < 120) {
+        if (n.matches(KEEP_SEL) && !hasLooseText(n.parentElement)) { group.push(n); h += n.getBoundingClientRect().height; n = n.nextElementSibling; continue; }
+        if (!isBlock(n) || n.tagName === 'SCRIPT') break;
         if (n.matches(KEEP_SEL)) { group.push(n); h += n.getBoundingClientRect().height; n = n.nextElementSibling; continue; }
         var nh = n.getBoundingClientRect().height;
-        if (nh > 360) {
-          /* too tall to move: move the label inside it, at the top, and keep it with its first child instead */
-          if (n.firstElementChild && !n.matches('table, ul, ol, .katex-display, svg') && depth < 3) {
-            var first = n.firstElementChild;
+        if (nh > 200) {
+          /* too tall to move with the label: put the label at the top of it and keep it with its first block */
+          var first = n.firstElementChild;
+          if (first && depth < 3 && !n.matches(NO_DESCEND) && !hasLooseText(n) &&
+              (isBlock(first) || getComputedStyle(first).display === 'inline-block') &&
+              !n.querySelector(':scope > table, :scope > svg, :scope > figure, :scope > img')) {
             group.forEach(function (g) { n.insertBefore(g, first); });
             n = first; depth++;
             continue;
@@ -325,7 +353,24 @@
     });
   }
 
+  /* Hand-drawn diagrams use light screen colours: on paper they get a grey-ink filter (colours to greys,
+     light greys darkened, white kept white). Figures from tools/figures carry .fig-kit and print as drawn. */
+  function inkFilter() {
+    if (document.getElementById('pdf-ink-defs')) return;
+    var ns = 'http://www.w3.org/2000/svg';
+    var defs = document.createElementNS(ns, 'svg');
+    defs.setAttribute('id', 'pdf-ink-defs');
+    defs.setAttribute('width', '0'); defs.setAttribute('height', '0');
+    defs.setAttribute('style', 'position:absolute');
+    defs.innerHTML = '<filter id="pdf-ink" color-interpolation-filters="sRGB">' +
+      '<feColorMatrix type="saturate" values="0"/>' +
+      '<feComponentTransfer><feFuncR type="gamma" exponent="2.4"/><feFuncG type="gamma" exponent="2.4"/>' +
+      '<feFuncB type="gamma" exponent="2.4"/></feComponentTransfer></filter>';
+    document.body.appendChild(defs);
+  }
+
   function prepare() {
+    inkFilter();
     hidePinned();
     hideEmptyPhases();
     printTheme(true);

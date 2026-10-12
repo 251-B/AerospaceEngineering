@@ -162,7 +162,7 @@ html:not([data-theme="print"]) .pdf-print-head, html:not([data-theme="print"]) .
   html[data-theme="print"] img, html[data-theme="print"] svg:not(.katex svg) { max-width: 100% !important; height: auto; }
   html[data-theme="print"] figure, html[data-theme="print"] .figure { margin: 8pt auto !important; text-align: center; }
   html[data-theme="print"] figcaption, html[data-theme="print"] .figure-caption, html[data-theme="print"] .math-caption { font-size: 8.5pt !important; font-style: italic; color: #333 !important; }
-  html[data-theme="print"] .pdf-invert { filter: invert(1) hue-rotate(180deg); }
+  html[data-theme="print"] .pdf-invert { filter: invert(1) hue-rotate(180deg) url(#pdf-ink); }
 
 /* ------------------------------------------------------------ review fixes */
 /* Maths keeps its own case and spacing inside upper-case labels. */
@@ -201,7 +201,7 @@ html[data-theme="print"] .diagram-caption {
   break-before: avoid; page-break-before: avoid;
 }
 /* Nothing scrolls on paper (KaTeX keeps its internal clipping). */
-html[data-theme="print"] body *:not(.katex):not(.katex *) { overflow: visible !important; }
+html[data-theme="print"] body *:not(.katex):not(.katex *):not(svg):not(svg *) { overflow: visible !important; }
 html[data-theme="print"] ::-webkit-scrollbar { display: none; }
 /* Grids of cards print as one column at full width. */
 html[data-theme="print"] main [class*="grid"]:not(.katex *) { display: block !important; }
@@ -215,4 +215,9 @@ html[data-theme="print"] .hub-actions, html[data-theme="print"] .hero-actions { 
 html[data-theme="print"] .pdf-keep { break-inside: avoid; page-break-inside: avoid; }
 html[data-theme="print"] table { break-inside: auto !important; page-break-inside: auto !important; }
 html[data-theme="print"] .pdf-summary { font-weight: 700; margin: 6pt 0; }
-html[data-theme="print"] th, html[data-theme="print"] td { white-space: normal !important; overflow-wrap: anywhere; }
+html[data-theme="print"] th, html[data-theme="print"] td { white-space: normal !important; overflow-wrap: break-word; }
+html[data-theme="print"] main svg:not(.katex svg):not(.fig-kit):not(.pdf-invert):not(#pdf-ink-defs):not(.pdf-link svg):not([width="14"]) { filter: url(#pdf-ink); }
+html[data-theme="print"] .problem-header { display: block !important; }
+html[data-theme="print"] .problem-header > * { width: auto !important; max-width: none !important; margin-bottom: 4pt !important; }
+html[data-theme="print"] a.src-link { white-space: nowrap; }
+html[data-theme="print"] .problem-footer, html[data-theme="print"] .source-line { break-before: avoid; page-break-before: avoid; }

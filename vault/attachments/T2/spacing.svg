@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" style="max-width:400px;margin:0 auto;display:block" role="img" aria-label="Spacing between parallel (110) planes">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" class="fig-kit" style="max-width:400px;margin:0 auto;display:block" role="img" aria-label="Spacing between parallel (110) planes">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
 <rect x="60" y="45" width="150" height="150" fill="none" stroke="#8a94a6" stroke-width="1.4"/>
 <line x1="15.0" y1="150.0" x2="255.0" y2="390.0" stroke="#3b82f6" stroke-width="2.2"/>

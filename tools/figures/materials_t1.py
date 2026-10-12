@@ -32,8 +32,8 @@ def force_energy():
     c = Canvas(540, 450)
     line(c, (70, ey0), (500, ey0)); line(c, (70, et), (70, eb))
     text(c, (76, et + 4), "Energy", "HEAD", weight="700"); text(c, (500, ey0 - 6), "distance a", anchor="end")
-    curve(c, lambda a: 1 / (n * a ** n), xs, px, ey0, es, et, eb, "BLUE", 1.6, "5,4")
-    curve(c, lambda a: -1 / a, xs, px, ey0, es, et, eb, "PINK", 1.6, "5,4")
+    curve(c, lambda a: 1 / (n * a ** n), xs, px, ey0, es, et, eb, "BLUE", 1.6, "9,5")
+    curve(c, lambda a: -1 / a, xs, px, ey0, es, et, eb, "PINK", 1.6, "2,3")
     curve(c, E, xs, px, ey0, es, et, eb, "ACC", 2.6)
     text(c, (px(0.98), et + 30), "repulsion (absorbed)", "BLUE")
     text(c, (px(2.05), ey0 - E(2.4) * es + 18), "net energy", "ACC")
@@ -44,15 +44,15 @@ def force_energy():
     line(c, (70, fy0), (500, fy0)); line(c, (70, ft), (70, fb))
     text(c, (76, ft + 4), "Force", "HEAD", weight="700"); text(c, (500, fy0 - 6), "distance a", anchor="end")
     text(c, (440, fy0 - 56), "+ attraction"); text(c, (440, fy0 + 60), "− repulsion")
-    curve(c, lambda a: 1 / a ** 2, xs, px, fy0, fs, ft, fb, "PINK", 1.6, "5,4")
-    curve(c, lambda a: -1 / a ** (n + 1), xs, px, fy0, fs, ft, fb, "BLUE", 1.6, "5,4")
+    curve(c, lambda a: 1 / a ** 2, xs, px, fy0, fs, ft, fb, "PINK", 1.6, "2,3")
+    curve(c, lambda a: -1 / a ** (n + 1), xs, px, fy0, fs, ft, fb, "BLUE", 1.6, "9,5")
     curve(c, F, xs, px, fy0, fs, ft, fb, "ACC", 2.6)
     xm, ym = px(amax), fy0 - F(amax) * fs
     c.add(f'<circle cx="{xm:.1f}" cy="{ym:.1f}" r="4" fill="ACC"/>')
     text(c, (xm + 8, ym - 8), "maximum force", "ACC")
     text(c, (x0 + 6, fy0 + 16), "zero force at a&#8320;")
     REG.put("force-energy", c, "Energy and force between two ions versus distance",
-            "Force and energy between two ions: dashed lines are the attraction (pink) and repulsion (blue) parts, "
+            "Force and energy between two ions: the dotted line is the attraction part and the long-dashed line the repulsion part, "
             "the solid line is their sum. The net energy is lowest at the equilibrium distance a₀, where the net "
             "force is zero. Schematic curves, no numerical values")
 

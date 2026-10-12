@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 260" width="100%" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="Arrhenius plot of the diffusivity">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 260" width="100%" class="fig-kit" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="Arrhenius plot of the diffusivity">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
 <line x1="80.0" y1="220.0" x2="500.0" y2="220.0" stroke="#8a94a6" stroke-width="1.4"/>
 <path d="M500.0,220.0 L491.7,223.5 L491.7,216.5 Z" fill="#8a94a6"/>
