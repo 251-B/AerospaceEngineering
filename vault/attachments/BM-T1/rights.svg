@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" width="100%" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="The entrepreneur as holder of rights">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="170.0" y="10.0" width="280.0" height="36.0" rx="8" fill="#4b5563" fill-opacity="0.10" stroke="#4b5563" stroke-width="1.4"/>
+<text x="310.0" y="32.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Internal organization = teamwork</text>
+<rect x="170.0" y="70.0" width="280.0" height="36.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="92.5" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Team production requires a CONTROLLER</text>
+<rect x="170.0" y="130.0" width="280.0" height="36.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="310.0" y="152.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Incentive for this task?</text>
+<line x1="310.0" y1="46.0" x2="310.0" y2="70.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M310.0,70.0 L306.5,61.7 L313.5,61.7 Z" fill="#8a94a6"/>
+<line x1="310.0" y1="106.0" x2="310.0" y2="130.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M310.0,130.0 L306.5,121.7 L313.5,121.7 Z" fill="#8a94a6"/>
+<rect x="20.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="90.0" y="226.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">To receive the residual</text>
+<text x="90.0" y="240.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">income or surplus</text>
+<line x1="310.0" y1="166.0" x2="90.0" y2="200.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M90.0,200.0 L97.7,195.3 L98.7,202.2 Z" fill="#8a94a6"/>
+<line x1="90.0" y1="260.0" x2="310.0" y2="300.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M310.0,300.0 L301.2,302.0 L302.5,295.1 Z" fill="#8a94a6"/>
+<rect x="168.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="238.0" y="226.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">To control and reassign the</text>
+<text x="238.0" y="240.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">other factors of production</text>
+<line x1="310.0" y1="166.0" x2="238.0" y2="200.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M238.0,200.0 L244.0,193.3 L247.0,199.6 Z" fill="#8a94a6"/>
+<line x1="238.0" y1="260.0" x2="310.0" y2="300.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M310.0,300.0 L301.1,299.0 L304.5,292.9 Z" fill="#8a94a6"/>
+<rect x="316.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="386.0" y="219.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">To be the central party</text>
+<text x="386.0" y="233.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">in all the contracts</text>
+<text x="386.0" y="247.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">with the inputs</text>
+<line x1="310.0" y1="166.0" x2="386.0" y2="200.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M386.0,200.0 L377.0,199.8 L379.9,193.4 Z" fill="#8a94a6"/>
+<line x1="386.0" y1="260.0" x2="310.0" y2="300.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M310.0,300.0 L315.7,293.0 L319.0,299.2 Z" fill="#8a94a6"/>
+<rect x="464.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="534.0" y="226.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">To sell the</text>
+<text x="534.0" y="240.5" fill="#6b7280" font-size="10" font-weight="400" text-anchor="middle">mentioned rights</text>
+<line x1="310.0" y1="166.0" x2="534.0" y2="200.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M534.0,200.0 L525.3,202.2 L526.3,195.3 Z" fill="#8a94a6"/>
+<line x1="534.0" y1="260.0" x2="310.0" y2="300.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M310.0,300.0 L317.5,295.1 L318.8,302.0 Z" fill="#8a94a6"/>
+<rect x="130.0" y="300.0" width="360.0" height="40.0" rx="8" fill="#4b5563" fill-opacity="0.10" stroke="#4b5563" stroke-width="1.4"/>
+<text x="310.0" y="324.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">The entrepreneur holds all these rights</text>
+</g></svg>

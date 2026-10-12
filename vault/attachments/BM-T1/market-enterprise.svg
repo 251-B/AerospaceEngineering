@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" width="100%" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Nature of business: market and enterprise">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="80.0" y="10.0" width="400.0" height="50.0" rx="8" fill="#4b5563" fill-opacity="0.10" stroke="#4b5563" stroke-width="1.4"/>
+<text x="280.0" y="31.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Scarce resources (factors of production)</text>
+<text x="280.0" y="47.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">versus unlimited wants</text>
+<rect x="150.0" y="95.0" width="260.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="280.0" y="119.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Specialization = division of labour</text>
+<rect x="200.0" y="170.0" width="160.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="280.0" y="194.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Coordination</text>
+<rect x="80.0" y="250.0" width="150.0" height="44.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="155.0" y="276.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">MARKET</text>
+<rect x="330.0" y="250.0" width="150.0" height="44.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="405.0" y="276.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">ENTERPRISE</text>
+<line x1="280.0" y1="60.0" x2="280.0" y2="95.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M280.0,95.0 L276.5,86.7 L283.5,86.7 Z" fill="#8a94a6"/>
+<line x1="280.0" y1="135.0" x2="280.0" y2="170.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M280.0,170.0 L276.5,161.7 L283.5,161.7 Z" fill="#8a94a6"/>
+<line x1="260.0" y1="210.0" x2="155.0" y2="250.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M155.0,250.0 L161.5,243.8 L164.0,250.3 Z" fill="#8a94a6"/>
+<line x1="300.0" y1="210.0" x2="405.0" y2="250.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M405.0,250.0 L396.0,250.3 L398.5,243.8 Z" fill="#8a94a6"/>
+<text x="405.0" y="320.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="middle">arises from a dissatisfied need</text>
+</g></svg>

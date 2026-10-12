@@ -16,246 +16,163 @@ prerrequisitos:
 
 # 📈 Topic 2: Value Creation — Environment and Competitive Advantage
 
-> **Central idea:** the objective of the firm evolves from the classical **profit maximization** to **creating value** for the enterprise, as the result of a negotiation among its **stakeholders**. To reach that objective the firm defines a **strategy**: it analyses its **environment** (generic factors and the specific, industry environment with **Porter's five forces**), decides **where to compete** (corporate strategy: product, geographical and vertical scope) and **how to compete** (business strategy: **cost advantage** or **differentiation**), and examines its own activities with **Porter's value chain**.
+> **Central idea:** the objective of the firm moves from the classical maximization of profit to the creation of value, agreed among its stakeholders. To reach it, the firm defines a strategy: it studies the generic and the specific environment (Porter's five forces), decides where to compete (corporate strategy: product, geographical and vertical scope) and how to compete (business strategy: cost or differentiation advantage), and analyses its own activities through Porter's value chain.
 
-This note follows the official deck slide by slide. Every statement is taken from the slides; when the note explains a slide, it only unpacks the slide's own words and diagrams. Citations such as [Slide 5] open the PDF on that slide.
-
-**Contents of the topic [Slide 2]:** (1) business objectives: (a) the traditional concept, profit maximization; (b) the emergence of new objectives and the role of stakeholders; (2) business strategies and types; (3) generic and specific environment.
+The topic is organised in three parts [Slide 2]: business objectives (the traditional concept of profit maximization, and the new objectives that arise from the role of stakeholders), business strategies and their types, and the generic and specific environment.
 
 ---
 
 ## 1. The traditional concept: profit maximization [Slide 3]
 
-In the traditional concept, the **business objective = the entrepreneur's objective**. As per the **Classical Theory**, the business objective is **profit maximization**.
-
-The slide lists four **limitations** of this view:
-- **the term profit is difficult to define and quantify** (which profit: of this year, of the next years?);
-- **it does not take into account the risk** associated with the achievement of profits (two projects with the same expected profit are not equally good if one is much riskier);
-- **the concept of maximization** itself (it is not obvious that a firm can or does maximize);
-- **the excessive leading role of the entrepreneur**: in large firms there is a **separation of ownership and control** (Topic 1), so the "entrepreneur's objective" is no longer the objective of one person.
+Traditionally, the objective of the business is identified with the objective of the entrepreneur, and the Classical Theory states that this objective is **profit maximization**. The view has four limitations:
+- profit is difficult to define and to quantify;
+- it ignores the **risk** associated with achieving the profits;
+- the very concept of **maximization** is questionable;
+- it gives an excessive leading role to the entrepreneur, whereas in practice **ownership and control are separated**.
 
 ## 2. Management and objectives [Slide 4]
 
-Because of the separation of ownership and control, the firm has to **avoid the conflict of interests** between managers and shareholders: it must **align management and shareholder objectives**. How? The slide gives four mechanisms:
-- **incentive compensation** (the manager's pay depends on results);
-- the **market of enterprises** (the market where firms themselves are bought and sold);
-- the **labour market** (the market for managers);
-- the **markets of the factors of production**.
+To avoid the conflict of interests between managers and shareholders, their objectives must be **aligned**. Four mechanisms do so: **incentive compensation**, the **market of enterprises**, the **labour market** and the **markets of the factors of production**. In the end, managers try to maximize their own interests, always subject to achieving a **minimum level of profit** that satisfies the shareholders.
 
-The conclusion of the slide: **management will try to maximize their own interests, always with the limitation of achieving a minimum level of profit in order to satisfy shareholders**.
+## 3. Stakeholders and organizational theory [Slides 5-6]
 
-## 3. The role of stakeholders in the definition of objectives [Slides 5-6]
+Many groups have a stake in the objectives of the firm. Around **management** stand the **shareholders**, **banks and other financial agents**, **customers**, **suppliers**, the **State**, **employees and labour unions**, and **society** (corporate social responsibility) [Slide 5].
 
-### 3.1 Who the stakeholders are [Slide 5]
+![[attachments/BM-T2/stakeholders.svg]]
 
-The slide places **management** at the centre, surrounded by the stakeholders:
-- **shareholders**;
-- **banks and other financial agents**;
-- **customers**;
-- **suppliers**;
-- the **State**;
-- **employees / labour unions**;
-- **society** (corporate social responsibility, CSR).
-
-### 3.2 Organizational theory [Slide 6]
-
-According to **organizational theory**, the business objectives are the **outcome of a negotiation process between the different stakeholders**, limited by:
-- the **survival goal** (no objective is acceptable if it endangers the firm's survival);
-- the fact that **not all the groups have the same decision-making power**.
-
-> [!info] Business objective under organizational theory [Slide 6]
-> The business objective is **the one that satisfies the group with higher bargaining power, taking into account the objectives of the rest of the groups and the survival of the enterprise**. The resulting objective is to **maximize the value of the enterprise: CREATE VALUE**.
+According to **organizational theory**, the objectives of the business are the **outcome of a negotiation** among these stakeholders, limited by two facts: the firm must **survive**, and **not all groups have the same decision-making power**. The business objective is therefore the one that satisfies the group with the highest bargaining power, while taking into account the objectives of the other groups and the survival of the enterprise. That objective is to **maximize the value of the enterprise: to create value** [Slide 6].
 
 ## 4. A unified vision: survival, profit and growth [Slide 7]
 
-The slide draws a cycle that links the three goals:
-- **Products/markets** (current and new) generate **sales**, and sales generate **profits**.
-- Part of the profits are **retained profits**, kept **for future investments**; they add to **total equity**.
-- The rest are paid as **dividends**; dividends support the **capital market valuation of the company**, and that valuation becomes the **equity attributable to investors**, which also feeds **total equity**.
-- Total equity finances **investments**, and investments create new or better **products/markets**, so the cycle starts again.
+The three goals form a single cycle. Current and new **products and markets** generate **sales**, and sales generate **profits**. Part of the profits is **retained** for future investments and adds directly to **total equity**; the rest is paid as **dividends**, which support the **capital market valuation of the company** and thus the **equity attributable to investors**, which also feeds total equity. Total equity finances new **investments**, and these renew the products and markets, closing the cycle.
 
-Reading the cycle: **profit** comes from selling products; **growth** comes from reinvesting (retained profits and the capital attracted by a good market valuation) in new products and markets; **survival** is the cycle continuing.
+![[attachments/BM-T2/unified-vision.svg]]
 
-## 5. Business strategies: strategic, tactic and operative decisions [Slide 8]
+## 5. Business strategies: levels of decision [Slide 8]
 
-To **achieve the business objective** the firm must **define a strategy**. Defining a strategy produces three levels of decisions, drawn as a chain: **strategic decisions → tactic decisions → operative decisions**.
+To achieve its objective, the firm defines a **strategy**: "a plan, method or series of actions designed to achieve a specific goal or effect" (Wordsmyth Dictionary). The strategy unfolds into three levels of decision: **strategic**, **tactic** and **operative** decisions.
 
-> [!info] Strategy [Slide 8]
-> "A plan, method or series of actions designed to achieve a specific goal or effect" (Wordsmyth Dictionary).
+![[attachments/BM-T2/decisions.svg]]
 
 ## 6. Types of strategic decisions [Slide 9]
 
-The slide repeats the chain of [Slide 8] and opens the **strategic decisions** into two families:
+Strategic decisions belong to two families:
+- **Corporate strategy**, which fixes the **scope** of the firm: product scope (diversification), geographical scope (internationalization) and vertical scope (vertical integration).
+- **Competitive or business strategy**, which chooses between a **cost-leadership** strategy and a **differentiation** strategy.
 
-| Family | Decision | Dimension |
-| :--- | :--- | :--- |
-| **Corporate strategy** | Product scope | Diversification |
-| | Geographical scope | Internationalization |
-| | Vertical scope | Vertical integration |
-| **Competitive or business strategy** | Cost-leadership strategy | |
-| | Differentiation strategy | |
+![[attachments/BM-T2/types.svg]]
 
-The rest of the deck develops both families (§13-§19).
+## 7. What makes a successful strategy [Slide 10]
 
-## 7. What makes a successful strategy? [Slide 10]
+A strategy succeeds through **effective implementation** resting on three pillars: **long-term, simple and agreed objectives**; a **deep understanding of the competitive environment**; and an **objective appraisal of resources**.
 
-A **successful strategy** rests on **effective implementation** of three pillars:
-- **long-term, simple and agreed objectives**;
-- **deep understanding of the competitive environment**;
-- **objective appraisal of resources**.
+![[attachments/BM-T2/success.svg]]
 
-The second pillar leads to the analysis of the environment (§8-§11); the third leads to the analysis of the firm's own activities (the value chain, §20).
+## 8. The business environment: generic and specific [Slides 11-12]
 
-## 8. The generic environment [Slide 11]
+The environment of the firm has two layers.
 
-The **business environment** has two layers. The outer layer, the **generic environment**, contains four groups of factors that affect every firm:
+The **generic environment** affects every firm and is described by four groups of factors [Slide 11]:
 
-| Factor | Items on the slide |
+| Factors | Content |
 | :--- | :--- |
-| **Economic factors** | Macroeconomic variables; business cycle period; type of economic policy; country resources |
-| **Political-legal factors** | Monetary and fiscal policies; labour market regulation; industry regulation |
-| **Socio-cultural factors** | Value system; level of education; class structure; income distribution; population distribution; etc. |
-| **Technological factors** | Basic technologies; key technologies; incipient technologies |
+| **Economic** | Macroeconomic variables; business cycle period; type of economic policy; country resources |
+| **Political-legal** | Monetary and fiscal policies; labour market regulation; industry regulation |
+| **Socio-cultural** | Value system; level of education; class structure; income distribution; population distribution; etc. |
+| **Technological** | Basic, key and incipient technologies |
 
-## 9. The specific environment [Slide 12]
+The **specific environment** is the environment of the firm's own industry [Slide 12]. It includes the **rivalry within the industry**, which depends on concentration, the industry rate of growth and product differentiation; the **barriers to entry** and **to exit**; **substitutes**; and the **relationships with customers** and **with suppliers**.
 
-The inner layer, the **specific environment**, is the one of the firm's own industry. Its elements on the slide are:
-- **rivalry within the industry**, which depends on **concentration**, the **industry rate of growth** and **product differentiation**;
-- **barriers to entry**;
-- **barriers to exit**;
-- **substitutes**;
-- **relationship with customers**;
-- **relationship with suppliers**.
+![[attachments/BM-T2/environment.svg]]
 
-## 10. From environmental analysis to industry analysis [Slide 13]
+## 9. From environmental analysis to industry analysis [Slide 13]
 
-The slide puts **the industry environment** (suppliers, competitors, customers) in a box at the centre, surrounded by six elements of the wider environment that act on it:
-- the national/international economy;
-- technology;
-- government and politics;
-- the natural environment;
-- demographic structure;
-- social structure.
+The analysis moves from the outside in. At the centre is the **industry environment**, formed by suppliers, competitors and customers. Around it act the national and international economy, technology, government and politics, the natural environment, the demographic structure and the social structure.
 
-The message: the analysis goes **from the outside in**, from the general environment to the industry in which the firm actually competes.
+![[attachments/BM-T2/industry.svg]]
 
-## 11. Porter's five competitive forces [Slides 14-15]
+## 10. Porter's five competitive forces [Slides 14-15]
 
-### 11.1 The five forces [Slide 14]
+The industry is analysed with **Porter's five competitive forces** (Porter, 1982). At the centre is the **rivalry among existing firms**; around it act the **bargaining power of suppliers**, the **bargaining power of buyers**, the **threat of new entrants** and the **threat of substitutes** [Slide 14]. Each force depends on a set of determinants [Slide 15]:
 
-The industry analysis is organised with **Porter's five competitive forces (Porter, 1982)**. At the centre are the **industry competitors** and the **rivalry among existing firms**; around them act four more forces:
-- **suppliers**: **bargaining power of suppliers**;
-- **buyers**: **bargaining power of buyers**;
-- **potential entrants**: **threat of new entrants**;
-- **substitutes**: **threat of substitutes**.
-
-The stronger the five forces, the harder it is for the firms in the industry to earn a high rate of profit (this links with the "rate of profit above the competitive level" of [Slide 17]).
-
-### 11.2 The determinants of each force [Slide 15]
-
-| Force | Determinants on the slide |
+| Force | Determinants |
 | :--- | :--- |
 | **Supplier power** | Suppliers' price sensitivity; relative bargaining power |
-| **Threat of entry** | Capital requirements; economies of scale; absolute cost advantage; product differentiation; access to distribution channels; legal/regulatory barriers |
-| **Industry rivalry** | Concentration; diversity of competitors; product differentiation; excess capacity and exit barriers; cost conditions |
-| **Substitute competition** | Buyers' propensity to substitute; relative prices and performance of substitutes |
 | **Buyer power** | Buyers' price sensitivity; relative bargaining power |
+| **Threat of entry** | Capital requirements; economies of scale; absolute cost advantage; product differentiation; access to distribution channels; legal and regulatory barriers |
+| **Substitute competition** | Buyers' propensity to substitute; relative prices and performance of substitutes |
+| **Industry rivalry** | Concentration; diversity of competitors; product differentiation; excess capacity and exit barriers; cost conditions |
 
-Notice how the determinants of the **threat of entry** are the **barriers to entry** of [Slide 12]: high capital requirements or strong economies of scale keep new entrants out.
+![[attachments/BM-T2/five-forces.svg]]
 
-## 12. The strategic management process [Slide 16]
+## 11. The strategic management process [Slide 16]
 
-The process has five steps, in this order:
-1. **Mission statement**;
-2. **Performance objectives**;
-3. **Develop strategies**;
-4. **Strategy implementation**;
-5. **Evaluation of performance**.
+Strategic management follows five steps: the **mission statement**, the **performance objectives**, the **development of strategies**, the **implementation** of the strategy, and the **evaluation of performance**.
 
-## 13. Corporate strategy and business strategy [Slides 17-18]
+## 12. Corporate strategy and business strategy [Slides 17-18]
 
-### 13.1 Two questions [Slide 17]
+The aim is to earn a **rate of profit above the competitive level**; in other words, to answer the question "how do we make money?". Two sources contribute to it [Slide 17]:
+- **industry attractiveness**, which raises the question "which businesses should we be in?" and is the domain of **corporate strategy**;
+- **competitive advantage**, which raises the question "how should we compete?" and is the domain of **business strategy**.
 
-The goal of strategy is a **rate of profit above the competitive level**, which answers the question "**how do we make money?**". Two sources feed that profit:
-- **industry attractiveness**: "**which businesses should we be in?**" This is the **corporate strategy**;
-- **competitive advantage**: "**how should we compete?**" This is the **business strategy**.
+![[attachments/BM-T2/strategy-questions.svg]]
 
-### 13.2 Definitions [Slide 18]
+**Business strategy** is concerned with **how** a firm competes within a particular market. **Corporate strategy** is concerned with **where** a firm competes, that is, with the **scope** of its activities, which has three dimensions: **geographical**, **vertical** and **product** scope [Slide 18].
 
-- **Business strategy** is concerned with **how a firm competes within a particular market**.
-- **Corporate strategy** is concerned with **where a firm competes**, i.e. the **scope of its activities**.
-- The **dimensions of scope** are **geographical scope**, **vertical scope** and **product scope**.
+## 13. The three dimensions of scope [Slide 19]
 
-## 14. The three dimensions of scope [Slide 19]
+Each dimension of scope can be pictured as a choice between one firm and several (Grant, 2002):
+- **Vertical scope**: three independent companies (one producing steel, one rolling it into sheet, one making steel cans), or all three stages of production inside a single company?
+- **Geographical scope**: three independent companies producing cans in the US, the UK and Italy, or a single multinational owning and operating the can-making plants in all three countries?
+- **Product scope**: should metal cans, plastic packaging and domestic appliances be made by three separate companies, or are there efficiencies to be gained by merging them into one?
 
-The slide (taken from Grant, 2002, *Contemporary Strategy Analysis*) compares a **single integrated firm** with **several specialized firms** along each dimension, and illustrates them with one example each:
-- **Vertical scope** (units $V_1$, $V_2$, $V_3$): three independent companies, one producing steel, the next rolling the steel into sheet, and the third producing steel cans, **or** all three stages of production within a single company?
-- **Geographical scope** (units $G_1$, $G_2$, $G_3$): three independent companies producing cans in the US, UK and Italy, **or** a single multinational company owning and operating the can-making plants in all three countries?
-- **Product scope** (units $P_1$, $P_2$, $P_3$): should metal cans, plastic packaging and domestic appliances be produced by three separate companies, **or** are there efficiencies to be gained by merging all three into a single company?
+In the integrated firm the vertical units (V), product units (P) and country units (G) are linked by an **administrative interface**; under specialization each unit is a **separate firm** linked to the others by **market interfaces**.
 
-The caption of the diagram explains the difference: in the **integrated firm** there is an **administrative interface** between the different vertical units (V), product units (P) and country units (G); where there is **specialization**, each unit is a **separate firm linked by market interfaces**. So the scope decision is a choice between coordinating by administration (inside one firm) or by the market, which is the market/enterprise choice of Topic 1.
+![[attachments/BM-T2/scope.svg]]
 
-## 15. Business strategy: sources of competitive advantage [Slides 20-22]
+## 14. Business strategy: sources of competitive advantage [Slide 20]
 
-### 15.1 Two sources [Slide 20]
+Competitive advantage comes from two sources: a **cost advantage**, offering a similar product at a lower cost, or a **differentiation advantage**, obtaining a price premium from a unique product.
 
-| Cost advantage | Differentiation advantage |
+![[attachments/BM-T2/advantage.svg]]
+
+## 15. Drivers of cost advantage [Slides 21-22]
+
+| Driver | How it reduces costs |
 | :--- | :--- |
-| **Similar product at lower cost** | **Price premium from unique product** |
+| **Economies of learning** | Improved organizational routines |
+| **Economies of scale** | Specialization and division of labour |
+| **Production techniques** | Process innovation; reengineering of business processes |
+| **Product design** | Standardization of designs and components; design for manufacture |
+| **Input costs** | Location advantages; ownership of low-cost inputs; non-union labour; bargaining power |
+| **Capacity utilization** | Ratio of fixed to variable costs; speed of capacity adjustment |
+| **Residual efficiency** | Organizational slack; motivation and culture; managerial efficiency |
 
-Both create a margin above competitors: the first by spending less for the same product, the second by charging more for a product that customers value as unique.
 
-### 15.2 Drivers of cost advantage [Slides 21-22]
-
-| Driver | How it lowers cost (items on the slide) |
-| :--- | :--- |
-| **Economies of learning** [Slide 21] | Improved organizational routines |
-| **Economies of scale** [Slide 21] | Specialization and division of labour |
-| **Production techniques** [Slide 21] | Process innovation; reengineering business processes |
-| **Product design** [Slide 21] | Standardizing designs and components; design for manufacture |
-| **Input costs** [Slide 22] | Location advantages; ownership of low-cost inputs; non-union labour; bargaining power |
-| **Capacity utilization** [Slide 22] | Ratio of fixed-to-variable costs; speed of capacity adjustment |
-| **Residual efficiency** [Slide 22] | Organizational slack; motivation and culture; managerial efficiency |
 
 ## 16. Differentiation [Slides 23-24]
 
-### 16.1 Definition [Slide 23]
+**Differentiation** concerns how a firm distinguishes its offerings from those of its competitors, that is, how the firm competes. In Porter's words, it means "providing something unique that is valuable to the buyer beyond simply offering a low price". The key is to **create value for the customer** [Slide 23].
 
-**Differentiation** is concerned with **how a firm distinguishes its offerings from those of its competitors** (i.e. how the firm competes).
+Differentiation can be [Slide 24]:
+- **tangible**, based on observable characteristics of the product: size, colour, materials, etc.; performance; packaging; complementary services;
+- **intangible**, based on unobservable and subjective characteristics that appeal to the customer's image, status, identity and desire for exclusivity.
 
-> [!info] Porter's definition [Slide 23]
-> Differentiation is "providing something unique that is valuable to the buyer beyond simply offering a low price" (M. Porter). **The key is to create value for the customer.**
-
-### 16.2 Tangible and intangible differentiation [Slide 24]
-
-- **Tangible differentiation**: observable product characteristics: size, colour, materials, etc.; performance; packaging; complementary services.
-- **Intangible differentiation**: unobservable and subjective characteristics that appeal to the customer's image, status, identity and desire for exclusivity.
-
-**Total customer responsiveness:** differentiation is **not just about the product**; it embraces the **whole relationship between the supplier and the customer**.
+Differentiation is not only about the product: it embraces the **whole relationship between supplier and customer** (total customer responsiveness).
 
 ## 17. Corporate strategy: diversification [Slide 25]
 
-Diversification decisions involve **two issues**:
-- **how attractive is the sector to be entered?** (industry attractiveness, §13.1);
-- **can the firm achieve a competitive advantage** there? (§15-§16).
-
-**Reasons** for diversifying:
-
-| Reason | Explanation on the slide |
-| :--- | :--- |
-| **Growth** | The desire to escape from declining industries (e.g. tobacco, oil, newspapers) |
-| **Risk** | Diversification reduces earnings volatility |
-| **Profit** | Bringing together different businesses may increase profitability |
+A diversification decision involves two questions: **how attractive is the sector** to be entered, and **can the firm achieve a competitive advantage** in it? Firms diversify for three reasons:
+- **growth**: to escape from declining industries (e.g. tobacco, oil, newspapers);
+- **risk**: diversification reduces the volatility of earnings;
+- **profit**: bringing different businesses together may increase profitability.
 
 ## 18. Types of diversification [Slide 26]
 
-- **Related diversification**: when a business **expands its existing** product lines or markets.
-- **Unrelated diversification**: when a business adds **new, or unrelated**, product lines or markets.
+- **Related diversification**: the business expands its existing product lines or markets.
+- **Unrelated diversification**: the business adds new, unrelated product lines or markets.
 
-**Diversification forms:**
-- **vertical integration**: along your value chain;
-- **horizontal diversification**: moving into a new industry;
-- **geographical diversification**: opening new markets.
+Diversification takes three forms: **vertical integration** (along the firm's own value chain), **horizontal diversification** (moving into a new industry) and **geographical diversification** (opening new markets).
 
 ## 19. Vertical integration [Slide 27]
 
@@ -263,50 +180,40 @@ Vertical integration can be **forward** or **backward**.
 
 | Advantages | Disadvantages |
 | :--- | :--- |
-| Inputs/outputs control | Increased risk (outsourcing) |
+| Control of inputs and outputs | Increased risk (outsourcing) |
 | Reduction of transaction costs | Decreased flexibility |
-| Independency | Loss of specialization advantages |
+| Independence | Loss of specialization advantages |
 | Better competitive position | Increased administrative costs |
-| Reduce information asymmetries | |
-
-Compare with [Slide 19]: integrating replaces market interfaces by administrative ones, which **reduces transaction costs** with suppliers or customers but **increases administrative costs** and loses the advantages of specialized firms.
+| Reduction of information asymmetries | |
 
 ## 20. Porter's value chain [Slides 28-31]
 
-### 20.1 The idea [Slide 28]
+The term **value chain** was introduced by Michael Porter (1985). An organization is more than a random collection of resources: it arranges its resources into systems and activities that produce goods customers are willing to pay for, and the **management of these activities and of their linkages** is what gives it a competitive advantage [Slide 28].
 
-- The term **value chain** was used by **Michael Porter (1985)**.
-- Organizations are **more than the random compilation of resources**: they are an **arrangement of the resources into systems and activities** that result in products which **customers are willing to pay for**.
-- **Management of these activities and their linkages** gives an organization **competitive advantage**.
+The chain has two layers: **support activities** that span the whole firm, and **primary activities** that follow the product from inputs to after-sales. Together they produce the **margin** [Slide 29].
 
-### 20.2 The diagram [Slide 29]
+![[attachments/BM-T2/value-chain.svg]]
 
-The diagram has two layers of activities ending in an arrow-head labelled **margin**:
-- **support activities** (top rows): firm infrastructure, human resources, technology development, procurement;
-- **primary activities** (bottom columns): inbound logistics, operations, outbound logistics, marketing and sales, service.
+**Primary activities** [Slide 30]:
 
-The margin at the tip of the arrow is the reward of the whole chain: what customers pay for the product beyond what it costs to carry out all these activities.
-
-### 20.3 Primary activities [Slide 30]
-
-| Activity | Definition (Porter, 1985) |
+| Activity | Content |
 | :--- | :--- |
-| **Inbound logistics** | Involve relationships with suppliers and include all the activities required to receive, store and disseminate inputs |
+| **Inbound logistics** | Relationships with suppliers and all the activities required to receive, store and disseminate inputs |
 | **Operations** | All the activities required to transform inputs into outputs (products and services) |
 | **Outbound logistics** | All the activities required to collect, store and distribute the output |
-| **Marketing and sales** | Activities that inform buyers about products and services, induce buyers to purchase them, and facilitate their purchase |
+| **Marketing and sales** | Informing buyers about products and services, inducing them to purchase, and facilitating the purchase |
 | **Service** | All the activities required to keep the product or service working effectively for the buyer after it is sold and delivered |
 
-### 20.4 Secondary (support) activities [Slide 31]
+**Secondary (support) activities** [Slide 31]:
 
-| Activity | Definition |
+| Activity | Content |
 | :--- | :--- |
 | **Procurement** | The acquisition of inputs, or resources, for the firm |
-| **Human resource management** | All activities involved in recruiting, hiring, training, developing, compensating and (if necessary) dismissing or laying off personnel |
-| **Technological development** | The equipment, hardware, software, procedures and technical knowledge brought to bear in the firm's transformation of inputs into outputs |
-| **Infrastructure** | Serves the company's needs and ties its various parts together; it consists of functions or departments such as accounting, legal, finance, planning, public affairs, government relations, quality assurance and general management |
+| **Human resource management** | Recruiting, hiring, training, developing, compensating and, if necessary, dismissing or laying off personnel |
+| **Technological development** | The equipment, hardware, software, procedures and technical knowledge used to transform inputs into outputs |
+| **Infrastructure** | Serves the company's needs and ties its parts together: accounting, legal, finance, planning, public affairs, government relations, quality assurance and general management |
 
-Reference given on the slide: Porter, M. E., *Competitive Advantage*, 1985, Ch. 1, pp. 11-15, The Free Press, New York. The slide also links a video on the value chain.
+Reference: Porter, M. E., *Competitive Advantage*, The Free Press, New York, 1985, Ch. 1, pp. 11-15.
 
 ---
 

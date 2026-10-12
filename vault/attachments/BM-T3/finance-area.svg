@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 230" width="100%" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="The finance area and its two decisions">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="120.0" y="10.0" width="360.0" height="44.0" rx="8" fill="#4b5563" fill-opacity="0.10" stroke="#4b5563" stroke-width="1.4"/>
+<text x="300.0" y="28.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Finance area: collection and management</text>
+<text x="300.0" y="44.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">of the funds (capital) used by the company</text>
+<rect x="160.0" y="75.0" width="280.0" height="36.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="300.0" y="97.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">The finance manager faces two decisions</text>
+<line x1="300.0" y1="54.0" x2="300.0" y2="75.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M300.0,75.0 L296.5,66.7 L303.5,66.7 Z" fill="#8a94a6"/>
+<rect x="40.0" y="135.0" width="220.0" height="36.0" rx="18" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="150.0" y="157.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">What to invest in and when?</text>
+<rect x="340.0" y="135.0" width="220.0" height="36.0" rx="18" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="450.0" y="157.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">How to obtain the money to invest?</text>
+<line x1="250.0" y1="111.0" x2="150.0" y2="135.0" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M150.0,135.0 L157.2,129.7 L158.9,136.5 Z" fill="#8a94a6"/>
+<line x1="350.0" y1="111.0" x2="450.0" y2="135.0" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M450.0,135.0 L441.1,136.5 L442.8,129.7 Z" fill="#8a94a6"/>
+<rect x="70.0" y="185.0" width="160.0" height="34.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="150.0" y="206.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Investing decisions</text>
+<rect x="370.0" y="185.0" width="160.0" height="34.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="450.0" y="206.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Financing decisions</text>
+<line x1="150.0" y1="171.0" x2="150.0" y2="185.0" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M150.0,185.0 L146.5,176.7 L153.5,176.7 Z" fill="#8a94a6"/>
+<line x1="450.0" y1="171.0" x2="450.0" y2="185.0" stroke="#8a94a6" stroke-width="1.6"/>
+<path d="M450.0,185.0 L446.5,176.7 L453.5,176.7 Z" fill="#8a94a6"/>
+</g></svg>

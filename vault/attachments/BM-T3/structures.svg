@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="100%" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Economic and financial structure">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="150.0" y="22.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">ECONOMIC STRUCTURE</text>
+<text x="450.0" y="22.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">FINANCIAL STRUCTURE</text>
+<rect x="40.0" y="32.0" width="220.0" height="150.0" rx="4" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="150.0" y="69.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">ASSETS</text>
+<text x="150.0" y="86.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">what is owned</text>
+<text x="150.0" y="103.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">investments: goods</text>
+<text x="150.0" y="120.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">and rights</text>
+<text x="150.0" y="137.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle"></text>
+<text x="150.0" y="154.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">→ PROFITABILITY</text>
+<rect x="340.0" y="32.0" width="220.0" height="150.0" rx="4" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="450.0" y="69.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">EQUITY + LIABILITIES</text>
+<text x="450.0" y="86.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">what is owed</text>
+<text x="450.0" y="103.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">sources of financing</text>
+<text x="450.0" y="120.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">(debt and liabilities)</text>
+<text x="450.0" y="137.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle"></text>
+<text x="450.0" y="154.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">→ COST</text>
+<rect x="120.0" y="215.0" width="360.0" height="60.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="300.0" y="240.9" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">OBJECTIVE: MAXIMIZE VALUE</text>
+<text x="300.0" y="258.9" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">PROFITABILITY > COST</text>
+</g></svg>

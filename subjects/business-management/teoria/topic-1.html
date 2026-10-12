@@ -282,6 +282,13 @@
     .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
     td, th { vertical-align: top; }
     .topic-nav-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Figures generated from tools/figures/bm_t*.py */
+    [data-theme="dark"] { --text-faint: #94a3b8; }
+    [data-theme="light"] { --text-faint: #64748b; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 14px 12px; margin: 22px 0 26px; overflow-x: auto; }
+    .diagram-card svg { min-width: 520px; }
+    .diagram-caption { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
@@ -326,146 +333,446 @@
     </header>
 
     <section id="section-0">
-      <div class="callout"><p><strong>Central idea:</strong> a business is an economic activity that <strong>transforms inputs into outputs</strong> to satisfy people's needs. Firms and households exchange goods, services and factors of production in a <strong>circular flow</strong>; inside the firm, functions are organised and managed by an <strong>entrepreneur</strong> who holds the rights to the residual income; and the law offers several <strong>forms of ownership</strong> (sole proprietorship, partnership, corporation, cooperative, ...) whose differences in liability, taxation and permanence decide which one suits each business. In large corporations, owners and managers are different people, which creates the <strong>agency problem</strong>.</p></div>
-<p>This note follows the official deck slide by slide. Every statement is taken from the slides; when the note adds an explanation of what a slide means, it only unpacks the slide's own words. Citations such as [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 5">5</a>] open the PDF on that slide.</p>
-<p><strong>Contents of the topic [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 2">2</a>]:</strong> (1) concept and nature of business; (2) business functional areas; (3) management process; (4) the role of engineers in business management; (5) the enterprise and the entrepreneur; (6) types of companies and legal forms.</p>
+      <div class="callout"><p><strong>Central idea:</strong> a business transforms inputs into the goods and services that people need. Firms and households are tied together by a circular flow of goods, factors and money. Inside the firm, real, financial and management functions are coordinated by an entrepreneur, the person who holds the rights over the residual income. The law offers several forms of ownership, and in large corporations the separation between owners and managers gives rise to the agency problem.</p></div>
+<p>The topic covers six points [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 2">2</a>]: the concept and nature of business, the functional areas of a business, the management process, the role of engineers in business management, the enterprise and the entrepreneur, and the types of companies and their legal forms.</p>
     </section>
     <section id="section-1">
-      <h2 class="section-heading"><span class="section-num">§ 1</span> What a business is [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 3">3</a>]</h2>
-<p>The slide answers the question "what is business?" with one definition:</p>
-<div class="callout"><div class="callout-title">Definition of business [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 3">3</a>]</div><p>Business is an <strong>economic activity that transforms a set of inputs</strong> (factors of production) <strong>into outputs</strong> (goods and services aimed to satisfy customers' needs and wants).</p></div>
-<p>The two sides of that transformation are listed explicitly:</p>
+      <h2 class="section-heading"><span class="section-num">§ 1</span> What a business is [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 3">3-4</a>]</h2>
+<p>A <strong>business</strong> is an economic activity that <strong>transforms a set of inputs</strong>, the factors of production, <strong>into outputs</strong>: goods and services aimed at satisfying customers' needs and wants.</p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Inputs (factors of production)</th><th>Outputs</th></tr></thead><tbody><tr><td>Land (natural resources)</td><td>Goods</td></tr><tr><td>Labour</td><td>Services</td></tr><tr><td>Capital</td><td></td></tr><tr><td>Entrepreneurship</td><td></td></tr></tbody></table></div>
-<p>Read the definition as a process: something comes in (the four factors), the business transforms it, and something more valuable goes out (goods or services that a customer wants). Entrepreneurship is counted as an input in its own right: someone has to bring the other three factors together (this idea returns in §7).</p>
-<h3 class="sub-heading">Example: the production process of bread [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 4">4</a>]</h3>
-<p>The slide shows the <strong>inputs</strong> pictured inside an ellipse (a bag of sea salt, baking powder, wheat flour, sugar and a bottle of water), a large arrow with a <strong>question mark</strong>, and the <strong>output</strong>: loaves of bread. The question mark is the point of the exercise: the ingredients alone are not bread. Something must turn them into bread, and that "something" is the business activity of [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 3">3</a>]: the land factor (the natural resources behind flour, salt and water), labour (the baker), capital (the oven and tools) and entrepreneurship (whoever organises it all) applied to the ingredients.</p>
+<p>Making bread is a simple case. Salt, baking powder, flour, sugar and water are the inputs and bread is the output, but the ingredients do not become bread by themselves: something has to transform them, and that transformation is precisely the business activity.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 230" width="100%" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Production process of bread">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<text x="95.0" y="22.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">INPUTS</text>
+<rect x="30.0" y="34.0" width="130.0" height="30.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="95.0" y="53.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Sea salt</text>
+<rect x="30.0" y="72.0" width="130.0" height="30.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="95.0" y="91.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Baking powder</text>
+<rect x="30.0" y="110.0" width="130.0" height="30.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="95.0" y="129.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Wheat flour</text>
+<rect x="30.0" y="148.0" width="130.0" height="30.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="95.0" y="167.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Sugar</text>
+<rect x="30.0" y="186.0" width="130.0" height="30.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="95.0" y="205.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Water</text>
+<rect x="240.0" y="95.0" width="110.0" height="50.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="295.0" y="127.7" fill="var(--text-heading)" font-size="22" font-weight="700" text-anchor="middle">?</text>
+<line x1="160.0" y1="49.0" x2="238.0" y2="120.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M238.0,120.0 L229.5,117.0 L234.2,111.8 Z" fill="var(--text-faint)"/>
+<line x1="160.0" y1="87.0" x2="238.0" y2="120.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M238.0,120.0 L229.0,120.0 L231.7,113.5 Z" fill="var(--text-faint)"/>
+<line x1="160.0" y1="125.0" x2="238.0" y2="120.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M238.0,120.0 L230.0,124.0 L229.5,117.0 Z" fill="var(--text-faint)"/>
+<line x1="160.0" y1="163.0" x2="238.0" y2="120.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M238.0,120.0 L232.4,127.1 L229.0,120.9 Z" fill="var(--text-faint)"/>
+<line x1="160.0" y1="201.0" x2="238.0" y2="120.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M238.0,120.0 L234.8,128.4 L229.7,123.5 Z" fill="var(--text-faint)"/>
+<rect x="430.0" y="85.0" width="140.0" height="70.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="500.0" y="116.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">OUTPUT</text>
+<text x="500.0" y="133.1" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Bread</text>
+<line x1="350.0" y1="120.0" x2="430.0" y2="120.0" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M430.0,120.0 L421.7,123.5 L421.7,116.5 Z" fill="#f59e0b"/>
+</g></svg>
+<div class="diagram-caption">Figure 1. Production process of bread: ingredients (inputs) must be transformed by a business activity, the question mark, before they become the output.</div>
+</div>
     </section>
     <section id="section-2">
       <h2 class="section-heading"><span class="section-num">§ 2</span> The circular flow of income [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 5">5-11</a>]</h2>
-<h3 class="sub-heading">2.1 The model [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 5">5</a>]</h3>
-<div class="callout"><div class="callout-title">Circular flow of income [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 5">5</a>]</div><p>The term <strong>circular flow of income</strong> refers to a simple economic model which describes the <strong>reciprocal circulation of income between producers and consumers</strong>. The continuous interaction of the markets of goods and services and of factors determines a <strong>double flow, monetary and real</strong>, through which the economy of a country decides <strong>what to produce, how and to whom</strong>.</p></div>
-<p>The diagram of the slide has two agents, <strong>households</strong> and <strong>firms</strong>, joined by two markets:</p>
-<ul><li>the <strong>market of goods and services</strong> (top loop): goods and services go from firms to households, and the households' <strong>expenditures</strong> go back to firms, where they are the firms' <strong>revenues</strong>;</li><li>the <strong>market of factors of production</strong> (bottom loop): factors of production go from households to firms, and <strong>wages, rents and dividends</strong> go back to households.</li></ul>
-<p>What is left to the firm after paying for the factors is its <strong>profit</strong> (drawn as a separate output of the firm).</p>
-<h3 class="sub-heading">2.2 The two agents [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 6">6-8</a>]</h3>
-<p>There are two main economic agents: <strong>households</strong> and <strong>firms</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 6">6</a>].</p>
-<p><strong>Households play a double role</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 7">7</a>]:</p>
-<ul><li>on the one hand, they are the <strong>owners of the production factors</strong> (land, labour, capital, technology and "know-how");</li><li>on the other hand, they are the <strong>fundamental units of consumption</strong>.</li></ul>
-<p><strong>Firms use the production factors from households</strong> to produce the goods and services that households demand [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 8">8</a>].</p>
-<h3 class="sub-heading">2.3 How they exchange [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 9">9-10</a>]</h3>
-<p>The exchange between firms and households happens in markets:</p>
-<ul><li><strong>Factor markets</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 9">9</a>]: households deliver inputs to firms and get incomes (wages, rents, dividends). This exchange takes place in the <strong>markets of factors</strong>, such as the <strong>labour market</strong> and the <strong>stock-exchange market</strong>.</li><li><strong>Market of goods and services</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 10">10</a>]: firms produce goods and services that they exchange with households in this market, and firms get the money spent by households.</li></ul>
-<h3 class="sub-heading">2.4 Real and financial flows [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 11">11</a>]</h3>
-<p>In the economic system two types of flow can be distinguished:</p>
-<ul><li><strong>Real flows</strong>: goods, services and factors (what physically moves);</li><li><strong>Financial flows</strong>: their <strong>monetary compensation</strong> (the money that moves the other way).</li></ul>
-<p>Every real flow has a financial flow running in the opposite direction: goods go to households while expenditures go to firms; labour goes to firms while wages go to households.</p>
+<p>The <strong>circular flow of income</strong> is a simple economic model of the reciprocal circulation of income between producers and consumers. The markets of goods and services and the markets of factors interact continuously and create a <strong>double flow, real and monetary</strong>; through it, the economy of a country decides <strong>what to produce, how, and for whom</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 5">5</a>].</p>
+<p>Two economic agents take part [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 6">6</a>]:</p>
+<ul><li><strong>Households</strong> play a double role [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 7">7</a>]: they <strong>own the factors of production</strong> (land, labour, capital, technology and know-how) and they are the <strong>fundamental units of consumption</strong>.</li><li><strong>Firms</strong> use the factors supplied by households to produce the goods and services that households demand [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 8">8</a>].</li></ul>
+<p>The exchange between them takes place in two markets:</p>
+<ul><li>In the <strong>factor markets</strong>, such as the labour market and the stock-exchange market, households deliver inputs to firms and receive incomes in return: <strong>wages, rents and dividends</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 9">9</a>].</li><li>In the <strong>market of goods and services</strong>, firms sell what they produce to households and collect the money that households spend [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 10">10</a>].</li></ul>
+<p>Every exchange therefore has two sides [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 11">11</a>]. <strong>Real flows</strong> are the goods, services and factors themselves; <strong>financial flows</strong> are their monetary compensation, which runs in the opposite direction. What the firm keeps after paying for the factors is its <strong>profit</strong>.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="100%" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Circular flow of income">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="20.0" y="165.0" width="150.0" height="60.0" rx="8" fill="none" stroke="var(--text-heading)" stroke-width="1.4"/>
+<text x="95.0" y="199.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">HOUSEHOLDS</text>
+<rect x="460.0" y="165.0" width="150.0" height="60.0" rx="8" fill="none" stroke="var(--text-heading)" stroke-width="1.4"/>
+<text x="535.0" y="199.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">FIRMS</text>
+<rect x="245.0" y="15.0" width="140.0" height="100.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="315.0" y="52.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Market of</text>
+<text x="315.0" y="69.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">goods and</text>
+<text x="315.0" y="86.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">services</text>
+<rect x="245.0" y="280.0" width="140.0" height="100.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="315.0" y="317.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Market of</text>
+<text x="315.0" y="334.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">factors of</text>
+<text x="315.0" y="351.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">production</text>
+<line x1="560.0" y1="165.0" x2="560.0" y2="38.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="560.0" y1="38.0" x2="385.0" y2="38.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M385.0,38.0 L393.3,34.5 L393.3,41.5 Z" fill="#3b82f6"/>
+<line x1="245.0" y1="38.0" x2="70.0" y2="38.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="70.0" y1="38.0" x2="70.0" y2="165.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M70.0,165.0 L66.5,156.7 L73.5,156.7 Z" fill="#3b82f6"/>
+<text x="472.0" y="30.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">goods and services</text>
+<text x="158.0" y="30.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">goods and services</text>
+<line x1="120.0" y1="165.0" x2="120.0" y2="95.0" stroke="#10b981" stroke-width="2"/>
+<line x1="120.0" y1="95.0" x2="245.0" y2="95.0" stroke="#10b981" stroke-width="2"/>
+<path d="M245.0,95.0 L236.7,98.5 L236.7,91.5 Z" fill="#10b981"/>
+<line x1="385.0" y1="95.0" x2="510.0" y2="95.0" stroke="#10b981" stroke-width="2"/>
+<line x1="510.0" y1="95.0" x2="510.0" y2="165.0" stroke="#10b981" stroke-width="2"/>
+<path d="M510.0,165.0 L506.5,156.7 L513.5,156.7 Z" fill="#10b981"/>
+<text x="182.0" y="88.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="middle">expenditures</text>
+<text x="448.0" y="88.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="middle">revenues</text>
+<line x1="70.0" y1="225.0" x2="70.0" y2="357.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="70.0" y1="357.0" x2="245.0" y2="357.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M245.0,357.0 L236.7,360.5 L236.7,353.5 Z" fill="#3b82f6"/>
+<line x1="385.0" y1="357.0" x2="560.0" y2="357.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="560.0" y1="357.0" x2="560.0" y2="225.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M560.0,225.0 L563.5,233.3 L556.5,233.3 Z" fill="#3b82f6"/>
+<text x="158.0" y="372.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">factors of production</text>
+<text x="472.0" y="372.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">factors of production</text>
+<line x1="510.0" y1="225.0" x2="510.0" y2="300.0" stroke="#10b981" stroke-width="2"/>
+<line x1="510.0" y1="300.0" x2="385.0" y2="300.0" stroke="#10b981" stroke-width="2"/>
+<path d="M385.0,300.0 L393.3,296.5 L393.3,303.5 Z" fill="#10b981"/>
+<line x1="245.0" y1="300.0" x2="120.0" y2="300.0" stroke="#10b981" stroke-width="2"/>
+<line x1="120.0" y1="300.0" x2="120.0" y2="225.0" stroke="#10b981" stroke-width="2"/>
+<path d="M120.0,225.0 L123.5,233.3 L116.5,233.3 Z" fill="#10b981"/>
+<text x="392.0" y="318.0" fill="#10b981" font-size="11" font-weight="400" text-anchor="start">wages, rents, dividends</text>
+<text x="182.0" y="318.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="middle">incomes</text>
+<line x1="610.0" y1="195.0" x2="650.0" y2="195.0" stroke="#f59e0b" stroke-width="2"/>
+<path d="M650.0,195.0 L641.7,198.5 L641.7,191.5 Z" fill="#f59e0b"/>
+<text x="650.0" y="182.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="end">profit</text>
+<line x1="250.0" y1="205.0" x2="275.0" y2="205.0" stroke="#3b82f6" stroke-width="2"/>
+<text x="282.0" y="209.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">real flows</text>
+<line x1="250.0" y1="228.0" x2="275.0" y2="228.0" stroke="#10b981" stroke-width="2"/>
+<text x="282.0" y="232.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="start">financial flows</text>
+</g></svg>
+<div class="diagram-caption">Figure 2. Circular flow of income: real flows (goods, services, factors) run one way and financial flows (expenditures, revenues, wages, rents, dividends) run the opposite way through the two markets.</div>
+</div>
     </section>
     <section id="section-3">
       <h2 class="section-heading"><span class="section-num">§ 3</span> The nature of business: market and enterprise [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 12">12</a>]</h2>
-<div class="callout"><div class="callout-title">Economics [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 12">12</a>]</div><p>Economics is the study of how people and a society choose to use <strong>scarce resources</strong> (factors of production) to satisfy people's <strong>unlimited wants</strong>.</p></div>
-<p>The slide then asks how these needs can be satisfied, and answers with a chain:</p>
-<ol><li>Needs are satisfied through <strong>specialization = division of labour</strong> (each agent does what it does best).</li><li>Specialization requires <strong>coordination</strong> among the specialised agents.</li><li>Coordination can be carried out in two ways: by the <strong>market</strong> or by the <strong>enterprise</strong>.</li></ol>
-<p>The conclusion of the slide: <strong>an enterprise comes up because there is a dissatisfied need</strong>.</p>
+<p><strong>Economics</strong> studies how people and societies choose to use <strong>scarce resources</strong> (the factors of production) to satisfy <strong>unlimited wants</strong>. These wants are met through <strong>specialization</strong>, that is, the division of labour. Specialization in turn requires <strong>coordination</strong>, and coordination can be carried out in two ways: by the <strong>market</strong> or by the <strong>enterprise</strong>. An enterprise appears because there is a <strong>dissatisfied need</strong>.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" width="100%" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Nature of business: market and enterprise">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="80.0" y="10.0" width="400.0" height="50.0" rx="8" fill="var(--text-heading)" fill-opacity="0.10" stroke="var(--text-heading)" stroke-width="1.4"/>
+<text x="280.0" y="31.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Scarce resources (factors of production)</text>
+<text x="280.0" y="47.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">versus unlimited wants</text>
+<rect x="150.0" y="95.0" width="260.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="280.0" y="119.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Specialization = division of labour</text>
+<rect x="200.0" y="170.0" width="160.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="280.0" y="194.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Coordination</text>
+<rect x="80.0" y="250.0" width="150.0" height="44.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="155.0" y="276.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">MARKET</text>
+<rect x="330.0" y="250.0" width="150.0" height="44.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="405.0" y="276.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">ENTERPRISE</text>
+<line x1="280.0" y1="60.0" x2="280.0" y2="95.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M280.0,95.0 L276.5,86.7 L283.5,86.7 Z" fill="var(--text-faint)"/>
+<line x1="280.0" y1="135.0" x2="280.0" y2="170.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M280.0,170.0 L276.5,161.7 L283.5,161.7 Z" fill="var(--text-faint)"/>
+<line x1="260.0" y1="210.0" x2="155.0" y2="250.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M155.0,250.0 L161.5,243.8 L164.0,250.3 Z" fill="var(--text-faint)"/>
+<line x1="300.0" y1="210.0" x2="405.0" y2="250.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M405.0,250.0 L396.0,250.3 L398.5,243.8 Z" fill="var(--text-faint)"/>
+<text x="405.0" y="320.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="middle">arises from a dissatisfied need</text>
+</g></svg>
+<div class="diagram-caption">Figure 3. How needs are satisfied: specialization calls for coordination, which is provided either by the market or by the enterprise.</div>
+</div>
     </section>
     <section id="section-4">
       <h2 class="section-heading"><span class="section-num">§ 4</span> Business functional areas [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 13">13</a>]</h2>
-<p>The slide groups business functions into three blocks.</p>
-<h3 class="sub-heading">4.1 Real functions</h3>
-<p>The cycle drawn on the slide is <strong>Inputs → Real activity → Outputs</strong>. Its functions are:</p>
-<ul><li>functions related to <strong>supply</strong> (acquisition of inputs);</li><li>functions related to <strong>production</strong>;</li><li>functions related to <strong>marketing</strong>;</li><li>other <strong>support</strong> functions (Human Resources, Information Systems, ...).</li></ul>
-<h3 class="sub-heading">4.2 Financial functions</h3>
-<p>Running parallel to the real cycle is the <strong>financial activity</strong>: the firm must <strong>raise funds</strong> (fundraising: search for financial resources), <strong>pay for the acquisition of inputs</strong>, collect the <strong>revenues from sales</strong>, and pay the <strong>return of capital and interests</strong> to those who provided the funds. Its functions are:</p>
-<ul><li>functions related to <strong>financing</strong>;</li><li>functions related to <strong>investing</strong>.</li></ul>
-<h3 class="sub-heading">4.3 Management functions</h3>
-<ul><li>functions of <strong>planning</strong>;</li><li>functions of <strong>control</strong>;</li><li>functions of <strong>organization</strong>.</li></ul>
+<p>The functions of a business fall into three groups:</p>
+<ul><li><strong>Real functions</strong> turn inputs into outputs through the real activity: functions related to <strong>supply</strong> (acquisition of inputs), to <strong>production</strong> and to <strong>marketing</strong>, plus <strong>support</strong> functions such as Human Resources or Information Systems.</li><li><strong>Financial functions</strong> run alongside the real cycle. The firm raises funds (searches for financial resources), pays for the acquisition of inputs, receives revenues from sales, and returns capital and interests to those who provided the funds. They include the functions related to <strong>financing</strong> and to <strong>investing</strong>.</li><li><strong>Management functions</strong>: <strong>planning</strong>, <strong>organization</strong> and <strong>control</strong>.</li></ul>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" width="100%" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Business functional areas">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<text x="10.0" y="22.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="start">REAL FUNCTIONS</text>
+<rect x="10.0" y="34.0" width="120.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="70.0" y="58.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Inputs</text>
+<rect x="230.0" y="34.0" width="160.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="58.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Real activity</text>
+<rect x="490.0" y="34.0" width="120.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="550.0" y="58.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Outputs</text>
+<line x1="130.0" y1="54.0" x2="230.0" y2="54.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M230.0,54.0 L221.7,57.5 L221.7,50.5 Z" fill="#3b82f6"/>
+<line x1="390.0" y1="54.0" x2="490.0" y2="54.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M490.0,54.0 L481.7,57.5 L481.7,50.5 Z" fill="#3b82f6"/>
+<text x="10.0" y="180.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="start">FINANCIAL FUNCTIONS</text>
+<rect x="10.0" y="192.0" width="150.0" height="50.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="85.0" y="213.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Fundraising (search for</text>
+<text x="85.0" y="229.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">financial resources)</text>
+<rect x="230.0" y="192.0" width="160.0" height="50.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="310.0" y="221.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Financial activity</text>
+<rect x="460.0" y="192.0" width="180.0" height="50.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="550.0" y="213.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Return of capital</text>
+<text x="550.0" y="229.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">and interests</text>
+<line x1="160.0" y1="217.0" x2="230.0" y2="217.0" stroke="#10b981" stroke-width="2"/>
+<path d="M230.0,217.0 L221.7,220.5 L221.7,213.5 Z" fill="#10b981"/>
+<line x1="390.0" y1="217.0" x2="460.0" y2="217.0" stroke="#10b981" stroke-width="2"/>
+<path d="M460.0,217.0 L451.7,220.5 L451.7,213.5 Z" fill="#10b981"/>
+<line x1="270.0" y1="192.0" x2="270.0" y2="120.0" stroke="#10b981" stroke-width="1.6"/>
+<line x1="270.0" y1="120.0" x2="70.0" y2="120.0" stroke="#10b981" stroke-width="1.6"/>
+<line x1="70.0" y1="120.0" x2="70.0" y2="74.0" stroke="#10b981" stroke-width="1.6"/>
+<path d="M70.0,74.0 L73.5,82.3 L66.5,82.3 Z" fill="#10b981"/>
+<text x="170.0" y="112.0" fill="#10b981" font-size="11" font-weight="400" text-anchor="middle">payment for inputs' acquisition</text>
+<line x1="550.0" y1="74.0" x2="550.0" y2="140.0" stroke="#10b981" stroke-width="1.6"/>
+<line x1="550.0" y1="140.0" x2="350.0" y2="140.0" stroke="#10b981" stroke-width="1.6"/>
+<line x1="350.0" y1="140.0" x2="350.0" y2="192.0" stroke="#10b981" stroke-width="1.6"/>
+<path d="M350.0,192.0 L346.5,183.7 L353.5,183.7 Z" fill="#10b981"/>
+<text x="450.0" y="155.0" fill="#10b981" font-size="11" font-weight="400" text-anchor="middle">revenues from sales</text>
+<text x="10.0" y="290.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">MANAGEMENT FUNCTIONS</text>
+<rect x="200.0" y="298.0" width="130.0" height="34.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="265.0" y="319.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Planning</text>
+<rect x="350.0" y="298.0" width="130.0" height="34.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="415.0" y="319.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Organization</text>
+<rect x="500.0" y="298.0" width="130.0" height="34.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="565.0" y="319.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Control</text>
+</g></svg>
+<div class="diagram-caption">Figure 4. Business functional areas: the real cycle (inputs, real activity, outputs), the financial cycle that runs alongside it, and the management functions that govern both.</div>
+</div>
     </section>
     <section id="section-5">
       <h2 class="section-heading"><span class="section-num">§ 5</span> The management process [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 14">14</a>]</h2>
-<p>The management process consists of <strong>planning, organizing, leading and controlling</strong> (Henri Fayol, 1841-1925). The slide draws the four stages as a cycle around a common centre, <strong>"achieving the organization's stated purpose"</strong>, with one description per stage:</p>
-<div class="table-container"><table class="data-table"><thead><tr><th>Stage</th><th>Description on the slide</th></tr></thead><tbody><tr><td>Planning</td><td>Defining goals, establishing strategy, and developing subplans to coordinate activities.</td></tr><tr><td>Organizing</td><td>Determining what needs to be done, how it will be done, and who is to do it.</td></tr><tr><td>Leading</td><td>Directing and motivating all involved parties and resolving conflicts.</td></tr><tr><td>Controlling</td><td>Monitoring activities to ensure that they are accomplished as planned.</td></tr></tbody></table></div>
-<p>Because it is drawn as a cycle, controlling feeds back into planning: deviations found while monitoring lead to new goals and plans.</p>
+<p>Managing consists of four activities, as formulated by Henri Fayol (1841-1925), which are repeated as a cycle around one common aim, <strong>achieving the organization's stated purpose</strong>:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Stage</th><th>Content</th></tr></thead><tbody><tr><td><strong>Planning</strong></td><td>Defining goals, establishing strategy and developing subplans to coordinate activities</td></tr><tr><td><strong>Organizing</strong></td><td>Determining what needs to be done, how it will be done and who is to do it</td></tr><tr><td><strong>Leading</strong></td><td>Directing and motivating all involved parties and resolving conflicts</td></tr><tr><td><strong>Controlling</strong></td><td>Monitoring activities to ensure that they are accomplished as planned</td></tr></tbody></table></div>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 410" width="100%" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="The management process">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="230.0" y="175.0" width="160.0" height="60.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="310.0" y="193.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Achieving the</text>
+<text x="310.0" y="209.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">organization's</text>
+<text x="310.0" y="225.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">stated purpose</text>
+<rect x="185.0" y="15.0" width="250.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="35.2" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">Organizing</text>
+<text x="310.0" y="51.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Determining what needs to be done,</text>
+<text x="310.0" y="67.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">how it will be done, and who</text>
+<text x="310.0" y="83.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">is to do it</text>
+<rect x="425.0" y="165.0" width="190.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="520.0" y="186.3" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">Planning</text>
+<text x="520.0" y="201.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">Defining goals, establishing</text>
+<text x="520.0" y="216.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">strategy, and developing subplans</text>
+<text x="520.0" y="231.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">to coordinate activities</text>
+<rect x="5.0" y="165.0" width="190.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="100.0" y="186.3" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">Leading</text>
+<text x="100.0" y="201.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">Directing and motivating</text>
+<text x="100.0" y="216.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">all involved parties and</text>
+<text x="100.0" y="231.3" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">resolving conflicts</text>
+<rect x="185.0" y="315.0" width="250.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="335.2" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">Controlling</text>
+<text x="310.0" y="351.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Monitoring activities to ensure</text>
+<text x="310.0" y="367.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">that they are accomplished</text>
+<text x="310.0" y="383.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">as planned</text>
+<line x1="520.0" y1="165.0" x2="520.0" y2="55.0" stroke="var(--text-faint)" stroke-width="2"/>
+<line x1="520.0" y1="55.0" x2="435.0" y2="55.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M435.0,55.0 L443.3,51.5 L443.3,58.5 Z" fill="var(--text-faint)"/>
+<line x1="185.0" y1="55.0" x2="100.0" y2="55.0" stroke="var(--text-faint)" stroke-width="2"/>
+<line x1="100.0" y1="55.0" x2="100.0" y2="165.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M100.0,165.0 L96.5,156.7 L103.5,156.7 Z" fill="var(--text-faint)"/>
+<line x1="100.0" y1="245.0" x2="100.0" y2="355.0" stroke="var(--text-faint)" stroke-width="2"/>
+<line x1="100.0" y1="355.0" x2="185.0" y2="355.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M185.0,355.0 L176.7,358.5 L176.7,351.5 Z" fill="var(--text-faint)"/>
+<line x1="435.0" y1="355.0" x2="520.0" y2="355.0" stroke="var(--text-faint)" stroke-width="2"/>
+<line x1="520.0" y1="355.0" x2="520.0" y2="245.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M520.0,245.0 L523.5,253.3 L516.5,253.3 Z" fill="var(--text-faint)"/>
+</g></svg>
+<div class="diagram-caption">Figure 5. The management process as a cycle: planning, organizing, leading and controlling, all aimed at achieving the organization&#x27;s stated purpose (Henri Fayol).</div>
+</div>
     </section>
     <section id="section-6">
       <h2 class="section-heading"><span class="section-num">§ 6</span> The role of engineers in business management [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 15">15</a>]</h2>
-<p>The slide lists what an engineer brings to business management:</p>
-<ul><li>effective <strong>project planning</strong>, <strong>time management</strong> and <strong>problem solving</strong>;</li><li><strong>attention to detail</strong>;</li><li>experience in <strong>data processing</strong>;</li><li><strong>computer skills</strong> and <strong>technical knowledge</strong>.</li></ul>
+<p>Engineers bring to management:</p>
+<ul><li>effective project planning, time management and problem solving;</li><li>attention to detail;</li><li>experience in data processing;</li><li>computer skills and technical knowledge.</li></ul>
     </section>
     <section id="section-7">
       <h2 class="section-heading"><span class="section-num">§ 7</span> The enterprise and the entrepreneur [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 16">16-18</a>]</h2>
-<h3 class="sub-heading">7.1 Definitions [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 16">16</a>]</h3>
-<div class="callout"><div class="callout-title">Entrepreneur and entrepreneurship [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 16">16</a>]</div><p>An <strong>entrepreneur</strong> is a risk taker who starts and operates a business in hope of making a profit. <strong>Entrepreneurship</strong> is the process of bringing land, labour and capital together and taking the risk involved in producing a good or service in the hope of making a profit.</p></div>
-<p><strong>Who is the entrepreneur?</strong> There is <strong>no conclusive agreement</strong> about who the entrepreneur is, nor about his/her role in the enterprise. The entrepreneur's duties are not clear, mainly in <strong>big companies</strong>, where there are owners, management directors, moneylenders, ... who seem to share some of the characteristics attributed to a single person: the entrepreneur [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 16">16</a>].</p>
-<h3 class="sub-heading">7.2 Four ideas about who the entrepreneur is [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 17">17</a>]</h3>
-<div class="table-container"><table class="data-table"><thead><tr><th>View</th><th>Author and year on the slide</th></tr></thead><tbody><tr><td>Entrepreneur "Coordinator"</td><td>(no author given)</td></tr><tr><td>Entrepreneur "Risk Taker"</td><td>Knight, 1921</td></tr><tr><td>Entrepreneur "Innovator"</td><td>Schumpeter, 1950</td></tr><tr><td>Entrepreneur "On alert"</td><td>Kirzner, 1973</td></tr></tbody></table></div>
-<p>Therefore, the <strong>entrepreneur's functions</strong> are [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 17">17</a>]:</p>
-<ul><li>a person who <strong>coordinates and controls</strong> the productive process (coordinator);</li><li>a person who <strong>ensures the payment of the factors of production</strong>;</li><li>a person who <strong>takes risky decisions</strong> (risk taker);</li><li>a person who <strong>innovates</strong> (innovator);</li><li>a person who <strong>detects new business opportunities</strong> (on alert).</li></ul>
-<p>Each function matches one of the four views: the list is the union of them.</p>
-<h3 class="sub-heading">7.3 Internal organization of the enterprise [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 18">18</a>]</h3>
-<p>The slide builds an argument in four steps.</p>
-<p><strong>Step 1.</strong> The internal organization of the enterprise is <strong>teamwork</strong>.</p>
-<p><strong>Step 2.</strong> <strong>Team production requires a CONTROLLER</strong>, someone who supervises the team.</p>
-<p><strong>Step 3.</strong> What is the <strong>incentive</strong> for performing this task? The controller gets four rights:</p>
-<ul><li>to <strong>receive the residual income or surplus</strong> (what is left after paying all the other factors);</li><li>to <strong>control and reassign the other factors of production</strong>;</li><li>to be the <strong>central party in all the contracts</strong> signed with the inputs (raw materials, capital (K), human resources);</li><li>to <strong>sell the mentioned rights</strong>.</li></ul>
-<p><strong>Step 4.</strong> <strong>The entrepreneur is the person with all these rights.</strong></p>
-<p>So the entrepreneur is defined here not by a personality trait but by a bundle of rights: residual income, control, central contracting position and transferability of those rights.</p>
+<h3 class="sub-heading">7.1 Definitions</h3>
+<p>An <strong>entrepreneur</strong> is a risk taker who starts and operates a business in the hope of making a profit. <strong>Entrepreneurship</strong> is the process of bringing land, labour and capital together and taking the risk involved in producing a good or service in the hope of making a profit [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 16">16</a>].</p>
+<p>There is no conclusive agreement on who the entrepreneur is or on his or her role in the enterprise. The duties are especially unclear in big companies, where owners, management directors and moneylenders each seem to share some of the characteristics attributed to a single person, the entrepreneur [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 16">16</a>].</p>
+<h3 class="sub-heading">7.2 Four views of the entrepreneur [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 17">17</a>]</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>The entrepreneur as...</th><th>Author</th></tr></thead><tbody><tr><td>Coordinator</td><td></td></tr><tr><td>Risk taker</td><td>Knight, 1921</td></tr><tr><td>Innovator</td><td>Schumpeter, 1950</td></tr><tr><td>"On alert"</td><td>Kirzner, 1973</td></tr></tbody></table></div>
+<p>Putting the four views together, the <strong>functions of the entrepreneur</strong> are to coordinate and control the productive process, ensure the payment of the factors of production, take risky decisions, innovate, and detect new business opportunities.</p>
+<h3 class="sub-heading">7.3 The entrepreneur as the holder of rights [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 18">18</a>]</h3>
+<p>The internal organization of an enterprise is <strong>teamwork</strong>, and team production requires a <strong>controller</strong>. The incentive to take on that task comes from four rights:</p>
+<ul><li>to receive the <strong>residual income</strong> or surplus;</li><li>to <strong>control and reassign</strong> the other factors of production;</li><li>to be the <strong>central party in all the contracts</strong> signed with the inputs (raw materials, capital, human resources);</li><li>to <strong>sell</strong> these rights.</li></ul>
+<p>The <strong>entrepreneur is the person who holds all these rights</strong>.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" width="100%" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="The entrepreneur as holder of rights">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="170.0" y="10.0" width="280.0" height="36.0" rx="8" fill="var(--text-heading)" fill-opacity="0.10" stroke="var(--text-heading)" stroke-width="1.4"/>
+<text x="310.0" y="32.5" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Internal organization = teamwork</text>
+<rect x="170.0" y="70.0" width="280.0" height="36.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="92.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Team production requires a CONTROLLER</text>
+<rect x="170.0" y="130.0" width="280.0" height="36.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="310.0" y="152.6" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Incentive for this task?</text>
+<line x1="310.0" y1="46.0" x2="310.0" y2="70.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M310.0,70.0 L306.5,61.7 L313.5,61.7 Z" fill="var(--text-faint)"/>
+<line x1="310.0" y1="106.0" x2="310.0" y2="130.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M310.0,130.0 L306.5,121.7 L313.5,121.7 Z" fill="var(--text-faint)"/>
+<rect x="20.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="90.0" y="226.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">To receive the residual</text>
+<text x="90.0" y="240.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">income or surplus</text>
+<line x1="310.0" y1="166.0" x2="90.0" y2="200.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M90.0,200.0 L97.7,195.3 L98.7,202.2 Z" fill="var(--text-faint)"/>
+<line x1="90.0" y1="260.0" x2="310.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M310.0,300.0 L301.2,302.0 L302.5,295.1 Z" fill="var(--text-faint)"/>
+<rect x="168.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="238.0" y="226.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">To control and reassign the</text>
+<text x="238.0" y="240.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">other factors of production</text>
+<line x1="310.0" y1="166.0" x2="238.0" y2="200.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M238.0,200.0 L244.0,193.3 L247.0,199.6 Z" fill="var(--text-faint)"/>
+<line x1="238.0" y1="260.0" x2="310.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M310.0,300.0 L301.1,299.0 L304.5,292.9 Z" fill="var(--text-faint)"/>
+<rect x="316.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="386.0" y="219.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">To be the central party</text>
+<text x="386.0" y="233.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">in all the contracts</text>
+<text x="386.0" y="247.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">with the inputs</text>
+<line x1="310.0" y1="166.0" x2="386.0" y2="200.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M386.0,200.0 L377.0,199.8 L379.9,193.4 Z" fill="var(--text-faint)"/>
+<line x1="386.0" y1="260.0" x2="310.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M310.0,300.0 L315.7,293.0 L319.0,299.2 Z" fill="var(--text-faint)"/>
+<rect x="464.0" y="200.0" width="140.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="534.0" y="226.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">To sell the</text>
+<text x="534.0" y="240.5" fill="var(--text-muted)" font-size="10" font-weight="400" text-anchor="middle">mentioned rights</text>
+<line x1="310.0" y1="166.0" x2="534.0" y2="200.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M534.0,200.0 L525.3,202.2 L526.3,195.3 Z" fill="var(--text-faint)"/>
+<line x1="534.0" y1="260.0" x2="310.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M310.0,300.0 L317.5,295.1 L318.8,302.0 Z" fill="var(--text-faint)"/>
+<rect x="130.0" y="300.0" width="360.0" height="40.0" rx="8" fill="var(--text-heading)" fill-opacity="0.10" stroke="var(--text-heading)" stroke-width="1.4"/>
+<text x="310.0" y="324.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">The entrepreneur holds all these rights</text>
+</g></svg>
+<div class="diagram-caption">Figure 6. Why someone supervises team production: the controller is rewarded with four rights, and whoever holds them all is the entrepreneur.</div>
+</div>
     </section>
     <section id="section-8">
       <h2 class="section-heading"><span class="section-num">§ 8</span> Types of enterprises: classification criteria [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=19" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 19">19</a>]</h2>
-<div class="table-container"><table class="data-table"><thead><tr><th>Criterion</th><th>Classification</th></tr></thead><tbody><tr><td>Economic: sector</td><td>Primary, secondary, tertiary</td></tr><tr><td>Economic: size</td><td>Big, medium and small</td></tr><tr><td>Economic: scope of the business</td><td>One market / multi-market; national / multinational</td></tr><tr><td>Legal: ownership of the factors of production</td><td>Private companies; state-owned companies</td></tr><tr><td>Legal: main forms of business ownership</td><td>Sole proprietorship; partnership; corporation</td></tr></tbody></table></div>
-<p>The slide highlights the last row (the <strong>main forms of business ownership</strong>): the rest of the topic develops each of them.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Criterion</th><th>Classes</th></tr></thead><tbody><tr><td>Economic: sector</td><td>Primary, secondary, tertiary</td></tr><tr><td>Economic: size</td><td>Big, medium, small</td></tr><tr><td>Economic: scope of the business</td><td>One market or multi-market; national or multinational</td></tr><tr><td>Legal: ownership of the factors of production</td><td>Private companies; state-owned companies</td></tr><tr><td>Legal: main forms of business ownership</td><td>Sole proprietorship; partnership; corporation</td></tr></tbody></table></div>
     </section>
     <section id="section-9">
       <h2 class="section-heading"><span class="section-num">§ 9</span> Forms of business ownership [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=20" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 20">20</a>]</h2>
-<p>The full map of forms of business ownership on the slide is:</p>
-<ul><li><strong>Sole proprietorship</strong>;</li><li><strong>Partnership</strong>: general partnership; limited liability partnership (LLP);</li><li><strong>Corporation</strong>;</li><li><strong>Others</strong>: cooperative associations; joint ventures; mutual companies, etc.</li></ul>
-<p>The following sections take them in the order of the deck.</p>
+<p>The forms of ownership are the <strong>sole proprietorship</strong>, the <strong>partnership</strong> (general partnership or limited liability partnership, LLP), the <strong>corporation</strong>, and <strong>other forms</strong> such as cooperative associations, joint ventures and mutual companies.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" width="100%" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Forms of business ownership">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="10.0" y="140.0" width="150.0" height="50.0" rx="8" fill="var(--text-heading)" fill-opacity="0.10" stroke="var(--text-heading)" stroke-width="1.4"/>
+<text x="85.0" y="161.1" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Forms of business</text>
+<text x="85.0" y="178.1" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">ownership</text>
+<rect x="220.0" y="20.0" width="150.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="295.0" y="44.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Sole proprietorship</text>
+<line x1="160.0" y1="165.0" x2="190.0" y2="165.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="165.0" x2="190.0" y2="40.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="40.0" x2="220.0" y2="40.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M220.0,40.0 L211.7,43.5 L211.7,36.5 Z" fill="var(--text-faint)"/>
+<rect x="220.0" y="90.0" width="150.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="295.0" y="114.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Partnership</text>
+<line x1="160.0" y1="165.0" x2="190.0" y2="165.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="165.0" x2="190.0" y2="110.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="110.0" x2="220.0" y2="110.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M220.0,110.0 L211.7,113.5 L211.7,106.5 Z" fill="var(--text-faint)"/>
+<rect x="420.0" y="84.0" width="210.0" height="26.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="525.0" y="101.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">General partnership</text>
+<line x1="370.0" y1="110.0" x2="395.0" y2="110.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="110.0" x2="395.0" y2="97.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="97.0" x2="420.0" y2="97.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M420.0,97.0 L411.7,100.5 L411.7,93.5 Z" fill="var(--text-faint)"/>
+<rect x="420.0" y="114.0" width="210.0" height="26.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="525.0" y="131.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Limited liability partnership (LLP)</text>
+<line x1="370.0" y1="110.0" x2="395.0" y2="110.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="110.0" x2="395.0" y2="127.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="127.0" x2="420.0" y2="127.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M420.0,127.0 L411.7,130.5 L411.7,123.5 Z" fill="var(--text-faint)"/>
+<rect x="220.0" y="170.0" width="150.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="295.0" y="194.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Corporation</text>
+<line x1="160.0" y1="165.0" x2="190.0" y2="165.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="165.0" x2="190.0" y2="190.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="190.0" x2="220.0" y2="190.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M220.0,190.0 L211.7,193.5 L211.7,186.5 Z" fill="var(--text-faint)"/>
+<rect x="220.0" y="250.0" width="150.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="295.0" y="274.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">Others</text>
+<line x1="160.0" y1="165.0" x2="190.0" y2="165.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="165.0" x2="190.0" y2="270.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="190.0" y1="270.0" x2="220.0" y2="270.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M220.0,270.0 L211.7,273.5 L211.7,266.5 Z" fill="var(--text-faint)"/>
+<rect x="420.0" y="240.0" width="210.0" height="26.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="525.0" y="257.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Cooperative associations</text>
+<line x1="370.0" y1="270.0" x2="395.0" y2="270.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="270.0" x2="395.0" y2="253.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="253.0" x2="420.0" y2="253.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M420.0,253.0 L411.7,256.5 L411.7,249.5 Z" fill="var(--text-faint)"/>
+<rect x="420.0" y="270.0" width="210.0" height="26.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="525.0" y="287.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Joint ventures</text>
+<line x1="370.0" y1="270.0" x2="395.0" y2="270.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="270.0" x2="395.0" y2="283.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="283.0" x2="420.0" y2="283.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M420.0,283.0 L411.7,286.5 L411.7,279.5 Z" fill="var(--text-faint)"/>
+<rect x="420.0" y="300.0" width="210.0" height="26.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="525.0" y="317.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Mutual companies, etc.</text>
+<line x1="370.0" y1="270.0" x2="395.0" y2="270.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="270.0" x2="395.0" y2="313.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="395.0" y1="313.0" x2="420.0" y2="313.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<path d="M420.0,313.0 L411.7,316.5 L411.7,309.5 Z" fill="var(--text-faint)"/>
+</g></svg>
+<div class="diagram-caption">Figure 7. Forms of business ownership: sole proprietorship, partnership (general or limited liability), corporation, and other forms such as cooperatives, joint ventures and mutual companies.</div>
+</div>
     </section>
     <section id="section-10">
       <h2 class="section-heading"><span class="section-num">§ 10</span> The sole proprietorship [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=21" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 21">21</a>]</h2>
-<div class="callout"><div class="callout-title">Definition [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=21" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 21">21</a>]</div><p>A <strong>sole proprietorship</strong> is a business owned by <strong>one person</strong>, who assumes all the risk, takes decisions and looks for business opportunities. Therefore, he/she <strong>owns all the rights</strong>.</p></div>
-<p>Notice the link with §7.3: the sole proprietor holds every right of the entrepreneur at once.</p>
-<div class="table-container"><table class="data-table"><thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>1. Simple to start</td><td>1. Unlimited financial liability</td></tr><tr><td>2. Proprietor owns all profits</td><td>2. Hard to raise funds for expansion</td></tr><tr><td>3. Personal satisfaction (being your own boss)</td><td>3. Often has no one to share management responsibilities (one person's talents and skills)</td></tr><tr><td>4. Sole decision maker</td><td>4. Impermanence (it is not permanent)</td></tr><tr><td>5. No tax on business as distinct from owner</td><td></td></tr><tr><td>6. Easy to dissolve</td><td></td></tr></tbody></table></div>
-<p><strong>Unlimited financial liability</strong> means that the owner answers for the debts of the business with his/her own wealth, because the business and the owner are not separate persons. "No tax on business as distinct from owner" means the same thing seen from the tax side: profits are taxed once, as the owner's income.</p>
+<p>A <strong>sole proprietorship</strong> is a business owned by <strong>one person</strong>, who assumes all the risk, takes the decisions and looks for business opportunities, and therefore <strong>owns all the rights</strong>.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>Simple to start</td><td>Unlimited financial liability</td></tr><tr><td>The proprietor owns all the profits</td><td>Hard to raise funds for expansion</td></tr><tr><td>Personal satisfaction (being your own boss)</td><td>Often no one to share management responsibilities (one person's talents and skills)</td></tr><tr><td>Sole decision maker</td><td>Impermanence</td></tr><tr><td>No tax on the business as distinct from the owner</td><td></td></tr><tr><td>Easy to dissolve</td><td></td></tr></tbody></table></div>
     </section>
     <section id="section-11">
       <h2 class="section-heading"><span class="section-num">§ 11</span> The partnership [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 22">22-23</a>]</h2>
-<div class="callout"><div class="callout-title">Definitions [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 22">22</a>]</div><p>A <strong>partnership</strong> is an association of <strong>two or more persons</strong> to carry on as <strong>co-owners</strong> of a business for profit. People form a partnership by entering into a <strong>partnership agreement</strong>.</p>
-<p>A <strong>partnership agreement</strong> is a written contract between the owners of a partnership that identifies the business and states the partners' respective rights and duties (name, location, type of business, sharing of profits, dissolving the partnership, etc.).</p></div>
-<div class="table-container"><table class="data-table"><thead><tr><th>Advantages [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 23">23</a>]</th><th>Disadvantages [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 23">23</a>]</th></tr></thead><tbody><tr><td>1. Few restrictions on starting</td><td>1. Unlimited and joint financial liability</td></tr><tr><td>2. Pooling of funds, talents and borrowing power</td><td>2. Potential for personal disagreements</td></tr><tr><td>3. More chance to specialize than the sole proprietorship</td><td>3. Relative impermanence</td></tr><tr><td>4. No tax on business as distinct from owners</td><td>4. Frozen investment</td></tr></tbody></table></div>
-<p>Compared with the sole proprietorship, the partnership solves the "one person's talents" and "hard to raise funds" problems (several partners pool funds and skills), but liability becomes <strong>unlimited and joint</strong>: each partner can be made to answer for the debts of the whole business. A <strong>frozen investment</strong> means that a partner cannot easily take his/her money out of the business.</p>
+<p>A <strong>partnership</strong> is an association of <strong>two or more persons</strong> who carry on a business for profit as <strong>co-owners</strong>. It is formed through a <strong>partnership agreement</strong>, a written contract between the owners that identifies the business and sets out the partners' rights and duties: name, location, type of business, sharing of profits, dissolution of the partnership, and so on [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 22">22</a>].</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>Few restrictions on starting</td><td>Unlimited and joint financial liability</td></tr><tr><td>Pooling of funds, talents and borrowing power</td><td>Potential for personal disagreements</td></tr><tr><td>More chance to specialize than in a sole proprietorship</td><td>Relative impermanence</td></tr><tr><td>No tax on the business as distinct from the owners</td><td>Frozen investment</td></tr></tbody></table></div>
     </section>
     <section id="section-12">
       <h2 class="section-heading"><span class="section-num">§ 12</span> The corporation [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 24">24</a>]</h2>
-<div class="callout"><div class="callout-title">Definition [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 24">24</a>]</div><p>A <strong>corporation</strong> is a legally chartered organization that is a <strong>separate legal entity apart from its owners</strong>. It has most of the rights that a person has.</p></div>
-<div class="table-container"><table class="data-table"><thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>1. Separate legal entity (shareholders are the owners)</td><td>1. Special and double taxation</td></tr><tr><td>2. Limited financial liability of owners</td><td>2. Complex and costly to form and dissolve</td></tr><tr><td>3. Permanence (it can exist forever)</td><td>3. Government regulation and public disclosure requirements</td></tr><tr><td>4. Easy transfer of ownership (shares)</td><td></td></tr><tr><td>5. Greater financial capability</td><td></td></tr></tbody></table></div>
-<p>Every advantage follows from being a <strong>separate legal entity</strong>: since the corporation itself owes its debts, the owners can lose only what they invested (limited liability); since it does not depend on any owner's life, it can last forever (permanence); since ownership is divided into shares, it can be transferred easily and many investors can contribute (greater financial capability). The price is <strong>double taxation</strong> (the corporation pays tax on its profit as a person distinct from its owners, and the owners are taxed again on what they receive), more cost and complexity, and regulation and disclosure.</p>
-<h3 class="sub-heading">Comparison of the three main forms (built from Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=21" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 21">21-24</a>)</h3>
-<div class="table-container"><table class="data-table"><thead><tr><th>Feature</th><th>Sole proprietorship</th><th>Partnership</th><th>Corporation</th></tr></thead><tbody><tr><td>Owners</td><td>One person</td><td>Two or more co-owners</td><td>Shareholders</td></tr><tr><td>Liability</td><td>Unlimited</td><td>Unlimited and joint</td><td>Limited</td></tr><tr><td>Taxation</td><td>No tax on business as distinct from owner</td><td>No tax on business as distinct from owners</td><td>Special and double taxation</td></tr><tr><td>Permanence</td><td>Impermanent</td><td>Relatively impermanent</td><td>Permanent</td></tr><tr><td>Raising funds</td><td>Hard</td><td>Pooling of funds</td><td>Greater financial capability</td></tr><tr><td>Formation / dissolution</td><td>Simple / easy</td><td>Few restrictions</td><td>Complex and costly</td></tr></tbody></table></div>
+<p>A <strong>corporation</strong> is a legally chartered organization that is a <strong>separate legal entity</strong> from its owners and has most of the rights of a person.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>Separate legal entity (the shareholders are the owners)</td><td>Special and double taxation</td></tr><tr><td>Limited financial liability of the owners</td><td>Complex and costly to form and to dissolve</td></tr><tr><td>Permanence (it can exist forever)</td><td>Government regulation and public disclosure requirements</td></tr><tr><td>Easy transfer of ownership (shares)</td><td></td></tr><tr><td>Greater financial capability</td><td></td></tr></tbody></table></div>
+<h3 class="sub-heading">The three main forms side by side</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Feature</th><th>Sole proprietorship</th><th>Partnership</th><th>Corporation</th></tr></thead><tbody><tr><td>Owners</td><td>One person</td><td>Two or more co-owners</td><td>Shareholders</td></tr><tr><td>Liability</td><td>Unlimited</td><td>Unlimited and joint</td><td>Limited</td></tr><tr><td>Taxation</td><td>No tax on the business as distinct from the owner</td><td>No tax on the business as distinct from the owners</td><td>Special and double taxation</td></tr><tr><td>Permanence</td><td>Impermanent</td><td>Relatively impermanent</td><td>Permanent</td></tr><tr><td>Funds</td><td>Hard to raise</td><td>Pooled</td><td>Greater financial capability</td></tr><tr><td>Starting and ending</td><td>Simple to start, easy to dissolve</td><td>Few restrictions on starting</td><td>Complex and costly</td></tr></tbody></table></div>
     </section>
     <section id="section-13">
       <h2 class="section-heading"><span class="section-num">§ 13</span> Separation of ownership and control: the agency problem [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 25">25-26</a>]</h2>
-<h3 class="sub-heading">13.1 The problem [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 25">25</a>]</h3>
-<p>In <strong>large corporations</strong>, the <strong>Board of Directors</strong> guides the business. The slide describes the problem of separation of ownership and control:</p>
-<ul><li>companies are managed by <strong>managers</strong>, who are <strong>employees</strong> and who take decisions and assume risks (they are professionals);</li><li>managers just look for their <strong>own benefit</strong>, and the shareholder does not control their way of acting;</li><li>managers may take decisions in their interest, <strong>disregarding their effect on shareholders</strong>;</li><li>shareholders and managers have <strong>different access to information</strong> and <strong>different objectives</strong>;</li><li>shareholders do not have enough information to assess the managers' performance, nor incentives to do it; they do not have incentives, either, to improve the management of the business.</li></ul>
-<p>The chain drawn on the slide is: <strong>managers look for their own benefit → conflict of interest between ownership and control → agency problem</strong>.</p>
-<h3 class="sub-heading">13.2 The solution [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=26" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 26">26</a>]</h3>
-<p>Description of the solution: shareholders must be <strong>able to control the managers' way of acting</strong>, in order to avoid that they look for their own benefit. The <strong>mechanisms of control</strong> are:</p>
-<ol><li><strong>Selecting the Board of Directors</strong>;</li><li><strong>Contracts signed with managers (goal linked)</strong>: the manager's pay depends on reaching the goals that shareholders want;</li><li><strong>Requesting audits</strong>;</li><li><strong>Additional mechanisms of control: indicators</strong>.</li></ol>
-<p>The slide closes with a trend: <strong>more and more, shareholders owning lots of shares are the ones taking decisions</strong>.</p>
+<p>In large corporations the <strong>Board of Directors</strong> guides the business, and the company is run by <strong>managers</strong>: professional employees who take decisions and assume risks. This separates ownership (the shareholders) from control (the managers) and creates a problem [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 25">25</a>]:</p>
+<ul><li>managers may look for their <strong>own benefit</strong>, and the shareholders do not control the way they act;</li><li>managers may take decisions in their own interest, disregarding the effect on shareholders;</li><li>shareholders and managers have <strong>different access to information</strong> and <strong>different objectives</strong>;</li><li>shareholders have neither enough information to assess the managers' performance nor incentives to do so, or to improve the management of the business.</li></ul>
+<p>The result is a <strong>conflict of interest between ownership and control</strong>: the <strong>agency problem</strong>.</p>
+<p>The solution is for shareholders to be able to control the way managers act, so that they do not pursue their own benefit [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=26" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 26">26</a>]. The <strong>mechanisms of control</strong> are:</p>
+<ul><li>selecting the <strong>Board of Directors</strong>;</li><li><strong>contracts</strong> signed with managers, linked to goals;</li><li>requesting <strong>audits</strong>;</li><li>as an additional mechanism, <strong>indicators</strong>.</li></ul>
+<p>Increasingly, the shareholders who own large blocks of shares are the ones taking the decisions.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="100%" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Separation of ownership and control">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<text x="130.0" y="20.0" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">PROBLEM</text>
+<rect x="20.0" y="35.0" width="220.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="130.0" y="56.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Managers look for</text>
+<text x="130.0" y="73.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">their own benefit</text>
+<rect x="20.0" y="120.0" width="220.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="130.0" y="141.1" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">Conflict of interest between</text>
+<text x="130.0" y="158.1" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">ownership and control</text>
+<rect x="20.0" y="205.0" width="220.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="130.0" y="234.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">AGENCY PROBLEM</text>
+<line x1="130.0" y1="85.0" x2="130.0" y2="120.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M130.0,120.0 L126.5,111.7 L133.5,111.7 Z" fill="var(--text-faint)"/>
+<line x1="130.0" y1="170.0" x2="130.0" y2="205.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M130.0,205.0 L126.5,196.7 L133.5,196.7 Z" fill="var(--text-faint)"/>
+<text x="480.0" y="20.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">SOLUTION: MECHANISMS OF CONTROL</text>
+<rect x="330.0" y="35.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="60.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Selecting the Board of Directors</text>
+<rect x="330.0" y="90.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="115.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Contracts with managers (goal linked)</text>
+<rect x="330.0" y="145.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="170.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Requesting audits</text>
+<rect x="330.0" y="200.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="225.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">Additional mechanisms: indicators</text>
+<line x1="240.0" y1="230.0" x2="328.0" y2="230.0" stroke="var(--text-faint)" stroke-width="2"/>
+<path d="M328.0,230.0 L319.7,233.5 L319.7,226.5 Z" fill="var(--text-faint)"/>
+</g></svg>
+<div class="diagram-caption">Figure 8. Separation of ownership and control: the chain that leads to the agency problem and the mechanisms shareholders use to control managers.</div>
+</div>
     </section>
     <section id="section-14">
       <h2 class="section-heading"><span class="section-num">§ 14</span> The cooperative [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 27">27-28</a>]</h2>
-<div class="callout"><div class="callout-title">Definition [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 27">27</a>]</div><p>A <strong>cooperative association</strong> is an incorporated organization whose <strong>user-members (owners)</strong> get back any revenue left after expenses are paid.</p></div>
-<p><strong>Principles</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 27">27</a>]:</p>
-<ol><li>Membership is open.</li><li>Owned and democratically controlled by its members.</li><li>Economic benefits are distributed proportionally according to each member's level of participation in the cooperative.</li><li>Based on the values of self-help, self-responsibility, democracy and equality.</li><li>Cooperative members believe in the ethical values of honesty, openness, social responsibility and caring for others.</li></ol>
-<p><strong>Examples</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 28">28</a>]:</p>
-<ul><li><strong>Employee credit unions</strong>: they accept savings deposits from members who own shares in the co-op; members can borrow from the co-op; savers receive interest, and borrowers pay interest.</li><li><strong>Agricultural co-ops</strong>: they help member farmers market their products.</li><li><strong>Buying co-ops</strong>: they help members buy their products at lower prices.</li><li><strong>Consumer co-ops</strong>: they operate customer-owned retail facilities; consumers get together and form a buying pool to get quantity discounts and to replace the wholesalers and retailers.</li></ul>
-<p>The difference with the corporation is in principle 3: benefits are shared by <strong>participation</strong> (how much each member uses the cooperative), not by the capital each one contributed.</p>
+<p>A <strong>cooperative association</strong> is an incorporated organization whose <strong>user-members</strong>, who are also its owners, get back any revenue left after expenses are paid [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 27">27</a>]. It follows five principles:</p>
+<ol><li>Membership is open.</li><li>It is owned and democratically controlled by its members.</li><li>Economic benefits are distributed in proportion to each member's level of participation in the cooperative.</li><li>It is based on the values of self-help, self-responsibility, democracy and equality.</li><li>Its members believe in the ethical values of honesty, openness, social responsibility and caring for others.</li></ol>
+<p>Common types of cooperative [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 28">28</a>]:</p>
+<ul><li><strong>Employee credit unions</strong> accept savings deposits from members, who own shares in the co-op, and lend to members: savers receive interest and borrowers pay it.</li><li><strong>Agricultural co-ops</strong> help member farmers market their products.</li><li><strong>Buying co-ops</strong> help members buy products at lower prices.</li><li><strong>Consumer co-ops</strong> run customer-owned retail facilities: consumers form a buying pool to obtain quantity discounts and to replace wholesalers and retailers.</li></ul>
     </section>
     <section id="section-15">
       <h2 class="section-heading"><span class="section-num">§ 15</span> Other forms of business ownership [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic%201_The%20Firm_Types%20%20Objectives.pdf#page=29" target="_blank" rel="noopener" title="Open Topic 1 The Firm.pdf at page 29">29</a>]</h2>
-<ul><li>A <strong>limited partnership</strong> is a business in which one or more, <strong>but not all</strong>, of the partners are liable for the firm's debts <strong>only to the extent of their financial investment</strong> in the firm.</li><li>A <strong>joint venture</strong> is a special type of partnership set up by individuals or firms to <strong>accomplish a specific task or project</strong>. It is very important and usual in <strong>international business</strong>.</li></ul>
-<p>The limited partnership is a middle way between the partnership (all partners with unlimited liability) and the corporation (all owners with limited liability).</p>
+<ul><li>In a <strong>limited partnership</strong>, one or more of the partners, but not all of them, are liable for the firm's debts only up to the amount they have invested in it.</li><li>A <strong>joint venture</strong> is a special type of partnership set up by individuals or firms to accomplish a specific task or project. It is very important and common in international business.</li></ul>
     </section>
 
   </main>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 470" width="100%" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="Porter's five competitive forces">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="255.0" y="165.0" width="190.0" height="140.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="350.0" y="193.8" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">INDUSTRY RIVALRY</text>
+<text x="350.0" y="208.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Rivalry among existing firms</text>
+<text x="350.0" y="223.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Concentration</text>
+<text x="350.0" y="238.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Diversity of competitors</text>
+<text x="350.0" y="253.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Product differentiation</text>
+<text x="350.0" y="268.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Excess capacity and exit barriers</text>
+<text x="350.0" y="283.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Cost conditions</text>
+<rect x="255.0" y="10.0" width="190.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="350.0" y="31.4" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">SUPPLIER POWER</text>
+<text x="350.0" y="46.4" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Bargaining power of suppliers:</text>
+<text x="350.0" y="61.4" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">suppliers' price sensitivity,</text>
+<text x="350.0" y="76.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">relative bargaining power</text>
+<rect x="255.0" y="380.0" width="190.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="350.0" y="401.4" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">BUYER POWER</text>
+<text x="350.0" y="416.4" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Bargaining power of buyers:</text>
+<text x="350.0" y="431.4" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">buyers' price sensitivity,</text>
+<text x="350.0" y="446.4" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">relative bargaining power</text>
+<rect x="10.0" y="130.0" width="200.0" height="210.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="110.0" y="178.8" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">THREAT OF ENTRY</text>
+<text x="110.0" y="193.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">(potential entrants)</text>
+<text x="110.0" y="208.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Capital requirements</text>
+<text x="110.0" y="223.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Economies of scale</text>
+<text x="110.0" y="238.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Absolute cost advantage</text>
+<text x="110.0" y="253.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Product differentiation</text>
+<text x="110.0" y="268.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Access to distribution</text>
+<text x="110.0" y="283.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">channels</text>
+<text x="110.0" y="298.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Legal / regulatory barriers</text>
+<rect x="490.0" y="150.0" width="200.0" height="170.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="590.0" y="193.8" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">SUBSTITUTE COMPETITION</text>
+<text x="590.0" y="208.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">(threat of substitutes)</text>
+<text x="590.0" y="223.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Buyers' propensity</text>
+<text x="590.0" y="238.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">to substitute</text>
+<text x="590.0" y="253.8" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Relative prices and</text>
+<text x="590.0" y="268.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">performance of</text>
+<text x="590.0" y="283.9" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">substitutes</text>
+<line x1="350.0" y1="90.0" x2="350.0" y2="165.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M350.0,165.0 L346.5,156.7 L353.5,156.7 Z" fill="#8a94a6"/>
+<line x1="350.0" y1="380.0" x2="350.0" y2="305.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M350.0,305.0 L353.5,313.3 L346.5,313.3 Z" fill="#8a94a6"/>
+<line x1="210.0" y1="235.0" x2="255.0" y2="235.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M255.0,235.0 L246.7,238.5 L246.7,231.5 Z" fill="#8a94a6"/>
+<line x1="490.0" y1="235.0" x2="445.0" y2="235.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M445.0,235.0 L453.3,231.5 L453.3,238.5 Z" fill="#8a94a6"/>
+</g></svg>

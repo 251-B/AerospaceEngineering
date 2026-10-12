@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 410" width="100%" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="The management process">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="230.0" y="175.0" width="160.0" height="60.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="310.0" y="193.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Achieving the</text>
+<text x="310.0" y="209.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">organization's</text>
+<text x="310.0" y="225.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">stated purpose</text>
+<rect x="185.0" y="15.0" width="250.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="35.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Organizing</text>
+<text x="310.0" y="51.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Determining what needs to be done,</text>
+<text x="310.0" y="67.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">how it will be done, and who</text>
+<text x="310.0" y="83.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">is to do it</text>
+<rect x="425.0" y="165.0" width="190.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="520.0" y="186.3" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">Planning</text>
+<text x="520.0" y="201.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Defining goals, establishing</text>
+<text x="520.0" y="216.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">strategy, and developing subplans</text>
+<text x="520.0" y="231.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">to coordinate activities</text>
+<rect x="5.0" y="165.0" width="190.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="100.0" y="186.3" fill="#4b5563" font-size="11" font-weight="700" text-anchor="middle">Leading</text>
+<text x="100.0" y="201.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Directing and motivating</text>
+<text x="100.0" y="216.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">all involved parties and</text>
+<text x="100.0" y="231.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">resolving conflicts</text>
+<rect x="185.0" y="315.0" width="250.0" height="80.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="335.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Controlling</text>
+<text x="310.0" y="351.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Monitoring activities to ensure</text>
+<text x="310.0" y="367.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">that they are accomplished</text>
+<text x="310.0" y="383.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">as planned</text>
+<line x1="520.0" y1="165.0" x2="520.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="520.0" y1="55.0" x2="435.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M435.0,55.0 L443.3,51.5 L443.3,58.5 Z" fill="#8a94a6"/>
+<line x1="185.0" y1="55.0" x2="100.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="100.0" y1="55.0" x2="100.0" y2="165.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M100.0,165.0 L96.5,156.7 L103.5,156.7 Z" fill="#8a94a6"/>
+<line x1="100.0" y1="245.0" x2="100.0" y2="355.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="100.0" y1="355.0" x2="185.0" y2="355.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M185.0,355.0 L176.7,358.5 L176.7,351.5 Z" fill="#8a94a6"/>
+<line x1="435.0" y1="355.0" x2="520.0" y2="355.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="520.0" y1="355.0" x2="520.0" y2="245.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M520.0,245.0 L523.5,253.3 L516.5,253.3 Z" fill="#8a94a6"/>
+</g></svg>

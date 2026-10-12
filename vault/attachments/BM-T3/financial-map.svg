@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="100%" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="The financial structure of the company">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="10.0" y="125.0" width="120.0" height="50.0" rx="8" fill="#4b5563" fill-opacity="0.10" stroke="#4b5563" stroke-width="1.4"/>
+<text x="70.0" y="146.1" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Financial</text>
+<text x="70.0" y="163.1" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">structure</text>
+<rect x="170.0" y="50.0" width="150.0" height="50.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="245.0" y="71.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">EQUITY</text>
+<text x="245.0" y="87.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">company resources</text>
+<rect x="170.0" y="200.0" width="150.0" height="50.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="245.0" y="221.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">LIABILITIES</text>
+<text x="245.0" y="237.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">external resources</text>
+<line x1="130.0" y1="150.0" x2="150.0" y2="150.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="150.0" y1="150.0" x2="150.0" y2="75.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="150.0" y1="75.0" x2="170.0" y2="75.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M170.0,75.0 L161.7,78.5 L161.7,71.5 Z" fill="#8a94a6"/>
+<line x1="130.0" y1="150.0" x2="150.0" y2="150.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="150.0" y1="150.0" x2="150.0" y2="225.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="150.0" y1="225.0" x2="170.0" y2="225.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M170.0,225.0 L161.7,228.5 L161.7,221.5 Z" fill="#8a94a6"/>
+<rect x="370.0" y="10.0" width="320.0" height="40.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="530.0" y="34.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Internal equity: self-financing</text>
+<line x1="320.0" y1="75.0" x2="345.0" y2="75.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="75.0" x2="345.0" y2="30.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="30.0" x2="370.0" y2="30.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M370.0,30.0 L361.7,33.5 L361.7,26.5 Z" fill="#8a94a6"/>
+<rect x="370.0" y="60.0" width="320.0" height="40.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="530.0" y="84.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">External equity: equity capital and shares</text>
+<line x1="320.0" y1="75.0" x2="345.0" y2="75.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="75.0" x2="345.0" y2="80.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="80.0" x2="370.0" y2="80.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M370.0,80.0 L361.7,83.5 L361.7,76.5 Z" fill="#8a94a6"/>
+<rect x="370.0" y="150.0" width="320.0" height="54.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="530.0" y="173.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Long term: bonds, long-term loans</text>
+<text x="530.0" y="189.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">and bank credits, leasing</text>
+<line x1="320.0" y1="225.0" x2="345.0" y2="225.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="225.0" x2="345.0" y2="177.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="177.0" x2="370.0" y2="177.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M370.0,177.0 L361.7,180.5 L361.7,173.5 Z" fill="#8a94a6"/>
+<rect x="370.0" y="220.0" width="320.0" height="54.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="530.0" y="243.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Short term: accounts payable, trade discount,</text>
+<text x="530.0" y="259.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">short-term loans and bank credits, factoring</text>
+<line x1="320.0" y1="225.0" x2="345.0" y2="225.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="225.0" x2="345.0" y2="247.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="345.0" y1="247.0" x2="370.0" y2="247.0" stroke="#8a94a6" stroke-width="1.2"/>
+<path d="M370.0,247.0 L361.7,250.5 L361.7,243.5 Z" fill="#8a94a6"/>
+</g></svg>

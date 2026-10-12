@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" width="100%" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Porter's value chain">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="10.0" y="75.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Support</text>
+<text x="10.0" y="92.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">activities</text>
+<rect x="120.0" y="20.0" width="440.0" height="30.0" rx="4" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="340.0" y="39.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Firm infrastructure</text>
+<rect x="120.0" y="54.0" width="440.0" height="30.0" rx="4" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="340.0" y="73.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Human resources</text>
+<rect x="120.0" y="88.0" width="440.0" height="30.0" rx="4" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="340.0" y="107.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Technology development</text>
+<rect x="120.0" y="122.0" width="440.0" height="30.0" rx="4" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="340.0" y="141.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Procurement</text>
+<rect x="120.0" y="165.0" width="84.0" height="110.0" rx="4" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="162.0" y="216.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Inbound</text>
+<text x="162.0" y="232.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">logistics</text>
+<rect x="208.0" y="165.0" width="84.0" height="110.0" rx="4" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="250.0" y="224.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Operations</text>
+<rect x="296.0" y="165.0" width="84.0" height="110.0" rx="4" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="338.0" y="216.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Outbound</text>
+<text x="338.0" y="232.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">logistics</text>
+<rect x="384.0" y="165.0" width="84.0" height="110.0" rx="4" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="426.0" y="216.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Marketing</text>
+<text x="426.0" y="232.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">and sales</text>
+<rect x="472.0" y="165.0" width="84.0" height="110.0" rx="4" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="514.0" y="224.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Service</text>
+<path d="M564,20 L564,275 L660,147 Z" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="600.0" y="152.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Margin</text>
+<text x="340.0" y="300.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Primary activities</text>
+</g></svg>
