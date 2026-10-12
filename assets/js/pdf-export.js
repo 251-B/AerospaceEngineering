@@ -227,7 +227,17 @@
     });
   }
 
+  /* Sticky or fixed bars (sub-chapter tabs, floating buttons) would print over the text. */
+  function hidePinned() {
+    [].forEach.call(document.querySelectorAll('body *'), function (e) {
+      if (e.classList.contains('pdf-print-head') || e.closest('.katex')) return;
+      var pos = getComputedStyle(e).position;
+      if (pos === 'fixed' || pos === 'sticky') e.setAttribute('data-pdf-hidden', '');
+    });
+  }
+
   function prepare() {
+    hidePinned();
     printTheme(true);
     hideScreenHints();
     openDetails();
