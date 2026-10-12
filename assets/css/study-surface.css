@@ -285,9 +285,9 @@ html[data-theme="dark"] :is(h1, h2, h3, .topic-title, .set-title) {
 }
 
 .surface-panel {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
   box-sizing: border-box;
   width: 264px;
@@ -311,7 +311,7 @@ html[data-theme="light"] .surface-panel {
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
 }
 
-.surface-picker.is-open .surface-panel {
+.surface-panel.is-open {
   visibility: visible;
   opacity: 1;
   transform: none;
@@ -438,6 +438,13 @@ html[data-theme="light"] .surface-panel {
   }
 }
 
+/* Very narrow phones: some headers cannot wrap, so the trigger shrinks to a plain dot */
+@media (max-width: 360px) {
+  .surface-picker__btn {
+    width: 22px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .surface-panel,
   .surface-swatch,
@@ -447,6 +454,7 @@ html[data-theme="light"] .surface-panel {
   }
 }
 
-html[data-theme="print"] .surface-picker {
+html[data-theme="print"] .surface-picker,
+html[data-theme="print"] .surface-panel {
   display: none !important;
 }

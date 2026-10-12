@@ -121,11 +121,12 @@
     await scenario('no picker without study-surface.css', '', function (w, d) {
       return expect(!d.getElementById('surfacePicker'), 'picker present');
     }, false);
-    await scenario('one picker, right before #themeToggle, with six radios', '', function (w, d) {
+    await scenario('one picker before #themeToggle; its panel on <body> with six radios', '', function (w, d) {
       var all = d.querySelectorAll('#surfacePicker');
       var picker = all[0];
       return expect(all.length === 1 && picker.nextElementSibling === d.getElementById('themeToggle') &&
-        picker.querySelectorAll('[role="radio"]').length === 6, 'pickers=' + all.length);
+        d.querySelectorAll('#surfacePanel [role="radio"]').length === 6 && d.getElementById('surfacePanel').parentNode === d.body,
+        'pickers=' + all.length);
     }, true);
     await scenario('picker: open, choose, Escape', '', function (w, d, el, ls) {
       var wrap = d.getElementById('surfacePicker'), button = d.getElementById('surfaceButton');
@@ -135,8 +136,9 @@
       var chosen = el.getAttribute('data-surface') === 'slate-paper' &&
         d.querySelector('[data-surface="slate-paper"][role="radio"]').getAttribute('aria-checked') === 'true' &&
         d.querySelectorAll('[role="radio"][aria-checked="true"]').length === 1;
-      wrap.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-      var closed = !wrap.classList.contains('is-open') && button.getAttribute('aria-expanded') === 'false';
+      d.getElementById('surfacePanel').dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      var closed = !wrap.classList.contains('is-open') && !d.getElementById('surfacePanel').classList.contains('is-open') &&
+        button.getAttribute('aria-expanded') === 'false';
       return expect(opened && chosen && closed, 'opened=' + opened + ' chosen=' + chosen + ' closed=' + closed);
     }, true);
     await scenario('a theme change mirrored from another tab does not rewrite ae_surface', '', function (w, d, el, ls) {

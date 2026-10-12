@@ -198,8 +198,10 @@
     panel.appendChild(row);
     panel.appendChild(caption);
     wrap.appendChild(trigger);
-    wrap.appendChild(panel);
     toggleButton.parentNode.insertBefore(wrap, toggleButton);
+    // The panel lives on <body>: inside a header with transform/backdrop-filter, position:fixed
+    // would be measured against the header instead of the viewport.
+    document.body.appendChild(panel);
 
     function describe(id) {
       var surface = findSurface(id) || SURFACES[0];
@@ -221,8 +223,26 @@
       describe(surface.id);
     }
 
+    // Desktop: under the trigger, kept inside the viewport. Phone widths: CSS bottom sheet.
+    function place() {
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        panel.style.top = '';
+        panel.style.left = '';
+        return;
+      }
+      var box = trigger.getBoundingClientRect();
+      var width = panel.offsetWidth;
+      var left = Math.max(12, Math.min(box.right - width, window.innerWidth - width - 12));
+      panel.style.top = Math.round(box.bottom + 10) + 'px';
+      panel.style.left = Math.round(left) + 'px';
+    }
+
+    function isOpen() { return panel.classList.contains('is-open'); }
+
     function open() {
+      place();
       wrap.classList.add('is-open');
+      panel.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
       var checked = row.querySelector('[aria-checked="true"]');
       if (checked) checked.focus();
@@ -230,17 +250,27 @@
 
     function close(returnFocus) {
       wrap.classList.remove('is-open');
+      panel.classList.remove('is-open');
       trigger.setAttribute('aria-expanded', 'false');
       if (returnFocus) trigger.focus();
     }
 
     trigger.addEventListener('click', function () {
-      if (wrap.classList.contains('is-open')) close(false); else open();
+      if (isOpen()) close(false); else open();
     });
 
-    wrap.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && wrap.classList.contains('is-open')) {
+    window.addEventListener('resize', function () { if (isOpen()) place(); });
+    window.addEventListener('scroll', function () { if (isOpen()) place(); }, true);
+
+    function onKeydown(event) {
+      if (!isOpen()) return;
+      if (event.key === 'Escape') {
         event.stopPropagation();
+        close(true);
+        return;
+      }
+      if (event.key === 'Tab' && panel.contains(event.target)) {
+        event.preventDefault();   // the panel sits at the end of <body>: hand focus back to the trigger
         close(true);
         return;
       }
@@ -252,10 +282,13 @@
       next.tabIndex = 0;
       swatches[index].tabIndex = -1;
       next.focus();
-    });
+    }
+
+    wrap.addEventListener('keydown', onKeydown);
+    panel.addEventListener('keydown', onKeydown);
 
     document.addEventListener('click', function (event) {
-      if (!wrap.contains(event.target)) close(false);
+      if (!wrap.contains(event.target) && !panel.contains(event.target)) close(false);
     });
 
     document.addEventListener('ae-surface-change', sync);
