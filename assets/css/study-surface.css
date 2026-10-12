@@ -142,57 +142,75 @@ html[data-theme="dark"] :is(h1, h2, h3, .topic-title, .set-title) {
    which none of these selectors match.
 
    Pure white (#fff) and pure black (#000) are avoided on purpose (glare and
-   halation). Contrast ratios (WCAG 2.1) of text on bg / card / inset:
-     cream        main 13.4 / 15.0 / 12.2    secondary 6.1 / 6.8 / 5.5
-     sepia        main 11.5 / 12.5 / 10.2    secondary 5.8 / 6.3 / 5.2
-     slate-paper  main 13.9 / 15.1 / 12.8    secondary 6.1 / 6.6 / 5.6
-     sage         main 13.0 / 13.9 / 12.0    secondary 5.7 / 6.1 / 5.3
-     charcoal     main 14.1 / 12.7 / 13.6    secondary 7.1 / 6.4 / 6.8
+   halation). Contrast ratios (WCAG 2.1) of text on bg / card / inset; every
+   figure is AAA (7:1) or better:
+     cream        main 13.4 / 15.0 / 12.2    secondary 7.8 / 8.7 / 7.1
+     sepia        main 11.5 / 12.5 / 10.2    secondary 8.1 / 8.8 / 7.2
+     slate-paper  main 13.9 / 15.1 / 12.8    secondary 7.8 / 8.4 / 7.1
+     sage         main 13.0 / 13.9 / 12.0    secondary 7.7 / 8.2 / 7.1
+     charcoal     main 14.1 / 12.7 / 13.6    secondary 8.0 / 7.2 / 7.6
+   The secondary colours were nudged from the requested hex values (see the
+   comments next to each) because those only reached AA; the hue is kept.
    ========================================================================== */
 @media screen {
   html[data-surface="cream"][data-theme="light"] {
+    color-scheme: light; /* native scrollbars and controls follow the palette */
+    --study-l-min: 0;
+    --study-l-max: 0.31;
     --study-bg-light: #f5f2eb;
     --study-surface-light: #ffffff;
     --study-inset-light: #ece8df;
     --study-border-light: rgba(43, 45, 49, 0.12);
     --study-text: #23272f;
-    --study-text-2: #575b66;
+    --study-text-2: #474b56; /* requested #575b66 gives 5.5:1 on inset; this reaches AAA */
   }
 
   html[data-surface="sepia"][data-theme="light"] {
+    color-scheme: light; /* native scrollbars and controls follow the palette */
+    --study-l-min: 0;
+    --study-l-max: 0.31;
     --study-bg-light: #efe8d8;
     --study-surface-light: #f7f2e4;
     --study-inset-light: #e5dcb7;
     --study-border-light: rgba(60, 48, 38, 0.14);
     --study-text: #342a22;
-    --study-text-2: #63564a;
+    --study-text-2: #4d4137; /* requested #63564a gives 5.2:1 on inset */
   }
 
   html[data-surface="slate-paper"][data-theme="light"] {
+    color-scheme: light; /* native scrollbars and controls follow the palette */
+    --study-l-min: 0;
+    --study-l-max: 0.31;
     --study-bg-light: #eceff2;
     --study-surface-light: #f6f8fa;
     --study-inset-light: #e2e6eb;
     --study-border-light: rgba(26, 34, 45, 0.12);
     --study-text: #1a222d;
-    --study-text-2: #505a69;
+    --study-text-2: #414a58; /* requested #505a69 gives 5.6:1 on inset */
   }
 
   html[data-surface="sage"][data-theme="light"] {
+    color-scheme: light; /* native scrollbars and controls follow the palette */
+    --study-l-min: 0;
+    --study-l-max: 0.31;
     --study-bg-light: #ebf0ea;
     --study-surface-light: #f4f7f3;
     --study-inset-light: #e1e8e0;
     --study-border-light: rgba(31, 41, 34, 0.12);
     --study-text: #1f2922;
-    --study-text-2: #516155;
+    --study-text-2: #404d43; /* requested #516155 gives 5.3:1 on inset */
   }
 
   html[data-surface="charcoal"][data-theme="dark"] {
+    color-scheme: dark; /* native scrollbars and controls follow the palette */
+    --study-l-min: 0.91;
+    --study-l-max: 1;
     --study-bg-dark: #111620;
     --study-surface-dark: #18202f;
     --study-inset-dark: #141a26;
     --study-border-dark: rgba(255, 255, 255, 0.08);
     --study-text: #dde4ec;
-    --study-text-2: #94a3b8;
+    --study-text-2: #9fadc0; /* requested #94a3b8 gives 6.4:1 on card */
   }
 
   /* Page-level variables (every page names them slightly differently) */
@@ -457,4 +475,283 @@ html[data-theme="light"] .surface-panel {
 html[data-theme="print"] .surface-picker,
 html[data-theme="print"] .surface-panel {
   display: none !important;
+}
+
+/* ==========================================================================
+   7. ACCENT TEXT UNDER A READING PALETTE
+   Subject accents (cyan, amber, indigo, red, green, sky...) were tuned for the
+   portal's own surfaces; as text on a palette they fall below 4.5:1 and often
+   below 2:1. The rules below clamp only the *lightness* (and chroma) of those
+   text colours in OKLCH, relative to the element's own colour, so the hue
+   coding survives, the original colour is the starting point (hover states
+   included) and text that already complies is left untouched. Light palettes
+   cap lightness at 0.31, charcoal raises it to at least 0.91; with chroma at
+   most 0.13 that keeps every hue at 7:1 or better against all palette
+   surfaces, tinted hover backgrounds included. Elements filled with the accent
+   (listed in :not()) keep their own text colour, which already contrasts with
+   that fill. Only text paint changes: no variable is touched, so filled badges
+   and buttons that use the accent as a background are unaffected.
+   Browsers without relative colour syntax ignore the declaration.
+   Add a selector here when a new page introduces accent-coloured text;
+   tools/tests/test_surface.py audits the contrast of real pages.
+   ========================================================================== */
+@media screen {
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(
+  .accent,
+  .ae-quote-badge-field,
+  .ae-quote-badge-icon,
+  .ae-quote-badge-tag,
+  .ae-quote-mark.ae-quote-mark-close,
+  .ae-quote-mark.ae-quote-mark-open,
+  .article-category,
+  .article-container a,
+  .ask-ai-bar-label > span,
+  .back,
+  .back-link,
+  .back-link > span,
+  .badge-status.badge-available,
+  .block-badge,
+  .bottom-nav-btn.center > span,
+  .brand-badge,
+  .callout a,
+  .callout-title,
+  .callout-title > span,
+  .callout-title code,
+  .card > h3,
+  .card-arrow,
+  .card-badge,
+  .card-footer > span,
+  .card-pill,
+  .cbadge.interactive > span,
+  .cbadge.problems,
+  .cbadge.problems > span,
+  .cbadge.theory,
+  .cbadge.theory > span,
+  .cite,
+  .container span,
+  .data-table strong,
+  .enunciado-box > h4,
+  .eq-num,
+  .ex-num,
+  .exam-badge,
+  .example-badge,
+  .example-card > h5,
+  .fig b,
+  .fig.pair b,
+  .hero-badge,
+  .hero-pill > span,
+  .jump a,
+  .jump-btn,
+  .method-box a,
+  .minor-heading,
+  .nav-badge,
+  .nav-btn-title,
+  .nav-pill,
+  .note-box > strong,
+  .note-box-title,
+  .p-pill,
+  .page-header span,
+  .pdf-link > span,
+  .phase-badge,
+  .phase-badge-title.phase-1-badge,
+  .phase-badge-title.phase-2-badge,
+  .phase-badge-title.phase-3-badge,
+  .phase-badge-title.phase-4-badge,
+  .phase-block > h4,
+  .phase-num,
+  .pill-link,
+  .problem-header > span,
+  .problem-id,
+  .problem-num,
+  .problem-num-badge,
+  .problem-tag,
+  .question-label,
+  .reference-title,
+  .result-box > strong,
+  .result-box-title,
+  .section-num,
+  .section-tag,
+  .set-badge.available,
+  .set-card.available,
+  .set-code,
+  .site-footer a,
+  .solution-box,
+  .solution-summary > span,
+  .source-banner > strong,
+  .source-box,
+  .source-box > code,
+  .source-box > span,
+  .src-cite,
+  .src-link,
+  .src-panel > a,
+  .status-solved,
+  .step-heading,
+  .step-subheading,
+  .sub-case-header,
+  .subchapter-num,
+  .summary-hint,
+  .switch-btn.active > span,
+  .tab-link.active,
+  .tabs a,
+  .tabs span,
+  .toc-num,
+  .toc-title,
+  .topic-badge,
+  .topic-badge.available,
+  .topic-badge.badge-soon,
+  .topic-card.available,
+  .topic-code,
+  .topic-nav > a,
+  .topic-num,
+  .topic-number,
+  .topic-pill,
+  .topic-tag,
+  .walkthrough-badge,
+  .warning-box-title,
+  .year-label,
+  li a
+  ):not(
+    .step-badge, .alg-step, .switch-btn.active, .switch-btn.active *,
+    .pill-link.active, .p-pill.active, .nav-pill.active, .nav-pill:hover,
+    .ae-quote-copied-tooltip,
+    [style*="background: var(--accent)"], [style*="background: var(--accent)"] *
+  ) {
+    -webkit-text-fill-color: oklch(from currentcolor clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+}
+
+/* ==========================================================================
+   8. ACCENT-COLOURED TEXT INSIDE SVG FIGURES
+   SVG paints text with `fill`, which section 7 cannot reach, so the colours the
+   figures use for labels (literal hex values and the --fig-* fallbacks written by
+   tools/figures/svgkit.py) get the same lightness window. Only <text>/<tspan>
+   change; strokes, atoms and boxes keep their colours.
+   ========================================================================== */
+@media screen {
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="#f59e0b"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="#f59e0b"] :is(text, tspan) {
+    fill: oklch(from #f59e0b clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="#38bdf8"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="#38bdf8"] :is(text, tspan) {
+    fill: oklch(from #38bdf8 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="#94a3b8"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="#94a3b8"] :is(text, tspan) {
+    fill: oklch(from #94a3b8 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="#64748b"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="#64748b"] :is(text, tspan) {
+    fill: oklch(from #64748b clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="#ef4444"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="#ef4444"] :is(text, tspan) {
+    fill: oklch(from #ef4444 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="#10b981"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="#10b981"] :is(text, tspan) {
+    fill: oklch(from #10b981 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill="var(--accent)"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill="var(--accent)"] :is(text, tspan) {
+    fill: oklch(from var(--accent) clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill*="--fig-acc"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-acc"] :is(text, tspan) {
+    fill: oklch(from #f59e0b clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill*="--fig-atom"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-atom"] :is(text, tspan) {
+    fill: oklch(from #f59e0b clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill*="--fig-blue"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-blue"] :is(text, tspan) {
+    fill: oklch(from #3b82f6 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill*="--fig-pink"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-pink"] :is(text, tspan) {
+    fill: oklch(from #ec4899 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg :is(text, tspan)[fill*="--fig-green"],
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) svg g[fill*="--fig-green"] :is(text, tspan) {
+    fill: oklch(from #10b981 clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+  }
+}
+
+/* ==========================================================================
+   9. "ASK AI" WIDGET UNDER A READING PALETTE
+   assets/css/ask-ai.css derives every colour from the page's variables, which
+   the palettes already re-point; only its accent needs the lightness window of
+   section 7 (it is used both as text and as the fill of the primary buttons,
+   so the text on those fills becomes the palette background colour).
+   ========================================================================== */
+@media screen {
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.ask-ai-pill, .ask-ai-panel, .ask-ai-bar) {
+    --ai-accent: oklch(from var(--accent, #f59e0b) clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+    --ai-on-accent: var(--study-bg) !important; /* ask-ai.js sets it inline from the page accent */
+    --ai-muted: color-mix(in srgb, var(--study-text-2) 55%, var(--study-text));
+  }
+}
+
+/* ==========================================================================
+   10. FIGURES (RASTER) AND THE QUOTE CARD
+   The official figures are PNGs on a pure white canvas: a glaring slab on a
+   cream page and worse on charcoal. Light palettes multiply them into the
+   surface (white becomes the surface colour, ink stays ink); charcoal inverts
+   the lightness of the ink (hue is rotated back) and screens it onto the card.
+   The image files are untouched and the print layout ignores all of this.
+   The quote card's copy button and its "Copied!" notice used white on cyan or
+   green; under a palette they take the palette's text/background pair.
+   ========================================================================== */
+@media screen {
+  html:is([data-surface="cream"], [data-surface="sepia"], [data-surface="slate-paper"], [data-surface="sage"])[data-theme="light"] :is(figure, .statement-figure) img {
+    mix-blend-mode: multiply;
+  }
+
+  html[data-surface="charcoal"][data-theme="dark"] :is(figure, .statement-figure) img {
+    filter: invert(1) hue-rotate(180deg) brightness(0.92);
+    mix-blend-mode: screen;
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .ae-quote-btn:hover {
+    background: var(--study-text);
+    border-color: var(--study-text);
+    color: var(--study-bg);
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .ae-quote-copied-tooltip {
+    background: var(--study-text);
+    color: var(--study-bg);
+  }
+}
+
+/* ==========================================================================
+   11. FILLED SWITCH BUTTON
+   The active "Theory / Problem sheets" switch is filled with the subject accent
+   and carries a fixed text colour (white on indigo is only 4.47:1). Under a
+   palette the fill takes the lightness window and the label the palette's
+   background colour, which is AAA for every subject accent.
+   ========================================================================== */
+@media screen {
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active {
+    background: oklch(from var(--accent) clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+    border-color: transparent;
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active,
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active * {
+    color: var(--study-bg);
+    -webkit-text-fill-color: var(--study-bg);
+  }
 }

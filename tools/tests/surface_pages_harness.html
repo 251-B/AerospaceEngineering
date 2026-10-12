@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>reading-surface page audit</title>
+<!-- Driven by test_surface.py (headless Edge/Chrome, --dump-dom). For each real study page and each palette it loads the
+     page in an iframe, then reports (a) text below WCAG AAA contrast and (b) a hash of the page's own text, which must not
+     depend on the palette. Pages are read from ../../subjects; localStorage is shared through file access. -->
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var PAGES = [
+    'engineering-mechanics/teoria/topic-1', 'engineering-mechanics/problemas/topic-1',
+    'fluid-mechanics/teoria/topic-3-1-rtt', 'fluid-mechanics/problemas/topic-2-kinematics',
+    'advanced-maths/teoria/topic-1', 'advanced-maths/problemas/topic-1-problems', 'advanced-maths/problemas/index',
+    'aerospace-materials-1/teoria/topic-2-structure', 'aerospace-materials-1/problemas/topic-2-problems',
+    'business-management/teoria/topic-1', 'business-management/problemas/topic-3-financial-statements',
+    'fluid-mechanics/sources/index', 'engineering-mechanics/exams/index', 'fluid-mechanics/teoria/index'
+  ];
+  // surface id (or '' for the portal's own surfaces) -> theme it needs
+  var STATES = [['', 'light'], ['cream', 'light'], ['sepia', 'light'], ['slate-paper', 'light'], ['sage', 'light'], ['charcoal', 'dark']];
+  // Text on a solid accent fill keeps the page's own colour (dark ink on a bright accent), which is not clamped.
+  var FILLED = '.step-badge, .alg-step, .pill-link.active, .p-pill.active, .nav-pill.active';
+
+  function probe(doc) {
+    var win = doc.defaultView;
+    var cv = doc.createElement('canvas'); cv.width = cv.height = 1;
+    var cx = cv.getContext('2d', { willReadFrequently: true });
+    function rgb(css) { cx.clearRect(0, 0, 1, 1); cx.fillStyle = '#000'; cx.fillStyle = css; cx.fillRect(0, 0, 1, 1); var d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255]; }
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    function Y(c) { return 0.2126 * lin(c[0]) + 0.7152 * lin(c[1]) + 0.0722 * lin(c[2]); }
+    function backdrop(el) {
+      var stack = [], base = [255, 255, 255];
+      for (var e = el; e; e = e.parentElement) {
+        var cs = win.getComputedStyle(e);
+        if (cs.backgroundImage !== 'none') return null;
+        var c = rgb(cs.backgroundColor);
+        if (c[3] > 0) { stack.push(c); if (c[3] >= 1) break; }
+      }
+      for (var i = stack.length - 1; i >= 0; i--) base = base.map(function (v, k) { return stack[i][k] * stack[i][3] + v * (1 - stack[i][3]); });
+      return base;
+    }
+    // The quote card's "Copied!" notice is hidden until a click; show it so it is audited too.
+    doc.querySelectorAll('.ae-quote-copied-tooltip').forEach(function (n) { n.classList.add('visible'); n.style.opacity = '1'; });
+    var bad = [], checked = 0, text = [];
+    var walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT), seen = new Set();
+    while (walker.nextNode()) {
+      var node = walker.currentNode, el = node.parentElement;
+      if (!node.textContent.trim() || !el) continue;
+      if (el.closest('.surface-panel, .surface-picker, script, style')) continue;
+      if (!el.closest('.ae-quote-copied-tooltip') && el.closest('[class*="quote"], #quoteContainer')) continue;
+      text.push(node.textContent.replace(/\s+/g, ' ').trim());
+      if (seen.has(el) || el.closest('.katex-mathml, [hidden], svg, ' + FILLED)) continue;
+      seen.add(el);
+      var cs2 = win.getComputedStyle(el);
+      var r = el.getBoundingClientRect();
+      if (cs2.display === 'none' || cs2.visibility === 'hidden' || +cs2.opacity === 0 || !r.width || !r.height) continue;
+      var fillRaw = cs2.webkitTextFillColor;
+      if (fillRaw === 'rgba(0, 0, 0, 0)') continue; // gradient-clipped heading words
+      var bg = backdrop(el); if (!bg) continue;
+      var fg = rgb(fillRaw || cs2.color);
+      var f = fg.slice(0, 3).map(function (v, k) { return v * fg[3] + bg[k] * (1 - fg[3]); });
+      var a = Y(f), b = Y(bg), ratio = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+      var px = parseFloat(cs2.fontSize), large = px >= 24 || (px >= 18.66 && +cs2.fontWeight >= 700);
+      checked++;
+      if (ratio < (large ? 4.5 : 7)) bad.push(ratio.toFixed(2) + ' <' + el.tagName.toLowerCase() + '.' + String(el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className).split(' ')[0] + '> ' + node.textContent.trim().slice(0, 24));
+    }
+    var joined = text.join('|'), h = 0;
+    for (var i = 0; i < joined.length; i++) h = (h * 31 + joined.charCodeAt(i)) | 0;
+    return { checked: checked, bad: bad.slice(0, 6), badCount: bad.length, hash: h, length: joined.length };
+  }
+
+  function load(page, surface, theme) {
+    return new Promise(function (resolve) {
+      localStorage.clear();
+      localStorage.setItem('ae_theme', theme);
+      if (surface) localStorage.setItem('ae_surface', surface);
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:1200px;height:900px;border:0';
+      f.onload = function () {
+        setTimeout(function () {
+          var out;
+          try {
+            var attrs = f.contentDocument.documentElement;
+            // Headless virtual time paints no frames, so a 0.15 s colour transition would still show its first
+            // value (the browser's grey button face). Switching transitions off ends them at the final value.
+            var calm = f.contentDocument.createElement('style');
+            calm.textContent = '*, *::before, *::after { transition: none !important; animation: none !important; }';
+            f.contentDocument.head.appendChild(calm);
+            out = probe(f.contentDocument);
+            out.surface = attrs.getAttribute('data-surface'); out.theme = attrs.getAttribute('data-theme');
+            out.picker = !!f.contentDocument.getElementById('surfacePicker');
+          } catch (e) { out = { error: String(e) }; }
+          f.remove(); resolve(out);
+        }, 400);
+      };
+      f.src = '../../subjects/' + page + '.html';
+      document.body.appendChild(f);
+    });
+  }
+
+  (async function () {
+    var results = [];
+    for (var p = 0; p < PAGES.length; p++) {
+      var hashes = {};
+      for (var s = 0; s < STATES.length; s++) {
+        var r = await load(PAGES[p], STATES[s][0], STATES[s][1]);
+        r.page = PAGES[p]; r.state = STATES[s][0] || 'default';
+        results.push(r);
+      }
+    }
+    document.getElementById('results').textContent = JSON.stringify(results);
+  })();
+})();
+</script>
+</body>
+</html>

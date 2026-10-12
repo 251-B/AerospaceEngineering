@@ -12,6 +12,7 @@ import unittest
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
 HARNESS = pathlib.Path(__file__).resolve().parent / "surface_harness.html"
+PAGES_HARNESS = pathlib.Path(__file__).resolve().parent / "surface_pages_harness.html"
 CSS = REPO / "assets/css/study-surface.css"
 CANDIDATES = [
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
@@ -23,11 +24,11 @@ CANDIDATES = [
 
 # id -> (theme polarity, background, card, inset, main text, secondary text)
 PALETTES = {
-    "cream": ("light", "#f5f2eb", "#ffffff", "#ece8df", "#23272f", "#575b66"),
-    "sepia": ("light", "#efe8d8", "#f7f2e4", "#e5dcb7", "#342a22", "#63564a"),
-    "slate-paper": ("light", "#eceff2", "#f6f8fa", "#e2e6eb", "#1a222d", "#505a69"),
-    "sage": ("light", "#ebf0ea", "#f4f7f3", "#e1e8e0", "#1f2922", "#516155"),
-    "charcoal": ("dark", "#111620", "#18202f", "#141a26", "#dde4ec", "#94a3b8"),
+    "cream": ("light", "#f5f2eb", "#ffffff", "#ece8df", "#23272f", "#474b56"),
+    "sepia": ("light", "#efe8d8", "#f7f2e4", "#e5dcb7", "#342a22", "#4d4137"),
+    "slate-paper": ("light", "#eceff2", "#f6f8fa", "#e2e6eb", "#1a222d", "#414a58"),
+    "sage": ("light", "#ebf0ea", "#f4f7f3", "#e1e8e0", "#1f2922", "#404d43"),
+    "charcoal": ("dark", "#111620", "#18202f", "#141a26", "#dde4ec", "#9fadc0"),
 }
 
 
@@ -77,16 +78,23 @@ class PaletteContractTests(unittest.TestCase):
             for surface in (bg, card, inset):
                 self.assertGreaterEqual(contrast(text, surface), 7.0, f"{name}: {text} on {surface}")
 
-    def test_secondary_text_meets_wcag_aa_on_every_surface(self):
-        # The requested secondary colours reach AA (4.5:1) but not AAA (7:1); see the palette comment block.
+    def test_secondary_text_meets_wcag_aaa_on_every_surface(self):
+        # The requested secondary hex values only reached AA (4.5:1); they were nudged to AAA, keeping the hue.
         for name, (_, bg, card, inset, _, text2) in PALETTES.items():
             for surface in (bg, card, inset):
-                self.assertGreaterEqual(contrast(text2, surface), 4.5, f"{name}: {text2} on {surface}")
+                self.assertGreaterEqual(contrast(text2, surface), 7.0, f"{name}: {text2} on {surface}")
 
     def test_no_pure_white_or_black_page_inset_or_text(self):
         for name, (_, bg, _, inset, text, text2) in PALETTES.items():
             for colour in (bg, inset, text, text2):
                 self.assertNotIn(colour, ("#ffffff", "#000000"), name)
+
+    def test_accent_window_keeps_every_hue_at_aaa(self):
+        css = self.css
+        self.assertRegex(css, r'--study-l-max:\s*0\.31')
+        self.assertRegex(css, r'--study-l-min:\s*0\.91')
+        self.assertIn("min(c, 0.13)", css)
+        self.assertIn("-webkit-text-fill-color: oklch(from currentcolor", css)
 
     def test_palettes_are_screen_only_and_scoped_to_their_polarity(self):
         self.assertIn("@media screen", self.css)
@@ -122,6 +130,46 @@ class SurfaceScriptTests(unittest.TestCase):
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail']}" for r in self.results if not r["pass"]]
         self.assertEqual(failures, [], "\n" + "\n".join(failures))
+
+
+@unittest.skipUnless(BROWSER, "no Chromium-based browser available for headless tests")
+class SurfacePagesTests(unittest.TestCase):
+    """Real study pages under every palette: AAA text everywhere, and the page's own text never changes."""
+
+    @classmethod
+    def setUpClass(cls):
+        with tempfile.TemporaryDirectory() as profile:
+            proc = subprocess.run(
+                [BROWSER, "--headless=new", "--disable-gpu", "--no-first-run", "--allow-file-access-from-files",
+                 f"--user-data-dir={profile}", "--virtual-time-budget=600000", "--dump-dom", PAGES_HARNESS.as_uri()],
+                capture_output=True, text=True, timeout=300,
+            )
+        m = re.search(r'<pre id="results">(.*?)</pre>', proc.stdout, re.S)
+        if not m or m.group(1).strip() == "PENDING":
+            raise AssertionError(f"harness produced no results; stderr={proc.stderr[-300:]!r}")
+        cls.results = json.loads(html.unescape(m.group(1)))
+
+    def test_every_page_and_palette_was_audited(self):
+        self.assertEqual(len(self.results), 14 * 6)
+        self.assertEqual([r for r in self.results if "error" in r], [])
+
+    def test_palette_and_theme_were_applied(self):
+        for r in self.results:
+            want = r["state"] if r["state"] != "default" else "default"
+            self.assertEqual(r["surface"], want, f"{r['page']} {r['state']}")
+            self.assertTrue(r["picker"], f"{r['page']}: picker missing")
+
+    def test_text_is_aaa_on_every_page_and_palette(self):
+        failures = [f"{r['page']} [{r['state']}] {r['badCount']} below AAA, e.g. {r['bad'][:3]}"
+                    for r in self.results if r["state"] != "default" and r["badCount"]]
+        self.assertEqual(failures, [], "\n" + "\n".join(failures))
+
+    def test_a_palette_never_changes_the_text_of_a_page(self):
+        by_page = {}
+        for r in self.results:
+            by_page.setdefault(r["page"], {})[r["state"]] = (r["hash"], r["length"])
+        drift = [f"{page}: {states}" for page, states in by_page.items() if len(set(states.values())) != 1]
+        self.assertEqual(drift, [], "\n" + "\n".join(drift))
 
 
 if __name__ == "__main__":

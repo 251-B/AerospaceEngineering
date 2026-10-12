@@ -56,6 +56,7 @@ CSS = """
     .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
     .back { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.02em; }
     .back:hover { text-decoration: underline; }
+    .top-actions { display: flex; align-items: center; gap: 10px; }
     .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
     .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
     .tabs a, .tabs span { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border-card); color: var(--text-secondary); }
@@ -289,6 +290,7 @@ def _page(slug, current, h1, title, description, lead, body, note, accent, has_e
   {FONTS}
   <script src="../../../assets/js/theme.js"></script>
   <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
   <style>
     :root {{ --accent: var({accent}); }}{CSS}  </style>
 </head>
@@ -296,7 +298,7 @@ def _page(slug, current, h1, title, description, lead, body, note, accent, has_e
   <div class="wrap">
     <div class="top">
       <a class="back" href="../../../index.html">&larr; Study Portal</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+      <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
     </div>
     <nav class="tabs" aria-label="PDF pages">{"".join(tabs)}</nav>
     <h1>{h1}</h1>
