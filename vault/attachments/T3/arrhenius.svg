@@ -9,5 +9,5 @@
 <line x1="110.0" y1="60.0" x2="440.0" y2="200.0" stroke="#f59e0b" stroke-width="2.8"/>
 <line x1="250.0" y1="119.4" x2="330.0" y2="119.4" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="3,3"/>
 <line x1="330.0" y1="119.4" x2="330.0" y2="153.3" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="3,3"/>
-<text x="338.0" y="142.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">slope = −E_D/R</text>
+<text x="338.0" y="142.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">slope = −E<tspan baseline-shift="sub" font-size="72%">D</tspan>/R</text>
 </g></svg>

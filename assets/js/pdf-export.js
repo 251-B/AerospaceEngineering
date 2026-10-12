@@ -165,11 +165,6 @@
       if (t) head.appendChild(el('span', '', t));
     });
     root.insertBefore(head, root.firstChild);
-    var docs = [].map.call(document.querySelectorAll('.src-panel a'), function (a) { return clean(a.textContent); });
-    var foot = el('div', 'pdf-print-foot',
-      'Study notes written from the official course material' + (docs.length ? ' (' + docs.join('; ') + ')' : '') +
-      '. Online version: subjects/' + slug + '/' + area + '/' + stem + '.html');
-    root.appendChild(foot);
   }
 
   /* Keep only one problem: hide every sibling along the path from the card up to <body>. */
@@ -199,7 +194,7 @@
   /* Screen-only hints such as "Click to Expand" have no class: find them by their text. */
   function hideScreenHints() {
     [].forEach.call(document.querySelectorAll('summary *, .solution-toggle, .toggle-hint, [class*="expand"]'), function (e) {
-      if (e.children.length === 0 && /^\W*click to (expand|collapse)\b/i.test(clean(e.textContent))) e.setAttribute('data-pdf-hidden', '');
+      if (e.children.length === 0 && /^\W*(click to (expand|collapse)|expand\s*\/\s*collapse|show|hide)\W*$|^\W*click to (expand|collapse)\b/i.test(clean(e.textContent))) e.setAttribute('data-pdf-hidden', '');
     });
   }
 
@@ -216,14 +211,52 @@
     }
   }
 
-  /* Displayed equations wider than the printed line are scaled down to fit (not below 70 %). */
+  /* Tables with displayed equations would grow past the page: fix their layout, 60 % for the maths. */
+  function fitTables() {
+    [].forEach.call(document.querySelectorAll('table'), function (t) {
+      if (!t.querySelector('.katex-display') || t.closest('.katex')) return;
+      var rows = t.rows, n = 0, math = {}, text = [];
+      for (var r = 0; r < rows.length; r++) {
+        n = Math.max(n, rows[r].cells.length);
+        for (var c = 0; c < rows[r].cells.length; c++) {
+          var cell = rows[r].cells[c];
+          if (cell.querySelector('.katex-display')) math[c] = 1;
+          text[c] = (text[c] || 0) + clean(cell.textContent).length;
+        }
+      }
+      var m = Object.keys(math).length, others = n - m, total = 0;
+      if (!m || !n) return;
+      for (var i = 0; i < n; i++) if (!math[i]) total += Math.max(text[i] || 0, 1);
+      var colgroup = el('colgroup');
+      for (var j = 0; j < n; j++) {
+        var col = el('col');
+        /* maths columns share 60 %; the others share 40 % by their amount of text (at least 7 % each) */
+        var w = math[j] ? (others ? 60 / m : 100 / m) : Math.max(7, 40 * Math.max(text[j] || 0, 1) / total);
+        col.style.width = w.toFixed(1) + '%';
+        colgroup.appendChild(col);
+      }
+      [].forEach.call(t.querySelectorAll('colgroup'), function (g) { g.remove(); });
+      t.insertBefore(colgroup, t.firstChild);
+      [].forEach.call(t.querySelectorAll('th, td'), function (cell) { cell.style.width = 'auto'; });
+      t.style.tableLayout = 'fixed';
+      t.style.width = '100%';
+    });
+  }
+
+  /* Displayed equations wider than the printed line are scaled down to fit (not below 70 %, 55 % in tables). */
   function fitEquations() {
     [].forEach.call(document.querySelectorAll('.katex-display'), function (d) {
       var k = d.querySelector('.katex');
       if (!k) return;
       k.style.fontSize = '';
-      var avail = d.clientWidth, need = k.scrollWidth;
-      if (avail > 0 && need > avail) k.style.fontSize = Math.max(0.7, avail / need * 0.98).toFixed(3) + 'em';
+      /* the width the equation needs: its rows plus the equation number KaTeX places at the right */
+      var need = 0, tag = k.querySelector('.tag');
+      [].forEach.call(k.querySelectorAll('.katex-html > .base'), function (b) { need += b.getBoundingClientRect().width; });
+      if (tag) need += tag.getBoundingClientRect().width + 24;
+      need = Math.max(need, k.scrollWidth);
+      var avail = d.clientWidth;
+      var floor = d.closest('td, th') ? 0.55 : 0.7;
+      if (avail > 0 && need > avail) k.style.fontSize = Math.max(floor, avail / need * 0.98).toFixed(3) + 'em';
     });
   }
 
@@ -236,8 +269,65 @@
     });
   }
 
+  /* Keep a label or heading on the same page as the start of what it introduces: wrap it with the
+     next ~120 px of content in one unbreakable block (break-after: avoid alone is not reliable). */
+  var KEEP_SEL = 'h2, h3, h4, h5, [class*="phase-badge"], .phase-title, .phase-heading, .section-label, .pdf-summary, ' +
+    '.article-category, .callout-title, .result-callout-title, .strategy-title, .step-heading, .step-subheading, summary';
+  /* PDF only: open collapsible blocks become plain blocks, so their title can be kept with the content. */
+  function flattenDetails() {
+    [].forEach.call(document.querySelectorAll('details'), function (d) {
+      if (d.closest('[data-pdf-hidden]') || d.matches(CARD_SEL)) return;
+      var div = el('div', d.className + ' pdf-details');
+      while (d.firstChild) {
+        var n = d.firstChild;
+        if (n.tagName === 'SUMMARY') {
+          var s = el('div', (n.className ? n.className + ' ' : '') + 'pdf-summary');
+          while (n.firstChild) s.appendChild(n.firstChild);
+          d.removeChild(n);
+          div.appendChild(s);
+        } else div.appendChild(n);
+      }
+      d.parentNode.replaceChild(div, d);
+    });
+  }
+
+  function keepWithNext() {
+    [].forEach.call(document.querySelectorAll(KEEP_SEL), function (label) {
+      if (label.closest('.pdf-keep, .katex, .pdf-print-head, [data-pdf-hidden]') || label.tagName === 'SUMMARY') return;
+      var group = [label], h = label.getBoundingClientRect().height, n = label.nextElementSibling, depth = 0;
+      while (n && h < 120) {
+        if (n.matches(KEEP_SEL)) { group.push(n); h += n.getBoundingClientRect().height; n = n.nextElementSibling; continue; }
+        var nh = n.getBoundingClientRect().height;
+        if (nh > 360) {
+          /* too tall to move: move the label inside it, at the top, and keep it with its first child instead */
+          if (n.firstElementChild && !n.matches('table, ul, ol, .katex-display, svg') && depth < 3) {
+            var first = n.firstElementChild;
+            group.forEach(function (g) { n.insertBefore(g, first); });
+            n = first; depth++;
+            continue;
+          }
+          break;                                   /* leave the break to the browser */
+        }
+        group.push(n); h += nh; n = n.nextElementSibling;
+      }
+      if (group.length < 2 || h > 480) return;
+      var box = el('div', 'pdf-keep');
+      group[0].parentNode.insertBefore(box, group[0]);
+      group.forEach(function (g) { box.appendChild(g); });
+    });
+  }
+
+  /* A phase box that holds only its label (no content yet on the web page) is left out of the PDF. */
+  function hideEmptyPhases() {
+    [].forEach.call(document.querySelectorAll('[class*="phase-badge"], .phase-title'), function (label) {
+      var box = label.parentElement;
+      if (box && box !== document.body && clean(box.textContent) === clean(label.textContent)) box.setAttribute('data-pdf-hidden', '');
+    });
+  }
+
   function prepare() {
     hidePinned();
+    hideEmptyPhases();
     printTheme(true);
     hideScreenHints();
     openDetails();
@@ -259,7 +349,10 @@
           stripEmoji();
           prepare();
           if (card) card.classList.remove('pdf-break');
+          fitTables();
           fitEquations();
+          flattenDetails();
+          keepWithNext();
           document.documentElement.setAttribute('data-pdf-ready', '');
         }, 300);
       });

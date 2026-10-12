@@ -10,8 +10,11 @@ import pathlib
 REPO = pathlib.Path(__file__).resolve().parents[2]
 FIXED = {"EDGE": "#8a94a6", "TEXT": "#6b7280", "HEAD": "#4b5563", "ACC": "#f59e0b", "BLUE": "#3b82f6",
          "PINK": "#ec4899", "GREEN": "#10b981", "ATOM": "#f59e0b"}
-WEB = {"EDGE": "var(--text-faint)", "TEXT": "var(--text-muted)", "HEAD": "var(--text-heading)", "ACC": "#f59e0b",
-       "BLUE": "#3b82f6", "PINK": "#ec4899", "GREEN": "#10b981", "ATOM": "#f59e0b"}
+# Web copies: the colours are CSS variables with the screen colour as fallback, so the print layout
+# (assets/css/print.css) can map them to black and greys that survive black-and-white printing.
+WEB = {"EDGE": "var(--text-faint)", "TEXT": "var(--text-muted)", "HEAD": "var(--text-heading)",
+       "ACC": "var(--fig-acc, #f59e0b)", "BLUE": "var(--fig-blue, #3b82f6)", "PINK": "var(--fig-pink, #ec4899)",
+       "GREEN": "var(--fig-green, #10b981)", "ATOM": "var(--fig-atom, #f59e0b)"}
 
 
 def fmt(v):

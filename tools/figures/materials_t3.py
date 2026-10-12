@@ -34,11 +34,11 @@ def fick1():
     line(c, (80, top), (xa, top), "ACC", 2.6); line(c, (xa, top), (xb, 160), "ACC", 2.6); line(c, (xb, 160), (480, 160), "ACC", 2.6)
     line(c, (xa, top), (xa, bot), "EDGE", 1, "3,3"); line(c, (xb, 160), (xb, bot), "EDGE", 1, "3,3")
     text(c, (xa, bot + 18), "x₁", "TEXT", "middle"); text(c, (xb, bot + 18), "x₂", "TEXT", "middle")
-    text(c, (xa - 8, top - 8), "C_ext", "ACC", "end", weight="700"); text(c, (xb + 8, 152), "C_int", "ACC", weight="700")
+    text(c, (xa - 8, top - 8), 'C<tspan baseline-shift="sub" font-size="72%">ext</tspan>', "ACC", "end", weight="700"); text(c, (xb + 8, 152), 'C<tspan baseline-shift="sub" font-size="72%">int</tspan>', "ACC", weight="700")
     line(c, (230, 185), (330, 185), "BLUE", 2.4, head=True); text(c, (280, 175), "flux J", "BLUE", "middle", weight="700")
     text(c, (300, 70), "constant slope ΔC/Δx", "TEXT")
     REG.put("fick1", c, "Steady-state concentration profile",
-            "Steady state: the concentration falls linearly from C_ext to C_int across the layer, so the gradient "
+            "Steady state: the concentration falls linearly from $C_{ext}$ to $C_{int}$ across the layer, so the gradient "
             "ΔC/Δx and the flux J are the same at every point and do not change with time")
 
 
@@ -70,9 +70,9 @@ def arrhenius():
     text(c, (500, 240), "1/T", "TEXT", "end"); text(c, (90, 40), "ln D", "HEAD", weight="700")
     line(c, (110, 60), (440, 200), "ACC", 2.8)
     line(c, (250, 119.4), (330, 119.4), "EDGE", 1.2, "3,3"); line(c, (330, 119.4), (330, 153.3), "EDGE", 1.2, "3,3")
-    text(c, (338, 142), "slope = −E_D/R", "ACC", weight="700")
+    text(c, (338, 142), 'slope = −E<tspan baseline-shift="sub" font-size="72%">D</tspan>/R', "ACC", weight="700")
     REG.put("arrhenius", c, "Arrhenius plot of the diffusivity",
-            "Arrhenius plot: ln D falls linearly with 1/T, with slope −E_D/R. Schematic")
+            "Arrhenius plot: ln D falls linearly with 1/T, with slope $-E_D/R$. Schematic")
 
 
 def build():

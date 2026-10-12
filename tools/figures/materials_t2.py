@@ -312,7 +312,7 @@ def hex_cell(c, cx, cy):
 
 
 def fig_hex_axes():
-    c = Canvas(600, 310); cx, cy = 170, 225
+    c = Canvas(600, 262); cx, cy = 170, 195
     A, corners = hex_cell(c, cx, cy)
     o = hproj((0, 0, 0), cx, cy)
     for v, name, col in ((A[0], "a₁", "PINK"), (A[1], "a₂", "PINK"), (A[2], "a₃", "PINK")):
@@ -325,13 +325,15 @@ def fig_hex_axes():
     quad = [(p[0], p[1], 0), (q[0], q[1], 0), (q[0], q[1], 1.2), (p[0], p[1], 1.2)]
     pts = " ".join(f"{fmt(x)},{fmt(y)}" for x, y in (hproj(t, cx, cy) for t in quad))
     c.add(f'<polygon points="{pts}" fill="ACC" fill-opacity="0.28" stroke="ACC" stroke-width="1.8"/>')
-    text(c, (380, 70), "4 axes: a₁, a₂, a₃ (120° apart, in the base)", "TEXT", "start", 12)
+    text(c, (380, 50), "4 axes: a₁, a₂, a₃", "TEXT", "start", 12)
+    text(c, (380, 70), "(120° apart, in the base)", "TEXT", "start", 12)
     text(c, (380, 90), "and c (vertical)", "TEXT", "start", 12)
     text(c, (380, 130), "shaded face:", "ACC", "start", 13, "700")
     text(c, (380, 150), "a₁ = ∞, a₂ = 1, a₃ = −1, c = ∞", "TEXT", "start", 12)
     text(c, (380, 172), label("(0 1 -1 0)") + " ≡ " + label("(0 1 0)"), "ACC", "start", 15, "700")
-    text(c, (380, 194), "check: i = −(h + k) = −(0 + 1) = −1", "TEXT", "start", 12)
-    REG.put("hex-axes", c, "Hexagonal cell: the four axes and the (0 1 -1 0) plane")
+    text(c, (380, 194), "check: i = −(h + k)", "TEXT", "start", 12)
+    text(c, (380, 212), "= −(0 + 1) = −1", "TEXT", "start", 12)
+    REG.put("hex-axes", c, "Hexagonal cell: the four axes and the $(01\\bar{1}0)$ plane")
 
 
 def fig_hex_dirs():

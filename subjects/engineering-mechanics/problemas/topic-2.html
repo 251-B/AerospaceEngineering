@@ -628,7 +628,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Critical Points & Equilibrium Configurations:</strong></li>
 </ul>
-<p style="margin-bottom: 10px;">*Pedagogical Justification:* Equilibrium points occur where the resultant force vanishes, $F(x) = -\frac{dV}{dx} = 0$.</p>
+<p style="margin-bottom: 10px;"><strong>Pedagogical Justification:</strong> Equilibrium points occur where the resultant force vanishes, $F(x) = -\frac{dV}{dx} = 0$.</p>
 <div class="math-block">$$ \frac{dV}{dx} = -\frac{c}{2} \cdot 2(x^2 - a^2) \cdot (2x) = -2cx(x^2 - a^2) $$</div>
 <p style="margin-bottom: 10px;">Setting $\frac{dV}{dx} = 0$ yields three critical points:</p>
 <div class="math-block">$$ x_1 = 0, \qquad x_2 = +a, \qquad x_3 = -a $$</div>
@@ -939,7 +939,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Total Mechanical Energy $E$:</strong></li>
 </ul>
-<p style="margin-bottom: 10px;">*Pedagogical Justification:* Evaluating the initial energy reveals whether the particle is trapped in the well or has enough kinetic energy to reach other critical points.</p>
+<p style="margin-bottom: 10px;"><strong>Pedagogical Justification:</strong> Evaluating the initial energy reveals whether the particle is trapped in the well or has enough kinetic energy to reach other critical points.</p>
 <div class="math-block">$$ E = T(0) + V(x_0) = \frac{1}{2}m v_0^2 + V(a) $$</div>
 <div class="math-block">$$ E = \frac{1}{2}m (8ga) + mga(1^3 - 3\cdot 1) = 4mga - 2mga = +2mga $$</div>
 <p style="margin-bottom: 10px;"><strong>Critical Analytical Discovery:</strong> The total energy $E = +2mga$ is <strong>identical</strong> to the potential energy at the local maximum: $E = V(-a) = +2mga$.</p>
@@ -1072,7 +1072,7 @@
 <li><strong>Inertial Frame:</strong> Fixed Cartesian frame $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$.</li>
 <li><strong>Potential Energy Calculation via Integration by Parts:</strong></li>
 </ul>
-<p style="margin-bottom: 10px;">*Pedagogical Justification:* The force is 1D and depends only on $x$, so $\mathbf{F} = -\frac{dV}{dx}\mathbf{i}$. To find $V(x)$, we perform integration by parts on $\int x e^{x/a}\,dx$.</p>
+<p style="margin-bottom: 10px;"><strong>Pedagogical Justification:</strong> The force is 1D and depends only on $x$, so $\mathbf{F} = -\frac{dV}{dx}\mathbf{i}$. To find $V(x)$, we perform integration by parts on $\int x e^{x/a}\,dx$.</p>
 <div class="math-block">$$ V(x) = -\int F(x)\,dx = -mK \int x e^{x/a}\,dx $$</div>
 <p style="margin-bottom: 10px;">Let:</p>
 <div class="math-block">$$ u = x \implies du = dx $$</div>
@@ -1640,7 +1640,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Change of basis (planet-fixed rotating basis).</strong> Let $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ be the inertial basis and $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}\}$ the basis fixed to the planet, rotating at $\Omega$ about the polar axis $\mathbf{k}$, with $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i} + \sin\Omega t\,\mathbf{j}$. The columns are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}$ in $\mathcal{B}_0$:</li>
 </ul>
-<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \ \sin\Omega t & \cos\Omega t & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \\ \sin\Omega t & \cos\Omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>A body fixed at the equator at longitude $\varphi_0$ has $\mathbf{r} = R\,[{}_0 R_1](\cos\varphi_0, \sin\varphi_0, 0)^T = R\,\mathbf{e}_r$, with $\mathbf{e}_r = \cos(\Omega t + \varphi_0)\,\mathbf{i} + \sin(\Omega t + \varphi_0)\,\mathbf{j}$. Poisson's formula $\dot{\mathbf{e}}_r = \Omega\,\mathbf{e}_\varphi$, $\dot{\mathbf{e}}_\varphi = -\Omega\,\mathbf{e}_r$ gives $\mathbf{a}_0 = -\Omega^2R\,\mathbf{e}_r$, the centripetal acceleration used in Phase 3. The determinant, $R R^T$ and this acceleration were verified symbolically with sympy.</li>
 </ul>

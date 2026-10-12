@@ -11,8 +11,8 @@
 <line x1="400.0" y1="160.0" x2="400.0" y2="210.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="3,3"/>
 <text x="150.0" y="228.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x₁</text>
 <text x="400.0" y="228.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x₂</text>
-<text x="142.0" y="52.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="end">C_ext</text>
-<text x="408.0" y="152.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">C_int</text>
+<text x="142.0" y="52.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="end">C<tspan baseline-shift="sub" font-size="72%">ext</tspan></text>
+<text x="408.0" y="152.0" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">int</tspan></text>
 <line x1="230.0" y1="185.0" x2="330.0" y2="185.0" stroke="#3b82f6" stroke-width="2.4"/>
 <path d="M330.0,185.0 L321.7,188.5 L321.7,181.5 Z" fill="#3b82f6"/>
 <text x="280.0" y="175.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">flux J</text>

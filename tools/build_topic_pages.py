@@ -67,6 +67,32 @@ _CALLOUT = {"info": "callout", "note": "callout", "tip": "callout", "warning": "
 _BLOCK_START = re.compile(r"(\$\$|\||> |\s*[-*] |\d+\. |#|!\[\[)")
 
 
+_LI = re.compile(r"^(\s*)([-*]|\d+\.) (.*)$")
+
+
+def list_html(rows):
+    """Nested <ul>/<ol> from (indent, kind, text) rows: deeper indentation nests inside the item above."""
+    def build(idx, indent):
+        tag, items = rows[idx][1], []
+        while idx < len(rows) and rows[idx][0] >= indent:
+            ind, kind, text = rows[idx]
+            if ind > indent and items:
+                child, idx = build(idx, ind)
+                items[-1] += child
+                continue
+            if kind != tag:
+                break
+            items.append(f"<li>{inline(text)}")
+            idx += 1
+        return f"<{tag}>" + "".join(x + "</li>" for x in items) + f"</{tag}>", idx
+
+    out, idx = [], 0
+    while idx < len(rows):
+        html_list, idx = build(idx, rows[idx][0])
+        out.append(html_list)
+    return "".join(out)
+
+
 def blocks(lines, figure=None):
     """Convert Markdown lines (no section headings) to HTML; `figure(name)` renders an SVG embed."""
     out, i = [], 0
@@ -104,22 +130,16 @@ def blocks(lines, figure=None):
             cls = _CALLOUT.get(kind.lower(), "callout")
             out.append(f'<div class="{cls}"><div class="callout-title">{inline(title)}</div>{blocks(inner, figure)}</div>')
             continue
-        if re.match(r"\s*[-*] ", line):
-            items = []
-            while i < len(lines) and re.match(r"\s*[-*] |\s{2,}\S", lines[i]):
-                if re.match(r"\s*[-*] ", lines[i]):
-                    items.append(re.sub(r"^\s*[-*] ", "", lines[i]))
+        if _LI.match(line):
+            rows = []
+            while i < len(lines) and (_LI.match(lines[i]) or (rows and re.match(r"\s{2,}\S", lines[i]))):
+                m = _LI.match(lines[i])
+                if m:
+                    rows.append([len(m.group(1)), "ol" if m.group(2)[0].isdigit() else "ul", m.group(3)])
                 else:
-                    items[-1] += " " + lines[i].strip()
+                    rows[-1][2] += " " + lines[i].strip()
                 i += 1
-            out.append("<ul>" + "".join(f"<li>{inline(x)}</li>" for x in items) + "</ul>")
-            continue
-        if re.match(r"\d+\. ", line):
-            items = []
-            while i < len(lines) and re.match(r"\d+\. ", lines[i]):
-                items.append(re.sub(r"^\d+\. ", "", lines[i]))
-                i += 1
-            out.append("<ol>" + "".join(f"<li>{inline(x)}</li>" for x in items) + "</ol>")
+            out.append(list_html(rows))
             continue
         para = [line]
         i += 1

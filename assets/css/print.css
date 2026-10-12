@@ -54,6 +54,9 @@ html:not([data-theme="print"]) .pdf-print-head, html:not([data-theme="print"]) .
     --accent: #000 !important; --accent-soft: #fff !important; --accent-border: #555 !important; --accent-glow: transparent !important;
     --accent-light: #000 !important; --accent-hover: #000 !important;
     --shadow-elevation: none !important; --shadow-card: none !important;
+    /* figure colours (tools/figures): distinct grey levels that survive black-and-white printing */
+    --fig-acc: #000 !important; --fig-blue: #4a4a4a !important; --fig-pink: #7a7a7a !important;
+    --fig-green: #2b2b2b !important; --fig-atom: #555 !important;
   }
   html[data-theme="print"], html[data-theme="print"] body { background: #fff !important; color: #111 !important; }
   html[data-theme="print"] body {
@@ -132,7 +135,7 @@ html:not([data-theme="print"]) .pdf-print-head, html:not([data-theme="print"]) .
     font-family: "JetBrains Mono", monospace !important; font-size: 7.5pt !important; font-weight: 700 !important;
     letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 3pt !important;
   }
-  html[data-theme="print"] .math-block, html[data-theme="print"] .katex-display, html[data-theme="print"] figure, html[data-theme="print"] .figure, html[data-theme="print"] table, html[data-theme="print"] img, html[data-theme="print"] svg, html[data-theme="print"] .equation-box {
+  html[data-theme="print"] .math-block, html[data-theme="print"] .katex-display, html[data-theme="print"] figure, html[data-theme="print"] .figure, html[data-theme="print"] img, html[data-theme="print"] svg, html[data-theme="print"] .equation-box {
     break-inside: avoid; page-break-inside: avoid;
   }
   html[data-theme="print"] .math-block { border: 0 !important; padding: 2pt 0 !important; margin: 6pt 0 !important; }
@@ -156,7 +159,60 @@ html:not([data-theme="print"]) .pdf-print-head, html:not([data-theme="print"]) .
   html[data-theme="print"] tr { break-inside: avoid; page-break-inside: avoid; }
 
   /* ------------------------------------------------------------ figures */
-  html[data-theme="print"] img, html[data-theme="print"] svg { max-width: 100% !important; height: auto; }
+  html[data-theme="print"] img, html[data-theme="print"] svg:not(.katex svg) { max-width: 100% !important; height: auto; }
   html[data-theme="print"] figure, html[data-theme="print"] .figure { margin: 8pt auto !important; text-align: center; }
   html[data-theme="print"] figcaption, html[data-theme="print"] .figure-caption, html[data-theme="print"] .math-caption { font-size: 8.5pt !important; font-style: italic; color: #333 !important; }
   html[data-theme="print"] .pdf-invert { filter: invert(1) hue-rotate(180deg); }
+
+/* ------------------------------------------------------------ review fixes */
+/* Maths keeps its own case and spacing inside upper-case labels. */
+html[data-theme="print"] .katex { text-transform: none !important; letter-spacing: normal !important; }
+/* Badges are inline labels (a block-level badge with a frame would stretch across the line);
+   a group of badges is not framed itself. */
+html[data-theme="print"] [class*="badge"]:not(:has([class*="badge"])), html[data-theme="print"] .tag,
+html[data-theme="print"] .problem-tag, html[data-theme="print"] .problem-num, html[data-theme="print"] .problem-id {
+  display: inline-block !important; width: auto !important; max-width: 100% !important;
+}
+html[data-theme="print"] [class*="badge"]:has([class*="badge"]) { border: 0 !important; padding: 0 !important; }
+/* Headings read as text, not as flex rows: citations and maths stay on the line. */
+html[data-theme="print"] h1, html[data-theme="print"] h2, html[data-theme="print"] h3,
+html[data-theme="print"] h4, html[data-theme="print"] h5, html[data-theme="print"] .sub-case-header,
+html[data-theme="print"] .section-heading { display: block !important; }
+html[data-theme="print"] h2 > *, html[data-theme="print"] h3 > * { margin-right: 0.25em; }
+/* Labels just before a heading stay with it; labels at the top of a box stay with its content. */
+html[data-theme="print"] *:has(+ h2), html[data-theme="print"] *:has(+ h3), html[data-theme="print"] *:has(+ h4),
+html[data-theme="print"] [class*="phase-badge"], html[data-theme="print"] .phase-title, html[data-theme="print"] .phase-heading,
+html[data-theme="print"] .callout-title, html[data-theme="print"] .result-callout-title, html[data-theme="print"] .strategy-title {
+  break-after: avoid; page-break-after: avoid;
+}
+/* Long boxes may break (an unbreakable box would jump to the next page and leave its frame behind);
+   figures, equations and table rows stay whole, and a caption stays with its figure. */
+html[data-theme="print"] .callout, html[data-theme="print"] [class*="-callout"], html[data-theme="print"] blockquote,
+html[data-theme="print"] .statement-box, html[data-theme="print"] .problem-statement, html[data-theme="print"] .problem-statement-box,
+html[data-theme="print"] .result-box, html[data-theme="print"] .result-callout, html[data-theme="print"] .justification-box,
+html[data-theme="print"] .strategy-callout, html[data-theme="print"] .reference-card, html[data-theme="print"] .src-panel {
+  break-inside: auto; page-break-inside: auto;
+}
+html[data-theme="print"] .diagram-card, html[data-theme="print"] figure, html[data-theme="print"] .figure {
+  break-inside: avoid; page-break-inside: avoid;
+}
+html[data-theme="print"] figcaption, html[data-theme="print"] .figure-caption, html[data-theme="print"] .math-caption,
+html[data-theme="print"] .diagram-caption {
+  break-before: avoid; page-break-before: avoid;
+}
+/* Nothing scrolls on paper (KaTeX keeps its internal clipping). */
+html[data-theme="print"] body *:not(.katex):not(.katex *) { overflow: visible !important; }
+html[data-theme="print"] ::-webkit-scrollbar { display: none; }
+/* Grids of cards print as one column at full width. */
+html[data-theme="print"] main [class*="grid"]:not(.katex *) { display: block !important; }
+html[data-theme="print"] main [class*="grid"] > * { width: auto !important; max-width: none !important; margin: 0 0 8pt !important; }
+html[data-theme="print"] td .katex, html[data-theme="print"] th .katex { font-size: 1em; }
+/* Screen-only links and arrows. */
+html[data-theme="print"] #problems-link, html[data-theme="print"] .card-arrow, html[data-theme="print"] .arrow,
+html[data-theme="print"] .article-nav, html[data-theme="print"] .nav-btn, html[data-theme="print"] .view-switcher,
+html[data-theme="print"] .switch-btn, html[data-theme="print"] .status-solved,
+html[data-theme="print"] .hub-actions, html[data-theme="print"] .hero-actions { display: none !important; }
+html[data-theme="print"] .pdf-keep { break-inside: avoid; page-break-inside: avoid; }
+html[data-theme="print"] table { break-inside: auto !important; page-break-inside: auto !important; }
+html[data-theme="print"] .pdf-summary { font-weight: 700; margin: 6pt 0; }
+html[data-theme="print"] th, html[data-theme="print"] td { white-space: normal !important; overflow-wrap: anywhere; }

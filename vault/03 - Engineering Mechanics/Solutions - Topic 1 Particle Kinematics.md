@@ -46,7 +46,7 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
   $$ \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$
 * **Orthonormality of $[{}_0 R_{\text{cyl}}]$:** $\det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1$ and $[{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I$ (checked symbolically with sympy).
 * **Frenet basis from the cylindrical basis.** The components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$ (obtained in Phase 3, part (c)) are the columns of the second change-of-basis matrix, with $V = \sqrt{a^2\omega^2 + v_z^2}$:
-$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \ a\omega/V & 0 & -v_z/V \ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$
+$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \\ a\omega/V & 0 & -v_z/V \\ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$
 * The three columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$). Both determinants and the products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
@@ -159,7 +159,7 @@ $$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \ a\omega/V & 0
   $$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$
 * **Orthonormality of $[{}_0 R_\theta]$:** $\det[{}_0 R_\theta] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_0 R_\theta][{}_0 R_\theta]^T = I$ (checked symbolically with sympy).
 * **Intrinsic basis from the polar basis.** Since $\mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta = r\dot{\theta}\,(\beta\,\mathbf{e}_r + \mathbf{e}_\theta)$ (Phase 3, part (a)), the unit tangent is $\mathbf{e}_t = (\beta\,\mathbf{e}_r + \mathbf{e}_\theta)/\sqrt{1+\beta^2}$ and the in-plane unit normal is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\mathbf{e}_r + \beta\,\mathbf{e}_\theta)/\sqrt{1+\beta^2}$. Their components in $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ are the columns of
-$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix} \beta & -1 \ 1 & \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$
+$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix} \beta & -1 \\ 1 & \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$
 * This is a planar rotation by the constant angle $\psi = \arctan(1/\beta)$ (the equiangular property of the spiral). Sympy confirms that $\mathbf{a}\cdot\mathbf{e}_t$ and $\mathbf{a}\cdot\mathbf{e}_n$ reproduce the $a_t$ and $a_n$ of Phase 3, parts (d), with $a_n > 0$, so $\mathbf{e}_n$ points to the concave side.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
@@ -309,7 +309,7 @@ $$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix}
   $$ \dot{x}(t) = v(t) = v_0 + a_x t, \quad \ddot{x}(t) = a_x $$
   $$ x(t) = v_0 t + \frac{1}{2}a_x t^2 $$
 * **Change of basis (radar polar basis).** With $\theta$ the angle of the line of sight measured from $+\mathbf{i}$, the polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$. The columns are the components of $\mathbf{e}_r$, $\mathbf{e}_\theta$, $\mathbf{k}$ in $\mathcal{B}_0$; using $\cos\theta = x/r$ and $\sin\theta = y_0/r$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \ \sin\theta & \cos\theta & 0 \ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x/r & -y_0/r & 0 \ y_0/r & x/r & 0 \ 0 & 0 & 1 \end{pmatrix} $$
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x/r & -y_0/r & 0 \\ y_0/r & x/r & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
 $$ \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
 * Both properties were verified symbolically with sympy. The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ (first row of $[{}_0 R_1]^T$ applied to the basis) is the one used in the Cartesian cross-check of Phase 3.
 
@@ -525,9 +525,9 @@ $$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos 
 * **Position of Skater $B$ in Rotating Frame:**
   $$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = a(1 + \cos\psi)\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$
 * **Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$.** The vehicle starts at $(a, 0)$ and turns counterclockwise at rate $\omega$, so $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$ and the columns of the matrix below are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \ \sin\omega t & \cos\omega t & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
 * **Bar basis $\mathcal{B}_1 \to \mathcal{B}_{\text{bar}}$.** The pair $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$, $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ used in parts (c) and (d) is obtained with
-$$ [{}_1 R_{\text{bar}}] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \ \sin\psi & \cos\psi & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_1 R_{\text{bar}}] = 1, \qquad [{}_1 R_{\text{bar}}][{}_1 R_{\text{bar}}]^T = I $$
+$$ [{}_1 R_{\text{bar}}] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \\ \sin\psi & \cos\psi & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_1 R_{\text{bar}}] = 1, \qquad [{}_1 R_{\text{bar}}][{}_1 R_{\text{bar}}]^T = I $$
 * The composition $[{}_0 R_{\text{bar}}] = [{}_0 R_1][{}_1 R_{\text{bar}}]$ is the planar rotation by $\omega t + \psi$ (the bar direction measured from the inertial $x$ axis). The determinants and the products $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
@@ -661,7 +661,7 @@ $$ [{}_1 R_{\text{bar}}] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \ \sin\psi &
 * Intrinsic acceleration of a point on the rim rotating at speed $v_{\text{rim}} = \omega R$:
   $$ a_n = \frac{v_{\text{rim}}^2}{R} = \omega^2 R $$
 * **Hull-fixed rotating basis.** Take the inertial basis $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ along the axis of the cylinder, and the basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$ attached to the hull, rotating at constant rate $\omega$ about $\mathbf{k}_0$ (the angle is $\theta = \omega t$ for a point fixed to the hull). The columns are the components of $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0$ in $\mathcal{B}_0$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \ \sin\omega t & \cos\omega t & 0 \ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
 * By Poisson's formula with $\boldsymbol{\omega} = \omega\mathbf{k}_0$: $\dot{\mathbf{e}}_r = \omega\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\omega\mathbf{e}_r$. A point of the rim is $\mathbf{r} = R\,\mathbf{e}_r$, hence $\mathbf{v} = \omega R\,\mathbf{e}_\theta$ and $\mathbf{a} = -\omega^2 R\,\mathbf{e}_r$, which is the intrinsic acceleration $a_n = \omega^2R$ above, directed towards the axis. An astronaut running at speed $u$ relative to the floor along $\pm\mathbf{e}_\theta$ has absolute velocity $(\omega R \pm u)\,\mathbf{e}_\theta$. The determinant and the product $R R^T$ were verified symbolically with sympy.
 
 ### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
