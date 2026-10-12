@@ -11,7 +11,8 @@ Checks (all severity "error"):
     false-claim          "fully verified", "zero hallucinations", ... banners
     lab-reference        links to, or files of, laboratory pages (labs are not on the web)
     theme-key            localStorage theme key other than 'ae_theme'
-    badge-drift          index.html badge counts that differ from the pages on disk
+    badge-drift          index.html badge counts that differ from the pages on disk (topics, problems,
+                         theory & exercise PDFs, exams, and the hero's official PDF total)
     missing-source-link  problem card (problem-card / problem-box) without its "Original statement"
                          link to the official PDF (add it with python tools/source_links.py)
     missing-ask-ai       theory or problem page (teoria/ or problemas/, not index.html) that does not
@@ -302,12 +303,21 @@ def check_badges(root):
         return []
     text = strip_comments(index.read_text(encoding="utf-8", errors="replace"))
     out = []
+    pdfs = _pdf_counts(root)
     for article in _ARTICLE.finditer(text):
         slug = article.group(1)
         for anchor in _ANCHOR.finditer(article.group(2)):
             href = anchor.group(1)
-            area = "teoria" if "/teoria/" in href else "problemas" if "/problemas/" in href else None
             badge = _BADGE.search(anchor.group(2))
+            pdf_area = 0 if "/sources/" in href else 1 if "/exams/" in href else None
+            if pdf_area is not None and badge and pdfs and slug in pdfs:
+                claimed = re.search(r"(\d+)\s*files?", badge.group(1))
+                want = pdfs[slug][pdf_area]
+                if claimed and int(claimed.group(1)) != want:
+                    out.append(Finding("badge-drift", "error", "index.html", line_of(text, article.start() + article.group(0).find(badge.group(1))),
+                                       f"{slug}/{'sources' if pdf_area == 0 else 'exams'}: badge says {claimed.group(1)} files, the PDF page lists {want}"))
+                continue
+            area = "teoria" if "/teoria/" in href else "problemas" if "/problemas/" in href else None
             if not area or not badge:
                 continue
             facts = _area_facts(root, slug, area)
@@ -324,7 +334,24 @@ def check_badges(root):
             if claimed and area == "problemas" and int(claimed.group(1)) != problems:
                 out.append(Finding("badge-drift", "error", "index.html", line,
                                    f"{slug}/{area}: badge says {claimed.group(1)} problems, pages on disk contain {problems}"))
+    if pdfs:
+        stat = re.search(r'<span class="stat-value"[^>]*>(\d+)</span>\s*<span class="stat-label">Official PDFs', text)
+        total = sum(a + e for a, e in pdfs.values())
+        if stat and int(stat.group(1)) != total:
+            out.append(Finding("badge-drift", "error", "index.html", line_of(text, stat.start()),
+                               f"hero says {stat.group(1)} official PDFs, the PDF pages list {total}"))
     return out
+
+
+def _pdf_counts(root):
+    """(theory & exercise PDFs, exam files) per subject, from tools/build_sources_pages.py; {} without sources/."""
+    if not (root / "sources").is_dir():
+        return {}
+    try:
+        import build_sources_pages
+        return build_sources_pages.counts(root)
+    except Exception:   # noqa: BLE001  (a broken sources tree is reported by the other tools)
+        return {}
 
 
 # --------------------------------------------------------------------------- driver
