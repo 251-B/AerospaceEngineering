@@ -3,7 +3,7 @@
 > **Course Code:** `251-15331` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `c27033c3-5a64-403f-a517-5847831aabcb`  
 > **Portal Web:** `subjects/04-advanced-maths/` | **Obsidian Vault:** `vault/04-advanced-maths/`  
-> **Last Synchronized:** `2026-10-12 10:41` | **Total Official Files:** `74` (42.9 MB)
+> **Last Synchronized:** `2026-10-12 18:19` | **Total Official Files:** `77` (91.3 MB)
 
 ---
 
@@ -13,7 +13,7 @@
 | :--- | :---: | :---: | :--- |
 | 📖 **Theory & Slides** | `2` | 🟢 Active | Consolidated Notes & Session Slides |
 | ✏️ **Problem Sheets & Solutions** | `4` | 🟢 Active | Official problem sets & step-by-step solutions |
-| 📝 **Official Exams** | `64` | 🟢 Active | Partial midterms & final exams |
+| 📝 **Official Exams** | `67` | 🟢 Active | Partial midterms & final exams |
 | 📅 **Course Schedule** | `2` | 🟢 Available | Weekly lecture & evaluation calendar |
 
 ---
@@ -71,31 +71,34 @@
 | 47 | `MATHS_FIRSTPARTIAL_2020_G47_SOL.pdf` | 📝 Exam | 123.2 KB | `examenes/MATHS_FIRSTPARTIAL_2020_G47_SOL.pdf` |
 | 48 | `MATHS_FIRSTPARTIAL_2021_G45_SOL.pdf` | 📝 Exam | 180.4 KB | `examenes/MATHS_FIRSTPARTIAL_2021_G45_SOL.pdf` |
 | 49 | `MATHS_FIRSTPARTIAL_2024.pdf` | 📝 Exam | 97.0 KB | `examenes/MATHS_FIRSTPARTIAL_2024.pdf` |
-| 50 | `MATHS_FIRSTPARTIAL_2025_G46.pdf` | 📝 Exam | 161.1 KB | `examenes/MATHS_FIRSTPARTIAL_2025_G46.pdf` |
-| 51 | `MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 150.5 KB | `examenes/MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf` |
-| 52 | `MATHS_SECONDPARTIAL_2018_MT3.pdf` | 📝 Exam | 185.8 KB | `examenes/MATHS_SECONDPARTIAL_2018_MT3.pdf` |
-| 53 | `MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf` | 📝 Exam | 1.0 MB | `examenes/MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf` |
-| 54 | `MATHS_SECONDPARTIAL_2018_MT3_G46_PHOTO.jpeg` | 📝 Exam | 120.0 KB | `examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_PHOTO.jpeg` |
-| 55 | `MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf` | 📝 Exam | 885.1 KB | `examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf` |
-| 56 | `MATHS_SECONDPARTIAL_2019_MT3.pdf` | 📝 Exam | 87.7 KB | `examenes/MATHS_SECONDPARTIAL_2019_MT3.pdf` |
-| 57 | `MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf` | 📝 Exam | 553.9 KB | `examenes/MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf` |
-| 58 | `MATHS_SECONDPARTIAL_2020_G45_SOL.pdf` | 📝 Exam | 172.2 KB | `examenes/MATHS_SECONDPARTIAL_2020_G45_SOL.pdf` |
-| 59 | `MATHS_SECONDPARTIAL_2020_G46_SOL.pdf` | 📝 Exam | 184.1 KB | `examenes/MATHS_SECONDPARTIAL_2020_G46_SOL.pdf` |
-| 60 | `MATHS_SECONDPARTIAL_2020_G47_SOL.pdf` | 📝 Exam | 191.0 KB | `examenes/MATHS_SECONDPARTIAL_2020_G47_SOL.pdf` |
-| 61 | `MATHS_SECONDPARTIAL_2021_G45_SOL.pdf` | 📝 Exam | 184.7 KB | `examenes/MATHS_SECONDPARTIAL_2021_G45_SOL.pdf` |
-| 62 | `MATHS_SECONDPARTIAL_2024.pdf` | 📝 Exam | 98.7 KB | `examenes/MATHS_SECONDPARTIAL_2024.pdf` |
-| 63 | `MATHS_SECONDPARTIAL_2024_SOL.jpg` | 📝 Exam | 813.4 KB | `examenes/MATHS_SECONDPARTIAL_2024_SOL.jpg` |
-| 64 | `MATHS_SECONDPARTIAL_2025_G46_SOL.pdf` | 📝 Exam | 201.6 KB | `examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf` |
-| 65 | `MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 368.3 KB | `examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` |
-| 66 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 11.9 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
-| 67 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
-| 68 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
-| 69 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
-| 70 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
-| 71 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
-| 72 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
-| 73 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
-| 74 | `.gitkeep` | Other | 0.0 B | `unit-06-heat-wave-laplace/.gitkeep` |
+| 50 | `MATHS_FIRSTPARTIAL_2024_SOL.pdf` | 📝 Exam | 20.9 MB | `examenes/MATHS_FIRSTPARTIAL_2024_SOL.pdf` |
+| 51 | `MATHS_FIRSTPARTIAL_2025_G46.pdf` | 📝 Exam | 161.1 KB | `examenes/MATHS_FIRSTPARTIAL_2025_G46.pdf` |
+| 52 | `MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 150.5 KB | `examenes/MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf` |
+| 53 | `MATHS_SECONDPARTIAL_2018_MT3.pdf` | 📝 Exam | 185.8 KB | `examenes/MATHS_SECONDPARTIAL_2018_MT3.pdf` |
+| 54 | `MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf` | 📝 Exam | 1.0 MB | `examenes/MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf` |
+| 55 | `MATHS_SECONDPARTIAL_2018_MT3_G46_PHOTO.jpeg` | 📝 Exam | 120.0 KB | `examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_PHOTO.jpeg` |
+| 56 | `MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf` | 📝 Exam | 885.1 KB | `examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf` |
+| 57 | `MATHS_SECONDPARTIAL_2019_MT3.pdf` | 📝 Exam | 87.7 KB | `examenes/MATHS_SECONDPARTIAL_2019_MT3.pdf` |
+| 58 | `MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf` | 📝 Exam | 553.9 KB | `examenes/MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf` |
+| 59 | `MATHS_SECONDPARTIAL_2020_G45_SOL.pdf` | 📝 Exam | 172.2 KB | `examenes/MATHS_SECONDPARTIAL_2020_G45_SOL.pdf` |
+| 60 | `MATHS_SECONDPARTIAL_2020_G46_SOL.pdf` | 📝 Exam | 184.1 KB | `examenes/MATHS_SECONDPARTIAL_2020_G46_SOL.pdf` |
+| 61 | `MATHS_SECONDPARTIAL_2020_G47_SOL.pdf` | 📝 Exam | 191.0 KB | `examenes/MATHS_SECONDPARTIAL_2020_G47_SOL.pdf` |
+| 62 | `MATHS_SECONDPARTIAL_2021_G45_SOL.pdf` | 📝 Exam | 184.7 KB | `examenes/MATHS_SECONDPARTIAL_2021_G45_SOL.pdf` |
+| 63 | `MATHS_SECONDPARTIAL_2024.pdf` | 📝 Exam | 98.7 KB | `examenes/MATHS_SECONDPARTIAL_2024.pdf` |
+| 64 | `MATHS_SECONDPARTIAL_2024_SOL.jpg` | 📝 Exam | 813.4 KB | `examenes/MATHS_SECONDPARTIAL_2024_SOL.jpg` |
+| 65 | `MATHS_SECONDPARTIAL_2024_SOL_V2.pdf` | 📝 Exam | 26.9 MB | `examenes/MATHS_SECONDPARTIAL_2024_SOL_V2.pdf` |
+| 66 | `MATHS_SECONDPARTIAL_2025_G46_SOL.pdf` | 📝 Exam | 201.6 KB | `examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf` |
+| 67 | `MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 368.3 KB | `examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` |
+| 68 | `MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` | 📝 Exam | 603.1 KB | `examenes/other-universities/MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` |
+| 69 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 11.9 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
+| 70 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
+| 71 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
+| 72 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |
+| 73 | `ProblemsCh3.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/ProblemsCh3.pdf` |
+| 74 | `probls_ch3_2627.pdf` | ✏️ Problems | 41.3 KB | `unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf` |
+| 75 | `definition_linear_ODE.pdf` | 📖 Theory | 98.4 KB | `unit-04-systems-of-odes/teoria/definition_linear_ODE.pdf` |
+| 76 | `BookPDE's.pdf` | 📖 Theory | 6.2 MB | `unit-05-fourier-series-pdes/teoria/BookPDE's.pdf` |
+| 77 | `.gitkeep` | Other | 0.0 B | `unit-06-heat-wave-laplace/.gitkeep` |
 
 ---
 
