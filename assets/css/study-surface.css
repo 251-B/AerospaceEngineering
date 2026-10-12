@@ -126,3 +126,327 @@ html[data-theme="light"] .katex-display {
 html[data-theme="dark"] :is(h1, h2, h3, .topic-title, .set-title) {
   text-shadow: none;
 }
+
+/* ==========================================================================
+   5. READING PALETTES (data-surface on <html>, chosen with the picker that
+   assets/js/theme.js injects next to #themeToggle; stored under 'ae_surface').
+
+   A palette re-points the --study-* surface variables used by sections 1-4
+   above, so cards, statement boxes, tables, headers and KaTeX display blocks
+   follow it without repeating those selector lists. It also re-points the
+   text/background/border variables the pages define themselves.
+
+   Each palette is bound to one polarity (light or dark): the picker switches
+   data-theme to match, and a theme toggle that would break the pairing resets
+   the surface to "default". Screen only: the PDF layout sets data-theme="print",
+   which none of these selectors match.
+
+   Pure white (#fff) and pure black (#000) are avoided on purpose (glare and
+   halation). Contrast ratios (WCAG 2.1) of text on bg / card / inset:
+     cream        main 13.4 / 15.0 / 12.2    secondary 6.1 / 6.8 / 5.5
+     sepia        main 11.5 / 12.5 / 10.2    secondary 5.8 / 6.3 / 5.2
+     slate-paper  main 13.9 / 15.1 / 12.8    secondary 6.1 / 6.6 / 5.6
+     sage         main 13.0 / 13.9 / 12.0    secondary 5.7 / 6.1 / 5.3
+     charcoal     main 14.1 / 12.7 / 13.6    secondary 7.1 / 6.4 / 6.8
+   ========================================================================== */
+@media screen {
+  html[data-surface="cream"][data-theme="light"] {
+    --study-bg-light: #f5f2eb;
+    --study-surface-light: #ffffff;
+    --study-inset-light: #ece8df;
+    --study-border-light: rgba(43, 45, 49, 0.12);
+    --study-text: #23272f;
+    --study-text-2: #575b66;
+  }
+
+  html[data-surface="sepia"][data-theme="light"] {
+    --study-bg-light: #efe8d8;
+    --study-surface-light: #f7f2e4;
+    --study-inset-light: #e5dcb7;
+    --study-border-light: rgba(60, 48, 38, 0.14);
+    --study-text: #342a22;
+    --study-text-2: #63564a;
+  }
+
+  html[data-surface="slate-paper"][data-theme="light"] {
+    --study-bg-light: #eceff2;
+    --study-surface-light: #f6f8fa;
+    --study-inset-light: #e2e6eb;
+    --study-border-light: rgba(26, 34, 45, 0.12);
+    --study-text: #1a222d;
+    --study-text-2: #505a69;
+  }
+
+  html[data-surface="sage"][data-theme="light"] {
+    --study-bg-light: #ebf0ea;
+    --study-surface-light: #f4f7f3;
+    --study-inset-light: #e1e8e0;
+    --study-border-light: rgba(31, 41, 34, 0.12);
+    --study-text: #1f2922;
+    --study-text-2: #516155;
+  }
+
+  html[data-surface="charcoal"][data-theme="dark"] {
+    --study-bg-dark: #111620;
+    --study-surface-dark: #18202f;
+    --study-inset-dark: #141a26;
+    --study-border-dark: rgba(255, 255, 255, 0.08);
+    --study-text: #dde4ec;
+    --study-text-2: #94a3b8;
+  }
+
+  /* Page-level variables (every page names them slightly differently) */
+  html:is([data-surface="cream"], [data-surface="sepia"], [data-surface="slate-paper"], [data-surface="sage"])[data-theme="light"],
+  html[data-surface="charcoal"][data-theme="dark"] {
+    --text-primary: var(--study-text);
+    --text-main: var(--study-text);
+    --text-body: var(--study-text);
+    --text-heading: var(--study-text);
+    --text-secondary: var(--study-text-2);
+    --text-muted: var(--study-text-2);
+    --text-faint: var(--study-text-2);
+    --bg-primary: var(--study-bg);
+    --bg-base: var(--study-bg);
+    --bg-secondary: var(--study-bg);
+    --bg-card: var(--study-surface);
+    --bg-card-hover: var(--study-surface);
+    --bg-surface: var(--study-surface);
+    --bg-subtle: var(--study-inset);
+    --bg-input: var(--study-inset);
+    --bg-glass: var(--study-inset);
+    --callout-bg: var(--study-inset);
+    --statement-bg: var(--study-inset);
+    --border-subtle: var(--study-border);
+    --border-card: var(--study-border);
+    --border-strong: color-mix(in srgb, var(--study-text-2) 35%, transparent);
+    color: var(--study-text);
+  }
+
+  /* Alias the active polarity's palette to polarity-free names */
+  html[data-theme="light"] {
+    --study-bg: var(--study-bg-light);
+    --study-surface: var(--study-surface-light);
+    --study-inset: var(--study-inset-light);
+    --study-border: var(--study-border-light);
+  }
+
+  html[data-theme="dark"] {
+    --study-bg: var(--study-bg-dark);
+    --study-surface: var(--study-surface-dark);
+    --study-inset: var(--study-inset-dark);
+    --study-border: var(--study-border-dark);
+  }
+
+  html:is([data-surface="cream"], [data-surface="sepia"], [data-surface="slate-paper"], [data-surface="sage"])[data-theme="light"] body,
+  html[data-surface="charcoal"][data-theme="dark"] body {
+    color: var(--study-text);
+  }
+
+  /* KaTeX inherits the palette's text colour (no pure black or pure white glyphs) */
+  html:is([data-surface="cream"], [data-surface="sepia"], [data-surface="slate-paper"], [data-surface="sage"])[data-theme="light"] .katex,
+  html[data-surface="charcoal"][data-theme="dark"] .katex {
+    color: var(--study-text);
+  }
+}
+
+/* ==========================================================================
+   6. SURFACE PICKER (built by assets/js/theme.js; pages carry no markup for it)
+   ========================================================================== */
+.surface-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.surface-picker__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 22px;
+  padding: 0;
+  border-radius: 11px;
+  border: 1px solid var(--border-subtle, rgba(128, 128, 128, 0.3));
+  background: var(--bg-input, transparent);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.surface-picker__btn:hover,
+.surface-picker.is-open .surface-picker__btn {
+  border-color: var(--text-secondary, currentColor);
+}
+
+.surface-picker__btn:focus-visible,
+.surface-swatch:focus-visible {
+  outline: 2px solid var(--accent, #6366f1);
+  outline-offset: 2px;
+}
+
+.surface-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  width: 264px;
+  max-width: calc(100vw - 24px);
+  padding: 14px 16px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--study-border-dark);
+  background: var(--study-surface-dark);
+  color: var(--text-primary, inherit);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0s linear 0.16s;
+}
+
+html[data-theme="light"] .surface-panel {
+  border-color: var(--study-border-light);
+  background: var(--study-surface-light);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+}
+
+.surface-picker.is-open .surface-panel {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.surface-panel__swatches {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.surface-swatch {
+  --sw-bg: #f6f8fa;
+  --sw-fg: #0f172a;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: var(--sw-bg);
+  color: var(--sw-fg);
+  box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.4);
+  font: 600 0.62rem/1 var(--font-sans, system-ui, sans-serif);
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+
+.surface-swatch::before {
+  content: "Aa";
+}
+
+.surface-swatch:hover,
+.surface-swatch:focus-visible {
+  transform: scale(1.12);
+}
+
+.surface-swatch[aria-checked="true"] {
+  border-color: var(--accent, #6366f1);
+}
+
+/* Name tooltip (also mirrored in the caption below, for touch screens) */
+.surface-swatch::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #f8fafc;
+  font: 500 0.7rem/1.3 var(--font-sans, system-ui, sans-serif);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 3px);
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.surface-swatch:hover::after,
+.surface-swatch:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.surface-panel__caption {
+  margin: 10px 0 0;
+  min-height: 2.6em;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--text-secondary, inherit);
+}
+
+.surface-panel__caption strong {
+  color: var(--text-primary, inherit);
+  font-weight: 600;
+}
+
+/* Swatch colours: background, then the text colour of the palette */
+.surface-swatch[data-surface="default"] {
+  --sw-bg: linear-gradient(135deg, #f6f8fa 50%, #0a0e17 50%);
+  --sw-fg: #64748b;
+}
+.surface-swatch[data-surface="cream"] { --sw-bg: #f5f2eb; --sw-fg: #23272f; }
+.surface-swatch[data-surface="sepia"] { --sw-bg: #efe8d8; --sw-fg: #342a22; }
+.surface-swatch[data-surface="slate-paper"] { --sw-bg: #eceff2; --sw-fg: #1a222d; }
+.surface-swatch[data-surface="sage"] { --sw-bg: #ebf0ea; --sw-fg: #1f2922; }
+.surface-swatch[data-surface="charcoal"] { --sw-bg: #111620; --sw-fg: #dde4ec; }
+
+.surface-picker__btn .surface-swatch {
+  width: 14px;
+  height: 14px;
+  border-width: 0;
+  pointer-events: none;
+  font-size: 0;
+}
+.surface-picker__btn .surface-swatch::before,
+.surface-picker__btn .surface-swatch::after {
+  content: none;
+}
+
+/* Phone: the panel becomes a bottom sheet so it can never leave the viewport */
+@media (max-width: 600px) {
+  .surface-panel {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+    max-width: none;
+    transform: translateY(8px);
+  }
+  .surface-swatch {
+    width: 36px;
+    height: 36px;
+  }
+  .surface-panel__swatches {
+    justify-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-panel,
+  .surface-swatch,
+  .surface-swatch::after,
+  .surface-picker__btn {
+    transition: none;
+  }
+}
+
+html[data-theme="print"] .surface-picker {
+  display: none !important;
+}
