@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Separation of ownership and control">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="130.0" y="20.0" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">PROBLEM</text>
+<rect x="20.0" y="35.0" width="220.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="130.0" y="56.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Managers look for</text>
+<text x="130.0" y="73.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">their own benefit</text>
+<rect x="20.0" y="120.0" width="220.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="130.0" y="141.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Conflict of interest between</text>
+<text x="130.0" y="158.1" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">ownership and control</text>
+<rect x="20.0" y="205.0" width="220.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="130.0" y="234.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">AGENCY PROBLEM</text>
+<line x1="130.0" y1="85.0" x2="130.0" y2="120.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M130.0,120.0 L126.5,111.7 L133.5,111.7 Z" fill="#8a94a6"/>
+<line x1="130.0" y1="170.0" x2="130.0" y2="205.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M130.0,205.0 L126.5,196.7 L133.5,196.7 Z" fill="#8a94a6"/>
+<text x="480.0" y="20.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">SOLUTION: MECHANISMS OF CONTROL</text>
+<rect x="330.0" y="35.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="60.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Selecting the Board of Directors</text>
+<rect x="330.0" y="90.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="115.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Contracts with managers (goal linked)</text>
+<rect x="330.0" y="145.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="170.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Requesting audits</text>
+<rect x="330.0" y="200.0" width="300.0" height="42.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="480.0" y="225.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Additional mechanisms: indicators</text>
+<line x1="240.0" y1="230.0" x2="328.0" y2="230.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M328.0,230.0 L319.7,233.5 L319.7,226.5 Z" fill="#8a94a6"/>
+</g></svg>

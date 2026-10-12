@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Circular flow of income">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="20.0" y="165.0" width="150.0" height="60.0" rx="8" fill="none" stroke="#4b5563" stroke-width="1.4"/>
+<text x="95.0" y="199.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">HOUSEHOLDS</text>
+<rect x="460.0" y="165.0" width="150.0" height="60.0" rx="8" fill="none" stroke="#4b5563" stroke-width="1.4"/>
+<text x="535.0" y="199.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">FIRMS</text>
+<rect x="245.0" y="15.0" width="140.0" height="100.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="315.0" y="52.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Market of</text>
+<text x="315.0" y="69.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">goods and</text>
+<text x="315.0" y="86.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">services</text>
+<rect x="245.0" y="280.0" width="140.0" height="100.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="315.0" y="317.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Market of</text>
+<text x="315.0" y="334.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">factors of</text>
+<text x="315.0" y="351.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">production</text>
+<line x1="560.0" y1="165.0" x2="560.0" y2="38.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="560.0" y1="38.0" x2="385.0" y2="38.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M385.0,38.0 L393.3,34.5 L393.3,41.5 Z" fill="#3b82f6"/>
+<line x1="245.0" y1="38.0" x2="70.0" y2="38.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="70.0" y1="38.0" x2="70.0" y2="165.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M70.0,165.0 L66.5,156.7 L73.5,156.7 Z" fill="#3b82f6"/>
+<text x="472.0" y="30.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">goods and services</text>
+<text x="158.0" y="30.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">goods and services</text>
+<line x1="120.0" y1="165.0" x2="120.0" y2="95.0" stroke="#10b981" stroke-width="2"/>
+<line x1="120.0" y1="95.0" x2="245.0" y2="95.0" stroke="#10b981" stroke-width="2"/>
+<path d="M245.0,95.0 L236.7,98.5 L236.7,91.5 Z" fill="#10b981"/>
+<line x1="385.0" y1="95.0" x2="510.0" y2="95.0" stroke="#10b981" stroke-width="2"/>
+<line x1="510.0" y1="95.0" x2="510.0" y2="165.0" stroke="#10b981" stroke-width="2"/>
+<path d="M510.0,165.0 L506.5,156.7 L513.5,156.7 Z" fill="#10b981"/>
+<text x="182.0" y="88.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="middle">expenditures</text>
+<text x="448.0" y="88.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="middle">revenues</text>
+<line x1="70.0" y1="225.0" x2="70.0" y2="357.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="70.0" y1="357.0" x2="245.0" y2="357.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M245.0,357.0 L236.7,360.5 L236.7,353.5 Z" fill="#3b82f6"/>
+<line x1="385.0" y1="357.0" x2="560.0" y2="357.0" stroke="#3b82f6" stroke-width="2"/>
+<line x1="560.0" y1="357.0" x2="560.0" y2="225.0" stroke="#3b82f6" stroke-width="2"/>
+<path d="M560.0,225.0 L563.5,233.3 L556.5,233.3 Z" fill="#3b82f6"/>
+<text x="158.0" y="372.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">factors of production</text>
+<text x="472.0" y="372.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">factors of production</text>
+<line x1="510.0" y1="225.0" x2="510.0" y2="300.0" stroke="#10b981" stroke-width="2"/>
+<line x1="510.0" y1="300.0" x2="385.0" y2="300.0" stroke="#10b981" stroke-width="2"/>
+<path d="M385.0,300.0 L393.3,296.5 L393.3,303.5 Z" fill="#10b981"/>
+<line x1="245.0" y1="300.0" x2="120.0" y2="300.0" stroke="#10b981" stroke-width="2"/>
+<line x1="120.0" y1="300.0" x2="120.0" y2="225.0" stroke="#10b981" stroke-width="2"/>
+<path d="M120.0,225.0 L123.5,233.3 L116.5,233.3 Z" fill="#10b981"/>
+<text x="392.0" y="318.0" fill="#10b981" font-size="11" font-weight="400" text-anchor="start">wages, rents, dividends</text>
+<text x="182.0" y="318.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="middle">incomes</text>
+<line x1="610.0" y1="195.0" x2="650.0" y2="195.0" stroke="#f59e0b" stroke-width="2"/>
+<path d="M650.0,195.0 L641.7,198.5 L641.7,191.5 Z" fill="#f59e0b"/>
+<text x="650.0" y="182.0" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="end">profit</text>
+<line x1="250.0" y1="205.0" x2="275.0" y2="205.0" stroke="#3b82f6" stroke-width="2"/>
+<text x="282.0" y="209.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">real flows</text>
+<line x1="250.0" y1="228.0" x2="275.0" y2="228.0" stroke="#10b981" stroke-width="2"/>
+<text x="282.0" y="232.0" fill="#10b981" font-size="12" font-weight="400" text-anchor="start">financial flows</text>
+</g></svg>

@@ -1,98 +1,71 @@
 ---
 materia: Business Management
 tema: "Topic 3: Financial Management (I) - Financial Statements"
-origen: "T3_Financial Statements_EXERCISES.pdf, Exercise 2"
-dificultad: baja
+origen: "T3_Financial Statements_EXERCISES.pdf, Exercise 2, p. 1"
+dificultad: easy
 tags:
-  - problema-examen
-  - resuelto
-  - balance-de-apertura
-  - capital-social
+  - problem
+  - solved
+  - balance-sheet
 ---
 
-# ✏️ Problem 2: JUGA S.A. Opening Balance Sheet
+# ✏️ Problem: Exercise 2 — JUGA S.A., opening balance sheet
 
-## 📄 Enunciado Oficial (Official Statement)
+## 📄 Statement
 
-The **JUGA S.A.** Firm is started with a shareholders contribution of $60,000 \text{ Euros}$. Of those, $30,000 \text{ Euros}$ are paid in and deposited in a Bank account and the remaining are corresponding to the transfer of a patent for a value of $30,000 \text{ Euros}$. 
+The JUGA S.A. firm is started with a shareholders' contribution of 60,000 €. Of those, 30,000 € are paid in and deposited in a bank account, and the remaining 30,000 € correspond to the transfer of a patent. With the cash of the bank account, raw materials are purchased for 10,500 € and machinery for 15,000 €. Detail the balance sheet at the start of operations.
 
-With the cash of the Bank account, raw materials have been purchased for a total amount of $10,500 \text{ Euros}$ and machinery for $15,000 \text{ Euros}$. 
+## Phase 1 — Setup: data and hypotheses
 
-*Please detail the balance sheet at the operations start.*
+- The capital contributed is **60,000 €**: 30,000 € in money and 30,000 € in kind (a patent).
+- The purchases are paid **with the bank account** (no debt is created).
+- It is the **start** of operations: nothing has been produced or sold yet, so there are no revenues or expenses and no income statement.
 
----
+## Phase 2 — Frames: effect of each operation on the balance sheet
 
-> [!TIP] 🎯 Exam Day Strategy: In-Kind Contributions & Cash Ledger Tracking
-> * **Initial Equity Structure:** Subscribed Share Capital $= €60,000$.
->   * Monetary cash contributed to bank account: $+€30,000$.
->   * In-kind non-monetary contribution: Industrial Patent valued at $+€30,000$ $\implies$ **Intangible Non-Current Asset**.
-> * **Asset Reallocation Funded by Bank Cash:** Purchases are funded *with the cash of the bank account*:
->   * Raw materials purchased: $+€10,500$ (Current Asset: Inventories).
->   * Machinery purchased: $+€15,000$ (Non-Current Tangible Asset: PP&E).
->   * Total cash disbursed: $10,500 + 15,000 = €25,500$.
->   * **Ending Bank Balance:** $30,000 - 25,500 = \mathbf{€4,500}$.
-> * **Exam Trap 1 — Raw Materials Treatment:** Because the firm is at the *operations start* (no manufacturing or sales have occurred), raw materials are **100% an Inventory Asset**, NOT an expense.
-> * **Exam Trap 2 — Bank Balance Adjustment:** Do not leave the bank balance at €30,000 while also recording machinery and raw materials. That would cause assets to total €85,500 against €60,000 equity, violating double-entry balance!
-> * **Exam Trap 3 — Patent Classification:** An industrial patent is an *Intangible Fixed Asset (Inmovilizado Intangible)*, not an expense and not a current asset.
-> * **Exam-Day Checkpoint:** Verify that $\text{Total Assets} = 45,000 \text{ (NCA)} + 15,000 \text{ (CA)} = \mathbf{€60,000} \equiv \text{Stockholders' Equity} = \mathbf{€60,000}$, with $\text{Liabilities} = \mathbf{€0}$.
+| Operation | Assets | Liabilities | Equity |
+| :--- | :--- | :--- | :--- |
+| Money contributed | Bank +30,000 | | Capital +30,000 |
+| Patent contributed | Patent +30,000 | | Capital +30,000 |
+| Raw materials bought | Raw materials +10,500; bank −10,500 | | |
+| Machinery bought | Machinery +15,000; bank −15,000 | | |
 
-## 📊 1. Accounting Identification & Step-by-Step Journaling
+Each row keeps Assets = Liabilities + Equity [Slide 12]: the contributions increase both sides; the purchases only change the composition of the assets.
 
-### Step 1: Corporate Formation & Initial Contribution
-* **Subscribed Share Capital (Stockholders' Equity):**
-  $$\text{Share Capital} = 60,000 \text{ \euro}$$
-* **Asset Inflows:**
-  * Monetary contribution into commercial bank account: $+30,000 \text{ \euro}$ (Current Asset).
-  * In-kind non-monetary contribution (Industrial Patent): $+30,000 \text{ \euro}$ (Intangible Non-Current Asset).
+## Phase 3 — Derivation
 
-### Step 2: Cash Asset Reallocation
-The company utilizes its bank liquidity to purchase productive assets:
-* **Raw Materials Purchased (Inventory):** $+10,500 \text{ \euro}$ (Current Asset).
-* **Machinery Purchased (PP&E):** $+15,000 \text{ \euro}$ (Non-Current Tangible Asset).
-* **Total Cash Outflow:**
-  $$\text{Total Outflow} = 10,500 + 15,000 = 25,500 \text{ \euro}$$
-* **Residual Cash at Bank:**
-  $$\text{Ending Cash at Bank} = 30,000 - 25,500 = \mathbf{4,500 \text{ \euro}}$$
+### Step 1. Bank balance
 
----
+$$\text{Bank} = 30{,}000 - 10{,}500 - 15{,}000 = 4{,}500 \text{ €}$$
 
-## 🔢 2. The Opening Balance Sheet Construction
+### Step 2. Classification
 
-$$\begin{array}{|lr|lr|}
-\hline
-\textbf{ASSETS (Activo)} & \textbf{Amount (\euro)} & \textbf{LIABILITIES \& EQUITY (Pasivo y PN)} & \textbf{Amount (\euro)} \\
-\hline
-\textbf{NON-CURRENT ASSETS} & \mathbf{45,000} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{60,000} \\
-\text{• Intangible Assets: Industrial Patent} & 30,000 & \text{• Subscribed Share Capital} & 60,000 \\
-\text{• Tangible Fixed Assets: Machinery} & 15,000 & & \\
-& & \textbf{NON-CURRENT LIABILITIES} & \mathbf{0} \\
-\textbf{CURRENT ASSETS} & \mathbf{15,000} & \text{• Long-term bank debt} & 0 \\
-\text{• Inventories: Raw Materials} & 10,500 & & \\
-\text{• Cash \& Cash Equivalents (Bank account)} & 4,500 & \textbf{CURRENT LIABILITIES} & \mathbf{0} \\
-& & \text{• Accounts payable (Suppliers)} & 0 \\
-\hline
-\mathbf{\text{TOTAL ASSETS}} & \mathbf{60,000} & \mathbf{\text{TOTAL LIABILITIES \& EQUITY}} & \mathbf{60,000} \\
-\hline
-\end{array}$$
+- **Patent:** non-current asset [Slide 15].
+- **Machinery:** non-current asset (equipment) [Slide 15].
+- **Raw materials:** inventory, a current asset [Slide 14]; not consumed yet, so not an expense.
+- **Bank:** cash, a current asset [Slide 14].
+- **Share capital:** contributed capital [Slide 17].
+
+### Step 3. Balance sheet at the start of operations
+
+| Assets | € | Liabilities and equity | € |
+| :--- | ---: | :--- | ---: |
+| Patent | 30,000 | Share capital | 60,000 |
+| Machinery | 15,000 | **Equity** | **60,000** |
+| **Non-current assets** | **45,000** | **Liabilities** | **0** |
+| Raw materials | 10,500 | | |
+| Bank | 4,500 | | |
+| **Current assets** | **15,000** | | |
+| **Total assets** | **60,000** | **Total liabilities and equity** | **60,000** |
+
+## Phase 4 — Interpretation and checks
+
+- **Balance:** $45{,}000 + 15{,}000 = 60{,}000 = 60{,}000 + 0$.
+- **Typical mistake:** keeping the bank at 30,000 € while also adding the machinery and the raw materials gives assets of 85,000 € against 60,000 € of equity. Spending cash on an asset never changes the total.
+- **Financial structure** [Slide 36]: the company is financed 100% with equity ($L/E = 0$).
 
 ---
 
-## 🎯 3. Analytical Verification & Physical Balance Check
+**Back to:** [[Business Management MOC]]
 
-1. **Fundamental Accounting Identity:**
-   $$\mathbf{\text{Assets}} \equiv \mathbf{\text{Liabilities}} + \mathbf{\text{Equity}}$$
-   $$45,000 + 15,000 \equiv 0 + 60,000 \implies \mathbf{60,000 \text{ \euro} \equiv 60,000 \text{ \euro}}$$
-2. **Economic Structure:**
-   * $\text{Non-Current Assets Proportion} = \frac{45,000}{60,000} = 75\%$
-   * $\text{Current Assets Proportion} = \frac{15,000}{60,000} = 25\%$
-3. **Financial Structure:**
-   * $\text{Equity Proportion } w_e = \frac{60,000}{60,000} = 100\%$
-   * $\text{Debt Proportion } w_d = 0\%$
-   * The firm commences operations with zero leverage ($\text{D/E} = 0$), financed entirely through owner equity.
-
----
-
-## 🔗 Related Notes
-* [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
-* [[05 - Business Management/Concept - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
-* [[05 - Business Management/Problem - T3 Exercise 3 - Libbys Company Balance Sheet Classification|Problem 3: Libby's Company Balance Sheet]]
+**Related notes:** [[Concept - Method to Build the Income Statement and Balance Sheet]] · [[Topic 3 - Financial Management I - Financial Statements]]

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 370" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="A unified vision: survival, profit and growth">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="20.0" y="20.0" width="170.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="105.0" y="41.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Products / markets</text>
+<text x="105.0" y="57.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">(current and new)</text>
+<rect x="260.0" y="25.0" width="110.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="315.0" y="49.5" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Sales</text>
+<rect x="450.0" y="25.0" width="150.0" height="40.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="525.0" y="49.5" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Profits</text>
+<rect x="250.0" y="110.0" width="160.0" height="50.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="330.0" y="131.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Retained profits</text>
+<text x="330.0" y="147.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">(for future investments)</text>
+<rect x="450.0" y="120.0" width="150.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="525.0" y="144.6" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">Dividends</text>
+<rect x="440.0" y="205.0" width="170.0" height="56.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="525.0" y="229.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Capital market</text>
+<text x="525.0" y="245.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">valuation of the company</text>
+<rect x="240.0" y="300.0" width="170.0" height="50.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="325.0" y="321.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Equity attributable</text>
+<text x="325.0" y="337.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">to investors</text>
+<rect x="20.0" y="290.0" width="170.0" height="50.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="105.0" y="319.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Total equity</text>
+<rect x="20.0" y="170.0" width="170.0" height="40.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="105.0" y="194.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Investments</text>
+<line x1="190.0" y1="45.0" x2="260.0" y2="45.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M260.0,45.0 L251.7,48.5 L251.7,41.5 Z" fill="#8a94a6"/>
+<line x1="370.0" y1="45.0" x2="450.0" y2="45.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M450.0,45.0 L441.7,48.5 L441.7,41.5 Z" fill="#8a94a6"/>
+<line x1="470.0" y1="65.0" x2="400.0" y2="110.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M400.0,110.0 L405.1,102.6 L408.9,108.5 Z" fill="#8a94a6"/>
+<line x1="525.0" y1="65.0" x2="525.0" y2="120.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M525.0,120.0 L521.5,111.7 L528.5,111.7 Z" fill="#8a94a6"/>
+<line x1="525.0" y1="160.0" x2="525.0" y2="205.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M525.0,205.0 L521.5,196.7 L528.5,196.7 Z" fill="#8a94a6"/>
+<line x1="525.0" y1="261.0" x2="525.0" y2="325.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="525.0" y1="325.0" x2="410.0" y2="325.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M410.0,325.0 L418.3,321.5 L418.3,328.5 Z" fill="#8a94a6"/>
+<line x1="240.0" y1="325.0" x2="190.0" y2="325.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M190.0,325.0 L198.3,321.5 L198.3,328.5 Z" fill="#8a94a6"/>
+<line x1="250.0" y1="135.0" x2="215.0" y2="135.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="215.0" y1="135.0" x2="215.0" y2="302.0" stroke="#8a94a6" stroke-width="2"/>
+<line x1="215.0" y1="302.0" x2="190.0" y2="302.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M190.0,302.0 L198.3,298.5 L198.3,305.5 Z" fill="#8a94a6"/>
+<line x1="105.0" y1="290.0" x2="105.0" y2="210.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M105.0,210.0 L108.5,218.3 L101.5,218.3 Z" fill="#8a94a6"/>
+<line x1="105.0" y1="170.0" x2="105.0" y2="70.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M105.0,70.0 L108.5,78.3 L101.5,78.3 Z" fill="#8a94a6"/>
+</g></svg>

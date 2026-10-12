@@ -206,6 +206,11 @@ window.AE_SOURCES = {
             "name": "MATHS_FIRSTPARTIAL_2024.pdf"
           },
           {
+            "bytes": 21955009,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2024_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2024_SOL.pdf"
+          },
+          {
             "bytes": 164997,
             "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G46.pdf",
             "name": "MATHS_FIRSTPARTIAL_2025_G46.pdf"
@@ -266,6 +271,11 @@ window.AE_SOURCES = {
             "name": "MATHS_SECONDPARTIAL_2024.pdf"
           },
           {
+            "bytes": 28167739,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2024_SOL_V2.pdf",
+            "name": "MATHS_SECONDPARTIAL_2024_SOL_V2.pdf"
+          },
+          {
             "bytes": 206450,
             "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf",
             "name": "MATHS_SECONDPARTIAL_2025_G46_SOL.pdf"
@@ -274,6 +284,11 @@ window.AE_SOURCES = {
             "bytes": 377178,
             "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf",
             "name": "MATHS_SECONDPARTIAL_2025_G47_SOL.pdf"
+          },
+          {
+            "bytes": 617604,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/other-universities/MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf",
+            "name": "MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf"
           }
         ],
         "other": [
@@ -515,9 +530,19 @@ window.AE_SOURCES = {
             "name": "MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf"
           },
           {
+            "bytes": 1292659,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_COMPILATION_QUIZ.pdf",
+            "name": "MATERIALS_FIRSTPARTIAL_COMPILATION_QUIZ.pdf"
+          },
+          {
             "bytes": 1016450,
             "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_UNDATED.pdf",
             "name": "MATERIALS_FIRSTPARTIAL_UNDATED.pdf"
+          },
+          {
+            "bytes": 22936302,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_UNDATED_V2.pdf",
+            "name": "MATERIALS_FIRSTPARTIAL_UNDATED_V2.pdf"
           },
           {
             "bytes": 2646391,
@@ -528,6 +553,11 @@ window.AE_SOURCES = {
             "bytes": 851639,
             "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020.pdf",
             "name": "MATERIALS_THIRDPARTIAL_2020.pdf"
+          },
+          {
+            "bytes": 17199825,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020_V2.pdf",
+            "name": "MATERIALS_THIRDPARTIAL_2020_V2.pdf"
           }
         ],
         "other": [],
@@ -1013,6 +1043,11 @@ window.AE_SOURCES = {
             "name": "MECHANICS_FINALEXAM_2019_ORD.pdf"
           },
           {
+            "bytes": 571027,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2019_ORD_V2.pdf",
+            "name": "MECHANICS_FINALEXAM_2019_ORD_V2.pdf"
+          },
+          {
             "bytes": 113250,
             "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2021_ORD.pdf",
             "name": "MECHANICS_FINALEXAM_2021_ORD.pdf"
@@ -1053,9 +1088,24 @@ window.AE_SOURCES = {
             "name": "MECHANICS_FIRSTPARTIAL_2017_EXERCISE_SOL.pdf"
           },
           {
+            "bytes": 487082,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2018.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2018.pdf"
+          },
+          {
             "bytes": 882008,
             "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2019.pdf",
             "name": "MECHANICS_FIRSTPARTIAL_2019.pdf"
+          },
+          {
+            "bytes": 479307,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2019_V2.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2019_V2.pdf"
+          },
+          {
+            "bytes": 843673,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2022.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2022.pdf"
           },
           {
             "bytes": 97039,
@@ -1093,9 +1143,19 @@ window.AE_SOURCES = {
             "name": "MECHANICS_SECONDPARTIAL_2018.pdf"
           },
           {
+            "bytes": 593628,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2018_V2.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2018_V2.pdf"
+          },
+          {
             "bytes": 125693,
             "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2019.pdf",
             "name": "MECHANICS_SECONDPARTIAL_2019.pdf"
+          },
+          {
+            "bytes": 497026,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2019_V2.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2019_V2.pdf"
           },
           {
             "bytes": 3782288,
@@ -1336,6 +1396,11 @@ window.AE_SOURCES = {
             "name": "FLUIDS_FIRSTPARTIAL_2021.pdf"
           },
           {
+            "bytes": 2137305,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2022.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2022.pdf"
+          },
+          {
             "bytes": 2172716,
             "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2024.pdf",
             "name": "FLUIDS_FIRSTPARTIAL_2024.pdf"
@@ -1426,9 +1491,49 @@ window.AE_SOURCES = {
             "name": "FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf"
           },
           {
+            "bytes": 925018,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2022.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2022.pdf"
+          },
+          {
             "bytes": 1774644,
             "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2025.pdf",
             "name": "FLUIDS_SECONDPARTIAL_2025.pdf"
+          },
+          {
+            "bytes": 3087622,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2023_SEVILLA_EXTRA_P2.pdf",
+            "name": "FLUIDS_OTHERUNI_2023_SEVILLA_EXTRA_P2.pdf"
+          },
+          {
+            "bytes": 1386123,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2024_SEVILLA_PRACTICE_P2.pdf",
+            "name": "FLUIDS_OTHERUNI_2024_SEVILLA_PRACTICE_P2.pdf"
+          },
+          {
+            "bytes": 3525946,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P2.pdf",
+            "name": "FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P2.pdf"
+          },
+          {
+            "bytes": 3275378,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P3.pdf",
+            "name": "FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P3.pdf"
+          },
+          {
+            "bytes": 4031223,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2025_SEVILLA_ORD.pdf",
+            "name": "FLUIDS_OTHERUNI_2025_SEVILLA_ORD.pdf"
+          },
+          {
+            "bytes": 1146869,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_2026_CORDOBA_MECHANICAL_ENGINEERING_ORD_SOL.pdf",
+            "name": "FLUIDS_OTHERUNI_2026_CORDOBA_MECHANICAL_ENGINEERING_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 12720934,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/other-universities/FLUIDS_OTHERUNI_UNDATED_SEVILLA_EXTRA_SOL.pdf",
+            "name": "FLUIDS_OTHERUNI_UNDATED_SEVILLA_EXTRA_SOL.pdf"
           }
         ],
         "other": [],

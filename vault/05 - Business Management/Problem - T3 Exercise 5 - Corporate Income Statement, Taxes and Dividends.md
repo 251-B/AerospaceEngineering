@@ -1,163 +1,101 @@
 ---
 materia: Business Management
 tema: "Topic 3: Financial Management (I) - Financial Statements"
-origen: "T3_Financial Statements_EXERCISES.pdf, Exercise 5"
-dificultad: alta
+origen: "T3_Financial Statements_EXERCISES.pdf, Exercise 5, p. 2"
+dificultad: medium
 tags:
-  - problema-examen
-  - resuelto
-  - cuenta-de-resultados
-  - descuentos-comerciales
-  - amortizacion
-  - dividendos
+  - problem
+  - solved
+  - income-statement
+  - dividends
 ---
 
-# ✏️ Problem 5: Corporate Income Statement, Customer Discount Policies, Taxes and Dividends
+# ✏️ Problem: Exercise 5 — Income statement 2017 with discounts, payroll, depreciation, taxes and dividends
 
-## 📄 Enunciado Oficial (Official Statement)
+## 📄 Statement
 
-Prepare the **Income Statement** of a company with the following information from year 2017:
+Prepare the income statement of a company with the following information for 2017:
+- Gross sales during the year reached 2,002 million €. The company's trade policy gives a 3% discount to its Type A customers, those whose annual purchases from the company exceed 120 million €. Type A customers account for 40% of sales. Assume total sales = gross sales − discount.
+- Purchases of raw materials amounted to 962 million €.
+- The workforce consists of 7,800 employees. The average salary is 30,000 € per year, and the average spending on Social Security is 30% of the salary.
+- Payments for other operating expenses amounted to 457 million €.
+- In recent years the company has invested a total of 1,200 million € in fixed assets with an average lifespan of 10 years (linear depreciation, no residual value).
+- The company obtained an international loan of 225 million € in 2015, at 6% interest along the whole year; the whole principal will be repaid in 2020.
+- The corporate tax rate is 30%. The company has agreed to a dividend of 50%.
+- Assume no change in stocks of raw materials or finished products during the year.
 
-* **Gross sales**, during the year, reached an amount of $2,002 \text{ million \euro}$. The company's trade policy gives a discount of $3\%$ to its **Type A** customers. Type A customers are those whose annual purchases from the company exceed $120 \text{ million \euro}$.
-* **Type A customers** account for $40\%$ of sales.
-* Assume $\text{Total sales} = \text{Gross sales} - \text{Discount}$.
-* The **purchases of raw materials** amounted to $962 \text{ million \euro}$.
-* The **workforce** consists of $7,800 \text{ employees}$. The average salary is $30,000 \text{ \euro}$ per year, and average spending on Social Security payments is $30\%$ of salary.
-* Payment for **other operating expenses** amounted to $457 \text{ million \euro}$.
-* In recent years, the company has invested a total of $1,200 \text{ million \euro}$ in **fixed assets** whose average lifespan is $10 \text{ years}$ (linear depreciation and no residual value).
-* As regards current liabilities of the company, the company obtained an international loan of $225 \text{ million \euro}$ in the year 2015. The interest for this loan is $6\%$ along the whole year. The main repayment of loan will be made in 2020 (this is, the $100\%$ of the principal will be paid in 2020).
-* The **corporate tax rate** applied is $30\%$.
-* The company has agreed to a **dividend of 50\%**.
-* Assume **no change in stocks** of raw materials or finished products during the above period.
+## Phase 1 — Setup: units and hypotheses
 
----
+All amounts are expressed in **millions of euros (M€)**. Salaries are given per employee in €, so they must be converted: $1 \text{ M€} = 10^6$ €.
 
-> [!TIP] 🎯 Exam Day Strategy: Discount Eligibility, Social Security & Dividend Flow
-> * **Commercial Discount Eligibility:**
->   $$\text{Type A Volume} = 40\% \times 2,002.00 \text{ M\euro} = \mathbf{800.80 \text{ M\euro}} > 120 \text{ M\euro} \implies \text{Qualifies}$$
->   $$\text{Discount} = 3\% \times 800.80 = \mathbf{24.024 \text{ M\euro}} \implies \text{Net Sales} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
-> * **Workforce Labor Cost (Gross Salary + Employer Social Security):**
->   $$\text{Base Wages} = 7,800 \times 30,000 \text{ \euro} = 234.00 \text{ M\euro}$$
->   $$\text{Employer Social Security} = 30\% \times 234.00 = 70.20 \text{ M\euro} \implies \text{Total Labor Expense} = \mathbf{304.20 \text{ M\euro}}$$
-> * **Exam Trap 1 — Discount Scope:** Never apply the 3% discount to the full 2,002 M€! Only Type A customers (40%) qualify.
-> * **Exam Trap 2 — Principal Repayment vs Interest:** The loan principal ($225 \text{ M\euro}$) matures in 2020. Principal repayments are debt movements, **NEVER Income Statement expenses!** Only the annual interest ($6\% \times 225 = 13.50 \text{ M\euro}$) enters the P&L.
-> * **Exam Trap 3 — Dividend Payout Base:** Apply the $50\%$ dividend rate to **Net Income (profit after taxes)**, never to EBIT or EBT!
+**Hypotheses:**
+1. "No change in stocks" means initial inventory = final inventory, so $\text{COGS} = \text{Purchases}$.
+2. The 120 M€ threshold only defines who is a Type A customer; the statement already says these customers make 40% of the sales, so the discount applies to that 40%.
+3. The loan principal is not an expense: only its interest enters the income statement [Slide 11].
+4. The dividend of 50% is applied to the **net income** [Slide 23].
 
-## 📊 1. Mathematical Breakdown of Components
+## Phase 2 — Frames: line of each item
 
-### A. Net Sales & Trade Discount
-1. **Sales to Type A Customers:**
-   $$\text{Sales}_{\text{Type A}} = 40\% \times 2,002.00 \text{ M\euro} = 0.40 \times 2,002.00 = 800.80 \text{ M\euro}$$
-   *(Since $800.80 \text{ M\euro} > 120 \text{ M\euro}$, the customer tier qualifies for the $3\%$ discount).*
-2. **Commercial Discount:**
-   $$\text{Discount} = 3\% \times 800.80 \text{ M\euro} = 0.03 \times 800.80 = \mathbf{24.024 \text{ M\euro}}$$
-3. **Net Sales Revenue:**
-   $$\mathbf{\text{Net Sales}} = \text{Gross Sales} - \text{Discount} = 2,002.00 - 24.024 = \mathbf{1,977.976 \text{ M\euro}}$$
+| Item | Line |
+| :--- | :--- |
+| Gross sales − discount | Sales revenue (net) |
+| Raw materials (no stock change) | Cost of goods sold |
+| Salaries + Social Security | Operating expense |
+| Other operating expenses | Operating expense |
+| Depreciation of fixed assets | Operating expense [Slide 10] |
+| Interest on the loan | Non-operating item [Slide 11] |
+| Tax 30% | Income taxes |
+| Dividend 50% | Distribution of net income (not an expense) |
 
----
+## Phase 3 — Derivation
 
-### B. Cost of Goods Sold (COGS)
-Since inventory levels did not change ($\Delta \text{Stock} = 0$):
-$$\mathbf{\text{COGS}} = \text{Purchases of Raw Materials} = \mathbf{962.00 \text{ M\euro}}$$
-$$\mathbf{\text{Gross Profit}} = \text{Net Sales} - \text{COGS} = 1,977.976 - 962.00 = \mathbf{1,015.976 \text{ M\euro}}$$
+### Step 1. Net sales
 
----
+$$\text{Type A sales} = 0.40 \times 2{,}002 = 800.8 \text{ M€}, \qquad \text{Discount} = 0.03 \times 800.8 = 24.024 \text{ M€}$$
 
-### C. Operating Expenses
+$$\text{Net sales} = 2{,}002 - 24.024 = 1{,}977.976 \text{ M€}$$
 
-1. **Workforce / Personnel Expense:**
-   * Total annual base salaries for 7,800 workers at 30,000 €:
-     $$\text{Base Salaries} = 7,800 \times 30,000 \text{ \euro} = 234,000,000 \text{ \euro} = 234.00 \text{ M\euro}$$
-   * Employer Social Security contributions ($30\%$ of salary):
-     $$\text{Social Security} = 30\% \times 234.00 \text{ M\euro} = 70.20 \text{ M\euro}$$
-   * Total Labor Cost:
-     $$\mathbf{\text{Personnel Cost}} = 234.00 + 70.20 = \mathbf{304.20 \text{ M\euro}}$$
-2. **Other Operating Expenses:**
-   $$\mathbf{\text{Other Operating Expenses}} = \mathbf{457.00 \text{ M\euro}}$$
-3. **Linear Depreciation of Fixed Assets:**
-   With acquisition cost of $1,200 \text{ M\euro}$, useful life $n = 10 \text{ years}$, and zero residual value:
-   $$\mathbf{\text{Annual Depreciation}} = \frac{1,200.00 \text{ M\euro}}{10 \text{ years}} = \mathbf{120.00 \text{ M\euro}}$$
-4. **Total Operating Expenses:**
-   $$\mathbf{\text{Total Operating Expenses}} = 304.20 + 457.00 + 120.00 = \mathbf{881.20 \text{ M\euro}}$$
+### Step 2. Personnel expense
 
----
+$$\text{Salaries} = 7{,}800 \times 30{,}000 = 234{,}000{,}000 \text{ €} = 234 \text{ M€}$$
 
-### D. Operating Income (EBIT)
-$$\mathbf{\text{Operating Income (EBIT)}} = \text{Gross Profit} - \text{Total Operating Expenses}$$
-$$\text{EBIT} = 1,015.976 - 881.20 = \mathbf{134.776 \text{ M\euro}}$$
+$$\text{Social Security} = 0.30 \times 234 = 70.2 \text{ M€}, \qquad \text{Personnel} = 234 + 70.2 = 304.2 \text{ M€}$$
 
----
+### Step 3. Depreciation and interest
 
-### E. Financial Expenses (Debt Servicing)
-* Principal Loan Balance outstanding in 2017: $225.00 \text{ M\euro}$ (repayable in 2020).
-* Annual Interest Rate: $6\%$.
-$$\mathbf{\text{Interest Expense}} = 6\% \times 225.00 \text{ M\euro} = 0.06 \times 225.00 = \mathbf{13.50 \text{ M\euro}}$$
+$$D = \frac{1{,}200 - 0}{10} = 120 \text{ M€/year}, \qquad I = 225 \times 0.06 = 13.5 \text{ M€}$$
 
----
+### Step 4. Income statement 2017
 
-### F. Earnings Before Taxes, Corporate Tax & Net Income
-1. **Earnings Before Taxes (EBT):**
-   $$\mathbf{\text{EBT}} = \text{EBIT} - \text{Interest Expense} = 134.776 - 13.50 = \mathbf{121.276 \text{ M\euro}}$$
-2. **Corporate Income Taxes ($30\%$):**
-   $$\mathbf{\text{Corporate Tax}} = 30\% \times 121.276 \text{ M\euro} = 0.30 \times 121.276 = \mathbf{36.3828 \text{ M\euro}}$$
-3. **Net Income (Net Profit after Taxes):**
-   $$\mathbf{\text{Net Income}} = \text{EBT} - \text{Corporate Tax} = 121.276 - 36.3828 = \mathbf{84.8932 \text{ M\euro}}$$
+| Line | Computation | M€ |
+| :--- | :--- | ---: |
+| Net sales | Step 1 | 1,977.976 |
+| − Cost of goods sold (raw materials) | | 962.000 |
+| **= Gross profit** | $1{,}977.976 - 962$ | **1,015.976** |
+| − Personnel | Step 2 | 304.200 |
+| − Other operating expenses | | 457.000 |
+| − Depreciation | Step 3 | 120.000 |
+| **= Income from operations** | $1{,}015.976 - 881.2$ | **134.776** |
+| − Interest expense | Step 3 | 13.500 |
+| **= Income before taxes** | $134.776 - 13.5$ | **121.276** |
+| − Income taxes (30%) | $0.30 \times 121.276$ | 36.383 |
+| **= Net income** | $121.276 - 36.3828$ | **84.893** |
+
+### Step 5. Distribution of the net income [Slide 23]
+
+$$\text{Dividends} = 0.50 \times 84.8932 = 42.447 \text{ M€}, \qquad \text{Retained earnings} = 84.8932 - 42.4466 = 42.447 \text{ M€}$$
+
+Pay-out 50%, self-financing 50%.
+
+## Phase 4 — Interpretation and checks
+
+- **Applying the discount to all the sales** would deduct $0.03 \times 2{,}002 = 60.06$ M€ instead of 24.024: the 40% restriction matters.
+- **The loan repayment in 2020** does not appear in 2017: repaying principal is a payment that is never an expense.
+- **Exact values:** income taxes 36.3828 M€ and net income 84.8932 M€ (shown rounded to three decimals in the table).
+- **Dividends** come after taxes and are not an expense: the income statement ends at the net income, and the 50/50 split is shown separately.
 
 ---
 
-### G. Profit Appropriation (Dividends vs Retention)
-* **Dividend Distribution ($50\%$ Payout):**
-  $$\mathbf{\text{Dividends}} = 50\% \times 84.8932 \text{ M\euro} = \mathbf{42.4466 \text{ M\euro}}$$
-* **Retained Earnings ($50\%$ Self-Financing):**
-  $$\mathbf{\text{Retained Earnings}} = 50\% \times 84.8932 \text{ M\euro} = \mathbf{42.4466 \text{ M\euro}}$$
+**Back to:** [[Business Management MOC]]
 
----
-
-## 📑 2. Official Income Statement Presentation (Year 2017)
-
-$$\begin{array}{|lrr|}
-\hline
-\textbf{INCOME STATEMENT — FISCAL YEAR 2017} & \textbf{Detail (M\euro)} & \textbf{Amount (M\euro)} \\
-\hline
-\text{Gross Sales Revenue} & 2,002.000 & \\
-\text{(-) Commercial Discounts to Type A Customers (3\%)} & (24.024) & \\
-\hline
-\mathbf{\text{TOTAL NET SALES REVENUE}} & & \mathbf{1,977.976} \\
-\text{(-) Cost of Goods Sold (Raw materials purchases)} & & (962.000) \\
-\hline
-\mathbf{\text{GROSS PROFIT}} & & \mathbf{1,015.976} \\
-\text{(-) Operating Expenses} & & (881.200) \\
-\quad \text{• Personnel Expenses (Wages + 30\% Social Security)} & (304.200) & \\
-\quad \text{• Other Operating Expenses} & (457.000) & \\
-\quad \text{• Linear Depreciation of Fixed Assets (10\% of 1,200)} & (120.000) & \\
-\hline
-\mathbf{\text{OPERATING INCOME (EBIT / Income from Operations)}} & & \mathbf{134.776} \\
-\text{(-) Financial Interest Expenses (6\% of 225 M\euro)} & & (13.500) \\
-\hline
-\mathbf{\text{EARNINGS BEFORE TAXES (EBT)}} & & \mathbf{121.276} \\
-\text{(-) Corporate Income Tax (30\%)} & & (36.383) \\
-\hline
-\mathbf{\text{NET INCOME (NET PROFIT AFTER TAXES)}} & & \mathbf{84.893} \\
-\hline
-\hline
-\textbf{Profit Distribution:} & & \\
-\text{• Dividends Distributed to Shareholders (50\%)} & & 42.447 \\
-\text{• Retained Earnings transferred to Equity (50\%)} & & 42.447 \\
-\hline
-\end{array}$$
-
----
-
-## 🎯 3. Financial Ratio Insights
-* **Gross Margin:** $\frac{1,015.976}{1,977.976} = 51.36\%$
-* **Operating Margin (EBIT Margin):** $\frac{134.776}{1,977.976} = 6.81\%$
-* **Net Profit Margin:** $\frac{84.893}{1,977.976} = 4.29\%$
-* **Interest Coverage Ratio:** $\frac{\text{EBIT}}{\text{Interest}} = \frac{134.776}{13.50} \approx 9.98\times$ (healthy debt servicing capability).
-
----
-
-## 🔗 Related Notes
-* [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
-* [[05 - Business Management/Concept - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
-* [[05 - Business Management/Problem - T3 Exercise 4 - Hawkins Partners Income Statement and Inventories|Problem 4: Hawkins Partners Income Statement]]
-* [[05 - Business Management/Problem - T3 Exercise 6 - Company X Full Cycle Balance Sheet and Uncalled Capital|Problem 6: Company X Full Cycle Balance Sheet]]
+**Related notes:** [[Concept - Method to Build the Income Statement and Balance Sheet]] · [[Topic 3 - Financial Management I - Financial Statements]]

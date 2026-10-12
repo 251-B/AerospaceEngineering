@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Stakeholders of the firm">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="270.0" y1="140.0" x2="105.0" y2="64.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="20.0" y="20.0" width="170.0" height="44.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="105.0" y="46.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Shareholders</text>
+<line x1="350.0" y1="140.0" x2="515.0" y2="64.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="430.0" y="20.0" width="170.0" height="44.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="515.0" y="38.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Banks and other</text>
+<text x="515.0" y="54.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">financial agents</text>
+<line x1="380.0" y1="165.0" x2="440.0" y2="165.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="440.0" y="143.0" width="160.0" height="44.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="520.0" y="169.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Customers</text>
+<line x1="350.0" y1="190.0" x2="515.0" y2="266.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="430.0" y="266.0" width="170.0" height="44.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="515.0" y="292.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Suppliers</text>
+<line x1="310.0" y1="190.0" x2="310.0" y2="276.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="240.0" y="276.0" width="140.0" height="40.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="310.0" y="300.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">State</text>
+<line x1="270.0" y1="190.0" x2="105.0" y2="266.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="20.0" y="266.0" width="170.0" height="44.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="105.0" y="284.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Employees /</text>
+<text x="105.0" y="300.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">labour unions</text>
+<line x1="240.0" y1="165.0" x2="180.0" y2="165.0" stroke="#8a94a6" stroke-width="1.4"/>
+<rect x="20.0" y="143.0" width="160.0" height="44.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="100.0" y="169.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Society (CSR)</text>
+<rect x="240.0" y="140.0" width="140.0" height="50.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="310.0" y="169.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">MANAGEMENT</text>
+</g></svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 190" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Sources of competitive advantage">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="170.0" y="10.0" width="220.0" height="46.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="280.0" y="37.5" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">COMPETITIVE ADVANTAGE</text>
+<rect x="20.0" y="110.0" width="230.0" height="60.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="135.0" y="136.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">COST ADVANTAGE</text>
+<text x="135.0" y="152.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Similar product at lower cost</text>
+<rect x="310.0" y="110.0" width="230.0" height="60.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="425.0" y="136.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">DIFFERENTIATION ADVANTAGE</text>
+<text x="425.0" y="152.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Price premium from unique product</text>
+<line x1="240.0" y1="56.0" x2="135.0" y2="110.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M135.0,110.0 L140.8,103.1 L144.0,109.3 Z" fill="#8a94a6"/>
+<line x1="320.0" y1="56.0" x2="425.0" y2="110.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M425.0,110.0 L416.0,109.3 L419.2,103.1 Z" fill="#8a94a6"/>
+</g></svg>

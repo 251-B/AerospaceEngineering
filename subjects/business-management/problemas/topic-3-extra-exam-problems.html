@@ -250,6 +250,18 @@
     .topic-nav a:hover {
       border-color: var(--accent-border); color: var(--accent);
     }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
@@ -289,6 +301,7 @@
 
         <nav class="quick-jump">
           <span style="font-size: 12px; font-weight: 600; color: var(--text-muted); align-self: center; margin-right: 4px;">Jump to Problem:</span>
+          <a href="#method" class="jump-btn">Method</a>
           <a href="#problem-1" class="jump-btn">Problem 1: CIRCONSA</a>
           <a href="#problem-2" class="jump-btn">Problem 2: INFOPYMES</a>
           <a href="#problem-3" class="jump-btn">Problem 3: WIFINET S.L.</a>
@@ -297,756 +310,287 @@
         <nav class="src-panel" data-srclink aria-label="Official material">
           <span class="src-panel-label">Official material</span>
           <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf" target="_blank" rel="noopener">T3_Additional_EXERCISES.pdf</a>
-          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf" target="_blank" rel="noopener">Topic 3 Financial Management (I).pdf</a>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=7" target="_blank" rel="noopener">Topic 3 Financial Management (I).pdf · p. 7</a>
         </nav>
       </header>
 
-      <!-- ==========================================
-           EXAM PROBLEM 1: CIRCONSA
-           ========================================== -->
+      <section class="method-box" id="method">
+        <h2>Method: building the income statement and the balance sheet</h2>
+        <div class="callout"><p><strong>Central idea:</strong> every operation of an exam problem is read <strong>three times</strong>: does it create a <strong>revenue or expense</strong> of the period (income statement)? does <strong>cash</strong> enter or leave before the closing date (cash account)? what <strong>asset, liability or equity</strong> item remains open at the closing date (balance sheet)? If the three readings are done for every operation, the balance sheet closes by itself.</p></div>
+        <h3>Step 0. Read the dates: the period and the closing instant</h3>
+<ul><li>Write the <strong>period</strong> of the income statement (a quarter, a semester, a calendar year) and the <strong>closing instant</strong> of the balance sheet (e.g. 31/12 at 24:00). The income statement covers a <strong>period</strong>; the balance sheet is a <strong>point in time</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 7">7</a>, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 12">12</a>].</li><li>Draw a <strong>timeline</strong> with every dated event: purchases, sales, payments, loan dates, repayments. Months of use inside the period decide depreciation and interest; payment dates decide cash and debts.</li><li>A balance at "24:00 after all payments" includes the payments made that day (taxes, dividends, instalments); a balance "before" them keeps them as liabilities.</li></ul>
+        <h3>Step 1. Classify every operation with the three questions</h3>
+<p>For each operation fill one row of this table:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Operation</th><th>Income statement (revenue / expense of the period)</th><th>Cash (collected / paid before closing)</th><th>Balance sheet item still open at closing</th></tr></thead><tbody><tr><td>Sale on credit</td><td>Revenue for the <strong>whole</strong> sale [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 8">8</a>]</td><td>Only the part collected</td><td>Accounts receivable = sale − collected</td></tr><tr><td>Purchase of goods for resale or raw materials</td><td>Expense only for the part <strong>consumed or sold</strong> (cost of goods sold) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 10">10</a>]</td><td>Only the part paid</td><td>Inventory = unconsumed part; accounts payable = unpaid part</td></tr><tr><td>Salaries, utilities, rent, services</td><td>Expense for the period's consumption [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 8">8</a>]</td><td>Only the part paid</td><td>Payable for the unpaid part</td></tr><tr><td>Purchase of a fixed asset (machine, building, patent)</td><td>No expense on purchase; only the <strong>depreciation</strong> of the months used</td><td>Only the part paid</td><td>Asset at cost minus accumulated depreciation; debt for the unpaid part</td></tr><tr><td>Loan received</td><td>Nothing (it is not a revenue)</td><td>Cash in</td><td>Liability: current part (due within one year) and long-term part [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 16">16</a>]</td></tr><tr><td>Interest on a loan</td><td>Expense for the months of the period (non-operating item) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 11">11</a>]</td><td>Only the interest actually paid</td><td>Interest payable for the accrued but unpaid part</td></tr><tr><td>Repayment of principal</td><td>Nothing (it is not an expense)</td><td>Cash out</td><td>The liability decreases</td></tr><tr><td>Capital contributed by owners</td><td>Nothing</td><td>Cash in (or the asset contributed)</td><td>Contributed capital [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 17">17</a>]</td></tr><tr><td>Income taxes</td><td>Expense = income before taxes × rate [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 11">11</a>]</td><td>Only if paid before closing</td><td>Taxes payable otherwise</td></tr><tr><td>Dividends</td><td>Nothing (a distribution of profit, not an expense) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 23">23</a>]</td><td>Only if paid before closing</td><td>Dividends payable if declared and unpaid; retained earnings = profit − dividends</td></tr></tbody></table></div>
+<p>Two consequences are worth memorising: <strong>a revenue is not a collection and an expense is not a payment</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 8">8</a>]; and <strong>depreciation is an expense that is never a payment</strong>, while <strong>buying a machine or repaying a loan are payments that are never expenses</strong>.</p>
+        <h3>Step 2. Compute the special items</h3>
+<p><strong>Depreciation</strong> (when the statement says linear / straight-line, with or without residual value):</p>
+<div class="math-block">$$\text{Depreciation of the period} = \frac{\text{Cost} - \text{Residual value}}{\text{Useful life in years}} \times \frac{\text{months used in the period}}{12}$$</div>
+<p>The asset appears in the balance sheet at its <strong>net value</strong>: cost − accumulated depreciation. Land is not depreciated in the exercises (no useful life is given for it).</p>
+<p><strong>Interest</strong> (simple interest at an annual rate, as in all the exercises):</p>
+<div class="math-block">$$\text{Interest of the period} = \text{Principal outstanding} \times \text{annual rate} \times \frac{\text{months}}{12}$$</div>
+<p>If the principal changes during the period (instalments), split the period into the stretches where the principal is constant and add the pieces.</p>
+<p><strong>Cost of goods sold</strong> with stocks:</p>
+<div class="math-block">$$\text{COGS} = \text{Initial inventory} + \text{Purchases} - \text{Ending inventory}$$</div>
+<p>This is the same rule as "expense only for the part consumed": whatever was bought or held and is no longer in stock was consumed.</p>
+        <h3>Step 3. Build the income statement (format of [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 9">9</a>])</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Content</th></tr></thead><tbody><tr><td>Sales revenue</td><td>Sales of the period (net of the discounts the statement gives)</td></tr><tr><td>− Cost of goods sold</td><td>COGS of Step 2</td></tr><tr><td>= Gross profit</td><td></td></tr><tr><td>− Operating expenses</td><td>Salaries, social security, rent, utilities, services, depreciation</td></tr><tr><td>= Income from operations</td><td></td></tr><tr><td>± Non-operating items</td><td>Interest expense and interest revenue; gains and losses on the sale of equipment and investments [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 11">11</a>]</td></tr><tr><td>= Income before taxes</td><td></td></tr><tr><td>− Income taxes</td><td>Income before taxes × tax rate [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 11">11</a>]</td></tr><tr><td>= Net income</td><td>Then split it: dividends and retained earnings [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 23">23</a>]</td></tr></tbody></table></div>
+        <h3>Step 4. Compute cash with a cash account</h3>
+<div class="math-block">$$\text{Cash}_{\text{end}} = \text{Cash}_{\text{start}} + \sum \text{collections} - \sum \text{payments}$$</div>
+<p>List every inflow (capital, loans, collections from customers, old receivables collected) and every outflow (purchases paid, salaries, investments paid, interest, principal, taxes, dividends). Depreciation never appears here.</p>
+        <h3>Step 5. Build the balance sheet (format of [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 18">18</a>])</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th>Liabilities and equity</th></tr></thead><tbody><tr><td><strong>Non-current assets:</strong> land, buildings, machinery, equipment, patents, licences (at net value); long-term investments; receivables due in more than one year [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 15">15</a>]</td><td><strong>Equity:</strong> contributed capital; retained earnings / reserves; net income of the period not distributed [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 17">17</a>]</td></tr><tr><td><strong>Current assets:</strong> inventory, accounts receivable due within one year, cash [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 14">14</a>]</td><td><strong>Long-term liabilities:</strong> debts due after one year [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 16">16</a>]</td></tr><tr><td></td><td><strong>Current liabilities:</strong> suppliers, other payables, taxes payable, interest payable, dividends payable, the part of any loan due within one year [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 16">16</a>]</td></tr></tbody></table></div>
+<p>The one-year boundary is counted <strong>from the balance-sheet date</strong>: a debt due on 1/2 of next year is current at 31/12; a customer debt deferred to July of the year after next is non-current.</p>
+        <h3>Step 6. Check</h3>
+<ol><li>$\text{Total assets} = \text{Total liabilities} + \text{Equity}$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 12">12</a>]. If it fails, the difference is almost always one operation that was recorded on only one side.</li><li><strong>Cash cross-check:</strong> the change in equity due to the period equals net income − dividends; the change in cash equals collections − payments. Re-adding each operation should explain both.</li><li><strong>Sign and size:</strong> receivables, payables and inventory can never be negative; depreciation can never exceed cost − residual value.</li></ol>
+      </section>
+
       <section class="problem-box" id="problem-1">
-        <span class="problem-tag">Exam Problem 1 • High Difficulty</span>
-        <h2 class="problem-title">CIRCONSA — Semester Financial Statements & Cash Reconciliation</h2>
+        <span class="problem-tag">Additional Exercise 1 · Exam type</span>
+        <h2 class="problem-title">T3 Additional Exercise 1 — CIRCONSA, statements at 30 June 2015</h2>
         <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf" target="_blank" rel="noopener">Original statement · T3_Additional_EXERCISES.pdf</a>
-
         <div class="statement-box">
-          The financial director of <strong>CIRCONSA</strong> is working on its financial statements (Balance Sheet and Income Statement) as of <strong>30 June 2015 (30/06/2015)</strong>. Starting from the Balance Sheet at 31/12/2014 (Current Assets: 5,400 [Cash 1,200, Receivables 1,800, Stock 2,400]; Non-Current Assets: Machinery 500 less Accum Dep 50 = 450; Current Liabilities: 800 [Taxes 350, Suppliers 450]; Owners' Equity: 5,050 [Retained Earnings 850, Capital 4,200]; Total = 5,850 m.u.), evaluate the semester operations from 01/01/2015 to 30/06/2015:<br>
-          • <strong>i. Sales:</strong> 1,200 units at 20 mu/u (200 u/month). 30-day payment term. VIP client (30% of sales) receives a 10% commercial discount.<br>
-          • <strong>ii. Purchases:</strong> 1,000 units (40% in Q1, 60% in Q2) at 12 mu/u. 90-day supplier payment term.<br>
-          • <strong>iii. Initial Stock:</strong> 200 units at 12 mu/u (2,400 mu).<br>
-          • <strong>iv. Prior Year Liabilities:</strong> Q1 2015 paid 2014 unpaid taxes (350 mu) and supplier balance (450 mu).<br>
-          • <strong>v. Prior Year Receivables:</strong> Q1 2015 collected 2014 customer debt except 300 mu deferred to July 2016.<br>
-          • <strong>vi. Operating Expenses:</strong> Personnel 350 mu/mo + Social Security 150 mu/mo (paid in month produced); Overheads 300 mu/mo (paid 2 months after).<br>
-          • <strong>vii. Renting:</strong> 1 April 2015 computer renting for 400 mu/month, payment term 120 days.<br>
-          • <strong>viii. Patent:</strong> 1 April 2015 purchased patent for 2,400 mu, payable 1 July 2015. 4-year linear amortization.<br>
-          • <strong>ix. Bank Credit:</strong> 1 Feb 2015 borrowed 2,000 mu at 12% per annum, principal + interest due 1 Feb 2016.<br>
-          • <strong>x. Machine 1:</strong> Bought 1 July 2014, amortized linearly with 20% residual value.<br>
-          • <strong>xi. Capital & Machine 2:</strong> 1 Feb 2015 cash capital increase 10,000 mu. Same date bought Machine 2 for 12,000 mu (paid 8,000 mu cash, 4,000 mu payable 1 July 2015; 4-year life, 0 residual value).<br>
-          • <strong>xii. Corporate Tax:</strong> 20% tax, recorded as "taxes to pay" on 30 June 2015.
+<p>The financial director of CIRCONSA is working on its financial statements (balance sheet and income statement) as of 30 June 2015. It has the balance of the company as of 31 December 2014 and the following operations that took place from 1 January 2015 to 30 June 2015. The company sells a certain product.</p>
+<ul><li><strong>i.</strong> During the semester the company sold 1,200 units at 20 m.u./unit (every month the same amount, 200 u.). Customers pay 30 days after the sale. A very important customer (30% of the sales), who bought an equal amount each month, was given a 10% discount on its purchases.</li><li><strong>ii.</strong> During the semester 1,000 units were purchased (40% in the first quarter and 60% in the second) at 12 m.u./u. Suppliers are paid at 90 days.</li><li><strong>iii.</strong> At 31/12/2014 there is a stock of 200 units valued at 12 m.u./u.</li><li><strong>iv.</strong> During the first quarter of 2015 the taxes and the outstanding supplier balances of the previous year were paid.</li><li><strong>v.</strong> During the first quarter of 2015 the customer debt outstanding from the previous year was collected, except 300 m.u. from a customer who requested to defer payment until July 2016.</li><li><strong>vi.</strong> Personnel expenses were 350 m.u./month (plus 150 for Social Security) and general expenses 300 m.u./month. Personnel and Social Security are paid in the month in which they occur; overheads two months after.</li><li><strong>vii.</strong> On 1/04/2015 a renting contract (3 years) for computer equipment was signed with a specialised company, 400 m.u. per month, with payment at 120 days (payment at the end of each month).</li><li><strong>viii.</strong> On 1/04/2015 a patent was bought for 2,400 m.u., to be paid on 1/07/2015. It is amortised in 4 years.</li><li><strong>ix.</strong> On 1/02/2015 a credit of 2,000 m.u. was obtained, to be returned a year later with 12% annual interest; interest and principal are paid on 1/02/2016.</li><li><strong>x.</strong> At 31/12/2014 the company had only one machine, bought on 1/07/2014, amortised linearly with a residual value of 20%.</li><li><strong>xi.</strong> On 1/02/2015 a capital increase (fully paid, no issue premium) of 10,000 m.u. was made. The same day a new machine costing 12,000 m.u. was bought: 8,000 paid in cash and the remainder on 1/07/2015. It is amortised in 4 years with zero residual value.</li><li><strong>xii.</strong> Assume a 20% corporate tax, recorded in the balance at 30/06/2015 as "taxes to pay".</li></ul>
+<p><strong>Balance sheet at 31/12/2014 (m.u.):</strong> current assets 5,400 (cash 1,200; accounts receivable 1,800; inventory 2,400); non-current assets 450 (machinery 500; accumulated depreciation 50); current liabilities 800 (unpaid taxes 350; suppliers 450); owners' equity 5,050 (retained earnings 850; paid-in capital 4,200); total 5,850.</p>
+<p><strong>Question:</strong> calculate the balance sheet and the profit and loss account of CIRCONSA at 30 June 2015.</p>
         </div>
-
-        <div class="strategy-callout">
-          <div class="strategy-title">🎯 Exam Day Strategy: Time Horizons & Deferred Payables</div>
-          <ul>
-            <li><strong>Semester Duration:</strong> $t = 6 \text{ months} = 0.5 \text{ year}$. Multiply monthly figures by 6 (or active months).</li>
-            <li><strong>Payable on 1 July 2015:</strong> The patent debt ($2,400 \text{ mu}$) and Machine 2 debt ($4,000 \text{ mu}$) are payable <em>the day after</em> the balance date. Therefore, they are <strong>Current Liabilities on 30/06/2015</strong>, not cash outflows!</li>
-            <li><strong>Customer Deferral:</strong> The $300 \text{ mu}$ deferred to July 2016 is $> 1 \text{ year}$ away $\implies$ <strong>Non-Current Account Receivable</strong>.</li>
-            <li><strong>Payment Terms:</strong> 30-day customer delay means June sales are unpaid on 30 June; 90-day supplier delay means all Q2 purchases are unpaid on 30 June.</li>
-          </ul>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 1 — Setup: data, timeline and hypotheses</h3>
+<p><strong>Period:</strong> 1/01/2015 to 30/06/2015, <strong>6 months</strong>. <strong>Closing instant:</strong> 30/06/2015. Every monthly figure is multiplied by the months it applies inside this window.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody><tr><td>Jan-Mar</td><td>Sales 200 u./month; purchases 400 u. (Q1); payment of 2014 taxes and suppliers; collection of 2014 receivables except 300</td></tr><tr><td>1/02</td><td>Credit 2,000 received; capital increase 10,000; machine 2 bought (8,000 paid)</td></tr><tr><td>1/04</td><td>Renting starts (400/month); patent bought (2,400, payable 1/07)</td></tr><tr><td>Apr-Jun</td><td>Sales 200 u./month; purchases 600 u. (Q2)</td></tr><tr><td>30/06</td><td><strong>Closing</strong></td></tr><tr><td>1/07</td><td>Payment of patent and of the 4,000 left on machine 2 (after the closing)</td></tr></tbody></table></div>
+<p><strong>Hypotheses</strong> (all read from the statement):</p>
+<ol><li>Sales are uniform (200 u./month) and collected 30 days later, so at 30/06 only <strong>June's sales</strong> are uncollected.</li><li>Q1 purchases are paid 90 days later, inside the semester; <strong>Q2 purchases</strong> are still unpaid at 30/06.</li><li>Overheads are paid two months later: January-April are paid, <strong>May and June</strong> are unpaid.</li><li>The renting is paid at 120 days: none of the April-June instalments has been paid at 30/06.</li><li>Simple interest, prorated by months. Tax: 20% of income before taxes, left unpaid.</li><li>Machine 1: its useful life is not given; it is deduced from the opening balance (Phase 3, Step 5).</li></ol>
         </div>
-
-        <h3 class="phase-title">Analytical Deductions Step-by-Step</h3>
-        <ol>
-          <li><strong>Net Sales:</strong> Total gross sales $= 1,200 \times 20 = 24,000 \text{ mu}$. VIP client ($30\% = 7,200 \text{ mu}$) discount of $10\% = 720 \text{ mu}$.
-            $$\mathbf{\text{Net Sales}} = 24,000 - 720 = \mathbf{23,280 \text{ mu}}$$
-            June sales ($1/6$ of total) $= 3,880 \text{ mu}$ are uncollected on 30/06 $\implies$ <strong>Current Accounts Receivable</strong> $= \mathbf{3,880 \text{ mu}}$. Collections $= 23,280 - 3,880 = \mathbf{19,400 \text{ mu}}$.
-          </li>
-          <li><strong>COGS & Ending Inventory:</strong>
-            Available units $= 200 \text{ init} + 1,000 \text{ purch} = 1,200 \text{ units}$. Sold $= 1,200 \text{ units} \implies$ <strong>Ending Inventory</strong> $= \mathbf{0 \text{ mu}}$.
-            $$\mathbf{\text{COGS}} = 1,200 \times 12 = \mathbf{14,400 \text{ mu}}$$
-            Q2 purchases ($600 \text{ units} \times 12 = 7,200 \text{ mu}$) payable at 90 days are unpaid on 30 June $\implies$ <strong>Accounts Payable (Suppliers)</strong> $= \mathbf{7,200 \text{ mu}}$.
-          </li>
-          <li><strong>Personnel, Overheads & Renting:</strong>
-            <ul>
-              <li>Personnel: $6 \text{ months} \times (350 + 150) = \mathbf{3,000 \text{ mu}}$ (paid in full).</li>
-              <li>Overheads: $6 \text{ months} \times 300 = \mathbf{1,800 \text{ mu}}$. May and June ($600 \text{ mu}$) unpaid $\implies$ <strong>Overheads Payable</strong> $= \mathbf{600 \text{ mu}}$.</li>
-              <li>Renting (Apr–Jun, 3 months): $3 \times 400 = \mathbf{1,200 \text{ mu}}$. Payable at 120 days $\implies$ <strong>Renting Debt</strong> $= \mathbf{1,200 \text{ mu}}$.</li>
-            </ul>
-          </li>
-          <li><strong>Depreciation & Amortization:</strong>
-            <ul>
-              <li>Patent ($2,400 / 48 \text{ mo} \times 3 \text{ mo}$): $\mathbf{150 \text{ mu}}$ (Net BV $= 2,250 \text{ mu}$).</li>
-              <li>Machine 1 ($500 - 100 \text{ res val} = 400 \text{ base}$ over $4 \text{ yrs}$, semester dep): $\mathbf{50 \text{ mu}}$ (Accum dep $= 100 \text{ mu}$). The 4-year life follows from the opening accumulated depreciation: $50 \text{ mu}$ over the $6$ months since 1 July 2014 gives $100 \text{ mu/year}$, so life $= 400/100 = 4$ years.</li>
-              <li>Machine 2 ($12,000 / 48 \text{ mo} \times 5 \text{ mo active}$): $\mathbf{1,250 \text{ mu}}$ (Accum dep $= 1,250 \text{ mu}$).</li>
-              <li>Total Depreciation in P&L: $150 + 50 + 1,250 = \mathbf{1,450 \text{ mu}}$.</li>
-            </ul>
-          </li>
-          <li><strong>Bank Credit Interest:</strong> $2,000 \times 12\% \times \frac{5}{12} = \mathbf{100 \text{ mu}}$ (Accrued interest payable $= 100 \text{ mu}$).</li>
-          <li><strong>EBIT, Tax & Net Income:</strong>
-            $$\text{EBIT} = 23,280 - 14,400 - (3,000 + 1,800 + 1,200 + 1,450) = 8,880 - 7,450 = \mathbf{1,430 \text{ mu}}$$
-            $$\text{EBT} = 1,430 - 100 = \mathbf{1,330 \text{ mu}}$$
-            $$\text{Corporate Tax } (20\%) = 20\% \times 1,330 = \mathbf{266 \text{ mu}} \implies \mathbf{\text{Net Profit}} = 1,330 - 266 = \mathbf{1,064 \text{ mu}}$$
-          </li>
-        </ol>
-
-        <h3 class="phase-title">Balanced Financial Statements at 30 June 2015</h3>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>ASSETS (Activo)</th>
-                <th>Amount (mu)</th>
-                <th>LIABILITIES & EQUITY (Pasivo y PN)</th>
-                <th>Amount (mu)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>NON-CURRENT ASSETS</strong></td>
-                <td><strong>13,700</strong></td>
-                <td><strong>STOCKHOLDERS' EQUITY</strong></td>
-                <td><strong>16,114</strong></td>
-              </tr>
-              <tr>
-                <td>• Patent (Net Book Value: 2,400 - 150)</td>
-                <td>2,250</td>
-                <td>• Paid-in Capital (4,200 + 10,000)</td>
-                <td>14,200</td>
-              </tr>
-              <tr>
-                <td>• Machinery (Net BV: 12,500 - 1,350)</td>
-                <td>11,150</td>
-                <td>• Retained Earnings (2014)</td>
-                <td>850</td>
-              </tr>
-              <tr>
-                <td>• Long-term Customer Debt (July 2016)</td>
-                <td>300</td>
-                <td>• Net Profit for Semester</td>
-                <td>1,064</td>
-              </tr>
-              <tr>
-                <td><strong>CURRENT ASSETS</strong></td>
-                <td><strong>20,180</strong></td>
-                <td><strong>CURRENT LIABILITIES</strong></td>
-                <td><strong>17,766</strong></td>
-              </tr>
-              <tr>
-                <td>• Inventories (Stock)</td>
-                <td>0</td>
-                <td>• Short-term bank credit</td>
-                <td>2,000</td>
-              </tr>
-              <tr>
-                <td>• Accounts Receivable (June sales)</td>
-                <td>3,880</td>
-                <td>• Accrued loan interest</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>• Cash & Bank Deposits (Reconciled)</td>
-                <td>16,300</td>
-                <td>• Accounts payable (Suppliers Q2)</td>
-                <td>7,200</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Debt for Machine 2 (due 1/7)</td>
-                <td>4,000</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Debt for Patent (due 1/7)</td>
-                <td>2,400</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Overheads payable (May & June)</td>
-                <td>600</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Renting debt payable (Apr–Jun)</td>
-                <td>1,200</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Taxes to pay (20% Corporate Tax)</td>
-                <td>266</td>
-              </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
-                <td>TOTAL ASSETS</td>
-                <td>33,880</td>
-                <td>TOTAL LIABILITIES & EQUITY</td>
-                <td>33,880</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 2 — Frames: classification of every operation</h3>
+<p>The three questions of the method (income statement? cash? open balance item at 30/06?) applied to each operation:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Op.</th><th>Income statement (6 months)</th><th>Cash in (+) / out (−)</th><th>Open at 30/06</th></tr></thead><tbody><tr><td>i. Sales</td><td>Net sales 23,280</td><td>+19,400 (Jan-May)</td><td>Receivables 3,880 (June)</td></tr><tr><td>ii-iii. Purchases and stock</td><td>COGS 14,400</td><td>−4,800 (Q1)</td><td>Inventory 0; suppliers 7,200 (Q2)</td></tr><tr><td>iv. 2014 taxes and suppliers</td><td>—</td><td>−350 − 450</td><td>—</td></tr><tr><td>v. 2014 receivables</td><td>—</td><td>+1,500</td><td>Long-term receivable 300</td></tr><tr><td>vi. Personnel + SS</td><td>3,000</td><td>−3,000</td><td>—</td></tr><tr><td>vi. Overheads</td><td>1,800</td><td>−1,200 (Jan-Apr)</td><td>Overheads payable 600</td></tr><tr><td>vii. Renting</td><td>1,200</td><td>0</td><td>Renting payable 1,200</td></tr><tr><td>viii. Patent</td><td>Amortisation 150</td><td>0</td><td>Patent 2,400 − 150; patent payable 2,400</td></tr><tr><td>ix. Credit</td><td>Interest 100</td><td>+2,000</td><td>Credit 2,000; interest payable 100</td></tr><tr><td>x. Machine 1</td><td>Depreciation 50</td><td>0</td><td>Machine 500 − 100</td></tr><tr><td>xi. Capital increase</td><td>—</td><td>+10,000</td><td>Capital +10,000</td></tr><tr><td>xi. Machine 2</td><td>Depreciation 1,250</td><td>−8,000</td><td>Machine 12,000 − 1,250; debt 4,000</td></tr><tr><td>xii. Tax</td><td>266</td><td>0</td><td>Taxes payable 266</td></tr></tbody></table></div>
+<p>Each figure is derived in Phase 3.</p>
         </div>
-        <p><strong>Cash derivation (30/06/2015):</strong> inflows $1,200 + 1,500 + 19,400 + 2,000 + 10,000 = 34,100 \text{ mu}$; outflows $350 + 450 + 4,800 + 3,000 + 1,200 + 8,000 = 17,800 \text{ mu}$ (2014 taxes, 2014 suppliers, Q1 purchases $400 \times 12$, personnel, overheads of January–April, Machine 2 down payment); cash $= 34,100 - 17,800 = \mathbf{16,300 \text{ mu}}$.</p>
-        <div class="result-callout">
-          <div class="result-callout-title">Equilibrium Verification</div>
-          $$\mathbf{\text{Assets } (33,880 \text{ mu}) \equiv \text{Liabilities } (17,766 \text{ mu}) + \text{Equity } (16,114 \text{ mu}) = 33,880 \text{ mu}}$$
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 3 — Derivation</h3>
+<h4 class="step-title">Step 1. Sales and receivables (op. i)</h4>
+<p>Gross sales per month: $200 \times 20 = 4{,}000$ m.u. The important customer buys 30% of them, so its discount per month is</p>
+<div class="math-block">$$0.30 \times 4{,}000 \times 0.10 = 120 \text{ m.u./month}$$</div>
+<p>Net sales per month: $4{,}000 - 120 = 3{,}880$ m.u. Over the semester:</p>
+<div class="math-block">$$\text{Net sales} = 6 \times 3{,}880 = 23{,}280 \text{ m.u.} \quad (= 24{,}000 - 720)$$</div>
+<p>Collections at 30 days: the sales of January to May are collected by 30/06 ($5 \times 3{,}880 = 19{,}400$); June's sales are still owed: <strong>receivables 3,880</strong>.</p>
+<h4 class="step-title">Step 2. Purchases, stock and cost of goods sold (ops. ii, iii)</h4>
+<p>Units: initial stock 200 + purchases 1,000 = 1,200 available; 1,200 sold, so the ending stock is 0 units. All units cost 12 m.u., so</p>
+<div class="math-block">$$\text{COGS} = \text{Initial inventory} + \text{Purchases} - \text{Ending inventory} = 2{,}400 + 12{,}000 - 0 = 14{,}400 \text{ m.u.}$$</div>
+<p>Purchases: Q1 $= 0.40 \times 1{,}000 \times 12 = 4{,}800$, paid at 90 days (inside the semester); Q2 $= 0.60 \times 1{,}000 \times 12 = 7{,}200$, <strong>unpaid at 30/06</strong>.</p>
+<h4 class="step-title">Step 3. Items from 2014 (ops. iv, v)</h4>
+<p>Paid in Q1: taxes 350 and suppliers 450 (cash −800; both liabilities disappear). Collected in Q1: $1{,}800 - 300 = 1{,}500$. The remaining 300 is due in July 2016, more than one year after 30/06/2015, so it becomes a <strong>non-current receivable</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 15">15</a>].</p>
+<p>None of these affects the income statement: they settle revenues and expenses of 2014.</p>
+<h4 class="step-title">Step 4. Personnel, overheads and renting (ops. vi, vii)</h4>
+<ul><li>Personnel + Social Security: $6 \times (350 + 150) = 3{,}000$, all paid.</li><li>Overheads: $6 \times 300 = 1{,}800$ of expense; paid two months later, so January-April are paid ($4 \times 300 = 1{,}200$) and May-June are owed: <strong>600 payable</strong>.</li><li>Renting: April, May, June, $3 \times 400 = 1{,}200$ of expense; paid at 120 days, nothing paid by 30/06: <strong>1,200 payable</strong>.</li></ul>
+<h4 class="step-title">Step 5. Fixed assets: depreciation and amortisation (ops. viii, x, xi)</h4>
+<p><strong>Machine 1.</strong> Cost 500, residual value $0.20 \times 500 = 100$, depreciable base $500 - 100 = 400$. The opening accumulated depreciation is 50 for the 6 months from 1/07/2014 to 31/12/2014, so the annual depreciation is $50 \times \frac{12}{6} = 100$ and the useful life is $\frac{400}{100} = 4$ years. For the semester:</p>
+<div class="math-block">$$D_1 = \frac{500 - 100}{4} \times \frac{6}{12} = 50 \text{ m.u.}, \qquad \text{accumulated} = 50 + 50 = 100$$</div>
+<p><strong>Machine 2.</strong> Bought 1/02, used 5 months (February-June), zero residual value:</p>
+<div class="math-block">$$D_2 = \frac{12{,}000 - 0}{4} \times \frac{5}{12} = 1{,}250 \text{ m.u.}$$</div>
+<p><strong>Patent.</strong> Bought 1/04, used 3 months:</p>
+<div class="math-block">$$A = \frac{2{,}400}{4} \times \frac{3}{12} = 150 \text{ m.u.}$$</div>
+<p>Total depreciation and amortisation: $50 + 1{,}250 + 150 = 1{,}450$ m.u. None of it is a payment.</p>
+<p>Payments: machine 2, 8,000 paid in cash; the other 4,000 and the whole patent (2,400) are due on 1/07/2015, one day after the closing, so they are <strong>current liabilities</strong> at 30/06.</p>
+<h4 class="step-title">Step 6. Credit and interest (op. ix)</h4>
+<p>Received 1/02 (cash +2,000), returned on 1/02/2016, within one year of 30/06/2015: <strong>current liability</strong>. Interest from 1/02 to 30/06 (5 months), paid only in 2016:</p>
+<div class="math-block">$$I = 2{,}000 \times 0.12 \times \frac{5}{12} = 100 \text{ m.u.} \quad \text{(expense and interest payable)}$$</div>
+<h4 class="step-title">Step 7. Income statement for the semester</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Net sales</td><td>$24{,}000 - 720$</td><td style="text-align:right">23,280</td></tr><tr><td>− Cost of goods sold</td><td>Step 2</td><td style="text-align:right">14,400</td></tr><tr><td><strong>= Gross profit</strong></td><td>$23{,}280 - 14{,}400$</td><td style="text-align:right"><strong>8,880</strong></td></tr><tr><td>− Personnel and Social Security</td><td></td><td style="text-align:right">3,000</td></tr><tr><td>− Overheads</td><td></td><td style="text-align:right">1,800</td></tr><tr><td>− Renting</td><td></td><td style="text-align:right">1,200</td></tr><tr><td>− Depreciation and amortisation</td><td>$50 + 1{,}250 + 150$</td><td style="text-align:right">1,450</td></tr><tr><td><strong>= Income from operations</strong></td><td>$8{,}880 - 7{,}450$</td><td style="text-align:right"><strong>1,430</strong></td></tr><tr><td>− Interest expense</td><td>Step 6</td><td style="text-align:right">100</td></tr><tr><td><strong>= Income before taxes</strong></td><td>$1{,}430 - 100$</td><td style="text-align:right"><strong>1,330</strong></td></tr><tr><td>− Income taxes (20%)</td><td>$0.20 \times 1{,}330$</td><td style="text-align:right">266</td></tr><tr><td><strong>= Net income</strong></td><td>$1{,}330 - 266$</td><td style="text-align:right"><strong>1,064</strong></td></tr></tbody></table></div>
+<h4 class="step-title">Step 8. Cash at 30/06/2015</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Opening cash</td><td style="text-align:right">1,200</td><td>2014 taxes</td><td style="text-align:right">350</td></tr><tr><td>2014 receivables collected</td><td style="text-align:right">1,500</td><td>2014 suppliers</td><td style="text-align:right">450</td></tr><tr><td>Sales Jan-May collected</td><td style="text-align:right">19,400</td><td>Q1 purchases</td><td style="text-align:right">4,800</td></tr><tr><td>Credit</td><td style="text-align:right">2,000</td><td>Personnel + SS</td><td style="text-align:right">3,000</td></tr><tr><td>Capital increase</td><td style="text-align:right">10,000</td><td>Overheads Jan-Apr</td><td style="text-align:right">1,200</td></tr><tr><td></td><td style="text-align:right"></td><td>Machine 2 (cash part)</td><td style="text-align:right">8,000</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>34,100</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>17,800</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash}_{30/06} = 34{,}100 - 17{,}800 = 16{,}300 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 9. Balance sheet at 30/06/2015</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Machinery (cost $500 + 12{,}000$)</td><td style="text-align:right">12,500</td><td>Paid-in capital ($4{,}200 + 10{,}000$)</td><td style="text-align:right">14,200</td></tr><tr><td>− Accumulated depreciation ($100 + 1{,}250$)</td><td style="text-align:right">(1,350)</td><td>Retained earnings (2014)</td><td style="text-align:right">850</td></tr><tr><td>Patent ($2{,}400 - 150$)</td><td style="text-align:right">2,250</td><td>Net income of the semester</td><td style="text-align:right">1,064</td></tr><tr><td>Long-term receivable (due July 2016)</td><td style="text-align:right">300</td><td><strong>Equity</strong></td><td style="text-align:right"><strong>16,114</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>13,700</strong></td><td>Credit (due 1/02/2016)</td><td style="text-align:right">2,000</td></tr><tr><td>Inventory</td><td style="text-align:right">0</td><td>Interest payable</td><td style="text-align:right">100</td></tr><tr><td>Accounts receivable (June)</td><td style="text-align:right">3,880</td><td>Suppliers (Q2 purchases)</td><td style="text-align:right">7,200</td></tr><tr><td>Cash</td><td style="text-align:right">16,300</td><td>Debt for machine 2 (due 1/07)</td><td style="text-align:right">4,000</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>20,180</strong></td><td>Debt for patent (due 1/07)</td><td style="text-align:right">2,400</td></tr><tr><td></td><td style="text-align:right"></td><td>Overheads payable</td><td style="text-align:right">600</td></tr><tr><td></td><td style="text-align:right"></td><td>Renting payable</td><td style="text-align:right">1,200</td></tr><tr><td></td><td style="text-align:right"></td><td>Taxes payable</td><td style="text-align:right">266</td></tr><tr><td></td><td style="text-align:right"></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>17,766</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>33,880</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>33,880</strong></td></tr></tbody></table></div>
+<p>There are no long-term liabilities: every debt is due before 30/06/2016.</p>
         </div>
-        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
-        <p><strong>Phase 1: Hypotheses.</strong> Period 1 Jan to 30 Jun 2015 (6 months), accrual basis. Sales are uniform (200 u/month); the 30-day term leaves only June sales open; purchases are paid 90 days later, so Q1 purchases are settled by 30 June and all Q2 purchases remain open. Machine 1's 4-year life is inferred from the opening accumulated depreciation (50 over 6 months gives 100/year on a base of 500 - 100 = 400). Interest is simple (months/12); tax is 20% of EBT, left as "taxes to pay".</p>
-        <p><strong>Phase 2: Definitions.</strong> $A = L + E$ with $E = \text{Paid-in capital} + \text{Retained earnings}_{2014} + \text{Net income}$. Assets carry debit balances; liabilities and equity carry credit balances; income-statement accounts are closed into equity.</p>
-        <p><strong>Phase 3: Journal entries (m.u.).</strong> Each entry was generated and balanced in Python (debits = credits).</p>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Opening balance 31/12/2014 (A = L + E: 5,850 = 800 + 5,050)</td><td>Cash 1,200<br>Accounts receivable 1,800<br>Inventory 2,400<br>Machinery 500</td><td>Accum. depreciation 50<br>Taxes payable 350<br>Suppliers payable 450<br>Retained earnings 850<br>Paid-in capital 4,200</td></tr>
-              <tr><td>2</td><td>(i) Sales 1,200 u x 20 less 10% on the 30% VIP share</td><td>Accounts receivable 23,280<br>Sales discount 720</td><td>Sales 24,000</td></tr>
-              <tr><td>3</td><td>(i) Collection of Jan-May sales (30-day term; June stays open)</td><td>Cash 19,400</td><td>Accounts receivable 19,400</td></tr>
-              <tr><td>4</td><td>(ii) Purchases 1,000 u x 12</td><td>Inventory 12,000</td><td>Suppliers payable 12,000</td></tr>
-              <tr><td>5</td><td>(ii) Payment of Q1 purchases (400 u x 12, 90 days)</td><td>Suppliers payable 4,800</td><td>Cash 4,800</td></tr>
-              <tr><td>6</td><td>(iii) COGS = 2,400 opening + 12,000 purchases - 0 ending stock</td><td>COGS 14,400</td><td>Inventory 14,400</td></tr>
-              <tr><td>7</td><td>(iv) Payment of 2014 taxes and suppliers</td><td>Taxes payable 350<br>Suppliers payable 450</td><td>Cash 800</td></tr>
-              <tr><td>8</td><td>(v) Collection of 2014 receivables, 300 deferred to July 2016</td><td>Cash 1,500<br>Long-term receivable 300</td><td>Accounts receivable 1,800</td></tr>
-              <tr><td>9</td><td>(vi) Personnel + Social Security 6 x (350 + 150), paid in the month</td><td>Personnel 3,000</td><td>Cash 3,000</td></tr>
-              <tr><td>10</td><td>(vi) General expenses 6 x 300; Jan-Apr paid, May-Jun open</td><td>Overheads 1,800</td><td>Cash 1,200<br>Overheads payable 600</td></tr>
-              <tr><td>11</td><td>(vii) Computer renting 3 x 400 (term 120 days, nothing due yet)</td><td>Renting 1,200</td><td>Renting payable 1,200</td></tr>
-              <tr><td>12</td><td>(viii) Patent purchased 1 April, payable 1 July</td><td>Patent 2,400</td><td>Patent payable 2,400</td></tr>
-              <tr><td>13</td><td>(viii) Patent amortization 2,400/48 x 3</td><td>Amortization 150</td><td>Accum. amortization 150</td></tr>
-              <tr><td>14</td><td>(ix) Bank credit received 1 February</td><td>Cash 2,000</td><td>Bank credit 2,000</td></tr>
-              <tr><td>15</td><td>(ix) Accrued interest 2,000 x 12% x 5/12</td><td>Interest expense 100</td><td>Accrued interest 100</td></tr>
-              <tr><td>16</td><td>(x) Depreciation machine 1: (500 - 100)/4 x 6/12</td><td>Depreciation 50</td><td>Accum. depreciation 50</td></tr>
-              <tr><td>17</td><td>(xi) Capital increase 1 February</td><td>Cash 10,000</td><td>Paid-in capital 10,000</td></tr>
-              <tr><td>18</td><td>(xi) Machine 2: 12,000 with 8,000 cash, 4,000 payable 1 July</td><td>Machinery 12,000</td><td>Cash 8,000<br>Machine payable 4,000</td></tr>
-              <tr><td>19</td><td>(xi) Depreciation machine 2: 12,000/48 x 5</td><td>Depreciation 1,250</td><td>Accum. depreciation 1,250</td></tr>
-              <tr><td>20</td><td>(xii) Corporate tax 20% x 1,330</td><td>Tax expense 266</td><td>Taxes payable 266</td></tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 4 — Interpretation and checks</h3>
+<ul><li><strong>Balance:</strong> $13{,}700 + 20{,}180 = 33{,}880 = 16{,}114 + 17{,}766$.</li><li><strong>Equity bridge:</strong> equity grows from 5,050 to 16,114, that is $+11{,}064 = 10{,}000$ (capital increase) $+ 1{,}064$ (net income).</li><li><strong>Profit is not cash:</strong> the semester earns 1,064 but cash grows by $16{,}300 - 1{,}200 = 15{,}100$, mostly because of the capital increase (10,000), the credit (2,000) and the many expenses still unpaid (suppliers, renting, overheads, interest, taxes). In the opposite direction, 8,000 of cash went into a machine whose expense this semester is only 1,250.</li><li><strong>Limiting case:</strong> if June's sales had been collected, cash would be 3,880 higher and receivables zero, but net income would not change: revenue is recognised when the sale is made [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 8">8</a>].</li><li><strong>Exam traps:</strong> (1) the 1/07 debts are liabilities at 30/06, not payments; (2) the 300 deferred to July 2016 is non-current; (3) machine 2 is depreciated 5 months and the patent 3 months, not 6; (4) the life of machine 1 must be deduced from the opening balance.</li><li>No official numerical solution is included in <code>sources/</code>; the figures stand on the computation above, rechecked with exact fractions.</li></ul>
         </div>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Closing ledger account</th><th>Balance (m.u.)</th></tr></thead>
-            <tbody>
-              <tr><td>Cash</td><td>16,300 Dr</td></tr>
-              <tr><td>Accounts receivable</td><td>3,880 Dr</td></tr>
-              <tr><td>Long-term receivable</td><td>300 Dr</td></tr>
-              <tr><td>Inventory</td><td>0 Cr</td></tr>
-              <tr><td>Patent</td><td>2,400 Dr</td></tr>
-              <tr><td>Accum. amortization</td><td>150 Cr</td></tr>
-              <tr><td>Machinery</td><td>12,500 Dr</td></tr>
-              <tr><td>Accum. depreciation</td><td>1,350 Cr</td></tr>
-              <tr><td>Suppliers payable</td><td>7,200 Cr</td></tr>
-              <tr><td>Overheads payable</td><td>600 Cr</td></tr>
-              <tr><td>Renting payable</td><td>1,200 Cr</td></tr>
-              <tr><td>Patent payable</td><td>2,400 Cr</td></tr>
-              <tr><td>Machine payable</td><td>4,000 Cr</td></tr>
-              <tr><td>Bank credit</td><td>2,000 Cr</td></tr>
-              <tr><td>Accrued interest</td><td>100 Cr</td></tr>
-              <tr><td>Taxes payable</td><td>266 Cr</td></tr>
-              <tr><td>Paid-in capital</td><td>14,200 Cr</td></tr>
-              <tr><td>Retained earnings</td><td>850 Cr</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: m.u. Accounting equation: $33{,}880 = 17{,}766 + 16{,}114$. Cash identity: $1{,}200 + 34{,}100 - 17{,}800 = 16{,}300$, equal to the ledger cash balance. Limit check: if no June sale were open, receivables would be 0 and cash 3,880 higher while profit would stay the same (accrual): receivables move cash, not profit. No official numerical key is available in <code>sources/</code> (only the statement PDF), so the figures stand on the recomputation above.</p>
-
       </section>
 
-      <!-- ==========================================
-           EXAM PROBLEM 2: INFOPYMES
-           ========================================== -->
       <section class="problem-box" id="problem-2">
-        <span class="problem-tag">Exam Problem 2 • Multi-Year Horizon</span>
-        <h2 class="problem-title">INFOPYMES — Full Cycle Financial Statements, 2016–2017 & ROA/ROE</h2>
+        <span class="problem-tag">Additional Exercise 2 · Exam type</span>
+        <h2 class="problem-title">T3 Additional Exercise 2 — INFOPYMES, statements 2016-2017 and ROA/ROE</h2>
         <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf#page=3" target="_blank" rel="noopener">Original statement · T3_Additional_EXERCISES.pdf, p. 3</a>
-
         <div class="statement-box">
-          Three entrepreneurs founded <strong>INFOPYMES</strong> on 1 January 2016 with 100,000 € equity capital. A bank granted a 5-year loan of 100,000 € at 10% annual interest, returning 20,000 € principal each 31 December plus due interest. Computer equipment was bought on 01/01/2016 for 100,000 € (paid 01/04/2016; 5-year life, linear, 0 residual value). Online revenues: 300,000 €. Premises rent: 1,000 €/month. Permanent staff: 5,000 €/month. Utilities: 500 €/month. Variable consulting staff: 174,000 €. Results declared at 23:59 on 31 December; corporate tax 30% paid immediately; dividends 40% paid to partners.<br>
-          <strong>1.</strong> Construct 2016 Income Statement.<br>
-          <strong>2.</strong> Construct 31/12/2016 Balance Sheet at 24:00.<br>
-          <strong>3.</strong> Construct 31/12/2017 Balance Sheet at 24:00 (assume no new investments, cash and retained earnings unchanged).<br>
-          <strong>4.</strong> Determine ROA and ROE in 2017.
+<p>Three entrepreneurs established INFOPYMES on 1/01/2016 to provide on-line information services for small and medium enterprises, start-ups and potential entrepreneurs.</p>
+<ul><li>The computer equipment, worth 100,000 €, was acquired on 1/01/2016 and will be paid to suppliers after three months, on 1/04/2016. Useful life 5 years (until 31/12/2020), linear depreciation, no residual value.</li><li>On-line consultations brought revenues of 300,000 € in 2016.</li><li>Rented premises: 1,000 €/month from 1/01/2016. Salaries and Social Security of the permanent employees: 5,000 €/month. Electricity, phone, etc.: 500 €/month.</li><li>Variable wages of the additional staff for the on-line consultations: 174,000 € in 2016.</li><li>The partners contributed an initial capital of 100,000 €. A bank granted a loan of 100,000 € at 10% yearly interest for 5 years (1/01/2016 to 31/12/2020). Each 31 December the company returns 20,000 € and pays the interest (10%) on the loan value at the beginning of each year.</li><li>Results are declared at 23:59 on 31 December (after all payments and receipts, including interest, wages, Social Security, etc.), and the corporation tax of 30% on the profits is paid immediately. Dividends of 40% of the profits after taxes are distributed, and the final balance is drawn at 24:00.</li></ul>
+<p><strong>Required:</strong> (1) the income statement for 2016; (2) assuming the tax has been paid and the dividends distributed, the balance sheet at 24:00 on 31/12/2016; (3) the balance sheet at 24:00 on 31/12/2017, assuming no new investments in 2017 and that the retained earnings and the cash balance at the end of 2017 remained unchanged with respect to 2016; (4) the ROA and ROE ratios in 2017.</p>
         </div>
-
-        <div class="strategy-callout">
-          <div class="strategy-title">🎯 Exam Day Strategy: Understanding "At 24:00 after payments"</div>
-          <p>Because the prompt specifies that taxes, loan repayments, and dividends are paid <em>immediately before 24:00</em> on 31 December:</p>
-          <ul>
-            <li>No corporate taxes payable appear on the 2016 balance sheet.</li>
-            <li>No dividends payable appear on the 2016 balance sheet.</li>
-            <li>The bank loan principal drops immediately from €100,000 to €80,000.</li>
-            <li>In 2017, the second repayment drops the loan principal from €80,000 to €60,000, while accumulated depreciation reaches €40,000.</li>
-          </ul>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 1 — Setup: data, timeline and hypotheses</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Capital</td><td>100,000 € (1/01/2016)</td></tr><tr><td>Loan</td><td>100,000 € at 10%; 20,000 € returned each 31/12; interest on the balance at the start of each year</td></tr><tr><td>Equipment</td><td>100,000 €, bought 1/01/2016, paid 1/04/2016, 5 years, no residual value</td></tr><tr><td>Revenues 2016</td><td>300,000 €</td></tr><tr><td>Fixed monthly costs</td><td>Rent 1,000; permanent staff 5,000; utilities 500 (€/month)</td></tr><tr><td>Variable wages 2016</td><td>174,000 €</td></tr><tr><td>Tax</td><td>30% of profits, paid at 23:59 on 31/12</td></tr><tr><td>Dividends</td><td>40% of profit after taxes, paid at 23:59 on 31/12</td></tr></tbody></table></div>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>The statement says the results are declared "after having made all payments and receipts", so the 300,000 € of revenues are <strong>collected</strong> and all 2016 costs are <strong>paid</strong> within 2016.</li><li>The balance is drawn at 24:00, <strong>after</strong> paying tax, interest, the 20,000 € instalment and dividends: none of them remains as a liability.</li><li>For 2017 the statement gives no operating data; we assume the <strong>same revenues and operating costs as in 2016</strong>, which is the only reading that lets requirement 4 be computed. With retained earnings unchanged, the whole 2017 profit must have been paid out as dividends (shown in Phase 3).</li></ol>
         </div>
-
-        <h3 class="phase-title">Calculations & Financial Statements</h3>
-        <ol>
-          <li><strong>2016 Income Statement:</strong>
-            <ul>
-              <li>Operating Expenses: Rent €12,000 + Permanent Staff €60,000 + Utilities €6,000 + Variable Wages €174,000 + Depreciation €20,000 ($100\text{k}/5$) = <strong>€272,000</strong>.</li>
-              <li>$\text{EBIT} = 300,000 - 272,000 = \mathbf{28,000 \text{ €}}$.</li>
-              <li>Financial Interest ($10\%$ of €100,000): $\mathbf{10,000 \text{ €}}$.</li>
-              <li>$\text{EBT} = 28,000 - 10,000 = \mathbf{18,000 \text{ €}}$.</li>
-              <li>Tax ($30\%$): $0.30 \times 18,000 = \mathbf{5,400 \text{ €}}$.</li>
-              <li>$\text{Net Income} = \mathbf{12,600 \text{ €}} \implies \text{Dividends } (40\%) = \mathbf{5,040 \text{ €}}, \text{ Retained Earnings } (60\%) = \mathbf{7,560 \text{ €}}$.</li>
-            </ul>
-          </li>
-          <li><strong>Ending Cash at 31/12/2016:</strong>
-            $$\text{Inflows } (100\text{k} + 100\text{k} + 300\text{k}) - \text{Outflows } (100\text{k} + 12\text{k} + 60\text{k} + 6\text{k} + 174\text{k} + 20\text{k} + 10\text{k} + 5.4\text{k} + 5.04\text{k}) = \mathbf{107,560 \text{ €}}$$
-            (In the outflows, the second $20\text{k}$ is the 31 December loan principal repayment, not depreciation.)
-          </li>
-        </ol>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>BALANCE SHEET COMPARISON</th>
-                <th>At 31/12/2016 (€)</th>
-                <th>At 31/12/2017 (€)</th>
-                <th>Account Interpretation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>• Computer Equipment (Cost)</td>
-                <td>100,000</td>
-                <td>100,000</td>
-                <td>Fixed capital asset</td>
-              </tr>
-              <tr>
-                <td>• (-) Accumulated Depreciation</td>
-                <td>(20,000)</td>
-                <td>(40,000)</td>
-                <td>1 year vs 2 years linear wear</td>
-              </tr>
-              <tr style="font-weight: 600;">
-                <td>TOTAL NON-CURRENT ASSETS</td>
-                <td>80,000</td>
-                <td>60,000</td>
-                <td>Net Book Value</td>
-              </tr>
-              <tr>
-                <td>• Cash & Liquid Treasury</td>
-                <td>107,560</td>
-                <td>107,560</td>
-                <td>Stated unchanged by prompt</td>
-              </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
-                <td>TOTAL ASSETS</td>
-                <td>187,560</td>
-                <td>167,560</td>
-                <td>Balanced Asset Base</td>
-              </tr>
-              <tr>
-                <td>• Subscribed Share Capital</td>
-                <td>100,000</td>
-                <td>100,000</td>
-                <td>Partners' equity</td>
-              </tr>
-              <tr>
-                <td>• Retained Earnings</td>
-                <td>7,560</td>
-                <td>7,560</td>
-                <td>Stated unchanged by prompt</td>
-              </tr>
-              <tr style="font-weight: 600;">
-                <td>TOTAL OWNERS' EQUITY</td>
-                <td>107,560</td>
-                <td>107,560</td>
-                <td>Net Worth</td>
-              </tr>
-              <tr>
-                <td>• Long-term Bank Debt</td>
-                <td>60,000</td>
-                <td>40,000</td>
-                <td>Remaining balance > 1 year</td>
-              </tr>
-              <tr>
-                <td>• Short-term Bank Debt</td>
-                <td>20,000</td>
-                <td>20,000</td>
-                <td>Principal due next 31 Dec</td>
-              </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
-                <td>TOTAL LIABILITIES & EQUITY</td>
-                <td>187,560</td>
-                <td>167,560</td>
-                <td>Perfect Match!</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 2 — Frames: classification of every operation (2016)</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Operation</th><th>Income statement 2016</th><th>Cash 2016</th><th>Open at 24:00 on 31/12/2016</th></tr></thead><tbody><tr><td>Capital</td><td>—</td><td>+100,000</td><td>Capital 100,000</td></tr><tr><td>Loan</td><td>—</td><td>+100,000</td><td>Loan 80,000 (after the instalment)</td></tr><tr><td>Equipment</td><td>Depreciation 20,000</td><td>−100,000 (on 1/04)</td><td>Equipment 100,000 − 20,000</td></tr><tr><td>Revenues</td><td>300,000</td><td>+300,000</td><td>—</td></tr><tr><td>Rent, staff, utilities, variable wages</td><td>252,000</td><td>−252,000</td><td>—</td></tr><tr><td>Interest</td><td>10,000</td><td>−10,000</td><td>—</td></tr><tr><td>Instalment</td><td>—</td><td>−20,000</td><td>(reduces the loan)</td></tr><tr><td>Tax</td><td>5,400</td><td>−5,400</td><td>—</td></tr><tr><td>Dividends</td><td>— (distribution)</td><td>−5,040</td><td>Retained earnings 7,560</td></tr></tbody></table></div>
+<p>The equipment is bought on credit on 1/01 and paid on 1/04: between those dates it is a debt to the supplier, but at 31/12 that debt no longer exists.</p>
         </div>
-
-        <h3 class="phase-title">Determination of ROA and ROE in 2017</h3>
-        $$\mathbf{\text{ROA}_{2017}} = \frac{\text{EBIT}_{2017}}{\text{Total Assets}_{2017}} = \frac{28,000 \text{ €}}{167,560 \text{ €}} \approx \mathbf{16.71\%}$$
-        $$\mathbf{\text{ROE}_{2017}} = \frac{\text{Net Income}_{2017}}{\text{Total Equity}_{2017}} = \frac{14,000 \text{ €}}{107,560 \text{ €}} \approx \mathbf{13.02\%}$$
-        <p><em>(Where $\text{Net Income}_{2017} = (28,000 - 10\% \times 80,000) \times (1 - 0.30) = 20,000 \times 0.70 = 14,000 \text{ €}$. This assumes that 2017 revenues and operating costs equal those of 2016 and that interest is $10\%$ of the $80,000$ outstanding at the start of 2017. The statement also fixes retained earnings and cash at their 2016 values, so the 2017 net income of $14,000$ is not reflected as an increase in the balance sheet reserves.)</em></p>
-        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
-        <p><strong>Phase 1: Hypotheses.</strong> 2016 is the first year; revenue is fully collected and all expenses are paid in the year. Interest is 10% of the balance at the start of the year (100,000 in 2016, 80,000 in 2017); 20,000 of principal is repaid each 31 December; tax (30% of EBT) and the 40% dividend are paid at 23:59 on 31 December, so no tax or dividend liability remains at 24:00. For 2017 the statement imposes unchanged cash and retained earnings and no new investment; operating results are assumed equal to 2016.</p>
-        <p><strong>Phase 2: Definitions.</strong> $A = L + E$; $\text{ROA} = \text{EBIT}/\text{Total assets}$; $\text{ROE} = \text{Net income}/\text{Equity}$; equity = capital + retained earnings, with retained earnings = net income - dividends.</p>
-        <p><strong>Phase 3: Journal entries 2016 (€).</strong> Each entry was balanced in Python (debits = credits).</p>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1 Jan: partners' capital</td><td>Cash 100,000</td><td>Capital 100,000</td></tr>
-              <tr><td>2</td><td>1 Jan: bank loan 5 years at 10%</td><td>Cash 100,000</td><td>Bank loan 100,000</td></tr>
-              <tr><td>3</td><td>1 Jan: computer equipment bought on credit (payable 1 Apr)</td><td>Equipment 100,000</td><td>Equipment payable 100,000</td></tr>
-              <tr><td>4</td><td>1 Apr: equipment supplier paid</td><td>Equipment payable 100,000</td><td>Cash 100,000</td></tr>
-              <tr><td>5</td><td>2016 consulting revenue, fully collected</td><td>Cash 300,000</td><td>Revenue 300,000</td></tr>
-              <tr><td>6</td><td>Rent 12 x 1,000</td><td>Rent 12,000</td><td>Cash 12,000</td></tr>
-              <tr><td>7</td><td>Permanent staff and Social Security 12 x 5,000</td><td>Staff 60,000</td><td>Cash 60,000</td></tr>
-              <tr><td>8</td><td>Electricity, phone 12 x 500</td><td>Utilities 6,000</td><td>Cash 6,000</td></tr>
-              <tr><td>9</td><td>Variable wages of consulting staff</td><td>Variable wages 174,000</td><td>Cash 174,000</td></tr>
-              <tr><td>10</td><td>Depreciation 100,000 / 5</td><td>Depreciation 20,000</td><td>Accum. depreciation 20,000</td></tr>
-              <tr><td>11</td><td>31 Dec: interest 10% x 100,000 paid</td><td>Interest 10,000</td><td>Cash 10,000</td></tr>
-              <tr><td>12</td><td>31 Dec: loan principal repayment</td><td>Bank loan 20,000</td><td>Cash 20,000</td></tr>
-              <tr><td>13</td><td>31 Dec: corporate tax 30% x 18,000 paid</td><td>Tax 5,400</td><td>Cash 5,400</td></tr>
-              <tr><td>14</td><td>31 Dec: dividends 40% x 12,600 paid</td><td>Dividends 5,040</td><td>Cash 5,040</td></tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 3 — Derivation</h3>
+<h4 class="step-title">Step 1. Depreciation and interest 2016</h4>
+<div class="math-block">$$D = \frac{100{,}000 - 0}{5} \times \frac{12}{12} = 20{,}000 \text{ €/year}$$</div>
+<div class="math-block">$$I_{2016} = 100{,}000 \times 0.10 = 10{,}000 \text{ €} \quad \text{(loan value at the beginning of 2016)}$$</div>
+<h4 class="step-title">Step 2. Income statement 2016 (requirement 1)</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">€</th></tr></thead><tbody><tr><td>Revenues (on-line consultations)</td><td></td><td style="text-align:right">300,000</td></tr><tr><td>− Rent</td><td>$12 \times 1{,}000$</td><td style="text-align:right">12,000</td></tr><tr><td>− Permanent staff and Social Security</td><td>$12 \times 5{,}000$</td><td style="text-align:right">60,000</td></tr><tr><td>− Electricity, phone, etc.</td><td>$12 \times 500$</td><td style="text-align:right">6,000</td></tr><tr><td>− Variable wages</td><td></td><td style="text-align:right">174,000</td></tr><tr><td>− Depreciation</td><td>Step 1</td><td style="text-align:right">20,000</td></tr><tr><td><strong>= Income from operations</strong></td><td>$300{,}000 - 272{,}000$</td><td style="text-align:right"><strong>28,000</strong></td></tr><tr><td>− Interest expense</td><td>Step 1</td><td style="text-align:right">10,000</td></tr><tr><td><strong>= Income before taxes</strong></td><td>$28{,}000 - 10{,}000$</td><td style="text-align:right"><strong>18,000</strong></td></tr><tr><td>− Income taxes (30%)</td><td>$0.30 \times 18{,}000$</td><td style="text-align:right">5,400</td></tr><tr><td><strong>= Net income</strong></td><td>$18{,}000 - 5{,}400$</td><td style="text-align:right"><strong>12,600</strong></td></tr></tbody></table></div>
+<p>Distribution [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 23">23</a>]: dividends $= 0.40 \times 12{,}600 = 5{,}040$ €; retained earnings (self-financing) $= 12{,}600 - 5{,}040 = 7{,}560$ €.</p>
+<h4 class="step-title">Step 3. Cash at 24:00 on 31/12/2016</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">€</th><th>Outflows</th><th style="text-align:right">€</th></tr></thead><tbody><tr><td>Capital</td><td style="text-align:right">100,000</td><td>Equipment (1/04)</td><td style="text-align:right">100,000</td></tr><tr><td>Loan</td><td style="text-align:right">100,000</td><td>Rent + staff + utilities</td><td style="text-align:right">78,000</td></tr><tr><td>Revenues collected</td><td style="text-align:right">300,000</td><td>Variable wages</td><td style="text-align:right">174,000</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest</td><td style="text-align:right">10,000</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan instalment</td><td style="text-align:right">20,000</td></tr><tr><td></td><td style="text-align:right"></td><td>Tax</td><td style="text-align:right">5,400</td></tr><tr><td></td><td style="text-align:right"></td><td>Dividends</td><td style="text-align:right">5,040</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>500,000</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>392,440</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash}_{2016} = 500{,}000 - 392{,}440 = 107{,}560 \text{ €}$$</div>
+<h4 class="step-title">Step 4. Balance sheet at 24:00 on 31/12/2016 (requirement 2)</h4>
+<p>The loan after the first instalment is $100{,}000 - 20{,}000 = 80{,}000$ €. The instalment due on 31/12/2017 (20,000 €) is within one year, so it is a <strong>current liability</strong>; the other 60,000 € are long-term [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 16">16</a>].</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">€</th><th>Liabilities and equity</th><th style="text-align:right">€</th></tr></thead><tbody><tr><td>Equipment</td><td style="text-align:right">100,000</td><td>Capital</td><td style="text-align:right">100,000</td></tr><tr><td>− Accumulated depreciation</td><td style="text-align:right">(20,000)</td><td>Retained earnings</td><td style="text-align:right">7,560</td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>80,000</strong></td><td><strong>Equity</strong></td><td style="text-align:right"><strong>107,560</strong></td></tr><tr><td>Cash</td><td style="text-align:right">107,560</td><td>Long-term bank loan</td><td style="text-align:right">60,000</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>107,560</strong></td><td>Short-term bank loan (due 31/12/2017)</td><td style="text-align:right">20,000</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>187,560</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>187,560</strong></td></tr></tbody></table></div>
+<h4 class="step-title">Step 5. Balance sheet at 24:00 on 31/12/2017 (requirement 3)</h4>
+<p>Item by item:</p>
+<ul><li><strong>Equipment:</strong> no new investment; two years of depreciation, $2 \times 20{,}000 = 40{,}000$; net value $100{,}000 - 40{,}000 = 60{,}000$ €.</li><li><strong>Loan:</strong> second instalment paid, $80{,}000 - 20{,}000 = 60{,}000$ €: 20,000 € current (due 31/12/2018) and 40,000 € long-term.</li><li><strong>Cash and retained earnings:</strong> unchanged by statement: 107,560 € and 7,560 €.</li><li><strong>Capital:</strong> unchanged, 100,000 €.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">€</th><th>Liabilities and equity</th><th style="text-align:right">€</th></tr></thead><tbody><tr><td>Equipment</td><td style="text-align:right">100,000</td><td>Capital</td><td style="text-align:right">100,000</td></tr><tr><td>− Accumulated depreciation</td><td style="text-align:right">(40,000)</td><td>Retained earnings</td><td style="text-align:right">7,560</td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>60,000</strong></td><td><strong>Equity</strong></td><td style="text-align:right"><strong>107,560</strong></td></tr><tr><td>Cash</td><td style="text-align:right">107,560</td><td>Long-term bank loan</td><td style="text-align:right">40,000</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>107,560</strong></td><td>Short-term bank loan (due 31/12/2018)</td><td style="text-align:right">20,000</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>167,560</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>167,560</strong></td></tr></tbody></table></div>
+<p><strong>Is the statement consistent?</strong> With the 2016 operations repeated (hypothesis 3), 2017 gives:</p>
+<div class="math-block">$$I_{2017} = 80{,}000 \times 0.10 = 8{,}000, \quad \text{IBT} = 28{,}000 - 8{,}000 = 20{,}000, \quad T = 0.30 \times 20{,}000 = 6{,}000, \quad \text{NI} = 14{,}000$$</div>
+<p>Retained earnings unchanged means dividends $= 14{,}000$ € (a 100% pay-out). Cash then moves by $+300{,}000 - 252{,}000 - 8{,}000 - 20{,}000 - 6{,}000 - 14{,}000 = 0$, so the cash is indeed unchanged: the two conditions of the statement are compatible.</p>
+<h4 class="step-title">Step 6. ROA and ROE in 2017 (requirement 4)</h4>
+<div class="callout callout-warning"><div class="callout-title">Definitions not in the Topic 3 slides</div><p>The Topic 3 deck in <code>sources/</code> does not define ROA and ROE, but the problem asks for them. The standard definitions used here are $\text{ROA} = \dfrac{\text{Income from operations}}{\text{Total assets}}$ (the return of the economic structure) and $\text{ROE} = \dfrac{\text{Net income}}{\text{Equity}}$ (the return to the owners). Check them against your class notes: if your lecturer defines ROA with net income instead, the value is $14{,}000 / 167{,}560 = 8.36\%$.</p></div>
+<div class="math-block">$$\text{ROA}_{2017} = \frac{28{,}000}{167{,}560} = 0.1671 = 16.71\%$$</div>
+<div class="math-block">$$\text{ROE}_{2017} = \frac{14{,}000}{107{,}560} = 0.1302 = 13.02\%$$</div>
         </div>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Closing ledger account (24:00, 31/12/2016)</th><th>Balance (€)</th></tr></thead>
-            <tbody>
-              <tr><td>Cash</td><td>107,560 Dr</td></tr>
-              <tr><td>Equipment</td><td>100,000 Dr</td></tr>
-              <tr><td>Accum. depreciation</td><td>20,000 Cr</td></tr>
-              <tr><td>Bank loan</td><td>80,000 Cr</td></tr>
-              <tr><td>Capital</td><td>100,000 Cr</td></tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 4 — Interpretation and checks</h3>
+<ul><li><strong>Balances:</strong> $80{,}000 + 107{,}560 = 187{,}560 = 107{,}560 + 60{,}000 + 20{,}000$ (2016) and $60{,}000 + 107{,}560 = 167{,}560 = 107{,}560 + 40{,}000 + 20{,}000$ (2017).</li><li><strong>What changes between the two years:</strong> both sides shrink by 20,000 €: the asset loses 20,000 € of value through depreciation, and the loan falls by the 20,000 € instalment, which in cash terms was financed by the cash generated (depreciation is an expense that is not a payment).</li><li><strong>Leverage</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 36">36</a>]: $L/E = 80{,}000/107{,}560 = 0.74$ in 2016 and $60{,}000/107{,}560 = 0.56$ in 2017; the company becomes less indebted each year.</li><li><strong>ROE &lt; ROA here:</strong> the return to the owners is lower than the return of the assets because interest and taxes are deducted from the numerator; the equity base being smaller than total assets is not enough to compensate.</li><li><strong>Exam traps:</strong> (1) the loan instalment is a payment, never an expense; (2) at 24:00 no tax or dividend liability remains; (3) the current part of the loan (next instalment) must be separated from the long-term part.</li><li>No official numerical solution is included in <code>sources/</code>.</li></ul>
         </div>
-        <p>Step-by-step lines: $\text{EBIT} = 300{,}000 - (12{,}000 + 60{,}000 + 6{,}000 + 174{,}000 + 20{,}000) = 28{,}000$; $\text{EBT} = 28{,}000 - 10{,}000 = 18{,}000$; tax $= 0.30 \times 18{,}000 = 5{,}400$; net income $= 12{,}600$; dividends $= 0.40 \times 12{,}600 = 5{,}040$; retained earnings $= 7{,}560$ (closed from income and dividends, so not a ledger line above). Balance 2016: $80{,}000 + 107{,}560 = 187{,}560 = 80{,}000 + 100{,}000 + 7{,}560$.</p>
-        <p><strong>2017 bridge.</strong> Interest $= 0.10 \times 80{,}000 = 8{,}000$; $\text{EBT} = 20{,}000$; tax $= 6{,}000$; net income $= 14{,}000$. Cash after interest and tax $= 28{,}000 + 20{,}000 - 8{,}000 - 6{,}000 = 34{,}000$; minus principal $20{,}000$ gives $14{,}000$, which equals the dividend if the whole net income is distributed. Hence $\Delta\text{Cash} = 14{,}000 - 14{,}000 = 0$ and $\Delta\text{RE} = 14{,}000 - 14{,}000 = 0$, consistent with the statement. Ratios: $\text{ROA} = 28{,}000/167{,}560 = 16.71\%$; $\text{ROE} = 14{,}000/107{,}560 = 13.02\%$.</p>
-        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: euro (€); ratios are dimensionless. $A = L + E$: $187{,}560 = 80{,}000 + 107{,}560$ (2016) and $167{,}560 = 60{,}000 + 107{,}560$ (2017). Cash identity 2016: $500{,}000 - 392{,}440 = 107{,}560$. ROE is below ROA because interest and tax are deducted from its numerator, even though the equity base is smaller than total assets. No official numerical key is available in <code>sources/</code> (only the statement PDF).</p>
-
       </section>
 
-      <!-- ==========================================
-           EXAM PROBLEM 3: WIFINET S.L.
-           ========================================== -->
       <section class="problem-box" id="problem-3">
-        <span class="problem-tag">Exam Problem 3 • Advanced Equity & Dividends</span>
-        <h2 class="problem-title">WIFINET S.L. — Telecommunications Accounting Cycle & Dividend Policies</h2>
+        <span class="problem-tag">Additional Exercise 3 · Exam type</span>
+        <h2 class="problem-title">T3 Additional Exercise 3 — WIFINET S.L., statements 2017 and dividend options</h2>
         <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf#page=4" target="_blank" rel="noopener">Original statement · T3_Additional_EXERCISES.pdf, p. 4</a>
-
         <div class="statement-box">
-          Wifinet S.L. incorporated 1/1/2016 with 6,003 mu registered capital. In 2016 took a 2,000 mu loan at 5% (due 2019), bought equipment for 5,371 mu (20-year life, 26 mu accum dep in 2016), technology licenses for 206 mu (5-year life), and financial shares for 636 mu. 2016 reflected a loss of 340 mu and cash of 1,476 mu.<br>
-          In 2017: 5,000 clients paying 0.032 mu/mo subscription fees, plus 46 mu online sales (receivables at end of year: 164 mu). Purchased 680 mu materials (560 mu paid immediately, rest deferred; half consumed in sales). Staff costs 559 mu paid in full. Outside services 312 mu paid in full. Administrative costs 300 mu (40% paid, 60% deferred). Corporate tax rate 30% payable Q1 2018. Retain all profits to offset 2016 losses.<br>
-          <strong>1.</strong> Prepare 2017 Income Statement.<br>
-          <strong>2.</strong> Construct 31/12/2017 Balance Sheet.<br>
-          <strong>3.</strong> What changes if a 20% dividend is paid at 24:00 on 31/12/2017?<br>
-          <strong>4.</strong> What changes if a 20% dividend is approved before year-end to be paid on 30 June 2018?
+<p>Wifinet S.L. was incorporated on 1/01/2016 with a registered capital of 6,003 m.u., to provide wireless Internet on the Alicante coast.</p>
+<p><strong>Fiscal year 2016.</strong> It took a bank loan of 2,000 m.u. at 5% annual interest (payable at the end of each year), the principal being repayable in 2019. It invested 5,371 m.u. in technical equipment with a life of 20 years; at the end of 2016 it recorded an accumulated depreciation of 26 m.u. for those assets. It also invested 206 m.u. in licence fees by 31/12/2016, to use certain technologies for 5 years. It spent 636 m.u. on financial shares of other companies. Most of 2016 was devoted to building the network and business started only in the last two months. At the end of 2016 the balance sheet reflected a <strong>loss of 340 m.u.</strong> and <strong>cash in hand and bank of 1,476 m.u.</strong></p>
+<p>In 2017 the results were positive, but the company decided not to distribute dividends and to retain all its profits to reduce the loss of the previous year.</p>
+<p><strong>Fiscal year 2017.</strong></p>
+<ul><li>Internet and VOIP: 5,000 customers on average, with an average revenue of 0.032 m.u./month per client in subscription fees. Additionally, 46 m.u. of on-line sales of other products. At the end of 2017 customers owed 164 m.u.</li><li>Stocks were exhausted at the end of 2016. Purchases of materials to be installed in customers' homes: 680 m.u., of which 560 m.u. paid immediately and the rest deferred to the following year. The 2017 sales consumed half of the purchased goods.</li><li>Staff costs: 559 m.u., paid in full in 2017. Supplies and outside services: 312 m.u., paid.</li><li>Other administrative expenses: 300 m.u., 60% of them deferred to the following year.</li><li>Corporation tax: 30%, payable in the first quarter of 2018.</li></ul>
+<p><strong>Required:</strong> (1) the income statement for 2017; (2) the balance sheet at 31/12/2017; (3) which balance-sheet items change, and by how much, if a dividend of 20% of net profit is paid at 24:00 on 31/12/2017; (4) the same if the dividend of 20% is decided before the end of 2017 and paid on 30/06/2018.</p>
         </div>
-
-        <div class="strategy-callout">
-          <div class="strategy-title">🎯 Exam Day Strategy: Dividend Payment vs Dividend Declaration</div>
-          <ul>
-            <li><strong>Paid on 31 Dec (Cash Outflow):</strong> Cash decreases by dividend amount; Retained Earnings decrease by dividend amount. Total Assets and Total Equity contract.</li>
-            <li><strong>Payable in the Future (Accrued Debt):</strong> No cash leaves the company in 2017! Retained Earnings decrease, but a current liability (<strong>Dividends Payable</strong>) is created. Total Assets remain unchanged!</li>
-            <li><strong>Prior Year Loss:</strong> The 340 mu loss sits in Equity as a negative line item, offset by 2017's net profit.</li>
-          </ul>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 1 — Setup: data, timeline and hypotheses</h3>
+<p><strong>Period:</strong> calendar year 2017. <strong>Closing:</strong> 31/12/2017. The 2016 data serve only to build the <strong>opening balance</strong> of 2017.</p>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>The licences were bought at the very end of 2016, so they start to be amortised in 2017 (no 2016 amortisation is given).</li><li>The equipment was depreciated only 26 m.u. in 2016 (part of the year); in 2017 it is used the whole year.</li><li>Interest is paid at the end of each year, so no interest payable remains; the loan is due in 2019, more than one year after 31/12/2017: <strong>long-term</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 16">16</a>].</li><li>The financial shares are a long-term investment (non-current asset) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 15">15</a>]; they produce no revenue in the data.</li></ol>
         </div>
-
-        <h3 class="phase-title">Calculations & Statements</h3>
-        <ul>
-          <li><strong>Revenues:</strong> $5,000 \times 0.032 \times 12 + 46 = 1,920 + 46 = \mathbf{1,966.00 \text{ mu}}$.</li>
-          <li><strong>COGS:</strong> Half of $680 = \mathbf{340.00 \text{ mu}}$ (Inventory $= 340.00 \text{ mu}$).</li>
-          <li><strong>Depreciation:</strong> Equipment ($5,371 / 20 = 268.55$) + Licenses ($206 / 5 = 41.20$) $= \mathbf{309.75 \text{ mu}}$.</li>
-          <li><strong>Operating Expenses:</strong> $340 + 559 + 312 + 300 + 309.75 = \mathbf{1,820.75 \text{ mu}}$.</li>
-          <li><strong>EBIT, EBT & Net Income:</strong> $\text{EBIT} = 1,966 - 1,820.75 = 145.25 \text{ mu}$. Interest $= 5\% \times 2,000 = 100 \text{ mu}$. $\text{EBT} = 45.25 \text{ mu}$. Tax ($30\%$) $= 13.575 \text{ mu}$. $\mathbf{\text{Net Income}} = \mathbf{31.675 \text{ mu}}$.</li>
-          <li><strong>Ending Cash:</strong> $1,476 + 1,802 \text{ (collections)} - 560 - 559 - 312 - 120 - 100 = \mathbf{1,627.00 \text{ mu}}$.</li>
-        </ul>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>ASSETS at 31/12/2017</th>
-                <th>Amount (mu)</th>
-                <th>LIABILITIES & EQUITY at 31/12/2017</th>
-                <th>Amount (mu)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>• Licenses (Net BV: 206 - 41.20)</td>
-                <td>164.800</td>
-                <td>• Subscribed Share Capital</td>
-                <td>6,003.000</td>
-              </tr>
-              <tr>
-                <td>• Technical Equipment (Net: 5,371 - 294.55)</td>
-                <td>5,076.450</td>
-                <td>• (-) Prior Year Loss (2016)</td>
-                <td>(340.000)</td>
-              </tr>
-              <tr>
-                <td>• Financial Shares in other companies</td>
-                <td>636.000</td>
-                <td>• Net Income Year 2017</td>
-                <td>31.675</td>
-              </tr>
-              <tr style="font-weight: 600;">
-                <td>TOTAL NON-CURRENT ASSETS</td>
-                <td>5,877.250</td>
-                <td>TOTAL OWNERS' EQUITY</td>
-                <td>5,694.675</td>
-              </tr>
-              <tr>
-                <td>• Inventories (Supplies)</td>
-                <td>340.000</td>
-                <td>• Long-term Bank Loan (due 2019)</td>
-                <td>2,000.000</td>
-              </tr>
-              <tr>
-                <td>• Accounts Receivable</td>
-                <td>164.000</td>
-                <td>• Accounts Payable (Suppliers)</td>
-                <td>120.000</td>
-              </tr>
-              <tr>
-                <td>• Cash & Bank Deposits</td>
-                <td>1,627.000</td>
-                <td>• Other Creditors (Admin expenses)</td>
-                <td>180.000</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Taxes Payable (due Q1 2018)</td>
-                <td>13.575</td>
-              </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
-                <td>TOTAL ASSETS</td>
-                <td>8,008.250</td>
-                <td>TOTAL LIABILITIES & EQUITY</td>
-                <td>8,008.250</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 2 — Frames: opening balance and classification of every operation</h3>
+<h4 class="step-title">Opening balance at 31/12/2016 (rebuilt from the data)</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Technical equipment ($5{,}371 - 26$)</td><td style="text-align:right">5,345</td><td>Capital</td><td style="text-align:right">6,003</td></tr><tr><td>Licences</td><td style="text-align:right">206</td><td>Loss of 2016</td><td style="text-align:right">(340)</td></tr><tr><td>Financial shares</td><td style="text-align:right">636</td><td><strong>Equity</strong></td><td style="text-align:right"><strong>5,663</strong></td></tr><tr><td>Cash</td><td style="text-align:right">1,476</td><td>Bank loan (due 2019)</td><td style="text-align:right">2,000</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>7,663</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>7,663</strong></td></tr></tbody></table></div>
+<p>It balances ($7{,}663 = 5{,}663 + 2{,}000$), which confirms that no other 2016 item is missing.</p>
+<h4 class="step-title">Operations of 2017</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Operation</th><th>Income statement 2017</th><th>Cash 2017</th><th>Open at 31/12/2017</th></tr></thead><tbody><tr><td>Subscriptions + on-line sales</td><td>Revenue 1,966</td><td>+1,802</td><td>Receivables 164</td></tr><tr><td>Purchases of materials (680)</td><td>COGS 340</td><td>−560</td><td>Inventory 340; suppliers 120</td></tr><tr><td>Staff</td><td>559</td><td>−559</td><td>—</td></tr><tr><td>Supplies and outside services</td><td>312</td><td>−312</td><td>—</td></tr><tr><td>Administrative expenses</td><td>300</td><td>−120</td><td>Other creditors 180</td></tr><tr><td>Equipment depreciation</td><td>268.55</td><td>0</td><td>Accumulated depreciation 294.55</td></tr><tr><td>Licence amortisation</td><td>41.20</td><td>0</td><td>Licences 164.80</td></tr><tr><td>Interest</td><td>100</td><td>−100</td><td>—</td></tr><tr><td>Tax</td><td>13.575</td><td>0</td><td>Taxes payable 13.575</td></tr></tbody></table></div>
         </div>
-
-        <div class="result-callout">
-          <div class="result-callout-title">Dividend Policy Comparison (Questions 3 & 4)</div>
-          <p><strong>20% Dividend Amount:</strong> $20\% \times 31.675 = \mathbf{6.335 \text{ mu}}$.</p>
-          <ul>
-            <li><strong>If Paid on 31/12/2017:</strong> Cash drops to $1,620.665 \text{ mu}$. Equity drops to $5,688.340 \text{ mu}$. Total Balance $= 8,001.915 \text{ mu}$.</li>
-            <li><strong>If Payable on 30/06/2018:</strong> Cash remains $1,627.000 \text{ mu}$. Current Liabilities increase by $+6.335 \text{ mu}$ (<strong>Dividends Payable</strong>), Equity drops to $5,688.340 \text{ mu}$. Total Balance remains balanced at <strong>8,008.250 mu</strong>!</li>
-          </ul>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 3 — Derivation</h3>
+<h4 class="step-title">Step 1. Revenues and receivables</h4>
+<div class="math-block">$$\text{Subscriptions} = 5{,}000 \text{ clients} \times 0.032 \tfrac{\text{m.u.}}{\text{client} \cdot \text{month}} \times 12 \text{ months} = 1{,}920 \text{ m.u.}$$</div>
+<div class="math-block">$$\text{Revenues} = 1{,}920 + 46 = 1{,}966 \text{ m.u.}, \qquad \text{Collected} = 1{,}966 - 164 = 1{,}802 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Purchases, consumption and inventory</h4>
+<p>Opening stock 0 ("stocks were exhausted at the end of 2016"); purchases 680; half consumed:</p>
+<div class="math-block">$$\text{COGS} = 0 + 680 - 340 = 340 \text{ m.u.}, \qquad \text{Ending inventory} = 340 \text{ m.u.}$$</div>
+<p>Payment: 560 paid; $680 - 560 = 120$ owed to suppliers.</p>
+<h4 class="step-title">Step 3. Operating expenses</h4>
+<ul><li>Staff 559 and supplies and outside services 312, all paid.</li><li>Administrative expenses 300: 60% deferred, $0.60 \times 300 = 180$ owed; $300 - 180 = 120$ paid.</li></ul>
+<h4 class="step-title">Step 4. Depreciation and amortisation</h4>
+<div class="math-block">$$D_{\text{equipment}} = \frac{5{,}371}{20} = 268.55 \text{ m.u.}, \qquad A_{\text{licences}} = \frac{206}{5} = 41.20 \text{ m.u.}$$</div>
+<p>Accumulated depreciation of the equipment: $26 + 268.55 = 294.55$; net value $5{,}371 - 294.55 = 5{,}076.45$. Licences: $206 - 41.20 = 164.80$.</p>
+<h4 class="step-title">Step 5. Interest</h4>
+<div class="math-block">$$I = 2{,}000 \times 0.05 = 100 \text{ m.u.} \quad \text{(paid at the end of 2017)}$$</div>
+<h4 class="step-title">Step 6. Income statement 2017 (requirement 1)</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Revenues</td><td>$1{,}920 + 46$</td><td style="text-align:right">1,966.000</td></tr><tr><td>− Cost of goods sold (materials consumed)</td><td></td><td style="text-align:right">340.000</td></tr><tr><td><strong>= Gross profit</strong></td><td></td><td style="text-align:right"><strong>1,626.000</strong></td></tr><tr><td>− Staff</td><td></td><td style="text-align:right">559.000</td></tr><tr><td>− Supplies and outside services</td><td></td><td style="text-align:right">312.000</td></tr><tr><td>− Administrative expenses</td><td></td><td style="text-align:right">300.000</td></tr><tr><td>− Depreciation and amortisation</td><td>$268.55 + 41.20$</td><td style="text-align:right">309.750</td></tr><tr><td><strong>= Income from operations</strong></td><td>$1{,}626 - 1{,}480.75$</td><td style="text-align:right"><strong>145.250</strong></td></tr><tr><td>− Interest expense</td><td></td><td style="text-align:right">100.000</td></tr><tr><td><strong>= Income before taxes</strong></td><td>$145.25 - 100$</td><td style="text-align:right"><strong>45.250</strong></td></tr><tr><td>− Income taxes (30%)</td><td>$0.30 \times 45.25$</td><td style="text-align:right">13.575</td></tr><tr><td><strong>= Net income</strong></td><td>$45.25 - 13.575$</td><td style="text-align:right"><strong>31.675</strong></td></tr></tbody></table></div>
+<h4 class="step-title">Step 7. Cash at 31/12/2017</h4>
+<div class="math-block">$$\text{Cash} = 1{,}476 + 1{,}802 - 560 - 559 - 312 - 120 - 100 = 1{,}627 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 8. Balance sheet at 31/12/2017 (requirement 2)</h4>
+<p>All the profit is retained, so it stays in equity and reduces the accumulated loss: $-340 + 31.675 = -308.325$.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Technical equipment</td><td style="text-align:right">5,371.000</td><td>Capital</td><td style="text-align:right">6,003.000</td></tr><tr><td>− Accumulated depreciation</td><td style="text-align:right">(294.550)</td><td>Loss of 2016</td><td style="text-align:right">(340.000)</td></tr><tr><td>Licences (net)</td><td style="text-align:right">164.800</td><td>Net income 2017</td><td style="text-align:right">31.675</td></tr><tr><td>Financial shares</td><td style="text-align:right">636.000</td><td><strong>Equity</strong></td><td style="text-align:right"><strong>5,694.675</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>5,877.250</strong></td><td>Bank loan (due 2019)</td><td style="text-align:right">2,000.000</td></tr><tr><td>Inventory</td><td style="text-align:right">340.000</td><td><strong>Long-term liabilities</strong></td><td style="text-align:right"><strong>2,000.000</strong></td></tr><tr><td>Accounts receivable</td><td style="text-align:right">164.000</td><td>Suppliers</td><td style="text-align:right">120.000</td></tr><tr><td>Cash</td><td style="text-align:right">1,627.000</td><td>Other creditors (administration)</td><td style="text-align:right">180.000</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>2,131.000</strong></td><td>Taxes payable (Q1 2018)</td><td style="text-align:right">13.575</td></tr><tr><td></td><td style="text-align:right"></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>313.575</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>8,008.250</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>8,008.250</strong></td></tr></tbody></table></div>
+<h4 class="step-title">Step 9. Dividend paid at 24:00 on 31/12/2017 (requirement 3)</h4>
+<div class="math-block">$$\text{Dividend} = 0.20 \times 31.675 = 6.335 \text{ m.u.}$$</div>
+<p>Paying it at 24:00 means cash leaves the company and the profit kept in equity falls by the same amount:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Before</th><th style="text-align:right">Change</th><th style="text-align:right">After</th></tr></thead><tbody><tr><td>Cash</td><td style="text-align:right">1,627.000</td><td style="text-align:right">−6.335</td><td style="text-align:right">1,620.665</td></tr><tr><td>Equity (net income retained)</td><td style="text-align:right">5,694.675</td><td style="text-align:right">−6.335</td><td style="text-align:right">5,688.340</td></tr><tr><td>Total assets = total liabilities and equity</td><td style="text-align:right">8,008.250</td><td style="text-align:right">−6.335</td><td style="text-align:right">8,001.915</td></tr></tbody></table></div>
+<h4 class="step-title">Step 10. Dividend decided in 2017, paid on 30/06/2018 (requirement 4)</h4>
+<p>The dividend is already owed to the shareholders at 31/12/2017 but no cash has left: equity falls and a <strong>current liability</strong> (dividends payable, due within the year) appears.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Before</th><th style="text-align:right">Change</th><th style="text-align:right">After</th></tr></thead><tbody><tr><td>Equity</td><td style="text-align:right">5,694.675</td><td style="text-align:right">−6.335</td><td style="text-align:right">5,688.340</td></tr><tr><td>Dividends payable (current liability)</td><td style="text-align:right">0</td><td style="text-align:right">+6.335</td><td style="text-align:right">6.335</td></tr><tr><td>Current liabilities</td><td style="text-align:right">313.575</td><td style="text-align:right">+6.335</td><td style="text-align:right">319.910</td></tr><tr><td>Cash and total assets</td><td style="text-align:right">unchanged</td><td style="text-align:right">0</td><td style="text-align:right">8,008.250</td></tr></tbody></table></div>
         </div>
-        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
-        <p><strong>Phase 1: Hypotheses.</strong> The 31/12/2016 position is reconstructed from the data: capital 6,003; loan 2,000; equipment 5,371 less 26 accumulated depreciation; licenses 206; financial shares 636; cash 1,476; loss -340. Check: $1{,}476 + 5{,}345 + 206 + 636 = 7{,}663 = 2{,}000 + 5{,}663$. Licenses are assumed not amortized in 2016 (the statement gives no 2016 amortization) and are amortized over 5 years in 2017; equipment is depreciated over 20 years. Stocks were exhausted at end 2016, so half of the 680 purchases is consumed (COGS 340). Interest is paid at year end; tax is payable in Q1 2018.</p>
-        <p><strong>Phase 2: Definitions.</strong> $A = L + E$ with $E = \text{Share capital} - \text{Prior-year loss} + \text{Net income}_{2017}$. Financial shares are a non-current investment, not an expense. A declared dividend reduces equity at once but reduces cash only when paid; in between it is a current liability.</p>
-        <p><strong>Phase 3: Journal entries 2017 (m.u.).</strong> Each entry was balanced in Python (debits = credits).</p>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Opening balance 31/12/2016 (A = 7,663 = L 2,000 + E 5,663)</td><td>Cash 1,476.000<br>Technical equipment 5,371.000<br>Licenses 206.000<br>Financial shares 636.000<br>Prior-year loss 340.000</td><td>Accum. depreciation 26.000<br>Bank loan 2,000.000<br>Share capital 6,003.000</td></tr>
-              <tr><td>2</td><td>Revenue: 5,000 x 0.032 x 12 + 46 online sales (164 uncollected)</td><td>Cash 1,802.000<br>Accounts receivable 164.000</td><td>Revenue 1,966.000</td></tr>
-              <tr><td>3</td><td>Purchases of materials 680 (560 paid, 120 deferred)</td><td>Inventory 680.000</td><td>Cash 560.000<br>Accounts payable 120.000</td></tr>
-              <tr><td>4</td><td>Consumption: half of the purchases</td><td>COGS 340.000</td><td>Inventory 340.000</td></tr>
-              <tr><td>5</td><td>Staff costs paid</td><td>Staff 559.000</td><td>Cash 559.000</td></tr>
-              <tr><td>6</td><td>Supplies and outside services paid</td><td>Services 312.000</td><td>Cash 312.000</td></tr>
-              <tr><td>7</td><td>Administrative expenses 300 (40% paid, 60% deferred)</td><td>Administration 300.000</td><td>Cash 120.000<br>Other creditors 180.000</td></tr>
-              <tr><td>8</td><td>Depreciation equipment 5,371/20</td><td>Depreciation 268.550</td><td>Accum. depreciation 268.550</td></tr>
-              <tr><td>9</td><td>Amortization licenses 206/5</td><td>Amortization 41.200</td><td>Licenses 41.200</td></tr>
-              <tr><td>10</td><td>Interest 5% x 2,000 paid at year end</td><td>Interest 100.000</td><td>Cash 100.000</td></tr>
-              <tr><td>11</td><td>Corporate tax 30% x 45.25 (payable Q1 2018)</td><td>Tax expense 13.575</td><td>Taxes payable 13.575</td></tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 4 — Interpretation and checks</h3>
+<ul><li><strong>Balance:</strong> $5{,}877.25 + 2{,}131 = 8{,}008.25 = 5{,}694.675 + 2{,}000 + 313.575$; requirement 3: $8{,}001.915 = 5{,}688.340 + 2{,}313.575$; requirement 4: $8{,}008.25 = 5{,}688.34 + 2{,}000 + 319.91$.</li><li><strong>Requirement 3 vs 4:</strong> both reduce equity by the same 6.335; the difference is only on the other side: in 3 an <strong>asset</strong> (cash) falls, in 4 a <strong>liability</strong> rises. A dividend is never an expense, so net income is 31.675 in all three cases.</li><li><strong>Why the company chose not to pay:</strong> after 2017 the equity is still below the capital (accumulated loss $-308.325$); retaining the profit is self-financing [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 23">23</a>] that rebuilds the equity.</li><li><strong>Exam traps:</strong> (1) the 2016 data are only the opening balance; (2) inventory is half of the purchases; (3) the licences bought at the end of 2016 are amortised from 2017; (4) the loan due in 2019 is long-term.</li><li>No official numerical solution is included in <code>sources/</code>. Three decimals are kept because 268.55, 41.20 and 13.575 are exact.</li></ul>
         </div>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Closing ledger account (31/12/2017)</th><th>Balance (m.u.)</th></tr></thead>
-            <tbody>
-              <tr><td>Cash</td><td>1,627.000 Dr</td></tr>
-              <tr><td>Accounts receivable</td><td>164.000 Dr</td></tr>
-              <tr><td>Inventory</td><td>340.000 Dr</td></tr>
-              <tr><td>Technical equipment</td><td>5,371.000 Dr</td></tr>
-              <tr><td>Accum. depreciation</td><td>294.550 Cr</td></tr>
-              <tr><td>Licenses</td><td>164.800 Dr</td></tr>
-              <tr><td>Financial shares</td><td>636.000 Dr</td></tr>
-              <tr><td>Bank loan</td><td>2,000.000 Cr</td></tr>
-              <tr><td>Accounts payable</td><td>120.000 Cr</td></tr>
-              <tr><td>Other creditors</td><td>180.000 Cr</td></tr>
-              <tr><td>Taxes payable</td><td>13.575 Cr</td></tr>
-              <tr><td>Share capital</td><td>6,003.000 Cr</td></tr>
-              <tr><td>Prior-year loss</td><td>340.000 Dr</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>Income statement from the ledger: $1{,}966.000 - 340.000 = 1{,}626.000$; minus $1{,}480.750$ (559.000 + 312.000 + 300.000 + 268.550 + 41.200) gives EBIT $= 145.250$; minus interest $100.000$ gives EBT $= 45.250$; minus tax $13.575$ gives net income $31.675$.</p>
-        <p><strong>Requirement 3</strong> (20% dividend paid at 24:00 on 31/12/2017): dividend $= 0.20 \times 31.675 = 6.335$. Entry: debit retained earnings 6.335, credit cash 6.335. Cash $1{,}627.000 - 6.335 = 1{,}620.665$; assets $8{,}001.915$; equity $5{,}688.340$; $5{,}688.340 + 2{,}313.575 = 8{,}001.915$. <strong>Requirement 4</strong> (decided in 2017, paid 30/06/2018): debit retained earnings 6.335, credit dividends payable 6.335. Assets unchanged ($8{,}008.250$); equity $5{,}688.340$; current liabilities $313.575 + 6.335 = 319.910$; total $5{,}688.340 + 2{,}000.000 + 319.910 = 8{,}008.250$.</p>
-        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: m.u. (as in the statement); three decimals are kept because 268.55, 41.20 and 13.575 are exact. $A = L + E$: $8{,}008.250 = 2{,}313.575 + 5{,}694.675$, and it still holds in both dividend variants. Cash identity: $1{,}476 + 1{,}802 - 560 - 559 - 312 - 120 - 100 = 1{,}627$. Limit check: paying at once shrinks both sides by 6.335; deferring only moves 6.335 from equity to liabilities. No official numerical key is available in <code>sources/</code> (only the statement PDF).</p>
-
       </section>
 
-      <!-- ==========================================
-           EXAM PROBLEM 4: CEMED
-           ========================================== -->
       <section class="problem-box" id="problem-4">
-        <span class="problem-tag">Exam Problem 4 • Industrial Manufacturing</span>
-        <h2 class="problem-title">CEMED — Industrial Manufacturing Accounting Cycle & Trade Discount Analysis</h2>
+        <span class="problem-tag">Additional Exercise 4 · Exam type</span>
+        <h2 class="problem-title">T3 Additional Exercise 4 — CEMED, statements 2016 and supplier discount</h2>
         <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf#page=5" target="_blank" rel="noopener">Original statement · T3_Additional_EXERCISES.pdf, p. 5</a>
-
         <div class="statement-box">
-          CERÁMICAS DEL MEDITERRÁNEO (CEMED) was created 1/1/2016 by 3 partners contributing 7 mu each in cash (total 21 mu).<br>
-          • 1/2/2016: bought land for 10 mu (50% cash, 50% payable 1 year later); factory building for 6 mu in cash financed by a 10-year mortgage at 5% (20-year linear life, returns 10% principal each 31 Dec + interest).<br>
-          • 1/4/2016: borrowed 5 mu at 6% from bank, returning 20% each semester for 2.5 years (1st repayment 1/10/2016, 2nd 1/4/2017). Purchased machinery for 3 mu (60-day payment delay; 10-year linear life).<br>
-          • 1/7/2016: bought 150 tons raw material at 0.03 mu/ton (half used in sales; 60% paid at 90 days, 40% pending).<br>
-          • Sales: 50 mu (70% collected). Personnel & SS: 0.8 mu paid in full. Tax: 30% paid on 15/01/2017. Reserves: 40% of net profits, 60% dividends payable on 31/12/2016.<br>
-          <strong>1.</strong> Prepare 2016 Income Statement and Balance Sheet at 24:00 on 31/12/2016.<br>
-          <strong>2.</strong> Analyze impact of 5% raw material purchase discount in exchange for paying the 60% in cash.
+<p>CERÁMICAS DEL MEDITERRÁNEO (CEMED) manufactures and distributes ceramic tiles for construction in Valencia.</p>
+<ul><li>CEMED was created on 1/01/2016 by three partners, each contributing 7 m.u., fully in cash.</li><li>On 1/02/2016 it bought a piece of land worth 10 m.u., paying 50% in cash and leaving 50% to be paid one year later. On the same date it bought the factory building, paying 6 m.u. in cash and financing this amount with a mortgage at 5% annual interest for ten years. The factory is amortised over 20 years, linearly, with zero residual value. Each 31 December the company returns 10% of the mortgage principal plus the interest accrued in the year.</li><li>On 1/04/2016 it obtained an additional bank loan of 5 m.u. at 6% annual interest, returning 20% of the principal each semester for the next 2½ years (first repayment on 1/10/2016, second on 1/04/2017, and so on). Interest is paid semiannually, calculated on the amount actually due in that semester, the day after the end of the semester.</li><li>With this loan, on the same date, it bought machinery for 3 m.u. with 60 days payment delay; useful life 10 years, straight-line, zero residual value.</li><li>On 1/07/2016 it acquired 150 tons of raw material at 0.03 m.u./ton. Half of it was used in producing the products sold. 60% of the total cost is paid to the supplier at 90 days; the other 40% remains unpaid at the end of the year.</li><li>Sales revenue: 50 m.u., of which only 70% had been collected at 31/12/2016.</li><li>Personnel plus Social Security: 0.8 m.u., paid in full in 2016.</li><li>Corporation tax: 30%, settled by calendar year and paid on 15/01/2017.</li><li>The company keeps 40% of annual net profits as reserves; the dividends are paid on 31/12/2016.</li></ul>
+<p><strong>Required:</strong> (1) the income statement and the balance sheet at 24:00 on 31/12/2016, explaining the intermediate calculations; (2) the changes in the income statement and the balance sheet if the company had negotiated a 5% discount on the total price of the raw materials in exchange for paying in cash the 60% agreed at 90 days. In which case is the profit higher, and why?</p>
         </div>
-
-        <div class="strategy-callout">
-          <div class="strategy-title">🎯 Exam Day Strategy: Semiannual vs Annual Loan Calculations</div>
-          <ul>
-            <li><strong>Factory Building (11 months):</strong> $D = \frac{6.00}{20} \times \frac{11}{12} = 0.275 \text{ mu}$. Mortgage interest: $6.00 \times 5\% \times \frac{11}{12} = 0.275 \text{ mu}$. Principal returned on 31 Dec $= 0.60 \text{ mu}$.</li>
-            <li><strong>Bank Loan (Repayments & Accruals):</strong> On 1 Oct returned $1.00 \text{ mu}$ principal + paid $0.15 \text{ mu}$ interest ($5 \times 6\% \times 0.5$). For Q4 (1 Oct to 31 Dec), remaining principal is $4.00 \text{ mu}$, accruing $4 \times 6\% \times \frac{3}{12} = \mathbf{0.06 \text{ mu}}$ unpaid interest payable in April 2017!</li>
-            <li><strong>Machinery (9 months):</strong> $D = \frac{3.00}{10} \times \frac{9}{12} = 0.225 \text{ mu}$.</li>
-          </ul>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 1 — Setup: data, timeline and hypotheses</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Date</th><th>Event</th><th style="text-align:right">Cash</th></tr></thead><tbody><tr><td>1/01</td><td>Capital $3 \times 7 = 21$</td><td style="text-align:right">+21</td></tr><tr><td>1/02</td><td>Land 10: 50% paid, 50% due 1/02/2017</td><td style="text-align:right">−5</td></tr><tr><td>1/02</td><td>Building 6, financed by a mortgage of 6</td><td style="text-align:right">+6 −6</td></tr><tr><td>1/04</td><td>Bank loan 5 at 6%</td><td style="text-align:right">+5</td></tr><tr><td>1/04</td><td>Machinery 3 bought, paid 60 days later (31/05)</td><td style="text-align:right">−3 (on 31/05)</td></tr><tr><td>1/07</td><td>Raw material $150 \times 0.03 = 4.5$</td><td style="text-align:right">—</td></tr><tr><td>29/09</td><td>60% of the raw material paid (90 days)</td><td style="text-align:right">−2.7</td></tr><tr><td>1/10</td><td>Loan: first instalment (20% of 5) and interest of the first semester</td><td style="text-align:right">−1 −0.15</td></tr><tr><td>31/12</td><td>Mortgage: 10% of principal and interest of the year</td><td style="text-align:right">−0.6 −0.275</td></tr><tr><td>31/12</td><td>Dividends (60% of net income)</td><td style="text-align:right">−19.3053</td></tr><tr><td>15/01/2017</td><td>Tax paid (after the closing)</td><td style="text-align:right">—</td></tr></tbody></table></div>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>The building is used from 1/02 (11 months) and the machinery from 1/04 (9 months). Land is not depreciated.</li><li>The mortgage interest of 2016 runs from 1/02 to 31/12 (11 months) on the 6 m.u. outstanding.</li><li>Loan semesters: 1/04-30/09 (principal 5) and 1/10-31/03 (principal 4). The interest of the second semester is paid on 1/04/2017, so the part from 1/10 to 31/12 is an <strong>accrued, unpaid</strong> expense of 2016.</li><li>Results to four decimals; exact fractions were used and the last digit is rounded.</li></ol>
         </div>
-
-        <h3 class="phase-title">Statements & Balanced Verification</h3>
-        <p>$\text{COGS} = 2.25 \text{ mu}$. $\text{Operating Expenses} = 2.25 + 0.80 + 0.50 \text{ (dep)} = 3.55 \text{ mu}$. $\text{EBIT} = 50.00 - 3.55 = \mathbf{46.45 \text{ mu}}$. Financial Interest $= 0.275 + 0.210 = \mathbf{0.485 \text{ mu}}$. $\text{EBT} = 45.965 \text{ mu}$. Tax ($30\%$) $= 13.7895 \text{ mu}$. $\mathbf{\text{Net Income}} = \mathbf{32.1755 \text{ mu}}$ (Reserves: $12.8702 \text{ mu}$, Dividends: $19.3053 \text{ mu}$).</p>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>ASSETS at 31/12/2016</th>
-                <th>Amount (mu)</th>
-                <th>LIABILITIES & EQUITY at 31/12/2016</th>
-                <th>Amount (mu)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>• Land (Non-depreciable)</td>
-                <td>10.0000</td>
-                <td>• Subscribed Share Capital</td>
-                <td>21.0000</td>
-              </tr>
-              <tr>
-                <td>• Factory Building (Net: 6.00 - 0.275)</td>
-                <td>5.7250</td>
-                <td>• Retained Reserves (40% of Net Income)</td>
-                <td>12.8702</td>
-              </tr>
-              <tr>
-                <td>• Machinery (Net: 3.00 - 0.225)</td>
-                <td>2.7750</td>
-                <td><strong>TOTAL EQUITY</strong></td>
-                <td><strong>33.8702</strong></td>
-              </tr>
-              <tr style="font-weight: 600;">
-                <td>TOTAL NON-CURRENT ASSETS</td>
-                <td>18.5000</td>
-                <td>• Long-term Mortgage (4.80) & Loan (2.00)</td>
-                <td>6.8000</td>
-              </tr>
-              <tr>
-                <td>• Inventories (Raw Materials)</td>
-                <td>2.2500</td>
-                <td>• Land debt due 1/2/2017</td>
-                <td>5.0000</td>
-              </tr>
-              <tr>
-                <td>• Accounts Receivable (30% of sales)</td>
-                <td>15.0000</td>
-                <td>• Short-term Mortgage (0.60) & Loan (2.00)</td>
-                <td>2.6000</td>
-              </tr>
-              <tr>
-                <td>• Cash & Liquid Treasury</td>
-                <td>28.1697</td>
-                <td>• Accrued bank loan interest</td>
-                <td>0.0600</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Accounts Payable (Raw materials 40%)</td>
-                <td>1.8000</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>• Taxes Payable (due 15/01/2017)</td>
-                <td>13.7895</td>
-              </tr>
-              <tr style="font-weight: 700; background: var(--bg-subtle);">
-                <td>TOTAL ASSETS</td>
-                <td>63.9197</td>
-                <td>TOTAL LIABILITIES & EQUITY</td>
-                <td>63.9197</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 2 — Frames: classification of every operation</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Operation</th><th>Income statement 2016</th><th>Cash 2016</th><th>Open at 31/12/2016</th></tr></thead><tbody><tr><td>Capital</td><td>—</td><td>+21</td><td>Capital 21</td></tr><tr><td>Land</td><td>—</td><td>−5</td><td>Land 10; land payable 5 (current)</td></tr><tr><td>Building / mortgage</td><td>Depreciation 0.275; interest 0.275</td><td>+6 −6 −0.6 −0.275</td><td>Building $6 - 0.275$; mortgage 5.4 (0.6 current, 4.8 long-term)</td></tr><tr><td>Bank loan</td><td>Interest $0.15 + 0.06$</td><td>+5 −1 −0.15</td><td>Loan 4 (2 current, 2 long-term); interest payable 0.06</td></tr><tr><td>Machinery</td><td>Depreciation 0.225</td><td>−3</td><td>Machinery $3 - 0.225$</td></tr><tr><td>Raw material</td><td>COGS 2.25</td><td>−2.7</td><td>Inventory 2.25; suppliers 1.8</td></tr><tr><td>Sales</td><td>Revenue 50</td><td>+35</td><td>Receivables 15</td></tr><tr><td>Personnel + SS</td><td>0.8</td><td>−0.8</td><td>—</td></tr><tr><td>Tax</td><td>13.7895</td><td>0</td><td>Taxes payable 13.7895</td></tr><tr><td>Dividends</td><td>— (distribution)</td><td>−19.3053</td><td>Reserves 12.8702</td></tr></tbody></table></div>
         </div>
-        <p><strong>Cash derivation (31/12/2016):</strong> inflows $21 + 6 + 5 + 35 = 67.0000 \text{ mu}$; outflows $5 + 6 + 3 + 2.7 + 0.8 + 0.6 + 0.275 + 1.0 + 0.15 + 19.3053 = 38.8303 \text{ mu}$ (land down payment, building, machinery, 60% of raw materials, personnel, mortgage principal and interest, bank loan principal and first-semester interest, dividends); cash $= 67.0000 - 38.8303 = \mathbf{28.1697 \text{ mu}}$.</p>
-
-        <div class="result-callout">
-          <div class="result-callout-title">Trade Discount Negotiation Verdict (Question 2)</div>
-          <p>A $5\%$ discount on purchases reduces material cost by $0.225 \text{ mu}$. Because half was consumed, <strong>COGS decreases by $0.1125 \text{ mu}$</strong>, expanding EBIT by $+0.1125 \text{ mu}$ and Net Profit by $+0.1125 \times 0.70 = \mathbf{+0.07875 \text{ mu}}$. Profit is strictly higher: the income statement does not record the time value of paying the 60% earlier, and both payment dates fall within 2016. The balance sheet also changes: inventories $-0.1125 \text{ mu}$, accounts payable $-0.09 \text{ mu}$, taxes payable $+0.03375 \text{ mu}$, reserves $+0.0315 \text{ mu}$, and year-end cash $+0.08775 \text{ mu}$ ($= 0.135$ saved on the supplier payment $- 0.04725$ extra dividend), so that $\Delta\text{Assets} = \Delta(\text{Liabilities} + \text{Equity}) = -0.02475 \text{ mu}$.</p>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 3 — Derivation (requirement 1)</h3>
+<h4 class="step-title">Step 1. Depreciation</h4>
+<div class="math-block">$$D_{\text{building}} = \frac{6 - 0}{20} \times \frac{11}{12} = 0.3 \times 0.9167 = 0.2750 \text{ m.u.}$$</div>
+<div class="math-block">$$D_{\text{machinery}} = \frac{3 - 0}{10} \times \frac{9}{12} = 0.3 \times 0.75 = 0.2250 \text{ m.u.}$$</div>
+<p>Total depreciation: $0.275 + 0.225 = 0.5$ m.u.</p>
+<h4 class="step-title">Step 2. Mortgage</h4>
+<p>Interest of 2016 (1/02 to 31/12, principal 6):</p>
+<div class="math-block">$$I_{\text{mortgage}} = 6 \times 0.05 \times \frac{11}{12} = 0.2750 \text{ m.u.} \quad \text{(paid on 31/12)}$$</div>
+<p>Principal returned on 31/12: $0.10 \times 6 = 0.6$; outstanding $6 - 0.6 = 5.4$. The next 0.6, due 31/12/2017, is current; the remaining $5.4 - 0.6 = 4.8$ is long-term.</p>
+<h4 class="step-title">Step 3. Bank loan</h4>
+<p>Each instalment is $0.20 \times 5 = 1$ m.u. (five instalments: 1/10/2016, 1/04/2017, 1/10/2017, 1/04/2018, 1/10/2018).</p>
+<ul><li>First semester (1/04-30/09, principal 5): $I_1 = 5 \times 0.06 \times \frac{6}{12} = 0.15$, paid on 1/10/2016 together with the first instalment.</li><li>Second semester (1/10/2016-31/03/2017, principal 4): the 2016 part is October-December, $I_2 = 4 \times 0.06 \times \frac{3}{12} = 0.06$, <strong>accrued but unpaid</strong> (it will be paid on 1/04/2017).</li></ul>
+<p>Interest of the loan in 2016: $0.15 + 0.06 = 0.21$. Principal outstanding at 31/12: $5 - 1 = 4$, of which the instalments of 1/04/2017 and 1/10/2017 (2) are current and those of 2018 (2) are long-term.</p>
+<h4 class="step-title">Step 4. Raw material, cost of goods sold and suppliers</h4>
+<div class="math-block">$$\text{Purchase} = 150 \times 0.03 = 4.5 \text{ m.u.}, \qquad \text{COGS} = \frac{4.5}{2} = 2.25, \qquad \text{Inventory} = 2.25$$</div>
+<p>Paid at 90 days: $0.60 \times 4.5 = 2.7$; unpaid: $0.40 \times 4.5 = 1.8$ (suppliers, current).</p>
+<h4 class="step-title">Step 5. Sales</h4>
+<p>Collected $0.70 \times 50 = 35$; receivables $50 - 35 = 15$.</p>
+<h4 class="step-title">Step 6. Income statement 2016</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Sales revenue</td><td></td><td style="text-align:right">50.0000</td></tr><tr><td>− Cost of goods sold</td><td>Step 4</td><td style="text-align:right">2.2500</td></tr><tr><td><strong>= Gross profit</strong></td><td></td><td style="text-align:right"><strong>47.7500</strong></td></tr><tr><td>− Personnel and Social Security</td><td></td><td style="text-align:right">0.8000</td></tr><tr><td>− Depreciation</td><td>Step 1</td><td style="text-align:right">0.5000</td></tr><tr><td><strong>= Income from operations</strong></td><td>$47.75 - 1.3$</td><td style="text-align:right"><strong>46.4500</strong></td></tr><tr><td>− Interest (mortgage 0.275; loan 0.21)</td><td>Steps 2-3</td><td style="text-align:right">0.4850</td></tr><tr><td><strong>= Income before taxes</strong></td><td>$46.45 - 0.485$</td><td style="text-align:right"><strong>45.9650</strong></td></tr><tr><td>− Income taxes (30%)</td><td>$0.30 \times 45.965$</td><td style="text-align:right">13.7895</td></tr><tr><td><strong>= Net income</strong></td><td>$45.965 - 13.7895$</td><td style="text-align:right"><strong>32.1755</strong></td></tr></tbody></table></div>
+<p>Distribution: reserves $= 0.40 \times 32.1755 = 12.8702$; dividends $= 0.60 \times 32.1755 = 19.3053$, paid on 31/12.</p>
+<h4 class="step-title">Step 7. Cash at 24:00 on 31/12/2016</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Capital</td><td style="text-align:right">21.0000</td><td>Land (50%)</td><td style="text-align:right">5.0000</td></tr><tr><td>Mortgage</td><td style="text-align:right">6.0000</td><td>Building</td><td style="text-align:right">6.0000</td></tr><tr><td>Bank loan</td><td style="text-align:right">5.0000</td><td>Machinery</td><td style="text-align:right">3.0000</td></tr><tr><td>Sales collected</td><td style="text-align:right">35.0000</td><td>Raw material (60%)</td><td style="text-align:right">2.7000</td></tr><tr><td></td><td style="text-align:right"></td><td>Personnel</td><td style="text-align:right">0.8000</td></tr><tr><td></td><td style="text-align:right"></td><td>Mortgage principal + interest</td><td style="text-align:right">0.8750</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan instalment + interest</td><td style="text-align:right">1.1500</td></tr><tr><td></td><td style="text-align:right"></td><td>Dividends</td><td style="text-align:right">19.3053</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>67.0000</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>38.8303</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash} = 67 - 38.8303 = 28.1697 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 8. Balance sheet at 24:00 on 31/12/2016</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Land</td><td style="text-align:right">10.0000</td><td>Capital</td><td style="text-align:right">21.0000</td></tr><tr><td>Building ($6 - 0.275$)</td><td style="text-align:right">5.7250</td><td>Reserves (40% of net income)</td><td style="text-align:right">12.8702</td></tr><tr><td>Machinery ($3 - 0.225$)</td><td style="text-align:right">2.7750</td><td><strong>Equity</strong></td><td style="text-align:right"><strong>33.8702</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>18.5000</strong></td><td>Mortgage, long-term part</td><td style="text-align:right">4.8000</td></tr><tr><td>Inventory (raw material)</td><td style="text-align:right">2.2500</td><td>Bank loan, long-term part</td><td style="text-align:right">2.0000</td></tr><tr><td>Accounts receivable</td><td style="text-align:right">15.0000</td><td><strong>Long-term liabilities</strong></td><td style="text-align:right"><strong>6.8000</strong></td></tr><tr><td>Cash</td><td style="text-align:right">28.1697</td><td>Land payable (1/02/2017)</td><td style="text-align:right">5.0000</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>45.4197</strong></td><td>Mortgage, current part</td><td style="text-align:right">0.6000</td></tr><tr><td></td><td style="text-align:right"></td><td>Bank loan, current part</td><td style="text-align:right">2.0000</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest payable</td><td style="text-align:right">0.0600</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers</td><td style="text-align:right">1.8000</td></tr><tr><td></td><td style="text-align:right"></td><td>Taxes payable (15/01/2017)</td><td style="text-align:right">13.7895</td></tr><tr><td></td><td style="text-align:right"></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>23.2495</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>63.9197</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>63.9197</strong></td></tr></tbody></table></div>
         </div>
-        <h3 class="phase-title">Four-Phase Audit Trail (journal entries and ledger)</h3>
-        <p><strong>Phase 1: Hypotheses.</strong> Calendar year 2016; partners' 21 paid in cash. The mortgage (6 at 5%) funds the building and its 10% principal plus annual interest are paid each 31 Dec. The bank loan (5 at 6%) is repaid 20% each semester from 1 Oct 2016, with interest on the amount actually due; interest for 1 Oct to 31 Dec ($4 \times 6\% \times 3/12 = 0.06$) is accrued. Machinery (3) is paid on 31 May. Raw materials (4.5) are bought on 1 Jul, half consumed; 60% paid on 1 Oct, 40% open at year end. Tax (30%) is payable 15 Jan 2017; dividends (60% of net income) are paid on 31 Dec and 40% is kept as reserves.</p>
-        <p><strong>Phase 2: Definitions.</strong> $A = L + E$ with $E = \text{Share capital} + \text{Reserves}$ and $\text{Reserves} = 0.40 \times \text{Net income}$. Land is not depreciated; building $6/20 \times 11/12$; machinery $3/10 \times 9/12$. Debt due within 12 months is current (mortgage 0.6; bank loan 2.0).</p>
-        <p><strong>Phase 3: Journal entries, Part 1 (m.u.).</strong> Each entry was balanced in Python with exact fractions (debits = credits).</p>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>#</th><th>Event</th><th>Debit</th><th>Credit</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1 Jan: partners' capital 3 x 7</td><td>Cash 21.0000</td><td>Share capital 21.0000</td></tr>
-              <tr><td>2</td><td>1 Feb: land 10 (50% cash, 50% due 1/2/2017)</td><td>Land 10.0000</td><td>Cash 5.0000<br>Land payable 5.0000</td></tr>
-              <tr><td>3</td><td>1 Feb: factory building 6 financed by mortgage at 5%</td><td>Building 6.0000</td><td>Mortgage 6.0000</td></tr>
-              <tr><td>4</td><td>1 Apr: bank loan 5 at 6%</td><td>Cash 5.0000</td><td>Bank loan 5.0000</td></tr>
-              <tr><td>5</td><td>1 Apr: machinery 3, paid after 60 days (31 May)</td><td>Machinery 3.0000</td><td>Cash 3.0000</td></tr>
-              <tr><td>6</td><td>1 Jul: raw materials 150 t x 0.03 = 4.5</td><td>Inventory 4.5000</td><td>Suppliers payable 4.5000</td></tr>
-              <tr><td>7</td><td>Payment of 60% of the raw materials at 90 days (1 Oct)</td><td>Suppliers payable 2.7000</td><td>Cash 2.7000</td></tr>
-              <tr><td>8</td><td>Raw materials consumed: half</td><td>COGS 2.2500</td><td>Inventory 2.2500</td></tr>
-              <tr><td>9</td><td>Sales 50: 70% collected, 30% open</td><td>Cash 35.0000<br>Accounts receivable 15.0000</td><td>Sales 50.0000</td></tr>
-              <tr><td>10</td><td>Personnel and Social Security paid</td><td>Personnel 0.8000</td><td>Cash 0.8000</td></tr>
-              <tr><td>11</td><td>Depreciation building 6/20 x 11/12</td><td>Depreciation 0.2750</td><td>Accum. dep. building 0.2750</td></tr>
-              <tr><td>12</td><td>Depreciation machinery 3/10 x 9/12</td><td>Depreciation 0.2250</td><td>Accum. dep. machinery 0.2250</td></tr>
-              <tr><td>13</td><td>31 Dec: mortgage interest 6 x 5% x 11/12 and principal 10% x 6 paid</td><td>Interest 0.2750<br>Mortgage 0.6000</td><td>Cash 0.8750</td></tr>
-              <tr><td>14</td><td>1 Oct: loan principal 20% x 5 and interest 5 x 6% x 6/12 paid</td><td>Bank loan 1.0000<br>Interest 0.1500</td><td>Cash 1.1500</td></tr>
-              <tr><td>15</td><td>31 Dec: accrued interest 4 x 6% x 3/12 (paid 2/4/2017)</td><td>Interest 0.0600</td><td>Accrued interest 0.0600</td></tr>
-              <tr><td>16</td><td>31 Dec: corporate tax 30% (paid 15/1/2017)</td><td>Tax expense 13.7895</td><td>Taxes payable 13.7895</td></tr>
-              <tr><td>17</td><td>31 Dec: dividends 60% of net income paid</td><td>Dividends 19.3053</td><td>Cash 19.3053</td></tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 3b — Derivation (requirement 2: 5% discount, 60% paid in cash)</h3>
+<h4 class="step-title">Step 9. New purchase price and payments</h4>
+<div class="math-block">$$\text{Price} = 4.5 \times (1 - 0.05) = 4.275 \text{ m.u.}$$</div>
+<ul><li>Paid in cash on 1/07: $0.60 \times 4.275 = 2.565$ (instead of 2.7 at 90 days).</li><li>Unpaid at 31/12: $0.40 \times 4.275 = 1.71$ (instead of 1.8).</li><li>Consumed (half): $\text{COGS} = 4.275 / 2 = 2.1375$; inventory 2.1375 (both instead of 2.25).</li></ul>
+<h4 class="step-title">Step 10. New income statement</h4>
+<p>Only the cost of goods sold changes before taxes: $\Delta\text{COGS} = 2.1375 - 2.25 = -0.1125$.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th style="text-align:right">Requirement 1</th><th style="text-align:right">Requirement 2</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Cost of goods sold</td><td style="text-align:right">2.2500</td><td style="text-align:right">2.1375</td><td style="text-align:right">−0.1125</td></tr><tr><td>Income before taxes</td><td style="text-align:right">45.9650</td><td style="text-align:right">46.0775</td><td style="text-align:right">+0.1125</td></tr><tr><td>Income taxes (30%)</td><td style="text-align:right">13.7895</td><td style="text-align:right">13.8233</td><td style="text-align:right">+0.0338</td></tr><tr><td><strong>Net income</strong></td><td style="text-align:right"><strong>32.1755</strong></td><td style="text-align:right"><strong>32.2543</strong></td><td style="text-align:right"><strong>+0.0788</strong></td></tr><tr><td>Dividends (60%)</td><td style="text-align:right">19.3053</td><td style="text-align:right">19.3526</td><td style="text-align:right">+0.0473</td></tr><tr><td>Reserves (40%)</td><td style="text-align:right">12.8702</td><td style="text-align:right">12.9017</td><td style="text-align:right">+0.0315</td></tr></tbody></table></div>
+<p>The net change is the after-tax saving: $0.1125 \times (1 - 0.30) = 0.07875$.</p>
+<h4 class="step-title">Step 11. New balance sheet items</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Change</th><th>Reason</th></tr></thead><tbody><tr><td>Inventory</td><td style="text-align:right">−0.1125</td><td>Half of the material is still in stock, valued at the lower price</td></tr><tr><td>Cash</td><td style="text-align:right">+0.0878</td><td>Pays 2.565 instead of 2.7 (+0.135) but pays 0.0473 more dividends</td></tr><tr><td>Suppliers</td><td style="text-align:right">−0.0900</td><td>40% of a lower price (1.71 instead of 1.8)</td></tr><tr><td>Taxes payable</td><td style="text-align:right">+0.0338</td><td>Higher profit</td></tr><tr><td>Reserves</td><td style="text-align:right">+0.0315</td><td>40% of the higher net income</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>−0.0248</strong></td><td>$-0.1125 + 0.08775$</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>−0.0248</strong></td><td>$-0.09 + 0.03375 + 0.0315$</td></tr></tbody></table></div>
+<p>New totals: $63.9197 - 0.0248 = 63.8950$ on both sides (cash 28.2575).</p>
         </div>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Closing ledger account (31/12/2016)</th><th>Balance (m.u.)</th></tr></thead>
-            <tbody>
-              <tr><td>Cash</td><td>28.1697 Dr</td></tr>
-              <tr><td>Accounts receivable</td><td>15.0000 Dr</td></tr>
-              <tr><td>Inventory</td><td>2.2500 Dr</td></tr>
-              <tr><td>Land</td><td>10.0000 Dr</td></tr>
-              <tr><td>Building</td><td>6.0000 Dr</td></tr>
-              <tr><td>Accum. dep. building</td><td>0.2750 Cr</td></tr>
-              <tr><td>Machinery</td><td>3.0000 Dr</td></tr>
-              <tr><td>Accum. dep. machinery</td><td>0.2250 Cr</td></tr>
-              <tr><td>Land payable</td><td>5.0000 Cr</td></tr>
-              <tr><td>Mortgage</td><td>5.4000 Cr</td></tr>
-              <tr><td>Bank loan</td><td>4.0000 Cr</td></tr>
-              <tr><td>Accrued interest</td><td>0.0600 Cr</td></tr>
-              <tr><td>Suppliers payable</td><td>1.8000 Cr</td></tr>
-              <tr><td>Taxes payable</td><td>13.7895 Cr</td></tr>
-              <tr><td>Share capital</td><td>21.0000 Cr</td></tr>
-            </tbody>
-          </table>
+        <div class="phase-block">
+          <h3 class="phase-title">Phase 4 — Interpretation and checks</h3>
+<ul><li><strong>Balance:</strong> $18.5 + 45.4197 = 63.9197 = 33.8702 + 6.8 + 23.2495$; requirement 2: both sides fall by 0.02475.</li><li><strong>In which case is the profit higher?</strong> With the <strong>discount</strong>. The discount lowers the cost of the material; the price paid for it is giving up 90 days of <strong>trade credit</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=35" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 35">35</a>], and trade credit has no explicit interest in this problem, so losing it costs nothing in the income statement: it only advances a payment that in both cases falls inside 2016.</li><li><strong>Why only half of the saving reaches the profit:</strong> only half of the material was consumed. The other half of the saving is in the lower value of the inventory and will reach the income statement when that stock is used.</li><li><strong>Debt structure</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 36">36</a>]: liabilities $6.8 + 23.2495 = 30.0495$, equity 33.8702, so $L/E = 0.89$.</li><li><strong>Exam traps:</strong> (1) the mortgage finances the building: cash +6 and −6 on the same day; (2) the loan interest of October-December is accrued but unpaid; (3) the current part of each loan is what is due before 31/12/2017; (4) the land is not depreciated; (5) taxes are payable on 15/01/2017, so they are a liability, while dividends were paid.</li><li>No official numerical solution is included in <code>sources/</code>.</li></ul>
         </div>
-        <p>Statement lines: $\text{EBIT} = 50 - 2.25 - 0.8 - 0.5 = 46.45$; interest $= 0.275 + 0.15 + 0.06 = 0.485$; $\text{EBT} = 45.965$; tax $= 0.30 \times 45.965 = 13.7895$; net income $= 32.1755$; dividends $= 0.60 \times 32.1755 = 19.3053$; reserves $= 12.8702$ (closed from income and dividends, so not a ledger line above). Assets $18.5 + 45.4197 = 63.9197$; liabilities $5 + 5.4 + 4.0 + 0.06 + 1.8 + 13.7895 = 30.0495$ plus equity $21 + 12.8702 = 33.8702$.</p>
-        <p><strong>Part 2 (5% discount, 60% paid in cash on 1 Jul):</strong> purchase price $4.5 \times 0.95 = 4.275$; payment $2.565$. Changes with respect to Part 1:</p>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Item</th><th>Change vs Part 1 (m.u.)</th></tr></thead>
-            <tbody>
-              <tr><td>Net income</td><td>+0.07875</td></tr>
-              <tr><td>Cost of goods sold</td><td>-0.1125</td></tr>
-              <tr><td>Inventory</td><td>-0.1125</td></tr>
-              <tr><td>Cash</td><td>+0.08775</td></tr>
-              <tr><td>Suppliers payable</td><td>-0.09</td></tr>
-              <tr><td>Taxes payable</td><td>+0.03375</td></tr>
-              <tr><td>Total assets</td><td>-0.02475</td></tr>
-              <tr><td>Total liabilities + equity</td><td>-0.02475</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>Cash: smaller supplier payment $2.70 - 2.565 = +0.135$, minus the extra dividend $0.04725$ (60% of $0.07875$) gives $+0.08775$. Balance check: $\Delta A = -0.1125 + 0.08775 = -0.02475 = -0.09 + 0.03375 + 0.0315 = \Delta(L+E)$.</p>
-        <p><strong>Phase 4: Units and sanity checks.</strong> Currency: m.u.; $A = L + E$: $63.9197 = 30.0495 + 33.8702$ (Part 1) and $63.89495 = 63.89495$ (Part 2). Cash identity Part 1: $67.0000 - 38.8303 = 28.1697$. Limit check: with a 0% discount every change vanishes; net income rises by the after-tax saving $0.1125 \times (1 - 0.30) = 0.07875$, so profit is higher with the discount. No official numerical key is available in <code>sources/</code> (only the statement PDF).</p>
-
       </section>
 
       <footer class="topic-nav">

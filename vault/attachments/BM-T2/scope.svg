@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="The three dimensions of scope">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<text x="10.0" y="95.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Single</text>
+<text x="10.0" y="112.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">integrated firm</text>
+<text x="10.0" y="225.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">Several</text>
+<text x="10.0" y="242.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">specialized firms</text>
+<text x="225.0" y="20.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">Vertical scope</text>
+<rect x="195" y="40" width="60" height="120" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="225.0" y="70.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">V1</text>
+<text x="225.0" y="102.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">V2</text>
+<text x="225.0" y="134.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">V3</text>
+<rect x="200.0" y="180.0" width="50.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="225.0" y="198.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">V1</text>
+<rect x="200.0" y="220.0" width="50.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="225.0" y="238.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">V2</text>
+<line x1="225.0" y1="208.0" x2="225.0" y2="220.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M225.0,220.0 L221.5,211.7 L228.5,211.7 Z" fill="#8a94a6"/>
+<rect x="200.0" y="260.0" width="50.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="225.0" y="278.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">V3</text>
+<line x1="225.0" y1="248.0" x2="225.0" y2="260.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M225.0,260.0 L221.5,251.7 L228.5,251.7 Z" fill="#8a94a6"/>
+<text x="400.0" y="20.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">Product scope</text>
+<rect x="325" y="80" width="150" height="40" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="350.0" y="105.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">P1</text>
+<rect x="328.0" y="215.0" width="44.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="350.0" y="233.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">P1</text>
+<text x="400.0" y="105.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">P2</text>
+<rect x="378.0" y="215.0" width="44.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="400.0" y="233.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">P2</text>
+<text x="450.0" y="105.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">P3</text>
+<rect x="428.0" y="215.0" width="44.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="450.0" y="233.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">P3</text>
+<text x="575.0" y="20.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">Geographical scope</text>
+<rect x="500" y="80" width="150" height="40" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="525.0" y="105.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">G1</text>
+<rect x="503.0" y="215.0" width="44.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="525.0" y="233.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">G1</text>
+<text x="575.0" y="105.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">G2</text>
+<rect x="553.0" y="215.0" width="44.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="575.0" y="233.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">G2</text>
+<text x="625.0" y="105.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">G3</text>
+<rect x="603.0" y="215.0" width="44.0" height="28.0" rx="8" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-width="1.4"/>
+<text x="625.0" y="233.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">G3</text>
+</g></svg>

@@ -38,6 +38,37 @@
     "href": "../problemas/topic-3-diffusion.html",
     "label": "6 solved problems for this topic"
    }
+  },
+  "subjects/business-management/teoria/topic-1.html": {
+   "note": "vault/05 - Business Management/Topic 1 - The Firm - Types and Objectives.md",
+   "html_title": "Topic 1: The Firm — Types and Objectives | Business Management",
+   "category": "Topic 01 · The Firm",
+   "title": "The Firm: Types and Objectives",
+   "subtitle": "What a business is, the circular flow of income, business functions and the management process, the entrepreneur, and the legal forms of business ownership with the agency problem.",
+   "source": "Universidad Carlos III de Madrid · Topic 1_The Firm_Types  Objectives.pdf (Prof. Carmen Paz-Aparicio), Slides 1-29",
+   "figures": "bm_t1"
+  },
+  "subjects/business-management/teoria/topic-2.html": {
+   "note": "vault/05 - Business Management/Topic 2 - Value Creation - Environment and Competitive Advantage.md",
+   "html_title": "Topic 2: Value Creation — Environment and Competitive Advantage | Business Management",
+   "category": "Topic 02 · Value Creation",
+   "title": "Value Creation: Environment and Competitive Advantage",
+   "subtitle": "Business objectives and stakeholders, strategic decisions, the generic and specific environment with Porter's five forces, corporate and business strategy, sources of competitive advantage, diversification and the value chain.",
+   "source": "Universidad Carlos III de Madrid · Topic 2_ Value creation.pdf (Prof. Carmen Paz-Aparicio), Slides 1-31",
+   "figures": "bm_t2"
+  },
+  "subjects/business-management/teoria/topic-3.html": {
+   "note": "vault/05 - Business Management/Topic 3 - Financial Management I - Financial Statements.md",
+   "html_title": "Topic 3: Financial Management (I) — Financial Statements | Business Management",
+   "category": "Topic 03 · Financial Management (I)",
+   "title": "Financial Management (I): Financial Statements and Financial Structure",
+   "subtitle": "Economic and financial structure, the income statement, the balance sheet, the sources of financing, the debt-to-equity ratio and the weighted average cost of capital.",
+   "source": "Universidad Carlos III de Madrid · Topic 3_Financial Management (I).pdf (Prof. Carmen Paz-Aparicio), Slides 1-37",
+   "problems": {
+    "href": "../problemas/topic-3-financial-statements.html",
+    "label": "Solved exercises for this topic (sheet exercises 1-6 and the four additional exam-type problems)"
+   },
+   "figures": "bm_t3"
   }
  }
 }

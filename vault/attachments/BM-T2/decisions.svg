@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 110" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="From objective to decisions">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="10.0" y="30.0" width="110.0" height="50.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="65.0" y="51.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Business</text>
+<text x="65.0" y="67.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">objective</text>
+<rect x="140.0" y="30.0" width="110.0" height="50.0" rx="8" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="195.0" y="51.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Define a</text>
+<text x="195.0" y="67.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">strategy</text>
+<line x1="120.0" y1="55.0" x2="140.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M140.0,55.0 L131.7,58.5 L131.7,51.5 Z" fill="#8a94a6"/>
+<rect x="270.0" y="30.0" width="110.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="325.0" y="51.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Strategic</text>
+<text x="325.0" y="67.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">decisions</text>
+<line x1="250.0" y1="55.0" x2="270.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M270.0,55.0 L261.7,58.5 L261.7,51.5 Z" fill="#8a94a6"/>
+<rect x="400.0" y="30.0" width="110.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="455.0" y="51.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Tactic</text>
+<text x="455.0" y="67.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">decisions</text>
+<line x1="380.0" y1="55.0" x2="400.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M400.0,55.0 L391.7,58.5 L391.7,51.5 Z" fill="#8a94a6"/>
+<rect x="530.0" y="30.0" width="110.0" height="50.0" rx="8" fill="#ec4899" fill-opacity="0.10" stroke="#ec4899" stroke-width="1.4"/>
+<text x="585.0" y="51.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Operative</text>
+<text x="585.0" y="67.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">decisions</text>
+<line x1="510.0" y1="55.0" x2="530.0" y2="55.0" stroke="#8a94a6" stroke-width="2"/>
+<path d="M530.0,55.0 L521.7,58.5 L521.7,51.5 Z" fill="#8a94a6"/>
+</g></svg>

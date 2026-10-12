@@ -102,9 +102,13 @@ EXAM_KINDS = {
     "SECONDPARTIAL": ("second", "Second partial"),
     "THIRDPARTIAL": ("third", "Third partial"),
     "FINALEXAM": ("final", "Final exam"),
+    # Exams of the same subject from other universities or degrees, listed apart from UC3M's:
+    # SUBJECT_OTHERUNI_YEAR_INSTITUTION[_DETAILS].pdf, e.g. FLUIDS_OTHERUNI_2025_SEVILLA_EXTRA_P2.pdf
+    "OTHERUNI": ("other", "Other universities and degrees"),
 }
-EXAM_ORDER = ("first", "second", "third", "final")
+EXAM_ORDER = ("first", "second", "third", "final", "other")
 EXAM_TITLE = {v[0]: v[1] for v in EXAM_KINDS.values()}
+EXAM_SECTION = {k: (t if k == "other" else t + "s") for k, t in EXAM_TITLE.items()}
 
 _CALLS = {"ORD": (1, "Ordinary call"), "EXTRA": (2, "Extraordinary call"), "RETAKE": (3, "Retake"),
           "PRACTICE": (4, "Practice exam"), "QUIZ": (5, "Quiz")}
@@ -172,7 +176,7 @@ def classify_exam(name: str) -> dict | None:
             "sort": (call_rank, " ".join(bits), doc != "Exam", problem, stem)}
 
 
-_STANDARD = re.compile(r"^[A-Z]+_(?:FIRSTPARTIAL|SECONDPARTIAL|THIRDPARTIAL|FINALEXAM)_")
+_STANDARD = re.compile(r"^[A-Z]+_(?:FIRSTPARTIAL|SECONDPARTIAL|THIRDPARTIAL|FINALEXAM|OTHERUNI)_")
 
 
 def _digest(root: pathlib.Path, item: dict) -> str:
@@ -218,9 +222,9 @@ def render_exams(slug: str, entries: list[dict]) -> str:
             files = sorted((e for e in group if (e["year"] or 0) == y and e["year_label"] == ylabel), key=lambda e: e["sort"])
             lis = "\n".join(_link(e["item"], html.escape(e["label"])) for e in files)
             rows.append(f'<div class="year"><div class="year-label">{html.escape(ylabel)}</div>\n<ul>\n{lis}\n</ul></div>')
-        title = EXAM_TITLE[kind] + "s"
+        title = EXAM_SECTION[kind]
         sections.append(f'<h2 id="{kind}">{title}<span class="count">{len(group)} files</span></h2>\n' + "\n".join(rows))
-        jumps.append(f'<a href="#{kind}">{EXAM_TITLE[kind]}s</a>')
+        jumps.append(f'<a href="#{kind}">{EXAM_SECTION[kind]}</a>')
     body = '<nav class="jump" aria-label="Exams">' + "".join(jumps) + "</nav>\n" + "\n".join(sections)
     lead = (f"{len(entries)} past exams and solutions, grouped by exam and sorted by year, newest first. "
             "Ordinary and extraordinary calls are listed together under each year.")

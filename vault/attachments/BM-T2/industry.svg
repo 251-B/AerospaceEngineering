@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="From environmental analysis to industry analysis">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="215.0" y="105.0" width="190.0" height="110.0" rx="8" fill="#f59e0b" fill-opacity="0.10" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="310.0" y="140.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">THE INDUSTRY ENVIRONMENT</text>
+<text x="310.0" y="156.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Suppliers</text>
+<text x="310.0" y="172.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Competitors</text>
+<text x="310.0" y="188.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Customers</text>
+<rect x="20.0" y="20.0" width="160.0" height="50.0" rx="25" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="100.0" y="41.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">The national /</text>
+<text x="100.0" y="57.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">international economy</text>
+<line x1="180.0" y1="45.0" x2="215.0" y2="160.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M215.0,160.0 L209.2,153.1 L215.9,151.0 Z" fill="#8a94a6"/>
+<rect x="20.0" y="135.0" width="160.0" height="50.0" rx="25" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="100.0" y="164.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Technology</text>
+<line x1="180.0" y1="160.0" x2="215.0" y2="160.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M215.0,160.0 L206.7,163.5 L206.7,156.5 Z" fill="#8a94a6"/>
+<rect x="20.0" y="250.0" width="160.0" height="50.0" rx="25" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="100.0" y="271.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Government</text>
+<text x="100.0" y="287.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">and politics</text>
+<line x1="180.0" y1="275.0" x2="215.0" y2="160.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M215.0,160.0 L215.9,169.0 L209.2,166.9 Z" fill="#8a94a6"/>
+<rect x="440.0" y="20.0" width="160.0" height="50.0" rx="25" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="520.0" y="41.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">The natural</text>
+<text x="520.0" y="57.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">environment</text>
+<line x1="440.0" y1="45.0" x2="405.0" y2="160.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M405.0,160.0 L404.1,151.0 L410.8,153.1 Z" fill="#8a94a6"/>
+<rect x="440.0" y="135.0" width="160.0" height="50.0" rx="25" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="520.0" y="156.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Demographic</text>
+<text x="520.0" y="172.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">structure</text>
+<line x1="440.0" y1="160.0" x2="405.0" y2="160.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M405.0,160.0 L413.3,156.5 L413.3,163.5 Z" fill="#8a94a6"/>
+<rect x="440.0" y="250.0" width="160.0" height="50.0" rx="25" fill="#3b82f6" fill-opacity="0.10" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="520.0" y="271.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">Social</text>
+<text x="520.0" y="287.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">structure</text>
+<line x1="440.0" y1="275.0" x2="405.0" y2="160.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M405.0,160.0 L410.8,166.9 L404.1,169.0 Z" fill="#8a94a6"/>
+</g></svg>
