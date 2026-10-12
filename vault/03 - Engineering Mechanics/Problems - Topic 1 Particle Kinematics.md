@@ -128,4 +128,7 @@ In *2001: A Space Odyssey* an idea to obtain artificial gravity in a spaceship w
 
 The angle $\theta$ describing the rotation of the solar panels of a reconnaissance satellite about the body-fixed axis $x$ is an arbitrary function of time. The satellite spins about the $z$ axis at the constant angular rate $\omega$. Derive expressions for the absolute velocity and acceleration of point $B$ relative to an inertial reference frame centered in $A$.
 
+![[attachments/EM/T1-P41-figure.png]]
+*Figure: Satellite body spinning about z with a solar panel rotated by the angle θ about the body-fixed x axis, points A and B, dimensions H and W. Source: Problems.pdf, p. 29.*
+
 *(Taken from Ginsberg, "Engineering Dynamics", Cambridge University Press, 2008)*

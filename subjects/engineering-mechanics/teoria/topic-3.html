@@ -799,7 +799,7 @@
 
       <!-- SVG Diagram: Surface Subspaces -->
       <div class="diagram-container">
-        <svg viewBox="0 0 640 280" width="600" height="260" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 640 300" width="600" height="281" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <marker id="arrow-sub" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)" />
@@ -813,33 +813,33 @@
           </defs>
 
           <!-- Curved Surface Mesh -->
-          <path d="M 60 190 Q 220 250, 560 170 Q 500 70, 360 80 Q 140 100, 60 190 Z" 
-                fill="color-mix(in srgb, var(--accent) 8%, var(--bg-surface))" 
+          <path d="M 30 220 Q 230 290, 610 200 Q 560 60, 360 70 Q 120 80, 30 220 Z"
+                fill="color-mix(in srgb, var(--accent) 8%, var(--bg-surface))"
                 stroke="var(--border-strong)" stroke-width="1.5" />
-          <text x="80" y="210" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Surface f(x,y,z)=0</text>
-
-          <!-- Contact Point P -->
-          <circle cx="320" cy="150" r="5" fill="var(--text-heading)" />
-          <text x="325" y="165" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">P</text>
+          <text x="34" y="276" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Surface f(x,y,z)=0</text>
 
           <!-- Tangent Plane at P -->
-          <polygon points="180,180 420,200 460,110 220,90" 
+          <polygon points="170,215 430,235 480,120 220,100"
                    fill="rgba(245, 158, 11, 0.08)" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4" />
-          <text x="430" y="105" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">Tangent Plane V_T (dim=2)</text>
+          <text x="206" y="209" fill="#f59e0b" font-family="var(--font-mono)" font-size="11" font-weight="700">Tangent Plane V_T (dim=2)</text>
+
+          <!-- Contact Point P -->
+          <circle cx="325" cy="168" r="5" fill="var(--text-heading)" />
+          <text x="322" y="190" text-anchor="middle" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">P</text>
 
           <!-- Tangent Vectors -->
-          <line x1="320" y1="150" x2="430" y2="165" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
-          <text x="435" y="172" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t_α = ∂r/∂α</text>
+          <line x1="325" y1="168" x2="425" y2="183" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="362" y="160" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t_α = ∂r/∂α</text>
 
-          <line x1="320" y1="150" x2="260" y2="110" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
-          <text x="210" y="105" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t_β = ∂r/∂β</text>
+          <line x1="325" y1="168" x2="262" y2="128" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="300" y="178" text-anchor="end" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t_β = ∂r/∂β</text>
 
           <!-- Normal Vector n -->
-          <line x1="320" y1="150" x2="320" y2="35" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow-n)" />
-          <text x="330" y="45" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">n = ∇f = t_α × t_β ∈ V_N (dim=1)</text>
+          <line x1="325" y1="168" x2="325" y2="44" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow-n)" />
+          <text x="340" y="48" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">n = ∇f = t_α × t_β ∈ V_N (dim=1)</text>
 
           <!-- Right Angle Symbol -->
-          <path d="M 320 125 L 340 128 L 340 152" fill="none" stroke="#38bdf8" stroke-width="1.2" />
+          <path d="M 325 146 L 346.8 149.3 L 346.8 171.3" fill="none" stroke="#38bdf8" stroke-width="1.2" />
         </svg>
         <div class="diagram-caption">Figure 3.1: Vector decomposition on a surface constraint: 1D normal subspace $V_N$ spanned by gradient $\mathbf{n} = \nabla f$ and 2D tangent subspace $V_T$ spanned by $\{\mathbf{t}_\alpha, \mathbf{t}_\beta\}$.</div>
       </div>
@@ -870,31 +870,31 @@
 
       <!-- SVG Diagram: Curve Subspaces -->
       <div class="diagram-container">
-        <svg viewBox="0 0 640 260" width="600" height="240" xmlns="http://www.w3.org/2000/svg">
-          <!-- 3D Curve -->
-          <path d="M 60 210 Q 240 50, 420 180 T 580 80" 
+        <svg viewBox="0 0 640 280" width="600" height="262" xmlns="http://www.w3.org/2000/svg">
+          <!-- 3D Curve (t is tangent to it at P) -->
+          <path d="M 50 215 C 150 120, 230 119, 300 140 C 370 161, 440 230, 520 200 S 600 100, 610 90"
                 fill="none" stroke="var(--text-muted)" stroke-width="2.5" />
-          <text x="80" y="235" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Curve r(α): f(r)=0 ∩ g(r)=0</text>
-
-          <!-- Contact Point P -->
-          <circle cx="320" cy="140" r="5" fill="var(--text-heading)" />
-          <text x="315" y="160" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">P</text>
-
-          <!-- Tangent Vector t -->
-          <line x1="320" y1="140" x2="430" y2="175" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-t)" />
-          <text x="435" y="190" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">t = dr/dα = n_f × n_g ∈ V_T (dim=1)</text>
+          <text x="40" y="264" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Curve r(α): f(r)=0 ∩ g(r)=0</text>
 
           <!-- Normal Plane V_N -->
-          <polygon points="260,60 380,40 380,220 260,240" 
+          <polygon points="230,62 380,42 380,218 230,238"
                    fill="rgba(56, 189, 248, 0.08)" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4" />
-          <text x="210" y="45" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">Normal Plane V_N (dim=2)</text>
+          <text x="305" y="28" text-anchor="middle" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">Normal Plane V_N (dim=2)</text>
+
+          <!-- Contact Point P -->
+          <circle cx="300" cy="140" r="5" fill="var(--text-heading)" />
+          <text x="292" y="160" text-anchor="end" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">P</text>
+
+          <!-- Tangent Vector t -->
+          <line x1="300" y1="140" x2="396" y2="169" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-t)" />
+          <text fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700"><tspan x="392" y="134">t = dr/dα = n_f × n_g</tspan><tspan x="392" y="149">∈ V_T (dim=1)</tspan></text>
 
           <!-- Normal Vectors -->
-          <line x1="320" y1="140" x2="310" y2="50" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
-          <text x="240" y="60" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">n_f = ∇f</text>
+          <line x1="300" y1="140" x2="290" y2="54" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="302" y="76" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">n_f = ∇f</text>
 
-          <line x1="320" y1="140" x2="350" y2="210" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
-          <text x="355" y="225" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">n_g = ∇g</text>
+          <line x1="300" y1="140" x2="328" y2="204" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="314" y="214" text-anchor="end" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">n_g = ∇g</text>
         </svg>
         <div class="diagram-caption">Figure 3.2: Vector decomposition on a curve constraint: 1D tangent subspace $V_T$ spanned by $\mathbf{t} = d\mathbf{r}/d\alpha$ and 2D normal subspace $V_N$ spanned by $\{\mathbf{n}_f, \mathbf{n}_g\}$.</div>
       </div>
@@ -1047,42 +1047,44 @@
 
       <!-- SVG Diagram: Circular Wire FBD -->
       <div class="diagram-container">
-        <svg viewBox="0 0 520 280" width="480" height="260" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 520 310" width="480" height="286" xmlns="http://www.w3.org/2000/svg">
           <!-- Circle Wire -->
-          <circle cx="260" cy="140" r="100" fill="none" stroke="var(--border-strong)" stroke-width="2" />
-          <line x1="260" y1="140" x2="330" y2="70" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="3" />
-          <text x="290" y="100" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Radius a</text>
+          <circle cx="250" cy="165" r="130" fill="none" stroke="var(--border-strong)" stroke-width="2" />
 
           <!-- Axes -->
-          <line x1="140" y1="140" x2="380" y2="140" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="2" />
-          <line x1="260" y1="20" x2="260" y2="260" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="2" />
-          <circle cx="260" cy="140" r="4" fill="var(--text-muted)" />
-          <text x="245" y="155" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">O</text>
+          <line x1="105" y1="165" x2="395" y2="165" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="2" />
+          <line x1="250" y1="30" x2="250" y2="305" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="2" />
+          <circle cx="250" cy="165" r="4" fill="var(--text-muted)" />
+          <text x="243" y="182" text-anchor="end" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">O</text>
 
-          <!-- Particle P at theta -->
-          <circle cx="330" cy="70" r="10" fill="var(--accent)" />
-          <text x="345" y="65" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P (m)</text>
+          <!-- Radius O-P (theta = 45 deg) -->
+          <line x1="250" y1="165" x2="341.9" y2="73.1" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="3" />
+          <text x="283.4" y="120.6" text-anchor="middle" transform="rotate(-45 283.4 120.6)" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Radius a</text>
 
           <!-- Angle Arc -->
-          <path d="M 300 140 A 40 40 0 0 0 288 112" fill="none" stroke="var(--accent)" stroke-width="2" />
-          <text x="305" y="125" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">θ</text>
+          <path d="M 280 165 A 30 30 0 0 0 271.2 143.8" fill="none" stroke="var(--accent)" stroke-width="2" />
+          <text x="292" y="154" text-anchor="middle" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">θ</text>
+
+          <!-- Particle P at theta -->
+          <circle cx="341.9" cy="73.1" r="10" fill="var(--accent)" />
+          <text x="366" y="84" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P (m)</text>
 
           <!-- Vectors at P -->
-          <!-- e_theta -->
-          <line x1="330" y1="70" x2="260" y2="0" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
-          <text x="245" y="15" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ (Tangent)</text>
+          <!-- e_theta (tangent to the wire) -->
+          <line x1="341.9" y1="73.1" x2="303" y2="34.2" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="290" y="16" text-anchor="end" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ (Tangent)</text>
 
-          <!-- e_R -->
-          <line x1="330" y1="70" x2="380" y2="20" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
-          <text x="390" y="25" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R (Normal)</text>
+          <!-- e_R (outward normal) -->
+          <line x1="341.9" y1="73.1" x2="380.8" y2="34.2" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="396" y="30" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R (Normal)</text>
 
           <!-- Weight mg -->
-          <line x1="330" y1="70" x2="330" y2="155" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-sub)" />
-          <text x="340" y="145" fill="#10b981" font-family="var(--font-mono)" font-size="12" font-weight="700">W = mg</text>
+          <line x1="341.9" y1="73.1" x2="341.9" y2="133" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-sub)" />
+          <text x="341.9" y="156" text-anchor="middle" fill="#10b981" font-family="var(--font-mono)" font-size="12" font-weight="700">W = mg</text>
 
           <!-- Reaction Force N -->
-          <line x1="330" y1="70" x2="280" y2="120" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-sub)" />
-          <text x="270" y="110" fill="#ef4444" font-family="var(--font-mono)" font-size="12" font-weight="700">N_R</text>
+          <line x1="341.9" y1="73.1" x2="316.4" y2="98.6" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-sub)" />
+          <text x="310" y="84" text-anchor="end" fill="#ef4444" font-family="var(--font-mono)" font-size="12" font-weight="700">N_R</text>
         </svg>
         <div class="diagram-caption">Figure 3.3: Particle sliding on a vertical circular wire: polar coordinates $\{\mathbf{e}_R, \mathbf{e}_\theta\}$, weight $\mathbf{W}$, and wire normal reaction $N_R\mathbf{e}_R$.</div>
       </div>
@@ -1420,38 +1422,40 @@
 
       <!-- SVG Diagram: Aircraft Takeoff -->
       <div class="diagram-container">
-        <svg viewBox="0 0 640 240" width="600" height="220" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 640 260" width="600" height="244" xmlns="http://www.w3.org/2000/svg">
           <!-- Runway Ground -->
-          <line x1="40" y1="180" x2="600" y2="180" stroke="var(--border-strong)" stroke-width="3" />
-          <rect x="40" y="180" width="560" height="40" fill="color-mix(in srgb, var(--accent) 5%, var(--bg-surface))" />
-          <text x="50" y="205" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Runway Surface: z = 0 (Unilateral Constraint)</text>
+          <rect x="40" y="190" width="560" height="60" fill="color-mix(in srgb, var(--accent) 5%, var(--bg-surface))" />
+          <line x1="40" y1="190" x2="600" y2="190" stroke="var(--border-strong)" stroke-width="3" />
+          <text fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12"><tspan x="410" y="214">Runway Surface: z = 0</tspan><tspan x="410" y="230">(Unilateral Constraint)</tspan></text>
+
+          <!-- Landing gear -->
+          <line x1="235" y1="152" x2="235" y2="174" stroke="var(--text-heading)" stroke-width="2" />
+          <line x1="365" y1="152" x2="365" y2="174" stroke="var(--text-heading)" stroke-width="2" />
+          <circle cx="235" cy="181" r="8" fill="var(--text-heading)" />
+          <circle cx="365" cy="181" r="8" fill="var(--text-heading)" />
 
           <!-- Aircraft Body -->
-          <ellipse cx="320" cy="140" rx="90" ry="18" fill="var(--bg-subtle)" stroke="var(--text-heading)" stroke-width="2" />
+          <ellipse cx="300" cy="140" rx="90" ry="18" fill="var(--bg-subtle)" stroke="var(--text-heading)" stroke-width="2" />
           <!-- Wing -->
-          <path d="M 280 140 L 250 85 L 310 85 L 330 140 Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5" />
-          <text x="290" y="145" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">Mass m</text>
-
-          <!-- Wheel Contact -->
-          <circle cx="280" cy="172" r="8" fill="var(--text-heading)" />
-          <circle cx="360" cy="172" r="8" fill="var(--text-heading)" />
+          <path d="M 255 140 L 225 85 L 285 85 L 305 140 Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5" />
+          <text x="310" y="144" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">Mass m</text>
 
           <!-- Forces -->
-          <!-- Normal Force N -->
-          <line x1="320" y1="180" x2="320" y2="120" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
-          <text x="328" y="125" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">N (Ground Reaction)</text>
+          <!-- Normal Force N (runway pushes up on the aircraft at the contact) -->
+          <line x1="235" y1="246" x2="235" y2="198" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow-n)" />
+          <text x="225" y="228" text-anchor="end" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">N (Ground Reaction)</text>
 
           <!-- Aerodynamic Lift L -->
-          <line x1="280" y1="85" x2="280" y2="25" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
-          <text x="290" y="35" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">L = 1/2 ρ v² S C_L</text>
+          <line x1="255" y1="85" x2="255" y2="30" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-t)" />
+          <text x="266" y="42" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">L = 1/2 ρ v² S C_L</text>
 
           <!-- Weight mg -->
-          <line x1="320" y1="140" x2="320" y2="215" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-sub)" />
-          <text x="330" y="210" fill="#ef4444" font-family="var(--font-mono)" font-size="12" font-weight="700">W = mg</text>
+          <line x1="300" y1="140" x2="300" y2="178" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-sub)" />
+          <text x="312" y="180" fill="#ef4444" font-family="var(--font-mono)" font-size="12" font-weight="700">W = mg</text>
 
           <!-- Velocity Vector -->
-          <line x1="410" y1="140" x2="480" y2="140" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow-sub)" />
-          <text x="490" y="145" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">v (Speed)</text>
+          <line x1="400" y1="140" x2="465" y2="140" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow-sub)" />
+          <text x="480" y="145" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">v (Speed)</text>
         </svg>
         <div class="diagram-caption">Figure 3.4: Unilateral runway constraint: ground reaction $N = mg - L$ decreases as speed increases, vanishing at liftoff speed $v_{\text{takeoff}}$.</div>
       </div>

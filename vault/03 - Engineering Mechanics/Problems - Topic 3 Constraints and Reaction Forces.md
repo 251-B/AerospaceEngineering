@@ -67,6 +67,9 @@ Let's assume now that the curve containing the point particle rotates around the
 
 A heavy particle $P$ is constrained to move along a circumference and it is attached to a spring as shown in the figure. The mass of the particle is $m$, and the radius of the circumference is $a$. The other end of the spring is attached to a point of the $y$ axis with coordinates $(0, \beta a)$ and the constant of the spring is equal to $k$.
 
+![[attachments/EM/T3-P24-figure.png]]
+*Figure: Particle P on the circumference of radius a centred at O, spring from A = (0, βa) to P, angle θ from the x axis. Source: Problems.pdf, p. 12.*
+
 * **(a)** Compute the potential of the forces acting on the particle as a function of the angle $\theta$ (shown in the figure).
 * **(b)** Identify the equilibrium positions.
 
@@ -85,6 +88,9 @@ Consider now the situation in which an additional force acts on the particle. Th
 
 A heavy point particle $P$ of mass $m$ is constrained to move without friction along the half-circumference wire of radius $a$ shown in the figure. The wire containing the point particle rotates around the $OY$ axis with constant angular velocity $\omega = \Omega\mathbf{j}$. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.
 
+![[attachments/EM/T3-P26-figure.png]]
+*Figure: Half-circumference wire of radius a in the Oxy plane carrying the particle m, gravity along −y. Source: Problems.pdf, p. 14.*
+
 * **(a)** Determine the number of degrees of freedom of the problem.
 * **(b)** Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Express the inertia force that acts on the particle in this moving reference frame.
 * **(c)** Express also the components of the weight of the particle with respect to $OX_1Y_1Z_1$.
@@ -98,6 +104,9 @@ A heavy point particle $P$ of mass $m$ is constrained to move without friction a
 
 A heavy particle of mass $m$ is constrained to move without friction along the surface of an infinitely-long, circular cylinder of radius $R$. The cylinder axis ($Oz$) forms an angle $\alpha$ with the vertical direction ($Oz_1$). The position of the particle is completely specified by providing the coordinate $z$ along the axis $Oz$ and the angle $\theta$. Initially, the particle is located at $z = 0, \theta = \pi/2$ and the time derivatives are $\dot{z} = v_0$ and $\dot{\theta} = \omega_0$.
 
+![[attachments/EM/T3-P29-figure.png]]
+*Figure: Left: cylinder with axis Oz tilted by α from the vertical Oz1; right: cross-section with radius R and angle θ. Source: Problems.pdf, p. 17.*
+
 * **(a)** Determine the value of $z$ as a function of time, $z(t)$.
 * **(b)** Reduce the determination of the angle $\theta(t)$ to integrals of the form $\int [...] d\theta = \int [...] dt$.
 * **(c)** Determine the reaction from the cylinder as a function of $\theta$.
@@ -109,6 +118,9 @@ A heavy particle of mass $m$ is constrained to move without friction along the s
 ## 📌 Problem 31: Two Particles on Cone with String
 
 Two heavy point particles $P_1$ and $P_2$ of mass $m$ each are connected by an inextensible, massless string of total length $\ell$. Particle $P_1$ is constrained to move without friction over the surface of a cone of semiangle $\alpha$ (the particle cannot leave the surface of the cone). The string passes through an aperture at the cone vertex $O$, and it can slide through it without friction. Particle $P_2$ hangs along the cone axis, and is constrained to move along it. We define an inertial reference frame $S_0$. We call $\xi$ the length of the fraction of string between $O$ and $P_1$, and $\theta$ the angle formed between the $Ox$ axis and the projection onto the $Oxy$ plane of the $\mathbf{OP}_1$ vector. In the following, assume that the string is always tense and that the particles do not reach point $O$ during motion.
+
+![[attachments/EM/T3-P31-figure.png]]
+*Figure: Cone with vertex O and axes X, Y, Z; P1 on the cone surface at string length ξ and angle θ, P2 hanging along the axis. Source: Problems.pdf, p. 19.*
 
 * **(a)** Write down the general expression of the position, velocity, and acceleration vectors of $P_1$ and $P_2$ as a function of $\theta, \xi$ and the parameters of the problem.
 * **(b)** Write down the expression of all forces that act on $P_1$ and $P_2$.
@@ -123,6 +135,9 @@ Two heavy point particles $P_1$ and $P_2$ of mass $m$ each are connected by an i
 
 A heavy particle $P$ of mass $m$ is connected by a string of total length $l = 4\pi a$ to a cylindrical spool of radius $a$ and center at $O$. The spool rotates at a known constant angular rate $\omega$ counterclockwise. The string is massless, inelastic, thin, and remains always in tension during the motion of the particle. We define the inertial reference frame $Oxy$. The other end of the string is attached to the spool at a point $A$ of its perimeter, and we shall call $B$ the instantaneous point of tangency between the straight segment of the string (the segment $BP$) and the spool. We will denote the angle between the local horizontal (axis $Ox$) and the radius $OB$ as $\phi$. Initially, $\mathbf{OA} = -a\mathbf{i}$, and $B$ never reaches $A$.
 
+![[attachments/EM/T3-P32-figure.png]]
+*Figure: Spool of radius a centred at O rotating at ω, string wound from A to the tangency point B and straight segment BP. Source: Problems.pdf, p. 20.*
+
 * **(a)** Discuss the number of degrees of freedom of the motion of the particle.
 * **(b)** Write down the position, velocity, and acceleration vectors of $P$ with respect to $Oxy$ as a function of the constants of the problem, time, the angle $\phi$, and its derivatives.
 * **(c)** Write down the mathematical expression of the forces acting on $P$.
@@ -135,6 +150,9 @@ A heavy particle $P$ of mass $m$ is connected by a string of total length $l = 4
 ## 📌 Problem 35: String with Two Particles on a Cylinder
 
 Two heavy particles $P$ and $Q$ of mass $m$ each are connected by an inextensible massless string of constant length $L$. Part of this string rests on top of a cylinder of radius $R$ and center at $O$. The string can slide over the cylinder without friction, and remains tense at all times. Furthermore, $P$ and $Q$ are also connected by a spring of zero natural length and stiffness $k$. We define the inertial reference frame $S_0$. We denote as $A$ and $B$ the points of tangency of the string with the cylinder.
+
+![[attachments/EM/T3-P35-figure.png]]
+*Figure: String over the cylinder of radius R centred at O with tangency points A and B, particles P and Q joined by the spring k. Source: Problems.pdf, p. 23.*
 
 * **(a)** How many degrees of freedom does this system have? Define your own generalized coordinates to parametrize the configuration of the system. You will use them in the rest of the problem.
 * **(b)** Write down the general expression of the position, velocity, and acceleration vectors of $P$ and $Q$ relative to the $S_0$ reference frame as a function of your chosen coordinates and their time derivatives.
@@ -151,6 +169,9 @@ A heavy point particle $P$ with mass $m_P = 1$ moves without friction on a verti
 $$ \begin{cases} x_0 = (2 + \cos\phi)\sin\theta \\ y_0 = \sin\phi \\ z_0 = 4 + (2 + \cos\phi)\cos\theta \end{cases} $$
 A second particle $Q$ with mass $m_Q = 2$ is constrained to move on the $Ox_0y_0$ plane without friction. The two particles $P$ and $Q$ attract each other with a force that is proportional to the distance between them. The proportionality constant of this force is $k = 2$. Initially, particle $P$ is located at $\mathbf{r}_0^P(t_0) = 2\mathbf{i}_0 + \mathbf{j}_0 + 4\mathbf{k}_0$ with $\mathbf{v}_0^P(t_0) = -\mathbf{k}_0$ and particle $Q$ is located at $\mathbf{r}_0^Q(t_0) = 3\mathbf{i}_0 + \mathbf{j}_0$ with $\mathbf{v}_0^Q(t_0) = -\mathbf{i}_0 + \mathbf{j}_0$.
 
+![[attachments/EM/T3-P38-figure.png]]
+*Figure: Vertically-standing torus with particle P on its surface and particle Q on the Ox0y0 plane. Source: Problems.pdf, p. 26.*
+
 * **(a)** Pick a minimal, valid set of coordinates to describe the configuration of the system. Indicate what is the geometrical meaning of the chosen coordinates.
 * **(b)** Obtain a general expression for the position, velocity, and acceleration vectors of $P$ and $Q$ in $S_0$ using the chosen coordinates and their derivatives.
 * **(c)** Obtain two independent tangent vectors and one normal vector to the torus as a function of the chosen coordinates.
@@ -164,6 +185,9 @@ A second particle $Q$ with mass $m_Q = 2$ is constrained to move on the $Ox_0y_0
 ## 📌 Problem 39: Particle on a String with a Plate
 
 A heavy point particle $P$ with mass $m$ is connected with point $O$ on the upper surface of a thin square plate by a massless, inextensible string of length $\ell$. The distance between $O$ and the edge of the plate is $d$. The string hangs over the edge of the plate and can slide without friction. You can assume that the string remains tense and in contact with the plate at all times. We denote the geometric point where the string is in contact with the plate edge as $Q$. We define the inertial reference frame $S_0 : \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$. We define the angle $\theta$ between the $Ox_0$ axis and the string segment $OQ$, and the angle $\phi$ between a vertical plane containing the plate edge and the line perpendicular to the plate edge that passes through $P$. Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3\text{ rad}$, and the modulus of the velocity of $P$ is $v_0^P(0) = \sqrt{\ell g}$, where $g$ is the magnitude of the acceleration due to gravity.
+
+![[attachments/EM/T3-P39-figure.png]]
+*Figure: Plate with O on its upper surface, string OQ at angle θ to Ox0, hanging segment QP at angle φ, equal angles marked with dashed lines. Source: Problems.pdf, p. 27.*
 
 *(Hint: Note that under the conditions of the problem, the two angles marked with dashed lines are equal)*.
 
@@ -196,6 +220,9 @@ We consider a smooth horizontal plane with a small hole in it. One of the ends o
 
 Two heavy particles $P$ and $Q$, each of mass $m$, are connected with an inextensible, massless string of length $\ell$. Particle $P$ is constrained to stay on a paraboloid, given implicitly by equation $z = cR^2$, where $c$ is a known constant and we have introduced the usual cylindrical coordinates $\{R, \theta, z\}$. The string passes through a small hole at the origin $O$, and particle $Q$ is restricted to hang along the vertical axis. The reference frame $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ is inertial. There is no friction in this problem. Assume that the string is long enough so that $Q$ never reaches $O$ and that it is always tense.
 
+![[attachments/EM/T3-P48-figure.png]]
+*Figure: Paraboloid with P on its surface, string through the hole at O and Q hanging along the vertical axis k0. Source: Problems.pdf, p. 33.*
+
 * **(a)** How many effective degrees of freedom does the system have? Justify your answer.
 * **(b)** Give the expressions for the position, velocity, and acceleration of $P$ and $Q$ with respect to $S_0$ as a function of $R, \theta$ and their derivatives. If you use any vector basis other than $\{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ to write your solution, define it first.
 * **(c)** Find a normal vector and two linearly independent tangent vectors to the paraboloid as a function of $R, \theta$. They do not need to be unitary.
@@ -210,6 +237,9 @@ Two heavy particles $P$ and $Q$, each of mass $m$, are connected with an inexten
 ## 📌 Problem 50: Double Pendulum
 
 A double pendulum consists of two heavy point masses $P$ and $Q$, each of mass $m$, connected to the origin $O$ and to each other by two rigid, massless bars of length $\ell$. We define the inertial frame $S_0$ with origin $O$ and vector basis $\mathcal{B}_0$. We define the two angles $\theta$ and $\phi$ to describe the configuration of the system.
+
+![[attachments/EM/T3-P50-figure.png]]
+*Figure: Double pendulum O–P–Q with bars of length ℓ, angle θ of OP and angle φ of PQ from the vertical. Source: Problems.pdf, p. 35.*
 
 * **(a)** Write down the general expressions of the position, velocity, and acceleration vectors of $P$ and $Q$, using $\theta, \phi$ and their derivatives.
 * **(b)** Write down all forces acting on $P$ and $Q$, introducing new unknowns as needed.

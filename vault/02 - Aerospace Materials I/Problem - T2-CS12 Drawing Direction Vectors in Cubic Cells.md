@@ -16,18 +16,20 @@ tags:
 
 ## 📄 Official Statement
 > **12. Draw direction vectors in unit cells for the following cubic directions:**  
-> **a)** $[1\, 1\, 2]$  
+> **a)** $[1\, \bar{1}\, \bar{2}]$  
 > **b)** $[\bar{3}\, 3\, 1]$  
-> **c)** $[2\, 1\, 2]$  
+> **c)** $[2\, \bar{1}\, 2]$  
 > **d)** $[\bar{1}\, 0\, 1]$  
 > **e)** $[3\, 2\, 1]$  
-> **f)** $[1\, 2\, 2]$  
-> **g)** $[\bar{1}\, 2\, 3]$  
+> **f)** $[1\, \bar{2}\, \bar{2}]$  
+> **g)** $[1\, \bar{2}\, 3]$  
 > **h)** $[0\, \bar{2}\, 1]$  
 > **i)** $[2\, \bar{3}\, 3]$  
 > **j)** $[1\, 2\, \bar{1}]$  
-> **k)** $[2\, 2\, 3]$  
-> **l)** $[\bar{1}\, 0\, 3]$
+> **k)** $[\bar{2}\, \bar{2}\, 3]$  
+> **l)** $[1\, 0\, \bar{3}]$
+>
+> *(No numerical solution is given in the official sheet. The overbars were read from the rendered page of the PDF; in the sheet item k) is printed on a second line after l).)*
 
 ---
 
@@ -35,6 +37,15 @@ tags:
 
 ### Geometric Context:
 Twelve crystallographic vectors are drawn inside a standard cubic unit cell of normalised dimensions $1 \times 1 \times 1$.
+
+| Quantity | Symbol | Value / unit |
+| :--- | :---: | :--- |
+| Lattice parameter (cube edge) | $a$ | arbitrary, in m; not needed, because every coordinate is a fraction of $a$ |
+| Direction indices | $[u\,v\,w]$ | integers, dimensionless |
+| Tail (new origin $O'$) | $(x_0, y_0, z_0)$ | fractions of $a$, each $0$ or $1$ |
+| Head (arrow tip) | $(x_f, y_f, z_f)$ | fractions of $a$, each in $[0, 1]$ |
+
+Hypotheses: cubic cell ($a = b = c$, $\alpha = \beta = \gamma = 90^\circ$), right-handed axes $x$, $y$, $z$ along the cell edges [Session 3 Slide 37]; each direction is drawn as one vector inside one cell, which is always possible because parallel vectors share the same indices [Session 3 Slide 41].
 
 ### Normalisation and Origin Translation Rules [Session 3 Slides 37-40]:
 1. The components of the direction vector must be reduced by dividing by the component of largest absolute value ($u_{\text{max}}$) so that the vector fits strictly inside the volume of a single unit cell:
@@ -45,7 +56,7 @@ Twelve crystallographic vectors are drawn inside a standard cubic unit cell of n
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Citing the systematic procedure [Session 3 Slide 40]:
+Citing the systematic procedure [Session 3 Slides 39-40]:
 1. Identify whether there are negative indices and fix the local origin:
    * $\bar{u} \implies$ origin at $x = 1$.
    * $\bar{v} \implies$ origin at $y = 1$.
@@ -55,29 +66,76 @@ Citing the systematic procedure [Session 3 Slide 40]:
 
 ---
 
-## 🔢 3. Phase 3: Step-by-Step Derivation of the 12 Directions
+## 🔢 3. Phase 3: Step-by-Step Construction of the 12 Directions
 
-| Letter | Direction $[u\,v\,w]$ | Normalisation $(\Delta x, \Delta y, \Delta z)$ | Local Origin $(x_0, y_0, z_0)$ | Vector End Point $(x_f, y_f, z_f)$ | Geometric Description of the Vector |
-| :---: | :---: | :---: | :---: | :---: | :--- |
-| **a** | $[1\, 1\, 2]$ | $(1/2,\, 1/2,\, 1)$ | $(0, 0, 0)$ | $(1/2, 1/2, 1)$ | From the origin to the centre of the top face $z=1$ |
-| **b** | $[\bar{3}\, 3\, 1]$ | $(-1,\, 1,\, 1/3)$ | $(1, 0, 0)$ | $(0, 1, 1/3)$ | From the vertex $(1,0,0)$ to the left face at $z=1/3$ |
-| **c** | $[2\, 1\, 2]$ | $(1,\, 1/2,\, 1)$ | $(0, 0, 0)$ | $(1, 1/2, 1)$ | From the origin to the midpoint of the upper right edge |
-| **d** | $[\bar{1}\, 0\, 1]$ | $(-1,\, 0,\, 1)$ | $(1, 0, 0)$ | $(0, 0, 1)$ | Face diagonal in the $x-z$ plane, from $(1,0,0)$ to $(0,0,1)$ |
-| **e** | $[3\, 2\, 1]$ | $(1,\, 2/3,\, 1/3)$ | $(0, 0, 0)$ | $(1, 2/3, 1/3)$ | Crosses the interior of the cell towards the right face $x=1$ |
-| **f** | $[1\, 2\, 2]$ | $(1/2,\, 1,\, 1)$ | $(0, 0, 0)$ | $(1/2, 1, 1)$ | Towards the upper front edge |
-| **g** | $[\bar{1}\, 2\, 3]$ | $(-1/3,\, 2/3,\, 1)$ | $(1, 0, 0)$ | $(2/3, 2/3, 1)$ | Rises towards the top face, leaving from $x=1$ |
-| **h** | $[0\, \bar{2}\, 1]$ | $(0,\, -1,\, 1/2)$ | $(0, 1, 0)$ | $(0, 0, 1/2)$ | Parallel to the $y-z$ plane, from $(0,1,0)$ to the $z$ edge at mid-height |
-| **i** | $[2\, \bar{3}\, 3]$ | $(2/3,\, -1,\, 1)$ | $(0, 1, 0)$ | $(2/3, 0, 1)$ | From $(0,1,0)$ towards the top face $z=1$ |
-| **j** | $[1\, 2\, \bar{1}]$ | $(1/2,\, 1,\, -1/2)$ | $(0, 0, 1)$ | $(1/2, 1, 1/2)$ | From the top face $(0,0,1)$ downwards onto the face $y=1$ |
-| **k** | $[2\, 2\, 3]$ | $(2/3,\, 2/3,\, 1)$ | $(0, 0, 0)$ | $(2/3, 2/3, 1)$ | Vector symmetric in $x$ and $y$ towards the top face $z=1$ |
-| **l** | $[\bar{1}\, 0\, 3]$ | $(-1/3,\, 0,\, 1)$ | $(1, 0, 0)$ | $(2/3, 0, 1)$ | Contained in the $x-z$ plane, from $(1,0,0)$ to $(2/3, 0, 1)$ |
+For every direction the same four operations are applied [Session 3 Slides 39-40]:
+1. $m = \max(|u|, |v|, |w|)$ and reduced vector $\vec{r} = \frac{1}{m}(u, v, w)$, so that the largest component is $\pm 1$;
+2. new origin $O'$: a $1$ in the position of each negative index, a $0$ elsewhere;
+3. head $= O' + \vec{r}$, component by component;
+4. check: head $-$ tail $= \vec{r}$ and $m\,\vec{r} = (u, v, w)$, and every coordinate of the head lies in $[0, 1]$ (the arrow stays inside the cell).
+
+**a) $[1\,\bar{1}\,\bar{2}]$.** $m = 2$, $\vec{r} = \tfrac{1}{2}(1, -1, -2) = (\tfrac12, -\tfrac12, -1)$. Negative $v$ and $w$, so $O' = (0, 1, 1)$. Head $= (0 + \tfrac12,\ 1 - \tfrac12,\ 1 - 1) = (\tfrac12, \tfrac12, 0)$, the centre of the bottom face. Check: $2(\tfrac12, -\tfrac12, -1) = (1, -1, -2)$.
+
+**b) $[\bar{3}\,3\,1]$.** $m = 3$, $\vec{r} = \tfrac{1}{3}(-3, 3, 1) = (-1, 1, \tfrac13)$. Negative $u$, so $O' = (1, 0, 0)$. Head $= (1 - 1,\ 0 + 1,\ 0 + \tfrac13) = (0, 1, \tfrac13)$, one third of the way up the back vertical edge $x = 0$, $y = 1$. Check: $3(-1, 1, \tfrac13) = (-3, 3, 1)$.
+
+**c) $[2\,\bar{1}\,2]$.** $m = 2$, $\vec{r} = \tfrac{1}{2}(2, -1, 2) = (1, -\tfrac12, 1)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0 + 1,\ 1 - \tfrac12,\ 0 + 1) = (1, \tfrac12, 1)$, the midpoint of the top edge of the front face $x = 1$. Check: $2(1, -\tfrac12, 1) = (2, -1, 2)$.
+
+**d) $[\bar{1}\,0\,1]$.** $m = 1$, $\vec{r} = (-1, 0, 1)$. Negative $u$, so $O' = (1, 0, 0)$. Head $= (1 - 1,\ 0 + 0,\ 0 + 1) = (0, 0, 1)$: the diagonal of the face $y = 0$. Check: $m = 1$, no scaling.
+
+**e) $[3\,2\,1]$.** $m = 3$, $\vec{r} = \tfrac{1}{3}(3, 2, 1) = (1, \tfrac23, \tfrac13)$. No negative index, so $O' = (0, 0, 0)$. Head $= (1, \tfrac23, \tfrac13)$, a point of the front face $x = 1$. Check: $3(1, \tfrac23, \tfrac13) = (3, 2, 1)$.
+
+**f) $[1\,\bar{2}\,\bar{2}]$.** $m = 2$, $\vec{r} = \tfrac{1}{2}(1, -2, -2) = (\tfrac12, -1, -1)$. Negative $v$ and $w$, so $O' = (0, 1, 1)$. Head $= (0 + \tfrac12,\ 1 - 1,\ 1 - 1) = (\tfrac12, 0, 0)$, the midpoint of the $x$ edge. Check: $2(\tfrac12, -1, -1) = (1, -2, -2)$.
+
+**g) $[1\,\bar{2}\,3]$.** $m = 3$, $\vec{r} = \tfrac{1}{3}(1, -2, 3) = (\tfrac13, -\tfrac23, 1)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0 + \tfrac13,\ 1 - \tfrac23,\ 0 + 1) = (\tfrac13, \tfrac13, 1)$, a point of the top face. Check: $3(\tfrac13, -\tfrac23, 1) = (1, -2, 3)$.
+
+**h) $[0\,\bar{2}\,1]$.** $m = 2$, $\vec{r} = \tfrac{1}{2}(0, -2, 1) = (0, -1, \tfrac12)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0,\ 1 - 1,\ 0 + \tfrac12) = (0, 0, \tfrac12)$, the midpoint of the $z$ edge; the vector lies in the face $x = 0$. Check: $2(0, -1, \tfrac12) = (0, -2, 1)$.
+
+**i) $[2\,\bar{3}\,3]$.** $m = 3$, $\vec{r} = \tfrac{1}{3}(2, -3, 3) = (\tfrac23, -1, 1)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0 + \tfrac23,\ 1 - 1,\ 0 + 1) = (\tfrac23, 0, 1)$, a point of the top edge of the face $y = 0$. Check: $3(\tfrac23, -1, 1) = (2, -3, 3)$.
+
+**j) $[1\,2\,\bar{1}]$.** $m = 2$, $\vec{r} = \tfrac{1}{2}(1, 2, -1) = (\tfrac12, 1, -\tfrac12)$. Negative $w$, so $O' = (0, 0, 1)$. Head $= (0 + \tfrac12,\ 0 + 1,\ 1 - \tfrac12) = (\tfrac12, 1, \tfrac12)$, the centre of the right face $y = 1$. Check: $2(\tfrac12, 1, -\tfrac12) = (1, 2, -1)$.
+
+**k) $[\bar{2}\,\bar{2}\,3]$.** $m = 3$, $\vec{r} = \tfrac{1}{3}(-2, -2, 3) = (-\tfrac23, -\tfrac23, 1)$. Negative $u$ and $v$, so $O' = (1, 1, 0)$. Head $= (1 - \tfrac23,\ 1 - \tfrac23,\ 0 + 1) = (\tfrac13, \tfrac13, 1)$, a point of the top face. Check: $3(-\tfrac23, -\tfrac23, 1) = (-2, -2, 3)$.
+
+**l) $[1\,0\,\bar{3}]$.** $m = 3$, $\vec{r} = \tfrac{1}{3}(1, 0, -3) = (\tfrac13, 0, -1)$. Negative $w$, so $O' = (0, 0, 1)$. Head $= (0 + \tfrac13,\ 0,\ 1 - 1) = (\tfrac13, 0, 0)$, a point of the $x$ edge; the vector lies in the face $y = 0$. Check: $3(\tfrac13, 0, -1) = (1, 0, -3)$.
+
+### Summary
+
+| Item | Direction | $m$ | Reduced $\vec{r}$ | Tail $O'$ | Head | Where the head lies |
+| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| a | $[1\,\bar{1}\,\bar{2}]$ | 2 | $(\tfrac12, -\tfrac12, -1)$ | $(0, 1, 1)$ | $(\tfrac12, \tfrac12, 0)$ | centre of the bottom face |
+| b | $[\bar{3}\,3\,1]$ | 3 | $(-1, 1, \tfrac13)$ | $(1, 0, 0)$ | $(0, 1, \tfrac13)$ | edge $x = 0$, $y = 1$ |
+| c | $[2\,\bar{1}\,2]$ | 2 | $(1, -\tfrac12, 1)$ | $(0, 1, 0)$ | $(1, \tfrac12, 1)$ | midpoint of edge $x = 1$, $z = 1$ |
+| d | $[\bar{1}\,0\,1]$ | 1 | $(-1, 0, 1)$ | $(1, 0, 0)$ | $(0, 0, 1)$ | corner (face diagonal of $y = 0$) |
+| e | $[3\,2\,1]$ | 3 | $(1, \tfrac23, \tfrac13)$ | $(0, 0, 0)$ | $(1, \tfrac23, \tfrac13)$ | face $x = 1$ |
+| f | $[1\,\bar{2}\,\bar{2}]$ | 2 | $(\tfrac12, -1, -1)$ | $(0, 1, 1)$ | $(\tfrac12, 0, 0)$ | midpoint of the $x$ edge |
+| g | $[1\,\bar{2}\,3]$ | 3 | $(\tfrac13, -\tfrac23, 1)$ | $(0, 1, 0)$ | $(\tfrac13, \tfrac13, 1)$ | top face $z = 1$ |
+| h | $[0\,\bar{2}\,1]$ | 2 | $(0, -1, \tfrac12)$ | $(0, 1, 0)$ | $(0, 0, \tfrac12)$ | midpoint of the $z$ edge |
+| i | $[2\,\bar{3}\,3]$ | 3 | $(\tfrac23, -1, 1)$ | $(0, 1, 0)$ | $(\tfrac23, 0, 1)$ | edge $y = 0$, $z = 1$ |
+| j | $[1\,2\,\bar{1}]$ | 2 | $(\tfrac12, 1, -\tfrac12)$ | $(0, 0, 1)$ | $(\tfrac12, 1, \tfrac12)$ | centre of the face $y = 1$ |
+| k | $[\bar{2}\,\bar{2}\,3]$ | 3 | $(-\tfrac23, -\tfrac23, 1)$ | $(1, 1, 0)$ | $(\tfrac13, \tfrac13, 1)$ | top face $z = 1$ |
+| l | $[1\,0\,\bar{3}]$ | 3 | $(\tfrac13, 0, -1)$ | $(0, 0, 1)$ | $(\tfrac13, 0, 0)$ | $x$ edge |
+
+### Drawings
+
+Each panel shows the cell with the axes $x$ (towards the reader), $y$ (right) and $z$ (up); the filled dot is the tail $O'$, the open dot the head, and a dotted line drops from a head that is not on the base or on a vertical edge to its foot on the plane $z = 0$.
+
+![[attachments/T2/p12-dirs-1.svg]]
+
+![[attachments/T2/p12-dirs-2.svg]]
+
+![[attachments/T2/p12-dirs-3.svg]]
+
+![[attachments/T2/p12-dirs-4.svg]]
 
 ---
 
 ## 🎯 4. Phase 4: Units and Limits
 
-1. **Parallelism:** If we multiply a vector by a positive scalar constant, the direction does not change: $[1\, 1\, 2]$ and $[2\, 2\, 4]$ represent exactly the **same crystallographic direction**.
-2. **Equivalence of $\langle u\, v\, w \rangle$ Families:** Directions such as $[1\, 2\, 2]$ and $[2\, 1\, 2]$ are symmetric members of the $\langle 221 \rangle$ family in the cubic lattice, which implies that they have identical translational repeat length and the same physical properties of conductivity or elastic modulus.
+1. **Dimensions:** the indices are pure numbers and every coordinate is a fraction of the lattice parameter, $x = X/a$ with $[X] = \text{m}$ and $[a] = \text{m}$, so $[x] = \text{m}/\text{m} = 1$. The drawings are therefore valid for any cubic metal; only the real length of each vector scales with $a$.
+2. **Containment check:** all twelve heads have coordinates in $[0, 1]$ (table above), so every arrow stays inside one cell, as the construction requires [Session 3 Slide 39].
+3. **Parallelism:** multiplying a vector by a positive scalar does not change the direction: $[1\,\bar{1}\,\bar{2}]$ and $[2\,\bar{2}\,\bar{4}]$ are the **same crystallographic direction** [Session 3 Slide 41]. Reversing the arrow changes every sign: the opposite of $[1\,2\,\bar{1}]$ is $[\bar{1}\,\bar{2}\,1]$.
+4. **Families:** in a cubic cell, directions whose indices are permutations of the same numbers, with any signs, belong to the same family. Here $[2\,\bar{1}\,2]$ and $[1\,\bar{2}\,\bar{2}]$ are both members of $\langle 1\,2\,2 \rangle$, and $[2\,\bar{3}\,3]$ belongs to $\langle 2\,3\,3 \rangle$; members of one family have the same repeat length along the line.
+5. **Limiting case:** when $m = 1$ (item d) no scaling is needed and the head is a lattice corner; for $m > 1$ at least one component is a fraction, so the head falls on an edge, a face or (in general) inside the cell.
 
 ---
 *Return:* [[Topic 2 - Structure of Materials and Crystalline Defects|⬅️ Back to Topic 2]] | [[02 - Aerospace Materials I/Aerospace Materials I MOC|🔬 Subject MOC]]

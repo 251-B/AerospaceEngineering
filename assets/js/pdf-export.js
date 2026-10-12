@@ -279,7 +279,7 @@
 
   /* Keep a label or heading on the same page as the start of what it introduces: wrap it with the
      next ~120 px of content in one unbreakable block (break-after: avoid alone is not reliable). */
-  var KEEP_SEL = 'h2, h3, h4, h5, [class*="phase-badge"], .phase-title, .phase-heading, .section-label, .pdf-summary, ' +
+  var KEEP_SEL = 'h2, h3, h4, h5, [class*="phase-badge"], .phase-title, .phase-heading, .section-label, .section-tag, .pdf-summary, ' +
     '.article-category, .callout-title, .result-callout-title, .strategy-title, .step-heading, .step-subheading, ' +
     '.result-label, .result-title, .result-header, .result-box-title, .box-label, .box-title, summary';
   /* PDF only: open collapsible blocks become plain blocks, so their title can be kept with the content. */
@@ -318,6 +318,13 @@
       var parent = label.parentElement;
       /* only blocks are regrouped, and never inside running text (that would pull words out of sentences) */
       if (!parent || hasLooseText(parent) || !(isBlock(label) || getComputedStyle(label).display === 'inline-block')) return;
+      /* a heading that ends a small header block (tag + title) carries the whole block with it */
+      while (!label.nextElementSibling && label.parentElement && label.parentElement.parentElement &&
+             label.parentElement.getBoundingClientRect().height < 160 && !hasLooseText(label.parentElement.parentElement) &&
+             !label.parentElement.matches(CARD_SEL + ', main, article, section, body')) {
+        label = label.parentElement;
+      }
+      if (label.closest('.pdf-keep')) return;
       var group = [label], h = label.getBoundingClientRect().height, n = label.nextElementSibling, depth = 0;
       while (n && h < 120) {
         if (n.matches(KEEP_SEL) && !hasLooseText(n.parentElement)) { group.push(n); h += n.getBoundingClientRect().height; n = n.nextElementSibling; continue; }
@@ -342,6 +349,35 @@
       var box = el('div', 'pdf-keep');
       group[0].parentNode.insertBefore(box, group[0]);
       group.forEach(function (g) { box.appendChild(g); });
+    });
+  }
+
+  /* The closing source line of a problem stays on the page of the last lines of its solution: it is
+     moved next to the deepest last block of what precedes it, and both are kept together. */
+  function keepWithPrevious() {
+    [].forEach.call(document.querySelectorAll('.problem-footer'), function (foot) {
+      if (foot.closest('[data-pdf-hidden]')) return;
+      var prev = foot.previousElementSibling, depth = 0;
+      while (prev && prev.getBoundingClientRect().height > 200 && prev.lastElementChild && depth < 4 &&
+             !prev.matches('table, ul, ol, p, .katex-display, svg, figure') && !hasLooseText(prev)) {
+        prev = prev.lastElementChild; depth++;
+      }
+      /* a tall list: its last item continues in a list of its own, kept with the footer */
+      if (prev && prev.matches('ul, ol') && prev.children.length > 1 && prev.getBoundingClientRect().height > 260) {
+        var tail = document.createElement(prev.tagName);
+        tail.className = prev.className;
+        if (prev.tagName === 'OL') tail.setAttribute('start', String((parseInt(prev.getAttribute('start') || '1', 10)) + prev.children.length - 1));
+        tail.appendChild(prev.lastElementChild);
+        tail.style.marginTop = '0';
+        prev.style.marginBottom = '0';
+        prev.parentNode.insertBefore(tail, prev.nextSibling);
+        prev = tail;
+      }
+      if (!prev || prev.getBoundingClientRect().height > 260 || !isBlock(prev)) return;
+      var box = el('div', 'pdf-keep');
+      prev.parentNode.insertBefore(box, prev);
+      box.appendChild(prev);
+      box.appendChild(foot);
     });
   }
 
@@ -398,6 +434,7 @@
           fitEquations();
           flattenDetails();
           keepWithNext();
+          keepWithPrevious();
           document.documentElement.setAttribute('data-pdf-ready', '');
         }, 300);
       });

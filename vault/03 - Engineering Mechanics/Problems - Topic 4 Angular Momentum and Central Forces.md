@@ -49,6 +49,9 @@ A heavy point particle $P$ with mass $m$ is connected with point $O$ on the uppe
 
 We denote the geometric point where the string is in contact with the plate edge as $Q$. We define the inertial reference frame $S_0 : \{O, \mathcal{B}_0\}$, with $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ as shown in the figure (Problems.pdf, PDF page 27). We define the angle $\theta$ between the $Ox_0$ axis and the string segment $OQ$, and the angle $\phi$ between a vertical plane containing the plate edge and the line perpendicular to the plate edge that passes through $P$. Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3\text{ rad}$, and the modulus of the velocity of $P$ is $v_0^P(0) = \sqrt{\ell g}$, where $g$ is the magnitude of the acceleration due to gravity.
 
+![[attachments/EM/T4-P39-figure.png]]
+*Figure: Plate with O on its upper surface, string OQ at angle θ to Ox0, hanging segment QP at angle φ, equal angles marked with dashed lines. Source: Problems.pdf, p. 27.*
+
 *Hint: Note that under the conditions of the problem, the two angles marked with dashed lines are equal.*
 
 * **(a)** How many degrees of freedom does the system have?

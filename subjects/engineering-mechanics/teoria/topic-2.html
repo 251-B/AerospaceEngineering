@@ -1033,58 +1033,64 @@
             </marker>
           </defs>
 
+          <!-- Shaded Allowed Regions (E₀ ≥ V₀: between x₁ and x₂, and between x₃ and x₄) -->
+          <rect x="115" y="130" width="216" height="140" fill="rgba(16, 185, 129, 0.08)" />
+          <rect x="461" y="130" width="129" height="140" fill="rgba(16, 185, 129, 0.08)" />
+
+          <!-- Shaded Forbidden Region (between x₂ and x₃, where V₀ > E₀) -->
+          <rect x="331" y="130" width="130" height="140" fill="rgba(239, 68, 68, 0.12)" />
+
           <!-- Axes -->
           <line x1="60" y1="270" x2="620" y2="270" stroke="var(--text-muted)" stroke-width="1.5" />
           <text x="630" y="275" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">x</text>
           <line x1="80" y1="290" x2="80" y2="30" stroke="var(--text-muted)" stroke-width="1.5" />
-          <text x="70" y="22" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Energy</text>
-
-          <!-- Potential Energy Curve V(x) -->
-          <path d="M 80 80 C 140 240, 200 250, 260 210 S 360 90, 440 230 S 560 250, 600 70" 
-                fill="none" stroke="#38bdf8" stroke-width="3" />
-          <text x="610" y="80" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">V₀(x)</text>
+          <text x="70" y="20" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Energy</text>
 
           <!-- Total Energy Line E0 -->
-          <line x1="80" y1="130" x2="600" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5" />
-          <text x="610" y="135" fill="#f59e0b" font-family="var(--font-mono)" font-size="13" font-weight="700">E₀</text>
+          <line x1="80" y1="130" x2="640" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5" />
+          <text x="648" y="135" fill="#f59e0b" font-family="var(--font-mono)" font-size="13" font-weight="700">E₀</text>
 
-          <!-- Turning Points -->
+          <!-- Potential Energy Curve V(x): stable minima at x≈215 and x≈525, unstable maximum at x≈405 (above E₀) -->
+          <path d="M 95 40 C 115 150, 140 235, 215 235 C 290 235, 330 80, 405 80 C 465 80, 480 220, 525 220 C 570 220, 595 120, 612 45"
+                fill="none" stroke="#38bdf8" stroke-width="3" />
+          <text x="622" y="52" fill="#38bdf8" font-family="var(--font-mono)" font-size="13" font-weight="700">V₀(x)</text>
+
+          <!-- Turning Points (V₀ = E₀) -->
           <!-- Point 1 -->
-          <circle cx="116" cy="130" r="5" fill="#f59e0b" />
-          <line x1="116" y1="130" x2="116" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
-          <text x="108" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₁ (v=0)</text>
+          <circle cx="115" cy="130" r="5" fill="#f59e0b" />
+          <line x1="115" y1="130" x2="115" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="115" y="288" text-anchor="middle" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₁ (v=0)</text>
 
           <!-- Point 2 -->
-          <circle cx="410" cy="130" r="5" fill="#f59e0b" />
-          <line x1="410" y1="130" x2="410" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
-          <text x="402" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₂ (v=0)</text>
+          <circle cx="331" cy="130" r="5" fill="#f59e0b" />
+          <line x1="331" y1="130" x2="331" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="331" y="288" text-anchor="middle" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₂ (v=0)</text>
 
           <!-- Point 3 -->
-          <circle cx="488" cy="130" r="5" fill="#f59e0b" />
-          <line x1="488" y1="130" x2="488" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
-          <text x="480" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₃ (v=0)</text>
+          <circle cx="461" cy="130" r="5" fill="#f59e0b" />
+          <line x1="461" y1="130" x2="461" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="461" y="288" text-anchor="middle" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₃ (v=0)</text>
 
           <!-- Point 4 -->
-          <circle cx="585" cy="130" r="5" fill="#f59e0b" />
-          <line x1="585" y1="130" x2="585" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
-          <text x="578" y="286" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₄ (v=0)</text>
+          <circle cx="590" cy="130" r="5" fill="#f59e0b" />
+          <line x1="590" y1="130" x2="590" y2="270" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3" />
+          <text x="590" y="288" text-anchor="middle" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">x₄ (v=0)</text>
 
-          <!-- Shaded Forbidden Region (between x2 and x3) -->
-          <rect x="410" y="130" width="78" height="140" fill="rgba(239, 68, 68, 0.12)" />
-          <text x="424" y="200" fill="#ef4444" font-family="var(--font-mono)" font-size="11" font-weight="700">FORBIDDEN</text>
-          <text x="435" y="215" fill="#ef4444" font-family="var(--font-mono)" font-size="10">(E₀ &lt; V₀)</text>
+          <!-- Forbidden Region label -->
+          <text x="396" y="196" text-anchor="middle" fill="#ef4444" font-family="var(--font-mono)" font-size="11" font-weight="700">FORBIDDEN</text>
+          <text x="396" y="211" text-anchor="middle" fill="#ef4444" font-family="var(--font-mono)" font-size="10">(E₀ &lt; V₀)</text>
 
-          <!-- Allowed Region Annotations -->
-          <rect x="116" y="130" width="294" height="140" fill="rgba(16, 185, 129, 0.08)" />
-          <text x="210" y="155" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">ALLOWED REGION (E₀ ≥ V₀)</text>
-          
-          <!-- Kinetic Energy Gap -->
-          <line x1="220" y1="130" x2="220" y2="238" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)" />
-          <text x="228" y="185" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">T₀ = E₀ - V₀</text>
+          <!-- Allowed Region label -->
+          <text x="246" y="151" text-anchor="middle" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">ALLOWED REGION</text>
+          <text x="246" y="168" text-anchor="middle" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">(E₀ ≥ V₀)</text>
+
+          <!-- Kinetic Energy Gap (from E₀ down to V₀(x)) -->
+          <line x1="165" y1="131" x2="165" y2="212" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)" />
+          <text x="176" y="198" fill="var(--accent)" font-family="var(--font-mono)" font-size="12" font-weight="700">T₀ = E₀ - V₀</text>
 
           <!-- Minima/Maxima -->
-          <text x="220" y="260" fill="#38bdf8" font-family="var(--font-mono)" font-size="11">Stable Min</text>
-          <text x="350" y="105" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">Unstable Max</text>
+          <text x="215" y="256" text-anchor="middle" fill="#38bdf8" font-family="var(--font-mono)" font-size="11">Stable Min</text>
+          <text x="405" y="68" text-anchor="middle" fill="#f59e0b" font-family="var(--font-mono)" font-size="11">Unstable Max</text>
         </svg>
         <div class="diagram-caption">Figure 2.1: 1D energy diagram illustrating total energy $E_0$, potential energy $V_0(x)$, allowed regions, forbidden regions, and turning points.</div>
       </div>
@@ -1204,40 +1210,40 @@
             <!-- Pivot O -->
             <line x1="160" y1="30" x2="360" y2="30" stroke="var(--text-muted)" stroke-width="2" />
             <circle cx="260" cy="30" r="5" fill="var(--text-heading)" />
-            <text x="245" y="24" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">O (Pivot)</text>
+            <text x="260" y="17" text-anchor="middle" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="13" font-weight="700">O (Pivot)</text>
 
             <!-- Vertical Dash Line -->
             <line x1="260" y1="30" x2="260" y2="270" stroke="var(--border-subtle)" stroke-width="1.5" stroke-dasharray="4" />
 
             <!-- Rod -->
             <line x1="260" y1="30" x2="380" y2="190" stroke="var(--text-heading)" stroke-width="3" />
-            <text x="325" y="105" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Length ℓ</text>
+            <text x="306" y="64" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="12">Length ℓ</text>
 
-            <!-- Angle Arc theta -->
+            <!-- Angle Arc theta (from the downward vertical to the rod) -->
             <path d="M 260 90 A 60 60 0 0 1 297 80" fill="none" stroke="var(--accent)" stroke-width="2" />
-            <text x="282" y="110" fill="var(--accent)" font-family="var(--font-mono)" font-size="13" font-weight="700">θ</text>
+            <text x="278" y="112" text-anchor="middle" fill="var(--accent)" font-family="var(--font-mono)" font-size="13" font-weight="700">θ</text>
 
             <!-- Bob P -->
             <circle cx="380" cy="190" r="12" fill="var(--accent)" />
-            <text x="400" y="195" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P (m)</text>
+            <text x="364" y="214" text-anchor="end" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14" font-weight="700">P (m)</text>
 
-            <!-- Polar Basis at P -->
+            <!-- Polar Basis at P: e_R = sinθ i₀ − cosθ j₀ (along the rod, away from O), e_θ = cosθ i₀ + sinθ j₀ -->
             <!-- e_R -->
-            <line x1="380" y1="190" x2="440" y2="270" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
-            <text x="448" y="278" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R</text>
+            <line x1="380" y1="190" x2="422" y2="246" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="436" y="252" fill="#38bdf8" font-family="var(--font-mono)" font-size="12" font-weight="700">e_R</text>
 
             <!-- e_theta -->
-            <line x1="380" y1="190" x2="300" y2="250" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)" />
-            <text x="270" y="260" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ</text>
+            <line x1="380" y1="190" x2="436" y2="148" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="450" y="146" fill="#f59e0b" font-family="var(--font-mono)" font-size="12" font-weight="700">e_θ</text>
 
             <!-- Forces -->
             <!-- Tension T -->
             <line x1="380" y1="190" x2="320" y2="110" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow)" />
-            <text x="310" y="130" fill="#ef4444" font-family="var(--font-mono)" font-size="13" font-weight="700">T</text>
+            <text x="312" y="134" text-anchor="end" fill="#ef4444" font-family="var(--font-mono)" font-size="13" font-weight="700">T</text>
 
             <!-- Weight mg -->
-            <line x1="380" y1="190" x2="380" y2="275" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)" />
-            <text x="390" y="265" fill="#10b981" font-family="var(--font-mono)" font-size="13" font-weight="700">W = mg</text>
+            <line x1="380" y1="190" x2="380" y2="268" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)" />
+            <text x="366" y="262" text-anchor="end" fill="#10b981" font-family="var(--font-mono)" font-size="13" font-weight="700">W = mg</text>
           </svg>
           <div class="diagram-caption">Figure 2.2: Free body diagram of the simple pendulum with polar unit vectors $\{\mathbf{e}_R, \mathbf{e}_\theta\}$, gravity $\mathbf{W}$, and tension $\mathbf{T}$.</div>
         </div>

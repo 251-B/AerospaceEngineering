@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane i: (-3 1 -3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="#8a94a6" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="#8a94a6"/>
+<text x="35.4" y="228.3" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="#8a94a6"/>
+<text x="280.5" y="184.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="#8a94a6" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="#8a94a6"/>
+<text x="115.0" y="20.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="178.8,98.6 68.8,135.3 84.2,89.1" fill="#f59e0b" fill-opacity="0.28" stroke="#f59e0b" stroke-width="1.8"/>
+<circle cx="84.2" cy="89.1" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="178.8" cy="98.6" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="68.8" cy="135.3" r="3.5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/>
+<circle cx="68.8" cy="98.6" r="4.5" fill="none" stroke="#4b5563" stroke-width="1"/>
+<text x="94.7" y="72.7" fill="#f59e0b" font-size="11" font-weight="700" text-anchor="middle">x = −⅓</text>
+<text x="209.6" y="111.0" fill="#f59e0b" font-size="11" font-weight="700" text-anchor="middle">y = 1</text>
+<text x="68.8" y="161.3" fill="#f59e0b" font-size="11" font-weight="700" text-anchor="middle">z = −⅓</text>
+<text x="40.4" y="102.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">i)  (<tspan text-decoration="overline">3</tspan>1<tspan text-decoration="overline">3</tspan>)</text>
+<text x="130.0" y="270.0" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">O′ = (1,0,1);  intercepts −⅓, 1, −⅓</text>
+</g></svg>

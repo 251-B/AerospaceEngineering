@@ -862,12 +862,12 @@
 <strong>c)</strong> $(\bar{2}\, 1\, 3)$  
 <strong>d)</strong> $(1\, \bar{3}\, 3)$  
 <strong>e)</strong> $(1\, \bar{2}\, \bar{2})$  
-<strong>f)</strong> $(\bar{3}\, \bar{1}\, 2)$  
+<strong>f)</strong> $(\bar{3}\, 1\, 2)$  
 <strong>g)</strong> $(1\, 2\, \bar{3})$  
 <strong>h)</strong> $(\bar{1}\, \bar{4}\, 3)$  
-<strong>i)</strong> $(\bar{3}\, \bar{1}\, \bar{3})$  
+<strong>i)</strong> $(\bar{3}\, 1\, \bar{3})$  
 <strong>j)</strong> $(3\, \bar{1}\, 3)$</p>
-          
+
         </div>
 
         <div class="phases-grid">
@@ -875,9 +875,19 @@
             <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
             <h4 class="step-subheading">Geometric Context:</h4>
 <p>Ten families of crystallographic planes are analysed in a cubic lattice with orthogonal edges of length $a$.</p>
+<div class="callout"><div class="callout-title">Reading of the statement</div>
+<p>The text layer of the PDF loses the overbars, so they were read on the rendered page (page 1): in f) only the $3$ is barred, $(\bar{3}\,1\,2)$, and in i) only the two $3$ are barred, $(\bar{3}\,1\,\bar{3})$.</p></div>
+<h4 class="step-subheading">Parameters:</h4>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Quantity</th><th>Symbol</th><th>Value</th><th>SI unit</th></tr></thead><tbody>
+<tr><td>Lattice parameter (cube edge)</td><td>$a$</td><td>not given (drawings in units of $a$)</td><td>m</td></tr>
+<tr><td>Miller indices</td><td>$h, k, l$</td><td>integers of each part</td><td>dimensionless</td></tr>
+<tr><td>Intercepts from the origin</td><td>$1/h,\ 1/k,\ 1/l$</td><td>fractions of $a$</td><td>dimensionless (times $a$ in m)</td></tr>
+</tbody></table></div>
+<p>Hypotheses: ideal cubic cell ($a = b = c$, $\alpha = \beta = \gamma = 90^\circ$); each plane is drawn as its section with one unit cell; coordinates are written in units of $a$.</p>
 <h4 class="step-subheading">Origin Selection Criterion [Session 3 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=45" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 45">45</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>]:</h4>
 <ul>
-<li>If all indices $h, k, l$ are positive, the natural origin is placed at the lower left rear vertex $(0, 0, 0)$.</li>
+<li>If all indices $h, k, l$ are positive, the origin is the corner $O = (0, 0, 0)$.</li>
 <li>If any index is negative (overbar notation $\bar{u}$), the origin must be translated by $+1$ unit along the corresponding axis so that the intercept falls inside the standard unit cell:</li>
 <li>$\bar{h} \implies$ translate origin to $x = 1$.</li>
 <li>$\bar{k} \implies$ translate origin to $y = 1$.</li>
@@ -903,15 +913,533 @@
 
           <div class="phase-step phase-3">
             <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
-            
+<p>Summary of the construction (coordinates in units of $a$):</p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Part</th><th>Plane $(h\,k\,l)$</th><th>Reciprocals $(1/h, 1/k, 1/l)$</th><th>Origin $O'$</th><th>Cut points</th><th>Section</th></tr></thead><tbody>
+<tr><td><strong>a</strong></td><td>$(1\,0\,\bar{1})$</td><td>$(1,\ \infty,\ -1)$</td><td>$(0,0,1)$</td><td>$(1,0,1)$, $(0,0,0)$; parallel to $y$</td><td>rectangle $a \times a\sqrt{2}$</td></tr>
+<tr><td><strong>b</strong></td><td>$(1\,\bar{2}\,1)$</td><td>$(1,\ -\tfrac12,\ 1)$</td><td>$(0,1,0)$</td><td>$(1,1,0)$, $(0,\tfrac12,0)$, $(0,1,1)$</td><td>triangle</td></tr>
+<tr><td><strong>c</strong></td><td>$(\bar{2}\,1\,3)$</td><td>$(-\tfrac12,\ 1,\ \tfrac13)$</td><td>$(1,0,0)$</td><td>$(\tfrac12,0,0)$, $(1,1,0)$, $(1,0,\tfrac13)$</td><td>triangle</td></tr>
+<tr><td><strong>d</strong></td><td>$(1\,\bar{3}\,3)$</td><td>$(1,\ -\tfrac13,\ \tfrac13)$</td><td>$(0,1,0)$</td><td>$(1,1,0)$, $(0,\tfrac23,0)$, $(0,1,\tfrac13)$</td><td>triangle</td></tr>
+<tr><td><strong>e</strong></td><td>$(1\,\bar{2}\,\bar{2})$</td><td>$(1,\ -\tfrac12,\ -\tfrac12)$</td><td>$(0,1,1)$</td><td>$(1,1,1)$, $(0,\tfrac12,1)$, $(0,1,\tfrac12)$</td><td>triangle</td></tr>
+<tr><td><strong>f</strong></td><td>$(\bar{3}\,1\,2)$</td><td>$(-\tfrac13,\ 1,\ \tfrac12)$</td><td>$(1,0,0)$</td><td>$(\tfrac23,0,0)$, $(1,1,0)$, $(1,0,\tfrac12)$</td><td>triangle</td></tr>
+<tr><td><strong>g</strong></td><td>$(1\,2\,\bar{3})$</td><td>$(1,\ \tfrac12,\ -\tfrac13)$</td><td>$(0,0,1)$</td><td>$(1,0,1)$, $(0,\tfrac12,1)$, $(0,0,\tfrac23)$</td><td>triangle</td></tr>
+<tr><td><strong>h</strong></td><td>$(\bar{1}\,\bar{4}\,3)$</td><td>$(-1,\ -\tfrac14,\ \tfrac13)$</td><td>$(1,1,0)$</td><td>$(0,1,0)$, $(1,\tfrac34,0)$, $(1,1,\tfrac13)$</td><td>triangle</td></tr>
+<tr><td><strong>i</strong></td><td>$(\bar{3}\,1\,\bar{3})$</td><td>$(-\tfrac13,\ 1,\ -\tfrac13)$</td><td>$(1,0,1)$</td><td>$(\tfrac23,0,1)$, $(1,1,1)$, $(1,0,\tfrac23)$</td><td>triangle</td></tr>
+<tr><td><strong>j</strong></td><td>$(3\,\bar{1}\,3)$</td><td>$(\tfrac13,\ -1,\ \tfrac13)$</td><td>$(0,1,0)$</td><td>$(\tfrac13,1,0)$, $(0,0,0)$, $(0,1,\tfrac13)$</td><td>triangle</td></tr>
+</tbody></table></div>
+<p>In every drawing the shaded polygon is the plane, the dots are the cut points (labelled with the intercept measured from $O'$, in units of $a$) and the open circle is the new origin $O'$.</p>
+<div class="cs03-figs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0;">
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane a: (1 0 -1) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="178.8,98.6 68.8,98.6 115.0,180.0 225.0,180.0" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.28" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8"/>
+<circle cx="68.8" cy="98.6" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="115.0" cy="180.0" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="115.0" cy="70.0" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="38.0" y="111.0" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">x = 1</text>
+<text x="82.5" y="192.4" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">z = −1</text>
+<text x="133.7" y="58.4" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">a)  (10<tspan text-decoration="overline">1</tspan>)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (0,0,1);  intercepts 1, ∞, −1</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane b: (1 -2 1) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="178.8,208.6 225.0,70.0 170.0,180.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.28" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<circle cx="178.8" cy="208.6" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="170.0" cy="180.0" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="225.0" cy="70.0" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="225.0" cy="180.0" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="189.0" y="232.9" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">x = 1</text>
+<text x="137.5" y="175.6" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">y = −½</text>
+<text x="225.0" y="52.0" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">z = 1</text>
+<text x="243.7" y="168.4" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">b)  (1<tspan text-decoration="overline">2</tspan>1)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (0,1,0);  intercepts 1, −½, 1</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane c: (-2 1 3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="68.8,171.9 178.8,208.6 91.9,194.3" fill="var(--fig-green, #10b981)" fill-opacity="0.28" stroke="var(--fig-green, #10b981)" stroke-width="1.8"/>
+<circle cx="91.9" cy="194.3" r="3.5" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="178.8" cy="208.6" r="3.5" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="68.8" cy="171.9" r="3.5" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="68.8" cy="208.6" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="102.4" y="218.6" fill="var(--fig-green, #10b981)" font-size="11" font-weight="700" text-anchor="middle">x = −½</text>
+<text x="213.1" y="212.6" fill="var(--fig-green, #10b981)" font-size="11" font-weight="700" text-anchor="middle">y = 1</text>
+<text x="47.1" y="160.4" fill="var(--fig-green, #10b981)" font-size="11" font-weight="700" text-anchor="middle">z = ⅓</text>
+<text x="40.4" y="212.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">c)  (<tspan text-decoration="overline">2</tspan>13)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (1,0,0);  intercepts −½, 1, ⅓</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane d: (1 -3 3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="178.8,208.6 225.0,143.3 188.3,180.0" fill="var(--fig-pink, #ec4899)" fill-opacity="0.28" stroke="var(--fig-pink, #ec4899)" stroke-width="1.8"/>
+<circle cx="178.8" cy="208.6" r="3.5" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="188.3" cy="180.0" r="3.5" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="225.0" cy="143.3" r="3.5" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="225.0" cy="180.0" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="148.0" y="221.0" fill="var(--fig-pink, #ec4899)" font-size="11" font-weight="700" text-anchor="middle">x = 1</text>
+<text x="155.8" y="175.6" fill="var(--fig-pink, #ec4899)" font-size="11" font-weight="700" text-anchor="middle">y = −⅓</text>
+<text x="225.0" y="125.3" fill="var(--fig-pink, #ec4899)" font-size="11" font-weight="700" text-anchor="middle">z = ⅓</text>
+<text x="243.7" y="199.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">d)  (1<tspan text-decoration="overline">3</tspan>3)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (0,1,0);  intercepts 1, −⅓, ⅓</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane e: (1 -2 -2) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="178.8,98.6 170.0,70.0 225.0,125.0" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.28" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8"/>
+<circle cx="178.8" cy="98.6" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="170.0" cy="70.0" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="225.0" cy="125.0" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="225.0" cy="70.0" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="148.0" y="111.0" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">x = 1</text>
+<text x="159.5" y="53.7" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">y = −½</text>
+<text x="225.0" y="151.0" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">z = −½</text>
+<text x="243.7" y="58.4" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">e)  (1<tspan text-decoration="overline">2</tspan><tspan text-decoration="overline">2</tspan>)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (0,1,1);  intercepts 1, −½, −½</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane f: (-3 1 2) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="68.8,153.6 178.8,208.6 84.2,199.1" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.28" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<circle cx="84.2" cy="199.1" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="178.8" cy="208.6" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="68.8" cy="153.6" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="68.8" cy="208.6" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="84.2" y="181.1" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">x = −⅓</text>
+<text x="209.6" y="221.0" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">y = 1</text>
+<text x="58.6" y="137.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">z = ½</text>
+<text x="43.0" y="221.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">f)  (<tspan text-decoration="overline">3</tspan>12)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (1,0,0);  intercepts −⅓, 1, ½</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane g: (1 2 -3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="68.8,98.6 115.0,106.7 170.0,70.0" fill="var(--fig-green, #10b981)" fill-opacity="0.28" stroke="var(--fig-green, #10b981)" stroke-width="1.8"/>
+<circle cx="68.8" cy="98.6" r="3.5" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="170.0" cy="70.0" r="3.5" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="115.0" cy="106.7" r="3.5" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="115.0" cy="70.0" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="34.5" y="102.6" fill="var(--fig-green, #10b981)" font-size="11" font-weight="700" text-anchor="middle">x = 1</text>
+<text x="204.3" y="74.0" fill="var(--fig-green, #10b981)" font-size="11" font-weight="700" text-anchor="middle">y = ½</text>
+<text x="104.5" y="131.0" fill="var(--fig-green, #10b981)" font-size="11" font-weight="700" text-anchor="middle">z = −⅓</text>
+<text x="115.0" y="52.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">g)  (12<tspan text-decoration="overline">3</tspan>)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (0,0,1);  intercepts 1, ½, −⅓</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane h: (-1 -4 3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="151.3,208.6 178.8,171.9 225.0,180.0" fill="var(--fig-pink, #ec4899)" fill-opacity="0.28" stroke="var(--fig-pink, #ec4899)" stroke-width="1.8"/>
+<circle cx="225.0" cy="180.0" r="3.5" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="151.3" cy="208.6" r="3.5" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="178.8" cy="171.9" r="3.5" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="178.8" cy="208.6" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="225.0" y="162.0" fill="var(--fig-pink, #ec4899)" font-size="11" font-weight="700" text-anchor="middle">x = −1</text>
+<text x="115.0" y="212.6" fill="var(--fig-pink, #ec4899)" font-size="11" font-weight="700" text-anchor="middle">y = −¼</text>
+<text x="148.0" y="167.5" fill="var(--fig-pink, #ec4899)" font-size="11" font-weight="700" text-anchor="middle">z = ⅓</text>
+<text x="188.2" y="232.9" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">h)  (<tspan text-decoration="overline">1</tspan><tspan text-decoration="overline">4</tspan>3)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (1,1,0);  intercepts −1, −¼, ⅓</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane i: (-3 1 -3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="178.8,98.6 68.8,135.3 84.2,89.1" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.28" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8"/>
+<circle cx="84.2" cy="89.1" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="178.8" cy="98.6" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="68.8" cy="135.3" r="3.5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="68.8" cy="98.6" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="94.7" y="72.7" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">x = −⅓</text>
+<text x="209.6" y="111.0" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">y = 1</text>
+<text x="68.8" y="161.3" fill="var(--fig-acc, #f59e0b)" font-size="11" font-weight="700" text-anchor="middle">z = −⅓</text>
+<text x="40.4" y="102.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">i)  (<tspan text-decoration="overline">3</tspan>1<tspan text-decoration="overline">3</tspan>)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (1,0,1);  intercepts −⅓, 1, −⅓</text>
+</g></svg></div>
+<div class="cs03-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 282" width="100%" class="fig-kit" style="max-width:290px;margin:0 auto;display:block" role="img" aria-label="Plane j: (3 -1 3) in the unit cube">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="115.0" y1="180.0" x2="115.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="225.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="180.0" x2="68.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="115.0" y1="70.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="115.0" y1="70.0" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="225.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="180.0" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="225.0" y1="70.0" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="68.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="178.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="98.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="178.8" y1="208.6" x2="178.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="68.8" y1="208.6" x2="43.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M43.4,224.3 L48.6,217.0 L52.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="35.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="225.0" y1="180.0" x2="274.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M274.5,180.0 L266.2,183.5 L266.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="280.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="115.0" y1="70.0" x2="115.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M115.0,26.0 L118.5,34.3 L111.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="115.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<polygon points="209.6,189.5 225.0,143.3 115.0,180.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.28" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<circle cx="209.6" cy="189.5" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="115.0" cy="180.0" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="225.0" cy="143.3" r="3.5" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="225.0" cy="180.0" r="4.5" fill="none" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="199.4" y="213.9" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">x = ⅓</text>
+<text x="82.5" y="175.6" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">y = −1</text>
+<text x="225.0" y="125.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="middle">z = ⅓</text>
+<text x="243.7" y="199.6" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">O′</text>
+<text x="130.0" y="250.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">j)  (3<tspan text-decoration="overline">1</tspan>3)</text>
+<text x="130.0" y="270.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">O′ = (0,1,0);  intercepts ⅓, −1, ⅓</text>
+</g></svg></div>
+</div>
+<h4 class="step-subheading">a) Plane $(1\,0\,\bar{1})$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $z$, so the origin moves one edge along that axis: $O' = (0,\ 0,\ 1)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{1} = 1,\quad \frac{1}{0} = \infty,\quad \frac{1}{-1} = -1$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 0,\ 1)$</li><li>$y$: none, the plane is parallel to the $y$ axis</li><li>$z$: $z_{O'} + 1/(-1) = 1 + (-1) = 0$, cut point $(0,\ 0,\ 0)$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$x - (z-1) = 1 \;\Longrightarrow\; x - z = 0$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(0,\ 0,\ 0)$: $(1)(0) + (-1)(0) = 0$ ✓</li><li>$(1,\ 0,\ 1)$: $(1)(1) + (-1)(1) = 0$ ✓</li><li>$(1,\ 1,\ 1)$: $(1)(1) + (-1)(1) = 0$ ✓</li><li>$(0,\ 1,\ 0)$: $(1)(0) + (-1)(0) = 0$ ✓</li></ul></li>
+<li><strong>Section:</strong> the plane contains the whole edges $(0,y,0)$ and $(1,y,1)$, $0 \le y \le 1$, so the section is the rectangle $(0,0,0)$, $(1,0,1)$, $(1,1,1)$, $(0,1,0)$ with sides $a$ (along $y$) and $\sqrt{1^2+1^2}\,a = a\sqrt{2}$ (face diagonal).</li>
+</ul>
+<h4 class="step-subheading">b) Plane $(1\,\bar{2}\,1)$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $y$, so the origin moves one edge along that axis: $O' = (0,\ 1,\ 0)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{1} = 1,\quad \frac{1}{-2} = -\tfrac{1}{2},\quad \frac{1}{1} = 1$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 1,\ 0)$</li><li>$y$: $y_{O'} + 1/(-2) = 1 + (-\tfrac{1}{2}) = \tfrac{1}{2}$, cut point $(0,\ \tfrac{1}{2},\ 0)$</li><li>$z$: $z_{O'} + 1/1 = 0 + (1) = 1$, cut point $(0,\ 1,\ 1)$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$x - 2(y-1) + z = 1 \;\Longrightarrow\; x - 2y + z = -1$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(1,\ 1,\ 0)$: $(1)(1) + (-2)(1) + (1)(0) = -1$ ✓</li><li>$(0,\ \tfrac{1}{2},\ 0)$: $(1)(0) + (-2)(\tfrac{1}{2}) + (1)(0) = -1$ ✓</li><li>$(0,\ 1,\ 1)$: $(1)(0) + (-2)(1) + (1)(1) = -1$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(1,\ 1,\ 0)$, $(0,\ \tfrac{1}{2},\ 0)$, $(0,\ 1,\ 1)$.</li>
+</ul>
+<h4 class="step-subheading">c) Plane $(\bar{2}\,1\,3)$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $x$, so the origin moves one edge along that axis: $O' = (1,\ 0,\ 0)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{-2} = -\tfrac{1}{2},\quad \frac{1}{1} = 1,\quad \frac{1}{3} = \tfrac{1}{3}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/(-2) = 1 + (-\tfrac{1}{2}) = \tfrac{1}{2}$, cut point $(\tfrac{1}{2},\ 0,\ 0)$</li><li>$y$: $y_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 1,\ 0)$</li><li>$z$: $z_{O'} + 1/3 = 0 + (\tfrac{1}{3}) = \tfrac{1}{3}$, cut point $(1,\ 0,\ \tfrac{1}{3})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$-2(x-1) + y + 3z = 1 \;\Longrightarrow\; -2x + y + 3z = -1$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(\tfrac{1}{2},\ 0,\ 0)$: $(-2)(\tfrac{1}{2}) + (1)(0) + (3)(0) = -1$ ✓</li><li>$(1,\ 1,\ 0)$: $(-2)(1) + (1)(1) + (3)(0) = -1$ ✓</li><li>$(1,\ 0,\ \tfrac{1}{3})$: $(-2)(1) + (1)(0) + (3)(\tfrac{1}{3}) = -1$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(\tfrac{1}{2},\ 0,\ 0)$, $(1,\ 1,\ 0)$, $(1,\ 0,\ \tfrac{1}{3})$.</li>
+</ul>
+<h4 class="step-subheading">d) Plane $(1\,\bar{3}\,3)$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $y$, so the origin moves one edge along that axis: $O' = (0,\ 1,\ 0)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{1} = 1,\quad \frac{1}{-3} = -\tfrac{1}{3},\quad \frac{1}{3} = \tfrac{1}{3}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 1,\ 0)$</li><li>$y$: $y_{O'} + 1/(-3) = 1 + (-\tfrac{1}{3}) = \tfrac{2}{3}$, cut point $(0,\ \tfrac{2}{3},\ 0)$</li><li>$z$: $z_{O'} + 1/3 = 0 + (\tfrac{1}{3}) = \tfrac{1}{3}$, cut point $(0,\ 1,\ \tfrac{1}{3})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$x - 3(y-1) + 3z = 1 \;\Longrightarrow\; x - 3y + 3z = -2$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(1,\ 1,\ 0)$: $(1)(1) + (-3)(1) + (3)(0) = -2$ ✓</li><li>$(0,\ \tfrac{2}{3},\ 0)$: $(1)(0) + (-3)(\tfrac{2}{3}) + (3)(0) = -2$ ✓</li><li>$(0,\ 1,\ \tfrac{1}{3})$: $(1)(0) + (-3)(1) + (3)(\tfrac{1}{3}) = -2$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(1,\ 1,\ 0)$, $(0,\ \tfrac{2}{3},\ 0)$, $(0,\ 1,\ \tfrac{1}{3})$.</li>
+</ul>
+<h4 class="step-subheading">e) Plane $(1\,\bar{2}\,\bar{2})$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $y, z$, so the origin moves one edge along that axis: $O' = (0,\ 1,\ 1)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{1} = 1,\quad \frac{1}{-2} = -\tfrac{1}{2},\quad \frac{1}{-2} = -\tfrac{1}{2}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 1,\ 1)$</li><li>$y$: $y_{O'} + 1/(-2) = 1 + (-\tfrac{1}{2}) = \tfrac{1}{2}$, cut point $(0,\ \tfrac{1}{2},\ 1)$</li><li>$z$: $z_{O'} + 1/(-2) = 1 + (-\tfrac{1}{2}) = \tfrac{1}{2}$, cut point $(0,\ 1,\ \tfrac{1}{2})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$x - 2(y-1) - 2(z-1) = 1 \;\Longrightarrow\; x - 2y - 2z = -3$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(1,\ 1,\ 1)$: $(1)(1) + (-2)(1) + (-2)(1) = -3$ ✓</li><li>$(0,\ \tfrac{1}{2},\ 1)$: $(1)(0) + (-2)(\tfrac{1}{2}) + (-2)(1) = -3$ ✓</li><li>$(0,\ 1,\ \tfrac{1}{2})$: $(1)(0) + (-2)(1) + (-2)(\tfrac{1}{2}) = -3$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(1,\ 1,\ 1)$, $(0,\ \tfrac{1}{2},\ 1)$, $(0,\ 1,\ \tfrac{1}{2})$.</li>
+</ul>
+<h4 class="step-subheading">f) Plane $(\bar{3}\,1\,2)$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $x$, so the origin moves one edge along that axis: $O' = (1,\ 0,\ 0)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{-3} = -\tfrac{1}{3},\quad \frac{1}{1} = 1,\quad \frac{1}{2} = \tfrac{1}{2}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/(-3) = 1 + (-\tfrac{1}{3}) = \tfrac{2}{3}$, cut point $(\tfrac{2}{3},\ 0,\ 0)$</li><li>$y$: $y_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 1,\ 0)$</li><li>$z$: $z_{O'} + 1/2 = 0 + (\tfrac{1}{2}) = \tfrac{1}{2}$, cut point $(1,\ 0,\ \tfrac{1}{2})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$-3(x-1) + y + 2z = 1 \;\Longrightarrow\; -3x + y + 2z = -2$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(\tfrac{2}{3},\ 0,\ 0)$: $(-3)(\tfrac{2}{3}) + (1)(0) + (2)(0) = -2$ ✓</li><li>$(1,\ 1,\ 0)$: $(-3)(1) + (1)(1) + (2)(0) = -2$ ✓</li><li>$(1,\ 0,\ \tfrac{1}{2})$: $(-3)(1) + (1)(0) + (2)(\tfrac{1}{2}) = -2$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(\tfrac{2}{3},\ 0,\ 0)$, $(1,\ 1,\ 0)$, $(1,\ 0,\ \tfrac{1}{2})$.</li>
+</ul>
+<h4 class="step-subheading">g) Plane $(1\,2\,\bar{3})$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $z$, so the origin moves one edge along that axis: $O' = (0,\ 0,\ 1)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{1} = 1,\quad \frac{1}{2} = \tfrac{1}{2},\quad \frac{1}{-3} = -\tfrac{1}{3}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 0,\ 1)$</li><li>$y$: $y_{O'} + 1/2 = 0 + (\tfrac{1}{2}) = \tfrac{1}{2}$, cut point $(0,\ \tfrac{1}{2},\ 1)$</li><li>$z$: $z_{O'} + 1/(-3) = 1 + (-\tfrac{1}{3}) = \tfrac{2}{3}$, cut point $(0,\ 0,\ \tfrac{2}{3})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$x + 2y - 3(z-1) = 1 \;\Longrightarrow\; x + 2y - 3z = -2$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(1,\ 0,\ 1)$: $(1)(1) + (2)(0) + (-3)(1) = -2$ ✓</li><li>$(0,\ \tfrac{1}{2},\ 1)$: $(1)(0) + (2)(\tfrac{1}{2}) + (-3)(1) = -2$ ✓</li><li>$(0,\ 0,\ \tfrac{2}{3})$: $(1)(0) + (2)(0) + (-3)(\tfrac{2}{3}) = -2$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(1,\ 0,\ 1)$, $(0,\ \tfrac{1}{2},\ 1)$, $(0,\ 0,\ \tfrac{2}{3})$.</li>
+</ul>
+<h4 class="step-subheading">h) Plane $(\bar{1}\,\bar{4}\,3)$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $x, y$, so the origin moves one edge along that axis: $O' = (1,\ 1,\ 0)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{-1} = -1,\quad \frac{1}{-4} = -\tfrac{1}{4},\quad \frac{1}{3} = \tfrac{1}{3}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/(-1) = 1 + (-1) = 0$, cut point $(0,\ 1,\ 0)$</li><li>$y$: $y_{O'} + 1/(-4) = 1 + (-\tfrac{1}{4}) = \tfrac{3}{4}$, cut point $(1,\ \tfrac{3}{4},\ 0)$</li><li>$z$: $z_{O'} + 1/3 = 0 + (\tfrac{1}{3}) = \tfrac{1}{3}$, cut point $(1,\ 1,\ \tfrac{1}{3})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$-(x-1) - 4(y-1) + 3z = 1 \;\Longrightarrow\; -x - 4y + 3z = -4$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(0,\ 1,\ 0)$: $(-1)(0) + (-4)(1) + (3)(0) = -4$ ✓</li><li>$(1,\ \tfrac{3}{4},\ 0)$: $(-1)(1) + (-4)(\tfrac{3}{4}) + (3)(0) = -4$ ✓</li><li>$(1,\ 1,\ \tfrac{1}{3})$: $(-1)(1) + (-4)(1) + (3)(\tfrac{1}{3}) = -4$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(0,\ 1,\ 0)$, $(1,\ \tfrac{3}{4},\ 0)$, $(1,\ 1,\ \tfrac{1}{3})$.</li>
+</ul>
+<h4 class="step-subheading">i) Plane $(\bar{3}\,1\,\bar{3})$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $x, z$, so the origin moves one edge along that axis: $O' = (1,\ 0,\ 1)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{-3} = -\tfrac{1}{3},\quad \frac{1}{1} = 1,\quad \frac{1}{-3} = -\tfrac{1}{3}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/(-3) = 1 + (-\tfrac{1}{3}) = \tfrac{2}{3}$, cut point $(\tfrac{2}{3},\ 0,\ 1)$</li><li>$y$: $y_{O'} + 1/1 = 0 + (1) = 1$, cut point $(1,\ 1,\ 1)$</li><li>$z$: $z_{O'} + 1/(-3) = 1 + (-\tfrac{1}{3}) = \tfrac{2}{3}$, cut point $(1,\ 0,\ \tfrac{2}{3})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$-3(x-1) + y - 3(z-1) = 1 \;\Longrightarrow\; -3x + y - 3z = -5$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(\tfrac{2}{3},\ 0,\ 1)$: $(-3)(\tfrac{2}{3}) + (1)(0) + (-3)(1) = -5$ ✓</li><li>$(1,\ 1,\ 1)$: $(-3)(1) + (1)(1) + (-3)(1) = -5$ ✓</li><li>$(1,\ 0,\ \tfrac{2}{3})$: $(-3)(1) + (1)(0) + (-3)(\tfrac{2}{3}) = -5$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(\tfrac{2}{3},\ 0,\ 1)$, $(1,\ 1,\ 1)$, $(1,\ 0,\ \tfrac{2}{3})$.</li>
+</ul>
+<h4 class="step-subheading">j) Plane $(3\,\bar{1}\,3)$:</h4>
+<ul>
+<li><strong>Origin:</strong> negative index on $y$, so the origin moves one edge along that axis: $O' = (0,\ 1,\ 0)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=49" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 49">49</a>].</li>
+<li><strong>Reciprocals:</strong></li>
+</ul>
+<p>$$\frac{1}{3} = \tfrac{1}{3},\quad \frac{1}{-1} = -1,\quad \frac{1}{3} = \tfrac{1}{3}$$</p>
+<ul>
+<li><strong>Intercepts from $O'$:</strong><ul><li>$x$: $x_{O'} + 1/3 = 0 + (\tfrac{1}{3}) = \tfrac{1}{3}$, cut point $(\tfrac{1}{3},\ 1,\ 0)$</li><li>$y$: $y_{O'} + 1/(-1) = 1 + (-1) = 0$, cut point $(0,\ 0,\ 0)$</li><li>$z$: $z_{O'} + 1/3 = 0 + (\tfrac{1}{3}) = \tfrac{1}{3}$, cut point $(0,\ 1,\ \tfrac{1}{3})$</li></ul></li>
+<li><strong>Plane equation (analytic check, extension):</strong> intercept form of the plane in units of $a$, $h(x-x_{O'}) + k(y-y_{O'}) + l(z-z_{O'}) = 1$ gives $$3x - (y-1) + 3z = 1 \;\Longrightarrow\; 3x - y + 3z = 0$$</li>
+<li><strong>Check of the vertices:</strong><ul><li>$(\tfrac{1}{3},\ 1,\ 0)$: $(3)(\tfrac{1}{3}) + (-1)(1) + (3)(0) = 0$ ✓</li><li>$(0,\ 0,\ 0)$: $(3)(0) + (-1)(0) + (3)(0) = 0$ ✓</li><li>$(0,\ 1,\ \tfrac{1}{3})$: $(3)(0) + (-1)(1) + (3)(\tfrac{1}{3}) = 0$ ✓</li></ul></li>
+<li><strong>Section:</strong> the three cut points lie on edges of the cell, so the section is the triangle that joins them [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>]: $(\tfrac{1}{3},\ 1,\ 0)$, $(0,\ 0,\ 0)$, $(0,\ 1,\ \tfrac{1}{3})$.</li>
+</ul>
+<hr class="divider" />
           </div>
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            <ol>
-<li><strong>Symmetry Invariance:</strong> The planes $(\bar{3}\bar{1}2)$, $(12\bar{3})$, $(\bar{3}\bar{1}\bar{3})$ and $(3\bar{1}3)$ all belong to the same crystallographic family of planes $\{321\}$ or $\{331\}$ in the cubic lattice. Although their geometric orientation differs because of the choice of axes, they all have the <strong>same interplanar spacing $d_{hkl}$</strong> and the <strong>same planar atomic density $\rho_p$</strong>.</li>
-<li><strong>Orthogonality Property:</strong> In all cases, the normal direction vector of the drawn plane is proportional to the index vector $[h\, k\, l]$, rigorously satisfying crystallographic perpendicularity in cubic lattices [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=45" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 45">45</a>].</li>
-</ol>
+<h4 class="step-subheading">1. The normal $[h\,k\,l]$ is perpendicular to every drawn plane</h4>
+<p>In cubic lattices the direction $[h\,k\,l]$ is perpendicular to the plane $(h\,k\,l)$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=45" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 45">45</a>]. Two edges of each section, taken from its first vertex, must therefore give a zero dot product with $(h, k, l)$:</p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Part</th><th>$(h,k,l)$</th><th>Edge $\vec{u}_1$</th><th>$\vec{u}_1 \cdot (h,k,l)$</th><th>Edge $\vec{u}_2$</th><th>$\vec{u}_2 \cdot (h,k,l)$</th></tr></thead><tbody>
+<tr><td>a</td><td>$(1,0,-1)$</td><td>$(1,0,1)$</td><td>$1 + 0 - 1 = 0$</td><td>$(0,1,0)$</td><td>$0$</td></tr>
+<tr><td>b</td><td>$(1,-2,1)$</td><td>$(1,\tfrac12,0)$</td><td>$1 - 1 + 0 = 0$</td><td>$(0,\tfrac12,1)$</td><td>$0 - 1 + 1 = 0$</td></tr>
+<tr><td>c</td><td>$(-2,1,3)$</td><td>$(\tfrac12,1,0)$</td><td>$-1 + 1 + 0 = 0$</td><td>$(\tfrac12,0,\tfrac13)$</td><td>$-1 + 0 + 1 = 0$</td></tr>
+<tr><td>d</td><td>$(1,-3,3)$</td><td>$(1,\tfrac13,0)$</td><td>$1 - 1 + 0 = 0$</td><td>$(0,\tfrac13,\tfrac13)$</td><td>$0 - 1 + 1 = 0$</td></tr>
+<tr><td>e</td><td>$(1,-2,-2)$</td><td>$(1,\tfrac12,0)$</td><td>$1 - 1 + 0 = 0$</td><td>$(0,\tfrac12,-\tfrac12)$</td><td>$0 - 1 + 1 = 0$</td></tr>
+<tr><td>f</td><td>$(-3,1,2)$</td><td>$(\tfrac13,1,0)$</td><td>$-1 + 1 + 0 = 0$</td><td>$(\tfrac13,0,\tfrac12)$</td><td>$-1 + 0 + 1 = 0$</td></tr>
+<tr><td>g</td><td>$(1,2,-3)$</td><td>$(1,0,\tfrac13)$</td><td>$1 + 0 - 1 = 0$</td><td>$(0,\tfrac12,\tfrac13)$</td><td>$0 + 1 - 1 = 0$</td></tr>
+<tr><td>h</td><td>$(-1,-4,3)$</td><td>$(-1,\tfrac14,0)$</td><td>$1 - 1 + 0 = 0$</td><td>$(0,\tfrac14,\tfrac13)$</td><td>$0 - 1 + 1 = 0$</td></tr>
+<tr><td>i</td><td>$(-3,1,-3)$</td><td>$(\tfrac13,1,0)$</td><td>$-1 + 1 + 0 = 0$</td><td>$(\tfrac13,0,-\tfrac13)$</td><td>$-1 + 0 + 1 = 0$</td></tr>
+<tr><td>j</td><td>$(3,-1,3)$</td><td>$(\tfrac13,1,0)$</td><td>$1 - 1 + 0 = 0$</td><td>$(0,1,\tfrac13)$</td><td>$0 - 1 + 1 = 0$</td></tr>
+</tbody></table></div>
+<p>All twenty products vanish, so every polygon is a correct section of its plane.</p>
+<h4 class="step-subheading">2. Families and interplanar spacing</h4>
+<p>Planes with the same set of indices, in any order and with any signs, belong to one family $\{h\,k\,l\}$ [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=50" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 50">50</a>]. The spacing between parallel planes of a cubic crystal is [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=53" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 53">53</a>]</p>
+<p>$$d_{hkl} = \frac{a}{\sqrt{h^2 + k^2 + l^2}}$$</p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Family</th><th>Parts</th><th>$h^2 + k^2 + l^2$</th><th>$d_{hkl}$</th></tr></thead><tbody>
+<tr><td>$\{1\,0\,1\}$</td><td>a</td><td>$1 + 0 + 1 = 2$</td><td>$a/\sqrt{2} = 0.7071\,a$</td></tr>
+<tr><td>$\{1\,1\,2\}$</td><td>b</td><td>$1 + 4 + 1 = 6$</td><td>$a/\sqrt{6} = 0.4082\,a$</td></tr>
+<tr><td>$\{1\,2\,2\}$</td><td>e</td><td>$1 + 4 + 4 = 9$</td><td>$a/3 = 0.3333\,a$</td></tr>
+<tr><td>$\{1\,2\,3\}$</td><td>c, f, g</td><td>$4 + 1 + 9 = 14$</td><td>$a/\sqrt{14} = 0.2673\,a$</td></tr>
+<tr><td>$\{1\,3\,3\}$</td><td>d, i, j</td><td>$1 + 9 + 9 = 19$</td><td>$a/\sqrt{19} = 0.2294\,a$</td></tr>
+<tr><td>$\{1\,3\,4\}$</td><td>h</td><td>$1 + 16 + 9 = 26$</td><td>$a/\sqrt{26} = 0.1961\,a$</td></tr>
+</tbody></table></div>
+<p>Planes c, f and g are drawn in different orientations but belong to the same family $\{123\}$, and d, i and j to $\{133\}$: inside each family the planes have the same spacing and the same atomic arrangement, so they only differ by a symmetry operation of the cube.</p>
+<h4 class="step-subheading">3. Limiting cases</h4>
+<ul>
+<li>A zero index gives an infinite intercept: plane a never meets the $y$ axis and is parallel to it, so its section is a rectangle that runs through the whole cell instead of a triangle.</li>
+<li>The larger an index, the closer its cut point is to $O'$ (intercept $1/h$): the $\bar{4}$ of plane h cuts at only $\tfrac14 a$ from $O'$, and the family with the largest $h^2+k^2+l^2$ has the smallest spacing $d_{hkl}$.</li>
+<li>Moving the origin to $O'$ only selects another member of the same set of parallel, equidistant planes [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=50" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 50">50</a>]: the orientation, fixed by the normal $[h\,k\,l]$, is unchanged, and changing every sign, $(h\,k\,l) \to (\bar{h}\,\bar{k}\,\bar{l})$, describes the same set of planes.</li>
+</ul>
+<h4 class="step-subheading">4. Dimensional check</h4>
+<p>The intercepts $1/h$, $1/k$, $1/l$ are pure numbers that multiply $a$; the cut points therefore have units of length ($\text{m}$), and $[d_{hkl}] = [a] / [\sqrt{h^2+k^2+l^2}] = \text{m}/1 = \text{m}$.</p>
           </div>
         </div>
       </article>
@@ -1003,7 +1531,7 @@
 <ul>
 <li><strong>Direct calculation by cell or density relation:</strong></li>
 </ul>
-<p>  Using the fundamental conservation relation between densities [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 9">9</a>]:</p>
+<p>  Using the relation $\rho_{(hkl)} = \rho_v \cdot d$ between the volume density and the spacing $d$ of consecutive atomic layers (extension: the slides only define $\rho_{(hkl)}$ as atoms over area [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=9" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 9">9</a>]; the direct count below is the course method):</p>
 <p>  $$\rho_v = \frac{\rho_{(hkl)}}{d_{\text{eff}}} \implies \rho_{(111)} = \rho_v \cdot d_{\text{eff}} = \left(\frac{2}{a^3}\right) \cdot \left(\frac{a}{2\sqrt{3}}\right) = \mathbf{\frac{1}{a^2\sqrt{3}}}$$</p>
 <ul>
 <li><strong>Direct check by geometric area:</strong></li>
@@ -1032,7 +1560,30 @@
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            
+<h4 class="step-subheading">1. Ranking of the planes</h4>
+<p>Comparing the planar densities obtained in the BCC lattice:</p>
+<ul>
+<li>$\rho_{(110)} = \frac{\sqrt{2}}{a^2} \approx \frac{1.414}{a^2}$</li>
+<li>$\rho_{(100)} = \frac{1}{a^2} = \frac{1.000}{a^2}$</li>
+<li>$\rho_{(111)} = \frac{1}{a^2\sqrt{3}} = \frac{\sqrt{3}}{3a^2} \approx \frac{0.577}{a^2}$</li>
+</ul>
+<p>$$\rho_{(110)} > \rho_{(100)} > \rho_{(111)}$$</p>
+<p>The $(110)$ plane is the densest plane of the BCC structure, which is why $\{110\}$ is the slip plane of BCC metals, with slip direction $\langle 111 \rangle$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 37">37</a>].</p>
+<h4 class="step-subheading">2. Cross-check with the volume density (extension)</h4>
+<p>Every plane of atoms carries $\rho_{(hkl)}$ atoms per unit area and consecutive atomic layers are a distance $d$ apart, so a slab of area $A$ and thickness $d$ holds $\rho_{(hkl)} A$ atoms in a volume $A d$: $\rho_v = \rho_{(hkl)}/d$. With $\rho_v = 2/a^3$:</p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Plane</th><th>Atomic layers (coordinates in units of $a$)</th><th>$d$</th><th>$\rho_v \cdot d$</th><th>Direct count</th></tr></thead><tbody>
+<tr><td>$(100)$</td><td>corners at $x = 0, 1$; body centre at $x = \tfrac12$</td><td>$\frac{a}{2}$</td><td>$\frac{2}{a^3}\cdot\frac{a}{2} = \frac{1}{a^2}$</td><td>$\frac{1}{a^2}$ ✓</td></tr>
+<tr><td>$(110)$</td><td>$x + y = 0, 1, 2$ (the body centre has $x + y = \tfrac12 + \tfrac12 = 1$)</td><td>$\frac{a}{\sqrt{2}}$</td><td>$\frac{2}{a^3}\cdot\frac{a}{\sqrt{2}} = \frac{\sqrt{2}}{a^2}$</td><td>$\frac{\sqrt{2}}{a^2}$ ✓</td></tr>
+<tr><td>$(111)$</td><td>$x + y + z = 0, 1, \tfrac32, 2, 3$</td><td>$\frac{a}{2\sqrt{3}}$</td><td>$\frac{2}{a^3}\cdot\frac{a}{2\sqrt{3}} = \frac{1}{a^2\sqrt{3}}$</td><td>$\frac{1}{a^2\sqrt{3}}$ ✓</td></tr>
+</tbody></table></div>
+<p>For $(111)$ the layers $x+y+z = 1$ and $\tfrac32$ are $\frac{(3/2 - 1)\,a}{\sqrt{1^2+1^2+1^2}} = \frac{a}{2\sqrt{3}}$ apart (distance between parallel planes $x+y+z = c_1$ and $c_2$ is $|c_2 - c_1|\,a/\sqrt{3}$).</p>
+<h4 class="step-subheading">3. Linear density and contact</h4>
+<p>Along $[100]$ the atoms do not touch: their centres are $a$ apart, while their diameter is $2R = \frac{a\sqrt{3}}{2} \approx 0.866\,a$ (contact is along $\langle 111 \rangle$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=5" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 5">5</a>]). Hence $\rho_{[100]} = 1/a$ is lower than the close-packed limit $1/(2R) = \frac{2}{a\sqrt{3}} \approx \frac{1.155}{a}$ that is reached along $[111]$.</p>
+<h4 class="step-subheading">4. Dimensional check</h4>
+<p>$[\rho_{(hkl)}] = \frac{\text{atoms}}{\text{m}^2}$, $[\rho_{[100]}] = \frac{\text{atoms}}{\text{m}}$ and $[\rho_v] = \frac{\text{atoms}}{\text{m}^3}$, consistent with $a$ in m; in the cross-check, $[\rho_v \cdot d] = \text{m}^{-3}\cdot\text{m} = \text{m}^{-2}$ ✓.</p>
+<h4 class="step-subheading">5. Comparison with the official answer</h4>
+<p>All five results agree with the official solution: $\rho_{(100)} = 1/a^2$, $\rho_{(110)} = \sqrt{2}/a^2$, $\rho_{(111)} = 1/(a^2\sqrt{3})$, $\rho_{[100]} = 1/a$, $\rho_v = 2/a^3$.</p>
           </div>
         </div>
       </article>
@@ -1243,7 +1794,26 @@
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            
+<h4 class="step-subheading">1. Summary and mechanical consequences</h4>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Quantity</th><th>BCC iron ($\alpha\text{-Fe}$)</th><th>FCC nickel ($\text{Ni}$)</th><th>Physical conclusion</th></tr></thead><tbody>
+<tr><td><strong>Linear density $\rho_{[111]}$</strong></td><td>$\frac{2}{a\sqrt{3}} \approx \frac{1.155}{a}$ (atoms in contact)</td><td>$\frac{1}{a\sqrt{3}} \approx \frac{0.577}{a}$</td><td>$\langle 111 \rangle$ is the slip direction of BCC</td></tr>
+<tr><td><strong>Planar density $\rho_{(111)}$</strong></td><td>$\frac{1}{a^2\sqrt{3}} \approx \frac{0.577}{a^2}$</td><td>$\frac{4}{a^2\sqrt{3}} \approx \frac{2.309}{a^2}$ (close-packed)</td><td>$\{111\}$ is the slip plane of FCC</td></tr>
+</tbody></table></div>
+<ul>
+<li>The coefficients are compared for the same symbol $a$; iron and nickel have different lattice parameters, which the statement does not give, so the absolute densities of the two metals cannot be ranked from these formulas alone.</li>
+<li>In <strong>BCC iron</strong> the atoms touch along the cube diagonal ($4R = a\sqrt{3}$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=5" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 5">5</a>]), so $[111]$ is the close-packed direction, but its $(111)$ plane is sparse. The densest BCC plane is $(110)$, with $\rho_{(110)} = \sqrt{2}/a^2 \approx 1.414/a^2$ (Problem 4), and BCC slips on $\{110\}\langle 111 \rangle$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 37">37</a>].</li>
+<li>In <strong>FCC nickel</strong> the $(111)$ plane is the close-packed plane, four times denser (for equal $a$) than the BCC $(111)$ plane, while the FCC close-packed direction is $\langle 110 \rangle$, not $\langle 111 \rangle$: FCC slips on $\{111\}\langle 110 \rangle$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 37">37</a>].</li>
+</ul>
+<h4 class="step-subheading">2. Checks</h4>
+<ul>
+<li><strong>Contact in BCC:</strong> the close-packed linear density must be one atom per diameter, $\frac{1}{2R}$. With $2R = \frac{a\sqrt{3}}{2}$: $\frac{1}{2R} = \frac{2}{a\sqrt{3}}$ ✓, equal to $\rho_{[111]}^{\text{BCC}}$.</li>
+<li><strong>Lattice repeat in FCC:</strong> the point $(t, t, t)$ on the diagonal is an FCC site only for integer $t$ (corners); face centres have one coordinate different from the other two. The repeat distance is therefore the whole diagonal $a\sqrt{3}$, so $\rho_{[111]}^{\text{FCC}} = 1/(a\sqrt{3})$ ✓.</li>
+<li><strong>Volume-density cross-check (extension):</strong> $\rho_{(111)} = \rho_v \cdot d$, with $d$ the spacing of consecutive atomic $(111)$ layers. FCC: $\rho_v = 4/a^3$, layers $x + y + z = 0, 1, 2, 3$, $d = a/\sqrt{3}$, so $\rho_v d = \frac{4}{a^3}\cdot\frac{a}{\sqrt{3}} = \frac{4}{a^2\sqrt{3}}$ ✓. BCC: $\rho_v = 2/a^3$, layers $x+y+z = 0, 1, \tfrac32, 2, 3$, $d = \frac{a}{2\sqrt{3}}$, so $\rho_v d = \frac{2}{a^3}\cdot\frac{a}{2\sqrt{3}} = \frac{1}{a^2\sqrt{3}}$ ✓.</li>
+<li><strong>Dimensions:</strong> $[\rho_{[111]}] = \text{atoms}/\text{m}$ and $[\rho_{(111)}] = \text{atoms}/\text{m}^2$ for $a$ in m ✓.</li>
+</ul>
+<h4 class="step-subheading">3. Comparison with the official answer</h4>
+<p>All four results agree with the official solution: BCC $\rho_{[111]} = 2/(\sqrt{3}\,a)$, $\rho_{(111)} = 1/(a^2\sqrt{3})$; FCC $\rho_{[111]} = 1/(a\sqrt{3})$, $\rho_{(111)} = 4/(a^2\sqrt{3})$.</p>
           </div>
         </div>
       </article>
@@ -1402,6 +1972,15 @@
 <li>Cross-sectional area of each spherical atom of radius $R$:</li>
 </ul>
 <p>  $$A_{\text{atom}} = \pi R^2$$</p>
+<h4 class="step-subheading">Parameters:</h4>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Quantity</th><th>Symbol</th><th>Value</th><th>SI unit</th></tr></thead><tbody>
+<tr><td>Lattice parameter</td><td>$a$</td><td>not given (results are ratios)</td><td>m</td></tr>
+<tr><td>Atomic radius</td><td>$R$</td><td>$a\sqrt{2}/4$</td><td>m</td></tr>
+<tr><td>Atoms per cell</td><td>$n$</td><td>$8 \cdot \tfrac18 + 6 \cdot \tfrac12 = 4$</td><td>dimensionless</td></tr>
+<tr><td>FCC sites (units of $a$)</td><td></td><td>corners $(0/1, 0/1, 0/1)$; face centres $(\tfrac12,\tfrac12,0/1)$, $(\tfrac12,0/1,\tfrac12)$, $(0/1,\tfrac12,\tfrac12)$</td><td>dimensionless</td></tr>
+</tbody></table></div>
+<p>Hypotheses: hard spheres of radius $R$; an atom counts for a plane only if its centre lies on the plane, and it then contributes a circle of radius $R$; each plane is evaluated over its section with one unit cell, with the usual sharing fractions for atoms on the boundary of the section (corner of a triangle $60^\circ/360^\circ = \tfrac16$, corner of a rectangle $\tfrac14$, side $\tfrac12$).</p>
 <hr class="divider" />
           </div>
 
@@ -1417,12 +1996,110 @@
 
           <div class="phase-step phase-3">
             <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
-            
+<p>Each plane is written from its intercepts $1/h,\ 1/k,\ 1/l$ (in units of $a$) as $hx + ky + lz = 1$ [Session 3 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=44" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 44">44</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=48" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 48">48</a>], and the FCC sites that satisfy that equation are the atoms of the plane. Throughout, $a^2 = (2\sqrt{2}R)^2 = 8R^2$.</p>
+<h4 class="step-subheading">1. $(111)$ Plane: $x + y + z = 1$</h4>
+<ul>
+<li><strong>Geometry:</strong> the section is the equilateral triangle with vertices $(1,0,0)$, $(0,1,0)$, $(0,0,1)$ and edge equal to a face diagonal, $L = a\sqrt{2} = 2\sqrt{2}R\cdot\sqrt{2} = 4R$.</li>
+<li><strong>Area:</strong></li>
+</ul>
+<p>$$A_{(111)} = \frac{\sqrt{3}}{4} L^2 = \frac{\sqrt{3}}{4}(4R)^2 = \frac{\sqrt{3}}{4}\cdot 16R^2 = 4\sqrt{3}\, R^2$$</p>
+<ul>
+<li><strong>Atoms:</strong> the 3 corners (sum of coordinates $1$) at the vertices, each $\tfrac16$, and the 3 face centres $(\tfrac12,\tfrac12,0)$, $(\tfrac12,0,\tfrac12)$, $(0,\tfrac12,\tfrac12)$ (sum $\tfrac12 + \tfrac12 = 1$) at the midpoints of the sides, each $\tfrac12$:</li>
+</ul>
+<p>$$N = 3 \cdot \tfrac16 + 3 \cdot \tfrac12 = \tfrac12 + \tfrac32 = 2 \text{ atoms}$$</p>
+<ul>
+<li><strong>Fraction:</strong></li>
+</ul>
+<p>$$\text{PPF}_{(111)} = \frac{2\pi R^2}{4\sqrt{3}R^2} = \frac{\pi}{2\sqrt{3}} = \frac{3.14159}{3.46410} = 0.9069 \quad (90.7\%)$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">2. $(200)$ Plane: $2x = 1$, i.e. $x = \tfrac12$</h4>
+<ul>
+<li><strong>Geometry:</strong> intercepts $x = \tfrac12$, $y = z = \infty$: the square section of side $a$ through the middle of the cell, parallel to the $(100)$ faces.</li>
+<li><strong>Area:</strong> $A_{(200)} = a^2 = 8R^2$.</li>
+<li><strong>Atoms:</strong> sites with $x = \tfrac12$ are the face centres $(\tfrac12,0,\tfrac12)$, $(\tfrac12,1,\tfrac12)$, $(\tfrac12,\tfrac12,0)$, $(\tfrac12,\tfrac12,1)$. Each lies at the midpoint of a side of the square and is shared with the neighbouring cell, so it counts $\tfrac12$:</li>
+</ul>
+<p>$$N = 4 \cdot \tfrac12 = 2 \text{ atoms}$$</p>
+<ul>
+<li><strong>Fraction:</strong></li>
+</ul>
+<p>$$\text{PPF}_{(200)} = \frac{2\pi R^2}{8R^2} = \frac{\pi}{4} = 0.7854 \quad (78.5\%)$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">3. $(220)$ Plane: $2x + 2y = 1$, i.e. $x + y = \tfrac12$</h4>
+<ul>
+<li><strong>Geometry:</strong> intercepts $x = \tfrac12$, $y = \tfrac12$, $z = \infty$: a vertical rectangle from $(\tfrac12, 0, z)$ to $(0, \tfrac12, z)$, $0 \le z \le 1$.</li>
+<li><strong>Area:</strong> base $\sqrt{(a/2)^2 + (a/2)^2} = \sqrt{a^2/2} = \frac{a}{\sqrt{2}}$, height $a$:</li>
+</ul>
+<p>$$A_{(220)} = \frac{a}{\sqrt{2}}\cdot a = \frac{a^2}{\sqrt{2}} = \frac{8R^2}{\sqrt{2}} = 4\sqrt{2}\, R^2$$</p>
+<ul>
+<li><strong>Atoms:</strong> testing $x + y$ on every site: corners give $0, 1, 2$; face centres give $1$ for $(\tfrac12,\tfrac12,0/1)$, $\tfrac12$ for $(\tfrac12,0,\tfrac12)$ and $(0,\tfrac12,\tfrac12)$, and $\tfrac32$ for $(\tfrac12,1,\tfrac12)$ and $(1,\tfrac12,\tfrac12)$. Only $(\tfrac12,0,\tfrac12)$ and $(0,\tfrac12,\tfrac12)$ lie on the plane, at mid-height of the two vertical sides of the rectangle, each shared with the neighbouring cell:</li>
+</ul>
+<p>$$N = 2 \cdot \tfrac12 = 1 \text{ atom}$$</p>
+<ul>
+<li><strong>Fraction:</strong></li>
+</ul>
+<p>$$\text{PPF}_{(220)} = \frac{\pi R^2}{4\sqrt{2}R^2} = \frac{\pi}{4\sqrt{2}} = \frac{\pi\sqrt{2}}{8} = \frac{4.44288}{8} = 0.5554 \quad (55.5\%)$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">4. $(222)$ Plane: $2x + 2y + 2z = 1$, i.e. $x + y + z = \tfrac12$</h4>
+<ul>
+<li><strong>Geometry:</strong> intercepts $x = y = z = \tfrac12$: an equilateral triangle parallel to $(111)$, halfway between the origin corner and the $(111)$ plane.</li>
+<li><strong>Atoms:</strong> the sum of the coordinates is an integer for every FCC site: $0, 1, 2, 3$ for corners and $\tfrac12 + \tfrac12 + 0 = 1$ or $\tfrac12 + \tfrac12 + 1 = 2$ for face centres. It is never $\tfrac12$, so no atom centre lies on the plane: $N = 0$.</li>
+</ul>
+<p>$$\text{PPF}_{(222)} = \frac{0 \cdot \pi R^2}{A_{(222)}} = 0$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">5. $(400)$ Plane: $4x = 1$, i.e. $x = \tfrac14$</h4>
+<ul>
+<li><strong>Geometry:</strong> a square section of side $a$ parallel to the $(100)$ faces at $x = \tfrac14$.</li>
+<li><strong>Atoms:</strong> the FCC sites have $x = 0$, $\tfrac12$ or $1$ only, so none has $x = \tfrac14$: $N = 0$.</li>
+</ul>
+<p>$$\text{PPF}_{(400)} = \frac{0}{a^2} = 0$$</p>
+<hr class="divider" />
+<h4 class="step-subheading">6. $(420)$ Plane: $4x + 2y = 1$</h4>
+<ul>
+<li><strong>Geometry:</strong> intercepts $x = \tfrac14$, $y = \tfrac12$, $z = \infty$: a vertical rectangle from $(\tfrac14, 0, z)$ to $(0, \tfrac12, z)$, $0 \le z \le 1$.</li>
+<li><strong>Area:</strong> base $\sqrt{(a/4)^2 + (a/2)^2} = \sqrt{\tfrac{a^2}{16} + \tfrac{4a^2}{16}} = \frac{a\sqrt{5}}{4}$, height $a$:</li>
+</ul>
+<p>$$A_{(420)} = \frac{\sqrt{5}}{4}a^2 = \frac{\sqrt{5}}{4}\cdot 8R^2 = 2\sqrt{5}\, R^2$$</p>
+<ul>
+<li><strong>Atoms:</strong> testing $4x + 2y$ on every site: corners give $0, 2, 4, 6$; face centres give $3$ for $(\tfrac12,\tfrac12,0/1)$, $2$ for $(\tfrac12,0,\tfrac12)$, $4$ for $(\tfrac12,1,\tfrac12)$, $5$ for $(1,\tfrac12,\tfrac12)$ and $1$ for $(0,\tfrac12,\tfrac12)$. Only the face centre $(0,\tfrac12,\tfrac12)$ lies on the plane, at mid-height of the side $x = 0$ of the rectangle, shared with the neighbouring cell:</li>
+</ul>
+<p>$$N = 1 \cdot \tfrac12 = \tfrac12 \text{ atom}$$</p>
+<ul>
+<li><strong>Fraction:</strong></li>
+</ul>
+<p>$$\text{PPF}_{(420)} = \frac{\tfrac12\pi R^2}{2\sqrt{5}R^2} = \frac{\pi}{4\sqrt{5}} = \frac{3.14159}{8.94427} = 0.3512 \quad (35.1\%)$$</p>
+<hr class="divider" />
           </div>
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            
+<h4 class="step-subheading">1. Summary</h4>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Plane $(hkl)$</th><th>Atoms in the section</th><th>Section area</th><th>PPF</th><th>Percentage</th><th>Official</th></tr></thead><tbody>
+<tr><td>$(111)$</td><td>$2$</td><td>$4\sqrt{3}R^2$</td><td>$\frac{\pi}{2\sqrt{3}}$</td><td>90.7%</td><td>$\pi/(2\sqrt{3})$ ✓</td></tr>
+<tr><td>$(200)$</td><td>$2$</td><td>$8R^2$</td><td>$\frac{\pi}{4}$</td><td>78.5%</td><td>$\pi/4$ ✓</td></tr>
+<tr><td>$(220)$</td><td>$1$</td><td>$4\sqrt{2}R^2$</td><td>$\frac{\pi\sqrt{2}}{8}$</td><td>55.5%</td><td>$\pi\sqrt{2}/8$ ✓</td></tr>
+<tr><td>$(222)$</td><td>$0$</td><td>$\sqrt{3}R^2$</td><td>$0$</td><td>0%</td><td>$0$ ✓</td></tr>
+<tr><td>$(400)$</td><td>$0$</td><td>$8R^2$</td><td>$0$</td><td>0%</td><td>$0$ ✓</td></tr>
+<tr><td>$(420)$</td><td>$\tfrac12$</td><td>$2\sqrt{5}R^2$</td><td>$\frac{\pi}{4\sqrt{5}}$</td><td>35.1%</td><td>$\pi/(4\sqrt{5})$ ✓</td></tr>
+</tbody></table></div>
+<p>The $(222)$ triangle has edge $\tfrac12 a\sqrt{2}$, so its area is $\frac{\sqrt{3}}{4}\cdot\frac{2a^2}{4} = \frac{\sqrt{3}}{8}a^2 = \sqrt{3}R^2$. All six results agree with the official solution.</p>
+<h4 class="step-subheading">2. Physical meaning</h4>
+<ul>
+<li>$(111)$ is the close-packed plane of FCC: $\pi/(2\sqrt{3})$ is the largest fraction of a plane that equal circles can cover (hexagonal arrangement; extension), which is why FCC slips on $\{111\}$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 37">37</a>].</li>
+<li>The packing falls as $h^2 + k^2 + l^2$ grows: $3 \to 4 \to 8 \to 20$ for $(111)$, $(200)$, $(220)$, $(420)$, i.e. $90.7\% > 78.5\% > 55.5\% > 35.1\%$. Higher indices mean closer layers, $d = a/\sqrt{h^2+k^2+l^2}$, and since all layers share the same $\rho_v$, closer layers hold fewer atoms per unit area.</li>
+<li>$(222)$ and $(400)$ are not empty "by accident": $x + y + z = \tfrac12$ lies halfway between the atomic layers $x + y + z = 0$ and $1$, and $x = \tfrac14$ halfway between the layers $x = 0$ and $\tfrac12$. Their PPF is zero because they cut the cell between two layers of atoms.</li>
+</ul>
+<h4 class="step-subheading">3. Cross-check with the volume density (extension)</h4>
+<p>For a plane that does contain atoms, $\text{PPF} = \rho_{(hkl)}\,\pi R^2$ with $\rho_{(hkl)} = \rho_v\, d$, where $\rho_v = 4/a^3$ and $d = a/\sqrt{h^2+k^2+l^2}$ is the spacing of the layers [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=53" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 53">53</a>]:</p>
+<ul>
+<li>$(111)$: $\rho = \frac{4}{a^3}\cdot\frac{a}{\sqrt{3}} = \frac{4}{\sqrt{3}a^2}$, $\text{PPF} = \frac{4\pi R^2}{\sqrt{3}\cdot 8R^2} = \frac{\pi}{2\sqrt{3}}$ ✓</li>
+<li>$(200)$: $\rho = \frac{4}{a^3}\cdot\frac{a}{2} = \frac{2}{a^2}$, $\text{PPF} = \frac{2\pi R^2}{8R^2} = \frac{\pi}{4}$ ✓</li>
+<li>$(220)$: $\rho = \frac{4}{a^3}\cdot\frac{a}{2\sqrt{2}} = \frac{\sqrt{2}}{a^2}$, $\text{PPF} = \frac{\sqrt{2}\pi R^2}{8R^2} = \frac{\pi\sqrt{2}}{8}$ ✓</li>
+<li>$(420)$: $\rho = \frac{4}{a^3}\cdot\frac{a}{2\sqrt{5}} = \frac{2}{\sqrt{5}a^2}$, $\text{PPF} = \frac{2\pi R^2}{\sqrt{5}\cdot 8R^2} = \frac{\pi}{4\sqrt{5}}$ ✓</li>
+</ul>
+<p>The section-by-section counts and the layer method give the same four values.</p>
+<h4 class="step-subheading">4. Dimensional check</h4>
+<p>$[\text{PPF}] = \frac{[N][\pi R^2]}{[A]} = \frac{1 \cdot \text{m}^2}{\text{m}^2} = 1$: a pure number, and every value lies between $0$ and $1$ ✓.</p>
           </div>
         </div>
       </article>
@@ -1761,20 +2438,20 @@
         <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems%20T2_CrystStruct.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T2_CrystStruct.pdf, p. 3</a>
 
         <div class="statement-box">
-          <p><strong>12. Draw direction vectors in unit cells for the following cubic directions:</strong>  
-<strong>a)</strong> $[1\, 1\, 2]$  
-<strong>b)</strong> $[\bar{3}\, 3\, 1]$  
-<strong>c)</strong> $[2\, 1\, 2]$  
-<strong>d)</strong> $[\bar{1}\, 0\, 1]$  
-<strong>e)</strong> $[3\, 2\, 1]$  
-<strong>f)</strong> $[1\, 2\, 2]$  
-<strong>g)</strong> $[\bar{1}\, 2\, 3]$  
-<strong>h)</strong> $[0\, \bar{2}\, 1]$  
-<strong>i)</strong> $[2\, \bar{3}\, 3]$  
-<strong>j)</strong> $[1\, 2\, \bar{1}]$  
-<strong>k)</strong> $[2\, 2\, 3]$  
-<strong>l)</strong> $[\bar{1}\, 0\, 3]$</p>
-          
+          <p><strong>12. Draw direction vectors in unit cells for the following cubic directions:</strong><br>
+<strong>a)</strong> $[1\, \bar{1}\, \bar{2}]$<br>
+<strong>b)</strong> $[\bar{3}\, 3\, 1]$<br>
+<strong>c)</strong> $[2\, \bar{1}\, 2]$<br>
+<strong>d)</strong> $[\bar{1}\, 0\, 1]$<br>
+<strong>e)</strong> $[3\, 2\, 1]$<br>
+<strong>f)</strong> $[1\, \bar{2}\, \bar{2}]$<br>
+<strong>g)</strong> $[1\, \bar{2}\, 3]$<br>
+<strong>h)</strong> $[0\, \bar{2}\, 1]$<br>
+<strong>i)</strong> $[2\, \bar{3}\, 3]$<br>
+<strong>j)</strong> $[1\, 2\, \bar{1}]$<br>
+<strong>k)</strong> $[\bar{2}\, \bar{2}\, 3]$<br>
+<strong>l)</strong> $[1\, 0\, \bar{3}]$</p>
+<p><em>(No numerical solution is given in the official sheet. The overbars were read from the rendered page of the PDF; in the sheet item k) is printed on a second line after l).)</em></p>
         </div>
 
         <div class="phases-grid">
@@ -1782,6 +2459,14 @@
             <span class="phase-badge">Phase 1: Hypothesis & Parameters</span>
             <h4 class="step-subheading">Geometric Context:</h4>
 <p>Twelve crystallographic vectors are drawn inside a standard cubic unit cell of normalised dimensions $1 \times 1 \times 1$.</p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Quantity</th><th>Symbol</th><th>Value / unit</th></tr></thead><tbody>
+<tr><td>Lattice parameter (cube edge)</td><td>$a$</td><td>arbitrary, in m; not needed, because every coordinate is a fraction of $a$</td></tr>
+<tr><td>Direction indices</td><td>$[u\,v\,w]$</td><td>integers, dimensionless</td></tr>
+<tr><td>Tail (new origin $O'$)</td><td>$(x_0, y_0, z_0)$</td><td>fractions of $a$, each $0$ or $1$</td></tr>
+<tr><td>Head (arrow tip)</td><td>$(x_f, y_f, z_f)$</td><td>fractions of $a$, each in $[0, 1]$</td></tr>
+</tbody></table></div>
+<p>Hypotheses: cubic cell ($a = b = c$, $\alpha = \beta = \gamma = 90^\circ$), right-handed axes $x$, $y$, $z$ along the cell edges [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 37">37</a>]; each direction is drawn as one vector inside one cell, which is always possible because parallel vectors share the same indices [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=41" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 41">41</a>].</p>
 <h4 class="step-subheading">Normalisation and Origin Translation Rules [Session 3 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=37" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 37">37-40</a>]:</h4>
 <ol>
 <li>The components of the direction vector must be reduced by dividing by the component of largest absolute value ($u_{\text{max}}$) so that the vector fits strictly inside the volume of a single unit cell:</li>
@@ -1795,7 +2480,7 @@
 
           <div class="phase-step phase-2">
             <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
-            <p>Citing the systematic procedure [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=40" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 40">40</a>]:</p>
+            <p>Citing the systematic procedure [Session 3 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 39">39-40</a>]:</p>
 <ol>
 <li>Identify whether there are negative indices and fix the local origin:</li>
 <li>$\bar{u} \implies$ origin at $x = 1$.</li>
@@ -1809,14 +2494,426 @@
 
           <div class="phase-step phase-3">
             <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
-            
+<p>For every direction the same four operations are applied [Session 3 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 39">39-40</a>]:</p>
+<ol>
+<li>$m = \max(|u|, |v|, |w|)$ and reduced vector $\vec{r} = \frac{1}{m}(u, v, w)$, so that the largest component is $\pm 1$;</li>
+<li>new origin $O'$: a $1$ in the position of each negative index, a $0$ elsewhere;</li>
+<li>head $= O' + \vec{r}$, component by component;</li>
+<li>check: head $-$ tail $= \vec{r}$ and $m\,\vec{r} = (u, v, w)$, and every coordinate of the head lies in $[0, 1]$ (the arrow stays inside the cell).</li>
+</ol>
+<p><strong>a) $[1\,\bar{1}\,\bar{2}]$.</strong> $m = 2$, $\vec{r} = \tfrac{1}{2}(1, -1, -2) = (\tfrac12, -\tfrac12, -1)$. Negative $v$ and $w$, so $O' = (0, 1, 1)$. Head $= (0 + \tfrac12,\ 1 - \tfrac12,\ 1 - 1) = (\tfrac12, \tfrac12, 0)$, the centre of the bottom face. Check: $2(\tfrac12, -\tfrac12, -1) = (1, -1, -2)$.</p>
+<p><strong>b) $[\bar{3}\,3\,1]$.</strong> $m = 3$, $\vec{r} = \tfrac{1}{3}(-3, 3, 1) = (-1, 1, \tfrac13)$. Negative $u$, so $O' = (1, 0, 0)$. Head $= (1 - 1,\ 0 + 1,\ 0 + \tfrac13) = (0, 1, \tfrac13)$, one third of the way up the back vertical edge $x = 0$, $y = 1$. Check: $3(-1, 1, \tfrac13) = (-3, 3, 1)$.</p>
+<p><strong>c) $[2\,\bar{1}\,2]$.</strong> $m = 2$, $\vec{r} = \tfrac{1}{2}(2, -1, 2) = (1, -\tfrac12, 1)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0 + 1,\ 1 - \tfrac12,\ 0 + 1) = (1, \tfrac12, 1)$, the midpoint of the top edge of the front face $x = 1$. Check: $2(1, -\tfrac12, 1) = (2, -1, 2)$.</p>
+<p><strong>d) $[\bar{1}\,0\,1]$.</strong> $m = 1$, $\vec{r} = (-1, 0, 1)$. Negative $u$, so $O' = (1, 0, 0)$. Head $= (1 - 1,\ 0 + 0,\ 0 + 1) = (0, 0, 1)$: the diagonal of the face $y = 0$. Check: $m = 1$, no scaling.</p>
+<p><strong>e) $[3\,2\,1]$.</strong> $m = 3$, $\vec{r} = \tfrac{1}{3}(3, 2, 1) = (1, \tfrac23, \tfrac13)$. No negative index, so $O' = (0, 0, 0)$. Head $= (1, \tfrac23, \tfrac13)$, a point of the front face $x = 1$. Check: $3(1, \tfrac23, \tfrac13) = (3, 2, 1)$.</p>
+<p><strong>f) $[1\,\bar{2}\,\bar{2}]$.</strong> $m = 2$, $\vec{r} = \tfrac{1}{2}(1, -2, -2) = (\tfrac12, -1, -1)$. Negative $v$ and $w$, so $O' = (0, 1, 1)$. Head $= (0 + \tfrac12,\ 1 - 1,\ 1 - 1) = (\tfrac12, 0, 0)$, the midpoint of the $x$ edge. Check: $2(\tfrac12, -1, -1) = (1, -2, -2)$.</p>
+<p><strong>g) $[1\,\bar{2}\,3]$.</strong> $m = 3$, $\vec{r} = \tfrac{1}{3}(1, -2, 3) = (\tfrac13, -\tfrac23, 1)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0 + \tfrac13,\ 1 - \tfrac23,\ 0 + 1) = (\tfrac13, \tfrac13, 1)$, a point of the top face. Check: $3(\tfrac13, -\tfrac23, 1) = (1, -2, 3)$.</p>
+<p><strong>h) $[0\,\bar{2}\,1]$.</strong> $m = 2$, $\vec{r} = \tfrac{1}{2}(0, -2, 1) = (0, -1, \tfrac12)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0,\ 1 - 1,\ 0 + \tfrac12) = (0, 0, \tfrac12)$, the midpoint of the $z$ edge; the vector lies in the face $x = 0$. Check: $2(0, -1, \tfrac12) = (0, -2, 1)$.</p>
+<p><strong>i) $[2\,\bar{3}\,3]$.</strong> $m = 3$, $\vec{r} = \tfrac{1}{3}(2, -3, 3) = (\tfrac23, -1, 1)$. Negative $v$, so $O' = (0, 1, 0)$. Head $= (0 + \tfrac23,\ 1 - 1,\ 0 + 1) = (\tfrac23, 0, 1)$, a point of the top edge of the face $y = 0$. Check: $3(\tfrac23, -1, 1) = (2, -3, 3)$.</p>
+<p><strong>j) $[1\,2\,\bar{1}]$.</strong> $m = 2$, $\vec{r} = \tfrac{1}{2}(1, 2, -1) = (\tfrac12, 1, -\tfrac12)$. Negative $w$, so $O' = (0, 0, 1)$. Head $= (0 + \tfrac12,\ 0 + 1,\ 1 - \tfrac12) = (\tfrac12, 1, \tfrac12)$, the centre of the right face $y = 1$. Check: $2(\tfrac12, 1, -\tfrac12) = (1, 2, -1)$.</p>
+<p><strong>k) $[\bar{2}\,\bar{2}\,3]$.</strong> $m = 3$, $\vec{r} = \tfrac{1}{3}(-2, -2, 3) = (-\tfrac23, -\tfrac23, 1)$. Negative $u$ and $v$, so $O' = (1, 1, 0)$. Head $= (1 - \tfrac23,\ 1 - \tfrac23,\ 0 + 1) = (\tfrac13, \tfrac13, 1)$, a point of the top face. Check: $3(-\tfrac23, -\tfrac23, 1) = (-2, -2, 3)$.</p>
+<p><strong>l) $[1\,0\,\bar{3}]$.</strong> $m = 3$, $\vec{r} = \tfrac{1}{3}(1, 0, -3) = (\tfrac13, 0, -1)$. Negative $w$, so $O' = (0, 0, 1)$. Head $= (0 + \tfrac13,\ 0,\ 1 - 1) = (\tfrac13, 0, 0)$, a point of the $x$ edge; the vector lies in the face $y = 0$. Check: $3(\tfrac13, 0, -1) = (1, 0, -3)$.</p>
+<h4 class="step-subheading">Summary</h4>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Item</th><th>Direction</th><th>$m$</th><th>Reduced $\vec{r}$</th><th>Tail $O'$</th><th>Head</th><th>Where the head lies</th></tr></thead><tbody>
+<tr><td>a</td><td>$[1\,\bar{1}\,\bar{2}]$</td><td>2</td><td>$(\tfrac12, -\tfrac12, -1)$</td><td>$(0, 1, 1)$</td><td>$(\tfrac12, \tfrac12, 0)$</td><td>centre of the bottom face</td></tr>
+<tr><td>b</td><td>$[\bar{3}\,3\,1]$</td><td>3</td><td>$(-1, 1, \tfrac13)$</td><td>$(1, 0, 0)$</td><td>$(0, 1, \tfrac13)$</td><td>edge $x = 0$, $y = 1$</td></tr>
+<tr><td>c</td><td>$[2\,\bar{1}\,2]$</td><td>2</td><td>$(1, -\tfrac12, 1)$</td><td>$(0, 1, 0)$</td><td>$(1, \tfrac12, 1)$</td><td>midpoint of edge $x = 1$, $z = 1$</td></tr>
+<tr><td>d</td><td>$[\bar{1}\,0\,1]$</td><td>1</td><td>$(-1, 0, 1)$</td><td>$(1, 0, 0)$</td><td>$(0, 0, 1)$</td><td>corner (face diagonal of $y = 0$)</td></tr>
+<tr><td>e</td><td>$[3\,2\,1]$</td><td>3</td><td>$(1, \tfrac23, \tfrac13)$</td><td>$(0, 0, 0)$</td><td>$(1, \tfrac23, \tfrac13)$</td><td>face $x = 1$</td></tr>
+<tr><td>f</td><td>$[1\,\bar{2}\,\bar{2}]$</td><td>2</td><td>$(\tfrac12, -1, -1)$</td><td>$(0, 1, 1)$</td><td>$(\tfrac12, 0, 0)$</td><td>midpoint of the $x$ edge</td></tr>
+<tr><td>g</td><td>$[1\,\bar{2}\,3]$</td><td>3</td><td>$(\tfrac13, -\tfrac23, 1)$</td><td>$(0, 1, 0)$</td><td>$(\tfrac13, \tfrac13, 1)$</td><td>top face $z = 1$</td></tr>
+<tr><td>h</td><td>$[0\,\bar{2}\,1]$</td><td>2</td><td>$(0, -1, \tfrac12)$</td><td>$(0, 1, 0)$</td><td>$(0, 0, \tfrac12)$</td><td>midpoint of the $z$ edge</td></tr>
+<tr><td>i</td><td>$[2\,\bar{3}\,3]$</td><td>3</td><td>$(\tfrac23, -1, 1)$</td><td>$(0, 1, 0)$</td><td>$(\tfrac23, 0, 1)$</td><td>edge $y = 0$, $z = 1$</td></tr>
+<tr><td>j</td><td>$[1\,2\,\bar{1}]$</td><td>2</td><td>$(\tfrac12, 1, -\tfrac12)$</td><td>$(0, 0, 1)$</td><td>$(\tfrac12, 1, \tfrac12)$</td><td>centre of the face $y = 1$</td></tr>
+<tr><td>k</td><td>$[\bar{2}\,\bar{2}\,3]$</td><td>3</td><td>$(-\tfrac23, -\tfrac23, 1)$</td><td>$(1, 1, 0)$</td><td>$(\tfrac13, \tfrac13, 1)$</td><td>top face $z = 1$</td></tr>
+<tr><td>l</td><td>$[1\,0\,\bar{3}]$</td><td>3</td><td>$(\tfrac13, 0, -1)$</td><td>$(0, 0, 1)$</td><td>$(\tfrac13, 0, 0)$</td><td>$x$ edge</td></tr>
+</tbody></table></div>
+<h4 class="step-subheading">Drawings</h4>
+<p>Each panel shows the cell with the axes $x$ (towards the reader), $y$ (right) and $z$ (up); the filled dot is the tail $O'$, the open dot the head, and a dotted line drops from a head that is not on the base or on a vertical edge to its foot on the plane $z = 0$.</p>
+<div class="diagram-card" style="margin:0.9rem 0;padding:0.6rem 0.4rem;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 808 255" width="100%" class="fig-kit" style="max-width:808px;margin:0 auto;display:block" role="img" aria-label="Problem 12, directions a to c: [1 -1 -2], [-3 3 1], [2 -1 2]">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="120.0" y1="180.0" x2="120.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="230.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="70.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="120.0" y1="70.0" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="70.0" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="98.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="183.8" y1="208.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="48.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M48.4,224.3 L53.6,217.0 L57.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="40.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="230.0" y1="180.0" x2="279.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M279.5,180.0 L271.2,183.5 L271.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="285.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="120.0" y1="70.0" x2="120.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M120.0,26.0 L123.5,34.3 L116.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="120.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="230.0" y1="70.0" x2="151.9" y2="194.3" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M151.9,194.3 L153.3,185.4 L159.3,189.1 Z" fill="var(--fig-acc, #f59e0b)"/>
+<circle cx="230.0" cy="70.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="151.9" cy="194.3" r="3" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="167.9" y="210.3" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(½, ½, 0)</text>
+<text x="220.0" y="60.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 1, 1)</text>
+<text x="125.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">a) [1 <tspan text-decoration="overline">1</tspan> <tspan text-decoration="overline">2</tspan>]</text>
+<line x1="375.0" y1="180.0" x2="375.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="485.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="328.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="70.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="375.0" y1="70.0" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="70.0" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="98.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="438.8" y1="208.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="303.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M303.4,224.3 L308.6,217.0 L312.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="295.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="485.0" y1="180.0" x2="534.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M534.5,180.0 L526.2,183.5 L526.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="540.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="375.0" y1="70.0" x2="375.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M375.0,26.0 L378.5,34.3 L371.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="375.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="328.8" y1="208.6" x2="485.0" y2="143.3" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.6"/>
+<path d="M485.0,143.3 L478.7,149.8 L476.0,143.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<circle cx="328.8" cy="208.6" r="4" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="485.0" cy="143.3" r="3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="519.0" y="145.3" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(0, 1, ⅓)</text>
+<text x="358.8" y="225.6" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(1, 0, 0)</text>
+<text x="380.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">b) [<tspan text-decoration="overline">3</tspan> 3 1]</text>
+<line x1="630.0" y1="180.0" x2="630.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="740.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="583.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="70.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="630.0" y1="70.0" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="70.0" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="98.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="693.8" y1="208.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="558.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M558.4,224.3 L563.6,217.0 L567.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="550.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="740.0" y1="180.0" x2="789.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M789.5,180.0 L781.2,183.5 L781.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="795.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="630.0" y1="70.0" x2="630.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M630.0,26.0 L633.5,34.3 L626.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="630.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="638.8" y1="98.6" x2="638.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="2,3"/>
+<circle cx="638.8" cy="208.6" r="2.2" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="740.0" y1="180.0" x2="638.8" y2="98.6" stroke="var(--fig-green, #10b981)" stroke-width="2.6"/>
+<path d="M638.8,98.6 L647.5,101.1 L643.1,106.5 Z" fill="var(--fig-green, #10b981)"/>
+<circle cx="740.0" cy="180.0" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="638.8" cy="98.6" r="3" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="648.8" y="88.6" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(1, ½, 1)</text>
+<text x="774.0" y="194.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 1, 0)</text>
+<text x="635.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">c) [2 <tspan text-decoration="overline">1</tspan> 2]</text>
+</g></svg>
+<div class="diagram-caption" style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:0.3rem;">Figure 12.1. Directions a) to c).</div>
+</div>
+<div class="diagram-card" style="margin:0.9rem 0;padding:0.6rem 0.4rem;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 805 255" width="100%" class="fig-kit" style="max-width:805px;margin:0 auto;display:block" role="img" aria-label="Problem 12, directions d to f: [-1 0 1], [3 2 1], [1 -2 -2]">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="120.0" y1="180.0" x2="120.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="230.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="70.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="120.0" y1="70.0" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="70.0" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="98.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="183.8" y1="208.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="48.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M48.4,224.3 L53.6,217.0 L57.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="40.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="230.0" y1="180.0" x2="279.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M279.5,180.0 L271.2,183.5 L271.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="285.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="120.0" y1="70.0" x2="120.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M120.0,26.0 L123.5,34.3 L116.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="120.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="73.8" y1="208.6" x2="120.0" y2="70.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M120.0,70.0 L120.7,79.0 L114.1,76.8 Z" fill="var(--fig-acc, #f59e0b)"/>
+<circle cx="73.8" cy="208.6" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="120.0" cy="70.0" r="3" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="96.0" y="62.0" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(0, 0, 1)</text>
+<text x="103.8" y="225.6" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(1, 0, 0)</text>
+<text x="125.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">d) [<tspan text-decoration="overline">1</tspan> 0 1]</text>
+<line x1="375.0" y1="180.0" x2="375.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="485.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="328.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="70.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="375.0" y1="70.0" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="70.0" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="98.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="438.8" y1="208.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="303.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M303.4,224.3 L308.6,217.0 L312.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="295.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="485.0" y1="180.0" x2="534.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M534.5,180.0 L526.2,183.5 L526.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="540.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="375.0" y1="70.0" x2="375.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M375.0,26.0 L378.5,34.3 L371.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="375.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="402.1" y1="171.9" x2="402.1" y2="208.6" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="2,3"/>
+<circle cx="402.1" cy="208.6" r="2.2" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="375.0" y1="180.0" x2="402.1" y2="171.9" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.6"/>
+<path d="M402.1,171.9 L395.2,177.7 L393.2,170.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<circle cx="375.0" cy="180.0" r="4" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="402.1" cy="171.9" r="3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="442.1" y="175.9" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(1, ⅔, ⅓)</text>
+<text x="353.0" y="172.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 0, 0)</text>
+<text x="380.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">e) [3 2 1]</text>
+<line x1="630.0" y1="180.0" x2="630.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="740.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="583.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="70.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="630.0" y1="70.0" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="70.0" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="98.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="693.8" y1="208.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="558.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M558.4,224.3 L563.6,217.0 L567.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="550.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="740.0" y1="180.0" x2="789.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M789.5,180.0 L781.2,183.5 L781.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="795.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="630.0" y1="70.0" x2="630.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M630.0,26.0 L633.5,34.3 L626.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="630.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="740.0" y1="70.0" x2="606.9" y2="194.3" stroke="var(--fig-green, #10b981)" stroke-width="2.6"/>
+<path d="M606.9,194.3 L610.6,186.1 L615.4,191.2 Z" fill="var(--fig-green, #10b981)"/>
+<circle cx="740.0" cy="70.0" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="606.9" cy="194.3" r="3" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="600.9" y="212.3" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(½, 0, 0)</text>
+<text x="754.0" y="60.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 1, 1)</text>
+<text x="635.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">f) [1 <tspan text-decoration="overline">2</tspan> <tspan text-decoration="overline">2</tspan>]</text>
+</g></svg>
+<div class="diagram-caption" style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:0.3rem;">Figure 12.2. Directions d) to f).</div>
+</div>
+<div class="diagram-card" style="margin:0.9rem 0;padding:0.6rem 0.4rem;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 808 255" width="100%" class="fig-kit" style="max-width:808px;margin:0 auto;display:block" role="img" aria-label="Problem 12, directions g to i: [1 -2 3], [0 -2 1], [2 -3 3]">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="120.0" y1="180.0" x2="120.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="230.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="70.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="120.0" y1="70.0" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="70.0" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="98.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="183.8" y1="208.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="48.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M48.4,224.3 L53.6,217.0 L57.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="40.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="230.0" y1="180.0" x2="279.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M279.5,180.0 L271.2,183.5 L271.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="285.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="120.0" y1="70.0" x2="120.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M120.0,26.0 L123.5,34.3 L116.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="120.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="141.3" y1="79.5" x2="141.3" y2="189.5" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="2,3"/>
+<circle cx="141.3" cy="189.5" r="2.2" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="230.0" y1="180.0" x2="141.3" y2="79.5" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M141.3,79.5 L149.4,83.4 L144.1,88.1 Z" fill="var(--fig-acc, #f59e0b)"/>
+<circle cx="230.0" cy="180.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="141.3" cy="79.5" r="3" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="137.3" y="69.5" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(⅓, ⅓, 1)</text>
+<text x="264.0" y="194.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 1, 0)</text>
+<text x="125.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">g) [1 <tspan text-decoration="overline">2</tspan> 3]</text>
+<line x1="375.0" y1="180.0" x2="375.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="485.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="328.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="70.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="375.0" y1="70.0" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="70.0" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="98.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="438.8" y1="208.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="303.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M303.4,224.3 L308.6,217.0 L312.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="295.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="485.0" y1="180.0" x2="534.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M534.5,180.0 L526.2,183.5 L526.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="540.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="375.0" y1="70.0" x2="375.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M375.0,26.0 L378.5,34.3 L371.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="375.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="485.0" y1="180.0" x2="375.0" y2="125.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.6"/>
+<path d="M375.0,125.0 L384.0,125.6 L380.8,131.8 Z" fill="var(--fig-blue, #3b82f6)"/>
+<circle cx="485.0" cy="180.0" r="4" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="375.0" cy="125.0" r="3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="345.0" y="125.0" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(0, 0, ½)</text>
+<text x="519.0" y="194.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 1, 0)</text>
+<text x="380.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">h) [0 <tspan text-decoration="overline">2</tspan> 1]</text>
+<line x1="630.0" y1="180.0" x2="630.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="740.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="583.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="70.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="630.0" y1="70.0" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="70.0" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="98.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="693.8" y1="208.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="558.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M558.4,224.3 L563.6,217.0 L567.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="550.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="740.0" y1="180.0" x2="789.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M789.5,180.0 L781.2,183.5 L781.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="795.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="630.0" y1="70.0" x2="630.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M630.0,26.0 L633.5,34.3 L626.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="630.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="599.2" y1="89.1" x2="599.2" y2="199.1" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="2,3"/>
+<circle cx="599.2" cy="199.1" r="2.2" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="740.0" y1="180.0" x2="599.2" y2="89.1" stroke="var(--fig-green, #10b981)" stroke-width="2.6"/>
+<path d="M599.2,89.1 L608.1,90.6 L604.3,96.5 Z" fill="var(--fig-green, #10b981)"/>
+<circle cx="740.0" cy="180.0" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="599.2" cy="89.1" r="3" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="589.2" y="79.1" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(⅔, 0, 1)</text>
+<text x="774.0" y="194.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 1, 0)</text>
+<text x="635.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">i) [2 <tspan text-decoration="overline">3</tspan> 3]</text>
+</g></svg>
+<div class="diagram-caption" style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:0.3rem;">Figure 12.3. Directions g) to i).</div>
+</div>
+<div class="diagram-card" style="margin:0.9rem 0;padding:0.6rem 0.4rem;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 805 255" width="100%" class="fig-kit" style="max-width:805px;margin:0 auto;display:block" role="img" aria-label="Problem 12, directions j to l: [1 2 -1], [-2 -2 3], [1 0 -3]">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="120.0" y1="180.0" x2="120.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="230.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="180.0" x2="73.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="120.0" y1="70.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="120.0" y1="70.0" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="230.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="180.0" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="230.0" y1="70.0" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="73.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="183.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="98.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="183.8" y1="208.6" x2="183.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="73.8" y1="208.6" x2="48.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M48.4,224.3 L53.6,217.0 L57.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="40.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="230.0" y1="180.0" x2="279.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M279.5,180.0 L271.2,183.5 L271.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="285.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="120.0" y1="70.0" x2="120.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M120.0,26.0 L123.5,34.3 L116.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="120.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="206.9" y1="139.3" x2="206.9" y2="194.3" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="2,3"/>
+<circle cx="206.9" cy="194.3" r="2.2" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="120.0" y1="70.0" x2="206.9" y2="139.3" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M206.9,139.3 L198.2,136.9 L202.6,131.4 Z" fill="var(--fig-acc, #f59e0b)"/>
+<circle cx="120.0" cy="70.0" r="4" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<circle cx="206.9" cy="139.3" r="3" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="246.9" y="145.3" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(½, 1, ½)</text>
+<text x="88.0" y="64.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 0, 1)</text>
+<text x="125.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">j) [1 2 <tspan text-decoration="overline">1</tspan>]</text>
+<line x1="375.0" y1="180.0" x2="375.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="485.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="180.0" x2="328.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="375.0" y1="70.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="375.0" y1="70.0" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="485.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="180.0" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="485.0" y1="70.0" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="328.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="438.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="98.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="438.8" y1="208.6" x2="438.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="328.8" y1="208.6" x2="303.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M303.4,224.3 L308.6,217.0 L312.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="295.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="485.0" y1="180.0" x2="534.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M534.5,180.0 L526.2,183.5 L526.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="540.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="375.0" y1="70.0" x2="375.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M375.0,26.0 L378.5,34.3 L371.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="375.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="396.3" y1="79.5" x2="396.3" y2="189.5" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="2,3"/>
+<circle cx="396.3" cy="189.5" r="2.2" fill="var(--text-faint)" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="438.8" y1="208.6" x2="396.3" y2="79.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.6"/>
+<path d="M396.3,79.5 L402.2,86.3 L395.5,88.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<circle cx="438.8" cy="208.6" r="4" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="396.3" cy="79.5" r="3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="390.3" y="69.5" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(⅓, ⅓, 1)</text>
+<text x="470.8" y="224.6" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(1, 1, 0)</text>
+<text x="380.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">k) [<tspan text-decoration="overline">2</tspan> <tspan text-decoration="overline">2</tspan> 3]</text>
+<line x1="630.0" y1="180.0" x2="630.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="740.0" y2="180.0" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="180.0" x2="583.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="630.0" y1="70.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="630.0" y1="70.0" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="740.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="180.0" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="740.0" y1="70.0" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="583.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="693.8" y2="208.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="98.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="693.8" y1="208.6" x2="693.8" y2="98.6" stroke="var(--text-faint)" stroke-width="1.2"/>
+<line x1="583.8" y1="208.6" x2="558.4" y2="224.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M558.4,224.3 L563.6,217.0 L567.3,222.9 Z" fill="var(--text-faint)"/>
+<text x="550.4" y="228.3" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">x</text>
+<line x1="740.0" y1="180.0" x2="789.5" y2="180.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M789.5,180.0 L781.2,183.5 L781.2,176.5 Z" fill="var(--text-faint)"/>
+<text x="795.5" y="184.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">y</text>
+<line x1="630.0" y1="70.0" x2="630.0" y2="26.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<path d="M630.0,26.0 L633.5,34.3 L626.5,34.3 Z" fill="var(--text-faint)"/>
+<text x="630.0" y="20.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="middle">z</text>
+<line x1="630.0" y1="70.0" x2="614.6" y2="189.5" stroke="var(--fig-green, #10b981)" stroke-width="2.6"/>
+<path d="M614.6,189.5 L612.2,180.9 L619.1,181.8 Z" fill="var(--fig-green, #10b981)"/>
+<circle cx="630.0" cy="70.0" r="4" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<circle cx="614.6" cy="189.5" r="3" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="580.6" y="203.5" fill="var(--text-heading)" font-size="11" font-weight="700" text-anchor="middle">(⅓, 0, 0)</text>
+<text x="598.0" y="64.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">(0, 0, 1)</text>
+<text x="635.0" y="245.0" fill="var(--text-heading)" font-size="14" font-weight="700" text-anchor="middle">l) [1 0 <tspan text-decoration="overline">3</tspan>]</text>
+</g></svg>
+<div class="diagram-caption" style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:0.3rem;">Figure 12.4. Directions j) to l).</div>
+</div>
+<hr class="divider" />
           </div>
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            <ol>
-<li><strong>Parallelism:</strong> If we multiply a vector by a positive scalar constant, the direction does not change: $[1\, 1\, 2]$ and $[2\, 2\, 4]$ represent exactly the <strong>same crystallographic direction</strong>.</li>
-<li><strong>Equivalence of $\langle u\, v\, w \rangle$ Families:</strong> Directions such as $[1\, 2\, 2]$ and $[2\, 1\, 2]$ are symmetric members of the $\langle 221 \rangle$ family in the cubic lattice, which implies that they have identical translational repeat length and the same physical properties of conductivity or elastic modulus.</li>
+<ol>
+<li><strong>Dimensions:</strong> the indices are pure numbers and every coordinate is a fraction of the lattice parameter, $x = X/a$ with $[X] = \text{m}$ and $[a] = \text{m}$, so $[x] = \text{m}/\text{m} = 1$. The drawings are therefore valid for any cubic metal; only the real length of each vector scales with $a$.</li>
+<li><strong>Containment check:</strong> all twelve heads have coordinates in $[0, 1]$ (table above), so every arrow stays inside one cell, as the construction requires [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=39" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 39">39</a>].</li>
+<li><strong>Parallelism:</strong> multiplying a vector by a positive scalar does not change the direction: $[1\,\bar{1}\,\bar{2}]$ and $[2\,\bar{2}\,\bar{4}]$ are the <strong>same crystallographic direction</strong> [Session 3 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%203%20T2%20Structure%20of%20Materials%20I_2025.pdf#page=41" target="_blank" rel="noopener" title="Open Session 3 T2 Structure I.pdf at page 41">41</a>]. Reversing the arrow changes every sign: the opposite of $[1\,2\,\bar{1}]$ is $[\bar{1}\,\bar{2}\,1]$.</li>
+<li><strong>Families:</strong> in a cubic cell, directions whose indices are permutations of the same numbers, with any signs, belong to the same family. Here $[2\,\bar{1}\,2]$ and $[1\,\bar{2}\,\bar{2}]$ are both members of $\langle 1\,2\,2 \rangle$, and $[2\,\bar{3}\,3]$ belongs to $\langle 2\,3\,3 \rangle$; members of one family have the same repeat length along the line.</li>
+<li><strong>Limiting case:</strong> when $m = 1$ (item d) no scaling is needed and the head is a lattice corner; for $m > 1$ at least one component is a fraction, so the head falls on an edge, a face or (in general) inside the cell.</li>
 </ol>
           </div>
         </div>
@@ -2216,7 +3313,7 @@
 <p>   The migration of an ion to an interstitial position generates a vacancy and an interstitial. The equilibrium fractional concentration is:</p>
 <p>   $$\frac{n_F}{\sqrt{N N_i}} = \exp\left(-\frac{\Delta H_F}{2\, k_B T}\right)$$</p>
 <div class="callout"><div class="callout-title">NOTE</div>
-<p class="blockquote">The factor $2$ in the denominator of the exponent is a fundamental thermodynamic feature of ionic defects: since two defect species are generated simultaneously to preserve electroneutrality, the mass-action product leads to $\exp(-\Delta H / 2k_B T)$.</p>
+<p class="blockquote">The factor $2$ in the denominator of the exponent is a fundamental thermodynamic feature of ionic defects: since two defect species are generated simultaneously to preserve electroneutrality, the mass-action product leads to $\exp(-\Delta H / 2k_B T)$.</p></div>
 <hr class="divider" />
           </div>
 
@@ -2372,11 +3469,15 @@
         <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/problemas/Problems%20T2%20defects.pdf" target="_blank" rel="noopener">Original statement · Problems T2 defects.pdf</a>
 
         <div class="statement-box">
-          <p><strong>4. Using data in the table below, order the elements according to their solubility in iron, from higher to lower solubility. Justify your answer.</strong>  
-<em>(Solution: $\text{Mo} > \text{Ni} > \text{Mn}$)</em>
-
-| Element | Atomic radius (nm) | Crystalline Structure | Electronegativity | Valence |
-| :</p>
+          <p><strong>4. Using data in the table below, order the elements according to their solubility in iron, from higher to lower solubility. Justify your answer.</strong><br>
+<em>(Solution: $\text{Mo} > \text{Ni} > \text{Mn}$)</em></p>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Element</th><th>Atomic radius (nm)</th><th>Crystalline Structure</th><th><em>Electronegativity</em></th><th>Valence</th></tr></thead><tbody>
+<tr><td>Iron</td><td>0.124</td><td>BCC</td><td>1.7</td><td>+2, +3</td></tr>
+<tr><td>Nickel</td><td>0.125</td><td>FCC</td><td>1.8</td><td>+2</td></tr>
+<tr><td>Molybdenum</td><td>0.136</td><td>BCC</td><td>1.3</td><td>+3, +4, +6</td></tr>
+<tr><td>Manganese</td><td>0.112</td><td>Simple cubic</td><td>1.6</td><td>+2, +3,+6, +7</td></tr>
+</tbody></table></div>
           <div class="solution-box">Solution: $\text{Mo} > \text{Ni} > \text{Mn}$</div>
         </div>
 
@@ -2397,6 +3498,8 @@
 <li><strong>Molybdenum ($\text{Mo}$):</strong> $R = 0.136\text{ nm}$, BCC, $\chi = 1.3$, Val = $+3, +4, +6$.</li>
 <li><strong>Manganese ($\text{Mn}$):</strong> $R = 0.112\text{ nm}$, Simple Cubic, $\chi = 1.6$, Val = $+2, +3, +6, +7$.</li>
 </ol>
+<p>In SI units the radii are $R_{\text{Fe}} = 1.24\times10^{-10}\text{ m}$, $R_{\text{Ni}} = 1.25\times10^{-10}\text{ m}$, $R_{\text{Mo}} = 1.36\times10^{-10}\text{ m}$, $R_{\text{Mn}} = 1.12\times10^{-10}\text{ m}$ ($1\text{ nm} = 10^{-9}\text{ m}$); the electronegativities are dimensionless (Pauling scale).</p>
+<p>Hypotheses: substitutional solid solution of each element in iron with the BCC structure given in the table; the four Hume-Rothery conditions are qualitative [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 23">23</a>], so the ranking is obtained by comparing how many conditions each solute fulfils and by how much, giving priority to the crystal structure (the first condition on the slide: a solute that crystallises in a different lattice cannot replace solvent atoms over the whole composition range) and then to the size mismatch.</p>
 <hr class="divider" />
           </div>
 
@@ -2417,12 +3520,51 @@
 
           <div class="phase-step phase-3">
             <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
-            
+<h4 class="step-subheading">1. Size criterion (radius mismatch)</h4>
+<p>With $\Delta R = \dfrac{|R_{\text{solute}} - R_{\text{Fe}}|}{R_{\text{Fe}}}\times 100\%$ and $R_{\text{Fe}} = 0.124\text{ nm}$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 23">23</a>]:</p>
+<p>$$\Delta R_{\text{Ni}} = \frac{|0.125 - 0.124|}{0.124}\times 100\% = \frac{0.001}{0.124}\times 100\% = 0.00806\times 100\% = 0.81\% < 15\% \quad \checkmark$$</p>
+<p>$$\Delta R_{\text{Mo}} = \frac{|0.136 - 0.124|}{0.124}\times 100\% = \frac{0.012}{0.124}\times 100\% = 0.0968\times 100\% = 9.68\% < 15\% \quad \checkmark$$</p>
+<p>$$\Delta R_{\text{Mn}} = \frac{|0.112 - 0.124|}{0.124}\times 100\% = \frac{0.012}{0.124}\times 100\% = 0.0968\times 100\% = 9.68\% < 15\% \quad \checkmark$$</p>
+<p>All three are below the $15\%$ limit for metals, so none is restricted to the "limited solubility ($\lt 1\%$)" case of the slide; Ni is by far the closest in size.</p>
+<h4 class="step-subheading">2. Crystal-structure criterion</h4>
+<ul>
+<li>Mo: BCC, the same as Fe $\Rightarrow$ fulfilled $\checkmark$.</li>
+<li>Ni: FCC $\neq$ BCC $\Rightarrow$ not fulfilled $\times$.</li>
+<li>Mn: simple cubic $\neq$ BCC $\Rightarrow$ not fulfilled $\times$.</li>
+</ul>
+<h4 class="step-subheading">3. Electronegativity criterion</h4>
+<p>$$|\Delta\chi_{\text{Ni}}| = |1.8 - 1.7| = 0.1, \qquad |\Delta\chi_{\text{Mo}}| = |1.3 - 1.7| = 0.4, \qquad |\Delta\chi_{\text{Mn}}| = |1.6 - 1.7| = 0.1$$</p>
+<p>Ni and Mn are equally close to Fe; Mo has the largest difference of the three.</p>
+<h4 class="step-subheading">4. Valence criterion</h4>
+<ul>
+<li>Ni ($+2$) shares $+2$ with Fe ($+2, +3$).</li>
+<li>Mo ($+3, +4, +6$) shares $+3$.</li>
+<li>Mn ($+2, +3, +6, +7$) shares both $+2$ and $+3$.</li>
+</ul>
+<p>No solute is excluded by valence.</p>
+<h4 class="step-subheading">5. Summary and ranking</h4>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Solute</th><th>$\Delta R$</th><th>Same structure as Fe (BCC)</th><th>$\lvert\Delta\chi\rvert$</th><th>Common valence</th><th>Conditions fulfilled</th></tr></thead><tbody>
+<tr><td>Mo</td><td>$9.68\%$ ✓</td><td>yes (BCC) ✓</td><td>$0.4$</td><td>$+3$ ✓</td><td>structure, size, valence</td></tr>
+<tr><td>Ni</td><td>$0.81\%$ ✓</td><td>no (FCC) ✗</td><td>$0.1$</td><td>$+2$ ✓</td><td>size (best), electronegativity, valence</td></tr>
+<tr><td>Mn</td><td>$9.68\%$ ✓</td><td>no (SC) ✗</td><td>$0.1$</td><td>$+2, +3$ ✓</td><td>size, electronegativity, valence</td></tr>
+</tbody></table></div>
+<ol>
+<li><strong>Mo first.</strong> It is the only solute with the same BCC lattice as iron, and its size mismatch ($9.68\%$) is within the $15\%$ limit. Its larger electronegativity difference ($0.4$) is the only weak point, and it does not outweigh the structural match.</li>
+<li><strong>Ni versus Mn.</strong> Both fail the structure condition, have the same $|\Delta\chi| = 0.1$ and share a valence with iron. The criterion that separates them is size: $0.81\%$ for Ni against $9.68\%$ for Mn, i.e. $9.68/0.81 \approx 12$ times larger mismatch for Mn. Hence Ni is more soluble than Mn.</li>
+</ol>
+<p>$$\boxed{\text{Mo} > \text{Ni} > \text{Mn}}$$</p>
+<p>This agrees with the official solution ($\text{Mo} > \text{Ni} > \text{Mn}$).</p>
+<hr class="divider" />
           </div>
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            
+<ol>
+<li><strong>Dimensional check:</strong> $\Delta R$ is a ratio of two lengths, $[\Delta R] = \text{m}/\text{m} = 1$, so it can be computed in nm without converting to m: $\frac{1.2\times10^{-11}\text{ m}}{1.24\times10^{-10}\text{ m}} = 0.0968$, the same as $\frac{0.012\text{ nm}}{0.124\text{ nm}}$. Electronegativity differences are dimensionless (Pauling scale).</li>
+<li><strong>Weighting of the rules:</strong> the Hume-Rothery rules give conditions, not a formula [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=23" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 23">23</a>]: when one or more conditions fail the solubility is partial, and even when all are met total solubility is not guaranteed. The ranking above therefore rests on the order of importance used here (structure first, then size); with that order the result is unique, because Mo is the only solute that matches the lattice and the Ni/Mn tie in electronegativity and valence is broken by size.</li>
+<li><strong>Limiting cases:</strong> a solute with $\Delta R > 15\%$ would drop to the bottom regardless of the other rules (solubility $\lt 1\%$ on the slide); a solute meeting all four conditions with a very small $\Delta R$ would be the candidate for complete solubility. None of the three solutes is a clear case of all four conditions: Mo has the largest electronegativity difference ($0.4$), while Ni and Mn fail the structure condition.</li>
+</ol>
           </div>
         </div>
       </article>
@@ -2655,14 +3797,23 @@
 <li>$E_1$: Elastic energy per unit length to generate a dislocation with Burgers vector along the $[100]$ direction.</li>
 <li>$E_2$: Elastic energy per unit length to generate a dislocation with Burgers vector along the $[110]$ direction.</li>
 </ul>
+<div class="table-container"><table class="data-table">
+<thead><tr><th>Quantity</th><th>Symbol</th><th>SI unit</th></tr></thead><tbody>
+<tr><td>Lattice parameter</td><td>$a$</td><td>m</td></tr>
+<tr><td>Atomic radius</td><td>$R$</td><td>m</td></tr>
+<tr><td>Burgers vector magnitude</td><td>$b = \lvert\vec{b}\rvert$</td><td>m</td></tr>
+<tr><td>Dislocation energy per unit length</td><td>$E$</td><td>J/m</td></tr>
+<tr><td>Proportionality constant ($E = k\,b^2$)</td><td>$k$</td><td>$\text{J/m}^3 = \text{Pa}$ (of the order of the shear modulus)</td></tr>
+</tbody></table></div>
+<p>Hypotheses: both dislocations are in the same FCC crystal, so $k$ (which depends only on the elastic constants of the material and on the dislocation character, taken to be the same) is the same for both and cancels in the ratio; atoms are hard spheres touching along the face diagonal $\langle 110 \rangle$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>].</p>
 <hr class="divider" />
           </div>
 
           <div class="phase-step phase-2">
             <span class="phase-badge">Phase 2: Fundamental Physics & Formula Selection</span>
-            <p>Citing Frank's theory and the mechanics of dislocations [Session 4 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 29">29</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>]:</p>
+            <p>Citing the mechanics of dislocations [Session 4 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=29" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 29">29</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>]:</p>
 <ol>
-<li><strong>Frank's Rule for the Elastic Energy of a Dislocation:</strong></li>
+<li><strong>Elastic energy of a dislocation</strong> (the course states it as "E used to move a dislocation $\propto |b|^2$" [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>]; in the literature this is the basis of Frank's criterion, an extension name not used on the slides):</li>
 </ol>
 <p>   The elastic strain energy stored in the elastic distortion field surrounding a dislocation is directly proportional to the <strong>square of the magnitude of its Burgers vector</strong>:</p>
 <p>   $$E \propto |\vec{b}|^2$$</p>
@@ -2683,12 +3834,34 @@
 
           <div class="phase-step phase-3">
             <span class="phase-badge">Phase 3: Analytical Derivation & Calculation Step-by-Step</span>
-            
+<h4 class="step-subheading">1. Geometry of the FCC cell</h4>
+<p>In FCC the atoms touch along the face diagonal, which holds $4R$ (a corner atom contributes $R$, the face-centre atom $2R$, the opposite corner atom $R$). By Pythagoras on a face of side $a$:</p>
+<p>$$a^2 + a^2 = (4R)^2 \;\Longrightarrow\; 2a^2 = 16R^2 \;\Longrightarrow\; a^2 = 8R^2 \;\Longrightarrow\; a = 2\sqrt{2}\,R$$</p>
+<h4 class="step-subheading">2. Burgers vector along $[100]$</h4>
+<p>The shortest lattice translation along $[100]$ joins two neighbouring corners, $\vec{b}_1 = a[1\,0\,0] = (a, 0, 0)$ (the point $(\tfrac12, 0, 0)$ is an octahedral interstice, not a lattice site). Its squared magnitude:</p>
+<p>$$|\vec{b}_1|^2 = a^2 + 0^2 + 0^2 = a^2 = (2\sqrt{2}R)^2 = 4 \cdot 2 \cdot R^2 = 8R^2 \;\Longrightarrow\; b_1 = 2\sqrt{2}\,R$$</p>
+<p>This is the value on the slide, obtained there as $b^2 + b^2 = (4R)^2 \Rightarrow b = 2\sqrt{2}\,R$ [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>].</p>
+<h4 class="step-subheading">3. Burgers vector along $[110]$</h4>
+<p>Along $[110]$ the face-centre atom sits halfway along the diagonal, so the shortest translation is $\vec{b}_2 = \tfrac{a}{2}[1\,1\,0] = (\tfrac{a}{2}, \tfrac{a}{2}, 0)$:</p>
+<p>$$|\vec{b}_2|^2 = \left(\frac{a}{2}\right)^2 + \left(\frac{a}{2}\right)^2 + 0^2 = \frac{a^2}{4} + \frac{a^2}{4} = \frac{2a^2}{4} = \frac{a^2}{2} = \frac{8R^2}{2} = 4R^2 \;\Longrightarrow\; b_2 = 2R$$</p>
+<p>This is one atomic diameter, the value on the slide ($b = 2R$) [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>].</p>
+<h4 class="step-subheading">4. Energies and their ratio</h4>
+<p>With $E = k\,b^2$ and the same $k$ for both dislocations:</p>
+<p>$$E_1 = k\,|\vec{b}_1|^2 = k\,a^2 = 8kR^2, \qquad E_2 = k\,|\vec{b}_2|^2 = k\,\frac{a^2}{2} = 4kR^2$$</p>
+<p>$$\frac{E_1}{E_2} = \frac{k\,a^2}{k\,a^2/2} = a^2 \cdot \frac{2}{a^2} = 2 \qquad\text{and, in terms of } R:\qquad \frac{E_1}{E_2} = \frac{8kR^2}{4kR^2} = 2$$</p>
+<p>$$\boxed{\dfrac{E_1}{E_2} = 2} \quad \blacksquare$$</p>
+<p>The two routes (through $a$ and through $R$) agree, and the result is the one requested by the statement.</p>
+<hr class="divider" />
           </div>
 
           <div class="phase-step phase-4">
             <span class="phase-badge">Phase 4: Physical Interpretation & Verification</span>
-            
+<ol>
+<li><strong>Dimensional check:</strong> $[k\,b^2] = \text{Pa}\cdot\text{m}^2 = \frac{\text{N}}{\text{m}^2}\cdot\text{m}^2 = \text{N} = \frac{\text{J}}{\text{m}}$, an energy per unit length of dislocation line, as expected. The ratio $E_1/E_2 = \frac{\text{J/m}}{\text{J/m}}$ is dimensionless, and so is $b_1/b_2 = \frac{2\sqrt{2}R}{2R} = \sqrt{2}$; squaring it gives back $(\sqrt{2})^2 = 2$.</li>
+<li><strong>Independence of the material:</strong> $a$ (or $R$) and $k$ cancel, so the ratio $2$ holds for every FCC metal (Al, Cu, Ni, ...), whatever its lattice parameter or shear modulus.</li>
+<li><strong>Physical meaning:</strong> the $[110]$ dislocation stores half the energy of the $[100]$ one because its Burgers vector is the shortest lattice translation, along the close-packed direction. This is why slip in FCC takes place along $\langle 110 \rangle$: dislocation movement is parallel to the direction of maximum packing [Session 4 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-02-crystal-structures-defects/teoria/Session%204%20T2%20Structure%20of%20Materials%20II_2025.pdf#page=36" target="_blank" rel="noopener" title="Open Session 4 T2 Structure II.pdf at page 36">36</a>].</li>
+<li><strong>Extension (not in the course material):</strong> a $[100]$ dislocation can be written as the sum of two close-packed ones, $a[1\,0\,0] = \tfrac{a}{2}[1\,1\,0] + \tfrac{a}{2}[1\,\bar{1}\,0]$ (check: $\tfrac{a}{2}(1+1,\ 1-1,\ 0+0) = (a, 0, 0)$). The energies are $|a[100]|^2 = a^2$ before and $\tfrac{a^2}{2} + \tfrac{a^2}{2} = a^2$ after, so with $E \propto b^2$ alone this split is energy-neutral: the argument of the problem is the comparison of the two shortest translations, not a decomposition.</li>
+</ol>
           </div>
         </div>
       </article>
