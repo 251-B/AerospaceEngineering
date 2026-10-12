@@ -3,7 +3,7 @@
 > **Course Code:** `251-15332` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `473546c3-3716-4426-b0c4-58de530f91c8`  
 > **Portal Web:** `subjects/03-engineering-mechanics/` | **Obsidian Vault:** `vault/03-engineering-mechanics/`  
-> **Last Synchronized:** `2026-10-10 16:38` | **Total Official Files:** `151` (52.4 MB)
+> **Last Synchronized:** `2026-10-12 10:41` | **Total Official Files:** `191` (80.9 MB)
 
 ---
 
@@ -13,8 +13,8 @@
 | :--- | :---: | :---: | :--- |
 | 📖 **Theory & Slides** | `7` | 🟢 Active | Consolidated Notes & Session Slides |
 | ✏️ **Problem Sheets & Solutions** | `13` | 🟢 Active | Official problem sets & step-by-step solutions |
-| 🔬 **Laboratory Practicals** | `131` | 🟢 Active | Structured into general-instructions/ & lab-1..4/ |
-| 📝 **Official Exams** | `0` | 🟡 Incomplete | Partial midterms & final exams |
+| 🔬 **Laboratory Practicals** | `136` | 🟢 Active | Structured into general-instructions/ & lab-1..4/ |
+| 📝 **Official Exams** | `32` | 🟢 Active | Partial midterms & final exams |
 | 📅 **Course Schedule** | `0` | 🔴 Pending | Weekly lecture & evaluation calendar |
 
 ---
@@ -23,157 +23,197 @@
 
 | # | File Name | Category / Subfolder | Size | File Path |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | `mechanics_labs.pdf` | 🔬 Lab (General Instructions) | 584.1 KB | `laboratorios/general-instructions/mechanics_labs.pdf` |
-| 2 | `AnaliticSolutionLab1Mech2ndTry.pdf` | 🔬 Lab 1 | 115.2 KB | `laboratorios/lab-1/Lab1-Ismael/AnaliticSolutionLab1Mech2ndTry.pdf` |
-| 3 | `Lab1_notes.pptx` | 🔬 Lab 1 | 708.0 KB | `laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx` |
-| 4 | `ex_1_analytical.jpg` | 🔬 Lab 1 | 71.7 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_analytical.jpg` |
-| 5 | `ex_1_both.jpg` | 🔬 Lab 1 | 79.7 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_both.jpg` |
-| 6 | `ex_1_both_tol.jpg` | 🔬 Lab 1 | 79.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_both_tol.jpg` |
-| 7 | `ex_1_numerical.jpg` | 🔬 Lab 1 | 73.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_numerical.jpg` |
-| 8 | `ex_1_numerical_event.jpg` | 🔬 Lab 1 | 62.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_numerical_event.jpg` |
-| 9 | `ex_1_numerical_tol.jpg` | 🔬 Lab 1 | 73.9 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_numerical_tol.jpg` |
-| 10 | `ex_2_analytical.jpg` | 🔬 Lab 1 | 70.4 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_analytical.jpg` |
-| 11 | `ex_2_both.jpg` | 🔬 Lab 1 | 74.9 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_both.jpg` |
-| 12 | `ex_2_comparison_stopfun1.jpg` | 🔬 Lab 1 | 67.9 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_comparison_stopfun1.jpg` |
-| 13 | `ex_2_comparison_trajectory.jpg` | 🔬 Lab 1 | 66.5 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_comparison_trajectory.jpg` |
-| 14 | `example1.m` | 🔬 Lab 1 | 3.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/example1.m` |
-| 15 | `example2.m` | 🔬 Lab 1 | 3.7 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/example2.m` |
-| 16 | `fig_cd_vs_reynolds.pdf` | 🔬 Lab 1 | 22.2 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_cd_vs_reynolds.pdf` |
-| 17 | `fig_cd_vs_reynolds.png` | 🔬 Lab 1 | 53.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_cd_vs_reynolds.png` |
-| 18 | `fig_force_linearized.pdf` | 🔬 Lab 1 | 22.5 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_linearized.pdf` |
-| 19 | `fig_force_linearized.png` | 🔬 Lab 1 | 57.4 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_linearized.png` |
-| 20 | `fig_force_vs_flowrate.pdf` | 🔬 Lab 1 | 29.4 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_vs_flowrate.pdf` |
-| 21 | `fig_force_vs_flowrate.png` | 🔬 Lab 1 | 57.3 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_vs_flowrate.png` |
-| 22 | `tables_lab1.tex` | 🔬 Lab 1 | 3.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/tables_lab1.tex` |
-| 23 | `Overleaf_Lab1_ReportFinished.zip` | 🔬 Lab 1 | 458.6 KB | `laboratorios/lab-1/Lab1-Ismael/deliverable/Overleaf_Lab1_ReportFinished.zip` |
-| 24 | `main.m` | 🔬 Lab 1 | 5.9 KB | `laboratorios/lab-1/Lab1-Ismael/deliverable/code_LB_Martin_Martin_Ranz/main.m` |
-| 25 | `Fig_1.png` | 🔬 Lab 1 | 291.1 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_1.png` |
-| 26 | `Fig_2.png` | 🔬 Lab 1 | 192.1 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_2.png` |
-| 27 | `Fig_3.png` | 🔬 Lab 1 | 143.5 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_3.png` |
-| 28 | `Fig_4.png` | 🔬 Lab 1 | 193.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_4.png` |
-| 29 | `fig1_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig1_trajectories.pdf` |
-| 30 | `fig1_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig1_trajectories.png` |
-| 31 | `fig5_energy_evolution.pdf` | 🔬 Lab 1 | 172.3 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig5_energy_evolution.pdf` |
-| 32 | `fig5_energy_evolution.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig5_energy_evolution.png` |
-| 33 | `fig_diagram.pdf` | 🔬 Lab 1 | 23.8 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_diagram.pdf` |
-| 34 | `fig_diagram.png` | 🔬 Lab 1 | 90.2 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_diagram.png` |
-| 35 | `fig_energy.pdf` | 🔬 Lab 1 | 172.3 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_energy.pdf` |
-| 36 | `fig_energy.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_energy.png` |
-| 37 | `fig_grid_phi_xi_T.pdf` | 🔬 Lab 1 | 421.2 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_grid_phi_xi_T.pdf` |
-| 38 | `fig_grid_phi_xi_T.png` | 🔬 Lab 1 | 294.2 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_grid_phi_xi_T.png` |
-| 39 | `fig_singularity_work.pdf` | 🔬 Lab 1 | 271.8 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_singularity_work.pdf` |
-| 40 | `fig_singularity_work.png` | 🔬 Lab 1 | 164.4 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_singularity_work.png` |
-| 41 | `fig_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_trajectories.pdf` |
-| 42 | `fig_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_trajectories.png` |
-| 43 | `logo_uc3m.png` | 🔬 Lab 1 | 39.0 KB | `laboratorios/lab-1/Lab1_Hector/Figures/logo_uc3m.png` |
-| 44 | `Group_LA_Alvarez_Gonzalez_Hernandez.zip` | 🔬 Lab 1 | 1.2 MB | `laboratorios/lab-1/Lab1_Hector/Group_LA_Alvarez_Gonzalez_Hernandez.zip` |
-| 45 | `Group_LA_Student1_Student2_Student3.zip` | 🔬 Lab 1 | 1.2 MB | `laboratorios/lab-1/Lab1_Hector/Group_LA_Student1_Student2_Student3.zip` |
-| 46 | `Report_LA_Alvarez_Gonzalez_Hernandez.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/Report_LA_Alvarez_Gonzalez_Hernandez.pdf` |
-| 47 | `Fig_1.png` | 🔬 Lab 1 | 293.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_1.png` |
-| 48 | `Fig_2.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_2.png` |
-| 49 | `Fig_3.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_3.png` |
-| 50 | `Fig_4.png` | 🔬 Lab 1 | 164.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_4.png` |
-| 51 | `logo_uc3m.png` | 🔬 Lab 1 | 230.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/logo_uc3m.png` |
-| 52 | `Fig_1.png` | 🔬 Lab 1 | 291.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_1.png` |
-| 53 | `Fig_2.png` | 🔬 Lab 1 | 192.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_2.png` |
-| 54 | `Fig_3.png` | 🔬 Lab 1 | 143.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_3.png` |
-| 55 | `Fig_4.png` | 🔬 Lab 1 | 193.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_4.png` |
-| 56 | `fig1_trajectories.eps` | 🔬 Lab 1 | 356.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.eps` |
-| 57 | `fig1_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.pdf` |
-| 58 | `fig1_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.png` |
-| 59 | `fig2_phi_evolution.eps` | 🔬 Lab 1 | 361.2 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.eps` |
-| 60 | `fig2_phi_evolution.pdf` | 🔬 Lab 1 | 150.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.pdf` |
-| 61 | `fig2_phi_evolution.png` | 🔬 Lab 1 | 301.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.png` |
-| 62 | `fig3_xi_evolution.eps` | 🔬 Lab 1 | 359.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig3_xi_evolution.eps` |
-| 63 | `fig3_xi_evolution.pdf` | 🔬 Lab 1 | 142.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig3_xi_evolution.pdf` |
-| 64 | `fig3_xi_evolution.png` | 🔬 Lab 1 | 274.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig3_xi_evolution.png` |
-| 65 | `fig4_tension_evolution.eps` | 🔬 Lab 1 | 412.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig4_tension_evolution.eps` |
-| 66 | `fig4_tension_evolution.pdf` | 🔬 Lab 1 | 191.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig4_tension_evolution.pdf` |
-| 67 | `fig4_tension_evolution.png` | 🔬 Lab 1 | 269.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig4_tension_evolution.png` |
-| 68 | `fig5_energy_evolution.eps` | 🔬 Lab 1 | 574.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.eps` |
-| 69 | `fig5_energy_evolution.pdf` | 🔬 Lab 1 | 172.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.pdf` |
-| 70 | `fig5_energy_evolution.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.png` |
-| 71 | `fig6_case3_singularity.eps` | 🔬 Lab 1 | 397.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.eps` |
-| 72 | `fig6_case3_singularity.pdf` | 🔬 Lab 1 | 153.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.pdf` |
-| 73 | `fig6_case3_singularity.png` | 🔬 Lab 1 | 294.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.png` |
-| 74 | `fig7_case4_slack.eps` | 🔬 Lab 1 | 255.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.eps` |
-| 75 | `fig7_case4_slack.pdf` | 🔬 Lab 1 | 50.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.pdf` |
-| 76 | `fig7_case4_slack.png` | 🔬 Lab 1 | 301.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.png` |
-| 77 | `fig_case1_summary.eps` | 🔬 Lab 1 | 167.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case1_summary.eps` |
-| 78 | `fig_case1_summary.pdf` | 🔬 Lab 1 | 31.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case1_summary.pdf` |
-| 79 | `fig_case1_summary.png` | 🔬 Lab 1 | 213.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case1_summary.png` |
-| 80 | `fig_case2_summary.eps` | 🔬 Lab 1 | 669.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case2_summary.eps` |
-| 81 | `fig_case2_summary.pdf` | 🔬 Lab 1 | 320.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case2_summary.pdf` |
-| 82 | `fig_case2_summary.png` | 🔬 Lab 1 | 277.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case2_summary.png` |
-| 83 | `fig_case3_summary.eps` | 🔬 Lab 1 | 259.2 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case3_summary.eps` |
-| 84 | `fig_case3_summary.pdf` | 🔬 Lab 1 | 65.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case3_summary.pdf` |
-| 85 | `fig_case3_summary.png` | 🔬 Lab 1 | 218.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case3_summary.png` |
-| 86 | `fig_case4_summary.eps` | 🔬 Lab 1 | 189.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case4_summary.eps` |
-| 87 | `fig_case4_summary.pdf` | 🔬 Lab 1 | 46.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case4_summary.pdf` |
-| 88 | `fig_case4_summary.png` | 🔬 Lab 1 | 242.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case4_summary.png` |
-| 89 | `fig_case5_summary.eps` | 🔬 Lab 1 | 764.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.eps` |
-| 90 | `fig_case5_summary.pdf` | 🔬 Lab 1 | 378.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.pdf` |
-| 91 | `fig_case5_summary.png` | 🔬 Lab 1 | 323.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.png` |
-| 92 | `fig_diagram.pdf` | 🔬 Lab 1 | 23.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_diagram.pdf` |
-| 93 | `fig_diagram.png` | 🔬 Lab 1 | 90.2 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_diagram.png` |
-| 94 | `fig_energy.pdf` | 🔬 Lab 1 | 172.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_energy.pdf` |
-| 95 | `fig_energy.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_energy.png` |
-| 96 | `fig_grid_phi_xi_T.pdf` | 🔬 Lab 1 | 420.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_grid_phi_xi_T.pdf` |
-| 97 | `fig_grid_phi_xi_T.png` | 🔬 Lab 1 | 293.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_grid_phi_xi_T.png` |
-| 98 | `fig_singularity_work.pdf` | 🔬 Lab 1 | 271.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_singularity_work.pdf` |
-| 99 | `fig_singularity_work.png` | 🔬 Lab 1 | 164.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_singularity_work.png` |
-| 100 | `fig_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_trajectories.pdf` |
-| 101 | `fig_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_trajectories.png` |
-| 102 | `logo_uc3m.png` | 🔬 Lab 1 | 230.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/logo_uc3m.png` |
-| 103 | `final_candidate.aux` | 🔬 Lab 1 | 7.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.aux` |
-| 104 | `final_candidate.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.out` |
-| 105 | `final_candidate.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.pdf` |
-| 106 | `final_candidate.toc` | 🔬 Lab 1 | 1.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.toc` |
-| 107 | `logo_uc3m.png` | 🔬 Lab 1 | 230.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/logo_uc3m.png` |
-| 108 | `references.bib` | 🔬 Lab 1 | 2.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/references.bib` |
-| 109 | `report.aux` | 🔬 Lab 1 | 7.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.aux` |
-| 110 | `report.bbl` | 🔬 Lab 1 | 1017.0 B | `laboratorios/lab-1/Lab1_Hector/latex_source/report.bbl` |
-| 111 | `report.blg` | 🔬 Lab 1 | 1014.0 B | `laboratorios/lab-1/Lab1_Hector/latex_source/report.blg` |
-| 112 | `report.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.out` |
-| 113 | `report.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.pdf` |
-| 114 | `report.tex` | 🔬 Lab 1 | 27.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.tex` |
-| 115 | `report.toc` | 🔬 Lab 1 | 1.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.toc` |
-| 116 | `report_test.aux` | 🔬 Lab 1 | 7.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.aux` |
-| 117 | `report_test.out` | 🔬 Lab 1 | 2.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.out` |
-| 118 | `report_test.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.pdf` |
-| 119 | `report_test.tex` | 🔬 Lab 1 | 24.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.tex` |
-| 120 | `report_test.toc` | 🔬 Lab 1 | 1.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.toc` |
-| 121 | `test1.aux` | 🔬 Lab 1 | 7.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.aux` |
-| 122 | `test1.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.out` |
-| 123 | `test1.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.pdf` |
-| 124 | `test1.tex` | 🔬 Lab 1 | 26.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.tex` |
-| 125 | `test1.toc` | 🔬 Lab 1 | 1.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.toc` |
-| 126 | `test2.aux` | 🔬 Lab 1 | 7.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.aux` |
-| 127 | `test2.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.out` |
-| 128 | `test2.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.pdf` |
-| 129 | `test2.tex` | 🔬 Lab 1 | 26.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.tex` |
-| 130 | `test2.toc` | 🔬 Lab 1 | 1.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.toc` |
-| 131 | `main.m` | 🔬 Lab 1 | 5.0 KB | `laboratorios/lab-1/Lab1_Hector/main.m` |
-| 132 | `Problems.pdf` | ✏️ Problems | 4.6 MB | `problemas/Problems.pdf` |
-| 133 | `all_51_particle_problems_raw.txt` | ✏️ Problems | 164.0 KB | `problemas/all_51_particle_problems_raw.txt` |
-| 134 | `all_51_problems_classified_raw.txt` | ✏️ Problems | 61.2 KB | `problemas/all_51_problems_classified_raw.txt` |
-| 135 | `analyzed_particle_problems.txt` | ✏️ Problems | 43.9 KB | `problemas/analyzed_particle_problems.txt` |
-| 136 | `classification_draft.txt` | ✏️ Problems | 14.6 KB | `problemas/classification_draft.txt` |
-| 137 | `detailed_problem_inspection.txt` | ✏️ Problems | 98.9 KB | `problemas/detailed_problem_inspection.txt` |
-| 138 | `extracted_particle_problems.txt` | ✏️ Problems | 55.4 KB | `problemas/extracted_particle_problems.txt` |
-| 139 | `full_classification_report.md` | ✏️ Problems | 9.9 KB | `problemas/full_classification_report.md` |
-| 140 | `particle_problems_summary.txt` | ✏️ Problems | 63.4 KB | `problemas/particle_problems_summary.txt` |
-| 141 | `raw_topic_1.txt` | ✏️ Problems | 5.5 KB | `problemas/raw_topic_1.txt` |
-| 142 | `raw_topic_2.txt` | ✏️ Problems | 5.5 KB | `problemas/raw_topic_2.txt` |
-| 143 | `raw_topic_3.txt` | ✏️ Problems | 24.1 KB | `problemas/raw_topic_3.txt` |
-| 144 | `split_particle_problems.txt` | ✏️ Problems | 59.4 KB | `problemas/split_particle_problems.txt` |
-| 145 | `Notes.pdf` | 📖 Theory | 2.6 MB | `teoria/Notes.pdf` |
-| 146 | `00.pdf` | 🖥️ Slides | 1.4 MB | `unit-01-particle-kinematics/slides/00.pdf` |
-| 147 | `01_-_Point_particle_kinematics.pdf` | 🖥️ Slides | 2.9 MB | `unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf` |
-| 148 | `02.PointParticleDynamics.pdf` | 🖥️ Slides | 2.2 MB | `unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf` |
-| 149 | `03_-_Constraints.pdf` | 🖥️ Slides | 2.8 MB | `unit-03-constraints-reactions/slides/03_-_Constraints.pdf` |
-| 150 | `04_-_Angular_momentum.pdf` | 🖥️ Slides | 2.3 MB | `unit-04-angular-momentum-central-forces/slides/04_-_Angular_momentum.pdf` |
-| 151 | `05_-_Relative_motion.pdf` | 🖥️ Slides | 3.1 MB | `unit-05-relative-motion/slides/05_-_Relative_motion.pdf` |
+| 1 | `MECHANICS_FINALEXAM_2011_ORD.pdf` | 📝 Exam | 244.5 KB | `examenes/MECHANICS_FINALEXAM_2011_ORD.pdf` |
+| 2 | `MECHANICS_FINALEXAM_2012_EXTRA.pdf` | 📝 Exam | 250.5 KB | `examenes/MECHANICS_FINALEXAM_2012_EXTRA.pdf` |
+| 3 | `MECHANICS_FINALEXAM_2013_ORD.pdf` | 📝 Exam | 947.4 KB | `examenes/MECHANICS_FINALEXAM_2013_ORD.pdf` |
+| 4 | `MECHANICS_FINALEXAM_2014_ORD.pdf` | 📝 Exam | 356.8 KB | `examenes/MECHANICS_FINALEXAM_2014_ORD.pdf` |
+| 5 | `MECHANICS_FINALEXAM_2015_EXTRA.pdf` | 📝 Exam | 346.9 KB | `examenes/MECHANICS_FINALEXAM_2015_EXTRA.pdf` |
+| 6 | `MECHANICS_FINALEXAM_2015_ORD.pdf` | 📝 Exam | 226.4 KB | `examenes/MECHANICS_FINALEXAM_2015_ORD.pdf` |
+| 7 | `MECHANICS_FINALEXAM_2016_EXTRA.pdf` | 📝 Exam | 336.8 KB | `examenes/MECHANICS_FINALEXAM_2016_EXTRA.pdf` |
+| 8 | `MECHANICS_FINALEXAM_2016_ORD.pdf` | 📝 Exam | 210.6 KB | `examenes/MECHANICS_FINALEXAM_2016_ORD.pdf` |
+| 9 | `MECHANICS_FINALEXAM_2018_ORD.pdf` | 📝 Exam | 293.0 KB | `examenes/MECHANICS_FINALEXAM_2018_ORD.pdf` |
+| 10 | `MECHANICS_FINALEXAM_2019_ORD.pdf` | 📝 Exam | 186.5 KB | `examenes/MECHANICS_FINALEXAM_2019_ORD.pdf` |
+| 11 | `MECHANICS_FINALEXAM_2019_ORD_PHOTO.jpg` | 📝 Exam | 128.8 KB | `examenes/MECHANICS_FINALEXAM_2019_ORD_PHOTO.jpg` |
+| 12 | `MECHANICS_FINALEXAM_2020_EXTRA_PAGE1.jpg` | 📝 Exam | 2.3 MB | `examenes/MECHANICS_FINALEXAM_2020_EXTRA_PAGE1.jpg` |
+| 13 | `MECHANICS_FINALEXAM_2020_EXTRA_PAGE2.jpg` | 📝 Exam | 2.6 MB | `examenes/MECHANICS_FINALEXAM_2020_EXTRA_PAGE2.jpg` |
+| 14 | `MECHANICS_FINALEXAM_2020_EXTRA_PAGE3.jpg` | 📝 Exam | 3.2 MB | `examenes/MECHANICS_FINALEXAM_2020_EXTRA_PAGE3.jpg` |
+| 15 | `MECHANICS_FINALEXAM_2021_ORD.pdf` | 📝 Exam | 110.6 KB | `examenes/MECHANICS_FINALEXAM_2021_ORD.pdf` |
+| 16 | `MECHANICS_FINALEXAM_2024_ORD_PROBLEMS.pdf` | 📝 Exam | 7.6 MB | `examenes/MECHANICS_FINALEXAM_2024_ORD_PROBLEMS.pdf` |
+| 17 | `MECHANICS_FIRSTPARTIAL_2011.pdf` | 📝 Exam | 67.8 KB | `examenes/MECHANICS_FIRSTPARTIAL_2011.pdf` |
+| 18 | `MECHANICS_FIRSTPARTIAL_2013.pdf` | 📝 Exam | 82.7 KB | `examenes/MECHANICS_FIRSTPARTIAL_2013.pdf` |
+| 19 | `MECHANICS_FIRSTPARTIAL_2015.pdf` | 📝 Exam | 107.0 KB | `examenes/MECHANICS_FIRSTPARTIAL_2015.pdf` |
+| 20 | `MECHANICS_FIRSTPARTIAL_2016.pdf` | 📝 Exam | 121.1 KB | `examenes/MECHANICS_FIRSTPARTIAL_2016.pdf` |
+| 21 | `MECHANICS_FIRSTPARTIAL_2017.pdf` | 📝 Exam | 108.9 KB | `examenes/MECHANICS_FIRSTPARTIAL_2017.pdf` |
+| 22 | `MECHANICS_FIRSTPARTIAL_2017_EXERCISE_SOL.pdf` | 📝 Exam | 142.9 KB | `examenes/MECHANICS_FIRSTPARTIAL_2017_EXERCISE_SOL.pdf` |
+| 23 | `MECHANICS_FIRSTPARTIAL_2019.pdf` | 📝 Exam | 861.3 KB | `examenes/MECHANICS_FIRSTPARTIAL_2019.pdf` |
+| 24 | `MECHANICS_FIRSTPARTIAL_2024.pdf` | 📝 Exam | 94.8 KB | `examenes/MECHANICS_FIRSTPARTIAL_2024.pdf` |
+| 25 | `MECHANICS_SECONDPARTIAL_2011.pdf` | 📝 Exam | 208.5 KB | `examenes/MECHANICS_SECONDPARTIAL_2011.pdf` |
+| 26 | `MECHANICS_SECONDPARTIAL_2013.pdf` | 📝 Exam | 997.0 KB | `examenes/MECHANICS_SECONDPARTIAL_2013.pdf` |
+| 27 | `MECHANICS_SECONDPARTIAL_2014.pdf` | 📝 Exam | 1.3 MB | `examenes/MECHANICS_SECONDPARTIAL_2014.pdf` |
+| 28 | `MECHANICS_SECONDPARTIAL_2015.pdf` | 📝 Exam | 103.8 KB | `examenes/MECHANICS_SECONDPARTIAL_2015.pdf` |
+| 29 | `MECHANICS_SECONDPARTIAL_2017.pdf` | 📝 Exam | 124.1 KB | `examenes/MECHANICS_SECONDPARTIAL_2017.pdf` |
+| 30 | `MECHANICS_SECONDPARTIAL_2018.pdf` | 📝 Exam | 1.0 MB | `examenes/MECHANICS_SECONDPARTIAL_2018.pdf` |
+| 31 | `MECHANICS_SECONDPARTIAL_2019.pdf` | 📝 Exam | 122.7 KB | `examenes/MECHANICS_SECONDPARTIAL_2019.pdf` |
+| 32 | `MECHANICS_SECONDPARTIAL_2024.pdf` | 📝 Exam | 3.6 MB | `examenes/MECHANICS_SECONDPARTIAL_2024.pdf` |
+| 33 | `mechanics_labs.pdf` | 🔬 Lab (General Instructions) | 584.1 KB | `laboratorios/general-instructions/mechanics_labs.pdf` |
+| 34 | `AnaliticSolutionLab1Mech2ndTry.pdf` | 🔬 Lab 1 | 115.2 KB | `laboratorios/lab-1/Lab1-Ismael/AnaliticSolutionLab1Mech2ndTry.pdf` |
+| 35 | `Lab1_notes.pptx` | 🔬 Lab 1 | 708.0 KB | `laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx` |
+| 36 | `ex_1_analytical.jpg` | 🔬 Lab 1 | 71.7 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_analytical.jpg` |
+| 37 | `ex_1_both.jpg` | 🔬 Lab 1 | 79.7 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_both.jpg` |
+| 38 | `ex_1_both_tol.jpg` | 🔬 Lab 1 | 79.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_both_tol.jpg` |
+| 39 | `ex_1_numerical.jpg` | 🔬 Lab 1 | 73.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_numerical.jpg` |
+| 40 | `ex_1_numerical_event.jpg` | 🔬 Lab 1 | 62.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_numerical_event.jpg` |
+| 41 | `ex_1_numerical_tol.jpg` | 🔬 Lab 1 | 73.9 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_1_numerical_tol.jpg` |
+| 42 | `ex_2_analytical.jpg` | 🔬 Lab 1 | 70.4 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_analytical.jpg` |
+| 43 | `ex_2_both.jpg` | 🔬 Lab 1 | 74.9 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_both.jpg` |
+| 44 | `ex_2_comparison_stopfun1.jpg` | 🔬 Lab 1 | 67.9 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_comparison_stopfun1.jpg` |
+| 45 | `ex_2_comparison_trajectory.jpg` | 🔬 Lab 1 | 66.5 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/ex_2_comparison_trajectory.jpg` |
+| 46 | `example1.m` | 🔬 Lab 1 | 3.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/example1.m` |
+| 47 | `example2.m` | 🔬 Lab 1 | 3.7 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/example2.m` |
+| 48 | `fig_cd_vs_reynolds.pdf` | 🔬 Lab 1 | 22.2 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_cd_vs_reynolds.pdf` |
+| 49 | `fig_cd_vs_reynolds.png` | 🔬 Lab 1 | 53.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_cd_vs_reynolds.png` |
+| 50 | `fig_force_linearized.pdf` | 🔬 Lab 1 | 22.5 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_linearized.pdf` |
+| 51 | `fig_force_linearized.png` | 🔬 Lab 1 | 57.4 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_linearized.png` |
+| 52 | `fig_force_vs_flowrate.pdf` | 🔬 Lab 1 | 29.4 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_vs_flowrate.pdf` |
+| 53 | `fig_force_vs_flowrate.png` | 🔬 Lab 1 | 57.3 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/fig_force_vs_flowrate.png` |
+| 54 | `tables_lab1.tex` | 🔬 Lab 1 | 3.8 KB | `laboratorios/lab-1/Lab1-Ismael/MatlabCode/tables_lab1.tex` |
+| 55 | `Overleaf_Lab1_ReportFinished.zip` | 🔬 Lab 1 | 458.6 KB | `laboratorios/lab-1/Lab1-Ismael/deliverable/Overleaf_Lab1_ReportFinished.zip` |
+| 56 | `main.m` | 🔬 Lab 1 | 6.1 KB | `laboratorios/lab-1/Lab1-Ismael/deliverable/code_LB_Martin_Martin_Ranz/main.m` |
+| 57 | `Fig_1.png` | 🔬 Lab 1 | 291.1 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_1.png` |
+| 58 | `Fig_2.png` | 🔬 Lab 1 | 192.1 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_2.png` |
+| 59 | `Fig_3.png` | 🔬 Lab 1 | 143.5 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_3.png` |
+| 60 | `Fig_4.png` | 🔬 Lab 1 | 193.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/Fig_4.png` |
+| 61 | `fig1_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig1_trajectories.pdf` |
+| 62 | `fig1_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig1_trajectories.png` |
+| 63 | `fig5_energy_evolution.pdf` | 🔬 Lab 1 | 172.3 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig5_energy_evolution.pdf` |
+| 64 | `fig5_energy_evolution.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig5_energy_evolution.png` |
+| 65 | `fig_diagram.pdf` | 🔬 Lab 1 | 23.8 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_diagram.pdf` |
+| 66 | `fig_diagram.png` | 🔬 Lab 1 | 90.2 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_diagram.png` |
+| 67 | `fig_energy.pdf` | 🔬 Lab 1 | 172.3 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_energy.pdf` |
+| 68 | `fig_energy.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_energy.png` |
+| 69 | `fig_grid_phi_xi_T.pdf` | 🔬 Lab 1 | 421.2 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_grid_phi_xi_T.pdf` |
+| 70 | `fig_grid_phi_xi_T.png` | 🔬 Lab 1 | 294.2 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_grid_phi_xi_T.png` |
+| 71 | `fig_singularity_work.pdf` | 🔬 Lab 1 | 271.8 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_singularity_work.pdf` |
+| 72 | `fig_singularity_work.png` | 🔬 Lab 1 | 164.4 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_singularity_work.png` |
+| 73 | `fig_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_trajectories.pdf` |
+| 74 | `fig_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/Figures/fig_trajectories.png` |
+| 75 | `logo_uc3m.png` | 🔬 Lab 1 | 39.0 KB | `laboratorios/lab-1/Lab1_Hector/Figures/logo_uc3m.png` |
+| 76 | `Group_LA_Alvarez_Gonzalez_Hernandez.zip` | 🔬 Lab 1 | 1.2 MB | `laboratorios/lab-1/Lab1_Hector/Group_LA_Alvarez_Gonzalez_Hernandez.zip` |
+| 77 | `Group_LA_Student1_Student2_Student3.zip` | 🔬 Lab 1 | 1.2 MB | `laboratorios/lab-1/Lab1_Hector/Group_LA_Student1_Student2_Student3.zip` |
+| 78 | `Report_LA_Alvarez_Gonzalez_Hernandez.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/Report_LA_Alvarez_Gonzalez_Hernandez.pdf` |
+| 79 | `Fig_1.png` | 🔬 Lab 1 | 293.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_1.png` |
+| 80 | `Fig_2.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_2.png` |
+| 81 | `Fig_3.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_3.png` |
+| 82 | `Fig_4.png` | 🔬 Lab 1 | 164.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/Fig_4.png` |
+| 83 | `logo_uc3m.png` | 🔬 Lab 1 | 230.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figs/logo_uc3m.png` |
+| 84 | `Fig_1.png` | 🔬 Lab 1 | 291.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_1.png` |
+| 85 | `Fig_2.png` | 🔬 Lab 1 | 192.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_2.png` |
+| 86 | `Fig_3.png` | 🔬 Lab 1 | 143.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_3.png` |
+| 87 | `Fig_4.png` | 🔬 Lab 1 | 193.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/Fig_4.png` |
+| 88 | `fig1_trajectories.eps` | 🔬 Lab 1 | 353.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.eps` |
+| 89 | `fig1_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.pdf` |
+| 90 | `fig1_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.png` |
+| 91 | `fig2_phi_evolution.eps` | 🔬 Lab 1 | 358.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.eps` |
+| 92 | `fig2_phi_evolution.pdf` | 🔬 Lab 1 | 150.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.pdf` |
+| 93 | `fig2_phi_evolution.png` | 🔬 Lab 1 | 301.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.png` |
+| 94 | `fig3_xi_evolution.eps` | 🔬 Lab 1 | 356.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig3_xi_evolution.eps` |
+| 95 | `fig3_xi_evolution.pdf` | 🔬 Lab 1 | 142.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig3_xi_evolution.pdf` |
+| 96 | `fig3_xi_evolution.png` | 🔬 Lab 1 | 274.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig3_xi_evolution.png` |
+| 97 | `fig4_tension_evolution.eps` | 🔬 Lab 1 | 409.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig4_tension_evolution.eps` |
+| 98 | `fig4_tension_evolution.pdf` | 🔬 Lab 1 | 191.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig4_tension_evolution.pdf` |
+| 99 | `fig4_tension_evolution.png` | 🔬 Lab 1 | 269.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig4_tension_evolution.png` |
+| 100 | `fig5_energy_evolution.eps` | 🔬 Lab 1 | 570.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.eps` |
+| 101 | `fig5_energy_evolution.pdf` | 🔬 Lab 1 | 172.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.pdf` |
+| 102 | `fig5_energy_evolution.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.png` |
+| 103 | `fig6_case3_singularity.eps` | 🔬 Lab 1 | 392.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.eps` |
+| 104 | `fig6_case3_singularity.pdf` | 🔬 Lab 1 | 153.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.pdf` |
+| 105 | `fig6_case3_singularity.png` | 🔬 Lab 1 | 294.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.png` |
+| 106 | `fig7_case4_slack.eps` | 🔬 Lab 1 | 251.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.eps` |
+| 107 | `fig7_case4_slack.pdf` | 🔬 Lab 1 | 50.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.pdf` |
+| 108 | `fig7_case4_slack.png` | 🔬 Lab 1 | 301.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.png` |
+| 109 | `fig_case1_summary.eps` | 🔬 Lab 1 | 165.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case1_summary.eps` |
+| 110 | `fig_case1_summary.pdf` | 🔬 Lab 1 | 31.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case1_summary.pdf` |
+| 111 | `fig_case1_summary.png` | 🔬 Lab 1 | 213.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case1_summary.png` |
+| 112 | `fig_case2_summary.eps` | 🔬 Lab 1 | 666.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case2_summary.eps` |
+| 113 | `fig_case2_summary.pdf` | 🔬 Lab 1 | 320.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case2_summary.pdf` |
+| 114 | `fig_case2_summary.png` | 🔬 Lab 1 | 277.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case2_summary.png` |
+| 115 | `fig_case3_summary.eps` | 🔬 Lab 1 | 256.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case3_summary.eps` |
+| 116 | `fig_case3_summary.pdf` | 🔬 Lab 1 | 65.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case3_summary.pdf` |
+| 117 | `fig_case3_summary.png` | 🔬 Lab 1 | 218.1 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case3_summary.png` |
+| 118 | `fig_case4_summary.eps` | 🔬 Lab 1 | 187.4 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case4_summary.eps` |
+| 119 | `fig_case4_summary.pdf` | 🔬 Lab 1 | 46.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case4_summary.pdf` |
+| 120 | `fig_case4_summary.png` | 🔬 Lab 1 | 242.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case4_summary.png` |
+| 121 | `fig_case5_summary.eps` | 🔬 Lab 1 | 761.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.eps` |
+| 122 | `fig_case5_summary.pdf` | 🔬 Lab 1 | 378.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.pdf` |
+| 123 | `fig_case5_summary.png` | 🔬 Lab 1 | 323.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.png` |
+| 124 | `fig_diagram.pdf` | 🔬 Lab 1 | 23.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_diagram.pdf` |
+| 125 | `fig_diagram.png` | 🔬 Lab 1 | 90.2 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_diagram.png` |
+| 126 | `fig_energy.pdf` | 🔬 Lab 1 | 172.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_energy.pdf` |
+| 127 | `fig_energy.png` | 🔬 Lab 1 | 148.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_energy.png` |
+| 128 | `fig_grid_phi_xi_T.pdf` | 🔬 Lab 1 | 420.8 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_grid_phi_xi_T.pdf` |
+| 129 | `fig_grid_phi_xi_T.png` | 🔬 Lab 1 | 293.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_grid_phi_xi_T.png` |
+| 130 | `fig_singularity_work.pdf` | 🔬 Lab 1 | 271.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_singularity_work.pdf` |
+| 131 | `fig_singularity_work.png` | 🔬 Lab 1 | 164.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_singularity_work.png` |
+| 132 | `fig_trajectories.pdf` | 🔬 Lab 1 | 161.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_trajectories.pdf` |
+| 133 | `fig_trajectories.png` | 🔬 Lab 1 | 188.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_trajectories.png` |
+| 134 | `logo_uc3m.png` | 🔬 Lab 1 | 230.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/figures/logo_uc3m.png` |
+| 135 | `final_candidate.aux` | 🔬 Lab 1 | 7.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.aux` |
+| 136 | `final_candidate.log` | 🔬 Lab 1 | 71.2 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.log` |
+| 137 | `final_candidate.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.out` |
+| 138 | `final_candidate.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.pdf` |
+| 139 | `final_candidate.toc` | 🔬 Lab 1 | 1.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/final_candidate.toc` |
+| 140 | `logo_uc3m.png` | 🔬 Lab 1 | 230.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/logo_uc3m.png` |
+| 141 | `references.bib` | 🔬 Lab 1 | 2.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/references.bib` |
+| 142 | `report.aux` | 🔬 Lab 1 | 7.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.aux` |
+| 143 | `report.bbl` | 🔬 Lab 1 | 1017.0 B | `laboratorios/lab-1/Lab1_Hector/latex_source/report.bbl` |
+| 144 | `report.blg` | 🔬 Lab 1 | 1014.0 B | `laboratorios/lab-1/Lab1_Hector/latex_source/report.blg` |
+| 145 | `report.log` | 🔬 Lab 1 | 70.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.log` |
+| 146 | `report.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.out` |
+| 147 | `report.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.pdf` |
+| 148 | `report.tex` | 🔬 Lab 1 | 27.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.tex` |
+| 149 | `report.toc` | 🔬 Lab 1 | 1.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report.toc` |
+| 150 | `report_test.aux` | 🔬 Lab 1 | 6.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.aux` |
+| 151 | `report_test.log` | 🔬 Lab 1 | 70.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.log` |
+| 152 | `report_test.out` | 🔬 Lab 1 | 2.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.out` |
+| 153 | `report_test.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.pdf` |
+| 154 | `report_test.tex` | 🔬 Lab 1 | 24.7 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.tex` |
+| 155 | `report_test.toc` | 🔬 Lab 1 | 1.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/report_test.toc` |
+| 156 | `test1.aux` | 🔬 Lab 1 | 7.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.aux` |
+| 157 | `test1.log` | 🔬 Lab 1 | 71.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.log` |
+| 158 | `test1.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.out` |
+| 159 | `test1.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.pdf` |
+| 160 | `test1.tex` | 🔬 Lab 1 | 26.6 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.tex` |
+| 161 | `test1.toc` | 🔬 Lab 1 | 1.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test1.toc` |
+| 162 | `test2.aux` | 🔬 Lab 1 | 7.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.aux` |
+| 163 | `test2.log` | 🔬 Lab 1 | 71.0 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.log` |
+| 164 | `test2.out` | 🔬 Lab 1 | 2.9 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.out` |
+| 165 | `test2.pdf` | 🔬 Lab 1 | 1.3 MB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.pdf` |
+| 166 | `test2.tex` | 🔬 Lab 1 | 26.5 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.tex` |
+| 167 | `test2.toc` | 🔬 Lab 1 | 1.3 KB | `laboratorios/lab-1/Lab1_Hector/latex_source/test2.toc` |
+| 168 | `main.m` | 🔬 Lab 1 | 4.9 KB | `laboratorios/lab-1/Lab1_Hector/main.m` |
+| 169 | `Problems.pdf` | ✏️ Problems | 4.6 MB | `problemas/Problems.pdf` |
+| 170 | `all_51_particle_problems_raw.txt` | ✏️ Problems | 164.0 KB | `problemas/all_51_particle_problems_raw.txt` |
+| 171 | `all_51_problems_classified_raw.txt` | ✏️ Problems | 61.2 KB | `problemas/all_51_problems_classified_raw.txt` |
+| 172 | `analyzed_particle_problems.txt` | ✏️ Problems | 43.9 KB | `problemas/analyzed_particle_problems.txt` |
+| 173 | `classification_draft.txt` | ✏️ Problems | 14.6 KB | `problemas/classification_draft.txt` |
+| 174 | `detailed_problem_inspection.txt` | ✏️ Problems | 98.9 KB | `problemas/detailed_problem_inspection.txt` |
+| 175 | `extracted_particle_problems.txt` | ✏️ Problems | 55.4 KB | `problemas/extracted_particle_problems.txt` |
+| 176 | `full_classification_report.md` | ✏️ Problems | 9.9 KB | `problemas/full_classification_report.md` |
+| 177 | `particle_problems_summary.txt` | ✏️ Problems | 63.4 KB | `problemas/particle_problems_summary.txt` |
+| 178 | `raw_topic_1.txt` | ✏️ Problems | 5.5 KB | `problemas/raw_topic_1.txt` |
+| 179 | `raw_topic_2.txt` | ✏️ Problems | 5.5 KB | `problemas/raw_topic_2.txt` |
+| 180 | `raw_topic_3.txt` | ✏️ Problems | 24.1 KB | `problemas/raw_topic_3.txt` |
+| 181 | `split_particle_problems.txt` | ✏️ Problems | 59.4 KB | `problemas/split_particle_problems.txt` |
+| 182 | `Notes.pdf` | 📖 Theory | 2.6 MB | `teoria/Notes.pdf` |
+| 183 | `00.pdf` | 🖥️ Slides | 1.4 MB | `unit-01-particle-kinematics/slides/00.pdf` |
+| 184 | `01_-_Point_particle_kinematics.pdf` | 🖥️ Slides | 2.9 MB | `unit-01-particle-kinematics/slides/01_-_Point_particle_kinematics.pdf` |
+| 185 | `02.PointParticleDynamics.pdf` | 🖥️ Slides | 2.2 MB | `unit-02-particle-dynamics/slides/02.PointParticleDynamics.pdf` |
+| 186 | `03_-_Constraints.pdf` | 🖥️ Slides | 2.8 MB | `unit-03-constraints-reactions/slides/03_-_Constraints.pdf` |
+| 187 | `04_-_Angular_momentum.pdf` | 🖥️ Slides | 2.3 MB | `unit-04-angular-momentum-central-forces/slides/04_-_Angular_momentum.pdf` |
+| 188 | `05_-_Relative_motion.pdf` | 🖥️ Slides | 3.1 MB | `unit-05-relative-motion/slides/05_-_Relative_motion.pdf` |
+| 189 | `.gitkeep` | Other | 0.0 B | `unit-06-particle-systems/.gitkeep` |
+| 190 | `.gitkeep` | Other | 0.0 B | `unit-07-rigid-body-kinematics/.gitkeep` |
+| 191 | `.gitkeep` | Other | 0.0 B | `unit-08-rigid-body-dynamics/.gitkeep` |
 
 ---
 
@@ -279,9 +319,9 @@ This checklist tracks all academic materials required according to the official 
 - [ ] **`lab-4/`**: Lab Session 4: Compound Double Pendulum - Numerical Integration (lab-4/)
 
 ### 4. Official Exams & Tests (`examenes/`)
-- [ ] First Midterm (Part I Particle Mechanics) past exams and solutions
-- [ ] Second Midterm (Part II Rigid Body Mechanics) past exams and solutions
-- [ ] Final Exam past papers and solutions
+- [x] First Midterm (Part I Particle Mechanics) past exams and solutions
+- [x] Second Midterm (Part II Rigid Body Mechanics) past exams and solutions
+- [x] Final Exam past papers and solutions
 
 ---
 

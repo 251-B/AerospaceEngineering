@@ -3,7 +3,7 @@
 > **Course Code:** `251-15333` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `9b324478-69e9-482c-813c-5709ec031820`  
 > **Portal Web:** `subjects/02-aerospace-materials-1/` | **Obsidian Vault:** `vault/02-aerospace-materials-1/`  
-> **Last Synchronized:** `2026-10-08 14:32` | **Total Official Files:** `45` (91.1 MB)
+> **Last Synchronized:** `2026-10-12 10:41` | **Total Official Files:** `72` (117.4 MB)
 
 ---
 
@@ -14,7 +14,7 @@
 | 📖 **Theory & Slides** | `20` | 🟢 Active | Consolidated Notes & Session Slides |
 | ✏️ **Problem Sheets & Solutions** | `13` | 🟢 Active | Official problem sets & step-by-step solutions |
 | 🔬 **Laboratory Practicals** | `3` | 🟢 Active | Structured into general-instructions/ & lab-1..4/ |
-| 📝 **Official Exams** | `8` | 🟢 Active | Partial midterms & final exams |
+| 📝 **Official Exams** | `35` | 🟢 Active | Partial midterms & final exams |
 | 📅 **Course Schedule** | `1` | 🟢 Available | Weekly lecture & evaluation calendar |
 
 ---
@@ -23,51 +23,78 @@
 
 | # | File Name | Category / Subfolder | Size | File Path |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | `1stPartial2022.pdf` | 📝 Exam | 21.7 MB | `examenes/first-partial/1stPartial2022.pdf` |
-| 2 | `1stPartial2023.pdf` | 📝 Exam | 992.6 KB | `examenes/first-partial/1stPartial2023.pdf` |
-| 3 | `1stPartialTipoTestsVariados.pdf` | 📝 Exam | 1.2 MB | `examenes/first-partial/1stPartialTipoTestsVariados.pdf` |
-| 4 | `First Partial Aerospace Materials.pdf` | 📝 Exam | 992.6 KB | `examenes/first-partial/First Partial Aerospace Materials.pdf` |
-| 5 | `page_1_img_1.png` | 📝 Exam | 364.1 KB | `examenes/first-partial/extracted_images/page_1_img_1.png` |
-| 6 | `page_2_img_1.png` | 📝 Exam | 354.6 KB | `examenes/first-partial/extracted_images/page_2_img_1.png` |
-| 7 | `page_3_img_1.png` | 📝 Exam | 178.2 KB | `examenes/first-partial/extracted_images/page_3_img_1.png` |
-| 8 | `page_4_img_1.png` | 📝 Exam | 357.1 KB | `examenes/first-partial/extracted_images/page_4_img_1.png` |
-| 9 | `INTRO LAB_Mat.Aer I_INGLÉS-Ing. Aeroespacial.pdf` | 🔬 Lab (General Instructions) | 337.3 KB | `laboratorios/general-instructions/INTRO LAB_Mat.Aer I_INGLÉS-Ing. Aeroespacial.pdf` |
-| 10 | `LabGuide_AerospaceMaterialsI.pdf` | 🔬 Lab (General Instructions) | 1.1 MB | `laboratorios/general-instructions/LabGuide_AerospaceMaterialsI.pdf` |
-| 11 | `Lab_session_1.pdf` | 🔬 Lab 1 | 1.0 MB | `laboratorios/lab-1/Lab_session_1.pdf` |
-| 12 | `Schedule_MAT AERO I 2026 - 27.pdf` | 📅 Schedule | 293.2 KB | `schedule/Schedule_MAT AERO I 2026 - 27.pdf` |
-| 13 | `Session 2 T1 Bonding_2025.pdf` | 📖 Theory | 2.7 MB | `unit-01-atomic-bonding/teoria/Session 2 T1 Bonding_2025.pdf` |
-| 14 | `Problems T2 defects.pdf` | ✏️ Problems | 217.3 KB | `unit-02-crystal-structures-defects/problemas/Problems T2 defects.pdf` |
-| 15 | `Problems T2_CrystStruct.pdf` | ✏️ Problems | 275.9 KB | `unit-02-crystal-structures-defects/problemas/Problems T2_CrystStruct.pdf` |
-| 16 | `Session 3 T2 Structure of Materials I_2025.pdf` | 📖 Theory | 3.7 MB | `unit-02-crystal-structures-defects/teoria/Session 3 T2 Structure of Materials I_2025.pdf` |
-| 17 | `Session 4 T2 Structure of Materials II_2025.pdf` | 📖 Theory | 3.6 MB | `unit-02-crystal-structures-defects/teoria/Session 4 T2 Structure of Materials II_2025.pdf` |
-| 18 | `Problems T3_Diffusion.pdf` | ✏️ Problems | 193.1 KB | `unit-03-diffusion-in-solids/problemas/Problems T3_Diffusion.pdf` |
-| 19 | `Session 5 T3  Difussion_2025.pdf` | 📖 Theory | 3.5 MB | `unit-03-diffusion-in-solids/teoria/Session 5 T3  Difussion_2025.pdf` |
-| 20 | `Problems T4_PhaseDiagrams I.pdf` | ✏️ Problems | 611.6 KB | `unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf` |
-| 21 | `Problems T4_PhaseDiagrams II.pdf` | ✏️ Problems | 278.9 KB | `unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams II.pdf` |
-| 22 | `Solution problems Phase diagrams I.pdf` | ✏️ Problems | 1.2 MB | `unit-04-phase-diagrams/problemas/Solution problems Phase diagrams I.pdf` |
-| 23 | `Solution problems Phase diagrams II.pdf` | ✏️ Problems | 899.3 KB | `unit-04-phase-diagrams/problemas/Solution problems Phase diagrams II.pdf` |
-| 24 | `Session 10 T4 Phase diagrams IV.pdf` | 📖 Theory | 1.2 MB | `unit-04-phase-diagrams/teoria/Session 10 T4 Phase diagrams IV.pdf` |
-| 25 | `Session 7 T4 Phase diagrams I_2025.pdf` | 📖 Theory | 2.1 MB | `unit-04-phase-diagrams/teoria/Session 7 T4 Phase diagrams I_2025.pdf` |
-| 26 | `Session 8 T4 Phase diagrams II.pdf` | 📖 Theory | 1.4 MB | `unit-04-phase-diagrams/teoria/Session 8 T4 Phase diagrams II.pdf` |
-| 27 | `Session 9 T4 Phase diagrams III.pdf` | 📖 Theory | 1.8 MB | `unit-04-phase-diagrams/teoria/Session 9 T4 Phase diagrams III.pdf` |
-| 28 | `Problems T5_MechanicalProperties.pdf` | ✏️ Problems | 258.9 KB | `unit-05-mechanical-properties/problemas/Problems T5_MechanicalProperties.pdf` |
-| 29 | `Session 11 T5 Mechanical properties I.pdf` | 📖 Theory | 2.2 MB | `unit-05-mechanical-properties/teoria/Session 11 T5 Mechanical properties I.pdf` |
-| 30 | `Session 12 T5 Mechanical properties II.pdf` | 📖 Theory | 2.0 MB | `unit-05-mechanical-properties/teoria/Session 12 T5 Mechanical properties II.pdf` |
-| 31 | `Problems T6andT7_Electric and Magnetic Properties.pdf` | ✏️ Problems | 215.6 KB | `unit-06-electrical-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf` |
-| 32 | `Session 13 T6 Electrical properties.pdf` | 📖 Theory | 3.3 MB | `unit-06-electrical-properties/teoria/Session 13 T6 Electrical properties.pdf` |
-| 33 | `Problems T6andT7_Electric and Magnetic Properties.pdf` | ✏️ Problems | 215.6 KB | `unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf` |
-| 34 | `Session 15 T7 Magnetic and thermal properties.pdf` | 📖 Theory | 2.9 MB | `unit-07-magnetic-thermal-properties/teoria/Session 15 T7 Magnetic and thermal properties.pdf` |
-| 35 | `Problems T8_CeramicMaterials.pdf` | ✏️ Problems | 234.9 KB | `unit-08-ceramic-materials/problemas/Problems T8_CeramicMaterials.pdf` |
-| 36 | `Session 16 T8 Ceramic materials.pdf` | 📖 Theory | 4.0 MB | `unit-08-ceramic-materials/teoria/Session 16 T8 Ceramic materials.pdf` |
-| 37 | `Session 18 T8 Processing of ceramic materials.pdf` | 📖 Theory | 3.6 MB | `unit-08-ceramic-materials/teoria/Session 18 T8 Processing of ceramic materials.pdf` |
-| 38 | `Problems T9_Polymers.pdf` | ✏️ Problems | 228.3 KB | `unit-09-polymers/problemas/Problems T9_Polymers.pdf` |
-| 39 | `Session 19 T9 Polymers.pdf` | 📖 Theory | 4.1 MB | `unit-09-polymers/teoria/Session 19 T9 Polymers.pdf` |
-| 40 | `Session 20 T9 Classification and Polymer Processing.pdf` | 📖 Theory | 2.6 MB | `unit-09-polymers/teoria/Session 20 T9 Classification and Polymer Processing.pdf` |
-| 41 | `Problems T10_CompositeMaterials.pdf` | ✏️ Problems | 228.9 KB | `unit-10-composite-materials/problemas/Problems T10_CompositeMaterials.pdf` |
-| 42 | `Session 21 T10 Composites I.pdf` | 📖 Theory | 4.1 MB | `unit-10-composite-materials/teoria/Session 21 T10 Composites I.pdf` |
-| 43 | `Session 22 T10 Composites II.pdf` | 📖 Theory | 1.1 MB | `unit-10-composite-materials/teoria/Session 22 T10 Composites II.pdf` |
-| 44 | `Session 23 T10 Composites III.pdf` | 📖 Theory | 4.8 MB | `unit-10-composite-materials/teoria/Session 23 T10 Composites III.pdf` |
-| 45 | `Session 24 T11 Adhesives.pdf` | 📖 Theory | 2.8 MB | `unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf` |
+| 1 | `MATERIALS_FINALEXAM_2012_EXTRA.pdf` | 📝 Exam | 77.6 KB | `examenes/MATERIALS_FINALEXAM_2012_EXTRA.pdf` |
+| 2 | `MATERIALS_FINALEXAM_2012_EXTRA_SOL.pdf` | 📝 Exam | 892.9 KB | `examenes/MATERIALS_FINALEXAM_2012_EXTRA_SOL.pdf` |
+| 3 | `MATERIALS_FINALEXAM_2012_ORD.pdf` | 📝 Exam | 127.3 KB | `examenes/MATERIALS_FINALEXAM_2012_ORD.pdf` |
+| 4 | `MATERIALS_FINALEXAM_2012_ORD_SOL.pdf` | 📝 Exam | 1.3 MB | `examenes/MATERIALS_FINALEXAM_2012_ORD_SOL.pdf` |
+| 5 | `MATERIALS_FINALEXAM_2013_EXTRA.pdf` | 📝 Exam | 121.8 KB | `examenes/MATERIALS_FINALEXAM_2013_EXTRA.pdf` |
+| 6 | `MATERIALS_FINALEXAM_2013_EXTRA_SOL.pdf` | 📝 Exam | 1.3 MB | `examenes/MATERIALS_FINALEXAM_2013_EXTRA_SOL.pdf` |
+| 7 | `MATERIALS_FINALEXAM_2013_ORD.pdf` | 📝 Exam | 122.9 KB | `examenes/MATERIALS_FINALEXAM_2013_ORD.pdf` |
+| 8 | `MATERIALS_FINALEXAM_2013_ORD_SOL.pdf` | 📝 Exam | 1.3 MB | `examenes/MATERIALS_FINALEXAM_2013_ORD_SOL.pdf` |
+| 9 | `MATERIALS_FINALEXAM_2014_EXTRA.pdf` | 📝 Exam | 109.0 KB | `examenes/MATERIALS_FINALEXAM_2014_EXTRA.pdf` |
+| 10 | `MATERIALS_FINALEXAM_2014_EXTRA_SOL.pdf` | 📝 Exam | 2.0 MB | `examenes/MATERIALS_FINALEXAM_2014_EXTRA_SOL.pdf` |
+| 11 | `MATERIALS_FINALEXAM_2014_ORD.pdf` | 📝 Exam | 95.5 KB | `examenes/MATERIALS_FINALEXAM_2014_ORD.pdf` |
+| 12 | `MATERIALS_FINALEXAM_2014_ORD_SOL.pdf` | 📝 Exam | 2.5 MB | `examenes/MATERIALS_FINALEXAM_2014_ORD_SOL.pdf` |
+| 13 | `MATERIALS_FINALEXAM_2015_EXTRA.pdf` | 📝 Exam | 808.4 KB | `examenes/MATERIALS_FINALEXAM_2015_EXTRA.pdf` |
+| 14 | `MATERIALS_FINALEXAM_2015_EXTRA_SOL.pdf` | 📝 Exam | 2.5 MB | `examenes/MATERIALS_FINALEXAM_2015_EXTRA_SOL.pdf` |
+| 15 | `MATERIALS_FINALEXAM_2015_ORD.pdf` | 📝 Exam | 940.7 KB | `examenes/MATERIALS_FINALEXAM_2015_ORD.pdf` |
+| 16 | `MATERIALS_FINALEXAM_2015_ORD_SOL.pdf` | 📝 Exam | 2.1 MB | `examenes/MATERIALS_FINALEXAM_2015_ORD_SOL.pdf` |
+| 17 | `MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf` | 📝 Exam | 348.8 KB | `examenes/MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf` |
+| 18 | `MATERIALS_FINALEXAM_2016_ORD_SOL.pdf` | 📝 Exam | 337.0 KB | `examenes/MATERIALS_FINALEXAM_2016_ORD_SOL.pdf` |
+| 19 | `MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN.pdf` | 📝 Exam | 1.9 MB | `examenes/MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN.pdf` |
+| 20 | `MATERIALS_FINALEXAM_2017_EXTRA.pdf` | 📝 Exam | 335.8 KB | `examenes/MATERIALS_FINALEXAM_2017_EXTRA.pdf` |
+| 21 | `MATERIALS_FINALEXAM_2017_ORD.pdf` | 📝 Exam | 808.4 KB | `examenes/MATERIALS_FINALEXAM_2017_ORD.pdf` |
+| 22 | `MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf` | 📝 Exam | 1.3 MB | `examenes/MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf` |
+| 23 | `MATERIALS_FIRSTPARTIAL_UNDATED.pdf` | 📝 Exam | 992.6 KB | `examenes/MATERIALS_FIRSTPARTIAL_UNDATED.pdf` |
+| 24 | `MATERIALS_FIRSTPARTIAL_UNDATED_QUIZ_BONDING.docx` | 📝 Exam | 115.2 KB | `examenes/MATERIALS_FIRSTPARTIAL_UNDATED_QUIZ_BONDING.docx` |
+| 25 | `MATERIALS_SECONDPARTIAL_2018.docx` | 📝 Exam | 472.2 KB | `examenes/MATERIALS_SECONDPARTIAL_2018.docx` |
+| 26 | `MATERIALS_SECONDPARTIAL_2019.pdf` | 📝 Exam | 2.5 MB | `examenes/MATERIALS_SECONDPARTIAL_2019.pdf` |
+| 27 | `MATERIALS_THIRDPARTIAL_2020.pdf` | 📝 Exam | 831.7 KB | `examenes/MATERIALS_THIRDPARTIAL_2020.pdf` |
+| 28 | `1stPartial2022.pdf` | 📝 Exam | 21.7 MB | `examenes/first-partial/1stPartial2022.pdf` |
+| 29 | `1stPartial2023.pdf` | 📝 Exam | 992.6 KB | `examenes/first-partial/1stPartial2023.pdf` |
+| 30 | `1stPartialTipoTestsVariados.pdf` | 📝 Exam | 1.2 MB | `examenes/first-partial/1stPartialTipoTestsVariados.pdf` |
+| 31 | `First Partial Aerospace Materials.pdf` | 📝 Exam | 992.6 KB | `examenes/first-partial/First Partial Aerospace Materials.pdf` |
+| 32 | `page_1_img_1.png` | 📝 Exam | 364.1 KB | `examenes/first-partial/extracted_images/page_1_img_1.png` |
+| 33 | `page_2_img_1.png` | 📝 Exam | 354.6 KB | `examenes/first-partial/extracted_images/page_2_img_1.png` |
+| 34 | `page_3_img_1.png` | 📝 Exam | 178.2 KB | `examenes/first-partial/extracted_images/page_3_img_1.png` |
+| 35 | `page_4_img_1.png` | 📝 Exam | 357.1 KB | `examenes/first-partial/extracted_images/page_4_img_1.png` |
+| 36 | `INTRO LAB_Mat.Aer I_INGLÉS-Ing. Aeroespacial.pdf` | 🔬 Lab (General Instructions) | 337.3 KB | `laboratorios/general-instructions/INTRO LAB_Mat.Aer I_INGLÉS-Ing. Aeroespacial.pdf` |
+| 37 | `LabGuide_AerospaceMaterialsI.pdf` | 🔬 Lab (General Instructions) | 1.1 MB | `laboratorios/general-instructions/LabGuide_AerospaceMaterialsI.pdf` |
+| 38 | `Lab_session_1.pdf` | 🔬 Lab 1 | 1.0 MB | `laboratorios/lab-1/Lab_session_1.pdf` |
+| 39 | `Schedule_MAT AERO I 2026 - 27.pdf` | 📅 Schedule | 293.2 KB | `schedule/Schedule_MAT AERO I 2026 - 27.pdf` |
+| 40 | `Session 2 T1 Bonding_2025.pdf` | 📖 Theory | 2.7 MB | `unit-01-atomic-bonding/teoria/Session 2 T1 Bonding_2025.pdf` |
+| 41 | `Problems T2 defects.pdf` | ✏️ Problems | 217.3 KB | `unit-02-crystal-structures-defects/problemas/Problems T2 defects.pdf` |
+| 42 | `Problems T2_CrystStruct.pdf` | ✏️ Problems | 275.9 KB | `unit-02-crystal-structures-defects/problemas/Problems T2_CrystStruct.pdf` |
+| 43 | `Session 3 T2 Structure of Materials I_2025.pdf` | 📖 Theory | 3.7 MB | `unit-02-crystal-structures-defects/teoria/Session 3 T2 Structure of Materials I_2025.pdf` |
+| 44 | `Session 4 T2 Structure of Materials II_2025.pdf` | 📖 Theory | 3.6 MB | `unit-02-crystal-structures-defects/teoria/Session 4 T2 Structure of Materials II_2025.pdf` |
+| 45 | `Problems T3_Diffusion.pdf` | ✏️ Problems | 193.1 KB | `unit-03-diffusion-in-solids/problemas/Problems T3_Diffusion.pdf` |
+| 46 | `Session 5 T3  Difussion_2025.pdf` | 📖 Theory | 3.5 MB | `unit-03-diffusion-in-solids/teoria/Session 5 T3  Difussion_2025.pdf` |
+| 47 | `Problems T4_PhaseDiagrams I.pdf` | ✏️ Problems | 611.6 KB | `unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf` |
+| 48 | `Problems T4_PhaseDiagrams II.pdf` | ✏️ Problems | 278.9 KB | `unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams II.pdf` |
+| 49 | `Solution problems Phase diagrams I.pdf` | ✏️ Problems | 1.2 MB | `unit-04-phase-diagrams/problemas/Solution problems Phase diagrams I.pdf` |
+| 50 | `Solution problems Phase diagrams II.pdf` | ✏️ Problems | 899.3 KB | `unit-04-phase-diagrams/problemas/Solution problems Phase diagrams II.pdf` |
+| 51 | `Session 10 T4 Phase diagrams IV.pdf` | 📖 Theory | 1.2 MB | `unit-04-phase-diagrams/teoria/Session 10 T4 Phase diagrams IV.pdf` |
+| 52 | `Session 7 T4 Phase diagrams I_2025.pdf` | 📖 Theory | 2.1 MB | `unit-04-phase-diagrams/teoria/Session 7 T4 Phase diagrams I_2025.pdf` |
+| 53 | `Session 8 T4 Phase diagrams II.pdf` | 📖 Theory | 1.4 MB | `unit-04-phase-diagrams/teoria/Session 8 T4 Phase diagrams II.pdf` |
+| 54 | `Session 9 T4 Phase diagrams III.pdf` | 📖 Theory | 1.8 MB | `unit-04-phase-diagrams/teoria/Session 9 T4 Phase diagrams III.pdf` |
+| 55 | `Problems T5_MechanicalProperties.pdf` | ✏️ Problems | 258.9 KB | `unit-05-mechanical-properties/problemas/Problems T5_MechanicalProperties.pdf` |
+| 56 | `Session 11 T5 Mechanical properties I.pdf` | 📖 Theory | 2.2 MB | `unit-05-mechanical-properties/teoria/Session 11 T5 Mechanical properties I.pdf` |
+| 57 | `Session 12 T5 Mechanical properties II.pdf` | 📖 Theory | 2.0 MB | `unit-05-mechanical-properties/teoria/Session 12 T5 Mechanical properties II.pdf` |
+| 58 | `Problems T6andT7_Electric and Magnetic Properties.pdf` | ✏️ Problems | 215.6 KB | `unit-06-electrical-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf` |
+| 59 | `Session 13 T6 Electrical properties.pdf` | 📖 Theory | 3.3 MB | `unit-06-electrical-properties/teoria/Session 13 T6 Electrical properties.pdf` |
+| 60 | `Problems T6andT7_Electric and Magnetic Properties.pdf` | ✏️ Problems | 215.6 KB | `unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf` |
+| 61 | `Session 15 T7 Magnetic and thermal properties.pdf` | 📖 Theory | 2.9 MB | `unit-07-magnetic-thermal-properties/teoria/Session 15 T7 Magnetic and thermal properties.pdf` |
+| 62 | `Problems T8_CeramicMaterials.pdf` | ✏️ Problems | 234.9 KB | `unit-08-ceramic-materials/problemas/Problems T8_CeramicMaterials.pdf` |
+| 63 | `Session 16 T8 Ceramic materials.pdf` | 📖 Theory | 4.0 MB | `unit-08-ceramic-materials/teoria/Session 16 T8 Ceramic materials.pdf` |
+| 64 | `Session 18 T8 Processing of ceramic materials.pdf` | 📖 Theory | 3.6 MB | `unit-08-ceramic-materials/teoria/Session 18 T8 Processing of ceramic materials.pdf` |
+| 65 | `Problems T9_Polymers.pdf` | ✏️ Problems | 228.3 KB | `unit-09-polymers/problemas/Problems T9_Polymers.pdf` |
+| 66 | `Session 19 T9 Polymers.pdf` | 📖 Theory | 4.1 MB | `unit-09-polymers/teoria/Session 19 T9 Polymers.pdf` |
+| 67 | `Session 20 T9 Classification and Polymer Processing.pdf` | 📖 Theory | 2.6 MB | `unit-09-polymers/teoria/Session 20 T9 Classification and Polymer Processing.pdf` |
+| 68 | `Problems T10_CompositeMaterials.pdf` | ✏️ Problems | 228.9 KB | `unit-10-composite-materials/problemas/Problems T10_CompositeMaterials.pdf` |
+| 69 | `Session 21 T10 Composites I.pdf` | 📖 Theory | 4.1 MB | `unit-10-composite-materials/teoria/Session 21 T10 Composites I.pdf` |
+| 70 | `Session 22 T10 Composites II.pdf` | 📖 Theory | 1.1 MB | `unit-10-composite-materials/teoria/Session 22 T10 Composites II.pdf` |
+| 71 | `Session 23 T10 Composites III.pdf` | 📖 Theory | 4.8 MB | `unit-10-composite-materials/teoria/Session 23 T10 Composites III.pdf` |
+| 72 | `Session 24 T11 Adhesives.pdf` | 📖 Theory | 2.8 MB | `unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf` |
 
 ---
 
@@ -168,9 +195,9 @@ This checklist tracks all academic materials required according to the official 
 
 ### 4. Official Exams & Tests (`examenes/`)
 - [x] First Partial (Topics 1, 2, 3) - 2022, 2023, Test questions
-- [ ] Second Partial (Topics 4, 5, 6, 7) past exams and solutions
-- [ ] Third Partial (Topics 8, 9, 10, 11) past exams and solutions
-- [ ] Final Exam past papers and solutions
+- [x] Second Partial (Topics 4, 5, 6, 7) past exams and solutions
+- [x] Third Partial (Topics 8, 9, 10, 11) past exams and solutions
+- [x] Final Exam past papers and solutions
 
 ---
 

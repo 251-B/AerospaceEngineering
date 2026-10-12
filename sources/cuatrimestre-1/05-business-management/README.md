@@ -3,7 +3,7 @@
 > **Course Code:** `251-15335` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `e691ea81-0acf-4032-98d1-b9e5a7b93d70`  
 > **Portal Web:** `subjects/05-business-management/` | **Obsidian Vault:** `vault/05-business-management/`  
-> **Last Synchronized:** `2026-10-08 14:32` | **Total Official Files:** `12` (10.8 MB)
+> **Last Synchronized:** `2026-10-12 10:41` | **Total Official Files:** `14` (10.8 MB)
 
 ---
 
@@ -31,9 +31,11 @@
 | 7 | `T3_Financial Statements_EXERCISES.pdf` | ✏️ Problems | 212.7 KB | `unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf` |
 | 8 | `university-carlos-iii-of-madrid-logo-png_seeklogo-465311.png` | ✏️ Problems | 21.2 KB | `unit-03-financial-management-statements/problemas/university-carlos-iii-of-madrid-logo-png_seeklogo-465311.png` |
 | 9 | `Topic 3_Financial Management (I).pdf` | 📖 Theory | 1.4 MB | `unit-03-financial-management-statements/teoria/Topic 3_Financial Management (I).pdf` |
-| 10 | `BUSINESS PLAN_guide_26_27.pdf` | 📖 Theory | 209.9 KB | `unit-06-business-plan/teoria/BUSINESS PLAN_guide_26_27.pdf` |
-| 11 | `Engineers  Managing_Business Plan_26-27 W1.pdf` | 📖 Theory | 1.1 MB | `unit-06-business-plan/teoria/Engineers  Managing_Business Plan_26-27 W1.pdf` |
-| 12 | `how-to-write-a-business-plan.pdf` | 📖 Theory | 191.2 KB | `unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf` |
+| 10 | `.gitkeep` | Other | 0.0 B | `unit-04-financial-analysis-ratios/.gitkeep` |
+| 11 | `.gitkeep` | Other | 0.0 B | `unit-05-operations-marketing/.gitkeep` |
+| 12 | `BUSINESS PLAN_guide_26_27.pdf` | 📖 Theory | 209.9 KB | `unit-06-business-plan/teoria/BUSINESS PLAN_guide_26_27.pdf` |
+| 13 | `Engineers  Managing_Business Plan_26-27 W1.pdf` | 📖 Theory | 1.1 MB | `unit-06-business-plan/teoria/Engineers  Managing_Business Plan_26-27 W1.pdf` |
+| 14 | `how-to-write-a-business-plan.pdf` | 📖 Theory | 191.2 KB | `unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf` |
 
 ---
 

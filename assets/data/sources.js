@@ -4,7 +4,278 @@ window.AE_SOURCES = {
     "advanced-maths": {
       "folder": "04-advanced-maths",
       "general": {
-        "examenes": [],
+        "examenes": [
+          {
+            "bytes": 164721,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2012_EXTRA.pdf",
+            "name": "MATHS_FINALEXAM_2012_EXTRA.pdf"
+          },
+          {
+            "bytes": 97202,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2012_ORD.pdf",
+            "name": "MATHS_FINALEXAM_2012_ORD.pdf"
+          },
+          {
+            "bytes": 209202,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2013_EXTRA.pdf",
+            "name": "MATHS_FINALEXAM_2013_EXTRA.pdf"
+          },
+          {
+            "bytes": 81537,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2013_ORD.pdf",
+            "name": "MATHS_FINALEXAM_2013_ORD.pdf"
+          },
+          {
+            "bytes": 74999,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_EXTRA.pdf",
+            "name": "MATHS_FINALEXAM_2014_EXTRA.pdf"
+          },
+          {
+            "bytes": 227104,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_ORD_A.pdf",
+            "name": "MATHS_FINALEXAM_2014_ORD_A.pdf"
+          },
+          {
+            "bytes": 167378,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2014_ORD_B.pdf",
+            "name": "MATHS_FINALEXAM_2014_ORD_B.pdf"
+          },
+          {
+            "bytes": 134629,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_A.pdf",
+            "name": "MATHS_FINALEXAM_2016_ORD_A.pdf"
+          },
+          {
+            "bytes": 555855,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_B.pdf",
+            "name": "MATHS_FINALEXAM_2016_ORD_B.pdf"
+          },
+          {
+            "bytes": 383045,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_ORD_C_SOL.pdf",
+            "name": "MATHS_FINALEXAM_2016_ORD_C_SOL.pdf"
+          },
+          {
+            "bytes": 94967,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2016_PRACTICE.pdf",
+            "name": "MATHS_FINALEXAM_2016_PRACTICE.pdf"
+          },
+          {
+            "bytes": 3744574,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_EXTRA_SOL.pdf",
+            "name": "MATHS_FINALEXAM_2018_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 1511195,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_ORD_SOL.pdf",
+            "name": "MATHS_FINALEXAM_2018_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 89199,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2018_PRACTICE.pdf",
+            "name": "MATHS_FINALEXAM_2018_PRACTICE.pdf"
+          },
+          {
+            "bytes": 115079,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2019_ORD.pdf",
+            "name": "MATHS_FINALEXAM_2019_ORD.pdf"
+          },
+          {
+            "bytes": 4973840,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2019_ORD_SOL.pdf",
+            "name": "MATHS_FINALEXAM_2019_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 103957,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2020_ORD.pdf",
+            "name": "MATHS_FINALEXAM_2020_ORD.pdf"
+          },
+          {
+            "bytes": 367232,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2021_ORD_SOL.pdf",
+            "name": "MATHS_FINALEXAM_2021_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 110672,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2022_EXTRA.pdf",
+            "name": "MATHS_FINALEXAM_2022_EXTRA.pdf"
+          },
+          {
+            "bytes": 216488,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2022_ORD_SOL.pdf",
+            "name": "MATHS_FINALEXAM_2022_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 99075,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_2024_ORD.pdf",
+            "name": "MATHS_FINALEXAM_2024_ORD.pdf"
+          },
+          {
+            "bytes": 1012895,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_COMPILATION_2011-2014_SOL.pdf",
+            "name": "MATHS_FINALEXAM_COMPILATION_2011-2014_SOL.pdf"
+          },
+          {
+            "bytes": 945795,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FINALEXAM_COMPILATION_2011-2014_SOL_HIGHLIGHTED.pdf",
+            "name": "MATHS_FINALEXAM_COMPILATION_2011-2014_SOL_HIGHLIGHTED.pdf"
+          },
+          {
+            "bytes": 155078,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2011.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2011.pdf"
+          },
+          {
+            "bytes": 132401,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2012.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2012.pdf"
+          },
+          {
+            "bytes": 67443,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2013.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2013.pdf"
+          },
+          {
+            "bytes": 139006,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2014.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2014.pdf"
+          },
+          {
+            "bytes": 441124,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2015.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2015.pdf"
+          },
+          {
+            "bytes": 134884,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2015_V2.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2015_V2.pdf"
+          },
+          {
+            "bytes": 411319,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2016.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2016.pdf"
+          },
+          {
+            "bytes": 84259,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2016_PRACTICE.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2016_PRACTICE.pdf"
+          },
+          {
+            "bytes": 86167,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT1.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2019_MT1.pdf"
+          },
+          {
+            "bytes": 881406,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT1_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2019_MT1_SOL.pdf"
+          },
+          {
+            "bytes": 95414,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT2.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2019_MT2.pdf"
+          },
+          {
+            "bytes": 723262,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2019_MT2_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2019_MT2_SOL.pdf"
+          },
+          {
+            "bytes": 198763,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G45_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2020_G45_SOL.pdf"
+          },
+          {
+            "bytes": 192589,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G46_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2020_G46_SOL.pdf"
+          },
+          {
+            "bytes": 126188,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2020_G47_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2020_G47_SOL.pdf"
+          },
+          {
+            "bytes": 184772,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2021_G45_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2021_G45_SOL.pdf"
+          },
+          {
+            "bytes": 99315,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2024.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2024.pdf"
+          },
+          {
+            "bytes": 164997,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G46.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2025_G46.pdf"
+          },
+          {
+            "bytes": 154112,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf",
+            "name": "MATHS_FIRSTPARTIAL_2025_G47_SOL.pdf"
+          },
+          {
+            "bytes": 190253,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3.pdf",
+            "name": "MATHS_SECONDPARTIAL_2018_MT3.pdf"
+          },
+          {
+            "bytes": 1098142,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2018_MT3_G45_SOL.pdf"
+          },
+          {
+            "bytes": 906316,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2018_MT3_G46_SOL.pdf"
+          },
+          {
+            "bytes": 89820,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2019_MT3.pdf",
+            "name": "MATHS_SECONDPARTIAL_2019_MT3.pdf"
+          },
+          {
+            "bytes": 567237,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2019_MT3_SOL.pdf"
+          },
+          {
+            "bytes": 176379,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G45_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2020_G45_SOL.pdf"
+          },
+          {
+            "bytes": 188511,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G46_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2020_G46_SOL.pdf"
+          },
+          {
+            "bytes": 195588,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2020_G47_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2020_G47_SOL.pdf"
+          },
+          {
+            "bytes": 189137,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2021_G45_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2021_G45_SOL.pdf"
+          },
+          {
+            "bytes": 101043,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2024.pdf",
+            "name": "MATHS_SECONDPARTIAL_2024.pdf"
+          },
+          {
+            "bytes": 206450,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2025_G46_SOL.pdf"
+          },
+          {
+            "bytes": 377178,
+            "href": "sources/cuatrimestre-1/04-advanced-maths/examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf",
+            "name": "MATHS_SECONDPARTIAL_2025_G47_SOL.pdf"
+          }
+        ],
         "other": [
           {
             "bytes": 4875074,
@@ -132,6 +403,131 @@ window.AE_SOURCES = {
             "bytes": 1016450,
             "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/first-partial/First%20Partial%20Aerospace%20Materials.pdf",
             "name": "First Partial Aerospace Materials.pdf"
+          },
+          {
+            "bytes": 79422,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_EXTRA.pdf",
+            "name": "MATERIALS_FINALEXAM_2012_EXTRA.pdf"
+          },
+          {
+            "bytes": 914322,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_EXTRA_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2012_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 130363,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_ORD.pdf",
+            "name": "MATERIALS_FINALEXAM_2012_ORD.pdf"
+          },
+          {
+            "bytes": 1398769,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2012_ORD_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2012_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 124699,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_EXTRA.pdf",
+            "name": "MATERIALS_FINALEXAM_2013_EXTRA.pdf"
+          },
+          {
+            "bytes": 1401480,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_EXTRA_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2013_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 125894,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_ORD.pdf",
+            "name": "MATERIALS_FINALEXAM_2013_ORD.pdf"
+          },
+          {
+            "bytes": 1396686,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2013_ORD_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2013_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 111586,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_EXTRA.pdf",
+            "name": "MATERIALS_FINALEXAM_2014_EXTRA.pdf"
+          },
+          {
+            "bytes": 2056284,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_EXTRA_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2014_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 97800,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_ORD.pdf",
+            "name": "MATERIALS_FINALEXAM_2014_ORD.pdf"
+          },
+          {
+            "bytes": 2662929,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2014_ORD_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2014_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 827771,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_EXTRA.pdf",
+            "name": "MATERIALS_FINALEXAM_2015_EXTRA.pdf"
+          },
+          {
+            "bytes": 2576326,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_EXTRA_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2015_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 963307,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_ORD.pdf",
+            "name": "MATERIALS_FINALEXAM_2015_ORD.pdf"
+          },
+          {
+            "bytes": 2225015,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2015_ORD_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2015_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 357215,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 345073,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_ORD_SOL.pdf",
+            "name": "MATERIALS_FINALEXAM_2016_ORD_SOL.pdf"
+          },
+          {
+            "bytes": 2036093,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN.pdf",
+            "name": "MATERIALS_FINALEXAM_2016_ORD_SOL_HANDWRITTEN.pdf"
+          },
+          {
+            "bytes": 343857,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_EXTRA.pdf",
+            "name": "MATERIALS_FINALEXAM_2017_EXTRA.pdf"
+          },
+          {
+            "bytes": 827847,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_ORD.pdf",
+            "name": "MATERIALS_FINALEXAM_2017_ORD.pdf"
+          },
+          {
+            "bytes": 1405429,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf",
+            "name": "MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf"
+          },
+          {
+            "bytes": 1016450,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FIRSTPARTIAL_UNDATED.pdf",
+            "name": "MATERIALS_FIRSTPARTIAL_UNDATED.pdf"
+          },
+          {
+            "bytes": 2646391,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf",
+            "name": "MATERIALS_SECONDPARTIAL_2019.pdf"
+          },
+          {
+            "bytes": 851639,
+            "href": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_THIRDPARTIAL_2020.pdf",
+            "name": "MATERIALS_THIRDPARTIAL_2020.pdf"
           }
         ],
         "other": [],
@@ -565,7 +961,148 @@ window.AE_SOURCES = {
     "engineering-mechanics": {
       "folder": "03-engineering-mechanics",
       "general": {
-        "examenes": [],
+        "examenes": [
+          {
+            "bytes": 250383,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2011_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2011_ORD.pdf"
+          },
+          {
+            "bytes": 256535,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2012_EXTRA.pdf",
+            "name": "MECHANICS_FINALEXAM_2012_EXTRA.pdf"
+          },
+          {
+            "bytes": 970142,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2013_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2013_ORD.pdf"
+          },
+          {
+            "bytes": 365400,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2014_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2014_ORD.pdf"
+          },
+          {
+            "bytes": 355256,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2015_EXTRA.pdf",
+            "name": "MECHANICS_FINALEXAM_2015_EXTRA.pdf"
+          },
+          {
+            "bytes": 231875,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2015_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2015_ORD.pdf"
+          },
+          {
+            "bytes": 344933,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2016_EXTRA.pdf",
+            "name": "MECHANICS_FINALEXAM_2016_EXTRA.pdf"
+          },
+          {
+            "bytes": 215615,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2016_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2016_ORD.pdf"
+          },
+          {
+            "bytes": 300083,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2018_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2018_ORD.pdf"
+          },
+          {
+            "bytes": 190985,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2019_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2019_ORD.pdf"
+          },
+          {
+            "bytes": 113250,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2021_ORD.pdf",
+            "name": "MECHANICS_FINALEXAM_2021_ORD.pdf"
+          },
+          {
+            "bytes": 7996742,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FINALEXAM_2024_ORD_PROBLEMS.pdf",
+            "name": "MECHANICS_FINALEXAM_2024_ORD_PROBLEMS.pdf"
+          },
+          {
+            "bytes": 69475,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2011.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2011.pdf"
+          },
+          {
+            "bytes": 84667,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2013.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2013.pdf"
+          },
+          {
+            "bytes": 109547,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2015.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2015.pdf"
+          },
+          {
+            "bytes": 123978,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2016.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2016.pdf"
+          },
+          {
+            "bytes": 111465,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2017.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2017.pdf"
+          },
+          {
+            "bytes": 146285,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2017_EXERCISE_SOL.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2017_EXERCISE_SOL.pdf"
+          },
+          {
+            "bytes": 882008,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2019.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2019.pdf"
+          },
+          {
+            "bytes": 97039,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_FIRSTPARTIAL_2024.pdf",
+            "name": "MECHANICS_FIRSTPARTIAL_2024.pdf"
+          },
+          {
+            "bytes": 213487,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2011.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2011.pdf"
+          },
+          {
+            "bytes": 1020944,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2013.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2013.pdf"
+          },
+          {
+            "bytes": 1326334,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2014.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2014.pdf"
+          },
+          {
+            "bytes": 106284,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2015.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2015.pdf"
+          },
+          {
+            "bytes": 127108,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2017.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2017.pdf"
+          },
+          {
+            "bytes": 1059286,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2018.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2018.pdf"
+          },
+          {
+            "bytes": 125693,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2019.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2019.pdf"
+          },
+          {
+            "bytes": 3782288,
+            "href": "sources/cuatrimestre-1/03-engineering-mechanics/examenes/MECHANICS_SECONDPARTIAL_2024.pdf",
+            "name": "MECHANICS_SECONDPARTIAL_2024.pdf"
+          }
+        ],
         "other": [],
         "problemas": [
           {
@@ -697,7 +1234,203 @@ window.AE_SOURCES = {
     "fluid-mechanics": {
       "folder": "01-fluid-mechanics",
       "general": {
-        "examenes": [],
+        "examenes": [
+          {
+            "bytes": 1423652,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_EXTRA.pdf",
+            "name": "FLUIDS_FINALEXAM_2012_EXTRA.pdf"
+          },
+          {
+            "bytes": 1513575,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2012_ORD.pdf",
+            "name": "FLUIDS_FINALEXAM_2012_ORD.pdf"
+          },
+          {
+            "bytes": 303615,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P1.pdf",
+            "name": "FLUIDS_FINALEXAM_2014_ORD_SOL_P1.pdf"
+          },
+          {
+            "bytes": 375243,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P2.pdf",
+            "name": "FLUIDS_FINALEXAM_2014_ORD_SOL_P2.pdf"
+          },
+          {
+            "bytes": 317093,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P3.pdf",
+            "name": "FLUIDS_FINALEXAM_2014_ORD_SOL_P3.pdf"
+          },
+          {
+            "bytes": 354537,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2014_ORD_SOL_P4.pdf",
+            "name": "FLUIDS_FINALEXAM_2014_ORD_SOL_P4.pdf"
+          },
+          {
+            "bytes": 1097938,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2015_EXTRA_SOL.pdf",
+            "name": "FLUIDS_FINALEXAM_2015_EXTRA_SOL.pdf"
+          },
+          {
+            "bytes": 985897,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2017_ORD.pdf",
+            "name": "FLUIDS_FINALEXAM_2017_ORD.pdf"
+          },
+          {
+            "bytes": 2045636,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2021_ORD.pdf",
+            "name": "FLUIDS_FINALEXAM_2021_ORD.pdf"
+          },
+          {
+            "bytes": 2599580,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2022_EXTRA.pdf",
+            "name": "FLUIDS_FINALEXAM_2022_EXTRA.pdf"
+          },
+          {
+            "bytes": 4564241,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FINALEXAM_2022_ORD.pdf",
+            "name": "FLUIDS_FINALEXAM_2022_ORD.pdf"
+          },
+          {
+            "bytes": 421644,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2011.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2011.pdf"
+          },
+          {
+            "bytes": 804495,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2013.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2013.pdf"
+          },
+          {
+            "bytes": 352677,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2013_QUIZ.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2013_QUIZ.pdf"
+          },
+          {
+            "bytes": 122922,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2014_QUIZ.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2014_QUIZ.pdf"
+          },
+          {
+            "bytes": 481097,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2014_SOL.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2014_SOL.pdf"
+          },
+          {
+            "bytes": 504225,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2016.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2016.pdf"
+          },
+          {
+            "bytes": 1142657,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2017_SOL.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2017_SOL.pdf"
+          },
+          {
+            "bytes": 901436,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2020.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2020.pdf"
+          },
+          {
+            "bytes": 1015440,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2021.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2021.pdf"
+          },
+          {
+            "bytes": 2172716,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2024.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2024.pdf"
+          },
+          {
+            "bytes": 1703018,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_FIRSTPARTIAL_2025.pdf",
+            "name": "FLUIDS_FIRSTPARTIAL_2025.pdf"
+          },
+          {
+            "bytes": 456140,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2011.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2011.pdf"
+          },
+          {
+            "bytes": 310508,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P1.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2013_SOL_P1.pdf"
+          },
+          {
+            "bytes": 378611,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P2.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2013_SOL_P2.pdf"
+          },
+          {
+            "bytes": 472492,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P3.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2013_SOL_P3.pdf"
+          },
+          {
+            "bytes": 395309,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2013_SOL_P4.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2013_SOL_P4.pdf"
+          },
+          {
+            "bytes": 1206801,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2014_SOL.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2014_SOL.pdf"
+          },
+          {
+            "bytes": 719127,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2015.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2015.pdf"
+          },
+          {
+            "bytes": 107166,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2016.pdf"
+          },
+          {
+            "bytes": 154512,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016_RETAKE.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2016_RETAKE.pdf"
+          },
+          {
+            "bytes": 79352,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2016_SOL.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2016_SOL.pdf"
+          },
+          {
+            "bytes": 756933,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2017.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2017.pdf"
+          },
+          {
+            "bytes": 2216962,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2017_RETAKE.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2017_RETAKE.pdf"
+          },
+          {
+            "bytes": 1105739,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P1.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P1.pdf"
+          },
+          {
+            "bytes": 1898678,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P2.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2018_RETAKE_SOL_P2.pdf"
+          },
+          {
+            "bytes": 558676,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2021.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2021.pdf"
+          },
+          {
+            "bytes": 549544,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2021_RETAKE.pdf"
+          },
+          {
+            "bytes": 1774644,
+            "href": "sources/cuatrimestre-1/01-fluid-mechanics/examenes/FLUIDS_SECONDPARTIAL_2025.pdf",
+            "name": "FLUIDS_SECONDPARTIAL_2025.pdf"
+          }
+        ],
         "other": [],
         "problemas": [],
         "schedule": [],
