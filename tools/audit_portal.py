@@ -18,6 +18,7 @@ Checks (all severity "error"):
     missing-ask-ai       theory or problem page (teoria/ or problemas/, not index.html) that does not
                          load assets/js/ask-ai.js
     missing-responsive   same pages without assets/css/responsive.css (the phone-width safety net)
+    missing-pdf-export   same pages without assets/js/pdf-export.js (Download PDF / Open as PDF)
 
 Badge contract (index.html): <article data-subject="SLUG"> ... <a href=".../teoria|problemas/...">
     <span class="area-badge ...">N topics / N prob.</span></a>
@@ -40,7 +41,7 @@ from urllib.parse import unquote
 CHECKS = (
     "broken-link", "missing-backlink", "katex-parity", "katex-text-ampersand", "debris",
     "spanish-label", "false-claim", "lab-reference", "theme-key", "badge-drift", "missing-source-link",
-    "missing-ask-ai", "missing-responsive",
+    "missing-ask-ai", "missing-responsive", "missing-pdf-export",
 )
 
 
@@ -241,6 +242,7 @@ def check_source_links(rel, visible):
 _ASK_AI = re.compile(r'<script\b[^>]*\bsrc="(?:\.\./)*assets/js/ask-ai\.js"')
 
 
+_PDF_EXPORT = re.compile(r'<script\b[^>]*\bsrc="(?:\.\./)*assets/js/pdf-export\.js"')
 _RESPONSIVE = re.compile(r'<link\b[^>]*\bhref="(?:\.\./)*assets/css/responsive\.css"')
 
 
@@ -253,6 +255,8 @@ def check_ask_ai(rel, visible):
         out.append(Finding("missing-ask-ai", "error", rel, 1, "page does not load assets/js/ask-ai.js"))
     if not _RESPONSIVE.search(visible):
         out.append(Finding("missing-responsive", "error", rel, 1, "page does not load assets/css/responsive.css"))
+    if not _PDF_EXPORT.search(visible):
+        out.append(Finding("missing-pdf-export", "error", rel, 1, "page does not load assets/js/pdf-export.js"))
     return out
 
 

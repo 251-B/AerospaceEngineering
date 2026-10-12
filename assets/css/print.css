@@ -1,0 +1,162 @@
+/* A4 print / PDF layout shared by the theory and problem pages (assets/js/pdf-export.js loads it).
+   Black on white, boxes drawn with borders instead of colour fills, so a black-and-white printout
+   reads as well as the screen. tools/build_pdfs.py prints the pages with it into assets/pdf/. */
+
+@page {
+  size: A4;
+  margin: 17mm 16mm 18mm;
+  @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt "JetBrains Mono", monospace; color: #444; }
+}
+
+/* ------------------------------------------------------------ screen: the PDF buttons
+   Same look as the "Original statement" chips (assets/css/source-links.css), in each page's accent. */
+.pdf-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0;
+}
+.pdf-bar-label {
+  font: 700 11px/1.4 var(--font-mono, "JetBrains Mono", monospace); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-muted, inherit); margin-right: 2px;
+}
+.pdf-chips { display: inline-flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px 8px; vertical-align: middle; }
+a.pdf-link {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; line-height: 1.4;
+  border: 1px solid color-mix(in srgb, var(--accent, currentColor) 45%, transparent);
+  color: var(--accent, inherit); text-decoration: none; white-space: nowrap;
+  font: 600 12px/1.4 var(--font-mono, "JetBrains Mono", monospace);
+  transition: background .15s ease, border-color .15s ease;
+}
+a.pdf-link:hover, a.pdf-link:focus-visible {
+  background: color-mix(in srgb, var(--accent, currentColor) 12%, transparent);
+  border-color: var(--accent, currentColor); text-decoration: none; outline: none;
+}
+a.pdf-link:focus-visible { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent, currentColor) 45%, transparent); }
+.pdf-chips a.pdf-link { padding: 3px 9px; font-size: 11px; }
+@media (max-width: 640px) { .pdf-chips { margin-left: 0; display: flex; } }
+
+/* PDF render mode (?print=…): lay the page out at the A4 text width (210 mm - 2 x 16 mm) so the
+   script can measure what would overflow the printed line. */
+html.pdf-render body { width: 178mm !important; margin: 0 !important; }
+
+/* Print-only elements stay out of the screen layout. */
+html:not([data-theme="print"]) .pdf-print-head, html:not([data-theme="print"]) .pdf-print-foot { display: none; }
+
+/* The print layout applies whenever the page carries data-theme="print": pdf-export.js sets it for the
+   PDF render (?print=…) and around the browser's own print dialog, so what is measured is what prints. */
+
+  /* ------------------------------------------------------------ palette: every page's own variables */
+  html[data-theme="print"] {
+    --bg-base: #fff !important; --bg-primary: #fff !important; --bg-surface: #fff !important; --bg-card: #fff !important;
+    --bg-card-hover: #fff !important; --bg-subtle: #fff !important; --bg-input: #fff !important; --bg-glass: #fff !important;
+    --callout-bg: #fff !important;
+    --text-heading: #000 !important; --text-body: #111 !important; --text-primary: #000 !important;
+    --text-secondary: #222 !important; --text-main: #111 !important; --text-muted: #444 !important; --text-faint: #555 !important;
+    --border-subtle: #999 !important; --border-card: #999 !important; --border-strong: #333 !important;
+    --accent: #000 !important; --accent-soft: #fff !important; --accent-border: #555 !important; --accent-glow: transparent !important;
+    --accent-light: #000 !important; --accent-hover: #000 !important;
+    --shadow-elevation: none !important; --shadow-card: none !important;
+  }
+  html[data-theme="print"], html[data-theme="print"] body { background: #fff !important; color: #111 !important; }
+  html[data-theme="print"] body {
+    font-family: "Newsreader", Georgia, "Times New Roman", serif !important;
+    font-size: 10.5pt !important; line-height: 1.45 !important; margin: 0 !important; padding: 0 !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  html[data-theme="print"] *, html[data-theme="print"] *::before, html[data-theme="print"] *::after {
+    box-shadow: none !important; text-shadow: none !important; animation: none !important; transition: none !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  }
+  /* Colour fills become white; text becomes black. */
+  html[data-theme="print"] body *:not(svg):not(svg *):not(.katex *) { background-color: transparent !important; background-image: none !important; color: #111 !important; }
+
+  /* ------------------------------------------------------------ what is not printed */
+  html[data-theme="print"] .site-header, html[data-theme="print"] header.site-header, html[data-theme="print"] .pills-bar, html[data-theme="print"] .pill-nav-bar, html[data-theme="print"] .quick-jump, html[data-theme="print"] .page-footer, html[data-theme="print"] footer, html[data-theme="print"] canvas, html[data-theme="print"] .celestial-canvas, html[data-theme="print"] .ambient-glow, html[data-theme="print"] .card-watermark, html[data-theme="print"] .theme-toggle, html[data-theme="print"] #themeToggle, html[data-theme="print"] .back-link, html[data-theme="print"] .ask-ai-pill, html[data-theme="print"] .ask-ai-bar, html[data-theme="print"] .ask-ai-panel, html[data-theme="print"] .ask-ai-backdrop, html[data-theme="print"] .pdf-bar, html[data-theme="print"] .pdf-chips, html[data-theme="print"] .btn-problems, html[data-theme="print"] #quoteContainer, html[data-theme="print"] .quote-container, html[data-theme="print"] .motivational-quote, html[data-theme="print"] .nav-actions, html[data-theme="print"] .nav-pill, html[data-theme="print"] .jump-btn, html[data-theme="print"] .pdf-hidden, html[data-theme="print"] [data-pdf-hidden], html[data-theme="print"] .no-print, html[data-theme="print"] button {
+    display: none !important;
+  }
+
+  /* ------------------------------------------------------------ page frame */
+  html[data-theme="print"] main, html[data-theme="print"] article, html[data-theme="print"] .article-container, html[data-theme="print"] .problems-container, html[data-theme="print"] .content-container, html[data-theme="print"] .container, html[data-theme="print"] .wrap, html[data-theme="print"] .article-body, html[data-theme="print"] .card-body {
+    max-width: none !important; width: auto !important; margin: 0 !important; padding: 0 !important;
+    border: 0 !important; position: static !important;
+  }
+  html[data-theme="print"] .pdf-print-head {
+    display: block !important; margin: 0 0 10pt; padding: 0 0 4pt; border-bottom: 0.75pt solid #000;
+    font: 600 7.5pt/1.4 "JetBrains Mono", monospace !important; letter-spacing: 0.06em; text-transform: uppercase; color: #333 !important;
+  }
+  html[data-theme="print"] .pdf-print-head span + span::before { content: "  ·  "; }
+  html[data-theme="print"] .pdf-print-foot {
+    display: block !important; margin-top: 18pt; padding-top: 5pt; border-top: 0.5pt solid #777;
+    font: 7.5pt/1.4 "JetBrains Mono", monospace !important; color: #444 !important;
+  }
+  html[data-theme="print"] .article-header, html[data-theme="print"] .page-intro, html[data-theme="print"] .page-hero, html[data-theme="print"] .page-title-box, html[data-theme="print"] header:not(.site-header) {
+    margin: 0 0 12pt !important; padding: 0 !important; border: 0 !important; min-height: 0 !important; text-align: left !important;
+  }
+
+  /* ------------------------------------------------------------ type */
+  html[data-theme="print"] h1, html[data-theme="print"] .article-title, html[data-theme="print"] .page-title {
+    font-family: "Abril Fatface", Georgia, serif !important; font-weight: 400 !important;
+    font-size: 21pt !important; line-height: 1.15 !important; margin: 0 0 4pt !important; color: #000 !important;
+    -webkit-text-fill-color: #000 !important; background: none !important;
+  }
+  html[data-theme="print"] h2 {
+    font-size: 14.5pt !important; line-height: 1.25 !important; margin: 16pt 0 6pt !important; padding: 0 0 2pt !important;
+    border: 0 !important; border-bottom: 0.75pt solid #000 !important; color: #000 !important;
+    break-after: avoid; page-break-after: avoid;
+  }
+  html[data-theme="print"] h3 { font-size: 12pt !important; margin: 12pt 0 4pt !important; color: #000 !important; break-after: avoid; page-break-after: avoid; }
+  html[data-theme="print"] h4, html[data-theme="print"] h5, html[data-theme="print"] h6 { font-size: 10.5pt !important; margin: 9pt 0 3pt !important; color: #000 !important; break-after: avoid; page-break-after: avoid; }
+  html[data-theme="print"] p, html[data-theme="print"] li { orphans: 3; widows: 3; }
+  html[data-theme="print"] p { margin: 0 0 6pt !important; }
+  html[data-theme="print"] ul, html[data-theme="print"] ol { margin: 0 0 6pt !important; padding-left: 16pt !important; }
+  html[data-theme="print"] code, html[data-theme="print"] pre, html[data-theme="print"] kbd { font-family: "JetBrains Mono", monospace !important; font-size: 8.5pt !important; }
+  html[data-theme="print"] pre { white-space: pre-wrap !important; border: 0.5pt solid #999 !important; padding: 5pt 7pt !important; }
+  html[data-theme="print"] a, html[data-theme="print"] a:visited { color: #111 !important; text-decoration: none !important; }
+  html[data-theme="print"] a.src-link::before, html[data-theme="print"] .src-panel a::before { content: none !important; }
+  html[data-theme="print"] a.src-cite { border-bottom: 0.4pt dotted #666; padding: 0 !important; margin: 0 !important; }
+  html[data-theme="print"] strong, html[data-theme="print"] b { color: #000 !important; }
+
+  /* Labels and badges: small caps in a thin frame instead of a coloured pill. */
+  html[data-theme="print"] [class*="badge"], html[data-theme="print"] .tag, html[data-theme="print"] .problem-tag, html[data-theme="print"] .article-category, html[data-theme="print"] .phase-badge, html[data-theme="print"] .problem-num, html[data-theme="print"] .problem-id {
+    border: 0.5pt solid #555 !important; border-radius: 3pt !important; padding: 0 4pt !important;
+    font-family: "JetBrains Mono", monospace !important; font-size: 7.5pt !important; color: #222 !important;
+  }
+
+  /* ------------------------------------------------------------ boxes */
+  html[data-theme="print"] .callout, html[data-theme="print"] [class*="-callout"]:not([class*="title"]), html[data-theme="print"] blockquote, html[data-theme="print"] .statement-box, html[data-theme="print"] .problem-statement, html[data-theme="print"] .problem-statement-box, html[data-theme="print"] .result-box, html[data-theme="print"] .result-callout, html[data-theme="print"] .justification-box, html[data-theme="print"] .strategy-callout, html[data-theme="print"] .note-box, html[data-theme="print"] .info-box, html[data-theme="print"] .warning-box, html[data-theme="print"] .key-box, html[data-theme="print"] .highlight-box, html[data-theme="print"] .definition-box, html[data-theme="print"] .theorem-box, html[data-theme="print"] .formula-box, html[data-theme="print"] .reference-card, html[data-theme="print"] .src-panel {
+    border: 0.6pt solid #777 !important; border-radius: 3pt !important; padding: 6pt 9pt !important; margin: 7pt 0 9pt !important;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  html[data-theme="print"] .statement-box, html[data-theme="print"] .problem-statement, html[data-theme="print"] .problem-statement-box, html[data-theme="print"] .result-box, html[data-theme="print"] .result-callout, html[data-theme="print"] .callout-warning, html[data-theme="print"] .warning-box {
+    border-left: 2.5pt solid #000 !important;
+  }
+  html[data-theme="print"] .callout-title, html[data-theme="print"] .result-callout-title, html[data-theme="print"] .strategy-title {
+    font-family: "JetBrains Mono", monospace !important; font-size: 7.5pt !important; font-weight: 700 !important;
+    letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 3pt !important;
+  }
+  html[data-theme="print"] .math-block, html[data-theme="print"] .katex-display, html[data-theme="print"] figure, html[data-theme="print"] .figure, html[data-theme="print"] table, html[data-theme="print"] img, html[data-theme="print"] svg, html[data-theme="print"] .equation-box {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  html[data-theme="print"] .math-block { border: 0 !important; padding: 2pt 0 !important; margin: 6pt 0 !important; }
+  html[data-theme="print"] .katex-display, html[data-theme="print"] .math-block, html[data-theme="print"] .table-container, html[data-theme="print"] .table-wrapper, html[data-theme="print"] .table-scroll { overflow: visible !important; }
+  html[data-theme="print"] .katex { color: #000 !important; font-size: 1.08em; }
+
+  /* Cards and phases: thin frames, no fills. */
+  html[data-theme="print"] .phase-block, html[data-theme="print"] .phase-section, html[data-theme="print"] .sub-case-card, html[data-theme="print"] .solution-box, html[data-theme="print"] .question-item, html[data-theme="print"] .card, html[data-theme="print"] [class*="-card"]:not(.problem-card) {
+    border: 0.5pt solid #aaa !important; border-radius: 3pt !important; padding: 6pt 9pt !important; margin: 7pt 0 !important;
+  }
+  html[data-theme="print"] .problem-card, html[data-theme="print"] .problem-box { border: 0 !important; padding: 0 !important; margin: 0 0 14pt !important; }
+  html[data-theme="print"] .problem-card + .problem-card, html[data-theme="print"] .problem-box + .problem-box, html[data-theme="print"] .pdf-break { break-before: page; page-break-before: always; }
+  html[data-theme="print"] details > summary { list-style: none !important; }
+  html[data-theme="print"] details > summary::-webkit-details-marker { display: none; }
+
+  /* ------------------------------------------------------------ tables */
+  html[data-theme="print"] table { border-collapse: collapse !important; width: 100% !important; display: table !important; font-size: 9pt !important; margin: 6pt 0 9pt !important; }
+  html[data-theme="print"] th, html[data-theme="print"] td { border: 0.5pt solid #888 !important; padding: 3pt 5pt !important; vertical-align: top; }
+  html[data-theme="print"] th { font-weight: 700 !important; border-bottom: 1pt solid #000 !important; }
+  html[data-theme="print"] thead { display: table-header-group; }
+  html[data-theme="print"] tr { break-inside: avoid; page-break-inside: avoid; }
+
+  /* ------------------------------------------------------------ figures */
+  html[data-theme="print"] img, html[data-theme="print"] svg { max-width: 100% !important; height: auto; }
+  html[data-theme="print"] figure, html[data-theme="print"] .figure { margin: 8pt auto !important; text-align: center; }
+  html[data-theme="print"] figcaption, html[data-theme="print"] .figure-caption, html[data-theme="print"] .math-caption { font-size: 8.5pt !important; font-style: italic; color: #333 !important; }
+  html[data-theme="print"] .pdf-invert { filter: invert(1) hue-rotate(180deg); }
