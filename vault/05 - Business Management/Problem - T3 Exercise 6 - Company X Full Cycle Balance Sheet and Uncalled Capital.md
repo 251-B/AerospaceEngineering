@@ -1,199 +1,124 @@
 ---
 materia: Business Management
 tema: "Topic 3: Financial Management (I) - Financial Statements"
-origen: "T3_Financial Statements_EXERCISES.pdf, Exercise 6"
-dificultad: alta
+origen: "T3_Financial Statements_EXERCISES.pdf, Exercise 6, p. 3"
+dificultad: medium
 tags:
-  - problema-examen
-  - resuelto
-  - ciclo-contable-completo
+  - problem
+  - solved
   - balance-sheet
-  - dividendos-pasivos
-  - periodo-medio-cobro
+  - income-statement
 ---
 
-# ✏️ Problem 6: Company X Full Accounting Cycle, Balance Sheet & Impact of Uncalled Capital
+# ✏️ Problem: Exercise 6 — Company X, first-year balance sheet and partly paid capital
 
-## 📄 Enunciado Oficial (Official Statement)
+## 📄 Statement
 
-We have the following information from the company **X**, for the year 2017:
+Company X was incorporated on 1/01/2017 with a subscription of shares worth 100 m.u., fully paid in cash. On 1/01/2017 it bought, with cash: a) an area (land) for 20 m.u.; b) equipment with a life of 10 years (straight-line depreciation) and a purchase price of 20 m.u.; c) raw materials for 20 m.u.
 
-The company X was incorporated on 1st of January, 2017 with a subscription of shares worth $100 \text{ m.u.}$ fully paid in cash ($m.u. = \text{monetary units}$).
+The company hires an employee for a total annual cost (salaries, Social Security, etc.) of 10 m.u. per year. This employee processes half of the raw material and sells it for a total of 50 m.u. Sales are the same every day of the year. The average collection period is 3 months.
 
-Purchased (with cash), on 1/1/2017:
-* **a)** An area (land) for $20 \text{ m.u.}$
-* **b)** Equipment with a life of $10 \text{ years}$ (Straight-line depreciation) and purchase price of $20 \text{ m.u.}$
-* **c)** Raw materials for $20 \text{ m.u.}$
+The single tax rate on the profits of the company is 30% (paid on 31/12/2017). The company follows a strict self-financing strategy.
 
-The company hires an employee for a total annual cost (salaries, Social Security, etc.) of $10 \text{ m.u.}$ per year. This employee processes half of the raw material and sells it for a total of $50 \text{ m.u.}$ Sales are the same every day of the year. The average collection period is $3 \text{ months}$.
+1. Prepare the balance sheet at 31/12/2017, justifying and explaining the intermediate calculations.
+2. Explain how the accounting statements would change if, instead of 100%, the shareholders had paid only 90% of the 100 m.u. subscribed.
 
-The single tax rate that is applicable on the profits of the company is $30\%$ (paid on December 31st, 2017).
+## Phase 1 — Setup: data and hypotheses
 
-The company follows a **strict self-financing strategy**.
+**Period:** calendar year 2017. **Closing:** 31/12/2017.
 
-**Questions:**
-1. Prepare the **Balance Sheet as on 31/12/2017**, justifying and explaining, where appropriate, intermediate calculations.
-2. Indicate and explain how the accounting statements would change if instead of $100\%$, the shareholders had paid only $90\%$ of the $100 \text{ m.u.}$ subscribed.
+**Hypotheses:**
+1. The employee's cost is paid during the year.
+2. Land has no useful life given and is not depreciated; the equipment has no residual value given (zero).
+3. **Strict self-financing** [Slide 23]: the whole net income is retained (pay-out 0%).
+4. The tax is paid on 31/12, so no tax liability remains.
 
----
+## Phase 2 — Frames: classification of every operation
 
-> [!TIP] 🎯 Exam Day Strategy: Full Annual Cycle, Treasury Ledger & Contra-Equity
-> * **Opening Cash Position on 1/1/2017:**
->   $$\text{Cash}_{1/1} = \text{Share Capital} - (\text{Land} + \text{Equipment} + \text{Materials}) = 100.0 - (20.0 + 20.0 + 20.0) = \mathbf{40.0 \text{ mu}}$$
-> * **Operating Cycle & COGS:** Half of raw materials processed $\implies \text{COGS} = 20.0 / 2 = \mathbf{10.0 \text{ mu}}$. The remaining $10.0 \text{ mu}$ remains in warehouse inventory as a **Current Asset**.
-> * **Exam Trap 1 — Land Depreciation:** **Land is indestructible and never depreciates!** Only Equipment depreciates ($20.0 / 10 = \mathbf{2.0 \text{ mu}}$). Depreciating land is a critical exam mistake.
-> * **Exam Trap 2 — Accounts Receivable Delay:** Sales occur uniformly over the year with an average collection period of 3 months ($0.25 \text{ year}$).
->   $$\mathbf{\text{Ending Receivables}} = 50.0 \times \frac{3 \text{ months}}{12 \text{ months}} = \mathbf{12.5 \text{ mu}} \implies \text{Collections} = 50.0 - 12.5 = \mathbf{37.5 \text{ mu}}$$
->   Never assume all 50 mu was collected in cash!
-> * **Exam Trap 3 — Corporate Tax Settlement:** The prompt states tax ($8.4 \text{ mu}$) is *paid on December 31st, 2017*. Thus it is a **cash outflow**, leaving **zero tax liability** pending on the balance sheet.
-> * **Exam Trap 4 — Question 2 (Uncalled Capital):** If shareholders only pay $90\%$, uncalled capital is $10 \text{ mu}$. Uncalled capital does NOT change P&L, revenues, or expenses. It lowers starting cash by $10 \text{ mu}$ (ending cash becomes $49.1 \text{ mu}$) and is presented in Equity as a negative contra-equity line ($100 - 10 + 19.6 = 109.6 \text{ mu}$).
+| Operation | Income statement 2017 | Cash 2017 | Open at 31/12/2017 |
+| :--- | :--- | :--- | :--- |
+| Capital | — | +100 | Share capital 100 |
+| Land | — | −20 | Land 20 |
+| Equipment | Depreciation 2 | −20 | Equipment $20 - 2$ |
+| Raw materials | COGS 10 (half consumed) | −20 | Inventory 10 |
+| Employee | Personnel 10 | −10 | — |
+| Sales | Revenue 50 | +37.5 | Receivables 12.5 |
+| Tax | 8.4 | −8.4 | — |
 
-## 📊 1. Step-by-Step Resolution: Question 1
+## Phase 3 — Derivation (requirement 1)
 
-To build the Balance Sheet as of December 31st, 2017, we must develop the full accounting cycle:
+### Step 1. Depreciation and cost of goods sold
 
-### Phase 1: Capital Inflow & Initial Asset Allocation (1/1/2017)
-* Subscribed and fully paid share capital: $+100.0 \text{ m.u.}$ cash.
-* Immediate cash outlays:
-  * Acquisition of Area (Land): $-20.0 \text{ m.u.}$
-  * Acquisition of Equipment: $-20.0 \text{ m.u.}$
-  * Purchase of Raw Materials: $-20.0 \text{ m.u.}$
-* Cash balance on 1/1/2017 immediately after purchases:
-  $$\text{Cash}_{1/1} = 100.0 - (20.0 + 20.0 + 20.0) = \mathbf{40.0 \text{ m.u.}}$$
+$$D = \frac{20 - 0}{10} = 2 \text{ m.u.}, \qquad \text{COGS} = \frac{20}{2} = 10 \text{ m.u.}, \qquad \text{Inventory} = 20 - 10 = 10 \text{ m.u.}$$
 
----
+### Step 2. Receivables from the collection period
 
-### Phase 2: Operations & Income Statement Computation (Fiscal Year 2017)
+Sales are spread evenly over the year and customers pay 3 months after buying. At 31/12 the sales of the last 3 months are still unpaid:
 
-1. **Sales Revenue:**
-   $$\mathbf{\text{Sales}} = \mathbf{50.0 \text{ m.u.}}$$
-2. **Cost of Goods Sold (Raw Materials Consumed):**
-   The employee processes half ($50\%$) of the purchased raw materials:
-   $$\text{Raw Materials Consumed (COGS)} = \frac{20.0}{2} = \mathbf{10.0 \text{ m.u.}}$$
-   *(Ending inventory remaining in warehouse $= 20.0 - 10.0 = 10.0 \text{ m.u.}$, recorded as a Current Asset).*
-3. **Gross Profit:**
-   $$\mathbf{\text{Gross Profit}} = 50.0 - 10.0 = \mathbf{40.0 \text{ m.u.}}$$
-4. **Operating Expenses:**
-   * Employee labor expense (wages + Social Security): $10.0 \text{ m.u.}$
-   * Linear depreciation of equipment ($20 \text{ m.u.}$ over $10 \text{ years}$):
-     $$\text{Annual Depreciation} = \frac{20.0}{10} = \mathbf{2.0 \text{ m.u.}}$$
-     *(Note: Land is not depreciable).*
-   * Total Operating Expenses:
-     $$\mathbf{\text{Operating Expenses}} = 10.0 + 2.0 = \mathbf{12.0 \text{ m.u.}}$$
-5. **Operating Profit (EBIT):**
-   $$\mathbf{\text{EBIT}} = 40.0 - 12.0 = \mathbf{28.0 \text{ m.u.}}$$
-6. **Financial Results & Earnings Before Taxes (EBT):**
-   $$\mathbf{\text{EBT}} = \text{EBIT} \pm 0 = \mathbf{28.0 \text{ m.u.}}$$
-7. **Corporate Income Taxes ($30\%$):**
-   $$\mathbf{\text{Corporate Tax}} = 30\% \times 28.0 = \mathbf{8.4 \text{ m.u.}}$$
-   *(Note: The tax was settled and paid on December 31st, 2017, so there is no tax liability pending at year end).*
-8. **Net Income (Net Profit):**
-   $$\mathbf{\text{Net Income}} = 28.0 - 8.4 = \mathbf{19.6 \text{ m.u.}}$$
-9. **Profit Appropriation (Self-Financing):**
-   Under strict self-financing, $\text{Dividends} = 0 \text{ m.u.}$ and the entire net income is retained:
-   $$\mathbf{\text{Retained Earnings (Equity Addition)}} = \mathbf{+19.6 \text{ m.u.}}$$
+$$\text{Receivables} = 50 \times \frac{3}{12} = 12.5 \text{ m.u.}, \qquad \text{Collected} = 50 - 12.5 = 37.5 \text{ m.u.}$$
 
----
+### Step 3. Income statement 2017
 
-### Phase 3: Trade Receivables & Treasury Cash Reconciliation
+| Line | Computation | m.u. |
+| :--- | :--- | ---: |
+| Sales revenue | | 50.0 |
+| − Cost of goods sold | Step 1 | 10.0 |
+| **= Gross profit** | | **40.0** |
+| − Personnel | | 10.0 |
+| − Depreciation | Step 1 | 2.0 |
+| **= Income from operations = income before taxes** | no interest | **28.0** |
+| − Income taxes (30%) | $0.30 \times 28$ | 8.4 |
+| **= Net income** | $28 - 8.4$ | **19.6** |
 
-1. **Accounts Receivable (Trade Debtors):**
-   Sales occur uniformly across the 365 days of the year, with an average collection period of 3 months ($0.25 \text{ year}$):
-   $$\mathbf{\text{Accounts Receivable as of 31/12/2017}} = \text{Annual Sales} \times \frac{3 \text{ months}}{12 \text{ months}} = 50.0 \times \frac{1}{4} = \mathbf{12.5 \text{ m.u.}}$$
-2. **Cash Collections from Sales:**
-   $$\text{Cash Collected} = \text{Total Sales} - \text{Ending Receivables} = 50.0 - 12.5 = \mathbf{37.5 \text{ m.u.}}$$
-3. **Cash Treasury Reconciliation on 31/12/2017:**
-   $$\begin{array}{|lr|}
-   \hline
-   \textbf{Cash Flow Component} & \textbf{Amount (m.u.)} \\
-   \hline
-   \text{Cash Balance on 1/1/2017 (after Capex \& Materials)} & 40.0 \\
-   \text{(+) Cash Collections from Customers} & +37.5 \\
-   \text{(-) Employee Cost Paid} & (10.0) \\
-   \text{(-) Corporate Income Tax Paid on 31/12/2017} & (8.4) \\
-   \hline
-   \mathbf{\text{ENDING CASH BALANCE ON 31/12/2017}} & \mathbf{59.1} \\
-   \hline
-   \end{array}$$
+All 19.6 is retained (strict self-financing).
 
----
+### Step 4. Cash at 31/12/2017
 
-### Phase 4: Formal Balance Sheet as of 31/12/2017
+$$\text{Cash} = 100 - 20 - 20 - 20 + 37.5 - 10 - 8.4 = 59.1 \text{ m.u.}$$
 
-$$\begin{array}{|lr|lr|}
-\hline
-\textbf{ASSETS (Activo)} & \textbf{Amount (m.u.)} & \textbf{LIABILITIES \& EQUITY (Pasivo y PN)} & \textbf{Amount (m.u.)} \\
-\hline
-\textbf{NON-CURRENT ASSETS} & \mathbf{38.0} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{119.6} \\
-\text{• Land / Area (Non-depreciable)} & 20.0 & \text{• Subscribed \& Paid-in Share Capital} & 100.0 \\
-\text{• Equipment (Historical Cost)} & 20.0 & \text{• Retained Earnings (Year 2017 Net Profit)} & 19.6 \\
-\text{• (-) Accumulated Depreciation} & (2.0) & & \\
-& & \textbf{NON-CURRENT LIABILITIES} & \mathbf{0.0} \\
-\textbf{CURRENT ASSETS} & \mathbf{81.6} & \text{• Long-term debt} & 0.0 \\
-\text{• Inventories (Raw Materials)} & 10.0 & & \\
-\text{• Accounts Receivable (Customers)} & 12.5 & \textbf{CURRENT LIABILITIES} & \mathbf{0.0} \\
-\text{• Cash \& Cash Equivalents} & 59.1 & \text{• Accounts payable (Suppliers)} & 0.0 \\
-& & \text{• Corporate tax payable} & 0.0 \\
-\hline
-\mathbf{\text{TOTAL ASSETS}} & \mathbf{119.6} & \mathbf{\text{TOTAL LIABILITIES \& EQUITY}} & \mathbf{119.6} \\
-\hline
-\end{array}$$
+### Step 5. Balance sheet at 31/12/2017
 
-$$\mathbf{\text{Balance Check: } \text{Total Assets } (119.6 \text{ m.u.}) \equiv \text{Total Liabilities \& Equity } (119.6 \text{ m.u.})}$$
+| Assets | m.u. | Liabilities and equity | m.u. |
+| :--- | ---: | :--- | ---: |
+| Land | 20.0 | Share capital | 100.0 |
+| Equipment ($20 - 2$) | 18.0 | Retained earnings (net income 2017) | 19.6 |
+| **Non-current assets** | **38.0** | **Equity** | **119.6** |
+| Inventory (raw materials) | 10.0 | **Liabilities** | **0** |
+| Accounts receivable | 12.5 | | |
+| Cash | 59.1 | | |
+| **Current assets** | **81.6** | | |
+| **Total assets** | **119.6** | **Total liabilities and equity** | **119.6** |
+
+## Phase 3b — Derivation (requirement 2: only 90% paid)
+
+### Step 6. What changes
+
+The shareholders **subscribed** 100 m.u. but **paid in** only $0.90 \times 100 = 90$ m.u. The remaining 10 m.u. is capital not yet paid (uncalled capital): the shareholders still owe it to the company.
+
+- **Income statement:** **no change**. Revenues and expenses do not depend on how the capital was paid; there is no interest involved. Net income stays 19.6.
+- **Cash:** 10 m.u. less: $59.1 - 10 = 49.1$ m.u. All the purchases (60) can still be paid in cash, since the company receives 90.
+- **Equity:** the contributed capital is what the stockholders actually provided [Slide 13, Slide 17], so the subscribed capital is shown minus the unpaid part: $100 - 10 = 90$.
+
+| Assets | m.u. | Liabilities and equity | m.u. |
+| :--- | ---: | :--- | ---: |
+| **Non-current assets** | **38.0** | Subscribed capital | 100.0 |
+| Inventory | 10.0 | − Uncalled capital (unpaid by shareholders) | (10.0) |
+| Accounts receivable | 12.5 | Retained earnings | 19.6 |
+| Cash | 49.1 | **Equity** | **109.6** |
+| **Current assets** | **71.6** | **Liabilities** | **0** |
+| **Total assets** | **109.6** | **Total liabilities and equity** | **109.6** |
+
+Both totals fall by exactly the 10 m.u. not paid.
+
+## Phase 4 — Interpretation and checks
+
+- **Balance:** $38 + 81.6 = 119.6 = 100 + 19.6$ (requirement 1); $38 + 71.6 = 109.6 = 90 + 19.6$ (requirement 2).
+- **Equity bridge:** equity = capital paid + net income retained: $100 + 19.6$ and $90 + 19.6$.
+- **Profit vs cash:** after the purchases of 1/01, the cash generated during the year is $37.5 - 10 - 8.4 = 19.1$, while the profit is 19.6. Reconciliation: $19.6 + 2 + 10 - 12.5 = 19.1$, that is, profit + depreciation (expense, never a payment) + materials consumed (expense whose payment was made on 1/01 with the purchase) − sales not collected yet.
+- **Presentation note:** some textbooks show the 10 m.u. owed by shareholders as an asset instead of deducting it from capital; then both totals stay at 119.6. The deduction used here is the one consistent with "contributed capital" in [Slide 17]. Both readings give the same net equity provided (109.6) and leave the income statement unchanged.
 
 ---
 
-## 🔍 2. Step-by-Step Resolution: Question 2 — Impact of Uncalled Capital (90% Paid)
+**Back to:** [[Business Management MOC]]
 
-**Condition:** Shareholders subscribe to $100 \text{ m.u.}$, but only pay in $90\%$ ($90 \text{ m.u.}$ in cash) on 1/1/2017. The remaining $10\%$ ($10 \text{ m.u.}$) represents **Uncalled Share Capital (Dividendos Pasivos / Accionistas por desembolsos no exigidos)**.
-
-### Detailed Accounting Impacts:
-
-1. **Income Statement:**
-   * **Completely Unchanged.** Operational revenues ($50.0$), raw materials consumed ($10.0$), personnel cost ($10.0$), depreciation ($2.0$), EBIT ($28.0$), taxes ($8.4$), and Net Income ($19.6 \text{ m.u.}$) remain strictly identical because uncalled equity has no effect on operational performance.
-2. **Treasury / Ending Cash Balance:**
-   * Initial cash inflow on 1/1 drops from $100 \text{ m.u.}$ to $90 \text{ m.u.}$ (a net deficit of $-10 \text{ m.u.}$).
-   * All subsequent cash collections and payments are identical.
-   * Therefore, ending Cash on 31/12 decreases by exactly $10 \text{ m.u.}$:
-     $$\mathbf{\text{New Ending Cash}} = 59.1 - 10.0 = \mathbf{49.1 \text{ m.u.}}$$
-3. **Current Assets:**
-   $$\mathbf{\text{New Current Assets}} = 10.0 \text{ (Inventory)} + 12.5 \text{ (Receivables)} + 49.1 \text{ (Cash)} = \mathbf{71.6 \text{ m.u.}} \quad (-10.0)$$
-4. **Stockholders' Equity Presentation:**
-   * Standard international accounting presents Uncalled Capital as a **contra-equity account** deducting from subscribed capital:
-     $$\begin{aligned}
-     \text{Subscribed Share Capital} &= 100.0 \text{ m.u.} \\
-     \text{(-) Uncalled Share Capital} &= (10.0) \text{ m.u.} \\
-     \text{Retained Earnings} &= 19.6 \text{ m.u.} \\
-     \hline
-     \mathbf{\text{Total Stockholders' Equity}} &= 100.0 - 10.0 + 19.6 = \mathbf{109.6 \text{ m.u.}}
-     \end{aligned}$$
-
-### Modified Balance Sheet (31/12/2017 — 90% Paid):
-
-$$\begin{array}{|lr|lr|}
-\hline
-\textbf{ASSETS (Activo)} & \textbf{Amount (m.u.)} & \textbf{LIABILITIES \& EQUITY (Pasivo y PN)} & \textbf{Amount (m.u.)} \\
-\hline
-\textbf{NON-CURRENT ASSETS} & \mathbf{38.0} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{109.6} \\
-\text{• Land / Area} & 20.0 & \text{• Subscribed Share Capital} & 100.0 \\
-\text{• Equipment (Net Book Value)} & 18.0 & \text{• (-) Uncalled Share Capital} & (10.0) \\
-& & \text{• Retained Earnings} & 19.6 \\
-\textbf{CURRENT ASSETS} & \mathbf{71.6} & & \\
-\text{• Inventories (Raw Materials)} & 10.0 & \textbf{LIABILITIES} & \mathbf{0.0} \\
-\text{• Accounts Receivable} & 12.5 & \text{• Non-current liabilities} & 0.0 \\
-\text{• Cash \& Cash Equivalents} & 49.1 & \text{• Current liabilities} & 0.0 \\
-\hline
-\mathbf{\text{TOTAL ASSETS}} & \mathbf{109.6} & \mathbf{\text{TOTAL LIABILITIES \& EQUITY}} & \mathbf{109.6} \\
-\hline
-\end{array}$$
-
-$$\mathbf{\text{Total Assets } (109.6 \text{ m.u.}) \equiv \text{Total Liabilities \& Equity } (109.6 \text{ m.u.})}$$
-
----
-
-## 🔗 Related Notes
-* [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
-* [[05 - Business Management/Concept - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
-* [[05 - Business Management/Concept - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure & WACC]]
-* [[05 - Business Management/Problem - T3 Exercise 5 - Corporate Income Statement, Taxes and Dividends|Problem 5: Corporate Income Statement]]
-* [[05 - Business Management/Business Management MOC|Back to Business Management MOC]]
+**Related notes:** [[Concept - Method to Build the Income Statement and Balance Sheet]] · [[Topic 3 - Financial Management I - Financial Statements]]

@@ -1,351 +1,203 @@
 ---
 materia: Business Management
 tema: "Topic 3: Financial Management (I) - Financial Statements"
-origen: "T3_Additional_EXERCISES.pdf, Exercise 1 (Tipo Examen)"
-dificultad: alta
+origen: "T3_Additional_EXERCISES.pdf, Exercise 1, pp. 1-2"
+dificultad: high
 tags:
-  - problema-examen
-  - resuelto
+  - exam-problem
+  - solved
   - balance-sheet
-  - cuenta-de-resultados
+  - income-statement
   - circonsa
-  - ciclo-semestral
 ---
 
-# ✏️ Exam Problem: CIRCONSA — Semester Financial Statements & Cash Reconciliation
+# ✏️ Problem: T3 Additional Exercise 1 — CIRCONSA, statements at 30 June 2015
 
-## 📄 Official Problem Statement (Transcripción Íntegra)
+## 📄 Statement
 
-The financial director of **CIRCONSA** is working on its financial statements (Balance Sheet and Income Statement) as of **30 June 2015 (30/06/2015)**. It has the balance sheet of the company as of **31 December 2014 (31/12/2014)** — included below — and the following operations that have taken place during the period (from 1 January 2015 to 30 June 2015). The company dedicates to the sale of a certain product.
+The financial director of CIRCONSA is working on its financial statements (balance sheet and income statement) as of 30 June 2015. It has the balance of the company as of 31 December 2014 and the following operations that took place from 1 January 2015 to 30 June 2015. The company sells a certain product.
 
-### Starting Balance Sheet as of 31 December 2014:
-$$\begin{array}{|lr|lr|}
-\hline
-\textbf{ASSETS} & \textbf{m.u.} & \textbf{LIABILITIES \& OWNERS' EQUITY} & \textbf{m.u.} \\
-\hline
-\textbf{CURRENT ASSETS} & \mathbf{5,400} & \textbf{CURRENT LIABILITIES} & \mathbf{800} \\
-\text{• Cash} & 1,200 & \text{• Unpaid taxes} & 350 \\
-\text{• Accounts receivable} & 1,800 & \text{• Accounts payable (suppliers)} & 450 \\
-\text{• Inventory (stock)} & 2,400 & & \\
-\textbf{NON-CURRENT ASSETS} & \mathbf{450} & \textbf{OWNERS' EQUITY} & \mathbf{5,050} \\
-\text{• Equipment (Machinery)} & 500 & \text{• Retained earnings} & 850 \\
-\text{• (-) Accum depreciation} & (50) & \text{• Paid-in capital} & 4,200 \\
-\hline
-\mathbf{\text{TOTAL ASSETS}} & \mathbf{5,850} & \mathbf{\text{TOTAL LIABILITIES + OE}} & \mathbf{5,850} \\
-\hline
-\end{array}$$
+- **i.** During the semester the company sold 1,200 units at 20 m.u./unit (every month the same amount, 200 u.). Customers pay 30 days after the sale. A very important customer (30% of the sales), who bought an equal amount each month, was given a 10% discount on its purchases.
+- **ii.** During the semester 1,000 units were purchased (40% in the first quarter and 60% in the second) at 12 m.u./u. Suppliers are paid at 90 days.
+- **iii.** At 31/12/2014 there is a stock of 200 units valued at 12 m.u./u.
+- **iv.** During the first quarter of 2015 the taxes and the outstanding supplier balances of the previous year were paid.
+- **v.** During the first quarter of 2015 the customer debt outstanding from the previous year was collected, except 300 m.u. from a customer who requested to defer payment until July 2016.
+- **vi.** Personnel expenses were 350 m.u./month (plus 150 for Social Security) and general expenses 300 m.u./month. Personnel and Social Security are paid in the month in which they occur; overheads two months after.
+- **vii.** On 1/04/2015 a renting contract (3 years) for computer equipment was signed with a specialised company, 400 m.u. per month, with payment at 120 days (payment at the end of each month).
+- **viii.** On 1/04/2015 a patent was bought for 2,400 m.u., to be paid on 1/07/2015. It is amortised in 4 years.
+- **ix.** On 1/02/2015 a credit of 2,000 m.u. was obtained, to be returned a year later with 12% annual interest; interest and principal are paid on 1/02/2016.
+- **x.** At 31/12/2014 the company had only one machine, bought on 1/07/2014, amortised linearly with a residual value of 20%.
+- **xi.** On 1/02/2015 a capital increase (fully paid, no issue premium) of 10,000 m.u. was made. The same day a new machine costing 12,000 m.u. was bought: 8,000 paid in cash and the remainder on 1/07/2015. It is amortised in 4 years with zero residual value.
+- **xii.** Assume a 20% corporate tax, recorded in the balance at 30/06/2015 as "taxes to pay".
 
-### Semester Operations (Jan 1, 2015 – Jun 30, 2015):
-* **i.** The company has sold during the semester $1,200 \text{ units}$ of product at a price of $20 \text{ mu/unit}$ (every month the same amount, $200 \text{ u.}$). Payment condition: $30 \text{ days}$ after sale. A very important customer ($30\%$ of sales), who bought an equal amount each month, has been given a discount of $10\%$ on their purchases.
-* **ii.** Purchased $1,000 \text{ units}$ ($40\%$ in Q1 and $60\%$ in Q2) at $12 \text{ mu/unit}$. Payment condition: payable at $90 \text{ days}$.
-* **iii.** At 31 December 2014 there was a stock of $200 \text{ units}$ valued at $12 \text{ mu/unit}$.
-* **iv.** During Q1 2015, the taxes and outstanding supplier balances of the previous year were paid.
-* **v.** During Q1 2015, charged customer debt outstanding from previous year, except $300 \text{ m.u.}$ from a customer who requested to defer payment until July 2016.
-* **vi.** Personnel expenses: $350 \text{ mu/month}$ (plus $150 \text{ mu/month}$ Social Security). General expenses: $300 \text{ mu/month}$. Personnel & Social Security paid in the month produced; overheads paid two months after being made.
-* **vii.** Renting contract on 1 April 2015 (duration $3 \text{ years}$) for computer equipment: $400 \text{ mu/month}$, payment at $120 \text{ days}$ (end of each month).
-* **viii.** On 1 April 2015 bought a patent for $2,400 \text{ m.u.}$, to be paid on 1 July 2015. Amortization in $4 \text{ years}$.
-* **ix.** Credit requested: $2,000 \text{ m.u.}$ on 1 February 2015, returned 1 year later at $12\%$ annual interest. Principal and interest repayable on 1 February 2016.
-* **x.** Machine on 31 December 2014 was purchased on 1 July 2014, amortized linearly with a residual value of $20\%$.
-* **xi.** Capital increase (fully disbursed, no premium) for $10,000 \text{ m.u.}$ on 1 February 2015. On same date bought a new machine costing $12,000 \text{ m.u.}$, paid $8,000 \text{ m.u.}$ in cash, postponing remainder until 1 July 2015. Amortized in $4 \text{ years}$, zero residual value.
-* **xii.** Corporate tax: $20\%$, counted in balance at 30 June 2015 as "taxes to pay".
+**Balance sheet at 31/12/2014 (m.u.):** current assets 5,400 (cash 1,200; accounts receivable 1,800; inventory 2,400); non-current assets 450 (machinery 500; accumulated depreciation 50); current liabilities 800 (unpaid taxes 350; suppliers 450); owners' equity 5,050 (retained earnings 850; paid-in capital 4,200); total 5,850.
 
-**Question:** Calculate the Balance Sheet and Profit and Loss account of CIRCONSA at 30 June 2015 (30/06/2015).
+**Question:** calculate the balance sheet and the profit and loss account of CIRCONSA at 30 June 2015.
 
----
+## Phase 1 — Setup: data, timeline and hypotheses
 
-## 🎯 Exam Strategy & Key Recognition Guide
+**Period:** 1/01/2015 to 30/06/2015, **6 months**. **Closing instant:** 30/06/2015. Every monthly figure is multiplied by the months it applies inside this window.
 
-> [!TIP] How to Approach this Problem on Exam Day
-> 1. **Time Horizon:** The problem covers a **6-month semester** (not a full year!). All monthly expenses must be multiplied by 6 (or by the months active).
-> 2. **Accrual vs Cash Duality:** Always keep two separate tracks on scrap paper:
->    - **P&L Track (Accrual):** Did the expense/revenue happen in these 6 months? If yes, record it in P&L.
->    - **Treasury Track (Cash):** Was cash actually received or paid between 01/01 and 30/06? If not, the difference becomes an **Asset (Receivable)** or **Liability (Payable)**.
-> 3. **The 30-Day, 60-Day, 90-Day, 120-Day Rules:**
->    - $30 \text{ days}$ delay on monthly sales $\implies$ June sales are unpaid on June 30 $\implies$ Accounts Receivable.
->    - $90 \text{ days}$ delay on purchases $\implies$ Q2 purchases (Apr-May-Jun) are unpaid on June 30 $\implies$ Accounts Payable.
->    - Overheads paid 2 months after $\implies$ May and June overheads are unpaid on June 30 $\implies$ Creditors.
-> 4. **Payable Tomorrow (1 July 2015):** The patent ($2,400$) and Machine 2 remainder ($4,000$) are payable on 1 July 2015 $\implies$ they are **Current Liabilities** on June 30, NOT paid yet!
+| Date | Event |
+| :--- | :--- |
+| Jan-Mar | Sales 200 u./month; purchases 400 u. (Q1); payment of 2014 taxes and suppliers; collection of 2014 receivables except 300 |
+| 1/02 | Credit 2,000 received; capital increase 10,000; machine 2 bought (8,000 paid) |
+| 1/04 | Renting starts (400/month); patent bought (2,400, payable 1/07) |
+| Apr-Jun | Sales 200 u./month; purchases 600 u. (Q2) |
+| 30/06 | **Closing** |
+| 1/07 | Payment of patent and of the 4,000 left on machine 2 (after the closing) |
 
----
+**Hypotheses** (all read from the statement):
+1. Sales are uniform (200 u./month) and collected 30 days later, so at 30/06 only **June's sales** are uncollected.
+2. Q1 purchases are paid 90 days later, inside the semester; **Q2 purchases** are still unpaid at 30/06.
+3. Overheads are paid two months later: January-April are paid, **May and June** are unpaid.
+4. The renting is paid at 120 days: none of the April-June instalments has been paid at 30/06.
+5. Simple interest, prorated by months. Tax: 20% of income before taxes, left unpaid.
+6. Machine 1: its useful life is not given; it is deduced from the opening balance (Phase 3, Step 5).
 
-## 🔢 Step-by-Step Analytical Deductions
+## Phase 2 — Frames: classification of every operation
 
-### 1. Sales & Customer Receivables (Op. i)
-* Total physical sales: $1,200 \text{ units}$ at $20 \text{ mu/u} = 24,000 \text{ mu}$ gross.
-* VIP Client ($30\%$ of sales):
-  $$\text{VIP Gross Sales} = 30\% \times 24,000 = 7,200 \text{ mu}$$
-  $$\text{Commercial Discount } (10\%) = 10\% \times 7,200 = \mathbf{720 \text{ mu}}$$
-* Other Clients ($70\%$): $16,800 \text{ mu}$ (no discount).
-* **Net Sales Revenue (P&L):**
-  $$\mathbf{\text{Net Sales}} = 24,000 - 720 = \mathbf{23,280 \text{ mu}}$$
-* Monthly Net Sales: $\frac{23,280}{6} = 3,880 \text{ mu/month}$.
-* **Ending Accounts Receivable (30/06/2015):**
-  Because customers pay 30 days after sale, June sales ($3,880 \text{ mu}$) are collected in July:
-  $$\mathbf{\text{Accounts Receivable (Current)}} = \mathbf{3,880 \text{ mu}}$$
-  $$\text{Cash Collected from 2015 Sales} = 23,280 - 3,880 = \mathbf{19,400 \text{ mu}}$$
+The three questions of the method (income statement? cash? open balance item at 30/06?) applied to each operation:
 
----
+| Op. | Income statement (6 months) | Cash in (+) / out (−) | Open at 30/06 |
+| :--- | :--- | :--- | :--- |
+| i. Sales | Net sales 23,280 | +19,400 (Jan-May) | Receivables 3,880 (June) |
+| ii-iii. Purchases and stock | COGS 14,400 | −4,800 (Q1) | Inventory 0; suppliers 7,200 (Q2) |
+| iv. 2014 taxes and suppliers | — | −350 − 450 | — |
+| v. 2014 receivables | — | +1,500 | Long-term receivable 300 |
+| vi. Personnel + SS | 3,000 | −3,000 | — |
+| vi. Overheads | 1,800 | −1,200 (Jan-Apr) | Overheads payable 600 |
+| vii. Renting | 1,200 | 0 | Renting payable 1,200 |
+| viii. Patent | Amortisation 150 | 0 | Patent 2,400 − 150; patent payable 2,400 |
+| ix. Credit | Interest 100 | +2,000 | Credit 2,000; interest payable 100 |
+| x. Machine 1 | Depreciation 50 | 0 | Machine 500 − 100 |
+| xi. Capital increase | — | +10,000 | Capital +10,000 |
+| xi. Machine 2 | Depreciation 1,250 | −8,000 | Machine 12,000 − 1,250; debt 4,000 |
+| xii. Tax | 266 | 0 | Taxes payable 266 |
 
-### 2. Purchases, Stock & Cost of Goods Sold (COGS) (Op. ii & iii)
-* **Beginning Inventory (31/12/2014):** $200 \text{ units} \times 12 \text{ mu/u} = 2,400 \text{ mu}$.
-* **Purchases in Semester:** $1,000 \text{ units} \times 12 \text{ mu/u} = 12,000 \text{ mu}$.
-  * Q1 (Jan–Mar, $40\%$): $400 \text{ units} = 4,800 \text{ mu}$.
-  * Q2 (Apr–Jun, $60\%$): $600 \text{ units} = 7,200 \text{ mu}$.
-* **Inventory Balance at 30/06/2015:**
-  $$\text{Available Units} = 200 + 1,000 = 1,200 \text{ units}$$
-  $$\text{Units Sold} = 1,200 \text{ units} \implies \mathbf{\text{Ending Stock}} = 1,200 - 1,200 = \mathbf{0 \text{ units}} = \mathbf{0 \text{ mu}}$$
-* **Cost of Goods Sold (COGS):**
-  $$\mathbf{\text{COGS}} = \text{Initial Stock} (2,400) + \text{Purchases} (12,000) - \text{Ending Stock} (0) = \mathbf{14,400 \text{ mu}}$$
-* **Accounts Payable (Suppliers) at 30/06/2015:**
-  Supplier payment is 90 days ($3 \text{ months}$). Q1 purchases ($4,800$) were paid in Q2. Q2 purchases ($7,200$) are payable in Q3 (July–September):
-  $$\mathbf{\text{Accounts Payable (Suppliers)}} = \mathbf{7,200 \text{ mu}}$$
-  $$\text{Cash Paid for Purchases} = \mathbf{4,800 \text{ mu}}$$
+Each figure is derived in Phase 3.
 
----
+## Phase 3 — Derivation
 
-### 3. Settlement of 2014 Outstanding Items (Op. iv & v)
-* **Op. iv (Liabilities Paid):**
-  * Unpaid taxes of 2014 ($350 \text{ mu}$) paid in cash $\implies$ Balance $= 0$.
-  * Supplier balance of 2014 ($450 \text{ mu}$) paid in cash $\implies$ Balance $= 0$.
-  * Total Cash Outflow $= 350 + 450 = 800 \text{ mu}$.
-* **Op. v (Receivables Collected):**
-  * Prior year customer debt was $1,800 \text{ mu}$.
-  * $300 \text{ mu}$ deferred to July 2016 ($> 1 \text{ year}$ away) $\implies$ **Non-Current (Long-Term) Account Receivable** $= \mathbf{300 \text{ mu}}$.
-  * Remainder collected in cash: $1,800 - 300 = \mathbf{1,500 \text{ mu}}$ Cash Inflow.
+### Step 1. Sales and receivables (op. i)
 
----
+Gross sales per month: $200 \times 20 = 4{,}000$ m.u. The important customer buys 30% of them, so its discount per month is
 
-### 4. Operating Expenses & Renting (Op. vi & vii)
-* **Personnel Expenses (P&L):**
-  $$(350 \text{ wages} + 150 \text{ SS}) \times 6 \text{ months} = 500 \times 6 = \mathbf{3,000 \text{ mu}}$$
-  Paid monthly $\implies$ Cash paid $= 3,000 \text{ mu}$. Ending liability $= 0$.
-* **Overheads / General Expenses (P&L):**
-  $$300 \text{ mu/month} \times 6 \text{ months} = \mathbf{1,800 \text{ mu}}$$
-  Paid 2 months after: Jan–Apr paid ($4 \times 300 = 1,200 \text{ mu}$). May and June are unpaid at 30/06:
-  $$\mathbf{\text{Overheads Payable (Current Liability)}} = 300 + 300 = \mathbf{600 \text{ mu}}$$
-* **Renting Contract (Op. vii, P&L):**
-  Computer equipment leased from 1 April 2015 ($3 \text{ months}$ active):
-  $$\text{Renting Expense} = 3 \text{ months} \times 400 \text{ mu} = \mathbf{1,200 \text{ mu}}$$
-  Payment condition is 120 days ($4 \text{ months}$) $\implies$ first payment is due in August $\implies$ Cash paid $= 0$:
-  $$\mathbf{\text{Renting Debt Payable (Current Liability)}} = \mathbf{1,200 \text{ mu}}$$
+$$0.30 \times 4{,}000 \times 0.10 = 120 \text{ m.u./month}$$
 
----
+Net sales per month: $4{,}000 - 120 = 3{,}880$ m.u. Over the semester:
 
-### 5. Patent Acquisition & Amortization (Op. viii)
-* Purchased on 1 April 2015 for $2,400 \text{ mu}$, payable on 1 July 2015 (tomorrow):
-  $$\mathbf{\text{Debt for Patent Purchase (Current Liability)}} = \mathbf{2,400 \text{ mu}}$$
-* Useful life: $4 \text{ years} = 48 \text{ months}$. Monthly amortization $= \frac{2,400}{48} = 50 \text{ mu/month}$.
-* Active months (Apr, May, Jun): $3 \text{ months}$.
-  $$\mathbf{\text{Amortization Expense (P\&L)}} = 3 \times 50 = \mathbf{150 \text{ mu}}$$
-  $$\mathbf{\text{Net Book Value Patent}} = 2,400 - 150 = \mathbf{2,250 \text{ mu}}$$
+$$\text{Net sales} = 6 \times 3{,}880 = 23{,}280 \text{ m.u.} \quad (= 24{,}000 - 720)$$
 
----
+Collections at 30 days: the sales of January to May are collected by 30/06 ($5 \times 3{,}880 = 19{,}400$); June's sales are still owed: **receivables 3,880**.
 
-### 6. Bank Credit & Interest Accrual (Op. ix)
-* Principal: $2,000 \text{ mu}$ received on 1 February 2015 $\implies$ Cash Inflow $= +2,000 \text{ mu}$.
-* Due date: 1 February 2016 ($\le 1 \text{ year}$) $\implies$ **Short-Term Bank Loan** $= \mathbf{2,000 \text{ mu}}$.
-* Annual interest rate: $12\%$.
-* Time elapsed in semester (Feb 1 to Jun 30): $5 \text{ months}$.
-  $$\mathbf{\text{Interest Expense (P\&L)}} = 2,000 \times 12\% \times \frac{5}{12} = \mathbf{100 \text{ mu}}$$
-  Since interest is payable on 1 Feb 2016, nothing has been paid:
-  $$\mathbf{\text{Accrued Interest Payable (Current Liability)}} = \mathbf{100 \text{ mu}}$$
+### Step 2. Purchases, stock and cost of goods sold (ops. ii, iii)
 
----
+Units: initial stock 200 + purchases 1,000 = 1,200 available; 1,200 sold, so the ending stock is 0 units. All units cost 12 m.u., so
 
-### 7. Fixed Assets: Machine 1 & Machine 2 (Op. x & xi)
-* **Machine 1 (Existing on 31/12/2014):**
-  * Historical Cost: $500 \text{ mu}$. Purchased 1 July 2014.
-  * Residual value: $20\% \times 500 = 100 \text{ mu}$. Depreciable base $= 500 - 100 = 400 \text{ mu}$.
-  * Accumulated depreciation on 31/12/2014 was $50 \text{ mu}$ ($6 \text{ months}$). Annual dep $= 100 \text{ mu}$.
-  * Depreciation for 1st semester 2015 ($6 \text{ months}$):
-    $$\mathbf{\text{Depreciation Machine 1}} = \frac{100}{2} = \mathbf{50 \text{ mu}}$$
-  * Total Accumulated Depreciation Machine 1 $= 50 + 50 = 100 \text{ mu}$.
-* **Machine 2 (Purchased 1 Feb 2015):**
-  * Historical Cost: $12,000 \text{ mu}$.
-  * Paid in cash: $8,000 \text{ mu}$. Remainder ($4,000 \text{ mu}$) postponed to 1 July 2015:
-    $$\mathbf{\text{Debt for Machine 2 (Current Liability)}} = \mathbf{4,000 \text{ mu}}$$
-  * Depreciation: $4 \text{ years} = 48 \text{ months}$, residual value zero. Monthly $= \frac{12,000}{48} = 250 \text{ mu/month}$.
-  * Active in semester (Feb to Jun): $5 \text{ months}$.
-    $$\mathbf{\text{Depreciation Machine 2}} = 5 \times 250 = \mathbf{1,250 \text{ mu}}$$
-* **Total Fixed Assets Summary:**
-  * Gross Machinery Cost: $500 + 12,000 = \mathbf{12,500 \text{ mu}}$.
-  * Accumulated Depreciation Machinery: $100 + 1,250 = \mathbf{1,350 \text{ mu}}$.
-  * **Net Machinery Book Value:** $12,500 - 1,350 = \mathbf{11,150 \text{ mu}}$.
-  * Total P&L Depreciation Expense in semester:
-    $$\text{Depreciation \& Amortization} = 50 \text{ (Mach 1)} + 1,250 \text{ (Mach 2)} + 150 \text{ (Patent)} = \mathbf{1,450 \text{ mu}}$$
+$$\text{COGS} = \text{Initial inventory} + \text{Purchases} - \text{Ending inventory} = 2{,}400 + 12{,}000 - 0 = 14{,}400 \text{ m.u.}$$
 
----
+Purchases: Q1 $= 0.40 \times 1{,}000 \times 12 = 4{,}800$, paid at 90 days (inside the semester); Q2 $= 0.60 \times 1{,}000 \times 12 = 7{,}200$, **unpaid at 30/06**.
 
-### 8. Capital Increase (Op. xi)
-* Fully disbursed cash capital increase on 1 Feb 2015: $+10,000 \text{ mu}$.
-* **New Paid-in Capital:** $4,200 + 10,000 = \mathbf{14,200 \text{ mu}}$.
+### Step 3. Items from 2014 (ops. iv, v)
 
----
+Paid in Q1: taxes 350 and suppliers 450 (cash −800; both liabilities disappear). Collected in Q1: $1{,}800 - 300 = 1{,}500$. The remaining 300 is due in July 2016, more than one year after 30/06/2015, so it becomes a **non-current receivable** [Slide 15].
 
-### 9. Income Statement & Corporate Taxes (Op. xii)
-$$\begin{array}{|lrr|}
-\hline
-\textbf{CIRCONSA — PROFIT AND LOSS ACCOUNT (01/01/2015 – 30/06/2015)} & \textbf{Detail (mu)} & \textbf{Amount (mu)} \\
-\hline
-\text{Gross Sales} & 24,000 & \\
-\text{(-) Commercial Discount to VIP Client (10\% of 7,200)} & (720) & \\
-\hline
-\mathbf{\text{NET REVENUES}} & & \mathbf{23,280} \\
-\text{(-) Cost of Goods Sold (COGS: 200 init + 1,000 purch - 0 end @ 12)} & & (14,400) \\
-\hline
-\mathbf{\text{GROSS PROFIT}} & & \mathbf{8,880} \\
-\text{(-) Operating Expenses:} & & (7,450) \\
-\quad \text{• Personnel \& Social Security (500 mu/mo $\times$ 6 mo)} & (3,000) & \\
-\quad \text{• General Overheads (300 mu/mo $\times$ 6 mo)} & (1,800) & \\
-\quad \text{• Computer Renting Expense (400 mu/mo $\times$ 3 mo)} & (1,200) & \\
-\quad \text{• Depreciation \& Amortization (50 + 1,250 + 150)} & (1,450) & \\
-\hline
-\mathbf{\text{OPERATING INCOME (EBIT)}} & & \mathbf{1,430} \\
-\text{(-) Financial Interest Expense (12\% $\times$ 2,000 $\times$ 5/12)} & & (100) \\
-\hline
-\mathbf{\text{EARNINGS BEFORE TAXES (EBT)}} & & \mathbf{1,330} \\
-\text{(-) Corporate Tax (20\%)} & & (266) \\
-\hline
-\mathbf{\text{NET INCOME (PROFIT FOR THE SEMESTER)}} & & \mathbf{1,064} \\
-\hline
-\end{array}$$
+None of these affects the income statement: they settle revenues and expenses of 2014.
 
-* **Taxes Payable at 30/06/2015:** $\mathbf{266 \text{ mu}}$ (recorded as Current Liability).
+### Step 4. Personnel, overheads and renting (ops. vi, vii)
+
+- Personnel + Social Security: $6 \times (350 + 150) = 3{,}000$, all paid.
+- Overheads: $6 \times 300 = 1{,}800$ of expense; paid two months later, so January-April are paid ($4 \times 300 = 1{,}200$) and May-June are owed: **600 payable**.
+- Renting: April, May, June, $3 \times 400 = 1{,}200$ of expense; paid at 120 days, nothing paid by 30/06: **1,200 payable**.
+
+### Step 5. Fixed assets: depreciation and amortisation (ops. viii, x, xi)
+
+**Machine 1.** Cost 500, residual value $0.20 \times 500 = 100$, depreciable base $500 - 100 = 400$. The opening accumulated depreciation is 50 for the 6 months from 1/07/2014 to 31/12/2014, so the annual depreciation is $50 \times \frac{12}{6} = 100$ and the useful life is $\frac{400}{100} = 4$ years. For the semester:
+
+$$D_1 = \frac{500 - 100}{4} \times \frac{6}{12} = 50 \text{ m.u.}, \qquad \text{accumulated} = 50 + 50 = 100$$
+
+**Machine 2.** Bought 1/02, used 5 months (February-June), zero residual value:
+
+$$D_2 = \frac{12{,}000 - 0}{4} \times \frac{5}{12} = 1{,}250 \text{ m.u.}$$
+
+**Patent.** Bought 1/04, used 3 months:
+
+$$A = \frac{2{,}400}{4} \times \frac{3}{12} = 150 \text{ m.u.}$$
+
+Total depreciation and amortisation: $50 + 1{,}250 + 150 = 1{,}450$ m.u. None of it is a payment.
+
+Payments: machine 2, 8,000 paid in cash; the other 4,000 and the whole patent (2,400) are due on 1/07/2015, one day after the closing, so they are **current liabilities** at 30/06.
+
+### Step 6. Credit and interest (op. ix)
+
+Received 1/02 (cash +2,000), returned on 1/02/2016, within one year of 30/06/2015: **current liability**. Interest from 1/02 to 30/06 (5 months), paid only in 2016:
+
+$$I = 2{,}000 \times 0.12 \times \frac{5}{12} = 100 \text{ m.u.} \quad \text{(expense and interest payable)}$$
+
+### Step 7. Income statement for the semester
+
+| Line | Computation | m.u. |
+| :--- | :--- | ---: |
+| Net sales | $24{,}000 - 720$ | 23,280 |
+| − Cost of goods sold | Step 2 | 14,400 |
+| **= Gross profit** | $23{,}280 - 14{,}400$ | **8,880** |
+| − Personnel and Social Security | | 3,000 |
+| − Overheads | | 1,800 |
+| − Renting | | 1,200 |
+| − Depreciation and amortisation | $50 + 1{,}250 + 150$ | 1,450 |
+| **= Income from operations** | $8{,}880 - 7{,}450$ | **1,430** |
+| − Interest expense | Step 6 | 100 |
+| **= Income before taxes** | $1{,}430 - 100$ | **1,330** |
+| − Income taxes (20%) | $0.20 \times 1{,}330$ | 266 |
+| **= Net income** | $1{,}330 - 266$ | **1,064** |
+
+### Step 8. Cash at 30/06/2015
+
+| Inflows | m.u. | Outflows | m.u. |
+| :--- | ---: | :--- | ---: |
+| Opening cash | 1,200 | 2014 taxes | 350 |
+| 2014 receivables collected | 1,500 | 2014 suppliers | 450 |
+| Sales Jan-May collected | 19,400 | Q1 purchases | 4,800 |
+| Credit | 2,000 | Personnel + SS | 3,000 |
+| Capital increase | 10,000 | Overheads Jan-Apr | 1,200 |
+| | | Machine 2 (cash part) | 8,000 |
+| **Total** | **34,100** | **Total** | **17,800** |
+
+$$\text{Cash}_{30/06} = 34{,}100 - 17{,}800 = 16{,}300 \text{ m.u.}$$
+
+### Step 9. Balance sheet at 30/06/2015
+
+| Assets | m.u. | Liabilities and equity | m.u. |
+| :--- | ---: | :--- | ---: |
+| Machinery (cost $500 + 12{,}000$) | 12,500 | Paid-in capital ($4{,}200 + 10{,}000$) | 14,200 |
+| − Accumulated depreciation ($100 + 1{,}250$) | (1,350) | Retained earnings (2014) | 850 |
+| Patent ($2{,}400 - 150$) | 2,250 | Net income of the semester | 1,064 |
+| Long-term receivable (due July 2016) | 300 | **Equity** | **16,114** |
+| **Non-current assets** | **13,700** | Credit (due 1/02/2016) | 2,000 |
+| Inventory | 0 | Interest payable | 100 |
+| Accounts receivable (June) | 3,880 | Suppliers (Q2 purchases) | 7,200 |
+| Cash | 16,300 | Debt for machine 2 (due 1/07) | 4,000 |
+| **Current assets** | **20,180** | Debt for patent (due 1/07) | 2,400 |
+| | | Overheads payable | 600 |
+| | | Renting payable | 1,200 |
+| | | Taxes payable | 266 |
+| | | **Current liabilities** | **17,766** |
+| **Total assets** | **33,880** | **Total liabilities and equity** | **33,880** |
+
+There are no long-term liabilities: every debt is due before 30/06/2016.
+
+## Phase 4 — Interpretation and checks
+
+- **Balance:** $13{,}700 + 20{,}180 = 33{,}880 = 16{,}114 + 17{,}766$.
+- **Equity bridge:** equity grows from 5,050 to 16,114, that is $+11{,}064 = 10{,}000$ (capital increase) $+ 1{,}064$ (net income).
+- **Profit is not cash:** the semester earns 1,064 but cash grows by $16{,}300 - 1{,}200 = 15{,}100$, mostly because of the capital increase (10,000), the credit (2,000) and the many expenses still unpaid (suppliers, renting, overheads, interest, taxes). In the opposite direction, 8,000 of cash went into a machine whose expense this semester is only 1,250.
+- **Limiting case:** if June's sales had been collected, cash would be 3,880 higher and receivables zero, but net income would not change: revenue is recognised when the sale is made [Slide 8].
+- **Exam traps:** (1) the 1/07 debts are liabilities at 30/06, not payments; (2) the 300 deferred to July 2016 is non-current; (3) machine 2 is depreciated 5 months and the patent 3 months, not 6; (4) the life of machine 1 must be deduced from the opening balance.
+- No official numerical solution is included in `sources/`; the figures stand on the computation above, rechecked with exact fractions.
 
 ---
 
-### 10. Treasury Reconciliation (Ending Cash Balance)
+**Back to:** [[Business Management MOC]]
 
-$$\begin{array}{|lr|}
-\hline
-\textbf{CASH FLOW RECONCILIATION (01/01/2015 – 30/06/2015)} & \textbf{Amount (mu)} \\
-\hline
-\text{Cash Balance at 31/12/2014} & 1,200 \\
-\text{(+) Collection of 2014 Customer Receivables (1,800 - 300 deferred)} & +1,500 \\
-\text{(+) Collections from 2015 Sales (23,280 - 3,880 June sales)} & +19,400 \\
-\text{(+) Bank Credit Inflow (01/02/2015)} & +2,000 \\
-\text{(+) Capital Increase Inflow (01/02/2015)} & +10,000 \\
-\hline
-\mathbf{\text{TOTAL CASH INFLOWS}} & \mathbf{34,100} \\
-\hline
-\text{(-) Payment of 2014 Unpaid Taxes} & (350) \\
-\text{(-) Payment of 2014 Suppliers} & (450) \\
-\text{(-) Payment of 2015 Q1 Purchases (400 units $\times$ 12)} & (4,800) \\
-\text{(-) Payment of Personnel \& Social Security} & (3,000) \\
-\text{(-) Payment of Overheads (Jan–Apr: 4 months $\times$ 300)} & (1,200) \\
-\text{(-) Cash Paid for Machine 2 (Down payment)} & (8,000) \\
-\hline
-\mathbf{\text{TOTAL CASH OUTFLOWS}} & \mathbf{(17,800)} \\
-\hline
-\hline
-\mathbf{\text{ENDING CASH BALANCE AT 30/06/2015}} & \mathbf{16,300} \\
-\hline
-\end{array}$$
-
----
-
-## ⚖️ Formal Balance Sheet as of 30 June 2015
-
-$$\begin{array}{|lr|lr|}
-\hline
-\textbf{ASSETS (Activo)} & \textbf{m.u.} & \textbf{LIABILITIES \& EQUITY (Pasivo y PN)} & \textbf{m.u.} \\
-\hline
-\textbf{NON-CURRENT ASSETS} & \mathbf{13,700} & \textbf{STOCKHOLDERS' EQUITY} & \mathbf{16,114} \\
-\text{• Intangible Assets: Patent} & 2,400 & \text{• Paid-in Capital (4,200 + 10,000)} & 14,200 \\
-\text{• (-) Accum Amortization: Patent} & (150) & \text{• Retained Earnings (2014 balance)} & 850 \\
-\text{• Tangible Assets: Machinery (500 + 12,000)} & 12,500 & \text{• Profit of the Period (Net Income)} & 1,064 \\
-\text{• (-) Accum Depreciation: Machinery} & (1,350) & & \\
-\text{• Long-Term Customer Debt (July 2016)} & 300 & \textbf{NON-CURRENT LIABILITIES} & \mathbf{0} \\
-& & & \\
-\textbf{CURRENT ASSETS} & \mathbf{20,180} & \textbf{CURRENT LIABILITIES} & \mathbf{17,766} \\
-\text{• Inventories (Stock)} & 0 & \text{• Short-term bank credit} & 2,000 \\
-\text{• Accounts Receivable (June 2015 sales)} & 3,880 & \text{• Accrued interest on credit} & 100 \\
-\text{• Cash \& Bank Deposits} & 16,300 & \text{• Accounts payable (Suppliers Q2 purchases)} & 7,200 \\
-& & \text{• Debt for Machine 2 (due 1/7/2015)} & 4,000 \\
-& & \text{• Debt for Patent (due 1/7/2015)} & 2,400 \\
-& & \text{• Overheads payable (May \& June)} & 600 \\
-& & \text{• Renting debt payable (Apr–Jun)} & 1,200 \\
-& & \text{• Taxes to pay (20\% Corporate Tax)} & 266 \\
-\hline
-\mathbf{\text{TOTAL ASSETS}} & \mathbf{33,880} & \mathbf{\text{TOTAL LIABILITIES \& EQUITY}} & \mathbf{33,880} \\
-\hline
-\end{array}$$
-
-$$\mathbf{\text{Balance Equilibrium Verification: } \text{Total Assets } (33,880 \text{ m.u.}) \equiv \text{Total Liabilities \& Equity } (33,880 \text{ m.u.})}$$
-
----
-
-## 🧾 Four-Phase Audit Trail (journal entries and ledger)
-
-> [!info] Verification
-> Every entry below was generated and balanced in Python (each entry has total debits = total credits); the closing ledger reproduces cash 16,300, net income 1,064 and total assets 33,880 = liabilities 17,766 + equity 16,114. No official numerical key is available in `sources/` (only the statement PDF), so the figures stand on this recomputation.
-
-### Phase 1: Hypotheses
-* Period: 1 Jan to 30 Jun 2015 (6 months); accrual basis (revenue and expense when earned or incurred; cash tracked separately).
-* Sales are uniform (200 u/month); the 30-day term leaves only June sales open. Purchases are paid 90 days later, so Q1 purchases are settled by 30 June and all Q2 purchases remain open.
-* Machine 1's life of 4 years is inferred from the opening accumulated depreciation (50 over 6 months gives 100 per year on a base of 500 - 100 = 400).
-* Interest is simple (months/12); the tax is 20% of the earnings before taxes and is left as "taxes to pay".
-
-### Phase 2: Definitions and accounting equation
-$$A = L + E, \qquad E = \text{Paid-in capital} + \text{Retained earnings}_{2014} + \text{Net income}_{H1\,2015}$$
-* Assets carry debit balances (cash, receivables, inventory, patent, machinery net of accumulated depreciation); liabilities and equity carry credit balances; income-statement accounts are closed into equity at the end of the period.
-
-### Phase 3: Journal entries (m.u.)
-| # | Event | Debit | Credit |
-| :-: | :--- | :--- | :--- |
-| 1 | Opening balance 31/12/2014 (A = L + E: 5,850 = 800 + 5,050) | Cash 1,200; Accounts receivable 1,800; Inventory 2,400; Machinery 500 | Accum. depreciation 50; Taxes payable 350; Suppliers payable 450; Retained earnings 850; Paid-in capital 4,200 |
-| 2 | (i) Sales 1,200 u x 20 less 10% on the 30% VIP share | Accounts receivable 23,280; Sales discount 720 | Sales 24,000 |
-| 3 | (i) Collection of Jan-May sales (30-day term; June stays open) | Cash 19,400 | Accounts receivable 19,400 |
-| 4 | (ii) Purchases 1,000 u x 12 | Inventory 12,000 | Suppliers payable 12,000 |
-| 5 | (ii) Payment of Q1 purchases (400 u x 12, 90 days) | Suppliers payable 4,800 | Cash 4,800 |
-| 6 | (iii) COGS = 2,400 opening + 12,000 purchases - 0 ending stock | COGS 14,400 | Inventory 14,400 |
-| 7 | (iv) Payment of 2014 taxes and suppliers | Taxes payable 350; Suppliers payable 450 | Cash 800 |
-| 8 | (v) Collection of 2014 receivables, 300 deferred to July 2016 | Cash 1,500; Long-term receivable 300 | Accounts receivable 1,800 |
-| 9 | (vi) Personnel + Social Security 6 x (350 + 150), paid in the month | Personnel 3,000 | Cash 3,000 |
-| 10 | (vi) General expenses 6 x 300; Jan-Apr paid, May-Jun open | Overheads 1,800 | Cash 1,200; Overheads payable 600 |
-| 11 | (vii) Computer renting 3 x 400 (term 120 days, nothing due yet) | Renting 1,200 | Renting payable 1,200 |
-| 12 | (viii) Patent purchased 1 April, payable 1 July | Patent 2,400 | Patent payable 2,400 |
-| 13 | (viii) Patent amortization 2,400/48 x 3 | Amortization 150 | Accum. amortization 150 |
-| 14 | (ix) Bank credit received 1 February | Cash 2,000 | Bank credit 2,000 |
-| 15 | (ix) Accrued interest 2,000 x 12% x 5/12 | Interest expense 100 | Accrued interest 100 |
-| 16 | (x) Depreciation machine 1: (500 - 100)/4 x 6/12 | Depreciation 50 | Accum. depreciation 50 |
-| 17 | (xi) Capital increase 1 February | Cash 10,000 | Paid-in capital 10,000 |
-| 18 | (xi) Machine 2: 12,000 with 8,000 cash, 4,000 payable 1 July | Machinery 12,000 | Cash 8,000; Machine payable 4,000 |
-| 19 | (xi) Depreciation machine 2: 12,000/48 x 5 | Depreciation 1,250 | Accum. depreciation 1,250 |
-| 20 | (xii) Corporate tax 20% x 1,330 | Tax expense 266 | Taxes payable 266 |
-
-**Closing ledger (balance-sheet accounts):**
-
-| Account | Balance |
-| :--- | ---: |
-| Cash | 16,300 Dr |
-| Accounts receivable | 3,880 Dr |
-| Long-term receivable | 300 Dr |
-| Inventory | 0 Cr |
-| Patent | 2,400 Dr |
-| Accum. amortization | 150 Cr |
-| Machinery | 12,500 Dr |
-| Accum. depreciation | 1,350 Cr |
-| Suppliers payable | 7,200 Cr |
-| Overheads payable | 600 Cr |
-| Renting payable | 1,200 Cr |
-| Patent payable | 2,400 Cr |
-| Machine payable | 4,000 Cr |
-| Bank credit | 2,000 Cr |
-| Accrued interest | 100 Cr |
-| Taxes payable | 266 Cr |
-| Paid-in capital | 14,200 Cr |
-| Retained earnings | 850 Cr |
-
-**Income statement from the ledger:** sales 24,000 - discount 720 = 23,280; - COGS 14,400 = 8,880; - (personnel 3,000 + overheads 1,800 + renting 1,200 + amortization 150 + depreciation 1,300) = 1,430 EBIT; - interest 100 = 1,330 EBT; - tax 266 = 1,064 net income.
-
-### Phase 4: Units and sanity checks
-* Currency: m.u. (monetary units); every figure above is in m.u.
-* Accounting equation: $33{,}880 = 17{,}766 + 16{,}114$ holds.
-* Cash identity: opening 1,200 + inflows 34,100 - outflows 17,800 = 16,300, equal to the ledger balance of cash.
-* Limit check: if no June sale were open, receivables would be 0 and cash 3,880 higher while profit stays the same (accrual), so receivables move cash, not profit.
-
-## 🔗 Related Notes
-* [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements|Topic 3: Financial Management (I)]]
-* [[05 - Business Management/Concept - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements]]
-* [[05 - Business Management/Business Management MOC|Back to Business Management MOC]]
+**Related notes:** [[Concept - Method to Build the Income Statement and Balance Sheet]] · [[Topic 3 - Financial Management I - Financial Statements]]

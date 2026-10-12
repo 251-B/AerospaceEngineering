@@ -50,6 +50,8 @@ tags:
 * **Deep Conceptual Notes:**
   * [[05 - Business Management/Concept - Financial Statements (Income Statement and Balance Sheet)|Concept: Financial Statements — Income Statement (P&L) and Balance Sheet]]
   * [[05 - Business Management/Concept - Capital Structure, Financial Leverage and WACC|Concept: Capital Structure, Financial Leverage and Weighted Average Cost of Capital (WACC)]]
+* **Method for exam problems:**
+  * [[05 - Business Management/Concept - Method to Build the Income Statement and Balance Sheet|Method: building the income statement and the balance sheet step by step]]
 * **Summary Formula Sheet:**
   * [[05 - Business Management/Formulario - Business Management and Financial Analysis|Formula Sheet: Business Management and Financial Ratios]]
 * **Official Solved Problems (Step-by-Step Analytical Solutions):**
