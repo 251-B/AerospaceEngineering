@@ -194,7 +194,17 @@ There are no long-term liabilities: every debt is due before 30/06/2016.
 - **Profit is not cash:** the semester earns 1,064 but cash grows by $16{,}300 - 1{,}200 = 15{,}100$, mostly because of the capital increase (10,000), the credit (2,000) and the many expenses still unpaid (suppliers, renting, overheads, interest, taxes). In the opposite direction, 8,000 of cash went into a machine whose expense this semester is only 1,250.
 - **Limiting case:** if June's sales had been collected, cash would be 3,880 higher and receivables zero, but net income would not change: revenue is recognised when the sale is made [Slide 8].
 - **Exam traps:** (1) the 1/07 debts are liabilities at 30/06, not payments; (2) the 300 deferred to July 2016 is non-current; (3) machine 2 is depreciated 5 months and the patent 3 months, not 6; (4) the life of machine 1 must be deduced from the opening balance.
-- No official numerical solution is included in `sources/`; the figures stand on the computation above, rechecked with exact fractions.
+
+## Check against the official key
+
+> [!info] Official solution, `T3_Additional_SOLUTIONS.pdf`, pp. 6-8
+> The income statement and the cash account coincide with the key: net sales 23,280; cost of goods sold 14,400; personnel 3,000; general expenses 1,800; renting 1,200; EBITDA 2,880; depreciation and amortisation 1,450; EBIT 1,430; interest 100; income before taxes 1,330; tax 266; net income 1,064; collections 34,100; cash 16,300; total 33,880. The key writes the depreciation of machine 1 as $(500 - 100)/8$, that is, 8 half-years, the same 4-year life deduced above.
+
+> [!warning] Discrepancy with the official solution (the 300 deferred to July 2016)
+> The key shows accounts receivable of 4,180, which includes the 300 due in July 2016, so it counts them as a current asset (current assets 20,480; non-current assets 13,400). Here they are a non-current receivable, because they fall due more than one year after 30/06/2015 (Slide 15), so receivables are 3,880 + 300 (current assets 20,180; non-current assets 13,700). Total assets, liabilities and equity are the same in both.
+
+> [!warning] Erratum in the official solution
+> The key's payments column adds to 16,800, but its items add to $450 + 3{,}000 + 1{,}200 + 4{,}800 + 350 + 8{,}000 = 17{,}800$, which gives the cash of 16,300 that it does show. The capital increase in the equity block reads 1,000 instead of 10,000 (only 10,000 gives equity of 16,114), and the labels of the interest payable (100) and the tax payable (266) are swapped.
 
 ---
 

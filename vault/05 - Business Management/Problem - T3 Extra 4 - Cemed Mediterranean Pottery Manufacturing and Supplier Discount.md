@@ -202,7 +202,17 @@ New totals: $63.9197 - 0.0248 = 63.8950$ on both sides (cash 28.2575).
 - **Why only half of the saving reaches the profit:** only half of the material was consumed. The other half of the saving is in the lower value of the inventory and will reach the income statement when that stock is used.
 - **Debt structure** [Slide 36]: liabilities $6.8 + 23.2495 = 30.0495$, equity 33.8702, so $L/E = 0.89$.
 - **Exam traps:** (1) the mortgage finances the building: cash +6 and −6 on the same day; (2) the loan interest of October-December is accrued but unpaid; (3) the current part of each loan is what is due before 31/12/2017; (4) the land is not depreciated; (5) taxes are payable on 15/01/2017, so they are a liability, while dividends were paid.
-- No official numerical solution is included in `sources/`.
+
+## Check against the official key
+
+> [!info] Official solution, `T3_Additional_SOLUTIONS.pdf`, pp. 20-25
+> Requirement 1 coincides with the key: cost of goods sold 2.25; personnel 0.8; depreciation 0.5; EBIT 46.45; interest 0.485; income before taxes 45.965; tax 13.79; net income 32.18; dividends 19.31; reserves 12.87; cash 28.17; total 63.92. Requirement 2 also coincides: cost of goods sold 2.14; net income 32.25; dividends 19.35; cash 28.26; suppliers 1.71; total 63.89; and the key too concludes that the profit is higher with the discount.
+
+> [!warning] Discrepancy with the official solution (current part of the debt)
+> The key leaves the whole bank loan (4.0) and the whole mortgage (5.4) as long-term debt, so its current liabilities are 20.65 and its long-term liabilities 9.4. Here the instalments due within twelve months of 31/12/2016 are shown as current: 2.0 of the loan (1/04/2017 and 1/10/2017) and 0.6 of the mortgage (31/12/2017), following the definition of Slide 16. Current liabilities are therefore 23.25 and long-term liabilities 6.8; total liabilities (30.05), equity and total assets are the same.
+
+> [!warning] Differences in the wording of the key
+> The key's statement dates the company in 2010, while the official sheet in `sources/` says 2016, which is the year used here. In the key's part 2 the interest formula writes 0.85 where 0.80 is meant (the loan balance of 4 over 5); its value, 0.06, is unchanged.
 
 ---
 

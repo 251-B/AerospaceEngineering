@@ -95,6 +95,14 @@ Payments do not change: the company **paid** for what it **bought** (575 of the 
 - **Part (b)** raises the profit by 350 without any extra cash: unconsumed material is an asset, not an expense.
 - **Check of depreciation:** the annual total 120 times $\frac{1}{4}$ gives 30.
 
+## Check against the official key
+
+> [!info] Official solution, `T3_Financial Statements_SOLUTIONS.pdf`, pp. 1-2
+> Part (a) coincides with the key: income 1,930; collections 1,615; payments 950; expenses 1,410; depreciation 30; investments 0. In part (b) the key also states that revenue, collections and payments do not change and that the unused material appears as inventory.
+
+> [!warning] Erratum in the official solution (part b)
+> The key gives total expenses of 1,124 for part (b), but its own items add to $450 + 350 + 230 + 30 = 1{,}060$. That is the value obtained above, and the only one consistent with a profit that rises by exactly the 350 of material that was not consumed.
+
 ---
 
 **Back to:** [[Business Management MOC]]

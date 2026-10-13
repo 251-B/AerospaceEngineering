@@ -80,6 +80,11 @@ $$\%E = \frac{14{,}000}{34{,}000} = 41.2\%, \qquad \%L = \frac{20{,}000}{34{,}00
   The company has more debt than equity, and most of it (17,000 of 20,000) is due within the year: by [Slide 36], a high leverage indicates higher risk to shareholders.
 - **Typical mistakes:** retained earnings are equity, not a liability; accounts receivable (owed **to** the company) are an asset, accounts payable (owed **by** the company) a liability.
 
+## Check against the official key
+
+> [!info] Official solution, `T3_Financial Statements_SOLUTIONS.pdf`, p. 4
+> The balance sheet coincides with the key in every block: current assets 19,500; non-current assets 14,500; current liabilities 17,000; non-current liabilities 3,000; owners' equity 14,000; total 34,000. The key asks only for the balance sheet, so the leverage figures in Phase 4 are an addition based on Slide 36.
+
 ---
 
 **Back to:** [[Business Management MOC]]

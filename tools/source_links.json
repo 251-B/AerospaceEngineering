@@ -222,10 +222,20 @@
    "label": "T3_Financial Statements_EXERCISES.pdf",
    "pages": 3
   },
+  "bm-t3sol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial Statements_SOLUTIONS.pdf",
+   "label": "T3_Financial Statements_SOLUTIONS.pdf",
+   "pages": 8
+  },
   "bm-t3add": {
    "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf",
    "label": "T3_Additional_EXERCISES.pdf",
    "pages": 7
+  },
+  "bm-t3addsol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf",
+   "label": "T3_Additional_SOLUTIONS.pdf",
+   "pages": 25
   }
  },
  "pages": {
@@ -706,6 +716,10 @@
      1
     ],
     [
+     "bm-t3addsol",
+     6
+    ],
+    [
      "bm-t3",
      "auto"
     ]
@@ -736,6 +750,10 @@
    "panel": [
     [
      "bm-t3ex",
+     1
+    ],
+    [
+     "bm-t3sol",
      1
     ],
     [
