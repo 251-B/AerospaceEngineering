@@ -22,6 +22,10 @@
  *
  * API: window.AESurface = { get(), set(id), list(), KEY }
  * Event: document 'ae-surface-change' with detail { surface }.
+ *
+ * Focus Lab (third concern, loaded from here for the same reason): appends
+ * <script src="assets/js/focus-lab.js"> next to this file, so the study-sound widget is on every
+ * page that loads theme.js. Skipped in the PDF print mode (?print=...).
  */
 (function () {
   'use strict';
@@ -301,6 +305,15 @@
     if (button) button.addEventListener('click', toggle);
     buildPicker();
   });
+
+  // ---- Focus Lab: the study-sound widget, resolved next to this file ---------------------
+  (function loadFocusLab() {
+    var self = document.currentScript;
+    if (!self || !self.src || /[?&]print=/.test(location.search)) return;
+    var script = document.createElement('script');
+    script.src = self.src.replace(/theme\.js(\?.*)?$/, 'focus-lab.js');
+    (document.head || document.documentElement).appendChild(script);
+  })();
 
   window.AETheme = { get: get, set: set, toggle: toggle, KEY: KEY };
   window.AESurface = {
