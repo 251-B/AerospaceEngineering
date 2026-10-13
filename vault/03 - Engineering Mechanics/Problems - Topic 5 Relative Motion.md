@@ -31,6 +31,7 @@ Problem statements from the UC3M Aerospace Engineering problem collection (`Prob
 | 30 | 18 | none | Particle on a Rotating Quarter Circumference with a Spring |
 | 33 | 21 | 74 | Two Repelling Particles on a Rotating Parabola |
 | 34 | 22 | 74 | Particle on a Circular Wire in an Oscillating Vertical Plane |
+| 36 | 24 | 74 | Pendulum String Dragged by a Rotating Bar |
 | 37 | 25 | 74 | Particle on a Spinning Elliptic Cone |
 | 40 | 28 | 75 | Spring-Coupled Particles on a Vertical Axis and a Revolving Ring |
 | 41 | 29 | 75 | Satellite Solar Panel (Composition of Rotations) |
@@ -238,6 +239,26 @@ Answer the following questions in a reasoned way:
 * **(f)** Assume now that $A^2 \ll g/(R\omega^2)$ and that the motion of $P$ is such that $\varphi = \delta - \pi/2$ with $\delta \ll 1$. Around what value of $\delta$ does the particle oscillate? Are there any values of $\omega$ for which the approximation $\delta \ll 1$ will not hold?
 
 *Source: Problems.pdf, p. 22.*
+
+---
+
+## 📌 Problem 36: Pendulum String Dragged by a Rotating Bar
+
+A heavy point particle $P$ with mass $m$ hangs from a fixed point $A$ on the ceiling with a massless string of constant length $L$. The particle is initially at rest. A bar $b$ rotates about its center $O$ in a horizontal plane at a distance $h$ from the ceiling, with a known, constant angular velocity $\omega$. The horizontal distance between $O$ and $A$ is $R$. At time $t = 0$, the bar collides with the string and drags it along its motion. The string slides over the bar without friction. We call $C$ the instantaneous point of contact of the string with the bar. We define a reference frame $S_1$ that rotates with the bar as shown in the figure. We call $\xi$ the distance between $O$ and $C$; $\ell$ the length of the string segment between $C$ and $P$; $\theta$ the angle between the vertical plane $Ox_1z_1$ and the plane defined by the bar and $P$; and $\varphi$ the angle formed between the string segment $CP$ and the bar. You are asked to study only the part of the motion in which the string remains tense and in contact with the bar.
+
+![[attachments/EM/T5-P36-figure.png]]
+*Figure: Left, before the impact (t negative): bar b rotating with ω about O in the horizontal plane x1y1, ceiling point A at height h above that plane and horizontal distance R from O, P hanging below A. Right, after the impact (t positive): frame S1 = Ox1y1z1 attached to the bar, contact point C at distance ξ from O, string A–C–P with segment CP of length ℓ at angle φ from the bar, θ the angle of the plane bar–P from the vertical; gravity g downward. Source: Problems.pdf, p. 24.*
+
+* **(a)** Write down the position and velocity of point $A$ in $S_1$ as a function of time.
+* **(b)** Obtain a general expression for the position, velocity, and acceleration of $P$ in $S_1$ as a function of $\xi$, $\ell$, $\theta$, $\varphi$, their derivatives, and time.
+* **(c)** Express $AC$, $\ell$, and $\varphi$ as a function of $\xi$ and time.
+* **(d)** Identify and express all the forces acting on $P$.
+* **(e)** Write down a set of second order differential equations for the evolution of the unknowns of the problem.
+* **(f)** Compute the initial conditions for the previous equations at $t = 0$.
+* **(g)** Is the mechanical energy of the particle conserved in time? Justify your answer.
+* **(h)** If/when the string separates from the bar, express the geometric condition as a relation between $\theta$ and time.
+
+*Source: Problems.pdf, p. 24.*
 
 ---
 
