@@ -50,6 +50,9 @@ the vault currently reaches.
 
 ---
 
+## Repository documentation
+* [[06 - Repository/Repository MOC|Repository map: tools, agents and rules]]: the scripts in `tools/`, the agents in `.claude/agents/` and the rules files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`).
+
 ## Tools and templates
 * [[Templates/Template - Theory Concept|Template: theory concept]]
 * [[Templates/Template - Exam Problem|Template: solved exam problem]]
