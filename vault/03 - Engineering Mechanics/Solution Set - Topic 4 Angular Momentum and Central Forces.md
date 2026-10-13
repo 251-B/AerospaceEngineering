@@ -1,5 +1,5 @@
 ---
-title: "Solutions - Topic 4: Angular Momentum and Central Forces"
+title: "Solution Set - Topic 4: Angular Momentum and Central Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"

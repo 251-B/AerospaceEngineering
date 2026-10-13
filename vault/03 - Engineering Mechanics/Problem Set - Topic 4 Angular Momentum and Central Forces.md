@@ -1,5 +1,5 @@
 ---
-title: "Problems - Topic 4: Angular Momentum and Central Forces"
+title: "Problem Set - Topic 4: Angular Momentum and Central Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
@@ -17,7 +17,7 @@ tags:
 Problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, "Particle exercises and problems"). These problems exercise angular momentum, central force fields, the Binet equation, effective-potential discussions, constraint problems with a string, and the Kepler two-body relations.
 
 > [!NOTE]
-> **Status:** The statements below follow `Problems.pdf` (version 2026); where the wording is shortened or the notation is changed, the change is flagged in the problem. Worked solutions: [[Solutions - Topic 4 Angular Momentum and Central Forces]]. Theory: [[Topic 4 - Angular Momentum and Central Forces]].
+> **Status:** The statements below follow `Problems.pdf` (version 2026); where the wording is shortened or the notation is changed, the change is flagged in the problem. Worked solutions: [[Solution Set - Topic 4 Angular Momentum and Central Forces]]. Theory: [[Topic 4 - Angular Momentum and Central Forces]].
 
 | Problem | Problems.pdf page | Key page | Topic of the problem |
 | :---: | :---: | :---: | :--- |

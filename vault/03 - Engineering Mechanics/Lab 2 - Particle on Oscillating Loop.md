@@ -18,7 +18,7 @@ sources:
 # 🔄 Laboratory 2: Particle on Oscillating Loop
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Document:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf` (pp. 17–19)  
+> **Source Document:** [[Source - 03-engineering-mechanics - laboratorios - general-instructions - mechanics_labs (pdf)|mechanics_labs.pdf]] (pp. 17–19)  
 > **Theoretical Prerequisites:** [[Topic 1 - Fundamentals and Particle Kinematics]], [[Topic 2 - Point Particle Dynamics]], [[Topic 3 - Constraints and Reaction Forces]]  
 > **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Engineering Mechanics MOC|⬅️ Mechanics MOC]]
 

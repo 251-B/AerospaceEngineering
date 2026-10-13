@@ -24,5 +24,5 @@ bytes: 2360165
 ## Referenced by
 
 - [[03 - Engineering Mechanics/Formula Sheet - Topic 4 Angular Momentum]]
-- [[03 - Engineering Mechanics/Problems - Topic 4 Angular Momentum and Central Forces]]
+- [[03 - Engineering Mechanics/Problem Set - Topic 4 Angular Momentum and Central Forces]]
 - [[03 - Engineering Mechanics/Topic 4 - Angular Momentum and Central Forces]]

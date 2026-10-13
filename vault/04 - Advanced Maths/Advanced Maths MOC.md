@@ -14,7 +14,7 @@ tags:
 > **NotebookLM Notebook:** `c27033c3-5a64-403f-a517-5847831aabcb`  
 > **Master Index Return:** [[00 - Indice Central/Master Index|⬅️ Central Master Index]]  
 > **Source files:** [[07 - Sources/04 - Advanced Maths/Sources Index - Advanced Maths|one note per file under `sources/`]]  
-> **Interactive Web Portal:** `subjects/04-advanced-maths/`
+> **Interactive Web Portal:** `subjects/advanced-maths/`
 
 ---
 

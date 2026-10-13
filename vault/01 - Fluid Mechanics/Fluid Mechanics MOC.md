@@ -68,14 +68,16 @@ tags:
   * [[01 - Fluid Mechanics/Problem - Inclined Submerged Gate with Opening Moment|Problem: Hinged Submerged Gate with Closing Force]]
   * [[01 - Fluid Mechanics/Problem - Multi-Liquid Differential Manometer with Gas|Problem: Multi-Fluid Differential Manometer]]
 * Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
-  * Official sources: `DA1.pdf` to `DA14.pdf` (14 problems).
+  * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)
-  * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 problems).
+  * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 solved problems).
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
 * **Official structure:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`
   * `general-instructions/`: `LAB_BLUEPRINT.md` (report writing and format rules).
   * `lab-1/`: [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]
     * Sources: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, experimental measurements and figures.
-  * `lab-2/`, `lab-3/`, `lab-4/`: not on disk; no sources and no notes yet.
+  * `lab-2/`: not on disk. Planned: Laboratory 2 (aerodynamic tests, wind tunnel). Description not verified against sources.
+  * `lab-3/`: not on disk. Planned: Laboratory 3 (viscometry and manometry). Description not verified against sources.
+  * `lab-4/`: not on disk. Planned: Laboratory 4 (head losses and boundary layer in pipes). Description not verified against sources.
 

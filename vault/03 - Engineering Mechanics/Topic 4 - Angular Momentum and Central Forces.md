@@ -24,8 +24,8 @@ This comprehensive master guide provides the complete theoretical, mathematical,
 * [[Concept - Binet Equation and Conic Section Trajectories|Binet Equation & Conic Section Trajectories]]
 * [[Concept - Vis-Viva Energy Integral and Orbital Velocities|Vis-Viva Equation & Orbital Speeds]]
 * [[Formula Sheet - Topic 4 Angular Momentum|Formula Sheet: Topic 4 Angular Momentum]]
-* [[Problems - Topic 4 Angular Momentum and Central Forces|Official Problem Statements]]
-* [[Solutions - Topic 4 Angular Momentum and Central Forces|Full Analytical Solutions]]
+* [[Problem Set - Topic 4 Angular Momentum and Central Forces|Official Problem Statements]]
+* [[Solution Set - Topic 4 Angular Momentum and Central Forces|Full Analytical Solutions]]
 
 ---
 
@@ -168,7 +168,7 @@ where $\mathbf{r} = \mathbf{r}_0^P$ is the position vector from $O$ to $P$, $r =
 5. **Non-Reachability of the Center ($r \to 0$ Barrier):**
    (Notes Sec. 4.8.1, property 5.) If $h \ne 0$, as $r \to 0$, the required angular velocity diverges as $\dot{\theta} \sim 1/r^2$, and the transverse kinetic energy diverges as:
    $$ T_\theta = \frac{1}{2}m (r\dot{\theta})^2 = \frac{m h^2}{2r^2} \to +\infty $$
-   Unless the potential energy becomes infinitely attractive at least as fast as $-1/r^2$, a particle with non-zero angular momentum **cannot reach the origin $O$**. For the Newtonian potential $-\mu/r$ (and for any central force weaker than $1/r^3$) the particle can only collide with $O$ if $h = 0$ (rectilinear radial motion). The statement is **not** true for every central force: in Problem 42 the forces $F \propto 1/r^3$ (with $h^2 < \mu$) and $F \propto 1/r^4$ do carry particles with $h \ne 0$ to $r = 0$ (see [[Solutions - Topic 4 Angular Momentum and Central Forces]]).
+   Unless the potential energy becomes infinitely attractive at least as fast as $-1/r^2$, a particle with non-zero angular momentum **cannot reach the origin $O$**. For the Newtonian potential $-\mu/r$ (and for any central force weaker than $1/r^3$) the particle can only collide with $O$ if $h = 0$ (rectilinear radial motion). The statement is **not** true for every central force: in Problem 42 the forces $F \propto 1/r^3$ (with $h^2 < \mu$) and $F \propto 1/r^4$ do carry particles with $h \ne 0$ to $r = 0$ (see [[Solution Set - Topic 4 Angular Momentum and Central Forces]]).
 
 ---
 
@@ -310,7 +310,7 @@ Inverting to obtain $r(\theta)$ (Notes Eq. 8.14):
 $$ r(\theta) = \frac{h^2/\mu}{1 + e\cos\theta} = \frac{p}{1 + e\cos\theta}, \qquad p \equiv \frac{h^2}{\mu} $$
 where $p$ is the **semi-latus rectum** (conic parameter) and $e$ is fixed by the initial position and velocity through the expression above. This is the polar equation of a **conic section with one focus at the origin $O$**, which proves Kepler's First Law for $e < 1$.
 
-*Example (Problem 44).* With $r_i = R$, $\dot{r}_i = \tfrac{\sqrt{3}}{2}v_0$ and $h = \tfrac{1}{2}Rv_0$, the formula for $e$ gives $e = 31/35$ (worked in [[Solutions - Topic 4 Angular Momentum and Central Forces]]).
+*Example (Problem 44).* With $r_i = R$, $\dot{r}_i = \tfrac{\sqrt{3}}{2}v_0$ and $h = \tfrac{1}{2}Rv_0$, the formula for $e$ gives $e = 31/35$ (worked in [[Solution Set - Topic 4 Angular Momentum and Central Forces]]).
 
 ### 7.4 First Integral in the Variable $u$ and Effective Potential
 **Why.** For a general central force $F(r)$ (Problem 42), the Binet equation becomes $u'' + u = -F(1/u)/(m h^2 u^2)$ and cannot be solved in closed form for every exponent. A first integral gives the limits of the motion without solving the equation.
@@ -320,7 +320,7 @@ $$ \xi = \frac{1}{2}h^2\left[(u')^2 + u^2\right] + V_0\!\left(\frac{1}{u}\right)
 Since $(u')^2 \ge 0$, motion is possible only where $W_{\text{eff}}(u) \le E^*$; turning points ($u' = 0$) are the roots of $W_{\text{eff}}(u) = E^*$. A minimum of $W_{\text{eff}}$ is a stable circular orbit, a maximum an unstable one. For the Newtonian potential $V_0 = -\mu u$:
 $$ W_{\text{eff}}(u) = u^2 - \frac{2\mu}{h^2}u = \left(u - \frac{\mu}{h^2}\right)^2 - \left(\frac{\mu}{h^2}\right)^2 $$
 a parabola with its minimum at $u = \mu/h^2$ (the circular orbit $r = p$); the bound motions are those with $-(\mu/h^2)^2 \le E^* < 0$. Differentiating the first integral with respect to $\theta$ and dividing by $2u'$ returns the Binet equation (check: $2u'u'' + W_{\text{eff}}'(u)\,u' = 0 \Rightarrow u'' + u - \mu/h^2 = 0$).
-For the stability of circular orbits under other power laws, see the case-by-case discussion of $\alpha = 1, 2, 3, 4$ in Problem 42 of [[Solutions - Topic 4 Angular Momentum and Central Forces]]; `Notes.pdf` does not treat stability of circular orbits.
+For the stability of circular orbits under other power laws, see the case-by-case discussion of $\alpha = 1, 2, 3, 4$ in Problem 42 of [[Solution Set - Topic 4 Angular Momentum and Central Forces]]; `Notes.pdf` does not treat stability of circular orbits.
 
 ---
 
@@ -510,7 +510,7 @@ $$ v(t) = \frac{2g}{k} = \text{constant} $$
 * **Problem 43** (two particles through a hole): angular momentum plus energy reduction to quadratures.
 * **Problem 44** (seed on an asteroid): angular momentum and energy between launch and apocenter.
 
-All are solved in [[Solutions - Topic 4 Angular Momentum and Central Forces]]; the statements are in [[Problems - Topic 4 Angular Momentum and Central Forces]].
+All are solved in [[Solution Set - Topic 4 Angular Momentum and Central Forces]]; the statements are in [[Problem Set - Topic 4 Angular Momentum and Central Forces]].
 
 ---
 

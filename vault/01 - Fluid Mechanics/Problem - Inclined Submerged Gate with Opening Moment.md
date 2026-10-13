@@ -14,7 +14,7 @@ tags:
 # ✏️ Problem: Inclined Hinged Gate with Closing Force
 
 > [!warning] Provenance not verified
-> The `origen` field records that this statement is not among the hydrostatics sheets in `sources/`. Check it against the original exam before using it as course material.
+> The `origen` field records that the statement was not found among the hydrostatics sheets of `unit-05-hydrostatics` (`fluid_statics_1` to `fluid_statics_10`). Only filenames were checked, not the text of the sheets. Check it against the original exam before using it as course material.
 
 ## 📄 Statement
 A homogeneous rectangular gate of width $b = 2.0\text{ m}$ (perpendicular to the page) and length $L = 3.0\text{ m}$ separates a freshwater reservoir ($\rho = 1000\text{ kg/m}^3$) from the exterior at atmospheric pressure. The gate is frictionlessly hinged at its upper edge $A$, which is submerged at a vertical depth $h_A = 2.0\text{ m}$ below the free surface of the water. The gate makes an angle $\theta = 60^\circ$ with the horizontal free surface of the water.

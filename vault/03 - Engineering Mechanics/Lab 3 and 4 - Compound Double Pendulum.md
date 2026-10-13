@@ -19,7 +19,7 @@ sources:
 # ⛓️ Laboratory 3 & 4: Compound Double Pendulum (Experimental & Numerical)
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Document:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf` (pp. 19–26)  
+> **Source Document:** [[Source - 03-engineering-mechanics - laboratorios - general-instructions - mechanics_labs (pdf)|mechanics_labs.pdf]] (pp. 19–26)  
 > **Theoretical Prerequisites:** Unit 7 (Rigid Body Kinematics and Euler Angles) and Unit 8 (Rigid Body Dynamics, including mass geometry and Euler's equations) of the course, whose notes are still planned (see [[Engineering Mechanics MOC]])  
 > **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Engineering Mechanics MOC|⬅️ Mechanics MOC]]
 
