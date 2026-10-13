@@ -11,7 +11,7 @@ tags:
 ## Coverage
 
 - Files: 77
-- Referenced by at least one note: 4
+- Referenced by at least one note (a mention counts): 4
 - Not referenced yet: 73
 - Build artifacts: 0
 - Working files: 0

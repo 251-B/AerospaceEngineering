@@ -11,7 +11,7 @@ source: "tools/build_sources_pages.py"
 
 ## Purpose
 
-Generates two static index pages per subject from the scan of `sources/cuatrimestre-1/`. The first is `subjects/<slug>/sources/index.html`, titled "Theory & exercise PDFs", with theory, slides, problem sheets and schedules grouped by unit. The second is `subjects/<slug>/exams/index.html`, which lists exams by partial or final, newest year first, for subjects that have exams. Exam files are classified from their names, `SUBJECT_KIND_YEAR[_DETAILS].pdf`, where KIND is `FIRSTPARTIAL`, `SECONDPARTIAL`, `THIRDPARTIAL`, `FINALEXAM` or `OTHERUNI`. Byte-identical copies are listed once.
+Generates a static index page per subject from the scan of `sources/cuatrimestre-1/`, and a second page for the subjects that have exams. The first is `subjects/<slug>/sources/index.html`, titled "Theory & exercise PDFs", with theory, slides, problem sheets and schedules grouped by unit. The second is `subjects/<slug>/exams/index.html`, which lists exams by partial or final, newest year first, for subjects that have exams. Exam files are classified from their names, `SUBJECT_KIND_YEAR[_DETAILS].pdf`, where KIND is `FIRSTPARTIAL`, `SECONDPARTIAL`, `THIRDPARTIAL`, `FINALEXAM` or `OTHERUNI`. Byte-identical copies are listed once.
 
 ## Command
 

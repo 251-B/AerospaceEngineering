@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 76
-- Referenced by at least one note: 37
-- Not referenced yet: 39
+- Referenced by at least one note (a mention counts): 40
+- Not referenced yet: 36
 - Build artifacts: 0
 - Working files: 0
 
@@ -86,7 +86,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 02-aerospace-materials-1 - laboratorios - lab-1 - Lab_session_1 (pdf)\|Lab_session_1.pdf]] | laboratorio | not-referenced |
+| [[Source - 02-aerospace-materials-1 - laboratorios - lab-1 - Lab_session_1 (pdf)\|Lab_session_1.pdf]] | laboratorio | referenced |
 
 ## schedule
 
@@ -161,7 +161,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 02-aerospace-materials-1 - unit-06-electrical-properties - problemas - Problems T6andT7_Electric and Magnetic Properties (pdf)\|Problems T6andT7_Electric and Magnetic Properties.pdf]] | problemas | not-referenced |
+| [[Source - 02-aerospace-materials-1 - unit-06-electrical-properties - problemas - Problems T6andT7_Electric and Magnetic Properties (pdf)\|Problems T6andT7_Electric and Magnetic Properties.pdf]] | problemas | referenced |
 
 ## unit-06-electrical-properties/teoria
 
@@ -173,7 +173,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 02-aerospace-materials-1 - unit-07-magnetic-thermal-properties - problemas - Problems T6andT7_Electric and Magnetic Properties (pdf)\|Problems T6andT7_Electric and Magnetic Properties.pdf]] | problemas | not-referenced |
+| [[Source - 02-aerospace-materials-1 - unit-07-magnetic-thermal-properties - problemas - Problems T6andT7_Electric and Magnetic Properties (pdf)\|Problems T6andT7_Electric and Magnetic Properties.pdf]] | problemas | referenced |
 
 ## unit-07-magnetic-thermal-properties/teoria
 

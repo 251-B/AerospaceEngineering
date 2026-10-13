@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - teoria
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf"
 kind: teoria
-status: not-referenced
+status: referenced
 bytes: 2126997
 ---
 
@@ -19,8 +19,36 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 28 note(s) below
+- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
-No vault note cites this file yet.
+- [[01 - Fluid Mechanics/Concept - Continuum Hypothesis and Thermophysical Properties]]
+- [[01 - Fluid Mechanics/Concept - Convective Flux and Stream Function]]
+- [[01 - Fluid Mechanics/Concept - Curvilinear Coordinates and Differential Operators]]
+- [[01 - Fluid Mechanics/Concept - Deformation, Rotation and the Rate-of-Strain Tensor]]
+- [[01 - Fluid Mechanics/Concept - Eulerian vs Lagrangian Description and Flow Lines]]
+- [[01 - Fluid Mechanics/Concept - Fourier's Law and Heat Conduction]]
+- [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy]]
+- [[01 - Fluid Mechanics/Concept - Material Derivative and Fluid Acceleration]]
+- [[01 - Fluid Mechanics/Concept - Navier-Poisson Constitutive Equation]]
+- [[01 - Fluid Mechanics/Concept - Reynolds Transport Theorem]]
+- [[01 - Fluid Mechanics/Concept - Stress Tensor and Cauchy Principle]]
+- [[01 - Fluid Mechanics/Concept - Vorticity, Circulation and Velocity Potential]]
+- [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Formula Sheet - Topic 1 Statics and Properties]]
+- [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws]]
+- [[01 - Fluid Mechanics/Problem - K1 Flow over an Oscillating Porous Wall]]
+- [[01 - Fluid Mechanics/Problem - K10 Plane Flow with Exponential Shear]]
+- [[01 - Fluid Mechanics/Problem - K2 Plane Couette Flow]]
+- [[01 - Fluid Mechanics/Problem - K3 Three-Dimensional Source at the Origin]]
+- [[01 - Fluid Mechanics/Problem - K4 Flow around a Rankine Body]]
+- [[01 - Fluid Mechanics/Problem - K5 Oscillating Plane Dipole]]
+- [[01 - Fluid Mechanics/Problem - K6 Three-Dimensional Burgers Vortex]]
+- [[01 - Fluid Mechanics/Problem - K7 Hyperbolic Stagnation Flow]]
+- [[01 - Fluid Mechanics/Problem - K8 Pulsating Three-Dimensional Potential]]
+- [[01 - Fluid Mechanics/Problem - K9 Oscillating Polar Flow]]
+- [[01 - Fluid Mechanics/Topic 1 - Introductory Remarks and Starting Assumptions]]
+- [[01 - Fluid Mechanics/Topic 2 - Flow Kinematics]]
+- [[01 - Fluid Mechanics/Topic 3 - Conservation Laws]]

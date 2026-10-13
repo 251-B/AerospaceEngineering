@@ -23,4 +23,4 @@ bytes: 1326334
 
 ## Referenced by
 
-No vault note cites this file yet.
+No vault note mentions this file yet.

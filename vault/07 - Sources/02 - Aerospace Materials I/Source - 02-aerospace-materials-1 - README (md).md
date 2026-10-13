@@ -20,7 +20,8 @@ bytes: 17102
 - **Kind:** other
 - **Size:** 17.1 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Shared name:** the file name is shared with 6 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
-No vault note cites this file yet.
+No vault note mentions this file yet.

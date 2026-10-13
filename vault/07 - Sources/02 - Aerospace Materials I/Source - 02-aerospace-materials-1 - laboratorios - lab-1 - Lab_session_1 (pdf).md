@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - laboratorio
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/laboratorios/lab-1/Lab_session_1.pdf"
 kind: laboratorio
-status: not-referenced
+status: referenced
 bytes: 1079091
 ---
 
@@ -19,8 +19,9 @@ bytes: 1079091
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/laboratorios/lab-1/Lab_session_1.pdf`
 - **Kind:** laboratorio
 - **Size:** 1.1 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
+- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
-No vault note cites this file yet.
+- [[02 - Aerospace Materials I/Aerospace Materials I MOC]]

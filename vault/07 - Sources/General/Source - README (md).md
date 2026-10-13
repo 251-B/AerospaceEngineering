@@ -20,6 +20,7 @@ bytes: 5260
 - **Kind:** other
 - **Size:** 5.3 kB
 - **Status:** referenced by 1 note(s) below
+- **Shared name:** the file name is shared with 6 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 

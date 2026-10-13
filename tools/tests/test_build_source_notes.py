@@ -105,7 +105,7 @@ class BuildSourceNotesTest(unittest.TestCase):
         index_rel = "vault/07 - Sources/01 - Fluid Mechanics/Sources Index - Fluid Mechanics.md"
         index = self.desired[index_rel]
         self.assertIn("- Files: 7", index)
-        self.assertIn("- Referenced by at least one note: 2", index)
+        self.assertIn("- Referenced by at least one note (a mention counts): 2", index)
         self.assertIn("[[Source - 01-fluid-mechanics - teoria - Notes (pdf)\\|Notes.pdf]]", index)
 
     def test_write_then_check_passes_and_detects_missing_note(self):
@@ -127,6 +127,22 @@ class BuildSourceNotesTest(unittest.TestCase):
         refused = bsn.write(self.root, self.desired)
         self.assertFalse(stale.exists())
         self.assertEqual(refused, [hand.relative_to(self.root).as_posix()])
+
+    def test_shared_name_is_credited_only_within_its_subject(self):
+        root, tmp = make_repo({"vault/01 - Fluid Mechanics/Mentions shared.md": "Uses Shared.pdf from the course."})
+        self.addCleanup(tmp.cleanup)
+        for rel in ("02-other-subject/teoria/Shared.pdf", "01-fluid-mechanics/teoria/Shared.pdf"):
+            p = root / "sources" / "cuatrimestre-1" / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_bytes(b"x")
+        config = dict(CONFIG, subjects={**CONFIG["subjects"], "02-other-subject": "02 - Other Subject"})
+        desired, _ = bsn.plan(root, config)
+        fluid = desired["vault/07 - Sources/01 - Fluid Mechanics/Source - 01-fluid-mechanics - teoria - Shared (pdf).md"]
+        other = desired["vault/07 - Sources/02 - Other Subject/Source - 02-other-subject - teoria - Shared (pdf).md"]
+        self.assertIn("status: referenced", fluid)
+        self.assertIn("[[01 - Fluid Mechanics/Mentions shared]]", fluid)
+        self.assertIn("shared with 1 other copy", fluid)
+        self.assertIn("status: not-referenced", other)
 
     def test_output_is_deterministic(self):
         again, _ = bsn.plan(self.root, CONFIG)

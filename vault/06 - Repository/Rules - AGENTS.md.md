@@ -20,18 +20,18 @@ Purpose, Architecture, Mandatory pipeline (Obsidian first, web second), Language
 
 - Content flows from `sources/` to `vault/`, then to `subjects/`, then to `index.html`. No web page exists without its vault note.
 - Study text is in English. Units are SI, with a dimensional check.
-- Generated files are never edited by hand: the theory, problem, sources and exam pages, the PDF deep links, `assets/data/sources.js` and `assets/pdf/`.
+- Generated files are never edited by hand: the theory, problem, sources and exam pages, the PDF deep links, `assets/data/sources.js`, `assets/pdf/` and `vault/07 - Sources/`.
 - Web pages use the back-link `../../../index.html`, KaTeX from the CDN and the `ae_theme` key only. They carry no laboratory material and no interactive simulators. Topic pages carry the Ask AI, PDF and responsive helpers.
 - Problems follow four phases with no algebraic skips, and each result cites its source.
 - Official answers are never matched by adjusting data. A discrepancy gets a warning callout, and extensions are labelled as such.
 - The `review` gate runs after any single change. The `ultrareview` gate runs after a chapter, problem sheet or exam.
-- Closure requires 0 errors from vault_lint and audit_portal, a clean render_check, a passing `build_pdfs --check`, and passing tests.
+- Closure requires 0 errors from vault_lint and audit_portal, a clean render_check on every page you edited, a passing `build_pdfs --check`, and passing tests.
 - Only the web_qa_reviewer role commits and pushes to `origin/main`. Other agents do so only when asked. Stage only the relevant files.
 - Project skills in `.claude/skills/` and `.agents/skills/` must stay identical.
 
 ## Tools and agents this rule refers to
 
-Tools: [[Tool - vault_lint]] · [[Tool - audit_portal]] · [[Tool - render_check]] · [[Tool - build_pdfs]] · [[Tool - build_topic_pages]] · [[Tool - build_problem_pages]] · [[Tool - source_links]] · [[Tool - sources_manifest]] · [[Tool - build_sources_pages]] · [[Tool - vault_rename]] · [[Tool - Test suite]]
+Tools: [[Tool - vault_lint]] · [[Tool - audit_portal]] · [[Tool - render_check]] · [[Tool - build_pdfs]] · [[Tool - build_topic_pages]] · [[Tool - build_problem_pages]] · [[Tool - source_links]] · [[Tool - sources_manifest]] · [[Tool - build_sources_pages]] · [[Tool - build_source_notes]] · [[Tool - vault_rename]] · [[Tool - Test suite]]
 
 Agents: [[Agent - web-qa-reviewer]] · [[Agent - subject-web-builder]] · [[Agent - source-researcher]] · [[Agent - problem-step-mentor]] · [[Agent - aerospace-pedagogue]]
 

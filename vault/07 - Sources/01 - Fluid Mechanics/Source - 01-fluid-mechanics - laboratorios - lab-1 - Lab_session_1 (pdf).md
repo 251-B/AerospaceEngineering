@@ -19,8 +19,10 @@ bytes: 1079091
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/Lab_session_1.pdf`
 - **Kind:** laboratorio
 - **Size:** 1.1 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
+- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
+- [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
 - [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces]]

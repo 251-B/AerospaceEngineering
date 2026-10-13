@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - slides
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/slides/slides_Chapters1-2.pdf"
 kind: slides
-status: not-referenced
+status: referenced
 bytes: 1014543
 ---
 
@@ -19,8 +19,12 @@ bytes: 1014543
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-02-flow-kinematics/slides/slides_Chapters1-2.pdf`
 - **Kind:** slides
 - **Size:** 1.0 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 4 note(s) below
+- **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
-No vault note cites this file yet.
+- [[01 - Fluid Mechanics/Concept - Continuum Hypothesis and Thermophysical Properties]]
+- [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Topic 1 - Introductory Remarks and Starting Assumptions]]
+- [[01 - Fluid Mechanics/Topic 2 - Flow Kinematics]]

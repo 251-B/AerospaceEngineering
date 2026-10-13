@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 197
-- Referenced by at least one note: 8
-- Not referenced yet: 160
+- Referenced by at least one note (a mention counts): 11
+- Not referenced yet: 157
 - Build artifacts: 17
 - Working files: 12
 
@@ -89,7 +89,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1-Ismael - deliverable - code_LB_Martin_Martin_Ranz - main (m)\|main.m]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1-Ismael - deliverable - code_LB_Martin_Martin_Ranz - main (m)\|main.m]] | laboratorio | referenced |
 
 ## laboratorios/lab-1/Lab1-Ismael/deliverable/figures
 
@@ -131,7 +131,7 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - Group_LA_Alvarez_Gonzalez_Hernandez (zip)\|Group_LA_Alvarez_Gonzalez_Hernandez.zip]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - Group_LA_Student1_Student2_Student3 (zip)\|Group_LA_Student1_Student2_Student3.zip]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - main (m)\|main.m]] | laboratorio | not-referenced |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - main (m)\|main.m]] | laboratorio | referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - README (md)\|README.md]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - Report_LA_Alvarez_Gonzalez_Hernandez (pdf)\|Report_LA_Alvarez_Gonzalez_Hernandez.pdf]] | laboratorio | not-referenced |
 
@@ -280,7 +280,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - teoria - Notes (pdf)\|Notes.pdf]] | teoria | not-referenced |
+| [[Source - 03-engineering-mechanics - teoria - Notes (pdf)\|Notes.pdf]] | teoria | referenced |
 
 ## unit-01-particle-kinematics/slides
 

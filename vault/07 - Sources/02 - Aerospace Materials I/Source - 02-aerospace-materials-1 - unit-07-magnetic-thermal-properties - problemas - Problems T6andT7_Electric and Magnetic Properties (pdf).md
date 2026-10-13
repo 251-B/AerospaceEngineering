@@ -3,10 +3,10 @@ subject: "Aerospace Materials I"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 220780
 ---
 
@@ -19,8 +19,9 @@ bytes: 220780
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-07-magnetic-thermal-properties/problemas/Problems T6andT7_Electric and Magnetic Properties.pdf`
 - **Kind:** problemas
 - **Size:** 220.8 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
+- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
-No vault note cites this file yet.
+- [[02 - Aerospace Materials I/Aerospace Materials I MOC]]

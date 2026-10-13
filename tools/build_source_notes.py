@@ -84,6 +84,9 @@ def collect(root, config):
             "bytes": path.stat().st_size,
             "ext": path.suffix.lower(),
         })
+    counts = collections.Counter(r["file_name"] for r in records)
+    for r in records:
+        r["shared_with"] = counts[r["file_name"]] - 1
     names = [r["name"] for r in records]
     if len(set(names)) != len(names):
         raise SystemExit("build_source_notes: two source files map to the same note name")
@@ -91,24 +94,28 @@ def collect(root, config):
 
 
 def find_citations(root, records):
-    """Map each source path to the vault notes that cite it (full path, or a unique file name)."""
+    """Map each source path to the vault notes that cite it.
+
+    A full repo path counts everywhere. A bare file name counts; when that name is shared
+    by several copies under sources/, a bare mention is credited only to the copies in the
+    same subject as the citing note.
+    """
     out_dir = root / OUT_REL
     notes = {}
     for md in sorted((root / VAULT_REL).rglob("*.md")):
         if out_dir in md.parents:
             continue
         key = md.relative_to(root / VAULT_REL).with_suffix("").as_posix()
-        notes[key] = md.read_text(encoding="utf-8")
+        notes[key] = (key.split("/")[0], md.read_text(encoding="utf-8"))
     counts = collections.Counter(r["file_name"] for r in records)
     cites = {}
     for r in records:
         base = r["file_name"]
-        rx = None
-        if counts[base] == 1:
-            rx = re.compile(r"(?<![\w.\-])" + re.escape(base) + r"(?![\w\-])")
+        rx = re.compile(r"(?<![\w.\-])" + re.escape(base) + r"(?![\w\-])")
+        shared = counts[base] > 1
         cites[r["path"]] = sorted(
-            note for note, text in notes.items()
-            if r["path"] in text or (rx is not None and rx.search(text))
+            note for note, (folder, text) in notes.items()
+            if r["path"] in text or (rx.search(text) and (not shared or folder == r["folder"]))
         )
     return cites
 
@@ -161,6 +168,7 @@ def render_note(r):
         f"- **Kind:** {r['kind']}",
         f"- **Size:** {human_size(r['bytes'])}",
         f"- **Status:** {status}",
+    ] + ([f"- **Shared name:** the file name is shared with {r['shared_with']} other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only."] if r["shared_with"] else []) + [
         "",
         "## Referenced by",
         "",
@@ -168,7 +176,7 @@ def render_note(r):
     if r["cited_by"]:
         body += [f"- [[{note}]]" for note in r["cited_by"]]
     else:
-        body.append("No vault note cites this file yet.")
+        body.append("No vault note mentions this file yet.")
     return "\n".join(fm + body) + "\n"
 
 
@@ -201,7 +209,7 @@ def render_index(folder, subject, recs):
 
 
 STATUS_TEXT_LABEL = {
-    "referenced": "Referenced by at least one note",
+    "referenced": "Referenced by at least one note (a mention counts)",
     "not-referenced": "Not referenced yet",
     "build-artifact": "Build artifacts",
     "working-file": "Working files",

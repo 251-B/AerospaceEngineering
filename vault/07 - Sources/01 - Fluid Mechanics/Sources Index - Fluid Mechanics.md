@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 165
-- Referenced by at least one note: 20
-- Not referenced yet: 145
+- Referenced by at least one note (a mention counts): 24
+- Not referenced yet: 141
 - Build artifacts: 0
 - Working files: 0
 
@@ -119,19 +119,19 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - slides - slides_Chapters1-2 (pdf)\|slides_Chapters1-2.pdf]] | slides | not-referenced |
+| [[Source - 01-fluid-mechanics - slides - slides_Chapters1-2 (pdf)\|slides_Chapters1-2.pdf]] | slides | referenced |
 
 ## teoria
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - teoria - Notes (pdf)\|Notes.pdf]] | teoria | not-referenced |
+| [[Source - 01-fluid-mechanics - teoria - Notes (pdf)\|Notes.pdf]] | teoria | referenced |
 
 ## unit-01-introductory-remarks/slides
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - unit-01-introductory-remarks - slides - slides_Chapters1-2 (pdf)\|slides_Chapters1-2.pdf]] | slides | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-01-introductory-remarks - slides - slides_Chapters1-2 (pdf)\|slides_Chapters1-2.pdf]] | slides | referenced |
 
 ## unit-02-flow-kinematics/problemas
 
@@ -152,7 +152,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - unit-02-flow-kinematics - slides - slides_Chapters1-2 (pdf)\|slides_Chapters1-2.pdf]] | slides | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-02-flow-kinematics - slides - slides_Chapters1-2 (pdf)\|slides_Chapters1-2.pdf]] | slides | referenced |
 
 ## unit-03-conservation-laws/problemas
 
