@@ -595,6 +595,7 @@ html[data-theme="print"] .surface-panel {
   .tabs a,
   .tabs span,
   .toc-num,
+  .topic-arrow,
   .toc-title,
   .topic-badge,
   .topic-badge.available,
@@ -751,6 +752,26 @@ html[data-theme="print"] .surface-panel {
 
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active,
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active * {
+    color: var(--study-bg);
+    -webkit-text-fill-color: var(--study-bg);
+  }
+}
+
+/* ==========================================================================
+   12. QUICK-NAV PILLS (hover and active)
+   Maths pills hover as accent text on a tint and are active as white on the accent
+   (3.8:1 and 4.5:1); Materials pills hover and are active as black on the accent.
+   Under a palette both states become one filled pair: accent lightness window as the
+   fill, the palette background colour as the label, AAA for every subject accent.
+   ========================================================================== */
+@media screen {
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.nav-pill:hover, .nav-pill.active) {
+    background: oklch(from var(--accent) clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+    border-color: transparent;
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.nav-pill:hover, .nav-pill.active),
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.nav-pill:hover, .nav-pill.active) * {
     color: var(--study-bg);
     -webkit-text-fill-color: var(--study-bg);
   }
