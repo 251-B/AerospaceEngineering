@@ -74,6 +74,14 @@ The inventory fell by $600 - 500 = 100$ €: those 100 € of goods were also so
 - **Reading of item 4:** the statement labels the 10,500 € as income from the property sold; no book value of the property is given, so the whole amount is taken as the gain on the sale.
 - **Check:** $130{,}800 + 10{,}500 + 15{,}200 = 156{,}500$ of revenues and gains; $84{,}100 + 14{,}900 + 5{,}500 = 104{,}500$ of expenses; $156{,}500 - 104{,}500 = 52{,}000$.
 
+## Check against the official key
+
+> [!info] Official solution, `T3_Financial Statements_SOLUTIONS.pdf`, p. 5
+> Cost of goods sold 84,100 (purchases 84,000 plus the inventory variation of 100), operating expenses 14,900, interests received 15,200, interests paid 5,500, income before taxes 52,000, tax 15,600 and net income 36,400 coincide with the key.
+
+> [!warning] Discrepancy with the official solution (EBIT)
+> The key includes the 10,500 € of the property sold (labelled "Income from rentals") in the income from operations, so its EBIT is 42,300 €. Here the amount is shown below EBIT, as a non-operating gain, following the definition of Slide 11 (gains and losses on the sale of equipment and investments). Both layouts give the same income before taxes (52,000 €) and the same net income (36,400 €); only the EBIT subtotal changes: 31,800 € here and 42,300 € in the key. For an exam marked against this key, expect EBIT = 42,300 €.
+
 ---
 
 **Back to:** [[Business Management MOC]]

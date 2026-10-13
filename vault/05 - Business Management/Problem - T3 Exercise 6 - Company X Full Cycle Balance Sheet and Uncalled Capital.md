@@ -117,6 +117,11 @@ Both totals fall by exactly the 10 m.u. not paid.
 - **Profit vs cash:** after the purchases of 1/01, the cash generated during the year is $37.5 - 10 - 8.4 = 19.1$, while the profit is 19.6. Reconciliation: $19.6 + 2 + 10 - 12.5 = 19.1$, that is, profit + depreciation (expense, never a payment) + materials consumed (expense whose payment was made on 1/01 with the purchase) − sales not collected yet.
 - **Presentation note:** some textbooks show the 10 m.u. owed by shareholders as an asset instead of deducting it from capital; then both totals stay at 119.6. The deduction used here is the one consistent with "contributed capital" in [Slide 17]. Both readings give the same net equity provided (109.6) and leave the income statement unchanged.
 
+## Check against the official key
+
+> [!info] Official solution, `T3_Financial Statements_SOLUTIONS.pdf`, pp. 7-8
+> Requirement 1 coincides with the key: sales 50; cost of goods sold 10; personnel 10; depreciation 2; EBIT 28; tax 8.4; net income 19.6; cash 59.1; receivables 12.5; inventory 10; land 20; equipment 18; total assets 119.6. The key does not solve requirement 2 (90 % paid in), so that part of the solution is not covered by it.
+
 ---
 
 **Back to:** [[Business Management MOC]]

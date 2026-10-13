@@ -3,7 +3,7 @@
 > **Course Code:** `251-15335` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `e691ea81-0acf-4032-98d1-b9e5a7b93d70`  
 > **Portal Web:** `subjects/05-business-management/` | **Obsidian Vault:** `vault/05-business-management/`  
-> **Last Synchronized:** `2026-10-12 18:19` | **Total Official Files:** `14` (10.8 MB)
+> **Last Synchronized:** `2026-10-13 15:13` | **Total Official Files:** `17` (12.1 MB)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Category | File Count | Status | Notes |
 | :--- | :---: | :---: | :--- |
-| 📖 **Theory & Slides** | `6` | 🟢 Active | Consolidated Notes & Session Slides |
-| ✏️ **Problem Sheets & Solutions** | `6` | 🟢 Active | Official problem sets & step-by-step solutions |
+| 📖 **Theory & Slides** | `7` | 🟢 Active | Consolidated Notes & Session Slides |
+| ✏️ **Problem Sheets & Solutions** | `8` | 🟢 Active | Official problem sets & step-by-step solutions |
 | 📝 **Official Exams** | `0` | 🟡 Incomplete | Partial midterms & final exams |
 | 📅 **Course Schedule** | `0` | 🔴 Pending | Weekly lecture & evaluation calendar |
 
@@ -27,15 +27,18 @@
 | 3 | `W2 Practice_2_Business Environment.pdf` | ✏️ Problems | 847.2 KB | `unit-02-value-creation-environment/problemas/W2 Practice_2_Business Environment.pdf` |
 | 4 | `W3 Practice_3_Int_Analysis_Strategy_Resources.pdf` | ✏️ Problems | 2.5 MB | `unit-02-value-creation-environment/problemas/W3 Practice_3_Int_Analysis_Strategy_Resources.pdf` |
 | 5 | `Topic 2_ Value creation.pdf` | 📖 Theory | 559.0 KB | `unit-02-value-creation-environment/teoria/Topic 2_ Value creation.pdf` |
-| 6 | `T3_Additional_EXERCISES.pdf` | ✏️ Problems | 323.8 KB | `unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf` |
-| 7 | `T3_Financial Statements_EXERCISES.pdf` | ✏️ Problems | 212.7 KB | `unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf` |
-| 8 | `university-carlos-iii-of-madrid-logo-png_seeklogo-465311.png` | ✏️ Problems | 21.2 KB | `unit-03-financial-management-statements/problemas/university-carlos-iii-of-madrid-logo-png_seeklogo-465311.png` |
-| 9 | `Topic 3_Financial Management (I).pdf` | 📖 Theory | 1.4 MB | `unit-03-financial-management-statements/teoria/Topic 3_Financial Management (I).pdf` |
-| 10 | `.gitkeep` | Other | 0.0 B | `unit-04-financial-analysis-ratios/.gitkeep` |
-| 11 | `.gitkeep` | Other | 0.0 B | `unit-05-operations-marketing/.gitkeep` |
-| 12 | `BUSINESS PLAN_guide_26_27.pdf` | 📖 Theory | 209.9 KB | `unit-06-business-plan/teoria/BUSINESS PLAN_guide_26_27.pdf` |
-| 13 | `Engineers  Managing_Business Plan_26-27 W1.pdf` | 📖 Theory | 1.1 MB | `unit-06-business-plan/teoria/Engineers  Managing_Business Plan_26-27 W1.pdf` |
-| 14 | `how-to-write-a-business-plan.pdf` | 📖 Theory | 191.2 KB | `unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf` |
+| 6 | `Background for Practice Financial Statements.pdf` | ✏️ Problems | 577.3 KB | `unit-03-financial-management-statements/problemas/Background for Practice Financial Statements.pdf` |
+| 7 | `T3_Additional_EXERCISES.pdf` | ✏️ Problems | 323.8 KB | `unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf` |
+| 8 | `T3_Additional_SOLUTIONS.pdf` | ✏️ Problems | 620.6 KB | `unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf` |
+| 9 | `T3_Financial Statements_EXERCISES.pdf` | ✏️ Problems | 212.7 KB | `unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf` |
+| 10 | `T3_Financial Statements_SOLUTIONS.pdf` | ✏️ Problems | 227.5 KB | `unit-03-financial-management-statements/problemas/T3_Financial Statements_SOLUTIONS.pdf` |
+| 11 | `Topic 3_Financial Management (I).pdf` | 📖 Theory | 1.4 MB | `unit-03-financial-management-statements/teoria/Topic 3_Financial Management (I).pdf` |
+| 12 | `notebooklm-financial-accounting-videos.md` | 📖 Theory | 5.8 KB | `unit-03-financial-management-statements/teoria/notebooklm-financial-accounting-videos.md` |
+| 13 | `.gitkeep` | Other | 0.0 B | `unit-04-financial-analysis-ratios/.gitkeep` |
+| 14 | `.gitkeep` | Other | 0.0 B | `unit-05-operations-marketing/.gitkeep` |
+| 15 | `BUSINESS PLAN_guide_26_27.pdf` | 📖 Theory | 209.9 KB | `unit-06-business-plan/teoria/BUSINESS PLAN_guide_26_27.pdf` |
+| 16 | `Engineers  Managing_Business Plan_26-27 W1.pdf` | 📖 Theory | 1.1 MB | `unit-06-business-plan/teoria/Engineers  Managing_Business Plan_26-27 W1.pdf` |
+| 17 | `how-to-write-a-business-plan.pdf` | 📖 Theory | 191.2 KB | `unit-06-business-plan/teoria/how-to-write-a-business-plan.pdf` |
 
 ---
 

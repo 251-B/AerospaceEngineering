@@ -64,6 +64,11 @@ $$\text{Bank} = 30{,}000 - 10{,}500 - 15{,}000 = 4{,}500 \text{ €}$$
 - **Typical mistake:** keeping the bank at 30,000 € while also adding the machinery and the raw materials gives assets of 85,000 € against 60,000 € of equity. Spending cash on an asset never changes the total.
 - **Financial structure** [Slide 36]: the company is financed 100% with equity ($L/E = 0$).
 
+## Check against the official key
+
+> [!info] Official solution, `T3_Financial Statements_SOLUTIONS.pdf`, p. 3
+> The balance sheet coincides with the key in every line: bank 4,500; patent 30,000; machinery 15,000; raw materials 10,500; share capital 60,000; total 60,000. The bank movements (+30,000, −15,000, −10,500) are the same.
+
 ---
 
 **Back to:** [[Business Management MOC]]
