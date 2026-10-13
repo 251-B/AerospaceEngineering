@@ -923,14 +923,29 @@ window.AE_SOURCES = {
           "other": [],
           "problemas": [
             {
+              "bytes": 591176,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/Background%20for%20Practice%20Financial%20Statements.pdf",
+              "name": "Background for Practice Financial Statements.pdf"
+            },
+            {
               "bytes": 331571,
               "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf",
               "name": "T3_Additional_EXERCISES.pdf"
             },
             {
+              "bytes": 635479,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf",
+              "name": "T3_Additional_SOLUTIONS.pdf"
+            },
+            {
               "bytes": 217846,
               "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial%20Statements_EXERCISES.pdf",
               "name": "T3_Financial Statements_EXERCISES.pdf"
+            },
+            {
+              "bytes": 232952,
+              "href": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial%20Statements_SOLUTIONS.pdf",
+              "name": "T3_Financial Statements_SOLUTIONS.pdf"
             }
           ],
           "slides": [],

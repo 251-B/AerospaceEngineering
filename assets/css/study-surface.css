@@ -344,7 +344,6 @@ html[data-theme="light"] .surface-panel {
 
 .surface-swatch {
   --sw-bg: #f6f8fa;
-  --sw-fg: #0f172a;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -355,15 +354,9 @@ html[data-theme="light"] .surface-panel {
   border-radius: 50%;
   border: 2px solid transparent;
   background: var(--sw-bg);
-  color: var(--sw-fg);
   box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.4);
-  font: 600 0.62rem/1 var(--font-sans, system-ui, sans-serif);
   cursor: pointer;
   transition: transform 0.16s ease, border-color 0.16s ease;
-}
-
-.surface-swatch::before {
-  content: "Aa";
 }
 
 .surface-swatch:hover,
@@ -412,25 +405,22 @@ html[data-theme="light"] .surface-panel {
   font-weight: 600;
 }
 
-/* Swatch colours: background, then the text colour of the palette */
+/* Swatch colours: a plain disc of each palette's background */
 .surface-swatch[data-surface="default"] {
   --sw-bg: linear-gradient(135deg, #f6f8fa 50%, #0a0e17 50%);
-  --sw-fg: #64748b;
 }
-.surface-swatch[data-surface="cream"] { --sw-bg: #f5f2eb; --sw-fg: #23272f; }
-.surface-swatch[data-surface="sepia"] { --sw-bg: #efe8d8; --sw-fg: #342a22; }
-.surface-swatch[data-surface="slate-paper"] { --sw-bg: #eceff2; --sw-fg: #1a222d; }
-.surface-swatch[data-surface="sage"] { --sw-bg: #ebf0ea; --sw-fg: #1f2922; }
-.surface-swatch[data-surface="charcoal"] { --sw-bg: #111620; --sw-fg: #dde4ec; }
+.surface-swatch[data-surface="cream"] { --sw-bg: #f5f2eb; }
+.surface-swatch[data-surface="sepia"] { --sw-bg: #efe8d8; }
+.surface-swatch[data-surface="slate-paper"] { --sw-bg: #eceff2; }
+.surface-swatch[data-surface="sage"] { --sw-bg: #ebf0ea; }
+.surface-swatch[data-surface="charcoal"] { --sw-bg: #111620; }
 
 .surface-picker__btn .surface-swatch {
   width: 14px;
   height: 14px;
   border-width: 0;
   pointer-events: none;
-  font-size: 0;
 }
-.surface-picker__btn .surface-swatch::before,
 .surface-picker__btn .surface-swatch::after {
   content: none;
 }
@@ -595,6 +585,7 @@ html[data-theme="print"] .surface-panel {
   .tabs a,
   .tabs span,
   .toc-num,
+  .topic-arrow,
   .toc-title,
   .topic-badge,
   .topic-badge.available,
@@ -751,6 +742,26 @@ html[data-theme="print"] .surface-panel {
 
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active,
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .switch-btn.active * {
+    color: var(--study-bg);
+    -webkit-text-fill-color: var(--study-bg);
+  }
+}
+
+/* ==========================================================================
+   12. QUICK-NAV PILLS (hover and active)
+   Maths pills hover as accent text on a tint and are active as white on the accent
+   (3.8:1 and 4.5:1); Materials pills hover and are active as black on the accent.
+   Under a palette both states become one filled pair: accent lightness window as the
+   fill, the palette background colour as the label, AAA for every subject accent.
+   ========================================================================== */
+@media screen {
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.nav-pill:hover, .nav-pill.active) {
+    background: oklch(from var(--accent) clamp(var(--study-l-min), l, var(--study-l-max)) min(c, 0.13) h);
+    border-color: transparent;
+  }
+
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.nav-pill:hover, .nav-pill.active),
+  html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.nav-pill:hover, .nav-pill.active) * {
     color: var(--study-bg);
     -webkit-text-fill-color: var(--study-bg);
   }

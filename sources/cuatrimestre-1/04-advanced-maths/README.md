@@ -3,7 +3,7 @@
 > **Course Code:** `251-15331` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `c27033c3-5a64-403f-a517-5847831aabcb`  
 > **Portal Web:** `subjects/04-advanced-maths/` | **Obsidian Vault:** `vault/04-advanced-maths/`  
-> **Last Synchronized:** `2026-10-12 18:19` | **Total Official Files:** `77` (91.3 MB)
+> **Last Synchronized:** `2026-10-13 15:13` | **Total Official Files:** `77` (91.3 MB)
 
 ---
 
@@ -90,7 +90,7 @@
 | 66 | `MATHS_SECONDPARTIAL_2025_G46_SOL.pdf` | 📝 Exam | 201.6 KB | `examenes/MATHS_SECONDPARTIAL_2025_G46_SOL.pdf` |
 | 67 | `MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` | 📝 Exam | 368.3 KB | `examenes/MATHS_SECONDPARTIAL_2025_G47_SOL.pdf` |
 | 68 | `MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` | 📝 Exam | 603.1 KB | `examenes/other-universities/MATHS_OTHERUNI_2006_UC3M_INDUSTRIAL_ENGINEERING_NUMERICAL_METHODS_SOL.pdf` |
-| 69 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 11.9 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
+| 69 | `ODE_lecture_theory_to_Robinson_chapters.txt` | 📅 Schedule | 12.2 KB | `schedule/ODE_lecture_theory_to_Robinson_chapters.txt` |
 | 70 | `view.htm` | 📅 Schedule | 174.0 KB | `schedule/view.htm` |
 | 71 | `ProblemsCh1.pdf` | ✏️ Problems | 38.8 KB | `unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf` |
 | 72 | `ProblemsCh2.pdf` | ✏️ Problems | 43.3 KB | `unit-02-first-order-odes/problemas/ProblemsCh2.pdf` |

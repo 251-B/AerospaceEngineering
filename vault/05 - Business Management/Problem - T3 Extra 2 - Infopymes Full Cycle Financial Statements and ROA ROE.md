@@ -153,7 +153,13 @@ $$\text{ROE}_{2017} = \frac{14{,}000}{107{,}560} = 0.1302 = 13.02\%$$
 - **Leverage** [Slide 36]: $L/E = 80{,}000/107{,}560 = 0.74$ in 2016 and $60{,}000/107{,}560 = 0.56$ in 2017; the company becomes less indebted each year.
 - **ROE < ROA here:** the return to the owners is lower than the return of the assets because interest and taxes are deducted from the numerator; the equity base being smaller than total assets is not enough to compensate.
 - **Exam traps:** (1) the loan instalment is a payment, never an expense; (2) at 24:00 no tax or dividend liability remains; (3) the current part of the loan (next instalment) must be separated from the long-term part.
-- No official numerical solution is included in `sources/`.
+
+## Check against the official key
+
+> [!info] Official solution, `T3_Additional_SOLUTIONS.pdf`, pp. 12-14
+> Requirements 1 and 2 coincide with the key in every figure: EBIT 28,000; interest 10,000; income before taxes 18,000; tax 5,400; net income 12,600; dividends 5,040; retained earnings 7,560; cash 107,560; equipment net 80,000; total 187,560; bank loan 20,000 current and 60,000 long term; equity 107,560.
+>
+> The key does not solve requirement 3 (balance sheet at 31/12/2017) nor requirement 4 (ROA and ROE), so Steps 5 and 6 above are not covered by it.
 
 ---
 

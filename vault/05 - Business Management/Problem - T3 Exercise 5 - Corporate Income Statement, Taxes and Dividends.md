@@ -94,6 +94,11 @@ Pay-out 50%, self-financing 50%.
 - **Exact values:** income taxes 36.3828 M€ and net income 84.8932 M€ (shown rounded to three decimals in the table).
 - **Dividends** come after taxes and are not an expense: the income statement ends at the net income, and the 50/50 split is shown separately.
 
+## Check against the official key
+
+> [!info] Official solution, `T3_Financial Statements_SOLUTIONS.pdf`, p. 6
+> Every line coincides with the key: discount 24.024; net sales 1,977.976; cost of goods sold 962; personnel 304.2; other operating expenses 457; depreciation 120; EBIT 134.776; interest 13.5; income before taxes 121.276; tax 36.3828; net income 84.8932; dividends 42.4466 and retained earnings 42.4466 (all in M€).
+
 ---
 
 **Back to:** [[Business Management MOC]]

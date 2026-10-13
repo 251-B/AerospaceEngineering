@@ -168,7 +168,16 @@ The dividend is already owed to the shareholders at 31/12/2017 but no cash has l
 - **Requirement 3 vs 4:** both reduce equity by the same 6.335; the difference is only on the other side: in 3 an **asset** (cash) falls, in 4 a **liability** rises. A dividend is never an expense, so net income is 31.675 in all three cases.
 - **Why the company chose not to pay:** after 2017 the equity is still below the capital (accumulated loss $-308.325$); retaining the profit is self-financing [Slide 23] that rebuilds the equity.
 - **Exam traps:** (1) the 2016 data are only the opening balance; (2) inventory is half of the purchases; (3) the licences bought at the end of 2016 are amortised from 2017; (4) the loan due in 2019 is long-term.
-- No official numerical solution is included in `sources/`. Three decimals are kept because 268.55, 41.20 and 13.575 are exact.
+
+## Check against the official key
+
+> [!info] Official solution, `T3_Additional_SOLUTIONS.pdf`, pp. 16-18
+> Requirements 1 and 2 coincide with the key: revenues 1,966; cost of goods sold 340; operating expenses 1,511; EBITDA 455; depreciation and amortisation 309.75; EBIT 145.25; interest 100; income before taxes 45.25; tax 13.575; net income 31.675; cash 1,627; total assets 8,008.25; equity 5,694.675. The key rounds to one decimal (309.8; 145.3; 45.3; 13.6; 31.7), which only shifts the last digit.
+>
+> The key does not answer requirements 3 and 4 (20 % dividend): it only shows "Dividends (@0%)", so Steps 9 and 10 above are not covered by it.
+
+> [!warning] Erratum in the official solution
+> The key gives total liabilities of 2,325.935, but its own items add to $120 + 180 + 13.575 + 2{,}000 = 2{,}313.575$ (2,313.6 rounded), which together with equity of 5,694.7 gives the total of 8,008.3 that it does show. The accumulated depreciation mentions "2009"; the 26 m.u. belong to 2016.
 
 ---
 
