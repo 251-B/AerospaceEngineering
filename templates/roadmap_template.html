@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla Roadmap & Changelog — Google Docs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', Georgia, serif;
+      --font-body: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --accent-fluid: #0891b2;
+      --accent-materials: #d97706;
+      --accent-mechanics: #059669;
+      --accent-maths: #4f46e5;
+      --accent-business: #dc2626;
+      --accent-portal: #475569;
+    }
+
+    body {
+      background: #0f172a;
+      color: #334155;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .toolbar {
+      max-width: 820px;
+      width: 100%;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      box-sizing: border-box;
+    }
+
+    .toolbar-info {
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    .toolbar-info strong {
+      color: #38bdf8;
+      font-family: var(--font-mono);
+    }
+
+    .copy-btn {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }
+
+    .copy-btn:active {
+      transform: translateY(0);
+    }
+
+    .doc-page {
+      background: #ffffff;
+      max-width: 820px;
+      width: 100%;
+      min-height: 1050px;
+      padding: 56px 64px;
+      box-sizing: border-box;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      border-radius: 4px;
+      color: #0f172a;
+    }
+
+    #copy-status {
+      display: none;
+      color: #4ade80;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      margin-top: 6px;
+    }
+
+    /* Print / Preview content styles inside document */
+    .doc-page h1 {
+      font-family: 'Abril Fatface', Georgia, serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #0f172a;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+
+    .doc-page .subtitle {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .meta-card {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px 0;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: 'Newsreader', Georgia, serif;
+    }
+
+    .meta-card td {
+      padding: 10px 16px;
+      font-size: 13.5px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+
+    .meta-card tr:last-child td {
+      border-bottom: none;
+    }
+
+    .meta-card td strong {
+      color: #0f172a;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .badge-fluids { background: #ecfeff; color: #0891b2; border: 1px solid #cffafe; }
+    .badge-materials { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+    .badge-mechanics { background: #d1fae5; color: #047857; border: 1px solid #a7f3d0; }
+    .badge-maths { background: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe; }
+    .badge-business { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+    .badge-portal { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+
+    .badge-high { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-weight: 700; }
+    .badge-med { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+    .badge-low { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+
+    .section-header {
+      font-family: 'Abril Fatface', Georgia, serif;
+      font-size: 20px;
+      color: #0f172a;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 6px;
+      margin-top: 36px;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 13.5px;
+      font-style: italic;
+      color: #64748b;
+      margin: 0 0 16px 0;
+    }
+
+    .task-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0 0 24px 0;
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    .task-item {
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      background: #fafafa;
+      border: 1px solid #f1f5f9;
+      border-left: 3px solid #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .task-item.high {
+      border-left-color: #ef4444;
+      background: #fffafa;
+    }
+
+    .task-item.med {
+      border-left-color: #f59e0b;
+      background: #fffdf7;
+    }
+
+    .task-item.low {
+      border-left-color: #10b981;
+    }
+
+    .task-title {
+      font-weight: 600;
+      color: #0f172a;
+      font-size: 15px;
+    }
+
+    .task-details {
+      margin-top: 6px;
+      padding-left: 24px;
+      font-size: 13.5px;
+      color: #475569;
+    }
+
+    .task-details ul {
+      margin: 4px 0 0 0;
+      padding-left: 18px;
+    }
+
+    .task-details li {
+      margin-bottom: 3px;
+    }
+
+    .code-ref {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .check-box {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #64748b;
+      border-radius: 3px;
+      margin-right: 8px;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <div class="toolbar-info">
+      <div><strong>PLANTILLA GOOGLE DOCS</strong> • Fuentes: <em>Abril Fatface</em>, <em>Newsreader</em>, <em>JetBrains Mono</em></div>
+      <div id="copy-status">✓ ¡Formato copiado! Ve a tu Google Doc y presiona Ctrl + V</div>
+    </div>
+    <button class="copy-btn" onclick="copyDocumentToClipboard()">
+      <span>📋</span> Copiar para Google Docs
+    </button>
+  </div>
+
+  <div class="doc-page" id="doc-content">
+    
+    <!-- ENCABEZADO -->
+    <h1 style="font-family: 'Abril Fatface', Georgia, serif; font-size: 30pt; color: #0f172a; margin: 0 0 6pt 0;">
+      UC3M Aerospace Engineering — Roadmap & Changelog
+    </h1>
+    <div class="subtitle" style="font-family: 'Newsreader', Georgia, serif; font-size: 13pt; font-style: italic; color: #64748b; margin-bottom: 18pt;">
+      Cuaderno colaborativo de mejoras, sincronización de apuntes y control de calidad
+    </div>
+
+    <!-- TARJETA METADATOS -->
+    <table class="meta-card" style="width: 100%; border-collapse: collapse; margin-bottom: 20pt; background: #f8fafc; border: 1pt solid #cbd5e1;">
+      <tr>
+        <td style="padding: 6pt 10pt; font-size: 10.5pt; color: #334155; border-bottom: 1pt solid #e2e8f0; width: 35%;">
+          <strong style="font-family: sans-serif; font-size: 9pt; color: #0f172a;">Equipo & Colaboradores</strong>
+        </td>
+        <td style="padding: 6pt 10pt; font-size: 10.5pt; color: #0f172a; border-bottom: 1pt solid #e2e8f0;">
+          <span class="code-ref" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5pt;">@Héctor</span> & <span class="code-ref" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5pt;">@Compañero</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 6pt 10pt; font-size: 10.5pt; color: #334155; border-bottom: 1pt solid #e2e8f0;">
+          <strong style="font-family: sans-serif; font-size: 9pt; color: #0f172a;">Pipeline de Trabajo</strong>
+        </td>
+        <td style="padding: 6pt 10pt; font-size: 10.5pt; color: #0f172a; border-bottom: 1pt solid #e2e8f0;">
+          <span class="code-ref" style="font-family: 'JetBrains Mono', monospace; font-size: 9pt;">sources/</span> (PDFs) ➔ <span class="code-ref" style="font-family: 'JetBrains Mono', monospace; font-size: 9pt;">vault/</span> (Obsidian) ➔ <span class="code-ref" style="font-family: 'JetBrains Mono', monospace; font-size: 9pt;">subjects/</span> (Web)
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 6pt 10pt; font-size: 10.5pt; color: #334155;">
+          <strong style="font-family: sans-serif; font-size: 9pt; color: #0f172a;">Sprint Activo / Estado</strong>
+        </td>
+        <td style="padding: 6pt 10pt; font-size: 10.5pt; color: #0f172a;">
+          Cuatrimestre 1 & 2 — Consolidación y Resolución de Exámenes
+        </td>
+      </tr>
+    </table>
+
+    <!-- LEYENDA -->
+    <div style="margin-bottom: 20pt; padding: 10pt; background: #ffffff; border: 1pt solid #e2e8f0; border-radius: 4pt;">
+      <div style="font-family: sans-serif; font-size: 8.5pt; font-weight: bold; color: #64748b; margin-bottom: 6pt; text-transform: uppercase;">
+        Leyenda de Códigos (JetBrains Mono)
+      </div>
+      <div>
+        <span class="badge badge-fluids" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #ecfeff; color: #0891b2; padding: 2pt 5pt; border: 1pt solid #cffafe;">[FLUIDS]</span>
+        <span class="badge badge-materials" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef3c7; color: #b45309; padding: 2pt 5pt; border: 1pt solid #fde68a;">[MATERIALS]</span>
+        <span class="badge badge-mechanics" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #d1fae5; color: #047857; padding: 2pt 5pt; border: 1pt solid #a7f3d0;">[MECHANICS]</span>
+        <span class="badge badge-maths" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #e0e7ff; color: #4338ca; padding: 2pt 5pt; border: 1pt solid #c7d2fe;">[MATHS]</span>
+        <span class="badge badge-business" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fee2e2; color: #b91c1c; padding: 2pt 5pt; border: 1pt solid #fecaca;">[BUSINESS]</span>
+        <span class="badge badge-portal" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f1f5f9; color: #475569; padding: 2pt 5pt; border: 1pt solid #e2e8f0;">[PORTAL]</span>
+        &nbsp;|&nbsp;
+        <span class="badge badge-high" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef2f2; color: #dc2626; padding: 2pt 5pt; border: 1pt solid #fecaca;">🔴 ALTA</span>
+        <span class="badge badge-med" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fffbeb; color: #d97706; padding: 2pt 5pt; border: 1pt solid #fde68a;">🟡 MEDIA</span>
+        <span class="badge badge-low" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f0fdf4; color: #16a34a; padding: 2pt 5pt; border: 1pt solid #bbf7d0;">🟢 BAJA</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 1: NOVEDADES -->
+    <div class="section-header" style="font-family: 'Abril Fatface', Georgia, serif; font-size: 18pt; color: #0f172a; border-bottom: 2pt solid #0f172a; padding-bottom: 4pt; margin-top: 24pt;">
+      ✨ 1. Novedades y Mejoras Generales
+    </div>
+    <div class="section-desc" style="font-family: 'Newsreader', Georgia, serif; font-size: 10.5pt; font-style: italic; color: #64748b; margin-bottom: 12pt;">
+      Nuevas herramientas de estudio, funcionalidades del portal web, diseño e integraciones.
+    </div>
+
+    <ul class="task-list" style="list-style-type: none; padding-left: 0; font-family: 'Newsreader', Georgia, serif; font-size: 11pt;">
+      <li class="task-item high" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffafa; border-left: 3pt solid #ef4444; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-portal" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f1f5f9; color: #475569; padding: 1pt 4pt;">[PORTAL]</span>
+        <span class="badge badge-high" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef2f2; color: #dc2626; padding: 1pt 4pt;">🔴 ALTA</span>
+        <strong style="color: #0f172a;">Integración completa del widget "Ask AI" en ejercicios</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          Comprobar que en cada problema de cada asignatura el panel genera el prompt socrático con el desglose de 4 fases para Claude y Gemini.
+        </div>
+      </li>
+
+      <li class="task-item med" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffdf7; border-left: 3pt solid #f59e0b; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-portal" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f1f5f9; color: #475569; padding: 1pt 4pt;">[PORTAL]</span>
+        <span class="badge badge-med" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fffbeb; color: #d97706; padding: 1pt 4pt;">🟡 MEDIA</span>
+        <strong style="color: #0f172a;">Verificación de paletas de lectura con contraste AAA (7:1)</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          Probar las 6 superficies (default, cream, sepia, slate-paper, sage, charcoal) asegurando que fórmulas y texto conserven máxima legibilidad.
+        </div>
+      </li>
+
+      <li class="task-item low" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fafafa; border-left: 3pt solid #10b981; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-portal" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f1f5f9; color: #475569; padding: 1pt 4pt;">[PORTAL]</span>
+        <span class="badge badge-low" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f0fdf4; color: #16a34a; padding: 1pt 4pt;">🟢 BAJA</span>
+        <strong style="color: #0f172a;">Descarga de resumen de fórmulas en 1 página (Cheatsheets A4)</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          Generar PDFs limpios en blanco y negro con print.css para imprimir antes de cada parcial.
+        </div>
+      </li>
+    </ul>
+
+    <!-- SECCIÓN 2: TEMARIO A AÑADIR -->
+    <div class="section-header" style="font-family: 'Abril Fatface', Georgia, serif; font-size: 18pt; color: #0f172a; border-bottom: 2pt solid #0f172a; padding-bottom: 4pt; margin-top: 24pt;">
+      📚 2. Temario a Añadir
+    </div>
+    <div class="section-desc" style="font-family: 'Newsreader', Georgia, serif; font-size: 10.5pt; font-style: italic; color: #64748b; margin-bottom: 12pt;">
+      Nuevas notas teóricas, hojas de problemas y exámenes oficiales a resolver paso a paso.
+    </div>
+
+    <ul class="task-list" style="list-style-type: none; padding-left: 0; font-family: 'Newsreader', Georgia, serif; font-size: 11pt;">
+      <li class="task-item high" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffafa; border-left: 3pt solid #ef4444; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-fluids" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #ecfeff; color: #0891b2; padding: 1pt 4pt;">[FLUIDS]</span>
+        <span class="badge badge-high" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef2f2; color: #dc2626; padding: 1pt 4pt;">🔴 ALTA</span>
+        <strong style="color: #0f172a;">Tema 4: Flujo Potencial Incompresible & Kutta-Joukowski</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          • Redactar nota teórica en Obsidian con deducción analítica de función de corriente ψ y potencial de velocidades ϕ.<br>
+          • Resolver los 6 problemas de la hoja 4 con cilindro en corriente uniforme y circulación.
+        </div>
+      </li>
+
+      <li class="task-item high" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffafa; border-left: 3pt solid #ef4444; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-mechanics" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #d1fae5; color: #047857; padding: 1pt 4pt;">[MECHANICS]</span>
+        <span class="badge badge-high" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef2f2; color: #dc2626; padding: 1pt 4pt;">🔴 ALTA</span>
+        <strong style="color: #0f172a;">Tema 3: Dinámica 3D y Matrices de Rotación de Euler</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          • Demostrar ortonormalidad [R₀₁][R₀₁]ᵀ = I y det(R) = +1 para las rotaciones 3-1-3.<br>
+          • Resolver ejercicio de precesión estacionaria de la peonza de Lagrange sin saltos en derivadas.
+        </div>
+      </li>
+
+      <li class="task-item med" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffdf7; border-left: 3pt solid #f59e0b; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-materials" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef3c7; color: #b45309; padding: 1pt 4pt;">[MATERIALS]</span>
+        <span class="badge badge-med" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fffbeb; color: #d97706; padding: 1pt 4pt;">🟡 MEDIA</span>
+        <strong style="color: #0f172a;">Tema 4: Difusión en Sólidos y 2ª Ley de Fick</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          • Incorporar solución con función error erf(z) para cementación gaseosa de piezas aeroespaciales.
+        </div>
+      </li>
+
+      <li class="task-item high" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffafa; border-left: 3pt solid #ef4444; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-portal" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f1f5f9; color: #475569; padding: 1pt 4pt;">[EXÁMENES]</span>
+        <span class="badge badge-high" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef2f2; color: #dc2626; padding: 1pt 4pt;">🔴 ALTA</span>
+        <strong style="color: #0f172a;">Resolver Examen Primer Parcial 2024 de Fluid Mechanics</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          • Archivo: <span class="code-ref" style="font-family: 'JetBrains Mono', monospace; font-size: 9pt;">FLUIDS_FIRSTPARTIAL_2024_ORD.pdf</span>.<br>
+          • Aplicar el estándar estricto de 4 fases (Setup, Frames, Derivation, Interpretation).
+        </div>
+      </li>
+    </ul>
+
+    <!-- SECCIÓN 3: CORRECCIONES -->
+    <div class="section-header" style="font-family: 'Abril Fatface', Georgia, serif; font-size: 18pt; color: #0f172a; border-bottom: 2pt solid #0f172a; padding-bottom: 4pt; margin-top: 24pt;">
+      🛠️ 3. Correcciones y Erratas
+    </div>
+    <div class="section-desc" style="font-family: 'Newsreader', Georgia, serif; font-size: 10.5pt; font-style: italic; color: #64748b; margin-bottom: 12pt;">
+      Auditoría rigurosa: fórmulas, errores en enunciados oficiales, erratas y enlaces.
+    </div>
+
+    <ul class="task-list" style="list-style-type: none; padding-left: 0; font-family: 'Newsreader', Georgia, serif; font-size: 11pt;">
+      <li class="task-item high" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffafa; border-left: 3pt solid #ef4444; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-fluids" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #ecfeff; color: #0891b2; padding: 1pt 4pt;">[FLUIDS]</span>
+        <span class="badge badge-high" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fef2f2; color: #dc2626; padding: 1pt 4pt;">🔴 ALTA</span>
+        <strong style="color: #0f172a;">Discrepancia en Problema 2.3 (Manómetro en U)</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          El solucionario del departamento redondeó la densidad del fluido a 1000 kg/m³ en vez de 1025 kg/m³. Mantener cálculo riguroso y registrar aviso en el portal.
+        </div>
+      </li>
+
+      <li class="task-item med" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fffdf7; border-left: 3pt solid #f59e0b; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-mechanics" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #d1fae5; color: #047857; padding: 1pt 4pt;">[MECHANICS]</span>
+        <span class="badge badge-med" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fffbeb; color: #d97706; padding: 1pt 4pt;">🟡 MEDIA</span>
+        <strong style="color: #0f172a;">Desarrollar explícitamente la regla de la cadena en Problema 1.4</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          Sustituir el salto algebraico por el cálculo detallado con diferenciales y verificación dimensional de cada sumando.
+        </div>
+      </li>
+
+      <li class="task-item low" style="padding: 8pt 10pt; margin-bottom: 8pt; background: #fafafa; border-left: 3pt solid #10b981; border-top: 1pt solid #f1f5f9; border-right: 1pt solid #f1f5f9; border-bottom: 1pt solid #f1f5f9;">
+        <span class="check-box">☐</span>
+        <span class="badge badge-business" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #fee2e2; color: #b91c1c; padding: 1pt 4pt;">[BUSINESS]</span>
+        <span class="badge badge-low" style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; background: #f0fdf4; color: #16a34a; padding: 1pt 4pt;">🟢 BAJA</span>
+        <strong style="color: #0f172a;">Reemplazar macro \euro por \text{€}</strong>
+        <div class="task-details" style="margin-top: 4pt; padding-left: 20pt; font-size: 10pt; color: #475569;">
+          Garantizar que no queden llamadas a \euro que provoquen fallos en KaTeX o en render_check.py.
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <script>
+    async function copyDocumentToClipboard() {
+      const docElement = document.getElementById('doc-content');
+      const htmlContent = docElement.outerHTML;
+      const plainText = docElement.innerText;
+
+      try {
+        const blobHtml = new Blob([htmlContent], { type: 'text/html' });
+        const blobText = new Blob([plainText], { type: 'text/plain' });
+        const item = new ClipboardItem({
+          'text/html': blobHtml,
+          'text/plain': blobText
+        });
+        await navigator.clipboard.write([item]);
+        
+        const status = document.getElementById('copy-status');
+        status.style.display = 'block';
+        setTimeout(() => {
+          status.style.display = 'none';
+        }, 5000);
+      } catch (err) {
+        console.error('Error al copiar:', err);
+        // Fallback: seleccionar y copiar
+        const range = document.createRange();
+        range.selectNodeContents(docElement);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand('copy');
+        alert('Contenido seleccionado y copiado. Pégalo en tu Google Doc con Ctrl+V.');
+      }
+    }
+  </script>
+</body>
+</html>

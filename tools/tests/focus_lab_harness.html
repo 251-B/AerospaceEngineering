@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>focus-lab.js harness</title>
+<!-- Driven by test_focus_lab.py through headless Edge/Chrome (--dump-dom). The engine is rendered
+     offline (OfflineAudioContext), so no audio device is needed. -->
+<script src="../../assets/js/focus-lab.js"></script>
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+  var RATE = 48000;
+
+  function record(name, ok, detail) {
+    results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) });
+  }
+
+  function frame(setup) {
+    return new Promise(function (resolve) {
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:1000px;height:800px';
+      f.onload = function () { setTimeout(function () { resolve(f); }, 400); };
+      f.srcdoc = '<!doctype html><html data-theme="dark"><head><script>' + (setup || '') + '<\/script>' +
+        '<script src="../../assets/js/theme.js"><\/script></head><body><main><p>Page text</p></main></body></html>';
+      document.body.appendChild(f);
+    });
+  }
+
+  // Power of x at frequency f (Goertzel), normalised by the length.
+  function goertzel(x, f) {
+    var w = 2 * Math.PI * f / RATE, c = 2 * Math.cos(w), s1 = 0, s2 = 0;
+    for (var i = 0; i < x.length; i++) { var s = x[i] + c * s1 - s2; s2 = s1; s1 = s; }
+    return (s1 * s1 + s2 * s2 - c * s1 * s2) / (x.length * x.length);
+  }
+
+  function fft(re, im) {
+    var n = re.length, i, j = 0, k, len;
+    for (i = 1; i < n; i++) {
+      var bit = n >> 1;
+      for (; j & bit; bit >>= 1) j ^= bit;
+      j ^= bit;
+      if (i < j) { var t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+    }
+    for (len = 2; len <= n; len <<= 1) {
+      var ang = -2 * Math.PI / len, wr = Math.cos(ang), wi = Math.sin(ang);
+      for (i = 0; i < n; i += len) {
+        var cr = 1, ci = 0;
+        for (k = 0; k < len / 2; k++) {
+          var a = i + k, b = a + len / 2;
+          var xr = re[b] * cr - im[b] * ci, xi = re[b] * ci + im[b] * cr;
+          re[b] = re[a] - xr; im[b] = im[a] - xi; re[a] += xr; im[a] += xi;
+          var nr = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = nr;
+        }
+      }
+    }
+  }
+
+  // Welch PSD (Hann, 8192 points), then the least-squares slope of dB against log2(f) over octave bands.
+  function slopePerOctave(x) {
+    var N = 8192, psd = new Float64Array(N / 2), segs = 0, i;
+    for (var start = 0; start + N <= x.length; start += N / 2) {
+      var re = new Float64Array(N), im = new Float64Array(N);
+      for (i = 0; i < N; i++) re[i] = x[start + i] * (0.5 - 0.5 * Math.cos(2 * Math.PI * i / N));
+      fft(re, im);
+      for (i = 0; i < N / 2; i++) psd[i] += re[i] * re[i] + im[i] * im[i];
+      segs++;
+    }
+    var pts = [];
+    for (var f = 100; f <= 3200; f *= 2) {
+      var a = Math.round(f / Math.SQRT2 / (RATE / N)), b = Math.round(f * Math.SQRT2 / (RATE / N)), sum = 0;
+      for (i = a; i < b; i++) sum += psd[i] / segs;
+      pts.push([Math.log2(f), 10 * Math.log10(sum / (b - a))]);
+    }
+    var mx = 0, my = 0;
+    pts.forEach(function (p) { mx += p[0] / pts.length; my += p[1] / pts.length; });
+    var num = 0, den = 0;
+    pts.forEach(function (p) { num += (p[0] - mx) * (p[1] - my); den += (p[0] - mx) * (p[0] - mx); });
+    return num / den;
+  }
+
+  function render(seconds, configure) {
+    var ctx = new OfflineAudioContext(2, Math.round(RATE * seconds), RATE);
+    var engine = AEFocusLab.createEngine(ctx);
+    configure(engine);
+    // Offline rendering runs on the audio thread in real time while --virtual-time-budget lets the
+    // virtual clock jump ahead when the page is idle; a 1 ms ticker spends the budget in small steps.
+    var ticker = setInterval(function () {}, 1);
+    return ctx.startRendering().then(function (buffer) { clearInterval(ticker); return buffer; },
+      function (e) { clearInterval(ticker); throw e; });
+  }
+
+  function tail(buffer, ch, seconds) {
+    var d = buffer.getChannelData(ch);
+    return d.subarray(d.length - Math.round(RATE * seconds));
+  }
+
+  var steps = [
+    function presets() {
+      var want = { gamma: [200, 40, 'brown', 0.25, true], beta: [250, 20, 'pink', 0.20, true],
+        smr: [200, 14, 'brown', 0.30, true], alpha: [220, 10, 'pink', 0.15, true], isolation: [null, null, 'brown', 0.50, false] };
+      var P = AEFocusLab.PRESETS, bad = [];
+      if (P.length !== 5) bad.push('count ' + P.length);
+      P.forEach(function (p) {
+        var w = want[p.id];
+        if (!w) { bad.push('unexpected ' + p.id); return; }
+        if (w[0] !== null && (p.carrier !== w[0] || p.beat !== w[1])) bad.push(p.id + ' frequencies');
+        if (p.noise !== w[2] || p.level !== w[3] || p.tones !== w[4]) bad.push(p.id + ' noise/tones');
+      });
+      record('presets match the specified frequencies and noise levels', !bad.length, bad.join('; '));
+      record('storage key holds no "theme"', AEFocusLab.KEY === 'ae_focus_lab', AEFocusLab.KEY);
+    },
+
+    function noiseSlopes() {
+      var ctx = new OfflineAudioContext(2, 1, RATE);
+      [['brown', -6], ['pink', -3]].forEach(function (c) {
+        var buf = AEFocusLab.noiseBuffer(ctx, c[0], 6);
+        var slopes = [0, 1].map(function (ch) { return slopePerOctave(buf.getChannelData(ch)); });
+        var ok = slopes.every(function (s) { return Math.abs(s - c[1]) < 1; });
+        record(c[0] + ' noise falls ' + c[1] + ' dB/octave', ok, slopes.map(function (s) { return s.toFixed(2); }).join(', '));
+        var d = buf.getChannelData(0), rms = 0, maxStep = 0, i;
+        for (i = 0; i < d.length; i++) rms += d[i] * d[i];
+        rms = Math.sqrt(rms / d.length);
+        for (i = 1; i < d.length; i++) maxStep = Math.max(maxStep, Math.abs(d[i] - d[i - 1]));
+        var seam = Math.abs(d[0] - d[d.length - 1]);
+        record(c[0] + ' loop is seamless and levelled', seam <= maxStep && Math.abs(rms - 0.2) < 0.01,
+          'seam ' + seam.toFixed(4) + ' max step ' + maxStep.toFixed(4) + ' rms ' + rms.toFixed(3));
+        var corr = 0, a = buf.getChannelData(0), b = buf.getChannelData(1);
+        for (i = 0; i < a.length; i++) corr += a[i] * b[i];
+        corr /= a.length * 0.04;
+        record(c[0] + ' channels are decorrelated', Math.abs(corr) < 0.3, corr.toFixed(3));
+      });
+    },
+
+    function binaural() {
+      return render(1.5, function (e) {
+        e.setFrequencies(200, 40, 0.01);
+        e.setNoiseType('off');
+        e.setToneLevel(1, 0.01);
+        e.fadeIn(0.05);
+      }).then(function (buf) {
+        var L = tail(buf, 0, 1), R = tail(buf, 1, 1);
+        var l200 = goertzel(L, 200), l240 = goertzel(L, 240), r200 = goertzel(R, 200), r240 = goertzel(R, 240);
+        record('binaural: left ear 200 Hz only, right ear 240 Hz only',
+          l200 > 1e3 * l240 && r240 > 1e3 * r200 && l200 > 1e-3,
+          [l200, l240, r200, r240].map(function (v) { return v.toExponential(2); }).join(' '));
+        var head = buf.getChannelData(0).subarray(0, Math.round(RATE * 0.003)), peak = 0;
+        for (var i = 0; i < head.length; i++) peak = Math.max(peak, Math.abs(head[i]));
+        record('fade-in starts from silence (no click)', peak < 0.01, 'peak in first 3 ms ' + peak.toFixed(4));
+      });
+    },
+
+    function isochronic() {
+      return render(1.5, function (e) {
+        e.setFrequencies(200, 40, 0.01);
+        e.setIsochronic(true, 0.01);
+        e.setNoiseType('off');
+        e.setToneLevel(1, 0.01);
+        e.fadeIn(0.05);
+      }).then(function (buf) {
+        var L = tail(buf, 0, 1), R = tail(buf, 1, 1), diff = 0, i;
+        for (i = 0; i < L.length; i++) diff = Math.max(diff, Math.abs(L[i] - R[i]));
+        var sq = new Float32Array(L.length);
+        for (i = 0; i < L.length; i++) sq[i] = L[i] * L[i];
+        var dc = goertzel(sq, 0), env = goertzel(sq, 40);
+        // Pure AM of 200 Hz at 40 Hz: symmetric sidebands at 160 and 240 Hz, no extra 240 Hz tone on top.
+        var side = goertzel(L, 240) / goertzel(L, 160);
+        record('isochronic: same signal in both ears, pure amplitude modulation', diff < 1e-4 && side > 0.8 && side < 1.25,
+          'max L-R ' + diff.toExponential(2) + ', 240/160 Hz ' + side.toFixed(3));
+        record('isochronic: amplitude pulses at 40 Hz', env > 0.05 * dc, 'envelope/dc ' + (env / dc).toFixed(3));
+      });
+    },
+
+    function widget() {
+      return frame('localStorage.removeItem("ae_focus_lab");').then(function (f) {
+        var w = f.contentWindow, d = f.contentDocument;
+        var btn = d.getElementById('focusLabButton'), panel = d.getElementById('focusLabPanel');
+        record('theme.js loads the widget and its stylesheet', !!(w.AEFocusLab && btn && panel &&
+          d.querySelector('link[href$="assets/css/focus-lab.css"]')), 'button ' + !!btn + ' panel ' + !!panel);
+        record('panel starts closed', panel && panel.hidden, 'hidden=' + (panel && panel.hidden));
+        btn.click();
+        record('launcher opens the panel', !panel.hidden && btn.getAttribute('aria-expanded') === 'true', 'still hidden');
+        d.querySelector('.fl-card[data-preset="beta"]').click();
+        d.getElementById('flTone').value = '35';
+        d.getElementById('flTone').dispatchEvent(new w.Event('input'));
+        var saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
+        record('preset and levels persist', saved.preset === 'beta' && saved.noiseType === 'pink' && saved.noise === 0.2 &&
+          saved.carrier === 250 && saved.beat === 20 && saved.tone === 0.35, JSON.stringify(saved));
+        d.getElementById('flBeat').value = '33';
+        d.getElementById('flBeat').dispatchEvent(new w.Event('input'));
+        saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
+        record('fine tuning switches to a custom setting', saved.preset === 'custom' && saved.beat === 33, JSON.stringify(saved));
+        d.querySelector('.fl-card[data-preset="isolation"]').click();
+        saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
+        record('pure isolation mutes the tones and keeps the last level', saved.tone === 0 && saved.lastTone === 0.35 &&
+          saved.noiseType === 'brown' && saved.noise === 0.5, JSON.stringify(saved));
+        d.querySelector('.fl-card[data-preset="alpha"]').click();
+        saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
+        record('leaving isolation restores the tone level', saved.tone === 0.35, JSON.stringify(saved));
+        var ev = new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true });
+        panel.dispatchEvent(ev);
+        record('Escape closes the panel', panel.hidden, 'still open');
+        f.remove();
+      }).then(function () {
+        return frame('');
+      }).then(function (f) {
+        var d = f.contentDocument;
+        var card = d.querySelector('.fl-card[data-preset="alpha"]');
+        record('saved preset is restored on the next page', card && card.getAttribute('aria-pressed') === 'true',
+          card && card.getAttribute('aria-pressed'));
+        f.remove();
+      });
+    }
+  ];
+
+  steps.reduce(function (p, step) {
+    return p.then(function () {
+      try { return Promise.resolve(step()).catch(function (e) { record(step.name, false, e); }); }
+      catch (e) { record(step.name, false, e); }
+    });
+  }, Promise.resolve()).then(function () {
+    document.getElementById('results').textContent = JSON.stringify(results);
+  });
+})();
+</script>
+</body>
+</html>

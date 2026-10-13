@@ -165,6 +165,11 @@
    "label": "04 Angular momentum.pdf",
    "pages": 17
   },
+  "em-s5": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf",
+   "label": "05 Relative motion.pdf",
+   "pages": 32
+  },
   "am-book": {
    "path": "sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf",
    "label": "Robinson (2004).pdf",
@@ -1048,6 +1053,92 @@
     ]
    }
   },
+  "subjects/engineering-mechanics/problemas/topic-5.html": {
+   "panel": [
+    [
+     "em-problems",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "notes": "em-notes",
+    "slides": "em-s5"
+   },
+   "cards": {
+    "prob-07": [
+     "em-problems",
+     8
+    ],
+    "prob-09": [
+     "em-problems",
+     8
+    ],
+    "prob-20": [
+     "em-problems",
+     10
+    ],
+    "prob-21": [
+     "em-problems",
+     10
+    ],
+    "prob-25": [
+     "em-problems",
+     13
+    ],
+    "prob-26": [
+     "em-problems",
+     14
+    ],
+    "prob-27": [
+     "em-problems",
+     15
+    ],
+    "prob-28": [
+     "em-problems",
+     16
+    ],
+    "prob-30": [
+     "em-problems",
+     18
+    ],
+    "prob-33": [
+     "em-problems",
+     21
+    ],
+    "prob-34": [
+     "em-problems",
+     22
+    ],
+    "prob-36": [
+     "em-problems",
+     24
+    ],
+    "prob-37": [
+     "em-problems",
+     25
+    ],
+    "prob-40": [
+     "em-problems",
+     28
+    ],
+    "prob-41": [
+     "em-problems",
+     29
+    ],
+    "prob-47": [
+     "em-problems",
+     32
+    ],
+    "prob-49": [
+     "em-problems",
+     34
+    ],
+    "prob-51": [
+     "em-problems",
+     36
+    ]
+   }
+  },
   "subjects/engineering-mechanics/teoria/topic-1.html": {
    "panel": [
     [
@@ -1113,6 +1204,24 @@
    ],
    "cite": {
     "slides": "em-s4",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-5.html": {
+   "panel": [
+    [
+     "em-s5",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s5",
     "notes": "em-notes",
     "bare_eq": "em-notes"
    }

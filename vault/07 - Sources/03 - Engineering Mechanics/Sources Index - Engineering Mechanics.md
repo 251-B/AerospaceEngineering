@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 168
-- Referenced by at least one note (a mention counts): 11
-- Not referenced yet: 157
+- Referenced by at least one note (a mention counts): 12
+- Not referenced yet: 156
 - Build artifacts: 0
 - Working files: 0
 
@@ -282,4 +282,4 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - unit-05-relative-motion - slides - 05_-_Relative_motion (pdf)\|05_-_Relative_motion.pdf]] | slides | not-referenced |
+| [[Source - 03-engineering-mechanics - unit-05-relative-motion - slides - 05_-_Relative_motion (pdf)\|05_-_Relative_motion.pdf]] | slides | referenced |

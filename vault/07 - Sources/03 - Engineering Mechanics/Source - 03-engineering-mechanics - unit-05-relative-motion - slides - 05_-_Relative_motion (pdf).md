@@ -3,10 +3,10 @@ subject: "Engineering Mechanics"
 tags:
   - source
   - slides
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf"
 kind: slides
-status: not-referenced
+status: referenced
 bytes: 3215430
 ---
 
@@ -19,8 +19,9 @@ bytes: 3215430
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf`
 - **Kind:** slides
 - **Size:** 3.2 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[03 - Engineering Mechanics/Formula Sheet - Topic 5 Relative Motion]]
+- [[03 - Engineering Mechanics/Topic 5 - Relative Motion]]

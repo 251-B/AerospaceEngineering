@@ -45,6 +45,8 @@ Known limit: a link whose alias ends in `]` (`...[101]]]`) is ambiguous and must
 - `assets/js/ask-ai.js` + `assets/css/ask-ai.css`: "Ask AI" (Claude or Gemini) on selected text and on every problem card (prefilled link or copied prompt; no API).
 - `assets/js/theme.js`: load synchronously in `<head>`. Single key `ae_theme`; migrates `aero-portal-theme`
   and `theme`; default dark; syncs tabs; `window.AETheme`; wires `#themeToggle` / `#themeLabel`.
+- `assets/js/focus-lab.js` + `assets/css/focus-lab.css`: "Focus Lab" study sound (Web Audio synthesis: binaural,
+  isochronic, brown/pink noise), loaded on every page by `theme.js`; key `ae_focus_lab`; tested by `tests/test_focus_lab.py`.
 - `assets/data/sources.js`: `window.AE_SOURCES` = official PDFs (160 files) per subject / unit / category
   (`teoria`, `slides`, `problemas`, `examenes`, `schedule`). **Laboratory material is never included.**
   Hrefs are repo-root-relative and URL-encoded; prefix them with the page's relative path to the root.
