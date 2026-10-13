@@ -11,7 +11,8 @@ tags:
 
 > **Subject:** Fluid Mechanics (2nd Year Aerospace Engineering, UC3M)  
 > **Official Sources:** `sources/cuatrimestre-1/01-fluid-mechanics/` (*Notes.pdf* & *slides_Chapters1-2.pdf*, Antonio L. Sánchez & Javier Rodríguez-Rodríguez)  
-> **Return:** [[00 - Indice Central/Master Index|⬅️ Master Index]]
+> **Return:** [[00 - Indice Central/Master Index|⬅️ Master Index]]  
+> **Source files:** [[07 - Sources/01 - Fluid Mechanics/Sources Index - Fluid Mechanics|one note per file under `sources/`]]
 
 ---
 

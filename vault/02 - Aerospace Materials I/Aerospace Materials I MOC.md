@@ -12,7 +12,8 @@ tags:
 > **Subject:** Aerospace Materials I (2nd year, BSc in Aerospace Engineering, UC3M)  
 > **NotebookLM Notebook:** `9b324478-69e9-482c-813c-5709ec031820`  
 > **Web Portal:** `subjects/aerospace-materials-1/`  
-> **Return:** [[00 - Indice Central/Master Index|⬅️ Master Index]]
+> **Return:** [[00 - Indice Central/Master Index|⬅️ Master Index]]  
+> **Source files:** [[07 - Sources/02 - Aerospace Materials I/Sources Index - Aerospace Materials I|one note per file under `sources/`]]
 
 ---
 

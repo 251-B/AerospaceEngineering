@@ -18,6 +18,8 @@ tags:
 
 ---
 
+> **Source files:** [[07 - Sources/03 - Engineering Mechanics/Sources Index - Engineering Mechanics|one note per file under `sources/`]]
+
 ## 📌 Course Overview
 The *Mechanics Applied to Aerospace Engineering* course provides the core physical and mathematical foundation for analyzing the dynamics of atmospheric and space flight vehicles. The units below follow the folders of the official course material in `sources/cuatrimestre-1/03-engineering-mechanics/` (unit-01 to unit-08):
 

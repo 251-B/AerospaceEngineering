@@ -53,6 +53,14 @@ the vault currently reaches.
 ## Repository documentation
 * [[06 - Repository/Repository MOC|Repository map: tools, agents and rules]]: the scripts in `tools/`, the agents in `.claude/agents/` and the rules files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`).
 
+## Source files (one generated note per file under `sources/`)
+* [[07 - Sources/01 - Fluid Mechanics/Sources Index - Fluid Mechanics|Fluid Mechanics]]
+* [[07 - Sources/02 - Aerospace Materials I/Sources Index - Aerospace Materials I|Aerospace Materials I]]
+* [[07 - Sources/03 - Engineering Mechanics/Sources Index - Engineering Mechanics|Engineering Mechanics]]
+* [[07 - Sources/04 - Advanced Maths/Sources Index - Advanced Maths|Advanced Maths]]
+* [[07 - Sources/05 - Business Management/Sources Index - Business Management|Business Management]]
+* [[07 - Sources/General/Sources Index - General|General (top level of `sources/`)]]
+
 ## Tools and templates
 * [[Templates/Template - Theory Concept|Template: theory concept]]
 * [[Templates/Template - Exam Problem|Template: solved exam problem]]

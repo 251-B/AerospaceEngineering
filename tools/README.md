@@ -11,6 +11,7 @@ Pure-stdlib Python 3 (no installs). Run everything from the repository root.
 | `python tools/build_sources_pages.py` | Generate each subject's `sources/index.html` (Theory & exercise PDFs by unit) and `exams/index.html` (exams by partial/final, newest year first, identical copies listed once) from the same scan; `--check` = fail if stale | 1 if stale (`--check`) |
 | `python tools/build_pdfs.py` | Print every theory and problem page (and each problem card) to A4 PDFs in `assets/pdf/` with headless Edge/Chrome and `assets/css/print.css`; reprints only what changed (hashes in `assets/pdf/manifest.json`); `--check` = fail if stale (no browser), `--katex DIR` = local KaTeX, `--only`, `--force`, `--jobs` | 1 if stale (`--check`) or a print failed |
 | `python tools/sources_manifest.py` | Regenerate `assets/data/sources.js` from `sources/cuatrimestre-1/` (`--check` = fail if stale) | 1 if stale (`--check`) |
+| `python tools/build_source_notes.py` | Write one generated note per file under `sources/` into `vault/07 - Sources/` (path, kind, size, status, and the vault notes that reference it) plus one index per subject; settings in `tools/source_notes.json`; `--check` = fail if a note is missing, stale or orphaned | 1 if stale (`--check`) |
 | `python -m unittest discover -s tools/tests` | Test suite for all of the above + `tokens.css` + `theme.js` (headless Edge/Chrome) | 1 on failure |
 
 Common flags for both linters: `-v` list every finding, `--json`, `--only a,b`, `--skip a,b`, `--quiet`.

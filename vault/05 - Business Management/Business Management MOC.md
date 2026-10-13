@@ -14,6 +14,7 @@ tags:
 > **Course:** Business Management (2nd Year — BSc in Aerospace Engineering, UC3M)  
 > **NotebookLM Context ID:** `e691ea81-0acf-4032-98d1-b9e5a7b93d70`  
 > **Return to Central Index:** [[00 - Indice Central/Master Index|⬅️ Central Master Index]]  
+> **Source files:** [[07 - Sources/05 - Business Management/Sources Index - Business Management|one note per file under `sources/`]]  
 > **Web Portal:** [Business Management Portal](../../subjects/business-management/teoria/index.html)
 
 ---
