@@ -7,9 +7,13 @@ tags:
   - exam-problem
   - solved
   - manometry
+  - provenance-unverified
 ---
 
 # ✏️ Problem: Multi-Liquid Differential Manometer with Gas Pressurisation
+
+> [!warning] Provenance not verified
+> The `origen` field records that this statement is not among the hydrostatics sheets in `sources/`. Check it against the original exam before using it as course material.
 
 ## 📄 Statement
 A closed tank $A$ contains pressurised air above a layer of oil of relative density $SG_{\text{oil}} = 0.85$. The tank is connected, through an inverted $U$-tube manometer and a mercury $U$-tube manometer ($SG_{\text{Hg}} = 13.6$), to a pipe $B$ carrying water ($\rho_{\text{water}} = 1000\text{ kg/m}^3$).

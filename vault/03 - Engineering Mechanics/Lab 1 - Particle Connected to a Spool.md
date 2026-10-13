@@ -12,15 +12,15 @@ tags:
   - energy-conservation
 difficulty: hard
 sources:
-  - "[[mechanics_labs.pdf]]"
-  - "[[Lab1_notes.pptx]]"
+  - "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf"
+  - "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx"
   - "AnaliticSolutionLab1Mech2ndTry.pdf"
 ---
 
 # 🌀 Laboratory 1: Particle Connected to a Spool
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Documents:** [[mechanics_labs.pdf]] (pp. 14–16) | [[Lab1_notes.pptx]] | `AnaliticSolutionLab1Mech2ndTry.pdf` (official handwritten derivation)  
+> **Source Documents:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf` (pp. 14–16) | `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx` | `AnaliticSolutionLab1Mech2ndTry.pdf` (official handwritten derivation)  
 > **Theoretical Prerequisites:** [[Topic 1 - Fundamentals and Particle Kinematics]], [[Topic 2 - Point Particle Dynamics]], [[Topic 3 - Constraints and Reaction Forces]]  
 > **Navigation:** [[Lab - Guidelines and Scientific Report Standards|Guidelines]] | [[Engineering Mechanics MOC|⬅️ Mechanics MOC]]
 

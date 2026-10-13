@@ -1,5 +1,5 @@
 ---
-title: "Solutions — Topic 1: Fundamentals and Particle Kinematics"
+title: "Solution Set - Topic 1: Fundamentals and Particle Kinematics"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
@@ -7,6 +7,9 @@ type: "Full Analytical Step-by-Step Solutions"
 language: "English"
 author: "Aerospace Engineering Multi-Agent Team"
 date: "2026-09-23"
+tags:
+  - solutions
+  - particle-kinematics
 ---
 
 # 📚 Topic 1: Fundamentals and Particle Kinematics — Complete Analytical Solutions

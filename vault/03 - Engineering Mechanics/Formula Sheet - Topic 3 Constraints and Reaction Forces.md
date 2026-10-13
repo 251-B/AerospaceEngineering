@@ -2,9 +2,12 @@
 title: "Formula Sheet: Topic 3 Constraints and Reaction Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
-ground_truth: "slides/03_-_Constraints (1).pdf & teoria/Notes.pdf (Chapter 6)"
+ground_truth: "sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf & teoria/Notes.pdf (Chapter 6)"
 tier: "Formula Sheet"
 language: "English"
+tags:
+  - formula-sheet
+  - constraints
 ---
 
 # 📑 Formula Sheet: Topic 3 Constraints and Reaction Forces

@@ -1,10 +1,13 @@
 ---
-title: "Solutions - Topic 3: Constraints and Reaction Forces"
+title: "Solution Set - Topic 3: Constraints and Reaction Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
 type: "Full Analytical Solutions (4-Phase Methodology)"
 language: "English"
+tags:
+  - solutions
+  - constraints
 ---
 
 # 📚 Topic 3: Constraints and Reaction Forces - Full Analytical Solutions

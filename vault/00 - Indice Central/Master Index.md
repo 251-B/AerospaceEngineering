@@ -19,7 +19,7 @@ the vault currently reaches.
 
 ### 🌊 [[01 - Fluid Mechanics/Fluid Mechanics MOC|Fluid Mechanics]]
 * **Units (7):** introductory remarks, flow kinematics, conservation laws, Navier-Stokes equations, hydrostatics, dimensional analysis, viscous flow.
-* **Vault notes:** units 1-3 and a set of hydrostatics problems.
+* **Vault notes:** units 1-3, the hydrostatics concept notes (topic 5), and two hydrostatics problems whose provenance is still being checked.
 * **Laboratory:** [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Lab 1: Jet Impact on Surfaces (RTT and momentum)]] (private note; labs are not published on the web).
 * **NotebookLM notebook:** `3080c1f2-5689-4a39-90c3-091d58f39684`
 * **Web pages:** `subjects/fluid-mechanics/`
@@ -38,7 +38,7 @@ the vault currently reaches.
 
 ### 📐 [[04 - Advanced Maths/Advanced Maths MOC|Advanced Mathematics]]
 * **Units (6):** introduction to ODE modelling, first-order ODEs, second-order linear ODEs, systems of ODEs, Fourier series and PDEs, heat/wave/Laplace equations.
-* **Vault notes:** chapters 1-3.
+* **Vault notes:** chapters 1-3. The web page for Topic 4 (`subjects/advanced-maths/teoria/topic-4.html`) has no vault note yet.
 * **NotebookLM notebook:** `c27033c3-5a64-403f-a517-5847831aabcb`
 * **Web pages:** `subjects/advanced-maths/`
 

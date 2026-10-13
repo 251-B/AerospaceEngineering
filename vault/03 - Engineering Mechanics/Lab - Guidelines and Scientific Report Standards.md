@@ -10,14 +10,14 @@ tags:
   - plotting-standards
 difficulty: medium
 sources:
-  - "[[mechanics_labs.pdf]]"
-  - "[[Lab1_notes.pptx]]"
+  - "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf"
+  - "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx"
 ---
 
 # 🔬 Laboratory Guidelines & Scientific Report Standards
 
 > **Primary Course Reference:** *Mechanics Applied to Aerospace Engineering (MAAE) — UC3M*  
-> **Source Documents:** [[mechanics_labs.pdf]] | [[Lab1_notes.pptx]]  
+> **Source Documents:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf` | `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx`  
 > **Navigation:** [[Engineering Mechanics MOC|⬅️ Mechanics MOC]] | [[00 - Indice Central/Master Index|Master Index]]
 
 ---

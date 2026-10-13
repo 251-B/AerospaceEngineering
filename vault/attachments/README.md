@@ -1,5 +1,6 @@
-# 📎 Carpeta de Adjuntos (Attachments)
+# 📎 Attachments
 
-En esta carpeta se almacenan automáticamente todas las imágenes, diagramas, esquemas y capturas que peguéis dentro de las notas de Obsidian (mediante la configuración de `.obsidian/app.json`).
+This folder stores the images, diagrams, schemes and screenshots pasted into Obsidian notes (configured in `.obsidian/app.json`).
 
-* Para referenciar una imagen en una nota: `![[nombre_archivo.png]]` o `![Descripción](attachments/nombre_archivo.png)`.
+* To reference an image in a note: `![[file_name.png]]` or `![Description](attachments/file_name.png)`.
+* Laboratory files are not stored here. Their originals stay in `sources/`, and the notes link to them by path.

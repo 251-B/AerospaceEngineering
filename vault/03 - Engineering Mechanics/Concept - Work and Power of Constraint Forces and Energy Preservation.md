@@ -2,9 +2,13 @@
 title: "Concept: Work and Power of Constraint Forces and Energy Preservation"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
-ground_truth: "slides/03_-_Constraints (1).pdf (Slide 16) & teoria/Notes.pdf (Section 6.4)"
+ground_truth: "sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf (Slide 16) & teoria/Notes.pdf (Section 6.4)"
 tier: "Atomic Concept Note"
 language: "English"
+tags:
+  - concept
+  - energy
+  - constraint-forces
 ---
 
 # ⚡ Concept: Work and Power of Constraint Forces and Energy Preservation

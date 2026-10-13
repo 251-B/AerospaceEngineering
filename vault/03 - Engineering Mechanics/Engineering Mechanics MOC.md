@@ -68,9 +68,9 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 ---
 
 ## 📝 Official Exam & Practice Problem Sets
-* [[Problems - Topic 1 Particle Kinematics|Problems: Topic 1 Particle Kinematics (10 Problems)]] • [[Solutions - Topic 1 Particle Kinematics|✅ Full Solutions]]
-* [[Problems - Topic 2 Point Particle Dynamics|Problems: Topic 2 Point Particle Dynamics (10 Problems)]] • [[Solutions - Topic 2 Point Particle Dynamics|✅ Full Solutions]]
-* [[Problems - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (15 Problems)]] • [[Solutions - Topic 3 Constraints and Reaction Forces|✅ Full Solutions]]
+* [[Problem Set - Topic 1 Particle Kinematics|Problems: Topic 1 Particle Kinematics (10 Problems)]] • [[Solution Set - Topic 1 Particle Kinematics|✅ Full Solutions]]
+* [[Problem Set - Topic 2 Point Particle Dynamics|Problems: Topic 2 Point Particle Dynamics (10 Problems)]] • [[Solution Set - Topic 2 Point Particle Dynamics|✅ Full Solutions]]
+* [[Problem Set - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (15 Problems)]] • [[Solution Set - Topic 3 Constraints and Reaction Forces|✅ Full Solutions]]
 * [[Problems - Topic 4 Angular Momentum and Central Forces|Problems: Topic 4 Angular Momentum and Central Forces]] • [[Solutions - Topic 4 Angular Momentum and Central Forces|⏳ In Progress]]
 
 ---
@@ -80,7 +80,7 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 * [[Lab 1 - Particle Connected to a Spool|Lab 1: Particle Connected to a Spool]] (1-DOF rheonomic system, event detection, tension loss, ballistic transition)
 * [[Lab 2 - Particle on Oscillating Loop|Lab 2: Particle on Oscillating Loop]] (Non-inertial rotating frame, Coriolis and centrifugal forces, phase space, small oscillations)
 * [[Lab 3 and 4 - Compound Double Pendulum|Labs 3 & 4: Compound Double Pendulum]] (Rigid body dynamics, optical video tracking, Newton-Euler equations, stiff ode23s simulation, deterministic chaos)
-* **Official Lab Sources:** [[mechanics_labs.pdf|📄 Mechanics Labs Manual (PDF)]] • [[Lab1_notes.pptx|📊 Lab 1 Presentation Notes (PPTX)]]
+* **Official Lab Sources:** Mechanics Labs Manual (PDF): `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/general-instructions/mechanics_labs.pdf` • Lab 1 Presentation Notes (PPTX): `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/Lab1_notes.pptx`
 
 ---
 

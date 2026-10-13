@@ -1,10 +1,13 @@
 ---
-title: "Problems - Topic 3: Constraints and Reaction Forces"
+title: "Problem Set - Topic 3: Constraints and Reaction Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
 type: "Verbatim Problem Statements"
 language: "English"
+tags:
+  - problem-statements
+  - constraints
 ---
 
 # 📝 Topic 3: Constraints and Reaction Forces - Problem Statements
@@ -15,7 +18,7 @@ Official problem statements from the UC3M Aerospace Engineering problem collecti
 > **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
 > 
 > [!SUCCESS] Complete Analytical Solutions Ready
-> All 15 problems have full, step-by-step pedagogical solutions developed in: [[Solutions - Topic 3 Constraints and Reaction Forces]].
+> All 15 problems have full, step-by-step pedagogical solutions developed in: [[Solution Set - Topic 3 Constraints and Reaction Forces]].
 
 ---
 

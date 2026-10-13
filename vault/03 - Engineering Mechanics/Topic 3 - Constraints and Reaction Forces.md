@@ -2,15 +2,19 @@
 title: "Topic 3: Constraints and Reaction Forces"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
-ground_truth: "slides/03_-_Constraints (1).pdf & teoria/Notes.pdf (Chapter 6)"
+ground_truth: "sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf & teoria/Notes.pdf (Chapter 6)"
 tier: "Theory Master Guide"
 language: "English"
+tags:
+  - topic
+  - constraints
+  - reaction-forces
 ---
 
 # 🔗 Topic 3: Constraints and Reaction Forces
 
 ## 📌 Syllabus & Pedagogical Map
-This comprehensive master guide covers **Constraints and Reaction Forces** in classical aerospace mechanics, matching 100% of **`slides/03_-_Constraints (1).pdf`** (Slides 1–24) and Chapter 6 of **`teoria/Notes.pdf`** (pp. 61–66).
+This comprehensive master guide covers **Constraints and Reaction Forces** in classical aerospace mechanics, matching 100% of **`sources/cuatrimestre-1/03-engineering-mechanics/unit-03-constraints-reactions/slides/03_-_Constraints.pdf`** (Slides 1–24) and Chapter 6 of **`teoria/Notes.pdf`** (pp. 61–66).
 
 * [[Concept - Classification of Constraints Holonomic Rheonomic and Unilateral|Classification of Constraints]]
 * [[Concept - Normal and Tangent Subspaces for Surfaces and Curves|Normal and Tangent Subspaces]]

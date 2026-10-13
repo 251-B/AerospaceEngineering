@@ -44,6 +44,7 @@ tags:
   * [[01 - Fluid Mechanics/Concept - Reynolds Transport Theorem|Concept: Reynolds Transport Theorem (RTT)]]
   * [[01 - Fluid Mechanics/Concept - Stress Tensor and Cauchy Principle|Concept: Cauchy Stress Tensor and Volume Forces]]
   * [[01 - Fluid Mechanics/Concept - Navier-Poisson Constitutive Equation|Concept: Navier-Poisson Constitutive Equation]]
+  * [[01 - Fluid Mechanics/Concept - Viscosity and Newton's Law of Viscosity|Concept: Viscosity and Newton's Law of Viscosity]]
   * [[01 - Fluid Mechanics/Concept - Fourier's Law and Heat Conduction|Concept: Fourier's Law, Conduction and Prandtl Number]]
   * [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy|Concept: Integral Conservation of Mass, Momentum and Energy]]
   * [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws|Formula Sheet: Complete Equations Handbook (3.1 to 3.46)]]
@@ -57,24 +58,23 @@ tags:
 * Topic 4: The Navier-Stokes Equations (Differential Dynamics) (planned)
 
 ### Block III: Hydrostatics & Applications
-* Topic 5: Hydrostatics (Fluid Statics) (planned; official folder `unit-05-hydrostatics`)
+* Topic 5: Hydrostatics (Fluid Statics) (official folder `unit-05-hydrostatics`; four concept notes and two problems written, topic note pending)
   * [[01 - Fluid Mechanics/Concept - Fundamental Equation of Fluid Statics|Concept: Fundamental Equation of Fluid Statics and ISA Atmosphere]]
   * [[01 - Fluid Mechanics/Concept - Manometry and Pressure Measurement|Concept: Manometry and Piezometric Distribution]]
   * [[01 - Fluid Mechanics/Concept - Forces on Submerged Surfaces and Center of Pressure|Concept: Submerged Gates and Center of Pressure]]
   * [[01 - Fluid Mechanics/Concept - Archimedes' Principle and Stability of Floating Bodies|Concept: Archimedes' Principle and Metacentric Height]]
+  * [[01 - Fluid Mechanics/Formula Sheet - Topic 1 Statics and Properties|Formula Sheet: Statics and Properties (unit 05 content)]]
   * [[01 - Fluid Mechanics/Problem - Inclined Submerged Gate with Opening Moment|Problem: Hinged Submerged Gate with Closing Force]]
   * [[01 - Fluid Mechanics/Problem - Multi-Liquid Differential Manometer with Gas|Problem: Multi-Fluid Differential Manometer]]
 * Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
-  * Fuentes oficiales: `DA1.pdf` a `DA14.pdf` (14 problemas resueltos).
+  * Official sources: `DA1.pdf` to `DA14.pdf` (14 problems).
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)
-  * Fuentes oficiales: `VF2_w_solution.pdf`, `VF3.pdf` a `VF20.pdf` (19 problemas resueltos).
+  * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 problems).
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
-* **Estructura Oficial:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`
-  * `general-instructions/`: `LAB_BLUEPRINT.md` (normas de redacción y formato de informes).
+* **Official structure:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`
+  * `general-instructions/`: `LAB_BLUEPRINT.md` (report writing and format rules).
   * `lab-1/`: [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]
-    * Fuentes: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, medidas experimentales y figuras.
-  * `lab-2/`: Laboratory 2 (Ensayos aerodinámicos / túnel de viento).
-  * `lab-3/`: Laboratory 3 (Viscosimetría y manometría).
-  * `lab-4/`: Laboratory 4 (Pérdidas de carga y capa límite en tuberías).
+    * Sources: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, experimental measurements and figures.
+  * `lab-2/`, `lab-3/`, `lab-4/`: not on disk; no sources and no notes yet.
 

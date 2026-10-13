@@ -117,7 +117,7 @@ flowchart TD
 
 ### 🔄 Bloque III: Linear Systems and Phase Plane Analysis
 * **Topics:** First-order systems $\dot{\mathbf{x}} = A\mathbf{x}$, eigenvalues and eigenvectors, classification of critical points (nodes, saddles, spirals, centers), stability analysis, phase portraits, non-linear perturbations and linearization.
-* *Status: Scheduled for upcoming unit development.*
+* *Status: web page available (`subjects/advanced-maths/teoria/topic-4.html`); the vault note for this block is not written yet.*
 
 ---
 

@@ -1,10 +1,13 @@
 ---
-title: "Problems - Topic 1: Fundamentals and Particle Kinematics"
+title: "Problem Set - Topic 1: Fundamentals and Particle Kinematics"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
 type: "Verbatim Problem Statements"
 language: "English"
+tags:
+  - problem-statements
+  - particle-kinematics
 ---
 
 # 📝 Topic 1: Fundamentals and Particle Kinematics - Problem Statements
@@ -15,7 +18,7 @@ Official problem statements from the UC3M Aerospace Engineering problem collecti
 > **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
 > 
 > [!SUCCESS] Complete Analytical Solutions Ready
-> All 10 problems have full, step-by-step pedagogical solutions developed in: [[Solutions - Topic 1 Particle Kinematics]].
+> All 10 problems have full, step-by-step pedagogical solutions developed in: [[Solution Set - Topic 1 Particle Kinematics]].
 
 ---
 
