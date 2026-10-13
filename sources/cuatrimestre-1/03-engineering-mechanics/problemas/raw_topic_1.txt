@@ -1,0 +1,110 @@
+
+======================================================================
+PROBLEM 01: Rocket helical trajectory
+======================================================================
+1. An out-of-control rocket traces an upward helical trajectory described in cartesian coordinates
+for tą 0 by
+x“a cospωtq, (1)
+y“a sinpωtq, (2)
+z“vzt. (3)
+where a, vz and ω are constants.
+(a) Express the position, velocity and acceleration vectors in the cartesian x,y,z system using
+unit vectorsi,j,k.
+(b) Express the position, velocity and acceleration vectors in the cylindrical coordinate system
+using unit vectors eR,eθ,ez.
+(c) Express the velocity and acceleration vectors using s,ρ and the vector basis et,en,eb.
+(d) Compute the modulus of the velocity vector
+(e) Express the evolution of the arc-length coordinate as a function of time
+(f) Write down the trajectory as a function of the arc-length coordinate
+(g) Where is the center of curvature for this curve when the particle is located at px,y,z q“
+pa, 0, 0q?
+(Taken from MIT OCW)
+
+======================================================================
+PROBLEM 02: Kinematics, spiral
+======================================================================
+2. A planar spiral is given by the equation r“αeβθ, where α and β are constants, r is the radial
+coordinate, and θ is the angular coordinate. If a particle moves along the spiral according to
+the equation θ“δtn (δ is a constant), determine:
+(a) The radial and transverse components of the velocity
+(b) The radial and transverse components of the acceleration
+(c) The tangential and normal components of the velocity
+(d) The tangential and normal components of the acceleration
+(e) The radius of curvature of the spiral
+
+======================================================================
+PROBLEM 03: Kinematics, astroid
+======================================================================
+3. A point particle describes the astroid:
+x “ a cos3φ
+y “ a sin3φ
+with a motion whose tangential acceleration is constant, k. If the point is initially at rest at
+φ“ 0, compute the evolution of the position as a function of time while the particle is in one
+of the smooth segments of the astroid. ( Hint: ds“
+a
+dx2`dy2).
+5
+
+======================================================================
+PROBLEM 04: Plane at constant altitude
+======================================================================
+4. An aircraft moves at constant altitude y0 with velocityv0 in thex direction. At time t“ 0 it is
+located at x“ 0, and it begins to accelerate in the x direction at a constant rate ax. Describe
+the position, velocity and acceleration in polar coordinates, r, θ, and answer the following
+questions:
+(a) Show that: 9r“vptq¨ xptq{rptq
+(b) Show that: 9θ“´vptq¨ y0{prptqq2
+(c) Show that: :r“
+`
+v2ptq¨ y2
+0`ax¨xptq¨ r2ptq
+˘
+{prptqq3
+(d) Show that: :θ“y0¨
+`
+2v2ptq¨ xptq´ ax¨r2ptq
+˘
+{prptqq4
+From these expressions form the acceleration vectora“arer`aθeθ. Repeat the problem using
+cartesian coordinates.
+
+======================================================================
+PROBLEM 05: Plane and glider
+======================================================================
+5. An airplane A is flying horizontally with a constant speed vA, and is towing a glider B. The
+glider is gaining altitude. The tow cable has a length r, and the angle θ formed between the
+tow cable and the horizontal is increasing at a constant rate of 9θ. We want to determine the
+magnitude of the velocity, vB
+0 , and the acceleration, aB
+0 , of the glider as a function of θ and its
+derivatives.
+
+======================================================================
+PROBLEM 06: Particle on sinusoidal curve
+======================================================================
+6. A point particle P travels along a curve given by
+y“ sinx
+with a velocity along x given by 9x“ 1.
+(a) Find the intrinsic, unitary vector basis associated to the curve.
+(b) Express x as a function of an arc length parameter, s. You can leave your solution as a
+function of an integral.
+(c) Find the tangent and normal acceleration components of P as a function of x.
+(d) Write the radius of curvature of the trajectory as a function of x.
+
+======================================================================
+PROBLEM 08: Kinematics, two trains on tracks
+======================================================================
+8. Two trains, A and B, are moving along parallel tracks. The separation between the tracks is
+a. The absolute velocity of each train is vA and vB, respectively. What is the relative velocity
+of each train with respect to the other?
+Solve the same problem considering that the train B is now moving along a circular track of
+radius R. The minimum distance between the circular track and the straight track of A is a.
+
+======================================================================
+PROBLEM 41: Simple rotations, satellite solar panels
+======================================================================
+41. The angle θ describing the rotation of the solar panels of a reconnaissance satellite about the
+body-fixed axis x is an arbitrary function of time. The satellite spins about the z axis at the
+constant angular rate ω. Derive expressions for the absolute velocity and acceleration of point
+B in the figure relative to an inertial reference frame centered in A.
+(Taken from Ginsberg, “Engineering Dynamics”, Cambridge University Press, 2008)

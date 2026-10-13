@@ -12,7 +12,7 @@ tags:
 > **Subject:** Fluid Mechanics (2nd Year Aerospace Engineering, UC3M)  
 > **Official Sources:** `sources/cuatrimestre-1/01-fluid-mechanics/` (*Notes.pdf* & *slides_Chapters1-2.pdf*, Antonio L. Sánchez & Javier Rodríguez-Rodríguez)  
 > **Return:** [[00 - Indice Central/Master Index|⬅️ Master Index]]  
-> **Fuentes por archivo:** [[07 - Sources/01 - Fluid Mechanics/Sources Index - Fluid Mechanics|una nota por cada archivo de `sources/`]]
+> **Source files:** [[07 - Sources/01 - Fluid Mechanics/Sources Index - Fluid Mechanics|one note per file under `sources/`]]
 
 ---
 
@@ -59,7 +59,7 @@ tags:
 * Topic 4: The Navier-Stokes Equations (Differential Dynamics) (planned)
 
 ### Block III: Hydrostatics & Applications
-* Topic 5: Hydrostatics (Fluid Statics) (planned; carpeta oficial `unit-05-hydrostatics`; cuatro notas de concepto y dos problemas redactados, falta la nota del tema)
+* Topic 5: Hydrostatics (Fluid Statics) (official folder `unit-05-hydrostatics`; four concept notes and two problems written, topic note pending)
   * [[01 - Fluid Mechanics/Concept - Fundamental Equation of Fluid Statics|Concept: Fundamental Equation of Fluid Statics and ISA Atmosphere]]
   * [[01 - Fluid Mechanics/Concept - Manometry and Pressure Measurement|Concept: Manometry and Piezometric Distribution]]
   * [[01 - Fluid Mechanics/Concept - Forces on Submerged Surfaces and Center of Pressure|Concept: Submerged Gates and Center of Pressure]]
@@ -68,16 +68,16 @@ tags:
   * [[01 - Fluid Mechanics/Problem - Inclined Submerged Gate with Opening Moment|Problem: Hinged Submerged Gate with Closing Force]]
   * [[01 - Fluid Mechanics/Problem - Multi-Liquid Differential Manometer with Gas|Problem: Multi-Fluid Differential Manometer]]
 * Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
-  * Fuentes oficiales: `DA1.pdf` a `DA14.pdf` (14 problemas resueltos).
+  * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)
-  * Fuentes oficiales: `VF2_w_solution.pdf`, `VF3.pdf` a `VF20.pdf` (19 problemas resueltos).
+  * Official sources: `VF2_w_solution.pdf`, `VF3.pdf` to `VF20.pdf` (19 solved problems).
 
 ### 🧪 Experimental Sessions & Laboratory Practicals
-* **Estructura oficial:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`
-  * `general-instructions/`: `LAB_BLUEPRINT.md` (normas de redacción y formato de informes).
+* **Official structure:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/`
+  * `general-instructions/`: `LAB_BLUEPRINT.md` (report writing and format rules).
   * `lab-1/`: [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]
-    * Fuentes: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, medidas experimentales y figuras.
-  * `lab-2/`: Laboratory 2 (Ensayos aerodinámicos / túnel de viento). No está en disco; descripción no verificada contra las fuentes.
-  * `lab-3/`: Laboratory 3 (Viscosimetría y manometría). No está en disco; descripción no verificada contra las fuentes.
-  * `lab-4/`: Laboratory 4 (Pérdidas de carga y capa límite en tuberías). No está en disco; descripción no verificada contra las fuentes.
+    * Sources: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, experimental measurements and figures.
+  * `lab-2/`: not on disk. Planned: Laboratory 2 (aerodynamic tests, wind tunnel). Description not verified against sources.
+  * `lab-3/`: not on disk. Planned: Laboratory 3 (viscometry and manometry). Description not verified against sources.
+  * `lab-4/`: not on disk. Planned: Laboratory 4 (head losses and boundary layer in pipes). Description not verified against sources.
 

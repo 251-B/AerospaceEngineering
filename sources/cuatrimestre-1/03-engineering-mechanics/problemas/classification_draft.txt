@@ -1,0 +1,204 @@
+P01: Rocket helical trajectory
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 1. An out-of-control rocket traces an upward helical trajectory described in cartesian coordinates // for tą 0 by // x“a cospωtq, (1) // y“a sinpωtq, 
+
+P02: Kinematics, spiral
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 2. A planar spiral is given by the equation r“αeβθ, where α and β are constants, r is the radial // coordinate, and θ is the angular coordinate. If a 
+
+P03: Kinematics, astroid
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 3. A point particle describes the astroid: // x “ a cos3φ // y “ a sin3φ // with a motion whose tangential acceleration is constant, k. If the point i
+
+P04: Plane at constant altitude
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 4. An aircraft moves at constant altitude y0 with velocityv0 in thex direction. At time t“ 0 it is // located at x“ 0, and it begins to accelerate in 
+
+P05: Plane and glider
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 5. An airplane A is flying horizontally with a constant speed vA, and is towing a glider B. The // glider is gaining altitude. The tow cable has a len
+
+P06: Particle on sinusoidal curve
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 6. A point particle P travels along a curve given by // y“ sinx // with a velocity along x given by 9x“ 1. // (a) Find the intrinsic, unitary vector b
+
+P07: Skater pulled by vehicle on a circumference
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 7. A skater B is being towed by a vehicle A on a perfectly smooth horizontal plane, where we // define an inertial reference frame Oxy. The vehicle is
+
+P08: Kinematics, two trains on tracks
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 8. Two trains, A and B, are moving along parallel tracks. The separation between the tracks is // a. The absolute velocity of each train is vA and vB,
+
+P09: Space Odyssey
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 9. In “2001: A Space Odyssey” an idea to obtain artificial gravity in a spaceship was presented. // It consists of a cylinder rotating at constant ang
+
+P10: Conservative force and potential I
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 10. A particle of mass m moves under a forceF “´cx3i , where c is a positive constant. Find the // potential energy function. If the particle starts f
+
+P11: Conservative force and potential II
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 11. The potential energy function of a particle of mass m is Vpxq“´ cpx2´a2q2{2 , where c and // a are positive constants. Sketch this function, and d
+
+P12: Conservative force and potential III
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 12. A particle moving under a conservative force oscillates betweenx1 andx2. Show that the period // of oscillation is: // τ “ 2 // żx2 // x1
+
+P13: Conservative force and potential IV
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 13. A particle of mass m moves along the Ox axis under the potential Vpxq“ mgx // “ // px{aq2´ 3 // ‰ // .
+
+P14: Conservative force and potential V
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 14. A particle of mass m is moving along the Ox axis under the force Fpxq“ mKxex{ai, where K // and a are known positive constants. The initial positi
+
+P15: Stokes drag and terminal velocity
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 15. The Stokes’ law states that the magnitude of the drag force acting on a sphere of radius r and // velocity v moving on a fluid at rest of dynamic 
+
+P16: Drag on falling football
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 16. A football has frontal surface area S, mass m, and a drag coefficient CD. It falls vertically // through the air of density ρ. It is assumed that 
+
+P17: Linear central force
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 17. A force attracts a heavy particle M of massm to a pointO. The attractive force is proportional // to the mass of the particle and to the distance 
+
+P18: Heavy particle on a cone
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 18. A heavy particle of mass m is moving without friction on a cone which is described as: // z2“x2`y2 // The frame of referenceOxyz is inertial andOz
+
+P19: Heavy particle on a paraboloid
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 19. A heavy particle of mass m is moving without friction on the paraboloid which is described as: // az“r2 // where a is a positive constant and r is
+
+P20: Heavy particle on a rotating circumference
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 20. A heavy particle is moving along a smooth circumference of radius R and center O. One of // the diameters of the circumference is along the local 
+
+P21: Rotating planet
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 21. On a spinning spherical planet of radius R and gravitational acceleration gp, the bodies weight // twice as much on the poles as on the equator. D
+
+P22: Particle on a curve
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 22. A heavy point particle P of mass m is constrained to move without friction along the curve // y“a // ´ // 1´ cos // ´x
+
+P23: Simple pendulum
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 23. A simple pendulum consists of a mass m hanging from a string of length L and fixed at a pivot // point O. The simple pendulum is equivalent to the
+
+P24: Particle on a circumference with a spring
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 24. A heavy particle P is constrained to move along a circumference and it is attached to a spring // as shown in the figure. The mass of the particle
+
+P25: Ijon Tichy space walk
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=True, coll=False
+   Text: 25. A spacecraft S is orbiting a celestial body F . The trajectory of the spacecraft with respect to // an inertial reference frame Fxy is given by //
+
+P26: Heavy particle on a rotating half-circumference
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 26. A heavy point particle P of mass m is constrained to move without friction along the half- // circumference wire of radius a shown in the figure. 
+
+P27: Bead sliding on a rotating curve
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 27. A heavy bead P of mass m slides without friction along a thin wire with shape given by the // following equation: // y1px1q“ sinx1. // Moreover, t
+
+P28: Forced pendulum
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 28. A point particle P of mass m is attached with a massless cord of length L to the point A, // as shown in the figure. The point A is oscillating ve
+
+P29: Heavy particle on a tilted cylinder
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 29. A heavy particle of mass m is constrained to move without friction along the surface of an // infinitely-long, circular cylinder of radius R. The 
+
+P30: Particle on rotating arc with spring
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 30. A point particle P of mass m is constrained to move on a smooth quarter of circumference as // shown in the figure below. We define a moving refer
+
+P31: Two particles on cone with string
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 31. Two heavy point particles P1 andP2 of massm each are connected by an inextensible, massless // string of total length ℓ. Particle P1 is constraine
+
+P32: Particle with string on spool
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 32. A heavy particle P of mass m is connected by a string of total length l“ 4πa to a cylindrical // spool of radius a and center atO as shown in the 
+
+P33: Two particles on a parabola
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 33. Two heavy point particles, P1 andP2, of mass m each, slide without friction along a rigid wire // parabola given by equationz“x2{p2Lq, whereL is a
+
+P34: Particle on oscillating circle
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 34. A heavy point particle P of mass m slides without friction on a circular wire of center C and // radius R. The wire is located on a vertical plane
+
+P35: String with two particles on a cylinder
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 35. Two heavy particles P and Q of mass m each are connected by an inextensible massless string // of constant length L. Part of this string rests on 
+
+P36: Swinging bar and cable
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 36. A heavy point particle P with mass m hanging from a fixed point A on the ceiling with a // massless string of constant length L. The particle is i
+
+P37: Particle on elliptic cone
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 37. A heavy point particle P with mass m moves without friction on a cone of elliptic cross-section // as shown in the figure. We define an auxiliary 
+
+P38: Particle on torus
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 38. A heavy point particle P with mass mP “ 1 moves without friction on a vertically-standing // torus as shown in the figure. The particle cannot sep
+
+P39: Particle on a string with a plate
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 39. A heavy point particle P with mass m is connected with point O on the upper surface of a thin // square plate by a massless, inextensible string o
+
+P40: Two particles, a circle, and a spring
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 40. Two heavy particles P and Q, each of mass m, are connected with a spring of stiffness k as // shown on the figure. An inertial reference frame S0 
+
+P41: Simple rotations, satellite solar panels
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 41. The angle θ describing the rotation of the solar panels of a reconnaissance satellite about the // body-fixed axis x is an arbitrary function of t
+
+P42: Particle attracted to the origin
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 42. ( Advanced problem:) A point particle P of mass m is attracted by the origin of coordinates O // of the inertial reference frameS0 by a force with
+
+P43: Two connected particles, plane with hole
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 43. We consider a smooth horizontal plane wih a small hole in it. One of the ends of a massless // cord of length 2a is passed through the hole and th
+
+P44: The little Prince throwing seeds
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 44. The little Prince is on his spherical asteroid, which has radius R and mass M, and does not // rotate. While he sits at the equator, he throws a b
+
+P45: Vibrating rotor
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 45. To understand the vibrations that occur in a turbojet when the mass distribution of the rotor // is slightly unbalanced, we can consider the turbo
+
+P46: Bumpy taxiway
+   Flags: non_inertial=False, rotating_constraint=False, osc=True, orbits=False, coll=False
+   Text: 46. An airplane is taxiing over a bumpy runway of vertical profile y1 “ sinpxq with a horizontal // velocityc. The vertical motion of the airplane can
+
+P47: Two particles on two rotating circles
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 47. We consider a system of two heavy particles of equal massm. The first particle P is constrained // to move without friction along a circular wire 
+
+P48: Two connected particles, one of them on a paraboloid
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 48. Two heavy particles P and Q, each of mass m, are connected with an inextensible, massless // string of lengthℓ as shown in the figure. Particle P 
+
+P49: Particle on the equator of a rotating sphere
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 49. A point particle P of mass m slides without friction on a sphere of radius a centered at the // origin of the inertial reference frame S 0 as show
+
+P50: Double pendulum
+   Flags: non_inertial=False, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 50. A double pendulum consists of two heavy point masses P andQ, each of mass m, connected to // the origin O and to each other by two rigid, massless
+
+P51: Particle on rotating sphere
+   Flags: non_inertial=True, rotating_constraint=False, osc=False, orbits=False, coll=False
+   Text: 51. A heavy point particle P of mass m is constrained to move inside the surface of a hollow sphere // of radius R and center C located at rC // 1 “Rp
+

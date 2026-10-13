@@ -1,0 +1,123 @@
+
+======================================================================
+PROBLEM 10: Conservative force and potential I
+======================================================================
+10. A particle of mass m moves under a forceF “´cx3i , where c is a positive constant. Find the
+potential energy function. If the particle starts from rest at x“´a, what is its velocity when
+it reaches x“ 0? In the subsequent motion, where does it stop again?
+
+======================================================================
+PROBLEM 11: Conservative force and potential II
+======================================================================
+11. The potential energy function of a particle of mass m is Vpxq“´ cpx2´a2q2{2 , where c and
+a are positive constants. Sketch this function, and describe the possible types of motion in the
+three cases (a) Eą 0, (b) Eă´ca4{2 , and (c) ´ca4{2ăEă 0.
+
+======================================================================
+PROBLEM 12: Conservative force and potential III
+======================================================================
+12. A particle moving under a conservative force oscillates betweenx1 andx2. Show that the period
+of oscillation is:
+τ “ 2
+żx2
+x1
+c m
+2rVpx2q´ Vpxqsdx,
+where Vpxq is the potential energy function. In particular, if V “p 1{2qmω2
+0px2´bx4q, show
+that the period for oscillations of amplitude a is
+τ “ 2
+ω0
+ża
+´a
+dx?
+a2´x2
+a
+1´bpa2`x2q
+
+======================================================================
+PROBLEM 13: Conservative force and potential IV
+======================================================================
+13. A particle of mass m moves along the Ox axis under the potential Vpxq“ mgx
+“
+px{aq2´ 3
+‰
+.
+Compute the evolution of the particle as a function of time, when it is released fromx0“a with
+an initial velocityv0“?8ga directed along the positive Ox axis. (tip:
+ş
+dx{
+`
+px` 1q?2´x
+˘
+“
+´p2{
+?
+3qarctanhp?2´x{
+?
+3q)
+
+======================================================================
+PROBLEM 14: Conservative force and potential V
+======================================================================
+14. A particle of mass m is moving along the Ox axis under the force Fpxq“ mKxex{ai, where K
+and a are known positive constants. The initial position of the particle is x“a and the initial
+velocity isv“´v0i. Describe the possible types of motion of the particle as a function of v0.
+
+======================================================================
+PROBLEM 15: Stokes drag and terminal velocity
+======================================================================
+15. The Stokes’ law states that the magnitude of the drag force acting on a sphere of radius r and
+velocity v moving on a fluid at rest of dynamic viscosity µ is: Fpvq “6πµrv. Assuming the
+density of a vertically-falling sphere is twice the density of the fluid ( ρ0), and considering drag,
+the weight and the buoyancy of the sphere, compute:
+(a) The terminal velocity of the sphere.
+(b) The evolution of the position as a function of time, if the sphere starts from rest.
+Remember that the kinematic viscosity is defined as ν“µ{ρ0.
+
+======================================================================
+PROBLEM 16: Drag on falling football
+======================================================================
+16. A football has frontal surface area S, mass m, and a drag coefficient CD. It falls vertically
+through the air of density ρ. It is assumed that the forces acting on the ball are only gravity
+and drag. The drag can be modeled as: D “ p1{2qρv2SCD, with v the speed of the ball.
+Compute its terminal speed and its position as a function of time. You may find the following
+integrals useful: ż dx
+x2
+0´x2 “ 1
+x0
+atanh x
+x0
+;
+ż
+tanhxdx“ ln coshx.
+
+======================================================================
+PROBLEM 17: Linear central force
+======================================================================
+17. A force attracts a heavy particle M of massm to a pointO. The attractive force is proportional
+to the mass of the particle and to the distance OM. The proportionality coefficient is k2. The
+coordinate systemOxyz has the origin at the centre of attractionO and the axisOz is vertically
+oriented. Initially, the coordinates of M arepx0,y 0,z 0q“p
+?
+3g{k2, 0, 0q and its initial velocity
+isp 9x0, 9y0, 9z0q“p 0, 2g{k, 0q.
+
+
+
+(a) Describe the motion of M, specifying clearly the shape of the path.
+(b) What is the velocity of the particle as function of t?
+
+======================================================================
+PROBLEM 23: Simple pendulum
+======================================================================
+23. A simple pendulum consists of a mass m hanging from a string of length L and fixed at a pivot
+point O. The simple pendulum is equivalent to the problem of a heavy particle constrained
+to move along a smooth circumference. A unilateral constraint is considered, such that the
+particle move along the interior of the circumference and it might fall under certain conditions.
+Analyze the motion of the particle when it is pushed from the lowest point of the circumference
+with velocity v0. At what point does the particle leave the circumference? Is this point ever
+reached?
+If the circumference rotates around the vertical axis with a constant angular velocity equal to
+ω, write down the new equations of motion. Compute the locations along the circumference in
+which the particle is in equilibrium.

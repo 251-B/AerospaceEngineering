@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{greenwood1988}
+Donald~T. Greenwood.
+\newblock {\em Principles of Dynamics}.
+\newblock Prentice-Hall, Englewood Cliffs, NJ, 2nd edition, 1988.
+
+\bibitem{goldstein2002}
+Herbert Goldstein, Charles~P. Poole, and John~L. Safko.
+\newblock {\em Classical Mechanics}.
+\newblock Addison-Wesley, San Francisco, 3rd edition, 2002.
+
+\bibitem{uc3m_guidelines}
+{Aerospace Engineering Department, UC3M}.
+\newblock {\em Laboratory Guidelines: Mechanics Applied to Aerospace
+  Engineering}.
+\newblock Universidad Carlos III de Madrid, 2026.
+\newblock Version 2026.
+
+\bibitem{dormand1980}
+John~R. Dormand and Peter~J. Prince.
+\newblock A family of embedded {Runge-Kutta} formulae.
+\newblock {\em Journal of Computational and Applied Mathematics}, 6(1):19--26,
+  1980.
+
+\bibitem{shampine1997}
+Lawrence~F. Shampine and Mark~W. Reichelt.
+\newblock The {MATLAB} {ODE} suite.
+\newblock {\em SIAM Journal on Scientific Computing}, 18(1):1--22, 1997.
+
+\end{thebibliography}
