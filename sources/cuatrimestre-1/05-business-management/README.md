@@ -3,7 +3,7 @@
 > **Course Code:** `251-15335` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `e691ea81-0acf-4032-98d1-b9e5a7b93d70`  
 > **Portal Web:** `subjects/05-business-management/` | **Obsidian Vault:** `vault/05-business-management/`  
-> **Last Synchronized:** `2026-10-13 15:13` | **Total Official Files:** `17` (12.1 MB)
+> **Last Synchronized:** `2026-10-13 21:49` | **Total Official Files:** `17` (12.1 MB)
 
 ---
 

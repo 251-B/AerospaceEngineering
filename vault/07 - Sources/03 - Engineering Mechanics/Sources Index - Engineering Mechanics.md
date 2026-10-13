@@ -10,11 +10,11 @@ tags:
 
 ## Coverage
 
-- Files: 197
+- Files: 168
 - Referenced by at least one note (a mention counts): 11
 - Not referenced yet: 157
-- Build artifacts: 17
-- Working files: 12
+- Build artifacts: 0
+- Working files: 0
 
 ## (top level)
 
@@ -163,34 +163,17 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - final_candidate (aux)\|final_candidate.aux]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - final_candidate (out)\|final_candidate.out]] | laboratorio | build-artifact |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - final_candidate (pdf)\|final_candidate.pdf]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - final_candidate (toc)\|final_candidate.toc]] | laboratorio | build-artifact |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - logo_uc3m (png)\|logo_uc3m.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - references (bib)\|references.bib]] | laboratorio | referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (aux)\|report.aux]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (bbl)\|report.bbl]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (blg)\|report.blg]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (out)\|report.out]] | laboratorio | build-artifact |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (pdf)\|report.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (tex)\|report.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (toc)\|report.toc]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (aux)\|report_test.aux]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (out)\|report_test.out]] | laboratorio | build-artifact |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (pdf)\|report_test.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (tex)\|report_test.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (toc)\|report_test.toc]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (aux)\|test1.aux]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (out)\|test1.out]] | laboratorio | build-artifact |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (pdf)\|test1.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (tex)\|test1.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (toc)\|test1.toc]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (aux)\|test2.aux]] | laboratorio | build-artifact |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (out)\|test2.out]] | laboratorio | build-artifact |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (pdf)\|test2.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (tex)\|test2.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (toc)\|test2.toc]] | laboratorio | build-artifact |
 
 ## laboratorios/lab-1/Lab1_Hector/latex_source/figs
 
@@ -262,19 +245,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - problemas - all_51_particle_problems_raw (txt)\|all_51_particle_problems_raw.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - all_51_problems_classified_raw (txt)\|all_51_problems_classified_raw.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - analyzed_particle_problems (txt)\|analyzed_particle_problems.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - classification_draft (txt)\|classification_draft.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - detailed_problem_inspection (txt)\|detailed_problem_inspection.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - extracted_particle_problems (txt)\|extracted_particle_problems.txt]] | laboratorio | working-file |
-| [[Source - 03-engineering-mechanics - problemas - full_classification_report (md)\|full_classification_report.md]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - particle_problems_summary (txt)\|particle_problems_summary.txt]] | problemas | working-file |
 | [[Source - 03-engineering-mechanics - problemas - Problems (pdf)\|Problems.pdf]] | problemas | referenced |
-| [[Source - 03-engineering-mechanics - problemas - raw_topic_1 (txt)\|raw_topic_1.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - raw_topic_2 (txt)\|raw_topic_2.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - raw_topic_3 (txt)\|raw_topic_3.txt]] | problemas | working-file |
-| [[Source - 03-engineering-mechanics - problemas - split_particle_problems (txt)\|split_particle_problems.txt]] | problemas | working-file |
 
 ## teoria
 

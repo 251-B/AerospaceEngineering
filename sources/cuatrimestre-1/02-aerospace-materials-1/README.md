@@ -3,7 +3,7 @@
 > **Course Code:** `251-15333` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `9b324478-69e9-482c-813c-5709ec031820`  
 > **Portal Web:** `subjects/02-aerospace-materials-1/` | **Obsidian Vault:** `vault/02-aerospace-materials-1/`  
-> **Last Synchronized:** `2026-10-13 15:13` | **Total Official Files:** `75` (156.9 MB)
+> **Last Synchronized:** `2026-10-13 21:49` | **Total Official Files:** `75` (156.9 MB)
 
 ---
 

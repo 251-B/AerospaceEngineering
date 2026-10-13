@@ -3,7 +3,7 @@
 > **Course Code:** `251-15334` | **Degree:** BSc in Aerospace Engineering (UC3M) | **Term:** 2nd Year, 1st Term  
 > **NotebookLM ID:** `3080c1f2-5689-4a39-90c3-091d58f39684`  
 > **Portal Web:** `subjects/01-fluid-mechanics/` | **Obsidian Vault:** `vault/01-fluid-mechanics/`  
-> **Last Synchronized:** `2026-10-13 15:13` | **Total Official Files:** `164` (113.2 MB)
+> **Last Synchronized:** `2026-10-13 21:49` | **Total Official Files:** `164` (113.2 MB)
 
 ---
 
@@ -73,7 +73,7 @@
 | 48 | `FLUIDS_OTHERUNI_2026_CORDOBA_MECHANICAL_ENGINEERING_ORD_SOL.pdf` | 📝 Exam | 1.1 MB | `examenes/other-universities/FLUIDS_OTHERUNI_2026_CORDOBA_MECHANICAL_ENGINEERING_ORD_SOL.pdf` |
 | 49 | `FLUIDS_OTHERUNI_2026_SEVILLA_ORD_P2.jpg` | 📝 Exam | 2.2 MB | `examenes/other-universities/FLUIDS_OTHERUNI_2026_SEVILLA_ORD_P2.jpg` |
 | 50 | `FLUIDS_OTHERUNI_UNDATED_SEVILLA_EXTRA_SOL.pdf` | 📝 Exam | 12.1 MB | `examenes/other-universities/FLUIDS_OTHERUNI_UNDATED_SEVILLA_EXTRA_SOL.pdf` |
-| 51 | `LAB_BLUEPRINT.md` | 🔬 Lab (General Instructions) | 5.9 KB | `laboratorios/general-instructions/LAB_BLUEPRINT.md` |
+| 51 | `LAB_BLUEPRINT.md` | 🔬 Lab (General Instructions) | 5.8 KB | `laboratorios/general-instructions/LAB_BLUEPRINT.md` |
 | 52 | `Lab1FluidFinished.pdf` | 🔬 Lab 1 | 900.5 KB | `laboratorios/lab-1/Lab1FluidFinished.pdf` |
 | 53 | `Lab1_Guijarro_Ranz_Alvarez_Gonzalez_Martin.pdf` | 🔬 Lab 1 | 1004.7 KB | `laboratorios/lab-1/Lab1_Guijarro_Ranz_Alvarez_Gonzalez_Martin.pdf` |
 | 54 | `Lab_session_1.pdf` | 🔬 Lab 1 | 1.0 MB | `laboratorios/lab-1/Lab_session_1.pdf` |
@@ -90,7 +90,7 @@
 | 65 | `Figure_7.png` | 🔬 Lab 1 | 30.0 KB | `laboratorios/lab-1/extracted/Figure_7.png` |
 | 66 | `FlowMeter.jpeg` | 🔬 Lab 1 | 114.7 KB | `laboratorios/lab-1/extracted/FlowMeter.jpeg` |
 | 67 | `FlowMeter2.jpeg` | 🔬 Lab 1 | 89.0 KB | `laboratorios/lab-1/extracted/FlowMeter2.jpeg` |
-| 68 | `main.tex` | 🔬 Lab 1 | 32.7 KB | `laboratorios/lab-1/extracted/main.tex` |
+| 68 | `main.tex` | 🔬 Lab 1 | 32.2 KB | `laboratorios/lab-1/extracted/main.tex` |
 | 69 | `slides_Chapters1-2.pdf` | 🖥️ Slides | 990.8 KB | `slides/slides_Chapters1-2.pdf` |
 | 70 | `Notes.pdf` | 📖 Theory | 2.0 MB | `teoria/Notes.pdf` |
 | 71 | `slides_Chapters1-2.pdf` | 🖥️ Slides | 990.8 KB | `unit-01-introductory-remarks/slides/slides_Chapters1-2.pdf` |

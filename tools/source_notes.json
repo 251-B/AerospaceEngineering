@@ -7,19 +7,12 @@
     "05-business-management": "05 - Business Management"
   },
   "root_folder": "General",
-  "build_artifact_extensions": [".aux", ".out", ".toc", ".bbl", ".blg"],
-  "working_files": [
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/all_51_particle_problems_raw.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/all_51_problems_classified_raw.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/analyzed_particle_problems.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/classification_draft.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/detailed_problem_inspection.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/extracted_particle_problems.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/full_classification_report.md",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/particle_problems_summary.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/raw_topic_1.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/raw_topic_2.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/raw_topic_3.txt",
-    "sources/cuatrimestre-1/03-engineering-mechanics/problemas/split_particle_problems.txt"
-  ]
+  "build_artifact_extensions": [
+    ".aux",
+    ".out",
+    ".toc",
+    ".bbl",
+    ".blg"
+  ],
+  "working_files": []
 }
