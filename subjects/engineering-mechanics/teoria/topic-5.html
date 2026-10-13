@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="engineering-mechanics">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 5: Relative Motion | Mechanics Applied to Aerospace Engineering</title>
+
+  <!-- Google Fonts & KaTeX CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Abril+Fatface&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.25s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --bg-input: #0f172a;
+      --text-main: #e2e8f0;
+      --text-heading: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --border-strong: #334155;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+      --badge-bg: #1e293b;
+      --badge-text: #38bdf8;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: #e2e8f0;
+      --text-main: #1e293b;
+      --text-heading: #0f172a;
+      --text-muted: #64748b;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --accent: #0284c7;
+      --accent-soft: rgba(2, 132, 199, 0.08);
+      --accent-border: rgba(2, 132, 199, 0.3);
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      content: "☀️";
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+      content: "🌙";
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-box {
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0 36px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-item:hover {
+      color: var(--accent);
+    }
+
+    /* Headings */
+    h2.section-heading {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 30px 0 12px;
+    }
+
+    h4.minor-heading {
+      font-family: var(--font-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      border: 1px solid;
+    }
+
+    .callout-info {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
+
+    .callout-key {
+      background: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+      border-color: var(--accent-border);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-warning .callout-title { color: #f59e0b; }
+    .callout-key .callout-title { color: var(--accent); }
+
+    /* Math Blocks */
+    .math-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      overflow-x: auto;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .math-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 26px 0;
+      text-align: center;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Example Box */
+    .example-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .example-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .example-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Footer Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      min-width: 220px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    /* Editorial Typography & Minimalist Space Aesthetic */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    
+    h1.article-title, .problem-title {
+      font-family: var(--font-display);
+      letter-spacing: 0.01em;
+    }
+    
+    /* Language Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+    
+    /* Celestial light background & Neon dark glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Top Sticky Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Mechanics Index</span>
+        </a>
+        <a href="../problemas/topic-5.html" class="back-link" style="color: var(--accent); border-color: var(--accent-border);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+          <span>Problems (18)</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14165</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">Mechanics Applied to Aerospace Engineering — Part I</div>
+      <h1 class="article-title">Topic 5: Relative Motion</h1>
+      <div class="article-meta">
+        Department of Continuum Mechanics and Aeronautical Engineering • BSc in Aerospace Engineering, UC3M
+      </div>
+      <div class="source-box">
+        Sources: slides/05_-_Relative_motion.pdf (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 1">1–31</a>) &amp; teoria/Notes.pdf (Sections <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener" title="Open Notes.pdf at page 14">1.5</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=22" target="_blank" rel="noopener" title="Open Notes.pdf at page 22">1.7</a>, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3</a>, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.9</a>). Equation numbers are those printed in Notes.pdf.
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf" target="_blank" rel="noopener">05 Relative motion.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener">Notes.pdf · p. 14</a>
+      </nav>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">
+        <span>📌</span>
+        <span>Topic Outline</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#sec-1" class="toc-item"><span>1.</span> Observers and Reference Frames</a>
+        <a href="#sec-2" class="toc-item"><span>2.</span> Translational Motion of a Frame</a>
+        <a href="#sec-3" class="toc-item"><span>3.</span> Attitude: the Change of Basis</a>
+        <a href="#sec-4" class="toc-item"><span>4.</span> Simple Rotations and Euler Angles</a>
+        <a href="#sec-5" class="toc-item"><span>5.</span> Angular Velocity and Acceleration</a>
+        <a href="#sec-6" class="toc-item"><span>6.</span> The Coriolis Theorem</a>
+        <a href="#sec-7" class="toc-item"><span>7.</span> Composition of Angular Motions</a>
+        <a href="#sec-8" class="toc-item"><span>8.</span> Angular Velocity from Euler Angles</a>
+        <a href="#sec-9" class="toc-item"><span>9.</span> Configuration and Motion of a Frame</a>
+        <a href="#sec-10" class="toc-item"><span>10.</span> Relative Kinematics</a>
+        <a href="#sec-11" class="toc-item"><span>11.</span> Relative Dynamics: Inertia Forces</a>
+        <a href="#sec-12" class="toc-item"><span>12.</span> Energy and Potentials in $S_1$</a>
+        <a href="#sec-13" class="toc-item"><span>13.</span> Method for Relative-Motion Problems</a>
+        <a href="#sec-14" class="toc-item"><span>14.</span> Source Map</a>
+      </div>
+    </nav>
+
+    <div class="callout callout-key">
+      <div class="callout-title"><span>🔑</span><span>Central idea of the topic</span></div>
+      <p style="margin-bottom: 0;">
+        A vector can be <em>defined</em> in one reference frame, <em>differentiated</em> in another and <em>expressed</em> in yet another basis (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=17" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 17">17</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=20" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 20">20</a>). Position vectors simply add (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.16</a>), but time derivatives depend on the observer. The Coriolis theorem (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>) converts a derivative taken in a moving frame into one taken in a fixed frame, and everything else in the topic (relative velocity, relative acceleration, inertia forces) follows from applying it.
+      </p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="sec-1">
+      <h2 class="section-heading"><span>1.</span> Introduction: Observers and Reference Frames</h2>
+
+      <h3 class="sub-heading">1.1 Different observers see different motions</h3>
+      <p>
+        When we drive a car or travel on an airplane, our reference frame moves with respect to the frame of an observer on the ground, and the velocities and accelerations we measure differ from those measured on the ground (Notes Ch. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3</a>, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">36</a>). For a particle $P$ observed from two frames $S_0$ and $S_1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=3" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 3">3</a>):
+      </p>
+      <div class="math-block">
+        $$ \mathbf{r}_0^P \neq \mathbf{r}_1^P, \qquad \mathbf{v}_0^P \neq \mathbf{v}_1^P, \qquad \mathbf{a}_0^P \neq \mathbf{a}_1^P $$
+        <div class="math-caption">The subscript names the observer (the frame in which the quantity is measured); the superscript names the point.</div>
+      </div>
+
+      <h3 class="sub-heading">1.2 Why we need relative motion</h3>
+      <ul>
+        <li>An <strong>observer</strong> is the same thing as a <strong>reference frame</strong> (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=3" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 3">3</a>).</li>
+        <li>Quite often one of the two descriptions is easy to compute and the other is the one we need (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">36</a>).</li>
+        <li>Newton's laws apply only in <strong>inertial</strong> frames; any accelerating or rotating frame is <strong>non-inertial</strong>. Observations made in a moving frame must be translated to an inertial frame, or <em>inertia (fictitious) forces</em> must be added (Section 11).</li>
+      </ul>
+
+      <h3 class="sub-heading">1.3 Absolute and relative quantities</h3>
+      <p>
+        Quantities measured in the frame called "fixed" are <strong>absolute</strong>; those measured in a "moving" frame are <strong>relative</strong> (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">36</a>). The naming is a convention: calling a frame "fixed" or "moving", and a position "absolute" or "relative", is completely arbitrary and subjective (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=23" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 23">23</a>).
+      </p>
+
+      <h3 class="sub-heading">1.4 First step: the motion of the frames themselves</h3>
+      <p>To understand relative motion we must first describe how one frame moves with respect to another (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=3" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 3">3</a>). A frame $S_1 = \{A; \mathcal{B}_1\}$ has two independent ingredients:</p>
+      <ol>
+        <li><strong>Position and translational motion:</strong> the motion of its origin $A$ (Section 2).</li>
+        <li><strong>Attitude and rotation:</strong> the orientation of its vector basis $\mathcal{B}_1$ (Sections 3–4) and how it changes in time (Sections 5–8). <em>Attitude</em> means orientation.</li>
+      </ol>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2">
+      <h2 class="section-heading"><span>2.</span> Position and Translational Motion of a Reference Frame</h2>
+      <p>
+        Consider $S_0 = \{O; \mathcal{B}_0\}$ and $S_1 = \{A; \mathcal{B}_1\}$. The <strong>translational motion</strong> of $S_1$ with respect to $S_0$ is the motion of the origin $A$ as seen from $S_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=4" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 4">4</a>):
+      </p>
+      <div class="math-block">
+        $$ \mathbf{r}_0^A, \qquad \mathbf{v}_0^A = \left.\frac{d\mathbf{r}_0^A}{dt}\right|_0, \qquad \mathbf{a}_0^A = \left.\frac{d\mathbf{v}_0^A}{dt}\right|_0 $$
+      </div>
+      <p>
+        Alternatively, the motion of $O$ can be described from $S_1$ with $\mathbf{r}_1^O, \mathbf{v}_1^O, \mathbf{a}_1^O$. Since $\mathbf{r}_1^O = \mathbf{AO} = -\mathbf{OA}$, the positions are opposite, $\mathbf{r}_1^O = -\mathbf{r}_0^A$, but <strong>in general</strong> $\mathbf{v}_1^O \neq -\mathbf{v}_0^A$ and $\mathbf{a}_1^O \neq -\mathbf{a}_0^A$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=4" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 4">4</a>).
+      </p>
+      <div class="callout callout-info">
+        <div class="callout-title"><span>❓</span><span>Why the velocities are not opposite</span></div>
+        <p style="margin-bottom: 0;">
+          $\mathbf{v}_1^O$ is the derivative of $\mathbf{r}_1^O$ taken <em>in $S_1$</em>, while $\mathbf{v}_0^A$ is the derivative of $\mathbf{r}_0^A$ taken <em>in $S_0$</em>. If $\mathcal{B}_1$ rotates, the two derivatives of the same vector differ. The Coriolis theorem of Section 6 gives $\mathbf{v}_1^O = -\left.\frac{d\mathbf{r}_0^A}{dt}\right|_1 = -\left(\mathbf{v}_0^A - \boldsymbol{\omega}_{10}\times\mathbf{r}_0^A\right)$, which equals $-\mathbf{v}_0^A$ only when $\boldsymbol{\omega}_{10}\times\mathbf{r}_0^A = \mathbf{0}$ (for instance, when $S_1$ does not rotate).
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3">
+      <h2 class="section-heading"><span>3.</span> Attitude of a Reference Frame: the Change of Basis</h2>
+
+      <h3 class="sub-heading">3.1 Definition of attitude</h3>
+      <p>The <strong>attitude</strong> of $S_1$ with respect to $S_0$ is its instantaneous orientation in space. The position of the origin does not matter: only the directions of the vectors of the bases (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=5" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 5">5</a>).</p>
+
+      <h3 class="sub-heading">3.2 Change-of-basis relations</h3>
+      <p>The simplest description writes the vectors of $\mathcal{B}_1$ in terms of those of $\mathcal{B}_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=5" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 5">5</a>, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener" title="Open Notes.pdf at page 14">1.8</a>):</p>
+      <div class="math-block">
+        $$ \begin{cases} \mathbf{i}_1 = \ell_{x1,x0}\,\mathbf{i}_0 + \ell_{x1,y0}\,\mathbf{j}_0 + \ell_{x1,z0}\,\mathbf{k}_0 \\ \mathbf{j}_1 = \ell_{y1,x0}\,\mathbf{i}_0 + \ell_{y1,y0}\,\mathbf{j}_0 + \ell_{y1,z0}\,\mathbf{k}_0 \\ \mathbf{k}_1 = \ell_{z1,x0}\,\mathbf{i}_0 + \ell_{z1,y0}\,\mathbf{j}_0 + \ell_{z1,z0}\,\mathbf{k}_0 \end{cases} $$
+        <div class="math-caption">$\ell_{x1,x0} = \mathbf{i}_1\cdot\mathbf{i}_0$ is the cosine of the angle between two unit vectors (a direction cosine).</div>
+      </div>
+
+      <h3 class="sub-heading">3.3 Components of a vector in either basis</h3>
+      <p>Any vector $\mathbf{b}$ can be written in either basis; the vector is the same physical entity (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=5" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 5">5</a>, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener" title="Open Notes.pdf at page 14">1.6</a>):</p>
+      <div class="math-block">
+        $$ \mathbf{b} = b_{x0}\mathbf{i}_0 + b_{y0}\mathbf{j}_0 + b_{z0}\mathbf{k}_0 = b_{x1}\mathbf{i}_1 + b_{y1}\mathbf{j}_1 + b_{z1}\mathbf{k}_1 $$
+      </div>
+      <p><strong>Derivation (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener" title="Open Notes.pdf at page 14">1.9–1.12</a>).</strong> Substitute the change-of-basis relations into the second expression:</p>
+      <div class="math-block">
+        $$ \mathbf{b} = b_{x1}\left(\ell_{x1,x0}\mathbf{i}_0 + \ell_{x1,y0}\mathbf{j}_0 + \ell_{x1,z0}\mathbf{k}_0\right) + b_{y1}\left(\ell_{y1,x0}\mathbf{i}_0 + \ell_{y1,y0}\mathbf{j}_0 + \ell_{y1,z0}\mathbf{k}_0\right) + b_{z1}\left(\ell_{z1,x0}\mathbf{i}_0 + \ell_{z1,y0}\mathbf{j}_0 + \ell_{z1,z0}\mathbf{k}_0\right) $$
+      </div>
+      <p>Collect the coefficients of $\mathbf{i}_0$, $\mathbf{j}_0$, $\mathbf{k}_0$ and compare with $b_{x0}\mathbf{i}_0 + b_{y0}\mathbf{j}_0 + b_{z0}\mathbf{k}_0$ (components in a basis are unique):</p>
+      <div class="math-block">
+        $$ \begin{aligned} b_{x0} &= \ell_{x1,x0}b_{x1} + \ell_{y1,x0}b_{y1} + \ell_{z1,x0}b_{z1} \\ b_{y0} &= \ell_{x1,y0}b_{x1} + \ell_{y1,y0}b_{y1} + \ell_{z1,y0}b_{z1} \\ b_{z0} &= \ell_{x1,z0}b_{x1} + \ell_{y1,z0}b_{y1} + \ell_{z1,z0}b_{z1} \end{aligned} $$
+      </div>
+      <p>In matrix form (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=5" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 5">5</a>, Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.12–1.13</a>):</p>
+      <div class="math-block">
+        $$ \begin{bmatrix} b_{x0} \\ b_{y0} \\ b_{z0} \end{bmatrix}_0 = [{}_0R_1]\cdot\begin{bmatrix} b_{x1} \\ b_{y1} \\ b_{z1} \end{bmatrix}_1, \qquad [{}_0R_1] = \begin{bmatrix} \ell_{x1,x0} & \ell_{y1,x0} & \ell_{z1,x0} \\ \ell_{x1,y0} & \ell_{y1,y0} & \ell_{z1,y0} \\ \ell_{x1,z0} & \ell_{y1,z0} & \ell_{z1,z0} \end{bmatrix} $$
+        <div class="math-caption">$[{}_0R_1]$ is the change-of-basis matrix from $\mathcal{B}_1$ to $\mathcal{B}_0$. The subscript on each column matrix names its basis; without it the expression is ambiguous.</div>
+      </div>
+      <div class="callout callout-warning">
+        <div class="callout-title"><span>⚠️</span><span>Changing basis does not move the vector</span></div>
+        <p style="margin-bottom: 0;">When the components of $\mathbf{b}$ change from one basis to another, the vector is not moved and not rotated: it is only described from a different basis, so the numbers that represent it change (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener" title="Open Notes.pdf at page 14">1.5</a>).</p>
+      </div>
+
+      <h3 class="sub-heading">3.4 Properties of $[{}_0R_1]$</h3>
+      <p>For two right-handed orthonormal bases (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=6" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 6">6</a>, Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.14–1.15</a>):</p>
+      <ol>
+        <li><strong>Orthogonal:</strong> the inverse equals the transpose, $[{}_1R_0] = [{}_0R_1]^{-1} = [{}_0R_1]^T$, so $[{}_0R_1]^T[{}_0R_1] = [U]$. Writing $\mathbf{i}_0 = \ell_{x0,x1}\mathbf{i}_1 + \ell_{x0,y1}\mathbf{j}_1 + \ell_{x0,z1}\mathbf{k}_1$, etc., this means $\ell_{x0,x1} = \ell_{x1,x0}$, $\ell_{x0,y1} = \ell_{y1,x0}$, and so on; consistent with $\mathbf{i}_0\cdot\mathbf{j}_1 = \mathbf{j}_1\cdot\mathbf{i}_0$.</li>
+        <li><strong>Unit determinant:</strong> $|[{}_0R_1]| = 1$, because both bases are right-handed.</li>
+        <li><strong>Columns</strong> = components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$. This is the practical way to write the matrix.</li>
+        <li><strong>Rows</strong> = components of $\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0$ in $\mathcal{B}_1$.</li>
+        <li><strong>Eigenvalues:</strong> $\lambda = 1,\ e^{i\beta},\ e^{-i\beta}$.</li>
+      </ol>
+
+      <h3 class="sub-heading">3.5 Axis and angle of rotation</h3>
+      <p>
+        A result due to Euler states that any two right-handed bases are related by a <strong>single rotation</strong> about some axis $\mathbf{e}$ by some angle (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.5.1</a>). In terms of the matrix (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=6" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 6">6</a>): the <strong>axis of rotation</strong> is the eigenspace of $\lambda = 1$ (a vector on it has identical components in $\mathcal{B}_1$ and $\mathcal{B}_0$, since $[{}_0R_1]\mathbf{e} = \mathbf{e}$), and the <strong>rotation angle</strong> is $\beta$. The same matrix can be read as the static relation between components in two bases, or as the rotation that, seen from $\mathcal{B}_0$, carries $\mathcal{B}_0$ onto $\mathcal{B}_1$; for this reason it is called a <strong>rotation matrix</strong> (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.5.1</a>).
+      </p>
+
+      <h3 class="sub-heading">3.6 Composition rules</h3>
+      <p>With three bases $\mathcal{B}_0, \mathcal{B}_1, \mathcal{B}_2$, substituting the expressions of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ into $\mathbf{i}_2 = \ell_{x2,x1}\mathbf{i}_1 + \ell_{x2,y1}\mathbf{j}_1 + \ell_{x2,z1}\mathbf{k}_1$ gives $\mathbf{i}_2$ directly in $\mathcal{B}_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=7" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 7">7</a>):</p>
+      <div class="math-block">
+        $$ \mathbf{i}_2 = \ell_{x2,x1}\left(\ell_{x1,x0}\mathbf{i}_0 + \ell_{x1,y0}\mathbf{j}_0 + \ell_{x1,z0}\mathbf{k}_0\right) + \ell_{x2,y1}\left(\ell_{y1,x0}\mathbf{i}_0 + \ell_{y1,y0}\mathbf{j}_0 + \ell_{y1,z0}\mathbf{k}_0\right) + \ell_{x2,z1}\left(\ell_{z1,x0}\mathbf{i}_0 + \ell_{z1,y0}\mathbf{j}_0 + \ell_{z1,z0}\mathbf{k}_0\right) $$
+      </div>
+      <p>Equivalently, from $[\mathbf{b}]_0 = [{}_0R_1][\mathbf{b}]_1$ and $[\mathbf{b}]_1 = [{}_1R_2][\mathbf{b}]_2$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=15" target="_blank" rel="noopener" title="Open Notes.pdf at page 15">1.16</a>):</p>
+      <div class="math-block">
+        $$ [\mathbf{b}]_0 = [{}_0R_1]\cdot[{}_1R_2]\cdot[\mathbf{b}]_2 \quad\Longrightarrow\quad [{}_0R_2] = [{}_0R_1]\cdot[{}_1R_2] $$
+        <div class="math-caption">The product is in general not commutative: $[R_i][R_j] \neq [R_j][R_i]$.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4">
+      <h2 class="section-heading"><span>4.</span> Simple Rotations and Euler Angles</h2>
+
+      <h3 class="sub-heading">4.1 Simple rotations</h3>
+      <p>
+        A <strong>simple rotation</strong> has its axis along one of the basis vectors. That vector is unchanged (e.g. $\mathbf{i}_1 \equiv \mathbf{i}_0$) and the rest of space turns by an angle that is positive by the right-hand rule (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=8" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 8">8</a>, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=16" target="_blank" rel="noopener" title="Open Notes.pdf at page 16">1.5.2</a>). Writing the new vectors in the old ones and placing them as columns (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.18–1.20</a>):
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Axis</th><th>Relations</th><th>Matrix</th></tr></thead>
+          <tbody>
+            <tr><td>$\mathbf{i}_0$, angle $\theta_x$</td><td>$\mathbf{i}_1 = \mathbf{i}_0$<br>$\mathbf{j}_1 = \cos\theta_x\,\mathbf{j}_0 + \sin\theta_x\,\mathbf{k}_0$<br>$\mathbf{k}_1 = -\sin\theta_x\,\mathbf{j}_0 + \cos\theta_x\,\mathbf{k}_0$</td><td>$\begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\theta_x & -\sin\theta_x \\ 0 & \sin\theta_x & \cos\theta_x \end{bmatrix}$</td></tr>
+            <tr><td>$\mathbf{j}_0$, angle $\theta_y$</td><td>$\mathbf{i}_1 = \cos\theta_y\,\mathbf{i}_0 - \sin\theta_y\,\mathbf{k}_0$<br>$\mathbf{j}_1 = \mathbf{j}_0$<br>$\mathbf{k}_1 = \sin\theta_y\,\mathbf{i}_0 + \cos\theta_y\,\mathbf{k}_0$</td><td>$\begin{bmatrix} \cos\theta_y & 0 & \sin\theta_y \\ 0 & 1 & 0 \\ -\sin\theta_y & 0 & \cos\theta_y \end{bmatrix}$</td></tr>
+            <tr><td>$\mathbf{k}_0$, angle $\theta_z$</td><td>$\mathbf{i}_1 = \cos\theta_z\,\mathbf{i}_0 + \sin\theta_z\,\mathbf{j}_0$<br>$\mathbf{j}_1 = -\sin\theta_z\,\mathbf{i}_0 + \cos\theta_z\,\mathbf{j}_0$<br>$\mathbf{k}_1 = \mathbf{k}_0$</td><td>$\begin{bmatrix} \cos\theta_z & -\sin\theta_z & 0 \\ \sin\theta_z & \cos\theta_z & 0 \\ 0 & 0 & 1 \end{bmatrix}$</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <strong>Check</strong> (for $z$): $\det = \cos^2\theta_z + \sin^2\theta_z = 1$, and the first two columns are orthogonal: $(\cos\theta_z)(-\sin\theta_z) + (\sin\theta_z)(\cos\theta_z) + 0 = 0$. The inverse matrices are the same with $\theta \to -\theta$: only the position of the minus sign before the sines changes. To avoid sign errors, always draw the rotation looking down from the stationary axis (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=16" target="_blank" rel="noopener" title="Open Notes.pdf at page 16">1.5.2</a>). The $y$ case looks different only because, seen from $\mathbf{j}_0$, the plane is $Ozx$ in that cyclic order.
+      </p>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 520 300" width="480" height="277" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simple rotation of angle psi about k0: the vectors i1 and j1 are rotated by psi from i0 and j0 in the plane perpendicular to k0, which coincides with k1.">
+          <defs>
+            <marker id="t5a-muted" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--text-muted)"/></marker>
+            <marker id="t5a-acc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)"/></marker>
+          </defs>
+          <g transform="translate(260,165)">
+            <line x1="0" y1="0" x2="190" y2="0" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#t5a-muted)"/>
+            <text x="198" y="5" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="15">i₀</text>
+            <line x1="0" y1="0" x2="0" y2="-125" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#t5a-muted)"/>
+            <text x="8" y="-130" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="15">j₀</text>
+            <line x1="0" y1="0" x2="160" y2="-92" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#t5a-acc)"/>
+            <text x="168" y="-96" fill="var(--accent)" font-family="var(--font-mono)" font-size="15" font-weight="700">i₁</text>
+            <line x1="0" y1="0" x2="-62" y2="-108" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#t5a-acc)"/>
+            <text x="-90" y="-112" fill="var(--accent)" font-family="var(--font-mono)" font-size="15" font-weight="700">j₁</text>
+            <path d="M 80 0 A 80 80 0 0 0 69.3 -40" fill="none" stroke="var(--text-main)" stroke-width="1.5"/>
+            <text x="88" y="-16" fill="var(--text-main)" font-family="var(--font-serif)" font-style="italic" font-size="16">ψ</text>
+            <path d="M 0 -60 A 60 60 0 0 0 -30 -52" fill="none" stroke="var(--text-main)" stroke-width="1.5"/>
+            <text x="-26" y="-66" fill="var(--text-main)" font-family="var(--font-serif)" font-style="italic" font-size="16">ψ</text>
+            <circle cx="0" cy="0" r="7" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2" fill="var(--text-heading)"/>
+            <text x="-128" y="40" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14">k₀ ≡ k₁ (out of page)</text>
+          </g>
+          <text x="260" y="290" text-anchor="middle" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13">Seen from the stationary axis: ω₁₀ = ψ̇ k₀</text>
+        </svg>
+        <div class="diagram-caption">Simple rotation about $\mathbf{k}_0$ by $\psi$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=16" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 16">16</a>), drawn looking down from the stationary axis as recommended in Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=16" target="_blank" rel="noopener" title="Open Notes.pdf at page 16">1.5.2</a>.</div>
+      </div>
+
+      <h3 class="sub-heading">4.2 Euler angles</h3>
+      <p>Any attitude is the composition of <strong>three simple rotations about different axes</strong>. To relate $\mathcal{B}_0$ to $\mathcal{B}_3$ we introduce the auxiliary bases $\mathcal{B}_1$ and $\mathcal{B}_2$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=9" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 9">9</a>):</p>
+      <ol>
+        <li>$\mathcal{B}_0 \to \mathcal{B}_1$: rotation $\psi$ about $\mathbf{k}_0 \equiv \mathbf{k}_1$;</li>
+        <li>$\mathcal{B}_1 \to \mathcal{B}_2$: rotation $\theta$ about $\mathbf{i}_1 \equiv \mathbf{i}_2$;</li>
+        <li>$\mathcal{B}_2 \to \mathcal{B}_3$: rotation $\varphi$ about $\mathbf{k}_2 \equiv \mathbf{k}_3$.</li>
+      </ol>
+      <div class="math-block">
+        $$ [{}_0R_3] = [{}_0R_1]\cdot[{}_1R_2]\cdot[{}_2R_3] $$
+      </div>
+      <p>
+        $\psi$ (<strong>precession</strong>), $\theta$ (<strong>nutation</strong>) and $\varphi$ (<strong>spin</strong>) are the <strong>standard Euler angles</strong>, also called <strong>3-1-3</strong> angles after the order of the axes: third, first, third again. Many other choices exist; a common one is <strong>3-2-1 (yaw, pitch, roll)</strong>. The only rule is that the same axis cannot be repeated in two consecutive rotations (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=9" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 9">9</a>). The Notes also use the 1-2-3 sequence (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.23</a>).
+      </p>
+
+      <h3 class="sub-heading">4.3 Example: 3-2-1 attitude of the Space Shuttle</h3>
+      <p>The attitude of the red frame $S_r$ (attached to the shuttle) relative to the blue frame $S_b$ is described with 3-2-1 angles, the convention of flight mechanics; both frames start coincident (Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=10" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 10">10–13</a>).</p>
+      <ol>
+        <li><strong>First rotation</strong>, $\psi$ about $\mathbf{k}_b \equiv \mathbf{k}_1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=11" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 11">11</a>): $\ \mathbf{i}_1 = \cos\psi\,\mathbf{i}_b + \sin\psi\,\mathbf{j}_b$, $\ \mathbf{j}_1 = -\sin\psi\,\mathbf{i}_b + \cos\psi\,\mathbf{j}_b$, $\ \mathbf{k}_1 = \mathbf{k}_b$.</li>
+        <li><strong>Second rotation</strong>, $\theta$ about $\mathbf{j}_1 \equiv \mathbf{j}_2$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=12" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 12">12</a>): $\ \mathbf{i}_2 = \cos\theta\,\mathbf{i}_1 - \sin\theta\,\mathbf{k}_1$, $\ \mathbf{j}_2 = \mathbf{j}_1$, $\ \mathbf{k}_2 = \sin\theta\,\mathbf{i}_1 + \cos\theta\,\mathbf{k}_1$.</li>
+        <li><strong>Third rotation</strong>, $\varphi$ about $\mathbf{i}_2 \equiv \mathbf{i}_r$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=13" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 13">13</a>): $\ \mathbf{i}_r = \mathbf{i}_2$, $\ \mathbf{j}_r = \cos\varphi\,\mathbf{j}_2 + \sin\varphi\,\mathbf{k}_2$, $\ \mathbf{k}_r = -\sin\varphi\,\mathbf{j}_2 + \cos\varphi\,\mathbf{k}_2$.</li>
+      </ol>
+      <p>Composing the three matrices, $[{}_bR_r] = [{}_bR_1(z,\psi)]\cdot[{}_1R_2(y,\theta)]\cdot[{}_2R_r(x,\varphi)]$:</p>
+      <div class="math-block">
+        $$ [{}_bR_r] = \begin{bmatrix} \cos\psi\cos\theta & \cos\psi\sin\theta\sin\varphi - \sin\psi\cos\varphi & \cos\psi\sin\theta\cos\varphi + \sin\psi\sin\varphi \\ \sin\psi\cos\theta & \sin\psi\sin\theta\sin\varphi + \cos\psi\cos\varphi & \sin\psi\sin\theta\cos\varphi - \cos\psi\sin\varphi \\ -\sin\theta & \cos\theta\sin\varphi & \cos\theta\cos\varphi \end{bmatrix} $$
+        <div class="math-caption">First column: $\mathbf{i}_r = \mathbf{i}_2 = \cos\theta(\cos\psi\,\mathbf{i}_b + \sin\psi\,\mathbf{j}_b) - \sin\theta\,\mathbf{k}_b$. Check: its squared norm is $\cos^2\theta(\cos^2\psi + \sin^2\psi) + \sin^2\theta = 1$.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5">
+      <h2 class="section-heading"><span>5.</span> Angular Motion of a Reference Frame</h2>
+
+      <h3 class="sub-heading">5.1 Angular velocity vector</h3>
+      <p>So far the change of basis was stationary, but bases can rotate with respect to each other in time. The rotation of $\mathcal{B}_1$ relative to $\mathcal{B}_0$ is represented at each instant by the <strong>angular velocity vector</strong> $\boldsymbol{\omega}_{10}$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=14" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 14">14</a>):</p>
+      <ul>
+        <li>its <strong>direction</strong> is the instantaneous axis of rotation of $\mathcal{B}_1$ (right-hand rule);</li>
+        <li>its <strong>magnitude</strong> is the angular rate.</li>
+      </ul>
+      <p>$\boldsymbol{\omega}_{10}$ and the motion of the origin of $S_1$ are unrelated: two completely different things (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=14" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 14">14</a>).</p>
+      <div class="callout callout-info">
+        <div class="callout-title"><span>❓</span><span>Where $\boldsymbol{\omega}$ comes from</span></div>
+        <p style="margin-bottom: 0;">
+          A vector $\mathbf{A}$ of constant magnitude rotating about an axis $\mathbf{e}_\omega$ at rate $\dot\theta$ keeps its component along $\mathbf{e}_\omega$, while its perpendicular part describes a circle. In a time $dt$ it changes by $|d\mathbf{A}| = A_\perp\,d\theta = \dot\theta\,|\mathbf{e}_\omega\times\mathbf{A}|\,dt$, in the direction of $\mathbf{e}_\omega\times\mathbf{A}$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=22" target="_blank" rel="noopener" title="Open Notes.pdf at page 22">1.7.1</a>). Hence $\dfrac{d\mathbf{A}}{dt} = \dot\theta\,\mathbf{e}_\omega\times\mathbf{A} = \boldsymbol{\omega}\times\mathbf{A}$ with $\boldsymbol{\omega} = \dot\theta\,\mathbf{e}_\omega$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>).
+        </p>
+      </div>
+
+      <h3 class="sub-heading">5.2 Basis vectors of $\mathcal{B}_1$ seen from $S_0$</h3>
+      <p>The vectors of $\mathcal{B}_1$ are unit vectors, so they change only in direction (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=14" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 14">14</a>, Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.3–3.5</a>):</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{i}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10}\times\mathbf{i}_1, \qquad \left.\frac{d\mathbf{j}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10}\times\mathbf{j}_1, \qquad \left.\frac{d\mathbf{k}_1}{dt}\right|_0 = \boldsymbol{\omega}_{10}\times\mathbf{k}_1 $$
+      </div>
+
+      <h3 class="sub-heading">5.3 A vector that is constant in $S_1$</h3>
+      <p>Let $\mathbf{c} = c_{x1}\mathbf{i}_1 + c_{y1}\mathbf{j}_1 + c_{z1}\mathbf{k}_1$ with constant components. In $S_0$, the product rule gives $\dot c_{x1}\mathbf{i}_1 + c_{x1}\,d\mathbf{i}_1/dt|_0$ for each term, with $\dot c_{x1} = 0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=14" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 14">14</a>):</p>
+      <div class="math-block">
+        $$ \begin{aligned} \left.\frac{d\mathbf{c}}{dt}\right|_0 &= c_{x1}\left.\frac{d\mathbf{i}_1}{dt}\right|_0 + c_{y1}\left.\frac{d\mathbf{j}_1}{dt}\right|_0 + c_{z1}\left.\frac{d\mathbf{k}_1}{dt}\right|_0 = c_{x1}\,\boldsymbol{\omega}_{10}\times\mathbf{i}_1 + c_{y1}\,\boldsymbol{\omega}_{10}\times\mathbf{j}_1 + c_{z1}\,\boldsymbol{\omega}_{10}\times\mathbf{k}_1 \\ &= \boldsymbol{\omega}_{10}\times\left(c_{x1}\mathbf{i}_1 + c_{y1}\mathbf{j}_1 + c_{z1}\mathbf{k}_1\right) = \boldsymbol{\omega}_{10}\times\mathbf{c} \end{aligned} $$
+        <div class="math-caption">Scalar factors move inside the cross product and the cross product is distributive.</div>
+      </div>
+
+      <h3 class="sub-heading">5.4 Angular acceleration vector</h3>
+      <p>The rotation can be accelerated. The <strong>angular acceleration vector</strong> is (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=15" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 15">15</a>)</p>
+      <div class="math-block">
+        $$ \boldsymbol{\alpha}_{10} = \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 $$
+      </div>
+      <ul>
+        <li>Its direction may differ from that of $\boldsymbol{\omega}_{10}$.</li>
+        <li>$\boldsymbol{\omega}_{10}$ does not describe the current attitude of $S_1$, only how it is changing in time.</li>
+        <li>The component of $\boldsymbol{\alpha}_{10}$ <strong>parallel</strong> to $\boldsymbol{\omega}_{10}$ describes how the <strong>magnitude</strong> of $\boldsymbol{\omega}_{10}$ changes; the <strong>perpendicular</strong> component describes how its <strong>direction</strong> changes. With $\boldsymbol{\omega}_{10} = \omega_{10}\mathbf{e}_\omega$, the product rule gives $\boldsymbol{\alpha}_{10} = \dot\omega_{10}\,\mathbf{e}_\omega + \omega_{10}\,d\mathbf{e}_\omega/dt|_0$, and $d\mathbf{e}_\omega/dt \perp \mathbf{e}_\omega$ because $\mathbf{e}_\omega$ has unit length (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=23" target="_blank" rel="noopener" title="Open Notes.pdf at page 23">1.53</a>).</li>
+      </ul>
+
+      <h3 class="sub-heading">5.5 Example: simple rotation about $\mathbf{k}_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=16" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 16">16</a>)</h3>
+      <p>At $t = 0$ the frames coincide; then $S_1$ rotates about $\mathbf{k}_0$ by $\psi = \psi(t)$: $\ \mathbf{i}_1 = \cos\psi\,\mathbf{i}_0 + \sin\psi\,\mathbf{j}_0$, $\ \mathbf{j}_1 = -\sin\psi\,\mathbf{i}_0 + \cos\psi\,\mathbf{j}_0$, $\ \mathbf{k}_1 = \mathbf{k}_0$.</p>
+      <p><strong>Direct differentiation in $S_0$</strong> ($\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0$ are constant there). Chain rule: $\frac{d}{dt}\cos\psi(t) = -\sin\psi\,\dot\psi$, $\ \frac{d}{dt}\sin\psi(t) = \cos\psi\,\dot\psi$:</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{i}_1}{dt}\right|_0 = \dot\psi\left(-\sin\psi\,\mathbf{i}_0 + \cos\psi\,\mathbf{j}_0\right) = \dot\psi\,\mathbf{j}_1, \qquad \left.\frac{d\mathbf{j}_1}{dt}\right|_0 = \dot\psi\left(-\cos\psi\,\mathbf{i}_0 - \sin\psi\,\mathbf{j}_0\right) = -\dot\psi\,\mathbf{i}_1, \qquad \left.\frac{d\mathbf{k}_1}{dt}\right|_0 = \mathbf{0} $$
+      </div>
+      <p><strong>Identification.</strong> With $\boldsymbol{\omega}_{10} = \dot\psi\,\mathbf{k}_1$: $\ \dot\psi\,\mathbf{k}_1\times\mathbf{i}_1 = \dot\psi\,\mathbf{j}_1$, $\ \dot\psi\,\mathbf{k}_1\times\mathbf{j}_1 = -\dot\psi\,\mathbf{i}_1$, $\ \dot\psi\,\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$, which reproduce the three derivatives. Therefore</p>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{10} = \dot\psi\,\mathbf{k}_0, \qquad \boldsymbol{\alpha}_{10} = \left.\frac{d(\dot\psi\,\mathbf{k}_0)}{dt}\right|_0 = \ddot\psi\,\mathbf{k}_0 $$
+        <div class="math-caption">Here $\boldsymbol{\alpha}_{10}\parallel\boldsymbol{\omega}_{10}$: only the magnitude of the angular velocity changes.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6">
+      <h2 class="section-heading"><span>6.</span> The Coriolis Theorem</h2>
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Why this theorem?</span></div>
+        <p style="margin-bottom: 0;">Positions, velocities and forces are often easiest to write in the basis of a moving frame (the wire, the ring, the aircraft). Newton's law, however, needs derivatives taken in the inertial frame. The Coriolis theorem is the bridge: it gives the derivative in $S_0$ of a vector whose components are known in $\mathcal{B}_1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=17" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 17">17</a>, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.1</a>).</p>
+      </div>
+
+      <h3 class="sub-heading">6.1 Derivation</h3>
+      <p>Consider $\mathbf{b} = b_{x1}(t)\,\mathbf{i}_1 + b_{y1}(t)\,\mathbf{j}_1 + b_{z1}(t)\,\mathbf{k}_1$, not constant in $S_1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=17" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 17">17</a>; the Notes call it $\mathbf{A}$, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.1</a>).</p>
+      <p><strong>Derivative in $S_1$.</strong> In $S_1$ the basis vectors are constant, so only the components change (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.7</a>):</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{b}}{dt}\right|_1 = \frac{db_{x1}}{dt}\mathbf{i}_1 + \frac{db_{y1}}{dt}\mathbf{j}_1 + \frac{db_{z1}}{dt}\mathbf{k}_1 $$
+      </div>
+      <p><strong>Derivative in $S_0$.</strong> The basis vectors of $\mathcal{B}_1$ are not constant in $S_0$, so the product rule applies to each term, $\frac{d}{dt}(b_{x1}\mathbf{i}_1) = \dot b_{x1}\mathbf{i}_1 + b_{x1}\,\frac{d\mathbf{i}_1}{dt}\big|_0$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.2</a>):</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{b}}{dt}\right|_0 = \underbrace{\frac{db_{x1}}{dt}\mathbf{i}_1 + \frac{db_{y1}}{dt}\mathbf{j}_1 + \frac{db_{z1}}{dt}\mathbf{k}_1}_{\left.d\mathbf{b}/dt\right|_1} + \underbrace{b_{x1}\left.\frac{d\mathbf{i}_1}{dt}\right|_0 + b_{y1}\left.\frac{d\mathbf{j}_1}{dt}\right|_0 + b_{z1}\left.\frac{d\mathbf{k}_1}{dt}\right|_0}_{\boldsymbol{\omega}_{10}\times\mathbf{b}} $$
+        <div class="math-caption">The second group is the computation of Section 5.3 with the current values of the components (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.6</a>).</div>
+      </div>
+      <div class="math-block">
+        $$ \boxed{\left.\frac{d\mathbf{b}}{dt}\right|_0 = \left.\frac{d\mathbf{b}}{dt}\right|_1 + \boldsymbol{\omega}_{10}\times\mathbf{b}} $$
+        <div class="math-caption">Coriolis theorem (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.8</a>, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=17" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 17">17</a>).</div>
+      </div>
+
+      <h3 class="sub-heading">6.2 Meaning and remarks</h3>
+      <ul>
+        <li>The derivative of $\mathbf{b}$ in $S_0$ equals its derivative in $S_1$ plus the rotation of $\mathbf{b}$ due to the angular motion of $S_1$ relative to $S_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=17" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 17">17</a>).</li>
+        <li>For vectors, the frame of each derivative must always be written. Derivatives of <strong>scalars</strong> are the same in every frame (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">37</a>).</li>
+        <li>The result holds unchanged when $S_1$ also translates: a translation does not change the orientation of $\{\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">37</a>).</li>
+        <li><strong>Remember:</strong> a vector can be defined in one frame, differentiated in another and expressed in yet another (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=17" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 17">17</a>).</li>
+      </ul>
+
+      <h3 class="sub-heading">6.3 Consequence: $\boldsymbol{\alpha}_{10}$ is the same in $S_0$ and $S_1$</h3>
+      <div class="math-block">
+        $$ \boldsymbol{\alpha}_{10} \equiv \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 = \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_1 + \underbrace{\boldsymbol{\omega}_{10}\times\boldsymbol{\omega}_{10}}_{=\ \mathbf{0}} = \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_1 $$
+        <div class="math-caption">Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.9</a>. The angular acceleration is in general not parallel to $\boldsymbol{\omega}_{10}$.</div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=18" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 18">18</a>): derivative of $\mathbf{b} = t\,\mathbf{i}_1 + t^2\,\mathbf{j}_1 + t^3\,\mathbf{k}_1$</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">$S_1$ rotates about $\mathbf{k}_0 \equiv \mathbf{k}_1$ by $\psi(t)$, so $\boldsymbol{\omega}_{10} = \dot\psi\,\mathbf{k}_1$</span>
+          </div>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=18" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 18">18</a></span>
+        </div>
+        <ol>
+          <li><strong>In $S_1$</strong>: $\frac{d}{dt}t = 1$, $\frac{d}{dt}t^2 = 2t$, $\frac{d}{dt}t^3 = 3t^2$, so $\left.\frac{d\mathbf{b}}{dt}\right|_1 = \mathbf{i}_1 + 2t\,\mathbf{j}_1 + 3t^2\,\mathbf{k}_1$.</li>
+          <li><strong>Rotation term</strong>, with $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$: $\ \boldsymbol{\omega}_{10}\times\mathbf{b} = \dot\psi\,t\,\mathbf{j}_1 - \dot\psi\,t^2\,\mathbf{i}_1$.</li>
+          <li><strong>In $S_0$</strong>: $\left.\frac{d\mathbf{b}}{dt}\right|_0 = \left(1 - \dot\psi\,t^2\right)\mathbf{i}_1 + \left(2t + \dot\psi\,t\right)\mathbf{j}_1 + 3t^2\,\mathbf{k}_1$. This derivative <em>taken in $S_0$</em> is <em>expressed in $\mathcal{B}_1$</em>.</li>
+          <li><strong>Cross-check</strong>: writing $\mathbf{b}$ in $\mathcal{B}_0$ with the relations of Section 5.5 and differentiating component by component gives the same vector (checked symbolically).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="sec-7">
+      <h2 class="section-heading"><span>7.</span> Composition of Angular Motions</h2>
+      <h3 class="sub-heading">7.1 Angular velocities add</h3>
+      <p>If $S_2$ rotates relative to $S_1$ with $\boldsymbol{\omega}_{21}$ and $S_1$ relative to $S_0$ with $\boldsymbol{\omega}_{10}$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=19" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 19">19</a>, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.10</a>):</p>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{20} = \boldsymbol{\omega}_{21} + \boldsymbol{\omega}_{10} $$
+        <div class="math-caption">For any $\mathbf{c}$ constant in $S_2$: $\left.\frac{d\mathbf{c}}{dt}\right|_1 = \boldsymbol{\omega}_{21}\times\mathbf{c}$, and by Coriolis $\left.\frac{d\mathbf{c}}{dt}\right|_0 = \boldsymbol{\omega}_{21}\times\mathbf{c} + \boldsymbol{\omega}_{10}\times\mathbf{c}$, which must equal $\boldsymbol{\omega}_{20}\times\mathbf{c}$ for every $\mathbf{c}$.</div>
+      </div>
+      <h3 class="sub-heading">7.2 Angular accelerations do not simply add</h3>
+      <p>Differentiate in $S_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=19" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 19">19</a>, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.11</a>). The last term is $\boldsymbol{\alpha}_{10}$; the first is the $S_0$-derivative of a vector naturally defined in $S_1$, so by Coriolis $\left.\frac{d\boldsymbol{\omega}_{21}}{dt}\right|_0 = \left.\frac{d\boldsymbol{\omega}_{21}}{dt}\right|_1 + \boldsymbol{\omega}_{10}\times\boldsymbol{\omega}_{21}$:</p>
+      <div class="math-block">
+        $$ \left.\frac{d\boldsymbol{\omega}_{20}}{dt}\right|_0 = \left.\frac{d\boldsymbol{\omega}_{21}}{dt}\right|_0 + \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 \quad\Longrightarrow\quad \boldsymbol{\alpha}_{20} = \boldsymbol{\alpha}_{21} + \boldsymbol{\omega}_{10}\times\boldsymbol{\omega}_{21} + \boldsymbol{\alpha}_{10} $$
+        <div class="math-caption">Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.12</a>. The extra term appears because $\boldsymbol{\omega}_{21}$ is carried around by the rotation of $S_1$.</div>
+      </div>
+      <h3 class="sub-heading">7.3 Inverse motion</h3>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{01} = -\boldsymbol{\omega}_{10}, \qquad \boldsymbol{\alpha}_{01} = -\boldsymbol{\alpha}_{10} $$
+        <div class="math-caption">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=19" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 19">19</a>, Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.13</a>: take $S_2 = S_0$ in Section 7.1, $\boldsymbol{\omega}_{00} = \mathbf{0} = \boldsymbol{\omega}_{01} + \boldsymbol{\omega}_{10}$, then differentiate.</div>
+      </div>
+      <p>In general $\boldsymbol{\omega}_{lm}$ is the angular velocity of frame $l$ as seen from frame $m$. When composing in components, <strong>express every vector in the same basis first</strong> (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">38</a>).</p>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="sec-8">
+      <h2 class="section-heading"><span>8.</span> Angular Velocity from Simple Rotations</h2>
+      <h3 class="sub-heading">8.1 3-1-3 Euler angles as functions of time</h3>
+      <p>For $\psi(t), \theta(t), \varphi(t)$, $S_0 \to S_1 \to S_2 \to S_3$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=20" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 20">20</a>). Each simple rotation has the angular velocity "rate of its angle times its axis" (Section 5.5):</p>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{10} = \dot\psi\,\mathbf{k}_0 \equiv \dot\psi\,\mathbf{k}_1, \qquad \boldsymbol{\omega}_{21} = \dot\theta\,\mathbf{i}_1 \equiv \dot\theta\,\mathbf{i}_2, \qquad \boldsymbol{\omega}_{32} = \dot\varphi\,\mathbf{k}_2 \equiv \dot\varphi\,\mathbf{k}_3 $$
+        $$ \boldsymbol{\omega}_{30} = \boldsymbol{\omega}_{32} + \boldsymbol{\omega}_{21} + \boldsymbol{\omega}_{10} = \dot\varphi\,\mathbf{k}_2 + \dot\theta\,\mathbf{i}_1 + \dot\psi\,\mathbf{k}_0 $$
+        <div class="math-caption">A mixed expression: each term is written in a different basis (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=20" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 20">20</a>).</div>
+      </div>
+
+      <h3 class="sub-heading">8.2 Expressed in $\mathcal{B}_0$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=21" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 21">21</a>)</h3>
+      <p>From $\mathbf{j}_1 = -\sin\psi\,\mathbf{i}_0 + \cos\psi\,\mathbf{j}_0$ and $\mathbf{k}_2 = -\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1$:</p>
+      <div class="math-block">
+        $$ \mathbf{k}_2 = \sin\theta\sin\psi\,\mathbf{i}_0 - \sin\theta\cos\psi\,\mathbf{j}_0 + \cos\theta\,\mathbf{k}_0, \qquad \mathbf{i}_1 = \cos\psi\,\mathbf{i}_0 + \sin\psi\,\mathbf{j}_0 $$
+        $$ \boldsymbol{\omega}_{30} = \left(\dot\theta\cos\psi + \dot\varphi\sin\psi\sin\theta\right)\mathbf{i}_0 + \left(\dot\theta\sin\psi - \dot\varphi\cos\psi\sin\theta\right)\mathbf{j}_0 + \left(\dot\varphi\cos\theta + \dot\psi\right)\mathbf{k}_0 $$
+      </div>
+
+      <h3 class="sub-heading">8.3 Expressed in $\mathcal{B}_3$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=21" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 21">21</a>)</h3>
+      <p>Inverting the last rotation, $\mathbf{i}_2 = \cos\varphi\,\mathbf{i}_3 - \sin\varphi\,\mathbf{j}_3$, $\mathbf{j}_2 = \sin\varphi\,\mathbf{i}_3 + \cos\varphi\,\mathbf{j}_3$; inverting the second, $\mathbf{k}_1 = \sin\theta\,\mathbf{j}_2 + \cos\theta\,\mathbf{k}_2$. Then</p>
+      <div class="math-block">
+        $$ \mathbf{i}_1 = \cos\varphi\,\mathbf{i}_3 - \sin\varphi\,\mathbf{j}_3, \qquad \mathbf{k}_0 = \sin\theta\sin\varphi\,\mathbf{i}_3 + \sin\theta\cos\varphi\,\mathbf{j}_3 + \cos\theta\,\mathbf{k}_3 $$
+        $$ \boldsymbol{\omega}_{30} = \left(\dot\theta\cos\varphi + \dot\psi\sin\varphi\sin\theta\right)\mathbf{i}_3 + \left(-\dot\theta\sin\varphi + \dot\psi\cos\varphi\sin\theta\right)\mathbf{j}_3 + \left(\dot\varphi + \dot\psi\cos\theta\right)\mathbf{k}_3 $$
+      </div>
+
+      <h3 class="sub-heading">8.4 Exercise of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=21" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 21">21</a>: 3-2-1 (yaw-pitch-roll) angles</h3>
+      <p>With the rotations of Section 4.3: $\ \boldsymbol{\omega}_{rb} = \dot\psi\,\mathbf{k}_b + \dot\theta\,\mathbf{j}_1 + \dot\varphi\,\mathbf{i}_2$.</p>
+      <p><strong>In $\mathcal{B}_b$</strong>, with $\mathbf{j}_1 = -\sin\psi\,\mathbf{i}_b + \cos\psi\,\mathbf{j}_b$ and $\mathbf{i}_2 = \cos\theta\cos\psi\,\mathbf{i}_b + \cos\theta\sin\psi\,\mathbf{j}_b - \sin\theta\,\mathbf{k}_b$:</p>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{rb} = \left(\dot\varphi\cos\theta\cos\psi - \dot\theta\sin\psi\right)\mathbf{i}_b + \left(\dot\varphi\cos\theta\sin\psi + \dot\theta\cos\psi\right)\mathbf{j}_b + \left(\dot\psi - \dot\varphi\sin\theta\right)\mathbf{k}_b $$
+      </div>
+      <p><strong>In $\mathcal{B}_r$</strong>: $\mathbf{j}_1 = \mathbf{j}_2 = \cos\varphi\,\mathbf{j}_r - \sin\varphi\,\mathbf{k}_r$ and $\mathbf{k}_b = \mathbf{k}_1 = -\sin\theta\,\mathbf{i}_r + \cos\theta\sin\varphi\,\mathbf{j}_r + \cos\theta\cos\varphi\,\mathbf{k}_r$ (inverting the second and third rotations), so</p>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{rb} = \left(\dot\varphi - \dot\psi\sin\theta\right)\mathbf{i}_r + \left(\dot\theta\cos\varphi + \dot\psi\cos\theta\sin\varphi\right)\mathbf{j}_r + \left(\dot\psi\cos\theta\cos\varphi - \dot\theta\sin\varphi\right)\mathbf{k}_r $$
+        <div class="math-caption">Both 3-1-3 and 3-2-1 results were checked symbolically against $[\Omega] = \dot{[R]}\,[R]^T$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.7.2</a>).</div>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="sec-9">
+      <h2 class="section-heading"><span>9.</span> Configuration and Motion of a Reference Frame</h2>
+      <p>The configuration and motion of $S_1 = \{A; \mathcal{B}_1\}$ relative to $S_0$ are completely specified by (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=22" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 22">22</a>):</p>
+      <ol>
+        <li>the <strong>position of its origin</strong> as a function of time, $\mathbf{r}_0^A(t)$;</li>
+        <li>the <strong>attitude of its basis</strong> as a function of time, $\mathbf{i}_1(t), \mathbf{j}_1(t), \mathbf{k}_1(t)$, for example through Euler angles $\psi(t), \theta(t), \varphi(t)$.</li>
+      </ol>
+      <p>From these we compute $\mathbf{v}_0^A(t)$, $\mathbf{a}_0^A(t)$, $\boldsymbol{\omega}_{10}(t)$ and $\boldsymbol{\alpha}_{10}(t)$. The relative-motion expressions are especially useful when the motion of $S_1$ is <strong>known a priori</strong>: then none of these functions of time are unknowns (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=22" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 22">22</a>, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.2</a>).</p>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section id="sec-10">
+      <h2 class="section-heading"><span>10.</span> Relative Kinematics of the Point Particle</h2>
+      <h3 class="sub-heading">10.1 Motivation</h3>
+      <ul>
+        <li>We often have several observers and need to relate the position, velocity and acceleration of $P$ that each sees. Example: sensors on an experimental aircraft measure a hurricane; the motion of the aircraft must be taken into account to "translate" the measurements to a ground-based frame (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=23" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 23">23</a>).</li>
+        <li>In other cases it is simpler to obtain these vectors in a moving frame than in the fixed one (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=23" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 23">23</a>).</li>
+      </ul>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 560 300" width="520" height="279" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fixed frame S0 with origin O and moving frame S1 with origin A. The position of P from O equals the position of A from O plus the position of P from A.">
+          <defs>
+            <marker id="t5b-muted" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--text-muted)"/></marker>
+            <marker id="t5b-acc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)"/></marker>
+            <marker id="t5b-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--text-heading)"/></marker>
+          </defs>
+          <!-- S0 axes -->
+          <g transform="translate(90,240)">
+            <line x1="0" y1="0" x2="150" y2="0" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#t5b-muted)"/>
+            <text x="156" y="5" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14">y₀</text>
+            <line x1="0" y1="0" x2="0" y2="-150" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#t5b-muted)"/>
+            <text x="6" y="-154" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14">z₀</text>
+            <line x1="0" y1="0" x2="-55" y2="40" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#t5b-muted)"/>
+            <text x="-78" y="50" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14">x₀</text>
+            <circle cx="0" cy="0" r="4" fill="var(--text-heading)"/>
+            <text x="-22" y="-8" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14">O</text>
+            <text x="-60" y="-120" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13">S₀</text>
+          </g>
+          <!-- S1 axes (rotated) -->
+          <g transform="translate(400,190)">
+            <line x1="0" y1="0" x2="120" y2="-45" stroke="var(--accent)" stroke-width="2" marker-end="url(#t5b-acc)"/>
+            <text x="126" y="-48" fill="var(--accent)" font-family="var(--font-mono)" font-size="14">y₁</text>
+            <line x1="0" y1="0" x2="-30" y2="-130" stroke="var(--accent)" stroke-width="2" marker-end="url(#t5b-acc)"/>
+            <text x="-26" y="-136" fill="var(--accent)" font-family="var(--font-mono)" font-size="14">z₁</text>
+            <line x1="0" y1="0" x2="40" y2="55" stroke="var(--accent)" stroke-width="2" marker-end="url(#t5b-acc)"/>
+            <text x="44" y="75" fill="var(--accent)" font-family="var(--font-mono)" font-size="14">x₁</text>
+            <circle cx="0" cy="0" r="4" fill="var(--accent)"/>
+            <text x="12" y="18" fill="var(--accent)" font-family="var(--font-mono)" font-size="14">A</text>
+            <text x="60" y="30" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13">S₁</text>
+          </g>
+          <!-- vectors -->
+          <line x1="90" y1="240" x2="394" y2="192" stroke="var(--text-heading)" stroke-width="2.2" marker-end="url(#t5b-head)"/>
+          <text x="230" y="236" fill="var(--text-heading)" font-family="var(--font-serif)" font-style="italic" font-size="16">r₀ᴬ</text>
+          <line x1="90" y1="240" x2="326" y2="68" stroke="var(--text-heading)" stroke-width="2.2" marker-end="url(#t5b-head)"/>
+          <text x="180" y="140" fill="var(--text-heading)" font-family="var(--font-serif)" font-style="italic" font-size="16">r₀ᴾ</text>
+          <line x1="400" y1="190" x2="336" y2="70" stroke="var(--text-heading)" stroke-width="2.2" marker-end="url(#t5b-head)"/>
+          <text x="374" y="120" fill="var(--text-heading)" font-family="var(--font-serif)" font-style="italic" font-size="16">r₁ᴾ</text>
+          <circle cx="330" cy="64" r="5" fill="var(--text-heading)"/>
+          <text x="316" y="52" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="15" font-weight="700">P</text>
+        </svg>
+        <div class="diagram-caption">Fixed frame $S_0 = \{O; \mathcal{B}_0\}$ and moving frame $S_1 = \{A; \mathcal{B}_1\}$ observing the same point $P$ (Notes Fig. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.2</a>, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=23" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 23">23</a>): $\mathbf{r}_0^P = \mathbf{r}_0^A + \mathbf{r}_1^P$.</div>
+      </div>
+
+      <h3 class="sub-heading">10.2 Position</h3>
+      <div class="math-block">
+        $$ \mathbf{r}_0^P = \mathbf{OP} = \mathbf{OA} + \mathbf{AP} = \mathbf{r}_0^A + \mathbf{r}_1^P $$
+        <div class="math-caption">Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.16</a>, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=23" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 23">23</a>: absolute position = position of the origin of $S_1$ + relative position.</div>
+      </div>
+
+      <h3 class="sub-heading">10.3 Velocity</h3>
+      <p><strong>Step 1.</strong> The absolute velocity is the derivative of $\mathbf{r}_0^P$ in $S_0$; the derivative of a sum is the sum of the derivatives (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.17</a>):</p>
+      <div class="math-block">
+        $$ \mathbf{v}_0^P \equiv \left.\frac{d\mathbf{r}_0^P}{dt}\right|_0 = \underbrace{\left.\frac{d\mathbf{r}_0^A}{dt}\right|_0}_{\mathbf{v}_0^A} + \left.\frac{d\mathbf{r}_1^P}{dt}\right|_0 $$
+      </div>
+      <p><strong>Step 2.</strong> $\mathbf{r}_1^P$ is naturally described in $S_1$, so apply the Coriolis theorem (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.18–3.19</a>), with $\left.d\mathbf{r}_1^P/dt\right|_1 \equiv \mathbf{v}_1^P$ the <strong>relative velocity</strong>:</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{r}_1^P}{dt}\right|_0 = \left.\frac{d\mathbf{r}_1^P}{dt}\right|_1 + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P = \mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P $$
+      </div>
+      <div class="math-block">
+        $$ \boxed{\mathbf{v}_0^P = \mathbf{v}_0^A + \mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P} $$
+        <div class="math-caption">Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.20</a>, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=24" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 24">24</a>: velocity of the origin + relative velocity + term due to the rotation of $S_1$.</div>
+      </div>
+
+      <h3 class="sub-heading">10.4 Acceleration</h3>
+      <p><strong>Step 1.</strong> Differentiate the velocity in $S_0$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.21</a>):</p>
+      <div class="math-block">
+        $$ \mathbf{a}_0^P \equiv \left.\frac{d\mathbf{v}_0^P}{dt}\right|_0 = \underbrace{\left.\frac{d\mathbf{v}_0^A}{dt}\right|_0}_{\mathbf{a}_0^A} + \left.\frac{d\mathbf{v}_1^P}{dt}\right|_0 + \left.\frac{d}{dt}\right|_0\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) $$
+      </div>
+      <p><strong>Step 2.</strong> Coriolis on the relative velocity, with $\left.d\mathbf{v}_1^P/dt\right|_1 \equiv \mathbf{a}_1^P$ the <strong>relative acceleration</strong> (Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.22</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.24</a>):</p>
+      <div class="math-block">
+        $$ \left.\frac{d\mathbf{v}_1^P}{dt}\right|_0 = \mathbf{a}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{v}_1^P $$
+      </div>
+      <p><strong>Step 3.</strong> Product rule for the cross product (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=25" target="_blank" rel="noopener" title="Open Notes.pdf at page 25">1.67</a>), then Coriolis on $\mathbf{r}_1^P$ as in Section 10.3 (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.23</a>):</p>
+      <div class="math-block">
+        $$ \left.\frac{d}{dt}\right|_0\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) = \underbrace{\left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0}_{\boldsymbol{\alpha}_{10}}\times\mathbf{r}_1^P + \boldsymbol{\omega}_{10}\times\underbrace{\left.\frac{d\mathbf{r}_1^P}{dt}\right|_0}_{\mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P} = \boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) $$
+      </div>
+      <p><strong>Step 4.</strong> Add the three terms. $\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ appears twice (Steps 2 and 3), which gives the factor 2 (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.25</a>):</p>
+      <div class="math-block">
+        $$ \boxed{\mathbf{a}_0^P = \mathbf{a}_0^A + \mathbf{a}_1^P + \boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P + \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P} $$
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Term</th><th>Name (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=25" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 25">25</a>)</th></tr></thead>
+          <tbody>
+            <tr><td>$\mathbf{a}_0^A$</td><td>acceleration of the origin of $S_1$</td></tr>
+            <tr><td>$\mathbf{a}_1^P$</td><td>relative acceleration</td></tr>
+            <tr><td>$\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P$</td><td>Euler acceleration</td></tr>
+            <tr><td>$\boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P)$</td><td>centripetal acceleration</td></tr>
+            <tr><td>$2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$</td><td>Coriolis acceleration</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">10.5 Summary</h3>
+      <div class="math-block">
+        $$ \begin{aligned} \mathbf{r}_0^P &= \mathbf{r}_0^A + \mathbf{r}_1^P \\ \mathbf{v}_0^P &= \mathbf{v}_0^A + \mathbf{v}_1^P + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^P \\ \mathbf{a}_0^P &= \mathbf{a}_0^A + \mathbf{a}_1^P + \boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P + \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P \end{aligned} $$
+        <div class="math-caption">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=26" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 26">26</a>, Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.26–3.27</a>. The right-hand sides use only relative quantities plus the motion of $S_1$: $\mathbf{r}_0^A, \mathbf{v}_0^A, \mathbf{a}_0^A, \boldsymbol{\omega}_{10}, \boldsymbol{\alpha}_{10}$.</div>
+      </div>
+
+      <h3 class="sub-heading">10.6 Remarks on each term</h3>
+      <ol>
+        <li>The translation of $A$ appears only through $\mathbf{v}_0^A$ and $\mathbf{a}_0^A$; all other terms come from the relative motion of $P$ and/or the angular motion of $S_1$ (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">39</a>).</li>
+        <li>The direction of $\boldsymbol{\omega}_{10}$ is the axis of rotation of $S_1$ relative to $S_0$.</li>
+        <li>$\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P$ is perpendicular to $\boldsymbol{\omega}_{10}$ and $\mathbf{r}_1^P$, with magnitude $\omega_{10}\,r_{1,\perp}^P$, where $r_{1,\perp}^P$ is the component of $\mathbf{r}_1^P$ perpendicular to $\boldsymbol{\omega}_{10}$.</li>
+        <li>The same holds for $\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P$ with respect to $\boldsymbol{\alpha}_{10}$; since $\boldsymbol{\alpha}_{10}$ and $\boldsymbol{\omega}_{10}$ are in general not parallel, it can have a component along $\boldsymbol{\omega}_{10}$.</li>
+        <li>The centripetal term has magnitude $r_{1,\perp}^P\,\omega_{10}^2$ and always points toward the line through the origin along $\boldsymbol{\omega}_{10}$.</li>
+        <li>The factor 2 of the Coriolis term comes from two effects of equal importance: the rotation of the relative velocity (Step 2) and the change of $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P$ as $P$ moves (Step 3). It exists only in a rotating frame and only when $P$ has relative velocity.</li>
+      </ol>
+
+      <h3 class="sub-heading">10.7 Translating frame without rotation</h3>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{10} = \boldsymbol{\alpha}_{10} = \mathbf{0}: \qquad \mathbf{v}_0^P = \mathbf{v}_0^A + \mathbf{v}_1^P, \qquad \mathbf{a}_0^P = \mathbf{a}_0^A + \mathbf{a}_1^P $$
+        <div class="math-caption">Notes Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.28–3.29</a>. If moreover $\mathbf{v}_0^A$ is constant ($A$ moves on a straight line), $\mathbf{a}_0^P = \mathbf{a}_1^P$: both observers measure the same acceleration.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section id="sec-11">
+      <h2 class="section-heading"><span>11.</span> Relative Dynamics: Inertia Forces</h2>
+      <div class="callout callout-key">
+        <div class="callout-title"><span>❓</span><span>Can Newton's law be used in a moving frame?</span></div>
+        <p style="margin-bottom: 0;">Newton's laws are valid only in an inertial frame. Assuming $S_0$ is inertial, $m^P\mathbf{a}_0^P = \mathbf{F}$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.59</a>). If $S_1$ accelerates or rotates relative to $S_0$ it is non-inertial. The relative acceleration formula shows how to fix Newton's law so that it can be applied in $S_1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=27" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 27">27</a>, Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.9</a>).</p>
+      </div>
+
+      <h3 class="sub-heading">11.1 Derivation</h3>
+      <p><strong>Step 1.</strong> Substitute Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.27</a> into Newton's law (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.60</a>):</p>
+      <div class="math-block">
+        $$ m^P\left[\mathbf{a}_0^A + \mathbf{a}_1^P + \boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P + \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) + 2\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P\right] = \mathbf{F} $$
+      </div>
+      <p><strong>Step 2.</strong> Keep the relative acceleration on the left (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.61</a>):</p>
+      <div class="math-block">
+        $$ m^P\mathbf{a}_1^P = \mathbf{F} - m^P\mathbf{a}_0^A - m^P\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P - m^P\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) - 2m^P\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P $$
+      </div>
+      <p><strong>Step 3.</strong> Define the <strong>fictitious</strong> or <strong>inertia force</strong> (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.62</a>):</p>
+      <div class="math-block">
+        $$ \mathbf{F}_i = -m^P\mathbf{a}_0^A - m^P\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P - m^P\boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) - 2m^P\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P $$
+        $$ \boxed{m^P\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i} $$
+        <div class="math-caption">Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.63</a>, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=27" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 27">27</a>.</div>
+      </div>
+      <p>Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.63</a> contains the same information as Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.60</a>: terms have only been moved across. The new reading is that an observer in $S_1$ may apply Newton's second law if the force $\mathbf{F}_i$ is added to the actual forces. Every term of $\mathbf{F}_i$ is computed from the relative position and velocity of $P$ once $\mathbf{a}_0^A$, $\boldsymbol{\omega}_{10}$, $\boldsymbol{\alpha}_{10}$ are known (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">53</a>).</p>
+
+      <h3 class="sub-heading">11.2 Names of the four terms</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Term</th><th>Name (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=28" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 28">28</a>, Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">53</a>)</th><th>Symbol</th></tr></thead>
+          <tbody>
+            <tr><td>$-m^P\mathbf{a}_0^A$</td><td>force due to the acceleration of the origin</td><td>$\mathbf{F}_A$</td></tr>
+            <tr><td>$-m^P\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P$</td><td>Euler's force</td><td>$\mathbf{F}_E$</td></tr>
+            <tr><td>$-m^P\boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P)$</td><td>centrifugal force due to the rotation of $S_1$</td><td>$\mathbf{F}_C$</td></tr>
+            <tr><td>$-2m^P\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$</td><td>Coriolis force</td><td>$\mathbf{F}_{COR}$</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">11.3 General properties (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=28" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 28">28</a>)</h3>
+      <ul>
+        <li>All inertia forces are <strong>proportional to the mass</strong> of the particle.</li>
+        <li>Forces 1 to 3 are <strong>locally indistinguishable from a gravitational field</strong>: an observer in $S_1$ cannot tell them apart from actual gravity.</li>
+        <li>Force 4 (Coriolis) is different: it is zero when $P$ is at rest in $S_1$ and appears only when $P$ has relative velocity with a component perpendicular to $\boldsymbol{\omega}_{10}$.</li>
+        <li>We can obtain the equations of motion in inertial and non-inertial frames; <strong>choose the simplest option for each problem</strong>.</li>
+      </ul>
+
+      <h3 class="sub-heading">11.4 Physical intuition (Notes p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">53</a>)</h3>
+      <p>Although fictitious, these forces may feel very real to an observer on a non-inertial frame; they are due solely to the motion of that frame relative to an inertial one.</p>
+      <ul>
+        <li><strong>Braking vehicle.</strong> We tend to go forward when a vehicle brakes, and it is common to say the inertia force $-m\mathbf{a}_0^A$ pushes us. For a ground observer no such force exists: the vehicle decelerates through the friction of the wheels and the passenger's mass tends to continue forward.</li>
+        <li><strong>Turning vehicle.</strong> The road gives the vehicle a transverse friction force toward the centre of curvature. The passenger tends to continue in uniform rectilinear motion and feels pushed outward, until the seat and the floor transmit the necessary force.</li>
+        <li><strong>Accelerating merry-go-round.</strong> Besides the outward centrifugal force, a child feels a force pointing backward with respect to the direction of travel: the Euler term $-m\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P$.</li>
+        <li><strong>Ball on the merry-go-round.</strong> A ball passed from the outer to the inner part turns away from the expected straight line toward the direction of travel: the Coriolis force. It also explains the sense of rotation of hurricanes in each hemisphere, and why a cannonball shot toward the East lands farther than one shot equally toward the West.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section id="sec-12">
+      <h2 class="section-heading"><span>12.</span> Energy and Potentials in a Non-Inertial Frame</h2>
+      <h3 class="sub-heading">12.1 Energy and other quantities in $S_1$</h3>
+      <p>The kinetic energy $T_1^P = \tfrac12 m^P\,\mathbf{v}_1^P\cdot\mathbf{v}_1^P$ and the mechanical energy $E_1^P$ of $P$ can always be defined in $S_1$, even if non-inertial. If the necessary conditions are met (the same as before, with the inertia forces counted among the forces), $E_1^P$ is a conserved quantity. The angular momentum $\mathbf{H}_{A1}^P$ or any other quantity used so far can also be defined in $S_1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=29" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 29">29</a>).</p>
+
+      <h3 class="sub-heading">12.2 Force due to the acceleration of the origin</h3>
+      <div class="math-block">
+        $$ \mathbf{a}_0^A = \text{const}: \qquad V_1 = m^P\,\mathbf{a}_0^A\cdot\mathbf{r}_1^P, \qquad \mathbf{F}_A = -\nabla V_1 = -m^P\mathbf{a}_0^A $$
+        <div class="math-caption">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=29" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 29">29</a>. With $V_1 = m^P(a_x x_1 + a_y y_1 + a_z z_1)$, $\partial V_1/\partial x_1 = m^P a_x$, etc. $\mathbf{F}_A$ is a homogeneous field in $S_1$, like uniform gravity, pointing opposite to $\mathbf{a}_0^A$.</div>
+      </div>
+
+      <h3 class="sub-heading">12.3 Centrifugal force</h3>
+      <p>Decompose $\mathbf{r}_1^P = \mathbf{r}_\parallel + \mathbf{r}_\perp$ along and across the axis, with $\boldsymbol{\omega}_{10} = \omega_{10}\mathbf{e}_\omega$ and $\mathbf{r}_\parallel = r_\parallel\mathbf{e}_\omega$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=30" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 30">30</a>). Using $\mathbf{a}\times(\mathbf{b}\times\mathbf{c}) = (\mathbf{a}\cdot\mathbf{c})\mathbf{b} - (\mathbf{a}\cdot\mathbf{b})\mathbf{c}$ and $\boldsymbol{\omega}_{10}\cdot\mathbf{r}_1^P = \omega_{10}r_\parallel$:</p>
+      <div class="math-block">
+        $$ \boldsymbol{\omega}_{10}\times\left(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P\right) = \left(\boldsymbol{\omega}_{10}\cdot\mathbf{r}_1^P\right)\boldsymbol{\omega}_{10} - \left(\omega_{10}\right)^2\mathbf{r}_1^P = \left(\omega_{10}\right)^2\left[r_\parallel\mathbf{e}_\omega - \mathbf{r}_1^P\right] = -\left(\omega_{10}\right)^2\mathbf{r}_\perp $$
+        $$ \mathbf{F}_C = m^P\left(\omega_{10}\right)^2\mathbf{r}_\perp, \qquad \boldsymbol{\omega}_{10} = \text{const}: \quad V_1 = -\frac12 m^P\left(\omega_{10}\right)^2\left(r_\perp\right)^2 $$
+        <div class="math-caption">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=30" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 30">30</a>. Check: $(r_\perp)^2 = \mathbf{r}_1^P\cdot\mathbf{r}_1^P - (\mathbf{e}_\omega\cdot\mathbf{r}_1^P)^2$, so $\nabla(r_\perp)^2 = 2\mathbf{r}_1^P - 2(\mathbf{e}_\omega\cdot\mathbf{r}_1^P)\mathbf{e}_\omega = 2\mathbf{r}_\perp$ and $-\nabla V_1 = m^P\omega_{10}^2\mathbf{r}_\perp$.</div>
+      </div>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 520 260" width="480" height="240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Centrifugal force field seen along the rotation axis: arrows point radially outward from the axis, longer farther from it.">
+          <defs>
+            <marker id="t5c-acc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="var(--accent)"/></marker>
+          </defs>
+          <g transform="translate(260,130)">
+            <g stroke="var(--accent)" stroke-width="2" marker-end="url(#t5c-acc)">
+              <line x1="20" y1="0" x2="34" y2="0"/><line x1="-20" y1="0" x2="-34" y2="0"/><line x1="0" y1="20" x2="0" y2="34"/><line x1="0" y1="-20" x2="0" y2="-34"/>
+              <line x1="55" y1="0" x2="85" y2="0"/><line x1="-55" y1="0" x2="-85" y2="0"/><line x1="0" y1="55" x2="0" y2="85"/><line x1="0" y1="-55" x2="0" y2="-85"/>
+              <line x1="39" y1="39" x2="60" y2="60"/><line x1="-39" y1="39" x2="-60" y2="60"/><line x1="39" y1="-39" x2="60" y2="-60"/><line x1="-39" y1="-39" x2="-60" y2="-60"/>
+              <line x1="110" y1="0" x2="160" y2="0"/><line x1="-110" y1="0" x2="-160" y2="0"/>
+            </g>
+            <circle cx="0" cy="0" r="8" fill="none" stroke="var(--text-heading)" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="var(--text-heading)"/>
+            <text x="14" y="-12" fill="var(--text-heading)" font-family="var(--font-mono)" font-size="14">ω₁₀ (out of page)</text>
+            <text x="108" y="-12" fill="var(--text-main)" font-family="var(--font-sans)" font-size="13">F_C = m ω² r⊥</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Centrifugal force field in $S_1$ seen along $\boldsymbol{\omega}_{10}$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=30" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 30">30</a>): radial, outward from the axis, proportional to $r_\perp$.</div>
+      </div>
+
+      <h3 class="sub-heading">12.4 Euler force</h3>
+      <p>$\mathbf{F}_E = -m^P\boldsymbol{\alpha}_{10}\times\mathbf{r}_1^P$ is always perpendicular to $\boldsymbol{\alpha}_{10}$ and $\mathbf{r}_1^P$, and it does <strong>not</strong> admit a potential: $\nabla\times\mathbf{F}_E \neq \mathbf{0}$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=31" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 31">31</a>). For a given $\boldsymbol{\alpha}_{10}$, $\nabla\times(\boldsymbol{\alpha}_{10}\times\mathbf{r}) = 2\boldsymbol{\alpha}_{10}$, so $\nabla\times\mathbf{F}_E = -2m^P\boldsymbol{\alpha}_{10}$.</p>
+
+      <h3 class="sub-heading">12.5 Coriolis force</h3>
+      <p>$\mathbf{F}_{COR} = -2m^P\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ is always perpendicular to $\boldsymbol{\omega}_{10}$ and $\mathbf{v}_1^P$, and proportional to $v_\perp$, the component of $\mathbf{v}_1^P$ perpendicular to $\boldsymbol{\omega}_{10}$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=31" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 31">31</a>). Its power vanishes:</p>
+      <div class="math-block">
+        $$ \mathbf{F}_{COR}\cdot\mathbf{v}_1^P = -2m^P\left(\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P\right)\cdot\mathbf{v}_1^P = 0 $$
+        <div class="math-caption">$\mathbf{F}_{COR}$ never exerts work (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=31" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 31">31</a>), so it never spoils the conservation of $E_1^P$.</div>
+      </div>
+      <div class="example-card">
+        <div class="example-header">
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Example (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=31" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 31">31</a>): equatorial launch</h4>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">$\boldsymbol{\omega}_{10} = \Omega\,\mathbf{e}_N$ is horizontal at the equator</span>
+          </div>
+          <span class="example-badge">Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=31" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 31">31</a></span>
+        </div>
+        <ol>
+          <li>Local right-handed unit vectors East $\mathbf{e}_E$, North $\mathbf{e}_N$, Up $\mathbf{e}_U$: $\mathbf{e}_N\times\mathbf{e}_E = -\mathbf{e}_U$.</li>
+          <li><strong>Toward the East</strong>, $\mathbf{v}_1^P$ has a component $v\,\mathbf{e}_E$: $\ -2m\Omega\,\mathbf{e}_N\times(v\,\mathbf{e}_E) = 2m\Omega v\,\mathbf{e}_U$, <strong>upward</strong>. The trajectory is higher and longer.</li>
+          <li><strong>Toward the West</strong> ($v\,\mathbf{e}_E$ with $v \lt 0$) the force points <strong>downward</strong>: lower and shorter trajectory. This is the cannonball effect of Section 11.4.</li>
+        </ol>
+      </div>
+
+      <h3 class="sub-heading">12.6 Conservation of $E_1^P$ in a frame rotating at constant rate</h3>
+      <p>With a fixed origin ($\mathbf{a}_0^A = \mathbf{0}$) and constant $\boldsymbol{\omega}_{10}$ ($\boldsymbol{\alpha}_{10} = \mathbf{0}$), the Euler force vanishes, the centrifugal force has a potential and the Coriolis force does no work. If the actual forces that work are conservative and the constraints are fixed in $S_1$:</p>
+      <div class="math-block">
+        $$ E_1^P = \frac12 m^P\left|\mathbf{v}_1^P\right|^2 + V(\mathbf{r}_1^P) - \frac12 m^P\omega_{10}^2 r_\perp^2 = \text{const} $$
+        <div class="math-caption">The energy integral of the rotating-wire and rotating-ring problems. If $\boldsymbol{\omega}_{10}$ depends on time, the Euler force appears and $E_1^P$ is in general not conserved.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section id="sec-13">
+      <h2 class="section-heading"><span>13.</span> Method for Relative-Motion Problems</h2>
+      <p>This checklist condenses Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=22" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=26" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 26">26</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf#page=28" target="_blank" rel="noopener" title="Open 05 Relative motion.pdf at page 28">28</a> into the order used in the solved problems:</p>
+      <ol>
+        <li><strong>Choose the frames.</strong> $S_0$ inertial; $S_1$ attached to the moving body (wire, ring, platform, spacecraft) so that the constraint or the motion is simple in $S_1$.</li>
+        <li><strong>Describe the motion of $S_1$:</strong> $\mathbf{r}_0^A, \mathbf{v}_0^A, \mathbf{a}_0^A$, $[{}_0R_1]$, $\boldsymbol{\omega}_{10}, \boldsymbol{\alpha}_{10}$ (Section 9).</li>
+        <li><strong>Relative kinematics of $P$:</strong> $\mathbf{r}_1^P, \mathbf{v}_1^P, \mathbf{a}_1^P$ with the coordinates of the problem.</li>
+        <li><strong>Either</strong> compute $\mathbf{a}_0^P$ with Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=40" target="_blank" rel="noopener" title="Open Notes.pdf at page 40">3.27</a> and write $m\mathbf{a}_0^P = \mathbf{F}$ in $S_0$, <strong>or</strong> write $m\mathbf{a}_1^P = \mathbf{F} + \mathbf{F}_i$ in $S_1$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.63</a>). Both give the same equations.</li>
+        <li><strong>Project</strong> on the directions where the reactions vanish to get the equations of motion; project on the others to get the reactions.</li>
+        <li><strong>First integrals:</strong> $E_1^P$ if $\mathbf{a}_0^A$ and $\boldsymbol{\omega}_{10}$ are constant (or zero) and the constraints are fixed in $S_1$.</li>
+      </ol>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section id="sec-14">
+      <h2 class="section-heading"><span>14.</span> Source Map</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Content</th><th>Notes.pdf (printed pages)</th><th>Slides</th></tr></thead>
+          <tbody>
+            <tr><td>Observers, absolute and relative</td><td>Ch. 3 introduction (p. 36)</td><td>3, 23</td></tr>
+            <tr><td>Translational motion of a frame</td><td>Sec. 3.2 (p. 38)</td><td>4</td></tr>
+            <tr><td>Change of basis, properties, composition</td><td>Sec. 1.5, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=14" target="_blank" rel="noopener" title="Open Notes.pdf at page 14">1.6–1.17</a> (pp. 13–14)</td><td>5–7</td></tr>
+            <tr><td>Axis and angle of rotation</td><td>Sec. 1.5.1 (pp. 14–15)</td><td>6</td></tr>
+            <tr><td>Simple rotations</td><td>Sec. 1.5.2, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.18–1.20</a> (pp. 15–16)</td><td>8</td></tr>
+            <tr><td>Euler angles, 3-2-1 example</td><td>Sec. 1.5.3, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=17" target="_blank" rel="noopener" title="Open Notes.pdf at page 17">1.21–1.23</a> (pp. 16–17)</td><td>9–13</td></tr>
+            <tr><td>Angular velocity and acceleration</td><td>Sec. 1.7, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=24" target="_blank" rel="noopener" title="Open Notes.pdf at page 24">1.62</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=26" target="_blank" rel="noopener" title="Open Notes.pdf at page 26">1.73</a>; Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.3–3.5</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.9</a> (pp. 21–25, 37)</td><td>14–16</td></tr>
+            <tr><td>Coriolis theorem</td><td>Sec. 3.1, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=37" target="_blank" rel="noopener" title="Open Notes.pdf at page 37">3.1–3.8</a> (pp. 36–37)</td><td>17–18</td></tr>
+            <tr><td>Composition of angular motions</td><td>Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=38" target="_blank" rel="noopener" title="Open Notes.pdf at page 38">3.10–3.15</a> (pp. 37–38)</td><td>19</td></tr>
+            <tr><td>Angular velocity from Euler angles</td><td>none</td><td>20–21</td></tr>
+            <tr><td>Configuration and motion of a frame</td><td>Sec. 3.2 (p. 38)</td><td>22</td></tr>
+            <tr><td>Relative kinematics</td><td>Sec. 3.2, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.16–3.29</a> (pp. 38–40)</td><td>23–26</td></tr>
+            <tr><td>Relative dynamics, inertia forces</td><td>Sec. 4.9, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=53" target="_blank" rel="noopener" title="Open Notes.pdf at page 53">4.59–4.63</a> (pp. 52–53)</td><td>27–28</td></tr>
+            <tr><td>Potentials, Euler and Coriolis forces</td><td>none</td><td>29–31</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Worked problems (Problems 7, 9, 20, 21, 25, 26, 27, 28, 30, 33, 34, 36, 37, 40, 41, 47, 49, 51) follow the four-phase protocol on the <a href="../problemas/topic-5.html">Topic 5 problems page</a>.</p>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <div class="article-nav">
+      <a href="topic-4.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Topic</span>
+        <span class="nav-btn-title">Topic 4: Angular Momentum and Central Forces</span>
+      </a>
+      <a href="../problemas/topic-5.html" class="nav-btn" style="text-align: center; border-color: var(--accent-border);">
+        <span class="nav-btn-label">Practice Problems</span>
+        <span class="nav-btn-title" style="color: var(--accent);">✏️ Topic 5 Problems (18)</span>
+      </a>
+      <a href="index.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Back to Syllabus →</span>
+        <span class="nav-btn-title">Mechanics Applied Index</span>
+      </a>
+    </div>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

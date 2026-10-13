@@ -230,7 +230,7 @@ $$ \left.\frac{d\mathbf{b}}{dt}\right|_1 = \mathbf{i}_1 + 2t\,\mathbf{j}_1 + 3t^
 $$ \boldsymbol{\omega}_{10}\times\mathbf{b} = \dot\psi\,\mathbf{k}_1\times\left(t\,\mathbf{i}_1 + t^2\,\mathbf{j}_1 + t^3\,\mathbf{k}_1\right) = \dot\psi\,t\,\mathbf{j}_1 - \dot\psi\,t^2\,\mathbf{i}_1 $$
 **In $S_0$ (Coriolis theorem):**
 $$ \left.\frac{d\mathbf{b}}{dt}\right|_0 = \left(1 - \dot\psi\,t^2\right)\mathbf{i}_1 + \left(2t + \dot\psi\,t\right)\mathbf{j}_1 + 3t^2\,\mathbf{k}_1 $$
-Note that this derivative *taken in $S_0$* is *expressed in $\mathcal{B}_1$*. **Cross-check** by brute force: writing $\mathbf{b}$ in $\mathcal{B}_0$ with the relations of Section 5.5 and differentiating component by component gives the same vector (verified symbolically). Units: if $\mathbf{b}$ is in m, both sides are in m/s ($\dot\psi\,t^2$ has units $\text{s}^{-1}\cdot\text{s}^2 = \text{s}$, the same as the coefficient $t$ of $\mathbf{b}$ multiplied by... each term of $\mathbf{b}$ divided by time).
+Note that this derivative *taken in $S_0$* is *expressed in $\mathcal{B}_1$*. **Cross-check** by brute force: writing $\mathbf{b}$ in $\mathcal{B}_0$ with the relations of Section 5.5 and differentiating component by component gives the same vector (verified symbolically). Homogeneity: in each component the rotation term has the same units as the $S_1$ derivative, because $\dot\psi$ (in $\text{s}^{-1}$) multiplies a component of $\mathbf{b}$, exactly as $d/dt$ divides it by time; for instance in $\mathbf{i}_1$, $\dot\psi\,t^2$ and $\frac{d}{dt}(t) = 1$ are both "component of $\mathbf{b}$ per second".
 
 ---
 

@@ -165,6 +165,11 @@
    "label": "04 Angular momentum.pdf",
    "pages": 17
   },
+  "em-s5": {
+   "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-05-relative-motion/slides/05_-_Relative_motion.pdf",
+   "label": "05 Relative motion.pdf",
+   "pages": 32
+  },
   "am-book": {
    "path": "sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf",
    "label": "Robinson (2004).pdf",
@@ -1095,6 +1100,24 @@
    ],
    "cite": {
     "slides": "em-s4",
+    "notes": "em-notes",
+    "bare_eq": "em-notes"
+   }
+  },
+  "subjects/engineering-mechanics/teoria/topic-5.html": {
+   "panel": [
+    [
+     "em-s5",
+     1
+    ],
+    [
+     "em-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "slides": "em-s5",
     "notes": "em-notes",
     "bare_eq": "em-notes"
    }
