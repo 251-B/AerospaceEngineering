@@ -205,8 +205,8 @@ New totals: $63.9197 - 0.0248 = 63.8950$ on both sides (cash 28.2575).
 
 ## Check against the official key
 
-> [!info] Official solution, `T3_Additional_SOLUTIONS.pdf`, pp. 20-25
-> Requirement 1 coincides with the key: cost of goods sold 2.25; personnel 0.8; depreciation 0.5; EBIT 46.45; interest 0.485; income before taxes 45.965; tax 13.79; net income 32.18; dividends 19.31; reserves 12.87; cash 28.17; total 63.92. Requirement 2 also coincides: cost of goods sold 2.14; net income 32.25; dividends 19.35; cash 28.26; suppliers 1.71; total 63.89; and the key too concludes that the profit is higher with the discount.
+> [!info] Official solution, `T3_Additional_SOLUTIONS.pdf`, pp. 19-25
+> Requirement 1 coincides with the key: cost of goods sold 2.25; personnel 0.8; depreciation 0.5; EBIT 46.45; interest 0.485; income before taxes 45.965; tax 13.79; net income 32.18; dividends 19.31; reserves 12.87; cash 28.17; total 63.92. Requirement 2 also coincides: cost of goods sold 2.14 (2.1375, rounded in the key); net income 32.25; dividends 19.35; cash 28.26; suppliers 1.71; total 63.89. The key's figures show net income rising from 32.18 to 32.25, but the key states no conclusion to the question "in which case are profits higher?"; the reasoning in Phase 4 is ours.
 
 > [!warning] Discrepancy with the official solution (current part of the debt)
 > The key leaves the whole bank loan (4.0) and the whole mortgage (5.4) as long-term debt, so its current liabilities are 20.65 and its long-term liabilities 9.4. Here the instalments due within twelve months of 31/12/2016 are shown as current: 2.0 of the loan (1/04/2017 and 1/10/2017) and 0.6 of the mortgage (31/12/2017), following the definition of Slide 16. Current liabilities are therefore 23.25 and long-term liabilities 6.8; total liabilities (30.05), equity and total assets are the same.

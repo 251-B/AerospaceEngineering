@@ -144,6 +144,7 @@ From the repository root (pure-stdlib Python 3, no installs):
 - `python tools/audit_portal.py` gates `index.html` and `subjects/**/*.html`.
 - `python tools/sources_manifest.py --check` fails if `assets/data/sources.js` is stale; `python tools/build_sources_pages.py --check` does the same for the `subjects/<slug>/sources/index.html` pages (run without `--check` to regenerate).
 - `python tools/build_topic_pages.py --check` fails if a generated theory page or its figures no longer match the vault note.
+- `python tools/build_problem_pages.py --check` fails if a Business Management Topic 3 problem page no longer matches its vault notes.
 - `python tools/source_links.py --check` fails if any page's PDF deep links are stale; `audit_portal` also fails on a problem card without its "Original statement" link (`missing-source-link`).
 - `python tools/build_pdfs.py --check` fails if a PDF in `assets/pdf/` is missing, stale or orphaned (no browser needed; run without `--check` to print them, which needs Edge/Chrome).
 - `python tools/render_check.py <pages>` (or `--all`) renders pages in headless Edge/Chrome with the real KaTeX and fails on any KaTeX error or leftover `$$`. `audit_portal`'s delimiter check does not catch undefined macros; this does.
