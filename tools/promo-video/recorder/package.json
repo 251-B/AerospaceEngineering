@@ -1,0 +1,12 @@
+{
+  "name": "ae-promo-recorder",
+  "private": true,
+  "description": "Deterministic 60 fps Playwright capture of the study portal (desktop, tablet, mobile)",
+  "scripts": {
+    "serve": "cd ../../.. && python3 -m http.server 8765",
+    "record:desktop": "node record.js desktop",
+    "record:tablet": "node record.js tablet",
+    "record:mobile": "node record.js mobile"
+  },
+  "dependencies": { "katex": "0.16.9", "playwright": "1.56.1" }
+}

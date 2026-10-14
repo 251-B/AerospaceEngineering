@@ -1,0 +1,22 @@
+{
+  "name": "ae-promo-video",
+  "private": true,
+  "description": "Remotion composition for promo-aerospace.mp4 (1920x1080, 60 fps)",
+  "scripts": {
+    "prepare-assets": "./clips.sh && python3 gen_audio.py",
+    "studio": "remotion studio src/index.ts",
+    "render": "./render.sh"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.535",
+    "@remotion/transitions": "4.0.535",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.535",
+    "@remotion/renderer": "4.0.535"
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "typescript": "^5"
+  }
+}
