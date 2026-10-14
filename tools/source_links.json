@@ -266,6 +266,91 @@
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf",
    "label": "CL5.pdf",
    "pages": 1
+  },
+  "fm-cl6": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL6.pdf",
+   "label": "CL6.pdf",
+   "pages": 1
+  },
+  "fm-cl7": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL7.pdf",
+   "label": "CL7.pdf",
+   "pages": 1
+  },
+  "fm-cl8": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL8.pdf",
+   "label": "CL8.pdf",
+   "pages": 1
+  },
+  "fm-cl9": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL9.pdf",
+   "label": "CL9.pdf",
+   "pages": 1
+  },
+  "fm-cl10": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL10.pdf",
+   "label": "CL10.pdf",
+   "pages": 1
+  },
+  "fm-cl11": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL11.pdf",
+   "label": "CL11.pdf",
+   "pages": 1
+  },
+  "fm-cl12": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf",
+   "label": "CL12.pdf",
+   "pages": 1
+  },
+  "fm-cl13": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL13.pdf",
+   "label": "CL13.pdf",
+   "pages": 1
+  },
+  "fm-cl14": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf",
+   "label": "CL14.pdf",
+   "pages": 1
+  },
+  "fm-cl15": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL15.pdf",
+   "label": "CL15.pdf",
+   "pages": 1
+  },
+  "fm-cl16": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL16.pdf",
+   "label": "CL16.pdf",
+   "pages": 1
+  },
+  "fm-cl17": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL17.pdf",
+   "label": "CL17.pdf",
+   "pages": 1
+  },
+  "fm-cl18": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL18.pdf",
+   "label": "CL18.pdf",
+   "pages": 1
+  },
+  "fm-cl19": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf",
+   "label": "CL19.pdf",
+   "pages": 1
+  },
+  "fm-cl20": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL20.pdf",
+   "label": "CL20.pdf",
+   "pages": 1
+  },
+  "fm-cl21": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL21.pdf",
+   "label": "CL21.pdf",
+   "pages": 1
+  },
+  "fm-cl22": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL22.pdf",
+   "label": "CL22.pdf",
+   "pages": 1
   }
  },
  "pages": {
@@ -1457,6 +1542,74 @@
     ],
     "cl5": [
      "fm-cl5",
+     1
+    ],
+    "cl6": [
+     "fm-cl6",
+     1
+    ],
+    "cl7": [
+     "fm-cl7",
+     1
+    ],
+    "cl8": [
+     "fm-cl8",
+     1
+    ],
+    "cl9": [
+     "fm-cl9",
+     1
+    ],
+    "cl10": [
+     "fm-cl10",
+     1
+    ],
+    "cl11": [
+     "fm-cl11",
+     1
+    ],
+    "cl12": [
+     "fm-cl12",
+     1
+    ],
+    "cl13": [
+     "fm-cl13",
+     1
+    ],
+    "cl14": [
+     "fm-cl14",
+     1
+    ],
+    "cl15": [
+     "fm-cl15",
+     1
+    ],
+    "cl16": [
+     "fm-cl16",
+     1
+    ],
+    "cl17": [
+     "fm-cl17",
+     1
+    ],
+    "cl18": [
+     "fm-cl18",
+     1
+    ],
+    "cl19": [
+     "fm-cl19",
+     1
+    ],
+    "cl20": [
+     "fm-cl20",
+     1
+    ],
+    "cl21": [
+     "fm-cl21",
+     1
+    ],
+    "cl22": [
+     "fm-cl22",
      1
     ]
    }
