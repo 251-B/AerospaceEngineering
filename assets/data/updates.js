@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-hero-solved-problem-count",
+    "date": "2026-10-14",
+    "tag": "Portal",
+    "title": "Solved-problem count on the home page corrected",
+    "text": "The home page now shows the real number of solved problems across the five subjects: 185.",
+    "link": "index.html"
+  },
+  {
     "id": "2026-10-14-materials-t4-problems-9-15",
     "date": "2026-10-14",
     "tag": "Aerospace Materials I",

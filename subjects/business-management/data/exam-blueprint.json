@@ -1,0 +1,58 @@
+{
+  "subject": "business-management",
+  "exam_id": "midterm-1",
+  "title": "Business Management — First Partial (Midterm 1)",
+  "provenance": {
+    "structure_source": "Provided by the course student (2026-10-14). Not yet verified against an official exam: sources/cuatrimestre-1/05-business-management/ holds no exam PDFs (README: Official Exams 0).",
+    "content_scope_source": "Units published in subjects/business-management/teoria/: Topic 1, Topic 2, Topic 3 (decks in sources/.../unit-0N-*/teoria/).",
+    "verify_when": "An official Midterm 1 paper is added under sources/cuatrimestre-1/05-business-management/examenes/first-partial/; update this file to match it and drop this note."
+  },
+  "total_points": 10.0,
+  "duration_minutes": 90,
+  "duration_options_minutes": [60, 90, 120],
+  "currency_unit": "m.u.",
+  "parts": [
+    {
+      "id": "part-1",
+      "label": "Part I — Short theory cases",
+      "category": "short_theory_case",
+      "count": 3,
+      "points_each": 2.0,
+      "points_total": 6.0,
+      "description": "A short case of a company (one or two paragraphs) in which the student applies and explains theory concepts of the course.",
+      "selection_rules": {
+        "distinct_units": true,
+        "distinct_themes": true,
+        "units": [1, 2, 3]
+      },
+      "grading_steps": [0, 0.5, 1.0, 1.5, 2.0]
+    },
+    {
+      "id": "part-2",
+      "label": "Part II — Practical problem",
+      "category": "extra_practice_problem",
+      "count": 1,
+      "points_each": 4.0,
+      "points_total": 4.0,
+      "description": "One complete problem of the same level and style as the Topic 3 Additional (Extra Practice) exercises.",
+      "selection_rules": {
+        "archetype": "any",
+        "archetypes": [
+          "unordered-items",
+          "reverse-engineering-ratios",
+          "narrative-case",
+          "year-on-year-cash",
+          "financing-leverage"
+        ],
+        "units": [3]
+      },
+      "grading": "per subquestion, using the points of each subquestion (they add up to 4.0)"
+    }
+  ],
+  "runner": {
+    "hide_hints_and_solutions_until_submit": true,
+    "allow_scratchpad_per_question": true,
+    "exclude_mastered_option": true,
+    "exclude_previous_attempt_option": true
+  }
+}

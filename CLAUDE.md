@@ -71,6 +71,36 @@ Whenever a task changes the repository or the portal (a file created, edited or 
 
 Every task that changes files ends with a commit and a push to `origin`, without waiting for the user to ask. Claude stages only the files of its task, uses a `type(scope): summary` message, and leaves no changes uncommitted. Claude pushes to the branch the session names; when none is named, it pushes to `main`.
 
+## Problem Bank and Exam Simulator (per subject; pilot: Business Management)
+
+These rules apply to every session that builds or changes a subject's Problem Bank or Exam Simulator. They extend the web page rules of `AGENTS.md`; where the two meet, the reconciliation below is binding.
+
+### Two independent tabs
+
+- Each subject keeps the **Problem Bank** and the **Exam Simulator** as two separate pages, never merged into one: `subjects/<subject>/problemas/index.html` (Problem Bank) and the subject's simulator page (pilot target `subjects/business-management/exams/index.html`; see the generator note below).
+- Every page of the subject shows the same tab strip, in this order: `📘 Theory` (`../teoria/index.html`), `🧩 Problem Bank` (`../problemas/index.html`), `⚡ Exam Simulator` (simulator page), `📂 Official PDFs` (`../sources/index.html`). The current page's tab carries `aria-selected="true"` (or `aria-current="page"` on links).
+- Reconciliation with the side-menu rule: the tab strip lives **inside `<main>`, below the header**, with class `subject-tabs` and `role="tablist"`. The header still links only to `../../../index.html`, and the strip never uses the forbidden classes (`pill-nav-bar`, `subchapter-nav-bar`, `pills-bar`, `quick-jump`, `quick-nav`) or `class="tabs"` (`tools/tests/test_sidebar.py`).
+- `exams/index.html` is written by `tools/build_sources_pages.py` for subjects that have exam PDFs. Business Management has none today, so the page is free; before a simulator lives there, the generator must learn to leave it alone (or list the PDFs in a section of the simulator), or the next official exam added to `sources/` will overwrite it.
+
+### Visual style (clone, never invent)
+
+- Tokens from `assets/css/tokens.css`: `--bg-primary`, `--bg-secondary`, `--bg-card`, `--bg-card-hover`, `--bg-input`, `--border-subtle`, `--border-card`, `--text-primary`, `--text-secondary`, `--text-muted`, `--shadow-card`, `--radius-sm|md|lg|xl`, `--transition-fast|medium`, and the subject accent (`--accent-business`, `--neon-business` in dark). Reading surfaces use the `--study-*` variables of `assets/css/study-surface.css`, so the six reading palettes keep working and every text stays AAA.
+- Fonts: Newsreader (body), Abril Fatface (display headings), JetBrains Mono (figures, code, timers), from Google Fonts.
+- Cards: the existing `problem-card` / `problem-box` containers (one per problem, so `audit_portal` can count them), statements in `.problem-statement-box`, solutions in phase blocks (so `ask-ai.js` splits them). Filters and segmented controls reuse the root `semester-tabs` pattern (`role="tablist"`, `role="tab"`, `aria-selected`); badges reuse `area-badge`.
+- Dark/light through `assets/js/theme.js` only (`#themeToggle`, key `ae_theme`); no inline theme code.
+- Keyboard shortcuts on the Problem Bank and the Simulator (new; the portal had none): `T` toggles the theme via `AETheme.toggle()`, `/` focuses the search box, `Esc` closes the open panel or clears the search, `?` opens a shortcuts help dialog. They are ignored while focus is in an input, textarea or contenteditable, and never fire with Ctrl/Alt/Meta held.
+- Progress and history in `localStorage` under keys that never contain "theme" (`ae_bm_progress`: per-item status `mastered` | `review` | `pending`; `ae_bm_exams`: simulator history), always wrapped in try/catch, with the page still working when storage is blocked.
+- The simulator is DOM forms and a timer only: no `<canvas>`, no Three.js (the "no interactive simulators" rule targets physics simulators). Print view through a page `@media print` block; `assets/css/print.css` is not touched.
+
+### Problem banks: real structural variety
+
+- A bank is a hand-written, fully solved static set, not a template with random numbers. Items of one archetype must differ in how the data are given (unordered list of items, statements with gaps and target ratios, a narrative with no table, two-year comparisons), in the unknowns asked for, and in the line of reasoning, not only in the figures.
+- Every item has `id`, `category` (`short_theory_case` 2.0 pts | `extra_practice_problem` 4.0 pts), `archetype`, `unit`, `title`, `difficulty` (1–3), `points`, `time_minutes`, `tags`, `statement_html`, and `subquestions[]` with `prompt_html`, `hint_html`, `checkpoint_html` (key figures for problems, concept checklist for cases) and `solution_html`. Subquestion points add up to the item's points.
+- Accounting tables must balance (Assets = Equity + Liabilities; the income statement cascade EBITDA → EBIT → EBT → Net income). Use the course's terms and unit (`m.u.`) and its sign and ordering conventions (non-current before current assets; equity, non-current then current liabilities).
+- Content integrity still applies: items written for the bank are practice material, labelled as such ("Practice item, not an official exercise"), and anything the course PDFs do not define (three-section cash-flow statement, working capital, current ratio, ROA/ROE definitions) is marked **extension** with its definition stated. The course's own "cash flow" is the cash-account reconciliation (initial cash + collections − payments, `T3_Additional_SOLUTIONS.pdf`).
+- Obsidian first: the bank's ground truth is in `vault/<subject>/` and the JSON is generated from it, never written only as JSON.
+- The exam structure lives in `subjects/<subject>/data/exam-blueprint.json` (Business Management Midterm 1: 3 short theory cases × 2.0 + 1 Extra Practice problem × 4.0 = 10.0, 90 min). The simulator reads it; never hard-code the structure in the page.
+
 ## Claude Code specifics
 
 - Subagents are defined in `.claude/agents/` (`source-researcher`, `aerospace-pedagogue`, `problem-step-mentor`, `subject-web-builder`, `web-qa-reviewer`). Delegate to them when the task matches a role; work directly when it is small.

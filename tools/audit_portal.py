@@ -12,7 +12,7 @@ Checks (all severity "error"):
     lab-reference        links to, or files of, laboratory pages (labs are not on the web)
     theme-key            localStorage theme key other than 'ae_theme'
     badge-drift          index.html badge counts that differ from the pages on disk (topics, problems,
-                         theory & exercise PDFs, exams, and the hero's official PDF total)
+                         theory & exercise PDFs, exams, and the hero's solved-problem and official PDF totals)
     missing-source-link  problem card (problem-card / problem-box) without its "Original statement"
                          link to the official PDF (add it with python tools/source_links.py)
     missing-ask-ai       theory or problem page (teoria/ or problemas/, not index.html) that does not
@@ -338,6 +338,13 @@ def check_badges(root):
             if claimed and area == "problemas" and int(claimed.group(1)) != problems:
                 out.append(Finding("badge-drift", "error", "index.html", line,
                                    f"{slug}/{area}: badge says {claimed.group(1)} problems, pages on disk contain {problems}"))
+    stat = re.search(r'<span class="stat-value"[^>]*>(\d+)</span>\s*<span class="stat-label">Solved problems', text)
+    if stat:
+        slugs = sorted(p.name for p in (root / "subjects").glob("*") if p.is_dir())
+        total = sum((_area_facts(root, s, "problemas") or (0, 0))[1] for s in slugs)
+        if int(stat.group(1)) != total:
+            out.append(Finding("badge-drift", "error", "index.html", line_of(text, stat.start()),
+                               f"hero says {stat.group(1)} solved problems, the problem pages contain {total}"))
     if pdfs:
         stat = re.search(r'<span class="stat-value"[^>]*>(\d+)</span>\s*<span class="stat-label">Official PDFs', text)
         total = sum(a + e for a, e in pdfs.values())

@@ -277,6 +277,17 @@ class BadgeTests(AuditCase):
         f = self.run_checks(files)
         self.assertEqual(self.of(f, "badge-drift"), [])
 
+    def test_hero_solved_problem_total_is_audited(self):
+        hero = '<span class="stat-value" style="x">{n}</span> <span class="stat-label">Solved problems</span>'
+        files = self.files("2 topics", "2 problems")
+        index = files["index.html"]
+        files["index.html"] = index.replace("<body>", "<body>" + hero.format(n=2))
+        self.assertEqual(self.of(self.run_checks(files), "badge-drift"), [])
+        files["index.html"] = index.replace("<body>", "<body>" + hero.format(n=130))
+        hits = self.of(self.run_checks(files), "badge-drift")
+        self.assertEqual(len(hits), 1)
+        self.assertIn("130 solved problems", hits[0].message)
+
     def test_of_total_units_badge_checks_the_built_count(self):
         ok = self.run_checks(self.files("2 of 7 units", "2 problems"))
         self.assertEqual(self.of(ok, "badge-drift"), [])
