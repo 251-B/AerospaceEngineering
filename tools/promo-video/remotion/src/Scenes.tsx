@@ -363,8 +363,8 @@ export const FocusScene: React.FC = () => (
         <Bullets
           delay={40}
           items={[
-            { icon: 'γ', text: 'Five binaural presets, 10 to 40 Hz', color: C.violet },
-            { icon: '~', text: 'Brown and pink noise mixer' },
+            { icon: 'γ', text: 'Binaural presets from 10 to 40 Hz', color: C.violet },
+            { icon: '~', text: 'Brown and pink noise, or noise only' },
             { icon: '▮', text: 'Live wave and spectrum view', color: C.green },
           ]}
         />
@@ -418,7 +418,7 @@ export const SourcesScene: React.FC = () => (
     text={
       <>
         <Kicker n="09" delay={8} color={C.amber}>Official material</Kicker>
-        <Headline text={'327 PDFs.\n*Every* past exam.'} delay={14} />
+        <Headline text={'327 PDFs.\nExams *by year.*'} delay={14} />
         <Body delay={36}>Theory, slides and problem sheets by unit. Partials and finals sorted by year, newest first, with solutions.</Body>
       </>
     }
