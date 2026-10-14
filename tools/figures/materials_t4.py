@@ -1388,6 +1388,151 @@ def fec_part3():
                "Session 9 Slide 23", 640)
 
 
+# --------------------------------------------------------------------------- Session 10 figures (Part IV)
+def alcr():
+    c = Canvas(620, 380)
+    P = Plot(c, (90, 30, 520, 320), (0, 100), (2000, 2300))
+    liq = [(x, 2045 + 230 * (x / 100) ** 0.82) for x in lin(0, 100)]
+    sol = [(x, 2045 + 230 * (x / 100) ** 1.45) for x in lin(0, 100)]
+    P.area([(0, 2300)] + liq + [(100, 2300)], "BLUE", 0.08)
+    P.area(sol + [(100, 2000), (0, 2000)], "BLUE", 0.18)
+    P.line(liq, "ACC", 2.4); P.line(sol, "ACC", 2.4)
+    P.frame([(x, str(x)) for x in range(0, 101, 20)], [(t, str(t)) for t in (2000, 2100, 2200, 2300)],
+            "Composition (wt% Cr₂O₃)", "Temperature (°C)")
+    P.text(0, 2000, "(Al₂O₃)", "TEXT", "middle", 11.5, "400", dy=34)
+    P.text(100, 2000, "(Cr₂O₃)", "TEXT", "middle", 11.5, "400", dy=34)
+    P.text(0, 2045, "2045 ± 5 °C", "TEXT", "start", 11.5, "400", dx=6, dy=16)
+    P.text(100, 2275, "2275 ± 25 °C", "TEXT", "end", 11.5, "400", dx=-6, dy=-8)
+    P.text(28, 2240, "Liquid", size=13.5)
+    P.text(50, 2130, "Liquid + solid solution", size=12, dx=10)
+    P.text(62, 2040, "Al₂O₃-Cr₂O₃ solid solution (Al₂₋ₓCrₓO₃)", size=12)
+    REG.put("alcr", c, "The Al2O3-Cr2O3 phase diagram",
+            "Al₂O₃-Cr₂O₃: an isomorphous ceramic system, with complete solid solubility (Al₂₋ₓCrₓO₃) between the melting "
+            "points of Al₂O₃ (2045 °C) and Cr₂O₃ (2275 °C). Redrawn from Session 10 Slide 2")
+
+
+def alsi():
+    c = Canvas(680, 400)
+    P = Plot(c, (90, 30, 580, 330), (0, 100), (1400, 2200))
+    liq_a = [(x, 1726 - (1726 - 1587) * x / 7.7) for x in lin(0, 7.7, 4)]
+    liq_m = [(x, lagrange([(7.7, 1587), (40, 1820), (77, 1890)])(x)) for x in lin(7.7, 77)]
+    liq_al = [(x, 1890 + (2054 - 1890) * ((x - 77) / 23) ** 0.8) for x in lin(77, 100, 20)]
+    P.area([(0, 2200)] + liq_a + liq_m + liq_al + [(100, 2200)], "BLUE", 0.08)
+    P.area([(72, 1587), (72, 1720), (77, 1890), (79, 1890), (77, 1587), (77.5, 1400), (72, 1400)], "BLUE", 0.2)
+    for s in (liq_a, liq_m, liq_al, [(0, 1587), (72, 1587)], [(77, 1890), (100, 1890)]):
+        P.line(s, "ACC", 2.4)
+    P.line([(72, 1587), (72, 1720), (77, 1890)], "ACC", 2.0)
+    P.line([(77, 1587), (79, 1890)], "ACC", 2.0)
+    P.line([(72, 1587), (71.5, 1450)], "ACC", 1.6, "6,4"); P.line([(77, 1587), (77.5, 1450)], "ACC", 1.6, "6,4")
+    P.frame([(x, str(x)) for x in range(0, 101, 20)], [(t, str(t)) for t in range(1400, 2201, 200)],
+            "Composition (wt% Al₂O₃)", "Temperature (°C)")
+    P.text(0, 1400, "(SiO₂)", "TEXT", "middle", 11.5, "400", dy=34)
+    P.text(100, 1400, "(Al₂O₃)", "TEXT", "middle", 11.5, "400", dy=34)
+    P.dot(7.7, 1587, 4.5, "GREEN"); P.dot(77, 1890, 4.5, "GREEN")
+    P.text(40, 1587, "1587 ± 10 °C", "TEXT", "middle", 11.5, "400", dy=-6)
+    P.text(7.7, 1587, "7.7", "GREEN", "middle", 12, dy=18)
+    P.text(88, 1890, "1890 ± 10 °C", "TEXT", "middle", 11.5, "400", dy=16)
+    P.text(77, 1890, "77", "GREEN", "end", 12, dx=-6, dy=-6)
+    for x, t, s in ((30, 2050, "Liquid"), (16, 1660, "cristobalite + L"), (45, 1720, "Mullite (ss) + L"),
+                    (35, 1500, "Mullite (ss) + cristobalite"), (91, 1700, "Alumina +"), (91, 1675, "mullite (ss)"),
+                    (91, 2020, "L + alumina"), (74.5, 1470, "mullite (ss)")):
+        P.text(x, t, s, size=11.5 if x > 70 else 12)
+    line(c, P.p(10, 1648), P.p(3.5, 1620), "EDGE", 1, head=True)
+    REG.put("alsi", c, "The Al2O3-SiO2 phase diagram",
+            "Al₂O₃-SiO₂: eutectic at 1587 °C (L of 7.7 wt% Al₂O₃ → mullite + SiO₂ as cristobalite) and, on the alumina "
+            "side, the line where mullite (ss) melts incongruently, giving liquid of about 77 wt% Al₂O₃ and Al₂O₃. Mullite "
+            "is 3Al₂O₃·2SiO₂, a solid solution of about 72-77 wt% Al₂O₃ (a reading). Redrawn from Session 10 Slide 3")
+
+
+def tern_xy(cx, cy, side, a, b, c_):
+    """Point of the triangle with A at the top, the second component at the bottom left and the third at the
+    bottom right (fractions add up to 1)."""
+    h = side * math.sqrt(3) / 2
+    top, bl, br = (cx, cy - 2 * h / 3), (cx - side / 2, cy + h / 3), (cx + side / 2, cy + h / 3)
+    return (a * top[0] + b * bl[0] + c_ * br[0], a * top[1] + b * bl[1] + c_ * br[1])
+
+
+def tern_grid(c, cx, cy, side, names, ticks=True):
+    pt = lambda a, b, c_: tern_xy(cx, cy, side, a, b, c_)      # noqa: E731
+    for k in range(1, 10):
+        f = k / 10
+        line(c, pt(f, 1 - f, 0), pt(f, 0, 1 - f), "EDGE", 0.7)
+        line(c, pt(0, f, 1 - f), pt(1 - f, f, 0), "EDGE", 0.7)
+        line(c, pt(0, 1 - f, f), pt(1 - f, 0, f), "EDGE", 0.7)
+    poly(c, [pt(1, 0, 0), pt(0, 1, 0), pt(0, 0, 1)], "HEAD", 2, fill="BLUE", op=0.06)
+    poly(c, [pt(1, 0, 0), pt(0, 1, 0), pt(0, 0, 1), pt(1, 0, 0)], "HEAD", 2)
+    ta, tb, tc = names
+    text(c, pt(1, 0, 0), ta, "HEAD", "middle", 14, "700", dy=-10)
+    text(c, pt(0, 1, 0), tb, "HEAD", "end", 14, "700", dx=-8, dy=8)
+    text(c, pt(0, 0, 1), tc, "HEAD", "start", 14, "700", dx=8, dy=8)
+    return pt
+
+
+def tern_reading(name, title, caption, names, point, label, axes):
+    """Triangle with one point and the three lines through it parallel to the sides (the reading construction)."""
+    c = Canvas(560, 470)
+    pt = tern_grid(c, 280, 260, 400, names)
+    a, b, c_ = point
+    p = pt(a, b, c_)
+    for q, col in ((pt(a, 1 - a, 0), "PINK"), (pt(a, 0, 1 - a), "PINK"), (pt(0, b, 1 - b), "GREEN"), (pt(1 - b, b, 0), "GREEN"),
+                   (pt(0, 1 - c_, c_), "BLUE"), (pt(1 - c_, 0, c_), "BLUE")):
+        line(c, p, q, col, 1.8, "6,4")
+    dot(c, p, 6, "ACC")
+    text(c, p, label, "ACC", "start", 14, "700", dx=8, dy=-8)
+    text(c, pt(a, 0, 1 - a), axes[0], "PINK", "start", 12.5, "700", dx=10, dy=4)       # top component: right side
+    text(c, pt(1 - b, b, 0), axes[1], "GREEN", "end", 12.5, "700", dx=-10, dy=4)      # bottom-left: left side
+    text(c, pt(0, 1 - c_, c_), axes[2], "BLUE", "middle", 12.5, "700", dy=22)        # bottom-right: bottom side
+    REG.put(name, c, title, caption)
+
+
+def ternary_scheme():
+    c = Canvas(520, 440)
+    pt = tern_grid(c, 260, 250, 380, ("A", "C", "B"))
+    for k in range(1, 10):
+        f = k / 10
+        text(c, pt(f, 1 - f, 0), f"{k * 10}", "TEXT", "end", 11, dx=-8, dy=4)      # % A on the left side
+        text(c, pt(0, 1 - f, f), f"{k * 10}", "TEXT", "middle", 11, dy=18)         # % B on the bottom
+        text(c, pt(1 - f, 0, f), f"{100 - k * 10}", "TEXT", "start", 11, dx=8, dy=4)  # % A on the right side
+    text(c, (95, 200), "% A", "TEXT", "middle", 12.5, "700")
+    text(c, (260, 432), "% B", "TEXT", "middle", 12.5, "700")
+    REG.put("ternary-scheme", c, "Composition triangle of a ternary system",
+            "Ternary diagram: three components A, B, C; the corners are the pure components and the sides are the "
+            "binary systems A-B, A-C and B-C; each point inside is one composition, with the three percentages adding "
+            "up to 100 %. Redrawn from Session 10 Slide 5")
+
+
+def part4():
+    alcr()
+    alsi()
+    ternary_scheme()
+    tern_reading("fecrni-reading", "Reading points 1 and 2 of the Fe-Cr-Ni isotherm",
+                 "Reading of point 1 of the Fe-Cr-Ni isotherm at 650 °C: the three lines through it parallel to the sides "
+                 "meet the axes at 60 % Cr, 20 % Ni and 20 % Fe. Redrawn from Session 10 Slide 7",
+                 ("Cr", "Fe", "Ni"), (0.6, 0.2, 0.2), "1", ("60 % Cr", "20 % Fe", "20 % Ni"))
+    tern_reading("fc-p11", "Problem FC11: reading the ternary alloy H",
+                 "Alloy H of the problem sheet: the lines through H parallel to the sides give 30 % A, 30 % B and 40 % C",
+                 ("A", "B", "C"), (0.3, 0.3, 0.4), "H", ("30 % A", "30 % B", "40 % C"))
+    REG.raster("s10-alcr-wide", "Al2O3-Cr2O3 down to 600 °C",
+               "Al₂O₃-Cr₂O₃ over a wider temperature range: complete solid solution between about 2100 and 950 °C, and "
+               "two solid solutions (immiscibility) below 950 °C. From Session 10 Slide 2", 300)
+    REG.raster("s10-alsi-refractories", "Refractories and microstructures in Al2O3-SiO2",
+               "Al₂O₃-SiO₂ (composition in wt% SiO₂) with the microstructures of alumina and mullite refractories, "
+               "firebrick and silica brick; mullite, 3Al₂O₃·2SiO₂, is the intermediate phase. From Session 10 Slide 4", 620)
+    REG.raster("s10-ternary-3d", "Space model of a ternary diagram",
+               "A ternary phase diagram as a solid: composition in the triangle base, temperature upwards. From Session 10 "
+               "Slide 5", 460)
+    REG.raster("s10-agcuzn", "Ag-Cu-Zn liquidus, solidus and 350 °C isotherm",
+               "Ag-Cu-Zn: projections of the liquidus and solidus surfaces and the isotherm at 350 °C. From Session 10 "
+               "Slide 6", 640)
+    REG.raster("s10-fecrni", "Fe-Cr-Ni isotherm at 650 °C",
+               "Fe-Cr-Ni isotherm at 650 °C (stainless steels) with points 1 and 2. From Session 10 Slide 7", 520)
+    REG.raster("s10-ceramic-ternaries", "CaO-Al2O3-SiO2 and clay-feldspar-quartz diagrams",
+               "Ceramic ternary diagrams: CaO-Al₂O₃-SiO₂ (cements, glasses, refractories) and clay-feldspar-quartz "
+               "(traditional ceramics: porcelains, pottery, earthenware). From Session 10 Slide 8", 640)
+    REG.raster("fc-p11-sheet", "Ternary diagram of problem 11",
+               "Ternary diagram with the alloy H (Problems T4_PhaseDiagrams II.pdf, p. 3)", 420)
+
+
 def fc_problem(name, c0, marks, ties, title, caption):
     """Problem of sheet II on the Fe-Fe3C diagram: alloy line, temperatures and tie lines.
     marks: (T, label); ties: (T, c_left, c_right, label_left, label_right). Temperatures 1147 ± ΔT and 727 ± ΔT
@@ -1813,4 +1958,5 @@ def build():
     problems()
     problems_part2()
     fc_problems()
+    part4()
     return REG

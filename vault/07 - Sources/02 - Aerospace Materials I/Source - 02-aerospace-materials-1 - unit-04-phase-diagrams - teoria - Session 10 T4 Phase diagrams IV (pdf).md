@@ -19,8 +19,10 @@ bytes: 1245168
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 10 T4 Phase diagrams IV.pdf`
 - **Kind:** teoria
 - **Size:** 1.2 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Concept - Ceramic and Ternary Phase Diagrams]]
+- [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-materials-t4-complete",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "Topic 4 complete: ceramic and ternary diagrams",
+    "text": "Session 10 is on the Topic 4 page, with ceramic and ternary phase diagrams, and the last problem of the sheets is solved: all 26 are done.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-10-14-materials-t4-fe-c-problems",
     "date": "2026-10-14",
     "tag": "Aerospace Materials I",

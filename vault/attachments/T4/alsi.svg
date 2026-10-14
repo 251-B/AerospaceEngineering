@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="The Al2O3-SiO2 phase diagram">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M90.0,30.0 L90.0,207.8 L99.4,220.8 L108.9,233.8 L118.3,246.8 L127.7,259.9 L127.7,259.9 L136.2,253.7 L144.7,247.6 L153.2,241.8 L161.7,236.1 L170.2,230.5 L178.7,225.2 L187.2,220.0 L195.6,215.0 L204.1,210.2 L212.6,205.5 L221.1,201.1 L229.6,196.7 L238.1,192.6 L246.6,188.6 L255.1,184.9 L263.6,181.2 L272.0,177.8 L280.5,174.5 L289.0,171.4 L297.5,168.5 L306.0,165.7 L314.5,163.2 L323.0,160.7 L331.5,158.5 L340.0,156.4 L348.5,154.6 L356.9,152.8 L365.4,151.3 L373.9,149.9 L382.4,148.7 L390.9,147.7 L399.4,146.8 L407.9,146.2 L416.4,145.7 L424.9,145.3 L433.3,145.2 L441.8,145.2 L450.3,145.4 L458.8,145.7 L467.3,146.2 L467.3,146.2 L472.9,140.7 L478.6,136.5 L484.2,132.8 L489.8,129.3 L495.5,126.0 L501.1,122.8 L506.7,119.7 L512.4,116.7 L518.0,113.8 L523.6,110.9 L529.3,108.1 L534.9,105.4 L540.6,102.7 L546.2,100.0 L551.8,97.4 L557.5,94.8 L563.1,92.2 L568.7,89.7 L574.4,87.2 L580.0,84.8 L580.0,30.0 Z" fill="#3b82f6" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M442.8,259.9 L442.8,210.0 L467.3,146.2 L477.1,146.2 L467.3,259.9 L469.8,330.0 L442.8,330.0 Z" fill="#3b82f6" fill-opacity="0.2" stroke="none" stroke-linejoin="round"/>
+<path d="M90.0,207.8 L99.4,220.8 L108.9,233.8 L118.3,246.8 L127.7,259.9" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M127.7,259.9 L136.2,253.7 L144.7,247.6 L153.2,241.8 L161.7,236.1 L170.2,230.5 L178.7,225.2 L187.2,220.0 L195.6,215.0 L204.1,210.2 L212.6,205.5 L221.1,201.1 L229.6,196.7 L238.1,192.6 L246.6,188.6 L255.1,184.9 L263.6,181.2 L272.0,177.8 L280.5,174.5 L289.0,171.4 L297.5,168.5 L306.0,165.7 L314.5,163.2 L323.0,160.7 L331.5,158.5 L340.0,156.4 L348.5,154.6 L356.9,152.8 L365.4,151.3 L373.9,149.9 L382.4,148.7 L390.9,147.7 L399.4,146.8 L407.9,146.2 L416.4,145.7 L424.9,145.3 L433.3,145.2 L441.8,145.2 L450.3,145.4 L458.8,145.7 L467.3,146.2" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M467.3,146.2 L472.9,140.7 L478.6,136.5 L484.2,132.8 L489.8,129.3 L495.5,126.0 L501.1,122.8 L506.7,119.7 L512.4,116.7 L518.0,113.8 L523.6,110.9 L529.3,108.1 L534.9,105.4 L540.6,102.7 L546.2,100.0 L551.8,97.4 L557.5,94.8 L563.1,92.2 L568.7,89.7 L574.4,87.2 L580.0,84.8" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M90.0,259.9 L442.8,259.9" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M467.3,146.2 L580.0,146.2" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M442.8,259.9 L442.8,210.0 L467.3,146.2" fill="none" stroke="#f59e0b" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M467.3,259.9 L477.1,146.2" fill="none" stroke="#f59e0b" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M442.8,259.9 L440.3,311.2" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<path d="M467.3,259.9 L469.8,311.2" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<line x1="90.0" y1="330.0" x2="580.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="90.0" y1="30.0" x2="90.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="580.0" y1="30.0" x2="580.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="90.0" y1="30.0" x2="580.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="90.0" y1="330.0" x2="90.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="90.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="188.0" y1="330.0" x2="188.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="188.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">20</text>
+<line x1="286.0" y1="330.0" x2="286.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="286.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">40</text>
+<line x1="384.0" y1="330.0" x2="384.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="384.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">60</text>
+<line x1="482.0" y1="330.0" x2="482.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="482.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">80</text>
+<line x1="580.0" y1="330.0" x2="580.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="580.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<line x1="85.0" y1="330.0" x2="90.0" y2="330.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="82.0" y="334.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="85.0" y1="255.0" x2="90.0" y2="255.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="82.0" y="259.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<line x1="85.0" y1="180.0" x2="90.0" y2="180.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="82.0" y="184.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1800</text>
+<line x1="85.0" y1="105.0" x2="90.0" y2="105.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="82.0" y="109.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">2000</text>
+<line x1="85.0" y1="30.0" x2="90.0" y2="30.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="82.0" y="34.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">2200</text>
+<text x="335.0" y="368.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% Al₂O₃)</text>
+<text x="94.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="90.0" y="364.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">(SiO₂)</text>
+<text x="580.0" y="364.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">(Al₂O₃)</text>
+<circle cx="127.7" cy="259.9" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="467.3" cy="146.2" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="286.0" y="253.9" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">1587 ± 10 °C</text>
+<text x="127.7" y="277.9" fill="#10b981" font-size="12" font-weight="700" text-anchor="middle">7.7</text>
+<text x="521.2" y="162.2" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">1890 ± 10 °C</text>
+<text x="461.3" y="140.2" fill="#10b981" font-size="12" font-weight="700" text-anchor="end">77</text>
+<text x="237.0" y="86.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Liquid</text>
+<text x="168.4" y="232.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">cristobalite + L</text>
+<text x="310.5" y="210.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Mullite (ss) + L</text>
+<text x="261.5" y="292.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Mullite (ss) + cristobalite</text>
+<text x="535.9" y="217.5" fill="#4b5563" font-size="11.5" font-weight="700" text-anchor="middle">Alumina +</text>
+<text x="535.9" y="226.9" fill="#4b5563" font-size="11.5" font-weight="700" text-anchor="middle">mullite (ss)</text>
+<text x="535.9" y="97.5" fill="#4b5563" font-size="11.5" font-weight="700" text-anchor="middle">L + alumina</text>
+<text x="455.1" y="303.8" fill="#4b5563" font-size="11.5" font-weight="700" text-anchor="middle">mullite (ss)</text>
+<line x1="139.0" y1="237.0" x2="107.2" y2="247.5" stroke="#8a94a6" stroke-width="1"/>
+<path d="M107.2,247.5 L113.9,241.6 L116.1,248.2 Z" fill="#8a94a6"/>
+</g></svg>

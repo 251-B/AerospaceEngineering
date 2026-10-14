@@ -1,7 +1,7 @@
 ---
 materia: "Aerospace Materials I"
 tema: "Topic 4: Phase Diagrams and Solidification"
-fuentes: "Session 7 T4 Phase diagrams I_2025.pdf, Slides 1-32; Session 8 T4 Phase diagrams II.pdf, Slides 1-17; Session 9 T4 Phase diagrams III.pdf, Slides 1-23"
+fuentes: "Session 7 T4 Phase diagrams I_2025.pdf, Slides 1-32; Session 8 T4 Phase diagrams II.pdf, Slides 1-17; Session 9 T4 Phase diagrams III.pdf, Slides 1-23; Session 10 T4 Phase diagrams IV.pdf, Slides 1-8"
 tags:
   - theory
   - topic-moc
@@ -13,6 +13,8 @@ tags:
   - intermetallic-compounds
   - fe-c-system
   - steels
+  - ceramic-phase-diagrams
+  - ternary-diagrams
 dificultad: medium
 prerrequisitos:
   - "[[Topic 2 - Structure of Materials and Crystalline Defects]]"
@@ -23,7 +25,7 @@ prerrequisitos:
 
 > **Central idea:** a phase diagram is a map that tells which phases are stable in a material for each temperature, pressure and composition. Reading it gives three answers for any alloy at any temperature: which phases are present, what each phase is made of, and how much of each there is.
 
-This page follows the official slides of Topic 4 in order. Part I (Session 7) covers the basic vocabulary, one-component diagrams, binary isomorphous systems, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems. Part II (Session 8) covers solid-state precipitation, the invariant reactions, intermetallic compounds and congruent and incongruent melting. Part III (Session 9) covers the Fe-C system, the equilibrium transformations of steels and the influence of alloying elements. Worked examples use only data printed on the slides.
+This page follows the official slides of Topic 4 in order. Part I (Session 7) covers the basic vocabulary, one-component diagrams, binary isomorphous systems, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems. Part II (Session 8) covers solid-state precipitation, the invariant reactions, intermetallic compounds and congruent and incongruent melting. Part III (Session 9) covers the Fe-C system, the equilibrium transformations of steels and the influence of alloying elements. Part IV (Session 10) covers ceramic and ternary phase diagrams. Worked examples use only data printed on the slides.
 
 ---
 
@@ -702,7 +704,93 @@ Other elements in the Fe-C system change the temperature and the composition of 
 
 In both cases the eutectoid composition falls, so a given steel lies closer to (or beyond) the eutectoid point: a hypoeutectoid steel with a γ-stabiliser such as Ni has less proeutectoid ferrite and more pearlite than the plain carbon steel of the same carbon content (used in Problem FC08).
 
-See also [[Concept - Phases, Components and Microconstituents]], [[Concept - Gibbs Phase Rule]], [[Concept - Tie Line and Lever Rule]], [[Concept - Binary Eutectic Systems and Microconstituents]], [[Concept - Solid-State Precipitation and the Solvus]], [[Concept - Invariant Reactions in Binary Systems]], [[Concept - Intermetallic Compounds and Congruent Melting]], [[Concept - The Fe-Fe3C Diagram and Steel Microstructures]].
+# Part IV — Phase diagrams IV: ceramic and ternary diagrams (Session 10)
+
+## 17. Ceramic phase diagrams [Session 10 Slides 2-4]
+
+Ceramic systems are read with the same tools as metallic ones: the components are now compounds (oxides), and the phases can be solid solutions, intermediate compounds and the liquid.
+
+### 17.1 Al₂O₃-Cr₂O₃: complete solid solubility [Session 10 Slide 2]
+
+Al₂O₃ and Cr₂O₃ form a **complete interval of solid solution**, Al₂₋ₓCrₓO₃, below the solidus temperature (about 2100 °C) and down to 950 °C: the diagram has the lens shape of an isomorphous system (§4), between the melting points of Al₂O₃ (2045 ± 5 °C) and Cr₂O₃ (2275 ± 25 °C).
+
+![[attachments/T4/alcr.svg]]
+
+Below 950 °C there is **immiscibility**: two crystalline phases, or solid solutions, exist (the dome at the bottom of the second diagram of the slide).
+
+![[attachments/T4/s10-alcr-wide.png]]
+
+### 17.2 Al₂O₃-SiO₂ and mullite [Session 10 Slides 3-4]
+
+The Al₂O₃-SiO₂ system has an **intermediate phase**, **mullite**, which includes the compound 3Al₂O₃·2SiO₂ and exists as a solid solution over a small range of compositions. The other solid phases are **alumina** (Al₂O₃) and **cristobalite** (SiO₂).
+
+![[attachments/T4/alsi.svg]]
+
+- **Invariant eutectic reaction at 1587 °C:**
+$$L\,(7.7\ \text{wt\% Al}_2\text{O}_3) \rightarrow 3\text{Al}_2\text{O}_3\cdot 2\text{SiO}_2 + \text{SiO}_2$$
+- **Invariant peritectic reaction at 1828 °C:**
+$$L\,(77\ \text{wt\% Al}_2\text{O}_3) + \text{Al}_2\text{O}_3 \rightarrow 3\text{Al}_2\text{O}_3\cdot 2\text{SiO}_2$$
+- **Mullite (ss) has an incongruent melting point at 1828 °C:** $3\text{Al}_2\text{O}_3\cdot 2\text{SiO}_2 \rightarrow L\,(77\ \text{wt\% Al}_2\text{O}_3) + \text{Al}_2\text{O}_3$, the same reaction read on heating (§12).
+
+> [!warning] Temperatures of the Al₂O₃-SiO₂ diagrams
+> The text of Slide 3 gives 1828 °C for the peritectic, while the diagram on the same slide marks that line at 1890 ± 10 °C; the diagram of Slide 4, from another source, gives 1840 °C and about 1850 °C, and 1590 °C for the eutectic. They are different measurements of the same system; the figure above follows the diagram of Slide 3. Slide 4 also writes "Al₂O₂ - SiO₂" for Al₂O₃-SiO₂.
+
+The diagram of Slide 4 (composition in wt% SiO₂, reversed with respect to Slide 3) shows the refractories made in this system and their microstructures: alumina refractory, mullite refractory, firebrick and silica brick.
+
+![[attachments/T4/s10-alsi-refractories.png]]
+
+> [!example] Worked example 18 — The eutectic product of Al₂O₃-SiO₂ [Session 10 Slide 3]
+> **Question.** A liquid of eutectic composition (7.7 wt% Al₂O₃) solidifies at 1587 °C. How much mullite and how much cristobalite does the product contain?
+>
+> **Tie line** just below 1587 °C, from cristobalite (0 wt% Al₂O₃) to mullite (ss), whose Al₂O₃-poor limit is at about **72 wt% Al₂O₃** (a reading of the figure):
+> $$W_{\text{mullite}} = \frac{C_0 - C_{\text{SiO}_2}}{C_{\text{mullite}} - C_{\text{SiO}_2}} = \frac{7.7 - 0}{72 - 0} = 0.107 \qquad W_{\text{SiO}_2} = \frac{72 - 7.7}{72} = \frac{64.3}{72} = 0.893$$
+>
+> **Check:** $0.107 \times 72 + 0.893 \times 0 = 7.7$ wt% Al₂O₃. **Answer:** the eutectic is about 89 % cristobalite and 11 % mullite: the liquid is very rich in SiO₂, so the product is mostly silica.
+
+## 18. Ternary phase diagrams [Session 10 Slides 5-8]
+
+### 18.1 The composition triangle [Session 10 Slide 5]
+
+A **ternary** diagram has **3 components** (A, B, C). The compositions are drawn in an equilateral triangle:
+
+- the **corners** are the pure components;
+- the **sides** represent the **binary compositions** A-B, A-C and B-C;
+- each point inside is one composition, and its three percentages add up to 100 %.
+
+![[attachments/T4/ternary-scheme.svg]]
+
+With temperature added as a vertical axis the diagram becomes a solid: the binary diagrams are its side faces, and the liquidus and solidus become surfaces.
+
+![[attachments/T4/s10-ternary-3d.png]]
+
+**How to read a point.** Each percentage is read along the lines parallel to the side opposite the corresponding component: the lines of constant A are parallel to the side B-C, and A grows from 0 % on that side to 100 % at the corner A. Drawing through the point the three lines parallel to the sides gives the three percentages on the three axes.
+
+### 18.2 Ternary diagrams of metallic alloys [Session 10 Slides 6-7]
+
+Because the solid has three dimensions, ternary diagrams are shown as projections or sections: the **liquidus surface** and the **solidus surface** projected onto the triangle (with their temperature contours), and **isotherms**, horizontal sections at one temperature. The Ag-Cu-Zn system is shown in the three ways, with an isotherm at 350 °C [Slide 6].
+
+![[attachments/T4/s10-agcuzn.png]]
+
+The **Fe-Cr-Ni** diagram (stainless steels) is shown as an isotherm at 650 °C, with the phase fields α, γ, σ and their two-phase regions [Slide 7]:
+
+![[attachments/T4/s10-fecrni.png]]
+
+> [!example] Worked example 19 — Reading points 1 and 2 of the Fe-Cr-Ni isotherm [Session 10 Slide 7]
+> **Point 1.** The line through the point parallel to the Fe-Ni side meets the chromium axis at **60 % Cr**; the line parallel to the Cr-Ni side meets the iron axis at **20 % Fe**; the line parallel to the Fe-Cr side meets the nickel axis at **20 % Ni**.
+>
+> ![[attachments/T4/fecrni-reading.svg]]
+>
+> **Check:** $60 + 20 + 20 = 100$ %. At 650 °C the point lies in the field **α + γ**, so the alloy has two phases, as the slide says.
+>
+> **Point 2,** the commercial stainless steel: **74 % Fe + 18 % Cr + 8 % Ni** ($74 + 18 + 8 = 100$ %). It lies near the Fe corner (it is mostly iron), on the low-Ni side of the diagram.
+
+### 18.3 Ceramic ternary diagrams [Session 10 Slide 8]
+
+Ternary diagrams are also used to describe ceramics: the CaO-Al₂O₃-SiO₂ system places cements (Portland clinker, calcium aluminate cements), glasses, slags and refractories; the **clay-feldspar-quartz** triangle gives the composition of **traditional ceramics** (porcelains, pottery, earthenware), with arrows for the changes in acid resistance and porosity.
+
+![[attachments/T4/s10-ceramic-ternaries.png]]
+
+See also [[Concept - Phases, Components and Microconstituents]], [[Concept - Gibbs Phase Rule]], [[Concept - Tie Line and Lever Rule]], [[Concept - Binary Eutectic Systems and Microconstituents]], [[Concept - Solid-State Precipitation and the Solvus]], [[Concept - Invariant Reactions in Binary Systems]], [[Concept - Intermetallic Compounds and Congruent Melting]], [[Concept - The Fe-Fe3C Diagram and Steel Microstructures]], [[Concept - Ceramic and Ternary Phase Diagrams]].
 
 ---
 
