@@ -49,6 +49,12 @@ tags:
   * [[01 - Fluid Mechanics/Concept - Fourier's Law and Heat Conduction|Concept: Fourier's Law, Conduction and Prandtl Number]]
   * [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy|Concept: Integral Conservation of Mass, Momentum and Energy]]
   * [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws|Formula Sheet: Complete Equations Handbook (3.1 to 3.46)]]
+  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, in progress: CL1 to CL5 of CL1 to CL22):**
+    * [[01 - Fluid Mechanics/Problem - CL1 Airfoil Wake and Drag|Problem CL1: Airfoil Wake, Streamline Displacement and Drag]]
+    * [[01 - Fluid Mechanics/Problem - CL2 Hydraulic Bore|Problem CL2: Bore over a Stagnant Water Layer]]
+    * [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece|Problem CL3: Double-Elbow Mouthpiece, Force and Moment]]
+    * [[01 - Fluid Mechanics/Problem - CL4 Cascade of Aerofoils|Problem CL4: Cascade of Aerofoils, Downstream State]]
+    * [[01 - Fluid Mechanics/Problem - CL5 Turbojet on a Testbench|Problem CL5: Turbojet on a Testbench, Exit State]]
   * **Practical Modular Subchapters:**
     * **Subchapter 3.1:** The Reynolds Transport Theorem (RTT) & Control Volume Selection Strategy
     * **Subchapter 3.2:** Conservation of Mass (Continuity) in Problem Solving
@@ -59,14 +65,8 @@ tags:
 * Topic 4: The Navier-Stokes Equations (Differential Dynamics) (planned)
 
 ### Block III: Hydrostatics & Applications
-* Topic 5: Hydrostatics (Fluid Statics) (official folder `unit-05-hydrostatics`; four concept notes and two problems written, topic note pending)
-  * [[01 - Fluid Mechanics/Concept - Fundamental Equation of Fluid Statics|Concept: Fundamental Equation of Fluid Statics and ISA Atmosphere]]
-  * [[01 - Fluid Mechanics/Concept - Manometry and Pressure Measurement|Concept: Manometry and Piezometric Distribution]]
-  * [[01 - Fluid Mechanics/Concept - Forces on Submerged Surfaces and Center of Pressure|Concept: Submerged Gates and Center of Pressure]]
-  * [[01 - Fluid Mechanics/Concept - Archimedes' Principle and Stability of Floating Bodies|Concept: Archimedes' Principle and Metacentric Height]]
-  * [[01 - Fluid Mechanics/Formula Sheet - Topic 1 Statics and Properties|Formula Sheet: Statics and Properties (unit 05 content)]]
-  * [[01 - Fluid Mechanics/Problem - Inclined Submerged Gate with Opening Moment|Problem: Hinged Submerged Gate with Closing Force]]
-  * [[01 - Fluid Mechanics/Problem - Multi-Liquid Differential Manometer with Gas|Problem: Multi-Fluid Differential Manometer]]
+* Topic 5: Hydrostatics (Fluid Statics) (planned)
+  * Official sources: `fluid_statics_1.pdf` to `fluid_statics_10.pdf` (10 problems).
 * Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
   * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)

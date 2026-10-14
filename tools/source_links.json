@@ -241,6 +241,31 @@
    "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf",
    "label": "T3_Additional_SOLUTIONS.pdf",
    "pages": 25
+  },
+  "fm-cl1": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf",
+   "label": "CL1.pdf",
+   "pages": 1
+  },
+  "fm-cl2": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL2.pdf",
+   "label": "CL2.pdf",
+   "pages": 1
+  },
+  "fm-cl3": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL3.pdf",
+   "label": "CL3.pdf",
+   "pages": 1
+  },
+  "fm-cl4": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL4.pdf",
+   "label": "CL4.pdf",
+   "pages": 1
+  },
+  "fm-cl5": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf",
+   "label": "CL5.pdf",
+   "pages": 1
   }
  },
  "pages": {
@@ -1400,6 +1425,40 @@
    ],
    "cite": {
     "notes": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html": {
+   "panel": [
+    [
+     "fm-notes",
+     34,
+     "Notes.pdf, Chapter 3"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   },
+   "cards": {
+    "cl1": [
+     "fm-cl1",
+     1
+    ],
+    "cl2": [
+     "fm-cl2",
+     1
+    ],
+    "cl3": [
+     "fm-cl3",
+     1
+    ],
+    "cl4": [
+     "fm-cl4",
+     1
+    ],
+    "cl5": [
+     "fm-cl5",
+     1
+    ]
    }
   }
  }
