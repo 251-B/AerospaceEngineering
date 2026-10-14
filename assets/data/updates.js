@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-cleaner-headers",
+    "date": "2026-10-14",
+    "tag": "Portal",
+    "title": "Cleaner page headers",
+    "text": "The Index, Problems and Topic buttons and the jump bars are gone from every page. Open the side menu to reach any topic, problem set or section."
+  },
+  {
     "id": "2026-10-14-side-menu",
     "date": "2026-10-14",
     "tag": "Portal",

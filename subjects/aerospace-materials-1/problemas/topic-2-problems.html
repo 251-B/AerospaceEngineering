@@ -555,14 +555,6 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           <span>Main Portal</span>
         </a>
-        <a href="index.html" class="back-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
-          <span data-i18n="nav.problems_index">Problems Index</span>
-        </a>
-        <a href="../teoria/topic-2-structure.html" class="back-link" style="color: var(--accent); border-color: var(--accent-border);">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          <span>← Back to Topic 2 Theory</span>
-        </a>
       </div>
 
       <div class="nav-actions">
@@ -571,19 +563,6 @@
     </div>
   </header>
 
-  <!-- Sticky Quick Navigation Pills -->
-  <nav class="pills-bar">
-    <div class="pills-inner">
-      <div class="pill-group">
-        <span class="pill-group-title">Block 1: Crystals (P1–P14)</span>
-        <a href="#p1" class="nav-pill" id="pill-p1">P1</a><a href="#p2" class="nav-pill" id="pill-p2">P2</a><a href="#p3" class="nav-pill" id="pill-p3">P3</a><a href="#p4" class="nav-pill" id="pill-p4">P4</a><a href="#p5" class="nav-pill" id="pill-p5">P5</a><a href="#p6" class="nav-pill" id="pill-p6">P6</a><a href="#p7" class="nav-pill" id="pill-p7">P7</a><a href="#p8" class="nav-pill" id="pill-p8">P8</a><a href="#p9" class="nav-pill" id="pill-p9">P9</a><a href="#p10" class="nav-pill" id="pill-p10">P10</a><a href="#p11" class="nav-pill" id="pill-p11">P11</a><a href="#p12" class="nav-pill" id="pill-p12">P12</a><a href="#p13" class="nav-pill" id="pill-p13">P13</a><a href="#p14" class="nav-pill" id="pill-p14">P14</a>
-      </div>
-      <div class="pill-group">
-        <span class="pill-group-title">Block 2: Defects (P15–P26)</span>
-        <a href="#p15" class="nav-pill" id="pill-p15">P15</a><a href="#p16" class="nav-pill" id="pill-p16">P16</a><a href="#p17" class="nav-pill" id="pill-p17">P17</a><a href="#p18" class="nav-pill" id="pill-p18">P18</a><a href="#p19" class="nav-pill" id="pill-p19">P19</a><a href="#p20" class="nav-pill" id="pill-p20">P20</a><a href="#p21" class="nav-pill" id="pill-p21">P21</a><a href="#p22" class="nav-pill" id="pill-p22">P22</a><a href="#p23" class="nav-pill" id="pill-p23">P23</a><a href="#p24" class="nav-pill" id="pill-p24">P24</a><a href="#p25" class="nav-pill" id="pill-p25">P25</a><a href="#p26" class="nav-pill" id="pill-p26">P26</a>
-      </div>
-    </div>
-  </nav>
 
   <!-- Main Container -->
   <main class="problems-container">
@@ -4388,29 +4367,6 @@
     </div>
   </footer>
 
-  <!-- Active Pill Observer Script -->
-  <script>
-    (function () {
-      // Intersection Observer for Active Navigation Pill
-      const cards = document.querySelectorAll('article.problem-card');
-      const pills = document.querySelectorAll('.nav-pill');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            pills.forEach(p => p.classList.remove('active'));
-            const activePill = document.getElementById('pill-' + id);
-            if (activePill) {
-              activePill.classList.add('active');
-            }
-          }
-        });
-      }, { rootMargin: '-100px 0px -70% 0px' });
-
-      cards.forEach(card => observer.observe(card));
-    })();
-  </script>
 
   <!-- Scripts: i18n -->
   <!-- Celestial Sky Engine -->

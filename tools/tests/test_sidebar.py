@@ -68,6 +68,25 @@ class SidebarStaticTests(unittest.TestCase):
             self.assertNotIn("sidebar.js", text, page)
             self.assertNotIn("nav.js", text, page)
 
+    def test_study_pages_carry_no_navigation_of_their_own(self):
+        """The side menu replaced the header buttons and the jump bars of pills."""
+        bar = re.compile(r'<nav\b[^>]*class="[^"]*\b(pill-nav-bar|subchapter-nav-bar|pills-bar|quick-jump|quick-nav)\b')
+        header = re.compile(r'<(header|nav) class="(?:site-header|back-bar)"[^>]*>.*?</\1>', re.S)
+        pages = sorted((REPO / "subjects").glob("*/teoria/*.html")) + sorted((REPO / "subjects").glob("*/problemas/*.html"))
+        self.assertGreater(len(pages), 40)
+        for page in pages:
+            text = page.read_text(encoding="utf-8")
+            with self.subTest(page=page.relative_to(REPO).as_posix()):
+                self.assertIsNone(bar.search(text), "a bar of jump pills is back")
+                m = header.search(text)
+                self.assertIsNotNone(m, "no site header")
+                hrefs = re.findall(r'<a\b[^>]*\bhref="([^"]*)"', m.group(0))
+                self.assertEqual(hrefs, ["../../../index.html"], "the header may only link to the portal")
+
+    def test_generated_pdf_pages_have_no_tab_row(self):
+        for page in sorted((REPO / "subjects").glob("*/sources/index.html")) + sorted((REPO / "subjects").glob("*/exams/index.html")):
+            self.assertNotIn('class="tabs"', page.read_text(encoding="utf-8"), page)
+
     def test_manifest_never_lists_laboratory_material(self):
         data = (REPO / "assets/data/nav.js").read_text(encoding="utf-8")
         self.assertNotRegex(data.lower(), r"laborator|(^|/)labs?([/_.-]|\")")
