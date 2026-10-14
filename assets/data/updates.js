@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-materials-t4-problems-9-15",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "Topic 4 problems 9 to 15 solved",
+    "text": "Seven more phase-diagram problems: reactions and compounds in Al-Ni, Cu-Sn, Ni-Mo, Ti-Si and Ti-B, and two diagrams drawn from data.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
+  },
+  {
+    "id": "2026-10-14-materials-t4-theory-part-2",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "New theory: phase diagrams, part II",
+    "text": "Session 8 is now on the Topic 4 page: precipitation in the solid state, the five invariant reactions and intermetallic compounds.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-10-14-cleaner-headers",
     "date": "2026-10-14",
     "tag": "Portal",

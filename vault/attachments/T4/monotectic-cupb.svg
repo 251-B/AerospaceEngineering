@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="The monotectic reaction in the Cu-Pb system">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M80.0,62.3 C91.5,65.8 121.4,77.2 149.0,83.2 C176.6,89.2 229.5,96.0 245.6,98.6" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M245.6,98.6 C256.3,97.2 289.3,91.9 310.0,90.2 C330.7,88.5 349.9,88.4 369.8,88.5 C389.7,88.7 411.2,89.4 429.6,91.0 C448.0,92.7 471.8,97.3 480.2,98.6" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M480.2,98.6 C487.1,104.9 512.4,119.8 521.6,136.4 C530.8,153.0 532.4,175.0 535.4,198.0 C538.4,221.0 539.0,261.7 539.7,274.4" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M80.0,98.6 L480.2,98.6" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M80.0,274.7 L539.7,274.7" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="80.0" y1="310.0" x2="540.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="540.0" y1="30.0" x2="540.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="540.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="310.0" x2="80.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="172.0" y1="310.0" x2="172.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="172.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">20</text>
+<line x1="264.0" y1="310.0" x2="264.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="264.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">40</text>
+<line x1="356.0" y1="310.0" x2="356.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="356.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">60</text>
+<line x1="448.0" y1="310.0" x2="448.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="448.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">80</text>
+<line x1="540.0" y1="310.0" x2="540.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="540.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<line x1="75.0" y1="310.0" x2="80.0" y2="310.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="314.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="75.0" y1="254.0" x2="80.0" y2="254.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="258.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="198.0" x2="80.0" y2="198.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="202.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="142.0" x2="80.0" y2="142.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="146.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="86.0" x2="80.0" y2="86.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="90.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<text x="310.0" y="348.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% Pb)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<circle cx="245.6" cy="98.6" r="5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="86.0" y="54.3" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="start">1084.5 °C</text>
+<text x="369.8" y="80.5" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">991 °C</text>
+<text x="310.0" y="114.6" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">955 °C</text>
+<text x="245.6" y="114.6" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">36</text>
+<text x="486.2" y="90.6" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="start">87</text>
+<text x="310.0" y="266.7" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">326 °C</text>
+<text x="264.0" y="58.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">L</text>
+<text x="116.8" y="90.2" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + L₁</text>
+<text x="369.8" y="95.8" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">L₁ + L₂</text>
+<text x="264.0" y="184.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + L₂</text>
+<text x="264.0" y="293.2" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + β</text>
+</g></svg>

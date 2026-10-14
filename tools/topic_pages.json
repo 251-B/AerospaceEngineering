@@ -46,11 +46,11 @@
    "html_title": "Topic 4: Phase Diagrams and Solidification — Aerospace Materials I",
    "category": "Topic 04 · Phase Diagrams",
    "title": "Phase Diagrams and Solidification",
-   "subtitle": "Phases and microconstituents, one-component and binary isomorphous diagrams, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems.",
-   "source": "Universidad Carlos III de Madrid · Session 7 T4 Phase diagrams I_2025.pdf",
+   "subtitle": "Phases and microconstituents, one-component and binary isomorphous diagrams, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification, eutectic systems, solid-state precipitation, the invariant reactions and intermetallic compounds.",
+   "source": "Universidad Carlos III de Madrid · Session 7 T4 Phase diagrams I_2025.pdf and Session 8 T4 Phase diagrams II.pdf",
    "problems": {
     "href": "../problemas/topic-4-phase-diagrams.html",
-    "label": "8 solved problems for this topic (Problems T4_PhaseDiagrams I, problems 1-8)"
+    "label": "15 solved problems for this topic (Problems T4_PhaseDiagrams I, problems 1-15)"
    }
   },
   "subjects/business-management/teoria/topic-1.html": {

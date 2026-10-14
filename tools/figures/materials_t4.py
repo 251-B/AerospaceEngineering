@@ -806,6 +806,411 @@ def eutectic_lever():
             "(from P + Q + R). Redrawn from Session 7 Slide 32")
 
 
+# --------------------------------------------------------------------------- Session 8 figures (Part II)
+def bisect(f, a, b, n=60):
+    """Root of f in [a, b] (f(a) and f(b) of opposite sign)."""
+    fa = f(a)
+    for _ in range(n):
+        m = (a + b) / 2
+        if (f(m) > 0) == (fa > 0):
+            a, fa = m, f(m)
+        else:
+            b = m
+    return (a + b) / 2
+
+
+def precip_pbsn():
+    c = Canvas(640, 400)
+    P = Plot(c, (80, 30, 520, 320), (0, 50), (0, 400))
+    liq_a, _, sol_a, _, solv_a, _ = pbsn_curves(PBSN)
+    liq = [(x, t) for x, t in liq_a if x <= 50]
+    P.area([(0, 400)] + liq + [(50, 400)], "BLUE", 0.08)
+    P.area(sol_a + solv_a + [(0, 0)], "BLUE", 0.16)
+    for cv in (liq, sol_a, solv_a):
+        P.line(cv, "ACC", 2.2)
+    P.line([(PBSN["ca"], PBSN["te"]), (50, PBSN["te"])], "ACC", 2.2)
+    P.frame([(0, "0"), (10, "10"), (20, "20"), (30, "30"), (40, "40"), (50, "50")],
+            [(0, "0"), (100, "100"), (200, "200"), (300, "300"), (400, "400")], "Composition (wt% Sn)", "Temperature (°C)")
+    for x, pts, lab in ((1, ((350, "a"), (325, "b"), (270, "c")), sub("C", "1") + " = 1"),
+                        (16, ((350, "d"), (270, "e"), (192, "f"), (121, "g")), sub("C", "2") + " = 16")):
+        P.vseg(x, 0, 395, "GREEN", 1.5, "6,4")
+        P.text(x, 0, lab, "GREEN", "middle", 12, dy=52)
+        for t, s in pts:
+            P.dot(x, t, 4, "GREEN")
+            P.text(x, t, s, "GREEN", "start", 13, dx=7, dy=-4)
+    P.text(32, 350, "L", size=14)
+    P.text(32, 225, "α + L", size=13)
+    P.text(8, 60, "α", size=14, dx=-12)
+    P.text(34, 90, "α + β", size=13.5)
+    P.text(40, 265, "liquidus", "TEXT", "middle", 11.5, "400")
+    P.text(12, 240, "solidus", "TEXT", "start", 11.5, "400")
+    P.text(9, 120, "solvus", "TEXT", "start", 11.5, "400")
+    REG.put("precip-pbsn", c, "Pb-Sn alloys below and above the solid solubility limit",
+            "Pb-1 wt% Sn (a liquid, b α starts to form, c only α) never crosses the solvus; Pb-16 wt% Sn (d liquid, "
+            "e α + L, f only α) crosses the solvus on cooling and at g contains α + β. Redrawn from Session 8 Slides 2 and 4")
+
+
+def generic_eutectic(P, ta=78, tb=70, te=42, ca=30, ce=59, cb=89, a0=12, b0=97):
+    """Draw the schematic eutectic diagram of the slides on P (0-100 x 0-100) and return its boundary functions."""
+    f_liq_a = lambda x: ta - (ta - te) * x / ce + 0.004 * x * (ce - x)        # noqa: E731
+    f_sol_a = lambda t: ca * ((ta - t) / (ta - te)) ** 0.8                    # noqa: E731
+    f_solv_a = lambda t: ca - (ca - a0) * (1 - t / te) ** 1.3                # noqa: E731
+    f_solv_b = lambda t: cb + (b0 - cb) * (1 - t / te) ** 1.3                # noqa: E731
+    liq_a = [(x, f_liq_a(x)) for x in lin(0, ce)]
+    liq_b = [(x, te + (tb - te) * ((x - ce) / (100 - ce)) ** 0.85) for x in lin(ce, 100, 20)]
+    sol_a = [(f_sol_a(t), t) for t in lin(ta, te)]
+    sol_b = [(100 - (100 - cb) * ((tb - t) / (tb - te)) ** 0.8, t) for t in lin(tb, te, 20)]
+    solv_a = [(f_solv_a(t), t) for t in lin(te, 0)]
+    solv_b = [(f_solv_b(t), t) for t in lin(te, 0)]
+    P.area([(0, 100)] + liq_a + liq_b + [(100, 100)], "BLUE", 0.08)
+    P.area(sol_a + solv_a + [(0, 0)], "BLUE", 0.18)
+    P.area([(100, tb)] + sol_b + solv_b + [(100, 0)], "BLUE", 0.18)
+    for cv in (liq_a, liq_b, sol_a, sol_b, solv_a, solv_b):
+        P.line(cv, "ACC", 2.4)
+    P.line([(ca, te), (cb, te)], "ACC", 2.4)
+    return dict(liq_a=f_liq_a, sol_a=f_sol_a, solv_a=f_solv_a, solv_b=f_solv_b)
+
+
+def precip_generic():
+    c = Canvas(720, 380)
+    P = Plot(c, (330, 30, 680, 320), (0, 100), (0, 100))
+    f = generic_eutectic(P)
+    P.frame([(0, "A"), (20, "20"), (100, "B")], (), "Composition (wt% B)", "Temperature")
+    x0 = 20
+    P.vseg(x0, 0, 95, "GREEN", 1.5, "6,4")
+    t1 = 64
+    cl1 = bisect(lambda x: f["liq_a"](x) - t1, 0.1, 58)
+    cs1 = f["sol_a"](t1)
+    P.line([(cs1, t1), (cl1, t1)], "BLUE", 1.8)
+    P.dot(cs1, t1, 3.6, "HEAD"); P.dot(cl1, t1, 3.6, "HEAD")
+    P.text(cs1, t1, sub("α", "1"), "HEAD", "end", 12.5, dx=-5, dy=4)
+    P.text(cl1, t1, sub("L", "1"), "HEAD", "start", 12.5, dx=5, dy=4)
+    for t, k in ((14, "2"), (6, "3")):
+        ca, cb = f["solv_a"](t), f["solv_b"](t)
+        P.line([(ca, t), (cb, t)], "BLUE", 1.2, "4,4")
+        P.dot(ca, t, 3.6, "HEAD"); P.dot(cb, t, 3.6, "HEAD")
+        P.text(ca, t, sub("α", k), "HEAD", "end", 12.5, dx=-5, dy=4)
+        P.text(cb, t, sub("β", k), "HEAD", "start", 12.5, dx=5, dy=4)
+    marks = ((88, sub("L", "system")), (t1, ""), (35, sub("α", "system")), (14, ""))
+    for t, lab in marks:
+        circle(c, P.p(x0, t), 4.5, "GREEN", 1.6)
+        if lab:
+            P.text(x0, t, lab, "GREEN", "start", 12, dx=8, dy=-6)
+    P.text(45, 85, "L", size=15)
+    P.text(46, 22, "α + β", size=13.5)
+    boxes = ((88, "100 % liquid", "(L = 20 % B)"), (t1, "α₁ crystals in", "a matrix of L₁"),
+             (35, "100 % α", "(α = 20 % B)"), (14, "small β₂ particles", "in a matrix of α₂"))
+    for k, (t, l1, l2) in enumerate(boxes):
+        y = P.p(x0, t)[1] + (14 if k == 3 else 0)
+        bx = 150
+        rect(c, bx, y - 26, 52, 52, "HEAD", 1.3)
+        line(c, (bx + 54, y), (P.p(x0, t)[0] - 7, P.p(x0, t)[1]), "EDGE", 1, head=True)
+        text(c, (bx - 8, y - 2), l1, "TEXT", "end", 11.5)
+        text(c, (bx - 8, y + 13), l2, "TEXT", "end", 11.5)
+        if k == 1:
+            for u, v, r in ((bx + 14, y - 10, 8), (bx + 36, y - 8, 7), (bx + 22, y + 13, 8)):
+                circle(c, (u, v), r, "HEAD", 1.2)
+        if k in (2, 3):
+            for a, b in (((bx, y - 4), (bx + 20, y - 8)), ((bx + 20, y - 8), (bx + 30, y - 26)), ((bx + 20, y - 8), (bx + 28, y + 10)),
+                         ((bx + 28, y + 10), (bx, y + 16)), ((bx + 28, y + 10), (bx + 52, y + 6)), ((bx + 28, y + 10), (bx + 32, y + 26)),
+                         ((bx + 20, y - 8), (bx + 52, y - 12))):
+                line(c, a, b, "HEAD", 1.1)
+        if k == 3:
+            for u, v in ((bx + 20, y - 8), (bx + 28, y + 10)):
+                dot(c, (u, v), 3.2, "HEAD")
+    REG.put("precip-generic", c, "Solid-state precipitation on cooling an alloy of 20 % B",
+            "An alloy of 20 % B: all liquid, then α₁ crystals in liquid L₁, then 100 % α of the alloy's composition. "
+            "Below the solvus the solubility of B in α is exceeded and small β particles form, mainly at the grain "
+            "boundaries, and grow as the temperature falls (α₂ + β₂, then α₃ + β₃). Redrawn from Session 8 Slide 3")
+
+
+def scheme(c, x0, y0, kind):
+    """Small schematic of an invariant reaction around a horizontal line at (x0 .. x0 + 240, y0)."""
+    w = 240
+    line(c, (x0 + 18, y0), (x0 + w - 18, y0), "ACC", 2.2)
+    mid = x0 + w / 2
+    lab = lambda p, s, a="middle": text(c, p, s, "HEAD", a, 13, "700")      # noqa: E731
+    up_v = lambda: (smooth(c, [(mid - 22, y0 - 26), (mid - 8, y0 - 10), (mid, y0)], "ACC", 2),          # noqa: E731
+                    smooth(c, [(mid + 22, y0 - 26), (mid + 8, y0 - 10), (mid, y0)], "ACC", 2))
+    down_v = lambda: (smooth(c, [(mid - 18, y0 + 24), (mid - 6, y0 + 8), (mid, y0)], "ACC", 2),          # noqa: E731
+                      smooth(c, [(mid + 18, y0 + 24), (mid + 6, y0 + 8), (mid, y0)], "ACC", 2))
+    left_end = lambda: (smooth(c, [(x0 + 4, y0 - 24), (x0 + 12, y0 - 8), (x0 + 18, y0)], "ACC", 2),     # noqa: E731
+                        smooth(c, [(x0 + 4, y0 + 24), (x0 + 12, y0 + 8), (x0 + 18, y0)], "ACC", 2))
+    right_end = lambda: (smooth(c, [(x0 + w - 4, y0 - 24), (x0 + w - 12, y0 - 8), (x0 + w - 18, y0)], "ACC", 2),   # noqa: E731
+                         smooth(c, [(x0 + w - 4, y0 + 24), (x0 + w - 12, y0 + 8), (x0 + w - 18, y0)], "ACC", 2))
+    if kind in ("eutectic", "eutectoid"):
+        left_end(); right_end(); up_v()
+        lab((x0 - 2, y0 + 5), "α", "end"); lab((x0 + w + 2, y0 + 5), "β", "start")
+        lab((mid, y0 - 30), "L" if kind == "eutectic" else "γ"); lab((mid, y0 + 20), "α + β")
+    elif kind in ("peritectic", "peritectoid"):
+        left_end(); down_v()
+        if kind == "peritectic":
+            smooth(c, [(x0 + w - 30, y0 - 22), (x0 + w - 22, y0 - 6), (x0 + w - 18, y0)], "ACC", 2)
+            lab((x0 + w + 2, y0 + 5), "L", "start"); lab((mid, y0 - 10), "α + L"); lab((mid, y0 + 38), "β")
+        else:
+            right_end()
+            lab((x0 + w + 2, y0 + 5), "β", "start"); lab((mid, y0 - 10), "α + β"); lab((mid, y0 + 38), "γ")
+        lab((x0 - 2, y0 + 5), "α", "end")
+    else:  # monotectic
+        smooth(c, [(x0 + 18, y0), (x0 + 50, y0 - 32), (x0 + 95, y0 - 34), (mid, y0)], "ACC", 2)
+        smooth(c, [(mid, y0), (mid + 40, y0 - 18), (mid + 80, y0 - 24)], "ACC", 2)
+        right_end()
+        lab((x0 + 10, y0 - 4), sub("L", "2"), "end"); lab((mid + 6, y0 - 14), sub("L", "1"), "start")
+        lab((x0 + w + 2, y0 + 5), "α", "start"); lab((mid, y0 + 20), "α + " + sub("L", "2"))
+        text(c, (x0 - 6, y0 - 26), "miscibility gap", "TEXT", "end", 11.5)
+
+
+def invariant_table():
+    c = Canvas(700, 480)
+    rows = (("Eutectic", "L → α + β", "eutectic"), ("Peritectic", "α + L → β", "peritectic"),
+            ("Monotectic", "L₁ → L₂ + α", "monotectic"), ("Eutectoid", "γ → α + β", "eutectoid"),
+            ("Peritectoid", "α + β → γ", "peritectoid"))
+    for k, (name, eq, kind) in enumerate(rows):
+        y = 56 + k * 90
+        line(c, (20, y - 46), (690, y - 46), "EDGE", 0.8)
+        text(c, (30, y + 5), name, "HEAD", "start", 14, "700")
+        text(c, (160, y + 5), eq, "HEAD", "start", 14, "700")
+        scheme(c, 400, y, kind)
+    line(c, (20, 56 + 4 * 90 + 46), (690, 56 + 4 * 90 + 46), "EDGE", 0.8)
+    text(c, (30, 56 + 3 * 90 + 26), "solid-state reactions", "GREEN", "start", 11.5, "700")
+    REG.put("invariant-table", c, "The five invariant reactions of binary diagrams",
+            "Eutectic, peritectic and monotectic reactions involve a liquid; the eutectoid and the peritectoid happen "
+            "entirely in the solid state. Redrawn from Session 8 Slide 6")
+
+
+def cuzn():
+    c = Canvas(640, 380)
+    P = Plot(c, (80, 30, 560, 300), (60, 95), (430, 760))
+    for g in (70, 80, 90):
+        P.vseg(g, 430, 760, "EDGE", 0.6, "2,4")
+    for g in (500, 600, 700):
+        P.hseg(60, 95, g, "EDGE", 0.6, "2,4")
+    segs = (
+        [(67.6, 747), (69.1, 697), (70.0, 561), (67.9, 438)],
+        [(69.1, 697), (80.0, 697)],
+        [(72.6, 695), (73.7, 561)], [(72.6, 695), (76.1, 597)], [(76.1, 597), (73.7, 561)],
+        [(76.1, 597), (87.6, 597)], [(70.0, 561), (78.2, 561)],
+        [(78.2, 597), (78.2, 438)],
+        [(75.9, 747), (80.0, 697), (87.6, 597), (94.5, 498), (95, 490)],
+    )
+    for s in segs:
+        P.line(s, "ACC", 2.2)
+    P.line([(78.2, 597), (81.5, 560), (84.5, 505), (86.7, 453), (87.4, 430)], "ACC", 2.2)
+    P.frame([(60, "60"), (70, "70"), (80, "80"), (90, "90")], [(500, "500"), (600, "600"), (700, "700")],
+            "Composition (wt% Zn)", "Temperature (°C)")
+    P.hseg(62, 84, 560, "BLUE", 1.2, "5,4")
+    P.vseg(73.7, 430, 680, "BLUE", 1.0, "4,4")
+    P.dot(73.7, 561, 4.5, "GREEN"); P.dot(78.2, 597, 4.5, "GREEN")
+    P.text(73.7, 561, "E", "GREEN", "middle", 13, dy=18)
+    P.text(78.2, 597, "P", "GREEN", "middle", 13, dy=-8)
+    P.text(64, 560, "560 °C", "BLUE", "start", 12, dy=-6)
+    P.text(84, 597, "598 °C", "HEAD", "middle", 12, "400", dy=-6)
+    for x, t, s in ((74, 735, "γ + L"), (71.2, 640, "γ + δ"), (74.6, 625, "δ"), (82, 650, "δ + L"), (92, 680, "L"),
+                    (77.3, 578, "δ + ε"), (81.5, 500, "ε"), (90, 500, "ε + L"), (74, 490, "γ + ε"), (64, 640, "γ")):
+        P.text(x, t, s, size=12.5)
+    REG.put("cuzn-eutectoid", c, "The eutectoid point of the Cu-Zn system",
+            "Part of the Cu-Zn diagram: at E (560 °C, 74 % Zn) the solid δ transforms on cooling into γ (70 % Zn) and "
+            "ε (78 % Zn), an invariant reaction in the solid state; P (598 °C) is a peritectic point. Redrawn from "
+            "Session 8 Slide 7 (compositions read on the figure)")
+
+
+def peritectic_generic():
+    c = Canvas(520, 330)
+    P = Plot(c, (60, 30, 440, 290), (0, 100), (0, 100))
+    liq = [(0, 95), (30, 87), (60, 75), (82, 60), (100, 45)]
+    P.area([(0, 100)] + liq + [(100, 100)], "BLUE", 0.08)
+    smooth(c, [P.p(*q) for q in liq], "ACC", 2.4)
+    P.line([(0, 95), (30, 60)], "ACC", 2.4)
+    P.line([(30, 60), (82, 60)], "ACC", 2.4)
+    smooth(c, [P.p(30, 60), P.p(28, 30), P.p(26, 0)], "ACC", 2.2)
+    smooth(c, [P.p(55, 60), P.p(57, 30), P.p(59, 0)], "ACC", 2.2)
+    smooth(c, [P.p(55, 60), P.p(80, 52), P.p(100, 45)], "ACC", 2.2)
+    P.frame([(0, "A"), (100, "B")], (), "composition", "Temperature")
+    for x, t, s in ((30, 60, "a"), (55, 60, "P"), (82, 60, "b")):
+        P.dot(x, t, 4, "GREEN")
+        P.text(x, t, s, "GREEN", "middle", 13, dy=-8)
+    P.text(0, 95, sub("T", "A"), "HEAD", "end", 12.5, dx=-6, dy=4)
+    P.text(100, 60, sub("T", "P"), "HEAD", "start", 12.5, dx=6, dy=4)
+    P.text(100, 45, sub("T", "B"), "HEAD", "start", 12.5, dx=6, dy=4)
+    for x, t, s in ((60, 90, "L"), (35, 75, "L + α"), (10, 40, "α"), (42, 30, "α + β"), (80, 30, "β"), (80, 55, "L + β")):
+        P.text(x, t, s, size=12.5)
+    REG.put("peritectic-generic", c, "A peritectic point",
+            "Peritectic point P: on cooling at T_P, the solid α of composition a and the liquid of composition b react "
+            "to give a different solid, β (α + L → β). Redrawn from Session 8 Slide 8")
+
+
+def feni():
+    c = Canvas(600, 360)
+    P = Plot(c, (80, 30, 520, 300), (0, 9), (1380, 1560))
+    P.line([(0, 1538), (5.4, 1517), (9, 1503)], "PINK", 2.2)
+    P.line([(0, 1538), (4.0, 1517)], "ACC", 2.2)
+    P.line([(0, 1394), (4.0, 1517)], "ACC", 2.2)
+    P.line([(0, 1394), (4.3, 1517)], "PINK", 2.2)
+    P.line([(4.3, 1517), (9, 1487)], "ACC", 2.2)
+    P.line([(4.0, 1517), (5.4, 1517)], "HEAD", 2)
+    P.frame([(x, str(x)) for x in range(10)], [(1400, "1400"), (1450, "1450"), (1500, "1500"), (1550, "1550")],
+            "Composition (wt% Ni)", "Temperature (°C)")
+    P.vseg(4.3, 1380, 1555, "GREEN", 1.4, "6,4")
+    P.dot(4.3, 1517, 4.5, "GREEN")
+    P.hseg(0, 4.0, 1517, "EDGE", 1, "4,4")
+    for x, t, s in ((0, 1538, "1538"), (0, 1394, "1394"), (0, 1517, "1517")):
+        P.text(x, t, s, "TEXT", "start", 11.5, "400", dx=6, dy=-5 if s != "1394" else 14)
+    for x, s in ((4.0, "4.0"), (5.4, "5.4")):
+        P.text(x, 1517, s, "HEAD", "middle", 12, dy=-8)
+    P.text(4.3, 1380, "4.3", "GREEN", "middle", 12, dy=52)
+    for x, t, s in ((7.5, 1545, "Liquid"), (2.2, 1532, "L + δ"), (1.2, 1480, "δ"), (2.6, 1440, "γ + δ"), (6.5, 1440, "γ"),
+                    (8.3, 1499, "L + γ")):
+        P.text(x, t, s, size=12.5)
+    REG.put("feni-peritectic", c, "The peritectic point of the Fe-Ni system",
+            "Fe-Ni at 1517 °C: δ of 4.0 % Ni and liquid of 5.4 % Ni react to give γ of 4.3 % Ni. Redrawn from Session 8 "
+            "Slide 8")
+
+
+def ptag():
+    c = Canvas(640, 400)
+    P = Plot(c, (80, 30, 540, 320), (0, 100), (600, 1900))
+    liq = [(0, 1780), (25, 1640), (55, 1400), (66.3, 1186), (77, 1150), (88, 1060), (100, 961)]
+    sol_b = [(42.4, 1186), (48, 1150), (65, 1080), (85, 1010), (100, 961)]
+    solv_a = [(10.5, 1186), (8, 1000), (5, 800), (3, 600)]
+    beta_l = [(42.4, 1186), (55, 1000), (72, 800), (88, 600)]
+    P.area([(0, 1900)] + liq + [(100, 1900)], "BLUE", 0.08)
+    smooth(c, [P.p(*q) for q in liq], "PINK", 2.4)
+    P.line([(0, 1780), (7, 1400), (10.5, 1186)], "PINK", 2.2)
+    smooth(c, [P.p(*q) for q in solv_a], "PINK", 2.2)
+    smooth(c, [P.p(*q) for q in sol_b], "PINK", 2.2)
+    smooth(c, [P.p(*q) for q in beta_l], "PINK", 2.2)
+    P.line([(10.5, 1186), (66.3, 1186)], "PINK", 2.2)
+    P.frame([(x, str(x)) for x in range(0, 101, 10)], [(t, str(t)) for t in (600, 800, 1000, 1200, 1400, 1600, 1800)],
+            "Composition (wt% Ag)", "Temperature (°C)")
+    for x, lab in ((42.4, "alloy 1 (42.4)"), (60, "alloy 2 (60)")):
+        P.vseg(x, 600, 1880, "GREEN", 1.3, "6,4")
+        P.text(x, 1880, lab, "GREEN", "middle", 11.5, dy=-4)
+    for t, a, b, la, lb in ((1400, 7, 55, "7", "55"), (1150, 48, 77, "48", "77")):
+        P.line([(a, t), (b, t)], "BLUE", 1.8)
+        P.text(a, t, la, "BLUE", "middle" if la == "48" else "end", 11.5, dx=0 if la == "48" else -4, dy=16 if la == "48" else -4)
+        P.text(b, t, lb, "BLUE", "start", 11.5, dx=4, dy=-4)
+    P.dot(42.4, 1400, 4, "GREEN"); P.dot(42.4, 1186, 4.5, "GREEN"); P.dot(60, 1150, 4, "GREEN")
+    P.text(10.5, 1186, "10.5", "HEAD", "end", 11.5, dx=-4, dy=14)
+    P.text(66.3, 1186, "66.3", "HEAD", "start", 11.5, dx=6, dy=-4)
+    P.text(30, 1186, "1186 °C", "HEAD", "middle", 11.5, "400", dy=-6)
+    for x, t, s in ((70, 1600, "Liquid"), (20, 1450, "L + α"), (4, 1000, "α"), (30, 900, "α + β"), (86, 780, "β"),
+                    (82, 1080, "L + β")):
+        P.text(x, t, s, size=12.5)
+    REG.put("ptag-peritectic", c, "The peritectic reaction in the Pt-Ag system",
+            "Pt-Ag: at 1186 °C α (10.5 % Ag) and liquid (66.3 % Ag) give β (42.4 % Ag). Alloy 1 has the peritectic "
+            "composition; alloy 2 (about 60 % Ag, a reading of the figure) ends in L + β at 1150 °C. Redrawn from Session 8 "
+            "Slide 9")
+
+
+def peritectoid_generic():
+    c = Canvas(520, 300)
+    P = Plot(c, (60, 30, 440, 270), (0, 100), (0, 100))
+    P.line([(0, 100), (70, 60)], "ACC", 2.2)
+    P.line([(0, 100), (12, 60)], "ACC", 2.2)
+    P.line([(12, 60), (70, 60)], "ACC", 2.2)
+    P.line([(12, 60), (2, 0)], "ACC", 2.2)
+    P.line([(45, 60), (32, 0)], "ACC", 2.2)
+    P.line([(45, 60), (58, 0)], "ACC", 2.2)
+    P.line([(70, 60), (82, 0)], "ACC", 2.2)
+    P.line([(70, 60), (100, 25)], "ACC", 2.2)
+    P.frame((), (), "", "")
+    circle(c, P.p(45, 60), 9, "PINK", 1.6)
+    for x, t, s in ((70, 85, "solid β"), (30, 70, "β + α"), (5, 70, "α"), (20, 25, "α + γ"), (45, 18, "γ"), (75, 25, "γ + β")):
+        P.text(x, t, s, size=12.5)
+    REG.put("peritectoid-generic", c, "A peritectoid point",
+            "Peritectoid point (circled): on cooling, two solid phases, α and β, react to give a new solid phase γ. "
+            "Redrawn from Session 8 Slide 11")
+
+
+def monotectic_cupb():
+    c = Canvas(640, 380)
+    P = Plot(c, (80, 30, 540, 310), (0, 100), (200, 1200))
+    smooth(c, [P.p(0, 1084.5), P.p(15, 1010), P.p(36, 955)], "PINK", 2.4)
+    smooth(c, [P.p(36, 955), P.p(50, 985), P.p(63, 991), P.p(76, 982), P.p(87, 955)], "PINK", 2.4)
+    smooth(c, [P.p(87, 955), P.p(96, 820), P.p(99, 600), P.p(99.94, 327)], "PINK", 2.4)
+    P.line([(0, 955), (87, 955)], "HEAD", 1.6)
+    P.line([(0, 326), (99.94, 326)], "HEAD", 1.6)
+    P.frame([(x, str(x)) for x in (0, 20, 40, 60, 80, 100)], [(t, str(t)) for t in (200, 400, 600, 800, 1000)],
+            "Composition (wt% Pb)", "Temperature (°C)")
+    P.dot(36, 955, 5, "GREEN")
+    for x, t, s, a in ((0, 1084.5, "1084.5 °C", "start"), (63, 991, "991 °C", "middle"), (50, 955, "955 °C", "middle"),
+                       (36, 955, "36", "middle"), (87, 955, "87", "start"), (50, 326, "326 °C", "middle")):
+        P.text(x, t, s, "TEXT", a, 11.5, "400", dx=6 if a == "start" else 0, dy=-8 if s not in ("36", "955 °C") else 16)
+    for x, t, s in ((40, 1100, "L"), (8, 985, "α + L₁"), (63, 965, "L₁ + L₂"), (40, 650, "α + L₂"), (40, 260, "α + β")):
+        P.text(x, t, s, size=12.5)
+    REG.put("monotectic-cupb", c, "The monotectic reaction in the Cu-Pb system",
+            "Cu-Pb at 955 °C: the liquid L₁ of 36 % Pb gives a second liquid L₂ of 87 % Pb and solid α (practically "
+            "pure Cu). The dome above is the miscibility gap of the liquid. Redrawn from Session 8 Slide 12")
+
+
+def mgni():
+    c = Canvas(660, 380)
+    P = Plot(c, (80, 30, 560, 310), (0, 100), (300, 1500))
+    smooth(c, [P.p(0, 650), P.p(12, 585), P.p(23.6, 505)], "PINK", 2.4)
+    smooth(c, [P.p(23.6, 505), P.p(35, 640), P.p(51, 760)], "PINK", 2.4)
+    smooth(c, [P.p(51, 760), P.p(65, 1020), P.p(82.5, 1146)], "PINK", 2.4)
+    smooth(c, [P.p(82.5, 1146), P.p(86.5, 1125), P.p(90, 1086)], "PINK", 2.4)
+    smooth(c, [P.p(90, 1086), P.p(95, 1300), P.p(100, 1450)], "PINK", 2.4)
+    P.line([(0.6, 505), (54.75, 505)], "HEAD", 1.6)
+    P.line([(51, 760), (82.5, 760)], "HEAD", 1.6)
+    P.line([(54.75, 300), (54.75, 760)], "HEAD", 2)
+    P.line([(82.5, 300), (82.5, 1146)], "HEAD", 2)
+    P.line([(82.5, 1086), (98, 1086)], "HEAD", 1.6)
+    P.frame([(x, str(x)) for x in range(0, 101, 10)], [(t, str(t)) for t in (300, 700, 1100, 1500)],
+            "Composition (wt% Ni)", "Temperature (°C)")
+    for x, t, s in ((20, 1300, "Liquid"), (8, 560, "L + α"), (25, 420, "α + Mg₂Ni"), (42, 620, "L + Mg₂Ni"),
+                    (68, 600, "Mg₂Ni + MgNi₂"), (68, 860, "L + MgNi₂"), (91, 700, "MgNi₂ + β"), (96, 1150, "β")):
+        P.text(x, t, s, size=12)
+    P.text(54.75, 760, "Mg₂Ni: incongruent melting", "GREEN", "end", 12, dx=-6, dy=-40)
+    line(c, P.p(50, 820), P.p(54.5, 765), "GREEN", 1, head=True)
+    P.text(82.5, 1146, "MgNi₂: congruent melting", "GREEN", "end", 12, dx=-10, dy=-16)
+    REG.put("mgni-melting", c, "Congruent and incongruent melting in the Mg-Ni system",
+            "Mg-Ni: MgNi₂ melts congruently (the liquid keeps its composition, a maximum of the liquidus), while Mg₂Ni "
+            "melts incongruently: on heating it gives liquid plus MgNi₂ at the horizontal line, the reverse of a "
+            "peritectic reaction. Redrawn from Session 8 Slide 17")
+
+
+def part2_rasters():
+    REG.raster("s8-precipitation-micrograph", "Micrograph of precipitates at grain boundaries",
+               "Micrograph of solid-state precipitates at the grain boundaries (scale bar 20 µm). From Session 8 Slide 3", 360)
+    REG.raster("s8-precipitation-micrographs", "Micrographs of precipitates inside the grains",
+               "Precipitates inside the grains; on the right, a detail of the circled area. From Session 8 Slide 4", 560)
+    REG.raster("s8-cuzn-micrograph", "Micrograph of the Cu-Zn eutectoid structure",
+               "Micrograph of the eutectoid product of the Cu-Zn alloy, a fine mixture of γ and ε. From Session 8 Slide 7", 320)
+    REG.raster("s8-ptag-sequence", "Microstructure during the peritectic reaction",
+               "Peritectic reaction with decreasing temperature: α crystals in liquid; β forms around them; all β. From "
+               "Session 8 Slide 9", 500)
+    REG.raster("s8-peritectic-rapid", "Rapid solidification in a peritectic system",
+               "Rapid (non-equilibrium) solidification of alloy X: the solid follows non-equilibrium compositions (α′, "
+               "β′) and the peritectic reaction is incomplete. From Session 8 Slide 10", 520)
+    REG.raster("s8-peritectic-encasement", "β surrounding primary α during the peritectic reaction",
+               "Encasement: the β formed by the peritectic reaction surrounds the primary α, so B atoms from the liquid "
+               "and A atoms from α must diffuse through it. From Session 8 Slide 10", 380)
+    REG.raster("s8-cow-peritectoid", "The Co-W phase diagram with a peritectoid point",
+               "Co-W diagram: the arrow marks a peritectoid point, where two solid phases give the new solid γ. From "
+               "Session 8 Slide 11", 600)
+    REG.raster("s8-intermetallic-phases", "Terminal and intermediate phases",
+               "A diagram with terminal phases (α, ζ) at the ends and intermediate phases (β, γ, δ, ε) inside, around "
+               "the compounds A₂B, AB, AB₂ and AB₄. From Session 8 Slide 14", 560)
+    REG.raster("s8-tib", "The Ti-B diagram of the slides",
+               "Ti-B: Ti₃B₄ is a stoichiometric compound (a vertical line); TiB and TiB₂ have a range of compositions. "
+               "From Session 8 Slide 15", 440)
+
+
+def theory_part2():
+    precip_pbsn()
+    precip_generic()
+    invariant_table()
+    cuzn()
+    peritectic_generic()
+    feni()
+    ptag()
+    peritectoid_generic()
+    monotectic_cupb()
+    mgni()
+    part2_rasters()
+
+
 # --------------------------------------------------------------------------- problem sheet I (problems 1-8)
 def lagrange(pts):
     """Quadratic through three (x, y) points, returned as a function of x."""
@@ -1022,6 +1427,63 @@ def problems():
                  BLOBS_MANY[:6], "proeutectic α", "eutectic (α + β)")
 
 
+def pd_p11():
+    c = Canvas(660, 420)
+    P = Plot(c, (80, 30, 560, 330), (0, 100), (0, 1100))
+    ab2 = 200 / 3
+    P.area([(0, 1100), (0, 850), (30, 700), (ab2, 1000), (95, 500), (100, 350), (100, 1100)], "BLUE", 0.08)
+    P.area([(0, 850), (10, 700), (2, 25), (0, 25)], "BLUE", 0.16)
+    P.area([(80, 500), (100, 350), (100, 25), (75, 25)], "BLUE", 0.16)
+    for seg in (((0, 850), (30, 700)), ((0, 850), (10, 700)), ((10, 700), (2, 25)), ((10, 700), (ab2, 700)),
+                ((30, 700), (ab2, 1000)), ((ab2, 1000), (95, 500)), ((ab2, 500), (95, 500)), ((95, 500), (100, 350)),
+                ((80, 500), (100, 350)), ((80, 500), (75, 25))):
+        P.line(list(seg), "ACC", 2.2)
+    P.line([(ab2, 25), (ab2, 1000)], "HEAD", 2.4)
+    P.frame([(0, "0 (A)"), (10, "10"), (30, "30"), (66.7, "66.7"), (80, "80"), (95, "95"), (100, "B")],
+            [(t, str(t)) for t in (0, 200, 400, 600, 800, 1000)], "Composition (at.% B)", "Temperature (°C)")
+    for x, t in ((0, 850), (100, 350), (ab2, 1000), (30, 700), (10, 700), (2, 25), (80, 500), (95, 500), (75, 25)):
+        P.dot(x, t, 3.8, "GREEN")
+    for x, t, s, a, dx, dy in ((0, 850, "850 °C", "start", 6, -6), (100, 350, "350 °C", "end", -6, 16), (ab2, 1000, "AB₂ 1000 °C", "middle", 0, -8),
+                               (30, 700, "E (700 °C)", "middle", 0, 18), (80, 500, "P (500 °C)", "end", -6, 16), (2, 25, "2", "start", 6, -4),
+                               (75, 25, "75", "end", -6, -4)):
+        P.text(x, t, s, "GREEN", a, 11.5, dx=dx, dy=dy)
+    for x, t, s in ((45, 1000, "L"), (12, 760, "α + L"), (3, 400, "α"), (38, 350, "α + AB₂"), (52, 790, "L + AB₂"),
+                    (78, 680, "L + AB₂"), (73, 250, "AB₂ + β"), (93, 440, "L + β"), (91, 200, "β")):
+        P.text(x, t, s, size=12)
+    REG.put("pd-p11", c, "Problem 11: the A-B diagram drawn from the data",
+            "A-B with straight lines: A melts at 850 °C, B at 350 °C, the stoichiometric compound AB₂ (66.7 at.% B) melts "
+            "congruently at 1000 °C; eutectic E at 700 °C and 30 at.% B; peritectic P at 500 °C (β of 80, liquid of "
+            "95 at.% B); solubility of B in α 10 at.% at 700 °C and 2 at.% at 25 °C; solubility of A in β 25 at.% at 25 °C")
+
+
+def problems_part2():
+    REG.raster("pd-p9-alni", "Al-Ni phase diagram of the problem sheet",
+               "Al-Ni phase diagram (Problems T4_PhaseDiagrams I.pdf, p. 3)", 620)
+    REG.raster("pd-p10-cusn", "Cu-Sn phase diagram of the problem sheet",
+               "Cu-Sn phase diagram (Problems T4_PhaseDiagrams I.pdf, p. 4)", 640)
+    REG.raster("pd-p12-nimo", "Ni-Mo phase diagram of the problem sheet",
+               "Ni-Mo phase diagram (Problems T4_PhaseDiagrams I.pdf, p. 5)", 600)
+    REG.raster("pd-p13-tisi", "Ti-Si phase diagram of the problem sheet",
+               "Ti-Si phase diagram (Problems T4_PhaseDiagrams I.pdf, p. 6)", 640)
+    REG.raster("pd-p14-diagram", "Hypothetical A-B phase diagram of problem 14",
+               "Hypothetical A-B phase diagram (Problems T4_PhaseDiagrams I.pdf, p. 6)", 420)
+    REG.raster("pd-p15-tib", "Ti-B phase diagram of the problem sheet",
+               "Ti-B phase diagram in weight percent (Problems T4_PhaseDiagrams I.pdf, p. 7)", 640)
+    pd_p11()
+    micro_figure("pd-micro-p9", "Problem 9: microstructure of Al-20 wt% Ni at 400 °C",
+                 "Al-20 wt% Ni at 400 °C: primary Al₃Ni crystals (about 39 %) in the eutectic (Al) + Al₃Ni (about 61 %)",
+                 BLOBS_FEW + [(-55, 30, 14)], "primary Al₃Ni", "eutectic ((Al) + Al₃Ni)")
+    micro_figure("pd-micro-p12", "Problem 12: microstructure of Ni-40 wt% Mo just below 1310 °C",
+                 "Ni-40 wt% Mo just below 1310 °C: primary NiMo (25 %) in the eutectic α + NiMo (75 %)",
+                 BLOBS_FEW, "primary NiMo", "eutectic (α + NiMo)")
+    micro_figure("pd-micro-p13", "Problem 13: microstructure of Ti-30 wt% Si just below 1330 °C",
+                 "Ti-30 wt% Si just below 1330 °C: primary Ti₅Si₃ (76 %) in the eutectic βTi + Ti₅Si₃ (24 %)",
+                 BLOBS_MANY, "primary Ti₅Si₃", "eutectic (βTi + Ti₅Si₃)")
+    micro_figure("pd-micro-p15", "Problem 15: microstructure of Ti-10 wt% B",
+                 "Ti-10 wt% B below 1540 °C: primary TiB (50 %) in the eutectic Ti + TiB (50 %)",
+                 BLOBS_MANY[:4], "primary TiB", "eutectic (Ti + TiB)")
+
+
 # --------------------------------------------------------------------------- figures copied from the slides
 def rasters():
     REG.raster("s7-ferrite-pearlite", "Micrograph of a steel with ferrite and pearlite",
@@ -1085,5 +1547,7 @@ def build():
     hypereutectic()
     eutectic_lever()
     rasters()
+    theory_part2()
     problems()
+    problems_part2()
     return REG

@@ -19,8 +19,12 @@ bytes: 1490393
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 8 T4 Phase diagrams II.pdf`
 - **Kind:** teoria
 - **Size:** 1.5 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 5 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Concept - Intermetallic Compounds and Congruent Melting]]
+- [[02 - Aerospace Materials I/Concept - Invariant Reactions in Binary Systems]]
+- [[02 - Aerospace Materials I/Concept - Solid-State Precipitation and the Solvus]]
+- [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

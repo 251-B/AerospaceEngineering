@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 420" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Problem 11: the A-B diagram drawn from the data">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M80.0,30.0 L80.0,98.2 L224.0,139.1 L400.0,57.3 L536.0,193.6 L560.0,234.5 L560.0,30.0 Z" fill="#3b82f6" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,98.2 L128.0,139.1 L89.6,323.2 L80.0,323.2 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M464.0,193.6 L560.0,234.5 L560.0,323.2 L440.0,323.2 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,98.2 L224.0,139.1" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,98.2 L128.0,139.1" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M128.0,139.1 L89.6,323.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M128.0,139.1 L400.0,139.1" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M224.0,139.1 L400.0,57.3" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M400.0,57.3 L536.0,193.6" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M400.0,193.6 L536.0,193.6" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M536.0,193.6 L560.0,234.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M464.0,193.6 L560.0,234.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M464.0,193.6 L440.0,323.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M400.0,323.2 L400.0,57.3" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="80.0" y1="330.0" x2="560.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="560.0" y1="30.0" x2="560.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="560.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="330.0" x2="80.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0 (A)</text>
+<line x1="128.0" y1="330.0" x2="128.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="128.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10</text>
+<line x1="224.0" y1="330.0" x2="224.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="224.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">30</text>
+<line x1="400.2" y1="330.0" x2="400.2" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="400.2" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">66.7</text>
+<line x1="464.0" y1="330.0" x2="464.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="464.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">80</text>
+<line x1="536.0" y1="330.0" x2="536.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="536.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">95</text>
+<line x1="560.0" y1="330.0" x2="560.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="560.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">B</text>
+<line x1="75.0" y1="330.0" x2="80.0" y2="330.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="334.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">0</text>
+<line x1="75.0" y1="275.5" x2="80.0" y2="275.5" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="279.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="75.0" y1="220.9" x2="80.0" y2="220.9" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="224.9" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="166.4" x2="80.0" y2="166.4" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="170.4" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="111.8" x2="80.0" y2="111.8" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="115.8" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="57.3" x2="80.0" y2="57.3" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="61.3" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<text x="320.0" y="368.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (at.% B)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<circle cx="80.0" cy="98.2" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="560.0" cy="234.5" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="400.0" cy="57.3" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="224.0" cy="139.1" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="128.0" cy="139.1" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="89.6" cy="323.2" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="464.0" cy="193.6" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="536.0" cy="193.6" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="440.0" cy="323.2" r="3.8" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="86.0" y="92.2" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="start">850 °C</text>
+<text x="554.0" y="250.5" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="end">350 °C</text>
+<text x="400.0" y="49.3" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="middle">AB₂ 1000 °C</text>
+<text x="224.0" y="157.1" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="middle">E (700 °C)</text>
+<text x="458.0" y="209.6" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="end">P (500 °C)</text>
+<text x="95.6" y="319.2" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="start">2</text>
+<text x="434.0" y="319.2" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="end">75</text>
+<text x="296.0" y="57.3" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L</text>
+<text x="137.6" y="122.7" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">α + L</text>
+<text x="94.4" y="220.9" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">α</text>
+<text x="262.4" y="234.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">α + AB₂</text>
+<text x="329.6" y="114.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + AB₂</text>
+<text x="454.4" y="144.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + AB₂</text>
+<text x="430.4" y="261.8" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">AB₂ + β</text>
+<text x="526.4" y="210.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + β</text>
+<text x="516.8" y="275.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">β</text>
+</g></svg>

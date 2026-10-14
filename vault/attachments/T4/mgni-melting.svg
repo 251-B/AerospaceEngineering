@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Congruent and incongruent melting in the Mg-Ni system">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M80.0,228.3 C89.6,230.9 118.7,237.9 137.6,243.5 C156.5,249.1 184.0,259.1 193.3,262.2" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M193.3,262.2 C202.4,256.9 226.1,240.6 248.0,230.7 C269.9,220.8 312.0,207.3 324.8,202.7" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M324.8,202.7 C336.0,192.6 366.8,157.0 392.0,142.0 C417.2,127.0 462.0,117.5 476.0,112.6" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M476.0,112.6 C479.2,113.4 489.2,115.2 495.2,117.5 C501.2,119.8 509.2,125.1 512.0,126.6" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M512.0,126.6 C516.0,118.3 528.0,90.8 536.0,76.7 C544.0,62.5 556.0,47.5 560.0,41.7" fill="none" stroke="#ec4899" stroke-width="2.4"/>
+<path d="M82.9,262.2 L342.8,262.2" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M324.8,202.7 L476.0,202.7" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M342.8,310.0 L342.8,202.7" fill="none" stroke="#4b5563" stroke-width="2" stroke-linejoin="round"/>
+<path d="M476.0,310.0 L476.0,112.6" fill="none" stroke="#4b5563" stroke-width="2" stroke-linejoin="round"/>
+<path d="M476.0,126.6 L550.4,126.6" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="80.0" y1="310.0" x2="560.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="560.0" y1="30.0" x2="560.0" y2="310.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="560.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="310.0" x2="80.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="128.0" y1="310.0" x2="128.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="128.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10</text>
+<line x1="176.0" y1="310.0" x2="176.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="176.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">20</text>
+<line x1="224.0" y1="310.0" x2="224.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="224.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">30</text>
+<line x1="272.0" y1="310.0" x2="272.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="272.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">40</text>
+<line x1="320.0" y1="310.0" x2="320.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="320.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">50</text>
+<line x1="368.0" y1="310.0" x2="368.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="368.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">60</text>
+<line x1="416.0" y1="310.0" x2="416.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="416.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">70</text>
+<line x1="464.0" y1="310.0" x2="464.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="464.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">80</text>
+<line x1="512.0" y1="310.0" x2="512.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="512.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">90</text>
+<line x1="560.0" y1="310.0" x2="560.0" y2="315.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="560.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<line x1="75.0" y1="310.0" x2="80.0" y2="310.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="314.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">300</text>
+<line x1="75.0" y1="216.7" x2="80.0" y2="216.7" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="220.7" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">700</text>
+<line x1="75.0" y1="123.3" x2="80.0" y2="123.3" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="127.3" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1100</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1500</text>
+<text x="320.0" y="348.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% Ni)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="176.0" y="76.7" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Liquid</text>
+<text x="118.4" y="249.3" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + α</text>
+<text x="200.0" y="282.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">α + Mg₂Ni</text>
+<text x="281.6" y="235.3" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + Mg₂Ni</text>
+<text x="406.4" y="240.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">Mg₂Ni + MgNi₂</text>
+<text x="406.4" y="179.3" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + MgNi₂</text>
+<text x="516.8" y="216.7" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">MgNi₂ + β</text>
+<text x="540.8" y="111.7" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">β</text>
+<text x="336.8" y="162.7" fill="#10b981" font-size="12" font-weight="700" text-anchor="end">Mg₂Ni: incongruent melting</text>
+<line x1="320.0" y1="188.7" x2="341.6" y2="201.5" stroke="#10b981" stroke-width="1"/>
+<path d="M341.6,201.5 L332.7,200.3 L336.3,194.3 Z" fill="#10b981"/>
+<text x="466.0" y="96.6" fill="#10b981" font-size="12" font-weight="700" text-anchor="end">MgNi₂: congruent melting</text>
+</g></svg>

@@ -106,16 +106,19 @@ tags:
 
 ### ⚖️ Block II: Phase Diagrams and Solidification
 
-#### [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification]] (Part I done: Session 7 and problems 1-8)
+#### [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification]] (Parts I-II done: Sessions 7-8 and problems 1-15)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html`
 * **Master Note:** [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification (MOC)]]
-* **Atomic Theory Concepts (4 Notes, Part I):**
+* **Atomic Theory Concepts (7 Notes, Parts I-II):**
   * [[02 - Aerospace Materials I/Concept - Phases, Components and Microconstituents|Concept: Phases, Components and Microconstituents]]
   * [[02 - Aerospace Materials I/Concept - Gibbs Phase Rule|Concept: Gibbs Phase Rule]]
   * [[02 - Aerospace Materials I/Concept - Tie Line and Lever Rule|Concept: Tie Line and Lever Rule]]
   * [[02 - Aerospace Materials I/Concept - Binary Eutectic Systems and Microconstituents|Concept: Binary Eutectic Systems and Microconstituents]]
-* **Official Solved Problems (8 of 26, Problems T4_PhaseDiagrams I, problems 1-8):**
+  * [[02 - Aerospace Materials I/Concept - Solid-State Precipitation and the Solvus|Concept: Solid-State Precipitation and the Solvus]]
+  * [[02 - Aerospace Materials I/Concept - Invariant Reactions in Binary Systems|Concept: Invariant Reactions in Binary Systems]]
+  * [[02 - Aerospace Materials I/Concept - Intermetallic Compounds and Congruent Melting|Concept: Intermetallic Compounds and Congruent Melting]]
+* **Official Solved Problems (15 of 26, Problems T4_PhaseDiagrams I, problems 1-15):**
   * [[02 - Aerospace Materials I/Problem - T4-PD01 Phase Limits from the Phase Fractions of Two Alloys|Problem T4-PD01: Phase Limits from the Phase Fractions of Two Alloys]]
   * [[02 - Aerospace Materials I/Problem - T4-PD02 Primary and Total Beta in a Pb-Sn Alloy|Problem T4-PD02: Primary and Total β in a Pb-Sn Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD03 Phases and Microconstituents of a Pb-80 Sn Alloy|Problem T4-PD03: Phases and Microconstituents of Pb-80 wt% Sn]]
@@ -124,6 +127,13 @@ tags:
   * [[02 - Aerospace Materials I/Problem - T4-PD06 The Hypereutectic Ag-80 Cu Alloy|Problem T4-PD06: The Hypereutectic Ag-80 wt% Cu Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD07 The Hypoeutectic Ag-10 Cu Alloy|Problem T4-PD07: The Hypoeutectic Ag-10 wt% Cu Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD08 Drawing a Eutectic Diagram and the 40 B Alloy|Problem T4-PD08: Drawing a Eutectic Diagram and the 40 % B Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD09 Invariant Reactions and an Al-20 Ni Alloy|Problem T4-PD09: Invariant Reactions and an Al-20 wt% Ni Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD10 Reactions and Eutectoids in the Cu-Sn System|Problem T4-PD10: Reactions and Eutectoids in the Cu-Sn System]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD11 Drawing a Diagram with a Stoichiometric Compound|Problem T4-PD11: Drawing a Diagram with a Stoichiometric Compound]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD12 Invariant Reactions and a Ni-40 Mo Alloy|Problem T4-PD12: Invariant Reactions and a Ni-40 wt% Mo Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD13 Compounds and Cooling of a Ti-30 Si Alloy|Problem T4-PD13: Compounds and Cooling of a Ti-30 % Si Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD14 Reading a Hypothetical Diagram with Several Compounds|Problem T4-PD14: Reading a Hypothetical Diagram with Several Compounds]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD15 The Ti-B System and Ti-10 B and Ti-18 B Alloys|Problem T4-PD15: The Ti-B System and Ti-10 % B and Ti-18 % B Alloys]]
 * **Official Sources:**
   * Theory: `Session 7 T4 Phase diagrams I_2025.pdf`, `Session 8 T4 Phase diagrams II.pdf`, `Session 9 T4 Phase diagrams III.pdf`, `Session 10 T4 Phase diagrams IV.pdf`
   * Problems: `Problems T4_PhaseDiagrams I.pdf`, `Problems T4_PhaseDiagrams II.pdf`

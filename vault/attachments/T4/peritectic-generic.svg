@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="100%" class="fig-kit" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="A peritectic point">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M60.0,30.0 L60.0,43.0 L174.0,63.8 L288.0,95.0 L371.6,134.0 L440.0,173.0 L440.0,30.0 Z" fill="#3b82f6" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M60.0,43.0 C79.0,46.5 136.0,55.1 174.0,63.8 C212.0,72.5 255.1,83.3 288.0,95.0 C320.9,106.7 346.3,121.0 371.6,134.0 C396.9,147.0 428.6,166.5 440.0,173.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M60.0,43.0 L174.0,134.0" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M174.0,134.0 L371.6,134.0" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M174.0,134.0 C172.7,147.0 168.9,186.0 166.4,212.0 C163.9,238.0 160.1,277.0 158.8,290.0" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M269.0,134.0 C270.3,147.0 274.1,186.0 276.6,212.0 C279.1,238.0 282.9,277.0 284.2,290.0" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M269.0,134.0 C284.8,137.5 335.5,148.3 364.0,154.8 C392.5,161.3 427.3,170.0 440.0,173.0" fill="none" stroke="#f59e0b" stroke-width="2.2"/>
+<line x1="60.0" y1="290.0" x2="440.0" y2="290.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="60.0" y1="30.0" x2="60.0" y2="290.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="440.0" y1="30.0" x2="440.0" y2="290.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="60.0" y1="30.0" x2="440.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="60.0" y1="290.0" x2="60.0" y2="295.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="60.0" y="309.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">A</text>
+<line x1="440.0" y1="290.0" x2="440.0" y2="295.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="440.0" y="309.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">B</text>
+<text x="250.0" y="328.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">composition</text>
+<text x="64.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature</text>
+<circle cx="174.0" cy="134.0" r="4" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="174.0" y="126.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">a</text>
+<circle cx="269.0" cy="134.0" r="4" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="269.0" y="126.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">P</text>
+<circle cx="371.6" cy="134.0" r="4" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="371.6" y="126.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">b</text>
+<text x="54.0" y="47.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">A</tspan></text>
+<text x="446.0" y="138.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">T<tspan baseline-shift="sub" font-size="72%">P</tspan></text>
+<text x="446.0" y="177.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">T<tspan baseline-shift="sub" font-size="72%">B</tspan></text>
+<text x="288.0" y="56.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">L</text>
+<text x="193.0" y="95.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">L + α</text>
+<text x="98.0" y="186.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α</text>
+<text x="219.6" y="212.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + β</text>
+<text x="364.0" y="212.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">β</text>
+<text x="364.0" y="147.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">L + β</text>
+</g></svg>

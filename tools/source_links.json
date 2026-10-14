@@ -1649,12 +1649,17 @@
     [
      "mat-s7",
      1
+    ],
+    [
+     "mat-s8",
+     1
     ]
    ],
    "cite": {
     "slides": "mat-s7",
     "sessions": {
-     "7": "mat-s7"
+     "7": "mat-s7",
+     "8": "mat-s8"
     }
    }
   },
@@ -1672,7 +1677,8 @@
    "cite": {
     "slides": "mat-s7",
     "sessions": {
-     "7": "mat-s7"
+     "7": "mat-s7",
+     "8": "mat-s8"
     }
    },
    "cards": {
@@ -1707,6 +1713,34 @@
     "prob-8": [
      "mat-t4a",
      3
+    ],
+    "prob-9": [
+     "mat-t4a",
+     3
+    ],
+    "prob-10": [
+     "mat-t4a",
+     4
+    ],
+    "prob-11": [
+     "mat-t4a",
+     4
+    ],
+    "prob-12": [
+     "mat-t4a",
+     5
+    ],
+    "prob-13": [
+     "mat-t4a",
+     5
+    ],
+    "prob-14": [
+     "mat-t4a",
+     6
+    ],
+    "prob-15": [
+     "mat-t4a",
+     7
     ]
    }
   }

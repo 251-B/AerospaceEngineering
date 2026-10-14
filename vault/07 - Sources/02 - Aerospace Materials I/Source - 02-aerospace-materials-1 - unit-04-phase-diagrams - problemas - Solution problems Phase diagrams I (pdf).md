@@ -19,7 +19,7 @@ bytes: 1288235
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution problems Phase diagrams I.pdf`
 - **Kind:** problemas
 - **Size:** 1.3 MB
-- **Status:** referenced by 6 note(s) below
+- **Status:** referenced by 8 note(s) below
 
 ## Referenced by
 
@@ -28,4 +28,6 @@ bytes: 1288235
 - [[02 - Aerospace Materials I/Problem - T4-PD03 Phases and Microconstituents of a Pb-80 Sn Alloy]]
 - [[02 - Aerospace Materials I/Problem - T4-PD04 Phases and Microconstituents of a Pb-30 Sn Alloy]]
 - [[02 - Aerospace Materials I/Problem - T4-PD06 The Hypereutectic Ag-80 Cu Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD10 Reactions and Eutectoids in the Cu-Sn System]]
+- [[02 - Aerospace Materials I/Problem - T4-PD14 Reading a Hypothetical Diagram with Several Compounds]]
 - [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

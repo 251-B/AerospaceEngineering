@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="The five invariant reactions of binary diagrams">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="20.0" y1="10.0" x2="690.0" y2="10.0" stroke="#8a94a6" stroke-width="0.8"/>
+<text x="30.0" y="61.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">Eutectic</text>
+<text x="160.0" y="61.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">L → α + β</text>
+<line x1="418.0" y1="56.0" x2="622.0" y2="56.0" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M404.0,32.0 C405.3,34.7 409.7,44.0 412.0,48.0 C414.3,52.0 417.0,54.7 418.0,56.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M404.0,80.0 C405.3,77.3 409.7,68.0 412.0,64.0 C414.3,60.0 417.0,57.3 418.0,56.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,32.0 C634.7,34.7 630.3,44.0 628.0,48.0 C625.7,52.0 623.0,54.7 622.0,56.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,80.0 C634.7,77.3 630.3,68.0 628.0,64.0 C625.7,60.0 623.0,57.3 622.0,56.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M498.0,30.0 C500.3,32.7 508.3,41.7 512.0,46.0 C515.7,50.3 518.7,54.3 520.0,56.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M542.0,30.0 C539.7,32.7 531.7,41.7 528.0,46.0 C524.3,50.3 521.3,54.3 520.0,56.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="398.0" y="61.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">α</text>
+<text x="642.0" y="61.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">β</text>
+<text x="520.0" y="26.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="520.0" y="76.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">α + β</text>
+<line x1="20.0" y1="100.0" x2="690.0" y2="100.0" stroke="#8a94a6" stroke-width="0.8"/>
+<text x="30.0" y="151.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">Peritectic</text>
+<text x="160.0" y="151.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">α + L → β</text>
+<line x1="418.0" y1="146.0" x2="622.0" y2="146.0" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M404.0,122.0 C405.3,124.7 409.7,134.0 412.0,138.0 C414.3,142.0 417.0,144.7 418.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M404.0,170.0 C405.3,167.3 409.7,158.0 412.0,154.0 C414.3,150.0 417.0,147.3 418.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M502.0,170.0 C504.0,167.3 511.0,158.0 514.0,154.0 C517.0,150.0 519.0,147.3 520.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M538.0,170.0 C536.0,167.3 529.0,158.0 526.0,154.0 C523.0,150.0 521.0,147.3 520.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M610.0,124.0 C611.3,126.7 616.0,136.3 618.0,140.0 C620.0,143.7 621.3,145.0 622.0,146.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="642.0" y="151.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">L</text>
+<text x="520.0" y="136.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">α + L</text>
+<text x="520.0" y="184.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">β</text>
+<text x="398.0" y="151.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">α</text>
+<line x1="20.0" y1="190.0" x2="690.0" y2="190.0" stroke="#8a94a6" stroke-width="0.8"/>
+<text x="30.0" y="241.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">Monotectic</text>
+<text x="160.0" y="241.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">L₁ → L₂ + α</text>
+<line x1="418.0" y1="236.0" x2="622.0" y2="236.0" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M418.0,236.0 C423.3,230.7 437.2,209.7 450.0,204.0 C462.8,198.3 483.3,196.7 495.0,202.0 C506.7,207.3 515.8,230.3 520.0,236.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M520.0,236.0 C526.7,233.0 546.7,222.0 560.0,218.0 C573.3,214.0 593.3,213.0 600.0,212.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,212.0 C634.7,214.7 630.3,224.0 628.0,228.0 C625.7,232.0 623.0,234.7 622.0,236.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,260.0 C634.7,257.3 630.3,248.0 628.0,244.0 C625.7,240.0 623.0,237.3 622.0,236.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="410.0" y="232.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">L<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="526.0" y="222.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="642.0" y="241.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">α</text>
+<text x="520.0" y="256.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">α + L<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="394.0" y="210.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="end">miscibility gap</text>
+<line x1="20.0" y1="280.0" x2="690.0" y2="280.0" stroke="#8a94a6" stroke-width="0.8"/>
+<text x="30.0" y="331.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">Eutectoid</text>
+<text x="160.0" y="331.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">γ → α + β</text>
+<line x1="418.0" y1="326.0" x2="622.0" y2="326.0" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M404.0,302.0 C405.3,304.7 409.7,314.0 412.0,318.0 C414.3,322.0 417.0,324.7 418.0,326.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M404.0,350.0 C405.3,347.3 409.7,338.0 412.0,334.0 C414.3,330.0 417.0,327.3 418.0,326.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,302.0 C634.7,304.7 630.3,314.0 628.0,318.0 C625.7,322.0 623.0,324.7 622.0,326.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,350.0 C634.7,347.3 630.3,338.0 628.0,334.0 C625.7,330.0 623.0,327.3 622.0,326.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M498.0,300.0 C500.3,302.7 508.3,311.7 512.0,316.0 C515.7,320.3 518.7,324.3 520.0,326.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M542.0,300.0 C539.7,302.7 531.7,311.7 528.0,316.0 C524.3,320.3 521.3,324.3 520.0,326.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="398.0" y="331.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">α</text>
+<text x="642.0" y="331.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">β</text>
+<text x="520.0" y="296.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="520.0" y="346.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">α + β</text>
+<line x1="20.0" y1="370.0" x2="690.0" y2="370.0" stroke="#8a94a6" stroke-width="0.8"/>
+<text x="30.0" y="421.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">Peritectoid</text>
+<text x="160.0" y="421.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">α + β → γ</text>
+<line x1="418.0" y1="416.0" x2="622.0" y2="416.0" stroke="#f59e0b" stroke-width="2.2"/>
+<path d="M404.0,392.0 C405.3,394.7 409.7,404.0 412.0,408.0 C414.3,412.0 417.0,414.7 418.0,416.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M404.0,440.0 C405.3,437.3 409.7,428.0 412.0,424.0 C414.3,420.0 417.0,417.3 418.0,416.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M502.0,440.0 C504.0,437.3 511.0,428.0 514.0,424.0 C517.0,420.0 519.0,417.3 520.0,416.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M538.0,440.0 C536.0,437.3 529.0,428.0 526.0,424.0 C523.0,420.0 521.0,417.3 520.0,416.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,392.0 C634.7,394.7 630.3,404.0 628.0,408.0 C625.7,412.0 623.0,414.7 622.0,416.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<path d="M636.0,440.0 C634.7,437.3 630.3,428.0 628.0,424.0 C625.7,420.0 623.0,417.3 622.0,416.0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="642.0" y="421.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">β</text>
+<text x="520.0" y="406.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">α + β</text>
+<text x="520.0" y="454.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="398.0" y="421.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">α</text>
+<line x1="20.0" y1="462.0" x2="690.0" y2="462.0" stroke="#8a94a6" stroke-width="0.8"/>
+<text x="30.0" y="352.0" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="start">solid-state reactions</text>
+</g></svg>

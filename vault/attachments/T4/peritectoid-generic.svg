@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="100%" class="fig-kit" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="A peritectoid point">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M60.0,30.0 L326.0,126.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M60.0,30.0 L105.6,126.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M105.6,126.0 L326.0,126.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M105.6,126.0 L67.6,270.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M231.0,126.0 L181.6,270.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M231.0,126.0 L280.4,270.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M326.0,126.0 L371.6,270.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M326.0,126.0 L440.0,210.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="60.0" y1="270.0" x2="440.0" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="60.0" y1="30.0" x2="60.0" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="440.0" y1="30.0" x2="440.0" y2="270.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="60.0" y1="30.0" x2="440.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<circle cx="231.0" cy="126.0" r="9.0" fill="none" stroke="#ec4899" stroke-width="1.6"/>
+<text x="326.0" y="66.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">solid β</text>
+<text x="174.0" y="102.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">β + α</text>
+<text x="79.0" y="102.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α</text>
+<text x="136.0" y="210.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + γ</text>
+<text x="231.0" y="226.8" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">γ</text>
+<text x="345.0" y="210.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">γ + β</text>
+</g></svg>

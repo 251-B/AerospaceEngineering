@@ -1,7 +1,7 @@
 ---
 materia: "Aerospace Materials I"
 tema: "Topic 4: Phase Diagrams and Solidification"
-fuentes: "Session 7 T4 Phase diagrams I_2025.pdf, Slides 1-32"
+fuentes: "Session 7 T4 Phase diagrams I_2025.pdf, Slides 1-32; Session 8 T4 Phase diagrams II.pdf, Slides 1-17"
 tags:
   - theory
   - topic-moc
@@ -9,6 +9,8 @@ tags:
   - gibbs-phase-rule
   - lever-rule
   - eutectic
+  - invariant-reactions
+  - intermetallic-compounds
 dificultad: medium
 prerrequisitos:
   - "[[Topic 2 - Structure of Materials and Crystalline Defects]]"
@@ -19,7 +21,7 @@ prerrequisitos:
 
 > **Central idea:** a phase diagram is a map that tells which phases are stable in a material for each temperature, pressure and composition. Reading it gives three answers for any alloy at any temperature: which phases are present, what each phase is made of, and how much of each there is.
 
-This page follows the official slides of Topic 4 in order. Part I (Session 7) covers the basic vocabulary, one-component diagrams, binary isomorphous systems, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems. Worked examples use only data printed on the slides.
+This page follows the official slides of Topic 4 in order. Part I (Session 7) covers the basic vocabulary, one-component diagrams, binary isomorphous systems, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems. Part II (Session 8) covers solid-state precipitation, the invariant reactions, intermetallic compounds and congruent and incongruent melting. Worked examples use only data printed on the slides.
 
 ---
 
@@ -343,7 +345,198 @@ The first two use the short tie line between α and the eutectic liquid (microco
 >
 > **Answer.** Just below 183 °C the alloy is 73.2 % primary α and 26.8 % eutectic. Counting phases, it is 85.3 % α (73.2 % primary plus 12.1 % in the eutectic) and 14.7 % β. Just above 183 °C the same lever gives 73.2 % α of 18.3 wt% Sn and 26.8 % liquid of 61.9 wt% Sn: that liquid is what becomes the eutectic.
 
-See also [[Concept - Phases, Components and Microconstituents]], [[Concept - Gibbs Phase Rule]], [[Concept - Tie Line and Lever Rule]], [[Concept - Binary Eutectic Systems and Microconstituents]].
+# Part II — Phase diagrams II (Session 8)
+
+## 9. Solid-state precipitation [Session 8 Slides 2-4]
+
+### 9.1 Below the solid solubility limit [Session 8 Slide 2]
+
+An alloy whose composition stays inside the α region all the way down to room temperature never crosses the solvus: once solid, it is single-phase α. In the Pb-Sn example, a Pb-1 wt% Sn alloy ($C_1$) is:
+
+- (a) liquid at 350 °C;
+- (b) at about 330 °C, on the liquidus: the solid phase α begins to form (α + L);
+- (c) only α at 270 °C, and it stays α on further cooling.
+
+![[attachments/T4/precip-pbsn.svg]]
+
+### 9.2 Above the solid solubility limit: precipitation [Session 8 Slides 3-4]
+
+**Precipitation in the solid state:** when an alloy crosses the **solvus** line on cooling, the solid solubility of α is exceeded, and small particles of the β phase form; they **grow as the temperature decreases** [Session 8 Slide 3].
+
+![[attachments/T4/precip-generic.svg]]
+
+For the alloy of 20 % B of the slide: all liquid; α₁ crystals in a matrix of liquid L₁; 100 % α with the composition of the alloy; and, below the solvus, small β₂ particles in a matrix of α₂ (mostly at the grain boundaries), which become more and grow at lower temperatures (α₃ + β₃).
+
+![[attachments/T4/s8-precipitation-micrograph.png]]
+
+The Pb-Sn example of Slide 4 uses a Pb-16 wt% Sn alloy ($C_2$, also in the figure of §9.1):
+
+- (d) liquid at 350 °C;
+- (e) at 270 °C, solid α has begun to form: α + L;
+- (f) only α at 192 °C;
+- (g) α + β at 121 °C: the alloy has crossed the solvus and β has precipitated inside the α.
+
+![[attachments/T4/s8-precipitation-micrographs.png]]
+
+> [!example] Worked example 8 — How much β precipitates in Pb-16 wt% Sn [Session 8 Slide 4]
+> **Readings of the figure.** On Slide 4 the vertical line of $C_2$ = 16 wt% Sn meets the solvus at about 178 °C; at point g (121 °C) the solvus is at about 5 wt% Sn. The β boundary at that temperature is close to pure Sn; Slide 32 of Session 7 places it at about 99 wt% Sn.
+>
+> **Above about 178 °C** (point f, 192 °C) the alloy is single-phase α of 16 wt% Sn: $W_\alpha = 1$.
+>
+> **At 121 °C** (point g), lever rule on the tie line from 5 to 99 wt% Sn:
+> $$W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha} = \frac{16 - 5}{99 - 5} = \frac{11}{94} = 0.117 \qquad W_\alpha = \frac{99 - 16}{94} = \frac{83}{94} = 0.883$$
+>
+> **Interpretation.** About 12 % of the alloy has turned into β particles between 178 and 121 °C. As the temperature falls further the solvus moves to lower Sn contents, so the α holds less Sn and more β precipitates: the particles grow, as the slide says. These numbers depend on readings of the figure and are approximate.
+
+## 10. Invariant reactions [Session 8 Slides 6-12]
+
+### 10.1 The five reactions [Session 8 Slide 6]
+
+An invariant reaction happens at a fixed temperature, with fixed compositions of the three phases involved ($F = 2 - 3 + 1 = 0$ at constant pressure, §5). Binary diagrams have five types; the eutectoid and the peritectoid happen entirely in the **solid state**:
+
+![[attachments/T4/invariant-table.svg]]
+
+| Reaction | On cooling | Shape on the diagram |
+| :--- | :--- | :--- |
+| Eutectic | $L \rightarrow \alpha + \beta$ | a liquid region ends in a V on the horizontal line |
+| Peritectic | $\alpha + L \rightarrow \beta$ | a solid region ends in an inverted V below the line |
+| Monotectic | $L_1 \rightarrow L_2 + \alpha$ | a liquid miscibility gap above the line |
+| Eutectoid | $\gamma \rightarrow \alpha + \beta$ | like the eutectic, with a solid γ instead of L |
+| Peritectoid | $\alpha + \beta \rightarrow \gamma$ | like the peritectic, with two solids |
+
+### 10.2 Eutectoid reaction [Session 8 Slide 7]
+
+**Eutectoid reaction:** an invariant reaction where **a solid phase transforms into two solid phases**: $\gamma \rightarrow \alpha + \beta$.
+
+Example, Cu-Zn at 560 °C (74 % Zn):
+
+$$\delta\,(74\%\,\text{Zn}) \;\underset{\text{heating}}{\overset{\text{cooling}}{\rightleftharpoons}}\; \gamma\,(70\%\,\text{Zn}) + \varepsilon\,(78\%\,\text{Zn})$$
+
+![[attachments/T4/cuzn-eutectoid.svg]]
+
+![[attachments/T4/s8-cuzn-micrograph.png]]
+
+> [!example] Worked example 9 — The Cu-Zn eutectoid product [Session 8 Slide 7]
+> **Question.** A Cu-74 wt% Zn alloy (all δ) is cooled just below 560 °C. How much γ and how much ε does it contain?
+>
+> **Lever rule** on the tie line from γ (70 % Zn) to ε (78 % Zn), length $78 - 70 = 8$:
+> $$W_\gamma = \frac{C_\varepsilon - C_0}{C_\varepsilon - C_\gamma} = \frac{78 - 74}{78 - 70} = \frac{4}{8} = 0.50 \qquad W_\varepsilon = \frac{C_0 - C_\gamma}{C_\varepsilon - C_\gamma} = \frac{74 - 70}{8} = 0.50$$
+>
+> **Check:** $0.50 \times 70 + 0.50 \times 78 = 74$ % Zn. **Answer:** the eutectoid product is half γ and half ε, a fine mixture of the two solids, as in the micrograph. On heating the reaction runs backwards and the mixture turns into single-phase δ.
+
+### 10.3 Peritectic reaction [Session 8 Slides 8-9]
+
+**Peritectic reaction:** an invariant reaction where **a solid and a liquid phase transform into a different solid phase**, $\alpha + L \rightarrow \beta$. The **peritectic point** is the invariant point where this happens [Session 8 Slide 8].
+
+![[attachments/T4/peritectic-generic.svg]]
+
+Example, Fe-Ni at 1517 °C and 4.3 % Ni:
+
+$$\delta\,(4.0\%\,\text{Ni}) + L\,(5.4\%\,\text{Ni}) \;\xrightarrow[\text{cooling}]{1517^\circ\text{C}}\; \gamma\,(4.3\%\,\text{Ni})$$
+
+![[attachments/T4/feni-peritectic.svg]]
+
+> [!example] Worked example 10 — Fe-4.3 wt% Ni around 1517 °C [Session 8 Slide 8]
+> **Just above 1517 °C** the alloy is δ (4.0 % Ni) + L (5.4 % Ni); tie line length $5.4 - 4.0 = 1.4$:
+> $$W_\delta = \frac{5.4 - 4.3}{5.4 - 4.0} = \frac{1.1}{1.4} = 0.786 \qquad W_L = \frac{4.3 - 4.0}{1.4} = \frac{0.3}{1.4} = 0.214$$
+>
+> **Just below 1517 °C** both react and give γ of 4.3 % Ni, the composition of the alloy, so the alloy is 100 % γ.
+>
+> **Check:** $0.786 \times 4.0 + 0.214 \times 5.4 = 3.14 + 1.16 = 4.30$ % Ni. The liquid and the δ are used up together because the alloy has exactly the peritectic composition.
+
+Second example, Pt-Ag at 1186 °C (42.4 % Ag) [Session 8 Slide 9]:
+
+![[attachments/T4/ptag-peritectic.svg]]
+
+![[attachments/T4/s8-ptag-sequence.png]]
+
+> [!example] Worked example 11 — The Pt-Ag peritectic, alloys 1 and 2 [Session 8 Slide 9]
+> **Alloy 1, 42.4 % Ag, at 1400 °C.** Liquid (55 % Ag) + α (7 % Ag); tie line length $55 - 7 = 48$:
+> $$W_L = \frac{42.4 - 7}{55 - 7} = \frac{35.4}{48} = 0.738 \qquad W_\alpha = \frac{55 - 42.4}{48} = \frac{12.6}{48} = 0.263$$
+>
+> **Alloy 1 at 1186 °C + ΔT.** Liquid (66.3 % Ag) + α (10.5 % Ag); length $66.3 - 10.5 = 55.8$:
+> $$W_L = \frac{42.4 - 10.5}{66.3 - 10.5} = \frac{31.9}{55.8} = 0.572 \qquad W_\alpha = \frac{66.3 - 42.4}{55.8} = \frac{23.9}{55.8} = 0.428$$
+>
+> **Alloy 1 at 1186 °C − ΔT.** Only β, of 42.4 % Ag: 100 %. The liquid and the α have reacted completely ($\alpha + L \rightarrow \beta$).
+>
+> **Alloy 2** (about 60 % Ag, a reading of the figure) **at 1150 °C**: L + β, with the tie line of the slide from β (48 % Ag) to L (77 % Ag), length 29:
+> $$W_\beta = \frac{77 - 60}{77 - 48} = \frac{17}{29} = 0.586 \qquad W_L = \frac{60 - 48}{29} = \frac{12}{29} = 0.414$$
+>
+> Alloy 2 has more Ag than the peritectic composition, so after the peritectic reaction some liquid is left (L + β); it solidifies completely on further cooling.
+
+> [!warning] Formula on Slide 9
+> For 1186 °C + ΔT the slide writes "Alpha: (66.3 − 10.5)/(66.3 − 10.5) = 43 %". The numerator must be $66.3 - 42.4 = 23.9$ (the arm on the side of the liquid); $(66.3 - 10.5)/(66.3 - 10.5)$ would be 1. The value 43 % is right.
+
+**Rapid (non-equilibrium) solidification in peritectic systems** [Session 8 Slide 10]:
+
+- **Surrounding or encasement:** during the peritectic reaction $L + \alpha \rightarrow \beta$, the β formed surrounds the primary α.
+- β then acts as a **diffusion barrier** (B atoms from the liquid and A atoms from α must cross it), which results in **coring**: the reaction does not finish and the structure is not the equilibrium one.
+
+![[attachments/T4/s8-peritectic-rapid.png]]
+
+![[attachments/T4/s8-peritectic-encasement.png]]
+
+### 10.4 Peritectoid reaction [Session 8 Slide 11]
+
+**Peritectoid reaction:** an invariant reaction where **two solid phases transform into a new solid phase**, $\beta + \alpha \rightarrow \gamma$. The **peritectoid point** is the invariant point where it happens.
+
+![[attachments/T4/peritectoid-generic.svg]]
+
+![[attachments/T4/s8-cow-peritectoid.png]]
+
+### 10.5 Monotectic reaction [Session 8 Slide 12]
+
+**Monotectic reaction:** an invariant reaction where **a liquid phase transforms into a solid phase plus another liquid** (the liquid has a **miscibility gap**): $L_1 \rightarrow L_2 + \alpha$. The **monotectic point** is the invariant point where this happens.
+
+Example, Cu-Pb at 955 °C (36 % Pb):
+
+$$L\,(36\%\,\text{Pb}) \;\underset{\text{heating}}{\overset{\text{cooling}}{\rightleftharpoons}}\; L_2\,(87\%\,\text{Pb}) + \alpha\,(0\%\,\text{Pb})$$
+
+![[attachments/T4/monotectic-cupb.svg]]
+
+> [!example] Worked example 12 — Cu-36 wt% Pb just below 955 °C [Session 8 Slide 12]
+> **Tie line** from α (0 % Pb) to $L_2$ (87 % Pb), length 87:
+> $$W_\alpha = \frac{87 - 36}{87 - 0} = \frac{51}{87} = 0.586 \qquad W_{L_2} = \frac{36 - 0}{87} = \frac{36}{87} = 0.414$$
+>
+> **Interpretation.** Just below 955 °C the alloy is 59 % solid copper and 41 % of a second liquid, rich in lead (87 %). That liquid stays liquid down to 326 °C, where the remaining reaction gives α + β; the slide's diagram shows the region α + L₂ between the two lines.
+
+## 11. Intermetallic compounds [Session 8 Slides 14-15]
+
+An **intermetallic compound** is made up of two or more elements (components) and produces a **new phase with its own composition, crystal structure and properties** [Session 8 Slides 14-15].
+
+- **Terminal phases** occur at the ends of the phase diagram (α and ζ in the figure).
+- **Intermediate phases** occur in a composition range inside the diagram (β, γ, δ, ε).
+- The percentage of ionic or covalent bonding in an intermetallic compound depends on the **electronegativity difference** between the elements (Topic 1).
+
+![[attachments/T4/s8-intermetallic-phases.png]]
+
+Two kinds of compound [Session 8 Slide 15]:
+
+- **Stoichiometric:** fixed composition, a fixed ratio of the atoms involved; it is drawn as a **vertical line** in the phase diagram. Example in Ti-B: $\text{Ti}_3\text{B}_4$.
+- **Non-stoichiometric:** a range of compositions, an intermediate solid solution. Examples in Ti-B: TiB and $\text{TiB}_2$.
+
+![[attachments/T4/s8-tib.png]]
+
+> [!note] Composition axis of Slide 15
+> The label under the Ti-B diagram of Slide 15 reads "% wt Boron", but the compounds sit at about 50 % (TiB) and 67 % ($\text{TiB}_2$), which are their **atomic** percentages (one B per Ti, two B per Ti). The same diagram in the problem sheet (Problems T4_PhaseDiagrams I.pdf, p. 7) has the atomic scale on top and the weight scale below, where TiB is at about 18 wt% and $\text{TiB}_2$ at about 31 wt% B.
+
+## 12. Congruent and incongruent melting [Session 8 Slide 17]
+
+- **Congruent melting:** an intermetallic compound melts congruently when the liquid formed on melting (solid → liquid) **keeps its composition**. Examples: $\text{MgNi}_2$ and the pure metals.
+- **Incongruent melting:** the composition is **not kept** on melting, and a **different solid** appears: the compound gives a liquid plus another solid. Example: $\text{Mg}_2\text{Ni}$, which is formed on cooling by a peritectic reaction of the type $\alpha + L \rightarrow \beta$.
+
+![[attachments/T4/mgni-melting.svg]]
+
+On the diagram, a congruently melting compound sits at a **maximum of the liquidus** (it melts at a single temperature, like a pure metal), while an incongruently melting one ends at a **horizontal peritectic line**.
+
+> [!example] Worked example 13 — Classifying the Ti-B compounds [Session 8 Slides 15, 17]
+> **Reading the Ti-B diagram of Slide 15:**
+> - $\text{TiB}_2$ reaches the top of the liquidus dome, at 3225 °C: the liquid formed there has the same composition as the solid, so $\text{TiB}_2$ **melts congruently**.
+> - $\text{Ti}_3\text{B}_4$ and TiB end at horizontal lines near 2200 °C, below the liquidus: on heating, each gives liquid plus a different solid (for $\text{Ti}_3\text{B}_4$, liquid + $\text{TiB}_2$). Both **melt incongruently**; on cooling they form by peritectic reactions.
+>
+> This is the classification used in Problem 15 of the sheet.
+
+See also [[Concept - Phases, Components and Microconstituents]], [[Concept - Gibbs Phase Rule]], [[Concept - Tie Line and Lever Rule]], [[Concept - Binary Eutectic Systems and Microconstituents]], [[Concept - Solid-State Precipitation and the Solvus]], [[Concept - Invariant Reactions in Binary Systems]], [[Concept - Intermetallic Compounds and Congruent Melting]].
 
 ---
 

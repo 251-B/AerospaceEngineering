@@ -19,7 +19,7 @@ bytes: 626247
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf`
 - **Kind:** problemas
 - **Size:** 626.2 kB
-- **Status:** referenced by 10 note(s) below
+- **Status:** referenced by 17 note(s) below
 
 ## Referenced by
 
@@ -32,4 +32,11 @@ bytes: 626247
 - [[02 - Aerospace Materials I/Problem - T4-PD06 The Hypereutectic Ag-80 Cu Alloy]]
 - [[02 - Aerospace Materials I/Problem - T4-PD07 The Hypoeutectic Ag-10 Cu Alloy]]
 - [[02 - Aerospace Materials I/Problem - T4-PD08 Drawing a Eutectic Diagram and the 40 B Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD09 Invariant Reactions and an Al-20 Ni Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD10 Reactions and Eutectoids in the Cu-Sn System]]
+- [[02 - Aerospace Materials I/Problem - T4-PD11 Drawing a Diagram with a Stoichiometric Compound]]
+- [[02 - Aerospace Materials I/Problem - T4-PD12 Invariant Reactions and a Ni-40 Mo Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD13 Compounds and Cooling of a Ti-30 Si Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD14 Reading a Hypothetical Diagram with Several Compounds]]
+- [[02 - Aerospace Materials I/Problem - T4-PD15 The Ti-B System and Ti-10 B and Ti-18 B Alloys]]
 - [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]
