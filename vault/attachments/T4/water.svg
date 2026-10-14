@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Phase diagram and cooling curve of water">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="50.0" y1="250.0" x2="300.0" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="50.0" y1="30.0" x2="50.0" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M60.0,232.0 C70.0,227.5 100.8,215.7 120.0,205.0 C139.2,194.3 165.8,174.2 175.0,168.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M175.0,168.0 C176.8,160.3 181.0,144.2 186.0,122.0 C191.0,99.8 201.8,49.5 205.0,35.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M175.0,168.0 C184.2,165.0 214.0,157.7 230.0,150.0 C246.0,142.3 260.7,131.7 271.0,122.0 C281.3,112.3 288.5,97.0 292.0,92.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<line x1="50.0" y1="122.0" x2="308.0" y2="122.0" stroke="#3b82f6" stroke-width="1.3" stroke-dasharray="5,4"/>
+<path d="M296.0,122.0 L304.3,118.5 L304.3,125.5 Z" fill="#3b82f6"/>
+<circle cx="186.0" cy="122.0" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="271.0" cy="122.0" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="175.0" cy="168.0" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="192.0" y="114.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="start">T<tspan baseline-shift="sub" font-size="72%">m</tspan></text>
+<text x="265.0" y="114.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">v</tspan></text>
+<text x="181.0" y="186.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">P<tspan baseline-shift="sub" font-size="72%">T</tspan></text>
+<text x="58.0" y="248.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">A</text>
+<text x="211.0" y="39.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">B</text>
+<text x="298.0" y="88.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">C</text>
+<text x="105.0" y="75.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Solid</text>
+<text x="245.0" y="70.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Liquid</text>
+<text x="175.0" y="220.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Vapour</text>
+<text x="175.0" y="272.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Temperature (T)</text>
+<text x="54.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Pressure (p)</text>
+<line x1="390.0" y1="250.0" x2="640.0" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="390.0" y1="30.0" x2="390.0" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M400.0,40.0 L430.0,95.0 L480.0,95.0 L550.0,175.0 L590.0,175.0 L632.0,235.0" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="408.0" y="34.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">1</text>
+<text x="463.0" y="89.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">2</text>
+<text x="523.0" y="129.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">3</text>
+<text x="578.0" y="169.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">4</text>
+<text x="620.0" y="199.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">5</text>
+<line x1="390.0" y1="95.0" x2="430.0" y2="95.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="390.0" y1="175.0" x2="550.0" y2="175.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="384.0" y="99.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">v</tspan></text>
+<text x="384.0" y="179.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">m</tspan></text>
+<text x="515.0" y="272.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">time</text>
+<text x="394.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">T</text>
+</g></svg>

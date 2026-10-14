@@ -19,8 +19,17 @@ bytes: 626247
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf`
 - **Kind:** problemas
 - **Size:** 626.2 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 10 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T4-PD01 Phase Limits from the Phase Fractions of Two Alloys]]
+- [[02 - Aerospace Materials I/Problem - T4-PD02 Primary and Total Beta in a Pb-Sn Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD03 Phases and Microconstituents of a Pb-80 Sn Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD04 Phases and Microconstituents of a Pb-30 Sn Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD05 The Eutectic Ag-28.1 Cu Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD06 The Hypereutectic Ag-80 Cu Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD07 The Hypoeutectic Ag-10 Cu Alloy]]
+- [[02 - Aerospace Materials I/Problem - T4-PD08 Drawing a Eutectic Diagram and the 40 B Alloy]]
+- [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

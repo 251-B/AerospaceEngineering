@@ -106,9 +106,24 @@ tags:
 
 ### ⚖️ Block II: Phase Diagrams and Solidification
 
-#### Topic 4: Phase Diagrams and Solidification (planned)
+#### [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification]] (Part I done: Session 7 and problems 1-8)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html`
+* **Master Note:** [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification (MOC)]]
+* **Atomic Theory Concepts (4 Notes, Part I):**
+  * [[02 - Aerospace Materials I/Concept - Phases, Components and Microconstituents|Concept: Phases, Components and Microconstituents]]
+  * [[02 - Aerospace Materials I/Concept - Gibbs Phase Rule|Concept: Gibbs Phase Rule]]
+  * [[02 - Aerospace Materials I/Concept - Tie Line and Lever Rule|Concept: Tie Line and Lever Rule]]
+  * [[02 - Aerospace Materials I/Concept - Binary Eutectic Systems and Microconstituents|Concept: Binary Eutectic Systems and Microconstituents]]
+* **Official Solved Problems (8 of 26, Problems T4_PhaseDiagrams I, problems 1-8):**
+  * [[02 - Aerospace Materials I/Problem - T4-PD01 Phase Limits from the Phase Fractions of Two Alloys|Problem T4-PD01: Phase Limits from the Phase Fractions of Two Alloys]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD02 Primary and Total Beta in a Pb-Sn Alloy|Problem T4-PD02: Primary and Total β in a Pb-Sn Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD03 Phases and Microconstituents of a Pb-80 Sn Alloy|Problem T4-PD03: Phases and Microconstituents of Pb-80 wt% Sn]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD04 Phases and Microconstituents of a Pb-30 Sn Alloy|Problem T4-PD04: Phases and Microconstituents of Pb-30 wt% Sn]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD05 The Eutectic Ag-28.1 Cu Alloy|Problem T4-PD05: The Eutectic Ag-28.1 wt% Cu Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD06 The Hypereutectic Ag-80 Cu Alloy|Problem T4-PD06: The Hypereutectic Ag-80 wt% Cu Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD07 The Hypoeutectic Ag-10 Cu Alloy|Problem T4-PD07: The Hypoeutectic Ag-10 wt% Cu Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD08 Drawing a Eutectic Diagram and the 40 B Alloy|Problem T4-PD08: Drawing a Eutectic Diagram and the 40 % B Alloy]]
 * **Official Sources:**
   * Theory: `Session 7 T4 Phase diagrams I_2025.pdf`, `Session 8 T4 Phase diagrams II.pdf`, `Session 9 T4 Phase diagrams III.pdf`, `Session 10 T4 Phase diagrams IV.pdf`
   * Problems: `Problems T4_PhaseDiagrams I.pdf`, `Problems T4_PhaseDiagrams II.pdf`

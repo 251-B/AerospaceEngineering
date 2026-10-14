@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 601 340" width="100%" class="fig-kit" style="max-width:601px;margin:0 auto;display:block" role="img" aria-label="Phase diagram of CO2">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="90.0" y1="290.0" x2="540.0" y2="290.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="90.0" y1="30.0" x2="90.0" y2="290.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M95.0,284.0 C104.2,280.3 123.3,272.3 150.0,262.0 C176.7,251.7 237.5,228.7 255.0,222.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M255.0,222.0 C279.2,211.7 362.5,187.8 400.0,160.0 C437.5,132.2 466.7,72.5 480.0,55.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M255.0,222.0 C258.0,190.0 270.0,62.0 273.0,30.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<line x1="150.0" y1="290.0" x2="150.0" y2="262.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="90.0" y1="262.0" x2="150.0" y2="262.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="150.0" y="308.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">−78.2</text>
+<line x1="255.0" y1="290.0" x2="255.0" y2="222.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="90.0" y1="222.0" x2="255.0" y2="222.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="255.0" y="308.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">−56.6</text>
+<line x1="480.0" y1="290.0" x2="480.0" y2="55.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="90.0" y1="55.0" x2="480.0" y2="55.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="480.0" y="308.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">31.1</text>
+<text x="82.0" y="266.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1</text>
+<text x="82.0" y="226.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">5.1</text>
+<text x="82.0" y="59.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">73</text>
+<circle cx="150.0" cy="262.0" r="3.5" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="255.0" cy="222.0" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="480.0" cy="55.0" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="267.0" y="240.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="start">triple point</text>
+<text x="490.0" y="77.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="start">critical point</text>
+<text x="170.0" y="150.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Solid</text>
+<text x="370.0" y="130.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Liquid</text>
+<text x="360.0" y="255.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Gas</text>
+<text x="520.0" y="36.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">supercritical fluid</text>
+<text x="315.0" y="330.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Temperature (°C)</text>
+<text x="94.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Pressure (atm)</text>
+</g></svg>
