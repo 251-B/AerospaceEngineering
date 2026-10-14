@@ -14,6 +14,7 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 # Problem CL3: Double-Elbow Mouthpiece: Exit Velocity, Force and Moment
 
 > Official UC3M conservation-laws problem collection (Introduction to Fluid Mechanics). Part of [[Topic 3 - Conservation Laws]]. Related: [[Concept - Integral Conservation of Mass, Momentum and Energy|integral balances]], [[Concept - Reynolds Transport Theorem|Reynolds transport theorem]], [[Formula Sheet - Topic 3 Conservation Laws|formula sheet]].
+> Method: each balance is written in full with the vanishing terms crossed out and the reason underneath; each surface integral is then evaluated surface by surface (the vertical line drawn under each integral in class), and the wall terms are grouped (boxed) as the force on the body.
 
 ## Statement
 
@@ -21,70 +22,91 @@ The double-elbow mouth piece of exit cross section $A_o$ shown in the figure of 
 
 Source: CL3.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eqs. 3.37-3.38, force and moment on a body Eqs. 3.32-3.33.
 
-## Phase 1: Hypotheses, Degrees of Freedom and Data
+## Phase 1: Hypotheses, Data and Unknowns
 
-- Steady flow of an incompressible liquid (water, constant $\rho$), uniform velocity and pressure over the entrance section (area $A_p$) and over the exit section (area $A_o$); no gravity (handwritten addition to the statement).
-- The water discharges into the atmosphere, so the pressure over the exit section is the ambient pressure $p_a$. Viscous stresses over the entrance and exit sections are negligible (uniform velocity, no gradients).
-- The wall of the mouth piece is thin and its outer face is in contact with the atmosphere at $p_a$. The 'force exerted on the mouth piece' is the net force of the water inside plus the atmosphere outside, which is how the official solution treats it (it adds the term in $p_a$ explicitly). If the atmosphere were ignored, the force would change by $p_a\,(A_p - A_o)\,\mathbf{e}_x$.
-- Geometry from the figure: the exit axis is displaced a vertical distance $H$ below the axis of the entrance, and both the entrance flow and the exit flow are along $+\mathbf{e}_x$ (the mouth piece is S-shaped).
+- Steady, incompressible (water); neglect $\bar{g}$ (handwritten addition); uniform properties at inlet and outlet; viscous stresses negligible on both sections.
+- Free jet at the exit: $p = p_a$ over $\Sigma_o$. The thin wall of the mouth piece has the atmosphere $p_a$ on its outer face; the force asked for is the net force of the water inside plus the atmosphere outside, as in the official solution. Ignoring the atmosphere would add $p_a(A_p - A_o)\,\bar{e}_x$.
+- Geometry (figure): S-shaped piece; the exit axis is a vertical distance $H$ below the entrance axis; both the entrance and the exit flows are along $+\bar{e}_x$.
+- Data: $[\rho,\ A_p,\ A_o,\ U_p,\ p_p,\ p_a,\ H]$. Unknowns: $[U_o,\ \bar{F}_{MP},\ \bar{M}_{MP}]$.
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
 | $A_p$, $A_o$ | entrance and exit areas | m$^2$ |
-| $U_p$, $p_p$ | uniform velocity and pressure at the entrance | m/s, Pa |
-| $U_o$, $p_a$ | exit velocity (unknown) and ambient pressure | m/s, Pa |
-| $H$ | vertical offset between the entrance and exit axes | m |
-| $\mathbf{F}_{MP}$, $\mathbf{M}_{MP}$ | force and moment on the mouth piece (unknowns) | N, N$\cdot$m |
+| $U_p$, $p_p$ | velocity and pressure at the entrance | m/s, Pa |
+| $U_o$ | exit velocity | m/s |
+| $H$ | vertical offset between the axes | m |
+| $\bar{F}_{MP}$, $\bar{M}_{MP}$ | force and moment on the mouth piece | N, N$\cdot$m |
 
-## Phase 2: Coordinates, Frames and Changes of Variable
+## Phase 2: Frames, Control Volume and Surfaces
 
-- Inertial frame fixed to the pipe, Cartesian basis $(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z)$: $\mathbf{e}_x$ along the pipe axis in the flow direction, $\mathbf{e}_y$ vertical upwards and $\mathbf{e}_z = \mathbf{e}_x \wedge \mathbf{e}_y$ out of the plane of the figure. The origin $O$ is the centre (centroid) of the entrance section; moments are taken about $O$.
-- The centre of the exit section is at the position $\mathbf{x}_o = X\,\mathbf{e}_x - H\,\mathbf{e}_y$ relative to $O$; $X$ is the horizontal offset, which will drop out. The position of a point of a circular section relative to its centre is denoted $\boldsymbol{\eta}$, with $\int\boldsymbol{\eta}\,d\sigma = 0$.
-- Fixed control volume: the water inside the mouth piece, with boundary $\Sigma_p$ (entrance, $\mathbf{n} = -\mathbf{e}_x$), $\Sigma_o$ (exit, $\mathbf{n} = +\mathbf{e}_x$) and $\Sigma_w$ (inner wall, $\mathbf{n}$ out of the fluid). Since $\mathbf{v}_c = 0$, Eqs. 3.11, 3.36 and 3.38 apply with $\mathbf{v}_c = 0$.
-- Since $\int_{\Sigma_c}p_a\,\mathbf{n}\,d\sigma = 0$ on the closed surface, $p$ is replaced by $p - p_a$ in the balances. The force of the water and the atmosphere on the (thin) wall is then $\mathbf{F}_{MP} = \int_{\Sigma_w}\left[(p - p_a)\,\mathbf{n} - \bar{\bar{\tau}}'\cdot\mathbf{n}\right]d\sigma$ and the force of the wall on the water is $-\mathbf{F}_{MP}$.
+- Inertial frame fixed to the pipe: $\bar{e}_x$ along the pipe axis (flow direction), $\bar{e}_y$ vertical upwards, $\bar{e}_z = \bar{e}_x\wedge\bar{e}_y$ towards the reader. Origin $O$ at the centre of the entrance section (moments about $O$).
+- Centre of the exit section: $\bar{x}_o = X\bar{e}_x - H\bar{e}_y$ relative to $O$ ($X$ drops out). Position within a circular section relative to its centre: $\bar{\eta}$, with $\int\bar{\eta}\,d\sigma = 0$.
+- Control volume: the water inside the mouth piece, fixed ($\bar{v}_c = 0$). Surfaces: $\Sigma_p$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (exit, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (inner wall).
 
-## Phase 3: Step-by-Step Derivation
+Force and moment of the water and the atmosphere on the mouth piece, with $\bar{n}$ the outward normal of the control volume:
 
-### 3.1 Exit velocity from mass conservation
+$$ \boxed{\,\bar{F}_{MP} = \int_{\Sigma_w}(p - p_a)\,\bar{n}\,d\sigma - \int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma\,} $$
 
-Why this tool: the velocities at both sections are uniform and the flow is steady, so the continuity balance (Notes Eq. 3.11) relates them directly. On $\Sigma_w$, $\mathbf{v}\cdot\mathbf{n} = 0$:
+$$ \boxed{\,\bar{M}_{MP} = \int_{\Sigma_w}\bar{x}\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
-$$ -\rho\,U_p A_p + \rho\,U_o A_o = 0 \;\Longrightarrow\; \boxed{\,U_o = \frac{A_p}{A_o}\,U_p\,}. $$
+## Phase 3: Balances, Surface by Surface
 
-### 3.2 Force on the mouth piece: linear momentum
+**Mass (Notes Eq. 3.11)**
 
-Why this tool: the force on the wall is an unknown surface integral of the (non-uniform) wall pressure; the momentum balance (Notes Eq. 3.36) replaces it by quantities known at the two sections. Left-hand side: the momentum flux is only through $\Sigma_p$ and $\Sigma_o$, and both velocities are along $\mathbf{e}_x$:
+$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}\,d\sigma = 0 $$
 
-$$ \int_{\Sigma_c}\rho\,\mathbf{v}\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma = \left(-\rho U_p^2 A_p + \rho U_o^2 A_o\right)\mathbf{e}_x = \rho U_p A_p\,(U_o - U_p)\,\mathbf{e}_x, $$
+Each surface integral, surface by surface (the vertical line drawn under each integral in class):
 
-where $\rho U_o^2 A_o = (\rho U_o A_o)\,U_o = \rho U_p A_p\,U_o$ by 3.1. Right-hand side: on $\Sigma_p$ the force is $-(p_p - p_a)(-\mathbf{e}_x)A_p = +(p_p - p_a)A_p\,\mathbf{e}_x$; on $\Sigma_o$ it vanishes because $p - p_a = 0$; viscous stresses are negligible on both sections; on $\Sigma_w$ it is $-\mathbf{F}_{MP}$. Hence
+| Surface | $\int\rho\,\bar{v}\cdot\bar{n}\,d\sigma$ |
+| :--- | :--- |
+| $\Sigma_p$ | $\rho\,U_p\bar{e}_x\cdot(-\bar{e}_x)\,A_p = -\rho U_pA_p$ |
+| $\Sigma_o$ | $\rho\,U_o\bar{e}_x\cdot\bar{e}_x\,A_o = +\rho U_oA_o$ |
+| $\Sigma_w$ | $0$ (wall) |
 
-$$ \rho U_p A_p\,(U_o - U_p)\,\mathbf{e}_x = (p_p - p_a)\,A_p\,\mathbf{e}_x - \mathbf{F}_{MP} \;\Longrightarrow\; \boxed{\,\mathbf{F}_{MP} = \left[(p_p - p_a)\,A_p + \rho\,U_p\,(U_p - U_o)\,A_p\right]\mathbf{e}_x.\,} $$
+$$ \rho U_pA_p = \rho U_oA_o \;\Longrightarrow\; \boxed{\,U_o = \frac{A_p}{A_o}\,U_p\,},\qquad \dot{m} \equiv \rho U_pA_p = \rho U_oA_o \tag{1} $$
 
-The $y$ and $z$ components vanish: no momentum flux and no pressure force on the sections has a component along $\mathbf{e}_y$ or $\mathbf{e}_z$, so the balance gives $F_{MP,y} = F_{MP,z} = 0$.
+**Linear momentum (Notes Eq. 3.36)**
 
-### 3.3 Moment on the mouth piece: angular momentum about $O$
+$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}(p - p_a)\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$
 
-Why this tool: the moment of the wall forces is also unknown; the angular momentum balance (Notes Eq. 3.38, fixed control volume, no gravity) gives it from the fluxes through the sections:
+Each surface integral, surface by surface (the vertical line drawn under each integral in class):
 
-$$ \int_{\Sigma_c}\rho\,\left[(\mathbf{x} - \mathbf{x}_0)\wedge\mathbf{v}\right](\mathbf{v}\cdot\mathbf{n})\,d\sigma = \sum\mathbf{M}_{O,\text{ext}}, \qquad \mathbf{x}_0 = \mathbf{x}_O. $$
+| Surface | $\int\rho\bar{v}\,(\bar{v}\cdot\bar{n})\,d\sigma$ | $-\int(p - p_a)\,\bar{n}\,d\sigma$ | $\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$ |
+| :--- | :--- | :--- | :--- |
+| $\Sigma_p$ | $\rho U_p\bar{e}_x\,(-U_p)\,A_p = -\dot{m}\,U_p\bar{e}_x$ | $-(p_p - p_a)(-\bar{e}_x)A_p = (p_p - p_a)A_p\bar{e}_x$ | $0$ (uniform) |
+| $\Sigma_o$ | $\rho U_o\bar{e}_x\,(U_o)\,A_o = \dot{m}\,U_o\bar{e}_x$ | $0$ (free jet, $p = p_a$) | $0$ (uniform) |
+| **$\Sigma_w$** (boxed) | $0$ | $-\int_{\Sigma_w}(p - p_a)\,\bar{n}\,d\sigma$ | $\int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$ |
 
-Entrance $\Sigma_p$: $\mathbf{x} - \mathbf{x}_O = \boldsymbol{\eta}$, $\mathbf{v} = U_p\mathbf{e}_x$ uniform and $\int\boldsymbol{\eta}\,d\sigma = 0$, so both the angular momentum flux $-\rho U_p^2\left(\int\boldsymbol{\eta}\,d\sigma\right)\wedge\mathbf{e}_x$ and the moment of the pressure force $(p_p - p_a)\left(\int\boldsymbol{\eta}\,d\sigma\right)\wedge\mathbf{e}_x$ vanish. Exit $\Sigma_o$: $\mathbf{x} - \mathbf{x}_O = \mathbf{x}_o + \boldsymbol{\eta}$ and $\int\boldsymbol{\eta}\,d\sigma = 0$, so with $\mathbf{x}_o \wedge \mathbf{e}_x = (X\,\mathbf{e}_x - H\,\mathbf{e}_y)\wedge\mathbf{e}_x = -H\,\mathbf{e}_y\wedge\mathbf{e}_x = +H\,\mathbf{e}_z$ (since $\mathbf{e}_y\wedge\mathbf{e}_x = -\mathbf{e}_z$), the flux is
+Boxed $\Sigma_w$ terms: $-\bar{F}_{MP}$.
 
-$$ \int_{\Sigma_o}\rho\,\left[(\mathbf{x}_o + \boldsymbol{\eta})\wedge U_o\mathbf{e}_x\right]U_o\,d\sigma = \rho\,U_o^2\,A_o\,(\mathbf{x}_o\wedge\mathbf{e}_x) = \rho\,U_o^2\,H\,A_o\,\mathbf{e}_z. $$
+$$ \dot{m}\,(U_o - U_p)\,\bar{e}_x = (p_p - p_a)A_p\,\bar{e}_x - \bar{F}_{MP} \;\Longrightarrow\; \boxed{\,\bar{F}_{MP} = \left[(p_p - p_a)A_p + \rho U_p\,(U_p - U_o)\,A_p\right]\bar{e}_x\,} \tag{2} $$
 
-The pressure moment on $\Sigma_o$ vanishes ($p - p_a = 0$), viscous stresses are negligible on the sections, and the moment of the wall force on the water is $-\mathbf{M}_{MP}$. Hence $\rho U_o^2 H A_o\,\mathbf{e}_z = -\mathbf{M}_{MP}$ and
+No entry of the table has a component along $\bar{e}_y$ or $\bar{e}_z$, so $F_{MP,y} = F_{MP,z} = 0$.
 
-$$ \boxed{\,\mathbf{M}_{MP} = -\rho\,U_o^2\,H\,A_o\,\mathbf{e}_z = -\rho\,\frac{A_p^2}{A_o}\,U_p^2\,H\,\mathbf{e}_z\,}\quad\text{about the centre of the entrance section.} $$
+**Angular momentum about O (Notes Eq. 3.38)**
+
+$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,\bar{x}\wedge\bar{v}\,dV}}_{0} + \int_{\Sigma_c}\rho\,(\bar{x}\wedge\bar{v})(\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\,\bar{x}\wedge\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$
+
+Each surface integral, surface by surface (the vertical line drawn under each integral in class):
+
+| Surface | $\int\rho\,(\bar{x}\wedge\bar{v})(\bar{v}\cdot\bar{n})\,d\sigma$ | $-\int\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma$ | $\int\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$ |
+| :--- | :--- | :--- | :--- |
+| $\Sigma_p$ | $-\rho U_p^2\left(\int\bar{\eta}\,d\sigma\right)\wedge\bar{e}_x = 0$ | $(p_p - p_a)\left(\int\bar{\eta}\,d\sigma\right)\wedge\bar{e}_x = 0$ | $0$ |
+| $\Sigma_o$ | $\rho U_o^2A_o\,(\bar{x}_o\wedge\bar{e}_x) = \rho U_o^2HA_o\,\bar{e}_z$ | $0$ ($p = p_a$) | $0$ |
+| **$\Sigma_w$** (boxed) | $0$ | $-\int_{\Sigma_w}\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma$ | $\int_{\Sigma_w}\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$ |
+
+Boxed $\Sigma_w$ terms: $-\bar{M}_{MP}$. In the $\Sigma_o$ entry, $\bar{x} = \bar{x}_o + \bar{\eta}$ and $\bar{x}_o\wedge\bar{e}_x = (X\bar{e}_x - H\bar{e}_y)\wedge\bar{e}_x = -H\,\bar{e}_y\wedge\bar{e}_x = +H\,\bar{e}_z$.
+
+$$ \rho U_o^2HA_o\,\bar{e}_z = -\bar{M}_{MP} \;\Longrightarrow\; \boxed{\,\bar{M}_{MP} = -\rho U_o^2HA_o\,\bar{e}_z = -\rho\,\frac{A_p^2}{A_o}\,U_p^2\,H\,\bar{e}_z\,} \tag{3} $$
 
 ## Phase 4: Interpretation, Limits and Dimensional Check
 
-- $A_o < A_p$ implies $U_o > U_p$: the nozzle accelerates the liquid, and the momentum flux $\rho U_p A_p\,(U_o - U_p) > 0$ is the reaction that the wall supplies on the water.
-- The moment is non-zero only because the exit axis is displaced by $H$ from the entrance axis: for $H \to 0$ the jet leaves along the line of the entrance axis and $\mathbf{M}_{MP} \to 0$. The sign is negative: with the exit below the entrance, the moment is clockwise as seen in the figure (with $\mathbf{e}_z$ pointing towards the reader).
-- Limit $A_o \to A_p$: $U_o = U_p$ and $\mathbf{F}_{MP} \to (p_p - p_a)A_p\,\mathbf{e}_x$, the pure pressure force; the moment becomes $-\rho U_p^2 H A_p\,\mathbf{e}_z$.
-- Dimensions (SI): $[\rho U_p A_p\,(U_p - U_o)] = (\text{kg/m}^3)(\text{m/s})\,\text{m}^2\,(\text{m/s}) = \text{N}$; $[\rho U_o^2 H A_o] = (\text{kg/m}^3)(\text{m}^2/\text{s}^2)\,\text{m}\,\text{m}^2 = \text{N}\cdot\text{m}$.
+- $A_o < A_p$ gives $U_o > U_p$: the piece accelerates the water, and the wall supplies the momentum change.
+- The moment exists only because the exit axis is offset by $H$: for $H \to 0$, $\bar{M}_{MP} \to 0$. With the exit below the entrance, the moment is clockwise as seen in the figure ($\bar{e}_z$ towards the reader).
+- Limit $A_o \to A_p$: $U_o = U_p$ and $\bar{F}_{MP} \to (p_p - p_a)A_p\bar{e}_x$, the pure pressure force.
+- Dimensions (SI): $[\rho U_pA_p(U_p - U_o)] = \text{N}$; $[\rho U_o^2HA_o] = \text{N}\cdot\text{m}$.
 - Numerical illustration (hypothetical data): $\rho = 1000$ kg/m$^3$, $A_p = 0.02$ m$^2$, $A_o = 0.008$ m$^2$, $U_p = 3$ m/s, $p_p = 2.5\times10^5$ Pa, $p_a = 101325$ Pa, $H = 1.5$ m give $U_o = 7.5$ m/s, $F_{MP,x} = 2703.5$ N and $M_{MP,z} = -675$ N$\cdot$m.
-- Agreement with the official solution: CL3.pdf obtains $U_o = (A_p/A_o)\,U_p$, $\mathbf{F}_{MP} = \left[(p_p - p_a)A_p + \rho U_p(U_p - U_o)A_p\right]\mathbf{e}_x$ and $\mathbf{M}_{MP} = -\rho U_o^2 H A_o\,\mathbf{e}_z$, the same results.
+- Agreement with the official solution: CL3.pdf obtains (1), (2) and (3).
 
 > [!info] Extension (beyond the official solution)
-> If the flow inside were lossless (not stated in the problem), Bernoulli's equation between both sections, $p_p - p_a = \tfrac{1}{2}\rho\,(U_o^2 - U_p^2)$, would give $F_{MP,x} = \tfrac{1}{2}\rho A_p\,(U_o - U_p)^2 \ge 0$. A real mouth piece has losses, and then the measured $p_p$ is the quantity to use.
+> If the flow inside were lossless (not stated), Bernoulli's equation $p_p - p_a = \tfrac{1}{2}\rho(U_o^2 - U_p^2)$ would give $F_{MP,x} = \tfrac{1}{2}\rho A_p(U_o - U_p)^2 \ge 0$. With losses, the measured $p_p$ must be used, as in (2).

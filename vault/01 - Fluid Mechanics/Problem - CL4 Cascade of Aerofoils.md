@@ -14,75 +14,97 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 # Problem CL4: Cascade of Aerofoils: Downstream State
 
 > Official UC3M conservation-laws problem collection (Introduction to Fluid Mechanics). Part of [[Topic 3 - Conservation Laws]]. Related: [[Concept - Integral Conservation of Mass, Momentum and Energy|integral balances]], [[Concept - Reynolds Transport Theorem|Reynolds transport theorem]], [[Formula Sheet - Topic 3 Conservation Laws|formula sheet]].
+> Method: each balance is written in full with the vanishing terms crossed out and the reason underneath; each surface integral is then evaluated surface by surface (the vertical line drawn under each integral in class), and the wall terms are grouped (boxed) as the force on the body.
 
 ## Statement
 
-A planar uniform stream of air with pressure $p_1$, density $\rho_1$ and velocity $\mathbf{v}_1 = v_{1x}\mathbf{e}_x$ flows past an array of aerofoils with vertical separation $L$, exerting on each one a force (per unit length) given by $\mathbf{F} = F_x\mathbf{e}_x + F_y\mathbf{e}_y$. Assuming that the aerofoils are thermally insulated and neglecting the effect of gravity, write the equations that determine the values of the pressure $p_2$, density $\rho_2$ and velocity $\mathbf{v}_2 = v_{2x}\mathbf{e}_x + v_{2y}\mathbf{e}_y$ for the uniform stream found sufficiently far downstream.
+A planar uniform stream of air with pressure $p_1$, density $\rho_1$ and velocity $\bar{v}_1 = v_{1x}\bar{e}_x$ flows past an array of aerofoils with vertical separation $L$, exerting on each one a force (per unit length) given by $\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y$. Assuming that the aerofoils are thermally insulated and neglecting the effect of gravity, write the equations that determine the values of the pressure $p_2$, density $\rho_2$ and velocity $\bar{v}_2 = v_{2x}\bar{e}_x + v_{2y}\bar{e}_y$ for the uniform stream found sufficiently far downstream.
 
 Source: CL4.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46, force on a body Eq. 3.32.
 
-## Phase 1: Hypotheses, Degrees of Freedom and Data
+## Phase 1: Hypotheses, Data and Unknowns
 
-- Steady planar flow of air through an infinite array of identical aerofoils, equally spaced by $L$ in the $y$ direction; the flow is periodic with period $L$. Far upstream (section 1) and far downstream (section 2) the flow is uniform.
-- No gravity; the aerofoils are thermally insulated (adiabatic); viscous stresses and heat conduction are negligible in the uniform sections 1 and 2.
-- Perfect gas with specific heat ratio $\gamma$: the specific enthalpy is $h = e + p/\rho = \dfrac{\gamma}{\gamma - 1}\dfrac{p}{\rho}$. This is the assumption used in the official solution; the statement does not give $\gamma$.
-- $\mathbf{F}$ is the force that the air exerts on each aerofoil, per unit length normal to the figure, so $[F_x/L]$ is a pressure. There are four unknowns, $p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$, and therefore four equations are needed: mass, two components of momentum and energy.
+- Steady planar flow through an infinite array of identical aerofoils (pitch $L$), so the flow is periodic in $y$; uniform far upstream (1) and far downstream (2).
+- Neglect $\bar{g}$; aerofoils thermally insulated; compressible fluid. Viscous stresses and heat conduction negligible in the uniform sections.
+- Perfect gas: $h = e + \frac{p}{\rho} = c_pT = \frac{c_p}{R_g}\frac{p}{\rho} = \frac{\gamma}{\gamma - 1}\frac{p}{\rho}$ (with $p = \rho R_gT$ and $\gamma = c_p/c_v$), as in the class solution.
+- Data: $[p_1,\ \rho_1,\ v_{1x},\ L,\ F_x,\ F_y,\ \gamma]$. Unknowns: $[p_2,\ \rho_2,\ v_{2x},\ v_{2y}]$: four equations are needed.
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
-| $p_1$, $\rho_1$, $v_{1x}$ | upstream state (data) | Pa, kg/m$^3$, m/s |
-| $p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$ | downstream state (unknowns) | Pa, kg/m$^3$, m/s |
-| $L$ | vertical separation (pitch) of the aerofoils | m |
+| $p_1$, $\rho_1$, $v_{1x}$ | upstream state | Pa, kg/m$^3$, m/s |
+| $p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$ | downstream state | Pa, kg/m$^3$, m/s |
+| $L$ | pitch of the array | m |
 | $F_x$, $F_y$ | force on each aerofoil per unit length | N/m |
-| $\gamma$ | ratio of specific heats | 1 |
 
-## Phase 2: Coordinates, Frames and Changes of Variable
+## Phase 2: Frames, Control Volume and Surfaces
 
-- Inertial frame fixed to the array, Cartesian basis $(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z)$, $\mathbf{e}_x$ along the incoming stream and $\mathbf{e}_y$ along the array.
-- Fixed control volume (one period): $\Sigma_1$ (section far upstream, height $L$, $\mathbf{n} = -\mathbf{e}_x$), $\Sigma_2$ (section far downstream, height $L$, $\mathbf{n} = +\mathbf{e}_x$), the two stream surfaces $\Sigma_3$ (top) and $\Sigma_4$ (bottom), and the surface of the aerofoil $\Sigma_5$. $\mathbf{v}_c = 0$, so Eqs. 3.11, 3.36 and 3.46 apply with $\mathbf{v}_c = 0$.
-- Periodicity: $\Sigma_4$ is $\Sigma_3$ translated by $-L\,\mathbf{e}_y$, and the outward normals are opposite at corresponding points ($\mathbf{n}_4 = -\mathbf{n}_3$). Therefore the integral over $\Sigma_3 \cup \Sigma_4$ of any periodic field times the normal vanishes: pressure force, viscous force, heat flux and work of viscous stresses.
-- On the stream surfaces $\mathbf{v}\cdot\mathbf{n} = 0$ and on the aerofoil $\mathbf{v} = 0$ (no slip) with $\mathbf{q}\cdot\mathbf{n} = 0$ (insulated). The force of the aerofoil on the fluid is $-\mathbf{F}$ per unit length.
+- Frame fixed to the array; $\bar{e}_x$ along the incoming stream, $\bar{e}_y$ along the array. Fixed control volume, $\bar{v}_c = 0$, one period high.
+- Surfaces: $\Sigma_1$ (far upstream, height $L$, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (far downstream, height $L$, $\bar{n} = +\bar{e}_x$), $\Sigma_{l1}$ and $\Sigma_{l2}$ (upper and lower stream surfaces, $\bar{v}\cdot\bar{n} = 0$), $\Sigma_w$ (aerofoil surface, $\bar{v} = 0$, insulated).
+- Periodicity: $\Sigma_{l2}$ is $\Sigma_{l1}$ shifted by $-L\bar{e}_y$ with opposite normals, so the integrals of any periodic quantity over $\Sigma_{l1}$ and $\Sigma_{l2}$ cancel each other out.
 
-## Phase 3: Step-by-Step Derivation
+Force on each aerofoil (per unit length), with $\bar{n}$ the outward normal of the control volume:
 
-### 3.1 Mass
+$$ \boxed{\,\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y = \int_{\Sigma_w}p\,\bar{n}\,d\sigma - \int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma\,} $$
 
-Why this tool: Notes Eq. 3.11 with $\partial/\partial t = 0$. Only $\Sigma_1$ and $\Sigma_2$ are crossed by the flow, each of height $L$ per unit length:
+## Phase 3: Balances, Surface by Surface
 
-$$ -\rho_1 v_{1x}L + \rho_2 v_{2x}L = 0 \;\Longrightarrow\; \boxed{\,\rho_1\,v_{1x} = \rho_2\,v_{2x}\,}. \tag{E1} $$
+**Mass (Notes Eq. 3.11)**
 
-Denote by $\dot m' \equiv \rho_1 v_{1x}L$ the mass flow per unit length through one period.
+$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}\,d\sigma = 0 $$
 
-### 3.2 Linear momentum, components $x$ and $y$
+Each surface integral, surface by surface (the vertical line drawn under each integral in class):
 
-Why this tool: the force $\mathbf{F}$ on the aerofoil enters only through the momentum balance (Notes Eq. 3.36). Left-hand side, using (E1) and $v_{1y} = 0$:
+| Surface | $\int\rho\,\bar{v}\cdot\bar{n}\,d\sigma$ |
+| :--- | :--- |
+| $\Sigma_1$ | $\rho_1(-v_{1x})\,L$ |
+| $\Sigma_2$ | $\rho_2\,v_{2x}\,L$ |
+| $\Sigma_{l1},\ \Sigma_{l2}$ | $0$ (stream surfaces) |
+| $\Sigma_w$ | $0$ (wall) |
 
-$$ \int_{\Sigma_c}\rho\,\mathbf{v}\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma = \left(-\rho_1 v_{1x}^2 L + \rho_2 v_{2x}^2 L\right)\mathbf{e}_x + \rho_2 v_{2y}v_{2x}L\,\mathbf{e}_y = \dot m'\left[(v_{2x} - v_{1x})\,\mathbf{e}_x + v_{2y}\,\mathbf{e}_y\right]. $$
+$$ \boxed{\,\rho_1v_{1x} = \rho_2v_{2x}\,} \tag{1} $$
 
-Right-hand side: on $\Sigma_1$, $-p_1(-\mathbf{e}_x)L = p_1L\,\mathbf{e}_x$; on $\Sigma_2$, $-p_2L\,\mathbf{e}_x$; the contributions of $\Sigma_3$ and $\Sigma_4$ cancel by periodicity; viscous stresses are negligible on $\Sigma_1$ and $\Sigma_2$; on $\Sigma_5$ the force on the fluid is $-\mathbf{F}$. Component by component:
+**Linear momentum (Notes Eq. 3.36)**
 
-$$ \dot m'\,(v_{2x} - v_{1x}) = (p_1 - p_2)\,L - F_x \;\Longrightarrow\; \boxed{\,\frac{F_x}{L} = p_1 - p_2 + \rho_1 v_{1x}\,(v_{1x} - v_{2x})\,} \tag{E2} $$
+$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$
 
-$$ \dot m'\,v_{2y} = -F_y \;\Longrightarrow\; \boxed{\,\frac{F_y}{L} = -\rho_1\,v_{1x}\,v_{2y}\,} \tag{E3} $$
+Each surface integral, surface by surface (the vertical line drawn under each integral in class):
 
-### 3.3 Total energy
+| Surface | $\int\rho\bar{v}\,(\bar{v}\cdot\bar{n})\,d\sigma$ | $-\int p\,\bar{n}\,d\sigma$ | $\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$ |
+| :--- | :--- | :--- | :--- |
+| $\Sigma_1$ | $\rho_1v_{1x}\bar{e}_x(-v_{1x})L$ | $+p_1L\,\bar{e}_x$ | $0$ |
+| $\Sigma_2$ | $\rho_2(v_{2x}\bar{e}_x + v_{2y}\bar{e}_y)\,v_{2x}L$ | $-p_2L\,\bar{e}_x$ | $0$ |
+| $\Sigma_{l1} + \Sigma_{l2}$ | $0$ | $0$ (cancel each other out) | $0$ (cancel each other out) |
+| **$\Sigma_w$** (boxed) | $0$ | $-\int_{\Sigma_w}p\,\bar{n}\,d\sigma$ | $\int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$ |
 
-Why this tool: $p_2$ and $\rho_2$ are linked by the thermal state of the gas, which only the energy balance (Notes Eq. 3.46) provides. Steady, no gravity, no volumetric heat: the convective flux of $e + v^2/2$ plus the pressure work $p\,\mathbf{v}\cdot\mathbf{n}$ combine into the flux of $\rho\left(h + v^2/2\right)$.
+Boxed $\Sigma_w$ terms: $-\bar{F} = -F_x\bar{e}_x - F_y\bar{e}_y$. With (1), $\rho_2v_{2x}L = \rho_1v_{1x}L$ in the $\Sigma_2$ flux.
 
-On $\Sigma_3$ and $\Sigma_4$: $\mathbf{v}\cdot\mathbf{n} = 0$, and conduction and viscous work cancel by periodicity. On $\Sigma_5$: $\mathbf{v} = 0$ (no work) and $\mathbf{q}\cdot\mathbf{n} = 0$. On $\Sigma_1$ and $\Sigma_2$: viscous work and conduction are negligible. What remains is
+$$ \boxed{\,F_x = \rho_1v_{1x}L\,(v_{1x} - v_{2x}) + (p_1 - p_2)\,L\,}\ \ \text{(2)}\qquad \boxed{\,F_y = -\rho_1v_{1x}L\,v_{2y}\,}\ \ \text{(3)} $$
 
-$$ \int_{\Sigma_1 + \Sigma_2}\rho\left(h + \frac{v^2}{2}\right)(\mathbf{v}\cdot\mathbf{n})\,d\sigma = 0 \;\Longrightarrow\; \dot m'\left[\left(h_2 + \frac{v_{2x}^2 + v_{2y}^2}{2}\right) - \left(h_1 + \frac{v_{1x}^2}{2}\right)\right] = 0, $$
+**Total energy (Notes Eq. 3.46)**
 
-$$ \boxed{\,\frac{\gamma}{\gamma - 1}\,\frac{p_2}{\rho_2} + \frac{v_{2x}^2 + v_{2y}^2}{2} = \frac{\gamma}{\gamma - 1}\,\frac{p_1}{\rho_1} + \frac{v_{1x}^2}{2}\,} \tag{E4} $$
+$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}(Q_c + Q_r)\,dV}}_{0} $$
 
-Equations (E1) to (E4) are four equations for the four unknowns $p_2$, $\rho_2$, $v_{2x}$ and $v_{2y}$, which answers the question of the statement.
+Each surface integral, surface by surface (the vertical line drawn under each integral in class):
+
+| Surface | $\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$ | $-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$ | $\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$ | $-\int\bar{q}\cdot\bar{n}\,d\sigma$ |
+| :--- | :--- | :--- | :--- | :--- |
+| $\Sigma_1$ | $\rho_1\left(e_1 + \tfrac{v_{1x}^2}{2}\right)(-v_{1x})L$ | $+p_1v_{1x}L$ | $0$ | $0$ |
+| $\Sigma_2$ | $\rho_2\left(e_2 + \tfrac{v_{2x}^2 + v_{2y}^2}{2}\right)v_{2x}L$ | $-p_2v_{2x}L$ | $0$ | $0$ |
+| $\Sigma_{l1} + \Sigma_{l2}$ | $0$ | $0$ | $0$ (cancel each other out) | $0$ (cancel each other out) |
+| $\Sigma_w$ | $0$ | $0$ ($\bar{v} = 0$) | $0$ ($\bar{v} = 0$) | $0$ (insulated) |
+
+Moving the pressure work to the left turns $e$ into $h = e + p/\rho$; dividing by $\rho_1v_{1x}L = \rho_2v_{2x}L$ and using $h = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$:
+
+$$ \boxed{\,\frac{\gamma}{\gamma - 1}\left(\frac{p_2}{\rho_2} - \frac{p_1}{\rho_1}\right) + \frac{v_{2x}^2 + v_{2y}^2}{2} - \frac{v_{1x}^2}{2} = 0\,} \tag{4} $$
+
+(1) to (4) are four equations for the four unknowns $p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$, which answers the question.
 
 ## Phase 4: Interpretation, Limits and Dimensional Check
 
-- Equation (E3) says that the transverse force on an aerofoil (lift) equals minus the rate of change of $y$ momentum of the stream: the flow is deflected by $v_{2y}$ in the direction opposite to the force on the body. Equation (E2) splits the streamwise force into a pressure drop across the array and a momentum change.
-- Trivial limit $\mathbf{F} = 0$: (E1) to (E4) are satisfied by $\rho_2 = \rho_1$, $p_2 = p_1$, $\mathbf{v}_2 = \mathbf{v}_1$ (no body, no change).
-- Incompressible limit ($\rho_2 = \rho_1$): (E1) gives $v_{2x} = v_{1x}$ and (E2) reduces to $p_1 - p_2 = F_x/L$.
-- Dimensions (SI): $[F_x/L] = (\text{N/m})/\text{m} = \text{Pa}$ and $[\rho_1 v_{1x}^2] = \text{Pa}$; $[\rho_1 v_{1x}\,v_{2y}\,L] = (\text{kg/m}^3)(\text{m/s})(\text{m/s})\,\text{m} = \text{N/m}$; $[\gamma p/((\gamma-1)\rho)] = \text{m}^2/\text{s}^2 = [v^2]$.
+- (3): the transverse force on an aerofoil equals minus the $y$ momentum given to the stream; the flow is deflected opposite to the force. (2) splits the streamwise force into a pressure drop and a momentum change.
+- $\bar{F} = 0$: (1) to (4) are satisfied by state 2 = state 1. Incompressible limit ($\rho_2 = \rho_1$): $v_{2x} = v_{1x}$ and $p_1 - p_2 = F_x/L$.
+- Dimensions (SI): $[F_x/L] = \text{Pa} = [\rho_1v_{1x}^2]$; $[\rho_1v_{1x}Lv_{2y}] = \text{N/m}$; $[\gamma p/((\gamma-1)\rho)] = \text{m}^2/\text{s}^2 = [v^2]$.
+- Agreement with the official solution and the class solution: the same four equations (1) to (4).
 
-> [!info] Extension (beyond the official solution): closed solution of the four equations
-> With $m \equiv \rho_1 v_{1x}$, (E1) gives $\rho_2 = m/v_{2x}$, (E3) gives $v_{2y} = -F_y/(mL)$ and (E2) gives $p_2 = P - m\,v_{2x}$ with $P \equiv p_1 + m\,v_{1x} - F_x/L$. Substituting into (E4), with $E \equiv \frac{\gamma}{\gamma-1}\frac{p_1}{\rho_1} + \frac{v_{1x}^2}{2}$, and using that the coefficient of $v_{2x}^2$ is $\frac{1}{2} - \frac{\gamma}{\gamma-1} = -\frac{\gamma+1}{2(\gamma-1)}$, one obtains the quadratic $(\gamma + 1)\,v_{2x}^2 - 2\gamma\,\frac{P}{m}\,v_{2x} + 2(\gamma - 1)\left(E - \frac{v_{2y}^2}{2}\right) = 0$. For $\mathbf{F} = 0$ one root is $v_{2x} = v_{1x}$; the root continuous with it is the physical one (the other is the supersonic-subsonic conjugate state, as in a normal shock). Numerical check: $p_1 = 101325$ Pa, $\rho_1 = 1.2$ kg/m$^3$, $v_{1x} = 100$ m/s, $L = 0.2$ m, $F_x = 30$ N/m, $F_y = -80$ N/m, $\gamma = 1.4$ give $v_{2x} = 100.16$ m/s, $v_{2y} = 3.3333$ m/s, $\rho_2 = 1.19808$ kg/m$^3$, $p_2 = 101155.8$ Pa, with residuals of (E1) to (E4) below $10^{-9}$ in SI units; the other root gives $p_2 = -6843.3$ Pa $< 0$ and is discarded.
+> [!info] Extension (beyond the official solution): closed solution
+> With $m = \rho_1v_{1x}$: $\rho_2 = m/v_{2x}$, $v_{2y} = -F_y/(mL)$ and $p_2 = P - m\,v_{2x}$ with $P = p_1 + mv_{1x} - F_x/L$. Substituting into (4), with $E = \frac{\gamma}{\gamma-1}\frac{p_1}{\rho_1} + \frac{v_{1x}^2}{2}$ and the coefficient $\frac{1}{2} - \frac{\gamma}{\gamma-1} = -\frac{\gamma+1}{2(\gamma-1)}$ of $v_{2x}^2$: $(\gamma + 1)v_{2x}^2 - 2\gamma\frac{P}{m}v_{2x} + 2(\gamma - 1)\left(E - \frac{v_{2y}^2}{2}\right) = 0$. For $\bar{F} = 0$ one root is $v_{2x} = v_{1x}$; the root continuous with it is the physical one. Check: $p_1 = 101325$ Pa, $\rho_1 = 1.2$ kg/m$^3$, $v_{1x} = 100$ m/s, $L = 0.2$ m, $F_x = 30$ N/m, $F_y = -80$ N/m, $\gamma = 1.4$ give $v_{2x} = 100.16$ m/s, $v_{2y} = 3.3333$ m/s, $\rho_2 = 1.19808$ kg/m$^3$, $p_2 = 101155.8$ Pa, residuals of (1) to (4) below $10^{-9}$; the other root gives $p_2 = -6843.3$ Pa $< 0$ and is discarded.
