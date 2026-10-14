@@ -67,6 +67,10 @@ Whenever a task changes the repository or the portal (a file created, edited or 
 - The final message states the outcome: what passed, what failed, what was skipped and why. If a check cannot run here (for example, a CDN or font is blocked), say so explicitly and do not present the task as closed.
 - Read-only work (answering questions, reading sources without editing anything) does not trigger this rule.
 
+### Mandatory commit and push
+
+Every task that changes files ends with a commit and a push to `origin`, without waiting for the user to ask. Claude stages only the files of its task, uses a `type(scope): summary` message, and leaves no changes uncommitted. Claude pushes to the branch the session names; when none is named, it pushes to `main`.
+
 ## Claude Code specifics
 
 - Subagents are defined in `.claude/agents/` (`source-researcher`, `aerospace-pedagogue`, `problem-step-mentor`, `subject-web-builder`, `web-qa-reviewer`). Delegate to them when the task matches a role; work directly when it is small.

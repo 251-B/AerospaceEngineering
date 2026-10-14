@@ -160,8 +160,7 @@ A task is closed only when `vault_lint` and `audit_portal` report 0 errors, `ren
 
 ## Git
 
-- The `web_qa_reviewer` role manages version control: `git status`, `git add`, `git commit` with a descriptive message, and `git push` to `origin/main`, as part of closing a task.
-- Other agents do not commit or push unless the user asks.
+- Every agent commits its finished work and pushes it to `origin` when it closes a task, so nothing is left uncommitted. The `web_qa_reviewer` role runs the checks and does the `git status` and `git add` before that commit, and pushes to `origin/main` unless the session names another branch.
 - Commit messages: `type(scope): summary` (e.g. `feat(fluids): ...`, `chore(maths): ...`).
 - The working tree may contain unrelated uncommitted changes. Stage only the files relevant to the task.
 - The vault is committed to Git so every team member shares the same notes. Obsidian workspace and cache files, and `graphify-out/`, are gitignored.
