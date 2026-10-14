@@ -24,4 +24,6 @@ npm run prepare-assets             # enlaza los clips, cuenta sus fotogramas, ge
 npm run render                     # -> out/promo-aerospace.mp4
 ```
 
+`npm run render` (`render.sh`) renderiza una secuencia de imágenes en lugar del MP4 directo. Chrome sin GPU a veces captura un fotograma antes de pintar todas las teselas de las pantallas ampliadas, y un dispositivo o un trozo desaparece durante un fotograma (parpadeo). `check_frames.py` detecta esos fotogramas (un bloque que difiere de sus dos vecinos mientras ellos coinciden), `repair.mjs` los vuelve a renderizar, y el bucle se repite hasta que no queda ninguno. Después se codifica el MP4 con la banda sonora.
+
 Con `REMOTION_BROWSER=/ruta/a/headless_shell` se usa un Chrome local en lugar de descargar uno.

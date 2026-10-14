@@ -112,12 +112,12 @@ export const FeatureLayout: React.FC<{ side?: Side; text: React.ReactNode; child
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          perspective: 2400,
         }}
       >
         <div
           style={{
-            transform: `translateX(${(1 - enter) * 260 * dir + deviceShift}px) translateY(${(1 - enter) * 40}px) rotateY(${(1 - enter) * -22 * dir + -3 * dir * (1 - drift)}deg) scale(${0.92 + 0.08 * enter + drift * 0.03})`,
+            // 2D only: 3D transforms (rotateY + perspective) left devices half-painted on some frames.
+            transform: `translateX(${(1 - enter) * 260 * dir + deviceShift}px) translateY(${(1 - enter) * 40}px) scale(${0.92 + 0.08 * enter + drift * 0.03})`,
             opacity: enter,
             position: 'relative',
           }}
