@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>pomodoro.js harness</title>
+<!-- Driven by test_pomodoro.py through headless Edge/Chrome (--dump-dom). Everything runs in
+     iframes that load theme.js like a real page, one at a time, so a single timer owns the
+     shared 'ae_pomodoro' key. -->
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+  var P = null;
+  var KEY = 'ae_pomodoro';
+  var MIN = 60000;
+
+  function record(name, ok, detail) {
+    results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) });
+  }
+
+  function sum(phases) { return phases.reduce(function (a, p) { return a + p.min; }, 0); }
+  function mins(plan) { return plan.phases.map(function (p) { return (p.kind === 'focus' ? 'F' : p.kind === 'short' ? 's' : 'L') + p.min; }).join(' '); }
+
+  function frame(stored, width) {
+    return new Promise(function (resolve) {
+      try { if (stored) localStorage.setItem(KEY, JSON.stringify(stored)); else localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:' + (width || 1000) + 'px;height:800px';
+      f.onload = function () { setTimeout(function () { resolve(f); }, 600); };
+      f.srcdoc = '<!doctype html><html data-theme="dark"><head><title>Page</title>' +
+        '<script src="../../assets/js/theme.js"><\/script></head><body><main><p>Page text</p></main></body></html>';
+      document.body.appendChild(f);
+    });
+  }
+
+  function planState(phases, index, endAt) {
+    return { v: 1, mode: 'plan', tab: 'plan', preset: 'standard', durations: { focus: 25, short: 5, long: 15, longEvery: 4 },
+      freeDone: 0, phase: { kind: 'focus', min: 25 }, plan: { total: sum(phases), style: 'standard', phases: phases, index: index, done: false },
+      draft: { input: '3h', style: 'standard' }, running: true, endAt: endAt, remaining: phases[index].min * MIN, auto: true, sound: false };
+  }
+
+  function run() {
+    frame(null).then(function (f) {
+      P = f.contentWindow.AEPomodoro;
+      try { pure(); } catch (err) { record('harness error', false, err && err.stack || err); }
+      f.remove();
+      live();
+    });
+  }
+
+  function pure() {
+    // ---------------------------------------------------------------- planner: worked examples
+    var std = P.planSessions(180, 'standard');
+    record('standard 3 h fills the time exactly', mins(std) === 'F25 s5 F25 s5 F25 s5 F25 L15 F25 s5 F20' &&
+      sum(std.phases) === 180 && std.summary.focus === 145 && std.summary.buffer === 0, mins(std));
+    var deep = P.planSessions(180, 'deep');
+    record('deep 3 h stretches the last block', mins(deep) === 'F50 s10 F50 s10 F60' && deep.summary.focus === 160, mins(deep));
+    var deep4 = P.planSessions(240, 'deep');
+    record('deep 4 h: long break after 3 blocks, shorter closing block', mins(deep4) === 'F50 s10 F50 s10 F50 L25 F45' &&
+      sum(deep4.phases) === 240, mins(deep4));
+    var short = P.planSessions(20, 'standard');
+    record('time shorter than one block is a single block', mins(short) === 'F20', mins(short));
+    var std2 = P.planSessions(120, 'standard');
+    record('standard 2 h: the 5 min left (too few for a long break and a block) lengthen the last block',
+      mins(std2) === 'F25 s5 F25 s5 F25 s5 F30' && std2.summary.buffer === 0, mins(std2));
+
+    // ---------------------------------------------------------------- planner: invariants on every total
+    var bad = [];
+    ['standard', 'deep'].forEach(function (id) {
+      var s = P.STYLES[id];
+      for (var t = 10; t <= 720; t++) {
+        var plan = P.planSessions(t, id), ph = plan.phases, used = sum(ph), k = 0, why = '';
+        if (ph[0].kind !== 'focus' || ph[ph.length - 1].kind !== 'focus') why = 'must start and end with focus';
+        for (var i = 0; i < ph.length && !why; i++) {
+          if ((i % 2 === 0) !== (ph[i].kind === 'focus')) why = 'focus and breaks must alternate';
+          if (ph[i].kind === 'focus') {
+            k++;
+            if (ph[i].min > s.focus + s.stretch) why = 'block too long';
+            if (i < ph.length - 1 && ph[i].min !== s.focus) why = 'only the last block may differ';
+          } else if (ph[i].kind !== (k % s.longEvery === 0 ? 'long' : 'short') || ph[i].min !== s[ph[i].kind]) why = 'wrong break after block ' + k;
+        }
+        var last = ph[ph.length - 1].min;
+        if (!why && t > s.focus && last < s.minFocus) why = 'closing block shorter than ' + s.minFocus;
+        if (!why && used > t) why = 'plan longer than the time';
+        if (!why && plan.summary.buffer !== t - used) why = 'buffer does not close the sum';
+        if (!why && t - used >= s.minFocus + s.long) why = 'buffer large enough for another block';
+        if (!why && plan.summary.focus + plan.summary.breaks !== used) why = 'summary does not add up';
+        if (why) bad.push(id + ' ' + t + ': ' + why + ' (' + mins(plan) + ')');
+      }
+    });
+    record('planner invariants for every total from 10 min to 12 h', bad.length === 0, bad.slice(0, 5).join('; '));
+
+    // ---------------------------------------------------------------- duration parser
+    var cases = [['3h', 180], ['3 h', 180], ['3 horas', 180], ['3 hours', 180], ['180', 180], ['180 min', 180],
+      ['2:30', 150], ['2.5h', 150], ['2,5 h', 150], ['1h 30', 90], ['1h30m', 90], ['1 hora 20 minutos', 80],
+      ['1 hour and 15 minutes', 75], ['3', 180], ['45', 45], ['', null], ['abc', null], ['3 days', null], ['0', null]];
+    var wrong = cases.filter(function (c) { return P.parseDuration(c[0]) !== c[1]; })
+      .map(function (c) { return JSON.stringify(c[0]) + ' -> ' + P.parseDuration(c[0]) + ' (want ' + c[1] + ')'; });
+    record('duration parser', wrong.length === 0, wrong.join('; '));
+    record('minutes formatting', P.formatMinutes(145) === '2 h 25 min' && P.formatMinutes(180) === '3 h' && P.formatMinutes(45) === '45 min',
+      [P.formatMinutes(145), P.formatMinutes(180), P.formatMinutes(45)].join(' | '));
+
+  }
+
+  function live() {
+    // ---------------------------------------------------------------- live widget in a page
+    var chain = Promise.resolve();
+
+    chain = chain.then(function () { return frame(null); }).then(function (f) {
+      var w = f.contentWindow, d = f.contentDocument;
+      var pm = d.getElementById('pomodoroButton'), fl = d.getElementById('focusLabButton');
+      record('theme.js loads the timer next to Focus Lab', !!(w.AEPomodoro && pm && fl), 'pm=' + !!pm + ' fl=' + !!fl);
+      if (pm && fl) {
+        var a = pm.getBoundingClientRect(), b = fl.getBoundingClientRect();
+        record('timer button sits 10 px above the Focus button, right-aligned', Math.abs(b.top - a.bottom - 10) <= 1 &&
+          Math.abs(a.right - b.right) <= 1 && Math.abs(a.height - b.height) <= 1,
+          'gap=' + (b.top - a.bottom) + ' right ' + a.right + '/' + b.right + ' h ' + a.height + '/' + b.height);
+      }
+      w.AEFocusLab.open();
+      w.AEPomodoro.open();
+      record('opening the timer closes Focus Lab', d.getElementById('focusLabPanel').hidden && !d.getElementById('pomodoroPanel').hidden, '');
+      d.getElementById('focusLabButton').click();   // a click on Focus closes the timer panel (capture listener)
+      record('clicking Focus closes the timer panel', d.getElementById('pomodoroPanel').hidden && !d.getElementById('focusLabPanel').hidden, '');
+      w.AEFocusLab.close();
+
+      // free mode: start, pause keeps the time, skip cycles focus -> short ... long after 4
+      w.AEPomodoro.start();
+      var s1 = w.AEPomodoro.state();
+      record('start runs a 25 min focus block', s1.running && s1.mode === 'free' && Math.abs(s1.endAt - Date.now() - 25 * MIN) < 2000, JSON.stringify(s1));
+      record('title shows the time and the phase', /^2[45]:\d\d · Focus — Page$/.test(d.title), d.title);
+      record('button shows the time left', /^2[45]:\d\d$/.test(pm.textContent.trim()), pm.textContent);
+      w.AEPomodoro.pause();
+      var s2 = w.AEPomodoro.state();
+      record('pause keeps the remaining time', !s2.running && s2.remaining > 24 * MIN && s2.remaining <= 25 * MIN && /^⏸ /.test(d.title), d.title);
+      var kinds = [];
+      for (var i = 0; i < 8; i++) { w.AEPomodoro.skip(); kinds.push(w.AEPomodoro.state().phase.kind); }
+      record('free cycle: long break after every 4th block', kinds.join(',') === 'short,focus,short,focus,short,focus,long,focus', kinds.join(','));
+      w.AEPomodoro.reset();
+      record('reset idles the phase and restores the title', !w.AEPomodoro.state().running && d.title === 'Page', d.title);
+      f.remove();
+    });
+
+    // reload while a plan runs: the timer catches up through the phases that ended meanwhile
+    chain = chain.then(function () {
+      var phases = [{ kind: 'focus', min: 25 }, { kind: 'short', min: 5 }, { kind: 'focus', min: 25 }];
+      var endAt = Date.now() - 2 * MIN;    // focus ended 2 min ago: 3 min of the break are left
+      return frame(planState(phases, 0, endAt)).then(function (f) {
+        var s = f.contentWindow.AEPomodoro.state();
+        var left = s.endAt - Date.now();
+        record('reload catches up into the break, on the wall clock', s.plan.index === 1 && s.running &&
+          left > 2.9 * MIN && left <= 3 * MIN, 'index=' + s.plan.index + ' left=' + Math.round(left / 1000) + ' s');
+        record('title names the break', /^[23]:\d\d · Break — Page$/.test(f.contentDocument.title), f.contentDocument.title);
+        f.remove();
+      });
+    });
+
+    chain = chain.then(function () {
+      var phases = [{ kind: 'focus', min: 25 }, { kind: 'short', min: 5 }, { kind: 'focus', min: 25 }];
+      return frame(planState(phases, 0, Date.now() - 70 * MIN)).then(function (f) {
+        var s = f.contentWindow.AEPomodoro.state();
+        var pm = f.contentDocument.getElementById('pomodoroButton');
+        record('a plan that ended while away is complete', s.plan.done && !s.running && pm.textContent.trim() === 'Done',
+          JSON.stringify({ done: s.plan.done, running: s.running, label: pm.textContent }));
+        f.remove();
+      });
+    });
+
+    chain = chain.then(function () {
+      return frame(null).then(function (f) {
+        var w = f.contentWindow;
+        w.AEPomodoro.startPlan(180, 'deep');
+        var stored = JSON.parse(localStorage.getItem(KEY));
+        record('a started plan is saved with its queue', stored.mode === 'plan' && stored.running && stored.plan.phases.length === 5,
+          JSON.stringify(stored.plan && stored.plan.phases));
+        w.AEPomodoro.open();
+        var text = f.contentDocument.querySelector('.pm-progress__text').textContent;
+        record('plan progress reads "Session 1 of 3"', text === 'Session 1 of 3', text);
+        w.AEPomodoro.endPlan();
+        record('ending the plan returns to the free timer', w.AEPomodoro.state().mode === 'free' && !w.AEPomodoro.state().running, '');
+        f.remove();
+      });
+    });
+
+    chain = chain.then(function () {
+      try { localStorage.setItem(KEY, '{not json'); } catch (e) { /* ignore */ }
+      var f = document.createElement('iframe');
+      return new Promise(function (resolve) {
+        f.onload = function () { setTimeout(function () { resolve(f); }, 600); };
+        f.srcdoc = '<!doctype html><html><head><title>Page</title><script src="../../assets/js/theme.js"><\/script></head><body></body></html>';
+        document.body.appendChild(f);
+      }).then(function (f) {
+        var s = f.contentWindow.AEPomodoro && f.contentWindow.AEPomodoro.state();
+        record('corrupt storage falls back to defaults', s && s.mode === 'free' && !s.running, JSON.stringify(s));
+        f.remove();
+      });
+    });
+
+    chain.then(function () {
+      try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+      document.getElementById('results').textContent = JSON.stringify(results);
+    }, function (err) {
+      record('harness error', false, err && err.stack || err);
+      document.getElementById('results').textContent = JSON.stringify(results);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
+</script>
+</body>
+</html>

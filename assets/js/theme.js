@@ -23,9 +23,10 @@
  * API: window.AESurface = { get(), set(id), list(), KEY }
  * Event: document 'ae-surface-change' with detail { surface }.
  *
- * Focus Lab (third concern, loaded from here for the same reason): appends
- * <script src="assets/js/focus-lab.js"> next to this file, so the study-sound widget is on every
- * page that loads theme.js. Skipped in the PDF print mode (?print=...).
+ * Focus Lab and the study timer (third concern, loaded from here for the same reason): appends
+ * <script src="assets/js/focus-lab.js"> and <script src="assets/js/pomodoro.js"> next to this
+ * file, so the study-sound widget and the Pomodoro timer are on every page that loads theme.js.
+ * Skipped in the PDF print mode (?print=...).
  */
 (function () {
   'use strict';
@@ -306,13 +307,16 @@
     buildPicker();
   });
 
-  // ---- Focus Lab: the study-sound widget, resolved next to this file ---------------------
-  (function loadFocusLab() {
+  // ---- Focus Lab (study sound) and the study timer, resolved next to this file ------------
+  (function loadWidgets() {
     var self = document.currentScript;
     if (!self || !self.src || /[?&]print=/.test(location.search)) return;
-    var script = document.createElement('script');
-    script.src = self.src.replace(/theme\.js(\?.*)?$/, 'focus-lab.js');
-    (document.head || document.documentElement).appendChild(script);
+    ['focus-lab.js', 'pomodoro.js'].forEach(function (name) {
+      var script = document.createElement('script');
+      script.async = false;   // run in this order, so both widgets always land in the DOM the same way
+      script.src = self.src.replace(/theme\.js(\?.*)?$/, name);
+      (document.head || document.documentElement).appendChild(script);
+    });
   })();
 
   window.AETheme = { get: get, set: set, toggle: toggle, KEY: KEY };

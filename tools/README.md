@@ -47,6 +47,8 @@ Known limit: a link whose alias ends in `]` (`...[101]]]`) is ambiguous and must
   and `theme`; default dark; syncs tabs; `window.AETheme`; wires `#themeToggle` / `#themeLabel`.
 - `assets/js/focus-lab.js` + `assets/css/focus-lab.css`: "Focus Lab" study sound (Web Audio synthesis: binaural,
   isochronic, brown/pink noise), loaded on every page by `theme.js`; key `ae_focus_lab`; tested by `tests/test_focus_lab.py`.
+- `assets/js/pomodoro.js` + `assets/css/pomodoro.css`: study timer (Pomodoro, free or planned sessions; Web Audio
+  chime), loaded on every page by `theme.js` after Focus Lab; key `ae_pomodoro`; tested by `tests/test_pomodoro.py`.
 - `assets/data/sources.js`: `window.AE_SOURCES` = official PDFs (160 files) per subject / unit / category
   (`teoria`, `slides`, `problemas`, `examenes`, `schedule`). **Laboratory material is never included.**
   Hrefs are repo-root-relative and URL-encoded; prefix them with the page's relative path to the root.
