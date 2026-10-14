@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 155867
 ---
 
@@ -19,8 +19,8 @@ bytes: 155867
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf`
 - **Kind:** problemas
 - **Size:** 155.9 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - CL14 Gas Turbine Diffuser Module]]

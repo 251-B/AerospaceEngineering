@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 310508
 ---
 
@@ -19,8 +19,8 @@ bytes: 310508
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf`
 - **Kind:** problemas
 - **Size:** 310.5 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - CL19 Elbow Mixing Two Air Streams]]
