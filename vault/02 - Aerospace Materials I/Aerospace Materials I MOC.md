@@ -106,11 +106,11 @@ tags:
 
 ### ⚖️ Block II: Phase Diagrams and Solidification
 
-#### [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification]] (Parts I-II done: Sessions 7-8 and problems 1-15)
+#### [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification]] (Parts I-III done: Sessions 7-9, sheet I problems 1-15 and sheet II problems 1-10)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html`
 * **Master Note:** [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification|Topic 4: Phase Diagrams and Solidification (MOC)]]
-* **Atomic Theory Concepts (7 Notes, Parts I-II):**
+* **Atomic Theory Concepts (8 Notes, Parts I-III):**
   * [[02 - Aerospace Materials I/Concept - Phases, Components and Microconstituents|Concept: Phases, Components and Microconstituents]]
   * [[02 - Aerospace Materials I/Concept - Gibbs Phase Rule|Concept: Gibbs Phase Rule]]
   * [[02 - Aerospace Materials I/Concept - Tie Line and Lever Rule|Concept: Tie Line and Lever Rule]]
@@ -118,7 +118,8 @@ tags:
   * [[02 - Aerospace Materials I/Concept - Solid-State Precipitation and the Solvus|Concept: Solid-State Precipitation and the Solvus]]
   * [[02 - Aerospace Materials I/Concept - Invariant Reactions in Binary Systems|Concept: Invariant Reactions in Binary Systems]]
   * [[02 - Aerospace Materials I/Concept - Intermetallic Compounds and Congruent Melting|Concept: Intermetallic Compounds and Congruent Melting]]
-* **Official Solved Problems (15 of 26, Problems T4_PhaseDiagrams I, problems 1-15):**
+  * [[02 - Aerospace Materials I/Concept - The Fe-Fe3C Diagram and Steel Microstructures|Concept: The Fe-Fe3C Diagram and Steel Microstructures]]
+* **Official Solved Problems (25 of 26: Problems T4_PhaseDiagrams I, 1-15, and II, 1-10):**
   * [[02 - Aerospace Materials I/Problem - T4-PD01 Phase Limits from the Phase Fractions of Two Alloys|Problem T4-PD01: Phase Limits from the Phase Fractions of Two Alloys]]
   * [[02 - Aerospace Materials I/Problem - T4-PD02 Primary and Total Beta in a Pb-Sn Alloy|Problem T4-PD02: Primary and Total β in a Pb-Sn Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD03 Phases and Microconstituents of a Pb-80 Sn Alloy|Problem T4-PD03: Phases and Microconstituents of Pb-80 wt% Sn]]
@@ -134,6 +135,16 @@ tags:
   * [[02 - Aerospace Materials I/Problem - T4-PD13 Compounds and Cooling of a Ti-30 Si Alloy|Problem T4-PD13: Compounds and Cooling of a Ti-30 % Si Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD14 Reading a Hypothetical Diagram with Several Compounds|Problem T4-PD14: Reading a Hypothetical Diagram with Several Compounds]]
   * [[02 - Aerospace Materials I/Problem - T4-PD15 The Ti-B System and Ti-10 B and Ti-18 B Alloys|Problem T4-PD15: The Ti-B System and Ti-10 % B and Ti-18 % B Alloys]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC01 Phases and Microconstituents of a 0.5 C Steel|Problem T4-FC01: Phases and Microconstituents of a 0.5 C Steel]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC02 Phases and Microconstituents of a Eutectoid Steel|Problem T4-FC02: Phases and Microconstituents of a Eutectoid Steel]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC03 Phases and Microconstituents of a 1.5 C Steel|Problem T4-FC03: Phases and Microconstituents of a 1.5 C Steel]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC04 Phases and Microconstituents of a Eutectic Cast Iron|Problem T4-FC04: Phases and Microconstituents of a Eutectic Cast Iron]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC05 Composition from the Cementite Fraction|Problem T4-FC05: Composition from the Cementite Fraction]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC06 Hypoeutectic Cast Iron from its Ferrite Fraction|Problem T4-FC06: Hypoeutectic Cast Iron from its Ferrite Fraction]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC07 Hypereutectic Cast Iron from its Cementite Fraction|Problem T4-FC07: Hypereutectic Cast Iron from its Cementite Fraction]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC08 Annealed 0.55 C Steel Bar and the Effect of Nickel|Problem T4-FC08: Annealed 0.55 C Steel Bar and the Effect of Nickel]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC09 A 3 C Cast Iron from 1146 to 800 C|Problem T4-FC09: A 3 C Cast Iron from 1146 to 800 C]]
+  * [[02 - Aerospace Materials I/Problem - T4-FC10 Fe-Cementite Questions and Pearlite Limits|Problem T4-FC10: Fe-Cementite Questions and Pearlite Limits]]
 * **Official Sources:**
   * Theory: `Session 7 T4 Phase diagrams I_2025.pdf`, `Session 8 T4 Phase diagrams II.pdf`, `Session 9 T4 Phase diagrams III.pdf`, `Session 10 T4 Phase diagrams IV.pdf`
   * Problems: `Problems T4_PhaseDiagrams I.pdf`, `Problems T4_PhaseDiagrams II.pdf`

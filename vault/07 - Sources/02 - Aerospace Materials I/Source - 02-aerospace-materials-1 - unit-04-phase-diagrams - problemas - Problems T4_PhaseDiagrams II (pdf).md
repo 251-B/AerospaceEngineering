@@ -19,8 +19,18 @@ bytes: 285640
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams II.pdf`
 - **Kind:** problemas
 - **Size:** 285.6 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 11 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T4-FC01 Phases and Microconstituents of a 0.5 C Steel]]
+- [[02 - Aerospace Materials I/Problem - T4-FC02 Phases and Microconstituents of a Eutectoid Steel]]
+- [[02 - Aerospace Materials I/Problem - T4-FC03 Phases and Microconstituents of a 1.5 C Steel]]
+- [[02 - Aerospace Materials I/Problem - T4-FC04 Phases and Microconstituents of a Eutectic Cast Iron]]
+- [[02 - Aerospace Materials I/Problem - T4-FC05 Composition from the Cementite Fraction]]
+- [[02 - Aerospace Materials I/Problem - T4-FC06 Hypoeutectic Cast Iron from its Ferrite Fraction]]
+- [[02 - Aerospace Materials I/Problem - T4-FC07 Hypereutectic Cast Iron from its Cementite Fraction]]
+- [[02 - Aerospace Materials I/Problem - T4-FC08 Annealed 0.55 C Steel Bar and the Effect of Nickel]]
+- [[02 - Aerospace Materials I/Problem - T4-FC09 A 3 C Cast Iron from 1146 to 800 C]]
+- [[02 - Aerospace Materials I/Problem - T4-FC10 Fe-Cementite Questions and Pearlite Limits]]

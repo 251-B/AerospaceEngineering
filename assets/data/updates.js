@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-materials-t4-fe-c-problems",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "Topic 4: ten Fe-C problems solved",
+    "text": "The second phase-diagram sheet is solved step by step: phases and microconstituents of steels and cast irons on the Fe-C diagram.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
+  },
+  {
+    "id": "2026-10-14-materials-t4-theory-part-3",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "New theory: the Fe-C system",
+    "text": "Session 9 is now on the Topic 4 page: the Fe-C diagram, pearlite, steels and cast irons, cooling rate and alloying elements.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-10-14-hero-solved-problem-count",
     "date": "2026-10-14",
     "tag": "Portal",

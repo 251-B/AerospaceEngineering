@@ -19,8 +19,9 @@ bytes: 920913
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution problems Phase diagrams II.pdf`
 - **Kind:** problemas
 - **Size:** 920.9 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T4-FC06 Hypoeutectic Cast Iron from its Ferrite Fraction]]

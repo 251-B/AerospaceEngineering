@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Cooling of a hypereutectoid steel (1.2 % C)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<clipPath id="clip-fchyper"><rect x="80.0" y="30.0" width="440.0" height="300.0"/></clipPath>
+<g clip-path="url(#clip-fchyper)">
+<path d="M80.0,-355.7 L80.0,-157.7 L173.3,-138.4 L836.8,9.9 L1253.9,-34.3 L1253.9,-355.7 Z" fill="#3b82f6" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,-96.0 L108.2,-138.4 L456.6,9.9 L213.8,189.9 L213.8,189.9 L210.4,189.5 L207.1,189.1 L203.7,188.6 L200.4,188.1 L197.0,187.4 L193.7,186.7 L190.4,185.8 L187.0,184.9 L183.7,183.9 L180.3,182.8 L177.0,181.6 L173.6,180.4 L170.3,179.0 L166.9,177.6 L163.6,176.1 L160.3,174.5 L156.9,172.8 L153.6,171.0 L150.2,169.2 L146.9,167.2 L143.5,165.2 L140.2,163.1 L136.8,160.9 L133.5,158.6 L130.2,156.3 L126.8,153.8 L123.5,151.3 L120.1,148.7 L116.8,146.0 L113.4,143.2 L110.1,140.3 L106.8,137.3 L103.4,134.3 L100.1,131.2 L96.7,127.9 L93.4,124.6 L90.0,121.2 L86.7,117.8 L83.3,114.2 L80.0,110.6 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,110.6 L83.9,189.9 L81.4,244.3 L80.0,372.9 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,-157.7 L173.3,-138.4 L836.8,9.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,-157.7 L95.8,-138.4" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,-96.0 L95.8,-138.4" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,-96.0 L108.2,-138.4" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M95.8,-138.4 L173.3,-138.4" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M108.2,-138.4 L456.6,9.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M456.6,9.9 L1253.9,9.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M456.6,9.9 L213.8,189.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,110.6 L83.3,114.2 L86.7,117.8 L90.0,121.2 L93.4,124.6 L96.7,127.9 L100.1,131.2 L103.4,134.3 L106.8,137.3 L110.1,140.3 L113.4,143.2 L116.8,146.0 L120.1,148.7 L123.5,151.3 L126.8,153.8 L130.2,156.3 L133.5,158.6 L136.8,160.9 L140.2,163.1 L143.5,165.2 L146.9,167.2 L150.2,169.2 L153.6,171.0 L156.9,172.8 L160.3,174.5 L163.6,176.1 L166.9,177.6 L170.3,179.0 L173.6,180.4 L177.0,181.6 L180.3,182.8 L183.7,183.9 L187.0,184.9 L190.4,185.8 L193.7,186.7 L197.0,187.4 L200.4,188.1 L203.7,188.6 L207.1,189.1 L210.4,189.5 L213.8,189.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,110.6 L83.9,189.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M83.9,189.9 L82.1,244.3 L80.7,330.0 L80.0,372.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M83.9,189.9 L1253.9,189.9" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M1253.9,372.9 L1253.9,-34.3" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M836.8,9.9 L1048.0,-19.3 L1253.9,-34.3" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="330.0" x2="520.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="520.0" y1="30.0" x2="520.0" y2="330.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="520.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="330.0" x2="80.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="168.0" y1="330.0" x2="168.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="168.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.5</text>
+<line x1="256.0" y1="330.0" x2="256.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="256.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1.0</text>
+<line x1="344.0" y1="330.0" x2="344.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="344.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1.5</text>
+<line x1="432.0" y1="330.0" x2="432.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="432.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">2.0</text>
+<line x1="520.0" y1="330.0" x2="520.0" y2="335.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="520.0" y="349.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">2.5</text>
+<line x1="75.0" y1="330.0" x2="80.0" y2="330.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="334.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="287.1" x2="80.0" y2="287.1" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="291.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">500</text>
+<line x1="75.0" y1="244.3" x2="80.0" y2="244.3" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="248.3" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="201.4" x2="80.0" y2="201.4" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="205.4" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">700</text>
+<line x1="75.0" y1="158.6" x2="80.0" y2="158.6" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="162.6" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="115.7" x2="80.0" y2="115.7" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="119.7" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">900</text>
+<line x1="75.0" y1="72.9" x2="80.0" y2="72.9" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="76.9" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1100</text>
+<text x="300.0" y="368.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="256.0" y="60.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">γ</text>
+<text x="449.6" y="115.7" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="344.0" y="261.4" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<text x="101.1" y="177.9" fill="#4b5563" font-size="11" font-weight="700" text-anchor="start">α + γ</text>
+<text x="361.6" y="183.9" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">727 °C</text>
+<line x1="291.2" y1="330.0" x2="291.2" y2="34.3" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,4"/>
+<path d="M267.5,150.0 L520.0,150.0" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="267.5" cy="150.0" r="3.4" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="291.2" cy="94.3" r="4.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="284.2" y="90.3" fill="#10b981" font-size="13" font-weight="700" text-anchor="end">g</text>
+<circle cx="291.2" cy="150.0" r="4.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="284.2" y="146.0" fill="#10b981" font-size="13" font-weight="700" text-anchor="end">h</text>
+<circle cx="291.2" cy="199.3" r="4.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="284.2" y="195.3" fill="#10b981" font-size="13" font-weight="700" text-anchor="end">i</text>
+</g></svg>

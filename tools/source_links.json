@@ -128,6 +128,16 @@
    "label": "Solution problems Phase diagrams I.pdf",
    "pages": 37
   },
+  "mat-t4b": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams II.pdf",
+   "label": "Problems T4_PhaseDiagrams II.pdf",
+   "pages": 3
+  },
+  "mat-t4b-sol": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution problems Phase diagrams II.pdf",
+   "label": "Solution problems Phase diagrams II.pdf",
+   "pages": 12
+  },
   "mat-exam1": {
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/first-partial/First Partial Aerospace Materials.pdf",
    "label": "First Partial Aerospace Materials.pdf",
@@ -1653,13 +1663,18 @@
     [
      "mat-s8",
      1
+    ],
+    [
+     "mat-s9",
+     1
     ]
    ],
    "cite": {
     "slides": "mat-s7",
     "sessions": {
      "7": "mat-s7",
-     "8": "mat-s8"
+     "8": "mat-s8",
+     "9": "mat-s9"
     }
    }
   },
@@ -1672,13 +1687,22 @@
     [
      "mat-t4a-sol",
      1
+    ],
+    [
+     "mat-t4b",
+     1
+    ],
+    [
+     "mat-t4b-sol",
+     1
     ]
    ],
    "cite": {
     "slides": "mat-s7",
     "sessions": {
      "7": "mat-s7",
-     "8": "mat-s8"
+     "8": "mat-s8",
+     "9": "mat-s9"
     }
    },
    "cards": {
@@ -1741,6 +1765,46 @@
     "prob-15": [
      "mat-t4a",
      7
+    ],
+    "fc-1": [
+     "mat-t4b",
+     1
+    ],
+    "fc-2": [
+     "mat-t4b",
+     1
+    ],
+    "fc-3": [
+     "mat-t4b",
+     2
+    ],
+    "fc-4": [
+     "mat-t4b",
+     2
+    ],
+    "fc-5": [
+     "mat-t4b",
+     2
+    ],
+    "fc-6": [
+     "mat-t4b",
+     2
+    ],
+    "fc-7": [
+     "mat-t4b",
+     2
+    ],
+    "fc-8": [
+     "mat-t4b",
+     2
+    ],
+    "fc-9": [
+     "mat-t4b",
+     3
+    ],
+    "fc-10": [
+     "mat-t4b",
+     3
     ]
    }
   }

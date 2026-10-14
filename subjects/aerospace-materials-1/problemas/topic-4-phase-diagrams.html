@@ -560,6 +560,7 @@
       border-bottom: 1px solid var(--border-strong); }
     table.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-body); }
     table.data-table tr:last-child td { border-bottom: none; }
+    .sheet-intro { margin-top: 56px; }
     .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px;
       padding: 16px; margin: 18px 0; text-align: center; }
     .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
@@ -599,12 +600,14 @@
     <header class="page-intro">
       <h1>Topic 4: Solved Problems</h1>
       <p>
-        Step-by-step solutions of problems 1-15 of the official sheet on phase diagrams (Problems T4_PhaseDiagrams I): the tie line and the lever rule of Session 7, and the invariant reactions and compounds of Session 8, written in four phases and checked against the official solutions.
+        Step-by-step solutions of problems 1-15 of the first official sheet on phase diagrams (Problems T4_PhaseDiagrams I: the lever rule, invariant reactions and compounds of Sessions 7 and 8) and problems 1-10 of the second (Problems T4_PhaseDiagrams II: the Fe-C system of Session 9), written in four phases and checked against the official solutions.
       </p>
       <nav class="src-panel" data-srclink aria-label="Official material">
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20I.pdf" target="_blank" rel="noopener">Problems T4_PhaseDiagrams I.pdf</a>
         <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution%20problems%20Phase%20diagrams%20I.pdf" target="_blank" rel="noopener">Solution problems Phase diagrams I.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf" target="_blank" rel="noopener">Problems T4_PhaseDiagrams II.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution%20problems%20Phase%20diagrams%20II.pdf" target="_blank" rel="noopener">Solution problems Phase diagrams II.pdf</a>
       </nav>
     </header>
 
@@ -3058,6 +3061,1630 @@
 <p><strong>Interpretation</strong> A Ti-B alloy with 10 % B is half eutectic (Ti + TiB) and half primary TiB, a hard boride; the 18 % B alloy is a single compound, reached through two peritectic reactions in a row.</p>
 <p><strong>Check against the official solution</strong></p>
 <p>Parts (a), (b) and (c) agree with the key (0.44/0.56 and 50 %/50 % at both temperatures). Part (b) of the key lists only Ti₃B₄; TiB is also incongruent and TiB₂ congruent, as shown above. The key gives no answer for part (d).</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- SHEET II: Fe-C -->
+    <!-- ========================================== -->
+    <header class="page-intro sheet-intro" id="sheet-2">
+      <h1>Problems on Fe-C phase diagrams</h1>
+      <p>
+        Problems 1-10 of the second official sheet (Problems T4_PhaseDiagrams II), on the metastable Fe-Fe₃C diagram of Session 9. All of them use the diagram below; cementite is taken as 6.67 % C, as in the slides.
+      </p>
+    </header>
+
+    <div class="reference-card">
+      <div class="reference-title">Fe-Fe₃C diagram of the problem sheet</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T4/fc-sheet-diagram.png" alt="Fe-Fe3C phase diagram of the problem sheet" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 26. Fe-Fe₃C phase diagram (Problems T4_PhaseDiagrams II.pdf, p. 1).</div>
+</div>
+      <div class="table-container">
+        <table class="ref-table">
+          <thead><tr><th>Point</th><th>Temperature</th><th>Compositions (wt% C)</th></tr></thead>
+          <tbody>
+            <tr><td>Eutectoid</td><td>727 °C</td><td>γ 0.76 → α 0.022 + Fe₃C 6.67</td></tr>
+            <tr><td>Eutectic</td><td>1147 °C</td><td>L 4.30 → γ 2.14 + Fe₃C 6.67</td></tr>
+            <tr><td>Peritectic</td><td>1493 °C</td><td>δ 0.09 + L 0.53 → γ 0.16</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 1 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-1">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 1</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #1</span>
+            <span class="prob-source-badge">Fe-C · hypoeutectoid steel</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Phases and Microconstituents of a 0.5 % C Steel</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>1.- For a Fe-C alloy with $C_0$ = 0.5%C, at the following temperatures: $T_1$ = (1147+ΔT)ºC; $T_2$ = (1147−ΔT)ºC; $T_3$ = 900ºC; $T_4$ = (727+ΔT)ºC; $T_5$ = (727−ΔT)ºC. a) Indicate the phases present, their chemical composition and their mass fraction. b) Indicate the micro constituents, their chemical composition and their mass fraction at $T_5$.</p>
+          <div class="solution-box">Official Solution: a) $T_1$, $T_2$, and $T_3$: $C_\gamma$ = 0.5% C, $w_\gamma$ = 1; $T_4$: $C_\alpha$ = 0.022% C, $C_\gamma$ = 0.76% C, $w_\alpha$ = 0.35; $T_5$: $C_\alpha$ = 0.022% C, $C_{Fe_3C}$ = 6.7% C, $w_\alpha$ = 0.93; b) $w_{\alpha'}$ = 0.35, $w_{\alpha,E}$ = 0.58, $w_{Fe_3C}$ = 0.07</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li><strong>Equilibrium cooling</strong> on the metastable Fe-Fe₃C diagram of the sheet (the diagram of Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>): $C_\alpha$ = 0.022 % C, eutectoid 0.76 % C at 727 °C, cementite 6.67 % C.</li><li>$C_0 = 0.5 &lt; 0.76$: a <strong>hypoeutectoid steel</strong> [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=14" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 14">14</a>]; its solidus is far above 1147 °C, so at $T_1$, $T_2$ and $T_3$ it is fully austenitic.</li><li>The microconstituents below 727 °C are proeutectoid ferrite and pearlite [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=14" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 14">14</a>].</li></ol>
+<div class="table-container"><table class="data-table"><thead><tr><th>Temperature</th><th>Region</th><th>Phase compositions (% C)</th></tr></thead><tbody><tr><td>$T_1$, $T_2$, $T_3$</td><td>γ</td><td>0.5</td></tr><tr><td>$T_4$ = 727 + ΔT</td><td>α + γ</td><td>α 0.022, γ 0.76</td></tr><tr><td>$T_5$ = 727 − ΔT</td><td>α + Fe₃C</td><td>α 0.022, Fe₃C 6.67</td></tr></tbody></table></div>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: the Fe-Fe₃C diagram (wt% C, °C); each temperature is one horizontal tie line, so no change of basis is needed. Phases from the lever rule [Session 7 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 16">16</a>]; microconstituents from the short tie line α-eutectoid (0.022-0.76), exactly as in the 0.3 % C example of the slides [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=18" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 18">18</a>].</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC01: steel of 0.5 % C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p1"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p1)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="118.8" y1="360.0" x2="118.8" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="124.8" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 0.5</text>
+<path d="M81.7,267.9 L139.0,267.9" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="267.9" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="139.0" cy="267.9" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="144.0" y="271.9" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">0.76</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="602.7" y="276.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<circle cx="118.8" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="124.8" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₁</text>
+<circle cx="118.8" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="124.8" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₂</text>
+<circle cx="118.8" cy="222.5" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="124.8" y="216.5" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₃</text>
+<circle cx="118.8" cy="267.9" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="124.8" y="261.9" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₄</text>
+<circle cx="118.8" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="124.8" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₅</text>
+</g></svg>
+<div class="diagram-caption">Figure 27. Fe-0.5 % C: γ at T₁, T₂ and T₃; α (0.022) + γ (0.76) just above 727 °C; α + Fe₃C just below it. Temperatures 1147 ± ΔT and 727 ± ΔT are drawn slightly apart.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Phases</strong> <strong>$T_1$, $T_2$, $T_3$:</strong> austenite only, $C_\gamma = 0.5$ % C, $W_\gamma = 1$.</p>
+<p><strong>$T_4$</strong> (length $0.76 - 0.022 = 0.738$):</p>
+<div class="math-block">$$W_\alpha = \frac{C_\gamma - C_0}{C_\gamma - C_\alpha} = \frac{0.76 - 0.5}{0.738} = \frac{0.26}{0.738} = 0.352 \qquad W_\gamma = \frac{0.5 - 0.022}{0.738} = \frac{0.478}{0.738} = 0.648$$</div>
+<p><strong>$T_5$</strong> (length $6.67 - 0.022 = 6.648$):</p>
+<div class="math-block">$$W_\alpha = \frac{6.67 - 0.5}{6.648} = \frac{6.17}{6.648} = 0.928 \qquad W_{\text{Fe}_3\text{C}} = \frac{0.5 - 0.022}{6.648} = \frac{0.478}{6.648} = 0.072$$</div>
+<p><strong>b) Microconstituents at $T_5$</strong> The ferrite present at $T_4$ is the proeutectoid ferrite, and the austenite present at $T_4$ (0.76 % C) becomes pearlite:</p>
+<div class="math-block">$$W_{\alpha'} = 0.352 \qquad W_{\text{pearlite}} = 0.648$$</div>
+<p>Inside the pearlite: eutectoid ferrite $W_{\alpha,E} = W_\alpha - W_{\alpha'} = 0.928 - 0.352 = 0.576$ and cementite $W_{\text{Fe}_3\text{C}} = 0.072$.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220" width="100%" class="fig-kit" style="max-width:420px;margin:0 auto;display:block" role="img" aria-label="Problem FC01: microstructure of a 0.5 % C steel">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-micro-p1"><circle cx="110.0" cy="110.0" r="92.0"/></clipPath>
+<mask id="mask-fc-micro-p1"><rect x="18.0" y="18.0" width="184.0" height="184.0" fill="white"/><circle cx="70.0" cy="80.0" r="22.0" fill="black"/><circle cx="135.0" cy="65.0" r="20.0" fill="black"/><circle cx="100.0" cy="130.0" r="24.0" fill="black"/><circle cx="155.0" cy="125.0" r="21.0" fill="black"/><circle cx="60.0" cy="150.0" r="18.0" fill="black"/></mask>
+<g clip-path="url(#clip-fc-micro-p1)">
+<g mask="url(#mask-fc-micro-p1)">
+<line x1="-166.0" y1="202.0" x2="18.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-160.0" y1="202.0" x2="24.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-154.0" y1="202.0" x2="30.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-148.0" y1="202.0" x2="36.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-142.0" y1="202.0" x2="42.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-136.0" y1="202.0" x2="48.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-130.0" y1="202.0" x2="54.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-124.0" y1="202.0" x2="60.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-118.0" y1="202.0" x2="66.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-112.0" y1="202.0" x2="72.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-106.0" y1="202.0" x2="78.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-100.0" y1="202.0" x2="84.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-94.0" y1="202.0" x2="90.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-88.0" y1="202.0" x2="96.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-82.0" y1="202.0" x2="102.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-76.0" y1="202.0" x2="108.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-70.0" y1="202.0" x2="114.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-64.0" y1="202.0" x2="120.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-58.0" y1="202.0" x2="126.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-52.0" y1="202.0" x2="132.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-46.0" y1="202.0" x2="138.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-40.0" y1="202.0" x2="144.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-34.0" y1="202.0" x2="150.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-28.0" y1="202.0" x2="156.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-22.0" y1="202.0" x2="162.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-16.0" y1="202.0" x2="168.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-10.0" y1="202.0" x2="174.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-4.0" y1="202.0" x2="180.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="2.0" y1="202.0" x2="186.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="8.0" y1="202.0" x2="192.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="14.0" y1="202.0" x2="198.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="20.0" y1="202.0" x2="204.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="26.0" y1="202.0" x2="210.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="32.0" y1="202.0" x2="216.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="38.0" y1="202.0" x2="222.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="44.0" y1="202.0" x2="228.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="50.0" y1="202.0" x2="234.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="56.0" y1="202.0" x2="240.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="62.0" y1="202.0" x2="246.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="68.0" y1="202.0" x2="252.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="74.0" y1="202.0" x2="258.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="80.0" y1="202.0" x2="264.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="86.0" y1="202.0" x2="270.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="92.0" y1="202.0" x2="276.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="98.0" y1="202.0" x2="282.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="104.0" y1="202.0" x2="288.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="110.0" y1="202.0" x2="294.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="116.0" y1="202.0" x2="300.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="122.0" y1="202.0" x2="306.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="128.0" y1="202.0" x2="312.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="134.0" y1="202.0" x2="318.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="140.0" y1="202.0" x2="324.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="146.0" y1="202.0" x2="330.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="152.0" y1="202.0" x2="336.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="158.0" y1="202.0" x2="342.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="164.0" y1="202.0" x2="348.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="170.0" y1="202.0" x2="354.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="176.0" y1="202.0" x2="360.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="182.0" y1="202.0" x2="366.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="188.0" y1="202.0" x2="372.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="194.0" y1="202.0" x2="378.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="200.0" y1="202.0" x2="384.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+</g>
+<circle cx="70.0" cy="80.0" r="22.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="135.0" cy="65.0" r="20.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="100.0" cy="130.0" r="24.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="155.0" cy="125.0" r="21.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="60.0" cy="150.0" r="18.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+</g>
+<circle cx="110.0" cy="110.0" r="92.0" fill="none" stroke="var(--text-heading)" stroke-width="1.6"/>
+<line x1="83.2" y1="66.8" x2="218.0" y2="28.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="222.0" y="32.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">proeutectoid α</text>
+<line x1="160.6" y1="160.6" x2="218.0" y2="192.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="222.0" y="196.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">pearlite (α + Fe₃C)</text>
+</g></svg>
+<div class="diagram-caption">Figure 28. Fe-0.5 % C below 727 °C: proeutectoid ferrite (35 %) and pearlite (65 %).</div>
+</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>$0.576 + 0.072 = 0.648 = W_{\text{pearlite}}$, and $0.648 \times 0.889 = 0.576$ (pearlite is 88.9 % ferrite, Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=13" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 13">13</a>) ✓.</li><li>Mass balance at $T_5$: $0.928 \times 0.022 + 0.072 \times 6.67 = 0.020 + 0.480 = 0.50$ % C ✓.</li><li>Limits: at $C_0 = 0.022$ there is no pearlite; at $C_0 = 0.76$ there is no proeutectoid ferrite.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>All values agree with the key (0.35; 0.93; 0.35, 0.58, 0.07). The key writes $C_{Fe_3C}$ = 6.7 % C; the 6.67 % C of the slides gives the same rounded results.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 2 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-2">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 2</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #2</span>
+            <span class="prob-source-badge">Fe-C · eutectoid steel</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Phases and Microconstituents of a Eutectoid Steel</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>2.- For a steel of $C_0$ = 0.76%C, at the following temperatures: $T_1$ = (1147+ΔT)ºC; $T_2$ = (1147−ΔT)ºC; $T_3$ = 900ºC; $T_4$ = (727+ΔT)ºC; $T_5$ = (727−ΔT)ºC. a) Indicate the phases present, their chemical composition and their mass fraction. b) Indicate the micro constituents, their chemical composition and their mass fraction at $T_5$.</p>
+          <div class="solution-box">Official Solution: a) $T_1$, $T_2$, $T_3$ and $T_4$: $C_\gamma$ = 0.76% C, $w_\gamma$ = 1; $T_5$: $C_\alpha$ = 0.022% C, $C_{Fe_3C}$ = 6.7% C, $w_\alpha$ = 0.89, $w_{Fe_3C'}$ = 0.11; b) pearlite $w_{\alpha,E}$ = 0.89, $w_{Fe_3C,E}$ = 0.11</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium cooling on the Fe-Fe₃C diagram: α 0.022, eutectoid 0.76 % C at 727 °C, Fe₃C 6.67 % C [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>].</li><li>$C_0 = 0.76$ % C is the <strong>eutectoid composition</strong> [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=12" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 12">12</a>]: the alloy is austenite down to 727 °C (it touches the eutectoid point only there).</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: the Fe-Fe₃C diagram (wt% C, °C), one tie line per temperature; no change of basis. The eutectoid reaction $\gamma\,(0.76) \rightarrow \alpha\,(0.022) + \text{Fe}_3\text{C}\,(6.67)$ turns all the austenite into pearlite at once [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=10" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 10">10</a>].</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC02: eutectoid steel">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p2"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p2)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="139.0" y1="360.0" x2="139.0" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="145.0" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 0.76</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="602.7" y="276.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<circle cx="139.0" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="145.0" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₁</text>
+<circle cx="139.0" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="145.0" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₂</text>
+<circle cx="139.0" cy="222.5" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="145.0" y="216.5" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₃</text>
+<circle cx="139.0" cy="267.9" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="145.0" y="261.9" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₄</text>
+<circle cx="139.0" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="145.0" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₅</text>
+</g></svg>
+<div class="diagram-caption">Figure 29. Fe-0.76 % C: γ down to 727 °C, then pearlite (α + Fe₃C).</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Phases</strong> <strong>$T_1$ to $T_4$:</strong> austenite, $C_\gamma = 0.76$ % C, $W_\gamma = 1$.</p>
+<p><strong>$T_5$</strong> (length $6.67 - 0.022 = 6.648$):</p>
+<div class="math-block">$$W_\alpha = \frac{6.67 - 0.76}{6.648} = \frac{5.91}{6.648} = 0.889 \qquad W_{\text{Fe}_3\text{C}} = \frac{0.76 - 0.022}{6.648} = \frac{0.738}{6.648} = 0.111$$</div>
+<p><strong>b) Microconstituents at $T_5$</strong> One microconstituent, <strong>pearlite</strong>, 100 %, with overall composition 0.76 % C; inside it, eutectoid ferrite 0.889 and eutectoid cementite 0.111.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220" width="100%" class="fig-kit" style="max-width:420px;margin:0 auto;display:block" role="img" aria-label="Problem FC02: microstructure of a eutectoid steel">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-micro-p2"><circle cx="110.0" cy="110.0" r="92.0"/></clipPath>
+<mask id="mask-fc-micro-p2"><rect x="18.0" y="18.0" width="184.0" height="184.0" fill="white"/></mask>
+<g clip-path="url(#clip-fc-micro-p2)">
+<g mask="url(#mask-fc-micro-p2)">
+<line x1="-166.0" y1="202.0" x2="18.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-160.0" y1="202.0" x2="24.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-154.0" y1="202.0" x2="30.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-148.0" y1="202.0" x2="36.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-142.0" y1="202.0" x2="42.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-136.0" y1="202.0" x2="48.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-130.0" y1="202.0" x2="54.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-124.0" y1="202.0" x2="60.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-118.0" y1="202.0" x2="66.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-112.0" y1="202.0" x2="72.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-106.0" y1="202.0" x2="78.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-100.0" y1="202.0" x2="84.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-94.0" y1="202.0" x2="90.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-88.0" y1="202.0" x2="96.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-82.0" y1="202.0" x2="102.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-76.0" y1="202.0" x2="108.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-70.0" y1="202.0" x2="114.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-64.0" y1="202.0" x2="120.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-58.0" y1="202.0" x2="126.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-52.0" y1="202.0" x2="132.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-46.0" y1="202.0" x2="138.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-40.0" y1="202.0" x2="144.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-34.0" y1="202.0" x2="150.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-28.0" y1="202.0" x2="156.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-22.0" y1="202.0" x2="162.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-16.0" y1="202.0" x2="168.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-10.0" y1="202.0" x2="174.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-4.0" y1="202.0" x2="180.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="2.0" y1="202.0" x2="186.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="8.0" y1="202.0" x2="192.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="14.0" y1="202.0" x2="198.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="20.0" y1="202.0" x2="204.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="26.0" y1="202.0" x2="210.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="32.0" y1="202.0" x2="216.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="38.0" y1="202.0" x2="222.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="44.0" y1="202.0" x2="228.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="50.0" y1="202.0" x2="234.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="56.0" y1="202.0" x2="240.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="62.0" y1="202.0" x2="246.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="68.0" y1="202.0" x2="252.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="74.0" y1="202.0" x2="258.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="80.0" y1="202.0" x2="264.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="86.0" y1="202.0" x2="270.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="92.0" y1="202.0" x2="276.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="98.0" y1="202.0" x2="282.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="104.0" y1="202.0" x2="288.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="110.0" y1="202.0" x2="294.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="116.0" y1="202.0" x2="300.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="122.0" y1="202.0" x2="306.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="128.0" y1="202.0" x2="312.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="134.0" y1="202.0" x2="318.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="140.0" y1="202.0" x2="324.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="146.0" y1="202.0" x2="330.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="152.0" y1="202.0" x2="336.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="158.0" y1="202.0" x2="342.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="164.0" y1="202.0" x2="348.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="170.0" y1="202.0" x2="354.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="176.0" y1="202.0" x2="360.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="182.0" y1="202.0" x2="366.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="188.0" y1="202.0" x2="372.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="194.0" y1="202.0" x2="378.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="200.0" y1="202.0" x2="384.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+</g>
+</g>
+<circle cx="110.0" cy="110.0" r="92.0" fill="none" stroke="var(--text-heading)" stroke-width="1.6"/>
+<line x1="160.6" y1="160.6" x2="218.0" y2="192.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="222.0" y="196.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">pearlite (α + Fe₃C)</text>
+</g></svg>
+<div class="diagram-caption">Figure 30. Fe-0.76 % C below 727 °C: 100 % pearlite.</div>
+</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Mass balance: $0.889 \times 0.022 + 0.111 \times 6.67 = 0.020 + 0.740 = 0.76$ % C ✓.</li><li>This is the make-up of every pearlite, the same as Worked example 15 of the theory (Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=13" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 13">13</a>: 89 % and 11 %).</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>Agrees with the key (0.89 and 0.11). The key calls the cementite of part (a) "$w_{Fe_3C'}$" (with a prime, the symbol of proeutectoid cementite); in a eutectoid steel there is no proeutectoid cementite, all of it is in the pearlite, as part (b) of the key says.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 3 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-3">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 3</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #3</span>
+            <span class="prob-source-badge">Fe-C · hypereutectoid steel</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Phases and Microconstituents of a 1.5 % C Steel</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>3.- For an alloy Fe-1.5%C, at the following temperatures: $T_1$ = (1147+ΔT)ºC; $T_2$ = (1147−ΔT)ºC; $T_3$ = 900ºC; $T_4$ = (727+ΔT)ºC; $T_5$ = (727−ΔT)ºC. a) Indicate the phases present, their chemical composition and their mass fraction. b) Indicate the micro constituents, their chemical composition and their mass fraction at $T_5$.</p>
+          <div class="solution-box">Official Solution: a) $T_1$ and $T_2$: $C_\gamma$ = 1.5% C, $w_\gamma$ = 1; $T_3$: $C_{Fe_3C}$ = 6.7% C, $C_\gamma$ = 1.3% C, $w_\gamma$ = 0.96, $w_{Fe_3C}$ = 0.04; $T_4$: $C_\gamma$ = 0.76% C, $C_{Fe_3C}$ = 6.7% C, $w_\gamma$ = 0.87, $w_{Fe_3C}$ = 0.13; $T_5$: $C_\alpha$ = 0.022% C, $C_{Fe_3C}$ = 6.7% C, $w_\alpha$ = 0.78, $w_{Fe_3C}$ = 0.22; b) Pearlite $w_{Fe_3C'}$ = 0.13, $w_{pearlite}$ = 0.87, $w_{\alpha E}$ = 0.78, $w_{Fe_3C,E}$ = 0.09</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium cooling, Fe-Fe₃C diagram [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>].</li><li>$0.76 &lt; C_0 = 1.5 &lt; 2.14$: a <strong>hypereutectoid steel</strong>; at 1147 ± ΔT it is single-phase austenite (1.5 &lt; 2.14).</li><li><strong>Reading of the figure:</strong> at 900 °C the $A_{cm}$ line is at about 1.3 % C (the key's value; a straight line from (0.76, 727) to (2.14, 1147) would give 1.33).</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: the Fe-Fe₃C diagram (wt% C, °C); one tie line per temperature. Below $A_{cm}$ proeutectoid cementite precipitates from the austenite [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=19" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 19">19</a>]; at 727 °C the remaining austenite (0.76 % C) becomes pearlite.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC03: steel of 1.5 % C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p3"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p3)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="196.4" y1="360.0" x2="196.4" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="202.4" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 1.5</text>
+<path d="M180.9,222.5 L597.7,222.5" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="180.9" cy="222.5" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="222.5" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="176.9" y="226.5" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">1.3</text>
+<text x="602.7" y="226.5" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<path d="M139.0,267.9 L597.7,267.9" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="139.0" cy="267.9" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="267.9" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="135.0" y="271.9" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">0.76</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="196.4" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="202.4" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₁</text>
+<circle cx="196.4" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="202.4" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₂</text>
+<circle cx="196.4" cy="222.5" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="202.4" y="216.5" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₃</text>
+<circle cx="196.4" cy="267.9" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="202.4" y="261.9" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₄</text>
+<circle cx="196.4" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="202.4" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₅</text>
+</g></svg>
+<div class="diagram-caption">Figure 31. Fe-1.5 % C: γ at 1147 ± ΔT; γ + Fe₃C at 900 °C (γ of about 1.3 % C, a reading) and just above 727 °C; α + Fe₃C below 727 °C.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Phases</strong> <strong>$T_1$, $T_2$:</strong> γ, 1.5 % C, $W_\gamma = 1$.</p>
+<p><strong>$T_3$ = 900 °C</strong> (γ 1.3 / Fe₃C 6.67; length 5.37):</p>
+<div class="math-block">$$W_\gamma = \frac{6.67 - 1.5}{6.67 - 1.3} = \frac{5.17}{5.37} = 0.963 \qquad W_{\text{Fe}_3\text{C}} = \frac{1.5 - 1.3}{5.37} = \frac{0.2}{5.37} = 0.037$$</div>
+<p><strong>$T_4$</strong> (γ 0.76 / Fe₃C 6.67; length 5.91):</p>
+<div class="math-block">$$W_\gamma = \frac{6.67 - 1.5}{5.91} = \frac{5.17}{5.91} = 0.875 \qquad W_{\text{Fe}_3\text{C}} = \frac{1.5 - 0.76}{5.91} = \frac{0.74}{5.91} = 0.125$$</div>
+<p><strong>$T_5$</strong> (α 0.022 / Fe₃C 6.67; length 6.648):</p>
+<div class="math-block">$$W_\alpha = \frac{6.67 - 1.5}{6.648} = \frac{5.17}{6.648} = 0.778 \qquad W_{\text{Fe}_3\text{C}} = \frac{1.5 - 0.022}{6.648} = \frac{1.478}{6.648} = 0.222$$</div>
+<p><strong>b) Microconstituents at $T_5$</strong> Proeutectoid cementite = the cementite at $T_4$, $W_{\text{Fe}_3\text{C}'} = 0.125$; pearlite = the austenite at $T_4$, $W_{\text{pearlite}} = 0.875$. Inside the pearlite: $W_{\alpha,E} = 0.778$ (all the ferrite) and $W_{\text{Fe}_3\text{C},E} = 0.222 - 0.125 = 0.097$.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>$0.778 + 0.097 = 0.875 = W_{\text{pearlite}}$; and $0.875 \times 0.889 = 0.778$ ✓.</li><li>Mass balance at $T_5$: $0.778 \times 0.022 + 0.222 \times 6.67 = 0.017 + 1.481 = 1.50$ % C ✓.</li><li>The proeutectoid cementite grows from 0.037 at 900 °C to 0.125 at 727 °C as the austenite loses carbon along $A_{cm}$.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>Agrees with the key, except for the last figure.</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives $w_{Fe_3C,E} = 0.09$. Exactly, $0.222 - 0.125 = 0.097$ (≈ 0.10), confirmed by $0.875 \times 0.111 = 0.097$; the key truncates the difference of the rounded values $0.22 - 0.13$. The computed value is kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 4 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-4">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 4</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #4</span>
+            <span class="prob-source-badge">Fe-C · ledeburite</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Phases and Microconstituents of a Eutectic Cast Iron</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>4.- For an alloy Fe-4.3% of C, at the following temperatures: $T_1$ = 1147 + ΔT ºC; $T_2$ = 1147 − ΔT ºC; $T_3$ = 900 ºC; $T_4$ = 727 + ΔT ºC; $T_5$ = 727 − ΔT ºC. a) Indicate the phases present, their chemical composition and their mass fractions. b) Indicate the micro constituents, their chemical composition and their mass fractions.</p>
+          <div class="solution-box">Official Solution: a) $T_1$: $C_L$ = 4.3% C, $w_L$ = 1; $T_2$: $C_{Fe_3C}$ = 6.7% C, $C_\gamma$ = 2.14% C, $w_\gamma$ = 0.53; $T_3$: $C_\gamma$ = 1.3% C, $C_{Fe_3C}$ = 6.7% C, $w_\gamma$ = 0.44; $T_4$: $C_\gamma$ = 0.76% C, $C_{Fe_3C}$ = 6.7% C, $w_\gamma$ = 0.40; $T_5$: $C_\alpha$ = 0.022% C, $C_{Fe_3C}$ = 6.7% C, $w_\alpha$ = 0.36; b) At $T_2$: $w_{Fe_3C,E}$ 0.47, $w_{\gamma,E}$ 0.53</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium cooling, Fe-Fe₃C diagram [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>]; $C_0 = 4.3$ % C is the <strong>eutectic composition</strong>: the alloy is liquid down to 1147 °C and then becomes 100 % <strong>ledeburite</strong>, $L \rightarrow \gamma\,(2.14) + \text{Fe}_3\text{C}\,(6.67)$ [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=10" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 10">10</a>].</li><li><strong>Reading of the figure:</strong> $A_{cm}$ at 900 °C ≈ 1.3 % C (as in Problem FC03).</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: the Fe-Fe₃C diagram; one tie line per temperature. Below 1147 °C the alloy stays in γ + Fe₃C, and the γ of the ledeburite loses carbon along $A_{cm}$ (more cementite precipitates), until at 727 °C it becomes pearlite ("transformed ledeburite", Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=11" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 11">11</a>).</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC04: eutectic cast iron">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p4"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p4)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="413.7" y1="360.0" x2="413.7" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="419.7" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 4.3</text>
+<path d="M246.1,156.8 L597.7,156.8" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="246.1" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="242.1" y="160.8" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">2.14</text>
+<path d="M180.9,222.5 L597.7,222.5" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="180.9" cy="222.5" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="222.5" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="176.9" y="226.5" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">1.3</text>
+<path d="M139.0,267.9 L597.7,267.9" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="139.0" cy="267.9" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="267.9" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="135.0" y="271.9" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">0.76</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="413.7" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="419.7" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₁</text>
+<circle cx="413.7" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="419.7" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₂</text>
+<circle cx="413.7" cy="222.5" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="419.7" y="216.5" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₃</text>
+<circle cx="413.7" cy="267.9" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="419.7" y="261.9" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₄</text>
+<circle cx="413.7" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="419.7" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₅</text>
+</g></svg>
+<div class="diagram-caption">Figure 32. Fe-4.3 % C: liquid above 1147 °C, ledeburite (γ + Fe₃C) below it, and the tie lines at 900 °C and 727 ± ΔT.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Phases</strong> <strong>$T_1$:</strong> liquid, 4.3 % C, $W_L = 1$.</p>
+<p><strong>$T_2$</strong> (γ 2.14 / Fe₃C 6.67; length 4.53):</p>
+<div class="math-block">$$W_\gamma = \frac{6.67 - 4.3}{4.53} = \frac{2.37}{4.53} = 0.523 \qquad W_{\text{Fe}_3\text{C}} = \frac{4.3 - 2.14}{4.53} = \frac{2.16}{4.53} = 0.477$$</div>
+<p><strong>$T_3$</strong> (γ 1.3 / Fe₃C 6.67; length 5.37):</p>
+<div class="math-block">$$W_\gamma = \frac{6.67 - 4.3}{5.37} = \frac{2.37}{5.37} = 0.441 \qquad W_{\text{Fe}_3\text{C}} = 0.559$$</div>
+<p><strong>$T_4$</strong> (γ 0.76 / Fe₃C 6.67; length 5.91):</p>
+<div class="math-block">$$W_\gamma = \frac{2.37}{5.91} = 0.401 \qquad W_{\text{Fe}_3\text{C}} = 0.599$$</div>
+<p><strong>$T_5$</strong> (α 0.022 / Fe₃C 6.67; length 6.648):</p>
+<div class="math-block">$$W_\alpha = \frac{2.37}{6.648} = 0.356 \qquad W_{\text{Fe}_3\text{C}} = 0.644$$</div>
+<p><strong>b) Microconstituents</strong></p>
+<ul><li>$T_1$: liquid.</li><li>$T_2$: 100 % <strong>ledeburite</strong> (4.3 % C overall), made of $W_{\gamma,E} = 0.523$ and $W_{\text{Fe}_3\text{C},E} = 0.477$ (Worked example 14 of the theory).</li><li>$T_3$, $T_4$: ledeburite whose austenite has rejected cementite: γ + Fe₃C in the amounts of part (a).</li><li>$T_5$: <strong>transformed ledeburite</strong>: the 0.401 of austenite at $T_4$ has become pearlite, inside a cementite matrix (0.599).</li></ul>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Mass balance at $T_2$: $0.523 \times 2.14 + 0.477 \times 6.67 = 1.12 + 3.18 = 4.30$ % C ✓.</li><li>The amount of cementite only grows on cooling (0.477 → 0.559 → 0.599 → 0.644), because the solubility of C in the iron phase only falls.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>Agrees with the key at $T_3$, $T_4$, $T_5$ and in part (b).</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>At $T_2$ the key gives $w_\gamma = 0.53$. With 6.67 % C for cementite (the value of the slides), $w_\gamma = 2.37/4.53 = 0.523$ (0.52); the key's 0.53 follows from 6.7 % C, $2.4/4.56 = 0.526$. The difference is only the rounding of the cementite composition; 0.523 is kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 5 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-5">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 5</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #5</span>
+            <span class="prob-source-badge">Fe-C · lever rule</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Composition from the Cementite Fraction</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>5.- Calculate the composition of a Fe-C alloy whose composition is within the range in %C of (2.11 &lt; $C_0$ &lt; 4.3). Consider temperature is (727−ΔT)ºC and the mass fraction $\chi_{Fe_3C}$ is 0.38.</p>
+          <div class="solution-box">Official Solution: $C_0$ = 2.56%C</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium; just below 727 °C every Fe-C alloy is α (0.022 % C) + Fe₃C (6.67 % C) [Session 9 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=9" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 9">9</a>].</li><li>The range given (2.11-4.3 % C) is that of hypoeutectic cast irons (the diagram of the slides puts the steel limit at 2.14 %).</li><li>Unknown: $C_0$; one equation (lever rule for Fe₃C).</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: the tie line at 727 − ΔT, from 0.022 to 6.67 % C; one-dimensional, no change of basis. The lever rule is solved for the alloy composition instead of the fraction [Session 7 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 16">16</a>].</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC05: alloy from its cementite">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p5"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p5)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="277.9" y1="360.0" x2="277.9" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="283.9" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 2.55</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="602.7" y="276.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<circle cx="277.9" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="283.9" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">727 − ΔT</text>
+</g></svg>
+<div class="diagram-caption">Figure 33. The alloy with 38 % Fe₃C just below 727 °C lies at 2.55 % C (computed in the problem).</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<div class="math-block">$$W_{\text{Fe}_3\text{C}} = \frac{C_0 - C_\alpha}{C_{\text{Fe}_3\text{C}} - C_\alpha} \;\Rightarrow\; C_0 = C_\alpha + W_{\text{Fe}_3\text{C}}\,(C_{\text{Fe}_3\text{C}} - C_\alpha)$$</div>
+<div class="math-block">$$C_0 = 0.022 + 0.38 \times (6.67 - 0.022) = 0.022 + 0.38 \times 6.648 = 0.022 + 2.526 = 2.55\ \%\,\text{C}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Check: $(2.548 - 0.022)/6.648 = 0.380$ ✓; and $2.11 &lt; 2.55 &lt; 4.3$, inside the given range ✓.</li><li>Units: percentages of C on both sides; $W$ dimensionless.</li><li>The alloy is a hypoeutectic cast iron: it would contain primary austenite and ledeburite just below 1147 °C.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives $C_0 = 2.56$ % C, which follows from 6.7 % C for cementite: $0.022 + 0.38 \times 6.678 = 2.56$. With the 6.67 % C of the slides the result is 2.55 % C; the difference is only that rounding.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 6 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-6">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 6</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #6</span>
+            <span class="prob-source-badge">Fe-C · hypoeutectic cast iron</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Hypoeutectic Cast Iron from its Ferrite Fraction</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>6.- Consider a steel with a content of C &lt; 4.3% at (727−ΔT)ºC. In these conditions, $\chi_\alpha$ = 0.47. Indicate the mass fraction of the phases at (1147+ΔT)ºC and (1147−ΔT)ºC.</p>
+          <div class="solution-box">Official Solution: T1: $w_\gamma$ = 0.32, $\chi_L$ = 0.68; T2: $w_\gamma$ = 0.68, $\chi_{Fe_3C}$ = 0.32, $w_E$ = 0.68, $\chi_{\gamma E}$ = 0.36, $w_{Fe_3C}$ = 0.32</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium, Fe-Fe₃C diagram [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>]: α 0.022, γ 2.14 (at 1147 °C), eutectic 4.30, Fe₃C 6.67 % C.</li><li>Unknown first: $C_0$, from the ferrite fraction just below 727 °C.</li><li>The statement says "steel", but the result is above 2.14 % C, so the alloy is a <strong>hypoeutectic cast iron</strong> (it has ledeburite).</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: tie lines at 727 − ΔT (α-Fe₃C), 1147 + ΔT (γ-L) and 1147 − ΔT (γ-Fe₃C). Step 1 solves the lever rule for $C_0$; steps 2-3 apply it at 1147 ± ΔT; microconstituents as in Session 7 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 32">32</a>.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC06: hypoeutectic cast iron">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p6"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p6)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="355.5" y1="360.0" x2="355.5" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="361.5" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 3.55</text>
+<path d="M246.1,152.4 L413.7,152.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="246.1" cy="152.4" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="413.7" cy="152.4" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="242.1" y="156.4" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">2.14</text>
+<text x="418.7" y="156.4" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">4.30</text>
+<path d="M246.1,156.8 L597.7,156.8" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="246.1" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="602.7" y="160.8" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="355.5" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="361.5" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₁</text>
+<circle cx="355.5" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="361.5" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₂</text>
+<circle cx="355.5" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="361.5" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">727 − ΔT</text>
+</g></svg>
+<div class="diagram-caption">Figure 34. The alloy with 47 % α just below 727 °C lies at about 3.55 % C: γ + L above 1147 °C, γ + Fe₃C below it.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Composition</strong></p>
+<div class="math-block">$$W_\alpha = \frac{C_{\text{Fe}_3\text{C}} - C_0}{C_{\text{Fe}_3\text{C}} - C_\alpha} \;\Rightarrow\; C_0 = 6.67 - 0.47 \times 6.648 = 6.67 - 3.125 = 3.545 \approx 3.55\ \%\,\text{C}$$</div>
+<p><strong>2. $T_1$ = 1147 + ΔT (γ 2.14 / L 4.30; length 2.16)</strong></p>
+<div class="math-block">$$W_L = \frac{C_0 - C_\gamma}{C_L - C_\gamma} = \frac{3.545 - 2.14}{2.16} = \frac{1.405}{2.16} = 0.650 \qquad W_\gamma = \frac{4.30 - 3.545}{2.16} = \frac{0.755}{2.16} = 0.350$$</div>
+<p><strong>3. $T_2$ = 1147 − ΔT (γ 2.14 / Fe₃C 6.67; length 4.53)</strong></p>
+<div class="math-block">$$W_{\text{Fe}_3\text{C}} = \frac{3.545 - 2.14}{4.53} = \frac{1.405}{4.53} = 0.310 \qquad W_\gamma = \frac{6.67 - 3.545}{4.53} = \frac{3.125}{4.53} = 0.690$$</div>
+<p><strong>Microconstituents at $T_2$:</strong> primary austenite = γ at $T_1$ = 0.350; ledeburite = L at $T_1$ = 0.650, made of γ $0.690 - 0.350 = 0.340$ and Fe₃C 0.310.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Ledeburite make-up: $0.340/0.650 = 0.523$ γ, as in Worked example 14 ✓.</li><li>Mass balance at $T_2$: $0.690 \times 2.14 + 0.310 \times 6.67 = 1.48 + 2.07 = 3.55$ % C ✓.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>The method matches the worked page of Solution problems Phase diagrams II.pdf, p. 12.</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The worked page rounds the composition to $C_0 = 3.6$ % C before going on (with 6.7 % C it is 3.56) and so gives 0.68/0.32 at $T_1$, 0.32/0.68 at $T_2$, primary γ 0.32 and eutectic γ 0.36. With the unrounded $C_0 = 3.545$ % C the values are 0.650/0.350, 0.310/0.690, primary γ 0.350 and eutectic γ 0.340; the computed values are kept. The page also writes the formula for $\chi_L$ with the labels of the α-Fe₃C tie line; its numbers, $(3.6 - 2.14)/(4.3 - 2.14)$, are those of the γ-L tie line used here.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 7 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-7">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 7</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #7</span>
+            <span class="prob-source-badge">Fe-C · hypereutectic cast iron</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Hypereutectic Cast Iron from its Cementite Fraction</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>7.- Consider an alloy of Fe-C, with content of C &gt; 4.3%C at (727−ΔT)ºC. In these conditions, $\chi_{Fe_3C}$ = 0.73. Indicate the mass fraction of the phases at (1147+ΔT)ºC and (1147−ΔT)ºC.</p>
+          <div class="solution-box">Official Solution: T1: $w_L$ = 0.75, $w_{Fe_3C}$ = 0.25; T2: $w_\gamma$ = 0.39, $w_{Fe_3C}$ = 0.61, $w_{(Fe_3C)p}$ = 0.25, $w_E$ = 0.75, $w_{\gamma E}$ = 0.39, $w_{(Fe_3C)E}$ = 0.36</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium, Fe-Fe₃C diagram [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>].</li><li>$C_0 &gt; 4.3$: a <strong>hypereutectic cast iron</strong>; the primary phase is cementite, which forms in L + Fe₃C above 1147 °C.</li><li>Unknown first: $C_0$ from the cementite fraction just below 727 °C.</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Tie lines: 727 − ΔT (α 0.022 / Fe₃C 6.67), 1147 + ΔT (L 4.30 / Fe₃C 6.67), 1147 − ΔT (γ 2.14 / Fe₃C 6.67). Lever rule each time [Session 7 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 16">16</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 32">32</a>].</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC07: hypereutectic cast iron">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p7"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p7)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="458.7" y1="360.0" x2="458.7" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="464.7" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 4.88</text>
+<path d="M413.7,152.4 L597.7,152.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="413.7" cy="152.4" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="152.4" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="409.7" y="156.4" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">4.30</text>
+<path d="M246.1,156.8 L597.7,156.8" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="246.1" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="242.1" y="160.8" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">2.14</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="458.7" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="464.7" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₁</text>
+<circle cx="458.7" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="464.7" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">T₂</text>
+<circle cx="458.7" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="464.7" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">727 − ΔT</text>
+</g></svg>
+<div class="diagram-caption">Figure 35. The alloy with 73 % Fe₃C just below 727 °C lies at about 4.88 % C: L + Fe₃C above 1147 °C, γ + Fe₃C below it.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Composition</strong></p>
+<div class="math-block">$$C_0 = C_\alpha + W_{\text{Fe}_3\text{C}}\,(C_{\text{Fe}_3\text{C}} - C_\alpha) = 0.022 + 0.73 \times 6.648 = 0.022 + 4.853 = 4.875\ \%\,\text{C}$$</div>
+<p><strong>2. $T_1$ = 1147 + ΔT (length $6.67 - 4.30 = 2.37$)</strong></p>
+<div class="math-block">$$W_L = \frac{6.67 - 4.875}{2.37} = \frac{1.795}{2.37} = 0.757 \qquad W_{\text{Fe}_3\text{C}} = \frac{4.875 - 4.30}{2.37} = \frac{0.575}{2.37} = 0.243$$</div>
+<p><strong>3. $T_2$ = 1147 − ΔT (length $6.67 - 2.14 = 4.53$)</strong></p>
+<div class="math-block">$$W_\gamma = \frac{6.67 - 4.875}{4.53} = \frac{1.795}{4.53} = 0.396 \qquad W_{\text{Fe}_3\text{C}} = \frac{4.875 - 2.14}{4.53} = \frac{2.735}{4.53} = 0.604$$</div>
+<p><strong>Microconstituents at $T_2$:</strong> primary cementite = 0.243; ledeburite = 0.757, made of γ 0.396 and Fe₃C $0.604 - 0.243 = 0.361$.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Ledeburite make-up: $0.396/0.757 = 0.523$ γ ✓ (Worked example 14).</li><li>Mass balance at $T_1$: $0.757 \times 4.30 + 0.243 \times 6.67 = 3.26 + 1.62 = 4.875$ % C ✓.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>Agrees with the key within rounding: 0.757/0.243 (key 0.75/0.25), 0.396/0.604 (0.39/0.61), primary Fe₃C 0.243 (0.25), eutectic γ 0.396 (0.39) and eutectic Fe₃C 0.361 (0.36). The key does not give $C_0$; it is 4.875 % C (4.89 % with 6.7 % C for cementite).</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 8 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-8">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 8</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #8</span>
+            <span class="prob-source-badge">Fe-C · alloying elements</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Annealed 0.55 % C Steel Bar and the Effect of Nickel</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>8.- Examine closely the phase diagram Fe-C and answer the following questions. a) If there is a 5 kg annealed bar of an alloy with 0.55 % C, what is the quantity (mass expressed in kg) of pre-eutectoid ferrite, eutectoid ferrite and cementite that is contained at 726 ºC? b) List the phases and microconstituents in this steel, their composition and their percentage at 600 ºC. c) How are the carbon content and temperature at the eutectoid point modified in the diagram if Ni is added? How does this addition modify the steel's microstructure?</p>
+          <div class="solution-box">Official Solution: a) $\alpha'$ = 1.43 kg; pearlite = 3.6 kg; $\alpha_{total}$ = 4.6 kg; $\alpha_{eutectoid}$ = 3.17 kg; Fe₃C = 0.4 kg; b) $x_{\alpha pre}$ = 0.26; $x_{eutectoid}$ = 0.72; $w_{\alpha total}$ = 0.92; $w_{Fe_3C}$ = 0.08; c) possible decrease in amount of primary ferrite</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li><strong>Annealed</strong> means slowly cooled: equilibrium structure, Fe-Fe₃C diagram [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>].</li><li>$C_0 = 0.55 &lt; 0.76$: hypoeutectoid; at 726 °C (just below 727 °C) the structure is proeutectoid ferrite + pearlite [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=14" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 14">14</a>].</li><li>At 600 °C the ferrite solvus gives slightly less than 0.022 % C; the difference does not change the result to two decimals, so 0.022 % C is used (a reading of the figure).</li><li>Data: $m$ = 5 kg.</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Frame: the Fe-Fe₃C diagram; tie lines just above 727 °C (α 0.022 / γ 0.76, for the proeutectoid ferrite) and below it (α 0.022 / Fe₃C 6.67, for the phases). Masses are fractions times 5 kg.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC08: annealed steel of 0.55 % C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p8"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p8)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="122.7" y1="360.0" x2="122.7" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="128.7" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 0.55</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="602.7" y="276.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<path d="M80.9,305.0 L597.7,305.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="80.9" cy="305.0" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="305.0" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="122.7" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="128.7" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">726 °C</text>
+<circle cx="122.7" cy="305.0" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="128.7" y="299.0" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">600 °C</text>
+</g></svg>
+<div class="diagram-caption">Figure 36. Fe-0.55 % C at 726 °C and at 600 °C: α + Fe₃C, as proeutectoid ferrite and pearlite.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) At 726 °C</strong></p>
+<div class="math-block">$$W_{\alpha'} = \frac{0.76 - 0.55}{0.76 - 0.022} = \frac{0.21}{0.738} = 0.285 \;\Rightarrow\; m_{\alpha'} = 0.285 \times 5 = 1.42\ \text{kg}$$</div>
+<div class="math-block">$$W_{\text{pearlite}} = 1 - 0.285 = 0.715 \;\Rightarrow\; m_{\text{pearlite}} = 3.58\ \text{kg}$$</div>
+<div class="math-block">$$W_{\alpha,\text{total}} = \frac{6.67 - 0.55}{6.648} = \frac{6.12}{6.648} = 0.921 \;\Rightarrow\; m_{\alpha,\text{total}} = 4.60\ \text{kg}$$</div>
+<div class="math-block">$$m_{\alpha,E} = 4.60 - 1.42 = 3.18\ \text{kg} \qquad m_{\text{Fe}_3\text{C}} = (1 - 0.921) \times 5 = 0.079 \times 5 = 0.40\ \text{kg}$$</div>
+<p><strong>b) At 600 °C</strong></p>
+<ul><li><strong>Phases:</strong> α (≈ 0.022 % C) 92 % and Fe₃C (6.67 % C) 8 %.</li><li><strong>Microconstituents:</strong> proeutectoid ferrite 28.5 % and pearlite (0.76 % C overall) 71.5 %. The microconstituents formed at 727 °C do not change on further slow cooling.</li></ul>
+<p><strong>c) Effect of nickel</strong> Ni is a <strong>γ-stabilising element</strong>: it displaces the eutectoid point to <strong>lower temperature and lower %C</strong> [Session 9 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=22" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 22">22-23</a>]. With a lower eutectoid composition, the same 0.55 % C steel lies closer to the eutectoid point, so the short tie line gives <strong>less proeutectoid ferrite and more pearlite</strong>.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Mass check: $1.42 + 3.58 = 5.00$ kg; $4.60 + 0.40 = 5.00$ kg; pearlite $3.18 + 0.40 = 3.58$ kg ✓.</li><li>Carbon: $0.40\ \text{kg} \times 6.67\,\% + 4.60\ \text{kg} \times 0.022\,\% = 0.0267 + 0.0010 = 0.0277$ kg C $= 0.55\,\%$ of 5 kg ✓.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>Part (a) agrees with the key (1.43, 3.6, 4.6, 3.17 and 0.4 kg, within rounding); (c) agrees.</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>For part (b) the key gives $x_{\alpha pre} = 0.26$ and $x_{eutectoid} = 0.72$, which do not add up to 1 and do not match its own part (a) ($1.43/5 = 0.286$, $3.6/5 = 0.72$). The lever rule gives 0.285 proeutectoid ferrite and 0.715 pearlite, the same at 726 and at 600 °C; these values are kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 9 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-9">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 9</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #9</span>
+            <span class="prob-source-badge">Fe-C · secondary cementite</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">A 3 % C Cast Iron from 1146 to 800 °C</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>9. Examine closely the phase diagram Fe-C answer the following questions. a) Calculate the percentage of C in an alloy that has 64.7 % of austenite and 35.5 % of cementite at 800 ºC. What kind of alloy is it? b) What microconstituents does it have at 1146ºC? Calculate the quantity of each one. c) How do microconstituents change when cooling down from 1146 ºC to 800 ºC?</p>
+          <div class="solution-box">Official Solution: a) $C_0$ = 3%; hypoeutectic cast iron; b) $w_{\gamma primary}$ = 60.2%; $w_{ledeburite}$ = 39.8%; $w_{Fe_3C\,ledeburite}$ = 18.8%; $w_{\gamma ledeburite}$ = 21%; $w_{\gamma total}$ = 81.2%; c) Fe₃C precipitates (secondary Fe₃C); $w_{Fe_3C\,secondary}$ = 16.3%</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium, Fe-Fe₃C diagram [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>].</li><li><strong>Reading of the figure:</strong> at 800 °C the $A_{cm}$ line is at about 1.0 % C (a straight line from (0.76, 727) to (2.14, 1147) gives 0.99).</li><li>The data of the statement add up to 100.2 %; each fraction is used on its own to get $C_0$, and the two results are compared.</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>Tie lines: 800 °C (γ 1.0 / Fe₃C 6.67), 1147 + ΔT (γ 2.14 / L 4.30), 1146 °C (γ 2.14 / Fe₃C 6.67). The lever rule is solved for $C_0$ in (a) and applied in (b) and (c); microconstituents as in Session 7 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 32">32</a>.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC09: hypoeutectic cast iron of 3 % C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p9"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p9)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="318.8" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 3</text>
+<path d="M246.1,152.4 L413.7,152.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="246.1" cy="152.4" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="413.7" cy="152.4" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="242.1" y="156.4" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">2.14</text>
+<text x="418.7" y="156.4" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">4.30</text>
+<path d="M246.1,156.8 L597.7,156.8" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="246.1" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="156.8" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<path d="M157.6,250.0 L597.7,250.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="157.6" cy="250.0" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="250.0" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="153.6" y="254.0" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="end">1.0</text>
+<circle cx="312.8" cy="152.4" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="318.8" y="146.4" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">1148 °C</text>
+<circle cx="312.8" cy="156.8" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="318.8" y="171.8" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">1146 °C</text>
+<circle cx="312.8" cy="250.0" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="318.8" y="244.0" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">800 °C</text>
+</g></svg>
+<div class="diagram-caption">Figure 37. Fe-3 % C: γ + L just above 1147 °C, primary γ + ledeburite just below it, γ (about 1.0 % C, a reading) + Fe₃C at 800 °C.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Composition</strong> From the austenite: $W_\gamma = \dfrac{6.67 - C_0}{6.67 - 1.0} = 0.647 \Rightarrow C_0 = 6.67 - 0.647 \times 5.67 = 6.67 - 3.668 = 3.00$ % C.</p>
+<p>From the cementite: $W_{\text{Fe}_3\text{C}} = \dfrac{C_0 - 1.0}{5.67} = 0.355 \Rightarrow C_0 = 1.0 + 0.355 \times 5.67 = 1.0 + 2.013 = 3.01$ % C.</p>
+<p>Both give <strong>$C_0$ ≈ 3.0 % C</strong>: $2.14 &lt; 3.0 &lt; 4.30$, a <strong>hypoeutectic cast iron</strong>.</p>
+<p><strong>b) Microconstituents at 1146 °C</strong> Just above 1147 °C (γ 2.14 / L 4.30; length 2.16):</p>
+<div class="math-block">$$W_{\gamma,p} = \frac{4.30 - 3.0}{2.16} = \frac{1.30}{2.16} = 0.602 \qquad W_L = \frac{3.0 - 2.14}{2.16} = \frac{0.86}{2.16} = 0.398$$</div>
+<p>At 1146 °C the liquid has become <strong>ledeburite</strong> (0.398) and the <strong>primary austenite</strong> remains (0.602). Phases at 1146 °C (γ 2.14 / Fe₃C 6.67; length 4.53):</p>
+<div class="math-block">$$W_{\text{Fe}_3\text{C}} = \frac{3.0 - 2.14}{4.53} = \frac{0.86}{4.53} = 0.190 \qquad W_{\gamma,\text{total}} = 1 - 0.190 = 0.810$$</div>
+<p>All the cementite is in the ledeburite (0.190), so the austenite of the ledeburite is $0.398 - 0.190 = 0.208$.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220" width="100%" class="fig-kit" style="max-width:420px;margin:0 auto;display:block" role="img" aria-label="Problem FC09: microstructure of a 3 % C cast iron at 1146 °C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-micro-p9"><circle cx="110.0" cy="110.0" r="92.0"/></clipPath>
+<mask id="mask-fc-micro-p9"><rect x="18.0" y="18.0" width="184.0" height="184.0" fill="white"/><circle cx="70.0" cy="80.0" r="22.0" fill="black"/><circle cx="135.0" cy="65.0" r="20.0" fill="black"/><circle cx="100.0" cy="130.0" r="24.0" fill="black"/><circle cx="155.0" cy="125.0" r="21.0" fill="black"/><circle cx="60.0" cy="150.0" r="18.0" fill="black"/><circle cx="130.0" cy="170.0" r="17.0" fill="black"/><circle cx="165.0" cy="100.0" r="12.0" fill="black"/></mask>
+<g clip-path="url(#clip-fc-micro-p9)">
+<g mask="url(#mask-fc-micro-p9)">
+<line x1="-166.0" y1="202.0" x2="18.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-160.0" y1="202.0" x2="24.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-154.0" y1="202.0" x2="30.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-148.0" y1="202.0" x2="36.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-142.0" y1="202.0" x2="42.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-136.0" y1="202.0" x2="48.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-130.0" y1="202.0" x2="54.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-124.0" y1="202.0" x2="60.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-118.0" y1="202.0" x2="66.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-112.0" y1="202.0" x2="72.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-106.0" y1="202.0" x2="78.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-100.0" y1="202.0" x2="84.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-94.0" y1="202.0" x2="90.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-88.0" y1="202.0" x2="96.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-82.0" y1="202.0" x2="102.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-76.0" y1="202.0" x2="108.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-70.0" y1="202.0" x2="114.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-64.0" y1="202.0" x2="120.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-58.0" y1="202.0" x2="126.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-52.0" y1="202.0" x2="132.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-46.0" y1="202.0" x2="138.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-40.0" y1="202.0" x2="144.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-34.0" y1="202.0" x2="150.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-28.0" y1="202.0" x2="156.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-22.0" y1="202.0" x2="162.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-16.0" y1="202.0" x2="168.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-10.0" y1="202.0" x2="174.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="-4.0" y1="202.0" x2="180.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="2.0" y1="202.0" x2="186.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="8.0" y1="202.0" x2="192.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="14.0" y1="202.0" x2="198.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="20.0" y1="202.0" x2="204.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="26.0" y1="202.0" x2="210.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="32.0" y1="202.0" x2="216.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="38.0" y1="202.0" x2="222.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="44.0" y1="202.0" x2="228.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="50.0" y1="202.0" x2="234.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="56.0" y1="202.0" x2="240.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="62.0" y1="202.0" x2="246.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="68.0" y1="202.0" x2="252.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="74.0" y1="202.0" x2="258.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="80.0" y1="202.0" x2="264.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="86.0" y1="202.0" x2="270.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="92.0" y1="202.0" x2="276.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="98.0" y1="202.0" x2="282.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="104.0" y1="202.0" x2="288.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="110.0" y1="202.0" x2="294.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="116.0" y1="202.0" x2="300.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="122.0" y1="202.0" x2="306.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="128.0" y1="202.0" x2="312.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="134.0" y1="202.0" x2="318.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="140.0" y1="202.0" x2="324.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="146.0" y1="202.0" x2="330.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="152.0" y1="202.0" x2="336.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="158.0" y1="202.0" x2="342.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="164.0" y1="202.0" x2="348.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="170.0" y1="202.0" x2="354.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="176.0" y1="202.0" x2="360.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="182.0" y1="202.0" x2="366.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="188.0" y1="202.0" x2="372.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="194.0" y1="202.0" x2="378.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+<line x1="200.0" y1="202.0" x2="384.0" y2="18.0" stroke="var(--text-heading)" stroke-width="1.1"/>
+</g>
+<circle cx="70.0" cy="80.0" r="22.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="135.0" cy="65.0" r="20.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="100.0" cy="130.0" r="24.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="155.0" cy="125.0" r="21.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="60.0" cy="150.0" r="18.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="130.0" cy="170.0" r="17.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+<circle cx="165.0" cy="100.0" r="12.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.15" stroke="var(--text-heading)" stroke-width="1.4"/>
+</g>
+<circle cx="110.0" cy="110.0" r="92.0" fill="none" stroke="var(--text-heading)" stroke-width="1.6"/>
+<line x1="83.2" y1="66.8" x2="218.0" y2="28.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="222.0" y="32.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">primary γ</text>
+<line x1="160.6" y1="160.6" x2="218.0" y2="192.0" stroke="var(--text-faint)" stroke-width="1"/>
+<text x="222.0" y="196.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">ledeburite (γ + Fe₃C)</text>
+</g></svg>
+<div class="diagram-caption">Figure 38. Fe-3 % C just below 1147 °C: primary austenite (60 %) and ledeburite (40 %).</div>
+</div>
+<p><strong>c) From 1146 to 800 °C</strong> The austenite (primary and eutectic) loses carbon along $A_{cm}$, from 2.14 to 1.0 % C, and the excess precipitates as <strong>secondary cementite</strong> [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=11" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 11">11</a>]. At 800 °C:</p>
+<div class="math-block">$$W_{\text{Fe}_3\text{C}}(800) = \frac{3.0 - 1.0}{5.67} = \frac{2.0}{5.67} = 0.353 \qquad W_{\text{Fe}_3\text{C},\text{sec}} = 0.353 - 0.190 = 0.163$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>Ledeburite make-up: $0.190/0.398 = 0.477$ Fe₃C, as in Worked example 14 ✓.</li><li>At 800 °C: γ $1 - 0.353 = 0.647$ — exactly the 64.7 % of the statement ✓.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>Agrees with the key: 3 %, hypoeutectic cast iron, 60.2 %, 39.8 % and 16.3 %. With 6.67 % C the cementite of the ledeburite is 19.0 % (key 18.8 %, from 6.7 % C), its austenite 20.8 % (key 21 %) and the total austenite 81.0 % (key 81.2 %): differences of rounding only.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 10 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="fc-10">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Fe-C Problem 10</span>
+            <span class="prob-source-badge">Problems T4_PhaseDiagrams II.pdf #10</span>
+            <span class="prob-source-badge">Fe-C · pearlite limits</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Fe-Cementite Questions and Pearlite Limits</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems%20T4_PhaseDiagrams%20II.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T4_PhaseDiagrams II.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>10.- Using the Fe-cementite phase diagram, indicate: a) What real alloy or alloys comply the following conditions $W_\alpha$ = 0.267 at 727 − ΔT ºC? b) What is the maximum and minimum content (mass fraction W) of pearlite in a steel? Explain why. c) Indicate the invariant points that appear in the diagram and explain which microconstituents are formed during cooling. d) For the alloys with 1.5% C and 3% C, indicate the microconstituents and if the mass fraction of them changes on cooling in the range between 1148 ºC and 727 + ΔT ºC.</p>
+          <div class="solution-box">Official Solution: a) $C_0$ = 4.9% C; b) Max: 100% for $C_0$ = 0.76%C; min: 0% for $C_0$ &lt; 0.022%C; d) 1.5% C; $T_1$: $w_\gamma$ = 1, $T_2$: $w_{Fe_3C}$ 0.12, $w_\gamma$ = 0.88; 3% C; $T_1$: $w_\gamma$ = 0.6, $w_L$ = 0.4, $T_2$: $w_{\gamma total}$ = 0.62, $w_{Fe_3C\,Total}$ = 0.38, $w_{Fe_3C\,secondary}$ = 0.20</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<ol><li>Equilibrium, Fe-Fe₃C diagram [Session 9 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=10" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 10">10</a>].</li><li>Below 727 °C every alloy is α (0.022) + Fe₃C (6.67); one ferrite fraction gives one composition.</li><li>"Steel" = up to 2.14 % C [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=4" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 4">4</a>].</li></ol>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>The lever rule on the α-Fe₃C tie line (a), the short tie line through the eutectoid point (b), the invariant lines (c) and the tie lines at 1148 °C and 727 + ΔT (d) [Session 7 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=16" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 16">16</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%207%20T4%20Phase%20diagrams%20I_2025.pdf#page=32" target="_blank" rel="noopener" title="Open Session 7 T4 Phase diagrams I.pdf at page 32">32</a>].</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="Problem FC10: alloy from its ferrite">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<clipPath id="clip-fc-p10"><rect x="80.0" y="30.0" width="520.0" height="330.0"/></clipPath>
+<g clip-path="url(#clip-fc-p10)">
+<path d="M80.0,-80.0 L80.0,47.1 L121.1,59.4 L413.7,154.6 L597.7,126.2 L597.7,-80.0 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4 L246.1,154.6 L139.0,270.1 L139.0,270.1 L137.5,269.9 L136.0,269.6 L134.6,269.3 L133.1,268.9 L131.6,268.5 L130.1,268.0 L128.7,267.5 L127.2,266.9 L125.7,266.3 L124.2,265.6 L122.8,264.8 L121.3,264.0 L119.8,263.1 L118.3,262.2 L116.9,261.2 L115.4,260.2 L113.9,259.1 L112.4,258.0 L111.0,256.8 L109.5,255.6 L108.0,254.3 L106.5,252.9 L105.1,251.5 L103.6,250.0 L102.1,248.5 L100.6,247.0 L99.2,245.3 L97.7,243.6 L96.2,241.9 L94.7,240.1 L93.3,238.3 L91.8,236.4 L90.3,234.4 L88.8,232.4 L87.4,230.3 L85.9,228.2 L84.4,226.0 L82.9,223.8 L81.5,221.5 L80.0,219.2 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1 L80.6,305.0 L80.0,387.5 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L121.1,59.4 L413.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,47.1 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L87.0,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,86.6 L92.4,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M87.0,59.4 L121.1,59.4" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M92.4,59.4 L246.1,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L597.7,154.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M246.1,154.6 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.5,221.5 L82.9,223.8 L84.4,226.0 L85.9,228.2 L87.4,230.3 L88.8,232.4 L90.3,234.4 L91.8,236.4 L93.3,238.3 L94.7,240.1 L96.2,241.9 L97.7,243.6 L99.2,245.3 L100.6,247.0 L102.1,248.5 L103.6,250.0 L105.1,251.5 L106.5,252.9 L108.0,254.3 L109.5,255.6 L111.0,256.8 L112.4,258.0 L113.9,259.1 L115.4,260.2 L116.9,261.2 L118.3,262.2 L119.8,263.1 L121.3,264.0 L122.8,264.8 L124.2,265.6 L125.7,266.3 L127.2,266.9 L128.7,267.5 L130.1,268.0 L131.6,268.5 L133.1,268.9 L134.6,269.3 L136.0,269.6 L137.5,269.9 L139.0,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,219.2 L81.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L80.9,305.0 L80.3,360.0 L80.0,387.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M81.7,270.1 L597.7,270.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M597.7,387.5 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M413.7,154.6 L506.9,135.9 L597.7,126.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="7,5" stroke-linejoin="round"/>
+</g>
+<line x1="80.0" y1="360.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="var(--text-faint)" stroke-width="0.8"/>
+<line x1="80.0" y1="360.0" x2="80.0" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="80.0" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="157.6" y1="360.0" x2="157.6" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="157.6" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">1</text>
+<line x1="235.2" y1="360.0" x2="235.2" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="235.2" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">2</text>
+<line x1="312.8" y1="360.0" x2="312.8" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="312.8" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">3</text>
+<line x1="390.4" y1="360.0" x2="390.4" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="390.4" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">4</text>
+<line x1="468.1" y1="360.0" x2="468.1" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="468.1" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">5</text>
+<line x1="545.7" y1="360.0" x2="545.7" y2="365.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="545.7" y="379.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">6</text>
+<line x1="75.0" y1="360.0" x2="80.0" y2="360.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="364.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="305.0" x2="80.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="309.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="250.0" x2="80.0" y2="250.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="254.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="195.0" x2="80.0" y2="195.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="199.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<line x1="75.0" y1="140.0" x2="80.0" y2="140.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="144.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1200</text>
+<line x1="75.0" y1="85.0" x2="80.0" y2="85.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="89.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1400</text>
+<line x1="75.0" y1="30.0" x2="80.0" y2="30.0" stroke="var(--text-faint)" stroke-width="1.2"/>
+<text x="72.0" y="34.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1600</text>
+<text x="340.0" y="398.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% C)</text>
+<text x="84.0" y="20.0" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<text x="437.0" y="79.5" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">L</text>
+<text x="134.3" y="195.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">γ</text>
+<text x="452.5" y="211.5" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">γ + Fe₃C</text>
+<text x="452.5" y="316.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="middle">α + Fe₃C</text>
+<line x1="460.3" y1="360.0" x2="460.3" y2="32.8" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="466.3" y="41.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 4.9</text>
+<path d="M81.7,272.3 L597.7,272.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="81.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<circle cx="597.7" cy="272.3" r="3.2" fill="var(--fig-blue, #3b82f6)" stroke="var(--fig-blue, #3b82f6)" stroke-width="1"/>
+<text x="602.7" y="276.3" fill="var(--fig-blue, #3b82f6)" font-size="11" font-weight="700" text-anchor="start">6.67</text>
+<circle cx="460.3" cy="272.3" r="3.8" fill="var(--fig-green, #10b981)" stroke="var(--fig-green, #10b981)" stroke-width="1"/>
+<text x="466.3" y="287.3" fill="var(--fig-green, #10b981)" font-size="11.5" font-weight="700" text-anchor="start">727 − ΔT</text>
+</g></svg>
+<div class="diagram-caption">Figure 39. The alloy with 26.7 % α just below 727 °C lies at about 4.9 % C, a hypereutectic cast iron.</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Alloy with $W_\alpha$ = 0.267</strong></p>
+<div class="math-block">$$C_0 = 6.67 - 0.267 \times (6.67 - 0.022) = 6.67 - 0.267 \times 6.648 = 6.67 - 1.775 = 4.895 \approx 4.9\ \%\,\text{C}$$</div>
+<p>Only <strong>one</strong> alloy: a hypereutectic cast iron.</p>
+<p><strong>b) Pearlite in steels</strong> Pearlite is the austenite of 0.76 % C present just above 727 °C.</p>
+<ul><li><strong>Maximum, 100 %</strong>, for the eutectoid steel, $C_0$ = 0.76 % C: all of it is austenite of eutectoid composition.</li><li><strong>Minimum, 0 %</strong>, for $C_0 \le 0.022$ % C: the alloy never crosses the eutectoid line inside the α + γ field (it stays α).</li><li>Between them, hypoeutectoid: $W_{\text{pearlite}} = (C_0 - 0.022)/(0.76 - 0.022)$; hypereutectoid: $W_{\text{pearlite}} = (6.67 - C_0)/(6.67 - 0.76)$, which at the steel limit (2.14 % C) is $4.53/5.91 = 0.77$.</li></ul>
+<p><strong>c) Invariant points and their products on cooling [Session 9 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session%209%20T4%20Phase%20diagrams%20III.pdf#page=10" target="_blank" rel="noopener" title="Open Session 9 T4 Phase diagrams III.pdf at page 10">10</a>]</strong></p>
+<ul><li><strong>Peritectic, 1493 °C:</strong> $\delta\,(0.09) + L\,(0.53) \rightarrow \gamma\,(0.16)$: austenite.</li><li><strong>Eutectic, 1147 °C:</strong> $L\,(4.3) \rightarrow \gamma\,(2.14) + \text{Fe}_3\text{C}$: ledeburite (cast irons).</li><li><strong>Eutectoid, 727 °C:</strong> $\gamma\,(0.76) \rightarrow \alpha\,(0.022) + \text{Fe}_3\text{C}$: pearlite (steels, and the austenite of cast irons).</li></ul>
+<p><strong>d) 1.5 % C and 3 % C between 1148 °C and 727 + ΔT</strong> <strong>1.5 % C</strong> (hypereutectoid steel). At 1148 °C: austenite only, $W_\gamma = 1$. At 727 + ΔT (γ 0.76 / Fe₃C 6.67):</p>
+<div class="math-block">$$W_\gamma = \frac{6.67 - 1.5}{5.91} = 0.875 \qquad W_{\text{Fe}_3\text{C}} = \frac{1.5 - 0.76}{5.91} = 0.125$$</div>
+<p>The microconstituents <strong>change</strong>: proeutectoid cementite appears at $A_{cm}$ and grows to 0.125.</p>
+<p><strong>3 % C</strong> (hypoeutectic cast iron). At 1148 °C (γ 2.14 / L 4.30): $W_\gamma = 1.30/2.16 = 0.602$, $W_L = 0.398$. At 727 + ΔT (γ 0.76 / Fe₃C 6.67):</p>
+<div class="math-block">$$W_{\gamma,\text{total}} = \frac{6.67 - 3.0}{5.91} = \frac{3.67}{5.91} = 0.621 \qquad W_{\text{Fe}_3\text{C},\text{total}} = \frac{3.0 - 0.76}{5.91} = \frac{2.24}{5.91} = 0.379$$</div>
+<p>The microconstituents (primary austenite and ledeburite) <strong>change</strong> too: the austenite loses carbon and secondary cementite precipitates. The ledeburite brought $0.190$ of cementite at 1146 °C (Problem FC09), so the secondary cementite is $0.379 - 0.190 = 0.189$.</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<ul><li>(a): $(6.67 - 4.895)/6.648 = 0.267$ ✓.</li><li>(d): 1.5 %: $0.875 \times 0.76 + 0.125 \times 6.67 = 0.665 + 0.834 = 1.50$ % C ✓; 3 %: $0.621 \times 0.76 + 0.379 \times 6.67 = 0.47 + 2.53 = 3.0$ % C ✓.</li></ul>
+<p><strong>Check against the official solution</strong></p>
+<p>(a), (b) and the 3 % C phases agree with the key (4.9 %; 100 % and 0 %; 0.6/0.4; 0.62/0.38). For 1.5 % C the key gives 0.12/0.88, which is the same as 0.125/0.875 within rounding. The key does not answer part (c).</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives 0.20 of secondary cementite for the 3 % C alloy. With the values of the diagram, $0.379 - 0.190 = 0.189$ (0.19); the key's 0.20 is not reproduced by any rounding of these data. The computed value is kept.</p></div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 ---
 materia: "Aerospace Materials I"
 tema: "Topic 4: Phase Diagrams and Solidification"
-fuentes: "Session 7 T4 Phase diagrams I_2025.pdf, Slides 1-32; Session 8 T4 Phase diagrams II.pdf, Slides 1-17"
+fuentes: "Session 7 T4 Phase diagrams I_2025.pdf, Slides 1-32; Session 8 T4 Phase diagrams II.pdf, Slides 1-17; Session 9 T4 Phase diagrams III.pdf, Slides 1-23"
 tags:
   - theory
   - topic-moc
@@ -11,6 +11,8 @@ tags:
   - eutectic
   - invariant-reactions
   - intermetallic-compounds
+  - fe-c-system
+  - steels
 dificultad: medium
 prerrequisitos:
   - "[[Topic 2 - Structure of Materials and Crystalline Defects]]"
@@ -21,7 +23,7 @@ prerrequisitos:
 
 > **Central idea:** a phase diagram is a map that tells which phases are stable in a material for each temperature, pressure and composition. Reading it gives three answers for any alloy at any temperature: which phases are present, what each phase is made of, and how much of each there is.
 
-This page follows the official slides of Topic 4 in order. Part I (Session 7) covers the basic vocabulary, one-component diagrams, binary isomorphous systems, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems. Part II (Session 8) covers solid-state precipitation, the invariant reactions, intermetallic compounds and congruent and incongruent melting. Worked examples use only data printed on the slides.
+This page follows the official slides of Topic 4 in order. Part I (Session 7) covers the basic vocabulary, one-component diagrams, binary isomorphous systems, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems. Part II (Session 8) covers solid-state precipitation, the invariant reactions, intermetallic compounds and congruent and incongruent melting. Part III (Session 9) covers the Fe-C system, the equilibrium transformations of steels and the influence of alloying elements. Worked examples use only data printed on the slides.
 
 ---
 
@@ -536,7 +538,171 @@ On the diagram, a congruently melting compound sits at a **maximum of the liquid
 >
 > This is the classification used in Problem 15 of the sheet.
 
-See also [[Concept - Phases, Components and Microconstituents]], [[Concept - Gibbs Phase Rule]], [[Concept - Tie Line and Lever Rule]], [[Concept - Binary Eutectic Systems and Microconstituents]], [[Concept - Solid-State Precipitation and the Solvus]], [[Concept - Invariant Reactions in Binary Systems]], [[Concept - Intermetallic Compounds and Congruent Melting]].
+# Part III — Phase diagrams III: the Fe-C system (Session 9)
+
+## 13. The Fe-C system [Session 9 Slides 2-11]
+
+### 13.1 Why it matters [Session 9 Slide 2]
+
+- The **Fe-C system** is a binary alloy system of iron and carbon.
+- It is the most important alloy system of our civilisation: it gives **steels** and **cast irons**.
+- It is a **binary eutectic system**.
+- Depending on the carbon content, temperature, cooling rate, pressure and so on, **different microstructures** can be developed, with different properties and applications.
+
+![[attachments/T4/s9-steel-micrographs.png]]
+
+### 13.2 Allotropic phases of pure iron [Session 9 Slide 3]
+
+**Allotropy** is the existence of a chemical element in two or more forms, which may differ in the arrangement of the atoms in the crystalline solid (Topic 2). Iron undergoes **two changes of crystal structure before it melts**:
+
+![[attachments/T4/fe-allotropy.svg]]
+
+![[attachments/T4/s9-iron-cells.png]]
+
+The temperatures on the scale of Slide 3 (910, 1390 and 1535 °C) differ by a few degrees from those printed on the Fe-C diagram of the same session (912, 1394 and 1538 °C, Slide 4); the diagram values are used in the rest of this page.
+
+### 13.3 The Fe-Fe₃C diagram [Session 9 Slide 4]
+
+The diagram used in practice is **metastable**: its right-hand end is not graphite but **6.67 wt% C**, the stoichiometric composition of **Fe₃C**, iron carbide or **cementite**. So the diagram is in fact **Fe-Fe₃C**. It has three invariant points (a peritectic, a eutectic and a eutectoid), and its composition axis is split into four ranges:
+
+![[attachments/T4/fec-full.svg]]
+
+| Range | Name |
+| :--- | :--- |
+| up to 0.76 % C | hypoeutectoid steels |
+| 0.76 to 2.14 % C | hypereutectoid steels |
+| 2.14 to 4.30 % C | hypoeutectic cast irons |
+| 4.30 to 6.67 % C | hypereutectic cast irons |
+
+Steels have up to 2.14 % C; cast irons have more [Session 9 Slide 4].
+
+### 13.4 Phases [Session 9 Slides 5-9]
+
+- **α-ferrite (BCC):** interstitial solid solution of C in BCC iron. Low C content: maximum solubility **0.022 wt% at 727 °C**. A soft phase; density 7.88 g/cm³ [Slide 5].
+- **Austenite, γ (FCC):** interstitial solid solution of C in FCC iron. Maximum solubility of C **2.14 wt% at 1147 °C**. Important for the phase transitions in the heat treatment of steels. Not magnetic [Slide 6].
+- **δ-ferrite (BCC):** interstitial solid solution of C in BCC iron, with the same properties as α-ferrite but at higher temperatures [Slide 7].
+- **Cementite, Fe₃C:** an intermetallic **stoichiometric compound**, 6.67 % C. It forms when the solubility limit of C in α-Fe is exceeded below 727 °C. **Hard and brittle**. A **metastable** compound [Slide 8].
+
+![[attachments/T4/s9-ferrite.png]]
+
+![[attachments/T4/s9-austenite.png]]
+
+![[attachments/T4/s9-cementite-cell.png]]
+
+Austenite dissolves much more carbon than ferrite (2.14 against 0.022 wt%), because the interstitial sites of FCC iron are larger than those of BCC iron (Topic 2).
+
+**Two-phase regions** [Slide 9]: α-ferrite + Fe₃C below 727 °C; γ-austenite + Fe₃C between 727 and 1147 °C.
+
+### 13.5 Invariant reactions [Session 9 Slide 10]
+
+| Reaction | Equation (wt% C) | Product |
+| :--- | :--- | :--- |
+| Eutectoid, 727 °C | $\gamma\,(0.76) \rightleftharpoons \alpha\,(0.022) + \text{Fe}_3\text{C}\,(6.67)$ | pearlite |
+| Eutectic, 1147 °C | $L\,(4.3) \rightleftharpoons \gamma\,(2.14) + \text{Fe}_3\text{C}\,(6.67)$ | ledeburite |
+| Peritectic, 1493 °C | $\delta\,(0.09) + L\,(0.53) \rightleftharpoons \gamma\,(0.16)$ | austenite |
+
+> [!example] Worked example 14 — The make-up of ledeburite [Session 9 Slide 10]
+> **Question.** How much austenite and how much cementite does the eutectic product of Fe-C (ledeburite) contain just below 1147 °C?
+>
+> **Tie line** from γ (2.14 % C) to Fe₃C (6.67 % C), length $6.67 - 2.14 = 4.53$; the liquid had $C_0 = 4.30$ % C:
+> $$W_{\text{Fe}_3\text{C}} = \frac{C_0 - C_\gamma}{C_{\text{Fe}_3\text{C}} - C_\gamma} = \frac{4.30 - 2.14}{6.67 - 2.14} = \frac{2.16}{4.53} = 0.477 \qquad W_\gamma = \frac{6.67 - 4.30}{4.53} = \frac{2.37}{4.53} = 0.523$$
+>
+> **Check:** $0.523 \times 2.14 + 0.477 \times 6.67 = 1.12 + 3.18 = 4.30$ % C. **Answer:** ledeburite is about 52 % austenite and 48 % cementite. Below 727 °C its austenite becomes pearlite ("transformed ledeburite", Slide 11).
+
+### 13.6 Microconstituents [Session 9 Slide 11]
+
+The microconstituents of the system are **pearlite**, proeutectoid **ferrite** and proeutectoid **cementite** in steels, and **ledeburite** (transformed below 727 °C) with cementite and pearlite in cast irons. The lines of the diagram have names used in heat treatment: $A_1$ is the eutectoid line (727 °C), $A_3$ the boundary between γ and α + γ, and $A_{cm}$ the boundary between γ and γ + Fe₃C.
+
+![[attachments/T4/s9-microconstituents.png]]
+
+## 14. Equilibrium transformations of steels [Session 9 Slides 12-20]
+
+### 14.1 Eutectoid steels, $C_0$ = 0.76 % C [Session 9 Slides 12-13]
+
+**Pearlitic transformation:** austenite of 0.76 % C gives a single microconstituent, **pearlite**, formed by layers (lamellae) of two phases, α + Fe₃C [Slide 12].
+
+![[attachments/T4/fec-eutectoid.svg]]
+
+![[attachments/T4/s9-pearlite-micrograph.png]]
+
+Ferrite nucleates on the grain boundaries of the austenite and displaces the carbon to the neighbouring zones by diffusion; there cementite forms. **Decreasing the spacing of the pearlite lamellae increases its hardness** [Slide 12].
+
+![[attachments/T4/s9-pearlite-growth.png]]
+
+> [!example] Worked example 15 — Phases of a eutectoid steel at point b [Session 9 Slide 13]
+> **Point b** (just below 727 °C): one microconstituent, pearlite; two phases, ferrite ($C_\alpha$ = 0.022 % C) and cementite ($C_{\text{Fe}_3\text{C}}$ = 6.67 % C). Tie line length $6.67 - 0.022 = 6.648$:
+> $$W_\alpha = \frac{C_{\text{Fe}_3\text{C}} - C_0}{C_{\text{Fe}_3\text{C}} - C_\alpha} = \frac{6.67 - 0.76}{6.67 - 0.022} = \frac{5.91}{6.648} = 0.889 \qquad W_{\text{Fe}_3\text{C}} = 1 - 0.889 = 0.111$$
+>
+> **Check:** $0.889 \times 0.022 + 0.111 \times 6.67 = 0.020 + 0.740 = 0.76$ % C. **Answer:** pearlite is 89 % ferrite and 11 % cementite, as on the slide. Every pearlite, in any steel, has this make-up.
+
+### 14.2 Hypoeutectoid steels, $C_0$ < 0.76 % C [Session 9 Slides 14-18]
+
+Two microconstituents: **pearlite** and **proeutectoid (primary) ferrite**, $\alpha_P$ [Slide 14].
+
+![[attachments/T4/fec-hypo.svg]]
+
+![[attachments/T4/s9-hypoeutectoid-micrograph.png]]
+
+On cooling a steel of 0.3 % C: at c it is only γ; between the $A_3$ line (M-O) and 727 °C ferrite nucleates at the austenite grain boundaries and grows (d, e) while the austenite becomes richer in carbon along $A_3$; at 727 °C the remaining austenite, now of 0.76 % C, becomes pearlite (f).
+
+> [!example] Worked example 16 — A 0.3 % C steel at points c, d, e and f [Session 9 Slides 15-18]
+> **Point c:** one phase, austenite, $C_\gamma = C_0 = 0.3$ % C, $W_\gamma = 100$ %.
+>
+> **Point d:** ferrite ($C_\alpha$ = 0.02 % C) and austenite ($C_\gamma$ = 0.4 % C), length 0.38:
+> $$W_\alpha = \frac{C_\gamma - C_0}{C_\gamma - C_\alpha} = \frac{0.4 - 0.3}{0.4 - 0.02} = \frac{0.1}{0.38} = 0.263 \qquad W_\gamma = \frac{C_0 - C_\alpha}{C_\gamma - C_\alpha} = \frac{0.3 - 0.02}{0.38} = 0.737$$
+>
+> **Point e** (just above 727 °C): $C_\alpha$ = 0.02, $C_\gamma$ = 0.76 % C, length 0.74:
+> $$W_\alpha = \frac{0.76 - 0.3}{0.76 - 0.02} = \frac{0.46}{0.74} = 0.622 \qquad W_\gamma = \frac{0.3 - 0.02}{0.74} = 0.378$$
+>
+> **Point f** (just below 727 °C): two microconstituents (primary α and pearlite) and two phases (α and Fe₃C):
+> $$W_{\alpha,\text{total}} = \frac{6.67 - 0.3}{6.67 - 0.022} = \frac{6.37}{6.648} = 0.958 \qquad W_{\alpha_p} = \frac{C_E - C_0}{C_E - C_\alpha} = \frac{0.76 - 0.3}{0.76 - 0.022} = \frac{0.46}{0.738} = 0.623$$
+> $$W_{\alpha_E} = W_{\alpha,\text{total}} - W_{\alpha_p} = 0.958 - 0.623 = 0.335 \qquad W_{\text{Fe}_3\text{C}} = 1 - 0.958 = 0.042 \qquad W_{\text{pearlite}} = 1 - 0.623 = 0.377$$
+>
+> **Checks:** the primary ferrite at f equals the ferrite at e (0.62): it does not change at 727 °C. The pearlite, 0.377, equals the austenite at e (0.378), and it is $0.377 \times 0.889 = 0.335$ ferrite and $0.377 \times 0.111 = 0.042$ cementite, the numbers above. The slides round these to 26/74, 62/38 and 96, 62, 34 and 4 %.
+
+### 14.3 Hypereutectoid steels, $C_0$ > 0.76 % C [Session 9 Slides 19-20]
+
+Two microconstituents: **pearlite** and **proeutectoid cementite**, $(\text{Fe}_3\text{C})_P$, which forms a network along the boundaries of the former austenite grains when the steel crosses the $A_{cm}$ line.
+
+![[attachments/T4/fec-hyper.svg]]
+
+![[attachments/T4/s9-hypereutectoid-micrograph.png]]
+
+![[attachments/T4/s9-microstructures.png]]
+
+> [!example] Worked example 17 — The 1.2 % C steel of Slide 20 [Session 9 Slides 4, 19-20]
+> **Just below 727 °C,** with the values of the diagram of Slide 4 (0.022, 0.76 and 6.67 % C).
+>
+> **Microconstituents** (short tie line from the eutectoid austenite, 0.76, to Fe₃C, 6.67; length 5.91):
+> $$W_{\text{Fe}_3\text{C},p} = \frac{C_0 - C_E}{C_{\text{Fe}_3\text{C}} - C_E} = \frac{1.2 - 0.76}{6.67 - 0.76} = \frac{0.44}{5.91} = 0.074 \qquad W_{\text{pearlite}} = \frac{6.67 - 1.2}{5.91} = \frac{5.47}{5.91} = 0.926$$
+>
+> **Phases** (long tie line, 0.022 to 6.67):
+> $$W_{\text{Fe}_3\text{C}} = \frac{1.2 - 0.022}{6.67 - 0.022} = \frac{1.178}{6.648} = 0.177 \qquad W_\alpha = 1 - 0.177 = 0.823$$
+>
+> **Check:** the cementite inside the pearlite is $0.926 \times 0.111 = 0.103$, and $0.074 + 0.103 = 0.177$ ✓. **Answer:** a thin network of proeutectoid cementite (7 %) around pearlite (93 %); even this hard steel is 82 % ferrite by mass. (The drawing of Slide 20 uses older values, 0.8 % C and 723 °C, for the eutectoid point.)
+
+## 15. Pearlitic transformations and cooling rate [Session 9 Slide 21]
+
+**If the cooling rate increases**, the eutectoid point moves towards **lower temperatures and lower carbon contents**. Consequences: the percentage of **proeutectoid (primary) ferrite decreases** and the **spacing of the pearlite lamellae decreases**, which increases its hardness (fine pearlite instead of coarse pearlite).
+
+![[attachments/T4/s9-cooling-rate.png]]
+
+![[attachments/T4/s9-coarse-fine-pearlite.png]]
+
+## 16. Influence of the alloying elements [Session 9 Slides 22-23]
+
+Other elements in the Fe-C system change the temperature and the composition of the eutectoid point:
+
+- **Elements favouring α** (α-stabilisers) displace the eutectoid to **higher temperature** and **lower %C**: Si, P, Al, Be, Sn, Sb, As, Ti, Nb, V, Ta, Mo, W, Cr.
+- **Elements favouring γ** (γ-stabilisers) displace the eutectoid to **lower temperature** and **lower %C**: Mn, Co, Ni, Cu, Zn, Au.
+
+![[attachments/T4/s9-alloy-elements.png]]
+
+![[attachments/T4/s9-alloy-curves.png]]
+
+In both cases the eutectoid composition falls, so a given steel lies closer to (or beyond) the eutectoid point: a hypoeutectoid steel with a γ-stabiliser such as Ni has less proeutectoid ferrite and more pearlite than the plain carbon steel of the same carbon content (used in Problem FC08).
+
+See also [[Concept - Phases, Components and Microconstituents]], [[Concept - Gibbs Phase Rule]], [[Concept - Tie Line and Lever Rule]], [[Concept - Binary Eutectic Systems and Microconstituents]], [[Concept - Solid-State Precipitation and the Solvus]], [[Concept - Invariant Reactions in Binary Systems]], [[Concept - Intermetallic Compounds and Congruent Melting]], [[Concept - The Fe-Fe3C Diagram and Steel Microstructures]].
 
 ---
 

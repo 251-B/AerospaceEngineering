@@ -1211,6 +1211,267 @@ def theory_part2():
     part2_rasters()
 
 
+# --------------------------------------------------------------------------- Session 9 figures (Part III, Fe-C)
+FEC = dict(a=0.022, s=0.76, e=4.30, g=2.14, cm=6.67, ts=727, te=1147, tp=1493)
+
+
+def fec_a3(x):
+    """A3 line (γ / α + γ) from 912 °C at 0 % C to the eutectoid point, through 775 °C at 0.4 % C."""
+    return lagrange([(0, 912), (0.4, 775), (0.76, 727)])(x)
+
+
+def fec_a3_inv(t):
+    return bisect(lambda x: fec_a3(x) - t, 0.0, 0.76)
+
+
+def fec_acm(x):
+    """Acm line (γ / γ + Fe3C), straight from the eutectoid point (0.76, 727) to (2.14, 1147)."""
+    return 727 + (x - 0.76) * (1147 - 727) / (2.14 - 0.76)
+
+
+def fec_acm_inv(t):
+    return 0.76 + (t - 727) * (2.14 - 0.76) / (1147 - 727)
+
+
+def fec_diagram(c, P, uid, labels=True):
+    """The metastable Fe-Fe3C diagram of Session 9 Slide 4, clipped to the plot box of P."""
+    c.add(f'<clipPath id="clip-{uid}"><rect x="{fmt(P.x0)}" y="{fmt(P.y0)}" width="{fmt(P.x1 - P.x0)}" '
+          f'height="{fmt(P.y1 - P.y0)}"/></clipPath>')
+    c.add(f'<g clip-path="url(#clip-{uid})">')
+    a3 = [(x, fec_a3(x)) for x in lin(0, 0.76)]
+    P.area([(0, 2000), (0, 1538), (0.53, 1493), (4.30, 1147), (6.67, 1250), (6.67, 2000)], "BLUE", 0.08)
+    P.area([(0, 1394), (0.16, 1493), (2.14, 1147), (0.76, 727)] + list(reversed(a3)), "BLUE", 0.16)
+    P.area([(0, 912), (0.022, 727), (0.008, 600), (0, 300)], "BLUE", 0.16)
+    segs = ([(0, 1538), (0.53, 1493), (4.30, 1147)], [(0, 1538), (0.09, 1493)], [(0, 1394), (0.09, 1493)],
+            [(0, 1394), (0.16, 1493)], [(0.09, 1493), (0.53, 1493)], [(0.16, 1493), (2.14, 1147)],
+            [(2.14, 1147), (6.67, 1147)], [(2.14, 1147), (0.76, 727)], a3, [(0, 912), (0.022, 727)],
+            [(0.022, 727), (0.012, 600), (0.004, 400), (0, 300)], [(0.022, 727), (6.67, 727)], [(6.67, 300), (6.67, 1250)])
+    for s in segs:
+        P.line(s, "ACC", 2.2)
+    P.line([(4.30, 1147), (5.5, 1215), (6.67, 1250)], "ACC", 1.8, "7,5")
+    c.add("</g>")
+    if labels:
+        P.text(0.9, 960, "γ, austenite", size=12.5)
+        P.text(0.2, 790, "α + γ", size=11.5)
+        P.text(3.8, 640, "α + Fe₃C", size=13)
+        P.text(3.8, 950, "γ + Fe₃C", size=13)
+
+
+def fec_full():
+    c = Canvas(700, 500)
+    P = Plot(c, (80, 30, 600, 360), (0, 6.7), (400, 1600))
+    fec_diagram(c, P, "fecfull")
+    P.frame([(x, str(x)) for x in range(7)] + [(6.67, "")], [(t, str(t)) for t in range(400, 1601, 200)],
+            "Composition (wt% C)", "Temperature (°C)", xl_dy=34)
+    P.text(4.5, 1400, "L", size=14)
+    P.text(1.7, 1330, "γ + L", size=12.5)
+    P.text(5.6, 1190, "L + Fe₃C", size=11.5)
+    P.text(6.67, 500, "Fe₃C (6.67)", "HEAD", "end", 11.5, dx=-4)
+    for x, t, s, a, dx, dy in ((0, 1538, "1538", "start", 6, -6), (0.53, 1493, "1493", "start", 8, -6), (0, 1394, "1394", "start", 5, 14),
+                               (0, 912, "912", "start", 6, -4), (2.14, 1147, "2.14", "middle", 0, 16), (4.30, 1147, "4.30", "middle", 0, 16),
+                               (3.2, 1147, "1147 °C", "middle", 0, -6), (0.76, 727, "0.76", "middle", 0, 16), (3.2, 727, "727 °C", "middle", 0, -6),
+                               (0.022, 727, "0.022", "start", 4, 30)):
+        P.text(x, t, s, "TEXT", a, 11.5, "400", dx=dx, dy=dy)
+    for x, t, s, dx, dy in ((0.3, 1493, "peritectic", 70, 4), (4.30, 1147, "eutectic", 0, -16), (0.76, 727, "eutectoid", 48, -8)):
+        circle(c, P.p(x, t), 11, "GREEN", 1.6)
+        P.text(x, t, s, "GREEN", "middle", 11.5, dx=dx, dy=dy)
+    yb = P.y1 + 62
+    for xa, xb, s, row, dy in ((0, 0.76, "hypo-", 0, 16), (0.76, 2.14, "hypereutectoid", 0, -6), (2.14, 4.30, "hypoeutectic", 0, -6),
+                               (4.30, 6.67, "hypereutectic", 0, -6), (0, 2.14, "steels", 1, -6), (2.14, 6.67, "cast irons", 1, -6)):
+        y = yb + row * 40
+        a, b = (P.p(xa, 400)[0], y), (P.p(xb, 400)[0], y)
+        bracket(c, a, b, s, "BLUE" if row else "GREEN", dy=dy)
+    text(c, (P.p(0.38, 400)[0], yb + 30), "eutectoid", "GREEN", "middle", 13, "700")
+    REG.put("fec-full", c, "The metastable Fe-Fe3C phase diagram",
+            "Fe-Fe₃C diagram: peritectic at 1493 °C, eutectic at 1147 °C and 4.30 % C, eutectoid at 727 °C and 0.76 % C; "
+            "the maximum solubility of C is 2.14 % in γ and 0.022 % in α; cementite is the line at 6.67 % C. Steels "
+            "have up to 2.14 % C, cast irons more. Redrawn from Session 9 Slide 4")
+
+
+def fe_allotropy():
+    c = Canvas(460, 360)
+    x = 120
+    line(c, (x, 30), (x, 330), "ACC", 4)
+    rows = ((1535, "LIQUID", None), (1390, "Fe-δ (BCC)", None), (910, "Fe-γ (FCC)", None), (25, "Fe-α (BCC)", None))
+    ys = {1535: 70, 1390: 110, 910: 230, 25: 330}
+    for t in (1535, 1390, 910):
+        line(c, (x - 40, ys[t]), (x + 40, ys[t]), "HEAD", 1.6)
+        text(c, (x - 46, ys[t] + 5), f"{t} °C", "HEAD", "end", 13, "700")
+    for y, s in ((50, "LIQUID"), (92, "Fe-δ (BCC)"), (170, "Fe-γ (FCC)"), (285, "Fe-α (BCC)")):
+        text(c, (x + 60, y), s, "HEAD", "start", 14, "700")
+    text(c, (x, 352), "room temperature", "TEXT", "middle", 12)
+    REG.put("fe-allotropy", c, "Allotropic phases of pure iron",
+            "Pure iron on heating: α (BCC) up to 910 °C, γ (FCC) up to 1390 °C, δ (BCC) up to the melting point, "
+            "1535 °C: two changes of crystal structure before it melts. Redrawn from Session 9 Slide 3")
+
+
+def fec_zoom(name, uid, title, caption, x0, pts, ties=(), extra=None):
+    c = Canvas(600, 400)
+    P = Plot(c, (80, 30, 520, 330), (0, 2.5), (400, 1100))
+    fec_diagram(c, P, uid, labels=False)
+    P.frame([(0, "0"), (0.5, "0.5"), (1, "1.0"), (1.5, "1.5"), (2, "2.0"), (2.5, "2.5")],
+            [(t, str(t)) for t in range(400, 1101, 100)], "Composition (wt% C)", "Temperature (°C)")
+    P.text(1.0, 1030, "γ", size=14)
+    P.text(2.1, 900, "γ + Fe₃C", size=12.5)
+    P.text(1.5, 560, "α + Fe₃C", size=12.5)
+    P.text(0.12, 755, "α + γ", "HEAD", "start", 11)
+    P.text(1.6, 727, "727 °C", "TEXT", "middle", 11.5, "400", dy=-6)
+    P.vseg(x0, 400, 1090, "GREEN", 1.5, "6,4")
+    for t, cl, cr, ll, lr in ties:
+        P.line([(cl, t), (cr, t)], "BLUE", 2)
+        P.dot(cl, t, 3.4, "BLUE")
+        if cr < 2.5:
+            P.dot(cr, t, 3.4, "BLUE")
+        if ll:
+            P.text(cl, t, ll, "BLUE", "start", 11.5, dx=4, dy=14)
+        if lr:
+            P.text(cr, t, lr, "BLUE", "start", 11.5, dx=6, dy=4)
+    for t, s in pts:
+        P.dot(x0, t, 4.2, "GREEN")
+        P.text(x0, t, s, "GREEN", "end", 13, dx=-7, dy=-4)
+    if extra:
+        extra(c, P)
+    REG.put(name, c, title, caption)
+
+
+def fec_part3():
+    fe_allotropy()
+    fec_full()
+    fec_zoom("fec-eutectoid", "fceut", "Cooling of a eutectoid steel (0.76 % C)",
+             "Eutectoid steel: at a (above 727 °C) only austenite; at b (just below 727 °C) all the austenite has "
+             "become pearlite, layers of α (0.022 % C) and Fe₃C (6.67 % C). Redrawn from Session 9 Slides 12-13",
+             0.76, ((800, "a"), (705, "b")), ())
+    fec_zoom("fec-hypo", "fchypo", "Cooling of a hypoeutectoid steel (0.3 % C)",
+             "Hypoeutectoid steel of 0.3 % C: c only γ; d α (0.02 % C) + γ (0.4 % C); e just above 727 °C, α + γ of "
+             "0.76 % C; f just below 727 °C, proeutectoid α and pearlite. Redrawn from Session 9 Slides 14-18",
+             0.3, ((880, "c"), (775, "d"), (750, "e"), (700, "f")), ((775, 0.02, 0.4, "", "0.4"), (750, 0.02, fec_a3_inv(750), "", "0.76")),
+             lambda c, P: (P.text(0, 912, "M", "HEAD", "start", 12.5, dx=4, dy=-4), P.text(0.022, 727, "N", "HEAD", "start", 12.5, dx=-14, dy=16),
+                           P.text(0.76, 727, "O", "HEAD", "middle", 12.5, dy=18)))
+    fec_zoom("fec-hyper", "fchyper", "Cooling of a hypereutectoid steel (1.2 % C)",
+             "Hypereutectoid steel of 1.2 % C: g only γ; h below the Acm line, proeutectoid Fe₃C forms at the γ grain "
+             "boundaries; i just below 727 °C, proeutectoid Fe₃C and pearlite. Redrawn from Session 9 Slides 19-20",
+             1.2, ((950, "g"), (820, "h"), (705, "i")), ((820, fec_acm_inv(820), 2.5, "", ""),))
+    REG.raster("s9-steel-micrographs", "Micrographs of two steels",
+               "Different microstructures in the Fe-C system. From Session 9 Slide 2", 600)
+    REG.raster("s9-iron-cells", "FCC and BCC cells of iron", "Unit cells of Fe-γ (FCC, top) and Fe-α (BCC, bottom). From Session 9 "
+               "Slide 3", 200)
+    REG.raster("s9-ferrite", "Ferrite: BCC cell and micrograph", "α-ferrite: BCC cell and micrograph of its grains. From Session 9 Slide 5", 480)
+    REG.raster("s9-austenite", "Austenite: FCC cell with a carbon atom and micrograph",
+               "Austenite: FCC cell with a C atom in an interstitial site, and micrograph. From Session 9 Slide 6", 460)
+    REG.raster("s9-cementite-cell", "Unit cell of cementite", "Unit cell of cementite, Fe₃C. From Session 9 Slide 8", 280)
+    REG.raster("s9-microconstituents", "Microconstituents of the Fe-C system",
+               "Microconstituents of the Fe-C system: pearlite, ferrite and cementite in steels; ledeburite in cast "
+               "irons. The figure uses older values (0.83 % C, 723 and 1130 °C). From Session 9 Slide 11", 640)
+    REG.raster("s9-pearlite-micrograph", "Micrograph of pearlite",
+               "Pearlite: alternating layers of ferrite (light) and cementite (dark). From Session 9 Slide 12", 360)
+    REG.raster("s9-pearlite-growth", "Growth of pearlite",
+               "Growth of pearlite from an austenite grain boundary: ferrite rejects carbon, which diffuses to the "
+               "neighbouring zones where cementite forms. From Session 9 Slide 12", 420)
+    REG.raster("s9-hypoeutectoid-micrograph", "Micrograph of a hypoeutectoid steel",
+               "Hypoeutectoid steel: light proeutectoid (primary) ferrite and dark pearlite. From Session 9 Slide 14", 480)
+    REG.raster("s9-hypereutectoid-micrograph", "Micrograph of a hypereutectoid steel",
+               "Hypereutectoid steel: a network of proeutectoid cementite (light) around pearlite colonies. From "
+               "Session 9 Slide 19", 340)
+    REG.raster("s9-microstructures", "Microstructures of 0.4, 0.8 and 1.2 % C steels",
+               "Microstructures on cooling of steels with 0.4, 0.8 and 1.2 % C. The figure uses older values (0.8 % C, "
+               "723 °C). From Session 9 Slide 20", 660)
+    REG.raster("s9-cooling-rate", "Effect of the cooling rate on the eutectoid",
+               "With a higher cooling rate the eutectoid point moves to lower temperatures and lower carbon contents. "
+               "From Session 9 Slide 21", 600)
+    REG.raster("s9-coarse-fine-pearlite", "Coarse and fine pearlite",
+               "Coarse pearlite (slow cooling, top) and fine pearlite (fast cooling, bottom). From Session 9 Slide 21", 240)
+    REG.raster("s9-alloy-elements", "Effect of Cr and Mn on the Fe-C diagram",
+               "α-stabilising elements such as Cr shift the eutectoid to higher temperature and lower %C; γ-stabilising "
+               "elements such as Mn shift it to lower temperature and lower %C. From Session 9 Slide 22", 640)
+    REG.raster("s9-alloy-curves", "Eutectoid composition and temperature against alloying content",
+               "Influence of alloying elements on the eutectoid composition (left) and temperature (right). From "
+               "Session 9 Slide 23", 640)
+
+
+def fc_problem(name, c0, marks, ties, title, caption):
+    """Problem of sheet II on the Fe-Fe3C diagram: alloy line, temperatures and tie lines.
+    marks: (T, label); ties: (T, c_left, c_right, label_left, label_right). Temperatures 1147 ± ΔT and 727 ± ΔT
+    are drawn 12 °C apart so that they can be told apart."""
+    c = Canvas(680, 430)
+    P = Plot(c, (80, 30, 600, 360), (0, 6.7), (400, 1600))
+    fec_diagram(c, P, name, labels=False)
+    P.frame([(x, str(x)) for x in range(7)], [(t, str(t)) for t in range(400, 1601, 200)],
+            "Composition (wt% C)", "Temperature (°C)")
+    P.text(4.6, 1420, "L", size=13)
+    P.text(0.7, 1000, "γ", size=13)
+    P.text(4.8, 940, "γ + Fe₃C", size=12)
+    P.text(4.8, 560, "α + Fe₃C", size=12)
+    P.vseg(c0, 400, 1590, "GREEN", 1.5, "6,4")
+    P.text(c0, 1560, sub("C", "0") + f" = {c0:g}", "GREEN", "start", 12, dx=6)
+    for t, cl, cr, ll, lr in ties:
+        P.line([(cl, t), (cr, t)], "BLUE", 1.8)
+        P.dot(cl, t, 3.2, "BLUE"); P.dot(cr, t, 3.2, "BLUE")
+        if ll:
+            P.text(cl, t, ll, "BLUE", "end", 11, dx=-4, dy=4)
+        if lr:
+            P.text(cr, t, lr, "BLUE", "start", 11, dx=5, dy=4)
+    for t, s in marks:
+        P.dot(c0, t, 3.8, "GREEN")
+        above = t in (1155, 735) or (t > 727 and t not in (1139, 900, 800, 600))
+        P.text(c0, t, s, "GREEN", "start", 11.5, dx=6, dy=-6 if above else (15 if t in (1139, 719) else -6))
+    REG.put(name, c, title, caption)
+
+
+def fc_problems():
+    REG.raster("fc-sheet-diagram", "Fe-Fe3C phase diagram of the problem sheet",
+               "Fe-Fe₃C phase diagram (Problems T4_PhaseDiagrams II.pdf, p. 1)", 640)
+    up, dn, ep, ed = 1155, 1139, 735, 719
+    fc_problem("fc-p1", 0.5, ((up, "T₁"), (dn, "T₂"), (900, "T₃"), (ep, "T₄"), (ed, "T₅")),
+               ((ep, 0.022, 0.76, "", "0.76"), (ed, 0.022, 6.67, "", "6.67")), "Problem FC01: steel of 0.5 % C",
+               "Fe-0.5 % C: γ at T₁, T₂ and T₃; α (0.022) + γ (0.76) just above 727 °C; α + Fe₃C just below it. "
+               "Temperatures 1147 ± ΔT and 727 ± ΔT are drawn slightly apart")
+    fc_problem("fc-p2", 0.76, ((up, "T₁"), (dn, "T₂"), (900, "T₃"), (ep, "T₄"), (ed, "T₅")),
+               ((ed, 0.022, 6.67, "", "6.67"),), "Problem FC02: eutectoid steel",
+               "Fe-0.76 % C: γ down to 727 °C, then pearlite (α + Fe₃C)")
+    fc_problem("fc-p3", 1.5, ((up, "T₁"), (dn, "T₂"), (900, "T₃"), (ep, "T₄"), (ed, "T₅")),
+               ((900, 1.3, 6.67, "1.3", "6.67"), (ep, 0.76, 6.67, "0.76", ""), (ed, 0.022, 6.67, "", "")),
+               "Problem FC03: steel of 1.5 % C",
+               "Fe-1.5 % C: γ at 1147 ± ΔT; γ + Fe₃C at 900 °C (γ of about 1.3 % C, a reading) and just above 727 °C; "
+               "α + Fe₃C below 727 °C")
+    fc_problem("fc-p4", 4.3, ((up, "T₁"), (dn, "T₂"), (900, "T₃"), (ep, "T₄"), (ed, "T₅")),
+               ((dn, 2.14, 6.67, "2.14", ""), (900, 1.3, 6.67, "1.3", ""), (ep, 0.76, 6.67, "0.76", ""), (ed, 0.022, 6.67, "", "")),
+               "Problem FC04: eutectic cast iron",
+               "Fe-4.3 % C: liquid above 1147 °C, ledeburite (γ + Fe₃C) below it, and the tie lines at 900 °C and "
+               "727 ± ΔT")
+    fc_problem("fc-p5", 2.55, ((ed, "727 − ΔT"),), ((ed, 0.022, 6.67, "", "6.67"),), "Problem FC05: alloy from its cementite",
+               "The alloy with 38 % Fe₃C just below 727 °C lies at 2.55 % C (computed in the problem)")
+    fc_problem("fc-p6", 3.55, ((up, "T₁"), (dn, "T₂"), (ed, "727 − ΔT")),
+               ((up, 2.14, 4.30, "2.14", "4.30"), (dn, 2.14, 6.67, "", "6.67"), (ed, 0.022, 6.67, "", "")),
+               "Problem FC06: hypoeutectic cast iron",
+               "The alloy with 47 % α just below 727 °C lies at about 3.55 % C: γ + L above 1147 °C, γ + Fe₃C below it")
+    fc_problem("fc-p7", 4.88, ((up, "T₁"), (dn, "T₂"), (ed, "727 − ΔT")),
+               ((up, 4.30, 6.67, "4.30", ""), (dn, 2.14, 6.67, "2.14", ""), (ed, 0.022, 6.67, "", "")),
+               "Problem FC07: hypereutectic cast iron",
+               "The alloy with 73 % Fe₃C just below 727 °C lies at about 4.88 % C: L + Fe₃C above 1147 °C, "
+               "γ + Fe₃C below it")
+    fc_problem("fc-p8", 0.55, ((ed, "726 °C"), (600, "600 °C")),
+               ((ed, 0.022, 6.67, "", "6.67"), (600, 0.012, 6.67, "", "")), "Problem FC08: annealed steel of 0.55 % C",
+               "Fe-0.55 % C at 726 °C and at 600 °C: α + Fe₃C, as proeutectoid ferrite and pearlite")
+    fc_problem("fc-p9", 3.0, ((1155, "1148 °C"), (1139, "1146 °C"), (800, "800 °C")),
+               ((1155, 2.14, 4.30, "2.14", "4.30"), (1139, 2.14, 6.67, "", ""), (800, 1.0, 6.67, "1.0", "")),
+               "Problem FC09: hypoeutectic cast iron of 3 % C",
+               "Fe-3 % C: γ + L just above 1147 °C, primary γ + ledeburite just below it, γ (about 1.0 % C, a reading) "
+               "+ Fe₃C at 800 °C")
+    fc_problem("fc-p10", 4.9, ((ed, "727 − ΔT"),), ((ed, 0.022, 6.67, "", "6.67"),), "Problem FC10: alloy from its ferrite",
+               "The alloy with 26.7 % α just below 727 °C lies at about 4.9 % C, a hypereutectic cast iron")
+    micro_figure("fc-micro-p1", "Problem FC01: microstructure of a 0.5 % C steel",
+                 "Fe-0.5 % C below 727 °C: proeutectoid ferrite (35 %) and pearlite (65 %)",
+                 BLOBS_MANY[:5], "proeutectoid α", "pearlite (α + Fe₃C)")
+    micro_figure("fc-micro-p2", "Problem FC02: microstructure of a eutectoid steel",
+                 "Fe-0.76 % C below 727 °C: 100 % pearlite", [], "", "pearlite (α + Fe₃C)")
+    micro_figure("fc-micro-p8", "Problem FC08: microstructure of a 0.55 % C steel",
+                 "Fe-0.55 % C below 727 °C: proeutectoid ferrite (28 %) and pearlite (72 %)",
+                 BLOBS_FEW + [(-55, 30, 14)], "proeutectoid α", "pearlite (α + Fe₃C)")
+    micro_figure("fc-micro-p9", "Problem FC09: microstructure of a 3 % C cast iron at 1146 °C",
+                 "Fe-3 % C just below 1147 °C: primary austenite (60 %) and ledeburite (40 %)",
+                 BLOBS_MANY, "primary γ", "ledeburite (γ + Fe₃C)")
+
+
 # --------------------------------------------------------------------------- problem sheet I (problems 1-8)
 def lagrange(pts):
     """Quadratic through three (x, y) points, returned as a function of x."""
@@ -1548,6 +1809,8 @@ def build():
     eutectic_lever()
     rasters()
     theory_part2()
+    fec_part3()
     problems()
     problems_part2()
+    fc_problems()
     return REG
