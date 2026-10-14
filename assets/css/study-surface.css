@@ -604,6 +604,7 @@ html[data-theme="print"] .surface-panel {
   ):not(
     .step-badge, .alg-step, .switch-btn.active, .switch-btn.active *,
     .pill-link.active, .p-pill.active, .nav-pill.active, .nav-pill:hover,
+    .upd-badge,
     .ae-quote-copied-tooltip,
     [style*="background: var(--accent)"], [style*="background: var(--accent)"] *
   ) {

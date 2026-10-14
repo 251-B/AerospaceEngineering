@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>updates.js harness</title>
+<!-- Driven by test_updates.py through headless Edge/Chrome (--dump-dom). Every scenario runs in an
+     iframe that loads theme.js like a real page (so updates.js arrives through the loader), one at
+     a time, so a single page owns the shared 'ae_updates' key. -->
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+  var KEY = 'ae_updates';
+  var ROOT = new URL('../../', location.href).href;
+
+  function record(name, ok, detail) {
+    results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) });
+  }
+
+  function seed(value) {
+    try {
+      if (value === null) localStorage.removeItem(KEY);
+      else localStorage.setItem(KEY, typeof value === 'string' ? value : JSON.stringify(value));
+    } catch (e) { /* ignore */ }
+  }
+
+  function stored() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+
+  function frame(stored, extraHead, width) {
+    return new Promise(function (resolve) {
+      seed(stored);
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:' + (width || 1000) + 'px;height:800px';
+      f.onload = function () { setTimeout(function () { resolve(f); }, 600); };
+      f.srcdoc = '<!doctype html><html data-theme="dark"><head><title>Page</title>' + (extraHead || '') +
+        '<script src="../../assets/js/theme.js"><\/script></head><body><header><nav>' +
+        '<button id="themeToggle" aria-label="Toggle theme"></button></nav></header><main><p>Page text</p></main></body></html>';
+      document.body.appendChild(f);
+    });
+  }
+
+  function q(f, sel) { return f.contentDocument.querySelector(sel); }
+  function qa(f, sel) { return f.contentDocument.querySelectorAll(sel); }
+  function visible(node) { return !!node && !node.hidden && node.getClientRects().length > 0; }
+  function key(f, name) { f.contentDocument.dispatchEvent(new f.contentWindow.KeyboardEvent('keydown', { key: name, bubbles: true })); }
+
+  function scenarios() {
+    var f1, ids;
+    // ---------------------------------------------------------------- first visit
+    return frame(null).then(function (f) {
+      f1 = f;
+      var U = f.contentWindow.AEUpdates;
+      ids = U.list().map(function (e) { return e.id; });
+      var bell = q(f, '#updatesButton'), toggle = q(f, '#themeToggle');
+      record('bell is inserted right before the theme toggle', bell && bell.nextElementSibling === toggle, 'bell=' + !!bell);
+      record('first visit: the three newest entries are unread', U.unread().length === 3 &&
+        U.unread().join() === ids.slice(0, 3).join(), U.unread().join());
+      record('badge shows the unread count', q(f, '.upd-badge').textContent === '3' && !q(f, '.upd-badge').hidden, q(f, '.upd-badge').textContent);
+      record('bell label announces the unread count', /3 unread/.test(bell.getAttribute('aria-label')), bell.getAttribute('aria-label'));
+      record('toast is shown with the newest title', visible(q(f, '.upd-toast')) &&
+        q(f, '.upd-toast__title').textContent.indexOf(U.list()[0].title) === 0, q(f, '.upd-toast').outerHTML.slice(0, 160));
+      record('toast says how many more are unread', /\(\+2 more\)/.test(q(f, '.upd-toast__title').textContent), q(f, '.upd-toast__title').textContent);
+      record('toast is remembered in storage', stored() && stored().toast === ids[0], JSON.stringify(stored()));
+      record('panel lists every entry newest first', qa(f, '.upd-item').length === ids.length &&
+        qa(f, '.upd-item__title')[0].textContent === U.list()[0].title, qa(f, '.upd-item').length);
+      record('panel is closed and hidden at the start', !q(f, '.upd-panel').classList.contains('is-open') && bell.getAttribute('aria-expanded') === 'false', '');
+      f.remove();
+      // ------------------------------------------------------------ reload: toast only once
+      return frame(stored());
+    }).then(function (f) {
+      var U = f.contentWindow.AEUpdates;
+      record('reload: the same entries stay unread', U.unread().length === 3 && q(f, '.upd-badge').textContent === '3', U.unread().length);
+      record('reload: the toast is not shown again', !visible(q(f, '.upd-toast')), '');
+      // ------------------------------------------------------------ open the panel
+      q(f, '#updatesButton').click();
+      var panel = q(f, '.upd-panel');
+      record('opening shows the panel and sets aria-expanded', panel.classList.contains('is-open') &&
+        q(f, '#updatesButton').getAttribute('aria-expanded') === 'true', '');
+      record('opening marks everything as read', U.unread().length === 0 && q(f, '.upd-badge').hidden, U.unread().length);
+      record('new entries stay highlighted while the panel is open', qa(f, '.upd-item.is-new').length === 3, qa(f, '.upd-item.is-new').length);
+      record('stored state lists every id as seen', stored() && stored().seen.length === U.list().length, JSON.stringify(stored()));
+      var link = q(f, '.upd-item__link');
+      var entry = U.list().filter(function (e) { return e.link; })[0];
+      var withLink = Array.prototype.filter.call(qa(f, '.upd-item'), function (n) { return n.querySelector('.upd-item__link'); })[0];
+      record('entry links resolve against the portal root, whatever the page depth', link && entry &&
+        withLink.querySelector('.upd-item__link').href === ROOT + encodeURI(entry.link), link && link.href);
+      record('bell label drops the unread count', q(f, '#updatesButton').getAttribute('aria-label') === 'What’s new', q(f, '#updatesButton').getAttribute('aria-label'));
+      // ------------------------------------------------------------ Escape
+      q(f, '.upd-panel__mark').focus();
+      key(f, 'Escape');
+      record('Escape closes the panel and returns focus to the bell', !panel.classList.contains('is-open') &&
+        f.contentDocument.activeElement === q(f, '#updatesButton'), f.contentDocument.activeElement && f.contentDocument.activeElement.className);
+      record('closing clears the highlight', qa(f, '.upd-item.is-new').length === 0, qa(f, '.upd-item.is-new').length);
+      // ------------------------------------------------------------ outside click
+      q(f, '#updatesButton').click();
+      f.contentDocument.body.click();
+      record('a click outside closes the panel', !panel.classList.contains('is-open'), '');
+      f.remove();
+      // ------------------------------------------------------------ a new entry arrives
+      var seen = ids.slice(1);
+      return frame({ seen: seen, toast: '' });
+    }).then(function (f) {
+      var U = f.contentWindow.AEUpdates;
+      record('a new entry: badge 1 and the toast shows its title', q(f, '.upd-badge').textContent === '1' &&
+        U.unread().join() === ids[0] && visible(q(f, '.upd-toast')) && q(f, '.upd-toast__title').textContent === U.list()[0].title, q(f, '.upd-toast__title').textContent);
+      q(f, '.upd-toast__close').click();
+      record('dismissing the toast hides it but keeps the badge', !visible(q(f, '.upd-toast')) && q(f, '.upd-badge').textContent === '1', '');
+      f.remove();
+      return frame({ seen: ids.slice(1), toast: ids[0] });
+    }).then(function (f) {
+      record('toast already shown for the newest entry: stays hidden, badge kept', !visible(q(f, '.upd-toast')) && q(f, '.upd-badge').textContent === '1', '');
+      f.remove();
+      // ------------------------------------------------------------ toast button opens the panel
+      return frame({ seen: ids.slice(1), toast: '' });
+    }).then(function (f) {
+      q(f, '.upd-toast__open').click();
+      record('"See what’s new" opens the panel and hides the toast', q(f, '.upd-panel').classList.contains('is-open') && !visible(q(f, '.upd-toast')), '');
+      f.remove();
+      // ------------------------------------------------------------ mark all as read
+      return frame({ seen: ids.slice(1), toast: ids[0] });
+    }).then(function (f) {
+      q(f, '#updatesButton').click();
+      record('highlight marks only the unread entry', qa(f, '.upd-item.is-new').length === 1, qa(f, '.upd-item.is-new').length);
+      q(f, '.upd-panel__mark').click();
+      record('"Mark all as read" clears the highlight', qa(f, '.upd-item.is-new').length === 0 && q(f, '.upd-badge').hidden, '');
+      f.remove();
+      // ------------------------------------------------------------ corrupted storage
+      return frame('{not json');
+    }).then(function (f) {
+      record('corrupted storage is treated as a first visit', f.contentWindow.AEUpdates.unread().length === 3, f.contentWindow.AEUpdates.unread().length);
+      f.remove();
+      // ------------------------------------------------------------ with the palette picker
+      return frame(null, '<link rel="stylesheet" href="../../assets/css/study-surface.css">');
+    }).then(function (f) {
+      var bell = q(f, '#updatesButton'), picker = q(f, '#surfacePicker'), toggle = q(f, '#themeToggle');
+      record('bell comes before the palette picker, then the theme toggle', bell && picker &&
+        bell.nextElementSibling === picker && picker.nextElementSibling === toggle, 'bell=' + !!bell + ' picker=' + !!picker);
+      f.remove();
+      // ------------------------------------------------------------ unsafe data
+      return unsafe();
+    });
+  }
+
+  // updates.js loaded directly with hostile entries: nothing executes, nothing leaves the portal.
+  function unsafe() {
+    return new Promise(function (resolve) {
+      seed(null);
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:1000px;height:800px';
+      f.onload = function () {
+        setTimeout(function () {
+          var d = f.contentDocument;
+          d.getElementById('updatesButton').click();
+          var hrefs = Array.prototype.map.call(d.querySelectorAll('.upd-item__link'), function (a) { return a.getAttribute('href'); });
+          record('only portal-relative links are rendered', hrefs.length === 1 && hrefs[0].indexOf(ROOT + 'subjects/') === 0, hrefs.join(' | '));
+          record('titles are text, never markup', !d.querySelector('.upd-panel img') && /<img/.test(d.querySelector('.upd-item__title').textContent), '');
+          f.remove();
+          resolve();
+        }, 600);
+      };
+      f.srcdoc = '<!doctype html><html data-theme="dark"><head><title>Page</title><script>window.AE_UPDATES = [' +
+        '{"id":"a","date":"2026-01-02","tag":"Portal","title":"<img src=x onerror=alert(1)>","text":"t","link":"javascript:alert(1)"},' +
+        '{"id":"b","date":"2026-01-01","tag":"Portal","title":"b","text":"t","link":"https://example.com/"},' +
+        '{"id":"c","date":"2025-12-31","tag":"Portal","title":"c","text":"t","link":"../../etc/passwd"},' +
+        '{"id":"d","date":"2025-12-30","tag":"Portal","title":"d","text":"t","link":"//example.com/x"},' +
+        '{"id":"e","date":"2025-12-29","tag":"Portal","title":"e","text":"t","link":"subjects/fluid-mechanics/teoria/index.html"}' +
+        '];<\/script><script src="../../assets/js/updates.js"><\/script></head><body>' +
+        '<button id="themeToggle"></button></body></html>';
+      document.body.appendChild(f);
+    });
+  }
+
+  scenarios().then(function () {
+    document.getElementById('results').textContent = JSON.stringify(results);
+  }).catch(function (err) {
+    record('harness error', false, err && err.stack || err);
+    document.getElementById('results').textContent = JSON.stringify(results);
+  });
+})();
+</script>
+</body>
+</html>

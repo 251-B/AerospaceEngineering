@@ -49,6 +49,10 @@ Known limit: a link whose alias ends in `]` (`...[101]]]`) is ambiguous and must
   isochronic, brown/pink noise), loaded on every page by `theme.js`; key `ae_focus_lab`; tested by `tests/test_focus_lab.py`.
 - `assets/js/pomodoro.js` + `assets/css/pomodoro.css`: study timer (Pomodoro, free or planned sessions; Web Audio
   chime), loaded on every page by `theme.js` after Focus Lab; key `ae_pomodoro`; tested by `tests/test_pomodoro.py`.
+- `assets/js/updates.js` + `assets/css/updates.css` + `assets/data/updates.js`: "What's new" bell, panel and toast,
+  loaded on every page by `theme.js` after the study timer (data file first). The entries are written by hand
+  (`window.AE_UPDATES`: `id`, `date`, `tag`, `title`, `text`, optional `link`; newest first); key `ae_updates`;
+  tested by `tests/test_updates.py`.
 - `assets/data/sources.js`: `window.AE_SOURCES` = official PDFs (160 files) per subject / unit / category
   (`teoria`, `slides`, `problemas`, `examenes`, `schedule`). **Laboratory material is never included.**
   Hrefs are repo-root-relative and URL-encoded; prefix them with the page's relative path to the root.

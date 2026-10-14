@@ -23,10 +23,11 @@
  * API: window.AESurface = { get(), set(id), list(), KEY }
  * Event: document 'ae-surface-change' with detail { surface }.
  *
- * Focus Lab and the study timer (third concern, loaded from here for the same reason): appends
- * <script src="assets/js/focus-lab.js"> and <script src="assets/js/pomodoro.js"> next to this
- * file, so the study-sound widget and the Pomodoro timer are on every page that loads theme.js.
- * Skipped in the PDF print mode (?print=...).
+ * Focus Lab, the study timer and the "What's new" panel (third concern, loaded from here for the
+ * same reason): appends <script src="assets/js/focus-lab.js">, <script src="assets/js/pomodoro.js">,
+ * <script src="assets/data/updates.js"> and <script src="assets/js/updates.js"> next to this file,
+ * so the study-sound widget, the Pomodoro timer and the updates bell are on every page that loads
+ * theme.js. Skipped in the PDF print mode (?print=...).
  */
 (function () {
   'use strict';
@@ -307,13 +308,14 @@
     buildPicker();
   });
 
-  // ---- Focus Lab (study sound) and the study timer, resolved next to this file ------------
+  // ---- Focus Lab (study sound), the study timer and the updates panel, resolved next to this file
   (function loadWidgets() {
     var self = document.currentScript;
     if (!self || !self.src || /[?&]print=/.test(location.search)) return;
-    ['focus-lab.js', 'pomodoro.js'].forEach(function (name) {
+    // The updates data comes first: updates.js reads window.AE_UPDATES when it runs.
+    ['focus-lab.js', 'pomodoro.js', '../data/updates.js', 'updates.js'].forEach(function (name) {
       var script = document.createElement('script');
-      script.async = false;   // run in this order, so both widgets always land in the DOM the same way
+      script.async = false;   // run in this order, so the widgets always land in the DOM the same way
       script.src = self.src.replace(/theme\.js(\?.*)?$/, name);
       (document.head || document.documentElement).appendChild(script);
     });
