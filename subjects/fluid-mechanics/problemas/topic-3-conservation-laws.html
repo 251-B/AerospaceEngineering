@@ -658,6 +658,106 @@
       <div class="enunciado-box">
         <h4>Official Problem Statement</h4>
 <p>The experimental tests of an airfoil in a wind tunnel indicate that the velocity profile upstream remains uniform, whereas behind the airfoil there exists a wake region with significant velocity deficit whose thickness increases downstream, resulting in the flow field sketched in the figure of CL1.pdf. For the airfoil tested, the velocity measurements at a given downstream section reveal that the velocity in the wake varies linearly from the value $u = U/2$ at the centerline to reach the value $u = U$ at the edge of the wake, located at $y = y_0$. To analyze the problem, consider a control volume limited laterally by the streamlines that extend from $x \to -\infty$, $y = \pm y_{-\infty}$ ($y_{-\infty} &lt; y_0$) to $x = x_0$, $y = \pm y_0$ and internally by the surface of the airfoil. Assuming that the air behaves as an incompressible fluid with density $\rho$ and that viscous stresses are negligible both in the wake and along the bounding streamlines, obtain the value of $y_{-\infty}$ as a function of $y_0$, as well as the value of the drag on the airfoil as a function of $\rho$, $y_0$ and $U$. In the analysis, assume that on the outer boundary of the control volume the pressure differences from the ambient value $p_\infty$ are negligible, and so is the effect of gravity on the air flow.</p>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Airfoil in a wind tunnel: uniform velocity U upstream; the bounding streamlines start at y equal to plus or minus y minus infinity and reach plus or minus y0 at the section x0, where the wake profile drops linearly from U at the edges to U over 2 at the centreline">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="60.0" y1="20.0" x2="60.0" y2="312.0" stroke="var(--text-heading)" stroke-width="1.6"/>
+<line x1="60.0" y1="24.0" x2="103.8" y2="24.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,24.0 L101.6,26.7 L101.6,21.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="39.0" x2="103.8" y2="39.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,39.0 L101.6,41.7 L101.6,36.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="54.0" x2="103.8" y2="54.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,54.0 L101.6,56.7 L101.6,51.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="69.0" x2="103.8" y2="69.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,69.0 L101.6,71.7 L101.6,66.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="84.0" x2="103.8" y2="84.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,84.0 L101.6,86.7 L101.6,81.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="99.0" x2="103.8" y2="99.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,99.0 L101.6,101.7 L101.6,96.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="114.0" x2="103.8" y2="114.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,114.0 L101.6,116.7 L101.6,111.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="129.0" x2="103.8" y2="129.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,129.0 L101.6,131.7 L101.6,126.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="144.0" x2="103.8" y2="144.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,144.0 L101.6,146.7 L101.6,141.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="159.0" x2="103.8" y2="159.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,159.0 L101.6,161.7 L101.6,156.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="174.0" x2="103.8" y2="174.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,174.0 L101.6,176.7 L101.6,171.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="189.0" x2="103.8" y2="189.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,189.0 L101.6,191.7 L101.6,186.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="204.0" x2="103.8" y2="204.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,204.0 L101.6,206.7 L101.6,201.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="219.0" x2="103.8" y2="219.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,219.0 L101.6,221.7 L101.6,216.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="234.0" x2="103.8" y2="234.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,234.0 L101.6,236.7 L101.6,231.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="249.0" x2="103.8" y2="249.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,249.0 L101.6,251.7 L101.6,246.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="264.0" x2="103.8" y2="264.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,264.0 L101.6,266.7 L101.6,261.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="279.0" x2="103.8" y2="279.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,279.0 L101.6,281.7 L101.6,276.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="294.0" x2="103.8" y2="294.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,294.0 L101.6,296.7 L101.6,291.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="60.0" y1="309.0" x2="103.8" y2="309.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M108.0,309.0 L101.6,311.7 L101.6,306.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="84.0" y="14.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<polyline points="110.0,120.0 121.2,119.9 132.1,119.6 142.6,119.1 152.8,118.5 162.8,117.6 172.4,116.6 181.7,115.5 190.7,114.2 199.5,112.7 208.0,111.2 216.3,109.5 224.3,107.7 232.2,105.7 239.8,103.7 247.2,101.6 254.5,99.5 261.6,97.2 268.5,94.9 275.3,92.5 282.0,90.1 288.5,87.6 295.0,85.1 301.3,82.6 307.6,80.0 313.8,77.5 319.9,75.0 325.9,72.4 332.0,69.9 338.0,67.4 344.0,64.9 350.0,62.5 356.0,60.1 362.1,57.8 368.1,55.5 374.2,53.4 380.4,51.3 386.7,49.3 393.0,47.3 399.5,45.5 406.0,43.8 412.7,42.3 419.5,40.8 426.4,39.5 433.5,38.4 440.8,37.4 448.2,36.5 455.8,35.9 463.7,35.4 471.7,35.1 480.0,35.0" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<polyline points="110.0,210.0 121.2,210.1 132.1,210.4 142.6,210.9 152.8,211.5 162.8,212.4 172.4,213.4 181.7,214.5 190.7,215.8 199.5,217.3 208.0,218.8 216.3,220.5 224.3,222.3 232.2,224.3 239.8,226.3 247.2,228.4 254.5,230.5 261.6,232.8 268.5,235.1 275.3,237.5 282.0,239.9 288.5,242.4 295.0,244.9 301.3,247.4 307.6,250.0 313.8,252.5 319.9,255.0 325.9,257.6 332.0,260.1 338.0,262.6 344.0,265.1 350.0,267.5 356.0,269.9 362.1,272.2 368.1,274.5 374.2,276.6 380.4,278.7 386.7,280.7 393.0,282.7 399.5,284.5 406.0,286.2 412.7,287.7 419.5,289.2 426.4,290.5 433.5,291.6 440.8,292.6 448.2,293.5 455.8,294.1 463.7,294.6 471.7,294.9 480.0,295.0" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<line x1="110.0" y1="120.0" x2="110.0" y2="210.0" stroke="var(--text-muted)" stroke-width="1.0" stroke-dasharray="3,3"/>
+<path d="M205,165 C205,145 240,150 305,165 C240,180 205,185 205,165 Z" fill="var(--text-muted)" fill-opacity="0.25" stroke="var(--text-heading)" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="480.0" y1="20.0" x2="480.0" y2="312.0" stroke="var(--text-heading)" stroke-width="1.6"/>
+<line x1="480.0" y1="24.0" x2="523.8" y2="24.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M528.0,24.0 L521.6,26.7 L521.6,21.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="39.0" x2="523.1" y2="39.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M527.3,39.0 L520.8,41.7 L520.8,36.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="54.0" x2="520.3" y2="54.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M524.5,54.0 L518.0,56.7 L518.0,51.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="69.0" x2="517.5" y2="69.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M521.7,69.0 L515.3,71.7 L515.3,66.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="84.0" x2="514.8" y2="84.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M519.0,84.0 L512.5,86.7 L512.5,81.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="99.0" x2="512.0" y2="99.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M516.2,99.0 L509.7,101.7 L509.7,96.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="114.0" x2="509.2" y2="114.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M513.4,114.0 L507.0,116.7 L507.0,111.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="129.0" x2="506.4" y2="129.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M510.6,129.0 L504.2,131.7 L504.2,126.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="144.0" x2="503.7" y2="144.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M507.9,144.0 L501.4,146.7 L501.4,141.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="159.0" x2="500.9" y2="159.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M505.1,159.0 L498.7,161.7 L498.7,156.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="174.0" x2="501.5" y2="174.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M505.7,174.0 L499.2,176.7 L499.2,171.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="189.0" x2="504.2" y2="189.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M508.4,189.0 L502.0,191.7 L502.0,186.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="204.0" x2="507.0" y2="204.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M511.2,204.0 L504.8,206.7 L504.8,201.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="219.0" x2="509.8" y2="219.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M514.0,219.0 L507.5,221.7 L507.5,216.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="234.0" x2="512.5" y2="234.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M516.7,234.0 L510.3,236.7 L510.3,231.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="249.0" x2="515.3" y2="249.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M519.5,249.0 L513.1,251.7 L513.1,246.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="264.0" x2="518.1" y2="264.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M522.3,264.0 L515.8,266.7 L515.8,261.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="279.0" x2="520.8" y2="279.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M525.0,279.0 L518.6,281.7 L518.6,276.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="294.0" x2="523.6" y2="294.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M527.8,294.0 L521.4,296.7 L521.4,291.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="309.0" x2="523.8" y2="309.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.2"/>
+<path d="M528.0,309.0 L521.6,311.7 L521.6,306.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<polyline points="528.0,20.0 528.0,35.0 504.0,165.0 528.0,295.0 528.0,312.0" fill="none" stroke="var(--text-heading)" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="504.0" y="14.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<text x="512.0" y="171.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U/2</text>
+<text x="536.0" y="41.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<text x="536.0" y="301.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">−y<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="124.0" y1="165.0" x2="124.0" y2="120.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M124.0,165.0 L121.3,158.6 L126.7,158.6 Z" fill="var(--text-muted)"/>
+<path d="M124.0,120.0 L126.7,126.4 L121.3,126.4 Z" fill="var(--text-muted)"/>
+<text x="124.0" y="142.5" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="130.0" y="147.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y<tspan baseline-shift="sub" font-size="72%">−∞</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Statement figure (redrawn from CL1.pdf, p. 1): uniform profile $U$ upstream; bounding streamlines from $y = \pm y_{-\infty}$ to $y = \pm y_0$; wake profile at $x = x_0$ falling linearly from $U$ at $|y| = y_0$ to $U/2$ on the centreline</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl1-statement.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <p class="source-line">Source: CL1.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eqs. 3.10-3.11, integral momentum balance Eqs. 3.35-3.36, force of the fluid on a body Eq. 3.32.</p>
       </div>
 
@@ -675,6 +775,48 @@
 <span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
 <ul class="bullet-list"><li>Inertial frame fixed to the airfoil and the tunnel; basis $(\bar{e}_x, \bar{e}_y, \bar{e}_z)$ with $\bar{e}_x$ along the stream. The control volume is fixed: $\bar{v}_c = 0$.</li><li>Surfaces of $\Sigma_c$ (outward normal $\bar{n}$): $\Sigma_1$, far upstream, $|y| &lt; y_{-\infty}$, $\bar{n} = -\bar{e}_x$; $\Sigma_2$, the section $x = x_0$, $|y| &lt; y_0$, $\bar{n} = +\bar{e}_x$; $\Sigma_l$, the two bounding streamlines ($\bar{v}\cdot\bar{n} = 0$); $\Sigma_w$, the airfoil surface ($\bar{n}$ pointing into the airfoil).</li><li>Change of variable for the wake integrals: $s = 1 + y/y_0$, $dy = y_0\,ds$; $y \in [0, y_0]$ maps to $s \in [1, 2]$.</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Control volume bounded by the far-upstream section, the two bounding streamlines, the wake section at x0 and the airfoil surface">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polyline points="110.0,120.0 121.2,119.9 132.1,119.6 142.6,119.1 152.8,118.5 162.8,117.6 172.4,116.6 181.7,115.5 190.7,114.2 199.5,112.7 208.0,111.2 216.3,109.5 224.3,107.7 232.2,105.7 239.8,103.7 247.2,101.6 254.5,99.5 261.6,97.2 268.5,94.9 275.3,92.5 282.0,90.1 288.5,87.6 295.0,85.1 301.3,82.6 307.6,80.0 313.8,77.5 319.9,75.0 325.9,72.4 332.0,69.9 338.0,67.4 344.0,64.9 350.0,62.5 356.0,60.1 362.1,57.8 368.1,55.5 374.2,53.4 380.4,51.3 386.7,49.3 393.0,47.3 399.5,45.5 406.0,43.8 412.7,42.3 419.5,40.8 426.4,39.5 433.5,38.4 440.8,37.4 448.2,36.5 455.8,35.9 463.7,35.4 471.7,35.1 480.0,35.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<polyline points="110.0,210.0 121.2,210.1 132.1,210.4 142.6,210.9 152.8,211.5 162.8,212.4 172.4,213.4 181.7,214.5 190.7,215.8 199.5,217.3 208.0,218.8 216.3,220.5 224.3,222.3 232.2,224.3 239.8,226.3 247.2,228.4 254.5,230.5 261.6,232.8 268.5,235.1 275.3,237.5 282.0,239.9 288.5,242.4 295.0,244.9 301.3,247.4 307.6,250.0 313.8,252.5 319.9,255.0 325.9,257.6 332.0,260.1 338.0,262.6 344.0,265.1 350.0,267.5 356.0,269.9 362.1,272.2 368.1,274.5 374.2,276.6 380.4,278.7 386.7,280.7 393.0,282.7 399.5,284.5 406.0,286.2 412.7,287.7 419.5,289.2 426.4,290.5 433.5,291.6 440.8,292.6 448.2,293.5 455.8,294.1 463.7,294.6 471.7,294.9 480.0,295.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<line x1="110.0" y1="120.0" x2="110.0" y2="210.0" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5"/>
+<line x1="480.0" y1="35.0" x2="480.0" y2="295.0" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5"/>
+<path d="M110,120 C300,120 340,35 480,35 L480,295 C340,295 300,210 110,210 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.08" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M205,165 C205,145 240,150 305,165 C240,180 205,185 205,165 Z" fill="var(--text-muted)" fill-opacity="0.25" stroke="var(--text-faint)" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M199,165 C199,140 240,144 312,165 C240,186 199,190 199,165 Z" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.6" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<text x="100.0" y="106.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="494.0" y="300.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="300.0" y="70.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">l</tspan></text>
+<line x1="302.0" y1="72.0" x2="330.0" y2="86.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="300.0" y="270.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">l</tspan></text>
+<line x1="302.0" y1="264.0" x2="330.0" y2="244.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="250.0" y="122.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="252.0" y1="128.0" x2="256.0" y2="150.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="110.0" y1="140.0" x2="84.8" y2="140.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M80.0,140.0 L87.4,136.9 L87.4,143.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="76.0" y="134.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="480.0" y1="120.0" x2="505.2" y2="120.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M510.0,120.0 L502.6,123.1 L502.6,116.9 Z" fill="var(--fig-green, #10b981)"/>
+<text x="514.0" y="114.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="410.0" y1="46.0" x2="415.7" y2="25.6" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M417.0,21.0 L418.0,28.9 L412.0,27.2 Z" fill="var(--fig-green, #10b981)"/>
+<text x="427.0" y="27.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="410.0" y1="284.0" x2="415.7" y2="304.4" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M417.0,309.0 L412.0,302.8 L418.0,301.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="427.0" y="315.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="250.0" y1="184.0" x2="250.0" y2="172.8" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M250.0,168.0 L253.1,175.4 L246.9,175.4 Z" fill="var(--fig-green, #10b981)"/>
+<text x="250.0" y="202.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="30.0" y1="165.0" x2="84.6" y2="165.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M90.0,165.0 L81.7,168.5 L81.7,161.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="60.0" y="155.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<line x1="40.0" y1="300.0" x2="69.2" y2="300.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M74.0,300.0 L66.6,303.1 L66.6,296.9 Z" fill="var(--text-heading)"/>
+<text x="80.0" y="305.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="40.0" y1="300.0" x2="40.0" y2="270.8" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M40.0,266.0 L43.1,273.4 L36.9,273.4 Z" fill="var(--text-heading)"/>
+<text x="46.0" y="270.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Control volume of the solution: $\Sigma_1$ (far upstream, $|y| &lt; y_{-\infty}$, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ ($x = x_0$, $|y| &lt; y_0$, $\bar{n} = +\bar{e}_x$), the bounding streamlines $\Sigma_l$ and the airfoil surface $\Sigma_w$ ($\bar{n}$ into the airfoil). The official sketch names them $\Sigma_u$, $\Sigma_d$, $\Sigma_\ell$ and $\Sigma_i$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl1-cv.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <p>Force of the air on the airfoil (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.32</a>), written on the wetted surface with the normal $\bar{n}$ of the control volume:</p>
 <div class="math-block">$$ \boxed{\,\bar{F} = \int_{\Sigma_w}(p - p_\infty)\,\bar{n}\,d\sigma - \int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma\,} $$</div>
 <p>Hence the $\Sigma_w$ terms of the momentum balance add up to $-\bar{F}$.</p>
@@ -1789,6 +1931,50 @@
         <h4>Official Problem Statement</h4>
 <p>The submarine propulsion device schematically represented in the figure of CL9.pdf consists of a nozzle, with inlet and outlet cross-section area $A_e$ and $A_s$, and a propeller (printed as 'fan', corrected by hand to 'propeller') located inside, which imparts a rate of work per unit time (power) $\dot{W}$ to the circulating water stream, whose density and viscosity are $\rho$ and $\mu$, respectively. To determine the thrust $T$ produced when the submarine is at rest and at sufficient depth for gravity to have a negligible effect, please follow these steps:</p>
 <ul class="bullet-list"><li>By application of the continuity equation determine a relationship between the uniform velocities $U_e$ and $U_s$ at the inlet and outlet sections.</li><li>Use the momentum conservation equation to obtain an expression for the thrust (axial force) that the fluid exerts on the propulsion device as a function of the flow conditions at the inlet and outlet. Assume that the pressure surrounding the device is equal to the ambient pressure $p_\infty$.</li><li>Assuming that the flow upstream from the entrance is steady and inviscid, use Bernoulli's equation along a given streamline to find a relationship between the flow conditions in the stagnant atmosphere (1) and at the entrance $e$.</li><li>Use the energy equation to relate the work per unit time $\dot{W}$ with the different fluid variables appearing in the problem. Assume that the variation of internal energy between the inlet and outlet sections is negligible ($e_e = e_s$) and that all of the device walls, including those of the fan, are thermally insulated.</li><li>Combine the above equations to show that the thrust can be expressed in the form $T/(\rho^{1/3}\dot{W}^{2/3}A_s^{1/3}) = f(A_e/A_s)$, obtaining the function $f$.</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Submarine propulsion device: a nozzle with inlet area Ae and outlet area As, a propeller inside driven with power W, thrust T; streamlines from the still water at point 1 (p infinity) reach the inlet e at Ue, pe; the jet leaves the outlet s at Us">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<path d="M156,34 Q330,40 444,100 L444,148 Q330,208 156,214 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M156,34 Q330,40 444,100" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M156,214 Q330,208 444,148" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="20.0" y1="124.0" x2="600.0" y2="124.0" stroke="var(--text-muted)" stroke-width="1.0" stroke-dasharray="10,3,2,3"/>
+<path d="M30,10 C90,10 100,60 150,60" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M150.0,60.0 L143.6,62.7 L143.6,57.3 Z" fill="var(--text-muted)"/>
+<path d="M30,40 C90,40 100,92 150,92" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M150.0,92.0 L143.6,94.7 L143.6,89.3 Z" fill="var(--text-muted)"/>
+<path d="M30,208 C90,208 100,156 150,156" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M150.0,156.0 L143.6,158.7 L143.6,153.3 Z" fill="var(--text-muted)"/>
+<path d="M30,238 C90,238 100,188 150,188" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M150.0,188.0 L143.6,190.7 L143.6,185.3 Z" fill="var(--text-muted)"/>
+<circle cx="22" cy="124" r="3.5" fill="var(--text-heading)"/><circle cx="158" cy="124" r="3.5" fill="var(--text-heading)"/><circle cx="446" cy="124" r="3.5" fill="var(--text-heading)"/>
+<text x="24.0" y="112.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">∞</tspan></text>
+<text x="24.0" y="144.0" fill="var(--text-heading)" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">1</text>
+<text x="80.0" y="146.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ</text>
+<text x="80.0" y="182.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">μ</text>
+<text x="156.0" y="24.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<text x="170.0" y="88.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<text x="170.0" y="112.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<text x="164.0" y="142.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">e</text>
+<ellipse cx="262.0" cy="88.0" rx="5.0" ry="34.0" fill="none" stroke="var(--text-heading)" stroke-width="1.5"/>
+<ellipse cx="262.0" cy="160.0" rx="5.0" ry="34.0" fill="none" stroke="var(--text-heading)" stroke-width="1.5"/>
+<path d="M271.0,76.4 A18.0,18.0 0 0,1 271.0,107.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M271.0,107.6 L276.4,100.4 L279.9,106.5 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="292.0" y="92.0" fill="var(--fig-acc, #f59e0b)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">W</text>
+<circle cx="297.4" cy="77.4" r="1.7" fill="var(--fig-acc, #f59e0b)"/>
+<polygon points="400.0,132.0 352.0,132.0 352.0,137.0 334.0,124.0 352.0,111.0 352.0,116.0 400.0,116.0" fill="none" stroke="var(--text-heading)" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="372.0" y="100.0" fill="var(--text-heading)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T</text>
+<text x="446.0" y="90.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="430.0" y="118.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="450.0" y="142.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">s</text>
+<line x1="452.0" y1="106.0" x2="515.2" y2="106.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4"/>
+<path d="M520.0,106.0 L512.6,109.1 L512.6,102.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="452.0" y1="116.0" x2="515.2" y2="116.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4"/>
+<path d="M520.0,116.0 L512.6,119.1 L512.6,112.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="452.0" y1="132.0" x2="515.2" y2="132.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4"/>
+<path d="M520.0,132.0 L512.6,135.1 L512.6,128.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="452.0" y1="142.0" x2="515.2" y2="142.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4"/>
+<path d="M520.0,142.0 L512.6,145.1 L512.6,138.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="530.0" y="118.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Statement figure (redrawn from CL9.pdf, p. 1): nozzle of inlet area $A_e$ ($U_e$, $p_e$) and outlet area $A_s$ ($U_s$, $p_s$); propeller supplying the power $\dot{W}$; thrust $T$; the streamline from the still water at point 1 ($p_\infty$) to the inlet $e$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl9-statement.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <p class="source-line">Source: CL9.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.</p>
       </div>
 
@@ -1805,6 +1991,45 @@
 <span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
 <ul class="bullet-list"><li>Frame fixed to the submarine (at rest), $\bar{e}_x$ along the axis in the direction of the exit jet. The thrust pushes the device towards $-\bar{e}_x$: $\bar{F} = -T\bar{e}_x$ is the force of the water (inside and outside, at $p_\infty$) on the device.</li><li>Surfaces: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (outlet, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (nozzle walls, fixed) and $\Sigma_p$ (propeller, moving).</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Control volume: the water inside the nozzle between the inlet and outlet sections, bounded by the nozzle walls and the propeller surface">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<path d="M156,34 Q330,40 444,100 L444,148 Q330,208 156,214 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M156,34 Q330,40 444,100" fill="none" stroke="var(--text-faint)" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M156,214 Q330,208 444,148" fill="none" stroke="var(--text-faint)" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M160,38 Q330,44 440,102 L440,146 Q330,204 160,210 Z" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<ellipse cx="262.0" cy="88.0" rx="5.0" ry="34.0" fill="none" stroke="var(--text-faint)" stroke-width="1.5"/>
+<ellipse cx="262.0" cy="160.0" rx="5.0" ry="34.0" fill="none" stroke="var(--text-faint)" stroke-width="1.5"/>
+<ellipse cx="262.0" cy="124.0" rx="12.0" ry="76.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="150.0" y="236.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<line x1="152.0" y1="230.0" x2="160.0" y2="200.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="470.0" y="82.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<line x1="468.0" y1="86.0" x2="442.0" y2="110.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="360.0" y="236.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="358.0" y1="230.0" x2="340.0" y2="196.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="290.0" y="230.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">p</tspan></text>
+<line x1="288.0" y1="224.0" x2="270.0" y2="196.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="160.0" y1="150.0" x2="134.8" y2="150.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M130.0,150.0 L137.4,146.9 L137.4,153.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="126.0" y="144.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="440.0" y1="136.0" x2="465.2" y2="136.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M470.0,136.0 L462.6,139.1 L462.6,132.9 Z" fill="var(--fig-green, #10b981)"/>
+<text x="474.0" y="150.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="315.0" y1="55.0" x2="319.7" y2="34.3" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M320.8,29.6 L322.2,37.5 L316.1,36.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="330.8" y="35.6" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="40.0" y1="100.0" x2="94.6" y2="100.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M100.0,100.0 L91.7,103.5 L91.7,96.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="70.0" y="90.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<line x1="500.0" y1="124.0" x2="560.6" y2="124.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M566.0,124.0 L557.7,127.5 L557.7,120.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="533.0" y="114.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<line x1="400.0" y1="124.0" x2="346.6" y2="124.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.6"/>
+<path d="M340.0,124.0 L350.1,119.7 L350.1,128.3 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="370.0" y="104.0" fill="var(--fig-acc, #f59e0b)" font-size="15" font-weight="700" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">F</tspan> = −T <tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+<line x1="40.0" y1="200.0" x2="77.2" y2="200.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M82.0,200.0 L74.6,203.1 L74.6,196.9 Z" fill="var(--text-heading)"/>
+<text x="88.0" y="205.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Control volume of the solution: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (outlet, $\bar{n} = +\bar{e}_x$), the fixed nozzle walls $\Sigma_w$ and the moving propeller $\Sigma_p$ (dashed around it); the force of the water on the device is $\bar{F} = -T\bar{e}_x$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl9-cv.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <div class="math-block">$$ \boxed{\,\bar{F} = -T\,\bar{e}_x = \int_{\Sigma_w,\Sigma_p}\left[(p - p_\infty)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
 </div>
 <div class="phase-block">
@@ -2346,6 +2571,88 @@
 <p>The diffuser module at the exit of a gas turbine consists of a <strong>fixed</strong> aerofoil cascade (stator), of inner and outer radii $R_i$ and $R_o$, respectively, together with a conical diffuser, as depicted in the figure of CL14.pdf. The gas enters the module with velocity field $\bar{v}_1 = u_1\bar{e}_z + u_\theta\bar{e}_\theta$, having both axial and azimuthal components, pressure $p_1$ and density $\rho_1$, and leaves the module with a purely axial velocity field $\bar{v}_2 = u_2\bar{e}_z$, pressure $p_2$ and density $\rho_2$. For the analysis of the problem, one may introduce the following assumptions:</p>
 <ul class="bullet-list"><li>The effect of gravity is entirely negligible.</li><li>Flow properties at the entrance and exit sections are uniform.</li><li>The air around the casing is at rest with uniform pressure $p_a$.</li><li>The working gas behaves as a perfect gas (gas constant $R_g$, specific heat ratio $\gamma$).</li><li>All the inner walls are adiabatic.</li></ul>
 <p>With the above simplifications, write the equations that determine the values of $\rho_2$ and $u_2$, as well as the net force, $F$, and torque, $M$, acting on the diffuser module, in terms of the known quantities ($p_a$, $p_1$, $\rho_1$, $p_2$, $u_1$, $u_\theta$, $R_i$, $R_o$, $\gamma$ and $R_g$).</p>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 778 300" width="100%" class="fig-kit" style="max-width:778px;margin:0 auto;display:block" role="img" aria-label="Diffuser module: front view of the inlet annulus with the axial and azimuthal velocity components u1, u theta, and axial section with the fixed stator of inner and outer radii Ri, Ro, the conical diffuser and the exit with u2, p2, rho2">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="230.0" y="20.0" width="460.0" height="260.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="230.0,95.0 330.0,95.0 440.0,150.0 330.0,205.0 230.0,205.0" fill="var(--text-muted)" fill-opacity="0.16" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<line x1="230.0" y1="20.0" x2="690.0" y2="20.0" stroke="var(--text-heading)" stroke-width="2.4"/>
+<line x1="230.0" y1="280.0" x2="690.0" y2="280.0" stroke="var(--text-heading)" stroke-width="2.4"/>
+<polyline points="230.0,95.0 330.0,95.0 440.0,150.0 330.0,205.0 230.0,205.0" fill="none" stroke="var(--text-heading)" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="280.0" y="20.0" width="8.0" height="75.0" fill="none" stroke="var(--text-heading)" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="280.0" y="205.0" width="8.0" height="75.0" fill="none" stroke="var(--text-heading)" stroke-width="1.3" stroke-linejoin="round"/>
+<ellipse cx="90.0" cy="150.0" rx="62.0" ry="120.0" fill="none" stroke="var(--text-heading)" stroke-width="1.4"/>
+<ellipse cx="90.0" cy="150.0" rx="24.0" ry="52.0" fill="none" stroke="var(--text-heading)" stroke-width="1.4"/>
+<ellipse cx="90.0" cy="150.0" rx="42.0" ry="86.0" fill="none" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="90.0" y1="150.0" x2="90.0" y2="64.2" stroke="var(--text-heading)" stroke-width="1.2"/>
+<path d="M90.0,60.0 L92.7,66.4 L87.3,66.4 Z" fill="var(--text-heading)"/>
+<text x="80.0" y="80.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">r</text>
+<line x1="90.0" y1="150.0" x2="191.8" y2="150.0" stroke="var(--text-heading)" stroke-width="1.2"/>
+<path d="M196.0,150.0 L189.6,152.7 L189.6,147.3 Z" fill="var(--text-heading)"/>
+<text x="200.0" y="170.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<line x1="118.0" y1="68.0" x2="153.8" y2="68.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4"/>
+<path d="M158.0,68.0 L151.6,70.7 L151.6,65.3 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="162.0" y="58.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">u<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="118.0" y1="68.0" x2="133.5" y2="88.6" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.4"/>
+<path d="M136.0,92.0 L130.0,88.5 L134.3,85.2 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="114.0" y="90.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">u<tspan baseline-shift="sub" font-size="72%">θ</tspan></text>
+<text x="150.0" y="248.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="150.0" y="272.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="230.0" y1="20.0" x2="230.0" y2="95.0" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="230.0" y1="205.0" x2="230.0" y2="280.0" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="690.0" y1="20.0" x2="690.0" y2="280.0" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="230.0" y1="150.0" x2="690.0" y2="150.0" stroke="var(--text-muted)" stroke-width="1.0" stroke-dasharray="10,3,2,3"/>
+<line x1="192.0" y1="35.0" x2="221.2" y2="35.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M226.0,35.0 L218.6,38.1 L218.6,31.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.0" y1="55.0" x2="221.2" y2="55.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M226.0,55.0 L218.6,58.1 L218.6,51.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.0" y1="75.0" x2="221.2" y2="75.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M226.0,75.0 L218.6,78.1 L218.6,71.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.0" y1="225.0" x2="221.2" y2="225.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M226.0,225.0 L218.6,228.1 L218.6,221.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.0" y1="245.0" x2="221.2" y2="245.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M226.0,245.0 L218.6,248.1 L218.6,241.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.0" y1="265.0" x2="221.2" y2="265.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M226.0,265.0 L218.6,268.1 L218.6,261.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="35.0" x2="723.2" y2="35.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,35.0 L720.6,38.1 L720.6,31.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="55.0" x2="723.2" y2="55.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,55.0 L720.6,58.1 L720.6,51.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="75.0" x2="723.2" y2="75.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,75.0 L720.6,78.1 L720.6,71.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="95.0" x2="723.2" y2="95.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,95.0 L720.6,98.1 L720.6,91.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="115.0" x2="723.2" y2="115.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,115.0 L720.6,118.1 L720.6,111.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="185.0" x2="723.2" y2="185.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,185.0 L720.6,188.1 L720.6,181.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="205.0" x2="723.2" y2="205.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,205.0 L720.6,208.1 L720.6,201.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="225.0" x2="723.2" y2="225.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,225.0 L720.6,228.1 L720.6,221.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="245.0" x2="723.2" y2="245.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,245.0 L720.6,248.1 L720.6,241.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="694.0" y1="265.0" x2="723.2" y2="265.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M728.0,265.0 L720.6,268.1 L720.6,261.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="735.0" y="42.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">u<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="735.0" y="64.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="735.0" y="86.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="300.0" y="52.0" fill="var(--text-heading)" font-size="13" font-weight="400" text-anchor="start">stator</text>
+<line x1="298.0" y1="48.0" x2="288.0" y2="58.0" stroke="var(--text-heading)" stroke-width="1.0"/>
+<text x="300.0" y="258.0" fill="var(--text-heading)" font-size="13" font-weight="400" text-anchor="start">stator</text>
+<line x1="298.0" y1="252.0" x2="288.0" y2="242.0" stroke="var(--text-heading)" stroke-width="1.0"/>
+<text x="390.0" y="90.0" fill="var(--text-heading)" font-size="13" font-weight="400" text-anchor="start">conical diffuser</text>
+<line x1="388.0" y1="94.0" x2="372.0" y2="114.0" stroke="var(--text-heading)" stroke-width="1.0"/>
+<line x1="246.0" y1="150.0" x2="246.0" y2="95.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M246.0,150.0 L243.3,143.6 L248.7,143.6 Z" fill="var(--text-muted)"/>
+<path d="M246.0,95.0 L248.7,101.4 L243.3,101.4 Z" fill="var(--text-muted)"/>
+<text x="246.0" y="122.5" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="252.0" y="128.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R<tspan baseline-shift="sub" font-size="72%">i</tspan></text>
+<line x1="560.0" y1="150.0" x2="560.0" y2="20.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M560.0,150.0 L557.3,143.6 L562.7,143.6 Z" fill="var(--text-muted)"/>
+<path d="M560.0,20.0 L562.7,26.4 L557.3,26.4 Z" fill="var(--text-muted)"/>
+<text x="560.0" y="85.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="566.0" y="80.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Statement figure (redrawn from CL14.pdf, p. 1): front view of the inlet ($u_1$, $u_\theta$, $p_1$, $\rho_1$) and axial section of the module: fixed stator between $R_i$ and $R_o$, conical diffuser, purely axial exit $u_2$, $p_2$, $\rho_2$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl14-statement.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <p class="source-line">Source: CL14.pdf (pages 1-4, quiz of Nov 5, 2012, with typed solution). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
       </div>
 
@@ -2362,6 +2669,52 @@
 <span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
 <ul class="bullet-list"><li>Frame fixed to the module; right-handed cylindrical basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$, $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_z$, with $\bar{e}_z$ along the flow; origin on the axis.</li><li>Surfaces (as in the official solution): $\Sigma_{in}$ (inlet annulus, $\bar{n} = -\bar{e}_z$), $\Sigma_{out}$ (exit disc, $\bar{n} = +\bar{e}_z$), $\Sigma_w$ (inner wall of the casing and outer wall of the cone) and $\Sigma_a$ (surfaces around the stator aerofoils). All are fixed.</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752 350" width="100%" class="fig-kit" style="max-width:752px;margin:0 auto;display:block" role="img" aria-label="Control volume in the axial section: inlet annulus, exit disc, the casing and cone walls and the surfaces around the stator aerofoils">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<g transform="translate(0,30)">
+<rect x="230.0" y="20.0" width="460.0" height="260.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="230.0,95.0 330.0,95.0 440.0,150.0 330.0,205.0 230.0,205.0" fill="var(--text-muted)" fill-opacity="0.16" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<line x1="230.0" y1="20.0" x2="690.0" y2="20.0" stroke="var(--text-faint)" stroke-width="2.0"/>
+<line x1="230.0" y1="280.0" x2="690.0" y2="280.0" stroke="var(--text-faint)" stroke-width="2.0"/>
+<polyline points="230.0,95.0 330.0,95.0 440.0,150.0 330.0,205.0 230.0,205.0" fill="none" stroke="var(--text-faint)" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="280.0" y="20.0" width="8.0" height="75.0" fill="none" stroke="var(--text-faint)" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="280.0" y="205.0" width="8.0" height="75.0" fill="none" stroke="var(--text-faint)" stroke-width="1.3" stroke-linejoin="round"/>
+<polyline points="234.0,91.0 234.0,24.0 686.0,24.0 686.0,276.0 234.0,276.0 234.0,209.0 329.0,209.0 434.0,152.0 434.0,148.0 329.0,91.0 234.0,91.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<rect x="276.0" y="27.0" width="16.0" height="61.0" rx="4" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.6" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<rect x="276.0" y="212.0" width="16.0" height="61.0" rx="4" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.6" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<text x="220.0" y="30.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">in</tspan></text>
+<line x1="222.0" y1="34.0" x2="234.0" y2="50.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="660.0" y="304.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">out</tspan></text>
+<line x1="662.0" y1="300.0" x2="686.0" y2="270.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="500.0" y="4.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="498.0" y1="0.0" x2="480.0" y2="24.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="508.0" y1="8.0" x2="420.0" y2="132.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="330.0" y="304.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="328.0" y1="298.0" x2="292.0" y2="260.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="234.0" y1="66.0" x2="208.8" y2="66.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M204.0,66.0 L211.4,62.9 L211.4,69.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="200.0" y="60.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="686.0" y1="66.0" x2="711.2" y2="66.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M716.0,66.0 L708.6,69.1 L708.6,62.9 Z" fill="var(--fig-green, #10b981)"/>
+<text x="720.0" y="60.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="600.0" y1="24.0" x2="600.0" y2="4.8" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M600.0,0.0 L603.1,7.4 L596.9,7.4 Z" fill="var(--fig-green, #10b981)"/>
+<text x="612.0" y="6.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="150.0" y1="236.0" x2="220.6" y2="236.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M226.0,236.0 L217.7,239.5 L217.7,232.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="188.0" y="226.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">v</tspan><tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="600.0" y1="210.0" x2="654.6" y2="210.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M660.0,210.0 L651.7,213.5 L651.7,206.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="630.0" y="200.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">v</tspan><tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="230.0" y1="150.0" x2="690.0" y2="150.0" stroke="var(--text-muted)" stroke-width="1.0" stroke-dasharray="10,3,2,3"/>
+<line x1="40.0" y1="300.0" x2="79.2" y2="300.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M84.0,300.0 L76.6,303.1 L76.6,296.9 Z" fill="var(--text-heading)"/>
+<text x="90.0" y="305.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">z</tspan></text>
+<line x1="40.0" y1="300.0" x2="40.0" y2="262.8" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M40.0,258.0 L43.1,265.4 L36.9,265.4 Z" fill="var(--text-heading)"/>
+<text x="46.0" y="262.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">r</tspan></text>
+</g>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Control volume of the solution (axial section): $\Sigma_{in}$ (inlet annulus, $\bar{n} = -\bar{e}_z$), $\Sigma_{out}$ (exit disc, $\bar{n} = +\bar{e}_z$), $\Sigma_w$ (inner wall of the casing and outer wall of the cone) and $\Sigma_a$ (around the stator aerofoils); all are fixed</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl14-cv.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <div class="math-block">$$ \boxed{\,F\,\bar{e}_z = \int_{\Sigma_w,\Sigma_a}\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma + \underbrace{\bar{F}_{ext}}_{0}\,} $$</div>
 <div class="math-block">$$ \boxed{M\,\bar{e}_z = \int_{\Sigma_w,\Sigma_a}\bar{x}\wedge\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma + \underbrace{\bar{M}_{ext}}_{0}\,} $$</div>
 </div>
@@ -2503,6 +2856,63 @@
         <h4>Official Problem Statement</h4>
 <p>A plane liquid jet of constant density $\rho$, thickness $h$ and uniform velocity $v$, impinges on a non-symmetric wedge of geometry and dimensions shown in the figure of CL16.pdf. The wedge splits the jet into two layers of unequal flux, such that a portion $\alpha$ of the volume flux is deflected an angle $\theta$, and the rest of the fluid is deflected an angle $2\theta$. The flow is steady; viscous and gravitational forces are negligible; the known data are $(\rho, c, v, h, \alpha, \theta, L, p_a, T_0, T_1, T_2)$.</p>
 <ul class="bullet-list"><li>Noting that the conditions for the use of Bernoulli's theorem are met, determine the (uniform) velocity of the fluid on each deflected layer.</li><li>Determine the thickness $h_1$ and $h_2$ of each layer.</li><li>Determine the force $\bar{F}$ (per unit length in the $z$-direction) that the liquid jet and the ambient air exert on the wedge.</li><li>Determine the moment $\bar{M}_0$ due to the force $\bar{F}$ about the corner $\bar{x}_0$ of the wedge. Find the value of the fraction $\alpha$ that would produce a null moment, $\bar{M}_0 = 0$.</li><li>Knowing the uniform temperature $T_0$ of the incoming jet, the uniform temperatures $T_1$ and $T_2$ of the two liquid layers when they lose contact with the wedge, and the constant specific heat $c$ of the liquid, determine the heat $q$ transferred per unit surface from the liquid to the wedge. Assume that the heat flux is uniform on the wedge surface and that there is no heat transfer by conduction between the liquid and the ambient air.</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Plane jet of thickness h, flux Q, velocity v and temperature T0 hitting a wedge with its corner at x0: a part alpha Q leaves along the face at angle theta (temperature T1) and the rest along the face at angle 2 theta (T2); the faces end a distance L from the corner; heat q crosses the wetted faces">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polygon points="300.0,215.0 480.0,134.9 480.0,414.9" fill="var(--text-muted)" fill-opacity="0.14" stroke="var(--text-muted)" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="80.0,195.0 270.0,195.0 292.7,198.6 529.3,93.2 536.6,109.6 300.0,215.0 512.1,450.6 495.8,465.3 283.7,229.7 270.0,235.0 80.0,235.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.3" stroke="var(--text-heading)" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="30.0" y1="215.0" x2="292.0" y2="215.0" stroke="var(--text-muted)" stroke-width="1.0" stroke-dasharray="10,3,2,3"/>
+<polygon points="18.0,211.0 86.0,211.0 86.0,206.0 98.0,215.0 86.0,224.0 86.0,219.0 18.0,219.0" fill="none" stroke="var(--text-heading)" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="40.0" y="189.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Q</text>
+<text x="66.0" y="261.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v, T<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="140.0" y1="150.0" x2="140.0" y2="188.8" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M140.0,193.0 L137.3,186.6 L142.7,186.6 Z" fill="var(--text-muted)"/>
+<line x1="140.0" y1="285.0" x2="140.0" y2="241.2" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M140.0,237.0 L142.7,243.4 L137.3,243.4 Z" fill="var(--text-muted)"/>
+<text x="148.0" y="168.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">h</text>
+<line x1="200.0" y1="215.0" x2="200.0" y2="172.2" stroke="var(--text-heading)" stroke-width="1.2"/>
+<path d="M200.0,168.0 L202.7,174.4 L197.3,174.4 Z" fill="var(--text-heading)"/>
+<text x="206.0" y="176.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<line x1="200.0" y1="215.0" x2="245.8" y2="215.0" stroke="var(--text-heading)" stroke-width="1.2"/>
+<path d="M250.0,215.0 L243.6,217.7 L243.6,212.3 Z" fill="var(--text-heading)"/>
+<text x="234.0" y="209.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<text x="292.0" y="255.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">x</tspan><tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="302.0" y1="215.0" x2="480.0" y2="215.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M302.0,215.0 L308.4,212.3 L308.4,217.7 Z" fill="var(--text-muted)"/>
+<path d="M480.0,215.0 L473.6,217.7 L473.6,212.3 Z" fill="var(--text-muted)"/>
+<text x="391.0" y="215.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="410.0" y="237.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">L</text>
+<path d="M344.0,215.0 A44.0,44.0 0 0,0 340.2,197.1" fill="none" stroke="var(--text-muted)" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="354.0" y="209.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">θ</text>
+<path d="M334.0,215.0 A34.0,34.0 0 0,1 322.8,240.3" fill="none" stroke="var(--text-muted)" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="342.0" y="251.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">2θ</text>
+<line x1="397.4" y1="138.8" x2="406.3" y2="158.7" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M408.0,162.5 L402.9,157.8 L407.9,155.5 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="410.2" y1="133.1" x2="419.1" y2="153.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M420.8,156.8 L415.7,152.1 L420.7,149.8 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="423.0" y1="127.4" x2="431.9" y2="147.3" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M433.6,151.1 L428.5,146.4 L433.4,144.2 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="435.8" y1="121.7" x2="444.7" y2="141.6" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M446.4,145.5 L441.3,140.7 L446.2,138.5 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="447.6" y="177.7" fill="var(--fig-pink, #ec4899)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">q</text>
+<line x1="401.9" y1="325.1" x2="419.5" y2="309.2" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M422.7,306.4 L419.7,312.7 L416.0,308.7 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="411.2" y1="335.5" x2="428.9" y2="319.6" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M432.0,316.8 L429.1,323.1 L425.4,319.1 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="420.6" y1="345.9" x2="438.3" y2="330.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M441.4,327.2 L438.4,333.5 L434.8,329.5 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="430.0" y1="356.3" x2="447.6" y2="340.4" stroke="var(--fig-pink, #ec4899)" stroke-width="1.3"/>
+<path d="M450.8,337.6 L447.8,343.9 L444.2,339.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="458.3" y="328.1" fill="var(--fig-pink, #ec4899)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">q</text>
+<polygon points="503.9,110.0 546.0,91.3 543.9,86.7 558.6,90.0 551.3,103.1 549.2,98.6 507.2,117.3" fill="none" stroke="var(--text-heading)" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="486.8,433.0 517.6,467.2 521.3,463.8 522.7,478.7 508.0,475.9 511.7,472.5 480.9,438.3" fill="none" stroke="var(--text-heading)" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="487.1" y="96.7" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="569.6" y="117.6" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">αQ</text>
+<text x="483.9" y="395.3" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="529.9" y="475.6" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">(1 − α)Q</text>
+<text x="390.0" y="90.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="585.0" y="222.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="200.0" y="330.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Statement figure (redrawn from CL16.pdf, p. 1): plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner $\bar{x}_0$; the layer $\alpha Q$ ($T_1$) leaves at $\theta$ and $(1 - \alpha)Q$ ($T_2$) at $2\theta$; faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl16-statement.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <p class="source-line">Source: CL16.pdf (pages 1-2, exam of Jan 14, 2013, with handwritten results). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
       </div>
 
@@ -2519,6 +2929,49 @@
 <span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
 <ul class="bullet-list"><li>Frame fixed to the wedge; origin at the corner $\bar{x}_0$; $\bar{e}_z$ towards the reader.</li><li>Surfaces: $\Sigma_0$ (incoming jet section, $\bar{n} = -\bar{e}_x$), $\Sigma_1$, $\Sigma_2$ (layer sections normal to $\bar{t}_1$, $\bar{t}_2$, $\bar{n} = \bar{t}_1, \bar{t}_2$), $\Sigma_a$ (free surfaces, $p = p_a$) and $\Sigma_w$ (wetted faces). On layer $k$, $\bar{x} - \bar{x}_0 = s\,\bar{t}_k + \eta\,\bar{m}_k$, with $\bar{m}_1 = -\sin\theta\,\bar{e}_x + \cos\theta\,\bar{e}_y$, $\bar{m}_2 = -\sin2\theta\,\bar{e}_x - \cos2\theta\,\bar{e}_y$ the unit normals pointing away from the wedge and $0 \le \eta \le h_k$.</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Control volume around the liquid: the incoming jet section, the free surfaces, the two sections across the deflected layers and the wetted faces of the wedge">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polygon points="300.0,215.0 480.0,134.9 480.0,414.9" fill="var(--text-muted)" fill-opacity="0.14" stroke="var(--text-faint)" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="80.0,195.0 270.0,195.0 292.7,198.6 529.3,93.2 536.6,109.6 300.0,215.0 512.1,450.6 495.8,465.3 283.7,229.7 270.0,235.0 80.0,235.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.3" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="96.0,195.0 270.0,195.0 292.7,198.6 516.5,98.9 523.9,115.3 300.0,215.0 502.8,440.2 486.4,454.9 283.7,229.7 270.0,235.0 96.0,235.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<text x="86.0" y="265.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="88.0" y1="257.0" x2="96.0" y2="229.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="509.6" y="73.5" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="526.1" y="454.1" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="200.0" y="166.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="200.0" y1="172.0" x2="210.0" y2="195.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="336.4" y="330.2" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="340.9" y1="326.2" x2="357.3" y2="311.5" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="420.0" y="230.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="418.0" y1="226.0" x2="409.6" y2="166.2" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="430.0" y1="236.0" x2="400.4" y2="326.5" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="96.0" y1="223.0" x2="70.8" y2="223.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M66.0,223.0 L73.4,219.9 L73.4,226.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="62.0" y="228.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="520.2" y1="107.1" x2="543.2" y2="96.9" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M547.6,94.9 L542.1,100.8 L539.6,95.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="553.6" y="90.9" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">t</tspan><tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="494.6" y1="447.5" x2="511.4" y2="466.3" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M514.6,469.8 L507.4,466.4 L512.0,462.3 Z" fill="var(--fig-green, #10b981)"/>
+<text x="520.6" y="481.8" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">t</tspan><tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="347.5" y1="174.2" x2="337.0" y2="150.6" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M335.3,146.7 L340.4,151.5 L335.4,153.7 Z" fill="var(--text-heading)"/>
+<text x="331.3" y="140.7" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">m</tspan><tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="323.8" y1="274.3" x2="304.6" y2="291.6" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M301.5,294.4 L304.5,288.0 L308.1,292.1 Z" fill="var(--text-heading)"/>
+<text x="297.5" y="308.4" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">m</tspan><tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<circle cx="300" cy="215" r="3.5" fill="var(--text-heading)"/>
+<text x="312.0" y="221.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">x</tspan><tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="24.0" y1="181.0" x2="68.6" y2="181.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M74.0,181.0 L65.7,184.5 L65.7,177.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="48.0" y="171.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v</text>
+<line x1="40.0" y1="440.0" x2="71.2" y2="440.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M76.0,440.0 L68.6,443.1 L68.6,436.9 Z" fill="var(--text-heading)"/>
+<text x="82.0" y="445.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="40.0" y1="440.0" x2="40.0" y2="408.8" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M40.0,404.0 L43.1,411.4 L36.9,411.4 Z" fill="var(--text-heading)"/>
+<text x="46.0" y="408.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Control volume of the solution: $\Sigma_0$ (incoming jet, $\bar{n} = -\bar{e}_x$), $\Sigma_1$ and $\Sigma_2$ (sections across the layers, $\bar{n} = \bar{t}_1$, $\bar{t}_2$), the free surfaces $\Sigma_a$ at $p_a$ and the wetted faces $\Sigma_w$; $\bar{m}_1$, $\bar{m}_2$ are the unit normals pointing away from the wedge, and moments are taken about the corner $\bar{x}_0$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl16-cv.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <div class="math-block">$$ \boxed{\,\bar{F} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
 <div class="math-block">$$ \boxed{\bar{M}_0 = \int_{\Sigma_w}(\bar{x} - \bar{x}_0)\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
 <div class="math-block">$$ \boxed{q = -\frac{1}{L/\cos\theta + L/\cos2\theta}\int_{\Sigma_w}\bar{q}\cdot\bar{n}_{\text{in}}\,d\sigma\,} $$</div>
@@ -2666,6 +3119,98 @@
         <h4>Official Problem Statement</h4>
 <p>The ejector shown in the figure of CL18.pdf is used to discharge a container filled with a perfect liquid of density $\rho$ and constant specific heat $c$ into the atmosphere, also at pressure $p_a$. A high-velocity jet of the same liquid, with velocity $U_j$ and cross section $A_j$, is injected along the axis of the discharge pipe, whose cross section is $A$. The jet entrains fluid as it develops, producing an underpressure at the injection section and drawing the fluid from the container. Mixing of the jet with the surrounding liquid is completed downstream, so that at the outlet the liquid discharges as a uniform jet with velocity $U_o$. For a given the geometry (i.e., given values of $A_j$ and $A$), we want to compute the characteristics of the flow in terms of the injection velocity $U_j$. In the computation, assume that the effect of gravity is negligible. Address in order the following questions:</p>
 <ul class="bullet-list"><li>Assuming that the acceleration of the fluid upstream from the injector is steady and inviscid, write down the equation that relates the ambient pressure $p_a$ with the velocity and pressure at the entrance of the pipe, $U_e$ and $p_e$.</li><li>Apply the continuity and momentum balance equations to the control volume indicated in the figure. Simplify the result by assuming that the effect of friction on the wall surface is negligibly small.</li><li>Use the previous equations to show that the volumetric discharge flow rate is given by $Q = U_e(A - A_j) = \dfrac{U_j(A - A_j)}{1 + A/\sqrt{2A_j(A - A_j)}}$ and that the velocity at the outlet satisfies $\dfrac{U_o}{U_j} = \dfrac{A_j + \sqrt{2A_j(A - A_j)}}{A + \sqrt{2A_j(A - A_j)}}$.</li><li>Assuming that the values of the temperatures $T_e$ and $T_j$ at the entrance section are equal to the ambient value $T_a$, obtain the temperature $T_o$ at the outlet section when the pipe walls are adiabatic.</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 560" width="100%" class="fig-kit" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="Ejector: a container at pa drains through a vertical pipe of section A; an injector tube brings the jet of section Aj and velocity Uj to the axis of the entrance section, where the surrounding liquid enters at Ue, pe; the control volume Vc spans the pipe and the mixed jet leaves at Uo into pa">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<path d="M40,30 C150,50 200,90 200,170 L200,470 L330,470 L330,170 C330,90 380,50 490,30 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M40,30 C150,50 200,90 200,170 L200,470" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M490,30 C380,50 330,90 330,170 L330,470" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="520.0,118.0 250.0,118.0 250.0,172.0" fill="none" stroke="var(--text-heading)" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="520.0,132.0 264.0,132.0 264.0,172.0" fill="none" stroke="var(--text-heading)" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="200.0" y1="470.0" x2="200.0" y2="540.0" stroke="var(--text-muted)" stroke-width="1.1" stroke-dasharray="2,4"/>
+<line x1="330.0" y1="470.0" x2="330.0" y2="540.0" stroke="var(--text-muted)" stroke-width="1.1" stroke-dasharray="2,4"/>
+<line x1="200.0" y1="176.0" x2="330.0" y2="176.0" stroke="var(--text-muted)" stroke-width="1.0" stroke-dasharray="4,3"/>
+<line x1="208.0" y1="178.0" x2="208.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M208.0,200.0 L205.7,194.5 L210.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="217.0" y1="178.0" x2="217.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M217.0,200.0 L214.7,194.5 L219.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="226.0" y1="178.0" x2="226.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M226.0,200.0 L223.7,194.5 L228.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="235.0" y1="178.0" x2="235.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M235.0,200.0 L232.7,194.5 L237.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="244.0" y1="178.0" x2="244.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M244.0,200.0 L241.7,194.5 L246.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="272.0" y1="178.0" x2="272.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M272.0,200.0 L269.7,194.5 L274.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="281.0" y1="178.0" x2="281.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M281.0,200.0 L278.7,194.5 L283.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="290.0" y1="178.0" x2="290.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M290.0,200.0 L287.7,194.5 L292.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="299.0" y1="178.0" x2="299.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M299.0,200.0 L296.7,194.5 L301.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="308.0" y1="178.0" x2="308.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M308.0,200.0 L305.7,194.5 L310.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="317.0" y1="178.0" x2="317.0" y2="196.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M317.0,200.0 L314.7,194.5 L319.3,194.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="253.0" y1="176.0" x2="253.0" y2="232.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M253.0,236.0 L250.7,230.5 L255.3,230.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="257.0" y1="176.0" x2="257.0" y2="232.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M257.0,236.0 L254.7,230.5 L259.3,230.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="261.0" y1="176.0" x2="261.0" y2="232.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M261.0,236.0 L258.7,230.5 L263.3,230.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="222.0" y="222.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<text x="302.0" y="222.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<text x="268.0" y="246.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">j</tspan></text>
+<line x1="226.0" y1="150.0" x2="244.8" y2="150.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M249.0,150.0 L242.6,152.7 L242.6,147.3 Z" fill="var(--text-muted)"/>
+<line x1="290.0" y1="150.0" x2="269.2" y2="150.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M265.0,150.0 L271.4,147.3 L271.4,152.7 Z" fill="var(--text-muted)"/>
+<text x="296.0" y="156.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">j</tspan></text>
+<text x="265.0" y="70.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<rect x="204.0" y="179.0" width="122.0" height="289.0" fill="none" stroke="var(--text-heading)" stroke-width="1.2" stroke-dasharray="5,4" stroke-linejoin="round"/>
+<text x="360.0" y="380.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<line x1="358.0" y1="374.0" x2="328.0" y2="360.0" stroke="var(--text-heading)" stroke-width="1.0"/>
+<line x1="204.0" y1="290.0" x2="176.8" y2="290.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M172.0,290.0 L179.4,286.9 L179.4,293.1 Z" fill="var(--text-heading)"/>
+<text x="178.0" y="280.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="326.0" y1="290.0" x2="353.2" y2="290.0" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M358.0,290.0 L350.6,293.1 L350.6,286.9 Z" fill="var(--text-heading)"/>
+<text x="352.0" y="280.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="206.0" y1="320.0" x2="250.0" y2="320.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<line x1="282.0" y1="320.0" x2="324.0" y2="320.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M205.0,320.0 L211.4,317.3 L211.4,322.7 Z" fill="var(--text-muted)"/>
+<path d="M325.0,320.0 L318.6,322.7 L318.6,317.3 Z" fill="var(--text-muted)"/>
+<text x="266.0" y="326.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A</text>
+<line x1="208.0" y1="474.0" x2="208.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M208.0,500.0 L205.7,494.5 L210.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="217.0" y1="474.0" x2="217.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M217.0,500.0 L214.7,494.5 L219.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="226.0" y1="474.0" x2="226.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M226.0,500.0 L223.7,494.5 L228.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="235.0" y1="474.0" x2="235.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M235.0,500.0 L232.7,494.5 L237.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="244.0" y1="474.0" x2="244.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M244.0,500.0 L241.7,494.5 L246.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="253.0" y1="474.0" x2="253.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M253.0,500.0 L250.7,494.5 L255.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="262.0" y1="474.0" x2="262.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M262.0,500.0 L259.7,494.5 L264.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="271.0" y1="474.0" x2="271.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M271.0,500.0 L268.7,494.5 L273.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="280.0" y1="474.0" x2="280.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M280.0,500.0 L277.7,494.5 L282.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="289.0" y1="474.0" x2="289.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M289.0,500.0 L286.7,494.5 L291.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="298.0" y1="474.0" x2="298.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M298.0,500.0 L295.7,494.5 L300.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="307.0" y1="474.0" x2="307.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M307.0,500.0 L304.7,494.5 L309.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="316.0" y1="474.0" x2="316.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M316.0,500.0 L313.7,494.5 L318.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="325.0" y1="474.0" x2="325.0" y2="496.4" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.1"/>
+<path d="M325.0,500.0 L322.7,494.5 L327.3,494.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="190.0" y="494.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="300.0" y="524.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Statement figure (redrawn from CL18.pdf, p. 1): container at $p_a$, pipe of section $A$; jet $A_j$, $U_j$ injected on the axis; entrance section with $U_e$, $p_e$ around the jet; control volume $V_c$ with outward normals; uniform outlet jet $U_o$ into $p_a$</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl18-statement.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 <p class="source-line">Source: CL18.pdf (page 1, midterm of Nov 11, 2013). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.</p>
       </div>
 
@@ -2682,6 +3227,44 @@
 <span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
 <ul class="bullet-list"><li>Frame fixed to the pipe; $\bar{e}_x$ along the pipe axis in the flow direction. Fixed control volume between the entrance and the outlet sections.</li><li>Surfaces: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_x$, split into the jet $A_j$ and the annulus $A - A_j$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (straight pipe wall, $\bar{n}\perp\bar{e}_x$).</li></ul>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 560" width="100%" class="fig-kit" style="max-width:540px;margin:0 auto;display:block" role="img" aria-label="Control volume: the pipe between the entrance section (jet and annulus) and the outlet section, bounded by the straight pipe wall">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<path d="M40,30 C150,50 200,90 200,170 L200,470 L330,470 L330,170 C330,90 380,50 490,30 Z" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M40,30 C150,50 200,90 200,170 L200,470" fill="none" stroke="var(--text-faint)" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M490,30 C380,50 330,90 330,170 L330,470" fill="none" stroke="var(--text-faint)" stroke-width="2.0" stroke-linejoin="round"/>
+<polyline points="520.0,118.0 250.0,118.0 250.0,172.0" fill="none" stroke="var(--text-faint)" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="520.0,132.0 264.0,132.0 264.0,172.0" fill="none" stroke="var(--text-faint)" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="200.0" y1="470.0" x2="200.0" y2="540.0" stroke="var(--text-muted)" stroke-width="1.1" stroke-dasharray="2,4"/>
+<line x1="330.0" y1="470.0" x2="330.0" y2="540.0" stroke="var(--text-muted)" stroke-width="1.1" stroke-dasharray="2,4"/>
+<rect x="204.0" y="176.0" width="122.0" height="294.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<text x="150.0" y="182.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<line x1="152.0" y1="178.0" x2="204.0" y2="178.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="372.0" y="470.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<line x1="370.0" y1="466.0" x2="328.0" y2="470.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<text x="372.0" y="320.0" fill="var(--fig-green, #10b981)" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="370.0" y1="316.0" x2="330.0" y2="316.0" stroke="var(--fig-green, #10b981)" stroke-width="1.0"/>
+<line x1="225.0" y1="176.0" x2="225.0" y2="150.8" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M225.0,146.0 L228.1,153.4 L221.9,153.4 Z" fill="var(--fig-green, #10b981)"/>
+<text x="217.0" y="150.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="240.0" y1="470.0" x2="240.0" y2="495.2" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M240.0,500.0 L236.9,492.6 L243.1,492.6 Z" fill="var(--fig-green, #10b981)"/>
+<text x="232.0" y="504.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="204.0" y1="360.0" x2="178.8" y2="360.0" stroke="var(--fig-green, #10b981)" stroke-width="1.6"/>
+<path d="M174.0,360.0 L181.4,356.9 L181.4,363.1 Z" fill="var(--fig-green, #10b981)"/>
+<text x="170.0" y="352.0" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="288.0" y1="206.0" x2="288.0" y2="235.2" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M288.0,240.0 L284.9,232.6 L291.1,232.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="296.0" y="236.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">e</tspan></text>
+<line x1="257.0" y1="176.0" x2="257.0" y2="254.6" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M257.0,260.0 L253.5,251.7 L260.5,251.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="248.0" y="252.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">j</tspan></text>
+<line x1="290.0" y1="474.0" x2="290.0" y2="524.6" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M290.0,530.0 L286.5,521.7 L293.5,521.7 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="298.0" y="520.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<line x1="470.0" y1="200.0" x2="470.0" y2="245.2" stroke="var(--text-heading)" stroke-width="1.3"/>
+<path d="M470.0,250.0 L466.9,242.6 L473.1,242.6 Z" fill="var(--text-heading)"/>
+<text x="478.0" y="240.0" fill="var(--text-heading)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Control volume of the solution: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_x$, made of the jet $A_j$ and the annulus $A - A_j$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$) and the straight wall $\Sigma_w$ ($\bar{n}\perp\bar{e}_x$); $\bar{e}_x$ points along the flow</div><a class="diagram-open" href="../../../vault/attachments/FM-T3/cl18-cv.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
 </div>
 <div class="phase-block">
 <span class="phase-badge">Phase 3</span>

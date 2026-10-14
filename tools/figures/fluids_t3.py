@@ -880,11 +880,431 @@ def cl8_cv():
             "$\\bar{F}_w$ is the force on the wall")
 
 
+# ----------------------------------------------------------------------------------------- shared (Lote 3)
+def hollow_arrow(c, tail, d, length=56, half=5, head=13, col="HEAD"):
+    """Hollow arrow from `tail` along direction d (a flow rate leaving or entering)."""
+    L = math.hypot(*d)
+    t = (d[0] / L, d[1] / L)
+    m = (-t[1], t[0])
+
+    def P(a, b):
+        return (tail[0] + t[0] * a + m[0] * b, tail[1] + t[1] * a + m[1] * b)
+    pts = [P(0, -half), P(length - head, -half), P(length - head, -half - 5), P(length, 0),
+           P(length - head, half + 5), P(length - head, half), P(0, half)]
+    poly(c, pts, col, 1.5, close=True)
+
+
+def angle_arc(c, centre, r, a0, a1, col="TEXT", w=1.1):
+    """Arc between two directions given in degrees (counter-clockwise, screen y up)."""
+    p0 = (centre[0] + r * math.cos(math.radians(a0)), centre[1] - r * math.sin(math.radians(a0)))
+    p1 = (centre[0] + r * math.cos(math.radians(a1)), centre[1] - r * math.sin(math.radians(a1)))
+    sweep = 0 if a1 > a0 else 1
+    pathd(c, f"M{fmt(p0[0])},{fmt(p0[1])} A{fmt(r)},{fmt(r)} 0 0,{sweep} {fmt(p1[0])},{fmt(p1[1])}", col, w)
+
+
+# ----------------------------------------------------------------------------------------- CL16
+CL16_O, CL16_L, CL16_TH, CL16_H, CL16_H1, CL16_H2 = (300, 215), 180, 24, 20, 18, 22
+
+
+def _cl16_geom():
+    o, th = CL16_O, math.radians(CL16_TH)
+    t1, t2 = (math.cos(th), -math.sin(th)), (math.cos(2 * th), math.sin(2 * th))
+    m1, m2 = (-math.sin(th), -math.cos(th)), (-math.sin(2 * th), math.cos(2 * th))
+
+    def P(t, m, s, eta):
+        return (o[0] + t[0] * s + m[0] * eta, o[1] + t[1] * s + m[1] * eta)
+    s1w, s2w = CL16_L / math.cos(th), CL16_L / math.cos(2 * th)
+    return t1, t2, m1, m2, P, s1w, s2w
+
+
+def _cl16_shapes(c, edges=True):
+    o = CL16_O
+    t1, t2, m1, m2, P, s1w, s2w = _cl16_geom()
+    s1e, s2e = s1w + 62, s2w + 48
+    poly(c, [o, P(t1, m1, s1w, 0), P(t2, m2, s2w, 0)], "TEXT" if edges else "EDGE", 1.6, fill="TEXT", opacity=0.14,
+         close=True)
+    band = [(80, o[1] - CL16_H), (270, o[1] - CL16_H), P(t1, m1, 0, CL16_H1), P(t1, m1, s1e, CL16_H1), P(t1, m1, s1e, 0),
+            o, P(t2, m2, s2e, 0), P(t2, m2, s2e, CL16_H2), P(t2, m2, 0, CL16_H2), (270, o[1] + CL16_H), (80, o[1] + CL16_H)]
+    poly(c, band, "HEAD" if edges else "none", 1.4 if edges else 0, fill="BLUE", opacity=0.30, close=True)
+    return band, s1e, s2e
+
+
+def cl16_statement():
+    c = Canvas(640, 500)
+    o = CL16_O
+    t1, t2, m1, m2, P, s1w, s2w = _cl16_geom()
+    band, s1e, s2e = _cl16_shapes(c)
+    line(c, (30, o[1]), (o[0] - 8, o[1]), "TEXT", 1.0, "10,3,2,3")
+    hollow_arrow(c, (18, o[1]), (1, 0), length=80, half=4, head=12)
+    lab(c, (40, o[1] - 26), "Q"); lab(c, (66, o[1] + 46), "v, " + sub("T", "0"), anchor="end")
+    arrow(c, (140, 150), (140, 193), "TEXT", 1.1, 7); arrow(c, (140, 285), (140, 237), "TEXT", 1.1, 7)
+    lab(c, (148, 168), "h", anchor="start")
+    arrow(c, (200, o[1]), (200, 168), "HEAD", 1.2, 7); lab(c, (206, 176), "y", anchor="start", size=16)
+    arrow(c, (200, o[1]), (250, o[1]), "HEAD", 1.2, 7); lab(c, (234, o[1] - 6), "x", size=16)
+    lab(c, (292, o[1] + 40), vec("x") + sub("", "0"), anchor="end")
+    dim(c, (o[0] + 2, o[1]), (o[0] + CL16_L, o[1]), "", "TEXT"); lab(c, (410, o[1] + 22), "L")
+    angle_arc(c, o, 44, 0, CL16_TH); lab(c, (o[0] + 54, o[1] - 6), "θ", anchor="start")
+    angle_arc(c, o, 34, 0, -2 * CL16_TH); lab(c, (o[0] + 42, o[1] + 36), "2θ", anchor="start")
+    for k in range(4):
+        a = P(t1, m1, 120 + 14 * k, 30)
+        arrow(c, a, P(t1, m1, 120 + 14 * k, 4), "PINK", 1.3, 7)
+    lab(c, P(t1, m1, 150, -26), "q", "PINK")
+    for k in range(4):
+        a = P(t2, m2, 150 + 14 * k, -30)
+        arrow(c, P(t2, m2, 150 + 14 * k, -2), a, "PINK", 1.3, 7)
+    lab(c, P(t2, m2, 190, -42), "q", "PINK", anchor="start")
+    e1, e2 = P(t1, m1, s1e - 30, CL16_H1 / 2), P(t2, m2, s2e - 30, CL16_H2 / 2)
+    hollow_arrow(c, e1, t1, length=58, half=4, head=12); hollow_arrow(c, e2, t2, length=58, half=4, head=12)
+    lab(c, P(t1, m1, s1e - 40, CL16_H1 + 14), sub("T", "1"), anchor="end")
+    lab(c, (e1[0] + 64, e1[1] + 4), "αQ", anchor="start")
+    lab(c, P(t2, m2, s2e - 60, -16), sub("T", "2"), anchor="start")
+    lab(c, (e2[0] + 46, e2[1] + 40), "(1 − α)Q", anchor="start")
+    lab(c, (390, 90), sub("p", "a")); lab(c, (585, 222), sub("p", "a")); lab(c, (200, 330), sub("p", "a"))
+    REG.put("cl16-statement", c,
+            "Plane jet of thickness h, flux Q, velocity v and temperature T0 hitting a wedge with its corner at x0: a part "
+            "alpha Q leaves along the face at angle theta (temperature T1) and the rest along the face at angle 2 theta "
+            "(T2); the faces end a distance L from the corner; heat q crosses the wetted faces",
+            "Statement figure (redrawn from CL16.pdf, p. 1): plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner "
+            "$\\bar{x}_0$; the layer $\\alpha Q$ ($T_1$) leaves at $\\theta$ and $(1 - \\alpha)Q$ ($T_2$) at $2\\theta$; "
+            "faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$")
+
+
+def cl16_cv():
+    c = Canvas(640, 500)
+    o = CL16_O
+    t1, t2, m1, m2, P, s1w, s2w = _cl16_geom()
+    band, s1e, s2e = _cl16_shapes(c, edges=False)
+    s1c, s2c = s1e - 14, s2e - 14
+    cv = [(96, o[1] - CL16_H), (270, o[1] - CL16_H), P(t1, m1, 0, CL16_H1), P(t1, m1, s1c, CL16_H1), P(t1, m1, s1c, 0),
+          o, P(t2, m2, s2c, 0), P(t2, m2, s2c, CL16_H2), P(t2, m2, 0, CL16_H2), (270, o[1] + CL16_H),
+          (96, o[1] + CL16_H)]
+    poly(c, cv, "GREEN", 2.0, CV_DASH, close=True)
+    sigma(c, (86, o[1] + 50), "0", "end"); leader(c, (88, o[1] + 42), (96, o[1] + 14))
+    sigma(c, P(t1, m1, s1c + 4, CL16_H1 + 26), "1", "start")
+    sigma(c, P(t2, m2, s2c + 26, -8), "2", "start")
+    sigma(c, (200, 166), "a"); leader(c, (200, 172), (210, o[1] - CL16_H))
+    sigma(c, P(t2, m2, 110, CL16_H2 + 28), "a", "end"); leader(c, P(t2, m2, 110, CL16_H2 + 22), P(t2, m2, 110, CL16_H2))
+    sigma(c, (420, 230), "w", "start"); leader(c, (418, 226), P(t1, m1, 120, 0)); leader(c, (430, 236), P(t2, m2, 150, 0))
+    normal(c, (96, o[1] + 8), (-1, 0), length=30, lab_off=(-4, 5), anchor="end")
+    normal(c, P(t1, m1, s1c, CL16_H1 / 2), t1, label=vec("t") + sub("", "1"), length=30, lab_off=(6, -4), anchor="start")
+    normal(c, P(t2, m2, s2c, CL16_H2 / 2), t2, label=vec("t") + sub("", "2"), length=30, lab_off=(6, 12), anchor="start")
+    a = P(t1, m1, 60, CL16_H1)
+    arrow(c, a, (a[0] + m1[0] * 30, a[1] + m1[1] * 30), "HEAD", 1.3, 7)
+    lab(c, (a[0] + m1[0] * 30 - 4, a[1] + m1[1] * 30 - 6), vec("m") + sub("", "1"), anchor="end", size=15)
+    b = P(t2, m2, 60, CL16_H2)
+    arrow(c, b, (b[0] + m2[0] * 30, b[1] + m2[1] * 30), "HEAD", 1.3, 7)
+    lab(c, (b[0] + m2[0] * 30 - 4, b[1] + m2[1] * 30 + 14), vec("m") + sub("", "2"), anchor="end", size=15)
+    c.add(f'<circle cx="{o[0]}" cy="{o[1]}" r="3.5" fill="HEAD"/>')
+    lab(c, (o[0] + 12, o[1] + 6), vec("x") + sub("", "0"), anchor="start", size=16)
+    arrow(c, (24, o[1] - 34), (74, o[1] - 34), "BLUE", 2.0, 9); lab(c, (48, o[1] - 44), "v", "BLUE", size=16)
+    axes(c, (40, 440), "x", "y", 36)
+    REG.put("cl16-cv", c,
+            "Control volume around the liquid: the incoming jet section, the free surfaces, the two sections across the "
+            "deflected layers and the wetted faces of the wedge",
+            "Control volume of the solution: $\\Sigma_0$ (incoming jet, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_1$ and "
+            "$\\Sigma_2$ (sections across the layers, $\\bar{n} = \\bar{t}_1$, $\\bar{t}_2$), the free surfaces $\\Sigma_a$ "
+            "at $p_a$ and the wetted faces $\\Sigma_w$; $\\bar{m}_1$, $\\bar{m}_2$ are the unit normals pointing away from "
+            "the wedge, and moments are taken about the corner $\\bar{x}_0$")
+
+
+# ----------------------------------------------------------------------------------------- CL18
+CL18_FILL = "M40,30 C150,50 200,90 200,170 L200,470 L330,470 L330,170 C330,90 380,50 490,30 Z"
+
+
+def _cl18_ejector(c, col="HEAD", w=2.2):
+    pathd(c, CL18_FILL, "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, "M40,30 C150,50 200,90 200,170 L200,470", col, w)
+    pathd(c, "M490,30 C380,50 330,90 330,170 L330,470", col, w)
+    poly(c, [(520, 118), (250, 118), (250, 172)], col, 1.8)
+    poly(c, [(520, 132), (264, 132), (264, 172)], col, 1.8)
+    line(c, (200, 470), (200, 540), "TEXT", 1.1, "2,4"); line(c, (330, 470), (330, 540), "TEXT", 1.1, "2,4")
+
+
+def cl18_statement():
+    c = Canvas(540, 560)
+    _cl18_ejector(c)
+    line(c, (200, 176), (330, 176), "TEXT", 1.0, "4,3")
+    for x in list(range(208, 247, 9)) + list(range(272, 326, 9)):
+        arrow(c, (x, 178), (x, 200), "BLUE", 1.1, 6)
+    for x in (253, 257, 261):
+        arrow(c, (x, 176), (x, 236), "BLUE", 1.1, 6)
+    lab(c, (222, 222), sub("p", "e"), size=16); lab(c, (302, 222), sub("U", "e"), size=16)
+    lab(c, (268, 246), sub("U", "j"), anchor="start", size=16)
+    arrow(c, (226, 150), (249, 150), "TEXT", 1.1, 7); arrow(c, (290, 150), (265, 150), "TEXT", 1.1, 7)
+    lab(c, (296, 156), sub("A", "j"), anchor="start", size=16)
+    lab(c, (265, 70), sub("p", "a"))
+    rect(c, 204, 179, 122, 289, "HEAD", 1.2, "5,4")
+    lab(c, (360, 380), sub("V", "c"), anchor="start", size=16); line(c, (358, 374), (328, 360), "HEAD", 1.0)
+    arrow(c, (204, 290), (172, 290), "HEAD", 1.3, 8); lab(c, (178, 280), vec("n"), size=15)
+    arrow(c, (326, 290), (358, 290), "HEAD", 1.3, 8); lab(c, (352, 280), vec("n"), size=15)
+    line(c, (206, 320), (250, 320), "TEXT", 1.1); line(c, (282, 320), (324, 320), "TEXT", 1.1)
+    arrow_head(c, (230, 320), (205, 320), "TEXT", 7); arrow_head(c, (300, 320), (325, 320), "TEXT", 7)
+    lab(c, (266, 326), "A", size=17)
+    for x in range(208, 326, 9):
+        arrow(c, (x, 474), (x, 500), "BLUE", 1.1, 6)
+    lab(c, (190, 494), sub("p", "a"), anchor="end", size=16); lab(c, (300, 524), sub("U", "o"), size=16)
+    REG.put("cl18-statement", c,
+            "Ejector: a container at pa drains through a vertical pipe of section A; an injector tube brings the jet of "
+            "section Aj and velocity Uj to the axis of the entrance section, where the surrounding liquid enters at Ue, pe; "
+            "the control volume Vc spans the pipe and the mixed jet leaves at Uo into pa",
+            "Statement figure (redrawn from CL18.pdf, p. 1): container at $p_a$, pipe of section $A$; jet $A_j$, $U_j$ "
+            "injected on the axis; entrance section with $U_e$, $p_e$ around the jet; control volume $V_c$ with outward "
+            "normals; uniform outlet jet $U_o$ into $p_a$")
+
+
+def cl18_cv():
+    c = Canvas(540, 560)
+    _cl18_ejector(c, "EDGE", 2.0)
+    rect(c, 204, 176, 122, 294, "GREEN", 2.0, CV_DASH)
+    sigma(c, (150, 182), "e", "end"); leader(c, (152, 178), (204, 178))
+    sigma(c, (372, 470), "o", "start"); leader(c, (370, 466), (328, 470))
+    sigma(c, (372, 320), "w", "start"); leader(c, (370, 316), (330, 316))
+    normal(c, (225, 176), (0, -1), length=30, lab_off=(-8, 4), anchor="end")
+    normal(c, (240, 470), (0, 1), length=30, lab_off=(-8, 4), anchor="end")
+    normal(c, (204, 360), (-1, 0), length=30, lab_off=(-4, -8), anchor="end")
+    arrow(c, (288, 206), (288, 240), "BLUE", 1.8, 8); lab(c, (296, 236), sub("U", "e"), "BLUE", "start", 15)
+    arrow(c, (257, 176), (257, 260), "BLUE", 2.0, 9); lab(c, (248, 252), sub("U", "j"), "BLUE", "end", 15)
+    arrow(c, (290, 474), (290, 530), "BLUE", 2.0, 9); lab(c, (298, 520), sub("U", "o"), "BLUE", "start", 15)
+    arrow(c, (470, 200), (470, 250), "HEAD", 1.3, 8); lab(c, (478, 240), vec("e") + sub("", "x"), anchor="start", size=16)
+    REG.put("cl18-cv", c,
+            "Control volume: the pipe between the entrance section (jet and annulus) and the outlet section, bounded by "
+            "the straight pipe wall",
+            "Control volume of the solution: $\\Sigma_e$ (entrance, $\\bar{n} = -\\bar{e}_x$, made of the jet $A_j$ and the "
+            "annulus $A - A_j$), $\\Sigma_o$ (outlet, $\\bar{n} = +\\bar{e}_x$) and the straight wall $\\Sigma_w$ "
+            "($\\bar{n}\\perp\\bar{e}_x$); $\\bar{e}_x$ points along the flow")
+
+
+# ----------------------------------------------------------------------------------------- CL9
+CL9_UP, CL9_DN = "M156,34 Q330,40 444,100", "M156,214 Q330,208 444,148"
+
+
+def _cl9_nozzle(c, col="HEAD", w=2.2):
+    pathd(c, "M156,34 Q330,40 444,100 L444,148 Q330,208 156,214 Z", "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, CL9_UP, col, w); pathd(c, CL9_DN, col, w)
+
+
+def _propeller(c, x, y, col="HEAD"):
+    ellipse(c, x, y - 36, 5, 34, col, 1.5); ellipse(c, x, y + 36, 5, 34, col, 1.5)
+
+
+def cl9_statement():
+    c = Canvas(620, 250)
+    _cl9_nozzle(c)
+    line(c, (20, 124), (600, 124), "TEXT", 1.0, "10,3,2,3")
+    for y0, y1 in ((10, 60), (40, 92), (208, 156), (238, 188)):
+        pathd(c, f"M30,{y0} C90,{y0} 100,{y1} 150,{y1}", "TEXT", 1.2)
+        arrow_head(c, (130, y1), (150, y1), "TEXT", 7)
+    c.add('<circle cx="22" cy="124" r="3.5" fill="HEAD"/><circle cx="158" cy="124" r="3.5" fill="HEAD"/>'
+          '<circle cx="446" cy="124" r="3.5" fill="HEAD"/>')
+    lab(c, (24, 112), sub("p", "∞"), anchor="start", size=16); lab(c, (24, 144), "1", anchor="start", size=14)
+    lab(c, (80, 146), "ρ", size=16); lab(c, (80, 182), "μ", size=16)
+    lab(c, (156, 24), sub("A", "e"), size=16); lab(c, (170, 88), sub("U", "e"), anchor="start", size=16)
+    lab(c, (170, 112), sub("p", "e"), anchor="start", size=16); lab(c, (164, 142), "e", anchor="start", size=15)
+    _propeller(c, 262, 124)
+    arc_arrow(c, (262, 92), 18, 60, -60, "ACC", 1.6)
+    overdot(c, (292, 92), "W", "ACC", "start", 17)
+    hollow_arrow(c, (400, 124), (-1, 0), length=66, half=8, head=18, col="HEAD")
+    lab(c, (372, 100), "T", size=18)
+    lab(c, (446, 90), sub("A", "s"), anchor="start", size=16); lab(c, (430, 118), sub("p", "s"), anchor="end", size=15)
+    lab(c, (450, 142), "s", anchor="start", size=15)
+    flow_arrows(c, 452, 520, [106, 116, 132, 142], "BLUE", 1.4)
+    lab(c, (530, 118), sub("U", "s"), anchor="start", size=16)
+    REG.put("cl9-statement", c,
+            "Submarine propulsion device: a nozzle with inlet area Ae and outlet area As, a propeller inside driven with "
+            "power W, thrust T; streamlines from the still water at point 1 (p infinity) reach the inlet e at Ue, pe; the "
+            "jet leaves the outlet s at Us",
+            "Statement figure (redrawn from CL9.pdf, p. 1): nozzle of inlet area $A_e$ ($U_e$, $p_e$) and outlet area "
+            "$A_s$ ($U_s$, $p_s$); propeller supplying the power $\\dot{W}$; thrust $T$; the streamline from the still "
+            "water at point 1 ($p_\\infty$) to the inlet $e$")
+
+
+def cl9_cv():
+    c = Canvas(620, 250)
+    _cl9_nozzle(c, "EDGE", 2.0)
+    pathd(c, "M160,38 Q330,44 440,102 L440,146 Q330,204 160,210 Z", "GREEN", 2.0, CV_DASH)
+    _propeller(c, 262, 124, "EDGE")
+    ellipse(c, 262, 124, 12, 76, "GREEN", 1.5, "4,3")
+    sigma(c, (150, 236), "e", "end"); leader(c, (152, 230), (160, 200))
+    sigma(c, (470, 82), "s", "start"); leader(c, (468, 86), (442, 110))
+    sigma(c, (360, 236), "w", "start"); leader(c, (358, 230), (340, 196))
+    sigma(c, (290, 230), "p", "end"); leader(c, (288, 224), (270, 196))
+    normal(c, (160, 150), (-1, 0), length=30, lab_off=(-4, -6), anchor="end")
+    normal(c, (440, 136), (1, 0), length=30, lab_off=(4, 14), anchor="start")
+    normal(c, (315, 55), (0.22, -0.97), length=26, lab_off=(10, 6), anchor="start")
+    arrow(c, (40, 100), (100, 100), "BLUE", 2.0, 9); lab(c, (70, 90), sub("U", "e"), "BLUE", size=16)
+    arrow(c, (500, 124), (566, 124), "BLUE", 2.0, 9); lab(c, (533, 114), sub("U", "s"), "BLUE", size=16)
+    arrow(c, (400, 124), (340, 124), "ACC", 2.6, 11)
+    lab(c, (370, 104), vec("F") + " = −T " + vec("e") + sub("", "x"), "ACC", "middle", 15, weight="700")
+    arrow(c, (40, 200), (82, 200), "HEAD", 1.3, 8); lab(c, (88, 205), vec("e") + sub("", "x"), anchor="start", size=15)
+    REG.put("cl9-cv", c,
+            "Control volume: the water inside the nozzle between the inlet and outlet sections, bounded by the nozzle walls "
+            "and the propeller surface",
+            "Control volume of the solution: $\\Sigma_e$ (inlet, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_s$ (outlet, "
+            "$\\bar{n} = +\\bar{e}_x$), the fixed nozzle walls $\\Sigma_w$ and the moving propeller $\\Sigma_p$ (dashed "
+            "around it); the force of the water on the device is $\\bar{F} = -T\\bar{e}_x$")
+
+
+# ----------------------------------------------------------------------------------------- CL14
+def _cl14_section(c, col="HEAD", w=2.4):
+    yc, ro, ri = 150, 130, 55
+    rect(c, 230, yc - ro, 460, 2 * ro, "none", 0, fill="BLUE", opacity=0.10)
+    hub = [(230, yc - ri), (330, yc - ri), (440, yc), (330, yc + ri), (230, yc + ri)]
+    poly(c, hub, "none", 0, fill="TEXT", opacity=0.16, close=True)
+    line(c, (230, yc - ro), (690, yc - ro), col, w); line(c, (230, yc + ro), (690, yc + ro), col, w)
+    poly(c, hub, col, 1.6)
+    for y0, y1 in ((yc - ro, yc - ri), (yc + ri, yc + ro)):
+        rect(c, 280, y0, 8, y1 - y0, col, 1.3, fill="none")
+    return yc, ro, ri
+
+
+def cl14_statement():
+    c = Canvas(760, 300)
+    yc, ro, ri = _cl14_section(c)
+    ellipse(c, 90, yc, 62, 120, "HEAD", 1.4); ellipse(c, 90, yc, 24, 52, "HEAD", 1.4)
+    ellipse(c, 90, yc, 42, 86, "TEXT", 1.2, "4,4")
+    arrow(c, (90, yc), (90, yc - 90), "HEAD", 1.2, 7); lab(c, (80, yc - 70), "r", anchor="end", size=16)
+    arrow(c, (90, yc), (196, yc), "HEAD", 1.2, 7); lab(c, (200, yc + 20), "z", anchor="start", size=16)
+    arrow(c, (118, yc - 82), (158, yc - 82), "BLUE", 1.4, 7); lab(c, (162, yc - 92), sub("u", "1"), "BLUE", "start", 16)
+    arrow(c, (118, yc - 82), (136, yc - 58), "BLUE", 1.4, 7); lab(c, (114, yc - 60), sub("u", "θ"), "BLUE", "end", 16)
+    lab(c, (150, yc + 98), sub("p", "1"), anchor="start", size=16); lab(c, (150, yc + 122), sub("ρ", "1"), anchor="start", size=16)
+    line(c, (230, yc - ro), (230, yc - ri), "TEXT", 1.2, "4,3"); line(c, (230, yc + ri), (230, yc + ro), "TEXT", 1.2, "4,3")
+    line(c, (690, yc - ro), (690, yc + ro), "TEXT", 1.2, "4,3")
+    line(c, (230, yc), (690, yc), "TEXT", 1.0, "10,3,2,3")
+    flow_arrows(c, 192, 226, [yc - 115, yc - 95, yc - 75, yc + 75, yc + 95, yc + 115], "BLUE", 1.3)
+    flow_arrows(c, 694, 728, [yc - 115, yc - 95, yc - 75, yc - 55, yc - 35, yc + 35, yc + 55, yc + 75, yc + 95, yc + 115],
+                "BLUE", 1.3)
+    lab(c, (735, yc - 108), sub("u", "2"), anchor="start", size=16); lab(c, (735, yc - 86), sub("p", "2"), anchor="start", size=16)
+    lab(c, (735, yc - 64), sub("ρ", "2"), anchor="start", size=16)
+    note(c, (300, yc - 98), "stator", "HEAD", "start", 13); line(c, (298, yc - 102), (288, yc - 92), "HEAD", 1.0)
+    note(c, (300, yc + 108), "stator", "HEAD", "start", 13); line(c, (298, yc + 102), (288, yc + 92), "HEAD", 1.0)
+    note(c, (390, yc - 60), "conical diffuser", "HEAD", "start", 13); line(c, (388, yc - 56), (372, yc - 36), "HEAD", 1.0)
+    dim(c, (246, yc), (246, yc - ri), "", "TEXT"); lab(c, (252, yc - 22), sub("R", "i"), anchor="start", size=16)
+    dim(c, (560, yc), (560, yc - ro), "", "TEXT"); lab(c, (566, yc - 70), sub("R", "o"), anchor="start", size=16)
+    REG.put("cl14-statement", c,
+            "Diffuser module: front view of the inlet annulus with the axial and azimuthal velocity components u1, u theta, "
+            "and axial section with the fixed stator of inner and outer radii Ri, Ro, the conical diffuser and the exit "
+            "with u2, p2, rho2",
+            "Statement figure (redrawn from CL14.pdf, p. 1): front view of the inlet ($u_1$, $u_\\theta$, $p_1$, $\\rho_1$) "
+            "and axial section of the module: fixed stator between $R_i$ and $R_o$, conical diffuser, purely axial exit "
+            "$u_2$, $p_2$, $\\rho_2$")
+
+
+def cl14_cv():
+    c = Canvas(700, 350)
+    c.add('<g transform="translate(0,30)">')
+    yc, ro, ri = _cl14_section(c, "EDGE", 2.0)
+    poly(c, [(234, yc - ri - 4), (234, yc - ro + 4), (686, yc - ro + 4), (686, yc + ro - 4), (234, yc + ro - 4),
+             (234, yc + ri + 4), (329, yc + ri + 4), (434, yc + 2), (434, yc - 2), (329, yc - ri - 4), (234, yc - ri - 4)],
+         "GREEN", 2.0, CV_DASH)
+    for y0, y1 in ((yc - ro + 4, yc - ri - 4), (yc + ri + 4, yc + ro - 4)):
+        rect(c, 276, y0 + 3, 16, y1 - y0 - 6, "GREEN", 1.6, "4,3", rx=4)
+    sigma(c, (220, 30), "in", "end"); leader(c, (222, 34), (234, 50))
+    sigma(c, (660, 304), "out", "end"); leader(c, (662, 300), (686, 270))
+    sigma(c, (500, 4), "w", "start"); leader(c, (498, 0), (480, yc - ro + 4)); leader(c, (508, 8), (420, yc - 18))
+    sigma(c, (330, 304), "a", "start"); leader(c, (328, 298), (292, 260))
+    normal(c, (234, 66), (-1, 0), length=30, lab_off=(-4, -6), anchor="end")
+    normal(c, (686, 66), (1, 0), length=30, lab_off=(4, -6), anchor="start")
+    normal(c, (600, yc - ro + 4), (0, -1), length=24, lab_off=(12, 6), anchor="start")
+    arrow(c, (150, 236), (226, 236), "BLUE", 2.0, 9); lab(c, (188, 226), vec("v") + sub("", "1"), "BLUE", size=16)
+    arrow(c, (600, yc + 60), (660, yc + 60), "BLUE", 2.0, 9); lab(c, (630, yc + 50), vec("v") + sub("", "2"), "BLUE", size=16)
+    line(c, (230, yc), (690, yc), "TEXT", 1.0, "10,3,2,3")
+    arrow(c, (40, 300), (84, 300), "HEAD", 1.3, 8); lab(c, (90, 305), vec("e") + sub("", "z"), anchor="start", size=15)
+    arrow(c, (40, 300), (40, 258), "HEAD", 1.3, 8); lab(c, (46, 262), vec("e") + sub("", "r"), anchor="start", size=15)
+    c.add("</g>")
+    REG.put("cl14-cv", c,
+            "Control volume in the axial section: inlet annulus, exit disc, the casing and cone walls and the surfaces "
+            "around the stator aerofoils",
+            "Control volume of the solution (axial section): $\\Sigma_{in}$ (inlet annulus, $\\bar{n} = -\\bar{e}_z$), "
+            "$\\Sigma_{out}$ (exit disc, $\\bar{n} = +\\bar{e}_z$), $\\Sigma_w$ (inner wall of the casing and outer wall "
+            "of the cone) and $\\Sigma_a$ (around the stator aerofoils); all are fixed")
+
+
+# ----------------------------------------------------------------------------------------- CL1
+CL1_YC, CL1_YM, CL1_Y0 = 165, 45, 130
+
+
+def _cl1_streamline(sign):
+    yc, ym, y0 = CL1_YC, CL1_YM, CL1_Y0
+    return cubic((110, yc - sign * ym), (300, yc - sign * ym), (340, yc - sign * y0), (480, yc - sign * y0), 50)
+
+
+def _cl1_airfoil(c, col="HEAD", fill="TEXT"):
+    pathd(c, "M205,165 C205,145 240,150 305,165 C240,180 205,185 205,165 Z", col, 1.6, fill=fill, opacity=0.25)
+
+
+def cl1_statement():
+    c = Canvas(620, 330)
+    yc = CL1_YC
+    line(c, (60, 20), (60, 312), "HEAD", 1.6)
+    for k in range(20):
+        y = 24 + k * 15
+        arrow(c, (60, y), (108, y), "BLUE", 1.2, 7)
+    lab(c, (84, 14), "U", size=16)
+    for sgn in (1, -1):
+        poly(c, _cl1_streamline(sgn), "TEXT", 1.4, "3,3")
+    line(c, (110, yc - CL1_YM), (110, yc + CL1_YM), "TEXT", 1.0, "3,3")
+    _cl1_airfoil(c)
+    line(c, (480, 20), (480, 312), "HEAD", 1.6)
+    tips = []
+    for k in range(20):
+        y = 24 + k * 15
+        d = abs(y - yc)
+        L = 48 if d >= CL1_Y0 else 24 + 24 * d / CL1_Y0
+        arrow(c, (480, y), (480 + L, y), "BLUE", 1.2, 7)
+    for y in (20, yc - CL1_Y0, yc, yc + CL1_Y0, 312):
+        d = abs(y - yc)
+        tips.append((480 + (48 if d >= CL1_Y0 else 24 + 24 * d / CL1_Y0), y))
+    poly(c, tips, "HEAD", 1.3)
+    lab(c, (504, 14), "U", size=16); lab(c, (512, yc + 6), "U/2", anchor="start", size=15)
+    lab(c, (536, yc - CL1_Y0 + 6), sub("y", "0"), anchor="start", size=15)
+    lab(c, (536, yc + CL1_Y0 + 6), "−" + sub("y", "0"), anchor="start", size=15)
+    dim(c, (124, yc), (124, yc - CL1_YM), "", "TEXT"); lab(c, (130, yc - 18), sub("y", "−∞"), anchor="start", size=15)
+    REG.put("cl1-statement", c,
+            "Airfoil in a wind tunnel: uniform velocity U upstream; the bounding streamlines start at y equal to plus or "
+            "minus y minus infinity and reach plus or minus y0 at the section x0, where the wake profile drops linearly "
+            "from U at the edges to U over 2 at the centreline",
+            "Statement figure (redrawn from CL1.pdf, p. 1): uniform profile $U$ upstream; bounding streamlines from "
+            "$y = \\pm y_{-\\infty}$ to $y = \\pm y_0$; wake profile at $x = x_0$ falling linearly from $U$ at $|y| = y_0$ to "
+            "$U/2$ on the centreline")
+
+
+def cl1_cv():
+    c = Canvas(620, 330)
+    yc = CL1_YC
+    for sgn in (1, -1):
+        poly(c, _cl1_streamline(sgn), "GREEN", 2.0, CV_DASH)
+    line(c, (110, yc - CL1_YM), (110, yc + CL1_YM), "GREEN", 2.0, CV_DASH)
+    line(c, (480, yc - CL1_Y0), (480, yc + CL1_Y0), "GREEN", 2.0, CV_DASH)
+    pathd(c, "M110,120 C300,120 340,35 480,35 L480,295 C340,295 300,210 110,210 Z", "none", 0, fill="BLUE", opacity=0.08)
+    _cl1_airfoil(c, "EDGE")
+    pathd(c, "M199,165 C199,140 240,144 312,165 C240,186 199,190 199,165 Z", "GREEN", 1.6, "4,3")
+    sigma(c, (100, 106), "1", "end")
+    sigma(c, (494, 300), "2", "start")
+    sigma(c, (300, 70), "l", "end"); leader(c, (302, 72), (330, 86))
+    sigma(c, (300, 270), "l", "end"); leader(c, (302, 264), (330, 244))
+    sigma(c, (250, 122), "w", "middle"); leader(c, (252, 128), (256, 150))
+    normal(c, (110, 140), (-1, 0), length=30, lab_off=(-4, -6), anchor="end")
+    normal(c, (480, 120), (1, 0), length=30, lab_off=(4, -6), anchor="start")
+    normal(c, (410, 46), (0.28, -1), length=26, lab_off=(10, 6), anchor="start")
+    normal(c, (410, 284), (0.28, 1), length=26, lab_off=(10, 6), anchor="start")
+    normal(c, (250, 184), (0, -1), length=16, lab_off=(0, 34))
+    arrow(c, (30, 165), (90, 165), "BLUE", 2.0, 9); lab(c, (60, 155), "U", "BLUE", size=16)
+    axes(c, (40, 300), "x", "y", 34)
+    REG.put("cl1-cv", c,
+            "Control volume bounded by the far-upstream section, the two bounding streamlines, the wake section at x0 and "
+            "the airfoil surface",
+            "Control volume of the solution: $\\Sigma_1$ (far upstream, $|y| < y_{-\\infty}$, $\\bar{n} = -\\bar{e}_x$), "
+            "$\\Sigma_2$ ($x = x_0$, $|y| < y_0$, $\\bar{n} = +\\bar{e}_x$), the bounding streamlines $\\Sigma_l$ and the "
+            "airfoil surface $\\Sigma_w$ ($\\bar{n}$ into the airfoil). The official sketch names them $\\Sigma_u$, "
+            "$\\Sigma_d$, $\\Sigma_\\ell$ and $\\Sigma_i$")
+
+
 # ----------------------------------------------------------------------------------------- build
 def build():
     for fn in (cl22_statement, cl22_cv, cl21_statement, cl21_cv, cl20_statement, cl20_cv,
                cl12_statement, cl12_cv, cl2_statement, cl2_cv,
                cl6_statement, cl6_cv, cl19_statement, cl19_cv, cl10_statement, cl10_cv, cl3_statement, cl3_cv,
-               cl8_statement, cl8_cv):
+               cl8_statement, cl8_cv, cl16_statement, cl16_cv, cl18_statement, cl18_cv, cl9_statement, cl9_cv,
+               cl14_statement, cl14_cv, cl1_statement, cl1_cv):
         fn()
     return REG

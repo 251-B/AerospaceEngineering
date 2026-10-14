@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Control volume around the liquid: the incoming jet section, the free surfaces, the two sections across the deflected layers and the wetted faces of the wedge">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="300.0,215.0 480.0,134.9 480.0,414.9" fill="#6b7280" fill-opacity="0.14" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<polygon points="80.0,195.0 270.0,195.0 292.7,198.6 529.3,93.2 536.6,109.6 300.0,215.0 512.1,450.6 495.8,465.3 283.7,229.7 270.0,235.0 80.0,235.0" fill="#3b82f6" fill-opacity="0.3" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="96.0,195.0 270.0,195.0 292.7,198.6 516.5,98.9 523.9,115.3 300.0,215.0 502.8,440.2 486.4,454.9 283.7,229.7 270.0,235.0 96.0,235.0" fill="none" stroke="#10b981" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<text x="86.0" y="265.0" fill="#10b981" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="88.0" y1="257.0" x2="96.0" y2="229.0" stroke="#10b981" stroke-width="1.0"/>
+<text x="509.6" y="73.5" fill="#10b981" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="526.1" y="454.1" fill="#10b981" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="200.0" y="166.0" fill="#10b981" font-size="17" font-weight="600" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="200.0" y1="172.0" x2="210.0" y2="195.0" stroke="#10b981" stroke-width="1.0"/>
+<text x="336.4" y="330.2" fill="#10b981" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="340.9" y1="326.2" x2="357.3" y2="311.5" stroke="#10b981" stroke-width="1.0"/>
+<text x="420.0" y="230.0" fill="#10b981" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="418.0" y1="226.0" x2="409.6" y2="166.2" stroke="#10b981" stroke-width="1.0"/>
+<line x1="430.0" y1="236.0" x2="400.4" y2="326.5" stroke="#10b981" stroke-width="1.0"/>
+<line x1="96.0" y1="223.0" x2="70.8" y2="223.0" stroke="#10b981" stroke-width="1.6"/>
+<path d="M66.0,223.0 L73.4,219.9 L73.4,226.1 Z" fill="#10b981"/>
+<text x="62.0" y="228.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="520.2" y1="107.1" x2="543.2" y2="96.9" stroke="#10b981" stroke-width="1.6"/>
+<path d="M547.6,94.9 L542.1,100.8 L539.6,95.1 Z" fill="#10b981"/>
+<text x="553.6" y="90.9" fill="#10b981" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">t</tspan><tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="494.6" y1="447.5" x2="511.4" y2="466.3" stroke="#10b981" stroke-width="1.6"/>
+<path d="M514.6,469.8 L507.4,466.4 L512.0,462.3 Z" fill="#10b981"/>
+<text x="520.6" y="481.8" fill="#10b981" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">t</tspan><tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="347.5" y1="174.2" x2="337.0" y2="150.6" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M335.3,146.7 L340.4,151.5 L335.4,153.7 Z" fill="#4b5563"/>
+<text x="331.3" y="140.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">m</tspan><tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="323.8" y1="274.3" x2="304.6" y2="291.6" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M301.5,294.4 L304.5,288.0 L308.1,292.1 Z" fill="#4b5563"/>
+<text x="297.5" y="308.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">m</tspan><tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<circle cx="300" cy="215" r="3.5" fill="#4b5563"/>
+<text x="312.0" y="221.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">x</tspan><tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<line x1="24.0" y1="181.0" x2="68.6" y2="181.0" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M74.0,181.0 L65.7,184.5 L65.7,177.5 Z" fill="#3b82f6"/>
+<text x="48.0" y="171.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v</text>
+<line x1="40.0" y1="440.0" x2="71.2" y2="440.0" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M76.0,440.0 L68.6,443.1 L68.6,436.9 Z" fill="#4b5563"/>
+<text x="82.0" y="445.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="40.0" y1="440.0" x2="40.0" y2="408.8" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M40.0,404.0 L43.1,411.4 L36.9,411.4 Z" fill="#4b5563"/>
+<text x="46.0" y="408.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+</g></svg>
