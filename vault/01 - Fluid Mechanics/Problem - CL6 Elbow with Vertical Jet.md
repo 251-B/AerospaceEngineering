@@ -24,6 +24,9 @@ A liquid of density $\rho$ and specific heat $c$ flows through the elbow-shaped 
 - The two components of the force $(F_x, F_z)$ exerted on the pipe.
 - The amount of heat $Q$ transferred per unit time to the liquid by heat conduction through the pipe walls.
 
+![[attachments/FM-T3/cl6-statement.svg]]
+*Statement figure (redrawn from CL6.pdf, p. 1): inlet section $A_i$ with $v_i$, $p_i$, $T_i$; outlet $A_o$ discharging a vertical jet $v_o$, $T_o$ into $p_a$; force components $F_x$, $F_z$ on the pipe and heat $Q$ through its walls*
+
 Source: CL6.pdf (page 1), also solved in class (class notes, CL6). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -46,6 +49,9 @@ Source: CL6.pdf (page 1), also solved in class (class notes, CL6). Notes.pdf, Ch
 
 - Frame fixed to the pipe, $\bar{e}_x$ horizontal (inlet flow direction), $\bar{e}_z$ vertical upwards. Fixed control volume: the liquid inside the pipe, $\bar{v}_c = 0$.
 - Surfaces: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$, $\bar{v} = v_i\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = -\bar{e}_z$, $\bar{v} = -v_o\bar{e}_z$), $\Sigma_w$ (pipe wall, $\bar{v} = 0$).
+
+![[attachments/FM-T3/cl6-cv.svg]]
+*Control volume of the solution (as in the class notes): the liquid inside the pipe, with $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = -\bar{e}_z$) and the wall $\Sigma_w$, where the force and the heat are collected*
 
 Force of the liquid and the ambient air on the pipe, and heat through the walls, written on $\Sigma_w$:
 

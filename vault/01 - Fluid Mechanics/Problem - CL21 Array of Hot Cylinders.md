@@ -26,6 +26,9 @@ A linear array of parallel hot cylinders of radius $R$, whose centers are separa
 
 NOTE: Explain clearly the simplifications and assumptions employed in the derivation.
 
+![[attachments/FM-T3/cl21-statement.svg]]
+*Statement figure (redrawn from CL21.pdf, p. 1): array of cylinders of radius $R$, centres $3R$ apart, in a stream $U_1$, $\rho_1$, $p_1$; far downstream $U_2$, $p_2$*
+
 Source: CL21.pdf (page 1, retake of Jun 13, 2014). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -46,6 +49,9 @@ Source: CL21.pdf (page 1, retake of Jun 13, 2014). Notes.pdf, Chapter 3: integra
 
 - Frame fixed to the array; $\bar{e}_x$ along the stream. Fixed control volume of height $3R$ around one cylinder (as in the official figure).
 - Surfaces: $\Sigma_1$ (far upstream, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (far downstream, $\bar{n} = +\bar{e}_x$), $\Sigma_{top}$ and $\Sigma_{bot}$ (lines midway between cylinders, $\bar{n} = \pm\bar{e}_y$) and $\Sigma_{cyl}$ (cylinder surface). By periodicity every flux through $\Sigma_{top}$ equals minus the one through $\Sigma_{bot}$: they cancel each other out.
+
+![[attachments/FM-T3/cl21-cv.svg]]
+*Control volume of the solution: $\Sigma_1$ and $\Sigma_2$ far upstream and downstream, $\Sigma_{top}$ and $\Sigma_{bot}$ midway between cylinders ($3R$ apart; their fluxes cancel by periodicity) and the cylinder surface $\Sigma_{cyl}$, with the outward normals*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_{cyl}}\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

@@ -20,6 +20,9 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 
 The double-elbow mouth piece of exit cross section $A_o$ shown in the figure of CL3.pdf is to be installed at the end of a circular pipe of cross section $A_p$ to redirect the outflow of water into the open atmosphere. Once the mouth piece is installed, the uniform values $U_p$ and $p_p$ are measured for the flow velocity and the pressure at the end of the pipe (i.e., just at the entrance of the mouth piece). Find the value of the uniform velocity at the exit section, $U_o$, as well as the force exerted on the mouth piece and its corresponding moment with respect to the entrance section. (Handwritten addition: neglect the effect of gravity.)
 
+![[attachments/FM-T3/cl3-statement.svg]]
+*Statement figure (redrawn from CL3.pdf, p. 1): pipe of section $A_p$ ($U_p$, $p_p$ at the end of the pipe), mouth piece with two elbows dropping a height $H$ to the exit section $A_o$ ($U_o$, open atmosphere $p_a$); $F$ and $M$ act at the entrance section*
+
 Source: CL3.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eqs. 3.37-3.38, force and moment on a body Eqs. 3.32-3.33.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -42,6 +45,9 @@ Source: CL3.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, 
 - Inertial frame fixed to the pipe: $\bar{e}_x$ along the pipe axis (flow direction), $\bar{e}_y$ vertical upwards, $\bar{e}_z = \bar{e}_x\wedge\bar{e}_y$ towards the reader. Origin $O$ at the centre of the entrance section (moments about $O$).
 - Centre of the exit section: $\bar{x}_o = X\bar{e}_x - H\bar{e}_y$ relative to $O$ ($X$ drops out). Position within a circular section relative to its centre: $\bar{\eta}$, with $\int\bar{\eta}\,d\sigma = 0$.
 - Control volume: the water inside the mouth piece, fixed ($\bar{v}_c = 0$). Surfaces: $\Sigma_p$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (exit, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (inner wall).
+
+![[attachments/FM-T3/cl3-cv.svg]]
+*Control volume of the solution: $\Sigma_p$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (exit, $\bar{n} = +\bar{e}_x$) and the inner wall $\Sigma_w$; origin $O$ at the centre of the entrance section, exit centre at $\bar{x}_o = X\bar{e}_x - H\bar{e}_y$ (moments about $O$)*
 
 Force and moment of the water and the atmosphere on the mouth piece, with $\bar{n}$ the outward normal of the control volume:
 

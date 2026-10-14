@@ -26,6 +26,9 @@ The submarine propulsion device schematically represented in the figure of CL9.p
 - Use the energy equation to relate the work per unit time $\dot{W}$ with the different fluid variables appearing in the problem. Assume that the variation of internal energy between the inlet and outlet sections is negligible ($e_e = e_s$) and that all of the device walls, including those of the fan, are thermally insulated.
 - Combine the above equations to show that the thrust can be expressed in the form $T/(\rho^{1/3}\dot{W}^{2/3}A_s^{1/3}) = f(A_e/A_s)$, obtaining the function $f$.
 
+![[attachments/FM-T3/cl9-statement.svg]]
+*Statement figure (redrawn from CL9.pdf, p. 1): nozzle of inlet area $A_e$ ($U_e$, $p_e$) and outlet area $A_s$ ($U_s$, $p_s$); propeller supplying the power $\dot{W}$; thrust $T$; the streamline from the still water at point 1 ($p_\infty$) to the inlet $e$*
+
 Source: CL9.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -46,6 +49,9 @@ Source: CL9.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral mo
 
 - Frame fixed to the submarine (at rest), $\bar{e}_x$ along the axis in the direction of the exit jet. The thrust pushes the device towards $-\bar{e}_x$: $\bar{F} = -T\bar{e}_x$ is the force of the water (inside and outside, at $p_\infty$) on the device.
 - Surfaces: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (outlet, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (nozzle walls, fixed) and $\Sigma_p$ (propeller, moving).
+
+![[attachments/FM-T3/cl9-cv.svg]]
+*Control volume of the solution: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (outlet, $\bar{n} = +\bar{e}_x$), the fixed nozzle walls $\Sigma_w$ and the moving propeller $\Sigma_p$ (dashed around it); the force of the water on the device is $\bar{F} = -T\bar{e}_x$*
 
 $$ \boxed{\,\bar{F} = -T\,\bar{e}_x = \int_{\Sigma_w,\Sigma_p}\left[(p - p_\infty)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 480" width="100%" class="fig-kit" style="max-width:630px;margin:0 auto;display:block" role="img" aria-label="Circular jet of diameter Dj and velocity Vj hitting a wall with a coaxial orifice of diameter Ds: a secondary jet Vs crosses the orifice and the rest spreads as a radial wall jet of velocity Vr and thickness h(r)">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="130.0,210.0 138.4,210.0 146.6,209.9 154.7,209.8 162.5,209.7 170.2,209.5 177.6,209.3 184.9,209.0 192.1,208.7 199.0,208.3 205.8,207.8 212.4,207.3 218.8,206.7 225.1,206.1 231.2,205.3 237.1,204.5 242.9,203.6 248.5,202.7 253.9,201.6 259.2,200.5 264.3,199.3 269.3,197.9 274.1,196.5 278.7,195.0 283.2,193.4 287.6,191.6 291.8,189.8 295.9,187.8 299.8,185.8 303.6,183.6 307.2,181.2 310.8,178.8 314.1,176.2 317.4,173.5 320.5,170.7 323.4,167.7 326.3,164.6 329.0,161.4 331.6,158.0 334.0,154.4 336.4,150.7 338.6,146.9 340.7,142.9 342.7,138.7 344.5,134.4 346.3,129.8 347.9,125.2 349.4,120.3 350.9,115.3 352.2,110.1 353.4,104.7 354.5,99.1 355.5,93.3 356.4,87.4 357.2,81.2 357.9,74.9 358.5,68.3 359.0,61.5 359.4,54.6 359.8,47.4 360.0,40.0 376.0,40.0 376.0,440.0 360.0,440.0 359.8,432.6 359.4,425.4 359.0,418.5 358.5,411.7 357.9,405.1 357.2,398.8 356.4,392.6 355.5,386.7 354.5,380.9 353.4,375.3 352.2,369.9 350.9,364.7 349.4,359.7 347.9,354.8 346.3,350.2 344.5,345.6 342.7,341.3 340.7,337.1 338.6,333.1 336.4,329.3 334.0,325.6 331.6,322.0 329.0,318.6 326.3,315.4 323.4,312.3 320.5,309.3 317.4,306.5 314.1,303.8 310.8,301.2 307.2,298.8 303.6,296.4 299.8,294.2 295.9,292.2 291.8,290.2 287.6,288.4 283.2,286.6 278.7,285.0 274.1,283.5 269.3,282.1 264.3,280.7 259.2,279.5 253.9,278.4 248.5,277.3 242.9,276.4 237.1,275.5 231.2,274.7 225.1,273.9 218.8,273.3 212.4,272.7 205.8,272.2 199.0,271.7 192.1,271.3 184.9,271.0 177.6,270.7 170.2,270.5 162.5,270.3 154.7,270.2 146.6,270.1 138.4,270.0 130.0,270.0" fill="#3b82f6" fill-opacity="0.12" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<rect x="376.0" y="228.0" width="184.0" height="24.0" fill="#3b82f6" fill-opacity="0.12" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<polyline points="130.0,210.0 138.4,210.0 146.6,209.9 154.7,209.8 162.5,209.7 170.2,209.5 177.6,209.3 184.9,209.0 192.1,208.7 199.0,208.3 205.8,207.8 212.4,207.3 218.8,206.7 225.1,206.1 231.2,205.3 237.1,204.5 242.9,203.6 248.5,202.7 253.9,201.6 259.2,200.5 264.3,199.3 269.3,197.9 274.1,196.5 278.7,195.0 283.2,193.4 287.6,191.6 291.8,189.8 295.9,187.8 299.8,185.8 303.6,183.6 307.2,181.2 310.8,178.8 314.1,176.2 317.4,173.5 320.5,170.7 323.4,167.7 326.3,164.6 329.0,161.4 331.6,158.0 334.0,154.4 336.4,150.7 338.6,146.9 340.7,142.9 342.7,138.7 344.5,134.4 346.3,129.8 347.9,125.2 349.4,120.3 350.9,115.3 352.2,110.1 353.4,104.7 354.5,99.1 355.5,93.3 356.4,87.4 357.2,81.2 357.9,74.9 358.5,68.3 359.0,61.5 359.4,54.6 359.8,47.4 360.0,40.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="130.0,270.0 138.4,270.0 146.6,270.1 154.7,270.2 162.5,270.3 170.2,270.5 177.6,270.7 184.9,271.0 192.1,271.3 199.0,271.7 205.8,272.2 212.4,272.7 218.8,273.3 225.1,273.9 231.2,274.7 237.1,275.5 242.9,276.4 248.5,277.3 253.9,278.4 259.2,279.5 264.3,280.7 269.3,282.1 274.1,283.5 278.7,285.0 283.2,286.6 287.6,288.4 291.8,290.2 295.9,292.2 299.8,294.2 303.6,296.4 307.2,298.8 310.8,301.2 314.1,303.8 317.4,306.5 320.5,309.3 323.4,312.3 326.3,315.4 329.0,318.6 331.6,322.0 334.0,325.6 336.4,329.3 338.6,333.1 340.7,337.1 342.7,341.3 344.5,345.6 346.3,350.2 347.9,354.8 349.4,359.7 350.9,364.7 352.2,369.9 353.4,375.3 354.5,380.9 355.5,386.7 356.4,392.6 357.2,398.8 357.9,405.1 358.5,411.7 359.0,418.5 359.4,425.4 359.8,432.6 360.0,440.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="384.0" y1="228.0" x2="560.0" y2="228.0" stroke="#4b5563" stroke-width="1.8"/>
+<line x1="384.0" y1="252.0" x2="560.0" y2="252.0" stroke="#4b5563" stroke-width="1.8"/>
+<ellipse cx="130.0" cy="240.0" rx="7.0" ry="30.0" fill="none" stroke="#4b5563" stroke-width="1.6"/>
+<rect x="376.0" y="30.0" width="8.0" height="192.0" fill="#4b5563" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<rect x="376.0" y="258.0" width="8.0" height="182.0" fill="#4b5563" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<line x1="100.0" y1="240.0" x2="590.0" y2="240.0" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="10,3,2,3"/>
+<path d="M600.0,240.0 L591.7,243.5 L591.7,236.5 Z" fill="#6b7280"/>
+<line x1="72.0" y1="226.0" x2="119.2" y2="226.0" stroke="#3b82f6" stroke-width="1.6"/>
+<path d="M124.0,226.0 L116.6,229.1 L116.6,222.9 Z" fill="#3b82f6"/>
+<line x1="72.0" y1="254.0" x2="119.2" y2="254.0" stroke="#3b82f6" stroke-width="1.6"/>
+<path d="M124.0,254.0 L116.6,257.1 L116.6,250.9 Z" fill="#3b82f6"/>
+<text x="64.0" y="236.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">j</tspan></text>
+<line x1="130.0" y1="172.0" x2="130.0" y2="204.8" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M130.0,209.0 L127.3,202.6 L132.7,202.6 Z" fill="#6b7280"/>
+<line x1="130.0" y1="308.0" x2="130.0" y2="275.2" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M130.0,271.0 L132.7,277.4 L127.3,277.4 Z" fill="#6b7280"/>
+<text x="140.0" y="192.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">D<tspan baseline-shift="sub" font-size="72%">j</tspan></text>
+<line x1="368.0" y1="60.0" x2="368.0" y2="20.8" stroke="#3b82f6" stroke-width="1.6"/>
+<path d="M368.0,16.0 L371.1,23.4 L364.9,23.4 Z" fill="#3b82f6"/>
+<text x="356.0" y="26.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">r</tspan></text>
+<line x1="318.0" y1="426.0" x2="353.8" y2="426.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M358.0,426.0 L351.6,428.7 L351.6,423.3 Z" fill="#6b7280"/>
+<line x1="420.0" y1="426.0" x2="381.2" y2="426.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M377.0,426.0 L383.4,423.3 L383.4,428.7 Z" fill="#6b7280"/>
+<text x="312.0" y="432.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">h(r)</text>
+<line x1="530.0" y1="196.0" x2="530.0" y2="222.8" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M530.0,227.0 L527.3,220.6 L532.7,220.6 Z" fill="#6b7280"/>
+<line x1="530.0" y1="284.0" x2="530.0" y2="257.2" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M530.0,253.0 L532.7,259.4 L527.3,259.4 Z" fill="#6b7280"/>
+<text x="522.0" y="210.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">D<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="585.0" y="226.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">s</tspan></text>
+<text x="260.0" y="130.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="470.0" y="300.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<line x1="24.0" y1="150.0" x2="73.2" y2="150.0" stroke="#4b5563" stroke-width="1.4"/>
+<path d="M78.0,150.0 L70.6,153.1 L70.6,146.9 Z" fill="#4b5563"/>
+<text x="50.0" y="140.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+</g></svg>

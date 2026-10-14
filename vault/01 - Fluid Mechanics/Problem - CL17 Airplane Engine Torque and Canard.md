@@ -25,6 +25,9 @@ An experimental airplane is powered by an engine without moving parts that deliv
 - Use the angular momentum equation to obtain the net torque $\bar{M}$ acting on the airplane with respect to its CoG. Assume that the surrounding air is at uniform pressure $p_a$, except at the engine's inlet and outlet.
 - To compensate the torque obtained in the previous question, the engineers decide that the main wing's CoG coincides with that of the full airplane, so that it doesn't contribute to the torque, and to place a control surface (canard) at a distance $L$ from the CoG (see figure). Knowing that this control surface provides a lift force $F$, determine the distance $L$.
 
+![[attachments/FM-T3/cl17-statement.png]]
+*Statement figure (CL17.pdf, p. 1, cropped): inlet of height $a_i$ ($V_i$, $p_i$, $\rho_i$) and outlet of height $a_o$ ($V_o$, $p_o$, $\rho_o$), heat $\dot{Q}$, axes at the CoG, canard lift $F$ at the distance $L$*
+
 Source: CL17.pdf (page 1, exam of June 27, 2013; statement only, no official solution in the source). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -49,6 +52,9 @@ Source: CL17.pdf (page 1, exam of June 27, 2013; statement only, no official sol
 
 - Frame fixed to the airplane (steady flight or test bench), origin at the CoG, $\bar{e}_x$ towards the tail, $\bar{e}_y$ upwards, $\bar{e}_z$ towards the reader. Fixed control volume: the air inside the engine.
 - Surfaces: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$, area $a_ib$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$, area $a_ob$), $\Sigma_w$ (engine walls, at rest).
+
+![[attachments/FM-T3/cl17-cv.svg]]
+*Control volume of the solution (schematic): $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$, area $a_ib$, below the CoG), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$, area $a_ob$, above the CoG) and the engine walls $\Sigma_w$; origin and moments at the CoG*
 
 $$ \boxed{\,\bar{T} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

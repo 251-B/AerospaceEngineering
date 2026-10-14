@@ -72,6 +72,70 @@ def dot(c, p, r=4, col="HEAD", fill=None):
     c.add(f'<circle cx="{fmt(p[0])}" cy="{fmt(p[1])}" r="{r}" fill="{fill or col}" stroke="{col}" stroke-width="1"/>')
 
 
+def sub(base, s, sup=False):
+    """Label with a subscript (or superscript): sub('Σ', 'w') -> Σ with a lowered w."""
+    return f'{base}<tspan baseline-shift="{"super" if sup else "sub"}" font-size="72%">{s}</tspan>'
+
+
+def _style(col, w, dash, fill, opacity):
+    d = f' stroke-dasharray="{dash}"' if dash else ""
+    o = f' fill-opacity="{opacity}"' if opacity is not None else ""
+    return f'fill="{fill}"{o} stroke="{col}" stroke-width="{w}"{d} stroke-linejoin="round"'
+
+
+def poly(c, pts, col="HEAD", w=1.6, dash=None, fill="none", close=False, opacity=None):
+    """Polyline (or closed polygon) through the points."""
+    tag = "polygon" if close else "polyline"
+    c.add(f'<{tag} points="{" ".join(f"{fmt(x)},{fmt(y)}" for x, y in pts)}" {_style(col, w, dash, fill, opacity)}/>')
+
+
+def rect(c, x, y, w, h, col="HEAD", sw=1.6, dash=None, fill="none", opacity=None, rx=0):
+    r = f' rx="{rx}"' if rx else ""
+    c.add(f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{fmt(w)}" height="{fmt(h)}"{r} {_style(col, sw, dash, fill, opacity)}/>')
+
+
+def pathd(c, d, col="HEAD", w=1.6, dash=None, fill="none", opacity=None):
+    """Raw SVG path data (arcs, Bezier curves)."""
+    c.add(f'<path d="{d}" {_style(col, w, dash, fill, opacity)}/>')
+
+
+def circle(c, p, r, col="HEAD", w=1.6, dash=None, fill="none", opacity=None):
+    c.add(f'<circle cx="{fmt(p[0])}" cy="{fmt(p[1])}" r="{fmt(r)}" {_style(col, w, dash, fill, opacity)}/>')
+
+
+def arrow(c, a, b, col="BLUE", w=1.8, size=9):
+    """Straight arrow from a to b (head at b)."""
+    ang = math.atan2(b[1] - a[1], b[0] - a[0])
+    tip = (b[0] - size * 0.6 * math.cos(ang), b[1] - size * 0.6 * math.sin(ang))
+    line(c, a, tip, col, w)
+    arrow_head(c, a, b, col, size)
+
+
+def dim(c, a, b, label, col="TEXT", lab_off=(0, 0), anchor="middle", size=14, w=1.1):
+    """Dimension line with heads at both ends and its label at the middle (shifted by lab_off)."""
+    line(c, a, b, col, w)
+    arrow_head(c, b, a, col, 7)
+    arrow_head(c, a, b, col, 7)
+    mid = ((a[0] + b[0]) / 2 + lab_off[0], (a[1] + b[1]) / 2 + lab_off[1])
+    text(c, mid, label, col, anchor, size=size)
+
+
+def hatch(c, a, b, side=1, col="EDGE", step=9, length=8, w=1.0):
+    """Short slanted strokes along the segment a-b, on the left (side=1) or right (side=-1) of a->b: a solid wall."""
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    L = math.hypot(dx, dy)
+    if L == 0:
+        return
+    tx, ty = dx / L, dy / L
+    nx, ny = -ty * side, tx * side                     # unit normal on the chosen side (screen coordinates)
+    k = 0.0
+    while k <= L:
+        p = (a[0] + tx * k, a[1] + ty * k)
+        q = (p[0] + (nx - tx) * length * 0.7071, p[1] + (ny - ty) * length * 0.7071)
+        line(c, p, q, col, w)
+        k += step
+
+
 def path_d(fn, xs, px, y0, scale, top, bottom):
     """SVG path data for y = fn(x), split where the curve leaves [top, bottom]."""
     segs, cur = [], []

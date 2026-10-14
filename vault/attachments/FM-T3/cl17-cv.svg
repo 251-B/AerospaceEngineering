@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Control volume: the air inside the engine, from the inlet section below the axis to the outlet section above it, bounded by the engine walls; origin at the centre of gravity">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M140,66 C70,70 20,108 20,118 C20,128 70,166 140,170 L170,170 M140,66 L470,66 L560,100" fill="none" stroke="#8a94a6" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M170,170 C300,170 420,100 560,100 L560,170 C450,200 330,245 170,240 Z" fill="#3b82f6" fill-opacity="0.12" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M170,170 C300,170 420,100 560,100" fill="none" stroke="#8a94a6" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M170,240 C330,245 450,200 560,170" fill="none" stroke="#8a94a6" stroke-width="2.0" stroke-linejoin="round"/>
+<path d="M174,174 C300,174 420,104 556,104 L556,170 C450,197 330,238 174,236 Z" fill="none" stroke="#10b981" stroke-width="2.0" stroke-dasharray="8,5" stroke-linejoin="round"/>
+<circle cx="380" cy="170" r="4" fill="#4b5563"/>
+<line x1="380.0" y1="170.0" x2="420.2" y2="170.0" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M425.0,170.0 L417.6,173.1 L417.6,166.9 Z" fill="#4b5563"/>
+<text x="430.0" y="175.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="380.0" y1="170.0" x2="380.0" y2="132.8" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M380.0,128.0 L383.1,135.4 L376.9,135.4 Z" fill="#4b5563"/>
+<text x="386.0" y="132.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<text x="372.0" y="188.0" fill="#4b5563" font-size="12" font-weight="400" text-anchor="end">CoG</text>
+<line x1="112.0" y1="180.0" x2="161.2" y2="180.0" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M166.0,180.0 L158.6,183.1 L158.6,176.9 Z" fill="#3b82f6"/>
+<line x1="112.0" y1="196.0" x2="161.2" y2="196.0" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M166.0,196.0 L158.6,199.1 L158.6,192.9 Z" fill="#3b82f6"/>
+<line x1="112.0" y1="212.0" x2="161.2" y2="212.0" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M166.0,212.0 L158.6,215.1 L158.6,208.9 Z" fill="#3b82f6"/>
+<text x="100.0" y="202.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">i</tspan></text>
+<line x1="566.0" y1="108.0" x2="615.2" y2="108.0" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M620.0,108.0 L612.6,111.1 L612.6,104.9 Z" fill="#3b82f6"/>
+<line x1="566.0" y1="126.0" x2="615.2" y2="126.0" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M620.0,126.0 L612.6,129.1 L612.6,122.9 Z" fill="#3b82f6"/>
+<line x1="566.0" y1="144.0" x2="615.2" y2="144.0" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M620.0,144.0 L612.6,147.1 L612.6,140.9 Z" fill="#3b82f6"/>
+<text x="594.0" y="96.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<text x="300.0" y="214.0" fill="#ec4899" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Q</text>
+<circle cx="300.0" cy="199.4" r="1.7" fill="#ec4899"/>
+<text x="150.0" y="268.0" fill="#10b981" font-size="17" font-weight="600" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">i</tspan></text>
+<line x1="152.0" y1="262.0" x2="172.0" y2="236.0" stroke="#10b981" stroke-width="1.0"/>
+<text x="576.0" y="196.0" fill="#10b981" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+<line x1="574.0" y1="190.0" x2="558.0" y2="166.0" stroke="#10b981" stroke-width="1.0"/>
+<text x="470.0" y="240.0" fill="#10b981" font-size="17" font-weight="600" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="468.0" y1="234.0" x2="440.0" y2="206.0" stroke="#10b981" stroke-width="1.0"/>
+<line x1="174.0" y1="228.0" x2="150.8" y2="228.0" stroke="#10b981" stroke-width="1.6"/>
+<path d="M146.0,228.0 L153.4,224.9 L153.4,231.1 Z" fill="#10b981"/>
+<text x="144.0" y="244.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="556.0" y1="162.0" x2="579.2" y2="162.0" stroke="#10b981" stroke-width="1.6"/>
+<path d="M584.0,162.0 L576.6,165.1 L576.6,158.9 Z" fill="#10b981"/>
+<text x="588.0" y="178.0" fill="#10b981" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="196.0" y1="172.0" x2="196.0" y2="238.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M196.0,172.0 L198.7,178.4 L193.3,178.4 Z" fill="#6b7280"/>
+<path d="M196.0,238.0 L193.3,231.6 L198.7,231.6 Z" fill="#6b7280"/>
+<text x="196.0" y="205.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="204.0" y="214.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">a<tspan baseline-shift="sub" font-size="72%">i</tspan></text>
+<line x1="530.0" y1="104.0" x2="530.0" y2="168.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M530.0,104.0 L532.7,110.4 L527.3,110.4 Z" fill="#6b7280"/>
+<path d="M530.0,168.0 L527.3,161.6 L532.7,161.6 Z" fill="#6b7280"/>
+<text x="530.0" y="136.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="522.0" y="142.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">a<tspan baseline-shift="sub" font-size="72%">o</tspan></text>
+</g></svg>

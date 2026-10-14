@@ -27,6 +27,9 @@ The figure of CL13.pdf shows a sketch of a centrifugal pump. Water enters the pu
 
 Note: besides the water density $\rho$ and the ambient pressure $p_a$, the following quantities can be assumed to be known in solving the problem: $D$, $D_o$, $h$, $\alpha$, $V_o$, $p_o$, and $p_s$.
 
+![[attachments/FM-T3/cl13-statement.png]]
+*Statement figure (CL13.pdf, p. 1, cropped): inlet $D_o$ ($V_o$, $p_o$), lateral exit of width $h$ and diameter $D$, exit velocity $V_s$ at the angle $\alpha$ with the lateral surface; the surface names are handwritten on the official sheet*
+
 Source: CL13.pdf (page 1, exam of Jan 10, 2012). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -46,6 +49,9 @@ Source: CL13.pdf (page 1, exam of Jan 10, 2012). Notes.pdf, Chapter 3: integral 
 
 - Frame fixed to the casing; $\bar{e}_x$ along the axis (inlet flow direction); cylindrical basis $(\bar{e}_r, \bar{e}_\theta)$ around $\bar{e}_x$ with $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_x$; origin on the axis in the exit plane. Over a full turn, $\int\bar{e}_r\,d\theta = \int\bar{e}_\theta\,d\theta = 0$.
 - Surfaces: $\Sigma_o$ (inlet disc, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (lateral exit cylinder, radius $D/2$, width $h$, $\bar{n} = \bar{e}_r$, $\bar{v} = V_s\sin\alpha\,\bar{e}_r + V_s\cos\alpha\,\bar{e}_\theta$), $\Sigma_w$ (fixed casing) and $\Sigma_b$ (rotating blades).
+
+![[attachments/FM-T3/cl13-cv.svg]]
+*Control volume of the solution: $\Sigma_o$ (inlet disc, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (lateral exit cylinder of radius $D/2$ and width $h$, $\bar{n} = \bar{e}_r$), the fixed casing $\Sigma_w$ and the rotating blades $\Sigma_b$ (schematic); on the right, the exit velocity $V_s$ at the angle $\alpha$ with the lateral surface: normal component $V_s\sin\alpha$, tangential $V_s\cos\alpha$*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_w,\Sigma_b}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

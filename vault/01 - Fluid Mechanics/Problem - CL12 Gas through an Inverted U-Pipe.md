@@ -24,6 +24,9 @@ The gas circulating along the pipe of cross section $A$ depicted in the figure o
 - Compute the two components of the force $F_x$ and $F_y$ acting on the stretch of pipe considered.
 - Calculate the momentum on the pipe with respect to the origin of the coordinate system indicated in the figure.
 
+![[attachments/FM-T3/cl12-statement.svg]]
+*Statement figure (redrawn from CL12.pdf, p. 1): inverted U-pipe of section $A$; inlet state $T_u$, $p_u$, $V_u$ in the left leg, outlet $T_o$, $p_a$, $V_o$ in the right leg, legs $L$ apart; origin on the axis of the left leg*
+
 Source: CL12.pdf (page 1, exam of Dec 16, 2011). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -43,6 +46,9 @@ Source: CL12.pdf (page 1, exam of Dec 16, 2011). Notes.pdf, Chapter 3: integral 
 
 - Frame fixed to the pipe; $\bar{e}_x$ horizontal (from the left leg to the right leg), $\bar{e}_y$ vertical upwards, $\bar{e}_z = \bar{e}_x\wedge\bar{e}_y$ towards the reader. Fixed control volume.
 - Surfaces: $\Sigma_u$ (measuring section, $\bar{n} = -\bar{e}_y$), $\Sigma_o$ (outlet, $\bar{n} = -\bar{e}_y$), $\Sigma_w$ (inner wall). Positions: $\bar{x} = y\bar{e}_y + \bar{\eta}$ on $\Sigma_u$ and $\bar{x} = L\bar{e}_x + y\bar{e}_y + \bar{\eta}$ on $\Sigma_o$, with $\int\bar{\eta}\,d\sigma = 0$.
+
+![[attachments/FM-T3/cl12-cv.svg]]
+*Control volume of the solution: the gas in the pipe, with $\Sigma_u$ (measuring section) and $\Sigma_o$ (outlet), both with $\bar{n} = -\bar{e}_y$, and the wall $\Sigma_w$; moments about $O$ on the axis of the left leg. $\bar{F}$ points up and $\bar{M}$ is counter-clockwise ($+\bar{e}_z$), as in the results*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

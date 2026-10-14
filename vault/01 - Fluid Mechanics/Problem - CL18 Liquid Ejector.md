@@ -25,6 +25,9 @@ The ejector shown in the figure of CL18.pdf is used to discharge a container fil
 - Use the previous equations to show that the volumetric discharge flow rate is given by $Q = U_e(A - A_j) = \dfrac{U_j(A - A_j)}{1 + A/\sqrt{2A_j(A - A_j)}}$ and that the velocity at the outlet satisfies $\dfrac{U_o}{U_j} = \dfrac{A_j + \sqrt{2A_j(A - A_j)}}{A + \sqrt{2A_j(A - A_j)}}$.
 - Assuming that the values of the temperatures $T_e$ and $T_j$ at the entrance section are equal to the ambient value $T_a$, obtain the temperature $T_o$ at the outlet section when the pipe walls are adiabatic.
 
+![[attachments/FM-T3/cl18-statement.svg]]
+*Statement figure (redrawn from CL18.pdf, p. 1): container at $p_a$, pipe of section $A$; jet $A_j$, $U_j$ injected on the axis; entrance section with $U_e$, $p_e$ around the jet; control volume $V_c$ with outward normals; uniform outlet jet $U_o$ into $p_a$*
+
 Source: CL18.pdf (page 1, midterm of Nov 11, 2013). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -44,6 +47,9 @@ Source: CL18.pdf (page 1, midterm of Nov 11, 2013). Notes.pdf: Bernoulli's equat
 
 - Frame fixed to the pipe; $\bar{e}_x$ along the pipe axis in the flow direction. Fixed control volume between the entrance and the outlet sections.
 - Surfaces: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_x$, split into the jet $A_j$ and the annulus $A - A_j$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (straight pipe wall, $\bar{n}\perp\bar{e}_x$).
+
+![[attachments/FM-T3/cl18-cv.svg]]
+*Control volume of the solution: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_x$, made of the jet $A_j$ and the annulus $A - A_j$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$) and the straight wall $\Sigma_w$ ($\bar{n}\perp\bar{e}_x$); $\bar{e}_x$ points along the flow*
 
 ## Phase 3: Balances, Surface by Surface
 

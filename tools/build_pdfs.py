@@ -92,6 +92,8 @@ def stale(root: pathlib.Path) -> tuple[list[str], list[str]]:
 def _mirror(root: pathlib.Path, katex: pathlib.Path, tmp: pathlib.Path) -> pathlib.Path:
     """A copy of the pages and assets whose KaTeX URLs point at a local folder (no CDN needed)."""
     shutil.copytree(root / "assets", tmp / "assets", ignore=shutil.ignore_patterns("pdf"))
+    if (root / "vault" / "attachments").is_dir():     # raster figures that pages load from the vault
+        shutil.copytree(root / "vault" / "attachments", tmp / "vault" / "attachments")
     kx = katex.resolve().as_uri() + "/"
     for page in pages(root):
         out = tmp / page.relative_to(root)
