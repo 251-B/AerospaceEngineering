@@ -1,0 +1,6 @@
+node_modules/
+recorder/clips/
+remotion/public/clips
+remotion/public/soundtrack.wav
+remotion/out/
+remotion/build/
