@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 165
-- Referenced by at least one note (a mention counts): 24
-- Not referenced yet: 141
+- Referenced by at least one note (a mention counts): 26
+- Not referenced yet: 139
 - Build artifacts: 0
 - Working files: 0
 
@@ -207,7 +207,7 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_1 (pdf)\|fluid_statics_1.pdf]] | problemas | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_1 (pdf)\|fluid_statics_1.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_2 (pdf)\|fluid_statics_2.pdf]] | problemas | not-referenced |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_3 (pdf)\|fluid_statics_3.pdf]] | problemas | not-referenced |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_4 (pdf)\|fluid_statics_4.pdf]] | problemas | not-referenced |
@@ -216,7 +216,7 @@ tags:
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_7 (pdf)\|fluid_statics_7.pdf]] | problemas | not-referenced |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_8 (pdf)\|fluid_statics_8.pdf]] | problemas | not-referenced |
 | [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_9 (pdf)\|fluid_statics_9.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_10 (pdf)\|fluid_statics_10.pdf]] | problemas | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-05-hydrostatics - problemas - fluid_statics_10 (pdf)\|fluid_statics_10.pdf]] | problemas | referenced |
 
 ## unit-06-dimensional-analysis/problemas
 

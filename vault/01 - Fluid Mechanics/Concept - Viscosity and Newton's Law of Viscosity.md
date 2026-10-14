@@ -86,4 +86,3 @@ xychart-beta
 
 ## 🔗 Related Concepts
 * [[01 - Fluid Mechanics/Topic 1 - Introductory Remarks and Starting Assumptions|Back to Topic 1]]
-* [[01 - Fluid Mechanics/Concept - Fundamental Equation of Fluid Statics|Next: Fluid Statics]]

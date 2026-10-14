@@ -59,14 +59,8 @@ tags:
 * Topic 4: The Navier-Stokes Equations (Differential Dynamics) (planned)
 
 ### Block III: Hydrostatics & Applications
-* Topic 5: Hydrostatics (Fluid Statics) (official folder `unit-05-hydrostatics`; four concept notes and two problems written, topic note pending)
-  * [[01 - Fluid Mechanics/Concept - Fundamental Equation of Fluid Statics|Concept: Fundamental Equation of Fluid Statics and ISA Atmosphere]]
-  * [[01 - Fluid Mechanics/Concept - Manometry and Pressure Measurement|Concept: Manometry and Piezometric Distribution]]
-  * [[01 - Fluid Mechanics/Concept - Forces on Submerged Surfaces and Center of Pressure|Concept: Submerged Gates and Center of Pressure]]
-  * [[01 - Fluid Mechanics/Concept - Archimedes' Principle and Stability of Floating Bodies|Concept: Archimedes' Principle and Metacentric Height]]
-  * [[01 - Fluid Mechanics/Formula Sheet - Topic 1 Statics and Properties|Formula Sheet: Statics and Properties (unit 05 content)]]
-  * [[01 - Fluid Mechanics/Problem - Inclined Submerged Gate with Opening Moment|Problem: Hinged Submerged Gate with Closing Force]]
-  * [[01 - Fluid Mechanics/Problem - Multi-Liquid Differential Manometer with Gas|Problem: Multi-Fluid Differential Manometer]]
+* Topic 5: Hydrostatics (Fluid Statics) (planned)
+  * Official sources: `fluid_statics_1.pdf` to `fluid_statics_10.pdf` (10 problems).
 * Topic 6: Dimensional Analysis (Buckingham Pi Theorem) (planned)
   * Official sources: `DA1.pdf` to `DA14.pdf` (14 solved problems).
 * Topic 7: Viscous Flows & Boundary Layer Theory (planned)

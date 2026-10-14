@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_1.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 114279
 ---
 
@@ -19,8 +19,8 @@ bytes: 114279
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-05-hydrostatics/problemas/fluid_statics_1.pdf`
 - **Kind:** problemas
 - **Size:** 114.3 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Fluid Mechanics MOC]]

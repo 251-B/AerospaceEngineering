@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 28 note(s) below
+- **Status:** referenced by 27 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -37,7 +37,6 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Concept - Stress Tensor and Cauchy Principle]]
 - [[01 - Fluid Mechanics/Concept - Vorticity, Circulation and Velocity Potential]]
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
-- [[01 - Fluid Mechanics/Formula Sheet - Topic 1 Statics and Properties]]
 - [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws]]
 - [[01 - Fluid Mechanics/Problem - K1 Flow over an Oscillating Porous Wall]]
 - [[01 - Fluid Mechanics/Problem - K10 Plane Flow with Exponential Shear]]
