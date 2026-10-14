@@ -27,6 +27,9 @@ Figure (a) of CL22.pdf shows a cylinder of radius $a_0$ closed at the bottom tha
 
 Note: Neglect viscous dissipation within the liquid, viscous stresses at the free surface and take the pressure in the air as a constant $p_a$.
 
+![[attachments/FM-T3/cl22-statement.svg]]
+*Statement figure (redrawn from CL22.pdf, p. 1): (a) at $t = 0$, radius $a_0$ and level $h_0$; (b) at $t > 0$, radius $a(t)$, level $h(t)$ and the fixed control volume $V_2$ up to the level $z$*
+
 Source: CL22.pdf (pages 1-3, exam of 28-10-2018, with handwritten solution). Notes.pdf, Chapter 3: Reynolds transport theorem for a moving control volume Eqs. 3.7-3.8, integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -50,6 +53,9 @@ Source: CL22.pdf (pages 1-3, exam of 28-10-2018, with handwritten solution). Not
 - Control volume 1 (the water itself, a material volume): $\Sigma_s$ (free surface, $\bar{v} = \bar{v}_c = \dot{h}\bar{e}_z$, $\bar{n} = \bar{e}_z$), $\Sigma_L$ (lateral wall, $\bar{v} = \bar{v}_c = \dot{a}\bar{e}_r$, $\bar{n} = \bar{e}_r$) and $\Sigma_b$ (bottom, $\bar{v} = \bar{v}_c = 0$, $\bar{n} = -\bar{e}_z$). Everywhere $\bar{v} = \bar{v}_c$, so no flux crosses $\Sigma_c$.
 - Control volume $V_2$: from the bottom to a fixed level $z$: $\Sigma_b$, $\Sigma_{L2}$ (lateral wall, moving with $\dot{a}\bar{e}_r$) and $\Sigma_z$ (fixed horizontal section, $\bar{v}_c = 0$, $\bar{n} = \bar{e}_z$).
 - Axial forces on the cylinder: $F_{L\to W}$ (liquid on $\Sigma_L$, $\Sigma_b$) and $F_{A\to W}$ (atmosphere on the outer surface: radial on the lateral wall, $+p_a\pi a^2$ on the outer face of the bottom; the air inside above the water also pushes only radially).
+
+![[attachments/FM-T3/cl22-cv.svg]]
+*Control volumes of the solution: (1) the water, with $\Sigma_s$, $\Sigma_L$, $\Sigma_b$ and their outward normals, used for mass, momentum and kinetic energy; (2) $V_2$, with the fixed section $\Sigma_z$, the moving wall $\Sigma_{L2}$ and $\Sigma_b$, used for $v_z(z,t)$ (after the official solution, CL22.pdf, p. 2)*
 
 ## Phase 3: Balances, Surface by Surface
 
