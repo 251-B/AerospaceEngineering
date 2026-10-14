@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conservation Laws Solved Problems (CL1-CL10) - Fluid Mechanics</title>
+  <title>Conservation Laws Solved Problems (CL1-CL16) - Fluid Mechanics</title>
 
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -601,6 +601,12 @@
       <a href="#cl8" class="p-pill">CL8: Jet on Orifice</a>
       <a href="#cl9" class="p-pill">CL9: Submarine Thruster</a>
       <a href="#cl10" class="p-pill">CL10: Ventilator</a>
+      <a href="#cl11" class="p-pill">CL11: VTOL Engine</a>
+      <a href="#cl12" class="p-pill">CL12: Gas in a U-Pipe</a>
+      <a href="#cl13" class="p-pill">CL13: Centrifugal Pump</a>
+      <a href="#cl14" class="p-pill">CL14: Diffuser Module</a>
+      <a href="#cl15" class="p-pill">CL15: Mixing Elbow</a>
+      <a href="#cl16" class="p-pill">CL16: Jet on a Wedge</a>
     </div>
   </nav>
 
@@ -609,9 +615,9 @@
 
     <div class="page-title-box">
       <div class="topic-badge">Topic 3 &middot; Conservation Laws</div>
-      <h1 class="page-title">Solved Problems: Official Collection CL1 to CL10</h1>
+      <h1 class="page-title">Solved Problems: Official Collection CL1 to CL16</h1>
       <p class="page-meta">
-        Worked solutions to the conservation-laws collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid (10 of the 22 problems so far; the rest of the collection is added in batches). Every problem restates the official statement, then follows four phases: (1) hypotheses, data and unknowns; (2) frames, control volume and its surfaces; (3) the balances; (4) interpretation, limits and dimensional check. The balances follow the method used in class: each one is written in full with the vanishing terms crossed out and the reason underneath, every surface integral is then evaluated surface by surface (the vertical line drawn under each integral), the wall terms are grouped (boxed) as the force on the body, and each result is boxed and numbered. Discrepancies found in the handwritten official solutions are flagged in the corresponding problem, and anything beyond the course material is marked as an extension. References to Notes.pdf are to Chapter 3 (Conservation laws).
+        Worked solutions to the conservation-laws collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid (16 of the 22 problems so far; the rest of the collection is added in batches). Every problem restates the official statement, then follows four phases: (1) hypotheses, data and unknowns; (2) frames, control volume and its surfaces; (3) the balances; (4) interpretation, limits and dimensional check. The balances follow the method used in class: each one is written in full with the vanishing terms crossed out and the reason underneath, every surface integral is then evaluated surface by surface (the vertical line drawn under each integral), the wall terms are grouped (boxed) as the force on the body, and each result is boxed and numbered. Discrepancies found in the handwritten official solutions are flagged in the corresponding problem, and anything beyond the course material is marked as an extension. References to Notes.pdf are to Chapter 3 (Conservation laws).
       </p>
       <nav class="src-panel" data-srclink aria-label="Official material">
         <span class="src-panel-label">Official material</span>
@@ -1341,6 +1347,473 @@
       </details>
     </article>
 
+    <article class="problem-card" id="cl11">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL11</div>
+          <h2 class="problem-title">VTOL Propulsion Device in Hover: Nozzle Angle and Flow State</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL11.pdf" target="_blank" rel="noopener">Original statement · CL11.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Thrust vectoring</span><span class="tag">Bernoulli</span><span class="tag">Linear momentum</span><span class="tag">Energy</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The propulsion device of a VTOL (vertical take-off and landing) aircraft includes a horizontal intake of cross section $A_i$ and a thrust vectoring nozzle of variable angle $\alpha$ and exit cross section $A_e$. When the aircraft is hovering (suspended at a fixed point), the engine must provide a force $\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y$, such that the lift $F_y$ equals the weight of the aircraft ($Mg$), while the thrust $F_x$ is identically zero. The work per unit time on the air stream through the mobile blades is $W$ and the amount of heat added per unit time is $Q$ (including heat losses through the walls). For the analysis of the problem, one may introduce the following assumptions regarding the air motion:</p>
+<ul class="bullet-list"><li>The effect of gravity is entirely negligible.</li><li>Flow properties at the entrance and exit sections are uniform.</li><li>The air around the engine casing is at rest with uniform pressure $p_a$.</li><li>Upstream from the inlet the flow is inviscid and with constant density, such that $\rho_i = \rho_a$ and one may use Bernoulli's equation along any streamline to relate the ambient pressure $p_a$ with that found at the entrance $p_i$.</li></ul>
+<p>With the above simplifications, write the equations that determine the values of $U_i$, $U_e$, $p_i$, $\rho_e$ and $\alpha$ in terms of the known quantities ($p_a$, $Mg$, $\rho_a$, $A_i$, $A_e$, $\gamma$, $W$, and $Q$).</p>
+<p class="source-line">Source: CL11.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady (on average); neglect $\bar{g}$; uniform properties at $i$ and $e$; perfect gas, $h = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$; ambient air at rest at $p_a$ around the casing.</li><li>Inlet: $\rho_i = \rho_a$ (constant density upstream) and Bernoulli from the still air to the inlet. Exit: free jet at $p_a$, density $\rho_e$.</li><li>Geometry (figure): air enters along $-\bar{e}_x$ through the horizontal intake; the jet leaves downwards and backwards, $\bar{v}_e = -U_e(\sin\alpha\,\bar{e}_x + \cos\alpha\,\bar{e}_y)$, with $\alpha$ measured from the vertical.</li><li>Hover: $F_x = 0$, $F_y = Mg$. Data: $[p_a,\ \rho_a,\ Mg,\ A_i,\ A_e,\ \gamma,\ \dot{W},\ \dot{Q}]$. Unknowns: $[U_i,\ U_e,\ p_i,\ \rho_e,\ \alpha]$: five equations are needed.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$A_i$, $A_e$</td><td>intake and exit areas</td><td>m$^2$</td></tr><tr><td>$U_i$, $U_e$</td><td>intake and exit velocities</td><td>m/s</td></tr><tr><td>$p_i$, $\rho_e$</td><td>intake pressure, exit density</td><td>Pa, kg/m$^3$</td></tr><tr><td>$\alpha$</td><td>nozzle angle from the vertical</td><td>rad</td></tr><tr><td>$\dot{W}$, $\dot{Q}$</td><td>power and heat given to the air</td><td>W</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
+<ul class="bullet-list"><li>Frame fixed to the hovering aircraft (inertial while hovering); $\bar{e}_x$ horizontal, $\bar{e}_y$ vertical upwards.</li><li>Surfaces: $\Sigma_i$ (intake, $\bar{n} = +\bar{e}_x$, $\bar{v} = -U_i\bar{e}_x$), $\Sigma_e$ (exit, $\bar{n} = \bar{v}_e/U_e$), $\Sigma_w$ (fixed walls) and $\Sigma_m$ (mobile blades).</li></ul>
+<div class="math-block">$$ \boxed{\,\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y = \int_{\Sigma_w,\Sigma_m}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,}\qquad(\text{force of the air on the engine}) $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Balances, Surface by Surface</h3>
+<div class="balance-block">
+<div class="balance-label">Mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma = 0 $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_i$</td><td>$\rho_a(-U_i)A_i$</td></tr><tr><td>$\Sigma_e$</td><td>$+\rho_eU_eA_e$</td></tr><tr><td>$\Sigma_w,\ \Sigma_m$</td><td>$0$</td></tr></tbody></table></div>
+<div class="math-block">$$ \boxed{\,\rho_aU_iA_i = \rho_eU_eA_e = \dot{m}\,} \tag{1} $$</div>
+</div>
+<p>Entrance region (Notes Eq. 4.17, from the still ambient air to the inlet):</p>
+<div class="math-block">$$ \boxed{\,p_a = p_i + \tfrac{1}{2}\rho_aU_i^2\,} \tag{2} $$</div>
+<div class="balance-block">
+<div class="balance-label">Linear momentum (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}(p - p_a)\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\bar{v}\,[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma$</th><th>$-\int(p - p_a)\,\bar{n}\,d\sigma$</th><th>$\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_i$</td><td>$\rho_a(-U_i\bar{e}_x)(-U_i)A_i = \rho_aU_i^2A_i\,\bar{e}_x$</td><td>$-(p_i - p_a)A_i\,\bar{e}_x$</td><td>$0$</td></tr><tr><td>$\Sigma_e$</td><td>$-\rho_eU_e^2A_e(\sin\alpha\,\bar{e}_x + \cos\alpha\,\bar{e}_y)$</td><td>$0$ (free jet)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w,\ \Sigma_m$</td><td>$0$</td><td>$-\int(p - p_a)\,\bar{n}\,d\sigma$</td><td>$\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed terms: $-\bar{F} = -F_x\bar{e}_x - F_y\bar{e}_y$. $x$ component with $F_x = 0$, (2) and (1): $\rho_aU_i^2A_i - \rho_eU_e^2A_e\sin\alpha = \tfrac{1}{2}\rho_aU_i^2A_i$, i.e. $\tfrac{1}{2}\rho_aU_i^2A_i = \rho_aU_iA_i\,U_e\sin\alpha$. $y$ component with $F_y = Mg$: $-\rho_eU_e^2A_e\cos\alpha = -Mg$.</p>
+<div class="math-block">$$ \boxed{\,U_i = 2\,U_e\sin\alpha\,}\ \ \text{(3)}\qquad \boxed{\,Mg = \rho_eU_e^2A_e\cos\alpha = \rho_aU_i^2A_i\,\frac{\cos\alpha}{2\sin\alpha}\,}\ \ \text{(4)} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Total energy (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \int_{V_c}Q_R\,dV $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{q}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_i$</td><td>$-\dot{m}\left(e_i + \tfrac{U_i^2}{2}\right)$</td><td>$+p_iU_iA_i$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_e$</td><td>$+\dot{m}\left(e_e + \tfrac{U_e^2}{2}\right)$</td><td>$-p_aU_eA_e$</td><td>$0$</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_m$</td><td>$0$</td><td>$-\int_{\Sigma_m}p\,\bar{v}\cdot\bar{n}\,d\sigma$</td><td>$\int_{\Sigma_m}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</td><td>$-\int_{\Sigma_m}\bar{q}\cdot\bar{n}\,d\sigma$</td></tr><tr class="wall-row"><td>$\Sigma_w$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$-\int_{\Sigma_w}\bar{q}\cdot\bar{n}\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed terms: the work on $\Sigma_m$ is $\dot{W}$; the heat through the walls plus the volume term $\int_{V_c}Q_R\,dV$ is $\dot{Q}$ (net, including the losses). With $h = e + p/\rho = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$:</p>
+<div class="math-block">$$ \boxed{\,\rho_aU_iA_i\left[\left(\frac{\gamma}{\gamma - 1}\frac{p_a}{\rho_e} + \frac{U_e^2}{2}\right) - \left(\frac{\gamma}{\gamma - 1}\frac{p_i}{\rho_a} + \frac{U_i^2}{2}\right)\right] = \dot{W} + \dot{Q}\,} \tag{5} $$</div>
+</div>
+<p>(1) to (5) are five equations for $U_i$, $U_e$, $p_i$, $\rho_e$ and $\alpha$, which answers the question.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>(3) says that the backward component of the jet momentum must cancel the intake momentum plus the suction force at the intake: because the intake is at a lower pressure than ambient (2), only half of $\rho_aU_i^2A_i$ has to be balanced.</li><li>(4): the lift is the vertical momentum flux of the jet. For $\alpha \to 0$ (vertical jet), (3) would require $U_i \to 0$: the intake momentum could not be balanced, so a hovering engine with a horizontal intake needs $\alpha &gt; 0$.</li><li>Dimensions (SI): $[\rho_eU_e^2A_e] = \text{N} = [Mg]$; $[\dot{m}\,\gamma p/((\gamma-1)\rho)] = \text{W}$.</li><li>Numerical illustration (hypothetical data, solved by Newton's method on the two equations left after eliminating $U_i$, $p_i$, $\rho_e$): $\rho_a = 1.2$ kg/m$^3$, $p_a = 101325$ Pa, $A_i = 2.5$ m$^2$, $A_e = 1.2$ m$^2$, $Mg = 80$ kN, $\dot{W} + \dot{Q} = 6$ MW, $\gamma = 1.4$ give $U_e = 212.22$ m/s, $\alpha = 71.85^\circ$, $U_i = 403.32$ m/s, $p_i = 3727.19$ Pa, $\rho_e = 4.7511$ kg/m$^3$ (residuals below $10^{-6}$).</li><li>Agreement with the official solution: CL11.pdf obtains (1) to (5).</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl12">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL12</div>
+          <h2 class="problem-title">Gas Discharging through an Inverted U-Pipe: Outlet State, Force and Moment</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf" target="_blank" rel="noopener">Original statement · CL12.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Compressible</span><span class="tag">Energy</span><span class="tag">Linear momentum</span><span class="tag">Angular momentum</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The gas circulating along the pipe of cross section $A$ depicted in the figure of CL12.pdf discharges to the atmosphere, where the pressure is $p_a$. Measurements at a given upstream location give $V_u$, $p_u$, and $T_u$ for the velocity, pressure and temperature, all uniform across the section. In the analysis that follows, it is assumed that the pipe is thermally insulated and that buoyancy forces have a negligible effect on the gas motion. The gas properties are defined by its gas constant $R_g$ together with the ratio of specific heats $\gamma = c_p/c_v$.</p>
+<ul class="bullet-list"><li>Obtain the values of the gas temperature and velocity at the outlet section $T_o$ and $V_o$ in terms of $V_u$, $p_u$, $T_u$, $p_a$, $R_g$ and $\gamma$.</li><li>Compute the two components of the force $F_x$ and $F_y$ acting on the stretch of pipe considered.</li><li>Calculate the momentum on the pipe with respect to the origin of the coordinate system indicated in the figure.</li></ul>
+<p class="source-line">Source: CL12.pdf (page 1, exam of Dec 16, 2011). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady compressible flow of a perfect gas ($p = \rho R_gT$, $h = c_pT = \frac{\gamma}{\gamma-1}R_gT$); neglect $\bar{g}$; pipe insulated and at rest (no heat, no work); uniform properties at both sections.</li><li>Geometry (figure): inverted U of constant section $A$; the gas goes up the left leg ($\bar{v} = V_u\bar{e}_y$ at the measuring section) and down the right leg, discharging as a free jet ($p = p_a$, $\bar{v} = -V_o\bar{e}_y$) at a horizontal distance $L$ from the left leg; the origin $O$ is on the axis of the left leg.</li><li>Data: $[V_u,\ p_u,\ T_u,\ p_a,\ R_g,\ \gamma,\ A,\ L]$. Unknowns: $[T_o,\ V_o,\ F_x,\ F_y,\ \bar{M}]$. The 'momentum on the pipe' of the statement is the moment of the forces on the pipe about $O$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$V_u$, $p_u$, $T_u$</td><td>upstream state</td><td>m/s, Pa, K</td></tr><tr><td>$V_o$, $T_o$</td><td>outlet velocity and temperature</td><td>m/s, K</td></tr><tr><td>$A$, $L$</td><td>pipe section, distance between legs</td><td>m$^2$, m</td></tr><tr><td>$\bar{F}$, $\bar{M}$</td><td>force and moment on the pipe</td><td>N, N$\cdot$m</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
+<ul class="bullet-list"><li>Frame fixed to the pipe; $\bar{e}_x$ horizontal (from the left leg to the right leg), $\bar{e}_y$ vertical upwards, $\bar{e}_z = \bar{e}_x\wedge\bar{e}_y$ towards the reader. Fixed control volume.</li><li>Surfaces: $\Sigma_u$ (measuring section, $\bar{n} = -\bar{e}_y$), $\Sigma_o$ (outlet, $\bar{n} = -\bar{e}_y$), $\Sigma_w$ (inner wall). Positions: $\bar{x} = y\bar{e}_y + \bar{\eta}$ on $\Sigma_u$ and $\bar{x} = L\bar{e}_x + y\bar{e}_y + \bar{\eta}$ on $\Sigma_o$, with $\int\bar{\eta}\,d\sigma = 0$.</li></ul>
+<div class="math-block">$$ \boxed{\,\bar{F} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+<div class="math-block">$$ \boxed{\,\bar{M} = \int_{\Sigma_w}\bar{x}\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Balances, Surface by Surface</h3>
+<div class="balance-block">
+<div class="balance-label">Mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}\,d\sigma = 0 $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,\bar{v}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_u$</td><td>$-\rho_uV_uA$, with $\rho_u = \frac{p_u}{R_gT_u}$</td></tr><tr><td>$\Sigma_o$</td><td>$+\rho_oV_oA$, with $\rho_o = \frac{p_a}{R_gT_o}$</td></tr><tr><td>$\Sigma_w$</td><td>$0$</td></tr></tbody></table></div>
+<div class="math-block">$$ \rho_uV_uA = \rho_oV_oA \;\Longrightarrow\; \boxed{\,\frac{p_uV_u}{T_u} = \frac{p_aV_o}{T_o}\,} \tag{1} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Total energy (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{q}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_u$</td><td>$-\dot{m}\left(e_u + \tfrac{V_u^2}{2}\right)$</td><td>$+p_uV_uA$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_o$</td><td>$+\dot{m}\left(e_o + \tfrac{V_o^2}{2}\right)$</td><td>$-p_aV_oA$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_w$</td><td>$0$</td><td>$0$ ($\bar{v} = 0$)</td><td>$0$ ($\bar{v} = 0$)</td><td>$0$ (insulated)</td></tr></tbody></table></div>
+<div class="math-block">$$ \boxed{\,\frac{\gamma}{\gamma - 1}R_gT_u + \frac{1}{2}V_u^2 = \frac{\gamma}{\gamma - 1}R_gT_o + \frac{1}{2}V_o^2\,} \tag{2} $$</div>
+</div>
+<p>Solving (1) and (2): with $C \equiv \frac{p_uV_u}{p_aT_u}$, (1) gives $V_o = C\,T_o$; substituting into (2), $\frac{C^2}{2}T_o^2 + \frac{\gamma R_g}{\gamma - 1}T_o - H = 0$ with $H = \frac{\gamma R_g}{\gamma - 1}T_u + \frac{V_u^2}{2}$, whose positive root is</p>
+<div class="math-block">$$ \boxed{\,T_o = \frac{-\frac{\gamma R_g}{\gamma - 1} + \sqrt{\left(\frac{\gamma R_g}{\gamma - 1}\right)^2 + 2C^2H}}{C^2},\qquad V_o = C\,T_o\,} \tag{3} $$</div>
+<div class="balance-block">
+<div class="balance-label">Linear momentum (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}(p - p_a)\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\bar{v}\,(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int(p - p_a)\,\bar{n}\,d\sigma$</th><th>$\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_u$</td><td>$\rho_uV_u\bar{e}_y(-V_u)A = -\rho_uV_u^2A\,\bar{e}_y$</td><td>$-(p_u - p_a)(-\bar{e}_y)A = (p_u - p_a)A\,\bar{e}_y$</td><td>$0$</td></tr><tr><td>$\Sigma_o$</td><td>$\rho_o(-V_o\bar{e}_y)(V_o)A = -\rho_uV_uA\,V_o\,\bar{e}_y$</td><td>$0$ (free jet)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w$</td><td>$0$</td><td>$-\int_{\Sigma_w}(p - p_a)\,\bar{n}\,d\sigma$</td><td>$\int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed $\Sigma_w$ terms: $-\bar{F}$. The $\Sigma_o$ entry uses (1).</p>
+<div class="math-block">$$ -\rho_uV_uA\,(V_u + V_o)\,\bar{e}_y = (p_u - p_a)A\,\bar{e}_y - \bar{F} \;\Longrightarrow\; \boxed{\,F_x = 0,\qquad F_y = \rho_uV_uA\,(V_u + V_o) + (p_u - p_a)A\,} \tag{4} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Angular momentum about O (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,\bar{x}\wedge\bar{v}\,dV}}_{0} + \int_{\Sigma_c}\rho\,(\bar{x}\wedge\bar{v})(\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,(\bar{x}\wedge\bar{v})(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma$</th><th>$\int\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_u$</td><td>$0$ ($y\bar{e}_y\wedge\bar{e}_y = 0$, $\int\bar{\eta}\,d\sigma = 0$)</td><td>$0$ (same reason)</td><td>$0$</td></tr><tr><td>$\Sigma_o$</td><td>$\rho_oV_oA\,(L\bar{e}_x\wedge(-V_o\bar{e}_y)) = -\rho_uV_uA\,LV_o\,\bar{e}_z$</td><td>$0$ (free jet)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w$</td><td>$0$</td><td>$-\int_{\Sigma_w}\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma$</td><td>$\int_{\Sigma_w}\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed $\Sigma_w$ terms: $-\bar{M}$.</p>
+<div class="math-block">$$ -\rho_uV_uA\,LV_o\,\bar{e}_z = -\bar{M} \;\Longrightarrow\; \boxed{\,\bar{M} = \rho_uV_uA\,L\,V_o\,\bar{e}_z = \frac{p_u}{R_gT_u}V_uA\,L\,V_o\,\bar{e}_z\,} \tag{5} $$</div>
+</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>Adiabatic, workless flow keeps the stagnation enthalpy (2); the pressure drop to $p_a$ lowers the density, so the gas accelerates ($V_o &gt; V_u$) and cools slightly ($T_o &lt; T_u$).</li><li>Both legs push the pipe upwards: the gas turning down in the right leg and the gauge pressure at the measuring section. The moment comes only from the outlet jet, offset by $L$ from $O$.</li><li>Incompressible-like limit ($p_u \to p_a$, small $V$): $T_o \to T_u$, $V_o \to V_u$, $F_y \to 2\rho_uV_u^2A$.</li><li>Dimensions (SI): $[\rho_uV_u^2A] = \text{N}$; $[\rho_uV_uALV_o] = \text{N}\cdot\text{m}$; $[R_gT] = [V^2] = \text{m}^2/\text{s}^2$.</li><li>Numerical illustration (hypothetical data, air): $V_u = 50$ m/s, $p_u = 1.5\times10^5$ Pa, $T_u = 400$ K, $p_a = 101325$ Pa, $R_g = 287$ J/(kg K), $\gamma = 1.4$, $A = 0.01$ m$^2$, $L = 1$ m give $T_o = 398.537$ K, $V_o = 73.749$ m/s, $F_y = 567.6$ N, $M_z = 48.181$ N$\cdot$m (residuals of (1), (2) below $10^{-8}$).</li><li>Agreement with the official solution: CL12.pdf obtains (1), (2), (4) and (5); it does not solve (1)-(2) explicitly.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl13">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL13</div>
+          <h2 class="problem-title">Centrifugal Pump: Exit Velocity, Axial Force, Torque and Power</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL13.pdf" target="_blank" rel="noopener">Original statement · CL13.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Turbomachine</span><span class="tag">Angular momentum</span><span class="tag">Euler torque</span><span class="tag">Pump power</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The figure of CL13.pdf shows a sketch of a centrifugal pump. Water enters the pump with uniform axial velocity $V_o$ and pressure $p_o$ through a circular pipe of diameter $D_o$. The internal geometry of the pump includes rotating blades that redirect the flow, so that the water leaves the pump with zero axial velocity through a lateral exit of width $h$ and diameter $D$. At the exit section, the pressure is $p_s \ne p_a$ and the velocity vector, of magnitude $V_s$, forms an angle $\alpha$ with the lateral surface, as indicated in the figure, i.e., the corresponding normal and tangential velocity components are $V_s\sin\alpha$ and $V_s\cos\alpha$, respectively. Assuming that the effect of gravity is negligible and that the water temperature at the exit is equal to that found at the entrance (handwritten addition: and that the pump walls are insulated), determine the values of the:</p>
+<ul class="bullet-list"><li>Radial velocity component at the exit section $V_s\sin\alpha$.</li><li>Axial force exerted on the pump.</li><li>Torque exerted on the pump.</li><li>Power of the pump, assumed to be ideal (i.e., work per unit time exerted on the water stream by the rotating parts).</li></ul>
+<p>Note: besides the water density $\rho$ and the ambient pressure $p_a$, the following quantities can be assumed to be known in solving the problem: $D$, $D_o$, $h$, $\alpha$, $V_o$, $p_o$, and $p_s$.</p>
+<p class="source-line">Source: CL13.pdf (page 1, exam of Jan 10, 2012). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady (on average), incompressible water; neglect $\bar{g}$; equal temperature at entrance and exit ($e_s = e_o$); insulated walls; uniform properties at both sections.</li><li>The outer casing is surrounded by air at $p_a$ (gauge pressure $p - p_a$ in the force).</li><li>Data: $[\rho,\ p_a,\ D,\ D_o,\ h,\ \alpha,\ V_o,\ p_o,\ p_s]$. Unknowns: $[V_s\sin\alpha,\ F_x,\ \bar{M},\ \dot{W}]$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$D_o$, $V_o$, $p_o$</td><td>inlet diameter, velocity, pressure</td><td>m, m/s, Pa</td></tr><tr><td>$D$, $h$</td><td>exit diameter and width</td><td>m</td></tr><tr><td>$V_s$, $\alpha$, $p_s$</td><td>exit velocity, angle, pressure</td><td>m/s, rad, Pa</td></tr><tr><td>$\dot{W}$</td><td>power given to the water by the blades</td><td>W</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
+<ul class="bullet-list"><li>Frame fixed to the casing; $\bar{e}_x$ along the axis (inlet flow direction); cylindrical basis $(\bar{e}_r, \bar{e}_\theta)$ around $\bar{e}_x$ with $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_x$; origin on the axis in the exit plane. Over a full turn, $\int\bar{e}_r\,d\theta = \int\bar{e}_\theta\,d\theta = 0$.</li><li>Surfaces: $\Sigma_o$ (inlet disc, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (lateral exit cylinder, radius $D/2$, width $h$, $\bar{n} = \bar{e}_r$, $\bar{v} = V_s\sin\alpha\,\bar{e}_r + V_s\cos\alpha\,\bar{e}_\theta$), $\Sigma_w$ (fixed casing) and $\Sigma_b$ (rotating blades).</li></ul>
+<div class="math-block">$$ \boxed{\,\bar{F} = \int_{\Sigma_w,\Sigma_b}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+<div class="math-block">$$ \boxed{\bar{M} = \int_{\Sigma_w,\Sigma_b}\bar{x}\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Balances, Surface by Surface</h3>
+<div class="balance-block">
+<div class="balance-label">Mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma = 0 $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_o$</td><td>$-\rho V_o\frac{\pi D_o^2}{4}$</td></tr><tr><td>$\Sigma_s$</td><td>$+\rho V_s\sin\alpha\,\pi Dh$</td></tr><tr><td>$\Sigma_w,\ \Sigma_b$</td><td>$0$</td></tr></tbody></table></div>
+<div class="math-block">$$ \boxed{\,V_s\sin\alpha = \frac{D_o^2}{4Dh}\,V_o\,},\qquad \dot{m} = \rho V_o\frac{\pi D_o^2}{4} \tag{1} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Linear momentum, axial component (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}(p - p_a)\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho v_x\,[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma$</th><th>$-\int(p - p_a)\,n_x\,d\sigma$</th><th>$\int(\bar{\bar{\tau}}'\cdot\bar{n})_x\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_o$</td><td>$-\rho V_o^2\frac{\pi D_o^2}{4}$</td><td>$+(p_o - p_a)\frac{\pi D_o^2}{4}$</td><td>$0$</td></tr><tr><td>$\Sigma_s$</td><td>$0$ ($v_x = 0$)</td><td>$0$ ($n_x = 0$)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w,\ \Sigma_b$</td><td>$0$</td><td>$-\int(p - p_a)\,n_x\,d\sigma$</td><td>$\int(\bar{\bar{\tau}}'\cdot\bar{n})_x\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed terms: $-F_x$. The radial and azimuthal components vanish because $\int\bar{e}_r\,d\theta = \int\bar{e}_\theta\,d\theta = 0$.</p>
+<div class="math-block">$$ \boxed{\,\bar{F} = \frac{\pi D_o^2}{4}\left[\rho V_o^2 + (p_o - p_a)\right]\bar{e}_x\,} \tag{2} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Angular momentum about the axis (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,\bar{x}\wedge\bar{v}\,dV}}_{0} + \int_{\Sigma_c}\rho\,(\bar{x}\wedge\bar{v})[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}\bar{x}\wedge(p - p_a)\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,(\bar{x}\wedge\bar{v})_x\,[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma$</th><th>$\text{pressure and viscous moments}$</th></tr></thead><tbody><tr><td>$\Sigma_o$</td><td>$0$ ($\bar{v} \parallel \bar{e}_x$, no swirl)</td><td>$0$</td></tr><tr><td>$\Sigma_s$</td><td>$\rho V_s\sin\alpha\,\pi Dh\,\frac{D}{2}V_s\cos\alpha = \dot{m}\,\frac{D}{2}\,V_s\cos\alpha$</td><td>$0$ ($\bar{x}\wedge\bar{e}_r$ has no $x$ component)</td></tr><tr class="wall-row"><td>$\Sigma_w,\ \Sigma_b$</td><td>$0$</td><td>$-\bar{M}\cdot\bar{e}_x$</td></tr></tbody></table></div>
+<p class="balance-caption">On $\Sigma_s$, $\bar{x} = \frac{D}{2}\bar{e}_r + x\bar{e}_x$, and the $x$ component of $\bar{x}\wedge\bar{v}$ is $\frac{D}{2}V_s\cos\alpha$ (from $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_x$). The mass flux in front of it is (1).</p>
+<div class="math-block">$$ \boxed{\,\bar{M} = -\rho V_o\frac{\pi D_o^2}{4}\,V_s\cos\alpha\,\frac{D}{2}\,\bar{e}_x\,} \tag{3} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Total energy (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{q}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_o$</td><td>$-\dot{m}\left(e_o + \tfrac{V_o^2}{2}\right)$</td><td>$+p_oV_o\frac{\pi D_o^2}{4}$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_s$</td><td>$+\dot{m}\left(e_s + \tfrac{V_s^2}{2}\right)$</td><td>$-p_sV_s\sin\alpha\,\pi Dh$</td><td>$0$</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_b$</td><td>$0$</td><td>$-\int_{\Sigma_b}p\,\bar{v}\cdot\bar{n}\,d\sigma$</td><td>$\int_{\Sigma_b}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</td><td>$0$</td></tr><tr><td>$\Sigma_w$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$0$ (insulated)</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed $\Sigma_b$ terms: the power $\dot{W}$ of the blades. With $e_s = e_o$ and (1):</p>
+<div class="math-block">$$ \boxed{\,\dot{W} = \rho V_o\frac{\pi D_o^2}{4}\left[\left(\frac{p_s}{\rho} + \frac{V_s^2}{2}\right) - \left(\frac{p_o}{\rho} + \frac{V_o^2}{2}\right)\right]\,} \tag{4} $$</div>
+</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>(3) is the reaction to the angular momentum given to the water: the blades give the water the swirl $V_s\cos\alpha$ at radius $D/2$, and the water acts on the pump with the opposite torque (Euler's turbomachinery relation; the motor must supply it).</li><li>(4): the ideal power raises the total pressure $p + \tfrac{1}{2}\rho V^2$ of the water flow rate $\dot{m}/\rho$.</li><li>Dimensions (SI): $[\dot{m}\,D\,V_s] = \text{N}\cdot\text{m}$; $[\dot{m}\,p/\rho] = \text{W}$; $[D_o^2V_o/(Dh)] = \text{m/s}$.</li><li>Numerical illustration (hypothetical data): $\rho = 1000$ kg/m$^3$, $D = 0.3$ m, $D_o = 0.1$ m, $h = 0.02$ m, $\alpha = 30^\circ$, $V_o = 3$ m/s, $p_o = 1.2\times10^5$ Pa, $p_s = 2.5\times10^5$ Pa, $p_a = 101325$ Pa give $V_s\sin\alpha = 1.25$ m/s ($V_s = 2.5$ m/s), $F_x = 217.36$ N, $|\bar{M}| = 7.652$ N$\cdot$m, $\dot{W} = 3030.7$ W.</li><li>Agreement with the official solution: CL13.pdf obtains (1) to (4).</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl14">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL14</div>
+          <h2 class="problem-title">Gas-Turbine Diffuser Module: Exit State, Force and Torque</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf" target="_blank" rel="noopener">Original statement · CL14.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Stator</span><span class="tag">Swirl removal</span><span class="tag">Angular momentum</span><span class="tag">Perfect gas</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The diffuser module at the exit of a gas turbine consists of a <strong>fixed</strong> aerofoil cascade (stator), of inner and outer radii $R_i$ and $R_o$, respectively, together with a conical diffuser, as depicted in the figure of CL14.pdf. The gas enters the module with velocity field $\bar{v}_1 = u_1\bar{e}_z + u_\theta\bar{e}_\theta$, having both axial and azimuthal components, pressure $p_1$ and density $\rho_1$, and leaves the module with a purely axial velocity field $\bar{v}_2 = u_2\bar{e}_z$, pressure $p_2$ and density $\rho_2$. For the analysis of the problem, one may introduce the following assumptions:</p>
+<ul class="bullet-list"><li>The effect of gravity is entirely negligible.</li><li>Flow properties at the entrance and exit sections are uniform.</li><li>The air around the casing is at rest with uniform pressure $p_a$.</li><li>The working gas behaves as a perfect gas (gas constant $R_g$, specific heat ratio $\gamma$).</li><li>All the inner walls are adiabatic.</li></ul>
+<p>With the above simplifications, write the equations that determine the values of $\rho_2$ and $u_2$, as well as the net force, $F$, and torque, $M$, acting on the diffuser module, in terms of the known quantities ($p_a$, $p_1$, $\rho_1$, $p_2$, $u_1$, $u_\theta$, $R_i$, $R_o$, $\gamma$ and $R_g$).</p>
+<p class="source-line">Source: CL14.pdf (pages 1-4, quiz of Nov 5, 2012, with typed solution). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, axisymmetric; neglect $\bar{g}$; uniform properties at both sections; perfect gas, $h = c_pT = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$; adiabatic walls; the module is fixed (no work).</li><li>Inlet: annulus $R_i &lt; r &lt; R_o$ (area $A_1 = \pi(R_o^2 - R_i^2)$). Exit: full disc $r &lt; R_o$ (area $A_2 = \pi R_o^2$).</li><li>The ambient air at $p_a$ touches only the outer cylindrical casing, whose normal is radial: by axisymmetry it gives no axial force and no axial torque ($\bar{F}_{ext} = 0$, $\bar{M}_{ext} = 0$). Absolute pressures are therefore used, as in the official solution (the gauge form would wrongly add $p_a\pi R_i^2$ on the hub face, which is not in contact with the ambient air).</li><li>Data: $[p_a,\ p_1,\ \rho_1,\ p_2,\ u_1,\ u_\theta,\ R_i,\ R_o,\ \gamma,\ R_g]$. Unknowns: $[\rho_2,\ u_2,\ F,\ M]$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$u_1$, $u_\theta$</td><td>axial and azimuthal inlet velocity</td><td>m/s</td></tr><tr><td>$p_1$, $\rho_1$; $p_2$, $\rho_2$</td><td>inlet and exit states</td><td>Pa, kg/m$^3$</td></tr><tr><td>$u_2$</td><td>exit axial velocity</td><td>m/s</td></tr><tr><td>$R_i$, $R_o$</td><td>inner and outer radii</td><td>m</td></tr><tr><td>$F$, $M$</td><td>axial force and torque on the module</td><td>N, N$\cdot$m</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
+<ul class="bullet-list"><li>Frame fixed to the module; right-handed cylindrical basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$, $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_z$, with $\bar{e}_z$ along the flow; origin on the axis.</li><li>Surfaces (as in the official solution): $\Sigma_{in}$ (inlet annulus, $\bar{n} = -\bar{e}_z$), $\Sigma_{out}$ (exit disc, $\bar{n} = +\bar{e}_z$), $\Sigma_w$ (inner wall of the casing and outer wall of the cone) and $\Sigma_a$ (surfaces around the stator aerofoils). All are fixed.</li></ul>
+<div class="math-block">$$ \boxed{\,F\,\bar{e}_z = \int_{\Sigma_w,\Sigma_a}\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma + \underbrace{\bar{F}_{ext}}_{0}\,} $$</div>
+<div class="math-block">$$ \boxed{M\,\bar{e}_z = \int_{\Sigma_w,\Sigma_a}\bar{x}\wedge\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma + \underbrace{\bar{M}_{ext}}_{0}\,} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Balances, Surface by Surface</h3>
+<div class="balance-block">
+<div class="balance-label">Mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}\,d\sigma = 0 $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,\bar{v}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_{in}$</td><td>$-\rho_1u_1\pi(R_o^2 - R_i^2)$</td></tr><tr><td>$\Sigma_{out}$</td><td>$+\rho_2u_2\pi R_o^2$</td></tr><tr><td>$\Sigma_w,\ \Sigma_a$</td><td>$0$</td></tr></tbody></table></div>
+<div class="math-block">$$ \boxed{\,\rho_1u_1\pi(R_o^2 - R_i^2) = \rho_2u_2\pi R_o^2 = G\,} \tag{1} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Linear momentum, axial component (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho v_z\,(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,n_z\,d\sigma$</th><th>$\int(\bar{\bar{\tau}}'\cdot\bar{n})_z\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_{in}$</td><td>$-\rho_1u_1^2\pi(R_o^2 - R_i^2)$</td><td>$+p_1\pi(R_o^2 - R_i^2)$</td><td>$0$ (uniform)</td></tr><tr><td>$\Sigma_{out}$</td><td>$+\rho_2u_2^2\pi R_o^2$</td><td>$-p_2\pi R_o^2$</td><td>$0$ (uniform)</td></tr><tr class="wall-row"><td>$\Sigma_w,\ \Sigma_a$</td><td>$0$</td><td>$-\int p\,n_z\,d\sigma$</td><td>$\int(\bar{\bar{\tau}}'\cdot\bar{n})_z\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed terms: the force of the walls on the gas, $-F$ (with $\bar{F}_{ext} = 0$). The swirl gives no axial momentum flux.</p>
+<div class="math-block">$$ \boxed{\,F = \pi(R_o^2 - R_i^2)\left(p_1 + \rho_1u_1^2\right) - \pi R_o^2\left(p_2 + \rho_2u_2^2\right)\,} \tag{2} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Angular momentum, axial component (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,\bar{x}\wedge\bar{v}\,dV}}_{0} + \int_{\Sigma_c}\rho\,(\bar{x}\wedge\bar{v})(\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}\bar{x}\wedge p\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{x}\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,(\bar{x}\wedge\bar{v})_z\,(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$\text{pressure and viscous moments}$</th></tr></thead><tbody><tr><td>$\Sigma_{in}$</td><td>$\int_{R_i}^{R_o}\rho_1\,(ru_\theta)(-u_1)\,2\pi r\,dr = -\frac{2\pi}{3}\rho_1u_1u_\theta(R_o^3 - R_i^3)$</td><td>$0$ ($\bar{x}\wedge\bar{e}_z$ has no $z$ component)</td></tr><tr><td>$\Sigma_{out}$</td><td>$0$ (no swirl)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w,\ \Sigma_a$</td><td>$0$</td><td>$-M$</td></tr></tbody></table></div>
+<p class="balance-caption">On $\Sigma_{in}$, $\bar{x} = r\bar{e}_r + z\bar{e}_z$ and the $z$ component of $\bar{x}\wedge(u_1\bar{e}_z + u_\theta\bar{e}_\theta)$ is $ru_\theta$ (from $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_z$). The antiderivative of $r^2$ is $r^3/3$; Barrow's rule between $R_i$ and $R_o$ gives $(R_o^3 - R_i^3)/3$.</p>
+<div class="math-block">$$ \boxed{\,M = \frac{2\pi}{3}\,\rho_1u_1u_\theta\left(R_o^3 - R_i^3\right)\,} \tag{3} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Total energy (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{q}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_{in}$</td><td>$-G\left(e_1 + \tfrac{u_1^2 + u_\theta^2}{2}\right)$</td><td>$+p_1u_1\pi(R_o^2 - R_i^2)$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_{out}$</td><td>$+G\left(e_2 + \tfrac{u_2^2}{2}\right)$</td><td>$-p_2u_2\pi R_o^2$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_w,\ \Sigma_a$</td><td>$0$</td><td>$0$ ($\bar{v} = 0$)</td><td>$0$ ($\bar{v} = 0$)</td><td>$0$ (adiabatic)</td></tr></tbody></table></div>
+<div class="math-block">$$ \boxed{\,\frac{\gamma}{\gamma - 1}\frac{p_1}{\rho_1} + \frac{u_1^2 + u_\theta^2}{2} = \frac{\gamma}{\gamma - 1}\frac{p_2}{\rho_2} + \frac{u_2^2}{2}\,} \tag{4} $$</div>
+</div>
+<p>(1) and (4) give $\rho_2$ and $u_2$; then (2) gives $F$ and (3) gives $M$ directly; $T_2 = p_2/(\rho_2R_g)$ from the equation of state.</p>
+<div class="note-box"><strong>Discrepancy with the official solution (sign of the torque)</strong><p>CL14.pdf uses $\bar{x}\wedge\bar{e}_\theta = -r\bar{e}_z$ and obtains $M = -\frac{2\pi}{3}\rho_1u_1u_\theta(R_e^3 - R_i^3)$ (it calls the outer radius $R_e$). With the right-handed basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$ one has $\bar{e}_r\wedge\bar{e}_\theta = +\bar{e}_z$, so $\bar{x}\wedge\bar{e}_\theta = +r\bar{e}_z$ and the sign is the one in (3). The magnitude is the same; physically, the torque of the gas on the stator has the sense of the incoming swirl, since the stator removes it. The computed sign is kept.</p></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>(4): the stagnation enthalpy is conserved; the kinetic energy of the swirl, $u_\theta^2/2$, is recovered as enthalpy (pressure and temperature) downstream.</li><li>For $u_\theta = 0$ there is nothing to remove and $M = 0$. $M$ is the torque that the mounting of the stator must withstand.</li><li>Dimensions (SI): $[(p + \rho u^2)R^2] = \text{N}$; $[\rho u_1u_\theta R^3] = \text{N}\cdot\text{m}$.</li><li>Numerical illustration (hypothetical data, extension): $p_1 = 1.2\times10^5$ Pa, $\rho_1 = 1.1$ kg/m$^3$, $u_1 = 150$ m/s, $u_\theta = 80$ m/s, $p_2 = 1.3\times10^5$ Pa, $R_i = 0.2$ m, $R_o = 0.5$ m, $\gamma = 1.4$: eliminating $\rho_2 = G/(\pi R_o^2u_2)$ in (4) gives a quadratic in $u_2$ with positive root $u_2 = 118.57$ m/s, $\rho_2 = 1.1689$ kg/m$^3$; then $F = -19512$ N (the module is pushed upstream by the pressure rise) and $M = 3234.6$ N$\cdot$m.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl15">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL15</div>
+          <h2 class="problem-title">Mixing Elbow: Exit Velocity and Temperature, Force and Torque</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL15.pdf" target="_blank" rel="noopener">Original statement · CL15.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Two inlets</span><span class="tag">Mixing</span><span class="tag">Energy</span><span class="tag">Angular momentum</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>Consider the mixing elbow shown schematically in the figure of CL15.pdf. Cold water flows through the main pipe and mixes with warmer water that enters through a smaller inlet located at the elbow. The liquid properties can be considered independent of the temperature and gravity effects can be neglected. All pipe walls are adiabatic. The known pipe dimensions, fluid properties and boundary conditions are given in the figure (density $\rho$, viscosity $\mu$, conductivity $k$, specific heat $c$; main inlet $v_1$, $p_1$, $T_1$, diameter $D_1$; secondary inlet $v_2$, $p_2$, $T_2$, diameter $D_2$; exit at $p_a$). Assume that the two streams mix completely and that the velocity and temperature are uniform at the exit section.</p>
+<ul class="bullet-list"><li>Find the velocity $v_s$ and temperature $T_s$ of the mixed stream emerging from the pipe at ambient pressure.</li><li>Obtain the net force $\bar{F}$ exerted on the mixing elbow by the water flowing inside and the ambient air.</li><li>Obtain the torque $\bar{M}_1$ about the point $\bar{x}_1$ located at the center of the larger inlet.</li><li>Compute the above results numerically, given the following data: $v_1 = 0.4$ m/s; $v_2 = 1.2$ m/s; $\rho = 1000$ kg/m$^3$; $T_1 = 20^\circ$C; $T_2 = 40^\circ$C; $\mu = 8\times10^{-4}$ Pa s; $p_1 - p_a = 50$ Pa; $p_2 - p_a = 200$ Pa; $k = 0.677$ W/(m s); $D_1 = 10$ cm; $D_2 = 2.5$ cm; $c = 4216$ J/(kg K); $L_1 = 20$ cm; $L_2 = 7$ cm.</li></ul>
+<p class="source-line">Source: CL15.pdf (pages 1-2, exam of Dec 18, 2012, with solution). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, incompressible liquid with constant properties, $e = e_0 + cT$; neglect $\bar{g}$; adiabatic walls; uniform properties at the three sections; complete mixing.</li><li>Geometry (figure): main inlet along $+\bar{e}_x$ (section $A_1 = \pi D_1^2/4$), secondary inlet along $+\bar{e}_y$ ($A_2 = \pi D_2^2/4$), exit along $+\bar{e}_y$ (section $A_1$) at $p_a$. The secondary inlet and the exit share the same vertical axis, at a horizontal distance $L_1 + D_1 + D_1/2 = L_1 + \tfrac{3}{2}D_1$ from $\bar{x}_1$ (bend of inner radius $D_1$; reading of the figure, as in the official solution).</li><li>Data: as listed. Unknowns: $[v_s,\ T_s,\ \bar{F},\ \bar{M}_1]$. $\mu$, $k$ and $L_2$ are not needed.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$v_1$, $v_2$, $v_s$</td><td>inlet and exit velocities</td><td>m/s</td></tr><tr><td>$T_1$, $T_2$, $T_s$</td><td>temperatures</td><td>$^\circ$C</td></tr><tr><td>$p_1 - p_a$, $p_2 - p_a$</td><td>inlet gauge pressures</td><td>Pa</td></tr><tr><td>$D_1$, $D_2$, $L_1$</td><td>diameters and length</td><td>m</td></tr><tr><td>$\bar{F}$, $\bar{M}_1$</td><td>force and torque on the elbow</td><td>N, N$\cdot$m</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
+<ul class="bullet-list"><li>Frame fixed to the elbow: $\bar{e}_x$ horizontal (main inlet flow), $\bar{e}_y$ vertical upwards, $\bar{e}_z$ towards the reader; moments about $\bar{x}_1$.</li><li>Surfaces (fixed CV, as in the official solution): $\Sigma_1$ (main inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (secondary inlet, $\bar{n} = -\bar{e}_y$), $\Sigma_{out}$ (exit, $\bar{n} = +\bar{e}_y$), $\Sigma_{wall}$.</li></ul>
+<div class="math-block">$$ \boxed{\,\bar{F} = -\int_{\Sigma_{wall}}\left[-(p - p_a)\,\bar{n} + \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+<div class="math-block">$$ \boxed{\bar{M}_1 = -\int_{\Sigma_{wall}}(\bar{x} - \bar{x}_1)\wedge\left[-(p - p_a)\,\bar{n} + \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Balances, Surface by Surface</h3>
+<div class="balance-block">
+<div class="balance-label">Mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}\,d\sigma = 0 $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,\bar{v}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_1$</td><td>$-\rho v_1A_1$</td></tr><tr><td>$\Sigma_2$</td><td>$-\rho v_2A_2$</td></tr><tr><td>$\Sigma_{out}$</td><td>$+\rho v_sA_1$</td></tr><tr><td>$\Sigma_{wall}$</td><td>$0$</td></tr></tbody></table></div>
+<div class="math-block">$$ v_1A_1 + v_2A_2 = v_sA_1 \;\Longrightarrow\; \boxed{\,v_s = v_1 + v_2\left(\frac{D_2}{D_1}\right)^2\,} \tag{1} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Total energy (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{q}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_1$</td><td>$-\rho\left(e_1 + \tfrac{v_1^2}{2}\right)v_1A_1$</td><td>$+p_1v_1A_1$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_2$</td><td>$-\rho\left(e_2 + \tfrac{v_2^2}{2}\right)v_2A_2$</td><td>$+p_2v_2A_2$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_{out}$</td><td>$+\rho\left(e_s + \tfrac{v_s^2}{2}\right)v_sA_1$</td><td>$-p_av_sA_1$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_{wall}$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$0$ (adiabatic)</td></tr></tbody></table></div>
+<p class="balance-caption">With $e = e_0 + cT$, dividing by $\rho c\,v_sA_1$ ($e_0$ cancels by (1)) and writing $p_a$ as $p_a(v_1A_1 + v_2A_2)/(v_sA_1)$:</p>
+<div class="math-block">$$ \boxed{\,T_s = \left(T_1 + \frac{p_1 - p_a}{\rho c} + \frac{v_1^2}{2c}\right)\frac{v_1}{v_s} + \left(T_2 + \frac{p_2 - p_a}{\rho c} + \frac{v_2^2}{2c}\right)\frac{v_2A_2}{v_sA_1} - \frac{v_s^2}{2c}\,} \tag{2} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Linear momentum (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}(p - p_a)\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\bar{v}\,(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int(p - p_a)\,\bar{n}\,d\sigma$</th><th>$\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_1$</td><td>$-\rho v_1^2A_1\,\bar{e}_x$</td><td>$(p_1 - p_a)A_1\,\bar{e}_x$</td><td>$0$</td></tr><tr><td>$\Sigma_2$</td><td>$-\rho v_2^2A_2\,\bar{e}_y$</td><td>$(p_2 - p_a)A_2\,\bar{e}_y$</td><td>$0$</td></tr><tr><td>$\Sigma_{out}$</td><td>$+\rho v_s^2A_1\,\bar{e}_y$</td><td>$0$ ($p = p_a$)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_{wall}$</td><td>$0$</td><td>$-\int(p - p_a)\,\bar{n}\,d\sigma$</td><td>$\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed terms: $-\bar{F}$.</p>
+<div class="math-block">$$ \boxed{\,\bar{F} = \left(\rho v_1^2 + p_1 - p_a\right)A_1\,\bar{e}_x + \left[\left(\rho v_2^2 + p_2 - p_a\right)A_2 - \rho v_s^2A_1\right]\bar{e}_y\,} \tag{3} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">Angular momentum about x̄₁ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,(\bar{x} - \bar{x}_1)\wedge\bar{v}\,dV}}_{0} + \int_{\Sigma_c}\rho\,[(\bar{x} - \bar{x}_1)\wedge\bar{v}](\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}(\bar{x} - \bar{x}_1)\wedge(p - p_a)\bar{n}\,d\sigma + \int_{\Sigma_c}(\bar{x} - \bar{x}_1)\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,[(\bar{x} - \bar{x}_1)\wedge\bar{v}](\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int(\bar{x} - \bar{x}_1)\wedge(p - p_a)\bar{n}\,d\sigma$</th><th>$\int(\bar{x} - \bar{x}_1)\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_1$</td><td>$0$ (centred at $\bar{x}_1$)</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_2$</td><td>$-\rho v_2^2A_2\,d\,\bar{e}_z$</td><td>$(p_2 - p_a)A_2\,d\,\bar{e}_z$</td><td>$0$</td></tr><tr><td>$\Sigma_{out}$</td><td>$+\rho v_s^2A_1\,d\,\bar{e}_z$</td><td>$0$</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_{wall}$</td><td>$0$</td><td>$-\int(\bar{x} - \bar{x}_1)\wedge(p - p_a)\bar{n}\,d\sigma$</td><td>$\int(\bar{x} - \bar{x}_1)\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed terms: $-\bar{M}_1$. With $d = L_1 + \tfrac{3}{2}D_1$ the horizontal distance to the common vertical axis, $(\bar{x} - \bar{x}_1)\wedge\bar{e}_y = d\,\bar{e}_x\wedge\bar{e}_y = d\,\bar{e}_z$ for the centres of $\Sigma_2$ and $\Sigma_{out}$ (the vertical offsets are parallel to $\bar{e}_y$ and drop out).</p>
+<div class="math-block">$$ \boxed{\,\bar{M}_1 = \left[\left(\rho v_2^2 + p_2 - p_a\right)A_2 - \rho v_s^2A_1\right]\left(L_1 + \frac{3}{2}D_1\right)\bar{e}_z\,} \tag{4} $$</div>
+</div>
+<h4 class="step-heading">Numerical values (part 4)</h4>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody><tr><td>$v_s$</td><td>$0.475$ m/s</td></tr><tr><td>$T_s$</td><td>$23.16\ ^\circ$C</td></tr><tr><td>$\bar{F}$</td><td>$1.65\,\bar{e}_x -0.967\,\bar{e}_y$ N</td></tr><tr><td>$\bar{M}_1$</td><td>$-0.338\,\bar{e}_z$ N$\cdot$m</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>(2) is a mass-weighted average of the inlet temperatures, corrected by the tiny flow-work and kinetic-energy terms ($\Delta p/(\rho c) \sim 10^{-5}$ K here): $T_s \approx (v_1A_1T_1 + v_2A_2T_2)/(v_sA_1)$.</li><li>$F_y &lt; 0$: the exit momentum flux exceeds the momentum and gauge pressure brought in by the small inlet, so the elbow is pulled downwards; $\bar{M}_1$ follows from the same vertical imbalance acting at the arm $d$.</li><li>Dimensions (SI): $[(p - p_a)/(\rho c)] = \text{K}$, $[v^2/c] = \text{K}$; $[\rho v^2A] = \text{N}$; $[\rho v^2Ad] = \text{N}\cdot\text{m}$.</li><li>Agreement with the official solution: CL15.pdf obtains (1) to (4) and $v_s = 0.475$ m/s, $T_s = 23^\circ$C, $\bar{F} = 1.65\,\bar{e}_x - 0.967\,\bar{e}_y$ N, $\bar{M}_1 = -0.338\,\bar{e}_z$ N$\cdot$m, the same values.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl16">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL16</div>
+          <h2 class="problem-title">Plane Jet Split by a Non-Symmetric Wedge: Force, Moment and Heat</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL16.pdf" target="_blank" rel="noopener">Original statement · CL16.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Free jets</span><span class="tag">Bernoulli</span><span class="tag">Moment of a jet</span><span class="tag">Heat transfer</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>A plane liquid jet of constant density $\rho$, thickness $h$ and uniform velocity $v$, impinges on a non-symmetric wedge of geometry and dimensions shown in the figure of CL16.pdf. The wedge splits the jet into two layers of unequal flux, such that a portion $\alpha$ of the volume flux is deflected an angle $\theta$, and the rest of the fluid is deflected an angle $2\theta$. The flow is steady; viscous and gravitational forces are negligible; the known data are $(\rho, c, v, h, \alpha, \theta, L, p_a, T_0, T_1, T_2)$.</p>
+<ul class="bullet-list"><li>Noting that the conditions for the use of Bernoulli's theorem are met, determine the (uniform) velocity of the fluid on each deflected layer.</li><li>Determine the thickness $h_1$ and $h_2$ of each layer.</li><li>Determine the force $\bar{F}$ (per unit length in the $z$-direction) that the liquid jet and the ambient air exert on the wedge.</li><li>Determine the moment $\bar{M}_0$ due to the force $\bar{F}$ about the corner $\bar{x}_0$ of the wedge. Find the value of the fraction $\alpha$ that would produce a null moment, $\bar{M}_0 = 0$.</li><li>Knowing the uniform temperature $T_0$ of the incoming jet, the uniform temperatures $T_1$ and $T_2$ of the two liquid layers when they lose contact with the wedge, and the constant specific heat $c$ of the liquid, determine the heat $q$ transferred per unit surface from the liquid to the wedge. Assume that the heat flux is uniform on the wedge surface and that there is no heat transfer by conduction between the liquid and the ambient air.</li></ul>
+<p class="source-line">Source: CL16.pdf (pages 1-2, exam of Jan 14, 2013, with handwritten results). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, planar (per unit length in $z$), incompressible, frictionless; neglect $\bar{g}$; free jets at $p_a$ (straight parallel streamlines in the layers away from the corner, so $p = p_a$ inside them).</li><li>Geometry (figure): the incoming jet is centred on the $x$ axis, which passes through the corner $\bar{x}_0$; layer 1 leaves along $\bar{t}_1 = \cos\theta\,\bar{e}_x + \sin\theta\,\bar{e}_y$ on the upper face, layer 2 along $\bar{t}_2 = \cos2\theta\,\bar{e}_x - \sin2\theta\,\bar{e}_y$ on the lower face. The faces have horizontal length $L$, i.e. lengths $L/\cos\theta$ and $L/\cos2\theta$.</li><li>Heat: uniform flux $q$ from the liquid to the wedge on both faces; no conduction to the air; $e = cT$.</li><li>Data: $[\rho,\ c,\ v,\ h,\ \alpha,\ \theta,\ L,\ p_a,\ T_0,\ T_1,\ T_2]$. Unknowns: $[v_1,\ v_2,\ h_1,\ h_2,\ \bar{F},\ \bar{M}_0,\ q]$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$v$, $h$</td><td>jet velocity and thickness</td><td>m/s, m</td></tr><tr><td>$\alpha$, $\theta$</td><td>flux fraction and deflection angle</td><td>1, rad</td></tr><tr><td>$h_1$, $h_2$</td><td>layer thicknesses</td><td>m</td></tr><tr><td>$\bar{F}$, $\bar{M}_0$</td><td>force and moment per unit length</td><td>N/m, N$\cdot$m/m</td></tr><tr><td>$q$</td><td>heat flux to the wedge</td><td>W/m$^2$</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Control Volume and Surfaces</h3>
+<ul class="bullet-list"><li>Frame fixed to the wedge; origin at the corner $\bar{x}_0$; $\bar{e}_z$ towards the reader.</li><li>Surfaces: $\Sigma_0$ (incoming jet section, $\bar{n} = -\bar{e}_x$), $\Sigma_1$, $\Sigma_2$ (layer sections normal to $\bar{t}_1$, $\bar{t}_2$, $\bar{n} = \bar{t}_1, \bar{t}_2$), $\Sigma_a$ (free surfaces, $p = p_a$) and $\Sigma_w$ (wetted faces). On layer $k$, $\bar{x} - \bar{x}_0 = s\,\bar{t}_k + \eta\,\bar{m}_k$, with $\bar{m}_1 = -\sin\theta\,\bar{e}_x + \cos\theta\,\bar{e}_y$, $\bar{m}_2 = -\sin2\theta\,\bar{e}_x - \cos2\theta\,\bar{e}_y$ the unit normals pointing away from the wedge and $0 \le \eta \le h_k$.</li></ul>
+<div class="math-block">$$ \boxed{\,\bar{F} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+<div class="math-block">$$ \boxed{\bar{M}_0 = \int_{\Sigma_w}(\bar{x} - \bar{x}_0)\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$</div>
+<div class="math-block">$$ \boxed{q = -\frac{1}{L/\cos\theta + L/\cos2\theta}\int_{\Sigma_w}\bar{q}\cdot\bar{n}_{\text{in}}\,d\sigma\,} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Bernoulli and Balances, Surface by Surface</h3>
+<h4 class="step-heading">1. Velocities</h4>
+<p>Bernoulli (Notes Eq. 4.17, $U = 0$) along a free streamline from the incoming jet to each layer, with $p = p_a$ at both ends: $p_a + \tfrac{1}{2}\rho v^2 = p_a + \tfrac{1}{2}\rho v_k^2$, so</p>
+<div class="math-block">$$ \boxed{\,v_1 = v_2 = v\,} \tag{1} $$</div>
+<div class="balance-block">
+<div class="balance-label">2. Mass (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>): thicknesses</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\,(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}\,d\sigma = 0 $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,\bar{v}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_0$</td><td>$-\rho vh = -\rho Q$</td></tr><tr><td>$\Sigma_1$</td><td>$+\rho vh_1 = \rho\alpha Q$</td></tr><tr><td>$\Sigma_2$</td><td>$+\rho vh_2 = \rho(1 - \alpha)Q$</td></tr><tr><td>$\Sigma_a,\ \Sigma_w$</td><td>$0$</td></tr></tbody></table></div>
+<div class="math-block">$$ \boxed{\,h_1 = \alpha h,\qquad h_2 = (1 - \alpha)h\,} \tag{2} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">3. Linear momentum (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\bar{v}\,dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\bar{v}\,[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}(p - p_a)\,\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\,dV}}_{\text{neglect } \bar{g}} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\bar{v}\,(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int(p - p_a)\,\bar{n}\,d\sigma$</th><th>$\int\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_0$</td><td>$-\rho v^2h\,\bar{e}_x$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_1$</td><td>$\rho v^2\alpha h\,(\cos\theta\,\bar{e}_x + \sin\theta\,\bar{e}_y)$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_2$</td><td>$\rho v^2(1 - \alpha)h\,(\cos2\theta\,\bar{e}_x - \sin2\theta\,\bar{e}_y)$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_a$</td><td>$0$</td><td>$0$ ($p = p_a$)</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w$</td><td>$0$</td><td>$-\int_{\Sigma_w}(p - p_a)\,\bar{n}\,d\sigma$</td><td>$\int_{\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed $\Sigma_w$ terms: $-\bar{F}$.</p>
+<div class="math-block">$$ \boxed{\,\bar{F} = \rho v^2h\left\{\left[1 - \alpha\cos\theta - (1 - \alpha)\cos2\theta\right]\bar{e}_x - \left[\alpha\sin\theta - (1 - \alpha)\sin2\theta\right]\bar{e}_y\right\}\,} \tag{3} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">4. Angular momentum about x̄₀ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\,(\bar{x} - \bar{x}_0)\wedge\bar{v}\,dV}}_{0} + \int_{\Sigma_c}\rho\,[(\bar{x} - \bar{x}_0)\wedge\bar{v}](\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}(\bar{x} - \bar{x}_0)\wedge(p - p_a)\bar{n}\,d\sigma + \int_{\Sigma_c}(\bar{x} - \bar{x}_0)\wedge(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\,[(\bar{x} - \bar{x}_0)\wedge\bar{v}](\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$\text{pressure and viscous moments}$</th></tr></thead><tbody><tr><td>$\Sigma_0$</td><td>$\int_{-h/2}^{h/2}\rho v\,(-yv)(-1)\,dy\;\bar{e}_z = 0$ (odd in $y$)</td><td>$0$</td></tr><tr><td>$\Sigma_1$</td><td>$\int_0^{h_1}\rho v^2\,\eta\,(\bar{m}_1\wedge\bar{t}_1)\,d\eta = -\rho v^2\frac{h_1^2}{2}\,\bar{e}_z$</td><td>$0$</td></tr><tr><td>$\Sigma_2$</td><td>$\int_0^{h_2}\rho v^2\,\eta\,(\bar{m}_2\wedge\bar{t}_2)\,d\eta = +\rho v^2\frac{h_2^2}{2}\,\bar{e}_z$</td><td>$0$</td></tr><tr class="wall-row"><td>$\Sigma_w$</td><td>$0$</td><td>$-\bar{M}_0$</td></tr></tbody></table></div>
+<p class="balance-caption">Here $\bar{m}_1\wedge\bar{t}_1 = (-\sin^2\theta - \cos^2\theta)\,\bar{e}_z = -\bar{e}_z$ and $\bar{m}_2\wedge\bar{t}_2 = (\sin^22\theta + \cos^22\theta)\,\bar{e}_z = +\bar{e}_z$; the part $s\,\bar{t}_k\wedge\bar{t}_k$ vanishes. The antiderivative of $\eta$ is $\eta^2/2$; Barrow's rule between $0$ and $h_k$ gives $h_k^2/2$. With (2): $-\frac{\rho v^2h^2}{2}\left[\alpha^2 - (1 - \alpha)^2\right] = -\frac{\rho v^2h^2}{2}(2\alpha - 1)$.</p>
+<div class="math-block">$$ -\frac{\rho v^2h^2}{2}(2\alpha - 1)\,\bar{e}_z = -\bar{M}_0 \;\Longrightarrow\; \boxed{\,\bar{M}_0 = \rho v^2\,\frac{h^2}{2}\,(2\alpha - 1)\,\bar{e}_z,\qquad \bar{M}_0 = 0 \iff \alpha = \frac{1}{2}\,} \tag{4} $$</div>
+</div>
+<div class="balance-block">
+<div class="balance-label">5. Total energy (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>)</div>
+<div class="math-block">$$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$</div>
+<p class="balance-caption">Each surface integral, surface by surface (the vertical line drawn under each integral in class):</p>
+<div class="table-wrap"><table class="data-table surface-table"><thead><tr><th>Surface</th><th>$\int\rho\left(e + \tfrac{v^2}{2}\right)(\bar{v}\cdot\bar{n})\,d\sigma$</th><th>$-\int p\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$\int\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$</th><th>$-\int\bar{q}\cdot\bar{n}\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_0$</td><td>$-\rho vh\left(cT_0 + \tfrac{v^2}{2}\right)$</td><td>$+p_avh$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_1$</td><td>$+\rho v\alpha h\left(cT_1 + \tfrac{v^2}{2}\right)$</td><td>$-p_av\alpha h$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_2$</td><td>$+\rho v(1 - \alpha)h\left(cT_2 + \tfrac{v^2}{2}\right)$</td><td>$-p_av(1 - \alpha)h$</td><td>$0$</td><td>$0$</td></tr><tr><td>$\Sigma_a$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$0$ (no conduction to the air)</td></tr><tr class="wall-row"><td>$\Sigma_w$</td><td>$0$</td><td>$0$ ($\bar{v} = 0$)</td><td>$0$</td><td>$-q\left(\frac{L}{\cos\theta} + \frac{L}{\cos2\theta}\right)$</td></tr></tbody></table></div>
+<p class="balance-caption">Boxed $\Sigma_w$ term: the heat leaves the liquid towards the wedge. The kinetic-energy and pressure-work terms cancel because $\alpha + (1 - \alpha) = 1$.</p>
+<div class="math-block">$$ \rho vhc\left[\alpha T_1 + (1 - \alpha)T_2 - T_0\right] = -q\left(\frac{L}{\cos\theta} + \frac{L}{\cos2\theta}\right) \;\Longrightarrow\; \boxed{\,q = \frac{\rho cvh}{\frac{L}{\cos\theta} + \frac{L}{\cos2\theta}}\left[T_0 - \alpha T_1 - (1 - \alpha)T_2\right]\,} \tag{5} $$</div>
+</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>Symmetric-split check: with $\alpha = 1/2$ the two layers carry equal flux and their moments about the corner cancel, (4). The force (3) is still not symmetric because the deflections $\theta$ and $2\theta$ differ.</li><li>Limit $\theta \to 0$: no deflection, $\bar{F} \to 0$ in (3) (both brackets vanish).</li><li>(5): $q &gt; 0$ (liquid heats the wedge) when the liquid leaves colder than it arrived on average.</li><li>Dimensions (SI, per unit length): $[\rho v^2h] = \text{N/m}$; $[\rho v^2h^2] = \text{N}\cdot\text{m}/\text{m}$; $[\rho cvh\,\Delta T/L] = \text{W/m}^2$.</li><li>Numerical cross-check of (4) (hypothetical data): $\rho = 1000$ kg/m$^3$, $v = 10$ m/s, $h = 0.02$ m, $\alpha = 0.3$, $\theta = 25^\circ$: midpoint quadrature of the two layer integrals gives an angular-momentum flux of $8.000$ N$\cdot$m/m, equal to $-\rho v^2h^2(2\alpha - 1)/2 = 8$, i.e. $M_{0,z} = -8$ N$\cdot$m/m.</li><li>Agreement with the official solution: CL16.pdf obtains (1) to (5).</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
 
     <!-- Aerospace Motivational Quote Component -->
     <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
@@ -1352,7 +1825,7 @@
   <footer class="site-footer">
     <div class="container">
       <p>Study Portal &middot; Aerospace Engineering Degree &middot; Universidad Carlos III de Madrid</p>
-      <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">Worked solutions to the official conservation-laws problem collection (CL1 to CL10 so far); statements follow the handwritten source sheets.</p>
+      <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">Worked solutions to the official conservation-laws problem collection (CL1 to CL16 so far); statements follow the handwritten source sheets.</p>
     </div>
   </footer>
 

@@ -49,7 +49,7 @@ tags:
   * [[01 - Fluid Mechanics/Concept - Fourier's Law and Heat Conduction|Concept: Fourier's Law, Conduction and Prandtl Number]]
   * [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy|Concept: Integral Conservation of Mass, Momentum and Energy]]
   * [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws|Formula Sheet: Complete Equations Handbook (3.1 to 3.46)]]
-  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, in progress: CL1 to CL10 of CL1 to CL22):**
+  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, in progress: CL1 to CL16 of CL1 to CL22):**
     * [[01 - Fluid Mechanics/Problem - CL1 Airfoil Wake and Drag|Problem CL1: Airfoil Wake: Streamline Displacement and Drag]]
     * [[01 - Fluid Mechanics/Problem - CL2 Hydraulic Bore|Problem CL2: Bore over a Stagnant Water Layer]]
     * [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece|Problem CL3: Double-Elbow Mouthpiece: Exit Velocity, Force and Moment]]
@@ -60,6 +60,12 @@ tags:
     * [[01 - Fluid Mechanics/Problem - CL8 Jet on a Wall with an Orifice|Problem CL8: Jet Impinging on a Wall with an Orifice]]
     * [[01 - Fluid Mechanics/Problem - CL9 Submarine Propulsion Device|Problem CL9: Submarine Propulsion Device: Thrust from the Propeller Power]]
     * [[01 - Fluid Mechanics/Problem - CL10 Ventilation Device|Problem CL10: Ventilation Device: Velocities, Force and Fan Power]]
+    * [[01 - Fluid Mechanics/Problem - CL11 VTOL Propulsion Device|Problem CL11: VTOL Propulsion Device in Hover: Nozzle Angle and Flow State]]
+    * [[01 - Fluid Mechanics/Problem - CL12 Gas through an Inverted U-Pipe|Problem CL12: Gas Discharging through an Inverted U-Pipe: Outlet State, Force and Moment]]
+    * [[01 - Fluid Mechanics/Problem - CL13 Centrifugal Pump|Problem CL13: Centrifugal Pump: Exit Velocity, Axial Force, Torque and Power]]
+    * [[01 - Fluid Mechanics/Problem - CL14 Gas Turbine Diffuser Module|Problem CL14: Gas-Turbine Diffuser Module: Exit State, Force and Torque]]
+    * [[01 - Fluid Mechanics/Problem - CL15 Mixing Elbow|Problem CL15: Mixing Elbow: Exit Velocity and Temperature, Force and Torque]]
+    * [[01 - Fluid Mechanics/Problem - CL16 Plane Jet on a Non-Symmetric Wedge|Problem CL16: Plane Jet Split by a Non-Symmetric Wedge: Force, Moment and Heat]]
   * **Practical Modular Subchapters:**
     * **Subchapter 3.1:** The Reynolds Transport Theorem (RTT) & Control Volume Selection Strategy
     * **Subchapter 3.2:** Conservation of Mass (Continuity) in Problem Solving

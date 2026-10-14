@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 303825
 ---
 
@@ -19,8 +19,8 @@ bytes: 303825
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf`
 - **Kind:** problemas
 - **Size:** 303.8 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - CL12 Gas through an Inverted U-Pipe]]

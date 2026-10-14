@@ -11,8 +11,8 @@ tags:
 ## Coverage
 
 - Files: 165
-- Referenced by at least one note (a mention counts): 36
-- Not referenced yet: 129
+- Referenced by at least one note (a mention counts): 42
+- Not referenced yet: 123
 - Build artifacts: 0
 - Working files: 0
 
@@ -168,12 +168,12 @@ tags:
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL8 (pdf)\|CL8.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL9 (pdf)\|CL9.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL10 (pdf)\|CL10.pdf]] | problemas | referenced |
-| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL11 (pdf)\|CL11.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL12 (pdf)\|CL12.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL13 (pdf)\|CL13.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL14 (pdf)\|CL14.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL15 (pdf)\|CL15.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL16 (pdf)\|CL16.pdf]] | problemas | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL11 (pdf)\|CL11.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL12 (pdf)\|CL12.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL13 (pdf)\|CL13.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL14 (pdf)\|CL14.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL15 (pdf)\|CL15.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL16 (pdf)\|CL16.pdf]] | problemas | referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL17 (pdf)\|CL17.pdf]] | problemas | not-referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL18 (pdf)\|CL18.pdf]] | problemas | not-referenced |
 | [[Source - 01-fluid-mechanics - unit-03-conservation-laws - problemas - CL19 (pdf)\|CL19.pdf]] | problemas | not-referenced |
