@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 370" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Turbojet on a testbench: entrance section A1 with v1, p1, rho1, exit section A2 with v2, p2, rho2; the rotor inside and the heat sources Qr and Qc; the official control volume with surfaces Sigma 1 to Sigma 4">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M91.1,113.8 C157.4,85.8 227.6,62.4 282.2,62.4 L500.6,62.4 L500.6,314.3 L282.2,314.3 C227.6,314.3 157.4,283.1 91.1,248.0 Z" fill="#3b82f6" fill-opacity="0.1" stroke="none" stroke-width="0" stroke-linejoin="round"/>
+<path d="M91.1,113.8 C157.4,85.8 227.6,62.4 282.2,62.4 L500.6,62.4" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M91.1,248.0 C157.4,283.1 227.6,314.3 282.2,314.3 L500.6,314.3" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M95.0,118.5 C159.7,91.2 229.2,67.0 282.2,67.0 L497.5,67.0 L497.5,309.6 L282.2,309.6 C229.2,309.6 159.7,278.4 95.0,243.3 Z" fill="none" stroke="#4b5563" stroke-width="1.2" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<line x1="28.7" y1="123.2" x2="83.6" y2="123.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,123.2 L81.7,125.5 L81.7,120.9 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="132.9" x2="83.6" y2="132.9" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,132.9 L81.7,135.3 L81.7,130.6 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="142.7" x2="83.6" y2="142.7" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,142.7 L81.7,145.0 L81.7,140.4 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="152.5" x2="83.6" y2="152.5" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,152.5 L81.7,154.8 L81.7,150.1 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="162.2" x2="83.6" y2="162.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,162.2 L81.7,164.5 L81.7,159.9 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="172.0" x2="83.6" y2="172.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,172.0 L81.7,174.3 L81.7,169.6 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="181.7" x2="83.6" y2="181.7" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,181.7 L81.7,184.0 L81.7,179.4 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="191.5" x2="83.6" y2="191.5" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,191.5 L81.7,193.8 L81.7,189.1 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="201.2" x2="83.6" y2="201.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,201.2 L81.7,203.5 L81.7,198.9 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="211.0" x2="83.6" y2="211.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,211.0 L81.7,213.3 L81.7,208.6 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="220.7" x2="83.6" y2="220.7" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,220.7 L81.7,223.0 L81.7,218.4 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="230.5" x2="83.6" y2="230.5" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,230.5 L81.7,232.8 L81.7,228.1 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="240.2" x2="83.6" y2="240.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,240.2 L81.7,242.5 L81.7,237.9 Z" fill="#3b82f6"/>
+<line x1="28.7" y1="250.0" x2="83.6" y2="250.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M87.2,250.0 L81.7,252.3 L81.7,247.6 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="70.2" x2="490.8" y2="70.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,70.2 L488.8,72.5 L488.8,67.8 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="81.9" x2="490.8" y2="81.9" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,81.9 L488.8,84.2 L488.8,79.5 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="93.6" x2="490.8" y2="93.6" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,93.6 L488.8,95.9 L488.8,91.2 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="105.3" x2="490.8" y2="105.3" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,105.3 L488.8,107.6 L488.8,102.9 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="117.0" x2="490.8" y2="117.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,117.0 L488.8,119.3 L488.8,114.6 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="128.7" x2="490.8" y2="128.7" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,128.7 L488.8,131.0 L488.8,126.3 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="140.4" x2="490.8" y2="140.4" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,140.4 L488.8,142.7 L488.8,138.0 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="152.1" x2="490.8" y2="152.1" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,152.1 L488.8,154.4 L488.8,149.7 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="163.8" x2="490.8" y2="163.8" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,163.8 L488.8,166.1 L488.8,161.4 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="175.5" x2="490.8" y2="175.5" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,175.5 L488.8,177.8 L488.8,173.1 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="187.2" x2="490.8" y2="187.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,187.2 L488.8,189.5 L488.8,184.8 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="198.9" x2="490.8" y2="198.9" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,198.9 L488.8,201.2 L488.8,196.5 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="210.6" x2="490.8" y2="210.6" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,210.6 L488.8,212.9 L488.8,208.2 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="222.3" x2="490.8" y2="222.3" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,222.3 L488.8,224.6 L488.8,219.9 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="234.0" x2="490.8" y2="234.0" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,234.0 L488.8,236.3 L488.8,231.6 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="245.7" x2="490.8" y2="245.7" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,245.7 L488.8,248.0 L488.8,243.3 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="257.4" x2="490.8" y2="257.4" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,257.4 L488.8,259.7 L488.8,255.0 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="269.1" x2="490.8" y2="269.1" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,269.1 L488.8,271.4 L488.8,266.7 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="280.8" x2="490.8" y2="280.8" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,280.8 L488.8,283.1 L488.8,278.4 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="292.5" x2="490.8" y2="292.5" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,292.5 L488.8,294.8 L488.8,290.1 Z" fill="#3b82f6"/>
+<line x1="446.0" y1="304.2" x2="490.8" y2="304.2" stroke="#3b82f6" stroke-width="1.1"/>
+<path d="M494.4,304.2 L488.8,306.5 L488.8,301.8 Z" fill="#3b82f6"/>
+<line x1="91.1" y1="76.4" x2="91.1" y2="106.5" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M91.1,110.7 L88.4,104.3 L93.8,104.3 Z" fill="#6b7280"/>
+<line x1="91.1" y1="287.0" x2="91.1" y2="255.3" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M91.1,251.1 L93.8,257.6 L88.4,257.6 Z" fill="#6b7280"/>
+<text x="98.9" y="283.1" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="500.6" y1="21.8" x2="500.6" y2="55.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M500.6,59.2 L497.9,52.8 L503.3,52.8 Z" fill="#6b7280"/>
+<line x1="500.6" y1="351.0" x2="500.6" y2="321.6" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M500.6,317.4 L503.3,323.9 L497.9,323.9 Z" fill="#6b7280"/>
+<text x="488.9" y="345.5" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">A<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="104.4" y="145.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="104.4" y="168.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="104.4" y="191.8" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="510.0" y="99.8" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="510.0" y="123.2" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="510.0" y="146.6" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">ρ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<ellipse cx="258.8" cy="152.8" rx="20.3" ry="40.6" fill="#4b5563"/>
+<ellipse cx="258.8" cy="234.0" rx="20.3" ry="40.6" fill="#4b5563"/>
+<path d="M258.8,107.6 C293.9,107.6 290.0,189.5 266.6,193.4 C290.0,197.3 293.9,279.2 258.8,279.2 C223.7,279.2 227.6,197.3 251.0,193.4 C227.6,189.5 223.7,107.6 258.8,107.6 Z" fill="none" stroke="#4b5563" stroke-width="1.1" stroke-dasharray="4,3" stroke-linejoin="round"/>
+<path d="M241.9,199.6 A18.0,18.0 0 1,1 275.7,199.6" fill="none" stroke="#4b5563" stroke-width="1.3" stroke-linejoin="round"/>
+<path d="M275.7,199.6 L275.3,190.6 L281.8,193.0 Z" fill="#4b5563"/>
+<polygon points="349.8,212.9 350.0,214.6 348.7,216.2 346.3,217.4 343.6,218.3 341.4,219.0 340.1,219.8 339.8,221.1 339.9,222.9 340.0,224.8 339.5,226.6 338.0,227.7 335.8,227.8 333.3,227.0 331.0,225.9 329.1,224.9 327.7,224.7 326.5,225.5 325.1,227.2 323.3,229.1 321.2,230.7 318.9,231.4 316.9,230.9 315.5,229.3 314.7,227.3 314.2,225.4 313.5,224.0 312.2,223.2 310.1,223.0 307.6,222.7 305.1,222.1 303.4,221.0 303.0,219.3 304.1,217.4 306.0,215.6 308.2,214.1 309.8,212.9 310.2,211.9 309.3,210.7 307.7,209.2 306.0,207.3 305.1,205.4 305.4,203.8 307.0,202.8 309.3,202.3 311.7,202.2 313.8,202.1 315.1,201.4 315.8,200.1 316.4,198.0 317.3,195.8 318.8,194.0 320.8,193.2 323.0,193.6 325.1,195.2 326.8,197.3 328.1,199.2 329.3,200.5 330.6,200.8 332.4,200.3 334.7,199.6 337.1,199.2 339.2,199.5 340.5,200.6 340.8,202.4 340.3,204.4 339.7,206.1 339.7,207.5 340.6,208.4 342.7,209.1 345.4,210.0 348.1,211.3 349.8,212.9" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-linejoin="round"/>
+<text x="325.1" y="220.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Q<tspan baseline-shift="sub" font-size="72%">r</tspan></text>
+<polygon points="406.6,173.9 404.9,175.7 402.4,177.1 399.9,178.2 398.2,179.3 397.6,180.6 397.9,182.3 398.5,184.4 398.6,186.6 397.7,188.3 395.7,189.2 392.9,189.0 389.9,188.1 387.3,187.0 385.3,186.3 384.0,186.6 382.8,188.0 381.5,190.1 379.7,192.3 377.5,193.9 375.2,194.2 373.2,193.3 371.7,191.5 370.6,189.5 369.7,187.8 368.4,186.8 366.4,186.6 363.6,186.8 360.6,186.7 357.9,186.1 356.4,184.7 356.3,182.6 357.7,180.3 359.8,178.2 361.8,176.4 362.9,175.1 362.6,173.9 361.1,172.6 359.1,171.0 357.4,169.1 356.8,167.2 357.7,165.7 359.8,164.7 362.4,164.2 364.9,163.9 366.6,163.4 367.4,162.2 367.7,160.2 367.9,157.6 368.7,155.1 370.3,153.2 372.6,152.6 375.2,153.3 377.6,155.1 379.7,157.1 381.4,158.8 382.9,159.6 384.6,159.3 386.7,158.5 389.2,157.6 391.7,157.3 393.6,158.0 394.7,159.6 394.7,161.9 394.3,164.1 394.0,165.9 394.5,167.1 396.2,167.7 399.0,168.3 402.3,169.1 405.2,170.3 406.7,172.0 406.6,173.9" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-linejoin="round"/>
+<text x="379.7" y="181.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Q<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<line x1="169.1" y1="181.7" x2="190.3" y2="181.7" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M195.1,181.7 L187.7,184.8 L187.7,178.6 Z" fill="#4b5563"/>
+<text x="201.1" y="186.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<line x1="169.1" y1="181.7" x2="169.1" y2="160.5" stroke="#4b5563" stroke-width="1.3"/>
+<path d="M169.1,155.7 L172.2,163.1 L166.0,163.1 Z" fill="#4b5563"/>
+<text x="175.1" y="159.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<line x1="327.4" y1="62.4" x2="327.4" y2="41.6" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M327.4,37.4 L330.2,43.8 L324.7,43.8 Z" fill="#4b5563"/>
+<text x="336.8" y="42.1" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="497.5" y1="201.2" x2="519.8" y2="201.2" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M524.0,201.2 L517.6,203.9 L517.6,198.5 Z" fill="#4b5563"/>
+<text x="524.0" y="191.8" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<line x1="95.0" y1="246.4" x2="69.6" y2="246.4" stroke="#4b5563" stroke-width="1.2"/>
+<path d="M65.4,246.4 L71.8,243.7 L71.8,249.2 Z" fill="#4b5563"/>
+<text x="62.2" y="240.2" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic"><tspan text-decoration="overline">n</tspan></text>
+<text x="120.0" y="248.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="512.3" y="271.4" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="148.0" y="181.7" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">3</tspan></text>
+<line x1="151.2" y1="170.0" x2="163.6" y2="101.4" stroke="#4b5563" stroke-width="0.9"/>
+<line x1="151.2" y1="187.2" x2="163.6" y2="271.4" stroke="#4b5563" stroke-width="0.9"/>
+<text x="215.1" y="131.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">Σ<tspan baseline-shift="sub" font-size="72%">4</tspan></text>
+<line x1="216.7" y1="126.3" x2="237.0" y2="120.1" stroke="#4b5563" stroke-width="0.9"/>
+</g></svg>

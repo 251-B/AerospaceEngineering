@@ -25,6 +25,9 @@ Consider the mixing elbow shown schematically in the figure of CL15.pdf. Cold wa
 - Obtain the torque $\bar{M}_1$ about the point $\bar{x}_1$ located at the center of the larger inlet.
 - Compute the above results numerically, given the following data: $v_1 = 0.4$ m/s; $v_2 = 1.2$ m/s; $\rho = 1000$ kg/m$^3$; $T_1 = 20^\circ$C; $T_2 = 40^\circ$C; $\mu = 8\times10^{-4}$ Pa s; $p_1 - p_a = 50$ Pa; $p_2 - p_a = 200$ Pa; $k = 0.677$ W/(m s); $D_1 = 10$ cm; $D_2 = 2.5$ cm; $c = 4216$ J/(kg K); $L_1 = 20$ cm; $L_2 = 7$ cm.
 
+![[attachments/FM-T3/cl15-statement.svg]]
+*Statement figure (redrawn from CL15.pdf, p. 1): main inlet ($D_1$, $v_1$, $p_1$, $T_1$, centre $\bar{x}_1$), bend and exit pipe of length $L_1$ discharging at $p_a$; secondary inlet ($D_2$, $v_2$, $p_2$, $T_2$) at the elbow, $L_2$ below the main axis; the thin lines are the axes of the official figure*
+
 Source: CL15.pdf (pages 1-2, exam of Dec 18, 2012, with solution). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -45,6 +48,9 @@ Source: CL15.pdf (pages 1-2, exam of Dec 18, 2012, with solution). Notes.pdf, Ch
 
 - Frame fixed to the elbow: $\bar{e}_x$ horizontal (main inlet flow), $\bar{e}_y$ vertical upwards, $\bar{e}_z$ towards the reader; moments about $\bar{x}_1$.
 - Surfaces (fixed CV, as in the official solution): $\Sigma_1$ (main inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (secondary inlet, $\bar{n} = -\bar{e}_y$), $\Sigma_{out}$ (exit, $\bar{n} = +\bar{e}_y$), $\Sigma_{wall}$.
+
+![[attachments/FM-T3/cl15-cv.svg]]
+*Control volume of the solution: $\Sigma_1$ (main inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (secondary inlet, $\bar{n} = -\bar{e}_y$), $\Sigma_{out}$ (exit, $\bar{n} = +\bar{e}_y$) and $\Sigma_{wall}$; moments about $\bar{x}_1$*
 
 $$ \boxed{\,\bar{F} = -\int_{\Sigma_{wall}}\left[-(p - p_a)\,\bar{n} + \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

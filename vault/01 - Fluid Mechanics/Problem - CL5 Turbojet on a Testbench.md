@@ -20,6 +20,9 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 
 The entrance and exit sections of the turboreactor sketched in the figure of CL5.pdf have areas $A_1$ and $A_2$. Besides the outer fixed frame, the machine has mobile parts in its interior that extract an amount of work $W$ per unit time from the fluid stream. The combined effects of chemical reaction in the combustion chamber and heat transfer through the walls give a heat transfer per unit time $Q$ to the fluid stream. The axial force on the turboreactor measured on the testbench is $\bar{F} = -F\,\bar{e}_x$. For given values of $W$, $Q$ and $F$ and assuming that at the entrance and exit sections the flow properties are uniform, obtain the values of the density $\rho_2$, pressure $p_2$ and velocity $v_2$ in terms of their values $p_1$, $\rho_1$ and $v_1$ at the entrance. (Handwritten addition: no gravity.)
 
+![[attachments/FM-T3/cl5-statement.svg]]
+*Statement figure (redrawn from CL5.pdf, p. 1): entrance $A_1$ ($v_1$, $p_1$, $\rho_1$), exit $A_2$ ($v_2$, $p_2$, $\rho_2$), rotor and heat sources $Q_r$, $Q_c$; the dashed control volume and its surfaces $\Sigma_1$ to $\Sigma_4$ belong to the official figure*
+
 Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, force on a body Eq. 3.32.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -43,6 +46,9 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 - Frame fixed to the testbench; $\bar{e}_x$ along the engine axis in the flow direction.
 - Surfaces: $\Sigma_1$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (exit, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (fixed walls, $\bar{v} = \bar{v}_c = 0$) and $\Sigma_m$ (surface of the mobile parts, moving with them: $\bar{v} = \bar{v}_c \ne 0$). On $\Sigma_w$ and $\Sigma_m$, $(\bar{v} - \bar{v}_c)\cdot\bar{n} = 0$.
 - $\bar{n}$ is the outward normal of the control volume; $\bar{n}_{\text{in}} = -\bar{n}$ points into the fluid.
+
+![[attachments/FM-T3/cl5-cv.svg]]
+*Control volume of the solution (as in the class notes): $\Sigma_1$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (exit, $\bar{n} = +\bar{e}_x$), the fixed walls $\Sigma_w$ and the surface $\Sigma_m$ of the mobile parts. The official figure calls them $\Sigma_1$, $\Sigma_2$, $\Sigma_3$ and $\Sigma_4$*
 
 Definitions written on the surfaces, as in class:
 

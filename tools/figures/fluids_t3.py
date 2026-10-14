@@ -1299,12 +1299,314 @@ def cl1_cv():
             "$\\Sigma_d$, $\\Sigma_\\ell$ and $\\Sigma_i$")
 
 
+# ----------------------------------------------------------------------------------------- shared (Lote 4)
+def mapper(k, ox, oy):
+    """Coordinates of a reference drawing (pixels of the 200 dpi crop) scaled onto the canvas."""
+    def T(x, y):
+        return (x * k + ox, y * k + oy)
+
+    def D(d):
+        """Rewrite every 'x,y' pair of SVG path data through T."""
+        import re as _re
+        return _re.sub(r"(-?[\d.]+),(-?[\d.]+)", lambda m: "{:.1f},{:.1f}".format(*T(float(m.group(1)), float(m.group(2)))), d)
+    return T, D
+
+
+def blob(c, centre, r, col="TEXT", w=1.2, lobes=7, amp=0.18, seed=0.0):
+    """Irregular closed outline (a heat source region)."""
+    pts = []
+    for k in range(73):
+        t = 2 * math.pi * k / 72
+        rr = r * (1 + amp * math.sin(lobes * t + seed) + 0.08 * math.sin(3 * t + 1))
+        pts.append((centre[0] + rr * math.cos(t), centre[1] + 0.8 * rr * math.sin(t)))
+    poly(c, pts, col, w, close=True)
+
+
+# ----------------------------------------------------------------------------------------- CL15
+CL15_K, CL15_OX, CL15_OY = 0.75, 5, 34
+CL15_WALLS = ("M75,475 L378,475 C453,475 515,413 515,338 L515,62 L653,62 L653,338 C653,420 630,460 598,497 L598,655",
+              "M75,613 L378,613 C460,613 530,580 570,530 L570,655")
+CL15_FILL = ("M75,475 L378,475 C453,475 515,413 515,338 L515,62 L653,62 L653,338 C653,420 630,460 598,497 L598,655 "
+             "L570,655 L570,530 C530,580 460,613 378,613 L75,613 Z")
+
+
+def _cl15_elbow(c, col="HEAD", w=2.2):
+    T, D = mapper(CL15_K, CL15_OX, CL15_OY)
+    pathd(c, D(CL15_FILL), "none", 0, fill="BLUE", opacity=0.10)
+    for d in CL15_WALLS:
+        pathd(c, D(d), col, w)
+    line(c, T(515, 62), T(653, 62), col, w)
+    return T, D
+
+
+def cl15_statement():
+    c = Canvas(560, 640)
+    T, D = _cl15_elbow(c)
+    line(c, T(102, 475), T(102, 613), "HEAD", 1.4, "4,3"); line(c, T(570, 640), T(598, 640), "HEAD", 1.4, "4,3")
+    line(c, T(40, 545), T(650, 545), "TEXT", 0.9, "10,3,2,3"); line(c, T(584, 30), T(584, 700), "TEXT", 0.9, "10,3,2,3")
+    line(c, T(378, 338), T(570, 530), "TEXT", 0.9, "3,3")
+    line(c, T(96, 545), T(108, 545), "HEAD", 1.4); line(c, T(102, 539), T(102, 551), "HEAD", 1.4)
+    lab(c, T(112, 534), vec("x") + sub("", "1"), anchor="start", size=15)
+    line(c, T(372, 338), T(384, 338), "HEAD", 1.2); line(c, T(378, 332), T(378, 344), "HEAD", 1.2)
+    line(c, T(460, 62), T(505, 62), "TEXT", 0.9); line(c, T(325, 338), T(505, 338), "TEXT", 0.9)
+    dim(c, T(473, 64), T(473, 336), "", "TEXT"); lab(c, T(458, 205), sub("L", "1"), anchor="end", size=16)
+    dim(c, T(336, 340), T(336, 473), "", "TEXT"); lab(c, T(324, 418), sub("D", "1"), anchor="end", size=16)
+    line(c, T(378, 345), T(378, 460), "TEXT", 0.9)
+    dim(c, T(155, 477), T(155, 611), "", "TEXT"); lab(c, T(166, 556), sub("D", "1"), anchor="start", size=16)
+    line(c, T(102, 620), T(102, 665), "TEXT", 0.9); line(c, T(378, 620), T(378, 665), "TEXT", 0.9)
+    dim(c, T(104, 655), T(376, 655), "", "TEXT"); lab(c, T(240, 690), sub("L", "1"), size=16)
+    line(c, T(610, 545), T(655, 545), "TEXT", 0.9); line(c, T(610, 640), T(655, 640), "TEXT", 0.9)
+    dim(c, T(638, 547), T(638, 638), "", "TEXT"); lab(c, T(646, 600), sub("L", "2"), anchor="start", size=16)
+    arrow(c, T(530, 612), T(569, 612), "TEXT", 1.0, 7); arrow(c, T(636, 612), T(599, 612), "TEXT", 1.0, 7)
+    lab(c, T(524, 622), sub("D", "2"), anchor="end", size=16)
+    for i, t in enumerate(("Density ρ", "Viscosity μ", "Conductivity k", "Specific heat c")):
+        note(c, T(115, 185 + 40 * i), t, "HEAD", "start", 13)
+    hollow_arrow(c, T(32, 545), (1, 0), length=40, half=4, head=11)
+    hollow_arrow(c, T(584, 58), (0, -1), length=38, half=4, head=11)
+    hollow_arrow(c, T(584, 708), (0, -1), length=38, half=4, head=11)
+    lab(c, T(612, 32), sub("p", "a"), anchor="start", size=16)
+    for i, s_ in enumerate((sub("v", "1"), sub("p", "1"), sub("T", "1"))):
+        lab(c, T(30, 600 + 38 * i), s_, anchor="start", size=16)
+    for i, s_ in enumerate((sub("v", "2"), sub("p", "2"), sub("T", "2"))):
+        lab(c, T(606, 712 + 36 * i), s_, anchor="start", size=16)
+    REG.put("cl15-statement", c,
+            "Mixing elbow: main pipe of diameter D1 and length L1 with inlet state v1, p1, T1 at the section centred on x1; "
+            "bend of radius D1; vertical exit pipe of length L1 discharging at pa; secondary pipe of diameter D2 entering "
+            "at the elbow from below with v2, p2, T2, its inlet a distance L2 below the main axis",
+            "Statement figure (redrawn from CL15.pdf, p. 1): main inlet ($D_1$, $v_1$, $p_1$, $T_1$, centre $\\bar{x}_1$), "
+            "bend and exit pipe of length $L_1$ discharging at $p_a$; secondary inlet ($D_2$, $v_2$, $p_2$, $T_2$) at the "
+            "elbow, $L_2$ below the main axis; the thin lines are the axes of the official figure")
+
+
+def cl15_cv():
+    c = Canvas(560, 640)
+    T, D = _cl15_elbow(c, "EDGE", 2.0)
+    cv = ("M102,481 L378,481 C449,481 509,421 509,338 L509,68 L647,68 L647,338 C647,418 625,456 592,495 L592,640 "
+          "L576,640 L576,532 C536,584 462,607 378,607 L102,607 Z")
+    pathd(c, D(cv), "GREEN", 2.0, CV_DASH)
+    sigma(c, T(70, 445), "1", "end"); leader(c, T(72, 450), T(100, 485))
+    sigma(c, T(500, 700), "2", "end"); leader(c, T(502, 694), T(576, 642))
+    sigma(c, T(690, 70), "out", "start")
+    sigma(c, T(690, 420), "wall", "start"); leader(c, T(688, 414), T(650, 400))
+    normal(c, T(102, 580), (-1, 0), length=30, lab_off=(-4, -6), anchor="end")
+    normal(c, T(540, 68), (0, -1), length=30, lab_off=(-6, 4), anchor="end")
+    normal(c, T(584, 640), (0, 1), length=30, lab_off=(-8, 10), anchor="end")
+    arrow(c, T(10, 520), T(90, 520), "BLUE", 2.0, 9); lab(c, T(50, 505), sub("v", "1"), "BLUE", size=16)
+    arrow(c, T(625, 760), T(625, 690), "BLUE", 2.0, 9); lab(c, T(640, 740), sub("v", "2"), "BLUE", "start", 16)
+    arrow(c, T(620, 50), T(620, -10), "BLUE", 2.0, 9); lab(c, T(636, 0), sub("v", "s"), "BLUE", "start", 16)
+    c.add('<circle cx="{:.1f}" cy="{:.1f}" r="3.5" fill="HEAD"/>'.format(*T(102, 545)))
+    lab(c, T(112, 534), vec("x") + sub("", "1"), anchor="start", size=15)
+    axes(c, T(250, 760), "x", "y", 34)
+    REG.put("cl15-cv", c,
+            "Control volume: the water inside the elbow between the main inlet, the secondary inlet and the exit, bounded "
+            "by the pipe wall; moments about the centre x1 of the main inlet",
+            "Control volume of the solution: $\\Sigma_1$ (main inlet, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_2$ (secondary "
+            "inlet, $\\bar{n} = -\\bar{e}_y$), $\\Sigma_{out}$ (exit, $\\bar{n} = +\\bar{e}_y$) and $\\Sigma_{wall}$; "
+            "moments about $\\bar{x}_1$")
+
+
+# ----------------------------------------------------------------------------------------- CL11
+CL11_K, CL11_OX, CL11_OY = 0.55, 30, 6
+CL11_A = 33.0
+
+
+def _cl11_dirs():
+    a = math.radians(CL11_A)
+    return (-math.sin(a), math.cos(a)), (math.cos(a), math.sin(a))
+
+
+CL11_LEFT, CL11_RIGHT = "M218,185 C190,240 175,330 125,460", "M425,388 C360,445 300,462 269,554"
+
+
+def _cl11_device(c, col="HEAD", w=2.2):
+    T, D = mapper(CL11_K, CL11_OX, CL11_OY)
+    pathd(c, D("M218,185 C260,140 300,128 345,128 L975,128 L975,392 L425,392 L425,388 C360,445 300,462 269,554 "
+               "L125,460 C175,330 190,240 218,185 Z"), "none", 0, fill="BLUE", opacity=0.10)
+    line(c, T(330, 128), T(975, 128), col, w); line(c, T(350, 392), T(975, 392), col, w)
+    pathd(c, D(CL11_LEFT), col, w); pathd(c, D(CL11_RIGHT), col, w)
+    circle(c, T(345, 262), 135 * CL11_K, col, w)
+    return T, D
+
+
+def _cl11_blades(c, T, col="HEAD"):
+    for y in (212, 312):
+        x, yy = T(660, y)
+        c.add(f'<ellipse cx="{fmt(x)}" cy="{fmt(yy)}" rx="{fmt(13 * CL11_K)}" ry="{fmt(48 * CL11_K)}" fill="{col}"/>')
+
+
+def cl11_statement():
+    c = Canvas(600, 500)
+    T, D = _cl11_device(c)
+    d, pp = _cl11_dirs()
+    o = (345, 262)
+    line(c, T(345, 230), T(345, 870), "TEXT", 0.9, "10,3,2,3")
+    line(c, T(*o), T(o[0] + d[0] * 600, o[1] + d[1] * 600), "TEXT", 0.9, "10,3,2,3")
+    cx, cy = T(*o)
+    angle_arc(c, (cx, cy), 150 * CL11_K, -90, -90 - CL11_A, "HEAD", 1.2)
+    lab(c, T(290, 470), "α", size=19)
+    arrow(c, T(*o), T(415, 262), "HEAD", 1.2, 7); lab(c, T(405, 290), "x", size=15)
+    arrow(c, T(*o), T(345, 185), "HEAD", 1.2, 7); lab(c, T(325, 200), "y", size=15)
+    E = (197, 507)
+    for k in (-64, -32, 0, 32, 64):
+        a = (E[0] + pp[0] * k + d[0] * 12, E[1] + pp[1] * k + d[1] * 12)
+        arrow(c, T(*a), T(a[0] + d[0] * 150, a[1] + d[1] * 150), "BLUE", 1.3, 7)
+    for e0 in ((125, 460), (269, 554)):
+        line(c, T(*e0), T(e0[0] + d[0] * 260, e0[1] + d[1] * 260), "TEXT", 1.1, "2,4")
+    arrow(c, T(60, 430), T(120, 456), "TEXT", 1.1, 7); arrow(c, T(335, 590), T(276, 557), "TEXT", 1.1, 7)
+    lab(c, T(55, 425), sub("A", "e"), anchor="end", size=17)
+    lab(c, T(70, 690), sub("p", "a"), size=16); lab(c, T(135, 700), sub("ρ", "e"), size=16)
+    lab(c, T(80, 760), sub("U", "e"), size=16)
+    for y in (165, 210, 255, 300, 345):
+        arrow(c, T(935, y), T(872, y), "BLUE", 1.3, 7)
+    line(c, T(866, 136), T(866, 384), "TEXT", 1.1, "4,3")
+    lab(c, T(945, 180), sub("p", "i"), anchor="start", size=16); lab(c, T(945, 265), sub("U", "i"), anchor="start", size=16)
+    lab(c, T(945, 350), sub("ρ", "a"), anchor="start", size=16)
+    arrow(c, T(866, 60), T(866, 126), "TEXT", 1.1, 7); arrow(c, T(880, 450), T(880, 394), "TEXT", 1.1, 7)
+    lab(c, T(890, 60), sub("A", "i"), anchor="start", size=17)
+    lab(c, T(730, 110), sub("p", "a"), size=16)
+    blob(c, T(535, 258), 32, "HEAD", 1.2, seed=0.6); lab(c, T(535, 272), "Q", size=17)
+    _cl11_blades(c, T)
+    lab(c, T(712, 275), "W", anchor="start", size=17)
+    REG.put("cl11-statement", c,
+            "VTOL propulsion device: horizontal intake of section Ai on the right (pi, Ui, rho a), duct with the heat "
+            "addition Q and the mobile blades W, and a thrust-vectoring nozzle of exit section Ae turned an angle alpha "
+            "from the vertical, discharging at Ue, rho e into pa",
+            "Statement figure (redrawn from CL11.pdf, p. 1): intake $A_i$ ($p_i$, $U_i$, $\\rho_a$), heat $Q$ and blades "
+            "$W$ inside the duct, nozzle of exit section $A_e$ at the angle $\\alpha$ from the vertical ($U_e$, $\\rho_e$, "
+            "$p_a$); axes $x$, $y$ at the centre of the rotating joint")
+
+
+def cl11_cv():
+    c = Canvas(600, 500)
+    T, D = _cl11_device(c, "EDGE", 2.0)
+    d, pp = _cl11_dirs()
+    pathd(c, D("M230,185 C262,150 300,136 345,136 L866,136 L866,384 L425,384 C358,446 300,468 262,550 L132,465 "
+               "C187,330 202,240 230,185 Z"), "GREEN", 2.0, CV_DASH)
+    blob(c, T(535, 258), 32, "EDGE", 1.2, seed=0.6)
+    _cl11_blades(c, T, "EDGE")
+    cx, cy = T(660, 262)
+    ellipse(c, cx, cy, 24 * CL11_K, 112 * CL11_K, "GREEN", 1.5, "4,3")
+    E = (197, 507)
+    sigma(c, T(900, 440), "i", "start"); leader(c, T(898, 430), T(868, 360))
+    sigma(c, T(40, 560), "e", "end"); leader(c, T(44, 555), T(150, 490))
+    sigma(c, T(780, 90), "w", "start"); leader(c, T(778, 96), T(760, 132))
+    sigma(c, T(720, 470), "m", "start"); leader(c, T(718, 458), T(672, 375))
+    normal(c, T(866, 260), (1, 0), length=30, lab_off=(4, -6), anchor="start")
+    normal(c, T(E[0] - pp[0] * 20, E[1] - pp[1] * 20), d, length=34, lab_off=(-8, 8), anchor="end")
+    normal(c, T(600, 136), (0, -1), length=26, lab_off=(10, 6), anchor="start")
+    arrow(c, T(1010, 350), T(905, 350), "BLUE", 2.0, 9); lab(c, T(958, 335), sub("U", "i"), "BLUE", size=16)
+    a = (E[0] + pp[0] * 60 + d[0] * 30, E[1] + pp[1] * 60 + d[1] * 30)
+    arrow(c, T(*a), T(a[0] + d[0] * 150, a[1] + d[1] * 150), "BLUE", 2.0, 9)
+    lab(c, T(a[0] + d[0] * 120 + 30, a[1] + d[1] * 120), sub("U", "e"), "BLUE", "start", 16)
+    arrow(c, T(345, 262), T(415, 262), "HEAD", 1.2, 7); lab(c, T(405, 290), "x", size=15)
+    arrow(c, T(345, 262), T(345, 185), "HEAD", 1.2, 7); lab(c, T(325, 200), "y", size=15)
+    REG.put("cl11-cv", c,
+            "Control volume: the air inside the duct and the nozzle, from the intake section to the exit section, bounded "
+            "by the fixed walls and the surface of the mobile blades",
+            "Control volume of the solution: $\\Sigma_i$ (intake, $\\bar{n} = +\\bar{e}_x$, $\\bar{v} = -U_i\\bar{e}_x$), "
+            "$\\Sigma_e$ (exit, $\\bar{n} = \\bar{v}_e/U_e$), the fixed walls $\\Sigma_w$ and the mobile blades "
+            "$\\Sigma_m$ (dashed around them)")
+
+
+# ----------------------------------------------------------------------------------------- CL5
+CL5_K, CL5_OX, CL5_OY = 0.78, -100, 14
+CL5_UP, CL5_DN = "M245,128 C330,92 420,62 490,62 L770,62", "M245,300 C330,345 420,385 490,385 L770,385"
+
+
+def _cl5_engine(c, col="HEAD", w=2.4):
+    T, D = mapper(CL5_K, CL5_OX, CL5_OY)
+    pathd(c, D("M245,128 C330,92 420,62 490,62 L770,62 L770,385 L490,385 C420,385 330,345 245,300 Z"), "none", 0,
+          fill="BLUE", opacity=0.10)
+    pathd(c, D(CL5_UP), col, w); pathd(c, D(CL5_DN), col, w)
+    return T, D
+
+
+def _cl5_rotor(c, T, col="HEAD"):
+    for y in (178, 282):
+        x, yy = T(460, y)
+        c.add(f'<ellipse cx="{fmt(x)}" cy="{fmt(yy)}" rx="{fmt(26 * CL5_K)}" ry="{fmt(52 * CL5_K)}" fill="{col}"/>')
+
+
+def cl5_statement():
+    c = Canvas(600, 370)
+    T, D = _cl5_engine(c)
+    pathd(c, D("M250,134 C333,99 422,68 490,68 L766,68 L766,379 L490,379 C422,379 333,339 250,294 Z"), "HEAD", 1.2, "4,3")
+    for k in range(14):
+        y = 140 + k * 12.5
+        arrow(c, T(165, y), T(240, y), "BLUE", 1.1, 6)
+    for k in range(21):
+        y = 72 + k * 15
+        arrow(c, T(700, y), T(762, y), "BLUE", 1.1, 6)
+    arrow(c, T(245, 80), T(245, 124), "TEXT", 1.1, 7); arrow(c, T(245, 350), T(245, 304), "TEXT", 1.1, 7)
+    lab(c, T(255, 345), sub("A", "1"), anchor="start", size=15)
+    arrow(c, T(770, 10), T(770, 58), "TEXT", 1.1, 7); arrow(c, T(770, 432), T(770, 389), "TEXT", 1.1, 7)
+    lab(c, T(755, 425), sub("A", "2"), anchor="end", size=15)
+    for i, s_ in enumerate((sub("v", "1"), sub("p", "1"), sub("ρ", "1"))):
+        lab(c, T(262, 168 + 30 * i), s_, anchor="start", size=15)
+    for i, s_ in enumerate((sub("v", "2"), sub("p", "2"), sub("ρ", "2"))):
+        lab(c, T(782, 110 + 30 * i), s_, anchor="start", size=15)
+    _cl5_rotor(c, T)
+    pathd(c, D("M460,120 C505,120 500,225 470,230 C500,235 505,340 460,340 C415,340 420,235 450,230 C420,225 415,120 "
+               "460,120 Z"), "HEAD", 1.1, "4,3")
+    arc_arrow(c, T(460, 230), 18, 200, -20, "HEAD", 1.3)
+    blob(c, T(545, 255), 20, "TEXT", 1.0, seed=1.2); lab(c, T(545, 265), sub("Q", "r"), size=15)
+    blob(c, T(615, 205), 22, "TEXT", 1.0, seed=2.1); lab(c, T(615, 215), sub("Q", "c"), size=15)
+    axes(c, T(345, 215), "x", "y", 26)
+    arrow(c, T(548, 62), T(548, 30), "HEAD", 1.2, 7); lab(c, T(560, 36), vec("n"), anchor="start", size=15)
+    arrow(c, T(766, 240), T(800, 240), "HEAD", 1.2, 7); lab(c, T(800, 228), vec("n"), anchor="start", size=15)
+    arrow(c, T(250, 298), T(212, 298), "HEAD", 1.2, 7); lab(c, T(208, 290), vec("n"), anchor="end", size=15)
+    lab(c, T(282, 300), sub("Σ", "1"), anchor="start", size=15)
+    lab(c, T(785, 330), sub("Σ", "2"), anchor="start", size=15)
+    lab(c, T(318, 215), sub("Σ", "3"), anchor="end", size=15)
+    line(c, T(322, 200), T(338, 112), "HEAD", 0.9); line(c, T(322, 222), T(338, 330), "HEAD", 0.9)
+    lab(c, T(404, 150), sub("Σ", "4"), anchor="end", size=15); line(c, T(406, 144), T(432, 136), "HEAD", 0.9)
+    REG.put("cl5-statement", c,
+            "Turbojet on a testbench: entrance section A1 with v1, p1, rho1, exit section A2 with v2, p2, rho2; the rotor "
+            "inside and the heat sources Qr and Qc; the official control volume with surfaces Sigma 1 to Sigma 4",
+            "Statement figure (redrawn from CL5.pdf, p. 1): entrance $A_1$ ($v_1$, $p_1$, $\\rho_1$), exit $A_2$ ($v_2$, "
+            "$p_2$, $\\rho_2$), rotor and heat sources $Q_r$, $Q_c$; the dashed control volume and its surfaces "
+            "$\\Sigma_1$ to $\\Sigma_4$ belong to the official figure")
+
+
+def cl5_cv():
+    c = Canvas(620, 370)
+    T, D = _cl5_engine(c, "EDGE", 2.0)
+    pathd(c, D("M250,134 C333,99 422,68 490,68 L766,68 L766,379 L490,379 C422,379 333,339 250,294 Z"), "GREEN", 2.0,
+          CV_DASH)
+    _cl5_rotor(c, T, "EDGE")
+    pathd(c, D("M460,120 C505,120 500,225 470,230 C500,235 505,340 460,340 C415,340 420,235 450,230 C420,225 415,120 "
+               "460,120 Z"), "GREEN", 1.5, "4,3")
+    arc_arrow(c, T(460, 230), 18, 200, -20, "ACC", 1.5)
+    overdot(c, T(505, 150), "W", "ACC", "start", 16)
+    blob(c, T(600, 230), 34, "PINK", 1.2, seed=0.4); lab(c, T(600, 222), sub("Q", "c"), "PINK", size=15)
+    lab(c, T(600, 252), sub("Q", "R"), "PINK", size=15)
+    sigma(c, T(225, 360), "1", "end"); leader(c, T(228, 352), T(250, 290))
+    sigma(c, T(800, 360), "2", "start"); leader(c, T(798, 352), T(768, 340))
+    sigma(c, T(640, 30), "w", "start"); leader(c, T(638, 36), T(620, 66))
+    sigma(c, T(390, 140), "m", "end"); leader(c, T(392, 134), T(440, 128))
+    normal(c, T(250, 214), (-1, 0), length=26, lab_off=(-4, -6), anchor="end")
+    normal(c, T(766, 214), (1, 0), length=26, lab_off=(4, -6), anchor="start")
+    normal(c, T(540, 379), (0, 1), length=24, lab_off=(10, 8), anchor="start")
+    arrow(c, T(150, 160), T(236, 160), "BLUE", 2.0, 9); lab(c, T(190, 144), sub("v", "1"), "BLUE", size=15)
+    arrow(c, T(790, 160), T(870, 160), "BLUE", 2.0, 9); lab(c, T(830, 144), sub("v", "2"), "BLUE", size=15)
+    arrow(c, T(400, 430), T(320, 430), "ACC", 2.4, 10)
+    lab(c, T(410, 436), vec("F") + " = −F " + vec("e") + sub("", "x"), "ACC", "start", 15, weight="700")
+    arrow(c, T(120, 430), T(170, 430), "HEAD", 1.3, 8); lab(c, T(176, 436), vec("e") + sub("", "x"), anchor="start", size=15)
+    REG.put("cl5-cv", c,
+            "Control volume, as in the class notes: entrance and exit sections, fixed walls and the surface of the moving "
+            "rotor; power W extracted by the rotor, heat sources Qc and QR, force F on the testbench",
+            "Control volume of the solution (as in the class notes): $\\Sigma_1$ (entrance, $\\bar{n} = -\\bar{e}_x$), "
+            "$\\Sigma_2$ (exit, $\\bar{n} = +\\bar{e}_x$), the fixed walls $\\Sigma_w$ and the surface $\\Sigma_m$ of the "
+            "mobile parts. The official figure calls them $\\Sigma_1$, $\\Sigma_2$, $\\Sigma_3$ and $\\Sigma_4$")
+
+
 # ----------------------------------------------------------------------------------------- build
 def build():
     for fn in (cl22_statement, cl22_cv, cl21_statement, cl21_cv, cl20_statement, cl20_cv,
                cl12_statement, cl12_cv, cl2_statement, cl2_cv,
                cl6_statement, cl6_cv, cl19_statement, cl19_cv, cl10_statement, cl10_cv, cl3_statement, cl3_cv,
                cl8_statement, cl8_cv, cl16_statement, cl16_cv, cl18_statement, cl18_cv, cl9_statement, cl9_cv,
-               cl14_statement, cl14_cv, cl1_statement, cl1_cv):
+               cl14_statement, cl14_cv, cl1_statement, cl1_cv, cl15_statement, cl15_cv, cl11_statement, cl11_cv,
+               cl5_statement, cl5_cv):
         fn()
     return REG

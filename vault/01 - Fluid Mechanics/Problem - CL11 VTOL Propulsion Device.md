@@ -27,6 +27,9 @@ The propulsion device of a VTOL (vertical take-off and landing) aircraft include
 
 With the above simplifications, write the equations that determine the values of $U_i$, $U_e$, $p_i$, $\rho_e$ and $\alpha$ in terms of the known quantities ($p_a$, $Mg$, $\rho_a$, $A_i$, $A_e$, $\gamma$, $W$, and $Q$).
 
+![[attachments/FM-T3/cl11-statement.svg]]
+*Statement figure (redrawn from CL11.pdf, p. 1): intake $A_i$ ($p_i$, $U_i$, $\rho_a$), heat $Q$ and blades $W$ inside the duct, nozzle of exit section $A_e$ at the angle $\alpha$ from the vertical ($U_e$, $\rho_e$, $p_a$); axes $x$, $y$ at the centre of the rotating joint*
+
 Source: CL11.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -48,6 +51,9 @@ Source: CL11.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.10, integral m
 
 - Frame fixed to the hovering aircraft (inertial while hovering); $\bar{e}_x$ horizontal, $\bar{e}_y$ vertical upwards.
 - Surfaces: $\Sigma_i$ (intake, $\bar{n} = +\bar{e}_x$, $\bar{v} = -U_i\bar{e}_x$), $\Sigma_e$ (exit, $\bar{n} = \bar{v}_e/U_e$), $\Sigma_w$ (fixed walls) and $\Sigma_m$ (mobile blades).
+
+![[attachments/FM-T3/cl11-cv.svg]]
+*Control volume of the solution: $\Sigma_i$ (intake, $\bar{n} = +\bar{e}_x$, $\bar{v} = -U_i\bar{e}_x$), $\Sigma_e$ (exit, $\bar{n} = \bar{v}_e/U_e$), the fixed walls $\Sigma_w$ and the mobile blades $\Sigma_m$ (dashed around them)*
 
 $$ \boxed{\,\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y = \int_{\Sigma_w,\Sigma_m}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,}\qquad(\text{force of the air on the engine}) $$
 
