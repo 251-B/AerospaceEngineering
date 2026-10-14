@@ -49,12 +49,17 @@ tags:
   * [[01 - Fluid Mechanics/Concept - Fourier's Law and Heat Conduction|Concept: Fourier's Law, Conduction and Prandtl Number]]
   * [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy|Concept: Integral Conservation of Mass, Momentum and Energy]]
   * [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws|Formula Sheet: Complete Equations Handbook (3.1 to 3.46)]]
-  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, in progress: CL1 to CL5 of CL1 to CL22):**
-    * [[01 - Fluid Mechanics/Problem - CL1 Airfoil Wake and Drag|Problem CL1: Airfoil Wake, Streamline Displacement and Drag]]
+  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, in progress: CL1 to CL10 of CL1 to CL22):**
+    * [[01 - Fluid Mechanics/Problem - CL1 Airfoil Wake and Drag|Problem CL1: Airfoil Wake: Streamline Displacement and Drag]]
     * [[01 - Fluid Mechanics/Problem - CL2 Hydraulic Bore|Problem CL2: Bore over a Stagnant Water Layer]]
-    * [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece|Problem CL3: Double-Elbow Mouthpiece, Force and Moment]]
-    * [[01 - Fluid Mechanics/Problem - CL4 Cascade of Aerofoils|Problem CL4: Cascade of Aerofoils, Downstream State]]
-    * [[01 - Fluid Mechanics/Problem - CL5 Turbojet on a Testbench|Problem CL5: Turbojet on a Testbench, Exit State]]
+    * [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece|Problem CL3: Double-Elbow Mouthpiece: Exit Velocity, Force and Moment]]
+    * [[01 - Fluid Mechanics/Problem - CL4 Cascade of Aerofoils|Problem CL4: Cascade of Aerofoils: Downstream State]]
+    * [[01 - Fluid Mechanics/Problem - CL5 Turbojet on a Testbench|Problem CL5: Turbojet on a Testbench: Exit State]]
+    * [[01 - Fluid Mechanics/Problem - CL6 Elbow with Vertical Jet|Problem CL6: Elbow Discharging a Vertical Jet: Velocity, Force and Heat]]
+    * [[01 - Fluid Mechanics/Problem - CL7 Industrial Dryer|Problem CL7: Industrial Dryer: Velocities, Force, Power and Torque]]
+    * [[01 - Fluid Mechanics/Problem - CL8 Jet on a Wall with an Orifice|Problem CL8: Jet Impinging on a Wall with an Orifice]]
+    * [[01 - Fluid Mechanics/Problem - CL9 Submarine Propulsion Device|Problem CL9: Submarine Propulsion Device: Thrust from the Propeller Power]]
+    * [[01 - Fluid Mechanics/Problem - CL10 Ventilation Device|Problem CL10: Ventilation Device: Velocities, Force and Fan Power]]
   * **Practical Modular Subchapters:**
     * **Subchapter 3.1:** The Reynolds Transport Theorem (RTT) & Control Volume Selection Strategy
     * **Subchapter 3.2:** Conservation of Mass (Continuity) in Problem Solving
