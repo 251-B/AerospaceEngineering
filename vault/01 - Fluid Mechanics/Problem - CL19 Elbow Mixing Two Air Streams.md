@@ -26,6 +26,9 @@ The elbow-shaped tube of circular cross section shown in the figure of CL19.pdf 
 
 Note: for a perfect gas, $p = \rho R_gT$, where $R_g$ is the gas constant.
 
+![[attachments/FM-T3/cl19-statement.svg]]
+*Statement figure (redrawn from CL19.pdf, p. 1): pipe of diameter $D$; at the inlet the inner stream (diameter $D/\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, $T_o$ into the atmosphere at $p_a$*
+
 Source: CL19.pdf (page 1, prefinal of Dec 16, 2013). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -45,6 +48,9 @@ Source: CL19.pdf (page 1, prefinal of Dec 16, 2013). Notes.pdf, Chapter 3: integ
 
 - Frame fixed to the pipe, $\bar{e}_x$ horizontal (inlet flow), $\bar{e}_y$ vertical upwards (outlet flow). Fixed control volume. $A \equiv \pi D^2/4$.
 - Surfaces: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_y$), $\Sigma_\ell$ (pipe wall).
+
+![[attachments/FM-T3/cl19-cv.svg]]
+*Control volume of the solution: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_y$) and the pipe wall $\Sigma_\ell$, where the force and the heat are collected*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_\ell}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 

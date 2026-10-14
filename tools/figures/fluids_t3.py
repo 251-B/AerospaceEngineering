@@ -488,9 +488,403 @@ def cl2_cv():
             "$\\Sigma_b$ and the free surface $\\Sigma_s$, with the outward normals")
 
 
+# ----------------------------------------------------------------------------------------- shared (Lote 2)
+def overdot(c, p, s, col="HEAD", anchor="middle", size=17, weight="400", dx=0):
+    """A label with a dot above it (time derivative), the dot drawn as a small circle so every font shows it."""
+    lab(c, p, s, col, anchor, size, weight=weight)
+    shift = {"middle": 0, "start": size * 0.32, "end": -size * 0.32}[anchor]
+    c.add(f'<circle cx="{fmt(p[0] + shift + dx)}" cy="{fmt(p[1] - size * 0.86)}" r="1.7" fill="{col}"/>')
+
+
+def cubic(p0, p1, p2, p3, n=60):
+    """Points along a cubic Bezier curve."""
+    out = []
+    for k in range(n + 1):
+        t = k / n
+        a, b, cc, d = (1 - t) ** 3, 3 * t * (1 - t) ** 2, 3 * t * t * (1 - t), t ** 3
+        out.append((a * p0[0] + b * p1[0] + cc * p2[0] + d * p3[0], a * p0[1] + b * p1[1] + cc * p2[1] + d * p3[1]))
+    return out
+
+
+def leader(c, a, b, col="GREEN"):
+    """Thin pointer from a label to the surface it names."""
+    line(c, a, b, col, 1.0)
+
+
+def axes(c, o, lx="x", ly="y", L=40):
+    arrow(c, o, (o[0] + L, o[1]), "HEAD", 1.3, 8); lab(c, (o[0] + L + 6, o[1] + 5), lx, anchor="start", size=15)
+    arrow(c, o, (o[0], o[1] - L), "HEAD", 1.3, 8); lab(c, (o[0] + 6, o[1] - L + 4), ly, anchor="start", size=15)
+
+
+# ----------------------------------------------------------------------------------------- CL6
+CL6_OUTER = "M130,105 L370,105 Q480,105 480,215 L480,470"
+CL6_INNER = "M130,295 L330,295 Q400,295 400,365 L400,470"
+CL6_BODY = "M130,105 L370,105 Q480,105 480,215 L480,470 L400,470 L400,365 Q400,295 330,295 L130,295 Z"
+
+
+def _cl6_pipe(c, col="HEAD", w=2.2):
+    pathd(c, CL6_BODY, "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, CL6_OUTER, col, w); pathd(c, CL6_INNER, col, w)
+    ellipse(c, 130, 200, 34, 95, col, w, fill="BLUE", opacity=0.10)
+    ellipse(c, 440, 470, 40, 10, col, w)
+
+
+def cl6_statement():
+    c = Canvas(560, 560)
+    _cl6_pipe(c)
+    flow_arrows(c, 62, 152, [125, 150, 175, 200, 225, 250, 275])
+    lab(c, (50, 155), sub("v", "i"), anchor="end"); lab(c, (50, 210), sub("p", "i"), anchor="end")
+    lab(c, (50, 265), sub("T", "i"), anchor="end")
+    lab(c, (172, 212), sub("A", "i"), anchor="start")
+    arrow(c, (262, 222), (262, 168), "ACC", 2.0, 9); lab(c, (270, 176), sub("F", "z"), "ACC", "start", 18)
+    arrow(c, (262, 222), (322, 222), "ACC", 2.0, 9); lab(c, (318, 244), sub("F", "x"), "ACC", "start", 18)
+    for dx in (-14, 0, 14):
+        arrow(c, (300 + dx - 8, 62), (300 + dx, 101), "PINK", 1.5, 7)
+    lab(c, (300, 52), "Q", "PINK", size=18)
+    lab(c, (500, 150), sub("p", "a"), anchor="start"); lab(c, (300, 340), sub("p", "a"))
+    lab(c, (388, 470), sub("p", "a"), anchor="end")
+    for x in (418, 432, 446, 460):
+        arrow(c, (x, 482), (x, 534), "BLUE", 1.5, 7)
+    lab(c, (408, 525), sub("v", "o"), anchor="end"); lab(c, (470, 530), sub("T", "o"), anchor="start")
+    lab(c, (486, 478), sub("A", "o"), anchor="start")
+    REG.put("cl6-statement", c,
+            "Elbow-shaped pipe: horizontal inlet of area Ai with vi, pi, Ti; vertical outlet of area Ao discharging "
+            "downwards with vo, To into the ambient pa; force components Fx, Fz and heat Q through the wall",
+            "Statement figure (redrawn from CL6.pdf, p. 1): inlet section $A_i$ with $v_i$, $p_i$, $T_i$; outlet $A_o$ "
+            "discharging a vertical jet $v_o$, $T_o$ into $p_a$; force components $F_x$, $F_z$ on the pipe and heat $Q$ "
+            "through its walls")
+
+
+def cl6_cv():
+    c = Canvas(560, 560)
+    _cl6_pipe(c, "EDGE", 2.0)
+    pathd(c, "M136,111 L370,111 Q474,111 474,215 L474,466", "GREEN", 2.0, CV_DASH)
+    pathd(c, "M136,289 L330,289 Q406,289 406,365 L406,466", "GREEN", 2.0, CV_DASH)
+    ellipse(c, 136, 200, 28, 89, "GREEN", 2.0, CV_DASH)
+    ellipse(c, 440, 466, 34, 7, "GREEN", 2.0, CV_DASH)
+    sigma(c, (78, 345), "i", "end"); leader(c, (82, 338), (116, 272))
+    sigma(c, (500, 300), "w", "start"); leader(c, (497, 294), (477, 284))
+    sigma(c, (520, 452), "o", "start"); leader(c, (517, 452), (476, 466))
+    normal(c, (108, 200), (-1, 0), length=34, lab_off=(-4, -8), anchor="end")
+    normal(c, (300, 105), (0, -1), length=30, lab_off=(12, 6), anchor="start")
+    normal(c, (424, 476), (0, 1), length=32, lab_off=(-8, 4), anchor="end")
+    arrow(c, (178, 200), (240, 200), "BLUE", 2.0, 9); lab(c, (209, 190), sub("v", "i"), "BLUE", size=16)
+    arrow(c, (456, 478), (456, 536), "BLUE", 2.0, 9); lab(c, (464, 524), sub("v", "o"), "BLUE", "start", 16)
+    axes(c, (40, 520), "x", "z")
+    REG.put("cl6-cv", c,
+            "Control volume: the liquid inside the elbow, bounded by the inlet section, the pipe wall and the outlet section",
+            "Control volume of the solution (as in the class notes): the liquid inside the pipe, with $\\Sigma_i$ (inlet, "
+            "$\\bar{n} = -\\bar{e}_x$), $\\Sigma_o$ (outlet, $\\bar{n} = -\\bar{e}_z$) and the wall $\\Sigma_w$, where the "
+            "force and the heat are collected")
+
+
+# ----------------------------------------------------------------------------------------- CL19
+def _cl19_pipe(c, col="HEAD", w=2.4):
+    top = [(100, 250), (318, 250), (330, 238), (330, 60)]
+    bot = [(100, 350), (418, 350), (430, 338), (430, 60)]
+    poly(c, top + bot[::-1], "none", 0, fill="BLUE", opacity=0.10, close=True)
+    poly(c, top, col, w); poly(c, bot, col, w)
+
+
+def cl19_statement():
+    c = Canvas(600, 430)
+    _cl19_pipe(c)
+    for k in range(12):
+        y = 255 + k * 8
+        arrow(c, (104, y), (160, y), "BLUE", 1.1, 6)
+    yl1, yl2 = 300 - 50 / math.sqrt(2), 300 + 50 / math.sqrt(2)
+    line(c, (66, yl1), (104, yl1), "HEAD", 1.0); line(c, (66, yl2), (104, yl2), "HEAD", 1.0)
+    lab(c, (84, 247), sub("T", "2"), size=16); lab(c, (84, 306), sub("T", "1"), size=16)
+    lab(c, (84, 368), sub("T", "2"), size=16)
+    dim(c, (58, yl1), (58, yl2), "", "TEXT"); lab(c, (50, 306), "D/√2", anchor="end", size=16)
+    lab(c, (172, 284), sub("U", "i"), anchor="start"); lab(c, (172, 330), sub("p", "i"), anchor="start")
+    arrow(c, (150, 212), (150, 249), "TEXT", 1.1, 7); arrow(c, (150, 392), (150, 351), "TEXT", 1.1, 7)
+    lab(c, (160, 226), "D", anchor="start")
+    for k in range(12):
+        x = 336 + k * 8.2
+        arrow(c, (x, 60), (x, 26), "BLUE", 1.1, 6)
+    lab(c, (380, 18), sub("T", "o"), size=16)
+    lab(c, (316, 70), sub("U", "o"), anchor="end"); lab(c, (448, 74), sub("p", "a"), anchor="start")
+    arrow(c, (292, 112), (329, 112), "TEXT", 1.1, 7); arrow(c, (470, 112), (431, 112), "TEXT", 1.1, 7)
+    lab(c, (340, 132), "D", anchor="start")
+    lab(c, (290, 190), sub("p", "a")); lab(c, (450, 400), sub("p", "a"))
+    axes(c, (360, 312), "x", "y", 36)
+    REG.put("cl19-statement", c,
+            "Elbow of diameter D: at the horizontal inlet an inner stream of diameter D over root 2 at T1 and an outer "
+            "coflow at T2, both with Ui and pi; the vertical outlet discharges at Uo and To into pa",
+            "Statement figure (redrawn from CL19.pdf, p. 1): pipe of diameter $D$; at the inlet the inner stream (diameter "
+            "$D/\\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, "
+            "$T_o$ into the atmosphere at $p_a$")
+
+
+def cl19_cv():
+    c = Canvas(600, 430)
+    _cl19_pipe(c, "EDGE", 2.2)
+    poly(c, [(104, 254), (316, 254), (326, 244), (326, 62), (434, 62)][:4], "GREEN", 2.0, CV_DASH)
+    poly(c, [(104, 346), (416, 346), (426, 336), (426, 62)], "GREEN", 2.0, CV_DASH)
+    line(c, (104, 254), (104, 346), "GREEN", 2.0, CV_DASH); line(c, (326, 62), (426, 62), "GREEN", 2.0, CV_DASH)
+    sigma(c, (92, 380), "i", "end"); leader(c, (94, 372), (104, 340))
+    sigma(c, (440, 48), "o", "start")
+    sigma(c, (470, 240), "ℓ", "start"); leader(c, (468, 234), (430, 220))
+    normal(c, (104, 300), (-1, 0), length=34, lab_off=(-4, -8), anchor="end")
+    normal(c, (376, 62), (0, -1), length=30, lab_off=(12, 6), anchor="start")
+    normal(c, (250, 254), (0, -1), length=28, lab_off=(12, 6), anchor="start")
+    arrow(c, (150, 300), (215, 300), "BLUE", 2.0, 9); lab(c, (182, 290), sub("U", "i"), "BLUE", size=16)
+    arrow(c, (348, 120), (348, 70), "BLUE", 2.0, 9); lab(c, (356, 100), sub("U", "o"), "BLUE", "start", 16)
+    axes(c, (500, 400), "x", "y", 36)
+    REG.put("cl19-cv", c,
+            "Control volume: the air inside the elbow, bounded by the inlet section, the pipe wall and the outlet section",
+            "Control volume of the solution: $\\Sigma_i$ (inlet, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_o$ (outlet, "
+            "$\\bar{n} = +\\bar{e}_y$) and the pipe wall $\\Sigma_\\ell$, where the force and the heat are collected")
+
+
+# ----------------------------------------------------------------------------------------- CL10
+def _cl10_device(c, col="HEAD", w=2.4):
+    """Hood (entrance De at the bottom), neck with the fan, elbow to the exit Ds on the right."""
+    left = "M210,330 L210,215 L285,165 L285,95 Q285,40 340,40 L470,40"
+    right = "M420,330 L420,215 L345,165 L345,112 Q345,96 361,96 L470,96"
+    fill = ("M210,330 L210,215 L285,165 L285,95 Q285,40 340,40 L470,40 L470,96 L361,96 Q345,96 345,112 "
+            "L345,165 L420,215 L420,330 Z")
+    pathd(c, fill, "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, left, col, w); pathd(c, right, col, w)
+
+
+def _fan(c, x, y, col="HEAD"):
+    """The fan, drawn as the lemniscate of the statement."""
+    pts = []
+    for k in range(73):
+        t = 2 * math.pi * k / 72
+        d = 1 + math.sin(t) ** 2
+        pts.append((x + 15 * math.cos(t) / d, y + 15 * math.sin(t) * math.cos(t) / d))
+    poly(c, pts, col, 1.8, close=True)
+
+
+def cl10_statement():
+    c = Canvas(600, 540)
+    _cl10_device(c)
+    _fan(c, 315, 135)
+    line(c, (196, 332), (434, 332), "TEXT", 1.2, "5,4")
+    line(c, (470, 34), (470, 102), "TEXT", 1.2, "4,4")
+    flow_arrows(c, 490, 545, [56, 82], "BLUE", 1.5)
+    lab(c, (520, 40), sub("U", "s"), size=17); lab(c, (530, 120), sub("p", "a"), anchor="start")
+    arrow(c, (440, 4), (440, 39), "TEXT", 1.1, 7); arrow(c, (440, 140), (440, 97), "TEXT", 1.1, 7)
+    lab(c, (448, 20), sub("D", "s"), anchor="start")
+    lab(c, (250, 40), sub("p", "a"), anchor="end")
+    block_arrow_right(c, (278, 135))
+    overdot(c, (190, 142), "W", anchor="end", size=19)
+    line(c, (213, 280), (296, 280), "TEXT", 1.1); line(c, (334, 280), (417, 280), "TEXT", 1.1)
+    arrow_head(c, (240, 280), (211, 280), "TEXT", 7); arrow_head(c, (390, 280), (419, 280), "TEXT", 7)
+    lab(c, (315, 274), sub("D", "e"), size=17)
+    lab(c, (228, 322), "(e)", italic=False, size=14, anchor="start")
+    for x in (232, 266, 300, 334, 368, 402):
+        arrow(c, (x, 378), (x, 344), "BLUE", 1.4, 7)
+    lab(c, (290, 404), sub("U", "e"), size=16); lab(c, (345, 404), sub("p", "e"), size=16)
+    pathd(c, "M70,470 Q210,470 228,420 L232,336", "TEXT", 1.2)
+    c.add('<circle cx="70" cy="470" r="2.5" fill="TEXT"/>')
+    lab(c, (70, 452), "(0)", italic=False, size=14)
+    lab(c, (28, 450), sub("p", "a"), anchor="start"); lab(c, (24, 500), "U ≃ 0", anchor="start", size=16)
+    line(c, (226, 438), (250, 470), "TEXT", 1.0); note(c, (252, 486), "streamline", "TEXT", "start", 13)
+    axes(c, (520, 320), "x", "y", 36)
+    REG.put("cl10-statement", c,
+            "Ventilation device: air enters from the room through the entrance of diameter De with Ue, pe, passes a "
+            "fan that does work W per unit time, and leaves through the exit pipe of diameter Ds with Us into pa; "
+            "a streamline joins the still air (0) to the entrance (e)",
+            "Statement figure (redrawn from CL10.pdf, p. 1): entrance section (e) of diameter $D_e$ with $U_e$, $p_e$; fan "
+            "supplying the power $\\dot{W}$; exit pipe of diameter $D_s$ discharging at $U_s$ into $p_a$; the streamline "
+            "from the still room air (0) ($p_a$, $U \\simeq 0$) to (e)")
+
+
+def block_arrow_right(c, tip, length=70, half=9, head=20, col="HEAD"):
+    x, y = tip
+    pts = [(x, y), (x - head, y - half - 6), (x - head, y - half), (x - length, y - half),
+           (x - length, y + half), (x - head, y + half), (x - head, y + half + 6)]
+    poly(c, pts, col, 1.6, close=True)
+
+
+def cl10_cv():
+    c = Canvas(600, 430)
+    _cl10_device(c, "EDGE", 2.2)
+    pathd(c, "M214,330 L214,217 L289,167 L289,95 Q289,44 340,44 L466,44 L466,92 L361,92 Q341,92 341,112 "
+             "L341,167 L416,217 L416,330 Z", "GREEN", 2.0, CV_DASH)
+    _fan(c, 315, 135, "EDGE")
+    ellipse(c, 315, 135, 24, 13, "GREEN", 1.6, "4,3")
+    sigma(c, (315, 360), "e"); sigma(c, (490, 24), "s", "start"); leader(c, (488, 26), (468, 46))
+    sigma(c, (160, 240), "w", "end"); leader(c, (163, 236), (210, 236))
+    sigma(c, (390, 150), "m", "start"); leader(c, (388, 146), (338, 138))
+    normal(c, (260, 330), (0, 1), length=30, lab_off=(12, 2), anchor="start")
+    normal(c, (466, 68), (1, 0), length=30, lab_off=(4, -8), anchor="start")
+    arrow(c, (380, 400), (380, 340), "BLUE", 2.0, 9); lab(c, (390, 392), sub("U", "e"), "BLUE", "start", 16)
+    arrow(c, (504, 68), (566, 68), "BLUE", 2.0, 9); lab(c, (536, 92), sub("U", "s"), "BLUE", size=16)
+    block_arrow_right(c, (284, 135), length=60, half=7, head=16, col="ACC")
+    overdot(c, (214, 142), "W", "ACC", "end", 18)
+    axes(c, (520, 330), "x", "y", 36)
+    REG.put("cl10-cv", c,
+            "Control volume: the air inside the device, from the entrance section to the exit section, bounded by the walls "
+            "and the fan surface",
+            "Control volume of the solution: $\\Sigma_e$ (entrance, $\\bar{n} = -\\bar{e}_y$), $\\Sigma_s$ (exit, "
+            "$\\bar{n} = +\\bar{e}_x$), the fixed walls $\\Sigma_w$ and the fan surface $\\Sigma_m$ (dashed around the fan), "
+            "through which the power $\\dot{W}$ enters")
+
+
+# ----------------------------------------------------------------------------------------- CL3
+CL3_TOP = "M235,70 L330,70 C372,70 368,230 410,230 L520,230"
+CL3_BOT = "M235,120 L300,120 C342,120 338,260 380,260 L520,260"
+CL3_BODY = ("M235,70 L330,70 C372,70 368,230 410,230 L520,230 L520,260 L380,260 C338,260 342,120 300,120 "
+            "L235,120 Z")
+
+
+def _break(c, x, y0, y1, col="HEAD", w=1.6):
+    """Wavy end of a pipe drawn as cut."""
+    m = (y0 + y1) / 2
+    pathd(c, f"M{x},{y0} C{x - 10},{y0 + 12} {x + 8},{m - 6} {x},{m} C{x - 8},{m + 6} {x + 10},{y1 - 12} {x},{y1}", col, w)
+
+
+def _cl3_mouth(c, col="HEAD", w=2.2):
+    pathd(c, CL3_BODY, "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, CL3_TOP, col, w); pathd(c, CL3_BOT, col, w)
+    _break(c, 235, 70, 120, col); _break(c, 242, 70, 120, col)
+    ellipse(c, 520, 245, 5, 15, col, 1.6)
+
+
+def cl3_statement():
+    c = Canvas(620, 310)
+    line(c, (20, 70), (150, 70), "HEAD", 2.2); line(c, (20, 120), (150, 120), "HEAD", 2.2)
+    rect(c, 20, 70, 130, 50, "none", 0, fill="BLUE", opacity=0.10)
+    _break(c, 150, 70, 120)
+    _cl3_mouth(c)
+    arrow(c, (162, 95), (226, 95), "BLUE", 1.8, 9)
+    lab(c, (192, 86), sub("U", "p")); lab(c, (192, 116), sub("p", "p"))
+    arrow(c, (262, 40), (262, 69), "TEXT", 1.1, 7); arrow(c, (262, 150), (262, 121), "TEXT", 1.1, 7)
+    lab(c, (270, 34), sub("A", "p"), anchor="start")
+    c.add('<circle cx="262" cy="95" r="3" fill="ACC"/>')
+    arrow(c, (262, 95), (312, 95), "ACC", 2.0, 9); lab(c, (306, 88), vec("F"), "ACC", "start", 17, weight="700")
+    arc_arrow(c, (262, 95), 13, 200, -20)
+    lab(c, (282, 116), vec("M"), "ACC", "start", 17, weight="700")
+    line(c, (360, 95), (560, 95), "TEXT", 1.0, "10,3,2,3"); line(c, (360, 245), (470, 245), "TEXT", 1.0, "10,3,2,3")
+    dim(c, (470, 96), (470, 244), "", "TEXT"); lab(c, (478, 175), "H", anchor="start", size=18)
+    arrow(c, (500, 202), (500, 229), "TEXT", 1.1, 7); arrow(c, (500, 288), (500, 261), "TEXT", 1.1, 7)
+    lab(c, (494, 214), sub("A", "o"), anchor="end")
+    arrow(c, (528, 245), (585, 245), "BLUE", 1.8, 9); lab(c, (556, 236), sub("U", "o"))
+    lab(c, (420, 292), sub("p", "a"))
+    REG.put("cl3-statement", c,
+            "Double-elbow mouth piece at the end of a pipe of section Ap: entrance velocity Up and pressure pp, exit "
+            "section Ao a height H lower, discharging at Uo into pa; force F and moment M at the entrance section",
+            "Statement figure (redrawn from CL3.pdf, p. 1): pipe of section $A_p$ ($U_p$, $p_p$ at the end of the pipe), "
+            "mouth piece with two elbows dropping a height $H$ to the exit section $A_o$ ($U_o$, open atmosphere $p_a$); "
+            "$F$ and $M$ act at the entrance section")
+
+
+def cl3_cv():
+    c = Canvas(620, 330)
+    _cl3_mouth(c, "EDGE", 2.0)
+    pathd(c, "M246,74 L330,74 C368,74 364,234 410,234 L516,234", "GREEN", 2.0, CV_DASH)
+    pathd(c, "M246,116 L300,116 C346,116 342,256 380,256 L516,256", "GREEN", 2.0, CV_DASH)
+    line(c, (246, 74), (246, 116), "GREEN", 2.0, CV_DASH); line(c, (516, 234), (516, 256), "GREEN", 2.0, CV_DASH)
+    sigma(c, (232, 40), "p", "end"); leader(c, (230, 46), (246, 76))
+    sigma(c, (540, 222), "o", "start")
+    sigma(c, (392, 150), "w", "start"); leader(c, (390, 146), (360, 132))
+    normal(c, (246, 108), (-1, 0), length=32, lab_off=(-4, 16), anchor="end")
+    normal(c, (516, 250), (1, 0), length=32, lab_off=(4, 16), anchor="start")
+    normal(c, (300, 70), (0, -1), length=26, lab_off=(12, 6), anchor="start")
+    c.add('<circle cx="262" cy="95" r="3.5" fill="HEAD"/>'); lab(c, (256, 140), "O", anchor="end", size=16)
+    leader(c, (258, 128), (262, 99), "HEAD")
+    line(c, (262, 95), (515, 245), "HEAD", 1.2, "5,4"); arrow_head(c, (262, 95), (515, 245), "HEAD", 9)
+    lab(c, (452, 190), vec("x") + sub("", "o"), anchor="start", size=17)
+    arrow(c, (170, 270), (210, 270), "HEAD", 1.3, 8); lab(c, (216, 275), "x", anchor="start", size=15)
+    arrow(c, (170, 270), (170, 232), "HEAD", 1.3, 8); lab(c, (176, 236), "y", anchor="start", size=15)
+    arrow(c, (176, 84), (232, 84), "BLUE", 2.0, 9); lab(c, (202, 74), sub("U", "p"), "BLUE", size=16)
+    arrow(c, (552, 245), (606, 245), "BLUE", 2.0, 9); lab(c, (580, 272), sub("U", "o"), "BLUE", size=16)
+    REG.put("cl3-cv", c,
+            "Control volume: the water inside the mouth piece, from the entrance section to the exit section; origin O at "
+            "the centre of the entrance section and position of the exit centre",
+            "Control volume of the solution: $\\Sigma_p$ (entrance, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_o$ (exit, "
+            "$\\bar{n} = +\\bar{e}_x$) and the inner wall $\\Sigma_w$; origin $O$ at the centre of the entrance section, "
+            "exit centre at $\\bar{x}_o = X\\bar{e}_x - H\\bar{e}_y$ (moments about $O$)")
+
+
+# ----------------------------------------------------------------------------------------- CL8
+CL8_UP = ((130, 210), (300, 210), (356, 190), (360, 40))
+CL8_DN = ((130, 270), (300, 270), (356, 290), (360, 440))
+
+
+def _cl8_wall(c, col="HEAD"):
+    rect(c, 376, 30, 8, 192, "none", 0, fill=col)
+    rect(c, 376, 258, 8, 182, "none", 0, fill=col)
+
+
+def _cl8_jet(c, col="HEAD", w=1.8):
+    up, dn = cubic(*CL8_UP), cubic(*CL8_DN)
+    poly(c, up + [(376, 40), (376, 440)] + dn[::-1], "none", 0, fill="BLUE", opacity=0.12, close=True)
+    rect(c, 376, 228, 184, 24, "none", 0, fill="BLUE", opacity=0.12)
+    poly(c, up, col, w); poly(c, dn, col, w)
+    line(c, (384, 228), (560, 228), col, w); line(c, (384, 252), (560, 252), col, w)
+    ellipse(c, 130, 240, 7, 30, col, 1.6)
+
+
+def cl8_statement():
+    c = Canvas(620, 480)
+    _cl8_jet(c)
+    _cl8_wall(c)
+    line(c, (100, 240), (590, 240), "TEXT", 1.0, "10,3,2,3"); arrow_head(c, (560, 240), (600, 240), "TEXT", 9)
+    flow_arrows(c, 72, 124, [226, 254])
+    lab(c, (64, 236), sub("V", "j"), anchor="end")
+    arrow(c, (130, 172), (130, 209), "TEXT", 1.1, 7); arrow(c, (130, 308), (130, 271), "TEXT", 1.1, 7)
+    lab(c, (140, 192), sub("D", "j"), anchor="start")
+    arrow(c, (368, 60), (368, 16), "BLUE", 1.6, 8); lab(c, (356, 26), sub("V", "r"), anchor="end")
+    arrow(c, (318, 426), (358, 426), "TEXT", 1.1, 7); arrow(c, (420, 426), (377, 426), "TEXT", 1.1, 7)
+    lab(c, (312, 432), "h(r)", anchor="end")
+    arrow(c, (530, 196), (530, 227), "TEXT", 1.1, 7); arrow(c, (530, 284), (530, 253), "TEXT", 1.1, 7)
+    lab(c, (522, 210), sub("D", "s"), anchor="end"); lab(c, (585, 226), sub("V", "s"), anchor="start")
+    lab(c, (260, 130), sub("p", "a")); lab(c, (470, 300), sub("p", "a"))
+    arrow(c, (24, 150), (78, 150), "HEAD", 1.4, 8); lab(c, (50, 140), vec("e") + sub("", "x"), size=16)
+    REG.put("cl8-statement", c,
+            "Circular jet of diameter Dj and velocity Vj hitting a wall with a coaxial orifice of diameter Ds: a secondary "
+            "jet Vs crosses the orifice and the rest spreads as a radial wall jet of velocity Vr and thickness h(r)",
+            "Statement figure (redrawn from CL8.pdf, p. 1, axial section): incoming jet $D_j$, $V_j$; orifice of diameter "
+            "$D_s$ with the secondary jet $V_s$; radial wall jet $V_r$ of thickness $h(r)$; ambient pressure $p_a$ on both "
+            "sides of the wall")
+
+
+def cl8_cv():
+    c = Canvas(620, 480)
+    _cl8_jet(c, "EDGE", 1.6)
+    _cl8_wall(c, "EDGE")
+    up = [(x + 3, y + 3) for x, y in cubic(*CL8_UP, n=120) if x >= 150 and y >= 70]
+    dn = [(x + 3, y - 3) for x, y in cubic(*CL8_DN, n=120) if x >= 150 and y <= 410]
+    cv = [up[0]] + up + [(373, 70), (373, 225), (530, 231), (530, 249), (373, 255), (373, 410)] + dn[::-1]
+    poly(c, cv[:1] + up + [(373, 70), (373, 225)], "GREEN", 2.0, CV_DASH)
+    poly(c, [(373, 225), (384, 231), (530, 231), (530, 249), (384, 249), (373, 255), (373, 410)], "GREEN", 2.0, CV_DASH)
+    poly(c, [(373, 410)] + dn[::-1] + [up[0]], "GREEN", 2.0, CV_DASH)
+    sigma(c, (120, 330), "j", "end"); leader(c, (122, 322), (152, 262))
+    sigma(c, (300, 74), "r", "end"); leader(c, (302, 72), (366, 70))
+    sigma(c, (300, 422), "r", "end"); leader(c, (302, 416), (366, 410))
+    pa = min(cubic(*CL8_UP, n=120), key=lambda q: abs(q[0] - 262))
+    sigma(c, (240, 176), "a", "end"); leader(c, (242, 178), (pa[0], pa[1] - 1))
+    sigma(c, (470, 286), "a", "start"); leader(c, (472, 280), (450, 250))
+    sigma(c, (546, 214), "s", "start")
+    sigma(c, (420, 150), "w", "start"); leader(c, (418, 146), (376, 140))
+    normal(c, (153, 252), (-1, 0), length=32, lab_off=(-4, 16), anchor="end")
+    normal(c, (530, 246), (1, 0), length=30, lab_off=(4, 18), anchor="start")
+    normal(c, (366, 70), (0, -1), length=28, lab_off=(-6, 4), anchor="end")
+    normal(c, (366, 410), (0, 1), length=28, lab_off=(-6, 12), anchor="end")
+    arrow(c, (56, 226), (114, 226), "BLUE", 2.0, 9); lab(c, (84, 216), sub("V", "j"), "BLUE", size=16)
+    arrow(c, (568, 234), (614, 234), "BLUE", 2.0, 9)
+    arrow(c, (440, 98), (500, 98), "ACC", 2.6, 11); lab(c, (506, 104), vec("F") + sub("", "w"), "ACC", "start", 18, weight="700")
+    note(c, (470, 124), "force on the wall", "ACC", "middle", 12)
+    REG.put("cl8-cv", c,
+            "Control volume around the water: incoming jet section, free surfaces, the two cuts across the wall jet at "
+            "radius r, the wetted wall and the section of the secondary jet",
+            "Control volume of the solution: $\\Sigma_j$ (incoming jet, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_s$ (secondary "
+            "jet, $\\bar{n} = +\\bar{e}_x$), $\\Sigma_r$ (cylinder of radius $r$ across the wall jet, $\\bar{n} = \\bar{e}_r$; "
+            "its two traces in this section), the free surfaces $\\Sigma_a$ at $p_a$ and the wetted wall $\\Sigma_w$; "
+            "$\\bar{F}_w$ is the force on the wall")
+
+
 # ----------------------------------------------------------------------------------------- build
 def build():
     for fn in (cl22_statement, cl22_cv, cl21_statement, cl21_cv, cl20_statement, cl20_cv,
-               cl12_statement, cl12_cv, cl2_statement, cl2_cv):
+               cl12_statement, cl12_cv, cl2_statement, cl2_cv,
+               cl6_statement, cl6_cv, cl19_statement, cl19_cv, cl10_statement, cl10_cv, cl3_statement, cl3_cv,
+               cl8_statement, cl8_cv):
         fn()
     return REG

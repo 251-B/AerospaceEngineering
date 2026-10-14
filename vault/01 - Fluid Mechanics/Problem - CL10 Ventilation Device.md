@@ -26,6 +26,9 @@ The ventilation device shown in the figure of CL10.pdf takes air out of a room a
 - Use the energy equation to compute the value of $U_s$ as a function of the power $\dot{W}$. Assume that the air temperature has the same values at the entrance and exit sections and that the device is thermally insulated.
 - Obtain the numerical values of $U_s$, $U_e$, $p_e$, $F_x$ and $F_y$ for $D_e = 2$ m, $D_s = 0.1$ m, $\rho = 1.2$ kg/m$^3$, $\mu = 1.8\times10^{-5}$ kg/(m$\cdot$s), $\dot{W} = 1000$ W, $p_a = 101300$ Pa. Note: the following quantities are known: $D_e$, $D_s$, $\rho$, $\mu$, $\dot{W}$, $p_a$.
 
+![[attachments/FM-T3/cl10-statement.svg]]
+*Statement figure (redrawn from CL10.pdf, p. 1): entrance section (e) of diameter $D_e$ with $U_e$, $p_e$; fan supplying the power $\dot{W}$; exit pipe of diameter $D_s$ discharging at $U_s$ into $p_a$; the streamline from the still room air (0) ($p_a$, $U \simeq 0$) to (e)*
+
 Source: CL10.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -47,6 +50,9 @@ Source: CL10.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral m
 
 - Frame fixed to the device: $\bar{e}_x$ horizontal (exit direction), $\bar{e}_y$ vertical upwards (inlet flow direction).
 - Surfaces: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_y$, $\bar{v} = U_e\bar{e}_y$), $\Sigma_s$ (exit, $\bar{n} = +\bar{e}_x$, $\bar{v} = U_s\bar{e}_x$), $\Sigma_w$ (fixed walls) and $\Sigma_m$ (fan).
+
+![[attachments/FM-T3/cl10-cv.svg]]
+*Control volume of the solution: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_y$), $\Sigma_s$ (exit, $\bar{n} = +\bar{e}_x$), the fixed walls $\Sigma_w$ and the fan surface $\Sigma_m$ (dashed around the fan), through which the power $\dot{W}$ enters*
 
 $$ \boxed{\,\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y = \int_{\Sigma_w,\Sigma_m}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
