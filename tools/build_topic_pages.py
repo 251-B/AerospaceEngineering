@@ -7,7 +7,8 @@ Each page configured in tools/topic_pages.json is generated from one vault note:
     - Markdown paragraphs, lists, tables, $$ display math (one line), Obsidian callouts
       (> [!info] / [!note] / [!warning]) and inline **bold**, `code` and $math$ are converted;
     - figure embeds ![[attachments/<folder>/<name>.svg]] are inlined from the topic's figure module
-      in tools/figures/ (which also writes the vault copy of each SVG);
+      in tools/figures/ (which also writes the vault copy of each SVG); ![[attachments/<folder>/<name>.png]]
+      embeds a figure copied from the slides, registered with its caption in the same module;
     - an optional "questions" list renders problem notes (statement, answer, interpretation) as cards
       in the section whose title starts with "Questions";
     - an optional "problems" {href, label} adds a closing link to the topic's problems page.
@@ -102,7 +103,7 @@ def blocks(lines, figure=None):
         if not s or s == "---":
             i += 1
             continue
-        m = re.match(r"!\[\[attachments/[^\]/]+/([\w-]+)\.svg\]\]$", s)
+        m = re.match(r"!\[\[attachments/[^\]/]+/([\w-]+)\.(?:svg|png)\]\]$", s)
         if m:
             if figure is None:
                 raise ValueError(f"figure embed {s} but the page has no figure module")

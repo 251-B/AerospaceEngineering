@@ -39,6 +39,20 @@
     "label": "6 solved problems for this topic"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification.md",
+   "figures": "materials_t4",
+   "template": "subjects/aerospace-materials-1/teoria/topic-3-diffusion.html",
+   "html_title": "Topic 4: Phase Diagrams and Solidification — Aerospace Materials I",
+   "category": "Topic 04 · Phase Diagrams",
+   "title": "Phase Diagrams and Solidification",
+   "subtitle": "Phases and microconstituents, one-component and binary isomorphous diagrams, the Gibbs phase rule, the tie line and the lever rule, non-equilibrium solidification and binary eutectic systems.",
+   "source": "Universidad Carlos III de Madrid · Session 7 T4 Phase diagrams I_2025.pdf",
+   "problems": {
+    "href": "../problemas/topic-4-phase-diagrams.html",
+    "label": "8 solved problems for this topic (Problems T4_PhaseDiagrams I, problems 1-8)"
+   }
+  },
   "subjects/business-management/teoria/topic-1.html": {
    "note": "vault/05 - Business Management/Topic 1 - The Firm - Types and Objectives.md",
    "html_title": "Topic 1: The Firm — Types and Objectives | Business Management",

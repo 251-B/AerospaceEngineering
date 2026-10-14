@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Equilibrium and non-equilibrium solidus of a Ni-30 wt% Cu alloy">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="80.0" y1="300.0" x2="480.0" y2="300.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="300.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="480.0" y1="30.0" x2="480.0" y2="300.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="480.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="300.0" x2="80.0" y2="305.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100 % Ni</text>
+<line x1="230.0" y1="300.0" x2="230.0" y2="305.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="230.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">30 % Cu</text>
+<text x="280.0" y="338.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% Cu)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature</text>
+<path d="M80.0,51.6 L230.0,73.2 L280.0,100.2 L325.0,127.2 L355.0,154.2 L390.0,181.2 L420.0,208.2 L450.0,235.2" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M80.0,51.6 L105.0,73.2 L125.0,100.2 L145.0,127.2 L170.0,154.2 L230.0,181.2 L270.0,208.2 L300.0,235.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,51.6 L105.0,73.2 L120.0,100.2 L135.0,127.2 L150.0,154.2 L170.0,181.2 L200.0,208.2 L230.0,235.2" fill="none" stroke="#ec4899" stroke-width="2.0" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<line x1="230.0" y1="300.0" x2="230.0" y2="35.4" stroke="#4b5563" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="80.0" y1="73.2" x2="230.0" y2="73.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="230.0" cy="73.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="105.0" cy="73.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="105.0" cy="73.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="235.0" y="69.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="72.0" y="77.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="80.0" y1="100.2" x2="280.0" y2="100.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="280.0" cy="100.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="125.0" cy="100.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="120.0" cy="100.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="285.0" y="96.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="130.0" y="96.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">α<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="115.0" y="112.2" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="end">α′<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="72.0" y="104.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="80.0" y1="127.2" x2="325.0" y2="127.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="325.0" cy="127.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="145.0" cy="127.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="135.0" cy="127.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="330.0" y="123.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">3</tspan></text>
+<text x="150.0" y="123.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">α<tspan baseline-shift="sub" font-size="72%">3</tspan></text>
+<text x="130.0" y="139.2" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="end">α′<tspan baseline-shift="sub" font-size="72%">3</tspan></text>
+<text x="72.0" y="131.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">3</tspan></text>
+<line x1="80.0" y1="154.2" x2="355.0" y2="154.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="355.0" cy="154.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="170.0" cy="154.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="150.0" cy="154.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="360.0" y="150.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">4</tspan></text>
+<text x="175.0" y="150.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">α<tspan baseline-shift="sub" font-size="72%">4</tspan></text>
+<text x="145.0" y="166.2" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="end">α′<tspan baseline-shift="sub" font-size="72%">4</tspan></text>
+<text x="72.0" y="158.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">4</tspan></text>
+<line x1="80.0" y1="181.2" x2="390.0" y2="181.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="390.0" cy="181.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="230.0" cy="181.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="170.0" cy="181.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="395.0" y="177.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">5</tspan></text>
+<text x="235.0" y="177.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">α<tspan baseline-shift="sub" font-size="72%">5</tspan></text>
+<text x="165.0" y="193.2" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="end">α′<tspan baseline-shift="sub" font-size="72%">5</tspan></text>
+<text x="72.0" y="185.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">5</tspan></text>
+<line x1="80.0" y1="208.2" x2="420.0" y2="208.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="420.0" cy="208.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="270.0" cy="208.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="200.0" cy="208.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="425.0" y="204.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">6</tspan></text>
+<text x="275.0" y="204.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">α<tspan baseline-shift="sub" font-size="72%">6</tspan></text>
+<text x="195.0" y="220.2" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="end">α′<tspan baseline-shift="sub" font-size="72%">6</tspan></text>
+<text x="72.0" y="212.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">6</tspan></text>
+<line x1="80.0" y1="235.2" x2="450.0" y2="235.2" stroke="#8a94a6" stroke-width="0.8" stroke-dasharray="3,3"/>
+<circle cx="450.0" cy="235.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="300.0" cy="235.2" r="3.2" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="230.0" cy="235.2" r="3.2" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="455.0" y="231.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">L<tspan baseline-shift="sub" font-size="72%">7</tspan></text>
+<text x="305.0" y="231.2" fill="#6b7280" font-size="11.5" font-weight="700" text-anchor="start">α<tspan baseline-shift="sub" font-size="72%">7</tspan></text>
+<text x="225.0" y="247.2" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="end">α′<tspan baseline-shift="sub" font-size="72%">7</tspan></text>
+<text x="72.0" y="239.2" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">7</tspan></text>
+<text x="72.0" y="55.6" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">1455</text>
+<text x="72.0" y="33.4" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">T<tspan baseline-shift="sub" font-size="72%">0</tspan></text>
+<circle cx="230.0" cy="35.4" r="3.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="390.0" y="67.8" fill="#4b5563" font-size="13.5" font-weight="700" text-anchor="middle">Liquid</text>
+<text x="270.0" y="138.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">α + liquid</text>
+<text x="120.0" y="246.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α</text>
+<text x="296.0" y="256.8" fill="#f59e0b" font-size="11.5" font-weight="700" text-anchor="start">equilibrium solidus</text>
+<text x="235.0" y="278.4" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="start">non-equilibrium solidus</text>
+</g></svg>

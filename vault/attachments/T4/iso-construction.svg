@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Building an isomorphous diagram from cooling curves">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="30.0" y1="280.0" x2="90.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="30.0" y1="40.0" x2="30.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M32.0,47.2 L46.0,203.2 L68.0,203.2 L88.0,256.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="46.0" cy="203.2" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="68.0" cy="203.2" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="60.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">0 % B</text>
+<line x1="102.0" y1="280.0" x2="162.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="102.0" y1="40.0" x2="102.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M104.0,47.2 L116.0,162.5 L142.0,198.0 L160.0,246.0" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="116.0" cy="162.5" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="142.0" cy="198.0" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="132.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">20 % B</text>
+<line x1="174.0" y1="280.0" x2="234.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="174.0" y1="40.0" x2="174.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M176.0,47.2 L188.0,131.4 L214.0,173.6 L232.0,221.6" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="188.0" cy="131.4" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="214.0" cy="173.6" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="204.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">50 % B</text>
+<line x1="246.0" y1="280.0" x2="306.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="246.0" y1="40.0" x2="246.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M248.0,47.2 L260.0,107.1 L286.0,130.9 L304.0,178.9" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="260.0" cy="107.1" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="286.0" cy="130.9" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="276.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">80 % B</text>
+<line x1="318.0" y1="280.0" x2="378.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<line x1="318.0" y1="40.0" x2="318.0" y2="280.0" stroke="#8a94a6" stroke-width="1"/>
+<path d="M320.0,47.2 L334.0,92.8 L356.0,92.8 L376.0,145.6" fill="none" stroke="#ec4899" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="334.0" cy="92.8" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="356.0" cy="92.8" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="348.0" y="298.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">100 % B</text>
+<text x="30.0" y="30.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">cooling curves (T against time)</text>
+<path d="M450.0,40.0 L450.0,203.2 L456.0,192.0 L462.0,186.0 L468.0,181.0 L474.0,176.7 L480.0,172.8 L486.0,169.1 L492.0,165.7 L498.0,162.5 L504.0,159.4 L510.0,156.5 L516.0,153.6 L522.0,150.9 L528.0,148.2 L534.0,145.6 L540.0,143.1 L546.0,140.6 L552.0,138.3 L558.0,135.9 L564.0,133.6 L570.0,131.4 L576.0,129.2 L582.0,127.0 L588.0,124.9 L594.0,122.8 L600.0,120.7 L606.0,118.7 L612.0,116.7 L618.0,114.7 L624.0,112.8 L630.0,110.8 L636.0,108.9 L642.0,107.1 L648.0,105.2 L654.0,103.4 L660.0,101.6 L666.0,99.8 L672.0,98.0 L678.0,96.3 L684.0,94.5 L690.0,92.8 L690.0,40.0 Z" fill="#3b82f6" fill-opacity="0.08" stroke="none" stroke-linejoin="round"/>
+<path d="M450.0,203.2 L456.0,203.1 L462.0,202.8 L468.0,202.4 L474.0,201.8 L480.0,201.1 L486.0,200.2 L492.0,199.2 L498.0,198.0 L504.0,196.7 L510.0,195.3 L516.0,193.7 L522.0,192.0 L528.0,190.2 L534.0,188.2 L540.0,186.1 L546.0,183.8 L552.0,181.5 L558.0,179.0 L564.0,176.4 L570.0,173.6 L576.0,170.7 L582.0,167.7 L588.0,164.6 L594.0,161.4 L600.0,158.0 L606.0,154.5 L612.0,150.9 L618.0,147.1 L624.0,143.3 L630.0,139.3 L636.0,135.2 L642.0,130.9 L648.0,126.6 L654.0,122.1 L660.0,117.5 L666.0,112.8 L672.0,108.0 L678.0,103.1 L684.0,98.0 L690.0,92.8 L690.0,280.0 L450.0,280.0 Z" fill="#3b82f6" fill-opacity="0.18" stroke="none" stroke-linejoin="round"/>
+<path d="M450.0,203.2 L456.0,192.0 L462.0,186.0 L468.0,181.0 L474.0,176.7 L480.0,172.8 L486.0,169.1 L492.0,165.7 L498.0,162.5 L504.0,159.4 L510.0,156.5 L516.0,153.6 L522.0,150.9 L528.0,148.2 L534.0,145.6 L540.0,143.1 L546.0,140.6 L552.0,138.3 L558.0,135.9 L564.0,133.6 L570.0,131.4 L576.0,129.2 L582.0,127.0 L588.0,124.9 L594.0,122.8 L600.0,120.7 L606.0,118.7 L612.0,116.7 L618.0,114.7 L624.0,112.8 L630.0,110.8 L636.0,108.9 L642.0,107.1 L648.0,105.2 L654.0,103.4 L660.0,101.6 L666.0,99.8 L672.0,98.0 L678.0,96.3 L684.0,94.5 L690.0,92.8" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M450.0,203.2 L456.0,203.1 L462.0,202.8 L468.0,202.4 L474.0,201.8 L480.0,201.1 L486.0,200.2 L492.0,199.2 L498.0,198.0 L504.0,196.7 L510.0,195.3 L516.0,193.7 L522.0,192.0 L528.0,190.2 L534.0,188.2 L540.0,186.1 L546.0,183.8 L552.0,181.5 L558.0,179.0 L564.0,176.4 L570.0,173.6 L576.0,170.7 L582.0,167.7 L588.0,164.6 L594.0,161.4 L600.0,158.0 L606.0,154.5 L612.0,150.9 L618.0,147.1 L624.0,143.3 L630.0,139.3 L636.0,135.2 L642.0,130.9 L648.0,126.6 L654.0,122.1 L660.0,117.5 L666.0,112.8 L672.0,108.0 L678.0,103.1 L684.0,98.0 L690.0,92.8" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="450.0" y1="280.0" x2="690.0" y2="280.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="450.0" y1="40.0" x2="450.0" y2="280.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="690.0" y1="40.0" x2="690.0" y2="280.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="450.0" y1="40.0" x2="690.0" y2="40.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="450.0" y1="280.0" x2="450.0" y2="285.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="450.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0</text>
+<line x1="498.0" y1="280.0" x2="498.0" y2="285.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="498.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">20</text>
+<line x1="570.0" y1="280.0" x2="570.0" y2="285.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="570.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">50</text>
+<line x1="642.0" y1="280.0" x2="642.0" y2="285.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="642.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">80</text>
+<line x1="690.0" y1="280.0" x2="690.0" y2="285.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="690.0" y="299.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100</text>
+<text x="570.0" y="318.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% B)</text>
+<text x="454.0" y="30.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature</text>
+<circle cx="450.0" cy="203.2" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="450.0" cy="203.2" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="498.0" cy="162.5" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="498.0" cy="198.0" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="570.0" cy="131.4" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="570.0" cy="173.6" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="642.0" cy="107.1" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="642.0" cy="130.9" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="690.0" cy="92.8" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="690.0" cy="92.8" r="3.2" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="493.2" y="76.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">L</text>
+<text x="570.0" y="158.8" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L + SS</text>
+<text x="630.0" y="232.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">SS</text>
+<text x="555.2" y="88.0" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">liquidus</text>
+<text x="594.0" y="198.4" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">solidus</text>
+</g></svg>

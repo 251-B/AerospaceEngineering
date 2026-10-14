@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Problem 1: two alloys on the same tie line">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="80.0" y1="230.0" x2="540.0" y2="230.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="230.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="540.0" y1="30.0" x2="540.0" y2="230.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="540.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="230.0" x2="80.0" y2="235.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="249.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">A</text>
+<line x1="133.8" y1="230.0" x2="133.8" y2="235.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="133.8" y="249.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">11.7</text>
+<line x1="218.0" y1="230.0" x2="218.0" y2="235.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="218.0" y="249.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">30</text>
+<line x1="379.0" y1="230.0" x2="379.0" y2="235.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="379.0" y="249.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">65</text>
+<line x1="517.0" y1="230.0" x2="517.0" y2="235.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="517.0" y="249.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">95</text>
+<line x1="540.0" y1="230.0" x2="540.0" y2="235.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="540.0" y="249.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">B</text>
+<text x="310.0" y="268.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (% B)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature</text>
+<path d="M133.8,130.0 L121.4,190.0 L112.2,230.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M133.8,130.0 L144.4,60.0 L149.0,30.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M517.0,130.0 L526.2,190.0 L530.8,230.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M517.0,130.0 L507.8,60.0 L503.2,30.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M133.8,130.0 L517.0,130.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="133.8" cy="130.0" r="4" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<circle cx="517.0" cy="130.0" r="4" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<line x1="218.0" y1="230.0" x2="218.0" y2="40.0" stroke="#10b981" stroke-width="1.4" stroke-dasharray="6,4"/>
+<circle cx="218.0" cy="130.0" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="218.0" y="36.0" fill="#10b981" font-size="12" font-weight="700" text-anchor="middle">alloy 1: Wα = 0.78</text>
+<line x1="379.0" y1="230.0" x2="379.0" y2="40.0" stroke="#10b981" stroke-width="1.4" stroke-dasharray="6,4"/>
+<circle cx="379.0" cy="130.0" r="4.5" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<text x="379.0" y="36.0" fill="#10b981" font-size="12" font-weight="700" text-anchor="middle">alloy 2: Wα = 0.36</text>
+<text x="103.0" y="80.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α</text>
+<text x="524.8" y="80.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">β</text>
+<text x="310.0" y="180.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α + β</text>
+<text x="127.8" y="124.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="end">C<tspan baseline-shift="sub" font-size="72%">α</tspan></text>
+<text x="523.0" y="124.0" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">β</tspan></text>
+</g></svg>

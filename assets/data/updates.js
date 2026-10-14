@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-materials-t4-problems-1-8",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "Topic 4 problems 1 to 8 solved",
+    "text": "The first eight phase-diagram problems are solved step by step with the lever rule, with diagrams and checks against the official answers.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
+  },
+  {
+    "id": "2026-10-14-materials-t4-theory-part-1",
+    "date": "2026-10-14",
+    "tag": "Aerospace Materials I",
+    "title": "New theory: phase diagrams, part I",
+    "text": "Topic 4 starts with Session 7: phases, the phase rule, the lever rule and eutectic alloys, with the slide figures and worked examples.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-10-14-updates-panel",
     "date": "2026-10-14",
     "tag": "Portal",
