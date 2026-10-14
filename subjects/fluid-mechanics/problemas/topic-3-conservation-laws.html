@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conservation Laws Solved Problems (CL1-CL5) - Fluid Mechanics</title>
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --success: #10b981;
+      --success-soft: rgba(16, 185, 129, 0.12);
+      --warning: #f59e0b;
+      --warning-soft: rgba(245, 158, 11, 0.12);
+
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.7);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .problem-title, .subpart-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .badge, .brand-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Top Sticky Navigation */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Quick Problem Bar */
+    body > nav.quick-nav,
+    .quick-nav {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+      position: sticky !important;
+      top: 53px;
+      z-index: 95 !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .quick-nav-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .quick-nav-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
+    .p-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+
+    .p-pill:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .p-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.45);
+    }
+
+    /* Main Container */
+    main.content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .page-title-box {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .topic-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .page-meta {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .verified-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--success-soft);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-size: 12px;
+      color: var(--success);
+      font-weight: 500;
+    }
+
+    /* Problem Card */
+    .problem-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 32px 28px;
+      margin-bottom: 40px;
+      scroll-margin-top: 120px;
+      transition: border-color var(--transition);
+    }
+
+    .problem-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .problem-title-group {
+      flex: 1;
+    }
+
+    .problem-id {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.35;
+    }
+
+    .tag-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg-input);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Enunciado Box */
+    .enunciado-box {
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+
+    .enunciado-box h4 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .enunciado-box ol {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .enunciado-box li {
+      margin-bottom: 6px;
+      color: var(--text-heading);
+      font-size: 14.5px;
+    }
+
+    /* Subpart section */
+    .subpart {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .subpart-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subpart-title .badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .subpart p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Result callout */
+    .result-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .result-box strong {
+      color: var(--accent);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Note callout */
+    .note-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--warning);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    .note-box strong {
+      color: var(--warning);
+    }
+
+    /* Step lists */
+    ol.step-list {
+      padding-left: 22px;
+      margin: 12px 0;
+    }
+
+    ol.step-list li {
+      margin-bottom: 8px;
+    }
+
+    ul.bullet-list {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    ul.bullet-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      padding: 32px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+
+    /* Worked-solution layout (4-phase method) */
+    .solution-details { margin-top: 24px; border: 1px solid var(--accent-border); border-radius: 10px; background: var(--bg-surface); overflow: hidden; }
+    .solution-details[open] { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); }
+    .solution-summary { padding: 12px 18px; background: var(--accent-soft); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 700; font-size: 0.92rem; color: var(--accent); user-select: none; list-style: none; }
+    .solution-summary::-webkit-details-marker { display: none; }
+    .summary-hint { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; color: var(--text-muted); }
+    .solution-content { padding: 24px; border-top: 1px solid var(--border-subtle); font-size: 0.95rem; line-height: 1.7; }
+    .solution-content p, .enunciado-box p { margin-bottom: 10px; }
+    .phase-block { margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px dashed var(--border-subtle); }
+    .phase-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .phase-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--accent); background: var(--bg-subtle); border: 1px solid var(--accent-border); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .phase-heading { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; letter-spacing: 0; color: var(--text-heading); margin: 6px 0 12px; }
+    .step-heading { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 20px 0 8px; }
+    .math-block { overflow-x: auto; padding: 10px 14px; margin: 10px 0; background: var(--bg-subtle); border-radius: 8px; border: 1px solid var(--border-subtle); text-align: center; }
+    .justification-box { background: var(--bg-subtle); border-left: 3px solid var(--accent); padding: 10px 14px; margin: 12px 0; border-radius: 0 6px 6px 0; font-size: 0.92rem; }
+    .justification-box > strong, .result-box > strong, .note-box > strong { display: block; margin-bottom: 4px; }
+    .source-line { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 12px; }
+    .table-wrap { overflow-x: auto; margin: 12px 0; }
+    table.data-table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    table.data-table th, table.data-table td { border: 1px solid var(--border-subtle); padding: 6px 10px; text-align: left; }
+    table.data-table th { background: var(--bg-subtle); color: var(--text-heading); }
+
+    @media (max-width: 640px) {
+      .problem-card {
+        padding: 20px 16px;
+      }
+      .enunciado-box {
+        padding: 14px 14px;
+      }
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- TOP HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Official Conservation Laws Problem Sheet</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../teoria/topic-3.html" class="back-link" style="color: var(--accent); border-color: var(--accent-border);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Topic 3 Theory</span>
+        </a>
+        <a href="index.html" class="back-link">← Problems Index</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK PROBLEM NAVIGATION PILLS -->
+  <nav class="quick-nav" aria-label="Quick problem navigation">
+    <div class="quick-nav-inner">
+      <span class="quick-nav-label">PROBLEMS:</span>
+      <a href="#cl1" class="p-pill">CL1: Airfoil Wake</a>
+      <a href="#cl2" class="p-pill">CL2: Bore</a>
+      <a href="#cl3" class="p-pill">CL3: Mouthpiece</a>
+      <a href="#cl4" class="p-pill">CL4: Cascade</a>
+      <a href="#cl5" class="p-pill">CL5: Turbojet</a>
+    </div>
+  </nav>
+
+  <!-- MAIN ARTICLE -->
+  <main class="content-container">
+
+    <div class="page-title-box">
+      <div class="topic-badge">Topic 3 &middot; Conservation Laws</div>
+      <h1 class="page-title">Solved Problems: Official Collection CL1 to CL5</h1>
+      <p class="page-meta">
+        Worked solutions to the first problems of the conservation-laws collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid (CL1 to CL5 so far; the rest of the collection is added in batches). Every problem restates the official statement, then follows four phases: (1) hypotheses, degrees of freedom and data; (2) coordinates, frames and changes of variable; (3) step-by-step derivation; (4) interpretation, limits and dimensional check. Discrepancies found in the handwritten official solutions are flagged in the corresponding problem, and anything beyond the course material is marked as an extension. References to Notes.pdf are to Chapter 3 (Conservation laws).
+      </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener">Notes.pdf, Chapter 3 · p. 34</a>
+      </nav>
+    </div>
+
+    <article class="problem-card" id="cl1">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL1</div>
+          <h2 class="problem-title">Airfoil Wake: Streamline Displacement and Drag</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf" target="_blank" rel="noopener">Original statement · CL1.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Control volume</span><span class="tag">Linear momentum</span><span class="tag">Wake</span><span class="tag">Drag</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The experimental tests of an airfoil in a wind tunnel indicate that the velocity profile upstream remains uniform, whereas behind the airfoil there exists a wake region with significant velocity deficit whose thickness increases downstream, resulting in the flow field sketched in the figure of CL1.pdf. For the airfoil tested, the velocity measurements at a given downstream section reveal that the velocity in the wake varies linearly from the value $u = U/2$ at the centerline to reach the value $u = U$ at the edge of the wake, located at $y = y_0$. To analyze the problem, consider a control volume limited laterally by the streamlines that extend from $x \to -\infty$, $y = \pm y_{-\infty}$ ($y_{-\infty} &lt; y_0$) to $x = x_0$, $y = \pm y_0$ and internally by the surface of the airfoil. Assuming that the air behaves as an incompressible fluid with density $\rho$ and that viscous stresses are negligible both in the wake and along the bounding streamlines, obtain the value of $y_{-\infty}$ as a function of $y_0$, as well as the value of the drag on the airfoil as a function of $\rho$, $y_0$ and $U$. In the analysis, assume that on the outer boundary of the control volume the pressure differences from the ambient value $p_\infty$ are negligible, and so is the effect of gravity on the air flow.</p>
+<p class="source-line">Source: CL1.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eqs. 3.10-3.11, integral momentum balance Eqs. 3.35-3.36, force of the fluid on a body Eq. 3.32.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Degrees of Freedom and Data</h3>
+<ul class="bullet-list"><li>Steady flow ($\partial/\partial t = 0$), planar (everything is computed per unit span in the direction $z$ normal to the figure), incompressible (constant $\rho$), no gravity.</li><li>Viscous stresses are negligible in the wake and on the bounding streamlines (given); pressure differences $p - p_\infty$ are negligible on the whole outer boundary of the control volume (given). Pressure and viscous stresses on the airfoil surface are <strong>not</strong> neglected: they are the drag.</li><li>Wake profile at the section $x = x_0$, symmetric about $y = 0$: $v_x = \tfrac{U}{2}\left(1 + \tfrac{|y|}{y_0}\right)$ for $|y| \le y_0$ and $v_x = U$ for $|y| &gt; y_0$. The only unknowns are the scalar $y_{-\infty}$ and the drag $D$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$U$</td><td>uniform upstream velocity</td><td>m/s</td></tr><tr><td>$y_0$</td><td>half-width of the wake at $x = x_0$</td><td>m</td></tr><tr><td>$y_{-\infty}$</td><td>half-width of the stream tube far upstream</td><td>m</td></tr><tr><td>$\rho$</td><td>air density</td><td>kg/m$^3$</td></tr><tr><td>$D$</td><td>drag per unit span</td><td>N/m</td></tr></tbody></table></div>
+<p>Dimensional check of the unknown: $[\rho U^2 y_0] = (\text{kg/m}^3)(\text{m}^2/\text{s}^2)\,\text{m} = \text{kg/s}^2 = \text{N/m}$, a force per unit length, as required for a planar problem.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Coordinates, Frames and Changes of Variable</h3>
+<ul class="bullet-list"><li>Inertial frame fixed to the airfoil and the wind tunnel, Cartesian basis $(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z)$ with $\mathbf{e}_x$ along the incoming stream and $\mathbf{e}_z = \mathbf{e}_x \wedge \mathbf{e}_y$. The control volume is fixed in this frame, so $\mathbf{v}_c = 0$ in the universal balances (Eqs. 3.10, 3.35 reduce to Eqs. 3.11, 3.36).</li><li>Boundary of the control volume: $\Sigma_u$ (section far upstream, $|y| &lt; y_{-\infty}$, $\mathbf{n} = -\mathbf{e}_x$), $\Sigma_d$ (section $x = x_0$, $|y| &lt; y_0$, $\mathbf{n} = +\mathbf{e}_x$), $\Sigma_l$ (the two bounding streamlines), and $\Sigma_w$ (airfoil surface, with $\mathbf{n}$ pointing out of the fluid, i.e. into the airfoil).</li><li>The force of the fluid on the airfoil is $\mathbf{F} = \int_{\Sigma_w}(-p\,\mathbf{n}_w + \bar{\bar{\tau}}'\cdot\mathbf{n}_w)\,d\sigma$ with $\mathbf{n}_w = -\mathbf{n}$ pointing out of the airfoil (Eq. 3.32). The force of the airfoil on the fluid is therefore $-\mathbf{F}$.</li><li>Change of variable used in the integral of the wake: $s = 1 + y/y_0$, $ds = dy/y_0$, so that $y \in [0, y_0]$ maps to $s \in [1, 2]$.</li></ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Mass balance: the width $y_{-\infty}$ of the incoming stream tube</h4>
+<p>Why this tool: the control volume is fixed and the flow is steady, so the integral continuity equation (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>) reduces to $\int_{\Sigma_c}\rho\,\mathbf{v}\cdot\mathbf{n}\,d\sigma = 0$. It is the only relation that links the unknown $y_{-\infty}$ to the measured profile.</p>
+<p>On $\Sigma_l$ (streamlines) and on $\Sigma_w$ (impermeable wall) $\mathbf{v}\cdot\mathbf{n} = 0$, so only $\Sigma_u$ and $\Sigma_d$ contribute. On $\Sigma_u$, $\mathbf{v}\cdot\mathbf{n} = -U$ over a width $2y_{-\infty}$:</p>
+<div class="math-block">$$ \int_{\Sigma_u}\rho\,\mathbf{v}\cdot\mathbf{n}\,d\sigma = -\rho U\,(2y_{-\infty}). $$</div>
+<p>On $\Sigma_d$, $\mathbf{v}\cdot\mathbf{n} = v_x$ and, by symmetry, the integral is twice the integral over $0 \le y \le y_0$. The antiderivative of $1 + y/y_0$ is $y + y^2/(2y_0)$, and Barrow's rule between $y = 0$ and $y = y_0$ gives:</p>
+<div class="math-block">$$ \int_{\Sigma_d}\rho\,\mathbf{v}\cdot\mathbf{n}\,d\sigma = 2\rho\int_0^{y_0}\frac{U}{2}\left(1 + \frac{y}{y_0}\right)dy = \rho U\left[y + \frac{y^2}{2y_0}\right]_{0}^{y_0} = \rho U\left(y_0 + \frac{y_0}{2}\right) = \frac{3}{2}\rho U y_0. $$</div>
+<p>Adding both contributions and setting the sum to zero:</p>
+<div class="math-block">$$ -2\rho U y_{-\infty} + \frac{3}{2}\rho U y_0 = 0 \;\Longrightarrow\; \boxed{\,y_{-\infty} = \frac{3}{4}\,y_0.\,} $$</div>
+<h4 class="step-heading">3.2 Linear momentum balance: the drag</h4>
+<p>Why this tool: the force of the fluid on a body is not accessible from the (unknown) pressure and shear on its surface, but it appears in the integral momentum balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>, steady, fixed control volume, no gravity) as the only unknown surface term:</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,\mathbf{v}\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma = \int_{\Sigma_c}\left(-p\,\mathbf{n} + \bar{\bar{\tau}}'\cdot\mathbf{n}\right)d\sigma. $$</div>
+<p>Because $\Sigma_c$ is a closed surface, $\int_{\Sigma_c}p_\infty\mathbf{n}\,d\sigma = 0$, and $p$ may be replaced by $p - p_\infty$ on the right-hand side. On $\Sigma_u$, $\Sigma_d$ and $\Sigma_l$ the difference $p - p_\infty$ and the viscous stresses are negligible (hypothesis), so the only surviving term is the one on $\Sigma_w$, which equals the force of the airfoil on the fluid, $-\mathbf{F}$. The $x$ component gives the drag $D = F_x$:</p>
+<div class="math-block">$$ D = -\int_{\Sigma_u + \Sigma_d + \Sigma_l}\rho\,v_x\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma. $$</div>
+<p>On $\Sigma_l$, $\mathbf{v}\cdot\mathbf{n} = 0$. On $\Sigma_u$, $v_x = U$ and $\mathbf{v}\cdot\mathbf{n} = -U$, hence with 3.1:</p>
+<div class="math-block">$$ \int_{\Sigma_u}\rho\,v_x(\mathbf{v}\cdot\mathbf{n})\,d\sigma = -\rho U^2\,(2y_{-\infty}) = -\frac{3}{2}\rho U^2 y_0. $$</div>
+<p>On $\Sigma_d$, with the substitution $s = 1 + y/y_0$, $dy = y_0\,ds$, and Barrow's rule between $s = 1$ and $s = 2$:</p>
+<div class="math-block">$$ \int_{\Sigma_d}\rho\,v_x^2\,d\sigma = 2\rho\,\frac{U^2}{4}\int_0^{y_0}\left(1 + \frac{y}{y_0}\right)^2dy = \frac{\rho U^2}{2}\,y_0\int_1^2 s^2\,ds = \frac{\rho U^2 y_0}{2}\left[\frac{s^3}{3}\right]_1^2 = \frac{\rho U^2 y_0}{2}\cdot\frac{8 - 1}{3} = \frac{7}{6}\rho U^2 y_0. $$</div>
+<p>Therefore:</p>
+<div class="math-block">$$ D = -\left(-\frac{3}{2} + \frac{7}{6}\right)\rho U^2 y_0 = -\left(-\frac{9}{6} + \frac{7}{6}\right)\rho U^2 y_0 \;\Longrightarrow\; \boxed{\,D = \frac{1}{3}\,\rho\,U^2\,y_0\,}\quad\text{per unit span, in the direction } +\mathbf{e}_x. $$</div>
+<p>For a wake symmetric about $y = 0$ (a symmetric airfoil at zero angle of attack, which the statement implies by giving a symmetric profile) the $y$ component of the same balance gives $F_y = 0$: there is no lift.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>Physical picture: the wake carries less mass flux ($\tfrac{3}{2}\rho U y_0$) than the undisturbed stream would through the same width ($2\rho U y_0$); the missing flux is the volume displaced sideways by the wake, which is why the bounding streamlines are at $y_{-\infty} = \tfrac{3}{4}y_0 &lt; y_0$ far upstream. The momentum deficit left in the wake is the drag.</li><li>Limit $y_0 \to 0$: no wake, $y_{-\infty} \to 0$ and $D \to 0$, consistent with d'Alembert's paradox for a frictionless attached flow.</li><li>Dimensions (SI): $[y_{-\infty}] = [y_0] = \text{m}$; $[D] = [\rho U^2 y_0] = \text{N/m}$.</li><li>Numerical cross-check (midpoint quadrature with $2\times10^5$ cells of the defining integrals, $U = 1$ m/s, $\rho = 1.2$ kg/m$^3$, $y_0 = 0.35$ m): $y_{-\infty}/y_0 = 0.75000$ and $D = 0.140000$ N/m, equal to $\rho U^2 y_0/3 = 0.14$ N/m.</li><li>Agreement with the official solution: CL1.pdf obtains $y_{-\infty} = \tfrac{3}{4}y_0$ and $\mathbf{F}_{\text{airfoil}} = \tfrac{1}{3}\rho U^2 y_0\,\mathbf{e}_x$, the same results.</li></ul>
+<div class="note-box"><strong>Extension (beyond the official solution)</strong><p>With the momentum thickness $\theta = \int_{-y_0}^{y_0}\frac{v_x}{U}\left(1 - \frac{v_x}{U}\right)dy = 2y_0\int_0^1\frac{1 - \sigma^2}{4}\,d\sigma = \frac{y_0}{3}$ (substituting $\sigma = y/y_0$), the result reads $D = \rho U^2\theta$: the classical momentum-deficit formula for the drag from a wake survey.</p></div>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl2">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL2</div>
+          <h2 class="problem-title">Bore over a Stagnant Water Layer</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL2.pdf" target="_blank" rel="noopener">Original statement · CL2.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Moving frame</span><span class="tag">Mass and momentum</span><span class="tag">Hydrostatic pressure</span><span class="tag">Froude number</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The bore sketched in the figure of CL2.pdf moves under the action of gravity with constant velocity $U$ over an initially stagnant water layer of thickness $h_0$, leaving behind a layer of thickness $h_1$ moving with velocity $U_1$. Assuming that in the air both viscous stresses and pressure variations with respect to the ambient value $p_a$ are negligible, and so are viscous stresses on the bottom wall, find the values of $U_1$ and $h_1$ as a function of $U$, $h_0$ and $g$. As a preliminary computation, obtain the pressure distributions both upstream and downstream from the bore, verifying that they can be expressed in the form $p = p_a + \rho g(h_0 - z)$ and $p = p_a + \rho g(h_1 - z)$, respectively, where $z$ represents the vertical distance to the bottom wall.</p>
+<p class="source-line">Source: CL2.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eqs. 3.10-3.11, integral momentum balance Eqs. 3.35-3.36.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Degrees of Freedom and Data</h3>
+<ul class="bullet-list"><li>Planar flow (quantities per unit width normal to the figure) of an incompressible liquid of density $\rho$, under gravity $\mathbf{g} = -g\,\mathbf{e}_z$. The bore advances towards $-\mathbf{e}_x$ (the $x$ axis points to the right in the figure) with constant velocity $U$ over the stagnant layer of thickness $h_0$; behind it the layer has thickness $h_1$ and uniform velocity $-U_1\mathbf{e}_x$.</li><li>Far from the front, in each region, the velocity is horizontal and uniform and the free surface is horizontal at pressure $p_a$. Viscous stresses are negligible (given); the ratio of viscous to inertial forces is of order $\mu/(\rho U h) \ll 1$ for a water layer.</li><li>The two unknowns are $h_1/h_0$ and $U_1/U$; the data are $U$, $h_0$, $g$ and $\rho$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$U$</td><td>velocity of the bore (relative to the stagnant layer)</td><td>m/s</td></tr><tr><td>$U_1$</td><td>velocity of the water behind the bore</td><td>m/s</td></tr><tr><td>$h_0$, $h_1$</td><td>layer thickness ahead of and behind the bore</td><td>m</td></tr><tr><td>$p_a$</td><td>ambient pressure acting on the free surface</td><td>Pa</td></tr><tr><td>$g$</td><td>gravitational acceleration</td><td>m/s$^2$</td></tr><tr><td>$F = U^2/(g h_0)$</td><td>Froude number of the bore (dimensionless)</td><td>1</td></tr></tbody></table></div>
+<p>Dimensional check: $[U^2/(g h_0)] = (\text{m}^2/\text{s}^2)/\big((\text{m}/\text{s}^2)\,\text{m}\big) = 1$.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Coordinates, Frames and Changes of Variable</h3>
+<ul class="bullet-list"><li>Laboratory frame $L$: Cartesian basis $(\mathbf{e}_x, \mathbf{e}_z)$ with $z$ measured from the bottom wall. The flow is unsteady in $L$ because the front moves.</li><li>Frame of the bore $B$: it moves with the velocity $-U\,\mathbf{e}_x$ relative to $L$. Since this velocity is constant, $B$ is inertial and no inertial forces appear in the balances. Velocities in $B$ are $\mathbf{v}_B = \mathbf{v}_L + U\,\mathbf{e}_x$: the liquid ahead has $\mathbf{v}_B = U\,\mathbf{e}_x$ and the liquid behind has $\mathbf{v}_B = (U - U_1)\,\mathbf{e}_x$. In $B$ the front is stationary, so the flow is steady.</li><li>Control volume fixed in $B$ (so $\mathbf{v}_c = 0$; Eqs. 3.11 and 3.36): $\Sigma_0$ (vertical section ahead of the front, $\mathbf{n} = -\mathbf{e}_x$, area $h_0$ per unit width), $\Sigma_1$ (vertical section behind, $\mathbf{n} = +\mathbf{e}_x$, area $h_1$), $\Sigma_b$ (bottom wall, $\mathbf{n} = -\mathbf{e}_z$) and $\Sigma_s$ (free surface, material and steady in $B$). On $\Sigma_b$ and $\Sigma_s$, $\mathbf{v}\cdot\mathbf{n} = 0$.</li></ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Preliminary result: hydrostatic pressure upstream and downstream</h4>
+<p>Why this tool: in the uniform regions the velocity is horizontal, so the $z$ component of the integral momentum balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>) has no momentum flux and reduces to a force balance. Take a fixed control volume formed by the liquid column of width $\Delta x$ (per unit width) between a height $z$ and the free surface $z = h_0$ (upstream region). Its faces are: the bottom face at height $z$ ($\mathbf{n} = -\mathbf{e}_z$), the free surface ($\mathbf{n} = +\mathbf{e}_z$, $p = p_a$) and two vertical faces ($\mathbf{n} = \mp\mathbf{e}_x$).</p>
+<p>The $z$ component of $\rho\,\mathbf{v}\,(\mathbf{v}\cdot\mathbf{n})$ vanishes on every face because $v_z = 0$. The pressure force has $z$ component $+p(z)\Delta x$ on the bottom face and $-p_a\Delta x$ on the free surface; the pressure on the vertical faces points along $\pm\mathbf{e}_x$ and viscous stresses are negligible. The weight of the column is $-\rho g\,(h_0 - z)\,\Delta x$. Hence</p>
+<div class="math-block">$$ 0 = p(z)\,\Delta x - p_a\,\Delta x - \rho g\,(h_0 - z)\,\Delta x \;\Longrightarrow\; \boxed{\,p = p_a + \rho g\,(h_0 - z)\,}\quad\text{(upstream)}. $$</div>
+<p>The same argument with the surface at $z = h_1$ gives $p = p_a + \rho g\,(h_1 - z)$ downstream.</p>
+<h4 class="step-heading">3.2 Mass balance in the frame of the bore</h4>
+<p>Why this tool: steady flow and fixed control volume in $B$, so $\int_{\Sigma_c}\rho\,\mathbf{v}\cdot\mathbf{n}\,d\sigma = 0$ (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>). Only $\Sigma_0$ and $\Sigma_1$ are crossed by the flow:</p>
+<div class="math-block">$$ -\rho\,U\,h_0 + \rho\,(U - U_1)\,h_1 = 0 \;\Longrightarrow\; U\,h_0 = (U - U_1)\,h_1. \tag{c1} $$</div>
+<h4 class="step-heading">3.3 Momentum balance in the frame of the bore</h4>
+<p>Why this tool: the unknown $h_1$ appears through the pressure forces, which only the momentum balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>) contains. Since $\int_{\Sigma_c}p_a\,\mathbf{n}\,d\sigma = 0$, replace $p$ by $p - p_a$. The $x$ component of the left-hand side is</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,v_x\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma = \rho U\,(-U h_0) + \rho\,(U - U_1)\,(U - U_1)\,h_1 = -\rho U^2 h_0 + \rho\,(U - U_1)^2\,h_1. $$</div>
+<p>Right-hand side: on $\Sigma_s$, $p - p_a = 0$; on $\Sigma_b$ the normal is $-\mathbf{e}_z$, with no $x$ component; the viscous stresses are negligible (hypothesis); gravity has no $x$ component. The pressure on $\Sigma_0$ and $\Sigma_1$ is the hydrostatic distribution of 3.1, with $\mathbf{n} = -\mathbf{e}_x$ and $+\mathbf{e}_x$ respectively. The antiderivative of $\rho g\,(h - z)$ is $\rho g\,(hz - z^2/2)$ and Barrow's rule between $z = 0$ and $z = h$ gives $\rho g\,(h^2 - h^2/2) = \rho g h^2/2$:</p>
+<div class="math-block">$$ -\int_{\Sigma_0}(p - p_a)\,\mathbf{n}\,d\sigma \cdot \mathbf{e}_x = +\int_0^{h_0}\rho g\,(h_0 - z)\,dz = \frac{\rho g h_0^2}{2}, \qquad -\int_{\Sigma_1}(p - p_a)\,\mathbf{n}\,d\sigma \cdot \mathbf{e}_x = -\int_0^{h_1}\rho g\,(h_1 - z)\,dz = -\frac{\rho g h_1^2}{2}. $$</div>
+<div class="math-block">$$ -\rho U^2 h_0 + \rho\,(U - U_1)^2\,h_1 = \frac{\rho g}{2}\left(h_0^2 - h_1^2\right). \tag{c2} $$</div>
+<h4 class="step-heading">3.4 Solution for $h_1/h_0$ and $U_1/U$</h4>
+<p>From (c1), $U - U_1 = U h_0/h_1$, so $(U - U_1)^2\,h_1 = U^2 h_0^2/h_1$. Substituting into (c2) and dividing by $\rho$:</p>
+<div class="math-block">$$ U^2 h_0\left(\frac{h_0}{h_1} - 1\right) = \frac{g}{2}\,(h_0 - h_1)(h_0 + h_1) \;\Longrightarrow\; U^2 h_0\,\frac{h_0 - h_1}{h_1} = \frac{g}{2}\,(h_0 - h_1)(h_0 + h_1). $$</div>
+<p>For a genuine bore $h_1 \ne h_0$ (the case $h_1 = h_0$ is the undisturbed layer), so the factor $h_0 - h_1$ can be cancelled. With $r \equiv h_1/h_0$ and $F = U^2/(g h_0)$, dividing by $g h_0^2$ gives $F/r = (1 + r)/2$, that is</p>
+<div class="math-block">$$ r^2 + r - 2F = 0 \;\Longrightarrow\; \boxed{\,\frac{h_1}{h_0} = \frac{1}{2}\left(\sqrt{1 + 8F} - 1\right)\,}\qquad (\text{the negative root is rejected since } h_1 &gt; 0). $$</div>
+<p>The velocity behind follows from (c1): $U_1/U = 1 - h_0/h_1 = 1 - 1/r = (r - 1)/r$. With $s \equiv \sqrt{1 + 8F}$, $r = (s - 1)/2$ and</p>
+<div class="math-block">$$ \boxed{\,\frac{U_1}{U} = 1 - \frac{2}{s - 1} = \frac{\sqrt{1 + 8F} - 3}{\sqrt{1 + 8F} - 1}\,},\qquad F = \frac{U^2}{g h_0}. $$</div>
+<div class="note-box"><strong>Erratum in the official solution (reading of the handwriting)</strong><p>CL2.pdf gives $h_1/h_0 = \tfrac{1}{2}(\sqrt{1+8F} - 1)$, which agrees with the result above. For the velocity it gives, as legible in the scan, $U_1/U = \tfrac{3}{2}\left(\tfrac{1}{3}\sqrt{1+8F} - 1\right) = (\sqrt{1+8F} - 3)/2 = r - 1$. This contradicts the official continuity equation $U h_0 = (U - U_1)h_1$, which requires $U_1/U = (r-1)/r$; the two expressions coincide only for $r = 1$. The check that proves it: $(U - U_1)h_1 = U h_0 &gt; 0$ forces $U_1 &lt; U$, whereas $r - 1 &gt; 1$ for $F &gt; 3$ (for $F = 4$, $r - 1 = 1.3723$ against the correct $U_1/U = 0.5785$, and the mass residual of (c1) with the scan formula is $U h_0 - (U - U_1)h_1 \ne 0$). The computed value is kept.</p></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>The bore exists only for $F &gt; 1$: $r &gt; 1 \iff s &gt; 3 \iff F &gt; 1$. $F$ is the Froude number of the front relative to the shallow-water wave speed $\sqrt{g h_0}$; a front slower than $\sqrt{g h_0}$ cannot raise the level.</li><li>Weak bore, $F = 1 + \epsilon$: $r \approx 1 + \tfrac{2}{3}\epsilon$ and $U_1/U \approx \tfrac{2}{3}\epsilon \to 0$; the front degenerates into an infinitesimal gravity wave travelling at $\sqrt{g h_0}$.</li><li>Strong bore, $F \gg 1$: $r \approx \sqrt{2F}$, so $h_1 \approx h_0\sqrt{2}\,U/\sqrt{g h_0}$ and $U_1 \to U$: the liquid behind moves almost with the bore.</li><li>Dimensions (SI): both sides of (c2) are forces per unit width, $[\rho U^2 h_0] = [\rho g h^2] = \text{N/m}$; $F$, $r$ and $U_1/U$ are dimensionless.</li><li>Numerical cross-check: $F = 4$, $h_0 = 0.5$ m, $g = 9.81$ m/s$^2$ give $U = 4.4294$ m/s, $h_1/h_0 = 2.3723$ ($h_1 = 1.1861$ m), $U_1/U = 0.57846$ ($U_1 = 2.5623$ m/s); the residuals of (c1) and (c2) are below $10^{-14}$ in SI units.</li></ul>
+<div class="note-box"><strong>Extension (beyond the official solution)</strong><p>Mechanical energy is not conserved across the bore: Bernoulli's equation between both sections would give a different relation. The head lost is the classical hydraulic-jump value $\Delta H = (h_1 - h_0)^3/(4h_0h_1)$, always positive for $h_1 &gt; h_0$.</p></div>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl3">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL3</div>
+          <h2 class="problem-title">Double-Elbow Mouthpiece: Exit Velocity, Force and Moment</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL3.pdf" target="_blank" rel="noopener">Original statement · CL3.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Control volume</span><span class="tag">Linear momentum</span><span class="tag">Angular momentum</span><span class="tag">Gauge pressure</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The double-elbow mouth piece of exit cross section $A_o$ shown in the figure of CL3.pdf is to be installed at the end of a circular pipe of cross section $A_p$ to redirect the outflow of water into the open atmosphere. Once the mouth piece is installed, the uniform values $U_p$ and $p_p$ are measured for the flow velocity and the pressure at the end of the pipe (i.e., just at the entrance of the mouth piece). Find the value of the uniform velocity at the exit section, $U_o$, as well as the force exerted on the mouth piece and its corresponding moment with respect to the entrance section. (Handwritten addition: neglect the effect of gravity.)</p>
+<p class="source-line">Source: CL3.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eqs. 3.37-3.38, force and moment on a body Eqs. 3.32-3.33.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Degrees of Freedom and Data</h3>
+<ul class="bullet-list"><li>Steady flow of an incompressible liquid (water, constant $\rho$), uniform velocity and pressure over the entrance section (area $A_p$) and over the exit section (area $A_o$); no gravity (handwritten addition to the statement).</li><li>The water discharges into the atmosphere, so the pressure over the exit section is the ambient pressure $p_a$. Viscous stresses over the entrance and exit sections are negligible (uniform velocity, no gradients).</li><li>The wall of the mouth piece is thin and its outer face is in contact with the atmosphere at $p_a$. The 'force exerted on the mouth piece' is the net force of the water inside plus the atmosphere outside, which is how the official solution treats it (it adds the term in $p_a$ explicitly). If the atmosphere were ignored, the force would change by $p_a\,(A_p - A_o)\,\mathbf{e}_x$.</li><li>Geometry from the figure: the exit axis is displaced a vertical distance $H$ below the axis of the entrance, and both the entrance flow and the exit flow are along $+\mathbf{e}_x$ (the mouth piece is S-shaped).</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$A_p$, $A_o$</td><td>entrance and exit areas</td><td>m$^2$</td></tr><tr><td>$U_p$, $p_p$</td><td>uniform velocity and pressure at the entrance</td><td>m/s, Pa</td></tr><tr><td>$U_o$, $p_a$</td><td>exit velocity (unknown) and ambient pressure</td><td>m/s, Pa</td></tr><tr><td>$H$</td><td>vertical offset between the entrance and exit axes</td><td>m</td></tr><tr><td>$\mathbf{F}_{MP}$, $\mathbf{M}_{MP}$</td><td>force and moment on the mouth piece (unknowns)</td><td>N, N$\cdot$m</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Coordinates, Frames and Changes of Variable</h3>
+<ul class="bullet-list"><li>Inertial frame fixed to the pipe, Cartesian basis $(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z)$: $\mathbf{e}_x$ along the pipe axis in the flow direction, $\mathbf{e}_y$ vertical upwards and $\mathbf{e}_z = \mathbf{e}_x \wedge \mathbf{e}_y$ out of the plane of the figure. The origin $O$ is the centre (centroid) of the entrance section; moments are taken about $O$.</li><li>The centre of the exit section is at the position $\mathbf{x}_o = X\,\mathbf{e}_x - H\,\mathbf{e}_y$ relative to $O$; $X$ is the horizontal offset, which will drop out. The position of a point of a circular section relative to its centre is denoted $\boldsymbol{\eta}$, with $\int\boldsymbol{\eta}\,d\sigma = 0$.</li><li>Fixed control volume: the water inside the mouth piece, with boundary $\Sigma_p$ (entrance, $\mathbf{n} = -\mathbf{e}_x$), $\Sigma_o$ (exit, $\mathbf{n} = +\mathbf{e}_x$) and $\Sigma_w$ (inner wall, $\mathbf{n}$ out of the fluid). Since $\mathbf{v}_c = 0$, Eqs. 3.11, 3.36 and 3.38 apply with $\mathbf{v}_c = 0$.</li><li>Since $\int_{\Sigma_c}p_a\,\mathbf{n}\,d\sigma = 0$ on the closed surface, $p$ is replaced by $p - p_a$ in the balances. The force of the water and the atmosphere on the (thin) wall is then $\mathbf{F}_{MP} = \int_{\Sigma_w}\left[(p - p_a)\,\mathbf{n} - \bar{\bar{\tau}}'\cdot\mathbf{n}\right]d\sigma$ and the force of the wall on the water is $-\mathbf{F}_{MP}$.</li></ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Exit velocity from mass conservation</h4>
+<p>Why this tool: the velocities at both sections are uniform and the flow is steady, so the continuity balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a>) relates them directly. On $\Sigma_w$, $\mathbf{v}\cdot\mathbf{n} = 0$:</p>
+<div class="math-block">$$ -\rho\,U_p A_p + \rho\,U_o A_o = 0 \;\Longrightarrow\; \boxed{\,U_o = \frac{A_p}{A_o}\,U_p\,}. $$</div>
+<h4 class="step-heading">3.2 Force on the mouth piece: linear momentum</h4>
+<p>Why this tool: the force on the wall is an unknown surface integral of the (non-uniform) wall pressure; the momentum balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>) replaces it by quantities known at the two sections. Left-hand side: the momentum flux is only through $\Sigma_p$ and $\Sigma_o$, and both velocities are along $\mathbf{e}_x$:</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,\mathbf{v}\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma = \left(-\rho U_p^2 A_p + \rho U_o^2 A_o\right)\mathbf{e}_x = \rho U_p A_p\,(U_o - U_p)\,\mathbf{e}_x, $$</div>
+<p>where $\rho U_o^2 A_o = (\rho U_o A_o)\,U_o = \rho U_p A_p\,U_o$ by 3.1. Right-hand side: on $\Sigma_p$ the force is $-(p_p - p_a)(-\mathbf{e}_x)A_p = +(p_p - p_a)A_p\,\mathbf{e}_x$; on $\Sigma_o$ it vanishes because $p - p_a = 0$; viscous stresses are negligible on both sections; on $\Sigma_w$ it is $-\mathbf{F}_{MP}$. Hence</p>
+<div class="math-block">$$ \rho U_p A_p\,(U_o - U_p)\,\mathbf{e}_x = (p_p - p_a)\,A_p\,\mathbf{e}_x - \mathbf{F}_{MP} \;\Longrightarrow\; \boxed{\,\mathbf{F}_{MP} = \left[(p_p - p_a)\,A_p + \rho\,U_p\,(U_p - U_o)\,A_p\right]\mathbf{e}_x.\,} $$</div>
+<p>The $y$ and $z$ components vanish: no momentum flux and no pressure force on the sections has a component along $\mathbf{e}_y$ or $\mathbf{e}_z$, so the balance gives $F_{MP,y} = F_{MP,z} = 0$.</p>
+<h4 class="step-heading">3.3 Moment on the mouth piece: angular momentum about $O$</h4>
+<p>Why this tool: the moment of the wall forces is also unknown; the angular momentum balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.38</a>, fixed control volume, no gravity) gives it from the fluxes through the sections:</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,\left[(\mathbf{x} - \mathbf{x}_0)\wedge\mathbf{v}\right](\mathbf{v}\cdot\mathbf{n})\,d\sigma = \sum\mathbf{M}_{O,\text{ext}}, \qquad \mathbf{x}_0 = \mathbf{x}_O. $$</div>
+<p>Entrance $\Sigma_p$: $\mathbf{x} - \mathbf{x}_O = \boldsymbol{\eta}$, $\mathbf{v} = U_p\mathbf{e}_x$ uniform and $\int\boldsymbol{\eta}\,d\sigma = 0$, so both the angular momentum flux $-\rho U_p^2\left(\int\boldsymbol{\eta}\,d\sigma\right)\wedge\mathbf{e}_x$ and the moment of the pressure force $(p_p - p_a)\left(\int\boldsymbol{\eta}\,d\sigma\right)\wedge\mathbf{e}_x$ vanish. Exit $\Sigma_o$: $\mathbf{x} - \mathbf{x}_O = \mathbf{x}_o + \boldsymbol{\eta}$ and $\int\boldsymbol{\eta}\,d\sigma = 0$, so with $\mathbf{x}_o \wedge \mathbf{e}_x = (X\,\mathbf{e}_x - H\,\mathbf{e}_y)\wedge\mathbf{e}_x = -H\,\mathbf{e}_y\wedge\mathbf{e}_x = +H\,\mathbf{e}_z$ (since $\mathbf{e}_y\wedge\mathbf{e}_x = -\mathbf{e}_z$), the flux is</p>
+<div class="math-block">$$ \int_{\Sigma_o}\rho\,\left[(\mathbf{x}_o + \boldsymbol{\eta})\wedge U_o\mathbf{e}_x\right]U_o\,d\sigma = \rho\,U_o^2\,A_o\,(\mathbf{x}_o\wedge\mathbf{e}_x) = \rho\,U_o^2\,H\,A_o\,\mathbf{e}_z. $$</div>
+<p>The pressure moment on $\Sigma_o$ vanishes ($p - p_a = 0$), viscous stresses are negligible on the sections, and the moment of the wall force on the water is $-\mathbf{M}_{MP}$. Hence $\rho U_o^2 H A_o\,\mathbf{e}_z = -\mathbf{M}_{MP}$ and</p>
+<div class="math-block">$$ \boxed{\,\mathbf{M}_{MP} = -\rho\,U_o^2\,H\,A_o\,\mathbf{e}_z = -\rho\,\frac{A_p^2}{A_o}\,U_p^2\,H\,\mathbf{e}_z\,}\quad\text{about the centre of the entrance section.} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>$A_o &lt; A_p$ implies $U_o &gt; U_p$: the nozzle accelerates the liquid, and the momentum flux $\rho U_p A_p\,(U_o - U_p) &gt; 0$ is the reaction that the wall supplies on the water.</li><li>The moment is non-zero only because the exit axis is displaced by $H$ from the entrance axis: for $H \to 0$ the jet leaves along the line of the entrance axis and $\mathbf{M}_{MP} \to 0$. The sign is negative: with the exit below the entrance, the moment is clockwise as seen in the figure (with $\mathbf{e}_z$ pointing towards the reader).</li><li>Limit $A_o \to A_p$: $U_o = U_p$ and $\mathbf{F}_{MP} \to (p_p - p_a)A_p\,\mathbf{e}_x$, the pure pressure force; the moment becomes $-\rho U_p^2 H A_p\,\mathbf{e}_z$.</li><li>Dimensions (SI): $[\rho U_p A_p\,(U_p - U_o)] = (\text{kg/m}^3)(\text{m/s})\,\text{m}^2\,(\text{m/s}) = \text{N}$; $[\rho U_o^2 H A_o] = (\text{kg/m}^3)(\text{m}^2/\text{s}^2)\,\text{m}\,\text{m}^2 = \text{N}\cdot\text{m}$.</li><li>Numerical illustration (hypothetical data): $\rho = 1000$ kg/m$^3$, $A_p = 0.02$ m$^2$, $A_o = 0.008$ m$^2$, $U_p = 3$ m/s, $p_p = 2.5\times10^5$ Pa, $p_a = 101325$ Pa, $H = 1.5$ m give $U_o = 7.5$ m/s, $F_{MP,x} = 2703.5$ N and $M_{MP,z} = -675$ N$\cdot$m.</li><li>Agreement with the official solution: CL3.pdf obtains $U_o = (A_p/A_o)\,U_p$, $\mathbf{F}_{MP} = \left[(p_p - p_a)A_p + \rho U_p(U_p - U_o)A_p\right]\mathbf{e}_x$ and $\mathbf{M}_{MP} = -\rho U_o^2 H A_o\,\mathbf{e}_z$, the same results.</li></ul>
+<div class="note-box"><strong>Extension (beyond the official solution)</strong><p>If the flow inside were lossless (not stated in the problem), Bernoulli's equation between both sections, $p_p - p_a = \tfrac{1}{2}\rho\,(U_o^2 - U_p^2)$, would give $F_{MP,x} = \tfrac{1}{2}\rho A_p\,(U_o - U_p)^2 \ge 0$. A real mouth piece has losses, and then the measured $p_p$ is the quantity to use.</p></div>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl4">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL4</div>
+          <h2 class="problem-title">Cascade of Aerofoils: Downstream State</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL4.pdf" target="_blank" rel="noopener">Original statement · CL4.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Periodicity</span><span class="tag">Mass, momentum, energy</span><span class="tag">Perfect gas</span><span class="tag">Cascade</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>A planar uniform stream of air with pressure $p_1$, density $\rho_1$ and velocity $\mathbf{v}_1 = v_{1x}\mathbf{e}_x$ flows past an array of aerofoils with vertical separation $L$, exerting on each one a force (per unit length) given by $\mathbf{F} = F_x\mathbf{e}_x + F_y\mathbf{e}_y$. Assuming that the aerofoils are thermally insulated and neglecting the effect of gravity, write the equations that determine the values of the pressure $p_2$, density $\rho_2$ and velocity $\mathbf{v}_2 = v_{2x}\mathbf{e}_x + v_{2y}\mathbf{e}_y$ for the uniform stream found sufficiently far downstream.</p>
+<p class="source-line">Source: CL4.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46, force on a body Eq. 3.32.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Degrees of Freedom and Data</h3>
+<ul class="bullet-list"><li>Steady planar flow of air through an infinite array of identical aerofoils, equally spaced by $L$ in the $y$ direction; the flow is periodic with period $L$. Far upstream (section 1) and far downstream (section 2) the flow is uniform.</li><li>No gravity; the aerofoils are thermally insulated (adiabatic); viscous stresses and heat conduction are negligible in the uniform sections 1 and 2.</li><li>Perfect gas with specific heat ratio $\gamma$: the specific enthalpy is $h = e + p/\rho = \dfrac{\gamma}{\gamma - 1}\dfrac{p}{\rho}$. This is the assumption used in the official solution; the statement does not give $\gamma$.</li><li>$\mathbf{F}$ is the force that the air exerts on each aerofoil, per unit length normal to the figure, so $[F_x/L]$ is a pressure. There are four unknowns, $p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$, and therefore four equations are needed: mass, two components of momentum and energy.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$p_1$, $\rho_1$, $v_{1x}$</td><td>upstream state (data)</td><td>Pa, kg/m$^3$, m/s</td></tr><tr><td>$p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$</td><td>downstream state (unknowns)</td><td>Pa, kg/m$^3$, m/s</td></tr><tr><td>$L$</td><td>vertical separation (pitch) of the aerofoils</td><td>m</td></tr><tr><td>$F_x$, $F_y$</td><td>force on each aerofoil per unit length</td><td>N/m</td></tr><tr><td>$\gamma$</td><td>ratio of specific heats</td><td>1</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Coordinates, Frames and Changes of Variable</h3>
+<ul class="bullet-list"><li>Inertial frame fixed to the array, Cartesian basis $(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z)$, $\mathbf{e}_x$ along the incoming stream and $\mathbf{e}_y$ along the array.</li><li>Fixed control volume (one period): $\Sigma_1$ (section far upstream, height $L$, $\mathbf{n} = -\mathbf{e}_x$), $\Sigma_2$ (section far downstream, height $L$, $\mathbf{n} = +\mathbf{e}_x$), the two stream surfaces $\Sigma_3$ (top) and $\Sigma_4$ (bottom), and the surface of the aerofoil $\Sigma_5$. $\mathbf{v}_c = 0$, so Eqs. 3.11, 3.36 and 3.46 apply with $\mathbf{v}_c = 0$.</li><li>Periodicity: $\Sigma_4$ is $\Sigma_3$ translated by $-L\,\mathbf{e}_y$, and the outward normals are opposite at corresponding points ($\mathbf{n}_4 = -\mathbf{n}_3$). Therefore the integral over $\Sigma_3 \cup \Sigma_4$ of any periodic field times the normal vanishes: pressure force, viscous force, heat flux and work of viscous stresses.</li><li>On the stream surfaces $\mathbf{v}\cdot\mathbf{n} = 0$ and on the aerofoil $\mathbf{v} = 0$ (no slip) with $\mathbf{q}\cdot\mathbf{n} = 0$ (insulated). The force of the aerofoil on the fluid is $-\mathbf{F}$ per unit length.</li></ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Mass</h4>
+<p>Why this tool: Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.11</a> with $\partial/\partial t = 0$. Only $\Sigma_1$ and $\Sigma_2$ are crossed by the flow, each of height $L$ per unit length:</p>
+<div class="math-block">$$ -\rho_1 v_{1x}L + \rho_2 v_{2x}L = 0 \;\Longrightarrow\; \boxed{\,\rho_1\,v_{1x} = \rho_2\,v_{2x}\,}. \tag{E1} $$</div>
+<p>Denote by $\dot m' \equiv \rho_1 v_{1x}L$ the mass flow per unit length through one period.</p>
+<h4 class="step-heading">3.2 Linear momentum, components $x$ and $y$</h4>
+<p>Why this tool: the force $\mathbf{F}$ on the aerofoil enters only through the momentum balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.36</a>). Left-hand side, using (E1) and $v_{1y} = 0$:</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,\mathbf{v}\,(\mathbf{v}\cdot\mathbf{n})\,d\sigma = \left(-\rho_1 v_{1x}^2 L + \rho_2 v_{2x}^2 L\right)\mathbf{e}_x + \rho_2 v_{2y}v_{2x}L\,\mathbf{e}_y = \dot m'\left[(v_{2x} - v_{1x})\,\mathbf{e}_x + v_{2y}\,\mathbf{e}_y\right]. $$</div>
+<p>Right-hand side: on $\Sigma_1$, $-p_1(-\mathbf{e}_x)L = p_1L\,\mathbf{e}_x$; on $\Sigma_2$, $-p_2L\,\mathbf{e}_x$; the contributions of $\Sigma_3$ and $\Sigma_4$ cancel by periodicity; viscous stresses are negligible on $\Sigma_1$ and $\Sigma_2$; on $\Sigma_5$ the force on the fluid is $-\mathbf{F}$. Component by component:</p>
+<div class="math-block">$$ \dot m'\,(v_{2x} - v_{1x}) = (p_1 - p_2)\,L - F_x \;\Longrightarrow\; \boxed{\,\frac{F_x}{L} = p_1 - p_2 + \rho_1 v_{1x}\,(v_{1x} - v_{2x})\,} \tag{E2} $$</div>
+<div class="math-block">$$ \dot m'\,v_{2y} = -F_y \;\Longrightarrow\; \boxed{\,\frac{F_y}{L} = -\rho_1\,v_{1x}\,v_{2y}\,} \tag{E3} $$</div>
+<h4 class="step-heading">3.3 Total energy</h4>
+<p>Why this tool: $p_2$ and $\rho_2$ are linked by the thermal state of the gas, which only the energy balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>) provides. Steady, no gravity, no volumetric heat: the convective flux of $e + v^2/2$ plus the pressure work $p\,\mathbf{v}\cdot\mathbf{n}$ combine into the flux of $\rho\left(h + v^2/2\right)$.</p>
+<p>On $\Sigma_3$ and $\Sigma_4$: $\mathbf{v}\cdot\mathbf{n} = 0$, and conduction and viscous work cancel by periodicity. On $\Sigma_5$: $\mathbf{v} = 0$ (no work) and $\mathbf{q}\cdot\mathbf{n} = 0$. On $\Sigma_1$ and $\Sigma_2$: viscous work and conduction are negligible. What remains is</p>
+<div class="math-block">$$ \int_{\Sigma_1 + \Sigma_2}\rho\left(h + \frac{v^2}{2}\right)(\mathbf{v}\cdot\mathbf{n})\,d\sigma = 0 \;\Longrightarrow\; \dot m'\left[\left(h_2 + \frac{v_{2x}^2 + v_{2y}^2}{2}\right) - \left(h_1 + \frac{v_{1x}^2}{2}\right)\right] = 0, $$</div>
+<div class="math-block">$$ \boxed{\,\frac{\gamma}{\gamma - 1}\,\frac{p_2}{\rho_2} + \frac{v_{2x}^2 + v_{2y}^2}{2} = \frac{\gamma}{\gamma - 1}\,\frac{p_1}{\rho_1} + \frac{v_{1x}^2}{2}\,} \tag{E4} $$</div>
+<p>Equations (E1) to (E4) are four equations for the four unknowns $p_2$, $\rho_2$, $v_{2x}$ and $v_{2y}$, which answers the question of the statement.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>Equation (E3) says that the transverse force on an aerofoil (lift) equals minus the rate of change of $y$ momentum of the stream: the flow is deflected by $v_{2y}$ in the direction opposite to the force on the body. Equation (E2) splits the streamwise force into a pressure drop across the array and a momentum change.</li><li>Trivial limit $\mathbf{F} = 0$: (E1) to (E4) are satisfied by $\rho_2 = \rho_1$, $p_2 = p_1$, $\mathbf{v}_2 = \mathbf{v}_1$ (no body, no change).</li><li>Incompressible limit ($\rho_2 = \rho_1$): (E1) gives $v_{2x} = v_{1x}$ and (E2) reduces to $p_1 - p_2 = F_x/L$.</li><li>Dimensions (SI): $[F_x/L] = (\text{N/m})/\text{m} = \text{Pa}$ and $[\rho_1 v_{1x}^2] = \text{Pa}$; $[\rho_1 v_{1x}\,v_{2y}\,L] = (\text{kg/m}^3)(\text{m/s})(\text{m/s})\,\text{m} = \text{N/m}$; $[\gamma p/((\gamma-1)\rho)] = \text{m}^2/\text{s}^2 = [v^2]$.</li></ul>
+<div class="note-box"><strong>Extension (beyond the official solution): closed solution of the four equations</strong><p>With $m \equiv \rho_1 v_{1x}$, (E1) gives $\rho_2 = m/v_{2x}$, (E3) gives $v_{2y} = -F_y/(mL)$ and (E2) gives $p_2 = P - m\,v_{2x}$ with $P \equiv p_1 + m\,v_{1x} - F_x/L$. Substituting into (E4), with $E \equiv \frac{\gamma}{\gamma-1}\frac{p_1}{\rho_1} + \frac{v_{1x}^2}{2}$, and using that the coefficient of $v_{2x}^2$ is $\frac{1}{2} - \frac{\gamma}{\gamma-1} = -\frac{\gamma+1}{2(\gamma-1)}$, one obtains the quadratic $(\gamma + 1)\,v_{2x}^2 - 2\gamma\,\frac{P}{m}\,v_{2x} + 2(\gamma - 1)\left(E - \frac{v_{2y}^2}{2}\right) = 0$. For $\mathbf{F} = 0$ one root is $v_{2x} = v_{1x}$; the root continuous with it is the physical one (the other is the supersonic-subsonic conjugate state, as in a normal shock). Numerical check: $p_1 = 101325$ Pa, $\rho_1 = 1.2$ kg/m$^3$, $v_{1x} = 100$ m/s, $L = 0.2$ m, $F_x = 30$ N/m, $F_y = -80$ N/m, $\gamma = 1.4$ give $v_{2x} = 100.16$ m/s, $v_{2y} = 3.3333$ m/s, $\rho_2 = 1.19808$ kg/m$^3$, $p_2 = 101155.8$ Pa, with residuals of (E1) to (E4) below $10^{-9}$ in SI units; the other root gives $p_2 = -6843.3$ Pa $&lt; 0$ and is discarded.</p></div>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="cl5">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem CL5</div>
+          <h2 class="problem-title">Turbojet on a Testbench: Exit State</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf" target="_blank" rel="noopener">Original statement · CL5.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Moving boundaries</span><span class="tag">Mass, momentum, energy</span><span class="tag">Heat and work</span><span class="tag">Thrust</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>The entrance and exit sections of the turboreactor sketched in the figure of CL5.pdf have areas $A_1$ and $A_2$. Besides the outer fixed frame, the machine has mobile parts in its interior that extract an amount of work $W$ per unit time from the fluid stream. The combined effects of chemical reaction in the combustion chamber and heat transfer through the walls give a heat transfer per unit time $Q$ to the fluid stream. The axial force on the turboreactor measured on the testbench is $\mathbf{F} = -F\,\mathbf{e}_x$. For given values of $W$, $Q$ and $F$ and assuming that at the entrance and exit sections the flow properties are uniform, obtain the values of the density $\rho_2$, pressure $p_2$ and velocity $v_2$ in terms of their values $p_1$, $\rho_1$ and $v_1$ at the entrance. (Handwritten addition: no gravity.)</p>
+<p class="source-line">Source: CL5.pdf (page 1). Notes.pdf, Chapter <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">3</a>: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, force on a body Eq. 3.32.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Degrees of Freedom and Data</h3>
+<ul class="bullet-list"><li>The gas is a perfect gas with specific heat ratio $\gamma$ ($h = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$), as used in the official solution. Flow properties are uniform over the entrance and exit sections; viscous stresses and conduction are negligible there. No gravity (handwritten addition).</li><li>The flow is steady on average: the rotating parts make it periodic in time at fixed points inside the engine, but through the sections it is steady, so the net accumulation inside the control volume is zero.</li><li>The fuel mass flow is not given and is neglected, so the mass flow at the exit equals that at the entrance (as in the official solution). The ambient pressure $p_a$ acts on the outer surface of the engine and is part of the measured force; $p_a$ is therefore needed as data in addition to those listed.</li><li>The scan prints the direction of the force as $-F\,\mathbf{e}_x$ with $F &gt; 0$ (thrust acts against the exhaust direction). Three unknowns, $\rho_2$, $p_2$, $v_2$, and three equations (mass, axial momentum, energy).</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$A_1$, $A_2$</td><td>entrance and exit areas</td><td>m$^2$</td></tr><tr><td>$p_1$, $\rho_1$, $v_1$</td><td>entrance state (data)</td><td>Pa, kg/m$^3$, m/s</td></tr><tr><td>$p_2$, $\rho_2$, $v_2$</td><td>exit state (unknowns)</td><td>Pa, kg/m$^3$, m/s</td></tr><tr><td>$F$</td><td>magnitude of the thrust measured on the bench</td><td>N</td></tr><tr><td>$W$</td><td>power extracted from the fluid by the mobile parts</td><td>W</td></tr><tr><td>$Q$</td><td>heat per unit time added to the fluid</td><td>W</td></tr><tr><td>$\dot m = \rho_1 v_1 A_1$</td><td>mass flow</td><td>kg/s</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Coordinates, Frames and Changes of Variable</h3>
+<ul class="bullet-list"><li>Inertial frame fixed to the testbench, with the engine at rest and the axis $\mathbf{e}_x$ along its axis in the direction of the flow.</li><li>Control volume: the gas inside the engine, with boundary $\Sigma_1$ (entrance, $\mathbf{n} = -\mathbf{e}_x$, area $A_1$), $\Sigma_2$ (exit, $\mathbf{n} = +\mathbf{e}_x$, area $A_2$), $\Sigma_3$ (inner surface of the fixed casing) and $\Sigma_4$ (surface of the mobile parts, moving with velocity $\mathbf{v}_w$). The boundary $\Sigma_4$ moves with the blades, so $\mathbf{v}_c = \mathbf{v}_w$ on it. Since the fluid sticks to the walls, $\mathbf{v} = \mathbf{v}_w$ there and $(\mathbf{v} - \mathbf{v}_c)\cdot\mathbf{n} = 0$ on $\Sigma_3 \cup \Sigma_4$. The universal balances (Eqs. 3.10, 3.35, 3.46) are used.</li><li>Since $\int_{\Sigma_c}p_a\,\mathbf{n}\,d\sigma = 0$ on a closed surface, $p$ is replaced by $p - p_a$ in the momentum balance. The measured force $\mathbf{F}$ is the net force of the gas and the atmosphere on the engine, so the force of the engine on the gas is $-\mathbf{F} = +F\,\mathbf{e}_x$ (gauge form, thin casing).</li><li>The power taken from the gas by the mobile parts is defined with the normal $\mathbf{n}$ pointing out of the solid (into the gas), as in CL5.pdf: $W = -\int_{\Sigma_4}p\,\mathbf{v}_w\cdot\mathbf{n}\,d\sigma + \int_{\Sigma_4}\mathbf{v}_w\cdot\bar{\bar{\tau}}'\cdot\mathbf{n}\,d\sigma$, the power of the traction of the gas on the moving solid.</li></ul>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Mass</h4>
+<p>Why this tool: Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=36" target="_blank" rel="noopener" title="Open Notes.pdf at page 36">3.10</a> with zero net accumulation. On $\Sigma_3$ and $\Sigma_4$, $(\mathbf{v} - \mathbf{v}_c)\cdot\mathbf{n} = 0$:</p>
+<div class="math-block">$$ -\rho_1 v_1 A_1 + \rho_2 v_2 A_2 = 0 \;\Longrightarrow\; \boxed{\,\rho_2\,v_2\,A_2 = \rho_1\,v_1\,A_1 = \dot m\,}. \tag{M} $$</div>
+<h4 class="step-heading">3.2 Axial momentum</h4>
+<p>Why this tool: the thrust is the force on the engine, which enters the balance of Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=42" target="_blank" rel="noopener" title="Open Notes.pdf at page 42">3.35</a> through the unknown wall term. Left-hand side, using (M):</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,v_x\,[(\mathbf{v} - \mathbf{v}_c)\cdot\mathbf{n}]\,d\sigma = -\rho_1 v_1^2 A_1 + \rho_2 v_2^2 A_2 = \dot m\,(v_2 - v_1). $$</div>
+<p>Right-hand side: $\Sigma_1$ gives $+(p_1 - p_a)A_1$ and $\Sigma_2$ gives $-(p_2 - p_a)A_2$; viscous stresses are negligible there; the walls give $-\mathbf{F}\cdot\mathbf{e}_x = +F$. Hence</p>
+<div class="math-block">$$ \dot m\,(v_2 - v_1) = (p_1 - p_a)A_1 - (p_2 - p_a)A_2 + F \;\Longrightarrow\; \boxed{\,F = \rho_1 v_1 A_1\,(v_2 - v_1) - (p_1 - p_a)A_1 + (p_2 - p_a)A_2\,} \tag{P} $$</div>
+<h4 class="step-heading">3.3 Total energy</h4>
+<p>Why this tool: $p_2$ and $\rho_2$ are linked by the heat and work exchanged, which only the energy balance (Notes Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">3.46</a>) contains. On $\Sigma_3$ the casing is at rest, so no work is done; on $\Sigma_4$ the terms $-\int p\,\mathbf{v}\cdot\mathbf{n}\,d\sigma + \int\mathbf{v}\cdot\bar{\bar{\tau}}'\cdot\mathbf{n}\,d\sigma$ of Eq. 3.46 (normal out of the gas) are the power done on the gas by the blades, which is $-W$ by the definition of $W$ in Phase 2; the heat through the walls plus the heat release in the volume is $Q$. On $\Sigma_1$ and $\Sigma_2$ the pressure work $p\,\mathbf{v}\cdot\mathbf{n}$ joins the convective flux and turns $e$ into $h$:</p>
+<div class="math-block">$$ \rho_1 v_1 A_1\left[\left(e_2 + \frac{v_2^2}{2}\right) - \left(e_1 + \frac{v_1^2}{2}\right)\right] = p_1 v_1 A_1 - p_2 v_2 A_2 - W + Q, $$</div>
+<div class="math-block">$$ \boxed{\,\dot m\left[\left(\frac{\gamma}{\gamma - 1}\frac{p_2}{\rho_2} + \frac{v_2^2}{2}\right) - \left(\frac{\gamma}{\gamma - 1}\frac{p_1}{\rho_1} + \frac{v_1^2}{2}\right)\right] = Q - W\,} \tag{E} $$</div>
+<p>Equations (M), (P) and (E) determine $\rho_2$, $p_2$ and $v_2$.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li>Equation (P) is the classical thrust balance: the thrust is the change of momentum flux plus the pressure imbalance on the two sections. For $p_1 = p_2 = p_a$ it reduces to $F = \dot m\,(v_2 - v_1)$.</li><li>Equation (E) says that the stagnation enthalpy of the stream rises by the heat added per unit mass flow and falls by the work extracted per unit mass flow: $Q - W$ is the net energy input.</li><li>Dimensions (SI): $[\dot m\,(v_2 - v_1)] = (\text{kg/s})(\text{m/s}) = \text{N}$; $[(Q - W)/\dot m] = \text{W}/(\text{kg/s}) = \text{J/kg} = \text{m}^2/\text{s}^2 = [h] = [v^2]$.</li><li>Numerical illustration (hypothetical data, not a real engine): $A_1 = 0.5$ m$^2$, $A_2 = 0.3$ m$^2$, $v_1 = 150$ m/s, $p_1 = 0.9\times10^5$ Pa, $\rho_1 = 1.1$ kg/m$^3$ ($M_1 = 0.443$), $p_a = 10^5$ Pa, $F = 30$ kN, $W = 2$ MW, $Q = 30$ MW, $\gamma = 1.4$ give $\dot m = 82.5$ kg/s and the two roots of the extension below: $v_2 = 355.515$ m/s, $p_2 = 126817$ Pa, $\rho_2 = 0.77353$ kg/m$^3$ ($M_2 = 0.742$) and $v_2 = 597.263$ m/s, $p_2 = 60336$ Pa, $\rho_2 = 0.46043$ kg/m$^3$ ($M_2 = 1.39$); the residuals of (M), (P) and (E) are below $10^{-6}$ in SI units.</li><li>Agreement with the official solution: CL5.pdf obtains (M) as $\rho_1 v_1 A_1 = \rho_2 v_2 A_2$, (P) as $F = \rho_1 v_1 A_1(v_2 - v_1) - (p_1 - p_a)A_1 + (p_2 - p_a)A_2$ and (E) as above, the same equations (reading of the handwriting).</li></ul>
+<div class="note-box"><strong>Extension (beyond the official solution): explicit solution</strong><p>With $K \equiv p_a A_2 + F + (p_1 - p_a)A_1 + \dot m\,v_1$, (P) gives $p_2 A_2 = K - \dot m\,v_2$ and, with (M), $p_2/\rho_2 = (K - \dot m\,v_2)\,v_2/\dot m$. Substituting into (E) and using $\frac{1}{2} - \frac{\gamma}{\gamma-1} = -\frac{\gamma+1}{2(\gamma-1)}$ gives the quadratic $(\gamma + 1)\,v_2^2 - 2\gamma\,\frac{K}{\dot m}\,v_2 + 2(\gamma - 1)\,H_0 = 0$ with $H_0 \equiv \frac{\gamma}{\gamma-1}\frac{p_1}{\rho_1} + \frac{v_1^2}{2} + \frac{Q - W}{\dot m}$. It has two roots, a subsonic and a supersonic exit state; for a subsonic entrance and heat addition the physical exit state is the subsonic root (the smaller one), since reaching the supersonic root would need a passage through the sonic condition inside the engine, which this overall balance does not describe. For $F = 0$, $Q = W = 0$ and $A_1 = A_2$ one root is $v_2 = v_1$ and the product of the roots is $2(\gamma-1)H_0/(\gamma+1)$, the Prandtl relation of a normal shock.</p></div>
+</div>
+        </div>
+      </details>
+    </article>
+
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Study Portal &middot; Aerospace Engineering Degree &middot; Universidad Carlos III de Madrid</p>
+      <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">Worked solutions to the official conservation-laws problem collection (CL1 to CL5 so far); statements follow the handwritten source sheets.</p>
+    </div>
+  </footer>
+
+
+  <!-- QUICK NAVIGATION PILL INTERACTION & SCROLL SPY SCRIPT -->
+  <script>
+    (function () {
+      const siteHeader = document.querySelector('.site-header');
+      const quickNav = document.querySelector('.quick-nav');
+      const pills = Array.from(document.querySelectorAll('.quick-nav .p-pill'));
+      const cards = Array.from(document.querySelectorAll('.problem-card'));
+
+      if (!quickNav || pills.length === 0 || cards.length === 0) return;
+
+      function getHeaderHeight() {
+        return siteHeader ? siteHeader.offsetHeight : 54;
+      }
+      function getNavHeight() {
+        return quickNav ? quickNav.offsetHeight : 44;
+      }
+      function getTotalOffset() {
+        return getHeaderHeight() + getNavHeight() + 12;
+      }
+
+      function syncQuickNavTop() {
+        if (siteHeader && quickNav) {
+          quickNav.style.top = getHeaderHeight() + 'px';
+        }
+      }
+      window.addEventListener('resize', syncQuickNavTop, { passive: true });
+      syncQuickNavTop();
+
+      let isClickScrolling = false;
+      let clickTimer = null;
+
+      function setActivePill(targetId) {
+        if (!targetId) return;
+        pills.forEach(pill => {
+          const href = pill.getAttribute('href');
+          if (href === '#' + targetId) {
+            if (!pill.classList.contains('active')) {
+              pill.classList.add('active');
+            }
+            pill.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }
+
+      function scrollToCard(targetEl, updateHash) {
+        if (!targetEl) return;
+        const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - getTotalOffset();
+        window.scrollTo({
+          top: Math.max(0, targetPos),
+          behavior: 'smooth'
+        });
+        if (updateHash && targetEl.id) {
+          try {
+            history.pushState(null, '', '#' + targetEl.id);
+          } catch (e) {
+            window.location.hash = targetEl.id;
+          }
+        }
+      }
+
+      // Pill click handling
+      pills.forEach(pill => {
+        pill.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').replace('#', '');
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+
+          isClickScrolling = true;
+          clearTimeout(clickTimer);
+
+          setActivePill(targetId);
+          scrollToCard(targetEl, true);
+
+          clickTimer = setTimeout(() => {
+            isClickScrolling = false;
+          }, 800);
+        });
+      });
+
+      // IntersectionObserver for ScrollSpy
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (isClickScrolling) return;
+
+          const currentOffset = getTotalOffset();
+          let bestCard = null;
+          let minDistance = Infinity;
+
+          cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.bottom > currentOffset && rect.top < window.innerHeight * 0.75) {
+              const dist = Math.abs(rect.top - currentOffset);
+              if (dist < minDistance) {
+                minDistance = dist;
+                bestCard = card;
+              }
+            }
+          });
+
+          if (bestCard) {
+            setActivePill(bestCard.id);
+          }
+        }, {
+          threshold: [0, 0.3, 0.6]
+        });
+
+        cards.forEach(card => observer.observe(card));
+
+        // Supplementary scroll listener for super-responsive active pill updating
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (isClickScrolling || ticking) return;
+          window.requestAnimationFrame(() => {
+            if (!isClickScrolling) {
+              const currentOffset = getTotalOffset();
+              let bestCard = null;
+              let minDistance = Infinity;
+
+              cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.bottom > currentOffset && rect.top < window.innerHeight * 0.75) {
+                  const dist = Math.abs(rect.top - currentOffset);
+                  if (dist < minDistance) {
+                    minDistance = dist;
+                    bestCard = card;
+                  }
+                }
+              });
+
+              if (bestCard) {
+                setActivePill(bestCard.id);
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }, { passive: true });
+      }
+
+      // Initial load handling
+      function handleInitialLoad() {
+        syncQuickNavTop();
+        if (window.location.hash) {
+          const hashId = window.location.hash.replace('#', '');
+          const targetEl = document.getElementById(hashId);
+          if (targetEl) {
+            setActivePill(hashId);
+            setTimeout(() => {
+              scrollToCard(targetEl, false);
+            }, 300);
+            return;
+          }
+        }
+        if (cards.length > 0) {
+          setActivePill(cards[0].id);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', handleInitialLoad);
+      } else {
+        handleInitialLoad();
+      }
+    })();
+  </script>
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
+

@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 27 note(s) below
+- **Status:** referenced by 32 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -38,6 +38,11 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Concept - Vorticity, Circulation and Velocity Potential]]
 - [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
 - [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws]]
+- [[01 - Fluid Mechanics/Problem - CL1 Airfoil Wake and Drag]]
+- [[01 - Fluid Mechanics/Problem - CL2 Hydraulic Bore]]
+- [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece]]
+- [[01 - Fluid Mechanics/Problem - CL4 Cascade of Aerofoils]]
+- [[01 - Fluid Mechanics/Problem - CL5 Turbojet on a Testbench]]
 - [[01 - Fluid Mechanics/Problem - K1 Flow over an Oscillating Porous Wall]]
 - [[01 - Fluid Mechanics/Problem - K10 Plane Flow with Exponential Shear]]
 - [[01 - Fluid Mechanics/Problem - K2 Plane Couette Flow]]
