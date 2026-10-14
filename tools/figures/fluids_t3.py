@@ -1600,6 +1600,214 @@ def cl5_cv():
             "mobile parts. The official figure calls them $\\Sigma_1$, $\\Sigma_2$, $\\Sigma_3$ and $\\Sigma_4$")
 
 
+# ----------------------------------------------------------------------------------------- Lote 5
+# The statement figures of CL4, CL7, CL13 and CL17 are crops of the official PDFs (300 dpi, greyscale): their drawings
+# carry the official control volumes and annotations, which a redraw would lose.
+RASTER.update({
+    "cl4-statement": ("Array of aerofoils a distance L apart in a uniform stream rho1, p1, v1; the official control volume "
+                      "with the upstream section Sigma 1, the downstream section Sigma 2, the stream surfaces Sigma 3 and "
+                      "Sigma 4 and the aerofoil surface Sigma 5; force components Fx, Fy",
+                      "Statement figure (CL4.pdf, p. 1, cropped): cascade of aerofoils $L$ apart; the dashed control "
+                      "volume ($\\Sigma_1$ to $\\Sigma_5$) and the handwritten notes belong to the official sheet"),
+    "cl7-statement": ("Axisymmetric dryer: radial inlet of area A with velocity vr at rho a, resistance and fan inside, "
+                      "exit of radius R with axial and azimuthal velocities vz, v theta",
+                      "Statement figure (CL7.pdf, p. 1, cropped): radial inlet $A$ ($v_r$, $\\rho_a$), resistance and fan, "
+                      "exit of diameter $2R$ with $v_z$ and $v_\\theta$; the surface names and notes are handwritten on the "
+                      "official sheet"),
+    "cl13-statement": ("Centrifugal pump: meridional section with the inlet pipe of diameter Do (Vo, po) and the lateral "
+                       "exit of width h, and front view of the impeller of diameter D with the exit velocity Vs at the "
+                       "angle alpha from the lateral surface",
+                       "Statement figure (CL13.pdf, p. 1, cropped): inlet $D_o$ ($V_o$, $p_o$), lateral exit of width $h$ "
+                       "and diameter $D$, exit velocity $V_s$ at the angle $\\alpha$ with the lateral surface; the "
+                       "surface names are handwritten on the official sheet"),
+    "cl17-statement": ("Experimental airplane: engine inlet of height ai below the centre of gravity (Vi, pi, rho i), "
+                       "outlet of height ao above it (Vo, po, rho o), heat Q added; canard at a distance L ahead "
+                       "giving the lift F",
+                       "Statement figure (CL17.pdf, p. 1, cropped): inlet of height $a_i$ ($V_i$, $p_i$, $\\rho_i$) and "
+                       "outlet of height $a_o$ ($V_o$, $p_o$, $\\rho_o$), heat $\\dot{Q}$, axes at the CoG, canard lift "
+                       "$F$ at the distance $L$"),
+})
+
+
+# ----------------------------------------------------------------------------------------- CL4
+def _aerofoil(c, dy, col="HEAD", fill="TEXT"):
+    pathd(c, f"M240,{232 + dy} C240,{210 + dy} 300,{206 + dy} 372,{240 + dy} C318,{238 + dy} 262,{254 + dy} 240,{232 + dy} Z",
+          col, 1.8, fill=fill, opacity=0.25)
+
+
+def cl4_cv():
+    c = Canvas(620, 400)
+    _aerofoil(c, -120, "EDGE"); _aerofoil(c, 0, "EDGE")
+    up = cubic((110, 170), (330, 170), (380, 245), (500, 245))
+    dn = [(x, y + 120) for x, y in up]
+    poly(c, up + [(500, 245), (500, 365)] + dn[::-1] + [(110, 290)], "none", 0, fill="BLUE", opacity=0.10, close=True)
+    poly(c, up, "GREEN", 2.0, CV_DASH); poly(c, dn, "GREEN", 2.0, CV_DASH)
+    line(c, (110, 170), (110, 290), "GREEN", 2.0, CV_DASH); line(c, (500, 245), (500, 365), "GREEN", 2.0, CV_DASH)
+    pathd(c, "M233,232 C233,203 300,198 380,241 C318,246 258,262 233,232 Z", "GREEN", 1.5, "4,3")
+    dim(c, (132, 172), (132, 288), "", "ACC"); lab(c, (140, 236), "L", "ACC", "start", 17)
+    sigma(c, (150, 282), "1", "start")
+    sigma(c, (512, 322), "2", "start")
+    sigma(c, (430, 196), "l1", "start"); leader(c, (428, 200), (400, 222))
+    sigma(c, (330, 342), "l2", "start"); leader(c, (346, 326), (352, 308))
+    sigma(c, (300, 286), "w"); leader(c, (300, 272), (300, 252))
+    normal(c, (110, 270), (-1, 0), length=28, lab_off=(-4, -6), anchor="end")
+    normal(c, (500, 352), (1, 0), length=28, lab_off=(4, -6), anchor="start")
+    normal(c, (210, 171), (0, -1), length=24, lab_off=(10, 6), anchor="start")
+    normal(c, (210, 291), (0, 1), length=24, lab_off=(10, 8), anchor="start")
+    normal(c, (262, 216), (0.3, 1), length=16, lab_off=(-4, -14), anchor="end")
+    for y in (150, 195, 240):
+        arrow(c, (20, y), (74, y), "BLUE", 1.6, 8)
+    lab(c, (56, 330), vec("v") + sub("", "1") + " = " + sub("v", "1x") + vec("e") + sub("", "x"), "BLUE", size=15)
+    for k in range(3):
+        arrow(c, (540, 200 + 40 * k), (600, 228 + 40 * k), "BLUE", 1.6, 8)
+    lab(c, (560, 192), vec("v") + sub("", "2"), "BLUE", "start", 16)
+    axes(c, (40, 380), "x", "y", 32)
+    REG.put("cl4-cv", c,
+            "Control volume one period high, as in the class notes: upstream and downstream sections of height L, the two "
+            "stream surfaces and the surface of one aerofoil",
+            "Control volume of the solution (as in the class notes): $\\Sigma_1$ and $\\Sigma_2$ (sections of height $L$), "
+            "the stream surfaces $\\Sigma_{l1}$ and $\\Sigma_{l2}$ ($\\Sigma_{l2}$ is $\\Sigma_{l1}$ shifted by $-L\\bar{e}_y$, "
+            "so their fluxes cancel) and the aerofoil surface $\\Sigma_w$. The official figure calls them $\\Sigma_1$, "
+            "$\\Sigma_2$, $\\Sigma_3$, $\\Sigma_4$ and $\\Sigma_5$")
+
+
+# ----------------------------------------------------------------------------------------- CL7
+CL7_TOP = "M90,70 L110,70 M210,70 C330,70 360,115 440,115 L500,115"
+CL7_BOT = "M90,250 L110,250 M210,250 C330,250 360,205 440,205 L500,205"
+
+
+def cl7_cv():
+    c = Canvas(620, 330)
+    pathd(c, "M90,70 L210,70 C330,70 360,115 440,115 L500,115 L500,205 L440,205 C360,205 330,250 210,250 L90,250 Z",
+          "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, CL7_TOP, "EDGE", 2.2); pathd(c, CL7_BOT, "EDGE", 2.2)
+    ellipse(c, 90, 160, 18, 90, "EDGE", 2.2)
+    ellipse(c, 500, 160, 12, 45, "EDGE", 1.6)
+    loops = []
+    for k in range(121):
+        t = k / 120
+        a = t * 3 * 2 * math.pi
+        loops.append((235 + 70 * t + 9 * math.sin(a), 175 - 14 * math.cos(a)))
+    poly(c, loops, "EDGE", 1.4)
+    for sgn in (1, -1):
+        ellipse(c, 360, 160 - sgn * 22, 6, 20, "EDGE", 1.5)
+    ellipse(c, 360, 160, 14, 48, "GREEN", 1.5, "4,3")
+    line(c, (110, 70), (210, 70), "GREEN", 2.2, CV_DASH); line(c, (110, 250), (210, 250), "GREEN", 2.2, CV_DASH)
+    pathd(c, "M110,74 L96,74 M96,246 L110,246", "GREEN", 2.0, CV_DASH)
+    ellipse(c, 92, 160, 14, 86, "GREEN", 1.6, CV_DASH)
+    pathd(c, "M210,74 C330,74 360,119 440,119 L496,119 M210,246 C330,246 360,201 440,201 L496,201", "GREEN", 2.0, CV_DASH)
+    ellipse(c, 496, 160, 10, 41, "GREEN", 1.8, CV_DASH)
+    for x in (120, 136, 184, 200):
+        arrow(c, (x, 30), (x, 64), "BLUE", 1.3, 7); arrow(c, (x, 290), (x, 256), "BLUE", 1.3, 7)
+    lab(c, (214, 34), sub("v", "r"), "BLUE", "start", 16)
+    flow_arrows(c, 512, 570, [140, 160, 180], "BLUE", 1.6)
+    lab(c, (580, 165), sub("v", "z"), "BLUE", "start", 16)
+    sigma(c, (96, 30), "1", "end"); leader(c, (98, 30), (116, 66)); sigma(c, (96, 300), "1", "end")
+    leader(c, (98, 296), (116, 254))
+    sigma(c, (520, 112), "2", "start"); leader(c, (518, 116), (502, 126))
+    sigma(c, (300, 52), "w", "start"); leader(c, (298, 56), (290, 74)); leader(c, (296, 60), (270, 180))
+    sigma(c, (405, 250), "m", "start"); leader(c, (403, 244), (368, 202))
+    normal(c, (160, 70), (0, -1), length=26, lab_off=(0, -6))
+    normal(c, (496, 190), (1, 0), length=28, lab_off=(4, 14), anchor="start")
+    lab(c, (268, 205), "Q", "PINK", size=16)
+    arrow(c, (520, 300), (564, 300), "HEAD", 1.3, 8); lab(c, (570, 305), vec("e") + sub("", "z"), anchor="start", size=15)
+    arrow(c, (520, 300), (520, 258), "HEAD", 1.3, 8); lab(c, (526, 262), vec("e") + sub("", "r"), anchor="start", size=15)
+    REG.put("cl7-cv", c,
+            "Control volume of the dryer: the radial inlet band, the exit disc, the fixed casing with the resistance, and "
+            "the fan blades",
+            "Control volume of the solution (schematic axial section): $\\Sigma_1$ (radial inlet of area $A$, "
+            "$\\bar{n} = \\bar{e}_r$, $\\bar{v} = -v_r\\bar{e}_r$), $\\Sigma_2$ (exit disc of radius $R$, "
+            "$\\bar{n} = \\bar{e}_z$), $\\Sigma_w$ (fixed casing and resistance) and $\\Sigma_m$ (fan blades, dashed "
+            "around them); the heat $Q$ is released by the resistance")
+
+
+# ----------------------------------------------------------------------------------------- CL13
+def cl13_cv():
+    c = Canvas(640, 410)
+    yc = 200
+    pathd(c, "M20,165 L60,165 C150,165 210,110 210,40 L260,40 L260,360 L210,360 C210,290 150,235 60,235 L20,235 Z",
+          "none", 0, fill="BLUE", opacity=0.10)
+    pathd(c, "M20,165 L60,165 C150,165 210,110 210,40", "EDGE", 2.2)
+    pathd(c, "M20,235 L60,235 C150,235 210,290 210,360", "EDGE", 2.2)
+    line(c, (260, 30), (260, 370), "EDGE", 2.4)
+    pathd(c, "M60,169 C150,169 214,114 214,44 L256,44 L256,356 L214,356 C214,286 150,231 60,231 Z", "GREEN", 2.0, CV_DASH)
+    for y0, y1 in ((60, 150), (250, 340)):
+        rect(c, 226, y0, 18, y1 - y0, "EDGE", 1.2, fill="none")
+        rect(c, 221, y0 - 5, 28, y1 - y0 + 10, "GREEN", 1.4, "4,3", rx=6)
+    line(c, (20, yc), (300, yc), "TEXT", 0.9, "10,3,2,3")
+    sigma(c, (96, 118), "o", "end"); leader(c, (90, 124), (64, 168))
+    sigma(c, (196, 30), "s", "end"); leader(c, (198, 30), (222, 44))
+    sigma(c, (236, 396), "s")
+    sigma(c, (290, 110), "w", "start"); leader(c, (288, 106), (258, 96)); leader(c, (288, 112), (190, 120))
+    sigma(c, (150, 300), "b", "end"); leader(c, (152, 296), (222, 290))
+    normal(c, (60, 222), (-1, 0), length=28, lab_off=(-4, 16), anchor="end")
+    normal(c, (236, 40), (0, -1), length=22, lab_off=(10, 6), anchor="start")
+    arrow(c, (8, 180), (52, 180), "BLUE", 2.0, 9); lab(c, (28, 158), sub("V", "o"), "BLUE", size=15)
+    arrow(c, (300, 300), (340, 300), "HEAD", 1.3, 8); lab(c, (346, 305), vec("e") + sub("", "x"), anchor="start", size=15)
+    # front view: impeller, exit velocity at the angle alpha with the lateral surface
+    cx, cy, R, r0 = 480, 210, 135, 34
+    circle(c, (cx, cy), R, "EDGE", 2.0, fill="BLUE", opacity=0.10); circle(c, (cx, cy), r0, "EDGE", 1.6)
+    for k in range(6):
+        pts = []
+        for j in range(31):
+            t = j / 30
+            a = math.radians(60 * k) - 1.1 * t
+            rr = r0 + (R - r0) * t
+            pts.append((cx + rr * math.cos(a), cy - rr * math.sin(a)))
+        poly(c, pts, "EDGE", 1.4)
+    circle(c, (cx, cy), R + 5, "GREEN", 1.6, CV_DASH)
+    ph = math.radians(100)
+    P = (cx + R * math.cos(ph), cy - R * math.sin(ph))
+    t_ = (math.sin(ph), math.cos(ph)); r_ = (math.cos(ph), -math.sin(ph))
+    al = math.radians(30)
+    V = (math.cos(al) * t_[0] + math.sin(al) * r_[0], math.cos(al) * t_[1] + math.sin(al) * r_[1])
+    line(c, P, (P[0] + 80 * t_[0], P[1] + 80 * t_[1]), "TEXT", 1.0, "4,3")
+    arrow(c, P, (P[0] + 80 * V[0], P[1] + 80 * V[1]), "BLUE", 2.0, 9)
+    lab(c, (P[0] + 80 * V[0] - 6, P[1] + 80 * V[1] - 8), sub("V", "s"), "BLUE", "end", 16)
+    angle_arc(c, P, 52, math.degrees(math.atan2(-t_[1], t_[0])), math.degrees(math.atan2(-V[1], V[0])), "HEAD", 1.1)
+    lab(c, (P[0] + 62, P[1] - 4), "α", anchor="start", size=16)
+    lab(c, (cx + R - 10, cy - R + 6), sub("Σ", "s"), "GREEN", "start", 16, weight="600")
+    REG.put("cl13-cv", c,
+            "Control volume of the pump: meridional section with the inlet disc, the lateral exit cylinder, the fixed "
+            "casing and the rotating blades; front view with the exit velocity at the angle alpha from the lateral surface",
+            "Control volume of the solution: $\\Sigma_o$ (inlet disc, $\\bar{n} = -\\bar{e}_x$), $\\Sigma_s$ (lateral exit "
+            "cylinder of radius $D/2$ and width $h$, $\\bar{n} = \\bar{e}_r$), the fixed casing $\\Sigma_w$ and the rotating "
+            "blades $\\Sigma_b$ (schematic); on the right, the exit velocity $V_s$ at the angle $\\alpha$ with the lateral "
+            "surface: normal component $V_s\\sin\\alpha$, tangential $V_s\\cos\\alpha$")
+
+
+# ----------------------------------------------------------------------------------------- CL17
+def cl17_cv():
+    c = Canvas(640, 300)
+    y0 = 170
+    pathd(c, "M140,66 C70,70 20,108 20,118 C20,128 70,166 140,170 L170,170 M140,66 L470,66 L560,100", "EDGE", 1.4)
+    pathd(c, "M170,170 C300,170 420,100 560,100 L560,170 C450,200 330,245 170,240 Z", "none", 0, fill="BLUE",
+          opacity=0.12)
+    pathd(c, "M170,170 C300,170 420,100 560,100", "EDGE", 2.0)
+    pathd(c, "M170,240 C330,245 450,200 560,170", "EDGE", 2.0)
+    pathd(c, "M174,174 C300,174 420,104 556,104 L556,170 C450,197 330,238 174,236 Z", "GREEN", 2.0, CV_DASH)
+    c.add('<circle cx="380" cy="170" r="4" fill="HEAD"/>')
+    arrow(c, (380, 170), (425, 170), "HEAD", 1.3, 8); lab(c, (430, 175), "x", anchor="start", size=15)
+    arrow(c, (380, 170), (380, 128), "HEAD", 1.3, 8); lab(c, (386, 132), "y", anchor="start", size=15)
+    note(c, (372, 188), "CoG", "HEAD", "end", 12)
+    flow_arrows(c, 112, 166, [180, 196, 212], "BLUE", 1.5); lab(c, (100, 202), sub("V", "i"), "BLUE", "end", 16)
+    flow_arrows(c, 566, 620, [108, 126, 144], "BLUE", 1.5); lab(c, (594, 96), sub("V", "o"), "BLUE", size=16)
+    overdot(c, (300, 214), "Q", "PINK", "middle", 17)
+    sigma(c, (150, 268), "i", "end"); leader(c, (152, 262), (172, 236))
+    sigma(c, (576, 196), "o", "start"); leader(c, (574, 190), (558, 166))
+    sigma(c, (470, 240), "w", "start"); leader(c, (468, 234), (440, 206))
+    normal(c, (174, 228), (-1, 0), length=28, lab_off=(-2, 16), anchor="end")
+    normal(c, (556, 162), (1, 0), length=28, lab_off=(4, 16), anchor="start")
+    dim(c, (196, 172), (196, 238), "", "TEXT"); lab(c, (204, 214), sub("a", "i"), anchor="start", size=15)
+    dim(c, (530, 104), (530, 168), "", "TEXT"); lab(c, (522, 142), sub("a", "o"), anchor="end", size=15)
+    REG.put("cl17-cv", c,
+            "Control volume: the air inside the engine, from the inlet section below the axis to the outlet section above "
+            "it, bounded by the engine walls; origin at the centre of gravity",
+            "Control volume of the solution (schematic): $\\Sigma_i$ (inlet, $\\bar{n} = -\\bar{e}_x$, area $a_ib$, below "
+            "the CoG), $\\Sigma_o$ (outlet, $\\bar{n} = +\\bar{e}_x$, area $a_ob$, above the CoG) and the engine walls "
+            "$\\Sigma_w$; origin and moments at the CoG")
+
+
 # ----------------------------------------------------------------------------------------- build
 def build():
     for fn in (cl22_statement, cl22_cv, cl21_statement, cl21_cv, cl20_statement, cl20_cv,
@@ -1607,6 +1815,6 @@ def build():
                cl6_statement, cl6_cv, cl19_statement, cl19_cv, cl10_statement, cl10_cv, cl3_statement, cl3_cv,
                cl8_statement, cl8_cv, cl16_statement, cl16_cv, cl18_statement, cl18_cv, cl9_statement, cl9_cv,
                cl14_statement, cl14_cv, cl1_statement, cl1_cv, cl15_statement, cl15_cv, cl11_statement, cl11_cv,
-               cl5_statement, cl5_cv):
+               cl5_statement, cl5_cv, cl4_cv, cl7_cv, cl13_cv, cl17_cv):
         fn()
     return REG

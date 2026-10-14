@@ -25,6 +25,9 @@ The axisymmetric industrial dryer of the figure in CL7.pdf is designed to provid
 - The total power required to run the dryer $Q + W$.
 - The torque acting on the dryer.
 
+![[attachments/FM-T3/cl7-statement.png]]
+*Statement figure (CL7.pdf, p. 1, cropped): radial inlet $A$ ($v_r$, $\rho_a$), resistance and fan, exit of diameter $2R$ with $v_z$ and $v_\theta$; the surface names and notes are handwritten on the official sheet*
+
 Source: CL7.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.35, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -46,6 +49,9 @@ Source: CL7.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, 
 
 - Frame fixed to the dryer; cylindrical basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$ with $\bar{e}_z$ along the axis in the jet direction; origin on the axis. By axisymmetry $\int\bar{e}_r\,d\theta = \int\bar{e}_\theta\,d\theta = 0$ over a full turn.
 - Surfaces: $\Sigma_1$ (radial inlet, area $A$, $\bar{n} = \bar{e}_r$, $\bar{v} = -v_r\bar{e}_r$), $\Sigma_2$ (exit disc, $\bar{n} = \bar{e}_z$), $\Sigma_w$ (fixed casing and resistance, $\bar{v} = 0$) and $\Sigma_m$ (fan blades, $\bar{v} = \bar{v}_c$).
+
+![[attachments/FM-T3/cl7-cv.svg]]
+*Control volume of the solution (schematic axial section): $\Sigma_1$ (radial inlet of area $A$, $\bar{n} = \bar{e}_r$, $\bar{v} = -v_r\bar{e}_r$), $\Sigma_2$ (exit disc of radius $R$, $\bar{n} = \bar{e}_z$), $\Sigma_w$ (fixed casing and resistance) and $\Sigma_m$ (fan blades, dashed around them); the heat $Q$ is released by the resistance*
 
 Force and torque of the air (inside, and ambient outside) on the dryer, and the heat and work exchanged:
 
