@@ -51,6 +51,14 @@ class BrowserTests(unittest.TestCase):
         r = self._run('<span class="katex">x</span>' + "<p>text</p>" * 300)
         self.assertTrue(r.ok, r)
 
+    def test_missing_page_is_flagged_not_passed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            missing = pathlib.Path(tmp, "nope.html")
+            results = rc.check([missing], "unused-browser", repo=pathlib.Path(tmp))
+        self.assertEqual(len(results), 1)
+        self.assertFalse(results[0].ok)
+        self.assertEqual(results[0].errors, ["file not found"])
+
     def test_page_with_error_is_flagged(self):
         r = self._run('<span class="katex-error" title="ParseError: x">y</span>' + "<p>t</p>" * 300)
         self.assertFalse(r.ok)

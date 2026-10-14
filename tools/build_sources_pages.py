@@ -58,10 +58,6 @@ CSS = """
     .back:hover { text-decoration: underline; }
     .top-actions { display: flex; align-items: center; gap: 10px; }
     .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
-    .tabs a, .tabs span { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border-card); color: var(--text-secondary); }
-    .tabs a:hover { border-color: var(--accent); color: var(--accent); }
-    .tabs [aria-current="page"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); font-weight: 600; }
     h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
     .lead { color: var(--text-secondary); margin: 0 0 24px; }
     h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
@@ -229,10 +225,10 @@ def render_exams(slug: str, entries: list[dict]) -> str:
     body = '<nav class="jump" aria-label="Exams">' + "".join(jumps) + "</nav>\n" + "\n".join(sections)
     lead = (f"{len(entries)} past exams and solutions, grouped by exam and sorted by year, newest first. "
             "Ordinary and extraordinary calls are listed together under each year.")
-    return _page(slug, "exams", f"{name}: Exams", f"{name} - Exams",
+    return _page(slug, f"{name}: Exams", f"{name} - Exams",
                  f"Past partial and final exams of {name} (UC3M), sorted by year.", lead, body,
                  "These are the exams as published by the lecturers at Universidad Carlos III de Madrid. "
-                 "They are linked here for personal study.", accent, has_exams=True)
+                 "They are linked here for personal study.", accent)
 
 
 # --------------------------------------------------------------------------- theory & exercises
@@ -255,7 +251,7 @@ def material_count(data: dict) -> int:
         sum(len(unit.get(k, [])) for unit in data["units"] for k in KIND_ORDER)
 
 
-def render_material(slug: str, data: dict, has_exams: bool) -> str:
+def render_material(slug: str, data: dict) -> str:
     name, accent = SUBJECTS[slug]
     sections = [_group("Course-wide material", data.get("general", {}))]
     for unit in data["units"]:
@@ -263,23 +259,14 @@ def render_material(slug: str, data: dict, has_exams: bool) -> str:
     body = "\n".join(s for s in sections if s)
     count = material_count(data)
     lead = f"{count} original PDFs from the course (theory, slides and problem sheets), grouped by unit."
-    return _page(slug, "sources", f"{name}: Theory &amp; Exercise PDFs", f"{name} - Theory & Exercise PDFs",
+    return _page(slug, f"{name}: Theory &amp; Exercise PDFs", f"{name} - Theory & Exercise PDFs",
                  f"Original course PDFs for {name} (UC3M): theory, slides and problem sheets.", lead, body,
                  "These are the course documents as published by the lecturers at Universidad Carlos III de Madrid. "
                  "They are linked here for personal study; the notes and solutions elsewhere in this portal are "
-                 "written independently from them.", accent, has_exams)
+                 "written independently from them.", accent)
 
 
-def _page(slug, current, h1, title, description, lead, body, note, accent, has_exams) -> str:
-    tabs = []
-    for key, label, href in (("sources", "Theory &amp; Exercise PDFs", "../sources/index.html"),
-                             ("exams", "Exams", "../exams/index.html")):
-        if key == "exams" and not has_exams:
-            continue
-        if key == current:
-            tabs.append(f'<span aria-current="page">{label}</span>')
-        else:
-            tabs.append(f'<a href="{href}">{label}</a>')
+def _page(slug, h1, title, description, lead, body, note, accent) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -300,7 +287,6 @@ def _page(slug, current, h1, title, description, lead, body, note, accent, has_e
       <a class="back" href="../../../index.html">&larr; Study Portal</a>
       <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
     </div>
-    <nav class="tabs" aria-label="PDF pages">{"".join(tabs)}</nav>
     <h1>{h1}</h1>
     <p class="lead">{html.escape(lead)}</p>
 {body}
@@ -326,7 +312,7 @@ def build(root: pathlib.Path = REPO) -> dict[pathlib.Path, str]:
             continue
         data = manifest["subjects"][slug]
         exams = exam_entries(root, data)
-        pages[pathlib.Path(root, "subjects", slug, "sources", "index.html")] = render_material(slug, data, bool(exams))
+        pages[pathlib.Path(root, "subjects", slug, "sources", "index.html")] = render_material(slug, data)
         if exams:
             pages[pathlib.Path(root, "subjects", slug, "exams", "index.html")] = render_exams(slug, exams)
     return pages

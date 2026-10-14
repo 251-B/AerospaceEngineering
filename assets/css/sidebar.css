@@ -1,0 +1,118 @@
+/* Side menu: button and left drawer (assets/js/sidebar.js, loaded on every page by theme.js).
+   Same visual language as Focus Lab, the study timer and the updates panel: text colours come from
+   the reading palette (--study-text / --study-text-2, AAA on every palette's card) with portal
+   fallbacks; subject accents colour dots and borders only, never text. */
+.ae-nav-btn, .ae-nav, .ae-nav-backdrop {
+  --nav-accent: var(--accent, #f59e0b);
+  --nav-surface: var(--study-surface-dark, #131b2b);
+  --nav-inset: var(--study-inset-dark, #182235);
+  --nav-text: var(--study-text, #f8fafc);
+  --nav-muted: var(--study-text-2, #cbd5e1);
+  --nav-border: rgba(255, 255, 255, .12);
+  --nav-hover: rgba(255, 255, 255, .06);
+  --nav-shadow: 0 0 60px rgba(0, 0, 0, .55);
+  --nav-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  --nav-serif: var(--font-body, var(--font-serif, "Newsreader", Georgia, serif));
+  --nav-display: var(--font-display, "Abril Fatface", Georgia, serif);
+}
+html[data-theme="light"] .ae-nav-btn, html[data-theme="light"] .ae-nav, html[data-theme="light"] .ae-nav-backdrop {
+  --nav-surface: var(--study-surface-light, #ffffff);
+  --nav-inset: var(--study-inset-light, #f4f6f9);
+  --nav-text: var(--study-text, #0f172a);
+  --nav-muted: var(--study-text-2, #334155);
+  --nav-border: rgba(15, 23, 42, .14);
+  --nav-hover: rgba(15, 23, 42, .06);
+  --nav-shadow: 0 0 50px rgba(15, 23, 42, .22);
+}
+
+/* ---------------------------------------------------------------- button */
+.ae-nav-btn {
+  flex: none; box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; padding: 0; margin: 0 8px 0 0;
+  border-radius: 50%; border: 1px solid var(--border-subtle, var(--nav-border));
+  background: var(--bg-input, transparent); color: var(--nav-text); cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.ae-nav-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ae-nav-btn:hover, .ae-nav-btn[aria-expanded="true"] { border-color: var(--text-secondary, currentColor); }
+.ae-nav-btn:focus-visible { outline: 2px solid var(--nav-accent); outline-offset: 2px; }
+.ae-nav-btn--float {
+  position: fixed; z-index: 1250; top: 12px; left: 12px; margin: 0;
+  background: var(--nav-surface); border-color: var(--nav-border);
+}
+
+/* ---------------------------------------------------------------- drawer */
+.ae-nav-backdrop {
+  position: fixed; z-index: 1259; inset: 0; background: rgba(0, 0, 0, .5);
+  opacity: 0; transition: opacity .2s ease;
+}
+.ae-nav-backdrop.is-open { opacity: 1; }
+.ae-nav-backdrop[hidden], .ae-nav[hidden] { display: none; }
+html.ae-nav-lock { overflow: hidden; }
+
+.ae-nav {
+  position: fixed; z-index: 1260; top: 0; bottom: 0; left: 0; box-sizing: border-box;
+  width: min(85vw, 320px); overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain;
+  padding: 0 0 24px; border-right: 1px solid var(--nav-border); border-top: 3px solid var(--nav-accent);
+  background: var(--nav-surface); color: var(--nav-text); box-shadow: var(--nav-shadow);
+  font-family: var(--nav-serif); text-align: left;
+  transform: translateX(-102%); transition: transform .2s ease;
+}
+.ae-nav.is-open { transform: none; }
+.ae-nav:focus { outline: none; }   /* focus lands on the drawer when it opens; its links keep their own ring */
+
+.ae-nav__head {
+  position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 14px 10px 18px; background: var(--nav-surface); border-bottom: 1px solid var(--nav-border);
+}
+.ae-nav__title { font: 400 21px/1.2 var(--nav-display); color: var(--nav-text); }
+.ae-nav__close {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0;
+  border-radius: 50%; border: 1px solid var(--nav-border); background: transparent; color: var(--nav-text); cursor: pointer;
+}
+.ae-nav__close svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.ae-nav__close:hover { background: var(--nav-hover); }
+
+.ae-nav__tree { padding: 8px 10px 0; }
+.ae-nav a, .ae-nav button { font-family: var(--nav-serif); }
+.ae-nav a:focus-visible, .ae-nav button:focus-visible { outline: 2px solid var(--nav-accent); outline-offset: 1px; }
+
+/* groups: subject > area > (page with sub-pages) */
+.ae-nav__toggle {
+  display: flex; align-items: center; gap: 10px; width: 100%; box-sizing: border-box; margin: 0;
+  padding: 9px 10px; border: 0; border-radius: 8px; background: transparent; color: var(--nav-text);
+  font-size: 16px; font-weight: 600; line-height: 1.3; text-align: left; cursor: pointer;
+}
+.ae-nav__toggle:hover { background: var(--nav-hover); }
+.ae-nav__toggle-label { flex: 1; min-width: 0; }
+.ae-nav__toggle svg { flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s ease; }
+.ae-nav__group.is-open > .ae-nav__toggle svg { transform: rotate(90deg); }
+.ae-nav__toggle.has-current .ae-nav__toggle-label { text-decoration: underline; text-decoration-color: var(--nav-accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.ae-nav__dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--dot, var(--nav-accent)); }
+.ae-nav__group--area > .ae-nav__toggle, .ae-nav__group--sub > .ae-nav__toggle { font-size: 15px; font-weight: 500; color: var(--nav-muted); }
+.ae-nav__body { margin: 0 0 4px 14px; padding-left: 10px; border-left: 1px solid var(--nav-border); }
+.ae-nav__body[hidden] { display: none; }
+.ae-nav__group--subject > .ae-nav__body { margin-left: 15px; }
+
+/* links: prefixed with .ae-nav so a page's own `a { color }` rule (e.g. [data-theme="light"] a) can never win */
+.ae-nav .ae-nav__link {
+  display: block; padding: 7px 10px; border-radius: 8px; color: var(--nav-text);
+  font-size: 15px; line-height: 1.35; text-decoration: none;
+}
+.ae-nav .ae-nav__link:hover { background: var(--nav-hover); }
+.ae-nav__home { font-weight: 600; margin-bottom: 4px; }
+.ae-nav .ae-nav__link--lead, .ae-nav .ae-nav__link--extra { color: var(--nav-muted); font-size: 14px; }
+.ae-nav .ae-nav__link.is-current { background: var(--nav-inset); box-shadow: inset 3px 0 0 var(--nav-accent); font-weight: 600; }
+
+/* sections of the current page */
+.ae-nav__sections { list-style: none; margin: 2px 0 6px 12px; padding: 0 0 0 8px; border-left: 1px solid var(--nav-border); }
+.ae-nav .ae-nav__link--section { padding: 5px 8px; font-size: 14px; color: var(--nav-muted); }
+.ae-nav .ae-nav__link--section.is-active { color: var(--nav-text); background: var(--nav-hover); box-shadow: inset 2px 0 0 var(--nav-accent); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ae-nav, .ae-nav-backdrop, .ae-nav__toggle svg { transition: none; }
+}
+@media print {
+  .ae-nav-btn, .ae-nav, .ae-nav-backdrop { display: none !important; }
+}

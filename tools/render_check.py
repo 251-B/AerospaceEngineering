@@ -94,6 +94,10 @@ def check(paths: list[pathlib.Path], browser: str, repo: pathlib.Path = REPO) ->
             rel = p.relative_to(repo).as_posix()
         except ValueError:
             rel = str(p)
+        if not p.is_file():
+            # A missing page renders as an empty document, which would otherwise pass: report it instead.
+            results.append(RenderResult(path=rel, errors=["file not found"]))
+            continue
         results.append(analyse_dom(rel, dump_dom(browser, p)))
     return results
 

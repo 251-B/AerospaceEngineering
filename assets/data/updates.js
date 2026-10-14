@@ -15,6 +15,20 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-14-cleaner-headers",
+    "date": "2026-10-14",
+    "tag": "Portal",
+    "title": "Cleaner page headers",
+    "text": "The Index, Problems and Topic buttons and the jump bars are gone from every page. Open the side menu to reach any topic, problem set or section."
+  },
+  {
+    "id": "2026-10-14-side-menu",
+    "date": "2026-10-14",
+    "tag": "Portal",
+    "title": "New side menu to move around the portal",
+    "text": "The menu button at the top left opens a side menu with every subject, topic and problem set. On a page it also lists that page's sections and follows you as you scroll."
+  },
+  {
     "id": "2026-10-14-materials-t4-problems-1-8",
     "date": "2026-10-14",
     "tag": "Aerospace Materials I",

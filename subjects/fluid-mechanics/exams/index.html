@@ -20,10 +20,6 @@
     .back:hover { text-decoration: underline; }
     .top-actions { display: flex; align-items: center; gap: 10px; }
     .theme-toggle { font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-glass); color: var(--text-primary); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 6px 12px; cursor: pointer; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
-    .tabs a, .tabs span { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border-card); color: var(--text-secondary); }
-    .tabs a:hover { border-color: var(--accent); color: var(--accent); }
-    .tabs [aria-current="page"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); font-weight: 600; }
     h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 6px; }
     .lead { color: var(--text-secondary); margin: 0 0 24px; }
     h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; letter-spacing: 0.01em; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
@@ -54,7 +50,6 @@
       <a class="back" href="../../../index.html">&larr; Study Portal</a>
       <div class="top-actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div>
     </div>
-    <nav class="tabs" aria-label="PDF pages"><a href="../sources/index.html">Theory &amp; Exercise PDFs</a><span aria-current="page">Exams</span></nav>
     <h1>Fluid Mechanics: Exams</h1>
     <p class="lead">48 past exams and solutions, grouped by exam and sorted by year, newest first. Ordinary and extraordinary calls are listed together under each year.</p>
 <nav class="jump" aria-label="Exams"><a href="#first">First partials</a><a href="#second">Second partials</a><a href="#final">Final exams</a><a href="#other">Other universities and degrees</a></nav>

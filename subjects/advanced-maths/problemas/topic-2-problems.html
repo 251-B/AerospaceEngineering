@@ -667,45 +667,14 @@
           <span>←</span>
           <span>Main Portal</span>
         </a>
-        <a href="index.html" class="back-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-          <span>Problems Index</span>
-        </a>
         <span class="brand-badge">ProblemsCh2 • 17 Solved</span>
       </div>
       <div class="nav-actions">
-        <a href="../teoria/topic-2.html" class="back-link">
-          <span>Topic 2 Theory</span>
-        </a>
         <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
       </div>
     </div>
   </header>
 
-  <!-- ============================================
-       STICKY FAST-NAVIGATION PILL BAR
-       ============================================ -->
-  <nav class="pill-nav-bar" aria-label="Quick Jump Navigation">
-    <div class="pill-nav-inner">
-      <a href="#p1" class="nav-pill">P2.1 Direct Integration</a>
-      <a href="#p2" class="nav-pill">P2.2 Separable ODEs</a>
-      <a href="#p3" class="nav-pill">P2.3 Integrating Factor</a>
-      <a href="#p4" class="nav-pill">P2.4 Exact ODEs</a>
-      <a href="#p5" class="nav-pill">P2.5 Non-Exact, mu(x)</a>
-      <a href="#p6" class="nav-pill">P2.6 Separated Form</a>
-      <a href="#p7" class="nav-pill">P2.7 Substitution z=y^2</a>
-      <a href="#p8" class="nav-pill">P2.8 Bernoulli Reduction</a>
-      <a href="#p9" class="nav-pill">P2.9 Lipschitz Uniqueness</a>
-      <a href="#p10" class="nav-pill">P2.10 Uniqueness Transform</a>
-      <a href="#p11" class="nav-pill">P2.11 Ratio Invariance</a>
-      <a href="#p12" class="nav-pill">P2.12 No-Crossing Bounds</a>
-      <a href="#p13" class="nav-pill">P2.13 Phase Line</a>
-      <a href="#p14" class="nav-pill">P2.14 Non-Lipschitz Branching</a>
-      <a href="#p15" class="nav-pill">P2.15 Singular ODE</a>
-      <a href="#p16" class="nav-pill">P2.16 Pitchfork</a>
-      <a href="#p17" class="nav-pill">P2.17 Difference Method</a>
-    </div>
-  </nav>
 
   <!-- ============================================
        MAIN CONTENT
@@ -2391,34 +2360,6 @@
     </section>
   </main>
 
-  <!-- ============================================
-       PILL HIGHLIGHT JAVASCRIPT
-       ============================================ -->
-  <script>
-    (function () {
-      // Active pill highlight on scroll
-      const pills = document.querySelectorAll('.nav-pill');
-      const cards = document.querySelectorAll('.problem-card');
-
-      window.addEventListener('scroll', function () {
-        let currentCard = '';
-        cards.forEach(card => {
-          const rect = card.getBoundingClientRect();
-          if (rect.top <= 160 && rect.bottom >= 160) {
-            currentCard = '#' + card.getAttribute('id');
-          }
-        });
-
-        pills.forEach(pill => {
-          if (pill.getAttribute('href') === currentCard) {
-            pill.classList.add('active');
-          } else {
-            pill.classList.remove('active');
-          }
-        });
-      }, { passive: true });
-    })();
-  </script>
   <script src="../../../assets/js/quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

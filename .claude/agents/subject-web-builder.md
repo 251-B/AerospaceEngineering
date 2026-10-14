@@ -17,7 +17,7 @@ Your mission is to implement the dual-system architecture:
 - Enforce persistent dark/light theme switching by loading `assets/js/theme.js` in `<head>` (single key `ae_theme`; no inline theme code) and adding a `#themeToggle` button. Never create lab pages: laboratory material is not published on the web.
    - Use CSS variables defined per subject and clean editorial typography (Newsreader, Inter).
    - Strict return link back to main root portal: `<a href="../../../index.html">`.
-   - Include fast-navigation pills for multi-problem pages.
+   - No navigation of your own in the page header and no jump bars of pills: the side menu (`assets/js/sidebar.js`) lists every page and, for the open page, its sections. The header keeps only the return link above, the theme toggle and the widgets the shared scripts add. Give every section heading (`h2`) and every `.problem-card` an `id`, and register a new page in `tools/nav.json` (then run `python tools/build_nav.py`).
    - Do NOT add interactive canvas or Three.js simulations unless explicitly requested.
    - All written study text must be in English.
 3. **Self-Review & Token Economy:**
