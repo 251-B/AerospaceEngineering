@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 43 note(s) below
+- **Status:** referenced by 49 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -46,7 +46,13 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Problem - CL14 Gas Turbine Diffuser Module]]
 - [[01 - Fluid Mechanics/Problem - CL15 Mixing Elbow]]
 - [[01 - Fluid Mechanics/Problem - CL16 Plane Jet on a Non-Symmetric Wedge]]
+- [[01 - Fluid Mechanics/Problem - CL17 Airplane Engine Torque and Canard]]
+- [[01 - Fluid Mechanics/Problem - CL18 Liquid Ejector]]
+- [[01 - Fluid Mechanics/Problem - CL19 Elbow Mixing Two Air Streams]]
 - [[01 - Fluid Mechanics/Problem - CL2 Hydraulic Bore]]
+- [[01 - Fluid Mechanics/Problem - CL20 Pipe Contraction]]
+- [[01 - Fluid Mechanics/Problem - CL21 Array of Hot Cylinders]]
+- [[01 - Fluid Mechanics/Problem - CL22 Water in a Shrinking Cylinder]]
 - [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece]]
 - [[01 - Fluid Mechanics/Problem - CL4 Cascade of Aerofoils]]
 - [[01 - Fluid Mechanics/Problem - CL5 Turbojet on a Testbench]]

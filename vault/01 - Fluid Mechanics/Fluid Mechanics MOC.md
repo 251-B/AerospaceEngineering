@@ -49,7 +49,7 @@ tags:
   * [[01 - Fluid Mechanics/Concept - Fourier's Law and Heat Conduction|Concept: Fourier's Law, Conduction and Prandtl Number]]
   * [[01 - Fluid Mechanics/Concept - Integral Conservation of Mass, Momentum and Energy|Concept: Integral Conservation of Mass, Momentum and Energy]]
   * [[01 - Fluid Mechanics/Formula Sheet - Topic 3 Conservation Laws|Formula Sheet: Complete Equations Handbook (3.1 to 3.46)]]
-  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, in progress: CL1 to CL16 of CL1 to CL22):**
+  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, complete):**
     * [[01 - Fluid Mechanics/Problem - CL1 Airfoil Wake and Drag|Problem CL1: Airfoil Wake: Streamline Displacement and Drag]]
     * [[01 - Fluid Mechanics/Problem - CL2 Hydraulic Bore|Problem CL2: Bore over a Stagnant Water Layer]]
     * [[01 - Fluid Mechanics/Problem - CL3 Double-Elbow Mouthpiece|Problem CL3: Double-Elbow Mouthpiece: Exit Velocity, Force and Moment]]
@@ -66,6 +66,12 @@ tags:
     * [[01 - Fluid Mechanics/Problem - CL14 Gas Turbine Diffuser Module|Problem CL14: Gas-Turbine Diffuser Module: Exit State, Force and Torque]]
     * [[01 - Fluid Mechanics/Problem - CL15 Mixing Elbow|Problem CL15: Mixing Elbow: Exit Velocity and Temperature, Force and Torque]]
     * [[01 - Fluid Mechanics/Problem - CL16 Plane Jet on a Non-Symmetric Wedge|Problem CL16: Plane Jet Split by a Non-Symmetric Wedge: Force, Moment and Heat]]
+    * [[01 - Fluid Mechanics/Problem - CL17 Airplane Engine Torque and Canard|Problem CL17: Airplane with an Engine without Moving Parts: Exit State, Thrust, Torque and Canard]]
+    * [[01 - Fluid Mechanics/Problem - CL18 Liquid Ejector|Problem CL18: Liquid Ejector: Entrained Flow Rate, Outlet Velocity and Heating]]
+    * [[01 - Fluid Mechanics/Problem - CL19 Elbow Mixing Two Air Streams|Problem CL19: Elbow Mixing Two Air Streams: Outlet Velocity, Force and Heat]]
+    * [[01 - Fluid Mechanics/Problem - CL20 Pipe Contraction|Problem CL20: Pipe Contraction Discharging to the Atmosphere: Velocity, Force and Heating]]
+    * [[01 - Fluid Mechanics/Problem - CL21 Array of Hot Cylinders|Problem CL21: Array of Hot Cylinders in a Gas Stream: Density, Force and Heat]]
+    * [[01 - Fluid Mechanics/Problem - CL22 Water in a Shrinking Cylinder|Problem CL22: Water in a Shrinking Cylinder: Level, Velocity, Force and Power]]
   * **Practical Modular Subchapters:**
     * **Subchapter 3.1:** The Reynolds Transport Theorem (RTT) & Control Volume Selection Strategy
     * **Subchapter 3.2:** Conservation of Mass (Continuity) in Problem Solving
