@@ -1,0 +1,89 @@
+{
+ "_comment": "Short labels for the side menu (assets/js/sidebar.js). Edit this file when a page is added, renamed or removed, then run tools/build_nav.py. 'page' is the file name inside teoria/ or problemas/; the index.html of each area, sources/index.html and exams/index.html are added automatically.",
+ "subjects": [
+  {
+   "slug": "fluid-mechanics",
+   "name": "Fluid Mechanics",
+   "accent": "#06b6d4",
+   "teoria": [
+    {"page": "topic-1.html", "label": "1 · Introductory remarks"},
+    {"page": "topic-2.html", "label": "2 · Flow kinematics"},
+    {"page": "topic-3.html", "label": "3 · Conservation laws", "children": [
+     {"page": "topic-3-1-rtt.html", "label": "3.1 RTT and control volume"},
+     {"page": "topic-3-2-mass.html", "label": "3.2 Mass continuity"},
+     {"page": "topic-3-3-momentum.html", "label": "3.3 Linear momentum"},
+     {"page": "topic-3-4-angular-momentum.html", "label": "3.4 Angular momentum"},
+     {"page": "topic-3-5-energy.html", "label": "3.5 Total energy"},
+     {"page": "topic-3-6-stresses.html", "label": "3.6 Stress tensor and friction"}
+    ]}
+   ],
+   "problemas": [
+    {"page": "topic-2-kinematics.html", "label": "2 · Kinematics (K1–K10)"},
+    {"page": "topic-3-conservation-laws.html", "label": "3 · Conservation laws (CL1–CL22)"}
+   ]
+  },
+  {
+   "slug": "aerospace-materials-1",
+   "name": "Aerospace Materials I",
+   "accent": "#f59e0b",
+   "teoria": [
+    {"page": "topic-1-bonding.html", "label": "1 · Bonding in solids"},
+    {"page": "topic-2-structure.html", "label": "2 · Structure and defects"},
+    {"page": "topic-3-diffusion.html", "label": "3 · Diffusion in solids"}
+   ],
+   "problemas": [
+    {"page": "topic-2-problems.html", "label": "2 · Structure and defects"},
+    {"page": "topic-3-diffusion.html", "label": "3 · Diffusion"}
+   ]
+  },
+  {
+   "slug": "engineering-mechanics",
+   "name": "Engineering Mechanics",
+   "accent": "#10b981",
+   "teoria": [
+    {"page": "topic-1.html", "label": "1 · Fundamentals and kinematics"},
+    {"page": "topic-2.html", "label": "2 · Point particle dynamics"},
+    {"page": "topic-3.html", "label": "3 · Constraints and reactions"},
+    {"page": "topic-4.html", "label": "4 · Angular momentum, central forces"},
+    {"page": "topic-5.html", "label": "5 · Relative motion"}
+   ],
+   "problemas": [
+    {"page": "topic-1.html", "label": "1 · Fundamentals and kinematics"},
+    {"page": "topic-2.html", "label": "2 · Point particle dynamics"},
+    {"page": "topic-3.html", "label": "3 · Constraints and reactions"},
+    {"page": "topic-4.html", "label": "4 · Angular momentum, central forces"},
+    {"page": "topic-5.html", "label": "5 · Relative motion"}
+   ]
+  },
+  {
+   "slug": "advanced-maths",
+   "name": "Advanced Maths",
+   "accent": "#6366f1",
+   "teoria": [
+    {"page": "topic-1.html", "label": "1 · Modelling, first-order IVPs"},
+    {"page": "topic-2.html", "label": "2 · First-order equations"},
+    {"page": "topic-3.html", "label": "3 · Second-order linear, vibrations"},
+    {"page": "topic-4.html", "label": "4 · Systems and phase plane"}
+   ],
+   "problemas": [
+    {"page": "topic-1-problems.html", "label": "1 · Modelling and classification"},
+    {"page": "topic-2-problems.html", "label": "2 · First-order ODEs"},
+    {"page": "topic-3-problems.html", "label": "3 · Second-order linear ODEs"}
+   ]
+  },
+  {
+   "slug": "business-management",
+   "name": "Business Management",
+   "accent": "#ef4444",
+   "teoria": [
+    {"page": "topic-1.html", "label": "1 · The firm"},
+    {"page": "topic-2.html", "label": "2 · Value creation"},
+    {"page": "topic-3.html", "label": "3 · Financial management (I)"}
+   ],
+   "problemas": [
+    {"page": "topic-3-financial-statements.html", "label": "3 · Financial statements"},
+    {"page": "topic-3-extra-exam-problems.html", "label": "3 · Extra exam problems"}
+   ]
+  }
+ ]
+}

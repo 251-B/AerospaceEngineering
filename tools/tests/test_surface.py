@@ -163,6 +163,10 @@ class SurfacePagesTests(unittest.TestCase):
         missing = [f"{r['page']} [{r['state']}]" for r in self.results if not r.get("updatesPanel")]
         self.assertEqual(missing, [], "the What's new panel was not open when its text was audited")
 
+    def test_the_open_side_menu_was_audited_too(self):
+        missing = [f"{r['page']} [{r['state']}]" for r in self.results if not r.get("sidebar")]
+        self.assertEqual(missing, [], "the side menu was not open, with its current page marked, when its text was audited")
+
     def test_text_is_aaa_on_every_page_and_palette(self):
         failures = [f"{r['page']} [{r['state']}] {r['badCount']} below AAA, e.g. {r['bad'][:3]}"
                     for r in self.results if r["state"] != "default" and r["badCount"]]

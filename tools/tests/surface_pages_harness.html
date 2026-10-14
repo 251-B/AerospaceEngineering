@@ -5,7 +5,7 @@
 <title>reading-surface page audit</title>
 <!-- Driven by test_surface.py (headless Edge/Chrome, --dump-dom). For each real study page and each palette it loads the
      page in an iframe, then reports (a) text below WCAG AAA contrast and (b) a hash of the page's own text, which must not
-     depend on the palette. Pages are read from ../../subjects; localStorage is shared through file access. -->
+     depend on the palette; the "What's new" panel and the side menu are opened and audited as well. Pages are read from ../../subjects; localStorage is shared through file access. -->
 </head>
 <body>
 <pre id="results">PENDING</pre>
@@ -44,12 +44,15 @@
     }
     // The quote card's "Copied!" notice is hidden until a click; show it so it is audited too.
     doc.querySelectorAll('.ae-quote-copied-tooltip').forEach(function (n) { n.classList.add('visible'); n.style.opacity = '1'; });
+    var drawerOpen = !!doc.querySelector('.ae-nav.is-open');
     var bad = [], checked = 0, text = [];
     var walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT), seen = new Set();
     while (walker.nextNode()) {
       var node = walker.currentNode, el = node.parentElement;
       if (!node.textContent.trim() || !el) continue;
       if (el.closest('.surface-panel, .surface-picker, script, style')) continue;
+      // The side menu is menu text, not page text: left out of the hash, and audited by the pass that opens it.
+      if (el.closest('.ae-nav') && !drawerOpen) continue;
       if (!el.closest('.ae-quote-copied-tooltip') && el.closest('[class*="quote"], #quoteContainer')) continue;
       text.push(node.textContent.replace(/\s+/g, ' ').trim());
       if (seen.has(el) || el.closest('.katex-mathml, [hidden], svg, ' + FILLED)) continue;
@@ -97,6 +100,13 @@
               var opened = probe(f.contentDocument);
               out.bad = out.bad.concat(opened.bad).slice(0, 6); out.badCount += opened.badCount;
               out.updatesPanel = !!f.contentDocument.querySelector('.upd-panel:not([hidden]) .upd-item');
+            }
+            // The side menu is closed until opened (and opening it closes the panel above): open it and audit it too.
+            if (f.contentWindow.AESidebar) {
+              f.contentWindow.AESidebar.open();
+              var menu = probe(f.contentDocument);
+              out.bad = out.bad.concat(menu.bad).slice(0, 6); out.badCount += menu.badCount;
+              out.sidebar = !!f.contentDocument.querySelector('.ae-nav.is-open .ae-nav__link.is-current');
             }
             out.surface = attrs.getAttribute('data-surface'); out.theme = attrs.getAttribute('data-theme');
             out.picker = !!f.contentDocument.getElementById('surfacePicker');

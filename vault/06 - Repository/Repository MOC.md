@@ -37,6 +37,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Tool - source_links]] | Tool | Adds deep links to the official PDFs. |
 | [[Tool - build_sources_pages]] | Tool | Generates the sources and exams index pages per subject. |
 | [[Tool - sources_manifest]] | Tool | Regenerates `assets/data/sources.js` from `sources/`. |
+| [[Tool - build_nav]] | Tool | Regenerates `assets/data/nav.js`, the side-menu tree, from `tools/nav.json`. |
 | [[Tool - build_pdfs]] | Tool | Prints theory and problem pages to A4 PDFs. |
 | [[Tool - render_check]] | Tool | Renders pages in a headless browser to catch KaTeX errors. |
 | [[Tool - vault_rename]] | Tool | Renames vault notes and rewrites their wikilinks. |

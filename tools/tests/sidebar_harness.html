@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>sidebar.js harness</title>
+<!-- Driven by test_sidebar.py through headless Edge/Chrome (--dump-dom). Real portal pages load in
+     iframes (theme.js brings the menu in, like in production), one at a time, so a single page owns
+     the shared 'ae_nav' key. A srcdoc page covers the cases that need no real URL. -->
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+  var KEY = 'ae_nav';
+  var FLUID = '../../subjects/fluid-mechanics/teoria/topic-3-2-mass.html';
+  var PROBLEMS = '../../subjects/engineering-mechanics/problemas/topic-2.html';
+
+  function record(name, ok, detail) {
+    results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) });
+  }
+
+  function seed(value) {
+    try {
+      if (value === null) localStorage.removeItem(KEY);
+      else localStorage.setItem(KEY, typeof value === 'string' ? value : JSON.stringify(value));
+    } catch (e) { /* ignore */ }
+  }
+
+  function stored() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+
+  // opts: { src, srcdoc, stored, width }
+  function frame(opts) {
+    return new Promise(function (resolve) {
+      seed(opts.stored === undefined ? null : opts.stored);
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:' + (opts.width || 1100) + 'px;height:800px';
+      f.onload = function () {
+        // Headless virtual time does not advance CSS transitions, so geometry is measured without them.
+        var s = f.contentDocument.createElement('style');
+        s.textContent = '*{transition:none!important;animation:none!important}';
+        f.contentDocument.head.appendChild(s);
+        setTimeout(function () { resolve(f); }, 900);
+      };
+      if (opts.src) f.src = opts.src;
+      else f.srcdoc = opts.srcdoc;
+      document.body.appendChild(f);
+    });
+  }
+
+  function page(headerHtml) {
+    return '<!doctype html><html data-theme="dark"><head><title>Page</title>' +
+      '<script src="../../assets/js/theme.js"><\/script></head><body>' + headerHtml +
+      '<main><p>Page text</p></main></body></html>';
+  }
+
+  function q(f, sel) { return f.contentDocument.querySelector(sel); }
+  function qa(f, sel) { return f.contentDocument.querySelectorAll(sel); }
+  function visible(node) { return !!node && !node.hidden && node.getClientRects().length > 0; }
+  function key(f, name, extra) {
+    var ev = new f.contentWindow.KeyboardEvent('keydown', Object.assign({ key: name, bubbles: true, cancelable: true }, extra || {}));
+    f.contentDocument.activeElement.dispatchEvent(ev);
+    return ev;
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  // The toggle called `label`; area names repeat in every subject, so `subject` narrows the search.
+  function groupOf(f, label, subject) {
+    var scope = subject ? Array.prototype.filter.call(qa(f, '.ae-nav__group--subject'), function (g) {
+      return g.firstChild.textContent.trim() === subject;
+    })[0] : f.contentDocument;
+    return Array.prototype.filter.call(scope.querySelectorAll('.ae-nav__toggle'), function (b) { return b.textContent.trim() === label; })[0];
+  }
+
+  function scenarios() {
+    var f1, f2;
+    // ---------------------------------------------------------------- a bare page: structure
+    return frame({ srcdoc: page('<header><div class="header-inner"><a href="#">Home</a><button id="themeToggle" aria-label="Toggle theme"></button></div></header>') }).then(function (f) {
+      f1 = f;
+      var btn = q(f, '#sidebarButton'), host = q(f, '.header-inner');
+      record('the menu button is the first item of the page header', btn && host.firstElementChild === btn, host.innerHTML.slice(0, 120));
+      record('the menu button is labelled and starts collapsed', btn.getAttribute('aria-label') === 'Open menu' &&
+        btn.getAttribute('aria-expanded') === 'false' && btn.getAttribute('aria-controls') === 'sidebarDrawer', '');
+      record('the drawer starts closed and hidden', q(f, '#sidebarDrawer').hidden && !q(f, '#sidebarDrawer').classList.contains('is-open'), '');
+      record('the drawer is a modal dialog with a label', q(f, '#sidebarDrawer').getAttribute('role') === 'dialog' &&
+        q(f, '#sidebarDrawer').getAttribute('aria-modal') === 'true' && !!q(f, '#sidebarDrawer').getAttribute('aria-label'), '');
+      record('the tree lists the five subjects with their accent dot', qa(f, '.ae-nav__group--subject').length === 5 &&
+        qa(f, '.ae-nav__group--subject .ae-nav__dot').length === 5, qa(f, '.ae-nav__group--subject').length);
+      record('the first link goes to the portal home', /\/index\.html$/.test(q(f, '.ae-nav__home').getAttribute('href')), q(f, '.ae-nav__home').href);
+      record('an unknown page marks no current page and lists no sections', !q(f, '[aria-current="page"]') && !q(f, '.ae-nav__sections'), '');
+      record('every subject starts collapsed (nothing stored, no page of it)', qa(f, '.ae-nav__group--subject.is-open').length === 0 &&
+        Array.prototype.every.call(qa(f, '.ae-nav__group--subject > .ae-nav__toggle'), function (b) { return b.getAttribute('aria-expanded') === 'false'; }), '');
+      record('icons carry their own size, so a missing stylesheet cannot blow them up', btn.querySelector('svg').getAttribute('width') === '18', '');
+      f.remove();
+      // -------------------------------------------------------------- no header: floating button
+      return frame({ srcdoc: page('') });
+    }).then(function (f) {
+      var btn = q(f, '#sidebarButton');
+      record('a page without a header gets a floating button on <body>', btn && btn.classList.contains('ae-nav-btn--float') && btn.parentNode === f.contentDocument.body, '');
+      f.remove();
+      // -------------------------------------------------------------- a real theory page
+      return frame({ src: FLUID });
+    }).then(function (f) {
+      f2 = f;
+      var cur = q(f, '[aria-current="page"]');
+      record('the current page is marked', cur && /topic-3-2-mass\.html$/.test(cur.getAttribute('href')) && cur.classList.contains('is-current'), cur && cur.href);
+      record('only the current subject is open', qa(f, '.ae-nav__group--subject.is-open').length === 1 &&
+        /Fluid Mechanics/.test(q(f, '.ae-nav__group--subject.is-open > .ae-nav__toggle').textContent), qa(f, '.ae-nav__group--subject.is-open').length);
+      record('the Theory area and the topic 3 sub-pages are open, Problems is not', groupOf(f, 'Theory', 'Fluid Mechanics').getAttribute('aria-expanded') === 'true' &&
+        groupOf(f, 'Problems', 'Fluid Mechanics').getAttribute('aria-expanded') === 'false' &&
+        groupOf(f, '3 · Conservation laws', 'Fluid Mechanics').getAttribute('aria-expanded') === 'true', '');
+      record('topic 3 lists its six sub-pages', qa(f, '.ae-nav__group--sub .ae-nav__link:not(.ae-nav__link--lead):not(.ae-nav__link--section)').length === 6, qa(f, '.ae-nav__group--sub .ae-nav__link').length);
+      var links = qa(f, '.ae-nav__link--section');
+      record('the page sections are listed under the current link', links.length >= 2 &&
+        cur.nextElementSibling && cur.nextElementSibling.classList.contains('ae-nav__sections'), links.length);
+      record('every section link points at a heading that exists', Array.prototype.every.call(links, function (a) {
+        return !!f.contentDocument.getElementById(a.getAttribute('href').slice(1));
+      }), '');
+      record('widget headings (Focus Lab, timer) are not listed as sections', Array.prototype.every.call(links, function (a) {
+        return !/Study (frequencies|timer)/.test(a.textContent);
+      }), '');
+      record('every link of the tree resolves inside the portal', Array.prototype.every.call(qa(f, '.ae-nav__tree a[href]:not(.ae-nav__link--section)'), function (a) {
+        return /\/(index|subjects\/[^/]+\/[a-z]+\/[^/]+)\.html$/.test(a.getAttribute('href')) && a.href.indexOf('..') < 0;
+      }), '');
+      // -------------------------------------------------------------- open
+      var btn = q(f, '#sidebarButton');
+      btn.click();
+      var drawer = q(f, '#sidebarDrawer');
+      record('clicking the button opens the drawer', drawer.classList.contains('is-open') && !drawer.hidden &&
+        btn.getAttribute('aria-expanded') === 'true' && btn.getAttribute('aria-label') === 'Close menu', '');
+      record('opening shows the backdrop and locks the page scroll', visible(q(f, '.ae-nav-backdrop')) &&
+        f.contentDocument.documentElement.classList.contains('ae-nav-lock'), '');
+      record('focus moves to the drawer', f.contentDocument.activeElement === drawer, f.contentDocument.activeElement.tagName);
+      return wait(350);
+    }).then(function () {
+      var f = f2, drawer = q(f, '#sidebarDrawer'), btn = q(f, '#sidebarButton');
+      record('the drawer rests against the left edge, at most 320 px wide', drawer.getBoundingClientRect().left === 0 &&
+        drawer.getBoundingClientRect().width <= 320, drawer.getBoundingClientRect().left + ' / ' + drawer.getBoundingClientRect().width);
+      // Tab wraps inside the modal drawer.
+      var items = Array.prototype.filter.call(drawer.querySelectorAll('a[href], button'), function (n) { return n.offsetParent !== null; });
+      items[items.length - 1].focus();
+      key(f, 'Tab');
+      record('Tab from the last item wraps to the first', f.contentDocument.activeElement === items[0], f.contentDocument.activeElement.outerHTML.slice(0, 80));
+      key(f, 'Tab', { shiftKey: true });
+      record('Shift+Tab from the first item wraps to the last', f.contentDocument.activeElement === items[items.length - 1], '');
+      // Escape closes and gives the focus back.
+      var ev = key(f, 'Escape');
+      record('Escape closes the drawer and returns focus to the button', !drawer.classList.contains('is-open') &&
+        f.contentDocument.activeElement === btn && btn.getAttribute('aria-expanded') === 'false', '');
+      return wait(350);
+    }).then(function () {
+      var f = f2, drawer = q(f, '#sidebarDrawer');
+      record('after the slide-out the drawer is hidden again', drawer.hidden && q(f, '.ae-nav-backdrop').hidden &&
+        !f.contentDocument.documentElement.classList.contains('ae-nav-lock'), '');
+      // Backdrop click closes.
+      f.contentWindow.AESidebar.open();
+      q(f, '.ae-nav-backdrop').click();
+      record('clicking the backdrop closes the drawer', !f.contentWindow.AESidebar.isOpen(), '');
+      // The close button closes.
+      f.contentWindow.AESidebar.open();
+      q(f, '.ae-nav__close').click();
+      record('the close button closes the drawer', !f.contentWindow.AESidebar.isOpen(), '');
+      // A section link closes it too (the page scrolls to the heading).
+      f.contentWindow.AESidebar.open();
+      var section = q(f, '.ae-nav__link--section');
+      section.addEventListener('click', function (e) { e.preventDefault(); });   // stay on the page for the test
+      section.click();
+      record('choosing a link closes the drawer', !f.contentWindow.AESidebar.isOpen(), '');
+      // Opening the drawer closes the other floating panels.
+      f.contentWindow.AEUpdates.open();
+      var updatesOpen = !q(f, '.upd-panel').hidden;
+      f.contentWindow.AESidebar.open();
+      record('opening the menu closes the updates panel', updatesOpen && q(f, '.upd-panel').hidden, updatesOpen);
+      f.contentWindow.AESidebar.close();
+      // ------------------------------------------------------------ groups are remembered
+      groupOf(f, 'Aerospace Materials I').click();
+      record('opening a subject is stored under ae_nav', stored() && stored().open.indexOf('s/aerospace-materials-1') >= 0, JSON.stringify(stored()));
+      groupOf(f, 'Aerospace Materials I').click();
+      record('closing it removes it again', stored() && stored().open.indexOf('s/aerospace-materials-1') < 0, JSON.stringify(stored()));
+      groupOf(f, 'Advanced Maths').click();
+      f.remove();
+      return frame({ src: FLUID, stored: stored() });
+    }).then(function (f) {
+      record('a reload restores the groups the visitor opened', groupOf(f, 'Advanced Maths').getAttribute('aria-expanded') === 'true' &&
+        qa(f, '.ae-nav__group--subject.is-open').length === 2, qa(f, '.ae-nav__group--subject.is-open').length);
+      f.remove();
+      return frame({ src: FLUID, stored: '{not json' });
+    }).then(function (f) {
+      record('a corrupted stored value falls back to the defaults', !!f.contentWindow.AESidebar && qa(f, '.ae-nav__group--subject.is-open').length === 1, '');
+      f.remove();
+      // -------------------------------------------------------------- a problems page
+      return frame({ src: PROBLEMS });
+    }).then(function (f) {
+      var cur = q(f, '[aria-current="page"]');
+      var cards = qa(f, '.problem-card[id]').length;
+      record('a problems page lists one section per problem card', cur && /problemas\/topic-2\.html$/.test(cur.getAttribute('href')) &&
+        qa(f, '.ae-nav__link--section').length === cards && cards > 2, qa(f, '.ae-nav__link--section').length + ' vs ' + cards);
+      record('the Problems area is the open one on a problems page', groupOf(f, 'Problems', 'Engineering Mechanics').getAttribute('aria-expanded') === 'true' &&
+        groupOf(f, 'Theory', 'Engineering Mechanics').getAttribute('aria-expanded') === 'false', '');
+      f.remove();
+      // -------------------------------------------------------------- the PDF print mode and the narrow screen
+      return frame({ src: FLUID + '?print=1' });
+    }).then(function (f) {
+      record('print mode (?print=) adds no menu', !q(f, '#sidebarButton') && !q(f, '#sidebarDrawer') && !f.contentWindow.AESidebar, '');
+      f.remove();
+      return frame({ src: PROBLEMS, width: 390 });
+    }).then(function (f) {
+      q(f, '#sidebarButton').click();
+      var box = q(f, '#sidebarDrawer').getBoundingClientRect();
+      record('on a phone the drawer takes at most 85% of the screen', box.width <= 390 * 0.85 + 1 && box.width > 200, box.width);
+      f.remove();
+    });
+  }
+
+  scenarios().then(function () {
+    document.getElementById('results').textContent = JSON.stringify(results);
+  }, function (e) {
+    record('harness crashed', false, e && e.stack || e);
+    document.getElementById('results').textContent = JSON.stringify(results);
+  });
+})();
+</script>
+</body>
+</html>
