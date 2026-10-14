@@ -19,8 +19,13 @@ bytes: 2234456
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 7 T4 Phase diagrams I_2025.pdf`
 - **Kind:** teoria
 - **Size:** 2.2 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 6 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Concept - Binary Eutectic Systems and Microconstituents]]
+- [[02 - Aerospace Materials I/Concept - Gibbs Phase Rule]]
+- [[02 - Aerospace Materials I/Concept - Phases, Components and Microconstituents]]
+- [[02 - Aerospace Materials I/Concept - Tie Line and Lever Rule]]
+- [[02 - Aerospace Materials I/Topic 4 - Phase Diagrams and Solidification]]

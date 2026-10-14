@@ -105,7 +105,17 @@ class Registry:
 
     def __init__(self, folder):
         self.folder = folder
-        self.web, self.captions, self.files = {}, {}, {}
+        self.web, self.captions, self.files, self.rasters = {}, {}, {}, []
+
+    def raster(self, name, title, caption=None, width=None):
+        """A figure copied from the slides as vault/attachments/<folder>/<name>.png (not generated here).
+        The web copy is an <img> for pages three levels below the root; `width` caps its size in px."""
+        cap = f"max-width:min(100%,{width}px)" if width else "max-width:100%"
+        self.rasters.append(f"vault/attachments/{self.folder}/{name}.png")
+        self.web[name] = (f'<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/{self.folder}/'
+                          f'{name}.png" alt="{title}" loading="lazy" style="{cap};height:auto;display:block;margin:0 auto;'
+                          f'background:#fff;border-radius:8px;padding:8px"></figure>')
+        self.captions[name] = caption or title
 
     def put(self, name, canvas, title, caption=None):
         s = canvas.svg(title)
@@ -130,4 +140,5 @@ class Registry:
 
     def stale(self, root=REPO):
         return [rel for rel, content in self.files.items()
-                if not pathlib.Path(root, rel).exists() or pathlib.Path(root, rel).read_text(encoding="utf-8") != content]
+                if not pathlib.Path(root, rel).exists() or pathlib.Path(root, rel).read_text(encoding="utf-8") != content] + \
+               [rel for rel in self.rasters if not pathlib.Path(root, rel).exists()]

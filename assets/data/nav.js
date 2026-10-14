@@ -98,6 +98,10 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-3-diffusion.html",
               "label": "3 · Diffusion in solids"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html",
+              "label": "4 · Phase diagrams"
             }
           ]
         },
@@ -106,6 +110,10 @@ window.AE_NAV = {
           "label": "Problems",
           "href": "subjects/aerospace-materials-1/problemas/index.html",
           "pages": [
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html",
+              "label": "4 · Phase diagrams"
+            },
             {
               "href": "subjects/aerospace-materials-1/problemas/topic-2-problems.html",
               "label": "2 · Structure and defects"

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 635 300" width="100%" class="fig-kit" style="max-width:635px;margin:0 auto;display:block" role="img" aria-label="Water at 1 atm on a log-pressure diagram">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="250.0" x2="400.0" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="70.0" y1="30.0" x2="70.0" y2="250.0" stroke="#8a94a6" stroke-width="1.4"/>
+<path d="M75.0,248.0 L77.5,242.9 L80.0,239.1 L82.5,235.7 L85.0,232.5 L87.5,229.5 L90.0,226.6 L92.5,223.8 L95.0,221.1 L97.5,218.4 L100.0,215.8 L102.5,213.3 L105.0,210.8 L107.5,208.3 L110.0,205.9 L112.5,203.5 L115.0,201.2 L117.5,198.8 L120.0,196.5 L122.5,194.3 L125.0,192.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M125.0,192.0 L131.5,168.6 L138.0,156.0 L144.5,145.7 L151.0,136.7 L157.5,128.5 L164.0,120.9 L170.5,113.8 L177.0,107.0 L183.5,100.6 L190.0,94.4 L196.5,88.5 L203.0,82.7 L209.5,77.2 L216.0,71.8 L222.5,66.5 L229.0,61.4 L235.5,56.4 L242.0,51.5 L248.5,46.7 L255.0,42.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M125.0,192.0 L360.0,208.0" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="185.0" y1="250.0" x2="185.0" y2="40.0" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="185.0" y1="99.1" x2="470.0" y2="99.1" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="185.0" y1="196.1" x2="470.0" y2="196.1" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="476.0" y="103.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">100 °C · steam / water</text>
+<text x="476.0" y="200.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">0 °C · water / ice</text>
+<text x="185.0" y="268.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">1 atm</text>
+<text x="120.0" y="80.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Gas</text>
+<text x="300.0" y="140.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Liquid</text>
+<text x="300.0" y="232.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Solid</text>
+<text x="235.0" y="290.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Pressure (log scale)</text>
+<text x="74.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature</text>
+</g></svg>

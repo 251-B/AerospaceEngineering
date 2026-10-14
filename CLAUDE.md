@@ -57,6 +57,20 @@ Classify the prompt against this table and trigger the matching tool chain witho
 | **"Busca en el repositorio", "cuántos archivos hay", "revisa logs"** | `context-mode` (`ctx_execute`) | Context preservation | Never dump raw grep/find output into context. Run sandboxed scripts that filter and report summary counts. |
 | **Session resume, reconnection, past task context** | `claude-mem` | Auto-memory | Query and integrate recorded observations and past architectural milestones. |
 
+### Mandatory closing review (`review-ultrareview`)
+
+Whenever a task changes the repository or the portal (a file created, edited or deleted in `vault/`, `subjects/`, `assets/`, `tools/`, `sources/` or `index.html`, including fixes, new pages and new problems), Claude runs the `review-ultrareview` skill before reporting the task as done, without waiting for the user to ask for it:
+
+- **`review` mode** for a single unit of work (one problem, note, page, fix or small change).
+- **`ultrareview` mode** when the work closes a chapter, problem sheet, exam, refactor or milestone, or when the user asks for it.
+- Run the skill's checklist together with the repository gates listed in `AGENTS.md` (`vault_lint`, `audit_portal`, `render_check` on edited pages, tests). Fix every finding, re-verify it, and then run the gates again.
+- The final message states the outcome: what passed, what failed, what was skipped and why. If a check cannot run here (for example, a CDN or font is blocked), say so explicitly and do not present the task as closed.
+- Read-only work (answering questions, reading sources without editing anything) does not trigger this rule.
+
+### Mandatory commit and push
+
+Every task that changes files ends with a commit and a push to `origin`, without waiting for the user to ask. Claude stages only the files of its task, uses a `type(scope): summary` message, and leaves no changes uncommitted. Claude pushes to the branch the session names; when none is named, it pushes to `main`.
+
 ## Claude Code specifics
 
 - Subagents are defined in `.claude/agents/` (`source-researcher`, `aerospace-pedagogue`, `problem-step-mentor`, `subject-web-builder`, `web-qa-reviewer`). Delegate to them when the task matches a role; work directly when it is small.

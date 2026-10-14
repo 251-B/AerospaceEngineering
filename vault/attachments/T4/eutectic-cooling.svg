@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686 290" width="100%" class="fig-kit" style="max-width:686px;margin:0 auto;display:block" role="img" aria-label="Cooling curve of the eutectic alloy and the eutectic reaction">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="240.0" x2="330.0" y2="240.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="70.0" y1="30.0" x2="70.0" y2="240.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="65.0" y1="240.0" x2="70.0" y2="240.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="62.0" y="244.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">0</text>
+<line x1="65.0" y1="176.4" x2="70.0" y2="176.4" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="62.0" y="180.4" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="65.0" y1="123.5" x2="70.0" y2="123.5" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="62.0" y="127.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">183</text>
+<line x1="65.0" y1="49.1" x2="70.0" y2="49.1" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="62.0" y="53.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">300</text>
+<text x="200.0" y="278.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">time</text>
+<text x="74.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<path d="M72.6,33.2 L85.6,74.5 L106.4,109.5 L122.0,123.5 L257.2,123.5 L283.2,157.3 L319.6,205.0" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="70.0" y1="123.5" x2="122.0" y2="123.5" stroke="#8a94a6" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="189.6" y="113.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">L → α + β at constant T</text>
+<text x="530.0" y="50.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Eutectic reaction:  L → α + β</text>
+<line x1="440.0" y1="140.0" x2="640.0" y2="140.0" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M420,100 Q428,140 440,140" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M418,170 Q426,146 440,140" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M660,100 Q652,140 640,140" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M662,170 Q654,146 640,140" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M500,90 Q530,120 538,140" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M576,90 Q546,120 538,140" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<text x="410.0" y="134.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="end">α</text>
+<text x="672.0" y="134.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="start">β</text>
+<text x="538.0" y="94.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">L</text>
+<text x="538.0" y="166.0" fill="#4b5563" font-size="13.5" font-weight="700" text-anchor="middle">α + β</text>
+</g></svg>

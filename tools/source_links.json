@@ -98,6 +98,36 @@
    "label": "Problems T3_Diffusion.pdf",
    "pages": 1
   },
+  "mat-s7": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 7 T4 Phase diagrams I_2025.pdf",
+   "label": "Session 7 T4 Phase diagrams I.pdf",
+   "pages": 32
+  },
+  "mat-s8": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 8 T4 Phase diagrams II.pdf",
+   "label": "Session 8 T4 Phase diagrams II.pdf",
+   "pages": 17
+  },
+  "mat-s9": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 9 T4 Phase diagrams III.pdf",
+   "label": "Session 9 T4 Phase diagrams III.pdf",
+   "pages": 23
+  },
+  "mat-s10": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/teoria/Session 10 T4 Phase diagrams IV.pdf",
+   "label": "Session 10 T4 Phase diagrams IV.pdf",
+   "pages": 8
+  },
+  "mat-t4a": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf",
+   "label": "Problems T4_PhaseDiagrams I.pdf",
+   "pages": 7
+  },
+  "mat-t4a-sol": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Solution problems Phase diagrams I.pdf",
+   "label": "Solution problems Phase diagrams I.pdf",
+   "pages": 37
+  },
   "mat-exam1": {
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/examenes/first-partial/First Partial Aerospace Materials.pdf",
    "label": "First Partial Aerospace Materials.pdf",
@@ -1611,6 +1641,72 @@
     "cl22": [
      "fm-cl22",
      1
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html": {
+   "panel": [
+    [
+     "mat-s7",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s7",
+    "sessions": {
+     "7": "mat-s7"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html": {
+   "panel": [
+    [
+     "mat-t4a",
+     1
+    ],
+    [
+     "mat-t4a-sol",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s7",
+    "sessions": {
+     "7": "mat-s7"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t4a",
+     1
+    ],
+    "prob-2": [
+     "mat-t4a",
+     1
+    ],
+    "prob-3": [
+     "mat-t4a",
+     1
+    ],
+    "prob-4": [
+     "mat-t4a",
+     1
+    ],
+    "prob-5": [
+     "mat-t4a",
+     2
+    ],
+    "prob-6": [
+     "mat-t4a",
+     2
+    ],
+    "prob-7": [
+     "mat-t4a",
+     2
+    ],
+    "prob-8": [
+     "mat-t4a",
+     3
     ]
    }
   }
