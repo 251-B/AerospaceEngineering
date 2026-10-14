@@ -19,7 +19,7 @@ window.AE_UPDATES = [
     "date": "2026-10-14",
     "tag": "Portal",
     "title": "New \"What's new\" panel",
-    "text": "The bell in the header now lists every recent change to the portal. A dot shows when there is something you have not read yet."
+    "text": "The bell in the header now lists every recent change to the portal. A number on the bell shows how many changes you have not read yet."
   },
   {
     "id": "2026-10-14-fluids-t3-problems",
@@ -49,7 +49,7 @@ window.AE_UPDATES = [
     "tag": "Engineering Mechanics",
     "title": "Topic 5: Relative Motion, theory and all 18 problems",
     "text": "The Relative Motion theory page is up, together with its 18 solved problems.",
-    "link": "subjects/engineering-mechanics/teoria/topic-5.html"
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
   },
   {
     "id": "2026-10-13-business-t3-key",
@@ -64,7 +64,7 @@ window.AE_UPDATES = [
     "date": "2026-10-12",
     "tag": "Portal",
     "title": "Reading backgrounds",
-    "text": "The colour dots in the header change the page to cream, sepia, grey, sage or charcoal, so you can pick the one that is easiest on your eyes."
+    "text": "The colour dots in the header change the page to cream, sepia, slate grey, sage or charcoal, so you can pick the one that is easiest on your eyes."
   },
   {
     "id": "2026-10-12-pdf-download",
@@ -78,15 +78,38 @@ window.AE_UPDATES = [
     "date": "2026-10-12",
     "tag": "Portal",
     "title": "Past exams sorted by partial and year",
-    "text": "Each subject has an Exams page with first, second and third partials and finals, newest first. Exams from other universities are listed apart.",
+    "text": "Fluids, Mechanics, Materials and Maths now have an Exams page, sorted by partial and final, newest first. Exams from other universities are listed apart.",
     "link": "subjects/fluid-mechanics/exams/index.html"
+  },
+  {
+    "id": "2026-10-12-business-theory",
+    "date": "2026-10-12",
+    "tag": "Business Management",
+    "title": "Business theory rewritten in plain words",
+    "text": "Topics 1 to 3 now explain the official slides in plain words, with the diagrams redrawn.",
+    "link": "subjects/business-management/teoria/topic-1.html"
   },
   {
     "id": "2026-10-11-ask-ai",
     "date": "2026-10-11",
     "tag": "Portal",
     "title": "Ask AI on selected text and problems",
-    "text": "Select any text, or use the bar under a problem statement, to ask Claude or Gemini for help with a ready-made prompt."
+    "text": "On theory and problem pages, select any text, or use the bar under a problem statement, to ask Claude or Gemini for help with a ready-made prompt."
+  },
+  {
+    "id": "2026-10-11-materials-topics",
+    "date": "2026-10-11",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topics 1 to 3 rewritten from the slides",
+    "text": "Bonding, structure and diffusion now follow the official slides, with worked examples of crystal directions and planes.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-1-bonding.html"
+  },
+  {
+    "id": "2026-10-10-pdf-deep-links",
+    "date": "2026-10-10",
+    "tag": "Portal",
+    "title": "Citations open the official PDF at the right page",
+    "text": "Each problem has an \"Original statement\" link, and citations such as [Slide 14] open the course PDF at that exact page."
   }
 ]
 ;

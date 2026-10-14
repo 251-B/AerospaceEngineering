@@ -90,6 +90,14 @@
             calm.textContent = '*, *::before, *::after { transition: none !important; animation: none !important; }';
             f.contentDocument.head.appendChild(calm);
             out = probe(f.contentDocument);
+            // The "What's new" panel is hidden until opened (its toast was audited above): open it and audit it too.
+            // The page-text hash stays the one of the first pass, so a palette still cannot change a page's own text.
+            if (f.contentWindow.AEUpdates) {
+              f.contentWindow.AEUpdates.open();
+              var opened = probe(f.contentDocument);
+              out.bad = out.bad.concat(opened.bad).slice(0, 6); out.badCount += opened.badCount;
+              out.updatesPanel = !!f.contentDocument.querySelector('.upd-panel:not([hidden]) .upd-item');
+            }
             out.surface = attrs.getAttribute('data-surface'); out.theme = attrs.getAttribute('data-theme');
             out.picker = !!f.contentDocument.getElementById('surfacePicker');
           } catch (e) { out = { error: String(e) }; }

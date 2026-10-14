@@ -39,8 +39,11 @@ class UpdatesDataTests(unittest.TestCase):
     def setUpClass(cls):
         cls.entries = load_entries()
 
-    def test_there_are_entries(self):
-        self.assertGreater(len(self.entries), 0)
+    def test_there_are_enough_entries_for_the_browser_scenarios(self):
+        # The harness relies on a first visit with three unread entries (so "+2 more"), older ones read, and a link to resolve.
+        self.assertGreaterEqual(len(self.entries), 4)
+        self.assertGreaterEqual(len([e for e in self.entries if e.get("link")]), 1)
+        self.assertEqual(len({e["title"] for e in self.entries[:3]}), 3)
 
     def test_required_fields_and_no_strays(self):
         for e in self.entries:
@@ -113,7 +116,9 @@ class UpdatesStaticTests(unittest.TestCase):
         js = JS.read_text(encoding="utf-8")
         keys = re.findall(r"localStorage\.(?:get|set)Item\(([^,)]+)", js)
         self.assertTrue(keys)
-        self.assertEqual(set(keys), {"KEY"})
+        # `probe` is the storage check, written and removed under KEY + '_probe'.
+        self.assertEqual(set(keys), {"KEY", "probe"})
+        self.assertIn("var probe = KEY + '_probe';", js)
         self.assertIn("var KEY = 'ae_updates';", js)
 
     def test_no_markup_is_built_from_entry_data(self):
@@ -128,8 +133,9 @@ class UpdatesStaticTests(unittest.TestCase):
 
     def test_hidden_in_print(self):
         css = CSS.read_text(encoding="utf-8")
-        self.assertRegex(css, r"@media print\s*\{\s*\.upd-bell, \.upd-panel, \.upd-toast \{ display: none !important; \}")
+        self.assertRegex(css, r"@media print\s*\{\s*\.upd-bell, \.upd-panel, \.upd-toast, \.upd-sr \{ display: none !important; \}")
         self.assertIn('html[data-theme="print"] .upd-bell', css)
+        self.assertIn('html[data-theme="print"] .upd-sr', css)
 
     def test_text_colours_come_from_the_reading_palette(self):
         css = CSS.read_text(encoding="utf-8")
@@ -158,7 +164,7 @@ class UpdatesBrowserTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 30)
+        self.assertEqual(len(self.results), 38)
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail']}" for r in self.results if not r["pass"]]

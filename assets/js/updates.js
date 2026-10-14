@@ -9,8 +9,10 @@
  *     toggle, with a badge that counts the entries the visitor has not read yet;
  *   - panel: the list of entries (date, subject tag, title, short text, optional link), newest first.
  *     Opening it marks everything as read, but the entries that were new stay highlighted until it
- *     closes;
- *   - toast: a small notice at the bottom left, shown once per newest unread entry.
+ *     closes. Only one of this panel, the study timer and Focus Lab is open at a time;
+ *   - toast: a small notice at the bottom left, shown once per newest unread entry (and never when
+ *     the browser blocks storage, since it could not be remembered). A visually hidden live region
+ *     announces it to screen readers.
  *
  * Entries live in assets/data/updates.js (window.AE_UPDATES), written by hand when a change that
  * users can see is closed. Links are paths from the portal root; they are resolved against this
@@ -39,6 +41,17 @@
   /* ---------------------------------------------------------------- state */
   var memory = null;   // used when localStorage is blocked
 
+  // A write that is not read back means a toast could not be remembered, so it would come back on every page.
+  var storageOk = (function () {
+    try {
+      var probe = KEY + '_probe';
+      localStorage.setItem(probe, '1');
+      var ok = localStorage.getItem(probe) === '1';
+      localStorage.removeItem(probe);
+      return ok;
+    } catch (e) { return false; }
+  })();
+
   function readState() {
     var raw = null;
     try { raw = localStorage.getItem(KEY); } catch (e) { return memory; }
@@ -58,7 +71,8 @@
   var state = readState();
   if (!state) {
     state = { seen: entries.slice(FIRST_VISIT_UNREAD).map(function (e) { return e.id; }), toast: '' };
-    writeState(state);
+    // A data file that failed to load must not leave an empty "seen" list: every entry would be unread next time.
+    if (entries.length) writeState(state);
   }
 
   function unread() {
@@ -66,6 +80,7 @@
   }
 
   function markAllRead() {
+    if (!entries.length) return;
     state.seen = entries.map(function (e) { return e.id; });
     writeState(state);
     refresh();
@@ -79,9 +94,11 @@
     return node;
   }
 
-  function svg(inner) {
+  function svg(inner, size) {
     var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     s.setAttribute('viewBox', '0 0 24 24');
+    s.setAttribute('width', size);   // sized without the stylesheet too, so a slow or missing CSS never draws a 300 x 150 icon
+    s.setAttribute('height', size);
     s.setAttribute('aria-hidden', 'true');
     s.innerHTML = inner;
     return s;
@@ -115,7 +132,7 @@
     bell.setAttribute('aria-expanded', 'false');
     bell.setAttribute('aria-controls', 'updatesPanel');
     bell.title = 'What’s new';
-    bell.appendChild(svg('<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>'));
+    bell.appendChild(svg('<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>', 17));
     var badge = el('span', 'upd-badge');
     badge.setAttribute('aria-hidden', 'true');
     bell.appendChild(badge);
@@ -126,11 +143,10 @@
     panel.setAttribute('role', 'dialog');
     panel.setAttribute('aria-modal', 'false');
     panel.setAttribute('aria-label', 'What’s new');
+    panel.tabIndex = -1;
+    panel.hidden = true;   // hidden without the stylesheet too
     var head = el('div', 'upd-panel__head');
     head.appendChild(el('h2', 'upd-panel__title', 'What’s new'));
-    var markAll = el('button', 'upd-panel__mark', 'Mark all as read');
-    markAll.type = 'button';
-    head.appendChild(markAll);
     var list = el('ol', 'upd-list');
     panel.appendChild(head);
     panel.appendChild(list);
@@ -138,8 +154,6 @@
 
     var toast = el('div', 'upd-toast');
     toast.id = 'updatesToast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
     toast.hidden = true;
     var toastBody = el('div', 'upd-toast__body');
     var toastKicker = el('span', 'upd-toast__kicker', 'New on the portal');
@@ -151,16 +165,23 @@
     var toastClose = el('button', 'upd-toast__close');
     toastClose.type = 'button';
     toastClose.setAttribute('aria-label', 'Dismiss');
-    toastClose.appendChild(svg('<path d="M6 6l12 12M18 6L6 18"/>'));
+    toastClose.appendChild(svg('<path d="M6 6l12 12M18 6L6 18"/>', 16));
     toast.appendChild(toastBody);
     toast.appendChild(toastOpen);
     toast.appendChild(toastClose);
     document.body.appendChild(toast);
 
-    ui = { bell: bell, badge: badge, panel: panel, list: list, toast: toast, toastTitle: toastTitle, markAll: markAll };
+    // A live region only announces text added after it is rendered, so the toast card (display: none
+    // until it shows) cannot be one: this empty, visually hidden region carries the announcement.
+    var live = el('div', 'upd-sr');
+    live.id = 'updatesLive';
+    live.setAttribute('role', 'status');
+    live.setAttribute('aria-live', 'polite');
+    document.body.appendChild(live);
+
+    ui = { bell: bell, badge: badge, panel: panel, list: list, toast: toast, toastTitle: toastTitle, live: live };
 
     bell.addEventListener('click', function () { if (isOpen()) closePanel(false); else openPanel(); });
-    markAll.addEventListener('click', function () { fresh = []; markAllRead(); render(); });
     toastOpen.addEventListener('click', function () { hideToast(); openPanel(); });
     toastClose.addEventListener('click', hideToast);
     document.addEventListener('keydown', onKeydown);   // Escape closes from anywhere; Tab is handled inside the panel
@@ -224,19 +245,23 @@
   /* ---------------------------------------------------------------- toast */
   function maybeToast() {
     var news = unread();
-    if (!news.length || state.toast === news[0].id) return;
+    if (!storageOk || !news.length || state.toast === news[0].id) return;
     state.toast = news[0].id;
     writeState(state);
-    ui.toastTitle.textContent = news.length > 1 ? news[0].title + ' (+' + (news.length - 1) + ' more)' : news[0].title;
+    var title = news.length > 1 ? news[0].title + ' (+' + (news.length - 1) + ' more)' : news[0].title;
+    ui.toastTitle.textContent = title;
     ui.toast.hidden = false;
+    setTimeout(function () { if (!ui.toast.hidden) ui.live.textContent = 'New on the portal: ' + title; }, 50);
   }
 
   function hideToast() {
-    if (ui.toast) ui.toast.hidden = true;
+    if (!ui.toast) return;
+    ui.toast.hidden = true;
+    ui.live.textContent = '';
   }
 
   /* ---------------------------------------------------------------- panel */
-  function isOpen() { return !!ui.panel && ui.panel.classList.contains('is-open'); }
+  function isOpen() { return !!ui.panel && !ui.panel.hidden; }
 
   // Desktop: under the bell, kept inside the viewport. Phone widths: CSS bottom sheet.
   function place() {
@@ -248,26 +273,33 @@
     var box = ui.bell.getBoundingClientRect();
     var width = ui.panel.offsetWidth;
     var left = Math.max(12, Math.min(box.right - width, window.innerWidth - width - 12));
-    ui.panel.style.top = Math.round(box.bottom + 10) + 'px';
+    // A header that has scrolled away (the exams and sources pages have no sticky one) must not take the panel with it.
+    var top = Math.max(12, Math.min(box.bottom + 10, window.innerHeight - 160));
+    ui.panel.style.top = Math.round(top) + 'px';
     ui.panel.style.left = Math.round(left) + 'px';
   }
 
   function openPanel() {
     if (!ui.panel || isOpen()) return;
+    // One floating panel at a time, like the study timer and Focus Lab.
+    if (window.AEPomodoro && typeof window.AEPomodoro.close === 'function') window.AEPomodoro.close();
+    if (window.AEFocusLab && typeof window.AEFocusLab.close === 'function') window.AEFocusLab.close();
     hideToast();
     fresh = unread().map(function (e) { return e.id; });
     render();
     markAllRead();
-    place();
+    ui.panel.hidden = false;
+    place();   // measures the unhidden panel, which also lets the fade-in start from its closed state
     ui.panel.classList.add('is-open');
     ui.bell.setAttribute('aria-expanded', 'true');
     ui.panel.scrollTop = 0;
-    ui.markAll.focus({ preventScroll: true });
+    ui.panel.focus({ preventScroll: true });
   }
 
   function closePanel(returnFocus) {
     if (!isOpen()) return;
     ui.panel.classList.remove('is-open');
+    ui.panel.hidden = true;
     ui.bell.setAttribute('aria-expanded', 'false');
     fresh = [];
     render();
@@ -283,10 +315,13 @@
     }
     if (event.key !== 'Tab' || !ui.panel.contains(event.target)) return;
     // The panel sits at the end of <body>: leaving it either way hands focus back to the bell.
-    var focusable = ui.panel.querySelectorAll('button, a[href]');
-    var first = focusable[0];
-    var last = focusable[focusable.length - 1];
-    if ((event.shiftKey && event.target === first) || (!event.shiftKey && event.target === last)) {
+    // Focus starts on the panel itself, so Tab goes on to the first link and Shift+Tab leaves.
+    var links = ui.panel.querySelectorAll('a[href]');
+    var first = links[0];
+    var last = links[links.length - 1];
+    var atStart = event.target === ui.panel || event.target === first;
+    var atEnd = links.length ? event.target === last : event.target === ui.panel;
+    if ((event.shiftKey && atStart) || (!event.shiftKey && atEnd)) {
       event.preventDefault();
       closePanel(true);
     }

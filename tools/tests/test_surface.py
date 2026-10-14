@@ -159,6 +159,10 @@ class SurfacePagesTests(unittest.TestCase):
             self.assertEqual(r["surface"], want, f"{r['page']} {r['state']}")
             self.assertTrue(r["picker"], f"{r['page']}: picker missing")
 
+    def test_the_open_updates_panel_was_audited_too(self):
+        missing = [f"{r['page']} [{r['state']}]" for r in self.results if not r.get("updatesPanel")]
+        self.assertEqual(missing, [], "the What's new panel was not open when its text was audited")
+
     def test_text_is_aaa_on_every_page_and_palette(self):
         failures = [f"{r['page']} [{r['state']}] {r['badCount']} below AAA, e.g. {r['bad'][:3]}"
                     for r in self.results if r["state"] != "default" and r["badCount"]]

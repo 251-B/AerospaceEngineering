@@ -479,7 +479,8 @@ html[data-theme="print"] .surface-panel {
    most 0.13 that keeps every hue at 7:1 or better against all palette
    surfaces, tinted hover backgrounds included. Elements filled with the accent
    (listed in :not()) keep their own text colour, which already contrasts with
-   that fill. Only text paint changes: no variable is touched, so filled badges
+   that fill; so does the updates badge (.upd-badge), filled with the palette's
+   text colour and written in the palette's card colour. Only text paint changes: no variable is touched, so filled badges
    and buttons that use the accent as a background are unaffected.
    Browsers without relative colour syntax ignore the declaration.
    Add a selector here when a new page introduces accent-coloured text;

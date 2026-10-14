@@ -164,6 +164,7 @@ Cada compañero de equipo y el líder deben someter los entregables a la auditor
   - Enlace de retorno `../../../index.html` verificado.
   - Idioma estrictamente en inglés.
   - Frontmatter YAML en Obsidian completo.
+  - Entrada *What's new* en `assets/data/updates.js` si el cambio es visible en el portal.
 * **`ultrareview` (Por capítulo, tema, hoja o examen completo):**
   - **Dimensión 1 (Matemática):** Ningún paso omitido. Regla de la cadena temporal explícita $\frac{d}{dt}f(u) = \frac{df}{du}\dot{u}$, integrales con diferencial explícita y límites de Barrow calculados. Matriz $[{}_0 R_1]$ con ortonormalidad verificada. Análisis dimensional SI de cada término. Casos límite evaluados.
   - **Dimensión 2 (Fuentes Oficiales):** Concordancia estricta con PDFs de `sources/`. Cero alucinaciones.

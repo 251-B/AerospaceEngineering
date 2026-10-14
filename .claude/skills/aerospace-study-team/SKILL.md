@@ -37,7 +37,7 @@ Esta habilidad coordina el desarrollo de material docente, teoría analítica, r
 Al finalizar cualquier actividad, se debe ejecutar el protocolo correspondiente:
 
 * **`review` (Cierre de Tarea Unitaria):**
-  - Verificación estándar: sintaxis KaTeX ($...$ y $$...$$), enlaces de retorno `../../../index.html`, idioma estricto en inglés y frontmatter YAML completo.
+  - Verificación estándar: sintaxis KaTeX ($...$ y $$...$$), enlaces de retorno `../../../index.html`, idioma estricto en inglés, frontmatter YAML completo y, si el cambio es visible en el portal, su entrada en `assets/data/updates.js`.
 * **`ultrareview` (Cierre de Hito, Capítulo, Hoja de Problemas o Examen):**
   - Auditoría adversarial profunda en 4 dimensiones:
     1. *Rigor analítico:* Cero saltos algebraicos, derivadas e integrales desarrolladas paso a paso, comprobación dimensional de cada término en unidades SI.

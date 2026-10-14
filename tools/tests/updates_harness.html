@@ -30,7 +30,7 @@
     try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
   }
 
-  function frame(stored, extraHead, width) {
+  function frame(stored, extraHead, width, extraBody) {
     return new Promise(function (resolve) {
       seed(stored);
       var f = document.createElement('iframe');
@@ -38,7 +38,7 @@
       f.onload = function () { setTimeout(function () { resolve(f); }, 600); };
       f.srcdoc = '<!doctype html><html data-theme="dark"><head><title>Page</title>' + (extraHead || '') +
         '<script src="../../assets/js/theme.js"><\/script></head><body><header><nav>' +
-        '<button id="themeToggle" aria-label="Toggle theme"></button></nav></header><main><p>Page text</p></main></body></html>';
+        '<button id="themeToggle" aria-label="Toggle theme"></button></nav></header><main><p>Page text</p>' + (extraBody || '') + '</main></body></html>';
       document.body.appendChild(f);
     });
   }
@@ -67,8 +67,15 @@
       record('toast is remembered in storage', stored() && stored().toast === ids[0], JSON.stringify(stored()));
       record('panel lists every entry newest first', qa(f, '.upd-item').length === ids.length &&
         qa(f, '.upd-item__title')[0].textContent === U.list()[0].title, qa(f, '.upd-item').length);
-      record('panel is closed and hidden at the start', !q(f, '.upd-panel').classList.contains('is-open') && bell.getAttribute('aria-expanded') === 'false', '');
-      f.remove();
+      record('panel is closed and hidden at the start', !q(f, '.upd-panel').classList.contains('is-open') &&
+        q(f, '.upd-panel').hidden && bell.getAttribute('aria-expanded') === 'false', '');
+      record('icons carry their own size, so a missing stylesheet cannot blow them up', bell.querySelector('svg').getAttribute('width') === '17' &&
+        q(f, '.upd-toast__close svg').getAttribute('width') === '16', '');
+      return new Promise(function (r) { setTimeout(r, 200); });
+    }).then(function () {
+      record('a screen-reader live region announces the toast', /^New on the portal: /.test(q(f1, '#updatesLive').textContent) &&
+        q(f1, '#updatesLive').getAttribute('role') === 'status', q(f1, '#updatesLive').textContent);
+      f1.remove();
       // ------------------------------------------------------------ reload: toast only once
       return frame(stored());
     }).then(function (f) {
@@ -90,15 +97,16 @@
         withLink.querySelector('.upd-item__link').href === ROOT + encodeURI(entry.link), link && link.href);
       record('bell label drops the unread count', q(f, '#updatesButton').getAttribute('aria-label') === 'What’s new', q(f, '#updatesButton').getAttribute('aria-label'));
       // ------------------------------------------------------------ Escape
-      q(f, '.upd-panel__mark').focus();
+      q(f, '.upd-panel').focus();
       key(f, 'Escape');
-      record('Escape closes the panel and returns focus to the bell', !panel.classList.contains('is-open') &&
+      record('Escape closes the panel (hidden again) and returns focus to the bell', !panel.classList.contains('is-open') && panel.hidden &&
         f.contentDocument.activeElement === q(f, '#updatesButton'), f.contentDocument.activeElement && f.contentDocument.activeElement.className);
       record('closing clears the highlight', qa(f, '.upd-item.is-new').length === 0, qa(f, '.upd-item.is-new').length);
       // ------------------------------------------------------------ outside click
       q(f, '#updatesButton').click();
+      var wasOpen = panel.classList.contains('is-open') && !panel.hidden;
       f.contentDocument.body.click();
-      record('a click outside closes the panel', !panel.classList.contains('is-open'), '');
+      record('a click outside closes the panel', wasOpen && !panel.classList.contains('is-open') && panel.hidden, 'wasOpen=' + wasOpen);
       f.remove();
       // ------------------------------------------------------------ a new entry arrives
       var seen = ids.slice(1);
@@ -108,7 +116,8 @@
       record('a new entry: badge 1 and the toast shows its title', q(f, '.upd-badge').textContent === '1' &&
         U.unread().join() === ids[0] && visible(q(f, '.upd-toast')) && q(f, '.upd-toast__title').textContent === U.list()[0].title, q(f, '.upd-toast__title').textContent);
       q(f, '.upd-toast__close').click();
-      record('dismissing the toast hides it but keeps the badge', !visible(q(f, '.upd-toast')) && q(f, '.upd-badge').textContent === '1', '');
+      record('dismissing the toast hides it, empties the live region and keeps the badge', !visible(q(f, '.upd-toast')) &&
+        q(f, '#updatesLive').textContent === '' && q(f, '.upd-badge').textContent === '1', '');
       f.remove();
       return frame({ seen: ids.slice(1), toast: ids[0] });
     }).then(function (f) {
@@ -120,14 +129,44 @@
       q(f, '.upd-toast__open').click();
       record('"See what’s new" opens the panel and hides the toast', q(f, '.upd-panel').classList.contains('is-open') && !visible(q(f, '.upd-toast')), '');
       f.remove();
-      // ------------------------------------------------------------ mark all as read
+      // ------------------------------------------------------------ highlight and keyboard exit
       return frame({ seen: ids.slice(1), toast: ids[0] });
     }).then(function (f) {
       q(f, '#updatesButton').click();
       record('highlight marks only the unread entry', qa(f, '.upd-item.is-new').length === 1, qa(f, '.upd-item.is-new').length);
-      q(f, '.upd-panel__mark').click();
-      record('"Mark all as read" clears the highlight', qa(f, '.upd-item.is-new').length === 0 && q(f, '.upd-badge').hidden, '');
+      var panelNow = q(f, '.upd-panel');
+      panelNow.focus();
+      f.contentDocument.activeElement.dispatchEvent(new f.contentWindow.KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true }));
+      record('Shift+Tab from the panel hands focus back to the bell', !panelNow.classList.contains('is-open') &&
+        f.contentDocument.activeElement === q(f, '#updatesButton'), f.contentDocument.activeElement.className);
       f.remove();
+      // ------------------------------------------------------------ one floating panel at a time
+      return frame({ seen: ids, toast: ids[0] });
+    }).then(function (f) {
+      var w = f.contentWindow;
+      w.AEPomodoro.open();
+      var timerOpen = !q(f, '.pm-panel').hidden;
+      w.AEUpdates.open();
+      record('opening the updates panel closes an open study timer', timerOpen && q(f, '.pm-panel').hidden && !q(f, '.upd-panel').hidden, 'timerOpen=' + timerOpen);
+      w.AEUpdates.close();
+      w.AEFocusLab.open();
+      var focusOpen = !q(f, '.fl-panel').hidden;
+      w.AEUpdates.open();
+      record('opening the updates panel closes an open Focus Lab', focusOpen && q(f, '.fl-panel').hidden && !q(f, '.upd-panel').hidden, 'focusOpen=' + focusOpen);
+      f.remove();
+      // ------------------------------------------------------------ opened from the toast after scrolling away from the header
+      var tall = '<div style="height:3000px"></div>';
+      return frame(null, '', 1000, tall);
+    }).then(function (f) {
+      f.contentWindow.scrollTo(0, 2000);
+      return new Promise(function (r) { setTimeout(r, 100); }).then(function () {
+        q(f, '.upd-toast__open').click();
+        var box = q(f, '.upd-panel').getBoundingClientRect();
+        record('panel opened from the toast stays on screen when the header has scrolled away', f.contentWindow.scrollY > 1000 &&
+          box.top >= 0 && box.top < f.contentWindow.innerHeight - 100, 'scrollY=' + f.contentWindow.scrollY + ' top=' + box.top);
+        f.remove();
+      });
+    }).then(function () {
       // ------------------------------------------------------------ corrupted storage
       return frame('{not json');
     }).then(function (f) {
@@ -140,35 +179,67 @@
       record('bell comes before the palette picker, then the theme toggle', bell && picker &&
         bell.nextElementSibling === picker && picker.nextElementSibling === toggle, 'bell=' + !!bell + ' picker=' + !!picker);
       f.remove();
+      // ------------------------------------------------------------ pages that style bare elements (generated exams and sources pages)
+      return frame(null, '<style>h2 { border-bottom: 2px solid red; padding-bottom: 6px; } h3 { text-transform: uppercase; letter-spacing: .08em; font-size: .74rem; }' +
+        ' ul, ol { margin: 8px; } li { display: flex; justify-content: space-between; border-bottom: 1px solid red; } li a { text-decoration: none; }</style>');
+    }).then(function (f) {
+      q(f, '#updatesButton').click();
+      var win = f.contentWindow;
+      var cs = function (sel) { return win.getComputedStyle(q(f, sel)); };
+      record('page rules for bare h2, h3, ol and li do not reshape the panel', cs('.upd-item').display === 'block' && cs('.upd-item').borderBottomWidth === '0px' &&
+        cs('.upd-item__title').textTransform === 'none' && cs('.upd-item__title').fontSize === '16px' &&
+        cs('.upd-panel__title').borderBottomWidth === '0px' && cs('.upd-list').marginTop === '0px' && cs('.upd-item__link').textDecorationLine === 'underline',
+        [cs('.upd-item').display, cs('.upd-item__title').textTransform, cs('.upd-panel__title').borderBottomWidth, cs('.upd-item__link').textDecorationLine].join(' '));
+      f.remove();
       // ------------------------------------------------------------ unsafe data
-      return unsafe();
+      return direct('[' +
+        '{"id":"a","date":"2026-01-02","tag":"Portal","title":"<img src=x onerror=alert(1)>","text":"t","link":"javascript:alert(1)"},' +
+        '{"id":"b","date":"2026-01-01","tag":"Portal","title":"b","text":"t","link":"https://example.com/"},' +
+        '{"id":"c","date":"2025-12-31","tag":"Portal","title":"c","text":"t","link":"../../etc/passwd"},' +
+        '{"id":"d","date":"2025-12-30","tag":"Portal","title":"d","text":"t","link":"//example.com/x"},' +
+        '{"id":"e","date":"2025-12-29","tag":"Portal","title":"e","text":"t","link":"subjects/fluid-mechanics/teoria/index.html"}' +
+        ']', '', function (d) {
+        d.getElementById('updatesButton').click();
+        var hrefs = Array.prototype.map.call(d.querySelectorAll('.upd-item__link'), function (a) { return a.getAttribute('href'); });
+        record('only portal-relative links are rendered', hrefs.length === 1 && hrefs[0].indexOf(ROOT + 'subjects/') === 0, hrefs.join(' | '));
+        record('titles are text, never markup', !d.querySelector('.upd-panel img') && /<img/.test(d.querySelector('.upd-item__title').textContent), '');
+      });
+    }).then(function () {
+      // ------------------------------------------------------------ the data file failed to load
+      return direct('[]', '', function (d) {
+        var raw = null;
+        try { raw = localStorage.getItem(KEY); } catch (e) { /* ignore */ }
+        record('an empty data file leaves no state behind (no false "9+" next time)', raw === null && !d.getElementById('updatesButton'), 'stored=' + raw);
+      });
+    }).then(function () {
+      // ------------------------------------------------------------ storage that cannot be written
+      var many = [];
+      for (var i = 5; i >= 1; i--) many.push('{"id":"2026-02-0' + i + '-e' + i + '","date":"2026-02-0' + i + '","tag":"Portal","title":"Entry ' + i + '","text":"t"}');
+      return direct('[' + many.join(',') + ']', '<script>Storage.prototype.setItem = function () { throw new Error("blocked"); };<\/script>', function (d) {
+        record('blocked storage: no toast (it could not be remembered), badge still counts', !visible2(d.getElementById('updatesToast')) &&
+          d.querySelector('.upd-badge').textContent === '3', d.querySelector('.upd-badge').textContent);
+      });
     });
   }
 
-  // updates.js loaded directly with hostile entries: nothing executes, nothing leaves the portal.
-  function unsafe() {
+  function visible2(node) { return !!node && !node.hidden; }
+
+  // updates.js loaded directly (no theme.js loader) with the given entries (a JSON array literal), after
+  // `before` markup in <head>; `check(document)` runs 600 ms after load.
+  function direct(entriesJson, before, check) {
     return new Promise(function (resolve) {
       seed(null);
       var f = document.createElement('iframe');
       f.style.cssText = 'width:1000px;height:800px';
       f.onload = function () {
         setTimeout(function () {
-          var d = f.contentDocument;
-          d.getElementById('updatesButton').click();
-          var hrefs = Array.prototype.map.call(d.querySelectorAll('.upd-item__link'), function (a) { return a.getAttribute('href'); });
-          record('only portal-relative links are rendered', hrefs.length === 1 && hrefs[0].indexOf(ROOT + 'subjects/') === 0, hrefs.join(' | '));
-          record('titles are text, never markup', !d.querySelector('.upd-panel img') && /<img/.test(d.querySelector('.upd-item__title').textContent), '');
+          try { check(f.contentDocument); } catch (err) { record('harness error', false, err && err.stack || err); }
           f.remove();
           resolve();
         }, 600);
       };
-      f.srcdoc = '<!doctype html><html data-theme="dark"><head><title>Page</title><script>window.AE_UPDATES = [' +
-        '{"id":"a","date":"2026-01-02","tag":"Portal","title":"<img src=x onerror=alert(1)>","text":"t","link":"javascript:alert(1)"},' +
-        '{"id":"b","date":"2026-01-01","tag":"Portal","title":"b","text":"t","link":"https://example.com/"},' +
-        '{"id":"c","date":"2025-12-31","tag":"Portal","title":"c","text":"t","link":"../../etc/passwd"},' +
-        '{"id":"d","date":"2025-12-30","tag":"Portal","title":"d","text":"t","link":"//example.com/x"},' +
-        '{"id":"e","date":"2025-12-29","tag":"Portal","title":"e","text":"t","link":"subjects/fluid-mechanics/teoria/index.html"}' +
-        '];<\/script><script src="../../assets/js/updates.js"><\/script></head><body>' +
+      f.srcdoc = '<!doctype html><html data-theme="dark"><head><title>Page</title>' + (before || '') +
+        '<script>window.AE_UPDATES = ' + entriesJson + ';<\/script><script src="../../assets/js/updates.js"><\/script></head><body>' +
         '<button id="themeToggle"></button></body></html>';
       document.body.appendChild(f);
     });

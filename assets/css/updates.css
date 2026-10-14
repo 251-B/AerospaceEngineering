@@ -59,14 +59,10 @@ html[data-theme="light"] .upd-bell, html[data-theme="light"] .upd-panel, html[da
   transition: opacity .16s ease, transform .16s ease, visibility 0s linear .16s;
 }
 .upd-panel.is-open { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
-.upd-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.upd-panel__head { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .upd-panel__title { margin: 0; font: 400 22px/1.2 var(--upd-display); color: var(--upd-text); letter-spacing: 0; }
-.upd-panel__mark {
-  padding: 6px 10px; border-radius: 999px; border: 1px solid var(--upd-border); background: transparent;
-  color: var(--upd-text); font: 600 11px/1 var(--upd-mono); letter-spacing: .04em; cursor: pointer;
-}
-.upd-panel__mark:hover { border-color: var(--upd-accent); }
-.upd-panel__mark:focus-visible, .upd-item__link:focus-visible, .upd-toast button:focus-visible { outline: 2px solid var(--upd-accent); outline-offset: 2px; }
+.upd-panel:focus { outline: none; }   /* focus lands on the panel when it opens; its links keep their own ring */
+.upd-item__link:focus-visible, .upd-toast button:focus-visible { outline: 2px solid var(--upd-accent); outline-offset: 2px; }
 
 .upd-list { list-style: none; margin: 0; padding: 0; }
 .upd-item { padding: 12px 0 14px; border-top: 1px solid var(--upd-border); }
@@ -84,6 +80,24 @@ html[data-theme="light"] .upd-bell, html[data-theme="light"] .upd-panel, html[da
 .upd-item__link {
   display: inline-block; margin-top: 8px; font: 600 12px/1 var(--upd-mono); letter-spacing: .03em;
   color: var(--upd-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--upd-accent);
+}
+
+/* ---------------------------------------------------------------- isolation from page rules
+   Some pages style bare elements (the generated exams and sources pages restyle h2, h3, ul, li and
+   li a, including li a:hover in the accent colour, which is below AAA on the palettes). The panel's
+   own parts therefore restate what those rules set, one class deeper than any element selector. */
+.upd-panel .upd-list { list-style: none; margin: 0; padding: 0; }
+.upd-panel .upd-item { display: block; justify-content: normal; align-items: normal; gap: 0; border-bottom: 0; }
+.upd-panel .upd-panel__title { margin: 0; padding: 0; border: 0; text-transform: none; letter-spacing: 0; color: var(--upd-text); }
+.upd-panel .upd-item__title { text-transform: none; letter-spacing: 0; color: var(--upd-text); }
+.upd-panel .upd-item__link, .upd-panel .upd-item__link:hover {
+  color: var(--upd-text); text-decoration: underline; text-decoration-color: var(--upd-accent); word-break: normal;
+}
+
+/* ---------------------------------------------------------------- screen-reader announcement */
+.upd-sr {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
 }
 
 /* ---------------------------------------------------------------- toast */
@@ -127,5 +141,5 @@ html[data-theme="light"] .upd-bell, html[data-theme="light"] .upd-panel, html[da
   .upd-toast__body { flex-basis: 100%; }
 }
 
-@media print { .upd-bell, .upd-panel, .upd-toast { display: none !important; } }
-html[data-theme="print"] .upd-bell, html[data-theme="print"] .upd-panel, html[data-theme="print"] .upd-toast { display: none !important; }
+@media print { .upd-bell, .upd-panel, .upd-toast, .upd-sr { display: none !important; } }
+html[data-theme="print"] .upd-bell, html[data-theme="print"] .upd-panel, html[data-theme="print"] .upd-toast, html[data-theme="print"] .upd-sr { display: none !important; }

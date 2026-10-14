@@ -48,6 +48,8 @@ Se ejecuta **automáticamente** al finalizar cualquier tarea unitaria. Coste est
    - Encabezado YAML presente en `vault/` con `materia`, `tema`, `tags`, `dificultad` y `fuentes`.
 5. **Persistencia Sintética en Memoria:**
    - Registrar una síntesis de 2 líneas en `claude-mem` (o MOC) con la solución o estructura completada.
+6. **Entrada «What's new»:**
+   - Si el cambio es visible en el portal, añadir una entrada en `assets/data/updates.js` (inglés, palabras sencillas, la más nueva primero, sin material de laboratorio).
 
 ---
 

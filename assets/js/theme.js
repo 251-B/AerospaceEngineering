@@ -25,7 +25,8 @@
  *
  * Focus Lab, the study timer and the "What's new" panel (third concern, loaded from here for the
  * same reason): appends <script src="assets/js/focus-lab.js">, <script src="assets/js/pomodoro.js">,
- * <script src="assets/data/updates.js"> and <script src="assets/js/updates.js"> next to this file,
+ * <script src="assets/data/updates.js"> (reached as ../data/updates.js from this file) and
+ * <script src="assets/js/updates.js"> next to this file,
  * so the study-sound widget, the Pomodoro timer and the updates bell are on every page that loads
  * theme.js. Skipped in the PDF print mode (?print=...).
  */
