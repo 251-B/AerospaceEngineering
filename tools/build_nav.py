@@ -17,7 +17,7 @@ import sys
 SRC_REL = pathlib.Path("tools", "nav.json")
 OUT_REL = pathlib.Path("assets", "data", "nav.js")
 AREAS = (("teoria", "Theory"), ("problemas", "Problems"))
-EXTRAS = (("sources", "Theory & exercise PDFs"), ("exams", "Exams"))
+EXTRAS = (("sources", "Theory & exercise PDFs"), ("exams", "Exams"), ("simulator", "Exam simulator"))
 
 
 def _flatten(pages):

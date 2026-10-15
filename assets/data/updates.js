@@ -22,6 +22,14 @@ window.AE_UPDATES = [
     "text": "The prompt now carries links to this page and the subject, plus the exact problem, part or section you selected, so answers follow the portal's own notation."
   },
   {
+    "id": "2026-10-15-business-exam-simulator",
+    "date": "2026-10-15",
+    "tag": "Business Management",
+    "title": "Exam Simulator for the first partial (Midterm 1)",
+    "text": "Generate a timed exam of three theory cases and one problem, write your drafts, then grade yourself out of 10. Missed items go to Review in the Problem Bank.",
+    "link": "subjects/business-management/simulator/index.html"
+  },
+  {
     "id": "2026-10-15-business-problem-bank",
     "date": "2026-10-15",
     "tag": "Business Management",
