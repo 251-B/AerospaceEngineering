@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-quote-card-plain-text",
+    "date": "2026-10-15",
+    "tag": "Portal",
+    "title": "Quote card without emojis",
+    "text": "The motivational quote at the bottom of the pages now shows its labels as plain text."
+  },
+  {
     "id": "2026-10-15-business-separate-pages",
     "date": "2026-10-15",
     "tag": "Business Management",

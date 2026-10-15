@@ -40,7 +40,6 @@
         en: 'Aerodynamics',
         es: 'Aerodinámica'
       },
-      badgeIcon: '🌪️',
       role: {
         en: 'Pioneer of Modern Aerodynamics & Co-founder of JPL / GALCIT',
         es: 'Padre de la aerodinámica moderna y cofundador del JPL / GALCIT'
@@ -61,7 +60,6 @@
         en: 'Astronautics',
         es: 'Astronáutica'
       },
-      badgeIcon: '🚀',
       role: {
         en: 'Founding Father of Theoretical Astronautics & Rocket Dynamics',
         es: 'Padre fundador de la astronáutica teórica y la dinámica de cohetes'
@@ -82,7 +80,6 @@
         en: 'Astrophysics',
         es: 'Astrofísica'
       },
-      badgeIcon: '🪐',
       role: {
         en: 'Astrophysicist, Cosmologist & Architect of the Voyager Golden Record',
         es: 'Astrofísico, cosmólogo y diseñador del Disco de Oro de las Voyager'
@@ -103,7 +100,6 @@
         en: 'Theoretical Physics',
         es: 'Física Teórica'
       },
-      badgeIcon: '⚛️',
       role: {
         en: 'Nobel Laureate in Physics & Rogers Commission Investigator',
         es: 'Premio Nobel de Física e investigador clave de la Comisión Rogers'
@@ -124,7 +120,6 @@
         en: 'NASA Orbital Mechanics',
         es: 'Mecánica Orbital NASA'
       },
-      badgeIcon: '📐',
       role: {
         en: 'NASA Lead Mathematician for Project Mercury & Apollo Trajectories',
         es: 'Matemática pionera de la NASA para trayectorias de Project Mercury y Apolo'
@@ -145,7 +140,6 @@
         en: 'Aircraft Design',
         es: 'Diseño Aeronáutico'
       },
-      badgeIcon: '🦅',
       role: {
         en: 'Legendary Founder & Director of Lockheed Skunk Works',
         es: 'Legendario fundador y director de Lockheed Skunk Works'
@@ -166,7 +160,6 @@
         en: 'Rocket Propulsion',
         es: 'Propulsión Cohete'
       },
-      badgeIcon: '🛰️',
       role: {
         en: 'Chief Architect of the Saturn V Moon Rocket & Director of NASA MSFC',
         es: 'Arquitecto principal del cohete lunar Saturno V y director de NASA MSFC'
@@ -187,7 +180,6 @@
         en: 'Flight Test & Spaceflight',
         es: 'Ensayos en Vuelo y Espacio'
       },
-      badgeIcon: '🌕',
       role: {
         en: 'Apollo 11 Commander, First Human on the Moon & X-15 Research Pilot',
         es: 'Comandante del Apolo 11, primer humano en la Luna y piloto de pruebas del X-15'
@@ -208,7 +200,6 @@
         en: 'Mathematical Physics',
         es: 'Física Matemática'
       },
-      badgeIcon: '🌌',
       role: {
         en: 'Preeminent Mathematician & Discoverer of Noether\'s Symmetries Theorem',
         es: 'Ilustre matemática y descubridora del Teorema de Noether'
@@ -229,7 +220,6 @@
         en: 'Aviation Visionary',
         es: 'Visionario del Vuelo'
       },
-      badgeIcon: '🕊️',
       role: {
         en: 'Renaissance Polymath & Pioneer of Fluid Vortices and Avian Flight',
         es: 'Polímata del Renacimiento y pionero del estudio de vórtices y vuelo aviar'
@@ -250,7 +240,6 @@
         en: 'Apollo Flight Software',
         es: 'Software de Vuelo Apolo'
       },
-      badgeIcon: '💻',
       role: {
         en: 'Director of the Apollo Flight Software Division at MIT Instrumentation Lab',
         es: 'Directora de Ingeniería de Software del MIT para el Programa Apolo'
@@ -271,7 +260,6 @@
         en: 'Space Systems Engineering',
         es: 'Ingeniería de Sistemas Espaciales'
       },
-      badgeIcon: '🛰️',
       role: {
         en: 'Legendary Soviet Chief Designer & Architect of Sputnik 1 and Vostok 1',
         es: 'Mítico Diseñador Jefe del Programa Espacial Soviético (Sputnik 1 y Vostok 1)'
@@ -292,7 +280,6 @@
         en: 'Liquid Rocketry',
         es: 'Cohetería Líquida'
       },
-      badgeIcon: '🔥',
       role: {
         en: 'Father of Modern Liquid-Fueled Rocketry & Gyroscopic Thrust Control',
         es: 'Padre de la cohetería de propergol líquido y guiado giroscópico'
@@ -313,7 +300,6 @@
         en: 'Flight Operations & Mission Control',
         es: 'Operaciones de Vuelo y Control'
       },
-      badgeIcon: '🎙️',
       role: {
         en: 'Legendary NASA Chief Flight Director (Apollo 11, Apollo 13)',
         es: 'Legendario Director de Vuelo de la NASA (Apolo 11 y Apolo 13)'
@@ -334,7 +320,6 @@
         en: 'Aerospace Communications',
         es: 'Telecomunicaciones Aeroespaciales'
       },
-      badgeIcon: '📡',
       role: {
         en: 'Inventor of Frequency-Hopping Spread Spectrum & Telecom Pioneer',
         es: 'Inventora de las comunicaciones por salto de frecuencia y telecomunicaciones'
@@ -355,7 +340,6 @@
         en: 'Experimental Flight & Composites',
         es: 'Vuelo Experimental y Composites'
       },
-      badgeIcon: '🛸',
       role: {
         en: 'Visionary Aircraft Designer & Ansari X-Prize Winner with SpaceShipOne',
         es: 'Visionario diseñador aeronáutico y ganador del Ansari X-Prize con SpaceShipOne'
@@ -783,7 +767,6 @@
     var field = (quote.field && quote.field[l]) || quote.field.en || 'Aerospace';
     var role = (quote.role && quote.role[l]) || quote.role.en || '';
     var context = (quote.context && quote.context[l]) || quote.context.en || '';
-    var badgeIcon = quote.badgeIcon || '🚀';
 
     var refreshTitle = l === 'es' ? 'Siguiente cita aeroespacial' : 'Next aerospace quote';
     var copyTitle = l === 'es' ? 'Copiar cita al portapapeles' : 'Copy quote to clipboard';
@@ -806,14 +789,12 @@
 
     var fieldBadge = document.createElement('span');
     fieldBadge.className = 'ae-quote-badge';
-    fieldBadge.innerHTML = '<span class="ae-quote-badge-icon" aria-hidden="true">' + badgeIcon + '</span> ' +
-                           '<span class="ae-quote-badge-field">' + field + '</span>';
+    fieldBadge.innerHTML = '<span class="ae-quote-badge-field">' + field + '</span>';
     badges.appendChild(fieldBadge);
 
     var tagBadge = document.createElement('span');
     tagBadge.className = 'ae-quote-badge ae-quote-badge-alt';
-    tagBadge.innerHTML = '<span class="ae-quote-badge-icon" aria-hidden="true">✨</span> ' +
-                         '<span class="ae-quote-badge-tag">' + tagText + '</span>';
+    tagBadge.innerHTML = '<span class="ae-quote-badge-tag">' + tagText + '</span>';
     badges.appendChild(tagBadge);
 
     header.appendChild(badges);
@@ -892,8 +873,7 @@
     if (context) {
       var contextPill = document.createElement('div');
       contextPill.className = 'ae-quote-context-pill';
-      contextPill.innerHTML = '<span class="ae-quote-context-icon" aria-hidden="true">💡</span> ' +
-                              '<span class="ae-quote-context-text">' + context + '</span>';
+      contextPill.innerHTML = '<span class="ae-quote-context-text">' + context + '</span>';
       footer.appendChild(contextPill);
     }
 
