@@ -12,31 +12,25 @@ tags:
 The bank behind the Problem Bank and the Exam Simulator of the portal. Each line below is one note in this folder; `python tools/build_problem_bank.py` turns them into `subjects/business-management/data/problems.json`. The Midterm 1 structure (3 short theory cases × 2.0 + 1 Extra Practice problem × 4.0 = 10.0 points, 90 minutes) is in `subjects/business-management/data/exam-blueprint.json`.
 
 > [!info] What is official and what is practice
-> P01-P10 are the official Topic 3 exercises: their cards embed the solved notes. P11-P30 and C01-C24 are practice items written for the bank in the style of the course; they are not official exercises and have no official key. Anything the course decks do not define (working capital, current ratio, ROA, ROE, margins, the three-section cash-flow statement, the leverage formula) is marked as an extension in each note.
+> P01-P10 are the official Topic 3 exercises: their cards embed the solved notes. P11-P16 are exam-style practice exercises in the style of T3_Additional_EXERCISES.pdf (P11 and P12 supplied by the student, P13-P16 written for the bank), and C01-C24 are short theory cases written for the bank; they are not official exercises and have no official key. Anything the course decks do not define (working capital, current ratio, ROA, ROE, margins, the three-section cash-flow statement, the leverage formula) is marked as an extension in each note.
 
 ## Extra Practice problems (4 points)
 
-### Unordered items (6)
+### Unordered items (3)
 
 | ID | Problem | Difficulty | Time | Source |
 | :--- | :--- | :--- | ---: | :--- |
 | P03 | [[Problem - Bank P03 - T3 Exercise 3 Libbys Balance Sheet Classification\|T3 Exercise 3: Libby's Company balance sheet from a list of accounts]] | ★ | 20 min | Official |
 | P04 | [[Problem - Bank P04 - T3 Exercise 4 Hawkins Partners Income Statement\|T3 Exercise 4: Hawkins Partners income statement with inventory variation]] | ★ | 20 min | Official |
-| P11 | [[Problem - Bank P11 - AeroFix Composites Unordered Account Balances\|AeroFix Composites: statements from an unordered list of balances]] | ★ | 35 min | Practice |
-| P12 | [[Problem - Bank P12 - SkyParts Distribution Mixed List with Non-Accounting Items\|SkyParts Distribution: a mixed list with items that are not accounts]] | ★★ | 40 min | Practice |
-| P13 | [[Problem - Bank P13 - Helix Rotor Components Depreciation and Inventory Variation\|Helix Rotor Components: depreciation and cost of goods sold from raw data]] | ★★ | 40 min | Practice |
-| P14 | [[Problem - Bank P14 - Nimbus Air Charter Missing Cash and Liquidity Diagnosis\|Nimbus Air Charter: the missing cash figure and a liquidity diagnosis]] | ★★★ | 45 min | Practice |
+| P16 | [[Problem - Bank P16 - HESECA Statements from a Summary of Ledger Accounts\|HESECA: the statements from a summary of ledger accounts, with prepaid insurance and a credit line]] | ★★★ | 55 min | Practice |
 
-### Reverse engineering & ratios (4)
+### Reverse engineering & ratios (1)
 
 | ID | Problem | Difficulty | Time | Source |
 | :--- | :--- | :--- | ---: | :--- |
-| P15 | [[Problem - Bank P15 - Vector Avionics Balance Sheet Gaps from Ratios\|Vector Avionics: closing the gaps of a balance sheet with three ratios]] | ★★ | 35 min | Practice |
-| P16 | [[Problem - Bank P16 - Stratos Ground Systems Income Statement from Margins\|Stratos Ground Systems: rebuilding the income statement from margins]] | ★★★ | 40 min | Practice |
-| P17 | [[Problem - Bank P17 - Lumen Optics Space Statements from Structure and ROA\|Lumen Optics Space: both statements from the financial structure and the ROA]] | ★★★ | 40 min | Practice |
-| P18 | [[Problem - Bank P18 - Corvid Drone Works Equity Reconstruction and Rights Issue\|Corvid Drone Works: reconstructing equity from the pay-out and a rights issue]] | ★★ | 35 min | Practice |
+| P11 | [[Problem - Bank P11 - FRIGOLEV Incomplete Balance and Cooperative Discount\|FRIGOLEV: an incomplete 2017 balance, a cooperative discount and the 2018 statements]] | ★★★ | 60 min | Practice |
 
-### Narrative case (11)
+### Narrative case (9)
 
 | ID | Problem | Difficulty | Time | Source |
 | :--- | :--- | :--- | ---: | :--- |
@@ -47,29 +41,21 @@ The bank behind the Problem Bank and the Exam Simulator of the portal. Each line
 | P07 | [[Problem - Bank P07 - T3 Extra 1 Circonsa Half-Year Statements\|T3 Additional 1: CIRCONSA half-year statements]] | ★★★ | 50 min | Official |
 | P09 | [[Problem - Bank P09 - T3 Extra 3 Wifinet Accounting Cycle and Dividends\|T3 Additional 3: WIFINET accounting cycle and two ways of paying a dividend]] | ★★★ | 50 min | Official |
 | P10 | [[Problem - Bank P10 - T3 Extra 4 Cemed Statements and Supplier Discount\|T3 Additional 4: CEMED statements and a 5% prompt-payment discount]] | ★★★ | 50 min | Official |
-| P19 | [[Problem - Bank P19 - Aerolift Drones First Year of Operations\|Aerolift Drones: the first year told as a story]] | ★★ | 45 min | Practice |
-| P20 | [[Problem - Bank P20 - Kestrel MRO Half-Year with Renting and a Credit Line\|Kestrel MRO: a half-year with renting, a credit line and accrued interest]] | ★★★ | 50 min | Practice |
-| P21 | [[Problem - Bank P21 - Orbitron Satellite Components Bonds Rights Issue and Factoring\|Orbitron Satellite Components: bonds, a rights issue and factoring in one year]] | ★★★ | 50 min | Practice |
-| P22 | [[Problem - Bank P22 - Albatross Avionics Discounted Bill and Sale of a Van\|Albatross Avionics: a discounted bill of exchange and the sale of a used van]] | ★★★ | 50 min | Practice |
+| P13 | [[Problem - Bank P13 - TAHSA Deducing the Cash Sales from the Bank Balance\|TAHSA: deducing the share of cash sales from the bank balance]] | ★★★ | 60 min | Practice |
+| P14 | [[Problem - Bank P14 - AVIEBRO Half-Year with a Mortgage and Prior Losses\|AVIEBRO: a half-year close with a volume discount, a mortgage and prior losses]] | ★★★ | 60 min | Practice |
 
-### Year-on-year & cash (5)
+### Year-on-year & cash (2)
 
 | ID | Problem | Difficulty | Time | Source |
 | :--- | :--- | :--- | ---: | :--- |
 | P08 | [[Problem - Bank P08 - T3 Extra 2 Infopymes Statements and ROA ROE\|T3 Additional 2: INFOPYMES statements 2016-2017 and ROA/ROE]] | ★★★ | 45 min | Official |
-| P23 | [[Problem - Bank P23 - Pegasus Aerostructures Plant Expansion and Cash Flows\|Pegasus Aerostructures: a plant expansion seen through two balance sheets]] | ★★★ | 45 min | Practice |
-| P24 | [[Problem - Bank P24 - Halcyon Regional Airline Falling Sales Year on Year\|Halcyon Regional Airline: what a 15% fall in sales does to profit and cash]] | ★★★ | 45 min | Practice |
-| P25 | [[Problem - Bank P25 - Cirrus Test Labs Closing Balance from a List of Changes\|Cirrus Test Labs: the closing balance sheet from a list of changes]] | ★★ | 40 min | Practice |
-| P26 | [[Problem - Bank P26 - Sirius Flight Academy Collections Payments and Cash Account\|Sirius Flight Academy: from accrual figures to collections, payments and cash]] | ★★★ | 45 min | Practice |
+| P12 | [[Problem - Bank P12 - AGRODRON Second Year after a Start-Up Loss\|AGRODRON: the second year of a drone start-up that closed its first year with a loss]] | ★★ | 50 min | Practice |
 
-### Financing & leverage (4)
+### Financing & leverage (1)
 
 | ID | Problem | Difficulty | Time | Source |
 | :--- | :--- | :--- | ---: | :--- |
-| P27 | [[Problem - Bank P27 - Zenith Launch Services Bank Loan or Rights Issue\|Zenith Launch Services: financing a new pad with a bank loan or a rights issue]] | ★★ | 40 min | Practice |
-| P28 | [[Problem - Bank P28 - Borealis Composites ROE Scenarios and Break-Even Income\|Borealis Composites: ROE in three scenarios and the break-even income from operations]] | ★★★ | 45 min | Practice |
-| P29 | [[Problem - Bank P29 - Meridian Avionics WACC and a Bank Covenant\|Meridian Avionics: choosing a capital structure with the WACC and a bank covenant]] | ★★ | 35 min | Practice |
-| P30 | [[Problem - Bank P30 - Polaris Space Hardware Mixed Financing Plan\|Polaris Space Hardware: self-financing, bonds and a rights issue in one plan]] | ★★★ | 45 min | Practice |
+| P15 | [[Problem - Bank P15 - CAESA Financing an Expansion with a Loan or New Shares\|CAESA: financing a second autoclave with a semiannual loan or with new shares]] | ★★★ | 60 min | Practice |
 
 ## Short theory cases (2 points)
 
