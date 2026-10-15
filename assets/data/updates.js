@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-business-problem-bank",
+    "date": "2026-10-15",
+    "tag": "Business Management",
+    "title": "New Problem Bank: 24 theory cases and 16 exam problems",
+    "text": "Filter by exam part, type and unit, open a hint, the key result or the full solution only when you want it, and mark what you have mastered. Press ? for shortcuts.",
+    "link": "subjects/business-management/problemas/index.html"
+  },
+  {
     "id": "2026-10-15-materials-t4-review",
     "date": "2026-10-15",
     "tag": "Aerospace Materials I",
