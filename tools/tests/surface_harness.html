@@ -61,9 +61,9 @@
     await scenario('restores charcoal on the dark theme', "localStorage.setItem('ae_theme','dark');localStorage.setItem('ae_surface','charcoal');", function (w, d, el, ls) {
       return expect(el.getAttribute('data-surface') === 'charcoal' && el.getAttribute('data-theme') === 'dark', state(el, ls));
     });
-    await scenario('a stored palette that contradicts the theme is dropped', "localStorage.setItem('ae_theme','dark');localStorage.setItem('ae_surface','sepia');", function (w, d, el, ls) {
-      return expect(el.getAttribute('data-surface') === 'default' && ls.getItem('ae_surface') === 'default' &&
-        el.getAttribute('data-theme') === 'dark', state(el, ls));
+    await scenario('a stored palette that contradicts the theme sets the theme', "localStorage.setItem('ae_theme','dark');localStorage.setItem('ae_surface','sepia');", function (w, d, el, ls) {
+      return expect(el.getAttribute('data-surface') === 'sepia' && ls.getItem('ae_surface') === 'sepia' &&
+        el.getAttribute('data-theme') === 'light', state(el, ls));
     });
     await scenario('an unknown stored value is ignored', "localStorage.setItem('ae_surface','neon');", function (w, d, el, ls) {
       return expect(el.getAttribute('data-surface') === 'default', state(el, ls));
@@ -78,9 +78,9 @@
       return expect(el.getAttribute('data-surface') === 'charcoal' && el.getAttribute('data-theme') === 'dark' &&
         ls.getItem('ae_theme') === 'dark', state(el, ls));
     });
-    await scenario('set(default) leaves the theme alone', "localStorage.setItem('ae_theme','light');", function (w, d, el, ls) {
+    await scenario('set(default) returns to the portal theme (dark)', "localStorage.setItem('ae_theme','light');", function (w, d, el, ls) {
       w.AESurface.set('default');
-      return expect(el.getAttribute('data-surface') === 'default' && el.getAttribute('data-theme') === 'light' &&
+      return expect(el.getAttribute('data-surface') === 'default' && el.getAttribute('data-theme') === 'dark' &&
         ls.getItem('ae_surface') === 'default', state(el, ls));
     });
     await scenario('set() ignores unknown ids', '', function (w, d, el, ls) {
@@ -148,12 +148,9 @@
       ls.setItem('ae_theme', 'dark');
       return expect(ls.getItem('ae_surface') === 'charcoal' && el.getAttribute('data-theme') === 'dark', state(el, ls));
     });
-    await scenario('theme.js behaves identically for ae_theme when the picker is used', '', function (w, d, el, ls) {
-      d.getElementById('themeToggle').click();
-      var first = el.getAttribute('data-theme') + '/' + ls.getItem('ae_theme');
-      d.getElementById('themeToggle').click();
-      var second = el.getAttribute('data-theme') + '/' + ls.getItem('ae_theme');
-      return expect(first === 'light/light' && second === 'dark/dark', first + ' then ' + second);
+    await scenario('the theme toggle is hidden when the picker is used', '', function (w, d, el, ls) {
+      var b = d.getElementById('themeToggle');
+      return expect(b.hidden && !!d.getElementById('surfacePicker'), 'hidden=' + b.hidden);
     }, true);
 
     document.getElementById('results').textContent = JSON.stringify(results);

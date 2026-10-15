@@ -66,13 +66,11 @@
     await scenario('invalid values only -> dark', "localStorage.setItem('ae_theme','purple');", function (w, t) {
       return expect(t === 'dark', 'theme=' + t);
     });
-    await scenario('toggle button flips theme, label and storage', '', function (w, t, ls) {
-      var d = w.document;
-      d.getElementById('themeToggle').click();
-      var first = d.documentElement.getAttribute('data-theme') + '/' + d.getElementById('themeLabel').textContent + '/' + ls.getItem('ae_theme');
-      d.getElementById('themeToggle').click();
-      var second = d.documentElement.getAttribute('data-theme') + '/' + d.getElementById('themeLabel').textContent + '/' + ls.getItem('ae_theme');
-      return expect(first === 'light/Light/light' && second === 'dark/Dark/dark', first + ' then ' + second);
+    await scenario('the toggle button is hidden and inert', '', function (w, t, ls) {
+      var d = w.document, b = d.getElementById('themeToggle');
+      b.click();
+      var after = d.documentElement.getAttribute('data-theme') + '/' + ls.getItem('ae_theme');
+      return expect(b.hidden && after === 'dark/null', 'hidden=' + b.hidden + ' ' + after);
     });
     await scenario('set() rejects invalid themes and accepts valid ones', '', function (w, t) {
       var el = w.document.documentElement;

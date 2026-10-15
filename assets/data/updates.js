@@ -23,6 +23,13 @@ window.AE_UPDATES = [
     "link": "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html"
   },
   {
+    "id": "2026-10-14-palette-only",
+    "date": "2026-10-14",
+    "tag": "Portal",
+    "title": "One colour control: the reading palette picker",
+    "text": "The light/dark button is gone. Pick a reading palette instead: Charcoal is the dark one, the others are light, and Default is the portal's dark theme."
+  },
+  {
     "id": "2026-10-14-materials-t4-complete",
     "date": "2026-10-14",
     "tag": "Aerospace Materials I",
