@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-fluids-t3-figures",
+    "date": "2026-10-15",
+    "tag": "Fluid Mechanics",
+    "title": "Topic 3 problems now have their figures",
+    "text": "Each conservation-law problem shows its statement figure and the control volume of its solution. Some figures are cropped from the official sheets.",
+    "link": "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html"
+  },
+  {
     "id": "2026-10-14-materials-t4-complete",
     "date": "2026-10-14",
     "tag": "Aerospace Materials I",
