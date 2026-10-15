@@ -264,7 +264,7 @@ def build_page(page_rel, spec, cfg_links, anchors):
     if "problems" in spec:
         pr = spec["problems"]
         parts.append(f'''    <section id="problems-link">
-      <div class="callout"><p><a href="{html.escape(pr["href"])}">{html.escape(pr["label"], quote=False)} →</a></p></div>
+      <div class="callout"><p><a class="end-btn" href="{html.escape(pr["href"])}">{html.escape(pr["label"], quote=False)} →</a></p></div>
     </section>''')
     page = head + header + "\n".join(parts) + "\n\n" + tail
     if page_rel in cfg_links["pages"]:

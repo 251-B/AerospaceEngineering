@@ -512,6 +512,12 @@
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
   <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
   <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
@@ -524,7 +530,7 @@
         <span class="brand-badge">UC3M · AEROSPACE MATERIALS I</span>
       </div>
       <div class="nav-actions">
-        <a href="../../../index.html" class="back-link">🏠 Main Portal</a>
+        <a href="../../../index.html" class="back-link">Main Portal</a>
         <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme"></button>
       </div>
     </div>

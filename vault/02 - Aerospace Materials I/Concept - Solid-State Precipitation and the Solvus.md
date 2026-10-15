@@ -25,6 +25,6 @@ Full explanation: [[Topic 4 - Phase Diagrams and Solidification]].
 ![[attachments/T4/precip-pbsn.svg]]
 
 ## Amount of precipitate
-Lever rule between the solvus of α and the β boundary at the temperature of interest, e.g. $W_\beta = (16 - 5)/(99 - 5) = 0.12$ at 121 °C for Pb-16 wt% Sn (readings of the figure).
+Lever rule between the solvus of α and the β boundary at the temperature of interest, e.g. $W_\beta = (16 - 6)/(99 - 6) = 0.11$ at 121 °C for Pb-16 wt% Sn (readings of the figure).
 
 **Back to:** [[Topic 4 - Phase Diagrams and Solidification]] · [[Aerospace Materials I MOC]]

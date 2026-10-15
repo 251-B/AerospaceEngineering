@@ -25,10 +25,12 @@ Horizontal line at the temperature of interest through the alloy point; its ends
 Each phase takes the arm of the tie line on the side of the **other** phase:
 $$W_L = \frac{C_\alpha - C_0}{C_\alpha - C_L} \qquad W_\alpha = \frac{C_0 - C_L}{C_\alpha - C_L} \qquad W_L + W_\alpha = 1$$
 
+These are mass fractions on a wt% axis; on an at.% axis the same rule gives atom (mole) fractions (extension).
+
 ![[attachments/T4/tie-line.svg]]
 
 ## Example [Session 7 Slides 16-21]
-Cu-35 wt% Ni at 1250 °C, $C_L = 32$, $C_\alpha = 43$: $W_L = 8/11 = 0.727$, $W_\alpha = 3/11 = 0.273$ (the slide writes 0.72 and 0.28). Check: $0.727 \times 32 + 0.273 \times 43 = 35$.
+Cu-35 wt% Ni at about 1250 °C (a reading of the figure), $C_L = 32$, $C_\alpha = 43$: $W_L = 8/11 = 0.727$, $W_\alpha = 3/11 = 0.273$ (the slide writes 0.72 and 0.28). Check: $0.727 \times 32 + 0.273 \times 43 = 35$.
 
 ## In eutectic diagrams [Session 7 Slide 32]
 Just below the eutectic temperature, with $P = C_0 - C_\alpha$, $Q = C_e - C_0$, $R = C_\beta - C_e$: microconstituents $W_{\alpha'} = Q/(P+Q)$, $W_e = P/(P+Q)$; phases $W_\alpha = (Q+R)/(P+Q+R)$, $W_\beta = P/(P+Q+R)$.

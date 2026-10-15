@@ -19,8 +19,16 @@ bytes: 2999925
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-01-the-firm-types-objectives/teoria/Topic 1_The Firm_Types  Objectives.pdf`
 - **Kind:** teoria
 - **Size:** 3.0 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 9 note(s) below
 
 ## Referenced by
 
+- [[05 - Business Management/Problem Bank/Problem - Bank C01 - SkyCourier Circular Flow of Income]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C02 - Orbital Fasteners Functional Areas]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C03 - Atlas Line Maintenance Management Process]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C04 - eVTOL Founder Views of the Entrepreneur]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C05 - Three Engineers Choosing a Legal Form]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C06 - Meseta Aerostructures Agency Problem]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C07 - Drone Spraying Cooperative and a Launcher Joint Venture]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C08 - Classifying Three Aerospace Enterprises]]
 - [[05 - Business Management/Topic 1 - The Firm - Types and Objectives]]

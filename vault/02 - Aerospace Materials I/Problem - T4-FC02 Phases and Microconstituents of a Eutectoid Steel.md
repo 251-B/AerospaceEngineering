@@ -54,6 +54,7 @@ One microconstituent, **pearlite**, 100 %, with overall composition 0.76 % C; in
 
 - Mass balance: $0.889 \times 0.022 + 0.111 \times 6.67 = 0.020 + 0.740 = 0.76$ % C ✓.
 - This is the make-up of every pearlite, the same as Worked example 15 of the theory (Session 9 Slide 13: 89 % and 11 %).
+- **Limiting case** (fractions dimensionless, compositions in wt% C): at exactly 0.76 % C the proeutectoid fraction $(0.76 - C_0)/(0.76 - 0.022)$ is 0, the end case of the hypoeutectoid formula: the steel is all pearlite.
 
 ## ✅ Check against the official solution
 Agrees with the key (0.89 and 0.11). The key calls the cementite of part (a) "$w_{Fe_3C'}$" (with a prime, the symbol of proeutectoid cementite); in a eutectoid steel there is no proeutectoid cementite, all of it is in the pearlite, as part (b) of the key says.

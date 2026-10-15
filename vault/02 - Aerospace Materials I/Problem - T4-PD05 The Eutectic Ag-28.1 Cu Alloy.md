@@ -69,6 +69,7 @@ All the liquid of $T_2$ became eutectic: **one microconstituent, the eutectic**,
 - $W_\alpha + W_\beta = 0.768 + 0.232 = 1$.
 - Mass balance: $0.768 \times 8.8 + 0.232 \times 92 = 6.76 + 21.34 = 28.1$ wt% Cu $= C_0$.
 - Phase rule at the eutectic point (1 atm): $F = 2 - 3 + 1 = 0$, so the transformation happens at one temperature, with a plateau in the cooling curve, like a pure metal [Session 7 Slide 27].
+- **Limiting case** (fractions dimensionless, compositions in wt% Cu): the alloy sits exactly at the eutectic composition, so the primary fraction $(C_0 - C_e)/(C_\beta - C_e)$ (or its hypoeutectic twin) is 0: the end case of both formulas, an alloy that is all eutectic.
 
 ### Interpretation
 The eutectic alloy has the lowest melting point of the system (779 °C, well below 961.93 °C for Ag and 1084.87 °C for Cu) and solidifies at a single temperature into a fine layered mixture of a Ag-rich and a Cu-rich solid.

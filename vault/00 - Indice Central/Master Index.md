@@ -45,6 +45,7 @@ the vault currently reaches.
 ### 📊 [[05 - Business Management/Business Management MOC|Business Management]]
 * **Units (6):** the firm (types and objectives), value creation and environment, financial statements, financial analysis and ratios, operations and marketing, business plan.
 * **Vault notes:** units 1-3 and the Topic 3 exercises.
+* **Problem bank:** [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|30 Extra Practice problems and 24 short theory cases]] for the Midterm 1 simulator.
 * **NotebookLM notebook:** `e691ea81-0acf-4032-98d1-b9e5a7b93d70`
 * **Web pages:** `subjects/business-management/`
 

@@ -19,8 +19,20 @@ bytes: 572446
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-02-value-creation-environment/teoria/Topic 2_ Value creation.pdf`
 - **Kind:** teoria
 - **Size:** 572.4 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 13 note(s) below
 
 ## Referenced by
 
+- [[05 - Business Management/Problem Bank/Problem - Bank C06 - Meseta Aerostructures Agency Problem]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C09 - Costa Airport Profit Maximization or Value Creation]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C10 - Engine Plant Closure and its Stakeholders]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C11 - Small Launcher Generic Environment]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C12 - Island Regional Airline Five Forces]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C13 - Aircraft Seat Market Barriers to Entry]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C14 - Nordic MRO Group Levels of Strategy]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C15 - LowOrbit Satellite Bus Cost Leadership]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C16 - Aurum Business-Jet Interiors Differentiation]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C17 - Vega Avionics Diversifying into Medical Devices]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C18 - Launcher Maker Buying its Engine Supplier]]
+- [[05 - Business Management/Problem Bank/Problem - Bank C19 - SkyEye Drone Maker Value Chain]]
 - [[05 - Business Management/Topic 2 - Value Creation - Environment and Competitive Advantage]]

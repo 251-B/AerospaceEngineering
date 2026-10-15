@@ -19,7 +19,7 @@ bytes: 331571
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf`
 - **Kind:** problemas
 - **Size:** 331.6 kB
-- **Status:** referenced by 5 note(s) below
+- **Status:** referenced by 12 note(s) below
 
 ## Referenced by
 
@@ -28,3 +28,10 @@ bytes: 331571
 - [[05 - Business Management/Problem - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE]]
 - [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends]]
 - [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P07 - T3 Extra 1 Circonsa Half-Year Statements]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P08 - T3 Extra 2 Infopymes Statements and ROA ROE]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P09 - T3 Extra 3 Wifinet Accounting Cycle and Dividends]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P10 - T3 Extra 4 Cemed Statements and Supplier Discount]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P19 - Aerolift Drones First Year of Operations]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P20 - Kestrel MRO Half-Year with Renting and a Credit Line]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P22 - Albatross Avionics Discounted Bill and Sale of a Van]]

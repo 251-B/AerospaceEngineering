@@ -31,7 +31,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Frame: the Fe-Fe₃C diagram; tie lines just above 727 °C (α 0.022 / γ 0.76, for the proeutectoid ferrite) and below it (α 0.022 / Fe₃C 6.67, for the phases). Masses are fractions times 5 kg.
+Frame: the Fe-Fe₃C diagram (wt% C, °C); tie lines just above 727 °C (α 0.022 / γ 0.76, for the proeutectoid ferrite) and below it (α 0.022 / Fe₃C 6.67, for the phases). Masses are fractions times 5 kg.
 
 ![[attachments/T4/fc-p8.svg]]
 
@@ -41,7 +41,7 @@ Frame: the Fe-Fe₃C diagram; tie lines just above 727 °C (α 0.022 / γ 0.76, 
 
 ### a) At 726 °C
 $$W_{\alpha'} = \frac{0.76 - 0.55}{0.76 - 0.022} = \frac{0.21}{0.738} = 0.285 \;\Rightarrow\; m_{\alpha'} = 0.285 \times 5 = 1.42\ \text{kg}$$
-$$W_{\text{pearlite}} = 1 - 0.285 = 0.715 \;\Rightarrow\; m_{\text{pearlite}} = 3.58\ \text{kg}$$
+$$W_{\text{pearlite}} = 1 - 0.285 = 0.715 \;\Rightarrow\; m_{\text{pearlite}} = 0.715 \times 5 = 3.575 \approx 3.58\ \text{kg}$$
 $$W_{\alpha,\text{total}} = \frac{6.67 - 0.55}{6.648} = \frac{6.12}{6.648} = 0.921 \;\Rightarrow\; m_{\alpha,\text{total}} = 4.60\ \text{kg}$$
 $$m_{\alpha,E} = 4.60 - 1.42 = 3.18\ \text{kg} \qquad m_{\text{Fe}_3\text{C}} = (1 - 0.921) \times 5 = 0.079 \times 5 = 0.40\ \text{kg}$$
 
@@ -57,10 +57,14 @@ Ni is a **γ-stabilising element**: it displaces the eutectoid point to **lower 
 ## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
 
 - Mass check: $1.42 + 3.58 = 5.00$ kg; $4.60 + 0.40 = 5.00$ kg; pearlite $3.18 + 0.40 = 3.58$ kg ✓.
-- Carbon: $0.40\ \text{kg} \times 6.67\,\% + 4.60\ \text{kg} \times 0.022\,\% = 0.0267 + 0.0010 = 0.0277$ kg C $= 0.55\,\%$ of 5 kg ✓.
+- Carbon, with the unrounded masses $m_{\text{Fe}_3\text{C}} = 0.0794 \times 5 = 0.397$ kg and $m_\alpha = 4.603$ kg: $0.397 \times 0.0667 + 4.603 \times 0.00022 = 0.02649 + 0.00101 = 0.0275$ kg C $= 0.55\,\%$ of 5 kg ✓.
+- **Limiting cases** (fractions dimensionless, masses in kg, compositions in wt% C): at $C_0 = 0.022$ the steel would be all proeutectoid α and at $C_0 = 0.76$ all pearlite; 0.55 % C lies nearer the eutectoid end, hence 0.715 of pearlite.
 
 ## ✅ Check against the official solution
-Part (a) agrees with the key (1.43, 3.6, 4.6, 3.17 and 0.4 kg, within rounding); (c) agrees.
+Part (a) agrees with the key in 3.6, 4.6 and 0.4 kg; (c) agrees.
+
+> [!warning] Discrepancy with the official solution
+> The key gives 1.43 kg of proeutectoid ferrite and 3.17 kg of eutectoid ferrite. Here $0.2846 \times 5 = 1.423 \to 1.42$ kg and $4.60 - 1.42 = 3.18$ kg; the key's 3.17 follows from its 1.43. The gap is 0.01 kg in the last digit; the computed values are kept.
 
 > [!warning] Discrepancy with the official solution
 > For part (b) the key gives $x_{\alpha pre} = 0.26$ and $x_{eutectoid} = 0.72$, which do not add up to 1 and do not match its own part (a) ($1.43/5 = 0.286$, $3.6/5 = 0.72$). The lever rule gives 0.285 proeutectoid ferrite and 0.715 pearlite, the same at 726 and at 600 °C; these values are kept.

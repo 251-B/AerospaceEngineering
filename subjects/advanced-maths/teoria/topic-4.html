@@ -288,6 +288,12 @@
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
   <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
   <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
@@ -865,7 +871,7 @@
     <footer class="site-footer">
       <p>Advanced Mathematics • Topic 4 • BSc in Aerospace Engineering, Universidad Carlos III de Madrid</p>
       <p>Reference text: J. C. Robinson, <em>An Introduction to Ordinary Differential Equations</em>, Cambridge University Press, 2004. Page numbers are the book's printed pages.</p>
-      <p style="margin-top: 8px;"><a href="../../../index.html">← Return to the main study portal</a></p>
+      <p style="margin-top: 8px;"><a class="end-btn" href="../../../index.html">← Return to the main study portal</a></p>
     </footer>
 
     <section style="max-width: 920px; margin: 48px auto 24px;">

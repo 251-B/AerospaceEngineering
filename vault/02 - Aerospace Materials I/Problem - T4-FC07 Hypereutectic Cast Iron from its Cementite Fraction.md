@@ -30,7 +30,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Tie lines: 727 − ΔT (α 0.022 / Fe₃C 6.67), 1147 + ΔT (L 4.30 / Fe₃C 6.67), 1147 − ΔT (γ 2.14 / Fe₃C 6.67). Lever rule each time [Session 7 Slides 16, 32].
+Frame: the Fe-Fe₃C diagram (wt% C, °C). Tie lines: 727 − ΔT (α 0.022 / Fe₃C 6.67), 1147 + ΔT (L 4.30 / Fe₃C 6.67), 1147 − ΔT (γ 2.14 / Fe₃C 6.67). Lever rule each time [Session 7 Slides 16, 32].
 
 ![[attachments/T4/fc-p7.svg]]
 
@@ -55,9 +55,13 @@ $$W_\gamma = \frac{6.67 - 4.875}{4.53} = \frac{1.795}{4.53} = 0.396 \qquad W_{\t
 
 - Ledeburite make-up: $0.396/0.757 = 0.523$ γ ✓ (Worked example 14).
 - Mass balance at $T_1$: $0.757 \times 4.30 + 0.243 \times 6.67 = 3.26 + 1.62 = 4.875$ % C ✓.
+- **Limiting cases** (fractions dimensionless, compositions in wt% C): at $C_0 = 4.30$ the primary Fe₃C would be 0 and at $C_0 = 6.67$ the alloy would be all Fe₃C; 4.875 % C lies near the eutectic end, hence 0.243 of primary Fe₃C.
 
 ## ✅ Check against the official solution
-Agrees with the key within rounding: 0.757/0.243 (key 0.75/0.25), 0.396/0.604 (0.39/0.61), primary Fe₃C 0.243 (0.25), eutectic γ 0.396 (0.39) and eutectic Fe₃C 0.361 (0.36). The key does not give $C_0$; it is 4.875 % C (4.89 % with 6.7 % C for cementite).
+Agrees with the key in the eutectic Fe₃C, 0.361 (key 0.36). The key does not give $C_0$; it is 4.875 % C (4.90 % with 6.7 % C for cementite: $0.022 + 0.73 \times 6.678 = 4.897$).
+
+> [!warning] Discrepancy with the official solution
+> Four values differ from the key by 0.01: 0.757/0.243 (key 0.75/0.25) and 0.396/0.604 (key 0.39/0.61). The key works with $C_0$ rounded to 4.9 % and 6.7 % C for cementite: $(6.7 - 4.9)/2.4 = 0.75$, $(4.9 - 4.3)/2.4 = 0.25$, $(6.7 - 4.9)/4.56 = 0.395 \to 0.39$ and $0.605 \to 0.61$. With the slides' 6.67 % C and the unrounded $C_0$ the values above follow; they are kept.
 
 ---
 

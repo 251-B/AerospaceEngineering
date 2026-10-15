@@ -578,6 +578,12 @@
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
   <script src="../../../assets/js/theme.js"></script>
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -819,7 +825,7 @@
       <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
       <p>Study Portal & Lecture Compendium • Grounded 100% in Official Department Syllabi and Course Materials</p>
       <p style="margin-top: 8px;">
-        <a href="../../../index.html">← Back to Main Aerospace Portal</a>
+        <a class="end-btn" href="../../../index.html">← Back to Main Aerospace Portal</a>
       </p>
     </footer>
 

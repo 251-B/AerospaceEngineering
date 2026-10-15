@@ -84,7 +84,7 @@ The alloy is only 1.2 wt% Cu beyond the solubility limit of α, so almost all of
 At $T_1$, $T_2$ and in part (b) the results agree with the key.
 
 > [!warning] Discrepancy with the official solution
-> At $T_3$ the key gives $X_\alpha = 0.98$ and $X_\beta = 0.02$. With the data of the problem, $W_\alpha = 82/83.2 = 0.9856$ and $W_\beta = 1.2/83.2 = 0.0144$, which round to 0.99 and 0.01. The computed values are kept; the key's 0.98 and 0.02 are not reproduced by any rounding of the data.
+> At $T_3$ the key gives $X_\alpha = 0.98$ and $X_\beta = 0.02$. With the data of the problem, $W_\alpha = 82/83.2 = 0.9856$ and $W_\beta = 1.2/83.2 = 0.0144$, which round to 0.99 and 0.01. The computed values are kept; the key's 0.98 and 0.02 follow from truncating 0.9856 to 0.98 and taking $1 - 0.98 = 0.02$, not from rounding.
 
 ---
 

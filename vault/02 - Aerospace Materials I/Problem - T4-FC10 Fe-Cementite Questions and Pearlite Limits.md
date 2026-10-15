@@ -30,7 +30,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-The lever rule on the α-Fe₃C tie line (a), the short tie line through the eutectoid point (b), the invariant lines (c) and the tie lines at 1148 °C and 727 + ΔT (d) [Session 7 Slides 16, 32].
+Frame: the Fe-Fe₃C diagram (wt% C, °C). The lever rule on the α-Fe₃C tie line (a), the short tie line through the eutectoid point (b), the invariant lines (c) and the tie lines at 1148 °C (the statement's temperature, just above the eutectic: 1147 + ΔT) and 727 + ΔT (d) [Session 7 Slides 16, 32].
 
 ![[attachments/T4/fc-p10.svg]]
 
@@ -39,6 +39,7 @@ The lever rule on the α-Fe₃C tie line (a), the short tie line through the eut
 ## 🔢 3. Phase 3: Step-by-Step Derivation
 
 ### a) Alloy with $W_\alpha$ = 0.267
+$$W_\alpha = \frac{C_{\text{Fe}_3\text{C}} - C_0}{C_{\text{Fe}_3\text{C}} - C_\alpha} \;\Rightarrow\; C_0 = C_{\text{Fe}_3\text{C}} - W_\alpha\,(C_{\text{Fe}_3\text{C}} - C_\alpha)$$
 $$C_0 = 6.67 - 0.267 \times (6.67 - 0.022) = 6.67 - 0.267 \times 6.648 = 6.67 - 1.775 = 4.895 \approx 4.9\ \%\,\text{C}$$
 Only **one** alloy: a hypereutectic cast iron.
 
@@ -68,9 +69,13 @@ The microconstituents (primary austenite and ledeburite) **change** too: the aus
 
 - (a): $(6.67 - 4.895)/6.648 = 0.267$ ✓.
 - (d): 1.5 %: $0.875 \times 0.76 + 0.125 \times 6.67 = 0.665 + 0.834 = 1.50$ % C ✓; 3 %: $0.621 \times 0.76 + 0.379 \times 6.67 = 0.47 + 2.53 = 3.0$ % C ✓.
+- **Limiting cases** (fractions dimensionless, compositions in wt% C): the pearlite fraction of a hypereutectoid steel, $(6.67 - C_0)/(6.67 - 0.76)$, is 1 at the eutectoid composition and falls to 0 at 6.67 % C; at 1.5 % C it is 0.875.
 
 ## ✅ Check against the official solution
-(a), (b) and the 3 % C phases agree with the key (4.9 %; 100 % and 0 %; 0.6/0.4; 0.62/0.38). For 1.5 % C the key gives 0.12/0.88, which is the same as 0.125/0.875 within rounding. The key does not answer part (c).
+(a), (b) and the 3 % C phases agree with the key (4.9 %; 100 % and 0 %; 0.6/0.4; 0.62/0.38). The key does not answer part (c).
+
+> [!warning] Discrepancy with the official solution
+> For 1.5 % C the key gives 0.12/0.88 against 0.125/0.875 here (0.13/0.87 when rounded, as in the key of Problem 3 for the same alloy). The key's value follows from 6.7 % C for cementite: $(1.5 - 0.76)/(6.7 - 0.76) = 0.74/5.94 = 0.1246 \to 0.12$. With the slides' 6.67 % C it is $0.74/5.91 = 0.125$, which is kept.
 
 > [!warning] Discrepancy with the official solution
 > The key gives 0.20 of secondary cementite for the 3 % C alloy. With the values of the diagram, $0.379 - 0.190 = 0.189$ (0.19); the key's 0.20 is not reproduced by any rounding of these data. The computed value is kept.

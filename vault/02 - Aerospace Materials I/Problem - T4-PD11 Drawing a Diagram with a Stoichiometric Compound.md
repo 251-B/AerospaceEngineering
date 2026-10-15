@@ -86,6 +86,7 @@ AB₂ melting at 1000 °C involves only two phases (AB₂ and a liquid of the sa
 ### Checks
 - Each three-phase line has the middle phase in the right place: at 700 °C the liquid (30) lies **between** the two solids (10 and 66.7), the shape of a eutectic; at 500 °C the new solid β (80) lies between AB₂ (66.7) and L (95), with the liquid at one end, the shape of a peritectic [Session 8 Slide 6].
 - Phase rule: on each horizontal line three phases coexist, $F = 2 - 3 + 1 = 0$; in each two-phase area $F = 1$ [Session 7 Slide 13].
+- **Limiting case** (compositions in the units of the statement): at the composition of the stoichiometric compound the alloy is a single phase, so every lever-rule fraction there is 0 or 1; this is why the compound is drawn as a vertical line.
 
 ### Interpretation
 The compound AB₂ splits the diagram into two simpler diagrams, A-AB₂ (eutectic) and AB₂-B (peritectic). Since B melts at only 350 °C, the liquid persists to low temperatures on the B side, and β forms from AB₂ and the B-rich liquid at 500 °C.

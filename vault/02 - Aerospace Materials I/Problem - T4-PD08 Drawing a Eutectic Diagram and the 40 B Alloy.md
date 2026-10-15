@@ -95,6 +95,7 @@ The same numbers from the make-up of the eutectic, which is $(80 - 65)/(80 - 25)
 - Mass balance at 450 °C: $0.425 \times 20.83 + 0.575 \times 54.17 = 8.85 + 31.15 = 40.0$ % B.
 - Mass balance at 400 °C − ΔT: $0.727 \times 25 + 0.273 \times 80 = 18.18 + 21.82 = 40.0$ % B.
 - $W_{\alpha,E} + W_{\beta,E} = 0.102 + 0.273 = 0.375 = W_E$, and $W_{\alpha p} + W_{\alpha,E} = 0.625 + 0.102 = 0.727 = W_\alpha$.
+- **Limiting cases** (fractions dimensionless, compositions in % B): as $C_0$ approaches either end of a tie line, the phase at that end tends to the whole alloy and the other to 0; the 40 % B alloy lies inside every tie line used, so all its fractions are between 0 and 1.
 
 ### Interpretation
 On cooling from the liquid, α starts to form at the liquidus ($700 - 300 \times 40/65 = 515$ °C for this alloy), grows to 62.5 % at the eutectic temperature, and the remaining 37.5 % of liquid, of 65 % B, becomes eutectic at 400 °C. Most of the eutectic is β (0.273 of the alloy), which is all the β of the alloy.
@@ -103,7 +104,7 @@ On cooling from the liquid, α starts to form at the liquidus ($700 - 300 \times
 At 400 °C ± ΔT the results agree with the key (0.62/0.38 are 0.625/0.375; 0.73/0.27). The key writes "$C_\alpha$ = 25%Cu" at 400 °C + ΔT, a typo for 25 % B.
 
 > [!warning] Discrepancy with the official solution
-> **450 °C.** The key reads $C_L = 55$ and $C_\alpha = 20$ % B from its drawing and gives $X_L = 0.57$, $X_\alpha = 0.43$. With the straight lines that the statement requires, linear interpolation gives $C_L = 54.17$ and $C_\alpha = 20.83$ % B, hence $W_L = 0.575$ and $W_\alpha = 0.425$. The difference comes from reading the drawing; the interpolated values are kept.
+> **450 °C.** The key gives $X_L = 0.57$, $X_\alpha = 0.43$, which correspond to $C_L = 55$ and $C_\alpha = 20$ % B, presumably read graphically from its drawing (Solution problems Phase diagrams I.pdf, pp. 14-25, show no 450 °C tie line). With the straight lines that the statement requires, linear interpolation gives $C_L = 54.17$ and $C_\alpha = 20.83$ % B, hence $W_L = 0.575$ and $W_\alpha = 0.425$. The difference comes from reading the drawing; the interpolated values are kept.
 >
 > **α in the eutectic.** The key gives $X(\alpha_E) = 0.11$, which is $0.73 - 0.62$ with rounded values. Exactly, $0.7273 - 0.6250 = 0.1023$, confirmed by $0.375 \times 15/55 = 0.102$; the key's 0.11 is a rounding effect.
 

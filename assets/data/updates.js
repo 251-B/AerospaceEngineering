@@ -15,6 +15,21 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-materials-t4-review",
+    "date": "2026-10-15",
+    "tag": "Aerospace Materials I",
+    "title": "Topic 4 checked again against the slides and the keys",
+    "text": "Phase diagram notes and problems were checked line by line. Problem 12 now uses atomic %, a Fe-C figure was fixed, and every gap with the official keys is explained.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
+  },
+  {
+    "id": "2026-10-15-end-links-buttons",
+    "date": "2026-10-15",
+    "tag": "Portal",
+    "title": "Tidier links at the end of pages",
+    "text": "The portal button no longer has an emoji, and the closing links to the problems and back to the portal are now proper buttons."
+  },
+  {
     "id": "2026-10-15-fluids-t3-steps",
     "date": "2026-10-15",
     "tag": "Fluid Mechanics",
@@ -29,6 +44,13 @@ window.AE_UPDATES = [
     "title": "Topic 3 problems now have their figures",
     "text": "Each conservation-law problem shows its statement figure and the control volume of its solution. Some figures are cropped from the official sheets.",
     "link": "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html"
+  },
+  {
+    "id": "2026-10-14-palette-only",
+    "date": "2026-10-14",
+    "tag": "Portal",
+    "title": "One colour control: the reading palette picker",
+    "text": "The light/dark button is gone. Pick a reading palette instead: Charcoal is the dark one, the others are light, and Default is the portal's dark theme."
   },
   {
     "id": "2026-10-14-materials-t4-complete",

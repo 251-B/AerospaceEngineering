@@ -19,7 +19,7 @@ bytes: 217846
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf`
 - **Kind:** problemas
 - **Size:** 217.8 kB
-- **Status:** referenced by 8 note(s) below
+- **Status:** referenced by 15 note(s) below
 
 ## Referenced by
 
@@ -31,3 +31,10 @@ bytes: 217846
 - [[05 - Business Management/Problem - T3 Exercise 4 - Hawkins Partners Income Statement and Inventories]]
 - [[05 - Business Management/Problem - T3 Exercise 5 - Corporate Income Statement, Taxes and Dividends]]
 - [[05 - Business Management/Problem - T3 Exercise 6 - Company X Full Cycle Balance Sheet and Uncalled Capital]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P01 - T3 Exercise 1 Accrual vs Cash and Depreciation]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P02 - T3 Exercise 2 JUGA Opening Balance Sheet]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P03 - T3 Exercise 3 Libbys Balance Sheet Classification]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P04 - T3 Exercise 4 Hawkins Partners Income Statement]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P05 - T3 Exercise 5 Corporate Income Statement and Dividends]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P06 - T3 Exercise 6 Company X Full Cycle and Uncalled Capital]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P13 - Helix Rotor Components Depreciation and Inventory Variation]]
