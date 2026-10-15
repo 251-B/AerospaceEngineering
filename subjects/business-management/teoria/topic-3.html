@@ -290,6 +290,12 @@
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
   <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
   <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
@@ -576,7 +582,7 @@
 <p>where $K_{EQ}$ is the cost of equity and $K_L$ the cost of liabilities, weighted by the shares of equity and liabilities in the financial structure. With the structure of the leverage example (70% equity, 30% liabilities), $K_{WACC} = 0.70\,K_{EQ} + 0.30\,K_L$.</p>
     </section>
     <section id="problems-link">
-      <div class="callout"><p><a href="../problemas/topic-3-financial-statements.html">Solved exercises for this topic (sheet exercises 1-6 and the four additional exam-type problems) →</a></p></div>
+      <div class="callout"><p><a class="end-btn" href="../problemas/topic-3-financial-statements.html">Solved exercises for this topic (sheet exercises 1-6 and the four additional exam-type problems) →</a></p></div>
     </section>
 
   </main>
