@@ -68,6 +68,9 @@ tags:
   * [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Exam Problem 3: WIFINET S.L. — Telecommunications Accounting Cycle & Dividend Policies]]
   * [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Exam Problem 4: CEMED — Industrial Accounting Cycle & Trade Discount Analysis]]
 
+### Problem Bank and Midterm 1 Simulator
+* [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|Problem Bank]]: 30 Extra Practice problems (the 10 official exercises above plus 20 practice problems in five archetypes) and 24 short theory cases on Topics 1-3. It feeds `subjects/business-management/data/problems.json` through `tools/build_problem_bank.py`; the exam structure is in `subjects/business-management/data/exam-blueprint.json`.
+
 ---
 
 ### Block III: Remaining Units in `sources/` (Not Yet Covered in the Vault)
