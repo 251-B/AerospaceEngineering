@@ -9,6 +9,13 @@ tags:
   - turborreactor
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf"
+id: "cl5"
+pill: "CL5: Turbojet"
+tags_html:
+  - "Moving boundaries"
+  - "Mass, momentum, energy"
+  - "Heat and work"
+  - "Thrust"
 ---
 
 # Problem CL5: Turbojet on a Testbench: Exit State

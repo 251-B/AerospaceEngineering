@@ -9,6 +9,13 @@ tags:
   - secador
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL7.pdf"
+id: "cl7"
+pill: "CL7: Dryer"
+tags_html:
+  - "Axisymmetric"
+  - "Angular momentum"
+  - "Energy"
+  - "Ideal gas"
 ---
 
 # Problem CL7: Industrial Dryer: Velocities, Force, Power and Torque

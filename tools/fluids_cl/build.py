@@ -7,8 +7,8 @@ Generated: subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html, on
 vault/01 - Fluid Mechanics/, the figures in vault/attachments/FM-T3/, and the entries in tools/source_links.json,
 the subject MOC, the problems index card and the root badge that list the problems.
 
-Problem content: content/cl_p01.py to content/cl_p04.py (source of truth until the notes move to the vault).
-Page head and tail: template_head.html and template_tail.html (copied from the kinematics page).
+Problem content: the notes themselves, vault/01 - Fluid Mechanics/Problem - CL*.md (read back by notes.py; the vault
+is the source of truth). Page head and tail: template_head.html and template_tail.html (copied from the kinematics page).
 
 Block types used by the content modules:
   ("p", text) ("m", latex) ("h4", text) ("ul", [items]) ("table", head, rows)
@@ -16,14 +16,14 @@ Block types used by the content modules:
   ("bal", dict(label=..., eq=latex, cols=[latex...], rows=[(surface, [cells...], is_wall)],
                wall=text or None, result=latex))
 """
-import argparse, glob, html, importlib, json, os, pathlib, re, sys, tempfile
+import argparse, html, json, os, pathlib, re, sys, tempfile
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-CONTENT = HERE / "content"
-sys.path.insert(0, str(CONTENT))
+sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent))           # tools/, for the figures package
 import figures.fluids_t3 as FIG  # noqa: E402
+import notes  # noqa: E402   (the problems, read back from the vault)
 import source_links as SL  # noqa: E402   (deep links to the official PDFs)
 
 REG = FIG.build()
@@ -61,15 +61,9 @@ EXTRA_CSS = """
 """
 
 
-def load_problems():
-    mods = sorted(glob.glob(str(CONTENT / "cl_p*.py")))
-    probs = []
-    for m in mods:
-        name = os.path.splitext(os.path.basename(m))[0]
-        mod = importlib.import_module(name)
-        probs.extend(mod.PROBLEMS)
-    probs.sort(key=lambda P: int(P["id"][2:]))
-    return probs
+def load_problems(root=ROOT):
+    """The problems, read back from their notes in the vault."""
+    return notes.read_all(root / VAULT)
 
 
 def inline_html(t):
@@ -231,7 +225,10 @@ def note_md(P):
     num = P["id"].upper()
     fm = ["---", "materia: Fluid Mechanics", 'tema: "Topic 3: Conservation Laws"', "tags:"]
     fm += [f"  - {t}" for t in P["tags_md"]]
-    fm += [f"dificultad: {P.get('difficulty', 'media')}", f'fuente: "{BASE}{num}.pdf"', "---", ""]
+    fm += [f"dificultad: {P.get('difficulty', 'media')}", f'fuente: "{BASE}{num}.pdf"',
+           f"id: {json.dumps(P['id'])}", f"pill: {json.dumps(P['pill'])}", "tags_html:"]
+    fm += [f"  - {json.dumps(t)}" for t in P["tags_html"]]
+    fm += ["---", ""]
     out = fm
     out.append(f"# Problem {num}: {P['title']}")
     out.append("")
@@ -355,7 +352,7 @@ def link_sources(root, text):
 
 def generate(root):
     """Write every generated file under `root`; return their paths relative to `root`."""
-    probs = load_problems()
+    probs = load_problems(root)
     REG.write(root)
     outputs = list(REG.files)
     for P in probs:
@@ -375,6 +372,8 @@ def check():
         root = pathlib.Path(tmp)
         for rel in INPUTS:
             write(root, rel, (ROOT / rel).read_text(encoding="utf-8"))
+        for path in (ROOT / VAULT).glob("Problem - CL*.md"):
+            write(root, f"{VAULT}/{path.name}", path.read_text(encoding="utf-8"))
         for rel in generate(root):
             have = ROOT / rel
             if not have.is_file() or have.read_text(encoding="utf-8") != (root / rel).read_text(encoding="utf-8"):

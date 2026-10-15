@@ -1,5 +1,5 @@
-"""The Topic 3 (conservation laws) generator in tools/fluids_cl/: the generated files are up to date, every problem
-has its card on the page and its note in the vault, and every figure the page embeds exists."""
+"""The Topic 3 (conservation laws) generator in tools/fluids_cl/: the vault notes are the source, the generated files
+are up to date, every problem has its card on the page and its note, and every figure the page embeds exists."""
 import importlib.util
 import pathlib
 import subprocess
@@ -19,6 +19,13 @@ def load_build():
 
 
 class FluidsClTests(unittest.TestCase):
+    def test_each_note_is_in_the_canonical_layout(self):
+        """Reading a note back and rendering it gives the same file: the notes are the source and stay generated-shaped."""
+        build = load_build()
+        for P in build.load_problems():
+            path = REPO / build.VAULT / f"{P['note_title']}.md"
+            self.assertEqual(build.note_md(P), path.read_text(encoding="utf-8"), P["note_title"])
+
     def test_generated_files_are_up_to_date(self):
         proc = subprocess.run([sys.executable, str(BUILD), "--check"], capture_output=True, text=True)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)

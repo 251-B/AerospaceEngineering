@@ -9,6 +9,13 @@ tags:
   - eyector
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL18.pdf"
+id: "cl18"
+pill: "CL18: Ejector"
+tags_html:
+  - "Ejector"
+  - "Bernoulli"
+  - "Mixing"
+  - "Dissipation"
 ---
 
 # Problem CL18: Liquid Ejector: Entrained Flow Rate, Outlet Velocity and Heating

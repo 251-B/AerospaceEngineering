@@ -9,6 +9,13 @@ tags:
   - ventilador
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL10.pdf"
+id: "cl10"
+pill: "CL10: Ventilator"
+tags_html:
+  - "Fan"
+  - "Bernoulli"
+  - "Linear momentum"
+  - "Numerical values"
 ---
 
 # Problem CL10: Ventilation Device: Velocities, Force and Fan Power

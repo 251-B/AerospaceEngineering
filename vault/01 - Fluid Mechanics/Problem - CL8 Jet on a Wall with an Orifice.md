@@ -9,6 +9,13 @@ tags:
   - bernoulli
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL8.pdf"
+id: "cl8"
+pill: "CL8: Jet on Orifice"
+tags_html:
+  - "Free jets"
+  - "Bernoulli"
+  - "Mass"
+  - "Force on a wall"
 ---
 
 # Problem CL8: Jet Impinging on a Wall with an Orifice

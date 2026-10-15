@@ -9,6 +9,13 @@ tags:
   - chorro
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL16.pdf"
+id: "cl16"
+pill: "CL16: Jet on a Wedge"
+tags_html:
+  - "Free jets"
+  - "Bernoulli"
+  - "Moment of a jet"
+  - "Heat transfer"
 ---
 
 # Problem CL16: Plane Jet Split by a Non-Symmetric Wedge: Force, Moment and Heat

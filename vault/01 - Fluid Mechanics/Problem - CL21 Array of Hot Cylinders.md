@@ -9,6 +9,13 @@ tags:
   - cilindros
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL21.pdf"
+id: "cl21"
+pill: "CL21: Hot Cylinders"
+tags_html:
+  - "Periodicity"
+  - "Drag"
+  - "Heat release"
+  - "Perfect gas"
 ---
 
 # Problem CL21: Array of Hot Cylinders in a Gas Stream: Density, Force and Heat
