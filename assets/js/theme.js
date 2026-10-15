@@ -88,7 +88,7 @@
   // ---- Reading surface -------------------------------------------------------------------
   var SURFACE_KEY = 'ae_surface';
   var SURFACES = [
-    { id: 'default',     label: 'Default',     mode: null,    note: 'The portal\u2019s own surfaces.' },
+    { id: 'default',     label: 'Default',     mode: null,      note: 'The portal\u2019s own surfaces.' },
     { id: 'cream',       label: 'Cream',       mode: 'light', note: 'Warm ivory, no pure white page. Light.' },
     { id: 'sepia',       label: 'Sepia',       mode: 'light', note: 'Warm parchment, less 415\u2013455 nm blue light. Light.' },
     { id: 'slate-paper', label: 'Slate paper', mode: 'light', note: 'Neutral e-ink grey. Light.' },
@@ -117,7 +117,9 @@
     write(SURFACE_KEY, id);
     applySurface(id);
     // Palette first, then theme: the theme-change listener below then sees a matching pair.
-    if (surface.mode && root.getAttribute('data-theme') !== surface.mode) set(surface.mode);
+    // No theme toggle: 'default' returns to the portal's own theme, the others to their polarity.
+    var mode = surface.mode || DEFAULT_THEME;
+    if (root.getAttribute('data-theme') !== mode) set(mode);
   }
 
   function surfaceFitsTheme(id, theme) {
@@ -129,9 +131,9 @@
   root.setAttribute('data-theme', get());
   root.setAttribute('data-surface', getSurface());
   if (!surfaceFitsTheme(getSurface(), get())) {
-    // Stored pair that no longer matches (e.g. edited by hand): drop the palette for good.
-    write(SURFACE_KEY, 'default');
-    root.setAttribute('data-surface', 'default');
+    // No theme toggle any more: the palette decides the polarity, so a stale stored theme follows it.
+    write(KEY, findSurface(getSurface()).mode);
+    root.setAttribute('data-theme', findSurface(getSurface()).mode);
   }
 
   // Another tab changed the theme or the surface. That tab already stored a matching pair, so this
@@ -306,7 +308,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     render(root.getAttribute('data-theme'));
     var button = document.getElementById('themeToggle');
-    if (button) button.addEventListener('click', toggle);
+    if (button) { button.hidden = true; button.style.display = 'none'; }   // palettes own the polarity
     buildPicker();
   });
 
