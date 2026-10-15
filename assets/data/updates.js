@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-ask-ai-links",
+    "date": "2026-10-15",
+    "tag": "Portal",
+    "title": "Ask AI now points the assistant to the exact page",
+    "text": "The prompt now carries links to this page and the subject, plus the exact problem, part or section you selected, so answers follow the portal's own notation."
+  },
+  {
     "id": "2026-10-15-end-links-buttons",
     "date": "2026-10-15",
     "tag": "Portal",

@@ -23,6 +23,7 @@
 
   var SCRIPT = document.currentScript;
   var LANG_KEY = 'ae_ask_lang';
+  var PORTAL = 'https://251-b.github.io/AerospaceEngineering/';
   var MAX_FRAGMENT = 4000;
   var MAX_SOLUTION = 14000;
   var MAX_URL = 7500;
@@ -292,6 +293,47 @@
     return t;
   }
 
+  /* Production URL of this page (or of a subject page), so the assistant can open it even when the
+     student studies from a local copy. */
+  function portalUrl(anchor, area) {
+    var m = location.pathname.match(/\/(subjects\/[^/]+\/.*)$/), slug = subjectSlug();
+    if (area) return slug ? PORTAL + 'subjects/' + slug + '/' + area + '/index.html' : PORTAL;
+    var base = m ? PORTAL + m[1] : location.href.split('#')[0];
+    return base + (anchor ? '#' + anchor : '');
+  }
+
+  /* "Unit N: title": the topic number comes from the file name (topic-3-conservation-laws.html). */
+  function unitLabel(h1) {
+    var f = location.pathname.split('/').pop() || '', n = f.match(/^topic-(\d+)/);
+    var t = clean(h1 ? h1.textContent : document.title.split(/\s[—|]\s/)[0]);
+    return (n ? 'Unidad ' + n[1] + ' — ' : '') + t;
+  }
+
+  function cardNumber(card) {
+    var n = card.querySelector('.problem-num, .problem-num-badge, .prob-num-badge, .problem-id, .problem-tag');
+    return clean(n ? n.textContent : '').replace(/^(?:problem|exercise|problema)\s*/i, '') || card.id || '';
+  }
+
+  function cardName(card) {
+    var t = card.querySelector('.problem-title') || card.querySelector('h2, h3');
+    return clean(t ? t.textContent : '');
+  }
+
+  /* The sub-question (a, b, c...) the node sits in: the last label before it that starts with
+     "a)", "(b)", "Part (c)" or "Step 2. Part (a)". Empty when the node is not inside a lettered part. */
+  var PART_RE = /^(?:step\s*\d+\.?\s*)?(?:part\s*)?\(?([a-h])\)(?:\s|:|$|\.)|^(?:step\s*\d+\.?\s*)?part\s*\(?([a-h])\)?\b/i;
+  function partLabel(card, node) {
+    var cands = card.querySelectorAll('.question-label, .sub-case-header, summary, h3, h4, h5, strong, b, p'), best = '';
+    for (var i = 0; i < cands.length; i++) {
+      var c = cands[i];
+      if (c !== node && !c.contains(node) && !before(c, node)) break;
+      if (c.closest('.ask-ai-bar')) continue;
+      var m = clean(c.textContent).slice(0, 40).match(PART_RE);
+      if (m) best = (m[1] || m[2]).toLowerCase() + ')';
+    }
+    return best;
+  }
+
   function context(node, range) {
     var h1 = document.querySelector('h1');
     var card = cardOf(node);
@@ -308,7 +350,13 @@
     for (var j = 0; j < panel.length && j < 4; j++) docs.push(clean(panel[j].textContent));
     var title = card ? cardTitle(card) : '';
     var sec = section ? clean(section.textContent) : '';
+    var anchor = card && card.id ? card.id : section && section.id ? section.id : '';
     return {
+      url: portalUrl(anchor),
+      unit: unitLabel(h1),
+      cardNum: card ? cardNumber(card) : '',
+      cardName: card ? cardName(card) : '',
+      part: card ? partLabel(card, node) : '',
       slug: subjectSlug(),
       subject: SUBJECTS[subjectSlug()] || '',
       page: clean(h1 ? h1.textContent : document.title.split(/\s[—|]\s/)[0]),
@@ -347,16 +395,33 @@
   function buildPrompt(req, action, extra, lang) {
     var ctx = req.ctx, t = TASKS[action];
     var L = [];
-    L.push('# Role');
-    L.push('You are an expert, patient tutor for the 2nd year of the BSc in Aerospace Engineering at Universidad Carlos III de Madrid (UC3M)' +
-      (ctx.subject ? ', subject: ' + ctx.subject : '') + '. You make hard ideas simple without losing rigour.');
-    L.push('', '# Context');
-    L.push('- I am studying from my course notes' + (ctx.page ? ': "' + ctx.page + '"' : '') + (isProblemPage() ? ' (solved problems).' : ' (theory).'));
-    if (ctx.section) L.push('- Section: ' + ctx.section);
-    if (ctx.problem) L.push('- Problem: ' + ctx.problem);
-    if (ctx.docs.length) L.push('- Official course material: ' + ctx.docs.join('; '));
-    if (ctx.cites.length) L.push('- Exact source: ' + ctx.cites.join('; '));
-    L.push('', '# Material');
+    var subj = ctx.subject ? ctx.subject.split(' (')[0] : '';
+    L.push('Estoy estudiando en mi repositorio web de Ingeniería Aeroespacial (2º curso, UC3M):');
+    L.push('- Portal principal: ' + PORTAL);
+    if (ctx.slug) {
+      L.push('- Asignatura: ' + subj + ' (subjects/' + ctx.slug + '/)');
+      L.push('- URL exacta donde estoy ahora: ' + ctx.url);
+      L.push('- URL de la teoría de esta asignatura: ' + portalUrl('', 'teoria'));
+      L.push('- URL de los problemas resueltos de esta asignatura: ' + portalUrl('', 'problemas'));
+    } else {
+      L.push('- URL exacta donde estoy ahora: ' + ctx.url);
+    }
+    L.push('', '[DÓNDE TIENES QUE EXTRAER EL CONTEXTO EXACTO]');
+    if (ctx.card) {
+      L.push('- Ubicación en la página: Problema ' + ctx.cardNum + (ctx.cardName && ctx.cardName !== ctx.cardNum ? ' — "' + ctx.cardName + '"' : '') +
+        (ctx.part ? ', Apartado ' + ctx.part : '') + ', correspondiente a la ' + ctx.unit);
+    } else {
+      L.push('- Ubicación en la página: ' + ctx.unit + (ctx.section ? ' — Sección: "' + ctx.section + '"' : ''));
+    }
+    if (req.fragment) L.push('- Fragmento o fórmula que he subrayado: "' + req.fragment.replace(/\n+/g, ' ') + '"');
+    if (ctx.cites.length) L.push('- Fuente oficial citada en esa zona: ' + ctx.cites.join('; '));
+    L.push('', '[GUIDELINES OBLIGATORIAS DE RESPUESTA]');
+    L.push('1. Accede y lee directamente las URLs del repositorio indicadas arriba (especialmente la sección exacta de teoría y el problema indicado en la página actual).');
+    L.push('2. Extrae el contexto, los datos del enunciado, las fórmulas previas y el desarrollo directamente de esa página del repositorio.');
+    L.push('3. Adopta exactamente la misma manera de explicar las cosas, la misma terminología, el mismo idioma, los mismos símbolos/notación matemática y el mismo convenio de signos que se utiliza en esa asignatura dentro del repositorio.');
+    L.push('4. No uses métodos ni notaciones genéricas externas si difieren de cómo se explica en la web: guíate al 100% por el enfoque didáctico paso a paso del repositorio.');
+    L.push('5. Si no puedes abrir las URLs, dilo y usa solo el material que te pego a continuación; no inventes datos.');
+    L.push('', '# Material (copia de esa misma página, por si no puedes abrir los enlaces)');
     if (t.needs.indexOf('fragment') >= 0 && req.fragment) {
       L.push('<fragment>', req.fragment, '</fragment>');
     }
@@ -373,7 +438,7 @@
     }
     L.push('', '# Task');
     L.push(t.task.join('\n'));
-    if (extra && !t.attempt) L.push('', 'My specific question: ' + extra);
+    if (extra && !t.attempt) L.push('', '[MI PREGUNTA]', extra);
     L.push('', '# How to answer');
     answerRules(ctx, !!t.socratic, lang).forEach(function (r) { L.push('- ' + r); });
     return L.join('\n');
