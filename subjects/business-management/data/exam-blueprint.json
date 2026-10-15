@@ -7,9 +7,15 @@
     "content_scope_source": "Units published in subjects/business-management/teoria/: Topic 1, Topic 2, Topic 3 (decks in sources/.../unit-0N-*/teoria/).",
     "verify_when": "An official Midterm 1 paper is added under sources/cuatrimestre-1/05-business-management/examenes/first-partial/; update this file to match it and drop this note."
   },
+  "simulator_page": "subjects/business-management/simulator/index.html",
+  "problem_bank": "subjects/business-management/data/problems.json",
   "total_points": 10.0,
   "duration_minutes": 90,
-  "duration_options_minutes": [60, 90, 120],
+  "duration_options_minutes": [
+    60,
+    90,
+    120
+  ],
   "currency_unit": "m.u.",
   "parts": [
     {
@@ -23,9 +29,19 @@
       "selection_rules": {
         "distinct_units": true,
         "distinct_themes": true,
-        "units": [1, 2, 3]
+        "units": [
+          1,
+          2,
+          3
+        ]
       },
-      "grading_steps": [0, 0.5, 1.0, 1.5, 2.0]
+      "grading_steps": [
+        0,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ]
     },
     {
       "id": "part-2",
@@ -44,7 +60,9 @@
           "year-on-year-cash",
           "financing-leverage"
         ],
-        "units": [3]
+        "units": [
+          3
+        ]
       },
       "grading": "per subquestion, using the points of each subquestion (they add up to 4.0)"
     }

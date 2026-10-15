@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/notebooklm-financial-accounting-videos.md"
 kind: teoria
 status: not-referenced
-bytes: 5969
+bytes: 6060
 ---
 
 # Source: notebooklm-financial-accounting-videos.md
@@ -18,7 +18,7 @@ bytes: 5969
 
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/notebooklm-financial-accounting-videos.md`
 - **Kind:** teoria
-- **Size:** 6.0 kB
+- **Size:** 6.1 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
