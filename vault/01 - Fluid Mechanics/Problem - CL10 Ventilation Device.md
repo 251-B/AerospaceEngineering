@@ -52,6 +52,7 @@ Source: CL10.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral m
 | $p_e$, $p_a$ | inlet and ambient pressures | Pa |
 | $\dot{W}$ | fan power given to the air | W |
 | $F_x$, $F_y$ | force on the device | N |
+| $\rho$, $\mu$ | air density and viscosity | kg/m$^3$, Pa$\cdot$s |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
@@ -101,7 +102,7 @@ $$ \boxed{\,F_x = -\rho U_s^2\frac{\pi D_s^2}{4},\qquad F_y = \rho U_e^2\frac{\p
 
 The last form of $F_y$ uses (2): $(p_e - p_a) = -\tfrac{1}{2}\rho U_e^2$.
 
-**(4) Total energy (Notes Eq. 3.46)**
+**(4) Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

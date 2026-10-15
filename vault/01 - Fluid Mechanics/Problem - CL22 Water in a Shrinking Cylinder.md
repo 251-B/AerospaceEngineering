@@ -37,7 +37,7 @@ Note: Neglect viscous dissipation within the liquid, viscous stresses at the fre
 ![[attachments/FM-T3/cl22-statement.svg]]
 *Statement figure (redrawn from CL22.pdf, p. 1): (a) at $t = 0$, radius $a_0$ and level $h_0$; (b) at $t > 0$, radius $a(t)$, level $h(t)$ and the fixed control volume $V_2$ up to the level $z$*
 
-Source: CL22.pdf (pages 1-3, exam of 28-10-2018, with handwritten solution). Notes.pdf, Chapter 3: Reynolds transport theorem for a moving control volume Eqs. 3.7-3.8, integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, energy balance Eq. 3.46.
+Source: CL22.pdf (pages 1-3, exam of 28-10-2018, with handwritten solution). Notes.pdf, Chapter 3: Reynolds transport theorem for a moving control volume Eqs. 3.7-3.8, integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, kinetic-energy balance Eq. 4.24 (with Eq. 3.8).
 
 ## Phase 1: Hypotheses, Data and Unknowns
 
@@ -57,7 +57,7 @@ Source: CL22.pdf (pages 1-3, exam of 28-10-2018, with handwritten solution). Not
 ## Phase 2: Frames, Control Volumes and Surfaces
 
 - Inertial frame fixed to the bottom; cylindrical coordinates $(r, \theta, z)$, $\bar{e}_z$ upwards.
-- Control volume 1 (the water itself, a material volume): $\Sigma_s$ (free surface, $\bar{v} = \bar{v}_c = \dot{h}\bar{e}_z$, $\bar{n} = \bar{e}_z$), $\Sigma_L$ (lateral wall, $\bar{v} = \bar{v}_c = \dot{a}\bar{e}_r$, $\bar{n} = \bar{e}_r$) and $\Sigma_b$ (bottom, $\bar{v} = \bar{v}_c = 0$, $\bar{n} = -\bar{e}_z$). Everywhere $\bar{v} = \bar{v}_c$, so no flux crosses $\Sigma_c$.
+- Control volume 1 (the water itself, a material volume): $\Sigma_s$ (free surface, $\bar{v}_c = \dot{h}\bar{e}_z$, $\bar{n} = \bar{e}_z$), $\Sigma_L$ (lateral wall, $\bar{v}_c = \dot{a}\bar{e}_r$, $\bar{n} = \bar{e}_r$) and $\Sigma_b$ (bottom, $\bar{v}_c = 0$, $\bar{n} = -\bar{e}_z$). Each surface follows the liquid in the normal direction, $(\bar{v} - \bar{v}_c)\cdot\bar{n} = 0$ ($v_z(h) = \dot{h}$, $v_r(a) = \dot{a}$, $v_z(0) = 0$), so no flux crosses $\Sigma_c$; the tangential velocity may differ from that of the surface (ideal liquid).
 - Control volume $V_2$: from the bottom to a fixed level $z$: $\Sigma_b$, $\Sigma_{L2}$ (lateral wall, moving with $\dot{a}\bar{e}_r$) and $\Sigma_z$ (fixed horizontal section, $\bar{v}_c = 0$, $\bar{n} = \bar{e}_z$).
 - Axial forces on the cylinder: $F_{L\to W}$ (liquid on $\Sigma_L$, $\Sigma_b$) and $F_{A\to W}$ (atmosphere on the outer surface: radial on the lateral wall, $+p_a\pi a^2$ on the outer face of the bottom; the air inside above the water also pushes only radially).
 
@@ -74,9 +74,9 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 
 | Surface | $\int\rho\,(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma$ |
 | :--- | :--- |
-| $\Sigma_s$ | $0$ ($\bar{v} = \bar{v}_c = \dot{h}\bar{e}_z$) |
-| $\Sigma_L$ | $0$ ($\bar{v} = \bar{v}_c = \dot{a}\bar{e}_r$) |
-| $\Sigma_b$ | $0$ ($\bar{v} = \bar{v}_c = 0$) |
+| $\Sigma_s$ | $0$ ($v_z - \dot{h} = 0$ at $z = h$) |
+| $\Sigma_L$ | $0$ ($v_r - \dot{a} = 0$ at $r = a$) |
+| $\Sigma_b$ | $0$ ($v_z = 0$, $\bar{v}_c = 0$) |
 
 Therefore $\frac{d}{dt}\left[\rho\pi a^2h\right] = 0$ and $\rho\pi a^2(t)h(t) = \rho\pi a_0^2h_0$. Differentiating $h = a_0^2h_0a^{-2}$ with the chain rule, $\frac{dh}{dt} = a_0^2h_0\,(-2)a^{-3}\dot{a}$:
 
@@ -91,7 +91,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | Surface | $\int\rho\,(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma$ |
 | :--- | :--- |
 | $\Sigma_z$ | $\rho\,v_z\,\pi a^2$ ($\bar{v}_c = 0$) |
-| $\Sigma_{L2}$ | $0$ ($\bar{v} = \bar{v}_c$) |
+| $\Sigma_{L2}$ | $0$ ($v_r - \dot{a} = 0$) |
 | $\Sigma_b$ | $0$ |
 
 Volume term: $\frac{d}{dt}(\rho\pi a^2z) = \rho\pi z\frac{d(a^2)}{dt} = 2\rho\pi za\dot{a}$ ($z$ fixed).
@@ -124,7 +124,7 @@ $$ \boxed{\,F_{A\to W} = p_a\pi a^2\,} $$
 
 $$ \boxed{\,F = F_{L\to W} + F_{A\to W} = \rho\pi a_0^2\left[\frac{a_0^2h_0^2}{a^4}\left(a\ddot{a} - 3\dot{a}^2\right) - gh_0\right]\,} \tag{6} $$
 
-**4. Kinetic energy on control volume 1**
+**4. Kinetic energy on control volume 1 (Notes Eq. 4.24 with Eq. 3.8)**
 
 $$ \frac{d}{dt}\int_{V_c}\rho\frac{v_z^2}{2}\,dV + \underbrace{\cancel{\int_{\Sigma_c}\rho\frac{v^2}{2}(\bar{v} - \bar{v}_c)\cdot\bar{n}\,d\sigma}}_{0} = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV + \underbrace{\cancel{\int_{V_c}p\,\nabla\cdot\bar{v}\,dV}}_{0\ (\text{incompressible})} - \underbrace{\cancel{\int_{V_c}\Phi_v\,dV}}_{\text{neglect}} $$
 
@@ -136,7 +136,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | **$\Sigma_L$** (boxed) | $-\int_{\Sigma_L}p\,\dot{a}\,d\sigma$ | $\int_{\Sigma_L}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma$ |
 | $\Sigma_b$ | $0$ ($\bar{v} = 0$) | $0$ ($\bar{v} = 0$) |
 
-Boxed $\Sigma_L$ terms: the power of the walls on the liquid, $-\dot{W}_{L\to W}$. Volume terms: $\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV = -\rho g\int_0^hv_z\pi a^2\,dz = \rho g\pi a\dot{a}h^2$ and $\int_{V_c}\rho\frac{v_z^2}{2}dV = \frac{\rho\pi a^2}{2}\frac{4\dot{a}^2}{a^2}\left[\frac{z^3}{3}\right]_0^h = \frac{2}{3}\rho\pi\dot{a}^2h^3$.
+Boxed $\Sigma_L$ terms: the power of the walls on the liquid, $-\dot{W}_{L\to W}$. Volume terms: $\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV = -\rho g\int_0^hv_z\pi a^2\,dz = -\rho g\pi a^2\int_0^h\left(-\frac{2\dot{a}z}{a}\right)dz = 2\rho g\pi a\dot{a}\left[\frac{z^2}{2}\right]_0^h = \rho g\pi a\dot{a}h^2$ and $\int_{V_c}\rho\frac{v_z^2}{2}dV = \frac{\rho\pi a^2}{2}\frac{4\dot{a}^2}{a^2}\left[\frac{z^3}{3}\right]_0^h = \frac{2}{3}\rho\pi\dot{a}^2h^3$.
 
 $$ \frac{d}{dt}\left(\frac{2}{3}\rho\pi\dot{a}^2h^3\right) = -\dot{W}_{L\to W} - p_a\pi a^2\dot{h} + \rho g\pi a\dot{a}h^2 \tag{7} $$
 
@@ -156,5 +156,5 @@ $$ \boxed{\,\dot{W} = \dot{W}_{L\to W} + \dot{W}_{A\to W} = -\frac{4}{3}\rho\pi\
 - The term $\rho\pi\frac{a_0^4h_0^2}{a^4}(a\ddot{a} - 3\dot{a}^2)$ is minus the rate of change of the momentum of the water: the walls must accelerate the rising column.
 - The statement asks finally for 'the net power exerted by both fluids on the liquid'; from the context (and the official solution) the intended quantity is the net power of both fluids on the walls, (9).
 - Dimensions (SI): $[\rho a_0^4h_0^2\dot{a}^2/a^4] = \text{N}$; $[\rho(a_0/a)^6h_0^3\dot{a}\ddot{a}] = \text{W}$; $[p_aa_0^2h_0\dot{a}/a] = \text{W}$.
-- Numerical cross-check (hypothetical data): $a(t) = a_0(1 - 0.15t + 0.04t^2)$, $a_0 = 0.1$ m, $h_0 = 0.3$ m, $\rho = 1000$ kg/m$^3$ at $t = 0.7$ s: differentiating numerically the momentum and the kinetic energy of the water (quadrature of the integrals of 3 and 4) reproduces $F_{L\to W} = -2755.01$ N and $\dot{W}_{L\to W} = -199.696$ W from (5) and (8) to 12 digits; the net values are $F = -92.27$ N and $\dot{W} = -3.399$ W.
+- Numerical cross-check (hypothetical data): $a(t) = a_0(1 - 0.15t + 0.04t^2)$, $a_0 = 0.1$ m, $h_0 = 0.3$ m, $\rho = 1000$ kg/m$^3$, $g = 9.81$ m/s$^2$ at $t = 0.7$ s: differentiating numerically the momentum and the kinetic energy of the water (quadrature of the integrals of 3 and 4) reproduces $F_{L\to W} = -2755.01$ N and $\dot{W}_{L\to W} = -199.696$ W from (5) and (8) to 12 digits; the net values are $F = -92.27$ N and $\dot{W} = -3.399$ W.
 - Agreement with the official solution: CL22.pdf obtains (1) to (9).

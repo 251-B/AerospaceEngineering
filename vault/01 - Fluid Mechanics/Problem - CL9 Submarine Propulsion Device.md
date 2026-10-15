@@ -51,6 +51,7 @@ Source: CL9.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral mo
 | $p_e$, $p_\infty$ | inlet and ambient pressures | Pa |
 | $\dot{W}$ | power given by the propeller to the water | W |
 | $T$ | thrust | N |
+| $\rho$ | water density | kg/m$^3$ |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
@@ -100,7 +101,7 @@ Steady inviscid flow from the stagnant water far ahead (1), where $v = 0$ and $p
 
 $$ p_\infty = p_e + \tfrac{1}{2}\rho U_e^2 \;\Longrightarrow\; \boxed{\,p_e - p_\infty = -\tfrac{1}{2}\rho U_e^2\,} \tag{3} $$
 
-**(4) Total energy (Notes Eq. 3.46)**
+**(4) Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

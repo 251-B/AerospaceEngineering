@@ -116,7 +116,7 @@ and from (2), $\frac{U_o}{U_j} = \frac{x(A - A_j) + A_j}{A} = \frac{s(A - A_j) +
 
 $$ \boxed{\,\frac{U_o}{U_j} = \frac{A_j + \sqrt{2A_j(A - A_j)}}{A + \sqrt{2A_j(A - A_j)}}\,} \tag{5} $$
 
-**4. Total energy (Notes Eq. 3.46)**
+**4. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 
@@ -129,7 +129,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_o$ | $+\rho U_oA\left(cT_o + \tfrac{U_o^2}{2}\right)$ | $-p_aU_oA$ | $0$ | $0$ |
 | $\Sigma_w$ | $0$ | $0$ | $0$ | $0$ (adiabatic) |
 
-Pressure work: by (2) and (1), $p_e[U_e(A - A_j) + U_jA_j] - p_aU_oA = (p_e - p_a)U_oA = -\tfrac{1}{2}\rho U_e^2U_oA$. With $T_e = T_j = T_a$ the internal-energy terms give $\rho cU_oA(T_o - T_a)$; using $U_e(A - A_j) = U_oA - U_jA_j$ and dividing by $\rho U_oAU_j^2$:
+Pressure work: by (2) and (1), $p_e[U_e(A - A_j) + U_jA_j] - p_aU_oA = (p_e - p_a)U_oA = -\tfrac{1}{2}\rho U_e^2U_oA$. With $T_e = T_j = T_a$ the internal-energy terms give $\rho cU_oA(T_o - T_a)$. For the kinetic-energy fluxes, $U_e^3(A - A_j) = U_e^2\,(U_oA - U_jA_j)$ by (2), so the balance reads $\rho cU_oA(T_o - T_a) + \tfrac{1}{2}\rho U_o^3A - \tfrac{1}{2}\rho U_e^2(U_oA - U_jA_j) - \tfrac{1}{2}\rho U_j^3A_j = -\tfrac{1}{2}\rho U_e^2U_oA$, i.e. $\rho cU_oA(T_o - T_a) = \tfrac{1}{2}\rho\left[U_jA_j\left(U_j^2 - U_e^2\right) - U_o^3A\right]$. Dividing by $\rho U_oAU_j^2$:
 
 $$ \boxed{\,\frac{c\,(T_o - T_a)}{U_j^2} = \frac{U_jA_j}{2U_oA}\left[1 - \left(\frac{U_e}{U_j}\right)^2\right] - \frac{1}{2}\left(\frac{U_o}{U_j}\right)^2\,} \tag{6} $$
 

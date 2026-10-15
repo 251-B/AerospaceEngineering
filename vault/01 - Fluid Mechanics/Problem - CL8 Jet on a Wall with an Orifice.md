@@ -51,7 +51,7 @@ Source: CL8.pdf (page 1). Notes.pdf: Bernoulli's equation Eq. 4.17 (Chapter 4), 
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
-- Frame fixed to the wall; $\bar{e}_x$ along the jet axis (towards the wall); cylindrical coordinate $r$ on the wall, with $\int\bar{e}_r\,d\theta = 0$.
+- Frame fixed to the wall; $\bar{e}_x$ along the jet axis (towards the wall); cylindrical coordinate $r$ on the wall, with two fixed unit vectors $\bar{e}_y$, $\bar{e}_z$ normal to $\bar{e}_x$, $\bar{e}_r = \cos\theta\,\bar{e}_y + \sin\theta\,\bar{e}_z$ and $\int_0^{2\pi}\bar{e}_r\,d\theta = [\sin\theta]_0^{2\pi}\,\bar{e}_y + [-\cos\theta]_0^{2\pi}\,\bar{e}_z = \bar{0}$.
 - Fixed control volume around the water: $\Sigma_j$ (section of the incoming jet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (section of the secondary jet beyond the orifice, $\bar{n} = +\bar{e}_x$), $\Sigma_r$ (cylinder of radius $r$ across the wall jet, $\bar{n} = \bar{e}_r$, height $h$), $\Sigma_a$ (free surfaces, $p = p_a$, $\bar{v}\cdot\bar{n} = 0$) and $\Sigma_w$ (wetted wall).
 
 ![[attachments/FM-T3/cl8-cv.svg]]

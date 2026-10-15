@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-fluids-t3-steps",
+    "date": "2026-10-15",
+    "tag": "Fluid Mechanics",
+    "title": "Topic 3 solutions: missing steps added",
+    "text": "Skipped algebra steps are now written out, data that come only from the official solutions are marked, and one numerical example was corrected.",
+    "link": "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html"
+  },
+  {
     "id": "2026-10-15-fluids-t3-figures",
     "date": "2026-10-15",
     "tag": "Fluid Mechanics",

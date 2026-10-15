@@ -83,7 +83,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 
 $$ \boxed{\,\rho_iV_ia_i = \rho_oV_oa_o\,},\qquad \dot{m} = \rho_iV_ia_ib \tag{1} $$
 
-**1. Total energy (Notes Eq. 3.46)**
+**1. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \int_{V_c}Q_R\,dV $$
 
@@ -95,7 +95,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_o$ | $+\dot{m}\left(e_o + \tfrac{V_o^2}{2}\right)$ | $-p_oV_oa_ob$ | $0$ | $0$ |
 | **$\Sigma_w$** (boxed) | $0$ | $0$ ($\bar{v} = 0$) | $0$ | $-\int_{\Sigma_w}\bar{q}\cdot\bar{n}\,d\sigma$ |
 
-Boxed term plus the volume heat release: $\dot{Q}$.
+Boxed term plus the volume heat release: $\dot{Q}$. Using $\dot{m} = \rho_iV_ia_ib = \rho_oV_oa_ob$ from (1), $p_iV_ia_ib = \dot{m}\,p_i/\rho_i$ and $p_oV_oa_ob = \dot{m}\,p_o/\rho_o$; moving the pressure work to the left, each side contains $e + p/\rho = c_pT = \frac{\gamma}{\gamma - 1}\frac{p}{\rho}$ (perfect gas):
 
 $$ \boxed{\,\dot{m}\left[\left(\frac{\gamma}{\gamma - 1}\frac{p_o}{\rho_o} + \frac{V_o^2}{2}\right) - \left(\frac{\gamma}{\gamma - 1}\frac{p_i}{\rho_i} + \frac{V_i^2}{2}\right)\right] = \dot{Q}\,} \tag{2} $$
 
@@ -141,7 +141,7 @@ $$ \boxed{\,L = \frac{M_z}{F} = \frac{b}{2F}\left[\left(\rho_iV_i^2 + p_i - p_a\
 
 ## Phase 4: Interpretation, Limits and Dimensional Check
 
-- The airflow enters below the CoG and leaves above it, so both the intake (pushed backwards) and the exhaust reaction (pushed forwards) create a positive $M_z$, which pitches the nose down (the nose is at $-x$). The canard ahead of the CoG with an upward lift balances it, which is why $L > 0$.
+- The airflow enters below the CoG and leaves above it, so both the intake (pushed backwards) and the exhaust reaction (pushed forwards) create a positive $M_z$ provided $\rho V^2 + p - p_a > 0$ at each section (in the example $\rho_iV_i^2 + p_i - p_a = 12\,500$ Pa at the intake, and $p_o = p_a$ at the exit), which pitches the nose down (the nose is at $-x$). The canard ahead of the CoG with an upward lift balances it, which is why $L > 0$.
 - Heating raises the stagnation enthalpy (2): the gas leaves faster ($V_o > V_i$), giving the thrust (3) along $-\bar{e}_x$ (forwards).
 - Dimensions (SI): $[\dot{m}V] = \text{N}$; $[(\rho V^2 + p)a^2b] = \text{N}\cdot\text{m}$; $[M_z/F] = \text{m}$.
 - Numerical illustration (hypothetical data): $a_i = 0.3$ m, $a_o = 0.25$ m, $b = 1$ m, $V_i = 150$ m/s, $\rho_i = 1$ kg/m$^3$, $p_i = 0.9\times10^5$ Pa, $p_o = p_a = 10^5$ Pa, $\dot{Q} = 20$ MW, $\gamma = 1.4$, $F = 5$ kN give $V_o = 362.56$ m/s, $\rho_o = 0.49647$ kg/m$^3$, $|\bar{T}| = 12565$ N, $M_z = 2601.9$ N$\cdot$m, $L = 0.5204$ m (energy residual below $10^{-7}$).

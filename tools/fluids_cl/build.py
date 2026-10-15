@@ -16,7 +16,7 @@ Block types used by the content modules:
   ("bal", dict(label=..., eq=latex, cols=[latex...], rows=[(surface, [cells...], is_wall)],
                wall=text or None, result=latex))
 """
-import argparse, html, json, os, pathlib, re, sys, tempfile
+import argparse, html, json, pathlib, re, sys, tempfile
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -213,8 +213,8 @@ def card_html(P):
           '        <div class="solution-content">']
     for badge, head, blocks in P["phases"]:
         s.append('<div class="phase-block">')
-        s.append(f'<span class="phase-badge">{badge}</span>')
-        s.append(f'<h3 class="phase-heading">{head}</h3>')
+        s.append(f'<span class="phase-badge">{html.escape(badge)}</span>')
+        s.append(f'<h3 class="phase-heading">{inline_html(head)}</h3>')
         s += with_cv(blocks, fig_name(P, "cv"), block_html) if badge == "Phase 2" else [block_html(b) for b in blocks]
         s.append('</div>')
     s += ['        </div>', '      </details>', '    </article>', '']
@@ -253,16 +253,21 @@ def note_md(P):
     return "\n".join(out).rstrip() + "\n"
 
 
+def replace_once(text, old, new):
+    """str.replace that fails loudly when the template no longer holds the text to retitle."""
+    if text.count(old) != 1:
+        raise ValueError(f"the page template no longer contains exactly one {old[:60]!r}")
+    return text.replace(old, new)
+
+
 def page(probs):
     head = (HERE / "template_head.html").read_text(encoding="utf-8").rstrip("\n")
     last = probs[-1]["id"].upper()
-    head = head.replace("Flow Kinematics Solved Problems (K1-K10) - Fluid Mechanics", f"Conservation Laws Solved Problems (CL1-{last}) - Fluid Mechanics")
-    head = head.replace("  </style>", EXTRA_CSS + "  </style>", 1)
+    head = replace_once(head, "Flow Kinematics Solved Problems (K1-K10) - Fluid Mechanics", f"Conservation Laws Solved Problems (CL1-{last}) - Fluid Mechanics")
+    head = replace_once(head, "  </style>", EXTRA_CSS + "  </style>")
     tail = (HERE / "template_tail.html").read_text(encoding="utf-8")
-    so_far = "" if last == "CL22" else " so far"
-    tail = tail.replace("Worked solutions to the official kinematics problem collection (K1 to K10); statements follow the handwritten source sheets.",
-                        f"Worked solutions to the official conservation-laws problem collection (CL1 to {last}{so_far}); statements follow the handwritten source sheets.")
-    rest = "" if last == "CL22" else f" ({len(probs)} of the 22 problems so far; the rest of the collection is added in batches)"
+    tail = replace_once(tail, "Worked solutions to the official kinematics problem collection (K1 to K10); statements follow the handwritten source sheets.",
+                        f"Worked solutions to the official conservation-laws problem collection (CL1 to {last}); statements follow the handwritten source sheets.")
     top = f"""
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -288,7 +293,7 @@ def page(probs):
       <div class="topic-badge">Topic 3 &middot; Conservation Laws</div>
       <h1 class="page-title">Solved Problems: Official Collection CL1 to {last}</h1>
       <p class="page-meta">
-        Worked solutions to the conservation-laws collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid{rest}. Every problem restates the official statement, then follows four phases: (1) hypotheses, data and unknowns; (2) frames, control volume and its surfaces; (3) the balances; (4) interpretation, limits and dimensional check. The balances follow the method used in class: each one is written in full with the vanishing terms crossed out and the reason underneath, every surface integral is then evaluated surface by surface (the vertical line drawn under each integral), the wall terms are grouped (boxed) as the force on the body, and each result is boxed and numbered. Discrepancies found in the handwritten official solutions are flagged in the corresponding problem, and anything beyond the course material is marked as an extension. References to Notes.pdf are to Chapter 3 (Conservation laws).
+        Worked solutions to the conservation-laws collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid. Every problem restates the official statement, then follows four phases: (1) hypotheses, data and unknowns; (2) frames, control volume and its surfaces; (3) the balances; (4) interpretation, limits and dimensional check. The balances follow the method used in class: each one is written in full with the vanishing terms crossed out and the reason underneath, every surface integral is then evaluated surface by surface (the vertical line drawn under each integral), the wall terms are grouped (boxed) as the force on the body, and each result is boxed and numbered. Discrepancies found in the handwritten official solutions are flagged in the corresponding problem, and anything beyond the course material is marked as an extension. References to Notes.pdf are to Chapter 3 (Conservation laws).
       </p>
     </div>
 
@@ -320,17 +325,14 @@ def sync(root, probs):
     s = (root / MOC).read_text(encoding="utf-8")
     start = s.index("  * **Solved Conservation-Laws Problems")
     end = s.index("  * **Practical Modular Subchapters:**")
-    status = "complete" if last == "CL22" else f"in progress: CL1 to {last} of CL1 to CL22"
-    block = f"  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, {status}):**\n"
+    block = "  * **Solved Conservation-Laws Problems (Official Problem Sheet CL, complete):**\n"
     for P in probs:
         block += f"    * [[01 - Fluid Mechanics/{P['note_title']}|Problem {P['id'].upper()}: {P['title']}]]\n"
     write(root, MOC, s[:start] + block + s[end:])
 
     s = (root / PROBLEMS_INDEX).read_text(encoding="utf-8")
     s = re.sub(r"Solved Problems: Conservation Laws \(CL1 to CL\d+\)", f"Solved Problems: Conservation Laws (CL1 to {last})", s)
-    desc = (f"The official conservation-laws collection ({n} of 22 problems so far, added in batches), each restated and solved in four phases with the method used in class: every balance written in full with the vanishing terms crossed out, each surface integral evaluated surface by surface, and the wall terms grouped as the force on the body."
-            if last != "CL22" else
-            "The 22 problems of the official conservation-laws collection, each restated and solved in four phases with the method used in class: every balance written in full with the vanishing terms crossed out, each surface integral evaluated surface by surface, and the wall terms grouped as the force on the body.")
+    desc = ("The 22 problems of the official conservation-laws collection, each restated and solved in four phases with the method used in class: every balance written in full with the vanishing terms crossed out, each surface integral evaluated surface by surface, and the wall terms grouped as the force on the body.")
     s = re.sub(r'(<a href="topic-3-conservation-laws.html" class="topic-card">.*?<p class="topic-desc">).*?(</p>)', lambda m: m.group(1) + desc + m.group(2), s, flags=re.S)
     s = re.sub(r'(<a href="topic-3-conservation-laws.html".*?</svg>)\d+ Solved Problems', lambda m: m.group(1) + f"{n} Solved Problems", s, flags=re.S)
     write(root, PROBLEMS_INDEX, s)
@@ -366,7 +368,10 @@ def generate(root):
 
 
 def check():
-    """Regenerate in a scratch copy of the inputs and return the files that differ from the repository."""
+    """Regenerate in a scratch copy of the inputs and return the files that differ from the repository.
+
+    The text files are compared; the four PNG crops of the official statements in vault/attachments/FM-T3/ are inputs
+    (cropped by hand from the PDFs, never regenerated), so only their existence is tested (tools/tests/test_fluids_cl.py)."""
     stale = []
     with tempfile.TemporaryDirectory() as tmp:
         root = pathlib.Path(tmp)

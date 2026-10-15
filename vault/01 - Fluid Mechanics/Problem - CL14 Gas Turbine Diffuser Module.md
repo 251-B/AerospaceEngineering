@@ -115,7 +115,7 @@ On $\Sigma_{in}$, $\bar{x} = r\bar{e}_r + z\bar{e}_z$ and the $z$ component of $
 
 $$ \boxed{\,M = \frac{2\pi}{3}\,\rho_1u_1u_\theta\left(R_o^3 - R_i^3\right)\,} \tag{3} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 
@@ -126,6 +126,8 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_{in}$ | $-G\left(e_1 + \tfrac{u_1^2 + u_\theta^2}{2}\right)$ | $+p_1u_1\pi(R_o^2 - R_i^2)$ | $0$ | $0$ |
 | $\Sigma_{out}$ | $+G\left(e_2 + \tfrac{u_2^2}{2}\right)$ | $-p_2u_2\pi R_o^2$ | $0$ | $0$ |
 | $\Sigma_w,\ \Sigma_a$ | $0$ | $0$ ($\bar{v} = 0$) | $0$ ($\bar{v} = 0$) | $0$ (adiabatic) |
+
+Using $G = \rho_1u_1\pi(R_o^2 - R_i^2) = \rho_2u_2\pi R_o^2$ from (1), the pressure-work terms are $p_1u_1\pi(R_o^2 - R_i^2) = G\,p_1/\rho_1$ and $p_2u_2\pi R_o^2 = G\,p_2/\rho_2$. Moving them to the left and dividing by $G$, each side contains $e + p/\rho = c_pT = \frac{\gamma}{\gamma - 1}\frac{p}{\rho}$ (perfect gas):
 
 $$ \boxed{\,\frac{\gamma}{\gamma - 1}\frac{p_1}{\rho_1} + \frac{u_1^2 + u_\theta^2}{2} = \frac{\gamma}{\gamma - 1}\frac{p_2}{\rho_2} + \frac{u_2^2}{2}\,} \tag{4} $$
 

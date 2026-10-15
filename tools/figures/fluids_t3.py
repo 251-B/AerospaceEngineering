@@ -1265,7 +1265,7 @@ def cl1_statement():
             "from U at the edges to U over 2 at the centreline",
             "Statement figure (redrawn from CL1.pdf, p. 1): uniform profile $U$ upstream; bounding streamlines from "
             "$y = \\pm y_{-\\infty}$ to $y = \\pm y_0$; wake profile at $x = x_0$ falling linearly from $U$ at $|y| = y_0$ to "
-            "$U/2$ on the centreline")
+            "$U/2$ on the centreline (the profile formulas written beside the original figure are given in Phase 1)")
 
 
 def cl1_cv():
@@ -1296,7 +1296,8 @@ def cl1_cv():
             "Control volume of the solution: $\\Sigma_1$ (far upstream, $|y| < y_{-\\infty}$, $\\bar{n} = -\\bar{e}_x$), "
             "$\\Sigma_2$ ($x = x_0$, $|y| < y_0$, $\\bar{n} = +\\bar{e}_x$), the bounding streamlines $\\Sigma_l$ and the "
             "airfoil surface $\\Sigma_w$ ($\\bar{n}$ into the airfoil). The official sketch names them $\\Sigma_u$, "
-            "$\\Sigma_d$, $\\Sigma_\\ell$ and $\\Sigma_i$")
+            "$\\Sigma_d$, $\\Sigma_i$ and, for the bounding streamlines, a handwritten symbol read as $\\Sigma_\\ell$ "
+            "(the reading is uncertain)")
 
 
 # ----------------------------------------------------------------------------------------- shared (Lote 4)
@@ -1740,9 +1741,9 @@ def cl13_cv():
     sigma(c, (236, 396), "s")
     sigma(c, (290, 110), "w", "start"); leader(c, (288, 106), (258, 96)); leader(c, (288, 112), (190, 120))
     sigma(c, (150, 300), "b", "end"); leader(c, (152, 296), (222, 290))
-    normal(c, (60, 222), (-1, 0), length=28, lab_off=(-4, 16), anchor="end")
+    normal(c, (60, 222), (-1, 0), length=28, lab_off=(-4, 5), anchor="end")
     normal(c, (236, 40), (0, -1), length=22, lab_off=(10, 6), anchor="start")
-    arrow(c, (8, 180), (52, 180), "BLUE", 2.0, 9); lab(c, (28, 158), sub("V", "o"), "BLUE", size=15)
+    arrow(c, (8, 180), (52, 180), "BLUE", 2.0, 9); lab(c, (28, 150), sub("V", "o"), "BLUE", size=15)
     arrow(c, (300, 300), (340, 300), "HEAD", 1.3, 8); lab(c, (346, 305), vec("e") + sub("", "x"), anchor="start", size=15)
     # front view: impeller, exit velocity at the angle alpha with the lateral surface
     cx, cy, R, r0 = 480, 210, 135, 34
@@ -1765,7 +1766,8 @@ def cl13_cv():
     arrow(c, P, (P[0] + 80 * V[0], P[1] + 80 * V[1]), "BLUE", 2.0, 9)
     lab(c, (P[0] + 80 * V[0] - 6, P[1] + 80 * V[1] - 8), sub("V", "s"), "BLUE", "end", 16)
     angle_arc(c, P, 52, math.degrees(math.atan2(-t_[1], t_[0])), math.degrees(math.atan2(-V[1], V[0])), "HEAD", 1.1)
-    lab(c, (P[0] + 62, P[1] - 4), "α", anchor="start", size=16)
+    bis = (t_[0] + V[0], t_[1] + V[1]); nb = math.hypot(*bis)           # label on the bisector of the angle,
+    lab(c, (P[0] + 66 * bis[0] / nb, P[1] + 66 * bis[1] / nb), "α", anchor="start", size=16)   # clear of the dashed line
     lab(c, (cx + R - 10, cy - R + 6), sub("Σ", "s"), "GREEN", "start", 16, weight="600")
     REG.put("cl13-cv", c,
             "Control volume of the pump: meridional section with the inlet disc, the lateral exit cylinder, the fixed "

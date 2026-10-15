@@ -51,10 +51,12 @@ Source: CL7.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, 
 | $v_r$, $v_z$, $v_\theta$ | inlet and exit velocities | m/s |
 | $R_g$, $c_p$ | gas constant, specific heat | J/(kg$\cdot$K) |
 | $\bar{F}$, $\bar{M}$ | force and torque on the dryer | N, N$\cdot$m |
+| $T_s$, $T_a$, $p_a$ | exit and ambient temperatures, ambient pressure | K, K, Pa |
+| $\tan\beta = v_\theta/v_z$ | swirl ratio at the exit | 1 |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
-- Frame fixed to the dryer; cylindrical basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$ with $\bar{e}_z$ along the axis in the jet direction; origin on the axis. By axisymmetry $\int\bar{e}_r\,d\theta = \int\bar{e}_\theta\,d\theta = 0$ over a full turn.
+- Frame fixed to the dryer; cylindrical basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$ with $\bar{e}_z$ along the axis in the jet direction; origin on the axis. By axisymmetry the integrals of the unit vectors over a full turn vanish: with two fixed unit vectors $\bar{e}_x$, $\bar{e}_y$ normal to the axis ($\bar{e}_x\wedge\bar{e}_y = \bar{e}_z$), $\bar{e}_r = \cos\theta\,\bar{e}_x + \sin\theta\,\bar{e}_y$ and $\bar{e}_\theta = -\sin\theta\,\bar{e}_x + \cos\theta\,\bar{e}_y$, so $\int_0^{2\pi}\bar{e}_r\,d\theta = [\sin\theta]_0^{2\pi}\,\bar{e}_x + [-\cos\theta]_0^{2\pi}\,\bar{e}_y = \bar{0}$ and $\int_0^{2\pi}\bar{e}_\theta\,d\theta = [\cos\theta]_0^{2\pi}\,\bar{e}_x + [\sin\theta]_0^{2\pi}\,\bar{e}_y = \bar{0}$.
 - Surfaces: $\Sigma_1$ (radial inlet, area $A$, $\bar{n} = \bar{e}_r$, $\bar{v} = -v_r\bar{e}_r$), $\Sigma_2$ (exit disc, $\bar{n} = \bar{e}_z$), $\Sigma_w$ (fixed casing and resistance, $\bar{v} = 0$) and $\Sigma_m$ (fan blades, $\bar{v} = \bar{v}_c$).
 
 ![[attachments/FM-T3/cl7-cv.svg]]
@@ -98,7 +100,7 @@ Boxed terms: $-\bar{F}$. On $\Sigma_2$, $\int_{\Sigma_2}\bar{e}_\theta\,d\sigma 
 
 $$ \rho_sv_z^2\pi R^2\,\bar{e}_z = -\bar{F} \;\Longrightarrow\; \boxed{\,\bar{F} = -\frac{p_a}{R_gT_s}\,v_z^2\,\pi R^2\,\bar{e}_z = -G\,v_z\,\bar{e}_z\,} \tag{2} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

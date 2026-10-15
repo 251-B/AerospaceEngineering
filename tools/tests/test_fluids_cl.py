@@ -4,6 +4,7 @@ import importlib.util
 import pathlib
 import subprocess
 import sys
+import tempfile
 import unittest
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
@@ -29,6 +30,27 @@ class FluidsClTests(unittest.TestCase):
     def test_generated_files_are_up_to_date(self):
         proc = subprocess.run([sys.executable, str(BUILD), "--check"], capture_output=True, text=True)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+
+    def test_malformed_notes_raise_an_error_that_names_the_file(self):
+        """A hand-edited note that breaks the layout must fail loudly, never lose content silently."""
+        build = load_build()
+        original = next((REPO / build.VAULT).glob("Problem - CL2 *.md")).read_text(encoding="utf-8").split("\n")
+        sep = next(i for i, line in enumerate(original) if line.startswith("| :---"))
+        source = next(i for i, line in enumerate(original) if line.startswith("Source: "))
+        heading = next(i for i, line in enumerate(original) if line.startswith("# Problem "))
+        cases = {
+            "blank line inside a table": original[:sep + 1] + [""] + original[sep + 1:],
+            "source line missing": original[:source] + original[source + 1:],
+            "title heading missing": original[:heading] + original[heading + 1:],
+            "frontmatter not closed": ["---"] + [line for line in original[1:] if line != "---"],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            for name, lines in cases.items():
+                path = pathlib.Path(tmp) / "Problem - CL2 broken.md"
+                path.write_text("\n".join(lines), encoding="utf-8")
+                with self.subTest(name):
+                    with self.assertRaisesRegex(ValueError, "Problem - CL2 broken.md"):
+                        build.notes.read_problem(path)
 
     def test_every_problem_has_a_card_and_a_note(self):
         build = load_build()

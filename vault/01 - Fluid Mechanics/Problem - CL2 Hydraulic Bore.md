@@ -45,6 +45,7 @@ Source: CL2.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eqs. 3.10-
 | $U_1$ | velocity of the water behind the bore | m/s |
 | $h_0$, $h_1$ | layer thickness ahead of and behind the bore | m |
 | $F = U^2/(gh_0)$ | Froude number of the bore | 1 |
+| $\rho$, $g$, $p_a$ | water density, gravitational acceleration, ambient pressure | kg/m$^3$, m/s$^2$, Pa |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
@@ -119,7 +120,7 @@ From (2), $U - U_1 = Uh_0/h_1$, so $(U - U_1)^2h_1 = U^2h_0^2/h_1$. Substituting
 
 $$ U^2h_0\left(\frac{h_0}{h_1} - 1\right) = \frac{g}{2}(h_0 - h_1)(h_0 + h_1) \;\Longrightarrow\; U^2h_0\,\frac{h_0 - h_1}{h_1} = \frac{g}{2}(h_0 - h_1)(h_0 + h_1). $$
 
-For a bore $h_1 \ne h_0$, so $h_0 - h_1$ cancels. With $r = h_1/h_0$ and $F = U^2/(gh_0)$, dividing by $gh_0^2$ gives $F/r = (1 + r)/2$:
+For a bore $h_1 \ne h_0$, so $h_0 - h_1$ cancels, leaving $U^2h_0/h_1 = \tfrac{g}{2}(h_0 + h_1)$. With $r = h_1/h_0$ and $F = U^2/(gh_0)$, dividing this by $gh_0$ gives $F/r = (1 + r)/2$:
 
 $$ r^2 + r - 2F = 0 \;\Longrightarrow\; \boxed{\,\frac{h_1}{h_0} = \frac{1}{2}\left(\sqrt{1 + 8F} - 1\right)\,} \tag{4} $$
 

@@ -51,6 +51,7 @@ Source: CL6.pdf (page 1), also solved in class (class notes, CL6). Notes.pdf, Ch
 | $T_i$, $T_o$ | inlet and outlet temperatures | K |
 | $c$ | specific heat of the liquid | J/(kg$\cdot$K) |
 | $\dot{Q}$ | heat per unit time into the liquid | W |
+| $\rho$ | liquid density | kg/m$^3$ |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
@@ -98,7 +99,7 @@ Boxed $\Sigma_w$ terms: $-\bar{F}$.
 
 $$ -\rho v_i^2A_i\,\bar{e}_x - \rho v_o^2A_o\,\bar{e}_z = (p_i - p_a)A_i\,\bar{e}_x - \bar{F} \;\Longrightarrow\; \boxed{\,F_x = \left[\rho v_i^2 + (p_i - p_a)\right]A_i,\qquad F_z = \rho v_o^2A_o\,} \tag{2} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

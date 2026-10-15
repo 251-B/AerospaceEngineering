@@ -77,7 +77,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 
 $$ \rho_uV_uA = \rho_oV_oA \;\Longrightarrow\; \boxed{\,\frac{p_uV_u}{T_u} = \frac{p_aV_o}{T_o}\,} \tag{1} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 
@@ -88,6 +88,8 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_u$ | $-\dot{m}\left(e_u + \tfrac{V_u^2}{2}\right)$ | $+p_uV_uA$ | $0$ | $0$ |
 | $\Sigma_o$ | $+\dot{m}\left(e_o + \tfrac{V_o^2}{2}\right)$ | $-p_aV_oA$ | $0$ | $0$ |
 | $\Sigma_w$ | $0$ | $0$ ($\bar{v} = 0$) | $0$ ($\bar{v} = 0$) | $0$ (insulated) |
+
+Using $\dot{m} = \rho_uV_uA = \rho_oV_oA$, the pressure-work terms are $p_uV_uA = \dot{m}\,p_u/\rho_u$ and $p_aV_oA = \dot{m}\,p_a/\rho_o$. Moving them to the left and dividing by $\dot{m}$, each side contains $e + p/\rho = c_pT = \frac{\gamma}{\gamma - 1}R_gT$ (perfect gas, $p/\rho = R_gT$):
 
 $$ \boxed{\,\frac{\gamma}{\gamma - 1}R_gT_u + \frac{1}{2}V_u^2 = \frac{\gamma}{\gamma - 1}R_gT_o + \frac{1}{2}V_o^2\,} \tag{2} $$
 

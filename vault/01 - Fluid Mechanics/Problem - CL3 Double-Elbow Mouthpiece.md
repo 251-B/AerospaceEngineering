@@ -46,6 +46,7 @@ Source: CL3.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, 
 | $U_o$ | exit velocity | m/s |
 | $H$ | vertical offset between the axes | m |
 | $\bar{F}_{MP}$, $\bar{M}_{MP}$ | force and moment on the mouth piece | N, N$\cdot$m |
+| $\rho$, $p_a$ | water density, ambient pressure | kg/m$^3$, Pa |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 

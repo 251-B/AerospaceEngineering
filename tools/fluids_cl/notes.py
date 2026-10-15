@@ -18,6 +18,8 @@ def _scalar(value):
 
 
 def _frontmatter(lines):
+    if not lines or lines[0] != "---" or "---" not in lines[1:]:
+        raise ValueError("the frontmatter must open and close with '---'")
     end = lines.index("---", 1)
     fm, key = {}, None
     for line in lines[1:end]:
@@ -44,6 +46,12 @@ def _chunks(lines):
     return out
 
 
+def _check_table(chunk):
+    """A table is a header row, a separator row and the body, with no blank line inside."""
+    if len(chunk) < 2 or not re.match(r"^\|(\s*:?-+:?\s*\|)+$", chunk[1].strip()):
+        raise ValueError(f"table without header or separator row (a blank line inside a table?) near: {chunk[0][:60]}")
+
+
 def _cells(line):
     return [c.strip() for c in line.strip()[1:-1].split("|")]
 
@@ -56,6 +64,7 @@ def _is_bal(chunks, i):
 def _bal(chunks, i):
     label, eq = chunks[i][0][2:-2], chunks[i + 1][0][3:-3]
     table = chunks[i + 3]
+    _check_table(table)
     cols = [c[1:-1] for c in _cells(table[0])[1:]]
     rows = []
     for line in table[2:]:
@@ -99,6 +108,7 @@ def _blocks(lines):
             kind_title = re.match(r"^> \[!\w+\] (.*)$", ch[0])
             blocks.append(("note", kind_title.group(1), ch[1][2:] if len(ch) > 1 else ""))
         elif ch[0].startswith("| "):
+            _check_table(ch)
             blocks.append(("table", _cells(ch[0]), [_cells(line) for line in ch[2:]]))
         elif len(ch) == 1 and ch[0].startswith("$$ ") and ch[0].endswith(" $$"):
             blocks.append(("m", ch[0][3:-3]))
@@ -109,11 +119,25 @@ def _blocks(lines):
 
 
 def read_problem(path):
+    """The problem dict of one note; a malformed note raises ValueError naming the file."""
     path = pathlib.Path(path)
+    try:
+        return _read(path)
+    except ValueError as err:
+        raise ValueError(f"{path.name}: {err}") from None
+
+
+def _read(path):
     lines = path.read_text(encoding="utf-8").split("\n")
     fm, body_at = _frontmatter(lines)
+    for key in ("id", "pill", "tags", "tags_html"):
+        if key not in fm:
+            raise ValueError(f"the frontmatter lacks '{key}'")
     body = lines[body_at:]
-    num, title = re.match(r"^# Problem (CL\d+): (.*)$", next(l for l in body if l.startswith("# Problem "))).groups()
+    heading = next((re.match(r"^# Problem (CL\d+): (.*)$", l) for l in body if l.startswith("# Problem ")), None)
+    if heading is None:
+        raise ValueError("missing the '# Problem CLn: title' heading")
+    num, title = heading.groups()
 
     sections, name = [], None
     for line in body:
@@ -123,10 +147,13 @@ def read_problem(path):
         elif name is not None:
             sections[-1][1].append(line)
     lines_of = dict(sections)
+    if "Statement" not in lines_of:
+        raise ValueError("missing the '## Statement' section")
 
     statement_chunks = _chunks(lines_of["Statement"])
-    source_line = "\n".join(statement_chunks[-1])
-    assert source_line.startswith("Source: "), path.name
+    source_line = "\n".join(statement_chunks[-1]) if statement_chunks else ""
+    if not source_line.startswith("Source: "):
+        raise ValueError("the statement must end with the 'Source: ...' line")
     statement = _blocks(lines_of["Statement"][:lines_of["Statement"].index(statement_chunks[-1][0])])
 
     phases = []

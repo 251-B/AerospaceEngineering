@@ -98,7 +98,7 @@ Boxed terms: $-\bar{F}$. With (1), $\rho_2U_2^2 = \rho_1U_1U_2$.
 
 $$ \boxed{\,\frac{\bar{F}}{3R} = \left[p_1 - p_2 + \rho_1U_1^2\left(1 - \frac{U_2}{U_1}\right)\right]\bar{e}_x\,} \tag{2} $$
 
-**3. Total energy (Notes Eq. 3.46)**
+**3. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

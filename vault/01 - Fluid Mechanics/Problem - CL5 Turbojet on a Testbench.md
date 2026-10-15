@@ -37,7 +37,7 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 - Compressible flow; neglect gravity; uniform properties at inlet and outlet; steady on average (the rotating parts make the flow periodic inside, but there is no net accumulation).
 - Perfect gas, $h = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$, as in the class solution. Fuel mass flow neglected (not given), so the same mass flow crosses both sections.
 - $\dot{W}$: work per unit time extracted from the fluid by the mobile parts; $\dot{Q}$: heat per unit time transferred to the fluid; $\bar{F} = -F\bar{e}_x$: force on the device measured on the testbench (fluid inside plus ambient air outside, at $p_a$).
-- Data: $[\rho_1,\ p_1,\ \bar{v}_1 = v_1\bar{e}_x,\ A_1,\ A_2,\ p_a,\ F,\ \dot{W},\ \dot{Q},\ \gamma]$. Unknowns: $[\rho_2,\ p_2,\ \bar{v}_2 = v_2\bar{e}_x]$.
+- Data: $[\rho_1,\ p_1,\ \bar{v}_1 = v_1\bar{e}_x,\ A_1,\ A_2,\ F,\ \dot{W},\ \dot{Q}]$ and, introduced in the solution (not in the statement), the ambient pressure $p_a$ and the perfect-gas ratio $\gamma$. Unknowns: $[\rho_2,\ p_2,\ \bar{v}_2 = v_2\bar{e}_x]$.
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
@@ -47,6 +47,7 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 | $F$ | thrust measured on the bench | N |
 | $\dot{W}$, $\dot{Q}$ | power extracted and heat added | W |
 | $\dot{m} = \rho_1v_1A_1$ | mass flow | kg/s |
+| $p_a$, $\gamma$ | ambient pressure and specific-heat ratio (both introduced in the solution) | Pa, 1 |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
@@ -57,7 +58,7 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 ![[attachments/FM-T3/cl5-cv.svg]]
 *Control volume of the solution (as in the class notes): $\Sigma_1$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (exit, $\bar{n} = +\bar{e}_x$), the fixed walls $\Sigma_w$ and the surface $\Sigma_m$ of the mobile parts. The official figure calls them $\Sigma_1$, $\Sigma_2$, $\Sigma_3$ and $\Sigma_4$*
 
-Definitions written on the surfaces, as in class:
+Definitions written on the surfaces, as in class ($Q_R \equiv Q_c + Q_r$ is the volumetric heat release of Notes Eq. 3.46):
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_m,\Sigma_w}(p - p_a)\,\bar{n}\,d\sigma - \int_{\Sigma_m,\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma = -F\,\bar{e}_x\,} $$
 
