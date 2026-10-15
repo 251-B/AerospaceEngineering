@@ -79,7 +79,8 @@ tags:
     * **Subchapter 3.4:** Conservation of Angular Momentum & Turbomachinery Torque
     * **Subchapter 3.5:** Total Energy Conservation & Thermodynamic Applications
     * **Subchapter 3.6:** Stress Tensor, Navier-Poisson & Wall Shear Stress
-* Topic 4: The Navier-Stokes Equations (Differential Dynamics) (planned)
+* [[01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations|Topic 4: The Navier-Stokes Equations (Differential Dynamics)]]
+  * Official sources: `Notes.pdf` Chapter 4 and the problem sheets `NS1.pdf` to `NS17.pdf` (17 problems, solved pages in progress).
 
 ### Block III: Hydrostatics & Applications
 * Topic 5: Hydrostatics (Fluid Statics) (planned)

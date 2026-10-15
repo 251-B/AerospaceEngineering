@@ -1817,6 +1817,19 @@
      3
     ]
    }
+  },
+  "subjects/fluid-mechanics/teoria/topic-4.html": {
+   "panel": [
+    [
+     "fm-notes",
+     "auto",
+     "Notes.pdf"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes",
+    "bare_eq": "fm-notes"
+   }
   }
  }
 }

@@ -83,6 +83,34 @@
     "label": "Solved exercises for this topic (sheet exercises 1-6 and the four additional exam-type problems)"
    },
    "figures": "bm_t3"
+  },
+  "subjects/fluid-mechanics/teoria/topic-4.html": {
+   "flavor": "fluids",
+   "template": "subjects/fluid-mechanics/teoria/topic-3-2-mass.html",
+   "note": "vault/01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations.md",
+   "figures": "fluids_t4",
+   "html_title": "Topic 4: The Navier-Stokes Equations — Fluid Mechanics",
+   "brand": "Topic 4 · The Navier-Stokes equations",
+   "category": "Topic 04 · The Navier-Stokes Equations",
+   "title": "The Navier-Stokes Equations",
+   "subtitle": "Differential conservation of mass, momentum and energy, the Navier-Poisson and Fourier closures, initial and boundary conditions, the equations in Cartesian, cylindrical and spherical coordinates, and a practical formulary.",
+   "nav": [
+    [
+     "topic-3.html",
+     "Topic 3: Conservation laws",
+     "prev"
+    ],
+    [
+     "index.html",
+     "Theory index",
+     "center"
+    ],
+    [
+     "../problemas/index.html",
+     "Problems",
+     "next"
+    ]
+   ]
   }
  }
 }

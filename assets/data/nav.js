@@ -47,6 +47,10 @@ window.AE_NAV = {
                   "label": "3.6 Stress tensor and friction"
                 }
               ]
+            },
+            {
+              "href": "subjects/fluid-mechanics/teoria/topic-4.html",
+              "label": "4 · Navier-Stokes equations"
             }
           ]
         },

@@ -61,10 +61,16 @@ def table(rows):
     style = lambda i: ' style="text-align:right"' if i < len(right) and right[i] else ""  # noqa: E731
     th = "".join(f"<th{style(i)}>{inline(c)}</th>" for i, c in enumerate(head))
     trs = "".join("<tr>" + "".join(f"<td{style(i)}>{inline(c)}</td>" for i, c in enumerate(r)) + "</tr>" for r in data)
-    return f'<div class="table-container"><table class="data-table"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></div>'
+    open_, close = STYLE["table"]
+    return f'{open_}<thead><tr>{th}</tr></thead><tbody>{trs}</tbody>{close}'
 
 
 _CALLOUT = {"info": "callout", "note": "callout", "tip": "callout", "warning": "callout callout-warning"}
+_FLUIDS_CALLOUT = {"info": "callout-box", "note": "callout-box", "tip": "callout-box",
+                   "warning": "callout-box callout-warning"}
+_TABLE = ('<div class="table-container"><table class="data-table">', "</table></div>")
+_FLUIDS_TABLE = ('<div class="table-wrapper"><table class="fm-table">', "</table></div>")
+STYLE = {"callout": _CALLOUT, "table": _TABLE}
 _BLOCK_START = re.compile(r"(\$\$|\||> |\s*[-*] |\d+\. |#|!\[\[)")
 
 
@@ -128,7 +134,7 @@ def blocks(lines, figure=None):
             while i < len(lines) and lines[i].startswith(">"):
                 inner.append(lines[i][2:] if lines[i].startswith("> ") else lines[i][1:])
                 i += 1
-            cls = _CALLOUT.get(kind.lower(), "callout")
+            cls = STYLE["callout"].get(kind.lower(), "callout")
             out.append(f'<div class="{cls}"><div class="callout-title">{inline(title)}</div>{blocks(inner, figure)}</div>')
             continue
         if _LI.match(line):
@@ -216,7 +222,109 @@ def question_cards(names, figure, vault):
     return "\n".join(cards)
 
 
+FLUIDS_CSS = """
+    :root { --text-heading: var(--text-primary); --text-faint: var(--text-muted); }
+    .table-wrapper { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border-card); border-radius: 10px; background: var(--bg-card); }
+    table.fm-table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+    .fm-table th, .fm-table td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-subtle); }
+    .fm-table th { font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+    .fm-table tr:last-child td { border-bottom: none; }
+    h4.sub-heading { font-family: var(--font-sans); font-size: 1.02rem; font-weight: 700; color: var(--text-primary); margin: 22px 0 8px; }
+    article ul, article ol { margin: 8px 0 14px 1.4rem; }
+    article li { margin: 4px 0; }
+    .callout-box p:last-child, .callout-box .math-block:last-child { margin-bottom: 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.10); border-left-color: #f59e0b; }
+    .diagram-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 16px; margin: 22px 0; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+    section[id] { scroll-margin-top: 80px; }
+"""
+
+
+def nav_html(items):
+    """Previous / centre / next buttons of the fluid pages: (href, label, kind) with kind prev, center or next."""
+    arrow = {"prev": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line>'
+                     '<polyline points="12 19 5 12 12 5"></polyline></svg>',
+             "next": '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line>'
+                     '<polyline points="12 5 19 12 12 19"></polyline></svg>'}
+    out = []
+    for href, label, kind in items:
+        label = html.escape(label, quote=False)
+        if kind == "prev":
+            out.append(f'<a href="{href}" class="bottom-nav-btn">{arrow["prev"]}<span>{label}</span></a>')
+        elif kind == "next":
+            out.append(f'<a href="{href}" class="bottom-nav-btn"><span>{label}</span>{arrow["next"]}</a>')
+        else:
+            out.append(f'<a href="{href}" class="bottom-nav-btn center"><span>{label}</span></a>')
+    return '<nav class="bottom-nav">\n        ' + "\n        ".join(out) + "\n      </nav>"
+
+
+def build_fluids_page(page_rel, spec, cfg_links, anchors):
+    """A Fluid Mechanics theory page: the shell (head, header, CSS) of a sibling page, the body from the vault note."""
+    global STYLE
+    vault = REPO / spec["note"]
+    md = strip_frontmatter(vault.read_text(encoding="utf-8"))
+    figure = FigureSet(spec.get("figures"))
+    shell = sl.strip_links((REPO / spec.get("template", page_rel)).read_text(encoding="utf-8"))
+    head = shell[:shell.index('<main class="container">')]
+    tail = shell[shell.index("  </main>"):]
+    head = re.sub(r"<title>.*?</title>", f"<title>{html.escape(spec['html_title'], quote=False)}</title>", head, count=1, flags=re.S)
+    head = re.sub(r'(<span style="font-size: 13px; color: var\(--text-muted\);">)[^<]*(</span>)',
+                  lambda m: m.group(1) + html.escape(spec["brand"], quote=False) + m.group(2), head, count=1)
+    head = head.replace("  </style>", FLUIDS_CSS + "  </style>", 1)
+
+    m = re.search(r"^> (.*)$", md, re.M)
+    first_section = re.search(r"^## \d+\.", md, re.M)
+    intro = md[m.start():first_section.start()].split("\n")
+    body = md[first_section.start():md.index("**Back to:**")]
+    saved = STYLE
+    STYLE = {"callout": _FLUIDS_CALLOUT, "table": _FLUIDS_TABLE}
+    try:
+        parts = []
+        for ch in re.split(r"\n(?=## \d+\.)", body.strip()):
+            lines = ch.split("\n")
+            num, rest = re.match(r"## (\d+)\.\s+(.*)", lines[0]).groups()
+            out, chunk = [], []
+            for line in lines[1:]:
+                hm = re.match(r"(#{3,4}) (.*)", line)
+                if hm:
+                    out.append(blocks(chunk, figure))
+                    chunk = []
+                    tag = "h3" if len(hm.group(1)) == 3 else "h4"
+                    out.append(f'<{tag} class="sub-heading">{inline(hm.group(2))}</{tag}>')
+                elif line.strip() == "---":
+                    continue
+                else:
+                    chunk.append(line)
+            out.append(blocks(chunk, figure))
+            parts.append(f'      <section id="section-{num}">\n        <h2 class="section-heading">{num}. {inline(rest)}</h2>\n'
+                         + "\n".join(x for x in out if x) + "\n      </section>")
+        intro_rest = [x for x in intro[1:] if x.strip() != "---"]
+        intro_html = (f'      <section id="section-0">\n        <div class="callout-box"><p>{inline(intro[0][2:])}</p></div>\n'
+                      f'{blocks(intro_rest, figure)}\n      </section>')
+    finally:
+        STYLE = saved
+    header = f'''<main class="container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">{html.escape(spec["category"], quote=False)}</div>
+        <h1 class="article-title">{html.escape(spec["title"], quote=False)}</h1>
+        <p class="article-meta">{html.escape(spec["subtitle"], quote=False)}</p>
+      </header>
+
+'''
+    nav = nav_html([tuple(x) for x in spec["nav"]])
+    page = head + header + intro_html + "\n\n" + "\n\n".join(parts) + f"\n\n      {nav}\n    </article>\n" + tail
+    if page_rel in cfg_links["pages"]:
+        page = sl.build_page(page_rel, page, cfg_links, anchors, {})
+    return page, figure
+
+
 def build_page(page_rel, spec, cfg_links, anchors):
+    if spec.get("flavor") == "fluids":
+        return build_fluids_page(page_rel, spec, cfg_links, anchors)
     vault = REPO / spec["note"]
     md = strip_frontmatter(vault.read_text(encoding="utf-8"))
     figure = FigureSet(spec.get("figures"))

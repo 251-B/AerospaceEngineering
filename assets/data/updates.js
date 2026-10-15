@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-fluids-navier-stokes-theory",
+    "date": "2026-10-15",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics: Navier-Stokes equations (Topic 4)",
+    "text": "The full theory of Chapter 4 is online: differential conservation laws, boundary conditions, the equations in three coordinate systems, and a practical formulary.",
+    "link": "subjects/fluid-mechanics/teoria/topic-4.html"
+  },
+  {
     "id": "2026-10-15-quote-card-plain-text",
     "date": "2026-10-15",
     "tag": "Portal",

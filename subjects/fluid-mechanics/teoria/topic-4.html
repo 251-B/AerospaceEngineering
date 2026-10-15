@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="fluid-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 4: The Navier-Stokes Equations — Fluid Mechanics</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-border: rgba(6, 182, 212, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 33, 62, 0.88);
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --border-subtle: #e2e8f0;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --border-strong: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .article-title, .section-heading, .walkthrough-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+      color: var(--text-primary);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .step-badge {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header.site-header {
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 7px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(18px);
+    }
+
+    /* Subchapter Sticky Pill Bar */
+    .subchapter-nav-bar {
+      position: sticky;
+      top: 49px;
+      z-index: 95;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .pill-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+    }
+
+    .pill-link.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Article Hero */
+    .article-header {
+      padding: 36px 0 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Typography & Blocks */
+    h2.section-heading {
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3.sub-heading {
+      font-family: var(--font-sans) !important;
+      font-size: 1.18rem;
+      font-weight: 600 !important;
+      color: var(--text-primary);
+      margin: 26px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .math-caption {
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .callout-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Canonical Walkthrough Box */
+    .walkthrough-box {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .walkthrough-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .walkthrough-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .step-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #070b14;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 64px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .bottom-nav-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.center {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    :root { --text-heading: var(--text-primary); --text-faint: var(--text-muted); }
+    .table-wrapper { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border-card); border-radius: 10px; background: var(--bg-card); }
+    table.fm-table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+    .fm-table th, .fm-table td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-subtle); }
+    .fm-table th { font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+    .fm-table tr:last-child td { border-bottom: none; }
+    h4.sub-heading { font-family: var(--font-sans); font-size: 1.02rem; font-weight: 700; color: var(--text-primary); margin: 22px 0 8px; }
+    article ul, article ol { margin: 8px 0 14px 1.4rem; }
+    article li { margin: 4px 0; }
+    .callout-box p:last-child, .callout-box .math-block:last-child { margin-bottom: 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.10); border-left-color: #f59e0b; }
+    .diagram-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 16px; margin: 22px 0; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+    section[id] { scroll-margin-top: 80px; }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Canvas Background -->
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">FLUID MECHANICS</span>
+        <span style="font-size: 13px; color: var(--text-muted);">Topic 4 · The Navier-Stokes equations</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Article Container -->
+  <main class="container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Topic 04 · The Navier-Stokes Equations</div>
+        <h1 class="article-title">The Navier-Stokes Equations</h1>
+        <p class="article-meta">Differential conservation of mass, momentum and energy, the Navier-Poisson and Fourier closures, initial and boundary conditions, the equations in Cartesian, cylindrical and spherical coordinates, and a practical formulary.</p>
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener">Notes.pdf · p. 20</a>
+        </nav>
+      </header>
+
+      <section id="section-0">
+        <div class="callout-box"><p><strong>Central idea.</strong> The integral laws of Chapter 3 give the overall balances of a finite fluid volume. To compute local fields (velocity, density, pressure, temperature at every point) the same laws are rewritten with the Gauss formula as partial differential equations, which are then closed with the equations of state and the Navier-Poisson and Fourier constitutive laws, and integrated with initial and boundary conditions.</p></div>
+
+      </section>
+
+      <section id="section-1">
+        <h2 class="section-heading">1. From the Integral to the Differential Form</h2>
+<h3 class="sub-heading">Why the integral form is not enough</h3>
+<p>The conservation equations of mass, momentum and energy in integral form, (3.10), (3.35) and (3.46) of Chapter 3, are applied to a conveniently chosen control volume. That approach needs simplifying assumptions (for example, a uniform velocity at the open boundaries) and the neglect of terms expected to be small, so it gives the overall properties of a fluid system. It is not suitable to compute <strong>local</strong> properties of the flow, such as the distributions of velocity $\vec{v}(\vec{x},t)$, density $\rho(\vec{x},t)$ and pressure $p(\vec{x},t)$.</p>
+<h3 class="sub-heading">The laws for a material fluid volume</h3>
+<p>For that purpose the conservation laws are written for a fluid volume $V_f(t)$ with boundary $\Sigma_f(t)$ and outward normal $\vec{n}$ (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.1-4.3</a>).</p>
+<p>Mass:</p>
+<div class="math-block">$$ \frac{d}{dt}\int_{V_f(t)} \rho \, dV = 0 \tag{4.1} $$</div>
+<p>Linear momentum (pressure force, viscous force and mass force):</p>
+<div class="math-block">$$ \frac{d}{dt}\int_{V_f(t)} \rho \vec{v} \, dV = -\int_{\Sigma_f(t)} p \vec{n} \, d\sigma + \int_{\Sigma_f(t)} \bar{\bar{\tau}}' \cdot \vec{n} \, d\sigma + \int_{V_f(t)} \rho \vec{f}_m \, dV \tag{4.2} $$</div>
+<p>Total energy (work of pressure, viscous and mass forces, plus heat conduction, radiation and chemical reaction):</p>
+<div class="math-block">$$ \frac{d}{dt}\int_{V_f(t)} \rho\left(e + \frac{\lvert\vec{v}\rvert^2}{2}\right) dV = -\int_{\Sigma_f(t)} p \vec{v}\cdot\vec{n} \, d\sigma + \int_{\Sigma_f(t)} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n} \, d\sigma + \int_{V_f(t)} \rho \vec{f}_m\cdot\vec{v} \, dV - \int_{\Sigma_f(t)} \vec{q}\cdot\vec{n} \, d\sigma + \int_{V_f(t)} (Q_c + Q_r) \, dV \tag{4.3} $$</div>
+<p>where $e$ is the internal energy per unit mass, $\bar{\bar{\tau}}'$ the viscous stress tensor, $\vec{f}_m$ the mass force per unit mass, $\vec{q}$ the heat flux vector, and $Q_c$, $Q_r$ the heat released per unit volume and time by chemical reaction and by radiation.</p>
+<h3 class="sub-heading">The method used in the whole chapter</h3>
+<p>Every equation below is obtained with the same two steps:</p>
+<ol><li>The <strong>Gauss formula</strong> (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=20" target="_blank" rel="noopener" title="Open Notes.pdf at page 20">2.9</a>), $\int_{\Sigma_f}\vec{A}\cdot\vec{n}\,d\sigma = \int_{V_f}\nabla\cdot\vec{A}\,dV$ (and its tensor version for $\int \bar{\bar{A}}\cdot\vec{n}\,d\sigma$), turns every surface integral into a volume integral over the same $V_f(t)$. The time derivative of the volume integral is expanded with the Reynolds transport theorem of Chapter 3.</li><li>Because the volume $V_f$ is <strong>arbitrary</strong>, an equation of the form $\int_{V_f} (\ldots) \, dV = 0$ can hold for every choice of $V_f$ if and only if the integrand $(\ldots)$ is zero at each point. This gives a local rate balance.</li></ol>
+      </section>
+
+      <section id="section-2">
+        <h2 class="section-heading">2. The Continuity Equation</h2>
+<p>With the Gauss formula, the Reynolds transport theorem turns (4.1) into</p>
+<div class="math-block">$$ \int_{V_f}\left[\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\vec{v})\right] dV = 0 \tag{4.4} $$</div>
+<p>Since $V_f$ is arbitrary, the bracket vanishes at each point of space (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.5</a>):</p>
+<div class="math-block">$$ \frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\vec{v}) = 0 \tag{4.5} $$</div>
+<p>This is the <strong>continuity (mass conservation) equation</strong>: the local rate of density variation plus the rate of mass loss by convective outflow is zero.</p>
+<p>An equivalent form follows by expanding the divergence with the product rule, $\nabla\cdot(\rho\vec{v}) = \vec{v}\cdot\nabla\rho + \rho\nabla\cdot\vec{v}$, and recognising the material derivative $D\rho/Dt = \partial\rho/\partial t + \vec{v}\cdot\nabla\rho$:</p>
+<div class="math-block">$$ \frac{1}{\rho}\frac{D\rho}{Dt} = -\nabla\cdot\vec{v} \tag{4.6} $$</div>
+<p>The density of a fluid particle changes only because its volume changes (rate of volume variation $\nabla\cdot\vec{v}$).</p>
+<p>Special cases:</p>
+<ul><li><strong>Incompressible fluid</strong> (constant density): $D\rho/Dt = 0$ in (4.6), hence</li></ul>
+<div class="math-block">$$ \nabla\cdot\vec{v} = 0 \tag{4.7} $$</div>
+<ul><li><strong>Steady gas flow</strong>: $\partial\rho/\partial t = 0$ in (4.5), hence</li></ul>
+<div class="math-block">$$ \nabla\cdot(\rho\vec{v}) = 0 \tag{4.8} $$</div>
+<p>that is, the convective rate of mass loss per unit volume is zero.</p>
+      </section>
+
+      <section id="section-3">
+        <h2 class="section-heading">3. The Momentum Equation</h2>
+<h3 class="sub-heading">3.1 Derivation</h3>
+<p>The same procedure (Gauss formula for the three surface integrals, then the arbitrary-volume argument) applied to (4.2) gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.9</a>)</p>
+<div class="math-block">$$ \frac{\partial}{\partial t}(\rho\vec{v}) + \nabla\cdot(\rho\vec{v}\vec{v}) = -\nabla p + \nabla\cdot\bar{\bar{\tau}}' + \rho\vec{f}_m \tag{4.9} $$</div>
+<p>To reach the more useful form, expand the left-hand side with the product rule:</p>
+<div class="math-block">$$ \frac{\partial(\rho\vec{v})}{\partial t} + \nabla\cdot(\rho\vec{v}\vec{v}) = \rho\frac{\partial\vec{v}}{\partial t} + \vec{v}\frac{\partial\rho}{\partial t} + \vec{v}\,\nabla\cdot(\rho\vec{v}) + \rho\,\vec{v}\cdot\nabla\vec{v} = \rho\left(\frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v}\right) + \vec{v}\left[\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\vec{v})\right] $$</div>
+<p>The last bracket is zero by continuity (4.5). Using the identity (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=23" target="_blank" rel="noopener" title="Open Notes.pdf at page 23">2.26</a>) $\vec{v}\cdot\nabla\vec{v} = \nabla(\lvert\vec{v}\rvert^2/2) - \vec{v}\wedge(\nabla\wedge\vec{v})$ one obtains (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.10</a>)</p>
+<div class="math-block">$$ \rho\frac{D\vec{v}}{Dt} = \rho\left[\frac{\partial\vec{v}}{\partial t} + \nabla\left(\frac{\lvert\vec{v}\rvert^2}{2}\right) - \vec{v}\wedge(\nabla\wedge\vec{v})\right] = -\nabla p + \nabla\cdot\bar{\bar{\tau}}' + \rho\vec{f}_m \tag{4.10} $$</div>
+<p>This is simply <strong>Newton's second law per unit volume of fluid</strong>: mass per unit volume times acceleration equals pressure force, viscous force and mass force per unit volume (result anticipated in Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=39" target="_blank" rel="noopener" title="Open Notes.pdf at page 39">3.25</a>).</p>
+<h3 class="sub-heading">3.2 Incompressible fluid with constant viscosity</h3>
+<p>For an incompressible fluid with constant viscosity the viscous force per unit volume is $\nabla\cdot\bar{\bar{\tau}}' = -\mu\nabla\wedge(\nabla\wedge\vec{v})$. Therefore (4.10) reduces to (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.11</a>)</p>
+<div class="math-block">$$ \frac{D\vec{v}}{Dt} = -\nabla\left(\frac{p}{\rho}\right) - \nu\nabla\wedge(\nabla\wedge\vec{v}) + \vec{f}_m \tag{4.11} $$</div>
+<p>where $\nu = \mu/\rho$ is the kinematic viscosity. The viscous force can alternatively be written as $-\mu\nabla\wedge(\nabla\wedge\vec{v}) = \mu\nabla^2\vec{v}$, so that (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=47" target="_blank" rel="noopener" title="Open Notes.pdf at page 47">4.12</a>)</p>
+<div class="math-block">$$ \frac{D\vec{v}}{Dt} = -\nabla\left(\frac{p}{\rho}\right) + \nu\nabla^2\vec{v} + \vec{f}_m \tag{4.12} $$</div>
+<div class="callout-box"><div class="callout-title">Cartesian versus curvilinear coordinates</div><p>In Cartesian coordinates each component of the vector $\nabla^2\vec{v}$ is simply the Laplacian of the corresponding velocity component. In cylindrical and spherical coordinates additional terms appear, which complicates the computation (see Section 8).</p></div>
+<p>Equations (4.7) and (4.11) are enough to determine the velocity and pressure fields of an incompressible flow with constant viscosity. For such flows, which include those of water, these two equations are therefore <strong>decoupled from the energy equation</strong>, which can be used a posteriori to determine the temperature field.</p>
+<h3 class="sub-heading">3.3 Conservative mass force and reduced pressure</h3>
+<p>When the mass force is conservative, $\vec{f}_m = -\nabla U$, equation (4.11) can be written as (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.13</a>)</p>
+<div class="math-block">$$ \frac{D\vec{v}}{Dt} = -\nabla\left(\frac{p + \rho U}{\rho}\right) - \nu\nabla\wedge(\nabla\wedge\vec{v}) \tag{4.13} $$</div>
+<p>For the motion of perfect liquids this suggests the <strong>reduced pressure</strong> $P = p + \rho U$ (for example, $P = p + \rho g z$ when $\vec{f}_m = \vec{g}$ points along $-\vec{e}_z$). Using it can simplify the description significantly. When the pressure does not enter the boundary conditions, the solution described with $P$ becomes entirely independent of the mass forces.</p>
+<h3 class="sub-heading">3.4 Bernoulli's theorem</h3>
+<p>For a steady incompressible flow with a conservative mass force in which the effect of viscosity is negligible, (4.13) with $\nu = 0$ together with the steady form of (2.26),</p>
+<div class="math-block">$$ \frac{D\vec{v}}{Dt} = \nabla\left(\frac{\lvert\vec{v}\rvert^2}{2}\right) - \vec{v}\wedge(\nabla\wedge\vec{v}) \tag{4.15} $$</div>
+<p>gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.14</a>)</p>
+<div class="math-block">$$ \nabla\left(\frac{p}{\rho} + U + \frac{\lvert\vec{v}\rvert^2}{2}\right) - \vec{v}\wedge(\nabla\wedge\vec{v}) = 0 \tag{4.14} $$</div>
+<p>This vector equation can be projected along streamlines by multiplying, at each point, by the unit vector $\vec{v}/\lvert\vec{v}\rvert$. The last term is identically zero because $\vec{v}\wedge(\nabla\wedge\vec{v})$ is perpendicular to $\vec{v}$. The projection reduces to</p>
+<div class="math-block">$$ \frac{\partial}{\partial l}\left(\frac{p}{\rho} + U + \frac{\lvert\vec{v}\rvert^2}{2}\right) = 0 \tag{4.16} $$</div>
+<p>where $\partial/\partial l = \lvert\vec{v}\rvert^{-1}(\vec{v}\cdot\nabla)$ is the derivative along a streamline. Hence, for frictionless steady flow of an incompressible fluid, the quantity</p>
+<div class="math-block">$$ p + \rho U + \frac{\rho\lvert\vec{v}\rvert^2}{2} = C_l \tag{4.17} $$</div>
+<p>remains constant along any given streamline, with a value $C_l$ that is in general different for different streamlines. Equation (4.17) is <strong>Bernoulli's theorem</strong>: it relates the variations of kinetic energy, potential energy and pressure along streamlines. If the flow is also irrotational, $C_l$ is the same for all streamlines, because (4.14) then reduces to $\nabla(p/\rho + U + \lvert\vec{v}\rvert^2/2) = 0$.</p>
+      </section>
+
+      <section id="section-4">
+        <h2 class="section-heading">4. The Energy Equation</h2>
+<h3 class="sub-heading">4.1 Total energy</h3>
+<p>The transformation used for (4.5) and (4.10) gives from (4.3)</p>
+<div class="math-block">$$ \frac{\partial}{\partial t}\left[\rho\left(e + \frac{\lvert\vec{v}\rvert^2}{2}\right)\right] + \nabla\cdot\left[\rho\left(e + \frac{\lvert\vec{v}\rvert^2}{2}\right)\vec{v}\right] = -\nabla\cdot(p\vec{v}) + \nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') + \rho\vec{f}_m\cdot\vec{v} - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.18} $$</div>
+<p>Using continuity (4.5), exactly as for the momentum equation, the left-hand side collapses to a material derivative (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=49" target="_blank" rel="noopener" title="Open Notes.pdf at page 49">4.19</a>):</p>
+<div class="math-block">$$ \rho\frac{D}{Dt}\left(e + \frac{\lvert\vec{v}\rvert^2}{2}\right) = -\nabla\cdot(p\vec{v}) + \nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') + \rho\vec{f}_m\cdot\vec{v} - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.19} $$</div>
+<p>If the mass force derives from a steady potential, $\vec{f}_m = -\nabla U$ with $\partial U/\partial t = 0$, then $\rho\vec{f}_m\cdot\vec{v} = -\rho\,DU/Dt$ and the equation admits the alternative writing</p>
+<div class="math-block">$$ \rho\frac{D}{Dt}\left(e + \frac{\lvert\vec{v}\rvert^2}{2} + U\right) = -\nabla\cdot(p\vec{v}) + \nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.20} $$</div>
+<h3 class="sub-heading">4.2 Mechanical energy and internal energy</h3>
+<p>A separate equation for the mechanical (kinetic) energy $\lvert\vec{v}\rvert^2/2$ follows by multiplying (4.10) by $\vec{v}$. Since $\vec{v}\cdot[\vec{v}\wedge(\nabla\wedge\vec{v})] = 0$, the product gives the scalar equation (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=49" target="_blank" rel="noopener" title="Open Notes.pdf at page 49">4.21</a>)</p>
+<div class="math-block">$$ \rho\frac{D}{Dt}\left(\frac{\lvert\vec{v}\rvert^2}{2}\right) = -\vec{v}\cdot\nabla p + \vec{v}\cdot(\nabla\cdot\bar{\bar{\tau}}') + \rho\vec{v}\cdot\vec{f}_m \tag{4.21} $$</div>
+<p>a purely mechanical energy law: the rate of variation of the kinetic energy following the fluid particle equals the work rate of the mass force, $\rho\vec{v}\cdot\vec{f}_m$, plus the work rate of the surface forces associated with the translational motion of the particle, $-\vec{v}\cdot\nabla p + \vec{v}\cdot(\nabla\cdot\bar{\bar{\tau}}')$.</p>
+<p>Subtract (4.21) from (4.19). Two identities are needed: $\nabla\cdot(p\vec{v}) = \vec{v}\cdot\nabla p + p\nabla\cdot\vec{v}$ and $\nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') = \vec{v}\cdot(\nabla\cdot\bar{\bar{\tau}}') + \bar{\bar{\tau}}':\nabla\vec{v}$. The terms with $\vec{v}\cdot\nabla p$, $\vec{v}\cdot(\nabla\cdot\bar{\bar{\tau}}')$ and $\rho\vec{f}_m\cdot\vec{v}$ cancel, leaving the <strong>internal energy equation</strong> (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=49" target="_blank" rel="noopener" title="Open Notes.pdf at page 49">4.22</a>)</p>
+<div class="math-block">$$ \rho\frac{De}{Dt} = -p\nabla\cdot\vec{v} + \bar{\bar{\tau}}':\nabla\vec{v} - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.22} $$</div>
+<p>The internal energy of a fluid particle varies because of heat addition and because of the deformation work of the surface forces:</p>
+<ul><li>$-p\nabla\cdot\vec{v}$ is the <strong>compression work</strong>. It is a reversible contribution: when the volume of the fluid is reduced ($\nabla\cdot\vec{v} &lt; 0$) the compression work increases the internal energy, and the internal energy decreases for positive expansion rates $\nabla\cdot\vec{v} &gt; 0$.</li><li>$\phi_v = \bar{\bar{\tau}}':\nabla\vec{v}$ is the deformation work due to viscous forces. It is non-negative, $\phi_v \geq 0$, and is the rate of <strong>mechanical energy dissipation</strong> per unit volume and unit time. It is irreversible.</li></ul>
+<p>Both $-p\nabla\cdot\vec{v}$ and $\bar{\bar{\tau}}':\nabla\vec{v}$ are independent of the orientation, position and motion of the reference frame.</p>
+<div class="callout-box"><div class="callout-title">Why the viscous dissipation is never negative</div><p>With the Navier-Poisson law, using the definition of the contraction of two tensors, $\bar{\bar{A}}:\bar{\bar{B}} = \sum_i\sum_j A_{ij}B_{ij}$, one finds $\phi_v = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})^2$. In terms of the components $\gamma_{ij}$ of the rate-of-strain tensor this is</p>
+<div class="math-block">$$ \phi_v = \frac{2\mu}{3}\left[(\gamma_{11}-\gamma_{22})^2 + (\gamma_{11}-\gamma_{33})^2 + (\gamma_{22}-\gamma_{33})^2 + 6(\gamma_{12}^2 + \gamma_{13}^2 + \gamma_{23}^2)\right] + \mu_B(\nabla\cdot\vec{v})^2 $$</div>
+<p>which is a sum of squares with non-negative coefficients, so $\phi_v \geq 0$ provided $\mu &gt; 0$ and $\mu_B &gt; 0$ (Notes.pdf, footnote 2, p. 40).</p></div>
+<h3 class="sub-heading">4.3 Integral balance equations for mechanical and internal energy</h3>
+<p>The integral energy equation (4.3) is written for the combined quantity $e + \lvert\vec{v}\rvert^2/2$. It is interesting to write separate integral equations for the mechanical and the internal energy. Integrating (4.21) over $V_f(t)$, and using (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=49" target="_blank" rel="noopener" title="Open Notes.pdf at page 49">4.23</a>)</p>
+<div class="math-block">$$ \rho\frac{D}{Dt}\left(\frac{\lvert\vec{v}\rvert^2}{2}\right) = \frac{\partial}{\partial t}\left(\frac{\rho\lvert\vec{v}\rvert^2}{2}\right) + \nabla\cdot\left(\rho\vec{v}\frac{\lvert\vec{v}\rvert^2}{2}\right) \tag{4.23} $$</div>
+<p>together with the Reynolds transport theorem (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=35" target="_blank" rel="noopener" title="Open Notes.pdf at page 35">3.6</a>), gives for the mechanical energy (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.24</a>)</p>
+<div class="math-block">$$ \frac{d}{dt}\int_{V_f(t)}\frac{\rho\lvert\vec{v}\rvert^2}{2}\,dV = \underbrace{-\int_{\Sigma_f(t)} p\vec{v}\cdot\vec{n}\,d\sigma + \int_{\Sigma_f(t)} \vec{v}\cdot\bar{\bar{\tau}}'\cdot\vec{n}\,d\sigma + \int_{V_f(t)}\rho\vec{f}_m\cdot\vec{v}\,dV}_{\text{work of surface and mass forces}} + \int_{V_f(t)} p\nabla\cdot\vec{v}\,dV - \int_{V_f(t)}\phi_v\,dV \tag{4.24} $$</div>
+<p>Similarly (4.22) gives for the internal energy (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.25</a>)</p>
+<div class="math-block">$$ \frac{d}{dt}\int_{V_f(t)}\rho e\,dV = \underbrace{-\int_{\Sigma_f(t)}\vec{q}\cdot\vec{n}\,d\sigma + \int_{V_f(t)}(Q_c + Q_r)\,dV}_{\text{heat added}} - \int_{V_f(t)} p\nabla\cdot\vec{v}\,dV + \int_{V_f(t)}\phi_v\,dV \tag{4.25} $$</div>
+<p>The way (4.24) and (4.25) are written gives a clear picture of the balances of work and energy in the flow field:</p>
+<ul><li>The work done by the mass forces in the interior of the fluid volume and by the surface forces on its bounding surface (first group of terms of (4.24)) increases the net amount of <strong>mechanical energy</strong> contained in the fluid volume.</li><li>The heat added by conduction, radiation and chemical reaction (first group of terms of (4.25)) is used directly to increase the <strong>internal energy</strong>.</li><li>Viscous dissipation and compression work, written in separate terms, are the mechanisms that transform mechanical energy into internal energy. Only the compression work is reversible.</li></ul>
+<h3 class="sub-heading">4.4 Enthalpy equation</h3>
+<p>Equations (4.5) and (4.10) together with (4.19) are the so-called <strong>Navier-Stokes equations</strong> governing fluid motion. The energy equation admits alternative forms. For gas flows it is often convenient to use the enthalpy $h = e + p/\rho$ instead of the internal energy $e$. First, use continuity (4.5) in the form (4.6) to write (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.26</a>)</p>
+<div class="math-block">$$ \nabla\cdot(p\vec{v}) = \rho\frac{D}{Dt}\left(\frac{p}{\rho}\right) - \frac{\partial p}{\partial t} \tag{4.26} $$</div>
+<p>(indeed $\rho\,D(p/\rho)/Dt = Dp/Dt - (p/\rho)D\rho/Dt = \partial p/\partial t + \vec{v}\cdot\nabla p + p\nabla\cdot\vec{v} = \partial p/\partial t + \nabla\cdot(p\vec{v})$). Combining it with (4.19) gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.27</a>)</p>
+<div class="math-block">$$ \rho\frac{D}{Dt}\left(h + \frac{\lvert\vec{v}\rvert^2}{2}\right) = \frac{\partial p}{\partial t} + \nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') + \rho\vec{f}_m\cdot\vec{v} - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.27} $$</div>
+<p>which, with the help of (4.21), can also be written as a separate equation for the enthalpy (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.28</a>):</p>
+<div class="math-block">$$ \rho\frac{Dh}{Dt} = \frac{Dp}{Dt} + \phi_v - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.28} $$</div>
+<p>When the mass forces are conservative and steady, (4.27) reduces to (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.29</a>)</p>
+<div class="math-block">$$ \rho\frac{D}{Dt}\left(h + \frac{\lvert\vec{v}\rvert^2}{2} + U\right) = \frac{\partial p}{\partial t} + \nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.29} $$</div>
+<p>indicating that, when heat addition, temporal pressure variations and viscous dissipation are all simultaneously negligible, the combination $h + \lvert\vec{v}\rvert^2/2 + U$ remains constant in the evolution of each fluid particle.</p>
+<h3 class="sub-heading">4.5 Entropy equation</h3>
+<p>It is also of interest to express the energy equation in terms of the entropy $s$. Since $T\,ds = dh - dp/\rho$, equation (4.28) gives (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=51" target="_blank" rel="noopener" title="Open Notes.pdf at page 51">4.30</a>)</p>
+<div class="math-block">$$ \rho T\frac{Ds}{Dt} = \phi_v - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.30} $$</div>
+<p>The entropy of a fluid particle increases because of viscous dissipation and heat addition, while the rate of compression work $-p\nabla\cdot\vec{v}$ is reversible and does not change the entropy of the particle. Equation (4.30) is an application of the second principle of thermodynamics, and allows entropy changes to be quantified for fluids out of equilibrium.</p>
+<p>Divide (4.30) by $T$ and use $\nabla\cdot\vec{q}/T = \nabla\cdot(\vec{q}/T) + (\vec{q}\cdot\nabla T)/T^2$. Integrating in $V_f(t)$ gives, for the total entropy contained in a fluid volume (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=51" target="_blank" rel="noopener" title="Open Notes.pdf at page 51">4.31</a>),</p>
+<div class="math-block">$$ \frac{d}{dt}\int_{V_f(t)}\rho s\,dV = \int_{V_f(t)}\frac{\phi_v}{T}\,dV - \int_{V_f(t)}\frac{\vec{q}\cdot\nabla T}{T^2}\,dV - \int_{\Sigma_f(t)}\frac{\vec{q}}{T}\cdot\vec{n}\,d\sigma + \int_{V_f(t)}\frac{Q_c + Q_r}{T}\,dV \tag{4.31} $$</div>
+<ul><li>$(Q_c + Q_r)/T$ is a volumetric source of entropy associated with chemical reaction and radiation.</li><li>$\vec{q}\cdot\vec{n}/T$ is the entropy flux across the surface due to heat conduction, so $-\int_{\Sigma_f}(\vec{q}/T)\cdot\vec{n}\,d\sigma$ is the corresponding rate of entropy gain.</li><li>Viscous dissipation gives a non-negative contribution $\int_{V_f}(\phi_v/T)\,dV$.</li><li>$-\int_{V_f}[(\vec{q}\cdot\nabla T)/T^2]\,dV$ is an additional source of entropy due to conduction, which can be shown to be irreversible with the help of (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=43" target="_blank" rel="noopener" title="Open Notes.pdf at page 43">3.44</a>).</li></ul>
+      </section>
+
+      <section id="section-5">
+        <h2 class="section-heading">5. Mathematical Description of Fluid Flows</h2>
+<h3 class="sub-heading">What has been built so far</h3>
+<p>The derivation began by introducing the <strong>continuum hypothesis</strong>, which defines the density $\rho$, the velocity $\vec{v}$ and the internal energy $e$ as continuous functions of position $\vec{x}$ and time $t$. Next, the hypothesis of <strong>local thermodynamic equilibrium</strong> defines the local values of all remaining thermodynamic variables (temperature, pressure, enthalpy, and so on) in terms of $\rho$ and $e$, even for the non-equilibrium states found in fluid mechanics problems. This allows $\rho$ and $e$ to be replaced by $p$ and $T$ as the fundamental thermodynamic variables of the flow-field description. Finally, the viscous stress tensor $\bar{\bar{\tau}}'$ and the heat flux vector $\vec{q}$ are assumed to be <strong>linear isotropic functions</strong> of the rate of strain and of the temperature gradient, respectively. The resulting constitutive equations (Navier-Poisson and Fourier laws) contain three transport coefficients, $\mu$, $\mu_B$ and $k$, assumed to be functions of the local thermodynamic state of the fluid.</p>
+<p>Some of these hypotheses can be expected to fail under extreme conditions (rarefied flows, nanofluidics applications, and so on), but the formulation covers most applications of engineering interest.</p>
+<h3 class="sub-heading">Summary of conservation equations, equations of state and constitutive equations</h3>
+<p>To solve a given flow problem, the conservation equations of continuity, momentum and energy</p>
+<div class="math-block">$$ \frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\vec{v}) = 0 \tag{4.32} $$</div>
+<div class="math-block">$$ \rho\frac{D\vec{v}}{Dt} = -\nabla p + \nabla\cdot\bar{\bar{\tau}}' + \rho\vec{f}_m \tag{4.33} $$</div>
+<div class="math-block">$$ \rho\frac{De}{Dt} = -p\nabla\cdot\vec{v} + \bar{\bar{\tau}}':\nabla\vec{v} - \nabla\cdot\vec{q} + Q_c + Q_r \tag{4.34} $$</div>
+<p>must be supplemented with the equations of state</p>
+<div class="math-block">$$ \rho = \rho(p,T) \quad\text{and}\quad e = e(p,T) \tag{4.35} $$</div>
+<p>together with the constitutive equations (Navier-Poisson and Fourier)</p>
+<div class="math-block">$$ \bar{\bar{\tau}}' = \mu(\nabla\vec{v} + \nabla\vec{v}^{\,T}) + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\bar{\bar{I}} \quad\text{and}\quad \vec{q} = -k\nabla T \tag{4.36} $$</div>
+<p>and the associated state functions</p>
+<div class="math-block">$$ \mu = \mu(T), \quad \mu_B = \mu_B(T) \quad\text{and}\quad k = k(T) \tag{4.37} $$</div>
+<p>In particular, the state equations (4.35) reduce, for a <strong>perfect liquid</strong>, to</p>
+<div class="math-block">$$ \rho = \rho_o \quad\text{and}\quad e = e_o + cT \tag{4.38} $$</div>
+<p>and, for a <strong>perfect gas</strong>, to</p>
+<div class="math-block">$$ \rho = \frac{p}{R_g T} \quad\text{and}\quad e = e_o + c_v T \tag{4.39} $$</div>
+<p>The vector expressions of Chapter 2 allow (4.32), (4.33) and (4.34) to be written in any system of orthogonal curvilinear coordinates.</p>
+<h3 class="sub-heading">Perfect liquid with constant viscosity</h3>
+<p>For a perfect liquid with constant viscosity and thermal conductivity, equations (4.32)-(4.34) take the simplified form (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=52" target="_blank" rel="noopener" title="Open Notes.pdf at page 52">4.40-4.42</a>)</p>
+<div class="math-block">$$ \nabla\cdot\vec{v} = 0 \tag{4.40} $$</div>
+<div class="math-block">$$ \rho\frac{D\vec{v}}{Dt} = -\nabla p - \mu\nabla\wedge(\nabla\wedge\vec{v}) + \rho\vec{f}_m \tag{4.41} $$</div>
+<div class="math-block">$$ \rho c\frac{DT}{Dt} = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d + k\nabla^2 T + Q_c + Q_r \tag{4.42} $$</div>
+<p>Here (4.42) comes from (4.34) with $e = e_o + cT$, $\nabla\cdot\vec{v} = 0$ (so the compression work vanishes and $\phi_v = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d$) and $\vec{q} = -k\nabla T$ with constant $k$. These equations are written out in Section 8 for Cartesian, cylindrical and spherical coordinates.</p>
+      </section>
+
+      <section id="section-6">
+        <h2 class="section-heading">6. Initial and Boundary Conditions</h2>
+<p>Equations (4.32)-(4.34) describe all fluid motions, within the range of validity of the hypotheses introduced in their derivation. The difference between two flow problems lies in their <strong>initial and boundary conditions</strong>, which must be specified so that the Navier-Stokes equations can be integrated.</p>
+<h3 class="sub-heading">Initial conditions</h3>
+<p>For unsteady motion, at the initial instant the velocity field $\vec{v} = \vec{v}_o(\vec{x})$ must be given together with the thermodynamic state, for instance $p = p_o(\vec{x})$ and $T = T_o(\vec{x})$ (or any other pair of independent thermodynamic variables).</p>
+<ul><li>For an <strong>incompressible</strong> fluid the initial velocity field must necessarily satisfy $\nabla\cdot\vec{v}_o = 0$.</li><li>For a <strong>gas</strong> there is no such restriction, because of the term $\partial\rho/\partial t$ in (4.32).</li><li>No initial conditions are required for <strong>steady or periodic</strong> flows.</li></ul>
+<h3 class="sub-heading">Solid wall: no-slip condition</h3>
+<p>The Navier-Stokes equations determine the flow evolution inside the flow field and must be complemented with boundary conditions on its boundaries. In typical configurations the fluid is confined by solid walls, as in ducted flows. The fluid velocity in contact with the wall is assumed equal to the wall velocity: at $\vec{x} = \vec{x}_p$</p>
+<div class="math-block">$$ \vec{v} = \vec{v}_p \tag{no-slip} $$</div>
+<p>which reduces to $\vec{v} = 0$ when the wall is at rest relative to the reference frame. This <strong>no-slip condition</strong> comes from assuming that the interaction of the molecules near the wall with the wall is equivalent to that occurring between neighbouring fluid particles. For the velocity field to be continuous, no velocity discontinuity is allowed between the wall and the adjacent fluid. There is ample experimental evidence confirming the condition, at least for flows in which the mean free path $\lambda$ is much shorter than the macroscopic length $L$ of the flow field. When this is not the case, the no-slip condition must be relaxed, along with the condition of local thermodynamic equilibrium, which complicates the analysis.</p>
+<h3 class="sub-heading">Solid wall: temperature</h3>
+<p>Local thermodynamic equilibrium is also assumed at the wall, so the fluid temperature in contact with the wall equals the wall temperature:</p>
+<div class="math-block">$$ T = T_p \quad\text{at}\quad \vec{x} = \vec{x}_p $$</div>
+<p>There must also be an equilibrium of heat fluxes at the wall surface, which gives an additional equation. It reduces to</p>
+<div class="math-block">$$ \vec{q}\cdot\vec{n} = 0, \quad\text{that is,}\quad \frac{\partial T}{\partial n} = 0 \quad\text{at}\quad \vec{x} = \vec{x}_p $$</div>
+<p>when the wall is thermally insulated (<strong>adiabatic wall</strong>). In principle, either the temperature distribution $T_p$ or the heat flux $\partial T/\partial n$ could be used as boundary condition for the temperature. In many problems, however, neither quantity is known a priori and both must be determined as part of the solution. That involves integrating the Navier-Stokes equations for the fluid together with the heat conduction equation in the solid, coupled through the conditions of thermodynamic equilibrium and heat flux balance at the wall surface.</p>
+<h3 class="sub-heading">Fluid extending to infinity</h3>
+<p>For external problems (distances much larger than the characteristic macroscopic size $L$ of the flow field, as in external aerodynamics) the boundary conditions specify the velocity field and its accompanying thermodynamic state far away:</p>
+<div class="math-block">$$ \vec{v} = \vec{v}_\infty(\vec{x},t), \quad p = p_\infty(\vec{x},t), \quad T = T_\infty(\vec{x},t) \quad\text{for}\quad \lvert\vec{x}\rvert \to \infty $$</div>
+<p>For instance, to study a uniform stream of velocity $U_\infty$ over a solid body of characteristic size $L$, impose $\vec{v} = U_\infty\vec{e}_x$, $p = p_\infty$ and $T = T_\infty$ at $\lvert\vec{x}\rvert/L \gg 1$.</p>
+<h3 class="sub-heading">Example: a sphere in a liquid stream</h3>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" class="fig-kit" style="max-width:560px;margin:0 auto;display:block" role="img" aria-label="Sphere of radius R at surface temperature T_w in a uniform stream U_inf e_x at temperature T_inf, with gravity g pointing down and the axes x, y, z centred on the sphere">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="40.0" y1="110.0" x2="174.6" y2="110.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M180.0,110.0 L171.7,113.5 L171.7,106.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="40.0" y1="150.0" x2="174.6" y2="150.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M180.0,150.0 L171.7,153.5 L171.7,146.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="40.0" y1="190.0" x2="174.6" y2="190.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M180.0,190.0 L171.7,193.5 L171.7,186.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="110.0" y="98.0" fill="var(--fig-blue, #3b82f6)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan> <tspan text-decoration="overline">e</tspan><tspan baseline-shift="sub" font-size="72%">x</tspan></text>
+<text x="110.0" y="222.0" fill="var(--fig-blue, #3b82f6)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan></text>
+<line x1="230.0" y1="30.0" x2="230.0" y2="84.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.0"/>
+<path d="M230.0,90.0 L226.1,80.8 L233.9,80.8 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="244.0" y="62.0" fill="var(--fig-acc, #f59e0b)" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<circle cx="380.0" cy="150.0" r="70.0" fill="var(--fig-blue, #3b82f6)" fill-opacity="0.1" stroke="var(--text-faint)" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="460.0" y="200.4" fill="var(--text-heading)" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="430.4" y1="199.0" x2="458.0" y2="193.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="380.0" y1="150.0" x2="418.6" y2="150.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<path d="M424.0,150.0 L415.7,153.5 L415.7,146.5 Z" fill="var(--text-heading)"/>
+<line x1="380.0" y1="150.0" x2="380.0" y2="111.4" stroke="var(--text-heading)" stroke-width="1.8"/>
+<path d="M380.0,106.0 L383.5,114.3 L376.5,114.3 Z" fill="var(--text-heading)"/>
+<line x1="380.0" y1="150.0" x2="403.2" y2="138.4" stroke="var(--text-heading)" stroke-width="1.8"/>
+<path d="M408.0,136.0 L402.2,142.8 L399.0,136.6 Z" fill="var(--text-heading)"/>
+<text x="430.0" y="156.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<text x="372.0" y="104.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<text x="414.0" y="132.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<line x1="380.0" y1="150.0" x2="330.5" y2="199.5" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="4,3"/>
+<text x="346.0" y="202.0" fill="var(--text-muted)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. Sphere of radius $R$ in a stream of velocity $U_\infty(t)\,\bar{e}_x$ and temperature $T_\infty$, with surface temperature $T_w$ and gravity $\bar{g} = -g\,\bar{e}_z$ (Notes.pdf, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">45</a>).</div>
+</div>
+<p>Consider a liquid stream that moves with velocity $U_\infty(t)\vec{e}_x$ over a spherical body of radius $R$. If the density and transport properties of the fluid are constant and the effects of radiation and chemical reaction are negligible, the problem reduces to integrating (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.43-4.45</a>)</p>
+<div class="math-block">$$ \nabla\cdot\vec{v} = 0 \tag{4.43} $$</div>
+<div class="math-block">$$ \rho\frac{\partial\vec{v}}{\partial t} + \rho\vec{v}\cdot\nabla\vec{v} = -\nabla p + \mu\nabla^2\vec{v} + \rho g\vec{e}_z \tag{4.44} $$</div>
+<div class="math-block">$$ \rho c\frac{\partial T}{\partial t} + \rho c\vec{v}\cdot\nabla T = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d + k\nabla^2 T \tag{4.45} $$</div>
+<p>Boundary conditions must be imposed on the surface of the body (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.46</a>, as printed)</p>
+<div class="math-block">$$ \lvert\vec{x}\rvert = R: \quad \vec{v} = 0, \quad T - T_w = 0 \tag{4.46} $$</div>
+<p>where $T_w$ is the temperature on the surface of the body, different from the value $T_\infty$ of the free stream. Far from the body the velocity should approach that of the free stream, whereas the pressure balances the gravity and inertial forces according to</p>
+<div class="math-block">$$ \lvert\vec{x}\rvert \gg R: \quad \vec{v} = U_\infty\vec{e}_x, \quad T = T_\infty, \quad p + \rho g z + \rho\frac{dU_\infty}{dt}x = \text{constant} \tag{4.47} $$</div>
+<p>If the fluid is initially at rest ($U_\infty = 0$ for $t \leq 0$), appropriate initial conditions are</p>
+<div class="math-block">$$ t = 0: \quad \vec{v} = 0, \quad T = T_\infty + \frac{T_w - T_\infty}{\lvert\vec{x}\rvert/R} \tag{4.48} $$</div>
+<p>The temperature field in (4.48) is the one obtained for a fluid at rest by solving the reduced energy equation $\nabla^2 T = 0$ with spherical symmetry. Indeed, in that case $\nabla^2 T = r^{-2}\,d(r^2\,dT/dr)/dr = 0$ gives $T = A + B/r$, and imposing $T(R) = T_w$ and $T(\infty) = T_\infty$ gives $T = T_\infty + (T_w - T_\infty)R/r$.</p>
+<div class="callout-box callout-warning"><div class="callout-title">Sign of the gravity term in Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=54" target="_blank" rel="noopener" title="Open Notes.pdf at page 54">4.44</a> as printed in the notes</div><p>Equation (4.44) in Notes.pdf is printed with $+\rho g\vec{e}_z$, but the figure shows gravity pointing down ($\vec{g} = -g\vec{e}_z$) and the far-field condition (4.47) contains $p + \rho g z$, which corresponds to a mass force $\vec{f}_m = -g\vec{e}_z$ (hydrostatic balance $\nabla p = -\rho g\vec{e}_z$). With the figure's axes the gravity term of the momentum equation is therefore $-\rho g\vec{e}_z$. The equation is transcribed here as printed; use the sign consistent with (4.47) when solving problems.</p></div>
+      </section>
+
+      <section id="section-7">
+        <h2 class="section-heading">7. Stress-Tensor Components for a Newtonian Fluid</h2>
+<p>The components of the viscous stress tensor follow from the Navier-Poisson law (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=41" target="_blank" rel="noopener" title="Open Notes.pdf at page 41">3.31</a>):</p>
+<div class="math-block">$$ \tau'_{ij} = 2\mu\gamma_{ij} + \left(\mu_B - \frac{2}{3}\mu\right)(\nabla\cdot\vec{v})\,\delta_{ij} $$</div>
+<p>where $\gamma_{ij} = [(\nabla\vec{v})_{ij} + (\nabla\vec{v}^{\,T})_{ij}]/2$ is the $ij$ component of the rate-of-strain tensor $\bar{\bar{T}}_d$ and $\delta_{ij}$ is the Kronecker delta ($\delta_{ii} = 1$, $\delta_{ij} = 0$ if $i \neq j$).</p>
+<p>From the expressions of Chapter 2, in orthogonal coordinates $(x_1,x_2,x_3)$ with scale factors $h_i$,</p>
+<div class="math-block">$$ \gamma_{ii} = \frac{1}{h_i}\frac{\partial v_i}{\partial x_i} + \sum_{k\neq i}\frac{v_k}{h_i h_k}\frac{\partial h_i}{\partial x_k} \qquad \gamma_{ij} = \frac{h_j}{2h_i}\frac{\partial}{\partial x_i}\left(\frac{v_j}{h_j}\right) + \frac{h_i}{2h_j}\frac{\partial}{\partial x_j}\left(\frac{v_i}{h_i}\right)\quad (i\neq j) $$</div>
+<div class="math-block">$$ \nabla\cdot\vec{v} = \frac{1}{h_1h_2h_3}\left[\frac{\partial}{\partial x_1}(h_2h_3v_1) + \frac{\partial}{\partial x_2}(h_1h_3v_2) + \frac{\partial}{\partial x_3}(h_1h_2v_3)\right] $$</div>
+<p>With these, $\tau'_{ij} = \tau'_{ji}$ can be written in the usual coordinate systems.</p>
+<h3 class="sub-heading">Cartesian coordinates $(x,y,z)$</h3>
+<div class="math-block">$$ \nabla\cdot\vec{v} = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} $$</div>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Normal stresses</th><th>Shear stresses</th></tr></thead><tbody><tr><td>$\tau'_{xx} = 2\mu\dfrac{\partial v_x}{\partial x} + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{xy} = \mu\left(\dfrac{\partial v_x}{\partial y} + \dfrac{\partial v_y}{\partial x}\right)$</td></tr><tr><td>$\tau'_{yy} = 2\mu\dfrac{\partial v_y}{\partial y} + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{yz} = \mu\left(\dfrac{\partial v_y}{\partial z} + \dfrac{\partial v_z}{\partial y}\right)$</td></tr><tr><td>$\tau'_{zz} = 2\mu\dfrac{\partial v_z}{\partial z} + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{zx} = \mu\left(\dfrac{\partial v_x}{\partial z} + \dfrac{\partial v_z}{\partial x}\right)$</td></tr></tbody></table></div>
+<h3 class="sub-heading">Cylindrical coordinates $(r,\theta,z)$</h3>
+<div class="math-block">$$ \nabla\cdot\vec{v} = \frac{1}{r}\frac{\partial(rv_r)}{\partial r} + \frac{1}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{\partial v_z}{\partial z} $$</div>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Normal stresses</th><th>Shear stresses</th></tr></thead><tbody><tr><td>$\tau'_{rr} = 2\mu\dfrac{\partial v_r}{\partial r} + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{r\theta} = \mu\left[r\dfrac{\partial}{\partial r}\left(\dfrac{v_\theta}{r}\right) + \dfrac{1}{r}\dfrac{\partial v_r}{\partial\theta}\right]$</td></tr><tr><td>$\tau'_{\theta\theta} = 2\mu\left(\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial\theta} + \dfrac{v_r}{r}\right) + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{\theta z} = \mu\left(\dfrac{1}{r}\dfrac{\partial v_z}{\partial\theta} + \dfrac{\partial v_\theta}{\partial z}\right)$</td></tr><tr><td>$\tau'_{zz} = 2\mu\dfrac{\partial v_z}{\partial z} + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{zr} = \mu\left(\dfrac{\partial v_r}{\partial z} + \dfrac{\partial v_z}{\partial r}\right)$</td></tr></tbody></table></div>
+<h3 class="sub-heading">Spherical coordinates $(r,\theta,\phi)$</h3>
+<div class="math-block">$$ \nabla\cdot\vec{v} = \frac{1}{r^2}\frac{\partial(r^2v_r)}{\partial r} + \frac{1}{r\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta} + \frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial\phi} $$</div>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Normal stresses</th><th>Shear stresses</th></tr></thead><tbody><tr><td>$\tau'_{rr} = 2\mu\dfrac{\partial v_r}{\partial r} + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{r\theta} = \mu\left[r\dfrac{\partial}{\partial r}\left(\dfrac{v_\theta}{r}\right) + \dfrac{1}{r}\dfrac{\partial v_r}{\partial\theta}\right]$</td></tr><tr><td>$\tau'_{\theta\theta} = 2\mu\left(\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial\theta} + \dfrac{v_r}{r}\right) + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{\theta\phi} = \mu\left[\dfrac{\sin\theta}{r}\dfrac{\partial}{\partial\theta}\left(\dfrac{v_\phi}{\sin\theta}\right) + \dfrac{1}{r\sin\theta}\dfrac{\partial v_\theta}{\partial\phi}\right]$</td></tr><tr><td>$\tau'_{\phi\phi} = 2\mu\left(\dfrac{1}{r\sin\theta}\dfrac{\partial v_\phi}{\partial\phi} + \dfrac{v_r}{r} + \dfrac{v_\theta\cot\theta}{r}\right) + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})$</td><td>$\tau'_{\phi r} = \mu\left[\dfrac{1}{r\sin\theta}\dfrac{\partial v_r}{\partial\phi} + r\dfrac{\partial}{\partial r}\left(\dfrac{v_\phi}{r}\right)\right]$</td></tr></tbody></table></div>
+      </section>
+
+      <section id="section-8">
+        <h2 class="section-heading">8. The Navier-Stokes Equations in Orthogonal Coordinates</h2>
+<p>The following forms hold for a <strong>perfect liquid</strong> with constant $\mu$ and $k$ (Notes.pdf, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=52" target="_blank" rel="noopener" title="Open Notes.pdf at page 52">4.40-4.42</a> written out). In each system the viscous dissipation $\phi_v = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d$ is given with the energy equation.</p>
+<h3 class="sub-heading">Cartesian coordinates $(x,y,z)$</h3>
+<p>Continuity:</p>
+<div class="math-block">$$ \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = 0 $$</div>
+<p>Momentum:</p>
+<div class="math-block">$$ \rho\left(\frac{\partial v_x}{\partial t} + v_x\frac{\partial v_x}{\partial x} + v_y\frac{\partial v_x}{\partial y} + v_z\frac{\partial v_x}{\partial z}\right) = -\frac{\partial p}{\partial x} + \mu\left(\frac{\partial^2 v_x}{\partial x^2} + \frac{\partial^2 v_x}{\partial y^2} + \frac{\partial^2 v_x}{\partial z^2}\right) + \rho f_{mx} $$</div>
+<div class="math-block">$$ \rho\left(\frac{\partial v_y}{\partial t} + v_x\frac{\partial v_y}{\partial x} + v_y\frac{\partial v_y}{\partial y} + v_z\frac{\partial v_y}{\partial z}\right) = -\frac{\partial p}{\partial y} + \mu\left(\frac{\partial^2 v_y}{\partial x^2} + \frac{\partial^2 v_y}{\partial y^2} + \frac{\partial^2 v_y}{\partial z^2}\right) + \rho f_{my} $$</div>
+<div class="math-block">$$ \rho\left(\frac{\partial v_z}{\partial t} + v_x\frac{\partial v_z}{\partial x} + v_y\frac{\partial v_z}{\partial y} + v_z\frac{\partial v_z}{\partial z}\right) = -\frac{\partial p}{\partial z} + \mu\left(\frac{\partial^2 v_z}{\partial x^2} + \frac{\partial^2 v_z}{\partial y^2} + \frac{\partial^2 v_z}{\partial z^2}\right) + \rho f_{mz} $$</div>
+<p>Energy:</p>
+<div class="math-block">$$ \rho c\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) = \phi_v + k\left(\frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2}\right) + Q_c + Q_r $$</div>
+<p>with the viscous dissipation</p>
+<div class="math-block">$$ \phi_v = \mu\left\{2\left[\left(\frac{\partial v_x}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial y}\right)^2 + \left(\frac{\partial v_z}{\partial z}\right)^2\right] + \left(\frac{\partial v_x}{\partial y} + \frac{\partial v_y}{\partial x}\right)^2 + \left(\frac{\partial v_x}{\partial z} + \frac{\partial v_z}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial z} + \frac{\partial v_z}{\partial y}\right)^2\right\} $$</div>
+<h3 class="sub-heading">Cylindrical coordinates $(r,\theta,z)$</h3>
+<p>Continuity:</p>
+<div class="math-block">$$ \frac{1}{r}\frac{\partial(rv_r)}{\partial r} + \frac{1}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{\partial v_z}{\partial z} = 0 $$</div>
+<p>Momentum:</p>
+<div class="math-block">$$ \rho\left(\frac{\partial v_r}{\partial t} + v_r\frac{\partial v_r}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_r}{\partial\theta} - \frac{v_\theta^2}{r} + v_z\frac{\partial v_r}{\partial z}\right) = -\frac{\partial p}{\partial r} + \mu\left[\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial(rv_r)}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2 v_r}{\partial\theta^2} + \frac{\partial^2 v_r}{\partial z^2} - \frac{2}{r^2}\frac{\partial v_\theta}{\partial\theta}\right] + \rho f_{mr} $$</div>
+<div class="math-block">$$ \rho\left(\frac{\partial v_\theta}{\partial t} + v_r\frac{\partial v_\theta}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{v_rv_\theta}{r} + v_z\frac{\partial v_\theta}{\partial z}\right) = -\frac{1}{r}\frac{\partial p}{\partial\theta} + \mu\left[\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial(rv_\theta)}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2 v_\theta}{\partial\theta^2} + \frac{\partial^2 v_\theta}{\partial z^2} + \frac{2}{r^2}\frac{\partial v_r}{\partial\theta}\right] + \rho f_{m\theta} $$</div>
+<div class="math-block">$$ \rho\left(\frac{\partial v_z}{\partial t} + v_r\frac{\partial v_z}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_z}{\partial\theta} + v_z\frac{\partial v_z}{\partial z}\right) = -\frac{\partial p}{\partial z} + \mu\left[\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial v_z}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2 v_z}{\partial\theta^2} + \frac{\partial^2 v_z}{\partial z^2}\right] + \rho f_{mz} $$</div>
+<p>Energy:</p>
+<div class="math-block">$$ \rho c\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + \frac{v_\theta}{r}\frac{\partial T}{\partial\theta} + v_z\frac{\partial T}{\partial z}\right) = \phi_v + k\left[\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2 T}{\partial\theta^2} + \frac{\partial^2 T}{\partial z^2}\right] + Q_c + Q_r $$</div>
+<p>with</p>
+<div class="math-block">$$ \phi_v = \mu\left\{2\left[\left(\frac{\partial v_r}{\partial r}\right)^2 + \left(\frac{1}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{v_r}{r}\right)^2 + \left(\frac{\partial v_z}{\partial z}\right)^2\right] + \left(\frac{1}{r}\frac{\partial v_z}{\partial\theta} + \frac{\partial v_\theta}{\partial z}\right)^2 + \left[r\frac{\partial}{\partial r}\left(\frac{v_\theta}{r}\right) + \frac{1}{r}\frac{\partial v_r}{\partial\theta}\right]^2 + \left(\frac{\partial v_r}{\partial z} + \frac{\partial v_z}{\partial r}\right)^2\right\} $$</div>
+<h3 class="sub-heading">Spherical coordinates $(r,\theta,\phi)$</h3>
+<p>Continuity:</p>
+<div class="math-block">$$ \frac{1}{r^2}\frac{\partial(r^2v_r)}{\partial r} + \frac{1}{r\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta} + \frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial\phi} = 0 $$</div>
+<p>Momentum:</p>
+<div class="math-block">$$ \rho\left(\frac{\partial v_r}{\partial t} + v_r\frac{\partial v_r}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_r}{\partial\theta} + \frac{v_\phi}{r\sin\theta}\frac{\partial v_r}{\partial\phi} - \frac{v_\theta^2 + v_\phi^2}{r}\right) = -\frac{\partial p}{\partial r} + \mu\left[\frac{\partial}{\partial r}\left(\frac{1}{r^2}\frac{\partial(r^2v_r)}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial v_r}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2 v_r}{\partial\phi^2} - \frac{2}{r^2\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta} - \frac{2}{r^2\sin\theta}\frac{\partial v_\phi}{\partial\phi}\right] + \rho f_{mr} $$</div>
+<div class="math-block">$$ \rho\left(\frac{\partial v_\theta}{\partial t} + v_r\frac{\partial v_\theta}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{v_\phi}{r\sin\theta}\frac{\partial v_\theta}{\partial\phi} + \frac{v_rv_\theta}{r} - \frac{v_\phi^2\cot\theta}{r}\right) = -\frac{1}{r}\frac{\partial p}{\partial\theta} + \mu\left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial v_\theta}{\partial r}\right) + \frac{1}{r^2}\frac{\partial}{\partial\theta}\left(\frac{1}{\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2 v_\theta}{\partial\phi^2} + \frac{2}{r^2}\frac{\partial v_r}{\partial\theta} - \frac{2\cot\theta}{r^2\sin\theta}\frac{\partial v_\phi}{\partial\phi}\right] + \rho f_{m\theta} $$</div>
+<div class="math-block">$$ \rho\left(\frac{\partial v_\phi}{\partial t} + v_r\frac{\partial v_\phi}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_\phi}{\partial\theta} + \frac{v_\phi}{r\sin\theta}\frac{\partial v_\phi}{\partial\phi} + \frac{v_rv_\phi}{r} + \frac{v_\theta v_\phi\cot\theta}{r}\right) = -\frac{1}{r\sin\theta}\frac{\partial p}{\partial\phi} + \mu\left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial v_\phi}{\partial r}\right) + \frac{1}{r^2}\frac{\partial}{\partial\theta}\left(\frac{1}{\sin\theta}\frac{\partial(v_\phi\sin\theta)}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2 v_\phi}{\partial\phi^2} + \frac{2}{r^2\sin\theta}\frac{\partial v_r}{\partial\phi} + \frac{2\cot\theta}{r^2\sin\theta}\frac{\partial v_\theta}{\partial\phi}\right] + \rho f_{m\phi} $$</div>
+<p>Energy:</p>
+<div class="math-block">$$ \rho c\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + \frac{v_\theta}{r}\frac{\partial T}{\partial\theta} + \frac{v_\phi}{r\sin\theta}\frac{\partial T}{\partial\phi}\right) = \phi_v + k\left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial T}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial T}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2 T}{\partial\phi^2}\right] + Q_c + Q_r $$</div>
+<p>with</p>
+<div class="math-block">$$ \phi_v = \mu\left\{2\left[\left(\frac{\partial v_r}{\partial r}\right)^2 + \left(\frac{1}{r}\frac{\partial v_\theta}{\partial\theta} + \frac{v_r}{r}\right)^2 + \left(\frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial\phi} + \frac{v_r}{r} + \frac{v_\theta\cot\theta}{r}\right)^2\right] + \left[\frac{\sin\theta}{r}\frac{\partial}{\partial\theta}\left(\frac{v_\phi}{\sin\theta}\right) + \frac{1}{r\sin\theta}\frac{\partial v_\theta}{\partial\phi}\right]^2 + \left[r\frac{\partial}{\partial r}\left(\frac{v_\theta}{r}\right) + \frac{1}{r}\frac{\partial v_r}{\partial\theta}\right]^2 + \left[\frac{1}{r\sin\theta}\frac{\partial v_r}{\partial\phi} + r\frac{\partial}{\partial r}\left(\frac{v_\phi}{r}\right)\right]^2\right\} $$</div>
+      </section>
+
+      <section id="section-9">
+        <h2 class="section-heading">9. Practical Formulary of Topic 4</h2>
+<p>This section collects, for solving problems, everything defined above. Nothing new is derived here: each entry points to the equation of Chapter 4 it comes from, and the few simple consequences of the definitions are marked as such.</p>
+<h3 class="sub-heading">9.1 Fundamental equations</h3>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Law</th><th>Vector form</th><th>Equation</th></tr></thead><tbody><tr><td>Continuity</td><td>$\partial\rho/\partial t + \nabla\cdot(\rho\vec{v}) = 0$</td><td>4.5</td></tr><tr><td>Continuity, incompressible</td><td>$\nabla\cdot\vec{v} = 0$</td><td>4.7</td></tr><tr><td>Momentum (Cauchy)</td><td>$\rho\,D\vec{v}/Dt = -\nabla p + \nabla\cdot\bar{\bar{\tau}}' + \rho\vec{f}_m$</td><td>4.10, 4.33</td></tr><tr><td>Momentum, incompressible, $\mu$ constant</td><td>$\rho\,D\vec{v}/Dt = -\nabla p + \mu\nabla^2\vec{v} + \rho\vec{f}_m$</td><td>4.12</td></tr><tr><td>Momentum with reduced pressure</td><td>$\rho\,D\vec{v}/Dt = -\nabla P + \mu\nabla^2\vec{v}$, with $P = p + \rho U$</td><td>4.13</td></tr><tr><td>Newtonian constitutive law</td><td>$\bar{\bar{\tau}}' = \mu(\nabla\vec{v} + \nabla\vec{v}^{\,T}) + (\mu_B - \tfrac{2}{3}\mu)(\nabla\cdot\vec{v})\bar{\bar{I}}$</td><td>4.36</td></tr><tr><td>Fourier law</td><td>$\vec{q} = -k\nabla T$</td><td>4.36</td></tr><tr><td>Internal energy</td><td>$\rho\,De/Dt = -p\nabla\cdot\vec{v} + \phi_v - \nabla\cdot\vec{q} + Q_c + Q_r$</td><td>4.22</td></tr><tr><td>Total energy</td><td>$\rho\,D(e + \lvert\vec{v}\rvert^2/2)/Dt = -\nabla\cdot(p\vec{v}) + \nabla\cdot(\vec{v}\cdot\bar{\bar{\tau}}') + \rho\vec{f}_m\cdot\vec{v} - \nabla\cdot\vec{q} + Q_c + Q_r$</td><td>4.19</td></tr><tr><td>Mechanical energy</td><td>$\rho\,D(\lvert\vec{v}\rvert^2/2)/Dt = -\vec{v}\cdot\nabla p + \vec{v}\cdot(\nabla\cdot\bar{\bar{\tau}}') + \rho\vec{v}\cdot\vec{f}_m$</td><td>4.21</td></tr><tr><td>Enthalpy</td><td>$\rho\,Dh/Dt = Dp/Dt + \phi_v - \nabla\cdot\vec{q} + Q_c + Q_r$</td><td>4.28</td></tr><tr><td>Entropy</td><td>$\rho T\,Ds/Dt = \phi_v - \nabla\cdot\vec{q} + Q_c + Q_r$</td><td>4.30</td></tr><tr><td>Perfect liquid, temperature</td><td>$\rho c\,DT/Dt = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d + k\nabla^2T + Q_c + Q_r$</td><td>4.42</td></tr><tr><td>Bernoulli (steady, inviscid, incompressible, $\vec{f}_m = -\nabla U$)</td><td>$p + \rho U + \rho\lvert\vec{v}\rvert^2/2 = C_l$ along a streamline</td><td>4.17</td></tr><tr><td>States</td><td>liquid: $\rho = \rho_o$, $e = e_o + cT$; gas: $\rho = p/(R_gT)$, $e = e_o + c_vT$</td><td>4.38, 4.39</td></tr></tbody></table></div>
+<p>Component forms of the continuity, momentum and energy equations: Section 8. Component forms of the viscous stresses: Section 7.</p>
+<h3 class="sub-heading">9.2 Viscous stresses, flow rate, mean velocity, wall shear stress and dissipation</h3>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Quantity</th><th>Expression</th><th>Source</th></tr></thead><tbody><tr><td>Viscous stress components, Cartesian</td><td>$\tau'_{xx} = 2\mu\,\partial_x v_x + (\mu_B - \tfrac{2}{3}\mu)\nabla\cdot\vec{v}$; $\tau'_{xy} = \mu(\partial_y v_x + \partial_x v_y)$ and cyclic permutations</td><td>Section 7</td></tr><tr><td>Traction on a surface of normal $\vec{n}$</td><td>$\vec{f}_n = (-p\bar{\bar{I}} + \bar{\bar{\tau}}')\cdot\vec{n}$</td><td>Cauchy stress tensor, Chapter 3</td></tr><tr><td>Viscous force per unit volume (incompressible, $\mu$ constant)</td><td>$\nabla\cdot\bar{\bar{\tau}}' = \mu\nabla^2\vec{v} = -\mu\nabla\wedge(\nabla\wedge\vec{v})$</td><td>4.11, 4.12</td></tr><tr><td>Volume flow rate through a surface $\Sigma$</td><td>$Q = \int_\Sigma\vec{v}\cdot\vec{n}\,d\sigma$</td><td>definition (Chapter 3)</td></tr><tr><td>Mean velocity</td><td>$\bar{v} = Q/A$</td><td>consequence of the definition of $Q$ (extension)</td></tr><tr><td>Wall shear stress, wall with normal $\vec{n}$</td><td>tangential component of $\bar{\bar{\tau}}'\cdot\vec{n}$ at the wall, for instance $\tau_w = \mu\,\partial v_x/\partial y$ on a wall $y = \text{const}$ with $v = v_x(y)\vec{e}_x$</td><td>Section 7</td></tr><tr><td>Force of the fluid on a wall</td><td>$\vec{F} = \int_\Sigma(-p\bar{\bar{I}} + \bar{\bar{\tau}}')\cdot\vec{n}\,d\sigma$</td><td>Chapter 3</td></tr><tr><td>Viscous dissipation</td><td>$\phi_v = \bar{\bar{\tau}}':\nabla\vec{v} = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d$ for $\nabla\cdot\vec{v} = 0$; components in Section 8</td><td>4.22, 4.42</td></tr><tr><td>Conductive heat flux through a surface</td><td>$\vec{q}\cdot\vec{n} = -k\,\partial T/\partial n$</td><td>4.36</td></tr><tr><td>Reduced pressure</td><td>$P = p + \rho U$; $P = p + \rho g z$ for gravity along $-\vec{e}_z$</td><td>4.13</td></tr></tbody></table></div>
+<h3 class="sub-heading">9.3 From the problem statement to the equations</h3>
+<p>Each phrase of a statement removes terms of the equations above. The right column states the mathematical consequence. Rows marked "from the statements of problems NS1-NS17" are standard assumptions of the official problems, not derivations of Chapter 4.</p>
+<div class="table-wrapper"><table class="fm-table"><thead><tr><th>Condition in the statement</th><th>Terms that vanish</th><th>Boundary or compatibility condition imposed</th></tr></thead><tbody><tr><td>Steady</td><td>every $\partial/\partial t$</td><td>none in time: no initial condition is needed (Section 6)</td></tr><tr><td>Incompressible, constant properties</td><td>$D\rho/Dt$; the compression work $-p\nabla\cdot\vec{v}$; $\phi_v = 2\mu\bar{\bar{T}}_d:\bar{\bar{T}}_d$</td><td>continuity reduces to $\nabla\cdot\vec{v} = 0$; momentum and energy decouple (Section 3.2)</td></tr><tr><td>Planar (two-dimensional)</td><td>$v_z$ and every $\partial/\partial z$</td><td>none</td></tr><tr><td>Unidirectional or parallel flow, $\vec{v} = v_x(y)\vec{e}_x$</td><td>the convective term $\vec{v}\cdot\nabla\vec{v}$; $\partial v_x/\partial x$ through continuity</td><td>$v_y = 0$ is consistent with continuity; $y$-momentum gives $\partial p/\partial y = \rho f_{my}$</td></tr><tr><td>Fully developed, $\partial\vec{v}/\partial x = 0$</td><td>$\partial v/\partial x$ and $\partial^2v/\partial x^2$</td><td>continuity then fixes $v_y$ as constant (a porous wall can impose it)</td></tr><tr><td>Dependence only on the distance to the wall, $\vec{v} = \vec{v}(z)$</td><td>$\partial/\partial x$, $\partial/\partial y$ of the velocity</td><td>continuity gives $v_z = \text{constant}$, equal to the wall value</td></tr><tr><td>Axial symmetry about the axis</td><td>$\partial/\partial\theta$ of every variable</td><td>for rotation about the axis keep $v_\theta$; with no swirl, $v_\theta = 0$</td></tr><tr><td>Spherical symmetry</td><td>$\partial/\partial\theta$, $\partial/\partial\phi$; $v_\theta = v_\phi = 0$</td><td>continuity gives $r^2v_r = f(t)$; $r^2v_r$ constant if steady</td></tr><tr><td>Perfect liquid, $\mu$ and $k$ constant</td><td>variations of $\mu$, $k$; $\nabla\cdot\vec{v}$ terms in $\bar{\bar{\tau}}'$</td><td>viscous force $\mu\nabla^2\vec{v}$; temperature equation (4.42)</td></tr><tr><td>Buoyancy-free</td><td>the temperature dependence of $\rho$ in the mass force</td><td>velocity and pressure decouple from $T$</td></tr><tr><td>Negligible gravity</td><td>$\rho\vec{f}_m$</td><td>$P = p$</td></tr><tr><td>Negligible viscous dissipation</td><td>$\phi_v$</td><td>energy equation reduces to convection and conduction only</td></tr><tr><td>Fixed solid wall</td><td>none</td><td>$\vec{v} = 0$ (no-slip)</td></tr><tr><td>Moving solid wall, velocity $\vec{v}_p$</td><td>none</td><td>$\vec{v} = \vec{v}_p$ (no-slip)</td></tr><tr><td>Isothermal wall</td><td>none</td><td>$T = T_p$</td></tr><tr><td>Adiabatic wall</td><td>none</td><td>$\vec{q}\cdot\vec{n} = 0$, $\partial T/\partial n = 0$</td></tr><tr><td>Fluid extending to infinity, at rest or uniform</td><td>none</td><td>$\vec{v} = \vec{v}_\infty$, $p = p_\infty$, $T = T_\infty$ for $\lvert\vec{x}\rvert \to \infty$ (Section 6)</td></tr><tr><td>Porous wall with suction or injection velocity $V$ (from the statements of problems NS1-NS17)</td><td>none</td><td>normal velocity prescribed by the statement, for instance $v_n = \mp V$; the tangential velocity keeps the no-slip value</td></tr><tr><td>Free surface or air at a constant pressure, with $\mu_a \ll \mu$ (from the statements of problems NS5 and NS7)</td><td>none</td><td>$p = p_a$ and negligible viscous force of the air, that is $\bar{\bar{\tau}}'\cdot\vec{n} \approx 0$ on the liquid side: extension, not derived in Chapter 4</td></tr><tr><td>Reduced pressure (conservative mass force, pressure not in the boundary conditions)</td><td>the mass force</td><td>solve for $P = p + \rho U$ and recover $p$ at the end (Section 3.3)</td></tr></tbody></table></div>
+      </section>
+
+      <nav class="bottom-nav">
+        <a href="topic-3.html" class="bottom-nav-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Topic 3: Conservation laws</span></a>
+        <a href="index.html" class="bottom-nav-btn center"><span>Theory index</span></a>
+        <a href="../problemas/index.html" class="bottom-nav-btn"><span>Problems</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
