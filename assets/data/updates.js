@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-end-links-buttons",
+    "date": "2026-10-15",
+    "tag": "Portal",
+    "title": "Tidier links at the end of pages",
+    "text": "The portal button no longer has an emoji, and the closing links to the problems and back to the portal are now proper buttons."
+  },
+  {
     "id": "2026-10-14-palette-only",
     "date": "2026-10-14",
     "tag": "Portal",

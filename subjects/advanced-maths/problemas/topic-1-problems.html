@@ -633,6 +633,12 @@
   <script defer src="../../../assets/js/ask-ai.js"></script>
   <script defer src="../../../assets/js/pdf-export.js"></script>
   <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
   <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
 </head>
 <body>
@@ -1388,7 +1394,7 @@
       <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
       <p>Advanced Mathematics • Chapter 1 Complete Problem Solutions • Grounded in ProblemsCh1.pdf</p>
       <p style="margin-top: 8px;">
-        <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">← Return to Main Aerospace Study Portal</a>
+        <a class="end-btn" href="../../../index.html">← Return to Main Aerospace Study Portal</a>
       </p>
     </footer>
 
