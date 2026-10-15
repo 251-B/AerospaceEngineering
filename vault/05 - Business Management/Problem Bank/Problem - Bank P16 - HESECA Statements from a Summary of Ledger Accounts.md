@@ -22,7 +22,7 @@ tags:
   - bad-debts
 ---
 
-# 🧩 Bank P16 — HESECA: the statements from a summary of ledger accounts, with prepaid insurance and a credit line
+# Bank P16 — HESECA: the statements from a summary of ledger accounts, with prepaid insurance and a credit line
 
 > [!info] Exam-style practice exercise
 > Written for the problem bank in the style of `T3_Additional_EXERCISES.pdf`. It is not an official exercise and has no official key. Numbers follow the European format of the exam: dots for thousands, commas for decimals.
@@ -83,7 +83,7 @@ $$D_{\text{helicopter}} = \frac{24.000 - 0{,}10 \times 24.000}{12} = \frac{21.60
 
 $$\frac{4.500}{1.800} = 2{,}5 \text{ years before } 01/01/2022 \;\Rightarrow\; \text{bought on 1 July 2019 (01/07/2019)}$$
 
-Check of the van: one year (2021) at $1.800 / 6 = 300$ gives the 300 of the opening balance ✓.
+Check of the van: one year (2021) at $1.800 / 6 = 300$ gives the 300 of the opening balance (checked).
 
 #### Step 2. Parts consumed
 
@@ -99,7 +99,7 @@ $$I_{\text{loan}} = 0{,}06 \times 5.500 = 330 \text{ m.u.}$$
 
 $$I_{\text{credit}} = 2.000 \times 0{,}09 \times \frac{8}{12} + 1.000 \times 0{,}09 \times \frac{4}{12} = 120 + 30 = 150 \text{ m.u.}$$
 
-Check of the loan: $7.500 - 2 \times 1.000 = 5.500$ at 01/01/2022 ✓.
+Check of the loan: $7.500 - 2 \times 1.000 = 5.500$ at 01/01/2022 (checked).
 
 #### Step 5. Income Statement 2022
 
@@ -251,7 +251,7 @@ $$\text{Dividend} = 0{,}30 \times 3.094 = 928{,}20, \qquad \text{Reserves} = 1.5
 | Dividends payable | 1.117,20 | 928,20 | −189 |
 | **Total liabilities and equity** | **34.115** | **33.215** | **−900** |
 
-Check: $441 + 270 + 189 = 900$ ✓.
+Check: $441 + 270 + 189 = 900$ (checked).
 
 #### Step 3. Which statement the error distorts
 

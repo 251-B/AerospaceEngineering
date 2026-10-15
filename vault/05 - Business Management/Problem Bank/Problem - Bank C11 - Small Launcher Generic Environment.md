@@ -18,7 +18,7 @@ tags:
   - pestel
 ---
 
-# 🏢 Bank C11 — A small-launcher start-up reads its generic environment
+# Bank C11 — A small-launcher start-up reads its generic environment
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

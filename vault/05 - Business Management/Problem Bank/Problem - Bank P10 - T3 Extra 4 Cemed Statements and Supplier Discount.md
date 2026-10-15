@@ -20,7 +20,7 @@ tags:
   - cash
 ---
 
-# 🧩 Bank P10 — T3 Additional 4: CEMED statements and a 5% prompt-payment discount
+# Bank P10 — T3 Additional 4: CEMED statements and a 5% prompt-payment discount
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

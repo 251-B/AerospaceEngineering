@@ -19,7 +19,7 @@ tags:
   - contributions-in-kind
 ---
 
-# 🧩 Bank P02 — T3 Exercise 2: JUGA S.A. opening balance sheet with a patent contributed in kind
+# Bank P02 — T3 Exercise 2: JUGA S.A. opening balance sheet with a patent contributed in kind
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Exercise 2 - JUGA SA Opening Balance Sheet]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

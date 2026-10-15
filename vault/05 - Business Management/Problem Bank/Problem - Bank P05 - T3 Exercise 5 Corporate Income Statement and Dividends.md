@@ -19,7 +19,7 @@ tags:
   - dividends
 ---
 
-# 🧩 Bank P05 — T3 Exercise 5: a large company's income statement with discounts, taxes and dividends
+# Bank P05 — T3 Exercise 5: a large company's income statement with discounts, taxes and dividends
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Exercise 5 - Corporate Income Statement, Taxes and Dividends]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

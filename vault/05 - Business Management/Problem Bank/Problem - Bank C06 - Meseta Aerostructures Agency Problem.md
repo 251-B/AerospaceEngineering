@@ -18,7 +18,7 @@ tags:
   - corporate-governance
 ---
 
-# 🏢 Bank C06 — Meseta Aerostructures: a CEO, dispersed shareholders and the agency problem
+# Bank C06 — Meseta Aerostructures: a CEO, dispersed shareholders and the agency problem
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

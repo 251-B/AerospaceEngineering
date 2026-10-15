@@ -18,7 +18,7 @@ tags:
   - dividends
 ---
 
-# 🏢 Bank C22 — Talon Avionics: pay a dividend or keep the profit?
+# Bank C22 — Talon Avionics: pay a dividend or keep the profit?
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

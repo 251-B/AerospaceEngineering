@@ -18,7 +18,7 @@ tags:
   - diversification
 ---
 
-# 🏢 Bank C13 — Can a car-seat maker enter the aircraft-seat market? Barriers to entry
+# Bank C13 — Can a car-seat maker enter the aircraft-seat market? Barriers to entry
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

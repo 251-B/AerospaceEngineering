@@ -308,12 +308,16 @@ window.AE_NAV = {
       ],
       "extras": [
         {
-          "href": "subjects/business-management/sources/index.html",
-          "label": "Theory & exercise PDFs"
+          "href": "subjects/business-management/extra-problems/index.html",
+          "label": "Extra problems"
         },
         {
           "href": "subjects/business-management/simulator/index.html",
           "label": "Exam simulator"
+        },
+        {
+          "href": "subjects/business-management/sources/index.html",
+          "label": "Theory & exercise PDFs"
         }
       ]
     }

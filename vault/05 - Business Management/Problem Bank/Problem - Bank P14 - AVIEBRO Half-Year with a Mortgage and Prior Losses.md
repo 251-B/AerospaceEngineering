@@ -22,7 +22,7 @@ tags:
   - renting
 ---
 
-# 🧩 Bank P14 — AVIEBRO: a half-year close with a volume discount, a mortgage and prior losses
+# Bank P14 — AVIEBRO: a half-year close with a volume discount, a mortgage and prior losses
 
 > [!info] Exam-style practice exercise
 > Written for the problem bank in the style of `T3_Additional_EXERCISES.pdf`. It is not an official exercise and has no official key. Numbers follow the European format of the exam: dots for thousands, commas for decimals.
@@ -118,7 +118,7 @@ $$D_{\text{patent}} = 240 \times \frac{6}{12} = 120, \qquad D_{\text{computer}} 
 
 $$D = 120 + 150 + 10 = 280 \text{ m.u.}$$
 
-Check of the computer equipment: one year at 300 m.u. gives the 300 of the 2019 balance ✓.
+Check of the computer equipment: one year at 300 m.u. gives the 300 of the 2019 balance (checked).
 
 #### Step 6. Interest of the semester (accrued, nothing paid)
 

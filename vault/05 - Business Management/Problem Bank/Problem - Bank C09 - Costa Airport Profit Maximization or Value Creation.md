@@ -18,7 +18,7 @@ tags:
   - value-creation
 ---
 
-# 🏢 Bank C09 — Costa Airport: profit maximization or value creation?
+# Bank C09 — Costa Airport: profit maximization or value creation?
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

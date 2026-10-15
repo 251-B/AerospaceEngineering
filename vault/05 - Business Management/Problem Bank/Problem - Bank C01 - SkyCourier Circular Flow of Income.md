@@ -18,7 +18,7 @@ tags:
   - factors-of-production
 ---
 
-# 🏢 Bank C01 — SkyCourier: real and financial flows of a drone-delivery start-up
+# Bank C01 — SkyCourier: real and financial flows of a drone-delivery start-up
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

@@ -20,7 +20,7 @@ tags:
   - balance-sheet
 ---
 
-# 🧩 Bank P07 — T3 Additional 1: CIRCONSA half-year statements
+# Bank P07 — T3 Additional 1: CIRCONSA half-year statements
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Extra 1 - Circonsa Balance Sheet and Income Statement]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

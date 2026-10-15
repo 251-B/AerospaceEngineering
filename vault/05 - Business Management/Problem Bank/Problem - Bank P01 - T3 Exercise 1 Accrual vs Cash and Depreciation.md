@@ -19,7 +19,7 @@ tags:
   - depreciation
 ---
 
-# 🧩 Bank P01 — T3 Exercise 1: revenues vs collections, expenses vs payments, depreciation
+# Bank P01 — T3 Exercise 1: revenues vs collections, expenses vs payments, depreciation
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Exercise 1 - Accrual vs Cash Basis and Linear Depreciation]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

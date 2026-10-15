@@ -345,10 +345,11 @@
 
   <main class="container">
     <nav class="subject-tabs" aria-label="Business Management sections">
-      <a class="subject-tab" href="../teoria/index.html"><span aria-hidden="true">📘</span> Theory</a>
-      <a class="subject-tab" href="../problemas/index.html"><span aria-hidden="true">🧩</span> Problem Bank</a>
-      <a class="subject-tab" href="../simulator/index.html" aria-current="page"><span aria-hidden="true">⚡</span> Exam Simulator</a>
-      <a class="subject-tab" href="../sources/index.html"><span aria-hidden="true">📂</span> Official PDFs</a>
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html" aria-current="page">Exam simulator</a>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
     </nav>
 
     <header class="page-header">
@@ -361,10 +362,10 @@
         </svg>
       </div>
       <h1>Business Management — Exam Simulator</h1>
-      <p>A simulated first partial exam (Midterm 1) drawn from the Problem Bank: three short theory cases from different units and one Extra Practice problem, against the clock. Hints and solutions stay hidden until you finish; then you grade yourself with the key results and the full solutions, and the items you missed go to Review in the Problem Bank.</p>
+      <p>A simulated first partial exam (Midterm 1) drawn from the Extra problems: three short theory cases from different units and one Extra Practice problem, against the clock. Hints and solutions stay hidden until you finish; then you grade yourself with the key results and the full solutions, and the items you missed go to Review in Extra problems.</p>
     </header>
 
-    <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-storage="ae_bm_exams" data-progress="ae_bm_progress" data-bank-page="../problemas/index.html">
+    <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-storage="ae_bm_exams" data-progress="ae_bm_progress" data-bank-page="../extra-problems/index.html">
 
       <section id="simSetup" aria-labelledby="simSetupTitle">
         <div class="sim-card">
@@ -384,10 +385,10 @@
               <label class="sim-label" for="simArchetype">Type of the 4-point problem</label>
               <select class="sim-select" id="simArchetype"><option value="any">Any type (random)</option></select>
             </div>
-            <label class="sim-check"><input type="checkbox" id="simSkipMastered" checked> <span>Do not include items I marked ✅ Mastered in the Problem Bank</span></label>
+            <label class="sim-check"><input type="checkbox" id="simSkipMastered" checked> <span>Do not include items I marked Mastered in Extra problems</span></label>
             <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>Do not repeat the items of my previous simulated exam</span></label>
           </div>
-          <button class="bank-btn sim-primary" type="button" id="simGenerate"><span aria-hidden="true">⚡</span> Generate New Midterm 1 Exam</button>
+          <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>
           <button class="bank-btn" type="button" id="simHelpOpen" aria-haspopup="dialog">Keyboard shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
         </div>
 
@@ -408,7 +409,7 @@
           <span class="sim-points" id="simPoints"></span>
           <nav class="sim-nav" id="simNav" aria-label="Questions"></nav>
           <span class="sim-bar__actions">
-            <button class="bank-btn" type="button" id="simPrint"><span aria-hidden="true">🖨️</span> Print Exam PDF</button>
+            <button class="bank-btn" type="button" id="simPrint">Print Exam PDF</button>
             <button class="bank-btn" type="button" id="simFinish" aria-pressed="false">Finish &amp; Grade Exam</button>
           </span>
         </div>
@@ -430,7 +431,7 @@
         </div>
         <div id="simGradeList"></div>
         <div class="sim-card">
-          <button class="bank-btn sim-primary" type="button" id="simSave" disabled>Save grade and update the Problem Bank</button>
+          <button class="bank-btn sim-primary" type="button" id="simSave" disabled>Save grade and update Extra problems</button>
           <button class="bank-btn" type="button" id="simNew">New exam</button>
           <div id="simSaved" hidden></div>
         </div>

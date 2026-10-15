@@ -18,7 +18,7 @@ tags:
   - organizational-theory
 ---
 
-# 🏢 Bank C10 — Closing an engine-parts plant: mapping the stakeholders and their power
+# Bank C10 — Closing an engine-parts plant: mapping the stakeholders and their power
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

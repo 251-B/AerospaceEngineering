@@ -18,7 +18,7 @@ tags:
   - corporate-strategy
 ---
 
-# 🏢 Bank C18 — A launcher maker buys its engine supplier: vertical integration
+# Bank C18 — A launcher maker buys its engine supplier: vertical integration
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

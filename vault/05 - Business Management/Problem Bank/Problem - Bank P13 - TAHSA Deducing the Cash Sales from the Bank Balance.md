@@ -22,7 +22,7 @@ tags:
   - early-payment-discount
 ---
 
-# 🧩 Bank P13 — TAHSA: deducing the share of cash sales from the bank balance
+# Bank P13 — TAHSA: deducing the share of cash sales from the bank balance
 
 > [!info] Exam-style practice exercise
 > Written for the problem bank in the style of `T3_Additional_EXERCISES.pdf`. It is not an official exercise and has no official key. Numbers follow the European format of the exam: dots for thousands, commas for decimals.

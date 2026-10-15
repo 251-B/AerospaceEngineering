@@ -23,7 +23,7 @@ tags:
   - roe
 ---
 
-# 🧩 Bank P15 — CAESA: financing a second autoclave with a semiannual loan or with new shares
+# Bank P15 — CAESA: financing a second autoclave with a semiannual loan or with new shares
 
 > [!info] Exam-style practice exercise
 > Written for the problem bank in the style of `T3_Additional_EXERCISES.pdf`. It is not an official exercise and has no official key. Numbers follow the European format of the exam: dots for thousands, commas for decimals.
@@ -85,7 +85,7 @@ Check the old autoclave: how much did it depreciate per year if 2.400 accumulate
 
 ### Checkpoint
 
-- Old autoclave 800 m.u./year ($3 \times 800 = 2.400$ ✓); new autoclave 270; software 200; total 1.270 m.u.
+- Old autoclave 800 m.u./year ($3 \times 800 = 2.400$ (checked)); new autoclave 270; software 200; total 1.270 m.u.
 - Resin consumed 11.400; income from operations 3.530; interest 240 m.u.
 - Profit before taxes 3.290; tax 658; net profit 2.632 m.u.
 

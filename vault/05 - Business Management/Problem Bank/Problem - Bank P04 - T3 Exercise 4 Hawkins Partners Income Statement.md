@@ -19,7 +19,7 @@ tags:
   - inventory
 ---
 
-# 🧩 Bank P04 — T3 Exercise 4: Hawkins Partners income statement with inventory variation
+# Bank P04 — T3 Exercise 4: Hawkins Partners income statement with inventory variation
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Exercise 4 - Hawkins Partners Income Statement and Inventories]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

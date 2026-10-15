@@ -19,7 +19,7 @@ tags:
   - classification
 ---
 
-# 🧩 Bank P03 — T3 Exercise 3: Libby's Company balance sheet from a list of accounts
+# Bank P03 — T3 Exercise 3: Libby's Company balance sheet from a list of accounts
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Exercise 3 - Libbys Company Balance Sheet Classification]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

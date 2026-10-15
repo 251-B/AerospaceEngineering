@@ -18,7 +18,7 @@ tags:
   - corporate-strategy
 ---
 
-# 🏢 Bank C17 — Vega Avionics: reasons for and types of diversification
+# Bank C17 — Vega Avionics: reasons for and types of diversification
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

@@ -18,7 +18,7 @@ tags:
   - market-and-enterprise
 ---
 
-# 🏢 Bank C08 — Classifying three aerospace enterprises, and why firms exist at all
+# Bank C08 — Classifying three aerospace enterprises, and why firms exist at all
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

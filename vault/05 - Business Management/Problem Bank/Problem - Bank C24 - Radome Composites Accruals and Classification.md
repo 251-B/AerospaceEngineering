@@ -18,7 +18,7 @@ tags:
   - balance-sheet
 ---
 
-# 🏢 Bank C24 — Radome Composites: revenues vs collections and current vs non-current items
+# Bank C24 — Radome Composites: revenues vs collections and current vs non-current items
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

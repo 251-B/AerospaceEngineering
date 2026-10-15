@@ -18,7 +18,7 @@ tags:
   - residual-income
 ---
 
-# 🏢 Bank C04 — An eVTOL founder: the four views of the entrepreneur and her rights
+# Bank C04 — An eVTOL founder: the four views of the entrepreneur and her rights
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

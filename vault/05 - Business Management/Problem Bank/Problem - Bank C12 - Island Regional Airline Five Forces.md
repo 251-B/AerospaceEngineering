@@ -18,7 +18,7 @@ tags:
   - industry-analysis
 ---
 
-# 🏢 Bank C12 — Island regional airlines under Porter's five forces
+# Bank C12 — Island regional airlines under Porter's five forces
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

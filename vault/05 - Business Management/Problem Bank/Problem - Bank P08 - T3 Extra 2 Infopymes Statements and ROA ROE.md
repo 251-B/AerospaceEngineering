@@ -21,7 +21,7 @@ tags:
   - balance-sheet
 ---
 
-# 🧩 Bank P08 — T3 Additional 2: INFOPYMES statements 2016-2017 and ROA/ROE
+# Bank P08 — T3 Additional 2: INFOPYMES statements 2016-2017 and ROA/ROE
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

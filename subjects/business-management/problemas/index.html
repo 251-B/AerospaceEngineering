@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Management — Problem Bank</title>
-  <meta name="description" content="Problem Bank of Business Management (UC3M Aerospace Engineering): short theory cases and Extra Practice problems with hints, key results and step-by-step solutions.">
+  <title>Business Management — Problems</title>
+  <meta name="description" content="Step-by-step analytical solutions to official exercises and exam problem sets for Business Management (UC3M Aerospace Engineering).">
 
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -318,11 +318,7 @@
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
   <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
-  <link rel="stylesheet" href="../../../assets/css/problem-bank.css">
   <script src="../../../assets/js/theme.js"></script>
-  <script defer src="../data/problems.js"></script>
-  <script defer src="../../../assets/js/problem-bank.js"></script>
-  <link rel="stylesheet" href="../../../assets/css/responsive.css">
 </head>
 <body>
   <!-- Animated Celestial Canvas Background -->
@@ -344,10 +340,11 @@
 
   <main class="container">
     <nav class="subject-tabs" aria-label="Business Management sections">
-      <a class="subject-tab" href="../teoria/index.html"><span aria-hidden="true">📘</span> Theory</a>
-      <a class="subject-tab" href="../problemas/index.html" aria-current="page"><span aria-hidden="true">🧩</span> Problem Bank</a>
-      <a class="subject-tab" href="../simulator/index.html"><span aria-hidden="true">⚡</span> Exam Simulator</a>
-      <a class="subject-tab" href="../sources/index.html"><span aria-hidden="true">📂</span> Official PDFs</a>
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html" aria-current="page">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
     </nav>
 
     <header class="page-header">
@@ -359,89 +356,9 @@
           <circle cx="12" cy="15" r="1" fill="currentColor"/>
         </svg>
       </div>
-      <h1>Business Management — Problem Bank</h1>
-      <p>24 short theory cases (2 points) and 16 Extra Practice problems (4 points), the two parts of the first partial exam. Each item opens with its statement; the hint, the key result and the full step-by-step solution stay hidden until you ask for them. Mark what you have mastered and what you want to review: your progress stays in this browser.</p>
+      <h1>Business Management — Problems</h1>
+      <p>The official course exercises, solved step by step: every operation classified, every statement balanced and every figure checked against the official key. Short theory cases and exam-style practice problems are on the Extra problems page.</p>
     </header>
-
-    <div id="problemBank" data-bank="AE_BM_BANK" data-storage="ae_bm_progress">
-      <section class="bank-progress" aria-label="Your progress">
-        <div class="bank-progress__head">
-          <span id="bankProgressText">Loading the bank…</span>
-          <span id="bankProgressPct"></span>
-        </div>
-        <div class="bank-progress__bar" id="bankProgressBar" role="progressbar" aria-label="Items mastered" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0">
-          <span class="bank-progress__seg bank-progress__seg--mastered" id="bankSegMastered" style="width:0%"></span>
-          <span class="bank-progress__seg bank-progress__seg--review" id="bankSegReview" style="width:0%"></span>
-        </div>
-      </section>
-
-      <section class="bank-toolbar" aria-label="Filters">
-        <div class="bank-search">
-          <label class="bank-sr" for="bankSearch">Search the bank</label>
-          <input id="bankSearch" type="search" placeholder="Search by company, concept or id (e.g. leasing, ROE, P13)" autocomplete="off">
-          <kbd aria-hidden="true">/</kbd>
-        </div>
-        <div class="bank-tabs" id="bankCategory" role="tablist" aria-label="Exam category">
-          <button class="bank-tab" role="tab" type="button" data-value="all" aria-selected="true" tabindex="0">All</button>
-          <button class="bank-tab" role="tab" type="button" data-value="short_theory_case" aria-selected="false" tabindex="-1"><span aria-hidden="true">🏢</span> Short theory cases (2 pts)</button>
-          <button class="bank-tab" role="tab" type="button" data-value="extra_practice_problem" aria-selected="false" tabindex="-1"><span aria-hidden="true">📊</span> Extra Practice problems (4 pts)</button>
-        </div>
-        <div class="bank-filters">
-          <div class="bank-filter">
-            <label for="bankArchetype">Type of statement</label>
-            <select id="bankArchetype"><option value="all">All types</option></select>
-          </div>
-          <div class="bank-filter">
-            <label for="bankUnit">Unit</label>
-            <select id="bankUnit"><option value="all">All units</option></select>
-          </div>
-          <div class="bank-filter">
-            <label for="bankDifficulty">Difficulty</label>
-            <select id="bankDifficulty">
-              <option value="all">Any difficulty</option>
-              <option value="1">●○○ Basic</option>
-              <option value="2">●●○ Medium</option>
-              <option value="3">●●● Exam level</option>
-            </select>
-          </div>
-          <div class="bank-filter">
-            <label for="bankStatus">Status</label>
-            <select id="bankStatus">
-              <option value="all">Any status</option>
-              <option value="mastered">✅ Mastered</option>
-              <option value="review">⚠️ Review</option>
-              <option value="pending">❌ Pending</option>
-            </select>
-          </div>
-        </div>
-        <div class="bank-toolbar__foot">
-          <span id="bankCount" aria-live="polite"></span>
-          <span>
-            <button class="bank-btn" type="button" id="bankReset">Clear filters</button>
-            <button class="bank-btn" type="button" id="bankHelpOpen" aria-haspopup="dialog">Keyboard shortcuts <kbd class="bank-kbd" aria-hidden="true">?</kbd></button>
-          </span>
-        </div>
-      </section>
-
-      <div class="bank-list" id="bankList"></div>
-      <p class="bank-empty" id="bankEmpty" hidden>No item matches these filters. Clear them to see the whole bank.</p>
-    </div>
-
-    <dialog class="bank-help" id="bankHelp" aria-labelledby="bankHelpTitle">
-      <h2 id="bankHelpTitle">Keyboard shortcuts</h2>
-      <dl>
-        <dt><kbd>T</kbd></dt><dd>Next reading palette</dd>
-        <dt><kbd>/</kbd></dt><dd>Search the bank</dd>
-        <dt><kbd>Esc</kbd></dt><dd>Close this help or clear the search</dd>
-        <dt><kbd>?</kbd></dt><dd>Show this help</dd>
-      </dl>
-      <button class="bank-btn" type="button" id="bankHelpClose">Close</button>
-    </dialog>
-    <div class="bank-sr" id="bankLive" aria-live="polite"></div>
-    <div class="bank-toast" id="bankToast" role="status" hidden></div>
-
-    <h2 class="bank-worked-title">Worked problem pages</h2>
-    <p class="bank-worked-lead">The ten official Topic 3 exercises are also solved on their own pages, with every phase of the method and the official key.</p>
 
     <section class="problem-sets-grid">
 

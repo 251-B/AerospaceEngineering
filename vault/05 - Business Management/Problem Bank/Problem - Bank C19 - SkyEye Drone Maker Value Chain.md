@@ -18,7 +18,7 @@ tags:
   - porter
 ---
 
-# 🏢 Bank C19 — SkyEye Drones: mapping activities onto Porter's value chain
+# Bank C19 — SkyEye Drones: mapping activities onto Porter's value chain
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

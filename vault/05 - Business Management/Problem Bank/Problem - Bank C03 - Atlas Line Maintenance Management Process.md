@@ -18,7 +18,7 @@ tags:
   - fayol
 ---
 
-# 🏢 Bank C03 — Atlas Line Maintenance: the four stages of the management process in a ramp-up
+# Bank C03 — Atlas Line Maintenance: the four stages of the management process in a ramp-up
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

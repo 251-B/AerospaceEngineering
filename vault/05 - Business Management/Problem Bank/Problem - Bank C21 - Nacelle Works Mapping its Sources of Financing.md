@@ -18,7 +18,7 @@ tags:
   - sources-of-financing
 ---
 
-# 🏢 Bank C21 — Nacelle Works: placing seven sources of financing on the map
+# Bank C21 — Nacelle Works: placing seven sources of financing on the map
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

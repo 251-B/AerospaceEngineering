@@ -18,7 +18,7 @@ tags:
   - financial-structure
 ---
 
-# 🏢 Bank C20 — Rotorline: investing and financing decisions, economic and financial structure
+# Bank C20 — Rotorline: investing and financing decisions, economic and financial structure
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

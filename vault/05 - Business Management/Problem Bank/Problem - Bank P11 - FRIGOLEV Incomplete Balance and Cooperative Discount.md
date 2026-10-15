@@ -23,7 +23,7 @@ tags:
   - roe
 ---
 
-# 🧩 Bank P11 — FRIGOLEV: an incomplete 2017 balance, a cooperative discount and the 2018 statements
+# Bank P11 — FRIGOLEV: an incomplete 2017 balance, a cooperative discount and the 2018 statements
 
 > [!info] Exam-style practice exercise
 > Statement supplied by the student in the style of `T3_Additional_EXERCISES.pdf` and solved here step by step. It is not an official exercise and has no official key. Numbers follow the European format of the exam: dots for thousands, commas for decimals.
@@ -116,7 +116,7 @@ The current-assets subtotal and the four partners' contributions close the 2017 
 
 $$\text{Cash} = 2.940 - 1.200 - 800 = 940 \text{ m.u.}, \qquad \text{Total assets} = 2.940 + 5.560 = 8.500 \text{ m.u.}$$
 
-Check of the non-current block: $1.500 + 4.000 - 540 + 600 = 5.560$ ✓.
+Check of the non-current block: $1.500 + 4.000 - 540 + 600 = 5.560$ (checked).
 
 $$\text{Paid-in capital} = 4 \times 1.500 = 6.000, \qquad \text{Owners equity} = 6.000 - 400 = 5.600 \text{ m.u.}$$
 

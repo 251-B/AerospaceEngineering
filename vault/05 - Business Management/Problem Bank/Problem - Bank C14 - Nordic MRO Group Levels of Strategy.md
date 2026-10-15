@@ -18,7 +18,7 @@ tags:
   - business-strategy
 ---
 
-# 🏢 Bank C14 — Nordic MRO Group: corporate strategy, business strategy and levels of decision
+# Bank C14 — Nordic MRO Group: corporate strategy, business strategy and levels of decision
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

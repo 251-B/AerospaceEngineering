@@ -20,7 +20,7 @@ tags:
   - losses
 ---
 
-# 🧩 Bank P09 — T3 Additional 3: WIFINET accounting cycle and two ways of paying a dividend
+# Bank P09 — T3 Additional 3: WIFINET accounting cycle and two ways of paying a dividend
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

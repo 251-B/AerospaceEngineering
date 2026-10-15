@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-business-separate-pages",
+    "date": "2026-10-15",
+    "tag": "Business Management",
+    "title": "Problems, Extra problems and the Exam simulator on separate pages",
+    "text": "Business Management now has one page each for theory, the official problems, the extra problems and the exam simulator, linked by a row of tabs.",
+    "link": "subjects/business-management/extra-problems/index.html"
+  },
+  {
     "id": "2026-10-15-ask-ai-links",
     "date": "2026-10-15",
     "tag": "Portal",
@@ -26,16 +34,16 @@ window.AE_UPDATES = [
     "date": "2026-10-15",
     "tag": "Business Management",
     "title": "Exam Simulator for the first partial (Midterm 1)",
-    "text": "Generate a timed exam of three theory cases and one problem, write your drafts, then grade yourself out of 10. Missed items go to Review in the Problem Bank.",
+    "text": "Generate a timed exam of three theory cases and one problem, write your drafts, then grade yourself out of 10. Missed items go to Review in Extra problems.",
     "link": "subjects/business-management/simulator/index.html"
   },
   {
     "id": "2026-10-15-business-problem-bank",
     "date": "2026-10-15",
     "tag": "Business Management",
-    "title": "New Problem Bank: 24 theory cases and 16 exam problems",
+    "title": "New Extra problems: 24 theory cases and 16 exam problems",
     "text": "Filter by exam part, type and unit, open a hint, the key result or the full solution only when you want it, and mark what you have mastered. Press ? for shortcuts.",
-    "link": "subjects/business-management/problemas/index.html"
+    "link": "subjects/business-management/extra-problems/index.html"
   },
   {
     "id": "2026-10-15-materials-t4-review",

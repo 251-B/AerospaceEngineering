@@ -129,10 +129,10 @@
     var actions = el('div', 'bank-card__actions', null);
     var bMastered = el('button', 'bank-btn bank-btn--mastered', null);
     bMastered.type = 'button';
-    bMastered.innerHTML = '<span aria-hidden="true">✅</span> Mastered';
+    bMastered.innerHTML = 'Mastered';
     var bReview = el('button', 'bank-btn bank-btn--review', null);
     bReview.type = 'button';
-    bReview.innerHTML = '<span aria-hidden="true">⚠️</span> Review';
+    bReview.innerHTML = 'Review';
     actions.appendChild(bMastered);
     actions.appendChild(bReview);
     if (item.page) {
@@ -150,7 +150,7 @@
 
     if (item.setup_html) {
       var extra = el('div', 'bank-extra', null);
-      var setup = reveal(extra, '<span aria-hidden="true">🧭</span> Setup and hypotheses', 'Setup and hypotheses', item.setup_html, 'hint');
+      var setup = reveal(extra, 'Setup and hypotheses', 'Setup and hypotheses', item.setup_html, 'hint');
       extra.appendChild(setup.button);
       body.appendChild(extra);
       body.appendChild(setup.panel);
@@ -166,10 +166,10 @@
       prompt.appendChild(el('span', 'bank-sub__pts', points(sub.points) + ' pts'));
       section.appendChild(prompt);
       var buttons = el('div', 'bank-sub__buttons', null);
-      var hint = reveal(buttons, '<span aria-hidden="true">💡</span> Hint', 'Hint', sub.hint_html, 'hint');
-      var check = reveal(buttons, isCase ? '<span aria-hidden="true">🎯</span> Checklist' : '<span aria-hidden="true">🎯</span> Check key result',
+      var hint = reveal(buttons, 'Hint', 'Hint', sub.hint_html, 'hint');
+      var check = reveal(buttons, isCase ? 'Checklist' : 'Check key result',
                          isCase ? 'Key concepts the answer must contain' : 'Key figures of the result', sub.checkpoint_html, 'check');
-      var sol = reveal(buttons, '<span aria-hidden="true">📖</span> Full step-by-step solution', 'Step-by-step solution', sub.solution_html, 'solution');
+      var sol = reveal(buttons, 'Full step-by-step solution', 'Step-by-step solution', sub.solution_html, 'solution');
       [hint, check, sol].forEach(function (r) { buttons.appendChild(r.button); });
       section.appendChild(buttons);
       [hint, check, sol].forEach(function (r) { section.appendChild(r.panel); });
@@ -178,7 +178,7 @@
 
     if (item.interpretation_html) {
       var extra2 = el('div', 'bank-extra', null);
-      var interp = reveal(extra2, '<span aria-hidden="true">🔎</span> Interpretation and checks', 'Interpretation and checks', item.interpretation_html, 'solution');
+      var interp = reveal(extra2, 'Interpretation and checks', 'Interpretation and checks', item.interpretation_html, 'solution');
       extra2.appendChild(interp.button);
       body.appendChild(el('p', 'bank-section-title', 'After solving'));
       body.appendChild(extra2);

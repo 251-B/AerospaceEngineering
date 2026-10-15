@@ -18,7 +18,7 @@ tags:
   - joint-venture
 ---
 
-# 🏢 Bank C07 — A drone-spraying cooperative and a launcher joint venture
+# Bank C07 — A drone-spraying cooperative and a launcher joint venture
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

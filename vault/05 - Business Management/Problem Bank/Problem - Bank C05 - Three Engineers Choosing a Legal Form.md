@@ -18,7 +18,7 @@ tags:
   - liability
 ---
 
-# 🏢 Bank C05 — Three engineers choosing a legal form for a composite-repair shop
+# Bank C05 — Three engineers choosing a legal form for a composite-repair shop
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

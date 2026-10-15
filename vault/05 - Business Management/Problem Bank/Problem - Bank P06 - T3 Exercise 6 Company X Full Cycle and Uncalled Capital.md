@@ -20,7 +20,7 @@ tags:
   - cash
 ---
 
-# 🧩 Bank P06 — T3 Exercise 6: Company X full cycle and the effect of uncalled capital
+# Bank P06 — T3 Exercise 6: Company X full cycle and the effect of uncalled capital
 
 > [!info] Official exercise
 > Bank card of [[Problem - T3 Exercise 6 - Company X Full Cycle Balance Sheet and Uncalled Capital]]. The statement and every solution step are embedded from that note, so the solution lives in one place only.

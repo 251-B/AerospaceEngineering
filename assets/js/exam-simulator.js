@@ -10,14 +10,14 @@
  *
  * Generation: each blueprint part draws `count` items of its category at random; Part I keeps every case in a different
  * unit and theme when the bank allows it; Part II can be limited to one archetype. Options: duration, skip the items marked
- * Mastered in the Problem Bank, skip the items of the previous simulated exam (both relaxed, with a notice, if too few
+ * Mastered in Extra problems, skip the items of the previous simulated exam (both relaxed, with a notice, if too few
  * items remain).
  *
  * Live exam: wall-clock countdown (it survives reloads), points summary, quick navigation, a draft box per question,
  * no hints or solutions. When the time is up the exam goes to grading by itself. Grading: key results and full solutions
  * appear; theory cases are graded with the blueprint's grading steps, the problem per subquestion in quarter points;
  * the grade out of the blueprint total is saved in the history, and every item below half of its points is marked
- * "review" in the Problem Bank's progress key.
+ * "review" in the Extra problems progress key.
  *
  * Storage (never a key containing "theme"): ae_bm_exams = { current: {...} | null, history: [...] } and the bank's
  * ae_bm_progress. Shortcuts (ignored while typing or with Ctrl/Alt/Meta): T next reading palette, Esc close the help,
@@ -403,7 +403,7 @@
         s.appendChild(check);
         var host = el('div', 'bank-sub__buttons', null);
         s.appendChild(host);
-        s.appendChild(revealPanel(host, '<span aria-hidden="true">📖</span> Full step-by-step solution', 'Step-by-step solution', sub.solution_html, 'solution', false));
+        s.appendChild(revealPanel(host, 'Full step-by-step solution', 'Step-by-step solution', sub.solution_html, 'solution', false));
         if (!isCase) {
           var g = el('div', 'sim-grade', null);
           g.appendChild(el('span', null, 'Your points for (' + sub.label + '):'));
@@ -463,7 +463,7 @@
     var box = document.getElementById('simSaved');
     var html = '<p><strong>Grade saved: ' + fmt1(t.total) + ' / ' + fmt1(BP.total_points) + '.</strong></p>';
     html += review.length
-      ? '<p>Marked ⚠️ Review in the Problem Bank (below half of their points):</p><ul class="sim-result-list">' +
+      ? '<p>Marked Review in Extra problems (below half of their points):</p><ul class="sim-result-list">' +
         review.map(function (id) { return '<li><a href="' + BANK_PAGE + '#' + id + '">' + id + ' · ' + BY_ID[id].title + '</a></li>'; }).join('') + '</ul>'
       : '<p>No item below half of its points: nothing was marked for review.</p>';
     box.innerHTML = html;

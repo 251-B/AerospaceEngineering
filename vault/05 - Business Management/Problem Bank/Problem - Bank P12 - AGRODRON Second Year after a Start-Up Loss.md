@@ -23,7 +23,7 @@ tags:
   - roe
 ---
 
-# 🧩 Bank P12 — AGRODRON: the second year of a drone start-up that closed its first year with a loss
+# Bank P12 — AGRODRON: the second year of a drone start-up that closed its first year with a loss
 
 > [!info] Exam-style practice exercise
 > Statement supplied by the student in the style of `T3_Additional_EXERCISES.pdf` and solved here step by step. It is not an official exercise and has no official key. Numbers follow the European format of the exam: dots for thousands, commas for decimals.
@@ -238,7 +238,7 @@ $$\text{Dividend} = 0{,}30 \times 540 = 162, \qquad \text{Reserves} = 540 - 162 
 | Dividends payable (current liability) | 0 | 162 | +162 |
 | **Total liabilities and equity** | **6.126** | **6.222** | **+96** |
 
-Check: $-66 + 162 = +96$ ✓. The shareholders are promised more (162 instead of 96) because the dividend is computed before absorbing the loss; equity is lower by exactly the extra dividend ($162 - 96 = 66$), and the cash stays in the company until June.
+Check: $-66 + 162 = +96$ (checked). The shareholders are promised more (162 instead of 96) because the dividend is computed before absorbing the loss; equity is lower by exactly the extra dividend ($162 - 96 = 66$), and the cash stays in the company until June.
 
 ## Interpretation
 

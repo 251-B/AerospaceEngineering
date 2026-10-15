@@ -18,7 +18,7 @@ tags:
   - competitive-advantage
 ---
 
-# 🏢 Bank C15 — LowOrbit: the drivers behind a cost-leadership strategy in satellite buses
+# Bank C15 — LowOrbit: the drivers behind a cost-leadership strategy in satellite buses
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

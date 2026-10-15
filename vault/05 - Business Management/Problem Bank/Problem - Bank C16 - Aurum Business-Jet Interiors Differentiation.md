@@ -18,7 +18,7 @@ tags:
   - competitive-advantage
 ---
 
-# 🏢 Bank C16 — Aurum Interiors: tangible and intangible differentiation in business jets
+# Bank C16 — Aurum Interiors: tangible and intangible differentiation in business jets
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

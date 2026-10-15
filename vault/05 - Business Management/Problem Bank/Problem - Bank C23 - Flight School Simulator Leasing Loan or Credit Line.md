@@ -18,7 +18,7 @@ tags:
   - bank-financing
 ---
 
-# 🏢 Bank C23 — A flight school's simulator: leasing, a long-term loan or a credit line?
+# Bank C23 — A flight school's simulator: leasing, a long-term loan or a credit line?
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.

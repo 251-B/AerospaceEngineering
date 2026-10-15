@@ -18,7 +18,7 @@ tags:
   - management-functions
 ---
 
-# 🏢 Bank C02 — Orbital Fasteners: sorting a day of activity into the functional areas
+# Bank C02 — Orbital Fasteners: sorting a day of activity into the functional areas
 
 > [!info] Practice item
 > Written for the problem bank. It is not an official exercise and has no official key.
