@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/MatlabCode/example1.m"
 kind: laboratorio
 status: referenced
-bytes: 3720
+bytes: 3865
 ---
 
 # Source: example1.m
@@ -18,7 +18,7 @@ bytes: 3720
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/MatlabCode/example1.m`
 - **Kind:** laboratorio
-- **Size:** 3.7 kB
+- **Size:** 3.9 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by

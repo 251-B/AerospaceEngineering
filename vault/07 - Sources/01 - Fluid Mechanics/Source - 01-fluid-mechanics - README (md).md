@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/README.md"
 kind: other
 status: not-referenced
-bytes: 22712
+bytes: 22995
 ---
 
 # Source: README.md
@@ -18,7 +18,7 @@ bytes: 22712
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/README.md`
 - **Kind:** other
-- **Size:** 22.7 kB
+- **Size:** 23.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 6 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

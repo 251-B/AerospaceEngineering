@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/MatlabCode/example2.m"
 kind: laboratorio
 status: not-referenced
-bytes: 3670
+bytes: 3809
 ---
 
 # Source: example2.m
@@ -18,7 +18,7 @@ bytes: 3670
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/MatlabCode/example2.m`
 - **Kind:** laboratorio
-- **Size:** 3.7 kB
+- **Size:** 3.8 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

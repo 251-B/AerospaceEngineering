@@ -7,7 +7,7 @@ tags:
 path: "sources/update_inventory.ps1"
 kind: other
 status: not-referenced
-bytes: 271
+bytes: 275
 ---
 
 # Source: update_inventory.ps1
@@ -18,7 +18,7 @@ bytes: 271
 
 - **Path:** `sources/update_inventory.ps1`
 - **Kind:** other
-- **Size:** 271 B
+- **Size:** 275 B
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

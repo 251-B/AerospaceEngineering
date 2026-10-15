@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/02-aerospace-materials-1/README.md"
 kind: other
 status: not-referenced
-bytes: 17102
+bytes: 17331
 ---
 
 # Source: README.md
@@ -18,7 +18,7 @@ bytes: 17102
 
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/README.md`
 - **Kind:** other
-- **Size:** 17.1 kB
+- **Size:** 17.3 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 6 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

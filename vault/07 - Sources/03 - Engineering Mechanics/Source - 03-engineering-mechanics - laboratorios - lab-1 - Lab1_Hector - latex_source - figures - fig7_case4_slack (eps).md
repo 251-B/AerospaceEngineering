@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.eps"
 kind: laboratorio
 status: not-referenced
-bytes: 254919
+bytes: 257738
 ---
 
 # Source: fig7_case4_slack.eps
@@ -18,7 +18,7 @@ bytes: 254919
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig7_case4_slack.eps`
 - **Kind:** laboratorio
-- **Size:** 254.9 kB
+- **Size:** 257.7 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

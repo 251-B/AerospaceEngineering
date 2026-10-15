@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/MatlabCode/tables_lab1.tex"
 kind: laboratorio
 status: not-referenced
-bytes: 3849
+bytes: 3935
 ---
 
 # Source: tables_lab1.tex
@@ -18,7 +18,7 @@ bytes: 3849
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/MatlabCode/tables_lab1.tex`
 - **Kind:** laboratorio
-- **Size:** 3.8 kB
+- **Size:** 3.9 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

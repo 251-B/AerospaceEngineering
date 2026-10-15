@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/extracted/main.tex"
 kind: laboratorio
 status: referenced
-bytes: 32999
+bytes: 33514
 ---
 
 # Source: main.tex
@@ -18,7 +18,7 @@ bytes: 32999
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/extracted/main.tex`
 - **Kind:** laboratorio
-- **Size:** 33.0 kB
+- **Size:** 33.5 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by
