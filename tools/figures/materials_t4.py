@@ -542,7 +542,7 @@ def tie_line():
     P.text(28, 1285, "tie line", "BLUE", size=12.5)
     line(c, P.p(29.5, 1280), P.p(33.5, 1252), "BLUE", 1, head=True)
     REG.put("tie-line", c, "Tie line and lever rule in the Cu-Ni system",
-            "Alloy B, 35 wt% Ni at 1250 °C, in the α + L region of the Cu-Ni diagram. The tie line through B ends on "
+            "Alloy B, 35 wt% Ni at about 1250 °C (a reading of the figure), in the α + L region of the Cu-Ni diagram. The tie line through B ends on "
             "the liquidus at C_L = 32 wt% Ni and on the solidus at C_α = 43 wt% Ni; R and S are the lengths of its two "
             "arms. Redrawn from Session 7 Slides 15-21")
 
@@ -1344,7 +1344,7 @@ def fec_part3():
     fec_zoom("fec-hypo", "fchypo", "Cooling of a hypoeutectoid steel (0.3 % C)",
              "Hypoeutectoid steel of 0.3 % C: c only γ; d α (0.02 % C) + γ (0.4 % C); e just above 727 °C, α + γ of "
              "0.76 % C; f just below 727 °C, proeutectoid α and pearlite. Redrawn from Session 9 Slides 14-18",
-             0.3, ((880, "c"), (775, "d"), (750, "e"), (700, "f")), ((775, 0.02, 0.4, "", "0.4"), (750, 0.02, fec_a3_inv(750), "", "0.76")),
+             0.3, ((880, "c"), (775, "d"), (728, "e"), (690, "f")), ((775, 0.02, 0.4, "", "0.4"), (728, 0.02, fec_a3_inv(728), "", "0.76")),
              lambda c, P: (P.text(0, 912, "M", "HEAD", "start", 12.5, dx=4, dy=-4), P.text(0.022, 727, "N", "HEAD", "start", 12.5, dx=-14, dy=16),
                            P.text(0.76, 727, "O", "HEAD", "middle", 12.5, dy=18)))
     fec_zoom("fec-hyper", "fchyper", "Cooling of a hypereutectoid steel (1.2 % C)",
@@ -1879,8 +1879,8 @@ def problems_part2():
     micro_figure("pd-micro-p9", "Problem 9: microstructure of Al-20 wt% Ni at 400 °C",
                  "Al-20 wt% Ni at 400 °C: primary Al₃Ni crystals (about 39 %) in the eutectic (Al) + Al₃Ni (about 61 %)",
                  BLOBS_FEW + [(-55, 30, 14)], "primary Al₃Ni", "eutectic ((Al) + Al₃Ni)")
-    micro_figure("pd-micro-p12", "Problem 12: microstructure of Ni-40 wt% Mo just below 1310 °C",
-                 "Ni-40 wt% Mo just below 1310 °C: primary NiMo (25 %) in the eutectic α + NiMo (75 %)",
+    micro_figure("pd-micro-p12", "Problem 12: microstructure of Ni-40 at.% Mo just below 1310 °C",
+                 "Ni-40 at.% Mo just below 1310 °C: primary NiMo (25 %) in the eutectic α + NiMo (75 %)",
                  BLOBS_FEW, "primary NiMo", "eutectic (α + NiMo)")
     micro_figure("pd-micro-p13", "Problem 13: microstructure of Ti-30 wt% Si just below 1330 °C",
                  "Ti-30 wt% Si just below 1330 °C: primary Ti₅Si₃ (76 %) in the eutectic βTi + Ti₅Si₃ (24 %)",

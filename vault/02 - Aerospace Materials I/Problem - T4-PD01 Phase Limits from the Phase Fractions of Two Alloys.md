@@ -29,7 +29,7 @@ tags:
 
 ### Hypotheses
 1. **Equilibrium:** both alloys are at the same temperature, in equilibrium, and both contain α and β only, so both lie in the α + β two-phase region [Session 7 Slide 26].
-2. **One tie line:** at a fixed temperature and pressure, a two-component, two-phase system has $F = C - P + 1 = 2 - 2 + 1 = 1$ degree of freedom, already used by the temperature [Session 7 Slide 13]. The compositions of α and β are therefore the same for both alloys: $C_\alpha$ and $C_\beta$ are the two ends of one tie line.
+2. **One tie line:** at constant pressure a two-component, two-phase system has $F = C - P + 1 = 2 - 2 + 1 = 1$ degree of freedom, and fixing the temperature uses it [Session 7 Slide 13]. The compositions of α and β are therefore the same for both alloys: $C_\alpha$ and $C_\beta$ are the two ends of one tie line.
 3. **Mass fractions** obey the lever rule [Session 7 Slide 16].
 
 ### Data
@@ -92,6 +92,7 @@ $$C_\alpha = C_\beta - D = 95.0 - 83.33 = 11.67 \approx 11.7\ \%\text{B}$$
 - **Mass balance of B** for alloy 1: $0.78 \times 11.67 + 0.22 \times 95.0 = 9.10 + 20.90 = 30.0\ \%$B $= C_0$.
 - **Order:** $C_\alpha = 11.7 < 30 < 65 < 95 = C_\beta$, so both alloys are indeed inside the α + β region, as assumed.
 - **Units:** all compositions are in % B (mass), fractions are dimensionless; each equation is homogeneous in % B.
+- **Limiting cases** (fractions dimensionless, compositions in the units of the statement): with the limits found, an alloy at $C_0 = C_\alpha$ would be all α ($W_\alpha = 1$) and one at $C_0 = C_\beta$ all β ($W_\alpha = 0$); both given alloys lie between the two limits, as fractions between 0 and 1 require.
 
 ### Interpretation
 At this temperature α can dissolve at most 11.7 % B and β at most 5 % A (95 % B). The alloy closer to the α limit (30 % B) has more α, as the lever rule predicts.

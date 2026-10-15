@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-15-materials-t4-review",
+    "date": "2026-10-15",
+    "tag": "Aerospace Materials I",
+    "title": "Topic 4 checked again against the slides and the keys",
+    "text": "Phase diagram notes and problems were checked line by line. Problem 12 now uses atomic %, a Fe-C figure was fixed, and every gap with the official keys is explained.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html"
+  },
+  {
     "id": "2026-10-15-end-links-buttons",
     "date": "2026-10-15",
     "tag": "Portal",

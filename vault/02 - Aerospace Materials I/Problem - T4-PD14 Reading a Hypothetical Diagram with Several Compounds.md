@@ -18,14 +18,14 @@ tags:
 >
 > ![[attachments/T4/pd-p14-diagram.png]]
 >
-> *(Solution: β incongruent melting; γ congruent melting; δ incongruent melting; ε incongruent melting)*
+> *(Solution, from the annotated diagram of Solution problems Phase diagrams I.pdf, p. 37; the sheet prints none: β incongruent melting; γ congruent melting; δ incongruent melting; ε incongruent melting)*
 
 ---
 
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 ### Hypotheses
-1. **Equilibrium**; the diagram has no printed values except the axes (wt% B, temperature in °C), so every number below is a **reading of the figure**, to about ±1 wt% and ±10 °C.
+1. **Equilibrium**; the diagram has no printed values except the axes (wt% B; temperature assumed in °C, since the axis prints no unit), so every number below is a **reading of the figure**, to about ±1 wt% and ±10 °C.
 2. Phases are named as in the official solution (p. 37): terminal solid solutions α (A side) and ζ (B side), intermediate phases β, γ (a vertical line: a compound of fixed composition at about 62 % B), δ and ε, and the liquid L.
 3. Each horizontal line is an invariant reaction, named by its shape [Session 8 Slide 6]; melting is congruent at a maximum of the liquidus and incongruent at a peritectic line [Session 8 Slide 17].
 
@@ -80,6 +80,7 @@ Frame: composition (wt% B) against temperature. The diagram is read on horizonta
 - On every eutectic and eutectoid line the parent phase (L or δ) lies **between** the two products; on every peritectic line the product lies between the two reactants, with the liquid at one end [Session 8 Slide 6].
 - Phase rule: three phases on each horizontal line, $F = 2 - 3 + 1 = 0$ [Session 7 Slide 13].
 - δ is a closed field: it is created by a peritectic at 660 °C and destroyed by a eutectoid at 430 °C, so it exists only between those temperatures.
+- **Limiting case**: an alloy with exactly the composition of a line compound (γ) is a single phase, with fractions 1 or 0 and no tie line; every two-phase reading above lies strictly between its tie-line ends.
 
 ### Interpretation
 The diagram is a chain of simple diagrams joined at the compounds. A phase that touches the liquid only at a horizontal line cannot exist as a liquid of its own composition, which is the meaning of incongruent melting.

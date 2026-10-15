@@ -64,7 +64,7 @@ $$W_{\beta'} = \frac{C_0 - C_e}{C_\beta - C_e} = \frac{C_0 - 61.9}{97.5 - 61.9} 
 
 Solving for $C_0$:
 
-$$C_0 = 61.9 + 0.7893 \times 35.6 = 61.9 + 28.10 = 90.0\ \text{wt\% Sn}$$
+$$C_0 = C_e + W_{\beta'}\,(C_\beta - C_e) = 61.9 + 0.7893 \times 35.6 = 61.9 + 28.10 = 90.0\ \text{wt\% Sn}$$
 
 $61.9 < 90.0 < 97.5$: the alloy is hypereutectic, as primary β requires.
 
@@ -85,6 +85,7 @@ Both conditions are met by the same alloy: **yes**, it is possible, with a Pb-90
 ### Checks
 - **Eutectic part:** mass of eutectic $= 2.8 - 2.21 = 0.59$ kg; β inside it $= 2.53 - 2.21 = 0.32$ kg, a fraction $0.32 / 0.59 = 0.54$. The eutectic of the sheet diagram has $W_{\beta,e} = (61.9 - 19.2)/(97.5 - 19.2) = 42.7/78.3 = 0.545$ of β, and $0.545 \times 0.59 = 0.32$ kg: consistent.
 - **Units:** masses in kg, fractions dimensionless, compositions in wt% Sn.
+- **Limiting cases** (fractions dimensionless, compositions in wt% Sn): as $C_0 \to 61.9$ the primary β tends to 0 (all eutectic), and as $C_0 \to 97.5$ to 1 (all primary β); 90.0 wt% Sn lies close to the β end, consistent with 0.79 of primary β.
 
 ### Interpretation
 The two masses are not independent: once the primary β fixes the composition, the total β is fixed too. A different total β (say 2.40 kg) would have been impossible for any alloy.

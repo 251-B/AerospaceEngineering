@@ -86,6 +86,7 @@ The microconstituents keep these amounts on cooling to 400 °C (Al₃Ni has a fi
 ### Checks
 - Mass balance at 400 °C: $0.537 \times 1 + 0.463 \times 42 = 0.54 + 19.45 = 20.0$ wt% Ni.
 - All the (Al) is inside the eutectic: $W_{(\text{Al})} = 0.537 < W_E = 0.611$, and the rest of the eutectic, $0.611 - 0.537 = 0.074$, is eutectic Al₃Ni; total Al₃Ni $= 0.389 + 0.074 = 0.463$ ✓.
+- **Limiting cases** (fractions dimensionless, compositions in % Ni): at $C_0 \approx 6$ (the eutectic) the alloy would be all eutectic and at $C_0 = 42$ all primary Al₃Ni; 20 % Ni lies nearer the eutectic end, hence most of the alloy (0.61) is eutectic.
 
 ### Interpretation
 The alloy is mostly eutectic of soft (Al) with about 39 % of hard Al₃Ni crystals that grew from the liquid between about 800 °C (liquidus at 20 wt% Ni, reading) and 639.9 °C. The Ni-rich side of the diagram is crowded with intermetallic compounds formed by peritectic and peritectoid reactions.
@@ -94,7 +95,7 @@ The alloy is mostly eutectic of soft (Al) with about 39 % of hard Al₃Ni crysta
 Parts (a) and (b) agree with the key (10 % Al, 1 % Ni; eutectics at 639.9 and ~1380 °C, peritectoid at ~700 °C, peritectics at 854, 1133 and ~1400 °C). The key writes the compositions of part (c) as "%Cu"; they are wt% Ni.
 
 > [!warning] Discrepancy with the official solution
-> For part (c) the key uses $C_{\text{Al}_3\text{Ni}} = 43$ % and a eutectic liquid of about 7 % Ni, and gives $X_\alpha = 0.55$, $X_{\text{Al}_3\text{Ni}} = 0.45$, eutectic 0.64 and primary Al₃Ni 0.36. The figure places the Al₃Ni line at about 42 % and the eutectic point at about 6 % Ni, which give 0.537/0.463 and 0.611/0.389. With the key's readings the same formulas give $(43 - 20)/(43 - 1) = 23/42 = 0.548$ for (Al) and $(43 - 20)/(43 - 7) = 23/36 = 0.64$ for the eutectic: the difference comes only from the readings, which are within the precision of the drawing. The values read here are kept.
+> For part (c) the key uses $C_{\text{Al}_3\text{Ni}} = 43$ % (its eutectic liquid is not stated; the key's eutectic fraction 0.64 implies about 7 % Ni), and gives $X_\alpha = 0.55$, $X_{\text{Al}_3\text{Ni}} = 0.45$, eutectic 0.64 and primary Al₃Ni 0.36. The figure places the Al₃Ni line at about 42 % and the eutectic point at about 6 % Ni, which give 0.537/0.463 and 0.611/0.389. With the key's readings the same formulas give $(43 - 20)/(43 - 1) = 23/42 = 0.548$ for (Al) and $(43 - 20)/(43 - 7) = 23/36 = 0.64$ for the eutectic: the difference comes only from the readings, which are within the precision of the drawing. The values read here are kept.
 
 ---
 
