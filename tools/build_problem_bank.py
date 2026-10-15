@@ -143,13 +143,17 @@ def render(lines, where):
     return "\n".join(out)
 
 
+_EU = {"on": False}  # set per note: frontmatter "number_format: eu" means 1.500,25 (dot thousands, comma decimals)
+_NUM_EU = re.compile(r"\(?-?\d[\d.]*(?:,\d+)?\)?")
+
+
 def _amount(cell):
     cell = re.sub(r"[*$]", "", cell).strip()
-    m = _NUM.fullmatch(cell)
-    if not m:
+    if not (_NUM_EU if _EU["on"] else _NUM).fullmatch(cell):
         return None
     neg = cell.startswith("(") or cell.startswith("-")
-    value = float(re.sub(r"[(),]", "", cell).lstrip("-"))
+    digits = cell.replace(".", "").replace(",", ".") if _EU["on"] else cell.replace(",", "")
+    value = float(re.sub(r"[()]", "", digits).lstrip("-"))
     return -value if neg else value
 
 
@@ -169,10 +173,18 @@ def parse_note(path):
     if not m:
         raise BankError(f"{where}: name must be 'Problem - Bank Pnn|Cnn - <title>.md'")
     meta, body = frontmatter(path.read_text(encoding="utf-8"), where)
+    _EU["on"] = meta.get("number_format") == "eu"
+    try:
+        return _parse(path, where, meta, body)
+    finally:
+        _EU["on"] = False
+
+
+def _parse(path, where, meta, body):
     missing = [k for k in REQUIRED if k not in meta]
     if missing:
         raise BankError(f"{where}: frontmatter lacks {', '.join(missing)}")
-    if meta["bank_id"] != m.group(1):
+    if meta["bank_id"] != _NAME.match(path.name).group(1):
         raise BankError(f"{where}: bank_id {meta['bank_id']} does not match the file name")
     category = meta["category"]
     if category not in CATEGORIES:

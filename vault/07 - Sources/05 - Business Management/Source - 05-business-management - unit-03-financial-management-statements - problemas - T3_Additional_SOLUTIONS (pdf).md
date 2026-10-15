@@ -19,7 +19,7 @@ bytes: 635479
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf`
 - **Kind:** problemas
 - **Size:** 635.5 kB
-- **Status:** referenced by 5 note(s) below
+- **Status:** referenced by 4 note(s) below
 
 ## Referenced by
 
@@ -27,4 +27,3 @@ bytes: 635479
 - [[05 - Business Management/Problem - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE]]
 - [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends]]
 - [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P26 - Sirius Flight Academy Collections Payments and Cash Account]]

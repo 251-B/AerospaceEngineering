@@ -19,7 +19,7 @@ bytes: 1491095
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic 3_Financial Management (I).pdf`
 - **Kind:** teoria
 - **Size:** 1.5 MB
-- **Status:** referenced by 24 note(s) below
+- **Status:** referenced by 10 note(s) below
 
 ## Referenced by
 
@@ -30,20 +30,6 @@ bytes: 1491095
 - [[05 - Business Management/Problem Bank/Problem - Bank C22 - Talon Avionics Dividend or Self-Financing]]
 - [[05 - Business Management/Problem Bank/Problem - Bank C23 - Flight School Simulator Leasing Loan or Credit Line]]
 - [[05 - Business Management/Problem Bank/Problem - Bank C24 - Radome Composites Accruals and Classification]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P11 - AeroFix Composites Unordered Account Balances]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P12 - SkyParts Distribution Mixed List with Non-Accounting Items]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P14 - Nimbus Air Charter Missing Cash and Liquidity Diagnosis]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P15 - Vector Avionics Balance Sheet Gaps from Ratios]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P16 - Stratos Ground Systems Income Statement from Margins]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P17 - Lumen Optics Space Statements from Structure and ROA]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P18 - Corvid Drone Works Equity Reconstruction and Rights Issue]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P21 - Orbitron Satellite Components Bonds Rights Issue and Factoring]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P22 - Albatross Avionics Discounted Bill and Sale of a Van]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P23 - Pegasus Aerostructures Plant Expansion and Cash Flows]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P24 - Halcyon Regional Airline Falling Sales Year on Year]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P25 - Cirrus Test Labs Closing Balance from a List of Changes]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P27 - Zenith Launch Services Bank Loan or Rights Issue]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P28 - Borealis Composites ROE Scenarios and Break-Even Income]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P29 - Meridian Avionics WACC and a Bank Covenant]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P30 - Polaris Space Hardware Mixed Financing Plan]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P15 - CAESA Financing an Expansion with a Loan or New Shares]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P16 - HESECA Statements from a Summary of Ledger Accounts]]
 - [[05 - Business Management/Topic 3 - Financial Management I - Financial Statements]]

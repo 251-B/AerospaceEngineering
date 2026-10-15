@@ -135,6 +135,12 @@ class BankTests(unittest.TestCase):
         with self.assertRaisesRegex(bpb.BankError, "add up"):
             self.build({"Problem - Bank P99 - Demo.md": PROBLEM.replace("{total}", "100").replace("[2.5 pts]", "[2.0 pts]")})
 
+    def test_european_number_format_is_checked(self):
+        eu = PROBLEM.replace("origen: \"test\"", "origen: \"test\"\nnumber_format: eu").replace("**100**", "**1.500,50**")
+        self.build({"Problem - Bank P99 - Demo.md": eu.replace("{total}", "1.500,50")})
+        with self.assertRaisesRegex(bpb.BankError, "does not balance"):
+            self.build({"Problem - Bank P99 - Demo.md": eu.replace("{total}", "1.500,05")})
+
     def test_case_needs_a_theme(self):
         with self.assertRaisesRegex(bpb.BankError, "theme"):
             self.build({"Problem - Bank C99 - Demo case.md": CASE.replace("theme: demo-theme\n", "")})
@@ -168,11 +174,12 @@ class RepositoryTests(unittest.TestCase):
             items = [i for i in data["items"] if i["category"] == part["category"]]
             self.assertTrue(all(i["points"] == part["points_each"] for i in items))
             self.assertGreaterEqual(len({i["unit"] for i in items} if part["category"] == "short_theory_case" else items), part["count"])
-        self.assertEqual(data["counts"], {"short_theory_case": 24, "extra_practice_problem": 30})
+        self.assertEqual(data["counts"], {"short_theory_case": 24, "extra_practice_problem": 16})
         problems = [i for i in data["items"] if i["category"] == "extra_practice_problem"]
         new = [i for i in problems if not i["official"]]
+        self.assertEqual(len(new), 6)
         for arch in bpb.ARCHETYPES:
-            self.assertEqual(sum(i["archetype"] == arch for i in new), 4, arch)
+            self.assertGreaterEqual(sum(i["archetype"] == arch for i in new), 1, arch)
 
 
 if __name__ == "__main__":

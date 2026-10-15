@@ -19,10 +19,11 @@ bytes: 331571
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf`
 - **Kind:** problemas
 - **Size:** 331.6 kB
-- **Status:** referenced by 12 note(s) below
+- **Status:** referenced by 17 note(s) below
 
 ## Referenced by
 
+- [[05 - Business Management/Business Management MOC]]
 - [[05 - Business Management/Concept - Method to Build the Income Statement and Balance Sheet]]
 - [[05 - Business Management/Problem - T3 Extra 1 - Circonsa Balance Sheet and Income Statement]]
 - [[05 - Business Management/Problem - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE]]
@@ -32,6 +33,10 @@ bytes: 331571
 - [[05 - Business Management/Problem Bank/Problem - Bank P08 - T3 Extra 2 Infopymes Statements and ROA ROE]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P09 - T3 Extra 3 Wifinet Accounting Cycle and Dividends]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P10 - T3 Extra 4 Cemed Statements and Supplier Discount]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P19 - Aerolift Drones First Year of Operations]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P20 - Kestrel MRO Half-Year with Renting and a Credit Line]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P22 - Albatross Avionics Discounted Bill and Sale of a Van]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P11 - FRIGOLEV Incomplete Balance and Cooperative Discount]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P12 - AGRODRON Second Year after a Start-Up Loss]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P13 - TAHSA Deducing the Cash Sales from the Bank Balance]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P14 - AVIEBRO Half-Year with a Mortgage and Prior Losses]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P15 - CAESA Financing an Expansion with a Loan or New Shares]]
+- [[05 - Business Management/Problem Bank/Problem - Bank P16 - HESECA Statements from a Summary of Ledger Accounts]]
+- [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank]]
