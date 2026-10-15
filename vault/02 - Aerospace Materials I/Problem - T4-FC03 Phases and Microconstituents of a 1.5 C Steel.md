@@ -60,12 +60,13 @@ Proeutectoid cementite = the cementite at $T_4$, $W_{\text{Fe}_3\text{C}'} = 0.1
 - $0.778 + 0.097 = 0.875 = W_{\text{pearlite}}$; and $0.875 \times 0.889 = 0.778$ ✓.
 - Mass balance at $T_5$: $0.778 \times 0.022 + 0.222 \times 6.67 = 0.017 + 1.481 = 1.50$ % C ✓.
 - The proeutectoid cementite grows from 0.037 at 900 °C to 0.125 at 727 °C as the austenite loses carbon along $A_{cm}$.
+- **Limiting cases** (fractions dimensionless, compositions in wt% C): at $C_0 = 0.76$ the proeutectoid Fe₃C would be 0 and at $C_0 = 6.67$ the alloy would be all Fe₃C; 1.5 % C lies near the eutectoid end, hence only 0.125 of proeutectoid cementite.
 
 ## ✅ Check against the official solution
 Agrees with the key, except for the last figure.
 
 > [!warning] Discrepancy with the official solution
-> The key gives $w_{Fe_3C,E} = 0.09$. Exactly, $0.222 - 0.125 = 0.097$ (≈ 0.10), confirmed by $0.875 \times 0.111 = 0.097$; the key truncates the difference of the rounded values $0.22 - 0.13$. The computed value is kept.
+> The key gives $w_{Fe_3C,E} = 0.09$. Exactly, $0.222 - 0.125 = 0.097$ (≈ 0.10), confirmed by $0.875 \times 0.111 = 0.097$; the key subtracts the rounded values, $0.22 - 0.13 = 0.09$. The computed value is kept.
 
 ---
 

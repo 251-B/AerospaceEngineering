@@ -9,6 +9,13 @@ tags:
   - bernoulli
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL8.pdf"
+id: "cl8"
+pill: "CL8: Jet on Orifice"
+tags_html:
+  - "Free jets"
+  - "Bernoulli"
+  - "Mass"
+  - "Force on a wall"
 ---
 
 # Problem CL8: Jet Impinging on a Wall with an Orifice
@@ -23,6 +30,9 @@ A circular water jet of diameter $D_j$ and velocity $V_j$ impinges perpendicular
 - Determine the values of the velocities $V_s$ and $V_r$ for the secondary jet that emerges from the orifice and for the radial wall jet.
 - Obtain the thickness $h(r)$ of the radial wall jet.
 - Compute the force that the jet exerts on the wall as a function of $\rho$, $V_j$, $D_j$ and $D_s$.
+
+![[attachments/FM-T3/cl8-statement.svg]]
+*Statement figure (redrawn from CL8.pdf, p. 1, axial section): incoming jet $D_j$, $V_j$; orifice of diameter $D_s$ with the secondary jet $V_s$; radial wall jet $V_r$ of thickness $h(r)$; ambient pressure $p_a$ on both sides of the wall*
 
 Source: CL8.pdf (page 1). Notes.pdf: Bernoulli's equation Eq. 4.17 (Chapter 4), integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36.
 
@@ -41,8 +51,11 @@ Source: CL8.pdf (page 1). Notes.pdf: Bernoulli's equation Eq. 4.17 (Chapter 4), 
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
-- Frame fixed to the wall; $\bar{e}_x$ along the jet axis (towards the wall); cylindrical coordinate $r$ on the wall, with $\int\bar{e}_r\,d\theta = 0$.
+- Frame fixed to the wall; $\bar{e}_x$ along the jet axis (towards the wall); cylindrical coordinate $r$ on the wall, with two fixed unit vectors $\bar{e}_y$, $\bar{e}_z$ normal to $\bar{e}_x$, $\bar{e}_r = \cos\theta\,\bar{e}_y + \sin\theta\,\bar{e}_z$ and $\int_0^{2\pi}\bar{e}_r\,d\theta = [\sin\theta]_0^{2\pi}\,\bar{e}_y + [-\cos\theta]_0^{2\pi}\,\bar{e}_z = \bar{0}$.
 - Fixed control volume around the water: $\Sigma_j$ (section of the incoming jet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (section of the secondary jet beyond the orifice, $\bar{n} = +\bar{e}_x$), $\Sigma_r$ (cylinder of radius $r$ across the wall jet, $\bar{n} = \bar{e}_r$, height $h$), $\Sigma_a$ (free surfaces, $p = p_a$, $\bar{v}\cdot\bar{n} = 0$) and $\Sigma_w$ (wetted wall).
+
+![[attachments/FM-T3/cl8-cv.svg]]
+*Control volume of the solution: $\Sigma_j$ (incoming jet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (secondary jet, $\bar{n} = +\bar{e}_x$), $\Sigma_r$ (cylinder of radius $r$ across the wall jet, $\bar{n} = \bar{e}_r$; its two traces in this section), the free surfaces $\Sigma_a$ at $p_a$ and the wetted wall $\Sigma_w$; $\bar{F}_w$ is the force on the wall*
 
 Force of the water (and of the ambient air on the dry side) on the wall:
 

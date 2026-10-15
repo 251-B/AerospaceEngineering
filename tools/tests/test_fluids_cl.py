@@ -1,0 +1,73 @@
+"""The Topic 3 (conservation laws) generator in tools/fluids_cl/: the vault notes are the source, the generated files
+are up to date, every problem has its card on the page and its note, and every figure the page embeds exists."""
+import importlib.util
+import pathlib
+import subprocess
+import sys
+import tempfile
+import unittest
+
+REPO = pathlib.Path(__file__).resolve().parents[2]
+BUILD = REPO / "tools/fluids_cl/build.py"
+PAGE = REPO / "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html"
+
+
+def load_build():
+    spec = importlib.util.spec_from_file_location("fluids_cl_build", BUILD)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+class FluidsClTests(unittest.TestCase):
+    def test_each_note_is_in_the_canonical_layout(self):
+        """Reading a note back and rendering it gives the same file: the notes are the source and stay generated-shaped."""
+        build = load_build()
+        for P in build.load_problems():
+            path = REPO / build.VAULT / f"{P['note_title']}.md"
+            self.assertEqual(build.note_md(P), path.read_text(encoding="utf-8"), P["note_title"])
+
+    def test_generated_files_are_up_to_date(self):
+        proc = subprocess.run([sys.executable, str(BUILD), "--check"], capture_output=True, text=True)
+        self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+
+    def test_malformed_notes_raise_an_error_that_names_the_file(self):
+        """A hand-edited note that breaks the layout must fail loudly, never lose content silently."""
+        build = load_build()
+        original = next((REPO / build.VAULT).glob("Problem - CL2 *.md")).read_text(encoding="utf-8").split("\n")
+        sep = next(i for i, line in enumerate(original) if line.startswith("| :---"))
+        source = next(i for i, line in enumerate(original) if line.startswith("Source: "))
+        heading = next(i for i, line in enumerate(original) if line.startswith("# Problem "))
+        cases = {
+            "blank line inside a table": original[:sep + 1] + [""] + original[sep + 1:],
+            "source line missing": original[:source] + original[source + 1:],
+            "title heading missing": original[:heading] + original[heading + 1:],
+            "frontmatter not closed": ["---"] + [line for line in original[1:] if line != "---"],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            for name, lines in cases.items():
+                path = pathlib.Path(tmp) / "Problem - CL2 broken.md"
+                path.write_text("\n".join(lines), encoding="utf-8")
+                with self.subTest(name):
+                    with self.assertRaisesRegex(ValueError, "Problem - CL2 broken.md"):
+                        build.notes.read_problem(path)
+
+    def test_every_problem_has_a_card_and_a_note(self):
+        build = load_build()
+        probs = build.load_problems()
+        self.assertEqual([P["id"] for P in probs], [f"cl{n}" for n in range(1, 23)])
+        page = PAGE.read_text(encoding="utf-8")
+        for P in probs:
+            self.assertIn(f'id="{P["id"]}"', page)
+            self.assertTrue((REPO / build.VAULT / f"{P['note_title']}.md").is_file(), P["note_title"])
+
+    def test_every_figure_the_page_embeds_exists(self):
+        build = load_build()
+        for rel in build.REG.files:
+            self.assertTrue((REPO / rel).is_file(), rel)
+        for name in build.FIG.RASTER:
+            self.assertTrue((REPO / "vault/attachments/FM-T3" / f"{name}.png").is_file(), name)
+
+
+if __name__ == "__main__":
+    unittest.main()

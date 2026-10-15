@@ -17,7 +17,7 @@ tags:
 ## 📄 Official Statement
 > **4. Using the Pb-Sn phase diagram for an alloy composition of Pb-30%Sn, indicate at the temperatures of $T_1 = 250$ ºC, $T_2 = 183 + \Delta T$ ºC, $T_3 = 183 - \Delta T$ ºC, $T_4 = 100$ ºC: a) The phases present, chemical composition of the phases and mass fraction. b) The micro constituents, chemical composition and mass fractions. Note the agreement that exists between the data obtained in (a) and (b).**
 >
-> *(Solutions: a) $T_1$: $C_L = 36\%$ Sn, $C_\alpha = 12\%$ Sn, $w_L = 0.75$; $T_2$: $C_L = 61.9\%$ Sn, $C_\alpha = 19.2\%$ Sn, $w_L = 0.25$; $T_3$: $C_\alpha = 19.2\%$ Sn, $C_\beta = 97.5\%$ Sn, $w_\alpha = 0.86$; $T_4$: $C_\alpha = 5\%$ Sn, $C_\beta = 100\%$ Sn, $w_\alpha = 0.74$; b) $T_3$: $C_{\alpha'} = 19.2\%$ Sn, $C_E = 61.9\%$ Sn, $w_E = 0.25$, $w_{\alpha'} = 0.75$)*
+> *(Solutions; the phase symbols print as empty boxes in the PDF and are restored from context: a) $T_1$: $C_L = 36\%$ Sn, $C_\alpha = 12\%$ Sn, $w_L = 0.75$; $T_2$: $C_L = 61.9\%$ Sn, $C_\alpha = 19.2\%$ Sn, $w_L = 0.25$; $T_3$: $C_\alpha = 19.2\%$ Sn, $C_\beta = 97.5\%$ Sn, $w_\alpha = 0.86$; $T_4$: $C_\alpha = 5\%$ Sn, $C_\beta = 100\%$ Sn, $w_\alpha = 0.74$; b) $T_3$: $C_{\alpha'} = 19.2\%$ Sn, $C_E = 61.9\%$ Sn, $w_E = 0.25$, $w_{\alpha'} = 0.75$)*
 
 ---
 
@@ -86,9 +86,10 @@ $$W_{\alpha,E} = W_\alpha(T_3) - W_{\alpha'} = 0.862 - 0.747 = 0.115 \qquad W_{\
 - $W_{\alpha,E} + W_{\beta,E} = 0.115 + 0.138 = 0.253 = W_E$.
 - Inside the eutectic, α is $0.115 / 0.253 = 0.455$, the eutectic product of the sheet diagram ($35.6/78.3 = 0.455$), the same as in Problem 3: the eutectic has the same make-up whatever the alloy.
 - Mass balance at $T_3$: $0.862 \times 19.2 + 0.138 \times 97.5 = 16.55 + 13.45 = 30.0$ wt% Sn.
+- **Limiting cases** (fractions dimensionless, compositions in wt% Sn): at $C_0 = 19.2$ the alloy would be all primary α and at $C_0 = 61.9$ all eutectic; 30 wt% Sn lies close to the α end, hence three quarters primary α.
 
 ### Interpretation
-The alloy is three quarters primary α in one quarter of eutectic, the structure of the hypoeutectic micrograph of Slide 30. From 250 °C to 183 °C the amount of α grows from 25 % to 75 % while the liquid gets richer in Sn, from 36 to 61.9 wt%.
+The alloy is three quarters primary α and one quarter eutectic, the structure of the hypoeutectic micrograph of Slide 30. From 250 °C to 183 °C the amount of α grows from 25 % to 75 % while the liquid gets richer in Sn, from 36 to 61.9 wt%.
 
 ## ✅ Check against the official solution
 The values agree with the key ($w_L = 0.75$, $0.25$; $w_\alpha = 0.86$, $0.74$; $w_E = 0.25$, $w_{\alpha'} = 0.75$). The α inside the eutectic is $0.862 - 0.747 = 0.115$; the worked page writes 0.11 because it subtracts the rounded values $0.86 - 0.75$.

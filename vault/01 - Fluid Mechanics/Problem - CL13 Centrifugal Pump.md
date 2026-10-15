@@ -9,6 +9,13 @@ tags:
   - bomba
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL13.pdf"
+id: "cl13"
+pill: "CL13: Centrifugal Pump"
+tags_html:
+  - "Turbomachine"
+  - "Angular momentum"
+  - "Euler torque"
+  - "Pump power"
 ---
 
 # Problem CL13: Centrifugal Pump: Exit Velocity, Axial Force, Torque and Power
@@ -27,6 +34,9 @@ The figure of CL13.pdf shows a sketch of a centrifugal pump. Water enters the pu
 
 Note: besides the water density $\rho$ and the ambient pressure $p_a$, the following quantities can be assumed to be known in solving the problem: $D$, $D_o$, $h$, $\alpha$, $V_o$, $p_o$, and $p_s$.
 
+![[attachments/FM-T3/cl13-statement.png]]
+*Statement figure (CL13.pdf, p. 1, cropped): inlet $D_o$ ($V_o$, $p_o$), lateral exit of width $h$ and diameter $D$, exit velocity $V_s$ at the angle $\alpha$ with the lateral surface; the surface names are handwritten on the official sheet*
+
 Source: CL13.pdf (page 1, exam of Jan 10, 2012). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -44,8 +54,11 @@ Source: CL13.pdf (page 1, exam of Jan 10, 2012). Notes.pdf, Chapter 3: integral 
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
-- Frame fixed to the casing; $\bar{e}_x$ along the axis (inlet flow direction); cylindrical basis $(\bar{e}_r, \bar{e}_\theta)$ around $\bar{e}_x$ with $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_x$; origin on the axis in the exit plane. Over a full turn, $\int\bar{e}_r\,d\theta = \int\bar{e}_\theta\,d\theta = 0$.
+- Frame fixed to the casing; $\bar{e}_x$ along the axis (inlet flow direction); cylindrical basis $(\bar{e}_r, \bar{e}_\theta)$ around $\bar{e}_x$ with $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_x$; origin on the axis in the exit plane. Over a full turn the integrals of the unit vectors vanish: with two fixed unit vectors $\bar{e}_y$, $\bar{e}_z$ normal to $\bar{e}_x$ ($\bar{e}_y\wedge\bar{e}_z = \bar{e}_x$), $\bar{e}_r = \cos\theta\,\bar{e}_y + \sin\theta\,\bar{e}_z$ and $\bar{e}_\theta = -\sin\theta\,\bar{e}_y + \cos\theta\,\bar{e}_z$, so $\int_0^{2\pi}\bar{e}_r\,d\theta = [\sin\theta]_0^{2\pi}\,\bar{e}_y + [-\cos\theta]_0^{2\pi}\,\bar{e}_z = \bar{0}$ and $\int_0^{2\pi}\bar{e}_\theta\,d\theta = [\cos\theta]_0^{2\pi}\,\bar{e}_y + [\sin\theta]_0^{2\pi}\,\bar{e}_z = \bar{0}$.
 - Surfaces: $\Sigma_o$ (inlet disc, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (lateral exit cylinder, radius $D/2$, width $h$, $\bar{n} = \bar{e}_r$, $\bar{v} = V_s\sin\alpha\,\bar{e}_r + V_s\cos\alpha\,\bar{e}_\theta$), $\Sigma_w$ (fixed casing) and $\Sigma_b$ (rotating blades).
+
+![[attachments/FM-T3/cl13-cv.svg]]
+*Control volume of the solution: $\Sigma_o$ (inlet disc, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (lateral exit cylinder of radius $D/2$ and width $h$, $\bar{n} = \bar{e}_r$), the fixed casing $\Sigma_w$ and the rotating blades $\Sigma_b$ (schematic); on the right, the exit velocity $V_s$ at the angle $\alpha$ with the lateral surface: normal component $V_s\sin\alpha$, tangential $V_s\cos\alpha$*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_w,\Sigma_b}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
@@ -99,7 +112,7 @@ On $\Sigma_s$, $\bar{x} = \frac{D}{2}\bar{e}_r + x\bar{e}_x$, and the $x$ compon
 
 $$ \boxed{\,\bar{M} = -\rho V_o\frac{\pi D_o^2}{4}\,V_s\cos\alpha\,\frac{D}{2}\,\bar{e}_x\,} \tag{3} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

@@ -9,6 +9,13 @@ tags:
   - chorro
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL16.pdf"
+id: "cl16"
+pill: "CL16: Jet on a Wedge"
+tags_html:
+  - "Free jets"
+  - "Bernoulli"
+  - "Moment of a jet"
+  - "Heat transfer"
 ---
 
 # Problem CL16: Plane Jet Split by a Non-Symmetric Wedge: Force, Moment and Heat
@@ -25,6 +32,9 @@ A plane liquid jet of constant density $\rho$, thickness $h$ and uniform velocit
 - Determine the force $\bar{F}$ (per unit length in the $z$-direction) that the liquid jet and the ambient air exert on the wedge.
 - Determine the moment $\bar{M}_0$ due to the force $\bar{F}$ about the corner $\bar{x}_0$ of the wedge. Find the value of the fraction $\alpha$ that would produce a null moment, $\bar{M}_0 = 0$.
 - Knowing the uniform temperature $T_0$ of the incoming jet, the uniform temperatures $T_1$ and $T_2$ of the two liquid layers when they lose contact with the wedge, and the constant specific heat $c$ of the liquid, determine the heat $q$ transferred per unit surface from the liquid to the wedge. Assume that the heat flux is uniform on the wedge surface and that there is no heat transfer by conduction between the liquid and the ambient air.
+
+![[attachments/FM-T3/cl16-statement.svg]]
+*Statement figure (redrawn from CL16.pdf, p. 1): plane jet ($h$, $Q$, $v$, $T_0$) on the wedge with corner $\bar{x}_0$; the layer $\alpha Q$ ($T_1$) leaves at $\theta$ and $(1 - \alpha)Q$ ($T_2$) at $2\theta$; faces of horizontal extent $L$; heat flux $q$ into the wedge; ambient $p_a$*
 
 Source: CL16.pdf (pages 1-2, exam of Jan 14, 2013, with handwritten results). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
@@ -47,10 +57,16 @@ Source: CL16.pdf (pages 1-2, exam of Jan 14, 2013, with handwritten results). No
 
 - Frame fixed to the wedge; origin at the corner $\bar{x}_0$; $\bar{e}_z$ towards the reader.
 - Surfaces: $\Sigma_0$ (incoming jet section, $\bar{n} = -\bar{e}_x$), $\Sigma_1$, $\Sigma_2$ (layer sections normal to $\bar{t}_1$, $\bar{t}_2$, $\bar{n} = \bar{t}_1, \bar{t}_2$), $\Sigma_a$ (free surfaces, $p = p_a$) and $\Sigma_w$ (wetted faces). On layer $k$, $\bar{x} - \bar{x}_0 = s\,\bar{t}_k + \eta\,\bar{m}_k$, with $\bar{m}_1 = -\sin\theta\,\bar{e}_x + \cos\theta\,\bar{e}_y$, $\bar{m}_2 = -\sin2\theta\,\bar{e}_x - \cos2\theta\,\bar{e}_y$ the unit normals pointing away from the wedge and $0 \le \eta \le h_k$.
+- Change of basis from $(\bar{e}_x, \bar{e}_y)$ to the layer bases, with the new vectors as columns. Layer 1, $(\bar{t}_1, \bar{m}_1)$: $[{}_0R_1] = \begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}$, $\det = \cos^2\theta + \sin^2\theta = 1$ and $RR^T = I$ (a rotation). Layer 2, $(\bar{t}_2, \bar{m}_2)$: $\begin{pmatrix}\cos2\theta & -\sin2\theta\\ -\sin2\theta & -\cos2\theta\end{pmatrix}$, $RR^T = I$ but $\det = -\cos^22\theta - \sin^22\theta = -1$: since $\bar{m}_2$ is chosen pointing away from the wedge, $(\bar{t}_2, \bar{m}_2)$ is a reflection and the right-handed pair is $(\bar{m}_2, \bar{t}_2)$, i.e. $\bar{m}_2\wedge\bar{t}_2 = +\bar{e}_z$ (used in the moments of Phase 3).
+
+![[attachments/FM-T3/cl16-cv.svg]]
+*Control volume of the solution: $\Sigma_0$ (incoming jet, $\bar{n} = -\bar{e}_x$), $\Sigma_1$ and $\Sigma_2$ (sections across the layers, $\bar{n} = \bar{t}_1$, $\bar{t}_2$), the free surfaces $\Sigma_a$ at $p_a$ and the wetted faces $\Sigma_w$; $\bar{m}_1$, $\bar{m}_2$ are the unit normals pointing away from the wedge, and moments are taken about the corner $\bar{x}_0$*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
 $$ \boxed{\bar{M}_0 = \int_{\Sigma_w}(\bar{x} - \bar{x}_0)\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
+
+Heat flux into the wedge per unit surface, with $\bar{n}_{\text{in}} = -\bar{n}$ the normal pointing into the liquid:
 
 $$ \boxed{q = -\frac{1}{L/\cos\theta + L/\cos2\theta}\int_{\Sigma_w}\bar{q}\cdot\bar{n}_{\text{in}}\,d\sigma\,} $$
 
@@ -112,7 +128,7 @@ Here $\bar{m}_1\wedge\bar{t}_1 = (-\sin^2\theta - \cos^2\theta)\,\bar{e}_z = -\b
 
 $$ -\frac{\rho v^2h^2}{2}(2\alpha - 1)\,\bar{e}_z = -\bar{M}_0 \;\Longrightarrow\; \boxed{\,\bar{M}_0 = \rho v^2\,\frac{h^2}{2}\,(2\alpha - 1)\,\bar{e}_z,\qquad \bar{M}_0 = 0 \iff \alpha = \frac{1}{2}\,} \tag{4} $$
 
-**5. Total energy (Notes Eq. 3.46)**
+**5. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

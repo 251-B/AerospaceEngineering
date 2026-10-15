@@ -9,6 +9,13 @@ tags:
   - cascada
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL4.pdf"
+id: "cl4"
+pill: "CL4: Cascade"
+tags_html:
+  - "Periodicity"
+  - "Mass, momentum, energy"
+  - "Perfect gas"
+  - "Cascade"
 ---
 
 # Problem CL4: Cascade of Aerofoils: Downstream State
@@ -20,6 +27,9 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 
 A planar uniform stream of air with pressure $p_1$, density $\rho_1$ and velocity $\bar{v}_1 = v_{1x}\bar{e}_x$ flows past an array of aerofoils with vertical separation $L$, exerting on each one a force (per unit length) given by $\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y$. Assuming that the aerofoils are thermally insulated and neglecting the effect of gravity, write the equations that determine the values of the pressure $p_2$, density $\rho_2$ and velocity $\bar{v}_2 = v_{2x}\bar{e}_x + v_{2y}\bar{e}_y$ for the uniform stream found sufficiently far downstream.
 
+![[attachments/FM-T3/cl4-statement.png]]
+*Statement figure (CL4.pdf, p. 1, cropped): cascade of aerofoils $L$ apart; the dashed control volume ($\Sigma_1$ to $\Sigma_5$) and the handwritten notes belong to the official sheet*
+
 Source: CL4.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46, force on a body Eq. 3.32.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -27,7 +37,7 @@ Source: CL4.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, 
 - Steady planar flow through an infinite array of identical aerofoils (pitch $L$), so the flow is periodic in $y$; uniform far upstream (1) and far downstream (2).
 - Neglect $\bar{g}$; aerofoils thermally insulated; compressible fluid. Viscous stresses and heat conduction negligible in the uniform sections.
 - Perfect gas: $h = e + \frac{p}{\rho} = c_pT = \frac{c_p}{R_g}\frac{p}{\rho} = \frac{\gamma}{\gamma - 1}\frac{p}{\rho}$ (with $p = \rho R_gT$ and $\gamma = c_p/c_v$), as in the class solution.
-- Data: $[p_1,\ \rho_1,\ v_{1x},\ L,\ F_x,\ F_y,\ \gamma]$. Unknowns: $[p_2,\ \rho_2,\ v_{2x},\ v_{2y}]$: four equations are needed.
+- Data: $[p_1,\ \rho_1,\ v_{1x},\ L,\ F_x,\ F_y]$ and, for the perfect gas of the official solution, $\gamma$ (not in the statement). Unknowns: $[p_2,\ \rho_2,\ v_{2x},\ v_{2y}]$: four equations are needed.
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
@@ -35,12 +45,16 @@ Source: CL4.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, 
 | $p_2$, $\rho_2$, $v_{2x}$, $v_{2y}$ | downstream state | Pa, kg/m$^3$, m/s |
 | $L$ | pitch of the array | m |
 | $F_x$, $F_y$ | force on each aerofoil per unit length | N/m |
+| $\gamma$ | specific-heat ratio of the gas (perfect gas, introduced in the solution) | 1 |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
 - Frame fixed to the array; $\bar{e}_x$ along the incoming stream, $\bar{e}_y$ along the array. Fixed control volume, $\bar{v}_c = 0$, one period high.
 - Surfaces: $\Sigma_1$ (far upstream, height $L$, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (far downstream, height $L$, $\bar{n} = +\bar{e}_x$), $\Sigma_{l1}$ and $\Sigma_{l2}$ (upper and lower stream surfaces, $\bar{v}\cdot\bar{n} = 0$), $\Sigma_w$ (aerofoil surface, $\bar{v} = 0$, insulated).
 - Periodicity: $\Sigma_{l2}$ is $\Sigma_{l1}$ shifted by $-L\bar{e}_y$ with opposite normals, so the integrals of any periodic quantity over $\Sigma_{l1}$ and $\Sigma_{l2}$ cancel each other out.
+
+![[attachments/FM-T3/cl4-cv.svg]]
+*Control volume of the solution (as in the class notes): $\Sigma_1$ and $\Sigma_2$ (sections of height $L$), the stream surfaces $\Sigma_{l1}$ and $\Sigma_{l2}$ ($\Sigma_{l2}$ is $\Sigma_{l1}$ shifted by $-L\bar{e}_y$, so their fluxes cancel) and the aerofoil surface $\Sigma_w$. The official figure calls them $\Sigma_1$, $\Sigma_2$, $\Sigma_3$, $\Sigma_4$ and $\Sigma_5$*
 
 Force on each aerofoil (per unit length), with $\bar{n}$ the outward normal of the control volume:
 

@@ -9,6 +9,13 @@ tags:
   - difusor
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf"
+id: "cl14"
+pill: "CL14: Diffuser Module"
+tags_html:
+  - "Stator"
+  - "Swirl removal"
+  - "Angular momentum"
+  - "Perfect gas"
 ---
 
 # Problem CL14: Gas-Turbine Diffuser Module: Exit State, Force and Torque
@@ -27,6 +34,9 @@ The diffuser module at the exit of a gas turbine consists of a **fixed** aerofoi
 - All the inner walls are adiabatic.
 
 With the above simplifications, write the equations that determine the values of $\rho_2$ and $u_2$, as well as the net force, $F$, and torque, $M$, acting on the diffuser module, in terms of the known quantities ($p_a$, $p_1$, $\rho_1$, $p_2$, $u_1$, $u_\theta$, $R_i$, $R_o$, $\gamma$ and $R_g$).
+
+![[attachments/FM-T3/cl14-statement.svg]]
+*Statement figure (redrawn from CL14.pdf, p. 1): front view of the inlet ($u_1$, $u_\theta$, $p_1$, $\rho_1$) and axial section of the module: fixed stator between $R_i$ and $R_o$, conical diffuser, purely axial exit $u_2$, $p_2$, $\rho_2$*
 
 Source: CL14.pdf (pages 1-4, quiz of Nov 5, 2012, with typed solution). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
@@ -49,6 +59,9 @@ Source: CL14.pdf (pages 1-4, quiz of Nov 5, 2012, with typed solution). Notes.pd
 
 - Frame fixed to the module; right-handed cylindrical basis $(\bar{e}_r, \bar{e}_\theta, \bar{e}_z)$, $\bar{e}_r\wedge\bar{e}_\theta = \bar{e}_z$, with $\bar{e}_z$ along the flow; origin on the axis.
 - Surfaces (as in the official solution): $\Sigma_{in}$ (inlet annulus, $\bar{n} = -\bar{e}_z$), $\Sigma_{out}$ (exit disc, $\bar{n} = +\bar{e}_z$), $\Sigma_w$ (inner wall of the casing and outer wall of the cone) and $\Sigma_a$ (surfaces around the stator aerofoils). All are fixed.
+
+![[attachments/FM-T3/cl14-cv.svg]]
+*Control volume of the solution (axial section): $\Sigma_{in}$ (inlet annulus, $\bar{n} = -\bar{e}_z$), $\Sigma_{out}$ (exit disc, $\bar{n} = +\bar{e}_z$), $\Sigma_w$ (inner wall of the casing and outer wall of the cone) and $\Sigma_a$ (around the stator aerofoils); all are fixed*
 
 $$ \boxed{\,F\,\bar{e}_z = \int_{\Sigma_w,\Sigma_a}\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma + \underbrace{\bar{F}_{ext}}_{0}\,} $$
 
@@ -102,7 +115,7 @@ On $\Sigma_{in}$, $\bar{x} = r\bar{e}_r + z\bar{e}_z$ and the $z$ component of $
 
 $$ \boxed{\,M = \frac{2\pi}{3}\,\rho_1u_1u_\theta\left(R_o^3 - R_i^3\right)\,} \tag{3} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 
@@ -113,6 +126,8 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_{in}$ | $-G\left(e_1 + \tfrac{u_1^2 + u_\theta^2}{2}\right)$ | $+p_1u_1\pi(R_o^2 - R_i^2)$ | $0$ | $0$ |
 | $\Sigma_{out}$ | $+G\left(e_2 + \tfrac{u_2^2}{2}\right)$ | $-p_2u_2\pi R_o^2$ | $0$ | $0$ |
 | $\Sigma_w,\ \Sigma_a$ | $0$ | $0$ ($\bar{v} = 0$) | $0$ ($\bar{v} = 0$) | $0$ (adiabatic) |
+
+Using $G = \rho_1u_1\pi(R_o^2 - R_i^2) = \rho_2u_2\pi R_o^2$ from (1), the pressure-work terms are $p_1u_1\pi(R_o^2 - R_i^2) = G\,p_1/\rho_1$ and $p_2u_2\pi R_o^2 = G\,p_2/\rho_2$. Moving them to the left and dividing by $G$, each side contains $e + p/\rho = c_pT = \frac{\gamma}{\gamma - 1}\frac{p}{\rho}$ (perfect gas):
 
 $$ \boxed{\,\frac{\gamma}{\gamma - 1}\frac{p_1}{\rho_1} + \frac{u_1^2 + u_\theta^2}{2} = \frac{\gamma}{\gamma - 1}\frac{p_2}{\rho_2} + \frac{u_2^2}{2}\,} \tag{4} $$
 

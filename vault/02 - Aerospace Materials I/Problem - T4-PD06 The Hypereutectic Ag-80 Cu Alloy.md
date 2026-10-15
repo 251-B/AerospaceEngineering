@@ -77,8 +77,9 @@ $$W_{\beta,E} = W_\beta(T_3) - W_{\beta p} = 0.856 - 0.812 = 0.044 \qquad W_{\al
 
 ### Checks
 - $W_{\alpha,E} + W_{\beta,E} = 0.144 + 0.044 = 0.188 = W_E$.
-- Inside the eutectic α is $0.144 / 0.188 = 0.768$, the make-up of the eutectic alloy of Problem 5.
+- Inside the eutectic α is $0.1442 / 0.1878 = 0.768$, the make-up of the eutectic alloy of Problem 5.
 - Mass balance at $T_3$: $0.1442 \times 8.8 + 0.8558 \times 92 = 1.27 + 78.73 = 80.0$ wt% Cu.
+- **Limiting cases** (fractions dimensionless, compositions in wt% Cu): at $C_0 = 28.1$ the alloy would be all eutectic and at $C_0 = 92$ all primary β; 80 wt% Cu lies close to the β end, hence 0.81 of primary β.
 
 ### Interpretation
 Between 900 °C and the eutectic temperature the amount of primary (Cu) grows from 63 % to 81 %, and the liquid becomes poorer in Cu, from 58 to 28.1 wt%. The final structure is mostly primary (Cu) crystals with about 19 % eutectic between them.

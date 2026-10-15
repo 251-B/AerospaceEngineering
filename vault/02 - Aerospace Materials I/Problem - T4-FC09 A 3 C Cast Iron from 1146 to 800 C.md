@@ -23,14 +23,14 @@ tags:
 ## 📊 1. Phase 1: Hypotheses and Degrees of Freedom
 
 1. Equilibrium, Fe-Fe₃C diagram [Session 9 Slide 4].
-2. **Reading of the figure:** at 800 °C the $A_{cm}$ line is at about 1.0 % C (a straight line from (0.76, 727) to (2.14, 1147) gives 0.99).
+2. **Reading of the figure:** at 800 °C the $A_{cm}$ line is at about 1.0 % C (a straight line from (0.76, 727) to (2.14, 1147) gives $0.76 + 73 \times 1.38/420 = 1.00$).
 3. The data of the statement add up to 100.2 %; each fraction is used on its own to get $C_0$, and the two results are compared.
 
 ---
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Tie lines: 800 °C (γ 1.0 / Fe₃C 6.67), 1147 + ΔT (γ 2.14 / L 4.30), 1146 °C (γ 2.14 / Fe₃C 6.67). The lever rule is solved for $C_0$ in (a) and applied in (b) and (c); microconstituents as in Session 7 Slide 32.
+Frame: the Fe-Fe₃C diagram (wt% C, °C). Tie lines: 800 °C (γ 1.0 / Fe₃C 6.67), 1147 + ΔT (γ 2.14 / L 4.30), 1146 °C (γ 2.14 / Fe₃C 6.67). The lever rule is solved for $C_0$ in (a) and applied in (b) and (c); microconstituents as in Session 7 Slide 32.
 
 ![[attachments/T4/fc-p9.svg]]
 
@@ -39,9 +39,9 @@ Tie lines: 800 °C (γ 1.0 / Fe₃C 6.67), 1147 + ΔT (γ 2.14 / L 4.30), 1146 �
 ## 🔢 3. Phase 3: Step-by-Step Derivation
 
 ### a) Composition
-From the austenite: $W_\gamma = \dfrac{6.67 - C_0}{6.67 - 1.0} = 0.647 \Rightarrow C_0 = 6.67 - 0.647 \times 5.67 = 6.67 - 3.668 = 3.00$ % C.
+From the austenite: $W_\gamma = \dfrac{6.67 - C_0}{6.67 - 1.0} = 0.647 \Rightarrow C_0 = 6.67 - W_\gamma\,(6.67 - 1.0) = 6.67 - 0.647 \times 5.67 = 6.67 - 3.668 = 3.00$ % C.
 
-From the cementite: $W_{\text{Fe}_3\text{C}} = \dfrac{C_0 - 1.0}{5.67} = 0.355 \Rightarrow C_0 = 1.0 + 0.355 \times 5.67 = 1.0 + 2.013 = 3.01$ % C.
+From the cementite: $W_{\text{Fe}_3\text{C}} = \dfrac{C_0 - 1.0}{5.67} = 0.355 \Rightarrow C_0 = 1.0 + W_{\text{Fe}_3\text{C}} \times 5.67 = 1.0 + 0.355 \times 5.67 = 1.0 + 2.013 = 3.01$ % C.
 
 Both give **$C_0$ ≈ 3.0 % C**: $2.14 < 3.0 < 4.30$, a **hypoeutectic cast iron**.
 
@@ -64,9 +64,13 @@ $$W_{\text{Fe}_3\text{C}}(800) = \frac{3.0 - 1.0}{5.67} = \frac{2.0}{5.67} = 0.3
 
 - Ledeburite make-up: $0.190/0.398 = 0.477$ Fe₃C, as in Worked example 14 ✓.
 - At 800 °C: γ $1 - 0.353 = 0.647$ — exactly the 64.7 % of the statement ✓.
+- **Limiting cases** (fractions dimensionless, compositions in wt% C): at 800 °C the austenite fraction is 1 at $C_0 = 1.0$ and 0 at $C_0 = 6.67$; 3.0 % C lies about a third of the way along, hence 0.647 of austenite.
 
 ## ✅ Check against the official solution
-Agrees with the key: 3 %, hypoeutectic cast iron, 60.2 %, 39.8 % and 16.3 %. With 6.67 % C the cementite of the ledeburite is 19.0 % (key 18.8 %, from 6.7 % C), its austenite 20.8 % (key 21 %) and the total austenite 81.0 % (key 81.2 %): differences of rounding only.
+Agrees with the key: 3 %, hypoeutectic cast iron, 60.2 %, 39.8 % and 16.3 %.
+
+> [!warning] Discrepancy with the official solution
+> With 6.67 % C the cementite of the ledeburite is 19.0 % (key 18.8 %), its austenite 20.8 % (key 21 %) and the total austenite 81.0 % (key 81.2 %). The key uses 6.7 % C for cementite, which gives 18.86 %, so its 18.8 is also truncated. Differences of 0.2 percentage points at most; the computed values are kept.
 
 ---
 

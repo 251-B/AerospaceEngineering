@@ -9,6 +9,13 @@ tags:
   - empuje
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL17.pdf"
+id: "cl17"
+pill: "CL17: Ramjet Airplane"
+tags_html:
+  - "Thrust"
+  - "Angular momentum"
+  - "Energy"
+  - "Trim"
 ---
 
 # Problem CL17: Airplane with an Engine without Moving Parts: Exit State, Thrust, Torque and Canard
@@ -24,6 +31,9 @@ An experimental airplane is powered by an engine without moving parts that deliv
 - Use the momentum equation to obtain the thrust provided by the engine, $\bar{T}$.
 - Use the angular momentum equation to obtain the net torque $\bar{M}$ acting on the airplane with respect to its CoG. Assume that the surrounding air is at uniform pressure $p_a$, except at the engine's inlet and outlet.
 - To compensate the torque obtained in the previous question, the engineers decide that the main wing's CoG coincides with that of the full airplane, so that it doesn't contribute to the torque, and to place a control surface (canard) at a distance $L$ from the CoG (see figure). Knowing that this control surface provides a lift force $F$, determine the distance $L$.
+
+![[attachments/FM-T3/cl17-statement.png]]
+*Statement figure (CL17.pdf, p. 1, cropped): inlet of height $a_i$ ($V_i$, $p_i$, $\rho_i$) and outlet of height $a_o$ ($V_o$, $p_o$, $\rho_o$), heat $\dot{Q}$, axes at the CoG, canard lift $F$ at the distance $L$*
 
 Source: CL17.pdf (page 1, exam of June 27, 2013; statement only, no official solution in the source). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral angular momentum balance Eq. 3.38, integral total energy balance Eq. 3.46.
 
@@ -50,6 +60,9 @@ Source: CL17.pdf (page 1, exam of June 27, 2013; statement only, no official sol
 - Frame fixed to the airplane (steady flight or test bench), origin at the CoG, $\bar{e}_x$ towards the tail, $\bar{e}_y$ upwards, $\bar{e}_z$ towards the reader. Fixed control volume: the air inside the engine.
 - Surfaces: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$, area $a_ib$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$, area $a_ob$), $\Sigma_w$ (engine walls, at rest).
 
+![[attachments/FM-T3/cl17-cv.svg]]
+*Control volume of the solution (schematic): $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$, area $a_ib$, below the CoG), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$, area $a_ob$, above the CoG) and the engine walls $\Sigma_w$; origin and moments at the CoG*
+
 $$ \boxed{\,\bar{T} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
 $$ \boxed{\,\bar{M} = \int_{\Sigma_w}\bar{x}\wedge\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
@@ -70,7 +83,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 
 $$ \boxed{\,\rho_iV_ia_i = \rho_oV_oa_o\,},\qquad \dot{m} = \rho_iV_ia_ib \tag{1} $$
 
-**1. Total energy (Notes Eq. 3.46)**
+**1. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \int_{V_c}Q_R\,dV $$
 
@@ -82,7 +95,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_o$ | $+\dot{m}\left(e_o + \tfrac{V_o^2}{2}\right)$ | $-p_oV_oa_ob$ | $0$ | $0$ |
 | **$\Sigma_w$** (boxed) | $0$ | $0$ ($\bar{v} = 0$) | $0$ | $-\int_{\Sigma_w}\bar{q}\cdot\bar{n}\,d\sigma$ |
 
-Boxed term plus the volume heat release: $\dot{Q}$.
+Boxed term plus the volume heat release: $\dot{Q}$. Using $\dot{m} = \rho_iV_ia_ib = \rho_oV_oa_ob$ from (1), $p_iV_ia_ib = \dot{m}\,p_i/\rho_i$ and $p_oV_oa_ob = \dot{m}\,p_o/\rho_o$; moving the pressure work to the left, each side contains $e + p/\rho = c_pT = \frac{\gamma}{\gamma - 1}\frac{p}{\rho}$ (perfect gas):
 
 $$ \boxed{\,\dot{m}\left[\left(\frac{\gamma}{\gamma - 1}\frac{p_o}{\rho_o} + \frac{V_o^2}{2}\right) - \left(\frac{\gamma}{\gamma - 1}\frac{p_i}{\rho_i} + \frac{V_i^2}{2}\right)\right] = \dot{Q}\,} \tag{2} $$
 
@@ -128,7 +141,7 @@ $$ \boxed{\,L = \frac{M_z}{F} = \frac{b}{2F}\left[\left(\rho_iV_i^2 + p_i - p_a\
 
 ## Phase 4: Interpretation, Limits and Dimensional Check
 
-- The airflow enters below the CoG and leaves above it, so both the intake (pushed backwards) and the exhaust reaction (pushed forwards) create a positive $M_z$, which pitches the nose down (the nose is at $-x$). The canard ahead of the CoG with an upward lift balances it, which is why $L > 0$.
+- The airflow enters below the CoG and leaves above it, so both the intake (pushed backwards) and the exhaust reaction (pushed forwards) create a positive $M_z$ provided $\rho V^2 + p - p_a > 0$ at each section (in the example $\rho_iV_i^2 + p_i - p_a = 12\,500$ Pa at the intake, and $p_o = p_a$ at the exit), which pitches the nose down (the nose is at $-x$). The canard ahead of the CoG with an upward lift balances it, which is why $L > 0$.
 - Heating raises the stagnation enthalpy (2): the gas leaves faster ($V_o > V_i$), giving the thrust (3) along $-\bar{e}_x$ (forwards).
 - Dimensions (SI): $[\dot{m}V] = \text{N}$; $[(\rho V^2 + p)a^2b] = \text{N}\cdot\text{m}$; $[M_z/F] = \text{m}$.
 - Numerical illustration (hypothetical data): $a_i = 0.3$ m, $a_o = 0.25$ m, $b = 1$ m, $V_i = 150$ m/s, $\rho_i = 1$ kg/m$^3$, $p_i = 0.9\times10^5$ Pa, $p_o = p_a = 10^5$ Pa, $\dot{Q} = 20$ MW, $\gamma = 1.4$, $F = 5$ kN give $V_o = 362.56$ m/s, $\rho_o = 0.49647$ kg/m$^3$, $|\bar{T}| = 12565$ N, $M_z = 2601.9$ N$\cdot$m, $L = 0.5204$ m (energy residual below $10^{-7}$).

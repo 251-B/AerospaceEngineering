@@ -9,6 +9,13 @@ tags:
   - bore
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL2.pdf"
+id: "cl2"
+pill: "CL2: Bore"
+tags_html:
+  - "Moving frame"
+  - "Mass and momentum"
+  - "Hydrostatic pressure"
+  - "Froude number"
 ---
 
 # Problem CL2: Bore over a Stagnant Water Layer
@@ -19,6 +26,9 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 ## Statement
 
 The bore sketched in the figure of CL2.pdf moves under the action of gravity with constant velocity $U$ over an initially stagnant water layer of thickness $h_0$, leaving behind a layer of thickness $h_1$ moving with velocity $U_1$. Assuming that in the air both viscous stresses and pressure variations with respect to the ambient value $p_a$ are negligible, and so are viscous stresses on the bottom wall, find the values of $U_1$ and $h_1$ as a function of $U$, $h_0$ and $g$. As a preliminary computation, obtain the pressure distributions both upstream and downstream from the bore, verifying that they can be expressed in the form $p = p_a + \rho g(h_0 - z)$ and $p = p_a + \rho g(h_1 - z)$, respectively, where $z$ represents the vertical distance to the bottom wall.
+
+![[attachments/FM-T3/cl2-statement.svg]]
+*Statement figure (redrawn from CL2.pdf, p. 1): the bore advances to the left with speed $U$ over the stagnant layer $h_0$; behind it the layer $h_1$ moves with $U_1$; $z$ is measured from the bottom*
 
 Source: CL2.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eqs. 3.10-3.11, integral momentum balance Eqs. 3.35-3.36.
 
@@ -35,12 +45,16 @@ Source: CL2.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eqs. 3.10-
 | $U_1$ | velocity of the water behind the bore | m/s |
 | $h_0$, $h_1$ | layer thickness ahead of and behind the bore | m |
 | $F = U^2/(gh_0)$ | Froude number of the bore | 1 |
+| $\rho$, $g$, $p_a$ | water density, gravitational acceleration, ambient pressure | kg/m$^3$, m/s$^2$, Pa |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
 - Laboratory frame $L$, with $z$ measured from the bottom: unsteady flow, because the front moves.
 - Frame of the bore $B$, moving with $-U\bar{e}_x$ relative to $L$. It is inertial (constant velocity), so the balances keep their form, and the flow is steady in it. Velocities: $\bar{v}_B = \bar{v}_L + U\bar{e}_x$, so the water ahead has $U\bar{e}_x$ and the water behind $(U - U_1)\bar{e}_x$.
 - Control volume fixed in $B$ ($\bar{v}_c = 0$). Surfaces: $\Sigma_0$, vertical section ahead ($\bar{n} = -\bar{e}_x$, height $h_0$); $\Sigma_1$, vertical section behind ($\bar{n} = +\bar{e}_x$, height $h_1$); $\Sigma_b$, bottom wall ($\bar{n} = -\bar{e}_z$); $\Sigma_s$, free surface (steady material surface in $B$, $p = p_a$).
+
+![[attachments/FM-T3/cl2-cv.svg]]
+*Control volumes of the solution: (1) the column of width $\Delta x$ between the height $z$ and the free surface ($\Sigma_{bot}$, $\Sigma_{top}$, $\Sigma_{side}$), which gives the hydrostatic pressure; (2) in the frame of the bore, $\Sigma_0$ (ahead, velocity $U$), $\Sigma_1$ (behind, $U - U_1$), the bottom $\Sigma_b$ and the free surface $\Sigma_s$, with the outward normals*
 
 ## Phase 3: Balances, Surface by Surface
 
@@ -106,7 +120,7 @@ From (2), $U - U_1 = Uh_0/h_1$, so $(U - U_1)^2h_1 = U^2h_0^2/h_1$. Substituting
 
 $$ U^2h_0\left(\frac{h_0}{h_1} - 1\right) = \frac{g}{2}(h_0 - h_1)(h_0 + h_1) \;\Longrightarrow\; U^2h_0\,\frac{h_0 - h_1}{h_1} = \frac{g}{2}(h_0 - h_1)(h_0 + h_1). $$
 
-For a bore $h_1 \ne h_0$, so $h_0 - h_1$ cancels. With $r = h_1/h_0$ and $F = U^2/(gh_0)$, dividing by $gh_0^2$ gives $F/r = (1 + r)/2$:
+For a bore $h_1 \ne h_0$, so $h_0 - h_1$ cancels, leaving $U^2h_0/h_1 = \tfrac{g}{2}(h_0 + h_1)$. With $r = h_1/h_0$ and $F = U^2/(gh_0)$, dividing this by $gh_0$ gives $F/r = (1 + r)/2$:
 
 $$ r^2 + r - 2F = 0 \;\Longrightarrow\; \boxed{\,\frac{h_1}{h_0} = \frac{1}{2}\left(\sqrt{1 + 8F} - 1\right)\,} \tag{4} $$
 

@@ -27,7 +27,7 @@ tags:
 
 ### Hypotheses
 1. **Equilibrium**, Ti-Si diagram of the sheet. Printed temperatures: 1670, 1414, 2130, 1920, 1570, 1480, 1330 (twice), 1170 and 865 °C. Compositions are **readings of the figure** (±1 %), on the axis as printed.
-2. The axis is labelled "% wt Silicon", but the compounds sit at 25 (Ti₃Si), 37.5 (Ti₅Si₃), 44.4 (Ti₅Si₄), 50 (TiSi) and 66.7 (TiSi₂), their **atomic** percentages of Si; the numbers below are read on the axis as printed, as the key does.
+2. The axis is labelled "% wt Silicon", but the compounds sit at 25 (Ti₃Si), 37.5 (Ti₅Si₃), 44.4 (Ti₅Si₄), 50 (TiSi) and 66.7 (TiSi₂), their **atomic** percentages of Si; the numbers below are read on the axis as printed, as the key does, so the fractions $x$ are **atom (mole) fractions** and the Phase 4 balances count Si atoms. Ti₅Si₃ has a composition range on the figure: about 35 on its Ti side (1330 and 1170 °C) and up to about 38 on its Si side (1920 °C).
 3. Melting is congruent at a maximum of the liquidus and incongruent at a peritectic line [Session 8 Slide 17].
 
 ### Data read on the diagram
@@ -88,9 +88,10 @@ $$x_{\text{Ti}_5\text{Si}_3,p} = \frac{30 - 14}{35 - 14} = \frac{16}{21} = 0.76 
 ## 🔍 4. Phase 4: Units and Limits, with Physical and Dimensional Verification
 
 ### Checks
-- 1329 °C: $0.17 \times 5.5 + 0.83 \times 35 = 0.94 + 29.06 = 30.0$ % Si.
-- 1169 °C: $0.5 \times 25 + 0.5 \times 35 = 30$ % Si.
+- 1329 °C: $0.17 \times 5.5 + 0.83 \times 35 = 0.94 + 29.06 = 30.0$ at.% Si (atom balance).
+- 1169 °C: $0.5 \times 25 + 0.5 \times 35 = 30$ at.% Si.
 - Eutectic at 1329 °C: it holds all the βTi (0.17) and Ti₅Si₃ $0.83 - 0.76 = 0.07$; $0.17 + 0.07 = 0.24 = x_E$ ✓.
+- **Limiting cases** (atom fractions, dimensionless; compositions in at.% Si as printed): at 1329 °C, as $C_0 \to 14$ the primary Ti₅Si₃ tends to 0 and as $C_0 \to 35$ to 1; 30 lies close to the compound end, hence 0.76 of primary Ti₅Si₃.
 
 ### Interpretation
 The Ti-rich side combines a eutectic, a peritectoid and a eutectoid. The 30 % alloy ends up made only of two silicides, which are hard and brittle compounds.

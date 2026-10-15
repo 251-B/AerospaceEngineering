@@ -9,6 +9,13 @@ tags:
   - turborreactor
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL5.pdf"
+id: "cl5"
+pill: "CL5: Turbojet"
+tags_html:
+  - "Moving boundaries"
+  - "Mass, momentum, energy"
+  - "Heat and work"
+  - "Thrust"
 ---
 
 # Problem CL5: Turbojet on a Testbench: Exit State
@@ -20,6 +27,9 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 
 The entrance and exit sections of the turboreactor sketched in the figure of CL5.pdf have areas $A_1$ and $A_2$. Besides the outer fixed frame, the machine has mobile parts in its interior that extract an amount of work $W$ per unit time from the fluid stream. The combined effects of chemical reaction in the combustion chamber and heat transfer through the walls give a heat transfer per unit time $Q$ to the fluid stream. The axial force on the turboreactor measured on the testbench is $\bar{F} = -F\,\bar{e}_x$. For given values of $W$, $Q$ and $F$ and assuming that at the entrance and exit sections the flow properties are uniform, obtain the values of the density $\rho_2$, pressure $p_2$ and velocity $v_2$ in terms of their values $p_1$, $\rho_1$ and $v_1$ at the entrance. (Handwritten addition: no gravity.)
 
+![[attachments/FM-T3/cl5-statement.svg]]
+*Statement figure (redrawn from CL5.pdf, p. 1): entrance $A_1$ ($v_1$, $p_1$, $\rho_1$), exit $A_2$ ($v_2$, $p_2$, $\rho_2$), rotor and heat sources $Q_r$, $Q_c$; the dashed control volume and its surfaces $\Sigma_1$ to $\Sigma_4$ belong to the official figure*
+
 Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, force on a body Eq. 3.32.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -27,7 +37,7 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 - Compressible flow; neglect gravity; uniform properties at inlet and outlet; steady on average (the rotating parts make the flow periodic inside, but there is no net accumulation).
 - Perfect gas, $h = \frac{\gamma}{\gamma-1}\frac{p}{\rho}$, as in the class solution. Fuel mass flow neglected (not given), so the same mass flow crosses both sections.
 - $\dot{W}$: work per unit time extracted from the fluid by the mobile parts; $\dot{Q}$: heat per unit time transferred to the fluid; $\bar{F} = -F\bar{e}_x$: force on the device measured on the testbench (fluid inside plus ambient air outside, at $p_a$).
-- Data: $[\rho_1,\ p_1,\ \bar{v}_1 = v_1\bar{e}_x,\ A_1,\ A_2,\ p_a,\ F,\ \dot{W},\ \dot{Q},\ \gamma]$. Unknowns: $[\rho_2,\ p_2,\ \bar{v}_2 = v_2\bar{e}_x]$.
+- Data: $[\rho_1,\ p_1,\ \bar{v}_1 = v_1\bar{e}_x,\ A_1,\ A_2,\ F,\ \dot{W},\ \dot{Q}]$ and, introduced in the solution (not in the statement), the ambient pressure $p_a$ and the perfect-gas ratio $\gamma$. Unknowns: $[\rho_2,\ p_2,\ \bar{v}_2 = v_2\bar{e}_x]$.
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
@@ -37,6 +47,7 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 | $F$ | thrust measured on the bench | N |
 | $\dot{W}$, $\dot{Q}$ | power extracted and heat added | W |
 | $\dot{m} = \rho_1v_1A_1$ | mass flow | kg/s |
+| $p_a$, $\gamma$ | ambient pressure and specific-heat ratio (both introduced in the solution) | Pa, 1 |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
@@ -44,7 +55,10 @@ Source: CL5.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eq. 3.10, 
 - Surfaces: $\Sigma_1$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (exit, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (fixed walls, $\bar{v} = \bar{v}_c = 0$) and $\Sigma_m$ (surface of the mobile parts, moving with them: $\bar{v} = \bar{v}_c \ne 0$). On $\Sigma_w$ and $\Sigma_m$, $(\bar{v} - \bar{v}_c)\cdot\bar{n} = 0$.
 - $\bar{n}$ is the outward normal of the control volume; $\bar{n}_{\text{in}} = -\bar{n}$ points into the fluid.
 
-Definitions written on the surfaces, as in class:
+![[attachments/FM-T3/cl5-cv.svg]]
+*Control volume of the solution (as in the class notes): $\Sigma_1$ (entrance, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (exit, $\bar{n} = +\bar{e}_x$), the fixed walls $\Sigma_w$ and the surface $\Sigma_m$ of the mobile parts. The official figure calls them $\Sigma_1$, $\Sigma_2$, $\Sigma_3$ and $\Sigma_4$*
+
+Definitions written on the surfaces, as in class ($Q_R \equiv Q_c + Q_r$ is the volumetric heat release of Notes Eq. 3.46):
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_m,\Sigma_w}(p - p_a)\,\bar{n}\,d\sigma - \int_{\Sigma_m,\Sigma_w}\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma = -F\,\bar{e}_x\,} $$
 

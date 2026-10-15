@@ -17,7 +17,7 @@ tags:
 ## 📄 Official Statement
 > **3. Using the Pb-Sn phase diagram for an alloy composition of Pb-80%Sn, indicate at the temperatures of $T_1 = 250$ ºC, $T_2 = 183 + \Delta T$ ºC, $T_3 = 183 - \Delta T$ ºC, $T_4 = 100$ ºC: a) The phases present, chemical composition of the phases and mass fraction. b) The micro constituents, chemical composition and mass fractions. Note the agreement that exists between the data obtained in (a) and (b).**
 >
-> *(Solutions: a) $T_1$: $C_L = 80\%$ Sn, $w_L = 1$; $T_2$: $C_L = 61.9\%$ Sn, $C_\beta = 97.5\%$ Sn, $w_L = 0.49$; $T_3$: $C_\alpha = 19.2\%$ Sn, $C_\beta = 97.5\%$ Sn, $w_\alpha = 0.22$; $T_4$: $C_\alpha = 5\%$ Sn, $C_\beta = 100\%$ Sn, $w_\alpha = 0.21$; b) $C_{\beta'} = 97.5\%$ Sn, $C_E = 61.9\%$ Sn, $w_E = 0.49$, $w_{\beta'} = 0.51$)*
+> *(Solutions; the phase symbols print as empty boxes in the PDF and are restored from context: a) $T_1$: $C_L = 80\%$ Sn, $w_L = 1$; $T_2$: $C_L = 61.9\%$ Sn, $C_\beta = 97.5\%$ Sn, $w_L = 0.49$; $T_3$: $C_\alpha = 19.2\%$ Sn, $C_\beta = 97.5\%$ Sn, $w_\alpha = 0.22$; $T_4$: $C_\alpha = 5\%$ Sn, $C_\beta = 100\%$ Sn, $w_\alpha = 0.21$; b) $C_{\beta'} = 97.5\%$ Sn, $C_E = 61.9\%$ Sn, $w_E = 0.49$, $w_{\beta'} = 0.51$)*
 
 ---
 
@@ -88,6 +88,7 @@ $$W_{\beta,E} = W_\beta(T_3) - W_{\beta'} = 0.776 - 0.508 = 0.268 \qquad W_{\alp
 - $W_{\beta,E} + W_{\alpha,E} = 0.268 + 0.224 = 0.492 = W_E$: the phases of the eutectic add up to the eutectic.
 - Inside the eutectic, α is $0.224 / 0.492 = 0.455$, the same as the eutectic product of the sheet diagram, $(97.5 - 61.9)/(97.5 - 19.2) = 35.6/78.3 = 0.455$.
 - Mass balance at $T_3$: $0.224 \times 19.2 + 0.776 \times 97.5 = 4.30 + 75.66 = 80.0$ wt% Sn.
+- **Limiting cases** (fractions dimensionless, compositions in wt% Sn): at $C_0 = 61.9$ the alloy would be all eutectic ($W_{\beta'} = 0$) and at $C_0 = 97.5$ all primary β ($W_{\beta'} = 1$); 80 wt% Sn lies about halfway along the short tie line, hence about half of each.
 
 ### Interpretation
 Below 183 °C the alloy is about half primary β and half eutectic. On further cooling to 100 °C the solvus lines move outwards (α purer in Pb, β practically pure Sn) and the amounts of the phases change slightly (α from 0.224 to 0.211) by solid-state precipitation, while the microconstituents keep their shape.

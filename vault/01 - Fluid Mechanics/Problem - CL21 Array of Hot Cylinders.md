@@ -9,6 +9,13 @@ tags:
   - cilindros
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL21.pdf"
+id: "cl21"
+pill: "CL21: Hot Cylinders"
+tags_html:
+  - "Periodicity"
+  - "Drag"
+  - "Heat release"
+  - "Perfect gas"
 ---
 
 # Problem CL21: Array of Hot Cylinders in a Gas Stream: Density, Force and Heat
@@ -25,6 +32,9 @@ A linear array of parallel hot cylinders of radius $R$, whose centers are separa
 - The heat transferred from each cylinder to the gas stream per unit time (per unit length). Express the result with use made of the ratio of specific heats $\gamma$.
 
 NOTE: Explain clearly the simplifications and assumptions employed in the derivation.
+
+![[attachments/FM-T3/cl21-statement.svg]]
+*Statement figure (redrawn from CL21.pdf, p. 1): array of cylinders of radius $R$, centres $3R$ apart, in a stream $U_1$, $\rho_1$, $p_1$; far downstream $U_2$, $p_2$*
 
 Source: CL21.pdf (page 1, retake of Jun 13, 2014). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
@@ -46,6 +56,9 @@ Source: CL21.pdf (page 1, retake of Jun 13, 2014). Notes.pdf, Chapter 3: integra
 
 - Frame fixed to the array; $\bar{e}_x$ along the stream. Fixed control volume of height $3R$ around one cylinder (as in the official figure).
 - Surfaces: $\Sigma_1$ (far upstream, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ (far downstream, $\bar{n} = +\bar{e}_x$), $\Sigma_{top}$ and $\Sigma_{bot}$ (lines midway between cylinders, $\bar{n} = \pm\bar{e}_y$) and $\Sigma_{cyl}$ (cylinder surface). By periodicity every flux through $\Sigma_{top}$ equals minus the one through $\Sigma_{bot}$: they cancel each other out.
+
+![[attachments/FM-T3/cl21-cv.svg]]
+*Control volume of the solution: $\Sigma_1$ and $\Sigma_2$ far upstream and downstream, $\Sigma_{top}$ and $\Sigma_{bot}$ midway between cylinders ($3R$ apart; their fluxes cancel by periodicity) and the cylinder surface $\Sigma_{cyl}$, with the outward normals*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_{cyl}}\left[p\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
@@ -85,7 +98,7 @@ Boxed terms: $-\bar{F}$. With (1), $\rho_2U_2^2 = \rho_1U_1U_2$.
 
 $$ \boxed{\,\frac{\bar{F}}{3R} = \left[p_1 - p_2 + \rho_1U_1^2\left(1 - \frac{U_2}{U_1}\right)\right]\bar{e}_x\,} \tag{2} $$
 
-**3. Total energy (Notes Eq. 3.46)**
+**3. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

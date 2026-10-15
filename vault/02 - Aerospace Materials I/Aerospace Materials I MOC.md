@@ -132,7 +132,7 @@ tags:
   * [[02 - Aerospace Materials I/Problem - T4-PD09 Invariant Reactions and an Al-20 Ni Alloy|Problem T4-PD09: Invariant Reactions and an Al-20 wt% Ni Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD10 Reactions and Eutectoids in the Cu-Sn System|Problem T4-PD10: Reactions and Eutectoids in the Cu-Sn System]]
   * [[02 - Aerospace Materials I/Problem - T4-PD11 Drawing a Diagram with a Stoichiometric Compound|Problem T4-PD11: Drawing a Diagram with a Stoichiometric Compound]]
-  * [[02 - Aerospace Materials I/Problem - T4-PD12 Invariant Reactions and a Ni-40 Mo Alloy|Problem T4-PD12: Invariant Reactions and a Ni-40 wt% Mo Alloy]]
+  * [[02 - Aerospace Materials I/Problem - T4-PD12 Invariant Reactions and a Ni-40 Mo Alloy|Problem T4-PD12: Invariant Reactions and a Ni-40 at.% Mo Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD13 Compounds and Cooling of a Ti-30 Si Alloy|Problem T4-PD13: Compounds and Cooling of a Ti-30 % Si Alloy]]
   * [[02 - Aerospace Materials I/Problem - T4-PD14 Reading a Hypothetical Diagram with Several Compounds|Problem T4-PD14: Reading a Hypothetical Diagram with Several Compounds]]
   * [[02 - Aerospace Materials I/Problem - T4-PD15 The Ti-B System and Ti-10 B and Ti-18 B Alloys|Problem T4-PD15: The Ti-B System and Ti-10 % B and Ti-18 % B Alloys]]

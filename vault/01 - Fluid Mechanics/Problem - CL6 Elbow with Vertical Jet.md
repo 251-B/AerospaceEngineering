@@ -9,6 +9,13 @@ tags:
   - codo
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL6.pdf"
+id: "cl6"
+pill: "CL6: Elbow"
+tags_html:
+  - "Elbow"
+  - "Linear momentum"
+  - "Energy"
+  - "Heat through the walls"
 ---
 
 # Problem CL6: Elbow Discharging a Vertical Jet: Velocity, Force and Heat
@@ -23,6 +30,9 @@ A liquid of density $\rho$ and specific heat $c$ flows through the elbow-shaped 
 - The value of the velocity at the inlet $v_i$.
 - The two components of the force $(F_x, F_z)$ exerted on the pipe.
 - The amount of heat $Q$ transferred per unit time to the liquid by heat conduction through the pipe walls.
+
+![[attachments/FM-T3/cl6-statement.svg]]
+*Statement figure (redrawn from CL6.pdf, p. 1): inlet section $A_i$ with $v_i$, $p_i$, $T_i$; outlet $A_o$ discharging a vertical jet $v_o$, $T_o$ into $p_a$; force components $F_x$, $F_z$ on the pipe and heat $Q$ through its walls*
 
 Source: CL6.pdf (page 1), also solved in class (class notes, CL6). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
@@ -41,11 +51,15 @@ Source: CL6.pdf (page 1), also solved in class (class notes, CL6). Notes.pdf, Ch
 | $T_i$, $T_o$ | inlet and outlet temperatures | K |
 | $c$ | specific heat of the liquid | J/(kg$\cdot$K) |
 | $\dot{Q}$ | heat per unit time into the liquid | W |
+| $\rho$ | liquid density | kg/m$^3$ |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
 - Frame fixed to the pipe, $\bar{e}_x$ horizontal (inlet flow direction), $\bar{e}_z$ vertical upwards. Fixed control volume: the liquid inside the pipe, $\bar{v}_c = 0$.
 - Surfaces: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$, $\bar{v} = v_i\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = -\bar{e}_z$, $\bar{v} = -v_o\bar{e}_z$), $\Sigma_w$ (pipe wall, $\bar{v} = 0$).
+
+![[attachments/FM-T3/cl6-cv.svg]]
+*Control volume of the solution (as in the class notes): the liquid inside the pipe, with $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = -\bar{e}_z$) and the wall $\Sigma_w$, where the force and the heat are collected*
 
 Force of the liquid and the ambient air on the pipe, and heat through the walls, written on $\Sigma_w$:
 
@@ -85,7 +99,7 @@ Boxed $\Sigma_w$ terms: $-\bar{F}$.
 
 $$ -\rho v_i^2A_i\,\bar{e}_x - \rho v_o^2A_o\,\bar{e}_z = (p_i - p_a)A_i\,\bar{e}_x - \bar{F} \;\Longrightarrow\; \boxed{\,F_x = \left[\rho v_i^2 + (p_i - p_a)\right]A_i,\qquad F_z = \rho v_o^2A_o\,} \tag{2} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

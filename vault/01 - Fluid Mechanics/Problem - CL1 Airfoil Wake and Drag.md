@@ -9,6 +9,13 @@ tags:
   - resistencia
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf"
+id: "cl1"
+pill: "CL1: Airfoil Wake"
+tags_html:
+  - "Control volume"
+  - "Linear momentum"
+  - "Wake"
+  - "Drag"
 ---
 
 # Problem CL1: Airfoil Wake: Streamline Displacement and Drag
@@ -19,6 +26,9 @@ fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/pro
 ## Statement
 
 The experimental tests of an airfoil in a wind tunnel indicate that the velocity profile upstream remains uniform, whereas behind the airfoil there exists a wake region with significant velocity deficit whose thickness increases downstream, resulting in the flow field sketched in the figure of CL1.pdf. For the airfoil tested, the velocity measurements at a given downstream section reveal that the velocity in the wake varies linearly from the value $u = U/2$ at the centerline to reach the value $u = U$ at the edge of the wake, located at $y = y_0$. To analyze the problem, consider a control volume limited laterally by the streamlines that extend from $x \to -\infty$, $y = \pm y_{-\infty}$ ($y_{-\infty} < y_0$) to $x = x_0$, $y = \pm y_0$ and internally by the surface of the airfoil. Assuming that the air behaves as an incompressible fluid with density $\rho$ and that viscous stresses are negligible both in the wake and along the bounding streamlines, obtain the value of $y_{-\infty}$ as a function of $y_0$, as well as the value of the drag on the airfoil as a function of $\rho$, $y_0$ and $U$. In the analysis, assume that on the outer boundary of the control volume the pressure differences from the ambient value $p_\infty$ are negligible, and so is the effect of gravity on the air flow.
+
+![[attachments/FM-T3/cl1-statement.svg]]
+*Statement figure (redrawn from CL1.pdf, p. 1): uniform profile $U$ upstream; bounding streamlines from $y = \pm y_{-\infty}$ to $y = \pm y_0$; wake profile at $x = x_0$ falling linearly from $U$ at $|y| = y_0$ to $U/2$ on the centreline (the profile formulas written beside the original figure are given in Phase 1)*
 
 Source: CL1.pdf (page 1). Notes.pdf, Chapter 3: integral mass balance Eqs. 3.10-3.11, integral momentum balance Eqs. 3.35-3.36, force of the fluid on a body Eq. 3.32.
 
@@ -44,6 +54,9 @@ Dimensional check of the unknown: $[\rho U^2 y_0] = (\text{kg/m}^3)(\text{m}^2/\
 - Inertial frame fixed to the airfoil and the tunnel; basis $(\bar{e}_x, \bar{e}_y, \bar{e}_z)$ with $\bar{e}_x$ along the stream. The control volume is fixed: $\bar{v}_c = 0$.
 - Surfaces of $\Sigma_c$ (outward normal $\bar{n}$): $\Sigma_1$, far upstream, $|y| < y_{-\infty}$, $\bar{n} = -\bar{e}_x$; $\Sigma_2$, the section $x = x_0$, $|y| < y_0$, $\bar{n} = +\bar{e}_x$; $\Sigma_l$, the two bounding streamlines ($\bar{v}\cdot\bar{n} = 0$); $\Sigma_w$, the airfoil surface ($\bar{n}$ pointing into the airfoil).
 - Change of variable for the wake integrals: $s = 1 + y/y_0$, $dy = y_0\,ds$; $y \in [0, y_0]$ maps to $s \in [1, 2]$.
+
+![[attachments/FM-T3/cl1-cv.svg]]
+*Control volume of the solution: $\Sigma_1$ (far upstream, $|y| < y_{-\infty}$, $\bar{n} = -\bar{e}_x$), $\Sigma_2$ ($x = x_0$, $|y| < y_0$, $\bar{n} = +\bar{e}_x$), the bounding streamlines $\Sigma_l$ and the airfoil surface $\Sigma_w$ ($\bar{n}$ into the airfoil). The official sketch names them $\Sigma_u$, $\Sigma_d$, $\Sigma_i$ and, for the bounding streamlines, a handwritten symbol read as $\Sigma_\ell$ (the reading is uncertain)*
 
 Force of the air on the airfoil (Notes Eq. 3.32), written on the wetted surface with the normal $\bar{n}$ of the control volume:
 
@@ -100,4 +113,4 @@ For a wake symmetric about $y = 0$ (a symmetric airfoil at zero incidence, as th
 - Agreement with the official solution: CL1.pdf obtains $y_{-\infty} = \tfrac{3}{4}y_0$ and $\bar{F}_{\text{airfoil}} = \tfrac{1}{3}\rho U^2 y_0\,\bar{e}_x$.
 
 > [!info] Extension (beyond the official solution)
-> With the momentum thickness $\theta = \int_{-y_0}^{y_0}\frac{v_x}{U}\left(1 - \frac{v_x}{U}\right)dy = 2y_0\int_0^1\frac{1 - \sigma^2}{4}\,d\sigma = \frac{y_0}{3}$ ($\sigma = y/y_0$), the result reads $D = \rho U^2\theta$, the classical momentum-deficit formula for the drag from a wake survey.
+> With the momentum thickness $\theta = \int_{-y_0}^{y_0}\frac{v_x}{U}\left(1 - \frac{v_x}{U}\right)dy = 2y_0\int_0^1\frac{1 - \sigma^2}{4}\,d\sigma = 2y_0\left[\frac{\sigma - \sigma^3/3}{4}\right]_0^1 = 2y_0\cdot\frac{1}{6} = \frac{y_0}{3}$ ($\sigma = y/y_0$), the result reads $D = \rho U^2\theta$, the classical momentum-deficit formula for the drag from a wake survey.

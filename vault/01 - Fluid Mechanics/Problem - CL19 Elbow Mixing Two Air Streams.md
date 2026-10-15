@@ -9,6 +9,13 @@ tags:
   - mezcla
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf"
+id: "cl19"
+pill: "CL19: Two-Stream Elbow"
+tags_html:
+  - "Coflow"
+  - "Perfect gas"
+  - "Linear momentum"
+  - "Heat"
 ---
 
 # Problem CL19: Elbow Mixing Two Air Streams: Outlet Velocity, Force and Heat
@@ -26,13 +33,16 @@ The elbow-shaped tube of circular cross section shown in the figure of CL19.pdf 
 
 Note: for a perfect gas, $p = \rho R_gT$, where $R_g$ is the gas constant.
 
+![[attachments/FM-T3/cl19-statement.svg]]
+*Statement figure (redrawn from CL19.pdf, p. 1): pipe of diameter $D$; at the inlet the inner stream (diameter $D/\sqrt{2}$, temperature $T_1$) and the outer coflow ($T_2$), both with $U_i$ and $p_i$; outlet at $U_o$, $T_o$ into the atmosphere at $p_a$*
+
 Source: CL19.pdf (page 1, prefinal of Dec 16, 2013). Notes.pdf, Chapter 3: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
 ## Phase 1: Hypotheses, Data and Unknowns
 
 - Steady; perfect gas, $\rho = p/(R_gT)$, $h = c_pT$; neglect $\bar{g}$; uniform velocity and pressure at the inlet; uniform state at the outlet (mixing completed); no moving parts.
 - Inlet (diameter $D$, flow along $+\bar{e}_x$): inner stream of area $\pi D^2/8$ at $T_1$, outer annulus of area $\pi D^2/4 - \pi D^2/8 = \pi D^2/8$ at $T_2$, both at $U_i$ and $p_i = 2p_a$. Outlet (diameter $D$, flow along $+\bar{e}_y$): free jet at $p_a$, $T_o$.
-- Data: $[p_a,\ U_i,\ T_1,\ T_2,\ D,\ R_g,\ c_p]$. Unknowns: $[U_o,\ F_x,\ F_y,\ \dot{Q}]$.
+- Data: $[p_a,\ U_i,\ T_1,\ T_2,\ D,\ R_g]$ and $c_p$ (not in the statement, which gives only $R_g$; the official solution uses it for $\dot{Q}$). Unknowns: $[U_o,\ F_x,\ F_y,\ \dot{Q}]$.
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
@@ -45,6 +55,9 @@ Source: CL19.pdf (page 1, prefinal of Dec 16, 2013). Notes.pdf, Chapter 3: integ
 
 - Frame fixed to the pipe, $\bar{e}_x$ horizontal (inlet flow), $\bar{e}_y$ vertical upwards (outlet flow). Fixed control volume. $A \equiv \pi D^2/4$.
 - Surfaces: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_y$), $\Sigma_\ell$ (pipe wall).
+
+![[attachments/FM-T3/cl19-cv.svg]]
+*Control volume of the solution: $\Sigma_i$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_y$) and the pipe wall $\Sigma_\ell$, where the force and the heat are collected*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_\ell}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
@@ -88,7 +101,7 @@ $$ \boxed{\,\bar{F} = \frac{\pi D^2}{4}\,p_a\left(1 + \frac{U_i^2}{R_gT_o}\right
 > [!warning] Erratum in the official solution (sign of F_y)
 > CL19.pdf writes the momentum balance with $+\frac{p_a}{R_gT_o}U_oU_o\bar{e}_y\frac{\pi D^2}{4}$ on the left-hand side and $-\bar{F}$ on the right, but boxes $\bar{F}$ with $+\frac{\pi D^2}{4}p_a\frac{U_i^2}{R_gT_o}\bar{e}_y$. Moving the outlet flux to the other side gives the minus sign of (2): the jet leaves upwards, so its reaction on the pipe points downwards. The computed sign is kept.
 
-**3. Total energy (Notes Eq. 3.46)**
+**3. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

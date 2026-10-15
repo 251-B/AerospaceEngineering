@@ -79,9 +79,9 @@ $$W_\delta = \frac{20 - 15.8}{32 - 15.8} = \frac{4.2}{16.2} = 0.259 \qquad W_{(\
 
 ### c) Alloy with 54 % liquid at 900 °C
 At 900 °C the tie line goes from (Cu) at $C_S \approx 9$ to L at $C_L \approx 19$ wt% Sn (readings). The lever rule for the liquid:
-$$W_L = \frac{C_0 - C_S}{C_L - C_S} \;\Rightarrow\; C_0 = C_S + W_L\,(C_L - C_S) = 9 + 0.54 \times (19 - 9) = 9 + 5.4 = 14.4 \approx 14.5\ \text{wt\% Sn}$$
+$$W_L = \frac{C_0 - C_S}{C_L - C_S} \;\Rightarrow\; C_0 = C_S + W_L\,(C_L - C_S) = 9 + 0.54 \times (19 - 9) = 9 + 5.4 = 14.4\ \text{wt\% Sn}$$
 
-**Solid at 700 °C?** $13.5 < 14.5 < 22$, so at 798 °C the peritectic uses up all the liquid: below 798 °C the alloy is (Cu) + β, both solid. At 700 °C the (Cu) boundary is at about 14.5 wt% Sn (it goes from 13.5 at 798 °C to 15.8 at 586 °C), so the alloy is (Cu), practically single-phase. **Yes, it is solid at 700 °C.**
+**Solid at 700 °C?** $13.5 < 14.4 < 22$, so at 798 °C the peritectic uses up all the liquid: below 798 °C the alloy is (Cu) + β, both solid. At 700 °C the (Cu) boundary is at about 14.5 wt% Sn (it goes from 13.5 at 798 °C to 15.8 at 586 °C), so the alloy (14.4) is (Cu), practically single-phase. The key gives 14.5 wt% Sn; the 0.1 difference is well within the ±1 wt% of the readings and does not change the answer. **Yes, it is solid at 700 °C.**
 
 ---
 
@@ -91,6 +91,7 @@ $$W_L = \frac{C_0 - C_S}{C_L - C_S} \;\Rightarrow\; C_0 = C_S + W_L\,(C_L - C_S)
 - 519 °C: $0.741 \times 15.8 + 0.259 \times 32 = 11.71 + 8.29 = 20.0$ wt% Sn.
 - 521 °C: $0.625 \times 15.8 + 0.375 \times 27.0 = 9.88 + 10.13 = 20.0$ wt% Sn.
 - (c): with $C_0 = 14.4$, $W_L = (14.4 - 9)/(19 - 9) = 0.54$ ✓.
+- **Limiting cases** (fractions dimensionless, compositions in wt% Sn): in (c), $W_L \to 0$ as $C_0 \to C_S = 9$ and $W_L \to 1$ as $C_0 \to C_L = 19$; 14.4 lies a little past the middle of the tie line, consistent with 0.54 of liquid.
 
 ### Interpretation
 The Cu-rich side of Cu-Sn (bronzes) shows how one alloy can cross several invariant reactions: a peritectic during solidification and two eutectoids in the solid. Each eutectoid turns a single solid phase into a fine two-phase mixture.

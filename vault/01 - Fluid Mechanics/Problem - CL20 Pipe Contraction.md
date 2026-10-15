@@ -9,6 +9,13 @@ tags:
   - contraccion
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL20.pdf"
+id: "cl20"
+pill: "CL20: Contraction"
+tags_html:
+  - "Nozzle"
+  - "Linear momentum"
+  - "Energy"
+  - "Bernoulli limit"
 ---
 
 # Problem CL20: Pipe Contraction Discharging to the Atmosphere: Velocity, Force and Heating
@@ -25,6 +32,9 @@ A liquid of density $\rho$ and specific heat $c$ flows steadily along a circular
 - The temperature increment $T_d - T_u$. Assume in the calculation that the contraction wall is adiabatic.
 
 Simplify these last two results by further assuming that the effect of viscosity is entirely negligible, so that for this incompressible steady flow Bernoulli's equation can be used to relate the variation of the fluid properties along a given stream line.
+
+![[attachments/FM-T3/cl20-statement.svg]]
+*Statement figure (redrawn from CL20.pdf, p. 1, axial section): pipe of diameter $D$ with uniform $p_u$, $v_u$, $T_u$; contraction ending in the orifice of diameter $d$, discharging at $v_d$, $T_d$ into $p_a$*
 
 Source: CL20.pdf (page 1, final of Jan 21, 2014). Notes.pdf: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
@@ -44,6 +54,9 @@ Source: CL20.pdf (page 1, final of Jan 21, 2014). Notes.pdf: integral mass balan
 
 - Frame fixed to the contraction, $\bar{e}_x$ along the axis. Fixed control volume: the liquid inside the contraction.
 - Surfaces: $\Sigma_u$ (upstream section, $\bar{n} = -\bar{e}_x$, area $\pi D^2/4$), $\Sigma_d$ (orifice, $\bar{n} = +\bar{e}_x$, area $\pi d^2/4$), $\Sigma_w$ (contraction wall, outer face at $p_a$).
+
+![[attachments/FM-T3/cl20-cv.svg]]
+*Control volume of the solution: the liquid inside the contraction, with $\Sigma_u$ (upstream section, $\bar{n} = -\bar{e}_x$), $\Sigma_d$ (orifice, $\bar{n} = +\bar{e}_x$) and $\Sigma_w$ (wall, outer face at $p_a$); $\bar{F}$ is the force on the contraction*
 
 $$ \boxed{\,\bar{F} = \int_{\Sigma_w}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
@@ -79,7 +92,7 @@ Boxed terms: $-\bar{F}$. The $\Sigma_d$ flux uses (1).
 
 $$ \rho\frac{\pi D^2}{4}v_u(v_d - v_u)\,\bar{e}_x = (p_u - p_a)\frac{\pi D^2}{4}\bar{e}_x - \bar{F} \;\Longrightarrow\; \boxed{\,\bar{F} = \frac{\pi D^2}{4}\left\{p_u - p_a - \rho v_u^2\left[\left(\frac{D}{d}\right)^2 - 1\right]\right\}\bar{e}_x\,} \tag{2} $$
 
-**3. Total energy (Notes Eq. 3.46)**
+**3. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

@@ -9,6 +9,13 @@ tags:
   - eyector
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL18.pdf"
+id: "cl18"
+pill: "CL18: Ejector"
+tags_html:
+  - "Ejector"
+  - "Bernoulli"
+  - "Mixing"
+  - "Dissipation"
 ---
 
 # Problem CL18: Liquid Ejector: Entrained Flow Rate, Outlet Velocity and Heating
@@ -24,6 +31,9 @@ The ejector shown in the figure of CL18.pdf is used to discharge a container fil
 - Apply the continuity and momentum balance equations to the control volume indicated in the figure. Simplify the result by assuming that the effect of friction on the wall surface is negligibly small.
 - Use the previous equations to show that the volumetric discharge flow rate is given by $Q = U_e(A - A_j) = \dfrac{U_j(A - A_j)}{1 + A/\sqrt{2A_j(A - A_j)}}$ and that the velocity at the outlet satisfies $\dfrac{U_o}{U_j} = \dfrac{A_j + \sqrt{2A_j(A - A_j)}}{A + \sqrt{2A_j(A - A_j)}}$.
 - Assuming that the values of the temperatures $T_e$ and $T_j$ at the entrance section are equal to the ambient value $T_a$, obtain the temperature $T_o$ at the outlet section when the pipe walls are adiabatic.
+
+![[attachments/FM-T3/cl18-statement.svg]]
+*Statement figure (redrawn from CL18.pdf, p. 1): container at $p_a$, pipe of section $A$; jet $A_j$, $U_j$ injected on the axis; entrance section with $U_e$, $p_e$ around the jet; control volume $V_c$ with outward normals; uniform outlet jet $U_o$ into $p_a$*
 
 Source: CL18.pdf (page 1, midterm of Nov 11, 2013). Notes.pdf: Bernoulli's equation Eq. 4.17, integral mass balance Eq. 3.11, integral momentum balance Eq. 3.36, integral total energy balance Eq. 3.46.
 
@@ -44,6 +54,9 @@ Source: CL18.pdf (page 1, midterm of Nov 11, 2013). Notes.pdf: Bernoulli's equat
 
 - Frame fixed to the pipe; $\bar{e}_x$ along the pipe axis in the flow direction. Fixed control volume between the entrance and the outlet sections.
 - Surfaces: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_x$, split into the jet $A_j$ and the annulus $A - A_j$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (straight pipe wall, $\bar{n}\perp\bar{e}_x$).
+
+![[attachments/FM-T3/cl18-cv.svg]]
+*Control volume of the solution: $\Sigma_e$ (entrance, $\bar{n} = -\bar{e}_x$, made of the jet $A_j$ and the annulus $A - A_j$), $\Sigma_o$ (outlet, $\bar{n} = +\bar{e}_x$) and the straight wall $\Sigma_w$ ($\bar{n}\perp\bar{e}_x$); $\bar{e}_x$ points along the flow*
 
 ## Phase 3: Balances, Surface by Surface
 
@@ -103,7 +116,7 @@ and from (2), $\frac{U_o}{U_j} = \frac{x(A - A_j) + A_j}{A} = \frac{s(A - A_j) +
 
 $$ \boxed{\,\frac{U_o}{U_j} = \frac{A_j + \sqrt{2A_j(A - A_j)}}{A + \sqrt{2A_j(A - A_j)}}\,} \tag{5} $$
 
-**4. Total energy (Notes Eq. 3.46)**
+**4. Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \underbrace{\cancel{\bar{v}_c}}_{0})\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 
@@ -116,7 +129,7 @@ Each surface integral, surface by surface (the vertical line drawn under each in
 | $\Sigma_o$ | $+\rho U_oA\left(cT_o + \tfrac{U_o^2}{2}\right)$ | $-p_aU_oA$ | $0$ | $0$ |
 | $\Sigma_w$ | $0$ | $0$ | $0$ | $0$ (adiabatic) |
 
-Pressure work: by (2) and (1), $p_e[U_e(A - A_j) + U_jA_j] - p_aU_oA = (p_e - p_a)U_oA = -\tfrac{1}{2}\rho U_e^2U_oA$. With $T_e = T_j = T_a$ the internal-energy terms give $\rho cU_oA(T_o - T_a)$; using $U_e(A - A_j) = U_oA - U_jA_j$ and dividing by $\rho U_oAU_j^2$:
+Pressure work: by (2) and (1), $p_e[U_e(A - A_j) + U_jA_j] - p_aU_oA = (p_e - p_a)U_oA = -\tfrac{1}{2}\rho U_e^2U_oA$. With $T_e = T_j = T_a$ the internal-energy terms give $\rho cU_oA(T_o - T_a)$. For the kinetic-energy fluxes, $U_e^3(A - A_j) = U_e^2\,(U_oA - U_jA_j)$ by (2), so the balance reads $\rho cU_oA(T_o - T_a) + \tfrac{1}{2}\rho U_o^3A - \tfrac{1}{2}\rho U_e^2(U_oA - U_jA_j) - \tfrac{1}{2}\rho U_j^3A_j = -\tfrac{1}{2}\rho U_e^2U_oA$, i.e. $\rho cU_oA(T_o - T_a) = \tfrac{1}{2}\rho\left[U_jA_j\left(U_j^2 - U_e^2\right) - U_o^3A\right]$. Dividing by $\rho U_oAU_j^2$:
 
 $$ \boxed{\,\frac{c\,(T_o - T_a)}{U_j^2} = \frac{U_jA_j}{2U_oA}\left[1 - \left(\frac{U_e}{U_j}\right)^2\right] - \frac{1}{2}\left(\frac{U_o}{U_j}\right)^2\,} \tag{6} $$
 

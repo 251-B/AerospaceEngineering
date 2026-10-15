@@ -57,7 +57,7 @@ The slide uses the phase diagram of CO₂ as an example:
 - The slope of the solid-liquid line, $dP/dT$, is positive, as it is in almost all substances.
 - At the **triple point** (5.1 atm, −56.6 °C) gas, liquid and solid are in equilibrium.
 - At temperatures below the triple point CO₂ can sublime: gas → solid (dry ice) on cooling, and solid → gas on heating.
-- Above the critical temperature $T_c$ = 31.1 °C and pressure $P_c$ = 73 atm CO₂ is a **supercritical fluid** (used to extract caffeine from coffee).
+- Above the critical temperature $T_c$ = 31.1 °C (the value printed on the diagram; the text of the slide writes 32 °C) and pressure $P_c$ = 73 atm CO₂ is a **supercritical fluid** (used to extract caffeine from coffee).
 
 > [!example] Worked example 1 — Why dry ice does not melt at 1 atm
 > **Question.** A block of solid CO₂ is heated at a constant pressure of 1 atm. What phases appear?
@@ -161,7 +161,7 @@ $$F = C - P + 1$$
 > - in L + solid (and on its boundaries): $F = 2 - 2 + 1 = 1$;
 > - at the melting point of pure B, a single component with two phases: $F = 1 - 2 + 1 = 0$, which is why a pure metal melts at one fixed temperature.
 >
-> **Consequence for the tie line (§6).** In the α + L region of the Cu-Ni diagram $F = 1$. Choosing the temperature uses that single degree of freedom, so the compositions of the two phases are no longer free: at 1250 °C they can only be $C_L$ = 32 wt% Ni and $C_\alpha$ = 43 wt% Ni [Session 7 Slide 16]. Changing the overall composition of the alloy changes only the amounts of the two phases, not their compositions.
+> **Consequence for the tie line (§6).** In the α + L region of the Cu-Ni diagram $F = 1$. Choosing the temperature uses that single degree of freedom, so the compositions of the two phases are no longer free: at about 1250 °C (a reading of the figure) they can only be $C_L$ = 32 wt% Ni and $C_\alpha$ = 43 wt% Ni [Session 7 Slide 16]. Changing the overall composition of the alloy changes only the amounts of the two phases, not their compositions.
 
 ## 6. Tie line and lever rule [Session 7 Slides 15-21]
 
@@ -176,10 +176,10 @@ For the alloy B, with overall composition $C_0$ and the arms $R = C_0 - C_L$ and
 
 $$W_L = \frac{S}{R + S} = \frac{C_\alpha - C_0}{C_\alpha - C_L} \qquad W_\alpha = \frac{R}{R + S} = \frac{C_0 - C_L}{C_\alpha - C_L} \qquad W_L + W_\alpha = 1$$
 
-where $W_L$ is the mass fraction of liquid and $W_\alpha$ the mass fraction of α.
+where $W_L$ is the mass fraction of liquid and $W_\alpha$ the mass fraction of α. They are **mass** fractions because the composition axis is in wt%; on an axis in atomic % the same construction gives atom (mole) fractions (extension, needed for the at.% diagrams of Problems 11-13 of the sheet).
 
-> [!example] Worked example 3 — Cu-35 wt% Ni at 1250 °C [Session 7 Slides 16-21]
-> **Data from the slide.** $C_0 = 35$ wt% Ni at 1250 °C (point B). The tie line meets the liquidus at $C_L = 32$ wt% Ni and the solidus at $C_\alpha = 43$ wt% Ni.
+> [!example] Worked example 3 — Cu-35 wt% Ni at about 1250 °C [Session 7 Slides 16-21]
+> **Data from the slide.** $C_0 = 35$ wt% Ni at point B. The slide prints the three compositions but neither the temperature nor the name of the system: about 1250 °C is a reading of the figure (the tie line lies between the 1200 and 1300 °C grid lines), and "Cu-Ni" is assumed from the wt% Ni axis (extension). The tie line meets the liquidus at $C_L = 32$ wt% Ni and the solidus at $C_\alpha = 43$ wt% Ni.
 >
 > **Step 1, the arms of the lever.** $R = C_0 - C_L = 35 - 32 = 3$ wt% Ni and $S = C_\alpha - C_0 = 43 - 35 = 8$ wt% Ni; the whole tie line is $R + S = C_\alpha - C_L = 43 - 32 = 11$ wt% Ni.
 >
@@ -188,7 +188,7 @@ where $W_L$ is the mass fraction of liquid and $W_\alpha$ the mass fraction of �
 >
 > **Step 3, checks.** $W_L + W_\alpha = 8/11 + 3/11 = 1$. The nickel of the two phases adds up to the nickel of the alloy: $W_L C_L + W_\alpha C_\alpha = 0.727 \times 32 + 0.273 \times 43 = 23.27 + 11.73 = 35.0$ wt% Ni $= C_0$.
 >
-> **Answer.** At 1250 °C the alloy is 73 % liquid of 32 wt% Ni and 27 % solid α of 43 wt% Ni. The alloy point is closer to the liquidus, so there is more liquid.
+> **Answer.** At about 1250 °C the alloy is 73 % liquid of 32 wt% Ni and 27 % solid α of 43 wt% Ni. The alloy point is closer to the liquidus, so there is more liquid.
 
 > [!warning] Rounding on the slide
 > Slide 21 writes $W_L = 0.72$ and $W_\alpha = 0.28$. The exact values are $8/11 = 0.727$ and $3/11 = 0.273$, so they round to 0.73 and 0.27, as the official solutions of the problem sheet write them (Solution problems Phase diagrams I.pdf, p. 5). The slide truncates $W_L$ and then takes $W_\alpha = 1 - W_L$.
@@ -254,7 +254,7 @@ With the phase rule of §5 at 1 atm: at the eutectic point three phases (L, α, 
 
 ### 8.2 The Pb-Sn system and the eutectic microstructure [Session 7 Slides 28-29]
 
-The Pb-Sn diagram is the example of the slides. Its eutectic point is at **61.9 wt% Sn and 183 °C**. At 183 °C, α can dissolve at most **18.3 wt% Sn** and β contains **97.8 wt% Sn** [Session 7 Slide 32]. The melting points of the pure metals are 327 °C (Pb) and 232 °C (Sn) (Problems T4_PhaseDiagrams I.pdf, p. 1).
+The Pb-Sn diagram is the example of the slides. Its eutectic point is at **61.9 wt% Sn and 183 °C**. At 183 °C, α can dissolve at most **18.3 wt% Sn** and β contains **97.8 wt% Sn** [Session 7 Slides 27, 32]. The melting points of the pure metals are 327 °C (Pb) and 232 °C (Sn) (Problems T4_PhaseDiagrams I.pdf, p. 1).
 
 ![[attachments/T4/pbsn.svg]]
 
@@ -266,7 +266,7 @@ A liquid of 61.9 wt% Sn, cooled to 183 °C, forms colonies of α and β layers t
 
 ![[attachments/T4/s7-pbsn-eutectic-micrograph.png]]
 
-The shape of the eutectic changes from one system to another: rods, plates, globules or needles of one phase in the other.
+The shape of the eutectic changes from one system to another, as the four micrographs of Slide 29 show (Sn-50In, Al-13Si, Al-33Cu and Mg-37Sn): in them one phase appears as rods, plates, globules or needles inside the other (a description of those micrographs).
 
 ![[attachments/T4/s7-eutectic-micrographs.png]]
 
@@ -295,7 +295,7 @@ An alloy between the α limit and the eutectic composition is **hypoeutectic**; 
 
 1. Above the liquidus the alloy is liquid. The cooling curve shows the liquidus at 260 °C, where crystals of α start to form.
 2. Between 260 and 183 °C, α and liquid coexist; α grows, and the liquid becomes richer in Sn along the liquidus.
-3. Just above 183 °C the solid is α of about 19 wt% Sn and the liquid has reached the eutectic composition, 61.9 wt% Sn.
+3. Just above 183 °C the solid is α of 18.3 wt% Sn and the liquid has reached the eutectic composition, 61.9 wt% Sn.
 4. At 183 °C that liquid transforms at constant temperature into the eutectic ($L \rightarrow \alpha + \beta$): a plateau in the cooling curve.
 5. Below 183 °C the structure is **primary (proeutectic) α** surrounded by **eutectic**.
 
@@ -383,20 +383,20 @@ The Pb-Sn example of Slide 4 uses a Pb-16 wt% Sn alloy ($C_2$, also in the figur
 ![[attachments/T4/s8-precipitation-micrographs.png]]
 
 > [!example] Worked example 8 — How much β precipitates in Pb-16 wt% Sn [Session 8 Slide 4]
-> **Readings of the figure.** On Slide 4 the vertical line of $C_2$ = 16 wt% Sn meets the solvus at about 178 °C; at point g (121 °C) the solvus is at about 5 wt% Sn. The β boundary at that temperature is close to pure Sn; Slide 32 of Session 7 places it at about 99 wt% Sn.
+> **Readings of the figure.** On Slide 4 the vertical line of $C_2$ = 16 wt% Sn meets the solvus at about 172 °C; at point g (121 °C) the solvus is at about 6 wt% Sn. The β boundary at that temperature is close to pure Sn; Slide 32 of Session 7 places it at about 99 wt% Sn.
 >
-> **Above about 178 °C** (point f, 192 °C) the alloy is single-phase α of 16 wt% Sn: $W_\alpha = 1$.
+> **Above about 172 °C** (point f, 192 °C) the alloy is single-phase α of 16 wt% Sn: $W_\alpha = 1$.
 >
-> **At 121 °C** (point g), lever rule on the tie line from 5 to 99 wt% Sn:
-> $$W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha} = \frac{16 - 5}{99 - 5} = \frac{11}{94} = 0.117 \qquad W_\alpha = \frac{99 - 16}{94} = \frac{83}{94} = 0.883$$
+> **At 121 °C** (point g), lever rule on the tie line from 6 to 99 wt% Sn:
+> $$W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha} = \frac{16 - 6}{99 - 6} = \frac{10}{93} = 0.108 \qquad W_\alpha = \frac{99 - 16}{99 - 6} = \frac{83}{93} = 0.892$$
 >
-> **Interpretation.** About 12 % of the alloy has turned into β particles between 178 and 121 °C. As the temperature falls further the solvus moves to lower Sn contents, so the α holds less Sn and more β precipitates: the particles grow, as the slide says. These numbers depend on readings of the figure and are approximate.
+> **Interpretation.** About 11 % of the alloy has turned into β particles between 172 and 121 °C. As the temperature falls further the solvus moves to lower Sn contents, so the α holds less Sn and more β precipitates: the particles grow, as the slide says. These numbers depend on readings of the figure and are approximate.
 
 ## 10. Invariant reactions [Session 8 Slides 6-12]
 
 ### 10.1 The five reactions [Session 8 Slide 6]
 
-An invariant reaction happens at a fixed temperature, with fixed compositions of the three phases involved ($F = 2 - 3 + 1 = 0$ at constant pressure, §5). Binary diagrams have five types; the eutectoid and the peritectoid happen entirely in the **solid state**:
+An invariant reaction happens at a fixed temperature, with fixed compositions of the three phases involved ($F = 2 - 3 + 1 = 0$ at constant pressure, §5). The slides list five types; the eutectoid and the peritectoid happen entirely in the **solid state**:
 
 ![[attachments/T4/invariant-table.svg]]
 
@@ -412,7 +412,7 @@ An invariant reaction happens at a fixed temperature, with fixed compositions of
 
 **Eutectoid reaction:** an invariant reaction where **a solid phase transforms into two solid phases**: $\gamma \rightarrow \alpha + \beta$.
 
-Example, Cu-Zn at 560 °C (74 % Zn):
+Example, Cu-Zn at 560 °C (74 % Zn; here and in the next examples the slides print the compositions as % of the second element, with no basis):
 
 $$\delta\,(74\%\,\text{Zn}) \;\underset{\text{heating}}{\overset{\text{cooling}}{\rightleftharpoons}}\; \gamma\,(70\%\,\text{Zn}) + \varepsilon\,(78\%\,\text{Zn})$$
 
@@ -456,7 +456,7 @@ Second example, Pt-Ag at 1186 °C (42.4 % Ag) [Session 8 Slide 9]:
 
 > [!example] Worked example 11 — The Pt-Ag peritectic, alloys 1 and 2 [Session 8 Slide 9]
 > **Alloy 1, 42.4 % Ag, at 1400 °C.** Liquid (55 % Ag) + α (7 % Ag); tie line length $55 - 7 = 48$:
-> $$W_L = \frac{42.4 - 7}{55 - 7} = \frac{35.4}{48} = 0.738 \qquad W_\alpha = \frac{55 - 42.4}{48} = \frac{12.6}{48} = 0.263$$
+> $$W_L = \frac{42.4 - 7}{55 - 7} = \frac{35.4}{48} = 0.7375 \qquad W_\alpha = \frac{55 - 42.4}{48} = \frac{12.6}{48} = 0.2625$$
 >
 > **Alloy 1 at 1186 °C + ΔT.** Liquid (66.3 % Ag) + α (10.5 % Ag); length $66.3 - 10.5 = 55.8$:
 > $$W_L = \frac{42.4 - 10.5}{66.3 - 10.5} = \frac{31.9}{55.8} = 0.572 \qquad W_\alpha = \frac{66.3 - 42.4}{55.8} = \frac{23.9}{55.8} = 0.428$$
@@ -502,13 +502,13 @@ $$L\,(36\%\,\text{Pb}) \;\underset{\text{heating}}{\overset{\text{cooling}}{\rig
 > **Tie line** from α (0 % Pb) to $L_2$ (87 % Pb), length 87:
 > $$W_\alpha = \frac{87 - 36}{87 - 0} = \frac{51}{87} = 0.586 \qquad W_{L_2} = \frac{36 - 0}{87} = \frac{36}{87} = 0.414$$
 >
-> **Interpretation.** Just below 955 °C the alloy is 59 % solid copper and 41 % of a second liquid, rich in lead (87 %). That liquid stays liquid down to 326 °C, where the remaining reaction gives α + β; the slide's diagram shows the region α + L₂ between the two lines.
+> **Interpretation.** Just below 955 °C the alloy is 59 % solid copper and 41 % of a second liquid, rich in lead (87 %). That liquid stays liquid down to 326 °C, where $L_2$ undergoes a eutectic reaction, $L_2 \rightarrow \alpha + \beta$ (a reading of the diagram, which shows the 326 °C line with α + β below it; the slide text does not name it); the slide's diagram shows the region α + L₂ between the two lines.
 
 ## 11. Intermetallic compounds [Session 8 Slides 14-15]
 
 An **intermetallic compound** is made up of two or more elements (components) and produces a **new phase with its own composition, crystal structure and properties** [Session 8 Slides 14-15].
 
-- **Terminal phases** occur at the ends of the phase diagram (α and ζ in the figure).
+- **Terminal phases** occur at the ends of the phase diagram (α and ζ in the figure; the slide text writes ξ).
 - **Intermediate phases** occur in a composition range inside the diagram (β, γ, δ, ε).
 - The percentage of ionic or covalent bonding in an intermetallic compound depends on the **electronegativity difference** between the elements (Topic 1).
 
@@ -565,7 +565,7 @@ The temperatures on the scale of Slide 3 (910, 1390 and 1535 °C) differ by a fe
 
 ### 13.3 The Fe-Fe₃C diagram [Session 9 Slide 4]
 
-The diagram used in practice is **metastable**: its right-hand end is not graphite but **6.67 wt% C**, the stoichiometric composition of **Fe₃C**, iron carbide or **cementite**. So the diagram is in fact **Fe-Fe₃C**. It has three invariant points (a peritectic, a eutectic and a eutectoid), and its composition axis is split into four ranges:
+The diagram used in practice is **metastable**: its right-hand end is **6.67 wt% C**, the stoichiometric composition of **Fe₃C**, iron carbide or **cementite**. So the diagram is in fact **Fe-Fe₃C**. It has three invariant points (a peritectic, a eutectic and a eutectoid), and its composition axis is split into four ranges:
 
 ![[attachments/T4/fec-full.svg]]
 
@@ -591,7 +591,7 @@ Steels have up to 2.14 % C; cast irons have more [Session 9 Slide 4].
 
 ![[attachments/T4/s9-cementite-cell.png]]
 
-Austenite dissolves much more carbon than ferrite (2.14 against 0.022 wt%), because the interstitial sites of FCC iron are larger than those of BCC iron (Topic 2).
+Austenite dissolves much more carbon than ferrite (2.14 against 0.022 wt%), because the interstitial sites of FCC iron are larger than those of BCC iron (extension: the Session 9 slides state the solubilities but not this reason).
 
 **Two-phase regions** [Slide 9]: α-ferrite + Fe₃C below 727 °C; γ-austenite + Fe₃C between 727 and 1147 °C.
 
@@ -653,14 +653,14 @@ On cooling a steel of 0.3 % C: at c it is only γ; between the $A_3$ line (M-O) 
 > **Point d:** ferrite ($C_\alpha$ = 0.02 % C) and austenite ($C_\gamma$ = 0.4 % C), length 0.38:
 > $$W_\alpha = \frac{C_\gamma - C_0}{C_\gamma - C_\alpha} = \frac{0.4 - 0.3}{0.4 - 0.02} = \frac{0.1}{0.38} = 0.263 \qquad W_\gamma = \frac{C_0 - C_\alpha}{C_\gamma - C_\alpha} = \frac{0.3 - 0.02}{0.38} = 0.737$$
 >
-> **Point e** (just above 727 °C): $C_\alpha$ = 0.02, $C_\gamma$ = 0.76 % C, length 0.74:
+> **Point e** (just above 727 °C): $C_\alpha$ = 0.02, $C_\gamma$ = 0.76 % C, length 0.74 (Slide 17 prints $C_\alpha$ = 0.02 at d and e; at f the diagram value 0.022 is used):
 > $$W_\alpha = \frac{0.76 - 0.3}{0.76 - 0.02} = \frac{0.46}{0.74} = 0.622 \qquad W_\gamma = \frac{0.3 - 0.02}{0.74} = 0.378$$
 >
 > **Point f** (just below 727 °C): two microconstituents (primary α and pearlite) and two phases (α and Fe₃C):
 > $$W_{\alpha,\text{total}} = \frac{6.67 - 0.3}{6.67 - 0.022} = \frac{6.37}{6.648} = 0.958 \qquad W_{\alpha_p} = \frac{C_E - C_0}{C_E - C_\alpha} = \frac{0.76 - 0.3}{0.76 - 0.022} = \frac{0.46}{0.738} = 0.623$$
 > $$W_{\alpha_E} = W_{\alpha,\text{total}} - W_{\alpha_p} = 0.958 - 0.623 = 0.335 \qquad W_{\text{Fe}_3\text{C}} = 1 - 0.958 = 0.042 \qquad W_{\text{pearlite}} = 1 - 0.623 = 0.377$$
 >
-> **Checks:** the primary ferrite at f equals the ferrite at e (0.62): it does not change at 727 °C. The pearlite, 0.377, equals the austenite at e (0.378), and it is $0.377 \times 0.889 = 0.335$ ferrite and $0.377 \times 0.111 = 0.042$ cementite, the numbers above. The slides round these to 26/74, 62/38 and 96, 62, 34 and 4 %.
+> **Checks:** the primary ferrite at f equals the ferrite at e (0.62): it does not change at 727 °C. The pearlite, 0.377, equals the austenite at e (0.378; the 0.001 gap, here and in the primary ferrite 0.622/0.623, comes only from the 0.02 printed at e against 0.022 at f), and it is $0.377 \times 0.889 = 0.335$ ferrite and $0.377 \times 0.111 = 0.042$ cementite, the numbers above. The slides round these to 26/74, 62/38 and 96, 62, 34 and 4 %.
 
 ### 14.3 Hypereutectoid steels, $C_0$ > 0.76 % C [Session 9 Slides 19-20]
 

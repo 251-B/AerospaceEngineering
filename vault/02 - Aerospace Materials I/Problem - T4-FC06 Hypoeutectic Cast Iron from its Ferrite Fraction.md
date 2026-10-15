@@ -30,7 +30,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Frame: tie lines at 727 − ΔT (α-Fe₃C), 1147 + ΔT (γ-L) and 1147 − ΔT (γ-Fe₃C). Step 1 solves the lever rule for $C_0$; steps 2-3 apply it at 1147 ± ΔT; microconstituents as in Session 7 Slide 32.
+Frame: the Fe-Fe₃C diagram (wt% C, °C), with tie lines at 727 − ΔT (α-Fe₃C), 1147 + ΔT (γ-L) and 1147 − ΔT (γ-Fe₃C). Step 1 solves the lever rule for $C_0$; steps 2-3 apply it at 1147 ± ΔT; microconstituents as in Session 7 Slide 32.
 
 ![[attachments/T4/fc-p6.svg]]
 
@@ -39,7 +39,7 @@ Frame: tie lines at 727 − ΔT (α-Fe₃C), 1147 + ΔT (γ-L) and 1147 − ΔT 
 ## 🔢 3. Phase 3: Step-by-Step Derivation
 
 ### 1. Composition
-$$W_\alpha = \frac{C_{\text{Fe}_3\text{C}} - C_0}{C_{\text{Fe}_3\text{C}} - C_\alpha} \;\Rightarrow\; C_0 = 6.67 - 0.47 \times 6.648 = 6.67 - 3.125 = 3.545 \approx 3.55\ \%\,\text{C}$$
+$$W_\alpha = \frac{C_{\text{Fe}_3\text{C}} - C_0}{C_{\text{Fe}_3\text{C}} - C_\alpha} \;\Rightarrow\; C_0 = C_{\text{Fe}_3\text{C}} - W_\alpha\,(C_{\text{Fe}_3\text{C}} - C_\alpha) = 6.67 - 0.47 \times 6.648 = 6.67 - 3.125 = 3.545 \approx 3.55\ \%\,\text{C}$$
 
 ### 2. $T_1$ = 1147 + ΔT (γ 2.14 / L 4.30; length 2.16)
 $$W_L = \frac{C_0 - C_\gamma}{C_L - C_\gamma} = \frac{3.545 - 2.14}{2.16} = \frac{1.405}{2.16} = 0.650 \qquad W_\gamma = \frac{4.30 - 3.545}{2.16} = \frac{0.755}{2.16} = 0.350$$
@@ -55,6 +55,7 @@ $$W_{\text{Fe}_3\text{C}} = \frac{3.545 - 2.14}{4.53} = \frac{1.405}{4.53} = 0.3
 
 - Ledeburite make-up: $0.340/0.650 = 0.523$ γ, as in Worked example 14 ✓.
 - Mass balance at $T_2$: $0.690 \times 2.14 + 0.310 \times 6.67 = 1.48 + 2.07 = 3.55$ % C ✓.
+- **Limiting cases** (fractions dimensionless, compositions in wt% C): the ferrite fraction $(6.67 - C_0)/6.648$ is 1 at $C_0 = 0.022$ and 0 at $C_0 = 6.67$; 0.47 lies between, so $C_0$ lies between those limits, here inside the cast-iron range.
 
 ## ✅ Check against the official solution
 The method matches the worked page of Solution problems Phase diagrams II.pdf, p. 12.

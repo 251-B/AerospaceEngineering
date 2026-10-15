@@ -9,6 +9,13 @@ tags:
   - propulsion
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL9.pdf"
+id: "cl9"
+pill: "CL9: Submarine Thruster"
+tags_html:
+  - "Thrust"
+  - "Bernoulli"
+  - "Energy"
+  - "Similarity"
 ---
 
 # Problem CL9: Submarine Propulsion Device: Thrust from the Propeller Power
@@ -26,6 +33,9 @@ The submarine propulsion device schematically represented in the figure of CL9.p
 - Use the energy equation to relate the work per unit time $\dot{W}$ with the different fluid variables appearing in the problem. Assume that the variation of internal energy between the inlet and outlet sections is negligible ($e_e = e_s$) and that all of the device walls, including those of the fan, are thermally insulated.
 - Combine the above equations to show that the thrust can be expressed in the form $T/(\rho^{1/3}\dot{W}^{2/3}A_s^{1/3}) = f(A_e/A_s)$, obtaining the function $f$.
 
+![[attachments/FM-T3/cl9-statement.svg]]
+*Statement figure (redrawn from CL9.pdf, p. 1): nozzle of inlet area $A_e$ ($U_e$, $p_e$) and outlet area $A_s$ ($U_s$, $p_s$); propeller supplying the power $\dot{W}$; thrust $T$; the streamline from the still water at point 1 ($p_\infty$) to the inlet $e$*
+
 Source: CL9.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -41,11 +51,15 @@ Source: CL9.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.11, integral mo
 | $p_e$, $p_\infty$ | inlet and ambient pressures | Pa |
 | $\dot{W}$ | power given by the propeller to the water | W |
 | $T$ | thrust | N |
+| $\rho$ | water density | kg/m$^3$ |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
 - Frame fixed to the submarine (at rest), $\bar{e}_x$ along the axis in the direction of the exit jet. The thrust pushes the device towards $-\bar{e}_x$: $\bar{F} = -T\bar{e}_x$ is the force of the water (inside and outside, at $p_\infty$) on the device.
 - Surfaces: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (outlet, $\bar{n} = +\bar{e}_x$), $\Sigma_w$ (nozzle walls, fixed) and $\Sigma_p$ (propeller, moving).
+
+![[attachments/FM-T3/cl9-cv.svg]]
+*Control volume of the solution: $\Sigma_e$ (inlet, $\bar{n} = -\bar{e}_x$), $\Sigma_s$ (outlet, $\bar{n} = +\bar{e}_x$), the fixed nozzle walls $\Sigma_w$ and the moving propeller $\Sigma_p$ (dashed around it); the force of the water on the device is $\bar{F} = -T\bar{e}_x$*
 
 $$ \boxed{\,\bar{F} = -T\,\bar{e}_x = \int_{\Sigma_w,\Sigma_p}\left[(p - p_\infty)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,} $$
 
@@ -87,7 +101,7 @@ Steady inviscid flow from the stagnant water far ahead (1), where $v = 0$ and $p
 
 $$ p_\infty = p_e + \tfrac{1}{2}\rho U_e^2 \;\Longrightarrow\; \boxed{\,p_e - p_\infty = -\tfrac{1}{2}\rho U_e^2\,} \tag{3} $$
 
-**(4) Total energy (Notes Eq. 3.46)**
+**(4) Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \underbrace{\cancel{\int_{V_c}Q_R\,dV}}_{0} $$
 

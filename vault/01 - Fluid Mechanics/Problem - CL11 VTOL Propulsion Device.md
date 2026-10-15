@@ -9,6 +9,13 @@ tags:
   - vtol
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL11.pdf"
+id: "cl11"
+pill: "CL11: VTOL Engine"
+tags_html:
+  - "Thrust vectoring"
+  - "Bernoulli"
+  - "Linear momentum"
+  - "Energy"
 ---
 
 # Problem CL11: VTOL Propulsion Device in Hover: Nozzle Angle and Flow State
@@ -27,6 +34,9 @@ The propulsion device of a VTOL (vertical take-off and landing) aircraft include
 
 With the above simplifications, write the equations that determine the values of $U_i$, $U_e$, $p_i$, $\rho_e$ and $\alpha$ in terms of the known quantities ($p_a$, $Mg$, $\rho_a$, $A_i$, $A_e$, $\gamma$, $W$, and $Q$).
 
+![[attachments/FM-T3/cl11-statement.svg]]
+*Statement figure (redrawn from CL11.pdf, p. 1): intake $A_i$ ($p_i$, $U_i$, $\rho_a$), heat $Q$ and blades $W$ inside the duct, nozzle of exit section $A_e$ at the angle $\alpha$ from the vertical ($U_e$, $\rho_e$, $p_a$); axes $x$, $y$ at the centre of the rotating joint*
+
 Source: CL11.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.10, integral momentum balance Eq. 3.35, integral total energy balance Eq. 3.46, Bernoulli's equation Eq. 4.17.
 
 ## Phase 1: Hypotheses, Data and Unknowns
@@ -43,11 +53,15 @@ Source: CL11.pdf (page 1). Notes.pdf: integral mass balance Eq. 3.10, integral m
 | $p_i$, $\rho_e$ | intake pressure, exit density | Pa, kg/m$^3$ |
 | $\alpha$ | nozzle angle from the vertical | rad |
 | $\dot{W}$, $\dot{Q}$ | power and heat given to the air | W |
+| $p_a$, $\rho_a$, $Mg$, $\gamma$ | ambient pressure and density, weight of the aircraft, specific-heat ratio | Pa, kg/m$^3$, N, 1 |
 
 ## Phase 2: Frames, Control Volume and Surfaces
 
 - Frame fixed to the hovering aircraft (inertial while hovering); $\bar{e}_x$ horizontal, $\bar{e}_y$ vertical upwards.
 - Surfaces: $\Sigma_i$ (intake, $\bar{n} = +\bar{e}_x$, $\bar{v} = -U_i\bar{e}_x$), $\Sigma_e$ (exit, $\bar{n} = \bar{v}_e/U_e$), $\Sigma_w$ (fixed walls) and $\Sigma_m$ (mobile blades).
+
+![[attachments/FM-T3/cl11-cv.svg]]
+*Control volume of the solution: $\Sigma_i$ (intake, $\bar{n} = +\bar{e}_x$, $\bar{v} = -U_i\bar{e}_x$), $\Sigma_e$ (exit, $\bar{n} = \bar{v}_e/U_e$), the fixed walls $\Sigma_w$ and the mobile blades $\Sigma_m$ (dashed around them)*
 
 $$ \boxed{\,\bar{F} = F_x\bar{e}_x + F_y\bar{e}_y = \int_{\Sigma_w,\Sigma_m}\left[(p - p_a)\,\bar{n} - \bar{\bar{\tau}}'\cdot\bar{n}\right]d\sigma\,}\qquad(\text{force of the air on the engine}) $$
 
@@ -87,7 +101,7 @@ Boxed terms: $-\bar{F} = -F_x\bar{e}_x - F_y\bar{e}_y$. $x$ component with $F_x 
 
 $$ \boxed{\,U_i = 2\,U_e\sin\alpha\,}\ \ \text{(3)}\qquad \boxed{\,Mg = \rho_eU_e^2A_e\cos\alpha = \rho_aU_i^2A_i\,\frac{\cos\alpha}{2\sin\alpha}\,}\ \ \text{(4)} $$
 
-**Total energy (Notes Eq. 3.46)**
+**Total energy (Notes Eq. 3.46; $Q_R \equiv Q_c + Q_r$ is the volumetric heat release)**
 
 $$ \underbrace{\cancel{\frac{d}{dt}\int_{V_c}\rho\left(e + \tfrac{v^2}{2}\right)dV}}_{0\ (\text{steady})} + \int_{\Sigma_c}\rho\left(e + \frac{v^2}{2}\right)[(\bar{v} - \bar{v}_c)\cdot\bar{n}]\,d\sigma = -\int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}\bar{v}\cdot(\bar{\bar{\tau}}'\cdot\bar{n})\,d\sigma + \underbrace{\cancel{\int_{V_c}\rho\bar{g}\cdot\bar{v}\,dV}}_{\text{neglect } \bar{g}} - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma + \int_{V_c}Q_R\,dV $$
 
@@ -111,5 +125,5 @@ $$ \boxed{\,\rho_aU_iA_i\left[\left(\frac{\gamma}{\gamma - 1}\frac{p_a}{\rho_e} 
 - (3) says that the backward component of the jet momentum must cancel the intake momentum plus the suction force at the intake: because the intake is at a lower pressure than ambient (2), only half of $\rho_aU_i^2A_i$ has to be balanced.
 - (4): the lift is the vertical momentum flux of the jet. For $\alpha \to 0$ (vertical jet), (3) would require $U_i \to 0$: the intake momentum could not be balanced, so a hovering engine with a horizontal intake needs $\alpha > 0$.
 - Dimensions (SI): $[\rho_eU_e^2A_e] = \text{N} = [Mg]$; $[\dot{m}\,\gamma p/((\gamma-1)\rho)] = \text{W}$.
-- Numerical illustration (hypothetical data, solved by Newton's method on the two equations left after eliminating $U_i$, $p_i$, $\rho_e$): $\rho_a = 1.2$ kg/m$^3$, $p_a = 101325$ Pa, $A_i = 2.5$ m$^2$, $A_e = 1.2$ m$^2$, $Mg = 80$ kN, $\dot{W} + \dot{Q} = 6$ MW, $\gamma = 1.4$ give $U_e = 212.22$ m/s, $\alpha = 71.85^\circ$, $U_i = 403.32$ m/s, $p_i = 3727.19$ Pa, $\rho_e = 4.7511$ kg/m$^3$ (residuals below $10^{-6}$).
+- Numerical illustration (hypothetical data, extension): $\rho_a = 1.2$ kg/m$^3$, $p_a = 101325$ Pa, $A_i = 10$ m$^2$, $A_e = 12$ m$^2$, $Mg = 20$ kN, $\dot{W} + \dot{Q} = 5$ MW, $\gamma = 1.4$. For a given $\alpha$, (3), (1) and (4) fix $U_e^2 = Mg/(\rho_aA_i\sin2\alpha)$, $U_i = 2U_e\sin\alpha$ and $\rho_e = 2\rho_a(A_i/A_e)\sin\alpha$, and (5) is then solved for $\alpha$ by bisection: $\alpha = 36.227^\circ$, $U_e = 41.809$ m/s, $U_i = 49.417$ m/s, $p_i = 99860$ Pa, $\rho_e = 1.1820$ kg/m$^3$ (all five equations satisfied to better than $10^{-9}$ in relative terms). The intake Mach number is about $0.14$ and $p_i/p_a = 0.986$, so the constant-density hypothesis behind (2) holds.
 - Agreement with the official solution: CL11.pdf obtains (1) to (5).

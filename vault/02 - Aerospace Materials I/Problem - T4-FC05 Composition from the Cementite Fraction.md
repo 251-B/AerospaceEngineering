@@ -30,7 +30,7 @@ tags:
 
 ## 🧠 2. Phase 2: Frames and Change of Basis
 
-Frame: the tie line at 727 − ΔT, from 0.022 to 6.67 % C; one-dimensional, no change of basis. The lever rule is solved for the alloy composition instead of the fraction [Session 7 Slide 16].
+Frame: the Fe-Fe₃C diagram (wt% C, °C), on the tie line at 727 − ΔT, from 0.022 to 6.67 % C; one-dimensional, no change of basis. The lever rule is solved for the alloy composition instead of the fraction [Session 7 Slide 16].
 
 ![[attachments/T4/fc-p5.svg]]
 
