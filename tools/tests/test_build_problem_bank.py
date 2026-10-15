@@ -167,6 +167,24 @@ class RepositoryTests(unittest.TestCase):
     def test_bank_is_up_to_date(self):
         self.assertEqual(bpb.main(["--check"]), 0)
 
+    def test_problems_js_carries_the_checked_blueprint(self):
+        js = (bpb.OUT_DIR / "problems.js").read_text(encoding="utf-8")
+        self.assertIn("window.AE_BM_BANK = ", js)
+        self.assertIn("window.AE_BM_BLUEPRINT = ", js)
+        blueprint = json.loads((bpb.OUT_DIR / "exam-blueprint.json").read_text(encoding="utf-8"))
+        bad = dict(blueprint, total_points=12.0)
+        with self.assertRaisesRegex(bpb.BankError, "add up"):
+            bpb.check_blueprint(bad, json.loads((bpb.OUT_DIR / "problems.json").read_text(encoding="utf-8"))["items"])
+
+    def test_simulator_page_reads_the_bank_and_the_blueprint(self):
+        page = (bpb.REPO / "subjects/business-management/simulator/index.html").read_text(encoding="utf-8")
+        self.assertIn('data-blueprint="AE_BM_BLUEPRINT"', page)
+        self.assertIn("../data/problems.js", page)
+        script = (bpb.REPO / "assets/js/exam-simulator.js").read_text(encoding="utf-8")
+        for key in ("'ae_bm_exams'", "'ae_bm_progress'"):
+            self.assertIn(key, script)
+            self.assertNotIn("theme", key)
+
     def test_bank_matches_the_blueprint(self):
         data = json.loads((bpb.OUT_DIR / "problems.json").read_text(encoding="utf-8"))
         blueprint = json.loads((bpb.OUT_DIR / "exam-blueprint.json").read_text(encoding="utf-8"))

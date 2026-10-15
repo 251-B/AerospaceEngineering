@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Aerospace Engineering Study Portal: Exam Simulator
+   Styles for the page drawn by assets/js/exam-simulator.js (setup, live exam,
+   grading). Text uses the page's own variables, which the reading palettes
+   re-point, so every palette keeps AAA contrast; the subject accent only
+   colours borders, fills and focus rings. The @media print block lays the
+   exam out as a plain answer sheet (assets/css/print.css is not touched).
+   Reuses .bank-btn, .bank-panel, .bank-kbd, .bank-help and .bank-sr from
+   assets/css/problem-bank.css.
+   ========================================================================== */
+
+.sim-card {
+  margin: 0 0 18px;
+  padding: 20px 22px;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  background: var(--bg-card);
+}
+.sim-card h2 { font-size: 1.45rem; margin-bottom: 10px; color: var(--text-primary); }
+.sim-card p, .sim-card li { color: var(--text-primary); }
+.sim-muted { color: var(--text-secondary); font-family: var(--font-sans); font-size: 0.9rem; }
+
+.sim-structure { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-family: var(--font-sans); font-size: 0.94rem; }
+.sim-structure th, .sim-structure td { padding: 8px 10px; border-bottom: 1px solid var(--border-subtle); text-align: left; color: var(--text-primary); }
+.sim-structure th { color: var(--text-secondary); font-size: 0.82rem; }
+.sim-structure td.num, .sim-structure th.num { text-align: right; font-family: var(--font-mono); }
+
+.sim-options { display: grid; gap: 16px; margin: 14px 0 18px; }
+.sim-options fieldset { border: 0; padding: 0; margin: 0; }
+.sim-options legend, .sim-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.sim-radios { display: flex; flex-wrap: wrap; gap: 8px; }
+.sim-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.sim-radio:has(input:checked) { background: var(--accent-soft); border-color: var(--accent-border); }
+.sim-check { display: flex; gap: 10px; align-items: flex-start; color: var(--text-primary); font-family: var(--font-sans); font-size: 0.94rem; }
+.sim-check input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--accent); }
+.sim-select {
+  min-width: 260px;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+.sim-select option { color: initial; background: initial; }
+.sim-primary { font-size: 1rem; padding: 11px 18px; }
+.sim-notice {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border: 1px solid var(--border-card);
+  border-left: 4px solid #d97706;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+.sim-notice[hidden] { display: none; }
+
+.sim-history { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; }
+.sim-history th, .sim-history td { padding: 7px 10px; border-bottom: 1px solid var(--border-subtle); text-align: left; color: var(--text-primary); }
+.sim-history th { color: var(--text-secondary); font-size: 0.8rem; }
+.sim-history td.num { font-family: var(--font-mono); text-align: right; }
+.sim-history a { color: var(--text-primary); }
+.sim-table-wrap { overflow-x: auto; }
+
+/* ---- Live exam bar ----------------------------------------------------- */
+.sim-bar {
+  position: sticky;
+  top: var(--sim-bar-top, 0px);
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background: var(--bg-surface, var(--bg-primary));
+  box-shadow: var(--shadow-card);
+}
+.sim-timer {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 5.5ch;
+}
+.sim-timer[data-warn="true"] { text-decoration: underline; text-decoration-color: #d97706; text-decoration-thickness: 3px; }
+.sim-points { font-family: var(--font-sans); font-size: 0.86rem; color: var(--text-secondary); }
+.sim-points strong { color: var(--text-primary); }
+.sim-nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.sim-nav a {
+  padding: 4px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sim-nav a:hover { border-color: var(--accent-border); }
+.sim-bar__actions { display: flex; gap: 8px; margin-left: auto; }
+
+/* ---- Questions --------------------------------------------------------- */
+.sim-question {
+  scroll-margin-top: 150px;
+  margin: 0 0 20px;
+  padding: 20px 22px;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  background: var(--bg-card);
+}
+.sim-question__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 14px;
+  margin-bottom: 12px;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+.sim-question__head h2 { font-size: 1.35rem; color: var(--text-primary); }
+.sim-question :is(p, li, td) { color: var(--text-primary); }
+.sim-question p { margin: 8px 0; }
+.sim-question ul, .sim-question ol { margin: 8px 0 8px 1.3em; }
+.sim-question .table-container { overflow-x: auto; margin: 10px 0; }
+.sim-question table { border-collapse: collapse; width: 100%; font-size: 0.94rem; }
+.sim-question th, .sim-question td { padding: 6px 10px; border-bottom: 1px solid var(--border-subtle); text-align: left; vertical-align: top; }
+.sim-question th { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-secondary); }
+.sim-question .math-block { overflow-x: auto; margin: 10px 0; }
+.sim-question h4.step-title { margin: 16px 0 6px; font-family: var(--font-body) !important; font-size: 1rem; font-weight: 700 !important; color: var(--text-primary); }
+.sim-question .callout { margin: 12px 0; padding: 10px 14px; border: 1px solid var(--border-card); border-left: 4px solid var(--accent-border); border-radius: 8px; }
+.sim-question .callout-title { font-weight: 700; color: var(--text-primary); }
+.sim-statement { padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--bg-input); }
+.sim-sub { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--border-card); }
+.sim-sub__prompt { display: flex; gap: 10px; align-items: baseline; }
+.sim-sub__label { font-family: var(--font-mono); font-weight: 700; color: var(--text-primary); }
+.sim-sub__pts { margin-left: auto; white-space: nowrap; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); }
+.sim-draft { margin-top: 14px; }
+.sim-draft textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+.sim-draft__readonly {
+  white-space: pre-wrap;
+  padding: 10px 12px;
+  border: 1px dashed var(--border-card);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+.sim-grade {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+.sim-grade select { min-width: 110px; }
+.sim-total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+}
+.sim-total__score { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+.sim-result-list { margin: 10px 0 0 1.2em; }
+.sim-result-list a { color: var(--text-primary); }
+
+:is(.sim-select, .sim-draft textarea, .sim-nav a, .sim-radio input, .sim-check input):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sim-print-head { display: none; }
+
+@media (max-width: 560px) {
+  .sim-bar { padding: 10px 12px; }
+  .sim-bar__actions { margin-left: 0; width: 100%; }
+  .sim-bar__actions .bank-btn { flex: 1; justify-content: center; }
+  .sim-question { padding: 16px 14px; }
+  .sim-sub__prompt { flex-wrap: wrap; }
+}
+
+/* ---- Printed exam sheet ------------------------------------------------ */
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  body * { color: #000 !important; text-shadow: none !important; box-shadow: none !important; }
+  .back-bar, .subject-tabs, .page-header, .sim-bar, #simSetup, #simResults, .site-footer, #quoteContainer,
+  .bank-toast, .sim-no-print, .bank-help { display: none !important; }
+  .sim-print-head {
+    display: block !important;
+    margin: 0 0 14px;
+    padding: 0 0 10px;
+    border-bottom: 2px solid #000;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .sim-print-head h1 { font-size: 16pt !important; margin: 0 0 4px; font-family: Georgia, serif !important; }
+  .sim-print-head p { margin: 2px 0; font-size: 10.5pt; }
+  .sim-print-head .sim-print-lines { display: flex; gap: 24px; margin-top: 8px; }
+  .sim-question {
+    break-inside: auto;
+    border: 1px solid #000 !important;
+    border-radius: 0;
+    background: #fff !important;
+    padding: 10px 12px;
+  }
+  .sim-question + .sim-question { break-before: page; }
+  .sim-statement { background: #fff !important; border: 0 !important; padding: 0; }
+  .sim-draft textarea { min-height: 60mm; border: 1px solid #000 !important; background: #fff !important; }
+  .sim-draft textarea::placeholder { color: transparent !important; }
+  .sim-question table th, .sim-question table td { border-bottom: 1px solid #555 !important; }
+  .katex-display { overflow: visible !important; }
+}

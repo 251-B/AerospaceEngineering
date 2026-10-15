@@ -310,6 +310,10 @@ window.AE_NAV = {
         {
           "href": "subjects/business-management/sources/index.html",
           "label": "Theory & exercise PDFs"
+        },
+        {
+          "href": "subjects/business-management/simulator/index.html",
+          "label": "Exam simulator"
         }
       ]
     }
