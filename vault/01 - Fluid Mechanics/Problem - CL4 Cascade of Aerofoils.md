@@ -9,6 +9,13 @@ tags:
   - cascada
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL4.pdf"
+id: "cl4"
+pill: "CL4: Cascade"
+tags_html:
+  - "Periodicity"
+  - "Mass, momentum, energy"
+  - "Perfect gas"
+  - "Cascade"
 ---
 
 # Problem CL4: Cascade of Aerofoils: Downstream State

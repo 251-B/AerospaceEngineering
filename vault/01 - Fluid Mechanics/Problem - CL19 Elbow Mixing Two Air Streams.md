@@ -9,6 +9,13 @@ tags:
   - mezcla
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL19.pdf"
+id: "cl19"
+pill: "CL19: Two-Stream Elbow"
+tags_html:
+  - "Coflow"
+  - "Perfect gas"
+  - "Linear momentum"
+  - "Heat"
 ---
 
 # Problem CL19: Elbow Mixing Two Air Streams: Outlet Velocity, Force and Heat

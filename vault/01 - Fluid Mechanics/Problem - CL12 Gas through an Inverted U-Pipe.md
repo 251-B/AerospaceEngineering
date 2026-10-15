@@ -9,6 +9,13 @@ tags:
   - gas
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL12.pdf"
+id: "cl12"
+pill: "CL12: Gas in a U-Pipe"
+tags_html:
+  - "Compressible"
+  - "Energy"
+  - "Linear momentum"
+  - "Angular momentum"
 ---
 
 # Problem CL12: Gas Discharging through an Inverted U-Pipe: Outlet State, Force and Moment

@@ -9,6 +9,13 @@ tags:
   - codo
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL6.pdf"
+id: "cl6"
+pill: "CL6: Elbow"
+tags_html:
+  - "Elbow"
+  - "Linear momentum"
+  - "Energy"
+  - "Heat through the walls"
 ---
 
 # Problem CL6: Elbow Discharging a Vertical Jet: Velocity, Force and Heat

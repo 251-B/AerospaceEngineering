@@ -9,6 +9,13 @@ tags:
   - mezcla
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL15.pdf"
+id: "cl15"
+pill: "CL15: Mixing Elbow"
+tags_html:
+  - "Two inlets"
+  - "Mixing"
+  - "Energy"
+  - "Angular momentum"
 ---
 
 # Problem CL15: Mixing Elbow: Exit Velocity and Temperature, Force and Torque

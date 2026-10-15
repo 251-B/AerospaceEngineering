@@ -9,6 +9,13 @@ tags:
   - resistencia
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf"
+id: "cl1"
+pill: "CL1: Airfoil Wake"
+tags_html:
+  - "Control volume"
+  - "Linear momentum"
+  - "Wake"
+  - "Drag"
 ---
 
 # Problem CL1: Airfoil Wake: Streamline Displacement and Drag

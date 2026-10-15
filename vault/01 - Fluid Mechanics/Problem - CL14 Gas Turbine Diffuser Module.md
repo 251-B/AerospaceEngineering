@@ -9,6 +9,13 @@ tags:
   - difusor
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL14.pdf"
+id: "cl14"
+pill: "CL14: Diffuser Module"
+tags_html:
+  - "Stator"
+  - "Swirl removal"
+  - "Angular momentum"
+  - "Perfect gas"
 ---
 
 # Problem CL14: Gas-Turbine Diffuser Module: Exit State, Force and Torque

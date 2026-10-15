@@ -9,6 +9,13 @@ tags:
   - tobera
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL3.pdf"
+id: "cl3"
+pill: "CL3: Mouthpiece"
+tags_html:
+  - "Control volume"
+  - "Linear momentum"
+  - "Angular momentum"
+  - "Gauge pressure"
 ---
 
 # Problem CL3: Double-Elbow Mouthpiece: Exit Velocity, Force and Moment

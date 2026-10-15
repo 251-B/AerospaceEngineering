@@ -9,6 +9,13 @@ tags:
   - no-estacionario
 dificultad: alta
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL22.pdf"
+id: "cl22"
+pill: "CL22: Shrinking Cylinder"
+tags_html:
+  - "Unsteady"
+  - "Deforming CV"
+  - "Kinetic energy"
+  - "Power"
 ---
 
 # Problem CL22: Water in a Shrinking Cylinder: Level, Velocity, Force and Power

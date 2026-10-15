@@ -9,6 +9,13 @@ tags:
   - propulsion
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL9.pdf"
+id: "cl9"
+pill: "CL9: Submarine Thruster"
+tags_html:
+  - "Thrust"
+  - "Bernoulli"
+  - "Energy"
+  - "Similarity"
 ---
 
 # Problem CL9: Submarine Propulsion Device: Thrust from the Propeller Power

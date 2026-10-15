@@ -9,6 +9,13 @@ tags:
   - empuje
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL17.pdf"
+id: "cl17"
+pill: "CL17: Ramjet Airplane"
+tags_html:
+  - "Thrust"
+  - "Angular momentum"
+  - "Energy"
+  - "Trim"
 ---
 
 # Problem CL17: Airplane with an Engine without Moving Parts: Exit State, Thrust, Torque and Canard

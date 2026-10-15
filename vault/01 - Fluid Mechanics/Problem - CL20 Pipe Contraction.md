@@ -9,6 +9,13 @@ tags:
   - contraccion
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL20.pdf"
+id: "cl20"
+pill: "CL20: Contraction"
+tags_html:
+  - "Nozzle"
+  - "Linear momentum"
+  - "Energy"
+  - "Bernoulli limit"
 ---
 
 # Problem CL20: Pipe Contraction Discharging to the Atmosphere: Velocity, Force and Heating

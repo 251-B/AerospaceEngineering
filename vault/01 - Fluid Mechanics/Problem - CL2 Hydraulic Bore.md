@@ -9,6 +9,13 @@ tags:
   - bore
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL2.pdf"
+id: "cl2"
+pill: "CL2: Bore"
+tags_html:
+  - "Moving frame"
+  - "Mass and momentum"
+  - "Hydrostatic pressure"
+  - "Froude number"
 ---
 
 # Problem CL2: Bore over a Stagnant Water Layer

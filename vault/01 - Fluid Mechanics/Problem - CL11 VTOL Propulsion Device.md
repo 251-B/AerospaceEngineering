@@ -9,6 +9,13 @@ tags:
   - vtol
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL11.pdf"
+id: "cl11"
+pill: "CL11: VTOL Engine"
+tags_html:
+  - "Thrust vectoring"
+  - "Bernoulli"
+  - "Linear momentum"
+  - "Energy"
 ---
 
 # Problem CL11: VTOL Propulsion Device in Hover: Nozzle Angle and Flow State

@@ -9,6 +9,13 @@ tags:
   - bomba
 dificultad: media
 fuente: "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL13.pdf"
+id: "cl13"
+pill: "CL13: Centrifugal Pump"
+tags_html:
+  - "Turbomachine"
+  - "Angular momentum"
+  - "Euler torque"
+  - "Pump power"
 ---
 
 # Problem CL13: Centrifugal Pump: Exit Velocity, Axial Force, Torque and Power
