@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596 320" width="100%" class="fig-kit" style="max-width:596px;margin:0 auto;display:block" role="img" aria-label="Spherical cavity of radius R_c(t) expanding in the ocean with initial radius R_0 and initial radial velocity V_0, liquid at rest with pressure p_inf far away">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="230.0" cy="150.0" r="120.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="3,5" stroke-linejoin="round"/>
+<circle cx="230.0" cy="150.0" r="46.0" fill="#3b82f6" fill-opacity="0.0" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="230.0" y="156.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="middle">cavity</text>
+<line x1="282.0" y1="150.0" x2="307.2" y2="150.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M312.0,150.0 L304.6,153.1 L304.6,146.9 Z" fill="#3b82f6"/>
+<line x1="256.0" y1="195.0" x2="268.6" y2="216.9" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M271.0,221.0 L264.6,216.2 L270.0,213.1 Z" fill="#3b82f6"/>
+<line x1="204.0" y1="195.0" x2="191.4" y2="216.9" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M189.0,221.0 L190.0,213.1 L195.4,216.2 Z" fill="#3b82f6"/>
+<line x1="178.0" y1="150.0" x2="152.8" y2="150.0" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M148.0,150.0 L155.4,146.9 L155.4,153.1 Z" fill="#3b82f6"/>
+<line x1="204.0" y1="105.0" x2="191.4" y2="83.1" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M189.0,79.0 L195.4,83.8 L190.0,86.9 Z" fill="#3b82f6"/>
+<line x1="256.0" y1="105.0" x2="268.6" y2="83.1" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M271.0,79.0 L270.0,86.9 L264.6,83.8 Z" fill="#3b82f6"/>
+<line x1="230.0" y1="150.0" x2="262.5" y2="117.5" stroke="#4b5563" stroke-width="1.4"/>
+<text x="234.0" y="136.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">R<tspan baseline-shift="sub" font-size="72%">c</tspan>(t)</text>
+<text x="312.0" y="80.0" fill="#3b82f6" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">v<tspan baseline-shift="sub" font-size="72%">r</tspan>(r,t)</text>
+<text x="364.0" y="136.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start">ocean at rest</text>
+<text x="364.0" y="158.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan></text>
+<text x="364.0" y="190.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">R</tspan>(t) at the cavity wall</text>
+</g></svg>

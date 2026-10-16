@@ -21,6 +21,14 @@ RASTER = {
         "Two coaxial cylinders, inner of radius R1 at T1 rotating with Omega1, outer of radius R2 at T2 rotating with Omega2, polar coordinates r and theta",
         "Statement figure (crop of NS2.pdf, p. 1): inner cylinder $R_1$ at $T_1$ rotating with $\\Omega_1$, outer cylinder $R_2$ at "
         "$T_2$ rotating with $\\Omega_2$, polar coordinates $r$, $\\theta$"),
+    "ns11-statement": (
+        "Channel of height h between two porous plates, lower wall at rest with injection velocity v_l, upper wall moving with U, axes x and y",
+        "Statement figure (crop of NS11.pdf, p. 1): channel of height $h$ between two porous plates, injection velocity $v_l$ through "
+        "the lower wall at rest, upper wall moving with velocity $U$, axes $x$ and $y$"),
+    "ns12-statement": (
+        "Two concentric spheres of radii kappa R and R with entrance and exit ducts of half-angle epsilon, radius r and polar angle",
+        "Statement figure (crop of NS12.pdf, p. 1): gap between two concentric spheres of radii $\\kappa R$ and $R$, entrance and exit "
+        "sections of half-angle $\\epsilon$ and the radial coordinate $r$"),
     "ns4-statement": (
         "Gap of thickness h between two horizontal walls, upper wall moving with velocity U, dashed control volume V_o of unit length, axes x, z and gravity g",
         "Statement figure (crop of NS4.pdf, p. 1): gap of thickness $h$, upper wall moving with $U$, fixed control volume $V_o$ of "
@@ -191,10 +199,64 @@ def ns8_statement():
             "$z$, suction velocity $V$ through its surface, ambient $p_\\infty$, $T_\\infty$ and axes $r$, $z$")
 
 
+def ns9_setup():
+    c = Canvas(620, 330)
+    top, bot, x0, x1 = 130, 230, 120, 470
+    line(c, (x0, top), (x1, top), "HEAD", 2.2)
+    line(c, (x0, bot), (x1, bot), "HEAD", 2.2)
+    pathd(c, f"M{x0},{top} C{x0 - 22},{top + 20} {x0 - 22},{bot - 20} {x0},{bot}", "HEAD", 2.2)
+    pathd(c, f"M{x1},{top} A20,50 0 1 1 {x1},{bot} A20,50 0 1 1 {x1},{top}", "HEAD", 2.2, fill="BLUE", opacity=0.10)
+    for x in range(150, 450, 30):
+        arrow(c, (x, top - 30), (x, top - 2), "BLUE", 1.5, 8)
+        arrow(c, (x, bot + 30), (x, bot + 2), "BLUE", 1.5, 8)
+    arrow(c, (220, 180), (330, 180), "ACC", 2.4, 11)
+    lab(c, (275, 168), sub("U", "w"), "ACC", "middle", 20)
+    lab(c, (90, 108), sub("T", "w"), "HEAD", "end", 18)
+    line(c, (96, 112), (130, 130), "EDGE", 1.0)
+    lab(c, (480, 90), sub("V", "w"), "BLUE", "start", 20)
+    lab(c, (210, 40), sub("p", "&#8734;"), "HEAD", "middle", 20)
+    lab(c, (310, 40), sub("T", "&#8734;"), "HEAD", "middle", 20)
+    arrow(c, (540, 215), (540, 165), "HEAD", 1.6, 9)
+    lab(c, (532, 170), "r", "HEAD", "end", 17)
+    arrow(c, (540, 215), (590, 215), "HEAD", 1.6, 9)
+    lab(c, (592, 232), "z", "HEAD", "start", 17)
+    REG.put("ns9-setup", c,
+            "Infinitely long porous cylinder moving axially with velocity U_w while liquid is sucked through its wall with velocity "
+            "V_w, with the fluid at rest at pressure p_inf and temperature T_inf far away, wall temperature T_w and axes r, z",
+            "Setup of NS9 (drawn for the solution): porous cylinder of radius $R$ at temperature $T_w$ moving with $U_w$ along $z$, "
+            "suction velocity $V_w$ ($q = 2\\pi R V_w$ per unit length), fluid at rest at $p_\\infty$, $T_\\infty$ far away, axes $r$, $z$")
+
+
+def ns10_setup():
+    c = Canvas(560, 320)
+    centre = (230, 150)
+    R = 46
+    Rf = 120
+    circle(c, centre, Rf, "EDGE", 1.2, dash="3,5")
+    circle(c, centre, R, "ACC", 2.4, fill="BLUE", opacity=0.0)
+    text(c, (centre[0], centre[1] + 6), "cavity", "TEXT", "middle", 13)
+    for a in (0, 60, 120, 180, 240, 300):
+        ca, sa = math.cos(math.radians(a)), math.sin(math.radians(a))
+        arrow(c, (centre[0] + (R + 6) * ca, centre[1] + (R + 6) * sa), (centre[0] + (R + 36) * ca, centre[1] + (R + 36) * sa), "BLUE", 1.8, 8)
+    line(c, centre, (centre[0] + R * 0.7071, centre[1] - R * 0.7071), "HEAD", 1.4)
+    lab(c, (centre[0] + 4, centre[1] - 14), sub("R", "c") + "(t)", "HEAD", "start", 15)
+    lab(c, (centre[0] + 82, centre[1] - 70), sub("v", "r") + "(r,t)", "BLUE", "start", 16)
+    text(c, (centre[0] + Rf + 14, centre[1] - 14), "ocean at rest", "TEXT", "start", 13)
+    lab(c, (centre[0] + Rf + 14, centre[1] + 8), sub("p", "&#8734;"), "HEAD", "start", 17)
+    lab(c, (centre[0] + Rf + 14, centre[1] + 40), sub("p", "R") + "(t) at the cavity wall", "HEAD", "start", 15)
+    REG.put("ns10-setup", c,
+            "Spherical cavity of radius R_c(t) expanding in the ocean with initial radius R_0 and initial radial velocity V_0, "
+            "liquid at rest with pressure p_inf far away",
+            "Setup of NS10 (drawn for the solution): cavity of radius $R_c(t)$ ($R_c(0) = R_0$, $\\dot{R}_c(0) = V_0$) expanding in the "
+            "ocean, radial velocity field $v_r(r,t)$, pressure $p_R(t)$ at the cavity wall and $p_\\infty$ far away")
+
+
 def build():
     sphere_in_stream()
     ns3_setup()
     ns5_statement()
     ns7_statement()
     ns8_statement()
+    ns9_setup()
+    ns10_setup()
     return REG

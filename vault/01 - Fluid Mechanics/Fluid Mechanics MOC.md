@@ -90,6 +90,10 @@ tags:
     * [[01 - Fluid Mechanics/Problem - NS6 Sphere with Radial Suction|Problem NS6: Sphere with Radial Suction]]
     * [[01 - Fluid Mechanics/Problem - NS7 Liquid Film on an Inclined Plane|Problem NS7: Liquid Film on an Inclined Plane]]
     * [[01 - Fluid Mechanics/Problem - NS8 Porous Cylinder Moving Axially with Suction|Problem NS8: Porous Cylinder Moving Axially with Suction]]
+    * [[01 - Fluid Mechanics/Problem - NS9 Porous Cylinder Quiz with Viscous Heating|Problem NS9: Porous Cylinder Quiz with Viscous Heating]]
+    * [[01 - Fluid Mechanics/Problem - NS10 Underwater Explosion Cavity|Problem NS10: Underwater Explosion Cavity]]
+    * [[01 - Fluid Mechanics/Problem - NS11 Couette Flow between Porous Plates|Problem NS11: Couette Flow between Porous Plates]]
+    * [[01 - Fluid Mechanics/Problem - NS12 Flow between Concentric Spheres|Problem NS12: Flow between Concentric Spheres]]
 
 ### Block III: Hydrostatics & Applications
 * Topic 5: Hydrostatics (Fluid Statics) (planned)
