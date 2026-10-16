@@ -84,16 +84,16 @@ def _bal(chunks, i):
     return bal, j + 1
 
 
-def _is_figure(ch):
+def _is_figure(ch, folder="FM-T3"):
     """An embedded figure and its caption: placed by build.py from the figure registry, not part of the content."""
-    return len(ch) == 2 and ch[0].startswith("![[attachments/FM-T3/") and ch[0].endswith("]]") and ch[1].startswith("*")
+    return len(ch) == 2 and ch[0].startswith(f"![[attachments/{folder}/") and ch[0].endswith("]]") and ch[1].startswith("*")
 
 
-def _blocks(lines):
+def _blocks(lines, folder="FM-T3"):
     chunks, blocks, i = _chunks(lines), [], 0
     while i < len(chunks):
         ch = chunks[i]
-        if _is_figure(ch):
+        if _is_figure(ch, folder):
             i += 1
             continue
         if _is_bal(chunks, i):
@@ -118,25 +118,25 @@ def _blocks(lines):
     return blocks
 
 
-def read_problem(path):
+def read_problem(path, prefix="CL", folder="FM-T3"):
     """The problem dict of one note; a malformed note raises ValueError naming the file."""
     path = pathlib.Path(path)
     try:
-        return _read(path)
+        return _read(path, prefix, folder)
     except ValueError as err:
         raise ValueError(f"{path.name}: {err}") from None
 
 
-def _read(path):
+def _read(path, prefix="CL", folder="FM-T3"):
     lines = path.read_text(encoding="utf-8").split("\n")
     fm, body_at = _frontmatter(lines)
     for key in ("id", "pill", "tags", "tags_html"):
         if key not in fm:
             raise ValueError(f"the frontmatter lacks '{key}'")
     body = lines[body_at:]
-    heading = next((re.match(r"^# Problem (CL\d+): (.*)$", l) for l in body if l.startswith("# Problem ")), None)
+    heading = next((re.match(rf"^# Problem ({prefix}\d+): (.*)$", l) for l in body if l.startswith("# Problem ")), None)
     if heading is None:
-        raise ValueError("missing the '# Problem CLn: title' heading")
+        raise ValueError("missing the '# Problem <ID>n: title' heading")
     num, title = heading.groups()
 
     sections, name = [], None
@@ -154,13 +154,13 @@ def _read(path):
     source_line = "\n".join(statement_chunks[-1]) if statement_chunks else ""
     if not source_line.startswith("Source: "):
         raise ValueError("the statement must end with the 'Source: ...' line")
-    statement = _blocks(lines_of["Statement"][:lines_of["Statement"].index(statement_chunks[-1][0])])
+    statement = _blocks(lines_of["Statement"][:lines_of["Statement"].index(statement_chunks[-1][0])], folder)
 
     phases = []
     for name, body_lines in sections:
         if name.startswith("Phase "):
             badge, head = name.split(": ", 1)
-            phases.append((badge, head, _blocks(body_lines)))
+            phases.append((badge, head, _blocks(body_lines, folder)))
 
     problem = {"id": fm["id"], "pill": fm["pill"], "title": title, "note_title": path.stem,
                "tags_md": fm["tags"], "tags_html": fm["tags_html"], "statement": statement,
@@ -170,7 +170,8 @@ def _read(path):
     return problem
 
 
-def read_all(vault_dir):
+def read_all(vault_dir, prefix="CL", folder="FM-T3"):
     """Every problem note of the subject, in problem order."""
-    notes = sorted(pathlib.Path(vault_dir).glob("Problem - CL*.md"), key=lambda p: int(re.search(r"CL(\d+)", p.name).group(1)))
-    return [read_problem(p) for p in notes]
+    notes = sorted(pathlib.Path(vault_dir).glob(f"Problem - {prefix}*.md"),
+                   key=lambda p: int(re.search(rf"{prefix}(\d+)", p.name).group(1)))
+    return [read_problem(p, prefix, folder) for p in notes]

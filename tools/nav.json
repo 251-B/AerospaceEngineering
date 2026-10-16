@@ -57,6 +57,10 @@
     {
      "page": "topic-3-conservation-laws.html",
      "label": "3 · Conservation laws (CL1–CL22)"
+    },
+    {
+     "page": "topic-4-navier-stokes.html",
+     "label": "4 · Navier-Stokes (NS1–NS4)"
     }
    ]
   },

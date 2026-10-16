@@ -391,6 +391,26 @@
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL22.pdf",
    "label": "CL22.pdf",
    "pages": 1
+  },
+  "fm-ns1": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS1.pdf",
+   "label": "NS1.pdf",
+   "pages": 1
+  },
+  "fm-ns2": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS2.pdf",
+   "label": "NS2.pdf",
+   "pages": 1
+  },
+  "fm-ns3": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS3.pdf",
+   "label": "NS3.pdf",
+   "pages": 1
+  },
+  "fm-ns4": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS4.pdf",
+   "label": "NS4.pdf",
+   "pages": 1
   }
  },
  "pages": {
@@ -1829,6 +1849,36 @@
    "cite": {
     "notes": "fm-notes",
     "bare_eq": "fm-notes"
+   }
+  },
+  "subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html": {
+   "panel": [
+    [
+     "fm-notes",
+     46,
+     "Notes.pdf, Chapter 4"
+    ]
+   ],
+   "cite": {
+    "notes": "fm-notes"
+   },
+   "cards": {
+    "ns1": [
+     "fm-ns1",
+     1
+    ],
+    "ns2": [
+     "fm-ns2",
+     1
+    ],
+    "ns3": [
+     "fm-ns3",
+     1
+    ],
+    "ns4": [
+     "fm-ns4",
+     1
+    ]
    }
   }
  }

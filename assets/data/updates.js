@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-16-fluids-navier-stokes-problems",
+    "date": "2026-10-16",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics: solved Navier-Stokes problems (Topic 4)",
+    "text": "The official Navier-Stokes problems are being added with the statement word for word, its figure and a four-phase solution. The first four are online.",
+    "link": "subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html"
+  },
+  {
     "id": "2026-10-15-fluids-navier-stokes-theory",
     "date": "2026-10-15",
     "tag": "Fluid Mechanics",

@@ -81,6 +81,11 @@ tags:
     * **Subchapter 3.6:** Stress Tensor, Navier-Poisson & Wall Shear Stress
 * [[01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations|Topic 4: The Navier-Stokes Equations (Differential Dynamics)]]
   * Official sources: `Notes.pdf` Chapter 4 and the problem sheets `NS1.pdf` to `NS17.pdf` (17 problems, solved pages in progress).
+  * **Solved Navier-Stokes Problems (Official Problem Sheet NS):**
+    * [[01 - Fluid Mechanics/Problem - NS1 Porous Wall with Suction|Problem NS1: Porous Wall with Suction]]
+    * [[01 - Fluid Mechanics/Problem - NS2 Rotating Coaxial Cylinders|Problem NS2: Rotating Coaxial Cylinders]]
+    * [[01 - Fluid Mechanics/Problem - NS3 Spherical Balloon of Variable Radius|Problem NS3: Spherical Balloon of Variable Radius]]
+    * [[01 - Fluid Mechanics/Problem - NS4 Couette Flow with Heat Transfer|Problem NS4: Couette Flow with Heat Transfer]]
 
 ### Block III: Hydrostatics & Applications
 * Topic 5: Hydrostatics (Fluid Statics) (planned)

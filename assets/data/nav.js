@@ -66,6 +66,10 @@ window.AE_NAV = {
             {
               "href": "subjects/fluid-mechanics/problemas/topic-3-conservation-laws.html",
               "label": "3 · Conservation laws (CL1–CL22)"
+            },
+            {
+              "href": "subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html",
+              "label": "4 · Navier-Stokes (NS1–NS4)"
             }
           ]
         }

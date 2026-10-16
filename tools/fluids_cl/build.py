@@ -342,7 +342,8 @@ def sync(root, probs):
     i = s.index('href="subjects/fluid-mechanics/problemas/index.html"')
     j = s.index('<span class="area-badge available">', i)
     k = s.index("</span>", j)
-    s = s[:j] + f'<span class="area-badge available">{KINEMATICS_PROBLEMS + n} problems' + s[k:]
+    ns = len(list((ROOT / VAULT).glob("Problem - NS*.md")))     # the Navier-Stokes problems (tools/fluids_ns) share the card
+    s = s[:j] + f'<span class="area-badge available">{KINEMATICS_PROBLEMS + n + ns} problems' + s[k:]
     write(root, PORTAL, s)
 
 
