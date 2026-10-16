@@ -50,7 +50,7 @@ where $C$ is a constant.
 
 10. Define a proper non-dimensional form for the volume flux $\tilde{Q}$ and obtain it by integration of the velocity profile.
 
-Transcribed as printed (exam of June 27, 2013, "PROBLEM 1 (90 minutes)"), including "Under this conditions", the missing full stop after "constant $C$" in item 8 and the missing item number in item 9.
+Transcribed as printed (exam of June 27, 2013, "PROBLEM 1 (90 minutes)"), including "Under this conditions", the missing full stop after "constant $C$" in item 8 the missing item number and the lower-case "ode" in item 9.
 
 ![[attachments/FM-T4/ns12-statement.png]]
 *Statement figure (crop of NS12.pdf, p. 1): gap between two concentric spheres of radii $\kappa R$ and $R$, entrance and exit sections of half-angle $\epsilon$ and the radial coordinate $r$*

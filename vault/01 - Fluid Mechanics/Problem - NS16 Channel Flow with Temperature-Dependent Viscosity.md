@@ -50,13 +50,13 @@ Note: The momentum equations with variable viscosity $\mu(T)$ can be written, in
 $$ \rho\frac{\partial v_x}{\partial t} + \rho v_x\frac{\partial v_x}{\partial x} + \rho v_y\frac{\partial v_x}{\partial y} = -\frac{\partial p}{\partial x} + \frac{\partial\tau_{xx}}{\partial x} + \frac{\partial\tau_{xy}}{\partial y} + \rho f_{m,x} $$
 $$ \rho\frac{\partial v_y}{\partial t} + \rho v_x\frac{\partial v_y}{\partial x} + \rho v_y\frac{\partial v_y}{\partial y} = -\frac{\partial p}{\partial y} + \frac{\partial\tau_{xy}}{\partial x} + \frac{\partial\tau_{yy}}{\partial y} + \rho f_{m,y} $$
 
-The sheet is headed "FLUID MECHANICS I, 24-01-2020, PROBLEM 1 (10 POINTS). Time: 60 minutes" and carries no figure. Transcribed as printed, including the spelling errors of the sheet ("A incompressible", "coductivity", "acording", "fuction", "disipation") and the capital $P$ of items 4 and 5, which is the reduced pressure of the momentum equations.
+The sheet is headed "FLUID MECHANICS I, 24-01-2020, PROBLEM 1 (10 POINTS). Time: 60 minutes" and carries no figure. Transcribed as printed, including the spelling errors of the sheet ("A incompressible", "coductivity", "acording", the lower-case "write" of item 3, "fuction", "disipation") and the capital $P$ of items 4 and 5, which is the reduced pressure of the momentum equations.
 
 Source: NS16.pdf (page 1 of 2: statement; page 2: handwritten solution). Notes.pdf, Chapter 4: continuity Eq. 4.7, momentum Eq. 4.10, energy Eq. 4.34, reduced pressure Eq. 4.13, Navier-Poisson law (Eq. 4.36) with variable $\mu$.
 
 ## Phase 1: Hypotheses, Data and Unknowns
 
-- Steady, two-dimensional flow of an incompressible liquid with constant $\rho$, $c$, $k$ and the viscosity $\mu(T)$ of (1), between two fixed infinite walls at $y = 0$ ($T = T_0$) and $y = h$ ($T = 2T_0$). The velocity and the temperature depend only on $y$.
+- Steady, two-dimensional flow of an incompressible fluid with constant $\rho$, $c$, $k$ and the viscosity $\mu(T)$ of (1), between two fixed infinite walls at $y = 0$ ($T = T_0$) and $y = h$ ($T = 2T_0$). The velocity and the temperature depend only on $y$.
 - The walls are impermeable and at rest: $u = v = 0$ at both. No chemical reaction and no radiation.
 - The mass force is conservative, $\bar{f}_m = -\nabla U$, and $P = p + \rho U$ is the reduced pressure (Notes.pdf, Eq. 4.13): with $\rho$ constant, $-\partial p/\partial x_i + \rho f_{m,i} = -\partial P/\partial x_i$.
 - Data: $[\rho,\ c,\ k,\ \mu_0,\ T_0,\ h]$ and, for item 5, $\partial P/\partial x$. Unknowns: $v$, $T(y)$, $\bar{\bar{\tau}}'$, $u(y)$.

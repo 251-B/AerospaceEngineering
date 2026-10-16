@@ -191,7 +191,7 @@ Using (13), this is $\rho v_lU = -(f_{u,x} + f_{l,x})$: the net horizontal force
 
 $$ \rho c\,v_l\,(T_u - T_l)\,\Delta x = -(q_u + q_l)\,\Delta x \;\Longrightarrow\; q_u + q_l = -\rho c\,v_l\,(T_u - T_l) \tag{19} $$
 
-which agrees with (17): the sum of the heat conducted out through the two walls balances the net enthalpy flux that the liquid carries across the control volume, $\rho cv_l(T_u - T_l)$, so that the conductive heat flux balances the net internal-energy flux through the volume.
+which agrees with (17): the heat conducted into the liquid through the two walls, $-(q_u + q_l) = \rho cv_l(T_u - T_l)$, equals the net internal-energy flux convected across the control volume.
 
 ## Phase 4: Interpretation, Limits and Dimensional Check
 

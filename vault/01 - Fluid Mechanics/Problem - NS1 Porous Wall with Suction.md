@@ -37,6 +37,8 @@ Consider the steady planar motion of a perfect liquid of density $\rho$, viscosi
 
 5. Determine the heat flux from the fluid to the wall.
 
+Transcribed as printed, including "and well as" in item 1.
+
 ![[attachments/FM-T4/ns1-statement.png]]
 *Statement figure (crop of NS1.pdf, p. 1): horizontal porous wall at temperature $T_w$ with suction velocity $V_w$, free stream $U_\infty$, $T_\infty$, $P_\infty$, gravity $g$ and axes $x$, $z$*
 
@@ -143,7 +145,7 @@ so that $T = B_1 + B_2e^{-V_wz/\alpha} + A\,e^{-2V_wz/\nu}$. The condition $T(\i
 
 $$ \boxed{\,T(z) = T_\infty + \left(T_w - T_\infty - \frac{\mathrm{Pr}\,U_\infty^2}{2(\mathrm{Pr}-2)\,c}\right)e^{-V_wz/\alpha} + \frac{\mathrm{Pr}\,U_\infty^2}{2(\mathrm{Pr}-2)\,c}\,e^{-2V_wz/\nu}\,} \tag{15} $$
 
-Note that $V_wz/\alpha = \mathrm{Pr}\,V_wz/\nu$. For $\mathrm{Pr} = 2$ the two exponents coincide and the particular solution takes the form $A z\,e^{-2V_wz/\nu}$ (a resonant case, not worked out in the sheet).
+Note that $V_wz/\alpha = \mathrm{Pr}\,V_wz/\nu$. For $\mathrm{Pr} = 2$ the two exponents coincide and the particular solution is $D\,z\,e^{-2V_wz/\nu}$ with $D = \mu U_\infty^2V_w/(2k\nu)$ (as in NS15); (23) holds for every $\mathrm{Pr}$.
 
 ### 3.4 Streamline through $(x_o, 0)$
 

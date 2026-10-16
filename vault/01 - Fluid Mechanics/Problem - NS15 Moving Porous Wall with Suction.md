@@ -37,12 +37,12 @@ Problem 2: Consider a buoyancy-free, steady planar motion occurring in a semi-in
 
 5. For an alternative computation procedure for $\tau_w$ and $q_w$, apply the momentum and energy conservation equations to the control volume indicated in the figure. In dealing with the balance equations, evaluate explicitly the contribution of each term, stating clearly the reasons justifying any simplifications introduced.
 
-The sheet is headed "INTRODUCTION TO FLUID MECHANICS, FINAL (Jan 21, 2014)".
+The sheet is headed "INTRODUCTION TO FLUID MECHANICS, FINAL (Jan 21, 2014)". Transcribed as printed, including "and well as" in item 1.
 
 ![[attachments/FM-T4/ns15-statement.svg]]
 *Statement figure (redrawn from NS15.pdf, p. 1): porous wall at temperature $T_w$ moving with $U_w$ and sucking with $V_w$, axes $x$, $y$, normals $\bar{n}$ and $\bar{n}_w$, far field $p_\infty$, $T_\infty$ and the fixed control volume $V_c$ of unit length ($\delta x = 1$)*
 
-Source: NS15.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum Eq. 4.41, energy Eq. 4.42, integral balances Eqs. 4.3 and 4.25.
+Source: NS15.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum Eq. 4.41, energy Eq. 4.42, integral balances Eqs. 4.2 and 4.3.
 
 ## Phase 1: Hypotheses, Data and Unknowns
 
@@ -99,7 +99,7 @@ The homogeneous solution is $B_1 + B_2e^{-V_wy/\alpha}$. A particular solution $
 
 $$ A\,(4 - 2\,\mathrm{Pr}) = -\frac{\mu U_w^2}{k} = -\frac{\mathrm{Pr}\,U_w^2}{c} \;\Longrightarrow\; A = \frac{\mathrm{Pr}}{2(\mathrm{Pr} - 2)}\frac{U_w^2}{c} \tag{6} $$
 
-for $\mathrm{Pr} \neq 2$. The conditions $T(\infty) = T_\infty$ and $T(0) = T_w$ give $B_1 = T_\infty$ and $B_2 = T_w - T_\infty - A$:
+for $\mathrm{Pr} \neq 2$. (For $\mathrm{Pr} = 2$ the exponents of the homogeneous and the particular solution coincide and the particular solution is $D\,y\,e^{-2V_wy/\nu}$. With $\lambda = 2V_w/\nu$, $T_p' = D(1 - \lambda y)e^{-\lambda y}$ and $T_p'' = D(\lambda^2y - 2\lambda)e^{-\lambda y}$, so $T_p'' + \lambda T_p' = -D\lambda\,e^{-\lambda y}$; matching the right-hand side of (5), $D\lambda = \mu U_w^2V_w^2/(k\nu^2)$, that is $D = \mu U_w^2V_w/(2k\nu)$. The results (8) and (10) do not depend on $\mathrm{Pr}$.) The conditions $T(\infty) = T_\infty$ and $T(0) = T_w$ give $B_1 = T_\infty$ and $B_2 = T_w - T_\infty - A$:
 
 $$ \boxed{\,T(y) = T_\infty + \left(T_w - T_\infty - \frac{\mathrm{Pr}\,U_w^2}{2(\mathrm{Pr} - 2)\,c}\right)e^{-\mathrm{Pr}\,V_wy/\nu} + \frac{\mathrm{Pr}\,U_w^2}{2(\mathrm{Pr} - 2)\,c}\,e^{-2V_wy/\nu}\,} \tag{7} $$
 

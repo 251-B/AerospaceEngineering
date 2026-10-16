@@ -158,7 +158,7 @@ $$ \boxed{\,T(r) = T_c - \frac{\rho^2g^2}{4\mu k}\left[\frac{r^4 - a^4}{16} - \f
 
 $$ \boxed{\,q_w = -\frac{\rho^2g^2}{4\mu}\left[\frac{a^3}{4} - ab^2 + \frac{3b^4}{4a} - \frac{b^4}{a}\ln\frac{b}{a}\right]\,}, \qquad \dot{Q}_w = 2\pi a\,q_w\ \text{per unit length} \tag{17} $$
 
-*Check.* The outer surface is adiabatic, so all the viscous heating generated in the layer must leave through the wall: $\dot{Q}_w = \int_a^b\phi_v\,2\pi r\,dr$. Evaluating both sides numerically for $\rho = 1000$ kg/m$^3$, $\mu = 0.1$ Pa s, $k = 0.6$ W/(m K), $a = 20$ mm and $h = 5$ mm gives the same value, $6.344$ W/m, to the precision of the integration.
+*Check.* The outer surface is adiabatic, so all the viscous heating generated in the layer must leave through the wall: $\dot{Q}_w = \int_a^b\phi_v\,2\pi r\,dr$. Evaluating both sides numerically for $\rho = 1000$ kg/m$^3$, $\mu = 0.1$ Pa s, $k = 0.6$ W/(m K), $a = 20$ mm, $h = 5$ mm, $U = 0.7$ m/s and $g = 9.81$ m/s$^2$ gives the same value, $6.344$ W/m, to the precision of the integration.
 
 ## Phase 4: Interpretation, Limits and Dimensional Check
 

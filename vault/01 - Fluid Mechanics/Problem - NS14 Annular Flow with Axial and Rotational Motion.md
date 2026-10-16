@@ -49,7 +49,7 @@ Source: NS14.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum E
 ## Phase 1: Hypotheses, Data and Unknowns
 
 - Steady, axisymmetric flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) in the annulus, with the fields depending only on $r$: $\partial/\partial t = \partial/\partial\theta = \partial/\partial z = 0$.
-- The walls are impermeable. The inner cylinder ($r = R_i$) moves axially with $U$ and does not rotate; the outer cylinder ($r = R_o$) is at rest axially and rotates with $\Omega$. No mass force enters the plane motion (gravity would shift the pressure by a hydrostatic term); no chemical reaction and no radiation.
+- The walls are impermeable. The inner cylinder ($r = R_i$) moves axially with $U$ and does not rotate; the outer cylinder ($r = R_o$) is at rest axially and rotates with $\Omega$. Mass forces are neglected (gravity would shift the pressure by a hydrostatic term); no chemical reaction and no radiation.
 - Data: $[\rho,\ \mu,\ c,\ k,\ R_i,\ R_o,\ U,\ \Omega,\ p_i,\ T_i,\ T_o,\ r_o,\ \theta_o,\ z_o]$. Unknowns: $v_r$, $v_z$, $v_\theta$, $p - p_i$, the pathline and $T(r)$.
 - Notation: $L = \ln(R_o/R_i)$ and $a = \Omega R_o^2/(R_o^2 - R_i^2)$.
 
@@ -144,7 +144,7 @@ Integrating once, $r\,dT/dr = -\dfrac{\mu}{k}\left[\dfrac{U^2\ln r}{L^2} - \dfra
 
 $$ T = -\frac{\mu}{k}\left[\frac{U^2\ln^2r}{2L^2} + \frac{a^2R_i^4}{r^2}\right] + D_1\ln r + D_2 \tag{13} $$
 
-With the variable $x = \ln(r/R_i)$ (the linear terms in $x$ are absorbed in $D_1$ and the constants in $D_2$) the conditions $T = T_i$ at $x = 0$ and $T = T_o$ at $x = L$ fix the constants. The result is
+With the variable $x = \ln(r/R_i)$ (the linear terms in $x$ are absorbed in $D_1$ and the constants in $D_2$) the condition $T = T_i$ at $x = 0$ gives $D_2 = T_i + \dfrac{\mu}{k}a^2R_i^2$, and $T = T_o$ at $x = L$ gives $D_1L = T_o - T_i + \dfrac{\mu}{k}\left[\dfrac{U^2}{2} - a^2R_i^2\left(1 - \dfrac{R_i^2}{R_o^2}\right)\right]$ (using $R_i^4/R_o^2 = R_i^2\,R_i^2/R_o^2$). Substituting and collecting the terms, the result is
 
 $$ \boxed{\,T(r) = T_i + (T_o - T_i)\frac{x}{L} + \frac{\mu}{k}\left\{\frac{U^2}{2}\frac{x}{L}\left(1 - \frac{x}{L}\right) + a^2R_i^2\left[1 - \frac{R_i^2}{r^2} - \frac{x}{L}\left(1 - \frac{R_i^2}{R_o^2}\right)\right]\right\}, \quad x = \ln\frac{r}{R_i}\,} \tag{14} $$
 

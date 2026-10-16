@@ -137,7 +137,7 @@ $$ \Phi = \int_R^\infty\frac{12\mu R^4\dot{R}^2}{r^6}\,4\pi r^2\,dr = 48\pi\mu R
 
 which is the third term of (10).
 
-*Pressure term.* $4\pi R^2\dot{R}\,p_\infty = p_\infty\,dV_b/dt$ with $V_b = 4\pi R^3/3$ the balloon volume: the work done against the ambient pressure to displace the liquid, that is, to set the ambient liquid in motion (the outward volume flux through any sphere is $4\pi r^2v_r = 4\pi R^2\dot{R}$).
+*Pressure term.* $4\pi R^2\dot{R}\,p_\infty = p_\infty\,dV_b/dt$ with $V_b = 4\pi R^3/3$ the balloon volume: the work done against the ambient pressure: the outward volume flux through any sphere is $4\pi r^2v_r = 4\pi R^2\dot{R}$, so the liquid at infinity is pushed back at the pressure $p_\infty$ and this work is transmitted to infinity. The kinetic energy needed to set the liquid in motion is the separate term $dE_k/dt$.
 
 $$ \boxed{\,\dot{W} = p_\infty\frac{dV_b}{dt} + \frac{dE_k}{dt} + \Phi\,} \tag{15} $$
 
