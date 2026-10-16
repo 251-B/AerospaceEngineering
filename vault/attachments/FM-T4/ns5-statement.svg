@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 330" width="100%" class="fig-kit" style="max-width:460px;margin:0 auto;display:block" role="img" aria-label="Solid cylinder of radius a moving upward with velocity U, dragging a coaxial liquid layer of thickness h, surrounded by air at pressure p_a; gravity g pointing down and axes r, z">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="110.0" y="20.0" width="60.0" height="280.0" fill="#3b82f6" fill-opacity="0.15" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="250.0" y="20.0" width="60.0" height="280.0" fill="#3b82f6" fill-opacity="0.15" stroke="#8a94a6" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="170.0" y="20.0" width="80.0" height="280.0" fill="#8a94a6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="210.0" y1="170.0" x2="210.0" y2="62.6" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M210.0,56.0 L214.3,66.1 L205.7,66.1 Z" fill="#f59e0b"/>
+<text x="222.0" y="100.0" fill="#f59e0b" font-size="20" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<line x1="170.0" y1="215.0" x2="250.0" y2="215.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M170.0,215.0 L176.4,212.3 L176.4,217.7 Z" fill="#6b7280"/>
+<path d="M250.0,215.0 L243.6,217.7 L243.6,212.3 Z" fill="#6b7280"/>
+<text x="210.0" y="215.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="210.0" y="207.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">2a</text>
+<line x1="250.0" y1="262.0" x2="310.0" y2="262.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M250.0,262.0 L256.4,259.3 L256.4,264.7 Z" fill="#6b7280"/>
+<path d="M310.0,262.0 L303.6,264.7 L303.6,259.3 Z" fill="#6b7280"/>
+<text x="280.0" y="262.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="280.0" y="254.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">h</text>
+<text x="72.0" y="150.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="350.0" y="150.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">a</tspan></text>
+<text x="140.0" y="120.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">liquid</text>
+<text x="280.0" y="120.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="middle">liquid</text>
+<text x="210.0" y="130.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">solid</text>
+<line x1="405.0" y1="50.0" x2="405.0" y2="124.0" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M405.0,130.0 L401.1,120.8 L408.9,120.8 Z" fill="#f59e0b"/>
+<text x="418.0" y="94.0" fill="#f59e0b" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">g</text>
+<line x1="385.0" y1="290.0" x2="385.0" y2="251.4" stroke="#4b5563" stroke-width="1.6"/>
+<path d="M385.0,246.0 L388.5,254.3 L381.5,254.3 Z" fill="#4b5563"/>
+<text x="378.0" y="244.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+<line x1="385.0" y1="290.0" x2="426.6" y2="290.0" stroke="#4b5563" stroke-width="1.6"/>
+<path d="M432.0,290.0 L423.7,293.5 L423.7,286.5 Z" fill="#4b5563"/>
+<text x="434.0" y="285.0" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">r</text>
+</g></svg>

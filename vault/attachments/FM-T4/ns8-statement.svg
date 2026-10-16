@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="100%" class="fig-kit" style="max-width:620px;margin:0 auto;display:block" role="img" aria-label="Infinitely long porous cylinder moving axially with velocity U while liquid is sucked through its surface with velocity V, with pressure p_inf and temperature T_inf far away, wall temperature T_c and axes r, z">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="120.0" y1="130.0" x2="470.0" y2="130.0" stroke="#4b5563" stroke-width="2.2"/>
+<line x1="120.0" y1="230.0" x2="470.0" y2="230.0" stroke="#4b5563" stroke-width="2.2"/>
+<path d="M120,130 C98,150 98,210 120,230" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M470,130 A20,50 0 1 1 470,230 A20,50 0 1 1 470,130" fill="#3b82f6" fill-opacity="0.1" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="150.0" y1="100.0" x2="150.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M150.0,128.0 L146.9,120.6 L153.1,120.6 Z" fill="#3b82f6"/>
+<line x1="150.0" y1="260.0" x2="150.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M150.0,232.0 L153.1,239.4 L146.9,239.4 Z" fill="#3b82f6"/>
+<line x1="180.0" y1="100.0" x2="180.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M180.0,128.0 L176.9,120.6 L183.1,120.6 Z" fill="#3b82f6"/>
+<line x1="180.0" y1="260.0" x2="180.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M180.0,232.0 L183.1,239.4 L176.9,239.4 Z" fill="#3b82f6"/>
+<line x1="210.0" y1="100.0" x2="210.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M210.0,128.0 L206.9,120.6 L213.1,120.6 Z" fill="#3b82f6"/>
+<line x1="210.0" y1="260.0" x2="210.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M210.0,232.0 L213.1,239.4 L206.9,239.4 Z" fill="#3b82f6"/>
+<line x1="240.0" y1="100.0" x2="240.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M240.0,128.0 L236.9,120.6 L243.1,120.6 Z" fill="#3b82f6"/>
+<line x1="240.0" y1="260.0" x2="240.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M240.0,232.0 L243.1,239.4 L236.9,239.4 Z" fill="#3b82f6"/>
+<line x1="270.0" y1="100.0" x2="270.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M270.0,128.0 L266.9,120.6 L273.1,120.6 Z" fill="#3b82f6"/>
+<line x1="270.0" y1="260.0" x2="270.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M270.0,232.0 L273.1,239.4 L266.9,239.4 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="100.0" x2="300.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M300.0,128.0 L296.9,120.6 L303.1,120.6 Z" fill="#3b82f6"/>
+<line x1="300.0" y1="260.0" x2="300.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M300.0,232.0 L303.1,239.4 L296.9,239.4 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="100.0" x2="330.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M330.0,128.0 L326.9,120.6 L333.1,120.6 Z" fill="#3b82f6"/>
+<line x1="330.0" y1="260.0" x2="330.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M330.0,232.0 L333.1,239.4 L326.9,239.4 Z" fill="#3b82f6"/>
+<line x1="360.0" y1="100.0" x2="360.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M360.0,128.0 L356.9,120.6 L363.1,120.6 Z" fill="#3b82f6"/>
+<line x1="360.0" y1="260.0" x2="360.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M360.0,232.0 L363.1,239.4 L356.9,239.4 Z" fill="#3b82f6"/>
+<line x1="390.0" y1="100.0" x2="390.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M390.0,128.0 L386.9,120.6 L393.1,120.6 Z" fill="#3b82f6"/>
+<line x1="390.0" y1="260.0" x2="390.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M390.0,232.0 L393.1,239.4 L386.9,239.4 Z" fill="#3b82f6"/>
+<line x1="420.0" y1="100.0" x2="420.0" y2="123.2" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M420.0,128.0 L416.9,120.6 L423.1,120.6 Z" fill="#3b82f6"/>
+<line x1="420.0" y1="260.0" x2="420.0" y2="236.8" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M420.0,232.0 L423.1,239.4 L416.9,239.4 Z" fill="#3b82f6"/>
+<line x1="220.0" y1="180.0" x2="323.4" y2="180.0" stroke="#f59e0b" stroke-width="2.4"/>
+<path d="M330.0,180.0 L319.9,184.3 L319.9,175.7 Z" fill="#f59e0b"/>
+<text x="275.0" y="168.0" fill="#f59e0b" font-size="20" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U</text>
+<text x="90.0" y="108.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<line x1="96.0" y1="112.0" x2="130.0" y2="130.0" stroke="#8a94a6" stroke-width="1.0"/>
+<text x="480.0" y="90.0" fill="#3b82f6" font-size="20" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V</text>
+<text x="210.0" y="40.0" fill="#4b5563" font-size="20" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan></text>
+<text x="310.0" y="40.0" fill="#4b5563" font-size="20" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan></text>
+<line x1="540.0" y1="215.0" x2="540.0" y2="170.4" stroke="#4b5563" stroke-width="1.6"/>
+<path d="M540.0,165.0 L543.5,173.3 L536.5,173.3 Z" fill="#4b5563"/>
+<text x="532.0" y="170.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">r</text>
+<line x1="540.0" y1="215.0" x2="584.6" y2="215.0" stroke="#4b5563" stroke-width="1.6"/>
+<path d="M590.0,215.0 L581.7,218.5 L581.7,211.5 Z" fill="#4b5563"/>
+<text x="592.0" y="232.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">z</text>
+</g></svg>

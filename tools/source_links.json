@@ -411,6 +411,26 @@
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS4.pdf",
    "label": "NS4.pdf",
    "pages": 1
+  },
+  "fm-ns5": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS5.pdf",
+   "label": "NS5.pdf",
+   "pages": 1
+  },
+  "fm-ns6": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS6.pdf",
+   "label": "NS6.pdf",
+   "pages": 1
+  },
+  "fm-ns7": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS7.pdf",
+   "label": "NS7.pdf",
+   "pages": 1
+  },
+  "fm-ns8": {
+   "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS8.pdf",
+   "label": "NS8.pdf",
+   "pages": 1
   }
  },
  "pages": {
@@ -1877,6 +1897,22 @@
     ],
     "ns4": [
      "fm-ns4",
+     1
+    ],
+    "ns5": [
+     "fm-ns5",
+     1
+    ],
+    "ns6": [
+     "fm-ns6",
+     1
+    ],
+    "ns7": [
+     "fm-ns7",
+     1
+    ],
+    "ns8": [
+     "fm-ns8",
      1
     ]
    }

@@ -86,6 +86,10 @@ tags:
     * [[01 - Fluid Mechanics/Problem - NS2 Rotating Coaxial Cylinders|Problem NS2: Rotating Coaxial Cylinders]]
     * [[01 - Fluid Mechanics/Problem - NS3 Spherical Balloon of Variable Radius|Problem NS3: Spherical Balloon of Variable Radius]]
     * [[01 - Fluid Mechanics/Problem - NS4 Couette Flow with Heat Transfer|Problem NS4: Couette Flow with Heat Transfer]]
+    * [[01 - Fluid Mechanics/Problem - NS5 Cylinder Dragging a Liquid Layer|Problem NS5: Cylinder Dragging a Liquid Layer]]
+    * [[01 - Fluid Mechanics/Problem - NS6 Sphere with Radial Suction|Problem NS6: Sphere with Radial Suction]]
+    * [[01 - Fluid Mechanics/Problem - NS7 Liquid Film on an Inclined Plane|Problem NS7: Liquid Film on an Inclined Plane]]
+    * [[01 - Fluid Mechanics/Problem - NS8 Porous Cylinder Moving Axially with Suction|Problem NS8: Porous Cylinder Moving Axially with Suction]]
 
 ### Block III: Hydrostatics & Applications
 * Topic 5: Hydrostatics (Fluid Statics) (planned)

@@ -34,7 +34,7 @@ Consider the steady planar motion of a perfect liquid of density $\rho$, viscosi
 3. If the temperatures on the cylinder surfaces are $T_1$ and $T_2$, determine the temperature distribution $T(r)$.
 
 ![[attachments/FM-T4/ns2-statement.png]]
-*Statement figure (crop of NS2.pdf, p. 1): inner cylinder $R_1$ at $T_1$ rotating with $\Omega_1$, outer cylinder $R_2$ at $T_2$ rotating with $\Omega_2$, polar coordinates $r$, $	heta$*
+*Statement figure (crop of NS2.pdf, p. 1): inner cylinder $R_1$ at $T_1$ rotating with $\Omega_1$, outer cylinder $R_2$ at $T_2$ rotating with $\Omega_2$, polar coordinates $r$, $\theta$*
 
 Source: NS2.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, perfect-liquid momentum Eq. 4.41 in cylindrical coordinates, energy Eq. 4.42, stress components in cylindrical coordinates.
 
