@@ -94,6 +94,11 @@ tags:
     * [[01 - Fluid Mechanics/Problem - NS10 Underwater Explosion Cavity|Problem NS10: Underwater Explosion Cavity]]
     * [[01 - Fluid Mechanics/Problem - NS11 Couette Flow between Porous Plates|Problem NS11: Couette Flow between Porous Plates]]
     * [[01 - Fluid Mechanics/Problem - NS12 Flow between Concentric Spheres|Problem NS12: Flow between Concentric Spheres]]
+    * [[01 - Fluid Mechanics/Problem - NS13 Porous Rotating Cylinders with Radial Flow|Problem NS13: Porous Rotating Cylinders with Radial Flow]]
+    * [[01 - Fluid Mechanics/Problem - NS14 Annular Flow with Axial and Rotational Motion|Problem NS14: Annular Flow with Axial and Rotational Motion]]
+    * [[01 - Fluid Mechanics/Problem - NS15 Moving Porous Wall with Suction|Problem NS15: Moving Porous Wall with Suction]]
+    * [[01 - Fluid Mechanics/Problem - NS16 Channel Flow with Temperature-Dependent Viscosity|Problem NS16: Channel Flow with Temperature-Dependent Viscosity]]
+    * [[01 - Fluid Mechanics/Problem - NS17 Rotating Porous Disk with Suction|Problem NS17: Rotating Porous Disk with Suction]]
 
 ### Block III: Hydrostatics & Applications
 * Topic 5: Hydrostatics (Fluid Statics) (planned)

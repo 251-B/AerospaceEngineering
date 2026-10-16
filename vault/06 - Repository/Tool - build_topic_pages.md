@@ -11,7 +11,7 @@ source: "tools/build_topic_pages.py"
 
 ## Purpose
 
-Generates the theory pages listed in `tools/topic_pages.json` from their vault notes. Six pages are configured: three for Aerospace Materials I and three for Business Management. Each page keeps its own head, header and footer. The PDF deep links from [[Tool - source_links]] are applied before the file is written. The vault note is edited, never the page.
+Generates the theory pages listed in `tools/topic_pages.json` from their vault notes. Seven pages are configured: three for Aerospace Materials I, three for Business Management and the Fluid Mechanics Topic 4 page (`"flavor": "fluids"`, which builds the body in the style of the Fluid Mechanics pages from the head of a sibling page). Each page keeps its own head, header and footer. The PDF deep links from [[Tool - source_links]] are applied before the file is written. The vault note is edited, never the page.
 
 ## Command
 

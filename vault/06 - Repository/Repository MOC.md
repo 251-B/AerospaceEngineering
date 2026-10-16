@@ -32,7 +32,8 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Agent - web-qa-reviewer]] | Agent | Runs the review gates and manages git. |
 | [[Tool - vault_lint]] | Tool | Lints `vault/` notes; fixes links and ampersands with `--fix`. |
 | [[Tool - audit_portal]] | Tool | Static gate for `index.html` and `subjects/` pages. |
-| [[Tool - build_topic_pages]] | Tool | Generates six theory pages from vault notes and figures. |
+| [[Tool - build_topic_pages]] | Tool | Generates seven theory pages from vault notes and figures. |
+| [[Tool - fluids_ns]] | Tool | Generates the Fluid Mechanics Topic 4 problem page (NS1 to NS17) from the vault notes. |
 | [[Tool - build_problem_pages]] | Tool | Generates the two Business Management Topic 3 problem pages. |
 | [[Tool - source_links]] | Tool | Adds deep links to the official PDFs. |
 | [[Tool - build_sources_pages]] | Tool | Generates the sources and exams index pages per subject. |

@@ -55,7 +55,10 @@ PDF_PAGES = {10: 3, 11: 3, 12: 4, 16: 2, 17: 2}        # pages of the sheets wit
 MOC_HEAD = "  * **Solved Navier-Stokes Problems (Official Problem Sheet NS):**\n"
 
 inline_html, block_html, block_md = CL.inline_html, CL.block_html, CL.block_md
-EXTRA_CSS = CL.EXTRA_CSS
+EXTRA_CSS = CL.EXTRA_CSS + """
+    .katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+    .enunciado-box p, .solution-content p, .solution-content li { overflow-wrap: break-word; }
+"""
 
 
 def load_problems(root=ROOT):

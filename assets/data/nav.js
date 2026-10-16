@@ -69,7 +69,7 @@ window.AE_NAV = {
             },
             {
               "href": "subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html",
-              "label": "4 · Navier-Stokes (NS1–NS12)"
+              "label": "4 · Navier-Stokes (NS1–NS17)"
             }
           ]
         }

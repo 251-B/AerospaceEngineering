@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navier-Stokes Solved Problems (NS1-NS12) - Fluid Mechanics</title>
+  <title>Navier-Stokes Solved Problems (NS1-NS17) - Fluid Mechanics</title>
 
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -568,6 +568,9 @@
     @media print { .diagram-hint, .diagram-open { display: none !important; } }
     .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
     .diagram-card svg text tspan { text-decoration-thickness: 1px; }
+
+    .katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+    .enunciado-box p, .solution-content p, .solution-content li { overflow-wrap: break-word; }
   </style>
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
@@ -601,7 +604,7 @@
 
     <div class="page-title-box">
       <div class="topic-badge">Topic 4 &middot; Navier-Stokes Equations</div>
-      <h1 class="page-title">Solved Problems: Official Collection NS1 to NS12</h1>
+      <h1 class="page-title">Solved Problems: Official Collection NS1 to NS17</h1>
       <p class="page-meta">
         Worked solutions to the Navier-Stokes collection of the Department of Thermal and Fluid Engineering, Universidad Carlos III de Madrid. Every problem restates the official statement word for word, then follows four phases: (1) hypotheses, data, unknowns and degrees of freedom; (2) coordinate system, form of the fields and boundary conditions; (3) the derivation, with continuity and each Navier-Stokes component simplified term by term, the integrations written out and every constant fixed with its boundary condition; (4) interpretation, limiting cases and the dimensional check. Where a computed result differs from the handwritten official solution, the discrepancy is flagged in the problem; anything beyond the course material is marked as an extension. References to Notes.pdf are to Chapter 4 (The Navier-Stokes equations) and Chapter 3 (Conservation laws).
       </p>
@@ -2076,6 +2079,556 @@ where $C$ is a constant.</p>
       </details>
     </article>
 
+    <article class="problem-card" id="ns13">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem NS13</div>
+          <h2 class="problem-title">Porous Rotating Cylinders with Radial Flow</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS13.pdf" target="_blank" rel="noopener">Original statement · NS13.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Radial throughflow</span><span class="tag">Power-law azimuthal velocity</span><span class="tag">Pressure difference</span><span class="tag">Temperature profile</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>A liquid of density $\rho$, viscosity $\mu$, thermal conductivity $k$, and specific heat $c$ occupies the gap formed between two porous coaxial cylinders of radius $R_i$ and $R_o$ that are rotating with angular velocities $\Omega_i$ and $\Omega_o$, respectively. The liquid is injected through the surface of the inner cylinder with normal velocity component $v_r = V_i$ and is removed through the outer surface. The temperatures on the inner and outer surfaces are $T_i$ and $T_o$, respectively. The resulting steady, planar, axially symmetric flow field is described in terms of $v_r(r)$, $v_\theta(r)$, $p(r)$, and $T(r)$.</p>
+<p>1. Determine the radial velocity component $v_r(r)$. Obtain in particular its value on the surface of the outer cylinder $v_r(R_o)$.</p>
+<p>2. Obtain the azimuthal velocity component $v_\theta(r)$. To that end, write the $\theta$-component of the momentum equation in terms of the parameter $\mathrm{Re} = \rho V_iR_i/\mu$ and look for solutions of the form $v_\theta \propto r^\alpha$, demonstrating that the general solution can be expressed as $v_\theta = C_1/r + C_2\,r^{\mathrm{Re}+1}$. Obtain the values of the integration constants $C_1$ and $C_2$.</p>
+<p>3. Calculate $p(r) - p_i$, the difference of the pressure $p(r)$ from its inner-surface value $p_i = p(R_i)$.</p>
+<p>4. Write the equation that determines the temperature distribution $T(r)$, including the appropriate boundary conditions. Solve the problem assuming that the effect of viscous dissipation is negligibly small.</p>
+<p>The sheet is headed "INTRODUCTION TO FLUID MECHANICS, MIDTERM (Nov 11, 2013)".</p>
+<figure class="statement-figure"><div class="diagram-scroll"><img src="../../../vault/attachments/FM-T4/ns13-statement.png" alt="Two coaxial porous cylinders of radii R_i and R_o rotating with angular velocities Omega_i and Omega_o, liquid injected through the inner surface with velocity V_i, polar coordinates r and theta" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><figcaption>Statement figure (crop of NS13.pdf, p. 1): porous cylinders of radii $R_i$ and $R_o$ rotating with $\Omega_i$ and $\Omega_o$, injection velocity $V_i$ through the inner surface, polar coordinates $r$, $\theta$</figcaption><a class="diagram-open" href="../../../vault/attachments/FM-T4/ns13-statement.png" target="_blank" rel="noopener">Open the figure full size</a></figure>
+<p class="source-line">Source: NS13.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum Eq. 4.41 and energy Eq. 4.42 in cylindrical coordinates, viscous dissipation $\phi_v$ in cylindrical coordinates.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, planar ($\partial/\partial z = 0$, $v_z = 0$), axisymmetric ($\partial/\partial\theta = 0$) flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) between two porous cylinders: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta$, $p = p(r)$, $T = T(r)$.</li><li>No mass force enters the plane of motion; no chemical reaction and no radiation.</li><li>The inner cylinder ($r = R_i$) injects the liquid with $v_r = V_i &gt; 0$ and the outer one removes it; both rotate rigidly with their angular velocities (no-slip).</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ R_i,\ R_o,\ \Omega_i,\ \Omega_o,\ V_i,\ T_i,\ T_o,\ p_i]$. Unknowns: $v_r$, $v_\theta$, $p - p_i$, $T$.</li><li>Dimensionless numbers: $\mathrm{Re} = \rho V_iR_i/\mu$ and $\mathrm{Pr} = \mu c/k$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R_i$, $R_o$</td><td>inner and outer radii</td><td>m</td></tr><tr><td>$\Omega_i$, $\Omega_o$</td><td>angular velocities of the cylinders</td><td>rad/s</td></tr><tr><td>$V_i$</td><td>injection velocity at the inner surface</td><td>m/s</td></tr><tr><td>$T_i$, $T_o$</td><td>surface temperatures</td><td>K</td></tr><tr><td>$\mathrm{Re}$, $\mathrm{Pr}$</td><td>injection Reynolds number, Prandtl number</td><td>1</td></tr><tr><td>$C_1$, $C_2$</td><td>integration constants of $v_\theta$</td><td>m$^2$/s, 1/s$\,\cdot\,$m$^{-\mathrm{Re}}$</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
+<ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ centred on the common axis, with the orthonormal right-handed basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ fixed to the laboratory (inertial).</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta$, $p = p(r)$, $T = T(r)$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R_i$</td><td>$v_r = V_i$, $v_\theta = \Omega_iR_i$</td><td>injection through the inner surface, no-slip</td></tr><tr><td>$r = R_o$</td><td>$v_\theta = \Omega_oR_o$</td><td>no-slip on the outer cylinder</td></tr><tr><td>$r = R_i$</td><td>$p = p_i$, $T = T_i$</td><td>reference pressure, inner temperature</td></tr><tr><td>$r = R_o$</td><td>$T = T_o$</td><td>outer temperature</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Continuity (item 1)</h4>
+<div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{v_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} = R_iV_i \tag{1} $$</div>
+<p>where the constant is fixed with $v_r(R_i) = V_i$:</p>
+<div class="math-block">$$ \boxed{\,v_r(r) = \frac{R_iV_i}{r}, \qquad v_r(R_o) = \frac{R_iV_i}{R_o}\,} \tag{2} $$</div>
+<h4 class="step-heading">3.2 Azimuthal momentum (item 2)</h4>
+<p>The $\theta$ component of (4.41) with $\partial_t = \partial_\theta = \partial_z = 0$, no mass force and $\partial p/\partial\theta = 0$:</p>
+<div class="math-block">$$ \rho\left(v_r\frac{dv_\theta}{dr} + \frac{v_rv_\theta}{r}\right) = \mu\frac{d}{dr}\left[\frac{1}{r}\frac{d(rv_\theta)}{dr}\right] \tag{3} $$</div>
+<p>The left side is $\rho v_r\,\dfrac{1}{r}\dfrac{d(rv_\theta)}{dr}$, since $dv_\theta/dr + v_\theta/r = r^{-1}d(rv_\theta)/dr$. With $v_r = R_iV_i/r$ and $\mathrm{Re} = \rho V_iR_i/\mu$:</p>
+<div class="math-block">$$ \frac{d}{dr}\left[\frac{1}{r}\frac{d(rv_\theta)}{dr}\right] - \mathrm{Re}\,\frac{1}{r}\left(\frac{dv_\theta}{dr} + \frac{v_\theta}{r}\right) = 0 \tag{4} $$</div>
+<p>Try $v_\theta = r^\alpha$: $d(rv_\theta)/dr = (\alpha + 1)r^\alpha$, so $r^{-1}d(rv_\theta)/dr = (\alpha + 1)r^{\alpha-1}$ and its derivative is $(\alpha + 1)(\alpha - 1)r^{\alpha-2}$; the second term of (4) is $\mathrm{Re}\,(\alpha + 1)r^{\alpha-2}$. Substituting and dividing by $r^{\alpha-2}$:</p>
+<div class="math-block">$$ (\alpha + 1)(\alpha - 1 - \mathrm{Re}) = 0 \;\Longrightarrow\; \alpha = -1 \quad\text{or}\quad \alpha = \mathrm{Re} + 1 \tag{5} $$</div>
+<p>The general solution is therefore</p>
+<div class="math-block">$$ v_\theta = \frac{C_1}{r} + C_2\,r^{\mathrm{Re}+1} \tag{6} $$</div>
+<p>The boundary conditions $v_\theta(R_i) = \Omega_iR_i$ and $v_\theta(R_o) = \Omega_oR_o$, each multiplied by $R_i$ and $R_o$ respectively, give</p>
+<div class="math-block">$$ C_1 + C_2R_i^{\mathrm{Re}+2} = \Omega_iR_i^2, \qquad C_1 + C_2R_o^{\mathrm{Re}+2} = \Omega_oR_o^2 \tag{7} $$</div>
+<p>Subtracting, $C_2\left(R_o^{\mathrm{Re}+2} - R_i^{\mathrm{Re}+2}\right) = \Omega_oR_o^2 - \Omega_iR_i^2$, and then $C_1 = \Omega_iR_i^2 - C_2R_i^{\mathrm{Re}+2}$:</p>
+<div class="math-block">$$ \boxed{\,C_1 = \frac{R_i^2R_o^2\left(\Omega_iR_o^{\mathrm{Re}} - \Omega_oR_i^{\mathrm{Re}}\right)}{R_o^{\mathrm{Re}+2} - R_i^{\mathrm{Re}+2}}, \qquad C_2 = \frac{\Omega_oR_o^2 - \Omega_iR_i^2}{R_o^{\mathrm{Re}+2} - R_i^{\mathrm{Re}+2}}\,} \tag{8} $$</div>
+<h4 class="step-heading">3.3 Pressure difference (item 3)</h4>
+<p>The $r$ component of (4.41): the viscous term $\mu\,d[r^{-1}d(rv_r)/dr]/dr$ is zero by (1), so</p>
+<div class="math-block">$$ \rho\left(v_r\frac{dv_r}{dr} - \frac{v_\theta^2}{r}\right) = -\frac{dp}{dr} \;\Longrightarrow\; \frac{dp}{dr} = \rho\left[\frac{v_\theta^2}{r} + \frac{(R_iV_i)^2}{r^3}\right] \tag{9} $$</div>
+<p>since $v_r\,dv_r/dr = (R_iV_i/r)(-R_iV_i/r^2) = -(R_iV_i)^2/r^3$. Squaring (6), $v_\theta^2/r = C_1^2r^{-3} + 2C_1C_2r^{\mathrm{Re}-1} + C_2^2r^{2\mathrm{Re}+1}$. Integrating from $R_i$ to $r$ (antiderivatives $-C_1^2/(2r^2)$, $2C_1C_2r^{\mathrm{Re}}/\mathrm{Re}$, $C_2^2r^{2\mathrm{Re}+2}/(2\mathrm{Re}+2)$ and $-(R_iV_i)^2/(2r^2)$) and using Barrow's rule:</p>
+<div class="math-block">$$ \boxed{\,\frac{p(r) - p_i}{\rho} = \frac{C_1^2 + (R_iV_i)^2}{2}\left(\frac{1}{R_i^2} - \frac{1}{r^2}\right) + \frac{2C_1C_2}{\mathrm{Re}}\left(r^{\mathrm{Re}} - R_i^{\mathrm{Re}}\right) + \frac{C_2^2}{2(\mathrm{Re} + 1)}\left(r^{2\mathrm{Re}+2} - R_i^{2\mathrm{Re}+2}\right)\,} \tag{10} $$</div>
+<p>(for $\mathrm{Re} \neq 0$; for $\mathrm{Re} = 0$ the second term is $2C_1C_2\ln(r/R_i)$).</p>
+<h4 class="step-heading">3.4 Temperature (item 4)</h4>
+<p>The energy equation (4.42) with $v_r = R_iV_i/r$ and the dissipation $\phi_v$ of the cylindrical expression (Notes.pdf) with $v_z = 0$, and the boundary conditions:</p>
+<div class="math-block">$$ \rho c\,v_r\frac{dT}{dr} = \phi_v + \frac{k}{r}\frac{d}{dr}\left(r\frac{dT}{dr}\right), \quad \phi_v = \mu\left\{2\left[\left(\frac{dv_r}{dr}\right)^2 + \left(\frac{v_r}{r}\right)^2\right] + \left[r\frac{d}{dr}\left(\frac{v_\theta}{r}\right)\right]^2\right\}, \quad T(R_i) = T_i,\ T(R_o) = T_o \tag{11} $$</div>
+<p>Neglecting $\phi_v$ and multiplying by $r/k$, with $\rho cR_iV_i/k = \mathrm{Pr}\,\mathrm{Re}$:</p>
+<div class="math-block">$$ \frac{d}{dr}\left(r\frac{dT}{dr}\right) - \mathrm{Pr}\,\mathrm{Re}\,\frac{dT}{dr} = 0 \tag{12} $$</div>
+<p>Try $T = r^\beta$: $\beta^2 - \mathrm{Pr}\,\mathrm{Re}\,\beta = 0$, so $\beta = 0$ or $\beta = \mathrm{Pr}\,\mathrm{Re}$ and $T = B_1 + B_2\,r^{\mathrm{Pr}\,\mathrm{Re}}$. The conditions $T(R_i) = T_i$ and $T(R_o) = T_o$ give $B_2\left(R_o^{\mathrm{Pr}\,\mathrm{Re}} - R_i^{\mathrm{Pr}\,\mathrm{Re}}\right) = T_o - T_i$:</p>
+<div class="math-block">$$ \boxed{\,T(r) = T_i + (T_o - T_i)\,\frac{r^{\mathrm{Pr}\,\mathrm{Re}} - R_i^{\mathrm{Pr}\,\mathrm{Re}}}{R_o^{\mathrm{Pr}\,\mathrm{Re}} - R_i^{\mathrm{Pr}\,\mathrm{Re}}}\,} \tag{13} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li><strong>Physical meaning.</strong> The radial throughflow convects angular momentum and heat outwards: the term $C_2\,r^{\mathrm{Re}+1}$ is the contribution of the convection (it grows with $r$), and $C_1/r$ is the viscous irrotational part. For $\mathrm{Re} \to 0$ (no injection) the solution reduces to the Couette profile between rotating cylinders, $v_\theta = C_1/r + C_2\,r$ with $C_1 = R_i^2R_o^2(\Omega_i - \Omega_o)/(R_o^2 - R_i^2)$ and $C_2 = (\Omega_oR_o^2 - \Omega_iR_i^2)/(R_o^2 - R_i^2)$, as in problem NS2 (with the roles of the two constants exchanged).</li><li><strong>Limits.</strong> For $\Omega_i = \Omega_o = 0$: $C_1 = C_2 = 0$, $v_\theta = 0$ and the pressure (10) is $\rho(R_iV_i)^2(1/R_i^2 - 1/r^2)/2$, the Bernoulli drop of the radial flow. For $\mathrm{Pr}\,\mathrm{Re} \to 0$, $r^{\mathrm{Pr}\,\mathrm{Re}} \simeq 1 + \mathrm{Pr}\,\mathrm{Re}\,\ln r$ and (13) tends to the pure conduction profile $T = T_i + (T_o - T_i)\ln(r/R_i)/\ln(R_o/R_i)$.</li><li><strong>Dimensional check.</strong> $R_iV_i/r$ is a velocity. $C_1$ has units m$^2$/s and $C_2\,r^{\mathrm{Re}+1}$ has units m/s. In (10) every term has units of $\rho\,\mathrm{(m/s)^2}$, that is Pa. $\mathrm{Pr}\,\mathrm{Re}$ is dimensionless, so the argument of (13) is dimensionless.</li><li><strong>Boundary check.</strong> From (6)-(8), $v_\theta(R_i) = \Omega_iR_i$ and $v_\theta(R_o) = \Omega_oR_o$; from (13), $T(R_i) = T_i$ and $T(R_o) = T_o$.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="ns14">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem NS14</div>
+          <h2 class="problem-title">Annular Flow with Axial and Rotational Motion</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS14.pdf" target="_blank" rel="noopener">Original statement · NS14.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Superposed axial and azimuthal flows</span><span class="tag">Pressure from centrifugal force</span><span class="tag">Helical pathline</span><span class="tag">Viscous heating</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>A liquid of density $\rho$, viscosity $\mu$, specific heat $c$, and thermal conductivity $k$ fills the annular gap formed between two concentric cylinders of radii $R_i$ and $R_o$, respectively. The inner cylinder moves with axial velocity $U$ while the outer cylinder rotates around its axis with angular velocity $\Omega$, inducing in the liquid an axially symmetric motion described in cylindrical coordinates by the velocity components $v_r(r)$, $v_z(r)$, and $v_\theta(r)$ with associated pressure distribution $p(r)$.</p>
+<p>1. Obtain the radial velocity $v_r(r)$.</p>
+<p>2. Calculate the axial velocity $v_z(r)$.</p>
+<p>3. Determine the azimuthal velocity $v_\theta(r)$.</p>
+<p>4. Compute the pressure distribution, giving the result in the form $p(r) - p_i$, where $p_i$ is the known pressure on the surface of the inner cylinder.</p>
+<p>5. Give the trajectory of the fluid particle located initially at $r = r_o$, $\theta = \theta_o$, and $z = z_o$. Show schematically the resulting path line.</p>
+<p>6. Obtain the temperature distribution in the liquid $T(r)$ knowing that the temperatures of the inner and outer cylinders are kept at constant values $T_i$ and $T_o$, respectively.</p>
+<p>The sheet is headed "INTRODUCTION TO FLUID MECHANICS, PREFINAL (Dic 16, 2013)".</p>
+<figure class="statement-figure"><div class="diagram-scroll"><img src="../../../vault/attachments/FM-T4/ns14-statement.png" alt="Annular gap between two concentric cylinders of radii R_i and R_o, the inner one moving axially with velocity U, the outer one rotating with angular velocity Omega, axes r and z" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><figcaption>Statement figure (crop of NS14.pdf, p. 1): annular gap between the cylinders of radii $R_i$ and $R_o$, inner cylinder moving axially with $U$, outer cylinder rotating with $\Omega$, axes $r$, $z$</figcaption><a class="diagram-open" href="../../../vault/attachments/FM-T4/ns14-statement.png" target="_blank" rel="noopener">Open the figure full size</a></figure>
+<p class="source-line">Source: NS14.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum Eq. 4.41 and energy Eq. 4.42 in cylindrical coordinates, viscous dissipation $\phi_v$ in cylindrical coordinates.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, axisymmetric flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$) in the annulus, with the fields depending only on $r$: $\partial/\partial t = \partial/\partial\theta = \partial/\partial z = 0$.</li><li>The walls are impermeable. The inner cylinder ($r = R_i$) moves axially with $U$ and does not rotate; the outer cylinder ($r = R_o$) is at rest axially and rotates with $\Omega$. No mass force enters the plane motion (gravity would shift the pressure by a hydrostatic term); no chemical reaction and no radiation.</li><li>Data: $[\rho,\ \mu,\ c,\ k,\ R_i,\ R_o,\ U,\ \Omega,\ p_i,\ T_i,\ T_o,\ r_o,\ \theta_o,\ z_o]$. Unknowns: $v_r$, $v_z$, $v_\theta$, $p - p_i$, the pathline and $T(r)$.</li><li>Notation: $L = \ln(R_o/R_i)$ and $a = \Omega R_o^2/(R_o^2 - R_i^2)$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$R_i$, $R_o$</td><td>inner and outer radii</td><td>m</td></tr><tr><td>$U$</td><td>axial velocity of the inner cylinder</td><td>m/s</td></tr><tr><td>$\Omega$</td><td>angular velocity of the outer cylinder</td><td>rad/s</td></tr><tr><td>$p_i$</td><td>pressure on the inner cylinder</td><td>Pa</td></tr><tr><td>$T_i$, $T_o$</td><td>temperatures of the inner and outer cylinders</td><td>K</td></tr><tr><td>$r_o$, $\theta_o$, $z_o$</td><td>initial position of the fluid particle</td><td>m, rad, m</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
+<ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis in the direction of $U$; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed.</li><li>Field form: $\bar{v} = v_r(r)\,\bar{e}_r + v_\theta(r)\,\bar{e}_\theta + v_z(r)\,\bar{e}_z$, $p = p(r)$, $T = T(r)$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$r = R_i$</td><td>$v_r = 0$, $v_\theta = 0$, $v_z = U$</td><td>impermeable inner cylinder moving axially, not rotating</td></tr><tr><td>$r = R_o$</td><td>$v_r = 0$, $v_\theta = \Omega R_o$, $v_z = 0$</td><td>impermeable outer cylinder rotating</td></tr><tr><td>$r = R_i$</td><td>$p = p_i$, $T = T_i$</td><td>known pressure, inner temperature</td></tr><tr><td>$r = R_o$</td><td>$T = T_o$</td><td>outer temperature</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Radial velocity (item 1)</h4>
+<div class="math-block">$$ \frac{1}{r}\frac{d(rv_r)}{dr} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \underbrace{\cancel{\frac{\partial v_z}{\partial z}}}_{\partial_z = 0} = 0 \;\Longrightarrow\; r\,v_r = \text{const} \tag{1} $$</div>
+<p>The wall is impermeable, $v_r(R_i) = 0$, so the constant is zero:</p>
+<div class="math-block">$$ \boxed{\,v_r(r) = 0\,} \tag{2} $$</div>
+<h4 class="step-heading">3.2 Axial velocity (item 2)</h4>
+<p>The $z$ component of (4.41), with $v_r = 0$, $\partial_z = \partial_\theta = 0$ and the pressure depending only on $r$ ($\partial p/\partial z = 0$), keeps the viscous term:</p>
+<div class="math-block">$$ 0 = \mu\,\frac{1}{r}\frac{d}{dr}\left(r\frac{dv_z}{dr}\right) \;\Longrightarrow\; r\frac{dv_z}{dr} = C \;\Longrightarrow\; v_z = C\ln r + D \tag{3} $$</div>
+<p>The conditions $v_z(R_i) = U$ and $v_z(R_o) = 0$ give $C\ln(R_o/R_i) = -U$, that is $C = -U/L$, and then $D = U + (U/L)\ln R_i$:</p>
+<div class="math-block">$$ \boxed{\,v_z(r) = U\,\frac{\ln(R_o/r)}{\ln(R_o/R_i)}\,} \tag{4} $$</div>
+<h4 class="step-heading">3.3 Azimuthal velocity (item 3)</h4>
+<p>The $\theta$ component of (4.41) with $v_r = 0$: $0 = \mu\,d\left[r^{-1}d(rv_\theta)/dr\right]/dr$. Integrating once, $r^{-1}d(rv_\theta)/dr = 2A$; multiplying by $r$ and integrating again, $rv_\theta = Ar^2 + B$:</p>
+<div class="math-block">$$ v_\theta = A\,r + \frac{B}{r} \tag{5} $$</div>
+<p>The conditions $v_\theta(R_i) = 0$ and $v_\theta(R_o) = \Omega R_o$ give $AR_i^2 + B = 0$ and $AR_o^2 + B = \Omega R_o^2$, so $A = \Omega R_o^2/(R_o^2 - R_i^2) = a$ and $B = -aR_i^2$:</p>
+<div class="math-block">$$ \boxed{\,v_\theta(r) = \frac{\Omega R_o^2}{R_o^2 - R_i^2}\left(r - \frac{R_i^2}{r}\right) = a\left(r - \frac{R_i^2}{r}\right)\,} \tag{6} $$</div>
+<h4 class="step-heading">3.4 Pressure (item 4)</h4>
+<p>The $r$ component of (4.41) with $v_r = 0$ keeps the centrifugal term:</p>
+<div class="math-block">$$ -\rho\frac{v_\theta^2}{r} = -\frac{dp}{dr} \;\Longrightarrow\; \frac{dp}{dr} = \rho\frac{v_\theta^2}{r} = \rho a^2\left(r - \frac{2R_i^2}{r} + \frac{R_i^4}{r^3}\right) \tag{7} $$</div>
+<p>Integrating from $R_i$ to $r$ (antiderivatives $r^2/2$, $-2R_i^2\ln r$ and $-R_i^4/(2r^2)$) and using Barrow's rule:</p>
+<div class="math-block">$$ p - p_i = \rho a^2\left[\frac{r^2 - R_i^2}{2} - 2R_i^2\ln\frac{r}{R_i} - \frac{R_i^4}{2}\left(\frac{1}{r^2} - \frac{1}{R_i^2}\right)\right] $$</div>
+<div class="math-block">$$ \boxed{\,p(r) - p_i = \rho\,a^2R_i^2\left[\frac{1}{2}\left(\frac{r^2}{R_i^2} - \frac{R_i^2}{r^2}\right) - 2\ln\frac{r}{R_i}\right], \qquad a = \frac{\Omega R_o^2}{R_o^2 - R_i^2}\,} \tag{8} $$</div>
+<h4 class="step-heading">3.5 Trajectory of a fluid particle (item 5)</h4>
+<p>The velocity of the particle is the local velocity: $dr/dt = v_r = 0$, $r\,d\theta/dt = v_\theta$ and $dz/dt = v_z$. Hence the particle stays at $r = r_o$, and with the angular and axial velocities of that radius, constant in time:</p>
+<div class="math-block">$$ \frac{d\theta}{dt} = \frac{v_\theta(r_o)}{r_o} = a\left(1 - \frac{R_i^2}{r_o^2}\right) = \frac{\Omega R_o^2\,(r_o^2 - R_i^2)}{r_o^2\,(R_o^2 - R_i^2)}, \qquad \frac{dz}{dt} = v_z(r_o) = U\,\frac{\ln(R_o/r_o)}{\ln(R_o/R_i)} \tag{9} $$</div>
+<div class="math-block">$$ \boxed{\,r = r_o, \quad \theta - \theta_o = \frac{\Omega R_o^2\,(r_o^2 - R_i^2)}{r_o^2\,(R_o^2 - R_i^2)}\,t, \quad z - z_o = U\,\frac{\ln(R_o/r_o)}{\ln(R_o/R_i)}\,t\,} \tag{10} $$</div>
+<p>Eliminating $t$, the pathline is the <strong>helix</strong> of radius $r_o$ and constant pitch,</p>
+<div class="math-block">$$ z - z_o = \frac{U\ln(R_o/r_o)\;r_o^2\,(R_o^2 - R_i^2)}{\ln(R_o/R_i)\,\Omega R_o^2\,(r_o^2 - R_i^2)}\,(\theta - \theta_o) $$</div>
+<p>that is, a spiral on the cylinder $r = r_o$ that advances in $z$ (in the direction of $U$) while turning in the direction of $\Omega$; the axial advance per turn is $2\pi\,v_z(r_o)\,r_o/v_\theta(r_o)$.</p>
+<h4 class="step-heading">3.6 Temperature (item 6)</h4>
+<p>With $v_r = 0$ the convective terms vanish and (4.42) is $0 = \phi_v + k\,r^{-1}d(rdT/dr)/dr$. The non-zero deformation rates are $dv_z/dr$ and $r\,d(v_\theta/r)/dr$ (cylindrical $\phi_v$ of Notes.pdf):</p>
+<div class="math-block">$$ \phi_v = \mu\left[\left(\frac{dv_z}{dr}\right)^2 + \left(r\frac{d}{dr}\frac{v_\theta}{r}\right)^2\right] = \mu\left[\frac{U^2}{L^2r^2} + \frac{4a^2R_i^4}{r^4}\right] \tag{11} $$</div>
+<p>since $dv_z/dr = -U/(Lr)$ and $v_\theta/r = a(1 - R_i^2/r^2)$ gives $r\,d(v_\theta/r)/dr = 2aR_i^2/r^2$. Multiplying the energy equation by $r/k$:</p>
+<div class="math-block">$$ \frac{d}{dr}\left(r\frac{dT}{dr}\right) = -\frac{\mu}{k}\left[\frac{U^2}{L^2r} + \frac{4a^2R_i^4}{r^3}\right] \tag{12} $$</div>
+<p>Integrating once, $r\,dT/dr = -\dfrac{\mu}{k}\left[\dfrac{U^2\ln r}{L^2} - \dfrac{2a^2R_i^4}{r^2}\right] + D_1$; dividing by $r$ and integrating again, with $\int\ln r\,dr/r = \tfrac{1}{2}\ln^2r$ and $\int r^{-3}dr = -1/(2r^2)$:</p>
+<div class="math-block">$$ T = -\frac{\mu}{k}\left[\frac{U^2\ln^2r}{2L^2} + \frac{a^2R_i^4}{r^2}\right] + D_1\ln r + D_2 \tag{13} $$</div>
+<p>With the variable $x = \ln(r/R_i)$ (the linear terms in $x$ are absorbed in $D_1$ and the constants in $D_2$) the conditions $T = T_i$ at $x = 0$ and $T = T_o$ at $x = L$ fix the constants. The result is</p>
+<div class="math-block">$$ \boxed{\,T(r) = T_i + (T_o - T_i)\frac{x}{L} + \frac{\mu}{k}\left\{\frac{U^2}{2}\frac{x}{L}\left(1 - \frac{x}{L}\right) + a^2R_i^2\left[1 - \frac{R_i^2}{r^2} - \frac{x}{L}\left(1 - \frac{R_i^2}{R_o^2}\right)\right]\right\}, \quad x = \ln\frac{r}{R_i}\,} \tag{14} $$</div>
+<p>Each viscous-heating term vanishes at both walls ($x = 0$ and $x = L$), so the boundary temperatures are $T_i$ and $T_o$; for $r = R_o$, $1 - R_i^2/R_o^2 - (1 - R_i^2/R_o^2) = 0$.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li><strong>Physical meaning.</strong> Two independent shear flows are superposed: an axial one (logarithmic, from the inner cylinder's motion) and an azimuthal one (rigid rotation plus an irrotational vortex, from the outer cylinder's rotation). They do not interact in the velocity field because there is no radial velocity; they interact only through the pressure (centrifugal force of the azimuthal flow, (8)) and through the heating (sum of two dissipations in (11)).</li><li><strong>Limits.</strong> For $\Omega = 0$ ($a = 0$): axial flow only, pressure uniform, helix reduced to a straight line. For $U = 0$: pure rotation, and the pathlines are circles. For $R_i \to 0$ the azimuthal flow becomes rigid rotation, $v_\theta = \Omega r$. With the viscous heating neglected, (14) reduces to the logarithmic conduction profile $T_i + (T_o - T_i)\,x/L$.</li><li><strong>Dimensional check.</strong> $a$ has units 1/s and $a(r - R_i^2/r)$ has units m/s. $\rho a^2R_i^2$ has units $(\mathrm{kg/m^3})(\mathrm{m/s})^2 = \mathrm{Pa}$. $\mu U^2/k$ has units $\mathrm{K}$ and $\mu a^2R_i^2/k$ also $\mathrm{K}$.</li><li><strong>Check of the pressure.</strong> Differentiating (8): $dp/dr = \rho a^2R_i^2\left[\tfrac{r}{R_i^2} + \tfrac{R_i^2}{r^3} - \tfrac{2}{r}\right] = \rho a^2\left(r - \tfrac{2R_i^2}{r} + \tfrac{R_i^4}{r^3}\right)$, which is (7).</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="ns15">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem NS15</div>
+          <h2 class="problem-title">Moving Porous Wall with Suction</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS15.pdf" target="_blank" rel="noopener">Original statement · NS15.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Asymptotic suction profile</span><span class="tag">Wall shear and heat flux</span><span class="tag">Integral balances</span><span class="tag">Viscous dissipation</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>Problem 2: Consider a buoyancy-free, steady planar motion occurring in a semi-infinite space filled with a perfect liquid of density $\rho$, viscosity $\mu$, thermal conductivity $k$, and specific heat $c$. The liquid is bounded by an infinitely long porous wall that moves parallel to itself with velocity $U_w$ while removing the liquid with a normal suction velocity $V_w$. Far from the wall, the horizontal velocity component is zero and the pressure is $p = p_\infty$. The ambient value of the temperature $T = T_\infty$ is higher than the value $T_w$ at the wall.</p>
+<p>1. Determine the velocity components $v_x(y)$ and $v_y(y)$ and well as the pressure field $p(x, y)$.</p>
+<p>2. Obtain the temperature distribution $T(y)$.</p>
+<p>3. Compute the viscous force acting on the wall per unit surface $\tau_w\bar{e}_x = \bar{\bar{\tau}}'\cdot\bar{n}_w$, where $\bar{n}_w$ is the unit vector normal to the wall.</p>
+<p>4. Determine the heat flux from the fluid to the wall $q_w = k(\nabla T)\cdot\bar{n}_w$.</p>
+<p>5. For an alternative computation procedure for $\tau_w$ and $q_w$, apply the momentum and energy conservation equations to the control volume indicated in the figure. In dealing with the balance equations, evaluate explicitly the contribution of each term, stating clearly the reasons justifying any simplifications introduced.</p>
+<p>The sheet is headed "INTRODUCTION TO FLUID MECHANICS, FINAL (Jan 21, 2014)".</p>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" width="100%" class="fig-kit" style="max-width:660px;margin:0 auto;display:block" role="img" aria-label="Semi-infinite liquid above a porous wall moving with velocity U_w while liquid is removed through it with velocity V_w; fixed control volume V_c of unit length, axes x, y, normals n and n_w, far-field pressure p_inf and temperature T_inf">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="20.0" y1="230.0" x2="520.0" y2="230.0" stroke="var(--text-heading)" stroke-width="2.4"/>
+<line x1="30.0" y1="232.0" x2="30.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M30.0,256.0 L27.3,249.6 L32.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="30.0" y1="230.0" x2="25.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="48.0" y1="232.0" x2="48.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M48.0,256.0 L45.3,249.6 L50.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="48.0" y1="230.0" x2="43.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="66.0" y1="232.0" x2="66.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M66.0,256.0 L63.3,249.6 L68.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="66.0" y1="230.0" x2="61.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="84.0" y1="232.0" x2="84.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M84.0,256.0 L81.3,249.6 L86.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="84.0" y1="230.0" x2="79.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="102.0" y1="232.0" x2="102.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M102.0,256.0 L99.3,249.6 L104.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="102.0" y1="230.0" x2="97.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="120.0" y1="232.0" x2="120.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M120.0,256.0 L117.3,249.6 L122.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="120.0" y1="230.0" x2="115.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="138.0" y1="232.0" x2="138.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M138.0,256.0 L135.3,249.6 L140.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="138.0" y1="230.0" x2="133.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="156.0" y1="232.0" x2="156.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M156.0,256.0 L153.3,249.6 L158.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="156.0" y1="230.0" x2="151.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="174.0" y1="232.0" x2="174.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M174.0,256.0 L171.3,249.6 L176.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="174.0" y1="230.0" x2="169.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="192.0" y1="232.0" x2="192.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M192.0,256.0 L189.3,249.6 L194.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="192.0" y1="230.0" x2="187.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="210.0" y1="232.0" x2="210.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M210.0,256.0 L207.3,249.6 L212.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="210.0" y1="230.0" x2="205.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="228.0" y1="232.0" x2="228.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M228.0,256.0 L225.3,249.6 L230.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="228.0" y1="230.0" x2="223.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="246.0" y1="232.0" x2="246.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M246.0,256.0 L243.3,249.6 L248.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="246.0" y1="230.0" x2="241.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="264.0" y1="232.0" x2="264.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M264.0,256.0 L261.3,249.6 L266.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="264.0" y1="230.0" x2="259.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="282.0" y1="232.0" x2="282.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M282.0,256.0 L279.3,249.6 L284.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="282.0" y1="230.0" x2="277.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="300.0" y1="232.0" x2="300.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M300.0,256.0 L297.3,249.6 L302.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="300.0" y1="230.0" x2="295.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="318.0" y1="232.0" x2="318.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M318.0,256.0 L315.3,249.6 L320.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="318.0" y1="230.0" x2="313.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="336.0" y1="232.0" x2="336.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M336.0,256.0 L333.3,249.6 L338.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="336.0" y1="230.0" x2="331.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="354.0" y1="232.0" x2="354.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M354.0,256.0 L351.3,249.6 L356.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="354.0" y1="230.0" x2="349.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="372.0" y1="232.0" x2="372.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M372.0,256.0 L369.3,249.6 L374.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="372.0" y1="230.0" x2="367.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="390.0" y1="232.0" x2="390.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M390.0,256.0 L387.3,249.6 L392.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="390.0" y1="230.0" x2="385.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="408.0" y1="232.0" x2="408.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M408.0,256.0 L405.3,249.6 L410.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="408.0" y1="230.0" x2="403.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="426.0" y1="232.0" x2="426.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M426.0,256.0 L423.3,249.6 L428.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="426.0" y1="230.0" x2="421.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="444.0" y1="232.0" x2="444.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M444.0,256.0 L441.3,249.6 L446.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="444.0" y1="230.0" x2="439.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="462.0" y1="232.0" x2="462.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M462.0,256.0 L459.3,249.6 L464.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="462.0" y1="230.0" x2="457.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="480.0" y1="232.0" x2="480.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M480.0,256.0 L477.3,249.6 L482.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="480.0" y1="230.0" x2="475.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="498.0" y1="232.0" x2="498.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M498.0,256.0 L495.3,249.6 L500.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="498.0" y1="230.0" x2="493.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="516.0" y1="232.0" x2="516.0" y2="251.8" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.3"/>
+<path d="M516.0,256.0 L513.3,249.6 L518.7,249.6 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="516.0" y1="230.0" x2="511.0" y2="224.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="22.0" y="205.0" fill="var(--fig-blue, #3b82f6)" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="526.0" y1="230.0" x2="597.4" y2="230.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.4"/>
+<path d="M604.0,230.0 L593.9,234.3 L593.9,225.7 Z" fill="var(--fig-acc, #f59e0b)"/>
+<text x="610.0" y="222.0" fill="var(--fig-acc, #f59e0b)" font-size="19" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">U<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<text x="450.0" y="276.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<line x1="448.0" y1="266.0" x2="432.0" y2="234.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<rect x="230.0" y="40.0" width="180.0" height="190.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.8" stroke-dasharray="7,4" stroke-linejoin="round"/>
+<line x1="230.0" y1="135.0" x2="410.0" y2="135.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M230.0,135.0 L236.4,132.3 L236.4,137.7 Z" fill="var(--text-muted)"/>
+<path d="M410.0,135.0 L403.6,137.7 L403.6,132.3 Z" fill="var(--text-muted)"/>
+<text x="320.0" y="135.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle"></text>
+<text x="320.0" y="126.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle">δx = 1</text>
+<text x="422.0" y="70.0" fill="var(--fig-green, #10b981)" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">V<tspan baseline-shift="sub" font-size="72%">c</tspan></text>
+<line x1="230.0" y1="175.0" x2="196.8" y2="175.0" stroke="var(--text-heading)" stroke-width="1.4"/>
+<path d="M192.0,175.0 L199.4,171.9 L199.4,178.1 Z" fill="var(--text-heading)"/>
+<text x="208.0" y="165.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">n</text>
+<line x1="330.0" y1="234.0" x2="330.0" y2="265.2" stroke="var(--text-heading)" stroke-width="1.4"/>
+<path d="M330.0,270.0 L326.9,262.6 L333.1,262.6 Z" fill="var(--text-heading)"/>
+<text x="342.0" y="274.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">n</text>
+<line x1="480.0" y1="230.0" x2="480.0" y2="198.8" stroke="var(--text-heading)" stroke-width="1.4"/>
+<path d="M480.0,194.0 L483.1,201.4 L476.9,201.4 Z" fill="var(--text-heading)"/>
+<text x="488.0" y="212.0" fill="var(--text-heading)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">n<tspan baseline-shift="sub" font-size="72%">w</tspan></text>
+<text x="150.0" y="30.0" fill="var(--text-heading)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">p<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan></text>
+<text x="290.0" y="30.0" fill="var(--text-heading)" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">T<tspan baseline-shift="sub" font-size="72%">&#8734;</tspan></text>
+<line x1="120.0" y1="230.0" x2="120.0" y2="175.4" stroke="var(--text-heading)" stroke-width="1.6"/>
+<path d="M120.0,170.0 L123.5,178.3 L116.5,178.3 Z" fill="var(--text-heading)"/>
+<text x="112.0" y="168.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<line x1="120.0" y1="230.0" x2="164.6" y2="230.0" stroke="var(--text-heading)" stroke-width="1.6"/>
+<path d="M170.0,230.0 L161.7,233.5 L161.7,226.5 Z" fill="var(--text-heading)"/>
+<text x="172.0" y="222.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+</g></svg></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><div class="diagram-caption">Statement figure (redrawn from NS15.pdf, p. 1): porous wall at temperature $T_w$ moving with $U_w$ and sucking with $V_w$, axes $x$, $y$, normals $\bar{n}$ and $\bar{n}_w$, far field $p_\infty$, $T_\infty$ and the fixed control volume $V_c$ of unit length ($\delta x = 1$)</div><a class="diagram-open" href="../../../vault/attachments/FM-T4/ns15-statement.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
+<p class="source-line">Source: NS15.pdf (page 1). Notes.pdf, Chapter 4: continuity Eq. 4.40, momentum Eq. 4.41, energy Eq. 4.42, integral balances Eqs. 4.3 and 4.25.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady planar flow of a perfect liquid (constant $\rho$, $\mu$, $k$, $c$), buoyancy-free (mass forces neglected), in the half space $y &gt; 0$ above a porous wall. The fields depend only on the distance $y$ to the wall (the wall is infinitely long and the flow is the same at every $x$).</li><li>The wall at $y = 0$ moves in its own plane with $U_w$ and removes the liquid with the suction velocity $V_w &gt; 0$: $v_y(0) = -V_w$. No chemical reaction and no radiation.</li><li>Far from the wall ($y \to \infty$): $v_x \to 0$, $p \to p_\infty$, $T \to T_\infty$, with $T_\infty &gt; T_w$.</li><li>Data: $[\rho,\ \mu,\ k,\ c,\ U_w,\ V_w,\ p_\infty,\ T_\infty,\ T_w]$. Unknowns: $v_x$, $v_y$, $p$, $T$, $\tau_w$ and $q_w$.</li><li>Notation: $\nu = \mu/\rho$, $\alpha = k/(\rho c)$, $\mathrm{Pr} = \nu/\alpha = \mu c/k$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$U_w$, $V_w$</td><td>wall velocity along itself, suction velocity</td><td>m/s</td></tr><tr><td>$p_\infty$, $T_\infty$, $T_w$</td><td>far-field pressure and temperature, wall temperature</td><td>Pa, K, K</td></tr><tr><td>$\tau_w$</td><td>viscous force per unit area on the wall, along $x$</td><td>Pa</td></tr><tr><td>$q_w$</td><td>heat flux from the liquid to the wall</td><td>W/m$^2$</td></tr><tr><td>$\mathrm{Pr}$</td><td>Prandtl number</td><td>1</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
+<ul class="bullet-list"><li>Cartesian frame $(x,y,z)$ attached to the wall: $x$ along the wall in the direction of $U_w$, $y$ normal to the wall and into the liquid, $z$ out of the plane; the basis is orthonormal and right-handed. The normal $\bar{n}_w = +\bar{e}_y$ points from the wall into the liquid (figure).</li><li>Field form: $\bar{v} = v_x(y)\,\bar{e}_x + v_y(y)\,\bar{e}_y$, $p = p(x,y)$, $T = T(y)$.</li><li>Control volume $V_c$ of the figure: fixed, of unit length in $x$ ($\delta x = 1$) and unit width, from the wall to a plane $y = Y$ far from it; surfaces: the wall $\Sigma_w$ ($\bar{n} = -\bar{e}_y$), the top $\Sigma_t$ ($\bar{n} = +\bar{e}_y$) and the two vertical faces $\Sigma_1$ ($\bar{n} = -\bar{e}_x$) and $\Sigma_2$ ($\bar{n} = +\bar{e}_x$).</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$y = 0$</td><td>$v_x = U_w$, $v_y = -V_w$, $T = T_w$</td><td>moving porous wall, suction</td></tr><tr><td>$y \to \infty$</td><td>$v_x \to 0$, $p \to p_\infty$, $T \to T_\infty$</td><td>liquid at rest far from the wall</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Velocity and pressure (item 1)</h4>
+<div class="math-block">$$ \frac{\partial v_x}{\partial x} + \frac{dv_y}{dy} = \underbrace{\cancel{\frac{\partial v_x}{\partial x}}}_{v_x = v_x(y)} + \frac{dv_y}{dy} = 0 \;\Longrightarrow\; v_y = \text{const} = -V_w \tag{1} $$</div>
+<p>The $y$ component of the momentum equation (no mass force, $dv_y/dy = 0$, $d^2v_y/dy^2 = 0$) gives $0 = -\partial p/\partial y$, so $p = p(x)$, and the far-field condition $p \to p_\infty$ for every $x$ gives $\partial p/\partial x = 0$:</p>
+<div class="math-block">$$ \boxed{\,v_y(y) = -V_w, \qquad p(x,y) = p_\infty\,} \tag{2} $$</div>
+<p>The $x$ component:</p>
+<div class="math-block">$$ \rho\Big(\underbrace{\cancel{v_x\frac{\partial v_x}{\partial x}}}_{\partial_x = 0} + v_y\frac{dv_x}{dy}\Big) = -\underbrace{\frac{\partial p}{\partial x}}_{=0} + \mu\frac{d^2v_x}{dy^2} \;\Longrightarrow\; \frac{d^2v_x}{dy^2} + \frac{V_w}{\nu}\frac{dv_x}{dy} = 0 \tag{3} $$</div>
+<p>Trying $e^{\lambda y}$: $\lambda(\lambda + V_w/\nu) = 0$, so $v_x = C_1 + C_2e^{-V_wy/\nu}$. The condition $v_x \to 0$ at infinity gives $C_1 = 0$ (the exponential decays because $V_w &gt; 0$), and $v_x(0) = U_w$ gives $C_2 = U_w$:</p>
+<div class="math-block">$$ \boxed{\,v_x(y) = U_w\,e^{-V_wy/\nu}\,} \tag{4} $$</div>
+<h4 class="step-heading">3.2 Temperature (item 2)</h4>
+<p>With $v_y = -V_w$, $\partial_x = 0$ and $\phi_v = \mu\,(dv_x/dy)^2$, equation (4.42) reads $-\rho cV_w\,dT/dy = \phi_v + k\,d^2T/dy^2$. From (4), $dv_x/dy = -(V_wU_w/\nu)e^{-V_wy/\nu}$, so</p>
+<div class="math-block">$$ \frac{d^2T}{dy^2} + \frac{V_w}{\alpha}\frac{dT}{dy} = -\frac{\mu U_w^2V_w^2}{k\,\nu^2}\,e^{-2V_wy/\nu} \tag{5} $$</div>
+<p>The homogeneous solution is $B_1 + B_2e^{-V_wy/\alpha}$. A particular solution $A\,e^{-2V_wy/\nu}$ requires (substituting $T_p' = -(2V_w/\nu)A\,e^{-2V_wy/\nu}$ and $T_p'' = (4V_w^2/\nu^2)A\,e^{-2V_wy/\nu}$ and using $\nu/\alpha = \mathrm{Pr}$):</p>
+<div class="math-block">$$ A\,(4 - 2\,\mathrm{Pr}) = -\frac{\mu U_w^2}{k} = -\frac{\mathrm{Pr}\,U_w^2}{c} \;\Longrightarrow\; A = \frac{\mathrm{Pr}}{2(\mathrm{Pr} - 2)}\frac{U_w^2}{c} \tag{6} $$</div>
+<p>for $\mathrm{Pr} \neq 2$. The conditions $T(\infty) = T_\infty$ and $T(0) = T_w$ give $B_1 = T_\infty$ and $B_2 = T_w - T_\infty - A$:</p>
+<div class="math-block">$$ \boxed{\,T(y) = T_\infty + \left(T_w - T_\infty - \frac{\mathrm{Pr}\,U_w^2}{2(\mathrm{Pr} - 2)\,c}\right)e^{-\mathrm{Pr}\,V_wy/\nu} + \frac{\mathrm{Pr}\,U_w^2}{2(\mathrm{Pr} - 2)\,c}\,e^{-2V_wy/\nu}\,} \tag{7} $$</div>
+<p>since $V_wy/\alpha = \mathrm{Pr}\,V_wy/\nu$.</p>
+<h4 class="step-heading">3.3 Viscous force on the wall (item 3)</h4>
+<p>With $\bar{n}_w = \bar{e}_y$, the vector $\bar{\bar{\tau}}'\cdot\bar{n}_w$ is the viscous force per unit area that the liquid exerts on the wall: $\tau'_{xy}\,\bar{e}_x + \tau'_{yy}\,\bar{e}_y$ with $\tau'_{xy} = \mu\,dv_x/dy$ and $\tau'_{yy} = 2\mu\,dv_y/dy = 0$. At $y = 0$, from (4):</p>
+<div class="math-block">$$ \boxed{\,\tau_w = \mu\frac{dv_x}{dy}\Big|_0 = -\rho\,V_w\,U_w\,} \tag{8} $$</div>
+<p>The liquid pulls the wall back, against its motion.</p>
+<h4 class="step-heading">3.4 Heat flux to the wall (item 4)</h4>
+<p>With $\bar{n}_w = \bar{e}_y$, $q_w = k\,dT/dy\big|_0$. Differentiating (7) at $y = 0$, with $B_2 = T_w - T_\infty - A$:</p>
+<div class="math-block">$$ \frac{dT}{dy}\Big|_0 = -\frac{V_w}{\nu}\left(\mathrm{Pr}\,B_2 + 2A\right) \;\Longrightarrow\; q_w = -\rho cV_w\left(B_2 + \frac{2A}{\mathrm{Pr}}\right) = -\rho cV_w\left[T_w - T_\infty - \frac{(\mathrm{Pr} - 2)A}{\mathrm{Pr}}\right] \tag{9} $$</div>
+<p>using $k/\nu = \rho c/\mathrm{Pr}$ and $(\mathrm{Pr} - 2)A/\mathrm{Pr} = U_w^2/(2c)$:</p>
+<div class="math-block">$$ \boxed{\,q_w = \rho cV_w\left[T_\infty - T_w + \frac{U_w^2}{2c}\right] = \frac{1}{2}\rho V_wU_w^2 + \rho cV_w\,(T_\infty - T_w)\,} \tag{10} $$</div>
+<h4 class="step-heading">3.5 Alternative computation with the control volume $V_c$ (item 5)</h4>
+<p>*Momentum, $x$ component* (steady, fixed volume, Notes.pdf Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=46" target="_blank" rel="noopener" title="Open Notes.pdf at page 46">4.2</a> in integral form; no mass force):</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\,v_x\,(\bar{v}\cdot\bar{n})\,d\sigma = -\int_{\Sigma_c}p\,n_x\,d\sigma + \int_{\Sigma_c}(\bar{\bar{\tau}}'\cdot\bar{n})_x\,d\sigma \tag{11} $$</div>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Surface</th><th>$\int\rho v_x\,\bar{v}\cdot\bar{n}\,d\sigma$</th><th>$-\int p\,n_x\,d\sigma$</th><th>$\int(\bar{\bar{\tau}}'\cdot\bar{n})_x\,d\sigma$</th></tr></thead><tbody><tr><td>$\Sigma_w$ ($\bar{n} = -\bar{e}_y$, $\bar{v}\cdot\bar{n} = V_w$)</td><td>$\rho\,U_wV_w$</td><td>$0$ ($n_x = 0$)</td><td>$-\tau'_{xy}(0) = -\tau_w$</td></tr><tr><td>$\Sigma_t$ ($\bar{n} = +\bar{e}_y$)</td><td>$0$ ($v_x \to 0$ far from the wall)</td><td>$0$ ($n_x = 0$)</td><td>$0$ ($dv_x/dy \to 0$)</td></tr><tr><td>$\Sigma_1 + \Sigma_2$</td><td>cancel (profile independent of $x$, opposite normals)</td><td>cancel ($p$ uniform)</td><td>cancel ($\tau'_{xx} = 0$)</td></tr></tbody></table></div>
+<p>Therefore $\rho\,U_wV_w = -\tau_w$, that is $\tau_w = -\rho V_wU_w$, in agreement with (8): the wall must supply the momentum $\rho U_w$ per unit mass to the liquid it sucks, since the liquid at infinity has none.</p>
+<p>*Total energy* (Notes.pdf, Eq. 4.3 for a fixed volume, steady, no mass force):</p>
+<div class="math-block">$$ \int_{\Sigma_c}\rho\left(e + \frac{\lvert\bar{v}\rvert^2}{2}\right)\bar{v}\cdot\bar{n}\,d\sigma + \int_{\Sigma_c}p\,\bar{v}\cdot\bar{n}\,d\sigma = \int_{\Sigma_c}\bar{v}\cdot\bar{\bar{\tau}}'\cdot\bar{n}\,d\sigma - \int_{\Sigma_c}\bar{q}\cdot\bar{n}\,d\sigma \tag{12} $$</div>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Surface</th><th>Convective energy flux</th><th>Pressure work</th><th>Viscous work $\bar{v}\cdot\bar{\bar{\tau}}'\cdot\bar{n}$</th><th>Conduction $\bar{q}\cdot\bar{n}$</th></tr></thead><tbody><tr><td>$\Sigma_w$</td><td>$\rho\left[cT_w + \tfrac{1}{2}(U_w^2 + V_w^2)\right]V_w$</td><td>$p_\infty V_w$</td><td>$-U_w\tau_w = \rho V_wU_w^2$</td><td>$k\,dT/dy\big\rvert_0 = q_w$</td></tr><tr><td>$\Sigma_t$</td><td>$-\rho\left[cT_\infty + \tfrac{1}{2}V_w^2\right]V_w$</td><td>$-p_\infty V_w$</td><td>$0$ (no shear far away)</td><td>$0$ ($dT/dy \to 0$)</td></tr><tr><td>$\Sigma_1 + \Sigma_2$</td><td>cancel</td><td>cancel</td><td>cancel</td><td>$0$ ($T$ independent of $x$)</td></tr></tbody></table></div>
+<p>On $\Sigma_w$, $\bar{v}\cdot\bar{n} = V_w$, $\bar{v} = U_w\bar{e}_x - V_w\bar{e}_y$ and $\bar{v}\cdot\bar{\bar{\tau}}'\cdot\bar{n} = -(v_x\tau'_{xy} + v_y\tau'_{yy}) = -U_w\tau_w$; on $\Sigma_t$, $\bar{v} = -V_w\bar{e}_y$ and $T = T_\infty$. The pressure is uniform ($p_\infty$) so its work cancels between $\Sigma_w$ and $\Sigma_t$. Adding the surfaces,</p>
+<div class="math-block">$$ \rho V_w\left[c\,(T_w - T_\infty) + \frac{U_w^2}{2}\right] = \rho V_wU_w^2 - q_w \;\Longrightarrow\; \boxed{\,q_w = \frac{1}{2}\rho V_wU_w^2 + \rho cV_w\,(T_\infty - T_w)\,} \tag{13} $$</div>
+<p>which is (10). The simplifications used are justified by the fact that all the fields are independent of $x$ (lateral faces), that the shear and the temperature gradient decay exponentially (top surface, placed at $Y \gg \nu/V_w, \alpha/V_w$), and that the liquid is at rest and at $p_\infty$ far away.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li><strong>Physical meaning.</strong> Suction holds the moving layer of thickness $\nu/V_w$ (momentum) and $\alpha/V_w$ (thermal) against the wall. The wall pays for the momentum of the entrained liquid ((8)), and receives the enthalpy, the kinetic energy and the viscous work ((10)).</li><li><strong>Limits.</strong> For $U_w = 0$: no shear, no dissipation, $q_w = \rho cV_w(T_\infty - T_w)$ (pure advection-conduction). For $V_w \to 0$ the layer thickens and there is no steady solution. For $T_\infty = T_w$ the heat flux is $\tfrac{1}{2}\rho V_wU_w^2 &gt; 0$: the wall must remove the kinetic energy of the entrained liquid even when the temperatures are equal.</li><li><strong>Dimensional check.</strong> $V_wy/\nu$ and $\mathrm{Pr}\,V_wy/\nu$ are dimensionless. $\rho V_wU_w$ has units $\mathrm{N/m^2}$. $\rho V_wU_w^2$ and $\rho cV_w\Delta T$ have units $\mathrm{W/m^2}$.</li><li><strong>Relation to NS1.</strong> The problem is that of NS1 with the wall moving instead of the free stream: the profiles have the same form, and (10) is (23) of NS1 with $U_\infty \to U_w$.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="ns16">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem NS16</div>
+          <h2 class="problem-title">Channel Flow with Temperature-Dependent Viscosity</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS16.pdf" target="_blank" rel="noopener">Original statement · NS16.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Viscosity depending on T</span><span class="tag">Pressure-driven channel flow</span><span class="tag">Linear temperature profile</span><span class="tag">Coupled problem</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>A incompressible fluid has constant density $\rho$, specific heat $c$ and thermal coductivity $k$, while the viscosity $\mu$ is a function of temperature acording to</p>
+<div class="math-block">$$ \mu(T) = \mu_0\left(\frac{T}{T_0}\right)^{3/2} \tag{1} $$</div>
+<p>The fluid moves between two infinitely long stagnant walls separated a distance $h$. The flow is two-dimensional in the plane $(x, y)$, where $x$ is the coordinate parallel to the walls and $y$ is perpendicular to the walls. The lower wall temperature is $T_0$ and the upper wall temperature is $2T_0$. Because of the geometry, the velocity and the temperature are functions only of the distance to the walls.</p>
+<p>1. Find the vertical component $v$ of the velocity field.</p>
+<p>2. Determine the temperature field. Neglect the viscous dissipation.</p>
+<p>3. write the viscous stress tensor $\bar{\bar{\tau}}'$, as a fuction of the distance $y$ to the lower wall, the velocity $u(y)$ and its derivatives.</p>
+<p>4. Prove that the pressure gradient $\partial P/\partial x$ is constant.</p>
+<p>5. Find the horizontal component $u(y)$ of the velocity, assuming the pressure gradient $\partial P/\partial x$ is known.</p>
+<p>6. Formulate the problem to be solved if the viscous disipation is not neglected.</p>
+<p>HINT:
+$$ \int\frac{\xi + C}{(1 + \xi)^{3/2}}\,d\xi = \frac{4 + 2\xi - 2C}{\sqrt{1 + \xi}} $$</p>
+<p>Note: The momentum equations with variable viscosity $\mu(T)$ can be written, in cartesian coordinates as:
+$$ \rho\frac{\partial v_x}{\partial t} + \rho v_x\frac{\partial v_x}{\partial x} + \rho v_y\frac{\partial v_x}{\partial y} = -\frac{\partial p}{\partial x} + \frac{\partial\tau_{xx}}{\partial x} + \frac{\partial\tau_{xy}}{\partial y} + \rho f_{m,x} $$
+$$ \rho\frac{\partial v_y}{\partial t} + \rho v_x\frac{\partial v_y}{\partial x} + \rho v_y\frac{\partial v_y}{\partial y} = -\frac{\partial p}{\partial y} + \frac{\partial\tau_{xy}}{\partial x} + \frac{\partial\tau_{yy}}{\partial y} + \rho f_{m,y} $$</p>
+<p>The sheet is headed "FLUID MECHANICS I, 24-01-2020, PROBLEM 1 (10 POINTS). Time: 60 minutes" and carries no figure. Transcribed as printed, including the spelling errors of the sheet ("A incompressible", "coductivity", "acording", "fuction", "disipation") and the capital $P$ of items 4 and 5, which is the reduced pressure of the momentum equations.</p>
+<p class="source-line">Source: NS16.pdf (page 1 of 2: statement; page 2: handwritten solution). Notes.pdf, Chapter 4: continuity Eq. 4.7, momentum Eq. 4.10, energy Eq. 4.34, reduced pressure Eq. 4.13, Navier-Poisson law (Eq. 4.36) with variable $\mu$.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, two-dimensional flow of an incompressible liquid with constant $\rho$, $c$, $k$ and the viscosity $\mu(T)$ of (1), between two fixed infinite walls at $y = 0$ ($T = T_0$) and $y = h$ ($T = 2T_0$). The velocity and the temperature depend only on $y$.</li><li>The walls are impermeable and at rest: $u = v = 0$ at both. No chemical reaction and no radiation.</li><li>The mass force is conservative, $\bar{f}_m = -\nabla U$, and $P = p + \rho U$ is the reduced pressure (Notes.pdf, Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf#page=48" target="_blank" rel="noopener" title="Open Notes.pdf at page 48">4.13</a>): with $\rho$ constant, $-\partial p/\partial x_i + \rho f_{m,i} = -\partial P/\partial x_i$.</li><li>Data: $[\rho,\ c,\ k,\ \mu_0,\ T_0,\ h]$ and, for item 5, $\partial P/\partial x$. Unknowns: $v$, $T(y)$, $\bar{\bar{\tau}}'$, $u(y)$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$h$</td><td>distance between the walls</td><td>m</td></tr><tr><td>$\mu_0$, $T_0$</td><td>reference viscosity and temperature of (1)</td><td>Pa s, K</td></tr><tr><td>$\rho$, $c$, $k$</td><td>density, specific heat, thermal conductivity (constant)</td><td>kg/m$^3$, J/(kg K), W/(m K)</td></tr><tr><td>$P$</td><td>reduced pressure $p + \rho U$</td><td>Pa</td></tr><tr><td>$\xi = y/h$</td><td>dimensionless distance to the lower wall</td><td>1</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
+<ul class="bullet-list"><li>Cartesian frame $(x,y,z)$: $x$ parallel to the walls, $y$ perpendicular to them and upward from the lower wall, $z$ spanwise; the basis is orthonormal and right-handed.</li><li>Field form: $\bar{v} = u(y)\,\bar{e}_x + v(y)\,\bar{e}_y$, $T = T(y)$, $P = P(x,y)$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$y = 0$</td><td>$u = 0$, $v = 0$, $T = T_0$</td><td>lower wall at rest</td></tr><tr><td>$y = h$</td><td>$u = 0$, $v = 0$, $T = 2T_0$</td><td>upper wall at rest</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Vertical velocity (item 1)</h4>
+<div class="math-block">$$ \frac{\partial u}{\partial x} + \frac{dv}{dy} = \underbrace{\cancel{\frac{\partial u}{\partial x}}}_{u = u(y)} + \frac{dv}{dy} = 0 \;\Longrightarrow\; v = \text{const} \tag{2} $$</div>
+<p>The walls are impermeable: $v = 0$ at $y = 0$ (and at $y = h$), so</p>
+<div class="math-block">$$ \boxed{\,v(y) = 0\,} \tag{3} $$</div>
+<h4 class="step-heading">3.2 Temperature without dissipation (item 2)</h4>
+<p>The energy equation (4.34) with $e = e_o + cT$, $v = 0$, $\partial_x = 0$ and the dissipation neglected is $0 = k\,d^2T/dy^2$ (the convective terms vanish because $v = 0$ and $\partial T/\partial x = 0$; the compression work is zero for $\nabla\cdot\bar{v} = 0$). Integrating twice, $T = B_1 + B_2y$. The conditions $T(0) = T_0$ and $T(h) = 2T_0$ give $B_1 = T_0$ and $B_2 = T_0/h$:</p>
+<div class="math-block">$$ \boxed{\,T(y) = T_0\left(1 + \frac{y}{h}\right)\,} \tag{4} $$</div>
+<p>so the viscosity is known as a function of $y$: $\mu(y) = \mu_0\,(1 + y/h)^{3/2}$.</p>
+<h4 class="step-heading">3.3 Viscous stress tensor (item 3)</h4>
+<p>For an incompressible fluid ($\nabla\cdot\bar{v} = 0$) the Navier-Poisson law reduces to $\bar{\bar{\tau}}' = \mu(T)\left(\nabla\bar{v} + \nabla\bar{v}^{\,T}\right)$ with the local viscosity. With $\bar{v} = u(y)\bar{e}_x$ the only non-zero velocity gradient is $du/dy$; then $\tau'_{xx} = 2\mu\,\partial u/\partial x = 0$, $\tau'_{yy} = 2\mu\,dv/dy = 0$ and $\tau'_{xy} = \mu\left(\partial u/\partial y + \partial v/\partial x\right) = \mu\,du/dy$:</p>
+<div class="math-block">$$ \boxed{\,\bar{\bar{\tau}}' = \mu_0\left(1 + \frac{y}{h}\right)^{3/2}\begin{pmatrix}0 &amp; \dfrac{du}{dy}\\[2mm] \dfrac{du}{dy} &amp; 0\end{pmatrix}\,} \tag{5} $$</div>
+<h4 class="step-heading">3.4 The pressure gradient is constant (item 4)</h4>
+<p>With $v = 0$, $\partial_x = \partial_t = 0$ for the velocity, and $\tau'_{xx} = \tau'_{yy} = 0$, the momentum equations of the statement (with the reduced pressure $P$) become</p>
+<div class="math-block">$$ x:\quad 0 = -\frac{\partial P}{\partial x} + \frac{d\tau'_{xy}}{dy}, \qquad y:\quad 0 = -\frac{\partial P}{\partial y} + \underbrace{\cancel{\frac{\partial\tau'_{xy}}{\partial x}}}_{\tau'_{xy} = \tau'_{xy}(y)} + \underbrace{\frac{\partial\tau'_{yy}}{\partial y}}_{=0} \tag{6} $$</div>
+<p>The $y$ equation gives $\partial P/\partial y = 0$, hence $P = P(x)$ and $\partial P/\partial x = dP/dx$ depends only on $x$. The $x$ equation reads</p>
+<div class="math-block">$$ \frac{dP}{dx} = \frac{d}{dy}\left[\mu_0\left(1 + \frac{y}{h}\right)^{3/2}\frac{du}{dy}\right] \tag{7} $$</div>
+<p>whose left side depends only on $x$ and whose right side depends only on $y$. Two functions of independent variables can only be equal if both are constant:</p>
+<div class="math-block">$$ \boxed{\,\frac{\partial P}{\partial x} = \text{constant}\,} \tag{8} $$</div>
+<h4 class="step-heading">3.5 Horizontal velocity (item 5)</h4>
+<p>Integrating (7) once, with a constant $K_1$: $\mu_0(1 + y/h)^{3/2}\,du/dy = (dP/dx)\,y + K_1$, that is, with $\xi = y/h$ and $C = K_1/(h\,dP/dx)$,</p>
+<div class="math-block">$$ \left(1 + \xi\right)^{3/2}\frac{du}{d\xi} = \frac{h^2}{\mu_0}\frac{dP}{dx}\,(\xi + C) \;\Longrightarrow\; u(\xi) = \frac{h^2}{\mu_0}\frac{dP}{dx}\int_0^\xi\frac{\xi' + C}{(1 + \xi')^{3/2}}\,d\xi' \tag{9} $$</div>
+<p>(using $dy = h\,d\xi$ and $u(0) = 0$). By the hint, the antiderivative is $(4 + 2\xi - 2C)/\sqrt{1 + \xi}$ (indeed its derivative is $(1 + \xi)^{-3/2}\left[2(1 + \xi) - (2 + \xi - C)\right] = (\xi + C)(1 + \xi)^{-3/2}$), and Barrow's rule between $0$ and $\xi$ gives</p>
+<div class="math-block">$$ u(\xi) = \frac{h^2}{\mu_0}\frac{dP}{dx}\left[\frac{4 + 2\xi - 2C}{\sqrt{1 + \xi}} - \left(4 - 2C\right)\right] \tag{10} $$</div>
+<p>The upper wall condition $u(\xi = 1) = 0$ fixes $C$: $\dfrac{6 - 2C}{\sqrt{2}} = 4 - 2C$, that is $6 - 2C = 4\sqrt{2} - 2\sqrt{2}\,C$, so</p>
+<div class="math-block">$$ C = \frac{3 - 2\sqrt{2}}{1 - \sqrt{2}} = \frac{2\sqrt{2} - 3}{\sqrt{2} - 1} = 1 - \sqrt{2} \tag{11} $$</div>
+<p>(since $3 - 2\sqrt{2} = (\sqrt{2} - 1)^2$). Then $4 - 2C = 2(1 + \sqrt{2})$ and $4 + 2\xi - 2C = 2(1 + \sqrt{2} + \xi)$. With $s = \sqrt{1 + \xi} \in [1, \sqrt{2}]$, so that $\xi = s^2 - 1$, the bracket of (10) is $2\left[\dfrac{\sqrt{2} + s^2}{s} - (1 + \sqrt{2})\right] = \dfrac{2\,(s - 1)(s - \sqrt{2})}{s}$:</p>
+<div class="math-block">$$ \boxed{\,u(y) = \frac{2h^2}{\mu_0}\frac{dP}{dx}\,\frac{\left(\sqrt{1 + y/h} - 1\right)\left(\sqrt{1 + y/h} - \sqrt{2}\right)}{\sqrt{1 + y/h}}\,} \tag{12} $$</div>
+<p>Equivalent form of (10) with $C = 1 - \sqrt{2}$: $u = \dfrac{2h^2}{\mu_0}\dfrac{dP}{dx}\left[\dfrac{1 + \sqrt{2} + y/h}{\sqrt{1 + y/h}} - (1 + \sqrt{2})\right]$.</p>
+<h4 class="step-heading">3.6 Problem with viscous dissipation (item 6)</h4>
+<p>If the viscous dissipation $\phi_v = \tau'_{xy}\,du/dy = \mu(T)\,(du/dy)^2$ is not neglected, the energy equation becomes $k\,d^2T/dy^2 + \phi_v = 0$ and the temperature is no longer linear: the viscosity depends on the unknown $T(y)$, which in turn depends on $u(y)$ through $\phi_v$. The system to solve, in $u(y)$ and $T(y)$ with constant $dP/dx$, is</p>
+<div class="math-block">$$ k\frac{d^2T}{dy^2} + \mu_0\left(\frac{T}{T_0}\right)^{3/2}\left(\frac{du}{dy}\right)^2 = 0, \qquad \frac{d}{dy}\left[\mu_0\left(\frac{T}{T_0}\right)^{3/2}\frac{du}{dy}\right] = \frac{dP}{dx} \tag{13} $$</div>
+<div class="math-block">$$ y = 0:\ T = T_0,\ u = 0; \qquad y = h:\ T = 2T_0,\ u = 0 \tag{14} $$</div>
+<p>Equation (6) and the argument of item 4 still hold ($v = 0$, $P = P(x)$ with $dP/dx$ constant) because they do not depend on how $\mu$ varies with $y$. The two equations (13) are coupled and nonlinear: a more complex system that must be solved numerically.</p>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li><strong>Physical meaning.</strong> The temperature rises linearly from $T_0$ to $2T_0$ and the viscosity grows by the factor $2^{3/2} \simeq 2.83$ towards the hot wall. The liquid is therefore less viscous (faster) near the cold wall and the velocity maximum is displaced towards the cold wall, away from the centre of the channel.</li><li><strong>Limits.</strong> For constant viscosity ($\mu = \mu_0$) the profile would be the symmetric parabola $u = (1/(2\mu_0))(dP/dx)(y^2 - hy)$, with its maximum at $y = h/2$. The sign of (12): since $(s - 1) \geq 0$ and $(s - \sqrt{2}) \leq 0$, $u \geq 0$ for $dP/dx &lt; 0$ (flow towards $+x$), as it must be. The profile vanishes at $s = 1$ ($y = 0$) and at $s = \sqrt{2}$ ($y = h$).</li><li><strong>Dimensional check.</strong> $h^2\,(dP/dx)/\mu_0$ has units $\mathrm{m^2\cdot Pa/m}/(\mathrm{Pa\,s}) = \mathrm{m/s}$, a velocity. $C$ is dimensionless. The hint integral is dimensionless.</li><li><strong>Check of (11).</strong> With $C = 1 - \sqrt{2}$: $(6 - 2C)/\sqrt{2} = (4 + 2\sqrt{2})/\sqrt{2} = 2\sqrt{2} + 2$ and $4 - 2C = 2 + 2\sqrt{2}$, equal as required by $u(h) = 0$.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
+    <article class="problem-card" id="ns17">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-id">Problem NS17</div>
+          <h2 class="problem-title">Rotating Porous Disk with Suction</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS17.pdf" target="_blank" rel="noopener">Original statement · NS17.pdf</a>
+        </div>
+        <div class="tag-group"><span class="tag">Similarity solution</span><span class="tag">Rotating disk with suction</span><span class="tag">Boundary conditions</span><span class="tag">Pressure distribution</span></div>
+      </div>
+
+      <div class="enunciado-box">
+        <h4>Official Problem Statement</h4>
+<p>We will consider an infinitely large porous disk rotating with angular velocity $\Omega$ that sucks the fluid with a known velocity $v_z = -2(\nu\Omega)^{1/2}\lambda_1$. The velocity induced in the fluid of density $\rho$ and kinematic viscosity $\nu = \mu/\rho$ is three-dimensional, with components $(v_r, v_\theta, v_z)$ in the cylindrical coordinates system shown in the sketch.</p>
+<p>We want to show that the solution of the problem has the form $v_z = -2(\nu\Omega)^{1/2}f(\eta)$, $v_\theta = r\Omega g(\eta)$, where $\eta = (\Omega/\nu)^{1/2}z$ is a similarity variable and $f(\eta)$ and $g(\eta)$ are two functions that must be obtained in the course of the solution, such that the solution far from the disk, as $\eta \to \infty$, is given by $v_r \to 0$, $v_\theta \to 0$.</p>
+<p>Taking into account the azimuthal symmetry of the problem,</p>
+<p>1. Use the continuity equation to obtain the radial component $v_r$ in terms of the function $f(\eta)$.</p>
+<p>2. Use the azimuthal momentum equation to find the ordinary differential equation to be satisfied by the function $g(\eta)$.</p>
+<p>3. Use the physical boundary conditions for $\bar{v}$ to find the boundary conditions that $f(\eta)$ and $g(\eta)$ must satisfy.</p>
+<p>4. Use the vertical momentum equation to obtain the pressure distribution in terms of an integration function $C(r)$ that will appear in the course of the integration.</p>
+<p>5. Use the radial momentum equation to determine $C(r)$ and the ordinary differential equation to be satisfied by $f(\eta)$, with its corresponding boundary conditions. Use the variable separation method to show that $C(r) = A$, where $A$ is a constant. Obtain $A$ in terms of the pressure far from the plate $p_\infty$ and the pressure distribution $p(\eta)$.</p>
+<p>The sheet is headed "ESCUELA POLITECNICA SUPERIOR, INTRODUCTION TO FLUID MECHANICS, 14-11-2016, PROBLEM 2 (10 POINTS), Time: 60 minutes".</p>
+<figure class="statement-figure"><div class="diagram-scroll"><img src="../../../vault/attachments/FM-T4/ns17-statement.png" alt="Infinitely large porous disk rotating with angular velocity Omega about the z axis, side view with axes z and r, and top view with the angle theta" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"></div><div class="diagram-hint">Swipe sideways to see the whole figure.</div><figcaption>Statement figure (crop of NS17.pdf, p. 1): porous disk rotating with angular velocity $\Omega$, side view (axes $z$, $r$) and top view (polar angle $\theta$)</figcaption><a class="diagram-open" href="../../../vault/attachments/FM-T4/ns17-statement.png" target="_blank" rel="noopener">Open the figure full size</a></figure>
+<p class="source-line">Source: NS17.pdf (page 1 of 2: statement; page 2: handwritten solution). Notes.pdf, Chapter 4: continuity Eq. 4.40 and momentum Eq. 4.41 in cylindrical coordinates.</p>
+      </div>
+
+      <details class="solution-details">
+        <summary class="solution-summary"><span>Worked solution (4-phase method)</span><span class="summary-hint">expand / collapse</span></summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Hypotheses, Data and Unknowns</h3>
+<ul class="bullet-list"><li>Steady, axisymmetric ($\partial/\partial\theta = 0$, $\partial/\partial t = 0$) flow of an incompressible liquid with constant $\rho$ and $\nu$ above an infinitely large rotating porous disk, without mass forces. Equations (4.40) and (4.41) in cylindrical coordinates.</li><li>The disk (plane $z = 0$, the liquid occupies $z &gt; 0$) rotates with the angular velocity $\Omega$ and sucks the liquid with the known axial velocity $v_z(0) = -2(\nu\Omega)^{1/2}\lambda_1$, with $\lambda_1$ a given constant.</li><li>Self-similar ansatz of the statement: $v_z = -2(\nu\Omega)^{1/2}f(\eta)$, $v_\theta = r\Omega\,g(\eta)$, with $\eta = (\Omega/\nu)^{1/2}z$; $v_r$ is to be obtained.</li><li>Far from the disk ($\eta \to \infty$): $v_r \to 0$, $v_\theta \to 0$ and the pressure tends to $p_\infty$.</li><li>Data: $[\rho,\ \nu,\ \Omega,\ \lambda_1,\ p_\infty]$. Unknowns: $v_r$, the ODEs for $f$ and $g$ with their boundary conditions, $p(r,z)$ and the constant $A$.</li><li>Derivatives used: $d\eta/dz = (\Omega/\nu)^{1/2}$, so that $\partial/\partial z = (\Omega/\nu)^{1/2}\,d/d\eta$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit</th></tr></thead><tbody><tr><td>$\Omega$</td><td>angular velocity of the disk</td><td>rad/s</td></tr><tr><td>$\nu = \mu/\rho$</td><td>kinematic viscosity</td><td>m$^2$/s</td></tr><tr><td>$\eta = (\Omega/\nu)^{1/2}z$</td><td>similarity variable</td><td>1</td></tr><tr><td>$f(\eta)$, $g(\eta)$</td><td>dimensionless axial and azimuthal functions</td><td>1</td></tr><tr><td>$\lambda_1$</td><td>dimensionless suction parameter</td><td>1</td></tr><tr><td>$p_\infty$</td><td>pressure far from the disk</td><td>Pa</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Frames, Field Form and Boundary Conditions</h3>
+<ul class="bullet-list"><li>Cylindrical frame $(r,\theta,z)$ with $z$ along the axis of rotation, normal to the disk and pointing into the liquid; the basis $\{\bar{e}_r,\bar{e}_\theta,\bar{e}_z\}$ is orthonormal and right-handed (see the sketch of the statement).</li><li>Field form: $v_r = v_r(r,z)$, $v_\theta = r\Omega\,g(\eta)$, $v_z = -2(\nu\Omega)^{1/2}f(\eta)$, $p = p(r,z)$.</li></ul>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Location</th><th>Condition</th><th>Origin</th></tr></thead><tbody><tr><td>$z = 0$</td><td>$v_r = 0$, $v_\theta = r\Omega$</td><td>no-slip on the rotating disk</td></tr><tr><td>$z = 0$</td><td>$v_z = -2(\nu\Omega)^{1/2}\lambda_1$</td><td>known suction velocity</td></tr><tr><td>$z \to \infty$</td><td>$v_r \to 0$, $v_\theta \to 0$</td><td>liquid at rest far from the disk</td></tr><tr><td>$z \to \infty$</td><td>$p \to p_\infty$</td><td>pressure far from the disk</td></tr></tbody></table></div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Derivation</h3>
+<h4 class="step-heading">3.1 Radial velocity from continuity (item 1)</h4>
+<div class="math-block">$$ \frac{1}{r}\frac{\partial(rv_r)}{\partial r} + \underbrace{\cancel{\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}}}_{\partial_\theta = 0} + \frac{\partial v_z}{\partial z} = 0 \tag{1} $$</div>
+<p>The axial derivative is, by the chain rule, $\dfrac{\partial v_z}{\partial z} = \dfrac{dv_z}{d\eta}\dfrac{d\eta}{dz} = -2(\nu\Omega)^{1/2}f'\,\left(\frac{\Omega}{\nu}\right)^{1/2} = -2\Omega f'(\eta)$. Hence $\dfrac{1}{r}\dfrac{\partial(rv_r)}{\partial r} = 2\Omega f'$. Multiplying by $r$ and integrating in $r$ at fixed $z$ (so $f'$ is constant): $r\,v_r = \Omega f'\,r^2 + F(z)$; the radial velocity must be finite on the axis $r = 0$, which requires $F(z) = 0$:</p>
+<div class="math-block">$$ \boxed{\,v_r = r\,\Omega\,f'(\eta)\,} \tag{2} $$</div>
+<h4 class="step-heading">3.2 Azimuthal momentum (item 2)</h4>
+<p>The $\theta$ component of (4.41), steady, with $\partial/\partial\theta = 0$ and no mass force:</p>
+<div class="math-block">$$ \rho\left(v_r\frac{\partial v_\theta}{\partial r} + \frac{v_rv_\theta}{r} + v_z\frac{\partial v_\theta}{\partial z}\right) = \mu\left[\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial(rv_\theta)}{\partial r}\right) + \frac{\partial^2v_\theta}{\partial z^2}\right] \tag{3} $$</div>
+<p>Each term for $v_\theta = r\Omega g$, $v_r = r\Omega f'$, $v_z = -2(\nu\Omega)^{1/2}f$ (the $\eta$ derivatives bring $(\Omega/\nu)^{1/2}$):</p>
+<ul class="bullet-list"><li>$v_r\,\partial v_\theta/\partial r = (r\Omega f')(\Omega g) = r\Omega^2f'g$ and $v_rv_\theta/r = (r\Omega f')(\Omega g) = r\Omega^2f'g$;</li><li>$v_z\,\partial v_\theta/\partial z = -2(\nu\Omega)^{1/2}f\cdot r\Omega g'\,(\Omega/\nu)^{1/2} = -2r\Omega^2fg'$;</li><li>the first viscous term is zero: $r^{-1}\partial(rv_\theta)/\partial r = r^{-1}\partial(r^2\Omega g)/\partial r = 2\Omega g$ does not depend on $r$;</li><li>$\partial^2v_\theta/\partial z^2 = r\Omega g''\,\Omega/\nu$.</li></ul>
+<p>Substituting and using $\mu/\nu = \rho$:</p>
+<div class="math-block">$$ \rho\,r\Omega^2\left(2f'g - 2fg'\right) = \rho\,r\Omega^2g'' \;\Longrightarrow\; \boxed{\,g'' + 2\left(f\,g' - f'g\right) = 0\,} \tag{4} $$</div>
+<h4 class="step-heading">3.3 Boundary conditions (item 3)</h4>
+<p>At the disk, $z = 0$ ($\eta = 0$): $v_r = r\Omega f'(0) = 0$ gives $f'(0) = 0$; $v_\theta = r\Omega g(0) = r\Omega$ gives $g(0) = 1$; $v_z = -2(\nu\Omega)^{1/2}f(0) = -2(\nu\Omega)^{1/2}\lambda_1$ gives $f(0) = \lambda_1$. Far from the disk ($\eta \to \infty$): $v_r \to 0$ gives $f'(\infty) = 0$ and $v_\theta \to 0$ gives $g(\infty) = 0$:</p>
+<div class="math-block">$$ \boxed{\,f(0) = \lambda_1,\quad f'(0) = 0,\quad f'(\infty) = 0,\qquad g(0) = 1,\quad g(\infty) = 0\,} \tag{5} $$</div>
+<h4 class="step-heading">3.4 Vertical momentum and the pressure (item 4)</h4>
+<p>The $z$ component of (4.41): $v_r\,\partial v_z/\partial r = 0$ because $v_z$ depends only on $z$, and the viscous term is $\mu\,\partial^2v_z/\partial z^2$ (the radial part $r^{-1}\partial(r\partial v_z/\partial r)/\partial r$ vanishes):</p>
+<div class="math-block">$$ \rho\,v_z\frac{\partial v_z}{\partial z} = -\frac{\partial p}{\partial z} + \mu\frac{\partial^2v_z}{\partial z^2} \;\Longrightarrow\; \frac{\partial}{\partial z}\left[p + \frac{\rho v_z^2}{2} - \mu\frac{\partial v_z}{\partial z}\right] = 0 \tag{6} $$</div>
+<p>Integrating in $z$ at fixed $r$, the bracket is a function $C(r)$:</p>
+<div class="math-block">$$ p + \frac{\rho v_z^2}{2} - \mu\frac{\partial v_z}{\partial z} = C(r) \tag{7} $$</div>
+<p>With $\rho v_z^2/2 = 2\rho\nu\Omega f^2 = 2\mu\Omega f^2$ and $-\mu\,\partial v_z/\partial z = 2\mu\Omega f'$:</p>
+<div class="math-block">$$ \boxed{\,p(r,\eta) = C(r) - 2\mu\Omega\left[f^2(\eta) + f'(\eta)\right]\,} \tag{8} $$</div>
+<h4 class="step-heading">3.5 Radial momentum, the ODE for $f$ and the constant $A$ (item 5)</h4>
+<p>The $r$ component of (4.41) with the viscous terms $\mu\left[\partial\left(r^{-1}\partial(rv_r)/\partial r\right)/\partial r + \partial^2v_r/\partial z^2\right]$:</p>
+<div class="math-block">$$ \rho\left(v_r\frac{\partial v_r}{\partial r} - \frac{v_\theta^2}{r} + v_z\frac{\partial v_r}{\partial z}\right) = -\frac{\partial p}{\partial r} + \mu\left[\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial(rv_r)}{\partial r}\right) + \frac{\partial^2v_r}{\partial z^2}\right] \tag{9} $$</div>
+<p>Each term: $v_r\,\partial v_r/\partial r = (r\Omega f')(\Omega f') = r\Omega^2f'^2$; $v_\theta^2/r = r\Omega^2g^2$; $v_z\,\partial v_r/\partial z = -2(\nu\Omega)^{1/2}f\cdot r\Omega f''(\Omega/\nu)^{1/2} = -2r\Omega^2ff''$; the first viscous term is zero because $r^{-1}\partial(r^2\Omega f')/\partial r = 2\Omega f'$ does not depend on $r$; $\partial^2v_r/\partial z^2 = r\Omega f'''\,\Omega/\nu$. From (8), $\partial p/\partial r = C'(r)$, since the $\eta$ term does not depend on $r$. Substituting and using $\mu/\nu = \rho$:</p>
+<div class="math-block">$$ \rho\,r\Omega^2\left(f'^2 - g^2 - 2ff''\right) = -C'(r) + \rho\,r\Omega^2f''' \;\Longrightarrow\; -f''' + f'^2 - g^2 - 2ff'' = -\frac{C'(r)}{\rho\,r\Omega^2} \tag{10} $$</div>
+<p>The left side depends only on $\eta$ and the right side only on $r$: both equal a constant, $-\lambda$. As $\eta \to \infty$, $f'\to 0$ (and so $f'' \to 0$, $f''' \to 0$) and $g \to 0$: the left side tends to $0$, so $\lambda = 0$. Therefore $C'(r) = 0$, that is</p>
+<div class="math-block">$$ \boxed{\,C(r) = A\ (\text{a constant}), \qquad f''' + 2ff'' - f'^2 + g^2 = 0\,} \tag{11} $$</div>
+<p>with the boundary conditions (5) for $f$ ($f(0) = \lambda_1$, $f'(0) = f'(\infty) = 0$); the system (4)-(11) for $f$ and $g$, with the five conditions (5), is a nonlinear boundary-value problem.</p>
+<p>The constant $A$ follows from (8) as $\eta \to \infty$ ($p \to p_\infty$, $f' \to 0$, $f \to f(\infty)$):</p>
+<div class="math-block">$$ p_\infty = A - 2\mu\Omega f(\infty)^2 \;\Longrightarrow\; \boxed{\,A = p_\infty + 2\mu\Omega\,f(\infty)^2\,} \tag{12} $$</div>
+<p>and the pressure distribution is</p>
+<div class="math-block">$$ \boxed{\,p(\eta) = p_\infty - 2\mu\Omega\left[f^2(\eta) - f^2(\infty) + f'(\eta)\right]\,} \tag{13} $$</div>
+</div>
+<div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Interpretation, Limits and Dimensional Check</h3>
+<ul class="bullet-list"><li><strong>Physical meaning.</strong> The disk drags the liquid into rotation and the centrifugal force throws it outwards (the term $-g^2$ of (11)); continuity then draws liquid towards the disk (the term $-2f'$ of the radial velocity and the axial velocity $v_z \propto -f$). With suction the axial flow is imposed at the disk ($f(0) = \lambda_1$). The velocity profile has the same form at every radius because $v_r$ and $v_\theta$ scale with $r$: that is the self-similarity.</li><li><strong>Limits.</strong> For $\lambda_1 = 0$ (impermeable disk) the equations (4) and (11) with the conditions (5) are those of the rotating disk of the classical similarity solution; for $\Omega \to 0$ the whole flow vanishes. The pressure (13) is independent of $r$: the pressure of the problem varies only across the layer.</li><li><strong>Dimensional check.</strong> $\eta = (\Omega/\nu)^{1/2}z$ is dimensionless ($\sqrt{\mathrm{s^{-1}}\,\mathrm{s/m^2}}\,\mathrm{m} = 1$). $(\nu\Omega)^{1/2}$ has units $\mathrm{m/s}$, so $v_z$ is a velocity; $r\Omega$ is a velocity. $\mu\Omega$ has units $\mathrm{Pa\,s\cdot s^{-1}} = \mathrm{Pa}$, so (8) and (13) are pressures.</li><li><strong>Consistency of (11).</strong> Differentiating (8) with respect to $r$ at fixed $\eta$ shows that $\partial p/\partial r = C'(r)$ and (11) makes the radial momentum balance independent of $r$, as the similarity ansatz requires.</li></ul>
+</div>
+        </div>
+      </details>
+    </article>
+
 
     <!-- Aerospace Motivational Quote Component -->
     <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
@@ -2087,7 +2640,7 @@ where $C$ is a constant.</p>
   <footer class="site-footer">
     <div class="container">
       <p>Study Portal &middot; Aerospace Engineering Degree &middot; Universidad Carlos III de Madrid</p>
-      <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">Worked solutions to the official Navier-Stokes problem collection (NS1 to NS12); statements are transcribed word for word from the official sheets.</p>
+      <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">Worked solutions to the official Navier-Stokes problem collection (NS1 to NS17); statements are transcribed word for word from the official sheets.</p>
     </div>
   </footer>
 
