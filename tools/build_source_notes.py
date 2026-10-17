@@ -39,6 +39,21 @@ def display_name(vault_folder):
     return re.sub(r"^\d+\s*-\s*", "", vault_folder)
 
 
+# Binary sources keep their raw size; any other file counts its LF line endings. Git (text=auto) stores text files with
+# LF and a Windows checkout writes them back with CRLF, so the size must not depend on the platform. Git's own rule
+# decides text or binary: a file holding a NUL byte is binary. PDFs are always binary and listed explicitly.
+BINARY_SUFFIXES = {".pdf", ".png", ".jpg", ".jpeg", ".gif", ".zip", ".docx", ".pptx", ".xlsx", ".doc", ".ppt", ".xls",
+                   ".gz", ".tar"}
+
+
+def size_of(path):
+    """Size in bytes, with the LF line endings of text files (see BINARY_SUFFIXES)."""
+    if path.suffix.lower() in BINARY_SUFFIXES:
+        return path.stat().st_size
+    data = path.read_bytes()
+    return len(data) if b"\x00" in data else len(data.replace(b"\r\n", b"\n"))
+
+
 def human_size(n):
     for unit in ("B", "kB", "MB", "GB"):
         if n < 1000 or unit == "GB":
@@ -81,7 +96,7 @@ def collect(root, config):
             "subject": subject,
             "within_dir": "/".join(within[:-1]) or "(top level)",
             "kind": kind,
-            "bytes": path.stat().st_size,
+            "bytes": size_of(path),
             "ext": path.suffix.lower(),
         })
     counts = collections.Counter(r["file_name"] for r in records)

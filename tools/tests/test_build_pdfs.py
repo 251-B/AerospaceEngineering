@@ -57,6 +57,23 @@ class MirrorTests(unittest.TestCase):
             self.assertIn(kx.resolve().as_uri(), text)
 
 
+class LineEndingTests(unittest.TestCase):
+    def test_crlf_and_lf_checkouts_give_the_same_hashes(self):
+        """A Windows checkout (CRLF) and a Linux one (LF) of the same files must hash alike."""
+        def hashes(eol):
+            with tempfile.TemporaryDirectory() as tmp:
+                root = pathlib.Path(tmp)
+                (root / "assets/css").mkdir(parents=True)
+                (root / "assets/js").mkdir(parents=True)
+                (root / "assets/css/print.css").write_bytes(f"body{{}}{eol}p{{}}{eol}".encode())
+                (root / "assets/js/pdf-export.js").write_bytes(f"x=1;{eol}".encode())
+                page = root / "subjects/s/teoria/topic-1.html"
+                page.parent.mkdir(parents=True)
+                page.write_bytes(f"<h1>T</h1>{eol}<p>body</p>{eol}".encode())
+                return {pdf: h for pdf, (_, _, h) in bp.targets(root).items()}
+        self.assertEqual(hashes("\n"), hashes("\r\n"))
+
+
 class RepositoryTests(unittest.TestCase):
     def test_pdfs_are_up_to_date(self):
         proc = subprocess.run([sys.executable, str(TOOLS / "build_pdfs.py"), "--check"], capture_output=True, text=True)

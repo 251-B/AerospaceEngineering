@@ -7,7 +7,7 @@ tags:
 path: "sources/README.md"
 kind: other
 status: referenced
-bytes: 5344
+bytes: 5260
 ---
 
 # Source: README.md

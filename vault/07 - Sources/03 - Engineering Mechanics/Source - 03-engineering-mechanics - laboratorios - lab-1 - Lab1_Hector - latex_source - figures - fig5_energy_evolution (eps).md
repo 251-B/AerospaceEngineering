@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.eps"
 kind: laboratorio
 status: not-referenced
-bytes: 587786
+bytes: 580589
 ---
 
 # Source: fig5_energy_evolution.eps
@@ -18,7 +18,7 @@ bytes: 587786
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig5_energy_evolution.eps`
 - **Kind:** laboratorio
-- **Size:** 587.8 kB
+- **Size:** 580.6 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

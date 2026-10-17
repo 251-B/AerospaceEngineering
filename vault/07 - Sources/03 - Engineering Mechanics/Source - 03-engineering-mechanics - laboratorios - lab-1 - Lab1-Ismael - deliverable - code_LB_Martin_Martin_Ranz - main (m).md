@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/deliverable/code_LB_Martin_Martin_Ranz/main.m"
 kind: laboratorio
 status: referenced
-bytes: 6200
+bytes: 6025
 ---
 
 # Source: main.m
@@ -18,7 +18,7 @@ bytes: 6200
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/deliverable/code_LB_Martin_Martin_Ranz/main.m`
 - **Kind:** laboratorio
-- **Size:** 6.2 kB
+- **Size:** 6.0 kB
 - **Status:** referenced by 2 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

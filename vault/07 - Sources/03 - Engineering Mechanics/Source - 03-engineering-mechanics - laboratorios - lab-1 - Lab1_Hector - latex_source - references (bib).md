@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/references.bib"
 kind: laboratorio
 status: referenced
-bytes: 2109
+bytes: 2044
 ---
 
 # Source: references.bib
@@ -18,7 +18,7 @@ bytes: 2109
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/references.bib`
 - **Kind:** laboratorio
-- **Size:** 2.1 kB
+- **Size:** 2.0 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by

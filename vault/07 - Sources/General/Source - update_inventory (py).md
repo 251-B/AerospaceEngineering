@@ -7,7 +7,7 @@ tags:
 path: "sources/update_inventory.py"
 kind: other
 status: not-referenced
-bytes: 32844
+bytes: 32172
 ---
 
 # Source: update_inventory.py
@@ -18,7 +18,7 @@ bytes: 32844
 
 - **Path:** `sources/update_inventory.py`
 - **Kind:** other
-- **Size:** 32.8 kB
+- **Size:** 32.2 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

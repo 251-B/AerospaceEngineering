@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/general-instructions/LAB_BLUEPRINT.md"
 kind: laboratorio
 status: referenced
-bytes: 6086
+bytes: 5990
 ---
 
 # Source: LAB_BLUEPRINT.md
@@ -18,7 +18,7 @@ bytes: 6086
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/general-instructions/LAB_BLUEPRINT.md`
 - **Kind:** laboratorio
-- **Size:** 6.1 kB
+- **Size:** 6.0 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by

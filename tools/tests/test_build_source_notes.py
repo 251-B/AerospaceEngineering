@@ -55,6 +55,18 @@ def by_path(desired):
     return {rel: text for rel, text in desired.items() if "/Source - " in rel}
 
 
+class SizeTests(unittest.TestCase):
+    def test_text_sources_count_lf_bytes_and_binary_sources_count_all_bytes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            text = root / "README.md"
+            text.write_bytes(b"line one\r\nline two\r\n")
+            binary = root / "Notes.pdf"
+            binary.write_bytes(b"%PDF\r\n\x00\r\n")
+            self.assertEqual(bsn.size_of(text), len(b"line one\nline two\n"))
+            self.assertEqual(bsn.size_of(binary), len(b"%PDF\r\n\x00\r\n"))
+
+
 class BuildSourceNotesTest(unittest.TestCase):
     def setUp(self):
         self.root, self.tmp = make_repo()

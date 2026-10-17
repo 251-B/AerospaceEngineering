@@ -8,7 +8,8 @@ using headless Edge/Chrome (the same browser as tools/render_check.py) and the p
 assets/css/print.css, prepared by assets/js/pdf-export.js (?print=all or ?print=<card id>).
 
 assets/pdf/manifest.json stores a hash of each PDF's inputs (the page, print.css, pdf-export.js),
-so only the PDFs whose page changed are printed again, and --check needs no browser.
+so only the PDFs whose page changed are printed again, and --check needs no browser. The inputs are
+hashed with LF line endings, so a Windows checkout (CRLF) and a Linux one give the same hashes.
 
     python tools/build_pdfs.py                    # print new or stale PDFs, remove orphans
     python tools/build_pdfs.py --check            # exit 1 if a PDF is missing, stale or orphaned
@@ -58,16 +59,21 @@ def card_ids(text: str) -> list[str]:
     return ids
 
 
+def lf_bytes(path: pathlib.Path) -> bytes:
+    """A text file as its LF bytes: the same content hashes alike on CRLF and LF checkouts."""
+    return path.read_bytes().replace(b"\r\n", b"\n")
+
+
 def targets(root: pathlib.Path) -> dict[str, tuple[pathlib.Path, str, str]]:
     """{pdf path: (page, print mode, input hash)} for every PDF the portal links to."""
-    shared = b"".join((root / f).read_bytes() for f in INPUTS) + VERSION.encode()
+    shared = b"".join(lf_bytes(root / f) for f in INPUTS) + VERSION.encode()
     out = {}
     for page in pages(root):
         rel = page.relative_to(root)
         slug, area, stem = rel.parts[1], rel.parts[2], page.stem
         text = page.read_text(encoding="utf-8")
         base = f"{OUT}/{slug}/{area}/{stem}"
-        h = hashlib.sha256(page.read_bytes() + shared)
+        h = hashlib.sha256(lf_bytes(page) + shared)
         out[base + ".pdf"] = (page, "all", h.hexdigest())
         if area == "problemas":
             for cid in card_ids(text):

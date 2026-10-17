@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.eps"
 kind: laboratorio
 status: not-referenced
-bytes: 406607
+bytes: 398260
 ---
 
 # Source: fig6_case3_singularity.eps
@@ -18,7 +18,7 @@ bytes: 406607
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig6_case3_singularity.eps`
 - **Kind:** laboratorio
-- **Size:** 406.6 kB
+- **Size:** 398.3 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

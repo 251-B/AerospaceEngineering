@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.eps"
 kind: laboratorio
 status: not-referenced
-bytes: 369821
+bytes: 363970
 ---
 
 # Source: fig2_phi_evolution.eps
@@ -18,7 +18,7 @@ bytes: 369821
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig2_phi_evolution.eps`
 - **Kind:** laboratorio
-- **Size:** 369.8 kB
+- **Size:** 364.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

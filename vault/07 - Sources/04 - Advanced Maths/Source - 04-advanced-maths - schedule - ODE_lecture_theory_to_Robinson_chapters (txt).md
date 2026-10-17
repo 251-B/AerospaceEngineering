@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/04-advanced-maths/schedule/ODE_lecture_theory_to_Robinson_chapters.txt"
 kind: schedule
 status: not-referenced
-bytes: 12496
+bytes: 12161
 ---
 
 # Source: ODE_lecture_theory_to_Robinson_chapters.txt
@@ -18,7 +18,7 @@ bytes: 12496
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/schedule/ODE_lecture_theory_to_Robinson_chapters.txt`
 - **Kind:** schedule
-- **Size:** 12.5 kB
+- **Size:** 12.2 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

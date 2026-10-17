@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/04-advanced-maths/schedule/view.htm"
 kind: schedule
 status: not-referenced
-bytes: 178207
+bytes: 175994
 ---
 
 # Source: view.htm
@@ -18,7 +18,7 @@ bytes: 178207
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/schedule/view.htm`
 - **Kind:** schedule
-- **Size:** 178.2 kB
+- **Size:** 176.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

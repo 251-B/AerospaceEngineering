@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.eps"
 kind: laboratorio
 status: not-referenced
-bytes: 782292
+bytes: 774804
 ---
 
 # Source: fig_case5_summary.eps
@@ -18,7 +18,7 @@ bytes: 782292
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig_case5_summary.eps`
 - **Kind:** laboratorio
-- **Size:** 782.3 kB
+- **Size:** 774.8 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
