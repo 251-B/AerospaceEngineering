@@ -102,7 +102,7 @@ class SidebarBrowserTests(unittest.TestCase):
             proc = subprocess.run(
                 [BROWSER, "--headless=new", "--disable-gpu", "--no-first-run", "--allow-file-access-from-files",
                  f"--user-data-dir={profile}", "--virtual-time-budget=60000", "--dump-dom", HARNESS.as_uri()],
-                capture_output=True, text=True, timeout=240,
+                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=240,
             )
         m = re.search(r'<pre id="results">(.*?)</pre>', proc.stdout, re.S)
         if not m or m.group(1).strip() == "PENDING":

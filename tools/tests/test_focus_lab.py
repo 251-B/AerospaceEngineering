@@ -65,7 +65,7 @@ class FocusLabBrowserTests(unittest.TestCase):
                 [BROWSER, "--headless=new", "--disable-gpu", "--no-first-run", "--allow-file-access-from-files",
                  "--autoplay-policy=no-user-gesture-required", f"--user-data-dir={profile}",
                  "--virtual-time-budget=60000", "--dump-dom", HARNESS.as_uri()],
-                capture_output=True, text=True, timeout=180,
+                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180,
             )
         m = re.search(r'<pre id="results">(.*?)</pre>', proc.stdout, re.S)
         if not m or m.group(1).strip() == "PENDING":
