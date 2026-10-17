@@ -19,7 +19,7 @@ bytes: 2126997
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 49 note(s) below
+- **Status:** referenced by 67 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -70,6 +70,24 @@ bytes: 2126997
 - [[01 - Fluid Mechanics/Problem - K7 Hyperbolic Stagnation Flow]]
 - [[01 - Fluid Mechanics/Problem - K8 Pulsating Three-Dimensional Potential]]
 - [[01 - Fluid Mechanics/Problem - K9 Oscillating Polar Flow]]
+- [[01 - Fluid Mechanics/Problem - NS1 Porous Wall with Suction]]
+- [[01 - Fluid Mechanics/Problem - NS10 Underwater Explosion Cavity]]
+- [[01 - Fluid Mechanics/Problem - NS11 Couette Flow between Porous Plates]]
+- [[01 - Fluid Mechanics/Problem - NS12 Flow between Concentric Spheres]]
+- [[01 - Fluid Mechanics/Problem - NS13 Porous Rotating Cylinders with Radial Flow]]
+- [[01 - Fluid Mechanics/Problem - NS14 Annular Flow with Axial and Rotational Motion]]
+- [[01 - Fluid Mechanics/Problem - NS15 Moving Porous Wall with Suction]]
+- [[01 - Fluid Mechanics/Problem - NS16 Channel Flow with Temperature-Dependent Viscosity]]
+- [[01 - Fluid Mechanics/Problem - NS17 Rotating Porous Disk with Suction]]
+- [[01 - Fluid Mechanics/Problem - NS2 Rotating Coaxial Cylinders]]
+- [[01 - Fluid Mechanics/Problem - NS3 Spherical Balloon of Variable Radius]]
+- [[01 - Fluid Mechanics/Problem - NS4 Couette Flow with Heat Transfer]]
+- [[01 - Fluid Mechanics/Problem - NS5 Cylinder Dragging a Liquid Layer]]
+- [[01 - Fluid Mechanics/Problem - NS6 Sphere with Radial Suction]]
+- [[01 - Fluid Mechanics/Problem - NS7 Liquid Film on an Inclined Plane]]
+- [[01 - Fluid Mechanics/Problem - NS8 Porous Cylinder Moving Axially with Suction]]
+- [[01 - Fluid Mechanics/Problem - NS9 Porous Cylinder Quiz with Viscous Heating]]
 - [[01 - Fluid Mechanics/Topic 1 - Introductory Remarks and Starting Assumptions]]
 - [[01 - Fluid Mechanics/Topic 2 - Flow Kinematics]]
 - [[01 - Fluid Mechanics/Topic 3 - Conservation Laws]]
+- [[01 - Fluid Mechanics/Topic 4 - The Navier-Stokes Equations]]

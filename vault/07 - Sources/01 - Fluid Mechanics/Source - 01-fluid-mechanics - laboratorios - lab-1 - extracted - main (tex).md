@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - laboratorio
-  - referenced
+  - not-referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/extracted/main.tex"
 kind: laboratorio
-status: referenced
+status: not-referenced
 bytes: 33514
 ---
 
@@ -19,8 +19,9 @@ bytes: 33514
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-1/extracted/main.tex`
 - **Kind:** laboratorio
 - **Size:** 33.5 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
-- [[03 - Engineering Mechanics/Lab 1 - Particle Connected to a Spool]]
+No vault note mentions this file yet.

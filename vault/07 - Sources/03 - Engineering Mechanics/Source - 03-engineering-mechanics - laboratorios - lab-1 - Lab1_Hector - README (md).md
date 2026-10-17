@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/README.md"
 kind: laboratorio
 status: not-referenced
-bytes: 2671
+bytes: 2724
 ---
 
 # Source: README.md

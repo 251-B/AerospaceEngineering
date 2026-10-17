@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 165
-- Referenced by at least one note (a mention counts): 48
-- Not referenced yet: 117
+- Files: 174
+- Referenced by at least one note (a mention counts): 64
+- Not referenced yet: 110
 - Build artifacts: 0
 - Working files: 0
 
@@ -113,7 +113,26 @@ tags:
 | [[Source - 01-fluid-mechanics - laboratorios - lab-1 - extracted - Figure_7 (png)\|Figure_7.png]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-1 - extracted - FlowMeter2 (jpeg)\|FlowMeter2.jpeg]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-1 - extracted - FlowMeter (jpeg)\|FlowMeter.jpeg]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-1 - extracted - main (tex)\|main.tex]] | laboratorio | referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-1 - extracted - main (tex)\|main.tex]] | laboratorio | not-referenced |
+
+## laboratorios/lab-2
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Guidelines (pdf)\|Guidelines.pdf]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - MatlabCodeReference (m)\|MatlabCodeReference.m]] | laboratorio | not-referenced |
+
+## laboratorios/lab-2/report
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_neumann (pdf)\|fig_neumann.pdf]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_neumann (png)\|fig_neumann.png]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_periodic (pdf)\|fig_periodic.pdf]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_periodic (png)\|fig_periodic.png]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - lab2_overleaf (zip)\|lab2_overleaf.zip]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - Lab2AdvDiffEq (m)\|Lab2AdvDiffEq.m]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - main (tex)\|main.tex]] | laboratorio | not-referenced |
 
 ## slides
 
@@ -185,23 +204,23 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS1 (pdf)\|NS1.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS2 (pdf)\|NS2.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS3 (pdf)\|NS3.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS4 (pdf)\|NS4.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS5 (pdf)\|NS5.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS6 (pdf)\|NS6.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS7 (pdf)\|NS7.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS8 (pdf)\|NS8.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS9 (pdf)\|NS9.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS10 (pdf)\|NS10.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS11 (pdf)\|NS11.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS12 (pdf)\|NS12.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS13 (pdf)\|NS13.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS14 (pdf)\|NS14.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS15 (pdf)\|NS15.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS16 (pdf)\|NS16.pdf]] | problemas | not-referenced |
-| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS17 (pdf)\|NS17.pdf]] | problemas | not-referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS1 (pdf)\|NS1.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS2 (pdf)\|NS2.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS3 (pdf)\|NS3.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS4 (pdf)\|NS4.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS5 (pdf)\|NS5.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS6 (pdf)\|NS6.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS7 (pdf)\|NS7.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS8 (pdf)\|NS8.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS9 (pdf)\|NS9.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS10 (pdf)\|NS10.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS11 (pdf)\|NS11.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS12 (pdf)\|NS12.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS13 (pdf)\|NS13.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS14 (pdf)\|NS14.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS15 (pdf)\|NS15.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS16 (pdf)\|NS16.pdf]] | problemas | referenced |
+| [[Source - 01-fluid-mechanics - unit-04-navier-stokes - problemas - NS17 (pdf)\|NS17.pdf]] | problemas | referenced |
 
 ## unit-05-hydrostatics/problemas
 

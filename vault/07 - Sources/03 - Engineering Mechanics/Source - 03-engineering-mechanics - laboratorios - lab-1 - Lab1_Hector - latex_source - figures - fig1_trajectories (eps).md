@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.eps"
 kind: laboratorio
 status: not-referenced
-bytes: 362279
+bytes: 365002
 ---
 
 # Source: fig1_trajectories.eps
@@ -18,7 +18,7 @@ bytes: 362279
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1_Hector/latex_source/figures/fig1_trajectories.eps`
 - **Kind:** laboratorio
-- **Size:** 362.3 kB
+- **Size:** 365.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS16.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 583384
 ---
 
@@ -19,8 +19,8 @@ bytes: 583384
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS16.pdf`
 - **Kind:** problemas
 - **Size:** 583.4 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - NS16 Channel Flow with Temperature-Dependent Viscosity]]

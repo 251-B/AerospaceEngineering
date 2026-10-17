@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS4.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 479898
 ---
 
@@ -19,8 +19,8 @@ bytes: 479898
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS4.pdf`
 - **Kind:** problemas
 - **Size:** 479.9 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - NS4 Couette Flow with Heat Transfer]]

@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS14.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 378611
 ---
 
@@ -19,8 +19,8 @@ bytes: 378611
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS14.pdf`
 - **Kind:** problemas
 - **Size:** 378.6 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Problem - NS14 Annular Flow with Axial and Rotational Motion]]

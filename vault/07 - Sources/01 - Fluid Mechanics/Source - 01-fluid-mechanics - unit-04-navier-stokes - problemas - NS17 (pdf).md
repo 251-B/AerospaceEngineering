@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - problemas
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS17.pdf"
 kind: problemas
-status: not-referenced
+status: referenced
 bytes: 282693
 ---
 
@@ -19,8 +19,9 @@ bytes: 282693
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/unit-04-navier-stokes/problemas/NS17.pdf`
 - **Kind:** problemas
 - **Size:** 282.7 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Fluid Mechanics MOC]]
+- [[01 - Fluid Mechanics/Problem - NS17 Rotating Porous Disk with Suction]]
