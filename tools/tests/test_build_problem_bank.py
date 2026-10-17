@@ -167,6 +167,17 @@ class RepositoryTests(unittest.TestCase):
     def test_bank_is_up_to_date(self):
         self.assertEqual(bpb.main(["--check"]), 0)
 
+    def test_extra_problems_page_is_one_midterm_block_with_theory_then_problems(self):
+        page = bpb.PAGE.read_text(encoding="utf-8")
+        block = page[page.index("EXTRA-PROBLEMS:START"):page.index("EXTRA-PROBLEMS:END")]
+        self.assertIn('id="midterm-1"', block)
+        self.assertLess(block.index('id="theory"'), block.index('id="C01"'))
+        self.assertLess(block.index('id="C24"'), block.index('id="problems"'))
+        self.assertLess(block.index('id="problems"'), block.index('id="P11"'))
+        self.assertEqual(block.count('class="problem-box"'), 30)
+        for gone in ("bankSearch", "Mastered", "problem-bank.js", 'id="P01"'):
+            self.assertNotIn(gone, page)
+
     def test_problems_js_carries_the_checked_blueprint(self):
         js = (bpb.OUT_DIR / "problems.js").read_text(encoding="utf-8")
         self.assertIn("window.AE_BM_BANK = ", js)
@@ -181,9 +192,10 @@ class RepositoryTests(unittest.TestCase):
         self.assertIn('data-blueprint="AE_BM_BLUEPRINT"', page)
         self.assertIn("../data/problems.js", page)
         script = (bpb.REPO / "assets/js/exam-simulator.js").read_text(encoding="utf-8")
-        for key in ("'ae_bm_exams'", "'ae_bm_progress'"):
-            self.assertIn(key, script)
-            self.assertNotIn("theme", key)
+        self.assertIn("'ae_bm_exams'", script)
+        self.assertNotIn("ae_bm_progress", script, "there is no per-item progress any more")
+        self.assertNotIn("simSkipMastered", page)
+        self.assertIn('data-bank-page="../extra-problems/index.html"', page)
 
     def test_bank_matches_the_blueprint(self):
         data = json.loads((bpb.OUT_DIR / "problems.json").read_text(encoding="utf-8"))
@@ -192,10 +204,10 @@ class RepositoryTests(unittest.TestCase):
             items = [i for i in data["items"] if i["category"] == part["category"]]
             self.assertTrue(all(i["points"] == part["points_each"] for i in items))
             self.assertGreaterEqual(len({i["unit"] for i in items} if part["category"] == "short_theory_case" else items), part["count"])
-        self.assertEqual(data["counts"], {"short_theory_case": 24, "extra_practice_problem": 16})
+        self.assertEqual(data["counts"], {"short_theory_case": 24, "extra_practice_problem": 6})
         problems = [i for i in data["items"] if i["category"] == "extra_practice_problem"]
         new = [i for i in problems if not i["official"]]
-        self.assertEqual(len(new), 6)
+        self.assertEqual(new, problems, "the bank holds only items written for it")
         for arch in bpb.ARCHETYPES:
             self.assertGreaterEqual(sum(i["archetype"] == arch for i in new), 1, arch)
 

@@ -69,7 +69,7 @@ tags:
   * [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Exam Problem 4: CEMED — Industrial Accounting Cycle & Trade Discount Analysis]]
 
 ### Problem Bank and Midterm 1 Simulator
-* [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|Problem Bank]]: 16 Extra Practice problems (the 10 official exercises above plus 6 exam-style practice exercises in the style of T3_Additional_EXERCISES.pdf) and 24 short theory cases on Topics 1-3. It feeds `subjects/business-management/data/problems.json` through `tools/build_problem_bank.py`; the exam structure is in `subjects/business-management/data/exam-blueprint.json`.
+* [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|Extra problems]]: the 1st Midterm block of the Extra problems page, with 24 short theory cases on Topics 1-3 and 6 exam-style practice problems (style of T3_Additional_EXERCISES.pdf). It feeds `subjects/business-management/data/problems.json` through `tools/build_problem_bank.py`; the exam structure is in `subjects/business-management/data/exam-blueprint.json`.
 
 ---
 

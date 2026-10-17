@@ -362,10 +362,10 @@
         </svg>
       </div>
       <h1>Business Management — Exam Simulator</h1>
-      <p>A simulated first partial exam (Midterm 1) drawn from the Extra problems: three short theory cases from different units and one Extra Practice problem, against the clock. Hints and solutions stay hidden until you finish; then you grade yourself with the key results and the full solutions, and the items you missed go to Review in Extra problems.</p>
+      <p>A simulated first partial exam (Midterm 1) drawn from the Extra problems: three short theory cases from different units and one Extra Practice problem, against the clock. Hints and solutions stay hidden until you finish; then you grade yourself with the key results and the full solutions.</p>
     </header>
 
-    <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-storage="ae_bm_exams" data-progress="ae_bm_progress" data-bank-page="../extra-problems/index.html">
+    <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT" data-storage="ae_bm_exams" data-bank-page="../extra-problems/index.html">
 
       <section id="simSetup" aria-labelledby="simSetupTitle">
         <div class="sim-card">
@@ -385,7 +385,6 @@
               <label class="sim-label" for="simArchetype">Type of the 4-point problem</label>
               <select class="sim-select" id="simArchetype"><option value="any">Any type (random)</option></select>
             </div>
-            <label class="sim-check"><input type="checkbox" id="simSkipMastered" checked> <span>Do not include items I marked Mastered in Extra problems</span></label>
             <label class="sim-check"><input type="checkbox" id="simSkipPrevious" checked> <span>Do not repeat the items of my previous simulated exam</span></label>
           </div>
           <button class="bank-btn sim-primary" type="button" id="simGenerate">Generate New Midterm 1 Exam</button>

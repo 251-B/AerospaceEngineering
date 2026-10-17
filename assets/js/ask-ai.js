@@ -156,7 +156,7 @@
   }
 
   function isProblemPage() {
-    return /\/problemas\//.test(location.pathname);
+    return /\/(problemas|extra-problems)\//.test(location.pathname);
   }
 
   function subjectSlug() {

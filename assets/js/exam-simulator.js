@@ -4,23 +4,22 @@
  * Builds a simulated exam from a subject's bank (window.AE_BM_BANK) following its blueprint (window.AE_BM_BLUEPRINT),
  * both written by tools/build_problem_bank.py into subjects/<subject>/data/problems.js. Markup hook:
  *     <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT"
- *          data-storage="ae_bm_exams" data-progress="ae_bm_progress" data-bank-page="../problemas/index.html">
+ *          data-storage="ae_bm_exams" data-bank-page="../extra-problems/index.html">
  * with the three screens #simSetup, #simRunner and #simResults inside it. Load it with defer, after KaTeX's auto-render
  * and after the bank data.
  *
  * Generation: each blueprint part draws `count` items of its category at random; Part I keeps every case in a different
- * unit and theme when the bank allows it; Part II can be limited to one archetype. Options: duration, skip the items marked
- * Mastered in Extra problems, skip the items of the previous simulated exam (both relaxed, with a notice, if too few
- * items remain).
+ * unit and theme when the bank allows it; Part II can be limited to one archetype. Options: duration, and skipping the
+ * items of the previous simulated exam (relaxed, with a notice, if too few items remain).
  *
  * Live exam: wall-clock countdown (it survives reloads), points summary, quick navigation, a draft box per question,
  * no hints or solutions. When the time is up the exam goes to grading by itself. Grading: key results and full solutions
  * appear; theory cases are graded with the blueprint's grading steps, the problem per subquestion in quarter points;
- * the grade out of the blueprint total is saved in the history, and every item below half of its points is marked
- * "review" in the Extra problems progress key.
+ * the grade out of the blueprint total is saved in the history, and every item below half of its points is listed,
+ * linked to its worked solution on the Extra problems page.
  *
- * Storage (never a key containing "theme"): ae_bm_exams = { current: {...} | null, history: [...] } and the bank's
- * ae_bm_progress. Shortcuts (ignored while typing or with Ctrl/Alt/Meta): T next reading palette, Esc close the help,
+ * Storage (never a key containing "theme"): ae_bm_exams = { current: {...} | null, history: [...] }
+ * Shortcuts (ignored while typing or with Ctrl/Alt/Meta): T next reading palette, Esc close the help,
  * ? shortcuts help.
  */
 (function () {
@@ -31,8 +30,7 @@
   var BANK = window[root.getAttribute('data-bank') || 'AE_BM_BANK'];
   var BP = window[root.getAttribute('data-blueprint') || 'AE_BM_BLUEPRINT'];
   var KEY = root.getAttribute('data-storage') || 'ae_bm_exams';
-  var PROGRESS_KEY = root.getAttribute('data-progress') || 'ae_bm_progress';
-  var BANK_PAGE = root.getAttribute('data-bank-page') || '../problemas/index.html';
+  var BANK_PAGE = root.getAttribute('data-bank-page') || '../extra-problems/index.html';
   var setupEl = document.getElementById('simSetup');
   var runnerEl = document.getElementById('simRunner');
   var resultsEl = document.getElementById('simResults');
@@ -166,11 +164,7 @@
   }
 
   function generate() {
-    var progress = readJSON(PROGRESS_KEY, {});
     var excluded = {};
-    if (document.getElementById('simSkipMastered').checked) {
-      Object.keys(progress).forEach(function (id) { if (progress[id] === 'mastered') excluded[id] = 1; });
-    }
     if (document.getElementById('simSkipPrevious').checked && store.history.length) {
       store.history[store.history.length - 1].items.forEach(function (r) { excluded[r.id] = 1; });
     }
@@ -447,25 +441,23 @@
     var cur = store.current;
     var t = totals();
     if (!t.done) return;
-    var progress = readJSON(PROGRESS_KEY, {});
-    var review = [];
+    var low = [];
     var items = cur.items.map(function (entry) {
       var item = BY_ID[entry.id], sc = cur.scores[entry.id];
       var score = typeof sc === 'number' ? sc : item.subquestions.reduce(function (s, sub) { return s + (sc[sub.label] || 0); }, 0);
-      if (score < item.points / 2) { progress[item.id] = 'review'; review.push(item.id); }
+      if (score < item.points / 2) low.push(item.id);
       return { id: item.id, part: entry.part, score: score, points: item.points };
     });
-    writeJSON(PROGRESS_KEY, progress);
     store.history.push({ startedAt: cur.startedAt, finishedAt: cur.finishedAt || Date.now(), minutes: cur.minutes,
                          timeUp: !!cur.timeUp, items: items, total: t.total, max: BP.total_points });
     store.current = null;
     save();
     var box = document.getElementById('simSaved');
     var html = '<p><strong>Grade saved: ' + fmt1(t.total) + ' / ' + fmt1(BP.total_points) + '.</strong></p>';
-    html += review.length
-      ? '<p>Marked Review in Extra problems (below half of their points):</p><ul class="sim-result-list">' +
-        review.map(function (id) { return '<li><a href="' + BANK_PAGE + '#' + id + '">' + id + ' · ' + BY_ID[id].title + '</a></li>'; }).join('') + '</ul>'
-      : '<p>No item below half of its points: nothing was marked for review.</p>';
+    html += low.length
+      ? '<p>Below half of their points, worth practising again on the Extra problems page:</p><ul class="sim-result-list">' +
+        low.map(function (id) { return '<li><a href="' + BANK_PAGE + '#' + id + '">' + id + ' · ' + BY_ID[id].title + '</a></li>'; }).join('') + '</ul>'
+      : '<p>Every item reached at least half of its points.</p>';
     box.innerHTML = html;
     box.hidden = false;
     document.getElementById('simSave').hidden = true;

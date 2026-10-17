@@ -312,7 +312,69 @@ def build(bank_dir=None):
         check_blueprint(blueprint, items)
         js += ("/* The exam structure of data/exam-blueprint.json, for the Exam Simulator. */\n"
                f"window.AE_BM_BLUEPRINT = {json.dumps(blueprint, ensure_ascii=False)};\n")
-    return {OUT_DIR / "problems.json": text, OUT_DIR / "problems.js": js}
+    outputs = {OUT_DIR / "problems.json": text, OUT_DIR / "problems.js": js}
+    if pathlib.Path(bank_dir) == BANK and PAGE.is_file():
+        outputs[PAGE] = render_page(PAGE.read_bytes().decode("utf-8").replace("\r\n", "\n"), items)
+    return outputs
+
+
+# --------------------------------------------------------------------------- the Extra problems page
+PAGE = REPO / "subjects" / "business-management" / "extra-problems" / "index.html"
+_PAGE_BLOCK = re.compile(r"(<!-- EXTRA-PROBLEMS:START[^>]*-->\n).*?(<!-- EXTRA-PROBLEMS:END -->)", re.S)
+
+
+def _pts(x):
+    return f"{x:g} point" + ("" if x == 1 else "s")
+
+
+def _card(item):
+    is_case = item["category"] == "short_theory_case"
+    unit = UNITS[item["unit"]].split(" · ")[0]
+    tag = f"{'Theory case' if is_case else 'Problem'} · {unit} · {_pts(item['points'])} · {item['time_minutes']} min"
+    out = [f'      <section class="problem-box" id="{item["id"]}">',
+           f'        <span class="problem-tag">{html.escape(tag)}</span>',
+           f'        <h4 class="problem-title">{html.escape(item["id"])} — {html.escape(item["title"])}</h4>',
+           '        <div class="statement-box">', item["statement_html"], "        </div>"]
+    if item["setup_html"]:
+        out += ['        <div class="phase-block">', '          <h3 class="phase-title">Setup</h3>', item["setup_html"], "        </div>"]
+    for sub in item["subquestions"]:
+        out += ['        <div class="phase-block">',
+                f'          <h3 class="phase-title">Part ({sub["label"]}) · {_pts(sub["points"])}</h3>',
+                '          <div class="prompt">' + sub["prompt_html"] + "</div>",
+                sub["solution_html"],
+                '          <div class="result-callout"><div class="result-callout-title">'
+                + ("Key points" if is_case else "Key results") + "</div>" + sub["checkpoint_html"] + "</div>",
+                "        </div>"]
+    if item["interpretation_html"]:
+        out += ['        <div class="phase-block">', '          <h3 class="phase-title">Interpretation and checks</h3>',
+                item["interpretation_html"], "        </div>"]
+    out.append("      </section>")
+    return "\n".join(out)
+
+
+def render_page(page, items):
+    """The 1st Midterm block of the Extra problems page: theory cases first, then the problems."""
+    cases = [i for i in items if i["category"] == "short_theory_case"]
+    probs = [i for i in items if i["category"] == "extra_practice_problem"]
+    block = "\n".join([
+        '      <section class="midterm-block" id="midterm-1">',
+        '        <h2 class="midterm-title">1st Midterm</h2>',
+        '        <p class="midterm-lead">The first partial exam has two parts: three short theory cases of 2 points each '
+        '(6 points) and one practical problem of 4 points, in 90 minutes. Practise each part here, or take a timed '
+        'exam built from these items in the <a href="../simulator/index.html">Exam simulator</a>.</p>',
+        '        <h3 class="midterm-part" id="theory">Theory</h3>',
+        f'        <p class="midterm-part-lead">{len(cases)} short theory cases on Topics 1 to 3: a short company case '
+        'in which the course concepts are applied and explained.</p>',
+        "\n".join(_card(i) for i in cases),
+        '        <h3 class="midterm-part" id="problems">Problems</h3>',
+        f'        <p class="midterm-part-lead">{len(probs)} exam-style problems on Topic 3 (financial statements and '
+        'financing), in the style of the additional exam exercises of the course.</p>',
+        "\n".join(_card(i) for i in probs),
+        "      </section>",
+    ]) + "\n"
+    if not _PAGE_BLOCK.search(page):
+        raise BankError(f"{PAGE.relative_to(REPO).as_posix()} lacks the EXTRA-PROBLEMS markers")
+    return _PAGE_BLOCK.sub(lambda m: m.group(1) + block + m.group(2), page, count=1)
 
 
 def main(argv=None):

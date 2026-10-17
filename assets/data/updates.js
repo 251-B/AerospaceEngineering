@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-17-business-extra-problems-midterm",
+    "date": "2026-10-17",
+    "tag": "Business Management",
+    "title": "Extra problems now laid out like the other problem pages",
+    "text": "One 1st Midterm block with 24 theory cases and 6 exam-style problems, each with its statement and full solution. The official exercises stay on the Problems page.",
+    "link": "subjects/business-management/extra-problems/index.html"
+  },
+  {
     "id": "2026-10-16-fluids-navier-stokes-problems",
     "date": "2026-10-16",
     "tag": "Fluid Mechanics",

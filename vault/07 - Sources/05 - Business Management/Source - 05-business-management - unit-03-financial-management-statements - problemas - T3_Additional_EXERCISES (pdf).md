@@ -19,7 +19,7 @@ bytes: 331571
 - **Path:** `sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_EXERCISES.pdf`
 - **Kind:** problemas
 - **Size:** 331.6 kB
-- **Status:** referenced by 17 note(s) below
+- **Status:** referenced by 13 note(s) below
 
 ## Referenced by
 
@@ -29,10 +29,6 @@ bytes: 331571
 - [[05 - Business Management/Problem - T3 Extra 2 - Infopymes Full Cycle Financial Statements and ROA ROE]]
 - [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends]]
 - [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P07 - T3 Extra 1 Circonsa Half-Year Statements]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P08 - T3 Extra 2 Infopymes Statements and ROA ROE]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P09 - T3 Extra 3 Wifinet Accounting Cycle and Dividends]]
-- [[05 - Business Management/Problem Bank/Problem - Bank P10 - T3 Extra 4 Cemed Statements and Supplier Discount]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P11 - FRIGOLEV Incomplete Balance and Cooperative Discount]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P12 - AGRODRON Second Year after a Start-Up Loss]]
 - [[05 - Business Management/Problem Bank/Problem - Bank P13 - TAHSA Deducing the Cash Sales from the Bank Balance]]
