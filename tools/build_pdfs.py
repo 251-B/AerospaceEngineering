@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Print every theory and problem page to A4 PDFs for the "Download PDF" / "Open as PDF" buttons.
 
-For each subjects/<slug>/{teoria,problemas}/<page>.html (not index.html) it writes
+For each subjects/<slug>/{teoria,problemas,extra-problems}/<page>.html (not index.html) it writes
     assets/pdf/<slug>/<area>/<page>.pdf              the whole page (all problems on problem pages)
     assets/pdf/<slug>/<area>/<page>/<card id>.pdf    each problem card on its own
 using headless Edge/Chrome (the same browser as tools/render_check.py) and the print layout of
@@ -38,6 +38,7 @@ OUT = "assets/pdf"
 MANIFEST = OUT + "/manifest.json"
 INPUTS = ("assets/css/print.css", "assets/js/pdf-export.js")
 VERSION = "1"
+AREAS = ("teoria", "problemas", "extra-problems")   # areas whose pages have PDFs
 _CARD = re.compile(r'<(?:article|div|section|details)\b[^>]*class="[^"]*\b(?:problem-card|problem-box)\b[^"]*"[^>]*>')
 _ID = re.compile(r'\bid="([^"]+)"')
 _KATEX_CDN = re.compile(r"https://cdn\.jsdelivr\.net/npm/katex@[0-9.]+/dist/")
@@ -45,7 +46,7 @@ _KATEX_CDN = re.compile(r"https://cdn\.jsdelivr\.net/npm/katex@[0-9.]+/dist/")
 
 def pages(root: pathlib.Path) -> list[pathlib.Path]:
     out = []
-    for area in ("teoria", "problemas"):
+    for area in AREAS:
         out += sorted(p for p in root.glob(f"subjects/*/{area}/*.html") if p.name != "index.html")
     return out
 
@@ -75,7 +76,7 @@ def targets(root: pathlib.Path) -> dict[str, tuple[pathlib.Path, str, str]]:
         base = f"{OUT}/{slug}/{area}/{stem}"
         h = hashlib.sha256(lf_bytes(page) + shared)
         out[base + ".pdf"] = (page, "all", h.hexdigest())
-        if area == "problemas":
+        if area != "teoria":
             for cid in card_ids(text):
                 out[f"{base}/{cid}.pdf"] = (page, cid, hashlib.sha256(h.digest() + cid.encode()).hexdigest())
     return out

@@ -16,8 +16,8 @@ import sys
 
 SRC_REL = pathlib.Path("tools", "nav.json")
 OUT_REL = pathlib.Path("assets", "data", "nav.js")
-AREAS = (("teoria", "Theory"), ("problemas", "Problems"))
-EXTRAS = (("extra-problems", "Extra problems"), ("simulator", "Exam simulator"),
+AREAS = (("teoria", "Theory"), ("problemas", "Problems"), ("extra-problems", "Extra problems"))
+EXTRAS = (("simulator", "Exam simulator"),
           ("sources", "Theory & exercise PDFs"), ("exams", "Exams"))
 
 

@@ -1,5 +1,5 @@
 {
- "_comment": "Short labels for the side menu (assets/js/sidebar.js). Edit this file when a page is added, renamed or removed, then run tools/build_nav.py. 'page' is the file name inside teoria/ or problemas/; the index.html of each area, sources/index.html and exams/index.html are added automatically.",
+ "_comment": "Short labels for the side menu (assets/js/sidebar.js). Edit this file when a page is added, renamed or removed, then run tools/build_nav.py. 'page' is the file name inside teoria/, problemas/ or extra-problems/; the index.html of each area, sources/index.html and exams/index.html are added automatically.",
  "subjects": [
   {
    "slug": "fluid-mechanics",
@@ -213,6 +213,16 @@
     {
      "page": "topic-3-extra-exam-problems.html",
      "label": "3 · Extra exam problems"
+    }
+   ],
+   "extra-problems": [
+    {
+     "page": "midterm-1-theory.html",
+     "label": "1st Midterm · Theory cases"
+    },
+    {
+     "page": "midterm-1-problems.html",
+     "label": "1st Midterm · Practice problems"
     }
    ]
   }

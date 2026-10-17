@@ -22,9 +22,11 @@ subquestion has its hint, checkpoint and solution, and every balance-sheet row t
 
 It writes problems.json and problems.js (the same data as window.AE_BM_BANK, for pages opened from disk); problems.js
 also carries data/exam-blueprint.json as window.AE_BM_BLUEPRINT for the Exam Simulator, after checking it against the bank.
+It also fills the generated blocks of the Extra problems section: the hub (extra-problems/index.html), the page of
+theory cases (midterm-1-theory.html) and the page of practice problems (midterm-1-problems.html).
 
 Usage:
-    python tools/build_problem_bank.py            # rewrite problems.json and problems.js
+    python tools/build_problem_bank.py            # rewrite problems.json, problems.js and the Extra problems pages
     python tools/build_problem_bank.py --check    # exit 1 if they are stale or a note is invalid
 """
 import argparse
@@ -313,14 +315,24 @@ def build(bank_dir=None):
         js += ("/* The exam structure of data/exam-blueprint.json, for the Exam Simulator. */\n"
                f"window.AE_BM_BLUEPRINT = {json.dumps(blueprint, ensure_ascii=False)};\n")
     outputs = {OUT_DIR / "problems.json": text, OUT_DIR / "problems.js": js}
-    if pathlib.Path(bank_dir) == BANK and PAGE.is_file():
-        outputs[PAGE] = render_page(PAGE.read_bytes().decode("utf-8").replace("\r\n", "\n"), items)
+    if pathlib.Path(bank_dir) == BANK:
+        for path, render in ((HUB, render_hub), (THEORY_PAGE, render_theory), (PROBLEMS_PAGE, render_problems)):
+            if path.is_file():
+                outputs[path] = render(path.read_bytes().decode("utf-8").replace("\r\n", "\n"), items)
     return outputs
 
 
-# --------------------------------------------------------------------------- the Extra problems page
-PAGE = REPO / "subjects" / "business-management" / "extra-problems" / "index.html"
+# --------------------------------------------------------------------------- the Extra problems pages
+# extra-problems/index.html is a hub (one block per exam, a card per page); the 1st Midterm has a page
+# of short theory cases and a page of practice problems. Each file keeps hand-written head and footer
+# and a generated block between its markers.
+EXTRA = REPO / "subjects" / "business-management" / "extra-problems"
+HUB = EXTRA / "index.html"
+THEORY_PAGE = EXTRA / "midterm-1-theory.html"
+PROBLEMS_PAGE = EXTRA / "midterm-1-problems.html"
+PAGE = HUB          # kept for callers that only need the section's entry page
 _PAGE_BLOCK = re.compile(r"(<!-- EXTRA-PROBLEMS:START[^>]*-->\n).*?(<!-- EXTRA-PROBLEMS:END -->)", re.S)
+_HUB_BLOCK = re.compile(r"(<!-- EXTRA-HUB:START[^>]*-->\n).*?(<!-- EXTRA-HUB:END -->)", re.S)
 
 
 def _pts(x):
@@ -352,29 +364,87 @@ def _card(item):
     return "\n".join(out)
 
 
-def render_page(page, items):
-    """The 1st Midterm block of the Extra problems page: theory cases first, then the problems."""
-    cases = [i for i in items if i["category"] == "short_theory_case"]
-    probs = [i for i in items if i["category"] == "extra_practice_problem"]
+def _split(items):
+    return ([i for i in items if i["category"] == "short_theory_case"],
+            [i for i in items if i["category"] == "extra_practice_problem"])
+
+
+def _fill(pattern, path, page, block):
+    if not pattern.search(page):
+        raise BankError(f"{path.relative_to(REPO).as_posix()} lacks its generated-block markers")
+    return pattern.sub(lambda m: m.group(1) + block + m.group(2), page, count=1)
+
+
+def render_theory(page, items):
+    """The 1st Midterm theory page: every short theory case, solved."""
+    cases, _ = _split(items)
     block = "\n".join([
-        '      <section class="midterm-block" id="midterm-1">',
-        '        <h2 class="midterm-title">1st Midterm</h2>',
-        '        <p class="midterm-lead">The first partial exam has two parts: three short theory cases of 2 points each '
-        '(6 points) and one practical problem of 4 points, in 90 minutes. Practise each part here, or take a timed '
-        'exam built from these items in the <a href="../simulator/index.html">Exam simulator</a>.</p>',
-        '        <h3 class="midterm-part" id="theory">Theory</h3>',
-        f'        <p class="midterm-part-lead">{len(cases)} short theory cases on Topics 1 to 3: a short company case '
-        'in which the course concepts are applied and explained.</p>',
+        f'      <p class="midterm-part-lead">{len(cases)} short theory cases on Topics 1 to 3. In the exam, three of '
+        'them (2 points each, 6 points in all) come with one practical problem of 4 points, in 90 minutes; the '
+        '<a href="../simulator/index.html">Exam simulator</a> builds a timed exam from these items.</p>',
         "\n".join(_card(i) for i in cases),
-        '        <h3 class="midterm-part" id="problems">Problems</h3>',
-        f'        <p class="midterm-part-lead">{len(probs)} exam-style problems on Topic 3 (financial statements and '
-        'financing), in the style of the additional exam exercises of the course.</p>',
-        "\n".join(_card(i) for i in probs),
-        "      </section>",
     ]) + "\n"
-    if not _PAGE_BLOCK.search(page):
-        raise BankError(f"{PAGE.relative_to(REPO).as_posix()} lacks the EXTRA-PROBLEMS markers")
-    return _PAGE_BLOCK.sub(lambda m: m.group(1) + block + m.group(2), page, count=1)
+    return _fill(_PAGE_BLOCK, THEORY_PAGE, page, block)
+
+
+def render_problems(page, items):
+    """The 1st Midterm problems page: every exam-style practice problem, solved."""
+    _, probs = _split(items)
+    block = "\n".join([
+        f'      <p class="midterm-part-lead">{len(probs)} exam-style problems on Topic 3 (financial statements and '
+        'financing), in the style of the additional exam exercises of the course. In the exam, one of them (4 points) '
+        'comes with three short theory cases of 2 points each, in 90 minutes; the '
+        '<a href="../simulator/index.html">Exam simulator</a> builds a timed exam from these items.</p>',
+        "\n".join(_card(i) for i in probs),
+    ]) + "\n"
+    return _fill(_PAGE_BLOCK, PROBLEMS_PAGE, page, block)
+
+
+def _hub_card(href, badge, title, desc, items, tags):
+    rows = "\n".join(
+        '          <li class="exercise-item">\n'
+        f'            <span class="ex-num">{html.escape(i["id"])}:</span>\n'
+        f'            <span class="ex-title">{html.escape(i["title"])}</span>\n'
+        "          </li>" for i in items)
+    chips = "\n".join(f'          <span class="meta-tag">{html.escape(t)}</span>' for t in tags)
+    return "\n".join([
+        f'      <a href="{href}" class="problem-card">',
+        f'        <span class="card-badge">{html.escape(badge)}</span>',
+        f'        <h2 class="card-title">{html.escape(title)}</h2>',
+        f'        <p class="card-desc">{desc}</p>',
+        "", '        <ul class="exercise-list">', rows, "        </ul>", "",
+        '        <div class="topic-meta">', chips, "        </div>",
+        "      </a>"])
+
+
+def render_hub(page, items):
+    """The Extra problems hub: the 1st Midterm block with one card per page, like the Problems hub."""
+    cases, probs = _split(items)
+    first, last = cases[0]["id"], cases[-1]["id"]
+    pf, pl = probs[0]["id"], probs[-1]["id"]
+    block = "\n".join([
+        '    <section class="exam-block" id="midterm-1" aria-labelledby="midterm-1-title">',
+        '      <h2 class="exam-block-title" id="midterm-1-title">1st Midterm</h2>',
+        '      <p class="exam-block-lead">The first partial exam has two parts: three short theory cases of 2 points '
+        'each (6 points) and one practical problem of 4 points, in 90 minutes. Practise each part on its own page, '
+        'or take a timed exam built from these items in the <a href="../simulator/index.html">Exam simulator</a>.</p>',
+        '      <div class="problem-sets-grid">',
+        _hub_card(THEORY_PAGE.name, "1st Midterm • Theory", f"Short Theory Cases {first} to {last}",
+                  f"{len(cases)} short company cases on Topics 1 to 3 (the firm, value creation, financial "
+                  "management), each worth 2 points: the course concepts applied to a case and explained, with the "
+                  "key points of every answer.", cases,
+                  [f"{len(cases)} Theory Cases", "2 points each", "Topics 1 to 3", "Key points per answer"]),
+        "",
+        _hub_card(PROBLEMS_PAGE.name, "1st Midterm • Problems", f"Exam-Style Practice Problems {pf} to {pl}",
+                  f"{len(probs)} exam-style problems on Topic 3, each worth 4 points: income statements, balance "
+                  "sheets, cash reconciliation and financing, solved step by step with the key results of every "
+                  "part.", probs,
+                  [f"{len(probs)} Practice Problems", "4 points each", "Balance Sheets", "Income Statements (P&L)",
+                   "Cash Reconciliation"]),
+        "      </div>",
+        "    </section>",
+    ]) + "\n"
+    return _fill(_HUB_BLOCK, HUB, page, block)
 
 
 def main(argv=None):

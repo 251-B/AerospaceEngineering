@@ -150,7 +150,7 @@ class SurfacePagesTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_every_page_and_palette_was_audited(self):
-        self.assertEqual(len(self.results), 16 * 6)
+        self.assertEqual(len(self.results), 18 * 6)
         self.assertEqual([r for r in self.results if "error" in r], [])
 
     def test_palette_and_theme_were_applied(self):

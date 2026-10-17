@@ -167,16 +167,28 @@ class RepositoryTests(unittest.TestCase):
     def test_bank_is_up_to_date(self):
         self.assertEqual(bpb.main(["--check"]), 0)
 
-    def test_extra_problems_page_is_one_midterm_block_with_theory_then_problems(self):
-        page = bpb.PAGE.read_text(encoding="utf-8")
-        block = page[page.index("EXTRA-PROBLEMS:START"):page.index("EXTRA-PROBLEMS:END")]
+    def test_extra_problems_hub_links_the_two_midterm_pages(self):
+        hub = bpb.HUB.read_text(encoding="utf-8")
+        block = hub[hub.index("EXTRA-HUB:START"):hub.index("EXTRA-HUB:END")]
         self.assertIn('id="midterm-1"', block)
-        self.assertLess(block.index('id="theory"'), block.index('id="C01"'))
-        self.assertLess(block.index('id="C24"'), block.index('id="problems"'))
-        self.assertLess(block.index('id="problems"'), block.index('id="P11"'))
-        self.assertEqual(block.count('class="problem-box"'), 30)
-        for gone in ("bankSearch", "Mastered", "problem-bank.js", 'id="P01"'):
-            self.assertNotIn(gone, page)
+        self.assertLess(block.index('href="midterm-1-theory.html"'), block.index('href="midterm-1-problems.html"'))
+        self.assertEqual(block.count('class="exercise-item"'), 30)
+        self.assertNotIn('class="problem-box"', hub, "the hub lists the items; the solutions live on the two pages")
+        self.assertIn('aria-current="page">Extra problems</a>', hub)
+
+    def test_midterm_pages_hold_the_solved_items_with_pdf_buttons(self):
+        theory = bpb.THEORY_PAGE.read_text(encoding="utf-8")
+        problems = bpb.PROBLEMS_PAGE.read_text(encoding="utf-8")
+        for page, first, last, n in ((theory, "C01", "C24", 24), (problems, "P11", "P16", 6)):
+            block = page[page.index("EXTRA-PROBLEMS:START"):page.index("EXTRA-PROBLEMS:END")]
+            self.assertEqual(block.count('class="problem-box"'), n)
+            self.assertLess(block.index(f'id="{first}"'), block.index(f'id="{last}"'))
+            self.assertIn("assets/js/pdf-export.js", page)
+            self.assertIn("assets/js/ask-ai.js", page)
+            for gone in ("bankSearch", "Mastered", "problem-bank.js", 'id="P01"'):
+                self.assertNotIn(gone, page)
+        self.assertNotIn('id="P11"', theory)
+        self.assertNotIn('id="C01"', problems)
 
     def test_problems_js_carries_the_checked_blueprint(self):
         js = (bpb.OUT_DIR / "problems.js").read_text(encoding="utf-8")
@@ -195,7 +207,9 @@ class RepositoryTests(unittest.TestCase):
         self.assertIn("'ae_bm_exams'", script)
         self.assertNotIn("ae_bm_progress", script, "there is no per-item progress any more")
         self.assertNotIn("simSkipMastered", page)
-        self.assertIn('data-bank-page="../extra-problems/index.html"', page)
+        self.assertIn('data-bank-dir="../extra-problems/"', page)
+        self.assertIn("midterm-1-theory.html", script)
+        self.assertIn("midterm-1-problems.html", script)
 
     def test_bank_matches_the_blueprint(self):
         data = json.loads((bpb.OUT_DIR / "problems.json").read_text(encoding="utf-8"))

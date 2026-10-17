@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-17-business-extra-problems-pages",
+    "date": "2026-10-17",
+    "tag": "Business Management",
+    "title": "Extra problems split into theory cases and practice problems",
+    "text": "The Extra problems page is now a hub with two pages for the 1st Midterm, one for the theory cases and one for the six practice problems. Both can be downloaded as PDF.",
+    "link": "subjects/business-management/extra-problems/index.html"
+  },
+  {
     "id": "2026-10-17-business-extra-problems-midterm",
     "date": "2026-10-17",
     "tag": "Business Management",

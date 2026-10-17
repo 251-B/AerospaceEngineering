@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — 1st Midterm Theory Cases | Business Management</title>
+  <meta name="description" content="Short theory cases for the first midterm of Business Management (UC3M Aerospace Engineering), solved step by step." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">1ST MIDTERM · THEORY CASES</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · 1st Midterm · Theory</div>
+        <h1 class="article-title">1st Midterm: Short Theory Cases</h1>
+        <div class="article-meta">
+          Short company cases on Topics 1 to 3, worth 2 points each in the first partial exam, written for this portal and solved step by step. They are practice material, not official exercises; anything beyond the course slides is marked as an extension.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_problem_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">24 short theory cases on Topics 1 to 3. In the exam, three of them (2 points each, 6 points in all) come with one practical problem of 4 points, in 90 minutes; the <a href="../simulator/index.html">Exam simulator</a> builds a timed exam from these items.</p>
+      <section class="problem-box" id="C01">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C01 — SkyCourier: real and financial flows of a drone-delivery start-up</h4>
+        <div class="statement-box">
+<p>SkyCourier S.L. delivers medicines by drone to villages in the Pyrenees. It rents a hangar from a local farmer, employs twelve pilots and technicians, and was financed by investors who bought its shares. Each month it charges the regional health service and several pharmacies for the deliveries. In 2025 the families of the valley spent part of their wages on SkyCourier's new home-delivery service, and the company paid its first dividend to its shareholders.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.75 points</h3>
+          <div class="prompt"><p>Identify SkyCourier's inputs and outputs, and classify the inputs as factors of production</p></div>
+<p>SkyCourier's <strong>output</strong> is a <strong>service</strong>, the delivery of medicines and parcels. Its <strong>inputs</strong> are the factors of production [Slides 3-4]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Factor</th><th>In SkyCourier</th></tr></thead><tbody><tr><td>Land (natural resources)</td><td>The rented hangar site</td></tr><tr><td>Labour</td><td>The twelve pilots and technicians</td></tr><tr><td>Capital</td><td>Drones, charging stations, software; the money provided by investors</td></tr><tr><td>Entrepreneurship</td><td>The founders who bring the other factors together and take the risk</td></tr></tbody></table></div>
+<p>The business activity is precisely the transformation of these inputs into the delivery service.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Output: a service (drone delivery), not a good.</li><li>Land: the hangar site; labour: pilots and technicians; capital: drones, equipment and the investors' money; entrepreneurship: the founders who coordinate and bear the risk.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.25 points</h3>
+          <div class="prompt"><p>Describe the real flows and the financial flows between SkyCourier and the households, naming the two markets in which they take place</p></div>
+<p>The circular flow of income links firms and households through two markets [Slides 5-11]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Market</th><th>Real flow</th><th>Financial flow (opposite direction)</th></tr></thead><tbody><tr><td><strong>Factor market</strong></td><td>Households → SkyCourier: the hangar (land), work (labour), savings invested in shares (capital)</td><td>SkyCourier → households: rent to the farmer, wages to the staff, dividends to the shareholders</td></tr><tr><td><strong>Market of goods and services</strong></td><td>SkyCourier → households: the delivery service</td><td>Households → SkyCourier: the price of the deliveries, paid out of their wages</td></tr></tbody></table></div>
+<p>The flows close a circle: the wages paid by SkyCourier return to it, in part, when the families buy its home-delivery service. The <strong>real flows</strong> are the factors and the service; the <strong>financial flows</strong> are their monetary compensation, running the other way [Slide 11]. What SkyCourier keeps after paying all the factors is its <strong>profit</strong>, from which the dividend was paid.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Factor market: households deliver land, labour and capital; SkyCourier pays rent, wages and dividends.</li><li>Goods and services market: SkyCourier delivers the service; households pay for it.</li><li>Real and financial flows run in opposite directions; what the firm keeps is its profit.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C02">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C02 — Orbital Fasteners: sorting a day of activity into the functional areas</h4>
+        <div class="statement-box">
+<p>Orbital Fasteners S.A. makes titanium bolts certified for satellites. On a single Monday: (1) the purchasing team ordered 2 tonnes of titanium bar; (2) the CNC lines produced 40,000 bolts; (3) the sales engineer presented the company at a space-industry fair; (4) the finance department negotiated a bank loan to buy a new thread-rolling machine; (5) it collected an invoice from a satellite integrator and paid the titanium supplier; (6) HR interviewed two quality inspectors; (7) the plant manager set the production targets for the next quarter and checked last month's scrap rate against the plan; (8) the IT team upgraded the traceability database.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify the eight activities into real, financial and management functions</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Activity</th><th>Function</th><th>Group [Slide 13]</th></tr></thead><tbody><tr><td>1. Ordering titanium</td><td>Supply (acquisition of inputs)</td><td>Real</td></tr><tr><td>2. Producing bolts</td><td>Production</td><td>Real</td></tr><tr><td>3. Trade fair</td><td>Marketing</td><td>Real</td></tr><tr><td>4. Bank loan for a machine</td><td>Financing and investing</td><td>Financial</td></tr><tr><td>5. Collecting and paying</td><td>Receiving revenues and paying for inputs</td><td>Financial</td></tr><tr><td>6. Hiring inspectors</td><td>Support (Human Resources)</td><td>Real</td></tr><tr><td>7. Targets and scrap check</td><td>Planning and control</td><td>Management</td></tr><tr><td>8. Traceability database</td><td>Support (Information Systems)</td><td>Real</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Real: 1 (supply), 2 (production), 3 (marketing), 6 and 8 (support: HR, information systems).</li><li>Financial: 4 (financing and investing), 5 (collecting revenues and paying for inputs).</li><li>Management: 7 (planning and control).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain how the real and the financial cycles relate, and what engineers contribute to the management of a firm like this one</p></div>
+<p>The <strong>financial cycle runs alongside the real cycle</strong> [Slide 13]: the company raises funds (the loan of activity 4), uses them to pay for inputs (the titanium of activity 1, paid in activity 5), turns the inputs into bolts and sells them, collects the revenue (activity 5) and finally returns capital and interest to those who lent the money. Without the financial functions the real cycle stops; without the real cycle there is no revenue to repay the funds.</p>
+<p>Engineers bring <strong>project planning, time management and problem solving, attention to detail, experience in data processing, computer skills and technical knowledge</strong> [Slide 15]: exactly what activity 7 (targets and scrap control) and activity 8 (traceability data) require.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>The financial cycle mirrors the real one: funds raised → inputs paid → revenues collected → capital and interest returned.</li><li>Engineers: project planning, time management, problem solving, attention to detail, data processing, technical knowledge.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C03">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C03 — Atlas Line Maintenance: the four stages of the management process in a ramp-up</h4>
+        <div class="statement-box">
+<p>Atlas Line Maintenance S.L. has won a contract to perform the overnight checks of a low-cost airline at a new base. The station manager, Marta, has six months to be ready. She sets the goal of "zero technical delays in the first summer" and a plan to hire and certify 25 mechanics. She draws the shift structure and decides who is responsible for each aircraft type and which tools each shift needs. During the first weeks she holds daily briefings, encourages the team and mediates a conflict between the night and day shifts over handovers. Every Friday she compares the delays and the hours per check with the targets and adjusts the shifts.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Identify the four stages of the management process in Marta's actions</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Stage [Slide 14]</th><th>Content</th><th>At Atlas</th></tr></thead><tbody><tr><td><strong>Planning</strong></td><td>Defining goals, establishing strategy, developing subplans</td><td>"Zero technical delays"; plan to hire and certify 25 mechanics</td></tr><tr><td><strong>Organizing</strong></td><td>What must be done, how, and by whom</td><td>Shift structure, responsibilities per aircraft type, tools per shift</td></tr><tr><td><strong>Leading</strong></td><td>Directing and motivating, resolving conflicts</td><td>Daily briefings, encouragement, mediation between shifts</td></tr><tr><td><strong>Controlling</strong></td><td>Monitoring that activities go as planned</td><td>Friday comparison of delays and hours per check with the targets</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Planning: the zero-delay goal and the hiring and certification plan.</li><li>Organizing: shift structure, responsibilities, tools.</li><li>Leading: daily briefings, motivation, resolving the shift conflict.</li><li>Controlling: weekly comparison of delays and hours with the targets.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain why the four stages form a cycle and what Marta does when she finds a deviation</p></div>
+<p>The management process is a <strong>cycle</strong> around the organization's purpose [Slide 14]. Control is not the end: when the Friday review shows a deviation (for example, more hours per check than planned), Marta corrects it by <strong>reorganizing</strong> the shifts or by <strong>revising the plan</strong> (more mechanics, new targets), and she must then <strong>lead</strong> the team through the change. The new results are controlled the following week, so the four stages keep repeating while the base operates.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Control results feed the next round of planning: the process is cyclical.</li><li>A deviation triggers corrective action: reorganizing the shifts or revising the plan, then leading the change.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C04">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C04 — An eVTOL founder: the four views of the entrepreneur and her rights</h4>
+        <div class="statement-box">
+<p>Lucía, an aerospace engineer, noticed in 2023 that city hospitals needed faster transfers of organs than road ambulances could offer, and that nobody was serving that need. She designed an electric vertical-take-off aircraft with a new battery-cooling system, mortgaged her flat to fund the first prototype, and brought together a team of engineers, a supplier of carbon structures and a hangar owner. Today she signs every contract of the company, decides who works on each project, keeps whatever profit is left once everyone has been paid, and has been offered a large sum by an airline for her stake.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Relate Lucía's behaviour to the four views of the entrepreneur</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>View [Slide 17]</th><th>Evidence in the case</th></tr></thead><tbody><tr><td><strong>"On alert"</strong> (Kirzner, 1973)</td><td>She detected a new business opportunity, a need nobody was serving</td></tr><tr><td><strong>Innovator</strong> (Schumpeter, 1950)</td><td>She introduced a new product with a new battery-cooling technology</td></tr><tr><td><strong>Risk taker</strong> (Knight, 1921)</td><td>She risked her own flat to finance the prototype</td></tr><tr><td><strong>Coordinator</strong></td><td>She brought land (hangar), labour (engineers) and capital (supplier, funds) together</td></tr></tbody></table></div>
+<p>Together these are the functions of the entrepreneur: coordinate and control production, ensure payment of the factors, take risky decisions, innovate, and detect opportunities [Slide 17].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>On alert (Kirzner): she detected an unserved need.</li><li>Innovator (Schumpeter): a new aircraft and battery-cooling system.</li><li>Risk taker (Knight): she mortgaged her flat.</li><li>Coordinator: she brought together engineers, supplier and hangar owner.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Explain which rights make Lucía "the entrepreneur" of her company</p></div>
+<p>A firm is teamwork, and team production needs someone who controls it; the incentive to take that role comes from four <strong>rights</strong> [Slide 18]. Lucía holds all of them: she receives the <strong>residual income</strong> (the profit left once every factor is paid); she <strong>controls and reassigns</strong> the other factors (she decides who works on each project); she is the <strong>central party in all the contracts</strong> with the inputs (she signs them); and she can <strong>sell these rights</strong> (the airline's offer for her stake). The person who holds all these rights is, by definition, the entrepreneur.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Right to the residual income (the profit left after paying the factors).</li><li>Right to control and reassign the other factors (who works on each project).</li><li>Being the central party in all contracts.</li><li>Right to sell these rights (the airline's offer).</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C05">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C05 — Three engineers choosing a legal form for a composite-repair shop</h4>
+        <div class="statement-box">
+<p>Ana, Bruno and Carla want to open a shop that repairs composite parts of light aircraft. Ana would invest 60,000 m.u. of savings; Bruno and Carla only their work. A single faulty repair could lead to claims far larger than everything they own, so they worry about losing their homes. They want to start quickly and cheaply, but in five years they hope to open three more shops with outside investors, and they want the business to continue if one of them leaves.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Compare the sole proprietorship, the partnership and the corporation on the features that matter to the three engineers</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Feature</th><th>Sole proprietorship</th><th>Partnership</th><th>Corporation</th></tr></thead><tbody><tr><td>Owners</td><td>One person</td><td>Two or more co-owners</td><td>Shareholders</td></tr><tr><td>Liability</td><td>Unlimited</td><td><strong>Unlimited and joint</strong></td><td><strong>Limited</strong></td></tr><tr><td>Starting</td><td>Simple</td><td>Few restrictions</td><td>Complex and costly</td></tr><tr><td>Permanence</td><td>Impermanent</td><td>Relatively impermanent</td><td>Permanent</td></tr><tr><td>Funds</td><td>Hard to raise</td><td>Pooled funds and talents</td><td>Greater financial capability</td></tr><tr><td>Taxation</td><td>No separate tax</td><td>No separate tax</td><td>Special and double taxation</td></tr></tbody></table></div>
+<p>A sole proprietorship belongs to <strong>one</strong> person [Slide 21], so it does not fit three owners. A partnership is easy to set up through a partnership agreement and pools Ana's money with Bruno's and Carla's skills [Slide 22], but each partner answers for the firm's debts with all their personal wealth, jointly [Slide 23]. A corporation is a separate legal entity whose owners have <strong>limited</strong> liability [Slide 24].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Sole proprietorship: one owner only, unlimited liability: ruled out.</li><li>Partnership: easy to start, pooled talents; unlimited and joint liability, relative impermanence.</li><li>Corporation: limited liability, permanence, easy transfer of shares, greater financial capability; complex and costly, double taxation.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Recommend a legal form and justify it with the engineers' goals</p></div>
+<p>The <strong>corporation</strong> fits best. Limited liability addresses their main fear: a large claim would affect the company's assets, not their homes. It is <strong>permanent</strong>, so the business continues if one partner leaves, and ownership is <strong>easily transferred through shares</strong>, which is how the outside investors of the expansion would enter; it also has greater financial capability [Slide 24]. The price is a more complex and costly formation, government regulation and disclosure requirements, and double taxation; the engineers should accept these costs in exchange for protection and growth. The course also lists forms of partnership that limit liability: the limited liability partnership (LLP) [Slide 20] and the limited partnership, where some partners answer only up to what they invested [Slide 29]. An LLP would also meet the fear of claims, but the corporation fits better with the plans for outside investors and continuity.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Recommend a corporation: limited liability protects their homes; permanence; easy entry of investors through shares.</li><li>Accept its drawbacks: cost of formation, regulation and disclosure, double taxation.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C06">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C06 — Meseta Aerostructures: a CEO, dispersed shareholders and the agency problem</h4>
+        <div class="statement-box">
+<p>Meseta Aerostructures S.A. is listed on the stock exchange; no shareholder owns more than 2% of its shares. Its CEO, a professional manager, is paid a fixed salary that grows with the number of employees under her. In three years she has bought two loss-making companies, moved headquarters to an expensive tower and ordered a corporate jet, while the share price has fallen by 30%. The annual report gives little detail on these decisions, and most small shareholders do not attend the general meeting.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Explain why this situation is an agency problem</p></div>
+<p>In large corporations the company is run by <strong>managers</strong>, professional employees, while it is owned by the <strong>shareholders</strong>: ownership is separated from control [Slide 25]. At Meseta, the CEO's pay rises with the number of employees, so her objective is <strong>size and prestige</strong> (acquisitions, tower, jet), not the value of the shares. Shareholders and managers have <strong>different objectives</strong> and <strong>different access to information</strong> (the report gives little detail), and with stakes below 2% no shareholder has enough information or <strong>incentive</strong> to assess her performance. The result is a conflict of interest between ownership and control: the <strong>agency problem</strong>.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Ownership (shareholders) is separated from control (the professional CEO).</li><li>The CEO pursues her own benefit (size, prestige) instead of the shareholders' (value).</li><li>Different access to information and different objectives; dispersed shareholders lack information and incentives to monitor.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Propose mechanisms that would align the CEO's decisions with the shareholders' interests</p></div>
+<p>Shareholders must be able to control how the manager acts [Topic 1, Slide 26]:</p>
+<ol><li><strong>Select the Board of Directors</strong> so that it actually supervises the CEO and approves large acquisitions.</li><li><strong>Contracts linked to goals:</strong> replace pay tied to headcount with incentive compensation tied to profit or share value [Topic 2, Slide 4].</li><li><strong>Request audits</strong> of the acquisitions and expenses, and publish <strong>indicators</strong> that let shareholders judge performance.</li><li>Outside the firm, the <strong>market of enterprises</strong> (a falling share price invites a takeover that would replace the CEO) and the <strong>labour market</strong> for managers (her reputation) also discipline her [Topic 2, Slide 4].</li></ol>
+<p>Increasingly, shareholders with large blocks of shares take the decisions [Slide 26]; a group of institutional investors could build such a block at Meseta.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Select a Board of Directors that supervises the CEO.</li><li>Contracts linked to goals (pay tied to profit or share value instead of headcount); incentive compensation.</li><li>Audits and indicators.</li><li>External discipline: the market of enterprises (takeover risk) and the labour market for managers.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C07">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C07 — A drone-spraying cooperative and a launcher joint venture</h4>
+        <div class="statement-box">
+<p>Two situations in the same region:</p>
+<p><strong>Case 1.</strong> Forty vineyard owners cannot each afford a crop-spraying drone. They create an organization that buys three drones and hires two pilots; any vineyard owner of the area may join, each member has one vote in the assembly regardless of size, and at the end of the year what is left after paying the expenses is returned to each member in proportion to the hectares sprayed.</p>
+<p><strong>Case 2.</strong> A European launcher manufacturer and a Japanese engine company set up a company owned 50/50 for the sole purpose of developing a reusable upper stage over eight years. When the stage is certified, the company will be dissolved.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Identify the form of business ownership in each case and justify it with its defining features</p></div>
+<p><strong>Case 1 is a cooperative association</strong> [Slides 27-28]: an incorporated organization whose <strong>user-members are also its owners</strong> and get back the revenue left after expenses. It follows the cooperative principles: <strong>open membership</strong> (any vineyard owner may join), <strong>democratic control</strong> (one member, one vote), and <strong>benefits distributed in proportion to each member's participation</strong> (hectares sprayed). Of the course's common types, the closest is a <strong>buying co-op</strong>, which helps members buy at lower prices (here, a spraying service); it is not an agricultural co-op in the course's sense, which helps member farmers <strong>market</strong> their products [Slide 28].</p>
+<p><strong>Case 2 is a joint venture</strong> [Slide 29]: a special type of partnership set up by firms to <strong>accomplish a specific task or project</strong>, the reusable upper stage, and dissolved once the task is done. It is very common in <strong>international business</strong>, as here.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Case 1: cooperative association (open membership, democratic control, benefits in proportion to participation, user-members are owners); closest type: a buying co-op.</li><li>Case 2: joint venture: a special partnership for a specific task or project, common in international business.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain one advantage of each form for its members</p></div>
+<p>The <strong>cooperative</strong> gives small vineyard owners access to equipment that none could buy alone, at cost, while keeping control democratic and sharing the surplus fairly. The <strong>joint venture</strong> lets two firms from different countries <strong>share the cost and risk</strong> of a long, uncertain project and <strong>combine complementary know-how</strong> (launcher and engines) without merging the whole companies; each parent keeps its independence in the rest of its business. These advantages are reasoning applied to the case; the deck defines the forms but does not list their advantages.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Co-op: access to expensive equipment and lower costs, with democratic control and fair sharing.</li><li>Joint venture: sharing a large, risky project and combining complementary know-how across countries without merging the parent companies.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C08">
+        <span class="problem-tag">Theory case · Topic 1 · 2 points · 15 min</span>
+        <h4 class="problem-title">C08 — Classifying three aerospace enterprises, and why firms exist at all</h4>
+        <div class="statement-box">
+<p>Consider three enterprises:</p>
+<ul><li><strong>TitanMine</strong>, a private company with 35 employees that extracts titanium ore in one region and sells it only in its own country;</li><li><strong>AeroNational</strong>, a state-owned manufacturer of military transport aircraft with 9,000 employees, plants in three countries and customers in twenty;</li><li><strong>Wingtip Consulting</strong>, a one-person business that advises flying schools on safety management in several markets of one country.</li></ul>
+<p>A classmate claims: "Firms are unnecessary; each engineer could simply sell their work to whoever needs it on the market."</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify the three enterprises using the economic and legal criteria of the course</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Criterion [Slide 19]</th><th>TitanMine</th><th>AeroNational</th><th>Wingtip Consulting</th></tr></thead><tbody><tr><td>Sector</td><td>Primary (extraction)</td><td>Secondary (manufacturing)</td><td>Tertiary (services)</td></tr><tr><td>Size</td><td>Small</td><td>Big</td><td>Small</td></tr><tr><td>Scope</td><td>One market, national</td><td>Multi-market, multinational</td><td>Multi-market, national</td></tr><tr><td>Ownership of the factors</td><td>Private</td><td>State-owned</td><td>Private</td></tr><tr><td>Form of ownership</td><td>Company (likely a corporation)</td><td>Corporation</td><td>Sole proprietorship</td></tr></tbody></table></div>
+<p>The deck gives the criteria and their classes but no thresholds; reading 35 employees as small and 9,000 as big is the usual interpretation (extension).</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TitanMine: primary, small, one market and national, private.</li><li>AeroNational: secondary, big, multi-market and multinational, state-owned; corporation.</li><li>Wingtip: tertiary, small, multi-market and national, private, sole proprietorship.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Answer the classmate using the course's explanation of why enterprises exist</p></div>
+<p>Economics studies how scarce resources are used to satisfy unlimited wants; those wants are met through <strong>specialization</strong>, the division of labour, and specialization requires <strong>coordination</strong> [Slide 12]. Coordination can be carried out either by the <strong>market</strong>, as the classmate suggests, or by the <strong>enterprise</strong>. Building a transport aircraft requires thousands of specialists working together on one product: coordinating them through separate market contracts would be impractical, so an enterprise appears to coordinate them (reasoning applied to the case, beyond the slides). In the course's words, an enterprise appears because there is a <strong>dissatisfied need</strong> [Slide 12]. Wingtip shows that, for simple services, one person selling directly to the market can also work.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Wants are met through specialization (division of labour), which requires coordination.</li><li>Coordination can be done by the market or by the enterprise; the enterprise appears where there is a dissatisfied need that it coordinates better.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C09">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C09 — Costa Airport: profit maximization or value creation?</h4>
+        <div class="statement-box">
+<p>A private company operates Costa Airport. A new board member argues: "Our only objective is to maximize this year's profit: let's double parking fees, cut the night shift of air-traffic support staff and postpone the runway resurfacing." The finance director replies that the board should instead aim to "maximize the value of the company", and the operations director warns that the airline customers, the unions, the city council and the regional government will all react to such measures.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Explain the limitations of profit maximization as the objective of the firm, using the board member's proposal</p></div>
+<p>The proposal follows the classical objective, <strong>profit maximization</strong>, which has four limitations [Slide 3]:</p>
+<ol><li><strong>Profit is difficult to define and to quantify:</strong> cutting maintenance raises this year's profit but lowers future profits (a degraded runway, a closure for emergency works).</li><li><strong>It ignores risk:</strong> the cuts raise the risk of incidents and of losing airlines, which a single profit figure does not show.</li><li><strong>The concept of maximization itself is questionable</strong> [Slide 3]; in practice managers aim at a minimum level of profit that satisfies the shareholders [Slide 4].</li><li><strong>It gives an excessive role to the entrepreneur:</strong> in a company like this, ownership and control are separated, and the board, managers and shareholders have different goals.</li></ol>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Profit is hard to define and quantify (this year vs future years).</li><li>It ignores the risk of achieving the profits (postponed resurfacing, safety, reaction of airlines).</li><li>The very idea of "maximizing" is questionable.</li><li>It gives an excessive role to the entrepreneur, whereas ownership and control are separated.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Explain why the finance director's objective is the one the course proposes, and how stakeholders shape it</p></div>
+<p>According to <strong>organizational theory</strong>, the objectives of the firm are the <strong>outcome of a negotiation among its stakeholders</strong>: here the shareholders, the airlines (customers), the employees and unions, the city council and regional government (the State), suppliers, banks and society [Slides 5-6]. The negotiation is limited because the firm must <strong>survive</strong> and because <strong>not all groups have the same power</strong>. The objective that satisfies the most powerful group while respecting the others and the firm's survival is to <strong>maximize the value of the enterprise</strong>, to create value [Slide 6]. In the unified vision, value comes from a cycle in which sales generate profits, retained profits finance investments (such as the resurfacing) and these renew the products and markets [Slide 7]; sacrificing the investment for one year's profit breaks that cycle.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Objectives result from negotiation among stakeholders (shareholders, customers, employees, State, society...).</li><li>Constraints: the firm must survive; groups have different bargaining power.</li><li>The resulting objective: maximize the value of the enterprise (create value), linking survival, profit and growth.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C10">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C10 — Closing an engine-parts plant: mapping the stakeholders and their power</h4>
+        <div class="statement-box">
+<p>TurboCast S.A., a maker of turbine blades, plans to close its oldest plant, in a town of 8,000 inhabitants where it employs 600 people, and move production to a new automated plant. The shareholders support the plan; the main bank, which financed the new plant, wants it to happen fast. The unions call a strike. The regional government offers a subsidy if the plant stays open two more years. The engine manufacturer that buys 70% of the blades demands that deliveries are not interrupted. Local suppliers and environmental groups also make their voices heard.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Identify the stakeholders in the case and what each one wants</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Stakeholder [Slide 5]</th><th>In the case</th><th>What it wants</th></tr></thead><tbody><tr><td>Shareholders</td><td>Owners of TurboCast</td><td>Lower costs and higher value through automation</td></tr><tr><td>Banks and financial agents</td><td>Lender of the new plant</td><td>Repayment; a fast transition that makes the plant profitable</td></tr><tr><td>Employees and unions</td><td>600 workers</td><td>To keep their jobs and conditions</td></tr><tr><td>The State</td><td>Regional government</td><td>Employment and activity in the region</td></tr><tr><td>Customers</td><td>Engine manufacturer</td><td>Uninterrupted, on-time deliveries</td></tr><tr><td>Suppliers</td><td>Local suppliers</td><td>To keep their contracts</td></tr><tr><td>Society</td><td>Town, environmental groups</td><td>Local activity, responsible behaviour (CSR)</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Shareholders: higher profit and value through automation.</li><li>Bank: repayment of the loan for the new plant.</li><li>Employees and unions: keep their jobs.</li><li>State (regional government): employment in the region.</li><li>Customer (engine maker): uninterrupted deliveries.</li><li>Suppliers and society: local business, environment.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Explain, using organizational theory, how the final decision is likely to be reached</p></div>
+<p>Organizational theory sees the objective as the <strong>outcome of a negotiation among stakeholders</strong>, limited by two facts: the firm must <strong>survive</strong>, and <strong>not all groups have the same power</strong> [Slide 6]. Here the engine manufacturer has very high bargaining power (70% of sales), as do the shareholders and the bank; the unions and the government have less power but can impose costs (strikes, subsidies withdrawn). The likely outcome is a <strong>compromise</strong>: the move to the automated plant goes ahead, because survival requires competitive costs, but it is <strong>phased</strong> over two years with the regional subsidy, deliveries are protected with stock built in advance, and part of the staff is relocated or retrained. That decision satisfies the most powerful groups while taking the others into account, which is what maximizing the value of the enterprise means in practice.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>The decision is a negotiated outcome, not one group's wish.</li><li>It satisfies the group with the most bargaining power (here the engine maker, which buys 70%, together with shareholders and bank) while taking the others into account.</li><li>Constraint of survival: TurboCast must stay competitive.</li><li>A likely compromise: a phased closure (subsidy, two years), guaranteed deliveries, relocation or retraining.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C11">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C11 — A small-launcher start-up reads its generic environment</h4>
+        <div class="statement-box">
+<p>Altair Launch S.L. is developing a rocket for satellites under 200 kg. In its business plan it lists: interest rates have doubled in two years and venture capital is scarcer; the European Union has created a fund to secure independent access to space, and a new national space law sets licensing rules; additive manufacturing has made engine parts much cheaper, while reusable rockets are becoming a key technology; the country trains many aerospace engineers, but public opinion is increasingly worried about space debris and the noise of the launch site.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify each element into the four groups of factors of the generic environment</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Group [Slide 11]</th><th>Element of the case</th><th>Effect on Altair</th></tr></thead><tbody><tr><td><strong>Economic</strong></td><td>Higher interest rates, less venture capital</td><td>Financing becomes harder and costlier</td></tr><tr><td><strong>Political-legal</strong></td><td>EU fund for independent access to space; national space law and licences</td><td>Opportunity (public demand and funding) and a regulatory requirement</td></tr><tr><td><strong>Socio-cultural</strong></td><td>Many trained engineers (level of education); concern about debris and noise (value system)</td><td>Easier hiring; pressure on the launch site and on debris mitigation</td></tr><tr><td><strong>Technological</strong></td><td>Additive manufacturing; reusable rockets</td><td>Cheaper engines; a key technology that may become a must</td></tr></tbody></table></div>
+<p>The course's four groups have no separate environmental factor: the table places the public's concern under the socio-cultural value system (public opinion), while the outside-in view of [Slide 13] also lists the natural environment among the forces around the industry. The PESTEL framework of other books would treat debris and noise as a separate environmental factor (extension).</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Economic: interest rates, scarce venture capital.</li><li>Political-legal: EU fund, national space law and licensing.</li><li>Socio-cultural: supply of trained engineers (education), public concern about debris and noise (value system).</li><li>Technological: additive manufacturing (key), reusability (incipient/key).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain the difference between the generic and the specific environment and why Altair needs both</p></div>
+<p>The <strong>generic environment</strong> affects all firms, whatever their industry: the interest rates or the space law hit every company in the country [Slide 11]. The <strong>specific environment</strong> is the environment of the firm's <strong>own industry</strong>: the rivalry among launch providers, entry and exit barriers, substitutes (for example rideshare launches on large rockets), and the relationships with customers and suppliers [Slide 12]. The analysis moves <strong>from the outside in</strong>, from the economy, technology and politics to the industry at the centre [Slide 13]. Altair needs both: the generic factors explain the conditions it cannot change, and the specific ones explain whether it can earn money against its direct competitors.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Generic environment: factors that affect every firm in the country/economy.</li><li>Specific environment: the firm's own industry (rivalry, entry and exit barriers, substitutes, customers, suppliers), analysed with Porter's five forces.</li><li>The analysis moves from the outside in.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C12">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 20 min</span>
+        <h4 class="problem-title">C12 — Island regional airlines under Porter&#x27;s five forces</h4>
+        <div class="statement-box">
+<p>Three airlines fly between the islands of an archipelago with similar turboprops and similar fares; none is clearly larger. Two manufacturers in the world build turboprops of that size, and a single company supplies the jet fuel at the airports. Most passengers are price-sensitive residents who compare fares online, plus the regional government, which buys tickets for public employees. A fast-ferry company has just started services between the two main islands. To start a new airline one needs aircraft, an operating certificate and slots at airports that are almost full.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Analyse the five competitive forces of this industry, rating each one as high, medium or low with a reason</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Force [Slides 14-15]</th><th>Rating</th><th>Determinants in the case</th></tr></thead><tbody><tr><td><strong>Rivalry among existing firms</strong></td><td>High</td><td>Three firms of similar size (low concentration, no leader), similar product and fares (little differentiation)</td></tr><tr><td><strong>Bargaining power of suppliers</strong></td><td>High</td><td>Only two turboprop manufacturers and a single fuel supplier: high relative bargaining power</td></tr><tr><td><strong>Bargaining power of buyers</strong></td><td>High</td><td>Residents are price-sensitive and compare online; the government buys in volume</td></tr><tr><td><strong>Threat of new entrants</strong></td><td>Low to medium</td><td>Capital requirements (aircraft), legal and regulatory barriers (operating certificate), access to "distribution" (airport slots almost full)</td></tr><tr><td><strong>Threat of substitutes</strong></td><td>Medium to high</td><td>The fast ferry: buyers' propensity to substitute depends on its relative price and travel time</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Rivalry: high (three similar firms, little differentiation, no leader).</li><li>Suppliers: high (two aircraft makers, one fuel supplier).</li><li>Buyers: high (price-sensitive residents; the government as a large buyer).</li><li>New entrants: low-medium (capital, certificate, full slots: legal and access barriers).</li><li>Substitutes: medium-high (fast ferry on the main route).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.5 points</h3>
+          <div class="prompt"><p>Conclude on the attractiveness of the industry and suggest one strategic response for an airline</p></div>
+<p>With strong rivalry, strong suppliers, strong buyers and a growing substitute, the industry is <strong>unattractive</strong>: the profit available is squeezed from every side, and only the entry barriers protect it. An airline can respond by building a <strong>cost advantage</strong> (a single aircraft type [Slide 21], high capacity utilization [Slide 22]) to survive the price war, or a <strong>differentiation advantage</strong> (frequent schedules, connections with long-haul flights, loyalty schemes for residents) that reduces buyers' price sensitivity [Slides 23-24].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Low attractiveness: four of five forces are strong.</li><li>A response: cost advantage (fleet standardization, high capacity utilization) or differentiation (schedule, connections, service) that weakens buyer power; possibly cooperation or consolidation to reduce rivalry.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C13">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C13 — Can a car-seat maker enter the aircraft-seat market? Barriers to entry</h4>
+        <div class="statement-box">
+<p>ComfortAuto S.A., a large maker of car seats, wants to enter the market of passenger seats for commercial aircraft. Three established firms supply almost all airlines. Each new seat model must pass crash and flammability certification that takes two years. Airlines buy seats through long contracts linked to aircraft orders, and the established firms have decades of reputation for reliability. They produce in large volumes in plants built for this purpose, and they own patents on lightweight seat frames. ComfortAuto, however, has strong engineering, low-cost purchasing of foam and fabrics, and spare plant capacity.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Identify the barriers to entry ComfortAuto faces, using the determinants of the threat of entry</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Determinant [Slide 15]</th><th>In the case</th></tr></thead><tbody><tr><td><strong>Legal and regulatory barriers</strong></td><td>Two years of crash and flammability certification per model; patents on lightweight frames</td></tr><tr><td><strong>Product differentiation</strong></td><td>The incumbents' decades of reputation for reliability make airlines reluctant to switch</td></tr><tr><td><strong>Access to distribution channels</strong></td><td>Seats are sold through long contracts tied to aircraft orders, already held by the incumbents</td></tr><tr><td><strong>Economies of scale</strong></td><td>Incumbents produce large volumes in dedicated plants, so their unit cost is lower</td></tr><tr><td><strong>Absolute cost advantage</strong></td><td>Patents and accumulated experience (economies of learning)</td></tr><tr><td><strong>Capital requirements</strong></td><td>Certification programmes and adapting a plant require large investment before any sale</td></tr></tbody></table></div>
+<p>These barriers make the threat of entry low and protect the profitability of the three incumbents.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Legal and regulatory: two-year certification; patents.</li><li>Product differentiation: reputation for reliability.</li><li>Access to distribution channels: long contracts linked to aircraft orders.</li><li>Economies of scale: incumbents' volumes in dedicated plants.</li><li>Capital requirements and absolute cost advantages (patents, experience).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Assess whether the diversification makes sense for ComfortAuto</p></div>
+<p>The diversification answers the two questions of [Slide 25] differently. <strong>Attractiveness:</strong> the same barriers that block ComfortAuto keep the industry profitable for those inside, so the sector is attractive. <strong>Competitive advantage:</strong> ComfortAuto brings real strengths (seat engineering, low-cost inputs, spare capacity), which makes this a <strong>related diversification</strong>, but it lacks certification, reputation and access to contracts. Entering head-on would be slow and risky; a more realistic path is to start in a niche (crew seats, business-jet seats), partner with an incumbent, or acquire a small certified firm.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Attractive sector: high barriers keep profitability high for those inside.</li><li>Competitive advantage: ComfortAuto has transferable strengths (engineering, cheap inputs, spare capacity) but lacks certification, reputation and contracts.</li><li>Related diversification: a gradual entry (a niche, a partnership or acquiring a small certified firm) is more realistic.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C14">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C14 — Nordic MRO Group: corporate strategy, business strategy and levels of decision</h4>
+        <div class="statement-box">
+<p>At its annual meeting, the Nordic MRO Group took these decisions: (1) to open a maintenance base in Morocco to serve African airlines; (2) to buy the company that overhauls the landing gear it used to outsource; (3) to compete in its engine-overhaul business by guaranteeing the shortest turnaround time in Europe, even at higher prices; (4) to schedule a second shift in the paint hangar during the summer; (5) to change the supplier of cleaning products next month.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify decisions 1–3 as corporate or business strategy, naming the dimension of scope or the source of advantage involved</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Decision</th><th>Type [Slides 9, 18]</th><th>Detail</th></tr></thead><tbody><tr><td>1. Base in Morocco</td><td><strong>Corporate strategy</strong></td><td><strong>Geographical scope</strong> (internationalization), part of the question "which businesses should we be in?"</td></tr><tr><td>2. Buying the landing-gear overhauler</td><td><strong>Corporate strategy</strong></td><td><strong>Vertical scope</strong> (backward vertical integration)</td></tr><tr><td>3. Shortest turnaround at higher prices</td><td><strong>Business (competitive) strategy</strong></td><td><strong>Differentiation</strong>: a valued, unique feature that earns a price premium [Slides 20, 23]</td></tr></tbody></table></div>
+<p>Corporate strategy answers "which businesses should we be in?" and business strategy "how should we compete?" [Slide 17].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>1: corporate strategy, geographical scope.</li><li>2: corporate strategy, vertical scope (backward integration).</li><li>3: business strategy, differentiation advantage (turnaround time, price premium).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Place decisions 4 and 5 in the levels of decision, and state what makes a strategy successful</p></div>
+<p>Decisions 1–3 are <strong>strategic</strong>: long-term, affecting the whole firm. Decision 4 (a summer shift in one hangar) is <strong>tactic</strong>: it concerns one area over a season and implements the strategy. Decision 5 (a cleaning supplier next month) is <strong>operative</strong>: routine and short term. The deck names the three levels [Slide 8]; this characterisation of each one is the usual reading (extension).</p>
+<p>A strategy succeeds through <strong>effective implementation</strong> resting on <strong>long-term, simple and agreed objectives</strong>, a <strong>deep understanding of the competitive environment</strong> and an <strong>objective appraisal of resources</strong> [Slide 10]. Nordic's differentiation on turnaround time, for instance, only works if it has the hangar capacity and staff (resources) to deliver it.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>4: tactic decision (one area; it implements the strategy).</li><li>5: operative decision (routine).</li><li>The deck only names the three levels; their characterisation is the usual reading (extension).</li><li>Success: long-term, simple and agreed objectives; deep understanding of the competitive environment; objective appraisal of resources; effective implementation.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C15">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C15 — LowOrbit: the drivers behind a cost-leadership strategy in satellite buses</h4>
+        <div class="statement-box">
+<p>LowOrbit S.A. sells the "bus" (platform) of small Earth-observation satellites at 40% below its rivals. It builds one standard design with interchangeable modules instead of custom platforms, and has designed every part to be machined in a single setup. Its line now produces 120 buses a year, and the hours per bus have fallen by half since the first 20 units as the teams repeated the same tasks. It bought a solar-cell supplier located next to the plant, keeps the factory running in three shifts, and its managers are paid for removing waste in every process.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Identify the drivers of cost advantage present in LowOrbit</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Driver [Slides 21-22]</th><th>Evidence at LowOrbit</th></tr></thead><tbody><tr><td><strong>Product design</strong></td><td>Standardization of designs and components; parts designed for manufacture (single setup)</td></tr><tr><td><strong>Economies of scale</strong></td><td>120 buses a year: specialization and division of labour</td></tr><tr><td><strong>Economies of learning</strong></td><td>Hours per bus halved as routines improved</td></tr><tr><td><strong>Input costs</strong></td><td>Ownership of a low-cost input (the solar-cell supplier) and a location advantage</td></tr><tr><td><strong>Capacity utilization</strong></td><td>Three shifts spread the fixed costs over more units</td></tr><tr><td><strong>Residual efficiency</strong></td><td>Managerial efficiency, motivation and culture of eliminating waste</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Product design: one standard design, interchangeable modules, design for manufacture.</li><li>Economies of scale: 120 buses a year.</li><li>Economies of learning: hours per bus halved with repetition.</li><li>Input costs: ownership of a low-cost input (solar cells), location.</li><li>Capacity utilization: three shifts.</li><li>Residual efficiency: managers paid to remove waste (motivation, culture).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain what a cost advantage is and what risk LowOrbit runs with this strategy</p></div>
+<p>A <strong>cost advantage</strong> means offering a <strong>similar product at a lower cost</strong> than competitors, whereas a differentiation advantage obtains a <strong>price premium from a unique product</strong> [Slide 20]. LowOrbit's standard bus is its main cost driver, but it is also its main risk: customers whose missions need a custom platform will go to differentiated rivals, and competitors can copy standardization and scale. To keep the advantage it must keep reducing costs faster than its rivals (learning, scale) while keeping the product "similar enough" in performance to theirs.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Cost advantage: offering a similar product at a lower cost than rivals.</li><li>Risk: standardization limits customization; customers who value unique features may prefer differentiated rivals; rivals may copy the cost drivers.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C16">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C16 — Aurum Interiors: tangible and intangible differentiation in business jets</h4>
+        <div class="statement-box">
+<p>Aurum Interiors S.L. designs cabins for private jets and charges about twice what its competitors charge. Its cabins use sound-absorbing panels that make them the quietest in the market and seats 20% lighter than average, and they are delivered with a personalised maintenance plan and a 24-hour technical hotline. Each cabin is signed by a well-known designer, carries a numbered plaque, and owners are invited to an exclusive yearly event. Aurum's account managers accompany each customer from the first sketch to years after delivery.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify the sources of Aurum's differentiation as tangible or intangible</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Source</th><th>Type [Slide 24]</th><th>Why</th></tr></thead><tbody><tr><td>Quietest cabins (sound-absorbing panels)</td><td>Tangible</td><td>Performance, observable and measurable</td></tr><tr><td>Seats 20% lighter</td><td>Tangible</td><td>Materials and performance</td></tr><tr><td>Maintenance plan and 24-hour hotline</td><td>Tangible</td><td>Complementary services</td></tr><tr><td>Designer's signature, numbered plaque</td><td>Intangible</td><td>Image, status, desire for exclusivity</td></tr><tr><td>Exclusive yearly event</td><td>Intangible</td><td>Identity and status of belonging to a select group</td></tr><tr><td>Account managers from sketch to after-sales</td><td>Whole relationship</td><td>Total customer responsiveness [Slide 24]</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Tangible: quietness (performance), lighter seats (materials/performance), maintenance plan and hotline (complementary services).</li><li>Intangible: designer's signature, numbered plaque, exclusive event (status, exclusivity).</li><li>The account managers: the whole supplier–customer relationship.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain how differentiation allows Aurum to charge twice the price, and what it must protect</p></div>
+<p>Differentiation means <strong>providing something unique that the buyer values</strong> beyond a low price [Slide 23]; because the customer values it, they accept a <strong>price premium</strong> [Slide 20]. Aurum's quiet, light cabins and its exclusive image create that value, so jet owners pay double. The strategy works only while the premium exceeds the extra cost of the panels, designers and services, and while the uniqueness lasts. The tangible features can eventually be copied; the intangible ones (brand, designer, relationship with owners) are harder to imitate and are what Aurum must protect.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Differentiation creates value for the customer, which earns a price premium [Slide 20].</li><li>The premium must exceed the extra cost of differentiating.</li><li>Aurum must protect what is valuable and hard to copy: reputation, design, relationship.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C17">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C17 — Vega Avionics: reasons for and types of diversification</h4>
+        <div class="statement-box">
+<p>Vega Avionics S.A. makes flight-control electronics. Its sales follow the aircraft-order cycle: in good years profits soar, in crises they collapse. The board studies three moves: (A) launching a line of electronic monitors for hospital intensive-care units, using its expertise in certified, fault-tolerant electronics; (B) opening a sales office in India to sell its current avionics to Indian aircraft makers; (C) buying a chain of hotels near airports because "it is profitable and has nothing to do with aircraft cycles".</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Give the reasons why Vega may want to diversify, and classify moves A, B and C</p></div>
+<p>Firms diversify for three reasons [Slide 25]: <strong>growth</strong>, <strong>risk</strong> (diversification reduces the volatility of earnings) and <strong>profit</strong>. Vega's main motive is <strong>risk</strong>: its earnings depend on one cycle, and businesses that do not follow it would stabilise them; growth and profit are secondary motives.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Move</th><th>Form [Slide 26]</th><th>Related or unrelated</th></tr></thead><tbody><tr><td>A. Hospital monitors</td><td>Horizontal diversification (new industry)</td><td><strong>Related</strong>: it expands Vega's existing line of certified electronics into a new market [Slide 26]</td></tr><tr><td>B. Sales office in India</td><td>Geographical diversification (new market)</td><td><strong>Related</strong>: same products, new market</td></tr><tr><td>C. Airport hotels</td><td>Horizontal diversification (new industry)</td><td><strong>Unrelated</strong>: it adds a new, unrelated product line [Slide 26]</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Reasons: risk (volatile earnings tied to the aircraft cycle), growth, profit.</li><li>A: horizontal diversification, related (shared technology).</li><li>B: geographical diversification of existing products, related.</li><li>C: horizontal diversification, unrelated.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Evaluate move C with the two questions of a diversification decision</p></div>
+<p>A diversification decision asks <strong>how attractive the sector is</strong> and <strong>whether the firm can achieve a competitive advantage in it</strong> [Slide 25]. Hotels near airports may be profitable, but Vega brings nothing that would give it an advantage over hotel chains: no shared technology, customers or skills. The move would lower the volatility of earnings, but shareholders could achieve that themselves by investing in hotel companies (an argument beyond the slides). Move A, related to Vega's know-how, answers both questions far better.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>The hotel sector may be attractive, but Vega has no source of competitive advantage there.</li><li>Unrelated diversification reduces risk; whether it adds profitability depends on achieving an advantage in the new sector.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C18">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C18 — A launcher maker buys its engine supplier: vertical integration</h4>
+        <div class="statement-box">
+<p>Helios Launch S.A. builds medium rockets. Its engines come from a single independent supplier that has raised prices twice in two years and delayed deliveries, and the two firms argue about who must pay for each design change. Helios is negotiating to buy the supplier. A director objects: engine technology is changing fast, the supplier also sells engines to other launch companies, and Helios has no experience in managing a factory of that size. Another director proposes, instead, to also buy the satellite-integration company that prepares customers' payloads before launch.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Identify the type of vertical integration in each proposal and the advantages Helios seeks with the purchase of the engine supplier</p></div>
+<p>The deck names forward and backward vertical integration [Slide 27]; in the standard reading (extension), backward integration moves toward the inputs and forward integration toward the customer. Buying the engine supplier is therefore <strong>backward vertical integration</strong>, and buying the satellite-integration company would be <strong>forward vertical integration</strong>. Both change the <strong>vertical scope</strong> of the firm, replacing a market interface with an administrative one [Slide 19].</p>
+<p>The advantages Helios seeks with the engine supplier [Slide 27]:</p>
+<ul><li><strong>control of inputs</strong>: no more unexpected price rises or delays;</li><li><strong>reduction of transaction costs</strong>: the disputes over design changes become internal decisions;</li><li><strong>independence</strong> from a single supplier and a <strong>better competitive position</strong>;</li><li><strong>reduction of information asymmetries</strong>: Helios will know the real costs and status of the engines.</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Buying the engine supplier: backward vertical integration; buying payload integration: forward vertical integration.</li><li>Advantages: control of inputs, reduction of transaction costs (disputes over design changes), independence, better competitive position, reduction of information asymmetries.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Use the disadvantages of vertical integration to evaluate the director's objection</p></div>
+<p>The director's points match the <strong>disadvantages</strong> of vertical integration [Slide 27]. When engine technology changes fast, owning the factory means <strong>decreased flexibility</strong>: Helios cannot simply switch to a better engine on the market. If rival launch companies stop buying from a supplier owned by a competitor, the factory loses volume and the <strong>advantages of specialization</strong>. Running a large factory without experience brings <strong>increased administrative costs</strong> and <strong>increased risk</strong>. A balanced conclusion: integration is worth it if engines are critical and the supplier abuses its power, but Helios should first consider alternatives such as a long-term contract or a second supplier.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Decreased flexibility: tied to its own engine technology when it changes fast.</li><li>Loss of specialization advantages: the supplier's scale from selling to other launchers may be lost.</li><li>Increased administrative costs and risk: managing a large new factory without experience.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C19">
+        <span class="problem-tag">Theory case · Topic 2 · 2 points · 15 min</span>
+        <h4 class="problem-title">C19 — SkyEye Drones: mapping activities onto Porter&#x27;s value chain</h4>
+        <div class="statement-box">
+<p>SkyEye Drones S.L. makes surveying drones. Its activities include: (1) receiving and storing motors and cameras from suppliers; (2) assembling and testing the drones; (3) packing and shipping them to customers; (4) online advertising and demonstrations to surveying firms; (5) repairs and software updates after sale; (6) negotiating contracts with component suppliers; (7) recruiting and training technicians; (8) developing the flight software and testing new materials; (9) accounting, legal advice, quality assurance and general management.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify each activity as a primary or a support activity of the value chain, naming it</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Activity</th><th>Value-chain activity</th><th>Type</th></tr></thead><tbody><tr><td>1. Receiving and storing components</td><td>Inbound logistics</td><td>Primary [Slide 30]</td></tr><tr><td>2. Assembling and testing</td><td>Operations</td><td>Primary</td></tr><tr><td>3. Packing and shipping</td><td>Outbound logistics</td><td>Primary</td></tr><tr><td>4. Advertising and demonstrations</td><td>Marketing and sales</td><td>Primary</td></tr><tr><td>5. Repairs and updates after sale</td><td>Service</td><td>Primary</td></tr><tr><td>6. Negotiating with suppliers</td><td>Procurement</td><td>Support [Slide 31]</td></tr><tr><td>7. Recruiting and training</td><td>Human resource management</td><td>Support</td></tr><tr><td>8. Flight software and materials</td><td>Technological development</td><td>Support</td></tr><tr><td>9. Accounting, legal, quality, management</td><td>Infrastructure</td><td>Support</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Primary: 1 inbound logistics, 2 operations, 3 outbound logistics, 4 marketing and sales, 5 service.</li><li>Support: 6 procurement, 7 HRM, 8 technological development, 9 infrastructure.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain what the value chain is for and where SkyEye's margin comes from</p></div>
+<p>The value chain (Porter, 1985) shows that a firm is not a random collection of resources but a set of <strong>activities</strong> that produce goods customers are willing to pay for; together they produce the <strong>margin</strong> shown at the end of the chain [Slide 29], usually read (extension) as the difference between what customers pay and the cost of all the activities. The <strong>management of the activities and of their linkages</strong> is what gives the competitive advantage: for SkyEye, the link between technological development (activity 8) and service (activity 5) allows software updates that keep old drones competitive, a reason for customers to pay more.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>The activities together produce the margin [Slide 29], read (extension) as what customers pay minus the cost of all activities.</li><li>Competitive advantage comes from managing the activities and their linkages (e.g. software development linked to after-sales updates).</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C20">
+        <span class="problem-tag">Theory case · Topic 3 · 2 points · 15 min</span>
+        <h4 class="problem-title">C20 — Rotorline: investing and financing decisions, economic and financial structure</h4>
+        <div class="statement-box">
+<p>The finance manager of Rotorline S.A., a helicopter-tour operator, has two items on her desk this week. First, whether to buy a fourth helicopter now or wait until next spring, and whether to replace the old hangar. Second, how to pay for whatever is bought: a bank has offered a five-year loan, the shareholders could put in more money, or the company could keep this year's profit instead of paying dividends. She knows that the helicopter would earn about 9% per year and that the money to buy it would cost, on average, about 7%.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Distinguish the two types of decisions the finance manager faces and link each one to a side of the balance sheet</p></div>
+<p>The finance manager faces the two decisions of the finance area [Slide 3]:</p>
+<ul><li><strong>Investing decisions</strong> — <em>what to invest in and when?</em>: the fourth helicopter (now or in spring) and the new hangar. They define the <strong>economic structure</strong>, the use of the financial resources in goods and rights: the <strong>assets</strong>, what the company owns [Slides 4-5].</li><li><strong>Financing decisions</strong> — <em>how to obtain the money?</em>: bank loan, new equity from shareholders, or retained profit. They define the <strong>financial structure</strong>, the sources of financing: <strong>equity and liabilities</strong>, what the company owes [Slides 4-5, 6].</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Investing decisions (helicopter, hangar, timing) → economic structure → assets (what is owned).</li><li>Financing decisions (loan, new equity, retained profit) → financial structure → equity and liabilities (what is owed).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Use the 9% and 7% figures to explain the objective of the company in financial terms</p></div>
+<p>The <strong>assets</strong> produce <strong>profitability</strong>, while <strong>equity and liabilities</strong> have a <strong>cost</strong>; the objective of the company is to <strong>maximize value</strong>, which requires that <strong>profitability exceed cost</strong> [Slide 5]. The new helicopter would earn about 9% per year while the funds to buy it cost about 7%, so it creates value: each year it returns 2 points more than it costs. If the cheapest financing available cost more than 9%, the same helicopter would destroy value, which is why the investing and financing decisions must be taken together.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Assets generate profitability; financing has a cost.</li><li>Objective: maximize value, which requires profitability &gt; cost.</li><li>9% &gt; 7%: the helicopter creates value.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C21">
+        <span class="problem-tag">Theory case · Topic 3 · 2 points · 15 min</span>
+        <h4 class="problem-title">C21 — Nacelle Works: placing seven sources of financing on the map</h4>
+        <div class="statement-box">
+<p>Nacelle Works S.A. manufactures engine nacelles. Its CFO lists how the company was financed last year: (1) profits of previous years kept in the company; (2) a capital increase subscribed by a venture fund; (3) bonds maturing in 2032; (4) a seven-year bank loan for a new autoclave; (5) a contract to use a robotic drilling cell for five years with an option to buy it at the end; (6) suppliers of aluminium who are paid at 90 days; (7) customer invoices sold to a specialised company that collects them and bears the risk if the customer does not pay.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Classify each source by nature, by origin and by term</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Source</th><th>Instrument</th><th>Nature [Slide 21]</th><th>Origin [Slide 22]</th><th>Term</th></tr></thead><tbody><tr><td>1</td><td>Self-financing (retained earnings)</td><td>Equity</td><td>Company resources (internal equity)</td><td>Permanent</td></tr><tr><td>2</td><td>Equity capital, rights issue</td><td>Equity</td><td>Company resources (external equity)</td><td>Permanent</td></tr><tr><td>3</td><td>Bonds</td><td>Liabilities</td><td>External</td><td>Long term [Slide 29]</td></tr><tr><td>4</td><td>Long-term bank loan</td><td>Liabilities</td><td>External</td><td>Long term [Slide 31]</td></tr><tr><td>5</td><td>Leasing (use with purchase option)</td><td>Liabilities</td><td>External</td><td>Long term [Slide 33]</td></tr><tr><td>6</td><td>Accounts payable (trade credit)</td><td>Liabilities</td><td>External</td><td>Short term [Slide 35]</td></tr><tr><td>7</td><td>Factoring</td><td>Liabilities</td><td>External</td><td>Short term [Slide 35]</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Equity, company resources: (1) self-financing (internal); (2) equity capital (external equity).</li><li>Liabilities, external, long term: (3) bonds, (4) long-term loan, (5) leasing.</li><li>Liabilities, external, short term: (6) accounts payable (trade credit), (7) factoring.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.75 points</h3>
+          <div class="prompt"><p>Explain the difference between a bond and a long-term loan, and between factoring and a trade discount</p></div>
+<p>A <strong>bond</strong> is a <strong>debt security</strong>: a loan in the form of a security, in which the issuer is the borrower and the bondholder the lender; the issuer must repay the principal and pay the coupon at maturity [Slide 29]. With a <strong>long-term loan</strong>, the company receives an amount that must be paid back at a certain time and pays <strong>debt interest</strong> for it [Slide 31].</p>
+<p>With <strong>factoring</strong>, the company <strong>sells</strong> its credit to a factoring company, which collects it and <strong>assumes the risk of insolvency</strong> [Slide 35]. With a <strong>trade discount</strong>, the bank only <strong>advances</strong> the amount of a bill before it falls due, after deducting interest and commission [Slide 35]; if the customer does not pay, the company usually has to return the money (discount with recourse, extension).</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Bond: a loan in the form of a security; the issuer owes the holders principal and coupon at maturity.</li><li>Loan: an amount received and paid back at a certain time, with debt interest.</li><li>Factoring: the credit is sold and the factor assumes the insolvency risk.</li><li>Trade discount: the bank advances the amount of a bill before maturity after deducting expenses; the risk stays with the company.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C22">
+        <span class="problem-tag">Theory case · Topic 3 · 2 points · 15 min</span>
+        <h4 class="problem-title">C22 — Talon Avionics: pay a dividend or keep the profit?</h4>
+        <div class="statement-box">
+<p>Talon Avionics S.A. earned a profit of 800,000 m.u. in 2025. Its retired founding shareholders, who live on the dividends, ask the board to distribute 600,000 m.u. The CEO wants to distribute only 160,000 m.u. and keep the rest to develop a new radar altimeter next year; otherwise she would have to ask a bank for a loan or issue new shares, which the founders dislike because they would lose part of their control.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 0.75 points</h3>
+          <div class="prompt"><p>Compute the pay-out and self-financing ratios of each proposal</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Proposal</th><th style="text-align:right">Dividends</th><th style="text-align:right">Retained</th><th style="text-align:right">Pay-out</th><th style="text-align:right">Self-financing</th></tr></thead><tbody><tr><td>Founders</td><td style="text-align:right">600,000</td><td style="text-align:right">200,000</td><td style="text-align:right">$600{,}000/800{,}000 = 75\%$</td><td style="text-align:right">$200{,}000/800{,}000 = 25\%$</td></tr><tr><td>CEO</td><td style="text-align:right">160,000</td><td style="text-align:right">640,000</td><td style="text-align:right">$160{,}000/800{,}000 = 20\%$</td><td style="text-align:right">$640{,}000/800{,}000 = 80\%$</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Founders: pay-out 75%, self-financing 25%.</li><li>CEO: pay-out 20%, self-financing 80%.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.25 points</h3>
+          <div class="prompt"><p>Explain the advantages and drawbacks of self-financing compared with a bank loan or a rights issue, and give your recommendation</p></div>
+<p><strong>Self-financing</strong> (retained earnings) is internal equity generated by the company's normal activity [Slide 23]. It does not have to be repaid, carries no <strong>explicit</strong> cost and brings in no new owners, so the founders keep their control; its cost is <strong>implicit</strong>: the shareholders give up dividends today (an opportunity cost, [Slide 37]).</p>
+<p>The alternatives have other drawbacks: a <strong>bank loan</strong> carries an explicit cost (interest), must be repaid, and raises leverage and risk [Slides 31, 36]; a <strong>rights issue</strong> need not be repaid but brings in new shareholders who share future dividends [Slides 25-26] and voting power (extension).</p>
+<p><strong>Recommendation:</strong> since paying dividends is not compulsory [Slide 26] and the founders want to keep control, the CEO's high self-financing is the way to fund the project that needs no repayment, carries no explicit cost and keeps control in their hands. A compromise (for example a 30–40% pay-out) can still meet part of the founders' income needs if the project does not require all 640,000 m.u. (a suggestion beyond the course).</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Self-financing: internal equity generated by the activity; no repayment, no explicit cost, no new owners; but it has an opportunity cost for shareholders and depends on profits.</li><li>Loan: explicit cost (interest), must be repaid, increases leverage and risk.</li><li>Rights issue: no repayment, but new shareholders dilute control.</li><li>Dividends are not compulsory; a balanced pay-out may be agreed.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C23">
+        <span class="problem-tag">Theory case · Topic 3 · 2 points · 15 min</span>
+        <h4 class="problem-title">C23 — A flight school&#x27;s simulator: leasing, a long-term loan or a credit line?</h4>
+        <div class="statement-box">
+<p>Cumulus Flight School S.L. needs a full-flight simulator that will be used for about eight years. A bank offers three options: (A) a long-term loan for the full price, repaid over eight years with interest; (B) a leasing contract: the school uses the simulator in exchange for monthly payments for eight years and can buy it at the end for a small amount; (C) a credit line with a limit equal to the price, renewable every year, on which interest is paid only on the amount drawn. Separately, the school expects short cash gaps every winter, when fewer students enrol.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Describe each of the three instruments</p></div>
+<ul><li><strong>(A) Long-term loan:</strong> the school receives an amount that must be paid back at a certain time and pays for the service through the <strong>debt interest</strong> [Slide 31].</li><li><strong>(B) Leasing:</strong> the school obtains the <strong>use of a fixed asset</strong> in exchange for contractual, periodic payments; as lessee, it has the <strong>right to buy</strong> the asset at the end of the period. It can be <strong>finance</strong> or <strong>operating</strong> leasing [Slide 33].</li><li><strong>(C) Bank credit (credit line):</strong> the bank makes a <strong>maximum amount</strong> available; the school borrows what it needs up to that limit and pays interest <strong>only on the amount borrowed</strong>; interest rates are higher. Renewed yearly, it is short-term bank financing [Slides 31, 35].</li></ul>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Loan: an amount received and repaid at a certain time, paying debt interest.</li><li>Leasing: use of a fixed asset for periodic payments; the lessee has the right to buy at the end; finance or operating leasing.</li><li>Credit line: the bank makes a maximum available; interest only on the amount borrowed; higher rates.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Recommend how to finance the simulator and the winter cash gaps</p></div>
+<p>The simulator will be used for eight years, so it should be financed with <strong>long-term</strong> resources: either the <strong>loan</strong> (A) or the <strong>leasing</strong> (B), whose eight-year payments match its useful life. Leasing is attractive for a flight school because it obtains the use of the asset [Slide 33] without a large initial outlay (reasoning applied to the case, beyond the slides) and keeps the <strong>option to buy</strong> it at the end. Financing it with the <strong>credit line</strong> (C) would be a mistake: the line must be renewed every year, so the bank could refuse (reasoning applied to the case, beyond the slides), and its interest rates are higher [Slide 31].</p>
+<p>The <strong>winter cash gaps</strong>, instead, are short and recurring, so the <strong>credit line</strong> is the right tool: the school draws only what it needs for a few weeks and pays interest <strong>only on the amount borrowed</strong> [Slide 31].</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>Simulator (8-year asset): long-term financing, loan or leasing; leasing also offers flexibility and the purchase option.</li><li>Winter gaps (short, recurring): the credit line, since interest is paid only on the amount drawn.</li><li>Financing a long-lived asset with a yearly-renewable credit line is risky and expensive.</li></ul></div>
+        </div>
+      </section>
+      <section class="problem-box" id="C24">
+        <span class="problem-tag">Theory case · Topic 3 · 2 points · 15 min</span>
+        <h4 class="problem-title">C24 — Radome Composites: revenues vs collections and current vs non-current items</h4>
+        <div class="statement-box">
+<p>The owner of Radome Composites S.L., which makes radar domes for aircraft noses, says: "In December we delivered 20 domes to an airline that will pay in February, so they are not sales of this year. We received in November a 30,000 m.u. advance for domes to be delivered next March, so that is income of this year. The electricity of December will be paid in January, so it is a cost of next year. And the five-year bank loan is all a long-term debt, even the instalment due next June."</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Correct the owner's four statements using the accrual principle and the classification of the balance sheet</p></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Owner's statement</th><th>Correction</th><th>Basis</th></tr></thead><tbody><tr><td>December deliveries are not sales of this year</td><td><strong>They are revenue of this year</strong>: the sale was made in December. The amount owed is an <strong>account receivable</strong>, a current asset</td><td>Revenues are recorded when the sale is made, paid or not [Slide 8]; current assets [Slide 14]</td></tr><tr><td>The November advance is income of this year</td><td><strong>It is not revenue yet</strong>: no domes have been delivered. It is a <strong>liability</strong> (unearned revenue) until March</td><td>Liabilities include unearned revenues [Slide 13]</td></tr><tr><td>December electricity is a cost of next year</td><td><strong>It is an expense of this year</strong>: the service was received in December. The unpaid amount is a <strong>current liability</strong></td><td>Expenses are recorded when the services are received [Slide 8]</td></tr><tr><td>The whole loan is long-term</td><td><strong>The instalment due next June is a current liability</strong>; only the instalments due after one year are long-term</td><td>Current liabilities are paid within the coming year [Slide 16]</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>December deliveries: revenue of this year; the amount owed is an account receivable (current asset).</li><li>November advance: not revenue yet; a liability (unearned revenue) until delivery in March.</li><li>December electricity: expense of this year; unpaid amount is a current liability.</li><li>Loan: the instalment due next June is a current liability; the rest is long-term.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 0.5 points</h3>
+          <div class="prompt"><p>Explain why the income statement and the balance sheet need these rules</p></div>
+<p>The <strong>income statement</strong> reports the <strong>performance</strong> of the business over a specific period [Slide 7]: it must contain the revenues earned and the expenses incurred in that period, whatever happens to the cash, otherwise the profit of a year would depend on when customers happen to pay. The <strong>balance sheet</strong> reports the <strong>financial position at a particular point in time</strong> [Slide 12]: splitting assets and liabilities into current and non-current shows whether the company can meet the debts due within the year with the resources that become cash within the year.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>The income statement reports performance over a period: it must match the revenues and expenses of that period, not cash movements.</li><li>The balance sheet reports the financial position at a point in time: classifying by maturity shows liquidity.</li></ul></div>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="index.html">← Extra problems</a>
+        <a href="midterm-1-problems.html">Practice problems →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

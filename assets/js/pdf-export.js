@@ -5,7 +5,8 @@
  *     <script defer src="../../../assets/js/pdf-export.js"></script>
  * The script adds its stylesheet (assets/css/print.css, the A4 black-and-white layout) and:
  *   - theory pages: a bar under the title with "Download PDF" and "Open as PDF";
- *   - problem pages: the same bar for all problems together, and both links on every problem card.
+ *   - problem pages (problemas/ and extra-problems/): the same bar for all problems together, and both
+ *     links on every problem card.
  * The PDFs are generated ahead of time by tools/build_pdfs.py into assets/pdf/<subject>/<area>/:
  *   <page>.pdf for the whole page and <page>/<card id>.pdf for each problem.
  * The generator opens the page with ?print=all or ?print=<card id>; this script then prepares the
@@ -25,7 +26,7 @@
     'business-management': 'Business Management'
   };
 
-  var where = location.pathname.match(/\/subjects\/([^/]+)\/(teoria|problemas)\/([^/]+)\.html$/);
+  var where = location.pathname.match(/\/subjects\/([^/]+)\/(teoria|problemas|extra-problems)\/([^/]+)\.html$/);
   if (!where) return;
   var slug = where[1], area = where[2], stem = where[3];
   var mode = new URLSearchParams(location.search).get('print');
@@ -97,7 +98,7 @@
     if (!h1) return;
     var head = h1.closest('.article-header, .page-intro, .page-hero, .page-title-box, header') || h1.parentElement;
     var subject = SUBJECTS[slug] || '';
-    var list = area === 'problemas' ? cards() : [];
+    var list = area !== 'teoria' ? cards() : [];
     var bar = el('div', 'pdf-bar');
     bar.setAttribute('role', 'group');
     bar.setAttribute('aria-label', 'PDF of this page');

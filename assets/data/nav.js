@@ -312,13 +312,24 @@ window.AE_NAV = {
               "label": "3 · Extra exam problems"
             }
           ]
+        },
+        {
+          "id": "extra-problems",
+          "label": "Extra problems",
+          "href": "subjects/business-management/extra-problems/index.html",
+          "pages": [
+            {
+              "href": "subjects/business-management/extra-problems/midterm-1-theory.html",
+              "label": "1st Midterm · Theory cases"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-1-problems.html",
+              "label": "1st Midterm · Practice problems"
+            }
+          ]
         }
       ],
       "extras": [
-        {
-          "href": "subjects/business-management/extra-problems/index.html",
-          "label": "Extra problems"
-        },
         {
           "href": "subjects/business-management/simulator/index.html",
           "label": "Exam simulator"

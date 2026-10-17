@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — 1st Midterm Practice Problems | Business Management</title>
+  <meta name="description" content="Exam-style practice problems for the first midterm of Business Management (UC3M Aerospace Engineering), solved step by step." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">1ST MIDTERM · PRACTICE PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · 1st Midterm · Problems</div>
+        <h1 class="article-title">1st Midterm: Exam-Style Practice Problems</h1>
+        <div class="article-meta">
+          Exam-style problems on Topic 3, worth 4 points each in the first partial exam, written for this portal in the style of the course's additional exam exercises and solved step by step. They are practice material, not official exercises; anything beyond the course slides is marked as an extension.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_problem_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">6 exam-style problems on Topic 3 (financial statements and financing), in the style of the additional exam exercises of the course. In the exam, one of them (4 points) comes with three short theory cases of 2 points each, in 90 minutes; the <a href="../simulator/index.html">Exam simulator</a> builds a timed exam from these items.</p>
+      <section class="problem-box" id="P11">
+        <span class="problem-tag">Problem · Topic 3 · 4 points · 60 min</span>
+        <h4 class="problem-title">P11 — FRIGOLEV: an incomplete 2017 balance, a cooperative discount and the 2018 statements</h4>
+        <div class="statement-box">
+<p>The newly appointed financial director of <strong>LOGÍSTICA FRIGORÍFICA DEL LEVANTE S.L. (FRIGOLEV)</strong>, a company located in the port area of Castellón and dedicated to the manufacturing of isothermal containers and cold-chain storage equipment for agricultural exporters, is working on the closing of its financial statements (balance sheet and Income Statement) as of 31 December 2018 (31/12/2018).</p>
+<p>The company was originally incorporated on 1 January 2016 (01/01/2016) by four partners, with an initial contribution of each of 1.500 m.u. disbursed fully in cash at that time, and no further capital modifications took place until fiscal year 2018. Due to the sudden departure of the previous chief accountant, the financial director only has an incomplete balance of the company as of 31 December 2017 (31/12/2017), which is included below with certain missing figures marked as (?), along with the audit notes detailing the operations that have taken place during the period from 1 January 2018 (01/01/2018) to 31 December 2018 (31/12/2018):</p>
+<p><strong>I.</strong> On 31 December 2017 (31/12/2017), the company had as depreciable fixed assets only the industrial refrigeration chambers purchased on a certain date during 2016, which have a useful life of 10 years and are amortized linearly with a residual value of 10% of their acquisition cost. In addition, the balance sheet at 31 December 2017 (31/12/2017) reflected an industrial plot of land acquired in 2016 and financial shares of other companies acquired as a permanent investment.</p>
+<p><strong>II.</strong> During the year 2018, the company has sold 3.600 units of isothermal containers at a catalog price of 25 m.u. / unit (every month the same amount, 300 u.). The general payment condition agreed with the customers implies that this will occur 60 days after the sale. However, a very important agricultural cooperative (representing 25% of the physical units sold each month), which has bought an equal amount every month, has been given a discount of 8% on the catalog price of their purchases in exchange for paying strictly in cash in the same month of the sale.</p>
+<p><strong>III.</strong> At 31 December 2017 (31/12/2017) there was a stock (stock in stock) of 400 tons of insulating raw material valued at 2,00 m.u. / ton. On 1 April 2018 (01/04/2018), the company purchased 5.000 tons of raw material at a cost of 2,00 m.u. / ton. The payment condition agreed with the suppliers was 40% paid in cash on the date of purchase, 30% payable to 90 days, and the remaining 30% deferred until 1 February 2019 (01/02/2019). At 31 December 2018 (31/12/2018), after conducting the warehouse count, there remains a final stock (stock in stock) of 900 tons.</p>
+<p><strong>IV.</strong> During the first quarter of 2018, the unpaid taxes and the outstanding supplier balances from the previous year were paid in full. Regarding the customer debt outstanding from 31 December 2017 (31/12/2017), 75% was charged in cash during the first semester of 2018, except 200 m.u. from a customer who requested and was granted a deferral of payment until 15 March 2019 (15/03/2019), and 100 m.u. corresponding to a client declared definitively insolvent on 1 June 2018 (01/06/2018), which must be recorded as an unrecoverable bad debt loss for the period.</p>
+<p><strong>V.</strong> Fixed personnel expenses have been 2.200 m.u. / month (to which 600 m.u. / month must be added for Social Security) from 1 January 2018 (01/01/2018). To respond to seasonal peaks in container assembly, production staff also received variable wages that amounted in 2018 to 3.620 m.u. Fixed and variable wages are paid in the month in which they are produced, whereas Social Security contributions (starting from January 2018) are paid on the 15th day of the following month. General expenses and utilities (electricity, phone, insurance, etc.) amounted to 1.100 m.u. / month and are paid two months after being made.</p>
+<p><strong>VI.</strong> The company carried out a renting contract on 1 March 2018 (01/03/2018) (with a duration of 2 years) with a specialized company for electric warehouse forklifts, for a value of 350 m.u. monthly. The contract establishes a condition of payment to 90 days (payment at the end of each month).</p>
+<p><strong>VII.</strong> On 1 April 2018 (01/04/2018), the company made a capital increase by issuing 1.000 new shares of 2,00 m.u. nominal value each, fully disbursed in cash and with an issue premium of 50% over the nominal value. On the same date, 1 April 2018 (01/04/2018), it bought two refrigerated delivery vehicles that cost a total of 4.800 m.u., of which it paid 50% in cash, postponing the payment of the remainder in two equal installments: half on 1 October 2018 (01/10/2018) and the other half on 1 April 2019 (01/04/2019). These vehicles will be amortized linearly in 6 years with a total residual value of 480 m.u. Furthermore, on 1 October 2018 (01/10/2018), it bought a software license for cold-chain tracking for a value of 1.600 m.u., payable to 120 days, which is amortized linearly in 4 years with residual value zero.</p>
+<p><strong>VIII.</strong> The long-term bank loan appearing on the balance sheet at 31 December 2017 (31/12/2017) was granted on 1 January 2017 (01/01/2017) at an annual interest rate of 6%. Each 31 December, the company must pay the accrued annual interest calculated from the loan value at the beginning of each year, and starting on 31 December 2018 (31/12/2018) it must also return to the bank an annual principal amount of 500 m.u. until completing the repayment on 31 December 2021 (31/12/2021). Additionally, on 1 July 2018 (01/07/2018), the company obtained a new short-term bank credit of 1.500 m.u. at 8% annual interest, agreeing to return 50% of the principal each semester for the next year. Both the principal installment and the semiannual interest calculated on the amount actually due in that semester will be paid the day after the end of each semester (i.e., on 1 January 2019 (01/01/2019) and 1 July 2019 (01/07/2019)).</p>
+<p><strong>IX.</strong> The financial results of the company are declared at 23:59 hrs on 31 December 2018 (31/12/2018). The applicable corporation tax rate is 25% on the Profits obtained, which is settled by calendar year and will be paid to the Treasury on 20 January 2019 (20/01/2019) (counted in the balance at 31 December 2018 (31/12/2018) as "unpaid taxes"). From the net profit after taxes, the company first offsets in full the losses from previous years, and of the remaining net profit, it retains 60% as reserves and distributes the other 40% as dividends to the shareholders, which are paid in cash before carrying out the final balance at 24:00 on 31 December 2018 (31/12/2018).</p>
+<p><strong>BALANCE 31 December 2017 (31/12/2017)</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>ASSETS</th><th style="text-align:right">m.u.</th><th>LIABILITIES</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td><strong>CURRENT ASSETS</strong></td><td style="text-align:right"><strong>2.940</strong></td><td><strong>CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>900</strong></td></tr><tr><td>Cash</td><td style="text-align:right">(?)</td><td>Unpaid taxes</td><td style="text-align:right">250</td></tr><tr><td>Accounts receivable</td><td style="text-align:right">1.200</td><td>Accounts payable (suppliers)</td><td style="text-align:right">650</td></tr><tr><td>Inventory (stock)</td><td style="text-align:right">800</td><td><strong>NON-CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>2.000</strong></td></tr><tr><td><strong>NON-CURRENT ASSETS</strong></td><td style="text-align:right"><strong>5.560</strong></td><td>Long-term bank loan</td><td style="text-align:right">2.000</td></tr><tr><td>Land</td><td style="text-align:right">1.500</td><td><strong>OWNERS EQUITY</strong></td><td style="text-align:right"><strong>(?)</strong></td></tr><tr><td>Refrigeration chambers (Equipment)</td><td style="text-align:right">4.000</td><td>Paid-in capital</td><td style="text-align:right">(?)</td></tr><tr><td>Accum. depreciation</td><td style="text-align:right">(540)</td><td>Losses from previous years</td><td style="text-align:right">(400)</td></tr><tr><td>Financial shares</td><td style="text-align:right">600</td><td></td><td style="text-align:right"></td></tr><tr><td><strong>Total Assets</strong></td><td style="text-align:right"><strong>(?)</strong></td><td><strong>Total Liabilities + OE</strong></td><td style="text-align:right"><strong>(?)</strong></td></tr></tbody></table></div>
+<p><strong>Required:</strong></p>
+<ol><li>Determine and justify the missing figures (?) in the balance sheet as of 31 December 2017 (31/12/2017) as well as the exact date in 2016 on which the industrial refrigeration chambers were purchased, and construct the Income Statement (Profit and Loss Account) of FRIGOLEV for the period ending 31 December 2018 (31/12/2018).</li><li>Assuming that the company has offset the prior losses and paid the dividends as indicated, construct and justify the balance sheet at 24:00 on 31 December 2018 (31/12/2018), detailing all intermediate calculations.</li><li>Determine the values of the ROA and ROE ratios in 2018, and indicate which items of the balance sheet at 24:00 on 31 December 2018 (31/12/2018) would be affected, and the exact amount of the effect, if the decision was made before the end of 2018 to distribute the same dividend, but to pay it on 15 April 2019 (15/04/2019).</li><li>State and explain what changes would occur on the various items of the Income Statement and the balance sheet at 31 December 2018 (31/12/2018) if the company had eliminated the 8% discount granted to the agricultural cooperative, subjecting this customer to the general 60-day payment condition at the full price of 25 m.u. / unit, which in turn would have caused the cooperative to reduce the physical units bought each month by 10%. In which case is the net profit higher, and in which case is the final cash balance higher? Discuss reasoned, why.</li></ol>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup</h3>
+<p><strong>Hypotheses</strong> (readings of the statement that the solution depends on):</p>
+<ol><li>Item IV: 75% of the 1.200 m.u. (900 m.u.) is collected; the remaining 25% (300 m.u.) is exactly the 200 m.u. deferred plus the 100 m.u. written off.</li><li>Item IX: the 25% tax is applied to the whole profit before taxes of 2018; the losses of previous years are offset afterwards, against the net profit, as the statement orders.</li><li>Item VI: "payable to 90 days (payment at the end of each month)" means each month's fee is paid at the end of the third month after it (March is paid at the end of June); October, November and December are unpaid at 31/12/2018.</li><li>Requirement 4: the containers consume raw material in proportion to the units sold, and no finished containers are kept in stock.</li></ol>
+<div class="callout callout-warning"><div class="callout-title">Inconsistency in the given balance</div><p>Item VIII says that 500 m.u. of the loan are repaid on 31/12/2018, so at 31/12/2017 those 500 m.u. were due within one year and should have been a current liability (current liabilities 1.400, non-current 1.500). The totals do not change, so the solution keeps the given balance as stated and splits the loan correctly at 31/12/2018.</p></div>
+<p><strong>Timeline of the cash-relevant dates in 2018</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody><tr><td>Q1 2018</td><td>Unpaid taxes 250 and suppliers 650 of 2017 paid</td></tr><tr><td>H1 2018</td><td>900 of the 2017 receivables collected; 100 written off on 01/06</td></tr><tr><td>01/04/2018</td><td>Raw material 10.000 (4.000 cash); capital increase 3.000; vehicles 4.800 (2.400 cash)</td></tr><tr><td>01/07/2018</td><td>Second 30% of raw material paid (3.000); short-term credit received 1.500</td></tr><tr><td>01/10/2018</td><td>Second vehicle instalment 1.200; software 1.600 bought payable to 120 days</td></tr><tr><td>31/12/2018</td><td>Loan interest 120 and principal 500 paid; tax accrued; dividends paid at 24:00</td></tr></tbody></table></div>
+<p><strong>Extension (not defined in the course decks).</strong> $\text{ROA} = \text{Income from operations}/\text{Total assets}$ and $\text{ROE} = \text{Net income}/\text{Owners equity}$, both on the balance at 24:00 on 31/12/2018, as in the solved INFOPYMES exercise.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Find the missing figures of the 2017 balance and the purchase date of the chambers, and prepare the 2018 Income Statement</p></div>
+<h4 class="step-title">Step 1. The missing figures of 31/12/2017</h4>
+<div class="math-block">$$\text{Cash} = 2.940 - 1.200 - 800 = 940 \text{ m.u.}, \qquad \text{Total assets} = 2.940 + 5.560 = 8.500 \text{ m.u.}$$</div>
+<p>Check of the non-current block: $1.500 + 4.000 - 540 + 600 = 5.560$ (checked).</p>
+<div class="math-block">$$\text{Paid-in capital} = 4 \times 1.500 = 6.000, \qquad \text{Owners equity} = 6.000 - 400 = 5.600 \text{ m.u.}$$</div>
+<div class="math-block">$$\text{Total liabilities + OE} = 900 + 2.000 + 5.600 = 8.500 \text{ m.u.} \;\checkmark$$</div>
+<h4 class="step-title">Step 2. Purchase date of the refrigeration chambers</h4>
+<div class="math-block">$$D_{\text{year}} = \frac{4.000 - 0{,}10 \times 4.000}{10} = \frac{3.600}{10} = 360 \text{ m.u./year}$$</div>
+<div class="math-block">$$\frac{540}{360} = 1{,}5 \text{ years before } 31/12/2017 \;\Rightarrow\; \text{bought on 1 July 2016 (01/07/2016)}$$</div>
+<h4 class="step-title">Step 3. Revenue and its collection (item II)</h4>
+<p>Each month 300 units are sold: 75 to the cooperative (25%) at $25 \times 0{,}92 = 23$ m.u. and 225 to the other customers at 25 m.u.</p>
+<div class="math-block">$$\text{Cooperative} = 75 \times 23 = 1.725 \text{ m.u./month}, \qquad \text{Others} = 225 \times 25 = 5.625 \text{ m.u./month}$$</div>
+<div class="math-block">$$\text{Revenue 2018} = 12 \times (1.725 + 5.625) = 12 \times 7.350 = 88.200 \text{ m.u.}$$</div>
+<p>The cooperative pays in the same month (20.700 collected); the others pay at 60 days, so November and December are pending: $2 \times 5.625 = 11.250$ m.u. receivable.</p>
+<h4 class="step-title">Step 4. Raw material (item III)</h4>
+<div class="math-block">$$\text{Consumption} = 800 + 5.000 \times 2{,}00 - 900 \times 2{,}00 = 800 + 10.000 - 1.800 = 9.000 \text{ m.u.}$$</div>
+<p>Payments: 40% on 01/04 (4.000) and 30% at 90 days, on 01/07 (3.000); the last 30% (3.000) is owed until 01/02/2019.</p>
+<h4 class="step-title">Step 5. Personnel, general expenses and renting (items V, VI)</h4>
+<div class="math-block">$$\text{Personnel} = 12 \times 2.200 + 12 \times 600 + 3.620 = 26.400 + 7.200 + 3.620 = 37.220 \text{ m.u.}$$</div>
+<ul><li>Social Security of December (600) is paid on 15/01/2019; 11 months paid (6.600).</li><li>General expenses: $12 \times 1.100 = 13.200$ m.u. of expense; paid two months later, so November and December (2.200) are owed and 11.000 paid.</li><li>Renting: March to December, $10 \times 350 = 3.500$ m.u. of expense; March to September paid ($7 \times 350 = 2.450$), October to December owed (1.050).</li></ul>
+<h4 class="step-title">Step 6. Depreciation and amortization (items I, VII)</h4>
+<div class="math-block">$$D_{\text{chambers}} = 360, \qquad D_{\text{vehicles}} = \frac{4.800 - 480}{6} \times \frac{9}{12} = 720 \times \frac{9}{12} = 540, \qquad D_{\text{software}} = \frac{1.600}{4} \times \frac{3}{12} = 100$$</div>
+<div class="math-block">$$D_{2018} = 360 + 540 + 100 = 1.000 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 7. Financial expenses (item VIII)</h4>
+<div class="math-block">$$I_{\text{loan}} = 0{,}06 \times 2.000 = 120 \text{ m.u. (paid 31/12/2018)}, \qquad I_{\text{credit}} = 1.500 \times 0{,}08 \times \frac{6}{12} = 60 \text{ m.u. (paid 01/01/2019)}$$</div>
+<h4 class="step-title">Step 8. Income Statement 2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Sales revenue</td><td>Step 3</td><td style="text-align:right">88.200</td></tr><tr><td>− Raw material consumed</td><td>Step 4</td><td style="text-align:right">9.000</td></tr><tr><td>− Personnel (wages and Social Security)</td><td>Step 5</td><td style="text-align:right">37.220</td></tr><tr><td>− General expenses and utilities</td><td>$12 \times 1.100$</td><td style="text-align:right">13.200</td></tr><tr><td>− Renting of forklifts</td><td>$10 \times 350$</td><td style="text-align:right">3.500</td></tr><tr><td>− Bad debt loss</td><td>item IV</td><td style="text-align:right">100</td></tr><tr><td>− Depreciation and amortization</td><td>Step 6</td><td style="text-align:right">1.000</td></tr><tr><td><strong>= Income from operations</strong></td><td>$88.200 - 64.020$</td><td style="text-align:right"><strong>24.180</strong></td></tr><tr><td>− Financial expenses</td><td>$120 + 60$</td><td style="text-align:right">180</td></tr><tr><td><strong>= Profit before taxes</strong></td><td>$24.180 - 180$</td><td style="text-align:right"><strong>24.000</strong></td></tr><tr><td>− Corporation tax (25%)</td><td>$0{,}25 \times 24.000$</td><td style="text-align:right">6.000</td></tr><tr><td><strong>= Net profit</strong></td><td>$24.000 - 6.000$</td><td style="text-align:right"><strong>18.000</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Cash 940; total 8.500; paid-in capital 6.000; owners equity 5.600 m.u.</li><li>Chambers depreciate 360 m.u./year: bought on 1 July 2016 (01/07/2016).</li><li>Revenue 88.200; raw material consumed 9.000; depreciation 1.000 m.u.</li><li>Income from operations 24.180; financial expenses 180; net profit 18.000 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.25 points</h3>
+          <div class="prompt"><p>Prepare the balance sheet at 24:00 on 31 December 2018</p></div>
+<h4 class="step-title">Step 1. Distribution of the profit [Slide 23]</h4>
+<div class="math-block">$$\text{Remaining profit} = 18.000 - 400 = 17.600, \qquad \text{Reserves} = 0{,}60 \times 17.600 = 10.560, \qquad \text{Dividends} = 0{,}40 \times 17.600 = 7.040 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Capital increase (item VII)</h4>
+<div class="math-block">$$1.000 \times 2{,}00 = 2.000 \text{ (capital)}, \qquad 0{,}50 \times 2.000 = 1.000 \text{ (issue premium)}, \qquad \text{cash in} = 3.000 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Cash account 2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Cooperative sales (cash)</td><td style="text-align:right">20.700</td><td>Unpaid taxes 2017</td><td style="text-align:right">250</td></tr><tr><td>Other customers, January–October ($10 \times 5.625$)</td><td style="text-align:right">56.250</td><td>Suppliers 2017</td><td style="text-align:right">650</td></tr><tr><td>Receivables of 2017 (75%)</td><td style="text-align:right">900</td><td>Raw material ($4.000 + 3.000$)</td><td style="text-align:right">7.000</td></tr><tr><td>Capital increase</td><td style="text-align:right">3.000</td><td>Fixed wages</td><td style="text-align:right">26.400</td></tr><tr><td>Short-term bank credit</td><td style="text-align:right">1.500</td><td>Variable wages</td><td style="text-align:right">3.620</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security (11 months)</td><td style="text-align:right">6.600</td></tr><tr><td></td><td style="text-align:right"></td><td>General expenses (10 months)</td><td style="text-align:right">11.000</td></tr><tr><td></td><td style="text-align:right"></td><td>Renting (7 months)</td><td style="text-align:right">2.450</td></tr><tr><td></td><td style="text-align:right"></td><td>Vehicles ($2.400 + 1.200$)</td><td style="text-align:right">3.600</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan interest</td><td style="text-align:right">120</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan principal</td><td style="text-align:right">500</td></tr><tr><td></td><td style="text-align:right"></td><td>Dividends</td><td style="text-align:right">7.040</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>82.350</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>69.230</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash}_{24:00,\,31/12/2018} = 940 + 82.350 - 69.230 = 14.060 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Balance sheet at 24:00 on 31/12/2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Land</td><td style="text-align:right">1.500</td><td>Paid-in capital ($6.000 + 2.000$)</td><td style="text-align:right">8.000</td></tr><tr><td>Refrigeration chambers ($4.000 - 900$)</td><td style="text-align:right">3.100</td><td>Issue premium</td><td style="text-align:right">1.000</td></tr><tr><td>Vehicles ($4.800 - 540$)</td><td style="text-align:right">4.260</td><td>Reserves</td><td style="text-align:right">10.560</td></tr><tr><td>Software license ($1.600 - 100$)</td><td style="text-align:right">1.500</td><td>Losses from previous years (offset)</td><td style="text-align:right">0</td></tr><tr><td>Financial shares</td><td style="text-align:right">600</td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>19.560</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>10.960</strong></td><td>Long-term bank loan (2020–2021)</td><td style="text-align:right">1.000</td></tr><tr><td>Inventory (900 t × 2,00)</td><td style="text-align:right">1.800</td><td><strong>Non-current liabilities</strong></td><td style="text-align:right"><strong>1.000</strong></td></tr><tr><td>Accounts receivable ($11.250 + 200$)</td><td style="text-align:right">11.450</td><td>Bank loan, instalment 31/12/2019</td><td style="text-align:right">500</td></tr><tr><td>Cash</td><td style="text-align:right">14.060</td><td>Short-term bank credit</td><td style="text-align:right">1.500</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest payable (credit)</td><td style="text-align:right">60</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers of raw material</td><td style="text-align:right">3.000</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers of vehicles</td><td style="text-align:right">1.200</td></tr><tr><td></td><td style="text-align:right"></td><td>Supplier of software</td><td style="text-align:right">1.600</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security payable</td><td style="text-align:right">600</td></tr><tr><td></td><td style="text-align:right"></td><td>General expenses payable</td><td style="text-align:right">2.200</td></tr><tr><td></td><td style="text-align:right"></td><td>Renting payable</td><td style="text-align:right">1.050</td></tr><tr><td></td><td style="text-align:right"></td><td>Unpaid taxes</td><td style="text-align:right">6.000</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>27.310</strong></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>17.710</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>38.270</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>38.270</strong></td></tr></tbody></table></div>
+<p>Accumulated depreciation of the chambers: $540 + 360 = 900$. The 200 m.u. deferred to 15/03/2019 is due within one year, so it stays current; the loan splits into the 500 due on 31/12/2019 (current) and 1.000 due in 2020–2021.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Remaining profit 17.600; reserves 10.560; dividends 7.040 m.u.</li><li>Cash at 24:00 on 31/12/2018: 14.060 m.u.</li><li>Owners equity 19.560; current liabilities 17.710; total 38.270 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.75 points</h3>
+          <div class="prompt"><p>Compute ROA and ROE of 2018, and the effect of paying the same dividend on 15 April 2019</p></div>
+<h4 class="step-title">Step 1. Ratios (extension)</h4>
+<div class="math-block">$$\text{ROA} = \frac{24.180}{38.270} = 63{,}18\%, \qquad \text{ROE} = \frac{18.000}{19.560} = 92{,}02\%$$</div>
+<h4 class="step-title">Step 2. Dividend decided in 2018, paid on 15/04/2019</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Paid at 24:00</th><th style="text-align:right">Paid 15/04/2019</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Cash</td><td style="text-align:right">14.060</td><td style="text-align:right">21.100</td><td style="text-align:right">+7.040</td></tr><tr><td>Dividends payable (current liability)</td><td style="text-align:right">0</td><td style="text-align:right">7.040</td><td style="text-align:right">+7.040</td></tr><tr><td>Reserves and owners equity</td><td style="text-align:right">19.560</td><td style="text-align:right">19.560</td><td style="text-align:right">0</td></tr><tr><td>Total assets = total liabilities and equity</td><td style="text-align:right">38.270</td><td style="text-align:right">45.310</td><td style="text-align:right">+7.040</td></tr></tbody></table></div>
+<p>The decision already reduces the profit kept in the company, so equity does not change; only the moment the money leaves changes.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>ROA = 63,18%; ROE = 92,02% (extension).</li><li>Paid on 15/04/2019: cash +7.040 (21.100); new current liability "dividends payable" 7.040; totals 45.310 m.u.; owners equity unchanged.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.75 points</h3>
+          <div class="prompt"><p>Effect of eliminating the 8% discount to the cooperative; which case gives more profit and which more cash?</p></div>
+<h4 class="step-title">Step 1. New sales of the cooperative</h4>
+<div class="math-block">$$75 \times 0{,}90 = 67{,}5 \text{ u./month}, \qquad 67{,}5 \times 25 = 1.687{,}5 \text{ m.u./month}, \qquad 12 \times 1.687{,}5 = 20.250 \text{ m.u.}$$</div>
+<div class="math-block">$$\Delta\text{Revenue} = 20.250 - 20.700 = -450 \text{ m.u.} \;\Rightarrow\; \text{Revenue} = 87.750 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Raw material (hypothesis 4)</h4>
+<p>In the base case 4.500 tons were consumed for 3.600 units: $4.500 / 3.600 = 1{,}25$ t/unit $= 2{,}50$ m.u./unit. Selling $12 \times 7{,}5 = 90$ units fewer:</p>
+<div class="math-block">$$\Delta\text{Consumption} = -90 \times 2{,}50 = -225 \text{ m.u.} \;\Rightarrow\; \text{final stock} = 1.800 + 225 = 2.025 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. New results</h4>
+<div class="math-block">$$\text{Profit before taxes} = 24.000 - 450 + 225 = 23.775, \qquad \text{Tax} = 0{,}25 \times 23.775 = 5.943{,}75$$</div>
+<div class="math-block">$$\text{Net profit} = 23.775 - 5.943{,}75 = 17.831{,}25, \qquad \text{Remaining} = 17.431{,}25$$</div>
+<div class="math-block">$$\text{Reserves} = 0{,}60 \times 17.431{,}25 = 10.458{,}75, \qquad \text{Dividends} = 0{,}40 \times 17.431{,}25 = 6.972{,}50$$</div>
+<h4 class="step-title">Step 4. New cash</h4>
+<p>The cooperative now pays at 60 days: January to October collected, $10 \times 1.687{,}5 = 16.875$ instead of 20.700 (−3.825). The dividend paid falls by 67,50; the tax is not paid in 2018.</p>
+<div class="math-block">$$\text{Cash} = 14.060 - 3.825 + 67{,}50 = 10.302{,}50 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 5. Changes in the statements</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Base</th><th style="text-align:right">Without discount</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Revenue</td><td style="text-align:right">88.200</td><td style="text-align:right">87.750</td><td style="text-align:right">−450</td></tr><tr><td>Raw material consumed</td><td style="text-align:right">9.000</td><td style="text-align:right">8.775</td><td style="text-align:right">−225</td></tr><tr><td>Net profit</td><td style="text-align:right">18.000</td><td style="text-align:right">17.831,25</td><td style="text-align:right">−168,75</td></tr><tr><td>Inventory</td><td style="text-align:right">1.800</td><td style="text-align:right">2.025</td><td style="text-align:right">+225</td></tr><tr><td>Accounts receivable</td><td style="text-align:right">11.450</td><td style="text-align:right">14.825</td><td style="text-align:right">+3.375</td></tr><tr><td>Cash</td><td style="text-align:right">14.060</td><td style="text-align:right">10.302,50</td><td style="text-align:right">−3.757,50</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right">38.270</td><td style="text-align:right">38.112,50</td><td style="text-align:right">−157,50</td></tr><tr><td>Reserves</td><td style="text-align:right">10.560</td><td style="text-align:right">10.458,75</td><td style="text-align:right">−101,25</td></tr><tr><td>Unpaid taxes</td><td style="text-align:right">6.000</td><td style="text-align:right">5.943,75</td><td style="text-align:right">−56,25</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right">38.270</td><td style="text-align:right">38.112,50</td><td style="text-align:right">−157,50</td></tr></tbody></table></div>
+<p><strong>Discussion.</strong> The <strong>profit is higher with the discount</strong> (18.000 against 17.831,25): removing the discount gains $2$ m.u. on each of the 810 units the cooperative still buys ($810 \times 2 = 1.620$ m.u.), but the 90 units it stops buying carried a margin over raw material of $23 - 2{,}50 = 20{,}50$ m.u. each ($90 \times 20{,}50 = 1.845$ m.u.); the net effect before taxes is $1.620 - 1.845 = -225$ m.u. The <strong>cash is also higher with the discount</strong> (14.060 against 10.302,50): the cooperative pays in the same month, while under the general condition November and December stay as receivables. Keeping the discount wins on both counts.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Cooperative: 67,5 u./month at 25 m.u. = 1.687,5 m.u./month; revenue 87.750 (−450).</li><li>Raw material consumed −225 (90 fewer units × 2,50); net profit 17.831,25 (−168,75).</li><li>Receivables +3.375; inventory +225; cash 10.302,50 (−3.757,50); total assets 38.112,50.</li><li>Profit and cash are both higher with the discount.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> units × m.u./unit and tons × m.u./ton give m.u.; m.u./year × months/12 gives m.u.; ratios are dimensionless.</li><li><strong>Why ROA and ROE are so high:</strong> the company's annual sales (88.200 m.u.) are ten times its 2017 assets; the ratios are measured on the year-end balance, which already includes most of the year's profit.</li><li><strong>Accrual vs cash:</strong> net profit 18.000 m.u., but cash grew by only 13.120 m.u. because 11.250 m.u. of sales are uncollected, although many expenses (tax, software, raw material, renting) are still unpaid.</li><li><strong>Typical mistakes:</strong> depreciating the vehicles for 12 months, forgetting the residual values, treating the issue premium as capital, and putting the whole short-term credit or the 200 m.u. deferred receivable outside current items.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P12">
+        <span class="problem-tag">Problem · Topic 3 · 4 points · 50 min</span>
+        <h4 class="problem-title">P12 — AGRODRON: the second year of a drone start-up that closed its first year with a loss</h4>
+        <div class="statement-box">
+<p>The company <strong>AGRODRON LEVANTE S.L.</strong> was incorporated on 1 January 2017 (01/01/2017) by a group of agricultural engineers with a registered paid-in capital of 4.500 m.u., having an objective of providing precision crop-monitoring services by drone and distributing organic fertilizers in the region of Murcia.</p>
+<p><strong>The following information applies to fiscal year 2017:</strong></p>
+<p>To finance the operations of the company, on 1 January 2017 (01/01/2017) a bank granted the company a loan of 1.500 m.u. at 6% annual interest, with a duration of 5 years, i.e. until 31 December 2021 (31/12/2021). Each 31 December, the company must return to the bank an equal principal amount of 300 m.u. and should also pay the due annual interest (6%) calculated from the loan value at the beginning of each year.</p>
+<p>During 2017, the company invested in a fleet of agricultural drones worth 2.400 m.u. The useful life of the drones purchased was 8 years (amortized linearly, with no residual value) and at the end of 2017 the company recorded in accumulated depreciation an amount of 75 m.u. for those assets. Also, a further investment of 400 m.u. in mapping software licenses was made on 31 December 2017 (31/12/2017) to process aerial images. They use these licenses for 4 years (linear amortization with residual value zero). In addition, the company spent 800 m.u. to purchase a plot of rural land for its flight testing base. Most of 2017 was devoted to obtaining civil aviation permits and only the actual business work was started in the final months of the year. At 31 December 2017 (31/12/2017), its balance sheet reflected a loss of 220 m.u., there was no stock (stock in stock) nor pending customer or supplier balances, and the cash in hand and bank account was 1.955 m.u.</p>
+<p><strong>The following information applies to fiscal year 2018:</strong></p>
+<ul><li>For aerial crop monitoring, the average number of subscribed farms during 2018 was 400 with an average revenue of 0,45 m.u. / month per client in subscription fees. Additionally, the company billed 840 m.u. for the direct sales of organic fertilizers. At the end of 2018, AGRODRON had accounts receivable of 310 m.u. from their customers.</li><li>The company purchased supplies of organic fertilizers during 2018 which amounted to 500 m.u. Of these purchases, 70% was paid immediately in cash and the payment of the remaining 30% was deferred to the following year. Year 2018 sales consumed 80% of the purchased goods.</li><li>AGRODRON operates from rented hangars that have a monthly cost (from 1 January 2018 (01/01/2018)) of 25 m.u. / month, paid in cash. Fixed salaries and Social Security costs (contribution of the company to the Social Security) of the permanent employees amounted to 60 m.u. per month (from 1 January 2018 (01/01/2018)) and were paid in full in 2018. To respond to increased demand during the harvest campaign, the company hired external pilots whose variable wages amounted in 2018 to 192 m.u. (paid in cash).</li><li>Electricity, insurance, and other administrative expenditures totaled 180 m.u. in 2018. The company postponed the payment of 40% of this amount to the following year. Furthermore, on 1 July 2018 (01/07/2018), the company acquired thermal cameras for its drones for a value of 200 m.u., paying 50% in cash on that date and leaving the remainder payable to 9 months, i.e. on 1 April 2019 (01/04/2019). This equipment has a useful life of 5 years and will be amortized linearly with a residual value of 20%.</li><li>The financial results of the company are declared at 23:59 hrs on 31 December 2018 (31/12/2018). The applicable corporation tax rate was 25% on the Profits obtained and is payable in the first quarter of 2019. In 2018, the results were positive: after offsetting in full the loss of the previous year, the company decided to distribute 30% of the remaining net profit after taxes as dividends (paid at 24:00 on 31 December 2018 (31/12/2018)) and retain the rest in the company.</li></ul>
+<p><strong>Required:</strong></p>
+<ol><li>Construct the Income Statement (Profit and Loss Account) of AGRODRON LEVANTE S.L. for the period ending 31 December 2018 (31/12/2018), and deduce the exact date in 2017 on which the fleet of agricultural drones was acquired.</li><li>Construct and justify the balance sheet at 24:00 on 31 December 2018 (31/12/2018), detailing all intermediate cash and accrual calculations.</li><li>Determine the values of the ROA and ROE ratios in 2018.</li><li>Indicate which items of the balance sheet at 31 December 2018 (31/12/2018) would be affected and the exact amount of the effect if the decision was made before the end of 2018 to distribute the same dividend, but to pay it on 30 June 2019 (30/06/2019), and assuming simultaneously that the company had decided not to offset the loss of 2017 before calculating the 30% dividend payout.</li></ol>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup</h3>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>The tax of 25% is applied to the whole profit before taxes of 2018; the loss of 2017 is offset afterwards, against the net profit, as the statement orders ("after offsetting in full the loss of the previous year, ... distribute 30% of the remaining net profit after taxes").</li><li>The software licences were bought on the last day of 2017, so their amortization starts in 2018 (a full year).</li><li>The fertilizers not consumed (20% of the purchases) stay in stock at cost.</li></ol>
+<p><strong>The balance at 31/12/2017, rebuilt from the data</strong> (needed to start 2018):</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Land</td><td style="text-align:right">800</td><td>Paid-in capital</td><td style="text-align:right">4.500</td></tr><tr><td>Drones ($2.400 - 75$)</td><td style="text-align:right">2.325</td><td>Losses of 2017</td><td style="text-align:right">(220)</td></tr><tr><td>Software licences</td><td style="text-align:right">400</td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>4.280</strong></td></tr><tr><td>Cash</td><td style="text-align:right">1.955</td><td>Bank loan due 2019–2021</td><td style="text-align:right">900</td></tr><tr><td></td><td style="text-align:right"></td><td>Bank loan due 31/12/2018</td><td style="text-align:right">300</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>5.480</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>5.480</strong></td></tr></tbody></table></div>
+<p>The loan was 1.500 and 300 were repaid on 31/12/2017, so 1.200 remain at the start of 2018.</p>
+<p><strong>Extension (not defined in the course decks).</strong> $\text{ROA} = \text{Income from operations}/\text{Total assets}$ and $\text{ROE} = \text{Net income}/\text{Owners equity}$, on the balance at 24:00 on 31/12/2018.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Prepare the 2018 Income Statement and deduce the purchase date of the drones</p></div>
+<h4 class="step-title">Step 1. Purchase date of the drones</h4>
+<div class="math-block">$$D_{\text{drones}} = \frac{2.400 - 0}{8} = 300 \text{ m.u./year}, \qquad \frac{75}{300} \times 12 = 3 \text{ months} \;\Rightarrow\; \text{bought on 1 October 2017 (01/10/2017)}$$</div>
+<h4 class="step-title">Step 2. Revenue</h4>
+<div class="math-block">$$\text{Subscriptions} = 400 \times 0{,}45 \times 12 = 2.160, \qquad \text{Revenue} = 2.160 + 840 = 3.000 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Fertilizers consumed</h4>
+<div class="math-block">$$\text{Consumed} = 0{,}80 \times 500 = 400, \qquad \text{Stock at } 31/12/2018 = 500 - 400 = 100 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Depreciation and amortization</h4>
+<div class="math-block">$$D_{\text{drones}} = 300, \qquad D_{\text{software}} = \frac{400}{4} = 100, \qquad D_{\text{cameras}} = \frac{200 - 0{,}20 \times 200}{5} \times \frac{6}{12} = 32 \times \frac{6}{12} = 16$$</div>
+<div class="math-block">$$D_{2018} = 300 + 100 + 16 = 416 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 5. Interest</h4>
+<div class="math-block">$$I_{2018} = 0{,}06 \times 1.200 = 72 \text{ m.u.} \quad \text{(loan value at the beginning of 2018)}$$</div>
+<h4 class="step-title">Step 6. Income Statement 2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Subscription fees</td><td>$400 \times 0{,}45 \times 12$</td><td style="text-align:right">2.160</td></tr><tr><td>Sales of fertilizers</td><td></td><td style="text-align:right">840</td></tr><tr><td><strong>Revenue</strong></td><td></td><td style="text-align:right"><strong>3.000</strong></td></tr><tr><td>− Fertilizers consumed</td><td>Step 3</td><td style="text-align:right">400</td></tr><tr><td>− Hangar rent</td><td>$12 \times 25$</td><td style="text-align:right">300</td></tr><tr><td>− Fixed salaries and Social Security</td><td>$12 \times 60$</td><td style="text-align:right">720</td></tr><tr><td>− Variable wages of external pilots</td><td></td><td style="text-align:right">192</td></tr><tr><td>− Electricity, insurance and administration</td><td></td><td style="text-align:right">180</td></tr><tr><td>− Depreciation and amortization</td><td>Step 4</td><td style="text-align:right">416</td></tr><tr><td><strong>= Income from operations</strong></td><td>$3.000 - 2.208$</td><td style="text-align:right"><strong>792</strong></td></tr><tr><td>− Financial expenses (interest)</td><td>Step 5</td><td style="text-align:right">72</td></tr><tr><td><strong>= Profit before taxes</strong></td><td>$792 - 72$</td><td style="text-align:right"><strong>720</strong></td></tr><tr><td>− Corporation tax (25%)</td><td>$0{,}25 \times 720$</td><td style="text-align:right">180</td></tr><tr><td><strong>= Net profit</strong></td><td>$720 - 180$</td><td style="text-align:right"><strong>540</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Drones bought on 1 October 2017 (01/10/2017).</li><li>Revenue 3.000; fertilizers consumed 400; depreciation and amortization 416 m.u.</li><li>Income from operations 792; interest 72; profit before taxes 720; tax 180; net profit 540 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Prepare the balance sheet at 24:00 on 31 December 2018</p></div>
+<h4 class="step-title">Step 1. Distribution</h4>
+<div class="math-block">$$\text{Remaining profit} = 540 - 220 = 320, \qquad \text{Dividends} = 0{,}30 \times 320 = 96, \qquad \text{Reserves} = 320 - 96 = 224 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Collections and payments</h4>
+<ul><li>Customers: $3.000 - 310 = 2.690$ collected.</li><li>Fertilizers: $0{,}70 \times 500 = 350$ paid, $150$ owed.</li><li>Administration: $0{,}60 \times 180 = 108$ paid, $72$ owed.</li><li>Cameras: 100 paid, 100 owed until 01/04/2019.</li><li>Loan: interest 72 and principal 300 paid on 31/12/2018; it falls to $1.200 - 300 = 900$ (300 due on 31/12/2019, 600 later).</li></ul>
+<h4 class="step-title">Step 3. Cash account 2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Collections from customers</td><td style="text-align:right">2.690</td><td>Fertilizers</td><td style="text-align:right">350</td></tr><tr><td></td><td style="text-align:right"></td><td>Hangar rent</td><td style="text-align:right">300</td></tr><tr><td></td><td style="text-align:right"></td><td>Fixed salaries and Social Security</td><td style="text-align:right">720</td></tr><tr><td></td><td style="text-align:right"></td><td>External pilots</td><td style="text-align:right">192</td></tr><tr><td></td><td style="text-align:right"></td><td>Administration (60%)</td><td style="text-align:right">108</td></tr><tr><td></td><td style="text-align:right"></td><td>Thermal cameras (50%)</td><td style="text-align:right">100</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan interest</td><td style="text-align:right">72</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan principal</td><td style="text-align:right">300</td></tr><tr><td></td><td style="text-align:right"></td><td>Dividends</td><td style="text-align:right">96</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>2.690</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>2.238</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash}_{24:00,\,31/12/2018} = 1.955 + 2.690 - 2.238 = 2.407 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Balance sheet at 24:00 on 31/12/2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Land</td><td style="text-align:right">800</td><td>Paid-in capital</td><td style="text-align:right">4.500</td></tr><tr><td>Drones ($2.400 - 375$)</td><td style="text-align:right">2.025</td><td>Losses of 2017 (offset)</td><td style="text-align:right">0</td></tr><tr><td>Software licences ($400 - 100$)</td><td style="text-align:right">300</td><td>Reserves</td><td style="text-align:right">224</td></tr><tr><td>Thermal cameras ($200 - 16$)</td><td style="text-align:right">184</td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>4.724</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>3.309</strong></td><td>Bank loan due 2020–2021</td><td style="text-align:right">600</td></tr><tr><td>Stock of fertilizers</td><td style="text-align:right">100</td><td><strong>Non-current liabilities</strong></td><td style="text-align:right"><strong>600</strong></td></tr><tr><td>Accounts receivable</td><td style="text-align:right">310</td><td>Bank loan due 31/12/2019</td><td style="text-align:right">300</td></tr><tr><td>Cash</td><td style="text-align:right">2.407</td><td>Suppliers of fertilizers</td><td style="text-align:right">150</td></tr><tr><td></td><td style="text-align:right"></td><td>Creditors for administration expenses</td><td style="text-align:right">72</td></tr><tr><td></td><td style="text-align:right"></td><td>Supplier of thermal cameras</td><td style="text-align:right">100</td></tr><tr><td></td><td style="text-align:right"></td><td>Taxes payable</td><td style="text-align:right">180</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>2.817</strong></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>802</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>6.126</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>6.126</strong></td></tr></tbody></table></div>
+<p>Accumulated depreciation of the drones: $75 + 300 = 375$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Remaining profit 320; dividends 96; reserves 224 m.u.</li><li>Cash 2.407 m.u.</li><li>Owners equity 4.724; current liabilities 802; total 6.126 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>Compute ROA and ROE of 2018</p></div>
+<div class="math-block">$$\text{ROA} = \frac{792}{6.126} = 12{,}93\%, \qquad \text{ROE} = \frac{540}{4.724} = 11{,}43\%$$</div>
+<p>The ROE is below the ROA because interest and taxes are deducted from the numerator, while the equity base (4.724) is not much smaller than the total assets (6.126).</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>ROA = 12,93%; ROE = 11,43% (extension).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.75 points</h3>
+          <div class="prompt"><p>Effect of paying the dividend on 30 June 2019 and of not offsetting the 2017 loss before the 30% payout</p></div>
+<h4 class="step-title">Step 1. New distribution</h4>
+<div class="math-block">$$\text{Dividend} = 0{,}30 \times 540 = 162, \qquad \text{Reserves} = 540 - 162 = 378 \text{ m.u.}, \qquad \text{the loss of 2017 } (-220) \text{ is not offset}$$</div>
+<h4 class="step-title">Step 2. Changes in the balance sheet at 31/12/2018</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Base case</th><th style="text-align:right">New case</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Cash (the 96 m.u. are no longer paid)</td><td style="text-align:right">2.407</td><td style="text-align:right">2.503</td><td style="text-align:right">+96</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>6.126</strong></td><td style="text-align:right"><strong>6.222</strong></td><td style="text-align:right"><strong>+96</strong></td></tr><tr><td>Losses of 2017</td><td style="text-align:right">0</td><td style="text-align:right">(220)</td><td style="text-align:right">−220</td></tr><tr><td>Reserves</td><td style="text-align:right">224</td><td style="text-align:right">378</td><td style="text-align:right">+154</td></tr><tr><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>4.724</strong></td><td style="text-align:right"><strong>4.658</strong></td><td style="text-align:right"><strong>−66</strong></td></tr><tr><td>Dividends payable (current liability)</td><td style="text-align:right">0</td><td style="text-align:right">162</td><td style="text-align:right">+162</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>6.126</strong></td><td style="text-align:right"><strong>6.222</strong></td><td style="text-align:right"><strong>+96</strong></td></tr></tbody></table></div>
+<p>Check: $-66 + 162 = +96$ (checked). The shareholders are promised more (162 instead of 96) because the dividend is computed before absorbing the loss; equity is lower by exactly the extra dividend ($162 - 96 = 66$), and the cash stays in the company until June.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Dividend $0{,}30 \times 540 = 162$ m.u., recorded as "dividends payable" (current).</li><li>Cash +96 (2.503); reserves 378; losses of 2017 (220) remain; owners equity 4.658 (−66).</li><li>Totals 6.222 m.u. (+96).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> farms × m.u./(month·farm) × months gives m.u.; m.u./year × months/12 gives m.u.</li><li><strong>Accrual vs cash:</strong> net profit 540 m.u., while cash grew by 452 m.u.: $540 + 416$ (depreciation, no cash) $- 310$ (uncollected sales) $- 100$ (stock) $+ 150 + 72 + 180$ (suppliers, administration and tax still owed) $- 100$ (cameras) $- 300$ (principal) $- 96$ (dividends) $= 452$.</li><li><strong>Typical mistakes:</strong> expensing all 500 m.u. of fertilizers, amortizing the software in 2017, forgetting the 20% residual value of the cameras, and computing the interest on the original 1.500 m.u.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P13">
+        <span class="problem-tag">Problem · Topic 3 · 4 points · 60 min</span>
+        <h4 class="problem-title">P13 — TAHSA: deducing the share of cash sales from the bank balance</h4>
+        <div class="statement-box">
+<p>The external auditor of <strong>TALLERES AERONÁUTICOS DEL HENARES S.A. (TAHSA)</strong>, a company of Alcalá de Henares dedicated to the machining of titanium brackets and fittings for the aircraft structures industry, must issue the audit report on the financial statements (balance sheet and Income Statement) as of 31 December 2019 (31/12/2019). The auditor has the balance of the company as of 31 December 2018 (31/12/2018), which is included below, and the following operations that have taken place during the period from 1 January 2019 (01/01/2019) to 31 December 2019 (31/12/2019).</p>
+<p><strong>I.</strong> The company has sold during the year 2.400 brackets at a price of 8 m.u. / unit (every month the same amount, 200 u.). A part of the sales of each month, always the same percentage, is charged in cash in the moment of the sale; the rest is payable to 90 days. Unfortunately the commercial department has lost the contract that fixes this percentage.</p>
+<p><strong>II.</strong> During the first quarter of 2019, the unpaid taxes and the outstanding supplier balances of the previous year were paid. The customer debt outstanding from the previous year was charged in January, except 160 m.u. from an airline component maker declared in insolvency on 1 March 2019 (01/03/2019), which is definitively lost.</p>
+<p><strong>III.</strong> At 31 December 2018 (31/12/2018) there is a stock (stock in stock) of 800 kg of titanium bar valued at 1,50 m.u. / kg. On 1 February 2019 (01/02/2019) the company purchased 3.000 kg at 1,50 m.u. / kg, 50% payable to 60 days and the other 50% deferred until 1 February 2020 (01/02/2020). On 1 August 2019 (01/08/2019) it purchased 2.000 kg more at the same price, payable to 120 days. The count of 31 December 2019 (31/12/2019) shows 900 kg in the warehouse.</p>
+<p><strong>IV.</strong> Personnel expenses have been 400 m.u. / month (to which 120 m.u. / month must be added for Social Security); salaries are paid in the month in which they are produced and Social Security the month after. General expenses (electricity, insurance, cleaning) amount to 150 m.u. / month and are paid two months after being made.</p>
+<p><strong>V.</strong> The machinery of the balance of 2018 was bought on 1 January 2016 (01/01/2016) and is amortized linearly in 10 years with residual value zero. On 1 April 2019 (01/04/2019) the company bought a 5-axis CNC centre that cost 4.800 m.u., paid in full in cash that day. To finance it, the same day a bank granted a loan of 3.600 m.u. at 5% annual interest, to be returned in one single payment on 1 April 2022 (01/04/2022); the interest is paid every 1 April for the year that ends that day. The CNC centre will be amortized linearly in 8 years with a residual value of 480 m.u.</p>
+<p><strong>VI.</strong> The long-term loan of the balance of 2018 bears 4% annual interest. The company returns 300 m.u. of principal every 30 June and every 31 December, paying the same days the interest of the semester calculated on the debt at the beginning of the semester.</p>
+<p><strong>VII.</strong> On 1 October 2019 (01/10/2019) the shareholders subscribed a capital increase of 500 new shares of 2 m.u. nominal value, without issue premium, disbursing that day only 50%; the rest will be called in 2020. On 15 November 2019 (15/11/2019) the company received in cash a dividend of 80 m.u. from its financial shares in AEROPIEZAS S.A., a permanent investment.</p>
+<p><strong>VIII.</strong> The bank statement at 23:00 hrs on 31 December 2019 (31/12/2019), before any operation of the closing, shows a balance of 3.024 m.u. The results are declared at 23:59 hrs; the corporation tax of 30% is paid immediately, and 50% of the profit after taxes is paid as dividends before the final balance at 24:00 on 31 December 2019 (31/12/2019); the rest goes to reserves.</p>
+<p><strong>BALANCE 31 December 2018 (31/12/2018)</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>ASSETS</th><th style="text-align:right">m.u.</th><th>LIABILITIES</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td><strong>NON-CURRENT ASSETS</strong></td><td style="text-align:right"><strong>7.200</strong></td><td><strong>OWNERS EQUITY</strong></td><td style="text-align:right"><strong>8.100</strong></td></tr><tr><td>Land</td><td style="text-align:right">2.000</td><td>Paid-in capital (3.500 shares × 2 m.u.)</td><td style="text-align:right">7.000</td></tr><tr><td>Machinery</td><td style="text-align:right">6.000</td><td>Reserves</td><td style="text-align:right">1.100</td></tr><tr><td>Accum. depreciation</td><td style="text-align:right">(1.800)</td><td><strong>NON-CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>1.200</strong></td></tr><tr><td>Financial shares in AEROPIEZAS S.A.</td><td style="text-align:right">1.000</td><td>Long-term loan</td><td style="text-align:right">1.200</td></tr><tr><td><strong>CURRENT ASSETS</strong></td><td style="text-align:right"><strong>3.700</strong></td><td><strong>CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>1.600</strong></td></tr><tr><td>Stock of titanium</td><td style="text-align:right">1.200</td><td>Long-term loan, part due in 2019</td><td style="text-align:right">600</td></tr><tr><td>Accounts receivable</td><td style="text-align:right">1.600</td><td>Suppliers</td><td style="text-align:right">700</td></tr><tr><td>Cash</td><td style="text-align:right">900</td><td>Unpaid taxes</td><td style="text-align:right">300</td></tr><tr><td><strong>Total Assets</strong></td><td style="text-align:right"><strong>10.900</strong></td><td><strong>Total Liabilities + OE</strong></td><td style="text-align:right"><strong>10.900</strong></td></tr></tbody></table></div>
+<p><strong>Required:</strong></p>
+<ol><li>Deduce, justifying it from the bank statement, the percentage of the sales that is charged in cash, and construct the Income Statement (Profit and Loss Account) of TAHSA for the year 2019.</li><li>Construct and justify the balance sheet at 24:00 on 31 December 2019 (31/12/2019), showing all the intermediate calculations.</li><li>Determine the values of the ROA and ROE ratios in 2019.</li><li>The commercial director proposes for 2020 that 50% of the sales be charged in cash, granting on those cash sales a discount of 4%. Indicate what changes would have occurred in the Income Statement, the cash and the balance sheet of 2019 if this policy had been applied from 1 January 2019 (01/01/2019). In which case is the profit higher, and in which case is the final cash balance higher? Discuss, reasoned, why.</li></ol>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup</h3>
+<p><strong>Unknown of the problem:</strong> the share $p$ of each month's sales charged in cash. Every other flow of cash can be computed, so the bank statement before the closing (3.024 m.u.) gives one equation in $p$.</p>
+<p><strong>Collections at 90 days:</strong> a sale of January is collected in April; the sales of October, November and December are still pending at 31/12/2019.</p>
+<p><strong>Uncalled capital:</strong> the shareholders owe the 50% not yet disbursed; it is shown as a deduction of the subscribed capital, as in the Company X exercise of the course.</p>
+<p><strong>Extension (not defined in the course decks).</strong> $\text{ROA} = \text{Income from operations}/\text{Total assets}$ and $\text{ROE} = \text{Net profit}/\text{Owners equity}$, on the balance at 24:00 on 31/12/2019.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.5 points</h3>
+          <div class="prompt"><p>Deduce the percentage of cash sales and prepare the 2019 Income Statement</p></div>
+<h4 class="step-title">Step 1. Outflows before the closing</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Outflow</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Suppliers 2018 and unpaid taxes 2018</td><td>$700 + 300$</td><td style="text-align:right">1.000</td></tr><tr><td>Titanium of 01/02, 50% at 60 days (01/04)</td><td>$0{,}50 \times 3.000 \times 1{,}50$</td><td style="text-align:right">2.250</td></tr><tr><td>Titanium of 01/08, at 120 days (29/11)</td><td>$2.000 \times 1{,}50$</td><td style="text-align:right">3.000</td></tr><tr><td>Salaries</td><td>$12 \times 400$</td><td style="text-align:right">4.800</td></tr><tr><td>Social Security, January–November</td><td>$11 \times 120$</td><td style="text-align:right">1.320</td></tr><tr><td>General expenses, January–October</td><td>$10 \times 150$</td><td style="text-align:right">1.500</td></tr><tr><td>CNC centre</td><td></td><td style="text-align:right">4.800</td></tr><tr><td>Old loan: principal</td><td>$300 + 300$</td><td style="text-align:right">600</td></tr><tr><td>Old loan: interest</td><td>$1.800 \times 0{,}04 \times \tfrac{6}{12} + 1.500 \times 0{,}04 \times \tfrac{6}{12} = 36 + 30$</td><td style="text-align:right">66</td></tr><tr><td><strong>Total</strong></td><td></td><td style="text-align:right"><strong>19.336</strong></td></tr></tbody></table></div>
+<h4 class="step-title">Step 2. Inflows other than the 2019 sales</h4>
+<div class="math-block">$$\underbrace{1.600 - 160}_{\text{2018 receivables}} + \underbrace{3.600}_{\text{new loan}} + \underbrace{0{,}50 \times 1.000}_{\text{capital disbursed}} + \underbrace{80}_{\text{dividend received}} = 1.440 + 3.600 + 500 + 80 = 5.620 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Equation for $p$</h4>
+<p>Monthly sales are $200 \times 8 = 1.600$ m.u. The cash part of every month is collected (12 months); the credit part only for January to September (9 months):</p>
+<div class="math-block">$$900 + 5.620 + 12 \times 1.600\,p + 9 \times 1.600\,(1 - p) - 19.336 = 3.024$$</div>
+<div class="math-block">$$19.200\,p + 14.400 - 14.400\,p = 3.024 + 19.336 - 900 - 5.620 = 15.840$$</div>
+<div class="math-block">$$4.800\,p = 15.840 - 14.400 = 1.440 \;\Rightarrow\; p = \frac{1.440}{4.800} = 0{,}30 = 30\%$$</div>
+<p>Collections from 2019 sales: $19.200 \times 0{,}30 + 9 \times 1.120 = 5.760 + 10.080 = 15.840$ m.u.; pending at 31/12: $3 \times 1.120 = 3.360$ m.u.</p>
+<h4 class="step-title">Step 4. Titanium consumed</h4>
+<div class="math-block">$$\text{Consumption} = 1.200 + 3.000 \times 1{,}50 + 2.000 \times 1{,}50 - 900 \times 1{,}50 = 1.200 + 4.500 + 3.000 - 1.350 = 7.350 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 5. Depreciation</h4>
+<div class="math-block">$$D_{\text{machinery}} = \frac{6.000}{10} = 600 \quad \left(\text{check: } 3 \text{ years} \times 600 = 1.800 \text{ at } 31/12/2018 \;\checkmark\right)$$</div>
+<div class="math-block">$$D_{\text{CNC}} = \frac{4.800 - 480}{8} \times \frac{9}{12} = 540 \times \frac{9}{12} = 405, \qquad D_{2019} = 600 + 405 = 1.005 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 6. Financial items</h4>
+<div class="math-block">$$I_{\text{old loan}} = 66 \text{ (Step 1)}, \qquad I_{\text{CNC loan}} = 3.600 \times 0{,}05 \times \frac{9}{12} = 135 \text{ (accrued, paid 01/04/2020)}$$</div>
+<div class="math-block">$$\text{Financial expenses} = 66 + 135 = 201, \qquad \text{Financial income (dividend received)} = 80 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 7. Income Statement 2019</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Sales revenue</td><td>$2.400 \times 8$</td><td style="text-align:right">19.200</td></tr><tr><td>− Titanium consumed</td><td>Step 4</td><td style="text-align:right">7.350</td></tr><tr><td>− Personnel (salaries and Social Security)</td><td>$12 \times (400 + 120)$</td><td style="text-align:right">6.240</td></tr><tr><td>− General expenses</td><td>$12 \times 150$</td><td style="text-align:right">1.800</td></tr><tr><td>− Bad debt loss</td><td>item II</td><td style="text-align:right">160</td></tr><tr><td>− Depreciation</td><td>Step 5</td><td style="text-align:right">1.005</td></tr><tr><td><strong>= Income from operations</strong></td><td>$19.200 - 16.555$</td><td style="text-align:right"><strong>2.645</strong></td></tr><tr><td>+ Financial income</td><td>dividend from AEROPIEZAS</td><td style="text-align:right">80</td></tr><tr><td>− Financial expenses</td><td>Step 6</td><td style="text-align:right">201</td></tr><tr><td><strong>= Profit before taxes</strong></td><td>$2.645 + 80 - 201$</td><td style="text-align:right"><strong>2.524</strong></td></tr><tr><td>− Corporation tax (30%)</td><td>$0{,}30 \times 2.524$</td><td style="text-align:right">757,20</td></tr><tr><td><strong>= Net profit</strong></td><td>$2.524 - 757{,}20$</td><td style="text-align:right"><strong>1.766,80</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Outflows before closing 19.336; inflows other than 2019 sales 5.620 m.u.</li><li>$p = 30\%$; collections from 2019 sales 15.840 m.u.</li><li>Titanium consumed 7.350; depreciation 1.005; income from operations 2.645 m.u.</li><li>Financial income 80, financial expenses 201; profit before taxes 2.524; tax 757,20; net profit 1.766,80 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.25 points</h3>
+          <div class="prompt"><p>Prepare the balance sheet at 24:00 on 31 December 2019</p></div>
+<h4 class="step-title">Step 1. Closing operations</h4>
+<div class="math-block">$$\text{Dividends} = 0{,}50 \times 1.766{,}80 = 883{,}40, \qquad \text{to reserves} = 883{,}40 \;\Rightarrow\; \text{Reserves} = 1.100 + 883{,}40 = 1.983{,}40$$</div>
+<div class="math-block">$$\text{Cash}_{24:00} = 3.024 - 757{,}20 - 883{,}40 = 1.383{,}40 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Old loan after 2019</h4>
+<p>$1.800 - 600 = 1.200$ m.u.: 600 due in 2020 (current) and 600 in 2021 (non-current).</p>
+<h4 class="step-title">Step 3. Balance sheet at 24:00 on 31/12/2019</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Land</td><td style="text-align:right">2.000</td><td>Subscribed capital (4.000 shares × 2)</td><td style="text-align:right">8.000</td></tr><tr><td>Machinery ($6.000 - 2.400$)</td><td style="text-align:right">3.600</td><td>− Uncalled capital</td><td style="text-align:right">(500)</td></tr><tr><td>CNC centre ($4.800 - 405$)</td><td style="text-align:right">4.395</td><td>Reserves</td><td style="text-align:right">1.983,40</td></tr><tr><td>Financial shares in AEROPIEZAS S.A.</td><td style="text-align:right">1.000</td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>9.483,40</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>10.995</strong></td><td>Bank loan for the CNC (01/04/2022)</td><td style="text-align:right">3.600</td></tr><tr><td>Stock of titanium (900 kg × 1,50)</td><td style="text-align:right">1.350</td><td>Old loan, part due in 2021</td><td style="text-align:right">600</td></tr><tr><td>Accounts receivable</td><td style="text-align:right">3.360</td><td><strong>Non-current liabilities</strong></td><td style="text-align:right"><strong>4.200</strong></td></tr><tr><td>Cash</td><td style="text-align:right">1.383,40</td><td>Old loan, part due in 2020</td><td style="text-align:right">600</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest payable (CNC loan)</td><td style="text-align:right">135</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers of titanium (01/02/2020)</td><td style="text-align:right">2.250</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security payable</td><td style="text-align:right">120</td></tr><tr><td></td><td style="text-align:right"></td><td>General expenses payable</td><td style="text-align:right">300</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>6.093,40</strong></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>3.405</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>17.088,40</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>17.088,40</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Dividends 883,40; reserves 1.983,40 m.u.; cash 1.383,40 m.u.</li><li>Owners equity 9.483,40 (subscribed 8.000, uncalled −500).</li><li>Non-current liabilities 4.200; current liabilities 3.405; total 17.088,40 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>Compute ROA and ROE of 2019</p></div>
+<div class="math-block">$$\text{ROA} = \frac{2.645}{17.088{,}40} = 15{,}48\%, \qquad \text{ROE} = \frac{1.766{,}80}{9.483{,}40} = 18{,}63\%$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>ROA = 15,48%; ROE = 18,63% (extension).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.75 points</h3>
+          <div class="prompt"><p>Effect of charging 50% in cash with a 4% discount; which case gives more profit and which more cash?</p></div>
+<h4 class="step-title">Step 1. New revenue and collections</h4>
+<div class="math-block">$$\text{Revenue} = 0{,}50 \times 19.200 \times 0{,}96 + 0{,}50 \times 19.200 = 9.216 + 9.600 = 18.816 \text{ m.u.} \;(-384)$$</div>
+<div class="math-block">$$\text{Collections} = 9.216 + 9 \times 800 = 16.416 \;(+576), \qquad \text{Receivables} = 3 \times 800 = 2.400 \;(-960)$$</div>
+<h4 class="step-title">Step 2. Results and closing</h4>
+<div class="math-block">$$\text{Profit before taxes} = 2.524 - 384 = 2.140, \qquad \text{Tax} = 0{,}30 \times 2.140 = 642, \qquad \text{Net profit} = 1.498$$</div>
+<div class="math-block">$$\text{Dividends} = 0{,}50 \times 1.498 = 749, \qquad \text{Reserves} = 1.100 + 749 = 1.849$$</div>
+<div class="math-block">$$\text{Cash}_{24:00} = (3.024 + 576) - 642 - 749 = 2.209 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Changes in the statements</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Present policy</th><th style="text-align:right">New policy</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Revenue</td><td style="text-align:right">19.200</td><td style="text-align:right">18.816</td><td style="text-align:right">−384</td></tr><tr><td>Corporation tax</td><td style="text-align:right">757,20</td><td style="text-align:right">642</td><td style="text-align:right">−115,20</td></tr><tr><td>Net profit</td><td style="text-align:right">1.766,80</td><td style="text-align:right">1.498</td><td style="text-align:right">−268,80</td></tr><tr><td>Accounts receivable</td><td style="text-align:right">3.360</td><td style="text-align:right">2.400</td><td style="text-align:right">−960</td></tr><tr><td>Cash at 24:00</td><td style="text-align:right">1.383,40</td><td style="text-align:right">2.209</td><td style="text-align:right">+825,60</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>17.088,40</strong></td><td style="text-align:right"><strong>16.954</strong></td><td style="text-align:right"><strong>−134,40</strong></td></tr><tr><td>Reserves</td><td style="text-align:right">1.983,40</td><td style="text-align:right">1.849</td><td style="text-align:right">−134,40</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>17.088,40</strong></td><td style="text-align:right"><strong>16.954</strong></td><td style="text-align:right"><strong>−134,40</strong></td></tr></tbody></table></div>
+<p><strong>Discussion.</strong> The <strong>profit is higher with the present policy</strong>: the discount is a real cost of 384 m.u. (269 m.u. after tax). The <strong>cash is higher with the new policy</strong>: 576 m.u. more are collected in 2019 because more of each sale is charged at once, and the lower profit also means less tax and fewer dividends paid at the closing. The discount buys liquidity at the price of profitability; it is worth it only if the company needs the cash or if the money collected earlier earns more than the discount costs.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Revenue 18.816 (−384); net profit 1.498 (−268,80); dividends 749 (−134,40).</li><li>Collections from 2019 sales 16.416 (+576); receivables 2.400 (−960).</li><li>Cash at 24:00: 2.209 (+825,60). Profit higher with the present policy; cash higher with the new policy.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> units × m.u./unit, kg × m.u./kg and m.u./year × months/12 all give m.u.; $p$ and the ratios are dimensionless.</li><li><strong>Why the bank balance is enough:</strong> all the other flows are fixed by the terms of the contracts, so the cash balance determines the single unknown term, the share of cash sales.</li><li><strong>Uncalled capital:</strong> the 500 m.u. not disbursed are a debt of the shareholders to the company, not cash; showing them as a deduction keeps equity at the money actually contributed.</li><li><strong>Typical mistakes:</strong> paying the CNC loan interest in 2019, depreciating the CNC for 12 months, counting the dividend received as revenue from operations, and treating the bad debt as a collection.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P14">
+        <span class="problem-tag">Problem · Topic 3 · 4 points · 60 min</span>
+        <h4 class="problem-title">P14 — AVIEBRO: a half-year close with a volume discount, a mortgage and prior losses</h4>
+        <div class="statement-box">
+<p><strong>AVIÓNICA DEL EBRO S.L. (AVIEBRO)</strong>, a Zaragoza workshop dedicated to the repair and calibration of avionics equipment for regional airlines and flying schools, must present to the bank that finances it the financial statements (balance sheet and Income Statement) as of 30 June 2020 (30/06/2020). The financial director has the balance of 31 December 2019 (31/12/2019), included below, and the following operations of the first semester, from 1 January 2020 (01/01/2020) to 30 June 2020 (30/06/2020):</p>
+<p><strong>I.</strong> The company has invoiced repairs for 1.600 m.u. every month. The payment condition agreed with the customers is payable to 60 days. A regional airline, which represents 40% of the invoicing of every month, surpassed in March the annual volume agreed in its contract, and from 1 April 2020 (01/04/2020) it receives a discount of 5% on all its invoices.</p>
+<p><strong>II.</strong> The customer debt outstanding at 31 December 2019 (31/12/2019) was charged in January, except 250 m.u. from a flying school that has been granted to pay it on 30 September 2020 (30/09/2020). The suppliers of the previous year were paid in February. As the company closed 2019 with losses, there were no taxes to pay.</p>
+<p><strong>III.</strong> At 31 December 2019 (31/12/2019) there is a stock (stock in stock) of 300 spare parts valued at 2 m.u. / unit. On 1 February 2020 (01/02/2020) the company purchased 400 parts at 2 m.u., 50% paid in cash and 50% payable to 90 days; on 1 May 2020 (01/05/2020) it purchased 300 parts more at the same price, payable to 120 days. At 30 June 2020 (30/06/2020) there remain 250 parts in the warehouse.</p>
+<p><strong>IV.</strong> The technicians cost 600 m.u. / month, paid in the same month, to which 180 m.u. / month of Social Security must be added, paid the month after. The overheads (electricity, telephone, cleaning) are 100 m.u. / month and are paid two months after being made. On 1 March 2020 (01/03/2020) the company carried out a renting contract for a test bench of 120 m.u. monthly, paid at the end of each month.</p>
+<p><strong>V.</strong> The patent of the balance (a calibration procedure) is amortized linearly in 5 years with residual value zero; the computer equipment was bought on 1 January 2019 (01/01/2019) and is amortized linearly in 3 years with residual value zero.</p>
+<p><strong>VI.</strong> On 1 April 2020 (01/04/2020) AVIEBRO bought a small hangar next to the airport: the building is valued at 2.000 m.u. and the land at 1.000 m.u. It paid 20% in cash and the rest with a mortgage loan at 4% annual interest, to be returned in installments of 120 m.u. every 1 October and every 1 April, the first one on 1 October 2020 (01/10/2020); the same days it pays the interest of the semester calculated on the debt at the beginning of the semester. The building is amortized linearly in 50 years with residual value zero.</p>
+<p><strong>VII.</strong> The long-term loan of the balance bears 5% annual interest, which is paid every 31 December, and it is returned in one single payment on 31 December 2022 (31/12/2022).</p>
+<p><strong>VIII.</strong> The corporation tax is 25%. The taxable base of the semester is the profit before taxes minus the losses from previous years still pending to offset, and the resulting tax will be paid on 20 July 2020 (20/07/2020) (counted in the balance as "taxes to pay"). No dividends are distributed at the half-year.</p>
+<p><strong>BALANCE 31 December 2019 (31/12/2019)</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>ASSETS</th><th style="text-align:right">m.u.</th><th>LIABILITIES</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td><strong>NON-CURRENT ASSETS</strong></td><td style="text-align:right"><strong>1.900</strong></td><td><strong>OWNERS EQUITY</strong></td><td style="text-align:right"><strong>2.700</strong></td></tr><tr><td>Patent</td><td style="text-align:right">1.200</td><td>Paid-in capital</td><td style="text-align:right">3.200</td></tr><tr><td>Accum. amortization of the patent</td><td style="text-align:right">(300)</td><td>Losses from previous years</td><td style="text-align:right">(500)</td></tr><tr><td>Computer equipment</td><td style="text-align:right">900</td><td><strong>NON-CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>1.000</strong></td></tr><tr><td>Accum. depreciation of computer equipment</td><td style="text-align:right">(300)</td><td>Long-term loan (31/12/2022)</td><td style="text-align:right">1.000</td></tr><tr><td>Financial shares</td><td style="text-align:right">400</td><td><strong>CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>500</strong></td></tr><tr><td><strong>CURRENT ASSETS</strong></td><td style="text-align:right"><strong>2.300</strong></td><td>Suppliers</td><td style="text-align:right">500</td></tr><tr><td>Stock of spare parts</td><td style="text-align:right">600</td><td></td><td style="text-align:right"></td></tr><tr><td>Accounts receivable</td><td style="text-align:right">1.000</td><td></td><td style="text-align:right"></td></tr><tr><td>Cash</td><td style="text-align:right">700</td><td></td><td style="text-align:right"></td></tr><tr><td><strong>Total Assets</strong></td><td style="text-align:right"><strong>4.200</strong></td><td><strong>Total Liabilities + OE</strong></td><td style="text-align:right"><strong>4.200</strong></td></tr></tbody></table></div>
+<p><strong>Required:</strong></p>
+<ol><li>Deduce the exact date on which the patent was acquired, and construct the Income Statement (Profit and Loss Account) of AVIEBRO for the first semester of 2020, explaining the intermediate calculations.</li><li>Calculate the cash and construct the balance sheet at 30 June 2020 (30/06/2020).</li><li>Determine the values of the ROA and ROE ratios of the semester, and indicate how the Income Statement and the balance sheet would change if the tax authority did not allow to offset the losses from previous years.</li><li>Instead of buying the hangar, the company could have rented it from 1 April 2020 (01/04/2020) for 50 m.u. monthly, paid at the end of each month. Indicate the changes in the Income Statement, the cash and the balance sheet at 30 June 2020 (30/06/2020). In which case is the profit higher, and in which case is the final cash balance higher? Discuss, reasoned, why.</li></ol>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup</h3>
+<p><strong>Time window:</strong> six months, 01/01/2020–30/06/2020. Depreciation and interest are prorated by months; expenses are recorded when incurred even if they are paid later [Slide 8].</p>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>The airline's discount applies to the invoices of April, May and June only.</li><li>"Payable to 90 days" from 1 February means payment on 1 May; "payable to 120 days" from 1 May means payment at the end of August, outside the semester.</li><li>The losses from previous years are offset for tax purposes, but they stay in the balance sheet until the annual meeting distributes the profit of the year; the result of the semester is shown separately in equity.</li><li>Land is not depreciated.</li></ol>
+<p><strong>Extension (not defined in the course decks).</strong> $\text{ROA} = \text{Income from operations}/\text{Total assets}$ and $\text{ROE} = \text{Net profit}/\text{Owners equity}$, both for the semester and on the balance at 30/06/2020.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Deduce the purchase date of the patent and prepare the Income Statement of the semester</p></div>
+<h4 class="step-title">Step 1. Purchase date of the patent</h4>
+<div class="math-block">$$D_{\text{patent}} = \frac{1.200}{5} = 240 \text{ m.u./year}, \qquad \frac{300}{240} = 1{,}25 \text{ years} = 15 \text{ months before } 31/12/2019 \;\Rightarrow\; \text{1 October 2018 (01/10/2018)}$$</div>
+<h4 class="step-title">Step 2. Revenue</h4>
+<div class="math-block">$$\text{Discount per month} = 0{,}05 \times 0{,}40 \times 1.600 = 32 \text{ m.u.}, \qquad \text{Revenue} = 6 \times 1.600 - 3 \times 32 = 9.600 - 96 = 9.504 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Parts consumed</h4>
+<div class="math-block">$$\text{Consumption} = 600 + 400 \times 2 + 300 \times 2 - 250 \times 2 = 600 + 800 + 600 - 500 = 1.500 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Personnel, overheads and renting</h4>
+<div class="math-block">$$\text{Personnel} = 6 \times (600 + 180) = 4.680, \qquad \text{Overheads} = 6 \times 100 = 600, \qquad \text{Renting} = 4 \times 120 = 480 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 5. Depreciation of the semester</h4>
+<div class="math-block">$$D_{\text{patent}} = 240 \times \frac{6}{12} = 120, \qquad D_{\text{computer}} = \frac{900}{3} \times \frac{6}{12} = 150, \qquad D_{\text{building}} = \frac{2.000}{50} \times \frac{3}{12} = 10$$</div>
+<div class="math-block">$$D = 120 + 150 + 10 = 280 \text{ m.u.}$$</div>
+<p>Check of the computer equipment: one year at 300 m.u. gives the 300 of the 2019 balance (checked).</p>
+<h4 class="step-title">Step 6. Interest of the semester (accrued, nothing paid)</h4>
+<div class="math-block">$$I_{\text{mortgage}} = 2.400 \times 0{,}04 \times \frac{3}{12} = 24, \qquad I_{\text{loan}} = 1.000 \times 0{,}05 \times \frac{6}{12} = 25 \text{ m.u.}$$</div>
+<p>The mortgage is $3.000 - 0{,}20 \times 3.000 = 2.400$ m.u.</p>
+<h4 class="step-title">Step 7. Tax</h4>
+<div class="math-block">$$\text{Taxable base} = 1.915 - 500 = 1.415, \qquad \text{Tax} = 0{,}25 \times 1.415 = 353{,}75 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 8. Income Statement 01/01/2020–30/06/2020</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Repair revenue</td><td>Step 2</td><td style="text-align:right">9.504</td></tr><tr><td>− Spare parts consumed</td><td>Step 3</td><td style="text-align:right">1.500</td></tr><tr><td>− Personnel (wages and Social Security)</td><td>Step 4</td><td style="text-align:right">4.680</td></tr><tr><td>− Overheads</td><td>Step 4</td><td style="text-align:right">600</td></tr><tr><td>− Renting of the test bench</td><td>Step 4</td><td style="text-align:right">480</td></tr><tr><td>− Depreciation and amortization</td><td>Step 5</td><td style="text-align:right">280</td></tr><tr><td><strong>= Income from operations</strong></td><td>$9.504 - 7.540$</td><td style="text-align:right"><strong>1.964</strong></td></tr><tr><td>− Financial expenses</td><td>$24 + 25$</td><td style="text-align:right">49</td></tr><tr><td><strong>= Profit before taxes</strong></td><td>$1.964 - 49$</td><td style="text-align:right"><strong>1.915</strong></td></tr><tr><td>− Corporation tax</td><td>Step 7</td><td style="text-align:right">353,75</td></tr><tr><td><strong>= Net profit of the semester</strong></td><td>$1.915 - 353{,}75$</td><td style="text-align:right"><strong>1.561,25</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Patent bought on 1 October 2018 (01/10/2018).</li><li>Revenue 9.504 (discount 96); parts consumed 1.500; depreciation 280 m.u.</li><li>Income from operations 1.964; interest 49; profit before taxes 1.915 m.u.</li><li>Taxable base 1.415; tax 353,75; net profit 1.561,25 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.25 points</h3>
+          <div class="prompt"><p>Compute the cash and prepare the balance sheet at 30 June 2020</p></div>
+<h4 class="step-title">Step 1. Cash account of the semester</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>2019 receivables ($1.000 - 250$)</td><td style="text-align:right">750</td><td>Suppliers 2019</td><td style="text-align:right">500</td></tr><tr><td>Invoices January–March ($3 \times 1.600$)</td><td style="text-align:right">4.800</td><td>Parts of 01/02 ($400 + 400$)</td><td style="text-align:right">800</td></tr><tr><td>Invoice of April ($1.600 - 32$)</td><td style="text-align:right">1.568</td><td>Technicians' wages</td><td style="text-align:right">3.600</td></tr><tr><td>Mortgage loan</td><td style="text-align:right">2.400</td><td>Social Security, January–May</td><td style="text-align:right">900</td></tr><tr><td></td><td style="text-align:right"></td><td>Overheads, January–April</td><td style="text-align:right">400</td></tr><tr><td></td><td style="text-align:right"></td><td>Renting, March–June</td><td style="text-align:right">480</td></tr><tr><td></td><td style="text-align:right"></td><td>Hangar (building and land)</td><td style="text-align:right">3.000</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>9.518</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>9.680</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash}_{30/06/2020} = 700 + 9.518 - 9.680 = 538 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Items still open at 30/06/2020</h4>
+<ul><li>Receivables: May and June invoices, $2 \times (1.600 - 32) = 3.136$, plus the 250 deferred to 30/09/2020: 3.386 m.u.</li><li>Suppliers: the parts of 01/05 ($300 \times 2 = 600$), due at the end of August.</li><li>Mortgage: installments of 01/10/2020 and 01/04/2021 ($2 \times 120 = 240$) are current; $2.400 - 240 = 2.160$ non-current.</li></ul>
+<h4 class="step-title">Step 3. Balance sheet at 30/06/2020</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Patent ($1.200 - 420$)</td><td style="text-align:right">780</td><td>Paid-in capital</td><td style="text-align:right">3.200</td></tr><tr><td>Computer equipment ($900 - 450$)</td><td style="text-align:right">450</td><td>Losses from previous years</td><td style="text-align:right">(500)</td></tr><tr><td>Land</td><td style="text-align:right">1.000</td><td>Profit of the semester</td><td style="text-align:right">1.561,25</td></tr><tr><td>Building ($2.000 - 10$)</td><td style="text-align:right">1.990</td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>4.261,25</strong></td></tr><tr><td>Financial shares</td><td style="text-align:right">400</td><td>Long-term loan (31/12/2022)</td><td style="text-align:right">1.000</td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>4.620</strong></td><td>Mortgage loan, non-current part</td><td style="text-align:right">2.160</td></tr><tr><td>Stock of spare parts (250 × 2)</td><td style="text-align:right">500</td><td><strong>Non-current liabilities</strong></td><td style="text-align:right"><strong>3.160</strong></td></tr><tr><td>Accounts receivable</td><td style="text-align:right">3.386</td><td>Mortgage loan, installments within one year</td><td style="text-align:right">240</td></tr><tr><td>Cash</td><td style="text-align:right">538</td><td>Interest payable ($24 + 25$)</td><td style="text-align:right">49</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers</td><td style="text-align:right">600</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security payable</td><td style="text-align:right">180</td></tr><tr><td></td><td style="text-align:right"></td><td>Overheads payable</td><td style="text-align:right">200</td></tr><tr><td></td><td style="text-align:right"></td><td>Taxes to pay</td><td style="text-align:right">353,75</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>4.424</strong></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>1.622,75</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>9.044</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>9.044</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Cash at 30/06/2020: 538 m.u.</li><li>Receivables 3.386; non-current assets 4.620; total 9.044 m.u.</li><li>Owners equity 4.261,25; non-current liabilities 3.160; current liabilities 1.622,75 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.75 points</h3>
+          <div class="prompt"><p>Compute ROA and ROE of the semester, and the effect of not offsetting the prior losses</p></div>
+<h4 class="step-title">Step 1. Ratios of the semester (extension)</h4>
+<div class="math-block">$$\text{ROA} = \frac{1.964}{9.044} = 21{,}72\%, \qquad \text{ROE} = \frac{1.561{,}25}{4.261{,}25} = 36{,}64\%$$</div>
+<h4 class="step-title">Step 2. Without the offset of the losses</h4>
+<div class="math-block">$$\text{Tax} = 0{,}25 \times 1.915 = 478{,}75 \;(+125), \qquad \text{Net profit} = 1.915 - 478{,}75 = 1.436{,}25 \;(-125)$$</div>
+<p>In the balance, "taxes to pay" rises by 125 m.u. and the profit of the semester (equity) falls by 125 m.u.; total assets and cash do not change, because the tax is paid only in July. The ROE falls to $1.436{,}25 / 4.136{,}25 = 34{,}72\%$. The offset is worth exactly $0{,}25 \times 500 = 125$ m.u. of tax saved.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>ROA = 21,72%; ROE = 36,64% (semester, extension).</li><li>Without the offset: tax 478,75 (+125); net profit 1.436,25 (−125); taxes to pay +125; equity 4.136,25; totals unchanged; ROE 34,72%.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.75 points</h3>
+          <div class="prompt"><p>Renting the hangar instead of buying it; which case gives more profit and which more cash?</p></div>
+<h4 class="step-title">Step 1. New results</h4>
+<div class="math-block">$$\text{Income from operations} = 1.964 + 10 - 3 \times 50 = 1.824, \qquad \text{Profit before taxes} = 1.824 - 25 = 1.799$$</div>
+<div class="math-block">$$\text{Tax} = 0{,}25 \times (1.799 - 500) = 324{,}75, \qquad \text{Net profit} = 1.799 - 324{,}75 = 1.474{,}25$$</div>
+<h4 class="step-title">Step 2. New cash</h4>
+<div class="math-block">$$\text{Cash} = 538 + 600 - 3 \times 50 = 988 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Changes in the statements</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Buying</th><th style="text-align:right">Renting</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Depreciation</td><td style="text-align:right">280</td><td style="text-align:right">270</td><td style="text-align:right">−10</td></tr><tr><td>Rent of the hangar</td><td style="text-align:right">0</td><td style="text-align:right">150</td><td style="text-align:right">+150</td></tr><tr><td>Financial expenses</td><td style="text-align:right">49</td><td style="text-align:right">25</td><td style="text-align:right">−24</td></tr><tr><td>Net profit</td><td style="text-align:right">1.561,25</td><td style="text-align:right">1.474,25</td><td style="text-align:right">−87</td></tr><tr><td>Land and building (net)</td><td style="text-align:right">2.990</td><td style="text-align:right">0</td><td style="text-align:right">−2.990</td></tr><tr><td>Cash</td><td style="text-align:right">538</td><td style="text-align:right">988</td><td style="text-align:right">+450</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>9.044</strong></td><td style="text-align:right"><strong>6.504</strong></td><td style="text-align:right"><strong>−2.540</strong></td></tr><tr><td>Owners equity</td><td style="text-align:right">4.261,25</td><td style="text-align:right">4.174,25</td><td style="text-align:right">−87</td></tr><tr><td>Mortgage loan (current and non-current)</td><td style="text-align:right">2.400</td><td style="text-align:right">0</td><td style="text-align:right">−2.400</td></tr><tr><td>Interest payable</td><td style="text-align:right">49</td><td style="text-align:right">25</td><td style="text-align:right">−24</td></tr><tr><td>Taxes to pay</td><td style="text-align:right">353,75</td><td style="text-align:right">324,75</td><td style="text-align:right">−29</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>9.044</strong></td><td style="text-align:right"><strong>6.504</strong></td><td style="text-align:right"><strong>−2.540</strong></td></tr></tbody></table></div>
+<p><strong>Discussion.</strong> The <strong>profit is higher buying the hangar</strong>: three months of rent (150) cost more than the depreciation of the building (10) and the mortgage interest (24) together, because the land is not depreciated and the mortgage is cheap. The <strong>cash is higher renting</strong>: the company keeps the 600 m.u. of down payment and pays only 150 of rent. Buying gives more profit but ties up cash and adds 2.400 m.u. of debt; renting preserves liquidity, which matters for a workshop that ends the semester with only 538 m.u. in the bank.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Income from operations 1.824 (−140); interest 25; tax 324,75; net profit 1.474,25 (−87).</li><li>Cash 988 (+450); total assets 6.504; no mortgage.</li><li>Profit higher buying; cash higher renting.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> m.u./month × months gives m.u.; rates × m.u. × months/12 give m.u.; ratios dimensionless.</li><li><strong>Half-year ratios:</strong> ROA and ROE of a semester are not annual returns; annualising them would roughly double them.</li><li><strong>Profit is not cash:</strong> the company earned 1.561,25 m.u. but its cash fell from 700 to 538 m.u.: the hangar, the uncollected May–June invoices and the growth of receivables absorbed it.</li><li><strong>Typical mistakes:</strong> depreciating the land, applying the airline discount to the whole semester, paying the mortgage interest in the semester, and taxing the profit without offsetting the losses as the statement allows.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P15">
+        <span class="problem-tag">Problem · Topic 3 · 4 points · 60 min</span>
+        <h4 class="problem-title">P15 — CAESA: financing a second autoclave with a semiannual loan or with new shares</h4>
+        <div class="statement-box">
+<p>The chief financial officer (CFO) of <strong>COMPOSITES AEROESPACIALES DE ÁLAVA S.A. (CAESA)</strong>, a company of Vitoria dedicated to the manufacturing of carbon-fibre fairings for helicopters, is closing the books of the year 2021. The balance of the company at 31 December 2020 (31/12/2020) is included below; the operations of the period from 1 January 2021 (01/01/2021) to 31 December 2021 (31/12/2021) have been the following:</p>
+<p><strong>I.</strong> The company has sold 1.200 fairings at a price of 30 m.u. / unit (every month the same amount, 100 u.). Of the sales of every month, 20% is charged in cash and the remaining 80% is payable to 60 days. The customer debt of the previous year was charged in January, and the suppliers and the unpaid taxes of the previous year were paid in January and in April respectively.</p>
+<p><strong>II.</strong> At 31 December 2020 (31/12/2020) there is a stock (stock in stock) of 500 kg of epoxy resin valued at 3 m.u. / kg. On 1 March 2021 (01/03/2021) the company purchased 4.000 kg at 3 m.u. / kg, paying 30% in cash and the remaining 70% in two equal parts, on 1 September 2021 (01/09/2021) and on 1 March 2022 (01/03/2022). At 31 December 2021 (31/12/2021) there remain 700 kg in the warehouse.</p>
+<p><strong>III.</strong> The fixed salaries are 1.000 m.u. / month, paid in the same month, to which 300 m.u. / month of Social Security must be added, paid the month after. Variable wages of the lamination staff amounted in 2021 to 1.200 m.u. (paid in cash). The external supplies (energy for the autoclaves) are 250 m.u. / month and are paid two months after being made.</p>
+<p><strong>IV.</strong> The autoclave of the balance was bought on 1 January 2018 (01/01/2018) and is amortized linearly in 10 years with a residual value of 1.000 m.u. On 1 July 2021 (01/07/2021) CAESA put into service a second autoclave of 6.000 m.u. (amortized linearly in 10 years with a residual value of 600 m.u.) together with a software license for the control of the curing cycles of 1.200 m.u. (amortized linearly in 3 years with residual value zero), both paid in full in cash that day.</p>
+<p><strong>V.</strong> To pay the 7.200 m.u. of the expansion, the board accepted on 1 July 2021 (01/07/2021) a bank loan of 7.200 m.u. at 5% annual interest, to be returned in 8 semiannual installments of 900 m.u. every 1 January and every 1 July, the first on 1 January 2022 (01/01/2022); the same days the company pays the interest of the semester calculated on the debt at the beginning of the semester. The long-term loan of the balance bears 6% annual interest, paid every 31 December, and is returned in one single payment on 31 December 2023 (31/12/2023).</p>
+<p><strong>VI.</strong> The financial results are declared at 23:59 hrs on 31 December 2021 (31/12/2021). The corporation tax is 20% on the Profits and is paid immediately. Of the profit after taxes, 10% goes to the legal reserve, 30% is distributed as dividends paid in cash at 24:00 on 31 December 2021 (31/12/2021), and the rest goes to voluntary reserves.</p>
+<p><strong>VII.</strong> The alternative rejected by the board was a capital increase on 1 July 2021 (01/07/2021) of 4.800 new shares of 1 m.u. nominal value with an issue premium of 50% over the nominal value, fully disbursed in cash, instead of the bank loan.</p>
+<p><strong>BALANCE 31 December 2020 (31/12/2020)</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>ASSETS</th><th style="text-align:right">m.u.</th><th>LIABILITIES</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td><strong>NON-CURRENT ASSETS</strong></td><td style="text-align:right"><strong>9.600</strong></td><td><strong>OWNERS EQUITY</strong></td><td style="text-align:right"><strong>12.000</strong></td></tr><tr><td>Land</td><td style="text-align:right">3.000</td><td>Paid-in capital (10.000 shares × 1 m.u.)</td><td style="text-align:right">10.000</td></tr><tr><td>Autoclave</td><td style="text-align:right">9.000</td><td>Reserves</td><td style="text-align:right">2.000</td></tr><tr><td>Accum. depreciation</td><td style="text-align:right">(2.400)</td><td><strong>NON-CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>1.000</strong></td></tr><tr><td><strong>CURRENT ASSETS</strong></td><td style="text-align:right"><strong>5.000</strong></td><td>Long-term loan (31/12/2023)</td><td style="text-align:right">1.000</td></tr><tr><td>Stock of resin</td><td style="text-align:right">1.500</td><td><strong>CURRENT LIABILITIES</strong></td><td style="text-align:right"><strong>1.600</strong></td></tr><tr><td>Accounts receivable</td><td style="text-align:right">2.000</td><td>Suppliers</td><td style="text-align:right">1.200</td></tr><tr><td>Cash</td><td style="text-align:right">1.500</td><td>Unpaid taxes</td><td style="text-align:right">400</td></tr><tr><td><strong>Total Assets</strong></td><td style="text-align:right"><strong>14.600</strong></td><td><strong>Total Liabilities + OE</strong></td><td style="text-align:right"><strong>14.600</strong></td></tr></tbody></table></div>
+<p><strong>Required:</strong></p>
+<ol><li>Construct the Income Statement (Profit and Loss Account) of CAESA for the year 2021, justifying the depreciation of the old autoclave from the data of the balance.</li><li>Construct and justify the balance sheet at 24:00 on 31 December 2021 (31/12/2021), detailing the cash calculations and the classification of the new loan between current and non-current liabilities.</li><li>Determine the ROA, the ROE and the debt-to-equity ratio of 2021.</li><li>Indicate what changes would have occurred in the Income Statement, the cash and the balance sheet if the board had chosen the capital increase described in VII. Compare the ROE and the debt-to-equity ratio of both alternatives and explain, reasoned, the effect of the financial leverage.</li></ol>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup</h3>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>"Payable to 60 days" leaves the November and December sales uncollected at 31/12/2021.</li><li>The interest of the new loan for July–December 2021 is accrued in 2021 and paid on 1 January 2022, the day after the closing; the installment of that day and the one of 1 July 2022 are due within one year.</li><li>Land is not depreciated.</li></ol>
+<p><strong>Financing sources involved:</strong> a long-term bank loan (external liability, [Slide 31]) against a rights issue with premium (external equity, [Slides 25-26]); the reserves are self-financing [Slide 23]. The debt-to-equity ratio is course material [Slide 36].</p>
+<p><strong>Extension (not defined in the course decks).</strong> $\text{ROA} = \text{Income from operations}/\text{TA}$; $\text{ROE} = \text{Net profit}/E$, on the balance at 24:00.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Prepare the 2021 Income Statement</p></div>
+<h4 class="step-title">Step 1. Depreciation</h4>
+<div class="math-block">$$D_{\text{old}} = \frac{9.000 - 1.000}{10} = 800 \quad \left(\text{2018–2020: } 3 \times 800 = 2.400 \;\checkmark\right)$$</div>
+<div class="math-block">$$D_{\text{new}} = \frac{6.000 - 600}{10} \times \frac{6}{12} = 540 \times \frac{6}{12} = 270, \qquad D_{\text{software}} = \frac{1.200}{3} \times \frac{6}{12} = 200$$</div>
+<div class="math-block">$$D_{2021} = 800 + 270 + 200 = 1.270 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 2. Resin consumed</h4>
+<div class="math-block">$$\text{Consumption} = 1.500 + 4.000 \times 3 - 700 \times 3 = 1.500 + 12.000 - 2.100 = 11.400 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Interest</h4>
+<div class="math-block">$$I_{\text{old loan}} = 0{,}06 \times 1.000 = 60, \qquad I_{\text{new loan}} = 7.200 \times 0{,}05 \times \frac{6}{12} = 180, \qquad I = 240 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Income Statement 2021</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Sales revenue</td><td>$1.200 \times 30$</td><td style="text-align:right">36.000</td></tr><tr><td>− Resin consumed</td><td>Step 2</td><td style="text-align:right">11.400</td></tr><tr><td>− Fixed salaries and Social Security</td><td>$12 \times (1.000 + 300)$</td><td style="text-align:right">15.600</td></tr><tr><td>− Variable wages</td><td></td><td style="text-align:right">1.200</td></tr><tr><td>− External supplies (energy)</td><td>$12 \times 250$</td><td style="text-align:right">3.000</td></tr><tr><td>− Depreciation and amortization</td><td>Step 1</td><td style="text-align:right">1.270</td></tr><tr><td><strong>= Income from operations</strong></td><td>$36.000 - 32.470$</td><td style="text-align:right"><strong>3.530</strong></td></tr><tr><td>− Financial expenses</td><td>Step 3</td><td style="text-align:right">240</td></tr><tr><td><strong>= Profit before taxes</strong></td><td>$3.530 - 240$</td><td style="text-align:right"><strong>3.290</strong></td></tr><tr><td>− Corporation tax (20%)</td><td>$0{,}20 \times 3.290$</td><td style="text-align:right">658</td></tr><tr><td><strong>= Net profit</strong></td><td>$3.290 - 658$</td><td style="text-align:right"><strong>2.632</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Old autoclave 800 m.u./year ($3 \times 800 = 2.400$ (checked)); new autoclave 270; software 200; total 1.270 m.u.</li><li>Resin consumed 11.400; income from operations 3.530; interest 240 m.u.</li><li>Profit before taxes 3.290; tax 658; net profit 2.632 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.5 points</h3>
+          <div class="prompt"><p>Prepare the balance sheet at 24:00 on 31 December 2021</p></div>
+<h4 class="step-title">Step 1. Distribution</h4>
+<div class="math-block">$$\text{Legal reserve} = 0{,}10 \times 2.632 = 263{,}20, \qquad \text{Dividends} = 0{,}30 \times 2.632 = 789{,}60, \qquad \text{Voluntary reserves} = 0{,}60 \times 2.632 = 1.579{,}20$$</div>
+<h4 class="step-title">Step 2. Cash account 2021</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Cash sales ($0{,}20 \times 36.000$)</td><td style="text-align:right">7.200</td><td>Suppliers 2020</td><td style="text-align:right">1.200</td></tr><tr><td>Credit sales January–October ($10 \times 2.400$)</td><td style="text-align:right">24.000</td><td>Unpaid taxes 2020</td><td style="text-align:right">400</td></tr><tr><td>Receivables 2020</td><td style="text-align:right">2.000</td><td>Resin ($0{,}30 \times 12.000 + 0{,}35 \times 12.000$)</td><td style="text-align:right">7.800</td></tr><tr><td>New bank loan</td><td style="text-align:right">7.200</td><td>Fixed salaries</td><td style="text-align:right">12.000</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security, January–November</td><td style="text-align:right">3.300</td></tr><tr><td></td><td style="text-align:right"></td><td>Variable wages</td><td style="text-align:right">1.200</td></tr><tr><td></td><td style="text-align:right"></td><td>External supplies, January–October</td><td style="text-align:right">2.500</td></tr><tr><td></td><td style="text-align:right"></td><td>Second autoclave and software</td><td style="text-align:right">7.200</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest of the old loan</td><td style="text-align:right">60</td></tr><tr><td></td><td style="text-align:right"></td><td>Corporation tax 2021</td><td style="text-align:right">658</td></tr><tr><td></td><td style="text-align:right"></td><td>Dividends</td><td style="text-align:right">789,60</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>40.400</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>37.107,60</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Cash}_{24:00,\,31/12/2021} = 1.500 + 40.400 - 37.107{,}60 = 4.792{,}40 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Classification of the new loan</h4>
+<p>Installments on 01/01/2022 and 01/07/2022: $2 \times 900 = 1.800$ m.u. current; the other six, $6 \times 900 = 5.400$ m.u., non-current.</p>
+<h4 class="step-title">Step 4. Balance sheet at 24:00 on 31/12/2021</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Land</td><td style="text-align:right">3.000</td><td>Paid-in capital</td><td style="text-align:right">10.000</td></tr><tr><td>Old autoclave ($9.000 - 3.200$)</td><td style="text-align:right">5.800</td><td>Legal reserve</td><td style="text-align:right">263,20</td></tr><tr><td>New autoclave ($6.000 - 270$)</td><td style="text-align:right">5.730</td><td>Voluntary reserves (the 2.000 of 2020 + 1.579,20)</td><td style="text-align:right">3.579,20</td></tr><tr><td>Software license ($1.200 - 200$)</td><td style="text-align:right">1.000</td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>13.842,40</strong></td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>15.530</strong></td><td>Long-term loan (31/12/2023)</td><td style="text-align:right">1.000</td></tr><tr><td>Stock of resin (700 kg × 3)</td><td style="text-align:right">2.100</td><td>New bank loan, non-current part</td><td style="text-align:right">5.400</td></tr><tr><td>Accounts receivable ($2 \times 2.400$)</td><td style="text-align:right">4.800</td><td><strong>Non-current liabilities</strong></td><td style="text-align:right"><strong>6.400</strong></td></tr><tr><td>Cash</td><td style="text-align:right">4.792,40</td><td>New bank loan, installments in 2022</td><td style="text-align:right">1.800</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest payable (01/01/2022)</td><td style="text-align:right">180</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers of resin (01/03/2022)</td><td style="text-align:right">4.200</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security payable</td><td style="text-align:right">300</td></tr><tr><td></td><td style="text-align:right"></td><td>External supplies payable</td><td style="text-align:right">500</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>11.692,40</strong></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>6.980</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>27.222,40</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>27.222,40</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Legal reserve 263,20; dividends 789,60; voluntary reserves 1.579,20 m.u.</li><li>Cash 4.792,40 m.u.</li><li>New loan: 1.800 current and 5.400 non-current; interest payable 180.</li><li>Owners equity 13.842,40; total 27.222,40 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.5 points</h3>
+          <div class="prompt"><p>Compute ROA, ROE and debt-to-equity of 2021</p></div>
+<div class="math-block">$$\text{ROA} = \frac{3.530}{27.222{,}40} = 12{,}97\%, \qquad \text{ROE} = \frac{2.632}{13.842{,}40} = 19{,}01\%, \qquad \frac{L}{E} = \frac{13.380}{13.842{,}40} = 0{,}97$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>ROA = 12,97%; ROE = 19,01% (extension); $L/E = 0{,}97$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 1 point</h3>
+          <div class="prompt"><p>The capital increase instead of the loan: changes, ROE, leverage and the leverage effect</p></div>
+<h4 class="step-title">Step 1. New results</h4>
+<div class="math-block">$$\text{Profit before taxes} = 3.530 - 60 = 3.470, \qquad \text{Tax} = 0{,}20 \times 3.470 = 694, \qquad \text{Net profit} = 3.470 - 694 = 2.776$$</div>
+<div class="math-block">$$\text{Legal reserve} = 277{,}60, \qquad \text{Dividends} = 832{,}80, \qquad \text{Voluntary reserves} = 1.665{,}60$$</div>
+<h4 class="step-title">Step 2. New cash</h4>
+<p>The 7.200 m.u. from the shares replace the 7.200 m.u. of the loan; only the tax (+36) and the dividend (+43,20) change:</p>
+<div class="math-block">$$\text{Cash} = 4.792{,}40 - 36 - 43{,}20 = 4.713{,}20 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Changes in the balance sheet</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Loan</th><th style="text-align:right">Capital increase</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Cash</td><td style="text-align:right">4.792,40</td><td style="text-align:right">4.713,20</td><td style="text-align:right">−79,20</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>27.222,40</strong></td><td style="text-align:right"><strong>27.143,20</strong></td><td style="text-align:right"><strong>−79,20</strong></td></tr><tr><td>Paid-in capital</td><td style="text-align:right">10.000</td><td style="text-align:right">14.800</td><td style="text-align:right">+4.800</td></tr><tr><td>Issue premium</td><td style="text-align:right">0</td><td style="text-align:right">2.400</td><td style="text-align:right">+2.400</td></tr><tr><td>Legal and voluntary reserves</td><td style="text-align:right">3.842,40</td><td style="text-align:right">3.943,20</td><td style="text-align:right">+100,80</td></tr><tr><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>13.842,40</strong></td><td style="text-align:right"><strong>21.143,20</strong></td><td style="text-align:right"><strong>+7.300,80</strong></td></tr><tr><td>New bank loan (current and non-current)</td><td style="text-align:right">7.200</td><td style="text-align:right">0</td><td style="text-align:right">−7.200</td></tr><tr><td>Interest payable</td><td style="text-align:right">180</td><td style="text-align:right">0</td><td style="text-align:right">−180</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>27.222,40</strong></td><td style="text-align:right"><strong>27.143,20</strong></td><td style="text-align:right"><strong>−79,20</strong></td></tr></tbody></table></div>
+<h4 class="step-title">Step 4. Comparison and leverage effect</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Ratio</th><th style="text-align:right">Loan</th><th style="text-align:right">Capital increase</th></tr></thead><tbody><tr><td>ROA</td><td style="text-align:right">12,97%</td><td style="text-align:right">$3.530 / 27.143{,}20 = 13{,}01\%$</td></tr><tr><td>ROE</td><td style="text-align:right">19,01%</td><td style="text-align:right">$2.776 / 21.143{,}20 = 13{,}13\%$</td></tr><tr><td>$L/E$ [Slide 36]</td><td style="text-align:right">0,97</td><td style="text-align:right">$6.000 / 21.143{,}20 = 0{,}28$</td></tr></tbody></table></div>
+<p>The assets earn the same income from operations in both cases (about 13% of the assets), while the new loan costs only 5%. Each m.u. borrowed earns more than it costs, and the difference goes to the shareholders: with the loan, equity is 7.300,80 m.u. smaller while the net profit is only 144 m.u. lower, so the ROE rises from 13,13% to 19,01%. (Separately, the profit is shared among 10.000 shares instead of 14.800, which raises the earnings per share, an extension.) This is the positive <strong>financial leverage effect</strong> (the relation ROE vs ROA − cost of debt is an extension). Its price is risk: the loan raises the debt-to-equity ratio from 0,28 to 0,97 and commits the company to 1.800 m.u. of installments plus interest every year, while the new shares never have to be repaid [Slides 25, 36].</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Interest 60; profit before taxes 3.470; tax 694; net profit 2.776 m.u. (+144).</li><li>Legal reserve 277,60; dividends 832,80; voluntary 1.665,60; cash 4.713,20 (−79,20).</li><li>Owners equity 21.143,20; liabilities 6.000; total 27.143,20 m.u.</li><li>ROE 13,13% vs 19,01%; $L/E$ 0,28 vs 0,97. The loan raises ROE because ROA ≈ 13% &gt; cost of debt 5%.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> units × m.u./unit and kg × m.u./kg give m.u.; ratios dimensionless.</li><li><strong>Profit vs cash:</strong> the net profit of 2.632 m.u. does not explain the cash: 7.200 m.u. of new debt came in and 7.200 m.u. went into fixed assets, and 4.800 m.u. of sales are still uncollected.</li><li><strong>The day after the closing:</strong> the interest of the new loan is an expense of 2021 although it is paid on 01/01/2022; forgetting it overstates the profit by 180 m.u.</li><li><strong>Typical mistakes:</strong> putting the whole new loan in non-current liabilities, depreciating the new assets twelve months, ignoring the residual values and treating the issue premium as capital.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="P16">
+        <span class="problem-tag">Problem · Topic 3 · 4 points · 55 min</span>
+        <h4 class="problem-title">P16 — HESECA: the statements from a summary of ledger accounts, with prepaid insurance and a credit line</h4>
+        <div class="statement-box">
+<p><strong>HELIPUERTOS Y SERVICIOS DEL CANTÁBRICO S.L. (HESECA)</strong> operates one helicopter from Santander for charter flights, offshore inspections and maintenance of other operators' aircraft. A trainee of the accounting firm that keeps its books has prepared, instead of the financial statements, the following summary of the ledger accounts of 2022, from 1 January 2022 (01/01/2022) to 31 December 2022 (31/12/2022). The partner of the firm asks you to prepare the balance sheet and the Income Statement as of 31 December 2022 (31/12/2022).</p>
+<p><strong>Opening balances at 1 January 2022 (01/01/2022):</strong> Customers 3.000; Spare parts 1.000; Bank 2.000; Helicopter (cost) 24.000; Accumulated depreciation of the helicopter 4.500; Van (cost) 1.800; Accumulated depreciation of the van 300; Paid-in capital 18.000; Reserves 1.500; Suppliers 1.200; Unpaid taxes 800; Bank loan 5.500.</p>
+<p><strong>Customers account:</strong> opening balance 3.000; invoiced in 2022 for flights and maintenance 34.000; collected in 2022 31.000; on 1 September 2022 (01/09/2022) a balance of 400 m.u. from an operator declared in bankruptcy was written off as definitively unrecoverable.</p>
+<p><strong>Spare parts and suppliers accounts:</strong> on 1 March 2022 (01/03/2022) parts were purchased for 3.000 m.u., 50% paid in cash and the rest payable to 60 days; on 1 September 2022 (01/09/2022) parts were purchased for 3.000 m.u. more, 50% payable to 30 days and the other 50% deferred until 1 March 2023 (01/03/2023). The suppliers' balance of the previous year was paid in January. The physical count of 31 December 2022 (31/12/2022) values the stock (stock in stock) of parts at 1.400 m.u.</p>
+<p><strong>Expense accounts (all paid by bank unless indicated):</strong> fuel 4.800; salaries of pilots and mechanics 9.600; Social Security 3.000, of which the contribution of December (250) is paid in January 2023; hangar rent 200 m.u. / month; on 1 October 2022 (01/10/2022) the annual insurance premium of the helicopter, 1.200 m.u., covering from 1 October 2022 (01/10/2022) to 30 September 2023 (30/09/2023), was paid in full. The unpaid taxes of 2021 were paid in January.</p>
+<p><strong>Fixed assets:</strong> the helicopter is amortized linearly in 12 years with a residual value of 10% of its cost, and was bought on a date that the trainee could not find; the van was bought on 1 January 2021 (01/01/2021) and is amortized linearly in 6 years with residual value zero.</p>
+<p><strong>Financing:</strong> the bank loan was granted on 1 January 2020 (01/01/2020) for 7.500 m.u. at 6% annual interest; every 31 December the company returns 1.000 m.u. and pays the interest calculated on the debt at the beginning of the year. On 1 May 2022 (01/05/2022) a bank opened a credit line with a limit of 4.000 m.u.: HESECA drew 2.000 m.u. that day and 1.000 m.u. more on 1 September 2022 (01/09/2022); it pays 9% annual interest only on the amount drawn, every 31 July, 31 October and 31 January, for the three months then ended.</p>
+<p><strong>Closing:</strong> the results are declared at 23:59 hrs on 31 December 2022 (31/12/2022). The corporation tax is 30% and will be paid in July 2023 ("taxes to pay"). The partners decided on 31 December 2022 (31/12/2022) a dividend of 30% of the profit after taxes, to be paid on 15 March 2023 (15/03/2023); the rest goes to reserves.</p>
+<p><strong>Required:</strong></p>
+<ol><li>Deduce the exact date on which the helicopter was purchased, and construct the Income Statement (Profit and Loss Account) of HESECA for the year 2022.</li><li>Calculate the bank balance at 31 December 2022 (31/12/2022) and construct the balance sheet at that date, justifying the classification of every item.</li><li>Determine the values of the ROA and ROE ratios in 2022, and indicate the effect on the balance sheet if the dividend had been paid at 24:00 on 31 December 2022 (31/12/2022).</li><li>The trainee had recorded the whole insurance premium of 1.200 m.u. as an expense of 2022. Indicate what changes this error would produce in the Income Statement, the distribution of the profit and the balance sheet, and explain which statement it distorts and why.</li></ol>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Setup</h3>
+<p><strong>Reading the ledger:</strong> a ledger account shows the opening balance, the increases and the decreases of the year; its closing balance is opening + increases − decreases. The balance sheet takes the closing balances of the asset, liability and equity accounts; the Income Statement takes the movements of the revenue and expense accounts.</p>
+<p><strong>Hypotheses:</strong></p>
+<ol><li>The rent is paid every month by bank (12 × 200).</li><li>The insurance premium covers twelve months; only October–December 2022 are an expense of 2022, the rest is a <strong>prepaid expense</strong>, a current asset [Slide 14].</li><li>Credit-line interest: May–July is paid on 31/07, August–October on 31/10, November–December accrue and are paid on 31/01/2023.</li></ol>
+<p><strong>Extension (not defined in the course decks).</strong> $\text{ROA} = \text{Income from operations}/\text{TA}$; $\text{ROE} = \text{Net profit}/E$, on the balance at 31/12/2022.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1.25 points</h3>
+          <div class="prompt"><p>Deduce the purchase date of the helicopter and prepare the 2022 Income Statement</p></div>
+<h4 class="step-title">Step 1. Purchase date of the helicopter</h4>
+<div class="math-block">$$D_{\text{helicopter}} = \frac{24.000 - 0{,}10 \times 24.000}{12} = \frac{21.600}{12} = 1.800 \text{ m.u./year}$$</div>
+<div class="math-block">$$\frac{4.500}{1.800} = 2{,}5 \text{ years before } 01/01/2022 \;\Rightarrow\; \text{bought on 1 July 2019 (01/07/2019)}$$</div>
+<p>Check of the van: one year (2021) at $1.800 / 6 = 300$ gives the 300 of the opening balance (checked).</p>
+<h4 class="step-title">Step 2. Parts consumed</h4>
+<div class="math-block">$$\text{Consumption} = 1.000 + 3.000 + 3.000 - 1.400 = 5.600 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 3. Insurance (accrual)</h4>
+<div class="math-block">$$\text{Expense 2022} = 1.200 \times \frac{3}{12} = 300, \qquad \text{Prepaid at } 31/12/2022 = 1.200 - 300 = 900 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Interest</h4>
+<div class="math-block">$$I_{\text{loan}} = 0{,}06 \times 5.500 = 330 \text{ m.u.}$$</div>
+<div class="math-block">$$I_{\text{credit}} = 2.000 \times 0{,}09 \times \frac{8}{12} + 1.000 \times 0{,}09 \times \frac{4}{12} = 120 + 30 = 150 \text{ m.u.}$$</div>
+<p>Check of the loan: $7.500 - 2 \times 1.000 = 5.500$ at 01/01/2022 (checked).</p>
+<h4 class="step-title">Step 5. Income Statement 2022</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Line</th><th>Computation</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Revenue from flights and maintenance</td><td>Customers account</td><td style="text-align:right">34.000</td></tr><tr><td>− Spare parts consumed</td><td>Step 2</td><td style="text-align:right">5.600</td></tr><tr><td>− Fuel</td><td></td><td style="text-align:right">4.800</td></tr><tr><td>− Salaries</td><td></td><td style="text-align:right">9.600</td></tr><tr><td>− Social Security</td><td></td><td style="text-align:right">3.000</td></tr><tr><td>− Hangar rent</td><td>$12 \times 200$</td><td style="text-align:right">2.400</td></tr><tr><td>− Insurance (October–December)</td><td>Step 3</td><td style="text-align:right">300</td></tr><tr><td>− Bad debt loss</td><td>Customers account</td><td style="text-align:right">400</td></tr><tr><td>− Depreciation</td><td>$1.800 + 300$</td><td style="text-align:right">2.100</td></tr><tr><td><strong>= Income from operations</strong></td><td>$34.000 - 28.200$</td><td style="text-align:right"><strong>5.800</strong></td></tr><tr><td>− Financial expenses</td><td>$330 + 150$</td><td style="text-align:right">480</td></tr><tr><td><strong>= Profit before taxes</strong></td><td>$5.800 - 480$</td><td style="text-align:right"><strong>5.320</strong></td></tr><tr><td>− Corporation tax (30%)</td><td>$0{,}30 \times 5.320$</td><td style="text-align:right">1.596</td></tr><tr><td><strong>= Net profit</strong></td><td>$5.320 - 1.596$</td><td style="text-align:right"><strong>3.724</strong></td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Helicopter: 1.800 m.u./year; bought on 1 July 2019 (01/07/2019).</li><li>Parts consumed 5.600; insurance 300; depreciation 2.100 m.u.</li><li>Income from operations 5.800; interest 330 + 150 = 480 m.u.</li><li>Profit before taxes 5.320; tax 1.596; net profit 3.724 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1.25 points</h3>
+          <div class="prompt"><p>Compute the bank balance and prepare the balance sheet at 31 December 2022</p></div>
+<h4 class="step-title">Step 1. Closing the customers and suppliers accounts</h4>
+<div class="math-block">$$\text{Customers}_{31/12} = 3.000 + 34.000 - 31.000 - 400 = 5.600 \text{ m.u.}$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Supplier payment</th><th>Date</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Balance of 2021</td><td>January</td><td style="text-align:right">1.200</td></tr><tr><td>50% of the March purchase</td><td>01/03/2022</td><td style="text-align:right">1.500</td></tr><tr><td>50% of the March purchase, at 60 days</td><td>30/04/2022</td><td style="text-align:right">1.500</td></tr><tr><td>50% of the September purchase, at 30 days</td><td>01/10/2022</td><td style="text-align:right">1.500</td></tr><tr><td><strong>Total paid</strong></td><td></td><td style="text-align:right"><strong>5.700</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Suppliers}_{31/12} = 1.200 + 6.000 - 5.700 = 1.500 \text{ m.u. (due 01/03/2023)}$$</div>
+<h4 class="step-title">Step 2. Credit-line interest paid</h4>
+<div class="math-block">$$31/07: \; 2.000 \times 0{,}09 \times \frac{3}{12} = 45; \qquad 31/10: \; 2.000 \times 0{,}09 \times \frac{1}{12} + 3.000 \times 0{,}09 \times \frac{2}{12} = 15 + 45 = 60$$</div>
+<div class="math-block">$$\text{Paid} = 45 + 60 = 105, \qquad \text{Payable (November–December)} = 3.000 \times 0{,}09 \times \frac{2}{12} = 45 \text{ m.u.} \quad (105 + 45 = 150 \;\checkmark)$$</div>
+<h4 class="step-title">Step 3. Bank account 2022</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Inflows</th><th style="text-align:right">m.u.</th><th>Outflows</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Collections from customers</td><td style="text-align:right">31.000</td><td>Suppliers</td><td style="text-align:right">5.700</td></tr><tr><td>Credit line drawn ($2.000 + 1.000$)</td><td style="text-align:right">3.000</td><td>Fuel</td><td style="text-align:right">4.800</td></tr><tr><td></td><td style="text-align:right"></td><td>Salaries</td><td style="text-align:right">9.600</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security ($3.000 - 250$)</td><td style="text-align:right">2.750</td></tr><tr><td></td><td style="text-align:right"></td><td>Hangar rent</td><td style="text-align:right">2.400</td></tr><tr><td></td><td style="text-align:right"></td><td>Insurance premium</td><td style="text-align:right">1.200</td></tr><tr><td></td><td style="text-align:right"></td><td>Credit-line interest</td><td style="text-align:right">105</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan interest</td><td style="text-align:right">330</td></tr><tr><td></td><td style="text-align:right"></td><td>Loan principal</td><td style="text-align:right">1.000</td></tr><tr><td></td><td style="text-align:right"></td><td>Unpaid taxes 2021</td><td style="text-align:right">800</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"><strong>34.000</strong></td><td><strong>Total</strong></td><td style="text-align:right"><strong>28.685</strong></td></tr></tbody></table></div>
+<div class="math-block">$$\text{Bank}_{31/12/2022} = 2.000 + 34.000 - 28.685 = 7.315 \text{ m.u.}$$</div>
+<h4 class="step-title">Step 4. Distribution</h4>
+<div class="math-block">$$\text{Dividend} = 0{,}30 \times 3.724 = 1.117{,}20 \text{ (payable 15/03/2023)}, \qquad \text{Reserves} = 1.500 + 3.724 - 1.117{,}20 = 4.106{,}80$$</div>
+<h4 class="step-title">Step 5. Balance sheet at 31/12/2022</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Assets</th><th style="text-align:right">m.u.</th><th>Liabilities and owners equity</th><th style="text-align:right">m.u.</th></tr></thead><tbody><tr><td>Helicopter ($24.000 - 6.300$)</td><td style="text-align:right">17.700</td><td>Paid-in capital</td><td style="text-align:right">18.000</td></tr><tr><td>Van ($1.800 - 600$)</td><td style="text-align:right">1.200</td><td>Reserves</td><td style="text-align:right">4.106,80</td></tr><tr><td><strong>Non-current assets</strong></td><td style="text-align:right"><strong>18.900</strong></td><td><strong>Owners equity</strong></td><td style="text-align:right"><strong>22.106,80</strong></td></tr><tr><td>Spare parts</td><td style="text-align:right">1.400</td><td>Bank loan due 2024–2027</td><td style="text-align:right">3.500</td></tr><tr><td>Customers</td><td style="text-align:right">5.600</td><td><strong>Non-current liabilities</strong></td><td style="text-align:right"><strong>3.500</strong></td></tr><tr><td>Prepaid insurance</td><td style="text-align:right">900</td><td>Bank loan, installment 31/12/2023</td><td style="text-align:right">1.000</td></tr><tr><td>Bank</td><td style="text-align:right">7.315</td><td>Credit line drawn</td><td style="text-align:right">3.000</td></tr><tr><td></td><td style="text-align:right"></td><td>Interest payable (credit line)</td><td style="text-align:right">45</td></tr><tr><td></td><td style="text-align:right"></td><td>Suppliers</td><td style="text-align:right">1.500</td></tr><tr><td></td><td style="text-align:right"></td><td>Social Security payable</td><td style="text-align:right">250</td></tr><tr><td></td><td style="text-align:right"></td><td>Taxes to pay</td><td style="text-align:right">1.596</td></tr><tr><td></td><td style="text-align:right"></td><td>Dividends payable</td><td style="text-align:right">1.117,20</td></tr><tr><td><strong>Current assets</strong></td><td style="text-align:right"><strong>15.215</strong></td><td><strong>Current liabilities</strong></td><td style="text-align:right"><strong>8.508,20</strong></td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>34.115</strong></td><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>34.115</strong></td></tr></tbody></table></div>
+<p>The loan: $5.500 - 1.000 = 4.500$ m.u., of which 1.000 is due on 31/12/2023. The credit line is a short-term bank credit [Slide 31]; the prepaid insurance is a current asset because it will be consumed within the year [Slide 14].</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Customers 5.600; suppliers 1.500; payments to suppliers 5.700 m.u.</li><li>Credit-line interest paid 105, payable 45 m.u.</li><li>Bank balance 7.315 m.u.</li><li>Owners equity 22.106,80; current liabilities 8.508,20; total 34.115 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (c) · 0.75 points</h3>
+          <div class="prompt"><p>Compute ROA and ROE, and the effect of paying the dividend at 24:00 on 31 December 2022</p></div>
+<div class="math-block">$$\text{ROA} = \frac{5.800}{34.115} = 17{,}00\%, \qquad \text{ROE} = \frac{3.724}{22.106{,}80} = 16{,}85\%$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Paid 15/03/2023</th><th style="text-align:right">Paid at 24:00</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Bank</td><td style="text-align:right">7.315</td><td style="text-align:right">6.197,80</td><td style="text-align:right">−1.117,20</td></tr><tr><td>Dividends payable</td><td style="text-align:right">1.117,20</td><td style="text-align:right">0</td><td style="text-align:right">−1.117,20</td></tr><tr><td>Owners equity</td><td style="text-align:right">22.106,80</td><td style="text-align:right">22.106,80</td><td style="text-align:right">0</td></tr><tr><td>Total assets = total liabilities and equity</td><td style="text-align:right">34.115</td><td style="text-align:right">32.997,80</td><td style="text-align:right">−1.117,20</td></tr></tbody></table></div>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>ROA = 17,00%; ROE = 16,85% (extension).</li><li>Paid at 24:00: bank 6.197,80; dividends payable 0; totals 32.997,80 m.u.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (d) · 0.75 points</h3>
+          <div class="prompt"><p>The trainee's error: the whole insurance premium as an expense of 2022</p></div>
+<h4 class="step-title">Step 1. Effect on the results</h4>
+<div class="math-block">$$\text{Profit before taxes} = 5.320 - 900 = 4.420, \qquad \text{Tax} = 0{,}30 \times 4.420 = 1.326, \qquad \text{Net profit} = 4.420 - 1.326 = 3.094$$</div>
+<div class="math-block">$$\text{Dividend} = 0{,}30 \times 3.094 = 928{,}20, \qquad \text{Reserves} = 1.500 + 3.094 - 928{,}20 = 3.665{,}80$$</div>
+<h4 class="step-title">Step 2. Effect on the balance sheet</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Correct</th><th style="text-align:right">With the error</th><th style="text-align:right">Change</th></tr></thead><tbody><tr><td>Prepaid insurance</td><td style="text-align:right">900</td><td style="text-align:right">0</td><td style="text-align:right">−900</td></tr><tr><td><strong>Total assets</strong></td><td style="text-align:right"><strong>34.115</strong></td><td style="text-align:right"><strong>33.215</strong></td><td style="text-align:right"><strong>−900</strong></td></tr><tr><td>Reserves</td><td style="text-align:right">4.106,80</td><td style="text-align:right">3.665,80</td><td style="text-align:right">−441</td></tr><tr><td>Taxes to pay</td><td style="text-align:right">1.596</td><td style="text-align:right">1.326</td><td style="text-align:right">−270</td></tr><tr><td>Dividends payable</td><td style="text-align:right">1.117,20</td><td style="text-align:right">928,20</td><td style="text-align:right">−189</td></tr><tr><td><strong>Total liabilities and equity</strong></td><td style="text-align:right"><strong>34.115</strong></td><td style="text-align:right"><strong>33.215</strong></td><td style="text-align:right"><strong>−900</strong></td></tr></tbody></table></div>
+<p>Check: $441 + 270 + 189 = 900$ (checked).</p>
+<h4 class="step-title">Step 3. Which statement the error distorts</h4>
+<p>The bank balance is the same: the 1.200 m.u. were paid either way. The error is an <strong>accrual</strong> error: it charges to 2022 nine months of insurance that belong to 2023 [Slide 8]. The <strong>Income Statement</strong> of 2022 understates the profit by 630 m.u. (and that of 2023 will overstate it), and the <strong>balance sheet</strong> omits a resource the company still owns, the cover of January–September 2023. It also understates the tax and the dividend, so the partners receive 189 m.u. less than they should.</p>
+          <div class="result-callout"><div class="result-callout-title">Key results</div><ul><li>Insurance expense 1.200 (+900); profit before taxes 4.420; tax 1.326 (−270); net profit 3.094 (−630).</li><li>Dividend 928,20 (−189); reserves 3.665,80 (−441).</li><li>Prepaid insurance disappears (−900); bank unchanged.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> m.u. × rate × months/12 gives m.u.; ratios dimensionless.</li><li><strong>Ledger logic:</strong> every closing balance follows from opening + increases − decreases; the customers account alone gives revenue (increase), collections and the bad debt (decreases) and the receivable (closing balance).</li><li><strong>Profit vs cash:</strong> net profit 3.724 m.u., while the bank rose by 5.315 m.u.: $3.724 + 2.100$ (depreciation) $+ 3.000$ (credit line) $- 1.000$ (principal) $- 900$ (prepaid insurance) $- 2.600$ (rise in customers) $- 400$ (rise in parts) $+ 300 + 250 + 796 + 45$ (more owed to suppliers, Social Security, tax and interest) $= 5.315$.</li><li><strong>Typical mistakes:</strong> expensing the whole insurance, charging the credit-line interest on the 4.000 m.u. limit instead of the amount drawn, treating the dividend decided as already paid, and forgetting the bad debt in the customers account.</li></ul>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="midterm-1-theory.html">← Theory cases</a>
+        <a href="../simulator/index.html">Exam simulator →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

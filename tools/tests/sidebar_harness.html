@@ -121,7 +121,7 @@
         return !/Study (frequencies|timer)/.test(a.textContent);
       }), '');
       record('every link of the tree resolves inside the portal', Array.prototype.every.call(qa(f, '.ae-nav__tree a[href]:not(.ae-nav__link--section)'), function (a) {
-        return /\/(index|subjects\/[^/]+\/[a-z]+\/[^/]+)\.html$/.test(a.getAttribute('href')) && a.href.indexOf('..') < 0;
+        return /\/(index|subjects\/[^/]+\/[a-z-]+\/[^/]+)\.html$/.test(a.getAttribute('href')) && a.href.indexOf('..') < 0;
       }), '');
       // -------------------------------------------------------------- open
       var btn = q(f, '#sidebarButton');

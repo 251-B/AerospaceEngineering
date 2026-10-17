@@ -15,7 +15,7 @@ Checks (all severity "error"):
                          theory & exercise PDFs, exams, and the hero's solved-problem and official PDF totals)
     missing-source-link  problem card (problem-card / problem-box) without its "Original statement"
                          link to the official PDF (add it with python tools/source_links.py)
-    missing-ask-ai       theory or problem page (teoria/ or problemas/, not index.html) that does not
+    missing-ask-ai       theory or problem page (teoria/, problemas/ or extra-problems/, not index.html) that does not
                          load assets/js/ask-ai.js
     missing-responsive   same pages without assets/css/responsive.css (the phone-width safety net)
     missing-pdf-export   same pages without assets/js/pdf-export.js (Download PDF / Open as PDF)
@@ -248,7 +248,7 @@ _RESPONSIVE = re.compile(r'<link\b[^>]*\bhref="(?:\.\./)*assets/css/responsive\.
 
 def check_ask_ai(rel, visible):
     """Every topic page carries the "Ask AI" helper and the shared phone-width stylesheet."""
-    if not re.match(r"subjects/[^/]+/(?:teoria|problemas)/", rel) or rel.endswith("/index.html"):
+    if not re.match(r"subjects/[^/]+/(?:teoria|problemas|extra-problems)/", rel) or rel.endswith("/index.html"):
         return []
     out = []
     if not _ASK_AI.search(visible):

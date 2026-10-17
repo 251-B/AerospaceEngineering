@@ -4,7 +4,7 @@
  * Builds a simulated exam from a subject's bank (window.AE_BM_BANK) following its blueprint (window.AE_BM_BLUEPRINT),
  * both written by tools/build_problem_bank.py into subjects/<subject>/data/problems.js. Markup hook:
  *     <div id="examSimulator" data-bank="AE_BM_BANK" data-blueprint="AE_BM_BLUEPRINT"
- *          data-storage="ae_bm_exams" data-bank-page="../extra-problems/index.html">
+ *          data-storage="ae_bm_exams" data-bank-dir="../extra-problems/">
  * with the three screens #simSetup, #simRunner and #simResults inside it. Load it with defer, after KaTeX's auto-render
  * and after the bank data.
  *
@@ -30,7 +30,13 @@
   var BANK = window[root.getAttribute('data-bank') || 'AE_BM_BANK'];
   var BP = window[root.getAttribute('data-blueprint') || 'AE_BM_BLUEPRINT'];
   var KEY = root.getAttribute('data-storage') || 'ae_bm_exams';
-  var BANK_PAGE = root.getAttribute('data-bank-page') || '../extra-problems/index.html';
+  // The Extra problems section: theory cases and practice problems live on two pages of their own.
+  var BANK_DIR = root.getAttribute('data-bank-dir') || '../extra-problems/';
+  function itemHref(id) {
+    var it = BY_ID[id];
+    var page = it && it.category === 'short_theory_case' ? 'midterm-1-theory.html' : 'midterm-1-problems.html';
+    return BANK_DIR + page + '#' + id;
+  }
   var setupEl = document.getElementById('simSetup');
   var runnerEl = document.getElementById('simRunner');
   var resultsEl = document.getElementById('simResults');
@@ -125,7 +131,7 @@
     if (!store.history.length) { box.innerHTML = '<p class="sim-muted">No simulated exam yet. Your grades will appear here.</p>'; return; }
     var rows = store.history.slice().reverse().slice(0, 10).map(function (h) {
       var d = new Date(h.finishedAt);
-      var links = h.items.map(function (r) { return '<a href="' + BANK_PAGE + '#' + r.id + '">' + r.id + '</a> ' + fmt(r.score) + '/' + fmt(r.points); }).join(' · ');
+      var links = h.items.map(function (r) { return '<a href="' + itemHref(r.id) + '">' + r.id + '</a> ' + fmt(r.score) + '/' + fmt(r.points); }).join(' · ');
       return '<tr><td>' + d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) +
         '</td><td>' + links + '</td><td class="num"><strong>' + fmt1(h.total) + '</strong> / ' + fmt1(h.max) + '</td></tr>';
     }).join('');
@@ -369,7 +375,7 @@
       q.id = 'g' + n;
       var head = questionHead(item, n);
       var link = el('a', null, item.id + ' · ' + item.title);
-      link.href = BANK_PAGE + '#' + item.id;
+      link.href = itemHref(item.id);
       head.appendChild(link);
       q.appendChild(head);
       var draftText = cur.drafts[entry.id];
@@ -456,7 +462,7 @@
     var html = '<p><strong>Grade saved: ' + fmt1(t.total) + ' / ' + fmt1(BP.total_points) + '.</strong></p>';
     html += low.length
       ? '<p>Below half of their points, worth practising again on the Extra problems page:</p><ul class="sim-result-list">' +
-        low.map(function (id) { return '<li><a href="' + BANK_PAGE + '#' + id + '">' + id + ' · ' + BY_ID[id].title + '</a></li>'; }).join('') + '</ul>'
+        low.map(function (id) { return '<li><a href="' + itemHref(id) + '">' + id + ' · ' + BY_ID[id].title + '</a></li>'; }).join('') + '</ul>'
       : '<p>Every item reached at least half of its points.</p>';
     box.innerHTML = html;
     box.hidden = false;
