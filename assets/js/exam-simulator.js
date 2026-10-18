@@ -34,7 +34,8 @@
   var BANK_DIR = root.getAttribute('data-bank-dir') || '../extra-problems/';
   function itemHref(id) {
     var it = BY_ID[id];
-    var page = it && it.category === 'short_theory_case' ? 'midterm-1-theory.html' : 'midterm-1-problems.html';
+    var pages = BANK.pages || {};
+    var page = (it && pages[it.category]) || (it && it.category === 'short_theory_case' ? 'midterm-1-theory.html' : 'midterm-1-problems.html');
     return BANK_DIR + page + '#' + id;
   }
   var setupEl = document.getElementById('simSetup');
@@ -93,7 +94,9 @@
   function announce(msg) { if (live) { live.textContent = ''; window.setTimeout(function () { live.textContent = msg; }, 30); } }
 
   // ---- Setup screen ------------------------------------------------------------------
-  var part2 = BP.parts.filter(function (p) { return p.category === 'extra_practice_problem'; })[0];
+  // The part whose problem type can be chosen: the one that lists archetypes (Business Management: the Extra Practice problem).
+  var part2 = BP.parts.filter(function (p) { return p.selection_rules && p.selection_rules.archetypes; })[0] ||
+    BP.parts.filter(function (p) { return p.category === 'extra_practice_problem'; })[0];
   var durationBox = document.getElementById('simDurations');
   (BP.duration_options_minutes || [BP.duration_minutes]).forEach(function (m) {
     var label = el('label', 'sim-radio', null);
@@ -201,7 +204,9 @@
     var head = el('div', 'sim-question__head', null);
     var isCase = item.category === 'short_theory_case';
     head.appendChild(el('h2', null, (isCase ? 'Case ' : 'Problem ') + n));
-    head.appendChild(el('span', null, (isCase ? 'Part I · short theory case' : 'Part II · practical problem') + ' · ' + fmt(item.points) + ' points'));
+    var own = BP.parts.filter(function (p) { return p.category === item.category; })[0];
+    var partName = BP.parts.length > 1 ? (isCase ? 'Part I · short theory case' : 'Part II · practical problem') : (own ? own.label : 'Problem');
+    head.appendChild(el('span', null, partName + ' · ' + fmt(item.points) + ' points'));
     return head;
   }
 

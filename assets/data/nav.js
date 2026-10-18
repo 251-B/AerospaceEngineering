@@ -202,9 +202,28 @@ window.AE_NAV = {
               "label": "5 · Relative motion"
             }
           ]
+        },
+        {
+          "id": "extra-problems",
+          "label": "Extra problems",
+          "href": "subjects/engineering-mechanics/extra-problems/index.html",
+          "pages": [
+            {
+              "href": "subjects/engineering-mechanics/extra-problems/midterm-1-theory.html",
+              "label": "1st Midterm · Conceptual questions"
+            },
+            {
+              "href": "subjects/engineering-mechanics/extra-problems/midterm-1-problems.html",
+              "label": "1st Midterm · Problems"
+            }
+          ]
         }
       ],
       "extras": [
+        {
+          "href": "subjects/engineering-mechanics/simulator/index.html",
+          "label": "Exam simulator"
+        },
         {
           "href": "subjects/engineering-mechanics/sources/index.html",
           "label": "Theory & exercise PDFs"

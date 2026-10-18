@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-18-mechanics-extra-problems-simulator",
+    "date": "2026-10-18",
+    "tag": "Engineering Mechanics",
+    "title": "Midterm 1 extra problems and exam simulator",
+    "text": "16 new problems of 10 points with technical sketches and 8 conceptual questions for the first partial, plus a timed exam simulator that grades you part by part.",
+    "link": "subjects/engineering-mechanics/extra-problems/index.html"
+  },
+  {
     "id": "2026-10-17-business-extra-problems-pages",
     "date": "2026-10-17",
     "tag": "Business Management",

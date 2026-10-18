@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="A case whose floor moves vertically by z(t) with respect to a fixed datum; inside, a proof mass m sits on a spring k and a damper c fixed to the case floor; x is the height of the mass above its static equilibrium level in the case; gravity points down">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="74.0" y1="356.0" x2="74.0" y2="26.0" stroke="#4b5563" stroke-width="2.4"/>
+<line x1="74.0" y1="356.0" x2="67.6" y2="362.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="347.0" x2="67.6" y2="353.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="338.0" x2="67.6" y2="344.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="329.0" x2="67.6" y2="335.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="320.0" x2="67.6" y2="326.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="311.0" x2="67.6" y2="317.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="302.0" x2="67.6" y2="308.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="293.0" x2="67.6" y2="299.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="284.0" x2="67.6" y2="290.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="275.0" x2="67.6" y2="281.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="266.0" x2="67.6" y2="272.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="257.0" x2="67.6" y2="263.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="248.0" x2="67.6" y2="254.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="239.0" x2="67.6" y2="245.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="230.0" x2="67.6" y2="236.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="221.0" x2="67.6" y2="227.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="212.0" x2="67.6" y2="218.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="203.0" x2="67.6" y2="209.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="194.0" x2="67.6" y2="200.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="185.0" x2="67.6" y2="191.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="176.0" x2="67.6" y2="182.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="167.0" x2="67.6" y2="173.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="158.0" x2="67.6" y2="164.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="149.0" x2="67.6" y2="155.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="140.0" x2="67.6" y2="146.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="131.0" x2="67.6" y2="137.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="122.0" x2="67.6" y2="128.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="113.0" x2="67.6" y2="119.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="104.0" x2="67.6" y2="110.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="95.0" x2="67.6" y2="101.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="86.0" x2="67.6" y2="92.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="77.0" x2="67.6" y2="83.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="68.0" x2="67.6" y2="74.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="59.0" x2="67.6" y2="65.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="50.0" x2="67.6" y2="56.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="41.0" x2="67.6" y2="47.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="74.0" y1="32.0" x2="67.6" y2="38.4" stroke="#8a94a6" stroke-width="1.0"/>
+<line x1="95.0" y1="308.0" x2="143.6" y2="308.0" stroke="#3b82f6" stroke-width="1.9"/>
+<path d="M149.0,308.0 L140.7,311.5 L140.7,304.5 Z" fill="#3b82f6"/>
+<line x1="95.0" y1="308.0" x2="95.0" y2="259.4" stroke="#3b82f6" stroke-width="1.9"/>
+<path d="M95.0,254.0 L98.5,262.3 L91.5,262.3 Z" fill="#3b82f6"/>
+<text x="95.0" y="248.0" fill="#3b82f6" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y</text>
+<text x="103.0" y="326.0" fill="#3b82f6" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">S<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="74.0" y1="308.0" x2="434.0" y2="308.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="437.0" y="312.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">datum z = 0</text>
+<polyline points="200.0,38.0 200.0,275.0 404.0,275.0 404.0,38.0" fill="none" stroke="#4b5563" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="197.0" y1="275.0" x2="407.0" y2="275.0" stroke="#4b5563" stroke-width="4.0"/>
+<text x="410.0" y="53.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">S<tspan baseline-shift="sub" font-size="70%">1</tspan> (case)</text>
+<line x1="299.0" y1="353.0" x2="299.0" y2="293.0" stroke="#ec4899" stroke-width="1.8"/>
+<path d="M299.0,293.0 L302.5,301.3 L295.5,301.3 Z" fill="#ec4899"/>
+<path d="M299.0,353.0 L295.5,344.7 L302.5,344.7 Z" fill="#ec4899"/>
+<text x="308.0" y="335.0" fill="#ec4899" font-size="14" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">z(t) = Z cos νt</text>
+<line x1="164.0" y1="275.0" x2="197.0" y2="275.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="173.0" y1="308.0" x2="173.0" y2="279.8" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M173.0,275.0 L176.1,282.4 L169.9,282.4 Z" fill="#3b82f6"/>
+<text x="165.0" y="297.5" fill="#3b82f6" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">z</text>
+<polyline points="251.0,275.0 251.0,262.0 260.0,258.6 242.0,251.8 260.0,244.9 242.0,238.1 260.0,231.3 242.0,224.4 260.0,217.6 242.0,210.7 260.0,203.9 242.0,197.1 260.0,190.2 242.0,183.4 251.0,180.0 251.0,167.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="235.0" y="226.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">k</text>
+<line x1="347.0" y1="275.0" x2="347.0" y2="226.4" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="356.0" y1="226.4" x2="338.0" y2="226.4" stroke="#4b5563" stroke-width="1.6"/>
+<polyline points="359.6,240.4 359.6,208.0 334.4,208.0 334.4,240.4" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="347.0" y1="208.0" x2="347.0" y2="167.0" stroke="#4b5563" stroke-width="1.6"/>
+<text x="367.0" y="226.0" fill="#6b7280" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">c</text>
+<polygon points="227.0,167.0 371.0,167.0 371.0,113.0 227.0,113.0" fill="#f59e0b" fill-opacity="0.85" stroke="#4b5563" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="299.0" y="146.0" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m</text>
+<line x1="200.0" y1="200.0" x2="404.0" y2="200.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="410.0" y="204.0" fill="#6b7280" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">static equilibrium</text>
+<line x1="371.0" y1="167.0" x2="398.0" y2="167.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="386.0" y1="200.0" x2="386.0" y2="171.8" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M386.0,167.0 L389.1,174.4 L382.9,174.4 Z" fill="#3b82f6"/>
+<text x="394.0" y="189.5" fill="#3b82f6" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<line x1="536.0" y1="104.0" x2="536.0" y2="152.6" stroke="#6b7280" stroke-width="1.8"/>
+<path d="M536.0,158.0 L532.5,149.7 L539.5,149.7 Z" fill="#6b7280"/>
+<text x="548.0" y="162.0" fill="#6b7280" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g</text>
+</g></svg>

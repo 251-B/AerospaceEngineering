@@ -1,0 +1,39 @@
+{
+  "subject": "engineering-mechanics",
+  "exam_id": "midterm-1",
+  "title": "Engineering Mechanics — First Partial (Midterm 1)",
+  "provenance": {
+    "structure_source": "Read from the text layer of the Midterm 1 papers of 2011, 2013, 2015 to 2019 (both 2019 versions) and 2024 in sources/cuatrimestre-1/03-engineering-mechanics/examenes/ (MECHANICS_FIRSTPARTIAL_*.pdf): mostly one problem with per-part marks that sum to 10 (2011 has two problems, 2013 prints no marks). The 2022 paper is a scan and was not read. No Midterm 1 paper prints its duration: the 60 minutes comes from the Quiz 2 (second partial) of 2015, which says \"10 points, 60 minutes\", and is an assumption for Midterm 1.",
+    "content_scope_source": "Units 1 to 5 of the course (point-particle kinematics, dynamics, constraints, angular momentum and central forces, relative motion); rigid-body units belong to the second partial.",
+    "verify_when": "The official duration and point split of Midterm 1 are confirmed; update this file and drop this note."
+  },
+  "simulator_page": "subjects/engineering-mechanics/simulator/index.html",
+  "problem_bank": "subjects/engineering-mechanics/data/problems.json",
+  "total_points": 10.0,
+  "duration_minutes": 60,
+  "duration_options_minutes": [45, 60, 90],
+  "parts": [
+    {
+      "id": "part-1",
+      "label": "Midterm problem",
+      "category": "midterm_problem",
+      "count": 1,
+      "points_each": 10.0,
+      "points_total": 10.0,
+      "description": "One particle-mechanics problem of 10 points with 5 to 7 parts: kinematics, forces, equations of motion, a first integral and a particular case.",
+      "selection_rules": {
+        "distinct_units": false,
+        "distinct_themes": false,
+        "units": [1, 2, 3, 4, 5],
+        "archetypes": ["kinematics", "dynamics", "constraints", "central-force", "relative-motion", "oscillations"]
+      },
+      "grading_steps": [0, 0.25, 0.5, 0.75, 1.0]
+    }
+  ],
+  "runner": {
+    "hide_hints_and_solutions_until_submit": true,
+    "allow_scratchpad_per_question": true,
+    "exclude_mastered_option": true,
+    "exclude_previous_attempt_option": true
+  }
+}

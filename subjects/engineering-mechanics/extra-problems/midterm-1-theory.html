@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="engineering-mechanics">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — 1st Midterm Conceptual Questions | Engineering Mechanics</title>
+  <meta name="description" content="Short conceptual questions for the first midterm of Engineering Mechanics (UC3M Aerospace Engineering), with the key points of every answer." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+    .diagram-card { background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle)); border-radius: 12px; padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">1ST MIDTERM · CONCEPTUAL QUESTIONS</span>
+        <span style="font-weight: 600; font-size: 14px;">Engineering Mechanics</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · 1st Midterm · Concepts</div>
+        <h1 class="article-title">1st Midterm: Short Conceptual Questions</h1>
+        <div class="article-meta">
+          Short conceptual questions on Units 1 to 5, worth 2 points each, in the style of the true/false questions of the final exams. Written for this portal and solved step by step; they are practice material, not official exercises.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_mechanics_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">8 short conceptual questions on Units 1 to 5, in the style of the true/false questions of the final exams. Each is worth 2 points and asks for a justified answer. They are practice for the reasoning behind the Midterm 1 problem; the exam itself is one problem of 10 points, so these questions do not appear in the <a href="../simulator/index.html">Exam simulator</a>.</p>
+      <section class="problem-box" id="C01">
+        <span class="problem-tag">Conceptual question · Unit 1 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C01 — Intrinsic acceleration on a parabolic helix: constant angular rate is not constant speed</h4>
+        <div class="statement-box">
+<p>A point particle $P$ moves with respect to the inertial frame $S_0=\{O;\mathbf i,\mathbf j,\mathbf k\}$ along the curve given in cylindrical coordinates $(R,\varphi,z)$, with basis $\{\mathbf e_R,\mathbf e_\varphi,\mathbf e_z\}$, by</p>
+<div class="math-block">$$R=a,\qquad z=\frac{a}{2}\,\varphi^2,\qquad \varphi\ge0,$$</div>
+<p>with $a&gt;0$ a constant length: a helix wound on the cylinder $R=a$ whose pitch grows with $\varphi$. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Constant angular rate</p>
+<p>The particle moves with the time law $\varphi=\omega t$, $\omega&gt;0$ constant. Statement: "Since $\dot\varphi$ is constant, the tangential acceleration of $P$ is zero, and at the point $\varphi=1$ the acceleration of $P$ is purely normal."</p></div>
+<h4 class="step-title">Step 1. Velocity in cylindrical coordinates</h4>
+<p>With $\mathbf r=R\,\mathbf e_R+z\,\mathbf e_z$, $\dot{\mathbf e}_R=\dot\varphi\,\mathbf e_\varphi$ and $\dot{\mathbf e}_\varphi=-\dot\varphi\,\mathbf e_R$ (Notes §2.6), the velocity is $\mathbf v=\dot R\,\mathbf e_R+R\dot\varphi\,\mathbf e_\varphi+\dot z\,\mathbf e_z$. Here $\dot R=0$, $\dot\varphi=\omega$ and, by the chain rule, $\dot z=\frac{dz}{d\varphi}\dot\varphi=a\varphi\,\omega$:</p>
+<div class="math-block">$$\mathbf v=a\omega\,\mathbf e_\varphi+a\omega\varphi\,\mathbf e_z,\qquad |\mathbf v|=a\omega\sqrt{1+\varphi^2}$$</div>
+<p>The speed is not constant, so the statement already fails: a constant angular rate does not mean a constant speed when the curve climbs faster and faster.</p>
+<h4 class="step-title">Step 2. Acceleration</h4>
+<p>$\mathbf a=(\ddot R-R\dot\varphi^2)\,\mathbf e_R+(R\ddot\varphi+2\dot R\dot\varphi)\,\mathbf e_\varphi+\ddot z\,\mathbf e_z$, with $\ddot\varphi=0$ and $\ddot z=\frac{d}{dt}(a\omega\varphi)=a\omega\dot\varphi=a\omega^2$:</p>
+<div class="math-block">$$\mathbf a=-a\omega^2\,\mathbf e_R+a\omega^2\,\mathbf e_z,\qquad |\mathbf a|^2=2a^2\omega^4$$</div>
+<h4 class="step-title">Step 3. Tangential and normal components</h4>
+<p>The tangential acceleration is $a_t=\frac{d|\mathbf v|}{dt}$ (Notes §2.5). With the chain rule $\frac{d}{dt}\sqrt{1+\varphi^2}=\frac{\varphi\,\dot\varphi}{\sqrt{1+\varphi^2}}$:</p>
+<div class="math-block">$$a_t=a\omega\,\frac{\varphi\,\omega}{\sqrt{1+\varphi^2}}=\frac{a\omega^2\varphi}{\sqrt{1+\varphi^2}}$$</div>
+<p>The same result follows from $a_t=\mathbf a\cdot\mathbf v/|\mathbf v|=a^2\omega^3\varphi/(a\omega\sqrt{1+\varphi^2})$. At $\varphi=1$:</p>
+<div class="math-block">$$a_t=\frac{a\omega^2}{\sqrt2}\neq0,\qquad a_n=\sqrt{|\mathbf a|^2-a_t^2}=a\omega^2\sqrt{2-\tfrac12}=\sqrt{\tfrac32}\,a\omega^2$$</div>
+<p>The acceleration has a tangential part, so the statement is FALSE. For later use: at $\varphi=1$, $\mathbf e_t=(\mathbf e_\varphi+\mathbf e_z)/\sqrt2$, $a_t\mathbf e_t=\tfrac12a\omega^2(\mathbf e_\varphi+\mathbf e_z)$ and</p>
+<div class="math-block">$$\mathbf a_n=\mathbf a-a_t\mathbf e_t=a\omega^2\big(-\mathbf e_R-\tfrac12\mathbf e_\varphi+\tfrac12\mathbf e_z\big),\qquad \mathbf e_n=\frac{-2\,\mathbf e_R-\mathbf e_\varphi+\mathbf e_z}{\sqrt6}$$</div>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>$\mathbf v=a\omega\,\mathbf e_\varphi+a\omega\varphi\,\mathbf e_z$, $\ |\mathbf v|=a\omega\sqrt{1+\varphi^2}$ grows with time; $\ \mathbf a=a\omega^2(-\mathbf e_R+\mathbf e_z)$.</li><li>$a_t=a\omega^2\varphi/\sqrt{1+\varphi^2}$: at $\varphi=1$, $a_t=a\omega^2/\sqrt2\neq0$ and $a_n=\sqrt{3/2}\,a\omega^2$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Constant speed</p>
+<p>The same curve is now traversed at a constant speed $v_0$. Statement: "At the point $\varphi=1$ the acceleration of $P$ is perpendicular to its velocity, has magnitude $\sqrt6\,v_0^2/(4a)$ and points along the same unit vector $\mathbf e_n$ as the normal acceleration of part (a)."</p></div>
+<h4 class="step-title">Step 1. Intrinsic acceleration</h4>
+<p>In the intrinsic basis (Notes §2.5), $\mathbf a=\ddot s\,\mathbf e_t+\dfrac{\dot s^2}{\rho}\,\mathbf e_n$. With $\dot s=v_0$ constant, $\ddot s=0$, so $\mathbf a=\dfrac{v_0^2}{\rho}\,\mathbf e_n$, which is perpendicular to $\mathbf v=v_0\,\mathbf e_t$. It is not zero: the trajectory is curved.</p>
+<h4 class="step-title">Step 2. Curvature at $\varphi=1$</h4>
+<p>The curvature depends only on the geometry. From part (a) at $\varphi=1$, $\kappa=\dfrac{a_n}{|\mathbf v|^2}=\dfrac{\sqrt{3/2}\,a\omega^2}{2a^2\omega^2}=\dfrac{\sqrt6}{4a}$. Independent check with the parameter $\varphi$: $\mathbf r'=a(-\sin\varphi,\cos\varphi,\varphi)$ and $\mathbf r''=a(-\cos\varphi,-\sin\varphi,1)$ in $\{\mathbf i,\mathbf j,\mathbf k\}$, so</p>
+<div class="math-block">$$\mathbf r'\times\mathbf r''=a^2\big(\cos\varphi+\varphi\sin\varphi,\ \sin\varphi-\varphi\cos\varphi,\ 1\big),\qquad |\mathbf r'\times\mathbf r''|=a^2\sqrt{2+\varphi^2},\qquad |\mathbf r'|=a\sqrt{1+\varphi^2}$$</div>
+<div class="math-block">$$\kappa=\frac{|\mathbf r'\times\mathbf r''|}{|\mathbf r'|^3}=\frac{\sqrt{2+\varphi^2}}{a\,(1+\varphi^2)^{3/2}},\qquad \kappa(1)=\frac{\sqrt3}{a\,2^{3/2}}=\frac{\sqrt6}{4a}$$</div>
+<h4 class="step-title">Step 3. Magnitude and direction</h4>
+<div class="math-block">$$|\mathbf a|=\kappa\,v_0^2=\frac{\sqrt6\,v_0^2}{4a}$$</div>
+<p>The principal normal is $\mathbf e_n=\dfrac{d\mathbf e_t/ds}{|d\mathbf e_t/ds|}$, a function of the point of the curve only (Notes §2.4), so it is the same vector $(-2\,\mathbf e_R-\mathbf e_\varphi+\mathbf e_z)/\sqrt6$ found in (a). The three claims hold: TRUE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TRUE.</li><li>$\mathbf a=\dot v\,\mathbf e_t+\dfrac{v^2}{\rho}\,\mathbf e_n$ with $\dot v=0$: $\mathbf a\perp\mathbf v$.</li><li>$\kappa(\varphi)=\dfrac{\sqrt{2+\varphi^2}}{a(1+\varphi^2)^{3/2}}$, $\ \kappa(1)=\dfrac{\sqrt6}{4a}$, $\ |\mathbf a|=\kappa v_0^2=\dfrac{\sqrt6\,v_0^2}{4a}$; $\mathbf e_n$ depends only on the curve.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $a\omega^2$ is m s$^{-2}$; $\kappa$ is m$^{-1}$ and $\kappa v_0^2$ is m s$^{-2}$.</li><li><strong>Limits:</strong> at $\varphi=0$ the tangent is horizontal, but $\kappa(0)=\sqrt2/a$ is larger than the $1/a$ of the circle $R=a$ because the curve also bends upwards ($d^2z/d\varphi^2=a\neq0$); for $\varphi\to\infty$, $\kappa\approx1/(a\varphi^2)\to0$: the turns become almost vertical lines.</li><li><strong>Common mistakes in the exam:</strong> (1) confusing a constant angular rate $\dot\varphi$ with a constant speed; (2) saying "constant speed implies zero acceleration"; (3) believing that $\mathbf e_t$, $\mathbf e_n$ or $\rho$ depend on how fast the curve is traversed.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C02">
+        <span class="problem-tag">Conceptual question · Unit 2 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C02 — Motion in a cubic potential: a separatrix that is never crossed and an asymmetric well</h4>
+        <div class="statement-box">
+<p>A point particle $P$ of mass $m$ moves along the $x$ axis of an inertial frame under the single conservative force derived from the potential energy</p>
+<div class="math-block">$$V(x)=V_0\left[\Big(\frac{x}{b}\Big)^3-3\,\frac{x}{b}\right],$$</div>
+<p>with $V_0&gt;0$ (an energy) and $b&gt;0$ (a length) constants. The figure shows $V(x)$ and two energy levels. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 649 380" width="100%" class="fig-kit" style="max-width:649px;margin:0 auto;display:block" role="img" aria-label="Graph of the potential energy V against x: a maximum 2 V0 at x = -b, a minimum -2 V0 at x = b; dashed horizontal lines mark the energy levels E = 2 V0 and E = 0">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="40.9" y1="205.0" x2="625.5" y2="205.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6"/>
+<path d="M630.9,205.0 L622.6,208.5 L622.6,201.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="634.9" y="227.0" fill="var(--fig-blue, #3b82f6)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<line x1="330.0" y1="376.1" x2="330.0" y2="27.5" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6"/>
+<path d="M330.0,22.1 L333.5,30.4 L326.5,30.4 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="338.0" y="28.1" fill="var(--fig-blue, #3b82f6)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">V</text>
+<polyline points="79.8,362.0 82.4,351.0 84.9,340.3 87.4,329.9 89.9,319.8 92.5,310.0 95.0,300.4 97.5,291.1 100.0,282.1 102.6,273.3 105.1,264.8 107.6,256.5 110.1,248.5 112.7,240.8 115.2,233.3 117.7,226.1 120.2,219.1 122.8,212.3 125.3,205.8 127.8,199.5 130.3,193.5 132.9,187.7 135.4,182.1 137.9,176.7 140.4,171.6 143.0,166.7 145.5,162.0 148.0,157.5 150.5,153.2 153.1,149.1 155.6,145.3 158.1,141.6 160.6,138.1 163.2,134.9 165.7,131.8 168.2,128.9 170.7,126.2 173.3,123.6 175.8,121.3 178.3,119.1 180.8,117.2 183.4,115.3 185.9,113.7 188.4,112.2 190.9,110.9 193.5,109.7 196.0,108.7 198.5,107.9 201.0,107.2 203.6,106.7 206.1,106.3 208.6,106.0 211.2,105.9 213.7,105.9 216.2,106.1 218.7,106.4 221.3,106.8 223.8,107.3 226.3,108.0 228.8,108.8 231.4,109.7 233.9,110.7 236.4,111.8 238.9,113.0 241.5,114.4 244.0,115.8 246.5,117.4 249.0,119.0 251.6,120.7 254.1,122.5 256.6,124.4 259.1,126.4 261.7,128.5 264.2,130.7 266.7,132.9 269.2,135.2 271.8,137.6 274.3,140.0 276.8,142.5 279.3,145.1 281.9,147.7 284.4,150.4 286.9,153.1 289.4,155.9 292.0,158.7 294.5,161.6 297.0,164.5 299.5,167.5 302.1,170.5 304.6,173.5 307.1,176.5 309.6,179.6 312.2,182.7 314.7,185.8 317.2,188.9 319.7,192.1 322.3,195.3 324.8,198.4 327.3,201.6 329.8,204.8 332.4,208.0 334.9,211.2 337.4,214.3 339.9,217.5 342.5,220.6 345.0,223.8 347.5,226.9 350.0,230.0 352.6,233.1 355.1,236.1 357.6,239.2 360.1,242.1 362.7,245.1 365.2,248.0 367.7,250.9 370.2,253.7 372.8,256.5 375.3,259.3 377.8,261.9 380.3,264.6 382.9,267.2 385.4,269.7 387.9,272.1 390.4,274.5 393.0,276.8 395.5,279.0 398.0,281.2 400.5,283.3 403.1,285.3 405.6,287.2 408.1,289.0 410.6,290.8 413.2,292.4 415.7,294.0 418.2,295.4 420.7,296.8 423.3,298.0 425.8,299.2 428.3,300.2 430.8,301.1 433.4,301.9 435.9,302.6 438.4,303.2 440.9,303.6 443.5,303.9 446.0,304.1 448.5,304.1 451.0,304.0 453.6,303.8 456.1,303.4 458.6,302.9 461.1,302.2 463.7,301.4 466.2,300.4 468.7,299.3 471.2,298.0 473.8,296.5 476.3,294.9 478.8,293.1 481.3,291.1 483.9,289.0 486.4,286.7 488.9,284.2 491.4,281.5 494.0,278.6 496.5,275.6 499.0,272.3 501.5,268.9 504.1,265.2 506.6,261.4 509.1,257.3 511.6,253.1 514.2,248.6 516.7,243.9 519.2,239.1 521.8,233.9 524.3,228.6 526.8,223.1 529.3,217.3 531.9,211.3 534.4,205.0 536.9,198.5 539.4,191.8 542.0,184.9 544.5,177.6 547.0,170.2 549.5,162.5 552.1,154.5 554.6,146.3 557.1,137.8 559.6,129.1 562.2,120.1 564.7,110.8 567.2,101.3 569.7,91.5 572.3,81.4 574.8,71.0 577.3,60.4 579.8,49.4 582.4,38.2 584.9,26.7" fill="none" stroke="var(--text-heading)" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="52.7" y1="105.9" x2="607.3" y2="105.9" stroke="var(--fig-pink, #ec4899)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="52.7" y="97.9" fill="var(--fig-pink, #ec4899)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">E = 2V<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<line x1="330.0" y1="199.1" x2="534.4" y2="199.1" stroke="var(--fig-green, #10b981)" stroke-width="3.0"/>
+<text x="389.0" y="190.1" fill="var(--fig-green, #10b981)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">E = 0</text>
+<line x1="212.0" y1="205.0" x2="212.0" y2="105.9" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="212.0" cy="205.0" r="3.0" fill="var(--text-faint)"/>
+<line x1="448.0" y1="205.0" x2="448.0" y2="304.1" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="448.0" cy="205.0" r="3.0" fill="var(--text-faint)"/>
+<line x1="566.0" y1="205.0" x2="566.0" y2="105.9" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="566.0" cy="205.0" r="3.0" fill="var(--text-faint)"/>
+<line x1="534.4" y1="205.0" x2="534.4" y2="205.0" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="534.4" cy="205.0" r="3.0" fill="var(--text-faint)"/>
+<text x="212.0" y="225.0" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−b</text>
+<text x="460.0" y="225.0" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">b</text>
+<text x="508.4" y="225.0" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">√3 b</text>
+<text x="572.0" y="225.0" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2b</text>
+<text x="324.0" y="223.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="212.0" cy="105.9" r="4.0" fill="var(--text-heading)"/>
+<circle cx="448.0" cy="304.1" r="4.0" fill="var(--text-heading)"/>
+<circle cx="566.0" cy="105.9" r="4.0" fill="var(--fig-acc, #f59e0b)"/>
+<text x="212.0" y="93.9" fill="var(--text-heading)" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">V<tspan baseline-shift="sub" font-size="70%">max</tspan> = 2V<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<text x="448.0" y="328.1" fill="var(--text-heading)" font-size="14" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">V<tspan baseline-shift="sub" font-size="70%">min</tspan> = −2V<tspan baseline-shift="sub" font-size="70%">0</tspan></text>
+<text x="576.0" y="123.9" fill="var(--fig-acc, #f59e0b)" font-size="13" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">start (a)</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. Potential $V(x)=V_0\big[(x/b)^3-3x/b\big]$ with the energy levels $E=2V_0$ (released at $x=2b$) and $E=0$ (released at $x=0$).</div>
+</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Released at $x=2b$</p>
+<p>Statement: "If $P$ is released from rest at $x=2b$, it moves to the left, reaches the top of the barrier at $x=-b$ after a finite time and then escapes towards $x\to-\infty$."</p></div>
+<h4 class="step-title">Step 1. Energy and direction of the motion</h4>
+<p>Write $u=x/b$, so $V=V_0(u^3-3u)$. By the chain rule $\frac{dV}{dx}=\frac{dV}{du}\frac{du}{dx}=\frac{3V_0}{b}(u^2-1)$: the equilibria are $x=\pm b$, with $V(-b)=2V_0$ (maximum, $V''&lt;0$) and $V(b)=-2V_0$ (minimum). Released from rest at $x=2b$, the energy is $E=V(2b)=V_0(8-6)=2V_0$ and the initial force is $F=-\frac{dV}{dx}\big|_{2b}=-\frac{3V_0}{b}(4-1)=-\frac{9V_0}{b}&lt;0$: $P$ moves to the left.</p>
+<h4 class="step-title">Step 2. The kinetic energy factorises</h4>
+<p>Energy conservation (Notes §4.5) gives $\tfrac12m\dot x^2=E-V$, and</p>
+<div class="math-block">$$E-V=V_0\big(2-u^3+3u\big)=V_0\,(u+1)^2\,(2-u)$$</div>
+<p>(check: $(u+1)^2(2-u)=(u^2+2u+1)(2-u)=-u^3+3u+2$). For $-1&lt;u&lt;2$ it is positive, and it vanishes at $u=-1$ with a <strong>double</strong> root.</p>
+<h4 class="step-title">Step 3. Time to approach $x=-b$</h4>
+<p>On the way to the left $\dot x=-\sqrt{2V_0/m}\,(u+1)\sqrt{2-u}$, so $dt=\dfrac{-b\,du}{\sqrt{2V_0/m}\,(u+1)\sqrt{2-u}}$. Substitute $w=\sqrt{2-u}$: $u=2-w^2$, $du=-2w\,dw$, $u+1=3-w^2$, with $w=0$ at the start ($u=2$) and $w\to\sqrt3$ at the barrier ($u\to-1$):</p>
+<div class="math-block">$$t(w)=\frac{2b}{\sqrt{2V_0/m}}\int_0^{w}\frac{dw'}{3-w'^2}$$</div>
+<p>With the antiderivative $\int\frac{dw}{3-w^2}=\frac{1}{2\sqrt3}\ln\frac{\sqrt3+w}{\sqrt3-w}$ and Barrow's rule (the lower limit gives $\ln1=0$):</p>
+<div class="math-block">$$t(w)=b\sqrt{\frac{m}{6V_0}}\;\ln\frac{\sqrt3+w}{\sqrt3-w}\ \xrightarrow[\ w\to\sqrt3\ ]{}\ \infty$$</div>
+<p>For instance, $P$ passes $x=0$ ($w=\sqrt2$) at $t=b\sqrt{m/(6V_0)}\,\ln\big(5+2\sqrt6\big)\approx0.936\,b\sqrt{m/V_0}$, but it needs an infinite time to reach $x=-b$. The particle tends to the unstable equilibrium and never escapes: the statement is FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>$V(2b)=2V_0=V(-b)$: the energy equals the top of the barrier. $F(2b)=-9V_0/b&lt;0$, so $P$ does start to the left.</li><li>$E-V=V_0(u+1)^2(2-u)$ with $u=x/b$: $|\dot x|\propto|x+b|$ near $x=-b$ and the time $t=b\sqrt{m/(6V_0)}\,\ln\dfrac{\sqrt3+w}{\sqrt3-w}$, $w=\sqrt{2-x/b}$, diverges as $x\to-b$: $P$ approaches the barrier top asymptotically and never crosses it.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Released at $x=0$</p>
+<p>Statement: "If $P$ is released from rest at $x=0$, it oscillates about the stable equilibrium $x=b$ between $x=0$ and $x=2b$, symmetrically about $x=b$."</p></div>
+<h4 class="step-title">Step 1. Energy and initial force</h4>
+<p>$E=V(0)=0$. The initial force is $F=-\frac{dV}{dx}\big|_0=-\frac{3V_0}{b}(0-1)=\frac{3V_0}{b}&gt;0$: $P$ moves to the right, into the well of the minimum $x=b$.</p>
+<h4 class="step-title">Step 2. Turning points</h4>
+<p>They solve $V(x)=E=0$: $V_0(u^3-3u)=V_0\,u\,(u-\sqrt3)(u+\sqrt3)=0$, so $u\in\{-\sqrt3,0,\sqrt3\}$. Between $u=0$ and $u=\sqrt3$ we have $V&lt;0=E$ and the kinetic energy is positive; the motion is confined to $0\le x\le\sqrt3\,b$. At both ends $dV/dx\neq0$ ($-3V_0/b$ at $x=0$, $+6V_0/b$ at $x=\sqrt3\,b$), so they are simple turning points reached in a finite time, and the motion is a periodic oscillation (Notes §4.5).</p>
+<h4 class="step-title">Step 3. Not symmetric, not up to $2b$</h4>
+<p>$x=2b$ is never reached, since $V(2b)=2V_0&gt;E$. The interval $[0,\sqrt3\,b]$ extends $b$ to the left of the minimum and only $(\sqrt3-1)\,b\approx0.732\,b$ to its right: the cubic well is steeper on the right. Symmetry about the minimum holds only for a parabolic well, i.e. for small oscillations, whose frequency follows from $V''(b)=\frac{1}{b^2}\frac{d^2V}{du^2}\big|_{u=1}=\frac{6V_0}{b^2}$: $\omega^2=\dfrac{6V_0}{mb^2}$ (Notes §4.6). The statement is FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>$E=V(0)=0$; $V=V_0u(u-\sqrt3)(u+\sqrt3)$: turning points $x=0$ and $x=\sqrt3\,b\approx1.732\,b$ (not $2b$, where $V=2V_0&gt;E$).</li><li>$x=b$ is stable ($V''&gt;0$), small-oscillation frequency $\omega^2=6V_0/(mb^2)$; the motion is periodic but the distances to the turning points are $b$ and $0.732\,b$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $V_0/b$ is a force (N); $b\sqrt{m/V_0}$ is $\text{m}\sqrt{\text{kg}/\text{J}}=\text{s}$; $\omega^2=6V_0/(mb^2)$ is s$^{-2}$.</li><li><strong>Limits:</strong> with $E$ slightly below $2V_0$, $P$ would turn back just before $x=-b$ after a long but finite time; slightly above, it would cross the barrier and run to $x\to-\infty$ ($V\to-\infty$, unbounded speed). $E=2V_0$ is the separatrix between both behaviours.</li><li><strong>Common mistakes in the exam:</strong> (1) assuming that "enough energy to reach the top" means crossing it; (2) placing the turning points symmetrically about the minimum; (3) forgetting to check the sign of the initial force to know where the particle goes.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C03">
+        <span class="problem-tag">Conceptual question · Unit 2 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C03 — Energy of a pendulum hanging from a slider: one particle, the system, and a driven support</h4>
+        <div class="statement-box">
+<p>A slider $A$ of mass $M$ moves along a smooth, fixed horizontal rail (the $x$ axis direction of the inertial frame $S_0=\{O;\mathbf i,\mathbf j\}$, $y$ upward, gravity $-g\,\mathbf j$); its abscissa is $x_A$. A bob $P$ of mass $m$ hangs from $A$ on a massless, inextensible string of length $\ell$ that stays taut. The angle $\theta$ is measured from the downward vertical, positive towards $+x$, and $\mathbf e_r=\sin\theta\,\mathbf i-\cos\theta\,\mathbf j$ (from $A$ to $P$), $\mathbf e_\theta=\cos\theta\,\mathbf i+\sin\theta\,\mathbf j$. The motion is planar. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="A slider A of mass M on a smooth horizontal rail at abscissa x_A; a bob P of mass m hangs from A on a string of length l making the angle theta with the downward vertical">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="262.0" x2="116.8" y2="262.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.9"/>
+<path d="M122.2,262.0 L113.9,265.5 L113.9,258.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="132.2" y="266.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<line x1="70.0" y1="262.0" x2="70.0" y2="215.2" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.9"/>
+<path d="M70.0,209.8 L73.5,218.1 L66.5,218.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="70.0" y="203.8" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">y</text>
+<text x="62.0" y="278.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<line x1="151.2" y1="70.6" x2="568.8" y2="70.6" stroke="var(--text-heading)" stroke-width="2.4"/>
+<line x1="151.2" y1="70.6" x2="144.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="160.2" y1="70.6" x2="153.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="169.2" y1="70.6" x2="162.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="178.2" y1="70.6" x2="171.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="187.2" y1="70.6" x2="180.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="196.2" y1="70.6" x2="189.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="205.2" y1="70.6" x2="198.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="214.2" y1="70.6" x2="207.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="223.2" y1="70.6" x2="216.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="232.2" y1="70.6" x2="225.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="241.2" y1="70.6" x2="234.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="250.2" y1="70.6" x2="243.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="259.2" y1="70.6" x2="252.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="268.2" y1="70.6" x2="261.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="277.2" y1="70.6" x2="270.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="286.2" y1="70.6" x2="279.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="295.2" y1="70.6" x2="288.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="304.2" y1="70.6" x2="297.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="313.2" y1="70.6" x2="306.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="322.2" y1="70.6" x2="315.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="331.2" y1="70.6" x2="324.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="340.2" y1="70.6" x2="333.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="349.2" y1="70.6" x2="342.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="358.2" y1="70.6" x2="351.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="367.2" y1="70.6" x2="360.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="376.2" y1="70.6" x2="369.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="385.2" y1="70.6" x2="378.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="394.2" y1="70.6" x2="387.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="403.2" y1="70.6" x2="396.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="412.2" y1="70.6" x2="405.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="421.2" y1="70.6" x2="414.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="430.2" y1="70.6" x2="423.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="439.2" y1="70.6" x2="432.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="448.2" y1="70.6" x2="441.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="457.2" y1="70.6" x2="450.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="466.2" y1="70.6" x2="459.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="475.2" y1="70.6" x2="468.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="484.2" y1="70.6" x2="477.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="493.2" y1="70.6" x2="486.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="502.2" y1="70.6" x2="495.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="511.2" y1="70.6" x2="504.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="520.2" y1="70.6" x2="513.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="529.2" y1="70.6" x2="522.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="538.2" y1="70.6" x2="531.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="547.2" y1="70.6" x2="540.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="556.2" y1="70.6" x2="549.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="565.2" y1="70.6" x2="558.8" y2="64.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<polygon points="304.9,70.6 368.7,70.6 368.7,99.6 304.9,99.6" fill="var(--text-heading)" fill-opacity="0.12" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<circle cx="336.8" cy="85.1" r="3.5" fill="var(--text-heading)"/>
+<text x="296.9" y="91.1" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<text x="376.7" y="91.1" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">M</text>
+<line x1="70.0" y1="32.9" x2="336.8" y2="32.9" stroke="var(--text-faint)" stroke-width="1.1"/>
+<path d="M70.0,32.9 L76.4,30.2 L76.4,35.6 Z" fill="var(--text-faint)"/>
+<path d="M336.8,32.9 L330.4,35.6 L330.4,30.2 Z" fill="var(--text-faint)"/>
+<text x="203.4" y="24.9" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x<tspan baseline-shift="sub" font-size="70%">A</tspan></text>
+<line x1="70.0" y1="186.6" x2="70.0" y2="24.2" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="336.8" y1="70.6" x2="336.8" y2="24.2" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="336.8" y1="85.1" x2="336.8" y2="247.5" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="336.8" y1="85.1" x2="413.6" y2="208.1" stroke="var(--text-faint)" stroke-width="1.8"/>
+<circle cx="413.6" cy="208.1" r="8" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.95" stroke="var(--text-heading)" stroke-width="1.6"/>
+<text x="429.6" y="214.1" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<text x="413.6" y="236.1" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m</text>
+<path d="M336.8,140.2 A55.1,55.1 0 0 0 366.0,131.8" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="356.8" y="159.8" fill="var(--fig-green, #10b981)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<text x="391.2" y="144.6" fill="var(--text-muted)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">ℓ</text>
+<line x1="551.4" y1="169.2" x2="551.4" y2="216.0" stroke="var(--text-muted)" stroke-width="1.8"/>
+<path d="M551.4,221.4 L547.9,213.1 L554.9,213.1 Z" fill="var(--text-muted)"/>
+<text x="563.4" y="225.4" fill="var(--text-muted)" font-size="17" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">g</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. Slider $A$ (mass $M$) on a smooth horizontal rail, abscissa $x_A$; bob $P$ (mass $m$) on a string of length $\ell$, angle $\theta$ from the downward vertical, positive towards $+x$.</div>
+</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Free slider</p>
+<p>The slider moves freely on the rail. Statement: "The mechanical energy of the bob alone, $E_P=\tfrac12m|\mathbf v_P|^2+mg\,y_P$, is <strong>not</strong> conserved, but the mechanical energy of the system slider plus bob, $E=\tfrac12M\dot x_A^2+E_P$, is conserved."</p></div>
+<h4 class="step-title">Step 1. Power of the tension on the bob</h4>
+<p>The string pulls $P$ towards $A$: $\mathbf T_P=-T\,\mathbf e_r$, $T\ge0$. The absolute velocity of $P$ is $\mathbf v_P=\dot x_A\,\mathbf i+\ell\dot\theta\,\mathbf e_\theta$ (derivative of $\mathbf r_P=x_A\mathbf i+\ell\mathbf e_r$ with $\dot{\mathbf e}_r=\dot\theta\,\mathbf e_\theta$). With $\mathbf e_r\cdot\mathbf i=\sin\theta$ and $\mathbf e_r\cdot\mathbf e_\theta=0$:</p>
+<div class="math-block">$$\dot W_{T,P}=\mathbf T_P\cdot\mathbf v_P=-T\dot x_A\sin\theta$$</div>
+<p>The tension is orthogonal to the velocity of $P$ <strong>relative to $A$</strong>, but not to its absolute velocity. By the work-energy theorem with the weight as the only conservative force on $P$ (Notes §4.5), $\dot E_P=-T\dot x_A\sin\theta$, which is not zero whenever the slider moves with the string inclined: $E_P$ is not conserved.</p>
+<h4 class="step-title">Step 2. The system</h4>
+<p>On $A$ act $M\mathbf g$ and the rail reaction (both vertical, power zero against $\dot x_A\mathbf i$: smooth rail) and the string force $\mathbf T_A=+T\,\mathbf e_r$, of power $T\dot x_A\sin\theta$. Hence $\frac{d}{dt}\big(\tfrac12M\dot x_A^2\big)=T\dot x_A\sin\theta$ and</p>
+<div class="math-block">$$\dot E=T\dot x_A\sin\theta-T\dot x_A\sin\theta=T\,\mathbf e_r\cdot(\mathbf v_A-\mathbf v_P)=-T\ell\dot\theta\,\mathbf e_r\cdot\mathbf e_\theta=0$$</div>
+<p>The internal pair of an inextensible string does no net work (Notes §4.4), so $E$ is conserved. The statement is TRUE.</p>
+<h4 class="step-title">Step 3. How much energy moves from $P$ to $A$</h4>
+<p>The horizontal external force is zero, so $p_x=(M+m)\dot x_A+m\ell\dot\theta\cos\theta$ is conserved, equal to $0$ for a release from rest at $\theta_0$. At $\theta=0$: $\dot x_A=-\dfrac{m\ell\dot\theta}{M+m}$. At $\theta=0$, $\mathbf e_\theta=\mathbf i$, so $\mathbf v_P=(\dot x_A+\ell\dot\theta)\,\mathbf i$ with $\dot x_A+\ell\dot\theta=\dfrac{M\ell\dot\theta}{M+m}$, and $y_P=-\ell\cos\theta$. Energy conservation between the release ($\theta_0$, at rest) and $\theta=0$:</p>
+<div class="math-block">$$\frac12M\frac{m^2\ell^2\dot\theta^2}{(M+m)^2}+\frac12m\frac{M^2\ell^2\dot\theta^2}{(M+m)^2}-mg\ell=-mg\ell\cos\theta_0$$</div>
+<p>The two kinetic terms add up to $\dfrac{Mm(m+M)\ell^2\dot\theta^2}{2(M+m)^2}=\dfrac{Mm\,\ell^2\dot\theta^2}{2(M+m)}$, so $\dfrac{Mm\,\ell^2\dot\theta^2}{2(M+m)}=mg\ell(1-\cos\theta_0)$, which gives $\ell\dot\theta^2=\dfrac{2g(1-\cos\theta_0)(M+m)}{M}$ and</p>
+<div class="math-block">$$\tfrac12M\dot x_A^2=\frac{M}{2}\,\frac{m^2\ell^2\dot\theta^2}{(M+m)^2}=\frac{m^2g\ell\,(1-\cos\theta_0)}{M+m}&gt;0$$</div>
+<p>which is exactly what $E_P$ has lost.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TRUE.</li><li>Tension on $P$: $-T\mathbf e_r$, power $-T\mathbf e_r\cdot\mathbf v_P=-T\dot x_A\sin\theta\neq0$ in general, so $\dot E_P=-T\dot x_A\sin\theta$.</li><li>Tension on $A$: $+T\mathbf e_r$, power $+T\dot x_A\sin\theta$; the pair has total power $T\mathbf e_r\cdot(\mathbf v_A-\mathbf v_P)=0$ (inextensible string); rail reaction and $M\mathbf g$ are vertical, orthogonal to $\dot x_A\mathbf i$: $\dot E=0$.</li><li>Example: released from rest at $\theta_0$, at $\theta=0$ the slider has $\tfrac12M\dot x_A^2=\dfrac{m^2g\ell(1-\cos\theta_0)}{M+m}$, energy that $P$ has lost.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Driven slider</p>
+<p>A motor now imposes $x_A(t)=b\sin(\Omega t)$. Let $S_1$ be the frame that translates with $A$. Statement: "In $S_1$ the tension does no work on $P$ and the weight is conservative; therefore $E_{rel}=\tfrac12m\ell^2\dot\theta^2-mg\ell\cos\theta$ is a first integral of the motion of the bob."</p></div>
+<h4 class="step-title">Step 1. Forces and work in $S_1$</h4>
+<p>$S_1$ translates with acceleration $\ddot x_A\mathbf i$, so (Notes §4.9) the forces on $P$ in $S_1$ are $m\mathbf g$, $-T\mathbf e_r$ and the inertia force $\mathbf F_{in}=-m\ddot x_A\,\mathbf i$ (no Coriolis or centrifugal terms: $\boldsymbol\omega_{10}=\mathbf 0$). With $\mathbf v_{rel}=\ell\dot\theta\,\mathbf e_\theta$ the tension does no work, and the weight has the potential $-mg\ell\cos\theta$. The power of the inertia force is</p>
+<div class="math-block">$$\mathbf F_{in}\cdot\mathbf v_{rel}=-m\ddot x_A\,\ell\dot\theta\,(\mathbf i\cdot\mathbf e_\theta)=-m\ddot x_A\,\ell\dot\theta\cos\theta$$</div>
+<h4 class="step-title">Step 2. Rate of change of $E_{rel}$</h4>
+<p>Projecting $m\mathbf a_{rel}=m\mathbf g-T\mathbf e_r+\mathbf F_{in}$ on $\mathbf e_\theta$: $m\ell\ddot\theta=-mg\sin\theta-m\ddot x_A\cos\theta$. Differentiating $E_{rel}$ with the chain rule, $\frac{d}{dt}\cos\theta=-\sin\theta\,\dot\theta$:</p>
+<div class="math-block">$$\dot E_{rel}=m\ell\dot\theta\,\big(\ell\ddot\theta+g\sin\theta\big)=-m\ddot x_A\,\ell\dot\theta\cos\theta$$</div>
+<p>With $\ddot x_A=-b\Omega^2\sin(\Omega t)$: $\dot E_{rel}=mb\Omega^2\ell\,\sin(\Omega t)\,\dot\theta\cos\theta$. For example at $\Omega t=\pi/2$ with $\theta=0$ and $\dot\theta\neq0$ it equals $mb\Omega^2\ell\dot\theta\neq0$. $E_{rel}$ is not a first integral: the statement is FALSE.</p>
+<h4 class="step-title">Step 3. Why no other energy works either</h4>
+<p>For a constant $\ddot x_A=a_0$ (as in a uniformly accelerating support) the inertia force would be uniform and conservative, with potential $ma_0\ell\sin\theta$. Here, if we try $E^*=E_{rel}+m\ddot x_A(t)\,\ell\sin\theta$, the explicit time dependence leaves</p>
+<div class="math-block">$$\dot E^*=m\,\frac{d^3x_A}{dt^3}\,\ell\sin\theta=-mb\Omega^3\cos(\Omega t)\,\ell\sin\theta\neq0$$</div>
+<p>The motor keeps pumping energy in and out of the bob.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>In $S_1$: $\mathbf v_{rel}=\ell\dot\theta\,\mathbf e_\theta$, $-T\mathbf e_r\cdot\mathbf v_{rel}=0$ (this part is true).</li><li>Equation: $\ell\ddot\theta=-g\sin\theta-\ddot x_A\cos\theta$; $\dot E_{rel}=-m\ddot x_A\,\ell\dot\theta\cos\theta=mb\Omega^2\ell\sin(\Omega t)\,\dot\theta\cos\theta\neq0$.</li><li>The inertia force depends explicitly on $t$: even $E_{rel}+m\ddot x_A\ell\sin\theta$ changes, at the rate $m\,\dfrac{d^3x_A}{dt^3}\,\ell\sin\theta$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $T\dot x_A$ is N m s$^{-1}$ = W; $mb\Omega^2\ell\dot\theta$ is kg m s$^{-2}$ m s$^{-1}$ = W; $m^2g\ell/(M+m)$ is J.</li><li><strong>Limits:</strong> $M\to\infty$ makes the slider a fixed support ($\dot x_A\to0$): the energy transfer $m^2g\ell(1-\cos\theta_0)/(M+m)\to0$ and $E_P$ is conserved. $b\to0$ in (b) gives the ordinary pendulum and $\dot E_{rel}\to0$.</li><li><strong>Common mistakes in the exam:</strong> (1) "the tension is perpendicular to the velocity, so it does no work": true only for the velocity relative to the point the string is tied to; (2) forgetting the inertia force when writing the energy in a non-inertial frame; (3) treating a time-dependent inertia force as conservative.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C04">
+        <span class="problem-tag">Conceptual question · Unit 4 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C04 — Angular momentum under a non-central force and about a moving point</h4>
+        <div class="statement-box">
+<p>A point particle $P$ of mass $m$ moves with respect to the inertial frame $S_0=\{O;\mathbf i,\mathbf j,\mathbf k\}$, with no gravity. $r=|\mathbf r_P|$ is its distance to $O$, $\mathbf u_r=\mathbf r_P/r$, and $\{\mathbf e_R,\mathbf e_\varphi,\mathbf k\}$ is the cylindrical basis about the $z$ axis. The angular momentum about a point $A$ is $\mathbf H_A=\mathbf r_{AP}\times m\mathbf v_P$ (absolute velocity, Notes Eq. 4.48). Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>A force with an azimuthal part</p>
+<p>$P$ moves under $\mathbf F=f(r)\,\mathbf u_r+q(r)\,\mathbf e_\varphi$, with $f$ and $q$ known functions and $q\neq0$. At $t=0$, $P$ is in the plane $z=0$ and its velocity is parallel to that plane. Statement: "Since $\mathbf F$ is not central, $\mathbf H_O$ is not conserved, and therefore the trajectory of $P$ cannot be planar."</p></div>
+<h4 class="step-title">Step 1. The plane $z=0$ is invariant</h4>
+<p>In Cartesian components $\mathbf u_r=(x,y,z)/r$ and $\mathbf e_\varphi=(-y,x,0)/\sqrt{x^2+y^2}$, so the $z$ component of Newton's law is</p>
+<div class="math-block">$$m\ddot z=f(r)\,\frac{z}{r}$$</div>
+<p>With $z(0)=0$ and $\dot z(0)=0$, the function $z(t)\equiv0$ satisfies this equation and the initial conditions; by uniqueness it is the solution. $P$ never leaves the plane $z=0$: the trajectory <strong>is</strong> planar.</p>
+<h4 class="step-title">Step 2. Angular momentum is not conserved</h4>
+<p>On the plane, $\mathbf r_P=R\,\mathbf e_R$ (with $R=r$) and $\mathbf M_O=\mathbf r_P\times\mathbf F=R\,\mathbf e_R\times\big(f\,\mathbf e_R+q\,\mathbf e_\varphi\big)=R\,q(R)\,\mathbf k\neq\mathbf 0$. By Notes Eq. 4.53 ($O$ fixed), $\dot{\mathbf H}_O=\mathbf M_O$. With $\mathbf v_P=\dot R\,\mathbf e_R+R\dot\varphi\,\mathbf e_\varphi$:</p>
+<div class="math-block">$$\mathbf H_O=R\,\mathbf e_R\times m\big(\dot R\,\mathbf e_R+R\dot\varphi\,\mathbf e_\varphi\big)=mR^2\dot\varphi\,\mathbf k,\qquad \frac{d}{dt}\big(mR^2\dot\varphi\big)=m\big(2R\dot R\dot\varphi+R^2\ddot\varphi\big)=mR\,a_\varphi=R\,q(R)$$</div>
+<p>So $\mathbf H_O$ is not conserved (the areal velocity $\tfrac12R^2\dot\varphi$ is not constant either), but it always points along $\mathbf k$.</p>
+<h4 class="step-title">Step 3. Where the reasoning breaks</h4>
+<p>Conservation of $\mathbf H_O$ is sufficient for planar motion (Notes §4.8.1, property 2) but not necessary. Here $\mathbf M_O$ is parallel to $\mathbf H_O$: only the magnitude changes, and $\mathbf r_P\cdot\mathbf H_O=0$ keeps $P$ in the fixed plane normal to $\mathbf k$. The statement is FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE (the first half is true, the conclusion is not).</li><li>$F_z=f(r)\,z/r$: zero on $z=0$, so with $z(0)=\dot z(0)=0$ the solution keeps $z\equiv0$: the motion is planar.</li><li>$\mathbf M_O=r\,q(r)\,\mathbf k\neq\mathbf 0$ on the plane: $\mathbf H_O=mR^2\dot\varphi\,\mathbf k$ changes magnitude, $\dfrac{d}{dt}\big(mR^2\dot\varphi\big)=R\,q(R)$, but keeps its direction $\mathbf k$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Angular momentum about a moving point</p>
+<p>Now $P$ moves under a central force towards $O$ on a circle of radius $\rho$ with constant angular rate $n$: $\mathbf r_P=\rho(\cos nt\,\mathbf i+\sin nt\,\mathbf j)$. A point $A$ moves with constant velocity, $\mathbf r_A=ut\,\mathbf i$ ($u&gt;0$). Statement: "A frame translating with $A$ at constant velocity is inertial, so the angular momentum of $P$ about $A$, $\mathbf H_A$, is conserved just like $\mathbf H_O$."</p></div>
+<h4 class="step-title">Step 1. The theorem about a moving point</h4>
+<p>Differentiating $\mathbf H_A=(\mathbf r_P-\mathbf r_A)\times m\mathbf v_P$ with the product rule:</p>
+<div class="math-block">$$\frac{d\mathbf H_A}{dt}=(\mathbf v_P-\mathbf v_A)\times m\mathbf v_P+(\mathbf r_P-\mathbf r_A)\times m\mathbf a_P=\mathbf M_A-\mathbf v_A\times m\mathbf v_P$$</div>
+<p>because $\mathbf v_P\times\mathbf v_P=\mathbf 0$ and $m\mathbf a_P=\mathbf F$ (Notes Eq. 4.52). Both terms must vanish for conservation. The force passes through $O$, not through $A$: $\mathbf M_A=(\mathbf r_P-\mathbf r_A)\times\mathbf F=-\mathbf r_A\times\mathbf F$, since $\mathbf r_P\times\mathbf F=\mathbf 0$.</p>
+<h4 class="step-title">Step 2. Direct computation</h4>
+<p>$\mathbf v_P=n\rho(-\sin nt\,\mathbf i+\cos nt\,\mathbf j)$ and $\mathbf r_P-\mathbf r_A=(\rho\cos nt-ut)\,\mathbf i+\rho\sin nt\,\mathbf j$, so</p>
+<div class="math-block">$$H_{A,z}=m\big[(\rho\cos nt-ut)\,n\rho\cos nt+\rho\sin nt\;n\rho\sin nt\big]=m\big(n\rho^2-ut\,n\rho\cos nt\big)$$</div>
+<p>Differentiating with the product rule, $\frac{d}{dt}(t\cos nt)=\cos nt-nt\sin nt$:</p>
+<div class="math-block">$$\dot H_{A,z}=-mun\rho\,\big(\cos nt-nt\sin nt\big),\qquad \dot H_{A,z}(0)=-mun\rho\neq0$$</div>
+<p>At $t=0$, $A=O$ and $\mathbf M_A=\mathbf 0$, yet $\mathbf H_A$ changes because of $-\mathbf v_A\times m\mathbf v_P=-u\,\mathbf i\times mn\rho\,\mathbf j=-mun\rho\,\mathbf k$.</p>
+<h4 class="step-title">Step 3. The inertial frame of $A$ does not help</h4>
+<p>In the frame $S_A$ that translates with $A$ (inertial, since $\mathbf a_A=\mathbf 0$), Notes Eq. 4.55 gives $\dot{\mathbf H}_{A,A}=\mathbf M_A$ for $\mathbf H_{A,A}=\mathbf r_{AP}\times m(\mathbf v_P-\mathbf v_A)$. With $\mathbf F=-mn^2\mathbf r_P$, $\mathbf M_A=-ut\,\mathbf i\times(-mn^2\rho)(\cos nt\,\mathbf i+\sin nt\,\mathbf j)=mun^2\rho\,t\sin nt\,\mathbf k$, nonzero for instance at $nt=\pi/2$. A frame being inertial does not make the force central about its origin. The statement is FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>$\mathbf M_A=\mathbf r_{AP}\times\mathbf F=-\mathbf r_A\times\mathbf F\neq\mathbf 0$ once $A\neq O$, and $\mathbf v_A\times m\mathbf v_P\neq\mathbf 0$.</li><li>$H_{A,z}=m\big(n\rho^2-ut\,n\rho\cos nt\big)$, $\ \dot H_{A,z}=-mun\rho\,(\cos nt-nt\sin nt)$, equal to $-mun\rho\neq0$ at $t=0$.</li><li>Even the relative angular momentum $\mathbf H_{A,A}$ of Notes Eq. 4.55 changes: $\dot H_{A,A,z}=M_{A,z}=mun^2\rho\,t\sin nt$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $mR^2\dot\varphi$ and $mn\rho^2$ are kg m$^2$ s$^{-1}$; $R\,q(R)$ and $mun\rho$ are N m = kg m$^2$ s$^{-2}$.</li><li><strong>Limits:</strong> in (a), $q\to0$ gives a central force and $mR^2\dot\varphi$ constant; if the initial velocity had a $z$ component, $F_z=fz/r$ would not vanish and the motion would in general leave the plane. In (b), $u\to0$ ($A$ fixed at $O$) recovers $\dot{\mathbf H}_A=\mathbf 0$.</li><li><strong>Common mistakes in the exam:</strong> (1) treating "angular momentum conserved" as the only route to planar motion; (2) applying $\dot{\mathbf H}_A=\mathbf M_A$ about a moving point without the term $-\mathbf v_A\times m\mathbf v_P$; (3) thinking that a force is central about every point of an inertial frame.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C05">
+        <span class="problem-tag">Conceptual question · Unit 5 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C05 — Work of inertia forces: the Coriolis force on a rotating rod and a free particle in an accelerating frame</h4>
+        <div class="statement-box">
+<p>$S_0$ is an inertial frame. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Bead on a rotating rod</p>
+<p>A straight, smooth rod lies in a horizontal plane and rotates about a fixed vertical axis through its end $O$ with constant angular velocity $\boldsymbol\Omega=\Omega\,\mathbf k$ ($\mathbf k$ upward). A bead of mass $m$ slides on the rod; $r$ is its distance to $O$, and $S_1=\{O;\mathbf e_r,\mathbf e_\varphi,\mathbf k\}$ is the frame of the rod ($\mathbf e_r$ along the rod). The bead is released at rest relative to the rod at $r=r_0$. Statement: "In $S_1$ the Coriolis force does work on the bead, and this work is what makes the relative kinetic energy of the bead grow as it slides outwards."</p></div>
+<h4 class="step-title">Step 1. Forces in $S_1$</h4>
+<p>$S_1$ rotates with constant $\boldsymbol\Omega$ about the fixed point $O$, so (Notes §4.9) $m\mathbf a_{rel}=\mathbf F+\mathbf F_{cf}+\mathbf F_{cor}$ with the centrifugal force $\mathbf F_{cf}=-m\boldsymbol\Omega\times(\boldsymbol\Omega\times r\,\mathbf e_r)=m\Omega^2r\,\mathbf e_r$ and the Coriolis force</p>
+<div class="math-block">$$\mathbf F_{cor}=-2m\,\boldsymbol\Omega\times\mathbf v_{rel}=-2m\,\Omega\,\mathbf k\times\dot r\,\mathbf e_r=-2m\Omega\dot r\,\mathbf e_\varphi$$</div>
+<p>(no Euler term since $\dot{\boldsymbol\Omega}=\mathbf 0$). The real forces are the weight and the rod reaction, both orthogonal to $\mathbf e_r$ on a smooth rod.</p>
+<h4 class="step-title">Step 2. Powers</h4>
+<p>With $\mathbf v_{rel}=\dot r\,\mathbf e_r$: $\ \mathbf F_{cor}\cdot\mathbf v_{rel}=-2m\Omega\dot r^2\,(\mathbf e_\varphi\cdot\mathbf e_r)=0$. This holds for any motion, because $\boldsymbol\Omega\times\mathbf v_{rel}$ is perpendicular to $\mathbf v_{rel}$: <strong>the Coriolis force never works in the moving frame.</strong> Only the centrifugal force works, with power $m\Omega^2r\dot r$.</p>
+<h4 class="step-title">Step 3. Relative kinetic energy</h4>
+<p>Along $\mathbf e_r$: $m\ddot r=m\Omega^2r$, whose solution with $r(0)=r_0$, $\dot r(0)=0$ is $r=r_0\cosh\Omega t$. Work-energy theorem in $S_1$, with the work of the centrifugal force from $r_0$ to $r$ given by Barrow's rule:</p>
+<div class="math-block">$$\tfrac12m\dot r^2-0=\int_{r_0}^{r}m\Omega^2s\,ds=\Big[\tfrac12m\Omega^2s^2\Big]_{r_0}^{r}=\tfrac12m\Omega^2\big(r^2-r_0^2\big)$$</div>
+<p>The growth comes from the centrifugal force; the Coriolis force only presses the bead against the rod, where the reaction $N\mathbf e_\varphi+N_z\mathbf k$ balances it: along $\mathbf e_\varphi$, $N=2m\Omega\dot r$ against the Coriolis force, and along $\mathbf k$, $N_z=mg$ against the weight $-mg\,\mathbf k$ (both components are orthogonal to the smooth rod). The statement is FALSE.</p>
+<h4 class="step-title">Step 4. Seen from $S_0$</h4>
+<p>In $S_0$ there are no inertia forces; the energy is supplied by the rod reaction $N\mathbf e_\varphi+mg\,\mathbf k$, whose power with the absolute velocity $\mathbf v=\dot r\,\mathbf e_r+\Omega r\,\mathbf e_\varphi$ is $N\Omega r=2m\Omega^2r\dot r$ (the vertical part $mg\,\mathbf k$ is orthogonal to $\mathbf v$), exactly $\frac{d}{dt}\big[\tfrac12m(\dot r^2+\Omega^2r^2)\big]$ with $\ddot r=\Omega^2r$.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>Coriolis force $-2m\boldsymbol\Omega\times\mathbf v_{rel}=-2m\Omega\dot r\,\mathbf e_\varphi\perp\mathbf v_{rel}$: zero power, always.</li><li>The work comes from the centrifugal force $m\Omega^2r\,\mathbf e_r$: $\tfrac12m\dot r^2=\tfrac12m\Omega^2(r^2-r_0^2)$, $r=r_0\cosh\Omega t$.</li><li>The rod reaction $N\mathbf e_\varphi+mg\,\mathbf k$, $N=2m\Omega\dot r$: its horizontal part balances the Coriolis force in $S_1$ and its vertical part the weight; in $S_0$ it does work at the rate $2m\Omega^2r\dot r$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Free particle in an accelerating frame</p>
+<p>The frame $S_1$ translates without rotating, with constant acceleration $\mathbf a_{O_1}=a_0\,\mathbf e$ ($a_0&gt;0$, $\mathbf e$ a fixed unit vector) with respect to $S_0$. A particle subject to no real force (no gravity) is observed from $S_1$. Statement: "The only inertia force in $S_1$ is $-m a_0\,\mathbf e$, and the relative trajectory of the particle is a straight line only when its initial relative velocity is zero or parallel to $\mathbf e$; otherwise it is a parabola."</p></div>
+<h4 class="step-title">Step 1. Inertia forces</h4>
+<p>For a frame in pure translation, $\mathbf a_{abs}=\mathbf a_{O_1}+\mathbf a_{rel}$ (Notes §3.2 with $\boldsymbol\omega=\mathbf 0$), so $m\mathbf a_{rel}=\mathbf F-m\mathbf a_{O_1}$: the only inertia force is $-ma_0\,\mathbf e$, uniform and constant. With $\mathbf F=\mathbf 0$: $\mathbf a_{rel}=-a_0\,\mathbf e$.</p>
+<h4 class="step-title">Step 2. Relative motion</h4>
+<p>Integrating twice with Barrow's rule from $0$ to $t$: $\mathbf v_{rel}=\mathbf v_0-a_0t\,\mathbf e$ and $\mathbf r_{rel}=\mathbf r_0+\mathbf v_0t-\tfrac12a_0t^2\,\mathbf e$. The path is straight exactly when $\mathbf v_{rel}$ keeps its direction, i.e. when $\mathbf v_{rel}\times\mathbf a_{rel}=\mathbf 0$ (zero curvature, Notes §2.5):</p>
+<div class="math-block">$$\mathbf v_{rel}\times\mathbf a_{rel}=(\mathbf v_0-a_0t\,\mathbf e)\times(-a_0\,\mathbf e)=-a_0\,\mathbf v_0\times\mathbf e$$</div>
+<p>which vanishes if and only if $\mathbf v_0=\mathbf 0$ or $\mathbf v_0\parallel\mathbf e$.</p>
+<h4 class="step-title">Step 3. The parabola</h4>
+<p>With $\mathbf e=\mathbf i$ and $\mathbf v_0=U\mathbf j$: $x=x_0-\tfrac12a_0t^2$, $y=y_0+Ut$. Eliminating $t=(y-y_0)/U$ gives $x-x_0=-\dfrac{a_0}{2U^2}(y-y_0)^2$, a parabola. Both claims hold: TRUE. (In $S_0$ the same particle moves in a straight line at constant velocity.)</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TRUE.</li><li>$\mathbf F_{in}=-m\,\mathbf a_{O_1}=-ma_0\,\mathbf e$; $\ \mathbf r_{rel}=\mathbf r_0+\mathbf v_0t-\tfrac12a_0t^2\,\mathbf e$.</li><li>$\mathbf v_{rel}\times\mathbf a_{rel}=-a_0\,\mathbf v_0\times\mathbf e$ (constant): the path is straight if and only if $\mathbf v_0\times\mathbf e=\mathbf 0$.</li><li>Example $\mathbf v_0=U\mathbf j$, $\mathbf e=\mathbf i$: $x-x_0=-\dfrac{a_0}{2U^2}(y-y_0)^2$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $m\Omega\dot r$ and $ma_0$ are N; $m\Omega^2r^2$ is J; $a_0y^2/U^2$ is m.</li><li><strong>Limits:</strong> $\Omega\to0$ in (a) gives $r\equiv r_0$ (no driving force). $a_0\to0$ in (b) makes $S_1$ inertial and every free trajectory straight.</li><li><strong>Common mistakes in the exam:</strong> (1) attributing work to the Coriolis force (it is always normal to $\mathbf v_{rel}$); (2) adding centrifugal or Coriolis forces in a frame that only translates; (3) "a free particle moves in a straight line" in a non-inertial frame.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C06">
+        <span class="problem-tag">Conceptual question · Unit 3 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C06 — Particle on a moving sphere: degrees of freedom, constraint type and the work of a smooth reaction</h4>
+        <div class="statement-box">
+<p>A rigid sphere of radius $R$ has its centre $C$ on the vertical axis $Oz$ of the inertial frame $S_0=\{O;\mathbf i,\mathbf j,\mathbf k\}$ ($\mathbf k$ upward, gravity $-g\,\mathbf k$). A motor moves the sphere without rotating it so that $\mathbf r_C=h(t)\,\mathbf k$ with the prescribed law $h(t)=H+b\sin\Omega t$ ($H$, $b$, $\Omega$ constants). A point particle $P$ of mass $m$ rests on the <strong>outer</strong> surface of the sphere, which is smooth, and can leave it. Use spherical coordinates about $C$: polar angle $\theta$ from the upward vertical and azimuth $\varphi$ about $Oz$, with the basis $\{\mathbf u_r,\mathbf e_\theta,\mathbf e_\varphi\}$, so that $\mathbf r_P=h\,\mathbf k+R\,\mathbf u_r$ while $P$ is in contact. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Side view: a sphere of radius R whose centre C lies on the vertical z axis at height h(t) above O; a particle P rests on the outside of the sphere at polar angle theta from the upward vertical through C">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="290.0" y1="362.0" x2="290.0" y2="20.9" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6"/>
+<path d="M290.0,15.5 L293.5,23.8 L286.5,23.8 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="298.0" y="23.5" fill="var(--fig-blue, #3b82f6)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">z</text>
+<line x1="290.0" y1="362.0" x2="345.1" y2="362.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M350.5,362.0 L342.2,365.5 L342.2,358.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="360.5" y="368.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">x</text>
+<text x="282.0" y="382.0" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
+<circle cx="290.0" cy="191.5" r="96.2" fill="var(--text-heading)" fill-opacity="0.08" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="290.0" cy="191.5" r="3.5" fill="var(--text-heading)"/>
+<text x="282.0" y="209.5" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">C</text>
+<line x1="147.0" y1="362.0" x2="147.0" y2="191.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<path d="M147.0,362.0 L144.3,355.6 L149.7,355.6 Z" fill="var(--text-faint)"/>
+<path d="M147.0,191.5 L149.7,197.9 L144.3,197.9 Z" fill="var(--text-faint)"/>
+<text x="121.0" y="280.8" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">h(t)</text>
+<line x1="138.8" y1="362.0" x2="281.8" y2="362.0" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="138.8" y1="191.5" x2="284.5" y2="191.5" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="111.2" y1="221.8" x2="111.2" y2="166.6" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M111.2,161.2 L114.8,169.5 L107.7,169.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="111.2" y1="161.2" x2="111.2" y2="216.3" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<path d="M111.2,221.8 L107.7,213.5 L114.8,213.5 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="290.0" y1="191.5" x2="354.4" y2="120.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<text x="334.2" y="163.7" fill="var(--text-muted)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">R</text>
+<path d="M319.4,158.8 A44.0,44.0 0 0 0 290.0,147.5" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="311.3" y="141.0" fill="var(--fig-green, #10b981)" font-size="16" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">θ</text>
+<line x1="354.4" y1="120.0" x2="391.3" y2="79.0" stroke="var(--fig-pink, #ec4899)" stroke-width="2.0"/>
+<path d="M394.9,75.0 L391.9,83.5 L386.7,78.8 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="406.9" y="71.0" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">N</tspan></text>
+<line x1="354.4" y1="120.0" x2="354.4" y2="177.8" stroke="var(--fig-pink, #ec4899)" stroke-width="2.0"/>
+<path d="M354.4,183.2 L350.9,174.9 L357.9,174.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="376.4" y="191.2" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">m<tspan font-weight="700" font-style="normal">g</tspan></text>
+<circle cx="354.4" cy="120.0" r="7.5" fill="var(--fig-acc, #f59e0b)" fill-opacity="0.95" stroke="var(--text-heading)" stroke-width="1.6"/>
+<text x="332.4" y="108.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
+<path d="M274.5,62.4 A16.5,16.5 0 1 0 274.5,51.1" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M273.5,53.9 L273.0,44.9 L279.6,47.3 Z" fill="var(--fig-green, #10b981)"/>
+<text x="316.0" y="62.8" fill="var(--fig-green, #10b981)" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">φ</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. Sphere of radius $R$ with centre $C$ at the prescribed height $h(t)=H+b\sin\Omega t$ on the vertical axis; particle $P$ on its outer surface, polar angle $\theta$ from the upward vertical, azimuth $\varphi$ about the axis.</div>
+</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Degrees of freedom</p>
+<p>Statement: "While $P$ is in contact with the sphere it has a single degree of freedom, because two conditions are imposed on it: it must lie on the sphere, and the sphere moves with the law $h(t)$."</p></div>
+<h4 class="step-title">Step 1. Coordinates and constraint equations</h4>
+<p>A free particle has 3 degrees of freedom (Notes §2.7). Contact with the sphere imposes one scalar equation on the position of $P$:</p>
+<div class="math-block">$$f(\mathbf r,t)=\sqrt{x^2+y^2+\big(z-h(t)\big)^2}-R=0$$</div>
+<p>The motion of the sphere, $h(t)$, is a known function of time: it enters this equation but does not add another equation linking $x,y,z$. It removes no further degree of freedom.</p>
+<h4 class="step-title">Step 2. Count</h4>
+<p>$3-1=2$ degrees of freedom; $\theta$ and $\varphi$ fix the position at each instant through $\mathbf r_P=h(t)\,\mathbf k+R\,\mathbf u_r(\theta,\varphi)$. The Lagrangian in $(\theta,\varphi)$ gives two equations of motion, each with its own second derivative (their mass matrix has determinant $m^2R^4\sin^2\theta\neq0$ off the poles), which confirms two independent coordinates. The statement is FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE.</li><li>One constraint on $P$: $f(\mathbf r,t)=|\mathbf r-h(t)\mathbf k|-R=0$. The law $h(t)$ is data, not a second constraint.</li><li>$3-1=2$ degrees of freedom while in contact, coordinates $(\theta,\varphi)$; 3 after $P$ leaves the sphere.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Classification and work of the reaction</p>
+<p>Statement: "The constraint is holonomic, rheonomic and unilateral, and although the sphere is smooth its normal reaction does work on $P$ in $S_0$."</p></div>
+<h4 class="step-title">Step 1. Classification (Notes §2.7)</h4>
+<p>The constraint $f(\mathbf r,t)=0$ involves positions and time but no velocities: <strong>holonomic</strong>. It depends explicitly on $t$ through $h(t)$, $\partial f/\partial t=-(z-h)\dot h/|\mathbf r-h\mathbf k|$, which is not identically zero (it vanishes only where $z=h$ or at the instants with $\dot h=0$): <strong>rheonomic</strong>. $P$ lies on the outside and can lose contact: the true condition is $f\ge0$ with $N\ge0$, an inequality: <strong>unilateral</strong>.</p>
+<h4 class="step-title">Step 2. Velocity of $P$</h4>
+<p>Differentiating $\mathbf r_P=h\,\mathbf k+R\,\mathbf u_r$ with $\dot{\mathbf u}_r=\dot\theta\,\mathbf e_\theta+\sin\theta\,\dot\varphi\,\mathbf e_\varphi$ (chain rule on $\mathbf u_r(\theta(t),\varphi(t))$):</p>
+<div class="math-block">$$\mathbf v_P=\dot h\,\mathbf k+R\big(\dot\theta\,\mathbf e_\theta+\sin\theta\,\dot\varphi\,\mathbf e_\varphi\big),\qquad \dot h=b\Omega\cos\Omega t$$</div>
+<h4 class="step-title">Step 3. Power of the reaction</h4>
+<p>Smooth means the reaction is normal to the surface: $\mathbf N=N\,\mathbf u_r$. With $\mathbf u_r\cdot\mathbf e_\theta=\mathbf u_r\cdot\mathbf e_\varphi=0$ and $\mathbf u_r\cdot\mathbf k=\cos\theta$:</p>
+<div class="math-block">$$\dot W_N=\mathbf N\cdot\mathbf v_P=N\dot h\cos\theta=Nb\Omega\cos(\Omega t)\cos\theta$$</div>
+<p>At $t=0$ with $P$ at the top ($\theta=0$) it equals $Nb\Omega\neq0$. A smooth reaction does no work only against a <strong>fixed</strong> surface (Notes §6.4); here the surface pushes $P$ as it moves. In the frame translating with $C$ the velocity of $P$ is $\mathbf v_{rel}$, tangent to the sphere, and there $\mathbf N\cdot\mathbf v_{rel}=0$. All the claims hold: TRUE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TRUE.</li><li>Holonomic: $f$ depends on position and time only; rheonomic: $\partial f/\partial t$ not identically zero; unilateral: $f\ge0$ (outer surface, $N\ge0$, $P$ may leave).</li><li>$\mathbf v_P=\dot h\,\mathbf k+R\big(\dot\theta\,\mathbf e_\theta+\sin\theta\,\dot\varphi\,\mathbf e_\varphi\big)$, $\ \mathbf N\cdot\mathbf v_P=N\dot h\cos\theta=Nb\Omega\cos\Omega t\cos\theta\neq0$ in general.</li><li>In the frame translating with $C$ the reaction does no work ($\mathbf u_r\cdot\mathbf v_{rel}=0$).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $N\dot h$ is N m s$^{-1}$ = W; $f$ is a length.</li><li><strong>Limits:</strong> $b\to0$ (fixed sphere) gives a scleronomic constraint and $\dot W_N=0$: mechanical energy is then conserved. If $P$ were a bead threaded on a fixed meridian, a second constraint would leave 1 degree of freedom.</li><li><strong>Common mistakes in the exam:</strong> (1) counting a prescribed motion as an extra constraint; (2) "smooth implies no work" for a moving surface; (3) calling the constraint bilateral when the particle is only resting on the outside.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C07">
+        <span class="problem-tag">Conceptual question · Unit 2 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C07 — Damped and forced oscillator: energy decay per period and where the amplitude really peaks</h4>
+        <div class="statement-box">
+<p>A block of mass $m=2$ kg moves along the $x$ axis of an inertial frame, attached to a spring of stiffness $k=50$ N/m and to a viscous damper of constant $c=4$ N s/m. Its equation of motion is $m\ddot x+c\dot x+kx=F(t)$, and (Notes Eq. 5.23) $\gamma=c/(2m)$, $\omega_0=\sqrt{k/m}$. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Free motion</p>
+<p>With $F(t)=0$. Statement: "The motion is underdamped, and over each period $T=2\pi/\omega$ of the damped oscillation the mechanical energy $E=\tfrac12m\dot x^2+\tfrac12kx^2$ is multiplied by the factor $e^{-2\pi/\sqrt6}\approx0.0769$, the square of the factor by which the amplitude decays."</p></div>
+<h4 class="step-title">Step 1. Type of motion</h4>
+<p>$\gamma=\dfrac{c}{2m}=\dfrac{4}{4}=1$ s$^{-1}$ and $\omega_0=\sqrt{50/2}=5$ s$^{-1}$. The roots of $mp^2+cp+k=0$ are $p=-\gamma\pm\sqrt{\gamma^2-\omega_0^2}=-1\pm2\sqrt6\,i$: complex, so the motion is <strong>underdamped</strong> (Notes §5.3.1), with $\omega=\sqrt{\omega_0^2-\gamma^2}=\sqrt{24}=2\sqrt6$ s$^{-1}$ and $T=2\pi/\omega\approx1.283$ s.</p>
+<h4 class="step-title">Step 2. Exact decay over one period</h4>
+<p>The general solution is $x=e^{-\gamma t}\big(A\cos\omega t+B\sin\omega t\big)$. Since $\cos$ and $\sin$ have period $T=2\pi/\omega$, $x(t+T)=e^{-\gamma(t+T)}\big(A\cos\omega t+B\sin\omega t\big)=e^{-\gamma T}x(t)$, and differentiating this identity, $\dot x(t+T)=e^{-\gamma T}\dot x(t)$. Both terms of $E$ are quadratic:</p>
+<div class="math-block">$$E(t+T)=e^{-2\gamma T}E(t),\qquad \gamma T=\frac{2\pi}{2\sqrt6}=\frac{\pi}{\sqrt6}$$</div>
+<h4 class="step-title">Step 3. Numbers</h4>
+<p>Amplitude factor $e^{-\pi/\sqrt6}\approx0.277$; energy factor $e^{-2\pi/\sqrt6}=\big(e^{-\pi/\sqrt6}\big)^2\approx0.0769$. The energy is dissipated by the damper: $\dot E=\dot x\,(m\ddot x+kx)=-c\dot x^2\le0$. The statement is TRUE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TRUE.</li><li>$\gamma=1$ s$^{-1}$ $&lt;\omega_0=5$ s$^{-1}$: underdamped; $\omega=\sqrt{\omega_0^2-\gamma^2}=2\sqrt6\approx4.899$ s$^{-1}$, $T\approx1.283$ s.</li><li>$x(t+T)=e^{-\gamma T}x(t)$ and $\dot x(t+T)=e^{-\gamma T}\dot x(t)$ exactly, with $\gamma T=\pi/\sqrt6$: amplitude factor $e^{-\pi/\sqrt6}\approx0.277$, energy factor $e^{-2\pi/\sqrt6}\approx0.0769$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>Forced motion</p>
+<p>Now $F(t)=F_1\cos\omega_1t$ with $F_1=10$ N. Statement: "In the steady state the amplitude is largest when the forcing frequency equals $\omega_0=5$ s$^{-1}$; there the response lags the force by $90^\circ$ and its amplitude is $0.5$ m."</p></div>
+<h4 class="step-title">Step 1. Steady response at $\omega_1=\omega_0$</h4>
+<p>After the transient dies out (Notes §5.4), $x=a_1\cos(\omega_1t+\alpha_1)$ with $a_1$ above and $\tan\alpha_1=-\dfrac{2\gamma\omega_1}{\omega_0^2-\omega_1^2}$ (Notes Eq. 5.42). At $\omega_1=\omega_0$ the denominator of $\tan\alpha_1$ vanishes and $\alpha_1=-\pi/2$: a lag of $90^\circ$. The amplitude is</p>
+<div class="math-block">$$a_1(\omega_0)=\frac{F_1/m}{2\gamma\omega_0}=\frac{10/2}{2\cdot1\cdot5}=0.5\ \text{m}$$</div>
+<h4 class="step-title">Step 2. Where the maximum over $\omega_1$ is</h4>
+<p>Let $s=\omega_1^2$ and $D(s)=(\omega_0^2-s)^2+4\gamma^2s$. $a_1$ is largest where $D$ is smallest:</p>
+<div class="math-block">$$\frac{dD}{ds}=-2(\omega_0^2-s)+4\gamma^2=0\ \Longrightarrow\ s^*=\omega_0^2-2\gamma^2=25-2=23\ \text{s}^{-2}$$</div>
+<p>($d^2D/ds^2=2&gt;0$: a minimum). Substituting, $D(s^*)=4\gamma^4+4\gamma^2(\omega_0^2-2\gamma^2)=4\gamma^2(\omega_0^2-\gamma^2)$, so</p>
+<div class="math-block">$$a_{1,max}=\frac{F_1/m}{2\gamma\sqrt{\omega_0^2-\gamma^2}}=\frac{5}{2\sqrt{24}}\approx0.510\ \text{m}&gt;0.5\ \text{m}$$</div>
+<p>at $\omega_1=\sqrt{23}\approx4.796$ s$^{-1}$, where $\tan\alpha_1=-\dfrac{2\sqrt{23}}{2}=-\sqrt{23}$, $\alpha_1\approx-78.2^\circ$.</p>
+<h4 class="step-title">Step 3. Verdict</h4>
+<p>The result "maximum at $\omega_0$" of Notes Eq. 5.45 holds when $\omega_1$ is fixed and $\omega_0$ is varied; when the forcing frequency is varied, the peak is shifted below $\omega_0$ by the damping. The statement is FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE (the phase and the value at $\omega_1=\omega_0$ are right; the location of the maximum is not).</li><li>At $\omega_1=\omega_0$: $a_1=\dfrac{F_1}{2m\gamma\omega_0}=0.5$ m, $\tan\alpha_1\to-\infty$, $\alpha_1=-90^\circ$.</li><li>Maximum over $\omega_1$ at $\omega_1^2=\omega_0^2-2\gamma^2=23$ s$^{-2}$ ($\omega_1\approx4.796$ s$^{-1}$): $a_{1,max}=\dfrac{F_1}{2m\gamma\sqrt{\omega_0^2-\gamma^2}}=\dfrac{5}{2\sqrt{24}}\approx0.510$ m $&gt;0.5$ m, with $\alpha_1\approx-78.2^\circ$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $\gamma$, $\omega_0$, $\omega_1$ are s$^{-1}$; $F_1/m$ is m s$^{-2}$ and $(F_1/m)/(\gamma\omega_0)$ is m.</li><li><strong>Limits:</strong> for $\gamma\to0$ the peak returns to $\omega_0$ and $a_{1,max}\to\infty$; for $\gamma\ge\omega_0/\sqrt2$ there is no peak at all ($s^*\le0$) and $a_1$ decreases from its static value $F_1/k=0.2$ m.</li><li><strong>Common mistakes in the exam:</strong> (1) using the same decay factor for the amplitude and for the energy; (2) placing the amplitude peak at $\omega_0$ for any damping; (3) confusing the $90^\circ$ phase lag (exactly at $\omega_0$) with the amplitude maximum.</li></ul>
+        </div>
+      </section>
+      <section class="problem-box" id="C08">
+        <span class="problem-tag">Conceptual question · Unit 4 · 2 points · 15 min · Conceptual / fast</span>
+        <h4 class="problem-title">C08 — Apsidal speeds and a perigee impulse: areal velocity, vis-viva and which apse moves</h4>
+        <div class="statement-box">
+<p>A satellite moves about the Earth (gravitational parameter $\mu$, the Earth's centre $F$ fixed at a focus) on a Kepler ellipse of eccentricity $e=1/3$ and perigee radius $r_p$. $\Pi$ is the perigee and $A$ the apogee; $a$ is the semi-major axis. Decide whether each statement is TRUE or FALSE and justify the answer. A verdict without a justification scores nothing.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 392" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Two coplanar orbits with a common focus F and a common perigee at distance r_p: the original ellipse with apogee at 2 r_p and, dashed, the orbit after a tangential impulse at perigee, with apogee at 3 r_p">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polyline points="510.0,178.0 510.0,175.6 509.9,173.3 509.8,170.9 509.6,168.6 509.4,166.2 509.2,163.9 508.9,161.5 508.5,159.2 508.1,156.8 507.7,154.5 507.2,152.2 506.7,149.8 506.1,147.5 505.4,145.2 504.8,142.9 504.0,140.6 503.3,138.3 502.4,136.0 501.6,133.7 500.6,131.4 499.7,129.2 498.7,126.9 497.6,124.7 496.5,122.4 495.3,120.2 494.1,118.0 492.8,115.8 491.5,113.6 490.1,111.5 488.7,109.3 487.2,107.2 485.7,105.1 484.1,103.0 482.4,100.9 480.7,98.9 479.0,96.8 477.2,94.8 475.3,92.8 473.4,90.9 471.4,88.9 469.4,87.0 467.3,85.1 465.2,83.3 463.0,81.5 460.7,79.7 458.4,77.9 456.0,76.2 453.6,74.5 451.1,72.9 448.6,71.3 446.0,69.7 443.3,68.2 440.6,66.8 437.8,65.4 435.0,64.0 432.1,62.7 429.2,61.4 426.2,60.2 423.1,59.1 420.0,58.0 416.8,57.0 413.6,56.0 410.3,55.2 407.0,54.3 403.6,53.6 400.2,53.0 396.7,52.4 393.2,51.9 389.6,51.5 386.0,51.1 382.4,50.9 378.7,50.8 374.9,50.7 371.2,50.8 367.4,50.9 363.5,51.2 359.7,51.5 355.8,52.0 351.9,52.6 348.0,53.3 344.1,54.1 340.1,55.0 336.2,56.1 332.3,57.3 328.4,58.6 324.4,60.0 320.5,61.5 316.7,63.2 312.8,65.0 309.0,67.0 305.2,69.1 301.5,71.3 297.8,73.6 294.1,76.1 290.6,78.7 287.1,81.4 283.6,84.3 280.3,87.3 277.1,90.4 273.9,93.7 270.9,97.0 267.9,100.5 265.1,104.1 262.4,107.8 259.8,111.6 257.4,115.6 255.1,119.6 252.9,123.7 250.9,127.9 249.0,132.2 247.4,136.6 245.8,141.0 244.5,145.5 243.3,150.0 242.3,154.6 241.5,159.2 240.8,163.9 240.4,168.6 240.1,173.3 240.0,178.0 240.1,182.7 240.4,187.4 240.8,192.1 241.5,196.8 242.3,201.4 243.3,206.0 244.5,210.5 245.8,215.0 247.4,219.4 249.0,223.8 250.9,228.1 252.9,232.3 255.1,236.4 257.4,240.4 259.8,244.4 262.4,248.2 265.1,251.9 267.9,255.5 270.9,259.0 273.9,262.3 277.1,265.6 280.3,268.7 283.6,271.7 287.1,274.6 290.6,277.3 294.1,279.9 297.8,282.4 301.5,284.7 305.2,286.9 309.0,289.0 312.8,291.0 316.7,292.8 320.5,294.5 324.4,296.0 328.4,297.4 332.3,298.7 336.2,299.9 340.1,301.0 344.1,301.9 348.0,302.7 351.9,303.4 355.8,304.0 359.7,304.5 363.5,304.8 367.4,305.1 371.2,305.2 374.9,305.3 378.7,305.2 382.4,305.1 386.0,304.9 389.6,304.5 393.2,304.1 396.7,303.6 400.2,303.0 403.6,302.4 407.0,301.7 410.3,300.8 413.6,300.0 416.8,299.0 420.0,298.0 423.1,296.9 426.2,295.8 429.2,294.6 432.1,293.3 435.0,292.0 437.8,290.6 440.6,289.2 443.3,287.8 446.0,286.3 448.6,284.7 451.1,283.1 453.6,281.5 456.0,279.8 458.4,278.1 460.7,276.3 463.0,274.5 465.2,272.7 467.3,270.9 469.4,269.0 471.4,267.1 473.4,265.1 475.3,263.2 477.2,261.2 479.0,259.2 480.7,257.1 482.4,255.1 484.1,253.0 485.7,250.9 487.2,248.8 488.7,246.7 490.1,244.5 491.5,242.4 492.8,240.2 494.1,238.0 495.3,235.8 496.5,233.6 497.6,231.3 498.7,229.1 499.7,226.8 500.6,224.6 501.6,222.3 502.4,220.0 503.3,217.7 504.0,215.4 504.8,213.1 505.4,210.8 506.1,208.5 506.7,206.2 507.2,203.8 507.7,201.5 508.1,199.2 508.5,196.8 508.9,194.5 509.2,192.1 509.4,189.8 509.6,187.4 509.8,185.1 509.9,182.7 510.0,180.4 510.0,178.0" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="510.0,178.0 510.0,175.6 509.9,173.3 509.8,170.9 509.7,168.6 509.5,166.2 509.3,163.9 509.0,161.5 508.7,159.2 508.3,156.8 507.9,154.4 507.5,152.1 507.0,149.7 506.5,147.4 505.9,145.0 505.3,142.7 504.7,140.3 504.0,138.0 503.2,135.6 502.4,133.2 501.6,130.9 500.7,128.5 499.8,126.2 498.8,123.8 497.8,121.5 496.7,119.2 495.6,116.8 494.4,114.5 493.1,112.1 491.9,109.8 490.5,107.5 489.1,105.1 487.7,102.8 486.2,100.5 484.6,98.2 483.0,95.9 481.3,93.6 479.6,91.3 477.8,89.0 475.9,86.7 474.0,84.5 472.0,82.2 470.0,80.0 467.8,77.7 465.6,75.5 463.4,73.3 461.0,71.1 458.6,68.9 456.1,66.8 453.6,64.7 450.9,62.5 448.2,60.5 445.4,58.4 442.5,56.3 439.6,54.3 436.5,52.4 433.4,50.4 430.2,48.5 426.9,46.6 423.5,44.8 420.0,43.0 416.4,41.3 412.7,39.6 409.0,37.9 405.1,36.3 401.1,34.8 397.1,33.3 392.9,32.0 388.7,30.6 384.3,29.4 379.9,28.2 375.3,27.1 370.7,26.1 365.9,25.2 361.1,24.5 356.1,23.8 351.1,23.2 345.9,22.7 340.7,22.4 335.4,22.2 330.0,22.1 324.5,22.2 319.0,22.4 313.3,22.8 307.6,23.3 301.9,24.0 296.0,24.9 290.2,26.0 284.3,27.2 278.3,28.7 272.3,30.3 266.3,32.2 260.4,34.3 254.4,36.5 248.4,39.0 242.5,41.8 236.6,44.7 230.8,47.9 225.0,51.4 219.4,55.0 213.8,58.9 208.4,63.1 203.1,67.5 197.9,72.1 193.0,76.9 188.2,82.0 183.6,87.3 179.3,92.8 175.2,98.5 171.4,104.3 167.8,110.4 164.5,116.7 161.5,123.1 158.9,129.6 156.6,136.3 154.6,143.1 152.9,149.9 151.7,156.9 150.7,163.9 150.2,170.9 150.0,178.0 150.2,185.1 150.7,192.1 151.7,199.1 152.9,206.1 154.6,212.9 156.6,219.7 158.9,226.4 161.5,232.9 164.5,239.3 167.8,245.6 171.4,251.7 175.2,257.5 179.3,263.2 183.6,268.7 188.2,274.0 193.0,279.1 197.9,283.9 203.1,288.5 208.4,292.9 213.8,297.1 219.4,301.0 225.0,304.6 230.8,308.1 236.6,311.3 242.5,314.2 248.4,317.0 254.4,319.5 260.4,321.7 266.3,323.8 272.3,325.7 278.3,327.3 284.3,328.8 290.2,330.0 296.0,331.1 301.9,332.0 307.6,332.7 313.3,333.2 319.0,333.6 324.5,333.8 330.0,333.9 335.4,333.8 340.7,333.6 345.9,333.3 351.1,332.8 356.1,332.2 361.1,331.5 365.9,330.8 370.7,329.9 375.3,328.9 379.9,327.8 384.3,326.6 388.7,325.4 392.9,324.0 397.1,322.7 401.1,321.2 405.1,319.7 409.0,318.1 412.7,316.4 416.4,314.7 420.0,313.0 423.5,311.2 426.9,309.4 430.2,307.5 433.4,305.6 436.5,303.6 439.6,301.7 442.5,299.7 445.4,297.6 448.2,295.5 450.9,293.5 453.6,291.3 456.1,289.2 458.6,287.1 461.0,284.9 463.4,282.7 465.6,280.5 467.8,278.3 470.0,276.0 472.0,273.8 474.0,271.5 475.9,269.3 477.8,267.0 479.6,264.7 481.3,262.4 483.0,260.1 484.6,257.8 486.2,255.5 487.7,253.2 489.1,250.9 490.5,248.5 491.9,246.2 493.1,243.9 494.4,241.5 495.6,239.2 496.7,236.8 497.8,234.5 498.8,232.2 499.8,229.8 500.7,227.5 501.6,225.1 502.4,222.8 503.2,220.4 504.0,218.0 504.7,215.7 505.3,213.3 505.9,211.0 506.5,208.6 507.0,206.3 507.5,203.9 507.9,201.6 508.3,199.2 508.7,196.8 509.0,194.5 509.3,192.1 509.5,189.8 509.7,187.4 509.8,185.1 509.9,182.7 510.0,180.4 510.0,178.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<line x1="127.5" y1="178.0" x2="541.5" y2="178.0" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<circle cx="420.0" cy="178.0" r="9.9" fill="var(--text-heading)" fill-opacity="0.35" stroke="var(--text-heading)" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="420.0" y="164.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F</text>
+<circle cx="510.0" cy="178.0" r="4.0" fill="var(--text-heading)"/>
+<text x="518.0" y="198.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Π</text>
+<circle cx="240.0" cy="178.0" r="4.0" fill="var(--text-heading)"/>
+<text x="232.0" y="170.0" fill="var(--text-heading)" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A</text>
+<circle cx="150.0" cy="178.0" r="4.0" fill="var(--fig-blue, #3b82f6)"/>
+<text x="158.0" y="170.0" fill="var(--fig-blue, #3b82f6)" font-size="17" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">A′</text>
+<line x1="420.0" y1="209.5" x2="510.0" y2="209.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<path d="M420.0,209.5 L426.4,206.8 L426.4,212.2 Z" fill="var(--text-faint)"/>
+<path d="M510.0,209.5 L503.6,212.2 L503.6,206.8 Z" fill="var(--text-faint)"/>
+<text x="465.0" y="227.5" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">r<tspan baseline-shift="sub" font-size="70%">p</tspan></text>
+<line x1="240.0" y1="209.5" x2="420.0" y2="209.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<path d="M240.0,209.5 L246.4,206.8 L246.4,212.2 Z" fill="var(--text-faint)"/>
+<path d="M420.0,209.5 L413.6,212.2 L413.6,206.8 Z" fill="var(--text-faint)"/>
+<text x="330.0" y="227.5" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">2r<tspan baseline-shift="sub" font-size="70%">p</tspan></text>
+<line x1="150.0" y1="353.5" x2="420.0" y2="353.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<path d="M150.0,353.5 L156.4,350.8 L156.4,356.2 Z" fill="var(--text-faint)"/>
+<path d="M420.0,353.5 L413.6,356.2 L413.6,350.8 Z" fill="var(--text-faint)"/>
+<text x="285.0" y="371.5" fill="var(--text-muted)" font-size="15" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">3r<tspan baseline-shift="sub" font-size="70%">p</tspan></text>
+<line x1="150.0" y1="187.0" x2="150.0" y2="362.5" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="420.0" y1="196.0" x2="420.0" y2="362.5" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="5 4"/>
+<line x1="510.0" y1="178.0" x2="510.0" y2="97.9" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0"/>
+<path d="M510.0,92.5 L513.5,100.8 L506.5,100.8 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="530.0" y="126.5" fill="var(--fig-blue, #3b82f6)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">p</tspan></text>
+<line x1="510.0" y1="92.5" x2="510.0" y2="61.9" stroke="var(--fig-pink, #ec4899)" stroke-width="2.0"/>
+<path d="M510.0,56.5 L513.5,64.8 L506.5,64.8 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="530.0" y="62.5" fill="var(--fig-pink, #ec4899)" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">Δ<tspan font-weight="700" font-style="normal">v</tspan></text>
+<line x1="348.0" y1="53.3" x2="335.2" y2="56.6" stroke="var(--text-heading)" stroke-width="2.0"/>
+<path d="M330.0,58.0 L337.1,52.5 L338.9,59.3 Z" fill="var(--text-heading)"/>
+</g></svg>
+<div class="diagram-caption">Figure 1. Orbit of eccentricity $e=1/3$ about the focus $F$ (perigee $\Pi$ at $r_p$, apogee $A$ at $r_a=2r_p$) and, dashed, the orbit after a tangential impulse $\Delta v$ at $\Pi$ (apogee $A'$).</div>
+</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (a) · 1 point</h3>
+          <div class="prompt"><p>Speeds and areal velocity</p>
+<p>Statement: "The speed at perigee is twice the speed at apogee; consequently the radius vector $\mathbf r$ from $F$ to the satellite sweeps area twice as fast when the satellite passes the perigee as when it passes the apogee."</p></div>
+<h4 class="step-title">Step 1. Geometry of the ellipse</h4>
+<p>With $r_p=a(1-e)$ and $r_a=a(1+e)$: $a=\dfrac{r_p}{1-1/3}=\dfrac32r_p$ and $r_a=\dfrac32r_p\cdot\dfrac43=2r_p$.</p>
+<h4 class="step-title">Step 2. Speeds at the apsides</h4>
+<p>The force is central, so $\mathbf h=\mathbf r\times\mathbf v$ is constant (Notes §4.8.1). At both apsides $\mathbf r\perp\mathbf v$, hence $h=r_pv_p=r_av_a$ and $\dfrac{v_p}{v_a}=\dfrac{r_a}{r_p}=2$. The vis-viva equation $v^2=\mu\big(\tfrac2r-\tfrac1a\big)$ (Notes §8.5) confirms it:</p>
+<div class="math-block">$$v_p^2=\mu\Big(\frac{2}{r_p}-\frac{2}{3r_p}\Big)=\frac{4\mu}{3r_p},\qquad v_a^2=\mu\Big(\frac{2}{2r_p}-\frac{2}{3r_p}\Big)=\frac{\mu}{3r_p},\qquad \frac{v_p^2}{v_a^2}=4$$</div>
+<h4 class="step-title">Step 3. Areal velocity</h4>
+<p>The area swept per unit time is $\dot A=\tfrac12|\mathbf r\times\mathbf v|=\tfrac12h$, a constant: at perigee $\tfrac12r_pv_p$, at apogee $\tfrac12(2r_p)\,\tfrac{v_p}{2}=\tfrac12r_pv_p$, the same. The satellite is faster near perigee precisely because it is closer, so that $rv$ stays fixed. The conclusion is wrong: FALSE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>FALSE (the first half is true).</li><li>$r_a=r_p\dfrac{1+e}{1-e}=2r_p$, $a=\tfrac32r_p$; $h=r_pv_p=r_av_a\Rightarrow v_p/v_a=2$. Vis-viva: $v_p^2=\dfrac{4\mu}{3r_p}$, which equals $\dfrac{2\mu}{a}$ only because $a=\tfrac32r_p$ for this orbit; $v_a^2=\dfrac{\mu}{3r_p}$.</li><li>Areal velocity $\dot A=\tfrac12|\mathbf r\times\mathbf v|=h/2$: the same at every point of the orbit (Kepler's second law).</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Part (b) · 1 point</h3>
+          <div class="prompt"><p>A tangential impulse at perigee</p>
+<p>At $\Pi$ a short engine burn along the velocity raises the speed from $v_p$ to $v_p'=\sqrt{9/8}\,v_p$ (an increase of about $6.07\,\%$) without changing the position. Statement: "The perigee radius is unchanged and the apogee radius grows from $2r_p$ to $3r_p$."</p></div>
+<h4 class="step-title">Step 1. The burn point remains an apse</h4>
+<p>The impulse changes $\mathbf v$ along its own direction, so right after it $\mathbf v'\perp\mathbf r$ at $r=r_p$: the radial velocity is zero and $\Pi$ is an apse of the new orbit. Since $v_p'^2=\dfrac{3\mu}{2r_p}$ exceeds the circular value $\mu/r_p$, the satellite is moving too fast to stay at $r_p$ and rises: $\Pi$ is the <strong>perigee</strong> of the new orbit.</p>
+<h4 class="step-title">Step 2. New energy and angular momentum</h4>
+<div class="math-block">$$\varepsilon'=\frac{v_p'^2}{2}-\frac{\mu}{r_p}=\frac{3\mu}{4r_p}-\frac{\mu}{r_p}=-\frac{\mu}{4r_p}\ \Rightarrow\ a'=-\frac{\mu}{2\varepsilon'}=2r_p,\qquad h'^2=r_p^2v_p'^2=\tfrac32\mu r_p$$</div>
+<h4 class="step-title">Step 3. Apse radii</h4>
+<p>At an apse $v=h'/r$, so $\varepsilon'=\dfrac{h'^2}{2r^2}-\dfrac{\mu}{r}$. Multiplying by $r^2$: $-\dfrac{\mu}{4r_p}r^2+\mu r-\dfrac34\mu r_p=0$, i.e. $r^2-4r_pr+3r_p^2=(r-r_p)(r-3r_p)=0$. The perigee stays at $r_p$ and the new apogee $A'$ is at $3r_p$ (consistent with $r_p+r_a'=2a'=4r_p$), with $e'=\dfrac{3r_p-r_p}{3r_p+r_p}=\dfrac12$. The statement is TRUE.</p>
+          <div class="result-callout"><div class="result-callout-title">Key points</div><ul><li>TRUE.</li><li>$v_p'^2=\tfrac98\cdot\dfrac{4\mu}{3r_p}=\dfrac{3\mu}{2r_p}&gt;\dfrac{\mu}{r_p}$ (above circular speed, so $\Pi$ stays the perigee).</li><li>$\varepsilon'=-\dfrac{\mu}{4r_p}$, $a'=2r_p$; $h'^2=\tfrac32\mu r_p$; the apse equation $\varepsilon'=\dfrac{h'^2}{2r^2}-\dfrac{\mu}{r}$ has roots $r=r_p$ and $r=3r_p$; $e'=1/2$.</li></ul></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Interpretation and checks</h3>
+<ul><li><strong>Dimensional check:</strong> $\mu$ is m$^3$ s$^{-2}$, so $\mu/r$ is m$^2$ s$^{-2}$ (a speed squared and a specific energy); $h^2/\mu$ is a length.</li><li><strong>Limits:</strong> a burn that brings $v_p'^2$ to $2\mu/r_p$ gives $\varepsilon'=0$ and an escape parabola ($r_a'\to\infty$); a retrograde burn to $v_p'^2&lt;\mu/r_p$ would turn $\Pi$ into the new <strong>apogee</strong>.</li><li><strong>Common mistakes in the exam:</strong> (1) confusing a constant areal velocity with a constant speed (or the reverse); (2) thinking that a burn raises the point where it is applied, instead of the opposite apse; (3) forgetting that a tangential burn keeps the burn point an apse.</li></ul>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="index.html">← Extra problems</a>
+        <a href="midterm-1-problems.html">Practice problems →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="engineering-mechanics">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extra Problems | Engineering Mechanics</title>
+  <meta name="description" content="Extra problems for Engineering Mechanics (UC3M Aerospace Engineering): conceptual questions and exam-style problems with technical sketches for the first midterm, solved step by step.">
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-border: rgba(16, 185, 129, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.75;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, .page-header h1, .page-hero h1, .topic-title, .card-title, .set-title, .framework-title, .ex-title, .block-header h2 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .card-badge, .meta-tag, .ex-num {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    [data-theme="dark"] .problem-card:hover {
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sticky Navigation */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .nav-tabs {
+      display: flex; gap: 8px; align-items: center;
+    }
+
+    .tab-link {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.86rem; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px;
+      transition: all var(--transition);
+    }
+    .tab-link.active {
+      color: var(--accent); background: var(--accent-soft); font-weight: 600;
+    }
+
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Page header */
+    .page-header {
+      text-align: center;
+      padding: 48px 0 36px;
+    }
+
+    .page-header .icon { font-size: 2.8rem; margin-bottom: 12px; }
+
+    .page-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .page-header p {
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+    }
+
+    /* Cards */
+    .problem-sets-grid {
+      display: grid; gap: 24px; margin-bottom: 56px;
+    }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .problem-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-border);
+      background: var(--bg-card-hover);
+    }
+
+    .problem-card:hover::before { opacity: 1; }
+
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .card-title {
+      font-size: 1.38rem;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.90rem;
+      line-height: 1.58;
+      margin-bottom: 16px;
+    }
+
+    .exercise-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .exercise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .ex-num {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .ex-title {
+      color: var(--text-primary);
+    }
+
+    .topic-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+
+    .meta-tag {
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+    /* Extra problems hub: one block per exam */
+    .exam-block-title { font-family: var(--font-display); font-size: 1.9rem; color: var(--text-heading, var(--text-primary)); margin: 8px 0 6px; }
+    .exam-block-lead { color: var(--text-body, var(--text-secondary)); margin: 0 0 22px; max-width: 760px; }
+    .exam-block-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <script src="../../../assets/js/theme.js"></script>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);">UC3M 251-14169</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Engineering Mechanics sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html" aria-current="page">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <div class="icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <circle cx="12" cy="5" r="2.2"/>
+          <path d="M10.5 7L4 21m9.5-14L20 21"/>
+          <path d="M7 15h10"/>
+          <circle cx="12" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1>Engineering Mechanics — Extra Problems</h1>
+      <p>Conceptual questions and exam-style problems with technical sketches, written for this portal, grouped by exam and solved step by step. They are practice material, not official exercises: the official ones are on the Problems page.</p>
+    </header>
+
+<!-- EXTRA-HUB:START (generated by tools/build_mechanics_bank.py; edit the vault notes) -->
+    <section class="exam-block" id="midterm-1" aria-labelledby="midterm-1-title">
+      <h2 class="exam-block-title" id="midterm-1-title">1st Midterm</h2>
+      <p class="exam-block-lead">The first partial exam covers point-particle mechanics (Units 1 to 5) and is one problem of 10 points. Practise the problems on one page, the shorter conceptual questions on the other, or take a timed exam built from these items in the <a href="../simulator/index.html">Exam simulator</a>.</p>
+      <div class="problem-sets-grid">
+      <a href="midterm-1-theory.html" class="problem-card">
+        <span class="card-badge">1st Midterm • Concepts</span>
+        <h2 class="card-title">Conceptual Questions C01 to C08</h2>
+        <p class="card-desc">8 short questions on Units 1 to 5, each worth 2 points: true or false with a justification, reading a potential, frames and inertia forces, with the key points of every answer.</p>
+
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <span class="ex-num">C01:</span>
+            <span class="ex-title">Intrinsic acceleration on a parabolic helix: constant angular rate is not constant speed</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C02:</span>
+            <span class="ex-title">Motion in a cubic potential: a separatrix that is never crossed and an asymmetric well</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C03:</span>
+            <span class="ex-title">Energy of a pendulum hanging from a slider: one particle, the system, and a driven support</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C04:</span>
+            <span class="ex-title">Angular momentum under a non-central force and about a moving point</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C05:</span>
+            <span class="ex-title">Work of inertia forces: the Coriolis force on a rotating rod and a free particle in an accelerating frame</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C06:</span>
+            <span class="ex-title">Particle on a moving sphere: degrees of freedom, constraint type and the work of a smooth reaction</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C07:</span>
+            <span class="ex-title">Damped and forced oscillator: energy decay per period and where the amplitude really peaks</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">C08:</span>
+            <span class="ex-title">Apsidal speeds and a perigee impulse: areal velocity, vis-viva and which apse moves</span>
+          </li>
+        </ul>
+
+        <div class="topic-meta">
+          <span class="meta-tag">8 Conceptual Questions</span>
+          <span class="meta-tag">2 points each</span>
+          <span class="meta-tag">Units 1 to 5</span>
+          <span class="meta-tag">Key points per answer</span>
+        </div>
+      </a>
+
+      <a href="midterm-1-problems.html" class="problem-card">
+        <span class="card-badge">1st Midterm • Problems</span>
+        <h2 class="card-title">Exam-Style Problems P01 to P16</h2>
+        <p class="card-desc">16 problems of 10 points with 5 to 7 parts, solved step by step with a technical sketch, the key results of every part and the common mistakes of the exam.</p>
+
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <span class="ex-num">P01:</span>
+            <span class="ex-title">Bead on a vertical helical wire: Frenet triad, constant angular acceleration and the reaction</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P02:</span>
+            <span class="ex-title">Particle on a smooth paraboloid of revolution: axial angular momentum, circular orbits and radial oscillations</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P03:</span>
+            <span class="ex-title">Bead on a parabolic wire spinning about its axis: Coriolis side force, Jacobi integral and the critical rate</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P04:</span>
+            <span class="ex-title">Radial tube on a turntable with increasing rate: Euler force, three regimes and the motor torque</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P05:</span>
+            <span class="ex-title">Flight pendulum on an accelerating support: inertia forces, equilibrium and a change of regime</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P06:</span>
+            <span class="ex-title">Precessing orbit under an attractive inverse-cube perturbation: Binet equation, circular orbits and apsidal advance</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P07:</span>
+            <span class="ex-title">Insertion orbit and circularisation impulse: conic from the energy, apsides, apogee burn and time of flight</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P08:</span>
+            <span class="ex-title">Seismic accelerometer on a vibrating base: inertia force, frequency response and the two operating regimes</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P09:</span>
+            <span class="ex-title">Bead on a vertical hoop held by a spring: reaction, equilibria and a pitchfork bifurcation</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P10:</span>
+            <span class="ex-title">Free fall from a tower on the rotating Earth: eastward deflection, the order of the north-south effect and an upward shot</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P11:</span>
+            <span class="ex-title">Pendulum whose string is hauled through a ring: a rheonomic constraint, angular momentum and the work of the hauling force</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P12:</span>
+            <span class="ex-title">Block on an accelerating turntable: the friction cone, the instant of slip and the direction in which the block starts to slide</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P13:</span>
+            <span class="ex-title">Capsule descent under quadratic drag with two parachute stages: terminal speed, quadratures and the work of drag</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P14:</span>
+            <span class="ex-title">A spiral trajectory flown at constant speed: polar and intrinsic kinematics, a non-central force and zero power</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P15:</span>
+            <span class="ex-title">Relative orbital motion near a target on a circular orbit: Clohessy-Wiltshire equations, drift and a counter-intuitive rendezvous</span>
+          </li>
+          <li class="exercise-item">
+            <span class="ex-num">P16:</span>
+            <span class="ex-title">Particle on a free wedge: a moving constraint, the reaction, momentum and energy, and the limit of a massless wedge</span>
+          </li>
+        </ul>
+
+        <div class="topic-meta">
+          <span class="meta-tag">16 Problems</span>
+          <span class="meta-tag">10 points each</span>
+          <span class="meta-tag">Technical sketches</span>
+          <span class="meta-tag">Verified with SymPy</span>
+        </div>
+      </a>
+      </div>
+    </section>
+<!-- EXTRA-HUB:END -->
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+
+    document.addEventListener('ae:languageChange', function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

@@ -148,6 +148,16 @@
      "page": "topic-5.html",
      "label": "5 · Relative motion"
     }
+   ],
+   "extra-problems": [
+    {
+     "page": "midterm-1-theory.html",
+     "label": "1st Midterm · Conceptual questions"
+    },
+    {
+     "page": "midterm-1-problems.html",
+     "label": "1st Midterm · Problems"
+    }
    ]
   },
   {

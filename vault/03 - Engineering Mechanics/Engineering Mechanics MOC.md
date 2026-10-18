@@ -82,6 +82,8 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 
 ---
 
+* [[03 - Engineering Mechanics/Problem Bank/Problem Set - Engineering Mechanics Midterm 1 Problem Bank|Midterm 1 Problem Bank]]: 16 exam-style problems of 10 points with technical sketches and 8 conceptual questions, all checked with SymPy. It feeds the Extra problems pages and the Exam simulator through `tools/build_mechanics_bank.py`.
+
 ## 🔬 Laboratory & Computer Sessions
 * [[Lab - Guidelines and Scientific Report Standards|Laboratory Guidelines & Scientific Report Standards]] (Report structure, plotting standards, Nyquist frequency, MATLAB setup)
 * [[Lab 1 - Particle Connected to a Spool|Lab 1: Particle Connected to a Spool]] (1-DOF rheonomic system, event detection, tension loss, ballistic transition)
