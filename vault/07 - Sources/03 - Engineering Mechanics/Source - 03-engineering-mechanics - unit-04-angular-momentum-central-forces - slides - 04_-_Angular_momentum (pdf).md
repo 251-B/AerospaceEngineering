@@ -19,10 +19,9 @@ bytes: 2360165
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/unit-04-angular-momentum-central-forces/slides/04_-_Angular_momentum.pdf`
 - **Kind:** slides
 - **Size:** 2.4 MB
-- **Status:** referenced by 3 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[03 - Engineering Mechanics/Formula Sheet - Topic 4 Angular Momentum]]
-- [[03 - Engineering Mechanics/Problem Set - Topic 4 Angular Momentum and Central Forces]]
 - [[03 - Engineering Mechanics/Topic 4 - Angular Momentum and Central Forces]]

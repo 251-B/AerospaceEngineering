@@ -744,203 +744,146 @@ The particle travels with strictly **constant speed**!
 
 ---
 
-## 📌 Problem 21: Rotating Planet & Apparent Weight
+## 📌 Problem 45: Vibrating Rotor (Unbalanced Turbojet)
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** A spherical planet of radius $R$ spins with constant angular velocity $\boldsymbol{\Omega} = \Omega \mathbf{k}$ around its polar axis.
-* **Gravitational Field:** Uniform surface gravitational acceleration $g_p$ directed toward the center of the planet.
-* **Apparent Weight:** The weight measured by a spring balance or scale is the normal reaction force $\mathbf{N}$ exerted by the surface to support a static mass $m$ on the surface.
-* **Problem Condition:** A body on the pole weighs twice as much as on the equator:
-  $$ W_{pole} = 2 W_{equator} $$
-* **Objective:** Determine the duration of the planet's sidereal day $T_{day} = \frac{2\pi}{\Omega}$.
 
-### Phase 2: Reference Frames & Vector Transformation
-* **Inertial Frame $\mathcal{F}_0$:** Frame centered at the planet center $O$.
-* **Rotating Frame $\mathcal{F}_1$:** Planet-fixed reference frame rotating with angular velocity $\boldsymbol{\omega}_{1/0} = \Omega\mathbf{k}$.
-* **Acceleration of a Stationary Point on the Surface:**
-  For a body resting on the surface, relative velocity and acceleration vanish: $\mathbf{v}' = \mathbf{0}$, $\mathbf{a}' = \mathbf{0}$.
-  The inertial acceleration is purely centripetal:
-  $$ \mathbf{a}_0 = \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{r}) = -\Omega^2 \boldsymbol{\rho} $$
-  where $\boldsymbol{\rho}$ is the projection of the position vector onto the equatorial plane.
-* **Change of basis (planet-fixed rotating basis).** Let $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ be the inertial basis and $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}\}$ the basis fixed to the planet, rotating at $\Omega$ about the polar axis $\mathbf{k}$, with $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i} + \sin\Omega t\,\mathbf{j}$. The columns are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}$ in $\mathcal{B}_0$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\Omega t & -\sin\Omega t & 0 \\ \sin\Omega t & \cos\Omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-* A body fixed at the equator at longitude $\varphi_0$ has $\mathbf{r} = R\,[{}_0 R_1](\cos\varphi_0, \sin\varphi_0, 0)^T = R\,\mathbf{e}_r$, with $\mathbf{e}_r = \cos(\Omega t + \varphi_0)\,\mathbf{i} + \sin(\Omega t + \varphi_0)\,\mathbf{j}$. Poisson's formula $\dot{\mathbf{e}}_r = \Omega\,\mathbf{e}_\varphi$, $\dot{\mathbf{e}}_\varphi = -\Omega\,\mathbf{e}_r$ gives $\mathbf{a}_0 = -\Omega^2R\,\mathbf{e}_r$, the centripetal acceleration used in Phase 3. The determinant, $R R^T$ and this acceleration were verified symbolically with sympy.
+* **Physical System:** a rigid disk of mass $m$ spins at the constant rate $\omega$. Its geometric centre $C$ is held near the design position $O$ by an elastic restoring force $-k\,\mathbf{r}_C$; its centre of mass $G$ is displaced from $C$ by the fixed distance $\ell$ (unbalance).
+* **Hypotheses:** planar motion in the inertial plane $Oxy$; the weight is negligible; the spring (zero natural length) acts at $C$; the only external force is the elastic one, so the motion of $G$ is that of a particle of mass $m$ under that force (Newton's second law applied to $G$).
+* **Parameters and units:** $m$ [kg], $k$ [N/m], $\ell$ [m], $\omega$ [rad/s]; natural frequency $\omega_0 = \sqrt{k/m}$ [rad/s].
+* **Unknowns:** $x_0^G(t)$, $y_0^G(t)$, $x_0^C(t)$, $y_0^C(t)$.
+
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
+
+* **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{r}_C = x_0^C\,\mathbf{i}_0 + y_0^C\,\mathbf{j}_0$ and $\mathbf{r}_G = x_0^G\,\mathbf{i}_0 + y_0^G\,\mathbf{j}_0$.
+* **Unbalance vector:** the segment $CG$ turns with the disk, at the angle $\omega t$ from $\mathbf{i}_0$ (figure):
+$$ \mathbf{r}_G = \mathbf{r}_C + \ell\,\mathbf{e}(t), \qquad \mathbf{e}(t) = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0 $$
+
+The unit vector $\mathbf{e}$ is the first column of the change-of-basis matrix from the disk-fixed basis (angle $\omega t$ about $\mathbf{k}_0$), whose determinant and orthogonality are checked:
+
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
-#### 1. Dynamic Equilibrium in the Rotating Frame
-* **Pedagogical Justification:** In the non-inertial reference frame of the planet, static equilibrium requires the sum of real gravitational force $\mathbf{F}_g$, reaction force $\mathbf{N}$, and fictitious centrifugal force $\mathbf{F}_{cf} = -m\boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{r}) = m\Omega^2 \boldsymbol{\rho}$ to vanish.
-$$ \mathbf{F}_g + \mathbf{N} + \mathbf{F}_{cf} = \mathbf{0} \implies \mathbf{N} = -\mathbf{F}_g - \mathbf{F}_{cf} $$
-The apparent weight is the magnitude of the normal force, $W = |\mathbf{N}|$.
+#### 1. Equation of the dynamics of $G$
 
-#### 2. Apparent Weight at the Pole
-At the geographic poles, the position vector lies along the rotation axis $\mathbf{k}$:
-$$ \mathbf{r}_{pole} = \pm R\mathbf{k} \implies \boldsymbol{\rho}_{pole} = \mathbf{0} $$
-The centrifugal force vanishes at the poles:
-$$ \mathbf{F}_{cf, pole} = \mathbf{0} $$
-Therefore:
-$$ \mathbf{N}_{pole} - m g_p \mathbf{k} = \mathbf{0} \implies W_{pole} = m g_p $$
+* **Pedagogical Justification:** The only external force is the spring force, which depends on the position of $C$, not on that of $G$. Newton's second law for the centre of mass, with the position of $C$ eliminated through the geometry $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$, gives a forced linear equation (Notes Sec. 5.4, oscillator under a periodic force).
+$$ m\,\ddot{\mathbf{r}}_G = -k\,\mathbf{r}_C = -k\left[\mathbf{r}_G - \ell\,\mathbf{e}(t)\right] $$
 
-#### 3. Apparent Weight at the Equator
-At the equator, the position vector lies entirely in the equatorial plane:
-$$ |\boldsymbol{\rho}_{eq}| = R $$
-Gravity acts radially inwards: $\mathbf{F}_{g, eq} = -m g_p \mathbf{e}_r$.
-The centrifugal force acts radially outwards: $\mathbf{F}_{cf, eq} = +m \Omega^2 R \mathbf{e}_r$.
-Normal reaction from the surface: $\mathbf{N}_{eq} = N_{eq} \mathbf{e}_r$.
-Equilibrium equation:
-$$ -m g_p \mathbf{e}_r + N_{eq} \mathbf{e}_r + m \Omega^2 R \mathbf{e}_r = \mathbf{0} $$
-$$ N_{eq} = m(g_p - \Omega^2 R) $$
-Thus, the apparent weight at the equator is:
-$$ W_{equator} = m(g_p - \Omega^2 R) $$
+Divide by $m$ and use $\omega_0^2 = k/m$; the two components decouple:
 
-#### 4. Computation of the Rotation Rate $\Omega$
-Imposing the given condition $W_{pole} = 2 W_{equator}$:
-$$ m g_p = 2m(g_p - \Omega^2 R) $$
-Divide both sides by $m$:
-$$ g_p = 2g_p - 2\Omega^2 R $$
-Rearrange to isolate $\Omega^2$:
-$$ 2\Omega^2 R = 2g_p - g_p = g_p $$
-$$ \Omega^2 = \frac{g_p}{2R} \implies \Omega = \sqrt{\frac{g_p}{2R}} $$
+$$ \ddot{x}_0^G + \omega_0^2\,x_0^G = \omega_0^2\,\ell\cos\omega t, \qquad \ddot{y}_0^G + \omega_0^2\,y_0^G = \omega_0^2\,\ell\sin\omega t $$
 
-#### 5. Duration of the Day
-The duration of one full planetary rotation (the day) is:
-$$ T_{day} = \frac{2\pi}{\Omega} = \frac{2\pi}{\sqrt{\frac{g_p}{2R}}} = 2\pi \sqrt{\frac{2R}{g_p}} = 2\sqrt{2}\pi \sqrt{\frac{R}{g_p}} $$
+#### 2. Particular solution for $G$
 
-### Phase 4: Physical Interpretation & Stability
-* **Dimensional Analysis:**
-  $[T_{day}] = \sqrt{\frac{[R]}{[g_p]}} = \sqrt{\frac{\text{m}}{\text{m}/\text{s}^2}} = \sqrt{\text{s}^2} = \text{s}$.
-  The result is dimensionally sound.
-* **Centrifugal Breakup Limit:**
-  A planet becomes gravitationally unbounded at the equator (weightlessness) when $\Omega_{crit} = \sqrt{g_p/R}$. Here $\Omega = \sqrt{g_p/(2R)} = \frac{1}{\sqrt{2}}\Omega_{crit} \approx 0.707\,\Omega_{crit}$, ensuring that objects remain resting on the equatorial surface.
-* **Numerical illustration (Python):** for $g_p = 9.81\ \text{m/s}^2$ and $R = 6.371\times 10^6\ \text{m}$, $\Omega = \sqrt{g_p/(2R)} = 8.774\times 10^{-4}\ \text{rad/s}$ and $T_{day} = 2\pi\sqrt{2R/g_p} = 7.161\times 10^3\ \text{s} = 1.99\ \text{h}$, which satisfies $\Omega^2R/g_p = 0.5$ (so $W_{equator} = \tfrac{1}{2}W_{pole}$ as imposed).
+* **Pedagogical Justification:** The general solution is the homogeneous one, $A\cos\omega_0 t + B\sin\omega_0 t$, which the statement assumes damped out, plus a particular solution. Because the forcing is harmonic at frequency $\omega$, try the same harmonic with an unknown amplitude (method of undetermined coefficients).
+$$ x_0^G = a\cos\omega t \implies \ddot{x}_0^G = -\omega^2 a\cos\omega t $$
+
+Substitute into the equation of motion:
+
+$$ -\omega^2 a + \omega_0^2 a = \omega_0^2\,\ell \implies a = \frac{\omega_0^2\,\ell}{\omega_0^2 - \omega^2} \qquad (\omega \ne \omega_0) $$
+
+The same steps with $y_0^G = b\sin\omega t$ give $b = a$. Therefore
+
+$$ x_0^G(t) = \frac{\omega_0^2\,\ell}{\omega_0^2 - \omega^2}\cos\omega t, \qquad y_0^G(t) = \frac{\omega_0^2\,\ell}{\omega_0^2 - \omega^2}\sin\omega t $$
+
+#### 3. Position of the geometric centre $C$
+
+From $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$, component by component:
+
+$$ x_0^C(t) = \left[\frac{\omega_0^2}{\omega_0^2 - \omega^2} - 1\right]\ell\cos\omega t = \frac{\omega^2\,\ell}{\omega_0^2 - \omega^2}\cos\omega t, \qquad y_0^C(t) = \frac{\omega^2\,\ell}{\omega_0^2 - \omega^2}\sin\omega t $$
+
+Both points describe circles about $O$ at the rotation rate $\omega$. Their distances to $O$ are
+
+$$ |\boldsymbol{OG}| = \frac{\omega_0^2\,\ell}{|\omega_0^2 - \omega^2|}, \qquad |\boldsymbol{OC}| = \frac{\omega^2\,\ell}{|\omega_0^2 - \omega^2|}, \qquad \frac{|\boldsymbol{OC}|}{|\boldsymbol{OG}|} = \frac{\omega^2}{\omega_0^2} = \frac{m\,\omega^2}{k} $$
+
+#### 4. Is $|\boldsymbol{OC}| > |\boldsymbol{OG}|$ for $\omega > \sqrt{k/m}$?
+
+Yes. The ratio $|\boldsymbol{OC}|/|\boldsymbol{OG}| = \omega^2/\omega_0^2$ exceeds $1$ exactly when $\omega > \omega_0 = \sqrt{k/m}$ (and $\omega \ne \omega_0$, where the particular solution does not exist and the amplitude grows without bound, the resonance). For $\omega < \omega_0$ the opposite holds, $|\boldsymbol{OC}| < |\boldsymbol{OG}|$.
+
+### Phase 4: Physical Interpretation & Dimensional Verification
+
+* **Slow rotation ($\omega \to 0$):** $x_0^G \to \ell$, $x_0^C \to 0$: the disk sits with $C$ at $O$ and $G$ at distance $\ell$, as for a static unbalanced disk.
+* **Fast rotation ($\omega \gg \omega_0$):** $|\boldsymbol{OG}| \to \ell\,\omega_0^2/\omega^2 \to 0$ and $|\boldsymbol{OC}| \to \ell$. Above the critical speed the disk self-centres: it spins about its centre of mass, and $C$ circles $G$ at the radius $\ell$ (opposite in phase to the unbalance, because the factor $\omega_0^2 - \omega^2$ is negative).
+* **Resonance ($\omega = \omega_0$):** the amplitudes diverge in this undamped model; real rotors cross this critical speed quickly or are damped.
+* **Dimensional check:** $[\omega_0^2\ell/(\omega_0^2 - \omega^2)] = \text{m}$ and $[k/m] = \text{N/m/kg} = \text{s}^{-2} = [\omega^2]$.
+* **Symbolic check (sympy):** the two particular solutions satisfy the equations of motion with zero residual, and $x_0^G - \ell\cos\omega t$ equals $\omega^2\ell\cos\omega t/(\omega_0^2 - \omega^2)$.
 
 ---
 
-## 📌 Problem 23: Simple Pendulum
+## 📌 Problem 46: Bumpy Taxiway
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** A particle of mass $m$ is suspended by a string of length $L$ from pivot $O$, or equivalently moves along the smooth interior of a vertical circular track of radius $L$.
-* **Unilateral Constraint:** The particle cannot cross the circular boundary outward, but may detach if the inward contact force drops to zero ($N = 0$, or string slack $T = 0$).
-* **Initial Motion:** Pushed from the lowest point ($\theta = 0$) with velocity $v_0$.
-* **Part (b) Modification:** The circular track rotates about its vertical diameter with constant angular velocity $\omega$.
-* **Parameters:** $m > 0$ [kg], $L > 0$ [m], $g > 0$ [m/s$^2$], $v_0 > 0$ [m/s], $\omega \ge 0$ [rad/s].
 
-### Phase 2: Reference Frames, Vector Bases & Polar Coordinates
-* **Inertial Frame $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$:** $Oz$ points vertically upward ($-\mathbf{k}$ is downward).
-* **Polar Coordinate Basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$:**
-  Angle $\theta$ measured from the downward vertical ($-\mathbf{k}$):
-  $$ \mathbf{e}_r = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{k} \quad (\text{pointing radially outward}) $$
-  $$ \mathbf{e}_\theta = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{k} \quad (\text{tangential, along increasing } \theta) $$
-* **Kinematics:**
-  - Position: $\mathbf{r} = L\mathbf{e}_r$.
-  - Velocity: $\mathbf{v} = L\dot{\theta}\mathbf{e}_\theta$.
-  - Acceleration: $\mathbf{a} = -L\dot{\theta}^2\mathbf{e}_r + L\ddot{\theta}\mathbf{e}_\theta$.
-* **Change of basis.** The triple $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$ listed above has $\mathbf{e}_r \times \mathbf{e}_\theta = -\mathbf{j}$, so it is left-handed (determinant $-1$); the right-handed polar triple is $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_3\}$ with $\mathbf{e}_3 = -\mathbf{j}$ (the third vector plays no role in the planar kinematics). The columns are the components in $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$:
-$$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-* The angular velocity of $\mathcal{B}_1$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{e}_3 = -\dot{\theta}\,\mathbf{j}$, and Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$, the identities behind $\mathbf{v} = L\dot{\theta}\,\mathbf{e}_\theta$ and $\mathbf{a} = -L\dot{\theta}^2\mathbf{e}_r + L\ddot{\theta}\,\mathbf{e}_\theta$.
-* For part (b) the track rotates about $\mathbf{k}$ at rate $\omega$: the rotating basis $\{\mathbf{e}_\rho, \mathbf{e}_\phi, \mathbf{k}\}$ is related to $\mathcal{B}_0$ by $\mathrm{R}_z(\omega t)$ (a rotation matrix with the same properties, $\det = 1$, $R R^T = I$), and inside it the pair $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ is written with $\mathbf{e}_\rho$ in place of $\mathbf{i}$. The determinant and the product $R R^T$ were verified symbolically with sympy.
+* **Physical System:** the fuselage is a particle of mass $m$ that moves only vertically. The landing gear is a spring of stiffness $k$ and unloaded length $L$ whose lower end (the wheel) follows the runway profile $y_1 = \sin x$ at the horizontal speed $c$.
+* **Hypotheses:** the wheel never leaves the ground; the runway profile is read with $x = ct$, so the ground height under the wheel is $y_b(t) = \sin(ct)$ (the profile is written with unit wavenumber, $1\,\text{m}^{-1}$, so the excitation angular frequency is $\Omega = c$ in rad/s when $c$ is in m/s); gravity acts on $m$; the gear is linear.
+* **Parameters and units:** $m$ [kg], $k$ [N/m], $L$ [m], $c$ [m/s], $g$ [m/s$^2$]; $\omega_0 = \sqrt{k/m}$ [rad/s]; in part (c) a damper of coefficient $\lambda$ [N s/m] acts between the fuselage and the wheel.
+* **Degrees of freedom:** one, the height $y$ of the particle.
+
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
+
+* **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $Oy$ vertical upward and $\mathbf{r}_P = y\,\mathbf{j}$ (the horizontal motion at speed $c$ does not enter the vertical dynamics).
+* **Spring length:** $\ell_s = y - y_b(t)$ with $y_b = \sin ct$; the spring force on $P$ is $-k(\ell_s - L)\,\mathbf{j}$ (upward when compressed).
+* **Static equilibrium over flat ground:** $y_s = L - mg/k$; the shifted coordinate $z = y - y_s$ measures the motion relative to it.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
-#### Part (a): Planar Motion & Detachment Analysis
+#### Equation of motion
 
-#### 1. Mechanical Energy Conservation
-* **Pedagogical Justification:** The normal constraint force $\mathbf{N} = -N\mathbf{e}_r$ is always perpendicular to velocity $\mathbf{v} = L\dot{\theta}\mathbf{e}_\theta$ ($\mathbf{N} \cdot \mathbf{v} = 0$), so it does no work. Mechanical energy is strictly conserved.
-Taking the lowest point $\theta = 0$ as the gravitational potential reference ($V(0) = 0$):
-$$ V(\theta) = mg(L - L\cos\theta) = mgL(1 - \cos\theta) $$
-$$ E = \frac{1}{2}m v_0^2 = \frac{1}{2}m v^2 + mgL(1 - \cos\theta) $$
-Isolate $v^2(\theta)$:
-$$ v^2(\theta) = v_0^2 - 2gL(1 - \cos\theta) $$
+* **Pedagogical Justification:** Newton's second law along $Oy$ with the weight and the elastic force. The constant weight only shifts the equilibrium, so it disappears in the coordinate $z$.
+$$ m\ddot{y} = -k\left[y - \sin(ct) - L\right] - mg $$
 
-#### 2. Normal Reaction Force $N(\theta)$
-* **Pedagogical Justification:** Newton's second law along the inward radial normal $\mathbf{e}_n = -\mathbf{e}_r$ provides an explicit expression for the contact reaction force $N(\theta)$ as a function of angle $\theta$.
-The forces acting on the particle are gravity $\mathbf{F}_g = -mg\mathbf{k}$ and track reaction $\mathbf{N} = -N\mathbf{e}_r$ ($N > 0$ pushes inward):
-$$ \mathbf{F}_g = -mg\mathbf{k} = -mg(-\cos\theta\,\mathbf{e}_r + \sin\theta\,\mathbf{e}_\theta) = mg\cos\theta\,\mathbf{e}_r - mg\sin\theta\,\mathbf{e}_\theta $$
-Projecting Newton's second law along the inward normal $-\mathbf{e}_r$:
-$$ \sum F_n = N - mg\cos\theta = m a_n = m \frac{v^2}{L} $$
-$$ N(\theta) = mg\cos\theta + \frac{m}{L}v^2(\theta) $$
-Substitute the energy relation for $v^2(\theta)$:
-$$ N(\theta) = mg\cos\theta + \frac{m}{L}\left[ v_0^2 - 2gL(1 - \cos\theta) \right] $$
-Expand and combine terms:
-$$ N(\theta) = mg\cos\theta + \frac{m v_0^2}{L} - 2mg + 2mg\cos\theta = \frac{m v_0^2}{L} - 2mg + 3mg\cos\theta $$
-$$ N(\theta) = \frac{m v_0^2}{L} - mg(2 - 3\cos\theta) $$
+Substitute $y = z + L - mg/k$, so that $\ddot{y} = \ddot{z}$ and $-k[y - L] - mg = -kz$:
 
-#### 3. Detachment Condition ($N = 0$)
-The particle leaves the circumference if $N$ drops to zero while $v > 0$:
-$$ N(\theta_d) = 0 \implies \frac{m v_0^2}{L} - 2mg + 3mg\cos\theta_d = 0 $$
-$$ 3mg\cos\theta_d = 2mg - \frac{m v_0^2}{L} \implies \cos\theta_d = \frac{2gL - v_0^2}{3gL} $$
+$$ m\ddot{z} = -kz + k\sin(ct) \implies \ddot{z} + \omega_0^2\,z = \omega_0^2\sin(ct) $$
 
-#### 4. Motion Regimes and Question Resolution: "Is this point ever reached?"
-* **Regime 1: $v_0 \le \sqrt{2gL}$ (Low energy, oscillation in lower semicircle)**
-  Velocity reaches zero when $v^2 = 0$:
-  $$ v_0^2 - 2gL(1 - \cos\theta_{max}) = 0 \implies \cos\theta_{max} = 1 - \frac{v_0^2}{2gL} \ge 0 \implies \theta_{max} \le \frac{\pi}{2} $$
-  At this maximum angle, the reaction force is:
-  $$ N(\theta_{max}) = mg\cos\theta_{max} \ge 0 $$
-  The particle comes to rest and reverses direction before $N$ can vanish.
-  **Conclusion:** The detachment point is **never reached**. The particle oscillates periodically in the lower semicircle.
+#### (a) Resonance
 
-* **Regime 2: $\sqrt{2gL} < v_0 < \sqrt{5gL}$ (Intermediate energy, detachment occurs)**
-  Since $v_0^2 > 2gL$, the particle crosses the horizontal position $\theta = \pi/2$ with positive velocity.
-  In the upper semicircle ($\pi/2 < \theta < \pi$), $\cos\theta < 0$.
-  Evaluate the detachment angle $\cos\theta_d$:
-  $$ \cos\theta_d = \frac{2gL - v_0^2}{3gL} $$
-  Because $2gL < v_0^2 < 5gL$:
-  $$ -1 = \frac{2gL - 5gL}{3gL} < \cos\theta_d < \frac{2gL - 2gL}{3gL} = 0 $$
-  So $\cos\theta_d \in (-1, 0)$, meaning $\theta_d \in (\pi/2, \pi)$ is physically accessible!
-  At this point, the speed is:
-  $$ v^2(\theta_d) = v_0^2 - 2gL\left(1 - \frac{2gL - v_0^2}{3gL}\right) = v_0^2 - 2gL + \frac{2}{3}(2gL - v_0^2) = \frac{v_0^2 - 2gL}{3} > 0 $$
-  **Conclusion:** The detachment point **is reached**. The particle leaves the circular track at angle $\theta_d = \arccos\left(\frac{2gL - v_0^2}{3gL}\right)$ and transitions into free parabolic flight under gravity alone.
+* **Pedagogical Justification:** This is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency.
+$$ c_{res} = \omega_0 = \sqrt{\frac{k}{m}} $$
 
-* **Regime 3: $v_0 \ge \sqrt{5gL}$ (High energy, complete vertical loops)**
-  At the very top of the circle ($\theta = \pi, \cos\pi = -1$):
-  $$ N(\pi) = \frac{m v_0^2}{L} - mg(2 - 3(-1)) = \frac{m v_0^2}{L} - 5mg \ge 0 $$
-  The reaction force remains positive throughout the entire loop.
-  **Conclusion:** The particle **never leaves** the circumference and performs complete revolutions.
+With the profile wavelength $2\pi$ (unit wavenumber), the resonant speed is $c = \sqrt{k/m}$; for a general wavelength $\Lambda$ it would be $c = \omega_0\Lambda/2\pi$.
 
----
+#### (b) Amplitude at very high speed
 
-#### Part (b): Rotating Circumference with Angular Velocity $\omega$
+Try the particular solution $z_p = A\sin(ct)$, for $c \ne \omega_0$:
 
-#### 1. Equations of Motion in the Rotating Frame
-* **Pedagogical Justification:** When the circular track rotates at constant angular speed $\omega$ about the vertical diameter $Oz$, we analyze the motion in the rotating frame $\mathcal{F}_1$. The centrifugal force $\mathbf{F}_{cf} = m\omega^2 \boldsymbol{\rho}$ adds a horizontal outward component.
-Let cylindrical coordinates be $(\rho, \phi, z)$, with $\rho = R\sin\theta$, $z = -R\cos\theta$.
-In the rotating frame, the unit tangent along increasing $\theta$ is:
-$$ \mathbf{e}_\theta = \cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k} $$
-Forces acting on the particle:
-1. Gravity: $\mathbf{F}_g = -mg\mathbf{k}$.
-2. Centrifugal force: $\mathbf{F}_{cf} = m\omega^2 \rho\,\mathbf{e}_\rho = m\omega^2 R\sin\theta\,\mathbf{e}_\rho$.
-3. Reaction force $\mathbf{N}$ (normal to the wire, along $\mathbf{e}_r$ and $\mathbf{e}_\phi$).
-Projecting along the tangent $\mathbf{e}_\theta$:
-$$ m R \ddot{\theta} = (\mathbf{F}_g + \mathbf{F}_{cf}) \cdot \mathbf{e}_\theta $$
-$$ \mathbf{F}_g \cdot \mathbf{e}_\theta = (-mg\mathbf{k}) \cdot (\cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k}) = -mg\sin\theta $$
-$$ \mathbf{F}_{cf} \cdot \mathbf{e}_\theta = (m\omega^2 R\sin\theta\,\mathbf{e}_\rho) \cdot (\cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k}) = m\omega^2 R\sin\theta\cos\theta $$
-Therefore:
-$$ m R \ddot{\theta} = -mg\sin\theta + m\omega^2 R\sin\theta\cos\theta $$
-Divide by $m R$:
-$$ \ddot{\theta} + \frac{g}{R}\sin\theta - \omega^2\sin\theta\cos\theta = 0 $$
-$$ \ddot{\theta} + \left(\frac{g}{R} - \omega^2\cos\theta\right)\sin\theta = 0 $$
+$$ \ddot{z}_p = -c^2A\sin(ct) \implies (\omega_0^2 - c^2)A = \omega_0^2 \implies A = \frac{\omega_0^2}{\omega_0^2 - c^2} $$
 
-#### 2. Computation of Equilibrium Locations
-* **Pedagogical Justification:** Equilibrium configurations in the rotating frame correspond to static solutions where $\ddot{\theta} = 0$ and $\dot{\theta} = 0$.
-Setting the angular acceleration to zero:
-$$ \left(\frac{g}{R} - \omega^2\cos\theta\right)\sin\theta = 0 $$
-This equation is satisfied if either factor vanishes:
-1. **Vertical Alignments ($\sin\theta = 0$):**
-   $$ \theta_1 = 0 \quad (\text{lowest point / bottom}) $$
-   $$ \theta_2 = \pi \quad (\text{highest point / top}) $$
-2. **Off-Axis Equilibrium ($\cos\theta = \frac{g}{\omega^2 R}$):**
-   This solution exists physically if and only if:
-   $$ \left| \frac{g}{\omega^2 R} \right| \le 1 \iff \omega^2 \ge \frac{g}{R} $$
-   When $\omega > \sqrt{\frac{g}{R}}$, two symmetric equilibrium positions emerge:
-   $$ \theta_{3,4} = \pm \arccos\left(\frac{g}{\omega^2 R}\right) $$
+The amplitude of the oscillation of the airplane (the homogeneous part, at $\omega_0$, is the transient set by the initial conditions) is
 
-### Phase 4: Physical Interpretation & Bifurcation Analysis
-* **Supercritical Pitchfork Bifurcation:**
-  - For slow rotation $\omega < \omega_c = \sqrt{g/R}$, the bottom $\theta = 0$ is the only stable equilibrium.
-  - When the rotation rate crosses the critical threshold $\omega_c$, the bottom becomes unstable, and the particle naturally climbs up the wire to settle at the tilted angle $\theta_0 = \arccos\left(\frac{g}{\omega^2 R}\right)$, where the upward component of the centrifugal force balances gravity.
-  - As $\omega \to \infty$, $\cos\theta_0 \to 0 \implies \theta_0 \to \pi/2$ (the particle moves toward the equator).
-* **Dimensional check:** $[N] = [mv_0^2/L] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$; $\cos\theta_d = (2gL - v_0^2)/(3gL)$ is dimensionless; $\omega_c = \sqrt{g/R}$ has units $\text{s}^{-1}$.
-* **Limits of the regimes:** at $v_0^2 = 2gL$, $\cos\theta_d = 0$ ($\theta_d = \pi/2$), the boundary between oscillation and detachment; at $v_0^2 = 5gL$, $\cos\theta_d = -1$ ($\theta_d = \pi$) and $N(\pi) = 0$, the boundary between detachment and full loops. For $\omega \to 0$ in part (b) the equation reduces to the simple pendulum $\ddot{\theta} + (g/R)\sin\theta = 0$.
-* **Numerical example ($g = L = 1$, $v_0^2 = 3.5$, regime 2):** $\cos\theta_d = (2 - 3.5)/3 = -0.5$, $\theta_d = 120^\circ$; $v^2(\theta_d) = (v_0^2 - 2gL)/3 = 0.5$ and $N(\theta_d) = v_0^2/L - g(2 - 3\cos\theta_d) = 3.5 - 3.5 = 0$, as required.
+$$ |A(c)| = \frac{\omega_0^2}{|\omega_0^2 - c^2|} \xrightarrow[c \gg \omega_0]{} \frac{\omega_0^2}{c^2} = \frac{k}{m\,c^2} $$
 
----
+For very high speed the amplitude decays as $1/c^2$: the mass cannot follow the fast bumps, and $z_p$ is in antiphase with the road ($A  \omega_0$).
+
+#### (c) Landing gear with damping $\lambda$
+
+* **Pedagogical Justification:** The damper acts on the relative velocity between the fuselage and the wheel, $-\lambda(\dot{y} - \dot{y}_b)$. Define $a = \lambda/m = 2\zeta\omega_0$ with the damping ratio $\zeta = \lambda/(2\sqrt{km})$.
+$$ \ddot{z} + a\,\dot{z} + \omega_0^2 z = \omega_0^2\sin(ct) + a\,c\cos(ct) $$
+
+**Homogeneous solution (transient).** The characteristic equation $r^2 + a\,r + \omega_0^2 = 0$ has roots $r = -\zeta\omega_0 \pm \omega_0\sqrt{\zeta^2 - 1}$:
+
+* Underdamped, $\lambda < 2\sqrt{km}$ ($\zeta < 1$): $z_h = e^{-\zeta\omega_0 t}\left(C_1\cos\omega_d t + C_2\sin\omega_d t\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.
+* Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2 t)\,e^{-\omega_0 t}$, the fastest return without oscillation.
+* Overdamped, $\lambda > 2\sqrt{km}$ ($\zeta > 1$): $z_h = C_1 e^{r_1 t} + C_2 e^{r_2 t}$ with $r_{1,2} < 0$ real, slower return.
+
+**Steady state.** Write the forcing as the imaginary part of $(\omega_0^2 + i a c)\,e^{ict}$ and $z_p = \operatorname{Im}[H\,e^{ict}]$:
+
+$$ H = \frac{\omega_0^2 + i\,a c}{\omega_0^2 - c^2 + i\,a c}, \qquad |H|^2 = \frac{\omega_0^4 + a^2c^2}{(\omega_0^2 - c^2)^2 + a^2c^2} $$
+
+The steady amplitude is $|H|$, and it is always finite. At resonance, $c = \omega_0$:
+
+$$ |H(\omega_0)| = \sqrt{1 + \frac{\omega_0^2}{a^2}} = \sqrt{1 + \frac{1}{4\zeta^2}} $$
+
+At very high speed $|H| \approx a\,c/c^2 = a/c = \lambda/(m c)$: it decays only as $1/c$, slower than the undamped $1/c^2$ of part (b).
+
+#### Choice of $\lambda$ and effect of the payload
+
+* Damping removes the resonant divergence ($|H(\omega_0)|$ finite) and kills the transient quickly, but the price is the slower attenuation $1/c$ of the bumps at high speed. A compromise is $\zeta$ below $1$ (not overdamped): $\zeta = 0.5$ gives a resonant peak of $\sqrt{2} = 1.41$ and $\zeta = 0.7$ gives $1.22$, whereas critical damping slows the response and transmits more at high speed.
+* Changing the mass changes both $\omega_0 = \sqrt{k/m}$, so the resonant speed $c_{res} = \sqrt{k/m}$ is lower for a heavier aircraft, and $\zeta = \lambda/(2\sqrt{km}) \propto m^{-1/2}$, so a heavier aircraft is less damped. Since $\lambda$ is fixed hardware, it must be chosen so that $\zeta$ stays in the useful range (for example $\zeta \gtrsim 0.3$) for the heaviest payload; the lightest payload then gets a larger $\zeta$ and a higher resonant speed.
+
+### Phase 4: Physical Interpretation & Dimensional Verification
+
+* **Dimensional check:** $[\omega_0^2] = [k/m] = \text{s}^{-2} = [c^2]$ with $c$ in rad/s; $[a] = [\lambda/m] = \text{N s m}^{-1}/\text{kg} = \text{s}^{-1}$, so $\zeta = a/(2\omega_0)$ is dimensionless.
+* **Limits:** $c \to 0$ gives $|A| \to 1$, the airplane follows the road quasi-statically; $\lambda \to 0$ in $|H|$ recovers $|A|$ of part (b); $\zeta \to \infty$ gives $|H| \to 1$ for slow runways and $\to \lambda/(mc)$ at high speed.
+* **Symbolic check (sympy):** the undamped particular solution and the damped steady state $z_p = \operatorname{Im}[H e^{ict}]$ satisfy their equations with zero residual, and $|H(\omega_0)|^2 = 1 + \omega_0^2/a^2$.

@@ -509,9 +509,9 @@
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Conservation of Angular Momentum about $Oz$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The forces acting on the particle are gravity $\mathbf{F}_g = -mg\mathbf{k}$ and the constraint reaction $\mathbf{N}$. Gravity is parallel to $Oz$, so its torque about $O$ has no $z$-component. The normal to the cone $f(r, z) = r - z = 0$ is $\mathbf{n} = \frac{1}{\sqrt{2}}(\mathbf{e}_r - \mathbf{k})$, which lies entirely in the meridian plane $\text{span}\{\mathbf{e}_r, \mathbf{k}\}$ and intersects the $Oz$ axis. Thus, $\mathbf{N}$ exerts zero torque about the vertical axis $Oz$. By the angular momentum theorem (Notes.pdf Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=50" target="_blank" rel="noopener" title="Open Notes.pdf at page 50">4.8</a>), $L_z$ is an invariant of motion.</div>
-<div class="math-block">$$ L_z = [\mathbf{r} \times m\mathbf{v}] \cdot \mathbf{k} = m r^2 \dot{\theta} = \text{constant} = C_z $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. First Integral from the $\mathbf{e}_\theta$ Component of Newton's Law</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The coordinate $\theta$ does not appear in the problem (axisymmetric cone, vertical gravity), so its equation of motion gives a first integral without any further theorem. In cylindrical coordinates the azimuthal acceleration is $a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{1}{r}\frac{d}{dt}\left(r^2\dot{\theta}\right)$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=33" target="_blank" rel="noopener" title="Open Notes.pdf at page 33">2.6.2</a>). The forces have no $\mathbf{e}_\theta$ component: gravity is $-mg\mathbf{k}$, and the normal to the cone $f(r, z) = r - z = 0$ is $\mathbf{n} = \frac{1}{\sqrt{2}}(\mathbf{e}_r - \mathbf{k})$, which lies in the meridian plane (the reaction of a smooth surface is normal to it).</div>
+<div class="math-block">$$ m\,a_\theta = \frac{m}{r}\frac{d}{dt}\left(r^2\dot{\theta}\right) = 0 \implies m r^2 \dot{\theta} = \text{constant} = C_z $$</div>
 <p style="margin-bottom: 10px;">Evaluate $C_z$ at $t = 0$:</p>
 <div class="math-block">$$ C_z = m [r(0)]^2 \dot{\theta}(0) = m a (a \dot{\theta}_0) = m a (\sqrt{ag}) = m a\sqrt{ga} $$</div>
 <p style="margin-bottom: 10px;">Therefore:</p>
@@ -566,7 +566,7 @@
 <div class="math-block">$$ z_{min} = z_{max} = a $$</div>
 <p style="margin-bottom: 10px;">The particle maintains a constant altitude $z = a$ for all time, executing uniform circular motion with orbital frequency $\omega = \dot{\theta} = \sqrt{g/a}$.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[C_z] = [m\,a\sqrt{ga}] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-1}$ (angular momentum); $[\dot{r}^2] = \text{m}^2/\text{s}^2$ and $[g\,a^3/r^2] = (\text{m/s}^2)\,\text{m} = \text{m}^2/\text{s}^2$, so every term of the energy equation has the same units.</li>
+<li><strong>Dimensional check:</strong> $[C_z] = [m\,a\sqrt{ga}] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-1}$ (the constant $C_z = m r^2\dot\theta$); $[\dot{r}^2] = \text{m}^2/\text{s}^2$ and $[g\,a^3/r^2] = (\text{m/s}^2)\,\text{m} = \text{m}^2/\text{s}^2$, so every term of the energy equation has the same units.</li>
 <li><strong>Reaction on the steady orbit (sympy force balance):</strong> with $\dot{\theta}^2 = g/a$ the horizontal acceleration is $-g\,\mathbf{e}_r$. Requiring $N\,\mathbf{n}_{in} - mg\,\mathbf{k} = -mg\,\mathbf{e}_r$ gives $\mathbf{N} = mg(\mathbf{k} - \mathbf{e}_r) = \sqrt{2}\,mg\,\mathbf{n}_{in}$, so $\|\mathbf{N}\| = \sqrt{2}\,mg$ [N], pointing into the cone, which is physically admissible (it presses the particle against the surface).</li>
 <li><strong>Stability (small radial oscillations):</strong> the effective inertia of the $r$-motion is $2m$ (the kinetic energy has $2\dot{r}^2$) and $V_{eff}''(a) = 3mg/a$, hence $\omega_r^2 = 3g/(2a)$. An RK4 integration (step $10^{-4}$, $g = a = 1$) of $2\ddot{r} = r\dot{\theta}^2 - g$ with $r(0) = 1.001$, $\dot{r}(0) = 0$ and $r^2\dot{\theta} = a\sqrt{ga}$ has period $5.1304$ against $2\pi/\sqrt{3/2} = 5.1302$ (in units of $\sqrt{a/g}$), confirming that the circular orbit is a stable minimum of $V_{eff}$.</li>
 </ul>
@@ -644,9 +644,9 @@
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Conservation of Angular Momentum about $Oz$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The normal to the surface of revolution $f(r, z) = r^2 - az = 0$ is $\boldsymbol{\nabla} f = 2r\mathbf{e}_r - a\mathbf{k}$, which has no azimuthal component ($\mathbf{n} \cdot \mathbf{e}_\theta = 0$). Gravity also acts along $-\mathbf{k}$. Consequently, there is no torque about the vertical $Oz$ axis, and $L_z$ is conserved.</div>
-<div class="math-block">$$ L_z = m r^2 \dot{\theta} = m [r(0)]^2 \dot{\theta}(0) = m a^2 \left(\frac{v_0}{a}\right) = m a v_0 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. First Integral from the $\mathbf{e}_\theta$ Component of Newton's Law</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The coordinate $\theta$ is cyclic (surface of revolution, vertical gravity). In cylindrical coordinates $a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{1}{r}\frac{d}{dt}\left(r^2\dot{\theta}\right)$ (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=33" target="_blank" rel="noopener" title="Open Notes.pdf at page 33">2.6.2</a>). The normal to the surface $f(r, z) = r^2 - az = 0$ is $\boldsymbol{\nabla} f = 2r\mathbf{e}_r - a\mathbf{k}$, with no azimuthal component ($\mathbf{n} \cdot \mathbf{e}_\theta = 0$), and gravity acts along $-\mathbf{k}$. Hence the $\mathbf{e}_\theta$ equation of motion is $\frac{m}{r}\frac{d}{dt}(r^2\dot{\theta}) = 0$.</div>
+<div class="math-block">$$ r^2 \dot{\theta} = r(0)^2\dot{\theta}(0) = a^2\left(\frac{v_0}{a}\right) = a v_0 $$</div>
 <div class="math-block">$$ r^2 \dot{\theta} = a v_0 \implies \dot{\theta} = \frac{a v_0}{r^2} $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Conservation of Mechanical Energy</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> The constraint is frictionless (bilateral holonomic), so the normal reaction does zero work. Gravity is conservative with potential $V = mgz = mg\frac{r^2}{a}$.</div>
@@ -720,29 +720,21 @@
       </div>
     </div>
 
-    <!-- Problem 20 -->
-    <div class="problem-card" id="prob-20">
+    <!-- Problem 23 -->
+    <div class="problem-card" id="prob-23">
       <div class="problem-header">
         <div class="problem-title-area">
-          <div class="problem-num">Problem 20</div>
-          <h2 class="problem-title">Heavy Particle on a Rotating Circumference</h2>
-      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=10" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 10</a>
+          <div class="problem-num">Problem 23</div>
+          <h2 class="problem-title">Simple Pendulum (Unilateral Constraint)</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=11" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 11</a>
         </div>
-        <span class="problem-badge">Rotating Curve & Energy Conservation</span>
+        <span class="problem-badge">Pendulum & Liftoff</span>
       </div>
       <div class="problem-statement">
-        <p>A heavy particle is moving along a smooth circumference of radius $R$ and center $O$. One of the diameters of the circumference is along the local vertical, and the circumference is rotating with constant angular velocity $\omega$ about it. The position of the particle with respect to the circumference is described by the angle $\theta$ between the particle and the lowest point of the circumference.</p>
+        <p>A simple pendulum consists of a mass $m$ hanging from a string of length $L$ and fixed at a pivot point $O$. The simple pendulum is equivalent to the problem of a heavy particle constrained to move along a smooth circumference. A unilateral constraint is considered, such that the particle moves along the interior of the circumference and it might fall under certain conditions.</p>
+        <p>Analyze the motion of the particle when it is pushed from the lowest point of the circumference with velocity $v_0$. At what point does the particle leave the circumference? Is this point ever reached?</p>
+        <p>If the circumference rotates around the vertical axis with a constant angular velocity equal to $\omega$, write down the new equations of motion. Compute the locations along the circumference in which the particle is in equilibrium.</p>
       </div>
-      <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">Discuss the conservation of mechanical energy in the moving reference frame and compute its value.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">Compute the reaction of the circumference in the direction normal to its plane, as a function of $\theta$.</div>
-        </li>
-      </ul>
             <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
@@ -754,242 +746,139 @@
 <span class="phase-badge">Phase 1</span>
 <h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ slides smoothly along a circular wire of radius $R$ rotating with constant angular velocity $\omega$ about its vertical diameter.</li>
-<li><strong>CDOFs:</strong> $1$ degree of freedom, described by angle $\theta(t)$ from the lowest point of the circumference.</li>
-<li><strong>Hypotheses:</strong> Frictionless wire, steady rotation $\boldsymbol{\omega} = \omega\mathbf{k}$.</li>
-<li><strong>Parameters:</strong> $m > 0$ [kg], $R > 0$ [m], $\omega > 0$ [rad/s], $g > 0$ [m/s$^2$].</li>
+<li><strong>Physical System:</strong> A particle of mass $m$ is suspended by a string of length $L$ from pivot $O$, or equivalently moves along the smooth interior of a vertical circular track of radius $L$.</li>
+<li><strong>Unilateral Constraint:</strong> The particle cannot cross the circular boundary outward, but may detach if the inward contact force drops to zero ($N = 0$, or string slack $T = 0$).</li>
+<li><strong>Initial Motion:</strong> Pushed from the lowest point ($\theta = 0$) with velocity $v_0$.</li>
+<li><strong>Part (b) Modification:</strong> The circular track rotates about its vertical diameter with constant angular velocity $\omega$ (a rheonomic constraint, solved in the inertial frame).</li>
+<li><strong>Parameters:</strong> $m > 0$ [kg], $L > 0$ [m], $g > 0$ [m/s$^2$], $v_0 > 0$ [m/s], $\omega \ge 0$ [rad/s].</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
 <h3 class="phase-heading">Reference Frames, Vector Bases & Coordinate Geometry</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial Frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}\}$.</li>
-<li><strong>Rotating Frame:</strong> $\mathcal{F}_1 = \{O; \mathbf{e}_\rho, \mathbf{e}_\phi, \mathbf{k}\}$ rotating with angular velocity $\boldsymbol{\omega}_{1/0} = \omega\mathbf{k}$.</li>
-<li><strong>Polar Basis on the Wire:</strong> $\mathcal{B}_w = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_\phi\}$ where:</li>
+<li><strong>Inertial Frame $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$:</strong> $Oz$ points vertically upward ($-\mathbf{k}$ is downward).</li>
+<li><strong>Polar Coordinate Basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$:</strong></li>
 </ul>
-<div class="math-block">$$ \mathbf{r} = R\sin\theta\,\mathbf{e}_\rho - R\cos\theta\,\mathbf{k} = R\mathbf{e}_r $$</div>
-<div class="math-block">$$ \mathbf{e}_\theta = \cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k} $$</div>
+<p style="margin-bottom: 10px;">Angle $\theta$ measured from the downward vertical ($-\mathbf{k}$):</p>
+<div class="math-block">$$ \mathbf{e}_r = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{k} \quad (\text{pointing radially outward}) $$</div>
+<div class="math-block">$$ \mathbf{e}_\theta = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{k} \quad (\text{tangential, along increasing } \theta) $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Relative Velocity in $\mathcal{F}_1$:</strong></li>
+<li><strong>Kinematics:</strong></li>
+<li>Position: $\mathbf{r} = L\mathbf{e}_r$.</li>
+<li>Velocity: $\mathbf{v} = L\dot{\theta}\mathbf{e}_\theta$.</li>
+<li>Acceleration: $\mathbf{a} = -L\dot{\theta}^2\mathbf{e}_r + L\ddot{\theta}\mathbf{e}_\theta$.</li>
 </ul>
-<div class="math-block">$$ \mathbf{v}' = R\dot{\theta}\mathbf{e}_\theta $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$ (rotating frame).</strong> With the wire plane at azimuth $\omega t$, $\mathbf{e}_\rho = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$, $\mathbf{e}_\phi = -\sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{j}_0$:</li>
+<li><strong>Change of basis.</strong> The triple $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$ listed above has $\mathbf{e}_r \times \mathbf{e}_\theta = -\mathbf{j}$, so it is left-handed (determinant $-1$); the right-handed polar triple is $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_3\}$ with $\mathbf{e}_3 = -\mathbf{j}$ (the third vector plays no role in the planar kinematics). The columns are the components in $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$:</li>
 </ul>
-<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Change of basis $\mathcal{B}_1 \to \mathcal{B}_w$ (wire basis).</strong> Since $\mathbf{e}_r \times \mathbf{e}_\theta = -\mathbf{e}_\phi$, the right-handed wire triple is $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_n\}$ with $\mathbf{e}_n = -\mathbf{e}_\phi$ (the ordering $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_\phi\}$ listed above has determinant $-1$; only the sign of the third vector is affected, and $N_\phi$ below is defined along $\mathbf{e}_\phi$). The columns are the components in $\{\mathbf{e}_\rho, \mathbf{e}_\phi, \mathbf{k}\}$:</li>
-</ul>
-<div class="math-block">$$ [{}_1 R_w] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_1 R_w] = 1, \qquad [{}_1 R_w][{}_1 R_w]^T = I $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Determinants and products $R R^T$ were verified symbolically with sympy.</li>
+<li>The angular velocity of $\mathcal{B}_1$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{e}_3 = -\dot{\theta}\,\mathbf{j}$, and Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$, the identities behind $\mathbf{v} = L\dot{\theta}\,\mathbf{e}_\theta$ and $\mathbf{a} = -L\dot{\theta}^2\mathbf{e}_r + L\ddot{\theta}\,\mathbf{e}_\theta$.</li>
+<li>For part (b) the cylindrical basis $\{\mathbf{e}_\rho, \mathbf{e}_\varphi, \mathbf{k}\}$ is obtained from $\mathcal{B}_0$ by the simple rotation $\mathrm{R}_z(\omega t)$ about $\mathbf{k}$ (a rotation matrix with $\det = 1$, $R R^T = I$), and inside the meridian plane the pair $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ is written with $\mathbf{e}_\rho$ in place of $\mathbf{i}$. The determinant and the product $R R^T$ were verified symbolically with sympy.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a): Conservation of Mechanical Energy in the Moving Frame</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> In the rotating frame $\mathcal{F}_1$, fictitious forces appear: centrifugal force $\mathbf{F}_{cf} = m\omega^2 \rho\mathbf{e}_\rho$ and Coriolis force $\mathbf{F}_{Cor} = -2m\boldsymbol{\omega} \times \mathbf{v}'$.</div>
-<p style="margin-bottom: 10px;">1. The centrifugal force is conservative, derived from potential $V_{cf} = -\frac{1}{2}m\omega^2 \rho^2 = -\frac{1}{2}m\omega^2 R^2\sin^2\theta$.</p>
-<p style="margin-bottom: 10px;">2. The Coriolis force is always perpendicular to velocity ($\mathbf{F}_{Cor} \cdot \mathbf{v}' = 0$), doing strictly zero power.</p>
-<p style="margin-bottom: 10px;">3. The constraint reaction $\mathbf{N}$ is perpendicular to the wire ($\mathbf{N} \cdot \mathbf{e}_\theta = 0$), so $W_{\mathbf{N}} = 0$.</p>
-<p style="margin-bottom: 10px;">Therefore, the effective mechanical energy $E'$ in the rotating frame is conserved.</p>
-<p style="margin-bottom: 10px;">Expressions for energies:</p>
-<div class="math-block">$$ T' = \frac{1}{2}m |\mathbf{v}'|^2 = \frac{1}{2}m R^2 \dot{\theta}^2 $$</div>
-<div class="math-block">$$ V_g(\theta) = -mgR\cos\theta \quad (\text{with reference datum } V_g(\pi/2) = 0) $$</div>
-<div class="math-block">$$ V_{cf}(\theta) = -\frac{1}{2}m\omega^2 R^2 \sin^2\theta $$</div>
-<p style="margin-bottom: 10px;">Total effective mechanical energy:</p>
-<div class="math-block">$$ E' = T' + V_g + V_{cf} = \frac{1}{2}m R^2 \dot{\theta}^2 - mgR\cos\theta - \frac{1}{2}m\omega^2 R^2 \sin^2\theta = \text{constant} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Reaction Normal to the Plane of the Circumference</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The unit vector normal to the plane of the circumference is $\mathbf{e}_\phi$. Applying Newton's second law in the rotating frame along $\mathbf{e}_\phi$ isolates the out-of-plane reaction force $N_\phi$.</div>
-<p style="margin-bottom: 10px;">Dynamic equilibrium in $\mathcal{F}_1$:</p>
-<div class="math-block">$$ m\mathbf{a}' = \mathbf{F}_g + \mathbf{F}_{cf} + \mathbf{F}_{Cor} + \mathbf{N} $$</div>
-<p style="margin-bottom: 10px;">Since the particle is constrained to the planar wire, $a'_\phi = 0$.</p>
-<p style="margin-bottom: 10px;">Project forces along $\mathbf{e}_\phi$:</p>
-<p style="margin-bottom: 10px;">1. Gravity: $\mathbf{F}_g \cdot \mathbf{e}_\phi = (-mg\mathbf{k}) \cdot \mathbf{e}_\phi = 0$.</p>
-<p style="margin-bottom: 10px;">2. Centrifugal: $\mathbf{F}_{cf} \cdot \mathbf{e}_\phi = (m\omega^2 R\sin\theta\mathbf{e}_\rho) \cdot \mathbf{e}_\phi = 0$.</p>
-<p style="margin-bottom: 10px;">3. Coriolis:</p>
-<div class="math-block">$$ \mathbf{F}_{Cor} = -2m(\omega\mathbf{k}) \times (R\dot{\theta}\mathbf{e}_\theta) = -2m\omega R\dot{\theta}(\mathbf{k} \times (\cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k})) $$</div>
-<p style="margin-bottom: 10px;">Since $\mathbf{k} \times \mathbf{e}_\rho = \mathbf{e}_\phi$ and $\mathbf{k} \times \mathbf{k} = \mathbf{0}$:</p>
-<div class="math-block">$$ \mathbf{F}_{Cor} = -2m\omega R\dot{\theta}\cos\theta\,\mathbf{e}_\phi $$</div>
-<p style="margin-bottom: 10px;">4. Reaction: $\mathbf{N} \cdot \mathbf{e}_\phi = N_\phi$.</p>
-<p style="margin-bottom: 10px;">Equating components:</p>
-<div class="math-block">$$ 0 = -2m\omega R\dot{\theta}\cos\theta + N_\phi \implies N_\phi = 2m\omega R\dot{\theta}\cos\theta $$</div>
-<p style="margin-bottom: 10px;">Using energy conservation to express $\dot{\theta}$ as a function of $\theta$:</p>
-<div class="math-block">$$ \dot{\theta} = \pm \sqrt{\frac{2}{m R^2}\left( E' + mgR\cos\theta + \frac{1}{2}m\omega^2 R^2\sin^2\theta \right)} $$</div>
-<div class="math-block">$$ N_\phi(\theta) = \pm 2m\omega\cos\theta \sqrt{\frac{2}{m}\left( E' + mgR\cos\theta + \frac{1}{2}m\omega^2 R^2\sin^2\theta \right)} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a): Planar Motion & Detachment Analysis</h4>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Mechanical Energy Conservation</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The normal constraint force $\mathbf{N} = -N\mathbf{e}_r$ is always perpendicular to velocity $\mathbf{v} = L\dot{\theta}\mathbf{e}_\theta$ ($\mathbf{N} \cdot \mathbf{v} = 0$), so it does no work. Mechanical energy is strictly conserved.</div>
+<p style="margin-bottom: 10px;">Taking the lowest point $\theta = 0$ as the gravitational potential reference ($V(0) = 0$):</p>
+<div class="math-block">$$ V(\theta) = mg(L - L\cos\theta) = mgL(1 - \cos\theta) $$</div>
+<div class="math-block">$$ E = \frac{1}{2}m v_0^2 = \frac{1}{2}m v^2 + mgL(1 - \cos\theta) $$</div>
+<p style="margin-bottom: 10px;">Isolate $v^2(\theta)$:</p>
+<div class="math-block">$$ v^2(\theta) = v_0^2 - 2gL(1 - \cos\theta) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Normal Reaction Force $N(\theta)$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Newton's second law along the inward radial normal $\mathbf{e}_n = -\mathbf{e}_r$ provides an explicit expression for the contact reaction force $N(\theta)$ as a function of angle $\theta$.</div>
+<p style="margin-bottom: 10px;">The forces acting on the particle are gravity $\mathbf{F}_g = -mg\mathbf{k}$ and track reaction $\mathbf{N} = -N\mathbf{e}_r$ ($N > 0$ pushes inward):</p>
+<div class="math-block">$$ \mathbf{F}_g = -mg\mathbf{k} = -mg(-\cos\theta\,\mathbf{e}_r + \sin\theta\,\mathbf{e}_\theta) = mg\cos\theta\,\mathbf{e}_r - mg\sin\theta\,\mathbf{e}_\theta $$</div>
+<p style="margin-bottom: 10px;">Projecting Newton's second law along the inward normal $-\mathbf{e}_r$:</p>
+<div class="math-block">$$ \sum F_n = N - mg\cos\theta = m a_n = m \frac{v^2}{L} $$</div>
+<div class="math-block">$$ N(\theta) = mg\cos\theta + \frac{m}{L}v^2(\theta) $$</div>
+<p style="margin-bottom: 10px;">Substitute the energy relation for $v^2(\theta)$:</p>
+<div class="math-block">$$ N(\theta) = mg\cos\theta + \frac{m}{L}\left[ v_0^2 - 2gL(1 - \cos\theta) \right] $$</div>
+<p style="margin-bottom: 10px;">Expand and combine terms:</p>
+<div class="math-block">$$ N(\theta) = mg\cos\theta + \frac{m v_0^2}{L} - 2mg + 2mg\cos\theta = \frac{m v_0^2}{L} - 2mg + 3mg\cos\theta $$</div>
+<div class="math-block">$$ N(\theta) = \frac{m v_0^2}{L} - mg(2 - 3\cos\theta) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Detachment Condition ($N = 0$)</h4>
+<p style="margin-bottom: 10px;">The particle leaves the circumference if $N$ drops to zero while $v > 0$:</p>
+<div class="math-block">$$ N(\theta_d) = 0 \implies \frac{m v_0^2}{L} - 2mg + 3mg\cos\theta_d = 0 $$</div>
+<div class="math-block">$$ 3mg\cos\theta_d = 2mg - \frac{m v_0^2}{L} \implies \cos\theta_d = \frac{2gL - v_0^2}{3gL} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Motion Regimes and Question Resolution: "Is this point ever reached?"</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Regime 1: $v_0 \le \sqrt{2gL}$ (Low energy, oscillation in lower semicircle)</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Velocity reaches zero when $v^2 = 0$:</p>
+<div class="math-block">$$ v_0^2 - 2gL(1 - \cos\theta_{max}) = 0 \implies \cos\theta_{max} = 1 - \frac{v_0^2}{2gL} \ge 0 \implies \theta_{max} \le \frac{\pi}{2} $$</div>
+<p style="margin-bottom: 10px;">At this maximum angle, the reaction force is:</p>
+<div class="math-block">$$ N(\theta_{max}) = mg\cos\theta_{max} \ge 0 $$</div>
+<p style="margin-bottom: 10px;">The particle comes to rest and reverses direction before $N$ can vanish.</p>
+<p style="margin-bottom: 10px;"><strong>Conclusion:</strong> The detachment point is <strong>never reached</strong>. The particle oscillates periodically in the lower semicircle.</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Regime 2: $\sqrt{2gL} < v_0 < \sqrt{5gL}$ (Intermediate energy, detachment occurs)</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">Since $v_0^2 > 2gL$, the particle crosses the horizontal position $\theta = \pi/2$ with positive velocity.</p>
+<p style="margin-bottom: 10px;">In the upper semicircle ($\pi/2 < \theta < \pi$), $\cos\theta < 0$.</p>
+<p style="margin-bottom: 10px;">Evaluate the detachment angle $\cos\theta_d$:</p>
+<div class="math-block">$$ \cos\theta_d = \frac{2gL - v_0^2}{3gL} $$</div>
+<p style="margin-bottom: 10px;">Because $2gL < v_0^2 < 5gL$:</p>
+<div class="math-block">$$ -1 = \frac{2gL - 5gL}{3gL} < \cos\theta_d < \frac{2gL - 2gL}{3gL} = 0 $$</div>
+<p style="margin-bottom: 10px;">So $\cos\theta_d \in (-1, 0)$, meaning $\theta_d \in (\pi/2, \pi)$ is physically accessible!</p>
+<p style="margin-bottom: 10px;">At this point, the speed is:</p>
+<div class="math-block">$$ v^2(\theta_d) = v_0^2 - 2gL\left(1 - \frac{2gL - v_0^2}{3gL}\right) = v_0^2 - 2gL + \frac{2}{3}(2gL - v_0^2) = \frac{v_0^2 - 2gL}{3} > 0 $$</div>
+<p style="margin-bottom: 10px;"><strong>Conclusion:</strong> The detachment point <strong>is reached</strong>. The particle leaves the circular track at angle $\theta_d = \arccos\left(\frac{2gL - v_0^2}{3gL}\right)$ and transitions into free parabolic flight under gravity alone.</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Regime 3: $v_0 \ge \sqrt{5gL}$ (High energy, complete vertical loops)</strong></li>
+</ul>
+<p style="margin-bottom: 10px;">At the very top of the circle ($\theta = \pi, \cos\pi = -1$):</p>
+<div class="math-block">$$ N(\pi) = \frac{m v_0^2}{L} - mg(2 - 3(-1)) = \frac{m v_0^2}{L} - 5mg \ge 0 $$</div>
+<p style="margin-bottom: 10px;">The reaction force remains positive throughout the entire loop.</p>
+<p style="margin-bottom: 10px;"><strong>Conclusion:</strong> The particle <strong>never leaves</strong> the circumference and performs complete revolutions.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Rotating Circumference with Angular Velocity $\omega$</h4>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Equations of Motion in the Inertial Frame (rheonomic constraint)</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The circle turns about the vertical axis at the prescribed rate $\omega$, so the constraint depends explicitly on time (rheonomic, Unit 3). The motion is analysed in the inertial frame $\mathcal{F}_0$ with cylindrical coordinates $(\rho, \varphi, z)$ about $Oz$, where the plane of the circle is the meridian plane $\varphi = \omega t$. No moving-frame theorem is needed: the acceleration comes from the cylindrical formulas of Unit 1 and the reaction is a constraint force normal to the wire.</div>
+<p style="margin-bottom: 10px;">Position of the particle, with $\rho = L\sin\theta$ and $z = -L\cos\theta$ on the circle and $\dot\varphi = \omega$ constant:</p>
+<div class="math-block">$$ \mathbf{r} = \rho\,\mathbf{e}_\rho + z\,\mathbf{k} $$</div>
+<p style="margin-bottom: 10px;">Cylindrical acceleration with $\ddot\varphi = 0$ (Notes Sec. 2.6.2):</p>
+<div class="math-block">$$ \mathbf{a} = (\ddot\rho - \rho\omega^2)\,\mathbf{e}_\rho + 2\dot\rho\,\omega\,\mathbf{e}_\varphi + \ddot z\,\mathbf{k} $$</div>
+<p style="margin-bottom: 10px;">Differentiate $\rho$ and $z$ with the chain rule, $\frac{d}{dt}f(\theta(t)) = f'(\theta)\dot\theta$:</p>
+<div class="math-block">$$ \dot\rho = L\cos\theta\,\dot\theta, \qquad \ddot\rho = L\cos\theta\,\ddot\theta - L\sin\theta\,\dot\theta^2 $$</div>
+<div class="math-block">$$ \dot z = L\sin\theta\,\dot\theta, \qquad \ddot z = L\sin\theta\,\ddot\theta + L\cos\theta\,\dot\theta^2 $$</div>
+<p style="margin-bottom: 10px;">Forces: gravity $\mathbf{F}_g = -mg\,\mathbf{k}$ and the reaction $\mathbf{N} = N_r\,\mathbf{e}_r + N_\varphi\,\mathbf{e}_\varphi$ of the smooth wire. $\mathbf{N}$ is orthogonal to the tangent vector of the circle, $\mathbf{e}_\theta = \cos\theta\,\mathbf{e}_\rho + \sin\theta\,\mathbf{k}$, which lies in the meridian plane, so $\mathbf{N}\cdot\mathbf{e}_\theta = 0$. Projecting Newton's second law on $\mathbf{e}_\theta$ removes the reaction:</p>
+<div class="math-block">$$ m\,\mathbf{a}\cdot\mathbf{e}_\theta = \mathbf{F}_g\cdot\mathbf{e}_\theta = -mg\sin\theta $$</div>
+<p style="margin-bottom: 10px;">Compute $\mathbf{a}\cdot\mathbf{e}_\theta = (\ddot\rho - \rho\omega^2)\cos\theta + \ddot z\sin\theta$ term by term:</p>
+<div class="math-block">$$ \ddot\rho\cos\theta + \ddot z\sin\theta = L\ddot\theta(\cos^2\theta + \sin^2\theta) + L\dot\theta^2(-\sin\theta\cos\theta + \sin\theta\cos\theta) = L\ddot\theta $$</div>
+<div class="math-block">$$ -\rho\omega^2\cos\theta = -L\omega^2\sin\theta\cos\theta $$</div>
+<p style="margin-bottom: 10px;">Therefore:</p>
+<div class="math-block">$$ mL\ddot\theta - mL\omega^2\sin\theta\cos\theta = -mg\sin\theta $$</div>
+<div class="math-block">$$ \ddot\theta + \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0 $$</div>
+<p style="margin-bottom: 10px;">The component of $\mathbf{N}$ along $\mathbf{e}_\varphi$ is the force that makes the particle follow the turning plane: $N_\varphi = 2m\dot\rho\,\omega = 2mL\omega\dot\theta\cos\theta$. The in-plane component $N_r$ follows from the $\mathbf{e}_r$ projection and is not needed here.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Computation of Equilibrium Locations</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Equilibrium relative to the turning circle corresponds to static solutions where $\ddot{\theta} = 0$ and $\dot{\theta} = 0$ (in the inertial frame the particle then describes a horizontal circle).</div>
+<p style="margin-bottom: 10px;">Setting the angular acceleration to zero:</p>
+<div class="math-block">$$ \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0 $$</div>
+<p style="margin-bottom: 10px;">This equation is satisfied if either factor vanishes:</p>
+<p style="margin-bottom: 10px;">1. <strong>Vertical Alignments ($\sin\theta = 0$):</strong></p>
+<div class="math-block">$$ \theta_1 = 0 \quad (\text{lowest point / bottom}) $$</div>
+<div class="math-block">$$ \theta_2 = \pi \quad (\text{highest point / top}) $$</div>
+<p style="margin-bottom: 10px;">2. <strong>Off-Axis Equilibrium ($\cos\theta = \frac{g}{\omega^2 L}$):</strong></p>
+<p style="margin-bottom: 10px;">This solution exists physically if and only if:</p>
+<div class="math-block">$$ \left| \frac{g}{\omega^2 L} \right| \le 1 \iff \omega^2 \ge \frac{g}{L} $$</div>
+<p style="margin-bottom: 10px;">When $\omega > \sqrt{\frac{g}{L}}$, two symmetric equilibrium positions emerge:</p>
+<div class="math-block">$$ \theta_{3,4} = \pm \arccos\left(\frac{g}{\omega^2 L}\right) $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
 <h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The out-of-plane reaction $N_\phi$ is purely generated by the Coriolis acceleration: to keep the particle moving along the rotating meridian, the wire must exert a lateral force balancing the Coriolis effect.</li>
-<li>At the equator ($\theta = \pi/2$), $\cos(\pi/2) = 0 \implies N_\phi = 0$. At this point, the velocity $\mathbf{v}'$ is parallel to $\boldsymbol{\omega}$, so the cross product $\boldsymbol{\omega} \times \mathbf{v}'$ vanishes.</li>
+<li><strong>Supercritical Pitchfork Bifurcation:</strong></li>
+<li>For slow rotation $\omega < \omega_c = \sqrt{g/L}$, the bottom $\theta = 0$ is the only stable equilibrium.</li>
+<li>When the rotation rate crosses the critical threshold $\omega_c$, the bottom becomes unstable, and the particle naturally climbs up the wire to settle at the tilted angle $\theta_0 = \arccos\left(\frac{g}{\omega^2 L}\right)$, where the horizontal circle of radius $L\sin\theta$ has exactly the centripetal acceleration that the vertical balance with gravity requires.</li>
+<li>As $\omega \to \infty$, $\cos\theta_0 \to 0 \implies \theta_0 \to \pi/2$ (the particle moves toward the equator).</li>
 </ul>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[N_\phi] = [m\,\omega\,R\,\dot{\theta}] = \text{kg}\cdot\text{s}^{-1}\cdot\text{m}\cdot\text{s}^{-1} = \text{N}$; in $E'$ each of $\tfrac{1}{2}mR^2\dot{\theta}^2$, $mgR\cos\theta$ and $\tfrac{1}{2}m\omega^2R^2\sin^2\theta$ has units of joule.</li>
-<li><strong>Limit $\omega \to 0$:</strong> the wire is at rest, $N_\phi \to 0$ and $E' \to \tfrac{1}{2}mR^2\dot{\theta}^2 - mgR\cos\theta$, the energy of the simple pendulum.</li>
-<li><strong>Independent check of $N_\phi$ (sympy, inertial frame):</strong> differentiating twice $\mathbf{r} = R\sin\theta\,\mathbf{e}_\rho(\omega t) - R\cos\theta\,\mathbf{k}$ in the inertial frame gives $\mathbf{a}\cdot\mathbf{e}_\phi = 2\omega R\dot{\theta}\cos\theta$; since only $N_\phi$ acts along $\mathbf{e}_\phi$, $N_\phi = 2m\omega R\dot{\theta}\cos\theta$, identical to the rotating-frame result.</li>
-<li><strong>Numerical check of $E'$ (RK4, step $10^{-3}$, $R = 1$ m, $\omega = 1.3$ rad/s, $g = 9.81$ m/s$^2$):</strong> integrating $\ddot{\theta} = -(g/R)\sin\theta + \omega^2\sin\theta\cos\theta$ for $20$ s from $\theta = 0.4$, $\dot{\theta} = 0.3$, $E'/m$ stays at $-9.118750$ with a drift of $9\times 10^{-14}$.</li>
+<li><strong>Dimensional check:</strong> $[N] = [mv_0^2/L] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$; $\cos\theta_d = (2gL - v_0^2)/(3gL)$ is dimensionless; $\omega_c = \sqrt{g/L}$ has units $\text{s}^{-1}$.</li>
+<li><strong>Limits of the regimes:</strong> at $v_0^2 = 2gL$, $\cos\theta_d = 0$ ($\theta_d = \pi/2$), the boundary between oscillation and detachment; at $v_0^2 = 5gL$, $\cos\theta_d = -1$ ($\theta_d = \pi$) and $N(\pi) = 0$, the boundary between detachment and full loops. For $\omega \to 0$ in part (b) the equation reduces to the simple pendulum $\ddot{\theta} + (g/L)\sin\theta = 0$.</li>
+<li><strong>Numerical example ($g = L = 1$, $v_0^2 = 3.5$, regime 2):</strong> $\cos\theta_d = (2 - 3.5)/3 = -0.5$, $\theta_d = 120^\circ$; $v^2(\theta_d) = (v_0^2 - 2gL)/3 = 0.5$ and $N(\theta_d) = v_0^2/L - g(2 - 3\cos\theta_d) = 3.5 - 3.5 = 0$, as required.</li>
 </ul>
-</div>
-        </div>
-      </details>
-
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 10)</span>
-      </div>
-    </div>
-
-    <!-- Problem 22 -->
-    <div class="problem-card" id="prob-22">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 22</div>
-          <h2 class="problem-title">Particle on a Curve</h2>
-      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=10" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 10</a>
-        </div>
-        <span class="problem-badge">1D Curve Constraint</span>
-      </div>
-      <div class="problem-statement">
-        <p>A heavy point particle $P$ of mass $m$ is constrained to move without friction along the curve:</p>
-        <div class="math-block">
-          $$ y = a\left(1 - \cos\frac{x}{a}\right) \tag{4} $$
-        </div>
-        <p>in the range $-\pi a \le x \le \pi a$, where $a$ is a positive constant. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.</p>
-      </div>
-      <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">Reduce the problem to integrals.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">If $v_0 = \sqrt{ga}$, determine the minimum and maximum value of $x$ along the motion.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">What should be the minimum value of $v_0$ in order to reach $x = \pi a$?</div>
-        </li>
-      </ul>
-      <div class="problem-statement" style="margin-top: 14px;">
-        <p><strong>Extended Section (Moving Reference Frame):</strong><br>
-        Let's assume now that the curve containing the point particle rotates around the $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.</p>
-      </div>
-      <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Determine the inertia force that acts on the particle in this moving reference frame as a function of $m, \Omega, x_1$ and $\dot{x}_1$, where $x_1$ represents the position coordinate of $P$ along $OX_1$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(e)</span>
-          <div class="question-text">Reduce the problem to quadratures and determine the value of the reaction force.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(f)</span>
-          <div class="question-text">Find out a transcendental equation whose solutions are the equilibrium positions of the point particle in $OX_1Y_1Z_1$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(g)</span>
-          <div class="question-text">If $\Omega$ were a function of time, would it be possible to use the energy equation in the same way as before? Justify your answer.</div>
-        </li>
-      </ul>
-            <!-- Analytical Solution -->
-      <details class="solution-details">
-        <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
-        </summary>
-        <div class="solution-content">
-<div class="phase-block">
-<span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ is constrained to move without friction along the smooth planar curve:</li>
-</ul>
-<div class="math-block">$$ y = a\left(1 - \cos\frac{x}{a}\right), \qquad x \in [-\pi a, \pi a] $$</div>
-<p style="margin-bottom: 10px;">in a vertical plane under uniform downward gravity $\mathbf{g} = -g\mathbf{j}$.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>CDOFs:</strong> 1 degree of freedom, parametrized by Cartesian abscissa $x(t)$.</li>
-<li><strong>Initial State ($t = 0$):</strong> $x(0) = 0 \implies y(0) = a(1 - \cos 0) = 0$, with initial velocity $\mathbf{v}_0 = v_0\mathbf{i}$ ($v_0 > 0$).</li>
-<li><strong>Parameters:</strong> $m > 0$ [kg], $a > 0$ [m], $g > 0$ [m/s$^2$], $v_0 > 0$ [m/s].</li>
-</ul>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Coordinate Geometry</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial Frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$.</li>
-<li><strong>Curve Differential Elements:</strong></li>
-</ul>
-<div class="math-block">$$ \frac{dy}{dx} = \frac{d}{dx}\left[a\left(1 - \cos\frac{x}{a}\right)\right] = \sin\left(\frac{x}{a}\right) $$</div>
-<p style="margin-bottom: 10px;">Differential arc-length:</p>
-<div class="math-block">$$ ds^2 = dx^2 + dy^2 = dx^2 + \sin^2\left(\frac{x}{a}\right)dx^2 = \left[1 + \sin^2\left(\frac{x}{a}\right)\right]dx^2 $$</div>
-<div class="math-block">$$ ds = \sqrt{1 + \sin^2\left(\frac{x}{a}\right)}\,dx $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Velocity:</strong></li>
-</ul>
-<div class="math-block">$$ v = \frac{ds}{dt} = \sqrt{1 + \sin^2\left(\frac{x}{a}\right)}\,\dot{x} $$</div>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a): Reduction of Motion to Integrals</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The frictionless constraint does zero work ($W_N = 0$). Gravity is conservative with potential energy $V(y) = mgy = mga(1 - \cos(x/a))$. Total mechanical energy is constant.</div>
-<div class="math-block">$$ E = \frac{1}{2}m v^2 + mgy = \frac{1}{2}m v_0^2 + mg(0) = \frac{1}{2}m v_0^2 $$</div>
-<div class="math-block">$$ \frac{1}{2}m \left[1 + \sin^2\left(\frac{x}{a}\right)\right]\dot{x}^2 + mga\left(1 - \cos\frac{x}{a}\right) = \frac{1}{2}m v_0^2 $$</div>
-<p style="margin-bottom: 10px;">Multiply by $2/m$:</p>
-<div class="math-block">$$ \left[1 + \sin^2\left(\frac{x}{a}\right)\right]\dot{x}^2 = v_0^2 - 2ga\left(1 - \cos\frac{x}{a}\right) $$</div>
-<p style="margin-bottom: 10px;">Isolate $\dot{x} = \frac{dx}{dt}$:</p>
-<div class="math-block">$$ \frac{dx}{dt} = \pm \sqrt{\frac{v_0^2 - 2ga(1 - \cos(x/a))}{1 + \sin^2(x/a)}} $$</div>
-<p style="margin-bottom: 10px;">Separation of variables yields the quadrature:</p>
-<div class="math-block">$$ \int_{0}^{x(t)} \sqrt{\frac{1 + \sin^2(x'/a)}{v_0^2 - 2ga(1 - \cos(x'/a))}}\,dx' = \pm t $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Turning Points for $v_0 = \sqrt{ga}$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Turning points occur where the velocity vanishes ($v = 0 \iff \dot{x} = 0$).</div>
-<div class="math-block">$$ v_0^2 - 2ga\left(1 - \cos\frac{x}{a}\right) = 0 $$</div>
-<p style="margin-bottom: 10px;">Substitute $v_0^2 = ga$:</p>
-<div class="math-block">$$ ga - 2ga\left(1 - \cos\frac{x}{a}\right) = 0 $$</div>
-<p style="margin-bottom: 10px;">Divide by $ga$:</p>
-<div class="math-block">$$ 1 - 2\left(1 - \cos\frac{x}{a}\right) = 0 \implies 2\cos\frac{x}{a} = 1 \implies \cos\frac{x}{a} = \frac{1}{2} $$</div>
-<p style="margin-bottom: 10px;">In the domain $x/a \in [-\pi, \pi]$:</p>
-<div class="math-block">$$ \frac{x}{a} = \pm \frac{\pi}{3} \implies x_{min} = -\frac{\pi}{3}a, \qquad x_{max} = +\frac{\pi}{3}a $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Minimum Velocity $v_0$ to Reach $x = \pi a$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> At the crest $x = \pi a$, the height is $y(\pi a) = a(1 - \cos\pi) = a(1 - (-1)) = 2a$. For the particle to reach this crest, its kinetic energy at the peak must be non-negative ($T(\pi a) \ge 0$).</div>
-<div class="math-block">$$ E \ge V(\pi a) \implies \frac{1}{2}m v_0^2 \ge mg(2a) = 2mga $$</div>
-<div class="math-block">$$ v_0^2 \ge 4ga \implies v_{0,min} = \sqrt{4ga} = 2\sqrt{ga} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Moving Reference Frame with Rotation $\boldsymbol{\omega} = \Omega\mathbf{j}$</h4>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Frame $\mathcal{F}_1 = \{O; \mathbf{i}_1, \mathbf{j}, \mathbf{k}_1\}$ rotating with $\boldsymbol{\Omega} = \Omega\mathbf{j}$.</li>
-<li>Particle position: $\mathbf{r}' = x_1\mathbf{i}_1 + y(x_1)\mathbf{j}$.</li>
-<li>Relative velocity: $\mathbf{v}' = \dot{x}_1\mathbf{i}_1 + \sin(x_1/a)\dot{x}_1\mathbf{j}$.</li>
-<li>Inertia forces in $\mathcal{F}_1$:</li>
-</ul>
-<p style="margin-bottom: 10px;">1. Centrifugal Force:</p>
-<div class="math-block">$$ \mathbf{F}_{cf} = -m\boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{r}') = m\Omega^2 x_1\mathbf{i}_1 $$</div>
-<p style="margin-bottom: 10px;">2. Coriolis Force:</p>
-<div class="math-block">$$ \mathbf{F}_{Cor} = -2m\boldsymbol{\Omega} \times \mathbf{v}' = -2m(\Omega\mathbf{j}) \times (\dot{x}_1\mathbf{i}_1 + \dot{y}_1\mathbf{j}) = 2m\Omega\dot{x}_1\,\mathbf{k}_1 $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (e): Quadratures and Reaction Force in the Moving Frame</h4>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Effective potential in $\mathcal{F}_1$:</li>
-</ul>
-<div class="math-block">$$ V_{eff}(x_1) = mgy(x_1) - \frac{1}{2}m\Omega^2 x_1^2 = mga\left(1 - \cos\frac{x_1}{a}\right) - \frac{1}{2}m\Omega^2 x_1^2 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Energy conservation in $\mathcal{F}_1$:</li>
-</ul>
-<div class="math-block">$$ E' = \frac{1}{2}m\left[1 + \sin^2(x_1/a)\right]\dot{x}_1^2 + mga\left(1 - \cos\frac{x_1}{a}\right) - \frac{1}{2}m\Omega^2 x_1^2 = \text{constant} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Reaction force: $\mathbf{N} = N_n\mathbf{n} + N_z\mathbf{k}_1$.</li>
-</ul>
-<p style="margin-bottom: 10px;">Along the binormal $\mathbf{k}_1$: $N_z = -F_{Cor, z} = -2m\Omega\dot{x}_1$.</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Transcendental Equilibrium Equation</h4>
-<p style="margin-bottom: 10px;">Equilibrium occurs where $\frac{dV_{eff}}{dx_1} = 0$:</p>
-<div class="math-block">$$ \frac{dV_{eff}}{dx_1} = mg\sin\left(\frac{x_1}{a}\right) - m\Omega^2 x_1 = 0 \implies g\sin\left(\frac{x_1}{a}\right) - \Omega^2 x_1 = 0 $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (g): Case $\Omega = \Omega(t)$</h4>
-<p style="margin-bottom: 10px;">If $\Omega$ varies with time, the centrifugal potential becomes explicitly time-dependent ($\frac{\partial V_{cf}}{\partial t} = -m\Omega\dot{\Omega}x_1^2 \neq 0$) and an Euler inertia force $\mathbf{F}_{Euler} = -m\dot{\boldsymbol{\Omega}} \times \mathbf{r}'$ appears, which does non-zero work. Thus, mechanical energy in $\mathcal{F}_1$ is <strong>not</strong> conserved.</p>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The potential well has width $2\pi a$ and barrier height $2ga$. Rotation creates a centrifugal destabilizing potential $-\frac{1}{2}m\Omega^2 x_1^2$ so that the origin loses stability for $\Omega^2 > g/a$. Off-centre equilibria satisfy $\sin u = \lambda u$ with $u = x_1/a$ and $\lambda = \Omega^2 a/g$; since $\sin u/u$ decreases monotonically from $1$ to $0$ on $(0, \pi]$, they exist (one pair $\pm u^*$ with $0 < u^* < \pi$) only for $\lambda < 1$, i.e. $\Omega^2 < g/a$, and there they are unstable ($V_{eff}'' = (mg/a)(\cos u^* - \lambda) < 0$).</li>
-</ul>
-<div class="justification-box"><strong>Erratum:</strong> The first version stated that off-centre equilibria appear for $\Omega^2 > g/a$; they exist only for $\Omega^2 < g/a$ (subcritical case) and are unstable. Numeric check: a scan of $\sin u = \lambda u$ on $(0, \pi]$ finds one root for $\lambda = 0.5$ ($u^* = 1.8955$) and for $0.9$, and none for $\lambda = 1, 1.1, 2$.</div>
 </div>
         </div>
       </details>
@@ -1143,135 +1032,6 @@
 <div class="problem-footer">
         <span class="status-solved">Complete Step-by-Step Solution</span>
         <span class="source-tag">Source: Problems.pdf (Page 12)</span>
-      </div>
-    </div>
-
-    <!-- Problem 26 -->
-    <div class="problem-card" id="prob-26">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 26</div>
-          <h2 class="problem-title">Heavy Particle on a Rotating Half-Circumference</h2>
-      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=14" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 14</a>
-        </div>
-        <span class="problem-badge">Semicircular Rotating Wire</span>
-      </div>
-      <div class="problem-statement">
-        <p>A heavy point particle $P$ of mass $m$ is constrained to move without friction along the half-circumference wire of radius $a$ shown in the figure. The wire containing the point particle rotates around the $OY$ axis with constant angular velocity $\omega = \Omega\mathbf{j}$. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.</p>
-        <figure class="statement-figure"><img src="../../../vault/attachments/EM/T3-P26-figure.png" alt="Half-circumference wire of radius a in the Oxy plane carrying the particle m, gravity along −y" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"><figcaption>Figure: Half-circumference wire of radius a in the Oxy plane carrying the particle m, gravity along −y (Problems.pdf, p. 14).</figcaption></figure>
-      </div>
-      <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">Determine the number of degrees of freedom of the problem.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Express the inertia force that acts on the particle in this moving reference frame.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">Express also the components of the weight of the particle with respect to $OX_1Y_1Z_1$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">Determine if there are any equilibrium points.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(e)</span>
-          <div class="question-text">Reduce the problem to integrals (i.e. quadratures) and determine the value of the reaction force.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(f)</span>
-          <div class="question-text">Is it possible to use the energy equation? If $\Omega$ were a function of time, would it be possible to use the energy equation? Justify your answer.</div>
-        </li>
-      </ul>
-            <!-- Analytical Solution -->
-      <details class="solution-details">
-        <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
-        </summary>
-        <div class="solution-content">
-<div class="phase-block">
-<span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ slides smoothly along a half-circumference wire of radius $a$ lying in the $X_1Y_1$ plane, which rotates around the vertical $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.</li>
-<li><strong>CDOFs:</strong> 1 degree of freedom ($\theta \in [0, \pi]$).</li>
-<li><strong>Initial State:</strong> At $t = 0$, $x_1(0) = 0, \theta(0) = 0$, velocity $\mathbf{v}_0 = v_0\mathbf{i}_1$.</li>
-<li><strong>Parameters:</strong> $m, a, \Omega, g, v_0 > 0$.</li>
-</ul>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Coordinate Geometry</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Moving frame $\mathcal{F}_1 = \{O; \mathbf{i}_1, \mathbf{j}, \mathbf{k}_1\}$ rotating with $\boldsymbol{\omega}_{1/0} = \Omega\mathbf{j}$.</li>
-<li>Position on half-circle: $\mathbf{r}' = a\sin\theta\,\mathbf{i}_1 - a\cos\theta\,\mathbf{j}$.</li>
-<li>Polar tangent on wire: $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{j}$.</li>
-<li>Relative velocity: $\mathbf{v}' = a\dot{\theta}\mathbf{e}_\theta$.</li>
-</ul>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$ (rotation about $\mathbf{j}$).</strong> $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}, \mathbf{k}_1\}$ is the inertial basis $\{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\Omega t$ about $\mathbf{j}$, so $\mathbf{i}_1 = \cos\Omega t\,\mathbf{i} - \sin\Omega t\,\mathbf{k}$ and $\mathbf{k}_1 = \sin\Omega t\,\mathbf{i} + \cos\Omega t\,\mathbf{k}$:</li>
-</ul>
-<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\Omega t & 0 & \sin\Omega t \\ 0 & 1 & 0 \\ -\sin\Omega t & 0 & \cos\Omega t \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Change of basis $\mathcal{B}_1 \to \mathcal{B}_w$ (wire basis).</strong> With $\mathbf{e}_r = \sin\theta\,\mathbf{i}_1 - \cos\theta\,\mathbf{j}$, $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{j}$ and $\mathbf{e}_r \times \mathbf{e}_\theta = \mathbf{k}_1$, the triple $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_1\}$ is right-handed:</li>
-</ul>
-<div class="math-block">$$ [{}_1 R_w] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ -\cos\theta & \sin\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_1 R_w] = \sin^2\theta + \cos^2\theta = 1, \qquad [{}_1 R_w][{}_1 R_w]^T = I $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Both matrices were checked symbolically with sympy ($\mathbf{i}_1 \times \mathbf{j} = \mathbf{k}_1$ included).</li>
-</ul>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a): Degrees of Freedom</h4>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Ambient space: 3 coordinates. Two constraints: wire geometry ($r = a, z_1 = 0$).</li>
-<li>Total CDOFs: $3 - 2 = 1$.</li>
-</ul>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Inertia Forces in $\mathcal{F}_1$</h4>
-<p style="margin-bottom: 10px;">1. Centrifugal Force:</p>
-<div class="math-block">$$ \mathbf{F}_{cf} = m\Omega^2 x_1\mathbf{i}_1 = m\Omega^2 a\sin\theta\,\mathbf{i}_1 $$</div>
-<p style="margin-bottom: 10px;">2. Coriolis Force:</p>
-<div class="math-block">$$ \mathbf{F}_{Cor} = -2m(\Omega\mathbf{j}) \times (a\dot{\theta}\mathbf{e}_\theta) = 2m\Omega a\dot{\theta}\cos\theta\,\mathbf{k}_1 $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Components of Weight</h4>
-<div class="math-block">$$ \mathbf{F}_g = -mg\mathbf{j} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Equilibrium Points in $\mathcal{F}_1$</h4>
-<p style="margin-bottom: 10px;">Project equation of motion along the wire tangent $\mathbf{e}_\theta$:</p>
-<div class="math-block">$$ m a \ddot{\theta} = (\mathbf{F}_g + \mathbf{F}_{cf}) \cdot \mathbf{e}_\theta = (-mg\mathbf{j} + m\Omega^2 a\sin\theta\mathbf{i}_1) \cdot (\cos\theta\,\mathbf{i}_1 + \sin\theta\,\mathbf{j}) $$</div>
-<div class="math-block">$$ m a \ddot{\theta} = m\Omega^2 a\sin\theta\cos\theta - mg\sin\theta = m a\left(\Omega^2\cos\theta - \frac{g}{a}\right)\sin\theta $$</div>
-<p style="margin-bottom: 10px;">Equilibria ($\ddot{\theta} = 0$):</p>
-<p style="margin-bottom: 10px;">1. $\sin\theta = 0 \implies \theta = 0$ (lowest point, stable if $\Omega^2 < g/a$).</p>
-<p style="margin-bottom: 10px;">2. $\cos\theta = \frac{g}{\Omega^2 a}$. This requires $\Omega^2 > g/a$, yielding the stable equilibrium $\theta_0 = \arccos\left(\frac{g}{\Omega^2 a}\right)$.</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (e): Reduction to Quadratures & Reaction Force</h4>
-<p style="margin-bottom: 10px;">Effective potential:</p>
-<div class="math-block">$$ V_{eff}(\theta) = -mg a\cos\theta - \frac{1}{2}m\Omega^2 a^2\sin^2\theta $$</div>
-<p style="margin-bottom: 10px;">Energy conservation:</p>
-<div class="math-block">$$ \frac{1}{2}m a^2 \dot{\theta}^2 + V_{eff}(\theta) = E' = \frac{1}{2}m v_0^2 - mga $$</div>
-<div class="math-block">$$ \dot{\theta} = \pm \sqrt{\frac{v_0^2}{a^2} + \frac{2g}{a}(\cos\theta - 1) + \Omega^2\sin^2\theta} $$</div>
-<p style="margin-bottom: 10px;">Out-of-plane reaction:</p>
-<div class="math-block">$$ N_z = -F_{Cor, z} = -2m\Omega a\dot{\theta}\cos\theta $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Energy Equation Validity</h4>
-<p style="margin-bottom: 10px;">Energy is conserved in $\mathcal{F}_1$ because the rotation rate $\Omega$ is constant. If $\Omega = \Omega(t)$, Euler forces do work and $\partial V_{eff}/\partial t \neq 0$, breaking energy conservation.</p>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Supercritical pitchfork bifurcation at $\Omega_c = \sqrt{g/a}$.</li>
-</ul>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[m\Omega^2a] = \text{kg}\cdot\text{s}^{-2}\cdot\text{m} = \text{N}$ (centrifugal force); $[\Omega^2\cos\theta - g/a] = \text{s}^{-2}$; $[N_z] = [m\,\Omega\,a\,\dot{\theta}] = \text{N}$; in the expression of $\dot{\theta}$ every term has units $\text{s}^{-2}$ under the root.</li>
-<li><strong>Limits:</strong> for $\Omega \to 0$ the effective potential reduces to $-mga\cos\theta$ (simple pendulum with a single stable equilibrium at $\theta = 0$) and $N_z \to 0$; at $\Omega = \Omega_c = \sqrt{g/a}$ the off-axis equilibrium $\cos\theta_0 = g/(\Omega^2a) \to 1$ merges with $\theta = 0$; for $\Omega \to \infty$, $\theta_0 \to \pi/2$.</li>
-<li><strong>Numerical check ($\Omega^2 = 2g/a$):</strong> $\cos\theta_0 = 1/2$, $\theta_0 = 60^\circ$; $V_{eff}''(\theta_0) = mga\cos\theta_0 - m\Omega^2a^2\cos 2\theta_0 = 1.5\,mga > 0$ (stable) and the small-oscillation frequency is $\omega^2 = V_{eff}''/(ma^2) = 1.5\,g/a = \Omega^2\sin^2\theta_0$, which agree.</li>
-</ul>
-</div>
-        </div>
-      </details>
-
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 14)</span>
       </div>
     </div>
 
@@ -1523,7 +1283,8 @@
 <div class="math-block">$$ N = mg\sin\alpha - m\cos\alpha\left[\frac{g(1 - \cos\alpha)}{\sin\alpha}\right] = \frac{mg}{\sin\alpha}(\sin^2\alpha - \cos\alpha + \cos^2\alpha) = \frac{mg(1 - \cos\alpha)}{\sin\alpha} $$</div>
 <div class="justification-box"><strong>Erratum:</strong> The first version had $\mathbf{a}_1\cdot\mathbf{n} = +\xi\dot{\theta}^2\sin\alpha\cos\alpha$ and $N = mg\sin\alpha + m\xi\dot{\theta}^2\sin\alpha\cos\alpha$ (its own algebra in (e) did not reach the quoted result). The centripetal term points against the outward normal: $\mathbf{a}_1\cdot\mathbf{n} = -\xi\dot{\theta}^2\sin\alpha\cos\alpha$, hence $N = mg\sin\alpha - m\xi\dot{\theta}^2\sin\alpha\cos\alpha$, which gives the same final value $N = mg(1 - \cos\alpha)/\sin\alpha$. Numeric check: sympy differentiation of $\mathbf{r}_1$ gives $\mathbf{a}_1\cdot\mathbf{n} = -\tfrac{1}{2}\xi\dot{\theta}^2\sin 2\alpha$ and $N/(mg) = 0.5774$ at $\alpha = 60^\circ$, equal to $(1 - \cos\alpha)/\sin\alpha$.</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Two First Integrals of Motion</h4>
-<p style="margin-bottom: 10px;">1. <strong>Angular Momentum First Integral:</strong></p>
+<p style="margin-bottom: 10px;">1. <strong>Azimuthal First Integral (cyclic coordinate $\theta$):</strong></p>
+<p style="margin-bottom: 10px;">With $\rho = \xi\sin\alpha$ the distance of $P_1$ to the axis, $a_\theta = \frac{1}{\rho}\frac{d}{dt}(\rho^2\dot{\theta})$. Gravity, the tension (directed to $O$) and the cone reaction all lie in the meridian plane of $P_1$, so the $\mathbf{e}_\theta$ equation reads $\frac{d}{dt}(\xi^2\sin^2\alpha\,\dot{\theta}) = 0$:</p>
 <div class="math-block">$$ \xi^2\dot{\theta} = C_1 $$</div>
 <p style="margin-bottom: 10px;">2. <strong>Mechanical Energy First Integral:</strong></p>
 <p style="margin-bottom: 10px;">Kinetic energy of both particles:</p>
@@ -1716,42 +1477,88 @@
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> Two particles $P$ and $Q$ of mass $m$ connected by an inextensible massless string of length $L$ that passes over a smooth horizontal cylinder of radius $R$.</li>
-<li>In addition, $P$ and $Q$ are connected by a spring of zero natural length and stiffness $k$.</li>
-<li>Tangency points with the cylinder are $A$ (left) and $B$ (right).</li>
-<li><strong>CDOFs:</strong> System in plane: 2 degrees of freedom.</li>
-<li><strong>Parameters:</strong> $m, R, L, k, g > 0$.</li>
+<li><strong>Physical System:</strong> two particles $P$ and $Q$ of mass $m$ joined by an inextensible, massless string of length $L$ that rests on a fixed cylinder of radius $R$ and centre $O$, and by a spring of zero natural length and stiffness $k$. The motion is planar, in the plane $Oxy$ with $Oy$ upward.</li>
+<li><strong>Hypotheses:</strong> the cylinder is smooth, the string is always tense and touches the cylinder along the arc between the tangency points $A$ (right) and $B$ (left), the spring does not touch the cylinder, and the inertial frame $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ is fixed to the cylinder.</li>
+<li><strong>Parameters:</strong> $m$ [kg], $L$ [m], $R$ [m], $k$ [N/m], $g$ [m/s$^2$]; $\ell_0 = (L - \pi R)/2$ [m] is defined below.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Coordinate Geometry</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Frame $S_0$ centered at $O$.</li>
-<li>Cylinder tangency points: $A$ at angle $\theta$, $B$ at angle $\psi$.</li>
-<li>Length of string: $L = \xi_P + R(\psi - \theta) + \xi_Q$.</li>
-<li>Connecting vector $\mathbf{PQ} = \mathbf{r}_Q - \mathbf{r}_P$.</li>
-</ul>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<p style="margin-bottom: 10px;">Tangency point $A$ is at the polar angle $\alpha$ from $Ox$ and $B$ at the polar angle $\beta$ from $Ox$. Two orthonormal bases follow the contact points:</p>
+<div class="math-block">$$ \mathbf{n}_A = \cos\alpha\,\mathbf{i} + \sin\alpha\,\mathbf{j}, \quad \mathbf{t}_A = \sin\alpha\,\mathbf{i} - \cos\alpha\,\mathbf{j}, \qquad \mathbf{n}_B = \cos\beta\,\mathbf{i} + \sin\beta\,\mathbf{j}, \quad \mathbf{t}_B = -\sin\beta\,\mathbf{i} + \cos\beta\,\mathbf{j} $$</div>
+<p style="margin-bottom: 10px;">$\mathbf{n}$ is the outward normal of the cylinder and $\mathbf{t}$ the unit vector along the straight string, pointing from the tangency point to the particle (clockwise at $A$, counter-clockwise at $B$). Change of basis from $\{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ (columns are the components of $\mathbf{t}_A, \mathbf{n}_A, \mathbf{k}$ and of $\mathbf{n}_B, \mathbf{t}_B, \mathbf{k}$):</p>
+<div class="math-block">$$ [{}_0 R_A] = \begin{pmatrix} \sin\alpha & \cos\alpha & 0 \\ -\cos\alpha & \sin\alpha & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad [{}_0 R_B] = \begin{pmatrix} \cos\beta & -\sin\beta & 0 \\ \sin\beta & \cos\beta & 0 \\ 0 & 0 & 1 \end{pmatrix} $$</div>
+<div class="math-block">$$ \det[{}_0 R_A] = \sin^2\alpha + \cos^2\alpha = 1, \quad \det[{}_0 R_B] = \cos^2\beta + \sin^2\beta = 1, \quad [{}_0 R_A][{}_0 R_A]^T = [{}_0 R_B][{}_0 R_B]^T = I $$</div>
+<p style="margin-bottom: 10px;">Time derivatives (each basis turns about $\mathbf{k}$ at the rate of its angle):</p>
+<div class="math-block">$$ \dot{\mathbf{t}}_A = \dot\alpha\,\mathbf{n}_A, \quad \dot{\mathbf{n}}_A = -\dot\alpha\,\mathbf{t}_A, \qquad \dot{\mathbf{n}}_B = \dot\beta\,\mathbf{t}_B, \quad \dot{\mathbf{t}}_B = -\dot\beta\,\mathbf{n}_B $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a)-(c): Forces and Spring Interaction</h4>
-<p style="margin-bottom: 10px;">Spring force on $P$ and $Q$:</p>
-<div class="math-block">$$ \mathbf{F}_{S,P} = -\mathbf{F}_{S,Q} = k\mathbf{PQ} = k(\mathbf{r}_Q - \mathbf{r}_P) $$</div>
-<p style="margin-bottom: 10px;">Expressing $\mathbf{r}_P$ and $\mathbf{r}_Q$ via tangency points:</p>
-<div class="math-block">$$ \mathbf{F}_{S,P} = k R(\mathbf{e}_B - \mathbf{e}_A) + k[L - \xi - R(\psi - \theta)]\mathbf{e}_\psi + k\xi\mathbf{e}_\theta $$</div>
-<p style="margin-bottom: 10px;">Compare with the official solution key (Problems.pdf, Solution keys section).</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d)-(f): Symmetric Configurations and Small-Angle Oscillations</h4>
-<p style="margin-bottom: 10px;">For symmetric configurations about $Oy$: $\psi = \pi - \theta$ and $\xi_P = \xi_Q$.</p>
-<p style="margin-bottom: 10px;">The system reduces to <strong>1 degree of freedom</strong>.</p>
-<p style="margin-bottom: 10px;">Linearizing the equations of motion for small angular deviations $\delta\theta$ around the symmetric equilibrium yields a simple harmonic oscillator with natural frequency:</p>
-<div class="math-block">$$ \omega_n = \sqrt{\frac{g}{R} + \frac{2k}{m}} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Degrees of freedom and coordinates</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Two free particles in the plane have 4 degrees of freedom. The inextensible string removes one, so the system has 3.</div>
+<p style="margin-bottom: 10px;">The straight segments $AP$ and $BQ$ have lengths $\xi_P$ and $\xi_Q$, and the string wraps the arc $AB$ of length $R(\beta - \alpha)$ on the cylinder. The length constraint is</p>
+<div class="math-block">$$ \xi_P + \xi_Q + R(\beta - \alpha) = L $$</div>
+<p style="margin-bottom: 10px;">Generalized coordinates: $(\alpha, \beta, \xi_P)$, with $\xi_Q = L - \xi_P - R(\beta - \alpha)$ (the quadruple $(\alpha, \beta, \xi_P, \xi_Q)$ is used below with this one relation).</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Position, velocity and acceleration</h4>
+<p style="margin-bottom: 10px;">Positions: $\mathbf{r}_P = R\,\mathbf{n}_A + \xi_P\,\mathbf{t}_A$ and $\mathbf{r}_Q = R\,\mathbf{n}_B + \xi_Q\,\mathbf{t}_B$.</p>
+<p style="margin-bottom: 10px;">Velocity of $P$ (product rule on each term, using $\dot{\mathbf{n}}_A = -\dot\alpha\,\mathbf{t}_A$ and $\dot{\mathbf{t}}_A = \dot\alpha\,\mathbf{n}_A$):</p>
+<div class="math-block">$$ \mathbf{v}_P = -R\dot\alpha\,\mathbf{t}_A + \dot\xi_P\,\mathbf{t}_A + \xi_P\dot\alpha\,\mathbf{n}_A = (\dot\xi_P - R\dot\alpha)\,\mathbf{t}_A + \xi_P\dot\alpha\,\mathbf{n}_A $$</div>
+<p style="margin-bottom: 10px;">Differentiate again, again with the product rule:</p>
+<div class="math-block">$$ \mathbf{a}_P = (\ddot\xi_P - R\ddot\alpha)\,\mathbf{t}_A + (\dot\xi_P - R\dot\alpha)\dot\alpha\,\mathbf{n}_A + (\dot\xi_P\dot\alpha + \xi_P\ddot\alpha)\,\mathbf{n}_A - \xi_P\dot\alpha^2\,\mathbf{t}_A $$</div>
+<div class="math-block">$$ \mathbf{a}_P = \left(\ddot\xi_P - R\ddot\alpha - \xi_P\dot\alpha^2\right)\mathbf{t}_A + \left(\xi_P\ddot\alpha + 2\dot\xi_P\dot\alpha - R\dot\alpha^2\right)\mathbf{n}_A $$</div>
+<p style="margin-bottom: 10px;">For $Q$, with $\dot{\mathbf{n}}_B = \dot\beta\,\mathbf{t}_B$ and $\dot{\mathbf{t}}_B = -\dot\beta\,\mathbf{n}_B$:</p>
+<div class="math-block">$$ \mathbf{v}_Q = (\dot\xi_Q + R\dot\beta)\,\mathbf{t}_B - \xi_Q\dot\beta\,\mathbf{n}_B $$</div>
+<div class="math-block">$$ \mathbf{a}_Q = \left(\ddot\xi_Q + R\ddot\beta - \xi_Q\dot\beta^2\right)\mathbf{t}_B - \left(\xi_Q\ddot\beta + 2\dot\xi_Q\dot\beta + R\dot\beta^2\right)\mathbf{n}_B $$</div>
+<p style="margin-bottom: 10px;">These four components were checked symbolically with sympy (zero residual).</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Forces</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Weights: $-mg\,\mathbf{j}$ on each particle.</li>
+<li>String tension $T \ge 0$ (the same on both sides because the cylinder is smooth and the string massless): $-T\,\mathbf{t}_A$ on $P$ and $-T\,\mathbf{t}_B$ on $Q$, directed towards the tangency points. The cylinder acts on the string, not on the particles.</li>
+<li>Spring (zero natural length): $\mathbf{F}_{s,P} = k(\mathbf{r}_Q - \mathbf{r}_P)$ on $P$ and $\mathbf{F}_{s,Q} = -\mathbf{F}_{s,P}$ on $Q$.</li>
+</ul>
+<p style="margin-bottom: 10px;">Projections of the weight and of the spring force on the bases ($\mathbf{j}\cdot\mathbf{t}_A = -\cos\alpha$, $\mathbf{j}\cdot\mathbf{n}_A = \sin\alpha$, $\mathbf{j}\cdot\mathbf{t}_B = \cos\beta$, $\mathbf{j}\cdot\mathbf{n}_B = \sin\beta$) give the four Newton equations. Writing $\mathbf{d} = \mathbf{r}_Q - \mathbf{r}_P$:</p>
+<div class="math-block">$$ m\left(\ddot\xi_P - R\ddot\alpha - \xi_P\dot\alpha^2\right) = -T + mg\cos\alpha + k\,\mathbf{d}\cdot\mathbf{t}_A $$</div>
+<div class="math-block">$$ m\left(\xi_P\ddot\alpha + 2\dot\xi_P\dot\alpha - R\dot\alpha^2\right) = -mg\sin\alpha + k\,\mathbf{d}\cdot\mathbf{n}_A $$</div>
+<div class="math-block">$$ m\left(\ddot\xi_Q + R\ddot\beta - \xi_Q\dot\beta^2\right) = -T - mg\cos\beta - k\,\mathbf{d}\cdot\mathbf{t}_B $$</div>
+<div class="math-block">$$ -m\left(\xi_Q\ddot\beta + 2\dot\xi_Q\dot\beta + R\dot\beta^2\right) = -mg\sin\beta - k\,\mathbf{d}\cdot\mathbf{n}_B $$</div>
+<p style="margin-bottom: 10px;">Together with the length constraint these are 5 equations for the 5 unknowns $\alpha, \beta, \xi_P, \xi_Q, T$. Subtracting the first and third equations removes $T$.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(d) Mechanical energy</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The mechanical energy of $P$ alone is not conserved: the tension and the spring do work on it, and that work is exchanged with $Q$. For the pair $P + Q$ the only forces that could dissipate energy are the tensions, so their total power is computed first.</div>
+<p style="margin-bottom: 10px;">Using $\mathbf{t}_A\cdot\mathbf{v}_P = \dot\xi_P - R\dot\alpha$ and $\mathbf{t}_B\cdot\mathbf{v}_Q = \dot\xi_Q + R\dot\beta$:</p>
+<div class="math-block">$$ \dot W_T = -T\,\mathbf{t}_A\cdot\mathbf{v}_P - T\,\mathbf{t}_B\cdot\mathbf{v}_Q = -T\,\frac{d}{dt}\left[\xi_P + \xi_Q + R(\beta - \alpha)\right] = -T\,\dot L = 0 $$</div>
+<p style="margin-bottom: 10px;">The tensions do zero net work. Gravity and the spring are conservative, so the total mechanical energy of the system is conserved, with the potential energy</p>
+<div class="math-block">$$ V = mg\,(y_P + y_Q) + \tfrac{1}{2}k\,|\mathbf{r}_Q - \mathbf{r}_P|^2, \qquad E = \tfrac{1}{2}m\,(v_P^2 + v_Q^2) + V = \text{constant} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(e) Symmetric configurations about $Oy$</h4>
+<p style="margin-bottom: 10px;">If the motion keeps the mirror symmetry about $Oy$, then $\beta = \pi - \alpha$ and $\xi_P = \xi_Q = \xi$. The length constraint becomes $2\xi + R(\pi - 2\alpha) = L$, that is</p>
+<div class="math-block">$$ \xi(\alpha) = \ell_0 + R\alpha, \qquad \ell_0 = \frac{L - \pi R}{2} $$</div>
+<p style="margin-bottom: 10px;">The system has $1$ degree of freedom, the angle $\alpha$. The relations between the coordinates are $\beta = \pi - \alpha$, $\xi_P = \xi_Q = \ell_0 + R\alpha$ and $\dot\xi = R\dot\alpha$.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(f) Equilibrium and small oscillations</h4>
+<p style="margin-bottom: 10px;">Coordinates of $P$ in the symmetric case, with $\xi = \ell_0 + R\alpha$:</p>
+<div class="math-block">$$ x_P = R\cos\alpha + \xi\sin\alpha, \qquad y_P = R\sin\alpha - \xi\cos\alpha $$</div>
+<p style="margin-bottom: 10px;">Derivatives with respect to $\alpha$ (note $\xi' = R$):</p>
+<div class="math-block">$$ x_P' = -R\sin\alpha + R\sin\alpha + \xi\cos\alpha = \xi\cos\alpha, \qquad y_P' = R\cos\alpha - R\cos\alpha + \xi\sin\alpha = \xi\sin\alpha $$</div>
+<p style="margin-bottom: 10px;">Hence $v_P = \xi\dot\alpha$. By symmetry $x_Q = -x_P$, $y_Q = y_P$, $|\mathbf{r}_Q - \mathbf{r}_P| = 2x_P$, and</p>
+<div class="math-block">$$ T_{kin} = 2\cdot\tfrac{1}{2}m\,\xi^2\dot\alpha^2 = m\,\xi^2\dot\alpha^2, \qquad V(\alpha) = 2mg\,y_P + \tfrac{1}{2}k\,(2x_P)^2 = 2mg\,y_P + 2k\,x_P^2 $$</div>
+<div class="math-block">$$ V'(\alpha) = 2mg\,\xi\sin\alpha + 4k\,x_P\,\xi\cos\alpha = 2\xi\,f(\alpha), \qquad f(\alpha) = mg\sin\alpha + 2k\cos\alpha\,(R\cos\alpha + \xi\sin\alpha) $$</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Equilibrium requires $V'(\alpha_0) = 0$, that is $f(\alpha_0) = 0$ (since $\xi > 0$). Physically, the horizontal pull $2kx_P$ of the spring must be balanced by the horizontal component of the tension, which needs $\alpha_0 < 0$: the segments $AP$ and $BQ$ are slightly inclined inwards.</div>
+<p style="margin-bottom: 10px;">Assuming the deviation of $AP$ and $BQ$ from the vertical is small, $|\alpha_0| \ll 1$, keep first-order terms ($\sin\alpha \approx \alpha$, $\cos\alpha \approx 1$, $\xi \approx \ell_0$):</p>
+<div class="math-block">$$ mg\,\alpha_0 + 2k\,(R + \ell_0\alpha_0) = 0 \implies \alpha_0 \approx -\frac{2kR}{mg + 2k\ell_0} $$</div>
+<p style="margin-bottom: 10px;">The equation of motion follows from $\frac{d}{dt}(T_{kin} + V) = 0$. Differentiate with the chain rule, using $\dot\xi = R\dot\alpha$:</p>
+<div class="math-block">$$ 2m\xi^2\dot\alpha\ddot\alpha + 2m\xi R\,\dot\alpha^3 + 2\xi f\,\dot\alpha = 0 \implies m\,\xi\,\ddot\alpha + m R\,\dot\alpha^2 + f(\alpha) = 0 $$</div>
+<p style="margin-bottom: 10px;">This is exactly the $\mathbf{n}_A$ equation of part (c) with $\dot\xi_P = R\dot\alpha$ and $\mathbf{d}\cdot\mathbf{n}_A = -2x_P\cos\alpha$. Put $\alpha = \alpha_0 + \delta$ with $\delta$ small; the term $\dot\alpha^2$ is second order and $f(\alpha) \approx f'(\alpha_0)\,\delta$:</p>
+<div class="math-block">$$ f'(\alpha) = mg\cos\alpha + 2k\left[\xi\cos^2\alpha - x_P\sin\alpha\right] \approx mg + 2k\,\ell_0 $$</div>
+<div class="math-block">$$ \ddot\delta + \frac{mg + 2k\ell_0}{m\,\ell_0}\,\delta = 0 \implies \omega^2 = \frac{g}{\ell_0} + \frac{2k}{m} $$</div>
+<div class="math-block">$$ \boxed{\;\omega = \sqrt{\frac{g}{\ell_0} + \frac{2k}{m}}, \qquad \ell_0 = \frac{L - \pi R}{2}\;} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The spring acts in parallel with gravity, stiffening the restoring torque and raising the natural frequency above the gravitational pendulum value $\sqrt{g/R}$.</li>
+<li><strong>Limit $k \to 0$:</strong> $\omega = \sqrt{g/\ell_0}$, the pendulum of length $\ell_0$, the free length of each hanging segment. The string unwinds from the cylinder, but at the vertical the instantaneous centre of rotation of $P$ is the tangency point $A$, at distance $\xi_0 \approx \ell_0$.</li>
+<li><strong>Limit $g \to 0$:</strong> $\omega = \sqrt{2k/m}$, the frequency of two particles of mass $m$ joined by a spring $k$ (reduced mass $m/2$ and stiffness $k$).</li>
+<li><strong>Dimensional check:</strong> $[g/\ell_0] = \text{s}^{-2}$, $[2k/m] = \text{N/m}/\text{kg} = \text{s}^{-2}$, so $[\omega] = \text{s}^{-1}$; $[\alpha_0] = [kR/(mg + 2k\ell_0)] = \text{N}/\text{N} = 1$.</li>
+<li><strong>Numerical check ($R = 1$ m, $\ell_0 = 2$ m, $m = 1$ kg, $k = 0.3$ N/m, $g = 9.81$ m/s$^2$):</strong> the exact root of $f(\alpha_0) = 0$ is $\alpha_0 = -0.05453$ rad against $-0.05450$ rad from the linear formula, and the exact $\omega^2 = f'(\alpha_0)/(m\,\xi(\alpha_0)) = 5.648$ s$^{-2}$ against $g/\ell_0 + 2k/m = 5.505$ s$^{-2}$; the small difference is the first-order correction $\xi(\alpha_0) = \ell_0 + R\alpha_0$ in place of $\ell_0$ (using $\xi(\alpha_0)$ gives $5.642$ s$^{-2}$).</li>
 </ul>
 </div>
         </div>
@@ -2032,160 +1839,6 @@
       </div>
     </div>
 
-    <!-- Problem 43 -->
-    <div class="problem-card" id="prob-43">
-      <div class="problem-header">
-        <div class="problem-title-area">
-          <div class="problem-num">Problem 43</div>
-          <h2 class="problem-title">Two Connected Particles, Plane with Hole</h2>
-      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=30" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 30</a>
-        </div>
-        <span class="problem-badge">Classic Central Tether Problem</span>
-      </div>
-      <div class="problem-statement">
-        <p>We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole. Initially, half of the cord lies under the plane and half of the cord is on the plane. At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.</p>
-      </div>
-      <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">What is the value of $v_0$ if $P_1$ describes a circumference?</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">In that case, what is the value of the tension in the cord?</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">If $v_0 = \sqrt{8ag/3}$, reduce the problem to integrals (i.e., quadratures).</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">Show that for this value of $v_0$, $P_1$ oscillates between $r = a$ and $r = 2a$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(e)</span>
-          <div class="question-text">Apply Newton's law to $P_2$ and show that the tension of the cord is $T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right)$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(f)</span>
-          <div class="question-text">Write down the new equations of motion if the plane on which $P_1$ moves is rough, with a friction coefficient $\mu$.</div>
-        </li>
-      </ul>
-      <div class="problem-statement">
-        <p><em>(Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1, x_2 = 2$ and $x_3 = -2/3$)</em>.</p>
-      </div>
-            <!-- Analytical Solution -->
-      <details class="solution-details">
-        <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
-          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
-        </summary>
-        <div class="solution-content">
-<div class="phase-block">
-<span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> Two particles $P_1$ and $P_2$, each of mass $m$, connected by a massless cord of length $2a$.</li>
-<li>Cord passes through a smooth hole at origin $O$.</li>
-<li>$P_1$ moves on a smooth horizontal plane $Oxy$ at distance $r(t)$.</li>
-<li>$P_2$ moves vertically below the hole at depth $z_2 = -(2a - r)$.</li>
-<li><strong>Initial State ($t = 0$):</strong> $r(0) = a$, $z_2(0) = -a$. Pushed perpendicularly with $v_0$.</li>
-<li><strong>CDOFs:</strong> 2 degrees of freedom: $(r, \theta)$.</li>
-<li><strong>Parameters:</strong> $m, a, g, v_0 > 0$.</li>
-</ul>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Coordinate Geometry</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Polar coordinates for $P_1$: $\mathbf{r}_1 = r\mathbf{e}_r$, $\mathbf{v}_1 = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta$.</li>
-<li>Vertical position of $P_2$: $\mathbf{r}_2 = -(2a - r)\mathbf{k}$, $\mathbf{v}_2 = \dot{r}\mathbf{k}$.</li>
-<li>Total kinetic energy:</li>
-</ul>
-<div class="math-block">$$ T = \frac{1}{2}m v_1^2 + \frac{1}{2}m v_2^2 = \frac{1}{2}m(\dot{r}^2 + r^2\dot{\theta}^2) + \frac{1}{2}m\dot{r}^2 = m\dot{r}^2 + \frac{1}{2}mr^2\dot{\theta}^2 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Change of basis (polar basis of $P_1$).</strong> $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$:</li>
-</ul>
-<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>With $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$, which produce the velocity $\mathbf{v}_1$ above. The matrix was checked symbolically with sympy.</li>
-</ul>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a)-(b): Circular Orbit Condition & String Tension</h4>
-<p style="margin-bottom: 10px;">For $P_1$ to describe a circle of radius $r = a$: $\dot{r} = 0, \ddot{r} = 0$.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>For $P_2$ to remain suspended in equilibrium:</li>
-</ul>
-<div class="math-block">$$ \sum F_z = T - mg = 0 \implies T = mg $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>For $P_1$ in circular orbit: the tension provides the centripetal force:</li>
-</ul>
-<div class="math-block">$$ T = m \frac{v_0^2}{a} \implies mg = m \frac{v_0^2}{a} \implies v_0 = \sqrt{ga} $$</div>
-<p style="margin-bottom: 10px;">String tension: $T = mg$.</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Reduction to Quadratures for $v_0 = \sqrt{\frac{8ga}{3}}$</h4>
-<p style="margin-bottom: 10px;">1. <strong>Angular Momentum Conservation for $P_1$:</strong></p>
-<p style="margin-bottom: 10px;">Tension on $P_1$ is purely radial ($\mathbf{T}_1 = -T\mathbf{e}_r$). No torque about $O$:</p>
-<div class="math-block">$$ L_z = m r^2\dot{\theta} = m a v_0 \implies \dot{\theta} = \frac{a v_0}{r^2} $$</div>
-<p style="margin-bottom: 10px;">2. <strong>Mechanical Energy Conservation:</strong></p>
-<div class="math-block">$$ E = m\dot{r}^2 + \frac{1}{2}mr^2\dot{\theta}^2 + mg z_2 = m\dot{r}^2 + \frac{m a^2 v_0^2}{2r^2} - mg(2a - r) $$</div>
-<p style="margin-bottom: 10px;">Evaluate $E$ at $t = 0$ with $r(0) = a, \dot{r}(0) = 0, v_0^2 = \frac{8ga}{3}$:</p>
-<div class="math-block">$$ E = 0 + \frac{1}{2}m v_0^2 - mga = \frac{1}{2}m\left(\frac{8ga}{3}\right) - mga = \frac{4}{3}mga - mga = \frac{1}{3}mga $$</div>
-<p style="margin-bottom: 10px;">Energy equation:</p>
-<div class="math-block">$$ m\dot{r}^2 + \frac{m a^2 (8ga/3)}{2r^2} + mgr - 2mga = \frac{1}{3}mga $$</div>
-<div class="math-block">$$ m\dot{r}^2 + \frac{4mga^3}{3r^2} + mgr - \frac{7}{3}mga = 0 $$</div>
-<p style="margin-bottom: 10px;">Divide by $m$ and isolate $\dot{r}^2$:</p>
-<div class="math-block">$$ \dot{r}^2 = \frac{7}{3}ga - gr - \frac{4ga^3}{3r^2} = \frac{g}{3r^2}\left(-3r^3 + 7ar^2 - 4a^3\right) $$</div>
-<p style="margin-bottom: 10px;">Separating variables:</p>
-<div class="math-block">$$ \int_{a}^{r(t)} \frac{r'\,dr'}{\sqrt{-3r'^3 + 7ar'^2 - 4a^3}} = \pm \sqrt{\frac{g}{3}}\,t $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Proof that $P_1$ Oscillates between $r = a$ and $r = 2a$</h4>
-<p style="margin-bottom: 10px;">Let $x = r/a$. The polynomial is:</p>
-<div class="math-block">$$ P(x) = -3x^3 + 7x^2 - 4 $$</div>
-<p style="margin-bottom: 10px;">Using the provided hint, factor $P(x)$:</p>
-<div class="math-block">$$ P(x) = -(x - 1)(x - 2)(3x + 2) $$</div>
-<p style="margin-bottom: 10px;">The roots are:</p>
-<div class="math-block">$$ x_1 = 1 \implies r_1 = a $$</div>
-<div class="math-block">$$ x_2 = 2 \implies r_2 = 2a $$</div>
-<div class="math-block">$$ x_3 = -2/3 \implies \text{unphysical } (r > 0) $$</div>
-<p style="margin-bottom: 10px;">In the physical domain $r \in [a, 2a]$, $(x - 1) \ge 0$, $(2 - x) \ge 0$, and $(3x + 2) > 0$, so $\dot{r}^2 \ge 0$.</p>
-<p style="margin-bottom: 10px;">The particle comes to rest at $r = a$ and $r = 2a$, oscillating periodically between them. $\blacksquare$</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (e): Cord Tension $T(r)$</h4>
-<p style="margin-bottom: 10px;">Applying Newton's second law to $P_2$ with the vertical axis pointing up: the depth below the hole is $h = 2a - r$, so $z_2 = -h = r - 2a$ and $\ddot{z}_2 = \ddot{r}$; the tension acts upward and the weight downward:</p>
-<div class="math-block">$$ m\ddot{z}_2 = T - mg \implies m\ddot{r} = T - mg \implies T = m(g + \ddot{r}) $$</div>
-<p style="margin-bottom: 10px;">To find $\ddot{r}$, differentiate the energy equation $\dot{r}^2 = \frac{7}{3}ga - gr - \frac{4ga^3}{3r^2}$:</p>
-<div class="math-block">$$ 2\dot{r}\ddot{r} = -g\dot{r} + \frac{8ga^3}{3r^3}\dot{r} \implies \ddot{r} = -\frac{1}{2}g + \frac{4ga^3}{3r^3} $$</div>
-<p style="margin-bottom: 10px;">Substitute into $T$:</p>
-<div class="math-block">$$ T = m\left[ g + \left(-\frac{1}{2}g + \frac{4ga^3}{3r^3}\right) \right] = mg\left( \frac{1}{2} + \frac{4a^3}{3r^3} \right) $$</div>
-<p style="margin-bottom: 10px;">This is the formula requested in the problem statement. $\blacksquare$</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Equations with Friction Coefficient $\mu$</h4>
-<p style="margin-bottom: 10px;">On the rough horizontal plane, normal force is $N_1 = mg$.</p>
-<p style="margin-bottom: 10px;">Friction force: $\mathbf{F}_f = -\mu mg \frac{\mathbf{v}_1}{|\mathbf{v}_1|} = -\mu mg \frac{\dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}}$.</p>
-<p style="margin-bottom: 10px;">New coupled equations of motion:</p>
-<div class="math-block">$$ 2m\ddot{r} - mr\dot{\theta}^2 + mg = -\mu mg \frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$</div>
-<div class="math-block">$$ m(r\ddot{\theta} + 2\dot{r}\dot{\theta}) = -\mu mg \frac{r\dot{\theta}}{\sqrt{\dot{r}^2 + r^2\dot{\theta}^2}} $$</div>
-</div><div class="phase-block">
-<span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>When $r = a$: $T = mg(1/2 + 4/3) = \frac{11}{6}mg > mg$, pulling $P_2$ upwards.</li>
-<li>When $r = 2a$: $T = mg(1/2 + 4/24) = mg(1/2 + 1/6) = \frac{2}{3}mg < mg$, letting $P_2$ accelerate downwards.</li>
-<li>The tension oscillates smoothly between $\frac{2}{3}mg$ and $\frac{11}{6}mg$, maintaining the periodic radial cycle.</li>
-</ul>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[\dot{r}^2] = \text{m}^2/\text{s}^2$ and $[g\,a^3/r^2] = [g\,r] = \text{m}^2/\text{s}^2$; $[T] = [m\,g] = \text{N}$; the tension formula $T = mg\left(\tfrac{1}{2} + \tfrac{4a^3}{3r^3}\right)$ is homogeneous because $a^3/r^3$ is dimensionless.</li>
-<li><strong>Numerical check (RK4, step $10^{-4}$, $g = a = 1$, $v_0^2 = 8/3$):</strong> integrating $\ddot{r} = -\tfrac{1}{2} + \tfrac{4}{3r^3}$ from $r = 1$, $\dot{r} = 0$ gives $r_{min} = 1.0000000$ and $r_{max} = 2.0000000$ (the oscillation of part (d)), and the tension $T = mg(\tfrac{1}{2} + \tfrac{4}{3r^3})$ evaluated along the orbit ranges between $0.666667\,mg$ at $r = 2a$ and $1.833333\,mg$ at $r = a$, equal to $\tfrac{2}{3}mg$ and $\tfrac{11}{6}mg$. The radial period is $6.3424\sqrt{a/g}$ (RK4, step $10^{-5}$).</li>
-<li><strong>Limit (general launch speed):</strong> differentiating the energy equation for an arbitrary $v_0$ gives $\ddot{r} = -\tfrac{1}{2}g + \dfrac{a^2v_0^2}{2r^3}$ (for $v_0^2 = 8ga/3$ this is the $\ddot{r}$ of part (e)). For $v_0^2 = ga$ it vanishes at $r = a$, recovering the circular orbit of part (a) with $T = m(g + \ddot{r}) = mg$.</li>
-</ul>
-</div>
-        </div>
-      </details>
-
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 30)</span>
-      </div>
-    </div>
-
     <!-- Problem 48 -->
     <div class="problem-card" id="prob-48">
       <div class="problem-header">
@@ -2294,9 +1947,9 @@
 <p style="margin-bottom: 10px;">The string remains in tension as long as $T(t) > 0$.</p>
 <p style="margin-bottom: 10px;">For $Q$, $m\ddot{z}_Q = T - mg \implies T = m(g + \ddot{z}_Q) > 0 \iff \ddot{z}_Q > -g$.</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f)-(g): Two First Integrals of Motion</h4>
-<p style="margin-bottom: 10px;">1. <strong>Angular Momentum Conservation:</strong></p>
-<p style="margin-bottom: 10px;">The surface is axisymmetric and the cord tension is central (directed towards $O$). Neither exerts torque about $Oz$:</p>
-<div class="math-block">$$ L_z = m R^2\dot{\theta} = \text{constant} = m [R(0)]^2 d = m\frac{d}{c^2} $$</div>
+<p style="margin-bottom: 10px;">1. <strong>Azimuthal First Integral (cyclic coordinate $\theta$):</strong></p>
+<p style="margin-bottom: 10px;">In cylindrical coordinates $a_\theta = \frac{1}{R}\frac{d}{dt}(R^2\dot{\theta})$. The paraboloid is axisymmetric, so its reaction has no $\mathbf{e}_\theta$ component; gravity is vertical and the tension of the cord (directed from $P$ to the hole $O$ on the axis) lies in the meridian plane of $P$. The $\mathbf{e}_\theta$ equation is $\frac{m}{R}\frac{d}{dt}(R^2\dot{\theta}) = 0$:</p>
+<div class="math-block">$$ C_z = m R^2\dot{\theta} = \text{constant} = m [R(0)]^2 d = m\frac{d}{c^2} $$</div>
 <div class="math-block">$$ \dot{\theta}(t) = \frac{d}{c^2 R^2} $$</div>
 <p style="margin-bottom: 10px;">2. <strong>Total Mechanical Energy Conservation:</strong></p>
 <p style="margin-bottom: 10px;">Constraints are frictionless and scleronomic:</p>
@@ -2314,7 +1967,7 @@
 </ul>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[c] = \text{m}^{-1}$, $[d] = \text{s}^{-1}$, $R(0) = 1/c$ is a length; $[cR^2] = \text{m}$ and $[c\,R] = 1$, so $\sqrt{1 + c^2R^2}$ is dimensionless.</li>
-<li><strong>Explicit turning-point equation (part (h)).</strong> At $\dot{R} = 0$ the kinetic energy reduces to $\tfrac{1}{2}mR^2\dot{\theta}^2$ with $R^2\dot{\theta}^2 = d^2/(c^4R^2)$ (from $L_z$), and the potential energy is $mg\,[cR^2 + R\sqrt{1 + c^2R^2}] - mg\ell$ (the term $-mg\ell$ cancels in $E - E_0$). Equating with the initial energy at $R(0) = 1/c$ (where $R\sqrt{1 + c^2R^2} = \sqrt{2}/c$), per unit mass:</li>
+<li><strong>Explicit turning-point equation (part (h)).</strong> At $\dot{R} = 0$ the kinetic energy reduces to $\tfrac{1}{2}mR^2\dot{\theta}^2$ with $R^2\dot{\theta}^2 = d^2/(c^4R^2)$ (from the azimuthal first integral), and the potential energy is $mg\,[cR^2 + R\sqrt{1 + c^2R^2}] - mg\ell$ (the term $-mg\ell$ cancels in $E - E_0$). Equating with the initial energy at $R(0) = 1/c$ (where $R\sqrt{1 + c^2R^2} = \sqrt{2}/c$), per unit mass:</li>
 </ul>
 <div class="math-block">$$ f(R) = \frac{d^2}{2c^4R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) - \frac{d^2}{2c^2} - \frac{(1 + \sqrt{2})\,g}{c} = 0 $$</div>
 <p style="margin-bottom: 10px;">  Each term has units m$^2$/s$^2$. The allowed radii are those with $f(R) \le 0$, and $R = 1/c$ is a root (sympy: $f(1/c) = 0$).</p>
@@ -2413,16 +2066,23 @@
 <p style="margin-bottom: 10px;">2. Velocity of $Q$:</p>
 <div class="math-block">$$ \mathbf{v}_Q = \ell(\dot{\theta}\cos\theta + \dot{\phi}\cos\phi)\,\mathbf{i} + \ell(\dot{\theta}\sin\theta + \dot{\phi}\sin\phi)\,\mathbf{k} $$</div>
 <div class="math-block">$$ v_Q^2 = \ell^2\left[ \dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}(\cos\theta\cos\phi + \sin\theta\sin\phi) \right] = \ell^2\left[ \dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi) \right] $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b)-(c): Equations of Motion</h4>
-<p style="margin-bottom: 10px;">Total Kinetic Energy:</p>
-<div class="math-block">$$ T = \frac{1}{2}m v_P^2 + \frac{1}{2}m v_Q^2 = \frac{1}{2}m\ell^2\left[ 2\dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi) \right] $$</div>
-<p style="margin-bottom: 10px;">Total Potential Energy (taking datum at $z = 0$):</p>
-<div class="math-block">$$ V = mg z_P + mg z_Q = -mg\ell\cos\theta - mg\ell(\cos\theta + \cos\phi) = -mg\ell(2\cos\theta + \cos\phi) $$</div>
-<p style="margin-bottom: 10px;">Lagrange's equations $\frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right) - \frac{\partial T}{\partial q} = -\frac{\partial V}{\partial q}$:</p>
-<p style="margin-bottom: 10px;">1. For $\theta$:</p>
-<div class="math-block">$$ 2\ell\ddot{\theta} + \ell\ddot{\phi}\cos(\theta - \phi) + \ell\dot{\phi}^2\sin(\theta - \phi) + 2g\sin\theta = 0 $$</div>
-<p style="margin-bottom: 10px;">2. For $\phi$:</p>
-<div class="math-block">$$ \ell\ddot{\phi} + \ell\ddot{\theta}\cos(\theta - \phi) - \ell\dot{\theta}^2\sin(\theta - \phi) + g\sin\phi = 0 $$</div>
+<p style="margin-bottom: 10px;">3. Acceleration of $P$ and $Q$. Define the unit vectors in the $(\mathbf{i}, \mathbf{k})$ plane: $\mathbf{e}_P = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{k}$ (from $O$ to $P$), $\mathbf{e}_{\theta} = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{k}$, $\mathbf{e}_Q = \sin\phi\,\mathbf{i} - \cos\phi\,\mathbf{k}$ (from $P$ to $Q$), $\mathbf{e}_{\phi} = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{k}$. Their derivatives are $\dot{\mathbf{e}}_P = \dot\theta\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot\theta\,\mathbf{e}_P$ and the same with $\phi$. Since $\mathbf{r}_P = \ell\,\mathbf{e}_P$ and $\mathbf{r}_Q = \ell\,\mathbf{e}_P + \ell\,\mathbf{e}_Q$:</p>
+<div class="math-block">$$ \mathbf{a}_P = \ell\left(\ddot\theta\,\mathbf{e}_\theta - \dot\theta^2\,\mathbf{e}_P\right) = \ell(\ddot\theta\cos\theta - \dot\theta^2\sin\theta)\,\mathbf{i} + \ell(\ddot\theta\sin\theta + \dot\theta^2\cos\theta)\,\mathbf{k} $$</div>
+<div class="math-block">$$ \mathbf{a}_Q = \mathbf{a}_P + \ell\left(\ddot\phi\,\mathbf{e}_\phi - \dot\phi^2\,\mathbf{e}_Q\right) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b)-(c): Forces and Equations of Motion (Newton)</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The bars are massless and rigid, so each one transmits a force along its own axis (tension $T_1$ in $OP$, $T_2$ in $PQ$; a negative value means compression). These two unknowns are eliminated by choosing the projection directions, which is the strategy of Unit 3 for constrained systems.</div>
+<p style="margin-bottom: 10px;">Forces on $P$: weight $-mg\,\mathbf{k}$, the pull $-T_1\,\mathbf{e}_P$ of bar $OP$ and the pull $+T_2\,\mathbf{e}_Q$ of bar $PQ$. Forces on $Q$: weight $-mg\,\mathbf{k}$ and the pull $-T_2\,\mathbf{e}_Q$ of bar $PQ$ (action and reaction).</p>
+<div class="math-block">$$ m\,\mathbf{a}_P = -mg\,\mathbf{k} - T_1\,\mathbf{e}_P + T_2\,\mathbf{e}_Q, \qquad m\,\mathbf{a}_Q = -mg\,\mathbf{k} - T_2\,\mathbf{e}_Q $$</div>
+<p style="margin-bottom: 10px;">Scalar products needed ($\mathbf{k}\cdot\mathbf{e}_P = -\cos\theta$, $\mathbf{k}\cdot\mathbf{e}_\theta = \sin\theta$, $\mathbf{k}\cdot\mathbf{e}_Q = -\cos\phi$, $\mathbf{k}\cdot\mathbf{e}_\phi = \sin\phi$):</p>
+<div class="math-block">$$ \mathbf{e}_P\cdot\mathbf{e}_Q = \cos(\theta - \phi), \quad \mathbf{e}_\theta\cdot\mathbf{e}_Q = \sin(\phi - \theta), \quad \mathbf{e}_\theta\cdot\mathbf{e}_\phi = \cos(\theta - \phi), \quad \mathbf{e}_P\cdot\mathbf{e}_\phi = \sin(\theta - \phi) $$</div>
+<p style="margin-bottom: 10px;"><strong>Equation for $\phi$.</strong> Project the equation of $Q$ on $\mathbf{e}_\phi$, which is orthogonal to $\mathbf{e}_Q$ and removes $T_2$. With $\mathbf{a}_P\cdot\mathbf{e}_\phi = \ell[\ddot\theta\cos(\theta - \phi) - \dot\theta^2\sin(\theta - \phi)]$ and $\ell(\ddot\phi\,\mathbf{e}_\phi - \dot\phi^2\,\mathbf{e}_Q)\cdot\mathbf{e}_\phi = \ell\ddot\phi$:</p>
+<div class="math-block">$$ m\ell\left[\ddot\phi + \ddot\theta\cos(\theta - \phi) - \dot\theta^2\sin(\theta - \phi)\right] = -mg\sin\phi $$</div>
+<div class="math-block">$$ \ddot\phi + \ddot\theta\cos(\theta - \phi) - \dot\theta^2\sin(\theta - \phi) + \frac{g}{\ell}\sin\phi = 0 $$</div>
+<p style="margin-bottom: 10px;"><strong>Equation for $\theta$.</strong> Add the two equations of motion, so that $T_2\,\mathbf{e}_Q$ cancels, and project on $\mathbf{e}_\theta$, which is orthogonal to $\mathbf{e}_P$ and removes $T_1$. The right-hand side is $-2mg\,\mathbf{k}\cdot\mathbf{e}_\theta = -2mg\sin\theta$ and the left-hand side is $m(\mathbf{a}_P + \mathbf{a}_Q)\cdot\mathbf{e}_\theta$, with $\mathbf{a}_P\cdot\mathbf{e}_\theta = \ell\ddot\theta$ and $\mathbf{a}_Q\cdot\mathbf{e}_\theta = \ell\ddot\theta + \ell\ddot\phi\cos(\theta - \phi) + \ell\dot\phi^2\sin(\theta - \phi)$:</p>
+<div class="math-block">$$ 2\ddot\theta + \ddot\phi\cos(\theta - \phi) + \dot\phi^2\sin(\theta - \phi) + \frac{2g}{\ell}\sin\theta = 0 $$</div>
+<p style="margin-bottom: 10px;">These two second-order equations contain only $\theta$, $\phi$ and their derivatives, as required in (c). The tensions follow afterwards by projecting on the bar directions: the $\mathbf{e}_Q$ projection of the equation of $Q$ and the $\mathbf{e}_P$ projection of the equation of $P$ give</p>
+<div class="math-block">$$ T_2 = mg\cos\phi - m\ell\left[\ddot\theta\sin(\phi - \theta) - \dot\theta^2\cos(\theta - \phi) - \dot\phi^2\right], \qquad T_1 = mg\cos\theta + m\ell\dot\theta^2 + T_2\cos(\theta - \phi) $$</div>
+<p style="margin-bottom: 10px;">Check: at rest at $\theta = \phi = 0$ the equations give $T_2 = mg$ and $T_1 = 2mg$, the static tensions of the hanging chain.</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Conservation Law</h4>
 <p style="margin-bottom: 10px;">The system is conservative with scleronomic constraints. Total mechanical energy is constant:</p>
 <div class="math-block">$$ E = \frac{1}{2}m\ell^2\left[ 2\dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi) \right] - mg\ell(2\cos\theta + \cos\phi) = \text{constant} $$</div>
@@ -2470,7 +2130,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[T] = [m\ell^2\dot{\theta}^2] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-2} = \text{J}$, $[V] = [mg\ell] = \text{J}$, and $[\omega_0] = \sqrt{[g]/[\ell]} = \text{s}^{-1}$ (the effective inertia $10m\ell^2$ and stiffness $6mg\ell$ are expressed in the coordinate $\theta$; with $x = \ell\theta$ they become $10m$ and $6mg/\ell$).</li>
 <li><strong>Numerical check of part (e) (RK4, step $10^{-3}$, $g = 9.81\ \text{m/s}^2$, $m = \ell = 1$, 60 s from $\theta = \phi = \pi/4$ at rest):</strong> the full nonlinear equations of part (c) give a maximum of $z_Q/\ell = -1.3375$, always negative, so $Q$ never reaches the $Ox$ axis, consistent with the energy bound $V \ge -mg\ell$ against $E_0 = -2.121\,mg\ell$.</li>
-<li><strong>Numerical check of part (f):</strong> the exact one-degree-of-freedom Lagrangian with $\phi = 2\theta$ (without the small-angle approximation) integrated by RK4 from $\theta = 10^{-3}$ rad has half-period $1.2950$ s, against $\pi/\omega_0 = \pi\sqrt{5\ell/(3g)} = 1.2949$ s.</li>
+<li><strong>Numerical check of part (f):</strong> the exact one-degree-of-freedom equation of motion with $\phi = 2\theta$ (without the small-angle approximation) integrated by RK4 from $\theta = 10^{-3}$ rad has half-period $1.2950$ s, against $\pi/\omega_0 = \pi\sqrt{5\ell/(3g)} = 1.2949$ s.</li>
 </ul>
 </div>
         </div>
@@ -2481,7 +2141,6 @@
         <span class="source-tag">Source: Problems.pdf (Page 35)</span>
       </div>
     </div>
-
 
     <div class="article-nav">
       <a href="topic-2.html" class="nav-btn">

@@ -74,11 +74,11 @@ Entries shown as plain text with "(planned)" do not have a note in the vault yet
 ---
 
 ## 📝 Official Exam & Practice Problem Sets
-* [[Problem Set - Topic 1 Particle Kinematics|Problems: Topic 1 Particle Kinematics (10 Problems)]] • [[Solution Set - Topic 1 Particle Kinematics|✅ Full Solutions]]
+* [[Problem Set - Topic 1 Particle Kinematics|Problems: Topic 1 Particle Kinematics (6 Problems)]] • [[Solution Set - Topic 1 Particle Kinematics|✅ Full Solutions]]
 * [[Problem Set - Topic 2 Point Particle Dynamics|Problems: Topic 2 Point Particle Dynamics (10 Problems)]] • [[Solution Set - Topic 2 Point Particle Dynamics|✅ Full Solutions]]
-* [[Problem Set - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (15 Problems)]] • [[Solution Set - Topic 3 Constraints and Reaction Forces|✅ Full Solutions]]
-* [[Problem Set - Topic 4 Angular Momentum and Central Forces|Problems: Topic 4 Angular Momentum and Central Forces]] • [[Solution Set - Topic 4 Angular Momentum and Central Forces|⏳ In Progress]]
-* [[Problem Set - Topic 5 Relative Motion|Problems: Topic 5 Relative Motion (18 Problems)]] • [[Solution Set - Topic 5 Relative Motion|✅ Full Solutions]]
+* [[Problem Set - Topic 3 Constraints and Reaction Forces|Problems: Topic 3 Constraints and Reaction Forces (12 Problems)]] • [[Solution Set - Topic 3 Constraints and Reaction Forces|✅ Full Solutions]]
+* [[Problem Set - Topic 4 Angular Momentum and Central Forces|Problems: Topic 4 Angular Momentum and Central Forces (3 Problems)]] • [[Solution Set - Topic 4 Angular Momentum and Central Forces|⏳ In Progress]]
+* [[Problem Set - Topic 5 Relative Motion|Problems: Topic 5 Relative Motion (20 Problems)]] • [[Solution Set - Topic 5 Relative Motion|✅ Full Solutions]]
 
 ---
 

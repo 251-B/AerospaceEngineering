@@ -14,7 +14,7 @@ tags:
 
 # 📚 Topic 1: Fundamentals and Particle Kinematics — Complete Analytical Solutions
 
-This document contains the **exhaustive, zero-skip analytical solutions** for all 10 solvable problems in Topic 1 (*Particle Kinematics*) from the official UC3M problem collection (`Problems.pdf`).
+This document contains the **exhaustive, zero-skip analytical solutions** for all 6 solvable problems in Topic 1 (*Particle Kinematics*) from the official UC3M problem collection (`Problems.pdf`).
 
 Every problem is structured according to the **4-Phase Methodological Protocol**:
 1. **Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters**
@@ -29,119 +29,163 @@ Every problem is structured according to the **4-Phase Methodological Protocol**
 
 ## 📌 Problem 01: Rocket Helical Trajectory (MIT OCW)
 
-### Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters
+### Phase 1: Physical Statement, Hypotheses & Parameters
+
 * **Physical System:** An out-of-control sounding rocket ascends following a regular circular helix around the vertical $z$-axis.
 * **Hypotheses:** The cylinder radius $a > 0$, vertical ascent velocity $v_z > 0$, and angular spin rate $\omega > 0$ are strictly positive constants. The rocket is modeled as an ideal point particle $P$.
 * **Configuration Degrees of Freedom (CDOFs):** The trajectory is purely kinematically prescribed by time $t$; thus, the particle has $\text{CDOF} = 1$ parameterized by time $t$ or arc length $s$.
 * **Parameters & SI Units:** Radius $a\text{ [m]}$, angular frequency $\omega\text{ [rad/s]}$, vertical velocity $v_z\text{ [m/s]}$, time $t\text{ [s]}$.
 
 ### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
+
 * **Inertial Reference Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, fixed to the launch site with vertical axis $\mathbf{k}_0$ aligned with $z$.
 * **Cylindrical Moving Basis:** $\mathcal{B}_{\text{cyl}} = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$.
-  The transformation matrix from the inertial Cartesian basis $\mathcal{B}_0$ to the cylindrical basis $\mathcal{B}_{\text{cyl}}$ is the planar rotation matrix about $\mathbf{k}_0$:
-  $$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
-  The basis vector relationships are given by matrix-vector multiplication:
-  $$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
-* **Time Derivatives of Unit Vectors (Poisson's Theorem, Notes Sec. 3.1, Eqs. 3.3–3.5):**
-  Since $\mathcal{B}_{\text{cyl}}$ rotates at angular velocity $\boldsymbol{\omega} = \omega\mathbf{k}_0 = \omega\mathbf{e}_z$:
-  $$ \frac{d\mathbf{e}_R}{dt} = \boldsymbol{\omega} \times \mathbf{e}_R = (\omega\mathbf{e}_z) \times \mathbf{e}_R = \omega\mathbf{e}_\theta $$
-  $$ \frac{d\mathbf{e}_\theta}{dt} = \boldsymbol{\omega} \times \mathbf{e}_\theta = (\omega\mathbf{e}_z) \times \mathbf{e}_\theta = -\omega\mathbf{e}_R $$
-  $$ \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$
+
+The transformation matrix from the inertial Cartesian basis $\mathcal{B}_0$ to the cylindrical basis $\mathcal{B}_{\text{cyl}}$ is the planar rotation matrix about $\mathbf{k}_0$:
+
+$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
+
+The basis vector relationships are given by matrix-vector multiplication:
+
+$$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
+* **Time Derivatives of Unit Vectors (direct differentiation, Notes Sec. 2.6.2):**
+
+The components of $\mathbf{e}_R$ and $\mathbf{e}_\theta$ in the fixed basis are known functions of $t$, so each one is differentiated with the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$, $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$:
+
+$$ \frac{d\mathbf{e}_R}{dt} = -\omega\sin(\omega t)\,\mathbf{i}_0 + \omega\cos(\omega t)\,\mathbf{j}_0 = \omega\,\mathbf{e}_\theta $$
+$$ \frac{d\mathbf{e}_\theta}{dt} = -\omega\cos(\omega t)\,\mathbf{i}_0 - \omega\sin(\omega t)\,\mathbf{j}_0 = -\omega\,\mathbf{e}_R $$
+$$ \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$
 * **Orthonormality of $[{}_0 R_{\text{cyl}}]$:** $\det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1$ and $[{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I$ (checked symbolically with sympy).
 * **Frenet basis from the cylindrical basis.** The components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$ (obtained in Phase 3, part (c)) are the columns of the second change-of-basis matrix, with $V = \sqrt{a^2\omega^2 + v_z^2}$:
 $$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \\ a\omega/V & 0 & -v_z/V \\ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$
 * The three columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$). Both determinants and the products $R R^T$ were verified symbolically with sympy.
 
-### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
+### Phase 3: Step-by-Step Mathematical Deduction
 
 #### (a) Cartesian Position, Velocity, and Acceleration
+
 * **Pedagogical Justification:** The position vector $\mathbf{r}(t)$ is directly defined by its Cartesian coordinates $(x(t), y(t), z(t))$ relative to the fixed origin $O$. Velocity and acceleration are obtained by direct term-by-term differentiation in the fixed inertial basis $\mathcal{B}_0$, where $\frac{d\mathbf{i}_0}{dt} = \frac{d\mathbf{j}_0}{dt} = \frac{d\mathbf{k}_0}{dt} = \mathbf{0}$.
 * **Position Vector:**
-  $$ \mathbf{r}(t) = a\cos(\omega t)\mathbf{i}_0 + a\sin(\omega t)\mathbf{j}_0 + v_z t\mathbf{k}_0 $$
+$$ \mathbf{r}(t) = a\cos(\omega t)\mathbf{i}_0 + a\sin(\omega t)\mathbf{j}_0 + v_z t\mathbf{k}_0 $$
 * **Velocity Vector (Explicit Chain Rule):**
-  $$ \mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \frac{d}{dt}[a\cos(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\sin(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z t]\mathbf{k}_0 $$
-  Applying the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$ and $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$:
-  $$ \mathbf{v}(t) = -a\omega\sin(\omega t)\mathbf{i}_0 + a\omega\cos(\omega t)\mathbf{j}_0 + v_z\mathbf{k}_0 $$
+$$ \mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \frac{d}{dt}[a\cos(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\sin(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z t]\mathbf{k}_0 $$
+
+Applying the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$ and $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$:
+
+$$ \mathbf{v}(t) = -a\omega\sin(\omega t)\mathbf{i}_0 + a\omega\cos(\omega t)\mathbf{j}_0 + v_z\mathbf{k}_0 $$
 * **Acceleration Vector (Explicit Chain Rule):**
-  $$ \mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \frac{d}{dt}[-a\omega\sin(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\omega\cos(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z]\mathbf{k}_0 $$
-  $$ \mathbf{a}(t) = -a\omega^2\cos(\omega t)\mathbf{i}_0 - a\omega^2\sin(\omega t)\mathbf{j}_0 + 0\mathbf{k}_0 = -a\omega^2(\cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0) $$
+$$ \mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \frac{d}{dt}[-a\omega\sin(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\omega\cos(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z]\mathbf{k}_0 $$
+$$ \mathbf{a}(t) = -a\omega^2\cos(\omega t)\mathbf{i}_0 - a\omega^2\sin(\omega t)\mathbf{j}_0 + 0\mathbf{k}_0 = -a\omega^2(\cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0) $$
 
 #### (b) Cylindrical Position, Velocity, and Acceleration
+
 * **Pedagogical Justification:** Cylindrical coordinates $(R, \theta, z)$ exploit the axial symmetry of the cylinder upon which the helix lies. Here, the radial distance $R(t) = \sqrt{x^2 + y^2} = a$ is constant, and the azimuthal angle is $\theta(t) = \omega t$.
 * **Position in Cylindrical Coordinates:**
-  $$ \mathbf{r}(t) = a\mathbf{e}_R + v_z t\mathbf{e}_z $$
-* **Velocity Vector (Explicit Product Rule with Poisson Derivative):**
-  $$ \mathbf{v}(t) = \frac{d}{dt}(a\mathbf{e}_R + v_z t\mathbf{e}_z) = a\frac{d\mathbf{e}_R}{dt} + \frac{d(v_z t)}{dt}\mathbf{e}_z + v_z t\frac{d\mathbf{e}_z}{dt} $$
-  Substituting $\frac{d\mathbf{e}_R}{dt} = \omega\mathbf{e}_\theta$ and $\frac{d\mathbf{e}_z}{dt} = \mathbf{0}$:
-  $$ \mathbf{v}(t) = a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z $$
+$$ \mathbf{r}(t) = a\mathbf{e}_R + v_z t\mathbf{e}_z $$
+* **Velocity Vector (Explicit Product Rule):**
+$$ \mathbf{v}(t) = \frac{d}{dt}(a\mathbf{e}_R + v_z t\mathbf{e}_z) = a\frac{d\mathbf{e}_R}{dt} + \frac{d(v_z t)}{dt}\mathbf{e}_z + v_z t\frac{d\mathbf{e}_z}{dt} $$
+
+Substituting $\frac{d\mathbf{e}_R}{dt} = \omega\mathbf{e}_\theta$ and $\frac{d\mathbf{e}_z}{dt} = \mathbf{0}$:
+
+$$ \mathbf{v}(t) = a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z $$
 * **Acceleration Vector (Explicit Differentiation):**
-  $$ \mathbf{a}(t) = \frac{d}{dt}(a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z) = a\omega\frac{d\mathbf{e}_\theta}{dt} + 0 = a\omega(-\omega\mathbf{e}_R) = -a\omega^2\mathbf{e}_R $$
+$$ \mathbf{a}(t) = \frac{d}{dt}(a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z) = a\omega\frac{d\mathbf{e}_\theta}{dt} + 0 = a\omega(-\omega\mathbf{e}_R) = -a\omega^2\mathbf{e}_R $$
 
 #### (c) Intrinsic Frenet-Serret Basis $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$
+
 * **Pedagogical Justification:** The Frenet-Serret intrinsic basis (Notes Sec. 2.4) decomposes motion naturally along the curve itself. The tangent vector $\mathbf{e}_t$ points in the direction of instantaneous velocity, the principal normal $\mathbf{e}_n$ points toward the center of curvature, and the binormal $\mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n$ completes the right-handed orthonormal triad.
 * **Unit Tangent Vector $\mathbf{e}_t$:**
-  $$ \mathbf{e}_t = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
+$$ \mathbf{e}_t = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
 * **Unit Principal Normal Vector $\mathbf{e}_n$:**
-  By definition of the intrinsic acceleration (Notes Eq. 2.17):
-  $$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$
-  Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:
-  $$ \ddot{s} = \frac{dv}{dt} = 0 $$
-  Therefore, the entire acceleration is purely normal:
-  $$ \mathbf{a} = a_n\mathbf{e}_n = -a\omega^2\mathbf{e}_R $$
-  Taking the norm of both sides yields the magnitude of normal acceleration:
-  $$ a_n = \|\mathbf{a}\| = a\omega^2 $$
-  Dividing $\mathbf{a}$ by its norm gives the unit normal vector:
-  $$ \mathbf{e}_n = \frac{\mathbf{a}}{a_n} = \frac{-a\omega^2\mathbf{e}_R}{a\omega^2} = -\mathbf{e}_R $$
-  The principal normal points radially inward toward the central axis of the cylinder!
+
+By definition of the intrinsic acceleration (Notes Eq. 2.17):
+
+$$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$
+
+Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:
+
+$$ \ddot{s} = \frac{dv}{dt} = 0 $$
+
+Therefore, the entire acceleration is purely normal:
+
+$$ \mathbf{a} = a_n\mathbf{e}_n = -a\omega^2\mathbf{e}_R $$
+
+Taking the norm of both sides yields the magnitude of normal acceleration:
+
+$$ a_n = \|\mathbf{a}\| = a\omega^2 $$
+
+Dividing $\mathbf{a}$ by its norm gives the unit normal vector:
+
+$$ \mathbf{e}_n = \frac{\mathbf{a}}{a_n} = \frac{-a\omega^2\mathbf{e}_R}{a\omega^2} = -\mathbf{e}_R $$
+
+The principal normal points radially inward toward the central axis of the cylinder!
+
 * **Radius of Curvature $\rho$:**
-  Using the relation $a_n = \frac{v^2}{\rho}$:
-  $$ \rho = \frac{v^2}{a_n} = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a + \frac{v_z^2}{a\omega^2} $$
+
+Using the relation $a_n = \frac{v^2}{\rho}$:
+
+$$ \rho = \frac{v^2}{a_n} = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a + \frac{v_z^2}{a\omega^2} $$
 * **Unit Binormal Vector $\mathbf{e}_b$:**
-  Computing the vector cross product in the cylindrical basis:
-  $$ \mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n = \left( \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} \right) \times (-\mathbf{e}_R) = \frac{-a\omega(\mathbf{e}_\theta \times \mathbf{e}_R) - v_z(\mathbf{e}_z \times \mathbf{e}_R)}{\sqrt{a^2\omega^2 + v_z^2}} $$
-  Recalling cyclic cross products: $\mathbf{e}_\theta \times \mathbf{e}_R = -\mathbf{e}_z$ and $\mathbf{e}_z \times \mathbf{e}_R = \mathbf{e}_\theta$:
-  $$ \mathbf{e}_b = \frac{-a\omega(-\mathbf{e}_z) - v_z\mathbf{e}_\theta}{\sqrt{a^2\omega^2 + v_z^2}} = \frac{-v_z\mathbf{e}_\theta + a\omega\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
+
+Computing the vector cross product in the cylindrical basis:
+
+$$ \mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n = \left( \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} \right) \times (-\mathbf{e}_R) = \frac{-a\omega(\mathbf{e}_\theta \times \mathbf{e}_R) - v_z(\mathbf{e}_z \times \mathbf{e}_R)}{\sqrt{a^2\omega^2 + v_z^2}} $$
+
+Recalling cyclic cross products: $\mathbf{e}_\theta \times \mathbf{e}_R = -\mathbf{e}_z$ and $\mathbf{e}_z \times \mathbf{e}_R = \mathbf{e}_\theta$:
+
+$$ \mathbf{e}_b = \frac{-a\omega(-\mathbf{e}_z) - v_z\mathbf{e}_\theta}{\sqrt{a^2\omega^2 + v_z^2}} = \frac{-v_z\mathbf{e}_\theta + a\omega\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
 
 #### (d) Modulus of Velocity
+
 * **Pedagogical Justification:** The speed $v(t) = \|\mathbf{v}(t)\|$ represents the scalar rate of distance traveled along the path.
 * **Calculation:**
-  $$ v = \|\mathbf{v}\| = \sqrt{(-a\omega\sin\omega t)^2 + (a\omega\cos\omega t)^2 + v_z^2} = \sqrt{a^2\omega^2(\sin^2\omega t + \cos^2\omega t) + v_z^2} = \sqrt{a^2\omega^2 + v_z^2} $$
-  The speed is constant for all $t \ge 0$.
+$$ v = \|\mathbf{v}\| = \sqrt{(-a\omega\sin\omega t)^2 + (a\omega\cos\omega t)^2 + v_z^2} = \sqrt{a^2\omega^2(\sin^2\omega t + \cos^2\omega t) + v_z^2} = \sqrt{a^2\omega^2 + v_z^2} $$
+
+The speed is constant for all $t \ge 0$.
 
 #### (e) Evolution of Arc Length Coordinate $s(t)$
+
 * **Pedagogical Justification:** The arc-length coordinate $s(t)$ measures the distance traversed along the trajectory from the initial position at $t = 0$. By fundamental calculus:
-  $$ s(t) = \int_0^t v(t')\,dt' $$
+$$ s(t) = \int_0^t v(t')\,dt' $$
 * **Definite Integration:**
-  $$ s(t) = \int_0^t \sqrt{a^2\omega^2 + v_z^2}\,dt' = \sqrt{a^2\omega^2 + v_z^2} \left[ t' \right]_0^t = t\sqrt{a^2\omega^2 + v_z^2} $$
+$$ s(t) = \int_0^t \sqrt{a^2\omega^2 + v_z^2}\,dt' = \sqrt{a^2\omega^2 + v_z^2} \left[ t' \right]_0^t = t\sqrt{a^2\omega^2 + v_z^2} $$
 
 #### (f) Trajectory as a Function of Arc Length $s$
+
 * **Pedagogical Justification:** To express the curve intrinsically independent of time, we invert $s(t)$ to obtain time as a function of arc length: $t(s) = \frac{s}{\sqrt{a^2\omega^2 + v_z^2}}$.
 * **Substitution into Cartesian Coordinates:**
-  $$ x(s) = a\cos\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$
-  $$ y(s) = a\sin\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$
-  $$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$
+$$ x(s) = a\cos\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$
+$$ y(s) = a\sin\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$
+$$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$
 
 #### (g) Center of Curvature $C$ at $(a, 0, 0)$
-* **Pedagogical Justification:** The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Sec. 2.4, Fig. 2.2):
-  $$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$
-* **Evaluation at $(a, 0, 0)$:**
-  At position $(a, 0, 0)$, $x(t) = a\cos(\omega t) = a \implies \omega t = 0 \implies t = 0$.
-  At $t = 0$:
-  - Position: $\mathbf{r}_P(0) = a\mathbf{i}_0$.
-  - Unit normal: $\mathbf{e}_n(0) = -\mathbf{e}_R(0) = -(\cos(0)\mathbf{i}_0 + \sin(0)\mathbf{j}_0) = -\mathbf{i}_0$.
-  - Radius of curvature: $\rho = a + \frac{v_z^2}{a\omega^2}$.
-* **Algebraic Combination:**
-  $$ \mathbf{r}_C = a\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)(-\mathbf{i}_0) = a\mathbf{i}_0 - a\mathbf{i}_0 - \frac{v_z^2}{a\omega^2}\mathbf{i}_0 = -\frac{v_z^2}{a\omega^2}\mathbf{i}_0 $$
-  In Cartesian coordinates:
-  $$ C = \left( -\frac{v_z^2}{a\omega^2}, \, 0, \, 0 \right) $$
 
-### Phase 4: Physical Interpretation, Limiting Cases & Dimensional Check
+* **Pedagogical Justification:** The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Sec. 2.4, Fig. 2.2):
+$$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$
+* **Evaluation at $(a, 0, 0)$:**
+
+At position $(a, 0, 0)$, $x(t) = a\cos(\omega t) = a \implies \omega t = 0 \implies t = 0$.
+
+At $t = 0$:
+
+* Position: $\mathbf{r}_P(0) = a\mathbf{i}_0$.
+* Unit normal: $\mathbf{e}_n(0) = -\mathbf{e}_R(0) = -(\cos(0)\mathbf{i}_0 + \sin(0)\mathbf{j}_0) = -\mathbf{i}_0$.
+* Radius of curvature: $\rho = a + \frac{v_z^2}{a\omega^2}$.
+* **Algebraic Combination:**
+$$ \mathbf{r}_C = a\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)(-\mathbf{i}_0) = a\mathbf{i}_0 - a\mathbf{i}_0 - \frac{v_z^2}{a\omega^2}\mathbf{i}_0 = -\frac{v_z^2}{a\omega^2}\mathbf{i}_0 $$
+
+In Cartesian coordinates:
+
+$$ C = \left( -\frac{v_z^2}{a\omega^2}, \, 0, \, 0 \right) $$
+
+### Phase 4: Physical Interpretation & Dimensional Verification
+
 * **Dimensional Check:**
-  - Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent ✅).
-  - Curvature center offset: $\left[\frac{v_z^2}{a\omega^2}\right] = \frac{[\text{m/s}]^2}{[\text{m}][\text{s}^{-1}]^2} = \frac{\text{m}^2/\text{s}^2}{\text{m}/\text{s}^2} = \text{m}$ (Consistent ✅).
+* Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent).
+* Curvature center offset: $\left[\frac{v_z^2}{a\omega^2}\right] = \frac{[\text{m/s}]^2}{[\text{m}][\text{s}^{-1}]^2} = \frac{\text{m}^2/\text{s}^2}{\text{m}/\text{s}^2} = \text{m}$ (Consistent).
 * **Limiting Asymptotic Cases:**
-  - If $v_z \to 0$ (planar circular motion): $\rho = a$, and $C = (0, 0, 0)$, the origin of the circle as expected physically.
-  - If $\omega \to 0$ (pure vertical line ascent): $\rho \to \infty$, curvature vanishes, and the trajectory becomes a straight vertical line.
+* If $v_z \to 0$ (planar circular motion): $\rho = a$, and $C = (0, 0, 0)$, the origin of the circle as expected physically.
+* If $\omega \to 0$ (pure vertical line ascent): $\rho \to \infty$, curvature vanishes, and the trajectory becomes a straight vertical line.
 
 ---
 
@@ -508,257 +552,3 @@ $$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos 
 * **Special points:** at the inflection points $x = k\pi$, $\sin x = 0$, so $a_n = 0$ and $\rho \to \infty$ (locally straight). At the crests $x = \pi/2$: $v = 1\ \text{m/s}$, $a_t = 0$, $a_n = -1\ \text{m/s}^2$ and $\rho = v^2/|a_n| = 1$ m, equal to $1/|y''| = 1$ m. At $x = \pi/4$: $\rho = (1 + \cos^2x)^{3/2}/|\sin x| = 3\sqrt{3}/2 = 2.598$ m.
 * **Arc length:** $s(\pi) = \int_0^\pi\sqrt{1 + \cos^2u}\,du = 3.8202$ m, greater than the horizontal distance $\pi$ m, as it must be.
 * **Symbolic check (sympy):** $a_t^2 + a_n^2 = \sin^2x = \|\mathbf{a}\|^2$ and $v^2/|a_n| = (1 + \cos^2x)^{3/2}/|\sin x|$ hold with zero residual.
-
----
-
-## 📌 Problem 07: Skater Pulled by Vehicle on a Circumference
-
-### Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters
-* **Physical System:** A vehicle $A$ moves counterclockwise at constant speed $\omega$ along a circle of radius $a$. Skater $B$ on a frictionless horizontal plane is towed by vehicle $A$ via a massless bar of length $l = a$.
-* **Initial Conditions:** Vehicle $A$ is at $(a, 0)$, skater $B$ is at rest at $(2a, 0)$, meaning at $t = 0$, $\psi(0) = 0$. Because the skater is at rest in the inertial frame, $\dot{\psi}(0) = -2\omega$ (derived in part (c)).
-* **Parameters & Units:** Radius and bar length $a\text{ [m]}$, angular speed $\omega\text{ [rad/s]}$, skater mass $m\text{ [kg]}$.
-
-### Phase 2: Reference Frames, Bases & Kinematics
-* **Inertial Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
-* **Rotating Frame Attached to $OA$:** $\mathcal{S}_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, with $\mathbf{i}_1$ pointing from $O$ to vehicle $A$.
-  $$ \boldsymbol{\omega}_{1/0} = \omega\mathbf{k}_0 = \omega\mathbf{k}_1 $$
-  $$ \mathbf{r}_A = a\mathbf{i}_1 $$
-* **Bar Orientation:** The bar $AB$ is directed at angle $\psi$ relative to $\mathbf{i}_1$:
-  $$ \mathbf{r}_{B/A} = a\cos\psi\,\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$
-* **Position of Skater $B$ in Rotating Frame:**
-  $$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = a(1 + \cos\psi)\mathbf{i}_1 + a\sin\psi\,\mathbf{j}_1 $$
-* **Change of basis $\mathcal{B}_0 \to \mathcal{B}_1$.** The vehicle starts at $(a, 0)$ and turns counterclockwise at rate $\omega$, so $\mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0$ and the columns of the matrix below are the components of $\mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1$ in $\mathcal{B}_0$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-* **Bar basis $\mathcal{B}_1 \to \mathcal{B}_{\text{bar}}$.** The pair $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$, $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ used in parts (c) and (d) is obtained with
-$$ [{}_1 R_{\text{bar}}] = \begin{pmatrix} \cos\psi & -\sin\psi & 0 \\ \sin\psi & \cos\psi & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_1 R_{\text{bar}}] = 1, \qquad [{}_1 R_{\text{bar}}][{}_1 R_{\text{bar}}]^T = I $$
-* The composition $[{}_0 R_{\text{bar}}] = [{}_0 R_1][{}_1 R_{\text{bar}}]$ is the planar rotation by $\omega t + \psi$ (the bar direction measured from the inertial $x$ axis). The determinants and the products $R R^T$ were verified symbolically with sympy.
-
-### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
-
-#### (a) Relative Acceleration in $\mathcal{S}_1$
-* **Pedagogical Justification:** The relative velocity and acceleration are the time derivatives of $\mathbf{r}_B$ observed within frame $\mathcal{S}_1$, treating unit vectors $\mathbf{i}_1, \mathbf{j}_1$ as constant.
-* **Relative Velocity:**
-  $$ \mathbf{v}_{\text{rel}} = \frac{d\mathbf{r}_B}{dt}\Big|_{\mathcal{S}_1} = -a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1 $$
-* **Relative Acceleration (Explicit Product Rule):**
-  $$ \mathbf{a}_{\text{rel}} = \frac{d\mathbf{v}_{\text{rel}}}{dt}\Big|_{\mathcal{S}_1} = \frac{d}{dt}(-a\dot{\psi}\sin\psi)\mathbf{i}_1 + \frac{d}{dt}(a\dot{\psi}\cos\psi)\mathbf{j}_1 $$
-  $$ = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\mathbf{i}_1 + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\mathbf{j}_1 $$
-
-#### (b) Coriolis and Centripetal Accelerations
-* **Pedagogical Justification:** By Coriolis' theorem of relative kinematics (Notes Sec. 3.2, Eq. 3.27):
-  $$ \mathbf{a}_{\text{cor}} = 2\boldsymbol{\omega}_{1/0} \times \mathbf{v}_{\text{rel}} $$
-  $$ \mathbf{a}_{\text{cf}} = \boldsymbol{\omega}_{1/0} \times (\boldsymbol{\omega}_{1/0} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_{B\perp} $$
-* **Coriolis Calculation:**
-  $$ \mathbf{a}_{\text{cor}} = 2(\omega\mathbf{k}_1) \times (-a\dot{\psi}\sin\psi\,\mathbf{i}_1 + a\dot{\psi}\cos\psi\,\mathbf{j}_1) $$
-  Using $\mathbf{k}_1 \times \mathbf{i}_1 = \mathbf{j}_1$ and $\mathbf{k}_1 \times \mathbf{j}_1 = -\mathbf{i}_1$:
-  $$ \mathbf{a}_{\text{cor}} = 2\omega\left( -a\dot{\psi}\sin\psi\,\mathbf{j}_1 - a\dot{\psi}\cos\psi\,\mathbf{i}_1 \right) = -2a\omega\dot{\psi}(\cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1) $$
-  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
-* **Centripetal / Centrifugal Acceleration Term:**
-  Since $\mathbf{r}_B$ lies entirely in the $x_1 y_1$ plane, $\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_B) = -\omega^2\mathbf{r}_B$:
-  $$ \mathbf{a}_{\text{cf}} = -\omega^2\mathbf{r}_B = -a\omega^2[(1 + \cos\psi)\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1] $$
-  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
-
-#### (c) Reduction of Equation of Motion to Integrals (Quadrature)
-* **Pedagogical Justification:** The only force acting on skater $B$ in the horizontal plane is the tension $\mathbf{T}$ from the bar, which acts along the bar: $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$. Therefore, the total acceleration of $B$ in the direction perpendicular to the bar $\mathbf{u}_\perp = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$ must vanish: $\mathbf{a}_B \cdot \mathbf{u}_\perp = 0$.
-* **Projection of Acceleration:**
-  $$ \mathbf{a}_{\text{total}} = \mathbf{a}_{\text{rel}} + \mathbf{a}_{\text{cor}} + \mathbf{a}_{\text{cf}} $$
-  Taking the dot product with $\mathbf{u}_\perp$:
-  - $\mathbf{a}_{\text{rel}} \cdot \mathbf{u}_\perp = a\ddot{\psi}(\sin^2\psi + \cos^2\psi) = a\ddot{\psi}$.
-  - $\mathbf{a}_{\text{cor}} \cdot \mathbf{u}_\perp = -2a\omega\dot{\psi}(\cos\psi(-\sin\psi) + \sin\psi\cos\psi) = 0$.
-  - $\mathbf{a}_{\text{cf}} \cdot \mathbf{u}_\perp = -a\omega^2[ (1+\cos\psi)(-\sin\psi) + \sin\psi\cos\psi ] = -a\omega^2(-\sin\psi - \sin\psi\cos\psi + \sin\psi\cos\psi) = a\omega^2\sin\psi$.
-  Therefore:
-  $$ a\ddot{\psi} + a\omega^2\sin\psi = 0 \implies \ddot{\psi} + \omega^2\sin\psi = 0 $$
-  Multiplying by $2\dot{\psi}$ and using the chain rule $\frac{d}{dt}(\dot{\psi}^2) = 2\dot{\psi}\ddot{\psi}$ and $\frac{d}{dt}(\cos\psi) = -\sin\psi\,\dot{\psi}$:
-  $$ 2\dot{\psi}\ddot{\psi} = -2\omega^2\sin\psi\,\dot{\psi} \implies \frac{d}{dt}(\dot{\psi}^2) = -2\omega^2\sin\psi\,\dot{\psi} = 2\omega^2\frac{d}{dt}(\cos\psi) $$
-  **Initial conditions.** The skater starts at rest in the inertial frame, $\mathbf{v}_B(0) = \mathbf{0}$, at $\mathbf{r}_B(0) = 2a\,\mathbf{i}_1$ (so $\psi(0) = 0$). Since $\mathbf{v}_B = \boldsymbol{\omega}_{1/0}\times\mathbf{r}_B + \mathbf{v}_{\text{rel}}$:
-  $$ \mathbf{v}_{\text{rel}}(0) = -\omega\mathbf{k}_1 \times 2a\,\mathbf{i}_1 = -2a\omega\,\mathbf{j}_1, \qquad \mathbf{v}_{\text{rel}}(0) = a\dot{\psi}(0)\,\mathbf{j}_1 \implies \dot{\psi}(0) = -2\omega $$
-  Integrating with Barrow's rule between $t = 0$ ($\psi = 0$, $\dot{\psi} = -2\omega$) and a generic instant, with $u$ a dummy variable ($du = \dot{\psi}\,dt$ along the motion):
-  $$ \dot{\psi}^2 - (-2\omega)^2 = 2\omega^2\int_0^\psi (-\sin u)\,du = 2\omega^2\left[\cos u\right]_0^\psi = 2\omega^2(\cos\psi - 1) $$
-  $$ \dot{\psi}^2 = 2\omega^2(1 + \cos\psi) = 4\omega^2\cos^2\!\left(\frac{\psi}{2}\right) \quad \text{using } 1 + \cos\psi = 2\cos^2(\psi/2) $$
-  Taking the square root, $\dot{\psi} = \pm 2\omega\cos(\psi/2)$. For $-\pi < \psi < \pi$ the factor $\cos(\psi/2)$ is positive, so the sign cannot change, and $\dot{\psi}(0) = -2\omega$ selects the minus sign ($\psi$ decreases from zero):
-  $$ \dot{\psi} = -2\omega\cos\left(\frac{\psi}{2}\right) \quad \text{for } -\pi < \psi \le 0 $$
-  This agrees with the official key (Problems.pdf, PDF page 72).
-  Separating variables and integrating from $(t, \psi) = (0, 0)$, with the substitution $w = u/2$, $du = 2\,dw$:
-  $$ \int_0^\psi \frac{du}{2\cos(u/2)} = -\omega\int_0^t dt' \implies \int_0^{\psi/2}\frac{dw}{\cos w} = \ln\left|\sec\frac{\psi}{2} + \tan\frac{\psi}{2}\right| = -\omega t $$
-
-#### (d) Tension on the Bar
-* **Pedagogical Justification:** The tension is obtained from the radial force balance along the bar:
-  $$ T = -m(\mathbf{a}_{\text{total}} \cdot \mathbf{u}_{AB}) $$
-  Evaluating the terms along $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$:
-  - $\mathbf{a}_{\text{rel}}\cdot\mathbf{u}_{AB} = -a(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)\cos\psi + a(\ddot{\psi}\cos\psi - \dot{\psi}^2\sin\psi)\sin\psi = -a\dot{\psi}^2$.
-  - $\mathbf{a}_{\text{cor}}\cdot\mathbf{u}_{AB} = -2a\omega\dot{\psi}(\cos^2\psi + \sin^2\psi) = -2a\omega\dot{\psi}$.
-  - $\mathbf{a}_{\text{cf}}\cdot\mathbf{u}_{AB} = -a\omega^2[(1+\cos\psi)\cos\psi + \sin^2\psi] = -a\omega^2(1 + \cos\psi)$.
-  $$ T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1+\cos\psi)\right] $$
-  With $c = \cos(\psi/2)$: $\dot{\psi}^2 = 4\omega^2c^2$, $\dot{\psi} = -2\omega c$, $1 + \cos\psi = 2c^2$, hence $T = ma\omega^2(4c^2 - 4c + 2c^2)$:
-  $$ T = 2ma\omega^2\cos\left(\frac{\psi}{2}\right)\left( 3\cos\left(\frac{\psi}{2}\right) - 2 \right) $$
-  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
-
-#### (e) Loose String Condition
-* **Pedagogical Justification:** A flexible string cannot support compression ($T \ge 0$). The string becomes loose when the tension drops to zero: $T = 0$.
-  $$ 3\cos\left(\frac{\psi}{2}\right) - 2 = 0 \implies \cos\left(\frac{\psi}{2}\right) = \frac{2}{3} $$
-  $$ \frac{\psi}{2} = -\arccos\left(\frac{2}{3}\right) \implies \psi = -2\arccos\left(\frac{2}{3}\right) \approx -96.38^\circ $$
-  *(Compare with the official solution key (Problems.pdf, Solution keys section).)*
-
-### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
-* **Dimensional check:**
-  - $[\ddot{\psi}] = [\omega^2\sin\psi] = \text{s}^{-2}$ and $[\dot{\psi}^2] = [2\omega^2(1 + \cos\psi)] = \text{s}^{-2}$ (the angle is dimensionless).
-  - $[T] = [m\,a\,\omega^2] = \text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$.
-* **Limit $\omega \to 0$:** the vehicle is at rest, the skater is at rest, and $T \to 0$, $\dot{\psi} \to 0$, as expected.
-* **Independent check of $T$ at $t = 0$ ($\psi = 0$).** The closed form gives $T(0) = 2ma\omega^2\cdot 1\cdot(3 - 2) = 2ma\omega^2$. For a rigid bar of length $l = a$, the relative velocity $\mathbf{v}_B - \mathbf{v}_A$ is perpendicular to the bar, hence $(\mathbf{a}_B - \mathbf{a}_A)\cdot\mathbf{u}_{AB} = -\|\mathbf{v}_B - \mathbf{v}_A\|^2/a$. At $t = 0$: $\mathbf{v}_B = \mathbf{0}$, $\|\mathbf{v}_A\| = a\omega$, $\mathbf{a}_A = -a\omega^2\mathbf{i}_0$ and $\mathbf{u}_{AB} = \mathbf{i}_0$, so $\mathbf{a}_B\cdot\mathbf{u}_{AB} = -a\omega^2 - a\omega^2 = -2a\omega^2$ and $T = 2ma\omega^2$ (Consistent).
-* **Symbolic check (sympy).** Differentiating twice, in the inertial frame, the position $\mathbf{r}_B = [{}_0 R_1]\,a\,(1 + \cos\psi,\ \sin\psi,\ 0)^T$ and projecting on $\mathbf{u}_{AB}$ and $\mathbf{u}_\perp$ gives $\mathbf{a}_B\cdot\mathbf{u}_\perp = a(\ddot{\psi} + \omega^2\sin\psi)$ and $T = ma\left[\dot{\psi}^2 + 2\omega\dot{\psi} + \omega^2(1 + \cos\psi)\right]$, identical to parts (c) and (d); substituting $\dot{\psi} = -2\omega\cos(\psi/2)$ reproduces $T = 2ma\omega^2\cos(\psi/2)\left(3\cos(\psi/2) - 2\right)$ with zero residual.
-* **When the string goes loose (numerical).** The closed form $\omega t = -\ln\left|\sec(\psi/2) + \tan(\psi/2)\right|$ evaluated at $\cos(\psi/2) = 2/3$ gives $\omega t_{\text{loose}} = \ln\dfrac{2}{3 - \sqrt{5}} = \ln\dfrac{3 + \sqrt{5}}{2} = 0.96242$. An RK4 integration (step $10^{-5}$, $\omega = 1$) of $\ddot{\psi} = -\omega^2\sin\psi$ with $\psi(0) = 0$, $\dot{\psi}(0) = -2\omega$ reaches $\cos(\psi/2) = 2/3$ at $\omega t = 0.96242$ with $\psi = -96.379^\circ$, in agreement with $-2\arccos(2/3) = -96.379^\circ$; there $\dot{\psi}^2 = 1.777787\,\omega^2$ against $2\omega^2(1 + \cos\psi) = 1.777787\,\omega^2$.
-
----
-
-## 📌 Problem 08: Kinematics, Two Trains on Tracks
-
-### Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters
-* **Physical System:** Two trains $A$ and $B$ move on separate tracks with distance of closest separation $a$.
-  - Case 1: Two parallel straight tracks with constant speeds $v_A$ and $v_B$.
-  - Case 2: Train $A$ on a straight track, Train $B$ on a circular track of radius $R$.
-* **Parameters & Units:** Separation $a\text{ [m]}$, radius $R\text{ [m]}$, speeds $v_A, v_B\text{ [m/s]}$.
-
-### Phase 2: Reference Frames & Vector Equations
-* **Inertial Cartesian Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.
-
-### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
-
-#### Case 1: Parallel Tracks
-* Train $A$ on line $y = 0$: $\mathbf{r}_A(t) = v_A t\,\mathbf{i}_0$.
-* Train $B$ on line $y = a$: $\mathbf{r}_B(t) = (x_{B0} + v_B t)\mathbf{i}_0 + a\mathbf{j}_0$.
-* **Relative Velocity:**
-  $$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = (v_B - v_A)\mathbf{i}_0 $$
-  $$ \mathbf{v}_{A/B} = -\mathbf{v}_{B/A} = (v_A - v_B)\mathbf{i}_0 $$
-
-#### Case 2: Train $B$ on a Circular Track of Radius $R$
-* Straight track of $A$ along the $x$-axis: $\mathbf{r}_A = v_A t\,\mathbf{i}_0$.
-* Circular track center at $(0, R + a)$ so that the closest distance to $A$'s track is $(R+a) - R = a$.
-* Position of train $B$ traveling at angular speed $\omega_B = \frac{v_B}{R}$ with angle $\theta_B(t) = \omega_B t$:
-  $$ \mathbf{r}_B(t) = R\sin(\omega_B t)\mathbf{i}_0 + [R + a - R\cos(\omega_B t)]\mathbf{j}_0 $$
-* Velocity of train $B$:
-  $$ \mathbf{v}_B = \frac{d\mathbf{r}_B}{dt} = R\omega_B\cos(\omega_B t)\mathbf{i}_0 + R\omega_B\sin(\omega_B t)\mathbf{j}_0 = v_B\cos\left(\frac{v_B t}{R}\right)\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$
-* **Relative Velocity $\mathbf{v}_{B/A}$:**
-  $$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = \left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$
-* **Magnitude of Relative Velocity:**
-  $$ v_{\text{rel}} = \sqrt{\left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]^2 + v_B^2\sin^2\left(\frac{v_B t}{R}\right)} = \sqrt{v_B^2 + v_A^2 - 2v_A v_B\cos\left(\frac{v_B t}{R}\right)} $$
-
-### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
-* **Dimensional check:** $[\mathbf{v}_{B/A}] = \text{m/s}$; in Case 2 the argument of the trigonometric functions is $\dfrac{v_B t}{R} = \dfrac{(\text{m/s})\,\text{s}}{\text{m}}$, which is dimensionless (rad), and $[v_B^2 + v_A^2 - 2v_Av_B\cos(\cdot)] = \text{m}^2/\text{s}^2$, so $v_{\text{rel}}$ is in m/s.
-* **Role of the separation $a$:** it does not appear in any relative velocity, because $\mathbf{v}_{B/A}$ is the time derivative of $\mathbf{r}_B - \mathbf{r}_A$ and $a$ only enters the constant offset of that vector.
-* **Limiting cases of Case 2 (sympy):**
-  - $t = 0$: $v_{\text{rel}} = \sqrt{v_A^2 + v_B^2 - 2v_Av_B} = |v_B - v_A|$, because both velocities are parallel to $\mathbf{i}_0$ at that instant.
-  - $R \to \infty$ (the circular track straightens): $\cos(v_Bt/R) \to 1$ and $v_{\text{rel}} \to |v_B - v_A|$, which is the Case 1 result.
-  - $v_A = v_B = v$: $v_{\text{rel}} = v\sqrt{2 - 2\cos(vt/R)} = 2v\left|\sin\dfrac{vt}{2R}\right|$, which starts at $0$ and never exceeds $2v$.
-  - $v_A = 0$: $v_{\text{rel}} = v_B$ for all $t$ (relative to a stationary train, only the speed of $B$ matters).
-* **Symbolic check:** $\|\mathbf{v}_B - \mathbf{v}_A\|^2$ computed from the components equals $v_B^2 + v_A^2 - 2v_Av_B\cos(v_Bt/R)$ with zero residual. Both cases are written in the single inertial basis $\mathcal{B}_0$, so no change-of-basis matrix is needed.
-
----
-
-## 📌 Problem 09: 2001: A Space Odyssey (Artificial Gravity)
-
-### Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters
-* **Physical System:** A rotating cylindrical spacecraft hull of radius $R$ generates artificial gravity via centrifugal normal acceleration.
-* **Hypotheses:** Spacecraft rotates at constant rate $\omega$ about its symmetry axis in deep space (no external gravitational field).
-* **Parameters & Units:** Radius $R = 10\text{ m}$, target gravity $g = 9.81\text{ m/s}^2$, relative running speed $u\text{ [m/s]}$.
-
-### Phase 2: Kinematics of Circular Motion
-* Intrinsic acceleration of a point on the rim rotating at speed $v_{\text{rim}} = \omega R$:
-  $$ a_n = \frac{v_{\text{rim}}^2}{R} = \omega^2 R $$
-* **Hull-fixed rotating basis.** Take the inertial basis $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ along the axis of the cylinder, and the basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$ attached to the hull, rotating at constant rate $\omega$ about $\mathbf{k}_0$ (the angle is $\theta = \omega t$ for a point fixed to the hull). The columns are the components of $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0$ in $\mathcal{B}_0$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-* By Poisson's formula with $\boldsymbol{\omega} = \omega\mathbf{k}_0$: $\dot{\mathbf{e}}_r = \omega\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\omega\mathbf{e}_r$. A point of the rim is $\mathbf{r} = R\,\mathbf{e}_r$, hence $\mathbf{v} = \omega R\,\mathbf{e}_\theta$ and $\mathbf{a} = -\omega^2 R\,\mathbf{e}_r$, which is the intrinsic acceleration $a_n = \omega^2R$ above, directed towards the axis. An astronaut running at speed $u$ relative to the floor along $\pm\mathbf{e}_\theta$ has absolute velocity $(\omega R \pm u)\,\mathbf{e}_\theta$. The determinant and the product $R R^T$ were verified symbolically with sympy.
-
-### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
-
-#### (a) Angular Velocity for Target Artificial Gravity $g$
-* **Pedagogical Justification:** The apparent weight felt by an astronaut standing still on the inner hull is the normal reaction provided by the floor: $N = m a_n = m \omega^2 R$. For this reaction to match standard Earth gravity $m g$:
-  $$ \omega^2 R = g \implies \omega = \sqrt{\frac{g}{R}} $$
-* **Numerical Calculation for $R = 10\text{ m}, g = 9.81\text{ m/s}^2$:**
-  $$ \omega = \sqrt{\frac{9.81\text{ m/s}^2}{10\text{ m}}} = \sqrt{0.981}\text{ s}^{-1} \approx 0.99045\text{ rad/s} $$
-  In revolutions per minute (RPM):
-  $$ N_{\text{rpm}} = \omega \times \frac{60}{2\pi} = 0.99045 \times 9.5493 \approx 9.46\text{ rpm} $$
-
-#### (b) Artificial Gravity Felt by a Running Astronaut
-* **Pedagogical Justification:** When the astronaut runs along the circumference at speed $u$ relative to the floor, her absolute speed in the inertial frame is $v_{\text{abs}} = \omega R \pm u$, where $(+)$ corresponds to running in the direction of rotation (prograde/eastward) and $(-)$ corresponds to running against rotation (retrograde/westward).
-* **Apparent Gravity:**
-  $$ g_{\text{felt}} = a_n = \frac{v_{\text{abs}}^2}{R} = \frac{(\omega R \pm u)^2}{R} = \omega^2 R \left( 1 \pm \frac{u}{\omega R} \right)^2 = g \left( 1 \pm \frac{u}{\omega R} \right)^2 $$
-  Expanding:
-  $$ g_{\text{felt}} = \frac{\omega^2 R^2 \pm 2\omega R u + u^2}{R} = g \pm 2\omega u + \frac{u^2}{R} $$
-  *(The term $2\omega u$ represents the Coriolis acceleration felt by the running astronaut!).*
-
-#### (c) Condition to Feel No Artificial Gravity At All
-* **Pedagogical Justification:** For the astronaut to become completely weightless ($g_{\text{felt}} = 0$):
-  $$ \frac{(\omega R \pm u)^2}{R} = 0 \implies \omega R \pm u = 0 $$
-  This requires choosing the retrograde direction $(-)$ and matching the speed:
-  $$ u = \omega R $$
-* **Physical Explanation:** Running backwards at the exact hull speed cancels out her inertial circular motion. She becomes stationary relative to the non-rotating inertial space, floating weightlessly while the floor slips beneath her feet!
-
-### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
-* **Dimensional check:** $[\omega] = \sqrt{[g]/[R]} = \sqrt{(\text{m/s}^2)/\text{m}} = \text{s}^{-1}$; $[\omega^2R] = \text{m/s}^2$; $[2\omega u] = \text{s}^{-1}\cdot\text{m/s} = \text{m/s}^2$; $[u^2/R] = (\text{m}^2/\text{s}^2)/\text{m} = \text{m/s}^2$ (Consistent).
-* **Numerical values (Python, $R = 10$ m, $g = 9.81$ m/s$^2$):**
-  - $\omega = \sqrt{0.981} = 0.990454\ \text{rad/s} = 9.458\ \text{rpm}$ (quoted above as $\approx 9.46$ rpm) and rim speed $\omega R = 9.9045\ \text{m/s}$.
-  - Running at $u = 2$ m/s: prograde $g_{\text{felt}} = 14.17\ \text{m/s}^2$ ($1.44\,g$), retrograde $6.25\ \text{m/s}^2$ ($0.64\,g$). At $u = 5$ m/s: prograde $22.21\ \text{m/s}^2$ ($2.26\,g$), retrograde $2.41\ \text{m/s}^2$ ($0.25\,g$).
-  - Retrograde at $u = \omega R = 9.9045$ m/s gives $g_{\text{felt}} = 0$ exactly (part (c)); prograde at the same speed gives $4g = 39.24\ \text{m/s}^2$.
-* **Limiting cases:** $u \to 0$ gives $g_{\text{felt}} = g$. For $u \ll \omega R$, $g_{\text{felt}} \approx g \pm 2\omega u$, the Coriolis correction (at $u = 2$ m/s: $9.81 + 3.96 + 0.40 = 14.17\ \text{m/s}^2$, where $0.40 = u^2/R$ is the remaining quadratic term, so the expansion of part (b) is reproduced exactly). For $R \to \infty$ at fixed $g$, $\omega = \sqrt{g/R} \to 0$ (a larger hull needs fewer revolutions per minute).
-
----
-
-## 📌 Problem 41: Simple Rotations, Satellite Solar Panels (Ginsberg)
-
-### Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters
-* **Physical System:** A reconnaissance satellite spins about its body-fixed $z$-axis at constant rate $\omega$. A solar panel rotates about the body-fixed $x$-axis by an arbitrary prescribed angle $\theta(t)$.
-* **Goal:** Determine absolute velocity $\mathbf{v}_{B/0}$ and acceleration $\mathbf{a}_{B/0}$ of tip $B$ relative to inertial frame centered at $A$.
-* **Geometric Parameters:** Dimensions $W$ (panel width) and $H$ (hub height).
-
-### Phase 2: Successive Reference Frames & Rotation Matrices
-* **Inertial Reference Frame:** $\mathcal{S}_0 = \{A; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
-* **Satellite Body Frame (Precessing):** $\mathcal{S}_1 = \{A; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, obtained by rotating by angle $\phi = \omega t$ about $\mathbf{k}_0$:
-  $$ [{}_0 R_1] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \boldsymbol{\omega}_{1/0} = \omega\mathbf{k}_1 $$
-* **Panel-Fixed Frame:** $\mathcal{S}_2 = \{C; \mathbf{i}_2, \mathbf{j}_2, \mathbf{k}_2\}$, obtained by rotating $\mathcal{S}_1$ by angle $\theta(t)$ about $\mathbf{i}_1$:
-  $$ [{}_1 R_2] = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta \\ 0 & \sin\theta & \cos\theta \end{pmatrix}, \quad \boldsymbol{\omega}_{2/1} = \dot{\theta}\mathbf{i}_1 $$
-* **Total Angular Velocity Vector (Notes Sec. 3.1, Eq. 3.14):**
-  $$ \boldsymbol{\omega}_{2/0} = \boldsymbol{\omega}_{1/0} + \boldsymbol{\omega}_{2/1} = \dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1 $$
-* **Angular Acceleration Vector:**
-  $$ \boldsymbol{\alpha}_{2/0} = \frac{d\boldsymbol{\omega}_{2/0}}{dt}\Big|_{\mathcal{S}_0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\boldsymbol{\omega}_{1/0} \times \mathbf{i}_1) + \dot{\omega}\mathbf{k}_1 + \omega(\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1) $$
-  Since $\omega = \text{const}$, $\dot{\omega} = 0$ and $\boldsymbol{\omega}_{1/0} \times \mathbf{k}_1 = \mathbf{0}$.
-  $$ \boldsymbol{\alpha}_{2/0} = \ddot{\theta}\mathbf{i}_1 + \dot{\theta}(\omega\mathbf{k}_1 \times \mathbf{i}_1) = \ddot{\theta}\mathbf{i}_1 + \omega\dot{\theta}\mathbf{j}_1 $$
-The hinge axis is the body-fixed $x$-axis ($\mathbf{i}_1$); $C$ denotes the point of this axis at the abscissa of $B$, so $\mathbf{r}_{AC} = H\mathbf{i}_1$ is fixed in $\mathcal{S}_1$ and does not rotate with the panel. The axes of $\mathcal{S}_2$ expressed in $\mathcal{S}_1$ are the columns of $[{}_1 R_2]$: $\mathbf{i}_2 = \mathbf{i}_1$, $\mathbf{j}_2 = \cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1$, $\mathbf{k}_2 = -\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1$. Orthonormality check: $\det[{}_1 R_2] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_1 R_2][{}_1 R_2]^T = \mathrm{diag}\!\left(1,\ \begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}\begin{pmatrix}\cos\theta & \sin\theta\\ -\sin\theta & \cos\theta\end{pmatrix}\right) = I$.
-**Geometry assumption.** The statement text does not fix the geometry; it is read from the figure in Problems.pdf (PDF page 29): the panel lies along the $x$-axis, $B$ is the panel corner at distance $H$ from $A$ measured along $x$ and at distance $W$ from the $x$-axis, and $\theta$ is measured about $+\mathbf{i}_1$ from the $\mathbf{j}_1$ direction (so $\mathbf{r}_{CB} = W\mathbf{j}_2$). The zero reference of $\theta$ (panel along $+\mathbf{j}_1$ at $\theta = 0$) cannot be read unambiguously from the statement; it is the choice consistent with the official key.
-* **Orthonormality of $[{}_0 R_1]$:** $\det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1$ and $[{}_0 R_1][{}_0 R_1]^T = I$. Since $[{}_1 R_2]$ has the same two properties, the composition $[{}_0 R_2] = [{}_0 R_1][{}_1 R_2]$ is also a proper rotation ($\det = 1$, $R R^T = I$); all three checks were done symbolically with sympy.
-
-### Phase 3: Mathematical Deduction Step-by-Step with Continuous Justification
-
-#### Position of Point $B$ in Basis $\mathcal{B}_1$
-Decompose $\mathbf{r}_{AB} = \mathbf{r}_{AC} + \mathbf{r}_{CB}$. The first part is fixed in $\mathcal{S}_1$; the second is fixed in the panel frame $\mathcal{S}_2$ ($\mathbf{r}_{CB} = W\mathbf{j}_2$), and is brought to $\mathcal{S}_1$ with $[{}_1 R_2]$:
-$$ \mathbf{r}_{AC} = H\mathbf{i}_1, \qquad \{\mathbf{r}_{CB}\}_1 = [{}_1 R_2]\begin{pmatrix}0\\ W\\ 0\end{pmatrix} = \begin{pmatrix}0\\ W\cos\theta\\ W\sin\theta\end{pmatrix} $$
-$$ \mathbf{r}_{AB} = H\mathbf{i}_1 + W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$
-#### Absolute Velocity of Point $B$
-Since $A$ is the origin of the inertial frame, $\mathbf{v}_{B/0} = \frac{d\mathbf{r}_{AB}}{dt}\Big|_{\mathcal{S}_0}$. By the Poisson formula, a vector fixed in $\mathcal{S}_1$ obeys $\frac{d}{dt}\Big|_{\mathcal{S}_0} = \boldsymbol{\omega}_{1/0}\times$ and a vector fixed in $\mathcal{S}_2$ obeys $\frac{d}{dt}\Big|_{\mathcal{S}_0} = \boldsymbol{\omega}_{2/0}\times$. The hub offset $H\mathbf{i}_1$ rotates only with the satellite ($\boldsymbol{\omega}_{1/0}$), not with the panel:
-$$ \mathbf{v}_{B/0} = \boldsymbol{\omega}_{1/0}\times\mathbf{r}_{AC} + \boldsymbol{\omega}_{2/0}\times\mathbf{r}_{CB} = \omega\mathbf{k}_1\times H\mathbf{i}_1 + (\dot{\theta}\mathbf{i}_1 + \omega\mathbf{k}_1)\times W(\cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1) $$
-Cross products: $\mathbf{k}_1\times\mathbf{i}_1 = \mathbf{j}_1$, $\mathbf{i}_1\times\mathbf{j}_1 = \mathbf{k}_1$, $\mathbf{i}_1\times\mathbf{k}_1 = -\mathbf{j}_1$, $\mathbf{k}_1\times\mathbf{j}_1 = -\mathbf{i}_1$, $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$. Term by term:
-- $\omega\mathbf{k}_1\times H\mathbf{i}_1 = H\omega\,\mathbf{j}_1$
-- $\dot{\theta}\mathbf{i}_1\times W\cos\theta\,\mathbf{j}_1 = W\dot{\theta}\cos\theta\,\mathbf{k}_1$
-- $\dot{\theta}\mathbf{i}_1\times W\sin\theta\,\mathbf{k}_1 = -W\dot{\theta}\sin\theta\,\mathbf{j}_1$
-- $\omega\mathbf{k}_1\times W\cos\theta\,\mathbf{j}_1 = -W\omega\cos\theta\,\mathbf{i}_1$
-- $\omega\mathbf{k}_1\times W\sin\theta\,\mathbf{k}_1 = \mathbf{0}$
-Adding the five terms:
-$$ \mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + (H\omega - W\dot{\theta}\sin\theta)\,\mathbf{j}_1 + W\dot{\theta}\cos\theta\,\mathbf{k}_1 $$
-This agrees with the official key (Problems.pdf, PDF page 76).
-#### Absolute Acceleration of Point $B$
-Differentiate $\mathbf{v}_{B/0} = v_x\mathbf{i}_1 + v_y\mathbf{j}_1 + v_z\mathbf{k}_1$ in $\mathcal{S}_0$: the components are differentiated with the chain rule and product rule, and the Poisson formula gives $\dot{\mathbf{i}}_1 = \omega\mathbf{j}_1$, $\dot{\mathbf{j}}_1 = -\omega\mathbf{i}_1$, $\dot{\mathbf{k}}_1 = \mathbf{0}$:
-$$ \mathbf{a}_{B/0} = \dot{v}_x\mathbf{i}_1 + \dot{v}_y\mathbf{j}_1 + \dot{v}_z\mathbf{k}_1 + \omega\mathbf{k}_1\times\mathbf{v}_{B/0} = (\dot{v}_x - \omega v_y)\mathbf{i}_1 + (\dot{v}_y + \omega v_x)\mathbf{j}_1 + \dot{v}_z\mathbf{k}_1 $$
-With $\frac{d}{dt}\cos\theta = -\dot{\theta}\sin\theta$ and $\frac{d}{dt}\sin\theta = \dot{\theta}\cos\theta$ ($\omega$, $H$, $W$ constant):
-- $\dot{v}_x = W\omega\dot{\theta}\sin\theta$, $\quad v_y = H\omega - W\dot{\theta}\sin\theta$, $\quad \dot{v}_x - \omega v_y = 2W\omega\dot{\theta}\sin\theta - H\omega^2$
-- $\dot{v}_y = -W(\ddot{\theta}\sin\theta + \dot{\theta}^2\cos\theta)$, $\quad \omega v_x = -W\omega^2\cos\theta$
-- $\dot{v}_z = W(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta)$
-$$ \mathbf{a}_{B/0} = (2W\omega\dot{\theta}\sin\theta - H\omega^2)\mathbf{i}_1 - (W\ddot{\theta}\sin\theta + W\dot{\theta}^2\cos\theta + W\omega^2\cos\theta)\mathbf{j}_1 + (W\ddot{\theta}\cos\theta - W\dot{\theta}^2\sin\theta)\mathbf{k}_1 $$
-This agrees with the official key (Problems.pdf, PDF page 76).
-
-### Phase 4: Physical Interpretation & Dimensional Check
-* **Coriolis Coupling:** The term $2W\omega\dot{\theta}\sin\theta\,\mathbf{i}_1$ represents the Coriolis acceleration arising from the cross-coupling between satellite spin $\omega$ and panel deployment rate $\dot{\theta}$.
-* **Dimensional Consistency:**
-  - Every velocity component has units $[\text{length}] \cdot [\text{time}]^{-1} = \text{m/s}$.
-  - Every acceleration component has units $[\text{length}] \cdot [\text{time}]^{-2} = \text{m/s}^2$ (Consistent ✅).
-* **Limiting cases:**
-  - $\dot{\theta} = 0$ (panel locked): $\mathbf{v}_{B/0} = -W\omega\cos\theta\,\mathbf{i}_1 + H\omega\,\mathbf{j}_1 = \omega\mathbf{k}_1 \times (H\mathbf{i}_1 + W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1)$, the rigid-body velocity of a point of the spinning satellite.
-  - $\omega = 0$ (no spin): $\mathbf{v}_{B/0} = W\dot{\theta}(-\sin\theta\,\mathbf{j}_1 + \cos\theta\,\mathbf{k}_1)$ and the acceleration reduces to the circular-motion terms $-W\dot{\theta}^2\,\mathbf{e}_{\text{rad}} + W\ddot{\theta}\,\mathbf{e}_{\text{tan}}$ about the hinge axis ($\mathbf{e}_{\text{rad}} = \mathbf{j}_2$, $\mathbf{e}_{\text{tan}} = \mathbf{k}_2$, radius $W$).
-* **Symbolic check (sympy):** differentiating twice in the inertial frame the vector $[{}_0 R_1]\,(H,\ W\cos\theta,\ W\sin\theta)^T$ and projecting back on $\mathcal{B}_1$ with $[{}_0 R_1]^T$ gives exactly the $\mathbf{v}_{B/0}$ and $\mathbf{a}_{B/0}$ of Phase 3 (all components, zero residual).

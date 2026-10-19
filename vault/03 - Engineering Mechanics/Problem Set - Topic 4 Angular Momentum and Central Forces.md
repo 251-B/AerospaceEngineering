@@ -29,43 +29,6 @@ Problem statements from the UC3M Aerospace Engineering problem collection (`Prob
 
 ---
 
-## 📌 Problem 17: Linear Central Force under Gravity
-
-A force attracts a heavy particle $M$ of mass $m$ to a point $O$. The attractive force is proportional to the mass of the particle and to the distance $OM$. The proportionality coefficient is $k^2$. The coordinate system $Oxyz$ has the origin at the centre of attraction $O$ and the axis $Oz$ is vertically oriented. Initially, the coordinates of $M$ are:
-$$ (x_0, y_0, z_0) = \left(\frac{\sqrt{3}g}{k^2}, 0, 0\right) $$
-and its initial velocity is:
-$$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
-
-* **(a)** Describe the motion of $M$, specifying clearly the shape of the path.
-* **(b)** What is the velocity of the particle as a function of $t$?
-
-*(Note: this problem is the example on Slide 6 of `04_-_Angular_momentum.pdf`.)*
-
----
-
-## 📌 Problem 39: Particle on a String with a Plate
-
-A heavy point particle $P$ with mass $m$ is connected with point $O$ on the upper surface of a thin square plate by a massless, inextensible string of length $\ell$. The distance between $O$ and the edge of the plate is $d$. The string hangs over the edge of the plate and can slide without friction. You can assume that the string remains tense and in contact with the plate at all times.
-
-We denote the geometric point where the string is in contact with the plate edge as $Q$. We define the inertial reference frame $S_0 : \{O, \mathcal{B}_0\}$, with $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ as shown in the figure (Problems.pdf, PDF page 27). We define the angle $\theta$ between the $Ox_0$ axis and the string segment $OQ$, and the angle $\phi$ between a vertical plane containing the plate edge and the line perpendicular to the plate edge that passes through $P$. Initially at time $t = 0$, $\theta(0) = \phi(0) = \pi/3\text{ rad}$, and the modulus of the velocity of $P$ is $v_0^P(0) = \sqrt{\ell g}$, where $g$ is the magnitude of the acceleration due to gravity.
-
-![[attachments/EM/T4-P39-figure.png]]
-*Figure: Plate with O on its upper surface, string OQ at angle θ to Ox0, hanging segment QP at angle φ, equal angles marked with dashed lines. Source: Problems.pdf, p. 27.*
-
-*Hint: Note that under the conditions of the problem, the two angles marked with dashed lines are equal.*
-
-* **(a)** How many degrees of freedom does the system have?
-* **(b)** Obtain the general expression of a unit vector in the direction from $Q$ to $P$ as a function of $\theta$ and $\phi$.
-* **(c)** Obtain the general expression for the position, velocity, and acceleration vectors of $Q$ and $P$ in $S_0$ as a function of $\theta$, $\phi$, their derivatives, and the parameters of the problem.
-* **(d)** Identify and express mathematically all the forces acting on $P$.
-* **(e)** Find a set of second order differential equations to determine the evolution of $\theta$ and $\phi$ in time, free of any other unknowns.
-* **(f)** Does the tension force exert work on $P$? Provide proof of your answer.
-* **(g)** Derive the general expression of the mechanical energy of $P$ in $S_0$ and compute its value initially. Is this a conserved quantity of motion? Justify your answer.
-
-*(Figure reading used in the solution: the plate edge is the line $x_0 = d$ parallel to $\mathbf{j}_0$, $Oz_0$ points up and gravity acts along $-\mathbf{k}_0$.)*
-
----
-
 ## 📌 Problem 42: Particle Attracted to the Origin (Advanced General Power Law)
 
 *(Advanced problem:)* A point particle $P$ of mass $m$ is attracted by the origin of coordinates $O$ of the inertial reference frame $S_0$ by a force with magnitude:
@@ -91,6 +54,9 @@ where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known posit
 We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.
 
 Initially, half of the cord lies under the plane and half of the cord is on the plane (so $r(0) = a$). At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.
+
+![[attachments/EM/T4-P43-figure.png]]
+*Figure: Smooth horizontal plane with a small hole, particle P1 on the plane at distance r from the hole and particle P2 hanging below it, both of mass m. Source: Problems.pdf, p. 30.*
 
 * **(a)** What is the value of $v_0$ if $P_1$ describes a circumference?
 * **(b)** In that case, what is the value of the tension in the cord?

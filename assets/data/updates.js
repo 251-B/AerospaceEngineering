@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-19-mechanics-problems-audit",
+    "date": "2026-10-19",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics problems reorganised: 51 problems, each in its unit",
+    "text": "Repeated problems were removed and each one now sits in the unit that teaches its tools. Problems 45 and 46 were added, and missing figures were restored.",
+    "link": "subjects/engineering-mechanics/problemas/index.html"
+  },
+  {
     "id": "2026-10-18-mechanics-extra-problems-simulator",
     "date": "2026-10-18",
     "tag": "Engineering Mechanics",

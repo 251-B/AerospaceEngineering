@@ -18,7 +18,7 @@ Official problem statements from the UC3M Aerospace Engineering problem collecti
 > **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
 > 
 > [!SUCCESS] Complete Analytical Solutions Ready
-> All 10 problems have full, step-by-step pedagogical solutions developed in: [[Solution Set - Topic 1 Particle Kinematics]].
+> All 6 problems have full, step-by-step pedagogical solutions developed in: [[Solution Set - Topic 1 Particle Kinematics]].
 
 ---
 
@@ -29,6 +29,9 @@ $$ x = a \cos(\omega t) \tag{1} $$
 $$ y = a \sin(\omega t) \tag{2} $$
 $$ z = v_z t \tag{3} $$
 where $a$, $v_z$, and $\omega$ are constants.
+
+![[attachments/EM/T1-P01-figure.png]]
+*Figure: Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW). Source: Problems.pdf, p. 6.*
 
 * **(a)** Express the position, velocity, and acceleration vectors in the Cartesian $x, y, z$ system using unit vectors $\mathbf{i}, \mathbf{j}, \mathbf{k}$.
 * **(b)** Express the position, velocity, and acceleration vectors in the cylindrical coordinate system using unit vectors $\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z$.
@@ -94,44 +97,3 @@ with a velocity along $x$ given by $\dot{x} = 1$.
 * **(b)** Express $x$ as a function of an arc length parameter, $s$. You can leave your solution as a function of an integral.
 * **(c)** Find the tangent and normal acceleration components of $P$ as a function of $x$.
 * **(d)** Write the radius of curvature of the trajectory as a function of $x$.
-
----
-
-## 📌 Problem 07: Skater Pulled by Vehicle on a Circumference
-
-A skater $B$ is being towed by a vehicle $A$ on a perfectly smooth horizontal plane, where we define an inertial reference frame $Oxy$. The vehicle is moving along a circumference of radius $a$ and center at $O$ with constant angular velocity $\omega$. The skater is attached to the vehicle by a bar without mass and constant length $l = a$. Initially, the vehicle is located at $(a, 0)$ and the skater is at rest at $(2a, 0)$. Defining a rotating reference frame $Ox_1y_1$ with origin at $O$ and axis $Ox_1$ along $OA$, and calling $\psi$ the angle between the axis $Ox_1$ and the bar $AB$, determine:
-
-* **(a)** The relative acceleration of the skater with respect to $Ox_1y_1$ as a function of $\psi$ and its time derivatives.
-* **(b)** The centripetal and Coriolis acceleration terms also as a function of $\psi$ and its time derivatives.
-* **(c)** Reduce the evolution of $\psi$ to integrals of the form $\int [...] d\psi = \int [...] dt$ (consider that $\dot{\psi}^2 = \int 2\dot{\psi}\ddot{\psi}\,dt$).
-* **(d)** Determine the tension on the bar.
-* **(e)** If the rigid bar is substituted by a string which cannot bear compression, determine if/when the string will become loose.
-
----
-
-## 📌 Problem 08: Kinematics, Two Trains on Tracks
-
-Two trains, $A$ and $B$, are moving along parallel tracks. The separation between the tracks is $a$. The absolute velocity of each train is $v_A$ and $v_B$, respectively. What is the relative velocity of each train with respect to the other?
-
-Solve the same problem considering that train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.
-
----
-
-## 📌 Problem 09: 2001: A Space Odyssey (Artificial Gravity)
-
-In *2001: A Space Odyssey* an idea to obtain artificial gravity in a spaceship was presented. It consists of a cylinder rotating at constant angular velocity around its axis. The astronauts would live in the inner surface of the cylinder and the centrifugal force would act as artificial gravity.
-
-* **(a)** If the cylinder has radius $R$, determine the angular velocity $\omega$ required to obtain a given level of artificial gravity $g$. Consider $R = 10\text{ m}$ and $g = 9.81\text{ m/s}^2$ for a particular case.
-* **(b)** An astronaut runs inside the surface of the cylinder with a constant speed $u$ with respect to the cylinder. Determine the artificial gravity that she feels (neglect the height of the astronaut $h$ with respect to the radius of the cylinder $R$, $h \ll R$).
-* **(c)** What is the condition for her to feel no artificial gravity at all?
-
----
-
-## 📌 Problem 41: Simple Rotations, Satellite Solar Panels
-
-The angle $\theta$ describing the rotation of the solar panels of a reconnaissance satellite about the body-fixed axis $x$ is an arbitrary function of time. The satellite spins about the $z$ axis at the constant angular rate $\omega$. Derive expressions for the absolute velocity and acceleration of point $B$ relative to an inertial reference frame centered in $A$.
-
-![[attachments/EM/T1-P41-figure.png]]
-*Figure: Satellite body spinning about z with a solar panel rotated by the angle θ about the body-fixed x axis, points A and B, dimensions H and W. Source: Problems.pdf, p. 29.*
-
-*(Taken from Ginsberg, "Engineering Dynamics", Cambridge University Press, 2008)*

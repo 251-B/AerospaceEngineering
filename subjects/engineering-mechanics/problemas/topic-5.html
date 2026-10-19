@@ -593,6 +593,95 @@
       </div>
     </div>
 
+    <!-- Problem 08 -->
+    <div class="problem-card" id="prob-08">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 08</div>
+          <h2 class="problem-title">Kinematics, Two Trains on Tracks</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=8" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 8</a>
+        </div>
+        <span class="problem-badge">Relative Motion</span>
+      </div>
+      <div class="problem-statement">
+        <p>Two trains, $A$ and $B$, are moving along parallel tracks. The separation between the tracks is $a$. The absolute velocity of each train is $v_A$ and $v_B$, respectively. What is the relative velocity of each train with respect to the other?</p>
+        <p>Solve the same problem considering that train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.</p>
+      </div>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> Two trains $A$ and $B$ move on separate tracks with distance of closest separation $a$.</li>
+<li>Case 1: Two parallel straight tracks with constant speeds $v_A$ and $v_B$.</li>
+<li>Case 2: Train $A$ on a straight track, Train $B$ on a circular track of radius $R$.</li>
+<li><strong>Parameters & Units:</strong> Separation $a\text{ [m]}$, radius $R\text{ [m]}$, speeds $v_A, v_B\text{ [m/s]}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Cartesian Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case 1: Parallel Tracks</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Train $A$ on line $y = 0$: $\mathbf{r}_A(t) = v_A t\,\mathbf{i}_0$.</li>
+<li>Train $B$ on line $y = a$: $\mathbf{r}_B(t) = (x_{B0} + v_B t)\mathbf{i}_0 + a\mathbf{j}_0$.</li>
+<li><strong>Relative Velocity:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = (v_B - v_A)\mathbf{i}_0 $$</div>
+<div class="math-block">$$ \mathbf{v}_{A/B} = -\mathbf{v}_{B/A} = (v_A - v_B)\mathbf{i}_0 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case 2: Train $B$ on a Circular Track of Radius $R$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Straight track of $A$ along the $x$-axis: $\mathbf{r}_A = v_A t\,\mathbf{i}_0$.</li>
+<li>Circular track center at $(0, R + a)$ so that the closest distance to $A$'s track is $(R+a) - R = a$.</li>
+<li>Position of train $B$ traveling at angular speed $\omega_B = \frac{v_B}{R}$ with angle $\theta_B(t) = \omega_B t$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{r}_B(t) = R\sin(\omega_B t)\mathbf{i}_0 + [R + a - R\cos(\omega_B t)]\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Velocity of train $B$:</li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_B = \frac{d\mathbf{r}_B}{dt} = R\omega_B\cos(\omega_B t)\mathbf{i}_0 + R\omega_B\sin(\omega_B t)\mathbf{j}_0 = v_B\cos\left(\frac{v_B t}{R}\right)\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Relative Velocity $\mathbf{v}_{B/A}$:</strong></li>
+</ul>
+<div class="math-block">$$ \mathbf{v}_{B/A} = \mathbf{v}_B - \mathbf{v}_A = \left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]\mathbf{i}_0 + v_B\sin\left(\frac{v_B t}{R}\right)\mathbf{j}_0 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Magnitude of Relative Velocity:</strong></li>
+</ul>
+<div class="math-block">$$ v_{\text{rel}} = \sqrt{\left[ v_B\cos\left(\frac{v_B t}{R}\right) - v_A \right]^2 + v_B^2\sin^2\left(\frac{v_B t}{R}\right)} = \sqrt{v_B^2 + v_A^2 - 2v_A v_B\cos\left(\frac{v_B t}{R}\right)} $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation, Limiting Cases and Dimensional Check</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Dimensional check:</strong> $[\mathbf{v}_{B/A}] = \text{m/s}$; in Case 2 the argument of the trigonometric functions is $\dfrac{v_B t}{R} = \dfrac{(\text{m/s})\,\text{s}}{\text{m}}$, which is dimensionless (rad), and $[v_B^2 + v_A^2 - 2v_Av_B\cos(\cdot)] = \text{m}^2/\text{s}^2$, so $v_{\text{rel}}$ is in m/s.</li>
+<li><strong>Role of the separation $a$:</strong> it does not appear in any relative velocity, because $\mathbf{v}_{B/A}$ is the time derivative of $\mathbf{r}_B - \mathbf{r}_A$ and $a$ only enters the constant offset of that vector.</li>
+<li><strong>Limiting cases of Case 2 (sympy):</strong></li>
+<li>$t = 0$: $v_{\text{rel}} = \sqrt{v_A^2 + v_B^2 - 2v_Av_B} = |v_B - v_A|$, because both velocities are parallel to $\mathbf{i}_0$ at that instant.</li>
+<li>$R \to \infty$ (the circular track straightens): $\cos(v_Bt/R) \to 1$ and $v_{\text{rel}} \to |v_B - v_A|$, which is the Case 1 result.</li>
+<li>$v_A = v_B = v$: $v_{\text{rel}} = v\sqrt{2 - 2\cos(vt/R)} = 2v\left|\sin\dfrac{vt}{2R}\right|$, which starts at $0$ and never exceeds $2v$.</li>
+<li>$v_A = 0$: $v_{\text{rel}} = v_B$ for all $t$ (relative to a stationary train, only the speed of $B$ matters).</li>
+<li><strong>Symbolic check:</strong> $\|\mathbf{v}_B - \mathbf{v}_A\|^2$ computed from the components equals $v_B^2 + v_A^2 - 2v_Av_B\cos(v_Bt/R)$ with zero residual. Both cases are written in the single inertial basis $\mathcal{B}_0$, so no change-of-basis matrix is needed.</li>
+</ul>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">Complete Step-by-Step Solution</span>
+        <span class="source-tag">Source: Problems.pdf (Page 8)</span>
+      </div>
+    </div>
+
 <!-- Problem 09 -->
     <div class="problem-card" id="prob-09">
       <div class="problem-header">
@@ -933,6 +1022,167 @@
       <div class="problem-footer">
         <span class="status-solved">Worked Solution</span>
         <span class="source-tag">Source: Problems.pdf (PDF page 10); no official key</span>
+      </div>
+    </div>
+
+    <!-- Problem 22 -->
+    <div class="problem-card" id="prob-22">
+      <div class="problem-header">
+        <div class="problem-title-area">
+          <div class="problem-num">Problem 22</div>
+          <h2 class="problem-title">Particle on a Curve</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf#page=10" target="_blank" rel="noopener">Original statement · Problems.pdf, p. 10</a>
+        </div>
+        <span class="problem-badge">1D Curve Constraint</span>
+      </div>
+      <div class="problem-statement">
+        <p>A heavy point particle $P$ of mass $m$ is constrained to move without friction along the curve:</p>
+        <div class="math-block">
+          $$ y = a\left(1 - \cos\frac{x}{a}\right) \tag{4} $$
+        </div>
+        <p>in the range $-\pi a \le x \le \pi a$, where $a$ is a positive constant. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.</p>
+        <figure class="statement-figure"><img src="../../../vault/attachments/EM/T5-P22-figure.png" alt="Heavy particle m on the curve y = a(1 - cos(x/a)) between x = -pi a and x = pi a, gravity g downward" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"><figcaption>Figure: Heavy particle m on the curve y = a(1 - cos(x/a)) between x = -pi a and x = pi a, gravity g downward (Problems.pdf, p. 10).</figcaption></figure>
+      </div>
+      <ul class="questions-list">
+        <li class="question-item">
+          <span class="question-label">(a)</span>
+          <div class="question-text">Reduce the problem to integrals.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(b)</span>
+          <div class="question-text">If $v_0 = \sqrt{ga}$, determine the minimum and maximum value of $x$ along the motion.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(c)</span>
+          <div class="question-text">What should be the minimum value of $v_0$ in order to reach $x = \pi a$?</div>
+        </li>
+      </ul>
+      <div class="problem-statement" style="margin-top: 14px;">
+        <p><strong>Extended Section (Moving Reference Frame):</strong><br>
+        Let's assume now that the curve containing the point particle rotates around the $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.</p>
+      </div>
+      <ul class="questions-list">
+        <li class="question-item">
+          <span class="question-label">(d)</span>
+          <div class="question-text">Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Determine the inertia force that acts on the particle in this moving reference frame as a function of $m, \Omega, x_1$ and $\dot{x}_1$, where $x_1$ represents the position coordinate of $P$ along $OX_1$.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(e)</span>
+          <div class="question-text">Reduce the problem to quadratures and determine the value of the reaction force.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(f)</span>
+          <div class="question-text">Find out a transcendental equation whose solutions are the equilibrium positions of the point particle in $OX_1Y_1Z_1$.</div>
+        </li>
+        <li class="question-item">
+          <span class="question-label">(g)</span>
+          <div class="question-text">If $\Omega$ were a function of time, would it be possible to use the energy equation in the same way as before? Justify your answer.</div>
+        </li>
+      </ul>
+            <!-- Analytical Solution -->
+      <details class="solution-details">
+        <summary class="solution-summary">
+          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
+        </summary>
+        <div class="solution-content">
+<div class="phase-block">
+<span class="phase-badge">Phase 1</span>
+<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Physical System:</strong> A particle of mass $m$ is constrained to move without friction along the smooth planar curve:</li>
+</ul>
+<div class="math-block">$$ y = a\left(1 - \cos\frac{x}{a}\right), \qquad x \in [-\pi a, \pi a] $$</div>
+<p style="margin-bottom: 10px;">in a vertical plane under uniform downward gravity $\mathbf{g} = -g\mathbf{j}$.</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>CDOFs:</strong> 1 degree of freedom, parametrized by Cartesian abscissa $x(t)$.</li>
+<li><strong>Initial State ($t = 0$):</strong> $x(0) = 0 \implies y(0) = a(1 - \cos 0) = 0$, with initial velocity $\mathbf{v}_0 = v_0\mathbf{i}$ ($v_0 > 0$).</li>
+<li><strong>Parameters:</strong> $m > 0$ [kg], $a > 0$ [m], $g > 0$ [m/s$^2$], $v_0 > 0$ [m/s].</li>
+</ul>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 2</span>
+<h3 class="phase-heading">Reference Frames, Vector Bases & Coordinate Geometry</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Inertial Frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$.</li>
+<li><strong>Curve Differential Elements:</strong></li>
+</ul>
+<div class="math-block">$$ \frac{dy}{dx} = \frac{d}{dx}\left[a\left(1 - \cos\frac{x}{a}\right)\right] = \sin\left(\frac{x}{a}\right) $$</div>
+<p style="margin-bottom: 10px;">Differential arc-length:</p>
+<div class="math-block">$$ ds^2 = dx^2 + dy^2 = dx^2 + \sin^2\left(\frac{x}{a}\right)dx^2 = \left[1 + \sin^2\left(\frac{x}{a}\right)\right]dx^2 $$</div>
+<div class="math-block">$$ ds = \sqrt{1 + \sin^2\left(\frac{x}{a}\right)}\,dx $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity:</strong></li>
+</ul>
+<div class="math-block">$$ v = \frac{ds}{dt} = \sqrt{1 + \sin^2\left(\frac{x}{a}\right)}\,\dot{x} $$</div>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 3</span>
+<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (a): Reduction of Motion to Integrals</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> The frictionless constraint does zero work ($W_N = 0$). Gravity is conservative with potential energy $V(y) = mgy = mga(1 - \cos(x/a))$. Total mechanical energy is constant.</div>
+<div class="math-block">$$ E = \frac{1}{2}m v^2 + mgy = \frac{1}{2}m v_0^2 + mg(0) = \frac{1}{2}m v_0^2 $$</div>
+<div class="math-block">$$ \frac{1}{2}m \left[1 + \sin^2\left(\frac{x}{a}\right)\right]\dot{x}^2 + mga\left(1 - \cos\frac{x}{a}\right) = \frac{1}{2}m v_0^2 $$</div>
+<p style="margin-bottom: 10px;">Multiply by $2/m$:</p>
+<div class="math-block">$$ \left[1 + \sin^2\left(\frac{x}{a}\right)\right]\dot{x}^2 = v_0^2 - 2ga\left(1 - \cos\frac{x}{a}\right) $$</div>
+<p style="margin-bottom: 10px;">Isolate $\dot{x} = \frac{dx}{dt}$:</p>
+<div class="math-block">$$ \frac{dx}{dt} = \pm \sqrt{\frac{v_0^2 - 2ga(1 - \cos(x/a))}{1 + \sin^2(x/a)}} $$</div>
+<p style="margin-bottom: 10px;">Separation of variables yields the quadrature:</p>
+<div class="math-block">$$ \int_{0}^{x(t)} \sqrt{\frac{1 + \sin^2(x'/a)}{v_0^2 - 2ga(1 - \cos(x'/a))}}\,dx' = \pm t $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (b): Turning Points for $v_0 = \sqrt{ga}$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Turning points occur where the velocity vanishes ($v = 0 \iff \dot{x} = 0$).</div>
+<div class="math-block">$$ v_0^2 - 2ga\left(1 - \cos\frac{x}{a}\right) = 0 $$</div>
+<p style="margin-bottom: 10px;">Substitute $v_0^2 = ga$:</p>
+<div class="math-block">$$ ga - 2ga\left(1 - \cos\frac{x}{a}\right) = 0 $$</div>
+<p style="margin-bottom: 10px;">Divide by $ga$:</p>
+<div class="math-block">$$ 1 - 2\left(1 - \cos\frac{x}{a}\right) = 0 \implies 2\cos\frac{x}{a} = 1 \implies \cos\frac{x}{a} = \frac{1}{2} $$</div>
+<p style="margin-bottom: 10px;">In the domain $x/a \in [-\pi, \pi]$:</p>
+<div class="math-block">$$ \frac{x}{a} = \pm \frac{\pi}{3} \implies x_{min} = -\frac{\pi}{3}a, \qquad x_{max} = +\frac{\pi}{3}a $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (c): Minimum Velocity $v_0$ to Reach $x = \pi a$</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> At the crest $x = \pi a$, the height is $y(\pi a) = a(1 - \cos\pi) = a(1 - (-1)) = 2a$. For the particle to reach this crest, its kinetic energy at the peak must be non-negative ($T(\pi a) \ge 0$).</div>
+<div class="math-block">$$ E \ge V(\pi a) \implies \frac{1}{2}m v_0^2 \ge mg(2a) = 2mga $$</div>
+<div class="math-block">$$ v_0^2 \ge 4ga \implies v_{0,min} = \sqrt{4ga} = 2\sqrt{ga} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (d): Moving Reference Frame with Rotation $\boldsymbol{\omega} = \Omega\mathbf{j}$</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Frame $\mathcal{F}_1 = \{O; \mathbf{i}_1, \mathbf{j}, \mathbf{k}_1\}$ rotating with $\boldsymbol{\Omega} = \Omega\mathbf{j}$.</li>
+<li>Particle position: $\mathbf{r}' = x_1\mathbf{i}_1 + y(x_1)\mathbf{j}$.</li>
+<li>Relative velocity: $\mathbf{v}' = \dot{x}_1\mathbf{i}_1 + \sin(x_1/a)\dot{x}_1\mathbf{j}$.</li>
+<li>Inertia forces in $\mathcal{F}_1$:</li>
+</ul>
+<p style="margin-bottom: 10px;">1. Centrifugal Force:</p>
+<div class="math-block">$$ \mathbf{F}_{cf} = -m\boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{r}') = m\Omega^2 x_1\mathbf{i}_1 $$</div>
+<p style="margin-bottom: 10px;">2. Coriolis Force:</p>
+<div class="math-block">$$ \mathbf{F}_{Cor} = -2m\boldsymbol{\Omega} \times \mathbf{v}' = -2m(\Omega\mathbf{j}) \times (\dot{x}_1\mathbf{i}_1 + \dot{y}_1\mathbf{j}) = 2m\Omega\dot{x}_1\,\mathbf{k}_1 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (e): Quadratures and Reaction Force in the Moving Frame</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Effective potential in $\mathcal{F}_1$:</li>
+</ul>
+<div class="math-block">$$ V_{eff}(x_1) = mgy(x_1) - \frac{1}{2}m\Omega^2 x_1^2 = mga\left(1 - \cos\frac{x_1}{a}\right) - \frac{1}{2}m\Omega^2 x_1^2 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Energy conservation in $\mathcal{F}_1$:</li>
+</ul>
+<div class="math-block">$$ E' = \frac{1}{2}m\left[1 + \sin^2(x_1/a)\right]\dot{x}_1^2 + mga\left(1 - \cos\frac{x_1}{a}\right) - \frac{1}{2}m\Omega^2 x_1^2 = \text{constant} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Reaction force: $\mathbf{N} = N_n\mathbf{n} + N_z\mathbf{k}_1$.</li>
+</ul>
+<p style="margin-bottom: 10px;">Along the binormal $\mathbf{k}_1$: $N_z = -F_{Cor, z} = -2m\Omega\dot{x}_1$.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (f): Transcendental Equilibrium Equation</h4>
+<p style="margin-bottom: 10px;">Equilibrium occurs where $\frac{dV_{eff}}{dx_1} = 0$:</p>
+<div class="math-block">$$ \frac{dV_{eff}}{dx_1} = mg\sin\left(\frac{x_1}{a}\right) - m\Omega^2 x_1 = 0 \implies g\sin\left(\frac{x_1}{a}\right) - \Omega^2 x_1 = 0 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Part (g): Case $\Omega = \Omega(t)$</h4>
+<p style="margin-bottom: 10px;">If $\Omega$ varies with time, the centrifugal potential becomes explicitly time-dependent ($\frac{\partial V_{cf}}{\partial t} = -m\Omega\dot{\Omega}x_1^2 \neq 0$) and an Euler inertia force $\mathbf{F}_{Euler} = -m\dot{\boldsymbol{\Omega}} \times \mathbf{r}'$ appears, which does non-zero work. Thus, mechanical energy in $\mathcal{F}_1$ is <strong>not</strong> conserved.</p>
+</div><div class="phase-block">
+<span class="phase-badge">Phase 4</span>
+<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>The potential well has width $2\pi a$ and barrier height $2ga$. Rotation creates a centrifugal destabilizing potential $-\frac{1}{2}m\Omega^2 x_1^2$ so that the origin loses stability for $\Omega^2 > g/a$. Off-centre equilibria satisfy $\sin u = \lambda u$ with $u = x_1/a$ and $\lambda = \Omega^2 a/g$; since $\sin u/u$ decreases monotonically from $1$ to $0$ on $(0, \pi]$, they exist (one pair $\pm u^*$ with $0 < u^* < \pi$) only for $\lambda < 1$, i.e. $\Omega^2 < g/a$, and there they are unstable ($V_{eff}'' = (mg/a)(\cos u^* - \lambda) < 0$).</li>
+</ul>
+<div class="justification-box"><strong>Erratum:</strong> The first version stated that off-centre equilibria appear for $\Omega^2 > g/a$; they exist only for $\Omega^2 < g/a$ (subcritical case) and are unstable. Numeric check: a scan of $\sin u = \lambda u$ on $(0, \pi]$ finds one root for $\lambda = 0.5$ ($u^* = 1.8955$) and for $0.9$, and none for $\lambda = 1, 1.1, 2$.</div>
+</div>
+        </div>
+      </details>
+
+<div class="problem-footer">
+        <span class="status-solved">Complete Step-by-Step Solution</span>
+        <span class="source-tag">Source: Problems.pdf (Page 11)</span>
       </div>
     </div>
 

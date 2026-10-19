@@ -57,6 +57,14 @@ A skater $B$ is being towed by a vehicle $A$ on a perfectly smooth horizontal pl
 
 ---
 
+## 📌 Problem 08: Kinematics, Two Trains on Tracks
+
+Two trains, $A$ and $B$, are moving along parallel tracks. The separation between the tracks is $a$. The absolute velocity of each train is $v_A$ and $v_B$, respectively. What is the relative velocity of each train with respect to the other?
+
+Solve the same problem considering that train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.
+
+---
+
 ## 📌 Problem 09: Artificial Gravity in a Rotating Cylinder (2001: A Space Odyssey)
 
 In "2001: A Space Odyssey" an idea to obtain artificial gravity in a spaceship was presented. It consists of a cylinder rotating at constant angular velocity around its axis. The astronauts would live in the inner surface of the cylinder and the centrifugal force would act as artificial gravity.
@@ -85,6 +93,28 @@ A heavy particle is moving along a smooth circumference of radius $R$ and center
 On a spinning spherical planet of radius $R$ and gravitational acceleration $g_p$, the bodies weigh twice as much on the poles as on the equator. Determine the duration of the day on that planet.
 
 *Source: Problems.pdf, p. 10.*
+
+---
+
+## 📌 Problem 22: Particle on a Curve
+
+A heavy point particle $P$ of mass $m$ is constrained to move without friction along the curve:
+$$ y = a\left(1 - \cos\frac{x}{a}\right) \tag{4} $$
+in the range $-\pi a \le x \le \pi a$, where $a$ is a positive constant. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.
+
+![[attachments/EM/T5-P22-figure.png]]
+*Figure: Heavy particle m on the curve y = a(1 - cos(x/a)) between x = -pi a and x = pi a, gravity g downward. Source: Problems.pdf, p. 10.*
+
+* **(a)** Reduce the problem to integrals.
+* **(b)** If $v_0 = \sqrt{ga}$, determine the minimum and maximum value of $x$ along the motion.
+* **(c)** What should be the minimum value of $v_0$ in order to reach $x = \pi a$?
+
+*Extended Exam Section (Moving Frame):*
+Let's assume now that the curve containing the point particle rotates around the $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.
+* **(d)** Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Determine the inertia force that acts on the particle in this moving reference frame as a function of $m, \Omega, x_1$ and $\dot{x}_1$, where $x_1$ represents the position coordinate of $P$ along $OX_1$.
+* **(e)** Reduce the problem to quadratures and determine the value of the reaction force.
+* **(f)** Find out a transcendental equation whose solutions are the equilibrium positions of the point particle in $OX_1Y_1Z_1$.
+* **(g)** If $\Omega$ were a function of time, would it be possible to use the energy equation in the same way as before? Justify your answer.
 
 ---
 

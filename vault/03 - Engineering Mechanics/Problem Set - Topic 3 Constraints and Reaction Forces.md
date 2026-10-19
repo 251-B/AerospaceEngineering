@@ -18,7 +18,7 @@ Official problem statements from the UC3M Aerospace Engineering problem collecti
 > **Status:** Verbatim problem statements transcribed faithfully from official department exams and problem sets.
 > 
 > [!SUCCESS] Complete Analytical Solutions Ready
-> All 15 problems have full, step-by-step pedagogical solutions developed in: [[Solution Set - Topic 3 Constraints and Reaction Forces]].
+> All 12 problems have full, step-by-step pedagogical solutions developed in: [[Solution Set - Topic 3 Constraints and Reaction Forces]].
 
 ---
 
@@ -38,31 +38,12 @@ where $a$ is a positive constant and $r$ is the distance to the $Oz$ vertical ax
 
 ---
 
-## 📌 Problem 20: Heavy Particle on a Rotating Circumference
+## 📌 Problem 23: Simple Pendulum
 
-A heavy particle is moving along a smooth circumference of radius $R$ and center $O$. One of the diameters of the circumference is along the local vertical, and the circumference is rotating with constant angular velocity $\omega$ about it. The position of the particle with respect to the circumference is described by the angle $\theta$ between the particle and the lowest point of the circumference.
+A simple pendulum consists of a mass $m$ hanging from a string of length $L$ and fixed at a pivot point $O$. The simple pendulum is equivalent to the problem of a heavy particle constrained to move along a smooth circumference. A unilateral constraint is considered, such that the particle moves along the interior of the circumference and it might fall under certain conditions.
 
-* **(a)** Discuss the conservation of mechanical energy in the moving reference frame and compute its value.
-* **(b)** Compute the reaction of the circumference in the direction normal to its plane, as a function of $\theta$.
-
----
-
-## 📌 Problem 22: Particle on a Curve
-
-A heavy point particle $P$ of mass $m$ is constrained to move without friction along the curve:
-$$ y = a\left(1 - \cos\frac{x}{a}\right) \tag{4} $$
-in the range $-\pi a \le x \le \pi a$, where $a$ is a positive constant. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.
-
-* **(a)** Reduce the problem to integrals.
-* **(b)** If $v_0 = \sqrt{ga}$, determine the minimum and maximum value of $x$ along the motion.
-* **(c)** What should be the minimum value of $v_0$ in order to reach $x = \pi a$?
-
-*Extended Exam Section (Moving Frame):*
-Let's assume now that the curve containing the point particle rotates around the $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.
-* **(d)** Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Determine the inertia force that acts on the particle in this moving reference frame as a function of $m, \Omega, x_1$ and $\dot{x}_1$, where $x_1$ represents the position coordinate of $P$ along $OX_1$.
-* **(e)** Reduce the problem to quadratures and determine the value of the reaction force.
-* **(f)** Find out a transcendental equation whose solutions are the equilibrium positions of the point particle in $OX_1Y_1Z_1$.
-* **(g)** If $\Omega$ were a function of time, would it be possible to use the energy equation in the same way as before? Justify your answer.
+* Analyze the motion of the particle when it is pushed from the lowest point of the circumference with velocity $v_0$. At what point does the particle leave the circumference? Is this point ever reached?
+* If the circumference rotates around the vertical axis with a constant angular velocity equal to $\omega$, write down the new equations of motion. Compute the locations along the circumference in which the particle is in equilibrium.
 
 ---
 
@@ -84,22 +65,6 @@ The particle departs from the point $(a, 0)$ of the circumference with an initia
 Consider now the situation in which an additional force acts on the particle. The force is proportional to, and in the same direction as, the instantaneous velocity. The constant of proportionality is $2m\mu$. The initial conditions are the same as before.
 * **(e)** Obtain the position of the particle as a function of time.
 * **(f)** Obtain the reaction of the circumference.
-
----
-
-## 📌 Problem 26: Heavy Particle on a Rotating Half-Circumference
-
-A heavy point particle $P$ of mass $m$ is constrained to move without friction along the half-circumference wire of radius $a$ shown in the figure. The wire containing the point particle rotates around the $OY$ axis with constant angular velocity $\omega = \Omega\mathbf{j}$. Initially, the particle is located at $x = 0$ with velocity $v_0$ along the positive $x$ axis.
-
-![[attachments/EM/T3-P26-figure.png]]
-*Figure: Half-circumference wire of radius a in the Oxy plane carrying the particle m, gravity along −y. Source: Problems.pdf, p. 14.*
-
-* **(a)** Determine the number of degrees of freedom of the problem.
-* **(b)** Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Express the inertia force that acts on the particle in this moving reference frame.
-* **(c)** Express also the components of the weight of the particle with respect to $OX_1Y_1Z_1$.
-* **(d)** Determine if there are any equilibrium points.
-* **(e)** Reduce the problem to integrals (i.e. quadratures) and determine the value of the reaction force.
-* **(f)** Is it possible to use the energy equation? If $\Omega$ were a function of time, would it be possible to use the energy equation? Justify your answer.
 
 ---
 
@@ -201,21 +166,6 @@ A heavy point particle $P$ with mass $m$ is connected with point $O$ on the uppe
 * **(e)** Find a set of second order differential equations to determine the evolution of $\theta$ and $\phi$ in time, free of any other unknowns.
 * **(f)** Does the tension force exert work on $P$? Provide proof of your answer.
 * **(g)** Derive the general expression of the mechanical energy of $P$ in $S_0$ and compute its value initially. Is this a conserved quantity of motion? Justify your answer.
-
----
-
-## 📌 Problem 43: Two Connected Particles, Plane with Hole
-
-We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole. Initially, half of the cord lies under the plane and half of the cord is on the plane. At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.
-
-* **(a)** What is the value of $v_0$ if $P_1$ describes a circumference?
-* **(b)** In that case, what is the value of the tension in the cord?
-* **(c)** If $v_0 = \sqrt{8ag/3}$, reduce the problem to integrals (i.e., quadratures).
-* **(d)** Show that for this value of $v_0$, $P_1$ oscillates between $r = a$ and $r = 2a$.
-* **(e)** Apply Newton's law to $P_2$ and show that the tension of the cord is $T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right)$.
-* **(f)** Write down the new equations of motion if the plane on which $P_1$ moves is rough, with a friction coefficient $\mu$.
-
-*(Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1, x_2 = 2$ and $x_3 = -2/3$)*.
 
 ---
 
