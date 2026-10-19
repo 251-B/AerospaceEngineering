@@ -19,8 +19,15 @@ bytes: 2145627
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session 12 T5 Mechanical properties II.pdf`
 - **Kind:** teoria
 - **Size:** 2.1 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 8 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Concept - Grain Size Strengthening]]
+- [[02 - Aerospace Materials I/Concept - Hardness Tests Mohs Brinell Rockwell Vickers]]
+- [[02 - Aerospace Materials I/Concept - Precipitation Strengthening]]
+- [[02 - Aerospace Materials I/Concept - Slip Systems and Dislocation Glide]]
+- [[02 - Aerospace Materials I/Concept - Solid Solution Strengthening]]
+- [[02 - Aerospace Materials I/Concept - Strain Hardening and Percent Cold Work]]
+- [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties]]

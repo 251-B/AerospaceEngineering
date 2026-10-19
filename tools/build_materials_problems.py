@@ -100,8 +100,12 @@ def card(note, figure):
     check = next((v for k, v in sec.items() if "Check against" in k), None)
     if sorted(phases) != [1, 2, 3, 4]:
         raise SystemExit(f"{note['name']}: expected phases 1-4, found {sorted(phases)}")
+    stmt_html = bt.blocks(stmt, figure)
+    first = re.match(r"^(\d+)\. ", next((l for l in stmt if l.strip()), ""))
+    if first and stmt_html.lstrip().startswith("<ol>"):
+        stmt_html = stmt_html.replace("<ol>", f'<ol start="{first.group(1)}">', 1)   # the statement keeps the number of the sheet
     blocks = [f'''        <div class="statement-box">
-{bt.blocks(stmt, figure)}''']
+{stmt_html}''']
     if key:
         blocks.append(f'          <div class="solution-box">Official Solution: {bt.inline(key)}</div>')
     blocks.append("        </div>")

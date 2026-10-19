@@ -19,8 +19,23 @@ bytes: 265109
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems T5_MechanicalProperties.pdf`
 - **Kind:** problemas
 - **Size:** 265.1 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 16 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T5-01 Complete Analysis of a Tensile Test from the Load-Elongation Table]]
+- [[02 - Aerospace Materials I/Problem - T5-02 Tensile Test of a 15 mm Cylinder Strength Resilience True Stress and Area Reduction]]
+- [[02 - Aerospace Materials I/Problem - T5-03 Tensile Test of a 13 mm Sample Modulus Cable Section and True Values]]
+- [[02 - Aerospace Materials I/Problem - T5-04 Tensile Test of a Rectangular Brass Sample Modulus Strengths and Working Stress]]
+- [[02 - Aerospace Materials I/Problem - T5-05 Thermal Stress in a Constrained Steel Wire]]
+- [[02 - Aerospace Materials I/Problem - T5-06 Maximum Length of a Ni Alloy Sample for a Given Elongation]]
+- [[02 - Aerospace Materials I/Problem - T5-07 Crane Cable Poisson Ratio Safety Factor and Replacement Cable]]
+- [[02 - Aerospace Materials I/Problem - T5-08 Elastic Limits of a Brass Sample]]
+- [[02 - Aerospace Materials I/Problem - T5-09 Elongation and Diameter Change of a Steel Sample under Load]]
+- [[02 - Aerospace Materials I/Problem - T5-10 Copper Wire Yield Strength Permanent Elongation and Resilience]]
+- [[02 - Aerospace Materials I/Problem - T5-11 Elastic Deformation of a 15 mm Steel Cylinder under 50 kN]]
+- [[02 - Aerospace Materials I/Problem - T5-12 Steel Cable True Fracture Stress and True Strain from the Reduction in Area]]
+- [[02 - Aerospace Materials I/Problem - T5-13 Vickers and Brinell Hardness Numbers from Indentation Measurements]]
+- [[02 - Aerospace Materials I/Problem - T5-14 Brinell Hardness of a Steel from the Indentation]]
+- [[02 - Aerospace Materials I/Problem - T5-15 Indentation Diameter that Gives a Brinell Hardness of 300]]

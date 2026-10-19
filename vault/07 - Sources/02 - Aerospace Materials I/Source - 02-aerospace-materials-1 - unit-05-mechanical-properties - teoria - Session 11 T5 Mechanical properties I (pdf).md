@@ -19,8 +19,20 @@ bytes: 2324589
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session 11 T5 Mechanical properties I.pdf`
 - **Kind:** teoria
 - **Size:** 2.3 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 13 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Concept - Compression Impact Bending and Torsion Tests]]
+- [[02 - Aerospace Materials I/Concept - Ductility - Percent Elongation and Reduction in Area]]
+- [[02 - Aerospace Materials I/Concept - Hooke's Law, Young's Modulus and Non-Linear Elasticity]]
+- [[02 - Aerospace Materials I/Concept - Poisson's Ratio and the Shear Modulus]]
+- [[02 - Aerospace Materials I/Concept - Slip Systems and Dislocation Glide]]
+- [[02 - Aerospace Materials I/Concept - Tensile Strength, Necking and Fracture Stress]]
+- [[02 - Aerospace Materials I/Concept - Toughness and Modulus of Resilience]]
+- [[02 - Aerospace Materials I/Concept - True Stress and True Strain]]
+- [[02 - Aerospace Materials I/Concept - Uniaxial Tension Test and Engineering Stress-Strain]]
+- [[02 - Aerospace Materials I/Concept - Working Stress and the Safety Factor]]
+- [[02 - Aerospace Materials I/Concept - Yield Strength and the 0.2 Percent Offset]]
+- [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties]]

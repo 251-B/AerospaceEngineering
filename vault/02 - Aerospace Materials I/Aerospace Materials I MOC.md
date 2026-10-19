@@ -161,7 +161,7 @@ tags:
 
 ### ⚙️ Block III: Mechanical Properties and Testing
 
-#### [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties|Topic 5: Mechanical Properties]] (theory built; problems 11 of 15)
+#### [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties|Topic 5: Mechanical Properties]] (complete: Sessions 11-12 and the 15 sheet problems)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html`
 * **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html`
 * **Official Sources:**
@@ -184,7 +184,7 @@ tags:
   * [[02 - Aerospace Materials I/Concept - Precipitation Strengthening|Concept: Precipitation Strengthening]]
   * [[02 - Aerospace Materials I/Concept - Hardness Tests Mohs Brinell Rockwell Vickers|Concept: Hardness Tests Mohs Brinell Rockwell Vickers]]
   * [[02 - Aerospace Materials I/Concept - Compression Impact Bending and Torsion Tests|Concept: Compression Impact Bending and Torsion Tests]]
-* **Official Solved Problems (11 of 15):**
+* **Official Solved Problems (15 of 15):**
   * [[02 - Aerospace Materials I/Problem - T5-01 Complete Analysis of a Tensile Test from the Load-Elongation Table|Problem T5-01: Complete Analysis of a Tensile Test from the Load-Elongation Table]]
   * [[02 - Aerospace Materials I/Problem - T5-02 Tensile Test of a 15 mm Cylinder Strength Resilience True Stress and Area Reduction|Problem T5-02: Tensile Test of a 15 mm Cylinder: Strength, Resilience, True Stress and Area Reduction]]
   * [[02 - Aerospace Materials I/Problem - T5-03 Tensile Test of a 13 mm Sample Modulus Cable Section and True Values|Problem T5-03: Tensile Test of a 13 mm Sample: Modulus, Cable Section and True Values at Maximum Load and Fracture]]
@@ -196,6 +196,10 @@ tags:
   * [[02 - Aerospace Materials I/Problem - T5-09 Elongation and Diameter Change of a Steel Sample under Load|Problem T5-09: Elongation and Change of Diameter of a Steel Sample under 48 900 N]]
   * [[02 - Aerospace Materials I/Problem - T5-10 Copper Wire Yield Strength Permanent Elongation and Resilience|Problem T5-10: Copper Wire: Yield Strength, Permanent Elongation after Unloading and Resilience]]
   * [[02 - Aerospace Materials I/Problem - T5-11 Elastic Deformation of a 15 mm Steel Cylinder under 50 kN|Problem T5-11: Elastic Deformation of a 15 mm Steel Cylinder under 50 kN]]
+  * [[02 - Aerospace Materials I/Problem - T5-12 Steel Cable True Fracture Stress and True Strain from the Reduction in Area|Problem T5-12: Steel Cable: True Fracture Stress and True Strain from the Reduction in Area]]
+  * [[02 - Aerospace Materials I/Problem - T5-13 Vickers and Brinell Hardness Numbers from Indentation Measurements|Problem T5-13: Vickers and Brinell Hardness Numbers from Indentation Measurements]]
+  * [[02 - Aerospace Materials I/Problem - T5-14 Brinell Hardness of a Steel from the Indentation|Problem T5-14: Brinell Hardness of a Steel from the Indentation]]
+  * [[02 - Aerospace Materials I/Problem - T5-15 Indentation Diameter that Gives a Brinell Hardness of 300|Problem T5-15: Indentation Diameter that Gives a Brinell Hardness of 300]]
 * **Main Content:**
   * Uniaxial tensile test, elastic regime, Hooke's law, Young's modulus, Poisson's ratio and the other mechanical tests.
   * Plastic deformation by slip, yield and tensile strength, ductility, toughness, resilience, working stress, true stress and strain.

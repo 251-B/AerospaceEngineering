@@ -283,7 +283,41 @@ def p10_unloading():
             "Problem 10: loading beyond the yield point and unloading along a line of slope E; the strain that remains is permanent (the shape between the yield point and the loaded point is not given by the statement)")
 
 
+def brinell_geometry():
+    """Problems 14 and 15: the spherical cap left by the ball (exaggerated, not to scale)."""
+    c = Canvas(640, 290)
+    r, cx, ys = 90, 250, 190
+    half = 54
+    h = r - math.sqrt(r * r - half * half)
+    cy = ys - (r - h)
+    pathd(c, f"M {cx - half} {ys} A {r} {r} 0 0 0 {cx + half} {ys} Z", "ACC", 1.6, fill="ACC", opacity=0.35)
+    circle(c, (cx, cy), r, "HEAD", 1.8, "7,4")
+    line(c, (60, ys), (440, ys), "HEAD", 2.6)
+    hatch(c, (60, ys), (440, ys), 1, "EDGE", 10, 9)
+    arrow(c, (cx, 8), (cx, cy - r - 2), "BLUE", 2.2, 10)
+    text(c, (cx + 12, 22), "P (kgf)", "BLUE", "start", 14, "700")
+    xd = cx - r - 26
+    line(c, (xd, cy - r), (xd, cy + r), "TEXT", 1.3, head=True)
+    line(c, (xd, cy + r), (xd, cy - r), "TEXT", 1.3, head=True)
+    for yy in (cy - r, cy + r):
+        line(c, (xd - 6, yy), (cx - 40 if yy < cy else cx - 8, yy), "TEXT", 0.9, "3,3")
+    text(c, (xd - 8, cy + 5), "D", "TEXT", "end", 14, "700")
+    text(c, (cx, cy + 5), "ball", "TEXT", "middle", 13)
+    line(c, (cx - half, ys + 26), (cx + half, ys + 26), "PINK", 1.4, head=True)
+    line(c, (cx + half, ys + 26), (cx - half, ys + 26), "PINK", 1.4, head=True)
+    line(c, (cx - half, ys), (cx - half, ys + 32), "PINK", 1.0, "3,3")
+    line(c, (cx + half, ys), (cx + half, ys + 32), "PINK", 1.0, "3,3")
+    text(c, (cx, ys + 46), "Di  (diameter of the indentation)", "PINK", "middle", 13, "700")
+    line(c, (cx + half + 34, ys), (cx + half + 34, ys + h), "TEXT", 1.4)
+    text(c, (cx + half + 42, ys + h / 2 + 5), "h", "TEXT", "start", 14, "700")
+    text(c, (440, ys + 18), "surface", "TEXT", "end", 12)
+    text(c, (30, 276), "Cap area S = π D h  with  h = (D − √(D² − Di²)) / 2   ⇒   HB = P / S", "HEAD", "start", 13, "700")
+    REG.put("t5-brinell-geometry", c, "Spherical cap of the Brinell indentation",
+            "Brinell test: the cap of height h left by the ball of diameter D (the proportions are exaggerated, not to scale)")
+
+
 def problems():
+    brinell_geometry()
     REG.raster("t5-p7-chart", "Problem 7: stress-strain curve of the replacement cable",
                "Problem 7: stress-strain curve of the replacement cable, copied from the sheet (Problems T5_MechanicalProperties.pdf, page 3)", 640)
     axial_bar()

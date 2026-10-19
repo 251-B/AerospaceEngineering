@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-19-materials-topic-5-problems-3",
+    "date": "2026-10-19",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 5: all 15 problems solved",
+    "text": "True stress and strain, plus Vickers and Brinell hardness: the last four problems complete the sheet, each checked against the key.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html"
+  },
+  {
     "id": "2026-10-19-materials-topic-5-problems-2",
     "date": "2026-10-19",
     "tag": "Aerospace Materials I",
