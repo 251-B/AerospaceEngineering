@@ -8,7 +8,7 @@ the page.
 """
 import math
 
-from figures.svgkit import (Canvas, Registry, arrow, circle, dim, dot, line, pathd, poly, rect, sub, text)
+from figures.svgkit import (Canvas, Registry, arrow, circle, dim, dot, hatch, line, pathd, poly, rect, sub, text)
 
 REG = Registry("T5")
 
@@ -215,7 +215,80 @@ def offset_yield(eps, sig, e_mod, off=0.002):
     raise ValueError("no intersection")
 
 
+def axial_bar():
+    """Cylindrical bar under tension: elongation along the axis and contraction of the diameter (Problems 9 and 11)."""
+    c = Canvas(640, 300)
+    rect(c, 150, 120, 240, 80, "EDGE", 1.3, "5,4")
+    rect(c, 150, 128, 256, 64, "HEAD", 2.0)
+    arrow(c, (406, 160), (470, 160), "BLUE", 2.2, 10)
+    arrow(c, (150, 160), (86, 160), "BLUE", 2.2, 10)
+    text(c, (488, 165), "F", "BLUE", "start", 15, "700")
+    text(c, (70, 165), "F", "BLUE", "end", 15, "700")
+    dim(c, (150, 98), (390, 98), "l0 (initial length)", lab_off=(0, -8))
+    dim(c, (390, 222), (406, 222), "Δl", lab_off=(0, 18))
+    dim(c, (200, 120), (200, 200), "d0", lab_off=(-10, 4), anchor="end")
+    line(c, (300, 120), (300, 128), "PINK", 2.5)
+    line(c, (300, 192), (300, 200), "PINK", 2.5)
+    text(c, (310, 118), "Δd/2", "PINK", "start", 12)
+    text(c, (150, 272), "dashed: undeformed", "TEXT", "start", 12)
+    text(c, (300, 272), "Δd < 0: |Δd| = ν ε d0", "PINK", "start", 13)
+    REG.put("t5-axial-bar", c, "Bar under axial tension",
+            "Cylindrical bar under an axial load F: it elongates by Δl and its diameter shrinks by Δd (schematic, exaggerated)")
+
+
+def p5_wire():
+    """Problem 5: a stretched wire kept at constant length while it is heated."""
+    c = Canvas(640, 280)
+    line(c, (110, 70), (530, 70), "HEAD", 3.0)
+    arrow(c, (110, 70), (60, 70), "BLUE", 2.2, 10)
+    arrow(c, (530, 70), (580, 70), "BLUE", 2.2, 10)
+    text(c, (50, 62), "F", "BLUE", "end", 15, "700")
+    text(c, (590, 62), "F", "BLUE", "start", 15, "700")
+    text(c, (320, 40), "20 °C: stretched by F, tensile stress σ = F/A", "HEAD", "middle", 13, "700")
+    text(c, (320, 104), "length l0 = 1 m", "TEXT", "middle", 12)
+    for x in (110, 530):
+        line(c, (x, 160), (x, 250), "HEAD", 3.0)
+    hatch(c, (110, 160), (110, 250), 1)
+    hatch(c, (530, 160), (530, 250), -1)
+    line(c, (110, 205), (530, 205), "HEAD", 3.0)
+    arrow(c, (330, 235), (360, 235), "PINK", 1.8, 8)
+    arrow(c, (310, 235), (280, 235), "PINK", 1.8, 8)
+    text(c, (320, 150), "40 °C: length kept fixed, the expansion αΔT is blocked", "HEAD", "middle", 13, "700")
+    text(c, (320, 270), "thermal stress −E α ΔT (compressive) cancels F/A", "PINK", "middle", 12)
+    REG.put("t5-p5-wire", c, "Wire stretched and then heated at constant length",
+            "Problem 5: the wire is stretched at 20 °C and then held at constant length while it is heated to 40 °C (schematic)")
+
+
+def p10_unloading():
+    c = Canvas(640, 360)
+    a = math.pi * 0.5 ** 2
+    sy, sp, e_mod, ep_tot = 15.3 * G / a, 29.6 * G / a, 110000.0, 0.011
+    ey, er = sy / e_mod, ep_tot - sp / e_mod
+    m = M(70, 310, 520 / 0.012, 250 / 420)
+    m.poly(c, [(0, 0), (ey, sy), (ep_tot, sp)], "ACC", 2.4)
+    m.poly(c, [(ep_tot, sp), (er, 0)], "BLUE", 1.8, "6,4")
+    m.guide(c, (0, sy), (ey, sy))
+    m.guide(c, (0, sp), (ep_tot, sp))
+    m.guide(c, (ep_tot, 0), (ep_tot, sp))
+    m.dot(c, ey, sy, "HEAD", "HEAD", 4)
+    m.dot(c, ep_tot, sp, "HEAD", "HEAD", 4)
+    m.dot(c, er, 0, "HEAD", "HEAD", 4)
+    m.text(c, 0.0003, sy + 18, f"σy = {sy:.1f} MPa", "HEAD", "start", 12.5, "700")
+    m.text(c, 0.0003, sp - 26, f"σ = {sp:.1f} MPa", "HEAD", "start", 12.5, "700")
+    m.text(c, ep_tot - 0.0003, sp + 18, "ε = 0.011", "HEAD", "end", 12.5, "700")
+    m.text(c, er + 0.0004, 25, f"εp = {er:.5f}", "BLUE", "start", 12.5, "700")
+    m.text(c, 0.0062, 190, "unloading: slope E", "BLUE", "start", 12.5, "700")
+    m.axes(c, 0.012, 420, "strain ε", "σ (MPa)", [(0.004, "0.004"), (0.008, "0.008"), (0.012, "0.012")], [(100, "100"), (200, "200"), (300, "300"), (400, "400")])
+    REG.put("t5-p10-unloading", c, "Problem 10: unloading of the copper wire",
+            "Problem 10: loading beyond the yield point and unloading along a line of slope E; the strain that remains is permanent (the shape between the yield point and the loaded point is not given by the statement)")
+
+
 def problems():
+    REG.raster("t5-p7-chart", "Problem 7: stress-strain curve of the replacement cable",
+               "Problem 7: stress-strain curve of the replacement cable, copied from the sheet (Problems T5_MechanicalProperties.pdf, page 3)", 640)
+    axial_bar()
+    p5_wire()
+    p10_unloading()
     spec = {1: dict(zoom=(0.012, 900), lin_end=0.0035, uts_i=14),
             2: dict(zoom=(0.02, 1100), lin_end=0.011, uts_i=8),
             3: dict(zoom=(0.012, 300), lin_end=0.0036, uts_i=7),

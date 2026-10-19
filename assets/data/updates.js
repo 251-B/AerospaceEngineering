@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-19-materials-topic-5-problems-2",
+    "date": "2026-10-19",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 5: problems 5 to 11 solved",
+    "text": "Thermal stress, elastic limits, cable design with Poisson's ratio, and unloading of a copper wire, each with the sheet key checked.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html"
+  },
+  {
     "id": "2026-10-19-materials-topic-5-problems-1",
     "date": "2026-10-19",
     "tag": "Aerospace Materials I",

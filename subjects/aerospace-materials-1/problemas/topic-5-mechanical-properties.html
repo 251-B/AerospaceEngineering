@@ -600,7 +600,7 @@
     <header class="page-intro">
       <h1>Topic 5: Solved Problems</h1>
       <p>
-        Step-by-step solutions of problems 1 to 4 of the 15 of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.
+        Step-by-step solutions of problems 1 to 11 of the 15 of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.
       </p>
       <nav class="src-panel" data-srclink aria-label="Official material">
         <span class="src-panel-label">Official material</span>
@@ -1277,6 +1277,679 @@
 <p><strong>Check against the official solution</strong></p>
 <div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>b. $E$</td><td>$\approx 44$ GPa</td><td>37.0 GPa</td><td>differs 16 %: see the sensitivity table; with points 1 to 3 the fit gives 42.7 GPa</td></tr><tr><td>c. $\sigma_y$</td><td>150 MPa</td><td>141.9 MPa</td><td>differs 5 %</td></tr><tr><td>d. $\sigma_{UTS}$</td><td>234 MPa</td><td>234.0 MPa</td><td>agrees</td></tr><tr><td>e. $U_r$</td><td>0.28 MPa</td><td>0.272 MPa</td><td>agrees (3 %)</td></tr><tr><td>f. $\sigma_w$</td><td>75 MPa</td><td>71.0 MPa</td><td>consistent with $\sigma_y$</td></tr></tbody></table></div>
 <div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution: modulus and yield strength</div><p>The key gives $E \approx 44$ GPa and $\sigma_y = 150$ MPa. The 0.2 % offset on the data of the table gives $\sigma_y$ between 139 MPa ($E = 44$ GPa) and 142 MPa ($E = 37.0$ GPa), never 150 MPa. A yield strength of 150 MPa corresponds to the stress where the curve bends clearly (points 5 and 6, 133 to 161 MPa), that is, to a reading by eye of the end of the straight part. In addition, with the key values, $U_r = 150^2/(2\times44\,000) = 0.256$ MPa, not 0.28 MPa; the computed resilience, 0.272 MPa, is close to the printed one only by coincidence. The computed values are kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 5 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-5">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 5</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #5</span>
+            <span class="prob-source-badge">Thermal stress · constant length</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Thermal Stress in a Constrained Steel Wire: the Diameter that Cancels the Applied Stress</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A steel wire, initially 1 meter in length, is stretched by a force of 1400 N at a temperature of 20 ºC. After the force is applied, the wire is held at a constant length and then heated to 40 ºC. Determine the required diameter of the wire to ensure that the thermal expansion stress compensates for the applied stress.</li></ol>
+<p>&gt;</p>
+<p>&gt; Data: E = 207 GPa; $\alpha_l = 12.5\times10^{-6}$ ºC⁻¹;</p>
+          <div class="solution-box">Official Solution: 5.86 mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Uniaxial, linear elastic wire.</strong> The wire is loaded only along its axis and it stays elastic, so $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Constant length while heating.</strong> After the force is applied, the wire is held at a constant length: the total length, and therefore the total strain $\varepsilon$, does not change during the heating.</li><li><strong>Linear thermal expansion.</strong> A temperature rise $\Delta T$ produces a free thermal strain $\varepsilon_T = \alpha_l\,\Delta T$. This law is not in the slides of Session 11 and 12 (it belongs to the thermal properties of Topic 7); it is given by the sheet through the datum $\alpha_l$.</li><li><strong>Strains add.</strong> The total strain is the elastic (mechanical) strain plus the thermal strain, $\varepsilon = \sigma/E + \alpha_l\,\Delta T$, and $E$ and $\alpha_l$ are constant between 20 and 40 °C.</li><li><strong>"Compensates".</strong> The thermal stress compensates the applied stress when the net stress of the wire after heating is zero.</li><li><strong>Circular, uniform section.</strong> The area $A = \pi d^2/4$ is the same all along the wire and does not change with the temperature.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Force</td><td>$F$</td><td style="text-align:right">1400 N</td><td style="text-align:right">1400 N</td></tr><tr><td>Initial temperature, final temperature</td><td>$T_1$, $T_2$</td><td style="text-align:right">20 °C, 40 °C</td><td style="text-align:right"></td></tr><tr><td>Temperature rise</td><td>$\Delta T$</td><td style="text-align:right">20 °C</td><td style="text-align:right">20 K</td></tr><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">207 GPa</td><td style="text-align:right">$207\times10^{9}$ Pa = 207 000 N/mm²</td></tr><tr><td>Linear expansion coefficient</td><td>$\alpha_l$</td><td style="text-align:right">$12.5\times10^{-6}$ °C⁻¹</td><td style="text-align:right">$12.5\times10^{-6}$ K⁻¹</td></tr><tr><td>Initial length</td><td>$l_0$</td><td style="text-align:right">1 m</td><td style="text-align:right">not needed</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> the diameter $d$ of the wire.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>There is a single direction, the axis of the wire; no change of basis is involved.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Wire stretched and then heated at constant length">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="110.0" y1="70.0" x2="530.0" y2="70.0" stroke="var(--text-heading)" stroke-width="3.0"/>
+<line x1="110.0" y1="70.0" x2="66.0" y2="70.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<path d="M60.0,70.0 L69.2,66.1 L69.2,73.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="530.0" y1="70.0" x2="574.0" y2="70.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<path d="M580.0,70.0 L570.8,73.9 L570.8,66.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="50.0" y="62.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="700" text-anchor="end">F</text>
+<text x="590.0" y="62.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="700" text-anchor="start">F</text>
+<text x="320.0" y="40.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">20 °C: stretched by F, tensile stress σ = F/A</text>
+<text x="320.0" y="104.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">length l0 = 1 m</text>
+<line x1="110.0" y1="160.0" x2="110.0" y2="250.0" stroke="var(--text-heading)" stroke-width="3.0"/>
+<line x1="530.0" y1="160.0" x2="530.0" y2="250.0" stroke="var(--text-heading)" stroke-width="3.0"/>
+<line x1="110.0" y1="160.0" x2="104.3" y2="154.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="169.0" x2="104.3" y2="163.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="178.0" x2="104.3" y2="172.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="187.0" x2="104.3" y2="181.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="196.0" x2="104.3" y2="190.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="205.0" x2="104.3" y2="199.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="214.0" x2="104.3" y2="208.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="223.0" x2="104.3" y2="217.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="232.0" x2="104.3" y2="226.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="241.0" x2="104.3" y2="235.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="250.0" x2="104.3" y2="244.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="160.0" x2="535.7" y2="154.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="169.0" x2="535.7" y2="163.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="178.0" x2="535.7" y2="172.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="187.0" x2="535.7" y2="181.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="196.0" x2="535.7" y2="190.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="205.0" x2="535.7" y2="199.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="214.0" x2="535.7" y2="208.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="223.0" x2="535.7" y2="217.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="232.0" x2="535.7" y2="226.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="241.0" x2="535.7" y2="235.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="530.0" y1="250.0" x2="535.7" y2="244.3" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="110.0" y1="205.0" x2="530.0" y2="205.0" stroke="var(--text-heading)" stroke-width="3.0"/>
+<line x1="330.0" y1="235.0" x2="355.2" y2="235.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.8"/>
+<path d="M360.0,235.0 L352.6,238.1 L352.6,231.9 Z" fill="var(--fig-pink, #ec4899)"/>
+<line x1="310.0" y1="235.0" x2="284.8" y2="235.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.8"/>
+<path d="M280.0,235.0 L287.4,231.9 L287.4,238.1 Z" fill="var(--fig-pink, #ec4899)"/>
+<text x="320.0" y="150.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="middle">40 °C: length kept fixed, the expansion αΔT is blocked</text>
+<text x="320.0" y="270.0" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="400" text-anchor="middle">thermal stress −E α ΔT (compressive) cancels F/A</text>
+</g></svg>
+<div class="diagram-caption">Figure 5. Problem 5: the wire is stretched at 20 °C and then held at constant length while it is heated to 40 °C (schematic).</div>
+</div>
+<p><strong>Strategy.</strong> The key is to follow the strain, because the length is the quantity that is fixed.</p>
+<ol><li>At 20 °C the force produces the stress $\sigma_F = F/A$ and the strain $\varepsilon_1 = \sigma_F/E$.</li><li>At 40 °C the strain is the same, $\varepsilon_2 = \varepsilon_1$, but it is now the sum of an elastic part $\sigma_2/E$ and a thermal part $\alpha_l\Delta T$. This gives the stress after the heating, $\sigma_2$.</li><li>The condition of the statement, $\sigma_2 = 0$, gives the area, and the area gives the diameter.</li></ol>
+<p>This is better than thinking in terms of forces, because the wire does not "know" about the force: it only keeps its length, and the stress is whatever is needed to keep it.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Stress after heating at constant length</strong></p>
+<p>Before heating, the strain is $\varepsilon_1 = \sigma_F/E$ with $\sigma_F = F/A$. After heating, the strain is the same, and it is the sum of the elastic and the thermal strain:</p>
+<div class="math-block">$$\varepsilon_2 = \frac{\sigma_2}{E} + \alpha_l\,\Delta T = \varepsilon_1 = \frac{\sigma_F}{E}$$</div>
+<p>Solving for the stress after the heating:</p>
+<div class="math-block">$$\sigma_2 = \sigma_F - E\,\alpha_l\,\Delta T$$</div>
+<p>The second term is the thermal stress: heating at constant length lowers the tension by $E\alpha_l\Delta T$ (if it were larger than $\sigma_F$, $\sigma_2$ would be negative, a compression).</p>
+<p><strong>2. Condition of the statement</strong></p>
+<p>The thermal stress compensates the applied stress when the net stress vanishes, $\sigma_2 = 0$:</p>
+<div class="math-block">$$\frac{F}{A} = E\,\alpha_l\,\Delta T \quad\Rightarrow\quad A = \frac{F}{E\,\alpha_l\,\Delta T}$$</div>
+<p><strong>3. Numerical value of the thermal stress</strong></p>
+<p>With $E = 207000$ N/mm²:</p>
+<div class="math-block">$$E\,\alpha_l = 207000\ \frac{\text{N}}{\text{mm}^2}\times12.5\times10^{-6}\ \text{°C}^{-1} = 2.5875\ \frac{\text{N}}{\text{mm}^2\,\text{°C}}$$</div>
+<div class="math-block">$$E\,\alpha_l\,\Delta T = 2.5875\times20\ \text{°C} = 51.75\ \text{N/mm}^2 = 51.75\ \text{MPa}$$</div>
+<p><strong>4. Area and diameter</strong></p>
+<div class="math-block">$$A = \frac{F}{E\alpha_l\Delta T} = \frac{1400\ \text{N}}{51.75\ \text{N/mm}^2} = 27.053\ \text{mm}^2$$</div>
+<p>From $A = \pi d^2/4$, $d = \sqrt{4A/\pi}$:</p>
+<div class="math-block">$$4A = 108.21\ \text{mm}^2 \qquad \frac{4A}{\pi} = 34.445\ \text{mm}^2 \qquad d = \sqrt{34.445\ \text{mm}^2} = \mathbf{5.869\ mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $F/(E\alpha_l\Delta T)$: N divided by (N/mm² · °C⁻¹ · °C) = N/(N/mm²) = mm². The product $\alpha_l\Delta T$ has no units, so $E\alpha_l\Delta T$ is a stress.</li><li><strong>Direct check.</strong> With this area the applied stress is $F/A = 1400/27.053 = 51.75$ MPa, equal to the thermal stress 51.75 MPa, so $\sigma_2 = 0$.</li><li><strong>Strains.</strong> The thermal strain $\alpha_l\Delta T = 2.500\times 10^{-4}$ is the same as the elastic strain that the force produced, $\sigma_F/E = 2.500\times 10^{-4}$: heating gives back exactly the stretch that the force had imposed, and since the length cannot change the stress disappears.</li><li><strong>Length not needed.</strong> The initial length does not appear in the result. The free expansion of 1 m of wire would be $\alpha_l\Delta T\,l_0 = 0.25$ mm, the amount that the supports prevent.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>For a wire thinner than 5.87 mm the applied stress is larger than the thermal one, and some tension remains after the heating. For a thicker wire the applied stress is smaller, and the heating leaves the wire in compression (it could buckle). The result depends on $F/A$, not on the length, because only the strain matters. As $\Delta T \to 0$ the required area tends to infinity: without temperature rise the force cannot be compensated.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Diameter</td><td>5.86 mm</td><td>5.869 mm</td><td>agrees (0.15 %): the key is truncated, 5.869 rounds to 5.87</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 6 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-6">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 6</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #6</span>
+            <span class="prob-source-badge">Hooke's law · design</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Maximum Length of a Ni Alloy Sample for a Given Allowed Elongation</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A sample made of a Ni alloy with an elastic modulus of 207 GPa and an initial diameter of 10.2 mm experiences an elastic deformation only when loads inferior to 8900 N are applied. Calculate the maximum length of the sample before the deformation if the maximum elongation allowed is 0.25 mm.</li></ol>
+          <div class="solution-box">Official Solution: $l_0 = 475$ mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Elastic up to 8900 N.</strong> For loads below 8900 N the deformation is only elastic, so Hooke's law $\sigma = E\varepsilon$ holds [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>]. The load of 8900 N is therefore the largest load for which the sample is still elastic.</li><li><strong>Uniaxial, uniform stress</strong> along the sample: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Worst case.</strong> The elongation grows with the load and with the length. The longest sample that does not exceed the allowed elongation is found for the largest load that is applied, 8900 N.</li><li>The cross-section is a circle of 10.2 mm, and it does not change appreciably in the elastic range.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">207 GPa</td><td style="text-align:right">207 000 N/mm²</td></tr><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">10.2 mm</td><td style="text-align:right">$10.2\times10^{-3}$ m</td></tr><tr><td>Largest elastic load</td><td>$F$</td><td style="text-align:right">8900 N</td><td style="text-align:right">8900 N</td></tr><tr><td>Maximum elongation allowed</td><td>$\Delta l_{max}$</td><td style="text-align:right">0.25 mm</td><td style="text-align:right">$0.25\times10^{-3}$ m</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> the maximum initial length $l_0$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction (the axis of the sample), no change of basis.</p>
+<p><strong>Strategy.</strong> Hooke's law relates the stress produced by the load to the strain, and the strain relates the elongation to the length. Combining the three relations,</p>
+<div class="math-block">$$\sigma = \frac{F}{A_0} \qquad \varepsilon = \frac{\sigma}{E} \qquad \Delta l = \varepsilon\,l_0$$</div>
+<p>the elongation is proportional to the initial length. The condition $\Delta l \leq 0.25$ mm is then an upper bound for $l_0$, and the maximum length is the one for which $\Delta l = 0.25$ mm.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Area</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(10.2\ \text{mm})^2}{4}$$</div>
+<p>The square is $10.2^2 = 104.04$, then $\pi\times104.04 = 326.85$ and dividing by 4:</p>
+<div class="math-block">$$A_0 = 81.71\ \text{mm}^2$$</div>
+<p><strong>2. Stress and strain at the largest elastic load</strong></p>
+<div class="math-block">$$\sigma = \frac{F}{A_0} = \frac{8900\ \text{N}}{81.71\ \text{mm}^2} = 108.92\ \text{MPa}$$</div>
+<div class="math-block">$$\varepsilon = \frac{\sigma}{E} = \frac{108.92\ \text{N/mm}^2}{207000\ \text{N/mm}^2} = 5.2617\times 10^{-4}$$</div>
+<p><strong>3. Maximum initial length</strong></p>
+<p>From $\Delta l = \varepsilon\,l_0$ with $\Delta l = 0.25$ mm:</p>
+<div class="math-block">$$l_0 = \frac{\Delta l}{\varepsilon} = \frac{0.25\ \text{mm}}{5.2617\times 10^{-4}} = \mathbf{475.1\ mm}$$</div>
+<p>The same result in one step, without the intermediate strain:</p>
+<div class="math-block">$$l_0 = \frac{\Delta l\,A_0\,E}{F} = \frac{0.25\ \text{mm}\times81.71\ \text{mm}^2\times207000\ \text{N/mm}^2}{8900\ \text{N}} = 475.1\ \text{mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $\Delta l\,A_0E/F$: mm · mm² · (N/mm²) / N = mm.</li><li><strong>Back substitution.</strong> For $l_0 = 475.1$ mm, $\Delta l = 5.2617\times 10^{-4}\times475.1 = 0.250$ mm, the allowed elongation.</li><li><strong>Elastic range.</strong> The strain, $5.2617\times 10^{-4}$, is of the order of $10^{-4}$, typical of the elastic deformation of a metal, so the use of Hooke's law is consistent with the statement.</li><li><strong>Limit.</strong> For a shorter sample the elongation is smaller (it is proportional to $l_0$) and the condition is satisfied with margin; for a longer one it is exceeded.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample can be at most about 475 mm long. The limit is imposed by the stiffness $E$ (a stiff material elongates little) and by the section (a thicker sample has less stress for the same load); it is not imposed by the strength, because the stress stays elastic.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$l_0$</td><td>475 mm</td><td>475.1 mm</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 7 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-7">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 7</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #7</span>
+            <span class="prob-source-badge">Poisson's ratio · safety factor · design</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Crane Cable: Poisson's Ratio, Safety Factor and Replacement Cable</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=3" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 3</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>In a construction site, a change in the diameter of one of the crane cables was detected. When the weight that the cable was withstanding was 48950 N, the change was 5.3 10⁻³ mm, and when the load was removed, the cable recovered its initial diameter of 15 mm. Considering that for this kind of steel the Poisson's ratio ν = 0.33 and according to the manufacturer data the initial length of the cable is 3 m.</li></ol>
+<ul><li>a. Calculate the length of the cable when it's holding the load mentioned above.</li><li>b. If it has been detected that plastic deformation of the cable begins when it is holding a weight of 10000 kg, can it be considered that the cable is working under safe conditions? Assume a safety factor of 2.</li><li>c. What is the value of the elastic modulus for this material?</li><li>d. In order to prevent service problems the provider replaces the cable for a different one, which has a stress-strain curve represented below and an elastic modulus of E = 75 GPa. Can this material replace the previous one? Explain why.</li><li>e. Calculate the final length of this new cable in case it is working under the same conditions (48950 N).</li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T5/t5-p7-chart.png" alt="Problem 7: stress-strain curve of the replacement cable" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 6. Problem 7: stress-strain curve of the replacement cable, copied from the sheet (Problems T5_MechanicalProperties.pdf, page 3).</div>
+</div>
+          <div class="solution-box">Official Solution: a. $l = 3003.2$ mm; b. yes; c. $E = 261.3$ GPa; d. no; e. $l = 3045$ mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Elastic and isotropic cable under a uniaxial load.</strong> When it holds the weight the cable is elastic (it recovers its diameter when the load is removed), the stress is uniform, and Hooke's law $\sigma = E\varepsilon$ and $\varepsilon_{lat} = -\nu\varepsilon_{ax}$ hold [Session 11 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li><strong>Lateral strain from the diameter.</strong> The change of 5.3·10⁻³ mm is a decrease of the diameter ($\Delta d &lt; 0$ under tension), and the strain is relative to the initial diameter, 15 mm.</li><li><strong>Yield load.</strong> "Plastic deformation begins when it holds a weight of 10 000 kg" means that the yield strength is the stress that this weight produces; the weight in newtons is $m\,g$ with $g = 9.81$ m/s² [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Safety factor.</strong> The working stress is $\sigma_w = \sigma_y/N$, and the cable works under safe conditions if the stress that it supports does not exceed $\sigma_w$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li><li><strong>Replacement cable.</strong> Its stress-strain curve is the one printed on the sheet (a chart of ten points), with the modulus given, $E = 75$ GPa. The yield strength of the new material is taken with the 0.2 % offset [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>], and the readings of the chart are the values of the markers.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Load in service</td><td>$F$</td><td style="text-align:right">48 950 N</td><td style="text-align:right">48 950 N</td></tr><tr><td>Initial diameter</td><td>$d_0$</td><td style="text-align:right">15 mm</td><td style="text-align:right">$15\times10^{-3}$ m</td></tr><tr><td>Change of diameter</td><td>$\Delta d$</td><td style="text-align:right">$-5.3\times10^{-3}$ mm</td><td style="text-align:right">$-5.3\times10^{-6}$ m</td></tr><tr><td>Poisson's ratio</td><td>$\nu$</td><td style="text-align:right">0.33</td><td style="text-align:right">dimensionless</td></tr><tr><td>Initial length</td><td>$l_0$</td><td style="text-align:right">3 m</td><td style="text-align:right">3000 mm</td></tr><tr><td>Weight at which plastic deformation begins</td><td>$m$</td><td style="text-align:right">10 000 kg</td><td style="text-align:right">$98\,100$ N</td></tr><tr><td>Safety factor</td><td>$N$</td><td style="text-align:right">2</td><td style="text-align:right">dimensionless</td></tr><tr><td>Modulus of the replacement cable</td><td>$E_{new}$</td><td style="text-align:right">75 GPa</td><td style="text-align:right">75 000 N/mm²</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the length under load (a), whether the cable is safe (b), $E$ (c), whether the new cable can replace it (d), and its length under load (e).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction (the axis of the cable) and the two equal transverse directions; no change of basis.</p>
+<p><strong>Strategy.</strong></p>
+<ul><li>(a) The measured change of the diameter gives the transverse strain; Poisson's ratio turns it into the axial strain, and the axial strain into the elongation.</li><li>(c) Once the axial strain is known, the modulus is the stress divided by it. Item c is solved before b and d because $E$ is used in the discussion.</li><li>(b) The weight of 10 000 kg gives the yield strength; the safety factor gives the working stress, which is compared with the stress in service.</li><li>(d), (e) The new cable is compared with the old one through the yield strength of the curve of the sheet: if the service stress exceeds it, the cable deforms permanently. The length (e) is read on the curve at the service stress, which is the same, since the section and the load are the same.</li></ul>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section and stress in service</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15\ \text{mm})^2}{4}$$</div>
+<p>With $15^2 = 225$ and $\pi\times225 = 706.86$:</p>
+<div class="math-block">$$A_0 = 176.71\ \text{mm}^2 \qquad \sigma = \frac{F}{A_0} = \frac{48\,950\ \text{N}}{176.71\ \text{mm}^2} = 277.00\ \text{MPa}$$</div>
+<p><strong>a) Length of the cable under the load</strong></p>
+<p>The lateral strain is the change of the diameter over the initial diameter, negative because the diameter shrinks:</p>
+<div class="math-block">$$\varepsilon_{lat} = \frac{\Delta d}{d_0} = \frac{-5.3\times10^{-3}\ \text{mm}}{15\ \text{mm}} = -3.5333\times 10^{-4}$$</div>
+<p>From $\nu = -\varepsilon_{lat}/\varepsilon_{ax}$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>], the axial strain is</p>
+<div class="math-block">$$\varepsilon_{ax} = -\frac{\varepsilon_{lat}}{\nu} = \frac{3.5333\times 10^{-4}}{0.33} = 1.0707\times 10^{-3}$$</div>
+<p>and the elongation and the length are</p>
+<div class="math-block">$$\Delta l = \varepsilon_{ax}\,l_0 = 1.0707\times 10^{-3}\times3000\ \text{mm} = 3.212\ \text{mm} \qquad l = l_0 + \Delta l = 3000 + 3.212 = \mathbf{3003.2\ mm}$$</div>
+<p><strong>c) Elastic modulus</strong></p>
+<div class="math-block">$$E = \frac{\sigma}{\varepsilon_{ax}} = \frac{277.00\ \text{N/mm}^2}{1.0707\times 10^{-3}} = 258708\ \text{MPa} = \mathbf{258.7\ GPa}$$</div>
+<p><strong>b) Is the cable working under safe conditions?</strong></p>
+<p>The weight at which the plastic deformation begins is $W_y = 10\,000\times9.81 = 98\,100$ N, so the yield strength is</p>
+<div class="math-block">$$\sigma_y = \frac{W_y}{A_0} = \frac{98\,100\ \text{N}}{176.71\ \text{mm}^2} = 555.1\ \text{MPa}$$</div>
+<p>With the safety factor of 2 the working stress, and the corresponding load, are</p>
+<div class="math-block">$$\sigma_w = \frac{\sigma_y}{N} = \frac{555.1}{2} = 277.6\ \text{MPa} \qquad F_w = \frac{W_y}{N} = \frac{98\,100}{2} = 49\,050\ \text{N}$$</div>
+<p>The stress in service, 277.00 MPa, is not larger than $\sigma_w = 277.6$ MPa (equivalently, $48 950\ \text{N} &lt; 49\,050\ \text{N}$), so the cable <strong>works under safe conditions</strong>: the safety factor really available is</p>
+<div class="math-block">$$N_{eff} = \frac{\sigma_y}{\sigma} = \frac{555.1}{277.00} = 2.004 \geq 2$$</div>
+<p>The margin is very small, 0.20 % of the permitted load.</p>
+<p><strong>d) Can the new cable replace the previous one?</strong></p>
+<p>The curve of the sheet is a chart of ten points. Its markers are at the strains and stresses of the table of Problem 3 (for example, the point at $\varepsilon = 0.0035$ and $\sigma \approx 259$ MPa, and the maximum at $\approx 296$ MPa), and those values are used as readings.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T5/t5-p7-chart.png" alt="Problem 7: stress-strain curve of the replacement cable" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 7. Problem 7: stress-strain curve of the replacement cable, copied from the sheet (Problems T5_MechanicalProperties.pdf, page 3).</div>
+</div>
+<p>The yield strength of the new material, with the offset line $E_{new}(\varepsilon - 0.002)$ and $E_{new} = 75\,000$ MPa, changes sign of $g = \sigma - E_{new}(\varepsilon - 0.002)$ between the points 4 and 5:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$E(\varepsilon_n - 0.002)$ (MPa)</th><th style="text-align:right">$g = \sigma_n - E(\varepsilon_n - 0.002)$ (MPa)</th></tr></thead><tbody><tr><td>3</td><td style="text-align:right">0.00253</td><td style="text-align:right">184.8</td><td style="text-align:right">39.4</td><td style="text-align:right">145.4</td></tr><tr><td>4</td><td style="text-align:right">0.00350</td><td style="text-align:right">258.7</td><td style="text-align:right">112.2</td><td style="text-align:right">146.4</td></tr><tr><td>5</td><td style="text-align:right">0.01496</td><td style="text-align:right">277.2</td><td style="text-align:right">971.8</td><td style="text-align:right">-694.6</td></tr><tr><td>6</td><td style="text-align:right">0.04002</td><td style="text-align:right">291.9</td><td style="text-align:right">2851.2</td><td style="text-align:right">-2559.2</td></tr></tbody></table></div>
+<div class="math-block">$$m = \frac{277.16 - 258.68}{0.01496 - 0.00350} = 1612.2\ \text{MPa} \qquad \varepsilon^* = \frac{258.68 - 1612.2\times0.00350 + 0.002\times75\,000}{75\,000 - 1612.2} = \frac{403.042}{73387.8} = 0.0054919$$</div>
+<div class="math-block">$$\sigma_{y,new} = E_{new}\,(\varepsilon^* - 0.002) = 75\,000\times(0.0054919 - 0.002) = 261.9\ \text{MPa}$$</div>
+<p>The stress that the new cable would carry is the same, 277.00 MPa, since the load and the section are the same. It is <strong>larger</strong> than its yield strength, $277.00 &gt; 261.9$ MPa:</p>
+<div class="math-block">$$N_{eff,new} = \frac{\sigma_{y,new}}{\sigma} = \frac{261.9}{277.00} = 0.945 &lt; 1 \quad (\text{the old cable has } 2.004)$$</div>
+<p>Equivalently, the yield load of the new cable is $\sigma_{y,new}A_0 = 46.3$ kN, below the 48 950 N of service. The new cable would deform plastically and permanently under the same load, with no safety margin: the answer is <strong>no</strong>.</p>
+<p><strong>e) Length of the new cable under the same conditions</strong></p>
+<p>The strain is read on the curve at the service stress $\sigma = 277.00$ MPa, which is between the points 4 and 5 ($\sigma = 258.68$ MPa at $\varepsilon = 0.00350$ and $\sigma = 277.16$ MPa at $\varepsilon = 0.01496$). By linear interpolation:</p>
+<div class="math-block">$$\varepsilon = 0.00350 + \frac{277.00 - 258.68}{277.16 - 258.68}\,(0.01496 - 0.00350) = 0.01486$$</div>
+<div class="math-block">$$\Delta l = \varepsilon\,l_0 = 0.01486\times3000\ \text{mm} = 44.6\ \text{mm} \qquad l = 3000 + 44.6 = \mathbf{3044.6\ mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $\Delta d/d_0$ and the strains have no units; N/mm² is MPa; $m\,g$ in kg·m/s² is N.</li><li><strong>Poisson.</strong> $\varepsilon_{lat}$ is negative and $\varepsilon_{ax}$ positive, and $|\varepsilon_{lat}| = 0.33\,\varepsilon_{ax}$, as the definition of $\nu$ demands.</li><li><strong>Elastic range of the old cable.</strong> The strain, $1.0707\times 10^{-3}$, is a small fraction of the one at which it yields, $\sigma_y/E = 555.1/258708 = 2.1\times10^{-3}$ (it works at about half of it, as the safety factor 2 says).</li><li><strong>Consistency of $E$.</strong> The modulus 258.7 GPa is larger than the one of steel in the table of the slide, 207 GPa [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=17" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 17">17</a>], by about 25 %. The text of the sheet speaks of "this kind of steel", so the value is plausible within the data of the problem.</li><li><strong>New cable.</strong> Its length under load, 3044.6 mm, is 14 times the elongation of the old one (3.2 mm against 44.6 mm), and permanent: on unloading it recovers $\sigma/E_{new} = 277.00/75\,000$ and keeps $\varepsilon_p = 0.01117$, that is, about 33.5 mm of permanent elongation.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The two cables have the same section and carry the same load, but the old one works at 50 % of its yield strength and the new one above 100 %. A cable is not defined by its stiffness but by its yield strength: the new one is also much more flexible ($E = 75$ GPa against 259 GPa) and elongates by about 14 times as much. To keep the safety factor of 2 with the new material the section should be at least $A \geq N F/\sigma_{y,new} = 2\times48 950/261.9 = 373.8$ mm², that is, a diameter of 21.8 mm instead of 15 mm.</p>
+<div class="callout"><div class="callout-title">The last item of the sheet</div><p>The statement prints a "f." after item e, followed only by the chart of the stress-strain curve. There is no item f: the chart is the one that item d refers to ("a stress-strain curve represented below").</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a. length</td><td>3003.2 mm</td><td>3003.2 mm</td><td>agrees</td></tr><tr><td>b. safe?</td><td>yes</td><td>yes ($N_{eff} = 2.004$)</td><td>agrees, with a margin of 0.20 %</td></tr><tr><td>c. $E$</td><td>261.3 GPa</td><td>258.7 GPa</td><td>differs 1 %</td></tr><tr><td>d. can replace?</td><td>no</td><td>no ($N_{eff,new} = 0.945$)</td><td>agrees</td></tr><tr><td>e. length</td><td>3045 mm</td><td>3044.6 mm</td><td>agrees</td></tr></tbody></table></div>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution: modulus of the cable</div><p>The key gives $E = 261.3$ GPa. The data of the statement give 258.7 GPa from the unrounded strain, and 259.7 GPa if the elongation is rounded to 3.2 mm. The 261.3 GPa of the key is not reproduced by either value (it needs an axial strain of $1.060\times10^{-3}$); the difference is 1 % and it does not affect the other answers. The computed value is kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 8 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-8">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 8</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #8</span>
+            <span class="prob-source-badge">Yield strength · Hooke's law</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Elastic Limits of a Brass Sample: Stress, Load and Length without Plastic Deformation</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=4" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 4</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>For a particular kind of brass, plastic deformation begins at 345 MPa, and its elastic modulus is 103 GPa.</li></ol>
+<p>&gt;</p>
+<p>&gt; - a. What is the value of the yield stress?</p>
+<p>&gt; - b. What is the maximum stress that can be applied to a sample of this brass with a cross-section 130 mm² without plastic deformation taking place? And the maximum load?</p>
+<p>&gt; - c. If the initial length of the sample is 76 mm, what is the maximum length that it can reach without plastic deformation?</p>
+          <div class="solution-box">Official Solution: a. $\sigma_y = 345$ MPa; b. $\sigma_{max} = 345$ MPa, $F_{max} = 44850$ N; c. $l = 76.25$ mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Yield strength.</strong> "Plastic deformation begins at 345 MPa" means that 345 MPa is the yield strength of the brass: below it the deformation is only elastic, above it part of it is permanent [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Linear elastic below the yield strength</strong>, $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>], with the given modulus.</li><li><strong>Uniaxial, uniform stress</strong>: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>]. The maximum values without plastic deformation are those that correspond to the stress $\sigma_y$.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Stress at which plastic deformation begins</td><td>$\sigma_y$</td><td style="text-align:right">345 MPa</td><td style="text-align:right">$345\times10^{6}$ Pa</td></tr><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">103 GPa</td><td style="text-align:right">103 000 N/mm²</td></tr><tr><td>Cross-section (item b)</td><td>$A_0$</td><td style="text-align:right">130 mm²</td><td style="text-align:right">$130\times10^{-6}$ m²</td></tr><tr><td>Initial length (item c)</td><td>$l_0$</td><td style="text-align:right">76 mm</td><td style="text-align:right">$76\times10^{-3}$ m</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $\sigma_y$ (a), the maximum stress and load (b), the maximum length (c).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction (the axis of the sample), no change of basis.</p>
+<p><strong>Strategy.</strong> The three items are the same limit seen from three sides. The largest stress that does not cause plastic deformation is the yield strength (a, b). The largest load is that stress times the area, $F = \sigma_y A_0$ (b). The largest length is the initial length plus the elongation at the yield strength, and that elongation comes from Hooke's law, $\varepsilon_y = \sigma_y/E$ and $\Delta l = \varepsilon_y\,l_0$ (c).</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>a) Yield stress</strong></p>
+<p>By the hypothesis, plastic deformation begins when $\sigma = 345$ MPa, so</p>
+<div class="math-block">$$\sigma_y = \mathbf{345\ MPa}$$</div>
+<p><strong>b) Maximum stress and maximum load</strong></p>
+<p>Without plastic deformation the stress cannot be larger than the yield strength, so</p>
+<div class="math-block">$$\sigma_{max} = \sigma_y = \mathbf{345\ MPa}$$</div>
+<p>The load that produces that stress in a section of 130 mm² follows from $\sigma = F/A_0$:</p>
+<div class="math-block">$$F_{max} = \sigma_{max}\,A_0 = 345\ \frac{\text{N}}{\text{mm}^2}\times130\ \text{mm}^2 = 44\,850\ \text{N} = \mathbf{44.85\ kN}$$</div>
+<p><strong>c) Maximum length without plastic deformation</strong></p>
+<p>The strain at the yield strength comes from Hooke's law:</p>
+<div class="math-block">$$\varepsilon_y = \frac{\sigma_y}{E} = \frac{345\ \text{N/mm}^2}{103000\ \text{N/mm}^2} = 3.3495\times 10^{-3}$$</div>
+<p>The elongation of a sample of 76 mm is</p>
+<div class="math-block">$$\Delta l = \varepsilon_y\,l_0 = 3.3495\times 10^{-3}\times76\ \text{mm} = 0.2546\ \text{mm}$$</div>
+<p>and the maximum length that it can reach without plastic deformation is</p>
+<div class="math-block">$$l = l_0 + \Delta l = 76 + 0.2546 = \mathbf{76.255\ mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> (N/mm²)·mm² = N for the load; (N/mm²)/(N/mm²) has no units for the strain; strain × mm = mm for the elongation.</li><li><strong>Order of magnitude.</strong> $\varepsilon_y = 0.335$ %, a few tenths of a percent, the order of magnitude of the elastic strain of a metal.</li><li><strong>Limit.</strong> If the load were zero, $l = l_0 = 76$ mm. At the yield load, the sample is only 0.25 mm longer, that is, 0.33 % of its length.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Up to $44.85$ kN the sample returns to 76 mm when unloaded. Beyond that load part of the elongation is permanent. The brass elongates very little (a quarter of a millimetre) before it yields: the yield strength is a stress limit, but it translates into a small strain because $E$ is large.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a. $\sigma_y$</td><td>345 MPa</td><td>345 MPa</td><td>agrees</td></tr><tr><td>b. $\sigma_{max}$, $F_{max}$</td><td>345 MPa, 44 850 N</td><td>345 MPa, 44\,850 N</td><td>agrees</td></tr><tr><td>c. $l$</td><td>76.25 mm</td><td>76.25 mm</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 9 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-9">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 9</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #9</span>
+            <span class="prob-source-badge">Hooke's law · Poisson's ratio</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Elongation and Change of Diameter of a Steel Sample under 48 900 N</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=4" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 4</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A load of 48900 N produces elastic deformation in a cylindrical sample of 15.2 mm in diameter and a length of 254 mm. Considering that for this kind of steel E = 207 GPa and ν = 0.27, determine the elongation in the direction of the applied force and the change in diameter of the sample.</li></ol>
+          <div class="solution-box">Official Solution: $\Delta l = 0.33$ mm, $\Delta\phi = -0.0053$ mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Elastic deformation.</strong> The statement says that the load produces only elastic deformation, so Hooke's law holds, $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Uniaxial, uniform stress</strong> along the axis of the cylinder: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Isotropic material.</strong> With a uniaxial stress, the transverse strain is $\varepsilon_{lat} = -\nu\,\varepsilon_{ax}$, equal in the two transverse directions [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li>The cross-section is circular and uniform, so that the diameter changes in the same proportion in every direction of the section.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Load</td><td>$F$</td><td style="text-align:right">48 900 N</td><td style="text-align:right">48 900 N</td></tr><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">15.2 mm</td><td style="text-align:right">$15.2\times10^{-3}$ m</td></tr><tr><td>Length</td><td>$l_0$</td><td style="text-align:right">254 mm</td><td style="text-align:right">$254\times10^{-3}$ m</td></tr><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">207 GPa</td><td style="text-align:right">207 000 N/mm²</td></tr><tr><td>Poisson's ratio</td><td>$\nu$</td><td style="text-align:right">0.27</td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the elongation $\Delta l$ in the direction of the force and the change of the diameter $\Delta d$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction for the load (the axis) and the two equal transverse directions of the cylinder; no change of basis.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Bar under axial tension">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="150.0" y="120.0" width="240.0" height="80.0" fill="none" stroke="var(--text-faint)" stroke-width="1.3" stroke-dasharray="5,4" stroke-linejoin="round"/>
+<rect x="150.0" y="128.0" width="256.0" height="64.0" fill="none" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="406.0" y1="160.0" x2="464.0" y2="160.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<path d="M470.0,160.0 L460.8,163.9 L460.8,156.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="150.0" y1="160.0" x2="92.0" y2="160.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<path d="M86.0,160.0 L95.2,156.1 L95.2,163.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="488.0" y="165.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="700" text-anchor="start">F</text>
+<text x="70.0" y="165.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="700" text-anchor="end">F</text>
+<line x1="150.0" y1="98.0" x2="390.0" y2="98.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M150.0,98.0 L156.4,95.3 L156.4,100.7 Z" fill="var(--text-muted)"/>
+<path d="M390.0,98.0 L383.6,100.7 L383.6,95.3 Z" fill="var(--text-muted)"/>
+<text x="270.0" y="90.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle">l0 (initial length)</text>
+<line x1="390.0" y1="222.0" x2="406.0" y2="222.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M390.0,222.0 L396.4,219.3 L396.4,224.7 Z" fill="var(--text-muted)"/>
+<path d="M406.0,222.0 L399.6,224.7 L399.6,219.3 Z" fill="var(--text-muted)"/>
+<text x="398.0" y="240.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle">Δl</text>
+<line x1="200.0" y1="120.0" x2="200.0" y2="200.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M200.0,120.0 L202.7,126.4 L197.3,126.4 Z" fill="var(--text-muted)"/>
+<path d="M200.0,200.0 L197.3,193.6 L202.7,193.6 Z" fill="var(--text-muted)"/>
+<text x="190.0" y="164.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="end">d0</text>
+<line x1="300.0" y1="120.0" x2="300.0" y2="128.0" stroke="var(--fig-pink, #ec4899)" stroke-width="2.5"/>
+<line x1="300.0" y1="192.0" x2="300.0" y2="200.0" stroke="var(--fig-pink, #ec4899)" stroke-width="2.5"/>
+<text x="310.0" y="118.0" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="400" text-anchor="start">Δd/2</text>
+<text x="150.0" y="272.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">dashed: undeformed</text>
+<text x="300.0" y="272.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="400" text-anchor="start">Δd < 0: |Δd| = ν ε d0</text>
+</g></svg>
+<div class="diagram-caption">Figure 8. Cylindrical bar under an axial load F: it elongates by Δl and its diameter shrinks by Δd (schematic, exaggerated).</div>
+</div>
+<p><strong>Strategy.</strong> The elongation follows from the stress and the modulus, and the contraction of the diameter follows from the same strain through Poisson's ratio [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>]:</p>
+<div class="math-block">$$\sigma = \frac{F}{A_0} \qquad \varepsilon_{ax} = \frac{\sigma}{E} \qquad \Delta l = \varepsilon_{ax}\,l_0 \qquad \varepsilon_{lat} = -\nu\,\varepsilon_{ax} \qquad \Delta d = \varepsilon_{lat}\,d_0$$</div>
+<p>The minus sign says that the diameter decreases when the sample is stretched.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15.2\ \text{mm})^2}{4}$$</div>
+<p>The square is $15.2^2 = 231.04$, then $\pi\times231.04 = 725.83$ and dividing by 4:</p>
+<div class="math-block">$$A_0 = 181.46\ \text{mm}^2$$</div>
+<p><strong>2. Stress and axial strain</strong></p>
+<div class="math-block">$$\sigma = \frac{F}{A_0} = \frac{48\,900\ \text{N}}{181.46\ \text{mm}^2} = 269.48\ \text{MPa}$$</div>
+<div class="math-block">$$\varepsilon_{ax} = \frac{\sigma}{E} = \frac{269.48\ \text{N/mm}^2}{207000\ \text{N/mm}^2} = 1.3019\times 10^{-3}$$</div>
+<p><strong>3. Elongation in the direction of the force</strong></p>
+<div class="math-block">$$\Delta l = \varepsilon_{ax}\,l_0 = 1.3019\times 10^{-3}\times254\ \text{mm} = \mathbf{0.331\ mm}$$</div>
+<p><strong>4. Change of the diameter</strong></p>
+<p>The transverse strain is</p>
+<div class="math-block">$$\varepsilon_{lat} = -\nu\,\varepsilon_{ax} = -0.27\times1.3019\times 10^{-3} = -3.5150\times 10^{-4}$$</div>
+<p>and the change of the diameter is</p>
+<div class="math-block">$$\Delta d = \varepsilon_{lat}\,d_0 = -3.5150\times 10^{-4}\times15.2\ \text{mm} = \mathbf{-0.00534\ mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> (N/mm²)/(N/mm²) has no units for the strains, and strain × mm gives mm for $\Delta l$ and $\Delta d$.</li><li><strong>Elastic range.</strong> $\varepsilon_{ax} = 0.1302$ %, a small strain of the order of those of the elastic deformation of a metal, consistent with the statement.</li><li><strong>Volume.</strong> The relative change of volume is $\Delta V/V \approx \varepsilon_{ax} + 2\varepsilon_{lat} = \varepsilon_{ax}(1 - 2\nu) = 5.989\times 10^{-4}$, positive: a stretched elastic body increases its volume since $\nu &lt; 0.5$ (a perfectly incompressible material, $\nu = 0.5$, would give zero) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li><strong>Sign.</strong> $\Delta l &gt; 0$ and $\Delta d &lt; 0$: the sample gets longer and thinner.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample elongates by 0.331 mm, about a third of a millimetre in 254 mm, and the diameter shrinks by only 5.34 micrometres. The contraction is a fraction $\nu = 0.27$ of the relative elongation, which is why it is so small and why it is difficult to measure directly.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$\Delta l$</td><td>0.33 mm</td><td>0.331 mm</td><td>agrees</td></tr><tr><td>$\Delta d$</td><td>−0.0053 mm</td><td>-0.0053 mm</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 10 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-10">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 10</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #10</span>
+            <span class="prob-source-badge">Yield · unloading · resilience</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Copper Wire: Yield Strength, Permanent Elongation after Unloading and Resilience</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=4" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 4</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>Plastic deformation in a copper wire of 200 cm in length and a diameter of 1 mm begins when it is loaded with 15.3 kg. If the elastic modulus for copper is 110 GPa.</li></ol>
+<ul><li>a. Calculate its yield strength.</li><li>b. Considering that when it is loaded with 29.6 kg the strain is 0.011, calculate the final length of the wire once it has been unloaded.</li><li>c. Calculate the resilience modulus.</li></ul>
+          <div class="solution-box">Official Solution: a. $\sigma_y = 190.9$ MPa; b. $l = 201.85$ cm; c. $U_r = 0.165$ MPa</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Uniaxial, uniform stress</strong> in the wire: $\sigma = F/A_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>]. The weight of a mass $m$ is $F = m\,g$ with $g = 9.81$ m/s².</li><li><strong>Yield strength.</strong> "Plastic deformation begins when it is loaded with 15.3 kg" gives the yield strength, $\sigma_y = F_y/A_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Total strain under load.</strong> The strain 0.011 of item b is the total strain (elastic plus plastic) measured while the load of 29.6 kg is applied, relative to the initial length: $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Unloading is elastic.</strong> When the load is removed the elastic strain is recovered along a line of slope $E$, parallel to the elastic line, starting from the stress that the wire carried; what remains is the plastic strain [Session 11 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=21" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 21">21</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>].</li><li><strong>Resilience</strong> of the elastic range: $U_r = \sigma_y^2/(2E)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Length</td><td>$l_0$</td><td style="text-align:right">200 cm</td><td style="text-align:right">2.000 m = 2000 mm</td></tr><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">1 mm</td><td style="text-align:right">$1\times10^{-3}$ m</td></tr><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">110 GPa</td><td style="text-align:right">110 000 N/mm²</td></tr><tr><td>Mass at which plastic deformation begins</td><td>$m_1$</td><td style="text-align:right">15.3 kg</td><td style="text-align:right">$F_1 = 15.3\times9.81 = 150.09$ N</td></tr><tr><td>Mass of item b</td><td>$m_2$</td><td style="text-align:right">29.6 kg</td><td style="text-align:right">$F_2 = 29.6\times9.81 = 290.38$ N</td></tr><tr><td>Total strain under $m_2$</td><td>$\varepsilon$</td><td style="text-align:right">0.011</td><td style="text-align:right">0.011 (dimensionless)</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $\sigma_y$ (a), the final length after unloading (b), $U_r$ (c).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction (the axis of the wire); no change of basis.</p>
+<p><strong>Strategy.</strong> (a) is a stress: weight over area. (c) follows from (a) and $E$. Item (b) is the delicate one, and it is solved by following the strain along the load path:</p>
+<ol><li>The wire is loaded up to $\sigma_2 = F_2/A_0$, above the yield strength, and the total strain there is 0.011.</li><li>It is unloaded along a straight line of slope $E$: the strain recovered is $\sigma_2/E$ (the stress that it carried, not the yield strength).</li><li>The strain that remains is permanent, and it gives the final length.</li></ol>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Problem 10: unloading of the copper wire">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<polyline points="70.0,310.0 145.3,196.2 546.7,89.9" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="546.7,89.9 401.0,310.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<line x1="70.0" y1="196.2" x2="145.3" y2="196.2" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="4,4"/>
+<line x1="70.0" y1="89.9" x2="546.7" y2="89.9" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="4,4"/>
+<line x1="546.7" y1="310.0" x2="546.7" y2="89.9" stroke="var(--text-faint)" stroke-width="1.1" stroke-dasharray="4,4"/>
+<circle cx="145.3" cy="196.2" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="546.7" cy="89.9" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="401.0" cy="310.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="83.0" y="185.5" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">σy = 191.1 MPa</text>
+<text x="83.0" y="105.4" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">σ = 369.7 MPa</text>
+<text x="533.7" y="79.2" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="end">ε = 0.011</text>
+<text x="418.4" y="295.1" fill="var(--fig-blue, #3b82f6)" font-size="12.5" font-weight="700" text-anchor="start">εp = 0.00764</text>
+<text x="338.7" y="196.9" fill="var(--fig-blue, #3b82f6)" font-size="12.5" font-weight="700" text-anchor="start">unloading: slope E</text>
+<line x1="70.0" y1="310.0" x2="590.0" y2="310.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M590.0,310.0 L581.7,313.5 L581.7,306.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="310.0" x2="70.0" y2="60.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M70.0,60.0 L73.5,68.3 L66.5,68.3 Z" fill="var(--text-faint)"/>
+<line x1="243.3" y1="310.0" x2="243.3" y2="315.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="243.3" y="329.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.004</text>
+<line x1="416.7" y1="310.0" x2="416.7" y2="315.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="416.7" y="329.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.008</text>
+<line x1="590.0" y1="310.0" x2="590.0" y2="315.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="590.0" y="329.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.012</text>
+<line x1="65.0" y1="250.5" x2="70.0" y2="250.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="254.5" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="65.0" y1="191.0" x2="70.0" y2="191.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="195.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="65.0" y1="131.4" x2="70.0" y2="131.4" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="135.4" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">300</text>
+<line x1="65.0" y1="71.9" x2="70.0" y2="71.9" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="75.9" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">400</text>
+<text x="590.0" y="348.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="64.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+</g></svg>
+<div class="diagram-caption">Figure 9. Problem 10: loading beyond the yield point and unloading along a line of slope E; the strain that remains is permanent (the shape between the yield point and the loaded point is not given by the statement).</div>
+</div>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Area of the wire</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(1\ \text{mm})^2}{4} = 0.7854\ \text{mm}^2$$</div>
+<p><strong>a) Yield strength</strong></p>
+<p>The force at which the plastic deformation begins is</p>
+<div class="math-block">$$F_1 = m_1\,g = 15.3\ \text{kg}\times9.81\ \text{m/s}^2 = 150.09\ \text{N}$$</div>
+<div class="math-block">$$\sigma_y = \frac{F_1}{A_0} = \frac{150.09\ \text{N}}{0.7854\ \text{mm}^2} = \mathbf{191.1\ MPa}$$</div>
+<p><strong>b) Length after unloading</strong></p>
+<p>The stress under the load of 29.6 kg is</p>
+<div class="math-block">$$F_2 = 29.6\times9.81 = 290.38\ \text{N} \qquad \sigma_2 = \frac{290.38}{0.7854} = 369.7\ \text{MPa}$$</div>
+<p>which is above the yield strength (93 % higher), so the wire is in the plastic zone and the total strain, $\varepsilon = 0.011$, is the sum of an elastic part and a plastic part, $\varepsilon = \varepsilon_e + \varepsilon_p$. On unloading, the elastic part is recovered along the line of slope $E$ that starts at $\sigma_2$:</p>
+<div class="math-block">$$\varepsilon_e = \frac{\sigma_2}{E} = \frac{369.7\ \text{N/mm}^2}{110000\ \text{N/mm}^2} = 3.3611\times 10^{-3}$$</div>
+<p>The strain that remains is</p>
+<div class="math-block">$$\varepsilon_p = \varepsilon - \varepsilon_e = 0.011 - 3.3611\times 10^{-3} = 0.007639$$</div>
+<p>and the final length, once unloaded, is</p>
+<div class="math-block">$$l_f = l_0\,(1 + \varepsilon_p) = 200\ \text{cm}\times(1 + 0.007639) = \mathbf{201.53\ cm}$$</div>
+<p>(that is, the wire is left 1.53 cm longer than at the beginning).</p>
+<p><strong>c) Modulus of resilience</strong></p>
+<div class="math-block">$$U_r = \frac{\sigma_y^2}{2E} = \frac{(191.1\ \text{MPa})^2}{2\times110000\ \text{MPa}} = \mathbf{0.166\ MPa}$$</div>
+<p>($1\ \text{MPa} = 1\ \text{MJ/m}^3$.)</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> kg·m/s² = N; N/mm² = MPa; the strains have no units; $l_f$ in the unit of $l_0$ (cm).</li><li><strong>Order.</strong> $\varepsilon_e = 3.3611\times 10^{-3} &lt; \varepsilon = 0.011$, and $\varepsilon_p &gt; 0$: the wire does not return to 200 cm. If the load were removed from the yield point, the permanent strain would be zero; here the wire has gone beyond it.</li><li><strong>Elastic strain at yield.</strong> The strain of the yield point, $\sigma_y/E = 0.001737$, is smaller than the elastic strain recovered from $\sigma_2$ ($3.3611\times 10^{-3}$): the unloading starts from a higher stress, and the recovery is larger.</li><li><strong>Limits.</strong> If $\sigma_2 = \sigma_y$ the wire would be exactly at the yield point and $\varepsilon_p$ would be (almost) zero; the larger the stress reached, the larger the elastic recovery and the permanent strain.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The copper wire yields at about 191.1 MPa, and after being loaded to 369.7 MPa it keeps a permanent elongation of 1.53 cm in 200 cm. A load that goes beyond the yield strength leaves a trace: the length after unloading depends on how far the stress went.</p>
+<div class="callout"><div class="callout-title">Value of $g$</div><p>The key is consistent with $g = 9.8$ m/s², which gives $\sigma_y = 190.9$ MPa instead of 191.1 MPa ($0.1$ % difference) and $U_r = 0.1657$ MPa. The result here uses $g = 9.81$ m/s² throughout the sheet.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a. $\sigma_y$</td><td>190.9 MPa</td><td>191.1 MPa</td><td>agrees (the key uses $g = 9.8$ m/s²)</td></tr><tr><td>b. final length</td><td>201.85 cm</td><td>201.53 cm</td><td><strong>does not agree</strong>, see below</td></tr><tr><td>c. $U_r$</td><td>0.165 MPa</td><td>0.166 MPa</td><td>agrees</td></tr></tbody></table></div>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution: length after unloading</div><p>The key, 201.85 cm, is obtained by recovering only the elastic strain of the yield point, $\sigma_y/E = 1.7373\times 10^{-3}$: $l = 200\,(1 + 0.011 - 1.7373\times 10^{-3}) = 201.85$ cm. That is the unloading of a wire that had been stressed to $\sigma_y$. But the wire of item b carried $\sigma_2 = 369.7$ MPa, and on unloading it recovers $\sigma_2/E = 3.3611\times 10^{-3}$. The correct permanent strain is therefore $0.007639$ and the length 201.53 cm. The key therefore recovers less elastic strain than the wire really does. The computed value is kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 11 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-11">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 11</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #11</span>
+            <span class="prob-source-badge">Hooke's law · Poisson's ratio</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Elastic Deformation of a 15 mm Steel Cylinder under 50 kN</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=4" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 4</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A cylindrical steel sample with a diameter of 15 mm and a length of 250 mm experiences elastic deformation when a load of 50 kN is applied. Considering that for this steel E = 207 GPa and ν = 0.27, determine the elongation in the direction of the force applied and the change in diameter of the sample.</li></ol>
+          <div class="solution-box">Official Solution: $\Delta l = 0.342$ mm, $\Delta\phi = -0.0055$ mm</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Elastic deformation.</strong> The statement says that the load produces only elastic deformation, so Hooke's law holds, $\sigma = E\varepsilon$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Uniaxial, uniform stress</strong> along the axis of the cylinder: $\sigma = F/A_0$ and $\varepsilon = \Delta l/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Isotropic material.</strong> With a uniaxial stress, the transverse strain is $\varepsilon_{lat} = -\nu\,\varepsilon_{ax}$, equal in the two transverse directions [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li>The cross-section is circular and uniform, so that the diameter changes in the same proportion in every direction of the section.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Load</td><td>$F$</td><td style="text-align:right">50 000 N</td><td style="text-align:right">50 000 N</td></tr><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">15.0 mm</td><td style="text-align:right">$15.0\times10^{-3}$ m</td></tr><tr><td>Length</td><td>$l_0$</td><td style="text-align:right">250 mm</td><td style="text-align:right">$250\times10^{-3}$ m</td></tr><tr><td>Young's modulus</td><td>$E$</td><td style="text-align:right">207 GPa</td><td style="text-align:right">207 000 N/mm²</td></tr><tr><td>Poisson's ratio</td><td>$\nu$</td><td style="text-align:right">0.27</td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the elongation $\Delta l$ in the direction of the force and the change of the diameter $\Delta d$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction for the load (the axis) and the two equal transverse directions of the cylinder; no change of basis.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Bar under axial tension">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<rect x="150.0" y="120.0" width="240.0" height="80.0" fill="none" stroke="var(--text-faint)" stroke-width="1.3" stroke-dasharray="5,4" stroke-linejoin="round"/>
+<rect x="150.0" y="128.0" width="256.0" height="64.0" fill="none" stroke="var(--text-heading)" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="406.0" y1="160.0" x2="464.0" y2="160.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<path d="M470.0,160.0 L460.8,163.9 L460.8,156.1 Z" fill="var(--fig-blue, #3b82f6)"/>
+<line x1="150.0" y1="160.0" x2="92.0" y2="160.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.2"/>
+<path d="M86.0,160.0 L95.2,156.1 L95.2,163.9 Z" fill="var(--fig-blue, #3b82f6)"/>
+<text x="488.0" y="165.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="700" text-anchor="start">F</text>
+<text x="70.0" y="165.0" fill="var(--fig-blue, #3b82f6)" font-size="15" font-weight="700" text-anchor="end">F</text>
+<line x1="150.0" y1="98.0" x2="390.0" y2="98.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M150.0,98.0 L156.4,95.3 L156.4,100.7 Z" fill="var(--text-muted)"/>
+<path d="M390.0,98.0 L383.6,100.7 L383.6,95.3 Z" fill="var(--text-muted)"/>
+<text x="270.0" y="90.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle">l0 (initial length)</text>
+<line x1="390.0" y1="222.0" x2="406.0" y2="222.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M390.0,222.0 L396.4,219.3 L396.4,224.7 Z" fill="var(--text-muted)"/>
+<path d="M406.0,222.0 L399.6,224.7 L399.6,219.3 Z" fill="var(--text-muted)"/>
+<text x="398.0" y="240.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="middle">Δl</text>
+<line x1="200.0" y1="120.0" x2="200.0" y2="200.0" stroke="var(--text-muted)" stroke-width="1.1"/>
+<path d="M200.0,120.0 L202.7,126.4 L197.3,126.4 Z" fill="var(--text-muted)"/>
+<path d="M200.0,200.0 L197.3,193.6 L202.7,193.6 Z" fill="var(--text-muted)"/>
+<text x="190.0" y="164.0" fill="var(--text-muted)" font-size="14" font-weight="400" text-anchor="end">d0</text>
+<line x1="300.0" y1="120.0" x2="300.0" y2="128.0" stroke="var(--fig-pink, #ec4899)" stroke-width="2.5"/>
+<line x1="300.0" y1="192.0" x2="300.0" y2="200.0" stroke="var(--fig-pink, #ec4899)" stroke-width="2.5"/>
+<text x="310.0" y="118.0" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="400" text-anchor="start">Δd/2</text>
+<text x="150.0" y="272.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="start">dashed: undeformed</text>
+<text x="300.0" y="272.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="400" text-anchor="start">Δd < 0: |Δd| = ν ε d0</text>
+</g></svg>
+<div class="diagram-caption">Figure 10. Cylindrical bar under an axial load F: it elongates by Δl and its diameter shrinks by Δd (schematic, exaggerated).</div>
+</div>
+<p><strong>Strategy.</strong> The elongation follows from the stress and the modulus, and the contraction of the diameter follows from the same strain through Poisson's ratio [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>]:</p>
+<div class="math-block">$$\sigma = \frac{F}{A_0} \qquad \varepsilon_{ax} = \frac{\sigma}{E} \qquad \Delta l = \varepsilon_{ax}\,l_0 \qquad \varepsilon_{lat} = -\nu\,\varepsilon_{ax} \qquad \Delta d = \varepsilon_{lat}\,d_0$$</div>
+<p>The minus sign says that the diameter decreases when the sample is stretched.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15.0\ \text{mm})^2}{4}$$</div>
+<p>The square is $15.0^2 = 225.00$, then $\pi\times225.00 = 706.86$ and dividing by 4:</p>
+<div class="math-block">$$A_0 = 176.71\ \text{mm}^2$$</div>
+<p><strong>2. Stress and axial strain</strong></p>
+<div class="math-block">$$\sigma = \frac{F}{A_0} = \frac{50\,000\ \text{N}}{176.71\ \text{mm}^2} = 282.94\ \text{MPa}$$</div>
+<div class="math-block">$$\varepsilon_{ax} = \frac{\sigma}{E} = \frac{282.94\ \text{N/mm}^2}{207000\ \text{N/mm}^2} = 1.3669\times 10^{-3}$$</div>
+<p><strong>3. Elongation in the direction of the force</strong></p>
+<div class="math-block">$$\Delta l = \varepsilon_{ax}\,l_0 = 1.3669\times 10^{-3}\times250\ \text{mm} = \mathbf{0.342\ mm}$$</div>
+<p><strong>4. Change of the diameter</strong></p>
+<p>The transverse strain is</p>
+<div class="math-block">$$\varepsilon_{lat} = -\nu\,\varepsilon_{ax} = -0.27\times1.3669\times 10^{-3} = -3.6905\times 10^{-4}$$</div>
+<p>and the change of the diameter is</p>
+<div class="math-block">$$\Delta d = \varepsilon_{lat}\,d_0 = -3.6905\times 10^{-4}\times15.0\ \text{mm} = \mathbf{-0.00554\ mm}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> (N/mm²)/(N/mm²) has no units for the strains, and strain × mm gives mm for $\Delta l$ and $\Delta d$.</li><li><strong>Elastic range.</strong> $\varepsilon_{ax} = 0.1367$ %, a small strain of the order of those of the elastic deformation of a metal, consistent with the statement.</li><li><strong>Volume.</strong> The relative change of volume is $\Delta V/V \approx \varepsilon_{ax} + 2\varepsilon_{lat} = \varepsilon_{ax}(1 - 2\nu) = 6.288\times 10^{-4}$, positive: a stretched elastic body increases its volume since $\nu &lt; 0.5$ (a perfectly incompressible material, $\nu = 0.5$, would give zero) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=19" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 19">19</a>].</li><li><strong>Sign.</strong> $\Delta l &gt; 0$ and $\Delta d &lt; 0$: the sample gets longer and thinner.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample elongates by 0.342 mm, about a third of a millimetre in 250 mm, and the diameter shrinks by only 5.54 micrometres. The contraction is a fraction $\nu = 0.27$ of the relative elongation, which is why it is so small and why it is difficult to measure directly.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>$\Delta l$</td><td>0.342 mm</td><td>0.342 mm</td><td>agrees</td></tr><tr><td>$\Delta d$</td><td>−0.0055 mm</td><td>-0.0055 mm</td><td>agrees</td></tr></tbody></table></div>
           </div>
         </div>
       </div>
