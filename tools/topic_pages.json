@@ -61,7 +61,11 @@
    "category": "Topic 05 · Mechanical Properties",
    "title": "Mechanical Properties",
    "subtitle": "The tensile test and the stress-strain curve, elastic and plastic behaviour, toughness and resilience, true stress and strain, the strengthening mechanisms and the hardness tests.",
-   "source": "Universidad Carlos III de Madrid · Session 11 T5 Mechanical properties I.pdf and Session 12 T5 Mechanical properties II.pdf"
+   "source": "Universidad Carlos III de Madrid · Session 11 T5 Mechanical properties I.pdf and Session 12 T5 Mechanical properties II.pdf",
+   "problems": {
+    "href": "../problemas/topic-5-mechanical-properties.html",
+    "label": "4 solved problems for this topic (Problems T5_MechanicalProperties, 1, 2, 3, 4)"
+   }
   },
   "subjects/business-management/teoria/topic-1.html": {
    "note": "vault/05 - Business Management/Topic 1 - The Firm - Types and Objectives.md",

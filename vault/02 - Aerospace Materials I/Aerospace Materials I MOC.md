@@ -161,18 +161,38 @@ tags:
 
 ### ⚙️ Block III: Mechanical Properties and Testing
 
-#### [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties|Topic 5: Mechanical Properties]] (theory built; problems pending)
+#### [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties|Topic 5: Mechanical Properties]] (theory built; problems 4 of 15)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html`
-* **Problems Web Page:** not built yet (problems pending)
+* **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html`
 * **Official Sources:**
-  * Theory: `Session 11 T5 Mechanical properties I.pdf`, `Session 12 T5 Mechanical properties II.pdf`
-  * Problems: `Problems T5_MechanicalProperties.pdf`
+  * Theory: `Session 11 T5 Mechanical properties I.pdf` (Slides 1-39), `Session 12 T5 Mechanical properties II.pdf` (Slides 1-30)
+  * Problems: `Problems T5_MechanicalProperties.pdf` (15 problems with a numeric key and no worked solutions)
+* **Atomic Theory Concepts (16 Notes):**
+  * [[02 - Aerospace Materials I/Concept - Uniaxial Tension Test and Engineering Stress-Strain|Concept: Uniaxial Tension Test and Engineering Stress-Strain]]
+  * [[02 - Aerospace Materials I/Concept - Hooke's Law, Young's Modulus and Non-Linear Elasticity|Concept: Hooke's Law, Young's Modulus and Non-Linear Elasticity]]
+  * [[02 - Aerospace Materials I/Concept - Poisson's Ratio and the Shear Modulus|Concept: Poisson's Ratio and the Shear Modulus]]
+  * [[02 - Aerospace Materials I/Concept - Yield Strength and the 0.2 Percent Offset|Concept: Yield Strength and the 0.2 Percent Offset]]
+  * [[02 - Aerospace Materials I/Concept - Tensile Strength, Necking and Fracture Stress|Concept: Tensile Strength, Necking and Fracture Stress]]
+  * [[02 - Aerospace Materials I/Concept - Ductility - Percent Elongation and Reduction in Area|Concept: Ductility - Percent Elongation and Reduction in Area]]
+  * [[02 - Aerospace Materials I/Concept - Toughness and Modulus of Resilience|Concept: Toughness and Modulus of Resilience]]
+  * [[02 - Aerospace Materials I/Concept - Working Stress and the Safety Factor|Concept: Working Stress and the Safety Factor]]
+  * [[02 - Aerospace Materials I/Concept - True Stress and True Strain|Concept: True Stress and True Strain]]
+  * [[02 - Aerospace Materials I/Concept - Slip Systems and Dislocation Glide|Concept: Slip Systems and Dislocation Glide]]
+  * [[02 - Aerospace Materials I/Concept - Strain Hardening and Percent Cold Work|Concept: Strain Hardening and Percent Cold Work]]
+  * [[02 - Aerospace Materials I/Concept - Solid Solution Strengthening|Concept: Solid Solution Strengthening]]
+  * [[02 - Aerospace Materials I/Concept - Grain Size Strengthening|Concept: Grain Size Strengthening]]
+  * [[02 - Aerospace Materials I/Concept - Precipitation Strengthening|Concept: Precipitation Strengthening]]
+  * [[02 - Aerospace Materials I/Concept - Hardness Tests Mohs Brinell Rockwell Vickers|Concept: Hardness Tests Mohs Brinell Rockwell Vickers]]
+  * [[02 - Aerospace Materials I/Concept - Compression Impact Bending and Torsion Tests|Concept: Compression Impact Bending and Torsion Tests]]
+* **Official Solved Problems (4 of 15):**
+  * [[02 - Aerospace Materials I/Problem - T5-01 Complete Analysis of a Tensile Test from the Load-Elongation Table|Problem T5-01: Complete Analysis of a Tensile Test from the Load-Elongation Table]]
+  * [[02 - Aerospace Materials I/Problem - T5-02 Tensile Test of a 15 mm Cylinder Strength Resilience True Stress and Area Reduction|Problem T5-02: Tensile Test of a 15 mm Cylinder: Strength, Resilience, True Stress and Area Reduction]]
+  * [[02 - Aerospace Materials I/Problem - T5-03 Tensile Test of a 13 mm Sample Modulus Cable Section and True Values|Problem T5-03: Tensile Test of a 13 mm Sample: Modulus, Cable Section and True Values at Maximum Load and Fracture]]
+  * [[02 - Aerospace Materials I/Problem - T5-04 Tensile Test of a Rectangular Brass Sample Modulus Strengths and Working Stress|Problem T5-04: Tensile Test of a Rectangular Brass Sample: Modulus, Strengths, Resilience and Working Stress]]
 * **Main Content:**
-  * Uniaxial tensile test: elastic regime, Hooke's law, Young's modulus, Poisson's ratio.
-  * Plastic deformation, conventional yield strength ($\sigma_{0.2}$), tensile strength ($\sigma_u$), ductility.
-  * True stress-strain curves ($\sigma_T - \epsilon_T$) and necking.
-  * Slip systems and dislocation glide; strengthening by strain hardening, solid solution, grain size reduction and precipitation.
-  * Hardness tests (Brinell, Rockwell, Vickers, Knoop).
+  * Uniaxial tensile test, elastic regime, Hooke's law, Young's modulus, Poisson's ratio and the other mechanical tests.
+  * Plastic deformation by slip, yield and tensile strength, ductility, toughness, resilience, working stress, true stress and strain.
+  * Strengthening mechanisms (strain hardening, solid solution, grain size, precipitation) and hardness tests (Mohs, Brinell, Rockwell, Vickers, Knoop).
 
 ---
 

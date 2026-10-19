@@ -103,6 +103,134 @@ def bond_force_curves():
             "Interatomic force against separation for a strongly and a weakly bonded material: E is proportional to the slope at r0 (schematic)")
 
 
+# --------------------------------------------------------------------------- problem sheet (Problems T5)
+def nice_step(vmax, n=5):
+    raw = vmax / n
+    mag = 10 ** math.floor(math.log10(raw))
+    for m in (1, 2, 2.5, 5, 10):
+        if raw <= m * mag:
+            return m * mag
+    return 10 * mag
+
+
+def ticks(vmax, n=5):
+    step = nice_step(vmax, n)
+    k, out = 1, []
+    while k * step <= vmax * 1.001:
+        out.append((k * step, f"{k * step:g}"))
+        k += 1
+    return out
+
+
+def clip_x(pts, xmax):
+    """Polyline points with x <= xmax, ending exactly at xmax (linear interpolation on the crossing segment)."""
+    out = []
+    for i, (x, y) in enumerate(pts):
+        if x <= xmax:
+            out.append((x, y))
+        else:
+            x0, y0 = pts[i - 1]
+            out.append((xmax, y0 + (y - y0) * (xmax - x0) / (x - x0)))
+            break
+    return out
+
+
+def tensile_problem(name, title, caption, pts, e_mod, yield_pt, uts_pt, zoom, lin_end, yield_label, fracture_label="fracture",
+                    lin_right=False):
+    """Engineering stress-strain curve built from the sheet data: full curve (left) and zoom on the elastic
+    part with the Young's modulus line and the 0.2 % offset line (right). `pts` includes (0, 0)."""
+    c = Canvas(780, 360)
+    emax, smax = pts[-1][0], max(p[1] for p in pts)
+    m1 = M(70, 300, 300 / (emax * 1.06), 230 / (smax * 1.12))
+    m1.axes(c, emax * 1.06, smax * 1.12, "strain ε", "σ (MPa)", ticks(emax * 1.06, 4), ticks(smax * 1.12, 4))
+    m1.poly(c, pts, "ACC", 2.2)
+    for p in pts[1:]:
+        m1.dot(c, p[0], p[1], "HEAD", "HEAD", 2.4)
+    m1.dot(c, uts_pt[0], uts_pt[1], "HEAD", "BLUE", 5)
+    m1.text(c, uts_pt[0], uts_pt[1] + smax * 0.07, "UTS", "BLUE", "middle", 12.5, "700")
+    m1.dot(c, pts[-1][0], pts[-1][1], "HEAD", "PINK", 5)
+    m1.text(c, pts[-1][0], pts[-1][1] - smax * 0.09, fracture_label, "PINK", "end", 12.5, "700")
+    ze, zs = zoom
+    m1.poly(c, [(0, 0), (ze, 0), (ze, zs), (0, zs), (0, 0)], "EDGE", 1.0, "3,3")
+    text(c, (70, 24), "full curve", "HEAD", "start", 13, "700")
+    m2 = M(450, 300, 270 / ze, 230 / zs)
+    m2.axes(c, ze, zs, "strain ε", "σ (MPa)", ticks(ze, 4), ticks(zs, 4))
+    zp = clip_x(pts, ze)
+    m2.poly(c, zp, "ACC", 2.2)
+    for p in zp[1:]:
+        m2.dot(c, p[0], p[1], "HEAD", "HEAD", 2.6)
+    m2.poly(c, [(0, 0), (lin_end, e_mod * lin_end)], "GREEN", 1.5, "6,4")
+    off_end = yield_pt[0] + 0.0006
+    m2.poly(c, [(0.002, 0), (off_end, e_mod * (off_end - 0.002))], "BLUE", 1.5, "6,4")
+    m2.dot(c, yield_pt[0], yield_pt[1], "HEAD", "HEAD", 5)
+    m2.text(c, yield_pt[0] + ze * 0.03, yield_pt[1] - zs * 0.08, yield_label, "HEAD", "start", 12.5, "700")
+    if lin_right:
+        m2.text(c, lin_end + ze * 0.02, e_mod * lin_end + zs * 0.03, "E (elastic line)", "GREEN", "start", 12)
+    else:
+        m2.text(c, lin_end, e_mod * lin_end + zs * 0.03, "E (elastic line)", "GREEN", "end", 12)
+    m2.text(c, 0.002 + 0.08 * zs / e_mod + ze * 0.02, zs * 0.08, "0.2 % offset", "BLUE", "start", 12)
+    text(c, (450, 24), "zoom on the elastic part", "HEAD", "start", 13, "700")
+    REG.put(name, c, title, caption)
+
+
+G = 9.81  # m/s2, used to turn the kilograms of the sheet into newtons
+
+# Data of the four tabulated tensile tests of Problems T5_MechanicalProperties.pdf (the first point of each is (0, 0)).
+SHEET = {
+    1: dict(d0=12.8, l0=12.5, n_fit=5,
+            force=[x * 100.0 for x in (127, 254, 381, 508, 762, 891, 927, 1025, 1078, 1194, 1283, 1497, 1590, 1604, 1595, 1515, 1247)],
+            dl=[0.006, 0.012, 0.019, 0.025, 0.038, 0.051, 0.063, 0.095, 0.127, 0.190, 0.254, 0.508, 0.762, 0.889, 1.016, 1.270, 1.460]),
+    2: dict(d0=15.0, l0=50.0, n_fit=3,
+            force=[x * 1000.0 for x in (70, 120, 150, 160, 170, 200, 220, 233, 233, 220)],
+            dl=[0.25, 0.4, 0.5, 0.6, 0.75, 1.75, 3.00, 5.00, 6.50, 8.00]),
+    3: dict(d0=13.0, l0=5.148, n_fit=4,
+            force=[k * G for k in (500, 1500, 2500, 3500, 3750, 3950, 4000, 4000, 3600)],
+            dl=[round(x - 5.148, 3) for x in (5.151, 5.156, 5.161, 5.166, 5.225, 5.354, 5.457, 5.560, 5.676)]),
+    4: dict(d0=None, l0=63.50, n_fit=5, area=3.2 * 19.1,
+            force=[1380.0, 2780.0, 5630.0, 7430.0, 8140.0, 9870.0, 12850.0, 14100.0, 14300.0, 13830.0, 12500.0],
+            dl=[round(x - 63.50, 2) for x in (63.53, 63.58, 63.63, 63.70, 63.75, 64.14, 65.41, 66.68, 67.95, 69.22, 70.49)]),
+}
+
+
+def tensile_test(k):
+    """Engineering stress and strain of test k, plus E (least squares through the origin on the first n_fit
+    points) and the 0.2 % offset yield point."""
+    d = SHEET[k]
+    a0 = d["area"] if d.get("area") else math.pi * d["d0"] ** 2 / 4
+    eps = [0.0] + [x / d["l0"] for x in d["dl"]]
+    sig = [0.0] + [x / a0 for x in d["force"]]
+    n = d["n_fit"]
+    e_mod = sum(e * s for e, s in zip(eps[1:n + 1], sig[1:n + 1])) / sum(e * e for e in eps[1:n + 1])
+    return dict(a0=a0, l0=d["l0"], eps=eps, sig=sig, e_mod=e_mod, n_fit=n, yield_pt=offset_yield(eps, sig, e_mod))
+
+
+def offset_yield(eps, sig, e_mod, off=0.002):
+    """Intersection of the polyline with the offset line sigma = E (eps - off): (eps, sigma, segment index)."""
+    for i in range(len(eps) - 1):
+        f0 = sig[i] - e_mod * (eps[i] - off)
+        f1 = sig[i + 1] - e_mod * (eps[i + 1] - off)
+        if f0 > 0 >= f1:
+            t = f0 / (f0 - f1)
+            return eps[i] + t * (eps[i + 1] - eps[i]), sig[i] + t * (sig[i + 1] - sig[i]), i
+    raise ValueError("no intersection")
+
+
+def problems():
+    spec = {1: dict(zoom=(0.012, 900), lin_end=0.0035, uts_i=14),
+            2: dict(zoom=(0.02, 1100), lin_end=0.011, uts_i=8),
+            3: dict(zoom=(0.012, 300), lin_end=0.0036, uts_i=7),
+            4: dict(zoom=(0.012, 180), lin_end=0.0045, uts_i=9)}
+    for k, s in spec.items():
+        r = tensile_test(k)
+        pts = list(zip(r["eps"], r["sig"]))
+        ey, sy, _ = r["yield_pt"]
+        tensile_problem(f"t5-p{k}-curve", f"Problem {k}: engineering stress-strain curve from the table",
+                        f"Problem {k}: engineering stress-strain curve built from the data of the sheet (every dot is a table row), "
+                        "with the elastic line and the 0.2 % offset construction",
+                        pts, r["e_mod"], (ey, sy), pts[s["uts_i"]], s["zoom"], s["lin_end"], f"σy = {sy:.0f} MPa",
+                        lin_right=(k == 4))
+
+
 def specimen_geometry():
     c = Canvas(760, 250)
     pts = [(40, 80), (200, 80), (240, 97), (480, 97), (520, 80), (720, 80), (720, 150), (520, 150),
@@ -614,4 +742,5 @@ def build():
     indenters()
     rockwell_steps()
     rasters()
+    problems()
     return REG

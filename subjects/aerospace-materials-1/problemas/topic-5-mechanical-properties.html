@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 5: Solved Problems (Mechanical Properties) — Aerospace Materials I</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --phase-1: #38bdf8;
+      --phase-1-bg: rgba(56, 189, 248, 0.08);
+      --phase-1-border: rgba(56, 189, 248, 0.25);
+
+      --phase-2: #f59e0b;
+      --phase-2-bg: rgba(245, 158, 11, 0.08);
+      --phase-2-border: rgba(245, 158, 11, 0.25);
+
+      --phase-3: #34d399;
+      --phase-3-bg: rgba(52, 211, 153, 0.08);
+      --phase-3-border: rgba(52, 211, 153, 0.25);
+
+      --phase-4: #c084fc;
+      --phase-4-bg: rgba(192, 132, 252, 0.08);
+      --phase-4-border: rgba(192, 132, 252, 0.25);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.95);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --statement-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --statement-bg: #f8fafc;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4, .brand-title, .problem-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-pill, .phase-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Sticky Navigation Bar with Pills */
+    nav.pills-bar,
+    .pills-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 58px;
+      z-index: 90;
+      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main.problems-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 96px;
+    }
+
+    /* Page Header */
+    .page-intro {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Collapsible Problem Card */
+    details.problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-elevation);
+      transition: border-color var(--transition);
+      scroll-margin-top: 120px;
+    }
+
+    details.problem-card[open] {
+      border-color: var(--accent-border);
+    }
+
+    summary.problem-summary {
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    summary.problem-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .problem-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prob-num-badge {
+      background: var(--accent);
+      color: #070b14;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .prob-source-badge {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-title {
+      font-size: 1.45rem;
+      color: var(--text-heading);
+      margin-top: 8px;
+    }
+
+    .card-body {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+    }
+
+    /* Statement Box */
+    .statement-box {
+      background: var(--statement-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-style: italic;
+      color: var(--text-heading);
+      font-size: 1.04rem;
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 4-Phase Grid */
+    .phases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phase-step {
+      background: var(--bg-surface);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .phase-1 .phase-badge { color: var(--phase-1); background: var(--phase-1-bg); border: 1px solid var(--phase-1-border); }
+    .phase-2 .phase-badge { color: var(--phase-2); background: var(--phase-2-bg); border: 1px solid var(--phase-2-border); }
+    .phase-3 .phase-badge { color: var(--phase-3); background: var(--phase-3-bg); border: 1px solid var(--phase-3-border); }
+    .phase-4 .phase-badge { color: var(--phase-4); background: var(--phase-4-bg); border: 1px solid var(--phase-4-border); }
+
+    .phase-step p {
+      margin-bottom: 14px;
+      color: var(--text-body);
+    }
+
+    .phase-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-step ul, .phase-step ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .phase-step li {
+      margin-bottom: 6px;
+    }
+
+    /* Reference Table Card */
+    .reference-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .reference-title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-container {
+      position: relative;
+      overflow-x: auto;
+    }
+
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    table.ref-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table.ref-table td {
+      padding: 6px 8px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 10px 16px; }
+      nav.pills-bar,
+      .pills-bar {
+        padding: 8px 16px;
+        top: 96px;
+      }
+      main.problems-container { padding: 24px 16px 64px; }
+      details.problem-card { padding: 20px 18px; }
+    }
+  
+    /* Topic 4: blocks generated from the vault notes */
+    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 18px 0; border-top: 1px solid var(--accent-border);
+      border-right: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3);
+      border-right-color: rgba(239, 68, 68, 0.3); border-bottom-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    .callout-title { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+    .math-block { overflow-x: auto; margin: 14px 0; }
+    .phase-step .table-container { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border-subtle); border-radius: 8px; }
+    table.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; text-align: left; }
+    table.data-table th { background: var(--bg-subtle); color: var(--text-heading); padding: 9px 12px; font-weight: 600;
+      border-bottom: 1px solid var(--border-strong); }
+    table.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-body); }
+    table.data-table tr:last-child td { border-bottom: none; }
+    .sheet-intro { margin-top: 56px; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px;
+      padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">MAT-I · Topic 5</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="problems-container">
+
+    <!-- Page Intro Header -->
+    <header class="page-intro">
+      <h1>Topic 5: Solved Problems</h1>
+      <p>
+        Step-by-step solutions of problems 1 to 4 of the 15 of the official sheet on mechanical properties (Problems T5_MechanicalProperties: the tensile test, the elastic modulus, yield and tensile strength, ductility, resilience, true stress and strain, thermal stress and hardness, from Sessions 11 and 12), written in four phases. The sheet has no worked solutions, only a numeric key for most items, so every solution is derived here and compared with that key.
+      </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf" target="_blank" rel="noopener">Problems T5_MechanicalProperties.pdf</a>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 1 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-1">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 1</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #1</span>
+            <span class="prob-source-badge">Tensile test · full stress-strain analysis</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Complete Analysis of a Tensile Test from the Load-Elongation Table</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A cylindrical aluminum sample has a diameter of 12.8 mm and an initial base length of 12.5 mm and it is subjected to uniaxial tension. Use the data from the load/elongation table to answer the following questions:</li></ol>
+<ul><li>a. Represent the engineering stress data versus the engineering strain.</li><li>b. Calculate Young's modulus.</li><li>c. Calculate the yield strength, assuming that the residual strain at the yield point is 0.002.</li><li>d. Work out the tensile strength of this alloy.</li><li>e. Determine the approximate value of ductility expressed as a deformation percentage.</li><li>f. Determine the approximate value of the modulus of resilience.</li><li>g. Calculate the load (N) and the elongation (mm) of the sample at the yield point.</li><li>h. Calculate an approximate working stress for this material.</li><li>i. With the values obtained, is it possible to calculate the load applied to the sample if the elongation produced is 0.1 mm? If it is possible, work it out and if it is not possible, explain your answer and provide an alternative method.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">F (N/100)</th><th style="text-align:right">ΔL (mm)</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">127</td><td style="text-align:right">0.006</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">254</td><td style="text-align:right">0.012</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">381</td><td style="text-align:right">0.019</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">508</td><td style="text-align:right">0.025</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">762</td><td style="text-align:right">0.038</td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">891</td><td style="text-align:right">0.051</td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">927</td><td style="text-align:right">0.063</td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">1025</td><td style="text-align:right">0.095</td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">1078</td><td style="text-align:right">0.127</td></tr><tr><td style="text-align:right">10</td><td style="text-align:right">1194</td><td style="text-align:right">0.190</td></tr><tr><td style="text-align:right">11</td><td style="text-align:right">1283</td><td style="text-align:right">0.254</td></tr><tr><td style="text-align:right">12</td><td style="text-align:right">1497</td><td style="text-align:right">0.508</td></tr><tr><td style="text-align:right">13</td><td style="text-align:right">1590</td><td style="text-align:right">0.762</td></tr><tr><td style="text-align:right">14</td><td style="text-align:right">1604</td><td style="text-align:right">0.889</td></tr><tr><td style="text-align:right">15</td><td style="text-align:right">1595</td><td style="text-align:right">1.016</td></tr><tr><td style="text-align:right">16</td><td style="text-align:right">1515</td><td style="text-align:right">1.270</td></tr><tr><td style="text-align:right">17</td><td style="text-align:right">1247</td><td style="text-align:right">1.460</td></tr></tbody></table></div>
+<p><em>(The sheet prints the table in two rows, F and ΔL, followed by the word "Fracture"; here each point has its own row. Point 17 is the last record before the fracture.)</em></p>
+          <div class="solution-box">Official Solution: b. $E \approx 200$ GPa; c. $\sigma_y = 740$ MPa; d. $\sigma_{max} = 1250$ MPa; e. 11.3 %; f. $U_r = 1.37$ MPa; g. $F = 9.5\times10^4$ N, $\Delta l = 0.071$ mm; h. $\sigma_w = 370$ MPa; i. it can only be obtained graphically, $F = 10.3\times10^4$ N</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Uniaxial, uniform stress.</strong> The load acts along the axis of the cylinder, and up to the necking the stress is the same on every cross-section of the gauge length. Under this hypothesis the engineering stress and strain are defined with the original area and length [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Linear elastic start.</strong> For small loads the curve is a straight line through the origin, Hooke's law $\sigma = E\varepsilon$, and the slope of that line is the Young's modulus [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Conventional yield strength.</strong> The yield strength is the stress at which the curve crosses the line drawn parallel to the elastic line from the residual strain $0.002$ (0.2 % offset), as the statement asks [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Between table rows the curve is a straight segment.</strong> The table gives discrete points, so every reading between two of them is a linear interpolation.</li><li><strong>Elastic recovery.</strong> When the sample breaks the load disappears and the elastic strain is recovered, so the ductility is the plastic strain at fracture [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>].</li><li><strong>Safety factor.</strong> The statement gives none; the slide says that $N$ is usually 2, and that value is used for the working stress [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">12.8 mm</td><td style="text-align:right">$12.8\times10^{-3}$ m</td></tr><tr><td>Initial gauge length</td><td>$l_0$</td><td style="text-align:right">12.5 mm</td><td style="text-align:right">$12.5\times10^{-3}$ m</td></tr><tr><td>Load (table)</td><td>$F$</td><td style="text-align:right">$100 \times (F/100)$</td><td style="text-align:right">N</td></tr><tr><td>Elongation (table)</td><td>$\Delta L$</td><td style="text-align:right">see table</td><td style="text-align:right">mm</td></tr><tr><td>Safety factor</td><td>$N$</td><td style="text-align:right">2</td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the curve (a), $E$ (b), $\sigma_y$ (c), $\sigma_{max}$ (d), the ductility (e), $U_r$ (f), $F_y$ and $\Delta l_y$ (g), $\sigma_w$ (h), and the load at $\Delta L = 0.1$ mm (i).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>There is a single direction, the axis of the sample, and the stress state is uniaxial, so no change of basis and no rotation matrix are involved.</p>
+<p><strong>Strategy.</strong> Every item comes from the same table of engineering stress and strain, so the first thing to do is to build it:</p>
+<div class="math-block">$$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{\Delta L}{l_0}$$</div>
+<ul><li>The Young's modulus is the slope of the straight initial part (Hooke's law). A straight line through the origin is fitted by least squares: it minimises $\sum(\sigma_i - E\varepsilon_i)^2$, which gives $E = \sum\sigma_i\varepsilon_i / \sum\varepsilon_i^2$.</li><li>The yield strength is found by the 0.2 % offset construction, solved algebraically on the segment of the table where the curve crosses the offset line.</li><li>The tensile strength is the maximum nominal stress, and since $A_0$ is constant it corresponds to the maximum load.</li><li>The ductility is the plastic strain at fracture, and the modulus of resilience is the area under the elastic line up to the yield point, $U_r = \sigma_y^2/(2E)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>].</li><li>For the load at a given elongation the table is used again: Hooke's law only holds in the elastic zone.</li></ul>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(12.8\ \text{mm})^2}{4}$$</div>
+<p>The square is $12.8^2 = 163.84$, then $\pi \times 163.84 = 514.72$ and dividing by 4:</p>
+<div class="math-block">$$A_0 = 128.68\ \text{mm}^2 = 1.2868\times 10^{-4}\ \text{m}^2$$</div>
+<p><strong>2. Engineering stress and strain of every point</strong></p>
+<p>The load of the table is in hundreds of newtons, so $F = 100\times(F/100)$. For point 1:</p>
+<div class="math-block">$$F_1 = 100 \times 127 = 12\,700\ \text{N} \qquad \sigma_{n,1} = \frac{12\,700\ \text{N}}{128.68\ \text{mm}^2} = 98.69\ \text{MPa} \qquad \varepsilon_{n,1} = \frac{0.006\ \text{mm}}{12.5\ \text{mm}} = 4.80\times 10^{-4}$$</div>
+<p>The same operation for all the points (the last column is the secant modulus, used in item b):</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$F$ (N)</th><th style="text-align:right">$\Delta L$ (mm)</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n/\varepsilon_n$ (GPa)</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">12 700</td><td style="text-align:right">0.006</td><td style="text-align:right">98.69</td><td style="text-align:right">0.00048</td><td style="text-align:right">205.6</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">25 400</td><td style="text-align:right">0.012</td><td style="text-align:right">197.39</td><td style="text-align:right">0.00096</td><td style="text-align:right">205.6</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">38 100</td><td style="text-align:right">0.019</td><td style="text-align:right">296.08</td><td style="text-align:right">0.00152</td><td style="text-align:right">194.8</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">50 800</td><td style="text-align:right">0.025</td><td style="text-align:right">394.78</td><td style="text-align:right">0.00200</td><td style="text-align:right">197.4</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">76 200</td><td style="text-align:right">0.038</td><td style="text-align:right">592.17</td><td style="text-align:right">0.00304</td><td style="text-align:right">194.8</td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">89 100</td><td style="text-align:right">0.051</td><td style="text-align:right">692.42</td><td style="text-align:right">0.00408</td><td style="text-align:right">169.7</td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">92 700</td><td style="text-align:right">0.063</td><td style="text-align:right">720.39</td><td style="text-align:right">0.00504</td><td style="text-align:right">142.9</td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">102 500</td><td style="text-align:right">0.095</td><td style="text-align:right">796.55</td><td style="text-align:right">0.00760</td><td style="text-align:right">104.8</td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">107 800</td><td style="text-align:right">0.127</td><td style="text-align:right">837.74</td><td style="text-align:right">0.01016</td><td style="text-align:right">82.5</td></tr><tr><td style="text-align:right">10</td><td style="text-align:right">119 400</td><td style="text-align:right">0.190</td><td style="text-align:right">927.89</td><td style="text-align:right">0.01520</td><td style="text-align:right">61.0</td></tr><tr><td style="text-align:right">11</td><td style="text-align:right">128 300</td><td style="text-align:right">0.254</td><td style="text-align:right">997.05</td><td style="text-align:right">0.02032</td><td style="text-align:right">49.1</td></tr><tr><td style="text-align:right">12</td><td style="text-align:right">149 700</td><td style="text-align:right">0.508</td><td style="text-align:right">1163.35</td><td style="text-align:right">0.04064</td><td style="text-align:right">28.6</td></tr><tr><td style="text-align:right">13</td><td style="text-align:right">159 000</td><td style="text-align:right">0.762</td><td style="text-align:right">1235.63</td><td style="text-align:right">0.06096</td><td style="text-align:right">20.3</td></tr><tr><td style="text-align:right">14</td><td style="text-align:right">160 400</td><td style="text-align:right">0.889</td><td style="text-align:right">1246.51</td><td style="text-align:right">0.07112</td><td style="text-align:right">17.5</td></tr><tr><td style="text-align:right">15</td><td style="text-align:right">159 500</td><td style="text-align:right">1.016</td><td style="text-align:right">1239.51</td><td style="text-align:right">0.08128</td><td style="text-align:right">15.2</td></tr><tr><td style="text-align:right">16</td><td style="text-align:right">151 500</td><td style="text-align:right">1.270</td><td style="text-align:right">1177.34</td><td style="text-align:right">0.10160</td><td style="text-align:right">11.6</td></tr><tr><td style="text-align:right">17</td><td style="text-align:right">124 700</td><td style="text-align:right">1.460</td><td style="text-align:right">969.07</td><td style="text-align:right">0.11680</td><td style="text-align:right">8.3</td></tr></tbody></table></div>
+<p><strong>a) Stress-strain curve</strong></p>
+<p>The points of the table are plotted as they are, joined by straight segments. The right-hand panel enlarges the elastic part, where the Young's modulus line and the offset line of item c are drawn.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="Problem 1: engineering stress-strain curve from the table">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="300.0" x2="370.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M370.0,300.0 L361.7,303.5 L361.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M70.0,70.0 L73.5,78.3 L66.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="191.2" y1="300.0" x2="191.2" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="191.2" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="312.3" y1="300.0" x2="312.3" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="312.3" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="65.0" y1="217.6" x2="70.0" y2="217.6" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="221.6" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">500</text>
+<line x1="65.0" y1="135.3" x2="70.0" y2="135.3" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="139.3" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<text x="370.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="70.0,300.0 71.2,283.7 72.3,267.5 73.7,251.2 74.8,235.0 77.4,202.4 79.9,185.9 82.2,181.3 88.4,168.8 94.6,162.0 106.8,147.1 119.2,135.7 168.5,108.3 217.7,96.4 242.3,94.6 267.0,95.8 316.2,106.0 353.0,140.3" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="71.2" cy="283.7" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="72.3" cy="267.5" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="73.7" cy="251.2" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="74.8" cy="235.0" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="77.4" cy="202.4" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="79.9" cy="185.9" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="82.2" cy="181.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="88.4" cy="168.8" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="94.6" cy="162.0" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="106.8" cy="147.1" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="119.2" cy="135.7" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="168.5" cy="108.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="217.7" cy="96.4" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="242.3" cy="94.6" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="267.0" cy="95.8" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="316.2" cy="106.0" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="353.0" cy="140.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="242.3" cy="94.6" r="5" fill="var(--fig-blue, #3b82f6)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="242.3" y="80.3" fill="var(--fig-blue, #3b82f6)" font-size="12.5" font-weight="700" text-anchor="middle">UTS</text>
+<circle cx="353.0" cy="140.3" r="5" fill="var(--fig-pink, #ec4899)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="353.0" y="158.8" fill="var(--fig-pink, #ec4899)" font-size="12.5" font-weight="700" text-anchor="end">fracture</text>
+<polyline points="70.0,300.0 99.1,300.0 99.1,151.7 70.0,151.7 70.0,300.0" fill="none" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="70.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">full curve</text>
+<line x1="450.0" y1="300.0" x2="720.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M720.0,300.0 L711.7,303.5 L711.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="450.0" y1="300.0" x2="450.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M450.0,70.0 L453.5,78.3 L446.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="562.5" y1="300.0" x2="562.5" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="562.5" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="675.0" y1="300.0" x2="675.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="675.0" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="445.0" y1="236.1" x2="450.0" y2="236.1" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="240.1" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">250</text>
+<line x1="445.0" y1="172.2" x2="450.0" y2="172.2" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="176.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">500</text>
+<line x1="445.0" y1="108.3" x2="450.0" y2="108.3" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="112.3" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">750</text>
+<text x="720.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="458.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="450.0,300.0 460.8,274.8 471.6,249.6 484.2,224.3 495.0,199.1 518.4,148.7 541.8,123.0 563.4,115.9 621.0,96.4 678.6,85.9 720.0,77.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="460.8" cy="274.8" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="471.6" cy="249.6" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="484.2" cy="224.3" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="495.0" cy="199.1" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="518.4" cy="148.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="541.8" cy="123.0" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="563.4" cy="115.9" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="621.0" cy="96.4" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="678.6" cy="85.9" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="720.0" cy="77.5" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<polyline points="450.0,300.0 528.8,124.5" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<polyline points="495.0,300.0 593.7,80.2" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="580.2" cy="110.2" r="5" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="588.3" y="128.6" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">σy = 743 MPa</text>
+<text x="528.8" y="117.6" fill="var(--fig-green, #10b981)" font-size="12" font-weight="400" text-anchor="end">E (elastic line)</text>
+<text x="508.7" y="281.6" fill="var(--fig-blue, #3b82f6)" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
+<text x="450.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">zoom on the elastic part</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. Problem 1: engineering stress-strain curve built from the data of the sheet (every dot is a table row), with the elastic line and the 0.2 % offset construction.</div>
+</div>
+<p><strong>b) Young's modulus</strong></p>
+<p>The secant modulus $\sigma_n/\varepsilon_n$ of the last column is almost constant, 195 to 206 GPa, for points 1 to 5, and it drops to 170 GPa at point 6 and to 143 GPa at point 7: the specimen leaves the linear zone after point 5. The straight part is therefore made of points 1 to 5, and the fit through the origin is:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$\varepsilon_i$</th><th style="text-align:right">$\sigma_i$ (MPa)</th><th style="text-align:right">$\sigma_i\varepsilon_i$ (MPa)</th><th style="text-align:right">$\varepsilon_i^2$</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">0.00048</td><td style="text-align:right">98.69</td><td style="text-align:right">0.0474</td><td style="text-align:right">$2.304\times 10^{-7}$</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">0.00096</td><td style="text-align:right">197.39</td><td style="text-align:right">0.1895</td><td style="text-align:right">$9.216\times 10^{-7}$</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">0.00152</td><td style="text-align:right">296.08</td><td style="text-align:right">0.4500</td><td style="text-align:right">$2.310\times 10^{-6}$</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">0.00200</td><td style="text-align:right">394.78</td><td style="text-align:right">0.7896</td><td style="text-align:right">$4.000\times 10^{-6}$</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">0.00304</td><td style="text-align:right">592.17</td><td style="text-align:right">1.8002</td><td style="text-align:right">$9.242\times 10^{-6}$</td></tr></tbody></table></div>
+<div class="math-block">$$\sum \sigma_i\varepsilon_i = 3.277\ \text{MPa} \qquad \sum \varepsilon_i^2 = 1.6704\times 10^{-5}$$</div>
+<div class="math-block">$$E = \frac{\sum \sigma_i\varepsilon_i}{\sum \varepsilon_i^2} = \frac{3.277}{1.6704\times 10^{-5}} = 196160\ \text{MPa} = \mathbf{196.2\ GPa} \approx 2.0\times10^{2}\ \text{GPa}$$</div>
+<p><strong>c) Yield strength (0.2 % offset)</strong></p>
+<p>The offset line starts at $\varepsilon = 0.002$ and is parallel to the elastic line:</p>
+<div class="math-block">$$\sigma_{off}(\varepsilon) = E\,(\varepsilon - 0.002)$$</div>
+<p>The curve is above the line while $g = \sigma_n - E(\varepsilon_n - 0.002)$ is positive. The sign of $g$ changes between points 7 and 8, so the crossing is on that segment:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$E(\varepsilon_n - 0.002)$ (MPa)</th><th style="text-align:right">$g = \sigma_n - E(\varepsilon_n - 0.002)$ (MPa)</th></tr></thead><tbody><tr><td>6</td><td style="text-align:right">0.00408</td><td style="text-align:right">692.4</td><td style="text-align:right">408.0</td><td style="text-align:right">284.4</td></tr><tr><td>7</td><td style="text-align:right">0.00504</td><td style="text-align:right">720.4</td><td style="text-align:right">596.3</td><td style="text-align:right">124.1</td></tr><tr><td>8</td><td style="text-align:right">0.00760</td><td style="text-align:right">796.6</td><td style="text-align:right">1098.5</td><td style="text-align:right">-301.9</td></tr><tr><td>9</td><td style="text-align:right">0.01016</td><td style="text-align:right">837.7</td><td style="text-align:right">1600.7</td><td style="text-align:right">-762.9</td></tr></tbody></table></div>
+<p>The segment between the two points is the line</p>
+<div class="math-block">$$\sigma(\varepsilon) = \sigma_{7} + m\,(\varepsilon - \varepsilon_{7}) \qquad m = \frac{\sigma_{8} - \sigma_{7}}{\varepsilon_{8} - \varepsilon_{7}} = \frac{796.55 - 720.39}{0.00760 - 0.00504} = 29749.3\ \text{MPa}$$</div>
+<p>Equating it to the offset line, $\sigma_{7} + m(\varepsilon - \varepsilon_{7}) = E(\varepsilon - 0.002)$, and solving for $\varepsilon$:</p>
+<div class="math-block">$$\varepsilon^* = \frac{\sigma_{7} - m\,\varepsilon_{7} + 0.002\,E}{E - m} = \frac{720.39 - 29749.3\times0.00504 + 0.002\times196160}{196160 - 29749.3} = \frac{962.778}{166411.2} = 0.0057855$$</div>
+<div class="math-block">$$\sigma_y = E\,(\varepsilon^* - 0.002) = 196160\times(0.0057855 - 0.002) = \mathbf{742.6\ MPa}$$</div>
+<p><strong>d) Tensile strength</strong></p>
+<p>The maximum load of the table is $F_{max} = 160\,400$ N at point 14. The nominal stress uses the original area, so the maximum load gives the maximum stress:</p>
+<div class="math-block">$$\sigma_{max} = \frac{F_{max}}{A_0} = \frac{160\,400\ \text{N}}{128.68\ \text{mm}^2} = \mathbf{1246.5\ MPa}$$</div>
+<p><strong>e) Ductility</strong></p>
+<p>The last record before the fracture is point 17: $\Delta L = 1.460$ mm and $F = 124\,700$ N, so</p>
+<div class="math-block">$$\varepsilon_f = \frac{1.460}{12.5} = 0.1168 \qquad \sigma_f = \frac{124\,700}{128.68} = 969.1\ \text{MPa}$$</div>
+<p>At that moment the strain is the sum of an elastic and a plastic part, $\varepsilon_t = \varepsilon_e + \varepsilon_p$. After the fracture the load is zero and the elastic part is recovered along a line parallel to the elastic one, so what remains is $\varepsilon_p$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>]:</p>
+<div class="math-block">$$\varepsilon_e = \frac{\sigma_f}{E} = \frac{969.1}{196160} = 0.00494 \qquad \varepsilon_p = \varepsilon_f - \varepsilon_e = 0.1168 - 0.00494 = 0.1119$$</div>
+<div class="math-block">$$EL\,(\%) = \varepsilon_p \times 100 = \mathbf{11.2\ \%}$$</div>
+<p><strong>f) Modulus of resilience</strong></p>
+<p>The area under the elastic line up to the yield point is a triangle, $U_r = \tfrac12\sigma_y\varepsilon_{y}$ with $\varepsilon_{y} = \sigma_y/E$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>]:</p>
+<div class="math-block">$$U_r = \frac{\sigma_y^2}{2E} = \frac{(742.6\ \text{MPa})^2}{2\times196160\ \text{MPa}} = \mathbf{1.41\ MPa}$$</div>
+<p>($1\ \text{MPa} = 1\ \text{MJ/m}^3$.)</p>
+<p><strong>g) Load and elongation at the yield point</strong></p>
+<p>The load is the yield stress times the original area, and the elongation is the total strain of the yield point (the value $\varepsilon^*$ of item c) times the original length:</p>
+<div class="math-block">$$F_y = \sigma_y A_0 = 742.6\ \text{MPa}\times128.68\ \text{mm}^2 = 95\,554\ \text{N} = \mathbf{95.6\ kN}$$</div>
+<div class="math-block">$$\Delta l_y = \varepsilon^* l_0 = 0.0057855\times12.5\ \text{mm} = \mathbf{0.0723\ mm}$$</div>
+<p><strong>h) Working stress</strong></p>
+<div class="math-block">$$\sigma_w = \frac{\sigma_y}{N} = \frac{742.6}{2} = \mathbf{371.3\ MPa}$$</div>
+<p><strong>i) Load for an elongation of 0.1 mm</strong></p>
+<p>The elongation of the yield point is 0.0723 mm, so $0.1$ mm is in the plastic zone and the load is not proportional to the elongation. Using Hooke's law anyway, $F = E A_0\Delta l/l_0$, would give</p>
+<div class="math-block">$$F = \frac{196160\ \text{N/mm}^2\times128.68\ \text{mm}^2\times0.1\ \text{mm}}{12.5\ \text{mm}} = 201\,935\ \text{N} = 202\ \text{kN}$$</div>
+<p>which is larger than the maximum load that the sample supports, 160 400 N: the answer is <strong>not</strong> possible with the values obtained. The alternative is the table itself. The elongation 0.1 mm is between points 8 ($\Delta L = 0.095$ mm, $F = 102\,500$ N) and 9 ($\Delta L = 0.127$ mm, $F = 107\,800$ N), and a linear interpolation on that segment gives</p>
+<div class="math-block">$$F = F_{8} + \frac{0.1 - 0.095}{0.127 - 0.095}\,(F_{9} - F_{8}) = 102\,500 + 0.15625\times(107\,800 - 102\,500) = \mathbf{103\,328\ N}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $\sigma_n = F/A_0$ in N/mm² is MPa, $\varepsilon_n$ is a ratio of lengths and has no units, so $E = \sigma/\varepsilon$ is in MPa and $U_r = \sigma_y^2/2E$ is in MPa (energy per unit volume).</li><li><strong>Order.</strong> $\sigma_y = 742.6$ MPa $&lt; \sigma_{max} = 1246.5$ MPa, and the fracture stress ($969.1$ MPa) is below the maximum, as in a ductile sample that necks.</li><li><strong>The fit.</strong> The secant moduli of points 1 to 5 are within 4.8 % of the fitted $E$, and the offset line crosses the curve between points 7 and 8, inside the segment used.</li><li><strong>Item i.</strong> The interpolated load, 103.3 kN, is between the loads of the two rows and below the maximum load; the Hooke value, 202 kN, is not.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample is stiff ($E \approx 196$ GPa) and strong, and it yields at about 742.6 MPa, a strain of 0.579 %. From there to the maximum load the strain hardening raises the stress by 504 MPa, and the 11.2 % of plastic elongation at fracture shows that it is also ductile.</p>
+<div class="callout callout-warning"><div class="callout-title">The data are not those of aluminium</div><p>The table of Session 11 gives $E = 69$ GPa for aluminium and 207 GPa for steel [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=17" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 17">17</a>]. The data of this problem give $E \approx 196$ GPa and a yield strength above 700 MPa, which are the values of a steel, not of aluminium. The statement says "aluminum"; the data are used as they are.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<p>The key printed on the sheet is compared with the values computed here:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>b. $E$</td><td>$\approx 200$ GPa</td><td>196.2 GPa</td><td>agrees (2 %)</td></tr><tr><td>c. $\sigma_y$</td><td>740 MPa</td><td>742.6 MPa</td><td>agrees</td></tr><tr><td>d. $\sigma_{max}$</td><td>1250 MPa</td><td>1246.5 MPa</td><td>agrees (rounded)</td></tr><tr><td>e. ductility</td><td>11.3 %</td><td>11.2 %</td><td>agrees within the reading</td></tr><tr><td>f. $U_r$</td><td>1.37 MPa</td><td>1.41 MPa</td><td>agrees (2.5 %); the key uses $E = 200$ GPa and $\sigma_y = 740$ MPa</td></tr><tr><td>g. $F_y$, $\Delta l_y$</td><td>$9.5\times10^4$ N, 0.071 mm</td><td>95 554 N, 0.0723 mm</td><td>agrees</td></tr><tr><td>h. $\sigma_w$</td><td>370 MPa</td><td>371.3 MPa</td><td>agrees</td></tr><tr><td>i. load at 0.1 mm</td><td>$10.3\times10^4$ N, graphically</td><td>103\,328 N</td><td>agrees</td></tr></tbody></table></div>
+<div class="callout"><div class="callout-title">Reading of the table</div><p>The text of the PDF prints the first load of the table as "1127", but the figure of the sheet shows "127". With 127 the first point gives $\sigma/\varepsilon = 206$ GPa, in line with the rest of the elastic points and with the key, so 127 (12 700 N) is used.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 2 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-2">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 2</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #2</span>
+            <span class="prob-source-badge">Tensile test · true stress · area reduction</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Tensile Test of a 15 mm Cylinder: Strength, Resilience, True Stress and Area Reduction</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A cylindrical sample made from a metallic material (assume a Poisson ratio of ν = 0.25) of 15 mm in diameter and a calibrated length of 50 mm was subjected to a tensile test, and the results are shown in the table below:</li></ol>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">Force (kN)</th><th style="text-align:right">ΔL (mm)</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">70</td><td style="text-align:right">0.25</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">120</td><td style="text-align:right">0.40</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">150</td><td style="text-align:right">0.50</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">160</td><td style="text-align:right">0.60</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">170</td><td style="text-align:right">0.75</td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">200</td><td style="text-align:right">1.75</td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">220</td><td style="text-align:right">3.00</td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">233</td><td style="text-align:right">5.00</td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">233</td><td style="text-align:right">6.50</td></tr><tr><td style="text-align:right">10</td><td style="text-align:right">220</td><td style="text-align:right">8.00</td></tr></tbody></table></div>
+<p>The diameter of the sample after fracture was 12.45 mm. Calculate:</p>
+<ul><li>a. The tensile strength.</li><li>b. The Young's Modulus (or elastic modulus).</li><li>c. The yield stress.</li><li>d. The modulus of resilience.</li><li>e. The real tension for an engineering deformation of 0.02.</li><li>f. The percentage of deformation to fracture and percentage of area reduction.</li></ul>
+<p><em>(The sheet prints the table in two rows; here each point has its own row.)</em></p>
+          <div class="solution-box">Official Solution: a. $\sigma_{UTS} = 1319$ MPa; b. $E = 85$ GPa; c. $\sigma_y = 920$ MPa; d. $U_r = 4.98$ MPa; e. $\sigma_r = 1030$ MPa; f. 15 %, 7.3 %</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Uniaxial, uniform stress.</strong> Up to the necking the stress is uniform along the gauge length, so the engineering quantities use the original area and length [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Linear elastic start.</strong> Hooke's law $\sigma = E\varepsilon$ holds on the first points of the curve [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>Yield strength by the 0.2 % offset.</strong> The statement does not name a criterion; the conventional one for metals is the 0.2 % offset [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Straight segments between table rows</strong>, so readings between two rows are linear interpolations.</li><li><strong>Uniform deformation before the necking.</strong> The volume is constant, $A\,l = A_0 l_0$, until the maximum load, where the necking starts [Session 11 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=30" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 30">30</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>]. The true stress of item e is computed in that range.</li><li><strong>Elastic recovery after the fracture.</strong> The elastic strain disappears when the load does, and what is left is the plastic strain [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>]. The reduction of area uses the measured final diameter [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=33" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 33">33</a>].</li><li><strong>The Poisson ratio is not needed.</strong> $\nu = 0.25$ is a datum of the statement, but none of the six items uses it: the only lateral information is the final diameter, which is measured.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">15 mm</td><td style="text-align:right">$15\times10^{-3}$ m</td></tr><tr><td>Gauge length</td><td>$l_0$</td><td style="text-align:right">50 mm</td><td style="text-align:right">$50\times10^{-3}$ m</td></tr><tr><td>Diameter after fracture</td><td>$d_f$</td><td style="text-align:right">12.45 mm</td><td style="text-align:right">$12.45\times10^{-3}$ m</td></tr><tr><td>Poisson ratio (not used)</td><td>$\nu$</td><td style="text-align:right">0.25</td><td style="text-align:right"></td></tr><tr><td>Load, elongation</td><td>$F$, $\Delta L$</td><td style="text-align:right">table</td><td style="text-align:right">kN, mm</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> $\sigma_{UTS}$ (a), $E$ (b), $\sigma_y$ (c), $U_r$ (d), $\sigma_r$ at $\varepsilon_n = 0.02$ (e), the elongation at fracture and the reduction of area (f).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>The only direction is the axis of the cylinder and the stress is uniaxial, so there is no change of basis.</p>
+<p><strong>Strategy.</strong> As in any tensile test, the first step is to turn the table into engineering stress and strain,</p>
+<div class="math-block">$$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{\Delta L}{l_0}$$</div>
+<p>and then read each item from it: the maximum stress (a), the slope of the straight part by least squares through the origin (b), the offset construction solved on the crossing segment (c), $U_r = \sigma_y^2/2E$ (d) [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>].</p>
+<p><strong>True stress (e).</strong> With constant volume, $A\,l = A_0 l_0$, so $A = A_0 l_0/l = A_0/(1 + \varepsilon_n)$. The true stress is then</p>
+<div class="math-block">$$\sigma_r = \frac{F}{A} = \frac{F}{A_0}\,(1 + \varepsilon_n) = \sigma_n\,(1 + \varepsilon_n)$$</div>
+<p>which is the relation of the slide for the uniform deformation [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>].</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(15\ \text{mm})^2}{4}$$</div>
+<p>The square is $15^2 = 225$, then $\pi\times225 = 706.86$ and dividing by 4:</p>
+<div class="math-block">$$A_0 = 176.71\ \text{mm}^2$$</div>
+<p><strong>2. Engineering stress and strain of every point</strong></p>
+<p>The loads are in kN, so $F = 1000\times F_{kN}$ newtons. For example, point 1 is $F = 70\,000$ N and $\Delta L = 0.25$ mm, so $\sigma_n = 70\,000/176.71 = 396.1$ MPa and $\varepsilon_n = 0.25/50 = 0.0050$. All the points:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$F$ (N)</th><th style="text-align:right">$\Delta L$ (mm)</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n/\varepsilon_n$ (GPa)</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">70 000</td><td style="text-align:right">0.25</td><td style="text-align:right">396.1</td><td style="text-align:right">0.0050</td><td style="text-align:right">79.2</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">120 000</td><td style="text-align:right">0.40</td><td style="text-align:right">679.1</td><td style="text-align:right">0.0080</td><td style="text-align:right">84.9</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">150 000</td><td style="text-align:right">0.50</td><td style="text-align:right">848.8</td><td style="text-align:right">0.0100</td><td style="text-align:right">84.9</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">160 000</td><td style="text-align:right">0.60</td><td style="text-align:right">905.4</td><td style="text-align:right">0.0120</td><td style="text-align:right">75.5</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">170 000</td><td style="text-align:right">0.75</td><td style="text-align:right">962.0</td><td style="text-align:right">0.0150</td><td style="text-align:right">64.1</td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">200 000</td><td style="text-align:right">1.75</td><td style="text-align:right">1131.8</td><td style="text-align:right">0.0350</td><td style="text-align:right">32.3</td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">220 000</td><td style="text-align:right">3.00</td><td style="text-align:right">1244.9</td><td style="text-align:right">0.0600</td><td style="text-align:right">20.7</td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">233 000</td><td style="text-align:right">5.00</td><td style="text-align:right">1318.5</td><td style="text-align:right">0.1000</td><td style="text-align:right">13.2</td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">233 000</td><td style="text-align:right">6.50</td><td style="text-align:right">1318.5</td><td style="text-align:right">0.1300</td><td style="text-align:right">10.1</td></tr><tr><td style="text-align:right">10</td><td style="text-align:right">220 000</td><td style="text-align:right">8.00</td><td style="text-align:right">1244.9</td><td style="text-align:right">0.1600</td><td style="text-align:right">7.8</td></tr></tbody></table></div>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="Problem 2: engineering stress-strain curve from the table">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="300.0" x2="370.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M370.0,300.0 L361.7,303.5 L361.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M70.0,70.0 L73.5,78.3 L66.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="158.4" y1="300.0" x2="158.4" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="158.4" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="246.9" y1="300.0" x2="246.9" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="246.9" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="335.3" y1="300.0" x2="335.3" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="335.3" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.15</text>
+<line x1="65.0" y1="222.1" x2="70.0" y2="222.1" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="226.1" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">500</text>
+<line x1="65.0" y1="144.3" x2="70.0" y2="144.3" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="148.3" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<text x="370.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="70.0,300.0 78.8,238.3 84.2,194.2 87.7,167.8 91.2,159.0 96.5,150.2 131.9,123.7 176.1,106.1 246.9,94.6 300.0,94.6 353.0,106.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="78.8" cy="238.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="84.2" cy="194.2" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="87.7" cy="167.8" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="91.2" cy="159.0" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="96.5" cy="150.2" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="131.9" cy="123.7" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="176.1" cy="106.1" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="246.9" cy="94.6" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="300.0" cy="94.6" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="353.0" cy="106.1" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="246.9" cy="94.6" r="5" fill="var(--fig-blue, #3b82f6)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="246.9" y="80.3" fill="var(--fig-blue, #3b82f6)" font-size="12.5" font-weight="700" text-anchor="middle">UTS</text>
+<circle cx="353.0" cy="106.1" r="5" fill="var(--fig-pink, #ec4899)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="353.0" y="124.6" fill="var(--fig-pink, #ec4899)" font-size="12.5" font-weight="700" text-anchor="end">fracture</text>
+<polyline points="70.0,300.0 105.4,300.0 105.4,128.7 70.0,128.7 70.0,300.0" fill="none" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="70.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">full curve</text>
+<line x1="450.0" y1="300.0" x2="720.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M720.0,300.0 L711.7,303.5 L711.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="450.0" y1="300.0" x2="450.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M450.0,70.0 L453.5,78.3 L446.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="517.5" y1="300.0" x2="517.5" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="517.5" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="585.0" y1="300.0" x2="585.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="585.0" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="652.5" y1="300.0" x2="652.5" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="652.5" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.015</text>
+<line x1="720.0" y1="300.0" x2="720.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="720.0" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.02</text>
+<line x1="445.0" y1="195.5" x2="450.0" y2="195.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="199.5" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">500</text>
+<line x1="445.0" y1="90.9" x2="450.0" y2="90.9" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="94.9" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<text x="720.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="458.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="450.0,300.0 517.5,217.2 558.0,158.0 585.0,122.5 612.0,110.7 652.5,98.9 720.0,90.0" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="517.5" cy="217.2" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="558.0" cy="158.0" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="585.0" cy="122.5" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="612.0" cy="110.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="652.5" cy="98.9" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="720.0" cy="90.0" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<polyline points="450.0,300.0 598.5,106.5" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<polyline points="477.0,300.0 633.4,96.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="625.3" cy="106.8" r="5" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="633.4" y="125.2" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">σy = 924 MPa</text>
+<text x="598.5" y="99.6" fill="var(--fig-green, #10b981)" font-size="12" font-weight="400" text-anchor="end">E (elastic line)</text>
+<text x="496.5" y="281.6" fill="var(--fig-blue, #3b82f6)" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
+<text x="450.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">zoom on the elastic part</text>
+</g></svg>
+<div class="diagram-caption">Figure 2. Problem 2: engineering stress-strain curve built from the data of the sheet (every dot is a table row), with the elastic line and the 0.2 % offset construction.</div>
+</div>
+<p><strong>a) Tensile strength</strong></p>
+<p>The maximum load is $F_{max} = 233\,000$ N, reached at points 8 and 9 ($\varepsilon_n = 0.100$ and $0.130$: the load stays at its maximum while the sample elongates). The area $A_0$ is constant in the engineering stress, so</p>
+<div class="math-block">$$\sigma_{UTS} = \frac{F_{max}}{A_0} = \frac{233\,000\ \text{N}}{176.71\ \text{mm}^2} = \mathbf{1318.5\ MPa}$$</div>
+<p><strong>b) Young's modulus</strong></p>
+<p>The secant modulus is 79 to 85 GPa for points 1 to 3, and it drops to 75 GPa at point 4 and to 64 GPa at point 5: the linear zone ends after point 3. The fit through the origin with points 1 to 3 is:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$\varepsilon_i$</th><th style="text-align:right">$\sigma_i$ (MPa)</th><th style="text-align:right">$\sigma_i\varepsilon_i$ (MPa)</th><th style="text-align:right">$\varepsilon_i^2$</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">0.0050</td><td style="text-align:right">396.1</td><td style="text-align:right">1.9806</td><td style="text-align:right">$2.500\times 10^{-5}$</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">0.0080</td><td style="text-align:right">679.1</td><td style="text-align:right">5.4325</td><td style="text-align:right">$6.400\times 10^{-5}$</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">0.0100</td><td style="text-align:right">848.8</td><td style="text-align:right">8.4883</td><td style="text-align:right">$1.000\times 10^{-4}$</td></tr></tbody></table></div>
+<div class="math-block">$$E = \frac{\sum \sigma_i\varepsilon_i}{\sum \varepsilon_i^2} = \frac{15.901}{1.8900\times 10^{-4}} = 84134\ \text{MPa} = \mathbf{84.1\ GPa}$$</div>
+<p><strong>c) Yield stress (0.2 % offset)</strong></p>
+<p>The offset line is $\sigma_{off} = E(\varepsilon - 0.002)$ and the sign of $g = \sigma_n - E(\varepsilon_n - 0.002)$ tells where the curve crosses it. The sign changes between points 4 and 5:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$E(\varepsilon_n - 0.002)$ (MPa)</th><th style="text-align:right">$g = \sigma_n - E(\varepsilon_n - 0.002)$ (MPa)</th></tr></thead><tbody><tr><td>3</td><td style="text-align:right">0.01000</td><td style="text-align:right">848.8</td><td style="text-align:right">673.1</td><td style="text-align:right">175.8</td></tr><tr><td>4</td><td style="text-align:right">0.01200</td><td style="text-align:right">905.4</td><td style="text-align:right">841.3</td><td style="text-align:right">64.1</td></tr><tr><td>5</td><td style="text-align:right">0.01500</td><td style="text-align:right">962.0</td><td style="text-align:right">1093.7</td><td style="text-align:right">-131.7</td></tr><tr><td>6</td><td style="text-align:right">0.03500</td><td style="text-align:right">1131.8</td><td style="text-align:right">2776.4</td><td style="text-align:right">-1644.7</td></tr></tbody></table></div>
+<p>On that segment</p>
+<div class="math-block">$$m = \frac{962.00 - 905.41}{0.01500 - 0.01200} = 18862.8\ \text{MPa} \qquad \varepsilon^* = \frac{\sigma_{4} - m\,\varepsilon_{4} + 0.002\,E}{E - m} = \frac{905.41 - 18862.8\times0.01200 + 0.002\times84134}{84134 - 18862.8} = \frac{847.329}{65271.3} = 0.0129817$$</div>
+<div class="math-block">$$\sigma_y = E\,(\varepsilon^* - 0.002) = 84134\times(0.0129817 - 0.002) = \mathbf{923.9\ MPa}$$</div>
+<p><strong>d) Modulus of resilience</strong></p>
+<div class="math-block">$$U_r = \frac{\sigma_y^2}{2E} = \frac{(923.9\ \text{MPa})^2}{2\times84134\ \text{MPa}} = \mathbf{5.07\ MPa}$$</div>
+<p>($1\ \text{MPa} = 1\ \text{MJ/m}^3$.)</p>
+<p><strong>e) True stress for $\varepsilon_n = 0.02$</strong></p>
+<p>The elongation that corresponds to $\varepsilon_n = 0.02$ is $\Delta L = 0.02\times50 = 1.00$ mm, which is not a row of the table. It is between points 5 ($\Delta L = 0.75$ mm, $F = 170$ kN) and 6 ($\Delta L = 1.75$ mm, $F = 200$ kN):</p>
+<div class="math-block">$$F = F_{5} + \frac{1.00 - 0.75}{1.75 - 0.75}\,(F_{6} - F_{5}) = 170 + \frac{1.00 - 0.75}{1.75 - 0.75}\,(200 - 170) = 177.5\ \text{kN}$$</div>
+<div class="math-block">$$\sigma_n = \frac{177\,500\ \text{N}}{176.71\ \text{mm}^2} = 1004.4\ \text{MPa}$$</div>
+<p>This strain is below the one of the maximum load ($\varepsilon_n = 0.100$), so the deformation is still uniform and the relation of Phase 2 applies:</p>
+<div class="math-block">$$\sigma_r = \sigma_n\,(1 + \varepsilon_n) = 1004.4\times(1 + 0.02) = \mathbf{1024.5\ MPa}$$</div>
+<p><strong>f) Elongation at fracture and reduction of area</strong></p>
+<p>The last row of the table is the fracture: $\Delta L = 8.00$ mm and $F = 220\,000$ N, so</p>
+<div class="math-block">$$\varepsilon_f = \frac{8.00}{50} = 0.160 \qquad \sigma_f = \frac{220\,000}{176.71} = 1244.9\ \text{MPa}$$</div>
+<p>The elastic part of that strain is recovered when the sample breaks, $\varepsilon_e = \sigma_f/E$, and what is left is the plastic strain [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>]:</p>
+<div class="math-block">$$\varepsilon_e = \frac{1244.9}{84134} = 0.01480 \qquad \varepsilon_p = 0.160 - 0.01480 = 0.1452 \qquad EL = \mathbf{14.5\ \%}$$</div>
+<p>For the reduction of area, the final area from the final diameter is</p>
+<div class="math-block">$$A_f = \frac{\pi\,(12.45\ \text{mm})^2}{4} = \frac{\pi\times155.0025}{4} = 121.74\ \text{mm}^2$$</div>
+<div class="math-block">$$RA\,(\%) = \frac{A_0 - A_f}{A_0}\times100 = \frac{176.71 - 121.74}{176.71}\times100 = \mathbf{31.1\ \%}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> Stresses in N/mm² = MPa, strains without units, $E$ and $U_r$ in MPa.</li><li><strong>Order.</strong> $\sigma_y = 923.9$ MPa $&lt;\sigma_{UTS} = 1318.5$ MPa, and the stress rises 395 MPa between the yield and the maximum load.</li><li><strong>True and engineering stress.</strong> The true stress of item e, 1024.5 MPa, is 2 % above the engineering one, 1004.4 MPa, as the factor $1 + \varepsilon_n$ says.</li><li><strong>Elongation against area reduction.</strong> $RA = 31.1$ % is larger than $EL = 14.5$ %, as expected when a ductile sample necks: the section shrinks much more at the neck than the length grows over the whole gauge length.</li><li><strong>Neck.</strong> The stress that acts on the neck at the fracture is $F_f/A_f = 220\,000\ \text{N}/121.74\ \text{mm}^2 = 1807$ MPa, far above the engineering fracture stress of 1244.9 MPa because the area is much smaller than $A_0$.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample reaches 1.3 GPa with a plateau of maximum load, and it fails after a clear neck. The measured final diameter, not Poisson's ratio, gives the lateral information: Poisson's ratio only describes the elastic part of the deformation.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a. $\sigma_{UTS}$</td><td>1319 MPa</td><td>1318.5 MPa</td><td>agrees</td></tr><tr><td>b. $E$</td><td>85 GPa</td><td>84.1 GPa</td><td>agrees (1 %); the key corresponds to the slope between points 2 and 3</td></tr><tr><td>c. $\sigma_y$</td><td>920 MPa</td><td>923.9 MPa</td><td>agrees (0.5 %)</td></tr><tr><td>d. $U_r$</td><td>4.98 MPa</td><td>5.07 MPa</td><td>agrees (2 %); the key uses $E = 85$ GPa and $\sigma_y = 920$ MPa</td></tr><tr><td>e. $\sigma_r$</td><td>1030 MPa</td><td>1024.5 MPa</td><td>agrees (0.5 %): the key reads $\sigma_n \approx 1010$ MPa at $\varepsilon_n = 0.02$</td></tr><tr><td>f. elongation</td><td>15 %</td><td>14.5 %</td><td>agrees (rounded)</td></tr><tr><td>f. area reduction</td><td>7.3 %</td><td>31.1 %</td><td><strong>does not agree</strong></td></tr></tbody></table></div>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution: area reduction</div><p>The official 7.3 % cannot be reproduced from the data of the statement. With $d_0 = 15$ mm and $d_f = 12.45$ mm the final area is $A_f = 121.74$ mm² and the reduction is $31.1$ %. A reduction of 7.3 % would need a final area of $0.927\,A_0$, that is, a final diameter of $15\sqrt{0.927} = 14.44$ mm. The computed value is kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 3 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-3">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 3</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #3</span>
+            <span class="prob-source-badge">Tensile test · true stress and strain · design</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Tensile Test of a 13 mm Sample: Modulus, Cable Section and True Values at Maximum Load and Fracture</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>An uniaxial tensile test was performed on a cylindrical sample of 13 mm in diameter getting the results of load and elongation shown in the table below:</li></ol>
+<ul><li>a. Calculate the engineering stress and strain values and draw the stress-strain curve.</li><li>b. Calculate the value of the elastic modulus (Young's Modulus) and determine the length of a bar of 13 cm on which a tension of 200 MPa is applied.</li><li>c. What is the recommended cross-section for a cable that has to support an elevator with a maximum weight of 450 kg?</li><li>d. Calculate the real stress and real strain values at maximum load and at the fracture point, assuming that the diameter of the sample is 12.922 mm and 10.348 mm respectively. Do the calculations without using the engineering stress and strain values.</li><li>e. Calculate the modulus of resilience.</li><li>f. Calculate the elastic strain at the moment before fracture.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">Load (kg)</th><th style="text-align:right">Calibrated length (mm)</th><th style="text-align:right">Engineering stress (MPa)</th><th style="text-align:right">Engineering strain</th></tr></thead><tbody><tr><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">5.148</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">1</td><td style="text-align:right">500</td><td style="text-align:right">5.151</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">1500</td><td style="text-align:right">5.156</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">2500</td><td style="text-align:right">5.161</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">3500</td><td style="text-align:right">5.166</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">3750</td><td style="text-align:right">5.225</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">3950</td><td style="text-align:right">5.354</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">4000</td><td style="text-align:right">5.457</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">4000</td><td style="text-align:right">5.560</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">3600</td><td style="text-align:right">5.676</td><td style="text-align:right"></td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><em>(In the sheet the table has only the first two columns filled; the last two are left blank to be completed in item a. Point 0 is the unloaded sample, points 7 and 8 have the same, maximum, load, and point 9 is the fracture.)</em></p>
+          <div class="solution-box">Official Solution: b. $E = 75.4$ GPa, $l = 13.04$ cm; c. $A_0 \geq 16.9$ mm²; d. maximum load: $\sigma_{UTS} = 300$ MPa, $\varepsilon_{UTS} = 0.012$; fracture: $\sigma_{fracture} = 420$ MPa, $\varepsilon_{fracture} = 0.456$; e. $U_r = 0.457$ MPa; f. $\varepsilon_y = 3.4\times10^{-3}$</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Uniaxial, uniform stress</strong> up to the necking: engineering stress and strain with the original area and length [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Weight to force.</strong> The loads are masses in kilograms; the force is $F = m\,g$ with $g = 9.81$ m/s².</li><li><strong>Linear elastic start</strong> [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>] and <strong>0.2 % offset yield strength</strong> [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Calibrated length.</strong> The first row ($m = 0$) gives the initial length $l_0 = 5.148$ mm and the other rows the current length. The strain is a ratio, so only the proportion matters.</li><li><strong>True quantities from the measured diameters</strong> (item d). The true strain is $\varepsilon_r = \ln(A_0/A) = 2\ln(D_0/D)$ and the true stress is $\sigma_r = F/A$ with $A$ the instantaneous area [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=38" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 38">38</a>]. They are valid also after the necking, because they use the actual area at the neck.</li><li><strong>Design stress (item c).</strong> The statement does not give a safety factor. The minimum section is the one for which the cable does not yield, $\sigma = F/A_0 \leq \sigma_y$; with the usual factor $N = 2$ it would be larger [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Diameter</td><td>$d_0$</td><td style="text-align:right">13 mm</td><td style="text-align:right">$13\times10^{-3}$ m</td></tr><tr><td>Initial calibrated length</td><td>$l_0$</td><td style="text-align:right">5.148 mm</td><td style="text-align:right">$5.148\times10^{-3}$ m</td></tr><tr><td>Gravity</td><td>$g$</td><td style="text-align:right">9.81 m/s²</td><td style="text-align:right"></td></tr><tr><td>Bar of item b: length, stress</td><td>$l_b$, $\sigma$</td><td style="text-align:right">13 cm, 200 MPa</td><td style="text-align:right">0.13 m, $200\times10^6$ Pa</td></tr><tr><td>Elevator (item c)</td><td>$m$</td><td style="text-align:right">450 kg</td><td style="text-align:right"></td></tr><tr><td>Diameter at maximum load, at fracture</td><td>$D_m$, $D_f$</td><td style="text-align:right">12.922 mm, 10.348 mm</td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the curve (a), $E$ and the length of the bar (b), the section of the cable (c), the true stress and strain at maximum load and at fracture (d), $U_r$ (e), the elastic strain before the fracture (f).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction (the axis) and uniaxial stress: there is no change of basis.</p>
+<p><strong>Strategy.</strong> The table is converted into $\sigma_n = F/A_0$ and $\varepsilon_n = (l - l_0)/l_0$. Then:</p>
+<ul><li>$E$ is the slope of the straight part (least squares through the origin), and the bar of item b is a direct application of Hooke's law, $\Delta l = (\sigma/E)\,l_b$.</li><li>$\sigma_y$ by the 0.2 % offset is needed twice: for the cable (c) and for the resilience (e).</li><li>The true values (d) are computed from the forces and the measured diameters, as the statement asks, and not from the engineering values.</li><li>The elastic strain before the fracture (f) is $\sigma/E$ with the stress that acts at that moment [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=32" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 32">32</a>].</li></ul>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section and conversions</strong></p>
+<div class="math-block">$$A_0 = \frac{\pi d_0^2}{4} = \frac{\pi\,(13\ \text{mm})^2}{4}$$</div>
+<p>With $13^2 = 169$ and $\pi\times169 = 530.93$:</p>
+<div class="math-block">$$A_0 = 132.73\ \text{mm}^2$$</div>
+<p>For the first loaded point, $F_1 = 500\ \text{kg}\times9.81\ \text{m/s}^2 = 4\,905\ \text{N}$, so</p>
+<div class="math-block">$$\sigma_{n,1} = \frac{4\,905\ \text{N}}{132.73\ \text{mm}^2} = 36.95\ \text{MPa} \qquad \varepsilon_{n,1} = \frac{5.151 - 5.148}{5.148} = 0.00058$$</div>
+<p><strong>a) Engineering stress and strain, and the curve</strong></p>
+<p>All the points:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">Load (kg)</th><th style="text-align:right">$l$ (mm)</th><th style="text-align:right">$F = m g$ (N)</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n/\varepsilon_n$ (GPa)</th></tr></thead><tbody><tr><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">5.148</td><td style="text-align:right">0</td><td style="text-align:right">0.00</td><td style="text-align:right">0</td><td style="text-align:right">—</td></tr><tr><td style="text-align:right">1</td><td style="text-align:right">500</td><td style="text-align:right">5.151</td><td style="text-align:right">4 905</td><td style="text-align:right">36.95</td><td style="text-align:right">0.00058</td><td style="text-align:right">63.4</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">1500</td><td style="text-align:right">5.156</td><td style="text-align:right">14 715</td><td style="text-align:right">110.86</td><td style="text-align:right">0.00155</td><td style="text-align:right">71.3</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">2500</td><td style="text-align:right">5.161</td><td style="text-align:right">24 525</td><td style="text-align:right">184.77</td><td style="text-align:right">0.00253</td><td style="text-align:right">73.2</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">3500</td><td style="text-align:right">5.166</td><td style="text-align:right">34 335</td><td style="text-align:right">258.68</td><td style="text-align:right">0.00350</td><td style="text-align:right">74.0</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">3750</td><td style="text-align:right">5.225</td><td style="text-align:right">36 788</td><td style="text-align:right">277.16</td><td style="text-align:right">0.01496</td><td style="text-align:right">18.5</td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">3950</td><td style="text-align:right">5.354</td><td style="text-align:right">38 750</td><td style="text-align:right">291.94</td><td style="text-align:right">0.04002</td><td style="text-align:right">7.3</td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">4000</td><td style="text-align:right">5.457</td><td style="text-align:right">39 240</td><td style="text-align:right">295.63</td><td style="text-align:right">0.06002</td><td style="text-align:right">4.9</td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">4000</td><td style="text-align:right">5.560</td><td style="text-align:right">39 240</td><td style="text-align:right">295.63</td><td style="text-align:right">0.08003</td><td style="text-align:right">3.7</td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">3600</td><td style="text-align:right">5.676</td><td style="text-align:right">35 316</td><td style="text-align:right">266.07</td><td style="text-align:right">0.10256</td><td style="text-align:right">2.6</td></tr></tbody></table></div>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="Problem 3: engineering stress-strain curve from the table">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="300.0" x2="370.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M370.0,300.0 L361.7,303.5 L361.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M70.0,70.0 L73.5,78.3 L66.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="208.0" y1="300.0" x2="208.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="208.0" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="345.9" y1="300.0" x2="345.9" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="345.9" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="65.0" y1="230.5" x2="70.0" y2="230.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="234.5" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="65.0" y1="161.1" x2="70.0" y2="161.1" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="165.1" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="65.0" y1="91.6" x2="70.0" y2="91.6" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="95.6" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">300</text>
+<text x="370.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="70.0,300.0 71.6,274.3 74.3,223.0 77.0,171.7 79.6,120.3 111.3,107.5 180.4,97.2 235.6,94.6 290.8,94.6 353.0,115.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="71.6" cy="274.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="74.3" cy="223.0" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="77.0" cy="171.7" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="79.6" cy="120.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="111.3" cy="107.5" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="180.4" cy="97.2" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="235.6" cy="94.6" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="290.8" cy="94.6" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="353.0" cy="115.2" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="235.6" cy="94.6" r="5" fill="var(--fig-blue, #3b82f6)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="235.6" y="80.3" fill="var(--fig-blue, #3b82f6)" font-size="12.5" font-weight="700" text-anchor="middle">UTS</text>
+<circle cx="353.0" cy="115.2" r="5" fill="var(--fig-pink, #ec4899)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="353.0" y="133.7" fill="var(--fig-pink, #ec4899)" font-size="12.5" font-weight="700" text-anchor="end">fracture</text>
+<polyline points="70.0,300.0 103.1,300.0 103.1,91.6 70.0,91.6 70.0,300.0" fill="none" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="70.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">full curve</text>
+<line x1="450.0" y1="300.0" x2="720.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M720.0,300.0 L711.7,303.5 L711.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="450.0" y1="300.0" x2="450.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M450.0,70.0 L453.5,78.3 L446.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="562.5" y1="300.0" x2="562.5" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="562.5" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="675.0" y1="300.0" x2="675.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="675.0" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="445.0" y1="223.3" x2="450.0" y2="223.3" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="227.3" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="445.0" y1="146.7" x2="450.0" y2="146.7" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="150.7" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="445.0" y1="70.0" x2="450.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="74.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">300</text>
+<text x="720.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="458.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="450.0,300.0 463.1,271.7 485.0,215.0 506.8,158.3 528.7,101.7 720.0,91.2" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="463.1" cy="271.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="485.0" cy="215.0" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="506.8" cy="158.3" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="528.7" cy="101.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="720.0" cy="91.2" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<polyline points="450.0,300.0 531.0,97.8" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<polyline points="495.0,300.0 589.0,65.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="575.5" cy="99.1" r="5" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="583.6" y="117.5" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">σy = 262 MPa</text>
+<text x="531.0" y="90.9" fill="var(--fig-green, #10b981)" font-size="12" font-weight="400" text-anchor="end">E (elastic line)</text>
+<text x="507.8" y="281.6" fill="var(--fig-blue, #3b82f6)" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
+<text x="450.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">zoom on the elastic part</text>
+</g></svg>
+<div class="diagram-caption">Figure 3. Problem 3: engineering stress-strain curve built from the data of the sheet (every dot is a table row), with the elastic line and the 0.2 % offset construction.</div>
+</div>
+<p><strong>b) Young's modulus and the length of the bar</strong></p>
+<p>The secant modulus of the last column grows from 63 to 74 GPa in points 1 to 4 and falls to 18 GPa at point 5: the linear zone ends after point 4. The first value is lower because a strain of 0.0006 comes from an elongation of only 0.003 mm, at the limit of the resolution of the table. The fit through the origin on points 1 to 4 is:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$\varepsilon_i$</th><th style="text-align:right">$\sigma_i$ (MPa)</th><th style="text-align:right">$\sigma_i\varepsilon_i$ (MPa)</th><th style="text-align:right">$\varepsilon_i^2$</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">0.00058</td><td style="text-align:right">36.95</td><td style="text-align:right">0.0215</td><td style="text-align:right">$3.396\times 10^{-7}$</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">0.00155</td><td style="text-align:right">110.86</td><td style="text-align:right">0.1723</td><td style="text-align:right">$2.415\times 10^{-6}$</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">0.00253</td><td style="text-align:right">184.77</td><td style="text-align:right">0.4666</td><td style="text-align:right">$6.377\times 10^{-6}$</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">0.00350</td><td style="text-align:right">258.68</td><td style="text-align:right">0.9045</td><td style="text-align:right">$1.223\times 10^{-5}$</td></tr></tbody></table></div>
+<div class="math-block">$$E = \frac{\sum \sigma_i\varepsilon_i}{\sum \varepsilon_i^2} = \frac{1.565}{2.1357\times 10^{-5}} = 73273\ \text{MPa} = \mathbf{73.3\ GPa}$$</div>
+<p>For the bar, the strain produced by $\sigma = 200$ MPa is $\varepsilon = \sigma/E$ and the elongation is $\Delta l = \varepsilon\,l_b$:</p>
+<div class="math-block">$$\varepsilon = \frac{200}{73273} = 0.002730 \qquad \Delta l = 0.002730\times130\ \text{mm} = 0.355\ \text{mm}$$</div>
+<div class="math-block">$$l = l_b + \Delta l = 130 + 0.355 = 130.355\ \text{mm} = \mathbf{13.04\ cm}$$</div>
+<p><strong>c) Section of the cable</strong></p>
+<p>The yield strength is needed first. With the offset line $E(\varepsilon - 0.002)$ the sign of $g = \sigma_n - E(\varepsilon_n - 0.002)$ changes between points 4 and 5:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$E(\varepsilon_n - 0.002)$ (MPa)</th><th style="text-align:right">$g = \sigma_n - E(\varepsilon_n - 0.002)$ (MPa)</th></tr></thead><tbody><tr><td>3</td><td style="text-align:right">0.00253</td><td style="text-align:right">184.8</td><td style="text-align:right">38.5</td><td style="text-align:right">146.3</td></tr><tr><td>4</td><td style="text-align:right">0.00350</td><td style="text-align:right">258.7</td><td style="text-align:right">109.7</td><td style="text-align:right">149.0</td></tr><tr><td>5</td><td style="text-align:right">0.01496</td><td style="text-align:right">277.2</td><td style="text-align:right">949.4</td><td style="text-align:right">-672.3</td></tr><tr><td>6</td><td style="text-align:right">0.04002</td><td style="text-align:right">291.9</td><td style="text-align:right">2785.5</td><td style="text-align:right">-2493.6</td></tr></tbody></table></div>
+<div class="math-block">$$m = \frac{277.16 - 258.68}{0.01496 - 0.00350} = 1612.2\ \text{MPa} \qquad \varepsilon^* = \frac{258.68 - 1612.2\times0.00350 + 0.002\times73273}{73273 - 1612.2} = \frac{399.587}{71660.3} = 0.0055761$$</div>
+<div class="math-block">$$\sigma_y = E\,(\varepsilon^* - 0.002) = 73273\times(0.0055761 - 0.002) = \mathbf{262.0\ MPa}$$</div>
+<p>The weight of the elevator is $W = 450\times9.81 = 4414.5$ N. For the cable not to yield, $W/A_0 \leq \sigma_y$:</p>
+<div class="math-block">$$A_0 \geq \frac{W}{\sigma_y} = \frac{4414.5\ \text{N}}{262.0\ \text{N/mm}^2} = \mathbf{16.85\ mm^2}$$</div>
+<p>If the usual safety factor $N = 2$ is also applied, the design stress is $\sigma_y/2$ and the section doubles, $A_0 \geq 33.7$ mm².</p>
+<p><strong>d) True stress and strain at maximum load and at fracture</strong></p>
+<p><strong>Maximum load.</strong> $F_m = 4000\times9.81 = 39\,240$ N and $D_m = 12.922$ mm:</p>
+<div class="math-block">$$A_m = \frac{\pi\,(12.922)^2}{4} = \frac{\pi\times166.978}{4} = 131.14\ \text{mm}^2$$</div>
+<div class="math-block">$$\sigma_{r,UTS} = \frac{F_m}{A_m} = \frac{39\,240}{131.14} = \mathbf{299.2\ MPa} \qquad \varepsilon_{r,UTS} = 2\ln\frac{D_0}{D_m} = 2\ln\frac{13}{12.922} = 2\ln(1.00604) = 2\times0.006018 = \mathbf{0.01204}$$</div>
+<p><strong>Fracture.</strong> $F_f = 3600\times9.81 = 35\,316$ N and $D_f = 10.348$ mm:</p>
+<div class="math-block">$$A_f = \frac{\pi\,(10.348)^2}{4} = \frac{\pi\times107.081}{4} = 84.10\ \text{mm}^2$$</div>
+<div class="math-block">$$\sigma_{r,f} = \frac{F_f}{A_f} = \frac{35\,316}{84.10} = \mathbf{419.9\ MPa} \qquad \varepsilon_{r,f} = 2\ln\frac{13}{10.348} = 2\ln(1.25628) = 2\times0.22816 = \mathbf{0.4563}$$</div>
+<p><strong>e) Modulus of resilience</strong></p>
+<div class="math-block">$$U_r = \frac{\sigma_y^2}{2E} = \frac{(262.0\ \text{MPa})^2}{2\times73273\ \text{MPa}} = \mathbf{0.469\ MPa}$$</div>
+<p><strong>f) Elastic strain before the fracture</strong></p>
+<p>The stress of the table at the fracture point (point 9) is $\sigma_n = 266.1$ MPa, and the elastic part of the strain is given by Hooke's law:</p>
+<div class="math-block">$$\varepsilon_e = \frac{\sigma_n}{E} = \frac{266.1}{73273} = \mathbf{3.63\times 10^{-3}}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> Masses in kg and $g$ in m/s² give newtons, N/mm² is MPa, the strains have no units, and $A_0 \geq W/\sigma_y$ comes out in mm².</li><li><strong>Order.</strong> The true stress at maximum load (299.2 MPa) is above the engineering maximum (295.6 MPa) because the area has shrunk, and the true fracture stress (419.9 MPa) is much above the engineering one (266.1 MPa), while the engineering stress falls after the maximum.</li><li><strong>Limit.</strong> For $D = D_0$ the true strain $2\ln(D_0/D)$ is zero and the true stress is $F/A_0$, the engineering one.</li><li><strong>Bar.</strong> The elongation, 0.355 mm over 130 mm, is a strain of 0.27 %, well inside the elastic zone (the yield strain is 3.58 × 10⁻³ = 0.36 %).</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample is a ductile metal with a clear yield at 262.0 MPa and a long hardening plateau up to 295.6 MPa; the neck makes the true stress at fracture 419.9 MPa. The cable needs at least 16.85 mm² to stay elastic under the elevator, and about twice as much with the usual safety factor.</p>
+<div class="callout callout-warning"><div class="callout-title">Diameters and lengths of the table do not describe the same strain</div><p>At the maximum load the length of the table gives $\varepsilon_n = 0.0600$, that is, $\varepsilon_r = \ln(1+\varepsilon_n) = 0.0583$ with the uniform-deformation relation, and constant volume would give a diameter $13/\sqrt{1+\varepsilon_n} = 12.63$ mm. The statement gives $12.922$ mm, with $\varepsilon_r = 0.01204$. At the fracture, $A_0/A_f = 1.578$ while $l/l_0 = 1.1026$. The two sets of data do not describe the same deformation: the diameters measure the strain of the neck, the lengths the average over the calibrated length. The statement asks to compute the true values from the diameters, and that is what is done.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>b. $E$</td><td>75.4 GPa</td><td>73.3 GPa</td><td>agrees (3 %)</td></tr><tr><td>b. length of the bar</td><td>13.04 cm</td><td>13.04 cm</td><td>agrees</td></tr><tr><td>c. $A_0$</td><td>$\geq 16.9$ mm²</td><td>$\geq 16.85$ mm²</td><td>agrees: the key uses $\sigma_y$ without safety factor</td></tr><tr><td>d. $\sigma_{r,UTS}$, $\varepsilon_{r,UTS}$</td><td>300 MPa, 0.012</td><td>299.2 MPa, 0.01204</td><td>agrees</td></tr><tr><td>d. $\sigma_{r,f}$, $\varepsilon_{r,f}$</td><td>420 MPa, 0.456</td><td>419.9 MPa, 0.4563</td><td>agrees</td></tr><tr><td>e. $U_r$</td><td>0.457 MPa</td><td>0.469 MPa</td><td>agrees (2.5 %): the key uses $E = 75.4$ GPa</td></tr><tr><td>f. elastic strain</td><td>$3.4\times10^{-3}$</td><td>$3.63\times 10^{-3}$</td><td>differs 7 %</td></tr></tbody></table></div>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution: elastic strain before the fracture</div><p>The key gives $3.4\times10^{-3}$. With the stress of the table at the fracture, 266.1 MPa, and the fitted modulus the elastic strain is 3.63 × 10⁻³; with the key's modulus, 75.4 GPa, it is 3.53 × 10⁻³. The yield strain, $\sigma_y/E = 3.58\times10^{-3}$, is also not the key value. The value cannot be reproduced exactly, and the computed one is kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 4 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-4">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 4</span>
+            <span class="prob-source-badge">Problems T5_MechanicalProperties.pdf #4</span>
+            <span class="prob-source-badge">Tensile test · rectangular brass sample</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Tensile Test of a Rectangular Brass Sample: Modulus, Strengths, Resilience and Working Stress</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems%20T5_MechanicalProperties.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T5_MechanicalProperties.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol><li>A tensile test was performed on a brass sample with a rectangular section and dimensions of 3.2 mm x 19.1 mm. Using the data in the table below, answer the following questions:</li></ol>
+<ul><li>a. Represent the data in terms of engineering stress versus strain.</li><li>b. Calculate the modulus of elasticity (Young's modulus).</li><li>c. Determine the yield strength.</li><li>d. Determine the tensile strength.</li><li>e. Calculate the modulus of resilience.</li><li>f. Calculate the working stress of this material.</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">Load (N)</th><th style="text-align:right">Length (mm)</th><th style="text-align:right">σn (MPa)</th><th style="text-align:right">εn</th></tr></thead><tbody><tr><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">63.50</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">1</td><td style="text-align:right">1 380</td><td style="text-align:right">63.53</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">2 780</td><td style="text-align:right">63.58</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">5 630</td><td style="text-align:right">63.63</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">7 430</td><td style="text-align:right">63.70</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">8 140</td><td style="text-align:right">63.75</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">9 870</td><td style="text-align:right">64.14</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">12 850</td><td style="text-align:right">65.41</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">14 100</td><td style="text-align:right">66.68</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">14 300</td><td style="text-align:right">67.95</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">10</td><td style="text-align:right">13 830</td><td style="text-align:right">69.22</td><td style="text-align:right"></td><td style="text-align:right"></td></tr><tr><td style="text-align:right">11</td><td style="text-align:right">12 500</td><td style="text-align:right">70.49</td><td style="text-align:right"></td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><em>(The sheet prints the table in two rows, load and length, with two more rows, σn and εn, left blank to be completed. Point 0 is the unloaded sample.)</em></p>
+          <div class="solution-box">Official Solution: b. $E \approx 44$ GPa; c. $\sigma_y = 150$ MPa; d. $\sigma_{UTS} = 234$ MPa; e. $U_r = 0.28$ MPa; f. $\sigma_w = 75$ MPa</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Phase 1 · Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Uniaxial, uniform stress.</strong> The section is a rectangle $3.2\times19.1$ mm, and up to the necking the stress is uniform: $\sigma_n = F/A_0$ and $\varepsilon_n = (l - l_0)/l_0$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=9" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 9">9</a>].</li><li><strong>Initial length.</strong> The first value of the length row, 63.50 mm (load 0), is $l_0$.</li><li><strong>Linear elastic start</strong>, Hooke's law, with the slope fitted by least squares through the origin [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=13" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 13">13</a>].</li><li><strong>0.2 % offset yield strength</strong> [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=28" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 28">28</a>].</li><li><strong>Working stress</strong> $\sigma_w = \sigma_y/N$ with the usual $N = 2$, which the statement does not give [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=29" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 29">29</a>].</li><li><strong>Resolution of the length.</strong> The length is given to 0.01 mm, so the first elongations (0.03 and 0.08 mm) carry an error of 10 to 30 % of their value. This matters for the modulus, and it is analysed in item b.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th><th style="text-align:right">In SI</th></tr></thead><tbody><tr><td>Section</td><td>$b\times h$</td><td style="text-align:right">$19.1\times3.2$ mm</td><td style="text-align:right">$19.1\times10^{-3}\times3.2\times10^{-3}$ m</td></tr><tr><td>Initial length</td><td>$l_0$</td><td style="text-align:right">63.50 mm</td><td style="text-align:right">$63.50\times10^{-3}$ m</td></tr><tr><td>Load, length</td><td>$F$, $l$</td><td style="text-align:right">table</td><td style="text-align:right">N, mm</td></tr><tr><td>Safety factor</td><td>$N$</td><td style="text-align:right">2</td><td style="text-align:right"></td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the curve (a), $E$ (b), $\sigma_y$ (c), $\sigma_{UTS}$ (d), $U_r$ (e), $\sigma_w$ (f).</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Phase 2 · Frames &amp; Strategy</span>
+<p>One direction (the axis of the sample), uniaxial stress, no change of basis.</p>
+<p><strong>Strategy.</strong> The table is turned into $\sigma_n$ and $\varepsilon_n$. Then $E$ is the least-squares slope through the origin of the straight part, $\sigma_y$ comes from the offset construction on the segment that crosses the offset line, $\sigma_{UTS}$ is the maximum load over $A_0$, $U_r = \sigma_y^2/(2E)$ [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=35" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 35">35</a>] and $\sigma_w = \sigma_y/N$. Since the first points of this table are not perfectly straight, the result is also shown for different choices of points, to see how much it depends on the choice.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Phase 3 · Step-by-Step Derivation</span>
+<p><strong>1. Cross-section</strong></p>
+<div class="math-block">$$A_0 = b\,h = 19.1\ \text{mm}\times3.2\ \text{mm} = 61.12\ \text{mm}^2$$</div>
+<p>For point 1: $F_1 = 1\,380$ N and $l_1 = 63.53$ mm, so</p>
+<div class="math-block">$$\sigma_{n,1} = \frac{1\,380\ \text{N}}{61.12\ \text{mm}^2} = 22.58\ \text{MPa} \qquad \varepsilon_{n,1} = \frac{63.53 - 63.50}{63.50} = 0.00047$$</div>
+<p><strong>a) Engineering stress and strain, and the curve</strong></p>
+<p>All the points:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$F$ (N)</th><th style="text-align:right">$l$ (mm)</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n/\varepsilon_n$ (GPa)</th></tr></thead><tbody><tr><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">63.50</td><td style="text-align:right">0</td><td style="text-align:right">0.00000</td><td style="text-align:right">—</td></tr><tr><td style="text-align:right">1</td><td style="text-align:right">1 380</td><td style="text-align:right">63.53</td><td style="text-align:right">22.58</td><td style="text-align:right">0.00047</td><td style="text-align:right">47.8</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">2 780</td><td style="text-align:right">63.58</td><td style="text-align:right">45.48</td><td style="text-align:right">0.00126</td><td style="text-align:right">36.1</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">5 630</td><td style="text-align:right">63.63</td><td style="text-align:right">92.11</td><td style="text-align:right">0.00205</td><td style="text-align:right">45.0</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">7 430</td><td style="text-align:right">63.70</td><td style="text-align:right">121.56</td><td style="text-align:right">0.00315</td><td style="text-align:right">38.6</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">8 140</td><td style="text-align:right">63.75</td><td style="text-align:right">133.18</td><td style="text-align:right">0.00394</td><td style="text-align:right">33.8</td></tr><tr><td style="text-align:right">6</td><td style="text-align:right">9 870</td><td style="text-align:right">64.14</td><td style="text-align:right">161.49</td><td style="text-align:right">0.01008</td><td style="text-align:right">16.0</td></tr><tr><td style="text-align:right">7</td><td style="text-align:right">12 850</td><td style="text-align:right">65.41</td><td style="text-align:right">210.24</td><td style="text-align:right">0.03008</td><td style="text-align:right">7.0</td></tr><tr><td style="text-align:right">8</td><td style="text-align:right">14 100</td><td style="text-align:right">66.68</td><td style="text-align:right">230.69</td><td style="text-align:right">0.05008</td><td style="text-align:right">4.6</td></tr><tr><td style="text-align:right">9</td><td style="text-align:right">14 300</td><td style="text-align:right">67.95</td><td style="text-align:right">233.97</td><td style="text-align:right">0.07008</td><td style="text-align:right">3.3</td></tr><tr><td style="text-align:right">10</td><td style="text-align:right">13 830</td><td style="text-align:right">69.22</td><td style="text-align:right">226.28</td><td style="text-align:right">0.09008</td><td style="text-align:right">2.5</td></tr><tr><td style="text-align:right">11</td><td style="text-align:right">12 500</td><td style="text-align:right">70.49</td><td style="text-align:right">204.52</td><td style="text-align:right">0.11008</td><td style="text-align:right">1.9</td></tr></tbody></table></div>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="Problem 4: engineering stress-strain curve from the table">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="300.0" x2="370.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M370.0,300.0 L361.7,303.5 L361.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M70.0,70.0 L73.5,78.3 L66.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="198.6" y1="300.0" x2="198.6" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="198.6" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="327.1" y1="300.0" x2="327.1" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="327.1" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="65.0" y1="212.2" x2="70.0" y2="212.2" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="216.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="65.0" y1="124.5" x2="70.0" y2="124.5" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="62.0" y="128.5" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">200</text>
+<text x="370.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="70.0,300.0 71.2,280.2 73.2,260.1 75.3,219.1 78.1,193.3 80.1,183.1 95.9,158.3 147.3,115.5 198.8,97.5 250.2,94.6 301.6,101.4 353.0,120.5" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="71.2" cy="280.2" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="73.2" cy="260.1" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="75.3" cy="219.1" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="78.1" cy="193.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="80.1" cy="183.1" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="95.9" cy="158.3" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="147.3" cy="115.5" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="198.8" cy="97.5" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="250.2" cy="94.6" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="301.6" cy="101.4" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="353.0" cy="120.5" r="2.4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="250.2" cy="94.6" r="5" fill="var(--fig-blue, #3b82f6)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="250.2" y="80.3" fill="var(--fig-blue, #3b82f6)" font-size="12.5" font-weight="700" text-anchor="middle">UTS</text>
+<circle cx="353.0" cy="120.5" r="5" fill="var(--fig-pink, #ec4899)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="353.0" y="139.0" fill="var(--fig-pink, #ec4899)" font-size="12.5" font-weight="700" text-anchor="end">fracture</text>
+<polyline points="70.0,300.0 100.9,300.0 100.9,142.0 70.0,142.0 70.0,300.0" fill="none" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="70.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">full curve</text>
+<line x1="450.0" y1="300.0" x2="720.0" y2="300.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M720.0,300.0 L711.7,303.5 L711.7,296.5 Z" fill="var(--text-faint)"/>
+<line x1="450.0" y1="300.0" x2="450.0" y2="70.0" stroke="var(--text-faint)" stroke-width="1.3"/>
+<path d="M450.0,70.0 L453.5,78.3 L446.5,78.3 Z" fill="var(--text-faint)"/>
+<line x1="562.5" y1="300.0" x2="562.5" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="562.5" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="675.0" y1="300.0" x2="675.0" y2="305.0" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="675.0" y="319.0" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="445.0" y1="236.1" x2="450.0" y2="236.1" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="240.1" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">50</text>
+<line x1="445.0" y1="172.2" x2="450.0" y2="172.2" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="176.2" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="445.0" y1="108.3" x2="450.0" y2="108.3" stroke="var(--text-faint)" stroke-width="1.1"/>
+<text x="442.0" y="112.3" fill="var(--text-muted)" font-size="12" font-weight="400" text-anchor="end">150</text>
+<text x="720.0" y="338.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="458.0" y="74.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="450.0,300.0 460.6,271.1 478.3,241.9 496.1,182.3 520.9,144.7 538.6,129.8 676.8,93.7 720.0,87.7" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="460.6" cy="271.1" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="478.3" cy="241.9" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="496.1" cy="182.3" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="520.9" cy="144.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="538.6" cy="129.8" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="676.8" cy="93.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<circle cx="720.0" cy="87.7" r="2.6" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<polyline points="450.0,300.0 551.2,87.0" fill="none" stroke="var(--fig-green, #10b981)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<polyline points="495.0,300.0 594.7,90.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="581.2" cy="118.7" r="5" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="589.3" y="137.1" fill="var(--text-heading)" font-size="12.5" font-weight="700" text-anchor="start">σy = 142 MPa</text>
+<text x="556.6" y="80.1" fill="var(--fig-green, #10b981)" font-size="12" font-weight="400" text-anchor="start">E (elastic line)</text>
+<text x="509.1" y="281.6" fill="var(--fig-blue, #3b82f6)" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
+<text x="450.0" y="24.0" fill="var(--text-heading)" font-size="13" font-weight="700" text-anchor="start">zoom on the elastic part</text>
+</g></svg>
+<div class="diagram-caption">Figure 4. Problem 4: engineering stress-strain curve built from the data of the sheet (every dot is a table row), with the elastic line and the 0.2 % offset construction.</div>
+</div>
+<p><strong>b) Modulus of elasticity</strong></p>
+<p>The secant modulus of the last column is 34 to 48 GPa for points 1 to 5 and falls to 16 GPa at point 6: the straight part ends after point 5. The scatter between 34 and 48 GPa comes from the resolution of the length: point 1 is an elongation of 0.03 mm, and an error of 0.01 mm is 33 % of it. A fit through the origin on points 1 to 5 weights the points by their strain, so the points with larger elongation, and smaller relative error, count more:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">Point</th><th style="text-align:right">$\varepsilon_i$</th><th style="text-align:right">$\sigma_i$ (MPa)</th><th style="text-align:right">$\sigma_i\varepsilon_i$ (MPa)</th><th style="text-align:right">$\varepsilon_i^2$</th></tr></thead><tbody><tr><td style="text-align:right">1</td><td style="text-align:right">0.00047</td><td style="text-align:right">22.58</td><td style="text-align:right">0.0107</td><td style="text-align:right">$2.232\times 10^{-7}$</td></tr><tr><td style="text-align:right">2</td><td style="text-align:right">0.00126</td><td style="text-align:right">45.48</td><td style="text-align:right">0.0573</td><td style="text-align:right">$1.587\times 10^{-6}$</td></tr><tr><td style="text-align:right">3</td><td style="text-align:right">0.00205</td><td style="text-align:right">92.11</td><td style="text-align:right">0.1886</td><td style="text-align:right">$4.191\times 10^{-6}$</td></tr><tr><td style="text-align:right">4</td><td style="text-align:right">0.00315</td><td style="text-align:right">121.56</td><td style="text-align:right">0.3829</td><td style="text-align:right">$9.920\times 10^{-6}$</td></tr><tr><td style="text-align:right">5</td><td style="text-align:right">0.00394</td><td style="text-align:right">133.18</td><td style="text-align:right">0.5243</td><td style="text-align:right">$1.550\times 10^{-5}$</td></tr></tbody></table></div>
+<div class="math-block">$$E = \frac{\sum \sigma_i\varepsilon_i}{\sum \varepsilon_i^2} = \frac{1.164}{3.1422\times 10^{-5}} = 37037\ \text{MPa} = \mathbf{37.0\ GPa}$$</div>
+<p><strong>c) Yield strength (0.2 % offset)</strong></p>
+<p>With the offset line $E(\varepsilon - 0.002)$ the sign of $g = \sigma_n - E(\varepsilon_n - 0.002)$ changes between points 5 and 6:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th style="text-align:right">$\varepsilon_n$</th><th style="text-align:right">$\sigma_n$ (MPa)</th><th style="text-align:right">$E(\varepsilon_n - 0.002)$ (MPa)</th><th style="text-align:right">$g = \sigma_n - E(\varepsilon_n - 0.002)$ (MPa)</th></tr></thead><tbody><tr><td>4</td><td style="text-align:right">0.00315</td><td style="text-align:right">121.6</td><td style="text-align:right">42.6</td><td style="text-align:right">79.0</td></tr><tr><td>5</td><td style="text-align:right">0.00394</td><td style="text-align:right">133.2</td><td style="text-align:right">71.7</td><td style="text-align:right">61.4</td></tr><tr><td>6</td><td style="text-align:right">0.01008</td><td style="text-align:right">161.5</td><td style="text-align:right">299.2</td><td style="text-align:right">-137.7</td></tr><tr><td>7</td><td style="text-align:right">0.03008</td><td style="text-align:right">210.2</td><td style="text-align:right">1040.0</td><td style="text-align:right">-829.7</td></tr></tbody></table></div>
+<div class="math-block">$$m = \frac{161.49 - 133.18}{0.01008 - 0.00394} = 4608.6\ \text{MPa} \qquad \varepsilon^* = \frac{133.18 - 4608.6\times0.00394 + 0.002\times37037}{37037 - 4608.6} = \frac{189.110}{32428.3} = 0.0058316$$</div>
+<div class="math-block">$$\sigma_y = E\,(\varepsilon^* - 0.002) = 37037\times(0.0058316 - 0.002) = \mathbf{141.9\ MPa}$$</div>
+<p><strong>d) Tensile strength</strong></p>
+<p>The maximum load is $F_{max} = 14\,300$ N (point 9):</p>
+<div class="math-block">$$\sigma_{UTS} = \frac{F_{max}}{A_0} = \frac{14\,300\ \text{N}}{61.12\ \text{mm}^2} = \mathbf{234.0\ MPa}$$</div>
+<p><strong>e) Modulus of resilience</strong></p>
+<div class="math-block">$$U_r = \frac{\sigma_y^2}{2E} = \frac{(141.9\ \text{MPa})^2}{2\times37037\ \text{MPa}} = \mathbf{0.272\ MPa}$$</div>
+<p><strong>f) Working stress</strong></p>
+<div class="math-block">$$\sigma_w = \frac{\sigma_y}{N} = \frac{141.9}{2} = \mathbf{71.0\ MPa}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Phase 4 · Checks &amp; Interpretation</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> N/mm² is MPa, strains have no units, $E$ and $U_r$ are in MPa.</li><li><strong>Order.</strong> $\sigma_y = 141.9$ MPa $&lt; \sigma_{UTS} = 234.0$ MPa; after the maximum the load falls (point 11 has 12 500 N), the sample necks.</li><li><strong>Sensitivity to the points chosen for $E$.</strong> The modulus, and through it $\sigma_y$ and $U_r$, depend on how many of the first points are taken:</li></ul>
+<div class="table-container"><table class="data-table"><thead><tr><th>Points used for $E$</th><th style="text-align:right">$E$ (GPa)</th><th style="text-align:right">$\sigma_y$ (MPa)</th><th style="text-align:right">$U_r$ (MPa)</th><th style="text-align:right">$\sigma_w$ (MPa)</th></tr></thead><tbody><tr><td>1 to 3</td><td style="text-align:right">42.7</td><td style="text-align:right">139.3</td><td style="text-align:right">0.227</td><td style="text-align:right">69.6</td></tr><tr><td>1 to 4</td><td style="text-align:right">40.2</td><td style="text-align:right">140.4</td><td style="text-align:right">0.245</td><td style="text-align:right">70.2</td></tr><tr><td>1 to 5</td><td style="text-align:right">37.0</td><td style="text-align:right">141.9</td><td style="text-align:right">0.272</td><td style="text-align:right">71.0</td></tr></tbody></table></div>
+<p>Between the three choices the yield strength changes by 1.9 % and $U_r$ by 20 % (because it contains $1/E$): the strengths hardly depend on the choice made for $E$, but the resilience does.</p>
+<p><strong>Interpretation</strong></p>
+<p>The brass has a tensile strength of 234.0 MPa and a yield strength of about 141.9 MPa, and between the two the strain hardening adds 92 MPa. The large strain at fracture (11 % at the last point, after the maximum load) shows that it is ductile.</p>
+<div class="callout callout-warning"><div class="callout-title">The modulus is much lower than the one of brass in the slide</div><p>The table of Session 11 gives $E = 97$ GPa for brass [Session 11 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session%2011%20T5%20Mechanical%20properties%20I.pdf#page=17" target="_blank" rel="noopener" title="Open Session 11 T5 Mechanical properties I.pdf at page 17">17</a>]. The data of this problem give 37 to 43 GPa, less than half. The key also gives 44 GPa, so the sheet itself uses these data. The reason is probably that the elongation of the table includes the slack and the compliance of the testing machine in the first points, which is why the elastic part looks softer than the real material. The data are used as they are.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>b. $E$</td><td>$\approx 44$ GPa</td><td>37.0 GPa</td><td>differs 16 %: see the sensitivity table; with points 1 to 3 the fit gives 42.7 GPa</td></tr><tr><td>c. $\sigma_y$</td><td>150 MPa</td><td>141.9 MPa</td><td>differs 5 %</td></tr><tr><td>d. $\sigma_{UTS}$</td><td>234 MPa</td><td>234.0 MPa</td><td>agrees</td></tr><tr><td>e. $U_r$</td><td>0.28 MPa</td><td>0.272 MPa</td><td>agrees (3 %)</td></tr><tr><td>f. $\sigma_w$</td><td>75 MPa</td><td>71.0 MPa</td><td>consistent with $\sigma_y$</td></tr></tbody></table></div>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution: modulus and yield strength</div><p>The key gives $E \approx 44$ GPa and $\sigma_y = 150$ MPa. The 0.2 % offset on the data of the table gives $\sigma_y$ between 139 MPa ($E = 44$ GPa) and 142 MPa ($E = 37.0$ GPa), never 150 MPa. A yield strength of 150 MPa corresponds to the stress where the curve bends clearly (points 5 and 6, 133 to 161 MPa), that is, to a reading by eye of the end of the straight part. In addition, with the key values, $U_r = 150^2/(2\times44\,000) = 0.256$ MPa, not 0.28 MPa; the computed resilience, 0.272 MPa, is close to the printed one only by coincidence. The computed values are kept.</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
+

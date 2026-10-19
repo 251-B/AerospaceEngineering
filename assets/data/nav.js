@@ -123,6 +123,10 @@ window.AE_NAV = {
           "href": "subjects/aerospace-materials-1/problemas/index.html",
           "pages": [
             {
+              "href": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html",
+              "label": "5 · Mechanical properties"
+            },
+            {
               "href": "subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html",
               "label": "4 · Phase diagrams"
             },

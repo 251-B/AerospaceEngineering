@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-19-materials-topic-5-problems-1",
+    "date": "2026-10-19",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 5: first four solved problems",
+    "text": "Problems 1 to 4 of the mechanical properties sheet: full analyses of tensile tests, with the curves drawn from the sheet data and the key checked.",
+    "link": "subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html"
+  },
+  {
     "id": "2026-10-19-materials-topic-5-theory",
     "date": "2026-10-19",
     "tag": "Aerospace Materials I",

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" width="100%" class="fig-kit" style="max-width:780px;margin:0 auto;display:block" role="img" aria-label="Problem 4: engineering stress-strain curve from the table">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="300.0" x2="370.0" y2="300.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M370.0,300.0 L361.7,303.5 L361.7,296.5 Z" fill="#8a94a6"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="70.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M70.0,70.0 L73.5,78.3 L66.5,78.3 Z" fill="#8a94a6"/>
+<line x1="198.6" y1="300.0" x2="198.6" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="198.6" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="327.1" y1="300.0" x2="327.1" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="327.1" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="65.0" y1="212.2" x2="70.0" y2="212.2" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="216.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="65.0" y1="124.5" x2="70.0" y2="124.5" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="128.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<text x="370.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="74.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="70.0,300.0 71.2,280.2 73.2,260.1 75.3,219.1 78.1,193.3 80.1,183.1 95.9,158.3 147.3,115.5 198.8,97.5 250.2,94.6 301.6,101.4 353.0,120.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="71.2" cy="280.2" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="73.2" cy="260.1" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="75.3" cy="219.1" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="78.1" cy="193.3" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="80.1" cy="183.1" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="95.9" cy="158.3" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="147.3" cy="115.5" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="198.8" cy="97.5" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="250.2" cy="94.6" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="301.6" cy="101.4" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="353.0" cy="120.5" r="2.4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="250.2" cy="94.6" r="5" fill="#3b82f6" stroke="#4b5563" stroke-width="1"/>
+<text x="250.2" y="80.3" fill="#3b82f6" font-size="12.5" font-weight="700" text-anchor="middle">UTS</text>
+<circle cx="353.0" cy="120.5" r="5" fill="#ec4899" stroke="#4b5563" stroke-width="1"/>
+<text x="353.0" y="139.0" fill="#ec4899" font-size="12.5" font-weight="700" text-anchor="end">fracture</text>
+<polyline points="70.0,300.0 100.9,300.0 100.9,142.0 70.0,142.0 70.0,300.0" fill="none" stroke="#8a94a6" stroke-width="1.0" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="70.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">full curve</text>
+<line x1="450.0" y1="300.0" x2="720.0" y2="300.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M720.0,300.0 L711.7,303.5 L711.7,296.5 Z" fill="#8a94a6"/>
+<line x1="450.0" y1="300.0" x2="450.0" y2="70.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M450.0,70.0 L453.5,78.3 L446.5,78.3 Z" fill="#8a94a6"/>
+<line x1="562.5" y1="300.0" x2="562.5" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="562.5" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="675.0" y1="300.0" x2="675.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="675.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="445.0" y1="236.1" x2="450.0" y2="236.1" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="442.0" y="240.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">50</text>
+<line x1="445.0" y1="172.2" x2="450.0" y2="172.2" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="442.0" y="176.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">100</text>
+<line x1="445.0" y1="108.3" x2="450.0" y2="108.3" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="442.0" y="112.3" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">150</text>
+<text x="720.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="458.0" y="74.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="450.0,300.0 460.6,271.1 478.3,241.9 496.1,182.3 520.9,144.7 538.6,129.8 676.8,93.7 720.0,87.7" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="460.6" cy="271.1" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="478.3" cy="241.9" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="496.1" cy="182.3" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="520.9" cy="144.7" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="538.6" cy="129.8" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="676.8" cy="93.7" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="720.0" cy="87.7" r="2.6" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<polyline points="450.0,300.0 551.2,87.0" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<polyline points="495.0,300.0 594.7,90.3" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="581.2" cy="118.7" r="5" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="589.3" y="137.1" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">σy = 142 MPa</text>
+<text x="556.6" y="80.1" fill="#10b981" font-size="12" font-weight="400" text-anchor="start">E (elastic line)</text>
+<text x="509.1" y="281.6" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
+<text x="450.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">zoom on the elastic part</text>
+</g></svg>
