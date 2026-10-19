@@ -19,10 +19,11 @@ bytes: 6025
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-1/Lab1-Ismael/deliverable/code_LB_Martin_Martin_Ranz/main.m`
 - **Kind:** laboratorio
 - **Size:** 6.0 kB
-- **Status:** referenced by 2 note(s) below
-- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
+- **Status:** referenced by 3 note(s) below
+- **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
 - [[03 - Engineering Mechanics/Lab - Guidelines and Scientific Report Standards]]
 - [[03 - Engineering Mechanics/Lab 1 - Particle Connected to a Spool]]
+- [[03 - Engineering Mechanics/Lab 2 - Particle on Oscillating Loop]]

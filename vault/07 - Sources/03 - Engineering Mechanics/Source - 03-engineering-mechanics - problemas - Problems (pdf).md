@@ -19,10 +19,11 @@ bytes: 4812504
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf`
 - **Kind:** problemas
 - **Size:** 4.8 MB
-- **Status:** referenced by 12 note(s) below
+- **Status:** referenced by 13 note(s) below
 
 ## Referenced by
 
+- [[03 - Engineering Mechanics/Lab 2 - Particle on Oscillating Loop]]
 - [[03 - Engineering Mechanics/Problem Set - Topic 1 Particle Kinematics]]
 - [[03 - Engineering Mechanics/Problem Set - Topic 2 Point Particle Dynamics]]
 - [[03 - Engineering Mechanics/Problem Set - Topic 3 Constraints and Reaction Forces]]

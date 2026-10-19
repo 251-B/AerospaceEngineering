@@ -10,8 +10,8 @@ tags:
 
 ## Coverage
 
-- Files: 173
-- Referenced by at least one note (a mention counts): 12
+- Files: 174
+- Referenced by at least one note (a mention counts): 13
 - Not referenced yet: 161
 - Build artifacts: 0
 - Working files: 0
@@ -245,6 +245,12 @@ tags:
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - figures - fig_trajectories (pdf)\|fig_trajectories.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - figures - fig_trajectories (png)\|fig_trajectories.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - figures - logo_uc3m (png)\|logo_uc3m.png]] | laboratorio | not-referenced |
+
+## laboratorios/lab-2/Lab2_Hector
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 03-engineering-mechanics - laboratorios - lab-2 - Lab2_Hector - main (m)\|main.m]] | laboratorio | referenced |
 
 ## problemas
 
