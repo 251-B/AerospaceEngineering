@@ -118,6 +118,16 @@
    "label": "Session 10 T4 Phase diagrams IV.pdf",
    "pages": 8
   },
+  "mat-s11": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session 11 T5 Mechanical properties I.pdf",
+   "label": "Session 11 T5 Mechanical properties I.pdf",
+   "pages": 39
+  },
+  "mat-s12": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/teoria/Session 12 T5 Mechanical properties II.pdf",
+   "label": "Session 12 T5 Mechanical properties II.pdf",
+   "pages": 30
+  },
   "mat-t4a": {
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-04-phase-diagrams/problemas/Problems T4_PhaseDiagrams I.pdf",
    "label": "Problems T4_PhaseDiagrams I.pdf",
@@ -1737,6 +1747,25 @@
      "8": "mat-s8",
      "9": "mat-s9",
      "10": "mat-s10"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html": {
+   "panel": [
+    [
+     "mat-s11",
+     1
+    ],
+    [
+     "mat-s12",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s11",
+    "sessions": {
+     "11": "mat-s11",
+     "12": "mat-s12"
     }
    }
   },

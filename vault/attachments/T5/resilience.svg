@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" class="fig-kit" style="max-width:600px;margin:0 auto;display:block" role="img" aria-label="Modulus of resilience as the area under the elastic line">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polygon points="70.0,300.0 120.0,300.0 120.0,121.4" fill="#3b82f6" fill-opacity="0.22" stroke="#3b82f6" stroke-width="0" stroke-linejoin="round"/>
+<polyline points="70.0,300.0 73.1,288.8 76.2,277.7 79.4,266.5 82.5,255.4 85.6,244.2 88.8,233.0 91.9,221.9 95.0,210.7 98.1,199.6 101.2,188.4 104.4,177.2 107.5,166.1 110.6,154.9 113.8,143.7 116.9,132.6 120.0,121.4 123.1,120.8 126.2,120.1 129.4,119.5 132.5,118.8 135.6,118.2 138.8,117.6 141.9,117.0 145.0,116.4 148.1,115.8 151.2,115.2 154.4,114.7 157.5,114.1 160.6,113.6 163.8,113.0 166.9,112.5 170.0,111.9 173.1,111.4 176.2,110.9 179.4,110.4 182.5,109.9 185.6,109.4 188.8,109.0 191.9,108.5 195.0,108.0 198.1,107.6 201.2,107.1 204.4,106.7 207.5,106.2 210.6,105.8 213.8,105.4 216.9,105.0 220.0,104.6 223.1,104.2 226.2,103.8 229.4,103.4 232.5,103.0 235.6,102.6 238.8,102.2 241.9,101.9 245.0,101.5 248.1,101.2 251.3,100.8 254.4,100.5 257.5,100.1 260.6,99.8 263.8,99.5 266.9,99.1 270.0,98.8 273.1,98.5 276.2,98.2 279.4,97.9 282.5,97.6 285.6,97.3 288.8,97.0 291.9,96.7 295.0,96.4 298.1,96.2 301.2,95.9 304.4,95.6 307.5,95.4 310.6,95.1 313.8,94.8 316.9,94.6 320.0,94.3 323.1,94.1 326.2,93.9 329.4,93.6 332.5,93.4 335.6,93.2 338.8,92.9 341.9,92.7 345.0,92.5 348.1,92.3 351.2,92.1 354.4,91.8 357.5,91.6 360.6,91.4 363.8,91.2 366.9,91.0 370.0,90.9 373.1,90.7 376.3,90.5 379.4,90.3 382.5,90.1 385.6,89.9 388.8,89.8 391.9,89.6 395.0,89.4 398.1,89.2 401.2,89.1 404.4,88.9 407.5,88.8 410.6,88.6 413.8,88.4 416.9,88.3 420.0,88.1 423.1,88.0 426.3,87.8 429.4,87.7 432.5,87.6 435.6,87.4 438.8,87.3 441.9,87.1 445.0,87.0 448.1,86.9 451.3,86.8 454.4,86.6 457.5,86.5 460.6,86.4 463.8,86.3 466.9,86.1 470.0,86.0 473.1,85.9 476.2,85.8 479.4,85.7 482.5,85.6 485.6,85.5 488.8,85.4 491.9,85.2 495.0,85.1 498.1,85.0 501.3,84.9 504.4,84.8 507.5,84.7 510.6,84.6 513.8,84.6 516.9,84.5 520.0,84.4 523.1,84.3 526.2,84.2 529.4,84.1 532.5,84.0 535.6,83.9 538.8,83.9 541.9,83.8 545.0,83.7 548.1,83.6 551.2,83.5 554.4,83.5 557.5,83.4 560.6,83.3 563.8,83.2 566.9,83.2 570.0,83.1" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="120.0" y1="300.0" x2="120.0" y2="121.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4,4"/>
+<line x1="70.0" y1="121.4" x2="120.0" y2="121.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4,4"/>
+<circle cx="120.0" cy="121.4" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="102.0" y="246.4" fill="#3b82f6" font-size="14" font-weight="700" text-anchor="middle">Ur</text>
+<text x="122.0" y="114.3" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">y</tspan></text>
+<text x="122.0" y="271.4" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">ε<tspan baseline-shift="sub" font-size="72%">y</tspan> = σ<tspan baseline-shift="sub" font-size="72%">y</tspan> / E</text>
+<line x1="70.0" y1="300.0" x2="570.0" y2="300.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M570.0,300.0 L561.7,303.5 L561.7,296.5 Z" fill="#8a94a6"/>
+<line x1="70.0" y1="300.0" x2="70.0" y2="50.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M70.0,50.0 L73.5,58.3 L66.5,58.3 Z" fill="#8a94a6"/>
+<line x1="170.0" y1="300.0" x2="170.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="170.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="270.0" y1="300.0" x2="270.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="270.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.02</text>
+<line x1="370.0" y1="300.0" x2="370.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="370.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.03</text>
+<line x1="470.0" y1="300.0" x2="470.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="470.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.04</text>
+<line x1="570.0" y1="300.0" x2="570.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="570.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="65.0" y1="228.6" x2="70.0" y2="228.6" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="232.6" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="65.0" y1="157.1" x2="70.0" y2="157.1" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="161.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="65.0" y1="85.7" x2="70.0" y2="85.7" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="89.7" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<text x="570.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="54.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+</g></svg>

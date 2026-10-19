@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Loading into the plastic zone and unloading">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="70.0,310.0 200.0,124.3 204.6,122.9 209.1,121.5 213.7,120.1 218.2,118.7 222.8,117.3 227.3,115.9 231.8,114.5 236.4,113.1 241.0,111.8 245.5,110.4 250.1,109.0 254.6,107.6 259.1,106.2 263.7,104.8 268.2,103.4 272.8,102.0 277.4,100.6 281.9,99.2 286.5,97.8 291.0,96.4 295.6,95.0 300.1,93.6 304.6,92.2 309.2,90.9 313.8,89.5 318.3,88.1 322.9,86.7 327.4,85.3 331.9,83.9 336.5,82.5 341.1,81.1 345.6,79.7 350.1,78.3 354.7,76.9 359.2,75.5 363.8,74.1 368.3,72.8 372.9,71.4 377.4,70.0 382.0,68.6" fill="none" stroke="#4b5563" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="382.0,68.6 213.0,310.0" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="200.0" cy="124.3" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="213.0" cy="310.0" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="382.0" cy="68.6" r="4" fill="#f59e0b" stroke="#4b5563" stroke-width="1"/>
+<text x="77.8" y="112.4" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">y</tspan></text>
+<text x="395.0" y="64.9" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">load at P</text>
+<text x="395.0" y="220.9" fill="#f59e0b" font-size="13" font-weight="400" text-anchor="start">unloading (slope E)</text>
+<text x="220.8" y="295.1" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">permanent strain ε<tspan baseline-shift="sub" font-size="72%">p</tspan></text>
+<line x1="70.0" y1="310.0" x2="590.0" y2="310.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M590.0,310.0 L581.7,313.5 L581.7,306.5 Z" fill="#8a94a6"/>
+<line x1="70.0" y1="310.0" x2="70.0" y2="50.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M70.0,50.0 L73.5,58.3 L66.5,58.3 Z" fill="#8a94a6"/>
+<line x1="200.0" y1="310.0" x2="200.0" y2="315.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="200.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="330.0" y1="310.0" x2="330.0" y2="315.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="330.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="460.0" y1="310.0" x2="460.0" y2="315.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="460.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.015</text>
+<line x1="590.0" y1="310.0" x2="590.0" y2="315.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="590.0" y="329.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.02</text>
+<line x1="65.0" y1="235.7" x2="70.0" y2="235.7" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="239.7" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="65.0" y1="161.4" x2="70.0" y2="161.4" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="165.4" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="65.0" y1="87.1" x2="70.0" y2="87.1" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="91.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<text x="590.0" y="348.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="54.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">stress σ (MPa)</text>
+</g></svg>

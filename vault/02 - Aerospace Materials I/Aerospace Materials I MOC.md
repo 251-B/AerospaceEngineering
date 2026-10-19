@@ -161,9 +161,9 @@ tags:
 
 ### ⚙️ Block III: Mechanical Properties and Testing
 
-#### Topic 5: Mechanical Properties (planned)
+#### [[02 - Aerospace Materials I/Topic 5 - Mechanical Properties|Topic 5: Mechanical Properties]] (theory built; problems pending)
 * **Web Page:** `subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html`
-* **Problems Web Page:** `subjects/aerospace-materials-1/problemas/topic-5-mechanical-properties.html`
+* **Problems Web Page:** not built yet (problems pending)
 * **Official Sources:**
   * Theory: `Session 11 T5 Mechanical properties I.pdf`, `Session 12 T5 Mechanical properties II.pdf`
   * Problems: `Problems T5_MechanicalProperties.pdf`
@@ -171,7 +171,7 @@ tags:
   * Uniaxial tensile test: elastic regime, Hooke's law, Young's modulus, Poisson's ratio.
   * Plastic deformation, conventional yield strength ($\sigma_{0.2}$), tensile strength ($\sigma_u$), ductility.
   * True stress-strain curves ($\sigma_T - \epsilon_T$) and necking.
-  * Slip systems in metals (Schmid's law) and hardening mechanisms (grain size/Hall-Petch, solid solution, cold working/strain hardening, precipitation).
+  * Slip systems and dislocation glide; strengthening by strain hardening, solid solution, grain size reduction and precipitation.
   * Hardness tests (Brinell, Rockwell, Vickers, Knoop).
 
 ---

@@ -53,6 +53,16 @@
     "label": "26 solved problems for this topic (Problems T4_PhaseDiagrams I, 1-15, and II, 1-11)"
    }
   },
+  "subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 5 - Mechanical Properties.md",
+   "figures": "materials_t5",
+   "template": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html",
+   "html_title": "Topic 5: Mechanical Properties — Aerospace Materials I",
+   "category": "Topic 05 · Mechanical Properties",
+   "title": "Mechanical Properties",
+   "subtitle": "The tensile test and the stress-strain curve, elastic and plastic behaviour, toughness and resilience, true stress and strain, the strengthening mechanisms and the hardness tests.",
+   "source": "Universidad Carlos III de Madrid · Session 11 T5 Mechanical properties I.pdf and Session 12 T5 Mechanical properties II.pdf"
+  },
   "subjects/business-management/teoria/topic-1.html": {
    "note": "vault/05 - Business Management/Topic 1 - The Firm - Types and Objectives.md",
    "html_title": "Topic 1: The Firm — Types and Objectives | Business Management",

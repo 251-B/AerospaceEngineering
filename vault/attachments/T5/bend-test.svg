@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Three-point bend test">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="120.0" y="150.0" width="400.0" height="24.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<polygon points="170.0,174.0 154.0,198.0 186.0,198.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="170.0" y1="246.0" x2="170.0" y2="207.4" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M170.0,202.0 L173.5,210.3 L166.5,210.3 Z" fill="#3b82f6"/>
+<text x="182.0" y="236.0" fill="#3b82f6" font-size="13" font-weight="400" text-anchor="start">F/2</text>
+<polygon points="470.0,174.0 454.0,198.0 486.0,198.0" fill="none" stroke="#4b5563" stroke-width="1.6" stroke-linejoin="round"/>
+<line x1="470.0" y1="246.0" x2="470.0" y2="207.4" stroke="#3b82f6" stroke-width="1.8"/>
+<path d="M470.0,202.0 L473.5,210.3 L466.5,210.3 Z" fill="#3b82f6"/>
+<text x="482.0" y="236.0" fill="#3b82f6" font-size="13" font-weight="400" text-anchor="start">F/2</text>
+<line x1="320.0" y1="50.0" x2="320.0" y2="140.0" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M320.0,146.0 L316.1,136.8 L323.9,136.8 Z" fill="#3b82f6"/>
+<text x="332.0" y="70.0" fill="#3b82f6" font-size="14" font-weight="700" text-anchor="start">F</text>
+<line x1="170.0" y1="276.0" x2="470.0" y2="276.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M170.0,276.0 L176.4,273.3 L176.4,278.7 Z" fill="#6b7280"/>
+<path d="M470.0,276.0 L463.6,278.7 L463.6,273.3 Z" fill="#6b7280"/>
+<text x="320.0" y="270.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">L</text>
+<line x1="540.0" y1="150.0" x2="540.0" y2="174.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M540.0,150.0 L542.7,156.4 L537.3,156.4 Z" fill="#6b7280"/>
+<path d="M540.0,174.0 L537.3,167.6 L542.7,167.6 Z" fill="#6b7280"/>
+<text x="554.0" y="166.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start">h</text>
+<text x="400.0" y="140.0" fill="#3b82f6" font-size="12.5" font-weight="400" text-anchor="start">compression (upper surface)</text>
+<text x="330.0" y="222.0" fill="#ec4899" font-size="12.5" font-weight="400" text-anchor="start">tension (lower surface)</text>
+<text x="120.0" y="128.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="start">b: width, into the page</text>
+</g></svg>

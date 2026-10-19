@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" class="fig-kit" style="max-width:640px;margin:0 auto;display:block" role="img" aria-label="Burgers vector in a compact and in a non-compact FCC direction">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="80.0" cy="170.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="108.0" cy="170.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="136.0" cy="170.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="164.0" cy="170.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="192.0" cy="170.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="220.0" cy="170.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="94.0" cy="194.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="122.0" cy="194.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="150.0" cy="194.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="178.0" cy="194.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="206.0" cy="194.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="136.0" y1="170.0" x2="159.2" y2="170.0" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M164.0,170.0 L156.6,173.1 L156.6,166.9 Z" fill="#f59e0b"/>
+<text x="150.0" y="146.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">b = 2R</text>
+<text x="150.0" y="40.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">compact direction [110]</text>
+<text x="150.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Eb ∝ 4R²</text>
+<circle cx="400.0" cy="120.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="400.0" cy="148.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="400.0" cy="176.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="428.0" cy="120.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="428.0" cy="148.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="428.0" cy="176.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="456.0" cy="120.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="456.0" cy="148.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="456.0" cy="176.0" r="14.0" fill="#3b82f6" fill-opacity="0.35" stroke="#3b82f6" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="400.0" y1="120.0" x2="424.6" y2="144.6" stroke="#f59e0b" stroke-width="2.0"/>
+<path d="M428.0,148.0 L420.6,145.0 L425.0,140.6 Z" fill="#f59e0b"/>
+<text x="440.0" y="104.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">b = 2√2 R</text>
+<text x="440.0" y="40.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">non-compact direction [100]</text>
+<text x="440.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">Eb ∝ 8R²</text>
+</g></svg>

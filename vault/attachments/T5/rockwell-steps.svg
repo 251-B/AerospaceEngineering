@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Three steps of the Rockwell test">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="40.0" y1="180.0" x2="200.0" y2="180.0" stroke="#4b5563" stroke-width="2.0"/>
+<polygon points="98.0,118.0 142.0,118.0 120.0,188.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="280.0" y1="180.0" x2="440.0" y2="180.0" stroke="#4b5563" stroke-width="2.0"/>
+<polygon points="338.0,146.0 382.0,146.0 360.0,216.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="410.0" y1="180.0" x2="410.0" y2="216.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M410.0,180.0 L412.7,186.4 L407.3,186.4 Z" fill="#6b7280"/>
+<path d="M410.0,216.0 L407.3,209.6 L412.7,209.6 Z" fill="#6b7280"/>
+<text x="424.0" y="202.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start">h<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="520.0" y1="180.0" x2="680.0" y2="180.0" stroke="#4b5563" stroke-width="2.0"/>
+<line x1="520.0" y1="188.0" x2="680.0" y2="188.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4,4"/>
+<polygon points="578.0,134.0 622.0,134.0 600.0,204.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="650.0" y1="188.0" x2="650.0" y2="204.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M650.0,188.0 L652.7,194.4 L647.3,194.4 Z" fill="#6b7280"/>
+<path d="M650.0,204.0 L647.3,197.6 L652.7,197.6 Z" fill="#6b7280"/>
+<text x="664.0" y="200.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start">h</text>
+<text x="120.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">1. preload</text>
+<text x="360.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">2. preload + additional load</text>
+<text x="600.0" y="262.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">3. additional load removed</text>
+</g></svg>

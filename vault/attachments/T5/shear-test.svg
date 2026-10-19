@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="100%" class="fig-kit" style="max-width:520px;margin:0 auto;display:block" role="img" aria-label="Shear test">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<rect x="130.0" y="70.0" width="160.0" height="160.0" fill="none" stroke="#8a94a6" stroke-width="1.2" stroke-dasharray="4,4" stroke-linejoin="round"/>
+<polygon points="130.0,230.0 290.0,230.0 330.0,70.0 170.0,70.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="130.0" y1="56.0" x2="170.0" y2="56.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M130.0,56.0 L136.4,53.3 L136.4,58.7 Z" fill="#6b7280"/>
+<path d="M170.0,56.0 L163.6,58.7 L163.6,53.3 Z" fill="#6b7280"/>
+<text x="150.0" y="50.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">a</text>
+<line x1="100.0" y1="70.0" x2="100.0" y2="230.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M100.0,70.0 L102.7,76.4 L97.3,76.4 Z" fill="#6b7280"/>
+<path d="M100.0,230.0 L97.3,223.6 L102.7,223.6 Z" fill="#6b7280"/>
+<text x="84.0" y="154.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end">h</text>
+<line x1="180.0" y1="40.0" x2="294.0" y2="40.0" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M300.0,40.0 L290.8,43.9 L290.8,36.1 Z" fill="#3b82f6"/>
+<text x="308.0" y="44.0" fill="#3b82f6" font-size="14" font-weight="700" text-anchor="start">F</text>
+<line x1="300.0" y1="262.0" x2="126.0" y2="262.0" stroke="#3b82f6" stroke-width="2.0"/>
+<path d="M120.0,262.0 L129.2,258.1 L129.2,265.9 Z" fill="#3b82f6"/>
+<text x="300.0" y="282.0" fill="#3b82f6" font-size="14" font-weight="700" text-anchor="start">F</text>
+<text x="146.0" y="208.0" fill="#4b5563" font-size="15" font-weight="400" text-anchor="start">θ</text>
+</g></svg>

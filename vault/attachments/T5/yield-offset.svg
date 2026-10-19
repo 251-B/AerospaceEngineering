@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="100%" class="fig-kit" style="max-width:700px;margin:0 auto;display:block" role="img" aria-label="Yield strength by the offset method and at a discontinuous yield">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<polyline points="60.0,300.0 61.3,297.0 62.6,294.0 63.9,291.0 65.2,288.0 66.5,285.0 67.8,282.0 69.1,279.0 70.4,276.0 71.7,273.0 73.0,270.0 74.3,267.0 75.6,264.0 76.9,261.0 78.2,258.0 79.5,255.0 80.8,252.0 82.1,249.0 83.4,246.0 84.7,243.0 86.0,240.0 87.3,237.0 88.6,234.0 89.9,231.0 91.2,228.0 92.5,225.0 93.8,222.0 95.1,219.0 96.4,216.0 97.7,213.0 99.0,210.0 100.3,207.0 101.6,204.0 102.9,201.0 104.2,198.0 105.5,195.0 106.8,190.6 108.1,186.3 109.4,182.2 110.7,178.1 112.0,174.3 113.3,170.5 114.6,166.9 115.9,163.4 117.2,160.0 118.5,156.7 119.8,153.6 121.1,150.5 122.4,147.5 123.7,144.7 125.0,141.9 126.3,139.2 127.6,136.6 128.9,134.1 130.2,131.7 131.5,129.3 132.8,127.0 134.1,124.8 135.4,122.7 136.7,120.7 138.0,118.7 139.3,116.7 140.6,114.9 141.9,113.1 143.2,111.3 144.5,109.7 145.8,108.0 147.1,106.5 148.4,104.9 149.7,103.5 151.0,102.0 152.3,100.7 153.6,99.3 154.9,98.0 156.2,96.8 157.5,95.6 158.8,94.4 160.1,93.3 161.4,92.2 162.7,91.1 164.0,90.1 165.3,89.1 166.6,88.2 167.9,87.3 169.2,86.4 170.5,85.5 171.8,84.7 173.1,83.9 174.4,83.1 175.7,82.3 177.0,81.6 178.3,80.9 179.6,80.2 180.9,79.5 182.2,78.9 183.5,78.3 184.8,77.7 186.1,77.1 187.4,76.5 188.7,76.0 190.0,75.5 191.3,75.0 192.6,74.5 193.9,74.0 195.2,73.5 196.5,73.1 197.8,72.7 199.1,72.2 200.4,71.8 201.7,71.5 203.0,71.1 204.3,70.7 205.6,70.4 206.9,70.0 208.2,69.7 209.5,69.4 210.8,69.1 212.1,68.8 213.4,68.5 214.7,68.2 216.0,67.9 217.3,67.7 218.6,67.4 219.9,67.2 221.2,66.9 222.5,66.7 223.8,66.5 225.1,66.3 226.4,66.1 227.7,65.9 229.0,65.7 230.3,65.5 231.6,65.3 232.9,65.1 234.2,65.0 235.5,64.8 236.8,64.7 238.1,64.5 239.4,64.4 240.7,64.2 242.0,64.1 243.3,63.9 244.6,63.8 245.9,63.7 247.2,63.6 248.5,63.5 249.8,63.3 251.1,63.2 252.4,63.1 253.7,63.0 255.0,62.9 256.3,62.8 257.6,62.7 258.9,62.6 260.2,62.6 261.5,62.5 262.8,62.4 264.1,62.3 265.4,62.2 266.7,62.2 268.0,62.1 269.3,62.0 270.6,62.0 271.9,61.9 273.2,61.8 274.5,61.8 275.8,61.7 277.1,61.7 278.4,61.6 279.7,61.6 281.0,61.5 282.3,61.5 283.6,61.4 284.9,61.4 286.2,61.3 287.5,61.3 288.8,61.2 290.1,61.2 291.4,61.1 292.7,61.1 294.0,61.1 295.3,61.0 296.6,61.0 297.9,61.0 299.2,60.9 300.5,60.9 301.8,60.9 303.1,60.9 304.4,60.8 305.7,60.8 307.0,60.8 308.3,60.7 309.6,60.7 310.9,60.7 312.2,60.7 313.5,60.7 314.8,60.6 316.1,60.6 317.4,60.6 318.7,60.6 320.0,60.6" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="86.0,300.0 181.7,79.1" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="181.7" cy="79.1" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="189.5" y="67.1" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">y</tspan></text>
+<text x="106.8" y="267.0" fill="#3b82f6" font-size="12" font-weight="400" text-anchor="start">0.2 % offset</text>
+<line x1="60.0" y1="300.0" x2="320.0" y2="300.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M320.0,300.0 L311.7,303.5 L311.7,296.5 Z" fill="#8a94a6"/>
+<line x1="60.0" y1="300.0" x2="60.0" y2="60.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M60.0,60.0 L63.5,68.3 L56.5,68.3 Z" fill="#8a94a6"/>
+<line x1="125.0" y1="300.0" x2="125.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="125.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.005</text>
+<line x1="190.0" y1="300.0" x2="190.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="190.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="255.0" y1="300.0" x2="255.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="255.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.015</text>
+<line x1="320.0" y1="300.0" x2="320.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="320.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.02</text>
+<line x1="55.0" y1="240.0" x2="60.0" y2="240.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="52.0" y="244.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="55.0" y1="180.0" x2="60.0" y2="180.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="52.0" y="184.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="55.0" y1="120.0" x2="60.0" y2="120.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="52.0" y="124.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="55.0" y1="60.0" x2="60.0" y2="60.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="52.0" y="64.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">800</text>
+<text x="320.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="68.0" y="64.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<text x="60.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">conventional yield strength</text>
+<polyline points="400.0,300.0 409.6,117.6 416.8,156.0 496.0,156.0 640.0,98.4" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linejoin="round"/>
+<line x1="400.0" y1="136.8" x2="640.0" y2="136.8" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4,4"/>
+<circle cx="409.6" cy="117.6" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="416.8" cy="156.0" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<text x="410.6" y="110.4" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">upper σ<tspan baseline-shift="sub" font-size="72%">max</tspan></text>
+<text x="420.2" y="170.4" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">lower σ<tspan baseline-shift="sub" font-size="72%">min</tspan></text>
+<text x="505.6" y="180.0" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">y</tspan> = (σ<tspan baseline-shift="sub" font-size="72%">max</tspan> + σ<tspan baseline-shift="sub" font-size="72%">min</tspan>)/2</text>
+<line x1="400.0" y1="300.0" x2="640.0" y2="300.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M640.0,300.0 L631.7,303.5 L631.7,296.5 Z" fill="#8a94a6"/>
+<line x1="400.0" y1="300.0" x2="400.0" y2="60.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M400.0,60.0 L403.5,68.3 L396.5,68.3 Z" fill="#8a94a6"/>
+<line x1="448.0" y1="300.0" x2="448.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="448.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="496.0" y1="300.0" x2="496.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="496.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.02</text>
+<line x1="544.0" y1="300.0" x2="544.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="544.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.03</text>
+<line x1="592.0" y1="300.0" x2="592.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="592.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.04</text>
+<line x1="640.0" y1="300.0" x2="640.0" y2="305.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="640.0" y="319.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.05</text>
+<line x1="395.0" y1="204.0" x2="400.0" y2="204.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="392.0" y="208.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">200</text>
+<line x1="395.0" y1="108.0" x2="400.0" y2="108.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="392.0" y="112.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<text x="640.0" y="338.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">strain ε</text>
+<text x="408.0" y="64.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">σ (MPa)</text>
+<text x="400.0" y="24.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">discontinuous yield</text>
+</g></svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Dislocation passing precipitate particles">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<circle cx="60.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="110.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="160.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="30.0" y1="120.0" x2="190.0" y2="120.0" stroke="#3b82f6" stroke-width="2.2"/>
+<line x1="50.0" y1="96.0" x2="50.0" y2="109.8" stroke="#ec4899" stroke-width="1.6"/>
+<path d="M50.0,114.0 L47.3,107.6 L52.7,107.6 Z" fill="#ec4899"/>
+<line x1="80.0" y1="96.0" x2="80.0" y2="109.8" stroke="#ec4899" stroke-width="1.6"/>
+<path d="M80.0,114.0 L77.3,107.6 L82.7,107.6 Z" fill="#ec4899"/>
+<line x1="110.0" y1="96.0" x2="110.0" y2="109.8" stroke="#ec4899" stroke-width="1.6"/>
+<path d="M110.0,114.0 L107.3,107.6 L112.7,107.6 Z" fill="#ec4899"/>
+<line x1="140.0" y1="96.0" x2="140.0" y2="109.8" stroke="#ec4899" stroke-width="1.6"/>
+<path d="M140.0,114.0 L137.3,107.6 L142.7,107.6 Z" fill="#ec4899"/>
+<line x1="170.0" y1="96.0" x2="170.0" y2="109.8" stroke="#ec4899" stroke-width="1.6"/>
+<path d="M170.0,114.0 L167.3,107.6 L172.7,107.6 Z" fill="#ec4899"/>
+<text x="110.0" y="275.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">(a) approach</text>
+<circle cx="235.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="285.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="335.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M205,120 Q285,92 365,120" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="285.0" y="275.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">(b) sub-critical</text>
+<circle cx="410.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="460.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="510.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M380,120 L410,120 A25,25 0 0 1 460,120 A25,25 0 0 1 510,120 L540,120" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="460.0" y="275.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">(c) critical</text>
+<circle cx="585.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="635.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="685.0" cy="215.0" r="9.0" fill="#f59e0b" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="555.0" y1="120.0" x2="715.0" y2="120.0" stroke="#3b82f6" stroke-width="2.2"/>
+<circle cx="585.0" cy="215.0" r="25.0" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<circle cx="635.0" cy="215.0" r="25.0" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<circle cx="685.0" cy="215.0" r="25.0" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="3,3" stroke-linejoin="round"/>
+<text x="635.0" y="275.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="middle">(d) escape</text>
+</g></svg>

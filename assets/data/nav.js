@@ -110,6 +110,10 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html",
               "label": "4 · Phase diagrams"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html",
+              "label": "5 · Mechanical properties"
             }
           ]
         },
