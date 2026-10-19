@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-19-close-solution-button",
+    "date": "2026-10-19",
+    "tag": "Portal",
+    "title": "Close button at the end of every worked solution",
+    "text": "Long solutions can now be folded from their last line. The button takes you back to the problem, so you no longer scroll up to the top of the solution to close it.",
+    "link": "subjects/engineering-mechanics/problemas/topic-1.html"
+  },
+  {
     "id": "2026-10-19-mechanics-problems-audit",
     "date": "2026-10-19",
     "tag": "Engineering Mechanics",

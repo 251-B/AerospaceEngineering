@@ -15,7 +15,7 @@
     'engineering-mechanics/teoria/topic-1', 'engineering-mechanics/problemas/topic-1',
     'fluid-mechanics/teoria/topic-3-1-rtt', 'fluid-mechanics/problemas/topic-2-kinematics',
     'advanced-maths/teoria/topic-1', 'advanced-maths/problemas/topic-1-problems', 'advanced-maths/problemas/index',
-    'aerospace-materials-1/teoria/topic-2-structure', 'aerospace-materials-1/problemas/topic-2-problems',
+    'aerospace-materials-1/teoria/topic-2-structure', 'aerospace-materials-1/problemas/topic-2-problems', 'aerospace-materials-1/problemas/topic-3-diffusion',
     'business-management/teoria/topic-1', 'business-management/problemas/topic-3-financial-statements', 'business-management/extra-problems/index', 'business-management/extra-problems/midterm-1-theory', 'business-management/extra-problems/midterm-1-problems', 'business-management/simulator/index',
     'fluid-mechanics/sources/index', 'engineering-mechanics/exams/index', 'fluid-mechanics/teoria/index'
   ];
@@ -24,7 +24,8 @@
   // Text on a solid accent fill keeps the page's own colour (dark ink on a bright accent), which is not clamped.
   var FILLED = '.step-badge, .alg-step, .pill-link.active, .p-pill.active, .nav-pill.active';
 
-  function probe(doc) {
+  // scope: audit only this element's text (the pass over an open worked solution checks its close bar only).
+  function probe(doc, scope) {
     var win = doc.defaultView;
     var cv = doc.createElement('canvas'); cv.width = cv.height = 1;
     var cx = cv.getContext('2d', { willReadFrequently: true });
@@ -46,7 +47,7 @@
     doc.querySelectorAll('.ae-quote-copied-tooltip').forEach(function (n) { n.classList.add('visible'); n.style.opacity = '1'; });
     var drawerOpen = !!doc.querySelector('.ae-nav.is-open');
     var bad = [], checked = 0, text = [];
-    var walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT), seen = new Set();
+    var walker = doc.createTreeWalker(scope || doc.body, NodeFilter.SHOW_TEXT), seen = new Set();
     while (walker.nextNode()) {
       var node = walker.currentNode, el = node.parentElement;
       if (!node.textContent.trim() || !el) continue;
@@ -107,6 +108,19 @@
               var menu = probe(f.contentDocument);
               out.bad = out.bad.concat(menu.bad).slice(0, 6); out.badCount += menu.badCount;
               out.sidebar = !!f.contentDocument.querySelector('.ae-nav.is-open .ae-nav__link.is-current');
+            }
+            // The "Close" bar of a worked solution only shows while the solution is open: open the first one
+            // (the side menu is closed first, as it locks the page) and audit the bar's text too.
+            var solution = f.contentDocument.querySelector('details.solution-details, details.problem-card');
+            if (solution) {
+              if (f.contentWindow.AESidebar) f.contentWindow.AESidebar.close();
+              solution.open = true;
+              var barEl = solution.querySelector(':scope > .sol-close-bar');
+              if (barEl) {
+                var bar = probe(f.contentDocument, barEl);
+                out.bad = out.bad.concat(bar.bad).slice(0, 6); out.badCount += bar.badCount;
+                out.solutionBar = bar.checked > 0;
+              } else out.solutionBar = false;
             }
             out.surface = attrs.getAttribute('data-surface'); out.theme = attrs.getAttribute('data-theme');
             out.picker = !!f.contentDocument.getElementById('surfacePicker');

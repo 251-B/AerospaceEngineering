@@ -27,9 +27,10 @@
  * same reason): appends <script src="assets/js/focus-lab.js">, <script src="assets/js/pomodoro.js">,
  * <script src="assets/data/updates.js"> (reached as ../data/updates.js from this file),
  * <script src="assets/js/updates.js">, <script src="assets/data/nav.js"> and
- * <script src="assets/js/sidebar.js"> next to this file,
- * so the study-sound widget, the Pomodoro timer, the updates bell and the side menu are on every
- * page that loads theme.js. Skipped in the PDF print mode (?print=...).
+ * <script src="assets/js/sidebar.js"> and <script src="assets/js/solution-close.js"> next to this file,
+ * so the study-sound widget, the Pomodoro timer, the updates bell, the side menu and the "Close" bar
+ * at the end of worked solutions are on every page that loads theme.js. Skipped in the PDF print
+ * mode (?print=...).
  */
 (function () {
   'use strict';
@@ -318,7 +319,7 @@
     if (!self || !self.src || /[?&]print=/.test(location.search)) return;
     // Each data file comes before its script: updates.js reads window.AE_UPDATES and sidebar.js
     // window.AE_NAV when they run.
-    ['focus-lab.js', 'pomodoro.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js'].forEach(function (name) {
+    ['focus-lab.js', 'pomodoro.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'solution-close.js'].forEach(function (name) {
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way
       script.src = self.src.replace(/theme\.js(\?.*)?$/, name);

@@ -150,7 +150,7 @@ class SurfacePagesTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_every_page_and_palette_was_audited(self):
-        self.assertEqual(len(self.results), 18 * 6)
+        self.assertEqual(len(self.results), 19 * 6)
         self.assertEqual([r for r in self.results if "error" in r], [])
 
     def test_palette_and_theme_were_applied(self):
@@ -166,6 +166,12 @@ class SurfacePagesTests(unittest.TestCase):
     def test_the_open_side_menu_was_audited_too(self):
         missing = [f"{r['page']} [{r['state']}]" for r in self.results if not r.get("sidebar")]
         self.assertEqual(missing, [], "the side menu was not open, with its current page marked, when its text was audited")
+
+    def test_the_close_bar_of_an_open_solution_was_audited_too(self):
+        audited = [r for r in self.results if "solutionBar" in r]
+        self.assertGreaterEqual(len(audited), 3 * 6)   # mechanics, fluids and materials problem pages
+        missing = [f"{r['page']} [{r['state']}]" for r in audited if not r["solutionBar"]]
+        self.assertEqual(missing, [], "a worked solution has no close bar, or its text was not audited")
 
     def test_text_is_aaa_on_every_page_and_palette(self):
         failures = [f"{r['page']} [{r['state']}] {r['badCount']} below AAA, e.g. {r['bad'][:3]}"

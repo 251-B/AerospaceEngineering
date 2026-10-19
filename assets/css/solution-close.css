@@ -1,0 +1,35 @@
+/* "Close" bar at the end of a worked solution (assets/js/solution-close.js, loaded on every page by
+   theme.js). Text colours come from the reading palette (--study-text-2, AAA on every palette's card)
+   with portal fallbacks; no accent-coloured text. The button sits on the left so the floating Focus and
+   Timer launchers (bottom right) never cover it. */
+.sol-close-bar {
+  --sc-text: var(--study-text-2, #cbd5e1);
+  --sc-text-strong: var(--study-text, #f8fafc);
+  --sc-border: rgba(255, 255, 255, .12);
+  --sc-hover: rgba(255, 255, 255, .06);
+  --sc-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  display: flex; justify-content: flex-start; flex-wrap: wrap;
+  box-sizing: border-box; padding: 12px 18px;
+  border-top: 1px solid var(--border-subtle, var(--sc-border));
+}
+html[data-theme="light"] .sol-close-bar {
+  --sc-text: var(--study-text-2, #334155);
+  --sc-text-strong: var(--study-text, #0f172a);
+  --sc-border: rgba(15, 23, 42, .14);
+  --sc-hover: rgba(15, 23, 42, .06);
+}
+.sol-close {
+  display: inline-flex; align-items: center; gap: 8px; max-width: 100%;
+  margin: 0; padding: 8px 14px; box-sizing: border-box;
+  font: 600 .8rem/1.2 var(--sc-mono); letter-spacing: .04em;
+  color: var(--sc-text); background: transparent; cursor: pointer;
+  border: 1px solid var(--border-subtle, var(--sc-border)); border-radius: 8px;
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+.sol-close svg { flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.sol-close:hover { color: var(--sc-text-strong); background: var(--sc-hover); border-color: var(--text-secondary, currentColor); }
+.sol-close:focus-visible { outline: 2px solid var(--accent, #f59e0b); outline-offset: 2px; }
+
+@media print {
+  .sol-close-bar { display: none !important; }
+}

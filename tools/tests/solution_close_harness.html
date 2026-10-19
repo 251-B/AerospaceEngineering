@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>solution-close.js harness</title>
+<!-- Driven by test_solution_close.py through headless Edge/Chrome (--dump-dom). Real portal pages load in
+     iframes (theme.js brings the close bars in, like in production), one at a time. -->
+</head>
+<body>
+<pre id="results">PENDING</pre>
+<script>
+(function () {
+  var results = [];
+  var MECH = '../../subjects/engineering-mechanics/problemas/topic-1.html';
+  var FLUID = '../../subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html';
+  var MATERIALS = '../../subjects/aerospace-materials-1/problemas/topic-4-phase-diagrams.html';
+
+  function record(name, ok, detail) {
+    results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) });
+  }
+
+  function frame(src, width) {
+    return new Promise(function (resolve) {
+      var f = document.createElement('iframe');
+      f.style.cssText = 'width:' + (width || 1100) + 'px;height:800px;border:0';
+      f.onload = function () {
+        var d = f.contentDocument;
+        // Headless virtual time does not advance transitions or smooth scrolling: measure without them.
+        var s = d.createElement('style');
+        // Some pages set `html { scroll-behavior: smooth }`, which would also leave scrolls unfinished.
+        s.textContent = '*{transition:none!important;animation:none!important}html{scroll-behavior:auto!important}';
+        d.head.appendChild(s);
+        var w = f.contentWindow;
+        if (w.scrollTo) {
+          var orig = w.scrollTo.bind(w);
+          w.scrollTo = function (o) { orig(typeof o === 'object' ? { top: o.top, left: o.left } : o); };
+        }
+        setTimeout(function () { resolve(f); }, 900);
+      };
+      f.src = src;
+      document.body.appendChild(f);
+    });
+  }
+
+  function q(f, sel) { return f.contentDocument.querySelector(sel); }
+  function qa(f, sel) { return f.contentDocument.querySelectorAll(sel); }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function headerBottom(f) {
+    var h = q(f, 'body > .site-header');
+    return h ? h.getBoundingClientRect().bottom : 0;
+  }
+
+  // One page with <details> solutions: structure, then open the last one, read to its end and close it.
+  function checkPage(label, src, sel, summarySel, text) {
+    var f;
+    return frame(src).then(function (fr) {
+      f = fr;
+      var all = qa(f, sel);
+      var bars = qa(f, sel + ' > .sol-close-bar');
+      record(label + ': one close bar per solution', all.length > 2 && bars.length === all.length, all.length + ' vs ' + bars.length);
+      var btn = q(f, sel + ' > .sol-close-bar > button.sol-close');
+      record(label + ': the button is labelled "' + text + '" and is a real button', btn && btn.type === 'button' &&
+        btn.textContent.trim() === text && !!btn.querySelector('svg[aria-hidden="true"]'), btn && btn.outerHTML.slice(0, 120));
+      var last = all[all.length - 1];
+      record(label + ': the bar is the last child of the <details>', last.lastElementChild.classList.contains('sol-close-bar'), last.lastElementChild.className);
+      if (sel === 'details.solution-details') {
+        var content = last.querySelector(':scope > .solution-content');
+        record(label + ': the bar follows .solution-content, whose last phase keeps :last-child',
+          content && content.nextElementSibling === last.lastElementChild &&
+          content.lastElementChild.classList.contains('phase-block'), '');
+      }
+      f.contentWindow.AESolutionClose.init();
+      f.contentWindow.AESolutionClose.init();
+      record(label + ': running init again adds no second bar', qa(f, sel + ' > .sol-close-bar').length === all.length, qa(f, sel + ' > .sol-close-bar').length);
+      // Read the last solution to its end.
+      last.open = true;
+      var bar = last.lastElementChild;
+      bar.scrollIntoView({ block: 'center' });
+      return wait(150);
+    }).then(function () {
+      var last = Array.prototype.slice.call(qa(f, sel)).pop();
+      var summary = last.querySelector(':scope > ' + summarySel);
+      var before = summary.getBoundingClientRect().top;
+      record(label + ': before closing, the summary is far above the visible area', before < 0, before);
+      last.lastElementChild.querySelector('button').click();
+      return wait(150).then(function () {
+        var rect = summary.getBoundingClientRect();
+        record(label + ': clicking the button folds the <details>', last.open === false, last.open);
+        record(label + ': the focus moves to the summary', f.contentDocument.activeElement === summary, f.contentDocument.activeElement.tagName);
+        record(label + ': the summary ends up visible, below the sticky header',
+          rect.top >= headerBottom(f) - 1 && rect.bottom <= f.contentWindow.innerHeight, rect.top + ' / header ' + headerBottom(f));
+        // A solution closed from near the top does not make the page jump.
+        var first = qa(f, sel)[0];
+        first.open = true;
+        first.lastElementChild.scrollIntoView({ block: 'end' });
+        return wait(100).then(function () {
+          var s1 = first.querySelector(':scope > ' + summarySel);
+          var y = f.contentWindow.pageYOffset;
+          first.open = false;
+          // With the summary already inside the viewport the script leaves the scroll position alone.
+          s1.scrollIntoView({ block: 'center' });
+          first.open = true;
+          var y2 = f.contentWindow.pageYOffset;
+          first.lastElementChild.querySelector('button').click();
+          record(label + ': a summary that is already visible is not scrolled', f.contentWindow.pageYOffset === y2, y2 + ' -> ' + f.contentWindow.pageYOffset);
+        });
+      });
+    }).then(function () { f.remove(); });
+  }
+
+  function scenarios() {
+    return checkPage('mechanics', MECH, 'details.solution-details', 'summary.solution-summary', 'Close solution')
+    .then(function () {
+      return checkPage('fluids', FLUID, 'details.solution-details', 'summary.solution-summary', 'Close solution');
+    }).then(function () {
+      return checkPage('materials', MATERIALS, 'details.problem-card', 'summary.problem-summary', 'Close problem');
+    }).then(function () {
+      return frame(MECH + '?print=1');
+    }).then(function (f) {
+      record('print mode (?print=) adds no bar', !q(f, '.sol-close-bar') && !f.contentWindow.AESolutionClose, qa(f, '.sol-close-bar').length);
+      f.remove();
+      return frame(MECH, 390);
+    }).then(function (f) {
+      var btn = q(f, '.sol-close');
+      var r = btn.getBoundingClientRect();
+      record('on a phone the button stays inside the screen', r.width > 0 && r.right <= 390, r.right);
+      var cs = f.contentWindow.getComputedStyle(q(f, '.sol-close-bar'));
+      record('the bar is hidden by @media print only, not on screen', cs.display === 'flex', cs.display);
+      f.remove();
+    });
+  }
+
+  scenarios().then(function () {
+    document.getElementById('results').textContent = JSON.stringify(results);
+  }, function (e) {
+    record('harness crashed', false, e && e.stack || e);
+    document.getElementById('results').textContent = JSON.stringify(results);
+  });
+})();
+</script>
+</body>
+</html>
