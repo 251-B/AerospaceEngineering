@@ -5,8 +5,8 @@
 <line x1="330.0" y1="320.0" x2="330.0" y2="111.9" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="4,4"/>
 <circle cx="330.0" cy="123.6" r="4" fill="#f59e0b" stroke="#4b5563" stroke-width="1"/>
 <circle cx="330.0" cy="111.9" r="4" fill="#3b82f6" stroke="#4b5563" stroke-width="1"/>
-<text x="332.2" y="128.1" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">M</text>
-<text x="332.2" y="106.9" fill="#4b5563" font-size="13" font-weight="700" text-anchor="start">M′</text>
+<text x="323.5" y="139.6" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">M</text>
+<text x="319.2" y="104.0" fill="#4b5563" font-size="13" font-weight="700" text-anchor="end">M′</text>
 <text x="373.3" y="74.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="start">true curve</text>
 <text x="373.3" y="167.8" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="start">engineering curve</text>
 <line x1="70.0" y1="320.0" x2="590.0" y2="320.0" stroke="#8a94a6" stroke-width="1.3"/>

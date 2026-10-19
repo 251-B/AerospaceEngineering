@@ -9,10 +9,10 @@
 <path d="M240.0,200.0 L246.4,197.3 L246.4,202.7 Z" fill="#6b7280"/>
 <path d="M480.0,200.0 L473.6,202.7 L473.6,197.3 Z" fill="#6b7280"/>
 <text x="360.0" y="190.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">reduced section 60 mm</text>
-<line x1="26.0" y1="80.0" x2="26.0" y2="150.0" stroke="#6b7280" stroke-width="1.1"/>
-<path d="M26.0,80.0 L28.7,86.4 L23.3,86.4 Z" fill="#6b7280"/>
-<path d="M26.0,150.0 L23.3,143.6 L28.7,143.6 Z" fill="#6b7280"/>
-<text x="6.0" y="119.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="end">18 mm</text>
+<line x1="70.0" y1="80.0" x2="70.0" y2="150.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M70.0,80.0 L72.7,86.4 L67.3,86.4 Z" fill="#6b7280"/>
+<path d="M70.0,150.0 L67.3,143.6 L72.7,143.6 Z" fill="#6b7280"/>
+<text x="82.0" y="119.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="start">18 mm</text>
 <line x1="360.0" y1="97.0" x2="360.0" y2="133.0" stroke="#6b7280" stroke-width="1.1"/>
 <path d="M360.0,97.0 L362.7,103.4 L357.3,103.4 Z" fill="#6b7280"/>
 <path d="M360.0,133.0 L357.3,126.6 L362.7,126.6 Z" fill="#6b7280"/>

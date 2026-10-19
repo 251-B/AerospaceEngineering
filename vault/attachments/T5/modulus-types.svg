@@ -6,11 +6,11 @@
 <polyline points="340.0,78.6 556.0,44.5" fill="none" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="6,4" stroke-linejoin="round"/>
 <circle cx="286.0" cy="125.5" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <circle cx="448.0" cy="61.5" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
-<text x="205.0" y="161.6" fill="#3b82f6" font-size="13" font-weight="400" text-anchor="start">initial E (ε &lt; 0.5 %)</text>
-<text x="377.8" y="47.0" fill="#10b981" font-size="13" font-weight="400" text-anchor="start">secant E</text>
-<text x="334.6" y="98.2" fill="#ec4899" font-size="13" font-weight="400" text-anchor="end">tangent E at σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
-<text x="291.4" y="129.5" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
-<text x="453.4" y="67.5" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="75.4" y="136.4" fill="#3b82f6" font-size="13" font-weight="400" text-anchor="start">initial E (ε &lt; 0.5 %)</text>
+<text x="359.4" y="35.5" fill="#10b981" font-size="13" font-weight="400" text-anchor="end">secant E</text>
+<text x="404.8" y="35.5" fill="#ec4899" font-size="13" font-weight="400" text-anchor="start">tangent E at σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<text x="293.6" y="140.5" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<text x="455.6" y="77.7" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
 <line x1="70.0" y1="330.0" x2="610.0" y2="330.0" stroke="#8a94a6" stroke-width="1.3"/>
 <path d="M610.0,330.0 L601.7,333.5 L601.7,326.5 Z" fill="#8a94a6"/>
 <line x1="70.0" y1="330.0" x2="70.0" y2="30.0" stroke="#8a94a6" stroke-width="1.3"/>

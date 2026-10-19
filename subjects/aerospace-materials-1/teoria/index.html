@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aerospace Materials I — Índice de Teoría</title>
+  <title>Aerospace Materials I — Theory Index</title>
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -272,6 +272,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
   <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
@@ -294,6 +295,13 @@
   </nav>
 
   <main class="container">
+    <nav class="subject-tabs" aria-label="Aerospace Materials I sections">
+      <a class="subject-tab" href="../teoria/index.html" aria-current="page">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <span class="subject-tab" aria-disabled="true">Extra problems <span class="subject-tab__soon">Soon</span></span>
+      <span class="subject-tab" aria-disabled="true">Exam simulator <span class="subject-tab__soon">Soon</span></span>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
     <!-- Header -->
     <header class="page-header">
       <div class="icon" aria-hidden="true">
@@ -310,7 +318,7 @@
         </svg>
       </div>
       <h1><span class="accent">Aerospace Materials I</span></h1>
-      <p data-i18n="materials.theory_subtitle">Teoría y Conceptos — Índice de Temas</p>
+      <p>Theory and concepts — index of topics</p>
     </header>
 
     <!-- Topics list -->
@@ -319,20 +327,20 @@
       <a href="topic-1-bonding.html" class="topic-card">
         <div class="topic-accent"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.topic_1_num">Tema 1 · Sesiones 1–2</span>
-          <h2 class="topic-title">Bonding in Solids & Material Properties</h2>
-          <p class="topic-desc" data-i18n="materials.topic_1_desc">Atomic bonding mechanisms, interatomic potential well $E(r)$, lattice energy, and correlation with macroscopic properties.</p>
+          <span class="topic-number">Topic 1 · Sessions 1–2</span>
+          <h2 class="topic-title">Bonding in Solids &amp; Material Properties</h2>
+          <p class="topic-desc">Atomic bonding mechanisms, interatomic potential well $E(r)$, lattice energy, and correlation with macroscopic properties.</p>
           <div class="content-badges">
-            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_1_badge_theory">6 módulos teóricos</span></span>
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_1_badge_problems">4 problemas de examen</span></span>
-            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.topic_1_badge_sim">Diagramas SVG</span></span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>7 sections</span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>4 exam questions</span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Figures</span>
           </div>
           <div class="topic-tags">
-            <span class="tag" data-i18n="materials.tag_ionic">Iónico</span>
-            <span class="tag" data-i18n="materials.tag_covalent">Covalente</span>
-            <span class="tag" data-i18n="materials.tag_metallic">Metálico</span>
+            <span class="tag">Ionic</span>
+            <span class="tag">Covalent</span>
+            <span class="tag">Metallic</span>
             <span class="tag">Born-Haber</span>
-            <span class="tag" data-i18n="materials.tag_bands">Bandas de energía</span>
+            <span class="tag">Energy bands</span>
             <span class="tag">$E(r)$</span>
           </div>
         </div>
@@ -342,20 +350,20 @@
       <a href="topic-2-structure.html" class="topic-card">
         <div class="topic-accent"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.topic_2_num">Tema 2 · Sesiones 3–4</span>
-          <h2 class="topic-title">Structure of Materials I & II</h2>
-          <p class="topic-desc" data-i18n="materials.topic_2_desc">Crystal systems, Bravais lattices, Miller indices, and crystallographic analysis of point defects, dislocations, and grain boundaries.</p>
+          <span class="topic-number">Topic 2 · Sessions 3–4</span>
+          <h2 class="topic-title">Structure of Materials I &amp; II</h2>
+          <p class="topic-desc">Crystal systems, Bravais lattices, Miller indices, and crystallographic analysis of point defects, dislocations, and grain boundaries.</p>
           <div class="content-badges">
-            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_2_badge_theory">21 módulos teóricos</span></span>
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_2_badge_problems">26 problemas resueltos</span></span>
-            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.topic_2_badge_sim">Diagramas SVG</span></span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>21 sections</span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>26 solved problems</span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Figures</span>
           </div>
           <div class="topic-tags">
             <span class="tag">Bravais</span>
             <span class="tag">APF</span>
             <span class="tag">Miller</span>
-            <span class="tag" data-i18n="materials.tag_vacancies">Vacantes</span>
-            <span class="tag" data-i18n="materials.tag_dislocations">Dislocaciones</span>
+            <span class="tag">Vacancies</span>
+            <span class="tag">Dislocations</span>
             <span class="tag">Burgers $\vec{b}$</span>
           </div>
         </div>
@@ -365,20 +373,20 @@
       <a href="topic-3-diffusion.html" class="topic-card">
         <div class="topic-accent"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.topic_3_num">Tema 3 · Sesión 5</span>
+          <span class="topic-number">Topic 3 · Session 5</span>
           <h2 class="topic-title">Diffusion in Solids</h2>
-          <p class="topic-desc" data-i18n="materials.topic_3_desc">Fick's diffusion laws, Arrhenius thermal dependence $D(T)$, and non-steady-state error function solutions in solid mass transport.</p>
+          <p class="topic-desc">Fick's diffusion laws, Arrhenius thermal dependence $D(T)$, and non-steady-state error function solutions in solid mass transport.</p>
           <div class="content-badges">
-            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_3_badge_theory">6 módulos teóricos</span></span>
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_3_badge_problems">6 problemas resueltos</span></span>
-            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.topic_3_badge_sim">Diagramas SVG</span></span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>11 sections</span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>6 solved problems</span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Figures</span>
           </div>
           <div class="topic-tags">
             <span class="tag">Fick 1</span>
             <span class="tag">Fick 2</span>
             <span class="tag">$\mathrm{erf}(z)$</span>
             <span class="tag">Arrhenius</span>
-            <span class="tag" data-i18n="materials.tag_carburization">Carburación</span>
+            <span class="tag">Carburizing</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -387,19 +395,19 @@
       <a href="topic-4-phase-diagrams.html" class="topic-card">
         <div class="topic-accent"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.topic_4_num">Tema 4 · Sesiones 7–10</span>
+          <span class="topic-number">Topic 4 · Sessions 7–10</span>
           <h2 class="topic-title">Phase Diagrams and Solidification</h2>
-          <p class="topic-desc" data-i18n="materials.topic_4_desc">Phases and microconstituents, the lever rule, eutectic systems, invariant reactions, intermetallic compounds, the Fe-C system with the microstructures of steels, and ceramic and ternary diagrams.</p>
+          <p class="topic-desc">Phases and microconstituents, the lever rule, eutectic systems, invariant reactions, intermetallic compounds, the Fe-C system with the microstructures of steels, and ceramic and ternary diagrams.</p>
           <div class="content-badges">
-            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="materials.topic_4_badge_theory">18 módulos teóricos</span></span>
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.topic_4_badge_problems">26 problemas resueltos</span></span>
-            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.topic_4_badge_sim">Diagramas SVG</span></span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>18 sections</span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>26 solved problems</span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Figures</span>
           </div>
           <div class="topic-tags">
             <span class="tag">Gibbs</span>
-            <span class="tag" data-i18n="materials.tag_lever_rule">Regla de la palanca</span>
+            <span class="tag">Lever rule</span>
             <span class="tag">Pb-Sn</span>
-            <span class="tag" data-i18n="materials.tag_eutectic">Eutéctico</span>
+            <span class="tag">Eutectic</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -412,7 +420,8 @@
           <h2 class="topic-title">Mechanical Properties</h2>
           <p class="topic-desc">The tensile test and the stress-strain curve, elastic and plastic behaviour, toughness and resilience, true stress and strain, strengthening mechanisms and hardness tests.</p>
           <div class="content-badges">
-            <span class="cbadge theory">Theory and figures</span>
+            <span class="cbadge theory"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>20 sections</span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Figures</span>
           </div>
           <div class="topic-tags">
             <span class="tag">Tensile test</span>
@@ -433,7 +442,7 @@
   </main>
 
   <footer class="page-footer">
-    <div class="container" data-i18n="materials.footer">Aerospace Materials I · 2º Ingeniería Aeroespacial · UC3M</div>
+    <div class="container">Aerospace Materials I · 2nd year BSc Aerospace Engineering · UC3M</div>
   </footer>
 
   <script src="../../../assets/js/quotes.js"></script>

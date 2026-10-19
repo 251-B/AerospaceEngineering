@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="100%" class="fig-kit" style="max-width:720px;margin:0 auto;display:block" role="img" aria-label="Indenters of the Brinell, Vickers and Rockwell tests">
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
 <circle cx="130.0" cy="130.0" r="60.0" fill="#3b82f6" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1.6" stroke-linejoin="round"/>
-<polyline points="95.0,190.0 130.0,206.0 165.0,190.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M95,190 Q130,214 165,190" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
 <line x1="40.0" y1="190.0" x2="240.0" y2="190.0" stroke="#4b5563" stroke-width="2.0"/>
 <line x1="210.0" y1="70.0" x2="210.0" y2="190.0" stroke="#6b7280" stroke-width="1.1"/>
 <path d="M210.0,70.0 L212.7,76.4 L207.3,76.4 Z" fill="#6b7280"/>
@@ -16,6 +16,10 @@
 <polygon points="338.0,190.0 382.0,190.0 360.0,208.0" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
 <line x1="300.0" y1="190.0" x2="430.0" y2="190.0" stroke="#4b5563" stroke-width="2.0"/>
 <text x="400.0" y="84.0" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">136°</text>
+<line x1="338.0" y1="218.0" x2="382.0" y2="218.0" stroke="#6b7280" stroke-width="1.1"/>
+<path d="M338.0,218.0 L344.4,215.3 L344.4,220.7 Z" fill="#6b7280"/>
+<path d="M382.0,218.0 L375.6,220.7 L375.6,215.3 Z" fill="#6b7280"/>
+<text x="360.0" y="234.0" fill="#6b7280" font-size="14" font-weight="400" text-anchor="middle">d</text>
 <text x="360.0" y="262.0" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">Vickers (HV)</text>
 <polygon points="560.0,40.0 620.0,40.0 590.0,130.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-linejoin="round"/>
 <path d="M575,190 Q590,204 605,190" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>

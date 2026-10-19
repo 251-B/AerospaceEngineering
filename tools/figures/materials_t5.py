@@ -22,7 +22,7 @@ class M:
     def p(self, x, y):
         return (self.x0 + x * self.sx, self.y0 - y * self.sy)
 
-    def axes(self, c, xmax, ymax, xl, yl, xt=(), yt=()):
+    def axes(self, c, xmax, ymax, xl, yl, xt=(), yt=(), xl_dy=38):
         line(c, self.p(0, 0), self.p(xmax, 0), "EDGE", 1.3, head=True)
         line(c, self.p(0, 0), self.p(0, ymax), "EDGE", 1.3, head=True)
         for v, s in xt:
@@ -34,7 +34,7 @@ class M:
             line(c, (x - 5, y), (x, y), "EDGE", 1.1)
             text(c, (x - 8, y + 4), s, "TEXT", "end", 12)
         x, y = self.p(xmax, 0)
-        text(c, (x, y + 38), xl, "HEAD", "end", 13, "700")
+        text(c, (x, y + xl_dy), xl, "HEAD", "end", 13, "700")
         x, y = self.p(0, ymax)
         text(c, (x + 8, y + 4), yl, "HEAD", "start", 13, "700")
 
@@ -74,6 +74,35 @@ def stress_strain(e):
     return None
 
 
+def bond_force_curves():
+    c = Canvas(640, 330)
+    m = M(130, 150, 170, 62)
+
+    def force(d, a):
+        return lambda x: 2 * d * a * (math.exp(-a * x) - math.exp(-2 * a * x))
+
+    def clip(fn):
+        return lambda x: fn(x) if -2.1 <= fn(x) <= 1.9 else None
+
+    line(c, m.p(-0.6, 0), m.p(2.9, 0), "EDGE", 1.3, head=True)
+    line(c, m.p(-0.6, -2.2), m.p(-0.6, 1.9), "EDGE", 1.3, head=True)
+    text(c, m.p(2.9, 0), "separation r", "HEAD", "end", 13, "700", 0, 24)
+    text(c, m.p(-0.6, 1.9), "force F", "HEAD", "start", 13, "700", 8, 4)
+    for d, col in ((1.6, "PINK"), (0.8, "BLUE")):
+        a = 1.4
+        m.poly(c, sample(clip(force(d, a)), -0.45, 2.9, 260), col, 2.4)
+        s = 2 * d * a * a
+        m.poly(c, [(-0.28, -0.28 * s), (0.28, 0.28 * s)], col, 1.4, "5,4")
+    line(c, m.p(0, 0.08), m.p(0, -0.08), "EDGE", 1.2)
+    text(c, m.p(0.12, 0), "r0", "HEAD", "start", 13, "400", 0, 18)
+    m.text(c, 1.2, 1.35, "strongly bonded", "PINK", "start", 13, "700")
+    m.text(c, 1.2, -0.55, "weakly bonded", "BLUE", "start", 13, "700")
+    m.text(c, 0.9, -1.35, "dashed: slope (dF/dr) at r0", "TEXT", "start", 12)
+    m.text(c, 0.9, -1.75, "steeper slope = larger E", "TEXT", "start", 12)
+    REG.put("bond-force-curves", c, "Interatomic force against separation for a strong and a weak bond",
+            "Interatomic force against separation for a strongly and a weakly bonded material: E is proportional to the slope at r0 (schematic)")
+
+
 def specimen_geometry():
     c = Canvas(760, 250)
     pts = [(40, 80), (200, 80), (240, 97), (480, 97), (520, 80), (720, 80), (720, 150), (520, 150),
@@ -81,7 +110,7 @@ def specimen_geometry():
     poly(c, pts, "HEAD", 1.8, None, "none", True)
     dim(c, (290, 168), (430, 168), "gauge length 50 mm", lab_off=(0, -10))
     dim(c, (240, 200), (480, 200), "reduced section 60 mm", lab_off=(0, -10))
-    dim(c, (26, 80), (26, 150), "18 mm", lab_off=(-20, 4), anchor="end")
+    dim(c, (70, 80), (70, 150), "18 mm", lab_off=(12, 4), anchor="start")
     dim(c, (360, 97), (360, 133), "0.505 D", lab_off=(48, 4), anchor="start")
     text(c, (220, 66), "radius 10 mm", "TEXT", "middle", 12)
     text(c, (120, 178), "grip", "TEXT", "middle", 12)
@@ -103,11 +132,12 @@ def curve_regions():
     m.dot(c, 0.06, 800)
     m.dot(c, 0.11, 560)
     m.text(c, 0.0005, 530, sub("σ", "y"))
-    m.text(c, 0.0006, 360, "elastic zone (σ &lt; σy)", "GREEN", "start", 12, "700")
+    line(c, m.p(0.0025, 250), m.p(0.0085, 340), "GREEN", 1.2)
+    m.text(c, 0.009, 330, "elastic zone (σ &lt; σy)", "GREEN", "start", 12, "700")
     m.text(c, 0.03, 150, "plastic zone (" + "σ &gt; " + sub("σ", "y") + ")", "PINK", "middle", 13, "700")
     m.text(c, 0.062, 825, "tensile strength (UTS)")
     m.text(c, 0.113, 545, "fracture stress")
-    m.text(c, 0.06, 30, "uniform deformation", "HEAD", "middle", 12)
+    m.text(c, 0.0615, 30, "uniform deformation", "HEAD", "start", 12)
     m.axes(c, 0.12, 900, "engineering strain ε", "stress σ (MPa)",
            xt=[(0.02, "0.02"), (0.04, "0.04"), (0.06, "0.06"), (0.08, "0.08"), (0.10, "0.10"), (0.12, "0.12")],
            yt=[(200, "200"), (400, "400"), (600, "600"), (800, "800")])
@@ -132,11 +162,11 @@ def modulus_types():
     m.poly(c, [(0.025, s2 + k2 * (0.025 - e2)), (0.045, s2 + k2 * (0.045 - e2))], "PINK", 1.5, "6,4")
     m.dot(c, e1, f(e1))
     m.dot(c, e2, s2)
-    m.text(c, 0.0125, 1235, "initial " + "E (" + "ε &lt; 0.5 %)", "BLUE")
-    m.text(c, 0.0285, 2075, "secant E", "GREEN")
-    m.text(c, 0.0245, 1700, "tangent E at " + sub("σ", "2"), "PINK", "end")
-    m.text(c, 0.0205, 1470, sub("σ", "1"))
-    m.text(c, 0.0355, 1925, sub("σ", "2"))
+    m.text(c, 0.0005, 1420, "initial E (ε &lt; 0.5 %)", "BLUE")
+    m.text(c, 0.0268, 2160, "secant E", "GREEN", "end")
+    m.text(c, 0.031, 2160, "tangent E at " + sub("σ", "2"), "PINK")
+    m.text(c, 0.0207, 1390, sub("σ", "1"))
+    m.text(c, 0.0357, 1850, sub("σ", "2"))
     m.axes(c, 0.05, 2200, "strain ε", "σ (MPa)",
            xt=[(0.01, "0.01"), (0.02, "0.02"), (0.03, "0.03"), (0.04, "0.04"), (0.05, "0.05")],
            yt=[(500, "500"), (1000, "1000"), (1500, "1500"), (2000, "2000")])
@@ -166,7 +196,7 @@ def material_curves():
         m.poly(c, sample(fn, 0, end, 120), "ACC", 2.6)
         m.dot(c, end, fn(end), "HEAD", "HEAD")
         m.text(c, 0.0, 1.16, title, "HEAD", "start", 12.5, "700")
-        m.axes(c, 1.0, 1.0, "ε", "σ")
+        m.axes(c, 1.0, 1.0, "ε", "σ", xl_dy=16)
     REG.put("material-curves", c, "Qualitative tensile curves of four material families",
             "Qualitative tensile curves of a metal, a thermoplastic above its glass transition, an elastomer and a ceramic, as on the slide")
 
@@ -175,6 +205,7 @@ def poisson():
     c = Canvas(640, 330)
     rect(c, 70, 90, 120, 170, "EDGE", 1.4, "4,4")
     text(c, (130, 286), "before load", "TEXT", "middle", 13)
+    rect(c, 340, 80, 120, 170, "EDGE", 1.2, "4,4")
     rect(c, 348, 67, 104, 196, "HEAD", 1.8)
     text(c, (400, 322), "under axial tension", "TEXT", "middle", 13)
     arrow(c, (400, 30), (400, 62), "BLUE", 1.8, 9)
@@ -183,7 +214,7 @@ def poisson():
     arrow(c, (316, 165), (344, 165), "PINK", 1.8, 8)
     arrow(c, (484, 165), (456, 165), "PINK", 1.8, 8)
     text(c, (300, 150), "Δl (lateral)/2", "PINK", "end", 13)
-    text(c, (462, 100), "Δl (axial)/2", "BLUE", "start", 13)
+    text(c, (474, 100), "Δl (axial)/2", "BLUE", "start", 13)
     text(c, (70, 40), "ν = −ε_transverse / ε_longitudinal", "HEAD", "start", 14, "700")
     REG.put("poisson", c, "Lateral contraction under an axial tension",
             "Axial stretch of a block and the lateral contraction that goes with it (isotropic material, uniaxial stress). Not to scale")
@@ -223,7 +254,7 @@ def shear_test():
 
 
 def load_unload():
-    c = Canvas(640, 340)
+    c = Canvas(640, 360)
     m = M(70, 310, 520 / 0.02, 260 / 700)
     m.poly(c, [(0, 0), (0.005, 500)] + [(0.005 + 0.007 * i / 40, 500 + 150 * i / 40) for i in range(1, 41)],
            "HEAD", 2.4)
@@ -231,10 +262,11 @@ def load_unload():
     m.dot(c, 0.005, 500)
     m.dot(c, 0.0055, 0)
     m.dot(c, 0.012, 650, "HEAD", "ACC")
-    m.text(c, 0.0003, 532, sub("σ", "y"))
+    m.guide(c, (0, 500), (0.005, 500))
+    m.text(c, 0.0052, 470, sub("σ", "y"))
     m.text(c, 0.0125, 660, "load at P", "HEAD")
     m.text(c, 0.0125, 240, "unloading (slope E)", "ACC")
-    m.text(c, 0.0058, 40, "permanent strain " + sub("ε", "p"), "HEAD")
+    m.text(c, 0.0068, 45, "permanent strain " + sub("ε", "p"), "HEAD")
     m.axes(c, 0.02, 700, "strain ε", "stress σ (MPa)",
            xt=[(0.005, "0.005"), (0.01, "0.01"), (0.015, "0.015"), (0.02, "0.02")],
            yt=[(200, "200"), (400, "400"), (600, "600")])
@@ -278,7 +310,7 @@ def ductility_recovery():
     m.dot(c, ef, 0, "HEAD", "HEAD")
     m.text(c, 0.1, sf + 40, "fracture", "HEAD", "middle", 12.5, "700")
     m.text(c, 0.07, 170, "elastic recovery", "BLUE")
-    m.text(c, ef + 0.001, 42, "plastic elongation " + sub("ε", "p") + " (%EL)", "HEAD", "start", 12)
+    m.text(c, ef - 0.002, 42, "plastic elongation " + sub("ε", "p") + " (%EL)", "HEAD", "end", 12)
     m.axes(c, 0.12, 700, "strain ε", "stress σ (MPa)",
            xt=[(0.02, "0.02"), (0.04, "0.04"), (0.06, "0.06"), (0.08, "0.08"), (0.1, "0.1")],
            yt=[(200, "200"), (400, "400"), (600, "600")])
@@ -310,7 +342,7 @@ def yield_offset():
     m1.poly(c, sample(f, 0, 0.02, 200), "ACC", 2.6)
     m1.poly(c, [(0.002, 0), (ey, sy)], "BLUE", 1.5, "6,4")
     m1.dot(c, ey, sy, "HEAD", "HEAD")
-    m1.text(c, ey + 0.0006, sy + 40, sub("σ", "y"))
+    m1.text(c, ey + 0.0005, sy - 55, sub("σ", "y"))
     m1.text(c, 0.0036, 110, "0.2 % offset", "BLUE", "start", 12)
     m1.axes(c, 0.02, 800, "strain ε", "σ (MPa)",
             xt=[(0.005, "0.005"), (0.01, "0.01"), (0.015, "0.015"), (0.02, "0.02")],
@@ -360,10 +392,10 @@ def toughness():
     m.dot(c, 0.0115, fa(0.0115), "HEAD", "PINK")
     m.dot(c, 0.11, fb(0.11), "HEAD", "GREEN")
     m.dot(c, 0.12, fc(0.12), "HEAD", "BLUE")
-    m.text(c, 0.0125, 915, "high strength, low ductility, low toughness", "PINK", "start", 12.5, "700")
-    m.text(c, 0.072, 880, "high strength, high ductility, high toughness", "GREEN", "start", 12.5, "700")
+    m.text(c, 0.02, 905, "high strength, low ductility, low toughness", "PINK", "start", 12.5, "700")
+    m.text(c, 0.03, 560, "high strength, high ductility, high toughness", "GREEN", "start", 12.5, "700")
     m.text(c, 0.075, 380, "low strength, high ductility, low toughness", "BLUE", "start", 12.5, "700")
-    m.axes(c, 0.12, 900, "strain ε", "σ (MPa)",
+    m.axes(c, 0.12, 980, "strain ε", "σ (MPa)",
            xt=[(0.02, "0.02"), (0.04, "0.04"), (0.06, "0.06"), (0.08, "0.08"), (0.10, "0.10"), (0.12, "0.12")],
            yt=[(200, "200"), (400, "400"), (600, "600"), (800, "800")])
     REG.put("toughness", c, "Stress-strain curves of three materials with different toughness",
@@ -383,8 +415,8 @@ def resilience():
     m.guide(c, (0, 500), (0.005, 500))
     m.dot(c, 0.005, 500)
     m.text(c, 0.0032, 150, "Ur", "BLUE", "middle", 14, "700")
-    m.text(c, 0.0052, 520, sub("σ", "y"))
-    m.text(c, 0.0052, 80, sub("ε", "y") + " = " + sub("σ", "y") + " / E", "HEAD", "start", 12)
+    m.text(c, 0.0047, 535, sub("σ", "y"), "HEAD", "end")
+    m.text(c, 0.0065, 80, sub("ε", "y") + " = " + sub("σ", "y") + " / E", "HEAD", "start", 12)
     m.axes(c, 0.05, 700, "strain ε", "σ (MPa)",
            xt=[(0.01, "0.01"), (0.02, "0.02"), (0.03, "0.03"), (0.04, "0.04"), (0.05, "0.05")],
            yt=[(200, "200"), (400, "400"), (600, "600")])
@@ -406,8 +438,8 @@ def true_stress():
     m.guide(c, (0.06, 0), (0.06, 848))
     m.dot(c, 0.06, 800, "HEAD", "ACC")
     m.dot(c, 0.06, 848, "HEAD", "BLUE")
-    m.text(c, 0.0605, 782, "M", "HEAD", "start", 13, "700")
-    m.text(c, 0.0605, 868, "M′", "HEAD", "start", 13, "700")
+    m.text(c, 0.0585, 735, "M", "HEAD", "end", 13, "700")
+    m.text(c, 0.0575, 880, "M′", "HEAD", "end", 13, "700")
     m.text(c, 0.07, 1000, "true curve", "BLUE", "start", 13, "700")
     m.text(c, 0.07, 620, "engineering curve", "ACC", "start", 13, "700")
     m.axes(c, 0.12, 1100, "strain ε", "σ (MPa)",
@@ -418,7 +450,7 @@ def true_stress():
 
 
 def strain_hardening():
-    c = Canvas(640, 330)
+    c = Canvas(640, 350)
     m = M(70, 300, 520 / 0.2, 250 / 700)
 
     def hard(ey, sy, su, tau):
@@ -444,21 +476,21 @@ def grain_boundary():
     def grid(ox, oy, th, keep):
         cs, sn = math.cos(th), math.sin(th)
         out = []
-        for i in range(0, 16):
-            for j in range(0, 13):
+        for i in range(-12, 28):
+            for j in range(-12, 28):
                 x = ox + a * (i * cs - j * sn)
                 y = oy + a * (i * sn + j * cs)
                 if keep(x, y):
                     out.append((x, y))
         return out
 
-    for x, y in grid(40, 40, 0.0, lambda x, y: x <= 300 and 30 <= y <= 280):
+    for x, y in grid(40, 40, 0.0, lambda x, y: 40 <= x <= 300 and 30 <= y <= 280 and math.hypot(x - 170, y - 150) > 15):
         circle(c, (x, y), 7, "ATOM", 1.2, None, "ATOM", 0.45)
-    for x, y in grid(340, 40, math.radians(25), lambda x, y: x >= 340 and 30 <= y <= 280):
+    for x, y in grid(340, 40, math.radians(25), lambda x, y: 340 <= x <= 620 and 30 <= y <= 280):
         circle(c, (x, y), 7, "ATOM", 1.2, None, "ATOM", 0.45)
     poly(c, [(320, 20), (308, 80), (332, 140), (312, 200), (326, 290)], "HEAD", 2.2)
     line(c, (40, 150), (300, 150), "ACC", 1.6, "6,4")
-    text(c, (170, 148), "⊥", "HEAD", "middle", 20, "700")
+    text(c, (170, 157), "⊥", "HEAD", "middle", 24, "700")
     text(c, (150, 302), "grain A", "HEAD", "middle", 14, "700")
     text(c, (470, 302), "grain B", "HEAD", "middle", 14, "700")
     text(c, (320, 14), "grain boundary", "HEAD", "middle", 13)
@@ -472,22 +504,25 @@ def precip_stages():
         ox = 20 + k * 175
         xs = [ox + 40, ox + 90, ox + 140]
         for x in xs:
-            circle(c, (x, 215), 9, "ATOM", 1.4, None, "ATOM", 0.6)
+            circle(c, (x, 130), 9, "ATOM", 1.4, None, "ATOM", 0.6)
         if k == 0:
-            line(c, (ox + 10, 120), (ox + 170, 120), "BLUE", 2.2)
+            line(c, (ox + 10, 200), (ox + 170, 200), "BLUE", 2.2)
             for x in range(ox + 30, ox + 160, 30):
-                arrow(c, (x, 96), (x, 114), "PINK", 1.6, 7)
+                arrow(c, (x, 234), (x, 206), "PINK", 1.6, 7)
+            dim(c, (xs[0], 100), (xs[1], 100), "L", lab_off=(0, -6))
+            text(c, (ox + 90, 254), "force τb per unit length", "PINK", "middle", 11)
         elif k == 1:
-            pathd(c, f"M{ox + 10},120 Q{ox + 90},92 {ox + 170},120", "BLUE", 2.2)
+            pathd(c, f"M{ox + 10},160 L{ox + 28},160 L{xs[0]},138 Q{ox + 65},112 {xs[1]},138 Q{ox + 115},112 {xs[2]},138 "
+                     f"L{ox + 152},160 L{ox + 170},160", "BLUE", 2.2)
         elif k == 2:
-            pathd(c, f"M{ox + 10},120 L{ox + 40},120 A25,25 0 0 1 {ox + 90},120 A25,25 0 0 1 {ox + 140},120 L{ox + 170},120",
-                  "BLUE", 2.2)
+            pathd(c, f"M{ox + 10},160 L{ox + 28},160 L{xs[0]},138 A25,25 0 0 1 {xs[1]},138 A25,25 0 0 1 {xs[2]},138 "
+                     f"L{ox + 152},160 L{ox + 170},160", "BLUE", 2.2)
         else:
-            line(c, (ox + 10, 120), (ox + 170, 120), "BLUE", 2.2)
+            line(c, (ox + 10, 70), (ox + 170, 70), "BLUE", 2.2)
             for x in xs:
-                circle(c, (x, 215), 25, "BLUE", 1.2, "3,3")
+                circle(c, (x, 130), 17, "BLUE", 1.4, "3,3")
         labels = ["(a) approach", "(b) sub-critical", "(c) critical", "(d) escape"]
-        text(c, (ox + 90, 275), labels[k], "HEAD", "middle", 13, "700")
+        text(c, (ox + 90, 284), labels[k], "HEAD", "middle", 13, "700")
     REG.put("precip-stages", c, "Dislocation passing precipitate particles",
             "The four stages of a dislocation meeting a row of particles (schematic); the slide labels (c) twice")
 
@@ -495,7 +530,7 @@ def precip_stages():
 def indenters():
     c = Canvas(720, 300)
     circle(c, (130, 130), 60, "BLUE", 1.6, None, "BLUE", 0.25)
-    poly(c, [(95, 190), (130, 206), (165, 190)], "HEAD", 1.8)
+    pathd(c, "M95,190 Q130,214 165,190", "HEAD", 1.8)
     line(c, (40, 190), (240, 190), "HEAD", 2.0)
     dim(c, (210, 70), (210, 190), "D", lab_off=(14, 0), anchor="start")
     dim(c, (95, 216), (165, 216), "d", lab_off=(0, 16))
@@ -504,6 +539,7 @@ def indenters():
     poly(c, [(338, 190), (382, 190), (360, 208)], "BLUE", 1.8, None, "none", True)
     line(c, (300, 190), (430, 190), "HEAD", 2.0)
     text(c, (400, 84), "136°", "HEAD", "start", 13)
+    dim(c, (338, 218), (382, 218), "d", lab_off=(0, 16))
     text(c, (360, 262), "Vickers (HV)", "HEAD", "middle", 14, "700")
     poly(c, [(560, 40), (620, 40), (590, 130)], "HEAD", 1.8, None, "none", True)
     pathd(c, "M575,190 Q590,204 605,190", "BLUE", 1.8)
@@ -557,6 +593,7 @@ def rasters():
 
 
 def build():
+    bond_force_curves()
     specimen_geometry()
     curve_regions()
     modulus_types()

@@ -19,7 +19,7 @@ window.AE_UPDATES = [
     "date": "2026-10-19",
     "tag": "Aerospace Materials I",
     "title": "Materials Topic 5: mechanical properties theory",
-    "text": "The tensile test, stress-strain curve, toughness, strengthening mechanisms and hardness tests, from Sessions 11 and 12, with 19 new figures.",
+    "text": "The tensile test, stress-strain curve, toughness, strengthening mechanisms and hardness tests, from Sessions 11 and 12, with 27 figures.",
     "link": "subjects/aerospace-materials-1/teoria/topic-5-mechanical-properties.html"
   },
   {

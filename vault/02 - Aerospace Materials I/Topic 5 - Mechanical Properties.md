@@ -87,6 +87,8 @@ $E$ is the **Young's modulus** or elastic modulus. It measures the **stiffness**
 - A higher bond force goes with a higher melting temperature [Session 11 Slide 13].
 - The ranking is $E_{\text{ceramics}} > E_{\text{metals}} > E_{\text{polymers}}$ [Session 11 Slide 13].
 
+![[attachments/T5/bond-force-curves.svg]]
+
 ### 3.3 Values of E [Session 11 Slides 17-18]
 
 Modulus of elasticity of metal alloys [Session 11 Slide 17]:
@@ -482,6 +484,8 @@ $$HB = \frac{P}{S} = \frac{P}{\dfrac{\pi D}{2}\left(D - \sqrt{D^2 - D_i^2}\right
 
 where $P$ is the applied load in kg, $S$ the area of the spherical cap in mm², $D$ the diameter of the ball in mm and $D_i$ the diameter of the indentation [Session 12 Slide 19].
 
+The slide also writes the Brinell number as HBW $= K\cdot$ force/dent area, with $K$ a constant factor [Session 12 Slide 19].
+
 The load is chosen with the **load factor** $Q = P/D^2$, which is constant for each material, so $P = Q\,D^2$. The slide's table gives the test loads in kg [Session 12 Slide 20]:
 
 | Ball diameter $D$ (mm) | $Q = 30$ | $Q = 10$ | $Q = 5$ | $Q = 2.5$ |
@@ -494,7 +498,7 @@ The load is chosen with the **load factor** $Q = P/D^2$, which is constant for e
 
 For small thicknesses the ball diameter is reduced (5, 2.5, 1.25 and 0.625 mm) [Session 12 Slide 20].
 
-The slide's chart relates the load factor to the material: hardened steels with $Q = 30$, bronzes and brasses with $Q = 10$, aluminium alloys with $Q = 5$, and anti-friction alloys with $Q = 2.5$ [Session 12 Slide 20].
+The slide's chart relates the load factor to the material: steels (hardened and annealed) with $Q = 30$, bronzes and brasses with $Q = 10$, aluminium alloys with $Q = 5$, and anti-friction alloys with $Q = 2.5$ [Session 12 Slide 20].
 
 ![[attachments/T5/s12-brinell-q-chart.png]]
 
@@ -558,7 +562,7 @@ The **Vickers** indenter is a diamond pyramid with a 136° angle between its fac
 
 $$\text{HV} \approx \frac{\text{Load}}{\text{Area of the indentation}} = \frac{2F\sin(136^\circ/2)}{d^2} = 1.854\,\frac{F}{d^2}$$
 
-where $F$ is the load in kgf (from 1 to 120 kg), and $d$ is the arithmetic mean of the two diagonals $d_1$ and $d_2$, in mm. The time of application is 10 to 15 s. The notation is HV30, HV10, and so on, for the load in kgf [Session 12 Slide 26].
+where $F$ is the load in kgf (from 1 to 120 kg), and $d$ is the arithmetic mean of the two diagonals $d_1$ and $d_2$, in mm. The time of application is 10 to 15 s. The notation is HV30, HV10, and so on, for the load in kgf; a full result is written like 345 HV30-25, that is, hardness 345 with a load of 30 kgf applied for 25 s (the pattern HV kgf-s) [Session 12 Slide 26].
 
 The slide lists the advantages of the Vickers method: a universal result that does not depend on the load, a wide range of materials, thin components (thickness of 0.05 mm or more), surface hardness, and more precision than Rockwell (1 unit of HRX is about 32.5 units of HV) [Session 12 Slide 26].
 

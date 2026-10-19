@@ -10,11 +10,12 @@
 <circle cx="340.0" cy="85.6" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <circle cx="556.7" cy="170.9" r="4" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
 <text x="82.2" y="181.6" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">σ<tspan baseline-shift="sub" font-size="72%">y</tspan></text>
-<text x="82.6" y="242.0" fill="#10b981" font-size="12" font-weight="700" text-anchor="start">elastic zone (σ &lt; σy)</text>
+<line x1="90.8" y1="281.1" x2="116.8" y2="249.1" stroke="#10b981" stroke-width="1.2"/>
+<text x="119.0" y="252.7" fill="#10b981" font-size="12" font-weight="700" text-anchor="start">elastic zone (σ &lt; σy)</text>
 <text x="210.0" y="316.7" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">plastic zone (σ &gt; σ<tspan baseline-shift="sub" font-size="72%">y</tspan>)</text>
 <text x="348.7" y="76.7" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">tensile strength (UTS)</text>
 <text x="569.7" y="176.2" fill="#4b5563" font-size="13" font-weight="400" text-anchor="start">fracture stress</text>
-<text x="340.0" y="359.3" fill="#4b5563" font-size="12" font-weight="400" text-anchor="middle">uniform deformation</text>
+<text x="346.5" y="359.3" fill="#4b5563" font-size="12" font-weight="400" text-anchor="start">uniform deformation</text>
 <line x1="80.0" y1="370.0" x2="600.0" y2="370.0" stroke="#8a94a6" stroke-width="1.3"/>
 <path d="M600.0,370.0 L591.7,373.5 L591.7,366.5 Z" fill="#8a94a6"/>
 <line x1="80.0" y1="370.0" x2="80.0" y2="50.0" stroke="#8a94a6" stroke-width="1.3"/>
