@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aerospace Materials I — Problemas Resueltos</title>
+  <title>Aerospace Materials I — Solved Problems</title>
   <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -263,6 +263,7 @@
   <!-- Celestial Sky & Aerospace Glassmorphism System -->
   <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
   <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
   <script src="../../../assets/js/theme.js"></script>
 </head>
 <body>
@@ -284,6 +285,13 @@
   </nav>
 
   <main class="container">
+    <nav class="subject-tabs" aria-label="Aerospace Materials I sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html" aria-current="page">Problems</a>
+      <span class="subject-tab" aria-disabled="true">Extra problems <span class="subject-tab__soon">Soon</span></span>
+      <span class="subject-tab" aria-disabled="true">Exam simulator <span class="subject-tab__soon">Soon</span></span>
+      <a class="subject-tab" href="../sources/index.html">Official PDFs</a>
+    </nav>
     <header class="page-header">
       <div class="icon" aria-hidden="true">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
@@ -294,7 +302,7 @@
         </svg>
       </div>
       <h1><span class="accent">Aerospace Materials I</span></h1>
-      <p data-i18n="materials.problems_subtitle">Solved Problems & Exams — Step-by-Step</p>
+      <p>Solved problems, step by step</p>
     </header>
 
     <div class="topics-list">
@@ -302,20 +310,18 @@
       <a href="topic-2-problems.html" class="topic-card">
         <div class="topic-accent-bar"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.prob_topic_2_num">Topic 2 · Structure of Materials & Defects</span>
+          <span class="topic-number">Topic 2 · Structure of Materials & Defects</span>
           <h2 class="topic-title">Solved Problems — Structure of Materials & Defects</h2>
-          <p class="topic-desc" data-i18n="materials.prob_topic_2_desc">26 solved problems: FCC/BCC/HCP atomic packing, XRD diffraction with Bragg's law, Burgers vector $\vec{b}$, and Hall-Petch strengthening.</p>
+          <p class="topic-desc">26 solved problems: FCC/BCC/HCP atomic packing, XRD diffraction with Bragg's law, Burgers vector $\vec{b}$, vacancies and the Hume-Rothery rules.</p>
           <div class="content-badges">
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.prob_topic_2_badge">26 solved problems</span></span>
-            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-i18n="materials.prob_topic_2_pills">Pill-based quick navigation</span></span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span>26 solved problems</span></span>
           </div>
           <div class="topic-tags">
             <span class="tag">Bravais</span>
             <span class="tag">Miller</span>
-            <span class="tag" data-i18n="materials.tag_vacancies">Vacancies</span>
+            <span class="tag">Vacancies</span>
             <span class="tag">Burgers $\vec{b}$</span>
             <span class="tag">Hume-Rothery</span>
-            <span class="tag">Hall-Petch</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -324,19 +330,19 @@
       <a href="topic-3-diffusion.html" class="topic-card">
         <div class="topic-accent-bar"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.prob_topic_3_num">Topic 3 · Diffusion in Solids</span>
+          <span class="topic-number">Topic 3 · Diffusion in Solids</span>
           <h2 class="topic-title">Solved Problems — Diffusion in Solids</h2>
-          <p class="topic-desc" data-i18n="materials.prob_topic_3_desc">6 solved numerical problems: steel carburization, transient diffusion with $\mathrm{erf}(z)$, activation energy $Q$, and $\mathrm{H}_2$ purification.</p>
+          <p class="topic-desc">6 solved numerical problems: steel carburization, transient diffusion with $\mathrm{erf}(z)$, activation energy $Q$, and $\mathrm{H}_2$ purification.</p>
           <div class="content-badges">
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.prob_topic_3_badge">6 solved problems</span></span>
-            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg><span data-i18n="materials.prob_topic_3_calc">erf(z) interpolator</span></span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span>6 solved problems</span></span>
+            <span class="cbadge interactive"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg><span>erf(z) interpolator</span></span>
           </div>
           <div class="topic-tags">
             <span class="tag">Fick 1</span>
             <span class="tag">Fick 2</span>
             <span class="tag">$\mathrm{erf}(z)$</span>
             <span class="tag">Arrhenius</span>
-            <span class="tag" data-i18n="materials.tag_carburization">Carburization</span>
+            <span class="tag">Carburization</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -345,17 +351,17 @@
       <a href="topic-4-phase-diagrams.html" class="topic-card">
         <div class="topic-accent-bar"></div>
         <div class="topic-body">
-          <span class="topic-number" data-i18n="materials.prob_topic_4_num">Topic 4 · Phase Diagrams</span>
+          <span class="topic-number">Topic 4 · Phase Diagrams</span>
           <h2 class="topic-title">Solved Problems — Phase Diagrams</h2>
-          <p class="topic-desc" data-i18n="materials.prob_topic_4_desc">26 solved problems: the lever rule in Pb-Sn and Ag-Cu alloys, invariant reactions and compounds, drawing phase diagrams, steels and cast irons on the Fe-C diagram, and a ternary alloy.</p>
+          <p class="topic-desc">26 solved problems: the lever rule in Pb-Sn and Ag-Cu alloys, invariant reactions and compounds, drawing phase diagrams, steels and cast irons on the Fe-C diagram, and a ternary alloy.</p>
           <div class="content-badges">
-            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span data-i18n="materials.prob_topic_4_badge">26 solved problems</span></span>
+            <span class="cbadge problems"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span>26 solved problems</span></span>
           </div>
           <div class="topic-tags">
-            <span class="tag" data-i18n="materials.tag_lever_rule">Lever rule</span>
+            <span class="tag">Lever rule</span>
             <span class="tag">Pb-Sn</span>
             <span class="tag">Ag-Cu</span>
-            <span class="tag" data-i18n="materials.tag_eutectic">Eutectic</span>
+            <span class="tag">Eutectic</span>
           </div>
         </div>
         <div class="topic-arrow">→</div>
@@ -370,7 +376,7 @@
   </main>
 
   <footer class="page-footer">
-    <div class="container" data-i18n="materials.footer">Aerospace Materials I · 2nd Year Aerospace Engineering · UC3M</div>
+    <div class="container">Aerospace Materials I · 2nd year BSc Aerospace Engineering · UC3M</div>
   </footer>
 
   <script src="../../../assets/js/quotes.js"></script>
