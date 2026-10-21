@@ -19,7 +19,7 @@ bytes: 2767697
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 2.8 MB
-- **Status:** referenced by 16 note(s) below
+- **Status:** referenced by 17 note(s) below
 - **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -35,6 +35,7 @@ bytes: 2767697
 - [[03 - Engineering Mechanics/Lab 2 - Particle on Oscillating Loop]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 1 Particle Kinematics]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 2 Point Particle Dynamics]]
+- [[03 - Engineering Mechanics/Solution Set - Topic 4 Angular Momentum and Central Forces]]
 - [[03 - Engineering Mechanics/Topic 1 - Fundamentals and Particle Kinematics]]
 - [[03 - Engineering Mechanics/Topic 2 - Point Particle Dynamics]]
 - [[03 - Engineering Mechanics/Topic 3 - Constraints and Reaction Forces]]
