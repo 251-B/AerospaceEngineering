@@ -236,6 +236,7 @@ or, directly in time, $\theta(t) = \theta_0 + \displaystyle\int_0^t\frac{h}{r(t'
 ##### (d) Oscillation between $r = a$ and $r = 2a$
 * **Pedagogical Justification:** motion requires $\dot{r}^2 \ge 0$, i.e. $P(r) = -3r^3 + 7ar^2 - 4a^3 \ge 0$. With $x = r/a$ the polynomial is $a^3(-3x^3 + 7x^2 - 4)$, and the hint gives its roots.
 $$ -3x^3 + 7x^2 - 4 = -(x - 1)(x - 2)(3x + 2) $$
+(check: $(x - 1)(x - 2) = x^2 - 3x + 2$ and $(x^2 - 3x + 2)(3x + 2) = 3x^3 - 7x^2 + 4$).
 * Check of the roots: $x = 1$: $-3 + 7 - 4 = 0$; $x = 2$: $-24 + 28 - 4 = 0$; $x = -2/3$: $\frac{8}{9} + \frac{28}{9} - 4 = 0$. Since $r \gt 0$, $3x + 2 \gt 0$ and $P \ge 0$ requires $(x - 1)(x - 2) \le 0$:
 $$ 1 \le x \le 2 \iff a \le r(t) \le 2a $$
 * The turning points ($\dot{r} = 0$) are $r_{\min} = a$ and $r_{\max} = 2a$. Both are simple roots of $P$, and the radial acceleration points back into the allowed interval at each one: $\ddot{r}(a) = \tfrac{5g}{6} \gt 0$ and $\ddot{r}(2a) = -\tfrac{g}{2} + \tfrac{h^2}{16a^3} = -\tfrac{g}{3} \lt 0$ (from $\ddot{r} = -\tfrac{g}{2} + \tfrac{h^2}{2r^3}$, derived in (e)). So $r$ reverses in finite time at both ends and the motion oscillates between them.
@@ -260,7 +261,7 @@ $$ 2\ddot{r} - r\dot{\theta}^2 = -g - \mu g\frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\
 ### Phase 4: Interpretation & Checks
 * **Tension at the turning points:** $T(a) = mg\left(\tfrac{1}{2} + \tfrac{4}{3}\right) = \tfrac{11}{6}mg$ and $T(2a) = mg\left(\tfrac{1}{2} + \tfrac{4}{24}\right) = \tfrac{2}{3}mg$, both positive.
 * **Consistency with (a):** for $v_0^2 = ag$, $h^2 = a^3g$ and $\ddot{r}(a) = -\tfrac{g}{2} + \tfrac{h^2}{2a^3} = 0$, so $r = a$ is an equilibrium of the radial equation, as expected for the circular case.
-* **Radial period** (consequence of (c) and (d)): with $x = r/a$ and $x = \tfrac{3}{2} - \tfrac{1}{2}\cos s$, $(x - 1)(2 - x) = \tfrac{1}{4}\sin^2 s$ and $dx = \tfrac{1}{2}\sin s\,ds$, so $\tau_r = 2\sqrt{\dfrac{3a}{g}}\displaystyle\int_0^\pi\dfrac{x(s)\,ds}{\sqrt{3x(s) + 2}} \approx 6.342\sqrt{\dfrac{a}{g}}$.
+* **Radial period** (consequence of (c) and (d)): $\tau_r = 2\sqrt{3/g}\int_a^{2a}r\,dr/\sqrt{P(r)}$. With $x = r/a$, $r\,dr = a^2x\,dx$ and $\sqrt{P} = a^{3/2}\sqrt{(x - 1)(2 - x)(3x + 2)}$, so $\tau_r = 2\sqrt{3a/g}\int_1^2x\,dx/\sqrt{(x - 1)(2 - x)(3x + 2)}$. Then with $x = \tfrac{3}{2} - \tfrac{1}{2}\cos s$ ($x = 1 \to s = 0$, $x = 2 \to s = \pi$), $(x - 1)(2 - x) = \tfrac{1}{4}\sin^2 s$ and $dx = \tfrac{1}{2}\sin s\,ds$, so $\tau_r = 2\sqrt{\dfrac{3a}{g}}\displaystyle\int_0^\pi\dfrac{x(s)\,ds}{\sqrt{3x(s) + 2}} \approx 6.342\sqrt{\dfrac{a}{g}}$.
 * **Dimensions:** $[T] = [m][g] = \text{N}$ and $[v_0] = \sqrt{[a][g]} = \text{m/s}$.
 * **Feasibility:** the outer turning point $r_{\max} = 2a$ puts $P_2$ at the hole with zero velocity ($\ell_2 = 0$), the limit of the constraint $r \le 2a$. The tension there, $T(2a) = \tfrac{2}{3}mg \gt 0$, shows that the cord is still taut, so the motion is admissible for the whole cycle.
 * **Check against the official key:** `Problems.pdf` has no entry for Problem 43 in its solution keys (the tension in (e) is given in the statement and is derived above). All results are therefore verified by independent derivation and by numerical integration.

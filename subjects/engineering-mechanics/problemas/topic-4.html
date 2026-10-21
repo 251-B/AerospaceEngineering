@@ -757,6 +757,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(d) Oscillation between $r = a$ and $r = 2a$</h5>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> motion requires $\dot{r}^2 \ge 0$, i.e. $P(r) = -3r^3 + 7ar^2 - 4a^3 \ge 0$. With $x = r/a$ the polynomial is $a^3(-3x^3 + 7x^2 - 4)$, and the hint gives its roots.</div>
 <div class="math-block">$$ -3x^3 + 7x^2 - 4 = -(x - 1)(x - 2)(3x + 2) $$</div>
+<p style="margin-bottom: 10px;">(check: $(x - 1)(x - 2) = x^2 - 3x + 2$ and $(x^2 - 3x + 2)(3x + 2) = 3x^3 - 7x^2 + 4$).</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>Check of the roots: $x = 1$: $-3 + 7 - 4 = 0$; $x = 2$: $-24 + 28 - 4 = 0$; $x = -2/3$: $\frac{8}{9} + \frac{28}{9} - 4 = 0$. Since $r \gt 0$, $3x + 2 \gt 0$ and $P \ge 0$ requires $(x - 1)(x - 2) \le 0$:</li>
 </ul>
@@ -793,7 +794,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Tension at the turning points:</strong> $T(a) = mg\left(\tfrac{1}{2} + \tfrac{4}{3}\right) = \tfrac{11}{6}mg$ and $T(2a) = mg\left(\tfrac{1}{2} + \tfrac{4}{24}\right) = \tfrac{2}{3}mg$, both positive.</li>
 <li><strong>Consistency with (a):</strong> for $v_0^2 = ag$, $h^2 = a^3g$ and $\ddot{r}(a) = -\tfrac{g}{2} + \tfrac{h^2}{2a^3} = 0$, so $r = a$ is an equilibrium of the radial equation, as expected for the circular case.</li>
-<li><strong>Radial period</strong> (consequence of (c) and (d)): with $x = r/a$ and $x = \tfrac{3}{2} - \tfrac{1}{2}\cos s$, $(x - 1)(2 - x) = \tfrac{1}{4}\sin^2 s$ and $dx = \tfrac{1}{2}\sin s\,ds$, so $\tau_r = 2\sqrt{\dfrac{3a}{g}}\displaystyle\int_0^\pi\dfrac{x(s)\,ds}{\sqrt{3x(s) + 2}} \approx 6.342\sqrt{\dfrac{a}{g}}$.</li>
+<li><strong>Radial period</strong> (consequence of (c) and (d)): $\tau_r = 2\sqrt{3/g}\int_a^{2a}r\,dr/\sqrt{P(r)}$. With $x = r/a$, $r\,dr = a^2x\,dx$ and $\sqrt{P} = a^{3/2}\sqrt{(x - 1)(2 - x)(3x + 2)}$, so $\tau_r = 2\sqrt{3a/g}\int_1^2x\,dx/\sqrt{(x - 1)(2 - x)(3x + 2)}$. Then with $x = \tfrac{3}{2} - \tfrac{1}{2}\cos s$ ($x = 1 \to s = 0$, $x = 2 \to s = \pi$), $(x - 1)(2 - x) = \tfrac{1}{4}\sin^2 s$ and $dx = \tfrac{1}{2}\sin s\,ds$, so $\tau_r = 2\sqrt{\dfrac{3a}{g}}\displaystyle\int_0^\pi\dfrac{x(s)\,ds}{\sqrt{3x(s) + 2}} \approx 6.342\sqrt{\dfrac{a}{g}}$.</li>
 <li><strong>Dimensions:</strong> $[T] = [m][g] = \text{N}$ and $[v_0] = \sqrt{[a][g]} = \text{m/s}$.</li>
 <li><strong>Feasibility:</strong> the outer turning point $r_{\max} = 2a$ puts $P_2$ at the hole with zero velocity ($\ell_2 = 0$), the limit of the constraint $r \le 2a$. The tension there, $T(2a) = \tfrac{2}{3}mg \gt 0$, shows that the cord is still taut, so the motion is admissible for the whole cycle.</li>
 <li><strong>Check against the official key:</strong> <code>Problems.pdf</code> has no entry for Problem 43 in its solution keys (the tension in (e) is given in the statement and is derived above). All results are therefore verified by independent derivation and by numerical integration.</li>

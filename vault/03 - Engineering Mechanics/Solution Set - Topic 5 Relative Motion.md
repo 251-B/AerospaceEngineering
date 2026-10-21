@@ -312,7 +312,7 @@ $$ \mathbf{a}_1^P = \dot{u}_\theta\,\mathbf{e}_\theta + u_\theta\left(-\dot{\var
 
 The only actual force on the astronaut is the floor force $\mathbf{N}$ (no gravity in deep space). The inertia forces of Notes Eq. 4.62 are $\mathbf{F}_A = \mathbf{F}_E = \mathbf{0}$ and, for the running case:
 
-**Inertia forces.** $\mathbf{r}_\perp = R\,\mathbf{e}_r$ (the part of $\mathbf{r}_1^P$ normal to $\boldsymbol{\omega}_{10}$; the cross products are written out in part (a) below), so $\mathbf{F}_C = m\omega^2R\,\mathbf{e}_r$. For the Coriolis force, $\mathbf{k}_1\times\mathbf{e}_\theta = -\mathbf{e}_r$ and $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$:
+**Inertia forces.** $\mathbf{r}_\perp = R\,\mathbf{e}_r$ (the part of $\mathbf{r}_1^P$ normal to $\boldsymbol{\omega}_{10}$), so, with $\mathbf{k}_1\times\mathbf{e}_r = \mathbf{e}_\theta$ and $\mathbf{k}_1\times\mathbf{e}_\theta = -\mathbf{e}_r$, $\mathbf{F}_C = -m\,\omega\mathbf{k}_1\times\left(\omega\mathbf{k}_1\times R\,\mathbf{e}_r\right) = -m\,\omega\mathbf{k}_1\times\left(R\omega\,\mathbf{e}_\theta\right) = m\omega^2R\,\mathbf{e}_r$. For the Coriolis force, $\mathbf{k}_1\times\mathbf{e}_\theta = -\mathbf{e}_r$ and $\mathbf{k}_1\times\mathbf{k}_1 = \mathbf{0}$:
 
 $$ \mathbf{F}_{COR} = -2m\,\omega\mathbf{k}_1\times\left(u_\theta\,\mathbf{e}_\theta + u_z\,\mathbf{k}_1\right) = 2m\omega u_\theta\,\mathbf{e}_r $$
 
@@ -910,6 +910,10 @@ $$ \mathbf{r}_1^P = a\sin\theta\,\mathbf{i}_1 + a\left(1 - \cos\theta\right)\mat
 
 $$ \mathbf{v}_1^P = a\dot\theta\cos\theta\,\mathbf{i}_1 + a\dot\theta\sin\theta\,\mathbf{j}_1 = a\dot\theta\,\mathbf{e}_t $$
 
+**Relative acceleration.** Product rule on $a\dot\theta\,\mathbf{e}_t$ in $S_1$, with $\left.\frac{d\mathbf{e}_t}{dt}\right|_1 = \dot\theta\left(-\sin\theta\,\mathbf{i}_1 + \cos\theta\,\mathbf{j}_1\right) = \dot\theta\,\mathbf{e}_n$:
+
+$$ \mathbf{a}_1^P = a\ddot\theta\,\mathbf{e}_t + a\dot\theta^2\,\mathbf{e}_n $$
+
 #### 3.2 Forces
 
 ##### (b, continued) Inertia forces
@@ -940,10 +944,6 @@ In the wire basis: $\mathbf{W}\cdot\mathbf{e}_t = -mg\sin\theta$, $\mathbf{W}\cd
 
 ##### (d) Equilibrium points
 * **Pedagogical Justification:** Newton's law in $S_1$, $m\mathbf{a}_1^P = \mathbf{W} + \mathbf{N} + \mathbf{F}_i$ (Notes Eq. 4.63), projected on the tangent $\mathbf{e}_t$, eliminates the smooth reaction ($\mathbf{N}\cdot\mathbf{e}_t = 0$) and the Coriolis force ($\mathbf{k}_1\cdot\mathbf{e}_t = 0$).
-
-**Relative acceleration.** Product rule on $a\dot\theta\,\mathbf{e}_t$ in $S_1$, with $\left.\frac{d\mathbf{e}_t}{dt}\right|_1 = \dot\theta\left(-\sin\theta\,\mathbf{i}_1 + \cos\theta\,\mathbf{j}_1\right) = \dot\theta\,\mathbf{e}_n$:
-
-$$ \mathbf{a}_1^P = a\ddot\theta\,\mathbf{e}_t + a\dot\theta^2\,\mathbf{e}_n $$
 
 **Tangential equation.** $\mathbf{F}_C\cdot\mathbf{e}_t = m\Omega^2 a\sin\theta\cos\theta$, so
 
@@ -1762,23 +1762,6 @@ $$ \mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P = -2mA\ome
 
 #### 3.3 Equations of Motion
 
-##### (c) Is the mechanical energy conserved in $Oxy$?
-* **Pedagogical Justification:** By Slide 29, $E_1^P$ is conserved only if every force that does work in $S_1$ derives from a potential that does not depend explicitly on time. Compute the power of each force in $S_1$.
-* $\mathbf{N}\cdot\mathbf{v}_1^P = R\dot\varphi\,(N_1\mathbf{e}_r + N_2\mathbf{k}_1)\cdot\mathbf{e}_\varphi = 0$ (the wire is fixed in $S_1$).
-* $\mathbf{F}_E$ and $\mathbf{F}_{COR}$ are along $\mathbf{k}_1$, normal to the plane in which $\mathbf{v}_1^P$ lies: they do no work. (In general the Euler force has no potential, Slide 31; here it happens to be powerless.)
-* The weight has the potential $mgy = mgR\sin\varphi$.
-* The centrifugal force has the potential $V_C = -\tfrac12 m\Omega(t)^2x^2$, but **it depends explicitly on time** because $\Omega$ does.
-
-Define $E_1^P = \tfrac12 mR^2\dot\varphi^2 + mgR\sin\varphi - \tfrac12 m\Omega^2R^2(1 + \cos\varphi)^2$. Differentiating with the chain and product rules,
-
-$$ \frac{dE_1^P}{dt} = mR^2\dot\varphi\ddot\varphi + mgR\cos\varphi\,\dot\varphi + m\Omega^2R^2(1 + \cos\varphi)\sin\varphi\,\dot\varphi - m\Omega\dot\Omega R^2(1 + \cos\varphi)^2 $$
-
-The first three terms are $mR^2\dot\varphi$ times the equation of motion of part (d), so they cancel (the equation of part (d), derived below), leaving
-
-$$ \frac{dE_1^P}{dt} = -m\Omega\dot\Omega\,R^2(1 + \cos\varphi)^2 = -mA^2\omega^3R^2\sin(\omega t)\cos(\omega t)\,(1 + \cos\varphi)^2 \neq 0 $$
-
-**No**: the mechanical energy of $P$ in $Oxy$ is not conserved, because the centrifugal potential changes with time (the frame does not rotate at a constant rate). It would be conserved if $\Omega$ were constant. Nor is the energy conserved in $S_0$: there the wire moves and its reaction $N_2\mathbf{k}_1$ does work.
-
 ##### (d) Equation of motion
 * **Pedagogical Justification:** The tangential direction $\mathbf{e}_\varphi$ is the only one free of the unknown reaction ($\mathbf{N}\perp\mathbf{e}_\varphi$), and the Euler and Coriolis forces (along $\mathbf{k}_1$) also drop out.
 
@@ -1802,6 +1785,23 @@ $$ \boxed{N_2 = 2mAR\omega\,\dot\varphi\sin\varphi\sin(\omega t) - mAR\omega^2\,
 and $\mathbf{N} = N_1\cos\varphi\,\mathbf{i}_1 + N_1\sin\varphi\,\mathbf{j}_1 + N_2\,\mathbf{k}_1$. Both components agree with the official key. The normal component $N_2$ is what the wire must supply to drag $P$ along with the swinging plane (it balances the Euler and Coriolis forces).
 
 #### 3.4 Integration and Answers
+
+##### (c) Is the mechanical energy conserved in $Oxy$?
+* **Pedagogical Justification:** By Slide 29, $E_1^P$ is conserved only if every force that does work in $S_1$ derives from a potential that does not depend explicitly on time. Compute the power of each force in $S_1$.
+* $\mathbf{N}\cdot\mathbf{v}_1^P = R\dot\varphi\,(N_1\mathbf{e}_r + N_2\mathbf{k}_1)\cdot\mathbf{e}_\varphi = 0$ (the wire is fixed in $S_1$).
+* $\mathbf{F}_E$ and $\mathbf{F}_{COR}$ are along $\mathbf{k}_1$, normal to the plane in which $\mathbf{v}_1^P$ lies: they do no work. (In general the Euler force has no potential, Slide 31; here it happens to be powerless.)
+* The weight has the potential $mgy = mgR\sin\varphi$.
+* The centrifugal force has the potential $V_C = -\tfrac12 m\Omega(t)^2x^2$, but **it depends explicitly on time** because $\Omega$ does.
+
+Define $E_1^P = \tfrac12 mR^2\dot\varphi^2 + mgR\sin\varphi - \tfrac12 m\Omega^2R^2(1 + \cos\varphi)^2$. Differentiating with the chain and product rules,
+
+$$ \frac{dE_1^P}{dt} = mR^2\dot\varphi\ddot\varphi + mgR\cos\varphi\,\dot\varphi + m\Omega^2R^2(1 + \cos\varphi)\sin\varphi\,\dot\varphi - m\Omega\dot\Omega R^2(1 + \cos\varphi)^2 $$
+
+The first three terms are $mR^2\dot\varphi$ times the equation of motion of part (d), so they cancel (the equation of part (d) above), leaving
+
+$$ \frac{dE_1^P}{dt} = -m\Omega\dot\Omega\,R^2(1 + \cos\varphi)^2 = -mA^2\omega^3R^2\sin(\omega t)\cos(\omega t)\,(1 + \cos\varphi)^2 \neq 0 $$
+
+**No**: the mechanical energy of $P$ in $Oxy$ is not conserved, because the centrifugal potential changes with time (the frame does not rotate at a constant rate). It would be conserved if $\Omega$ were constant. Nor is the energy conserved in $S_0$: there the wire moves and its reaction $N_2\mathbf{k}_1$ does work.
 
 ##### (f) Small oscillations about the lowest point
 * **Pedagogical Justification:** For $\delta \ll 1$ the trigonometric functions are replaced by their first-order Taylor expansions; the condition $A^2 \ll g/(R\omega^2)$, i.e. $A^2\omega^2 \ll g/R$, lets us drop the parametric term $A^2\omega^2\sin^2(\omega t)\,\delta$ against $(g/R)\,\delta$. The result is a linear forced oscillator.
