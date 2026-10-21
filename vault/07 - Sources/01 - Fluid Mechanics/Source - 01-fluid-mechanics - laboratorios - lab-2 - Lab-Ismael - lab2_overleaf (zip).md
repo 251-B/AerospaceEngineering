@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-2/Lab-Ismael/lab2_overleaf.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 22386
+bytes: 22434
 ---
 
 # Source: lab2_overleaf.zip
