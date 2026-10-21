@@ -13,7 +13,7 @@ tags:
 
 # 📝 Topic 5: Relative Motion - Problem Statements
 
-Problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, "Particle exercises and problems") that require a moving reference frame: relative kinematics (Coriolis theorem, Notes Eq. 3.27) or dynamics in a non-inertial frame with inertia forces (Notes Eq. 4.63). Problems 7, 9, 41 (Topic 1), 21 (Topic 2) and 20, 26 (Topic 3) were already worked in earlier topics with other tools; here they are solved again with the method of this topic.
+Problem statements from the UC3M Aerospace Engineering problem collection (`Problems.pdf`, "Particle exercises and problems") that require a moving reference frame: relative kinematics (Coriolis theorem, Notes Eq. 3.27) or dynamics in a non-inertial frame with inertia forces (Notes Eq. 4.63).
 
 > [!NOTE]
 > **Status:** The statements below follow `Problems.pdf` (version 2026). Worked solutions: [[Solution Set - Topic 5 Relative Motion]]. Theory: [[Topic 5 - Relative Motion]].
@@ -21,21 +21,22 @@ Problem statements from the UC3M Aerospace Engineering problem collection (`Prob
 | Problem | Problems.pdf page | Key page | Topic of the problem |
 | :---: | :---: | :---: | :--- |
 | 7 | 8 | 72 | Skater Towed by a Vehicle on a Circumference (Rotating Frame) |
+| 8 | 8 | none | Kinematics, Two Trains on Tracks |
 | 9 | 8 | none | Artificial Gravity in a Rotating Cylinder (2001: A Space Odyssey) |
 | 20 | 10 | none | Heavy Particle on a Rotating Circumference |
 | 21 | 10 | none | Apparent Weight on a Spinning Planet |
-| 25 | 13 | 72-73 | Ijon Tichy's Space Walk |
+| 25 | 13 | 73-74 | Ijon Tichy's Space Walk |
 | 26 | 14 | none | Heavy Particle on a Rotating Half-Circumference (Moving-Frame Method) |
-| 27 | 15 | 73 | Bead on a Rotating Sine-Shaped Wire with a Spring |
+| 27 | 15 | 74 | Bead on a Rotating Sine-Shaped Wire with a Spring |
 | 28 | 16 | none | Spherical Pendulum with a Vertically Oscillating Suspension Point |
 | 30 | 18 | none | Particle on a Rotating Quarter Circumference with a Spring |
-| 33 | 21 | 74 | Two Repelling Particles on a Rotating Parabola |
-| 34 | 22 | 74 | Particle on a Circular Wire in an Oscillating Vertical Plane |
-| 36 | 24 | 74 | Pendulum String Dragged by a Rotating Bar |
-| 37 | 25 | 74 | Particle on a Spinning Elliptic Cone |
-| 40 | 28 | 75 | Spring-Coupled Particles on a Vertical Axis and a Revolving Ring |
-| 41 | 29 | 75 | Satellite Solar Panel (Composition of Rotations) |
-| 47 | 32 | 75 | Two Repelling Particles on Concentric Wires in a Rotating Plane |
+| 33 | 21 | 75 | Two Repelling Particles on a Rotating Parabola |
+| 34 | 22 | 75 | Particle on a Circular Wire in an Oscillating Vertical Plane |
+| 36 | 24 | 75 | Pendulum String Dragged by a Rotating Bar |
+| 37 | 25 | 75 | Particle on a Spinning Elliptic Cone |
+| 40 | 28 | 76 | Spring-Coupled Particles on a Vertical Axis and a Revolving Ring |
+| 41 | 29 | 76 | Satellite Solar Panel (Composition of Rotations) |
+| 47 | 32 | 76 | Two Repelling Particles on Concentric Wires in a Rotating Plane |
 | 49 | 34 | none | Particle on a Rotating Sphere Attracted to a Point |
 | 51 | 36 | none | Particle inside a Hollow Sphere in a Rotating Frame |
 
@@ -60,7 +61,7 @@ A skater $B$ is being towed by a vehicle $A$ on a perfectly smooth horizontal pl
 
 Two trains, $A$ and $B$, are moving along parallel tracks. The separation between the tracks is $a$. The absolute velocity of each train is $v_A$ and $v_B$, respectively. What is the relative velocity of each train with respect to the other?
 
-Solve the same problem considering that train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.
+Solve the same problem considering that the train $B$ is now moving along a circular track of radius $R$. The minimum distance between the circular track and the straight track of $A$ is $a$.
 
 ---
 
@@ -68,7 +69,7 @@ Solve the same problem considering that train $B$ is now moving along a circular
 
 In "2001: A Space Odyssey" an idea to obtain artificial gravity in a spaceship was presented. It consists of a cylinder rotating at constant angular velocity around its axis. The astronauts would live in the inner surface of the cylinder and the centrifugal force would act as artificial gravity.
 
-* **(a)** If the cylinder has radius $R$, determine the angular velocity $\omega$ required to obtain a given level of artificial gravity $g$. Consider $R = 10$ m and $g = 9.81$ m/s$^2$ for a particular case.
+* **(a)** If the cylinder has radius $R$, determine the angular velocity $\omega$ required to obtain a given level artificial gravity $g$. Consider $R = 10$ m and $g = 9.81$ m/s$^2$ for a particular case.
 * **(b)** An astronaut runs inside the surface of the cylinder with a constant speed $u$ with respect to the cylinder. Determine the artificial gravity that she feels (neglect the height of the astronaut $h$ with respect to the radius of the cylinder $R$, $h \ll R$).
 * **(c)** What is the condition for her to feel no artificial gravity at all?
 
@@ -85,7 +86,7 @@ A heavy particle is moving along a smooth circumference of radius $R$ and center
 
 ## 📌 Problem 21: Apparent Weight on a Spinning Planet
 
-On a spinning spherical planet of radius $R$ and gravitational acceleration $g_p$, the bodies weigh twice as much on the poles as on the equator. Determine the duration of the day on that planet.
+On a spinning spherical planet of radius $R$ and gravitational acceleration $g_p$, the bodies weight [sic] twice as much on the poles as on the equator. Determine the duration of the day on that planet.
 
 ---
 
@@ -104,11 +105,11 @@ in the range $-\pi a \le x \le \pi a$, where $a$ is a positive constant. Initial
 * **(b)** If $v_0 = \sqrt{ga}$, determine the minimum and maximum value of $x$ along the motion.
 * **(c)** What should be the minimum value of $v_0$ in order to reach $x = \pi a$?
 
-**Extended Section (Moving Reference Frame):**<br> Let's assume now that the curve containing the point particle rotates around the $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.
+Let's assume now that the curve containing the point particle rotates around the $OY$ axis with constant angular velocity $\boldsymbol{\omega} = \Omega\mathbf{j}$.
 
 * **(d)** Define a convenient moving reference frame with origin in $O$, $OX_1Y_1Z_1$. Determine the inertia force that acts on the particle in this moving reference frame as a function of $m, \Omega, x_1$ and $\dot{x}_1$, where $x_1$ represents the position coordinate of $P$ along $OX_1$.
 * **(e)** Reduce the problem to quadratures and determine the value of the reaction force.
-* **(f)** Find out a transcendental equation whose solutions are the equilibrium positions of the point particle in $OX_1Y_1Z_1$.
+* **(f)** Find out a trascendental [sic] equation whose solutions are the equilibrium positions of the point particle in $OX_1Y_1Z_1$.
 * **(g)** If $\Omega$ were a function of time, would it be possible to use the energy equation in the same way as before? Justify your answer.
 
 ---
@@ -119,7 +120,7 @@ A spacecraft $S$ is orbiting a celestial body $F$. The trajectory of the spacecr
 
 $$ r = \frac{p}{1 + e\cos\nu}, $$
 
-where $p$ and $e$ are known constants and $\nu(t)$ is a known function of time. The space explorer Ijon Tichy needs to perform some extra-vehicular activities during his Seventh Voyage (from *The Star Diaries* by Stanislaw Lem). He attaches himself with a massless cord of length $L$ to the spacecraft and goes for a space walk. The cord remains in tension at all times. The astronaut is very light compared to the spacecraft, so his motion does not perturb the motion of the spacecraft. Furthermore, we assume that we can consider him as a point particle of mass $m$. We define a moving reference frame $Sx_1y_1$ as depicted in the figure.
+where $p$ and $e$ are known constants and $\nu(t)$ is a known function of time. The space explorer Ijon Tichy needs to perform some extra-vehicular activities during his Seventh Voyage (footnote 1: *The Star Diaries* by Stanislaw Lem). He attaches himself with a massless cord of length $L$ to the spacecraft and goes for a space walk. The cord remains in tension at all times. The astronaut is very light compared to the spacecraft, so his motion does not perturb the motion of the spacecraft. Furthermore, we assume that we can consider him as a point particle of mass $m$. We define a moving reference frame $Sx_1y_1$ as depicted in the figure.
 
 ![[attachments/EM/T5-P25-figure.png]]
 *Figure: Spacecraft S on its orbit around F, true anomaly ν, moving axes Sx1 (radial) and Sy1, astronaut on a cord of length L at angle θ from Sx1 Source: Problems.pdf, p. 13.*
@@ -259,7 +260,7 @@ Answer the following questions in a reasoned way:
 
 ## 📌 Problem 36: Pendulum String Dragged by a Rotating Bar
 
-A heavy point particle $P$ with mass $m$ hangs from a fixed point $A$ on the ceiling with a massless string of constant length $L$. The particle is initially at rest. A bar $b$ rotates about its center $O$ in a horizontal plane at a distance $h$ from the ceiling, with a known, constant angular velocity $\omega$. The horizontal distance between $O$ and $A$ is $R$. At time $t = 0$, the bar collides with the string and drags it along its motion. The string slides over the bar without friction. We call $C$ the instantaneous point of contact of the string with the bar. We define a reference frame $S_1$ that rotates with the bar as shown in the figure. We call $\xi$ the distance between $O$ and $C$; $\ell$ the length of the string segment between $C$ and $P$; $\theta$ the angle between the vertical plane $Ox_1z_1$ and the plane defined by the bar and $P$; and $\varphi$ the angle formed between the string segment $CP$ and the bar. You are asked to study only the part of the motion in which the string remains tense and in contact with the bar.
+A heavy point particle $P$ with mass $m$ hanging from a fixed point $A$ on the ceiling with a massless string of constant length $L$. The particle is initially at rest. A bar $b$ rotates about its center $O$ in a horizontal plane at a distance $h$ from the ceiling, with a known, constant angular velocity $\omega$. The horizontal distance between $O$ and $A$ is $R$. At time $t = 0$, the bar collides with the string and drags it along its motion. The string slides over the bar without friction. We call $C$ the instantaneous point of contact of the string with the bar. We define a reference frame $S_1$ that rotates with the bar as shown in the figure. We call $\xi$ the distance between $O$ and $C$; $\ell$ the length of the string segment between $C$ and $P$; $\theta$ the angle between the vertical plane $Ox_1z_1$ and the plane defined by the bar and $P$; and $\varphi$ the angle formed between the string segment $CP$ and the bar. You are asked to study only the part of the motion in which the string remains tense and in contact with the bar.
 
 ![[attachments/EM/T5-P36-figure.png]]
 *Figure: Left, before the impact (t negative): bar b rotating with ω about O in the horizontal plane x1y1, ceiling point A at height h above that plane and horizontal distance R from O, P hanging below A. Right, after the impact (t positive): frame S1 = Ox1y1z1 attached to the bar, contact point C at distance ξ from O, string A–C–P with segment CP of length ℓ at angle φ from the bar, θ the angle of the plane bar–P from the vertical; gravity g downward Source: Problems.pdf, p. 24.*
@@ -271,13 +272,13 @@ A heavy point particle $P$ with mass $m$ hangs from a fixed point $A$ on the cei
 * **(e)** Write down a set of second order differential equations for the evolution of the unknowns of the problem.
 * **(f)** Compute the initial conditions for the previous equations at $t = 0$.
 * **(g)** Is the mechanical energy of the particle conserved in time? Justify your answer.
-* **(h)** If/when the string separates from the bar, express the geometric condition as a relation between $\theta$ and time.
+* **(h)** If/when the string separates from the bar, express the geometric condition as a relation between $\theta$ and and [sic] time.
 
 ---
 
 ## 📌 Problem 37: Particle on a Spinning Elliptic Cone
 
-A heavy point particle $P$ with mass $m$ moves without friction on a cone of elliptic cross-section as shown in the figure. We define an auxiliary reference frame $S_1 : \{O; \mathcal{B}_1\}$ attached to the cone. The cone is defined in terms of two parameters $\zeta$, $\beta$ as
+A heavy point particle $P$ with mass $m$ moves without friction on a cone of elliptic cross-section as shown in the figure. We define an auxiliary reference frame $S_1 : \{O; \mathcal{B}_1\}$ attached to the cone. The cone is defined in term [sic] of two parameters $\zeta$, $\beta$ as
 
 $$ \text{Elliptic cone:} \quad \begin{cases} x_1 = \zeta\cos\beta \\ y_1 = 2\zeta\sin\beta \\ z_1 = \zeta \end{cases} \qquad (5) $$
 
@@ -343,7 +344,7 @@ We consider a system of two heavy particles of equal mass $m$. The first particl
 
 ## 📌 Problem 49: Particle on a Rotating Sphere Attracted to a Point
 
-A point particle $P$ of mass $m$ slides without friction on a sphere of radius $a$ centered at the origin of the inertial reference frame $S_0$ as shown in the figure. The particle is attracted by a point $A$ in the equatorial plane, located a distance $a$ from the surface of the sphere as shown. The force of attraction is linearly proportional to the distance between this point and $P$, with known constant of proportionality $k \gt 0$. The sphere and the point $A$ rotate rigidly about the vertical with a known angular velocity $\Omega\mathbf{k}_0$. We define the auxiliary reference frame $S_1$ that rotates with the sphere and point $A$, with $\mathbf{k}_1 = \mathbf{k}_0$ and $\mathbf{i}_1$ pointing in the direction of $A$. We introduce the angles $\phi$ and $\theta$ as shown to locate $P$ on the sphere. Note that there is no gravity in this problem.
+A point particle $P$ of mass $m$ slides without friction on a sphere of radius $a$ centered at the origin of the inertial reference frame $S_0$ as shown in the figure. The particle is attracted by a point $A$ in the equatorial plane, located a distance $a$ from the surface of the sphere as shown. The force of attraction is linearly proportional [sic] the distance between this point and $P$, with known constant of proportionality $k \gt 0$. The sphere and the point $A$ rotate rigidly about the vertical with a known angular velocity $\Omega\mathbf{k}_0$. We define the auxiliary reference frame $S_1$ that rotates with the sphere and point $A$, with $\mathbf{k}_1 = \mathbf{k}_0$ and $\mathbf{i}_1$ pointing in the direction of $A$. We introduce the angles $\phi$ and $\theta$ as shown to locate $P$ on the sphere. Note that there is no gravity in this problem.
 
 ![[attachments/EM/T5-P49-figure.png]]
 *Figure: Sphere of radius a centred at O, point A on the i1 axis outside the sphere in the equatorial plane, particle P located by the angles phi and theta, frame S1 rotated by Omega t about k0 = k1 Source: Problems.pdf, p. 34.*
@@ -358,7 +359,7 @@ A point particle $P$ of mass $m$ slides without friction on a sphere of radius $
 
 ## 📌 Problem 51: Particle inside a Hollow Sphere in a Rotating Frame
 
-A heavy point particle $P$ of mass $m$ is constrained to move inside the surface of a hollow sphere of radius $R$ and center $C$ located at $\mathbf{r}_1^C = R(\mathbf{j}_1 + \mathbf{k}_1)$. The surface of the sphere is smooth. The reference frame $S_1$ shown in the figure is a non-inertial reference frame, because it rotates with a known angular velocity $\boldsymbol{\omega}_{10} = \Omega(t)\,\mathbf{k}_1$ with respect to inertial space. We introduce the two coordinates $\theta$ and $\phi$ as shown in the figure, in order to characterize the configuration of $P$.
+A heavy point particle $P$ of mass $m$ is constrained to move inside the surface of a hollow sphere of radius $R$ and center $C$ located at $\mathbf{r}_1^C = R(\mathbf{j}_1 + \mathbf{k}_1)$. The surface of the sphere is smooth. The reference frame $S_1$ shown in the figure is a non-inertial reference frame, because it rotates with a known angular velocity $\boldsymbol{\omega}_{10} = \Omega(t)\,\mathbf{k}_1$ with respect to inertial space. We introduce the two coordiantes [sic] $\theta$ and $\phi$ as shown in the figure, in order to characterize the configuration of $P$.
 
 ![[attachments/EM/T5-P51-figure.png]]
 *Figure: Rotating frame S1 with axes i1, j1, k1, hollow sphere of centre C at R(j1+k1), particle P located by the angles theta and phi, angular velocity Omega(t) about k1 Source: Problems.pdf, p. 36.*

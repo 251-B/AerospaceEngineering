@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-mechanics-topic-5-course-order",
+    "date": "2026-10-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics Topic 5: solutions in the course order",
+    "text": "The twenty relative-motion problems now follow the course method step by step: kinematics, forces, equations of motion, then results and checks against the official keys.",
+    "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
     "id": "2026-10-21-mechanics-topic-3-course-order",
     "date": "2026-10-21",
     "tag": "Engineering Mechanics",
