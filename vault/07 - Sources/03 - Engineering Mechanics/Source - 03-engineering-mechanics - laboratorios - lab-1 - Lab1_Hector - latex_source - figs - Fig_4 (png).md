@@ -20,7 +20,7 @@ bytes: 168407
 - **Kind:** laboratorio
 - **Size:** 168.4 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
-- **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
+- **Shared name:** the file name is shared with 3 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 

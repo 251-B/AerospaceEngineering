@@ -128,12 +128,17 @@ $$\begin{cases}
 
 **Nominal parameters (item 5):** $A=\pi$, $g=9.81\ \text{m/s}^2$, $m=1\ \text{kg}$, $R=1\ \text{m}$, $\omega=0.1\ \text{rad/s}$, $\phi(0)=0$, $\dot\phi(0)=0$. Period $T = 2\pi/\omega = 62.83\ \text{s}$, integration interval $[0, 3T]$, with $A\omega = 0.314\ \text{rad/s}$.
 
+The state is exactly the one of item 4, $\mathbf{X} = [\phi, \dot\phi]^T$, with `Xdot = diffeq(t,X,g,w,R,A)`. The work of the wire is not a state: it is computed after the integration with the trapezoidal rule, $W_n = \sum_i \tfrac12(P_i+P_{i+1})(t_{i+1}-t_i)$ with $P = -\Omega x N_z$, and compared with $E - E_0$. Tolerances $10^{-8}$ (relative) and $10^{-10}$ (absolute), 10000 output points in $[0, 3T]$ (about 125 per oscillation of $\phi$).
+
 Results of the run with MATLAB R2026b (not compared with an official numerical key):
 
-* $\phi \in [-\pi, 0.012]$: starting from $\phi=0$ at rest the bead swings about the bottom $\phi=-\pi/2$.
+* $\ddot\phi(0) = -9.81\ \text{rad/s}^2 = -g/R$, since $\Omega(0)=0$.
+* $\phi \in [-\pi, 0.0118]$: starting from $\phi=0$ at rest the bead swings about the bottom $\phi=-\pi/2$, with period $2.37\ \text{s}$ (79 oscillations in $3T$), against $2\pi\sqrt{R/g} = 2.006\ \text{s}$ for small oscillations. The amplitude does not change over $[0,3T]$, because $\Omega^2_{\max}/(g/R) = (A\omega)^2/(g/R) \approx 1\,\%$. At $\phi = -\pi$ the bead is at $O$, on the axis.
 * $N_r \in [-29.43, 0]\ \text{N}$; the minimum is $-3mg$ at the bottom, where $\dot\phi^2 = 2g/R$.
-* $N_z \in [-2.76, 2.77]\ \text{N}$.
-* $E_k + E_p$ (absolute kinetic energy) varies between $-0.08$ and $0.31\ \text{J}$: it is not conserved, as in section 3.4.
+* $N_z \in [-2.78, 2.78]\ \text{N}$, almost all of it Coriolis ($\pm 2.78\ \text{N}$); centrifugal $\le 0.197\ \text{N}$, Euler $\pm 0.063\ \text{N}$.
+* $E_k \le 9.83\ \text{J}$, $E_p \in [-9.81, 0.115]\ \text{J}$, and $E = E_k + E_p \in [-0.082, 0.313]\ \text{J}$: not conserved (section 3.4), but with no net gain, $E(3T) - E(0) = 0.0006\ \text{J}$. The envelope of $E - E_0$ follows $\Omega^2$ (period $T/2$): the wire gives energy while $|\Omega|$ grows and takes it back while it decreases.
+* Checks: $\max|E - E_0 - W| = 1.5\cdot10^{-4}\ \text{J}$; tolerances $10^{-11}/10^{-12}$ change $\phi$ by at most $1.4\cdot10^{-4}\ \text{rad}$; $\sqrt{x_1^2+z_1^2} = x$ to $2\cdot10^{-16}\ \text{m}$.
+* Trajectory in the fixed frame (item 6): seen from above it is a rosette of petals, one per oscillation of $\phi$, drawn while the plane turns from $\theta = 0$ to $2A = 2\pi$ and back in each period. The three periods give almost the same curve. The script also writes an animation of the first period, `trajectory_P.avi` (each frame printed to a fixed 560 × 480 image with `print(gcf,'-RGBImage')`, because `getframe` changed size between frames in batch runs).
 
 ### 4.2 Autonomous case ($A = 0$) and phase portrait (item 7)
 
@@ -154,7 +159,9 @@ For the nine initial conditions of the lab ($g/R = 9.81\ \text{s}^{-2}$):
 | $\pi/4$ | $2.40$ | oscillates | oscillates | **increases** |
 | $\pi/2$ | $0$ | unstable equilibrium | **increases** | **increases** |
 
-At $(\pi/2, 0)$ the bead stays at rest analytically; numerically $\cos(\pi/2)\approx 6\cdot10^{-17}$, so it drifts away very slowly.
+At $(\pi/2, 0)$ the bead stays at rest analytically; numerically $\cos(\pi/2)\approx 6\cdot10^{-17}$, and over the 4 s of integration it does not move.
+
+Numerical check (integration over 4 s, longer than the longest closed orbit): the periods of the closed orbits are 2.37, 2.43, 2.71, 3.07 and 3.36 s, and every one of the nine cases behaves as predicted. With $\phi_0 = \pi/4$, $0.99\,\dot\phi_c$ gives $\max\phi = 1.463 < \pi/2$ (oscillation) and $1.01\,\dot\phi_c$ goes over the top. The energy drift is below $2\cdot10^{-7}\,mgR$ in all cases.
 
 ### 4.3 Linearization for small oscillations (item 8)
 
@@ -164,13 +171,17 @@ This is a **forced linear oscillator** (not a parametric one) with natural frequ
 $$\delta(t) = \frac{A^2R\omega^2}{2g} - \frac{A^2\omega^2\cos(2\omega t)}{2\left(\omega_n^2-4\omega^2\right)} + a\cos\omega_nt + b\sin\omega_nt$$
 The bead oscillates about $\delta_0 = A^2R\omega^2/(2g)$. The approximation fails at **resonance**, $2\omega\approx\omega_n$, i.e. $\omega\approx\tfrac12\sqrt{g/R}$, where $\delta_p = -\dfrac{A^2\omega^2}{4\omega_n}\,t\sin(\omega_nt)$ grows linearly.
 
-**Numerical comparison** (script settings: $R=0.01\ \text{m}$, $A=0.1$, $\delta(0)=0.01$, $\dot\delta(0)=0$, $t\in[0,10]\ \text{s}$; the lab statement gives no initial conditions, so these are a choice). Percentage error $100\,|\delta_{\text{lin}}-\delta_{\text{full}}|/\max|\delta_{\text{full}}|$ (normalised by the amplitude because $\delta$ crosses zero):
+With $\delta(0)=0$, $\dot\delta(0)=0$ the closed-form solution is $\delta = \frac{F_0}{\omega_n^2} - \frac{F_0\cos 2\omega t}{\omega_n^2-4\omega^2} + \left(\frac{F_0}{\omega_n^2-4\omega^2} - \frac{F_0}{\omega_n^2}\right)\cos\omega_n t$, with $F_0 = A^2\omega^2/2$, and at resonance $\delta = \frac{F_0}{\omega_n^2}(1-\cos\omega_nt) - \frac{F_0}{2\omega_n}\,t\sin\omega_nt$. The `ode45` solution of the linearized equation matches it to $2\cdot10^{-8}$ rad.
+
+**Numerical comparison** (script settings: $R=0.01\ \text{m}$, $A=0.1$, $\delta(0)=0$, $\dot\delta(0)=0$, $t\in[0,10]\ \text{s}$). The initial conditions are not given in the lab statement, in Problem 34 (f) or in the slides of Lab Session 2, so they are our choice: the bead starts at rest at the bottom and all its motion comes from the loop. Percentage error $100\,|\delta_{\text{lin}}-\delta_{\text{full}}|/\max|\delta_{\text{full}}|$ (normalised by the amplitude because $\delta$ crosses zero):
 
 | $\omega$ | $\max\lvert\delta\rvert$ | error at $t=5\ \text{s}$ | maximum error |
 |---|---|---|---|
-| $\sqrt{g/R}$ | 0.0100 | 4.96 % | 14.2 % |
-| $\tfrac12\sqrt{g/R}$ | **0.194** | 2.73 % | **27.7 %** |
-| $\tfrac14\sqrt{g/R}$ | 0.0108 | 1.28 % | 4.85 % |
+| $\sqrt{g/R}$ | 0.0134 | 6.68 % | 21.4 % |
+| $\tfrac12\sqrt{g/R}$ | **0.196** | 3.30 % | **27.8 %** |
+| $\tfrac14\sqrt{g/R}$ | 0.0008 | 0.32 % | 1.86 % |
+
+Resonance is the forced oscillator of `Notes.pdf`, Sec. 5.4.1 (no damping here, so the amplitude grows linearly instead of saturating).
 
 Two error mechanisms: a **phase drift** from the dropped term $\Omega^2\delta$ (it shifts the natural frequency, and grows with $\omega$), and, in the resonant case, $\delta$ growing until $\delta\ll1$ no longer holds.
 
