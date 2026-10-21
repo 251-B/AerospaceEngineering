@@ -1,0 +1,359 @@
+{
+ "01": {
+  "topic": 1,
+  "title": "Rocket Helical Trajectory",
+  "badge": "MIT OCW Benchmark",
+  "source_note": "(Taken from MIT OCW)",
+  "structure": 1
+ },
+ "02": {
+  "topic": 1,
+  "title": "Kinematics, Spiral",
+  "badge": "Polar Kinematics",
+  "source_note": "",
+  "structure": 1
+ },
+ "03": {
+  "topic": 1,
+  "title": "Kinematics, Astroid",
+  "badge": "Intrinsic Kinematics",
+  "source_note": "",
+  "structure": 1
+ },
+ "04": {
+  "topic": 1,
+  "title": "Plane at Constant Altitude",
+  "badge": "Coordinate Transformations",
+  "source_note": "",
+  "structure": 1
+ },
+ "05": {
+  "topic": 1,
+  "title": "Plane and Glider",
+  "badge": "Aerospace Towed Flight",
+  "source_note": "",
+  "structure": 1
+ },
+ "06": {
+  "topic": 1,
+  "title": "Particle on Sinusoidal Curve",
+  "badge": "Frenet-Serret Frame",
+  "source_note": "",
+  "structure": 1
+ },
+ "07": {
+  "topic": 5,
+  "title": "Skater Towed by a Vehicle: Rotating Frame",
+  "badge": "Rotating Frame + Inertia Forces",
+  "source_note": "(PDF page 8); key on PDF page 72",
+  "structure": 1
+ },
+ "08": {
+  "topic": 5,
+  "title": "Kinematics, Two Trains on Tracks",
+  "badge": "Relative Motion",
+  "source_note": "",
+  "structure": 1
+ },
+ "09": {
+  "topic": 5,
+  "title": "Artificial Gravity in a Rotating Cylinder",
+  "badge": "Centrifugal + Coriolis Forces",
+  "source_note": "(PDF page 8); no official key",
+  "structure": 1
+ },
+ "10": {
+  "topic": 2,
+  "title": "Conservative Force and Potential I",
+  "badge": "Work & Potential Energy",
+  "source_note": "",
+  "structure": 1
+ },
+ "11": {
+  "topic": 2,
+  "title": "Conservative Force and Potential II",
+  "badge": "1D Energy Landscapes",
+  "source_note": "",
+  "structure": 1
+ },
+ "12": {
+  "topic": 2,
+  "title": "Conservative Force and Potential III",
+  "badge": "Oscillation Period",
+  "source_note": "",
+  "structure": 1
+ },
+ "13": {
+  "topic": 2,
+  "title": "Conservative Force and Potential IV",
+  "badge": "Quadratures & Trajectory",
+  "source_note": "",
+  "structure": 1
+ },
+ "14": {
+  "topic": 2,
+  "title": "Conservative Force and Potential V",
+  "badge": "Phase Analysis",
+  "source_note": "",
+  "structure": 1
+ },
+ "15": {
+  "topic": 2,
+  "title": "Stokes Drag and Terminal Velocity",
+  "badge": "Viscous Aerodynamics",
+  "source_note": "",
+  "structure": 1
+ },
+ "16": {
+  "topic": 2,
+  "title": "Drag on Falling Football",
+  "badge": "Quadratic Drag",
+  "source_note": "",
+  "structure": 1
+ },
+ "17": {
+  "topic": 2,
+  "title": "Linear Central Force",
+  "badge": "Newtonian Restoring Force",
+  "source_note": "",
+  "structure": 1
+ },
+ "18": {
+  "topic": 3,
+  "title": "Heavy Particle on a Cone",
+  "badge": "Conical Surface",
+  "source_note": "",
+  "structure": 1
+ },
+ "19": {
+  "topic": 3,
+  "title": "Heavy Particle on a Paraboloid",
+  "badge": "Paraboloid Surface",
+  "source_note": "",
+  "structure": 1
+ },
+ "20": {
+  "topic": 5,
+  "title": "Heavy Particle on a Rotating Circumference",
+  "badge": "Energy in a Rotating Frame",
+  "source_note": "(PDF page 10); no official key",
+  "structure": 1
+ },
+ "21": {
+  "topic": 5,
+  "title": "Apparent Weight on a Spinning Planet",
+  "badge": "Centrifugal Force",
+  "source_note": "(PDF page 10); no official key",
+  "structure": 1
+ },
+ "22": {
+  "topic": 5,
+  "title": "Particle on a Curve",
+  "badge": "1D Curve Constraint",
+  "source_note": "",
+  "structure": 1
+ },
+ "23": {
+  "topic": 3,
+  "title": "Simple Pendulum (Unilateral Constraint)",
+  "badge": "Pendulum & Liftoff",
+  "source_note": "",
+  "structure": 1
+ },
+ "24": {
+  "topic": 3,
+  "title": "Particle on a Circumference with a Spring",
+  "badge": "Wire & Elastic Potential",
+  "source_note": "",
+  "structure": 1
+ },
+ "25": {
+  "topic": 5,
+  "title": "Ijon Tichy's Space Walk",
+  "badge": "Orbiting Frame + Inertia Forces",
+  "source_note": "(PDF page 13); key on PDF pages 73-74",
+  "structure": 1
+ },
+ "26": {
+  "topic": 5,
+  "title": "Heavy Particle on a Rotating Half-Circumference (Moving-Frame Method)",
+  "badge": "Rotating Wire + Inertia Forces",
+  "source_note": "",
+  "structure": 1
+ },
+ "27": {
+  "topic": 5,
+  "title": "Bead on a Rotating Sine-Shaped Wire with a Spring",
+  "badge": "Rotating Wire + Spring",
+  "source_note": "(PDF page 15); key on PDF page 74",
+  "structure": 1
+ },
+ "28": {
+  "topic": 5,
+  "title": "Spherical Pendulum with a Vertically Oscillating Suspension Point",
+  "badge": "Translating Frame + Inertia Force",
+  "source_note": "",
+  "structure": 1
+ },
+ "29": {
+  "topic": 3,
+  "title": "Heavy Particle on a Tilted Cylinder",
+  "badge": "Unilateral Liftoff",
+  "source_note": "",
+  "structure": 1
+ },
+ "30": {
+  "topic": 5,
+  "title": "Particle on a Rotating Quarter Circumference with a Spring",
+  "badge": "Rotating Frame + Path Variables",
+  "source_note": "",
+  "structure": 1
+ },
+ "31": {
+  "topic": 3,
+  "title": "Two Particles on Cone with String",
+  "badge": "Multi-Particle Cable Constraint",
+  "source_note": "",
+  "structure": 1
+ },
+ "32": {
+  "topic": 3,
+  "title": "Particle with String on Spool",
+  "badge": "Rheonomic Spool Constraint",
+  "source_note": "",
+  "structure": 1
+ },
+ "33": {
+  "topic": 5,
+  "title": "Two Repelling Particles on a Rotating Parabola",
+  "badge": "Rotating Wire + Two Particles",
+  "source_note": "(PDF page 21); key on PDF page 75",
+  "structure": 1
+ },
+ "34": {
+  "topic": 5,
+  "title": "Particle on a Circular Wire in an Oscillating Vertical Plane",
+  "badge": "Oscillating Plane + Euler Force",
+  "source_note": "(PDF page 22); key on PDF page 75",
+  "structure": 1
+ },
+ "35": {
+  "topic": 3,
+  "title": "String with Two Particles on a Cylinder",
+  "badge": "Multi-Particle Cylinder Contact",
+  "source_note": "",
+  "structure": 1
+ },
+ "36": {
+  "topic": 5,
+  "title": "Pendulum String Dragged by a Rotating Bar",
+  "badge": "Rotating Frame + String Constraint",
+  "source_note": "(PDF page 24); key on PDF page 75",
+  "structure": 1
+ },
+ "37": {
+  "topic": 5,
+  "title": "Particle on a Spinning Elliptic Cone",
+  "badge": "Rotating Constraint Surface",
+  "source_note": "(PDF page 25); key on PDF page 75",
+  "structure": 1
+ },
+ "38": {
+  "topic": 3,
+  "title": "Particle on Torus",
+  "badge": "Toroidal Geometry",
+  "source_note": "",
+  "structure": 1
+ },
+ "39": {
+  "topic": 3,
+  "title": "Particle on a String with a Plate",
+  "badge": "Plate Edge Contact",
+  "source_note": "",
+  "structure": 1
+ },
+ "40": {
+  "topic": 5,
+  "title": "Spring-Coupled Particles on a Vertical Axis and a Revolving Ring",
+  "badge": "Two Particles in a Rotating Frame",
+  "source_note": "(PDF page 28); key on PDF page 76",
+  "structure": 1
+ },
+ "41": {
+  "topic": 5,
+  "title": "Satellite Solar Panel: Composition of Rotations",
+  "badge": "Relative Kinematics",
+  "source_note": "(PDF page 29); key on PDF page 76",
+  "structure": 1
+ },
+ "42": {
+  "topic": 4,
+  "title": "Particle Attracted to the Origin by $F = m\\mu/r^\\alpha$",
+  "badge": "Binet + Effective Potential",
+  "source_note": "(PDF page 29); no key available",
+  "structure": 1
+ },
+ "43": {
+  "topic": 4,
+  "title": "Two Connected Particles through a Hole",
+  "badge": "Angular Momentum + Energy",
+  "source_note": "(PDF page 30); no key available",
+  "structure": 1
+ },
+ "44": {
+  "topic": 4,
+  "title": "The Little Prince Throwing Seeds",
+  "badge": "Angular Momentum + Vis-Viva",
+  "source_note": "(PDF page 31); no key available",
+  "structure": 1
+ },
+ "45": {
+  "topic": 2,
+  "title": "Vibrating Rotor (Unbalanced Turbojet)",
+  "badge": "Forced Oscillations",
+  "source_note": "",
+  "structure": 1
+ },
+ "46": {
+  "topic": 2,
+  "title": "Bumpy Taxiway",
+  "badge": "Resonance & Damping",
+  "source_note": "",
+  "structure": 1
+ },
+ "47": {
+  "topic": 5,
+  "title": "Two Repelling Particles on Concentric Wires in a Rotating Plane",
+  "badge": "Relative Equilibrium",
+  "source_note": "(PDF page 32); key on PDF page 76",
+  "structure": 1
+ },
+ "48": {
+  "topic": 3,
+  "title": "Two Connected Particles, One on Paraboloid",
+  "badge": "Multi-Particle Manifold",
+  "source_note": "",
+  "structure": 1
+ },
+ "49": {
+  "topic": 5,
+  "title": "Particle on a Rotating Sphere Attracted to a Point",
+  "badge": "Relative Equilibria & Bifurcation",
+  "source_note": "(PDF page 34); no official key",
+  "structure": 1
+ },
+ "50": {
+  "topic": 3,
+  "title": "Double Pendulum",
+  "badge": "Kinematic Linkage",
+  "source_note": "",
+  "structure": 1
+ },
+ "51": {
+  "topic": 5,
+  "title": "Particle inside a Hollow Sphere in a Rotating Frame",
+  "badge": "Non-Inertial Frame + Surface Constraint",
+  "source_note": "(PDF page 36); no official key",
+  "structure": 1
+ }
+}

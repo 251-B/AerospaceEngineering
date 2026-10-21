@@ -31,21 +31,20 @@ Problem statements from the UC3M Aerospace Engineering problem collection (`Prob
 
 ## 📌 Problem 42: Particle Attracted to the Origin (Advanced General Power Law)
 
-*(Advanced problem:)* A point particle $P$ of mass $m$ is attracted by the origin of coordinates $O$ of the inertial reference frame $S_0$ by a force with magnitude:
+*(Advanced problem.)* A point particle $P$ of mass $m$ is attracted by the origin of coordinates $O$ of the inertial reference frame $S_0$ by a force with magnitude
+
 $$ F = \frac{m\mu}{r^\alpha} $$
+
 where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known positive constants.
 
-> [!NOTE] Notation
-> The official text writes the force as $F = m\alpha/r^\beta$ (strength $\alpha$, exponent $\beta$) and asks for $\beta = 1, 2, 3, 4$. Here the strength is renamed $\mu$ and the exponent $\alpha$, so that "$\alpha = 1, 2, 3, 4$" below corresponds to the official "$\beta = 1, 2, 3, 4$" and "$\mu/h^2$" to the official "$\alpha/h^2$".
+> [!note] Notation.
+> The official text writes $F = m\alpha/r^\beta$ (strength $\alpha$, exponent $\beta$) and asks for $\beta = 1, 2, 3, 4$. Here the strength is called $\mu$ and the exponent $\alpha$, so the cases "$\alpha = 1, 2, 3, 4$" below are the official $\beta = 1, 2, 3, 4$, and $\mu/h^2$ is the official $\alpha/h^2$.
 
 * **(a)** Show that the angular momentum vector and the mechanical energy of $P$ are conserved quantities of motion, and that the motion of $P$ occurs in a plane.
 * **(b)** Using polar coordinates $(r, \theta)$ in the plane of motion, find a second-order differential equation to solve for $u \equiv 1/r$ as a function of $\theta$ (i.e., $u = u(\theta)$).
-* **(c)** Find a first integral of this equation and discuss the limits of motion of $u$ as a function of $\mu/h^2$, $\alpha$, and the values of $u$ and $u' \equiv du/d\theta$ at $t = 0$, where $h$ is the magnitude of the angular momentum vector about the origin per unit mass. For $\alpha = 1, 2, 3,$ and $4$, determine under which conditions:
-  * **i.** The particle escapes to infinity ($u \to 0$).
-  * **ii.** The particle reaches $r = 0$ ($u \to \infty$).
-  * **iii.** The particle oscillates between two values of $u$.
+* **(c)** Find a first integral of this equation and discuss the limits of motion of $u$ as a function of $\mu/h^2$, $\alpha$, and the values of $u$ and $u' \equiv du/d\theta$ at $t = 0$, where $h$ is the magnitude of the angular momentum vector about the origin per unit mass. For $\alpha = 1, 2, 3,$ and $4$, determine under which conditions: (i) the particle escapes to infinity ($u \to 0$); (ii) the particle reaches $r = 0$ ($u \to \infty$); (iii) the particle oscillates between two values of $u$.
 
-*(Hint: try to solve first the problem with $\alpha = 2$, and then try the other values.)*
+*Hint: try to solve first the problem with $\alpha = 2$, and then try the other values.*
 
 ---
 
@@ -56,22 +55,19 @@ We consider a smooth horizontal plane with a small hole in it. One of the ends o
 Initially, half of the cord lies under the plane and half of the cord is on the plane (so $r(0) = a$). At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.
 
 ![[attachments/EM/T4-P43-figure.png]]
-*Figure: Smooth horizontal plane with a small hole, particle P1 on the plane at distance r from the hole and particle P2 hanging below it, both of mass m. Source: Problems.pdf, p. 30.*
+*Figure: Smooth horizontal plane with a small hole, particle P1 on the plane at distance r from the hole and particle P2 hanging below it, both of mass m Source: Problems.pdf, p. 30.*
 
 * **(a)** What is the value of $v_0$ if $P_1$ describes a circumference?
 * **(b)** In that case, what is the value of the tension in the cord?
 * **(c)** If $v_0 = \sqrt{8ag/3}$, reduce the problem to integrals (i.e., quadratures).
 * **(d)** Show that for this value of $v_0$, $P_1$ oscillates between $r = a$ and $r = 2a$.
-* **(e)** Apply Newton's law to $P_2$ and show that the tension of the cord is:
-  $$ T = mg\left(\frac{1}{2} + \frac{4a^3}{3r^3}\right) $$
+* **(e)** Apply Newton's law to $P_2$ and show that the tension of the cord is $T = mg\left(\dfrac{1}{2} + \dfrac{4a^3}{3r^3}\right)$.
 * **(f)** Write down the new equations of motion if the plane on which $P_1$ moves is rough, with a friction coefficient $\mu$.
 
-*(Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1$, $x_2 = 2$, and $x_3 = -2/3$.)*
+*Hint: the roots of the polynomial $-3x^3 + 7x^2 - 4$ are $x_1 = 1$, $x_2 = 2$ and $x_3 = -2/3$.*
 
 ---
 
 ## 📌 Problem 44: The Little Prince Throwing Seeds
 
-The little Prince is on his spherical asteroid, which has radius $R$ and mass $M$, and does not rotate. While he sits at the equator, he throws a baobab seed with an initial velocity of magnitude $v_0$ and angle $\beta = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of:
-$$ r_a = 3R $$
-before falling back, determine $v_0$ as a function of the parameters of the problem and the universal gravitational constant $G$.
+The little Prince is on his spherical asteroid, which has radius $R$ and mass $M$, and does not rotate. While he sits at the equator, he throws a baobab seed with an initial velocity of magnitude $v_0$ and angle $\beta = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of $r_a = 3R$ before falling back, determine $v_0$ as a function of the parameters of the problem and the universal gravitational constant $G$.

@@ -25,13 +25,15 @@ Official problem statements from the UC3M Aerospace Engineering problem collecti
 ## 📌 Problem 01: Rocket Helical Trajectory (MIT OCW)
 
 An out-of-control rocket traces an upward helical trajectory described in Cartesian coordinates for $t \ge 0$ by:
-$$ x = a \cos(\omega t) \tag{1} $$
-$$ y = a \sin(\omega t) \tag{2} $$
+
+$$ x = a\cos(\omega t) \tag{1} $$
+$$ y = a\sin(\omega t) \tag{2} $$
 $$ z = v_z t \tag{3} $$
+
 where $a$, $v_z$, and $\omega$ are constants.
 
 ![[attachments/EM/T1-P01-figure.png]]
-*Figure: Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW). Source: Problems.pdf, p. 6.*
+*Figure: Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW) Source: Problems.pdf, p. 6.*
 
 * **(a)** Express the position, velocity, and acceleration vectors in the Cartesian $x, y, z$ system using unit vectors $\mathbf{i}, \mathbf{j}, \mathbf{k}$.
 * **(b)** Express the position, velocity, and acceleration vectors in the cylindrical coordinate system using unit vectors $\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z$.
@@ -40,8 +42,6 @@ where $a$, $v_z$, and $\omega$ are constants.
 * **(e)** Express the evolution of the arc-length coordinate as a function of time.
 * **(f)** Write down the trajectory as a function of the arc-length coordinate.
 * **(g)** Where is the center of curvature for this curve when the particle is located at $(x, y, z) = (a, 0, 0)$?
-
-*(Taken from MIT OCW)*
 
 ---
 
@@ -60,11 +60,10 @@ A planar spiral is given by the equation $r = \alpha e^{\beta\theta}$, where $\a
 ## 📌 Problem 03: Kinematics, Astroid
 
 A point particle describes the astroid:
-$$ x = a \cos^3\phi $$
-$$ y = a \sin^3\phi $$
-with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid.
 
-*(Hint: $ds = \sqrt{dx^2 + dy^2}$)*.
+$$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
+
+with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. *(Hint: $ds = \sqrt{dx^2 + dy^2}$)*.
 
 ---
 
@@ -75,7 +74,7 @@ An aircraft moves at constant altitude $y_0$ with velocity $v_0$ in the $x$ dire
 * **(a)** Show that: $\dot{r} = \frac{v(t) x(t)}{r(t)}$
 * **(b)** Show that: $\dot{\theta} = -\frac{v(t) y_0}{r^2(t)}$
 * **(c)** Show that: $\ddot{r} = \frac{v^2(t) y_0^2 + a_x x(t) r^2(t)}{r^3(t)}$
-* **(d)** Show that: $\ddot{\theta} = y_0 \frac{2v^2(t) x(t) - a_x r^2(t)}{r^4(t)}$
+* **(d)** Show that: $\ddot{\theta} = y_0\frac{2v^2(t) x(t) - a_x r^2(t)}{r^4(t)}$
 
 From these expressions form the acceleration vector $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$. Repeat the problem using Cartesian coordinates.
 
@@ -90,7 +89,9 @@ An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towin
 ## 📌 Problem 06: Particle on Sinusoidal Curve
 
 A point particle $P$ travels along a curve given by:
+
 $$ y = \sin x $$
+
 with a velocity along $x$ given by $\dot{x} = 1$.
 
 * **(a)** Find the intrinsic, unitary vector basis associated to the curve.

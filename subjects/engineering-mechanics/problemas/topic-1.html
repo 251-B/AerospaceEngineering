@@ -444,70 +444,70 @@
         <span class="problem-badge">MIT OCW Benchmark</span>
       </div>
       <div class="problem-statement">
-        <p>An out-of-control rocket traces an upward helical trajectory described in Cartesian coordinates for $t \ge 0$ by:</p>
-        <div class="math-block">
-          $$ x = a\cos(\omega t) \tag{1} $$
-          $$ y = a\sin(\omega t) \tag{2} $$
-          $$ z = v_z t \tag{3} $$
-        </div>
-        <p>where $a$, $v_z$, and $\omega$ are constants.</p>
-        <figure class="statement-figure"><img src="../../../vault/attachments/EM/T1-P01-figure.png" alt="Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW)" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"><figcaption>Figure: Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW) (Problems.pdf, p. 6).</figcaption></figure>
+<p>An out-of-control rocket traces an upward helical trajectory described in Cartesian coordinates for $t \ge 0$ by:</p>
+<div class="math-block">
+$$ x = a\cos(\omega t) \tag{1} $$
+$$ y = a\sin(\omega t) \tag{2} $$
+$$ z = v_z t \tag{3} $$
+</div>
+<p>where $a$, $v_z$, and $\omega$ are constants.</p>
+<figure class="statement-figure"><img src="../../../vault/attachments/EM/T1-P01-figure.png" alt="Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW)" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"><figcaption>Figure: Helical trajectory with position r(t), the Cartesian basis i, j, k, the cylindrical basis e_R, e_theta, e_z and the intrinsic basis e_t, e_n, e_b (taken from MIT OCW) (Problems.pdf, p. 6).</figcaption></figure>
       </div>
       <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">Express the position, velocity, and acceleration vectors in the Cartesian $x, y, z$ system using unit vectors $\mathbf{i}, \mathbf{j}, \mathbf{k}$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">Express the position, velocity, and acceleration vectors in the cylindrical coordinate system using unit vectors $\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">Express the velocity and acceleration vectors using $s, \rho$ and the vector basis $\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">Compute the modulus of the velocity vector.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(e)</span>
-          <div class="question-text">Express the evolution of the arc-length coordinate as a function of time.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(f)</span>
-          <div class="question-text">Write down the trajectory as a function of the arc-length coordinate.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(g)</span>
-          <div class="question-text">Where is the center of curvature for this curve when the particle is located at $(x, y, z) = (a, 0, 0)$?</div>
-        </li>
+<li class="question-item">
+<span class="question-label">(a)</span>
+<div class="question-text">Express the position, velocity, and acceleration vectors in the Cartesian $x, y, z$ system using unit vectors $\mathbf{i}, \mathbf{j}, \mathbf{k}$.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(b)</span>
+<div class="question-text">Express the position, velocity, and acceleration vectors in the cylindrical coordinate system using unit vectors $\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z$.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(c)</span>
+<div class="question-text">Express the velocity and acceleration vectors using $s, \rho$ and the vector basis $\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b$.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(d)</span>
+<div class="question-text">Compute the modulus of the velocity vector.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(e)</span>
+<div class="question-text">Express the evolution of the arc-length coordinate as a function of time.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(f)</span>
+<div class="question-text">Write down the trajectory as a function of the arc-length coordinate.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(g)</span>
+<div class="question-text">Where is the center of curvature for this curve when the particle is located at $(x, y, z) = (a, 0, 0)$?</div>
+</li>
       </ul>
-            <!-- Analytical Solution -->
+      <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span>Worked Solution (4-Phase Methodology)</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> An out-of-control sounding rocket ascends following a regular circular helix around the vertical $z$-axis.</li>
-<li><strong>Hypotheses:</strong> The cylinder radius $a > 0$, vertical ascent velocity $v_z > 0$, and angular spin rate $\omega > 0$ are strictly positive constants. The rocket is modeled as an ideal point particle $P$.</li>
+<li><strong>Hypotheses:</strong> The cylinder radius $a &gt; 0$, vertical ascent velocity $v_z &gt; 0$, and angular spin rate $\omega &gt; 0$ are strictly positive constants. The rocket is modeled as an ideal point particle $P$.</li>
 <li><strong>Configuration Degrees of Freedom (CDOFs):</strong> The trajectory is purely kinematically prescribed by time $t$; thus, the particle has $\text{CDOF} = 1$ parameterized by time $t$ or arc length $s$.</li>
-<li><strong>Parameters & SI Units:</strong> Radius $a\text{ [m]}$, angular frequency $\omega\text{ [rad/s]}$, vertical velocity $v_z\text{ [m/s]}$, time $t\text{ [s]}$.</li>
+<li><strong>Parameters &amp; SI Units:</strong> Radius $a\text{ [m]}$, angular frequency $\omega\text{ [rad/s]}$, vertical velocity $v_z\text{ [m/s]}$, time $t\text{ [s]}$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Rotation Matrices</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial Reference Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, fixed to the launch site with vertical axis $\mathbf{k}_0$ aligned with $z$.</li>
 <li><strong>Cylindrical Moving Basis:</strong> $\mathcal{B}_{\text{cyl}} = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$.</li>
 </ul>
 <p style="margin-bottom: 10px;">The transformation matrix from the inertial Cartesian basis $\mathcal{B}_0$ to the cylindrical basis $\mathcal{B}_{\text{cyl}}$ is the planar rotation matrix about $\mathbf{k}_0$:</p>
-<div class="math-block">$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix} $$</div>
+<div class="math-block">$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) &amp; -\sin(\omega t) &amp; 0 \\ \sin(\omega t) &amp; \cos(\omega t) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} $$</div>
 <p style="margin-bottom: 10px;">The basis vector relationships are given by matrix-vector multiplication:</p>
 <div class="math-block">$$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -521,7 +521,7 @@
 <li><strong>Orthonormality of $[{}_0 R_{\text{cyl}}]$:</strong> $\det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1$ and $[{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I$ (checked symbolically with sympy).</li>
 <li><strong>Frenet basis from the cylindrical basis.</strong> The components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$ (obtained in Phase 3, part (c)) are the columns of the second change-of-basis matrix, with $V = \sqrt{a^2\omega^2 + v_z^2}$:</li>
 </ul>
-<div class="math-block">$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \\ a\omega/V & 0 & -v_z/V \\ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$</div>
+<div class="math-block">$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 &amp; -1 &amp; 0 \\ a\omega/V &amp; 0 &amp; -v_z/V \\ v_z/V &amp; 0 &amp; a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>The three columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$). Both determinants and the products $R R^T$ were verified symbolically with sympy.</li>
 </ul>
@@ -634,7 +634,7 @@
 <div class="math-block">$$ C = \left( -\frac{v_z^2}{a\omega^2}, \, 0, \, 0 \right) $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional Check:</strong></li>
 <li>Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent).</li>
@@ -647,8 +647,8 @@
         </div>
       </details>
 
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
         <span class="source-tag">Source: Problems.pdf (Taken from MIT OCW)</span>
       </div>
     </div>
@@ -664,55 +664,55 @@
         <span class="problem-badge">Polar Kinematics</span>
       </div>
       <div class="problem-statement">
-        <p>A planar spiral is given by the equation $r = \alpha e^{\beta\theta}$, where $\alpha$ and $\beta$ are constants, $r$ is the radial coordinate, and $\theta$ is the angular coordinate. If a particle moves along the spiral according to the equation $\theta = \delta t^n$ (where $\delta$ is a constant), determine:</p>
+<p>A planar spiral is given by the equation $r = \alpha e^{\beta\theta}$, where $\alpha$ and $\beta$ are constants, $r$ is the radial coordinate, and $\theta$ is the angular coordinate. If a particle moves along the spiral according to the equation $\theta = \delta t^n$ (where $\delta$ is a constant), determine:</p>
       </div>
       <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">The radial and transverse components of the velocity.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">The radial and transverse components of the acceleration.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">The tangential and normal components of the velocity.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">The tangential and normal components of the acceleration.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(e)</span>
-          <div class="question-text">The radius of curvature of the spiral.</div>
-        </li>
+<li class="question-item">
+<span class="question-label">(a)</span>
+<div class="question-text">The radial and transverse components of the velocity.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(b)</span>
+<div class="question-text">The radial and transverse components of the acceleration.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(c)</span>
+<div class="question-text">The tangential and normal components of the velocity.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(d)</span>
+<div class="question-text">The tangential and normal components of the acceleration.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(e)</span>
+<div class="question-text">The radius of curvature of the spiral.</div>
+</li>
       </ul>
-            <!-- Analytical Solution -->
+      <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span>Worked Solution (4-Phase Methodology)</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A point particle $P$ moves along a logarithmic/exponential planar spiral $r(\theta) = \alpha e^{\beta\theta}$ with a prescribed power-law angular motion $\theta(t) = \delta t^n$.</li>
-<li><strong>Hypotheses:</strong> $\alpha, \beta, \delta > 0$ are positive constants, $n > 0$ is an integer or real exponent, $t \ge 0$. Motion is strictly 2D planar in the $Oxy$ plane ($z = 0$).</li>
+<li><strong>Hypotheses:</strong> $\alpha, \beta, \delta &gt; 0$ are positive constants, $n &gt; 0$ is an integer or real exponent, $t \ge 0$. Motion is strictly 2D planar in the $Oxy$ plane ($z = 0$).</li>
 <li><strong>Degrees of Freedom:</strong> $\text{CDOF} = 1$ parameterized by time $t$.</li>
-<li><strong>Parameters & Units:</strong> $[r] = \text{m} \implies [\alpha] = \text{m}$, $\beta$ is dimensionless ($[-]$), $[\theta] = \text{rad} \implies [\delta] = \text{rad}\cdot\text{s}^{-n}$.</li>
+<li><strong>Parameters &amp; Units:</strong> $[r] = \text{m} \implies [\alpha] = \text{m}$, $\beta$ is dimensionless ($[-]$), $[\theta] = \text{rad} \implies [\delta] = \text{rad}\cdot\text{s}^{-n}$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Rotation Matrices</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial Basis:</strong> $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.</li>
 <li><strong>Polar Basis:</strong> $\mathcal{B}_{\text{polar}} = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$.</li>
 <li><strong>Rotation Matrix $[{}_0 R_\theta]$:</strong></li>
 </ul>
-<div class="math-block">$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
+<div class="math-block">$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta &amp; \sin\theta &amp; 0 \\ -\sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Time Derivatives of Polar Unit Vectors (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=33" target="_blank" rel="noopener" title="Open Notes.pdf at page 33">2.6.2</a>, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25–2.26</a>):</strong></li>
 </ul>
@@ -721,9 +721,9 @@
 <li><strong>Orthonormality of $[{}_0 R_\theta]$:</strong> $\det[{}_0 R_\theta] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_0 R_\theta][{}_0 R_\theta]^T = I$ (checked symbolically with sympy).</li>
 <li><strong>Intrinsic basis from the polar basis.</strong> Since $\mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta = r\dot{\theta}\,(\beta\,\mathbf{e}_r + \mathbf{e}_\theta)$ (Phase 3, part (a)), the unit tangent is $\mathbf{e}_t = (\beta\,\mathbf{e}_r + \mathbf{e}_\theta)/\sqrt{1+\beta^2}$ and the in-plane unit normal is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\mathbf{e}_r + \beta\,\mathbf{e}_\theta)/\sqrt{1+\beta^2}$. Their components in $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ are the columns of</li>
 </ul>
-<div class="math-block">$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix} \beta & -1 \\ 1 & \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$</div>
+<div class="math-block">$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix} \beta &amp; -1 \\ 1 &amp; \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>This is a planar rotation by the constant angle $\psi = \arctan(1/\beta)$ (the equiangular property of the spiral). Sympy confirms that $\mathbf{a}\cdot\mathbf{e}_t$ and $\mathbf{a}\cdot\mathbf{e}_n$ reproduce the $a_t$ and $a_n$ of Phase 3, parts (d), with $a_n > 0$, so $\mathbf{e}_n$ points to the concave side.</li>
+<li>This is a planar rotation by the constant angle $\psi = \arctan(1/\beta)$ (the equiangular property of the spiral). Sympy confirms that $\mathbf{a}\cdot\mathbf{e}_t$ and $\mathbf{a}\cdot\mathbf{e}_n$ reproduce the $a_t$ and $a_n$ of Phase 3, parts (d), with $a_n &gt; 0$, so $\mathbf{e}_n$ points to the concave side.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
@@ -798,7 +798,7 @@
 <div class="math-block">$$ \rho = \frac{v^2}{a_n} = \frac{(r\dot{\theta}\sqrt{1 + \beta^2})^2}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = \frac{r^2\dot{\theta}^2(1 + \beta^2)}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = r\sqrt{1 + \beta^2} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Geometric Invariance:</strong> In a logarithmic spiral $r = \alpha e^{\beta\theta}$, the angle $\psi$ between the radial line and the tangent vector satisfies $\tan\psi = \frac{r}{dr/d\theta} = \frac{r}{\beta r} = \frac{1}{\beta} = \text{constant}$. This is the celebrated equiangular spiral property!</li>
 <li><strong>Radius of Curvature:</strong> $\rho = r\sqrt{1 + \beta^2}$ is strictly proportional to current radial distance $r$.</li>
@@ -809,9 +809,9 @@
         </div>
       </details>
 
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 6)</span>
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf</span>
       </div>
     </div>
 
@@ -826,31 +826,31 @@
         <span class="problem-badge">Intrinsic Kinematics</span>
       </div>
       <div class="problem-statement">
-        <p>A point particle describes the astroid:</p>
-        <div class="math-block">
-          $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
-        </div>
-        <p>with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. <em>(Hint: $ds = \sqrt{dx^2 + dy^2}$)</em>.</p>
+<p>A point particle describes the astroid:</p>
+<div class="math-block">
+$$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
+</div>
+<p>with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. <em>(Hint: $ds = \sqrt{dx^2 + dy^2}$)</em>.</p>
       </div>
-            <!-- Analytical Solution -->
+      <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span>Worked Solution (4-Phase Methodology)</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A point particle $P$ moves along a hypocycloid with four cusps (an astroid), parameterized by angle $\phi$.</li>
-<li><strong>Hypotheses:</strong> The motion starts from rest at $\phi(0) = 0$ with constant tangential acceleration $a_t = k = \text{const} > 0$. The particle remains within the first quadrant segment $0 \le \phi \le \pi/2$.</li>
+<li><strong>Hypotheses:</strong> The motion starts from rest at $\phi(0) = 0$ with constant tangential acceleration $a_t = k = \text{const} &gt; 0$. The particle remains within the first quadrant segment $0 \le \phi \le \pi/2$.</li>
 <li><strong>Degrees of Freedom:</strong> $\text{CDOF} = 1$.</li>
-<li><strong>Parameters & Units:</strong> Astroid scale $a\text{ [m]}$, tangential acceleration $k\text{ [m/s}^2\text{]}$, time $t\text{ [s]}$.</li>
+<li><strong>Parameters &amp; Units:</strong> Astroid scale $a\text{ [m]}$, tangential acceleration $k\text{ [m/s}^2\text{]}$, time $t\text{ [s]}$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Rotation Matrices</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial Cartesian Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.</li>
 <li><strong>Parametric Equations of the Astroid:</strong></li>
@@ -903,7 +903,7 @@
 <div class="math-block">$$ y(t) = a\sin^3\phi = a\left( \frac{kt^2}{3a} \right)^{3/2} = a\left(\frac{k}{3a}\right)^{3/2}t^3 $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional Check:</strong></li>
 <li>In $\sin\phi = \sqrt{\frac{k}{3a}}t$:</li>
@@ -920,9 +920,9 @@
         </div>
       </details>
 
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 6)</span>
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf</span>
       </div>
     </div>
 
@@ -937,47 +937,47 @@
         <span class="problem-badge">Coordinate Transformations</span>
       </div>
       <div class="problem-statement">
-        <p>An aircraft moves at constant altitude $y_0$ with velocity $v_0$ in the $x$ direction. At time $t = 0$ it is located at $x = 0$, and it begins to accelerate in the $x$ direction at a constant rate $a_x$. Describe the position, velocity, and acceleration in polar coordinates $r, \theta$, and answer the following questions:</p>
+<p>An aircraft moves at constant altitude $y_0$ with velocity $v_0$ in the $x$ direction. At time $t = 0$ it is located at $x = 0$, and it begins to accelerate in the $x$ direction at a constant rate $a_x$. Describe the position, velocity, and acceleration in polar coordinates $r, \theta$, and answer the following questions:</p>
       </div>
       <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">Show that: $\dot{r} = \frac{v(t) x(t)}{r(t)}$</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">Show that: $\dot{\theta} = -\frac{v(t) y_0}{r^2(t)}$</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">Show that: $\ddot{r} = \frac{v^2(t) y_0^2 + a_x x(t) r^2(t)}{r^3(t)}$</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">Show that: $\ddot{\theta} = y_0\frac{2v^2(t) x(t) - a_x r^2(t)}{r^4(t)}$</div>
-        </li>
+<li class="question-item">
+<span class="question-label">(a)</span>
+<div class="question-text">Show that: $\dot{r} = \frac{v(t) x(t)}{r(t)}$</div>
+</li>
+<li class="question-item">
+<span class="question-label">(b)</span>
+<div class="question-text">Show that: $\dot{\theta} = -\frac{v(t) y_0}{r^2(t)}$</div>
+</li>
+<li class="question-item">
+<span class="question-label">(c)</span>
+<div class="question-text">Show that: $\ddot{r} = \frac{v^2(t) y_0^2 + a_x x(t) r^2(t)}{r^3(t)}$</div>
+</li>
+<li class="question-item">
+<span class="question-label">(d)</span>
+<div class="question-text">Show that: $\ddot{\theta} = y_0\frac{2v^2(t) x(t) - a_x r^2(t)}{r^4(t)}$</div>
+</li>
       </ul>
       <div class="problem-statement">
-        <p>From these expressions form the acceleration vector $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$. Repeat the problem using Cartesian coordinates.</p>
+<p>From these expressions form the acceleration vector $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$. Repeat the problem using Cartesian coordinates.</p>
       </div>
-            <!-- Analytical Solution -->
+      <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span>Worked Solution (4-Phase Methodology)</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> An aircraft flies at constant altitude $y_0$ with velocity in the $x$ direction. At $t = 0$, $x(0) = 0$ and velocity is $v_0$. It accelerates in the $x$ direction at constant rate $a_x$.</li>
 <li><strong>Tracking System:</strong> A ground radar station located at origin $O(0,0)$ tracks the aircraft using range $r(t)$ and elevation/bearing angle $\theta(t)$.</li>
-<li><strong>Hypotheses:</strong> $y_0 > 0, v_0 \ge 0, a_x = \text{const}$. Altitude is fixed: $y(t) \equiv y_0 \implies \dot{y} = 0, \ddot{y} = 0$.</li>
+<li><strong>Hypotheses:</strong> $y_0 &gt; 0, v_0 \ge 0, a_x = \text{const}$. Altitude is fixed: $y(t) \equiv y_0 \implies \dot{y} = 0, \ddot{y} = 0$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Rotation Matrices</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial Cartesian Frame:</strong> Coordinates $(x, y)$ with position $\mathbf{r} = x\mathbf{i} + y_0\mathbf{j}$.</li>
 <li><strong>Radar Polar Frame:</strong> Position $\mathbf{r} = r\mathbf{e}_r$, where:</li>
@@ -991,7 +991,7 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Change of basis (radar polar basis).</strong> With $\theta$ the angle of the line of sight measured from $+\mathbf{i}$, the polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$. The columns are the components of $\mathbf{e}_r$, $\mathbf{e}_\theta$, $\mathbf{k}$ in $\mathcal{B}_0$; using $\cos\theta = x/r$ and $\sin\theta = y_0/r$:</li>
 </ul>
-<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x/r & -y_0/r & 0 \\ y_0/r & x/r & 0 \\ 0 & 0 & 1 \end{pmatrix} $$</div>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} = \begin{pmatrix} x/r &amp; -y_0/r &amp; 0 \\ y_0/r &amp; x/r &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} $$</div>
 <div class="math-block">$$ \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>Both properties were verified symbolically with sympy. The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ (first row of $[{}_0 R_1]^T$ applied to the basis) is the one used in the Cartesian cross-check of Phase 3.</li>
@@ -1073,9 +1073,9 @@
         </div>
       </details>
 
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 7)</span>
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf</span>
       </div>
     </div>
 
@@ -1090,26 +1090,26 @@
         <span class="problem-badge">Aerospace Towed Flight</span>
       </div>
       <div class="problem-statement">
-        <p>An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towing a glider $B$. The glider is gaining altitude. The tow cable has a length $r$, and the angle $\theta$ formed between the tow cable and the horizontal is increasing at a constant rate of $\dot{\theta}$. We want to determine the magnitude of the velocity, $v_B$, and the acceleration, $a_B$, of the glider as a function of $\theta$ and its derivatives.</p>
+<p>An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towing a glider $B$. The glider is gaining altitude. The tow cable has a length $r$, and the angle $\theta$ formed between the tow cable and the horizontal is increasing at a constant rate of $\dot{\theta}$. We want to determine the magnitude of the velocity, $v_B$, and the acceleration, $a_B$, of the glider as a function of $\theta$ and its derivatives.</p>
       </div>
-            <!-- Analytical Solution -->
+      <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span>Worked Solution (4-Phase Methodology)</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> Tow plane $A$ flies horizontally at constant speed $v_A$. Glider $B$ is towed behind on a cable of constant length $r$. The tow angle $\theta(t)$ above the horizontal increases at rate $\dot{\theta}(t)$.</li>
 <li><strong>Hypotheses:</strong> Cable length $r = \text{const}$, plane speed $v_A = \text{const}$ (so $\dot{v}_A = 0, \mathbf{a}_A = \mathbf{0}$).</li>
-<li><strong>Parameters & Units:</strong> Plane speed $v_A\text{ [m/s]}$, cable length $r\text{ [m]}$, angle $\theta\text{ [rad]}$, angular rate $\dot{\theta}\text{ [rad/s]}$, angular acceleration $\ddot{\theta}\text{ [rad/s}^2\text{]}$.</li>
+<li><strong>Parameters &amp; Units:</strong> Plane speed $v_A\text{ [m/s]}$, cable length $r\text{ [m]}$, angle $\theta\text{ [rad]}$, angular rate $\dot{\theta}\text{ [rad/s]}$, angular acceleration $\ddot{\theta}\text{ [rad/s}^2\text{]}$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Rotation Matrices</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Inertial Reference Frame:</strong> $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$, with $\mathbf{i}_0$ pointing horizontally in plane $A$'s direction of flight, and $\mathbf{j}_0$ pointing vertically upward.</li>
 <li><strong>Position of Plane $A$:</strong></li>
@@ -1122,7 +1122,9 @@
 <div class="math-block">$$ \mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 $$</div>
 <p style="margin-bottom: 10px;">The total position of glider $B$ in $\mathcal{S}_0$ is:</p>
 <div class="math-block">$$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = (x_{A0} + v_A t - r\cos\theta)\mathbf{i}_0 + (r\sin\theta)\mathbf{j}_0 $$</div>
-<div class="justification-box"><strong>Erratum:</strong> The first version said that the vector from $A$ to $B$ is at angle $\theta$ below the negative horizontal, which contradicts $\mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0$ (positive vertical component). The glider is behind and above $A$, at angle $\theta$ above the negative horizontal; this is the only reading compatible with the glider gaining altitude as $\theta$ increases, and the formulas for $\mathbf{v}_{B/0}$ and $\mathbf{a}_{B/0}$ are unchanged. Numeric check: the altitude $r\sin\theta$ has derivative $r\dot{\theta}\cos\theta > 0$ for $0 < \theta < \pi/2$ and $\dot{\theta} > 0$.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Erratum:</strong> The first version said that the vector from $A$ to $B$ is at angle $\theta$ below the negative horizontal, which contradicts $\mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0$ (positive vertical component). The glider is behind and above $A$, at angle $\theta$ above the negative horizontal; this is the only reading compatible with the glider gaining altitude as $\theta$ increases, and the formulas for $\mathbf{v}_{B/0}$ and $\mathbf{a}_{B/0}$ are unchanged. Numeric check: the altitude $r\sin\theta$ has derivative $r\dot{\theta}\cos\theta &gt; 0$ for $0 &lt; \theta &lt; \pi/2$ and $\dot{\theta} &gt; 0$.</li>
+</ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
@@ -1144,7 +1146,7 @@
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Acceleration of Glider $B$</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> Acceleration is the time derivative of velocity $\mathbf{a}_{B/0} = \frac{d\mathbf{v}_{B/0}}{dt}$.</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Explicit Product & Chain Rules for Each Component:</strong></li>
+<li><strong>Explicit Product &amp; Chain Rules for Each Component:</strong></li>
 <li>$x$-component differentiation:</li>
 </ul>
 <div class="math-block">$$ \frac{d}{dt}(v_A + r\dot{\theta}\sin\theta) = 0 + r\frac{d}{dt}(\dot{\theta}\sin\theta) = r(\ddot{\theta}\sin\theta + \dot{\theta}(\cos\theta\dot{\theta})) = r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta $$</div>
@@ -1170,12 +1172,10 @@
 <p style="margin-bottom: 10px;"><em>(Compare with the official solution key (Problems.pdf, Solution keys section).)</em></p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation & Dimensional Verification</h3>
+<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Plane Motion Decoupling:</strong> Notice that the acceleration magnitude $a_{B/0}$ is completely independent of the tow plane's cruise velocity $v_A$ because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The acceleration felt by the glider is purely relative circular motion around $A$!</li>
 <li><strong>Limiting Case $\ddot{\theta} = 0$:</strong> If the cable turns at a constant angular rate $\dot{\theta} = \Omega$, the acceleration reduces to pure centripetal acceleration: $a_{B/0} = \sqrt{r^2\Omega^4} = r\Omega^2$.</li>
-</ul>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Dimensional check:</strong> $[r\ddot{\theta}] = [r\dot{\theta}^2] = \text{m}\cdot\text{s}^{-2}$ and $[v_A + r\dot{\theta}\sin\theta] = \text{m/s}$, so $a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4}$ is in m/s$^2$ and $v_{B/0}$ in m/s.</li>
 <li><strong>Limit $\dot{\theta} = 0$:</strong> $\mathbf{v}_{B/0} = v_A\,\mathbf{i}_0$ and $\mathbf{a}_{B/0} = \mathbf{0}$, the glider moves rigidly with the tow plane.</li>
 <li><strong>Symbolic check (sympy):</strong> differentiating $\mathbf{r}_B$ twice for an arbitrary function $\theta(t)$ gives $\|\mathbf{v}_{B/0}\|^2 = (v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2$ and $\|\mathbf{a}_{B/0}\|^2 = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4$ with zero residual.</li>
@@ -1184,9 +1184,9 @@
         </div>
       </details>
 
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 7)</span>
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf</span>
       </div>
     </div>
 
@@ -1201,40 +1201,40 @@
         <span class="problem-badge">Frenet-Serret Frame</span>
       </div>
       <div class="problem-statement">
-        <p>A point particle $P$ travels along a curve given by:</p>
-        <div class="math-block">
-          $$ y = \sin x $$
-        </div>
-        <p>with a velocity along $x$ given by $\dot{x} = 1$.</p>
+<p>A point particle $P$ travels along a curve given by:</p>
+<div class="math-block">
+$$ y = \sin x $$
+</div>
+<p>with a velocity along $x$ given by $\dot{x} = 1$.</p>
       </div>
       <ul class="questions-list">
-        <li class="question-item">
-          <span class="question-label">(a)</span>
-          <div class="question-text">Find the intrinsic, unitary vector basis associated to the curve.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(b)</span>
-          <div class="question-text">Express $x$ as a function of an arc length parameter, $s$. You can leave your solution as a function of an integral.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(c)</span>
-          <div class="question-text">Find the tangent and normal acceleration components of $P$ as a function of $x$.</div>
-        </li>
-        <li class="question-item">
-          <span class="question-label">(d)</span>
-          <div class="question-text">Write the radius of curvature of the trajectory as a function of $x$.</div>
-        </li>
+<li class="question-item">
+<span class="question-label">(a)</span>
+<div class="question-text">Find the intrinsic, unitary vector basis associated to the curve.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(b)</span>
+<div class="question-text">Express $x$ as a function of an arc length parameter, $s$. You can leave your solution as a function of an integral.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(c)</span>
+<div class="question-text">Find the tangent and normal acceleration components of $P$ as a function of $x$.</div>
+</li>
+<li class="question-item">
+<span class="question-label">(d)</span>
+<div class="question-text">Write the radius of curvature of the trajectory as a function of $x$.</div>
+</li>
       </ul>
-            <!-- Analytical Solution -->
+      <!-- Analytical Solution -->
       <details class="solution-details">
         <summary class="solution-summary">
-          <span>Full Analytical Solution (4-Phase Methodology)</span>
+          <span>Worked Solution (4-Phase Methodology)</span>
           <span style="font-family: var(--font-mono); font-size: 0.8rem;">[ Click to Expand ]</span>
         </summary>
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses & Parameters</h3>
+<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Physical System:</strong> A particle travels along a sinusoidal path $y(x) = \sin x$ with constant horizontal speed $\dot{x} = 1$.</li>
 <li><strong>Hypotheses:</strong> $\dot{x}(t) \equiv 1\text{ m/s} \implies x(t) = t + x_0$ (taking $x_0 = 0 \implies x(t) = t$). $\ddot{x} = 0$.</li>
@@ -1242,7 +1242,7 @@
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases & Rotation Matrices</h3>
+<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Rotation Matrices</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Parametric Curve:</strong> $\mathbf{r}(x) = x\mathbf{i}_0 + \sin x\,\mathbf{j}_0$.</li>
 <li><strong>Derivative Vector:</strong> $\frac{d\mathbf{r}}{dx} = \mathbf{i}_0 + \cos x\,\mathbf{j}_0$.</li>
@@ -1252,9 +1252,9 @@
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Change of basis (intrinsic basis).</strong> Let $\alpha(x) = \arctan(\cos x)$ be the slope angle of the tangent, so that $\mathbf{e}_t = (\cos\alpha, \sin\alpha) = (1, \cos x)/\sqrt{1 + \cos^2x}$. The in-plane normal used in this solution is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\sin\alpha, \cos\alpha) = (-\cos x, 1)/\sqrt{1 + \cos^2x}$, the normal obtained by turning $\mathbf{e}_t$ by $+90^\circ$ (to its left). The columns are the components of $\mathbf{e}_t$, $\mathbf{e}_n$ in $\{\mathbf{i}_0, \mathbf{j}_0\}$:</li>
 </ul>
-<div class="math-block">$$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos x & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \frac{1 + \cos^2x}{1 + \cos^2x} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
+<div class="math-block">$$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 &amp; -\cos x \\ \cos x &amp; 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \frac{1 + \cos^2x}{1 + \cos^2x} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Because $\mathbf{e}_n$ is always the left normal, the sign of $a_n$ tells on which side the centre of curvature lies: $a_n < 0$ (as for $0 < x < \pi$, where $\sin x > 0$) places it to the right of the direction of motion, below the arch; $a_n > 0$ for $\pi < x < 2\pi$ places it above the curve. The matrix properties were verified symbolically with sympy.</li>
+<li>Because $\mathbf{e}_n$ is always the left normal, the sign of $a_n$ tells on which side the centre of curvature lies: $a_n &lt; 0$ (as for $0 &lt; x &lt; \pi$, where $\sin x &gt; 0$) places it to the right of the direction of motion, below the arch; $a_n &gt; 0$ for $\pi &lt; x &lt; 2\pi$ places it above the curve. The matrix properties were verified symbolically with sympy.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
@@ -1277,7 +1277,9 @@
 <div class="math-block">$$ = \frac{\sin x\cos x\,\mathbf{i}_0 + \sin x\cos^2 x\,\mathbf{j}_0 - \sin x(1 + \cos^2 x)\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = \frac{\sin x\cos x\,\mathbf{i}_0 - \sin x\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = -\frac{\sin x}{(1 + \cos^2 x)^{3/2}}(-\cos x\,\mathbf{i}_0 + \mathbf{j}_0) $$</div>
 <p style="margin-bottom: 10px;">Normalizing to unit length:</p>
 <div class="math-block">$$ \mathbf{e}_n = \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \quad (\text{left normal } \mathbf{k}_0 \times \mathbf{e}_t) $$</div>
-<div class="justification-box"><strong>Erratum:</strong> The first version called $\mathbf{e}_n$ the normal pointing to the concave side. It is the left normal $\mathbf{k}_0 \times \mathbf{e}_t$ and, since $d\mathbf{e}_t/ds = -\dfrac{\sin x}{(1 + \cos^2 x)^{3/2}}\,\mathbf{e}_n$, it points away from the centre of curvature for $0 < x < \pi$ (where $a_n < 0$) and toward it for $\pi < x < 2\pi$ (where $a_n > 0$). Numeric check: sympy gives $a_n(\pi/2) = -1\ \text{m/s}^2$, with the centre of curvature below the crest.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Erratum:</strong> The first version called $\mathbf{e}_n$ the normal pointing to the concave side. It is the left normal $\mathbf{k}_0 \times \mathbf{e}_t$ and, since $d\mathbf{e}_t/ds = -\dfrac{\sin x}{(1 + \cos^2 x)^{3/2}}\,\mathbf{e}_n$, it points away from the centre of curvature for $0 &lt; x &lt; \pi$ (where $a_n &lt; 0$) and toward it for $\pi &lt; x &lt; 2\pi$ (where $a_n &gt; 0$). Numeric check: sympy gives $a_n(\pi/2) = -1\ \text{m/s}^2$, with the centre of curvature below the crest.</li>
+</ul>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Arc Length Parameter $s(x)$</h4>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> The relation between $x$ and arc length $s$ is given by integrating the metric differential:</div>
 <div class="math-block">$$ s(x) = \int_0^x \sqrt{1 + \cos^2 u}\,du $$</div>
@@ -1320,9 +1322,9 @@
         </div>
       </details>
 
-<div class="problem-footer">
-        <span class="status-solved">Complete Step-by-Step Solution</span>
-        <span class="source-tag">Source: Problems.pdf (Page 7)</span>
+      <div class="problem-footer">
+        <span class="status-solved">Worked Solution</span>
+        <span class="source-tag">Source: Problems.pdf</span>
       </div>
     </div>
 

@@ -35,6 +35,7 @@ Map of content for the repository's own tooling, agents and rules. The study con
 | [[Tool - build_topic_pages]] | Tool | Generates seven theory pages from vault notes and figures. |
 | [[Tool - fluids_ns]] | Tool | Generates the Fluid Mechanics Topic 4 problem page (NS1 to NS17) from the vault notes. |
 | [[Tool - build_problem_pages]] | Tool | Generates the two Business Management Topic 3 problem pages. |
+| [[Tool - build_mech_problems]] | Tool | Generates the five Engineering Mechanics official problem pages (51 problems). |
 | [[Tool - source_links]] | Tool | Adds deep links to the official PDFs. |
 | [[Tool - build_sources_pages]] | Tool | Generates the sources and exams index pages per subject. |
 | [[Tool - sources_manifest]] | Tool | Regenerates `assets/data/sources.js` from `sources/`. |

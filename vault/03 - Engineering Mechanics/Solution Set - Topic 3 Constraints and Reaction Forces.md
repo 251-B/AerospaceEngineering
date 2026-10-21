@@ -19,7 +19,6 @@ Exhaustive, step-by-step analytical solutions for all 12 solvable problems from 
 ## 📌 Problem 18: Heavy Particle on a Cone
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** A point particle of mass $m$ moves without friction on the interior surface of an inverted cone given by $z^2 = x^2 + y^2$ with $z > 0$.
 * **Configuration Degrees of Freedom (CDOFs):**
 * Ambient space: 3 Cartesian coordinates $(x, y, z)$.
@@ -27,9 +26,9 @@ Exhaustive, step-by-step analytical solutions for all 12 solvable problems from 
 * Number of CDOFs: $3 - 1 = 2$. We choose cylindrical coordinates $(r, \theta)$ with $z = r$.
 * **Hypotheses:**
 
-1. Constraint is smooth (frictionless): the reaction force $\mathbf{N}$ is strictly orthogonal to the tangent space of the cone ($W_{\mathbf{N}} = 0$).
+1\. Constraint is smooth (frictionless): the reaction force $\mathbf{N}$ is strictly orthogonal to the tangent space of the cone ($W_{\mathbf{N}} = 0$).
 
-2. Inertial frame with gravity acting along $-Oz$: $\mathbf{g} = -g\mathbf{k}$.
+2\. Inertial frame with gravity acting along $-Oz$: $\mathbf{g} = -g\mathbf{k}$.
 
 * **Initial State ($t = 0$):**
 * Position: $(x_0, y_0, z_0) = (a, 0, a) \implies r(0) = a, \theta(0) = 0, z(0) = a$.
@@ -37,7 +36,6 @@ Exhaustive, step-by-step analytical solutions for all 12 solvable problems from 
 * **Parameters:** $m > 0$ [kg], $g > 0$ [m/s$^2$], $a > 0$ [m].
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-
 * **Inertial Reference Frame:** $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$.
 * **Cylindrical Vector Basis:** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$, with:
 $$ \mathbf{e}_r = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}, \qquad \mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j}, \qquad \mathbf{k} = \mathbf{k} $$
@@ -57,7 +55,6 @@ $$ [{}_1 R_2] = \begin{pmatrix} 1/\sqrt{2} & 0 & -1/\sqrt{2} \\ 0 & 1 & 0 \\ 1/\
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### 1. First Integral from the $\mathbf{e}_\theta$ Component of Newton's Law
-
 * **Pedagogical Justification:** The coordinate $\theta$ does not appear in the problem (axisymmetric cone, vertical gravity), so its equation of motion gives a first integral without any further theorem. In cylindrical coordinates the azimuthal acceleration is $a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{1}{r}\frac{d}{dt}\left(r^2\dot{\theta}\right)$ (Notes Sec. 2.6.2). The forces have no $\mathbf{e}_\theta$ component: gravity is $-mg\mathbf{k}$, and the normal to the cone $f(r, z) = r - z = 0$ is $\mathbf{n} = \frac{1}{\sqrt{2}}(\mathbf{e}_r - \mathbf{k})$, which lies in the meridian plane (the reaction of a smooth surface is normal to it).
 $$ m\,a_\theta = \frac{m}{r}\frac{d}{dt}\left(r^2\dot{\theta}\right) = 0 \implies m r^2 \dot{\theta} = \text{constant} = C_z $$
 
@@ -70,7 +67,6 @@ Therefore:
 $$ \dot{\theta}(t) = \frac{a\sqrt{ga}}{r^2(t)} $$
 
 #### 2. Conservation of Mechanical Energy
-
 * **Pedagogical Justification:** Because the constraint is frictionless (bilateral holonomic), the reaction force $\mathbf{N}$ does no work ($\mathbf{N} \cdot \mathbf{v} = 0$). Gravity is conservative with potential energy $V = mgz = mgr$. Hence, total mechanical energy $E = T + V$ is strictly conserved.
 
 Initial energy at $t = 0$:
@@ -107,7 +103,6 @@ Separating variables yields the integral equation:
 $$ \int_{a}^{r} \frac{r'\,dr'}{\sqrt{-2r'^3 + 3ar'^2 - a^3}} = \pm \sqrt{\frac{g}{2}}\,t $$
 
 #### 4. Determination of Maximum and Minimum of $z$ ($r$)
-
 * **Pedagogical Justification:** The turning points of the radial motion occur when the radial velocity vanishes, $\dot{r} = 0$, which corresponds to the roots of the cubic polynomial $P(r) = -2r^3 + 3ar^2 - a^3 = 0$.
 
 Rewrite $P(r) = 0$:
@@ -147,7 +142,6 @@ The only physically possible solution for all time is:
 $$ \dot{r}^2 = 0 \iff r(t) = a = \text{constant} $$
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * **Steady Circular Orbit:** The particle is placed exactly at the minimum of the effective potential $V_{eff}(r) = mgr + \frac{m a^3 g}{2r^2}$. The initial tangential velocity $v_0 = \sqrt{ag}$ provides precisely the centripetal acceleration required to balance the inward horizontal component of the normal reaction force $\mathbf{N}$.
 * **Extremal Heights:**
 $$ z_{min} = z_{max} = a $$
@@ -163,7 +157,6 @@ The particle maintains a constant altitude $z = a$ for all time, executing unifo
 ## 📌 Problem 19: Heavy Particle on a Paraboloid
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** A particle of mass $m$ moves without friction on the paraboloid of revolution $a z = r^2$, where $a > 0$ and $r = \sqrt{x^2 + y^2}$.
 * **Degrees of Freedom:** $3$ coordinates minus $1$ constraint $\implies 2$ CDOFs. We parametrize using cylindrical coordinates $(r, \theta)$ with $z = r^2/a$.
 * **Initial State ($t = 0$):**
@@ -173,7 +166,6 @@ $$ \mathbf{v}_0 = v_0\mathbf{e}_\theta \implies \dot{r}(0) = 0, \quad \dot{\thet
 * **Parameters:** $m > 0$ [kg], $a > 0$ [m], $g > 0$ [m/s$^2$], $v_0 > 0$ [m/s].
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-
 * **Inertial Frame:** $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$.
 * **Kinematics with $z = r^2/a$:**
 $$ \dot{z} = \frac{d}{dt}\left(\frac{r^2}{a}\right) = \frac{2r\dot{r}}{a} $$
@@ -194,13 +186,11 @@ $$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2r/(as) \\ 0 & 1 & 0 \\ 2r/(as) & 0 &
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### 1. First Integral from the $\mathbf{e}_\theta$ Component of Newton's Law
-
 * **Pedagogical Justification:** The coordinate $\theta$ is cyclic (surface of revolution, vertical gravity). In cylindrical coordinates $a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{1}{r}\frac{d}{dt}\left(r^2\dot{\theta}\right)$ (Notes Sec. 2.6.2). The normal to the surface $f(r, z) = r^2 - az = 0$ is $\boldsymbol{\nabla} f = 2r\mathbf{e}_r - a\mathbf{k}$, with no azimuthal component ($\mathbf{n} \cdot \mathbf{e}_\theta = 0$), and gravity acts along $-\mathbf{k}$. Hence the $\mathbf{e}_\theta$ equation of motion is $\frac{m}{r}\frac{d}{dt}(r^2\dot{\theta}) = 0$.
 $$ r^2 \dot{\theta} = r(0)^2\dot{\theta}(0) = a^2\left(\frac{v_0}{a}\right) = a v_0 $$
 $$ r^2 \dot{\theta} = a v_0 \implies \dot{\theta} = \frac{a v_0}{r^2} $$
 
 #### 2. Conservation of Mechanical Energy
-
 * **Pedagogical Justification:** The constraint is frictionless (bilateral holonomic), so the normal reaction does zero work. Gravity is conservative with potential $V = mgz = mg\frac{r^2}{a}$.
 
 Initial energy:
@@ -261,7 +251,6 @@ $$ u_1 = a^2 \implies r_1 = a $$
 $$ u_2 = \frac{a v_0^2}{2g} \implies r_2 = v_0\sqrt{\frac{a}{2g}} $$
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * **Case 1: $v_0 < \sqrt{2ga}$**
 
 $r_2 = v_0\sqrt{\frac{a}{2g}} < a$.
@@ -297,7 +286,6 @@ The particle climbs up the paraboloid to $r_{max}$, then falls back to $a$.
 ## 📌 Problem 23: Simple Pendulum
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** A particle of mass $m$ is suspended by a string of length $L$ from pivot $O$, or equivalently moves along the smooth interior of a vertical circular track of radius $L$.
 * **Unilateral Constraint:** The particle cannot cross the circular boundary outward, but may detach if the inward contact force drops to zero ($N = 0$, or string slack $T = 0$).
 * **Initial Motion:** Pushed from the lowest point ($\theta = 0$) with velocity $v_0$.
@@ -305,7 +293,6 @@ The particle climbs up the paraboloid to $r_{max}$, then falls back to $a$.
 * **Parameters:** $m > 0$ [kg], $L > 0$ [m], $g > 0$ [m/s$^2$], $v_0 > 0$ [m/s], $\omega \ge 0$ [rad/s].
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-
 * **Inertial Frame $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$:** $Oz$ points vertically upward ($-\mathbf{k}$ is downward).
 * **Polar Coordinate Basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$:**
 
@@ -327,7 +314,6 @@ $$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\c
 #### Part (a): Planar Motion & Detachment Analysis
 
 #### 1. Mechanical Energy Conservation
-
 * **Pedagogical Justification:** The normal constraint force $\mathbf{N} = -N\mathbf{e}_r$ is always perpendicular to velocity $\mathbf{v} = L\dot{\theta}\mathbf{e}_\theta$ ($\mathbf{N} \cdot \mathbf{v} = 0$), so it does no work. Mechanical energy is strictly conserved.
 
 Taking the lowest point $\theta = 0$ as the gravitational potential reference ($V(0) = 0$):
@@ -340,7 +326,6 @@ Isolate $v^2(\theta)$:
 $$ v^2(\theta) = v_0^2 - 2gL(1 - \cos\theta) $$
 
 #### 2. Normal Reaction Force $N(\theta)$
-
 * **Pedagogical Justification:** Newton's second law along the inward radial normal $\mathbf{e}_n = -\mathbf{e}_r$ provides an explicit expression for the contact reaction force $N(\theta)$ as a function of angle $\theta$.
 
 The forces acting on the particle are gravity $\mathbf{F}_g = -mg\mathbf{k}$ and track reaction $\mathbf{N} = -N\mathbf{e}_r$ ($N > 0$ pushes inward):
@@ -369,7 +354,6 @@ $$ N(\theta_d) = 0 \implies \frac{m v_0^2}{L} - 2mg + 3mg\cos\theta_d = 0 $$
 $$ 3mg\cos\theta_d = 2mg - \frac{m v_0^2}{L} \implies \cos\theta_d = \frac{2gL - v_0^2}{3gL} $$
 
 #### 4. Motion Regimes and Question Resolution: "Is this point ever reached?"
-
 * **Regime 1: $v_0 \le \sqrt{2gL}$ (Low energy, oscillation in lower semicircle)**
 
 Velocity reaches zero when $v^2 = 0$:
@@ -419,7 +403,6 @@ The reaction force remains positive throughout the entire loop.
 #### Part (b): Rotating Circumference with Angular Velocity $\omega$
 
 #### 1. Equations of Motion in the Inertial Frame (rheonomic constraint)
-
 * **Pedagogical Justification:** The circle turns about the vertical axis at the prescribed rate $\omega$, so the constraint depends explicitly on time (rheonomic, Unit 3). The motion is analysed in the inertial frame $\mathcal{F}_0$ with cylindrical coordinates $(\rho, \varphi, z)$ about $Oz$, where the plane of the circle is the meridian plane $\varphi = \omega t$. No moving-frame theorem is needed: the acceleration comes from the cylindrical formulas of Unit 1 and the reaction is a constraint force normal to the wire.
 
 Position of the particle, with $\rho = L\sin\theta$ and $z = -L\cos\theta$ on the circle and $\dot\varphi = \omega$ constant:
@@ -452,7 +435,6 @@ $$ \ddot\theta + \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0 $$
 The component of $\mathbf{N}$ along $\mathbf{e}_\varphi$ is the force that makes the particle follow the turning plane: $N_\varphi = 2m\dot\rho\,\omega = 2mL\omega\dot\theta\cos\theta$. The in-plane component $N_r$ follows from the $\mathbf{e}_r$ projection and is not needed here.
 
 #### 2. Computation of Equilibrium Locations
-
 * **Pedagogical Justification:** Equilibrium relative to the turning circle corresponds to static solutions where $\ddot{\theta} = 0$ and $\dot{\theta} = 0$ (in the inertial frame the particle then describes a horizontal circle).
 
 Setting the angular acceleration to zero:
@@ -461,12 +443,12 @@ $$ \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0 $$
 
 This equation is satisfied if either factor vanishes:
 
-1. **Vertical Alignments ($\sin\theta = 0$):**
+1\. **Vertical Alignments ($\sin\theta = 0$):**
 
 $$ \theta_1 = 0 \quad (\text{lowest point / bottom}) $$
 $$ \theta_2 = \pi \quad (\text{highest point / top}) $$
 
-2. **Off-Axis Equilibrium ($\cos\theta = \frac{g}{\omega^2 L}$):**
+2\. **Off-Axis Equilibrium ($\cos\theta = \frac{g}{\omega^2 L}$):**
 
 This solution exists physically if and only if:
 
@@ -477,7 +459,6 @@ When $\omega > \sqrt{\frac{g}{L}}$, two symmetric equilibrium positions emerge:
 $$ \theta_{3,4} = \pm \arccos\left(\frac{g}{\omega^2 L}\right) $$
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * **Supercritical Pitchfork Bifurcation:**
 * For slow rotation $\omega < \omega_c = \sqrt{g/L}$, the bottom $\theta = 0$ is the only stable equilibrium.
 * When the rotation rate crosses the critical threshold $\omega_c$, the bottom becomes unstable, and the particle naturally climbs up the wire to settle at the tilted angle $\theta_0 = \arccos\left(\frac{g}{\omega^2 L}\right)$, where the horizontal circle of radius $L\sin\theta$ has exactly the centripetal acceleration that the vertical balance with gravity requires.
@@ -494,19 +475,23 @@ $$ \theta_{3,4} = \pm \arccos\left(\frac{g}{\omega^2 L}\right) $$
 * **Physical System:** A particle of mass $m$ slides along a vertical circular wire of radius $a$ centered at $O$. A linear spring of stiffness $k$ and zero natural length connects the particle $P$ to anchor point $A(0, \beta a)$ on the vertical axis.
 * **CDOFs:** 1 degree of freedom, angle $\theta$ measured counterclockwise from the positive $x$-axis.
 * **Forces:**
-  1. Gravity: $-mg\mathbf{j}$.
-  2. Spring force: $\mathbf{F}_s = -k\mathbf{AP}$.
-  3. Constraint reaction $\mathbf{N}$ normal to the wire.
+
+1\. Gravity: $-mg\mathbf{j}$.
+
+2\. Spring force: $\mathbf{F}_s = -k\mathbf{AP}$.
+
+3\. Constraint reaction $\mathbf{N}$ normal to the wire.
+
 * **Initial State ($t = 0$):** Released from $(a, 0) \implies \theta(0) = 0$ with $\mathbf{v}_0 = v_0\mathbf{j} \implies \dot{\theta}(0) = v_0/a$.
 * **Parameters:** $m, a, k, g, \beta, v_0 > 0$.
 
-### Phase 2: Frame & Geometric Setup
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
 * Position of anchor $A$: $\mathbf{r}_A = \beta a\mathbf{j}$.
 * Position of particle $P$: $\mathbf{r}_P = a\cos\theta\,\mathbf{i} + a\sin\theta\,\mathbf{j}$.
 * Spring elongation vector:
-  $$ \mathbf{AP} = \mathbf{r}_P - \mathbf{r}_A = a\cos\theta\,\mathbf{i} + a(\sin\theta - \beta)\,\mathbf{j} $$
+$$ \mathbf{AP} = \mathbf{r}_P - \mathbf{r}_A = a\cos\theta\,\mathbf{i} + a(\sin\theta - \beta)\,\mathbf{j} $$
 * Length squared of spring:
-  $$ |\mathbf{AP}|^2 = a^2\cos^2\theta + a^2(\sin\theta - \beta)^2 = a^2\left[\cos^2\theta + \sin^2\theta - 2\beta\sin\theta + \beta^2\right] = a^2(1 + \beta^2 - 2\beta\sin\theta) $$
+$$ |\mathbf{AP}|^2 = a^2\cos^2\theta + a^2(\sin\theta - \beta)^2 = a^2\left[\cos^2\theta + \sin^2\theta - 2\beta\sin\theta + \beta^2\right] = a^2(1 + \beta^2 - 2\beta\sin\theta) $$
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -514,52 +499,78 @@ $$ \theta_{3,4} = \pm \arccos\left(\frac{g}{\omega^2 L}\right) $$
 * **Pedagogical Justification:** Both gravity and the linear spring are conservative forces. The total potential energy is the sum of gravitational and elastic potentials.
 $$ V_g(\theta) = mgy = mga\sin\theta $$
 $$ V_s(\theta) = \frac{1}{2}k |\mathbf{AP}|^2 = \frac{1}{2}k a^2(1 + \beta^2 - 2\beta\sin\theta) $$
+
 Summing both contributions:
+
 $$ V(\theta) = mga\sin\theta + \frac{1}{2}k a^2(1 + \beta^2) - k\beta a^2\sin\theta = \frac{1}{2}ka^2(1 + \beta^2) + (mg - k\beta a)a\sin\theta $$
 
 #### Part (b): Identification of Equilibrium Positions
+
 Equilibrium requires $\frac{dV}{d\theta} = 0$:
+
 $$ \frac{dV}{d\theta} = (mg - k\beta a)a\cos\theta = 0 $$
+
 Two cases emerge:
-1. If $mg - k\beta a \neq 0$: $\cos\theta = 0 \implies \theta_1 = \frac{\pi}{2}$ (top) and $\theta_2 = -\frac{\pi}{2}$ (bottom).
-2. If $\beta = \frac{mg}{ka}$: $\frac{dV}{d\theta} \equiv 0$ for **all** $\theta$. Every point along the circumference is an equilibrium position (neutral equilibrium)!
+
+1\. If $mg - k\beta a \neq 0$: $\cos\theta = 0 \implies \theta_1 = \frac{\pi}{2}$ (top) and $\theta_2 = -\frac{\pi}{2}$ (bottom).
+
+2\. If $\beta = \frac{mg}{ka}$: $\frac{dV}{d\theta} \equiv 0$ for **all** $\theta$. Every point along the circumference is an equilibrium position (neutral equilibrium)!
 
 #### Part (c): Reduction of Motion to Quadratures
+
 Conservation of mechanical energy:
+
 $$ E = \frac{1}{2}m a^2 \dot{\theta}^2 + V(\theta) = \frac{1}{2}m v_0^2 + V(0) = \frac{1}{2}m v_0^2 + \frac{1}{2}ka^2(1 + \beta^2) $$
 $$ \dot{\theta} = \pm \sqrt{\frac{v_0^2}{a^2} - \frac{2(mg - k\beta a)}{ma}\sin\theta} $$
 $$ \int_{0}^{\theta(t)} \frac{d\theta'}{\sqrt{\frac{v_0^2}{a^2} - \frac{2(mg - k\beta a)}{ma}\sin\theta'}} = t $$
 
 #### Part (d): Case $\beta = \frac{mg}{ka}$
+
 When $\beta = \frac{mg}{ka}$, the coefficient $(mg - k\beta a) = 0$.
+
 The potential energy is strictly constant: $V(\theta) = \text{constant}$.
+
 The equation of motion reduces to:
+
 $$ \ddot{\theta} = 0 \implies \dot{\theta}(t) = \dot{\theta}(0) = \frac{v_0}{a} $$
+
 Integrating with $\theta(0) = 0$:
+
 $$ \theta(t) = \frac{v_0}{a}t $$
+
 The particle circles the wire with strictly uniform angular speed!
 
 #### Part (e): Viscous Damping Case (Damping force $\mathbf{F}_d = -2m\mu\mathbf{v}$)
+
 With $\beta = \frac{mg}{ka}$, the tangential equation of motion is:
+
 $$ m a \ddot{\theta} = F_{d, \theta} = -2m\mu(a\dot{\theta}) $$
+
 Divide by $ma$:
+
 $$ \ddot{\theta} + 2\mu\dot{\theta} = 0 $$
+
 Let $\omega(t) = \dot{\theta}(t)$:
+
 $$ \dot{\omega} + 2\mu\omega = 0 \implies \omega(t) = \omega(0)e^{-2\mu t} = \frac{v_0}{a}e^{-2\mu t} $$
+
 Integrate for position $\theta(t) = \int_0^t \omega(t')dt'$ with $\theta(0) = 0$:
+
 $$ \theta(t) = \frac{v_0}{a}\int_0^t e^{-2\mu t'}dt' = \frac{v_0}{a}\left[ -\frac{1}{2\mu}e^{-2\mu t'} \right]_0^t = \frac{v_0}{2\mu a}\left(1 - e^{-2\mu t}\right) $$
 
 #### Part (f): Reaction of the Circumference
+
 Radial Newton's second law, with $N$ the component of the reaction along $+\mathbf{e}_r$ (outward), $\mathbf{F}_g \cdot \mathbf{e}_r = -mg\sin\theta$ and $\mathbf{F}_s \cdot \mathbf{e}_r = -ka(1 - \beta\sin\theta)$:
+
 $$ -m a \dot{\theta}^2 = N + \mathbf{F}_g \cdot \mathbf{e}_r + \mathbf{F}_s \cdot \mathbf{e}_r $$
 $$ N(t) = -m a [\dot{\theta}(t)]^2 + mg\sin\theta(t) + k a(1 - \beta\sin\theta(t)) $$
+
 Substitute $\beta = \frac{mg}{ka}$:
+
 $$ N(t) = ka - m a \left(\frac{v_0}{a}\right)^2 e^{-4\mu t} = ka - \frac{m v_0^2}{a}e^{-4\mu t} $$
+* **Erratum:** The first version of part (f) had the sign of the reaction wrong ($N = ma\dot{\theta}^2 + mg\sin\theta + ka(1 - \beta\sin\theta)$, which follows from no sign convention). With $N$ the outward component, $N = -ma\dot{\theta}^2 + mg\sin\theta + ka(1 - \beta\sin\theta)$, i.e. $N\,\mathbf{e}_r = ka - (mv_0^2/a)e^{-4\mu t}$ for $\beta = mg/(ka)$ (inward component $-N$). Numeric check: sympy solving $m\mathbf{a} = \mathbf{F}_g + \mathbf{F}_s + N\mathbf{e}_r$ reproduces the general expression with zero residual.
 
-> [!warning] Erratum
-> The first version of part (f) had the sign of the reaction wrong ($N = ma\dot{\theta}^2 + mg\sin\theta + ka(1 - \beta\sin\theta)$, which follows from no sign convention). With $N$ the outward component, $N = -ma\dot{\theta}^2 + mg\sin\theta + ka(1 - \beta\sin\theta)$, i.e. $N\,\mathbf{e}_r = ka - (mv_0^2/a)e^{-4\mu t}$ for $\beta = mg/(ka)$ (inward component $-N$). Numeric check: sympy solving $m\mathbf{a} = \mathbf{F}_g + \mathbf{F}_s + N\mathbf{e}_r$ reproduces the general expression with zero residual.
-
-### Phase 4: Physical Interpretation
+### Phase 4: Physical Interpretation & Dimensional Verification
 * As $t \to \infty$, the particle comes to rest asymptotically at $\theta_\infty = \frac{v_0}{2\mu a}$, and the reaction force approaches the static spring preload $ka$.
 
 ---
@@ -572,55 +583,74 @@ $$ N(t) = ka - m a \left(\frac{v_0}{a}\right)^2 e^{-4\mu t} = ka - \frac{m v_0^2
 * **Initial State ($t = 0$):** $z(0) = 0, \theta(0) = \pi/2$, with $\dot{z}(0) = v_0$ and $\dot{\theta}(0) = \omega_0$.
 * **Parameters:** $m, R, \alpha, g, v_0, \omega_0$.
 
-### Phase 2: Frame & Coordinate Geometry
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
 * Cylindrical basis on cylinder: $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}$.
 * Gravity vector decomposed along cylinder axes:
-  - Axial component along $-Oz$: $g_z = -g\cos\alpha$.
-  - Transverse horizontal/vertical component in cross-section: $g_\perp = g\sin\alpha$.
-  $$ \mathbf{g} = -g\sin\alpha\sin\theta\,\mathbf{e}_\theta + g\sin\alpha\cos\theta\,\mathbf{e}_r - g\cos\alpha\,\mathbf{k} $$
-  From the figure, $\mathbf{z} = \sin\alpha\,\mathbf{i}_1 + \cos\alpha\,\mathbf{k}_1$ and $\mathbf{x} = \cos\alpha\,\mathbf{i}_1 - \sin\alpha\,\mathbf{k}_1$, so $-g\mathbf{k}_1 = g\sin\alpha\,\mathbf{x} - g\cos\alpha\,\mathbf{z}$: $\theta = 0$ is the lowest generator of the cylinder.
+* Axial component along $-Oz$: $g_z = -g\cos\alpha$.
+* Transverse horizontal/vertical component in cross-section: $g_\perp = g\sin\alpha$.
+$$ \mathbf{g} = -g\sin\alpha\sin\theta\,\mathbf{e}_\theta + g\sin\alpha\cos\theta\,\mathbf{e}_r - g\cos\alpha\,\mathbf{k} $$
+
+From the figure, $\mathbf{z} = \sin\alpha\,\mathbf{i}_1 + \cos\alpha\,\mathbf{k}_1$ and $\mathbf{x} = \cos\alpha\,\mathbf{i}_1 - \sin\alpha\,\mathbf{k}_1$, so $-g\mathbf{k}_1 = g\sin\alpha\,\mathbf{x} - g\cos\alpha\,\mathbf{z}$: $\theta = 0$ is the lowest generator of the cylinder.
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### Part (a): Axial Motion $z(t)$
 * **Pedagogical Justification:** The cylinder surface is smooth, so the reaction force is purely radial ($\mathbf{N} = N\mathbf{e}_r$) and has zero component along the cylinder axis $Oz$. The axial dynamics completely decouple into constant gravitational acceleration.
 $$ m\ddot{z} = -mg\cos\alpha \implies \ddot{z} = -g\cos\alpha $$
+
 Integrate once with $\dot{z}(0) = v_0$:
+
 $$ \dot{z}(t) = v_0 - g\cos\alpha\,t $$
+
 Integrate for position with $z(0) = 0$:
+
 $$ z(t) = v_0 t - \frac{1}{2}g\cos\alpha\,t^2 $$
 
 #### Part (b): Angular Evolution $\theta(t)$ Reduced to Quadratures
+
 Azimuthal equation:
+
 $$ m R \ddot{\theta} = -mg\sin\alpha\sin\theta \implies \ddot{\theta} + \frac{g\sin\alpha}{R}\sin\theta = 0 $$
+
 Multiply by $\dot{\theta}$ and integrate:
+
 $$ \frac{1}{2}\dot{\theta}^2 - \frac{g\sin\alpha}{R}\cos\theta = C_\theta $$
+
 At $t = 0$, $\theta = \pi/2 \implies \cos(\pi/2) = 0$, $\dot{\theta}(0) = \omega_0$:
+
 $$ C_\theta = \frac{1}{2}\omega_0^2 $$
 $$ \dot{\theta}^2 = \omega_0^2 + \frac{2g\sin\alpha}{R}\cos\theta $$
+
 Separation of variables:
+
 $$ \int_{\pi/2}^{\theta(t)} \frac{d\theta'}{\sqrt{\omega_0^2 + \frac{2g\sin\alpha}{R}\cos\theta'}} = \pm t $$
 
 #### Part (c): Normal Reaction Force $N(\theta)$
+
 Radial equation along $-\mathbf{e}_r$ ($N$ is the inward reaction; gravity has component $+mg\sin\alpha\cos\theta$ along $+\mathbf{e}_r$, hence $-mg\sin\alpha\cos\theta$ along $-\mathbf{e}_r$):
+
 $$ m R \dot{\theta}^2 = N - mg\sin\alpha\cos\theta $$
 $$ N(\theta) = m R \dot{\theta}^2 + mg\sin\alpha\cos\theta = m R\left(\omega_0^2 + \frac{2g\sin\alpha}{R}\cos\theta\right) + mg\sin\alpha\cos\theta $$
 $$ N(\theta) = m R \omega_0^2 + 3mg\sin\alpha\cos\theta $$
 
 #### Part (d): Case $\omega_0^2 = \frac{g\sin\alpha}{R}$
 $$ \dot{\theta}^2 = \frac{g\sin\alpha}{R}(1 + 2\cos\theta) $$
+
 Turning point occurs when $\dot{\theta} = 0 \implies \cos\theta = -1/2 \implies \theta = \pm\frac{2\pi}{3}$.
+
 The particle undergoes bounded angular oscillations between $-2\pi/3$ and $+2\pi/3$ about the bottom generator $\theta = 0$ (for $\omega_0 > 0$ it first reaches $2\pi/3$, then swings through $\theta = 0$ to $-2\pi/3$ and back) while accelerating parabolically along the axis $Oz$.
 
-> [!warning] Erratum
-> The first version had $\mathbf{g}\cdot\mathbf{e}_r = -g\sin\alpha\cos\theta$ and an oscillation between $\pi/3$ and $2\pi/3$. From the figure $\mathbf{g}\cdot\mathbf{e}_r = +g\sin\alpha\cos\theta$ and $\mathbf{g}\cdot\mathbf{e}_\theta = -g\sin\alpha\sin\theta$, so $\theta = 0$ is the stable bottom and the motion in (d) is symmetric about it. The result of (c) was already the inward reaction $N = mR\omega_0^2 + 3mg\sin\alpha\cos\theta$. Numeric check: RK4 of $\ddot{\theta} = -(g\sin\alpha/R)\sin\theta$ from $\theta(0) = \pi/2$ with $\omega_0^2 = g\sin\alpha/R$ gives $\theta_{min}/\pi = -0.6667$ and $\theta_{max}/\pi = +0.6667$; for $\omega_0^2 = 4g\sin\alpha/R$ the particle revolves without stopping.
+* **Erratum:** The first version had $\mathbf{g}\cdot\mathbf{e}_r = -g\sin\alpha\cos\theta$ and an oscillation between $\pi/3$ and $2\pi/3$. From the figure $\mathbf{g}\cdot\mathbf{e}_r = +g\sin\alpha\cos\theta$ and $\mathbf{g}\cdot\mathbf{e}_\theta = -g\sin\alpha\sin\theta$, so $\theta = 0$ is the stable bottom and the motion in (d) is symmetric about it. The result of (c) was already the inward reaction $N = mR\omega_0^2 + 3mg\sin\alpha\cos\theta$. Numeric check: RK4 of $\ddot{\theta} = -(g\sin\alpha/R)\sin\theta$ from $\theta(0) = \pi/2$ with $\omega_0^2 = g\sin\alpha/R$ gives $\theta_{min}/\pi = -0.6667$ and $\theta_{max}/\pi = +0.6667$; for $\omega_0^2 = 4g\sin\alpha/R$ the particle revolves without stopping.
 
 #### Part (e): Case $\omega_0^2 = \frac{4g\sin\alpha}{R}$
+
 At the top of the cylinder ($\theta = \pi, \cos\pi = -1$):
+
 $$ \dot{\theta}^2(\pi) = \frac{4g\sin\alpha}{R} - \frac{2g\sin\alpha}{R} = \frac{2g\sin\alpha}{R} > 0 $$
+
 The angular velocity never vanishes. The particle performs complete revolutions (helical trajectory with growing pitch) around the cylinder.
 
-### Phase 4: Physical Interpretation & Synthesis
+### Phase 4: Physical Interpretation & Dimensional Verification
 * Complete decoupling between 1D uniform acceleration along $z$ and nonlinear pendulum dynamics in $\theta$.
 
 ---
@@ -628,7 +658,6 @@ The angular velocity never vanishes. The particle performs complete revolutions 
 ## 📌 Problem 31: Two Particles on Cone with String
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** Two heavy particles $P_1$ and $P_2$, each of mass $m$, connected by an inextensible massless string of length $\ell$.
 * $P_1$ is constrained to the frictionless surface of a cone of semi-angle $\alpha$ with vertex at $O$.
 * $P_2$ hangs vertically along the cone's axis of symmetry ($Oz$).
@@ -642,7 +671,6 @@ The angular velocity never vanishes. The particle performs complete revolutions 
 * **Parameters:** $m, \ell, \alpha, g > 0$.
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-
 * Cylindrical frame on the cone:
 * Unit vector along cone generator from $O$ to $P_1$:
 $$ \mathbf{e}_\xi = \sin\alpha\,\mathbf{e}_r - \cos\alpha\,\mathbf{k} $$
@@ -658,7 +686,7 @@ $$ \mathbf{r}_2 = -(\ell - \xi)\mathbf{k} $$
 
 #### Part (a): Kinematics of $P_1$ and $P_2$
 
-1. **For $P_1$:**
+1\. **For $P_1$:**
 
 Velocity:
 
@@ -668,20 +696,20 @@ Acceleration:
 
 $$ \mathbf{a}_1 = (\ddot{\xi} - \xi\dot{\theta}^2\sin^2\alpha)\mathbf{e}_\xi + (2\dot{\xi}\dot{\theta}\sin\alpha + \xi\ddot{\theta}\sin\alpha)\mathbf{e}_\theta - \xi\dot{\theta}^2\sin\alpha\cos\alpha\,\mathbf{n} $$
 
-2. **For $P_2$:**
+2\. **For $P_2$:**
 
 $$ \mathbf{v}_2 = \dot{\xi}\mathbf{k} $$
 $$ \mathbf{a}_2 = \ddot{\xi}\mathbf{k} $$
 
 #### Part (b): Forces on $P_1$ and $P_2$
 
-1. On $P_1$:
+1\. On $P_1$:
 
 * Gravity: $\mathbf{F}_{g1} = -mg\mathbf{k} = mg\cos\alpha\mathbf{e}_\xi - mg\sin\alpha\mathbf{n}$.
 * String tension: $\mathbf{T}_1 = -T\mathbf{e}_\xi$ ($T > 0$).
 * Normal cone reaction: $\mathbf{N} = N\mathbf{n}$.
 
-2. On $P_2$:
+2\. On $P_2$:
 
 * Gravity: $\mathbf{F}_{g2} = -mg\mathbf{k}$.
 * String tension: $\mathbf{T}_2 = +T\mathbf{k}$.
@@ -689,11 +717,11 @@ $$ \mathbf{a}_2 = \ddot{\xi}\mathbf{k} $$
 
 #### Part (c): Equations of Motion
 
-1. $P_2$ along $\mathbf{k}$:
+1\. $P_2$ along $\mathbf{k}$:
 
 $$ m\ddot{\xi} = T - mg \implies T = m(g + \ddot{\xi}) $$
 
-2. $P_1$ along generator $\mathbf{e}_\xi$:
+2\. $P_1$ along generator $\mathbf{e}_\xi$:
 
 $$ m(\ddot{\xi} - \xi\dot{\theta}^2\sin^2\alpha) = mg\cos\alpha - T $$
 
@@ -702,12 +730,12 @@ Substitute $T = m(g + \ddot{\xi})$:
 $$ m(\ddot{\xi} - \xi\dot{\theta}^2\sin^2\alpha) = mg\cos\alpha - m(g + \ddot{\xi}) $$
 $$ 2\ddot{\xi} - \xi\dot{\theta}^2\sin^2\alpha + g(1 - \cos\alpha) = 0 $$
 
-3. $P_1$ along parallel $\mathbf{e}_\theta$:
+3\. $P_1$ along parallel $\mathbf{e}_\theta$:
 
 $$ m(\xi\ddot{\theta}\sin\alpha + 2\dot{\xi}\dot{\theta}\sin\alpha) = 0 \implies \xi\ddot{\theta} + 2\dot{\xi}\dot{\theta} = 0 $$
 $$ \frac{d}{dt}(\xi^2\dot{\theta}) = 0 $$
 
-4. $P_1$ along normal $\mathbf{n}$:
+4\. $P_1$ along normal $\mathbf{n}$:
 
 $$ m\,\mathbf{a}_1\cdot\mathbf{n} = N - mg\sin\alpha \implies N = mg\sin\alpha - m\xi\dot{\theta}^2\sin\alpha\cos\alpha $$
 
@@ -730,16 +758,17 @@ Values of Tension and Normal Force:
 
 $$ T = mg $$
 $$ N = mg\sin\alpha - m\cos\alpha\left[\frac{g(1 - \cos\alpha)}{\sin\alpha}\right] = \frac{mg}{\sin\alpha}(\sin^2\alpha - \cos\alpha + \cos^2\alpha) = \frac{mg(1 - \cos\alpha)}{\sin\alpha} $$
+* **Erratum:** The first version had $\mathbf{a}_1\cdot\mathbf{n} = +\xi\dot{\theta}^2\sin\alpha\cos\alpha$ and $N = mg\sin\alpha + m\xi\dot{\theta}^2\sin\alpha\cos\alpha$ (its own algebra in (e) did not reach the quoted result). The centripetal term points against the outward normal: $\mathbf{a}_1\cdot\mathbf{n} = -\xi\dot{\theta}^2\sin\alpha\cos\alpha$, hence $N = mg\sin\alpha - m\xi\dot{\theta}^2\sin\alpha\cos\alpha$, which gives the same final value $N = mg(1 - \cos\alpha)/\sin\alpha$. Numeric check: sympy differentiation of $\mathbf{r}_1$ gives $\mathbf{a}_1\cdot\mathbf{n} = -\tfrac{1}{2}\xi\dot{\theta}^2\sin 2\alpha$ and $N/(mg) = 0.5774$ at $\alpha = 60^\circ$, equal to $(1 - \cos\alpha)/\sin\alpha$.
 
 #### Part (f): Two First Integrals of Motion
 
-1. **Azimuthal First Integral (cyclic coordinate $\theta$):**
+1\. **Azimuthal First Integral (cyclic coordinate $\theta$):**
 
 With $\rho = \xi\sin\alpha$ the distance of $P_1$ to the axis, $a_\theta = \frac{1}{\rho}\frac{d}{dt}(\rho^2\dot{\theta})$. Gravity, the tension (directed to $O$) and the cone reaction all lie in the meridian plane of $P_1$, so the $\mathbf{e}_\theta$ equation reads $\frac{d}{dt}(\xi^2\sin^2\alpha\,\dot{\theta}) = 0$:
 
 $$ \xi^2\dot{\theta} = C_1 $$
 
-2. **Mechanical Energy First Integral:**
+2\. **Mechanical Energy First Integral:**
 
 Kinetic energy of both particles:
 
@@ -756,7 +785,6 @@ $$ 2\dot{\xi}^2 + \xi^2\dot{\theta}^2\sin^2\alpha + 2g\xi(1 - \cos\alpha) = C_2 
 Compare with the official solution key (Problems.pdf, Solution keys section).
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * The effective potential $V_{eff}(\xi) = \frac{m C_1^2\sin^2\alpha}{2\xi^2} + mg\xi(1 - \cos\alpha)$ exhibits a stable minimum corresponding to the circular parallel orbit.
 
 ---
@@ -769,17 +797,19 @@ Compare with the official solution key (Problems.pdf, Solution keys section).
 * **CDOFs:** 1 degree of freedom: the instantaneous unwinding angle $\phi(t)$.
 * **Parameters:** $m, a, l = 4\pi a, \omega, g > 0$.
 
-### Phase 2: Frame & Kinematics of Unwinding String
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
 * Inertial frame: $Oxy$.
 * Position of contact point $B$: $\mathbf{r}_B = a\cos\phi\,\mathbf{i} + a\sin\phi\,\mathbf{j}$.
 * Unit vectors at $B$:
-  - Radial: $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$.
-  - Tangential: $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent; the straight segment leaves $B$ clockwise, towards the lower right in the figure, i.e. along $-\mathbf{u}_t$).
+* Radial: $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$.
+* Tangential: $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent; the straight segment leaves $B$ clockwise, towards the lower right in the figure, i.e. along $-\mathbf{u}_t$).
 * Straight segment length:
-  The initial wrapped length was $l$. As the spool rotates at rate $\omega$, the length of the unwound free segment $BP$ is:
-  $$ s(t) = a(3\pi - \omega t + \phi) $$
+
+The initial wrapped length was $l$. As the spool rotates at rate $\omega$, the length of the unwound free segment $BP$ is:
+
+$$ s(t) = a(3\pi - \omega t + \phi) $$
 * Position of particle $P$:
-  $$ \mathbf{r}_P = \mathbf{r}_B - s(t)\mathbf{u}_t = a\cos\phi\,\mathbf{i} + a\sin\phi\,\mathbf{j} - a(3\pi - \omega t + \phi)(-\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}) $$
+$$ \mathbf{r}_P = \mathbf{r}_B - s(t)\mathbf{u}_t = a\cos\phi\,\mathbf{i} + a\sin\phi\,\mathbf{j} - a(3\pi - \omega t + \phi)(-\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}) $$
 
 ### Phase 3: Step-by-Step Mathematical Deduction
 
@@ -787,35 +817,49 @@ Compare with the official solution key (Problems.pdf, Solution keys section).
 * Although $P$ moves in the plane (2 coordinates), the constraint of remaining tangent to the unwinding spool leaves exactly **1 degree of freedom** ($\phi$).
 
 #### Part (b): Velocity and Acceleration Vectors
+
 Differentiating $\mathbf{r}_P(t)$ with respect to time:
+
 $$ \mathbf{v}_P = \frac{d\mathbf{r}_P}{dt} = a\dot{\phi}\mathbf{u}_t - \dot{s}\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r $$
+
 Since $s(t) = a(3\pi - \omega t + \phi) \implies \dot{s} = a(\dot{\phi} - \omega)$:
+
 $$ \mathbf{v}_P = a\omega\,\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r $$
+
 Differentiating once more, with $\dot{\mathbf{u}}_t = -\dot{\phi}\mathbf{u}_r$ and $\dot{\mathbf{u}}_r = \dot{\phi}\mathbf{u}_t$:
+
 $$ \mathbf{a}_P = \left[s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}\right]\mathbf{u}_r + s\dot{\phi}^2\mathbf{u}_t $$
 
 #### Part (c): Forces Acting on $P$
-1. Gravity: $\mathbf{F}_g = -mg\mathbf{j} = -mg(\sin\phi\,\mathbf{u}_r + \cos\phi\,\mathbf{u}_t)$.
-2. Tension: $\mathbf{T} = +T\mathbf{u}_t$ ($T > 0$ directed towards $B$, since $\mathbf{r}_B - \mathbf{r}_P = s\,\mathbf{u}_t$).
 
-> [!warning] Erratum
-> The first version placed the particle at $\mathbf{r}_B + s\mathbf{u}_t$ (up and to the left of $B$), which contradicts the figure where the segment $BP$ leaves $B$ towards the lower right. Correct: $\mathbf{r}_P = \mathbf{r}_B - s\mathbf{u}_t$, $\mathbf{v}_P = a\omega\,\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r$, $\mathbf{a}_P = [s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}]\mathbf{u}_r + s\dot{\phi}^2\mathbf{u}_t$ and tension $+T\mathbf{u}_t$; the equations of part (e) and the energy of part (f) were already consistent with this. Numeric check: sympy differentiation of $\mathbf{r}_P$ reproduces $\mathbf{v}_P$ and $\mathbf{a}_P$, and RK4 of (e) with $\omega = 0$ conserves the energy of (f) to $10^{-13}$ with $T > 0$.
+1\. Gravity: $\mathbf{F}_g = -mg\mathbf{j} = -mg(\sin\phi\,\mathbf{u}_r + \cos\phi\,\mathbf{u}_t)$.
+
+2\. Tension: $\mathbf{T} = +T\mathbf{u}_t$ ($T > 0$ directed towards $B$, since $\mathbf{r}_B - \mathbf{r}_P = s\,\mathbf{u}_t$).
+
+* **Erratum:** The first version placed the particle at $\mathbf{r}_B + s\mathbf{u}_t$ (up and to the left of $B$), which contradicts the figure where the segment $BP$ leaves $B$ towards the lower right. Correct: $\mathbf{r}_P = \mathbf{r}_B - s\mathbf{u}_t$, $\mathbf{v}_P = a\omega\,\mathbf{u}_t + s\dot{\phi}\mathbf{u}_r$, $\mathbf{a}_P = [s\ddot{\phi} + a\dot{\phi}^2 - 2a\omega\dot{\phi}]\mathbf{u}_r + s\dot{\phi}^2\mathbf{u}_t$ and tension $+T\mathbf{u}_t$; the equations of part (e) and the energy of part (f) were already consistent with this. Numeric check: sympy differentiation of $\mathbf{r}_P$ reproduces $\mathbf{v}_P$ and $\mathbf{a}_P$, and RK4 of (e) with $\omega = 0$ conserves the energy of (f) to $10^{-13}$ with $T > 0$.
 
 #### Part (d): Mechanical Energy Discussion
+
 For $\omega \neq 0$, the constraint is **rheonomic** (explicitly time-dependent). The contact point $B$ moves with velocity $\mathbf{v}_B = a\omega\mathbf{u}_t$, so the string tension does work on $P$. Mechanical energy is **not conserved** for $\omega \neq 0$.
 
 #### Part (e): Closed Set of Equations
+
 Projecting along the tangent $\mathbf{u}_t$ and normal $\mathbf{u}_r$:
+
 $$ a\left[(3\pi - \omega t + \phi)\ddot{\phi} - 2\omega\dot{\phi} + \dot{\phi}^2\right] = -g\sin\phi $$
 $$ T = m a(3\pi - \omega t + \phi)\dot{\phi}^2 + mg\cos\phi $$
+
 Compare with the official solution key (Problems.pdf, Solution keys section).
 
 #### Part (f): Case $\omega = 0$ (Static Spool)
+
 When $\omega = 0$, the constraint is scleronomic and the string does zero work. Mechanical energy is strictly conserved:
+
 $$ E = \frac{1}{2}m [a(3\pi + \phi)]^2 \dot{\phi}^2 + mg\left[a\sin\phi - a(3\pi + \phi)\cos\phi\right] = \text{constant} $$
+
 Compare with the official solution key (Problems.pdf, Solution keys section).
 
-### Phase 4: Physical Interpretation
+### Phase 4: Physical Interpretation & Dimensional Verification
 * The system behaves as an involute pendulum whose effective string length increases or decreases linearly as it unwinds.
 
 ---
@@ -823,7 +867,6 @@ Compare with the official solution key (Problems.pdf, Solution keys section).
 ## 📌 Problem 35: String with Two Particles on a Cylinder
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** two particles $P$ and $Q$ of mass $m$ joined by an inextensible, massless string of length $L$ that rests on a fixed cylinder of radius $R$ and centre $O$, and by a spring of zero natural length and stiffness $k$. The motion is planar, in the plane $Oxy$ with $Oy$ upward.
 * **Hypotheses:** the cylinder is smooth, the string is always tense and touches the cylinder along the arc between the tangency points $A$ (right) and $B$ (left), the spring does not touch the cylinder, and the inertial frame $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ is fixed to the cylinder.
 * **Parameters:** $m$ [kg], $L$ [m], $R$ [m], $k$ [N/m], $g$ [m/s$^2$]; $\ell_0 = (L - \pi R)/2$ [m] is defined below.
@@ -846,7 +889,6 @@ $$ \dot{\mathbf{t}}_A = \dot\alpha\,\mathbf{n}_A, \quad \dot{\mathbf{n}}_A = -\d
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### (a) Degrees of freedom and coordinates
-
 * **Pedagogical Justification:** Two free particles in the plane have 4 degrees of freedom. The inextensible string removes one, so the system has 3.
 
 The straight segments $AP$ and $BQ$ have lengths $\xi_P$ and $\xi_Q$, and the string wraps the arc $AB$ of length $R(\beta - \alpha)$ on the cylinder. The length constraint is
@@ -876,7 +918,6 @@ $$ \mathbf{a}_Q = \left(\ddot\xi_Q + R\ddot\beta - \xi_Q\dot\beta^2\right)\mathb
 These four components were checked symbolically with sympy (zero residual).
 
 #### (c) Forces
-
 * Weights: $-mg\,\mathbf{j}$ on each particle.
 * String tension $T \ge 0$ (the same on both sides because the cylinder is smooth and the string massless): $-T\,\mathbf{t}_A$ on $P$ and $-T\,\mathbf{t}_B$ on $Q$, directed towards the tangency points. The cylinder acts on the string, not on the particles.
 * Spring (zero natural length): $\mathbf{F}_{s,P} = k(\mathbf{r}_Q - \mathbf{r}_P)$ on $P$ and $\mathbf{F}_{s,Q} = -\mathbf{F}_{s,P}$ on $Q$.
@@ -891,7 +932,6 @@ $$ -m\left(\xi_Q\ddot\beta + 2\dot\xi_Q\dot\beta + R\dot\beta^2\right) = -mg\sin
 Together with the length constraint these are 5 equations for the 5 unknowns $\alpha, \beta, \xi_P, \xi_Q, T$. Subtracting the first and third equations removes $T$.
 
 #### (d) Mechanical energy
-
 * **Pedagogical Justification:** The mechanical energy of $P$ alone is not conserved: the tension and the spring do work on it, and that work is exchanged with $Q$. For the pair $P + Q$ the only forces that could dissipate energy are the tensions, so their total power is computed first.
 
 Using $\mathbf{t}_A\cdot\mathbf{v}_P = \dot\xi_P - R\dot\alpha$ and $\mathbf{t}_B\cdot\mathbf{v}_Q = \dot\xi_Q + R\dot\beta$:
@@ -941,7 +981,6 @@ $$ \ddot\delta + \frac{mg + 2k\ell_0}{m\,\ell_0}\,\delta = 0 \implies \omega^2 =
 $$ \boxed{\;\omega = \sqrt{\frac{g}{\ell_0} + \frac{2k}{m}}, \qquad \ell_0 = \frac{L - \pi R}{2}\;} $$
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * **Limit $k \to 0$:** $\omega = \sqrt{g/\ell_0}$, the pendulum of length $\ell_0$, the free length of each hanging segment. The string unwinds from the cylinder, but at the vertical the instantaneous centre of rotation of $P$ is the tangency point $A$, at distance $\xi_0 \approx \ell_0$.
 * **Limit $g \to 0$:** $\omega = \sqrt{2k/m}$, the frequency of two particles of mass $m$ joined by a spring $k$ (reduced mass $m/2$ and stiffness $k$).
 * **Dimensional check:** $[g/\ell_0] = \text{s}^{-2}$, $[2k/m] = \text{N/m}/\text{kg} = \text{s}^{-2}$, so $[\omega] = \text{s}^{-1}$; $[\alpha_0] = [kR/(mg + 2k\ell_0)] = \text{N}/\text{N} = 1$.
@@ -953,20 +992,20 @@ $$ \boxed{\;\omega = \sqrt{\frac{g}{\ell_0} + \frac{2k}{m}}, \qquad \ell_0 = \fr
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
 * **Physical System:**
-  - Particle $P$ ($m_P = 1$) moves without friction on the vertical torus:
-    $$ x_0 = (2 + \cos\phi)\sin\theta, \quad y_0 = \sin\phi, \quad z_0 = 4 + (2 + \cos\phi)\cos\theta $$
-  - Particle $Q$ ($m_Q = 2$) is constrained to the horizontal plane $Ox_0y_0$ ($z_0 = 0$).
-  - Mutual attractive spring force: $\mathbf{F}_{PQ} = -k(\mathbf{r}_P - \mathbf{r}_Q)$ with $k = 2$.
+* Particle $P$ ($m_P = 1$) moves without friction on the vertical torus:
+$$ x_0 = (2 + \cos\phi)\sin\theta, \quad y_0 = \sin\phi, \quad z_0 = 4 + (2 + \cos\phi)\cos\theta $$
+* Particle $Q$ ($m_Q = 2$) is constrained to the horizontal plane $Ox_0y_0$ ($z_0 = 0$).
+* Mutual attractive spring force: $\mathbf{F}_{PQ} = -k(\mathbf{r}_P - \mathbf{r}_Q)$ with $k = 2$.
 * **Initial State ($t_0$):**
-  - $P$: $\mathbf{r}_P(t_0) = 2\mathbf{i}_0 + \mathbf{j}_0 + 4\mathbf{k}_0$, $\mathbf{v}_P(t_0) = -\mathbf{k}_0$.
-  - $Q$: $\mathbf{r}_Q(t_0) = 3\mathbf{i}_0 + \mathbf{j}_0$, $\mathbf{v}_Q(t_0) = -\mathbf{i}_0 + \mathbf{j}_0$.
+* $P$: $\mathbf{r}_P(t_0) = 2\mathbf{i}_0 + \mathbf{j}_0 + 4\mathbf{k}_0$, $\mathbf{v}_P(t_0) = -\mathbf{k}_0$.
+* $Q$: $\mathbf{r}_Q(t_0) = 3\mathbf{i}_0 + \mathbf{j}_0$, $\mathbf{v}_Q(t_0) = -\mathbf{i}_0 + \mathbf{j}_0$.
 * **Parameters:** $m_P = 1$, $m_Q = 2$, $k = 2$, $g = 9.81$ m/s$^2$.
 
-### Phase 2: Coordinates & Geometric Subspaces
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
 * Minimal coordinate set:
-  - For $P$: Toroidal angle $\theta$ and poloidal angle $\phi$.
-  - For $Q$: Cartesian planar coordinates $(\xi, \eta)$ in the plane $z = 0$.
-  - Total CDOFs: $2 + 2 = 4$.
+* For $P$: Toroidal angle $\theta$ and poloidal angle $\phi$.
+* For $Q$: Cartesian planar coordinates $(\xi, \eta)$ in the plane $z = 0$.
+* Total CDOFs: $2 + 2 = 4$.
 * **Toroidal basis.** With the toroidal angle $\theta$ (rotation about $\mathbf{j}_0$), $\mathcal{B}_1 = \{\mathbf{e}_\rho, \mathbf{e}_\theta, \mathbf{j}_0\}$ with $\mathbf{e}_\rho = \sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{k}_0$ and $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{k}_0$ (so that $\mathbf{e}_\rho \times \mathbf{e}_\theta = \mathbf{j}_0$). The columns are the components in $\mathcal{B}_0$:
 $$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \\ \cos\theta & -\sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
 * **Poloidal basis.** With the poloidal angle $\phi$ (rotation about $\mathbf{e}_\theta$), $\mathcal{B}_2 = \{\mathbf{n}, \mathbf{e}_\theta, \mathbf{t}_\phi\}$ with $\mathbf{n} = \cos\phi\,\mathbf{e}_\rho + \sin\phi\,\mathbf{j}_0$ (outward normal) and $\mathbf{t}_\phi = -\sin\phi\,\mathbf{e}_\rho + \cos\phi\,\mathbf{j}_0$. Its components in $\mathcal{B}_1$ are the columns of
@@ -976,29 +1015,38 @@ $$ [{}_1 R_2] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\ph
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### Part (a)-(d): Force on $P$ due to $Q$
+
 The attractive force exerted by $Q$ on $P$ is:
+
 $$ \mathbf{F}_P = k(\mathbf{r}_Q - \mathbf{r}_P) = 2(\mathbf{r}_Q - \mathbf{r}_P) $$
+
 Substitute $\mathbf{r}_Q = \xi\mathbf{i}_0 + \eta\mathbf{j}_0$ and $\mathbf{r}_P$:
+
 $$ \mathbf{F}_P = 2[\xi - (2 + \cos\phi)\sin\theta]\mathbf{i}_0 + 2[\eta - \sin\phi]\mathbf{j}_0 - 2[4 + (2 + \cos\phi)\cos\theta]\mathbf{k}_0 $$
+
 Compare with the official solution key (Problems.pdf, Solution keys section).
 
 #### Part (e)-(g): Scalar Conservation Law & Reachability of Torus Summit
 * Both gravity and the mutual attractive spring force are conservative. The normal constraint forces do zero work.
 * Total mechanical energy $E = T_P + T_Q + V_g + V_{spring} = \text{constant}$.
 * Evaluating total initial energy $E_0$:
-  $$ T_P(t_0) = \frac{1}{2}(1)(1)^2 = \frac{1}{2} $$
-  $$ T_Q(t_0) = \frac{1}{2}(2)((-1)^2 + 1^2) = 2 $$
-  $$ V_g(t_0) = m_P g z_P(t_0) = 1 \cdot g \cdot 4 = 4g $$
-  $$ |\mathbf{r}_P - \mathbf{r}_Q|^2 = (2 - 3)^2 + (1 - 1)^2 + (4 - 0)^2 = 1 + 0 + 16 = 17 $$
-  $$ V_{spring}(t_0) = \frac{1}{2} k |\mathbf{r}_P - \mathbf{r}_Q|^2 = \frac{1}{2}(2)(17) = 17 $$
-  $$ E_0 = \frac{1}{2} + 2 + 4g + 17 = 19.5 + 4g $$
+$$ T_P(t_0) = \frac{1}{2}(1)(1)^2 = \frac{1}{2} $$
+$$ T_Q(t_0) = \frac{1}{2}(2)((-1)^2 + 1^2) = 2 $$
+$$ V_g(t_0) = m_P g z_P(t_0) = 1 \cdot g \cdot 4 = 4g $$
+$$ |\mathbf{r}_P - \mathbf{r}_Q|^2 = (2 - 3)^2 + (1 - 1)^2 + (4 - 0)^2 = 1 + 0 + 16 = 17 $$
+$$ V_{spring}(t_0) = \frac{1}{2} k |\mathbf{r}_P - \mathbf{r}_Q|^2 = \frac{1}{2}(2)(17) = 17 $$
+$$ E_0 = \frac{1}{2} + 2 + 4g + 17 = 19.5 + 4g $$
 * At the highest point of the torus, $z_{max} = 4 + (2 + 1) = 7$.
-  The minimum gravitational potential alone required to reach this point is:
-  $$ V_{g,max} = m_P g z_{max} = 7g $$
-  Required energy: $E_{req} \ge 7g$.
-  Since $19.5 + 4g < 7g \iff 19.5 < 3g \approx 29.4$, the particle **does not possess enough energy** to ever reach the highest point of the torus!
 
-### Phase 4: Physical Interpretation
+The minimum gravitational potential alone required to reach this point is:
+
+$$ V_{g,max} = m_P g z_{max} = 7g $$
+
+Required energy: $E_{req} \ge 7g$.
+
+Since $19.5 + 4g < 7g \iff 19.5 < 3g \approx 29.4$, the particle **does not possess enough energy** to ever reach the highest point of the torus!
+
+### Phase 4: Physical Interpretation & Dimensional Verification
 * Energy budgeting definitively rules out reaching the summit regardless of the complex non-linear 4-DOF coupling.
 * **Dimensional check (SI):** $[k\,|\mathbf{r}_P - \mathbf{r}_Q|^2] = \text{N/m}\cdot\text{m}^2 = \text{J}$, $[m\,g\,z] = \text{kg}\cdot\text{m/s}^2\cdot\text{m} = \text{J}$ and $[m\,v^2] = \text{J}$, so every term of $E_0$ is an energy.
 * **Numerical values ($g = 9.81\ \text{m/s}^2$):** $E_0 = 19.5 + 4g = 58.74\ \text{J}$, whereas reaching the summit $z_{max} = 7\ \text{m}$ requires at least $m_Pgz_{max} = 7g = 68.67\ \text{J}$ (the kinetic and spring energies are non-negative, so the potential energy at the summit cannot exceed $E_0$). The deficit is $68.67 - 58.74 = 9.93\ \text{J} > 0$, hence the summit is unreachable.
@@ -1014,13 +1062,13 @@ Compare with the official solution key (Problems.pdf, Solution keys section).
 * **Initial State ($t = 0$):** $\theta(0) = \phi(0) = \pi/3$ rad, with $|\mathbf{v}_P(0)| = \sqrt{\ell g}$.
 * **Parameters:** $m, \ell, d, g > 0$.
 
-### Phase 2: Frame & Coordinate Geometry
+### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
 * Frame $S_0: \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$. Plate in horizontal plane $z_0 = 0$.
 * Distance from $O$ to edge point $Q$: $r_Q = \frac{d}{\cos\theta}$.
 * Hanging segment length: $\rho = \ell - r_Q = \ell - \frac{d}{\cos\theta}$.
 * **Geometry assumption (read from the figure, Problems.pdf PDF page 27).** The plate edge is the straight line $x_0 = d$, parallel to $\mathbf{j}_0$ (so $Ox_0$ is perpendicular to the edge); $\theta$ is the angle between $Ox_0$ and $OQ$, and $\phi$ is the angle between the vertical and the line through $P$ perpendicular to the edge, which lies in a plane normal to the edge. The statement text alone does not fix the direction of the edge, so this reading relies on the figure.
 * Unit vector $\mathbf{e}_{QP}$ pointing from $Q$ to $P$. The edge is frictionless, so the two string segments make equal angles with it (the hint of the statement): the unit vector from $Q$ to $O$ is $\mathbf{e}_{QO} = -(\cos\theta\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0)$, hence $\mathbf{e}_{QP}\cdot\mathbf{j}_0 = -\mathbf{e}_{QO}\cdot\mathbf{j}_0 = \sin\theta$. The remaining part of $\mathbf{e}_{QP}$ lies in the plane normal to the edge, along $\sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$, with magnitude $\sqrt{1 - \sin^2\theta} = \cos\theta$:
-  $$ \mathbf{e}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0, \qquad |\mathbf{e}_{QP}|^2 = \cos^2\theta(\sin^2\phi + \cos^2\phi) + \sin^2\theta = 1 $$
+$$ \mathbf{e}_{QP} = \cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0, \qquad |\mathbf{e}_{QP}|^2 = \cos^2\theta(\sin^2\phi + \cos^2\phi) + \sin^2\theta = 1 $$
 * **Swing basis.** The hanging segment $QP$ swings in the plane normal to the edge, i.e. about the edge direction $\mathbf{j}_0$. The basis $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_0, \mathbf{k}_1\}$ is the inertial basis rotated by $\phi$ about $\mathbf{j}_0$, with $\mathbf{i}_1 = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0$ and $\mathbf{k}_1 = -\sin\phi\,\mathbf{i}_0 + \cos\phi\,\mathbf{k}_0$; the columns are the components in $\mathcal{B}_0$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\phi + \sin^2\phi = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
 * In this basis the unit vector of Phase 2 reads $\mathbf{e}_{QP} = \sin\theta\,\mathbf{j}_0 - \cos\theta\,\mathbf{k}_1$, since $-\mathbf{k}_1 = \sin\phi\,\mathbf{i}_0 - \cos\phi\,\mathbf{k}_0$ is the direction of the line through $P$ perpendicular to the edge. Both the matrix properties and the identity with the expression of $\mathbf{e}_{QP}$ in $\mathcal{B}_0$ were verified symbolically with sympy.
@@ -1028,37 +1076,57 @@ $$ [{}_0 R_1] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\ph
 ### Phase 3: Step-by-Step Mathematical Deduction
 
 #### Part (a)-(c): Kinematics of $Q$ and $P$
+
 Position of contact point $Q$:
+
 $$ \mathbf{r}_Q = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0 $$
+
 Velocity of $Q$:
+
 $$ \mathbf{v}_Q = \frac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0 $$
+
 Position of particle $P$:
+
 $$ \mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP} = d\,\mathbf{i}_0 + d\tan\theta\,\mathbf{j}_0 + \left(\ell - \frac{d}{\cos\theta}\right)(\cos\theta\sin\phi\,\mathbf{i}_0 + \sin\theta\,\mathbf{j}_0 - \cos\theta\cos\phi\,\mathbf{k}_0) $$
+
 Velocity $\mathbf{v}_P$ is found by differentiating $\mathbf{r}_P(t)$ with respect to time.
 
 #### Part (d): Forces on $P$
-1. Gravity: $\mathbf{F}_g = -mg\mathbf{k}_0$.
-2. String tension: $\mathbf{T} = -T\mathbf{e}_{QP}$.
+
+1\. Gravity: $\mathbf{F}_g = -mg\mathbf{k}_0$.
+
+2\. String tension: $\mathbf{T} = -T\mathbf{e}_{QP}$.
 
 #### Part (e): Equations of Motion
+
 Projecting Newton's second law along the independent tangent directions yields two coupled second-order ODEs for $\theta(t)$ and $\phi(t)$.
 
 #### Part (f): Work Done by Tension on $P$
 * **Pedagogical Justification:** The tension acts along $-\mathbf{e}_{QP}$ on $P$, so its power is $-T\,\mathbf{e}_{QP}\cdot\mathbf{v}_P$. The string is inextensible, so the hanging length $\rho = \ell - d/\cos\theta$ changes only because $Q$ slides along the edge (direction $\mathbf{j}_0$).
+
 Differentiate $\mathbf{r}_P = \mathbf{r}_Q + \rho\,\mathbf{e}_{QP}$ (product rule): $\mathbf{v}_P = \mathbf{v}_Q + \dot{\rho}\,\mathbf{e}_{QP} + \rho\,\dot{\mathbf{e}}_{QP}$. Since $|\mathbf{e}_{QP}| = 1$, $\mathbf{e}_{QP}\cdot\dot{\mathbf{e}}_{QP} = \tfrac{1}{2}\frac{d}{dt}|\mathbf{e}_{QP}|^2 = 0$, so
+
 $$ \mathbf{e}_{QP}\cdot\mathbf{v}_P = \mathbf{e}_{QP}\cdot\mathbf{v}_Q + \dot{\rho} $$
+
 $\mathbf{v}_Q = \dfrac{d\dot{\theta}}{\cos^2\theta}\,\mathbf{j}_0$ has only a $\mathbf{j}_0$ component, so $\mathbf{e}_{QP}\cdot\mathbf{v}_Q = \sin\theta\,\dfrac{d\dot{\theta}}{\cos^2\theta}$. With the chain rule $\frac{d}{dt}\left(\frac{1}{\cos\theta}\right) = \frac{\sin\theta}{\cos^2\theta}\dot{\theta}$, the rate of change of the hanging length is $\dot{\rho} = -\dfrac{d\dot{\theta}\sin\theta}{\cos^2\theta}$. Therefore
+
 $$ \mathbf{e}_{QP}\cdot\mathbf{v}_P = \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} - \frac{d\dot{\theta}\sin\theta}{\cos^2\theta} = 0 \implies \mathbf{T}\cdot\mathbf{v}_P = -T\,\mathbf{e}_{QP}\cdot\mathbf{v}_P = 0 $$
+
 The tension therefore does no work on $P$ ($W_T = 0$), in agreement with the official key (Problems.pdf, PDF page 76).
 
 #### Part (g): Mechanical Energy Conservation
+
 Since the plate is stationary (scleronomic constraint), the tension does no work (part (f)) and gravity is conservative, so $E$ is conserved. With $z_0$ upwards, $z_P = -\rho\cos\theta\cos\phi = -(\ell\cos\theta - d)\cos\phi$ and the gravitational potential energy is $+mgz_P$:
+
 $$ E = \frac{1}{2}m|\mathbf{v}_P|^2 + mgz_P = \frac{1}{2}m|\mathbf{v}_P|^2 - mg(\ell\cos\theta - d)\cos\phi = \text{constant} $$
+
 At $t = 0$: $|\mathbf{v}_P|^2 = \ell g$, $\cos\theta = \cos\phi = \tfrac{1}{2}$, so
+
 $$ E_0 = \frac{1}{2}m\ell g - mg\left(\frac{\ell}{2} - d\right)\frac{1}{2} = \frac{mg\ell}{4} + \frac{mgd}{2} $$
+
 Parts (d) and (e) are only outlined here: the explicit coupled differential equations for $\theta$ and $\phi$ are not derived in this note.
 
-### Phase 4: Physical Interpretation
+### Phase 4: Physical Interpretation & Dimensional Verification
 * The system acts as a variable-length spherical pendulum where string length changes deterministically as $Q$ slides along the boundary.
 * **Dimensional check:** $[\rho] = [\ell - d/\cos\theta] = \text{m}$; $[mg\ell] = [mgd] = \text{J}$, so $E_0 = mg\ell/4 + mgd/2$ is an energy; $[\mathbf{e}_{QP}] = 1$.
 * **Limit $d \to 0$:** the edge passes through $O$, so $Q = O$, $\rho = \ell$ and $\mathbf{e}_{QP} = (\cos\theta\sin\phi,\ \sin\theta,\ -\cos\theta\cos\phi)$ is the unit vector of a spherical pendulum of length $\ell$ whose angle $\gamma$ with the downward vertical satisfies $\cos\gamma = \cos\theta\cos\phi$. The energy reduces to $E_0 = mg\ell/4$, which equals $\tfrac{1}{2}m\ell g - mg\ell\cos\theta\cos\phi = \tfrac{1}{2}m\ell g - mg\ell/4$ at $\theta = \phi = \pi/3$.
@@ -1069,7 +1137,6 @@ Parts (d) and (e) are only outlined here: the explicit coupled differential equa
 ## 📌 Problem 48: Two Connected Particles, One on Paraboloid
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** Two particles $P$ and $Q$ of mass $m$ connected by an inextensible massless cord of length $\ell$.
 * Particle $P$ is constrained to the frictionless paraboloid $z = c R^2$ ($c > 0$).
 * Particle $Q$ hangs along the vertical axis $Oz$.
@@ -1079,7 +1146,6 @@ Parts (d) and (e) are only outlined here: the explicit coupled differential equa
 * **Parameters:** $m, c, \ell, g, d$.
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-
 * Cylindrical basis: $\{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{k}\}$.
 * Position of $P$: $\mathbf{r}_P = R\mathbf{e}_R + cR^2\mathbf{k}$.
 * Tangent vectors to paraboloid:
@@ -1105,9 +1171,9 @@ $$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2cR/s \\ 0 & 1 & 0 \\ 2cR/s & 0 & 1/s
 
 #### Part (a)-(d): Forces and Vectors
 
-1. Forces on $P$: Gravity $-mg\mathbf{k}$, normal reaction $\mathbf{N} = N\frac{-2cR\mathbf{e}_R + \mathbf{k}}{\sqrt{1 + 4c^2 R^2}}$, cord tension $\mathbf{T}_P = -T\frac{\mathbf{r}_P}{|\mathbf{r}_P|}$.
+1\. Forces on $P$: Gravity $-mg\mathbf{k}$, normal reaction $\mathbf{N} = N\frac{-2cR\mathbf{e}_R + \mathbf{k}}{\sqrt{1 + 4c^2 R^2}}$, cord tension $\mathbf{T}_P = -T\frac{\mathbf{r}_P}{|\mathbf{r}_P|}$.
 
-2. Forces on $Q$: Gravity $-mg\mathbf{k}$, cord tension $\mathbf{T}_Q = +T\mathbf{k}$.
+2\. Forces on $Q$: Gravity $-mg\mathbf{k}$, cord tension $\mathbf{T}_Q = +T\mathbf{k}$.
 
 #### Part (e): Tension Condition
 
@@ -1117,14 +1183,14 @@ For $Q$, $m\ddot{z}_Q = T - mg \implies T = m(g + \ddot{z}_Q) > 0 \iff \ddot{z}_
 
 #### Part (f)-(g): Two First Integrals of Motion
 
-1. **Azimuthal First Integral (cyclic coordinate $\theta$):**
+1\. **Azimuthal First Integral (cyclic coordinate $\theta$):**
 
 In cylindrical coordinates $a_\theta = \frac{1}{R}\frac{d}{dt}(R^2\dot{\theta})$. The paraboloid is axisymmetric, so its reaction has no $\mathbf{e}_\theta$ component; gravity is vertical and the tension of the cord (directed from $P$ to the hole $O$ on the axis) lies in the meridian plane of $P$. The $\mathbf{e}_\theta$ equation is $\frac{m}{R}\frac{d}{dt}(R^2\dot{\theta}) = 0$:
 
 $$ C_z = m R^2\dot{\theta} = \text{constant} = m [R(0)]^2 d = m\frac{d}{c^2} $$
 $$ \dot{\theta}(t) = \frac{d}{c^2 R^2} $$
 
-2. **Total Mechanical Energy Conservation:**
+2\. **Total Mechanical Energy Conservation:**
 
 Constraints are frictionless and scleronomic:
 
@@ -1138,7 +1204,6 @@ $$ V = mg(cR^2) + mg z_Q $$
 Setting $\dot{R} = 0$ in the conserved energy equation $E(R, \dot{R}=0) = E_0$ yields the implicit algebraic equation $f(R) = 0$ whose positive roots define the minimum and maximum radii $R_{min}$ and $R_{max}$.
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * The particle executes bounded precessing orbits on the paraboloid, bounded between two parallel circles $R_{min}$ and $R_{max}$.
 * **Dimensional check:** $[c] = \text{m}^{-1}$, $[d] = \text{s}^{-1}$, $R(0) = 1/c$ is a length; $[cR^2] = \text{m}$ and $[c\,R] = 1$, so $\sqrt{1 + c^2R^2}$ is dimensionless.
 * **Explicit turning-point equation (part (h)).** At $\dot{R} = 0$ the kinetic energy reduces to $\tfrac{1}{2}mR^2\dot{\theta}^2$ with $R^2\dot{\theta}^2 = d^2/(c^4R^2)$ (from the azimuthal first integral), and the potential energy is $mg\,[cR^2 + R\sqrt{1 + c^2R^2}] - mg\ell$ (the term $-mg\ell$ cancels in $E - E_0$). Equating with the initial energy at $R(0) = 1/c$ (where $R\sqrt{1 + c^2R^2} = \sqrt{2}/c$), per unit mass:
@@ -1153,7 +1218,6 @@ Each term has units m$^2$/s$^2$. The allowed radii are those with $f(R) \le 0$, 
 ## 📌 Problem 50: Double Pendulum
 
 ### Phase 1: Physical Statement, Hypotheses & Parameters
-
 * **Physical System:** Two point masses $P$ and $Q$, each of mass $m$, connected by two rigid massless bars of length $\ell$.
 * First bar connects origin $O$ to $P$, making angle $\theta$ with downward vertical.
 * Second bar connects $P$ to $Q$, making angle $\phi$ with downward vertical.
@@ -1161,7 +1225,6 @@ Each term has units m$^2$/s$^2$. The allowed radii are those with $f(R) \le 0$, 
 * **Parameters:** $m, \ell, g > 0$.
 
 ### Phase 2: Reference Frames, Vector Bases & Coordinate Geometry
-
 * Coordinate axes: $Ox$ horizontal to the right, $Oz$ vertically upwards (downward vertical is $-\mathbf{k}$).
 * Position of $P$:
 $$ \mathbf{r}_P = \ell\sin\theta\,\mathbf{i} - \ell\cos\theta\,\mathbf{k} $$
@@ -1172,23 +1235,22 @@ $$ \mathbf{r}_Q = \mathbf{r}_P + \ell\sin\phi\,\mathbf{i} - \ell\cos\phi\,\mathb
 
 #### Part (a): Velocity and Acceleration Vectors
 
-1. Velocity of $P$:
+1\. Velocity of $P$:
 
 $$ \mathbf{v}_P = \ell\dot{\theta}\cos\theta\,\mathbf{i} + \ell\dot{\theta}\sin\theta\,\mathbf{k} $$
 $$ v_P^2 = \ell^2\dot{\theta}^2 $$
 
-2. Velocity of $Q$:
+2\. Velocity of $Q$:
 
 $$ \mathbf{v}_Q = \ell(\dot{\theta}\cos\theta + \dot{\phi}\cos\phi)\,\mathbf{i} + \ell(\dot{\theta}\sin\theta + \dot{\phi}\sin\phi)\,\mathbf{k} $$
 $$ v_Q^2 = \ell^2\left[ \dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}(\cos\theta\cos\phi + \sin\theta\sin\phi) \right] = \ell^2\left[ \dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi) \right] $$
 
-3. Acceleration of $P$ and $Q$. Define the unit vectors in the $(\mathbf{i}, \mathbf{k})$ plane: $\mathbf{e}_P = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{k}$ (from $O$ to $P$), $\mathbf{e}_{\theta} = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{k}$, $\mathbf{e}_Q = \sin\phi\,\mathbf{i} - \cos\phi\,\mathbf{k}$ (from $P$ to $Q$), $\mathbf{e}_{\phi} = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{k}$. Their derivatives are $\dot{\mathbf{e}}_P = \dot\theta\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot\theta\,\mathbf{e}_P$ and the same with $\phi$. Since $\mathbf{r}_P = \ell\,\mathbf{e}_P$ and $\mathbf{r}_Q = \ell\,\mathbf{e}_P + \ell\,\mathbf{e}_Q$:
+3\. Acceleration of $P$ and $Q$. Define the unit vectors in the $(\mathbf{i}, \mathbf{k})$ plane: $\mathbf{e}_P = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{k}$ (from $O$ to $P$), $\mathbf{e}_{\theta} = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{k}$, $\mathbf{e}_Q = \sin\phi\,\mathbf{i} - \cos\phi\,\mathbf{k}$ (from $P$ to $Q$), $\mathbf{e}_{\phi} = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{k}$. Their derivatives are $\dot{\mathbf{e}}_P = \dot\theta\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot\theta\,\mathbf{e}_P$ and the same with $\phi$. Since $\mathbf{r}_P = \ell\,\mathbf{e}_P$ and $\mathbf{r}_Q = \ell\,\mathbf{e}_P + \ell\,\mathbf{e}_Q$:
 
 $$ \mathbf{a}_P = \ell\left(\ddot\theta\,\mathbf{e}_\theta - \dot\theta^2\,\mathbf{e}_P\right) = \ell(\ddot\theta\cos\theta - \dot\theta^2\sin\theta)\,\mathbf{i} + \ell(\ddot\theta\sin\theta + \dot\theta^2\cos\theta)\,\mathbf{k} $$
 $$ \mathbf{a}_Q = \mathbf{a}_P + \ell\left(\ddot\phi\,\mathbf{e}_\phi - \dot\phi^2\,\mathbf{e}_Q\right) $$
 
 #### Part (b)-(c): Forces and Equations of Motion (Newton)
-
 * **Pedagogical Justification:** The bars are massless and rigid, so each one transmits a force along its own axis (tension $T_1$ in $OP$, $T_2$ in $PQ$; a negative value means compression). These two unknowns are eliminated by choosing the projection directions, which is the strategy of Unit 3 for constrained systems.
 
 Forces on $P$: weight $-mg\,\mathbf{k}$, the pull $-T_1\,\mathbf{e}_P$ of bar $OP$ and the pull $+T_2\,\mathbf{e}_Q$ of bar $PQ$. Forces on $Q$: weight $-mg\,\mathbf{k}$ and the pull $-T_2\,\mathbf{e}_Q$ of bar $PQ$ (action and reaction).
@@ -1221,7 +1283,6 @@ The system is conservative with scleronomic constraints. Total mechanical energy
 $$ E = \frac{1}{2}m\ell^2\left[ 2\dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi) \right] - mg\ell(2\cos\theta + \cos\phi) = \text{constant} $$
 
 #### Part (e): Will $Q$ Ever Cross the $Ox$ Axis?
-
 * Given initial state: $\theta(0) = \phi(0) = \pi/4$, released from rest ($\dot{\theta}(0) = \dot{\phi}(0) = 0$).
 * Initial energy:
 $$ E_0 = -mg\ell\left(2\cos\frac{\pi}{4} + \cos\frac{\pi}{4}\right) = -3mg\ell\frac{\sqrt{2}}{2} = -\frac{3\sqrt{2}}{2}mg\ell \approx -2.121\,mg\ell $$
@@ -1278,7 +1339,6 @@ The natural frequency of oscillation is:
 $$ \omega_0 = \sqrt{\frac{3g}{5\ell}} $$
 
 ### Phase 4: Physical Interpretation & Dimensional Verification
-
 * The mechanical coupling $\phi = 2\theta$ acts as an internal kinematic constraint that stiffens the double pendulum into an equivalent single degree of freedom harmonic oscillator with effective mass $10m$ and effective restoring stiffness $6mg/\ell$, yielding the frequency $\omega_0 = \sqrt{3g/(5\ell)}$.
 * **Dimensional check:** $[T] = [m\ell^2\dot{\theta}^2] = \text{kg}\cdot\text{m}^2\cdot\text{s}^{-2} = \text{J}$, $[V] = [mg\ell] = \text{J}$, and $[\omega_0] = \sqrt{[g]/[\ell]} = \text{s}^{-1}$ (the effective inertia $10m\ell^2$ and stiffness $6mg\ell$ are expressed in the coordinate $\theta$; with $x = \ell\theta$ they become $10m$ and $6mg/\ell$).
 * **Numerical check of part (e) (RK4, step $10^{-3}$, $g = 9.81\ \text{m/s}^2$, $m = \ell = 1$, 60 s from $\theta = \phi = \pi/4$ at rest):** the full nonlinear equations of part (c) give a maximum of $z_Q/\ell = -1.3375$, always negative, so $Q$ never reaches the $Ox$ axis, consistent with the energy bound $V \ge -mg\ell$ against $E_0 = -2.121\,mg\ell$.
