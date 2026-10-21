@@ -35,7 +35,7 @@ Problem statements from the UC3M Aerospace Engineering problem collection (`Prob
 
 $$ F = \frac{m\mu}{r^\alpha} $$
 
-where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known positive constants.
+where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known constants.
 
 > [!note] Notation.
 > The official text writes $F = m\alpha/r^\beta$ (strength $\alpha$, exponent $\beta$) and asks for $\beta = 1, 2, 3, 4$. Here the strength is called $\mu$ and the exponent $\alpha$, so the cases "$\alpha = 1, 2, 3, 4$" below are the official $\beta = 1, 2, 3, 4$, and $\mu/h^2$ is the official $\alpha/h^2$.
@@ -52,7 +52,7 @@ where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known posit
 
 We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.
 
-Initially, half of the cord lies under the plane and half of the cord is on the plane (so $r(0) = a$). At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.
+Initially, half of the cord lies under the plane and half of the cord is on the plane. At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.
 
 ![[attachments/EM/T4-P43-figure.png]]
 *Figure: Smooth horizontal plane with a small hole, particle P1 on the plane at distance r from the hole and particle P2 hanging below it, both of mass m Source: Problems.pdf, p. 30.*
@@ -70,4 +70,4 @@ Initially, half of the cord lies under the plane and half of the cord is on the 
 
 ## 📌 Problem 44: The Little Prince Throwing Seeds
 
-The little Prince is on his spherical asteroid, which has radius $R$ and mass $M$, and does not rotate. While he sits at the equator, he throws a baobab seed with an initial velocity of magnitude $v_0$ and angle $\beta = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of $r_a = 3R$ before falling back, determine $v_0$ as a function of the parameters of the problem and the universal gravitational constant $G$.
+The little Prince is on his spherical asteroid, which has radius $R$ and mass $M$, and does not rotate. While he sits at the equator, he throws a baobab seed with an initial velocity of magnitude $v_0$ and angle $\gamma = 60^\circ$ with respect to the local horizontal. Knowing that it reaches an apocenter of $r = 3R$ before falling back, determine $v_0$ as a function of the parameters of the problem and the universal gravitational constant $G$.

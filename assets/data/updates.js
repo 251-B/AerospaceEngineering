@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-mechanics-topic-4-course-order",
+    "date": "2026-10-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics Topic 4: solutions in the course order",
+    "text": "Problems 42 to 44 now follow the course method: constraints, kinematics, forces, equations of motion, answers. Some missing cases were added and a few values were corrected.",
+    "link": "subjects/engineering-mechanics/problemas/topic-4.html"
+  },
+  {
     "id": "2026-10-19-materials-topic-5-problems-3",
     "date": "2026-10-19",
     "tag": "Aerospace Materials I",
