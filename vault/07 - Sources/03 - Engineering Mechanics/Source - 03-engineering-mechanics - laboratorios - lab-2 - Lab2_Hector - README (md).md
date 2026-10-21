@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/README.md"
 kind: laboratorio
 status: not-referenced
-bytes: 2511
+bytes: 2660
 ---
 
 # Source: README.md
@@ -18,7 +18,7 @@ bytes: 2511
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/README.md`
 - **Kind:** laboratorio
-- **Size:** 2.5 kB
+- **Size:** 2.7 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 7 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

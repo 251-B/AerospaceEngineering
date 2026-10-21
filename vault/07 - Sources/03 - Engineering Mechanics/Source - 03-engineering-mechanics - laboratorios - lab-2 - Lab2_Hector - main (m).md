@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/main.m"
 kind: laboratorio
 status: referenced
-bytes: 14529
+bytes: 15511
 ---
 
 # Source: main.m
@@ -18,7 +18,7 @@ bytes: 14529
 
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/laboratorios/lab-2/Lab2_Hector/main.m`
 - **Kind:** laboratorio
-- **Size:** 14.5 kB
+- **Size:** 15.5 kB
 - **Status:** referenced by 3 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

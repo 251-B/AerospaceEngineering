@@ -3,11 +3,13 @@
 % Group LA: Alvarez Iglesias, Gonzalez Rodriguez, Hernandez Bejarano
 clear; clc; close all;
 
-% default style of the plots (Script 6 of the Laboratory Guidelines, with a larger font
-% so that the labels can be read when the figures are scaled down in the report)
-set(groot, 'defaultLegendFontSize', 14);
-set(groot, 'defaultTextFontSize', 15);
-set(groot, 'defaultAxesFontSize', 15);
+% default style of the plots (Script 6 of the Laboratory Guidelines). The figures are made
+% with the size they have in the report (16 cm wide) and saved at 300 dpi, so the 10 pt
+% labels appear at 10 pt in the report and stay sharp
+set(groot, 'defaultLegendFontSize', 9);
+set(groot, 'defaultTextFontSize', 10);
+set(groot, 'defaultAxesFontSize', 10);
+set(groot, 'defaultFigurePaperPositionMode', 'auto');
 set(groot, 'defaultAxesLineWidth', 1);
 set(groot, 'defaultAxesXMinorTick', 'on');
 set(groot, 'defaultAxesYMinorTick', 'on');
@@ -155,7 +157,7 @@ for k = 1:3
 end
 
 %% Figure 2 of the report: angle, reaction forces and inertia forces
-figure('Position', [50 50 1000 900])
+figure('Units', 'centimeters', 'Position', [2 2 16 13.5])
 subplot(3,2,1)
 plot(t, phi, 'b'); grid on
 xlim([0 3*Tper])
@@ -169,48 +171,48 @@ xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(b) Angle, first 10 s')
 subplot(3,2,3)
 plot(t, Nr, 'b'); grid on
 xlim([0 10])
-xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(c) Reaction along $\mathbf{e}_r$, first 10 s')
+xlabel('$t$ (s)'); ylabel('$N_r$ (N)'); title('(c) $N_r$ (along $\mathbf{e}_r$), first 10 s')
 
 subplot(3,2,4)
 plot(t, Nz, 'b'); grid on
 xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(d) Reaction along $\mathbf{k}$')
+xlabel('$t$ (s)'); ylabel('$N_z$ (N)'); title('(d) $N_z$ (along $\mathbf{k}$)')
 
 subplot(3,2,5)
 plot(t, Fcf, 'b', t, Feul, 'r--'); grid on
 xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('force (N)'); title('(e) Centrifugal and Euler forces')
-ylim([-0.1 0.3])
-legend('centrifugal ($\mathbf{i}$)', 'Euler ($\mathbf{k}$)', 'Location', 'north', 'Orientation', 'horizontal')
+xlabel('$t$ (s)'); ylabel('force (N)'); title('(e) Centrifugal and Euler')
+ylim([-0.1 0.4])
+legend('centrifugal', 'Euler', 'Location', 'north', 'Orientation', 'horizontal')
 
 subplot(3,2,6)
 plot(t, Fcor, 'b'); grid on
 xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('force (N)'); title('(f) Coriolis force ($\mathbf{k}$)')
-saveas(gcf, 'Fig_2.png')
+xlabel('$t$ (s)'); ylabel('force (N)'); title('(f) Coriolis (along $\mathbf{k}$)')
+exportgraphics(gcf, 'Fig_2.png', 'Resolution', 300)   % 300 dpi, white margins cropped
 
 %% Figure 3 of the report: energies
 % Ek and Ep repeat the same shape in every oscillation of phi, so they are shown in the first 10 s
-figure('Position', [50 50 1000 700])
+figure('Units', 'centimeters', 'Position', [2 2 16 8.5])
 subplot(2,1,1)
 plot(t, Ek, 'b', t, Ep, 'r--'); grid on
 xlim([0 10])
-xlabel('$t$ (s)'); ylabel('energy (J)'); title('(a) Kinetic and potential energy, first 10 s')
+xlabel('$t$ (s)'); ylabel('energy (J)'); title('(a) $E_k$ and $E_p$, first 10 s')
 legend('$E_k$', '$E_p$', 'Location', 'eastoutside')
 
 subplot(2,1,2)
 plot(t, E - E(1), 'b', t, W, 'r--'); grid on
 xlim([0 3*Tper])
-xlabel('$t$ (s)'); ylabel('energy (J)'); title('(b) Mechanical energy and work of the wire, $t \in [0, 3T]$')
+xlabel('$t$ (s)'); ylabel('energy (J)'); title('(b) $E - E_0$ and work of the wire')
 legend('$E - E_0$', '$W = \int -\Omega x N_z\, dt$', 'Location', 'eastoutside')
-saveas(gcf, 'Fig_3.png')
+exportgraphics(gcf, 'Fig_3.png', 'Resolution', 300)   % 300 dpi, white margins cropped
 
 %% Figure 4 of the report: trajectory of P in the fixed frame
 s  = linspace(0, 2*pi, 200);
 xw = R*(1 + cos(s));   % wire in the rotating frame
 yw = R*sin(s);
 
-figure('Position', [50 50 1100 500])
+figure('Units', 'centimeters', 'Position', [2 2 16 7])
 subplot(1,2,1)
 plot3(x1, z1, y1, 'b'); hold on
 plot3(xw, 0*s, yw, 'k--')                                    % wire at t = 0
@@ -218,18 +220,17 @@ plot3([0 0], [0 0], [-1.2*R 1.2*R], 'k-.')                   % axis of rotation
 plot3(x1(1), z1(1), y1(1), 'ko', 'MarkerFaceColor', 'k')     % start
 axis equal; grid on; view(35, 20)
 xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
-title('(a) Trajectory of P')
-legend('trajectory of P', 'wire at $t = 0$', 'axis $Oy_1$', '$t = 0$', 'Location', 'southoutside', 'Orientation', 'horizontal', 'NumColumns', 2)
+title('(a) Trajectory of P')   % no legend, so the 3D view keeps its size; the caption explains the lines
 
 subplot(1,2,2)
 plot(x1, z1, 'b'); hold on
 plot(x1(1), z1(1), 'ko', 'MarkerFaceColor', 'k')
 axis equal; grid on
 xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); title('(b) View from above')
-saveas(gcf, 'Fig_4.png')
+exportgraphics(gcf, 'Fig_4.png', 'Resolution', 300)   % 300 dpi, white margins cropped
 
 %% Figure 5 of the report: phase portrait for A = 0
-figure('Position', [50 50 1100 520])
+figure('Units', 'centimeters', 'Position', [2 2 16 7.2])
 subplot(1,3,[1 2])
 hold on
 for i = 1:3
@@ -246,7 +247,7 @@ plot(pi/2, 0, 'ko')                             % unstable equilibrium
 grid on
 xlim([-3*pi/2 3*pi])
 xlabel('$\varphi$ (rad)'); ylabel('$\dot\varphi$ (rad/s)'); title('(a) Phase portrait ($A = 0$)')
-legend([names {'separatrix', 'stable equilibrium', 'unstable equilibrium'}], 'Location', 'eastoutside', 'FontSize', 12)
+legend([names {'separatrix', 'stable equilibrium', 'unstable equilibrium'}], 'Location', 'eastoutside', 'FontSize', 8)
 
 subplot(1,3,3)
 plot(tv{1}, phiv{1}, 'b', tv{2}, phiv{2}, 'r--'); hold on
@@ -254,32 +255,42 @@ plot([0 tend7], [pi/2 pi/2], 'k:')
 grid on
 xlabel('$t$ (s)'); ylabel('$\varphi$ (rad)'); title('(b) $\varphi_0 = \pi/4$, near $\dot\varphi_c$')
 legend('$0.99\,\dot\varphi_c$', '$1.01\,\dot\varphi_c$', '$\varphi = \pi/2$', 'Location', 'northwest')
-saveas(gcf, 'Fig_5.png')
+exportgraphics(gcf, 'Fig_5.png', 'Resolution', 300)   % 300 dpi, white margins cropped
 
 %% Figure 6 of the report: linearized vs full equation
-figure('Position', [50 50 1000 450])
+figure('Units', 'centimeters', 'Position', [2 2 16 6.8])
 % the error oscillates fast and touches zero, so the largest error reached up to each time
-% (envelope) is drawn as a thick line on top of the error itself (thin line)
+% (envelope) is drawn as a thick line on top of the error itself (thin, light line)
 colors8 = {'b', 'r', 'm'};
+light8  = {[0.65 0.65 1], [1 0.65 0.65], [1 0.65 1]};
 subplot(1,2,1)
+for k = 1:3
+    semilogy(t8, err{k} + eps, 'Color', light8{k}, 'LineWidth', 0.4); hold on
+end
 for k = 1:3
     emax = err{k};
     for i = 2:numel(emax)
         emax(i) = max(emax(i-1), err{k}(i));
     end
-    semilogy(t8, err{k} + eps, colors8{k}, 'LineWidth', 0.3); hold on
-    he(k) = semilogy(t8, emax, colors8{k}, 'LineWidth', 2);
+    he(k) = semilogy(t8, emax, colors8{k}, 'LineWidth', 1.8);
 end
 grid on
 ylim([1e-2 1e2])
 xlabel('$t$ (s)'); ylabel('error (\%)'); title('(a) Error of the linearized equation')
-legend(he, '$\omega = \sqrt{g/R}$', '$\omega = \frac{1}{2}\sqrt{g/R}$', '$\omega = \frac{1}{4}\sqrt{g/R}$', 'Location', 'southoutside', 'Orientation', 'horizontal')
+lg = legend(he, '$\omega = \omega_n$', '$\omega = \omega_n/2$', '$\omega = \omega_n/4$', 'Location', 'southoutside', 'Orientation', 'horizontal');
+set(lg, 'ItemTokenSize', [15 18])   % shorter line samples, so the legend fits under the plot
 
+% at resonance the two solutions make 50 oscillations in 10 s, so only the last 3 s are drawn,
+% together with the envelope of the linear solution at resonance, +-F0*t/(2*wn) (see the report)
+F0 = As^2*ws(2)^2/2;
 subplot(1,2,2)
-plot(t8, dfull{2}, 'b', t8, dlin{2}, 'r--'); grid on
-xlabel('$t$ (s)'); ylabel('$\delta$ (rad)'); title('(b) $\omega = \frac{1}{2}\sqrt{g/R}$ (resonance)')
-legend('full equation', 'linearized equation', 'Location', 'northwest')
-saveas(gcf, 'Fig_6.png')
+plot(t8, dfull{2}, 'b', t8, dlin{2}, 'r--'); hold on
+plot(t8, F0*t8/(2*wn), 'k:', t8, -F0*t8/(2*wn), 'k:'); grid on
+xlim([7 10]); ylim([-0.3 0.3])
+xlabel('$t$ (s)'); ylabel('$\delta$ (rad)'); title('(b) $\omega = \frac{1}{2}\sqrt{g/R}$ (resonance), last 3 s')
+lg = legend('full', 'linearized', 'envelope', 'Location', 'southoutside', 'Orientation', 'horizontal');
+set(lg, 'ItemTokenSize', [15 18])
+exportgraphics(gcf, 'Fig_6.png', 'Resolution', 300)   % 300 dpi, white margins cropped
 
 %% Animation of the motion in the fixed frame (video saved as trajectory_P.avi)
 % only the first period T is animated, because the motion repeats in the next two (Figure 4b of the report).
@@ -297,6 +308,7 @@ hp = plot3(x1(1), z1(1), y1(1), 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 8); 
 axis equal; grid on; view(35, 20)
 xlim([-2.2*R 2.2*R]); ylim([-2.2*R 2.2*R]); zlim([-1.2*R 1.2*R])
 xlabel('$x_1$ (m)'); ylabel('$z_1$ (m)'); zlabel('$y_1$ (m)')
+set(gca, 'FontSize', 14)   % larger labels in the video
 % all the frames of a video must have the same size. getframe copies the window from the
 % screen, and its size can change with the screen settings, so each frame is printed instead
 % to an image of fixed size: 7 x 6 inches at 80 dpi = 560 x 480 pixels
