@@ -24,7 +24,7 @@ Official problem statements from the UC3M Aerospace Engineering problem collecti
 
 ## 📌 Problem 01: Rocket Helical Trajectory (MIT OCW)
 
-An out-of-control rocket traces an upward helical trajectory described in Cartesian coordinates for $t \ge 0$ by:
+An out-of-control rocket traces an upward helical trajectory described in Cartesian coordinates for $t > 0$ by:
 
 $$ x = a\cos(\omega t) \tag{1} $$
 $$ y = a\sin(\omega t) \tag{2} $$
@@ -63,7 +63,7 @@ A point particle describes the astroid:
 
 $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 
-with a motion whose tangential acceleration is constant, $a_t = k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. *(Hint: $ds = \sqrt{dx^2 + dy^2}$)*.
+with a motion whose tangential acceleration is constant, $k$. If the point is initially at rest at $\phi = 0$, compute the evolution of the position as a function of time while the particle is in one of the smooth segments of the astroid. *(Hint: $ds = \sqrt{dx^2 + dy^2}$)*.
 
 ---
 
@@ -82,7 +82,7 @@ From these expressions form the acceleration vector $\mathbf{a} = a_r\mathbf{e}_
 
 ## 📌 Problem 05: Plane and Glider
 
-An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towing a glider $B$. The glider is gaining altitude. The tow cable has a length $r$, and the angle $\theta$ formed between the tow cable and the horizontal is increasing at a constant rate of $\dot{\theta}$. We want to determine the magnitude of the velocity, $v_B$, and the acceleration, $a_B$, of the glider as a function of $\theta$ and its derivatives.
+An airplane $A$ is flying horizontally with a constant speed $v_A$, and is towing a glider $B$. The glider is gaining altitude. The tow cable has a length $r$, and the angle $\theta$ formed between the tow cable and the horizontal is increasing at a constant rate of $\dot{\theta}$. We want to determine the magnitude of the velocity, $v_B^0$, and the acceleration, $a_B^0$, of the glider as a function of $\theta$ and its derivatives.
 
 ---
 

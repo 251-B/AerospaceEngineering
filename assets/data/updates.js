@@ -15,6 +15,22 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-mechanics-topic-2-course-order",
+    "date": "2026-10-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics Topic 2: solutions in the course order",
+    "text": "The ten dynamics problems follow the course method step by step. A force formula in problem 13 and several damping values in problem 46 were corrected.",
+    "link": "subjects/engineering-mechanics/problemas/topic-2.html"
+  },
+  {
+    "id": "2026-10-21-mechanics-topic-1-course-order",
+    "date": "2026-10-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics Topic 1: solutions in the course order",
+    "text": "The six kinematics problems now follow the course method step by step, with the missing validity limits added and the normal vector defined as in the notes.",
+    "link": "subjects/engineering-mechanics/problemas/topic-1.html"
+  },
+  {
     "id": "2026-10-21-mechanics-topic-4-course-order",
     "date": "2026-10-21",
     "tag": "Engineering Mechanics",

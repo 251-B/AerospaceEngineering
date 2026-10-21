@@ -455,93 +455,64 @@
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ moves along the $Ox$ axis subject to a position-dependent non-linear restoring force directed towards the origin.</li>
-<li><strong>Kinematic Degree of Freedom:</strong> $1$ degree of freedom, parametrized by the Cartesian coordinate $x(t) \in \mathbb{R}$.</li>
-<li><strong>Hypotheses:</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">1. The motion is strictly one-dimensional along the $x$-axis.</p>
-<p style="margin-bottom: 10px;">2. The particle is treated as an ideal point particle of constant mass $m$.</p>
-<p style="margin-bottom: 10px;">3. No dissipative or frictional forces are present (conservative field).</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Initial Conditions:</strong> At time $t = 0$, the particle is released from rest at position $x(0) = -a$:</li>
-</ul>
-<div class="math-block">$$ x(0) = -a, \qquad v(0) = \dot{x}(0) = 0 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical Parameters:</strong></li>
-<li>$m$: Mass of the particle $[\text{kg}]$.</li>
-<li>$c$: Positive force proportionality constant $[\text{N}\cdot\text{m}^{-3} = \text{kg}\cdot\text{s}^{-2}\cdot\text{m}^{-2}]$.</li>
-<li>$a$: Initial displacement amplitude $[\text{m}]$ ($a &gt; 0$).</li>
+<li><strong>System:</strong> a particle of mass $m$ moves along the $Ox$ axis under the force $\mathbf{F} = -cx^3\,\mathbf{i}$, with $c \gt 0$, a restoring force toward the origin.</li>
+<li><strong>Constraints:</strong> the particle is confined to the axis, $y = z = 0$ (holonomic, bilateral, smooth). The guide exerts reactions perpendicular to $Ox$, which do not enter the motion along $x$.</li>
+<li><strong>Degrees of freedom:</strong> $\text{CDOF} = 3 - 2 = 1$, with the coordinate $x(t)$.</li>
+<li><strong>Initial conditions:</strong> released from rest at $x(0) = -a$ ($a \gt 0$): $\dot{x}(0) = 0$.</li>
+<li><strong>Parameters:</strong> $m$ [kg]; $c$ [N/m$^3$ = kg m$^{-2}$ s$^{-2}$]; $a$ [m].</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial Reference Frame:</strong> Let $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ be a fixed Cartesian inertial frame with origin at $O$.</li>
-<li><strong>Kinematics Vectors:</strong></li>
-<li>Position: $\mathbf{r}(t) = x(t)\mathbf{i}$.</li>
-<li>Velocity: $\mathbf{v}(t) = \dot{x}(t)\mathbf{i}$.</li>
-<li>Acceleration: $\mathbf{a}(t) = \ddot{x}(t)\mathbf{i}$.</li>
-<li><strong>Force Vector:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$, fixed Cartesian, with $\mathbf{i}$ along the motion. The unit vectors are constant, so no basis change is needed.</li>
 </ul>
-<div class="math-block">$$ \mathbf{F}(x) = -c x^3\mathbf{i} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Calculation of the Potential Energy Function $V(x)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> In a one-dimensional problem where the force depends exclusively on position $x$, the force field is automatically irrotational (curl is trivially zero in 1D) and conservative. By definition of a conservative force (Notes.pdf Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.4</a>, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.14–4.16</a>), the work done by the force corresponds to the negative variation of potential energy, $\mathbf{F} = -\boldsymbol{\nabla} V = -\frac{dV}{dx}\mathbf{i}$. Integrating this relation allows us to replace the second-order nonlinear differential equation $m\ddot{x} + cx^3 = 0$ with an algebraic energy conservation law (first integral of motion).</div>
-<p style="margin-bottom: 10px;">We define the scalar potential energy $V(x)$ by choosing the reference datum $V(0) = 0$ at the origin:</p>
-<div class="math-block">$$ V(x) - V(0) = -\int_{0}^{x} F_x(x')\,dx' $$</div>
-<p style="margin-bottom: 10px;">Substitute $F_x(x') = -c x'^3$:</p>
-<div class="math-block">$$ V(x) = -\int_{0}^{x} (-c x'^3)\,dx' = c \int_{0}^{x} x'^3\,dx' $$</div>
-<p style="margin-bottom: 10px;">Evaluating the definite integral by the Fundamental Theorem of Calculus:</p>
-<div class="math-block">$$ V(x) = c \left[ \frac{x'^4}{4} \right]_0^x = \frac{1}{4}c x^4 $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Evaluation of the Total Mechanical Energy $E$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Since no non-conservative forces act on the particle, the total mechanical energy $E = T + V(x)$ is an invariant of the motion ($dE/dt = 0$). Evaluating $E$ at the initial release state determines the accessible energy surface for all subsequent times.</div>
-<p style="margin-bottom: 10px;">At $t = 0$, with $x(0) = -a$ and $v(0) = 0$:</p>
-<div class="math-block">$$ T(0) = \frac{1}{2}m [v(0)]^2 = 0 $$</div>
-<div class="math-block">$$ V(-a) = \frac{1}{4}c (-a)^4 = \frac{1}{4}c a^4 $$</div>
-<p style="margin-bottom: 10px;">Therefore, the total mechanical energy is:</p>
-<div class="math-block">$$ E = T(0) + V(-a) = \frac{1}{4}c a^4 $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Particle Velocity at $x = 0$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Conservation of mechanical energy equates the initial potential energy to the sum of kinetic and potential energies at any point $x$. At the origin $x = 0$, the potential energy reaches its absolute minimum $V(0) = 0$, meaning the kinetic energy $T$ is maximized.</div>
-<p style="margin-bottom: 10px;">Applying conservation of mechanical energy at $x = 0$:</p>
-<div class="math-block">$$ E = T(0) + V(0) \implies \frac{1}{4}c a^4 = \frac{1}{2}m v_0^2 + \frac{1}{4}c(0)^4 $$</div>
-<div class="math-block">$$ \frac{1}{2}m v_0^2 = \frac{1}{4}c a^4 $$</div>
-<p style="margin-bottom: 10px;">Isolate $v_0^2$:</p>
-<div class="math-block">$$ v_0^2 = \frac{2}{m}\left(\frac{1}{4}c a^4\right) = \frac{c a^4}{2m} $$</div>
-<p style="margin-bottom: 10px;">Taking the square root:</p>
-<div class="math-block">$$ |v_0| = \sqrt{\frac{c a^4}{2m}} = a^2 \sqrt{\frac{c}{2m}} $$</div>
-<p style="margin-bottom: 10px;">Direction of motion: Since the particle was released at $x = -a &lt; 0$, the force acting on it for all $x &lt; 0$ is:</p>
-<div class="math-block">$$ F_x = -c x^3 = -c(-|x|)^3 = +c|x|^3 &gt; 0 $$</div>
-<p style="margin-bottom: 10px;">Because the force is strictly directed along $+\mathbf{i}$, the particle accelerates towards the right. Consequently, upon reaching $x = 0$, its velocity is directed in the positive direction:</p>
-<div class="math-block">$$ \mathbf{v}(0) = a^2 \sqrt{\frac{c}{2m}}\,\mathbf{i} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Subsequent Stopping Point</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> A particle stops momentarily when its velocity vanishes, $v = 0$, which corresponds to a classical turning point where the kinetic energy $T = 0$. By energy conservation, this requires $V(x_{stop}) = E$.</div>
-<p style="margin-bottom: 10px;">Set kinetic energy to zero:</p>
-<div class="math-block">$$ T = 0 \implies V(x_{stop}) = E $$</div>
-<div class="math-block">$$ \frac{1}{4}c x_{stop}^4 = \frac{1}{4}c a^4 $$</div>
-<p style="margin-bottom: 10px;">Dividing both sides by the non-zero constant $\frac{1}{4}c$:</p>
-<div class="math-block">$$ x_{stop}^4 = a^4 \implies x_{stop}^4 - a^4 = 0 $$</div>
-<p style="margin-bottom: 10px;">Factorizing as a difference of squares:</p>
-<div class="math-block">$$ (x_{stop}^2 - a^2)(x_{stop}^2 + a^2) = (x_{stop} - a)(x_{stop} + a)(x_{stop}^2 + a^2) = 0 $$</div>
-<p style="margin-bottom: 10px;">Since $x_{stop} \in \mathbb{R}$, $x_{stop}^2 + a^2 &gt; 0$, yielding two real solutions:</p>
-<div class="math-block">$$ x_{stop} = -a \quad \text{or} \quad x_{stop} = +a $$</div>
-<p style="margin-bottom: 10px;">Since the motion started at $x = -a$ and proceeded across $x = 0$ in the $+x$ direction, the <em>subsequent</em> stopping point is:</p>
-<div class="math-block">$$ x_{stop} = +a $$</div>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> a single Cartesian coordinate describes the motion, and its unit vector is constant.</div>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Applied force:</strong> $\mathbf{F} = -cx^3\,\mathbf{i}$. <strong>Constraint forces:</strong> the reaction of the guide, perpendicular to $\mathbf{i}$. <strong>Inertia forces:</strong> none ($S_0$ is inertial).</li>
+</ul>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the force depends only on $x$, so $F_x\,dx$ is the exact differential of a function of $x$ and the force is conservative (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=44" target="_blank" rel="noopener" title="Open Notes.pdf at page 44">4.4</a>). The potential energy follows from the work, with the reference $V(0) = 0$ and Barrow's rule:</div>
+<div class="math-block">$$ V(x) - V(0) = -\int_0^xF_x(x')\,dx' = -\int_0^x\left(-cx'^3\right)dx' = c\left[\frac{x'^4}{4}\right]_0^x = \frac{1}{4}cx^4 - 0 \implies V(x) = \frac{1}{4}cx^4 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Newton's second law along $\mathbf{i}$:</strong> $m\ddot{x} = -cx^3$. One unknown, $x(t)$, and one equation.</li>
+<li><strong>First integral.</strong> Multiplying by $\dot{x}$ and using the chain rule $\frac{d}{dt}\left(\tfrac{1}{2}\dot{x}^2\right) = \dot{x}\ddot{x}$ and $\frac{d}{dt}V(x) = V'(x)\dot{x} = cx^3\dot{x}$:</li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}\left(\tfrac{1}{2}m\dot{x}^2 + V(x)\right) = \dot{x}\left(m\ddot{x} + cx^3\right) = 0 \implies E = \tfrac{1}{2}m\dot{x}^2 + \tfrac{1}{4}cx^4 = \text{const} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Total energy</h5>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>The energy is evaluated at the release instant ($x = -a$, $\dot{x} = 0$):</li>
+</ul>
+<div class="math-block">$$ E = \tfrac{1}{2}m\cdot 0 + \tfrac{1}{4}c(-a)^4 = \tfrac{1}{4}ca^4 $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Velocity at $x = 0$</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> energy conservation between the release point and $x = 0$, where $V(0) = 0$:</div>
+<div class="math-block">$$ \tfrac{1}{4}ca^4 = \tfrac{1}{2}mv^2 + 0 \implies v^2 = \frac{ca^4}{2m} \implies |v| = a^2\sqrt{\frac{c}{2m}} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Direction.</strong> For $x \lt 0$ the force $F_x = -cx^3 = c|x|^3 \gt 0$ points along $+\mathbf{i}$, so the particle accelerates toward the right and crosses $x = 0$ with positive velocity:</li>
+</ul>
+<div class="math-block">$$ \boxed{\mathbf{v}(0) = a^2\sqrt{\frac{c}{2m}}\,\mathbf{i}} $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Where it stops again</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the particle stops when $\dot{x} = 0$, i.e. when the kinetic energy vanishes, so $V(x_{\text{stop}}) = E$:</div>
+<div class="math-block">$$ \tfrac{1}{4}cx_{\text{stop}}^4 = \tfrac{1}{4}ca^4 \implies x_{\text{stop}}^4 - a^4 = \left(x_{\text{stop}}^2 - a^2\right)\left(x_{\text{stop}}^2 + a^2\right) = \left(x_{\text{stop}} - a\right)\left(x_{\text{stop}} + a\right)\left(x_{\text{stop}}^2 + a^2\right) = 0 $$</div>
+<p style="margin-bottom: 10px;">The last factor is positive for real $x$, so $x_{\text{stop}} = \pm a$. Since the particle started at $-a$ and has crossed the origin moving toward $+x$, the next stop is</p>
+<div class="math-block">$$ \boxed{x_{\text{stop}} = +a} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Symmetry &amp; Anharmonic Oscillation:</strong> The potential $V(x) = \frac{1}{4}c x^4$ is strictly even ($V(-x) = V(x)$) and convex ($V''(x) = 3cx^2 \ge 0$). The particle is trapped in a symmetric potential well, executing periodic, bounded, anharmonic oscillations between $x = -a$ and $x = +a$.</li>
-<li><strong>Dimensional Analysis:</strong></li>
-<li>$[c] = \text{N}/\text{m}^3 = \text{kg}\cdot\text{m}\cdot\text{s}^{-2}\cdot\text{m}^{-3} = \text{kg}\cdot\text{m}^{-2}\cdot\text{s}^{-2}$.</li>
-<li>$[v_0] = [a^2] \sqrt{[c]/[m]} = \text{m}^2 \sqrt{\frac{\text{kg}\cdot\text{m}^{-2}\cdot\text{s}^{-2}}{\text{kg}}} = \text{m}^2 \sqrt{\text{m}^{-2}\cdot\text{s}^{-2}} = \text{m}^2 \cdot \text{m}^{-1}\cdot\text{s}^{-1} = \text{m}/\text{s}$.</li>
-</ul>
-<p style="margin-bottom: 10px;">The velocity dimensions match perfectly.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Limit and numerical check:</strong> the energy balance is dimensionally homogeneous, $[c\,a^4] = \text{N}\cdot\text{m}^{-3}\cdot\text{m}^4 = \text{J}$. For $a \to 0$ the release energy vanishes and $v_0 = a^2\sqrt{c/(2m)} \to 0$. An RK4 integration (step $10^{-4}$, $m = c = a = 1$ in SI) of $m\ddot{x} = -c x^3$ from $x = -1$ at rest gives $v = 0.707107\ \text{m/s}$ at $x = 0$ against $\sqrt{1/2} = 0.707107\ \text{m/s}$, and the next stop at $x = 0.99999999$ against $x_{stop} = +a = 1$.</li>
+<li><strong>Symmetry and anharmonic oscillation:</strong> $V(x) = \tfrac{1}{4}cx^4$ is even and convex ($V'' = 3cx^2 \ge 0$), so the particle oscillates periodically between $x = -a$ and $x = +a$.</li>
+<li><strong>Dimensional check:</strong> $[ca^4] = \text{N m}^{-3}\,\text{m}^4 = \text{J}$ and $[v] = \text{m}^2\sqrt{\dfrac{\text{kg m}^{-2}\text{s}^{-2}}{\text{kg}}} = \text{m}^2\,\text{m}^{-1}\text{s}^{-1} = \text{m/s}$.</li>
+<li><strong>Limit:</strong> for $a \to 0$ the release energy vanishes and $v \to 0$.</li>
+<li><strong>Check against the official key:</strong> <code>Problems.pdf</code> has no entry for Problem 10 in its solution keys. The results are verified by independent derivation and by numerical integration (DOP853, $m = c = a = 1$): $|v(0)| = 0.707107\ \text{m/s} = \sqrt{1/2}$ and the successive stops are at $x = +1, -1, +1$.</li>
 </ul>
 </div>
         </div>
@@ -593,132 +564,89 @@ $$ V(x) = -\frac{c}{2}(x^2 - a^2)^2 $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A point particle of mass $m$ moves along the $Ox$ axis in a quartic potential landscape $V(x) = -\frac{c}{2}(x^2 - a^2)^2$.</li>
-<li><strong>Degree of Freedom:</strong> $1$ degree of freedom, $x(t) \in \mathbb{R}$.</li>
-<li><strong>Conservative Law:</strong> No friction or external work ($W_{nc} = 0$), so $E = T + V(x) = \text{constant}$.</li>
-<li><strong>Physical Constraint:</strong> Real physical motion requires real velocity, hence $T = \frac{1}{2}m v^2 \ge 0$. The classically allowed regions are restricted to:</li>
-</ul>
-<div class="math-block">$$ \{x \in \mathbb{R} : V(x) \le E\} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Parameters:</strong></li>
-<li>$c &gt; 0$: Potential scale constant $[\text{J}/\text{m}^4 = \text{N}/\text{m}^3]$.</li>
-<li>$a &gt; 0$: Characteristic length $[\text{m}]$.</li>
+<li><strong>System:</strong> a particle of mass $m$ on the $Ox$ axis with the potential energy $V(x) = -\dfrac{c}{2}\left(x^2 - a^2\right)^2$, $c \gt 0$, $a \gt 0$.</li>
+<li><strong>Constraints:</strong> motion along the axis ($y = z = 0$, smooth guide); $\text{CDOF} = 1$, coordinate $x$.</li>
+<li><strong>Hypotheses:</strong> the force derives from $V$, so the energy $E$ is a constant; real motion needs $T = \tfrac{1}{2}m\dot{x}^2 \ge 0$, i.e. $V(x) \le E$.</li>
+<li><strong>Parameters:</strong> $c$ [J/m$^4$], $a$ [m], $E$ [J].</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Potential Expression:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{i}$ along the axis (constant unit vectors).</li>
 </ul>
-<div class="math-block">$$ V(x) = -\frac{c}{2}(x^2 - a^2)^2 = -\frac{c}{2}(x^4 - 2a^2 x^2 + a^4) $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Symmetry:</strong></li>
-</ul>
-<div class="math-block">$$ V(-x) = -\frac{c}{2}((-x)^2 - a^2)^2 = -\frac{c}{2}(x^2 - a^2)^2 = V(x) \implies \text{Even function (symmetric about } x = 0). $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Critical Points &amp; Equilibrium Configurations:</strong></li>
-</ul>
-<p style="margin-bottom: 10px;"><strong>Pedagogical Justification:</strong> Equilibrium points occur where the resultant force vanishes, $F(x) = -\frac{dV}{dx} = 0$.</p>
-<div class="math-block">$$ \frac{dV}{dx} = -\frac{c}{2} \cdot 2(x^2 - a^2) \cdot (2x) = -2cx(x^2 - a^2) $$</div>
-<p style="margin-bottom: 10px;">Setting $\frac{dV}{dx} = 0$ yields three critical points:</p>
-<div class="math-block">$$ x_1 = 0, \qquad x_2 = +a, \qquad x_3 = -a $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Stability Evaluation ($V''(x)$):</strong></li>
-</ul>
-<div class="math-block">$$ V''(x) = \frac{d}{dx}[-2cx(x^2 - a^2)] = \frac{d}{dx}[-2cx^3 + 2ca^2 x] = -6cx^2 + 2ca^2 = 2c(a^2 - 3x^2) $$</div>
-<p style="margin-bottom: 10px;">1. At $x = 0$:</p>
-<div class="math-block">$$ V(0) = -\frac{c}{2}(0 - a^2)^2 = -\frac{1}{2}c a^4 $$</div>
-<div class="math-block">$$ V''(0) = 2c(a^2 - 0) = +2ca^2 &gt; 0 \implies \mathbf{Local\;Minimum} \text{ (Stable Equilibrium)} $$</div>
-<p style="margin-bottom: 10px;">2. At $x = \pm a$:</p>
-<div class="math-block">$$ V(\pm a) = -\frac{c}{2}(a^2 - a^2)^2 = 0 $$</div>
-<div class="math-block">$$ V''(\pm a) = 2c(a^2 - 3a^2) = -4ca^2 &lt; 0 \implies \mathbf{Local\;Maxima} \text{ (Unstable Equilibria / Potential Barriers)} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Asymptotic Limits:</strong></li>
-</ul>
-<div class="math-block">$$ \lim_{x \to \pm \infty} V(x) = \lim_{x \to \pm \infty} \left[ -\frac{c}{2} x^4 \right] = -\infty $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> By examining the intersection of the horizontal energy line $E$ with the graph of $V(x)$, we locate the turning points ($V(x) = E$) and delineate the allowed intervals where $T = E - V(x) \ge 0$.</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case (a): $E &gt; 0$</h4>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Energy Relation:</strong> The maximum value attained by the potential is $V_{max} = V(\pm a) = 0$. Since $E &gt; 0$, we have:</li>
+<li><strong>Applied force:</strong> $F(x) = -\dfrac{dV}{dx}$ (conservative). <strong>Constraint forces:</strong> the reaction of the guide, perpendicular to $Ox$. <strong>Inertia forces:</strong> none.</li>
+<li><strong>Force from the potential.</strong> The chain rule on $\left(x^2 - a^2\right)^2$ gives</li>
 </ul>
-<div class="math-block">$$ E &gt; V(x), \qquad \forall x \in (-\infty, +\infty) $$</div>
+<div class="math-block">$$ \frac{dV}{dx} = -\frac{c}{2}\cdot 2\left(x^2 - a^2\right)\cdot 2x = -2cx\left(x^2 - a^2\right) \implies F(x) = 2cx\left(x^2 - a^2\right) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Turning Points:</strong> The equation $V(x) = E$ has no real solutions because $-\frac{c}{2}(x^2 - a^2)^2 \le 0 &lt; E$.</li>
-<li><strong>Kinetic Energy:</strong></li>
+<li><strong>Newton's second law:</strong> $m\ddot{x} = F(x) = -V'(x)$. Multiplying by $\dot{x}$ and using the chain rule, $\frac{d}{dt}\left(\tfrac{1}{2}m\dot{x}^2 + V(x)\right) = \dot{x}\left(m\ddot{x} + V'(x)\right) = 0$:</li>
 </ul>
-<div class="math-block">$$ T(x) = E - V(x) = E + \frac{c}{2}(x^2 - a^2)^2 &gt; E &gt; 0 $$</div>
-<p style="margin-bottom: 10px;">The velocity never vanishes and never changes sign.</p>
+<div class="math-block">$$ E = \tfrac{1}{2}m\dot{x}^2 + V(x) = \text{const}, \qquad \text{so}\quad T(x) = E - V(x) \ge 0 $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Type of Motion:</strong> <strong>Unbounded Motion.</strong></li>
-<li>A particle entering from $-\infty$ moves towards $+x$, accelerates as it enters the central region, passes through the barriers at $x = -a$ and $x = +a$ with speed $v \ge \sqrt{2E/m}$, and continues indefinitely to $+\infty$.</li>
-<li>Symmetrically, a particle entering from $+\infty$ with $v &lt; 0$ traverses the entire axis to $-\infty$.</li>
+<li>The turning points ($T = 0$) are the roots of $V(x) = E$, and the allowed regions are those with $V(x) \le E$.</li>
 </ul>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case (b): $E &lt; -\frac{1}{2}c a^4$</h4>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Equilibria and sketch of the potential</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the equilibrium points are where the force vanishes, $dV/dx = 0$, and their stability follows from the sign of $V''$ (minimum: stable; maximum: unstable):</div>
+<div class="math-block">$$ \frac{dV}{dx} = 0 \iff x = 0,\ \pm a, \qquad \frac{d^2V}{dx^2} = \frac{d}{dx}\left(-2cx^3 + 2ca^2x\right) = -6cx^2 + 2ca^2 = 2c\left(a^2 - 3x^2\right) $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Energy Relation:</strong> The energy is strictly below the local minimum at the origin, $E &lt; V(0) = -\frac{1}{2}c a^4$.</li>
-<li><strong>Central Region:</strong> For $|x| \le a$, the minimum of the potential is $V(0) = -\frac{1}{2}c a^4 &gt; E$. Therefore, in the central region:</li>
+<li><strong>At $x = 0$:</strong> $V(0) = -\tfrac{1}{2}ca^4$ and $V''(0) = 2ca^2 \gt 0$: a local minimum (stable equilibrium).</li>
+<li><strong>At $x = \pm a$:</strong> $V(\pm a) = 0$ and $V''(\pm a) = 2c\left(a^2 - 3a^2\right) = -4ca^2 \lt 0$: local maxima (unstable equilibria, potential barriers).</li>
+<li><strong>Symmetry and limits:</strong> $V(-x) = V(x)$, and $V \to -\infty$ as $x \to \pm\infty$. The sketch is built from these values: a central well and two barriers, with $V \to -\infty$ on both sides.</li>
 </ul>
-<div class="math-block">$$ T(x) = E - V(x) &lt; 0 $$</div>
-<p style="margin-bottom: 10px;">which is classically forbidden. The particle can <strong>never</strong> enter the region between the outer turning points.</p>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">$x$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">$-\infty$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">$-a$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">$0$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">$+a$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">$+\infty$</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$V(x)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$-\infty$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0$ (maximum)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$-\tfrac{1}{2}ca^4$ (minimum)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0$ (maximum)</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$-\infty$</td></tr></tbody></table></div>
+<p style="margin-bottom: 10px;">The curve is even: it falls from the left maximum at $-a$ to the central minimum and rises again to the maximum at $+a$, forming a well of depth $\tfrac{1}{2}ca^4$ between two barriers of height $0$, and then falls without bound.</p>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Case (a): $E \gt 0$</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Outer Turning Points:</strong> Since $V(x) \to -\infty$ as $|x| \to \infty$, the energy line $E$ intersects $V(x)$ at two points outside $[-a, a]$:</li>
+<li>The maximum of the potential is $V_{\max} = 0 \lt E$, so $E \gt V(x)$ for every $x$ and $V(x) = E$ has no real root (since $-\tfrac{c}{2}(x^2 - a^2)^2 \le 0 \lt E$). Then</li>
 </ul>
-<div class="math-block">$$ -\frac{c}{2}(x^2 - a^2)^2 = E \implies (x^2 - a^2)^2 = -\frac{2E}{c} = \frac{2|E|}{c} $$</div>
-<p style="margin-bottom: 10px;">Taking the positive square root:</p>
-<div class="math-block">$$ x^2 - a^2 = \sqrt{\frac{2|E|}{c}} \implies x^2 = a^2 + \sqrt{\frac{2|E|}{c}} $$</div>
-<div class="math-block">$$ x_t = \pm \sqrt{a^2 + \sqrt{\frac{2|E|}{c}}} = \pm x_{out}, \qquad \text{with } x_{out} &gt; a $$</div>
+<div class="math-block">$$ T(x) = E - V(x) = E + \frac{c}{2}\left(x^2 - a^2\right)^2 \ge E \gt 0 $$</div>
+<p style="margin-bottom: 10px;">(equality only at $x = \pm a$), so the velocity never vanishes or changes sign.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Allowed Regions:</strong> $x \in (-\infty, -x_{out}]$ and $x \in [+x_{out}, +\infty)$.</li>
-<li><strong>Type of Motion:</strong> <strong>Unbounded Motion with Reflection.</strong></li>
-<li>If the particle begins at $+\infty$ heading left ($v &lt; 0$), it decelerates as $V(x)$ increases, stops momentarily at $x = +x_{out}$ ($T = 0$), and is accelerated back towards $+\infty$ by the positive restoring force $F = -V'(x_{out}) &gt; 0$.</li>
-<li>Similarly, in the negative half-space, a particle from $-\infty$ reflects at $-x_{out}$ and returns to $-\infty$.</li>
+<li><strong>Type of motion: unbounded.</strong> The particle moves toward $+\infty$ or toward $-\infty$ according to the sign of its velocity. A particle moving toward the origin crosses the central region and both barriers with $v \ge \sqrt{2E/m}$.</li>
 </ul>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Case (c): $-\frac{1}{2}c a^4 &lt; E &lt; 0$</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Case (b): $E \lt -\tfrac{1}{2}ca^4$</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Energy Relation:</strong> The energy level lies between the central local minimum and the two local maxima:</li>
+<li>The energy is below the bottom of the well, $E \lt V(0)$. For $|x| \le a$ the potential satisfies $V \ge V(0) \gt E$, so $T \lt 0$ there: the central region is forbidden.</li>
+<li><strong>Turning points.</strong> $V(x) = E$ means $\left(x^2 - a^2\right)^2 = -\dfrac{2E}{c} = \dfrac{2|E|}{c}$. Taking the square root, $x^2 - a^2 = \pm\sqrt{2|E|/c}$. The root with the minus sign gives $x^2 = a^2 - \sqrt{2|E|/c} \lt 0$ (because $|E| \gt \tfrac{1}{2}ca^4$ implies $\sqrt{2|E|/c} \gt a^2$), which has no real $x$, so only the plus sign remains:</li>
 </ul>
-<div class="math-block">$$ V(0) &lt; E &lt; V(\pm a) $$</div>
+<div class="math-block">$$ x^2 = a^2 + \sqrt{\frac{2|E|}{c}} \implies x = \pm x_{\text{out}}, \qquad x_{\text{out}} = \sqrt{a^2 + \sqrt{\frac{2|E|}{c}}} \gt a $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Determination of Turning Points:</strong></li>
+<li><strong>Allowed regions:</strong> $x \le -x_{\text{out}}$ and $x \ge +x_{\text{out}}$.</li>
+<li><strong>Type of motion: unbounded.</strong> A particle in the right region that moves toward $+\infty$ simply goes to $+\infty$. If it moves toward the origin it decelerates, stops at $+x_{\text{out}}$ and is pushed back by the force $F = -V'(x_{\text{out}}) \gt 0$ to $+\infty$ (reflection). The left region is symmetric.</li>
 </ul>
-<div class="math-block">$$ -\frac{c}{2}(x^2 - a^2)^2 = E \implies (x^2 - a^2)^2 = \frac{2|E|}{c} $$</div>
-<p style="margin-bottom: 10px;">Because $|E| &lt; \frac{1}{2}c a^4$, we have $\sqrt{\frac{2|E|}{c}} &lt; a^2$.</p>
-<p style="margin-bottom: 10px;">This produces two distinct positive solutions for $x^2$:</p>
-<div class="math-block">$$ x^2 = a^2 \pm \sqrt{\frac{2|E|}{c}} $$</div>
-<p style="margin-bottom: 10px;">yielding four real turning points:</p>
-<div class="math-block">$$ x_{in} = \sqrt{a^2 - \sqrt{\frac{2|E|}{c}}} \in (0, a) $$</div>
-<div class="math-block">$$ x_{out} = \sqrt{a^2 + \sqrt{\frac{2|E|}{c}}} &gt; a $$</div>
-<p style="margin-bottom: 10px;">Ordered along the real axis:</p>
-<div class="math-block">$$ -x_{out} &lt; -x_{in} &lt; 0 &lt; x_{in} &lt; x_{out} $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Case (c): $-\tfrac{1}{2}ca^4 \lt E \lt 0$</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Allowed Regions where $V(x) \le E$:</strong></li>
+<li>The energy lies between the well bottom and the barrier tops: $V(0) \lt E \lt V(\pm a)$. The roots of $V = E$ are</li>
 </ul>
-<p style="margin-bottom: 10px;">1. <strong>Inner Well Region:</strong> $x \in [-x_{in}, +x_{in}]$.</p>
-<p style="margin-bottom: 10px;">2. <strong>Outer Left Region:</strong> $x \in (-\infty, -x_{out}]$.</p>
-<p style="margin-bottom: 10px;">3. <strong>Outer Right Region:</strong> $x \in [+x_{out}, +\infty)$.</p>
+<div class="math-block">$$ x^2 = a^2 \pm \sqrt{\frac{2|E|}{c}}, \qquad \sqrt{\frac{2|E|}{c}} \lt a^2 \ \text{ because } |E| \lt \tfrac{1}{2}ca^4 $$</div>
+<p style="margin-bottom: 10px;">so both values of $x^2$ are positive: four turning points $\pm x_{\text{in}}$ and $\pm x_{\text{out}}$, with $x_{\text{in}} = \sqrt{a^2 - \sqrt{2|E|/c}} \in (0, a)$ and $x_{\text{out}} = \sqrt{a^2 + \sqrt{2|E|/c}} \gt a$, ordered $-x_{\text{out}} \lt -x_{\text{in}} \lt 0 \lt x_{\text{in}} \lt x_{\text{out}}$.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Type of Motion:</strong></li>
-<li><strong>Bounded Oscillatory Motion:</strong> If the particle is placed inside the central well $[-x_{in}, +x_{in}]$, it is permanently confined by the potential barriers. It oscillates back and forth periodically between $-x_{in}$ and $+x_{in}$ around the stable equilibrium $x = 0$.</li>
-<li><strong>Unbounded Motion with Reflection:</strong> If the particle begins in the outer regions ($|x| \ge x_{out}$), it approaches from $\pm\infty$, reaches the outer turning point $\pm x_{out}$, and is reflected back to $\pm\infty$.</li>
+<li><strong>Allowed regions</strong> ($V \le E$): the inner well $[-x_{\text{in}}, +x_{\text{in}}]$ and the two outer regions $|x| \ge x_{\text{out}}$.</li>
+<li><strong>Types of motion.</strong> In the well, the particle is confined and <strong>oscillates</strong> periodically between $-x_{\text{in}}$ and $+x_{\text{in}}$ around the stable equilibrium $x = 0$. In an outer region it behaves as in case (b): it moves directly toward $\pm\infty$ or is reflected at $\pm x_{\text{out}}$ back to $\pm\infty$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Summary Table:</strong></li>
+<li><strong>Summary:</strong></li>
 </ul>
-<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Energy Range</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Turning Points</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Allowed Regions</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Motion Description</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);"><strong>(a)</strong> $E &gt; 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">None</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(-\infty, +\infty)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Unbounded: traverses from $-\infty$ to $+\infty$ (or vice versa).</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);"><strong>(b)</strong> $E &lt; -\frac{1}{2}ca^4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\pm x_{out}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$(-\infty, -x_{out}] \cup [x_{out}, +\infty)$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Unbounded with reflection at $\pm x_{out}$ back to $\pm\infty$. Inner well forbidden.</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);"><strong>(c)</strong> $-\frac{1}{2}ca^4 &lt; E &lt; 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\pm x_{in}, \pm x_{out}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$[-x_{in}, x_{in}]$ OR $|x| \ge x_{out}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">Bounded periodic oscillation in well $[-x_{in}, x_{in}]$, OR reflection at $\pm x_{out}$ back to $\pm\infty$.</td></tr></tbody></table></div>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Energy range</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Turning points</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Allowed regions</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Motion</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">(a) $E \gt 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">none</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">all of $\mathbb{R}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">unbounded, goes to $\pm\infty$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">(b) $E \lt -\tfrac{1}{2}ca^4$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\pm x_{\text{out}}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$x \le -x_{\text{out}}$ or $x \ge x_{\text{out}}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">unbounded, directly or reflected</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">(c) $-\tfrac{1}{2}ca^4 \lt E \lt 0$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$\pm x_{\text{in}}$, $\pm x_{\text{out}}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$[-x_{\text{in}}, x_{\text{in}}]$ or $\vert x\vert \ge x_{\text{out}}$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">oscillation in the well, or unbounded (directly or reflected)</td></tr></tbody></table></div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Comparison with UC3M Solution Keys:</strong> The qualitative classification can be compared with the official solution key (Problems.pdf, Solution keys section).</li>
-<li><strong>Dimensional check:</strong> $[c\,a^4] = (\text{J/m}^4)\,\text{m}^4 = \text{J}$, the same as $E$; $[2|E|/c] = \text{J}/(\text{J/m}^4) = \text{m}^4$, so $\sqrt{2|E|/c}$ is an area (m$^2$) and $x_{out} = \sqrt{a^2 + \sqrt{2|E|/c}}$ is a length.</li>
-<li><strong>Limiting energies (sympy):</strong></li>
-<li>$E \to -\tfrac{1}{2}ca^4$ (bottom of the well): $x_{in}^2 = a^2 - \sqrt{2|E|/c} \to 0$ and $x_{out}^2 \to 2a^2$, so the inner region collapses to the stable point $x = 0$, where the small oscillations have $\omega^2 = V''(0)/m = 2ca^2/m$.</li>
-<li>$E \to 0^-$ (top of the barriers): $x_{in}, x_{out} \to a$, the four turning points merge pairwise at the unstable equilibria $x = \pm a$ (separatrix between cases (c) and (a)).</li>
+<li><strong>Limiting energies:</strong> for $E \to -\tfrac{1}{2}ca^4$ (bottom of the well), $x_{\text{in}} \to 0$ and $x_{\text{out}}^2 \to 2a^2$: the well collapses to the stable point, whose small oscillations have $\omega^2 = V''(0)/m = 2ca^2/m$. For $E \to 0^-$, $x_{\text{in}}, x_{\text{out}} \to a$: the turning points merge at the unstable equilibria $\pm a$ (separatrix between (c) and (a)).</li>
+<li><strong>Dimensional check:</strong> $[ca^4] = (\text{J/m}^4)\,\text{m}^4 = \text{J}$, like $E$; $[2|E|/c] = \text{m}^4$, so $\sqrt{2|E|/c}$ is an area and $x_{\text{out}}$ is a length.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> is qualitative: (a) the particle moves toward $+\infty$ or $-\infty$; (b) toward $\pm\infty$ directly or after being reflected; (c) toward $\pm\infty$ directly, reflected, or oscillating. This agrees with the classification above. Sympy confirms $V'$, $V''(0)$, $V''(\pm a)$ and the turning points $x^2 = a^2 \pm \sqrt{2|E|/c}$.</li>
 </ul>
 </div>
         </div>
@@ -759,94 +687,73 @@ $$ \tau = \frac{2}{\omega_0}\int_{-a}^a \frac{dx}{\sqrt{a^2 - x^2}\sqrt{1 - b(a^
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ undergoes one-dimensional bounded periodic motion under a conservative potential $V(x)$ between two consecutive turning points $x_1$ and $x_2$.</li>
-<li><strong>General Energy Law:</strong> Total mechanical energy $E = T + V(x)$ is conserved.</li>
-<li><strong>Turning Point Conditions:</strong> At the extremities $x = x_1$ and $x = x_2$, the particle comes to rest:</li>
+<li><strong>System:</strong> a particle of mass $m$ moves on the $Ox$ axis under a conservative force with potential $V(x)$ and oscillates between two turning points $x_1 \lt x_2$.</li>
+<li><strong>Constraints:</strong> motion along the axis ($y = z = 0$, smooth guide); $\text{CDOF} = 1$, coordinate $x$.</li>
+<li><strong>Hypotheses:</strong> $E = V(x_1) = V(x_2)$, $V(x) \lt E$ for $x_1 \lt x \lt x_2$, and the turning points are simple: $V'(x_1) \ne 0$ and $V'(x_2) \ne 0$. In the particular case, $V(x) = \tfrac{1}{2}m\omega_0^2\left(x^2 - bx^4\right)$ and the amplitude is $a$ ($x_1 = -a$, $x_2 = +a$).</li>
+<li><strong>Parameters:</strong> $\omega_0$ [rad/s], the small-amplitude frequency; $b$ [m$^{-2}$], the anharmonicity.</li>
 </ul>
-<div class="math-block">$$ v(x_1) = v(x_2) = 0 \implies E = V(x_1) = V(x_2) $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Specific Potential Model:</strong></li>
-</ul>
-<div class="math-block">$$ V(x) = \frac{1}{2}m \omega_0^2(x^2 - b x^4) $$</div>
-<p style="margin-bottom: 10px;">where $\omega_0$ is the natural small-amplitude frequency $[\text{rad}/\text{s}]$, and $b$ is the non-linear anharmonicity parameter $[\text{m}^{-2}]$. Amplitude of oscillation is $a$ ($x_1 = -a, x_2 = +a$).</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Kinematic Relation:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{i}$ along the axis (constant unit vectors).</li>
 </ul>
-<div class="math-block">$$ v = \frac{dx}{dt} \implies dt = \frac{dx}{v} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Kinetic Energy Isolation:</strong></li>
-</ul>
-<div class="math-block">$$ T = \frac{1}{2}m v^2 = E - V(x) \implies v^2 = \frac{2}{m}[E - V(x)] $$</div>
-<div class="math-block">$$ v = \pm \sqrt{\frac{2}{m}[E - V(x)]} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. General Derivation of the Oscillation Period $\tau$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Because the force is conservative, the equations of motion are invariant under time reversal ($t \to -t$). The time taken to travel forward from $x_1$ to $x_2$ with positive velocity $v = +\sqrt{\frac{2}{m}[E - V(x)]}$ is identical to the return time from $x_2$ to $x_1$ with negative velocity $v = -\sqrt{\frac{2}{m}[E - V(x)]}$. Therefore, the total period $\tau$ is exactly twice the half-period transit integral.</div>
-<p style="margin-bottom: 10px;">The differential time increment along the forward path is:</p>
-<div class="math-block">$$ dt = \frac{dx}{\sqrt{\frac{2}{m}[E - V(x)]}} = \sqrt{\frac{m}{2[E - V(x)]}}\,dx $$</div>
-<p style="margin-bottom: 10px;">Integrating from $x = x_1$ to $x = x_2$, the half-period is:</p>
-<div class="math-block">$$ \frac{\tau}{2} = \int_{x_1}^{x_2} \sqrt{\frac{m}{2[E - V(x)]}}\,dx $$</div>
-<p style="margin-bottom: 10px;">Since $x_2$ is a turning point, the total energy is precisely $E = V(x_2)$. Substituting $E = V(x_2)$:</p>
-<div class="math-block">$$ \tau = 2 \int_{x_1}^{x_2} \sqrt{\frac{m}{2[V(x_2) - V(x)]}}\,dx $$</div>
-<p style="margin-bottom: 10px;">This proves the general theorem. $\blacksquare$</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Application to the Anharmonic Potential $V(x) = \frac{1}{2}m\omega_0^2(x^2 - b x^4)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> For symmetric oscillations of amplitude $a$, the turning points are $x_1 = -a$ and $x_2 = +a$. We evaluate the energy difference $V(a) - V(x)$ algebraically and factor out the singular harmonic core $(a^2 - x^2)$.</div>
-<p style="margin-bottom: 10px;">Evaluate $V(a)$:</p>
-<div class="math-block">$$ V(a) = \frac{1}{2}m \omega_0^2(a^2 - b a^4) $$</div>
-<p style="margin-bottom: 10px;">Form the difference $V(a) - V(x)$:</p>
-<div class="math-block">$$ V(a) - V(x) = \frac{1}{2}m\omega_0^2(a^2 - b a^4) - \frac{1}{2}m\omega_0^2(x^2 - b x^4) $$</div>
-<p style="margin-bottom: 10px;">Factor out $\frac{1}{2}m\omega_0^2$:</p>
-<div class="math-block">$$ V(a) - V(x) = \frac{1}{2}m\omega_0^2 \left[ (a^2 - x^2) - b(a^4 - x^4) \right] $$</div>
-<p style="margin-bottom: 10px;">Apply the algebraic identity for difference of squares:</p>
-<div class="math-block">$$ a^4 - x^4 = (a^2 - x^2)(a^2 + x^2) $$</div>
-<p style="margin-bottom: 10px;">Substitute this identity into the bracketed term:</p>
-<div class="math-block">$$ V(a) - V(x) = \frac{1}{2}m\omega_0^2 \left[ (a^2 - x^2) - b(a^2 - x^2)(a^2 + x^2) \right] $$</div>
-<p style="margin-bottom: 10px;">Factor out the common term $(a^2 - x^2)$:</p>
-<div class="math-block">$$ V(a) - V(x) = \frac{1}{2}m\omega_0^2 (a^2 - x^2)\left[ 1 - b(a^2 + x^2) \right] $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Assembly of the Period Integral</h4>
-<p style="margin-bottom: 10px;">Substitute this factorized expression into the denominator of the general period formula:</p>
-<div class="math-block">$$ 2[V(a) - V(x)] = 2 \left( \frac{1}{2}m\omega_0^2 (a^2 - x^2)\left[ 1 - b(a^2 + x^2) \right] \right) = m\omega_0^2 (a^2 - x^2)\left[ 1 - b(a^2 + x^2) \right] $$</div>
-<p style="margin-bottom: 10px;">Now take the square root of the ratio:</p>
-<div class="math-block">$$ \sqrt{\frac{m}{2[V(a) - V(x)]}} = \sqrt{\frac{m}{m\omega_0^2 (a^2 - x^2)[1 - b(a^2 + x^2)]}} = \frac{1}{\omega_0 \sqrt{a^2 - x^2}\sqrt{1 - b(a^2 + x^2)}} $$</div>
-<p style="margin-bottom: 10px;">Substitute this integrand into the period equation with limits from $-a$ to $+a$:</p>
-<div class="math-block">$$ \tau = 2 \int_{-a}^a \frac{dx}{\omega_0 \sqrt{a^2 - x^2}\sqrt{1 - b(a^2 + x^2)}} $$</div>
-<p style="margin-bottom: 10px;">Factor out the constant $\omega_0$:</p>
-<div class="math-block">$$ \tau = \frac{2}{\omega_0} \int_{-a}^a \frac{dx}{\sqrt{a^2 - x^2}\sqrt{1 - b(a^2 + x^2)}} $$</div>
-<p style="margin-bottom: 10px;">This completes the exact derivation. $\blacksquare$</p>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i}, \qquad \dot{x} = \frac{dx}{dt} \implies dt = \frac{dx}{\dot{x}} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Applied force:</strong> $F = -V'(x)$ (conservative). <strong>Constraint forces:</strong> perpendicular to the axis. <strong>Inertia forces:</strong> none.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Newton's second law:</strong> $m\ddot{x} = -V'(x)$. Multiplying by $\dot{x}$, the energy is a first integral:</li>
+</ul>
+<div class="math-block">$$ \frac{d}{dt}\left(\tfrac{1}{2}m\dot{x}^2 + V\right) = \dot{x}\left(m\ddot{x} + V'\right) = 0 \implies \tfrac{1}{2}m\dot{x}^2 = E - V(x) \implies \dot{x} = \pm\sqrt{\frac{2}{m}\left[E - V(x)\right]} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) General formula for the period</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the equation is first order and separable, so the time between two points is an integral. Going from $x_1$ to $x_2$ the velocity is positive, $\dot{x} = +\sqrt{\tfrac{2}{m}\left[E - V(x)\right]}$, and</div>
+<div class="math-block">$$ dt = \frac{dx}{\dot{x}} = \sqrt{\frac{m}{2\left[E - V(x)\right]}}\,dx \implies \frac{\tau}{2} = \int_{x_1}^{x_2}\sqrt{\frac{m}{2\left[E - V(x)\right]}}\,dx $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>On the way back the velocity is negative, $\dot{x} = -\sqrt{\tfrac{2}{m}\left[E - V(x)\right]}$, and $x$ goes from $x_2$ to $x_1$. Reversing the limits cancels the minus sign:</li>
+</ul>
+<div class="math-block">$$ \int_{x_2}^{x_1}\frac{dx}{-\sqrt{\tfrac{2}{m}\left[E - V(x)\right]}} = \int_{x_1}^{x_2}\frac{dx}{\sqrt{\tfrac{2}{m}\left[E - V(x)\right]}} $$</div>
+<p style="margin-bottom: 10px;">so the return trip takes the same time (the motion is symmetric under time reversal) and the period is twice the one-way time. Using $E = V(x_2)$:</p>
+<div class="math-block">$$ \boxed{\tau = 2\int_{x_1}^{x_2}\sqrt{\frac{m}{2\left[V(x_2) - V(x)\right]}}\,dx} \quad \blacksquare $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Convergence.</strong> The integrand is singular at the end points, where $V(x_2) - V(x) \to 0$. At a simple turning point, $V(x_2) - V(x) \approx -V'(x_2)(x - x_2)$ with $V'(x_2) \ne 0$, so the integrand behaves as $(x_2 - x)^{-1/2}$. Its antiderivative is $-2(x_2 - x)^{1/2}$, which is finite at $x_2$, so by Barrow's rule the integral converges (and the same at $x_1$).</li>
+</ul>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Application to $V = \tfrac{1}{2}m\omega_0^2\left(x^2 - bx^4\right)$</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> for the amplitude $a$ the turning points are $\mp a$, so we form $V(a) - V(x)$ and factor the common harmonic term $\left(a^2 - x^2\right)$ with the identity $a^4 - x^4 = \left(a^2 - x^2\right)\left(a^2 + x^2\right)$.</div>
+<div class="math-block">$$ V(a) - V(x) = \tfrac{1}{2}m\omega_0^2\left[\left(a^2 - x^2\right) - b\left(a^4 - x^4\right)\right] = \tfrac{1}{2}m\omega_0^2\left(a^2 - x^2\right)\left[1 - b\left(a^2 + x^2\right)\right] $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>The factor under the root of the general formula is</li>
+</ul>
+<div class="math-block">$$ \frac{m}{2\left[V(a) - V(x)\right]} = \frac{m}{m\omega_0^2\left(a^2 - x^2\right)\left[1 - b\left(a^2 + x^2\right)\right]} \implies \sqrt{\cdot} = \frac{1}{\omega_0\sqrt{a^2 - x^2}\sqrt{1 - b\left(a^2 + x^2\right)}} $$</div>
+<div class="math-block">$$ \boxed{\tau = \frac{2}{\omega_0}\int_{-a}^{a}\frac{dx}{\sqrt{a^2 - x^2}\,\sqrt{1 - b\left(a^2 + x^2\right)}}} \quad \blacksquare $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Harmonic Limit ($b \to 0$):</strong></li>
+<li><strong>Harmonic limit ($b \to 0$):</strong> the integral is $\int_{-a}^a\frac{dx}{\sqrt{a^2 - x^2}}$. With $x = a\sin\varphi$, $dx = a\cos\varphi\,d\varphi$, limits $\varphi \in [-\pi/2, \pi/2]$ (where $\cos\varphi \ge 0$, so $\sqrt{a^2 - x^2} = a\cos\varphi$) and Barrow's rule:</li>
 </ul>
-<p style="margin-bottom: 10px;">When $b = 0$, the potential reduces to the simple harmonic oscillator $V(x) = \frac{1}{2}m\omega_0^2 x^2$.</p>
-<p style="margin-bottom: 10px;">The integral becomes:</p>
-<div class="math-block">$$ \tau = \frac{2}{\omega_0} \int_{-a}^a \frac{dx}{\sqrt{a^2 - x^2}} $$</div>
-<p style="margin-bottom: 10px;">Using the trigonometric substitution $x = a\sin\theta$, $dx = a\cos\theta\,d\theta$, with limits $\theta \in [-\pi/2, \pi/2]$:</p>
-<div class="math-block">$$ \int_{-a}^a \frac{dx}{\sqrt{a^2 - x^2}} = \int_{-\pi/2}^{\pi/2} \frac{a\cos\theta\,d\theta}{a\cos\theta} = \int_{-\pi/2}^{\pi/2} d\theta = [\theta]_{-\pi/2}^{\pi/2} = \frac{\pi}{2} - \left(-\frac{\pi}{2}\right) = \pi $$</div>
-<p style="margin-bottom: 10px;">Multiplying by $\frac{2}{\omega_0}$:</p>
-<div class="math-block">$$ \tau = \frac{2\pi}{\omega_0} $$</div>
-<p style="margin-bottom: 10px;">which recovers the classical harmonic period $\tau_0 = 2\pi/\omega_0$, completely independent of the amplitude $a$ (isochronism).</p>
+<div class="math-block">$$ \int_{-\pi/2}^{\pi/2}\frac{a\cos\varphi\,d\varphi}{a\cos\varphi} = \left[\varphi\right]_{-\pi/2}^{\pi/2} = \pi \implies \tau = \frac{2\pi}{\omega_0} $$</div>
+<p style="margin-bottom: 10px;">the isochronous harmonic period, independent of the amplitude.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Anharmonicity ($b &gt; 0$):</strong></li>
+<li><strong>Softening ($b \gt 0$):</strong> the factor $\sqrt{1 - b\left(a^2 + x^2\right)} \lt 1$ makes the integrand larger than in the harmonic case, so $\tau \gt 2\pi/\omega_0$. In the form with $x = a\sin\varphi$ (next item) the integrand $1/\sqrt{1 - ba^2\left(1 + \sin^2\varphi\right)}$ increases with $a$ for every $\varphi$, so the period grows with the amplitude. For $b \lt 0$ (hardening) the factor is larger than $1$, $\tau \lt 2\pi/\omega_0$, and every amplitude gives a bounded oscillation.</li>
+<li><strong>Small anharmonicity:</strong> with $x = a\sin\varphi$ the period reads $\tau = \dfrac{2}{\omega_0}\displaystyle\int_{-\pi/2}^{\pi/2}\frac{d\varphi}{\sqrt{1 - ba^2\left(1 + \sin^2\varphi\right)}}$. Expanding to first order in $ba^2$ ($\left(1 - \epsilon\right)^{-1/2} \approx 1 + \epsilon/2$) and using $\int_{-\pi/2}^{\pi/2}\sin^2\varphi\,d\varphi = \left[\dfrac{\varphi}{2} - \dfrac{\sin 2\varphi}{4}\right]_{-\pi/2}^{\pi/2} = \dfrac{\pi}{2}$:</li>
 </ul>
-<p style="margin-bottom: 10px;">For a softening spring ($b &gt; 0$), the factor $\sqrt{1 - b(a^2 + x^2)} &lt; 1$, which makes the integrand strictly larger than in the harmonic case, proving that $\tau &gt; \tau_0$ and that the period grows with amplitude $a$.</p>
+<div class="math-block">$$ \tau \approx \frac{2}{\omega_0}\left[\pi + \frac{1}{2}ba^2\left(\pi + \frac{\pi}{2}\right)\right] = \frac{2\pi}{\omega_0}\left(1 + \frac{3}{4}ba^2\right) $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[b] = \text{m}^{-2}$, so $b(a^2 + x^2)$ is dimensionless; $\int dx/\sqrt{a^2 - x^2}$ is dimensionless and $[\tau] = [1/\omega_0] = \text{s}$.</li>
-<li><strong>Small anharmonicity:</strong> with $x = a\sin\varphi$, $dx = a\cos\varphi\,d\varphi$ the period reads $\tau = \dfrac{2}{\omega_0}\displaystyle\int_{-\pi/2}^{\pi/2}\frac{d\varphi}{\sqrt{1 - ba^2(1 + \sin^2\varphi)}}$. Expanding to first order in $ba^2$ and using $\langle\sin^2\varphi\rangle = 1/2$ gives $\tau \approx \dfrac{2\pi}{\omega_0}\left(1 + \dfrac{3}{4}ba^2\right)$.</li>
-<li><strong>Admissible amplitudes:</strong> $V$ has its maximum at $x^2 = 1/(2b)$, so bounded oscillations require $a^2 &lt; 1/(2b)$; as $a^2 \to 1/(2b)$ the factor $1 - b(a^2 + x^2)$ vanishes at the turning points and $\tau \to \infty$.</li>
-<li><strong>Numerical check ($\omega_0 = 1$, $b = 1$; quadrature against RK4 of $\ddot{x} = -x + 2bx^3$, step $10^{-4}$):</strong></li>
-<li>$a = 0.1$: quadrature $6.3309$, RK4 $6.3312$, first-order estimate $6.3303$.</li>
-<li>$a = 0.3$: quadrature $6.7592$, RK4 $6.7592$, estimate $6.7073$.</li>
-<li>$a = 0.5$: quadrature $8.0086$, RK4 $8.0088$, estimate $7.4613$.</li>
-<li>$a = 0.7$ (close to $1/\sqrt{2} = 0.7071$): quadrature $16.947$, RK4 $16.948$; the period grows without bound as $a \to 0.7071$ ($36.6$ at $a = 0.7071$ in the quadrature).</li>
+<li><strong>Admissible amplitudes ($b \gt 0$):</strong> $V$ has its maximum at $x^2 = 1/(2b)$, so bounded oscillations require $a^2 \lt 1/(2b)$; as $a^2 \to 1/(2b)$ the factor $1 - b\left(a^2 + x^2\right)$ vanishes at the turning points and $\tau \to \infty$.</li>
+<li><strong>Dimensional check:</strong> $[b] = \text{m}^{-2}$, so $b\left(a^2 + x^2\right)$ is dimensionless; $\int dx/\sqrt{a^2 - x^2}$ is dimensionless and $[\tau] = 1/[\omega_0] = \text{s}$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> only gives the hint to separate variables (the period formula is part of the statement). The result is verified numerically ($\omega_0 = b = 1$; quadrature against DOP853 integration of $\ddot{x} = -x + 2bx^3$):</li>
 </ul>
+<div style="overflow-x: auto; margin: 12px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;"><thead><tr><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Amplitude $a$</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">Quadrature</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">ODE</th><th style="text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-strong); background: var(--bg-subtle);">First-order estimate</th></tr></thead><tbody><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0.1$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$6.3309$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$6.3309$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$6.3303$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0.3$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$6.7592$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$6.7592$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$6.7073$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0.5$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$8.0086$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$8.0086$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$7.4613$</td></tr><tr><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$0.7$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$16.9473$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$16.9473$</td><td style="padding: 8px 10px; border-bottom: 1px solid var(--border-subtle);">$8.5923$ (outside its range of validity)</td></tr></tbody></table></div>
 </div>
         </div>
       </details>
@@ -884,127 +791,81 @@ $$ V(x) = mgx\left[\left(\frac{x}{a}\right)^2 - 3\right] $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ moves along the $Ox$ axis subject to the cubic potential energy function:</li>
-</ul>
-<div class="math-block">$$ V(x) = mgx\left[ \left(\frac{x}{a}\right)^2 - 3 \right] = mg\left(\frac{x^3}{a^2} - 3x\right) $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Initial Conditions:</strong> Released at $t = 0$ from position $x_0 = a$ with initial velocity:</li>
-</ul>
-<div class="math-block">$$ x(0) = a, \qquad v_0 = \dot{x}(0) = +\sqrt{8ga} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Provided Integration Formula:</strong></li>
-</ul>
-<div class="math-block">$$ \int \frac{dy}{(y+1)\sqrt{2-y}} = -\frac{2}{\sqrt{3}}\text{arctanh}\left(\sqrt{\frac{2-y}{3}}\right) + C $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Parameters:</strong> $m &gt; 0$ [kg], $g &gt; 0$ [m/s$^2$], $a &gt; 0$ [m].</li>
+<li><strong>System:</strong> a particle of mass $m$ on the $Ox$ axis with the potential $V(x) = mgx\left[\left(x/a\right)^2 - 3\right]$, released from $x_0 = a$ with $v_0 = +\sqrt{8ga}$.</li>
+<li><strong>Constraints:</strong> motion along the axis (smooth guide); $\text{CDOF} = 1$, coordinate $x$. The dimensionless coordinate $y = x/a$ simplifies the algebra.</li>
+<li><strong>Parameters:</strong> $m$ [kg], $g$ [m/s$^2$], $a$ [m]. The statement gives the integral $\displaystyle\int\frac{dx}{(x + 1)\sqrt{2 - x}} = -\frac{2}{\sqrt{3}}\operatorname{arctanh}\left(\frac{\sqrt{2 - x}}{\sqrt{3}}\right)$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensionless Coordinate:</strong> Let $y(t) = \frac{x(t)}{a} \implies x(t) = a y(t)$, $\dot{x}(t) = a \dot{y}(t)$.</li>
-<li><strong>Potential Energy in Dimensionless Form:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{i}$ along the axis.</li>
 </ul>
-<div class="math-block">$$ V(y) = mga(y^3 - 3y) $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Extrema of $V(y)$:</strong></li>
-</ul>
-<div class="math-block">$$ \frac{dV}{dy} = mga(3y^2 - 3) = 3mga(y^2 - 1) $$</div>
-<p style="margin-bottom: 10px;">Setting $\frac{dV}{dy} = 0$:</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>At $y = +1$ ($x = a$): $V(1) = mga(1 - 3) = -2mga$.</li>
-</ul>
-<p style="margin-bottom: 10px;">$\frac{d^2V}{dy^2}(1) = 6mga(1) = +6mga &gt; 0 \implies$ <strong>Local Minimum</strong> (Stable equilibrium).</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>At $y = -1$ ($x = -a$): $V(-1) = mga(-1 + 3) = +2mga$.</li>
-</ul>
-<p style="margin-bottom: 10px;">$\frac{d^2V}{dy^2}(-1) = -6mga &lt; 0 \implies$ <strong>Local Maximum</strong> (Unstable equilibrium barrier).</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Total Mechanical Energy $E$:</strong></li>
-</ul>
-<p style="margin-bottom: 10px;"><strong>Pedagogical Justification:</strong> Evaluating the initial energy reveals whether the particle is trapped in the well or has enough kinetic energy to reach other critical points.</p>
-<div class="math-block">$$ E = T(0) + V(x_0) = \frac{1}{2}m v_0^2 + V(a) $$</div>
-<div class="math-block">$$ E = \frac{1}{2}m (8ga) + mga(1^3 - 3\cdot 1) = 4mga - 2mga = +2mga $$</div>
-<p style="margin-bottom: 10px;"><strong>Critical Analytical Discovery:</strong> The total energy $E = +2mga$ is <strong>identical</strong> to the potential energy at the local maximum: $E = V(-a) = +2mga$.</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Quadrature Formulation</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Conservation of mechanical energy $T + V = E$ gives a first-order separable differential equation for $y(t)$.</div>
-<div class="math-block">$$ \frac{1}{2}m \dot{x}^2 = E - V(x) = 2mga - mga(y^3 - 3y) = mga(2 + 3y - y^3) $$</div>
-<p style="margin-bottom: 10px;">Substitute $\dot{x} = a\dot{y}$:</p>
-<div class="math-block">$$ \frac{1}{2}m a^2 \dot{y}^2 = mga(2 + 3y - y^3) \implies \dot{y}^2 = \frac{2g}{a}(2 + 3y - y^3) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Factorization of the Cubic Polynomial $P(y) = 2 + 3y - y^3$</h4>
-<p style="margin-bottom: 10px;">Rewrite in descending powers:</p>
-<div class="math-block">$$ P(y) = -(y^3 - 3y - 2) $$</div>
-<p style="margin-bottom: 10px;">Test candidate roots of $y^3 - 3y - 2 = 0$:</p>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i} = ay\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i} = a\dot{y}\,\mathbf{i}, \qquad \mathbf{a} = a\ddot{y}\,\mathbf{i} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>For $y = -1$: $(-1)^3 - 3(-1) - 2 = -1 + 3 - 2 = 0$. Thus $(y + 1)$ is a factor.</li>
+<li><strong>Applied force:</strong> $F = -V'(x)$ (conservative); <strong>constraint forces</strong> perpendicular to $Ox$; <strong>inertia forces:</strong> none.</li>
 </ul>
-<p style="margin-bottom: 10px;">Perform polynomial long division of $y^3 - 3y - 2$ by $(y + 1)$:</p>
-<div class="math-block">$$ \frac{y^3 - 3y - 2}{y + 1} = y^2 - y - 2 = (y + 1)(y - 2) $$</div>
-<p style="margin-bottom: 10px;">Therefore:</p>
-<div class="math-block">$$ y^3 - 3y - 2 = (y + 1)^2(y - 2) $$</div>
-<p style="margin-bottom: 10px;">Substituting back into $P(y)$:</p>
-<div class="math-block">$$ P(y) = -(y + 1)^2(y - 2) = (y + 1)^2(2 - y) $$</div>
-<p style="margin-bottom: 10px;">Hence, the differential equation simplifies to:</p>
-<div class="math-block">$$ \dot{y}^2 = \frac{2g}{a}(y + 1)^2(2 - y) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Stage 1: Forward Motion to the Turning Point ($0 \le t \le t_1$)</h4>
-<p style="margin-bottom: 10px;">Initially, at $t = 0$, $y(0) = 1$ and $\dot{y}(0) = \frac{v_0}{a} = +\sqrt{\frac{8g}{a}} &gt; 0$.</p>
-<p style="margin-bottom: 10px;">In the interval $y \in [1, 2]$, we have $y + 1 &gt; 0$ and $2 - y \ge 0$.</p>
-<p style="margin-bottom: 10px;">Taking the positive square root:</p>
-<div class="math-block">$$ \dot{y} = +\sqrt{\frac{2g}{a}}\,(y + 1)\sqrt{2 - y} $$</div>
-<p style="margin-bottom: 10px;">Separating variables:</p>
-<div class="math-block">$$ \frac{dy}{(y + 1)\sqrt{2 - y}} = \sqrt{\frac{2g}{a}}\,dt $$</div>
-<p style="margin-bottom: 10px;">Integrate from $y = 1$ at $t = 0$ to $y(t)$:</p>
-<div class="math-block">$$ \int_{1}^{y(t)} \frac{dy}{(y + 1)\sqrt{2 - y}} = \sqrt{\frac{2g}{a}} \int_{0}^t dt' = \sqrt{\frac{2g}{a}}\,t $$</div>
-<p style="margin-bottom: 10px;">Apply the provided integral hint:</p>
-<div class="math-block">$$ \left[ -\frac{2}{\sqrt{3}}\text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) \right]_1^{y(t)} = \sqrt{\frac{2g}{a}}\,t $$</div>
-<p style="margin-bottom: 10px;">Evaluate at the lower limit $y = 1$:</p>
-<div class="math-block">$$ \sqrt{\frac{2 - 1}{3}} = \frac{1}{\sqrt{3}} $$</div>
-<div class="math-block">$$ -\frac{2}{\sqrt{3}}\text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) - \left( -\frac{2}{\sqrt{3}}\text{arctanh}\left(\frac{1}{\sqrt{3}}\right) \right) = \sqrt{\frac{2g}{a}}\,t $$</div>
-<p style="margin-bottom: 10px;">Multiply the entire equation by $-\frac{\sqrt{3}}{2}$:</p>
-<div class="math-block">$$ \text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) - \text{arctanh}\left(\frac{1}{\sqrt{3}}\right) = -\frac{\sqrt{3}}{2}\sqrt{\frac{2g}{a}}\,t = -\sqrt{\frac{3g}{2a}}\,t $$</div>
-<div class="math-block">$$ \text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) = -\sqrt{\frac{3g}{2a}}\,t + \text{arctanh}\left(\frac{1}{\sqrt{3}}\right) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Turning Point at $y = 2$ ($x = 2a$)</h4>
-<p style="margin-bottom: 10px;">The turning point occurs when $\dot{y} = 0$, which corresponds to $2 - y = 0 \implies y = 2$.</p>
-<p style="margin-bottom: 10px;">At $y = 2$, $\text{arctanh}(0) = 0$.</p>
-<p style="margin-bottom: 10px;">The time $t_1$ required to reach the turning point is:</p>
-<div class="math-block">$$ 0 = -\sqrt{\frac{3g}{2a}}\,t_1 + \text{arctanh}\left(\frac{1}{\sqrt{3}}\right) \implies t_1 = \sqrt{\frac{2a}{3g}}\text{arctanh}\left(\frac{1}{\sqrt{3}}\right) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">5. Stage 2: Reflected Motion towards the Barrier ($t &gt; t_1$)</h4>
-<p style="margin-bottom: 10px;">At $y = 2$, the force acting on the particle is:</p>
-<div class="math-block">$$ F_x(2a) = -\frac{dV}{dx}(2a) = -\frac{3mg}{a^2}(4a^2 - a^2) = -9mg &lt; 0 $$</div>
-<p style="margin-bottom: 10px;">Because the force is strictly negative, the particle accelerates to the left, so for $t &gt; t_1$, $\dot{y} &lt; 0$:</p>
-<div class="math-block">$$ \dot{y} = -\sqrt{\frac{2g}{a}}\,(y + 1)\sqrt{2 - y} $$</div>
-<p style="margin-bottom: 10px;">Separating variables from the turning point $(y = 2, t = t_1)$ to $y(t)$:</p>
-<div class="math-block">$$ \int_{2}^{y(t)} \frac{dy}{(y + 1)\sqrt{2 - y}} = -\sqrt{\frac{2g}{a}} \int_{t_1}^t dt' = -\sqrt{\frac{2g}{a}}\,(t - t_1) $$</div>
-<p style="margin-bottom: 10px;">Using the integral formula and noting that at $y = 2$, $\text{arctanh}(0) = 0$:</p>
-<div class="math-block">$$ -\frac{2}{\sqrt{3}}\text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) - 0 = -\sqrt{\frac{2g}{a}}\,(t - t_1) $$</div>
-<p style="margin-bottom: 10px;">Multiply by $-\frac{\sqrt{3}}{2}$:</p>
-<div class="math-block">$$ \text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) = \sqrt{\frac{3g}{2a}}\,(t - t_1) = \sqrt{\frac{3g}{2a}}\,t - \sqrt{\frac{3g}{2a}}\,t_1 $$</div>
-<p style="margin-bottom: 10px;">Since $\sqrt{\frac{3g}{2a}}\,t_1 = \text{arctanh}\left(\frac{1}{\sqrt{3}}\right)$:</p>
-<div class="math-block">$$ \text{arctanh}\left(\sqrt{\frac{2 - y}{3}}\right) = \sqrt{\frac{3g}{2a}}\,t - \text{arctanh}\left(\frac{1}{\sqrt{3}}\right) $$</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the equilibrium points and their stability give the energy landscape. In terms of $y$, $V = mga\left(y^3 - 3y\right)$:</div>
+<div class="math-block">$$ \frac{dV}{dy} = 3mga\left(y^2 - 1\right) = 0 \iff y = \pm 1, \qquad \frac{d^2V}{dy^2} = 6mga\,y $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>$y = +1$ ($x = a$): $V = -2mga$, $V'' = +6mga \gt 0$: local minimum (stable). $y = -1$ ($x = -a$): $V = +2mga$, $V'' = -6mga \lt 0$: local maximum (unstable).</li>
+<li>The force follows from the chain rule, $F = -\dfrac{dV}{dx} = -\dfrac{1}{a}\dfrac{dV}{dy} = -3mg\left(y^2 - 1\right)$ (units of force: $[mg] = \text{N}$).</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Newton's second law:</strong> $ma\ddot{y} = -3mg\left(y^2 - 1\right)$, i.e. $\ddot{y} = -\dfrac{3g}{a}\left(y^2 - 1\right)$ (one unknown, one equation). The energy is a first integral, as in Problem 12.</li>
+<li><strong>Total energy</strong> from the initial state $y = 1$, $\dot{x} = \sqrt{8ga}$:</li>
+</ul>
+<div class="math-block">$$ E = \tfrac{1}{2}m(8ga) + mga(1 - 3) = 4mga - 2mga = 2mga $$</div>
+<p style="margin-bottom: 10px;">It equals the height of the barrier, $V(-a) = +2mga$: the initial energy is exactly the separatrix energy.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Quadrature</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the energy equation gives a separable first-order equation. With $x = ay$:</div>
+<div class="math-block">$$ \tfrac{1}{2}ma^2\dot{y}^2 = E - V = 2mga - mga\left(y^3 - 3y\right) = mga\left(2 + 3y - y^3\right) \implies \dot{y}^2 = \frac{2g}{a}\left(2 + 3y - y^3\right) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Factorisation.</strong> $y = -1$ is a root of $y^3 - 3y - 2$ ($-1 + 3 - 2 = 0$). Dividing by $(y + 1)$: $y^3 - 3y - 2 = (y + 1)\left(y^2 - y - 2\right) = (y + 1)(y + 1)(y - 2)$. Therefore</li>
+</ul>
+<div class="math-block">$$ 2 + 3y - y^3 = -(y + 1)^2(y - 2) = (y + 1)^2(2 - y), \qquad \dot{y}^2 = \frac{2g}{a}(y + 1)^2(2 - y) $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Stage 1: from $y = 1$ to the turning point $y = 2$ ($0 \le t \le t_1$)</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> initially $\dot{y}(0) = +\sqrt{8g/a} \gt 0$ and for $1 \le y \le 2$ both $y + 1$ and $2 - y$ are non-negative, so the positive root is taken. Separating variables and applying Barrow's rule from $y(0) = 1$:</div>
+<div class="math-block">$$ \int_1^{y}\frac{dy'}{(y' + 1)\sqrt{2 - y'}} = \sqrt{\frac{2g}{a}}\int_0^tdt' = \sqrt{\frac{2g}{a}}\,t $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>With the integral of the statement, $\left[-\dfrac{2}{\sqrt{3}}\operatorname{arctanh}\sqrt{\dfrac{2 - y'}{3}}\right]_1^y$, and the lower limit $\sqrt{(2 - 1)/3} = 1/\sqrt{3}$:</li>
+</ul>
+<div class="math-block">$$ -\frac{2}{\sqrt{3}}\operatorname{arctanh}\sqrt{\frac{2 - y}{3}} + \frac{2}{\sqrt{3}}\operatorname{arctanh}\frac{1}{\sqrt{3}} = \sqrt{\frac{2g}{a}}\,t $$</div>
+<p style="margin-bottom: 10px;">Multiplying by $-\sqrt{3}/2$, with $\dfrac{\sqrt{3}}{2}\sqrt{\dfrac{2g}{a}} = \sqrt{\dfrac{3g}{2a}}$:</p>
+<div class="math-block">$$ \boxed{\operatorname{arctanh}\sqrt{\frac{2 - y}{3}} = -\sqrt{\frac{3g}{2a}}\,t + \operatorname{arctanh}\frac{1}{\sqrt{3}}}, \qquad 0 \le t \le t_1 $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Turning point.</strong> The velocity vanishes when $2 - y = 0$, i.e. $x = 2a$, where $\operatorname{arctanh}(0) = 0$:</li>
+</ul>
+<div class="math-block">$$ 0 = -\sqrt{\frac{3g}{2a}}\,t_1 + \operatorname{arctanh}\frac{1}{\sqrt{3}} \implies t_1 = \sqrt{\frac{2a}{3g}}\operatorname{arctanh}\frac{1}{\sqrt{3}} $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Stage 2: return motion ($t \gt t_1$)</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> at $x = 2a$ the force is $F = -3mg\left(4 - 1\right) = -9mg \lt 0$, so the particle turns back and $\dot{y} \lt 0$. The negative root is taken and the integral restarts at $(y = 2, t = t_1)$:</div>
+<div class="math-block">$$ \int_2^y\frac{dy'}{(y' + 1)\sqrt{2 - y'}} = -\sqrt{\frac{2g}{a}}\int_{t_1}^tdt' = -\sqrt{\frac{2g}{a}}\,(t - t_1) $$</div>
+<div class="math-block">$$ -\frac{2}{\sqrt{3}}\operatorname{arctanh}\sqrt{\frac{2 - y}{3}} - 0 = -\sqrt{\frac{2g}{a}}\,(t - t_1) \implies \operatorname{arctanh}\sqrt{\frac{2 - y}{3}} = \sqrt{\frac{3g}{2a}}\,(t - t_1) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Since $\sqrt{3g/(2a)}\,t_1 = \operatorname{arctanh}\left(1/\sqrt{3}\right)$:</li>
+</ul>
+<div class="math-block">$$ \boxed{\operatorname{arctanh}\sqrt{\frac{2 - y}{3}} = \sqrt{\frac{3g}{2a}}\,t - \operatorname{arctanh}\frac{1}{\sqrt{3}}}, \qquad t \ge t_1 $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Position as a function of time</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> inverting both branches ($\sqrt{(2 - y)/3} = \tanh(\cdot)$, then squaring) gives one function, because $\tanh^2$ is even:</div>
+<div class="math-block">$$ \boxed{x(t) = a\,y(t) = a\left[2 - 3\tanh^2\left(\sqrt{\frac{3g}{2a}}\,t - \operatorname{arctanh}\frac{1}{\sqrt{3}}\right)\right]} \qquad \text{for all } t \ge 0 $$</div>
+<p style="margin-bottom: 10px;">At $t = 0$, $\tanh\left(-\operatorname{arctanh}(1/\sqrt{3})\right) = -1/\sqrt{3}$ and $x(0) = a\left(2 - 3\cdot\tfrac{1}{3}\right) = a$; at $t = t_1$, $x = 2a$; and as $t \to \infty$, $\tanh^2 \to 1$ and $x \to -a$.</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Asymptotic Behavior as $t \to \infty$:</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">As $t \to \infty$, the right-hand side approaches $+\infty$. Because $\text{arctanh}(u) \to +\infty$ as $u \to 1^-$:</p>
-<div class="math-block">$$ \sqrt{\frac{2 - y}{3}} \to 1 \implies \frac{2 - y}{3} \to 1 \implies 2 - y \to 3 \implies y \to -1 $$</div>
-<p style="margin-bottom: 10px;">Consequently, $x(t) = a y(t) \to -a$.</p>
-<p style="margin-bottom: 10px;">The particle asymptotically approaches the unstable potential barrier at $x = -a$ over an infinite duration, never crossing it.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Maximum / Terminal Speed Verification:</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">During the return motion, the particle passes back through the potential minimum $x = a$ ($y = 1$), where its speed returns to its maximum value:</p>
-<div class="math-block">$$ v = \sqrt{\frac{2}{m}[E - V(a)]} = \sqrt{\frac{2}{m}[2mga - (-2mga)]} = \sqrt{\frac{8mga}{m}} = \sqrt{8ga} $$</div>
-<p style="margin-bottom: 10px;">which corresponds to the characteristic speed referenced in Problems.pdf page 72.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[\dot{y}^2] = [2g/a] = \text{s}^{-2}$, the argument of $\text{arctanh}$ is dimensionless, and $[t_1] = \sqrt{[a]/[g]} = \text{s}$.</li>
-<li><strong>Numerical check (RK4, step $10^{-5}$, $g = a = 1$):</strong> integrating $\ddot{y} = -(3g/a)(y^2 - 1)$ from $y = 1$, $\dot{y} = \sqrt{8g/a}$ gives the turning point $y = 2$ at $t = 0.53765\sqrt{a/g}$, in agreement with $t_1 = \sqrt{2a/(3g)}\,\text{arctanh}(1/\sqrt{3}) = 0.537646\sqrt{a/g}$, and $y(0.3) = 1.759553$ in agreement with the closed form $y = 2 - 3\tanh^2\left(\operatorname{arctanh}(1/\sqrt{3}) - \sqrt{3g/(2a)}\,t\right) = 1.759553$.</li>
+<li><strong>Asymptotic behaviour ($t \to \infty$):</strong> the right-hand side of the Stage 2 equation grows without bound, and $\operatorname{arctanh}(u) \to +\infty$ only as $u \to 1^-$. So $\sqrt{(2 - y)/3} \to 1$, i.e. $2 - y \to 3$ and $y \to -1$: the particle approaches the unstable maximum $x = -a$ asymptotically in infinite time and never crosses it. This follows from $E = V(-a)$ (separatrix).</li>
+<li><strong>Return through the well:</strong> at $x = a$ the speed is again $\sqrt{\tfrac{2}{m}\left[E - V(a)\right]} = \sqrt{\tfrac{2}{m}\left[2mga + 2mga\right]} = \sqrt{8ga}$.</li>
+<li><strong>Dimensional check:</strong> $[\dot{y}^2] = [2g/a] = \text{s}^{-2}$, the argument of $\operatorname{arctanh}$ is dimensionless, and $[t_1] = \sqrt{[a]/[g]} = \text{s}$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> gives exactly the two branches above, $\operatorname{arctanh}\sqrt{(2 - y)/3} = -\sqrt{3g/(2a)}\,t + \operatorname{arctanh}(1/\sqrt{3})$ for $0 \lt t \lt t_1$ and its mirror for $t \gt t_1$, and the initial speed $\sqrt{8ga}$ (which it calls the terminal velocity). Numerical integration of $\ddot{y} = -(3g/a)\left(y^2 - 1\right)$ with $g = a = 1$ reproduces the closed form to $10^{-8}$ ($y(0.3) = 1.759553$, turning point $y = 2$ at $t_1 = 0.537646$, $y(2) = -0.683994$).</li>
 </ul>
 </div>
         </div>
@@ -1038,111 +899,60 @@ $$ V(x) = mgx\left[\left(\frac{x}{a}\right)^2 - 3\right] $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle of mass $m$ moves along the $Ox$ axis under a position-dependent non-linear force:</li>
-</ul>
-<div class="math-block">$$ \mathbf{F}(x) = mK x e^{x/a}\mathbf{i} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Initial State:</strong> At $t = 0$, the particle starts from $x(0) = a$ with initial velocity directed towards the negative axis:</li>
-</ul>
-<div class="math-block">$$ \mathbf{v}(0) = -v_0\mathbf{i} \implies \dot{x}(0) = -v_0 &lt; 0 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Parameters:</strong> $m &gt; 0$ [kg], $K &gt; 0$ [s$^{-2}$], $a &gt; 0$ [m], $v_0 &gt; 0$ [m/s].</li>
+<li><strong>System:</strong> a particle of mass $m$ on the $Ox$ axis under $\mathbf{F}(x) = mKxe^{x/a}\,\mathbf{i}$ ($K \gt 0$, $a \gt 0$), starting at $x(0) = a$ with $\dot{x}(0) = -v_0$ ($v_0 \gt 0$).</li>
+<li><strong>Constraints:</strong> motion along the axis (smooth guide); $\text{CDOF} = 1$, coordinate $x$.</li>
+<li><strong>Parameters:</strong> $m$ [kg], $K$ [s$^{-2}$], $a$ [m], $v_0$ [m/s].</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial Frame:</strong> Fixed Cartesian frame $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$.</li>
-<li><strong>Potential Energy Calculation via Integration by Parts:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{i}$ along the axis.</li>
 </ul>
-<p style="margin-bottom: 10px;"><strong>Pedagogical Justification:</strong> The force is 1D and depends only on $x$, so $\mathbf{F} = -\frac{dV}{dx}\mathbf{i}$. To find $V(x)$, we perform integration by parts on $\int x e^{x/a}\,dx$.</p>
-<div class="math-block">$$ V(x) = -\int F(x)\,dx = -mK \int x e^{x/a}\,dx $$</div>
-<p style="margin-bottom: 10px;">Let:</p>
-<div class="math-block">$$ u = x \implies du = dx $$</div>
-<div class="math-block">$$ dv = e^{x/a}\,dx \implies v = a e^{x/a} $$</div>
-<p style="margin-bottom: 10px;">Applying the integration by parts formula $\int u\,dv = uv - \int v\,du$:</p>
-<div class="math-block">$$ \int x e^{x/a}\,dx = a x e^{x/a} - \int a e^{x/a}\,dx = a x e^{x/a} - a^2 e^{x/a} = a^2 e^{x/a}\left(\frac{x}{a} - 1\right) $$</div>
-<p style="margin-bottom: 10px;">Therefore:</p>
-<div class="math-block">$$ V(x) = -mKa^2 e^{x/a}\left(\frac{x}{a} - 1\right) + C $$</div>
-<p style="margin-bottom: 10px;">We choose the arbitrary integration constant $C = 0$ so that at the initial position $x = a$:</p>
-<div class="math-block">$$ V(a) = -mKa^2 e^{1}(1 - 1) = 0 $$</div>
-<p style="margin-bottom: 10px;">This normalizes the potential so that $V(a) = 0$.</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Topography of the Potential $V(x)$</h4>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>First derivative:</li>
+<li><strong>Applied force:</strong> $\mathbf{F}(x) = mKxe^{x/a}\,\mathbf{i}$, which depends only on $x$ and is therefore conservative. <strong>Constraint forces:</strong> perpendicular to $Ox$. <strong>Inertia forces:</strong> none.</li>
+<li><strong>Potential by integration by parts.</strong> $V(x) = -\int F\,dx = -mK\int xe^{x/a}\,dx$. With $u = x$, $du = dx$, $dv = e^{x/a}dx$, $v = ae^{x/a}$, and $\int u\,dv = uv - \int v\,du$:</li>
 </ul>
-<div class="math-block">$$ \frac{dV}{dx} = -F(x) = -mK x e^{x/a} $$</div>
-<p style="margin-bottom: 10px;">Setting $\frac{dV}{dx} = 0$ yields a single critical point at $x = 0$.</p>
+<div class="math-block">$$ \int xe^{x/a}dx = axe^{x/a} - \int ae^{x/a}dx = axe^{x/a} - a^2e^{x/a} = a^2e^{x/a}\left(\frac{x}{a} - 1\right) $$</div>
+<div class="math-block">$$ V(x) = -mKa^2e^{x/a}\left(\frac{x}{a} - 1\right) \qquad \left(C = 0 \text{ in the primitive, so that } V(a) = 0\right) $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Second derivative:</li>
+<li><strong>Landscape.</strong> $\dfrac{dV}{dx} = -F = -mKxe^{x/a}$ vanishes only at $x = 0$. The second derivative, with the product rule, is $\dfrac{d^2V}{dx^2} = -mKe^{x/a}\left(1 + \dfrac{x}{a}\right)$, so $V''(0) = -mK \lt 0$: a local maximum with $V(0) = mKa^2$ (barrier). Also $V(-\infty) = 0$ (since $e^{x/a} \to 0$) and $V \to -\infty$ as $x \to +\infty$.</li>
 </ul>
-<div class="math-block">$$ \frac{d^2V}{dx^2} = -mK \frac{d}{dx}(x e^{x/a}) = -mK\left(e^{x/a} + \frac{x}{a}e^{x/a}\right) = -mK e^{x/a}\left(1 + \frac{x}{a}\right) $$</div>
-<p style="margin-bottom: 10px;">At $x = 0$:</p>
-<div class="math-block">$$ \frac{d^2V}{dx^2}(0) = -mK(1) = -mK &lt; 0 \implies \mathbf{Local\;Maximum} $$</div>
-<p style="margin-bottom: 10px;">The value of the potential barrier at the origin is:</p>
-<div class="math-block">$$ V_{max} = V(0) = -mKa^2 e^0 (0 - 1) = +mKa^2 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Asymptotic behaviors:</li>
-<li>As $x \to -\infty$: $e^{x/a} \to 0$, so $V(-\infty) = 0$.</li>
-<li>As $x \to +\infty$: $-mKa^2 e^{x/a}(x/a - 1) \to -\infty$.</li>
+<li><strong>Newton's second law:</strong> $m\ddot{x} = mKxe^{x/a}$. The energy is a first integral: $E = \tfrac{1}{2}m\dot{x}^2 + V(x)$. At $t = 0$, $V(a) = 0$, so</li>
 </ul>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Total Mechanical Energy $E$</h4>
-<p style="margin-bottom: 10px;">Since $V(a) = 0$, the total energy of the particle is entirely kinetic at $t = 0$:</p>
-<div class="math-block">$$ E = T(0) + V(a) = \frac{1}{2}m v_0^2 + 0 = \frac{1}{2}m v_0^2 $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Determination of the Critical Velocity $v_{0,crit}$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The particle is launched leftwards from $x = a &gt; 0$ towards the barrier at $x = 0$. To reach the summit of the barrier at $x = 0$, its total mechanical energy must at least equal the barrier height $V(0)$:</div>
-<div class="math-block">$$ E = V(0) \implies \frac{1}{2}m v_{0,crit}^2 = mKa^2 $$</div>
-<p style="margin-bottom: 10px;">Multiplying by $2/m$:</p>
-<div class="math-block">$$ v_{0,crit}^2 = 2Ka^2 \implies v_{0,crit} = a\sqrt{2K} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Classification of Motion Regimes</h4>
-<p style="margin-bottom: 10px;">1. <strong>Regime 1: $v_0 &lt; a\sqrt{2K}$ ($E &lt; V(0)$)</strong></p>
+<div class="math-block">$$ E = \tfrac{1}{2}mv_0^2 $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Critical velocity</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the particle starts at $x = a \gt 0$ moving toward the barrier at $x = 0$. It can reach the top of the barrier only if its energy is at least the barrier height, $E \ge V(0)$:</div>
+<div class="math-block">$$ \tfrac{1}{2}mv_{0,\text{crit}}^2 = mKa^2 \implies v_{0,\text{crit}} = a\sqrt{2K} $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Classification of the motion</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The initial kinetic energy is insufficient to overcome the potential barrier at $x = 0$.</li>
-<li>As the particle moves towards the origin, it decelerates because $F(x) = mK x e^{x/a} &gt; 0$ for all $x &gt; 0$.</li>
-<li>The particle comes to a momentary stop at a turning point $x_{turn} \in (0, a)$, where $V(x_{turn}) = E$.</li>
-<li>Since $F(x_{turn}) &gt; 0$, it is accelerated back towards the positive direction, passes $x = a$, and accelerates indefinitely towards $+\infty$.</li>
-<li><strong>Conclusion:</strong> The particle decelerates before arriving at $x = 0$, stops, and moves towards $+\infty$.</li>
+<li><strong>Regime 1, $v_0 \lt a\sqrt{2K}$ ($E \lt V(0)$).</strong> The kinetic energy is not enough to overcome the barrier: $V$ is strictly decreasing on $(0, a)$ ($V' = -mKxe^{x/a} \lt 0$) from $V(0) = mKa^2 \gt E$ down to $V(a) = 0 \lt E$ (since $v_0 \gt 0$), so there is exactly one point $x_{\text{turn}} \in (0, a)$ with $V(x_{\text{turn}}) = E$. For $x \gt 0$ the force is positive, $F = mKxe^{x/a} \gt 0$, so the particle decelerates while approaching the origin, stops at a turning point $x_{\text{turn}} \in (0, a)$ where $V(x_{\text{turn}}) = E$, and is accelerated back toward $+x$ ($F(x_{\text{turn}}) \gt 0$). It passes $x = a$ and moves toward $+\infty$.</li>
+<li><strong>Regime 2, $v_0 = a\sqrt{2K}$ ($E = V(0)$).</strong> The energy equals the barrier height. Near $x = 0$, $V(x) \approx V(0) + V'(0)x + \tfrac{1}{2}V''(0)x^2 = mKa^2 - \tfrac{1}{2}mKx^2$, so with $E = V(0)$:</li>
 </ul>
-<p style="margin-bottom: 10px;">2. <strong>Regime 2: $v_0 = a\sqrt{2K}$ ($E = V(0)$)</strong></p>
+<div class="math-block">$$ \dot{x} = -\sqrt{\frac{2}{m}\left[V(0) - V(x)\right]} \approx -\sqrt{\frac{2}{m}\cdot\frac{1}{2}mKx^2} = -\sqrt{K}\,x $$</div>
+<p style="margin-bottom: 10px;">Separating variables, the time to go from a point $x_1$ already close to the origin (where the quadratic approximation holds) to a point $x$ nearer still follows from Barrow's rule: $\int_{x_1}^{x}\dfrac{dx'}{x'} = \left[\ln x'\right]_{x_1}^{x} = \ln\dfrac{x}{x_1} = -\sqrt{K}\,t$, i.e. $t = \dfrac{1}{\sqrt{K}}\ln\dfrac{x_1}{x}$, which diverges as $x \to 0$. The particle needs <strong>infinite time</strong> to reach $x = 0$ (it approaches it asymptotically; the barrier top is an unstable equilibrium).</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The particle has precisely the energy needed to reach the top of the barrier at $x = 0$.</li>
-<li>Near $x = 0$, Taylor expanding the potential:</li>
-</ul>
-<div class="math-block">$$ V(x) \approx V(0) + V'(0)x + \frac{1}{2}V''(0)x^2 = mKa^2 - \frac{1}{2}mK x^2 $$</div>
-<p style="margin-bottom: 10px;">The velocity as a function of position is:</p>
-<div class="math-block">$$ \dot{x} = -\sqrt{\frac{2}{m}[E - V(x)]} \approx -\sqrt{\frac{2}{m}\left[ mKa^2 - \left(mKa^2 - \frac{1}{2}mK x^2\right) \right]} = -\sqrt{K}\,x $$</div>
-<p style="margin-bottom: 10px;">Separating variables to find the transit time to $x = 0$:</p>
-<div class="math-block">$$ \int_{a}^{0} \frac{dx}{x} = -\sqrt{K}\int_0^t dt' \implies [\ln x]_a^0 = -\infty $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Conclusion:</strong> The transit time diverges logarithmically. The particle takes <strong>infinite time</strong> to reach $x = 0$ (it asymptotically approaches $x = 0$ without ever reaching it).</li>
-</ul>
-<p style="margin-bottom: 10px;">3. <strong>Regime 3: $v_0 &gt; a\sqrt{2K}$ ($E &gt; V(0)$)</strong></p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The initial energy exceeds the barrier height $V(0)$.</li>
-<li>The particle reaches $x = 0$ with residual speed:</li>
-</ul>
-<div class="math-block">$$ v(0) = \sqrt{\frac{2}{m}[E - V(0)]} = \sqrt{v_0^2 - 2Ka^2} &gt; 0 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Upon crossing into $x &lt; 0$, the force becomes negative ($F(x) = mK x e^{x/a} &lt; 0$ for $x &lt; 0$), accelerating the particle further to the left.</li>
-<li><strong>Conclusion:</strong> The particle crosses the origin and moves towards $-\infty$.</li>
+<li><strong>Regime 3, $v_0 \gt a\sqrt{2K}$ ($E \gt V(0)$).</strong> The particle reaches $x = 0$ with the speed $\sqrt{\tfrac{2}{m}\left[E - V(0)\right]} = \sqrt{v_0^2 - 2Ka^2} \gt 0$. For $x \lt 0$ the force $F = mKxe^{x/a}$ is negative, so it keeps accelerating toward $-x$ and goes to $-\infty$ (as $x \to -\infty$, $V \to 0$ and the speed tends to $v_0$, the speed it had at $x = a$ because $V(a) = 0$ too).</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Compare with the official solution key (Problems.pdf, Solution keys section):</li>
-<li>If $v_0 &gt; a\sqrt{2K}$, particle moves towards $-\infty$.</li>
-<li>If $v_0 &lt; a\sqrt{2K}$, particle moves towards $+\infty$ after decelerating before arriving to $x = 0$.</li>
-<li>If $v_0 = a\sqrt{2K}$, particle takes infinite time to reach $x = 0$.</li>
-<li>Dimensional verification: $[v_{0,crit}] = [a]\sqrt{[K]} = \text{m}\cdot\sqrt{\text{s}^{-2}} = \text{m}/\text{s}$. Correct.</li>
-<li><strong>Dimensional check of the barrier:</strong> $[mKa^2] = \text{kg}\cdot\text{s}^{-2}\cdot\text{m}^2 = \text{J}$, the same as $\tfrac{1}{2}mv_0^2$, so $v_0^2/(2Ka^2)$ is dimensionless and decides the regime.</li>
-<li><strong>Limits:</strong> for $K \to 0$ the force vanishes, $v_{0,crit} \to 0$ and every $v_0 &gt; 0$ crosses the origin (free particle); for $v_0 \gg a\sqrt{2K}$ the barrier is negligible, $v(0) \to v_0$.</li>
-<li><strong>Numerical check (RK4, step $10^{-4}$, $m = K = a = 1$, $v_{0,crit} = 1.41421$):</strong> for $v_0 = 1.2$ the particle turns at $x = 0.60801$ (root of $-e^{x}(x - 1) = 0.72$ is $0.608007$) and returns to $+\infty$; for $v_0 = 1.6$ it crosses the origin and reaches $x = -6$ with $\dot{x} = -1.5891$, equal to $-\sqrt{2(E - V(-6))} = -1.5891$ from energy conservation.</li>
+<li><strong>Dimensional check:</strong> $[v_{0,\text{crit}}] = [a]\sqrt{[K]} = \text{m}\cdot\text{s}^{-1}$; $[mKa^2] = \text{kg s}^{-2}\text{m}^2 = \text{J}$, like $\tfrac{1}{2}mv_0^2$.</li>
+<li><strong>Limits:</strong> for $K \to 0$ the force vanishes, $v_{0,\text{crit}} \to 0$ and every $v_0 \gt 0$ crosses the origin (free particle); for $v_0 \gg a\sqrt{2K}$ the barrier is negligible and $v(0) \to v_0$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> states: if $v_0 \gt a\sqrt{2K}$ the particle moves toward $-\infty$; if $v_0 \lt a\sqrt{2K}$ it moves toward $+\infty$ after decelerating before $x = 0$; if $v_0 = a\sqrt{2K}$ it takes infinite time to reach $x = 0$. These are the three regimes above.</li>
+<li><strong>Computational check (extension, not a course tool)</strong> (DOP853, $m = K = a = 1$, $v_{0,\text{crit}} = 1.41421$): for $v_0 = 1.2$ the particle turns at $x = 0.60801$ (the root of $-e^x(x - 1) = 0.72$ is $0.608007$) and returns to $+\infty$; for $v_0 = 1.6$ it crosses the origin; for $v_0 = 0.999999\,v_{0,\text{crit}}$ it turns at $x = 0.002$ very close to the top of the barrier.</li>
 </ul>
 </div>
         </div>
@@ -1165,7 +975,7 @@ $$ V(x) = mgx\left[\left(\frac{x}{a}\right)^2 - 3\right] $$
         <span class="problem-badge">Viscous Aerodynamics</span>
       </div>
       <div class="problem-statement">
-<p>The Stokes' law states that the magnitude of the drag force acting on a sphere of radius $r$ and velocity $v$ moving in a fluid at rest of dynamic viscosity $\mu$ is: $F(v) = 6\pi\mu rv$. Assuming the density of a vertically-falling sphere is twice the density of the fluid ($\rho_0$), and considering drag, the weight, and the buoyancy of the sphere, compute:</p>
+<p>The Stokes' law states that the magnitude of the drag force acting on a sphere of radius $r$ and velocity $v$ moving on a fluid at rest of dynamic viscosity $\mu$ is: $F(v) = 6\pi\mu rv$. Assuming the density of a vertically-falling sphere is twice the density of the fluid ($\rho_0$), and considering drag, the weight, and the buoyancy of the sphere, compute:</p>
       </div>
       <ul class="questions-list">
 <li class="question-item">
@@ -1189,103 +999,69 @@ $$ V(x) = mgx\left[\left(\frac{x}{a}\right)^2 - 3\right] $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A solid sphere of radius $r$ and density $\rho_s$ falls vertically from rest through a quiescent fluid of density $\rho_0$ and dynamic viscosity $\mu$.</li>
-<li><strong>Forces Acting on the Sphere:</strong></li>
+<li><strong>System:</strong> a sphere of radius $r$ and density $\rho_s = 2\rho_0$ falls vertically from rest in a fluid at rest of density $\rho_0$ and dynamic viscosity $\mu$. The forces are the weight, the buoyancy and the Stokes drag $F_D = 6\pi\mu rv$ (as the statement says; unsteady and added-mass effects are not considered).</li>
+<li><strong>Constraints:</strong> the motion is vertical (the sphere does not rotate or drift sideways); $\text{CDOF} = 1$, with the coordinate $x$ measured downward from the release point.</li>
+<li><strong>Initial conditions:</strong> $x(0) = 0$, $\dot{x}(0) = 0$.</li>
+<li><strong>Relations:</strong> volume $V = \tfrac{4}{3}\pi r^3$; mass $m = \rho_sV = \tfrac{8}{3}\pi\rho_0r^3$; kinematic viscosity $\nu = \mu/\rho_0$, so $\mu = \rho_0\nu$.</li>
 </ul>
-<p style="margin-bottom: 10px;">1. Gravity (Weight): $W = m g = \rho_s V g$, acting downwards.</p>
-<p style="margin-bottom: 10px;">2. Buoyancy (Archimedes' Principle): $F_B = \rho_0 V g$, acting upwards.</p>
-<p style="margin-bottom: 10px;">3. Stokes Viscous Drag: $F_D = 6\pi \mu r v$, acting upwards (opposing downward motion $v &gt; 0$).</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Geometric &amp; Material Relations:</strong></li>
-<li>Sphere volume: $V = \frac{4}{3}\pi r^3$.</li>
-<li>Given sphere density: $\rho_s = 2\rho_0$.</li>
-<li>Sphere mass: $m = \rho_s V = 2\rho_0 \left(\frac{4}{3}\pi r^3\right) = \frac{8}{3}\pi \rho_0 r^3$.</li>
-<li>Fluid kinematic viscosity: $\nu = \frac{\mu}{\rho_0} \implies \mu = \rho_0 \nu$.</li>
-<li><strong>Initial Conditions:</strong></li>
-</ul>
-<div class="math-block">$$ x(0) = 0, \qquad v(0) = \dot{x}(0) = 0 $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Frame:</strong> Fixed Cartesian frame with the vertical axis $Ox$ directed <strong>downwards</strong> along gravity.</li>
-<li><strong>Resultant Force:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0$ fixed to the fluid, with $Ox$ pointing downward along gravity ($\mathbf{i}$ downward); constant unit vectors.</li>
 </ul>
-<div class="math-block">$$ \sum F_x = W - F_B - F_D $$</div>
-<p style="margin-bottom: 10px;">Substitute the expressions for each force:</p>
-<div class="math-block">$$ W = \left(\frac{8}{3}\pi \rho_0 r^3\right) g $$</div>
-<div class="math-block">$$ F_B = \rho_0 \left(\frac{4}{3}\pi r^3\right) g = \frac{4}{3}\pi \rho_0 r^3 g = \frac{1}{2} W $$</div>
-<div class="math-block">$$ F_D = 6\pi \mu r \dot{x} = 6\pi (\rho_0 \nu) r \dot{x} $$</div>
-<p style="margin-bottom: 10px;">Net buoyancy-corrected gravitational force:</p>
-<div class="math-block">$$ W - F_B = \frac{8}{3}\pi \rho_0 r^3 g - \frac{4}{3}\pi \rho_0 r^3 g = \frac{4}{3}\pi \rho_0 r^3 g = \frac{1}{2}mg $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Derivation of the Equation of Motion</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Applying Newton's second law $\sum F_x = m\ddot{x}$ establishes a linear first-order ODE in velocity $v = \dot{x}$.</div>
-<div class="math-block">$$ m \ddot{x} = (W - F_B) - F_D $$</div>
-<div class="math-block">$$ \left(\frac{8}{3}\pi \rho_0 r^3\right) \ddot{x} = \frac{4}{3}\pi \rho_0 r^3 g - 6\pi \rho_0 \nu r \dot{x} $$</div>
-<p style="margin-bottom: 10px;">Divide both sides by $\frac{8}{3}\pi \rho_0 r^3$:</p>
-<div class="math-block">$$ \ddot{x} = \frac{\frac{4}{3}\pi \rho_0 r^3 g}{\frac{8}{3}\pi \rho_0 r^3} - \frac{6\pi \rho_0 \nu r}{\frac{8}{3}\pi \rho_0 r^3}\,\dot{x} $$</div>
-<p style="margin-bottom: 10px;">Simplify each fraction:</p>
-<div class="math-block">$$ \frac{\frac{4}{3}}{\frac{8}{3}} = \frac{1}{2} \implies \text{First term: } \frac{1}{2}g $$</div>
-<div class="math-block">$$ \frac{6\pi \rho_0 \nu r}{\frac{8}{3}\pi \rho_0 r^3} = 6 \cdot \frac{3}{8}\,\frac{\nu}{r^2} = \frac{18}{8}\,\frac{\nu}{r^2} = \frac{9\nu}{4r^2} $$</div>
-<p style="margin-bottom: 10px;">Therefore, the differential equation reads:</p>
-<div class="math-block">$$ \ddot{x} + \frac{9\nu}{4r^2}\,\dot{x} = \frac{1}{2}g $$</div>
-<p style="margin-bottom: 10px;">Multiplying through by $4r^2$:</p>
-<div class="math-block">$$ 4r^2 \ddot{x} + 9\nu \dot{x} = 2r^2 g $$</div>
-<p style="margin-bottom: 10px;">Compare with the official equation of motion in the official solution key (Problems.pdf, Solution keys section).</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Computation of Terminal Velocity $v_t$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The terminal velocity is reached when the viscous drag balances the effective weight, so acceleration ceases ($\ddot{x} = 0$).</div>
-<div class="math-block">$$ 4r^2(0) + 9\nu v_t = 2r^2 g \implies v_t = \frac{2r^2 g}{9\nu} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Analytical Integration for Velocity $v(t)$</h4>
-<p style="margin-bottom: 10px;">Let $\gamma = \frac{9\nu}{4r^2}$ be the characteristic inverse relaxation time ($[\gamma] = \text{s}^{-1}$).</p>
-<p style="margin-bottom: 10px;">The ODE becomes:</p>
-<div class="math-block">$$ \dot{v} + \gamma v = \frac{1}{2}g = \gamma v_t $$</div>
-<div class="math-block">$$ \frac{dv}{dt} = -\gamma(v - v_t) \implies \frac{dv}{v - v_t} = -\gamma\,dt $$</div>
-<p style="margin-bottom: 10px;">Integrate with initial condition $v(0) = 0$:</p>
-<div class="math-block">$$ \int_{0}^{v(t)} \frac{dv'}{v' - v_t} = -\gamma \int_{0}^t dt' $$</div>
-<div class="math-block">$$ \left[ \ln|v' - v_t| \right]_0^{v(t)} = -\gamma t $$</div>
-<div class="math-block">$$ \ln\left(\frac{v_t - v(t)}{v_t}\right) = -\gamma t $$</div>
-<p style="margin-bottom: 10px;">Exponentiate both sides:</p>
-<div class="math-block">$$ 1 - \frac{v(t)}{v_t} = e^{-\gamma t} \implies v(t) = v_t\left(1 - e^{-\gamma t}\right) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Analytical Integration for Position $x(t)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Position is the direct integral of velocity over time, $x(t) = \int_0^t v(t')\,dt'$ with $x(0) = 0$.</div>
-<div class="math-block">$$ x(t) = \int_{0}^t v_t\left(1 - e^{-\gamma t'}\right)dt' = v_t \left[ t' + \frac{1}{\gamma}e^{-\gamma t'} \right]_0^t $$</div>
-<p style="margin-bottom: 10px;">Evaluate at upper and lower limits:</p>
-<div class="math-block">$$ x(t) = v_t \left( t + \frac{1}{\gamma}e^{-\gamma t} - \left(0 + \frac{1}{\gamma}\right) \right) = v_t \left( t - \frac{1}{\gamma} + \frac{1}{\gamma}e^{-\gamma t} \right) $$</div>
-<p style="margin-bottom: 10px;">Factor out $\frac{1}{\gamma}$:</p>
-<div class="math-block">$$ x(t) = \frac{v_t}{\gamma}\left[ \gamma t - 1 + e^{-\gamma t} \right] $$</div>
-<p style="margin-bottom: 10px;">Now substitute $v_t = \frac{2r^2 g}{9\nu}$ and $\gamma = \frac{9\nu}{4r^2}$:</p>
-<div class="math-block">$$ \frac{v_t}{\gamma} = \frac{\frac{2r^2 g}{9\nu}}{\frac{9\nu}{4r^2}} = \frac{2r^2 g}{9\nu} \cdot \frac{4r^2}{9\nu} = \frac{8r^4 g}{81\nu^2} $$</div>
-<p style="margin-bottom: 10px;">Rewrite $\frac{v_t}{\gamma}[\gamma t - 1 + e^{-\gamma t}]$:</p>
-<div class="math-block">$$ x(t) = \frac{8r^4 g}{81\nu^2}\left[ \frac{9\nu}{4r^2}t - 1 + e^{-\frac{9\nu}{4r^2}t} \right] $$</div>
-<p style="margin-bottom: 10px;">Multiply the inside by $4r^2$ and divide the outside prefactor by $4r^2$:</p>
-<div class="math-block">$$ \frac{8r^4 g}{81\nu^2} = \frac{2r^2 g}{81\nu^2} \cdot 4r^2 $$</div>
-<div class="math-block">$$ x(t) = \frac{2r^2 g}{81\nu^2}\left[ 4r^2\left(\frac{9\nu}{4r^2}t\right) - 4r^2 + 4r^2 e^{-\frac{9\nu}{4r^2}t} \right] $$</div>
-<div class="math-block">$$ x(t) = \frac{2r^2 g}{81\nu^2}\left[ -4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t \right] $$</div>
-<p style="margin-bottom: 10px;">Compare with the closed-form solution in the official solution key (Problems.pdf, Solution keys section).</p>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> three forces act along $Ox$ (positive downward). The drag opposes the motion, which is downward ($\dot{x} \gt 0$), so it points upward.</div>
+<div class="math-block">$$ W = mg = \tfrac{8}{3}\pi\rho_0r^3g \ (\downarrow), \qquad F_B = \rho_0Vg = \tfrac{4}{3}\pi\rho_0r^3g = \tfrac{1}{2}W \ (\uparrow), \qquad F_D = 6\pi\mu r\dot{x} = 6\pi\rho_0\nu r\dot{x} \ (\uparrow) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Net weight corrected by buoyancy:</strong> $W - F_B = \tfrac{4}{3}\pi\rho_0r^3g = \tfrac{1}{2}mg$. <strong>Inertia forces:</strong> none.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Newton's second law along $Ox$:</strong> $m\ddot{x} = W - F_B - F_D$:</li>
+</ul>
+<div class="math-block">$$ \tfrac{8}{3}\pi\rho_0r^3\,\ddot{x} = \tfrac{4}{3}\pi\rho_0r^3g - 6\pi\rho_0\nu r\,\dot{x} $$</div>
+<p style="margin-bottom: 10px;">Dividing by $\tfrac{8}{3}\pi\rho_0r^3$: the first term gives $\dfrac{4/3}{8/3}g = \dfrac{g}{2}$ and the second $\dfrac{6\pi\rho_0\nu r}{(8/3)\pi\rho_0r^3} = 6\cdot\dfrac{3}{8}\cdot\dfrac{\nu}{r^2} = \dfrac{9\nu}{4r^2}$, so</p>
+<div class="math-block">$$ \ddot{x} + \frac{9\nu}{4r^2}\dot{x} = \frac{g}{2} \quad\Longleftrightarrow\quad \boxed{4r^2\ddot{x} + 9\nu\dot{x} = 2r^2g} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>One unknown, $x(t)$, and one linear equation with constant coefficients.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Terminal velocity</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the terminal velocity is reached when the acceleration vanishes ($\ddot{x} = 0$), i.e. when the drag balances the buoyancy-corrected weight:</div>
+<div class="math-block">$$ 9\nu v_t = 2r^2g \implies \boxed{v_t = \frac{2r^2g}{9\nu}} $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Position as a function of time</h5>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Velocity.</strong> Let $\gamma = \dfrac{9\nu}{4r^2}$ ($[\gamma] = \text{s}^{-1}$). Then $\dot{v} + \gamma v = \dfrac{g}{2} = \gamma v_t$, i.e. $\dfrac{dv}{v - v_t} = -\gamma\,dt$. Integrating from $v(0) = 0$ (Barrow):</li>
+</ul>
+<div class="math-block">$$ \int_0^v\frac{dv'}{v' - v_t} = -\gamma\int_0^tdt' \implies \left[\ln|v' - v_t|\right]_0^v = \ln|v - v_t| - \ln|0 - v_t| = \ln\frac{v_t - v}{v_t} = -\gamma t $$</div>
+<p style="margin-bottom: 10px;">(the absolute value is removed because $v \lt v_t$: the net force $m\gamma(v_t - v)$ is positive while $v \lt v_t$, so $v$ increases from $0$, and it cannot reach $v_t$ in finite time because $v \equiv v_t$ is itself a solution and the solutions of this linear equation are unique). Exponentiating, $1 - v/v_t = e^{-\gamma t}$:</p>
+<div class="math-block">$$ v(t) = v_t\left(1 - e^{-\gamma t}\right) \gt 0 \quad \text{for } t \gt 0 $$</div>
+<p style="margin-bottom: 10px;">so $\dot{x} \gt 0$ at all times and the drag indeed points upward, as assumed in 3.2.</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Position.</strong> Integrating the velocity with $x(0) = 0$:</li>
+</ul>
+<div class="math-block">$$ x(t) = \int_0^tv_t\left(1 - e^{-\gamma t'}\right)dt' = v_t\left[t' + \frac{1}{\gamma}e^{-\gamma t'}\right]_0^t = v_t\left(t + \frac{1}{\gamma}e^{-\gamma t} - \frac{1}{\gamma}\right) = \frac{v_t}{\gamma}\left[\gamma t - 1 + e^{-\gamma t}\right] $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Substituting $\dfrac{v_t}{\gamma} = \dfrac{2r^2g}{9\nu}\cdot\dfrac{4r^2}{9\nu} = \dfrac{8r^4g}{81\nu^2}$ and $\gamma = \dfrac{9\nu}{4r^2}$, and writing $\dfrac{8r^4g}{81\nu^2} = \dfrac{2r^2g}{81\nu^2}\cdot 4r^2$ so that $4r^2$ multiplies the bracket:</li>
+</ul>
+<div class="math-block">$$ \boxed{x(t) = \frac{2r^2g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t\right]} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Short Times ($t \ll \gamma^{-1}$):</strong></li>
+<li><strong>Short times ($t \ll \gamma^{-1}$):</strong> with $e^{-\gamma t} \approx 1 - \gamma t + \tfrac{1}{2}\gamma^2t^2$, $x \approx \dfrac{v_t}{\gamma}\cdot\dfrac{1}{2}\gamma^2t^2 = \tfrac{1}{2}(\gamma v_t)t^2 = \tfrac{1}{4}gt^2$: free fall under the effective gravity $g\left(1 - \rho_0/\rho_s\right) = g/2$.</li>
+<li><strong>Long times ($t \gg \gamma^{-1}$):</strong> $x \approx v_tt - v_t/\gamma$, uniform descent at $v_t$ with an offset $v_t/\gamma$.</li>
+<li><strong>Dimensional check:</strong> $[v_t] = \dfrac{\text{m}^2\cdot\text{m s}^{-2}}{\text{m}^2\text{s}^{-1}} = \text{m/s}$ and $[\gamma] = \text{m}^2\text{s}^{-1}/\text{m}^2 = \text{s}^{-1}$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> gives the equation of motion $4r^2\ddot{x} + 9\nu\dot{x} = 2r^2g$ (with $x$ positive downward, initial conditions $x(0) = \dot{x}(0) = 0$) and $x = \frac{2r^2g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t\right]$. Both are identical to the results above. Numerical integration (DOP853, $g = r = \nu = 1$) gives $x(2) = 0.3467762$, equal to the closed form.</li>
 </ul>
-<p style="margin-bottom: 10px;">Expand the exponential $e^{-\gamma t} \approx 1 - \gamma t + \frac{1}{2}\gamma^2 t^2$:</p>
-<div class="math-block">$$ x(t) = \frac{v_t}{\gamma}\left[ \gamma t - 1 + \left(1 - \gamma t + \frac{1}{2}\gamma^2 t^2\right) \right] = \frac{v_t}{\gamma}\left(\frac{1}{2}\gamma^2 t^2\right) = \frac{1}{2}(\gamma v_t)t^2 = \frac{1}{2}\left(\frac{1}{2}g\right)t^2 = \frac{1}{4}gt^2 $$</div>
-<p style="margin-bottom: 10px;">This corresponds to free fall under effective gravity $g_{eff} = g(1 - \rho_0/\rho_s) = g/2$.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Long Times ($t \gg \gamma^{-1}$):</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">The exponential term decays to zero:</p>
-<div class="math-block">$$ x(t) \approx v_t t - \frac{v_t}{\gamma} $$</div>
-<p style="margin-bottom: 10px;">The sphere reaches uniform terminal descent at speed $v_t$ with an apparent positional offset $\Delta x = v_t/\gamma$.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional Verification:</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">$[v_t] = [r^2 g / \nu] = \frac{\text{m}^2 \cdot \text{m}\cdot\text{s}^{-2}}{\text{m}^2\cdot\text{s}^{-1}} = \text{m}/\text{s}$. Correct.</p>
 </div>
         </div>
       </details>
@@ -1322,85 +1098,57 @@ $$ \int \frac{dx}{x_0^2 - x^2} = \frac{1}{x_0}\text{atanh}\left(\frac{x}{x_0}\ri
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A football of mass $m$, frontal cross-sectional area $S$, and aerodynamic drag coefficient $C_D$ falls vertically through air of density $\rho$.</li>
-<li><strong>Forces:</strong></li>
+<li><strong>System:</strong> a football of mass $m$, frontal area $S$ and drag coefficient $C_D$ falls vertically through air of density $\rho$. Only gravity and the quadratic drag $D = \tfrac{1}{2}\rho v^2SC_D$ act.</li>
+<li><strong>Constraints:</strong> vertical motion; $\text{CDOF} = 1$, with the coordinate $s$ measured downward from the release point.</li>
+<li><strong>Initial conditions:</strong> $s(0) = 0$, $v(0) = 0$. The statement gives $\displaystyle\int\frac{dx}{x_0^2 - x^2} = \frac{1}{x_0}\operatorname{atanh}\frac{x}{x_0}$ and $\int\tanh x\,dx = \ln\cosh x$.</li>
 </ul>
-<p style="margin-bottom: 10px;">1. Gravity: $W = mg$ downwards.</p>
-<p style="margin-bottom: 10px;">2. Aerodynamic Quadratic Drag: $D = \frac{1}{2}\rho v^2 S C_D$ upwards (opposing downward velocity $v &gt; 0$).</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Initial Conditions:</strong> Released from rest at the coordinate origin:</li>
-</ul>
-<div class="math-block">$$ s(0) = 0, \qquad v(0) = 0 $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Provided Integration Identities:</strong></li>
-</ul>
-<div class="math-block">$$ \int \frac{dx}{x_0^2 - x^2} = \frac{1}{x_0}\text{atanh}\left(\frac{x}{x_0}\right), \qquad \int \tanh x\,dx = \ln\cosh x $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Frame:</strong> Fixed inertial frame with axis $Os$ pointing vertically downwards.</li>
-<li><strong>Equation of Motion:</strong></li>
+<li><strong>Inertial frame:</strong> fixed to the air, with $Os$ pointing vertically downward.</li>
 </ul>
-<div class="math-block">$$ m \frac{dv}{dt} = mg - \frac{1}{2}\rho S C_D v^2 $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Terminal Velocity $v_t$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> When drag equals weight, the net vertical force is zero, producing steady downward descent at constant terminal velocity $v_t$.</div>
-<div class="math-block">$$ mg = \frac{1}{2}\rho S C_D v_t^2 \implies v_t = \sqrt{\frac{2mg}{\rho S C_D}} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Velocity Evolution $v(t)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Expressing the drag parameter in terms of $v_t$ simplifies the differential equation and allows direct integration via the inverse hyperbolic tangent.</div>
-<p style="margin-bottom: 10px;">From the terminal velocity relation:</p>
-<div class="math-block">$$ \frac{1}{2}\rho S C_D = \frac{mg}{v_t^2} $$</div>
-<p style="margin-bottom: 10px;">Substitute this into the equation of motion:</p>
-<div class="math-block">$$ m \frac{dv}{dt} = mg - \frac{mg}{v_t^2} v^2 = mg \left(1 - \frac{v^2}{v_t^2}\right) = \frac{mg}{v_t^2}(v_t^2 - v^2) $$</div>
-<p style="margin-bottom: 10px;">Divide by $m$:</p>
-<div class="math-block">$$ \frac{dv}{dt} = \frac{g}{v_t^2}(v_t^2 - v^2) $$</div>
-<p style="margin-bottom: 10px;">Separate variables:</p>
-<div class="math-block">$$ \frac{dv}{v_t^2 - v^2} = \frac{g}{v_t^2}\,dt $$</div>
-<p style="margin-bottom: 10px;">Integrate from $v = 0$ at $t = 0$ to $v(t)$:</p>
-<div class="math-block">$$ \int_{0}^{v(t)} \frac{dv'}{v_t^2 - v'^2} = \frac{g}{v_t^2} \int_{0}^t dt' $$</div>
-<p style="margin-bottom: 10px;">Apply the provided integral identity $\int \frac{dv'}{v_t^2 - v'^2} = \frac{1}{v_t}\text{atanh}\left(\frac{v'}{v_t}\right)$:</p>
-<div class="math-block">$$ \left[ \frac{1}{v_t}\text{atanh}\left(\frac{v'}{v_t}\right) \right]_0^{v(t)} = \frac{g}{v_t^2}\,t $$</div>
-<p style="margin-bottom: 10px;">Since $\text{atanh}(0) = 0$:</p>
-<div class="math-block">$$ \frac{1}{v_t}\text{atanh}\left(\frac{v(t)}{v_t}\right) = \frac{g}{v_t^2}\,t \implies \text{atanh}\left(\frac{v(t)}{v_t}\right) = \frac{gt}{v_t} $$</div>
-<p style="margin-bottom: 10px;">Take the hyperbolic tangent of both sides:</p>
-<div class="math-block">$$ v(t) = v_t \tanh\left(\frac{gt}{v_t}\right) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Position Evolution $s(t)$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Position is found by integrating velocity over time, using the change of variable $u = \frac{gt'}{v_t}$ and the provided integral identity for $\tanh u$.</div>
-<div class="math-block">$$ s(t) = \int_{0}^t v(t')\,dt' = \int_{0}^t v_t \tanh\left(\frac{gt'}{v_t}\right)dt' $$</div>
-<p style="margin-bottom: 10px;">Change of variable:</p>
-<div class="math-block">$$ u = \frac{gt'}{v_t} \implies du = \frac{g}{v_t}\,dt' \implies dt' = \frac{v_t}{g}\,du $$</div>
-<p style="margin-bottom: 10px;">Limits: at $t' = 0$, $u = 0$; at $t' = t$, $u = \frac{gt}{v_t}$.</p>
-<div class="math-block">$$ s(t) = v_t \cdot \frac{v_t}{g} \int_{0}^{gt/v_t} \tanh u\,du = \frac{v_t^2}{g} [\ln\cosh u]_0^{gt/v_t} $$</div>
-<p style="margin-bottom: 10px;">Since $\cosh(0) = 1$ and $\ln(1) = 0$:</p>
-<div class="math-block">$$ s(t) = \frac{v_t^2}{g} \ln\left[ \cosh\left(\frac{gt}{v_t}\right) \right] $$</div>
-<p style="margin-bottom: 10px;">This gives the exact analytical position.</p>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = s\,\mathbf{i}, \qquad \mathbf{v} = \dot{s}\,\mathbf{i} = v\,\mathbf{i}, \qquad \mathbf{a} = \dot{v}\,\mathbf{i} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Weight:</strong> $mg$ downward. <strong>Drag:</strong> $D = \tfrac{1}{2}\rho v^2SC_D$, upward because it opposes the downward velocity ($v \gt 0$). <strong>Inertia forces:</strong> none.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Newton's second law:</strong></li>
+</ul>
+<div class="math-block">$$ m\frac{dv}{dt} = mg - \tfrac{1}{2}\rho SC_Dv^2 $$</div>
+<p style="margin-bottom: 10px;">One unknown, $v(t)$ (and then $s(t)$ by integration), and one first-order equation.</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Terminal velocity</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> at the terminal velocity the net force vanishes: $mg = \tfrac{1}{2}\rho SC_Dv_t^2$:</div>
+<div class="math-block">$$ \boxed{v_t = \sqrt{\frac{2mg}{\rho SC_D}}} $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Velocity as a function of time</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> using $\tfrac{1}{2}\rho SC_D = mg/v_t^2$ writes the equation in terms of $v_t$ and allows the given integral:</div>
+<div class="math-block">$$ \frac{dv}{dt} = g\left(1 - \frac{v^2}{v_t^2}\right) = \frac{g}{v_t^2}\left(v_t^2 - v^2\right) \implies \frac{dv}{v_t^2 - v^2} = \frac{g}{v_t^2}\,dt $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Integrating from $v = 0$ at $t = 0$ (Barrow, with $\operatorname{atanh}0 = 0$):</li>
+</ul>
+<div class="math-block">$$ \left[\frac{1}{v_t}\operatorname{atanh}\frac{v'}{v_t}\right]_0^v = \frac{g}{v_t^2}\int_0^tdt' \implies \operatorname{atanh}\frac{v}{v_t} = \frac{gt}{v_t} \implies \boxed{v(t) = v_t\tanh\left(\frac{gt}{v_t}\right)} $$</div>
+<p style="margin-bottom: 10px;">The speed increases from $0$ (the net force is positive while $v \lt v_t$) and cannot reach $v_t$ in finite time, because $v \equiv v_t$ is a solution (the terminal state) and solutions are unique; so $\left|v/v_t\right| \lt 1$ and $\operatorname{atanh}(v/v_t)$ is defined for all $t$; consistently, $\tanh \lt 1$.</p>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Position as a function of time</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> $s(t) = \int_0^tv\,dt'$. With the substitution $u = gt'/v_t$, $du = (g/v_t)\,dt'$, the limits are $u = 0$ at $t' = 0$ and $u = gt/v_t$ at $t' = t$:</div>
+<div class="math-block">$$ s(t) = v_t\cdot\frac{v_t}{g}\int_0^{gt/v_t}\tanh u\,du = \frac{v_t^2}{g}\Big[\ln\cosh u\Big]_0^{gt/v_t} = \frac{v_t^2}{g}\left[\ln\cosh\frac{gt}{v_t} - \ln\cosh 0\right] $$</div>
+<div class="math-block">$$ \boxed{s(t) = \frac{v_t^2}{g}\ln\left[\cosh\left(\frac{gt}{v_t}\right)\right]} \qquad (\ln\cosh 0 = \ln 1 = 0) $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Early Stages ($t \ll v_t/g$):</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">Taylor expand $\tanh(u) \approx u - \frac{u^3}{3}$:</p>
-<div class="math-block">$$ v(t) \approx v_t \left(\frac{gt}{v_t}\right) = gt $$</div>
-<p style="margin-bottom: 10px;">For position, $\cosh(u) \approx 1 + \frac{u^2}{2} \implies \ln\cosh(u) \approx \ln(1 + u^2/2) \approx \frac{u^2}{2}$:</p>
-<div class="math-block">$$ s(t) \approx \frac{v_t^2}{g}\left(\frac{1}{2}\frac{g^2 t^2}{v_t^2}\right) = \frac{1}{2}gt^2 $$</div>
-<p style="margin-bottom: 10px;">Air resistance is negligible initially; the ball is in pure gravitational free fall.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Late Stages ($t \gg v_t/g$):</strong></li>
-</ul>
-<p style="margin-bottom: 10px;">As $u \to \infty$, $\tanh(u) \to 1$, so $v(t) \to v_t$.</p>
-<p style="margin-bottom: 10px;">Furthermore, $\cosh(u) = \frac{e^u + e^{-u}}{2} \approx \frac{1}{2}e^u$:</p>
-<div class="math-block">$$ \ln\cosh(u) \approx u - \ln 2 = \frac{gt}{v_t} - \ln 2 $$</div>
-<div class="math-block">$$ s(t) \approx \frac{v_t^2}{g}\left( \frac{gt}{v_t} - \ln 2 \right) = v_t t - \frac{v_t^2}{g}\ln 2 $$</div>
-<p style="margin-bottom: 10px;">The ball reaches terminal velocity with a constant asymptotic positional delay.</p>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[v_t] = \sqrt{[mg]/[\rho S C_D]} = \sqrt{\dfrac{\text{kg}\cdot\text{m}\cdot\text{s}^{-2}}{\text{kg}\cdot\text{m}^{-3}\cdot\text{m}^2}} = \text{m/s}$; the argument $gt/v_t$ of $\tanh$ is dimensionless; $[v_t^2/g] = \text{m}$, so $s(t)$ is a length.</li>
-<li><strong>Numerical check (RK4, step $10^{-4}$, units with $g = v_t = 1$):</strong> integrating $\dot{v} = 1 - v^2$, $\dot{s} = v$ up to $t = 1$ gives $v = 0.761594$ and $s = 0.433781$, equal to $\tanh 1 = 0.761594$ and $\ln\cosh 1 = 0.433781$.</li>
+<li><strong>Early times ($t \ll v_t/g$):</strong> $\tanh u \approx u$ gives $v \approx gt$; and $\cosh u \approx 1 + u^2/2$, $\ln\cosh u \approx u^2/2$ give $s \approx \tfrac{1}{2}gt^2$: free fall, the drag is negligible.</li>
+<li><strong>Late times ($t \gg v_t/g$):</strong> $\tanh u \to 1$, so $v \to v_t$; and $\cosh u \approx \tfrac{1}{2}e^u$ gives $\ln\cosh u \approx u - \ln 2$, so $s \approx v_tt - \dfrac{v_t^2}{g}\ln 2$: uniform descent with a constant delay.</li>
+<li><strong>Dimensional check:</strong> $[v_t] = \sqrt{\dfrac{\text{kg m s}^{-2}}{\text{kg m}^{-3}\text{m}^2}} = \text{m/s}$; $gt/v_t$ is dimensionless; $[v_t^2/g] = \text{m}$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> gives the terminal velocity $v_t = \sqrt{2mg/(\rho SC_D)}$, $v(t) = v_t\tanh\left(\frac{g}{v_t}t\right)$ and $s(t) = \frac{v_t^2}{g}\ln\left[\cosh\left(\frac{g}{v_t}t\right)\right]$, identical to the results above. Numerical integration of $\dot{v} = 1 - v^2$, $\dot{s} = v$ (units $g = v_t = 1$) up to $t = 1$ gives $v = 0.761594 = \tanh 1$ and $s = 0.433781 = \ln\cosh 1$.</li>
 </ul>
 </div>
         </div>
@@ -1451,117 +1199,81 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> A particle $M$ of mass $m$ is subject to:</li>
-</ul>
-<p style="margin-bottom: 10px;">1. An attractive 3D linear central force directed towards origin $O$, proportional to mass $m$ and distance $r = OM$, with coefficient $k^2$:</p>
-<div class="math-block">$$ \mathbf{F}_c = -m k^2 \mathbf{r} $$</div>
-<p style="margin-bottom: 10px;">2. Uniform vertical gravity along $-Oz$:</p>
-<div class="math-block">$$ \mathbf{F}_g = -mg\mathbf{k} $$</div>
-<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Initial State ($t = 0$):</strong></li>
-<li>Position: $(x_0, y_0, z_0) = \left(\frac{\sqrt{3}g}{k^2}, 0, 0\right)$.</li>
-<li>Velocity: $(\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right)$.</li>
-<li><strong>Parameters:</strong> $m &gt; 0$ [kg], $g &gt; 0$ [m/s$^2$], $k &gt; 0$ [s$^{-1}$].</li>
+<li><strong>System:</strong> a heavy particle $M$ of mass $m$ is attracted to the fixed point $O$ by a force proportional to its mass and to the distance, with coefficient $k^2$: $\mathbf{F}_c = -mk^2\mathbf{r}$. The axis $Oz$ is vertical (upward) and gravity acts along $-Oz$.</li>
+<li><strong>Constraints:</strong> none; the particle is free in space, so $\text{CDOF} = 3$, with the Cartesian coordinates $(x, y, z)$.</li>
+<li><strong>Initial state:</strong> $(x_0, y_0, z_0) = \left(\sqrt{3}g/k^2,\ 0,\ 0\right)$ and $(\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0,\ 2g/k,\ 0\right)$.</li>
+<li><strong>Parameters:</strong> $m$ [kg], $g$ [m/s$^2$], $k$ [s$^{-1}$].</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial Reference Frame:</strong> Fixed Cartesian frame $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with origin at $O$ and $Oz$ pointing vertically upwards.</li>
-<li><strong>Position Vector:</strong> $\mathbf{r}(t) = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}$.</li>
-<li><strong>Newton's Second Law:</strong></li>
+<li><strong>Inertial frame:</strong> $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with its origin at the centre of attraction and $\mathbf{k}$ vertical upward (constant unit vectors).</li>
 </ul>
-<div class="math-block">$$ m \ddot{\mathbf{r}} = \mathbf{F}_c + \mathbf{F}_g = -m k^2 \mathbf{r} - mg\mathbf{k} $$</div>
-<p style="margin-bottom: 10px;">Divide by $m$:</p>
-<div class="math-block">$$ \ddot{\mathbf{r}} + k^2 \mathbf{r} = -g\mathbf{k} $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Decoupled Component Differential Equations</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Because the system is linear and isotropic in 3D Cartesian coordinates, the vector ODE uncouples into three independent scalar second-order ODEs with constant coefficients.</div>
-<div class="math-block">$$ \ddot{x} + k^2 x = 0 $$</div>
-<div class="math-block">$$ \ddot{y} + k^2 y = 0 $$</div>
-<div class="math-block">$$ \ddot{z} + k^2 z = -g $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Exact Integration of Each Component</h4>
-<p style="margin-bottom: 10px;">1. <strong>$x$-Component:</strong></p>
-<p style="margin-bottom: 10px;">General solution:</p>
-<div class="math-block">$$ x(t) = A_x \cos(kt) + B_x \sin(kt) $$</div>
-<p style="margin-bottom: 10px;">Velocity: $\dot{x}(t) = -k A_x \sin(kt) + k B_x \cos(kt)$.</p>
-<p style="margin-bottom: 10px;">Applying initial conditions:</p>
-<div class="math-block">$$ x(0) = A_x = \frac{\sqrt{3}g}{k^2} $$</div>
-<div class="math-block">$$ \dot{x}(0) = k B_x = 0 \implies B_x = 0 $$</div>
-<div class="math-block">$$ x(t) = \frac{\sqrt{3}g}{k^2}\cos(kt) $$</div>
-<p style="margin-bottom: 10px;">2. <strong>$y$-Component:</strong></p>
-<p style="margin-bottom: 10px;">General solution:</p>
-<div class="math-block">$$ y(t) = A_y \cos(kt) + B_y \sin(kt) $$</div>
-<p style="margin-bottom: 10px;">Velocity: $\dot{y}(t) = -k A_y \sin(kt) + k B_y \cos(kt)$.</p>
-<p style="margin-bottom: 10px;">Applying initial conditions:</p>
-<div class="math-block">$$ y(0) = A_y = 0 $$</div>
-<div class="math-block">$$ \dot{y}(0) = k B_y = \frac{2g}{k} \implies B_y = \frac{2g}{k^2} $$</div>
-<div class="math-block">$$ y(t) = \frac{2g}{k^2}\sin(kt) $$</div>
-<p style="margin-bottom: 10px;">3. <strong>$z$-Component:</strong></p>
-<p style="margin-bottom: 10px;">Non-homogeneous equation with constant forcing $-g$.</p>
-<p style="margin-bottom: 10px;">Particular solution: $z_p = -\frac{g}{k^2}$.</p>
-<p style="margin-bottom: 10px;">General solution:</p>
-<div class="math-block">$$ z(t) = -\frac{g}{k^2} + A_z \cos(kt) + B_z \sin(kt) $$</div>
-<p style="margin-bottom: 10px;">Velocity: $\dot{z}(t) = -k A_z \sin(kt) + k B_z \cos(kt)$.</p>
-<p style="margin-bottom: 10px;">Applying initial conditions:</p>
-<div class="math-block">$$ z(0) = -\frac{g}{k^2} + A_z = 0 \implies A_z = \frac{g}{k^2} $$</div>
-<div class="math-block">$$ \dot{z}(0) = k B_z = 0 \implies B_z = 0 $$</div>
-<div class="math-block">$$ z(t) = \frac{g}{k^2}(\cos(kt) - 1) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Particle Trajectory Vector</h4>
-<div class="math-block">$$ \mathbf{r}_M(t) = \frac{\sqrt{3}g}{k^2}\cos(kt)\,\mathbf{i} + \frac{2g}{k^2}\sin(kt)\,\mathbf{j} + \frac{g}{k^2}(\cos(kt) - 1)\,\mathbf{k} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Velocity Vector and Modulus</h4>
-<p style="margin-bottom: 10px;">Differentiating with respect to time:</p>
-<div class="math-block">$$ \dot{x}(t) = -\frac{\sqrt{3}g}{k}\sin(kt) $$</div>
-<div class="math-block">$$ \dot{y}(t) = \frac{2g}{k}\cos(kt) $$</div>
-<div class="math-block">$$ \dot{z}(t) = -\frac{g}{k}\sin(kt) $$</div>
-<p style="margin-bottom: 10px;">Velocity vector:</p>
-<div class="math-block">$$ \mathbf{v}_M(t) = -\frac{\sqrt{3}g}{k}\sin(kt)\,\mathbf{i} + \frac{2g}{k}\cos(kt)\,\mathbf{j} - \frac{g}{k}\sin(kt)\,\mathbf{k} $$</div>
-<p style="margin-bottom: 10px;">Modulus of velocity:</p>
-<div class="math-block">$$ |\mathbf{v}_M(t)|^2 = \dot{x}^2 + \dot{y}^2 + \dot{z}^2 = \left(-\frac{\sqrt{3}g}{k}\sin(kt)\right)^2 + \left(\frac{2g}{k}\cos(kt)\right)^2 + \left(-\frac{g}{k}\sin(kt)\right)^2 $$</div>
-<div class="math-block">$$ |\mathbf{v}_M(t)|^2 = \frac{3g^2}{k^2}\sin^2(kt) + \frac{4g^2}{k^2}\cos^2(kt) + \frac{g^2}{k^2}\sin^2(kt) $$</div>
-<p style="margin-bottom: 10px;">Factor out $\frac{g^2}{k^2}$:</p>
-<div class="math-block">$$ |\mathbf{v}_M(t)|^2 = \frac{g^2}{k^2} \left[ (3 + 1)\sin^2(kt) + 4\cos^2(kt) \right] = \frac{g^2}{k^2} \left[ 4\sin^2(kt) + 4\cos^2(kt) \right] = \frac{4g^2}{k^2} $$</div>
-<p style="margin-bottom: 10px;">Taking the square root:</p>
-<div class="math-block">$$ |\mathbf{v}_M(t)| = \frac{2g}{k} = \text{constant} $$</div>
-<p style="margin-bottom: 10px;">The particle travels with strictly <strong>constant speed</strong>!</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">5. Geometric Nature and Shape of the Trajectory</h4>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="math-block">$$ \mathbf{r} = x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}, \qquad \mathbf{v} = \dot{x}\,\mathbf{i} + \dot{y}\,\mathbf{j} + \dot{z}\,\mathbf{k}, \qquad \mathbf{a} = \ddot{x}\,\mathbf{i} + \ddot{y}\,\mathbf{j} + \ddot{z}\,\mathbf{k} $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Planarity Test:</strong></li>
+<li><strong>Applied forces:</strong> the linear central attraction $\mathbf{F}_c = -mk^2\mathbf{r}$ and the weight $\mathbf{F}_g = -mg\,\mathbf{k}$. <strong>Constraint forces:</strong> none. <strong>Inertia forces:</strong> none.</li>
 </ul>
-<p style="margin-bottom: 10px;">Notice the direct linear relationship between $x(t)$ and $z(t)$:</p>
-<div class="math-block">$$ x(t) = \frac{\sqrt{3}g}{k^2}\cos(kt) \implies \cos(kt) = \frac{k^2}{\sqrt{3}g}x(t) $$</div>
-<p style="margin-bottom: 10px;">Substitute this into $z(t)$:</p>
-<div class="math-block">$$ z(t) = \frac{g}{k^2}\cos(kt) - \frac{g}{k^2} = \frac{g}{k^2}\left(\frac{k^2}{\sqrt{3}g}x(t)\right) - \frac{g}{k^2} = \frac{x(t)}{\sqrt{3}} - \frac{g}{k^2} $$</div>
-<p style="margin-bottom: 10px;">Multiply through by $\sqrt{3}$:</p>
-<div class="math-block">$$ \sqrt{3}z = x - \frac{\sqrt{3}g}{k^2} \implies x - \sqrt{3}z = \frac{\sqrt{3}g}{k^2} $$</div>
-<p style="margin-bottom: 10px;">This is the equation of a <strong>plane</strong> in $\mathbb{R}^3$. The trajectory is strictly planar!</p>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Spherical Surface Test:</strong></li>
+<li><strong>Newton's second law in $S_0$:</strong> $m\ddot{\mathbf{r}} = -mk^2\mathbf{r} - mg\,\mathbf{k}$.</li>
 </ul>
-<p style="margin-bottom: 10px;">Consider the distance of $M$ from the point $C\left(0, 0, -\frac{g}{k^2}\right)$:</p>
-<div class="math-block">$$ x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \left(\frac{\sqrt{3}g}{k^2}\cos(kt)\right)^2 + \left(\frac{2g}{k^2}\sin(kt)\right)^2 + \left(\frac{g}{k^2}\cos(kt)\right)^2 $$</div>
-<div class="math-block">$$ = \frac{3g^2}{k^4}\cos^2(kt) + \frac{4g^2}{k^4}\sin^2(kt) + \frac{g^2}{k^4}\cos^2(kt) = \frac{4g^2}{k^4}(\cos^2(kt) + \sin^2(kt)) = \frac{4g^2}{k^4} $$</div>
-<p style="margin-bottom: 10px;">This defines a <strong>sphere</strong> centered at $C\left(0, 0, -\frac{g}{k^2}\right)$ with radius:</p>
-<div class="math-block">$$ R = \frac{2g}{k^2} $$</div>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the system is linear and the basis is Cartesian and constant, so the vector equation decouples into three independent scalar equations with constant coefficients: three unknowns, three equations.</div>
+<div class="math-block">$$ \ddot{x} + k^2x = 0, \qquad \ddot{y} + k^2y = 0, \qquad \ddot{z} + k^2z = -g $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Integration of each component</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Intersection &amp; Circle Characterization:</strong></li>
+<li><strong>$x$ and $y$ (homogeneous oscillators):</strong> the equation $\ddot{x} + k^2x = 0$ is linear with constant coefficients and its characteristic equation $r^2 + k^2 = 0$ has the roots $\pm ik$ (Notes Sec. 5.1), so the general solution is $A\cos kt + B\sin kt$. Its velocity follows from the chain rule, $\frac{d}{dt}\cos kt = -k\sin kt$ and $\frac{d}{dt}\sin kt = k\cos kt$: $\dot{x} = -kA\sin kt + kB\cos kt$. The initial conditions give</li>
 </ul>
-<p style="margin-bottom: 10px;">Check if the center of the sphere $C\left(0, 0, -\frac{g}{k^2}\right)$ lies on the plane $x - \sqrt{3}z = \frac{\sqrt{3}g}{k^2}$:</p>
-<div class="math-block">$$ 0 - \sqrt{3}\left(-\frac{g}{k^2}\right) = +\frac{\sqrt{3}g}{k^2} $$</div>
-<p style="margin-bottom: 10px;">The plane passes directly through the center of the sphere! Therefore, the intersection of the sphere and the plane is a <strong>great circle</strong> of radius $R = \frac{2g}{k^2}$.</p>
+<div class="math-block">$$ x(0) = A_x = \frac{\sqrt{3}g}{k^2},\ \ \dot{x}(0) = kB_x = 0 \implies x(t) = \frac{\sqrt{3}g}{k^2}\cos kt $$</div>
+<div class="math-block">$$ y(0) = A_y = 0,\ \ \dot{y}(0) = kB_y = \frac{2g}{k} \implies B_y = \frac{2g}{k^2} \implies y(t) = \frac{2g}{k^2}\sin kt $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>$z$ (forced by gravity):</strong> a particular solution of $\ddot{z} + k^2z = -g$ is the constant $z_p = -g/k^2$, so $z(t) = -\dfrac{g}{k^2} + A_z\cos kt + B_z\sin kt$. The initial conditions give $z(0) = -\dfrac{g}{k^2} + A_z = 0$, so $A_z = \dfrac{g}{k^2}$, and $\dot{z}(0) = kB_z = 0$:</li>
+</ul>
+<div class="math-block">$$ z(t) = \frac{g}{k^2}\left(\cos kt - 1\right) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Trajectory:</strong> $\displaystyle\mathbf{r}(t) = \frac{\sqrt{3}g}{k^2}\cos kt\,\mathbf{i} + \frac{2g}{k^2}\sin kt\,\mathbf{j} + \frac{g}{k^2}\left(\cos kt - 1\right)\mathbf{k}$.</li>
+</ul>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Shape of the path</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> a linear relation among the coordinates indicates a plane, and a constant distance to a point indicates a sphere; their intersection is a circle.</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Plane.</strong> From $x = \frac{\sqrt{3}g}{k^2}\cos kt$ we have $\cos kt = \frac{k^2}{\sqrt{3}g}x$, so $z = \frac{g}{k^2}\cos kt - \frac{g}{k^2} = \frac{x}{\sqrt{3}} - \frac{g}{k^2}$, i.e.</li>
+</ul>
+<div class="math-block">$$ x - \sqrt{3}\,z = \frac{\sqrt{3}g}{k^2} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Sphere.</strong> The squared distance to the point $C = \left(0, 0, -g/k^2\right)$ is</li>
+</ul>
+<div class="math-block">$$ x^2 + y^2 + \left(z + \frac{g}{k^2}\right)^2 = \frac{3g^2}{k^4}\cos^2kt + \frac{4g^2}{k^4}\sin^2kt + \frac{g^2}{k^4}\cos^2kt = \frac{4g^2}{k^4}\left(\cos^2kt + \sin^2kt\right) = \frac{4g^2}{k^4} $$</div>
+<p style="margin-bottom: 10px;">a sphere of centre $C$ and radius $R = 2g/k^2$.</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Circle.</strong> The centre $C$ lies on the plane: $0 - \sqrt{3}\left(-g/k^2\right) = \sqrt{3}g/k^2$. The intersection of a sphere with a plane through its centre is a <strong>great circle</strong> of radius $R = 2g/k^2$.</li>
+</ul>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Velocity as a function of time</h5>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Differentiating each component with the chain rule:</li>
+</ul>
+<div class="math-block">$$ \dot{x} = \frac{\sqrt{3}g}{k^2}\left(-k\sin kt\right), \qquad \dot{y} = \frac{2g}{k^2}\left(k\cos kt\right), \qquad \dot{z} = \frac{g}{k^2}\left(-k\sin kt\right) $$</div>
+<div class="math-block">$$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin kt\,\mathbf{i} + \frac{2g}{k}\cos kt\,\mathbf{j} - \frac{g}{k}\sin kt\,\mathbf{k} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Modulus:</strong> $\|\mathbf{v}\|^2 = \dfrac{g^2}{k^2}\left[3\sin^2kt + 4\cos^2kt + \sin^2kt\right] = \dfrac{g^2}{k^2}\cdot 4\left(\sin^2kt + \cos^2kt\right) = \dfrac{4g^2}{k^2}$, so $\|\mathbf{v}\| = \dfrac{2g}{k}$: the speed is constant.</li>
+</ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>The motion of the particle is a <strong>uniform circular motion</strong> along a great circle of radius $R = \frac{2g}{k^2}$ with constant orbital speed $v = \frac{2g}{k}$ and angular frequency $\omega = \frac{v}{R} = k$.</li>
-<li>The effective center of attraction is shifted from the origin $O$ to $C(0, 0, -g/k^2)$ because the linear restoring force combines with uniform gravity into an equivalent spring centered at the equilibrium point where $k^2 z_{eq} = -g$.</li>
-<li><strong>Dimensional check:</strong> $[x] = [g/k^2] = \dfrac{\text{m/s}^2}{\text{s}^{-2}} = \text{m}$; $[v] = [g/k] = \text{m/s}$; $[R] = [2g/k^2] = \text{m}$; and $\omega = v/R = k$ has units s$^{-1}$.</li>
-<li><strong>Limit $k \to \infty$ (stiff attraction):</strong> $R = 2g/k^2 \to 0$ and the equilibrium offset $z_{eq} = -g/k^2 \to 0$, so gravity becomes negligible against the central force. The centripetal consistency check holds for any $k$: $v^2/R = (4g^2/k^2)/(2g/k^2) = 2g$ equals the effective spring force per unit mass $k^2R = 2g$.</li>
-<li><strong>Symbolic check (sympy):</strong> the trajectory of Phase 3 satisfies $\ddot{\mathbf{r}} + k^2\mathbf{r} = -g\mathbf{k}$ with zero residual and the initial data $\mathbf{r}(0)$, $\mathbf{v}(0)$; $\|\mathbf{v}\|^2 = 4g^2/k^2$, the squared distance to $C$ is $4g^2/k^4$, and $x - \sqrt{3}z = \sqrt{3}g/k^2$ for all $t$ (the centre $C$ lies on this plane).</li>
+<li><strong>Uniform circular motion:</strong> the particle describes a great circle of radius $R = 2g/k^2$ at constant speed $v = 2g/k$, with angular frequency $\omega = v/R = k$.</li>
+<li><strong>Shifted centre:</strong> the linear central force plus the uniform gravity is equivalent to a spring centred at the equilibrium point $C$ where $k^2z_{\text{eq}} = -g$, i.e. $z_{\text{eq}} = -g/k^2$.</li>
+<li><strong>Consistency:</strong> the centripetal acceleration $v^2/R = (4g^2/k^2)/(2g/k^2) = 2g$ equals the effective spring acceleration $k^2R = 2g$.</li>
+<li><strong>Limit $k \to \infty$:</strong> $R = 2g/k^2 \to 0$ and $z_{\text{eq}} \to 0$: gravity becomes negligible against the central force.</li>
+<li><strong>Dimensional check:</strong> $[g/k^2] = \dfrac{\text{m s}^{-2}}{\text{s}^{-2}} = \text{m}$, $[g/k] = \text{m/s}$, $[R] = \text{m}$ and $\omega = v/R = k$ in s$^{-1}$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> gives $\mathbf{r}_0^M = \frac{\sqrt{3}g}{k^2}\cos kt\,\mathbf{i} + \frac{2g}{k^2}\sin kt\,\mathbf{j} + \frac{g}{k^2}\left(\cos kt - 1\right)\mathbf{k}$, the circle as the intersection of the sphere $x^2 + y^2 + (z + g/k^2)^2 = 4g^2/k^4$ with the plane $x - \sqrt{3}z = \sqrt{3}g/k^2$, and the constant speed $2g/k$. All coincide with the results above. Sympy confirms $\ddot{\mathbf{r}} + k^2\mathbf{r} + g\mathbf{k} = \mathbf{0}$, the initial data, $\|\mathbf{v}\|^2 = 4g^2/k^2$, the plane and the sphere with zero residual.</li>
 </ul>
 </div>
         </div>
@@ -1584,7 +1296,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
         <span class="problem-badge">Forced Oscillations</span>
       </div>
       <div class="problem-statement">
-<p>To understand the vibrations that occur in a turbojet when the mass distribution of the rotor is slightly unbalanced, we can consider the turbojet as a rigid disk of mass $m$ that rotates at a fixed angular velocity $\omega$, with the center of mass $G$ being separated from the geometric center $C$ by a fixed distance $\ell$. An elastic restoring force (with constant $k$) tries to keep $C$ at its design position $O$. We call $x_0^G, y_0^G$ the Cartesian coordinates of $G$, and $x_0^C, y_0^C$ the Cartesian coordinates of $C$. Considering the weight of the disk negligible, write down the equation of the dynamics of $G$. Assuming that the homogeneous solution is damped over time and only the particular solution remains, write down the expression of $x_0^G(t)$ and $x_0^C(t)$. Can we affirm that $|\boldsymbol{OC}| &gt; |\boldsymbol{OG}|$ if $\omega &gt; \sqrt{k/m}$?</p>
+<p>To understand the vibrations that occur in a turbojet when the mass distribution of the rotor is slightly unbalanced, we can consider the turbojet as a rigid disk of mass $m$ that rotates at a fixed angular velocity $\omega$, with the center of mass $G$ being separated from the geometric center $C$ by a fixed distance (called $\ell$ in the figure). An elastic restoring force (with constant $k$) tries to keep $C$ at its design position $O$. We call $x_0^G, y_0^G$ the Cartesian coordinates of $G$, and $x_0^C, y_0^C$ the Cartesian coordinates of $C$. Considering the weight of the disk negligible, write down the equation of the dynamics of $G$. Assuming that the homogeneous solution is damped over time and only the particular solution remains, write down the expression of $x_0^G(t)$ and $x_0^C(t)$. Can we affirm that $|\boldsymbol{OC}| &gt; |\boldsymbol{OG}|$ if $\omega &gt; \sqrt{k/m}$?</p>
 <figure class="statement-figure"><img src="../../../vault/attachments/EM/T2-P45-figure.png" alt="Rotating disk of centre C with the centre of mass G at distance l, angle omega t from the x direction, spring k from O to C, axes Oxy" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"><figcaption>Figure: Rotating disk of centre C with the centre of mass G at distance l, angle omega t from the x direction, spring k from O to C, axes Oxy (Problems.pdf, p. 31).</figcaption></figure>
       </div>
       <!-- Analytical Solution -->
@@ -1596,54 +1308,73 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> a rigid disk of mass $m$ spins at the constant rate $\omega$. Its geometric centre $C$ is held near the design position $O$ by an elastic restoring force $-k\,\mathbf{r}_C$; its centre of mass $G$ is displaced from $C$ by the fixed distance $\ell$ (unbalance).</li>
-<li><strong>Hypotheses:</strong> planar motion in the inertial plane $Oxy$; the weight is negligible; the spring (zero natural length) acts at $C$; the only external force is the elastic one, so the motion of $G$ is that of a particle of mass $m$ under that force (Newton's second law applied to $G$).</li>
-<li><strong>Parameters and units:</strong> $m$ [kg], $k$ [N/m], $\ell$ [m], $\omega$ [rad/s]; natural frequency $\omega_0 = \sqrt{k/m}$ [rad/s].</li>
+<li><strong>System:</strong> a rigid disk of mass $m$ rotates at the constant angular velocity $\omega$. Its geometric centre $C$ is held near the design position $O$ by an elastic restoring force with constant $k$; its centre of mass $G$ is at the fixed distance $\ell$ from $C$ (unbalance).</li>
+<li><strong>Hypotheses:</strong> planar motion in $Oxy$; the weight is negligible; the spring has zero natural length and acts at $C$, so its force is $-k\,\mathbf{r}_C$. As the statement asks, the dynamics is that of the centre of mass $G$, treated as a particle of mass $m$ under the resultant external force (the particle model of Topic 2). The drive that keeps $\omega$ constant applies a pure couple, with zero resultant force, so it does not enter the equation of $G$. The statement also assumes that the homogeneous solution of the equation of $G$ decays, which implies some damping that the model leaves out.</li>
+<li><strong>Constraints and degrees of freedom:</strong> the disk rotates at the prescribed rate, so its orientation is $\omega t$ (a time-dependent, rheonomic constraint) and the segment $CG$ has the fixed length $\ell$ and the angle $\omega t$. The only free coordinates are the two coordinates of $C$ (or of $G$): $\text{CDOF} = 2$.</li>
 <li><strong>Unknowns:</strong> $x_0^G(t)$, $y_0^G(t)$, $x_0^C(t)$, $y_0^C(t)$.</li>
+<li><strong>Parameters:</strong> $m$ [kg], $k$ [N/m], $\ell$ [m], $\omega$ [rad/s]; natural frequency $\omega_0 = \sqrt{k/m}$.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{r}_C = x_0^C\,\mathbf{i}_0 + y_0^C\,\mathbf{j}_0$ and $\mathbf{r}_G = x_0^G\,\mathbf{i}_0 + y_0^G\,\mathbf{j}_0$.</li>
-<li><strong>Unbalance vector:</strong> the segment $CG$ turns with the disk, at the angle $\omega t$ from $\mathbf{i}_0$ (figure):</li>
+<li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, with $\mathbf{r}_C = x_0^C\,\mathbf{i}_0 + y_0^C\,\mathbf{j}_0$ and $\mathbf{r}_G = x_0^G\,\mathbf{i}_0 + y_0^G\,\mathbf{j}_0$.</li>
+<li><strong>Disk-fixed basis.</strong> It is the inertial basis rotated by $\omega t$ about $\mathbf{k}_0$:</li>
+</ul>
+<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t &amp; -\sin\omega t &amp; 0 \\ \sin\omega t &amp; \cos\omega t &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = \begin{pmatrix} \cos^2\omega t + \sin^2\omega t &amp; 0 &amp; 0 \\ 0 &amp; \sin^2\omega t + \cos^2\omega t &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} = I $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Unbalance vector.</strong> The segment $CG$ is fixed in the disk, at the angle $\omega t$ from $\mathbf{i}_0$ (first column of the matrix):</li>
 </ul>
 <div class="math-block">$$ \mathbf{r}_G = \mathbf{r}_C + \ell\,\mathbf{e}(t), \qquad \mathbf{e}(t) = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0 $$</div>
-<p style="margin-bottom: 10px;">The unit vector $\mathbf{e}$ is the first column of the change-of-basis matrix from the disk-fixed basis (angle $\omega t$ about $\mathbf{k}_0$), whose determinant and orthogonality are checked:</p>
-<div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t &amp; -\sin\omega t &amp; 0 \\ \sin\omega t &amp; \cos\omega t &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">1. Equation of the dynamics of $G$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The only external force is the spring force, which depends on the position of $C$, not on that of $G$. Newton's second law for the centre of mass, with the position of $C$ eliminated through the geometry $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$, gives a forced linear equation (Notes Sec. 5.4, oscillator under a periodic force).</div>
-<div class="math-block">$$ m\,\ddot{\mathbf{r}}_G = -k\,\mathbf{r}_C = -k\left[\mathbf{r}_G - \ell\,\mathbf{e}(t)\right] $$</div>
-<p style="margin-bottom: 10px;">Divide by $m$ and use $\omega_0^2 = k/m$; the two components decouple:</p>
-<div class="math-block">$$ \ddot{x}_0^G + \omega_0^2\,x_0^G = \omega_0^2\,\ell\cos\omega t, \qquad \ddot{y}_0^G + \omega_0^2\,y_0^G = \omega_0^2\,\ell\sin\omega t $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">2. Particular solution for $G$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The general solution is the homogeneous one, $A\cos\omega_0 t + B\sin\omega_0 t$, which the statement assumes damped out, plus a particular solution. Because the forcing is harmonic at frequency $\omega$, try the same harmonic with an unknown amplitude (method of undetermined coefficients).</div>
-<div class="math-block">$$ x_0^G = a\cos\omega t \implies \ddot{x}_0^G = -\omega^2 a\cos\omega t $$</div>
-<p style="margin-bottom: 10px;">Substitute into the equation of motion:</p>
-<div class="math-block">$$ -\omega^2 a + \omega_0^2 a = \omega_0^2\,\ell \implies a = \frac{\omega_0^2\,\ell}{\omega_0^2 - \omega^2} \qquad (\omega \ne \omega_0) $$</div>
-<p style="margin-bottom: 10px;">The same steps with $y_0^G = b\sin\omega t$ give $b = a$. Therefore</p>
-<div class="math-block">$$ x_0^G(t) = \frac{\omega_0^2\,\ell}{\omega_0^2 - \omega^2}\cos\omega t, \qquad y_0^G(t) = \frac{\omega_0^2\,\ell}{\omega_0^2 - \omega^2}\sin\omega t $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3. Position of the geometric centre $C$</h4>
-<p style="margin-bottom: 10px;">From $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$, component by component:</p>
-<div class="math-block">$$ x_0^C(t) = \left[\frac{\omega_0^2}{\omega_0^2 - \omega^2} - 1\right]\ell\cos\omega t = \frac{\omega^2\,\ell}{\omega_0^2 - \omega^2}\cos\omega t, \qquad y_0^C(t) = \frac{\omega^2\,\ell}{\omega_0^2 - \omega^2}\sin\omega t $$</div>
-<p style="margin-bottom: 10px;">Both points describe circles about $O$ at the rotation rate $\omega$. Their distances to $O$ are</p>
-<div class="math-block">$$ |\boldsymbol{OG}| = \frac{\omega_0^2\,\ell}{|\omega_0^2 - \omega^2|}, \qquad |\boldsymbol{OC}| = \frac{\omega^2\,\ell}{|\omega_0^2 - \omega^2|}, \qquad \frac{|\boldsymbol{OC}|}{|\boldsymbol{OG}|} = \frac{\omega^2}{\omega_0^2} = \frac{m\,\omega^2}{k} $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">4. Is $|\boldsymbol{OC}| &gt; |\boldsymbol{OG}|$ for $\omega &gt; \sqrt{k/m}$?</h4>
-<p style="margin-bottom: 10px;">Yes. The ratio $|\boldsymbol{OC}|/|\boldsymbol{OG}| = \omega^2/\omega_0^2$ exceeds $1$ exactly when $\omega &gt; \omega_0 = \sqrt{k/m}$ (and $\omega \ne \omega_0$, where the particular solution does not exist and the amplitude grows without bound, the resonance). For $\omega &lt; \omega_0$ the opposite holds, $|\boldsymbol{OC}| &lt; |\boldsymbol{OG}|$.</p>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the dynamics refers to $G$, but the force depends on $C$, so we express $\mathbf{r}_C$ with the geometry of the rotating segment. The acceleration of $G$ in $S_0$ is $\ddot{\mathbf{r}}_G = \ddot{x}_0^G\,\mathbf{i}_0 + \ddot{y}_0^G\,\mathbf{j}_0$, and</div>
+<div class="math-block">$$ \mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Applied force:</strong> the spring force $-k\,\mathbf{r}_C$, which depends on the position of $C$, not on that of $G$. <strong>Constraint forces:</strong> none that affect the centre of mass (the weight is neglected and the drive is a pure couple). <strong>Inertia forces:</strong> none, $S_0$ is inertial.</li>
+</ul>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> Newton's second law for $G$ with $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$ gives a forced linear equation (Notes Sec. 5.4, oscillator under a periodic force):</div>
+<div class="math-block">$$ m\ddot{\mathbf{r}}_G = -k\,\mathbf{r}_C = -k\left[\mathbf{r}_G - \ell\,\mathbf{e}(t)\right] $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Dividing by $m$ with $\omega_0^2 = k/m$, and eliminating $\mathbf{r}_C$ through the geometric relation of 3.1 (so the unknowns reduce to the two coordinates of $G$), the two components decouple (two unknowns, two equations):</li>
+</ul>
+<div class="math-block">$$ \ddot{x}_0^G + \omega_0^2x_0^G = \omega_0^2\ell\cos\omega t, \qquad \ddot{y}_0^G + \omega_0^2y_0^G = \omega_0^2\ell\sin\omega t $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Particular solution for $G$</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the general solution is the homogeneous one, $A\cos\omega_0t + B\sin\omega_0t$, which the statement assumes damped out, plus a particular solution. Since the forcing is harmonic at $\omega$, we try the same harmonic with an unknown amplitude (undetermined coefficients): $x_0^G = a\cos\omega t$, so $\ddot{x}_0^G = -\omega^2a\cos\omega t$.</div>
+<div class="math-block">$$ -\omega^2a + \omega_0^2a = \omega_0^2\ell \implies a = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2} \qquad (\omega \ne \omega_0) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>The same steps with $y_0^G = b\sin\omega t$ give $b = a$:</li>
+</ul>
+<div class="math-block">$$ \boxed{x_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t}, \qquad y_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\sin\omega t $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Position of the geometric centre</h5>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>From $\mathbf{r}_C = \mathbf{r}_G - \ell\,\mathbf{e}(t)$, component by component:</li>
+</ul>
+<div class="math-block">$$ \boxed{x_0^C(t) = \left[\frac{\omega_0^2}{\omega_0^2 - \omega^2} - 1\right]\ell\cos\omega t = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t}, \qquad y_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\sin\omega t $$</div>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Is $|OC| \gt |OG|$ for $\omega \gt \sqrt{k/m}$?</h5>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>Both points describe circles about $O$ at the rotation rate $\omega$, with radii</li>
+</ul>
+<div class="math-block">$$ |OG| = \frac{\omega_0^2\ell}{\left|\omega_0^2 - \omega^2\right|}, \qquad |OC| = \frac{\omega^2\ell}{\left|\omega_0^2 - \omega^2\right|}, \qquad \frac{|OC|}{|OG|} = \frac{\omega^2}{\omega_0^2} = \frac{m\omega^2}{k} $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Yes.</strong> The ratio exceeds $1$ exactly when $\omega \gt \omega_0 = \sqrt{k/m}$ (the case $\omega = \omega_0$ is excluded: the bounded harmonic particular solution $a\cos\omega t$ does not exist there, and the response grows linearly in time, $x_0^G = \tfrac{1}{2}\omega_0\ell\,t\sin\omega_0t$, which is the resonance: with $x_p = Dt\sin\omega_0t$, $\ddot{x}_p = 2D\omega_0\cos\omega_0t - D\omega_0^2t\sin\omega_0t$, so $\ddot{x}_p + \omega_0^2x_p = 2D\omega_0\cos\omega_0t = \omega_0^2\ell\cos\omega_0t$ and $D = \omega_0\ell/2$). For $\omega \lt \omega_0$ the opposite holds.</li>
+</ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Slow rotation ($\omega \to 0$):</strong> $x_0^G \to \ell$, $x_0^C \to 0$: the disk sits with $C$ at $O$ and $G$ at distance $\ell$, as for a static unbalanced disk.</li>
-<li><strong>Fast rotation ($\omega \gg \omega_0$):</strong> $|\boldsymbol{OG}| \to \ell\,\omega_0^2/\omega^2 \to 0$ and $|\boldsymbol{OC}| \to \ell$. Above the critical speed the disk self-centres: it spins about its centre of mass, and $C$ circles $G$ at the radius $\ell$ (opposite in phase to the unbalance, because the factor $\omega_0^2 - \omega^2$ is negative).</li>
-<li><strong>Resonance ($\omega = \omega_0$):</strong> the amplitudes diverge in this undamped model; real rotors cross this critical speed quickly or are damped.</li>
-<li><strong>Dimensional check:</strong> $[\omega_0^2\ell/(\omega_0^2 - \omega^2)] = \text{m}$ and $[k/m] = \text{N/m/kg} = \text{s}^{-2} = [\omega^2]$.</li>
-<li><strong>Symbolic check (sympy):</strong> the two particular solutions satisfy the equations of motion with zero residual, and $x_0^G - \ell\cos\omega t$ equals $\omega^2\ell\cos\omega t/(\omega_0^2 - \omega^2)$.</li>
+<li><strong>Slow rotation ($\omega \to 0$):</strong> $x_0^G \to \ell$ and $x_0^C \to 0$: $C$ sits at $O$ and $G$ at distance $\ell$, as for a static unbalanced disk.</li>
+<li><strong>Fast rotation ($\omega \gg \omega_0$):</strong> $|OG| \to \ell\omega_0^2/\omega^2 \to 0$ and $|OC| \to \ell$: above the critical speed the disk self-centres and spins about its centre of mass, with $C$ circling $G$ at radius $\ell$ and in antiphase with the unbalance (the factor $\omega_0^2 - \omega^2$ is negative).</li>
+<li><strong>Resonance ($\omega = \omega_0$):</strong> the amplitudes diverge in this undamped model.</li>
+<li><strong>Dimensional check:</strong> $\left[\omega_0^2\ell/(\omega_0^2 - \omega^2)\right] = \text{m}$ and $[k/m] = \text{N m}^{-1}\text{kg}^{-1} = \text{s}^{-2} = [\omega^2]$.</li>
+<li><strong>Check against the official key:</strong> the key of <code>Problems.pdf</code> gives, for $\omega \ne \omega_0$, $x_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t$ and $x_0^C(t) = \frac{\omega^2\ell}{\omega_0^2 - \omega^2}\cos\omega t$, with $\omega_0 = \sqrt{k/m}$, identical to the results above. Sympy confirms that the particular solution satisfies the equations with zero residual.</li>
 </ul>
 </div>
         </div>
@@ -1692,65 +1423,72 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
         <div class="solution-content">
 <div class="phase-block">
 <span class="phase-badge">Phase 1</span>
-<h3 class="phase-heading">Physical Statement, Hypotheses &amp; Parameters</h3>
+<h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Physical System:</strong> the fuselage is a particle of mass $m$ that moves only vertically. The landing gear is a spring of stiffness $k$ and unloaded length $L$ whose lower end (the wheel) follows the runway profile $y_1 = \sin x$ at the horizontal speed $c$.</li>
-<li><strong>Hypotheses:</strong> the wheel never leaves the ground; the runway profile is read with $x = ct$, so the ground height under the wheel is $y_b(t) = \sin(ct)$ (the profile is written with unit wavenumber, $1\,\text{m}^{-1}$, so the excitation angular frequency is $\Omega = c$ in rad/s when $c$ is in m/s); gravity acts on $m$; the gear is linear.</li>
-<li><strong>Parameters and units:</strong> $m$ [kg], $k$ [N/m], $L$ [m], $c$ [m/s], $g$ [m/s$^2$]; $\omega_0 = \sqrt{k/m}$ [rad/s]; in part (c) a damper of coefficient $\lambda$ [N s/m] acts between the fuselage and the wheel.</li>
-<li><strong>Degrees of freedom:</strong> one, the height $y$ of the particle.</li>
+<li><strong>System:</strong> the airplane is modelled as a heavy particle $P$ of mass $m$ on a landing gear of stiffness $k$ and nominal (unloaded) length $L$ that rolls at the horizontal speed $c$ on the runway $y_1 = \sin x$. In part (c) a damper of constant $\lambda$ acts between the fuselage and the wheel.</li>
+<li><strong>Constraints:</strong> the particle moves only vertically (the horizontal motion at speed $c$ is prescribed and does not enter the vertical dynamics), and the wheel stays on the ground: $y_b(t) = \sin(ct)$ with $x = ct$. This is a prescribed, time-dependent (rheonomic) base motion. The wheel contact is a unilateral constraint, assumed to remain active.</li>
+<li><strong>Degrees of freedom:</strong> $\text{CDOF} = 1$, with the height $y$ of $P$.</li>
+<li><strong>Hypotheses:</strong> the profile is written with unit wavenumber ($1\ \text{m}^{-1}$), so the excitation has angular frequency $\Omega = c$ (rad/s when $c$ is in m/s); gravity acts on $m$; the gear is linear.</li>
+<li><strong>Parameters:</strong> $m$ [kg], $k$ [N/m], $L$ [m], $c$ [m/s], $g$ [m/s$^2$], $\omega_0 = \sqrt{k/m}$ [rad/s], $\lambda$ [N s/m].</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 2</span>
-<h3 class="phase-heading">Reference Frames, Vector Bases &amp; Coordinate Geometry</h3>
+<h3 class="phase-heading">Reference Frames &amp; Vector Bases</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $Oy$ vertical upward and $\mathbf{r}_P = y\,\mathbf{j}$ (the horizontal motion at speed $c$ does not enter the vertical dynamics).</li>
-<li><strong>Spring length:</strong> $\ell_s = y - y_b(t)$ with $y_b = \sin ct$; the spring force on $P$ is $-k(\ell_s - L)\,\mathbf{j}$ (upward when compressed).</li>
-<li><strong>Static equilibrium over flat ground:</strong> $y_s = L - mg/k$; the shifted coordinate $z = y - y_s$ measures the motion relative to it.</li>
+<li><strong>Inertial frame:</strong> $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $Oy$ vertical upward (constant unit vectors).</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
-<h3 class="phase-heading">Step-by-Step Mathematical Deduction</h3>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Equation of motion</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> Newton's second law along $Oy$ with the weight and the elastic force. The constant weight only shifts the equilibrium, so it disappears in the coordinate $z$.</div>
-<div class="math-block">$$ m\ddot{y} = -k\left[y - \sin(ct) - L\right] - mg $$</div>
-<p style="margin-bottom: 10px;">Substitute $y = z + L - mg/k$, so that $\ddot{y} = \ddot{z}$ and $-k[y - L] - mg = -kz$:</p>
-<div class="math-block">$$ m\ddot{z} = -kz + k\sin(ct) \implies \ddot{z} + \omega_0^2\,z = \omega_0^2\sin(ct) $$</div>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(a) Resonance</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> This is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency.</div>
-<div class="math-block">$$ c_{res} = \omega_0 = \sqrt{\frac{k}{m}} $$</div>
-<p style="margin-bottom: 10px;">With the profile wavelength $2\pi$ (unit wavenumber), the resonant speed is $c = \sqrt{k/m}$; for a general wavelength $\Lambda$ it would be $c = \omega_0\Lambda/2\pi$.</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(b) Amplitude at very high speed</h4>
-<p style="margin-bottom: 10px;">Try the particular solution $z_p = A\sin(ct)$, for $c \ne \omega_0$:</p>
-<div class="math-block">$$ \ddot{z}_p = -c^2A\sin(ct) \implies (\omega_0^2 - c^2)A = \omega_0^2 \implies A = \frac{\omega_0^2}{\omega_0^2 - c^2} $$</div>
-<p style="margin-bottom: 10px;">The amplitude of the oscillation of the airplane (the homogeneous part, at $\omega_0$, is the transient set by the initial conditions) is</p>
-<div class="math-block">$$ |A(c)| = \frac{\omega_0^2}{|\omega_0^2 - c^2|} \xrightarrow[c \gg \omega_0]{} \frac{\omega_0^2}{c^2} = \frac{k}{m\,c^2} $$</div>
-<p style="margin-bottom: 10px;">For very high speed the amplitude decays as $1/c^2$: the mass cannot follow the fast bumps, and $z_p$ is in antiphase with the road ($A &lt; 0$ for $c &gt; \omega_0$).</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">(c) Landing gear with damping $\lambda$</h4>
-<div class="justification-box"><strong>Pedagogical Justification:</strong> The damper acts on the relative velocity between the fuselage and the wheel, $-\lambda(\dot{y} - \dot{y}_b)$. Define $a = \lambda/m = 2\zeta\omega_0$ with the damping ratio $\zeta = \lambda/(2\sqrt{km})$.</div>
-<div class="math-block">$$ \ddot{z} + a\,\dot{z} + \omega_0^2 z = \omega_0^2\sin(ct) + a\,c\cos(ct) $$</div>
-<p style="margin-bottom: 10px;"><strong>Homogeneous solution (transient).</strong> The characteristic equation $r^2 + a\,r + \omega_0^2 = 0$ has roots $r = -\zeta\omega_0 \pm \omega_0\sqrt{\zeta^2 - 1}$:</p>
+<h3 class="phase-heading">Derivation</h3>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.1 Kinematics</h4>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the particle moves along the vertical, and the length of the spring is the distance between $P$ and the ground point under the wheel:</div>
+<div class="math-block">$$ \mathbf{r}_P = y\,\mathbf{j}, \qquad \mathbf{a}_P = \ddot{y}\,\mathbf{j}, \qquad y_b(t) = \sin(ct), \qquad \dot{y}_b = c\cos(ct), \qquad \ell_s = y - y_b $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Underdamped, $\lambda &lt; 2\sqrt{km}$ ($\zeta &lt; 1$): $z_h = e^{-\zeta\omega_0 t}\left(C_1\cos\omega_d t + C_2\sin\omega_d t\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.</li>
-<li>Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2 t)\,e^{-\omega_0 t}$, the fastest return without oscillation.</li>
-<li>Overdamped, $\lambda &gt; 2\sqrt{km}$ ($\zeta &gt; 1$): $z_h = C_1 e^{r_1 t} + C_2 e^{r_2 t}$ with $r_{1,2} &lt; 0$ real, slower return.</li>
+<li><strong>Weight:</strong> $-mg\,\mathbf{j}$. <strong>Spring force:</strong> $-k\left(\ell_s - L\right)\mathbf{j}$ (upward when compressed). <strong>Damper (part c):</strong> $-\lambda\left(\dot{y} - \dot{y}_b\right)\mathbf{j}$, proportional to the relative velocity between the fuselage and the wheel. <strong>Inertia forces:</strong> none.</li>
 </ul>
-<p style="margin-bottom: 10px;"><strong>Steady state.</strong> Write the forcing as the imaginary part of $(\omega_0^2 + i a c)\,e^{ict}$ and $z_p = \operatorname{Im}[H\,e^{ict}]$:</p>
-<div class="math-block">$$ H = \frac{\omega_0^2 + i\,a c}{\omega_0^2 - c^2 + i\,a c}, \qquad |H|^2 = \frac{\omega_0^4 + a^2c^2}{(\omega_0^2 - c^2)^2 + a^2c^2} $$</div>
-<p style="margin-bottom: 10px;">The steady amplitude is $|H|$, and it is always finite. At resonance, $c = \omega_0$:</p>
-<div class="math-block">$$ |H(\omega_0)| = \sqrt{1 + \frac{\omega_0^2}{a^2}} = \sqrt{1 + \frac{1}{4\zeta^2}} $$</div>
-<p style="margin-bottom: 10px;">At very high speed $|H| \approx a\,c/c^2 = a/c = \lambda/(m c)$: it decays only as $1/c$, slower than the undamped $1/c^2$ of part (b).</p>
-<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">Choice of $\lambda$ and effect of the payload</h4>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li>Damping removes the resonant divergence ($|H(\omega_0)|$ finite) and kills the transient quickly, but the price is the slower attenuation $1/c$ of the bumps at high speed. A compromise is $\zeta$ below $1$ (not overdamped): $\zeta = 0.5$ gives a resonant peak of $\sqrt{2} = 1.41$ and $\zeta = 0.7$ gives $1.22$, whereas critical damping slows the response and transmits more at high speed.</li>
-<li>Changing the mass changes both $\omega_0 = \sqrt{k/m}$, so the resonant speed $c_{res} = \sqrt{k/m}$ is lower for a heavier aircraft, and $\zeta = \lambda/(2\sqrt{km}) \propto m^{-1/2}$, so a heavier aircraft is less damped. Since $\lambda$ is fixed hardware, it must be chosen so that $\zeta$ stays in the useful range (for example $\zeta \gtrsim 0.3$) for the heaviest payload; the lightest payload then gets a larger $\zeta$ and a higher resonant speed.</li>
+<li><strong>Newton's second law along $Oy$:</strong></li>
+</ul>
+<div class="math-block">$$ m\ddot{y} = -k\left[y - \sin(ct) - L\right] - mg $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li>The constant weight only shifts the equilibrium. With $y = z + L - mg/k$ (so $\ddot{y} = \ddot{z}$ and $-k(y - L) - mg = -kz$), $z$ measures the motion about the static equilibrium over flat ground:</li>
+</ul>
+<div class="math-block">$$ m\ddot{z} = -kz + k\sin(ct) \implies \ddot{z} + \omega_0^2z = \omega_0^2\sin(ct) $$</div>
+<h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.4 Integration and Answers</h4>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(a) Resonance</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> this is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency: the amplitude of the forced response, $A = \omega_0^2/(\omega_0^2 - c^2)$ obtained in (b), diverges at $c = \omega_0$, where the response grows linearly in time.</div>
+<div class="math-block">$$ \boxed{c_{\text{res}} = \omega_0 = \sqrt{\frac{k}{m}}} $$</div>
+<p style="margin-bottom: 10px;">For a profile of general wavelength $\Lambda$ the resonant speed would be $c = \omega_0\Lambda/2\pi$ (here $\Lambda = 2\pi$).</p>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(b) Amplitude at very high speed</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the motion is the free oscillation at $\omega_0$ plus the forced response; with negligible damping the free part does not decay and depends only on the initial conditions. The amplitude asked for is that of the forced part, the particular solution $z_p = A\sin(ct)$ for $c \ne \omega_0$ (in units of the bump height, $1$ m):</div>
+<div class="math-block">$$ \ddot{z}_p = -c^2A\sin ct \implies \left(\omega_0^2 - c^2\right)A = \omega_0^2 \implies A = \frac{\omega_0^2}{\omega_0^2 - c^2} $$</div>
+<div class="math-block">$$ \boxed{|A(c)| = \frac{\omega_0^2}{\left|\omega_0^2 - c^2\right|} \xrightarrow[c \gg \omega_0]{} \frac{\omega_0^2}{c^2} = \frac{k}{mc^2}} $$</div>
+<p style="margin-bottom: 10px;">For very high speed the amplitude decays as $1/c^2$: the mass cannot follow the fast bumps, and $z_p$ is in antiphase with the road ($A \lt 0$ for $c \gt \omega_0$).</p>
+<h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(c) Landing gear with damping $\lambda$</h5>
+<div class="justification-box"><strong>Pedagogical Justification:</strong> the damper adds $-\lambda\left(\dot{y} - \dot{y}_b\right)$. With $a = \lambda/m = 2\zeta\omega_0$ and the damping ratio $\zeta = \lambda/\left(2\sqrt{km}\right)$:</div>
+<div class="math-block">$$ \ddot{z} + a\dot{z} + \omega_0^2z = \omega_0^2\sin(ct) + ac\cos(ct) $$</div>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>Transient (homogeneous solution).</strong> The characteristic equation $r^2 + ar + \omega_0^2 = 0$ has the roots $r = -\zeta\omega_0 \pm \omega_0\sqrt{\zeta^2 - 1}$:<ul><li>Underdamped, $\lambda \lt 2\sqrt{km}$ ($\zeta \lt 1$): $z_h = e^{-\zeta\omega_0t}\left(C_1\cos\omega_dt + C_2\sin\omega_dt\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.</li><li>Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2t)e^{-\omega_0t}$, the fastest return without oscillation.</li><li>Overdamped, $\lambda \gt 2\sqrt{km}$ ($\zeta \gt 1$): $z_h = C_1e^{r_1t} + C_2e^{r_2t}$ with $r_{1,2} \lt 0$ real, a slower return.</li></ul></li>
+<li><strong>Steady state.</strong> The forcing is the imaginary part of $\left(\omega_0^2 + iac\right)e^{ict}$, so with $z_p = \operatorname{Im}\left[He^{ict}\right]$:</li>
+</ul>
+<div class="math-block">$$ H = \frac{\omega_0^2 + iac}{\omega_0^2 - c^2 + iac}, \qquad |H|^2 = \frac{\omega_0^4 + a^2c^2}{\left(\omega_0^2 - c^2\right)^2 + a^2c^2} $$</div>
+<p style="margin-bottom: 10px;">The steady amplitude is $|H|$ and it is always finite. At resonance, $c = \omega_0$: $|H(\omega_0)| = \sqrt{1 + \dfrac{\omega_0^2}{a^2}} = \sqrt{1 + \dfrac{1}{4\zeta^2}}$. For $c \gg \max\left(a, \omega_0^2/a\right)$ (so that the damping term dominates both the numerator and the denominator), $|H| \approx ac/c^2 = a/c = \lambda/(mc)$: it decays only as $1/c$, slower than the undamped $1/c^2$ of part (b).</p>
+<ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<li><strong>The steady state is the same in the three cases.</strong> The formula $|H|$ does not depend on whether the gear is underdamped, critical or overdamped; only the transient $z_h$ differs, and it dies out in all three.</li>
+<li><strong>Effect on the results of (a) and (b).</strong> With $r = c/\omega_0$ and $a = 2\zeta\omega_0$ (extension notation; the notes use $\gamma = \lambda/(2m)$, with $\zeta = \gamma/\omega_0$), $|H|^2 = \dfrac{1 + 4\zeta^2r^2}{\left(1 - r^2\right)^2 + 4\zeta^2r^2}$. The resonance is no longer infinite: the maximum of $|H|$ moves below $\omega_0$, to $r_p^2 = \dfrac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \lt 1$ (from $d|H|^2/d(r^2) = 0$, i.e. $2\zeta^2r^4 + r^2 - 1 = 0$), with $|H|_{\max} = 1.47$ for $\zeta = 0.5$ ($r_p = 0.856$) and $1.28$ for $\zeta = 0.7$ ($r_p = 0.788$). At $c = \omega_0$ the value is $|H(\omega_0)| = \sqrt{1 + 1/(4\zeta^2)}$, i.e. $1.41$ and $1.23$.</li>
+<li><strong>A fixed point of the curve.</strong> At $c = \sqrt{2}\,\omega_0$ ($r^2 = 2$), $|H|^2 = \dfrac{1 + 8\zeta^2}{1 + 8\zeta^2} = 1$ for every $\zeta$: below this speed damping reduces the transmitted amplitude, above it damping increases it. The high-speed decay is only $1/c$.</li>
+<li><strong>Choice of $\lambda$.</strong> Critical damping gives the fastest return of the transient without oscillation, but a larger $\lambda$ transmits more amplitude above $c = \sqrt{2}\,\omega_0$ and attenuates the bumps at high speed only as $1/c$. A compromise is $\zeta$ somewhat below $1$ (underdamped): it keeps the resonant peak moderate ($1.28$ to $1.47$ for $\zeta = 0.7$ to $0.5$) without overdamping.</li>
+<li><strong>Effect of the payload.</strong> The mass changes $\omega_0 = \sqrt{k/m}$, so the resonant speed $c_{\text{res}} = \sqrt{k/m}$ is lower for a heavier aircraft, and $\zeta = \lambda/\left(2\sqrt{km}\right) \propto m^{-1/2}$, so a heavier aircraft is less damped. Since $\lambda$ is fixed hardware, it must be chosen so that $\zeta$ stays below $1$ for the lightest payload (to avoid overdamping) and is still large enough to limit the resonant peak for the heaviest one; the lightest payload then has a larger $\zeta$ and a higher resonant speed.</li>
 </ul>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 4</span>
-<h3 class="phase-heading">Physical Interpretation &amp; Dimensional Verification</h3>
+<h3 class="phase-heading">Interpretation &amp; Checks</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
-<li><strong>Dimensional check:</strong> $[\omega_0^2] = [k/m] = \text{s}^{-2} = [c^2]$ with $c$ in rad/s; $[a] = [\lambda/m] = \text{N s m}^{-1}/\text{kg} = \text{s}^{-1}$, so $\zeta = a/(2\omega_0)$ is dimensionless.</li>
-<li><strong>Limits:</strong> $c \to 0$ gives $|A| \to 1$, the airplane follows the road quasi-statically; $\lambda \to 0$ in $|H|$ recovers $|A|$ of part (b); $\zeta \to \infty$ gives $|H| \to 1$ for slow runways and $\to \lambda/(mc)$ at high speed.</li>
-<li><strong>Symbolic check (sympy):</strong> the undamped particular solution and the damped steady state $z_p = \operatorname{Im}[H e^{ict}]$ satisfy their equations with zero residual, and $|H(\omega_0)|^2 = 1 + \omega_0^2/a^2$.</li>
+<li><strong>Dimensional check:</strong> $[\omega_0^2] = [k/m] = \text{s}^{-2} = [c^2]$ with $c$ in rad/s; $[a] = [\lambda/m] = \text{N s m}^{-1}\text{kg}^{-1} = \text{s}^{-1}$, so $\zeta = a/(2\omega_0)$ is dimensionless.</li>
+<li><strong>Limits:</strong> $c \to 0$ gives $|A| \to 1$ (the airplane follows the road quasi-statically); $\lambda \to 0$ in $|H|$ recovers $|A|$; for $\zeta \to \infty$ at fixed $c$, $|H| \to 1$ for every speed (the gear locks and the airplane follows the road); the $|H| \approx \lambda/(mc)$ regime needs $c \gg \max\left(\lambda/m,\ \omega_0^2m/\lambda\right)$ (otherwise the response still decays as $\omega_0^2/c^2$).</li>
+<li><strong>Check against the official key:</strong> <code>Problems.pdf</code> has no entry for Problem 46 in its solution keys, so the results are verified by independent derivation. Sympy confirms that the undamped particular solution and the damped steady state satisfy their equations with zero residual; numerical integration of the damped equation ($\omega_0 = 1.7$, $a = 0.6$, $c = 2.3$, over $120$ s) gives a steady amplitude of $1.156806$, equal to $|H| = 1.156806$, and $|H(\omega_0)|^2 = 9.0278 = 1 + \omega_0^2/a^2$.</li>
 </ul>
 </div>
         </div>

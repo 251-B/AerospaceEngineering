@@ -74,7 +74,7 @@ A particle of mass $m$ is moving along the $Ox$ axis under the force $\mathbf{F}
 
 ## 📌 Problem 15: Stokes Drag and Terminal Velocity
 
-The Stokes' law states that the magnitude of the drag force acting on a sphere of radius $r$ and velocity $v$ moving in a fluid at rest of dynamic viscosity $\mu$ is: $F(v) = 6\pi\mu rv$. Assuming the density of a vertically-falling sphere is twice the density of the fluid ($\rho_0$), and considering drag, the weight, and the buoyancy of the sphere, compute:
+The Stokes' law states that the magnitude of the drag force acting on a sphere of radius $r$ and velocity $v$ moving on a fluid at rest of dynamic viscosity $\mu$ is: $F(v) = 6\pi\mu rv$. Assuming the density of a vertically-falling sphere is twice the density of the fluid ($\rho_0$), and considering drag, the weight, and the buoyancy of the sphere, compute:
 
 * **(a)** The terminal velocity of the sphere.
 * **(b)** The evolution of the position as a function of time, if the sphere starts from rest.
@@ -110,7 +110,7 @@ $$ (\dot{x}_0, \dot{y}_0, \dot{z}_0) = \left(0, \frac{2g}{k}, 0\right) $$
 
 ## 📌 Problem 45: Vibrating Rotor (Unbalanced Turbojet)
 
-To understand the vibrations that occur in a turbojet when the mass distribution of the rotor is slightly unbalanced, we can consider the turbojet as a rigid disk of mass $m$ that rotates at a fixed angular velocity $\omega$, with the center of mass $G$ being separated from the geometric center $C$ by a fixed distance $\ell$. An elastic restoring force (with constant $k$) tries to keep $C$ at its design position $O$. We call $x_0^G, y_0^G$ the Cartesian coordinates of $G$, and $x_0^C, y_0^C$ the Cartesian coordinates of $C$. Considering the weight of the disk negligible, write down the equation of the dynamics of $G$. Assuming that the homogeneous solution is damped over time and only the particular solution remains, write down the expression of $x_0^G(t)$ and $x_0^C(t)$. Can we affirm that $|\boldsymbol{OC}| > |\boldsymbol{OG}|$ if $\omega > \sqrt{k/m}$?
+To understand the vibrations that occur in a turbojet when the mass distribution of the rotor is slightly unbalanced, we can consider the turbojet as a rigid disk of mass $m$ that rotates at a fixed angular velocity $\omega$, with the center of mass $G$ being separated from the geometric center $C$ by a fixed distance (called $\ell$ in the figure). An elastic restoring force (with constant $k$) tries to keep $C$ at its design position $O$. We call $x_0^G, y_0^G$ the Cartesian coordinates of $G$, and $x_0^C, y_0^C$ the Cartesian coordinates of $C$. Considering the weight of the disk negligible, write down the equation of the dynamics of $G$. Assuming that the homogeneous solution is damped over time and only the particular solution remains, write down the expression of $x_0^G(t)$ and $x_0^C(t)$. Can we affirm that $|\boldsymbol{OC}| > |\boldsymbol{OG}|$ if $\omega > \sqrt{k/m}$?
 
 ![[attachments/EM/T2-P45-figure.png]]
 *Figure: Rotating disk of centre C with the centre of mass G at distance l, angle omega t from the x direction, spring k from O to C, axes Oxy Source: Problems.pdf, p. 31.*

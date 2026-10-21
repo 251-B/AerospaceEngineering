@@ -4,42 +4,42 @@
   "title": "Rocket Helical Trajectory",
   "badge": "MIT OCW Benchmark",
   "source_note": "(Taken from MIT OCW)",
-  "structure": 1
+  "structure": 2
  },
  "02": {
   "topic": 1,
   "title": "Kinematics, Spiral",
   "badge": "Polar Kinematics",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "03": {
   "topic": 1,
   "title": "Kinematics, Astroid",
   "badge": "Intrinsic Kinematics",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "04": {
   "topic": 1,
   "title": "Plane at Constant Altitude",
   "badge": "Coordinate Transformations",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "05": {
   "topic": 1,
   "title": "Plane and Glider",
   "badge": "Aerospace Towed Flight",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "06": {
   "topic": 1,
   "title": "Particle on Sinusoidal Curve",
   "badge": "Frenet-Serret Frame",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "07": {
   "topic": 5,
@@ -67,56 +67,56 @@
   "title": "Conservative Force and Potential I",
   "badge": "Work & Potential Energy",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "11": {
   "topic": 2,
   "title": "Conservative Force and Potential II",
   "badge": "1D Energy Landscapes",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "12": {
   "topic": 2,
   "title": "Conservative Force and Potential III",
   "badge": "Oscillation Period",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "13": {
   "topic": 2,
   "title": "Conservative Force and Potential IV",
   "badge": "Quadratures & Trajectory",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "14": {
   "topic": 2,
   "title": "Conservative Force and Potential V",
   "badge": "Phase Analysis",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "15": {
   "topic": 2,
   "title": "Stokes Drag and Terminal Velocity",
   "badge": "Viscous Aerodynamics",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "16": {
   "topic": 2,
   "title": "Drag on Falling Football",
   "badge": "Quadratic Drag",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "17": {
   "topic": 2,
   "title": "Linear Central Force",
   "badge": "Newtonian Restoring Force",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "18": {
   "topic": 3,
@@ -312,14 +312,14 @@
   "title": "Vibrating Rotor (Unbalanced Turbojet)",
   "badge": "Forced Oscillations",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "46": {
   "topic": 2,
   "title": "Bumpy Taxiway",
   "badge": "Resonance & Damping",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "47": {
   "topic": 5,

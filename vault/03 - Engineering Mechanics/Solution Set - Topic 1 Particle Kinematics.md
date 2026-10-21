@@ -3,632 +3,421 @@ title: "Solution Set - Topic 1: Fundamentals and Particle Kinematics"
 subject: "Mechanics Applied to Aerospace Engineering"
 course: "251-14165 (UC3M)"
 source: "sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf"
-type: "Full Analytical Step-by-Step Solutions"
+type: "Full Analytical Solutions (course order, Notes chapter 7)"
 language: "English"
-author: "Aerospace Engineering Multi-Agent Team"
-date: "2026-09-23"
 tags:
   - solutions
   - particle-kinematics
 ---
 
-# 📚 Topic 1: Fundamentals and Particle Kinematics — Complete Analytical Solutions
+# Topic 1: Fundamentals and Particle Kinematics - Complete Analytical Solutions
 
-This document contains the **exhaustive, zero-skip analytical solutions** for all 6 solvable problems in Topic 1 (*Particle Kinematics*) from the official UC3M problem collection (`Problems.pdf`).
-
-Every problem is structured according to the **4-Phase Methodological Protocol**:
-1. **Phase 1: Physical Statement, Hypotheses, CDOFs & Parameters**
-2. **Phase 2: Reference Frames, Vector Bases & Rotation Matrices $[{}_0 R_1]$**
-3. **Phase 3: Step-by-Step Mathematical Deduction with Continuous Pedagogical Justification**
-   - Explicit time derivatives $\frac{d}{dt}(u\cdot v) = \dot{u}v + u\dot{v}$ and chain rule $\frac{df}{dt} = \frac{df}{du}\frac{du}{dt}$.
-   - Explicit integrals $\int f(u)u'(t)\,dt$, primitives, and Barrow's rule evaluations.
-   - Traceability to official course notes (`Notes.pdf`, Chapters 1–3).
-4. **Phase 4: Physical Interpretation, Limiting Cases & Dimensional Verification (SI units)**
+This document contains the step-by-step solutions of the 6 problems of Topic 1 (*Particle Kinematics*) from the official UC3M problem collection (`Problems.pdf`). Every solution follows the systematic approach of `Notes.pdf`, chapter 7, inside four phases: constraints, degrees of freedom and coordinates (7.1, 7.2); reference frames (7.3); the derivation in the order kinematics (7.4), forces (7.5), equations of motion (7.6) and integration with the answers (7.7); and the interpretation and checks. Topic 1 problems are purely kinematic: the trajectory or the motion is given, so no force acts as an unknown and sections 3.2 and 3.3 state that they do not apply. Each formula is preceded by the reason for using it, with explicit derivatives (product and chain rules) and explicit integrals.
 
 ---
 
 ## 📌 Problem 01: Rocket Helical Trajectory (MIT OCW)
 
-### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** An out-of-control sounding rocket ascends following a regular circular helix around the vertical $z$-axis.
-* **Hypotheses:** The cylinder radius $a > 0$, vertical ascent velocity $v_z > 0$, and angular spin rate $\omega > 0$ are strictly positive constants. The rocket is modeled as an ideal point particle $P$.
-* **Configuration Degrees of Freedom (CDOFs):** The trajectory is purely kinematically prescribed by time $t$; thus, the particle has $\text{CDOF} = 1$ parameterized by time $t$ or arc length $s$.
-* **Parameters & SI Units:** Radius $a\text{ [m]}$, angular frequency $\omega\text{ [rad/s]}$, vertical velocity $v_z\text{ [m/s]}$, time $t\text{ [s]}$.
+### Phase 1: Constraints, Degrees of Freedom & Coordinates
+* **System:** an out-of-control rocket, modelled as a point particle $P$, ascends along a circular helix around the vertical $z$-axis.
+* **Hypotheses:** $a \gt 0$, $v_z \gt 0$ and $\omega \gt 0$ are constants and $t \gt 0$.
+* **Constraints and degrees of freedom:** the statement gives the three Cartesian coordinates as functions of time, so the particle is on the helix, which satisfies the two holonomic relations $x = a\cos(\omega z/v_z)$ and $y = a\sin(\omega z/v_z)$ (substituting $z = v_zt$ recovers the statement). Two independent relations leave $\text{CDOF} = 3 - 2 = 1$: a single coordinate ($t$, or the arc length $s$) fixes the position on the helix.
+* **Coordinates:** the Cartesian coordinates $(x, y, z)$ of the statement; for the questions we also use the cylindrical coordinates $(R, \theta, z)$ and the arc length $s$.
+* **Parameters:** radius $a$ [m], angular frequency $\omega$ [rad/s], vertical velocity $v_z$ [m/s], time $t$ [s].
 
-### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
-* **Inertial Reference Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, fixed to the launch site with vertical axis $\mathbf{k}_0$ aligned with $z$.
-* **Cylindrical Moving Basis:** $\mathcal{B}_{\text{cyl}} = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$.
+### Phase 2: Reference Frames & Vector Bases
+* **Inertial frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, fixed to the launch site with $\mathbf{k}_0$ along the vertical $z$-axis.
+* **Cylindrical basis:** $\mathcal{B}_{\text{cyl}} = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$, a rotation of $\mathcal{B}_0$ by the angle $\theta = \omega t$ about $\mathbf{k}_0$:
+$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1, \qquad [{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I $$
+* The basis vectors, from the columns of the matrix:
+$$ \mathbf{e}_R = \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0, \qquad \mathbf{e}_\theta = -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0, \qquad \mathbf{e}_z = \mathbf{k}_0 $$
+* **Time derivatives of the unit vectors** (direct differentiation of their explicit components, with the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$ and $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$; Notes Sec. 2.6.2):
+$$ \frac{d\mathbf{e}_R}{dt} = -\omega\sin(\omega t)\,\mathbf{i}_0 + \omega\cos(\omega t)\,\mathbf{j}_0 = \omega\,\mathbf{e}_\theta, \qquad \frac{d\mathbf{e}_\theta}{dt} = -\omega\cos(\omega t)\,\mathbf{i}_0 - \omega\sin(\omega t)\,\mathbf{j}_0 = -\omega\,\mathbf{e}_R, \qquad \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$
+* **Intrinsic basis:** $\mathcal{B}_F = \{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$ (tangent, principal normal toward the centre of curvature, binormal $\mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n$), obtained in 3.1 and related to $\mathcal{B}_{\text{cyl}}$ by a second change-of-basis matrix.
 
-The transformation matrix from the inertial Cartesian basis $\mathcal{B}_0$ to the cylindrical basis $\mathcal{B}_{\text{cyl}}$ is the planar rotation matrix about $\mathbf{k}_0$:
+### Phase 3: Derivation
 
-$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) & -\sin(\omega t) & 0 \\ \sin(\omega t) & \cos(\omega t) & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
+#### 3.1 Kinematics
+##### (a) Cartesian position, velocity and acceleration
+* **Pedagogical Justification:** the position is given by its Cartesian components in the fixed basis, whose unit vectors are constant ($\dot{\mathbf{i}}_0 = \dot{\mathbf{j}}_0 = \dot{\mathbf{k}}_0 = \mathbf{0}$). Velocity and acceleration follow by differentiating term by term.
+$$ \mathbf{r}(t) = a\cos(\omega t)\,\mathbf{i}_0 + a\sin(\omega t)\,\mathbf{j}_0 + v_z t\,\mathbf{k}_0 $$
+$$ \mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = -a\omega\sin(\omega t)\,\mathbf{i}_0 + a\omega\cos(\omega t)\,\mathbf{j}_0 + v_z\,\mathbf{k}_0 $$
+$$ \mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = -a\omega^2\cos(\omega t)\,\mathbf{i}_0 - a\omega^2\sin(\omega t)\,\mathbf{j}_0 + 0\,\mathbf{k}_0 = -a\omega^2\left(\cos(\omega t)\,\mathbf{i}_0 + \sin(\omega t)\,\mathbf{j}_0\right) $$
 
-The basis vector relationships are given by matrix-vector multiplication:
+##### (b) Cylindrical position, velocity and acceleration
+* **Pedagogical Justification:** the helix lies on a cylinder, so $R = \sqrt{x^2 + y^2} = a$ is constant and $\theta = \omega t$. The vectors $\mathbf{e}_R$ and $\mathbf{e}_\theta$ are not constant, so we use the product rule with the derivatives of Phase 2.
+$$ \mathbf{r} = a\,\mathbf{e}_R + v_z t\,\mathbf{e}_z $$
+$$ \mathbf{v} = \dot{a}\,\mathbf{e}_R + a\frac{d\mathbf{e}_R}{dt} + \frac{d(v_z t)}{dt}\mathbf{e}_z + v_z t\frac{d\mathbf{e}_z}{dt} = 0 + a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z + 0 = a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z $$
+$$ \mathbf{a} = \frac{d(a\omega)}{dt}\mathbf{e}_\theta + a\omega\frac{d\mathbf{e}_\theta}{dt} + \frac{dv_z}{dt}\mathbf{e}_z + v_z\frac{d\mathbf{e}_z}{dt} = 0 + a\omega\left(-\omega\,\mathbf{e}_R\right) + 0 + 0 = -a\omega^2\,\mathbf{e}_R $$
 
-$$ \begin{pmatrix} \mathbf{e}_R \\ \mathbf{e}_\theta \\ \mathbf{e}_z \end{pmatrix} = [{}_0 R_{\text{cyl}}]^T \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0 \\ -\sin(\omega t)\mathbf{i}_0 + \cos(\omega t)\mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
-* **Time Derivatives of Unit Vectors (direct differentiation, Notes Sec. 2.6.2):**
+##### (d) Modulus of the velocity
+* **Pedagogical Justification:** the speed is the norm of the velocity vector, the rate at which the distance along the path is travelled. It is computed before part (c) because the intrinsic basis and the radius of curvature need it.
+$$ v = \|\mathbf{v}\| = \sqrt{a^2\omega^2\left(\sin^2\omega t + \cos^2\omega t\right) + v_z^2} = \sqrt{a^2\omega^2 + v_z^2} \equiv V $$
+The speed is constant for all $t$.
 
-The components of $\mathbf{e}_R$ and $\mathbf{e}_\theta$ in the fixed basis are known functions of $t$, so each one is differentiated with the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$, $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$:
-
-$$ \frac{d\mathbf{e}_R}{dt} = -\omega\sin(\omega t)\,\mathbf{i}_0 + \omega\cos(\omega t)\,\mathbf{j}_0 = \omega\,\mathbf{e}_\theta $$
-$$ \frac{d\mathbf{e}_\theta}{dt} = -\omega\cos(\omega t)\,\mathbf{i}_0 - \omega\sin(\omega t)\,\mathbf{j}_0 = -\omega\,\mathbf{e}_R $$
-$$ \frac{d\mathbf{e}_z}{dt} = \mathbf{0} $$
-* **Orthonormality of $[{}_0 R_{\text{cyl}}]$:** $\det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1$ and $[{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I$ (checked symbolically with sympy).
-* **Frenet basis from the cylindrical basis.** The components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$ (obtained in Phase 3, part (c)) are the columns of the second change-of-basis matrix, with $V = \sqrt{a^2\omega^2 + v_z^2}$:
-$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \\ a\omega/V & 0 & -v_z/V \\ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad \det = \frac{a^2\omega^2 + v_z^2}{V^2} = 1, \qquad R R^T = I $$
-* The three columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$). Both determinants and the products $R R^T$ were verified symbolically with sympy.
-
-### Phase 3: Step-by-Step Mathematical Deduction
-
-#### (a) Cartesian Position, Velocity, and Acceleration
-* **Pedagogical Justification:** The position vector $\mathbf{r}(t)$ is directly defined by its Cartesian coordinates $(x(t), y(t), z(t))$ relative to the fixed origin $O$. Velocity and acceleration are obtained by direct term-by-term differentiation in the fixed inertial basis $\mathcal{B}_0$, where $\frac{d\mathbf{i}_0}{dt} = \frac{d\mathbf{j}_0}{dt} = \frac{d\mathbf{k}_0}{dt} = \mathbf{0}$.
-* **Position Vector:**
-$$ \mathbf{r}(t) = a\cos(\omega t)\mathbf{i}_0 + a\sin(\omega t)\mathbf{j}_0 + v_z t\mathbf{k}_0 $$
-* **Velocity Vector (Explicit Chain Rule):**
-$$ \mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \frac{d}{dt}[a\cos(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\sin(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z t]\mathbf{k}_0 $$
-
-Applying the chain rule $\frac{d}{dt}\cos(\omega t) = -\omega\sin(\omega t)$ and $\frac{d}{dt}\sin(\omega t) = \omega\cos(\omega t)$:
-
-$$ \mathbf{v}(t) = -a\omega\sin(\omega t)\mathbf{i}_0 + a\omega\cos(\omega t)\mathbf{j}_0 + v_z\mathbf{k}_0 $$
-* **Acceleration Vector (Explicit Chain Rule):**
-$$ \mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \frac{d}{dt}[-a\omega\sin(\omega t)]\mathbf{i}_0 + \frac{d}{dt}[a\omega\cos(\omega t)]\mathbf{j}_0 + \frac{d}{dt}[v_z]\mathbf{k}_0 $$
-$$ \mathbf{a}(t) = -a\omega^2\cos(\omega t)\mathbf{i}_0 - a\omega^2\sin(\omega t)\mathbf{j}_0 + 0\mathbf{k}_0 = -a\omega^2(\cos(\omega t)\mathbf{i}_0 + \sin(\omega t)\mathbf{j}_0) $$
-
-#### (b) Cylindrical Position, Velocity, and Acceleration
-* **Pedagogical Justification:** Cylindrical coordinates $(R, \theta, z)$ exploit the axial symmetry of the cylinder upon which the helix lies. Here, the radial distance $R(t) = \sqrt{x^2 + y^2} = a$ is constant, and the azimuthal angle is $\theta(t) = \omega t$.
-* **Position in Cylindrical Coordinates:**
-$$ \mathbf{r}(t) = a\mathbf{e}_R + v_z t\mathbf{e}_z $$
-* **Velocity Vector (Explicit Product Rule):**
-$$ \mathbf{v}(t) = \frac{d}{dt}(a\mathbf{e}_R + v_z t\mathbf{e}_z) = a\frac{d\mathbf{e}_R}{dt} + \frac{d(v_z t)}{dt}\mathbf{e}_z + v_z t\frac{d\mathbf{e}_z}{dt} $$
-
-Substituting $\frac{d\mathbf{e}_R}{dt} = \omega\mathbf{e}_\theta$ and $\frac{d\mathbf{e}_z}{dt} = \mathbf{0}$:
-
-$$ \mathbf{v}(t) = a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z $$
-* **Acceleration Vector (Explicit Differentiation):**
-$$ \mathbf{a}(t) = \frac{d}{dt}(a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z) = a\omega\frac{d\mathbf{e}_\theta}{dt} + 0 = a\omega(-\omega\mathbf{e}_R) = -a\omega^2\mathbf{e}_R $$
-
-#### (c) Intrinsic Frenet-Serret Basis $\{\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b\}$
-* **Pedagogical Justification:** The Frenet-Serret intrinsic basis (Notes Sec. 2.4) decomposes motion naturally along the curve itself. The tangent vector $\mathbf{e}_t$ points in the direction of instantaneous velocity, the principal normal $\mathbf{e}_n$ points toward the center of curvature, and the binormal $\mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n$ completes the right-handed orthonormal triad.
-* **Unit Tangent Vector $\mathbf{e}_t$:**
-$$ \mathbf{e}_t = \frac{\mathbf{v}}{\|\mathbf{v}\|} = \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
-* **Unit Principal Normal Vector $\mathbf{e}_n$:**
-
-By definition of the intrinsic acceleration (Notes Eq. 2.17):
-
-$$ \mathbf{a} = \ddot{s}\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\mathbf{e}_n $$
-
-Since the speed $v = \dot{s} = \sqrt{a^2\omega^2 + v_z^2}$ is strictly constant in time, the tangential acceleration vanishes:
-
-$$ \ddot{s} = \frac{dv}{dt} = 0 $$
-
-Therefore, the entire acceleration is purely normal:
-
-$$ \mathbf{a} = a_n\mathbf{e}_n = -a\omega^2\mathbf{e}_R $$
-
-Taking the norm of both sides yields the magnitude of normal acceleration:
-
-$$ a_n = \|\mathbf{a}\| = a\omega^2 $$
-
-Dividing $\mathbf{a}$ by its norm gives the unit normal vector:
-
+##### (c) Intrinsic basis, and velocity and acceleration in terms of $s$ and $\rho$
+* **Pedagogical Justification:** the Frenet-Serret basis follows the curve itself (Notes Sec. 2.4): $\mathbf{e}_t$ is the direction of the velocity, $\mathbf{e}_n$ points toward the centre of the osculating circle and $\mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n$ completes a right-handed triad. The intrinsic acceleration is (Notes Eq. 2.17)
+$$ \mathbf{a} = \ddot{s}\,\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\,\mathbf{e}_n, \qquad \mathbf{v} = \dot{s}\,\mathbf{e}_t $$
+* **Tangent.** $\mathbf{e}_t = \dfrac{\mathbf{v}}{\|\mathbf{v}\|} = \dfrac{a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z}{V}$.
+* **Principal normal.** Since $\dot{s} = V$ is constant, $\ddot{s} = dV/dt = 0$ and the whole acceleration is normal: $\mathbf{a} = a_n\mathbf{e}_n = -a\omega^2\mathbf{e}_R$. Taking the norm gives $a_n = a\omega^2$, and dividing the vector by it gives
 $$ \mathbf{e}_n = \frac{\mathbf{a}}{a_n} = \frac{-a\omega^2\mathbf{e}_R}{a\omega^2} = -\mathbf{e}_R $$
+The principal normal points radially inward, toward the axis of the cylinder.
+* **Radius of curvature.** From $a_n = \dot{s}^2/\rho$:
+$$ \rho = \frac{V^2}{a_n} = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a + \frac{v_z^2}{a\omega^2} $$
+* **Binormal.** Using $\mathbf{e}_R\times\mathbf{e}_\theta = \mathbf{e}_z$ and its cyclic permutations ($\mathbf{e}_z\times\mathbf{e}_R = \mathbf{e}_\theta$), together with the anticommutativity $\mathbf{e}_\theta\times\mathbf{e}_R = -\mathbf{e}_z$:
+$$ \mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n = \frac{a\omega\,\mathbf{e}_\theta + v_z\,\mathbf{e}_z}{V}\times(-\mathbf{e}_R) = \frac{-a\omega\left(\mathbf{e}_\theta\times\mathbf{e}_R\right) - v_z\left(\mathbf{e}_z\times\mathbf{e}_R\right)}{V} = \frac{-v_z\,\mathbf{e}_\theta + a\omega\,\mathbf{e}_z}{V} $$
+* **Velocity and acceleration with $s$ and $\rho$:**
+$$ \mathbf{v} = \dot{s}\,\mathbf{e}_t = V\,\mathbf{e}_t, \qquad \mathbf{a} = \ddot{s}\,\mathbf{e}_t + \frac{\dot{s}^2}{\rho}\,\mathbf{e}_n = \frac{V^2}{\rho}\,\mathbf{e}_n = a\omega^2\,\mathbf{e}_n $$
+* **Second change-of-basis matrix.** Its columns are the components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$:
+$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 & -1 & 0 \\ a\omega/V & 0 & -v_z/V \\ v_z/V & 0 & a\omega/V \end{pmatrix}, \qquad R R^T = I $$
+Expanding the determinant along the first row (its only non-zero entry is $-1$ in position $(1,2)$, with cofactor sign $-1$):
+$$ \det = -(-1)\left[\frac{a\omega}{V}\cdot\frac{a\omega}{V} - \left(-\frac{v_z}{V}\right)\frac{v_z}{V}\right] = \frac{a^2\omega^2 + v_z^2}{V^2} = 1 $$
+The columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$).
 
-The principal normal points radially inward toward the central axis of the cylinder!
+#### 3.2 Forces
+Not applicable: kinematics-only problem. The trajectory is given, so no force enters the question.
 
-* **Radius of Curvature $\rho$:**
+#### 3.3 Equations of Motion
+Not applicable: kinematics-only problem. The motion is prescribed by the statement, so there is no equation of motion to solve.
 
-Using the relation $a_n = \frac{v^2}{\rho}$:
+#### 3.4 Integration and Answers
+##### (e) Arc length as a function of time
+* **Pedagogical Justification:** $s(t)$ measures the distance travelled along the trajectory from $t = 0$, i.e. the integral of the speed.
+$$ s(t) = \int_0^t v\,dt' = \int_0^t V\,dt' = V\left[t'\right]_0^t = V(t - 0) = t\sqrt{a^2\omega^2 + v_z^2} $$
 
-$$ \rho = \frac{v^2}{a_n} = \frac{a^2\omega^2 + v_z^2}{a\omega^2} = a + \frac{v_z^2}{a\omega^2} $$
-* **Unit Binormal Vector $\mathbf{e}_b$:**
+##### (f) Trajectory as a function of the arc length
+* **Pedagogical Justification:** inverting $s(t)$ gives $t(s) = s/V$, which is substituted into the parametric equations to remove the time:
+$$ x(s) = a\cos\left(\frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}}\right), \qquad y(s) = a\sin\left(\frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}}\right), \qquad z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$
 
-Computing the vector cross product in the cylindrical basis:
+##### (g) Centre of curvature at $(a, 0, 0)$
+* **Pedagogical Justification:** the centre $C$ of the osculating circle lies on the principal normal at distance $\rho$: $\mathbf{r}_C = \mathbf{r}_P + \rho\,\mathbf{e}_n$ (Notes Sec. 2.4).
+* The helix passes through $(a, 0, 0)$ where $z = v_zt = 0$, i.e. at $t = 0$. The statement says $t \gt 0$, so we take the motion law to hold for $t \ge 0$ (the point is the limit $t \to 0^+$; all formulas are continuous there). At that point $\mathbf{r}_P(0) = a\,\mathbf{i}_0$ and $\mathbf{e}_n(0) = -\mathbf{e}_R(0) = -\mathbf{i}_0$:
+$$ \mathbf{r}_C = a\,\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)\left(-\mathbf{i}_0\right) = -\frac{v_z^2}{a\omega^2}\,\mathbf{i}_0, \qquad \boxed{C = \left(-\frac{v_z^2}{a\omega^2},\ 0,\ 0\right)} $$
 
-$$ \mathbf{e}_b = \mathbf{e}_t \times \mathbf{e}_n = \left( \frac{a\omega\mathbf{e}_\theta + v_z\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} \right) \times (-\mathbf{e}_R) = \frac{-a\omega(\mathbf{e}_\theta \times \mathbf{e}_R) - v_z(\mathbf{e}_z \times \mathbf{e}_R)}{\sqrt{a^2\omega^2 + v_z^2}} $$
-
-Recalling cyclic cross products: $\mathbf{e}_\theta \times \mathbf{e}_R = -\mathbf{e}_z$ and $\mathbf{e}_z \times \mathbf{e}_R = \mathbf{e}_\theta$:
-
-$$ \mathbf{e}_b = \frac{-a\omega(-\mathbf{e}_z) - v_z\mathbf{e}_\theta}{\sqrt{a^2\omega^2 + v_z^2}} = \frac{-v_z\mathbf{e}_\theta + a\omega\mathbf{e}_z}{\sqrt{a^2\omega^2 + v_z^2}} $$
-
-#### (d) Modulus of Velocity
-* **Pedagogical Justification:** The speed $v(t) = \|\mathbf{v}(t)\|$ represents the scalar rate of distance traveled along the path.
-* **Calculation:**
-$$ v = \|\mathbf{v}\| = \sqrt{(-a\omega\sin\omega t)^2 + (a\omega\cos\omega t)^2 + v_z^2} = \sqrt{a^2\omega^2(\sin^2\omega t + \cos^2\omega t) + v_z^2} = \sqrt{a^2\omega^2 + v_z^2} $$
-
-The speed is constant for all $t \ge 0$.
-
-#### (e) Evolution of Arc Length Coordinate $s(t)$
-* **Pedagogical Justification:** The arc-length coordinate $s(t)$ measures the distance traversed along the trajectory from the initial position at $t = 0$. By fundamental calculus:
-$$ s(t) = \int_0^t v(t')\,dt' $$
-* **Definite Integration:**
-$$ s(t) = \int_0^t \sqrt{a^2\omega^2 + v_z^2}\,dt' = \sqrt{a^2\omega^2 + v_z^2} \left[ t' \right]_0^t = t\sqrt{a^2\omega^2 + v_z^2} $$
-
-#### (f) Trajectory as a Function of Arc Length $s$
-* **Pedagogical Justification:** To express the curve intrinsically independent of time, we invert $s(t)$ to obtain time as a function of arc length: $t(s) = \frac{s}{\sqrt{a^2\omega^2 + v_z^2}}$.
-* **Substitution into Cartesian Coordinates:**
-$$ x(s) = a\cos\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$
-$$ y(s) = a\sin\left( \frac{\omega s}{\sqrt{a^2\omega^2 + v_z^2}} \right) $$
-$$ z(s) = \frac{v_z s}{\sqrt{a^2\omega^2 + v_z^2}} $$
-
-#### (g) Center of Curvature $C$ at $(a, 0, 0)$
-* **Pedagogical Justification:** The center of curvature $C$ of the osculating circle is displaced from particle $P$ along the principal normal $\mathbf{e}_n$ by the radius of curvature $\rho$ (Notes Sec. 2.4, Fig. 2.2):
-$$ \mathbf{r}_C = \mathbf{r}_P + \rho\mathbf{e}_n $$
-* **Evaluation at $(a, 0, 0)$:**
-
-At position $(a, 0, 0)$, $x(t) = a\cos(\omega t) = a \implies \omega t = 0 \implies t = 0$.
-
-At $t = 0$:
-
-* Position: $\mathbf{r}_P(0) = a\mathbf{i}_0$.
-* Unit normal: $\mathbf{e}_n(0) = -\mathbf{e}_R(0) = -(\cos(0)\mathbf{i}_0 + \sin(0)\mathbf{j}_0) = -\mathbf{i}_0$.
-* Radius of curvature: $\rho = a + \frac{v_z^2}{a\omega^2}$.
-* **Algebraic Combination:**
-$$ \mathbf{r}_C = a\mathbf{i}_0 + \left(a + \frac{v_z^2}{a\omega^2}\right)(-\mathbf{i}_0) = a\mathbf{i}_0 - a\mathbf{i}_0 - \frac{v_z^2}{a\omega^2}\mathbf{i}_0 = -\frac{v_z^2}{a\omega^2}\mathbf{i}_0 $$
-
-In Cartesian coordinates:
-
-$$ C = \left( -\frac{v_z^2}{a\omega^2}, \, 0, \, 0 \right) $$
-
-### Phase 4: Physical Interpretation & Dimensional Verification
-* **Dimensional Check:**
-* Velocity: $[a\omega] = [\text{m}][\text{s}^{-1}] = \text{m/s}$, $[v_z] = \text{m/s}$. $\implies \sqrt{a^2\omega^2 + v_z^2}$ has units $\text{m/s}$ (Consistent).
-* Curvature center offset: $\left[\frac{v_z^2}{a\omega^2}\right] = \frac{[\text{m/s}]^2}{[\text{m}][\text{s}^{-1}]^2} = \frac{\text{m}^2/\text{s}^2}{\text{m}/\text{s}^2} = \text{m}$ (Consistent).
-* **Limiting Asymptotic Cases:**
-* If $v_z \to 0$ (planar circular motion): $\rho = a$, and $C = (0, 0, 0)$, the origin of the circle as expected physically.
-* If $\omega \to 0$ (pure vertical line ascent): $\rho \to \infty$, curvature vanishes, and the trajectory becomes a straight vertical line.
+### Phase 4: Interpretation & Checks
+* **Dimensional check:** $[a\omega] = \text{m}\cdot\text{s}^{-1}$ and $[v_z] = \text{m/s}$, so $V$ is in m/s. The offset $\left[\dfrac{v_z^2}{a\omega^2}\right] = \dfrac{(\text{m/s})^2}{\text{m}\cdot\text{s}^{-2}} = \text{m}$.
+* **Limiting cases:** if $v_z \to 0$ (planar circle) $\rho = a$ and $C = (0, 0, 0)$, the centre of the circle. If $\omega \to 0$ (vertical ascent) $\rho \to \infty$: the curvature vanishes and the trajectory is a straight line.
+* **Check against the official key:** `Problems.pdf` has no entry for Problem 1 in its solution keys. The results are verified by independent derivation: sympy reproduces $\|\mathbf{v}\| = V$, $a_n = a\omega^2$, $\rho = a + v_z^2/(a\omega^2)$ (also from $\rho = \|\mathbf{v}\|^3/\|\mathbf{v}\times\mathbf{a}\|$), the binormal, the centre of curvature and $\det[{}_{\text{cyl}}R_{\text{tnb}}] = 1$ with $R R^T = I$.
 
 ---
 
-## 📌 Problem 02: Kinematics, Planar Spiral
+## 📌 Problem 02: Kinematics, Spiral
 
-### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** A point particle $P$ moves along a logarithmic/exponential planar spiral $r(\theta) = \alpha e^{\beta\theta}$ with a prescribed power-law angular motion $\theta(t) = \delta t^n$.
-* **Hypotheses:** $\alpha, \beta, \delta > 0$ are positive constants, $n > 0$ is an integer or real exponent, $t \ge 0$. Motion is strictly 2D planar in the $Oxy$ plane ($z = 0$).
-* **Degrees of Freedom:** $\text{CDOF} = 1$ parameterized by time $t$.
-* **Parameters & Units:** $[r] = \text{m} \implies [\alpha] = \text{m}$, $\beta$ is dimensionless ($[-]$), $[\theta] = \text{rad} \implies [\delta] = \text{rad}\cdot\text{s}^{-n}$.
+### Phase 1: Constraints, Degrees of Freedom & Coordinates
+* **System:** a particle $P$ moves along the planar spiral $r = \alpha e^{\beta\theta}$ with the prescribed angular motion $\theta(t) = \delta t^n$.
+* **Hypotheses:** $\alpha, \beta, \delta, n \gt 0$ are constants and $t \gt 0$. At $t = 0$ the speed vanishes for $n \gt 1$ and $\dot{\theta}$ diverges for $n \lt 1$, and $\ddot{\theta} \propto t^{n-2}$ diverges for $n \lt 2$ except at $n = 1$; only $n = 1$ is regular at $t = 0$, and $t \gt 0$ is kept for all $n$ for uniformity. The motion is planar ($z = 0$).
+* **Constraints and degrees of freedom:** the spiral $r = \alpha e^{\beta\theta}$ is a holonomic, scleronomic constraint in the plane. The particle then has $\text{CDOF} = 2 - 1 = 1$, and the motion law $\theta = \delta t^n$ fixes it completely.
+* **Coordinates:** polar coordinates $(r, \theta)$ about the origin $O$ of the spiral; the angle $\theta$ is the free coordinate.
+* **Parameters and units:** $[r] = \text{m}$, so $[\alpha] = \text{m}$; $\beta$ is dimensionless; $[\theta] = \text{rad}$, so $[\delta] = \text{rad}\cdot\text{s}^{-n}$.
 
-### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
-* **Inertial Basis:** $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
-* **Polar Basis:** $\mathcal{B}_{\text{polar}} = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$.
-* **Rotation Matrix $[{}_0 R_\theta]$:**
-$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} \mathbf{e}_r \\ \mathbf{e}_\theta \\ \mathbf{k}_0 \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \mathbf{i}_0 \\ \mathbf{j}_0 \\ \mathbf{k}_0 \end{pmatrix} $$
-* **Time Derivatives of Polar Unit Vectors (Notes Sec. 2.6.2, Eqs. 2.25–2.26):**
-$$ \dot{\mathbf{e}}_r = \dot{\theta}\mathbf{e}_\theta, \quad \dot{\mathbf{e}}_\theta = -\dot{\theta}\mathbf{e}_r $$
-* **Orthonormality of $[{}_0 R_\theta]$:** $\det[{}_0 R_\theta] = \cos^2\theta + \sin^2\theta = 1$ and $[{}_0 R_\theta][{}_0 R_\theta]^T = I$ (checked symbolically with sympy).
-* **Intrinsic basis from the polar basis.** Since $\mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta = r\dot{\theta}\,(\beta\,\mathbf{e}_r + \mathbf{e}_\theta)$ (Phase 3, part (a)), the unit tangent is $\mathbf{e}_t = (\beta\,\mathbf{e}_r + \mathbf{e}_\theta)/\sqrt{1+\beta^2}$ and the in-plane unit normal is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\mathbf{e}_r + \beta\,\mathbf{e}_\theta)/\sqrt{1+\beta^2}$. Their components in $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ are the columns of
-$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1+\beta^2}}\begin{pmatrix} \beta & -1 \\ 1 & \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$
-* This is a planar rotation by the constant angle $\psi = \arctan(1/\beta)$ (the equiangular property of the spiral). Sympy confirms that $\mathbf{a}\cdot\mathbf{e}_t$ and $\mathbf{a}\cdot\mathbf{e}_n$ reproduce the $a_t$ and $a_n$ of Phase 3, parts (d), with $a_n > 0$, so $\mathbf{e}_n$ points to the concave side.
+### Phase 2: Reference Frames & Vector Bases
+* **Inertial basis:** $\mathcal{B}_0 = \{\mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
+* **Polar basis:** $\mathcal{B}_{\text{polar}} = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$, a rotation of $\mathcal{B}_0$ by $\theta$ about $\mathbf{k}_0$:
+$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_\theta] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0 R_\theta][{}_0 R_\theta]^T = I $$
+* **Angular velocity of the basis:** $\boldsymbol{\omega} = \dot{\theta}\,\mathbf{k}_0$. By Poisson's formula (Notes Sec. 2.6.2, Eqs. 2.25-2.26): $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
+* **Intrinsic basis from the polar basis** (derived in 3.1(c), where the sign of the normal is justified): $\mathbf{e}_t = (\beta\,\mathbf{e}_r + \mathbf{e}_\theta)/\sqrt{1 + \beta^2}$, $\mathbf{e}_n = (-\mathbf{e}_r + \beta\,\mathbf{e}_\theta)/\sqrt{1 + \beta^2}$ and $\mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n = \mathbf{k}_0$. The components of $\mathbf{e}_t$ and $\mathbf{e}_n$ in $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ are the columns of
+$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1 + \beta^2}}\begin{pmatrix} \beta & -1 \\ 1 & \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$
+This is a planar rotation by the constant angle $\arctan(1/\beta)$: the tangent makes a constant angle with the radial direction (equiangular spiral).
 
-### Phase 3: Step-by-Step Mathematical Deduction
+### Phase 3: Derivation
 
-#### (a) Radial and Transverse Velocity Components
-* **Pedagogical Justification:** In polar coordinates, the velocity vector is given by $\mathbf{v} = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta$. The radial component $v_r = \dot{r}$ measures the expansion rate, while $v_\theta = r\dot{\theta}$ measures transverse rotation.
-* **Explicit Chain Rule for $\dot{\theta}(t)$ and $\dot{r}(t)$:**
-$$ \theta(t) = \delta t^n \implies \dot{\theta}(t) = \frac{d}{dt}(\delta t^n) = n\delta t^{n-1} $$
+#### 3.1 Kinematics
+##### (a) Radial and transverse components of the velocity
+* **Pedagogical Justification:** in polar coordinates $\mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta$ (product rule and Poisson). The coordinates depend on time through $\theta(t)$, so the chain rule is needed.
+$$ \dot{\theta} = \frac{d}{dt}\left(\delta t^n\right) = n\delta t^{n-1}, \qquad \frac{dr}{d\theta} = \frac{d}{d\theta}\left(\alpha e^{\beta\theta}\right) = \alpha\beta e^{\beta\theta} = \beta r $$
+$$ \dot{r} = \frac{dr}{d\theta}\,\dot{\theta} = \beta r\,n\delta t^{n-1} = \alpha\beta n\delta t^{n-1}e^{\beta\delta t^n} $$
+$$ \boxed{v_r = \dot{r} = \beta n\delta t^{n-1}\,r}, \qquad \boxed{v_\theta = r\dot{\theta} = n\delta t^{n-1}\,r} $$
 
-Using the chain rule $\dot{r} = \frac{dr}{d\theta}\dot{\theta}$:
+##### (b) Radial and transverse components of the acceleration
+* **Pedagogical Justification:** the polar acceleration is (Notes Eq. 2.30; product rule applied to $\mathbf{v}$ with Poisson's formula)
+$$ \mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta $$
+* **Second derivatives** (product rule, with $\dot{r} = \beta r\dot{\theta}$):
+$$ \ddot{\theta} = \frac{d}{dt}\left(n\delta t^{n-1}\right) = n(n - 1)\delta t^{n-2}, \qquad \ddot{r} = \beta\left(\dot{r}\dot{\theta} + r\ddot{\theta}\right) = \beta\left(\beta r\dot{\theta}^2 + r\ddot{\theta}\right) = \beta^2r\dot{\theta}^2 + \beta r\ddot{\theta} $$
+* **Radial component:**
+$$ a_r = \ddot{r} - r\dot{\theta}^2 = \left(\beta^2 - 1\right)r\dot{\theta}^2 + \beta r\ddot{\theta} = n\delta t^{n-2}\,r\left[\left(\beta^2 - 1\right)n\delta t^n + \beta(n - 1)\right] $$
+* **Transverse component:**
+$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\ddot{\theta} + 2\beta r\dot{\theta}^2 = n\delta t^{n-2}\,r\left[(n - 1) + 2\beta n\delta t^n\right] $$
 
-$$ \frac{dr}{d\theta} = \frac{d}{d\theta}(\alpha e^{\beta\theta}) = \alpha\beta e^{\beta\theta} = \beta r $$
-$$ \dot{r} = (\beta r)(n\delta t^{n-1}) = \beta n \delta t^{n-1} r = \alpha\beta n\delta t^{n-1} e^{\beta\delta t^n} $$
-* **Components:**
-$$ v_r = \dot{r} = \beta n\delta t^{n-1} r $$
-$$ v_\theta = r\dot{\theta} = n\delta t^{n-1} r $$
+##### (c) Tangential and normal components of the velocity
+* **Pedagogical Justification:** the velocity is always tangent to the path, so in the intrinsic basis $\mathbf{v} = v\,\mathbf{e}_t + 0\,\mathbf{e}_n$ and the normal component is identically zero.
+$$ v_t = v = \sqrt{v_r^2 + v_\theta^2} = r\dot{\theta}\sqrt{\beta^2 + 1} = n\delta t^{n-1}\,r\sqrt{1 + \beta^2}, \qquad v_n = 0 $$
+* The unit tangent follows from $\mathbf{v} = r\dot{\theta}\left(\beta\,\mathbf{e}_r + \mathbf{e}_\theta\right)$: $\mathbf{e}_t = \left(\beta\,\mathbf{e}_r + \mathbf{e}_\theta\right)/\sqrt{1 + \beta^2}$. The normal toward the centre of curvature must satisfy $\mathbf{a}\cdot\mathbf{e}_n \gt 0$. The left normal $\mathbf{k}_0\times\mathbf{e}_t = \left(-\mathbf{e}_r + \beta\,\mathbf{e}_\theta\right)/\sqrt{1 + \beta^2}$ does: its projection of the acceleration (with $a_r$ and $a_\theta$ of part (b)) is $\left(\beta a_\theta - a_r\right)/\sqrt{1 + \beta^2}$, and
+$$ \beta a_\theta - a_r = \beta\left(r\ddot{\theta} + 2\beta r\dot{\theta}^2\right) - \left(\left(\beta^2 - 1\right)r\dot{\theta}^2 + \beta r\ddot{\theta}\right) = \left(1 + \beta^2\right)r\dot{\theta}^2 \gt 0 $$
+so $\mathbf{e}_n = \mathbf{k}_0\times\mathbf{e}_t$ and $\mathbf{e}_b = \mathbf{k}_0$.
 
-#### (b) Radial and Transverse Acceleration Components
-* **Pedagogical Justification:** The acceleration in polar coordinates (Notes Eq. 2.30) accounts for the curvature of the polar grid:
-$$ \mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta = (\ddot{r} - r\dot{\theta}^2)\mathbf{e}_r + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\mathbf{e}_\theta $$
-* **Second Time Derivatives (Explicit Product Rule):**
-$$ \ddot{\theta}(t) = \frac{d}{dt}(n\delta t^{n-1}) = n(n-1)\delta t^{n-2} $$
-
-For $\ddot{r}(t) = \frac{d}{dt}(\beta r \dot{\theta})$:
-
-$$ \ddot{r} = \beta(\dot{r}\dot{\theta} + r\ddot{\theta}) = \beta\left( (\beta r\dot{\theta})\dot{\theta} + r\ddot{\theta} \right) = \beta^2 r\dot{\theta}^2 + \beta r\ddot{\theta} $$
-* **Radial Acceleration $a_r$:**
-$$ a_r = \ddot{r} - r\dot{\theta}^2 = (\beta^2 r\dot{\theta}^2 + \beta r\ddot{\theta}) - r\dot{\theta}^2 = (\beta^2 - 1)r\dot{\theta}^2 + \beta r\ddot{\theta} $$
-
-Substituting $\dot{\theta} = n\delta t^{n-1}$ and $\ddot{\theta} = n(n-1)\delta t^{n-2}$:
-
-$$ a_r = (\beta^2 - 1)r(n\delta t^{n-1})^2 + \beta r n(n-1)\delta t^{n-2} = n\delta t^{n-2} r \left[ (\beta^2 - 1)n\delta t^n + \beta(n-1) \right] $$
-* **Transverse Acceleration $a_\theta$:**
-$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\ddot{\theta} + 2(\beta r\dot{\theta})\dot{\theta} = r\ddot{\theta} + 2\beta r\dot{\theta}^2 $$
-
-Substituting derivatives:
-
-$$ a_\theta = r n(n-1)\delta t^{n-2} + 2\beta r(n\delta t^{n-1})^2 = n\delta t^{n-2} r \left[ (n-1) + 2\beta n\delta t^n \right] $$
-
-#### (c) Tangential and Normal Velocity Components
-* **Pedagogical Justification:** In the intrinsic Frenet basis, the velocity vector is strictly tangential: $\mathbf{v} = v\mathbf{e}_t = v_t\mathbf{e}_t + 0\mathbf{e}_n$. Therefore, the normal velocity component is identically zero.
-* **Calculation:**
-$$ v_t = v = \sqrt{v_r^2 + v_\theta^2} = \sqrt{(\beta r\dot{\theta})^2 + (r\dot{\theta})^2} = r\dot{\theta}\sqrt{\beta^2 + 1} = n\delta t^{n-1} r\sqrt{1 + \beta^2} $$
-$$ v_n = 0 $$
-
-#### (d) Tangential and Normal Acceleration Components
-* **Pedagogical Justification:** Tangential acceleration $a_t = \dot{v}$ measures the rate of change of speed, while normal acceleration $a_n = \frac{v^2}{\rho}$ measures directional turning.
-* **Tangential Acceleration $a_t$ (Explicit Differentiation):**
-$$ a_t = \frac{d}{dt}(v) = \sqrt{1 + \beta^2}\frac{d}{dt}(r\dot{\theta}) = \sqrt{1 + \beta^2}(\dot{r}\dot{\theta} + r\ddot{\theta}) $$
-
-Substituting $\dot{r} = \beta r\dot{\theta}$:
-
-$$ a_t = \sqrt{1 + \beta^2}(\beta r\dot{\theta}^2 + r\ddot{\theta}) = \sqrt{1 + \beta^2} n\delta t^{n-2} r \left[ \beta n\delta t^n + (n-1) \right] $$
-* **Normal Acceleration $a_n$:**
-
-Using the Pythagorean decomposition of the total acceleration magnitude: $\|\mathbf{a}\|^2 = a_t^2 + a_n^2 = a_r^2 + a_\theta^2$:
-
-$$ a_n = \sqrt{a_r^2 + a_\theta^2 - a_t^2} $$
-
-Alternatively, using the cross product $\mathbf{a} \times \mathbf{v} = (a_t\mathbf{e}_t + a_n\mathbf{e}_n) \times (v\mathbf{e}_t) = -v a_n\mathbf{e}_b$:
-
-$$ a_n = \frac{\|\mathbf{v} \times \mathbf{a}\|}{v} = \frac{|v_r a_\theta - v_\theta a_r|}{v} $$
-
-Computing the numerator:
-
-$$ v_r a_\theta - v_\theta a_r = (\beta r\dot{\theta})(r\ddot{\theta} + 2\beta r\dot{\theta}^2) - (r\dot{\theta})((\beta^2 - 1)r\dot{\theta}^2 + \beta r\ddot{\theta}) $$
-$$ = \beta r^2\dot{\theta}\ddot{\theta} + 2\beta^2 r^2\dot{\theta}^3 - (\beta^2 - 1)r^2\dot{\theta}^3 - \beta r^2\dot{\theta}\ddot{\theta} = (2\beta^2 - \beta^2 + 1)r^2\dot{\theta}^3 = (\beta^2 + 1)r^2\dot{\theta}^3 $$
-
+##### (d) Tangential and normal components of the acceleration
+* **Pedagogical Justification:** $a_t = \dot{v}$ is the rate of change of the speed and $a_n = v^2/\rho$ measures the turning of the velocity.
+$$ a_t = \frac{d}{dt}\left(\sqrt{1 + \beta^2}\,r\dot{\theta}\right) = \sqrt{1 + \beta^2}\left(\dot{r}\dot{\theta} + r\ddot{\theta}\right) = \sqrt{1 + \beta^2}\left(\beta r\dot{\theta}^2 + r\ddot{\theta}\right) = \sqrt{1 + \beta^2}\,n\delta t^{n-2}\,r\left[\beta n\delta t^n + (n - 1)\right] $$
+* **Normal component.** The cross product $\mathbf{a}\times\mathbf{v} = \left(a_t\mathbf{e}_t + a_n\mathbf{e}_n\right)\times v\,\mathbf{e}_t = -va_n\,\mathbf{e}_b$ gives $a_n = \dfrac{\|\mathbf{v}\times\mathbf{a}\|}{v} = \dfrac{|v_ra_\theta - v_\theta a_r|}{v}$. The numerator is
+$$ v_ra_\theta - v_\theta a_r = \left(\beta r\dot{\theta}\right)\left(r\ddot{\theta} + 2\beta r\dot{\theta}^2\right) - \left(r\dot{\theta}\right)\left(\left(\beta^2 - 1\right)r\dot{\theta}^2 + \beta r\ddot{\theta}\right) $$
+$$ = \beta r^2\dot{\theta}\ddot{\theta} + 2\beta^2r^2\dot{\theta}^3 - \left(\beta^2 - 1\right)r^2\dot{\theta}^3 - \beta r^2\dot{\theta}\ddot{\theta} = \left(\beta^2 + 1\right)r^2\dot{\theta}^3 $$
 Dividing by $v = r\dot{\theta}\sqrt{\beta^2 + 1}$:
+$$ a_n = \frac{\left(\beta^2 + 1\right)r^2\dot{\theta}^3}{r\dot{\theta}\sqrt{\beta^2 + 1}} = r\dot{\theta}^2\sqrt{\beta^2 + 1} = n^2\delta^2t^{2n-2}\,r\sqrt{1 + \beta^2} $$
 
-$$ a_n = \frac{(\beta^2 + 1)r^2\dot{\theta}^3}{r\dot{\theta}\sqrt{\beta^2 + 1}} = r\dot{\theta}^2\sqrt{\beta^2 + 1} = n^2\delta^2 t^{2n-2} r\sqrt{1 + \beta^2} $$
+#### 3.2 Forces
+Not applicable: kinematics-only problem. The path and the motion law are given.
 
-#### (e) Radius of Curvature of the Spiral
-* **Pedagogical Justification:** The radius of curvature is obtained directly from $a_n = \frac{v^2}{\rho} \implies \rho = \frac{v^2}{a_n}$.
-* **Calculation:**
-$$ \rho = \frac{v^2}{a_n} = \frac{(r\dot{\theta}\sqrt{1 + \beta^2})^2}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = \frac{r^2\dot{\theta}^2(1 + \beta^2)}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = r\sqrt{1 + \beta^2} $$
+#### 3.3 Equations of Motion
+Not applicable: kinematics-only problem. The motion is prescribed by $\theta(t) = \delta t^n$.
 
-### Phase 4: Physical Interpretation & Dimensional Verification
-* **Geometric Invariance:** In a logarithmic spiral $r = \alpha e^{\beta\theta}$, the angle $\psi$ between the radial line and the tangent vector satisfies $\tan\psi = \frac{r}{dr/d\theta} = \frac{r}{\beta r} = \frac{1}{\beta} = \text{constant}$. This is the celebrated equiangular spiral property!
-* **Radius of Curvature:** $\rho = r\sqrt{1 + \beta^2}$ is strictly proportional to current radial distance $r$.
-* **Units Check:** $[\rho] = [r][\sqrt{1+\beta^2}] = \text{m} \cdot 1 = \text{m}$ (Consistent).
-* **Limiting Case $\beta \to 0$:** The spiral degenerates into a pure circle $r = \alpha$, where $\rho = r\sqrt{1 + 0} = r$, recovering the circle radius of curvature.
+#### 3.4 Integration and Answers
+##### (e) Radius of curvature
+* **Pedagogical Justification:** the radius of curvature follows from the normal acceleration, $a_n = v^2/\rho$:
+$$ \rho = \frac{v^2}{a_n} = \frac{r^2\dot{\theta}^2\left(1 + \beta^2\right)}{r\dot{\theta}^2\sqrt{1 + \beta^2}} = \boxed{r\sqrt{1 + \beta^2}} $$
+
+### Phase 4: Interpretation & Checks
+* **Geometric invariance:** on the spiral the angle $\psi$ between the radial line and the tangent satisfies $\tan\psi = r/(dr/d\theta) = 1/\beta$, a constant. The spiral is self-similar: $\lambda\,r(\theta) = r(\theta + \ln\lambda/\beta)$, so scaling it by a factor $\lambda$ gives the same curve rotated by an angle of magnitude $\ln\lambda/\beta$. Hence every length of the curve, $\rho$ included, scales with $r$.
+* **Dimensional check:** $[\rho] = [r]\left[\sqrt{1 + \beta^2}\right] = \text{m}$; $[v_r] = [v_\theta] = [r\dot{\theta}] = \text{m/s}$, and $[a_n] = [r\dot{\theta}^2] = \text{m/s}^2$.
+* **Limiting case $\beta \to 0$:** the spiral degenerates into the circle $r = \alpha$, with $\rho = r$ and $a_r = -r\dot{\theta}^2$, the centripetal acceleration.
+* **Check against the official key:** `Problems.pdf` has no entry for Problem 2 in its solution keys. The results are verified by independent derivation: sympy reproduces $v_r/(r\dot{\theta}) = \beta$, $v_\theta/(r\dot{\theta}) = 1$, the factorised forms of $a_r$, $a_\theta$ and $a_t$, the identity $a_n^2 = r^2\dot{\theta}^4\left(1 + \beta^2\right)$ and $\rho = r\sqrt{1 + \beta^2}$, with zero residual.
 
 ---
 
 ## 📌 Problem 03: Kinematics, Astroid
 
-### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** A point particle $P$ moves along a hypocycloid with four cusps (an astroid), parameterized by angle $\phi$.
-* **Hypotheses:** The motion starts from rest at $\phi(0) = 0$ with constant tangential acceleration $a_t = k = \text{const} > 0$. The particle remains within the first quadrant segment $0 \le \phi \le \pi/2$.
-* **Degrees of Freedom:** $\text{CDOF} = 1$.
-* **Parameters & Units:** Astroid scale $a\text{ [m]}$, tangential acceleration $k\text{ [m/s}^2\text{]}$, time $t\text{ [s]}$.
+### Phase 1: Constraints, Degrees of Freedom & Coordinates
+* **System:** a particle $P$ moves on the astroid $x = a\cos^3\phi$, $y = a\sin^3\phi$ with constant tangential acceleration $a_t = k$ (the statement calls it $k$) and starts from rest at $\phi = 0$.
+* **Hypotheses:** $a \gt 0$, $k \gt 0$. The motion stays within one smooth segment of the curve, here the first-quadrant arc $0 \le \phi \le \pi/2$ (the astroid has cusps at $\phi = 0, \pi/2, \pi, 3\pi/2$). Starting at the cusp $\phi = 0$ the particle could enter either neighbouring arc; we choose the one with $\phi$ increasing, so that $s$ increases with $\phi$ and $d\phi \ge 0$.
+* **Constraints and degrees of freedom:** the curve is a holonomic, scleronomic constraint in the plane, so $\text{CDOF} = 2 - 1 = 1$. The coordinate is $\phi$, or the arc length $s$ measured from $\phi = 0$.
+* **Parameters and units:** scale $a$ [m], tangential acceleration $k$ [m/s$^2$], time $t$ [s].
 
-### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
-* **Inertial Cartesian Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.
-* **Parametric Equations of the Astroid:**
-$$ x(\phi) = a\cos^3\phi, \quad y(\phi) = a\sin^3\phi $$
-* **Metric Arc Length Differential $ds$:**
+### Phase 2: Reference Frames & Vector Bases
+* **Inertial frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with the curve in the $Oxy$ plane.
+* **Parametric curve:** $x(\phi) = a\cos^3\phi$, $y(\phi) = a\sin^3\phi$. Differentiating with respect to the parameter (chain rule):
+$$ \frac{dx}{d\phi} = 3a\cos^2\phi\,(-\sin\phi) = -3a\cos^2\phi\sin\phi, \qquad \frac{dy}{d\phi} = 3a\sin^2\phi\cos\phi $$
 
-Differentiating with respect to parameter $\phi$:
+### Phase 3: Derivation
 
-$$ dx = \frac{dx}{d\phi}d\phi = 3a\cos^2\phi(-\sin\phi)d\phi = -3a\cos^2\phi\sin\phi\,d\phi $$
-$$ dy = \frac{dy}{d\phi}d\phi = 3a\sin^2\phi(\cos\phi)d\phi = 3a\sin^2\phi\cos\phi\,d\phi $$
+#### 3.1 Kinematics
+* **Pedagogical Justification:** we use the arc length as the coordinate along the path. The differential arc length follows from the hint, $ds = \sqrt{dx^2 + dy^2}$:
+$$ ds^2 = \left(-3a\cos^2\phi\sin\phi\right)^2d\phi^2 + \left(3a\sin^2\phi\cos\phi\right)^2d\phi^2 = 9a^2\cos^4\phi\sin^2\phi\,d\phi^2 + 9a^2\sin^4\phi\cos^2\phi\,d\phi^2 $$
+$$ ds^2 = 9a^2\cos^2\phi\sin^2\phi\left(\cos^2\phi + \sin^2\phi\right)d\phi^2 = 9a^2\cos^2\phi\sin^2\phi\,d\phi^2 $$
+For $0 \le \phi \le \pi/2$ both $\sin\phi$ and $\cos\phi$ are non-negative (and $d\phi \ge 0$), so the positive root is
+$$ ds = 3a\sin\phi\cos\phi\,d\phi $$
+* **Tangential acceleration.** The tangential component of the acceleration is the second derivative of the arc length: $a_t = \ddot{s} = k$.
 
-The squared differential arc length is:
+#### 3.2 Forces
+Not applicable: kinematics-only problem. The tangential acceleration is given.
 
-$$ ds^2 = dx^2 + dy^2 = 9a^2\cos^4\phi\sin^2\phi\,d\phi^2 + 9a^2\sin^4\phi\cos^2\phi\,d\phi^2 $$
+#### 3.3 Equations of Motion
+Not applicable: kinematics-only problem. The law $\ddot{s} = k$ is the statement itself.
 
-Factoring out $9a^2\cos^2\phi\sin^2\phi$:
+#### 3.4 Integration and Answers
+##### Step 1: arc length as a function of time
+* **Pedagogical Justification:** integrate $\ddot{s} = k$ twice, with the initial conditions $\dot{s}(0) = 0$ (at rest) and $s(0) = 0$ (at $\phi = 0$):
+$$ \dot{s}(t) = \int_0^t k\,dt' = \left[kt'\right]_0^t = kt - 0 = kt, \qquad s(t) = \int_0^t kt'\,dt' = \left[\frac{1}{2}kt'^2\right]_0^t = \frac{1}{2}kt^2 - 0 = \frac{1}{2}kt^2 $$
 
-$$ ds^2 = 9a^2\cos^2\phi\sin^2\phi(\cos^2\phi + \sin^2\phi)d\phi^2 = 9a^2\cos^2\phi\sin^2\phi\,d\phi^2 $$
+##### Step 2: arc length as a function of $\phi$
+* **Pedagogical Justification:** integrate $ds$ from $\phi = 0$. With the substitution $w = \sin u$, $dw = \cos u\,du$, the limits become $w = 0$ at $u = 0$ and $w = \sin\phi$ at $u = \phi$:
+$$ s(\phi) = \int_0^\phi 3a\sin u\cos u\,du = 3a\int_0^{\sin\phi}w\,dw = 3a\left[\frac{w^2}{2}\right]_0^{\sin\phi} = 3a\left(\frac{\sin^2\phi}{2} - 0\right) = \frac{3a}{2}\sin^2\phi $$
 
-Taking the positive square root for $0 \le \phi \le \pi/2$:
+##### Step 3: equating both expressions
+* **Pedagogical Justification:** the distance travelled along the curve is the same quantity in both descriptions, $s(t) = s(\phi)$:
+$$ \frac{3a}{2}\sin^2\phi = \frac{1}{2}kt^2 \implies \sin^2\phi = \frac{kt^2}{3a} \implies \sin\phi = \sqrt{\frac{k}{3a}}\,t $$
+where the positive root is taken because $0 \le \phi \le \pi/2$. Therefore
+$$ \boxed{\phi(t) = \arcsin\left(\sqrt{\frac{k}{3a}}\,t\right)} $$
 
-$$ ds = 3a\sin\phi\cos\phi\,d\phi = \frac{3a}{2}\sin(2\phi)\,d\phi $$
+##### Step 4: position as a function of time
+* **Pedagogical Justification:** with $\sin\phi = \sqrt{k/(3a)}\,t$ and $\cos\phi = \sqrt{1 - \sin^2\phi} = \sqrt{1 - kt^2/(3a)}$ (non-negative in the first quadrant):
+$$ \boxed{x(t) = a\cos^3\phi = a\left(1 - \frac{kt^2}{3a}\right)^{3/2}}, \qquad \boxed{y(t) = a\sin^3\phi = a\left(\frac{k}{3a}\right)^{3/2}t^3} $$
+These hold for $0 \le t \le t_{\text{cusp}}$, where $t_{\text{cusp}}$ is defined in Phase 4.
 
-### Phase 3: Step-by-Step Mathematical Deduction
-
-#### Step 1: Intrinsic Kinematics from Constant Tangential Acceleration $a_t = k$
-* **Pedagogical Justification:** Tangential acceleration is the time derivative of speed: $a_t = \frac{dv}{dt} = \ddot{s}$. Integrating once with initial condition $v(0) = 0$:
-$$ v(t) = \dot{s}(t) = \int_0^t a_t\,dt' = \int_0^t k\,dt' = kt $$
-* **Second Integration for Arc Length $s(t)$:**
-
-Integrating $v(t) = \dot{s}(t)$ with initial condition $s(0) = 0$ (at $\phi = 0$):
-
-$$ s(t) = \int_0^t kt'\,dt' = \left[ \frac{1}{2}kt'^2 \right]_0^t = \frac{1}{2}kt^2 $$
-
-#### Step 2: Arc Length as a Function of Parameter $\phi$
-* **Pedagogical Justification:** We integrate the geometric differential $ds = 3a\sin u\cos u\,du$ from the origin $\phi = 0$ to current $\phi$:
-* **Explicit Substitution Integration:**
-
-Let $w = \sin u \implies dw = \cos u\,du$. When $u = 0$, $w = 0$; when $u = \phi$, $w = \sin\phi$:
-
-$$ s(\phi) = \int_0^\phi 3a\sin u\cos u\,du = 3a\int_0^{\sin\phi} w\,dw = 3a\left[ \frac{w^2}{2} \right]_0^{\sin\phi} = \frac{3a}{2}\sin^2\phi $$
-
-#### Step 3: Equating Kinematic and Geometric Arc Length
-* **Pedagogical Justification:** The distance traveled along the curve $s(t)$ must equal the geometric arc length $s(\phi)$:
-$$ \frac{3a}{2}\sin^2\phi = \frac{1}{2}kt^2 $$
-
-Multiplying both sides by $\frac{2}{3a}$:
-
-$$ \sin^2\phi = \frac{kt^2}{3a} $$
-
-Taking the positive square root (since $0 \le \phi \le \pi/2$):
-
-$$ \sin\phi = \sqrt{\frac{k}{3a}}\,t $$
-
-Applying the inverse sine function:
-
-$$ \phi(t) = \arcsin\left( \sqrt{\frac{k}{3a}}\,t \right) $$
-
-*(Compare with the official solution key (Problems.pdf, Solution keys section): $\phi = \arcsin\sqrt{\frac{k}{3a}t^2} = \arcsin(\sqrt{\frac{k}{3a}}t)$.)*
-
-#### Step 4: Evolution of the Cartesian Position as a Function of Time
-* **Pedagogical Justification:** Substituting $\phi(t)$ into the parametric definitions of the astroid:
-
-Using trigonometric identities: $\sin\phi = \sqrt{\frac{k}{3a}}t$ and $\cos\phi = \sqrt{1 - \sin^2\phi} = \sqrt{1 - \frac{k t^2}{3a}}$:
-
-$$ x(t) = a\cos^3\phi = a\left( 1 - \frac{kt^2}{3a} \right)^{3/2} $$
-$$ y(t) = a\sin^3\phi = a\left( \frac{kt^2}{3a} \right)^{3/2} = a\left(\frac{k}{3a}\right)^{3/2}t^3 $$
-
-### Phase 4: Physical Interpretation & Dimensional Verification
-* **Dimensional Check:**
-* In $\sin\phi = \sqrt{\frac{k}{3a}}t$:
-$$ \left[ \sqrt{\frac{k}{3a}}\,t \right] = \sqrt{\frac{\text{m/s}^2}{\text{m}}}\,\text{s} = \sqrt{\text{s}^{-2}}\,\text{s} = \text{s}^{-1}\cdot\text{s} = 1 \quad (\text{Dimensionless} \, \text{argument} \, \text{for} \, \arcsin! \, ?) $$
-* **Physical Limits:**
-* At $t = 0$: $\phi = 0 \implies x(0) = a, y(0) = 0$ (starts at the right cusp).
-* The particle reaches the top cusp $\phi = \pi/2$ when $\sin\phi = 1$:
-$$ \sqrt{\frac{k}{3a}}t_{\text{cusp}} = 1 \implies t_{\text{cusp}} = \sqrt{\frac{3a}{k}} $$
-
-At $t_{\text{cusp}}$, $x(t_{\text{cusp}}) = 0, y(t_{\text{cusp}}) = a$.
+### Phase 4: Interpretation & Checks
+* **Dimensional check:** $\left[\sqrt{\dfrac{k}{3a}}\,t\right] = \sqrt{\dfrac{\text{m}\,\text{s}^{-2}}{\text{m}}}\ \text{s} = \text{s}^{-1}\cdot\text{s} = 1$, so the argument of $\arcsin$ is dimensionless, as it must be.
+* **Physical limits:** at $t = 0$, $\phi = 0$ and the particle is at the cusp $(a, 0)$. It reaches the next cusp, $\phi = \pi/2$ at $(0, a)$, when $\sin\phi = 1$:
+$$ \sqrt{\frac{k}{3a}}\,t_{\text{cusp}} = 1 \implies t_{\text{cusp}} = \sqrt{\frac{3a}{k}} $$
+The total length of the arc is $s(\pi/2) = 3a/2$, consistent with $\frac{1}{2}kt_{\text{cusp}}^2 = \frac{1}{2}k\cdot\frac{3a}{k} = \frac{3a}{2}$. The solution stops at the cusp for a physical reason. The tangent is $\mathbf{e}_t = \left(-\cos\phi, \sin\phi\right)$ and $d\mathbf{e}_t/d\phi = \left(\sin\phi, \cos\phi\right)$ has unit norm, so $\rho = \dfrac{ds/d\phi}{\left\|d\mathbf{e}_t/d\phi\right\|} = 3a\sin\phi\cos\phi$, which tends to $0$ at both cusps, with the centre of curvature on the normal $\mathbf{e}_n = \left(\sin\phi, \cos\phi\right)$ (the arc is convex toward the origin). At arrival the speed is $\dot{s}(t_{\text{cusp}}) = kt_{\text{cusp}} = \sqrt{3ak} \ne 0$, so $a_n = \dot{s}^2/\rho \to \infty$: the motion cannot continue with constant $a_t$ through the cusp. At the start, $a_n \approx \dfrac{(kt)^2}{3a\phi} \to 0$ because $\phi \approx \sqrt{k/(3a)}\,t$, so the departure cusp is regular. Explicitly, $a_n \approx \dfrac{k^2t^2}{3a\sqrt{k/(3a)}\,t} = k\sqrt{\dfrac{k}{3a}}\,t \to 0$.
+* **Check against the official key:** the key of `Problems.pdf` is $\phi = \arcsin\left(\sqrt{k/(3a)}\,t\right)$ and $s = kt^2/2$ (read on the rendered page), which equals the result above. Sympy also confirms that $s(\phi(t)) - kt^2/2 = 0$ identically.
 
 ---
 
-## 📌 Problem 04: Plane at Constant Altitude (Cartesian vs. Polar Tracking)
+## 📌 Problem 04: Plane at Constant Altitude
 
-### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** An aircraft flies at constant altitude $y_0$ with velocity in the $x$ direction. At $t = 0$, $x(0) = 0$ and velocity is $v_0$. It accelerates in the $x$ direction at constant rate $a_x$.
-* **Tracking System:** A ground radar station located at origin $O(0,0)$ tracks the aircraft using range $r(t)$ and elevation/bearing angle $\theta(t)$.
-* **Hypotheses:** $y_0 > 0, v_0 \ge 0, a_x = \text{const}$. Altitude is fixed: $y(t) \equiv y_0 \implies \dot{y} = 0, \ddot{y} = 0$.
+### Phase 1: Constraints, Degrees of Freedom & Coordinates
+* **System:** an aircraft moves at constant altitude $y_0$ with velocity $v_0$ along $x$. At $t = 0$ it is at $x = 0$ and begins to accelerate along $x$ at a constant rate $a_x$. A fixed observer at the origin $O$ describes its position with polar coordinates.
+* **Hypotheses:** $y_0 \gt 0$, $v_0 \ge 0$ and $a_x$ are constants.
+* **Constraints and degrees of freedom:** the altitude is fixed, $y = y_0$ (holonomic, scleronomic, so $\dot{y} = \ddot{y} = 0$). The aircraft has $\text{CDOF} = 2 - 1 = 1$, with the coordinate $x(t)$ given by the statement.
+* **Coordinates:** Cartesian $x(t)$ for the motion, and polar $(r, \theta)$ about $O$ for the description requested, with $\theta$ measured from $+\mathbf{i}$.
 
-### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
-* **Inertial Cartesian Frame:** Coordinates $(x, y)$ with position $\mathbf{r} = x\mathbf{i} + y_0\mathbf{j}$.
-* **Radar Polar Frame:** Position $\mathbf{r} = r\mathbf{e}_r$, where:
-$$ r(t) = \sqrt{x(t)^2 + y_0^2}, \quad \tan\theta(t) = \frac{y_0}{x(t)} \implies \theta(t) = \arctan\left(\frac{y_0}{x(t)}\right) $$
-* **Kinematics in $x$:**
-$$ \dot{x}(t) = v(t) = v_0 + a_x t, \quad \ddot{x}(t) = a_x $$
-$$ x(t) = v_0 t + \frac{1}{2}a_x t^2 $$
-* **Change of basis (radar polar basis).** With $\theta$ the angle of the line of sight measured from $+\mathbf{i}$, the polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$. The columns are the components of $\mathbf{e}_r$, $\mathbf{e}_\theta$, $\mathbf{k}$ in $\mathcal{B}_0$; using $\cos\theta = x/r$ and $\sin\theta = y_0/r$:
-$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x/r & -y_0/r & 0 \\ y_0/r & x/r & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
-$$ \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-* Both properties were verified symbolically with sympy. The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ (first row of $[{}_0 R_1]^T$ applied to the basis) is the one used in the Cartesian cross-check of Phase 3.
+### Phase 2: Reference Frames & Vector Bases
+* **Inertial frame:** $\mathcal{S}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ and $\mathbf{r} = x\,\mathbf{i} + y_0\,\mathbf{j}$.
+* **Polar relations:** $r = \sqrt{x^2 + y_0^2}$ and $\tan\theta = y_0/x$; equivalently $\cos\theta = x/r$ and $\sin\theta = y_0/r$.
+* **Polar basis.** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:
+$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x/r & -y_0/r & 0 \\ y_0/r & x/r & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+* The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ is the one used in 3.4.
 
-### Phase 3: Step-by-Step Mathematical Deduction
+### Phase 3: Derivation
 
-#### (a) Proof that $\dot{r} = \frac{v(t)x(t)}{r(t)}$
-* **Pedagogical Justification:** Starting from the geometric relation $r(t)^2 = x(t)^2 + y_0^2$, we differentiate implicitly with respect to time $t$.
-* **Implicit Differentiation:**
-$$ \frac{d}{dt}[r^2] = \frac{d}{dt}[x^2 + y_0^2] $$
+#### 3.1 Kinematics
+* **Pedagogical Justification:** the motion along $x$ is uniformly accelerated, so $x(t)$ and $v(t)$ follow by integrating $\ddot{x} = a_x$ with the initial conditions $\dot{x}(0) = v_0$ and $x(0) = 0$ (Barrow's rule):
+$$ \dot{x}(t) = v_0 + \int_0^ta_x\,dt' = v_0 + \left[a_xt'\right]_0^t = v_0 + a_xt - a_x\cdot 0 \equiv v(t), \qquad x(t) = 0 + \int_0^t\left(v_0 + a_xt'\right)dt' = \left[v_0t' + \frac{1}{2}a_xt'^2\right]_0^t = \left(v_0t + \frac{1}{2}a_xt^2\right) - 0 $$
+* The polar position follows from the geometric relations of Phase 2: $\mathbf{r} = r\,\mathbf{e}_r$ with $r(t) = \sqrt{\left(v_0t + \tfrac{1}{2}a_xt^2\right)^2 + y_0^2}$ and $\theta(t) = \operatorname{arccot}\left(\dfrac{v_0t + \tfrac{1}{2}a_xt^2}{y_0}\right)$, with the branch $\operatorname{arccot} \in (0, \pi)$ (so $\theta(0) = \pi/2$, and $\theta$ stays in $(0, \pi)$ even if $a_x \lt 0$ makes $x$ negative). The velocity and acceleration come from differentiating these relations.
+##### (a) Proof that $\dot{r} = \dfrac{v(t)\,x(t)}{r(t)}$
+* **Pedagogical Justification:** differentiate implicitly the relation $r^2 = x^2 + y_0^2$ with respect to time.
+$$ 2r\dot{r} = 2x\dot{x} + 0 = 2x\,v(t) \implies \dot{r} = \frac{v(t)\,x(t)}{r(t)} \quad \blacksquare $$
 
-Applying the chain rule $\frac{d}{dt}(r^2) = 2r\dot{r}$ and $\frac{d}{dt}(x^2) = 2x\dot{x}$:
+##### (b) Proof that $\dot{\theta} = -\dfrac{v(t)\,y_0}{r(t)^2}$
+* **Pedagogical Justification:** use $\cot\theta = x/y_0$, which is valid for every $t$ (including $x = 0$, where $\tan\theta$ is infinite), and differentiate with the chain rule: $\frac{d}{dt}\cot\theta = -\csc^2\theta\,\dot{\theta}$ and $\csc^2\theta = 1/\sin^2\theta = r^2/y_0^2$.
+$$ -\csc^2\theta\,\dot{\theta} = \frac{\dot{x}}{y_0} = \frac{v(t)}{y_0} \implies -\frac{r^2}{y_0^2}\dot{\theta} = \frac{v}{y_0} \implies \dot{\theta} = -\frac{v(t)\,y_0}{r(t)^2} \quad \blacksquare $$
 
-$$ 2r\dot{r} = 2x\dot{x} + 0 = 2x v(t) $$
+##### (c) Proof that $\ddot{r} = \dfrac{v^2(t)\,y_0^2 + a_x\,x(t)\,r^2(t)}{r(t)^3}$
+* **Pedagogical Justification:** differentiate $\dot{r} = vx/r$ with the quotient rule $\left(\frac{u}{w}\right)' = \frac{\dot{u}w - u\dot{w}}{w^2}$, with $u = vx$ and $w = r$.
+$$ \dot{u} = \dot{v}x + v\dot{x} = a_xx + v^2, \qquad \dot{w} = \dot{r} = \frac{vx}{r}, \qquad \ddot{r} = \frac{\left(a_xx + v^2\right)r - vx\,\dfrac{vx}{r}}{r^2} = \frac{\left(a_xx + v^2\right)r^2 - v^2x^2}{r^3} $$
+$$ \left(a_xx + v^2\right)r^2 - v^2x^2 = a_xxr^2 + v^2\left(r^2 - x^2\right) = a_xxr^2 + v^2y_0^2 \implies \ddot{r} = \frac{v^2y_0^2 + a_x\,x\,r^2}{r^3} \quad \blacksquare $$
 
-Dividing by $2r$:
+##### (d) Proof that $\ddot{\theta} = y_0\dfrac{2v^2(t)\,x(t) - a_x\,r^2(t)}{r(t)^4}$
+* **Pedagogical Justification:** differentiate $\dot{\theta} = -y_0\,v\,r^{-2}$ with the quotient rule, using $\dot{v} = a_x$ and $\frac{d}{dt}\left(r^2\right) = 2r\dot{r} = 2vx$:
+$$ \ddot{\theta} = -y_0\,\frac{\dot{v}r^2 - v\,\frac{d}{dt}(r^2)}{r^4} = -y_0\,\frac{a_xr^2 - 2v^2x}{r^4} = y_0\,\frac{2v^2x - a_xr^2}{r^4} \quad \blacksquare $$
 
-$$ \dot{r} = \frac{v(t)x(t)}{r(t)} \quad \blacksquare $$
+##### Position, velocity and acceleration in polar coordinates
+* **Position and velocity:** $\mathbf{r} = r\,\mathbf{e}_r$ and, with (a) and (b),
+$$ \mathbf{v} = \dot{r}\,\mathbf{e}_r + r\dot{\theta}\,\mathbf{e}_\theta = v\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right) $$
+* **Acceleration** $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$ from the polar formula:
+$$ a_r = \ddot{r} - r\dot{\theta}^2 = \frac{v^2y_0^2 + a_xxr^2}{r^3} - r\left(\frac{vy_0}{r^2}\right)^2 = \frac{a_xxr^2}{r^3} = a_x\frac{x}{r} $$
+$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{y_0\left(2v^2x - a_xr^2\right)}{r^3} - \frac{2v^2xy_0}{r^3} = -a_x\frac{y_0}{r} \implies \mathbf{a} = a_x\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right) $$
 
-#### (b) Proof that $\dot{\theta} = -\frac{v(t)y_0}{r(t)^2}$
-* **Pedagogical Justification:** Starting from $\tan\theta = \frac{y_0}{x}$, we differentiate both sides with respect to time using the quotient rule.
-* **Differentiation:**
-$$ \frac{d}{dt}(\tan\theta) = \frac{d}{dt}\left( \frac{y_0}{x} \right) $$
+#### 3.2 Forces
+Not applicable: kinematics-only problem. The motion law along $x$ is given.
 
-Recalling $\frac{d}{dt}(\tan\theta) = (1 + \tan^2\theta)\dot{\theta} = \sec^2\theta\,\dot{\theta}$, and $\frac{d}{dt}(x^{-1}) = -\frac{\dot{x}}{x^2} = -\frac{v}{x^2}$:
+#### 3.3 Equations of Motion
+Not applicable: kinematics-only problem. The acceleration $a_x$ is prescribed.
 
-$$ \sec^2\theta\,\dot{\theta} = -\frac{y_0 v(t)}{x(t)^2} $$
+#### 3.4 Integration and Answers
+##### Repeating the problem in Cartesian coordinates
+* **Pedagogical Justification:** in the fixed Cartesian basis the unit vectors are constant, so the description is immediate; the polar result must agree with it through the change of basis.
+$$ \mathbf{r} = x(t)\,\mathbf{i} + y_0\,\mathbf{j}, \qquad \mathbf{v} = v(t)\,\mathbf{i}, \qquad \mathbf{a} = a_x\,\mathbf{i} $$
+* Converting with $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta = \frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta$:
+$$ \mathbf{v} = v\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right), \qquad \mathbf{a} = a_x\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right) $$
+These equal the polar results of 3.1 identically.
 
-From geometry: $\cos\theta = \frac{x}{r} \implies \sec\theta = \frac{r}{x} \implies \sec^2\theta = \frac{r^2}{x^2}$:
-
-$$ \frac{r^2}{x^2}\dot{\theta} = -\frac{y_0 v(t)}{x^2} $$
-
-Multiplying both sides by $x^2$ and dividing by $r^2$:
-
-$$ \dot{\theta} = -\frac{v(t)y_0}{r(t)^2} \quad \blacksquare $$
-
-#### (c) Proof that $\ddot{r} = \frac{v^2(t)y_0^2 + a_x x(t)r^2(t)}{r(t)^3}$
-* **Pedagogical Justification:** We differentiate the expression for $\dot{r} = \frac{v x}{r}$ using the quotient rule $\left(\frac{u}{w}\right)' = \frac{u'w - uw'}{w^2}$.
-* **Differentiation:**
-
-Here $u = v x \implies \dot{u} = \dot{v}x + v\dot{x} = a_x x + v^2$.
-
-The denominator is $w = r \implies \dot{w} = \dot{r} = \frac{vx}{r}$.
-
-$$ \ddot{r} = \frac{\dot{u}r - u\dot{r}}{r^2} = \frac{(a_x x + v^2)r - (vx)\left( \frac{vx}{r} \right)}{r^2} $$
-
-Multiplying numerator and denominator by $r$:
-
-$$ \ddot{r} = \frac{(a_x x + v^2)r^2 - v^2 x^2}{r^3} $$
-
-Expanding the numerator:
-
-$$ (a_x x + v^2)r^2 - v^2 x^2 = a_x x r^2 + v^2 r^2 - v^2 x^2 = a_x x r^2 + v^2(r^2 - x^2) $$
-
-Recalling that $r^2 - x^2 = y_0^2$:
-
-$$ \ddot{r} = \frac{a_x x(t)r^2(t) + v^2(t)y_0^2}{r(t)^3} = \frac{v^2(t)y_0^2 + a_x x(t)r^2(t)}{r(t)^3} \quad \blacksquare $$
-
-#### (d) Proof that $\ddot{\theta} = y_0\frac{2v^2(t)x(t) - a_x r^2(t)}{r(t)^4}$
-* **Pedagogical Justification:** We differentiate $\dot{\theta} = -y_0 v r^{-2}$ with respect to time using the product rule.
-* **Differentiation:**
-$$ \ddot{\theta} = \frac{d}{dt}\left( -y_0 \frac{v}{r^2} \right) = -y_0 \frac{\dot{v}r^2 - v\frac{d}{dt}(r^2)}{r^4} $$
-
-Substituting $\dot{v} = a_x$ and $\frac{d}{dt}(r^2) = 2r\dot{r} = 2r\left(\frac{vx}{r}\right) = 2vx$:
-
-$$ \ddot{\theta} = -y_0 \frac{a_x r^2 - v(2vx)}{r^4} = -y_0 \frac{a_x r^2 - 2v^2 x}{r^4} = y_0 \frac{2v^2(t)x(t) - a_x r^2(t)}{r(t)^4} \quad \blacksquare $$
-
-#### Polar and Cartesian Acceleration Vectors
-* **Polar Acceleration Vector:**
-$$ a_r = \ddot{r} - r\dot{\theta}^2 = \frac{v^2 y_0^2 + a_x x r^2}{r^3} - r\left( -\frac{v y_0}{r^2} \right)^2 = \frac{v^2 y_0^2 + a_x x r^2}{r^3} - \frac{v^2 y_0^2}{r^3} = \frac{a_x x r^2}{r^3} = a_x\frac{x}{r} $$
-$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\left( y_0\frac{2v^2 x - a_x r^2}{r^4} \right) + 2\left(\frac{vx}{r}\right)\left(-\frac{vy_0}{r^2}\right) = \frac{2v^2 x y_0 - a_x y_0 r^2}{r^3} - \frac{2v^2 x y_0}{r^3} = -a_x\frac{y_0}{r} $$
-$$ \mathbf{a} = a_x\left( \frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta \right) $$
-* **Cartesian Verification:**
-
-In Cartesian coordinates:
-
-$$ \mathbf{a} = \ddot{x}\mathbf{i}_0 + \ddot{y}\mathbf{j}_0 = a_x\mathbf{i}_0 + 0\mathbf{j}_0 = a_x\mathbf{i}_0 $$
-
-Converting Cartesian $\mathbf{i}_0$ into polar: $\mathbf{i}_0 = \cos\theta\mathbf{e}_r - \sin\theta\mathbf{e}_\theta = \frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta$.
-
-Substituting gives identically $\mathbf{a} = a_x\left(\frac{x}{r}\mathbf{e}_r - \frac{y_0}{r}\mathbf{e}_\theta\right)$. The match is mathematically exact!
-
-### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
-* **Dimensional check:**
-* $[\dot{r}] = [v\,x/r] = \text{m/s}$; $\quad [\dot{\theta}] = [v\,y_0/r^2] = \dfrac{(\text{m/s})\,\text{m}}{\text{m}^2} = \text{s}^{-1}$ (rad/s).
-* $[\ddot{r}] = \dfrac{(\text{m}^2/\text{s}^2)\,\text{m}^2}{\text{m}^3} = \text{m/s}^2$ and $\dfrac{(\text{m/s}^2)\,\text{m}\,\text{m}^2}{\text{m}^3} = \text{m/s}^2$; $\quad [\ddot{\theta}] = \dfrac{\text{m}\,(\text{m}^2/\text{s}^2)\,\text{m}}{\text{m}^4} = \text{s}^{-2}$ (Consistent).
-* **Limit $x \to \infty$ (aircraft far away):** $r \to x$, so $\dot{r} \to v$, $\dot{\theta} \to 0$, $a_r \to a_x$, $a_\theta \to 0$: the line of sight aligns with the flight direction and the motion is purely radial.
-* **Limit $x = 0$ (aircraft overhead, $t = 0$):** $\dot{r} = 0$, $\dot{\theta} = -v_0/y_0$, $a_r = 0$, $a_\theta = -a_x$. Then $\theta = \pi/2$ and $\mathbf{a} = a_x\mathbf{i} = -a_x\mathbf{e}_\theta$, as required by the change of basis.
-* **Invariance of the modulus:** $a_r^2 + a_\theta^2 = a_x^2\,\dfrac{x^2 + y_0^2}{r^2} = a_x^2$, equal to $\|a_x\mathbf{i}\|^2$ because $[{}_0 R_1]$ is orthogonal.
-* **Symbolic check (sympy):** differentiating $r = \sqrt{x^2 + y_0^2}$ and $\theta = \arctan(y_0/x)$ with $x = v_0 t + \tfrac{1}{2}a_x t^2$ reproduces the four identities (a)-(d) with zero residual, and gives $a_r = a_x x/r$, $a_\theta = -a_x y_0/r$ with zero residual; the three limits above were obtained with sympy as well.
+### Phase 4: Interpretation & Checks
+* **Dimensional check:** $[\dot{r}] = [vx/r] = \text{m/s}$ and $[\dot{\theta}] = [vy_0/r^2] = \text{s}^{-1}$; $[\ddot{r}] = \dfrac{(\text{m/s})^2\text{m}^2}{\text{m}^3} = \text{m/s}^2$ and $[\ddot{\theta}] = \dfrac{\text{m}\cdot(\text{m/s})^2\cdot\text{m}}{\text{m}^4} = \text{s}^{-2}$.
+* **Limit $x \to \infty$ (aircraft far away):** $r \to x$, so $\dot{r} \to v$, $\dot{\theta} \to 0$, $a_r \to a_x$ and $a_\theta \to 0$: the line of sight aligns with the flight direction and the motion is purely radial.
+* **Aircraft overhead ($x = 0$, $t = 0$):** $\dot{r} = 0$, $\dot{\theta} = -v_0/y_0$, $a_r = 0$ and $a_\theta = -a_x$; with $\theta = \pi/2$, $\mathbf{a} = a_x\mathbf{i} = -a_x\mathbf{e}_\theta$.
+* **Invariance of the modulus:** $a_r^2 + a_\theta^2 = a_x^2\,\dfrac{x^2 + y_0^2}{r^2} = a_x^2$, equal to $\|a_x\mathbf{i}\|^2$ because $[{}_0R_1]$ is orthogonal.
+* **Check against the official key:** `Problems.pdf` has no entry for Problem 4 in its solution keys, but the statement gives the four formulas (a) to (d) as targets, and they are proved above. Sympy confirms the four identities and $a_r = a_xx/r$, $a_\theta = -a_xy_0/r$ with zero residual.
 
 ---
 
 ## 📌 Problem 05: Plane and Towed Glider
 
-### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** Tow plane $A$ flies horizontally at constant speed $v_A$. Glider $B$ is towed behind on a cable of constant length $r$. The tow angle $\theta(t)$ above the horizontal increases at rate $\dot{\theta}(t)$.
-* **Hypotheses:** Cable length $r = \text{const}$, plane speed $v_A = \text{const}$ (so $\dot{v}_A = 0, \mathbf{a}_A = \mathbf{0}$).
-* **Parameters & Units:** Plane speed $v_A\text{ [m/s]}$, cable length $r\text{ [m]}$, angle $\theta\text{ [rad]}$, angular rate $\dot{\theta}\text{ [rad/s]}$, angular acceleration $\ddot{\theta}\text{ [rad/s}^2\text{]}$.
+### Phase 1: Constraints, Degrees of Freedom & Coordinates
+* **System:** a tow plane $A$ flies horizontally at constant speed $v_A$ and tows a glider $B$ that gains altitude. The tow cable has length $r$ and forms an angle $\theta$ with the horizontal.
+* **Hypotheses:** $v_A$ and the cable length $r$ are constant; $\mathbf{a}_A = \mathbf{0}$. The statement says that $\dot{\theta}$ is constant; the answer is requested as a function of $\theta$ and its derivatives, so we keep $\theta(t)$ general and particularise at the end ($\ddot{\theta} = 0$).
+* **Constraints and degrees of freedom:** we place the origin at the altitude of $A$, so $y_A = 0$. The taut cable of constant length keeps $B$ at the distance $r$ from $A$: $\left(x_B - x_{A0} - v_At\right)^2 + y_B^2 = r^2$. This is a holonomic constraint that depends explicitly on time (rheonomic) because the position of $A$ is prescribed, and it is bilateral while the cable is taut. $B$ then has $\text{CDOF} = 2 - 1 = 1$: the angle $\theta$.
+* **Coordinates:** $\theta(t)$ for the glider relative to $A$; the position of $A$ along the flight direction is $x_A(t) = x_{A0} + v_At$.
+* **Parameters and units:** $v_A$ [m/s], $r$ [m], $\theta$ [rad], $\dot{\theta}$ [rad/s], $\ddot{\theta}$ [rad/s$^2$].
 
-### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
-* **Inertial Reference Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$, with $\mathbf{i}_0$ pointing horizontally in plane $A$'s direction of flight, and $\mathbf{j}_0$ pointing vertically upward.
-* **Position of Plane $A$:**
-$$ \mathbf{r}_A(t) = (x_{A0} + v_A t)\mathbf{i}_0 $$
-* **Relative Position of Glider $B$ with Respect to $A$:**
-
-Since the glider is behind $A$ and gaining altitude while $\theta$ increases, the vector from $A$ to $B$ points at angle $\theta$ above the negative horizontal:
-
+### Phase 2: Reference Frames & Vector Bases
+* **Inertial frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$ with $\mathbf{i}_0$ horizontal in the direction of flight of $A$ and $\mathbf{j}_0$ vertical, upward.
+* **Relative position of $B$ with respect to $A$:** the glider is behind and above the plane, so the vector from $A$ to $B$ points at the angle $\theta$ above the negative horizontal. Its components in $\mathcal{B}_0$ follow from the geometry of the cable:
 $$ \mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 $$
+This is the only reading compatible with the glider gaining altitude as $\theta$ increases ($r\sin\theta$ grows with $\theta$ for $0 \lt \theta \lt \pi/2$).
 
-The total position of glider $B$ in $\mathcal{S}_0$ is:
+### Phase 3: Derivation
 
-$$ \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = (x_{A0} + v_A t - r\cos\theta)\mathbf{i}_0 + (r\sin\theta)\mathbf{j}_0 $$
-* **Erratum:** The first version said that the vector from $A$ to $B$ is at angle $\theta$ below the negative horizontal, which contradicts $\mathbf{r}_{B/A} = -r\cos\theta\,\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0$ (positive vertical component). The glider is behind and above $A$, at angle $\theta$ above the negative horizontal; this is the only reading compatible with the glider gaining altitude as $\theta$ increases, and the formulas for $\mathbf{v}_{B/0}$ and $\mathbf{a}_{B/0}$ are unchanged. Numeric check: the altitude $r\sin\theta$ has derivative $r\dot{\theta}\cos\theta > 0$ for $0 < \theta < \pi/2$ and $\dot{\theta} > 0$.
+#### 3.1 Kinematics
+##### Position of the glider
+* **Pedagogical Justification:** the position of $B$ is the position of $A$ plus the relative position, all written in the fixed basis, so that no derivative of a unit vector is needed.
+$$ \mathbf{r}_A = \left(x_{A0} + v_At\right)\mathbf{i}_0, \qquad \mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A} = \left(x_{A0} + v_At - r\cos\theta\right)\mathbf{i}_0 + r\sin\theta\,\mathbf{j}_0 $$
 
-### Phase 3: Step-by-Step Mathematical Deduction
+##### Velocity of the glider
+* **Pedagogical Justification:** differentiate $\mathbf{r}_B$ in $\mathcal{S}_0$ with the chain rule, since $\theta$ depends on time and $r$ is constant:
+$$ \frac{d}{dt}\left(-r\cos\theta\right) = r\sin\theta\,\dot{\theta}, \qquad \frac{d}{dt}\left(r\sin\theta\right) = r\cos\theta\,\dot{\theta} $$
+$$ \mathbf{v}_B^0 = \left(v_A + r\dot{\theta}\sin\theta\right)\mathbf{i}_0 + r\dot{\theta}\cos\theta\,\mathbf{j}_0, \qquad v_B^0 = \sqrt{\left(v_A + r\dot{\theta}\sin\theta\right)^2 + \left(r\dot{\theta}\cos\theta\right)^2} $$
 
-#### Velocity of Glider $B$
-* **Pedagogical Justification:** The absolute velocity is obtained by differentiating position $\mathbf{r}_B$ in the inertial frame $\mathcal{S}_0$:
-$$ \mathbf{v}_{B/0} = \frac{d\mathbf{r}_B}{dt} = \frac{d}{dt}(x_{A0} + v_A t - r\cos\theta)\mathbf{i}_0 + \frac{d}{dt}(r\sin\theta)\mathbf{j}_0 $$
-* **Explicit Chain Rule:**
-$$ \frac{d}{dt}(-r\cos\theta) = -r(-\sin\theta)\dot{\theta} = r\dot{\theta}\sin\theta $$
-$$ \frac{d}{dt}(r\sin\theta) = r\cos\theta\,\dot{\theta} $$
+##### Acceleration of the glider
+* **Pedagogical Justification:** differentiate each component of $\mathbf{v}_B^0$ with the product and chain rules:
+$$ \frac{d}{dt}\left(v_A + r\dot{\theta}\sin\theta\right) = r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta, \qquad \frac{d}{dt}\left(r\dot{\theta}\cos\theta\right) = r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta $$
+$$ \mathbf{a}_B^0 = \left(r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta\right)\mathbf{i}_0 + \left(r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta\right)\mathbf{j}_0 $$
+* **Magnitude.** Expanding both squares,
+$$ \left(r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta\right)^2 = r^2\ddot{\theta}^2\sin^2\theta + 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta + r^2\dot{\theta}^4\cos^2\theta $$
+$$ \left(r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta\right)^2 = r^2\ddot{\theta}^2\cos^2\theta - 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta + r^2\dot{\theta}^4\sin^2\theta $$
+and adding them, the cross terms $\pm 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta$ cancel:
+$$ \left(a_B^0\right)^2 = r^2\ddot{\theta}^2\left(\sin^2\theta + \cos^2\theta\right) + r^2\dot{\theta}^4\left(\cos^2\theta + \sin^2\theta\right) = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4 $$
 
-Therefore:
+#### 3.2 Forces
+Not applicable: kinematics-only problem. The motion of $A$ and the cable geometry are given.
 
-$$ \mathbf{v}_{B/0} = (v_A + r\dot{\theta}\sin\theta)\mathbf{i}_0 + (r\dot{\theta}\cos\theta)\mathbf{j}_0 $$
-* **Magnitude of Velocity $v_{B/0}$:**
-$$ v_{B/0} = \|\mathbf{v}_{B/0}\| = \sqrt{(v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2} $$
+#### 3.3 Equations of Motion
+Not applicable: kinematics-only problem. No dynamic unknown appears.
 
-*(Compare with the official solution key (Problems.pdf, Solution keys section).)*
+#### 3.4 Integration and Answers
+* **Pedagogical Justification:** the answers requested are the magnitudes of the velocity and of the acceleration of $B$ in $S_0$ as functions of $\theta$ and its derivatives:
+$$ \boxed{v_B^0 = \sqrt{\left(v_A + r\dot{\theta}\sin\theta\right)^2 + \left(r\dot{\theta}\cos\theta\right)^2}}, \qquad \boxed{a_B^0 = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4}} $$
+* **Expanded speed.** Expanding the square in $v_B^0$ (valid for any $\theta(t)$, using $\sin^2\theta + \cos^2\theta = 1$): $v_B^0 = \sqrt{v_A^2 + 2v_Ar\dot{\theta}\sin\theta + r^2\dot{\theta}^2}$.
+* **Constant rate of the statement.** With $\dot{\theta}$ constant, $\ddot{\theta} = 0$ and $a_B^0 = r\dot{\theta}^2$.
 
-#### Acceleration of Glider $B$
-* **Pedagogical Justification:** Acceleration is the time derivative of velocity $\mathbf{a}_{B/0} = \frac{d\mathbf{v}_{B/0}}{dt}$.
-* **Explicit Product & Chain Rules for Each Component:**
-* $x$-component differentiation:
-$$ \frac{d}{dt}(v_A + r\dot{\theta}\sin\theta) = 0 + r\frac{d}{dt}(\dot{\theta}\sin\theta) = r(\ddot{\theta}\sin\theta + \dot{\theta}(\cos\theta\dot{\theta})) = r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta $$
-* $y$-component differentiation:
-$$ \frac{d}{dt}(r\dot{\theta}\cos\theta) = r\frac{d}{dt}(\dot{\theta}\cos\theta) = r(\ddot{\theta}\cos\theta + \dot{\theta}(-\sin\theta\dot{\theta})) = r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta $$
-* **Vector Form:**
-$$ \mathbf{a}_{B/0} = (r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta)\mathbf{i}_0 + (r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta)\mathbf{j}_0 $$
-* **Magnitude of Acceleration $a_{B/0}$:**
-$$ a_{B/0}^2 = (r\ddot{\theta}\sin\theta + r\dot{\theta}^2\cos\theta)^2 + (r\ddot{\theta}\cos\theta - r\dot{\theta}^2\sin\theta)^2 $$
-
-Expanding both squared terms:
-
-$$ = r^2\ddot{\theta}^2\sin^2\theta + 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta + r^2\dot{\theta}^4\cos^2\theta $$
-$$ + r^2\ddot{\theta}^2\cos^2\theta - 2r^2\ddot{\theta}\dot{\theta}^2\sin\theta\cos\theta + r^2\dot{\theta}^4\sin^2\theta $$
-
-The cross terms cancel out completely:
-
-$$ a_{B/0}^2 = r^2\ddot{\theta}^2(\sin^2\theta + \cos^2\theta) + r^2\dot{\theta}^4(\cos^2\theta + \sin^2\theta) = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4 $$
-
-Taking the square root:
-
-$$ a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4} $$
-
-*(Compare with the official solution key (Problems.pdf, Solution keys section).)*
-
-### Phase 4: Physical Interpretation & Dimensional Verification
-* **Plane Motion Decoupling:** Notice that the acceleration magnitude $a_{B/0}$ is completely independent of the tow plane's cruise velocity $v_A$ because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The acceleration felt by the glider is purely relative circular motion around $A$!
-* **Limiting Case $\ddot{\theta} = 0$:** If the cable turns at a constant angular rate $\dot{\theta} = \Omega$, the acceleration reduces to pure centripetal acceleration: $a_{B/0} = \sqrt{r^2\Omega^4} = r\Omega^2$.
-* **Dimensional check:** $[r\ddot{\theta}] = [r\dot{\theta}^2] = \text{m}\cdot\text{s}^{-2}$ and $[v_A + r\dot{\theta}\sin\theta] = \text{m/s}$, so $a_{B/0} = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4}$ is in m/s$^2$ and $v_{B/0}$ in m/s.
-* **Limit $\dot{\theta} = 0$:** $\mathbf{v}_{B/0} = v_A\,\mathbf{i}_0$ and $\mathbf{a}_{B/0} = \mathbf{0}$, the glider moves rigidly with the tow plane.
-* **Symbolic check (sympy):** differentiating $\mathbf{r}_B$ twice for an arbitrary function $\theta(t)$ gives $\|\mathbf{v}_{B/0}\|^2 = (v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2$ and $\|\mathbf{a}_{B/0}\|^2 = r^2\ddot{\theta}^2 + r^2\dot{\theta}^4$ with zero residual.
+### Phase 4: Interpretation & Checks
+* **Decoupling from the cruise speed:** the acceleration does not depend on $v_A$, because $\mathbf{a}_A = \mathbf{0}$ (uniform rectilinear translation). The glider accelerates only through its circular motion relative to $A$.
+* **Limiting case $\ddot{\theta} = 0$:** the acceleration is purely centripetal, $a_B^0 = r\dot{\theta}^2$, directed along the cable toward $A$ (circular motion of $B$ around $A$).
+* **Limit $\dot{\theta} \equiv 0$ (identically, so $\ddot{\theta} = 0$ too):** $\mathbf{v}_B^0 = v_A\,\mathbf{i}_0$ and $\mathbf{a}_B^0 = \mathbf{0}$: the glider moves rigidly with the plane. (If $\dot{\theta}$ only vanishes at one instant, $a_B^0 = r|\ddot{\theta}|$ there, not zero.)
+* **Dimensional check:** $[r\ddot{\theta}] = [r\dot{\theta}^2] = \text{m}\cdot\text{s}^{-2}$ and $[v_A + r\dot{\theta}\sin\theta] = \text{m/s}$, so $a_B^0$ is in m/s$^2$ and $v_B^0$ in m/s.
+* **Check against the official key:** the key of `Problems.pdf` is $v_B^0 = \sqrt{(v_A + r\dot{\theta}\sin\theta)^2 + (r\dot{\theta}\cos\theta)^2}$ and $a_B^0 = \sqrt{r^2\ddot{\theta}^2 + r^2\dot{\theta}^4}$ (read on the rendered page), identical to the result above. Sympy confirms both squares for an arbitrary function $\theta(t)$ with zero residual.
 
 ---
 
 ## 📌 Problem 06: Particle on Sinusoidal Curve
 
-### Phase 1: Physical Statement, Hypotheses & Parameters
-* **Physical System:** A particle travels along a sinusoidal path $y(x) = \sin x$ with constant horizontal speed $\dot{x} = 1$.
-* **Hypotheses:** $\dot{x}(t) \equiv 1\text{ m/s} \implies x(t) = t + x_0$ (taking $x_0 = 0 \implies x(t) = t$). $\ddot{x} = 0$.
-* **Degrees of Freedom:** $\text{CDOF} = 1$.
+### Phase 1: Constraints, Degrees of Freedom & Coordinates
+* **System:** a particle $P$ travels along the curve $y = \sin x$ with horizontal velocity $\dot{x} = 1$.
+* **Hypotheses:** the data are in SI units, so $y = \sin x$ means $y = (1\ \text{m})\sin(x/1\ \text{m})$ and $\dot{x} = 1\ \text{m/s}$. We take $x(0) = 0$, so $x(t) = t$ (in these units).
+* **Constraints and degrees of freedom:** the curve $y = \sin x$ is a holonomic, scleronomic constraint in the plane, so $\text{CDOF} = 2 - 1 = 1$. The coordinate is $x$, whose motion law is given.
+* **Coordinates:** $x$ (and the arc length $s$ along the curve).
 
-### Phase 2: Reference Frames, Vector Bases & Rotation Matrices
-* **Parametric Curve:** $\mathbf{r}(x) = x\mathbf{i}_0 + \sin x\,\mathbf{j}_0$.
-* **Derivative Vector:** $\frac{d\mathbf{r}}{dx} = \mathbf{i}_0 + \cos x\,\mathbf{j}_0$.
-* **Differential Arc Length:**
-$$ ds = \left\| \frac{d\mathbf{r}}{dx} \right\|dx = \sqrt{1 + \cos^2 x}\,dx $$
-* **Change of basis (intrinsic basis).** Let $\alpha(x) = \arctan(\cos x)$ be the slope angle of the tangent, so that $\mathbf{e}_t = (\cos\alpha, \sin\alpha) = (1, \cos x)/\sqrt{1 + \cos^2x}$. The in-plane normal used in this solution is $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t = (-\sin\alpha, \cos\alpha) = (-\cos x, 1)/\sqrt{1 + \cos^2x}$, the normal obtained by turning $\mathbf{e}_t$ by $+90^\circ$ (to its left). The columns are the components of $\mathbf{e}_t$, $\mathbf{e}_n$ in $\{\mathbf{i}_0, \mathbf{j}_0\}$:
-$$ [{}_0 R_1] = \frac{1}{\sqrt{1 + \cos^2x}}\begin{pmatrix} 1 & -\cos x \\ \cos x & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \frac{1 + \cos^2x}{1 + \cos^2x} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
-* Because $\mathbf{e}_n$ is always the left normal, the sign of $a_n$ tells on which side the centre of curvature lies: $a_n < 0$ (as for $0 < x < \pi$, where $\sin x > 0$) places it to the right of the direction of motion, below the arch; $a_n > 0$ for $\pi < x < 2\pi$ places it above the curve. The matrix properties were verified symbolically with sympy.
+### Phase 2: Reference Frames & Vector Bases
+* **Inertial frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with the curve in the $Oxy$ plane.
+* **Parametric curve:** $\mathbf{r}(x) = x\,\mathbf{i}_0 + \sin x\,\mathbf{j}_0$, with $\dfrac{d\mathbf{r}}{dx} = \mathbf{i}_0 + \cos x\,\mathbf{j}_0$. The differential arc length is
+$$ ds = \left\|\frac{d\mathbf{r}}{dx}\right\|dx = \sqrt{1 + \cos^2x}\,dx \equiv L(x)\,dx $$
+* **Intrinsic basis.** $\mathbf{e}_t$ is the unit tangent and $\mathbf{e}_n$ points toward the centre of curvature (Notes Sec. 2.4). Both are obtained in 3.1. In the plane the normal can be written as the left normal $\mathbf{k}_0\times\mathbf{e}_t$ up to a sign, because the curve has inflection points where the centre of curvature switches sides:
+$$ \mathbf{k}_0\times\mathbf{e}_t = \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{L(x)}, \qquad \mathbf{e}_n = \operatorname{sgn}(\sin x)\,\frac{\cos x\,\mathbf{i}_0 - \mathbf{j}_0}{L(x)} \quad (\sin x \ne 0) $$
+* **Change of basis.** The matrix with the components of $\mathbf{e}_t$, $\mathbf{e}_n$ and $\mathbf{e}_b$ in $\mathcal{B}_0$ is, for $\sin x \ne 0$,
+$$ [{}_0 R_{\text{tnb}}] = \frac{1}{L}\begin{pmatrix} 1 & \operatorname{sgn}(\sin x)\cos x & 0 \\ \cos x & -\operatorname{sgn}(\sin x) & 0 \\ 0 & 0 & -L\operatorname{sgn}(\sin x) \end{pmatrix}, \qquad \det = \frac{1}{L^3}\left(-L\operatorname{sgn}(\sin x)\right)\left(-\operatorname{sgn}(\sin x) - \operatorname{sgn}(\sin x)\cos^2x\right) = 1, \qquad R R^T = I $$
+For $\sin x \gt 0$, $\mathbf{e}_n$ is the right normal $-\mathbf{k}_0\times\mathbf{e}_t$ and $\mathbf{e}_b = -\mathbf{k}_0$; for $\sin x \lt 0$ it is the left normal and $\mathbf{e}_b = \mathbf{k}_0$. In both cases the triad is right-handed.
 
-### Phase 3: Step-by-Step Mathematical Deduction
+### Phase 3: Derivation
 
-#### (a) Intrinsic Unitary Vector Basis $\{\mathbf{e}_t, \mathbf{e}_n\}$
-* **Unit Tangent Vector $\mathbf{e}_t$:**
-$$ \mathbf{e}_t = \frac{d\mathbf{r}/dx}{\|d\mathbf{r}/dx\|} = \frac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{\sqrt{1 + \cos^2 x}} $$
-* **Unit Principal Normal Vector $\mathbf{e}_n$:**
+#### 3.1 Kinematics
+##### Velocity and acceleration
+* **Pedagogical Justification:** the position is expressed in the fixed basis, so the derivatives of the unit vectors vanish. With $\dot{x} = 1$ and $\ddot{x} = 0$ (chain rule $\dot{y} = \cos x\,\dot{x}$):
+$$ \mathbf{v} = \dot{x}\,\mathbf{i}_0 + \cos x\,\dot{x}\,\mathbf{j}_0 = \mathbf{i}_0 + \cos x\,\mathbf{j}_0, \qquad v(x) = \sqrt{1 + \cos^2x} = L(x) $$
+$$ \mathbf{a} = \frac{d\mathbf{v}}{dt} = \ddot{x}\,\mathbf{i}_0 + \left(-\sin x\,\dot{x}^2 + \cos x\,\ddot{x}\right)\mathbf{j}_0 = 0\,\mathbf{i}_0 - \sin x\,\mathbf{j}_0 = -\sin x\,\mathbf{j}_0 $$
 
-In a 2D plane, the normal vector $\mathbf{e}_n = \mathbf{k}_0 \times \mathbf{e}_t$ is perpendicular to $\mathbf{e}_t$ and oriented to its left (a $+90^\circ$ turn). It points toward the centre of curvature only where the signed curvature is positive.
+##### (a) Intrinsic unit basis
+* **Tangent:** $\mathbf{e}_t = \dfrac{d\mathbf{r}/dx}{\|d\mathbf{r}/dx\|} = \dfrac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{L}$.
+* **Pedagogical Justification (normal):** by the definition of the course, $d\mathbf{e}_t/ds = \mathbf{e}_n/\rho$, so $\mathbf{e}_n$ is the direction of $d\mathbf{e}_t/ds$. We differentiate with respect to $x$ (product rule, with $\frac{d}{dx}L^{-1} = -\frac{1}{2}L^{-3}\left(-2\cos x\sin x\right) = \sin x\cos x\,L^{-3}$) and use $ds = L\,dx$:
+$$ \frac{d\mathbf{e}_t}{dx} = \frac{\sin x\cos x}{L^3}\left(\mathbf{i}_0 + \cos x\,\mathbf{j}_0\right) + \frac{1}{L}\left(-\sin x\,\mathbf{j}_0\right) = \frac{\sin x\cos x\,\mathbf{i}_0 + \left[\sin x\cos^2x - \sin x\left(1 + \cos^2x\right)\right]\mathbf{j}_0}{L^3} = -\frac{\sin x}{L^3}\left(-\cos x\,\mathbf{i}_0 + \mathbf{j}_0\right) $$
+$$ \frac{d\mathbf{e}_t}{ds} = \frac{1}{L}\frac{d\mathbf{e}_t}{dx} = -\frac{\sin x}{L^4}\left(-\cos x\,\mathbf{i}_0 + \mathbf{j}_0\right) $$
+* The norm of this vector is the curvature, and its direction is $\mathbf{e}_n$. The vector $-\cos x\,\mathbf{i}_0 + \mathbf{j}_0$ has norm $L$, so
+$$ \left\|\frac{d\mathbf{e}_t}{ds}\right\| = \frac{|\sin x|}{L^3} = \frac{1}{\rho}, \qquad \mathbf{e}_n = -\operatorname{sgn}(\sin x)\,\frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{L} = \operatorname{sgn}(\sin x)\,\frac{\cos x\,\mathbf{i}_0 - \mathbf{j}_0}{L} $$
+* For $0 \lt x \lt \pi$ ($\sin x \gt 0$) the arch is concave down and $\mathbf{e}_n$ points downward; for $\pi \lt x \lt 2\pi$ it points upward. At the inflection points $x = k\pi$ the curvature vanishes and $\mathbf{e}_n$ is not defined ($\rho \to \infty$).
+* **Binormal:** $\mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n = -\operatorname{sgn}(\sin x)\,\mathbf{k}_0$, constant in each arch.
 
-Differentiating $\mathbf{e}_t$ with respect to arc length $s$:
+##### (c) Tangent and normal acceleration components
+* **Pedagogical Justification:** project the acceleration on the intrinsic vectors:
+$$ a_t = \mathbf{a}\cdot\mathbf{e}_t = \left(-\sin x\,\mathbf{j}_0\right)\cdot\frac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{L} = -\frac{\sin x\cos x}{\sqrt{1 + \cos^2x}} $$
+$$ a_n = \mathbf{a}\cdot\mathbf{e}_n = \left(-\sin x\,\mathbf{j}_0\right)\cdot\operatorname{sgn}(\sin x)\,\frac{\cos x\,\mathbf{i}_0 - \mathbf{j}_0}{L} = \operatorname{sgn}(\sin x)\,\frac{\sin x}{L} = \frac{|\sin x|}{\sqrt{1 + \cos^2x}} \ge 0 $$
+* **Check:** $a_t^2 + a_n^2 = \dfrac{\sin^2x\left(\cos^2x + 1\right)}{1 + \cos^2x} = \sin^2x = \|\mathbf{a}\|^2$.
 
-$$ \frac{d\mathbf{e}_t}{ds} = \frac{d\mathbf{e}_t}{dx}\frac{dx}{ds} = \frac{1}{\sqrt{1 + \cos^2 x}}\frac{d}{dx}\left[ (1 + \cos^2 x)^{-1/2}(\mathbf{i}_0 + \cos x\,\mathbf{j}_0) \right] $$
+#### 3.2 Forces
+Not applicable: kinematics-only problem. The curve and the motion law $\dot{x} = 1$ are given.
 
-Applying the quotient/product rule:
+#### 3.3 Equations of Motion
+Not applicable: kinematics-only problem. The motion is prescribed by the statement.
 
-$$ \frac{d}{dx}\left[\frac{1}{\sqrt{1 + \cos^2 x}}\right] = -\frac{1}{2}(1 + \cos^2 x)^{-3/2}(2\cos x(-\sin x)) = \frac{\sin x\cos x}{(1 + \cos^2 x)^{3/2}} $$
-$$ \frac{d\mathbf{e}_t}{dx} = \frac{\sin x\cos x}{(1 + \cos^2 x)^{3/2}}(\mathbf{i}_0 + \cos x\,\mathbf{j}_0) + \frac{1}{\sqrt{1 + \cos^2 x}}(-\sin x\,\mathbf{j}_0) $$
+#### 3.4 Integration and Answers
+##### (b) Arc-length parameter $s(x)$
+* **Pedagogical Justification:** integrate the metric differential from $x = 0$ (taking $s(0) = 0$):
+$$ s(x) = \int_0^x\sqrt{1 + \cos^2u}\,du $$
+The integral cannot be written with elementary functions (extension: it is an incomplete elliptic integral of the second kind); the statement allows leaving it as an integral. Since the integrand satisfies $\sqrt{1 + \cos^2u} \ge 1 \gt 0$, $s(x)$ is strictly increasing, so it can be inverted to give $x(s)$.
 
-Putting over the common denominator $(1 + \cos^2 x)^{3/2}$:
+##### (d) Radius of curvature
+* **Pedagogical Justification:** from $a_n = v^2/\rho$, with $v^2 = 1 + \cos^2x$:
+$$ \rho(x) = \frac{v^2}{a_n} = \frac{1 + \cos^2x}{|\sin x|/\sqrt{1 + \cos^2x}} = \boxed{\frac{\left(1 + \cos^2x\right)^{3/2}}{|\sin x|}} $$
+As a check (extension), this is the standard curvature formula of a plane graph, $\rho = \dfrac{\left(1 + y'^2\right)^{3/2}}{|y''|}$, for $y' = \cos x$ and $y'' = -\sin x$.
 
-$$ = \frac{\sin x\cos x\,\mathbf{i}_0 + \sin x\cos^2 x\,\mathbf{j}_0 - \sin x(1 + \cos^2 x)\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = \frac{\sin x\cos x\,\mathbf{i}_0 - \sin x\,\mathbf{j}_0}{(1 + \cos^2 x)^{3/2}} = -\frac{\sin x}{(1 + \cos^2 x)^{3/2}}(-\cos x\,\mathbf{i}_0 + \mathbf{j}_0) $$
-
-Normalizing to unit length:
-
-$$ \mathbf{e}_n = \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \quad (\text{left normal } \mathbf{k}_0 \times \mathbf{e}_t) $$
-* **Erratum:** The first version called $\mathbf{e}_n$ the normal pointing to the concave side. It is the left normal $\mathbf{k}_0 \times \mathbf{e}_t$ and, since $d\mathbf{e}_t/ds = -\dfrac{\sin x}{(1 + \cos^2 x)^{3/2}}\,\mathbf{e}_n$, it points away from the centre of curvature for $0 < x < \pi$ (where $a_n < 0$) and toward it for $\pi < x < 2\pi$ (where $a_n > 0$). Numeric check: sympy gives $a_n(\pi/2) = -1\ \text{m/s}^2$, with the centre of curvature below the crest.
-
-#### (b) Arc Length Parameter $s(x)$
-* **Pedagogical Justification:** The relation between $x$ and arc length $s$ is given by integrating the metric differential:
-$$ s(x) = \int_0^x \sqrt{1 + \cos^2 u}\,du $$
-
-This integral is an incomplete elliptic integral of the second kind, which cannot be expressed in elementary functions and is properly expressed as a quadrature.
-
-#### (c) Tangent and Normal Acceleration Components
-* **Velocity Vector:** Since $\dot{x} = 1$:
-$$ \mathbf{v} = \dot{x}\mathbf{i}_0 + \dot{y}\mathbf{j}_0 = 1\mathbf{i}_0 + \cos x\,\mathbf{j}_0 $$
-
-The speed is:
-
-$$ v(x) = \|\mathbf{v}\| = \sqrt{1 + \cos^2 x} $$
-* **Acceleration Vector:** Differentiating velocity with $\dot{x} = 1$:
-$$ \mathbf{a} = \frac{d\mathbf{v}}{dt} = \frac{d}{dt}(1\mathbf{i}_0 + \cos x\,\mathbf{j}_0) = -\sin x\,\dot{x}\,\mathbf{j}_0 = -\sin x\,\mathbf{j}_0 $$
-* **Tangential Acceleration Component $a_t$:**
-$$ a_t = \mathbf{a} \cdot \mathbf{e}_t = (-\sin x\,\mathbf{j}_0) \cdot \left( \frac{\mathbf{i}_0 + \cos x\,\mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \right) = -\frac{\sin x\cos x}{\sqrt{1 + \cos^2 x}} $$
-* **Normal Acceleration Component $a_n$:**
-$$ a_n = \mathbf{a} \cdot \mathbf{e}_n = (-\sin x\,\mathbf{j}_0) \cdot \left( \frac{-\cos x\,\mathbf{i}_0 + \mathbf{j}_0}{\sqrt{1 + \cos^2 x}} \right) = \frac{-\sin x}{\sqrt{1 + \cos^2 x}} $$
-
-Its magnitude is:
-
-$$ |a_n| = \frac{|\sin x|}{\sqrt{1 + \cos^2 x}} $$
-
-#### (d) Radius of Curvature $\rho(x)$
-* **Pedagogical Justification:** Using $a_n = \frac{v^2}{\rho}$:
-$$ \rho(x) = \frac{v^2}{|a_n|} = \frac{1 + \cos^2 x}{\frac{|\sin x|}{\sqrt{1 + \cos^2 x}}} = \frac{(1 + \cos^2 x)^{3/2}}{|\sin x|} $$
-
-*(Notice this matches the standard Cartesian curvature formula $\rho = \frac{(1 + y'^2)^{3/2}}{|y''|}$ with $y' = \cos x, y'' = -\sin x$!)*
-
-### Phase 4: Physical Interpretation, Limiting Cases and Dimensional Check
-* **Dimensional check:** the data are in SI units with the length scale $1$ m inside the sine ($y = \sin x$ means $y = (1\ \text{m})\sin(x/1\ \text{m})$) and $\dot{x} = 1\ \text{m/s}$. Then $[v] = \text{m/s}$, $[a_t] = [a_n] = \text{m/s}^2$ and $[\rho] = [v^2/|a_n|] = \text{m}$, and $[s] = [\int\sqrt{1 + \cos^2u}\,du] = \text{m}$.
-* **Special points:** at the inflection points $x = k\pi$, $\sin x = 0$, so $a_n = 0$ and $\rho \to \infty$ (locally straight). At the crests $x = \pi/2$: $v = 1\ \text{m/s}$, $a_t = 0$, $a_n = -1\ \text{m/s}^2$ and $\rho = v^2/|a_n| = 1$ m, equal to $1/|y''| = 1$ m. At $x = \pi/4$: $\rho = (1 + \cos^2x)^{3/2}/|\sin x| = 3\sqrt{3}/2 = 2.598$ m.
+### Phase 4: Interpretation & Checks
+* **Dimensional check:** $[v] = \text{m/s}$, $[a_t] = [a_n] = \text{m/s}^2$, $[\rho] = [v^2/a_n] = \text{m}$ and $[s] = \left[\int\sqrt{1 + \cos^2u}\,du\right] = \text{m}$ (using the length scale $1$ m inside the sine).
+* **Special points:** at the inflection points $x = k\pi$, $a_n = 0$ and $\rho \to \infty$ (locally straight). At the crest $x = \pi/2$: $v = 1\ \text{m/s}$, $a_t = 0$, $a_n = 1\ \text{m/s}^2$ and $\rho = 1$ m, equal to $1/|y''| = 1$ m; there $\mathbf{e}_n = -\mathbf{j}_0$, toward the centre of curvature below the crest. At $x = \pi/4$: $\rho = (3/2)^{3/2}/(\sqrt{2}/2) = 3\sqrt{3}/2 = 2.598$ m.
 * **Arc length:** $s(\pi) = \int_0^\pi\sqrt{1 + \cos^2u}\,du = 3.8202$ m, greater than the horizontal distance $\pi$ m, as it must be.
-* **Symbolic check (sympy):** $a_t^2 + a_n^2 = \sin^2x = \|\mathbf{a}\|^2$ and $v^2/|a_n| = (1 + \cos^2x)^{3/2}/|\sin x|$ hold with zero residual.
+* **Check against the official key:** `Problems.pdf` has no entry for Problem 6 in its solution keys, so the results are verified by independent derivation: sympy reproduces $a_t$, $a_n$, $a_t^2 + a_n^2 = \sin^2x$, the curvature $\|d\mathbf{e}_t/ds\| = |\sin x|/L^3$ and $\rho(\pi/2) = 1$, $\rho(\pi/4) = 3\sqrt{3}/2$; numerical quadrature gives $s(\pi) = 3.82020$ m.
