@@ -123,14 +123,14 @@
   "title": "Heavy Particle on a Cone",
   "badge": "Conical Surface",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "19": {
   "topic": 3,
   "title": "Heavy Particle on a Paraboloid",
   "badge": "Paraboloid Surface",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "20": {
   "topic": 5,
@@ -158,14 +158,14 @@
   "title": "Simple Pendulum (Unilateral Constraint)",
   "badge": "Pendulum & Liftoff",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "24": {
   "topic": 3,
   "title": "Particle on a Circumference with a Spring",
   "badge": "Wire & Elastic Potential",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "25": {
   "topic": 5,
@@ -200,7 +200,7 @@
   "title": "Heavy Particle on a Tilted Cylinder",
   "badge": "Unilateral Liftoff",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "30": {
   "topic": 5,
@@ -214,14 +214,14 @@
   "title": "Two Particles on Cone with String",
   "badge": "Multi-Particle Cable Constraint",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "32": {
   "topic": 3,
   "title": "Particle with String on Spool",
   "badge": "Rheonomic Spool Constraint",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "33": {
   "topic": 5,
@@ -242,7 +242,7 @@
   "title": "String with Two Particles on a Cylinder",
   "badge": "Multi-Particle Cylinder Contact",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "36": {
   "topic": 5,
@@ -263,14 +263,14 @@
   "title": "Particle on Torus",
   "badge": "Toroidal Geometry",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "39": {
   "topic": 3,
   "title": "Particle on a String with a Plate",
   "badge": "Plate Edge Contact",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "40": {
   "topic": 5,
@@ -333,7 +333,7 @@
   "title": "Two Connected Particles, One on Paraboloid",
   "badge": "Multi-Particle Manifold",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "49": {
   "topic": 5,
@@ -347,7 +347,7 @@
   "title": "Double Pendulum",
   "badge": "Kinematic Linkage",
   "source_note": "",
-  "structure": 1
+  "structure": 2
  },
  "51": {
   "topic": 5,

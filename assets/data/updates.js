@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-mechanics-topic-3-course-order",
+    "date": "2026-10-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics Topic 3: solutions in the course order",
+    "text": "The twelve constraint and reaction problems follow the course method step by step. Problem 24 now matches its statement and problem 31 notes an error in the official key.",
+    "link": "subjects/engineering-mechanics/problemas/topic-3.html"
+  },
+  {
     "id": "2026-10-21-mechanics-topic-2-course-order",
     "date": "2026-10-21",
     "tag": "Engineering Mechanics",
