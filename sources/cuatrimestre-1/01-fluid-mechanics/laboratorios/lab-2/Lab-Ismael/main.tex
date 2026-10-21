@@ -35,18 +35,15 @@
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{fig_neumann.pdf}
-\caption{$f(x,t)$ with Neumann boundary conditions at $t=1$, $5$ and $15$. Parameters: $U=1$, $\alpha=0.1$ ($k=0.5$).}
+\caption{$f(x,t)$ with Neumann boundary conditions ($\partial_x f=0$ at $x=\pm10$) at $t=1$, $5$ and $15$. Parameters: $U=1$, $\alpha=0.1$ ($k=0.5$). The initial pulse starts at $x=-2$, and the flow carries it to the right at speed $U$: its peak is at $x\simeq-1$ for $t=1$ and at $x\simeq3$ for $t=5$. Its height drops a little ($\max f=0.965$ and $0.86$) because diffusion spreads it out. At $t=15$ the pulse has reached the right end, where the zero-slope condition makes the curve flat ($f\simeq0.27$ at $x=10$) and the rest of the pulse leaves the domain.}
 \label{fig:neumann}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{fig_periodic.pdf}
-\caption{$f(x,t)$ with periodic boundary conditions at $t=1$, $5$ and $15$. Parameters: $U=1$, $\alpha=0.1$ ($k=0.5$).}
+\caption{$f(x,t)$ with periodic boundary conditions ($x=-10$ and $x=10$ are the same point) at $t=1$, $5$ and $15$. Parameters: $U=1$, $\alpha=0.1$ ($k=0.5$). The curves at $t=1$ and $t=5$ are the same as in Fig.~\ref{fig:neumann}, since the pulse has not reached the boundaries yet. At $t=15$ the pulse would be at $x=13$, outside the domain, so it comes back in from the left and its peak appears at $x\simeq-7$ ($13-20$), with $\max f=0.71$. Nothing is lost at the boundaries, so the pulse only gets lower and wider because of diffusion.}
 \label{fig:periodic}
 \end{figure}
-
-\textbf{What dominates?}
-When $U\gg\alpha$, advection dominates: the pulse just travels at speed $U$ and keeps its shape, because diffusion has hardly any time to smooth it out ($U=10$, $\alpha=0.1$ gives $\max f=0.99$ at $t=5$). When $U\ll\alpha$, diffusion wins: the pulse barely moves and spreads until it is almost flat ($U=0.1$, $\alpha=10$ gives $\max f=0.20$ at $t=5$). In the figures the pulse has moved $Ut=15$ by $t=15$ but has only spread about $\sqrt{2\alpha t}\simeq1.7$, so advection is the one in charge. That is why with Neumann it leaves through $x=10$, and with periodic it comes back in around $x\simeq-7$.
 
 \end{document}
