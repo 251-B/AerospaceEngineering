@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-mechanics-final-review",
+    "date": "2026-10-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics problems: final review of all 51 solutions",
+    "text": "A last check of every solved problem filled in missing steps and fixed a few answers and remarks, such as the top equilibrium in problem 23 and a wrong limit in problem 17.",
+    "link": "subjects/engineering-mechanics/problemas/index.html"
+  },
+  {
     "id": "2026-10-21-maths-complex-and-repeated-eigenvalues",
     "date": "2026-10-21",
     "tag": "Advanced Maths",

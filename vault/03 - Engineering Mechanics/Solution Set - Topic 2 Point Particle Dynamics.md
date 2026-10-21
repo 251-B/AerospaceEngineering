@@ -101,7 +101,7 @@ $$ E = \tfrac{1}{2}m\dot{x}^2 + V(x) = \text{const}, \qquad \text{so}\quad T(x) 
 $$ \frac{dV}{dx} = 0 \iff x = 0,\ \pm a, \qquad \frac{d^2V}{dx^2} = \frac{d}{dx}\left(-2cx^3 + 2ca^2x\right) = -6cx^2 + 2ca^2 = 2c\left(a^2 - 3x^2\right) $$
 * **At $x = 0$:** $V(0) = -\tfrac{1}{2}ca^4$ and $V''(0) = 2ca^2 \gt 0$: a local minimum (stable equilibrium).
 * **At $x = \pm a$:** $V(\pm a) = 0$ and $V''(\pm a) = 2c\left(a^2 - 3a^2\right) = -4ca^2 \lt 0$: local maxima (unstable equilibria, potential barriers).
-* **Symmetry and limits:** $V(-x) = V(x)$, and $V \to -\infty$ as $x \to \pm\infty$. The sketch is built from these values: a central well and two barriers, with $V \to -\infty$ on both sides.
+* **Symmetry and limits:** $V(-x) = V(x)$, and $V \to -\infty$ as $x \to \pm\infty$. The table of values above stands in for the requested sketch: drawn through these points, $V$ has a central well at $x = 0$, two symmetric barriers at the maxima and falls to $-\infty$ on both sides.
 
 | $x$ | $-\infty$ | $-a$ | $0$ | $+a$ | $+\infty$ |
 |---|---|---|---|---|---|
@@ -189,9 +189,9 @@ $$ \boxed{\tau = \frac{2}{\omega_0}\int_{-a}^{a}\frac{dx}{\sqrt{a^2 - x^2}\,\sqr
 $$ \int_{-\pi/2}^{\pi/2}\frac{a\cos\varphi\,d\varphi}{a\cos\varphi} = \left[\varphi\right]_{-\pi/2}^{\pi/2} = \pi \implies \tau = \frac{2\pi}{\omega_0} $$
 the isochronous harmonic period, independent of the amplitude.
 * **Softening ($b \gt 0$):** the factor $\sqrt{1 - b\left(a^2 + x^2\right)} \lt 1$ makes the integrand larger than in the harmonic case, so $\tau \gt 2\pi/\omega_0$. In the form with $x = a\sin\varphi$ (next item) the integrand $1/\sqrt{1 - ba^2\left(1 + \sin^2\varphi\right)}$ increases with $a$ for every $\varphi$, so the period grows with the amplitude. For $b \lt 0$ (hardening) the factor is larger than $1$, $\tau \lt 2\pi/\omega_0$, and every amplitude gives a bounded oscillation.
-* **Small anharmonicity:** with $x = a\sin\varphi$ the period reads $\tau = \dfrac{2}{\omega_0}\displaystyle\int_{-\pi/2}^{\pi/2}\frac{d\varphi}{\sqrt{1 - ba^2\left(1 + \sin^2\varphi\right)}}$. Expanding to first order in $ba^2$ ($\left(1 - \epsilon\right)^{-1/2} \approx 1 + \epsilon/2$) and using $\int_{-\pi/2}^{\pi/2}\sin^2\varphi\,d\varphi = \left[\dfrac{\varphi}{2} - \dfrac{\sin 2\varphi}{4}\right]_{-\pi/2}^{\pi/2} = \dfrac{\pi}{2}$:
+* **Small anharmonicity:** with $x = a\sin\varphi$ the period reads $\tau = \dfrac{2}{\omega_0}\displaystyle\int_{-\pi/2}^{\pi/2}\frac{d\varphi}{\sqrt{1 - ba^2\left(1 + \sin^2\varphi\right)}}$. Expanding to first order in $ba^2$ ($\left(1 - \epsilon\right)^{-1/2} \approx 1 + \epsilon/2$) and using $\int_{-\pi/2}^{\pi/2}\sin^2\varphi\,d\varphi = \left[\dfrac{\varphi}{2} - \dfrac{\sin 2\varphi}{4}\right]_{-\pi/2}^{\pi/2} = \left(\dfrac{\pi}{4} - \dfrac{\sin\pi}{4}\right) - \left(-\dfrac{\pi}{4} - \dfrac{\sin(-\pi)}{4}\right) = \dfrac{\pi}{2}$, together with $\int_{-\pi/2}^{\pi/2}d\varphi = \left[\varphi\right]_{-\pi/2}^{\pi/2} = \pi$ for the constant term:
 $$ \tau \approx \frac{2}{\omega_0}\left[\pi + \frac{1}{2}ba^2\left(\pi + \frac{\pi}{2}\right)\right] = \frac{2\pi}{\omega_0}\left(1 + \frac{3}{4}ba^2\right) $$
-* **Admissible amplitudes ($b \gt 0$):** $V$ has its maximum at $x^2 = 1/(2b)$, so bounded oscillations require $a^2 \lt 1/(2b)$; as $a^2 \to 1/(2b)$ the factor $1 - b\left(a^2 + x^2\right)$ vanishes at the turning points and $\tau \to \infty$.
+* **Admissible amplitudes ($b \gt 0$):** $V' = m\omega_0^2\left(x - 2bx^3\right) = 0$ gives $x^2 = 1/(2b)$, where $V$ has its maximum, so bounded oscillations require $a^2 \lt 1/(2b)$; as $a^2 \to 1/(2b)$ the factor $1 - b\left(a^2 + x^2\right)$ vanishes at the turning points and $\tau \to \infty$.
 * **Dimensional check:** $[b] = \text{m}^{-2}$, so $b\left(a^2 + x^2\right)$ is dimensionless; $\int dx/\sqrt{a^2 - x^2}$ is dimensionless and $[\tau] = 1/[\omega_0] = \text{s}$.
 * **Check against the official key:** the key of `Problems.pdf` only gives the hint to separate variables (the period formula is part of the statement). The result is verified numerically ($\omega_0 = b = 1$; quadrature against DOP853 integration of $\ddot{x} = -x + 2bx^3$):
 
@@ -236,7 +236,7 @@ It equals the height of the barrier, $V(-a) = +2mga$: the initial energy is exac
 ##### Quadrature
 * **Pedagogical Justification:** the energy equation gives a separable first-order equation. With $x = ay$:
 $$ \tfrac{1}{2}ma^2\dot{y}^2 = E - V = 2mga - mga\left(y^3 - 3y\right) = mga\left(2 + 3y - y^3\right) \implies \dot{y}^2 = \frac{2g}{a}\left(2 + 3y - y^3\right) $$
-* **Factorisation.** $y = -1$ is a root of $y^3 - 3y - 2$ ($-1 + 3 - 2 = 0$). Dividing by $(y + 1)$: $y^3 - 3y - 2 = (y + 1)\left(y^2 - y - 2\right) = (y + 1)(y + 1)(y - 2)$. Therefore
+* **Factorisation.** $y = -1$ is a root of $y^3 - 3y - 2$ ($-1 + 3 - 2 = 0$). Dividing by $(y + 1)$ (check: $(y + 1)(y^2 - y - 2) = y^3 - y^2 - 2y + y^2 - y - 2 = y^3 - 3y - 2$): $y^3 - 3y - 2 = (y + 1)\left(y^2 - y - 2\right) = (y + 1)(y + 1)(y - 2)$. Therefore
 $$ 2 + 3y - y^3 = -(y + 1)^2(y - 2) = (y + 1)^2(2 - y), \qquad \dot{y}^2 = \frac{2g}{a}(y + 1)^2(2 - y) $$
 
 ##### Stage 1: from $y = 1$ to the turning point $y = 2$ ($0 \le t \le t_1$)
@@ -304,13 +304,13 @@ $$ \tfrac{1}{2}mv_{0,\text{crit}}^2 = mKa^2 \implies v_{0,\text{crit}} = a\sqrt{
 * **Regime 1, $v_0 \lt a\sqrt{2K}$ ($E \lt V(0)$).** The kinetic energy is not enough to overcome the barrier: $V$ is strictly decreasing on $(0, a)$ ($V' = -mKxe^{x/a} \lt 0$) from $V(0) = mKa^2 \gt E$ down to $V(a) = 0 \lt E$ (since $v_0 \gt 0$), so there is exactly one point $x_{\text{turn}} \in (0, a)$ with $V(x_{\text{turn}}) = E$. For $x \gt 0$ the force is positive, $F = mKxe^{x/a} \gt 0$, so the particle decelerates while approaching the origin, stops at a turning point $x_{\text{turn}} \in (0, a)$ where $V(x_{\text{turn}}) = E$, and is accelerated back toward $+x$ ($F(x_{\text{turn}}) \gt 0$). It passes $x = a$ and moves toward $+\infty$.
 * **Regime 2, $v_0 = a\sqrt{2K}$ ($E = V(0)$).** The energy equals the barrier height. Near $x = 0$, $V(x) \approx V(0) + V'(0)x + \tfrac{1}{2}V''(0)x^2 = mKa^2 - \tfrac{1}{2}mKx^2$, so with $E = V(0)$:
 $$ \dot{x} = -\sqrt{\frac{2}{m}\left[V(0) - V(x)\right]} \approx -\sqrt{\frac{2}{m}\cdot\frac{1}{2}mKx^2} = -\sqrt{K}\,x $$
-Separating variables, the time to go from a point $x_1$ already close to the origin (where the quadratic approximation holds) to a point $x$ nearer still follows from Barrow's rule: $\int_{x_1}^{x}\dfrac{dx'}{x'} = \left[\ln x'\right]_{x_1}^{x} = \ln\dfrac{x}{x_1} = -\sqrt{K}\,t$, i.e. $t = \dfrac{1}{\sqrt{K}}\ln\dfrac{x_1}{x}$, which diverges as $x \to 0$. The particle needs **infinite time** to reach $x = 0$ (it approaches it asymptotically; the barrier top is an unstable equilibrium).
+Separating variables, the time to go from a point $x_1$ already close to the origin (where the quadratic approximation holds) to a point $x$ nearer still follows from Barrow's rule, measuring $t$ from the instant at $x_1$: $\int_{x_1}^{x}\dfrac{dx'}{x'} = -\sqrt{K}\int_0^tdt'$, i.e. $\left[\ln x'\right]_{x_1}^{x} = \ln\dfrac{x}{x_1} = -\sqrt{K}\,t$, i.e. $t = \dfrac{1}{\sqrt{K}}\ln\dfrac{x_1}{x}$, which diverges as $x \to 0$. The particle needs **infinite time** to reach $x = 0$ (it approaches it asymptotically; the barrier top is an unstable equilibrium).
 * **Regime 3, $v_0 \gt a\sqrt{2K}$ ($E \gt V(0)$).** The particle reaches $x = 0$ with the speed $\sqrt{\tfrac{2}{m}\left[E - V(0)\right]} = \sqrt{v_0^2 - 2Ka^2} \gt 0$. For $x \lt 0$ the force $F = mKxe^{x/a}$ is negative, so it keeps accelerating toward $-x$ and goes to $-\infty$ (as $x \to -\infty$, $V \to 0$ and the speed tends to $v_0$, the speed it had at $x = a$ because $V(a) = 0$ too).
 
 ### Phase 4: Interpretation & Checks
 * **Dimensional check:** $[v_{0,\text{crit}}] = [a]\sqrt{[K]} = \text{m}\cdot\text{s}^{-1}$; $[mKa^2] = \text{kg s}^{-2}\text{m}^2 = \text{J}$, like $\tfrac{1}{2}mv_0^2$.
 * **Limits:** for $K \to 0$ the force vanishes, $v_{0,\text{crit}} \to 0$ and every $v_0 \gt 0$ crosses the origin (free particle); for $v_0 \gg a\sqrt{2K}$ the barrier is negligible and $v(0) \to v_0$.
-* **Check against the official key:** the key of `Problems.pdf` states: if $v_0 \gt a\sqrt{2K}$ the particle moves toward $-\infty$; if $v_0 \lt a\sqrt{2K}$ it moves toward $+\infty$ after decelerating before $x = 0$; if $v_0 = a\sqrt{2K}$ it takes infinite time to reach $x = 0$. These are the three regimes above.
+* **Check against the official key:** the key of `Problems.pdf` states: (written there as $a\sqrt{2k}$, with $k$ the constant $K$ of the statement) if $v_0 \gt a\sqrt{2K}$ the particle moves toward $-\infty$; if $v_0 \lt a\sqrt{2K}$ it moves toward $+\infty$ after decelerating before $x = 0$; if $v_0 = a\sqrt{2K}$ it takes infinite time to reach $x = 0$. These are the three regimes above.
 * **Computational check (extension, not a course tool)** (DOP853, $m = K = a = 1$, $v_{0,\text{crit}} = 1.41421$): for $v_0 = 1.2$ the particle turns at $x = 0.60801$ (the root of $-e^x(x - 1) = 0.72$ is $0.608007$) and returns to $+\infty$; for $v_0 = 1.6$ it crosses the origin; for $v_0 = 0.999999\,v_{0,\text{crit}}$ it turns at $x = 0.002$ very close to the top of the barrier.
 
 ---
@@ -349,14 +349,15 @@ $$ \ddot{x} + \frac{9\nu}{4r^2}\dot{x} = \frac{g}{2} \quad\Longleftrightarrow\qu
 $$ 9\nu v_t = 2r^2g \implies \boxed{v_t = \frac{2r^2g}{9\nu}} $$
 
 ##### (b) Position as a function of time
-* **Velocity.** Let $\gamma = \dfrac{9\nu}{4r^2}$ ($[\gamma] = \text{s}^{-1}$). Then $\dot{v} + \gamma v = \dfrac{g}{2} = \gamma v_t$, i.e. $\dfrac{dv}{v - v_t} = -\gamma\,dt$. Integrating from $v(0) = 0$ (Barrow):
+* **Velocity.** Let $\gamma = \dfrac{9\nu}{4r^2}$ ($[\gamma] = \text{s}^{-1}$). Then $\dot{v} + \gamma v = \dfrac{g}{2} = \gamma v_t$, i.e. $\dfrac{dv}{v - v_t} = -\gamma\,dt$. Integrating from $v(0) = 0$ with the substitution $w = v' - v_t$, $dw = dv'$, whose antiderivative is $\int dw/w = \ln|w|$ (Barrow):
 $$ \int_0^v\frac{dv'}{v' - v_t} = -\gamma\int_0^tdt' \implies \left[\ln|v' - v_t|\right]_0^v = \ln|v - v_t| - \ln|0 - v_t| = \ln\frac{v_t - v}{v_t} = -\gamma t $$
 (the absolute value is removed because $v \lt v_t$: the net force $m\gamma(v_t - v)$ is positive while $v \lt v_t$, so $v$ increases from $0$, and it cannot reach $v_t$ in finite time because $v \equiv v_t$ is itself a solution and the solutions of this linear equation are unique). Exponentiating, $1 - v/v_t = e^{-\gamma t}$:
 $$ v(t) = v_t\left(1 - e^{-\gamma t}\right) \gt 0 \quad \text{for } t \gt 0 $$
 so $\dot{x} \gt 0$ at all times and the drag indeed points upward, as assumed in 3.2.
 * **Position.** Integrating the velocity with $x(0) = 0$:
+With $u = -\gamma t'$, $du = -\gamma\,dt'$, the antiderivative is $\int e^{-\gamma t'}dt' = -\frac{1}{\gamma}\int e^u\,du = -\frac{1}{\gamma}e^{-\gamma t'}$, so
 $$ x(t) = \int_0^tv_t\left(1 - e^{-\gamma t'}\right)dt' = v_t\left[t' + \frac{1}{\gamma}e^{-\gamma t'}\right]_0^t = v_t\left(t + \frac{1}{\gamma}e^{-\gamma t} - \frac{1}{\gamma}\right) = \frac{v_t}{\gamma}\left[\gamma t - 1 + e^{-\gamma t}\right] $$
-* Substituting $\dfrac{v_t}{\gamma} = \dfrac{2r^2g}{9\nu}\cdot\dfrac{4r^2}{9\nu} = \dfrac{8r^4g}{81\nu^2}$ and $\gamma = \dfrac{9\nu}{4r^2}$, and writing $\dfrac{8r^4g}{81\nu^2} = \dfrac{2r^2g}{81\nu^2}\cdot 4r^2$ so that $4r^2$ multiplies the bracket:
+* Substituting $\dfrac{v_t}{\gamma} = \dfrac{2r^2g}{9\nu}\cdot\dfrac{4r^2}{9\nu} = \dfrac{8r^4g}{81\nu^2}$ and $\gamma = \dfrac{9\nu}{4r^2}$, and writing $\dfrac{8r^4g}{81\nu^2} = \dfrac{2r^2g}{81\nu^2}\cdot 4r^2$ so that $4r^2$ multiplies the bracket (with $4r^2\cdot\gamma t = 4r^2\cdot\frac{9\nu}{4r^2}t = 9\nu t$):
 $$ \boxed{x(t) = \frac{2r^2g}{81\nu^2}\left[-4r^2 + 4r^2\exp\left(-\frac{9\nu}{4r^2}t\right) + 9\nu t\right]} $$
 
 ### Phase 4: Interpretation & Checks
@@ -441,7 +442,7 @@ $$ \ddot{x} + k^2x = 0, \qquad \ddot{y} + k^2y = 0, \qquad \ddot{z} + k^2z = -g 
 
 #### 3.4 Integration and Answers
 ##### Integration of each component
-* **$x$ and $y$ (homogeneous oscillators):** the equation $\ddot{x} + k^2x = 0$ is linear with constant coefficients and its characteristic equation $r^2 + k^2 = 0$ has the roots $\pm ik$ (Notes Sec. 5.1), so the general solution is $A\cos kt + B\sin kt$. Its velocity follows from the chain rule, $\frac{d}{dt}\cos kt = -k\sin kt$ and $\frac{d}{dt}\sin kt = k\cos kt$: $\dot{x} = -kA\sin kt + kB\cos kt$. The initial conditions give
+* **$x$ and $y$ (homogeneous oscillators):** the equation $\ddot{x} + k^2x = 0$ is linear with constant coefficients and its characteristic equation $r^2 + k^2 = 0$ has the roots $\pm ik$ (the characteristic-equation method of Notes Eq. 5.20, Sec. 5.3), so the general solution is $A\cos kt + B\sin kt$ (Notes Sec. 5.1, Eq. 5.7). Its velocity follows from the chain rule, $\frac{d}{dt}\cos kt = -k\sin kt$ and $\frac{d}{dt}\sin kt = k\cos kt$: $\dot{x} = -kA\sin kt + kB\cos kt$. The initial conditions give
 $$ x(0) = A_x = \frac{\sqrt{3}g}{k^2},\ \ \dot{x}(0) = kB_x = 0 \implies x(t) = \frac{\sqrt{3}g}{k^2}\cos kt $$
 $$ y(0) = A_y = 0,\ \ \dot{y}(0) = kB_y = \frac{2g}{k} \implies B_y = \frac{2g}{k^2} \implies y(t) = \frac{2g}{k^2}\sin kt $$
 * **$z$ (forced by gravity):** a particular solution of $\ddot{z} + k^2z = -g$ is the constant $z_p = -g/k^2$, so $z(t) = -\dfrac{g}{k^2} + A_z\cos kt + B_z\sin kt$. The initial conditions give $z(0) = -\dfrac{g}{k^2} + A_z = 0$, so $A_z = \dfrac{g}{k^2}$, and $\dot{z}(0) = kB_z = 0$:
@@ -467,7 +468,7 @@ $$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin kt\,\mathbf{i} + \frac{2g}{k}\cos kt
 * **Uniform circular motion:** the particle describes a great circle of radius $R = 2g/k^2$ at constant speed $v = 2g/k$, with angular frequency $\omega = v/R = k$.
 * **Shifted centre:** the linear central force plus the uniform gravity is equivalent to a spring centred at the equilibrium point $C$ where $k^2z_{\text{eq}} = -g$, i.e. $z_{\text{eq}} = -g/k^2$.
 * **Consistency:** the centripetal acceleration $v^2/R = (4g^2/k^2)/(2g/k^2) = 2g$ equals the effective spring acceleration $k^2R = 2g$.
-* **Limit $k \to \infty$:** $R = 2g/k^2 \to 0$ and $z_{\text{eq}} \to 0$: gravity becomes negligible against the central force.
+* **Role of $k$:** the initial data are themselves multiples of $g/k^2$ ($x_0 = \sqrt{3}\,g/k^2$, $\dot{y}_0 = 2g/k$), so the solution is self-similar: $R$, $|z_{\text{eq}}|$ and $x_0$ all scale with $g/k^2$, the angular frequency is $k$, and the geometry (offset over radius $|z_{\text{eq}}|/R = 1/2$, tilt of the plane, ratio $1/2$ of gravity to central force on the orbit) does not depend on $k$. A larger $k$ only shrinks the same orbit; gravity never becomes negligible for these data.
 * **Dimensional check:** $[g/k^2] = \dfrac{\text{m s}^{-2}}{\text{s}^{-2}} = \text{m}$, $[g/k] = \text{m/s}$, $[R] = \text{m}$ and $\omega = v/R = k$ in s$^{-1}$.
 * **Check against the official key:** the key of `Problems.pdf` gives $\mathbf{r}_0^M = \frac{\sqrt{3}g}{k^2}\cos kt\,\mathbf{i} + \frac{2g}{k^2}\sin kt\,\mathbf{j} + \frac{g}{k^2}\left(\cos kt - 1\right)\mathbf{k}$, the circle as the intersection of the sphere $x^2 + y^2 + (z + g/k^2)^2 = 4g^2/k^4$ with the plane $x - \sqrt{3}z = \sqrt{3}g/k^2$, and the constant speed $2g/k$. All coincide with the results above. Sympy confirms $\ddot{\mathbf{r}} + k^2\mathbf{r} + g\mathbf{k} = \mathbf{0}$, the initial data, $\|\mathbf{v}\|^2 = 4g^2/k^2$, the plane and the sphere with zero residual.
 
@@ -486,6 +487,7 @@ $$ \mathbf{v}(t) = -\frac{\sqrt{3}g}{k}\sin kt\,\mathbf{i} + \frac{2g}{k}\cos kt
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$, with $\mathbf{r}_C = x_0^C\,\mathbf{i}_0 + y_0^C\,\mathbf{j}_0$ and $\mathbf{r}_G = x_0^G\,\mathbf{i}_0 + y_0^G\,\mathbf{j}_0$.
 * **Disk-fixed basis.** It is the inertial basis rotated by $\omega t$ about $\mathbf{k}_0$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = \begin{pmatrix} \cos^2\omega t + \sin^2\omega t & 0 & 0 \\ 0 & \sin^2\omega t + \cos^2\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix} = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * **Unbalance vector.** The segment $CG$ is fixed in the disk, at the angle $\omega t$ from $\mathbf{i}_0$ (first column of the matrix):
 $$ \mathbf{r}_G = \mathbf{r}_C + \ell\,\mathbf{e}(t), \qquad \mathbf{e}(t) = \cos\omega t\,\mathbf{i}_0 + \sin\omega t\,\mathbf{j}_0 $$
 
@@ -508,7 +510,7 @@ $$ \ddot{x}_0^G + \omega_0^2x_0^G = \omega_0^2\ell\cos\omega t, \qquad \ddot{y}_
 ##### Particular solution for $G$
 * **Pedagogical Justification:** the general solution is the homogeneous one, $A\cos\omega_0t + B\sin\omega_0t$, which the statement assumes damped out, plus a particular solution. Since the forcing is harmonic at $\omega$, we try the same harmonic with an unknown amplitude (undetermined coefficients): $x_0^G = a\cos\omega t$, so $\ddot{x}_0^G = -\omega^2a\cos\omega t$.
 $$ -\omega^2a + \omega_0^2a = \omega_0^2\ell \implies a = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2} \qquad (\omega \ne \omega_0) $$
-* The same steps with $y_0^G = b\sin\omega t$ give $b = a$:
+* The same steps with $y_0^G = b\sin\omega t$, $\ddot{y}_0^G = -\omega^2b\sin\omega t$, give $-\omega^2b + \omega_0^2b = \omega_0^2\ell$, so $b = a$:
 $$ \boxed{x_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\cos\omega t}, \qquad y_0^G(t) = \frac{\omega_0^2\ell}{\omega_0^2 - \omega^2}\sin\omega t $$
 
 ##### Position of the geometric centre
@@ -558,7 +560,7 @@ $$ m\ddot{z} = -kz + k\sin(ct) \implies \ddot{z} + \omega_0^2z = \omega_0^2\sin(
 
 #### 3.4 Integration and Answers
 ##### (a) Resonance
-* **Pedagogical Justification:** this is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency: the amplitude of the forced response, $A = \omega_0^2/(\omega_0^2 - c^2)$ obtained in (b), diverges at $c = \omega_0$, where the response grows linearly in time.
+* **Pedagogical Justification:** this is a harmonic oscillator forced at the angular frequency $\Omega = c$ by the base motion (Notes Sec. 5.4). Resonance occurs when the forcing frequency equals the natural frequency: the amplitude of the forced response, $A = \omega_0^2/(\omega_0^2 - c^2)$ derived in (b) below, diverges at $c = \omega_0$. There the trial $A\sin(ct)$ fails (it solves the homogeneous equation) and the particular solution is $z_p = -\tfrac{1}{2}\omega_0t\cos(\omega_0t)$ (check: $\ddot z_p + \omega_0^2z_p = \omega_0^2\sin(\omega_0t)$), which grows linearly in time, as in Problem 45.
 $$ \boxed{c_{\text{res}} = \omega_0 = \sqrt{\frac{k}{m}}} $$
 For a profile of general wavelength $\Lambda$ the resonant speed would be $c = \omega_0\Lambda/2\pi$ (here $\Lambda = 2\pi$).
 
@@ -575,16 +577,16 @@ $$ \ddot{z} + a\dot{z} + \omega_0^2z = \omega_0^2\sin(ct) + ac\cos(ct) $$
   - Underdamped, $\lambda \lt 2\sqrt{km}$ ($\zeta \lt 1$): $z_h = e^{-\zeta\omega_0t}\left(C_1\cos\omega_dt + C_2\sin\omega_dt\right)$ with $\omega_d = \omega_0\sqrt{1 - \zeta^2}$.
   - Critical, $\lambda = 2\sqrt{km}$ ($\zeta = 1$): $z_h = (C_1 + C_2t)e^{-\omega_0t}$, the fastest return without oscillation.
   - Overdamped, $\lambda \gt 2\sqrt{km}$ ($\zeta \gt 1$): $z_h = C_1e^{r_1t} + C_2e^{r_2t}$ with $r_{1,2} \lt 0$ real, a slower return.
-* **Steady state.** The forcing is the imaginary part of $\left(\omega_0^2 + iac\right)e^{ict}$, so with $z_p = \operatorname{Im}\left[He^{ict}\right]$:
+* **Steady state.** The forcing is the imaginary part of $\left(\omega_0^2 + iac\right)e^{ict}$, so with $z_p = \operatorname{Im}\left[He^{ict}\right]$. Substituting $\tilde z = He^{ict}$, the chain rule gives $\dot{\tilde z} = ic\,\tilde z$ and $\ddot{\tilde z} = -c^2\tilde z$, so the equation becomes $\left(\omega_0^2 - c^2 + iac\right)H = \omega_0^2 + iac$ (Notes Sec. 5.2, complex representation):
 $$ H = \frac{\omega_0^2 + iac}{\omega_0^2 - c^2 + iac}, \qquad |H|^2 = \frac{\omega_0^4 + a^2c^2}{\left(\omega_0^2 - c^2\right)^2 + a^2c^2} $$
 The steady amplitude is $|H|$ and it is always finite. At resonance, $c = \omega_0$: $|H(\omega_0)| = \sqrt{1 + \dfrac{\omega_0^2}{a^2}} = \sqrt{1 + \dfrac{1}{4\zeta^2}}$. For $c \gg \max\left(a, \omega_0^2/a\right)$ (so that the damping term dominates both the numerator and the denominator), $|H| \approx ac/c^2 = a/c = \lambda/(mc)$: it decays only as $1/c$, slower than the undamped $1/c^2$ of part (b).
 * **The steady state is the same in the three cases.** The formula $|H|$ does not depend on whether the gear is underdamped, critical or overdamped; only the transient $z_h$ differs, and it dies out in all three.
-* **Effect on the results of (a) and (b).** With $r = c/\omega_0$ and $a = 2\zeta\omega_0$ (extension notation; the notes use $\gamma = \lambda/(2m)$, with $\zeta = \gamma/\omega_0$), $|H|^2 = \dfrac{1 + 4\zeta^2r^2}{\left(1 - r^2\right)^2 + 4\zeta^2r^2}$. The resonance is no longer infinite: the maximum of $|H|$ moves below $\omega_0$, to $r_p^2 = \dfrac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \lt 1$ (from $d|H|^2/d(r^2) = 0$, i.e. $2\zeta^2r^4 + r^2 - 1 = 0$), with $|H|_{\max} = 1.47$ for $\zeta = 0.5$ ($r_p = 0.856$) and $1.28$ for $\zeta = 0.7$ ($r_p = 0.788$). At $c = \omega_0$ the value is $|H(\omega_0)| = \sqrt{1 + 1/(4\zeta^2)}$, i.e. $1.41$ and $1.23$.
+* **Effect on the results of (a) and (b).** With $r = c/\omega_0$ and $a = 2\zeta\omega_0$ (extension notation; the notes use $\gamma = \lambda/(2m)$, with $\zeta = \gamma/\omega_0$), $|H|^2 = \dfrac{1 + 4\zeta^2r^2}{\left(1 - r^2\right)^2 + 4\zeta^2r^2}$. The resonance is no longer infinite: the maximum of $|H|$ moves below $\omega_0$, to $r_p^2 = \dfrac{\sqrt{1 + 8\zeta^2} - 1}{4\zeta^2} \lt 1$ (with $u = r^2$, $N = 1 + 4\zeta^2u$ and $D = (1 - u)^2 + 4\zeta^2u$, the quotient rule gives $N'D - ND' = 4\zeta^2\left[(1 - u)^2 + 4\zeta^2u\right] - (1 + 4\zeta^2u)\left[-2(1 - u) + 4\zeta^2\right] = 2(1 - u - 2\zeta^2u^2)$, so $d|H|^2/du = 0$ means $2\zeta^2r^4 + r^2 - 1 = 0$), with $|H|_{\max} = 1.47$ for $\zeta = 0.5$ ($r_p = 0.856$) and $1.28$ for $\zeta = 0.7$ ($r_p = 0.788$). At $c = \omega_0$ the value is $|H(\omega_0)| = \sqrt{1 + 1/(4\zeta^2)}$, i.e. $1.41$ and $1.23$.
 * **A fixed point of the curve.** At $c = \sqrt{2}\,\omega_0$ ($r^2 = 2$), $|H|^2 = \dfrac{1 + 8\zeta^2}{1 + 8\zeta^2} = 1$ for every $\zeta$: below this speed damping reduces the transmitted amplitude, above it damping increases it. The high-speed decay is only $1/c$.
 * **Choice of $\lambda$.** Critical damping gives the fastest return of the transient without oscillation, but a larger $\lambda$ transmits more amplitude above $c = \sqrt{2}\,\omega_0$ and attenuates the bumps at high speed only as $1/c$. A compromise is $\zeta$ somewhat below $1$ (underdamped): it keeps the resonant peak moderate ($1.28$ to $1.47$ for $\zeta = 0.7$ to $0.5$) without overdamping.
 * **Effect of the payload.** The mass changes $\omega_0 = \sqrt{k/m}$, so the resonant speed $c_{\text{res}} = \sqrt{k/m}$ is lower for a heavier aircraft, and $\zeta = \lambda/\left(2\sqrt{km}\right) \propto m^{-1/2}$, so a heavier aircraft is less damped. Since $\lambda$ is fixed hardware, it must be chosen so that $\zeta$ stays below $1$ for the lightest payload (to avoid overdamping) and is still large enough to limit the resonant peak for the heaviest one; the lightest payload then has a larger $\zeta$ and a higher resonant speed.
 
 ### Phase 4: Interpretation & Checks
-* **Dimensional check:** $[\omega_0^2] = [k/m] = \text{s}^{-2} = [c^2]$ with $c$ in rad/s; $[a] = [\lambda/m] = \text{N s m}^{-1}\text{kg}^{-1} = \text{s}^{-1}$, so $\zeta = a/(2\omega_0)$ is dimensionless.
+* **Dimensional check:** the profile is $y_b = h\sin(\kappa ct)$ with $h = 1$ m and $\kappa = 1$ m$^{-1}$ (Hypotheses), so $\Omega = \kappa c$ is in s$^{-1}$, $[\omega_0^2] = [k/m] = \text{s}^{-2} = [\Omega^2]$, and the forcing $\omega_0^2h\sin(\Omega t)$ is in m/s$^2$; $[a] = [\lambda/m] = \text{N s m}^{-1}\text{kg}^{-1} = \text{s}^{-1}$, so $\zeta = a/(2\omega_0)$ is dimensionless.
 * **Limits:** $c \to 0$ gives $|A| \to 1$ (the airplane follows the road quasi-statically); $\lambda \to 0$ in $|H|$ recovers $|A|$; for $\zeta \to \infty$ at fixed $c$, $|H| \to 1$ for every speed (the gear locks and the airplane follows the road); the $|H| \approx \lambda/(mc)$ regime needs $c \gg \max\left(\lambda/m,\ \omega_0^2m/\lambda\right)$ (otherwise the response still decays as $\omega_0^2/c^2$).
 * **Check against the official key:** `Problems.pdf` has no entry for Problem 46 in its solution keys, so the results are verified by independent derivation. Sympy confirms that the undamped particular solution and the damped steady state satisfy their equations with zero residual; numerical integration of the damped equation ($\omega_0 = 1.7$, $a = 0.6$, $c = 2.3$, over $120$ s) gives a steady amplitude of $1.156806$, equal to $|H| = 1.156806$, and $|H(\omega_0)|^2 = 9.0278 = 1 + \omega_0^2/a^2$.

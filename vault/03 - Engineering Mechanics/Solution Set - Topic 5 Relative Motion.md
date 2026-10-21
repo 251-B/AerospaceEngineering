@@ -44,7 +44,7 @@ Step-by-step solutions of the official relative-motion problems of *Mechanics Ap
   **Checks:** $\det[{}_0R_1] = \cos^2\omega t + \sin^2\omega t = 1$; the columns are unit vectors ($\cos^2\omega t + \sin^2\omega t = 1$) and mutually orthogonal ($-\cos\omega t\sin\omega t + \sin\omega t\cos\omega t = 0$), so $[{}_0R_1][{}_0R_1]^T = I$.
 * **Motion of $S_1$.** Simple rotation about $\mathbf{k}_0 = \mathbf{k}_1$ (Slide 16):
   $$ \boldsymbol{\omega}_{10} = \omega\,\mathbf{k}_1, \qquad \boldsymbol{\alpha}_{10} = \left.\frac{d\boldsymbol{\omega}_{10}}{dt}\right|_0 = \dot{\omega}\,\mathbf{k}_1 = \mathbf{0}, \qquad \mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0} $$
-* **Bar basis.** $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$ (from $A$ to $B$) and $\mathbf{u}_\perp = \mathbf{k}_1\times\mathbf{u}_{AB} = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$. Their matrix $\begin{pmatrix}\cos\psi & -\sin\psi\\ \sin\psi & \cos\psi\end{pmatrix}$ (completed with $\mathbf{k}_1$) is again a simple rotation, with $\det = 1$ and $RR^T = I$.
+* **Bar basis.** $\mathbf{u}_{AB} = \cos\psi\,\mathbf{i}_1 + \sin\psi\,\mathbf{j}_1$ (from $A$ to $B$) and $\mathbf{u}_\perp = \mathbf{k}_1\times\mathbf{u}_{AB} = -\sin\psi\,\mathbf{i}_1 + \cos\psi\,\mathbf{j}_1$. Their matrix $\begin{pmatrix}\cos\psi & -\sin\psi\\ \sin\psi & \cos\psi\end{pmatrix}$ (completed with $\mathbf{k}_1$) is again a simple rotation: $\det = \cos^2\psi + \sin^2\psi = 1$, and $RR^T$ has diagonal entries $\cos^2\psi + \sin^2\psi = 1$ and off-diagonal entries $\cos\psi\sin\psi - \sin\psi\cos\psi = 0$, so $RR^T = I$.
 
 ### Phase 3: Derivation
 
@@ -122,7 +122,9 @@ $$ 2\dot{\psi}\ddot{\psi} = -2\omega^2\sin\psi\,\dot{\psi} \quad\Longleftrightar
 
 Integrate from $0$ to $t$ and apply Barrow's rule $[F]_0^t = F(t) - F(0)$:
 
-$$ \dot{\psi}^2(t) - \dot{\psi}^2(0) = \int_0^t 2\dot{\psi}\ddot{\psi}\,dt' = 2\omega^2\left[\cos\psi\right]_{\psi(0)}^{\psi(t)} = 2\omega^2\left(\cos\psi - 1\right) $$
+On the left, $\int_0^t 2\dot{\psi}\ddot{\psi}\,dt' = \left[\dot{\psi}^2\right]_0^t$. On the right, the change of variable $\psi = \psi(t')$, $d\psi = \dot{\psi}\,dt'$, turns $\int_0^t\left(-2\omega^2\sin\psi\right)\dot{\psi}\,dt'$ into $\int_{\psi(0)}^{\psi(t)}\left(-2\omega^2\sin\psi\right)d\psi$, whose antiderivative is $2\omega^2\cos\psi$:
+
+$$ \dot{\psi}^2(t) - \dot{\psi}^2(0) = \int_{\psi(0)}^{\psi(t)}\left(-2\omega^2\sin\psi\right)d\psi = 2\omega^2\left[\cos\psi\right]_{\psi(0)}^{\psi(t)} = 2\omega^2\left(\cos\psi - 1\right) $$
 
 **Initial rate.** By Notes Eq. 3.26, $\mathbf{v}_0^B = \mathbf{v}_0^O + \mathbf{v}_1^B + \boldsymbol{\omega}_{10}\times\mathbf{r}_1^B$. At $t = 0$: $\psi = 0$, $\mathbf{r}_1^B = 2a\,\mathbf{i}_1$, $\mathbf{v}_1^B = a\dot{\psi}(0)\,\mathbf{j}_1$, $\boldsymbol{\omega}_{10}\times\mathbf{r}_1^B = 2a\omega\,\mathbf{j}_1$, and $\mathbf{v}_0^B = \mathbf{0}$:
 
@@ -201,11 +203,14 @@ So yes: the string goes slack after about $0.96/\omega$ seconds, when the bar ha
 * Case 1: Two parallel straight tracks with constant speeds $v_A$ and $v_B$.
 * Case 2: Train $A$ on a straight track, Train $B$ on a circular track of radius $R$.
 * **Parameters & Units:** Separation $a\text{ [m]}$, radius $R\text{ [m]}$, speeds $v_A, v_B\text{ [m/s]}$.
-* **Hypotheses:** the tracks are in a plane; at $t = 0$ train $A$ is at the origin and train $B$ is at the point of its track closest to the track of $A$; the speeds are constant. The coordinates are the arc positions along the tracks (one per train, prescribed in time).
+* **Hypotheses:** the tracks are in a plane; at $t = 0$ train $A$ is at the origin and train $B$ is at the point of its track closest to the track of $A$; the speeds are constant. The coordinates are the arc positions along the tracks (one per train). Both motions are prescribed, $x_A = v_At$ and $\theta_B = v_Bt/R$, so no degree of freedom is unknown (0 DOF): the problem is purely kinematic.
 * **Observers.** In Case 1 the relative velocity is the same for any observer that translates with a train. In Case 2 an observer attached to $B$ turns with it at $\omega_B = v_B/R$, so the velocity of $A$ seen by this observer is derived in 3.4.
 
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial Cartesian Frame:** $\mathcal{S}_0 = \{O; \mathbf{i}_0, \mathbf{j}_0\}$.
+* **Frame of train $B$ (Case 2, rotating observer):** $S_B = \{B; \mathbf{i}_B, \mathbf{j}_B, \mathbf{k}\}$, turning with the train by the angle $\omega_Bt$ about $\mathbf{k}$, $\omega_B = v_B/R$:
+$$ [{}_0R_B] = \begin{pmatrix}\cos\omega_Bt & -\sin\omega_Bt & 0\\ \sin\omega_Bt & \cos\omega_Bt & 0\\ 0 & 0 & 1\end{pmatrix}, \qquad \det[{}_0R_B] = \cos^2\omega_Bt + \sin^2\omega_Bt = 1 $$
+and $[{}_0R_B][{}_0R_B]^T$ has diagonal entries $\cos^2\omega_Bt + \sin^2\omega_Bt = 1$ (and $1$) and off-diagonal entries $\cos\omega_Bt\sin\omega_Bt - \sin\omega_Bt\cos\omega_Bt = 0$, so it is $I$.
 
 ### Phase 3: Derivation
 
@@ -242,7 +247,9 @@ Not applicable: kinematics-only problem.
 
 **Answers.** Case 1: $\mathbf{v}_{B/A} = (v_B - v_A)\,\mathbf{i}_0$ and $\mathbf{v}_{A/B} = (v_A - v_B)\,\mathbf{i}_0$. Case 2: $\mathbf{v}_{B/A} = \left[v_B\cos(v_Bt/R) - v_A\right]\mathbf{i}_0 + v_B\sin(v_Bt/R)\,\mathbf{j}_0$, with modulus $v_{\text{rel}} = \sqrt{v_A^2 + v_B^2 - 2v_Av_B\cos(v_Bt/R)}$. No integration is needed beyond the differentiation of 3.1.
 
-**Case 2, velocity of $A$ with respect to an observer attached to $B$.** The frame $S_B = \{B; \mathbf{i}_B, \mathbf{j}_B, \mathbf{k}\}$ turns with the train by the angle $\omega_Bt$ about $\mathbf{k}$, $[{}_0R_B] = \begin{pmatrix}\cos\omega_Bt & -\sin\omega_Bt & 0\\ \sin\omega_Bt & \cos\omega_Bt & 0\\ 0 & 0 & 1\end{pmatrix}$ ($\det = 1$, $RR^T = I$), with $\boldsymbol{\omega}_{B0} = \omega_B\mathbf{k}$. Notes Eq. 3.26 gives $\mathbf{v}_{A/B} = \mathbf{v}_A - \mathbf{v}_B - \boldsymbol{\omega}_{B0}\times(\mathbf{r}_A - \mathbf{r}_B)$. With $\mathbf{r}_A - \mathbf{r}_B = (v_At - R\sin\omega_Bt)\,\mathbf{i}_0 + (R\cos\omega_Bt - R - a)\,\mathbf{j}_0$, $\mathbf{k}\times\mathbf{i}_0 = \mathbf{j}_0$, $\mathbf{k}\times\mathbf{j}_0 = -\mathbf{i}_0$ and $\omega_BR = v_B$:
+**Case 2, velocity of $A$ with respect to an observer attached to $B$.** The frame $S_B$ of Phase 2 turns with $\boldsymbol{\omega}_{B0} = \omega_B\mathbf{k}$. Notes Eq. 3.26 gives $\mathbf{v}_{A/B} = \mathbf{v}_A - \mathbf{v}_B - \boldsymbol{\omega}_{B0}\times(\mathbf{r}_A - \mathbf{r}_B)$. With $\mathbf{r}_A - \mathbf{r}_B = (v_At - R\sin\omega_Bt)\,\mathbf{i}_0 + (R\cos\omega_Bt - R - a)\,\mathbf{j}_0$, $\mathbf{k}\times\mathbf{i}_0 = \mathbf{j}_0$, $\mathbf{k}\times\mathbf{j}_0 = -\mathbf{i}_0$ and $\omega_BR = v_B$, the three terms are
+$$ \mathbf{v}_A - \mathbf{v}_B = \left(v_A - v_B\cos\omega_Bt\right)\mathbf{i}_0 - v_B\sin\omega_Bt\,\mathbf{j}_0, \qquad -\boldsymbol{\omega}_{B0}\times(\mathbf{r}_A - \mathbf{r}_B) = -\omega_B\left(R + a - R\cos\omega_Bt\right)\mathbf{i}_0 - \omega_B\left(v_At - R\sin\omega_Bt\right)\mathbf{j}_0 $$
+Adding them, $\omega_BR\cos\omega_Bt = v_B\cos\omega_Bt$ cancels the $-v_B\cos\omega_Bt$ term and $\omega_BR\sin\omega_Bt = v_B\sin\omega_Bt$ cancels the $-v_B\sin\omega_Bt$ term:
 $$ \mathbf{v}_{A/B} = \left[v_A - v_B\,\frac{R + a}{R}\right]\mathbf{i}_0 - \frac{v_Av_Bt}{R}\,\mathbf{j}_0 \quad\text{(components in } \mathcal{B}_0\text{)} $$
 It differs from $-\mathbf{v}_{B/A}$ because the observer attached to $B$ rotates: at $t = 0$, $v_{A/B} = v_A - v_B(1 + a/R)$, whereas the translating-observer value is $v_A - v_B$; for $R \to \infty$ both coincide.
 
@@ -254,7 +261,7 @@ It differs from $-\mathbf{v}_{B/A}$ because the observer attached to $B$ rotates
 * $R \to \infty$ (the circular track straightens): $\cos(v_Bt/R) \to 1$ and $v_{\text{rel}} \to |v_B - v_A|$, which is the Case 1 result.
 * $v_A = v_B = v$: $v_{\text{rel}} = v\sqrt{2 - 2\cos(vt/R)} = 2v\left|\sin\dfrac{vt}{2R}\right|$, which starts at $0$ and never exceeds $2v$.
 * $v_A = 0$: $v_{\text{rel}} = v_B$ for all $t$ (relative to a stationary train, only the speed of $B$ matters).
-* **Symbolic check:** $\|\mathbf{v}_B - \mathbf{v}_A\|^2$ computed from the components equals $v_B^2 + v_A^2 - 2v_Av_B\cos(v_Bt/R)$ with zero residual. Both cases are written in the single inertial basis $\mathcal{B}_0$, so no change-of-basis matrix is needed.
+* **Symbolic check:** $\|\mathbf{v}_B - \mathbf{v}_A\|^2$ computed from the components equals $v_B^2 + v_A^2 - 2v_Av_B\cos(v_Bt/R)$ with zero residual. The translating-observer results use only $\mathcal{B}_0$; the rotating observer of Case 2 uses $[{}_0R_B]$ (Phase 2). Dimensions of that result: $[v_A] = [v_Ba/R] = [v_Av_Bt/R] = \text{m/s}$.
 * **Check against the official key:** `Problems.pdf` has no entry for Problem 8 in its solution keys, so the results are verified by independent derivation (the symbolic check of Phase 4).
 
 ---
@@ -285,7 +292,7 @@ It differs from $-\mathbf{v}_{B/A}$ because the observer attached to $B$ rotates
   $$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0R_1][{}_0R_1]^T = I $$
   (the columns are unit vectors and mutually orthogonal).
 * **Motion of $S_1$:** $\boldsymbol{\omega}_{10} = \omega\mathbf{k}_1$, $\boldsymbol{\alpha}_{10} = \mathbf{0}$ ($\omega$ constant and $\mathbf{k}_1$ fixed), $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$.
-* **Local cylindrical basis of the astronaut (in $S_1$).** With $\varphi$ her azimuth measured in $S_1$: $\mathbf{e}_r = \cos\varphi\,\mathbf{i}_1 + \sin\varphi\,\mathbf{j}_1$ (from the axis to the floor), $\mathbf{e}_\theta = -\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{j}_1$ (sense of rotation), $\mathbf{k}_1$. The matrix with these columns is a simple rotation by $\varphi$: $\det = 1$, $RR^T = I$. Derivatives in $S_1$ (chain rule): $\left.\frac{d\mathbf{e}_r}{dt}\right|_1 = \dot{\varphi}\,\mathbf{e}_\theta$, $\left.\frac{d\mathbf{e}_\theta}{dt}\right|_1 = -\dot{\varphi}\,\mathbf{e}_r$.
+* **Local cylindrical basis of the astronaut (in $S_1$).** With $\varphi$ her azimuth measured in $S_1$: $\mathbf{e}_r = \cos\varphi\,\mathbf{i}_1 + \sin\varphi\,\mathbf{j}_1$ (from the axis to the floor), $\mathbf{e}_\theta = -\sin\varphi\,\mathbf{i}_1 + \cos\varphi\,\mathbf{j}_1$ (sense of rotation), $\mathbf{k}_1$. The matrix with these columns is a simple rotation by $\varphi$ (matrix $\begin{pmatrix}\cos \varphi & -\sin \varphi & 0\\ \sin \varphi & \cos \varphi & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\varphi + \sin^2\varphi = 1$; $RR^T$ has diagonal entries $\cos^2\varphi + \sin^2\varphi = 1$ (and $1$) and off-diagonal entries $\cos \varphi\sin \varphi - \sin \varphi\cos \varphi = 0$, so $RR^T = I$). Derivatives in $S_1$ (chain rule): $\left.\frac{d\mathbf{e}_r}{dt}\right|_1 = \dot{\varphi}\,\mathbf{e}_\theta$, $\left.\frac{d\mathbf{e}_\theta}{dt}\right|_1 = -\dot{\varphi}\,\mathbf{e}_r$.
 * **Inertia forces** (Notes Eq. 4.62): $\mathbf{F}_A = \mathbf{0}$, $\mathbf{F}_E = \mathbf{0}$; $\mathbf{F}_C = m\omega^2\mathbf{r}_\perp$ (Slide 30); $\mathbf{F}_{COR} = -2m\boldsymbol{\omega}_{10}\times\mathbf{v}_1^P$ (Slide 31).
 
 ### Phase 3: Derivation
@@ -472,7 +479,7 @@ $$ -mR\dot{\theta}^2 = N_r + mg\cos\theta + m\omega^2R\sin^2\theta \quad\Longrig
 * **Limit $\omega \to 0$:** $N_b \to 0$ and $E_1^P \to \tfrac12 mR^2\dot{\theta}^2 - mgR\cos\theta$, the energy of the simple pendulum.
 * **Dimensions:** each term of $E_1^P$ is $\text{kg}\,\text{m}^2\,\text{s}^{-2} = \text{J}$; $[N_b] = [m\omega R\dot{\theta}] = \text{kg}\,\text{s}^{-1}\,\text{m}\,\text{s}^{-1} = \text{N}$; inside the root, $[2E_1^P/m] = [gR] = [\omega^2R^2] = \text{m}^2\,\text{s}^{-2}$.
 * **Verification (sympy):** the inertial double derivative of $[{}_0R_1]\{\mathbf{r}_1^P\}$ equals the Notes Eq. 3.27 decomposition; solving $m\mathbf{a}_0^P = -mg\mathbf{k} + \mathbf{N}$ in $S_0$ returns the same EOM, $N_b$ and $N_r$; $dE_1^P/dt = 0$ along the EOM, while $dE_0^P/dt$ equals the power $N_b\,\omega R\sin\theta$ of the reaction in $S_0$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 20 in its solution keys, so the results are verified by independent derivation (sympy check of Phase 4 and the Topic 3 cross-check).
+* **Check against the official key:** `Problems.pdf` has no entry for Problem 20 in its solution keys, so the results are verified by independent derivation (sympy check of Phase 4).
 
 ---
 
@@ -549,7 +556,7 @@ $$ \boxed{T_{\text{day}} = \frac{2\pi}{\Omega} = 2\pi\sqrt{\frac{2R}{g_p}}} $$
 * **Limit:** a slower spin ($\Omega \to 0$) gives $W_{\text{eq}} \to W_{\text{pole}}$; the ratio 2 requires a fast rotation.
 * **Dimensions:** $[\Omega^2R] = \text{s}^{-2}\,\text{m} = [g_p]$; $[T_{\text{day}}] = \sqrt{\text{m}/(\text{m}\,\text{s}^{-2})} = \text{s}$.
 * **Verification (sympy):** the inertial acceleration of a point at rest on the planet, obtained by differentiating $[{}_0R_1]\{\mathbf{r}_1^P\}$ twice, equals $\boldsymbol{\omega}_{10}\times(\boldsymbol{\omega}_{10}\times\mathbf{r}_1^P)$; the balance gives $W_{\text{pole}} = mg_p$, $W_{\text{eq}} = m|g_p - \Omega^2R|$, $\Omega = \sqrt{g_p/(2R)}$ and $T_{\text{day}} = 2\pi\sqrt{2R/g_p}$.
-* **Check against the official key:** `Problems.pdf` has no entry for Problem 21 in its solution keys, so the results are verified by independent derivation (sympy check of Phase 4 and the Topic 2 cross-check).
+* **Check against the official key:** `Problems.pdf` has no entry for Problem 21 in its solution keys, so the results are verified by independent derivation (sympy check of Phase 4).
 
 ---
 
@@ -590,9 +597,10 @@ The weight $-mg\,\mathbf{j}$ (conservative, $V = mgy$) and the reaction $\mathbf
 
 #### 3.3 Equations of Motion
 
-Projecting Newton's second law on $\mathbf{e}_t$ removes $\mathbf{N}$; the energy integral used below is the first integral of that tangential equation (work-energy theorem). Written for $x(t)$ (chain rule on $\frac{d}{dt}\left[\tfrac12 m(1 + \sin^2(x/a))\dot x^2 + mga(1 - \cos(x/a))\right] = 0$):
+Projecting Newton's second law on $\mathbf{e}_t$ removes $\mathbf{N}$; the energy integral used below is the first integral of that tangential equation (work-energy theorem). Written for $x(t)$: differentiating $\tfrac12 m(1 + \sin^2(x/a))\dot x^2 + mga(1 - \cos(x/a)) = \text{const}$ with the product rule and the chain rule ($\frac{d}{dt}\sin^2\frac{x}{a} = \frac{2}{a}\sin\frac{x}{a}\cos\frac{x}{a}\,\dot x$, $\frac{d}{dt}\cos\frac{x}{a} = -\frac{1}{a}\sin\frac{x}{a}\,\dot x$) gives $m\left(1 + \sin^2\frac{x}{a}\right)\dot x\ddot x + \frac{m}{a}\sin\frac{x}{a}\cos\frac{x}{a}\,\dot x^3 + mg\sin\frac{x}{a}\,\dot x = 0$, and dividing by $m\dot x$ ($\dot x \neq 0$):
 $$ \left(1 + \sin^2\frac{x}{a}\right)\ddot x + \frac{1}{a}\sin\frac{x}{a}\cos\frac{x}{a}\,\dot x^2 + g\sin\frac{x}{a} = 0 $$
-In the rotating frame the centrifugal term $+\Omega^2x_1$ is added to the right-hand side after dividing by $m$ (part e).
+In the rotating frame (parts d to g) the tangential projection of the centrifugal force $m\Omega^2x_1\mathbf{i}_1$ adds $\Omega^2x_1$ to the right-hand side:
+$$ \left(1 + \sin^2\frac{x_1}{a}\right)\ddot x_1 + \frac{1}{a}\sin\frac{x_1}{a}\cos\frac{x_1}{a}\,\dot x_1^2 + g\sin\frac{x_1}{a} = \Omega^2x_1 $$
 
 #### 3.4 Integration and Answers
 
@@ -639,7 +647,7 @@ At exactly $v_0 = 2\sqrt{ga}$ the crest is a maximum of $V$ (zero force there), 
 * Frame $\mathcal{F}_1 = \{O; \mathbf{i}_1, \mathbf{j}, \mathbf{k}_1\}$ rotating with $\boldsymbol{\Omega} = \Omega\mathbf{j}$.
 * Particle position: $\mathbf{r}' = x_1\mathbf{i}_1 + y(x_1)\mathbf{j}$.
 * Relative velocity: $\mathbf{v}' = \dot{x}_1\mathbf{i}_1 + \sin(x_1/a)\dot{x}_1\mathbf{j}$.
-* Inertia forces in $\mathcal{F}_1$:
+* Inertia forces in $\mathcal{F}_1$ (the origin is fixed and $\Omega$ is constant, so $\mathbf{F}_A = \mathbf{F}_E = \mathbf{0}$; the total inertia force is $\mathbf{F}_i = m\Omega^2x_1\,\mathbf{i}_1 + 2m\Omega\dot x_1\,\mathbf{k}_1$, from the two terms below):
 
 1\. Centrifugal Force:
 
@@ -652,10 +660,10 @@ $$ \mathbf{F}_{Cor} = -2m\boldsymbol{\Omega} \times \mathbf{v}' = -2m(\Omega\mat
 ##### Part (e): Quadratures and Reaction Force in the Moving Frame
 * Effective potential in $\mathcal{F}_1$:
 $$ V_{eff}(x_1) = mgy(x_1) - \frac{1}{2}m\Omega^2 x_1^2 = mga\left(1 - \cos\frac{x_1}{a}\right) - \frac{1}{2}m\Omega^2 x_1^2 $$
-* Energy conservation in $\mathcal{F}_1$:
+* Energy conservation in $\mathcal{F}_1$ (the curve is fixed and smooth in $\mathcal{F}_1$, so $\mathbf{N}\cdot\mathbf{v}' = 0$; $\mathbf{F}_{Cor}\cdot\mathbf{v}' = 0$ always; gravity is conservative and $V_{cf} = -\tfrac12 m\Omega^2x_1^2$ does not depend on time because $\Omega$ is constant):
 $$ E' = \frac{1}{2}m\left[1 + \sin^2(x_1/a)\right]\dot{x}_1^2 + mga\left(1 - \cos\frac{x_1}{a}\right) - \frac{1}{2}m\Omega^2 x_1^2 = \text{constant} $$
 * **Initial value.** At $x_1 = 0$ the position is $\mathbf{0}$, so $\boldsymbol{\Omega}\times\mathbf{r}' = \mathbf{0}$ and the relative speed equals $v_0$: $E' = \tfrac12 mv_0^2$. Solving for $\dot x_1$ and separating variables (Barrow's rule from $x_1(0) = 0$):
-$$ \dot x_1^2 = \frac{v_0^2 - 2ga\left(1 - \cos\frac{x_1}{a}\right) + \Omega^2x_1^2}{1 + \sin^2(x_1/a)} \implies t = \int_0^{x_1}\sqrt{\frac{1 + \sin^2(\xi/a)}{v_0^2 - 2ga\left(1 - \cos(\xi/a)\right) + \Omega^2\xi^2}}\;d\xi $$
+$$ \dot x_1^2 = \frac{v_0^2 - 2ga\left(1 - \cos\frac{x_1}{a}\right) + \Omega^2x_1^2}{1 + \sin^2(x_1/a)} \implies \pm t = \int_0^{x_1}\sqrt{\frac{1 + \sin^2(\xi/a)}{v_0^2 - 2ga\left(1 - \cos(\xi/a)\right) + \Omega^2\xi^2}}\;d\xi $$
 * **Reaction.** $\mathbf{N} = N_n\,\mathbf{n} + N_z\,\mathbf{k}_1$ with the in-plane unit normal $\mathbf{n} = \left(-\sin\frac{x_1}{a}\,\mathbf{i}_1 + \mathbf{j}\right)/\sqrt{1 + \sin^2(x_1/a)}$ (perpendicular to the tangent $\mathbf{i}_1 + \sin\frac{x_1}{a}\,\mathbf{j}$).
 
 Along the binormal $\mathbf{k}_1$: $N_z = -F_{Cor, z} = -2m\Omega\dot{x}_1$.
@@ -675,7 +683,8 @@ $$ \frac{dV_{eff}}{dx_1} = mg\sin\left(\frac{x_1}{a}\right) - m\Omega^2 x_1 = 0 
 If $\Omega$ varies with time, an Euler force $\mathbf{F}_{Euler} = -m\dot{\Omega}\,\mathbf{j}\times\mathbf{r}' = m\dot\Omega x_1\,\mathbf{k}_1$ appears; it is normal to the plane of the curve, so $\mathbf{F}_{Euler}\cdot\mathbf{v}' = 0$ and it does no work in $\mathcal{F}_1$ (it is balanced by $N_z$). The energy is lost for another reason: the centrifugal potential depends explicitly on time, $\frac{\partial V_{cf}}{\partial t} = -m\Omega\dot{\Omega}x_1^2 \neq 0$, so $\frac{dE'}{dt} = -m\Omega\dot\Omega x_1^2 \neq 0$. Thus the mechanical energy in $\mathcal{F}_1$ is **not** conserved and the energy equation cannot be used in the same way.
 
 ### Phase 4: Interpretation & Checks
-* The potential well has width $2\pi a$ and barrier height $2ga$. Rotation creates a centrifugal destabilizing potential $-\frac{1}{2}m\Omega^2 x_1^2$ so that the origin loses stability for $\Omega^2 > g/a$. Off-centre equilibria satisfy $\sin u = \lambda u$ with $u = x_1/a$ and $\lambda = \Omega^2 a/g$; since $\sin u/u$ decreases monotonically from $1$ to $0$ on $(0, \pi]$, they exist (one pair $\pm u^*$ with $0 < u^* < \pi$) only for $\lambda < 1$, i.e. $\Omega^2 < g/a$, and there they are unstable ($V_{eff}'' = (mg/a)(\cos u^* - \lambda) < 0$).
+* The potential well has width $2\pi a$ and barrier height $2a$ (potential energy $2mga$). Rotation creates a centrifugal destabilizing potential $-\frac{1}{2}m\Omega^2 x_1^2$ so that the origin loses stability for $\Omega^2 > g/a$. Off-centre equilibria satisfy $\sin u = \lambda u$ with $u = x_1/a$ and $\lambda = \Omega^2 a/g$; since $\sin u/u$ decreases monotonically from $1$ to $0$ on $(0, \pi]$, they exist (one pair $\pm u^*$ with $0 < u^* < \pi$) only for $\lambda < 1$, i.e. $\Omega^2 < g/a$, and there they are unstable ($V_{eff}'' = (mg/a)(\cos u^* - \lambda) < 0$).
+* **Limit $\Omega \to 0$:** $V_{eff} \to mga\left(1 - \cos(x_1/a)\right)$, $N_z \to 0$, the quadrature of (e) reduces to that of (a) and the equilibrium equation $g\sin(x_1/a) = 0$ leaves only $x_1 = 0$ inside $(-\pi a, \pi a)$.
 * **Numeric check:** a scan of $\sin u = \lambda u$ on $(0, \pi]$ finds one root for $\lambda = 0.5$ ($u^* = 1.8955$) and for $0.9$, and none for $\lambda = 1, 1.1, 2$.
 * **Dimensions:** $[g/a] = [\Omega^2] = \text{s}^{-2}$, so $[\lambda] = [\Omega^2a/g] = 1$; every term of $E'$ is in J ($[mga] = [m\Omega^2x_1^2] = [mv_0^2] = \text{kg}\,\text{m}^2\text{s}^{-2}$); $[N_z] = [m\Omega\dot x_1] = \text{N}$; $[g\sin(x/a)] = [\Omega^2x_1] = \text{m}\,\text{s}^{-2}$.
 * **Check against the official key:** `Problems.pdf` has no entry for Problem 22 in its solution keys, so the results are verified by independent derivation (including the numeric scan of the equilibrium equation in Phase 4).
@@ -711,7 +720,7 @@ $$ [{}_0R_1] = \begin{pmatrix} \cos\nu & -\sin\nu & 0 \\ \sin\nu & \cos\nu & 0 \
 
 The product $[{}_0R_1][{}_0R_1]^T$ has diagonal entries $\cos^2\nu + \sin^2\nu = 1$ and off-diagonal entries $\cos\nu\sin\nu - \sin\nu\cos\nu = 0$.
 
-* **Angular velocity and acceleration of $S_1$:** $S_1$ performs a simple rotation of angle $\nu(t)$ about $\mathbf{k}$ (theory note, Sec. 5.5; Slide 16), so
+* **Angular velocity and acceleration of $S_1$:** $S_1$ performs a simple rotation of angle $\nu(t)$ about $\mathbf{k}$ (vault note *Topic 5 - Relative Motion*, Sec. 5.5; Slide 16), so
 $$ \boldsymbol{\omega}_{10} = \dot\nu\,\mathbf{k}, \qquad \boldsymbol{\alpha}_{10} = \left.\frac{d(\dot\nu\,\mathbf{k})}{dt}\right|_0 = \ddot\nu\,\mathbf{k} $$
 * **Origin of $S_1$:** $\mathbf{r}_0^S = r\,\mathbf{i}_1$, with $r = p/(1 + e\cos\nu)$; $\mathbf{v}_0^S$ and $\mathbf{a}_0^S$ are computed in part (a).
 * **Relative position of the astronaut** (figure: $\theta$ is measured from $\mathbf{i}_1$ towards $\mathbf{j}_1$). Define the cord unit vectors
@@ -879,7 +888,7 @@ $P$ has 3 coordinates. In $S_1$ the wire imposes two fixed equations, $z_1 = 0$ 
 
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial frame:** $S_0 = OXYZ = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$, with $\mathbf{j}$ upwards.
-* **Moving frame** (requested in (b)): $S_1 = OX_1Y_1Z_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ attached to the wire, with $OX_1$ in the plane of the wire (the $x$ axis of the figure), $OY_1 \equiv OY$ and $OZ_1$ normal to the plane of the wire. Taking $S_1$ coincident with $S_0$ at $t = 0$, it is a simple rotation of angle $\Omega t$ about $\mathbf{j}$ (theory note, Sec. 4.1):
+* **Moving frame** (requested in (b)): $S_1 = OX_1Y_1Z_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ attached to the wire, with $OX_1$ in the plane of the wire (the $x$ axis of the figure), $OY_1 \equiv OY$ and $OZ_1$ normal to the plane of the wire. Taking $S_1$ coincident with $S_0$ at $t = 0$, it is a simple rotation of angle $\Omega t$ about $\mathbf{j}$ (vault note *Topic 5 - Relative Motion*, Sec. 4.1):
 $$ \mathbf{i}_1 = \cos\Omega t\,\mathbf{i} - \sin\Omega t\,\mathbf{k}, \qquad \mathbf{j}_1 = \mathbf{j}, \qquad \mathbf{k}_1 = \sin\Omega t\,\mathbf{i} + \cos\Omega t\,\mathbf{k} $$
 $$ [{}_0R_1] = \begin{pmatrix} \cos\Omega t & 0 & \sin\Omega t \\ 0 & 1 & 0 \\ -\sin\Omega t & 0 & \cos\Omega t \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\Omega t + \sin^2\Omega t = 1, \qquad [{}_0R_1][{}_0R_1]^T = I $$
 
@@ -984,7 +993,7 @@ $$ 0 = N_z + 2m\Omega a\dot\theta\cos\theta \;\Rightarrow\; N_z = -2m\Omega a\do
 **Staying on the wire.** The particle reaches the end $\theta = \pi/2$ only if $\Phi(\pi/2) = v_0^2/a^2 - 2g/a + \Omega^2 \ge 0$; otherwise it oscillates between the two roots of $\Phi(\theta) = 0$. The condition is also sufficient: $\Phi$ is a concave quadratic in $\cos\theta$, so on $[0, \pi/2]$ its minimum is at an endpoint, and $\Phi(0) = v_0^2/a^2 \gt 0$.
 
 ##### (f) Energy equation
-* **Pedagogical Justification:** $E_1^P$ is conserved when every force that does work in $S_1$ derives from a time-independent potential (Slide 29; theory note, Sec. 12.6).
+* **Pedagogical Justification:** $E_1^P$ is conserved when every force that does work in $S_1$ derives from a time-independent potential (Slide 29; vault note *Topic 5 - Relative Motion*, Sec. 12.6).
 
 **Constant $\Omega$: yes.** In $S_1$: the wire is fixed and smooth, so $\mathbf{N}\cdot\mathbf{v}_1^P = 0$; the Coriolis force never does work, $\mathbf{F}_{COR}\cdot\mathbf{v}_1^P = 0$ (Slide 31); the weight has the potential $mgy_1 = mga(1 - \cos\theta)$; the centrifugal force has the potential $-\tfrac12 m\Omega^2 r_\perp^2 = -\tfrac12 m\Omega^2a^2\sin^2\theta$ (Slide 30), time-independent because $\Omega$ is constant. Hence
 
@@ -1031,6 +1040,7 @@ so $E_1^P$ is not a constant of motion and the problem cannot be reduced to a qu
 * **Rotating frame:** $S_1 = Ox_1y_1z_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$, attached to the wire, coincident with $S_0$ at $t = 0$; it is a simple rotation of angle $\omega t$ about $\mathbf{j}_0$:
 $$ \mathbf{i}_1 = \cos\omega t\,\mathbf{i}_0 - \sin\omega t\,\mathbf{k}_0, \qquad \mathbf{j}_1 = \mathbf{j}_0, \qquad \mathbf{k}_1 = \sin\omega t\,\mathbf{i}_0 + \cos\omega t\,\mathbf{k}_0 $$
 $$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & 0 & \sin\omega t \\ 0 & 1 & 0 \\ -\sin\omega t & 0 & \cos\omega t \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\omega t + \sin^2\omega t = 1, \qquad [{}_0R_1][{}_0R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * **Motion of $S_1$:** $\mathbf{r}_0^O = \mathbf{v}_0^O = \mathbf{a}_0^O = \mathbf{0}$; $\boldsymbol{\omega}_{10} = \omega\,\mathbf{j}_1$ (constant), $\boldsymbol{\alpha}_{10} = \mathbf{0}$.
 * **Position of the bead:** $\mathbf{r}_1^P = x_1\,\mathbf{i}_1 + \sin x_1\,\mathbf{j}_1$. The tangent to the wire is $\mathbf{t} = \mathbf{i}_1 + \cos x_1\,\mathbf{j}_1$ (not normalised, $|\mathbf{t}|^2 = 1 + \cos^2 x_1$); the in-plane normal is $\mathbf{n} = -\cos x_1\,\mathbf{i}_1 + \mathbf{j}_1$, and $\mathbf{k}_1$ is normal to the plane of the wire.
 
@@ -2222,7 +2232,8 @@ $$ \frac{dE_1^P}{dt} = \dot\zeta\left(4m\Omega\zeta\dot\beta\right) + \zeta\dot\
 
 **Conservation law:**
 
-$$ \boxed{\frac{m}{2}\left[\left(2 + 3\sin^2\beta\right)\dot\zeta^2 + \left(1 + 3\cos^2\beta\right)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta\right] + mg\zeta - \frac{m}{2}\Omega^2\zeta^2\left(1 + 3\sin^2\beta\right) = E_1^P = m\left(\frac12 + g - 2\Omega^2\right)} $$
+$$ \boxed{\frac{m}{2}\left[\left(2 + 3\sin^2\beta\right)\dot\zeta^2 + \left(1 + 3\cos^2\beta\right)\zeta^2\dot\beta^2 + 6\zeta\dot\zeta\dot\beta\sin\beta\cos\beta\right] + mg\zeta - \frac{m}{2}\Omega^2\zeta^2\left(1 + 3\sin^2\beta\right) = E_1^P = m\left(\tfrac12 v_0^2 + g\zeta_0 - 2\Omega^2\zeta_0^2\right)} $$
+with $v_0 = |\mathbf{v}^P_{1,0}| = 1$ m/s and $\zeta_0 = 1$ m, so numerically $E_1^P = m\left(\tfrac12 + g - 2\Omega^2\right)$ in SI units.
 
 The constant comes from $t = 0$: $\zeta_0 = 1$ m, $\beta_0 = \pi/2$, $\dot\zeta_0 = 0$, $\dot\beta_0 = -1$ rad/s give $T_1^P(0) = \frac{m}{2}\left(1 + 0\right)(1)^2(-1)^2 = \frac{m}{2}$ (that is, $\tfrac12 m|\mathbf{v}^P_{1,0}|^2$ with $|\mathbf{v}^P_{1,0}| = 1$ m/s) and $V_1(0) = mg(1) - \frac12 m\Omega^2(1)^2(1 + 3) = m\left(g - 2\Omega^2\right)$, in joules when $m$, $g$ and $\Omega$ are in SI units.
 
@@ -2435,7 +2446,7 @@ Because the equations are decoupled, each bracket vanishes separately, so in fac
   $$ [{}_0R_1] = \begin{pmatrix} \cos\omega t & -\sin\omega t & 0 \\ \sin\omega t & \cos\omega t & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \boldsymbol{\omega}_{10} = \omega\,\mathbf{k}_1, \qquad \boldsymbol{\alpha}_{10} = \mathbf{0} $$
 * **Panel frame:** $S_2 = \{C; \mathbf{i}_2, \mathbf{j}_2, \mathbf{k}_2\}$, where $C = A + H\mathbf{i}_1$ is the point of the hinge axis at the abscissa of $B$; simple rotation of angle $\theta$ about $\mathbf{i}_1 = \mathbf{i}_2$:
   $$ [{}_1R_2] = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta \\ 0 & \sin\theta & \cos\theta \end{pmatrix}, \qquad \boldsymbol{\omega}_{21} = \dot{\theta}\,\mathbf{i}_1 $$
-* **Checks:** $\det[{}_0R_1] = \cos^2\omega t + \sin^2\omega t = 1$ and $\det[{}_1R_2] = \cos^2\theta + \sin^2\theta = 1$; the columns of each matrix are orthonormal, so $RR^T = I$; hence $[{}_0R_2] = [{}_0R_1][{}_1R_2]$ is also a proper rotation (Notes Eq. 1.16).
+* **Checks:** $\det[{}_0R_1] = \cos^2\omega t + \sin^2\omega t = 1$ and $\det[{}_1R_2] = \cos^2\theta + \sin^2\theta = 1$; the columns of each matrix are orthonormal (unit norms $\cos^2 + \sin^2 = 1$ of $\omega t$ and of $\theta$, scalar products $\cos\sin - \sin\cos = 0$), so $RR^T = I$; hence $[{}_0R_2] = [{}_0R_1][{}_1R_2]$ is also a proper rotation (Notes Eq. 1.16).
 * **Position of $B$.** $\mathbf{r}_{CB} = W\,\mathbf{j}_2$ is fixed in $S_2$; with the second column of $[{}_1R_2]$, $\mathbf{j}_2 = \cos\theta\,\mathbf{j}_1 + \sin\theta\,\mathbf{k}_1$, so
   $$ \mathbf{r}_1^B = \mathbf{AC} + \mathbf{CB} = H\,\mathbf{i}_1 + W\cos\theta\,\mathbf{j}_1 + W\sin\theta\,\mathbf{k}_1 $$
 
@@ -2682,6 +2693,7 @@ Both values are positive, so the equilibrium is physically realisable.
   1. $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ is inertial; $\Omega$ is constant.
   2. The sphere is smooth and the contact bilateral: the reaction is radial, $\mathbf{N} = N\,\mathbf{e}_r$ with $N$ of either sign.
   3. **Reading of the figure (angles):** $\phi$ is the angle at $O$ between $\overrightarrow{OA}$ (i.e. $\mathbf{i}_1$) and $\overrightarrow{OP}$; $\theta$ is the angle, measured about the axis $OA$, between the plane containing $\mathbf{i}_1$ and $\overrightarrow{OP}$ and the equatorial plane (the figure draws it at the point where $OA$ crosses the sphere, between the equator and the arc through $P$). So $\phi$ is a polar angle about the axis $OA$ and $\theta$ the corresponding azimuth, with $\theta = 0$ in the equatorial plane on the side of $\mathbf{j}_1$ and $\theta = \pi/2$ in the upper hemisphere.
+* **Constraints and degrees of freedom:** $P$ has 3 coordinates and one constraint, $|\overrightarrow{OP}| = a$ (holonomic, scleronomic in $S_1$, smooth): CDOF $= 3 - 1 = 2$, with the angles $(\phi, \theta)$; the unknown reaction is $N$ along $\mathbf{e}_r$.
 * **Why $S_1$:** in $S_1$ both the sphere and the attracting point $A$ are fixed, so the attraction depends only on the position of $P$ and the problem has no explicit time dependence; the inertia forces (Notes Eq. 4.62) take that role. With polar axis $OA$, the distance $AP$ depends on $\phi$ only, which keeps the attraction simple.
 
 | Symbol | Meaning | SI unit |
