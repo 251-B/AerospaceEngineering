@@ -247,7 +247,7 @@ This checklist tracks all academic materials required according to the official 
 ### 3. Laboratory Practicals (`laboratorios/`)
 - [x] **`general-instructions/`**: General Guidelines & Report Standards (LAB_BLUEPRINT.md in general-instructions/)
 - [x] **`lab-1/`**: Lab Session 1: Venturi Tube & Flow Rate Measurement (Lab_session_1.pdf, measurements, figures & final report in lab-1/)
-- [ ] **`lab-2/`**: Lab Session 2: Aerodynamic Drag / Wind Tunnel Practical (lab-2/)
+- [x] **`lab-2/`**: Lab Session 2: 1D advection-diffusion equation, CFD with an FTCS scheme (Guidelines.pdf, MatlabCodeReference.m, individual report in lab-2/Lab-Ismael/)
 - [ ] **`lab-3/`**: Lab Session 3: Fluid Properties / Viscometry & Manometry (lab-3/)
 - [ ] **`lab-4/`**: Lab Session 4: Boundary Layer / Pipe Flow Losses (lab-4/)
 

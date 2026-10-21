@@ -113,7 +113,7 @@ tags:
   * `general-instructions/`: `LAB_BLUEPRINT.md` (report writing and format rules).
   * `lab-1/`: [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]
     * Sources: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, experimental measurements and figures.
-  * `lab-2/`: Laboratory 2: 1D advection-diffusion equation, solved with an FTCS finite-difference scheme under Neumann and periodic boundary conditions. Sources: `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-2/`.
+  * `lab-2/`: [[01 - Fluid Mechanics/Laboratorio 2 - 1D Advection-Diffusion (FTCS)|Laboratory 2: 1D advection-diffusion equation]], solved with an FTCS finite-difference scheme under Neumann and periodic boundary conditions. Sources: `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-2/`.
   * `lab-3/`: not on disk. Planned: Laboratory 3 (viscometry and manometry). Description not verified against sources.
   * `lab-4/`: not on disk. Planned: Laboratory 4 (head losses and boundary layer in pipes). Description not verified against sources.
 

@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - laboratorio
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-2/Guidelines.pdf"
 kind: laboratorio
-status: not-referenced
+status: referenced
 bytes: 100135
 ---
 
@@ -19,8 +19,8 @@ bytes: 100135
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-2/Guidelines.pdf`
 - **Kind:** laboratorio
 - **Size:** 100.1 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Laboratorio 2 - 1D Advection-Diffusion (FTCS)]]

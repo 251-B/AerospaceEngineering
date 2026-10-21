@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 174
-- Referenced by at least one note (a mention counts): 64
-- Not referenced yet: 110
+- Files: 175
+- Referenced by at least one note (a mention counts): 67
+- Not referenced yet: 108
 - Build artifacts: 0
 - Working files: 0
 
@@ -119,20 +119,21 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Guidelines (pdf)\|Guidelines.pdf]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - MatlabCodeReference (m)\|MatlabCodeReference.m]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Guidelines (pdf)\|Guidelines.pdf]] | laboratorio | referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - MatlabCodeReference (m)\|MatlabCodeReference.m]] | laboratorio | referenced |
 
-## laboratorios/lab-2/report
+## laboratorios/lab-2/Lab-Ismael
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_neumann (pdf)\|fig_neumann.pdf]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_neumann (png)\|fig_neumann.png]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_periodic (pdf)\|fig_periodic.pdf]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - fig_periodic (png)\|fig_periodic.png]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - lab2_overleaf (zip)\|lab2_overleaf.zip]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - Lab2AdvDiffEq (m)\|Lab2AdvDiffEq.m]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - report - main (tex)\|main.tex]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - fig_neumann (pdf)\|fig_neumann.pdf]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - fig_neumann (png)\|fig_neumann.png]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - fig_periodic (pdf)\|fig_periodic.pdf]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - fig_periodic (png)\|fig_periodic.png]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - lab2_overleaf (zip)\|lab2_overleaf.zip]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - Lab2AdvDiffEq (m)\|Lab2AdvDiffEq.m]] | laboratorio | referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - main (tex)\|main.tex]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-2 - Lab-Ismael - sweep_results (txt)\|sweep_results.txt]] | laboratorio | not-referenced |
 
 ## slides
 
