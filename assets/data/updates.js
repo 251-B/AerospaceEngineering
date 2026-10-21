@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-maths-complex-and-repeated-eigenvalues",
+    "date": "2026-10-21",
+    "tag": "Advanced Maths",
+    "title": "Maths Topic 4: complex and repeated eigenvalues, step by step",
+    "text": "Spirals, centres, stars and improper nodes are rewritten with every change of basis worked out and phase portraits drawn in both the canonical and the original plane.",
+    "link": "subjects/advanced-maths/teoria/topic-4.html"
+  },
+  {
     "id": "2026-10-21-mechanics-topic-5-course-order",
     "date": "2026-10-21",
     "tag": "Engineering Mechanics",

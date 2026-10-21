@@ -118,7 +118,10 @@ flowchart TD
 
 ### 🔄 Bloque III: Linear Systems and Phase Plane Analysis
 * **Topics:** First-order systems $\dot{\mathbf{x}} = A\mathbf{x}$, eigenvalues and eigenvectors, classification of critical points (nodes, saddles, spirals, centers), stability analysis, phase portraits, non-linear perturbations and linearization.
-* *Status: web page available (`subjects/advanced-maths/teoria/topic-4.html`); the vault note for this block is not written yet.*
+* **Concept notes (Oct 13 and Oct 15 lectures, Robinson Ch. 29-30):**
+  * [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues|Planar Systems with Complex Eigenvalues]] — $\mathbf z = Q^{-1}\mathbf x$ with $Q = [\mathbf u \mid \mathbf w]$, $J = egin{pmatrix}ho & \omega \ -\omega & ho\end{pmatrix}$, polar solution, spirals and centre in the $\mathbf z$- and $\mathbf x$-planes, sense of rotation.
+  * [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue|Planar Systems with a Repeated Eigenvalue]] — $m_a$ vs $m_g$, stars ($A = \lambda I$), Jordan chain, $z_1 = (c_1 + c_2t)e^{\lambda t}$, improper nodes with a full worked example.
+* *Status: web page available (`subjects/advanced-maths/teoria/topic-4.html`); Sections 7 and 8 are written from the two concept notes above, Sections 1-6 and 9 have no vault note yet.*
 
 ---
 

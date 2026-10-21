@@ -1,0 +1,407 @@
+    <!-- ===================================================== 7 -->
+    <section class="theory-section" id="sec-7">
+      <div class="section-header">
+        <div class="section-tag">Section 07 • Robinson Ch. 29 (Oct 13 lecture)</div>
+        <h2 class="section-title">7. Complex eigenvalues: spirals and centres</h2>
+      </div>
+      <p>
+        Let $A$ be a real $2\times2$ matrix whose characteristic polynomial has a negative discriminant, $\Delta = (\operatorname{tr}A)^2 - 4\det A < 0$. Its eigenvalues are then a
+        complex-conjugate pair
+      </p>
+      $$\lambda_\pm = \rho \pm i\omega, \qquad \rho = \tfrac12\operatorname{tr}A,\quad \omega = \tfrac12\sqrt{-\Delta} > 0, \tag{7.1}$$
+      <p>
+        and the eigenvector of $\lambda_-$ is the complex conjugate of the eigenvector of $\lambda_+$ (because $A$ is real: conjugate $A\mathbf v = \lambda\mathbf v$ to get
+        $A\bar{\mathbf v} = \bar\lambda\bar{\mathbf v}$). Write the eigenvector of $\lambda_+$ through its real and imaginary parts, $\mathbf v = \mathbf u + i\mathbf w$ with $\mathbf u, \mathbf w \in \mathbb R^2$.
+      </p>
+      <div class="callout lecture">
+        <div class="callout-title">Notation of this section</div>
+        <p>
+          Robinson writes $\mathbf v_1 + i\mathbf v_2$ for the eigenvector, $P$ for the change-of-basis matrix and $\tilde{\mathbf x}$ for the new variable. The lecture uses $Q$ and $\mathbf z$, and so does this section:
+          $\mathbf u \equiv \mathbf v_1$, $\mathbf w \equiv \mathbf v_2$ (Robinson), $Q \equiv P$ and $\mathbf z \equiv \tilde{\mathbf x}$. Section 5 called the matrix of eigenvectors $P$; from here on every change of basis is called $Q$.
+        </p>
+      </div>
+
+      <h3 class="sub-title">7.1 A guided example: what to expect before the theory <span class="cite">[Examples 27.5 and 29.1, pp. 265–266 and 286]</span></h3>
+      <div class="callout example">
+        <div class="callout-title">Example 7.1 — $\dot x = 2x + 5y,\ \dot y = -2x$ (first pass: type and sense of rotation)</div>
+        <p>Here $A = \begin{pmatrix} 2 & 5 \\ -2 & 0\end{pmatrix}$, $\operatorname{tr}A = 2$, $\det A = 2\cdot 0 - 5\cdot(-2) = 10$.</p>
+        <ol class="steps">
+          <li><strong>Eigenvalues.</strong> $\det(A - \lambda I) = (2 - \lambda)(0 - \lambda) - (5)(-2) = \lambda^2 - 2\lambda + 10 = 0$, so $\lambda = \dfrac{2 \pm \sqrt{4 - 40}}{2} = 1 \pm 3i$. Hence $\rho = 1$, $\omega = 3$ and $\Delta = -36 < 0$.</li>
+          <li><strong>Type.</strong> $\rho = 1 > 0$: an <em>unstable spiral</em> (radius grows like $e^{t}$).</li>
+          <li><strong>Eigenvector for $\lambda = 1 + 3i$.</strong> The first row of $(A - \lambda I)\mathbf v = \mathbf 0$ is $(2 - 1 - 3i)v_1 + 5v_2 = (1 - 3i)v_1 + 5v_2 = 0$. Take $v_1 = 5$; then $v_2 = -(1 - 3i) = -1 + 3i$, and
+            $\mathbf v = \begin{pmatrix} 5 \\ -1 + 3i\end{pmatrix} = \underbrace{\begin{pmatrix} 5 \\ -1\end{pmatrix}}_{\mathbf u} + i\underbrace{\begin{pmatrix} 0 \\ 3\end{pmatrix}}_{\mathbf w}$.
+            Check with the second row: $-2\cdot 5 + (0 - \lambda)(-1 + 3i) = -10 - (1 + 3i)(-1 + 3i) = -10 - (-1 - 9) = 0$. ✓</li>
+          <li><strong>Sense of rotation, without any change of basis.</strong> Evaluate the vector field at $(0, 1)^T$ (top of the plane): $\dot{\mathbf x} = A(0,1)^T = (5, 0)^T$, which points to the right. At the top, motion to the right is <em>clockwise</em>. Confirm at $(1, 0)^T$: $\dot{\mathbf x} = (2, -2)^T$ points down on the right-hand side, again clockwise.</li>
+          <li><strong>Sketch.</strong> A spiral that turns clockwise and moves outward, drawn as a distorted spiral because it lives in the $(x, y)$ basis (Fig. 4.4, right). The rest of this section explains <em>why</em> it is distorted exactly as it is, and gives its equation.</li>
+        </ol>
+      </div>
+
+      <h3 class="sub-title">7.2 The real general solution <span class="cite">[Sec. 29.1, pp. 285–286]</span></h3>
+      <p>
+        As for distinct real eigenvalues, $e^{\lambda_+t}\mathbf v$ and $e^{\lambda_-t}\bar{\mathbf v}$ solve $\dot{\mathbf x} = A\mathbf x$, and so does every combination $Ce^{\lambda_+t}\mathbf v + De^{\lambda_-t}\bar{\mathbf v}$ with complex $C, D$.
+        To get a <em>real</em> solution choose $D = \bar C$: the second term is then the conjugate of the first and the sum is twice a real part, because $z + \bar z = 2\operatorname{Re}z$:
+      </p>
+      $$\mathbf x(t) = 2\operatorname{Re}\Big[Ce^{(\rho + i\omega)t}(\mathbf u + i\mathbf w)\Big]. \tag{7.2}$$
+      <p>Write $C = \alpha + i\beta$ and expand with Euler's formula $e^{i\omega t} = \cos\omega t + i\sin\omega t$:</p>
+      <ol class="steps">
+        <li>$Ce^{i\omega t} = (\alpha + i\beta)(\cos\omega t + i\sin\omega t) = (\alpha\cos\omega t - \beta\sin\omega t) + i(\beta\cos\omega t + \alpha\sin\omega t)$.</li>
+        <li>Multiply by $\mathbf u + i\mathbf w$ and keep only the real part ($i\cdot i = -1$): $\operatorname{Re}\big[(a + ib)(\mathbf u + i\mathbf w)\big] = a\mathbf u - b\mathbf w$, with $a = \alpha\cos\omega t - \beta\sin\omega t$ and $b = \beta\cos\omega t + \alpha\sin\omega t$.</li>
+        <li>Therefore $\mathbf x(t) = 2e^{\rho t}\big[(\alpha\cos\omega t - \beta\sin\omega t)\mathbf u - (\beta\cos\omega t + \alpha\sin\omega t)\mathbf w\big]$.</li>
+        <li>Put $a_1 = 2\alpha$ and $b_1 = -2\beta$ (two arbitrary real constants):</li>
+      </ol>
+      $$\mathbf x(t) = e^{\rho t}\Big[\big(a_1\cos\omega t + b_1\sin\omega t\big)\mathbf u + \big(b_1\cos\omega t - a_1\sin\omega t\big)\mathbf w\Big]. \tag{7.3}$$
+      <p>
+        This is Robinson's (29.2) with $\mathbf v_1 = \mathbf u$, $\mathbf v_2 = \mathbf w$. It already contains everything, but it does not show <em>how</em> the solution moves. The change of basis does.
+      </p>
+
+      <h3 class="sub-title">7.3 How $A$ acts on $\mathbf u$ and $\mathbf w$ <span class="cite">[Sec. 29.2, p. 287, Eq. (29.3)]</span></h3>
+      <p>Separate the real and imaginary parts of $A\mathbf v = \lambda\mathbf v$. The left side is $A(\mathbf u + i\mathbf w) = A\mathbf u + iA\mathbf w$ (both real vectors). The right side is</p>
+      $$(\rho + i\omega)(\mathbf u + i\mathbf w) = \rho\mathbf u + i\rho\mathbf w + i\omega\mathbf u + i^2\omega\mathbf w = (\rho\mathbf u - \omega\mathbf w) + i(\omega\mathbf u + \rho\mathbf w).$$
+      <p>Two complex vectors are equal exactly when their real parts and their imaginary parts are equal:</p>
+      $$\boxed{A\mathbf u = \rho\mathbf u - \omega\mathbf w, \qquad A\mathbf w = \omega\mathbf u + \rho\mathbf w.} \tag{7.4}$$
+      <p>
+        So $A$ maps the plane $\operatorname{span}\{\mathbf u, \mathbf w\}$ into itself: it scales by $\rho$ and mixes $\mathbf u$ with $\mathbf w$ through the rotation angle $\omega$. There is no real eigenvector, but there is an invariant <em>basis</em>.
+      </p>
+      <div class="callout thm">
+        <div class="callout-title">Lemma — $\mathbf u$ and $\mathbf w$ are linearly independent <span class="cite">[Exercise 29.4]</span></div>
+        <p>If $\omega \neq 0$, the real vectors $\mathbf u, \mathbf w$ form a basis of $\mathbb R^2$.</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          Suppose they were dependent. Then the eigenvector $\mathbf v = \mathbf u + i\mathbf w$ would be a complex multiple of one real vector $\mathbf r \neq \mathbf 0$ (if $\mathbf w = c\mathbf u$ then $\mathbf v = (1 + ic)\mathbf u$; if $\mathbf u = \mathbf 0$ then $\mathbf v = i\mathbf w$): $\mathbf v = \kappa\mathbf r$ with $\kappa \in \mathbb C\setminus\{0\}$.
+          Then $A\mathbf v = \kappa A\mathbf r$ and $\lambda\mathbf v = \lambda\kappa\mathbf r$, so $A\mathbf r = \lambda\mathbf r$. The left side is a real vector, so $\lambda\mathbf r$ is real and, as $\mathbf r \neq \mathbf 0$ is real, $\lambda$ must be real. This contradicts $\operatorname{Im}\lambda = \omega \neq 0$.
+        </p>
+      </div>
+
+      <h3 class="sub-title">7.4 The change of basis $\mathbf z = Q^{-1}\mathbf x$ <span class="cite">[Sec. 29.2, pp. 287–288, Eqs. (29.4)–(29.7)]</span></h3>
+      <p>
+        Because $\mathbf u, \mathbf w$ are a basis, every $\mathbf x$ has unique coordinates $(z_1, z_2)$: $\mathbf x = z_1\mathbf u + z_2\mathbf w$. In matrix form, with the columns <strong>in the order $\mathbf u$, then $\mathbf w$</strong>,
+      </p>
+      $$Q = [\,\mathbf u \mid \mathbf w\,], \qquad \mathbf x = Q\mathbf z, \qquad \mathbf z = Q^{-1}\mathbf x. \tag{7.5}$$
+      <p>$Q$ is constant, so differentiating $\mathbf z = Q^{-1}\mathbf x$ gives $\dot{\mathbf z} = Q^{-1}\dot{\mathbf x} = Q^{-1}A\mathbf x = Q^{-1}AQ\,\mathbf z$. Compute $Q^{-1}AQ$ column by column, using $AQ = [A\mathbf u \mid A\mathbf w]$ and (7.4):</p>
+      $$AQ = [\rho\mathbf u - \omega\mathbf w \mid \omega\mathbf u + \rho\mathbf w] = [\,\mathbf u \mid \mathbf w\,]\begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix} = Q\,J.$$
+      <p>
+        The last equality is the rule "$Q M$ has as its $j$-th column the combination of the columns of $Q$ with the coefficients of the $j$-th column of $M$": the first column of $J$ is $(\rho, -\omega)^T$, giving $\rho\mathbf u - \omega\mathbf w$, and the second is $(\omega, \rho)^T$, giving $\omega\mathbf u + \rho\mathbf w$.
+        Multiplying on the left by $Q^{-1}$:
+      </p>
+      $$\boxed{Q^{-1}AQ = J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}, \qquad \dot z_1 = \rho z_1 + \omega z_2,\quad \dot z_2 = -\omega z_1 + \rho z_2.} \tag{7.6}$$
+      <div class="callout warn">
+        <div class="callout-title">Convention check: the order of the columns</div>
+        <p>
+          With $Q = [\mathbf u \mid \mathbf w]$ (Robinson's choice) the canonical matrix is $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}$ and the rotation in the $\mathbf z$-plane is <strong>clockwise</strong>.
+          With the opposite order $Q' = [\mathbf w \mid \mathbf u]$ the same computation gives $J' = \begin{pmatrix} \rho & -\omega \\ \omega & \rho\end{pmatrix} = J^{T}$ and an anticlockwise rotation. Both are correct; this page always uses $[\mathbf u \mid \mathbf w]$, so the $\mathbf z$-plane always turns clockwise.
+        </p>
+      </div>
+
+      <h3 class="sub-title">7.5 Solving $\dot{\mathbf z} = J\mathbf z$ in polar coordinates <span class="cite">[Sec. 29.2, pp. 288–290]</span></h3>
+      <p>The two equations (7.6) are coupled, but they say "rotate and scale", which polar coordinates $z_1 = r\cos\theta$, $z_2 = r\sin\theta$ express directly.</p>
+      <ol class="steps">
+        <li><strong>The radius.</strong> $r^2 = z_1^2 + z_2^2$. Differentiate with the chain rule: $2r\dot r = 2z_1\dot z_1 + 2z_2\dot z_2$. Substitute (7.6):
+          $2z_1(\rho z_1 + \omega z_2) + 2z_2(-\omega z_1 + \rho z_2) = 2\rho z_1^2 + 2\omega z_1z_2 - 2\omega z_1z_2 + 2\rho z_2^2 = 2\rho r^2$. Hence $\dot r = \rho r$.</li>
+        <li><strong>The angle.</strong> $\theta = \arctan(z_2/z_1)$. By the chain rule, with $\dfrac{d}{ds}\arctan s = \dfrac{1}{1 + s^2}$, and the quotient rule for $s = z_2/z_1$:
+          $$\dot\theta = \frac{1}{1 + (z_2/z_1)^2}\cdot\frac{z_1\dot z_2 - z_2\dot z_1}{z_1^2} = \frac{z_1\dot z_2 - z_2\dot z_1}{z_1^2 + z_2^2}.$$
+          Substitute (7.6): $z_1\dot z_2 - z_2\dot z_1 = z_1(-\omega z_1 + \rho z_2) - z_2(\rho z_1 + \omega z_2) = -\omega z_1^2 - \omega z_2^2 = -\omega r^2$. Hence $\dot\theta = -\omega$.</li>
+        <li><strong>Integrate</strong> the two decoupled equations $\dot r = \rho r$ and $\dot\theta = -\omega$. For the first, $\dfrac{d}{dt}\big(e^{-\rho t}r\big) = e^{-\rho t}(\dot r - \rho r) = 0$, so $e^{-\rho t}r$ is constant, and Barrow's rule between $0$ and $t$ gives $e^{-\rho t}r(t) - r(0) = 0$. For the second, $\theta(t) - \theta(0) = \int_0^t(-\omega)\,ds = -\omega t$.
+          $$r(t) = r_0e^{\rho t}, \qquad \theta(t) = \theta_0 - \omega t.$$</li>
+        <li><strong>Back to Cartesian $\mathbf z$.</strong> With $z_{10} = r_0\cos\theta_0$, $z_{20} = r_0\sin\theta_0$ and the subtraction formulas $\cos(\theta_0 - \omega t) = \cos\theta_0\cos\omega t + \sin\theta_0\sin\omega t$, $\sin(\theta_0 - \omega t) = \sin\theta_0\cos\omega t - \cos\theta_0\sin\omega t$:
+          $$\mathbf z(t) = e^{\rho t}\begin{pmatrix} \cos\omega t & \sin\omega t \\ -\sin\omega t & \cos\omega t\end{pmatrix}\begin{pmatrix} z_{10} \\ z_{20}\end{pmatrix}. \tag{7.7}$$</li>
+        <li><strong>Check by substitution.</strong> $\dot z_1 = \rho z_1 + e^{\rho t}\omega(-z_{10}\sin\omega t + z_{20}\cos\omega t) = \rho z_1 + \omega z_2$ ✓, and likewise $\dot z_2 = -\omega z_1 + \rho z_2$ ✓.</li>
+      </ol>
+      <p>
+        A shortcut worth knowing: the complex variable $\zeta = z_1 + iz_2$ satisfies $\dot\zeta = (\rho - i\omega)\zeta$, so $\zeta = \zeta_0e^{(\rho - i\omega)t}$, whose real and imaginary parts are exactly (7.7).
+      </p>
+
+      <h3 class="sub-title">7.6 Phase portrait in the $\mathbf z$-plane: spirals and centre <span class="cite">[Sec. 29.2, pp. 289–291]</span></h3>
+      <p>
+        Eliminate $t$ using $t = (\theta_0 - \theta)/\omega$: the orbits are the <em>logarithmic spirals</em> $r = r_0\exp\big(\rho(\theta_0 - \theta)/\omega\big)$. The motion is always clockwise because $\dot\theta = -\omega < 0$; the sign of $\rho$ decides the radius:
+      </p>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Sign of $\rho$</th><th>Radius $r(t) = r_0e^{\rho t}$</th><th>Origin</th><th>Stability</th></tr></thead>
+          <tbody>
+            <tr><td>$\rho < 0$</td><td>$\to 0$ as $t \to +\infty$ (and $\to \infty$ as $t \to -\infty$)</td><td><strong>stable spiral</strong></td><td>asymptotically stable</td></tr>
+            <tr><td>$\rho > 0$</td><td>$\to \infty$ as $t \to +\infty$ ($\to 0$ as $t \to -\infty$)</td><td><strong>unstable spiral</strong></td><td>unstable</td></tr>
+            <tr><td>$\rho = 0$</td><td>constant, $r(t) = r_0$</td><td><strong>centre</strong>: closed circles, period $T = 2\pi/\omega$</td><td>stable, not attracting</td></tr>
+          </tbody>
+        </table>
+      </div>
+      {{fig:spirals_z}}
+      <p>
+        The solution of a spiral keeps oscillating: each component is an exponentially modulated sine/cosine, and one full turn takes $2\pi/\omega$ whatever $\rho$ is. A larger ratio $|\rho|/\omega$ gives a faster-collapsing (or exploding) spiral per turn: the radius changes by the factor $e^{2\pi\rho/\omega}$ in one revolution.
+      </p>
+
+      <h3 class="sub-title">7.7 Back to $\mathbf x = Q\mathbf z$ <span class="cite">[Sec. 29.3, pp. 291–293]</span></h3>
+      <p>Write $\mathbf x = Q\mathbf z = z_1\mathbf u + z_2\mathbf w$ and insert (7.7):</p>
+      $$\mathbf x(t) = e^{\rho t}\Big[\big(z_{10}\cos\omega t + z_{20}\sin\omega t\big)\mathbf u + \big(z_{20}\cos\omega t - z_{10}\sin\omega t\big)\mathbf w\Big]. \tag{7.8}$$
+      <p>
+        This is (7.3) with $a_1 = z_{10}$ and $b_1 = z_{20}$: the arbitrary constants are the initial coordinates, $(z_{10}, z_{20})^T = Q^{-1}\mathbf x_0$. In components, if $\mathbf u = (u_1, u_2)^T$ and $\mathbf w = (w_1, w_2)^T$,
+        $x_1 = z_1u_1 + z_2w_1$ and $x_2 = z_1u_2 + z_2w_2$: each coordinate of $\mathbf x$ is a sum of $e^{\rho t}\cos\omega t$ and $e^{\rho t}\sin\omega t$.
+      </p>
+      <p><strong>Geometry.</strong> $Q$ is a linear map: it sends the origin to the origin and straight lines to straight lines, and it deforms circles into ellipses.</p>
+      <ul>
+        <li>The $z_1$-axis is mapped to the line through $\mathbf u$ and the $z_2$-axis to the line through $\mathbf w$. Neither line is invariant (the flow rotates), so, unlike the real-eigenvalue case, they are a coordinate frame and not trajectories.</li>
+        <li>A circle $|\mathbf z| = r_0$ becomes an ellipse through $\pm r_0\mathbf u$ and $\pm r_0\mathbf w$, with $\mathbf u, \mathbf w$ as <em>conjugate</em> semi-diameters. For $\rho = 0$ these ellipses are the orbits; for $\rho \neq 0$ the spirals of the $\mathbf z$-plane become <em>elliptical</em> spirals, tilted along $\mathbf u$ and $\mathbf w$.</li>
+        <li>Straight lines and ratios are preserved, so the qualitative picture (spiral in, spiral out, closed loops) does not change: this is why the phase portrait can be drawn from the eigenvalues alone <span class="cite">[Sec. 29.3, p. 291]</span>.</li>
+      </ul>
+
+      <h3 class="sub-title">7.8 The sense of rotation in the $\mathbf x$-plane <span class="cite">[Sec. 29.3, Example 29.3, pp. 291–293]</span></h3>
+      <p>
+        In the $\mathbf z$-plane the rotation is clockwise by construction. A linear map with $\det Q > 0$ preserves orientation, so the rotation in the $\mathbf x$-plane is also clockwise; if $\det Q < 0$ the map reflects the plane and the rotation becomes <strong>anticlockwise</strong>. Rather than computing $\det Q$, use the vector field itself:
+      </p>
+      <div class="callout warn">
+        <div class="callout-title">Infallible test for the direction of rotation</div>
+        <p>
+          Evaluate $\dot{\mathbf x} = A\mathbf x$ at $(0, 1)^T$: $A(0,1)^T = (a_{12}, a_{22})^T$. At the top of the plane, motion to the right ($a_{12} > 0$) is <strong>clockwise</strong>; motion to the left ($a_{12} < 0$) is <strong>anticlockwise</strong>.
+          Cross-check at $(1, 0)^T$: $A(1,0)^T = (a_{11}, a_{21})^T$; on the right-hand side, $a_{21} < 0$ (down) is clockwise.
+        </p>
+        <p>
+          The test never gives $a_{12} = 0$ for a spiral or centre: the discriminant is $\Delta = (a_{11} - a_{22})^2 + 4a_{12}a_{21} < 0$, which forces $a_{12}a_{21} < 0$, so $a_{12}$ and $a_{21}$ are non-zero and have opposite signs, and the two checks always agree.
+        </p>
+      </div>
+
+      <h3 class="sub-title">7.9 Two examples solved from start to finish</h3>
+      <div class="callout example">
+        <div class="callout-title">Example 7.1 (continued) — $\dot x = 2x + 5y,\ \dot y = -2x$: unstable spiral</div>
+        <p>From 7.1: $\lambda = 1 \pm 3i$ ($\rho = 1$, $\omega = 3$), $\mathbf u = (5, -1)^T$, $\mathbf w = (0, 3)^T$.</p>
+        <ol class="steps">
+          <li><strong>Check (7.4).</strong> $A\mathbf u = \begin{pmatrix} 2\cdot5 + 5\cdot(-1) \\ -2\cdot5\end{pmatrix} = \begin{pmatrix} 5 \\ -10\end{pmatrix}$ and $\rho\mathbf u - \omega\mathbf w = \begin{pmatrix} 5 \\ -1\end{pmatrix} - 3\begin{pmatrix} 0 \\ 3\end{pmatrix} = \begin{pmatrix} 5 \\ -10\end{pmatrix}$ ✓.
+            $A\mathbf w = \begin{pmatrix} 15 \\ 0\end{pmatrix}$ and $\omega\mathbf u + \rho\mathbf w = 3\begin{pmatrix} 5 \\ -1\end{pmatrix} + \begin{pmatrix} 0 \\ 3\end{pmatrix} = \begin{pmatrix} 15 \\ 0\end{pmatrix}$ ✓.</li>
+          <li><strong>The matrices.</strong> $Q = \begin{pmatrix} 5 & 0 \\ -1 & 3\end{pmatrix}$, $\det Q = 15 - 0 = 15 > 0$, and $Q^{-1} = \dfrac1{15}\begin{pmatrix} 3 & 0 \\ 1 & 5\end{pmatrix}$ (swap the diagonal, change the sign of the off-diagonal, divide by the determinant). Check: $Q^{-1}Q = \dfrac1{15}\begin{pmatrix} 15 & 0 \\ 5 - 5 & 15\end{pmatrix} = I$ ✓.</li>
+          <li><strong>Canonical form.</strong> $AQ = [A\mathbf u \mid A\mathbf w] = \begin{pmatrix} 5 & 15 \\ -10 & 0\end{pmatrix}$ and
+            $$Q^{-1}AQ = \frac1{15}\begin{pmatrix} 3 & 0 \\ 1 & 5\end{pmatrix}\begin{pmatrix} 5 & 15 \\ -10 & 0\end{pmatrix} = \frac1{15}\begin{pmatrix} 15 & 45 \\ 5 - 50 & 15\end{pmatrix} = \begin{pmatrix} 1 & 3 \\ -3 & 1\end{pmatrix} = J. ✓$$</li>
+          <li><strong>Solution in $\mathbf z$</strong> (7.7): $z_1 = e^{t}(z_{10}\cos3t + z_{20}\sin3t)$, $z_2 = e^{t}(z_{20}\cos3t - z_{10}\sin3t)$. Radius $r_0e^{t}$, angle $\theta_0 - 3t$ (one turn every $2\pi/3 \approx 2.09$, radius multiplied by $e^{2\pi/3} \approx 8.1$ per turn).</li>
+          <li><strong>Back to $\mathbf x$.</strong> $x_1 = 5z_1$ and $x_2 = -z_1 + 3z_2$, so
+            $$x_1 = 5e^{t}\big(z_{10}\cos3t + z_{20}\sin3t\big), \qquad x_2 = e^{t}\big[(3z_{20} - z_{10})\cos3t - (3z_{10} + z_{20})\sin3t\big].$$
+            With $z_{10} = A$ and $z_{20} = B$ this is Robinson's formula for Example 29.1. The initial point is $\mathbf x_0 = (5z_{10},\ -z_{10} + 3z_{20})^T$, i.e. $(z_{10}, z_{20}) = \big(x_{10}/5,\ (x_{10} + 5x_{20})/15\big)$.</li>
+          <li><strong>Two explicit trajectories.</strong> $\mathbf z_0 = (1, 0)^T$ ($\mathbf x_0 = (5, -1)^T$): $\mathbf x(t) = e^{t}\big(5\cos3t,\ -\cos3t - 3\sin3t\big)^T$. $\mathbf z_0 = (0, 1)^T$ ($\mathbf x_0 = (0, 3)^T$): $\mathbf x(t) = e^{t}\big(5\sin3t,\ 3\cos3t - \sin3t\big)^T$.
+            Quarter-turn check: for the second, $\mathbf x(\pi/6) = e^{\pi/6}(5, -1)^T = e^{\pi/6}\mathbf u$. The orbit passes from $\mathbf w$ (at $t = 0$) to $e^{\pi/6}\mathbf u$ a quarter of a turn later, <em>clockwise</em> in the $\mathbf z$-plane: $z_2$-axis to $z_1$-axis.</li>
+          <li><strong>Sense of rotation.</strong> $\det Q = 15 > 0$ and the test of 7.8 agrees ($a_{12} = 5 > 0$): clockwise in both planes.</li>
+        </ol>
+        {{fig:ex71}}
+      </div>
+      <div class="callout example">
+        <div class="callout-title">Example 7.2 — $\dot x = x - 2y,\ \dot y = x - y$: a centre whose orientation flips</div>
+        <p>$A = \begin{pmatrix} 1 & -2 \\ 1 & -1\end{pmatrix}$, $\operatorname{tr}A = 0$, $\det A = -1 + 2 = 1$.</p>
+        <ol class="steps">
+          <li><strong>Eigenvalues.</strong> $\lambda^2 + 1 = 0$, $\lambda = \pm i$: $\rho = 0$, $\omega = 1$. A centre.</li>
+          <li><strong>Eigenvector for $\lambda = i$.</strong> First row: $(1 - i)v_1 - 2v_2 = 0$. Take $v_1 = 2$: $v_2 = 1 - i$. So $\mathbf v = (2, 1 - i)^T = \underbrace{(2, 1)^T}_{\mathbf u} + i\underbrace{(0, -1)^T}_{\mathbf w}$.
+            Check (7.4): $A\mathbf u = (2 - 2,\ 2 - 1)^T = (0, 1)^T = -\mathbf w$ ✓ and $A\mathbf w = (2, 1)^T = \mathbf u$ ✓ (here $\rho = 0$, $\omega = 1$).</li>
+          <li><strong>Matrices.</strong> $Q = \begin{pmatrix} 2 & 0 \\ 1 & -1\end{pmatrix}$, $\det Q = -2 < 0$, $Q^{-1} = \dfrac{1}{-2}\begin{pmatrix} -1 & 0 \\ -1 & 2\end{pmatrix} = \begin{pmatrix} 1/2 & 0 \\ 1/2 & -1\end{pmatrix}$. Then $AQ = [A\mathbf u \mid A\mathbf w] = \begin{pmatrix} 0 & 2 \\ 1 & 1\end{pmatrix}$ and
+            $$Q^{-1}AQ = \begin{pmatrix} 1/2 & 0 \\ 1/2 & -1\end{pmatrix}\begin{pmatrix} 0 & 2 \\ 1 & 1\end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix} = J. ✓$$</li>
+          <li><strong>Solution.</strong> $z_1 = z_{10}\cos t + z_{20}\sin t$, $z_2 = z_{20}\cos t - z_{10}\sin t$ (circles of radius $r_0$, period $2\pi$); $x_1 = 2z_1$, $x_2 = z_1 - z_2$.</li>
+          <li><strong>The orbits as curves in $\mathbf x$.</strong> Invert $Q$: $z_1 = x_1/2$, $z_2 = z_1 - x_2 = x_1/2 - x_2$. The circle $z_1^2 + z_2^2 = r_0^2$ is the ellipse
+            $$\tfrac14x_1^2 + \big(\tfrac12x_1 - x_2\big)^2 = r_0^2 \iff \tfrac12x_1^2 - x_1x_2 + x_2^2 = r_0^2.$$
+            Check that $V = \tfrac12x_1^2 - x_1x_2 + x_2^2$ is conserved: $\dot V = (x_1 - x_2)\dot x_1 + (2x_2 - x_1)\dot x_2$, and with $\dot x_1 = x_1 - 2x_2$, $\dot x_2 = x_1 - x_2$: $(x_1 - x_2)(x_1 - 2x_2) + (2x_2 - x_1)(x_1 - x_2) = (x_1 - x_2)\big[(x_1 - 2x_2) - (x_1 - 2x_2)\big] = 0$ ✓.</li>
+          <li><strong>Sense of rotation.</strong> In the $\mathbf z$-plane: clockwise. But $\det Q = -2 < 0$. Test: $A(0,1)^T = (a_{12}, a_{22})^T = (-2, -1)^T$ points left at the top, so the motion in the $\mathbf x$-plane is <strong>anticlockwise</strong>. The reflection inside $Q$ has reversed the orientation, which is why one must test the vector field and not copy the sign of $\omega$.</li>
+        </ol>
+        {{fig:ex72}}
+      </div>
+    </section>
+
+    <!-- ===================================================== 8 -->
+    <section class="theory-section" id="sec-8">
+      <div class="section-header">
+        <div class="section-tag">Section 08 • Robinson Ch. 30 (Oct 15 lecture)</div>
+        <h2 class="section-title">8. A repeated eigenvalue: stars and improper nodes</h2>
+      </div>
+
+      <h3 class="sub-title">8.1 Opening exercise: a stable spiral</h3>
+      <div class="callout example">
+        <div class="callout-title">Example 8.1 — $\dot x = -5y,\ \dot y = x - 2y$ (consolidation of Section 7)</div>
+        <p>
+          Practice item written for this page to consolidate the complex case; the exercise worked at the start of the Oct 15 session is not in the course files. Solve the system and sketch the phase portrait in both planes.
+        </p>
+        <ol class="steps">
+          <li><strong>Eigenvalues.</strong> $A = \begin{pmatrix} 0 & -5 \\ 1 & -2\end{pmatrix}$, $\operatorname{tr}A = -2$, $\det A = 5$: $\lambda^2 + 2\lambda + 5 = 0$, $\lambda = -1 \pm 2i$ ($\rho = -1$, $\omega = 2$). A stable spiral.</li>
+          <li><strong>Eigenvector for $\lambda = -1 + 2i$.</strong> Second row of $(A - \lambda I)\mathbf v = \mathbf 0$: $v_1 + (-2 - \lambda)v_2 = v_1 - (1 + 2i)v_2 = 0$. Take $v_2 = 1$: $v_1 = 1 + 2i$. So $\mathbf v = (1 + 2i, 1)^T = (1, 1)^T + i(2, 0)^T$: $\mathbf u = (1, 1)^T$, $\mathbf w = (2, 0)^T$. First row check: $(0 - \lambda)(1 + 2i) - 5 = (1 - 2i)(1 + 2i) - 5 = 5 - 5 = 0$ ✓.</li>
+          <li><strong>Matrices.</strong> $Q = \begin{pmatrix} 1 & 2 \\ 1 & 0\end{pmatrix}$, $\det Q = -2$, $Q^{-1} = \dfrac1{-2}\begin{pmatrix} 0 & -2 \\ -1 & 1\end{pmatrix} = \begin{pmatrix} 0 & 1 \\ 1/2 & -1/2\end{pmatrix}$. $AQ = [A\mathbf u \mid A\mathbf w] = \begin{pmatrix} -5 & 0 \\ -1 & 2\end{pmatrix}$ and
+            $$Q^{-1}AQ = \begin{pmatrix} 0 & 1 \\ 1/2 & -1/2\end{pmatrix}\begin{pmatrix} -5 & 0 \\ -1 & 2\end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -5/2 + 1/2 & -1\end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -2 & -1\end{pmatrix}. ✓$$</li>
+          <li><strong>Solution.</strong> $\mathbf z(t) = e^{-t}\big(z_{10}\cos2t + z_{20}\sin2t,\ z_{20}\cos2t - z_{10}\sin2t\big)^T$, and $\mathbf x = Q\mathbf z = (z_1 + 2z_2,\ z_1)^T$. For $\mathbf x_0 = (1, 1)^T$: $\mathbf z_0 = Q^{-1}\mathbf x_0 = (1, 0)^T$ and
+            $$\mathbf x(t) = e^{-t}\big(\cos2t - 2\sin2t,\ \cos2t\big)^T.$$
+            Check: $\dot x_1 = -5x_2$ requires $\dot z_1 + 2\dot z_2 = (-z_1 + 2z_2) + 2(-2z_1 - z_2) = -5z_1$ ✓, and $\dot x_2 = \dot z_1 = -z_1 + 2z_2 = x_1 - 2x_2$ ✓.</li>
+          <li><strong>Sense of rotation.</strong> Clockwise in $\mathbf z$, but $\det Q = -2 < 0$. Test: $a_{12} = -5 < 0$, so at $(0,1)^T$ the velocity is $(-5, -2)^T$, leftwards: <strong>anticlockwise</strong> in the $\mathbf x$-plane.</li>
+        </ol>
+        {{fig:ex81}}
+      </div>
+
+      <h3 class="sub-title">8.2 Algebraic and geometric multiplicity <span class="cite">[Sec. 30, p. 295 and Example 27.4, p. 265]</span></h3>
+      <p>
+        The characteristic polynomial of a $2\times2$ matrix has a double root exactly when $\Delta = (\operatorname{tr}A)^2 - 4\det A = 0$. Then
+      </p>
+      $$\lambda_1 = \lambda_2 = \lambda = \tfrac12\operatorname{tr}A, \qquad \det(A - \mu I) = (\mu - \lambda)^2.$$
+      <ul>
+        <li>The <strong>algebraic multiplicity</strong> of $\lambda$ is the multiplicity of the root: $m_a = 2$.</li>
+        <li>The <strong>geometric multiplicity</strong> is the number of independent eigenvectors: $m_g = \dim\ker(A - \lambda I)$. It is at least $1$ (an eigenvalue has an eigenvector) and at most $m_a$, so $m_g \in \{1, 2\}$.</li>
+      </ul>
+      <p>The two values of $m_g$ produce two very different phase portraits, and no other possibility exists for a real $2\times2$ matrix with $\Delta = 0$.</p>
+
+      <h3 class="sub-title">8.3 Subcase A, $m_g = 2$: the stars <span class="cite">[Sec. 30.1, p. 295]</span></h3>
+      <div class="callout thm">
+        <div class="callout-title">Proposition — two independent eigenvectors force $A = \lambda I$</div>
+        <p>If $\lambda$ is a repeated eigenvalue of the $2\times2$ matrix $A$ and $m_g = 2$, then $A = \lambda I = \begin{pmatrix} \lambda & 0 \\ 0 & \lambda\end{pmatrix}$.</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          Let $\mathbf v_1, \mathbf v_2$ be independent eigenvectors, $A\mathbf v_i = \lambda\mathbf v_i$. Put $B = [\mathbf v_1 \mid \mathbf v_2]$, invertible. Then $AB = [\lambda\mathbf v_1 \mid \lambda\mathbf v_2] = \lambda B$, and multiplying on the right by $B^{-1}$ gives $A = \lambda BB^{-1} = \lambda I$.
+          (Equivalently, $\ker(A - \lambda I)$ is a two-dimensional subspace of $\mathbb R^2$, so it is all of $\mathbb R^2$, and $(A - \lambda I)\mathbf x = \mathbf 0$ for every $\mathbf x$ means $A - \lambda I = O$.)
+        </p>
+      </div>
+      <p>
+        So every vector is an eigenvector, and the system uncouples in <em>every</em> basis: $\dot x_1 = \lambda x_1$, $\dot x_2 = \lambda x_2$. For any change of basis, $Q^{-1}(\lambda I)Q = \lambda I$, so there is no separate $\mathbf z$-plane. Integrate each equation, $\dfrac{d}{dt}(e^{-\lambda t}x_i) = 0$, and then
+      </p>
+      $$\mathbf x(t) = e^{\lambda t}\mathbf x_0 = e^{\lambda t}(c_1\mathbf v_1 + c_2\mathbf v_2) \quad\text{for any basis }\mathbf v_1, \mathbf v_2. \tag{8.1}$$
+      <p>
+        The orbit through $\mathbf x_0$ stays on the straight line through the origin and $\mathbf x_0$: <strong>every line through the origin is invariant</strong>, and the point moves along it with speed proportional to its distance from the origin.
+      </p>
+      <ul>
+        <li><strong>Stable star</strong>, $\lambda < 0$: all solutions go to $\mathbf 0$ along straight rays (the origin is asymptotically stable).</li>
+        <li><strong>Unstable star</strong>, $\lambda > 0$: all solutions leave $\mathbf 0$ along straight rays.</li>
+        <li>For $\lambda = 0$ we get $A = O$: every point is an equilibrium (Robinson Exercise 30.5).</li>
+      </ul>
+      {{fig:stars}}
+
+      <h3 class="sub-title">8.4 Subcase B, $m_g = 1$: the missing eigenvector and the Jordan chain <span class="cite">[Sec. 30.2, pp. 295–297, Eq. (30.1)]</span></h3>
+      <p>
+        Now $A \neq \lambda I$, there is a single eigendirection and (8.1) cannot give the general solution (it has only one free constant). A second basis vector is built from the nilpotent matrix $N = A - \lambda I \neq O$.
+      </p>
+      <div class="callout thm">
+        <div class="callout-title">Lemma — $N^2 = O$ <span class="cite">[Cayley–Hamilton; Exercises 30.2–30.3]</span></div>
+        <p>If $\det(A - \mu I) = (\mu - \lambda)^2$, then $N = A - \lambda I$ satisfies $N^2 = O$.</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          The Cayley–Hamilton theorem for $2\times2$ matrices says that $A$ satisfies its own characteristic equation $\mu^2 - (\operatorname{tr}A)\mu + \det A = 0$, i.e. $A^2 - (\operatorname{tr}A)A + (\det A)I = O$. Here $\operatorname{tr}A = 2\lambda$ and $\det A = \lambda^2$, so
+          $A^2 - 2\lambda A + \lambda^2I = (A - \lambda I)^2 = N^2 = O$.
+        </p>
+      </div>
+      <p>This produces two vectors linked as a <em>chain</em>:</p>
+      <ol class="steps">
+        <li>An eigenvector $\mathbf v_1 \neq \mathbf 0$: $N\mathbf v_1 = \mathbf 0$, i.e. $A\mathbf v_1 = \lambda\mathbf v_1$.</li>
+        <li>A <strong>generalised eigenvector</strong> $\mathbf v_2$ with $N\mathbf v_2 = \mathbf v_1$, i.e. $(A - \lambda I)\mathbf v_2 = \mathbf v_1$, equivalently
+          $$A\mathbf v_2 = \lambda\mathbf v_2 + \mathbf v_1. \tag{8.2}$$</li>
+      </ol>
+      <p><strong>Why $\mathbf v_2$ exists.</strong> Since $N^2 = O$, every vector $N\mathbf y$ satisfies $N(N\mathbf y) = \mathbf 0$, so the image of $N$ lies inside its kernel. Both are one-dimensional ($\dim\ker N = m_g = 1$ and $\dim\operatorname{im}N = 2 - 1 = 1$), so they coincide: $\operatorname{im}N = \ker N$. Hence the eigenvector $\mathbf v_1 \in \ker N$ is in the image of $N$ and the system $N\mathbf v_2 = \mathbf v_1$ is solvable (its two equations are proportional: $N$ has rank 1).
+        The solution is not unique: $\mathbf v_2 + s\mathbf v_1$ works for every $s$, because $N\mathbf v_1 = \mathbf 0$. Rescaling $\mathbf v_1$ rescales $\mathbf v_2$ in the same way.</p>
+      <p><strong>Why $\mathbf v_1, \mathbf v_2$ are a basis.</strong> If $a\mathbf v_1 + b\mathbf v_2 = \mathbf 0$, apply $N$: $bN\mathbf v_2 = b\mathbf v_1 = \mathbf 0$, so $b = 0$; then $a\mathbf v_1 = \mathbf 0$ gives $a = 0$.</p>
+      <div class="callout lecture">
+        <div class="callout-title">Robinson's route to the same pair</div>
+        <p>
+          Robinson (p. 296) does it in the opposite order: pick <em>any</em> $\mathbf y$ not parallel to the eigenvector and set $\mathbf v_2 = \mathbf y$, $\mathbf v_1 = (A - \lambda I)\mathbf y$. Then $N\mathbf v_1 = N^2\mathbf y = \mathbf 0$ makes $\mathbf v_1$ an eigenvector, and $N\mathbf v_2 = \mathbf v_1$ is (8.2). It is the same chain; the lecture's order (eigenvector first, then solve for $\mathbf v_2$) is the one used in the algorithm below.
+        </p>
+      </div>
+
+      <h3 class="sub-title">8.5 The change of variable $\mathbf z = Q^{-1}\mathbf x$ and the Jordan block <span class="cite">[Sec. 30.2, pp. 296–297, Eqs. (30.2)–(30.3)]</span></h3>
+      <p>Take <strong>$Q = [\,\mathbf v_1 \mid \mathbf v_2\,]$</strong> (eigenvector first). Column by column, with (8.2):</p>
+      $$AQ = [A\mathbf v_1 \mid A\mathbf v_2] = [\lambda\mathbf v_1 \mid \mathbf v_1 + \lambda\mathbf v_2] = [\mathbf v_1 \mid \mathbf v_2]\begin{pmatrix} \lambda & 1 \\ 0 & \lambda\end{pmatrix} = Q\,J.$$
+      <p>(First column of $J$: $(\lambda, 0)^T$ gives $\lambda\mathbf v_1$. Second column: $(1, \lambda)^T$ gives $1\cdot\mathbf v_1 + \lambda\mathbf v_2$.) Multiplying by $Q^{-1}$ on the left:</p>
+      $$\boxed{Q^{-1}AQ = J = \begin{pmatrix} \lambda & 1 \\ 0 & \lambda\end{pmatrix}, \qquad \dot z_1 = \lambda z_1 + z_2,\quad \dot z_2 = \lambda z_2.} \tag{8.3}$$
+      <p>This is <strong>partially</strong> uncoupled: the second equation involves only $z_2$, the first is driven by it.</p>
+
+      <h3 class="sub-title">8.6 Solving for $\mathbf z$ <span class="cite">[Sec. 30.2, p. 297, Eq. (30.4)]</span></h3>
+      <ol class="steps">
+        <li><strong>The second equation.</strong> $\dot z_2 = \lambda z_2$. Multiply by $e^{-\lambda t}$: $\dfrac{d}{dt}\big(e^{-\lambda t}z_2\big) = e^{-\lambda t}(\dot z_2 - \lambda z_2) = 0$, so $e^{-\lambda t}z_2$ is constant: $z_2(t) = c_2e^{\lambda t}$ with $c_2 = z_2(0)$.</li>
+        <li><strong>The first equation becomes a forced linear equation.</strong> Substituting $z_2$: $\dot z_1 - \lambda z_1 = c_2e^{\lambda t}$. The integrating factor is $e^{-\lambda t}$ (its derivative is $-\lambda e^{-\lambda t}$, which is exactly the coefficient needed).</li>
+        <li><strong>Multiply and recognise a derivative.</strong> $e^{-\lambda t}\dot z_1 - \lambda e^{-\lambda t}z_1 = \dfrac{d}{dt}\big(e^{-\lambda t}z_1\big)$ by the product rule, and the right side is $e^{-\lambda t}c_2e^{\lambda t} = c_2$. So
+          $$\frac{d}{dt}\big(e^{-\lambda t}z_1\big) = c_2.$$</li>
+        <li><strong>Integrate with Barrow's rule</strong> between $0$ and $t$: $\big[e^{-\lambda s}z_1(s)\big]_{s=0}^{s=t} = \displaystyle\int_0^tc_2\,ds = c_2t$, i.e. $e^{-\lambda t}z_1(t) - z_1(0) = c_2t$. With $c_1 = z_1(0)$:
+          $$z_1(t) = (c_1 + c_2t)e^{\lambda t}, \qquad z_2(t) = c_2e^{\lambda t}. \tag{8.4}$$</li>
+        <li><strong>Check.</strong> $\dot z_1 = c_2e^{\lambda t} + \lambda(c_1 + c_2t)e^{\lambda t} = \lambda z_1 + z_2$ ✓.</li>
+      </ol>
+      <p>In matrix form $\mathbf z(t) = e^{\lambda t}\begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}\mathbf z_0$ (this is $e^{Jt}$, since $J = \lambda I + \begin{pmatrix} 0 & 1 \\ 0 & 0\end{pmatrix}$ and the second matrix squares to zero). The factor $t$ in $z_1$ is the vector version of the $te^{\lambda t}$ of the repeated characteristic root in Topic 3.</p>
+
+      <h3 class="sub-title">8.7 The general solution in $\mathbf x$ <span class="cite">[Sec. 30.2, p. 297, Eq. (30.4)]</span></h3>
+      <p>Undo the change of basis, $\mathbf x = Q\mathbf z = z_1\mathbf v_1 + z_2\mathbf v_2$:</p>
+      $$\mathbf x(t) = (c_1 + c_2t)e^{\lambda t}\mathbf v_1 + c_2e^{\lambda t}\mathbf v_2 \;=\; \boxed{\,e^{\lambda t}\Big[c_1\mathbf v_1 + c_2\big(t\,\mathbf v_1 + \mathbf v_2\big)\Big]\,} \tag{8.5}$$
+      <ul>
+        <li>$c_1e^{\lambda t}\mathbf v_1$: the pure eigenmode, a motion along the line $\operatorname{span}\mathbf v_1$.</li>
+        <li>$c_2e^{\lambda t}\mathbf v_2$: the generalised-eigenvector mode; on its own it is not a solution.</li>
+        <li>$c_2te^{\lambda t}\mathbf v_1$: the <em>secular term</em>. It couples the two modes and is the only reason the orbit is not a straight line: as $t \to \pm\infty$ it dominates, so the orbits become parallel to $\mathbf v_1$ at both ends.</li>
+        <li>The constants are the initial coordinates in the chain basis: $(c_1, c_2)^T = Q^{-1}\mathbf x_0$.</li>
+      </ul>
+      <p>
+        <strong>Direct check.</strong> With $\mathbf x = e^{\lambda t}\mathbf s(t)$, $\mathbf s = c_1\mathbf v_1 + c_2(t\mathbf v_1 + \mathbf v_2)$: $\dot{\mathbf x} = \lambda\mathbf x + e^{\lambda t}c_2\mathbf v_1$. And by (8.2), $A\mathbf s = c_1\lambda\mathbf v_1 + c_2\big(t\lambda\mathbf v_1 + \lambda\mathbf v_2 + \mathbf v_1\big) = \lambda\mathbf s + c_2\mathbf v_1$, so $A\mathbf x = \lambda\mathbf x + e^{\lambda t}c_2\mathbf v_1 = \dot{\mathbf x}$ ✓.
+        The two solutions $e^{\lambda t}\mathbf v_1$ and $e^{\lambda t}(t\mathbf v_1 + \mathbf v_2)$ have Wronskian $e^{2\lambda t}\det[\mathbf v_1\ \mathbf v_2] \neq 0$, so they form a fundamental set.
+      </p>
+
+      <h3 class="sub-title">8.8 The improper node in the $\mathbf z$-plane <span class="cite">[Sec. 30.2, pp. 297–298]</span></h3>
+      <p>Eliminate $t$ from (8.4) for $c_2 \neq 0$: since $z_2 = c_2e^{\lambda t}$, $t = \tfrac1\lambda\ln(z_2/c_2)$ and $c_2e^{\lambda t} = z_2$, so</p>
+      $$z_1 = \Big(\frac{c_1}{c_2} + t\Big)z_2 = z_2\Big[K + \frac1\lambda\ln|z_2|\Big], \qquad K = \frac{c_1}{c_2} - \frac1\lambda\ln|c_2|. \tag{8.6}$$
+      <p>(The same curve from the slope: $\dfrac{dz_1}{dz_2} = \dfrac{\dot z_1}{\dot z_2} = \dfrac{\lambda z_1 + z_2}{\lambda z_2} = \dfrac{z_1}{z_2} + \dfrac1\lambda$, so $\dfrac{d}{dz_2}\dfrac{z_1}{z_2} = \dfrac1{\lambda z_2}$ and $\dfrac{z_1}{z_2} = \dfrac1\lambda\ln|z_2| + K$.)</p>
+      <ul>
+        <li><strong>The $z_1$-axis is invariant.</strong> For $c_2 = 0$: $z_2 \equiv 0$ and $z_1 = c_1e^{\lambda t}$, two half-lines moving away from the origin if $\lambda > 0$ (towards it if $\lambda < 0$). This is the single eigendirection, $\operatorname{span}\mathbf v_1$.</li>
+        <li><strong>Direction of motion.</strong> $\dot z_1 = \lambda z_1 + z_2$ equals $z_2$ on the $z_2$-axis. So in the upper half-plane ($z_2 > 0$) orbits cross the $z_2$-axis moving <em>right</em> and in the lower half-plane moving <em>left</em>.</li>
+        <li><strong>Behaviour as $t \to \pm\infty$</strong> (take $\lambda > 0$): for $t \to -\infty$ the orbit tends to the origin and $z_1/z_2 = c_1/c_2 + t \to \mp\infty$, so it arrives <em>tangent to the $z_1$-axis</em>. For $t \to +\infty$ the orbit escapes to infinity with $z_1/z_2 \sim t \to \pm\infty$ again: it becomes parallel to the $z_1$-axis. For $\lambda < 0$ everything is reversed in time.</li>
+        <li><strong>Shape.</strong> Near the origin $z_1 \approx (z_2/\lambda)\ln z_2$, which tends to $0$ with infinite slope $dz_1/dz_2 \to -\infty$ (for $\lambda>0$): the orbit leaves the origin horizontally, curls over the $z_2$-axis and flattens again. Upper and lower half-planes are point-symmetric ($\mathbf z \mapsto -\mathbf z$ maps solutions to solutions), giving an S-shaped pair of curves. The approach to the axis is only logarithmic ($z_1/z_2 = K + 	frac1\lambda\ln|z_2|$ grows very slowly as $z_2 	o 0$), so at the scale of Fig. 4.8 the portrait looks like a fan of almost straight rays that bend sharply only close to the origin.</li>
+      </ul>
+      {{fig:improper_z}}
+
+      <h3 class="sub-title">8.9 The improper node in the $\mathbf x$-plane <span class="cite">[Sec. 30.2, p. 298]</span></h3>
+      <p>
+        The map $\mathbf x = Q\mathbf z$ sends the $z_1$-axis to the line $\operatorname{span}\mathbf v_1$, the only invariant line, and the $z_2$-axis to $\operatorname{span}\mathbf v_2$ (a reference direction, not an orbit). Straight lines go to straight lines, so the properties of the $\mathbf z$-portrait that are stated with lines survive:
+      </p>
+      <ul>
+        <li>All orbits are tangent to $\operatorname{span}\mathbf v_1$ at the origin, and become parallel to it far away, bending in an S.</li>
+        <li>The role of $\mathbf v_2$ is to say <em>which side</em> and <em>which way</em>. Write $\mathbf x = z_1\mathbf v_1 + z_2\mathbf v_2$: the sign of $z_2$ tells on which side of the line $\operatorname{span}\mathbf v_1$ the point lies (the side where $\mathbf v_2$ points if $z_2 > 0$). The motion on that side is along $+\mathbf v_1$ for $z_2 > 0$, along $-\mathbf v_1$ for $z_2 < 0$ (because $\dot z_1 = \lambda z_1 + z_2$).</li>
+        <li>Practical rule, independent of the algebra: $\dot{\mathbf x} - \lambda\mathbf x = (A - \lambda I)\mathbf x = N\mathbf x = z_2\mathbf v_1$. At any point off the eigenline, compute $N\mathbf x$: it is a multiple of $\mathbf v_1$ whose sign says how the orbit drifts along the eigendirection there.</li>
+        <li>Because $Q$ may reflect ($\det Q < 0$) the S can look mirrored with respect to the $\mathbf z$-plane; the rule above is what fixes the orientation in the $\mathbf x$-plane.</li>
+      </ul>
+
+      <h3 class="sub-title">8.10 A complete worked example <span class="cite">[Example 30.1, p. 298]</span></h3>
+      <div class="callout example">
+        <div class="callout-title">Example 8.2 — $\dot x = 5x - 4y,\ \dot y = x + y$: unstable improper node</div>
+        <p>$A = \begin{pmatrix} 5 & -4 \\ 1 & 1\end{pmatrix}$.</p>
+        <ol class="steps">
+          <li><strong>Eigenvalue.</strong> $\operatorname{tr}A = 6$, $\det A = 5 + 4 = 9$, so $\lambda^2 - 6\lambda + 9 = (\lambda - 3)^2 = 0$: $\lambda = 3$ with $m_a = 2$ ($\Delta = 36 - 36 = 0$).</li>
+          <li><strong>Geometric multiplicity.</strong> $N = A - 3I = \begin{pmatrix} 2 & -4 \\ 1 & -2\end{pmatrix} \neq O$ has rank 1 (the rows are proportional), so $m_g = 1$: an improper node, not a star.</li>
+          <li><strong>Eigenvector.</strong> $N\mathbf v = \mathbf 0$: $2a - 4b = 0$, $a = 2b$. Take $\mathbf v_1 = (2, 1)^T$.</li>
+          <li><strong>Generalised eigenvector.</strong> $N\mathbf v_2 = \mathbf v_1$: $2a - 4b = 2$ and $a - 2b = 1$ (the same equation). Take $b = 0$, $a = 1$: $\mathbf v_2 = (1, 0)^T$. (General solution $\mathbf v_2 = (1, 0)^T + s(2, 1)^T$.)</li>
+          <li><strong>Matrices.</strong> $Q = \begin{pmatrix} 2 & 1 \\ 1 & 0\end{pmatrix}$, $\det Q = 0 - 1 = -1$, $Q^{-1} = \dfrac1{-1}\begin{pmatrix} 0 & -1 \\ -1 & 2\end{pmatrix} = \begin{pmatrix} 0 & 1 \\ 1 & -2\end{pmatrix}$. Check: $Q^{-1}Q = \begin{pmatrix} 0 + 1 & 0 \\ 2 - 2 & 1\end{pmatrix} = I$ ✓.</li>
+          <li><strong>Jordan form.</strong> $A\mathbf v_1 = (10 - 4,\ 2 + 1)^T = (6, 3)^T = 3\mathbf v_1$ ✓, $A\mathbf v_2 = (5, 1)^T = \mathbf v_1 + 3\mathbf v_2 = (2 + 3,\ 1 + 0)^T$ ✓. So $AQ = \begin{pmatrix} 6 & 5 \\ 3 & 1\end{pmatrix}$ and
+            $$Q^{-1}AQ = \begin{pmatrix} 0 & 1 \\ 1 & -2\end{pmatrix}\begin{pmatrix} 6 & 5 \\ 3 & 1\end{pmatrix} = \begin{pmatrix} 3 & 1 \\ 6 - 6 & 5 - 2\end{pmatrix} = \begin{pmatrix} 3 & 1 \\ 0 & 3\end{pmatrix} = J. ✓$$</li>
+          <li><strong>Solution in $\mathbf z$</strong> (8.4): $z_1 = (c_1 + c_2t)e^{3t}$, $z_2 = c_2e^{3t}$.</li>
+          <li><strong>Solution in $\mathbf x$</strong> (8.5): $\mathbf x(t) = e^{3t}\Big[c_1\begin{pmatrix} 2 \\ 1\end{pmatrix} + c_2\Big(t\begin{pmatrix} 2 \\ 1\end{pmatrix} + \begin{pmatrix} 1 \\ 0\end{pmatrix}\Big)\Big]$, i.e.
+            $$x_1 = e^{3t}\big[2c_1 + c_2(2t + 1)\big], \qquad x_2 = e^{3t}\big[c_1 + c_2t\big].$$
+            Initial data: $\mathbf x_0 = (2c_1 + c_2,\ c_1)^T$, so $c_1 = x_{20}$ and $c_2 = x_{10} - 2x_{20}$.</li>
+          <li><strong>Direct check.</strong> $\dot x_1 = e^{3t}\{3[2c_1 + c_2(2t + 1)] + 2c_2\} = e^{3t}[6c_1 + c_2(6t + 5)]$, and $5x_1 - 4x_2 = e^{3t}[10c_1 + c_2(10t + 5) - 4c_1 - 4c_2t] = e^{3t}[6c_1 + c_2(6t + 5)]$ ✓. $\dot x_2 = e^{3t}[3(c_1 + c_2t) + c_2]$ and $x_1 + x_2 = e^{3t}[3c_1 + c_2(3t + 1)]$ ✓.</li>
+        </ol>
+        <p><strong>Explicit trajectories.</strong></p>
+        <div class="table-container">
+          <table class="data-table">
+            <thead><tr><th>$(c_1, c_2)$</th><th>$\mathbf x_0$</th><th>$\mathbf x(t)$</th><th>Orbit</th></tr></thead>
+            <tbody>
+              <tr><td>$(1, 0)$</td><td>$(2, 1)$</td><td>$e^{3t}(2, 1)^T$</td><td>half-line of $\operatorname{span}\mathbf v_1$, outward</td></tr>
+              <tr><td>$(-1, 0)$</td><td>$(-2, -1)$</td><td>$-e^{3t}(2, 1)^T$</td><td>opposite half-line, outward</td></tr>
+              <tr><td>$(0, 1)$</td><td>$(1, 0)$</td><td>$e^{3t}(2t + 1,\ t)^T$</td><td>crosses $x_1 = 0$ at $t = -\tfrac12$, at $e^{-3/2}(0, -\tfrac12)$</td></tr>
+              <tr><td>$(0, -1)$</td><td>$(-1, 0)$</td><td>$-e^{3t}(2t + 1,\ t)^T$</td><td>point-symmetric to the previous one</td></tr>
+              <tr><td>$(1, 1)$</td><td>$(3, 1)$</td><td>$e^{3t}(2t + 3,\ t + 1)^T$</td><td>same side of $\operatorname{span}\mathbf v_1$ as $\mathbf v_2$</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>Asymptotics.</strong> For $c_2 \neq 0$, as $t \to -\infty$: $\mathbf x(t) \approx c_2te^{3t}\mathbf v_1 \to \mathbf 0$ (tangent to $\operatorname{span}\mathbf v_1$, from the side $-\operatorname{sign}(c_2)\mathbf v_1$); as $t \to +\infty$: $|\mathbf x| \to \infty$ with direction $\to +\operatorname{sign}(c_2)\mathbf v_1$. For example, $\mathbf x(t) = e^{3t}(2t + 1, t)^T$ arrives at the origin along the direction $-\mathbf v_1$ and leaves along $+\mathbf v_1$.
+        </p>
+        <p>
+          <strong>Orientation.</strong> The side of the eigenline is given by $c_2 = x_1 - 2x_2$ (positive below the line $x_1 = 2x_2$, on the side where $\mathbf v_2$ lies) and the drift by $N\mathbf x = c_2\mathbf v_1$. At $(0, 1)^T$: $N(0,1)^T = (-4, -2)^T = -2\mathbf v_1$, leftwards, in agreement with $\dot x = -4y < 0$ on the positive $y$-axis.
+        </p>
+        {{fig:ex82}}
+        <p>
+          <strong>The stable twin.</strong> Reversing time turns an improper node into its stable twin: $A' = -A = \begin{pmatrix} -5 & 4 \\ -1 & -1\end{pmatrix}$ has $\lambda' = -3$, the same eigenvector $\mathbf v_1 = (2, 1)^T$, and $N' = A' + 3I = -N$, so $N'\mathbf v_2' = \mathbf v_1$ is solved by $\mathbf v_2' = -\mathbf v_2 = (-1, 0)^T$. Then $Q' = [\mathbf v_1 \mid -\mathbf v_2]$, $J' = \begin{pmatrix} -3 & 1 \\ 0 & -3\end{pmatrix}$ and the orbits are the previous curves with all arrows reversed.
+        </p>
+        {{fig:ex82s}}
+      </div>
+
+      <div class="callout result">
+        <div class="callout-title">Algorithm for $\dot{\mathbf x} = A\mathbf x$ with $\Delta = 0$</div>
+        <ol class="steps">
+          <li>$\lambda = \tfrac12\operatorname{tr}A$. Compute $N = A - \lambda I$.</li>
+          <li>If $N = O$: $A = \lambda I$, a star (stable if $\lambda < 0$, unstable if $\lambda > 0$); $\mathbf x(t) = e^{\lambda t}\mathbf x_0$.</li>
+          <li>Otherwise: $\mathbf v_1$ spans $\ker N$; solve $N\mathbf v_2 = \mathbf v_1$; $Q = [\mathbf v_1 \mid \mathbf v_2]$.</li>
+          <li>$\mathbf x(t) = e^{\lambda t}\big[c_1\mathbf v_1 + c_2(t\mathbf v_1 + \mathbf v_2)\big]$ with $(c_1, c_2)^T = Q^{-1}\mathbf x_0$; improper node, stable if $\lambda < 0$, unstable if $\lambda > 0$.</li>
+          <li>Draw $\operatorname{span}\mathbf v_1$ with arrows (outward if $\lambda > 0$), then the S-shaped orbits tangent to it; fix the side and the orientation with $N\mathbf x$ at one point off the line.</li>
+        </ol>
+      </div>
+    </section>
+
