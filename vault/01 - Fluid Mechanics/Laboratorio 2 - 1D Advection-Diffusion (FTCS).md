@@ -1,6 +1,7 @@
 ---
 materia: Fluid Mechanics
 tipo: laboratorio
+tema: Laboratory 2 - 1D advection-diffusion equation (CFD)
 tags:
   - fluid-mechanics
   - laboratory

@@ -508,6 +508,7 @@ $$ z = v_z t \tag{3} $$
 <li><strong>Cylindrical basis:</strong> $\mathcal{B}_{\text{cyl}} = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{e}_z\}$, a rotation of $\mathcal{B}_0$ by the angle $\theta = \omega t$ about $\mathbf{k}_0$:</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_{\text{cyl}}] = \begin{pmatrix} \cos(\omega t) &amp; -\sin(\omega t) &amp; 0 \\ \sin(\omega t) &amp; \cos(\omega t) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0 R_{\text{cyl}}] = \cos^2(\omega t) + \sin^2(\omega t) = 1, \qquad [{}_0 R_{\text{cyl}}][{}_0 R_{\text{cyl}}]^T = I $$</div>
+<p style="margin-bottom: 10px;">The product $RR^T$ has diagonal entries $\cos^2(\omega t) + \sin^2(\omega t) = 1$ (and $1$) and off-diagonal entries $\cos(\omega t)\sin(\omega t) - \sin(\omega t)\cos(\omega t) = 0$.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>The basis vectors, from the columns of the matrix:</li>
 </ul>
@@ -562,7 +563,7 @@ $$ z = v_z t \tag{3} $$
 <li><strong>Second change-of-basis matrix.</strong> Its columns are the components of $\mathbf{e}_t$, $\mathbf{e}_n$, $\mathbf{e}_b$ in $\mathcal{B}_{\text{cyl}}$:</li>
 </ul>
 <div class="math-block">$$ [{}_{\text{cyl}} R_{\text{tnb}}] = \begin{pmatrix} 0 &amp; -1 &amp; 0 \\ a\omega/V &amp; 0 &amp; -v_z/V \\ v_z/V &amp; 0 &amp; a\omega/V \end{pmatrix}, \qquad R R^T = I $$</div>
-<p style="margin-bottom: 10px;">Expanding the determinant along the first row (its only non-zero entry is $-1$ in position $(1,2)$, with cofactor sign $-1$):</p>
+<p style="margin-bottom: 10px;">With $V^2 = a^2\omega^2 + v_z^2$, the rows have unit norm ($1$, $(a^2\omega^2 + v_z^2)/V^2 = 1$ and $(v_z^2 + a^2\omega^2)/V^2 = 1$) and are mutually orthogonal (row 1 against rows 2 and 3 gives $0$, rows 2 and 3 give $a\omega v_z/V^2 - v_za\omega/V^2 = 0$), so $RR^T = I$; expanding along the first row, $\det = -(-1)\left(\frac{a^2\omega^2}{V^2} + \frac{v_z^2}{V^2}\right) = 1$. Expanding the determinant along the first row (its only non-zero entry is $-1$ in position $(1,2)$, with cofactor sign $-1$):</p>
 <div class="math-block">$$ \det = -(-1)\left[\frac{a\omega}{V}\cdot\frac{a\omega}{V} - \left(-\frac{v_z}{V}\right)\frac{v_z}{V}\right] = \frac{a^2\omega^2 + v_z^2}{V^2} = 1 $$</div>
 <p style="margin-bottom: 10px;">The columns have unit norm and are mutually orthogonal, so $R R^T = I$; the composition $[{}_0 R_{\text{tnb}}] = [{}_0 R_{\text{cyl}}][{}_{\text{cyl}} R_{\text{tnb}}]$ is again a proper rotation (determinant $1\cdot 1 = 1$).</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
@@ -647,7 +648,7 @@ $$ z = v_z t \tag{3} $$
 <h3 class="phase-heading">Constraints, Degrees of Freedom &amp; Coordinates</h3>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>System:</strong> a particle $P$ moves along the planar spiral $r = \alpha e^{\beta\theta}$ with the prescribed angular motion $\theta(t) = \delta t^n$.</li>
-<li><strong>Hypotheses:</strong> $\alpha, \beta, \delta, n \gt 0$ are constants and $t \gt 0$. At $t = 0$ the speed vanishes for $n \gt 1$ and $\dot{\theta}$ diverges for $n \lt 1$, and $\ddot{\theta} \propto t^{n-2}$ diverges for $n \lt 2$ except at $n = 1$; only $n = 1$ is regular at $t = 0$, and $t \gt 0$ is kept for all $n$ for uniformity. The motion is planar ($z = 0$).</li>
+<li><strong>Hypotheses:</strong> $\alpha, \beta, \delta, n \gt 0$ are constants and $t \gt 0$. At $t = 0$, $\dot{\theta} \propto t^{n-1}$ diverges for $0 \lt n \lt 1$ and $\ddot{\theta} \propto t^{n-2}$ diverges for $1 \lt n \lt 2$; for $n = 1$ and for $n \ge 2$ every quantity is finite at $t = 0$ (for $n \ge 2$ the speed vanishes there, which is not a singularity, because $\mathbf{e}_t$ and $\rho$ do not depend on the speed). $t \gt 0$ is kept for all $n$ for uniformity. The motion is planar ($z = 0$).</li>
 <li><strong>Constraints and degrees of freedom:</strong> the spiral $r = \alpha e^{\beta\theta}$ is a holonomic, scleronomic constraint in the plane. The particle then has $\text{CDOF} = 2 - 1 = 1$, and the motion law $\theta = \delta t^n$ fixes it completely.</li>
 <li><strong>Coordinates:</strong> polar coordinates $(r, \theta)$ about the origin $O$ of the spiral; the angle $\theta$ is the free coordinate.</li>
 <li><strong>Parameters and units:</strong> $[r] = \text{m}$, so $[\alpha] = \text{m}$; $\beta$ is dimensionless; $[\theta] = \text{rad}$, so $[\delta] = \text{rad}\cdot\text{s}^{-n}$.</li>
@@ -660,12 +661,13 @@ $$ z = v_z t \tag{3} $$
 <li><strong>Polar basis:</strong> $\mathcal{B}_{\text{polar}} = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}_0\}$, a rotation of $\mathcal{B}_0$ by $\theta$ about $\mathbf{k}_0$:</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_\theta] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0 R_\theta] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0 R_\theta][{}_0 R_\theta]^T = I $$</div>
+<p style="margin-bottom: 10px;">The product $RR^T$ has diagonal entries $\cos^2\theta + \sin^2\theta = 1$ (and $1$) and off-diagonal entries $\cos\theta\sin\theta - \sin\theta\cos\theta = 0$.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Angular velocity of the basis:</strong> $\boldsymbol{\omega} = \dot{\theta}\,\mathbf{k}_0$. By Poisson's formula (Notes Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=33" target="_blank" rel="noopener" title="Open Notes.pdf at page 33">2.6.2</a>, Eqs. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/03-engineering-mechanics/teoria/Notes.pdf#page=34" target="_blank" rel="noopener" title="Open Notes.pdf at page 34">2.25-2.26</a>): $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.</li>
 <li><strong>Intrinsic basis from the polar basis</strong> (derived in 3.1(c), where the sign of the normal is justified): $\mathbf{e}_t = (\beta\,\mathbf{e}_r + \mathbf{e}_\theta)/\sqrt{1 + \beta^2}$, $\mathbf{e}_n = (-\mathbf{e}_r + \beta\,\mathbf{e}_\theta)/\sqrt{1 + \beta^2}$ and $\mathbf{e}_b = \mathbf{e}_t\times\mathbf{e}_n = \mathbf{k}_0$. The components of $\mathbf{e}_t$ and $\mathbf{e}_n$ in $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ are the columns of</li>
 </ul>
 <div class="math-block">$$ [{}_{\text{polar}} R_{\text{tn}}] = \frac{1}{\sqrt{1 + \beta^2}}\begin{pmatrix} \beta &amp; -1 \\ 1 &amp; \beta \end{pmatrix}, \qquad \det = \frac{\beta^2 + 1}{1 + \beta^2} = 1, \qquad R R^T = I $$</div>
-<p style="margin-bottom: 10px;">This is a planar rotation by the constant angle $\arctan(1/\beta)$: the tangent makes a constant angle with the radial direction (equiangular spiral).</p>
+<p style="margin-bottom: 10px;">(rows of norm $(\beta^2 + 1)/(1 + \beta^2) = 1$ and orthogonal, $(\beta - \beta)/(1 + \beta^2) = 0$). It is completed with $\mathbf{e}_b = \mathbf{k}_0$ as third row and column, $(0, 0, 1)$, so the full $3\times 3$ matrix is a rotation about $\mathbf{k}_0$. This is a planar rotation by the constant angle $\arctan(1/\beta)$: the tangent makes a constant angle with the radial direction (equiangular spiral).</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>
@@ -685,11 +687,12 @@ $$ z = v_z t \tag{3} $$
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Radial component:</strong></li>
 </ul>
-<div class="math-block">$$ a_r = \ddot{r} - r\dot{\theta}^2 = \left(\beta^2 - 1\right)r\dot{\theta}^2 + \beta r\ddot{\theta} = n\delta t^{n-2}\,r\left[\left(\beta^2 - 1\right)n\delta t^n + \beta(n - 1)\right] $$</div>
+<div class="math-block">$$ a_r = \ddot{r} - r\dot{\theta}^2 = \left(\beta^2 - 1\right)r\dot{\theta}^2 + \beta r\ddot{\theta} = r\left[\left(\beta^2 - 1\right)n^2\delta^2t^{2n-2} + \beta n(n - 1)\delta t^{n-2}\right] = n\delta t^{n-2}\,r\left[\left(\beta^2 - 1\right)n\delta t^n + \beta(n - 1)\right] $$</div>
+<p style="margin-bottom: 10px;">(substituting $\dot{\theta}^2 = n^2\delta^2t^{2n-2}$ and $\ddot{\theta} = n(n - 1)\delta t^{n-2}$, then factoring out $n\delta t^{n-2}$, since $t^{2n-2} = t^{n-2}t^n$).</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Transverse component:</strong></li>
 </ul>
-<div class="math-block">$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\ddot{\theta} + 2\beta r\dot{\theta}^2 = n\delta t^{n-2}\,r\left[(n - 1) + 2\beta n\delta t^n\right] $$</div>
+<div class="math-block">$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = r\ddot{\theta} + 2\beta r\dot{\theta}^2 = r\left[n(n - 1)\delta t^{n-2} + 2\beta n^2\delta^2t^{2n-2}\right] = n\delta t^{n-2}\,r\left[(n - 1) + 2\beta n\delta t^n\right] $$</div>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(c) Tangential and normal components of the velocity</h5>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> the velocity is always tangent to the path, so in the intrinsic basis $\mathbf{v} = v\,\mathbf{e}_t + 0\,\mathbf{e}_n$ and the normal component is identically zero.</div>
 <div class="math-block">$$ v_t = v = \sqrt{v_r^2 + v_\theta^2} = r\dot{\theta}\sqrt{\beta^2 + 1} = n\delta t^{n-1}\,r\sqrt{1 + \beta^2}, \qquad v_n = 0 $$</div>
@@ -700,7 +703,7 @@ $$ z = v_z t \tag{3} $$
 <p style="margin-bottom: 10px;">so $\mathbf{e}_n = \mathbf{k}_0\times\mathbf{e}_t$ and $\mathbf{e}_b = \mathbf{k}_0$.</p>
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">(d) Tangential and normal components of the acceleration</h5>
 <div class="justification-box"><strong>Pedagogical Justification:</strong> $a_t = \dot{v}$ is the rate of change of the speed and $a_n = v^2/\rho$ measures the turning of the velocity.</div>
-<div class="math-block">$$ a_t = \frac{d}{dt}\left(\sqrt{1 + \beta^2}\,r\dot{\theta}\right) = \sqrt{1 + \beta^2}\left(\dot{r}\dot{\theta} + r\ddot{\theta}\right) = \sqrt{1 + \beta^2}\left(\beta r\dot{\theta}^2 + r\ddot{\theta}\right) = \sqrt{1 + \beta^2}\,n\delta t^{n-2}\,r\left[\beta n\delta t^n + (n - 1)\right] $$</div>
+<div class="math-block">$$ a_t = \frac{d}{dt}\left(\sqrt{1 + \beta^2}\,r\dot{\theta}\right) = \sqrt{1 + \beta^2}\left(\dot{r}\dot{\theta} + r\ddot{\theta}\right) = \sqrt{1 + \beta^2}\left(\beta r\dot{\theta}^2 + r\ddot{\theta}\right) = \sqrt{1 + \beta^2}\,r\left[\beta n^2\delta^2t^{2n-2} + n(n - 1)\delta t^{n-2}\right] = \sqrt{1 + \beta^2}\,n\delta t^{n-2}\,r\left[\beta n\delta t^n + (n - 1)\right] $$</div>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Normal component.</strong> The cross product $\mathbf{a}\times\mathbf{v} = \left(a_t\mathbf{e}_t + a_n\mathbf{e}_n\right)\times v\,\mathbf{e}_t = -va_n\,\mathbf{e}_b$ gives $a_n = \dfrac{\|\mathbf{v}\times\mathbf{a}\|}{v} = \dfrac{|v_ra_\theta - v_\theta a_r|}{v}$. The numerator is</li>
 </ul>
@@ -708,6 +711,7 @@ $$ z = v_z t \tag{3} $$
 <div class="math-block">$$ = \beta r^2\dot{\theta}\ddot{\theta} + 2\beta^2r^2\dot{\theta}^3 - \left(\beta^2 - 1\right)r^2\dot{\theta}^3 - \beta r^2\dot{\theta}\ddot{\theta} = \left(\beta^2 + 1\right)r^2\dot{\theta}^3 $$</div>
 <p style="margin-bottom: 10px;">Dividing by $v = r\dot{\theta}\sqrt{\beta^2 + 1}$:</p>
 <div class="math-block">$$ a_n = \frac{\left(\beta^2 + 1\right)r^2\dot{\theta}^3}{r\dot{\theta}\sqrt{\beta^2 + 1}} = r\dot{\theta}^2\sqrt{\beta^2 + 1} = n^2\delta^2t^{2n-2}\,r\sqrt{1 + \beta^2} $$</div>
+<p style="margin-bottom: 10px;">Here $\|\mathbf{v}\times\mathbf{a}\| = |v_ra_\theta - v_\theta a_r|$, because $(v_r\mathbf{e}_r + v_\theta\mathbf{e}_\theta)\times(a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta) = (v_ra_\theta - v_\theta a_r)\,\mathbf{k}_0$ ($\mathbf{e}_r\times\mathbf{e}_r = \mathbf{e}_\theta\times\mathbf{e}_\theta = \mathbf{0}$, $\mathbf{e}_r\times\mathbf{e}_\theta = \mathbf{k}_0$).</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <p style="margin-bottom: 10px;">Not applicable: kinematics-only problem. The path and the motion law are given.</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
@@ -889,6 +893,7 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <li><strong>Polar basis.</strong> $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} = \begin{pmatrix} x/r &amp; -y_0/r &amp; 0 \\ y_0/r &amp; x/r &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \frac{x^2 + y_0^2}{r^2} = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$</div>
+<p style="margin-bottom: 10px;">The product has diagonal entries $(x^2 + y_0^2)/r^2 = 1$ (and $1$) and off-diagonal entries $(xy_0 - y_0x)/r^2 = 0$.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>The inverse relation $\mathbf{i} = \cos\theta\,\mathbf{e}_r - \sin\theta\,\mathbf{e}_\theta$ is the one used in 3.4.</li>
 </ul>
@@ -922,8 +927,8 @@ $$ x = a\cos^3\phi, \qquad y = a\sin^3\phi $$
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Acceleration</strong> $\mathbf{a} = a_r\mathbf{e}_r + a_\theta\mathbf{e}_\theta$ from the polar formula:</li>
 </ul>
-<div class="math-block">$$ a_r = \ddot{r} - r\dot{\theta}^2 = \frac{v^2y_0^2 + a_xxr^2}{r^3} - r\left(\frac{vy_0}{r^2}\right)^2 = \frac{a_xxr^2}{r^3} = a_x\frac{x}{r} $$</div>
-<div class="math-block">$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{y_0\left(2v^2x - a_xr^2\right)}{r^3} - \frac{2v^2xy_0}{r^3} = -a_x\frac{y_0}{r} \implies \mathbf{a} = a_x\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right) $$</div>
+<div class="math-block">$$ a_r = \ddot{r} - r\dot{\theta}^2 = \frac{v^2y_0^2 + a_xxr^2}{r^3} - r\left(\frac{vy_0}{r^2}\right)^2 = \frac{v^2y_0^2 + a_xxr^2}{r^3} - \frac{v^2y_0^2}{r^3} = \frac{a_xxr^2}{r^3} = a_x\frac{x}{r} $$</div>
+<div class="math-block">$$ a_\theta = r\ddot{\theta} + 2\dot{r}\dot{\theta} = \frac{y_0\left(2v^2x - a_xr^2\right)}{r^3} + 2\,\frac{vx}{r}\left(-\frac{vy_0}{r^2}\right) = \frac{y_0\left(2v^2x - a_xr^2\right)}{r^3} - \frac{2v^2xy_0}{r^3} = -a_x\frac{y_0}{r} \implies \mathbf{a} = a_x\left(\frac{x}{r}\,\mathbf{e}_r - \frac{y_0}{r}\,\mathbf{e}_\theta\right) $$</div>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.2 Forces</h4>
 <p style="margin-bottom: 10px;">Not applicable: kinematics-only problem. The motion law along $x$ is given.</p>
 <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 16px 0 8px;">3.3 Equations of Motion</h4>
@@ -1116,7 +1121,7 @@ $$ y = \sin x $$
 <li><strong>Change of basis.</strong> The matrix with the components of $\mathbf{e}_t$, $\mathbf{e}_n$ and $\mathbf{e}_b$ in $\mathcal{B}_0$ is, for $\sin x \ne 0$,</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_{\text{tnb}}] = \frac{1}{L}\begin{pmatrix} 1 &amp; \operatorname{sgn}(\sin x)\cos x &amp; 0 \\ \cos x &amp; -\operatorname{sgn}(\sin x) &amp; 0 \\ 0 &amp; 0 &amp; -L\operatorname{sgn}(\sin x) \end{pmatrix}, \qquad \det = \frac{1}{L^3}\left(-L\operatorname{sgn}(\sin x)\right)\left(-\operatorname{sgn}(\sin x) - \operatorname{sgn}(\sin x)\cos^2x\right) = 1, \qquad R R^T = I $$</div>
-<p style="margin-bottom: 10px;">For $\sin x \gt 0$, $\mathbf{e}_n$ is the right normal $-\mathbf{k}_0\times\mathbf{e}_t$ and $\mathbf{e}_b = -\mathbf{k}_0$; for $\sin x \lt 0$ it is the left normal and $\mathbf{e}_b = \mathbf{k}_0$. In both cases the triad is right-handed.</p>
+<p style="margin-bottom: 10px;">With $L^2 = 1 + \cos^2x$ and $\operatorname{sgn}^2 = 1$, the rows have unit norm ($(1 + \cos^2x)/L^2 = 1$, $(\cos^2x + 1)/L^2 = 1$, $L^2/L^2 = 1$) and are orthogonal (rows 1 and 2: $(\cos x - \operatorname{sgn}^2\cos x)/L^2 = 0$; row 3 has no common nonzero entry with the others), so $RR^T = I$. For $\sin x \gt 0$, $\mathbf{e}_n$ is the right normal $-\mathbf{k}_0\times\mathbf{e}_t$ and $\mathbf{e}_b = -\mathbf{k}_0$; for $\sin x \lt 0$ it is the left normal and $\mathbf{e}_b = \mathbf{k}_0$. In both cases the triad is right-handed.</p>
 </div><div class="phase-block">
 <span class="phase-badge">Phase 3</span>
 <h3 class="phase-heading">Derivation</h3>

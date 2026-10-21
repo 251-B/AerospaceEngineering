@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 186
+- Files: 181
 - Referenced by at least one note (a mention counts): 13
-- Not referenced yet: 173
+- Not referenced yet: 168
 - Build artifacts: 0
 - Working files: 0
 
@@ -163,20 +163,15 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - final_candidate (log)\|final_candidate.log]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - final_candidate (pdf)\|final_candidate.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - logo_uc3m (png)\|logo_uc3m.png]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - references (bib)\|references.bib]] | laboratorio | referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (log)\|report.log]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (pdf)\|report.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report (tex)\|report.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (log)\|report_test.log]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (pdf)\|report_test.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - report_test (tex)\|report_test.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (log)\|test1.log]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (pdf)\|test1.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test1 (tex)\|test1.tex]] | laboratorio | not-referenced |
-| [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (log)\|test2.log]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (pdf)\|test2.pdf]] | laboratorio | not-referenced |
 | [[Source - 03-engineering-mechanics - laboratorios - lab-1 - Lab1_Hector - latex_source - test2 (tex)\|test2.tex]] | laboratorio | not-referenced |
 

@@ -38,6 +38,7 @@ Step-by-step analytical solutions for official problems from Topic 4 (**Angular 
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with its origin at the attracting centre.
 * **Polar basis.** Take $\mathbf{k}$ along $\mathbf{H}_O$ (justified in 3.3). The polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * **Angular velocity and angular acceleration of $\mathcal{B}_1$ with respect to $S_0$:** $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$ and $\boldsymbol{\alpha}_{10} = \ddot{\theta}\,\mathbf{k}$.
 * **Time derivatives of the unit vectors (Poisson's formula $\dot{\mathbf{e}} = \boldsymbol{\omega}\times\mathbf{e}$):**
 $$ \dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{k}\times\mathbf{e}_r = \dot{\theta}\,\mathbf{e}_\theta, \qquad \dot{\mathbf{e}}_\theta = \dot{\theta}\,\mathbf{k}\times\mathbf{e}_\theta = -\dot{\theta}\,\mathbf{e}_r $$
@@ -107,7 +108,7 @@ $$ E^* = (u_0')^2 + W_{\text{eff}}(u_0) $$
 
 ##### Case $\alpha = 3$: $F \propto 1/r^3$
 * $V_0 = -\dfrac{\mu}{2r^2} = -\dfrac{\mu}{2}u^2$. Binet: $u'' + \lambda u = 0$ with $\lambda \equiv 1 - \mu/h^2$. Then $W_{\text{eff}} = \lambda u^2$ and $(u')^2 + \lambda u^2 = E^*$.
-* **$h^2 \gt \mu$ ($\lambda = \kappa^2 \gt 0$, $\kappa = \sqrt{1 - \mu/h^2}$):** $u = A\cos(\kappa\theta + \delta)$ with $A = \sqrt{u_0^2 + (u_0'/\kappa)^2}$. The cosine vanishes at a finite angle, so $u \to 0$ in every case: **(i) the particle always escapes**; a particle moving inward ($u_0' \gt 0$) is first reflected at the periapsis $u = A$. **(ii)** never, since $u \le A$. **(iii)** no oscillation between two positive values.
+* **$h^2 \gt \mu$ ($\lambda = \kappa^2 \gt 0$, $\kappa = \sqrt{1 - \mu/h^2}$):** $u = A\cos(\kappa\theta + \delta)$; the initial conditions $u_0 = A\cos\delta$ and $u_0' = -\kappa A\sin\delta$ give, squaring and adding, $A = \sqrt{u_0^2 + (u_0'/\kappa)^2}$. The cosine vanishes at a finite angle, so $u \to 0$ in every case: **(i) the particle always escapes**; a particle moving inward ($u_0' \gt 0$) is first reflected at the periapsis $u = A$. **(ii)** never, since $u \le A$. **(iii)** no oscillation between two positive values.
 * **$h^2 \lt \mu$ ($\lambda = -\kappa^2 \lt 0$, $\kappa = \sqrt{\mu/h^2 - 1}$):** $u = C_1e^{\kappa\theta} + C_2e^{-\kappa\theta}$ with $C_1 = \tfrac{1}{2}(u_0 + u_0'/\kappa)$, $C_2 = \tfrac{1}{2}(u_0 - u_0'/\kappa)$. If $C_1 \gt 0$ (i.e. $u_0' \gt -\kappa u_0$), $u \to \infty$: **(ii) the particle reaches the origin**. If $C_1 \lt 0$ ($u_0' \lt -\kappa u_0$), $u$ reaches $0$ at a finite angle: **(i) escape**. If $C_1 = 0$, $u = u_0e^{-\kappa\theta} \to 0$ only asymptotically (spiral $r = r_0e^{\kappa\theta}$), a limiting case of escape. **(iii)** no oscillation.
 * **$h^2 = \mu$ ($\lambda = 0$):** $u'' = 0 \Rightarrow u = u_0 + u_0'\theta$ (reciprocal spiral). $u_0' \gt 0$: reaches the origin; $u_0' \lt 0$: escapes at $\theta = u_0/|u_0'|$; $u_0' = 0$: circle $r = 1/u_0$.
 
@@ -182,6 +183,7 @@ $$ E^* = (u_0')^2 + W_{\text{eff}}(u_0) $$
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$, horizontal plane $z = 0$, $\mathbf{k}$ up.
 * **Polar basis of $P_1$.** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$. $P_2$ moves along $\mathbf{k}$, so it needs no extra basis.
 
 ### Phase 3: Derivation
@@ -289,6 +291,7 @@ $$ 2\ddot{r} - r\dot{\theta}^2 = -g - \mu g\frac{\dot{r}}{\sqrt{\dot{r}^2 + r^2\
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $O$ at the centre of the asteroid.
 * **Polar basis in the orbital plane.** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by the true anomaly $\theta$ about $\mathbf{k}$ (along $\mathbf{H}_O$):
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
 
 ### Phase 3: Derivation

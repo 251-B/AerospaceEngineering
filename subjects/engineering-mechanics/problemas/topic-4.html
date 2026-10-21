@@ -494,6 +494,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li><strong>Polar basis.</strong> Take $\mathbf{k}$ along $\mathbf{H}_O$ (justified in 3.3). The polar basis $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ rotated by $\theta(t)$ about $\mathbf{k}$:</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$</div>
+<p style="margin-bottom: 10px;">Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li><strong>Angular velocity and angular acceleration of $\mathcal{B}_1$ with respect to $S_0$:</strong> $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$ and $\boldsymbol{\alpha}_{10} = \ddot{\theta}\,\mathbf{k}$.</li>
 <li><strong>Time derivatives of the unit vectors (Poisson's formula $\dot{\mathbf{e}} = \boldsymbol{\omega}\times\mathbf{e}$):</strong></li>
@@ -584,7 +585,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin: 12px 0 6px;">Case $\alpha = 3$: $F \propto 1/r^3$</h5>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>$V_0 = -\dfrac{\mu}{2r^2} = -\dfrac{\mu}{2}u^2$. Binet: $u'' + \lambda u = 0$ with $\lambda \equiv 1 - \mu/h^2$. Then $W_{\text{eff}} = \lambda u^2$ and $(u')^2 + \lambda u^2 = E^*$.</li>
-<li><strong>$h^2 \gt \mu$ ($\lambda = \kappa^2 \gt 0$, $\kappa = \sqrt{1 - \mu/h^2}$):</strong> $u = A\cos(\kappa\theta + \delta)$ with $A = \sqrt{u_0^2 + (u_0'/\kappa)^2}$. The cosine vanishes at a finite angle, so $u \to 0$ in every case: <strong>(i) the particle always escapes</strong>; a particle moving inward ($u_0' \gt 0$) is first reflected at the periapsis $u = A$. <strong>(ii)</strong> never, since $u \le A$. <strong>(iii)</strong> no oscillation between two positive values.</li>
+<li><strong>$h^2 \gt \mu$ ($\lambda = \kappa^2 \gt 0$, $\kappa = \sqrt{1 - \mu/h^2}$):</strong> $u = A\cos(\kappa\theta + \delta)$; the initial conditions $u_0 = A\cos\delta$ and $u_0' = -\kappa A\sin\delta$ give, squaring and adding, $A = \sqrt{u_0^2 + (u_0'/\kappa)^2}$. The cosine vanishes at a finite angle, so $u \to 0$ in every case: <strong>(i) the particle always escapes</strong>; a particle moving inward ($u_0' \gt 0$) is first reflected at the periapsis $u = A$. <strong>(ii)</strong> never, since $u \le A$. <strong>(iii)</strong> no oscillation between two positive values.</li>
 <li><strong>$h^2 \lt \mu$ ($\lambda = -\kappa^2 \lt 0$, $\kappa = \sqrt{\mu/h^2 - 1}$):</strong> $u = C_1e^{\kappa\theta} + C_2e^{-\kappa\theta}$ with $C_1 = \tfrac{1}{2}(u_0 + u_0'/\kappa)$, $C_2 = \tfrac{1}{2}(u_0 - u_0'/\kappa)$. If $C_1 \gt 0$ (i.e. $u_0' \gt -\kappa u_0$), $u \to \infty$: <strong>(ii) the particle reaches the origin</strong>. If $C_1 \lt 0$ ($u_0' \lt -\kappa u_0$), $u$ reaches $0$ at a finite angle: <strong>(i) escape</strong>. If $C_1 = 0$, $u = u_0e^{-\kappa\theta} \to 0$ only asymptotically (spiral $r = r_0e^{\kappa\theta}$), a limiting case of escape. <strong>(iii)</strong> no oscillation.</li>
 <li><strong>$h^2 = \mu$ ($\lambda = 0$):</strong> $u'' = 0 \Rightarrow u = u_0 + u_0'\theta$ (reciprocal spiral). $u_0' \gt 0$: reaches the origin; $u_0' \lt 0$: escapes at $\theta = u_0/|u_0'|$; $u_0' = 0$: circle $r = 1/u_0$.</li>
 </ul>
@@ -635,7 +636,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
         <span class="problem-badge">Angular Momentum + Energy</span>
       </div>
       <div class="problem-statement">
-<p>We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.</p>
+<p>We consider a smooth horizontal plane wih [sic] a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.</p>
 <p>Initially, half of the cord lies under the plane and half of the cord is on the plane. At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.</p>
 <figure class="statement-figure"><img src="../../../vault/attachments/EM/T4-P43-figure.png" alt="Smooth horizontal plane with a small hole, particle P1 on the plane at distance r from the hole and particle P2 hanging below it, both of mass m" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;background:#fff;border-radius:8px;padding:8px"><figcaption>Figure: Smooth horizontal plane with a small hole, particle P1 on the plane at distance r from the hole and particle P2 hanging below it, both of mass m (Problems.pdf, p. 30).</figcaption></figure>
       </div>
@@ -695,6 +696,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li><strong>Polar basis of $P_1$.</strong> $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$</div>
+<p style="margin-bottom: 10px;">Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>$\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$. $P_2$ moves along $\mathbf{k}$, so it needs no extra basis.</li>
 </ul>
@@ -847,6 +849,7 @@ $$ F = \frac{m\mu}{r^\alpha} $$
 <li><strong>Polar basis in the orbital plane.</strong> $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$ is the inertial basis rotated by the true anomaly $\theta$ about $\mathbf{k}$ (along $\mathbf{H}_O$):</li>
 </ul>
 <div class="math-block">$$ [{}_0 R_1] = \begin{pmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \det[{}_0R_1] = 1, \qquad [{}_0R_1]^T[{}_0R_1] = I $$</div>
+<p style="margin-bottom: 10px;">Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.</p>
 <ul style="margin: 8px 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
 <li>$\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so by Poisson $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.</li>
 </ul>

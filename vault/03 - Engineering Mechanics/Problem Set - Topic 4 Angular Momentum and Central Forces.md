@@ -21,8 +21,6 @@ Problem statements from the UC3M Aerospace Engineering problem collection (`Prob
 
 | Problem | Problems.pdf page | Key page | Topic of the problem |
 | :---: | :---: | :---: | :--- |
-| 17 | 9-10 | 73 | Linear central force plus gravity |
-| 39 | 27 | 76 (part f only) | Particle on a string over a plate edge |
 | 42 | 29 | none | Power-law central force, discussion with $u = 1/r$ |
 | 43 | 30 | none | Two particles connected through a hole |
 | 44 | 31 | none | Seed thrown from an asteroid (apocenter) |
@@ -50,7 +48,7 @@ where $r$ is the distance between $O$ and $P$, and $\mu, \alpha$ are known const
 
 ## 📌 Problem 43: Two Connected Particles, Plane with Hole
 
-We consider a smooth horizontal plane with a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.
+We consider a smooth horizontal plane wih [sic] a small hole in it. One of the ends of a massless cord of length $2a$ is passed through the hole and then, two point particles, $P_1$ and $P_2$, each with the same mass $m$, are attached to the ends of the cord. Therefore, $P_1$ is constrained to move on the plane and $P_2$ moves along a vertical line below the hole.
 
 Initially, half of the cord lies under the plane and half of the cord is on the plane. At that instant, $P_1$ is pushed with a speed $v_0$ perpendicular to the cord, counterclockwise as seen from above. Assume that the cord is always in tension.
 

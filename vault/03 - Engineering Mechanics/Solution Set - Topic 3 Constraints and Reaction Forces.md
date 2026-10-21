@@ -29,6 +29,7 @@ Exhaustive, step-by-step analytical solutions for all 12 solvable problems from 
 * **Inertial frame:** $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward.
 * **Cylindrical basis:** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$, the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\theta + \sin^2\theta = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * The angular velocity of $\mathcal{B}_1$ is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{k}$, so Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
 * **Surface-adapted basis.** On the cone $z = r$ (slope $45^\circ$) the unit generator is $\mathbf{e}_g = (\mathbf{e}_r + \mathbf{k})/\sqrt{2}$ and the unit normal pointing into the cone, where the particle lies, is $\mathbf{n}_{in} = (\mathbf{k} - \mathbf{e}_r)/\sqrt{2}$. The triple $\{\mathbf{e}_g, \mathbf{e}_\theta, \mathbf{n}_{in}\}$ is right-handed ($\mathbf{e}_g\times\mathbf{e}_\theta = \mathbf{n}_{in}$) and its components in $\mathcal{B}_1$ are the columns of
 $$ [{}_1 R_2] = \begin{pmatrix} 1/\sqrt{2} & 0 & -1/\sqrt{2} \\ 0 & 1 & 0 \\ 1/\sqrt{2} & 0 & 1/\sqrt{2} \end{pmatrix}, \qquad \det[{}_1 R_2] = \tfrac{1}{2} + \tfrac{1}{2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
@@ -58,11 +59,12 @@ $$ E = \tfrac{1}{2}m\left(2\dot{r}^2 + r^2\dot{\theta}^2\right) + mgr = \tfrac{1
 ##### Reduction to quadratures
 * **Pedagogical Justification:** substitute $\dot{\theta} = a\sqrt{ga}/r^2$ in the energy, so that only $r$ and $\dot{r}$ remain, and isolate $\dot{r}^2$:
 $$ m\dot{r}^2 + \frac{mga^3}{2r^2} + mgr = \frac{3}{2}mga \implies \dot{r}^2 = \frac{3}{2}ga - gr - \frac{ga^3}{2r^2} = \frac{g}{2r^2}\left(3ar^2 - 2r^3 - a^3\right) $$
-* Taking the square root and separating variables, with Barrow's rule from $r(0) = a$:
-$$ \frac{dr}{dt} = \pm\sqrt{\frac{g}{2}}\,\frac{\sqrt{-2r^3 + 3ar^2 - a^3}}{r} \implies \int_a^r\frac{r'\,dr'}{\sqrt{-2r'^3 + 3ar'^2 - a^3}} = \pm\sqrt{\frac{g}{2}}\int_0^tdt' = \pm\sqrt{\frac{g}{2}}\,t, \qquad \theta(t) = \int_0^t\frac{a\sqrt{ga}}{r(t')^2}\,dt' $$
+* **General quadrature.** For arbitrary initial data, with energy $E$ and $h = r^2\dot{\theta}$, the same steps give $m\dot{r}^2 + \dfrac{mh^2}{2r^2} + mgr = E$, and separating variables with Barrow's rule from $r(0) = r_0$:
+$$ \int_{r_0}^{r}\frac{dr'}{\sqrt{\dfrac{E - mgr'}{m} - \dfrac{h^2}{2r'^2}}} = \pm\int_0^tdt' = \pm t, \qquad \theta(t) = \theta_0 + \int_0^t\frac{h}{r(t')^2}\,dt' $$
+* **These initial data** ($E = \tfrac32 mga$, $h = a\sqrt{ga}$, $r_0 = a$) give the radicand $\dfrac{g}{2r^2}\left(-2r^3 + 3ar^2 - a^3\right)$, which is shown below to be $\le 0$ and to vanish only at $r = a$; the separation of variables is then not possible ($\dot{r} \equiv 0$) and the motion is found directly:
 
 ##### Maximum and minimum of $z = r$
-* **Pedagogical Justification:** the turning points of $r$ are the roots of $\dot{r}^2 = 0$, i.e. of $P(r) = -2r^3 + 3ar^2 - a^3$. Since the particle starts at $r = a$ with $\dot{r}(0) = 0$, $r = a$ is a root: $2a^3 - 3a^3 + a^3 = 0$. Dividing $2r^3 - 3ar^2 + a^3$ by $(r - a)$:
+* **Pedagogical Justification:** the turning points of $r$ are the roots of $\dot{r}^2 = 0$, i.e. of $P(r) = -2r^3 + 3ar^2 - a^3$. Since the particle starts at $r = a$ with $\dot{r}(0) = 0$, $r = a$ is a root: $2a^3 - 3a^3 + a^3 = 0$. Dividing $2r^3 - 3ar^2 + a^3$ by $(r - a)$ (check: $(r - a)(2r^2 - ar - a^2) = 2r^3 - ar^2 - a^2r - 2ar^2 + a^2r + a^3 = 2r^3 - 3ar^2 + a^3$):
 $$ 2r^3 - 3ar^2 + a^3 = (r - a)\left(2r^2 - ar - a^2\right) = (r - a)(r - a)(2r + a) = (r - a)^2(2r + a) $$
 * Therefore
 $$ \dot{r}^2 = -\frac{g\,(2r + a)}{2r^2}\,(r - a)^2 $$
@@ -92,6 +94,7 @@ The data of the problem are exactly those of a circular orbit at constant height
 * **Inertial frame:** $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward.
 * **Cylindrical basis:** $\mathcal{B}_1 = \{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{k}\}$, obtained from $\mathcal{B}_0$ by a rotation $\theta(t)$ about $\mathbf{k}$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * **Surface-adapted basis.** With $s = \sqrt{1 + 4r^2/a^2}$, the unit tangent along the meridian is $\mathbf{e}_g = \left(\mathbf{e}_r + \tfrac{2r}{a}\mathbf{k}\right)/s$ and the unit normal pointing into the bowl is $\mathbf{n}_{in} = \left(\mathbf{k} - \tfrac{2r}{a}\mathbf{e}_r\right)/s$, proportional to $-\nabla f = -2r\,\mathbf{e}_r + a\,\mathbf{k}$. Since $\mathbf{e}_g\times\mathbf{e}_\theta = \mathbf{n}_{in}$ the triple is right-handed, and
 $$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2r/(as) \\ 0 & 1 & 0 \\ 2r/(as) & 0 & 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1}{s^2} + \frac{4r^2}{a^2s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
 
@@ -127,7 +130,7 @@ $$ \dot{r}^2 = \frac{v_0^2 + 2ga - a^2v_0^2/r^2 - 2gr^2/a}{1 + 4r^2/a^2} \implie
 with $\theta(t) = \displaystyle\int_0^t\frac{av_0}{r(t')^2}\,dt'$.
 
 ##### Maximum and minimum of $r$
-* **Pedagogical Justification:** the turning points satisfy $\dot{r} = 0$. Multiplying the numerator by $ar^2$ and writing $u = r^2$:
+* **Pedagogical Justification:** the turning points satisfy $\dot{r} = 0$. Multiplying the numerator by $-ar^2$ and writing $u = r^2$:
 $$ 2gu^2 - a\left(v_0^2 + 2ga\right)u + a^3v_0^2 = 0 $$
 * Since the particle starts at $r = a$ with $\dot{r} = 0$, $u = a^2$ is a root: $2ga^4 - a^3v_0^2 - 2ga^4 + a^3v_0^2 = 0$. Factorising:
 $$ 2gu^2 - a\left(v_0^2 + 2ga\right)u + a^3v_0^2 = \left(u - a^2\right)\left(2gu - av_0^2\right) = 0 \implies r_1 = a, \qquad r_2 = v_0\sqrt{\frac{a}{2g}} $$
@@ -157,8 +160,9 @@ $$ 2gu^2 - a\left(v_0^2 + 2ga\right)u + a^3v_0^2 = \left(u - a^2\right)\left(2gu
 $$ \mathbf{e}_r = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{k} \ \ (\text{outward}), \qquad \mathbf{e}_\theta = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{k} \ \ (\text{along increasing } \theta) $$
 * **Change of basis.** The triple $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{j}\}$ has $\mathbf{e}_r\times\mathbf{e}_\theta = -\mathbf{j}$, so it is left-handed. The right-handed polar triple is $\{\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_3\}$ with $\mathbf{e}_3 = -\mathbf{j}$ (the third vector plays no role in the planar kinematics). Its columns in $\mathcal{B}_0 = \{\mathbf{i}, \mathbf{j}, \mathbf{k}\}$ give
 $$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1 \\ -\cos\theta & \sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * The angular velocity of the basis is $\boldsymbol{\omega}_{10} = \dot{\theta}\,\mathbf{e}_3 = -\dot{\theta}\,\mathbf{j}$, and Poisson's formula gives $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
-* **For part (b)**, the cylindrical basis $\{\mathbf{e}_\rho, \mathbf{e}_\varphi, \mathbf{k}\}$ is obtained from $\mathcal{B}_0$ by the simple rotation $\mathrm{R}_z(\omega t)$ about $\mathbf{k}$ ($\det = 1$, $R R^T = I$); the meridian plane of the circle is $\varphi = \omega t$ and the pair $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ is written with $\mathbf{e}_\rho$ in place of $\mathbf{i}$.
+* **For part (b)**, the cylindrical basis $\{\mathbf{e}_\rho, \mathbf{e}_\varphi, \mathbf{k}\}$ is obtained from $\mathcal{B}_0$ by the simple rotation $\mathrm{R}_z(\omega t)$ about $\mathbf{k}$ (matrix $\begin{pmatrix}\cos \omega t & -\sin \omega t & 0\\ \sin \omega t & \cos \omega t & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\omega t + \sin^2\omega t = 1$; $RR^T$ has diagonal entries $\cos^2\omega t + \sin^2\omega t = 1$ (and $1$) and off-diagonal entries $\cos \omega t\sin \omega t - \sin \omega t\cos \omega t = 0$, so $RR^T = I$); the meridian plane of the circle is $\varphi = \omega t$ and the pair $\{\mathbf{e}_r, \mathbf{e}_\theta\}$ is written with $\mathbf{e}_\rho$ in place of $\mathbf{i}$.
 
 ### Phase 3: Derivation
 
@@ -206,8 +210,8 @@ $$ N(\theta_d) = 0 \implies \boxed{\cos\theta_d = \frac{2gL - v_0^2}{3gL}} $$
 ##### Part (b): equilibrium positions
 * **Pedagogical Justification:** an equilibrium relative to the turning circle is a static solution of the equation of motion, $\ddot{\theta} = \dot{\theta} = 0$ (in the inertial frame the particle then describes a horizontal circle):
 $$ \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0 $$
-* **Vertical alignments** ($\sin\theta = 0$): $\theta_1 = 0$ (bottom) and $\theta_2 = \pi$ (top).
-* **Off-axis equilibria** ($\cos\theta = g/(\omega^2L)$): they exist if and only if $\left|g/(\omega^2L)\right| \le 1$, i.e. $\omega^2 \ge g/L$. For $\omega \gt \sqrt{g/L}$ there are two symmetric positions $\theta_{3,4} = \pm\arccos\dfrac{g}{\omega^2L}$.
+* **Vertical alignments** ($\sin\theta = 0$): $\theta_1 = 0$ (bottom) and $\theta_2 = \pi$ (top). The constraint of the statement is unilateral (the particle moves on the inside of the circumference). At rest, $-N_r = mL\left(\dot{\theta}^2 + \omega^2\sin^2\theta\right) + mg\cos\theta$ gives $-N_r = mg \gt 0$ at the bottom (admissible) but $-N_r = -mg \lt 0$ at the top, an outward push that the inside of the hoop cannot exert. So $\theta_2 = \pi$ is an equilibrium only for a bilateral constraint (a bead on a wire) and is **excluded** here.
+* **Off-axis equilibria** ($\cos\theta = g/(\omega^2L)$): they exist if and only if $\left|g/(\omega^2L)\right| \le 1$, i.e. $\omega^2 \ge g/L$, and they are admissible because $-N_r = mL\omega^2\sin^2\theta_0 + mg\cos\theta_0 \gt 0$ ($\cos\theta_0 \gt 0$). For $\omega \gt \sqrt{g/L}$ there are two symmetric positions $\theta_{3,4} = \pm\arccos\dfrac{g}{\omega^2L}$.
 * **Stability** (linearisation of $\ddot{\theta} = F(\theta)$ with $F = -\left(g/L - \omega^2\cos\theta\right)\sin\theta$): $F'(0) = -(g/L - \omega^2)$, so the bottom is stable for $\omega^2 \lt g/L$ and unstable for $\omega^2 \gt g/L$; near $\theta = \pi$, $\ddot{\theta} \approx (g/L + \omega^2)(\theta - \pi)$, always unstable; at $\theta_{3,4}$, $F'(\theta_0) = -\omega^2\sin^2\theta_0 \lt 0$, stable.
 
 ### Phase 4: Interpretation & Checks
@@ -228,7 +232,7 @@ $$ \left(\frac{g}{L} - \omega^2\cos\theta\right)\sin\theta = 0 $$
 
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial frame:** $\mathcal{F}_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{j}$ vertical upward.
-* **Polar basis:** $\mathbf{e}_r = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}$ and $\mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j}$, a rotation of $\mathcal{B}_0$ by $\theta$ about $\mathbf{k}$ ($\det = \cos^2\theta + \sin^2\theta = 1$, $R R^T = I$), with $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$ (Poisson).
+* **Polar basis:** $\mathbf{e}_r = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}$ and $\mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j}$, a rotation of $\mathcal{B}_0$ by $\theta$ about $\mathbf{k}$ (matrix $\begin{pmatrix}\cos \theta & -\sin \theta & 0\\ \sin \theta & \cos \theta & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\theta + \sin^2\theta = 1$; $RR^T$ has diagonal entries $\cos^2\theta + \sin^2\theta = 1$ (and $1$) and off-diagonal entries $\cos \theta\sin \theta - \sin \theta\cos \theta = 0$, so $RR^T = I$), with $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$ (Poisson).
 
 ### Phase 3: Derivation
 
@@ -267,14 +271,16 @@ $$ \int_0^{\theta(t)}\frac{d\theta'}{\sqrt{\dfrac{v_0^2}{a^2} - \dfrac{2\left(mg
 
 ##### (d) Case $\beta = mg/(ka)$
 * **Pedagogical Justification:** the coefficient $mg - k\beta a$ vanishes, so $V$ is constant and the tangential force is zero: $ma\ddot{\theta} = 0$. Integrating with Barrow's rule:
-$$ \dot{\theta}(t) = \dot{\theta}(0) = \frac{v_0}{a}, \qquad \theta(t) = \int_0^t\frac{v_0}{a}\,dt' = \boxed{\frac{v_0}{a}\,t} $$
+$$ \dot{\theta}(t) = \dot{\theta}(0) = \frac{v_0}{a}, \qquad \theta(t) = \int_0^t\frac{v_0}{a}\,dt' = \left[\frac{v_0t'}{a}\right]_0^t = \boxed{\frac{v_0}{a}\,t} $$
 The particle circles the wire at constant angular speed.
 
 ##### (e) Position with the additional force along the velocity
 * **Pedagogical Justification:** with $\beta = mg/(ka)$ the gravity and spring contributions to the tangential equation cancel, so only the additional force remains: $ma\ddot{\theta} = 2m\mu\,(a\dot{\theta})$, i.e.
 $$ \ddot{\theta} - 2\mu\dot{\theta} = 0 $$
 * Let $\Omega(t) = \dot{\theta}$; then $\dfrac{d\Omega}{\Omega} = 2\mu\,dt$, and integrating from $\Omega(0) = v_0/a$ (Barrow):
-$$ \left[\ln\Omega'\right]_{v_0/a}^{\Omega} = 2\mu t \implies \Omega(t) = \frac{v_0}{a}e^{2\mu t}, \qquad \theta(t) = \frac{v_0}{a}\int_0^te^{2\mu t'}dt' = \frac{v_0}{a}\left[\frac{e^{2\mu t'}}{2\mu}\right]_0^t = \boxed{\frac{v_0}{2\mu a}\left(e^{2\mu t} - 1\right)} $$
+$$ \int_{v_0/a}^{\Omega}\frac{d\Omega'}{\Omega'} = \int_0^t2\mu\,dt' \implies \left[\ln\Omega'\right]_{v_0/a}^{\Omega} = \ln\frac{a\Omega}{v_0} = 2\mu t \implies \frac{a\Omega}{v_0} = e^{2\mu t} \implies \Omega(t) = \frac{v_0}{a}e^{2\mu t} $$
+* With $w = 2\mu t'$, $dw = 2\mu\,dt'$, the antiderivative is $\int e^{2\mu t'}dt' = \frac{1}{2\mu}\int e^w\,dw = \frac{e^{2\mu t'}}{2\mu}$, and with $\theta(0) = 0$:
+$$ \theta(t) = \frac{v_0}{a}\int_0^te^{2\mu t'}dt' = \frac{v_0}{a}\left[\frac{e^{2\mu t'}}{2\mu}\right]_0^t = \frac{v_0}{a}\cdot\frac{e^{2\mu t} - 1}{2\mu} = \boxed{\frac{v_0}{2\mu a}\left(e^{2\mu t} - 1\right)} $$
 The force acts along the velocity, so it feeds energy to the particle and the angular speed grows exponentially.
 
 > [!note] Reading of the statement
@@ -307,7 +313,7 @@ $N$ is the outward component. It starts at $ka - mv_0^2/a$ and becomes more and 
 * **Vertical frame:** $S_1 = \{O; \mathbf{i}_1, \mathbf{j}_1, \mathbf{k}_1\}$ with $\mathbf{k}_1$ vertical upward.
 * **Cylinder frame:** $S_2 = \{O; \hat{\mathbf{x}}, \hat{\mathbf{y}}, \hat{\mathbf{z}}\}$ with $\hat{\mathbf{z}}$ along the axis. From the figure, $\hat{\mathbf{z}} = \sin\alpha\,\mathbf{i}_1 + \cos\alpha\,\mathbf{k}_1$, $\hat{\mathbf{x}} = \cos\alpha\,\mathbf{i}_1 - \sin\alpha\,\mathbf{k}_1$ and $\hat{\mathbf{y}} = \mathbf{j}_1$, a rotation of $S_1$ by $\alpha$ about $\mathbf{j}_1$:
 $$ [{}_1 R_2] = \begin{pmatrix} \cos\alpha & 0 & \sin\alpha \\ 0 & 1 & 0 \\ -\sin\alpha & 0 & \cos\alpha \end{pmatrix}, \qquad \det[{}_1 R_2] = \cos^2\alpha + \sin^2\alpha = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
-* **Cylindrical basis:** $\mathbf{e}_r = \cos\theta\,\hat{\mathbf{x}} + \sin\theta\,\hat{\mathbf{y}}$, $\mathbf{e}_\theta = -\sin\theta\,\hat{\mathbf{x}} + \cos\theta\,\hat{\mathbf{y}}$, $\hat{\mathbf{z}}$, a rotation of $S_2$ by $\theta$ about $\hat{\mathbf{z}}$ ($\det = 1$, $R R^T = I$), with $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
+* **Cylindrical basis:** $\mathbf{e}_r = \cos\theta\,\hat{\mathbf{x}} + \sin\theta\,\hat{\mathbf{y}}$, $\mathbf{e}_\theta = -\sin\theta\,\hat{\mathbf{x}} + \cos\theta\,\hat{\mathbf{y}}$, $\hat{\mathbf{z}}$, a rotation of $S_2$ by $\theta$ about $\hat{\mathbf{z}}$ (matrix $\begin{pmatrix}\cos \theta & -\sin \theta & 0\\ \sin \theta & \cos \theta & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\theta + \sin^2\theta = 1$; $RR^T$ has diagonal entries $\cos^2\theta + \sin^2\theta = 1$ (and $1$) and off-diagonal entries $\cos \theta\sin \theta - \sin \theta\cos \theta = 0$, so $RR^T = I$), with $\dot{\mathbf{e}}_r = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_r$.
 * **Gravity in this basis.** From $\mathbf{k}_1 = \cos\alpha\,\hat{\mathbf{z}} - \sin\alpha\,\hat{\mathbf{x}}$:
 $$ -g\,\mathbf{k}_1 = g\sin\alpha\,\hat{\mathbf{x}} - g\cos\alpha\,\hat{\mathbf{z}} = g\sin\alpha\cos\theta\,\mathbf{e}_r - g\sin\alpha\sin\theta\,\mathbf{e}_\theta - g\cos\alpha\,\hat{\mathbf{z}} $$
 so $\theta = 0$ is the lowest generator of the cylinder ($\mathbf{e}_r$ points downward there).
@@ -333,7 +339,7 @@ $$ \frac{d}{dt}\left[\tfrac{1}{2}\dot{\theta}^2 - \frac{g\sin\alpha}{R}\cos\thet
 #### 3.4 Integration and Answers
 ##### (a) Axial motion $z(t)$
 * **Pedagogical Justification:** the axial equation is $\ddot{z} = -g\cos\alpha$. Integrating twice with Barrow's rule from the initial conditions:
-$$ \dot{z}(t) = v_0 + \int_0^t\left(-g\cos\alpha\right)dt' = v_0 - g\cos\alpha\,t, \qquad \boxed{z(t) = \int_0^t\left(v_0 - g\cos\alpha\,t'\right)dt' = v_0t - \tfrac{1}{2}g\cos\alpha\,t^2} $$
+$$ \dot{z}(t) = v_0 + \int_0^t\left(-g\cos\alpha\right)dt' = v_0 - g\cos\alpha\,t, \qquad \boxed{z(t) = \int_0^t\left(v_0 - g\cos\alpha\,t'\right)dt' = \left[v_0t' - \tfrac{1}{2}g\cos\alpha\,t'^2\right]_0^t = v_0t - \tfrac{1}{2}g\cos\alpha\,t^2} $$
 
 ##### (b) Reduction of $\theta(t)$ to quadratures
 * From the first integral, with $\theta = \pi/2$ ($\cos\theta = 0$) and $\dot{\theta} = \omega_0$ at $t = 0$, the constant is $\tfrac{1}{2}\omega_0^2$:
@@ -378,8 +384,10 @@ $$ \dot{\theta}^2 = \frac{g\sin\alpha}{R}\left(1 + 2\cos\theta\right) = 0 \impli
 
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}, \mathbf{k}\}$ with $\mathbf{k}$ vertical upward.
-* **Cylindrical basis:** $\mathbf{e}_R = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}$, $\mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j}$, $\mathbf{k}$ (rotation about $\mathbf{k}$ by $\theta$; $\det = 1$, $R R^T = I$; $\dot{\mathbf{e}}_R = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_R$).
-* **Cone basis:** the unit vector along the generator from $O$ to $P_1$, $\mathbf{e}_\xi = \sin\alpha\,\mathbf{e}_R - \cos\alpha\,\mathbf{k}$; the unit outward normal to the cone, $\mathbf{n} = \cos\alpha\,\mathbf{e}_R + \sin\alpha\,\mathbf{k}$; and $\mathbf{e}_\theta$. The triple $\{\mathbf{e}_\xi, \mathbf{e}_\theta, \mathbf{n}\}$ is right-handed ($\mathbf{e}_\xi\times\mathbf{e}_\theta = \mathbf{n}$).
+* **Cylindrical basis:** $\mathbf{e}_R = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}$, $\mathbf{e}_\theta = -\sin\theta\,\mathbf{i} + \cos\theta\,\mathbf{j}$, $\mathbf{k}$ (rotation about $\mathbf{k}$ by $\theta$, matrix $\begin{pmatrix}\cos \theta & -\sin \theta & 0\\ \sin \theta & \cos \theta & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\theta + \sin^2\theta = 1$; $RR^T$ has diagonal entries $\cos^2\theta + \sin^2\theta = 1$ (and $1$) and off-diagonal entries $\cos \theta\sin \theta - \sin \theta\cos \theta = 0$, so $RR^T = I$; $\dot{\mathbf{e}}_R = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_R$).
+* **Cone basis:** the unit vector along the generator from $O$ to $P_1$, $\mathbf{e}_\xi = \sin\alpha\,\mathbf{e}_R - \cos\alpha\,\mathbf{k}$; the unit outward normal to the cone, $\mathbf{n} = \cos\alpha\,\mathbf{e}_R + \sin\alpha\,\mathbf{k}$; and $\mathbf{e}_\theta$. The triple $\{\mathbf{e}_\xi, \mathbf{e}_\theta, \mathbf{n}\}$ is right-handed ($\mathbf{e}_\xi\times\mathbf{e}_\theta = \mathbf{n}$). In the cylindrical basis $\{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{k}\}$
+$$ [{}_1R_2] = \begin{pmatrix} \sin\alpha & 0 & \cos\alpha \\ 0 & 1 & 0 \\ -\cos\alpha & 0 & \sin\alpha \end{pmatrix}, \qquad \det[{}_1R_2] = \sin\alpha\cdot\sin\alpha + \cos\alpha\cdot\cos\alpha = \sin^2\alpha + \cos^2\alpha = 1 $$
+and its columns have unit norm ($\sin^2\alpha + \cos^2\alpha = 1$) and are orthogonal ($\sin\alpha\cos\alpha - \cos\alpha\sin\alpha = 0$), so $[{}_1R_2][{}_1R_2]^T = I$.
 
 ### Phase 3: Derivation
 
@@ -450,7 +458,7 @@ where the constant $C_2$ absorbs $-2g\ell$ and the factor $2/m$.
 
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$ with $\mathbf{j}$ vertical upward.
-* **Basis at $B$:** $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$ (radial) and $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent), a rotation of $\{\mathbf{i}, \mathbf{j}\}$ by $\phi$ ($\det = 1$, $R R^T = I$), with $\dot{\mathbf{u}}_r = \dot{\phi}\,\mathbf{u}_t$ and $\dot{\mathbf{u}}_t = -\dot{\phi}\,\mathbf{u}_r$. The straight segment leaves $B$ clockwise, toward the lower right in the figure, i.e. along $-\mathbf{u}_t$.
+* **Basis at $B$:** $\mathbf{u}_r = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j}$ (radial) and $\mathbf{u}_t = -\sin\phi\,\mathbf{i} + \cos\phi\,\mathbf{j}$ (counterclockwise tangent), a rotation of $\{\mathbf{i}, \mathbf{j}\}$ by $\phi$ (matrix $\begin{pmatrix}\cos \phi & -\sin \phi & 0\\ \sin \phi & \cos \phi & 0\\ 0 & 0 & 1\end{pmatrix}$, $\det = \cos^2\phi + \sin^2\phi = 1$; $RR^T$ has diagonal entries $\cos^2\phi + \sin^2\phi = 1$ (and $1$) and off-diagonal entries $\cos \phi\sin \phi - \sin \phi\cos \phi = 0$, so $RR^T = I$), with $\dot{\mathbf{u}}_r = \dot{\phi}\,\mathbf{u}_t$ and $\dot{\mathbf{u}}_t = -\dot{\phi}\,\mathbf{u}_r$. The straight segment leaves $B$ clockwise, toward the lower right in the figure, i.e. along $-\mathbf{u}_t$.
 
 ### Phase 3: Derivation
 
@@ -513,6 +521,7 @@ $$ \mathbf{n}_A = \cos\alpha\,\mathbf{i} + \sin\alpha\,\mathbf{j}, \quad \mathbf
 * **Changes of basis** (columns are the components of $\mathbf{t}_A, \mathbf{n}_A, \mathbf{k}$ and of $\mathbf{n}_B, \mathbf{t}_B, \mathbf{k}$):
 $$ [{}_0 R_A] = \begin{pmatrix} \sin\alpha & \cos\alpha & 0 \\ -\cos\alpha & \sin\alpha & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad [{}_0 R_B] = \begin{pmatrix} \cos\beta & -\sin\beta & 0 \\ \sin\beta & \cos\beta & 0 \\ 0 & 0 & 1 \end{pmatrix} $$
 $$ \det[{}_0 R_A] = \sin^2\alpha + \cos^2\alpha = 1, \quad \det[{}_0 R_B] = \cos^2\beta + \sin^2\beta = 1, \quad [{}_0 R_A][{}_0 R_A]^T = [{}_0 R_B][{}_0 R_B]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 * **Time derivatives** (each basis turns about $\mathbf{k}$ at the rate of its angle):
 $$ \dot{\mathbf{t}}_A = \dot{\alpha}\,\mathbf{n}_A, \quad \dot{\mathbf{n}}_A = -\dot{\alpha}\,\mathbf{t}_A, \qquad \dot{\mathbf{n}}_B = \dot{\beta}\,\mathbf{t}_B, \quad \dot{\mathbf{t}}_B = -\dot{\beta}\,\mathbf{n}_B $$
 
@@ -524,6 +533,7 @@ $$ \dot{\mathbf{t}}_A = \dot{\alpha}\,\mathbf{n}_A, \quad \dot{\mathbf{n}}_A = -
 $$ \mathbf{v}_P = -R\dot{\alpha}\,\mathbf{t}_A + \dot{\xi}_P\,\mathbf{t}_A + \xi_P\dot{\alpha}\,\mathbf{n}_A = \left(\dot{\xi}_P - R\dot{\alpha}\right)\mathbf{t}_A + \xi_P\dot{\alpha}\,\mathbf{n}_A $$
 $$ \mathbf{a}_P = \left(\ddot{\xi}_P - R\ddot{\alpha}\right)\mathbf{t}_A + \left(\dot{\xi}_P - R\dot{\alpha}\right)\dot{\alpha}\,\mathbf{n}_A + \left(\dot{\xi}_P\dot{\alpha} + \xi_P\ddot{\alpha}\right)\mathbf{n}_A - \xi_P\dot{\alpha}^2\,\mathbf{t}_A = \left(\ddot{\xi}_P - R\ddot{\alpha} - \xi_P\dot{\alpha}^2\right)\mathbf{t}_A + \left(\xi_P\ddot{\alpha} + 2\dot{\xi}_P\dot{\alpha} - R\dot{\alpha}^2\right)\mathbf{n}_A $$
 $$ \mathbf{v}_Q = \left(\dot{\xi}_Q + R\dot{\beta}\right)\mathbf{t}_B - \xi_Q\dot{\beta}\,\mathbf{n}_B, \qquad \mathbf{a}_Q = \left(\ddot{\xi}_Q + R\ddot{\beta} - \xi_Q\dot{\beta}^2\right)\mathbf{t}_B - \left(\xi_Q\ddot{\beta} + 2\dot{\xi}_Q\dot{\beta} + R\dot{\beta}^2\right)\mathbf{n}_B $$
+$\mathbf{a}_Q$ follows from $\mathbf{v}_Q$ exactly as $\mathbf{a}_P$ from $\mathbf{v}_P$, with $\dot{\mathbf{t}}_B$ and $\dot{\mathbf{n}}_B$ of Phase 2 and $\beta$ in place of $\alpha$. In terms of the chosen coordinates $(\alpha, \beta, \xi_P)$: $\xi_Q = L - \xi_P - R(\beta - \alpha)$, $\dot{\xi}_Q = -\dot{\xi}_P - R(\dot{\beta} - \dot{\alpha})$ (so $\dot{\xi}_Q + R\dot{\beta} = R\dot{\alpha} - \dot{\xi}_P$) and $\ddot{\xi}_Q + R\ddot{\beta} = R\ddot{\alpha} - \ddot{\xi}_P$.
 
 #### 3.2 Forces
 ##### (c) Forces on $P$ and $Q$
@@ -563,6 +573,7 @@ $$ K = 2\cdot\tfrac{1}{2}m\xi^2\dot{\alpha}^2 = m\xi^2\dot{\alpha}^2, \qquad V(\
 $$ V'(\alpha) = 2mg\xi\sin\alpha + 4kx_P\xi\cos\alpha = 2\xi f(\alpha), \qquad f(\alpha) = mg\sin\alpha + 2k\cos\alpha\left(R\cos\alpha + \xi\sin\alpha\right) $$
 * **Equilibrium.** $V'(\alpha_0) = 0$, i.e. $f(\alpha_0) = 0$ (since $\xi \gt 0$). Physically, the horizontal pull $2kx_P$ of the spring must be balanced by the horizontal component of the tension, which needs $\alpha_0 \lt 0$: the segments $AP$ and $BQ$ are slightly inclined inward. For a small deviation from the vertical, $|\alpha_0| \ll 1$, keep first-order terms ($\sin\alpha \approx \alpha$, $\cos\alpha \approx 1$, $\xi \approx \ell_0$):
 $$ mg\alpha_0 + 2k\left(R + \ell_0\alpha_0\right) = 0 \implies \alpha_0 \approx -\frac{2kR}{mg + 2k\ell_0} $$
+and the other coordinates at equilibrium follow from the symmetry relations: $\beta_0 = \pi - \alpha_0 \approx \pi + \dfrac{2kR}{mg + 2k\ell_0}$ and $\xi_0 = \ell_0 + R\alpha_0 \approx \ell_0 - \dfrac{2kR^2}{mg + 2k\ell_0}$.
 * **Equation of motion.** From $\frac{d}{dt}(K + V) = 0$ with the chain rule and $\dot{\xi} = R\dot{\alpha}$:
 $$ 2m\xi^2\dot{\alpha}\ddot{\alpha} + 2m\xi R\dot{\alpha}^3 + 2\xi f\dot{\alpha} = 0 \implies m\xi\ddot{\alpha} + mR\dot{\alpha}^2 + f(\alpha) = 0 $$
 This is the $\mathbf{n}_A$ equation of 3.3 with $\dot{\xi}_P = R\dot{\alpha}$ and $\mathbf{d}\cdot\mathbf{n}_A = -2x_P\cos\alpha$.
@@ -571,7 +582,7 @@ $$ \ddot{\delta} + \frac{mg + 2k\ell_0}{m\ell_0}\,\delta = 0 \implies \omega^2 =
 
 ### Phase 4: Interpretation & Checks
 * **Limit $k \to 0$:** $\omega = \sqrt{g/\ell_0}$, the pendulum of length $\ell_0$ (the free length of each hanging segment).
-* **Limit $g \to 0$:** $\omega = \sqrt{2k/m}$, the frequency of two particles of mass $m$ joined by a spring $k$ (reduced mass $m/2$ and stiffness $k$).
+* **Limit $g \to 0$:** $\omega = \sqrt{2k/m}$, the frequency of two particles of mass $m$ joined by a spring $k$ (reduced mass $m/2$ and stiffness $k$). In this limit $\alpha_0 \to -R/\ell_0$, which is small only if $R \ll \ell_0$; otherwise the limit lies outside the small-angle hypothesis.
 * **Dimensional check:** $[g/\ell_0] = \text{s}^{-2}$, $[2k/m] = \text{N m}^{-1}\text{kg}^{-1} = \text{s}^{-2}$; $[\alpha_0] = [kR/(mg + 2k\ell_0)] = 1$.
 * **Check against the official key:** `Problems.pdf` gives only the spring force, $\mathbf{F}_{S,P} = -\mathbf{F}_{S,Q} = k\overrightarrow{PQ} = k(\mathbf{r}_Q - \mathbf{r}_P)$ written in its own coordinates, which is the same vector as $k\,\mathbf{d}$ above. The remaining results are verified by independent derivation and numerically ($R = 1$ m, $\ell_0 = 2$ m, $m = 1$ kg, $k = 0.3$ N/m, $g = 9.81$ m/s$^2$): the exact root of $f(\alpha_0) = 0$ is $\alpha_0 = -0.054532$ rad against $-0.054496$ rad from the linear formula, and integrating $m\xi\ddot{\alpha} + mR\dot{\alpha}^2 + f = 0$ gives $\omega^2 = 5.6482$ s$^{-2}$, equal to $f'(\alpha_0)/(m\xi(\alpha_0))$; the difference with $g/\ell_0 + 2k/m = 5.505$ s$^{-2}$ is the first-order correction $\xi(\alpha_0) = \ell_0 + R\alpha_0$ in place of $\ell_0$.
 
@@ -590,9 +601,11 @@ $$ \ddot{\delta} + \frac{mg + 2k\ell_0}{m\ell_0}\,\delta = 0 \implies \omega^2 =
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ vertical upward.
 * **Toroidal basis.** With $\theta$ (rotation about $\mathbf{j}_0$): $\mathcal{B}_1 = \{\mathbf{e}_\rho, \mathbf{e}_\theta, \mathbf{j}_0\}$ with $\mathbf{e}_\rho = \sin\theta\,\mathbf{i}_0 + \cos\theta\,\mathbf{k}_0$ and $\mathbf{e}_\theta = \cos\theta\,\mathbf{i}_0 - \sin\theta\,\mathbf{k}_0$ (so $\mathbf{e}_\rho\times\mathbf{e}_\theta = \mathbf{j}_0$):
 $$ [{}_0 R_1] = \begin{pmatrix} \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \\ \cos\theta & -\sin\theta & 0 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 with $\dot{\mathbf{e}}_\rho = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_\rho$.
 * **Poloidal basis.** With $\phi$ (rotation about $\mathbf{e}_\theta$): $\mathcal{B}_2 = \{\mathbf{n}, \mathbf{e}_\theta, \mathbf{t}_\phi\}$ with $\mathbf{n} = \cos\phi\,\mathbf{e}_\rho + \sin\phi\,\mathbf{j}_0$ (outward normal) and $\mathbf{t}_\phi = -\sin\phi\,\mathbf{e}_\rho + \cos\phi\,\mathbf{j}_0$:
 $$ [{}_1 R_2] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_1 R_2] = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 
 ### Phase 3: Derivation
 
@@ -640,7 +653,7 @@ $$ E_0 = 19.5 + 4g \ge 7g \iff 19.5 \ge 3g = 29.43 \quad\text{(false)} $$
 * **Answer:** no. With $g = 9.81$ m/s$^2$, $E_0 = 58.74$ J and the summit needs at least $7g = 68.67$ J, a deficit of $9.93$ J.
 
 ### Phase 4: Interpretation & Checks
-* **Robustness:** for $k \to 0$ the same inequality holds ($E_0 = 2.5 + 4g = 41.74$ J $\lt 7g$), so the conclusion does not depend on the value of $k$.
+* **Robustness:** for a general stiffness $E_0 = 2.5 + 4g + 8.5k$. At the summit $z_P = 7$ and $z_Q = 0$, so $|\mathbf{r}_P - \mathbf{r}_Q| \ge 7$ and $V_{\text{spring}} \ge \tfrac12 k\cdot 49 = 24.5k$. Reaching it requires $2.5 + 4g + 8.5k \ge 7g + 24.5k$, i.e. $2.5 \ge 3g + 16k$, false for every $k \ge 0$: the conclusion does not depend on $k$. (With $k = 2$: $58.74$ J against at least $68.67 + 49 = 117.67$ J.)
 * **Dimensional check:** $[k|\mathbf{r}_P - \mathbf{r}_Q|^2] = \text{N m}^{-1}\text{m}^2 = \text{J}$, $[mgz] = \text{J}$ and $[mv^2] = \text{J}$.
 * **Check against the official key:** `Problems.pdf` gives the force on $P$ due to $Q$, $\mathbf{F}_P = 2\left[\xi - (2 + \cos\phi)\sin\theta\right]\mathbf{i}_0 + 2\left[\eta - \sin\phi\right]\mathbf{j}_0 - 2\left[4 + (2 + \cos\phi)\cos\theta\right]\mathbf{k}_0$ (the key writes the same vector with its own letters), identical to part (d). The rest is verified by independent derivation. Sympy confirms the two tangent vectors and the normal, the projections of $\mathbf{a}_P$ and of the forces used in (e), and numerical integration of the four equations (DOP853) conserves $E$ to $2\times 10^{-11}$ with $E_0 = 58.74$ and keeps $z_P \le 4$ over $6$ s (the summit $z = 7$ is not approached).
 
@@ -658,8 +671,9 @@ $$ E_0 = 19.5 + 4g \ge 7g \iff 19.5 \ge 3g = 29.43 \quad\text{(false)} $$
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$ with $\mathbf{k}_0$ vertical upward; the plate in the plane $z_0 = 0$.
 * **Lengths:** $|OQ| = d/\cos\theta$, so the hanging segment has length $\rho = \ell - \dfrac{d}{\cos\theta}$.
-* **Swing basis.** The hanging segment $QP$ swings in the plane normal to the edge, i.e. about the direction $\mathbf{j}_0$. The basis $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_0, \mathbf{k}_1\}$ is the inertial basis rotated by $\phi$ about $\mathbf{j}_0$, with $\mathbf{i}_1 = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0$ and $\mathbf{k}_1 = -\sin\phi\,\mathbf{i}_0 + \cos\phi\,\mathbf{k}_0$ (columns in $\mathcal{B}_0$):
+* **Swing basis.** The hanging segment $QP$ swings in the plane normal to the edge, i.e. about the direction $\mathbf{j}_0$. The basis $\mathcal{B}_1 = \{\mathbf{i}_1, \mathbf{j}_0, \mathbf{k}_1\}$ is the inertial basis rotated by $-\phi$ about $\mathbf{j}_0$ (by $\phi$ about $-\mathbf{j}_0$), with $\mathbf{i}_1 = \cos\phi\,\mathbf{i}_0 + \sin\phi\,\mathbf{k}_0$ and $\mathbf{k}_1 = -\sin\phi\,\mathbf{i}_0 + \cos\phi\,\mathbf{k}_0$ (columns in $\mathcal{B}_0$):
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\phi & 0 & -\sin\phi \\ 0 & 1 & 0 \\ \sin\phi & 0 & \cos\phi \end{pmatrix}, \qquad \det[{}_0 R_1] = \cos^2\phi + \sin^2\phi = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 
 ### Phase 3: Derivation
 
@@ -740,6 +754,7 @@ It is a conserved quantity of the motion.
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}_0, \mathbf{j}_0, \mathbf{k}_0\}$.
 * **Cylindrical basis:** $\mathcal{B}_1 = \{\mathbf{e}_R, \mathbf{e}_\theta, \mathbf{k}\}$ with $\mathbf{k} = \mathbf{k}_0$, the inertial basis rotated by $\theta(t)$ about $\mathbf{k}$:
 $$ [{}_0 R_1] = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det[{}_0 R_1] = 1, \qquad [{}_0 R_1][{}_0 R_1]^T = I $$
+Multiplying out, $RR^T$ has diagonal entries $\cos^2 + \sin^2 = 1$ of the rotation angle (and $1$) and off-diagonal entries $\pm(\cos\sin - \sin\cos) = 0$, so it is the identity.
 with $\dot{\mathbf{e}}_R = \dot{\theta}\,\mathbf{e}_\theta$ and $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_R$.
 * **Surface-adapted basis.** With $s = \sqrt{1 + 4c^2R^2}$, the unit meridian tangent is $\mathbf{e}_g = (\mathbf{e}_R + 2cR\,\mathbf{k})/s$, the unit normal pointing into the bowl is $\hat{\mathbf{n}} = (-2cR\,\mathbf{e}_R + \mathbf{k})/s$, and $\mathbf{e}_g\times\mathbf{e}_\theta = \hat{\mathbf{n}}$, so
 $$ [{}_1 R_2] = \begin{pmatrix} 1/s & 0 & -2cR/s \\ 0 & 1 & 0 \\ 2cR/s & 0 & 1/s \end{pmatrix}, \qquad \det[{}_1 R_2] = \frac{1 + 4c^2R^2}{s^2} = 1, \qquad [{}_1 R_2][{}_1 R_2]^T = I $$
@@ -793,6 +808,7 @@ $$ \boxed{f(R) = \frac{d^2}{2c^4R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) -
 * The allowed radii are those with $f(R) \le 0$ (so that $\dot{R}^2 \ge 0$), and $R = 1/c$ is a root.
 
 ### Phase 4: Interpretation & Checks
+* **Limit $c \to 0$ (flat plane):** $\rho = R$, $\rho' = 1$, $\rho'' = 0$, and the equation for $R$ becomes $2\ddot{R} - R\dot{\theta}^2 + g = 0$, that of two equal particles joined through a hole in a horizontal plane.
 * **Bounded precessing motion:** the particle moves between two parallel circles $R_{\min}$ and $R_{\max}$, with the azimuthal angle monotonic ($\dot{\theta} = d/(c^2R^2)$ has the sign of $d$).
 * **Dimensional check:** $[c] = \text{m}^{-1}$, $[d] = \text{s}^{-1}$; $[cR^2] = [\rho] = \text{m}$ and $cR$ is dimensionless; every term of $f$ has units m$^2$/s$^2$.
 * **Check against the official key:** `Problems.pdf` has no entry for Problem 48 in its solution keys, so the results are verified by independent derivation. Sympy confirms $\rho'$, $\rho''$, the projections of $\mathbf{a}_P$ on $\mathbf{t}_R$ and $\mathbf{e}_\theta$, and numerical integration of the two equations of (f) ($c = d = g = 1$) conserves $E$ to $2\times 10^{-12}$, keeps $T/m \ge 0.303$ and bounds $R$ between $0.482807$ and $1$, the roots of $f$ ($f(0.482807) = 0$ and $f(1) = 0$; $f \lt 0$ between them).
@@ -808,8 +824,9 @@ $$ \boxed{f(R) = \frac{d^2}{2c^4R^2} + g\left(cR^2 + R\sqrt{1 + c^2R^2}\right) -
 
 ### Phase 2: Reference Frames & Vector Bases
 * **Inertial frame:** $S_0 = \{O; \mathbf{i}, \mathbf{j}\}$, with $\mathbf{i}$ horizontal to the right and $\mathbf{j}$ vertical upward (the horizontal axis is $Ox$).
-* **Bar bases** (rotations about the axis perpendicular to the plane, with $\det = 1$ and $R R^T = I$):
+* **Bar bases** (rotations about the axis perpendicular to the plane; check below):
 $$ \mathbf{e}_P = \sin\theta\,\mathbf{i} - \cos\theta\,\mathbf{j}, \quad \mathbf{e}_\theta = \cos\theta\,\mathbf{i} + \sin\theta\,\mathbf{j}, \qquad \mathbf{e}_Q = \sin\phi\,\mathbf{i} - \cos\phi\,\mathbf{j}, \quad \mathbf{e}_\phi = \cos\phi\,\mathbf{i} + \sin\phi\,\mathbf{j} $$
+In $\{\mathbf{i}, \mathbf{j}\}$ the matrix with columns $\mathbf{e}_P, \mathbf{e}_\theta$ is $\begin{pmatrix}\sin\theta & \cos\theta\\ -\cos\theta & \sin\theta\end{pmatrix}$, with $\det = \sin^2\theta + \cos^2\theta = 1$ and orthonormal columns ($\sin^2\theta + \cos^2\theta = 1$, $\sin\theta\cos\theta - \cos\theta\sin\theta = 0$), so $RR^T = I$; the same holds with $\phi$ for $\mathbf{e}_Q, \mathbf{e}_\phi$.
 where $\mathbf{e}_P$ points from $O$ to $P$ and $\mathbf{e}_Q$ from $P$ to $Q$. Their derivatives are $\dot{\mathbf{e}}_P = \dot{\theta}\,\mathbf{e}_\theta$, $\dot{\mathbf{e}}_\theta = -\dot{\theta}\,\mathbf{e}_P$, and the same with $\phi$.
 * **Scalar products needed:** $\mathbf{j}\cdot\mathbf{e}_P = -\cos\theta$, $\mathbf{j}\cdot\mathbf{e}_\theta = \sin\theta$, $\mathbf{j}\cdot\mathbf{e}_Q = -\cos\phi$, $\mathbf{j}\cdot\mathbf{e}_\phi = \sin\phi$, and
 $$ \mathbf{e}_P\cdot\mathbf{e}_Q = \cos(\theta - \phi), \quad \mathbf{e}_\theta\cdot\mathbf{e}_Q = \sin(\phi - \theta), \quad \mathbf{e}_\theta\cdot\mathbf{e}_\phi = \cos(\theta - \phi), \quad \mathbf{e}_P\cdot\mathbf{e}_\phi = \sin(\theta - \phi) $$
@@ -841,7 +858,7 @@ At rest at $\theta = \phi = 0$: $T_2 = mg$ and $T_1 = 2mg$, the static tensions 
 
 #### 3.4 Integration and Answers
 ##### (d) Conservation law
-* **Pedagogical Justification:** the bar forces are perpendicular to the relative velocities they connect and do no net work (rigid bars, scleronomic constraints), and gravity is conservative, so the mechanical energy is constant:
+* **Pedagogical Justification:** the bar forces do no net work. Bar $OP$ acts on $P$ with $-T_1\mathbf{e}_P$, whose power is $-T_1\mathbf{e}_P\cdot\ell\dot{\theta}\,\mathbf{e}_\theta = 0$. Bar $PQ$ acts with $+T_2\mathbf{e}_Q$ on $P$ and $-T_2\mathbf{e}_Q$ on $Q$, total power $-T_2\mathbf{e}_Q\cdot(\mathbf{v}_Q - \mathbf{v}_P) = -T_2\mathbf{e}_Q\cdot\ell\dot{\phi}\,\mathbf{e}_\phi = 0$. Gravity is conservative, so the mechanical energy is constant:
 $$ E = \tfrac{1}{2}m\ell^2\left[2\dot{\theta}^2 + \dot{\phi}^2 + 2\dot{\theta}\dot{\phi}\cos(\theta - \phi)\right] - mg\ell\left(2\cos\theta + \cos\phi\right) = \text{const} $$
 
 ##### (e) Will $Q$ ever cross the $Ox$ axis?
@@ -859,5 +876,5 @@ $$ \boxed{\omega_0 = \sqrt{\frac{3g}{5\ell}}} $$
 
 ### Phase 4: Interpretation & Checks
 * **Dimensional check:** $[g/\ell] = \text{s}^{-2}$, so $[\omega_0] = \text{s}^{-1}$; $[T_1] = [T_2] = [mg] = \text{N}$.
-* **Limiting case:** for a single pendulum the frequency would be $\sqrt{g/\ell}$; the constrained double pendulum oscillates more slowly ($\omega_0^2 = 0.6\,g/\ell$) because the second mass adds inertia faster than restoring torque.
+* **Comparison (not a limit of this system):** for a single pendulum the frequency would be $\sqrt{g/\ell}$; the constrained double pendulum oscillates more slowly ($\omega_0^2 = 0.6\,g/\ell$) because the second mass adds inertia faster than restoring torque.
 * **Check against the official key:** `Problems.pdf` has no entry for Problem 50 in its solution keys, so the results are verified by independent derivation. Sympy confirms that the Euler-Lagrange equations of $K - V$ are $m\ell^2$ times the two equations of (c), and gives $K \approx 5m\ell^2\dot{\theta}^2$ and $V''(0) = 6mg\ell$ for the constrained case.
