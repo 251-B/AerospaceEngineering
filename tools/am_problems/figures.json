@@ -1,0 +1,1982 @@
+{
+ "ch3b-e3-beats": {
+  "caption": "Response of $\\ddot x + x = \\cos\\alpha t$ from rest ($\\omega = 1$): beats for $\\alpha = 0.85$ (blue, bounded, envelope dashed) and resonance for $\\alpha = 1$ (pink, amplitude $t/2$).",
+  "curves": [
+   {
+    "a": 1.0,
+    "al": 0.85,
+    "col": "BLUE",
+    "fn": "beats",
+    "w": 1.0
+   },
+   {
+    "a": 1.0,
+    "al": 0.85,
+    "col": "BLUE",
+    "fn": "beats_env",
+    "w": 1.0
+   },
+   {
+    "a": 1.0,
+    "col": "PINK",
+    "fn": "resonance",
+    "w": 1.0
+   },
+   {
+    "a": 1.0,
+    "col": "PINK",
+    "fn": "resonance_env",
+    "w": 1.0
+   }
+  ],
+  "kind": "series",
+  "t1": 90,
+  "title": "Beats and resonance",
+  "xlabel": "t",
+  "ylabel": "x",
+  "ymax": 24
+ },
+ "ch3b-e4-response": {
+  "caption": "Amplitude ratio $\\omega^2M/a$ against $\\alpha/\\omega$ for $\\lambda/\\omega = 0.2, 0.5, 1, 1.5$ (blue to pink) and the undamped limit (dashed, $\\lambda = 0$).",
+  "kind": "response",
+  "lams": [
+   0.2,
+   0.5,
+   1.0,
+   1.5
+  ],
+  "title": "Frequency response",
+  "ymax": 5.0
+ },
+ "ch4a-e11-ii-neg": {
+  "A": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "x̃",
+   "ỹ"
+  ],
+  "caption": "Canonical $\\tilde{\\mathbf x}$-plane, $\\lambda_2 < 0$: the $\\tilde x$-axis (green) is a line of equilibria and the vertical orbits approach it.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane, λ₂ < 0",
+  "title": "canonical, lambda2<0"
+ },
+ "ch4a-e11-ii-pos": {
+  "A": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "axes": [
+   "x̃",
+   "ỹ"
+  ],
+  "caption": "Canonical $\\tilde{\\mathbf x}$-plane, $\\lambda_2 > 0$: the vertical orbits leave the line of equilibria.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane, λ₂ > 0",
+  "title": "canonical, lambda2>0"
+ },
+ "ch4a-e11-ii-x": {
+  "A": [
+   [
+    0.0,
+    -2.0
+   ],
+   [
+    0.0,
+    -2.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane for the example $\\mathbf v_1 = (1, 0)$, $\\mathbf v_2 = (1, 1)$, $\\lambda_2 = -2$: equilibria on the line of $\\mathbf v_1$, orbits parallel to $\\mathbf v_2$.",
+  "lines": [
+   [
+    1,
+    0,
+    "v_1"
+   ],
+   [
+    1,
+    1,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane, example",
+  "title": "original coordinates, example"
+ },
+ "ch4a-e11-iii-x": {
+  "A": [
+   [
+    -2.0,
+    2.0
+   ],
+   [
+    1.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane: equilibria on the line through $(1, 1)$ (green); trajectories parallel to $(2, -1)$, towards that line.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    2.0,
+    -1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e11-iii x-plane"
+ },
+ "ch4a-e11-iii-z": {
+  "A": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane: the line of equilibria (green) and the trajectories parallel to the other axis.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e11-iii z-plane"
+ },
+ "ch4a-e8-i-x": {
+  "A": [
+   [
+    1.5,
+    -0.5
+   ],
+   [
+    -0.5,
+    1.5
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable node): dashed lines are the eigenlines $\\mathbf v_1 = (1, 1)$ and $\\mathbf v_2 = (1, -1)$.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-i x-plane"
+ },
+ "ch4a-e8-i-z": {
+  "A": [
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    2.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable node): invariant axes and orbits $z_2 = K|z_1|^{2}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-i z-plane"
+ },
+ "ch4a-e8-ii-x": {
+  "A": [
+   [
+    1.0,
+    -3.0
+   ],
+   [
+    0.0,
+    -2.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (1, 0)$ and $\\mathbf v_2 = (1, 1)$.",
+  "lines": [
+   [
+    1.0,
+    0.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-ii x-plane"
+ },
+ "ch4a-e8-ii-z": {
+  "A": [
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    -2.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{-2}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-ii z-plane"
+ },
+ "ch4a-e8-iii-x": {
+  "A": [
+   [
+    -2.5714285714285716,
+    0.2857142857142857
+   ],
+   [
+    0.8571428571428571,
+    -2.4285714285714284
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable node): dashed lines are the eigenlines $\\mathbf v_1 = (1, 2)$ and $\\mathbf v_2 = (2, -3)$.",
+  "lines": [
+   [
+    1.0,
+    2.0,
+    "v_1"
+   ],
+   [
+    2.0,
+    -3.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-iii x-plane"
+ },
+ "ch4a-e8-iii-z": {
+  "A": [
+   [
+    -2.0,
+    0.0
+   ],
+   [
+    0.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable node): invariant axes and orbits $z_2 = K|z_1|^{\\frac{3}{2}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-iii z-plane"
+ },
+ "ch4a-e8-iv-x": {
+  "A": [
+   [
+    3.0,
+    0.0
+   ],
+   [
+    12.0,
+    -5.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (2, 3)$ and $\\mathbf v_2 = (0, 1)$.",
+  "lines": [
+   [
+    2.0,
+    3.0,
+    "v_1"
+   ],
+   [
+    0.0,
+    1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-iv x-plane"
+ },
+ "ch4a-e8-iv-z": {
+  "A": [
+   [
+    3.0,
+    0.0
+   ],
+   [
+    0.0,
+    -5.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{- \\frac{5}{3}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-iv z-plane"
+ },
+ "ch4a-e8-v-x": {
+  "A": [
+   [
+    2.2,
+    0.4
+   ],
+   [
+    2.4,
+    1.8
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable node): dashed lines are the eigenlines $\\mathbf v_1 = (1, 2)$ and $\\mathbf v_2 = (1, -3)$.",
+  "lines": [
+   [
+    1.0,
+    2.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -3.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-v x-plane"
+ },
+ "ch4a-e8-v-z": {
+  "A": [
+   [
+    3.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable node): invariant axes and orbits $z_2 = K|z_1|^{\\frac{1}{3}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-v z-plane"
+ },
+ "ch4a-e8-vi-x": {
+  "A": [
+   [
+    -3.0,
+    0.0
+   ],
+   [
+    -25.0,
+    2.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (0, 1)$ and $\\mathbf v_2 = (1, 5)$.",
+  "lines": [
+   [
+    0.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    5.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-vi x-plane"
+ },
+ "ch4a-e8-vi-z": {
+  "A": [
+   [
+    2.0,
+    0.0
+   ],
+   [
+    0.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{- \\frac{3}{2}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-vi z-plane"
+ },
+ "ch4a-e8-vii-x": {
+  "A": [
+   [
+    3.0,
+    -2.0
+   ],
+   [
+    1.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable node): dashed lines are the eigenlines $\\mathbf v_1 = (1, 1)$ and $\\mathbf v_2 = (2, 1)$.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    2.0,
+    1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-vii x-plane"
+ },
+ "ch4a-e8-vii-z": {
+  "A": [
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    2.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable node): invariant axes and orbits $z_2 = K|z_1|^{2}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-vii z-plane"
+ },
+ "ch4a-e8-viii-x": {
+  "A": [
+   [
+    -1.3636363636363635,
+    -0.5454545454545454
+   ],
+   [
+    -1.0909090909090908,
+    -2.6363636363636362
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable node): dashed lines are the eigenlines $\\mathbf v_1 = (1, 3)$ and $\\mathbf v_2 = (-3, 2)$.",
+  "lines": [
+   [
+    1.0,
+    3.0,
+    "v_1"
+   ],
+   [
+    -3.0,
+    2.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e8-viii x-plane"
+ },
+ "ch4a-e8-viii-z": {
+  "A": [
+   [
+    -3.0,
+    0.0
+   ],
+   [
+    0.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable node): invariant axes and orbits $z_2 = K|z_1|^{\\frac{1}{3}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e8-viii z-plane"
+ },
+ "ch4a-e9-i-x": {
+  "A": [
+   [
+    8.0,
+    14.0
+   ],
+   [
+    7.0,
+    1.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (2, 1)$ and $\\mathbf v_2 = (1, -1)$.",
+  "lines": [
+   [
+    2.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e9-i x-plane"
+ },
+ "ch4a-e9-i-z": {
+  "A": [
+   [
+    15.0,
+    0.0
+   ],
+   [
+    0.0,
+    -6.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{- \\frac{2}{5}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e9-i z-plane"
+ },
+ "ch4a-e9-ii-x": {
+  "A": [
+   [
+    2.0,
+    0.0
+   ],
+   [
+    -5.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (1, -1)$ and $\\mathbf v_2 = (0, 1)$.",
+  "lines": [
+   [
+    1.0,
+    -1.0,
+    "v_1"
+   ],
+   [
+    0.0,
+    1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e9-ii x-plane"
+ },
+ "ch4a-e9-ii-z": {
+  "A": [
+   [
+    2.0,
+    0.0
+   ],
+   [
+    0.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{- \\frac{3}{2}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e9-ii z-plane"
+ },
+ "ch4a-e9-iii-x": {
+  "A": [
+   [
+    11.0,
+    -2.0
+   ],
+   [
+    3.0,
+    4.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable node): dashed lines are the eigenlines $\\mathbf v_1 = (2, 1)$ and $\\mathbf v_2 = (1, 3)$.",
+  "lines": [
+   [
+    2.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    3.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e9-iii x-plane"
+ },
+ "ch4a-e9-iii-z": {
+  "A": [
+   [
+    10.0,
+    0.0
+   ],
+   [
+    0.0,
+    5.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable node): invariant axes and orbits $z_2 = K|z_1|^{\\frac{1}{2}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e9-iii z-plane"
+ },
+ "ch4a-e9-iv-x": {
+  "A": [
+   [
+    1.0,
+    20.0
+   ],
+   [
+    40.0,
+    -19.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (1, 1)$ and $\\mathbf v_2 = (1, -2)$.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -2.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4a-e9-iv x-plane"
+ },
+ "ch4a-e9-iv-z": {
+  "A": [
+   [
+    21.0,
+    0.0
+   ],
+   [
+    0.0,
+    -39.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{- \\frac{13}{7}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4a-e9-iv z-plane"
+ },
+ "ch4b-e1-i-x": {
+  "A": [
+   [
+    7.0,
+    -3.0
+   ],
+   [
+    15.0,
+    -5.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable spiral), counter-clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-i x-plane"
+ },
+ "ch4b-e1-i-z": {
+  "A": [
+   [
+    1.0,
+    3.0
+   ],
+   [
+    -3.0,
+    1.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-i z-plane"
+ },
+ "ch4b-e1-ii-x": {
+  "A": [
+   [
+    -3.0,
+    -3.0
+   ],
+   [
+    6.0,
+    3.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (centre), counter-clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-ii x-plane"
+ },
+ "ch4b-e1-ii-z": {
+  "A": [
+   [
+    0.0,
+    3.0
+   ],
+   [
+    -3.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (centre): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-ii z-plane"
+ },
+ "ch4b-e1-iii-x": {
+  "A": [
+   [
+    -2.5,
+    0.5
+   ],
+   [
+    -2.5,
+    -1.5
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable spiral), clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-iii x-plane"
+ },
+ "ch4b-e1-iii-z": {
+  "A": [
+   [
+    -2.0,
+    1.0
+   ],
+   [
+    -1.0,
+    -2.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-iii z-plane"
+ },
+ "ch4b-e1-iv-x": {
+  "A": [
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable spiral), clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-iv x-plane"
+ },
+ "ch4b-e1-iv-z": {
+  "A": [
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-iv z-plane"
+ },
+ "ch4b-e1-v-x": {
+  "A": [
+   [
+    0.4,
+    -1.2
+   ],
+   [
+    5.466666666666667,
+    3.6
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable spiral), counter-clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-v x-plane"
+ },
+ "ch4b-e1-v-z": {
+  "A": [
+   [
+    2.0,
+    2.0
+   ],
+   [
+    -2.0,
+    2.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-v z-plane"
+ },
+ "ch4b-e1-vi-x": {
+  "A": [
+   [
+    -2.5,
+    -43.5
+   ],
+   [
+    1.5,
+    12.5
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable spiral), counter-clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-vi x-plane"
+ },
+ "ch4b-e1-vi-z": {
+  "A": [
+   [
+    5.0,
+    3.0
+   ],
+   [
+    -3.0,
+    5.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-vi z-plane"
+ },
+ "ch4b-e1-vii-x": {
+  "A": [
+   [
+    -2.3333333333333335,
+    4.666666666666667
+   ],
+   [
+    -11.666666666666666,
+    2.3333333333333335
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (centre), clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-vii x-plane"
+ },
+ "ch4b-e1-vii-z": {
+  "A": [
+   [
+    0.0,
+    7.0
+   ],
+   [
+    -7.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (centre): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-vii z-plane"
+ },
+ "ch4b-e1-viii-x": {
+  "A": [
+   [
+    52.875,
+    106.25
+   ],
+   [
+    -43.5625,
+    -78.875
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable spiral), clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e1-viii x-plane"
+ },
+ "ch4b-e1-viii-z": {
+  "A": [
+   [
+    -13.0,
+    17.0
+   ],
+   [
+    -17.0,
+    -13.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e1-viii z-plane"
+ },
+ "ch4b-e6-i-x": {
+  "A": [
+   [
+    5.0,
+    -4.0
+   ],
+   [
+    1.0,
+    1.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable improper node); dashed: the eigenline with $\\mathbf v_1 = (2, 1)$.",
+  "lines": [
+   [
+    2.0,
+    1.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e6-i x-plane"
+ },
+ "ch4b-e6-i-z": {
+  "A": [
+   [
+    3.0,
+    1.0
+   ],
+   [
+    0.0,
+    3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable improper node).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e6-i z-plane"
+ },
+ "ch4b-e6-ii-x": {
+  "A": [
+   [
+    -6.0,
+    2.0
+   ],
+   [
+    -2.0,
+    -2.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable improper node); dashed: the eigenline with $\\mathbf v_1 = (1, 1)$.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e6-ii x-plane"
+ },
+ "ch4b-e6-ii-z": {
+  "A": [
+   [
+    -4.0,
+    1.0
+   ],
+   [
+    0.0,
+    -4.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable improper node).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e6-ii z-plane"
+ },
+ "ch4b-e6-iii-x": {
+  "A": [
+   [
+    -3.0,
+    -1.0
+   ],
+   [
+    1.0,
+    -5.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable improper node); dashed: the eigenline with $\\mathbf v_1 = (1, 1)$.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e6-iii x-plane"
+ },
+ "ch4b-e6-iii-z": {
+  "A": [
+   [
+    -4.0,
+    1.0
+   ],
+   [
+    0.0,
+    -4.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable improper node).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e6-iii z-plane"
+ },
+ "ch4b-e6-iv-x": {
+  "A": [
+   [
+    13.0,
+    0.0
+   ],
+   [
+    0.0,
+    13.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Unstable star: straight rays out of the origin.",
+  "plane": "x-plane",
+  "title": "ch4b-e6-iv star"
+ },
+ "ch4b-e6-v-x": {
+  "A": [
+   [
+    7.0,
+    -4.0
+   ],
+   [
+    1.0,
+    3.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable improper node); dashed: the eigenline with $\\mathbf v_1 = (2, 1)$.",
+  "lines": [
+   [
+    2.0,
+    1.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e6-v x-plane"
+ },
+ "ch4b-e6-v-z": {
+  "A": [
+   [
+    5.0,
+    1.0
+   ],
+   [
+    0.0,
+    5.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable improper node).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e6-v z-plane"
+ },
+ "ch4b-e7-ii-z": {
+  "A": [
+   [
+    0.0,
+    1.0
+   ],
+   [
+    0.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "x̃",
+   "ỹ"
+  ],
+  "caption": "$(\\tilde x, \\tilde y)$-plane: horizontal lines $\\tilde y = c_2$ traversed to the right above the axis and to the left below it; the $\\tilde x$-axis is all equilibria.",
+  "lines": [
+   [
+    1,
+    0,
+    "x̃"
+   ]
+  ],
+  "plane": "canonical plane",
+  "title": "nilpotent canonical"
+ },
+ "ch4b-e7-iii-x": {
+  "A": [
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    1.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (line of equilibria (nilpotent shear)); dashed: the eigenline with $\\mathbf v_1 = (-1, -1)$.",
+  "lines": [
+   [
+    -1.0,
+    -1.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e7-iii x-plane"
+ },
+ "ch4b-e7-iii-z": {
+  "A": [
+   [
+    0.0,
+    1.0
+   ],
+   [
+    0.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (line of equilibria (nilpotent shear)).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e7-iii z-plane"
+ },
+ "ch4b-e8-i-x": {
+  "A": [
+   [
+    1.3333333333333333,
+    1.6666666666666667
+   ],
+   [
+    3.3333333333333335,
+    -0.3333333333333333
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (saddle): dashed lines are the eigenlines $\\mathbf v_1 = (1, 1)$ and $\\mathbf v_2 = (1, -2)$.",
+  "lines": [
+   [
+    1.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -2.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e8-i x-plane"
+ },
+ "ch4b-e8-i-z": {
+  "A": [
+   [
+    3.0,
+    0.0
+   ],
+   [
+    0.0,
+    -2.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (saddle): invariant axes and orbits $z_2 = K|z_1|^{- \\frac{2}{3}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e8-i z-plane"
+ },
+ "ch4b-e8-ii-x": {
+  "A": [
+   [
+    -1.0,
+    -3.0
+   ],
+   [
+    3.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable spiral), counter-clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e8-ii x-plane"
+ },
+ "ch4b-e8-ii-z": {
+  "A": [
+   [
+    -1.0,
+    3.0
+   ],
+   [
+    -3.0,
+    -1.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e8-ii z-plane"
+ },
+ "ch4b-e8-iii-x": {
+  "A": [
+   [
+    7.0,
+    9.0
+   ],
+   [
+    -4.0,
+    19.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable improper node); dashed: the eigenline with $\\mathbf v_1 = (3, 2)$.",
+  "lines": [
+   [
+    3.0,
+    2.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e8-iii x-plane"
+ },
+ "ch4b-e8-iii-z": {
+  "A": [
+   [
+    13.0,
+    1.0
+   ],
+   [
+    0.0,
+    13.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable improper node).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e8-iii z-plane"
+ },
+ "ch4b-e8-iv-x": {
+  "A": [
+   [
+    -2.3333333333333335,
+    0.6666666666666666
+   ],
+   [
+    0.3333333333333333,
+    -2.6666666666666665
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable node): dashed lines are the eigenlines $\\mathbf v_1 = (2, 1)$ and $\\mathbf v_2 = (1, -1)$.",
+  "lines": [
+   [
+    2.0,
+    1.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -1.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e8-iv x-plane"
+ },
+ "ch4b-e8-iv-z": {
+  "A": [
+   [
+    -2.0,
+    0.0
+   ],
+   [
+    0.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable node): invariant axes and orbits $z_2 = K|z_1|^{\\frac{3}{2}}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e8-iv z-plane"
+ },
+ "ch4b-e8-ix-x": {
+  "A": [
+   [
+    -7.0,
+    0.0
+   ],
+   [
+    0.0,
+    -7.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Stable star: straight rays into the origin.",
+  "plane": "x-plane",
+  "title": "ch4b-e8-ix star"
+ },
+ "ch4b-e8-v-x": {
+  "A": [
+   [
+    -2.0,
+    1.0
+   ],
+   [
+    -1.0,
+    -4.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (stable improper node); dashed: the eigenline with $\\mathbf v_1 = (1, -1)$.",
+  "lines": [
+   [
+    1.0,
+    -1.0,
+    "v_1"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e8-v x-plane"
+ },
+ "ch4b-e8-v-z": {
+  "A": [
+   [
+    -3.0,
+    1.0
+   ],
+   [
+    0.0,
+    -3.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (stable improper node).",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e8-v z-plane"
+ },
+ "ch4b-e8-vi-x": {
+  "A": [
+   [
+    0.0,
+    2.0
+   ],
+   [
+    -2.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (centre), clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e8-vi x-plane"
+ },
+ "ch4b-e8-vi-z": {
+  "A": [
+   [
+    0.0,
+    2.0
+   ],
+   [
+    -2.0,
+    0.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (centre): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e8-vi z-plane"
+ },
+ "ch4b-e8-vii-x": {
+  "A": [
+   [
+    1.5714285714285714,
+    -0.8571428571428571
+   ],
+   [
+    -2.2857142857142856,
+    4.428571428571429
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable node): dashed lines are the eigenlines $\\mathbf v_1 = (3, 2)$ and $\\mathbf v_2 = (1, -4)$.",
+  "lines": [
+   [
+    3.0,
+    2.0,
+    "v_1"
+   ],
+   [
+    1.0,
+    -4.0,
+    "v_2"
+   ]
+  ],
+  "plane": "x-plane",
+  "title": "ch4b-e8-vii x-plane"
+ },
+ "ch4b-e8-vii-z": {
+  "A": [
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    5.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable node): invariant axes and orbits $z_2 = K|z_1|^{5}$.",
+  "lines": [
+   [
+    1,
+    0,
+    "z_1"
+   ],
+   [
+    0,
+    1,
+    "z_2"
+   ]
+  ],
+  "plane": "z-plane",
+  "title": "ch4b-e8-vii z-plane"
+ },
+ "ch4b-e8-viii-x": {
+  "A": [
+   [
+    5.0,
+    -1.0
+   ],
+   [
+    1.0,
+    5.0
+   ]
+  ],
+  "axes": [
+   "x",
+   "y"
+  ],
+  "caption": "Original $(x, y)$-plane (unstable spiral), counter-clockwise.",
+  "plane": "x-plane",
+  "title": "ch4b-e8-viii x-plane"
+ },
+ "ch4b-e8-viii-z": {
+  "A": [
+   [
+    5.0,
+    1.0
+   ],
+   [
+    -1.0,
+    5.0
+   ]
+  ],
+  "axes": [
+   "z_1",
+   "z_2"
+  ],
+  "caption": "Canonical $\\mathbf z$-plane (unstable spiral): clockwise, $\\dot\\theta = -\\omega$.",
+  "plane": "z-plane",
+  "title": "ch4b-e8-viii z-plane"
+ }
+}

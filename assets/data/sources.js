@@ -345,6 +345,11 @@ window.AE_SOURCES = {
               "name": "ProblemsCh3.pdf"
             },
             {
+              "bytes": 35139,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf",
+              "name": "probls_ch3-ii_2627.pdf"
+            },
+            {
               "bytes": 42259,
               "href": "sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3_2627.pdf",
               "name": "probls_ch3_2627.pdf"
@@ -358,7 +363,18 @@ window.AE_SOURCES = {
           "id": "unit-04-systems-of-odes",
           "number": 4,
           "other": [],
-          "problemas": [],
+          "problemas": [
+            {
+              "bytes": 39669,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf",
+              "name": "probls_ch4-i_2627_v2.pdf"
+            },
+            {
+              "bytes": 33481,
+              "href": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf",
+              "name": "probls_ch4-ii_2627.pdf"
+            }
+          ],
           "slides": [],
           "teoria": [
             {

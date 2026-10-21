@@ -1,0 +1,58 @@
+{
+ "sheets": [
+  {
+   "code": "Ch3-II",
+   "id_prefix": "e",
+   "page": "topic-3-part-2.html",
+   "title": "Chapter 3 Problem Set, Part 2: Forced Oscillations, Resonance and Variation of Constants",
+   "badge": "Problems Sheet 3, part 2",
+   "lead": "Complete, step-by-step solutions to the nine exercises of the second Chapter 3 sheet: eleven inhomogeneous initial value problems by undetermined coefficients, superposition, beats and resonance, the damped forced oscillator (amplitude and phase), higher-order equations, variation of constants, the structure of IVP solutions and reduction of order for inhomogeneous equations.",
+   "pdf": "sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf",
+   "pdf_key": "am-p3b",
+   "pdf_pages": 2,
+   "cards": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 2, "6": 2, "7": 2, "8": 2, "9": 2},
+   "prev": ["topic-3-problems.html", "Chapter 3 Part 1: Second-Order Linear ODEs"],
+   "next": ["topic-4-part-1.html", "Chapter 4 Part 1: Systems and Real Eigenvalues", "Next Problem Set"],
+   "nav_label": "3 · Second-order, part 2",
+   "set_code": "Problems Sheet 3, part 2 • probls_ch3-ii_2627.pdf",
+   "desc": "Step-by-step solutions to all 9 exercises: eleven forced IVPs, superposition, beats and resonance, amplitude and phase of the damped forced oscillator, third- and fourth-order equations, variation of constants, splitting an IVP solution, and reduction of order.",
+   "pills": ["E1: 11 Forced IVPs", "E2: Superposition", "E3: Beats and Resonance", "E4: Amplitude and Phase", "E5: Higher Order", "E6: Variation of Constants", "E7: IVP Splitting", "E8: Reduction of Order", "E9: Euler Equation"]
+  },
+  {
+   "code": "Ch4-I",
+   "id_prefix": "e",
+   "page": "topic-4-part-1.html",
+   "title": "Chapter 4 Problem Set, Part 1: Linear Systems, Elimination and Real Eigenvalues",
+   "badge": "Problems Sheet 4, part 1",
+   "lead": "Complete, step-by-step solutions to the eleven exercises of the first Chapter 4 sheet: higher-order equations as systems, superposition, Wronskian and general solution of linear systems, elimination with initial conditions, general solutions and phase portraits from eigen-data, decoupling of four matrices with real eigenvalues, the trajectories of an uncoupled system and a zero eigenvalue.",
+   "pdf": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf",
+   "pdf_key": "am-p4a",
+   "pdf_pages": 4,
+   "cards": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 2, "7": 2, "8": 2, "9": 3, "10": 3, "11": 4},
+   "prev": ["topic-3-part-2.html", "Chapter 3 Part 2: Forced Oscillations"],
+   "next": ["topic-4-part-2.html", "Chapter 4 Part 2: Complex and Repeated Eigenvalues", "Next Problem Set"],
+   "nav_label": "4 · Systems, part 1",
+   "set_code": "Problems Sheet 4, part 1 • probls_ch4-i_2627_v2.pdf",
+   "desc": "Step-by-step solutions to all 11 exercises: reduction to first-order systems, superposition and Wronskian for systems, elimination method with initial conditions (seven systems), eight phase portraits from eigen-data, four decouplings, uncoupled trajectories and a zero eigenvalue.",
+   "pills": ["E1: n-th Order to System", "E2: Superposition", "E3: Liouville Wronskian", "E4: General Solution", "E5: Inhomogeneous", "E6: Second-Order Wronskian", "E7: Seven Systems", "E8: Eight Portraits", "E9: Four Decouplings", "E10: Trajectories", "E11: Zero Eigenvalue"]
+  },
+  {
+   "code": "Ch4-II",
+   "id_prefix": "e",
+   "page": "topic-4-part-2.html",
+   "title": "Chapter 4 Problem Set, Part 2: Complex and Repeated Eigenvalues, Spirals and Improper Nodes",
+   "badge": "Problems Sheet 4, part 2",
+   "lead": "Complete, step-by-step solutions to the eight exercises of the second Chapter 4 sheet: phase portraits and general solutions from complex eigen-data, canonical forms with Q = [u | w], independence of real and imaginary parts, building matrices from eigen-data, repeated eigenvalues with the Jordan chain, the nilpotent case and the full qualitative catalogue of linear portraits.",
+   "pdf": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf",
+   "pdf_key": "am-p4b",
+   "pdf_pages": 3,
+   "cards": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 2, "6": 2, "7": 2, "8": 2},
+   "prev": ["topic-4-part-1.html", "Chapter 4 Part 1: Systems and Real Eigenvalues"],
+   "next": ["../teoria/topic-4.html", "Topic 4 Theory and Lecture Guide", "Review Foundations"],
+   "nav_label": "4 · Systems, part 2",
+   "set_code": "Problems Sheet 4, part 2 • probls_ch4-ii_2627.pdf",
+   "desc": "Step-by-step solutions to all 8 exercises: eight complex-eigenvalue portraits and their general solutions, four canonical forms, real and imaginary parts of eigenvectors, building matrices from eigen-data, five repeated-eigenvalue systems, the nilpotent case and nine qualitative portraits.",
+   "pills": ["E1: Eight Spiral/Centre Portraits", "E2: General Solutions", "E3: Four Canonical Forms", "E4: Independence of u and w", "E5: Matrices from Eigen-data", "E6: Repeated Eigenvalue", "E7: Nilpotent Case", "E8: Nine Portraits"]
+  }
+ ]
+}

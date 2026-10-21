@@ -113,14 +113,16 @@ flowchart TD
   9. [[04 - Advanced Maths/Problem - Ch3-P9 Falling Chain from Table and Hyperbolic Motion|Problem 3.9: Falling Chain from Table and Hyperbolic Motion]] — Newton's 2nd law along table edge, hyperbolic solution $x_0\cosh(\alpha t)$, and detachment time $t^* \approx 1.637\text{ s}$.
   10. [[04 - Advanced Maths/Problem - Ch3-P10 Parachutist Linear Drag and Terminal Velocity|Problem 3.10: Parachutist Linear Drag and Terminal Velocity]] — Velocity ODE with linear aerodynamic drag, terminal speed $v_\infty = mg/c$, and comparison with free fall.
   11. [[04 - Advanced Maths/Problem - Ch3-P11 Euler-Cauchy Equation via Exponential Transformation|Problem 3.11: Euler-Cauchy Equation via Exponential Transformation]] — Chain rule transformation $x = e^z$ and resonant solution for $p=3, q=-3, g=4x$.
+* **Problem Sheet 3, part 2 (9 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 3 Part 2|Problem Set - Chapter 3 Part 2]] - eleven forced IVPs by undetermined coefficients, superposition, beats and resonance, amplitude and phase of the damped forced oscillator, higher-order equations, variation of constants, IVP splitting and reduction of order. Web page: `subjects/advanced-maths/problemas/topic-3-part-2.html`.
 
 ---
 
 ### 🔄 Bloque III: Linear Systems and Phase Plane Analysis
 * **Topics:** First-order systems $\dot{\mathbf{x}} = A\mathbf{x}$, eigenvalues and eigenvectors, classification of critical points (nodes, saddles, spirals, centers), stability analysis, phase portraits, non-linear perturbations and linearization.
 * **Concept notes (Oct 13 and Oct 15 lectures, Robinson Ch. 29-30):**
-  * [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues|Planar Systems with Complex Eigenvalues]] — $\mathbf z = Q^{-1}\mathbf x$ with $Q = [\mathbf u \mid \mathbf w]$, $J = egin{pmatrix}ho & \omega \ -\omega & ho\end{pmatrix}$, polar solution, spirals and centre in the $\mathbf z$- and $\mathbf x$-planes, sense of rotation.
+  * [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues|Planar Systems with Complex Eigenvalues]] — $\mathbf z = Q^{-1}\mathbf x$ with $Q = [\mathbf u \mid \mathbf w]$, $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$, polar solution, spirals and centre in the $\mathbf z$- and $\mathbf x$-planes, sense of rotation.
   * [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue|Planar Systems with a Repeated Eigenvalue]] — $m_a$ vs $m_g$, stars ($A = \lambda I$), Jordan chain, $z_1 = (c_1 + c_2t)e^{\lambda t}$, improper nodes with a full worked example.
+* **Problem Sheets 4, parts 1 and 2 (19 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 4 Part 1|Problem Set - Chapter 4 Part 1]] (systems, elimination, real eigenvalues, decoupling) and [[04 - Advanced Maths/Problem Set - Chapter 4 Part 2|Problem Set - Chapter 4 Part 2]] (complex and repeated eigenvalues, canonical forms, nine portraits). Web pages: `topic-4-part-1.html` and `topic-4-part-2.html` in `subjects/advanced-maths/problemas/`.
 * *Status: web page available (`subjects/advanced-maths/teoria/topic-4.html`); Sections 7 and 8 are written from the two concept notes above, Sections 1-6 and 9 have no vault note yet.*
 
 ---

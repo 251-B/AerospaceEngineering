@@ -286,6 +286,18 @@ window.AE_NAV = {
             {
               "href": "subjects/advanced-maths/problemas/topic-3-problems.html",
               "label": "3 · Second-order linear ODEs"
+            },
+            {
+              "href": "subjects/advanced-maths/problemas/topic-3-part-2.html",
+              "label": "3 · Second-order, part 2"
+            },
+            {
+              "href": "subjects/advanced-maths/problemas/topic-4-part-1.html",
+              "label": "4 · Systems, part 1"
+            },
+            {
+              "href": "subjects/advanced-maths/problemas/topic-4-part-2.html",
+              "label": "4 · Systems, part 2"
             }
           ]
         }

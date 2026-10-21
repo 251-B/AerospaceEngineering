@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-21-maths-chapter-3-4-new-sheets",
+    "date": "2026-10-21",
+    "tag": "Advanced Maths",
+    "title": "Maths: 28 new solved exercises (Chapter 3 part 2, Chapter 4)",
+    "text": "Three new problem pages with every step written out: forced oscillations and resonance, systems of ODEs, eigenvalues, phase portraits and canonical forms.",
+    "link": "subjects/advanced-maths/problemas/topic-4-part-1.html"
+  },
+  {
     "id": "2026-10-21-maths-complex-and-repeated-eigenvalues",
     "date": "2026-10-21",
     "tag": "Advanced Maths",

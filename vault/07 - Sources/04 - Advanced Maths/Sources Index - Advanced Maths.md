@@ -10,8 +10,8 @@ tags:
 
 ## Coverage
 
-- Files: 77
-- Referenced by at least one note (a mention counts): 4
+- Files: 80
+- Referenced by at least one note (a mention counts): 7
 - Not referenced yet: 73
 - Build artifacts: 0
 - Working files: 0
@@ -124,7 +124,15 @@ tags:
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 04-advanced-maths - unit-03-second-order-linear-odes - problemas - ProblemsCh3 (pdf)\|ProblemsCh3.pdf]] | problemas | referenced |
+| [[Source - 04-advanced-maths - unit-03-second-order-linear-odes - problemas - probls_ch3-ii_2627 (pdf)\|probls_ch3-ii_2627.pdf]] | problemas | referenced |
 | [[Source - 04-advanced-maths - unit-03-second-order-linear-odes - problemas - probls_ch3_2627 (pdf)\|probls_ch3_2627.pdf]] | problemas | not-referenced |
+
+## unit-04-systems-of-odes/problemas
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-i_2627_v2 (pdf)\|probls_ch4-i_2627_v2.pdf]] | problemas | referenced |
+| [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-ii_2627 (pdf)\|probls_ch4-ii_2627.pdf]] | problemas | referenced |
 
 ## unit-04-systems-of-odes/teoria
 

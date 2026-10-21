@@ -491,6 +491,21 @@
    "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-05-mechanical-properties/problemas/Problems T5_MechanicalProperties.pdf",
    "label": "Problems T5_MechanicalProperties.pdf",
    "pages": 5
+  },
+  "am-p3b": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-03-second-order-linear-odes/problemas/probls_ch3-ii_2627.pdf",
+   "label": "probls_ch3-ii_2627.pdf",
+   "pages": 2
+  },
+  "am-p4a": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf",
+   "label": "probls_ch4-i_2627_v2.pdf",
+   "pages": 4
+  },
+  "am-p4b": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf",
+   "label": "probls_ch4-ii_2627.pdf",
+   "pages": 3
   }
  },
  "pages": {
@@ -2078,6 +2093,169 @@
     "prob-15": [
      "mat-t5",
      5
+    ]
+   }
+  },
+  "subjects/advanced-maths/problemas/topic-3-part-2.html": {
+   "panel": [
+    [
+     "am-p3b",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   },
+   "cards": {
+    "e1": [
+     "am-p3b",
+     1
+    ],
+    "e2": [
+     "am-p3b",
+     1
+    ],
+    "e3": [
+     "am-p3b",
+     1
+    ],
+    "e4": [
+     "am-p3b",
+     1
+    ],
+    "e5": [
+     "am-p3b",
+     2
+    ],
+    "e6": [
+     "am-p3b",
+     2
+    ],
+    "e7": [
+     "am-p3b",
+     2
+    ],
+    "e8": [
+     "am-p3b",
+     2
+    ],
+    "e9": [
+     "am-p3b",
+     2
+    ]
+   }
+  },
+  "subjects/advanced-maths/problemas/topic-4-part-1.html": {
+   "panel": [
+    [
+     "am-p4a",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   },
+   "cards": {
+    "e1": [
+     "am-p4a",
+     1
+    ],
+    "e2": [
+     "am-p4a",
+     1
+    ],
+    "e3": [
+     "am-p4a",
+     1
+    ],
+    "e4": [
+     "am-p4a",
+     1
+    ],
+    "e5": [
+     "am-p4a",
+     1
+    ],
+    "e6": [
+     "am-p4a",
+     2
+    ],
+    "e7": [
+     "am-p4a",
+     2
+    ],
+    "e8": [
+     "am-p4a",
+     2
+    ],
+    "e9": [
+     "am-p4a",
+     3
+    ],
+    "e10": [
+     "am-p4a",
+     3
+    ],
+    "e11": [
+     "am-p4a",
+     4
+    ]
+   }
+  },
+  "subjects/advanced-maths/problemas/topic-4-part-2.html": {
+   "panel": [
+    [
+     "am-p4b",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book"
+   },
+   "cards": {
+    "e1": [
+     "am-p4b",
+     1
+    ],
+    "e2": [
+     "am-p4b",
+     1
+    ],
+    "e3": [
+     "am-p4b",
+     1
+    ],
+    "e4": [
+     "am-p4b",
+     1
+    ],
+    "e5": [
+     "am-p4b",
+     2
+    ],
+    "e6": [
+     "am-p4b",
+     2
+    ],
+    "e7": [
+     "am-p4b",
+     2
+    ],
+    "e8": [
+     "am-p4b",
+     2
     ]
    }
   }
