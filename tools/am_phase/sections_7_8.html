@@ -17,11 +17,11 @@
         <div class="callout-title">Case 2: complex conjugate eigenvalues <span class="cite">[Notes, p. 10]</span></div>
         <p>
           Suppose $A$ has an eigenvalue $\lambda = \rho \pm i\omega$. Then it has eigenvectors $\mathbf v_\pm = \mathbf v_1 \pm i\,\mathbf v_2$ (linear algebra).
-          The notes reach the canonical form through a complex diagonalisation (Section 7.5) and give
+          The notes reach the canonical form through a complex diagonalisation (Section 7.1) and give
         </p>
         $$\text{general solution:}\quad \mathbf x(t) = C_1\operatorname{Re}\big\{\mathbf v e^{\lambda t}\big\} + C_2\operatorname{Im}\big\{\mathbf v e^{\lambda t}\big\},$$
         $$\text{particular solution:}\quad \mathbf x(t) = r(0)\,e^{\rho t}\Big(\cos\big(\theta(0) - \omega t\big)\,\mathbf v_1 + \sin\big(\theta(0) - \omega t\big)\,\mathbf v_2\Big).$$
-        <p>Both are derived below (Sections 7.2 and 7.8).</p>
+        <p>Both are derived below (Sections 7.3 and 7.8).</p>
       </div>
       <div class="callout lecture">
         <div class="callout-title">Notation of this section</div>
@@ -31,88 +31,7 @@
         </p>
       </div>
 
-      <h3 class="sub-title">7.1 A guided example: what to expect before the theory <span class="cite">[Examples 27.5 and 29.1, pp. 265–266 and 286]</span></h3>
-      <div class="callout example">
-        <div class="callout-title">Example 7.1 — $\dot x = 2x + 5y,\ \dot y = -2x$ (first pass: type and sense of rotation)</div>
-        <p>Here $A = \begin{pmatrix} 2 & 5 \\ -2 & 0\end{pmatrix}$, $\operatorname{tr}A = 2$, $\det A = 2\cdot 0 - 5\cdot(-2) = 10$.</p>
-        <ol class="steps">
-          <li><strong>Eigenvalues.</strong> $\det(A - \lambda I) = (2 - \lambda)(0 - \lambda) - (5)(-2) = \lambda^2 - 2\lambda + 10 = 0$, so $\lambda = \dfrac{2 \pm \sqrt{4 - 40}}{2} = 1 \pm 3i$. Hence $\rho = 1$, $\omega = 3$ and $\Delta = -36 < 0$.</li>
-          <li><strong>Type.</strong> $\rho = 1 > 0$: an <em>unstable spiral</em> (radius grows like $e^{t}$).</li>
-          <li><strong>Eigenvector for $\lambda = 1 + 3i$.</strong> The first row of $(A - \lambda I)\mathbf v = \mathbf 0$ is $(2 - 1 - 3i)v_1 + 5v_2 = (1 - 3i)v_1 + 5v_2 = 0$. Take $v_1 = 5$; then $v_2 = -(1 - 3i) = -1 + 3i$, and
-            $\mathbf v = \begin{pmatrix} 5 \\ -1 + 3i\end{pmatrix} = \underbrace{\begin{pmatrix} 5 \\ -1\end{pmatrix}}_{\mathbf u} + i\underbrace{\begin{pmatrix} 0 \\ 3\end{pmatrix}}_{\mathbf w}$.
-            Check with the second row: $-2\cdot 5 + (0 - \lambda)(-1 + 3i) = -10 - (1 + 3i)(-1 + 3i) = -10 - (-1 - 9) = 0$. ✓</li>
-          <li><strong>Sense of rotation, without any change of basis.</strong> Evaluate the vector field at $(0, 1)^T$ (top of the plane): $\dot{\mathbf x} = A(0,1)^T = (5, 0)^T$, which points to the right. At the top, motion to the right is <em>clockwise</em>. Confirm at $(1, 0)^T$: $\dot{\mathbf x} = (2, -2)^T$ points down on the right-hand side, again clockwise.</li>
-          <li><strong>Sketch.</strong> A spiral that turns clockwise and moves outward, drawn as a distorted spiral because it lives in the $(x, y)$ basis (Fig. 4.5, right). The rest of this section explains <em>why</em> it is distorted exactly as it is, and gives its equation.</li>
-        </ol>
-      </div>
-
-      <h3 class="sub-title">7.2 The real general solution <span class="cite">[Sec. 29.1, pp. 285–286]</span></h3>
-      <p>
-        As for distinct real eigenvalues, $e^{\lambda_+t}\mathbf v$ and $e^{\lambda_-t}\bar{\mathbf v}$ solve $\dot{\mathbf x} = A\mathbf x$, and so does every combination $Ce^{\lambda_+t}\mathbf v + De^{\lambda_-t}\bar{\mathbf v}$ with complex $C, D$.
-        To get a <em>real</em> solution choose $D = \bar C$: the second term is then the conjugate of the first and the sum is twice a real part, because $z + \bar z = 2\operatorname{Re}z$:
-      </p>
-      $$\mathbf x(t) = 2\operatorname{Re}\Big[Ce^{(\rho + i\omega)t}(\mathbf u + i\mathbf w)\Big]. \tag{7.2}$$
-      <p>Write $C = \alpha + i\beta$ and expand with Euler's formula $e^{i\omega t} = \cos\omega t + i\sin\omega t$:</p>
-      <ol class="steps">
-        <li>$Ce^{i\omega t} = (\alpha + i\beta)(\cos\omega t + i\sin\omega t) = (\alpha\cos\omega t - \beta\sin\omega t) + i(\beta\cos\omega t + \alpha\sin\omega t)$.</li>
-        <li>Multiply by $\mathbf u + i\mathbf w$ and keep only the real part ($i\cdot i = -1$): $\operatorname{Re}\big[(a + ib)(\mathbf u + i\mathbf w)\big] = a\mathbf u - b\mathbf w$, with $a = \alpha\cos\omega t - \beta\sin\omega t$ and $b = \beta\cos\omega t + \alpha\sin\omega t$.</li>
-        <li>Therefore $\mathbf x(t) = 2e^{\rho t}\big[(\alpha\cos\omega t - \beta\sin\omega t)\mathbf u - (\beta\cos\omega t + \alpha\sin\omega t)\mathbf w\big]$.</li>
-        <li>Put $a_1 = 2\alpha$ and $b_1 = -2\beta$ (two arbitrary real constants):</li>
-      </ol>
-      $$\mathbf x(t) = e^{\rho t}\Big[\big(a_1\cos\omega t + b_1\sin\omega t\big)\mathbf u + \big(b_1\cos\omega t - a_1\sin\omega t\big)\mathbf w\Big]. \tag{7.3}$$
-      <p>
-        This is Robinson's (29.2) with $\mathbf v_1 = \mathbf u$, $\mathbf v_2 = \mathbf w$. It already contains everything, but it does not show <em>how</em> the solution moves. The change of basis does.
-      </p>
-      <p>
-        <strong>The form of the notes.</strong> The real and imaginary parts of the single complex solution $\mathbf v e^{\lambda t}$ are themselves real solutions
-        (the real and imaginary parts of $\dot{\mathbf y} - A\mathbf y = \mathbf 0$ vanish separately because $A$ is real). By Euler's formula,
-      </p>
-      $$\mathbf v e^{\lambda t} = e^{\rho t}(\mathbf u + i\mathbf w)(\cos\omega t + i\sin\omega t) = e^{\rho t}\Big[\big(\cos\omega t\,\mathbf u - \sin\omega t\,\mathbf w\big) + i\big(\sin\omega t\,\mathbf u + \cos\omega t\,\mathbf w\big)\Big],$$
-      <p>so</p>
-      $$C_1\operatorname{Re}\big\{\mathbf v e^{\lambda t}\big\} + C_2\operatorname{Im}\big\{\mathbf v e^{\lambda t}\big\} = e^{\rho t}\Big[\big(C_1\cos\omega t + C_2\sin\omega t\big)\mathbf u + \big(C_2\cos\omega t - C_1\sin\omega t\big)\mathbf w\Big],$$
-      <p>which is (7.3) with $a_1 = C_1$ and $b_1 = C_2$ <span class="cite">[Notes, p. 10]</span>.</p>
-
-      <h3 class="sub-title">7.3 How $A$ acts on $\mathbf u$ and $\mathbf w$ <span class="cite">[Sec. 29.2, p. 287, Eq. (29.3)]</span></h3>
-      <p>Separate the real and imaginary parts of $A\mathbf v = \lambda\mathbf v$. The left side is $A(\mathbf u + i\mathbf w) = A\mathbf u + iA\mathbf w$ (both real vectors). The right side is</p>
-      $$(\rho + i\omega)(\mathbf u + i\mathbf w) = \rho\mathbf u + i\rho\mathbf w + i\omega\mathbf u + i^2\omega\mathbf w = (\rho\mathbf u - \omega\mathbf w) + i(\omega\mathbf u + \rho\mathbf w).$$
-      <p>Two complex vectors are equal exactly when their real parts and their imaginary parts are equal:</p>
-      $$\boxed{A\mathbf u = \rho\mathbf u - \omega\mathbf w, \qquad A\mathbf w = \omega\mathbf u + \rho\mathbf w.} \tag{7.4}$$
-      <p>
-        So $A$ maps the plane $\operatorname{span}\{\mathbf u, \mathbf w\}$ into itself: it scales by $\rho$ and mixes $\mathbf u$ with $\mathbf w$ through the rotation angle $\omega$. There is no real eigenvector, but there is an invariant <em>basis</em>.
-      </p>
-      <div class="callout thm">
-        <div class="callout-title">Lemma — $\mathbf u$ and $\mathbf w$ are linearly independent <span class="cite">[Exercise 29.4]</span></div>
-        <p>If $\omega \neq 0$, the real vectors $\mathbf u, \mathbf w$ form a basis of $\mathbb R^2$.</p>
-      </div>
-      <div class="callout proof">
-        <div class="callout-title">Proof</div>
-        <p>
-          Suppose they were dependent. Then the eigenvector $\mathbf v = \mathbf u + i\mathbf w$ would be a complex multiple of one real vector $\mathbf r \neq \mathbf 0$ (if $\mathbf w = c\mathbf u$ then $\mathbf v = (1 + ic)\mathbf u$; if $\mathbf u = \mathbf 0$ then $\mathbf v = i\mathbf w$): $\mathbf v = \kappa\mathbf r$ with $\kappa \in \mathbb C\setminus\{0\}$.
-          Then $A\mathbf v = \kappa A\mathbf r$ and $\lambda\mathbf v = \lambda\kappa\mathbf r$, so $A\mathbf r = \lambda\mathbf r$. The left side is a real vector, so $\lambda\mathbf r$ is real and, as $\mathbf r \neq \mathbf 0$ is real, $\lambda$ must be real. This contradicts $\operatorname{Im}\lambda = \omega \neq 0$.
-        </p>
-      </div>
-
-      <h3 class="sub-title">7.4 The change of basis $\mathbf z = Q^{-1}\mathbf x$ <span class="cite">[Sec. 29.2, pp. 287–288, Eqs. (29.4)–(29.7)]</span></h3>
-      <p>
-        Because $\mathbf u, \mathbf w$ are a basis, every $\mathbf x$ has unique coordinates $(z_1, z_2)$: $\mathbf x = z_1\mathbf u + z_2\mathbf w$. In matrix form, with the columns <strong>in the order $\mathbf u$, then $\mathbf w$</strong>,
-      </p>
-      $$Q = [\,\mathbf u \mid \mathbf w\,], \qquad \mathbf x = Q\mathbf z, \qquad \mathbf z = Q^{-1}\mathbf x. \tag{7.5}$$
-      <p>$Q$ is constant, so differentiating $\mathbf z = Q^{-1}\mathbf x$ gives $\dot{\mathbf z} = Q^{-1}\dot{\mathbf x} = Q^{-1}A\mathbf x = Q^{-1}AQ\,\mathbf z$. Compute $Q^{-1}AQ$ column by column, using $AQ = [A\mathbf u \mid A\mathbf w]$ and (7.4):</p>
-      $$AQ = [\rho\mathbf u - \omega\mathbf w \mid \omega\mathbf u + \rho\mathbf w] = [\,\mathbf u \mid \mathbf w\,]\begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix} = Q\,J.$$
-      <p>
-        The last equality is the rule "$Q M$ has as its $j$-th column the combination of the columns of $Q$ with the coefficients of the $j$-th column of $M$": the first column of $J$ is $(\rho, -\omega)^T$, giving $\rho\mathbf u - \omega\mathbf w$, and the second is $(\omega, \rho)^T$, giving $\omega\mathbf u + \rho\mathbf w$.
-        Multiplying on the left by $Q^{-1}$:
-      </p>
-      $$\boxed{Q^{-1}AQ = J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}, \qquad \dot z_1 = \rho z_1 + \omega z_2,\quad \dot z_2 = -\omega z_1 + \rho z_2.} \tag{7.6}$$
-      <div class="callout warn">
-        <div class="callout-title">Convention check: the order of the columns</div>
-        <p>
-          With $Q = [\mathbf u \mid \mathbf w]$ (Robinson's choice) the canonical matrix is $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}$ and the rotation in the $\mathbf z$-plane is <strong>clockwise</strong>.
-          With the opposite order $Q' = [\mathbf w \mid \mathbf u]$ the same computation gives $J' = \begin{pmatrix} \rho & -\omega \\ \omega & \rho\end{pmatrix} = J^{T}$ and an anticlockwise rotation. Both are correct; this page always uses $[\mathbf u \mid \mathbf w]$, so the $\mathbf z$-plane always turns clockwise.
-        </p>
-      </div>
-
-      <h3 class="sub-title">7.5 The route of the notes: a complex diagonalisation <span class="cite">[Notes, p. 10]</span></h3>
+      <h3 class="sub-title">7.1 The route of the notes: a complex diagonalisation <span class="cite">[Notes, p. 10]</span></h3>
       <p>
         The notes reach the same matrix $J$ from the complex eigenvectors. With $\mathbf v_\pm = \mathbf u \pm i\mathbf w$ and $\lambda_\pm = \rho \pm i\omega$, $A$ has the
         complex diagonalisation
@@ -142,9 +61,91 @@
         </li>
       </ol>
       <p>
-        This is $J$ of (7.6): the complex route and the real route of 7.4 give the same real canonical system. The notes then solve it in polar coordinates,
+        So, with $\mathbf z = Q^{-1}\mathbf x$, $\ \dot{\mathbf z} = J\mathbf z$ with $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}$. Sections 7.4–7.5 reach the same
+        matrix with real vectors only (Robinson's route, Eq. (7.6)), and Section 7.6 solves $\dot{\mathbf z} = J\mathbf z$ in polar coordinates, as the notes do:
         $z_1 = r\cos\theta$, $z_2 = r\sin\theta$, $r^2 = z_1^2 + z_2^2$, $\theta = \arctan(z_2/z_1)$ <span class="cite">[Notes, p. 10]</span>.
       </p>
+
+      <h3 class="sub-title">7.2 A guided example: what to expect before the theory <span class="cite">[Examples 27.5 and 29.1, pp. 265–266 and 286]</span></h3>
+      <div class="callout example">
+        <div class="callout-title">Example 7.1 — $\dot x = 2x + 5y,\ \dot y = -2x$ (first pass: type and sense of rotation)</div>
+        <p>Here $A = \begin{pmatrix} 2 & 5 \\ -2 & 0\end{pmatrix}$, $\operatorname{tr}A = 2$, $\det A = 2\cdot 0 - 5\cdot(-2) = 10$.</p>
+        <ol class="steps">
+          <li><strong>Eigenvalues.</strong> $\det(A - \lambda I) = (2 - \lambda)(0 - \lambda) - (5)(-2) = \lambda^2 - 2\lambda + 10 = 0$, so $\lambda = \dfrac{2 \pm \sqrt{4 - 40}}{2} = 1 \pm 3i$. Hence $\rho = 1$, $\omega = 3$ and $\Delta = -36 < 0$.</li>
+          <li><strong>Type.</strong> $\rho = 1 > 0$: an <em>unstable spiral</em> (radius grows like $e^{t}$).</li>
+          <li><strong>Eigenvector for $\lambda = 1 + 3i$.</strong> The first row of $(A - \lambda I)\mathbf v = \mathbf 0$ is $(2 - 1 - 3i)v_1 + 5v_2 = (1 - 3i)v_1 + 5v_2 = 0$. Take $v_1 = 5$; then $v_2 = -(1 - 3i) = -1 + 3i$, and
+            $\mathbf v = \begin{pmatrix} 5 \\ -1 + 3i\end{pmatrix} = \underbrace{\begin{pmatrix} 5 \\ -1\end{pmatrix}}_{\mathbf u} + i\underbrace{\begin{pmatrix} 0 \\ 3\end{pmatrix}}_{\mathbf w}$.
+            Check with the second row: $-2\cdot 5 + (0 - \lambda)(-1 + 3i) = -10 - (1 + 3i)(-1 + 3i) = -10 - (-1 - 9) = 0$. ✓</li>
+          <li><strong>Sense of rotation, without any change of basis.</strong> Evaluate the vector field at $(0, 1)^T$ (top of the plane): $\dot{\mathbf x} = A(0,1)^T = (5, 0)^T$, which points to the right. At the top, motion to the right is <em>clockwise</em>. Confirm at $(1, 0)^T$: $\dot{\mathbf x} = (2, -2)^T$ points down on the right-hand side, again clockwise.</li>
+          <li><strong>Sketch.</strong> A spiral that turns clockwise and moves outward, drawn as a distorted spiral because it lives in the $(x, y)$ basis (Fig. 4.5, right). The rest of this section explains <em>why</em> it is distorted exactly as it is, and gives its equation.</li>
+        </ol>
+      </div>
+
+      <h3 class="sub-title">7.3 The real general solution <span class="cite">[Sec. 29.1, pp. 285–286]</span></h3>
+      <p>
+        As for distinct real eigenvalues, $e^{\lambda_+t}\mathbf v$ and $e^{\lambda_-t}\bar{\mathbf v}$ solve $\dot{\mathbf x} = A\mathbf x$, and so does every combination $Ce^{\lambda_+t}\mathbf v + De^{\lambda_-t}\bar{\mathbf v}$ with complex $C, D$.
+        To get a <em>real</em> solution choose $D = \bar C$: the second term is then the conjugate of the first and the sum is twice a real part, because $z + \bar z = 2\operatorname{Re}z$:
+      </p>
+      $$\mathbf x(t) = 2\operatorname{Re}\Big[Ce^{(\rho + i\omega)t}(\mathbf u + i\mathbf w)\Big]. \tag{7.2}$$
+      <p>Write $C = \alpha + i\beta$ and expand with Euler's formula $e^{i\omega t} = \cos\omega t + i\sin\omega t$:</p>
+      <ol class="steps">
+        <li>$Ce^{i\omega t} = (\alpha + i\beta)(\cos\omega t + i\sin\omega t) = (\alpha\cos\omega t - \beta\sin\omega t) + i(\beta\cos\omega t + \alpha\sin\omega t)$.</li>
+        <li>Multiply by $\mathbf u + i\mathbf w$ and keep only the real part ($i\cdot i = -1$): $\operatorname{Re}\big[(a + ib)(\mathbf u + i\mathbf w)\big] = a\mathbf u - b\mathbf w$, with $a = \alpha\cos\omega t - \beta\sin\omega t$ and $b = \beta\cos\omega t + \alpha\sin\omega t$.</li>
+        <li>Therefore $\mathbf x(t) = 2e^{\rho t}\big[(\alpha\cos\omega t - \beta\sin\omega t)\mathbf u - (\beta\cos\omega t + \alpha\sin\omega t)\mathbf w\big]$.</li>
+        <li>Put $a_1 = 2\alpha$ and $b_1 = -2\beta$ (two arbitrary real constants):</li>
+      </ol>
+      $$\mathbf x(t) = e^{\rho t}\Big[\big(a_1\cos\omega t + b_1\sin\omega t\big)\mathbf u + \big(b_1\cos\omega t - a_1\sin\omega t\big)\mathbf w\Big]. \tag{7.3}$$
+      <p>
+        This is Robinson's (29.2) with $\mathbf v_1 = \mathbf u$, $\mathbf v_2 = \mathbf w$. It already contains everything, but it does not show <em>how</em> the solution moves. The change of basis does.
+      </p>
+      <p>
+        <strong>The form of the notes.</strong> The real and imaginary parts of the single complex solution $\mathbf v e^{\lambda t}$ are themselves real solutions
+        (the real and imaginary parts of $\dot{\mathbf y} - A\mathbf y = \mathbf 0$ vanish separately because $A$ is real). By Euler's formula,
+      </p>
+      $$\mathbf v e^{\lambda t} = e^{\rho t}(\mathbf u + i\mathbf w)(\cos\omega t + i\sin\omega t) = e^{\rho t}\Big[\big(\cos\omega t\,\mathbf u - \sin\omega t\,\mathbf w\big) + i\big(\sin\omega t\,\mathbf u + \cos\omega t\,\mathbf w\big)\Big],$$
+      <p>so</p>
+      $$C_1\operatorname{Re}\big\{\mathbf v e^{\lambda t}\big\} + C_2\operatorname{Im}\big\{\mathbf v e^{\lambda t}\big\} = e^{\rho t}\Big[\big(C_1\cos\omega t + C_2\sin\omega t\big)\mathbf u + \big(C_2\cos\omega t - C_1\sin\omega t\big)\mathbf w\Big],$$
+      <p>which is (7.3) with $a_1 = C_1$ and $b_1 = C_2$ <span class="cite">[Notes, p. 10]</span>.</p>
+
+      <h3 class="sub-title">7.4 How $A$ acts on $\mathbf u$ and $\mathbf w$ <span class="cite">[Sec. 29.2, p. 287, Eq. (29.3)]</span></h3>
+      <p>Separate the real and imaginary parts of $A\mathbf v = \lambda\mathbf v$. The left side is $A(\mathbf u + i\mathbf w) = A\mathbf u + iA\mathbf w$ (both real vectors). The right side is</p>
+      $$(\rho + i\omega)(\mathbf u + i\mathbf w) = \rho\mathbf u + i\rho\mathbf w + i\omega\mathbf u + i^2\omega\mathbf w = (\rho\mathbf u - \omega\mathbf w) + i(\omega\mathbf u + \rho\mathbf w).$$
+      <p>Two complex vectors are equal exactly when their real parts and their imaginary parts are equal:</p>
+      $$\boxed{A\mathbf u = \rho\mathbf u - \omega\mathbf w, \qquad A\mathbf w = \omega\mathbf u + \rho\mathbf w.} \tag{7.4}$$
+      <p>
+        So $A$ maps the plane $\operatorname{span}\{\mathbf u, \mathbf w\}$ into itself: it scales by $\rho$ and mixes $\mathbf u$ with $\mathbf w$ through the rotation angle $\omega$. There is no real eigenvector, but there is an invariant <em>basis</em>.
+      </p>
+      <div class="callout thm">
+        <div class="callout-title">Lemma — $\mathbf u$ and $\mathbf w$ are linearly independent <span class="cite">[Exercise 29.4]</span></div>
+        <p>If $\omega \neq 0$, the real vectors $\mathbf u, \mathbf w$ form a basis of $\mathbb R^2$.</p>
+      </div>
+      <div class="callout proof">
+        <div class="callout-title">Proof</div>
+        <p>
+          Suppose they were dependent. Then the eigenvector $\mathbf v = \mathbf u + i\mathbf w$ would be a complex multiple of one real vector $\mathbf r \neq \mathbf 0$ (if $\mathbf w = c\mathbf u$ then $\mathbf v = (1 + ic)\mathbf u$; if $\mathbf u = \mathbf 0$ then $\mathbf v = i\mathbf w$): $\mathbf v = \kappa\mathbf r$ with $\kappa \in \mathbb C\setminus\{0\}$.
+          Then $A\mathbf v = \kappa A\mathbf r$ and $\lambda\mathbf v = \lambda\kappa\mathbf r$, so $A\mathbf r = \lambda\mathbf r$. The left side is a real vector, so $\lambda\mathbf r$ is real and, as $\mathbf r \neq \mathbf 0$ is real, $\lambda$ must be real. This contradicts $\operatorname{Im}\lambda = \omega \neq 0$.
+        </p>
+      </div>
+
+      <h3 class="sub-title">7.5 The change of basis $\mathbf z = Q^{-1}\mathbf x$ <span class="cite">[Sec. 29.2, pp. 287–288, Eqs. (29.4)–(29.7)]</span></h3>
+      <p>
+        Because $\mathbf u, \mathbf w$ are a basis, every $\mathbf x$ has unique coordinates $(z_1, z_2)$: $\mathbf x = z_1\mathbf u + z_2\mathbf w$. In matrix form, with the columns <strong>in the order $\mathbf u$, then $\mathbf w$</strong>,
+      </p>
+      $$Q = [\,\mathbf u \mid \mathbf w\,], \qquad \mathbf x = Q\mathbf z, \qquad \mathbf z = Q^{-1}\mathbf x. \tag{7.5}$$
+      <p>$Q$ is constant, so differentiating $\mathbf z = Q^{-1}\mathbf x$ gives $\dot{\mathbf z} = Q^{-1}\dot{\mathbf x} = Q^{-1}A\mathbf x = Q^{-1}AQ\,\mathbf z$. Compute $Q^{-1}AQ$ column by column, using $AQ = [A\mathbf u \mid A\mathbf w]$ and (7.4):</p>
+      $$AQ = [\rho\mathbf u - \omega\mathbf w \mid \omega\mathbf u + \rho\mathbf w] = [\,\mathbf u \mid \mathbf w\,]\begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix} = Q\,J.$$
+      <p>
+        The last equality is the rule "$Q M$ has as its $j$-th column the combination of the columns of $Q$ with the coefficients of the $j$-th column of $M$": the first column of $J$ is $(\rho, -\omega)^T$, giving $\rho\mathbf u - \omega\mathbf w$, and the second is $(\omega, \rho)^T$, giving $\omega\mathbf u + \rho\mathbf w$.
+        Multiplying on the left by $Q^{-1}$:
+      </p>
+      $$\boxed{Q^{-1}AQ = J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}, \qquad \dot z_1 = \rho z_1 + \omega z_2,\quad \dot z_2 = -\omega z_1 + \rho z_2.} \tag{7.6}$$
+      <div class="callout warn">
+        <div class="callout-title">Convention check: the order of the columns</div>
+        <p>
+          With $Q = [\mathbf u \mid \mathbf w]$ (Robinson's choice) the canonical matrix is $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}$ and the rotation in the $\mathbf z$-plane is <strong>clockwise</strong>.
+          With the opposite order $Q' = [\mathbf w \mid \mathbf u]$ the same computation gives $J' = \begin{pmatrix} \rho & -\omega \\ \omega & \rho\end{pmatrix} = J^{T}$ and an anticlockwise rotation. Both are correct; this page always uses $[\mathbf u \mid \mathbf w]$, so the $\mathbf z$-plane always turns clockwise.
+        </p>
+      </div>
 
       <h3 class="sub-title">7.6 Solving $\dot{\mathbf z} = J\mathbf z$ in polar coordinates <span class="cite">[Sec. 29.2, pp. 288–290]</span></h3>
       <p>The two equations (7.6) are coupled, but they say "rotate and scale", which polar coordinates $z_1 = r\cos\theta$, $z_2 = r\sin\theta$ express directly.</p>
@@ -220,7 +221,7 @@
       <h3 class="sub-title">7.10 Two examples solved from start to finish</h3>
       <div class="callout example">
         <div class="callout-title">Example 7.1 (continued) — $\dot x = 2x + 5y,\ \dot y = -2x$: unstable spiral</div>
-        <p>From 7.1: $\lambda = 1 \pm 3i$ ($\rho = 1$, $\omega = 3$), $\mathbf u = (5, -1)^T$, $\mathbf w = (0, 3)^T$.</p>
+        <p>From 7.2: $\lambda = 1 \pm 3i$ ($\rho = 1$, $\omega = 3$), $\mathbf u = (5, -1)^T$, $\mathbf w = (0, 3)^T$.</p>
         <ol class="steps">
           <li><strong>Check (7.4).</strong> $A\mathbf u = \begin{pmatrix} 2\cdot5 + 5\cdot(-1) \\ -2\cdot5\end{pmatrix} = \begin{pmatrix} 5 \\ -10\end{pmatrix}$ and $\rho\mathbf u - \omega\mathbf w = \begin{pmatrix} 5 \\ -1\end{pmatrix} - 3\begin{pmatrix} 0 \\ 3\end{pmatrix} = \begin{pmatrix} 5 \\ -10\end{pmatrix}$ ✓.
             $A\mathbf w = \begin{pmatrix} 15 \\ 0\end{pmatrix}$ and $\omega\mathbf u + \rho\mathbf w = 3\begin{pmatrix} 5 \\ -1\end{pmatrix} + \begin{pmatrix} 0 \\ 3\end{pmatrix} = \begin{pmatrix} 15 \\ 0\end{pmatrix}$ ✓.</li>
@@ -243,8 +244,9 @@
           <li><strong>Step 1, eigenvalues.</strong> $\det(A - \lambda I) = (2 - \lambda)(-\lambda) + 10 = \lambda^2 - 2\lambda + 10 = 0$, $\lambda = \dfrac{2 \pm \sqrt{-36}}{2} = 1 \pm 3i$.</li>
           <li>
             <strong>Step 2, eigenvectors.</strong> $\left(\begin{smallmatrix} 1 \mp 3i & 5 \\ -2 & -1 \mp 3i\end{smallmatrix}\right)\mathbf v = \mathbf 0$ reduces to one row, giving
-            $\mathbf v_\pm = \begin{pmatrix} -5 \\ 1 \mp 3i\end{pmatrix} = -\left[\begin{pmatrix} 5 \\ -1\end{pmatrix} \pm i\begin{pmatrix} 0 \\ 3\end{pmatrix}\right]$, a multiple of the eigenvector of 7.1, so
-            $\mathbf v_1 = (5, -1)^T$, $\mathbf v_2 = (0, 3)^T$.
+            $\mathbf v_\pm = \begin{pmatrix} -5 \\ 1 \mp 3i\end{pmatrix} = -\left[\begin{pmatrix} 5 \\ -1\end{pmatrix} \pm i\begin{pmatrix} 0 \\ 3\end{pmatrix}\right]$, a multiple of the eigenvector of 7.2, so
+            $\mathbf v_1 = (5, -1)^T$, $\mathbf v_2 = (0, 3)^T$. (Reading note: the notes write $\mathbf v_\pm = (-5,\ 1 \mp 3i)^T = (5, -1)^T \pm i(0, 3)^T$; the two
+            sides differ by the factor $-1$. Both are eigenvectors, and the page uses the right-hand side, as the notes do from Step 3 on.)
           </li>
           <li><strong>Step 3, particular solution.</strong> $\mathbf x(t) = r(0)\,e^{t}\Big(\cos\big(\theta(0) - 3t\big)\begin{pmatrix} 5 \\ -1\end{pmatrix} + \sin\big(\theta(0) - 3t\big)\begin{pmatrix} 0 \\ 3\end{pmatrix}\Big)$.</li>
           <li>
@@ -256,7 +258,7 @@
         </ol>
       </div>
       <div class="callout example">
-        <div class="callout-title">Example 7.2 — $\dot x = x - 2y,\ \dot y = x - y$: a centre whose orientation flips</div>
+        <div class="callout-title">Example 7.2 — $\dot x = x - 2y,\ \dot y = x - y$: a centre whose orientation flips (written for this page)</div>
         <p>$A = \begin{pmatrix} 1 & -2 \\ 1 & -1\end{pmatrix}$, $\operatorname{tr}A = 0$, $\det A = -1 + 2 = 1$.</p>
         <ol class="steps">
           <li><strong>Eigenvalues.</strong> $\lambda^2 + 1 = 0$, $\lambda = \pm i$: $\rho = 0$, $\omega = 1$. A centre.</li>
@@ -289,7 +291,7 @@
             Check: $\dot x_1 = -5x_2$ requires $\dot z_1 + 2\dot z_2 = (-z_1 + 2z_2) + 2(-2z_1 - z_2) = -5z_1$ ✓, and $\dot x_2 = \dot z_1 = -z_1 + 2z_2 = x_1 - 2x_2$ ✓.</li>
           <li><strong>Sense of rotation.</strong> Clockwise in $\mathbf z$, but $\det Q = -2 < 0$. Test: $a_{12} = -5 < 0$, so at $(0,1)^T$ the velocity is $(-5, -2)^T$, leftwards: <strong>anticlockwise</strong> in the $\mathbf x$-plane.</li>
         </ol>
-        {{fig:ex81}}
+        {{fig:ex73}}
       </div>
     </section>
 
@@ -465,7 +467,7 @@
         <li><strong>The $z_1$-axis is invariant.</strong> For $c_2 = 0$: $z_2 \equiv 0$ and $z_1 = c_1e^{\lambda t}$, two half-lines moving away from the origin if $\lambda > 0$ (towards it if $\lambda < 0$). This is the single eigendirection, $\operatorname{span}\mathbf v_1$.</li>
         <li><strong>Where the orbits turn.</strong> The notes start the sketch from the line where $\dot z_1 = 0$: $\lambda z_1 + z_2 = 0$, i.e. $z_2 = -\lambda z_1$ <span class="cite">[Notes, p. 10]</span>. There the velocity $(0, \lambda z_2)$ is vertical, so every S-shaped orbit crosses this line with a vertical tangent, where $z_1$ reaches its extreme value.</li>
         <li><strong>Direction of motion.</strong> $\dot z_1 = \lambda z_1 + z_2$ equals $z_2$ on the $z_2$-axis. So in the upper half-plane ($z_2 > 0$) orbits cross the $z_2$-axis moving <em>right</em> and in the lower half-plane moving <em>left</em>.</li>
-        <li><strong>Behaviour as $t \to \pm\infty$</strong> (take $\lambda > 0$): for $t \to -\infty$ the orbit tends to the origin and $z_1/z_2 = c_1/c_2 + t \to \mp\infty$, so it arrives <em>tangent to the $z_1$-axis</em>. For $t \to +\infty$ the orbit escapes to infinity with $z_1/z_2 \sim t \to \pm\infty$ again: it becomes parallel to the $z_1$-axis. For $\lambda < 0$ everything is reversed in time.</li>
+        <li><strong>Behaviour as $t \to \pm\infty$</strong> (take $\lambda > 0$): for $t \to -\infty$ the orbit tends to the origin and $z_1/z_2 = c_1/c_2 + t \to -\infty$, so it arrives <em>tangent to the $z_1$-axis</em>. For $t \to +\infty$ the orbit escapes to infinity with $z_1/z_2 \sim t \to +\infty$: it becomes parallel to the $z_1$-axis. For $\lambda < 0$ everything is reversed in time.</li>
         <li><strong>Shape.</strong> Near the origin $z_1 \approx (z_2/\lambda)\ln z_2$, which tends to $0$ with infinite slope $dz_1/dz_2 \to -\infty$ (for $\lambda>0$): the orbit leaves the origin horizontally, curls over the $z_2$-axis and flattens again. Upper and lower half-planes are point-symmetric ($\mathbf z \mapsto -\mathbf z$ maps solutions to solutions), giving an S-shaped pair of curves. The approach to the axis is only logarithmic ($z_1/z_2 = K + \tfrac1\lambda\ln|z_2|$ grows very slowly as $z_2 \to 0$), so at the scale of Fig. 4.9 the portrait looks like a fan of almost straight rays that bend sharply only close to the origin.</li>
       </ul>
       {{fig:improper_z}}

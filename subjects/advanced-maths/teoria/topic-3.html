@@ -606,6 +606,7 @@
         $W = e^{k_1t}\,k_2e^{k_2t} - e^{k_2t}\,k_1e^{k_1t} = (k_2 - k_1)\,e^{(k_1 + k_2)t} \neq 0$, so they are independent and
       </p>
       $$x(t) = C_1e^{k_1t} + C_2e^{k_2t}.$$
+        <div class="callout example">
         <div class="callout-title">Example 12.1 (p. 112): $\ddot x + \dot x - 6x = 0$, $x(0) = 1$, $\dot x(0) = 2$</div>
         <p>
           $k^2 + k - 6 = (k - 2)(k + 3) = 0$, so $k = 2, -3$ and $x = Ae^{2t} + Be^{-3t}$, $\dot x = 2Ae^{2t} - 3Be^{-3t}$. At $t = 0$: $A + B = 1$,
@@ -1075,7 +1076,8 @@
       </ol>
       <p>
         The notes stop here. To finish (Robinson Exercise 17.7), the equation is separable: where $u \neq 0$ and $z \neq 0$,
-        $\dfrac{z'}{z} = -\dfrac{2u'}{u} - p$, so $\ln|z| = -2\ln|u| - \int p\,dt + c$ and
+        $\dfrac{z'}{z} = -\dfrac{2u'}{u} - p$. Integrate each term: by the chain rule $\dfrac{d}{dt}\ln|z(t)| = \dfrac{z'}{z}$ and $\dfrac{d}{dt}\ln|u(t)| = \dfrac{u'}{u}$
+        (equivalently, substitute $s = u(t)$, $ds = u'(t)\,dt$, so $\int\frac{u'}{u}\,dt = \int\frac{ds}{s} = \ln|s|$). Hence $\ln|z| = -2\ln|u| - \int p\,dt + c$ and
       </p>
       $$z = \frac{A\,e^{-\int p\,dt}}{u^2}, \qquad y = \int z\,dt, \qquad x_2 = u\int\frac{e^{-\int p\,dt}}{u^2}\,dt.$$
       <div class="callout example">
@@ -1181,8 +1183,8 @@
           <strong>Check with the example of Section 6.3, $f = 12$.</strong> $x_1 = e^{-3t}$, $x_2 = e^{2t}$, $W = 5e^{-t}$ (Section 3).
         </p>
         <ul>
-          <li>$u_2' = \dfrac{12\,e^{-3t}}{5e^{-t}} = \dfrac{12}{5}e^{-2t}$, so $u_2 = -\dfrac65e^{-2t}$ and $u_2x_2 = -\dfrac65$.</li>
-          <li>Correct sign: $u_1' = -\dfrac{12\,e^{2t}}{5e^{-t}} = -\dfrac{12}{5}e^{3t}$, so $u_1 = -\dfrac45e^{3t}$, $u_1x_1 = -\dfrac45$ and $x_N = -\dfrac45 - \dfrac65 = -2$ ✓ (the result of Section 6.3).</li>
+          <li>$u_2' = \dfrac{12\,e^{-3t}}{5e^{-t}} = \dfrac{12}{5}e^{-2t}$. With $s = -2t$, $ds = -2\,dt$: $\int\tfrac{12}{5}e^{-2t}dt = -\tfrac{6}{5}\int e^{s}ds = -\tfrac65e^{-2t}$ (check: $\frac{d}{dt}\big(-\tfrac65e^{-2t}\big) = \tfrac{12}{5}e^{-2t}$), so $u_2 = -\dfrac65e^{-2t}$ and $u_2x_2 = -\dfrac65$.</li>
+          <li>Correct sign: $u_1' = -\dfrac{12\,e^{2t}}{5e^{-t}} = -\dfrac{12}{5}e^{3t}$; with $s = 3t$, $ds = 3\,dt$, $\int -\tfrac{12}{5}e^{3t}dt = -\tfrac45\int e^{s}ds = -\tfrac45e^{3t}$, so $u_1 = -\dfrac45e^{3t}$, $u_1x_1 = -\dfrac45$ and $x_N = -\dfrac45 - \dfrac65 = -2$ ✓ (the result of Section 6.3).</li>
           <li>Sign of the notes: $u_1 = +\dfrac45e^{3t}$ gives $x_N = \dfrac45 - \dfrac65 = -\dfrac25$, and $-6\cdot\left(-\dfrac25\right) = \dfrac{12}{5} \neq 12$ ✗.</li>
         </ul>
       </div>

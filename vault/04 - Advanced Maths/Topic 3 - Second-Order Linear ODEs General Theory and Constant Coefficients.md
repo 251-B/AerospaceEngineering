@@ -28,7 +28,7 @@ This note follows pages 5 to 8 of the class notes (`Notes.pdf`) in their order. 
 $$x''(t) + p(t)\,x'(t) + q(t)\,x(t) = f(t).$$
 For a spring: $p$ is the friction, $q$ the spring constant and $f$ the forcing ($m x'' = -\mu x' - kx + F$ divided by $m$).
 
-**Theorem [Notes, p. 5; Robinson, Thm 11.1].** Given $\ddot x = f(\dot x, x, t)$, if $f$, $\partial f/\partial x$, $\partial f/\partial\dot x$ are continuous in a cube $(a_1, a_2)\times(b_1, b_2)\times(t_1, t_2)$, the IVP $x(t_0) = x_0$, $\dot x(t_0) = y_0$ has a unique solution when $t_0 \in (t_1, t_2)$, $x_0 \in (a_1, a_2)$, $y_0 \in (b_1, b_2)$. Two integrations of $\ddot x = f(t)$ show why two data are needed.
+**Theorem [Notes, p. 5; Robinson, Thm 11.1].** Given $\ddot x = f(\dot x, x, t)$, if $f$, $\partial f/\partial x$, $\partial f/\partial\dot x$ are continuous in a cube $(a_1, a_2)\times(b_1, b_2)\times(t_1, t_2)$, the IVP $x(t_0) = x_0$, $\dot x(t_0) = y_0$ has a unique solution when $t_0 \in (t_1, t_2)$, $x_0 \in (a_1, a_2)$, $y_0 \in (b_1, b_2)$. (Complement, Robinson Sec. 11.1: two integrations of $\ddot x = f(t)$ show why two data are needed.)
 
 ## 2. Superposition, independence, general solution [Notes, p. 5; Robinson, Secs. 11.2-11.3]
 
@@ -82,7 +82,7 @@ $x'' + px' + qx = f$: $x = x_H + x_N$. Proof: $\Phi = x - x_N$ gives $\Phi'' + p
 - $f = 12$: $x_N = C$, $-6C = 12$, $x_N = -2$.
 - $f = 36t$: $x_N = a_1t + a_0$; $a_1 - 6(a_1t + a_0) = 36t$; $-6a_1 = 36 \Rightarrow a_1 = -6$; $a_1 - 6a_0 = 0 \Rightarrow a_0 = -1$; $x_N = -6t - 1$. (The notes write $6C_1t = 36t$; the coefficient is $-6C_1$, the value $-6$ is right.)
 - $f = 4e^{-2t}$: $-2$ is not a root; $x_N = Ae^{-2t}$, $(4 - 2 - 6)A = 4$, $A = -1$, $x_N = -e^{-2t}$.
-- Decomposition: $f = 12 + 36t + 4e^{-2t}$ gives $x_N = -6t - 3 - e^{-2t}$.
+- Decomposition (portal check, not in the notes, which only state the rule): $f = 12 + 36t + 4e^{-2t}$ gives $x_N = -6t - 3 - e^{-2t}$.
 
 **Complement (Robinson).** Guess table and rule of thumb (Sec. 14.5); Examples 14.4, 14.8, 14.10, 14.11.
 
@@ -94,7 +94,7 @@ Beats, resonance $x_p = \frac{a}{2\omega}t\sin\omega t$, damped response $R(\alp
 
 In general not all solutions can be found; two strategies. **Reduction of order:** knowing a solution $u$ of $x'' + px' + qx = 0$, set $x = yu$. Then $x' = y'u + yu'$, $x'' = y''u + 2y'u' + yu''$ and
 $$\big[u'' + pu' + qu\big]y + \big[2u' + pu\big]y' + uy'' = 0,$$
-the first bracket being $0$. With $z = y'$: $uz' + (2u' + pu)z = 0$, separable: $z = Ae^{-\int p}/u^2$, $x_2 = u\int e^{-\int p}/u^2\,dt$ (Robinson Exercise 17.7). With $u = e^{kt}$ and a double root this gives $z = A$, $x = (At + B)e^{kt}$: Case 02.
+the first bracket being $0$. With $z = y'$: $uz' + (2u' + pu)z = 0$, a first-order equation; the notes stop here. Complement (Robinson Ex. 17.7): it is separable, $z = Ae^{-\int p}/u^2$, $x_2 = u\int e^{-\int p}/u^2\,dt$ (Robinson Exercise 17.7). With $u = e^{kt}$ and a double root this gives $z = A$, $x = (At + B)e^{kt}$: Case 02.
 
 **Complement (Robinson).** Examples 17.1 and 17.2 ($t^2\ddot x - 2t\dot x - 4x = 0$, $x_2 = t^4$).
 

@@ -19,7 +19,7 @@ bytes: 1597287
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 1.6 MB
-- **Status:** referenced by 15 note(s) below
+- **Status:** referenced by 16 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -33,6 +33,7 @@ bytes: 1597287
 - [[04 - Advanced Maths/Concept - Linear Operator and the Superposition Principle]]
 - [[04 - Advanced Maths/Concept - Linearity and Order of Differential Equations]]
 - [[04 - Advanced Maths/Concept - Logistic Equation and Carrying Capacity]]
+- [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues]]
 - [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue]]
 - [[04 - Advanced Maths/Concept - Well-Posed Problems and Picard Theorem]]
 - [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs]]

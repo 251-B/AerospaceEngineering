@@ -71,7 +71,7 @@ So $v$ is a solution for every $\alpha, \beta$.
 
 **Example of the notes: $u' = u$.** Let $u_1' = u_1$ and $u_2' = u_2$, and call $u = \alpha u_1 + \beta u_2$. Then
 $$u' = \alpha u_1' + \beta u_2' = \alpha u_1 + \beta u_2 = u,$$
-so $u$ solves the equation: **linear**. In form (L): $n = 1$, $a_0 = 1$, $a_1 = -1$, $b = 0$.
+so $u$ solves the equation: **linear**. (Reading note: the notes write the middle step as $\alpha u_1 + \alpha u_2$; the second coefficient is $\beta$.) In form (L): $n = 1$, $a_0 = 1$, $a_1 = -1$, $b = 0$.
 
 ### 3.4 Demonstration 2: $u'' = (u')^2 + 1$ fails the test
 
@@ -128,7 +128,7 @@ Both routes give $\ln\frac{x}{x_0} = kt$; exponentiating, $\frac{x}{x_0} = e^{kt
 $$\boxed{x(t) = x_0\,e^{kt}}.$$
 Check: $x'(t) = k x_0 e^{kt} = k\,x(t)$ and $x(0) = x_0 e^0 = x_0$.
 
-**Discussion (notes).**
+**Discussion** (the notes record the signs of $k$; the limits, time scales and $k = 0$ are an extension).
 - $k > 0$: the population grows; $x(t) \to \infty$ as $t \to \infty$; doubling time $\ln 2/k$.
 - $k < 0$: the population decays; $x(t) \to 0$ as $t \to \infty$; half-life $\ln 2/|k|$ (radioactive decay, [[04 - Advanced Maths/Problem - Ch1-P3 Plutonium 239 Radioactive Decay|Problem 1.3]]).
 - $k = 0$: $x(t) \equiv x_0$.
@@ -147,7 +147,7 @@ a second-order linear ODE (form (L) with $a_0 = 1$, $a_1 = a_2 = 0$, $b = -g$). 
 1. An antiderivative of $-g$ is $-g\tau$, so $y'(t) - y'(0) = \int_0^t (-g)\,d\tau = \big[-g\tau\big]_0^t = -gt$, i.e. $y'(t) = v_0 - gt$ with $v_0 = y'(0)$.
 2. An antiderivative of $v_0 - g\tau$ is $v_0\tau - \tfrac12 g\tau^2$, so $y(t) - y(0) = \big[v_0\tau - \tfrac12 g\tau^2\big]_0^t = v_0t - \tfrac12 g t^2$.
 
-General solution: $y(t) = y_0 + v_0 t - \tfrac12 g t^2$, with two constants $y_0 = y(0)$, $v_0 = y'(0)$, as expected for a second-order equation. The notes take the object released from rest at the origin ($y_0 = v_0 = 0$):
+General solution: $y(t) = y_0 + v_0 t - \tfrac12 g t^2$, with two constants $y_0 = y(0)$, $v_0 = y'(0)$, as expected for a second-order equation. The result of the notes, written without initial conditions, corresponds to an object released from rest at the origin ($y_0 = v_0 = 0$):
 $$\boxed{y(t) = -\iint g\,dt\,dt = -\tfrac12 g t^2}.$$
 Dimensions: $[g t^2] = \text{m s}^{-2}\cdot\text{s}^2 = \text{m}$.
 

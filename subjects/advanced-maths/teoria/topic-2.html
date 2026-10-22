@@ -668,6 +668,7 @@
           <li>$x'(t) = t^2\,x(t)$ is <strong>not</strong> autonomous, because $f(x, t) = t^2x$.</li>
         </ul>
       </div>
+      <p>
         For a general first-order equation we will look for explicit formulas. For the special class of <strong>autonomous</strong> equations
       </p>
       $$\frac{dx}{dt} = f(x) \tag{7.1}$$
@@ -1298,12 +1299,16 @@
         <div class="callout-title">Theorem <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=4" target="_blank" rel="noopener" title="Open Notes.pdf at page 4">4</a>]</span></div>
         <p>
           Let $f$, $g$, $\dfrac{\partial f}{\partial y}$ and $\dfrac{\partial g}{\partial x}$ be continuous functions. Then
-          $f(x, y) + g(x, y)\dfrac{dy}{dx} = 0$ is an <strong>exact</strong> ODE if and only if
+          $f(x, y) + g(x, y)\dfrac{dy}{dx} = 0$ is an <strong>exact</strong> ODE if
         </p>
         $$\frac{\partial f}{\partial y} = \frac{\partial g}{\partial x},$$
         <p>and its solution is $F(x, y) = C$, with $\dfrac{\partial F}{\partial x} = f$ and $\dfrac{\partial F}{\partial y} = g$.</p>
       </div>
-      <p>The observation proves the "only if" part. Robinson's proof of the "if" part constructs $F$, and is the method used in the examples:</p>
+      <p>
+        <strong>Complement (Robinson, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=105" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 105">10.1</a>).</strong> The condition is necessary and, on a rectangle (more generally a simply connected domain),
+        also sufficient: the equation is exact <em>if and only if</em> $f_y = g_x$ there. The observation proves the "only if" part. Robinson's proof of the
+        "if" part constructs $F$, and is the method used in the examples:
+      </p>
       <div class="callout proof">
         <div class="callout-title">Proof</div>
         <p>
@@ -1316,7 +1321,7 @@
         $$\frac{\partial}{\partial y}\int f\,dx + C'(y) = g \quad\Longrightarrow\quad C'(y) = g(x, y) - \frac{\partial}{\partial y}\int f(x, y)\,dx. \tag{10.7}$$
         <p>This defines $C(y)$ only if the right side does not depend on $x$. Differentiate it in $x$:</p>
         $$\frac{\partial}{\partial x}\left[g - \frac{\partial}{\partial y}\int f\,dx\right] = \frac{\partial g}{\partial x} - \frac{\partial}{\partial y}\frac{\partial}{\partial x}\int f\,dx = \frac{\partial g}{\partial x} - \frac{\partial f}{\partial y} = 0$$
-        <p>by (10.5). So the right side of (10.7) is a function of $y$ alone, and integrating it gives $C(y)$.</p>
+        <p>by the condition $\partial f/\partial y = \partial g/\partial x$. So the right side of (10.7) is a function of $y$ alone, and integrating it gives $C(y)$.</p>
       </div>
 
       <h3 class="sub-title">8.2 Example 1 of the notes</h3>
@@ -1338,7 +1343,7 @@
           <li>
             Solution:
             $$F(x, y) = \frac{x^4}{4} + \frac{y^3}{3} + y\ln x = C.$$
-            It is an <strong>implicit</strong> solution: $x$ and $y$ are bound together and $y$ cannot be isolated in closed form.
+            It is an <strong>implicit</strong> solution, "since $x$ and $y$ are together" in the words of the notes: it is left in implicit form (isolating $y$ would need Cardano's formula for the cubic $\tfrac{y^3}{3} + y\ln x = C - \tfrac{x^4}{4}$).
           </li>
         </ol>
         <p><strong>Check:</strong> $F_x + F_y\,y' = \big(x^3 + y/x\big) + \big(y^2 + \ln x\big)y' = f + g\,y'$ ✓.</p>
@@ -1373,8 +1378,9 @@
         </ol>
         <p>
           <strong>Check:</strong> differentiate $y\,(xe^x + 2) = C - x$ with the product rule: $y'(xe^x + 2) + y(e^x + xe^x) = -1$, i.e.
-          $\big(1 + e^xy + xe^xy\big) + \big(xe^x + 2\big)y' = 0$ ✓. (This equation is also linear in $y$, and its left side is exactly
-          $\frac{d}{dx}\big[(xe^x + 2)\,y\big] + 1$, so the integrating factor of Section 7 is $1$ and the same answer follows.)
+          $\big(1 + e^xy + xe^xy\big) + \big(xe^x + 2\big)y' = 0$ ✓. (This equation is also linear in $y$. In the normal form $y' + p\,y = q$ of Section 7, $p = \dfrac{(1 + x)e^x}{xe^x + 2}$ and
+          $q = \dfrac{-1}{xe^x + 2}$; since $(xe^x + 2)' = (1 + x)e^x$, $P = \ln(xe^x + 2)$ and $I = e^{P} = xe^x + 2$. Multiplying by $I$ gives back
+          $\frac{d}{dx}\big[(xe^x + 2)\,y\big] = -1$, and the same answer follows.)
         </p>
       </div>
 

@@ -465,6 +465,7 @@
       </div>
       <p class="cite" style="white-space: normal;">[Robinson, Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=29" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 29">3.2</a>, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=29" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 29">13</a>]</p>
 
+      <h3 class="sub-title">2.1 Complement (Robinson): autonomous equations</h3>
       <div class="callout def">
         <div class="callout-title">Definition — autonomous equation <span class="cite">[Robinson, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=29" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 29">13</a>]</span></div>
         <p>
@@ -573,6 +574,7 @@
         <div class="callout-title">Example of the notes: is $u' = u$ linear? <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></div>
         <p>Let $u_1$ and $u_2$ be solutions, $u_1' = u_1$ and $u_2' = u_2$, and call $u = \alpha u_1 + \beta u_2$. Then</p>
         $$u' = \alpha u_1' + \beta u_2' = \alpha u_1 + \beta u_2 = u,$$
+        <p class="cite" style="white-space: normal;">Reading note: the notes write the middle step as $\alpha u_1 + \alpha u_2$; the second coefficient is $\beta$.</p>
         <p>
           so $u$ is again a solution for every $\alpha$, $\beta$: the ODE is <strong>linear</strong>. In the form (L): $n = 1$,
           $a_0 = 1$, $a_1 = -1$, $b = 0$.
@@ -811,7 +813,7 @@
       <h3 class="sub-title">5.3 Growth or decay: the sign of $k$</h3>
       <div class="table-container">
         <table class="data-table">
-          <thead><tr><th>Case <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></th><th>Behaviour</th><th>As $t \to \infty$</th><th>Time scale</th></tr></thead>
+          <thead><tr><th>Case</th><th>Behaviour</th><th>As $t \to \infty$</th><th>Time scale</th></tr></thead>
           <tbody>
             <tr><td>$k &gt; 0$</td><td>Population grows</td><td>$x(t) \to \infty$</td><td>Doubling time $d$: $2 = e^{kd}$, so $d = \ln 2/k$</td></tr>
             <tr><td>$k &lt; 0$</td><td>Population decays</td><td>$x(t) \to 0$</td><td>Half-life: $\tfrac12 = e^{kh}$, so $h = \ln 2/|k|$</td></tr>
@@ -820,7 +822,8 @@
         </table>
       </div>
       <p>
-        Neither time scale depends on $x_0$: a population of a thousand and one of a million double in the same time. The decaying
+        The notes record the first two rows, "if $k &gt; 0$ population increases, if $k &lt; 0$ population decreases" <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span>;
+        the limits, the time scales and the case $k = 0$ are an extension. Neither time scale depends on $x_0$: a population of a thousand and one of a million double in the same time. The decaying
         case is also the law of radioactive decay (Problem 1.3, plutonium-239).
       </p>
       <div class="callout note">
@@ -901,8 +904,8 @@
         <div class="callout-title">Solution</div>
         $$y(t) = y_0 + v_0\,t - \tfrac12 g\,t^2, \qquad y_0 = y(0),\quad v_0 = y'(0).$$
         <p>
-          Two integrations produce two constants, one per order of the equation. The notes take the object released from rest at
-          the origin, $y_0 = v_0 = 0$:
+          Two integrations produce two constants, one per order of the equation. The result of the notes, written without initial
+          conditions, corresponds to $y_0 = v_0 = 0$ (an object released from rest at the origin):
         </p>
         $$y(t) = -\iint g\,dt\,dt = -\tfrac12 g\,t^2.$$
         <ul>

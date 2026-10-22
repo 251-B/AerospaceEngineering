@@ -32,7 +32,10 @@ Web page: `subjects/advanced-maths/teoria/topic-4.html`, Section 8 (generated fr
 
 $\Delta = (\operatorname{tr}A)^2 - 4\det A = 0$, so $\lambda = \tfrac12\operatorname{tr}A$ and $\det(A - \mu I) = (\mu - \lambda)^2$. Algebraic multiplicity $m_a = 2$; geometric multiplicity $m_g = \dim\ker(A - \lambda I) \in \{1, 2\}$.
 
-## 2. Subcase A, $m_g = 2$: stars
+## 2. Subcase 3.1, $m_g = 2$ (two eigenvectors): stars
+
+Subcase 3.1 in the notes: $A = PDP^{-1}$ with $D = \lambda I$ gives $A = \lambda I$; every vector is an eigenvector and $\mathbf x(t) = \mathbf x_0e^{\lambda t}$.
+
 
 **Proposition.** $m_g = 2 \Rightarrow A = \lambda I$. *Proof.* With independent eigenvectors $B = [\mathbf v_1 \mid \mathbf v_2]$: $AB = \lambda B \Rightarrow A = \lambda I$ (or: $\ker(A - \lambda I) = \mathbb R^2$).
 
@@ -46,8 +49,6 @@ $\mathbf x(t) = e^{\lambda t}\mathbf x_0$: every line through the origin is inva
 4. $(A - \lambda I)\mathbf v_2 = \mathbf v_1$, so $A\mathbf v_2 = \mathbf v_1 + \lambda\mathbf v_2$; with $P = (\mathbf v_1, \mathbf v_2)$, $AP = P\begin{pmatrix}\lambda & 1 \\ 0 & \lambda\end{pmatrix}$.
 5. $\mathbf z = P^{-1}\mathbf x$: $\dot z_1 = \lambda z_1 + z_2$, $\dot z_2 = \lambda z_2$; $z_2 = Ce^{\lambda t}$, $(z_1e^{-\lambda t})' = C$, $z_1 = (Ct + D)e^{\lambda t}$; $\mathbf x = (Ct + D)e^{\lambda t}\mathbf v_1 + Ce^{\lambda t}\mathbf v_2$.
 6. Sketch in $\mathbf z$ from the line $\dot z_1 = 0$, i.e. $z_2 = -\lambda z_1$ (vertical tangents there); in $\mathbf x$ the same picture drawn towards $\mathbf v_1$, the exact shape needs an explicit $A$.
-
-Subcase 3.1 in the notes: $A = PDP^{-1}$ with $D = \lambda I$ gives $A = \lambda I$; every vector is an eigenvector and $\mathbf x(t) = \mathbf x_0e^{\lambda t}$.
 
 ## 3b. Complement: the eigenvector-first route (the Jordan chain)
 

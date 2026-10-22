@@ -15,6 +15,7 @@ prerrequisitos:
   - "[[04 - Advanced Maths/Concept - Homogeneous Equations with Constant Coefficients and the Characteristic Equation|Constant Coefficients and the Characteristic Equation]]"
   - "Linear algebra (eigenvalues, change of basis)"
 fuentes:
+  - "Notes.pdf (class notes 'Diff Eq', p. 10), sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf"
   - "Robinson (2004), An Introduction to Ordinary Differential Equations, Ch. 29 (pp. 285-293) and Examples 27.5, 29.1"
 ---
 

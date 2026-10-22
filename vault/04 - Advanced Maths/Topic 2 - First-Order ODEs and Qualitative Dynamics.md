@@ -82,7 +82,7 @@ If $f \neq 0$ (never), divide by $f$ and integrate from $t_0$ to $t$; with $u = 
 $$\int_{t_0}^{t}\frac{x'(\tau)}{f(x(\tau))}\,d\tau = \int_{x_0}^{x(t)}\frac{du}{f(u)} = \int_{t_0}^{t} g(\tau)\,d\tau.$$
 "Never" is guaranteed by Picard: a solution that touches a zero of $f$ is constant. Robinson's proof: $H' = 1/f$, $\frac{d}{dt}H(x(t)) = g(t)$ by the chain rule (Sec. 8.4).
 
-**Example [Notes]:** $x' = kx \Rightarrow x = Ce^{kt}$.
+**Example [Notes]:** $x' = kx \Rightarrow x = Ce^{kt}$. (The notes point to Sheet 2, Exercises 4-6, for separable equations.)
 
 **The logistic equation [Notes, p. 3]:** $x' = kx(1 - x/M)$, $x(t_0) = x_0$ (the notes write $x(t_0) = t_0$; $x_0$ is meant).
 1. Picard: $x \equiv 0$ or $x \equiv M$, or $x$ never reaches $0$ or $M$; $M - x$ keeps the sign of $M - x_0$.
@@ -117,15 +117,15 @@ $$x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^{t} I(\tau)q(\tau)\,d\tau, 
 
 Let $y = y(x)$ and $F(x, y) = C$. By the chain rule $\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{dy}{dx} = 0$, a first-order ODE. So if $f(x, y) + g(x, y)\frac{dy}{dx} = 0$ and $F$ satisfies $F_x = f$, $F_y = g$, the solution is $F(x, y) = C$. Observation: $\frac{\partial f}{\partial y} = \frac{\partial^2F}{\partial y\,\partial x} = \frac{\partial^2F}{\partial x\,\partial y} = \frac{\partial g}{\partial x}$ (Schwarz).
 
-> **Theorem [Notes, p. 4].** Let $f, g, \frac{\partial f}{\partial y}, \frac{\partial g}{\partial x}$ be continuous. Then $f + g\frac{dy}{dx} = 0$ is exact iff $\frac{\partial f}{\partial y} = \frac{\partial g}{\partial x}$; the solution is $F(x, y) = C$ with $F_x = f$, $F_y = g$.
+> **Theorem [Notes, p. 4].** Let $f, g, \frac{\partial f}{\partial y}, \frac{\partial g}{\partial x}$ be continuous. Then $f + g\frac{dy}{dx} = 0$ is exact if $\frac{\partial f}{\partial y} = \frac{\partial g}{\partial x}$; the solution is $F(x, y) = C$ with $F_x = f$, $F_y = g$. (Complement, Robinson: on a rectangle or simply connected domain the condition is also necessary, so "if and only if".)
 
 Sufficiency (Robinson, Eqs. 10.6-10.7): $F = \int f\,dx + \varphi(y)$ and $\varphi' = g - \partial_y\int f\,dx$ is free of $x$ because $f_y = g_x$.
 
-**Ex 1 [Notes, p. 4; Robinson Example 10.1]:** $x^3 + \frac yx + (y^2 + \ln x)\frac{dy}{dx} = 0$, $x > 0$. Not linear ($y^2y'$). $f_y = \frac1x = g_x$. $F = \frac{x^4}{4} + y\ln x + \varphi(y)$; $F_y = \ln x + \varphi'(y) = y^2 + \ln x \Rightarrow \varphi = \frac{y^3}{3}$. Implicit solution $F = \frac{x^4}{4} + \frac{y^3}{3} + y\ln x = C$.
+**Ex 1 [Notes, p. 4; Robinson Example 10.1]:** $x^3 + \frac yx + (y^2 + \ln x)\frac{dy}{dx} = 0$, $x > 0$. Not linear ($y^2y'$). $f_y = \frac1x = g_x$. $F = \frac{x^4}{4} + y\ln x + \varphi(y)$; $F_y = \ln x + \varphi'(y) = y^2 + \ln x \Rightarrow \varphi = \frac{y^3}{3}$. Implicit solution $F = \frac{x^4}{4} + \frac{y^3}{3} + y\ln x = C$ (left implicit, "since $x$ and $y$ are together"; isolating $y$ would need Cardano's formula for the cubic).
 
 **Ex 2 [Notes, p. 4]:** $(1 + e^xy + xe^xy) + (xe^x + 2)\frac{dy}{dx} = 0$. $f_y = e^x + xe^x$; $g_x = e^x + xe^x$ (product rule). By parts ($u = x$, $dv = e^xdx$): $\int xe^x\,dx = xe^x - e^x$, so $F = x + ye^x + y(xe^x - e^x) + \varphi(y) = x + yxe^x + \varphi(y)$; $F_y = xe^x + \varphi' = xe^x + 2 \Rightarrow \varphi = 2y$.
 $$F = x + yxe^x + 2y = C \quad\Longrightarrow\quad y = \frac{C - x}{xe^x + 2}.$$
-$xe^x + 2 \ge 2 - 1/e > 0$ (minimum of $xe^x$ at $x = -1$), so $y$ is defined for every $x$. Check: $\frac{d}{dx}[y(xe^x + 2)] = -1$ gives back the ODE.
+$xe^x + 2 \ge 2 - 1/e > 0$ (minimum of $xe^x$ at $x = -1$), so $y$ is defined for every $x$. Check: $\frac{d}{dx}[y(xe^x + 2)] = -1$ gives back the ODE. The equation is also linear: in normal form $p = (1 + x)e^x/(xe^x + 2)$, so the integrating factor is $I = xe^x + 2$.
 
 **Complement (Robinson).** Integrating factors $I(x)$ and $I(y)$ for non-exact equations (Eqs. 10.9-10.11, Example 10.2).
 
@@ -173,7 +173,7 @@ Every problem from Sheet 2 is developed in 4 exhaustive phases with zero omitted
 
 ## Further worked examples, one per method (verified)
 
-Examples B to F come from the official notes (Book ODE's, J.C. Robinson; the printed page is cited, the PDF page is printed page plus 16). Example A is an **illustrative example**. Every closed form was checked with sympy (residual 0 in the ODE and the initial datum) and with an RK4 integration in pure Python.
+Complement (Robinson). Examples B to F come from Robinson's book (Book ODE's; the printed page is cited, the PDF page is printed page plus 16). Example A is an **illustrative example**. Every closed form was checked with sympy (residual 0 in the ODE and the initial datum) and with an RK4 integration in pure Python.
 
 ### Example A (illustrative example) — Separable: $y' = x\,e^{-y}$, $y(0)=0$
 Here $g(x)=x$, $h(y)=e^{-y}>0$, so there are no equilibria and the division is legitimate. Multiply by $e^{y}$ and use the chain rule $\frac{d}{dx}e^{y(x)} = e^{y(x)}\,y'(x)$:
@@ -217,6 +217,6 @@ The denominator vanishes at $T = x_0^{-1}$; equivalently $T = \int_{x_0}^{\infty
 ---
 
 ## Navigation
-* **Upward Navigation:** [[04 - Advanced Maths/Advanced Maths MOC|⬅️ Advanced Mathematics MOC]]
+* **Upward Navigation:** [[04 - Advanced Maths/Advanced Maths MOC|Advanced Mathematics MOC]]
 * **Previous Unit:** [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs|Tema 1: Introduction, Modeling and Classification]]
-* **Root Index:** [[00 - Indice Central/Master Index|⬅️ Central Master Index]]
+* **Root Index:** [[00 - Indice Central/Master Index|Central Master Index]]

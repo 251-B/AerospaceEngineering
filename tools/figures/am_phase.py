@@ -349,7 +349,7 @@ def build():
         spiral_panel("am-e2z", "z-plane: J = (0 1; −1 0)", "Example 7.2 in the z-plane", 0.0, 1.0, marks=[((1.0, 0.0), "(1,0)")], R=1.25),
         spiral_panel("am-e2x", "x-plane: x = Q z", "Example 7.2 in the x-plane", 0.0, 1.0, Q=Q2, marks=[((1.0, 0.0), "")], R=1.25),
     ], "<b>Figure 4.6.</b> Example 7.2, $\\dot x = x - 2y$, $\\dot y = x - y$ (centre). The circles of the $\\mathbf z$-plane turn clockwise, but $\\det Q = -2 < 0$ reflects the plane, so the ellipses of the $\\mathbf x$-plane turn <em>counter-clockwise</em>.")
-    f["ex81"] = _fig([
+    f["ex73"] = _fig([
         spiral_panel("am-e0z", "z-plane: J = (−1 2; −2 −1)", "Example 7.3 in the z-plane", -1.0, 2.0, marks=[((1.0, 0.0), "(1,0)")], R=1.25),
         spiral_panel("am-e0x", "x-plane: x = Q z", "Example 7.3 in the x-plane", -1.0, 2.0, Q=Q0, marks=[((1.0, 0.0), "")], R=1.25),
     ], "<b>Figure 4.7.</b> Example 7.3, $\dot x = -5y$, $\dot y = x - 2y$ (stable spiral). The spiral turns clockwise in the $\mathbf z$-plane and counter-clockwise in the $\mathbf x$-plane, because $\det Q = -2 < 0$.")
