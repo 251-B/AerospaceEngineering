@@ -19,7 +19,7 @@ bytes: 1597287
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 1.6 MB
-- **Status:** referenced by 26 note(s) below
+- **Status:** referenced by 43 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -46,6 +46,23 @@ bytes: 1597287
 - [[04 - Advanced Maths/Problem - Ch1-P7 Free Fall Motion under Gravity]]
 - [[04 - Advanced Maths/Problem - Ch1-P8 Simple Pendulum Equation of Motion]]
 - [[04 - Advanced Maths/Problem - Ch1-P9 Logistic Population Growth Model]]
+- [[04 - Advanced Maths/Problem - Ch2-P1 Direct Integration General Solutions]]
+- [[04 - Advanced Maths/Problem - Ch2-P10 Uniqueness via Integrating Transformation]]
+- [[04 - Advanced Maths/Problem - Ch2-P11 Invariance of Solution Ratios in Linear ODEs]]
+- [[04 - Advanced Maths/Problem - Ch2-P12 Trajectory Crossing and Uniqueness Bounds]]
+- [[04 - Advanced Maths/Problem - Ch2-P13 Multi-Equilibria Autonomous Phase Line Dynamics]]
+- [[04 - Advanced Maths/Problem - Ch2-P14 Non-Lipschitz Branching Pathology in Picard Theorem]]
+- [[04 - Advanced Maths/Problem - Ch2-P15 Singular ODE and Domain of Definition]]
+- [[04 - Advanced Maths/Problem - Ch2-P16 Pitchfork Phase Line and Stability Regimes]]
+- [[04 - Advanced Maths/Problem - Ch2-P17 Direct Difference Method for Uniqueness]]
+- [[04 - Advanced Maths/Problem - Ch2-P2 Separable ODEs and Asymptotic Integrals]]
+- [[04 - Advanced Maths/Problem - Ch2-P3 Integrating Factor Method and Asymptotics]]
+- [[04 - Advanced Maths/Problem - Ch2-P4 Exact Differential Equations]]
+- [[04 - Advanced Maths/Problem - Ch2-P5 Integrating Factor for Non-Exact Equations]]
+- [[04 - Advanced Maths/Problem - Ch2-P6 Exactness of Separated Differential Forms]]
+- [[04 - Advanced Maths/Problem - Ch2-P7 Nonlinear Change of Variables]]
+- [[04 - Advanced Maths/Problem - Ch2-P8 General Bernoulli Equation Reduction]]
+- [[04 - Advanced Maths/Problem - Ch2-P9 Solution Uniqueness and Lipschitz Analysis]]
 - [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs]]
 - [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics]]
 - [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients]]

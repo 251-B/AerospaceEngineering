@@ -49,6 +49,10 @@ Uniqueness by the difference: since the equation is linear and homogeneous, the 
 
 In both approaches we must not write down the solution formula of the equation for $w$ or $E$, because that formula presupposes the uniqueness we are proving. We only differentiate a product and apply the Mean Value Theorem.
 
+**Method of the class notes [Notes.pdf, p. 3].** The three-step algorithm of the notes with $p = a$, $q = 0$ gives the candidate: $P(t) = \int_{t_0}^{t} a\,d\tau = a(t - t_0)$, $I(t) = e^{a(t - t_0)}$, $I(t_0) = 1$, and $y(t) = \frac{y_0}{I(t)} = y_0\,e^{-a(t - t_0)}$. Approach B below is the uniqueness half of that algorithm: Step 2 with $q = 0$ says $(I w)' = 0$.
+
+Picard's theorem of the notes would also give uniqueness ($f = -a\,y$ and $\partial f/\partial y = -a$ are continuous), but only on a small interval $|t - t_0| < h$; the difference argument gives it on all of $\mathbb{R}$.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

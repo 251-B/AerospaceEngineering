@@ -63,6 +63,10 @@ Construction of $F$, applied identically in each part:
 - (c) Differentiate in $y$ and impose $F_y = N$: $h'(y) = N - \partial_y\int M\,dx$. The right side depends on $y$ only because $M_y = N_x$.
 - (d) Integrate $h'$ and write the implicit solution $F(x,y) = C$.
 
+**Method of the class notes [Notes.pdf, p. 4].** The notes write the equation as $f(x, y) + g(x, y)\,\frac{dy}{dx} = 0$ (here $f = M$, $g = N$) and start from the answer: if $y = y(x)$ lies on a level set $F(x, y) = C$, the chain rule gives $F_x + F_y\,\frac{dy}{dx} = 0$, so an equation with $F_x = f$, $F_y = g$ is solved by $F = C$. Schwarz's theorem, $f_y = F_{yx} = F_{xy} = g_x$, gives the test, and the theorem of the notes reads: if $f$, $g$, $f_y$, $g_x$ are continuous and $f_y = g_x$, the equation is exact.
+
+The construction is steps (b) to (d) above, with the notes' $\varphi(y)$ in place of $h(y)$. Part (ii) is Ex 2 of the notes; there $\int x e^x\,dx = x e^x - e^x$ is done by parts ($u = x$, $dv = e^x\,dx$), which gives the same $F = x + x e^x y + 2y$ and $y = \frac{C - x}{x e^x + 2}$.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

@@ -52,6 +52,12 @@ Procedure used throughout, written explicitly each time:
 - integrate with Barrow's rule from $(t_0, x_0)$: $\left[H(s)\right]_{x_0}^{x} = \left[G(\tau)\right]_{t_0}^{t}$, so the constant is fixed automatically;
 - solve for $x$, track the sign inside absolute values, and determine the maximal interval of existence.
 
+**Method of the class notes [Notes.pdf, p. 3].** The notes write the separable equation as $x'(t) = f(x(t))\,g(t)$, $x(t_0) = x_0$; their $f$ is the $h$ of this problem. If $f \neq 0$ (never), divide by $f$ and integrate from $t_0$ to $t$; with $u = x(\tau)$, $du = x'(\tau)\,d\tau$, the limits $\tau = t_0, t$ become $u = x_0, x(t)$:
+
+$$ \int_{t_0}^{t}\frac{x'(\tau)}{f(x(\tau))}\,d\tau = \int_{x_0}^{x(t)}\frac{du}{f(u)} = \int_{t_0}^{t} g(\tau)\,d\tau. $$
+
+'Never' is guaranteed by Picard's theorem where $f$ and $f'$ are continuous: a solution that reached a zero $x^*$ of $f$ at some $t_1$ would solve the same IVP as the constant $x \equiv x^*$, so it would be that constant. This is the procedure listed above; its Barrow form $[H]_{x_0}^{x} = [G]_{t_0}^{t}$ fixes the constant from the initial data, as in the logistic example of the notes.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

@@ -52,6 +52,10 @@ Why this method: for each $f$, check where $f$ and $f'$ are continuous. On those
 
 For a decisive non-uniqueness test at $x_0 = 0$ with $f(0) = 0$ and $f > 0$ for $x > 0$: the constant $x \equiv 0$ is always a solution, and by separation of variables, $t = \int_0^x ds/f(s)$ defines a second solution $x(t) > 0$ for $t > 0$ whenever the integral $\int_0^{\varepsilon} ds/f(s)$ is finite (the time needed to leave $0$ is then finite).
 
+**Method of the class notes [Notes.pdf, p. 3].** The class notes state Picard's theorem: if $f$ and $\partial f/\partial y$ are continuous near $(x_0, y_0)$, there is $h > 0$ such that $y' = f(x, y)$, $y(x_0) = y_0$ has a unique solution for $|x - x_0| < h$. Here the unknown is $x(t)$ and $f = f(x)$, so the test is the continuity of $f$ and $f'(x)$ near the initial value: this is the check made below (Robinson's Theorem 6.2 is the same statement).
+
+The theorem is a sufficient condition only. Where $f'$ is not continuous it says nothing, and uniqueness must be decided by hand, as in (iii) and (iv) at $x_0 = 0$.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

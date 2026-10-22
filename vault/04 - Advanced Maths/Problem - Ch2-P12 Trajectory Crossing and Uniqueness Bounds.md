@@ -42,6 +42,8 @@ The function $f$ is not given explicitly, and we only use that the theorem appli
 
 Why this method: the Intermediate Value Theorem states that a continuous function with no zeros on an interval has constant sign there. Apply it to $u - v$ for two solutions that never meet. The sign at $t = 0$, known from the initial data, then fixes the sign on all of $J$. This gives bounds without knowing $f$.
 
+**Method of the class notes [Notes.pdf, p. 3].** Picard's theorem of the notes gives one solution per initial value, so two different solutions never meet: if they met at $t_1$, both would solve the IVP with data at $t_1$ and would coincide. This is the argument of step 1 of the logistic example of the notes ($x$ never reaches $0$ or $M$, so $M - x$ keeps the sign of $M - x_0$), used here with $y_1$ and $y_2$ in place of the constant solutions.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

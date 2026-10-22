@@ -63,6 +63,12 @@ Procedure: (1) read off $p$ and $q$; (2) compute $P(t) = \int p\,dt$ explicitly,
 
 Formula: $\displaystyle x(t) = \frac{1}{\mu(t)}\left[\mu(t_0)x_0 + \int_{t_0}^{t}\mu(s)q(s)\,ds\right]$.
 
+**Method of the class notes [Notes.pdf, p. 3].** The notes derive the factor instead of postulating it: multiply $x' + p\,x = q$ by $I(t)$ and ask that $(Ix)' = Ix' + Ipx$; the product rule $(Ix)' = I'x + Ix'$ leaves $I' = Ip$, so $I'/I = p$, $\ln I = P$ and $I = e^{P}$ (the notes' $I$ is the $\mu$ of this page). For an IVP they fix the antiderivative as $P(t) = \int_{t_0}^{t}p(\tau)\,d\tau$, so that $I(t_0) = e^0 = 1$, and work in three steps: 1. $P$ and $I$; 2. $\int_{t_0}^{t}(I x)'\,d\tau = \int_{t_0}^{t} I q\,d\tau$; 3. Barrow's rule on the left:
+
+$$ x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^{t} I(\tau)\,q(\tau)\,d\tau. $$
+
+This is the formula above with $\mu(t_0) = 1$. Parts (ii), (iv) and (vi) already satisfy $\mu(t_0) = 1$, and part (viii) is written below with $P$ taken from $t_0 = 1$. In the parts without an initial condition any antiderivative is used, as in the general solution $x = \frac{1}{I}\int I q\,dt$ of the notes.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation
@@ -208,25 +214,29 @@ $$
 
 ### Part (viii): $\dot{x} + (a + 1/t)x = b$, $a > 0$, $x(1) = x_0$
 
-On $t > 0$: $P(t) = \int\left(a + \frac1t\right)dt = at + \ln t$, so $\mu = e^{at + \ln t} = t\,e^{at}$ and $\mu(1) = e^{a}$. Then $(t\,e^{at}x)' = b\,t\,e^{at}$. Barrow from $1$ to $t$:
+On $t > 0$, with the three-step algorithm of the class notes [Notes.pdf, p. 3] ($p = a + 1/t$, $q = b$, $t_0 = 1$).
+
+*Step 1.* $P(t) = \int_1^t\left(a + \frac1s\right)ds = \left[a s + \ln s\right]_1^t = a(t - 1) + \ln t$, so $I(t) = e^{a(t-1) + \ln t} = t\,e^{a(t-1)}$ and $I(1) = 1$.
+
+*Step 2.* $(I x)' = I q = b\,t\,e^{a(t-1)}$; integrate from $1$ to $t$:
 
 $$
-t\,e^{at}x(t) - e^{a}x_0 = b\int_1^t s\,e^{as}\,ds.
+\int_1^t \big(I(s)x(s)\big)'\,ds = b\int_1^t s\,e^{a(s-1)}\,ds.
 $$
 
-Integration by parts ($u = s$, $dv = e^{as}ds$, $v = e^{as}/a$):
+Integration by parts ($u = s$, $du = ds$, $dv = e^{a(s-1)}ds$, $v = e^{a(s-1)}/a$):
 
 $$
-\int_1^t s\,e^{as}\,ds = \left[\frac{s\,e^{as}}{a} - \frac{e^{as}}{a^2}\right]_1^t = \frac{t\,e^{at}}{a} - \frac{e^{at}}{a^2} - \frac{e^{a}}{a} + \frac{e^{a}}{a^2}.
+\int_1^t s\,e^{a(s-1)}\,ds = \left[\frac{s\,e^{a(s-1)}}{a} - \frac{e^{a(s-1)}}{a^2}\right]_1^t = \frac{t\,e^{a(t-1)}}{a} - \frac{e^{a(t-1)}}{a^2} - \frac{1}{a} + \frac{1}{a^2}.
 $$
 
-Hence
+*Step 3.* Barrow's rule on the left gives $I(t)x(t) - I(1)x(1) = t\,e^{a(t-1)}x(t) - x_0$, hence
 
 $$
-t\,e^{at}x(t) = e^{a}x_0 + b\left[\frac{t\,e^{at}}{a} - \frac{e^{at}}{a^2} - \frac{e^{a}}{a} + \frac{e^{a}}{a^2}\right].
+t\,e^{a(t-1)}x(t) = x_0 + b\left[\frac{t\,e^{a(t-1)}}{a} - \frac{e^{a(t-1)}}{a^2} - \frac{1}{a} + \frac{1}{a^2}\right].
 $$
 
-Divide by $t\,e^{at}$:
+Divide by $I(t) = t\,e^{a(t-1)}$ (the bracket's last two terms carry the factor $\frac{e^{-a(t-1)}}{t}$, like $x_0$):
 
 $$
 x(t) = \frac{b}{a} - \frac{b}{a^2\,t} + \frac{e^{-a(t-1)}}{t}\left(x_0 - \frac{b}{a} + \frac{b}{a^2}\right).

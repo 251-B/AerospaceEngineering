@@ -43,6 +43,8 @@ Why this method (the hint): the function $P(t) = \int_{t_0}^{t}p(s)\,ds$ is diff
 
 Change of unknown, written explicitly: $z(t) = y(t)\,e^{P(t)}$, $P(t) = \int_{t_0}^{t}p(s)\,ds$, $P(t_0) = 0$, hence $z(t_0) = y_0$.
 
+**Method of the class notes [Notes.pdf, p. 3].** The hint is Step 1 of the three-step algorithm of the notes with $q = 0$: $P(t) = \int_{t_0}^{t}p(s)\,ds$, $P(t_0) = 0$, $I(t_0) = 1$, and $z = I\,y$. Step 2 with $q = 0$ is $(Iy)' = 0$, and Step 3 gives $y(t) = \frac{y_0}{I(t)} = y_0\,e^{-P(t)}$. What the notes take for granted (that every solution has this form) is what this problem proves: the zero derivative forces $z$ to be constant by the Mean Value Theorem, with no appeal to Picard.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

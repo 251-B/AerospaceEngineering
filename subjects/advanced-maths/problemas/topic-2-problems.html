@@ -707,6 +707,8 @@
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-02-first-order-odes/problemas/ProblemsCh2.pdf" target="_blank" rel="noopener">ProblemsCh2.pdf</a>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=56" target="_blank" rel="noopener">Robinson (2004).pdf · p. 56</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener">Notes.pdf · p. 3</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=4" target="_blank" rel="noopener">Notes.pdf · p. 4</a>
       </nav>
     </header>
 
@@ -757,6 +759,12 @@
         <p>Why this method: when $y' = f(x)$ with $f$ continuous on an interval, the Fundamental Theorem of Calculus gives an antiderivative $F$, and two antiderivatives on an interval differ by a constant (a function with zero derivative on an interval is constant, by the Mean Value Theorem). So direct integration produces all solutions.</p>
         <p>Change of variables: none is needed for the equation itself. Where an integral is not immediate, a substitution is written explicitly: $u = 3x$ in (i), $u = x^2$ in (iii), $u = 1+x^2$ in (v), and a polynomial division (rewriting $x = (1+x) - 1$) in (iv). Constants of integration are attached separately on each interval of continuity.</p>
         $$ y(x) = \int f(x)\,dx = F(x) + C. $$
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2–3</a>]</span></div>
+          <p>The class notes integrate a first-order equation from the initial point to the current point and close with Barrow's rule (the population equation, p. 2; Step 2 of the integrating-factor algorithm, p. 3). When the right side does not contain $y$, $y' = f(x)$ with $f$ continuous on an interval $J$, pick any $x_0 \in J$:</p>
+          $$ \int_{x_0}^{x} y'(s)\,ds = y(x) - y(x_0) = \int_{x_0}^{x} f(s)\,ds, $$
+          <p>so the free value $y(x_0)$ is the constant $C$ of the general solution, one for each interval of continuity. In the form (L) of the notes, (ii), (iv) and (v) read $a_0(x)\,y' = b(x)$; dividing by $a_0$ is allowed only where $a_0 \neq 0$, which is why (ii) and (iv) split into two intervals.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -877,6 +885,12 @@
           <li>integrate with Barrow's rule from $(t_0, x_0)$: $\left[H(s)\right]_{x_0}^{x} = \left[G(\tau)\right]_{t_0}^{t}$, so the constant is fixed automatically;</li>
           <li>solve for $x$, track the sign inside absolute values, and determine the maximal interval of existence.</li>
         </ul>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The notes write the separable equation as $x'(t) = f(x(t))\,g(t)$, $x(t_0) = x_0$; their $f$ is the $h$ of this problem. If $f \neq 0$ (never), divide by $f$ and integrate from $t_0$ to $t$; with $u = x(\tau)$, $du = x'(\tau)\,d\tau$, the limits $\tau = t_0, t$ become $u = x_0, x(t)$:</p>
+          $$ \int_{t_0}^{t}\frac{x'(\tau)}{f(x(\tau))}\,d\tau = \int_{x_0}^{x(t)}\frac{du}{f(u)} = \int_{t_0}^{t} g(\tau)\,d\tau. $$
+          <p>'Never' is guaranteed by Picard's theorem where $f$ and $f'$ are continuous: a solution that reached a zero $x^*$ of $f$ at some $t_1$ would solve the same IVP as the constant $x \equiv x^*$, so it would be that constant. This is the procedure listed above; its Barrow form $[H]_{x_0}^{x} = [G]_{t_0}^{t}$ fixes the constant from the initial data, as in the logistic example of the notes.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1013,6 +1027,12 @@
         <p>Why this method: for a linear equation $\dot{x} + p x = q$ with $p$ continuous, choose $\mu(t) = \exp\left(\int p(t)\,dt\right)$. Since $\mu' = p\mu$, the product rule gives $(\mu x)' = \mu\dot{x} + p\mu x = \mu(\dot{x} + p x) = \mu q$, so the left side is an exact derivative and the equation can be integrated directly. Only continuity of $p$ and $q$ is needed (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=92" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 92">9.2</a>).</p>
         <p>Procedure: (1) read off $p$ and $q$; (2) compute $P(t) = \int p\,dt$ explicitly, any antiderivative will do, and set $\mu = e^{P}$; (3) write $(\mu x)' = \mu q$; (4) integrate, using Barrow's rule $\left[\mu x\right]_{t_0}^{t} = \int_{t_0}^{t}\mu q\,ds$ when an initial condition is given; (5) divide by $\mu$.</p>
         <p>Formula: $\displaystyle x(t) = \frac{1}{\mu(t)}\left[\mu(t_0)x_0 + \int_{t_0}^{t}\mu(s)q(s)\,ds\right]$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The notes derive the factor instead of postulating it: multiply $x' + p\,x = q$ by $I(t)$ and ask that $(Ix)' = Ix' + Ipx$; the product rule $(Ix)' = I'x + Ix'$ leaves $I' = Ip$, so $I'/I = p$, $\ln I = P$ and $I = e^{P}$ (the notes' $I$ is the $\mu$ of this page). For an IVP they fix the antiderivative as $P(t) = \int_{t_0}^{t}p(\tau)\,d\tau$, so that $I(t_0) = e^0 = 1$, and work in three steps: 1. $P$ and $I$; 2. $\int_{t_0}^{t}(I x)'\,d\tau = \int_{t_0}^{t} I q\,d\tau$; 3. Barrow's rule on the left:</p>
+          $$ x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^{t} I(\tau)\,q(\tau)\,d\tau. $$
+          <p>This is the formula above with $\mu(t_0) = 1$. Parts (ii), (iv) and (vi) already satisfy $\mu(t_0) = 1$, and part (viii) is written below with $P$ taken from $t_0 = 1$. In the parts without an initial condition any antiderivative is used, as in the general solution $x = \frac{1}{I}\int I q\,dt$ of the notes.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1086,13 +1106,15 @@
         </div>
         <div class="sub-case-card">
           <div class="sub-case-header">Part (viii): $\dot{x} + (a + 1/t)x = b$, $a &gt; 0$, $x(1) = x_0$</div>
-        <p>On $t &gt; 0$: $P(t) = \int\left(a + \frac1t\right)dt = at + \ln t$, so $\mu = e^{at + \ln t} = t\,e^{at}$ and $\mu(1) = e^{a}$. Then $(t\,e^{at}x)' = b\,t\,e^{at}$. Barrow from $1$ to $t$:</p>
-        $$ t\,e^{at}x(t) - e^{a}x_0 = b\int_1^t s\,e^{as}\,ds. $$
-        <p>Integration by parts ($u = s$, $dv = e^{as}ds$, $v = e^{as}/a$):</p>
-        $$ \int_1^t s\,e^{as}\,ds = \left[\frac{s\,e^{as}}{a} - \frac{e^{as}}{a^2}\right]_1^t = \frac{t\,e^{at}}{a} - \frac{e^{at}}{a^2} - \frac{e^{a}}{a} + \frac{e^{a}}{a^2}. $$
-        <p>Hence</p>
-        $$ t\,e^{at}x(t) = e^{a}x_0 + b\left[\frac{t\,e^{at}}{a} - \frac{e^{at}}{a^2} - \frac{e^{a}}{a} + \frac{e^{a}}{a^2}\right]. $$
-        <p>Divide by $t\,e^{at}$:</p>
+        <p>On $t &gt; 0$, with the three-step algorithm of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>] ($p = a + 1/t$, $q = b$, $t_0 = 1$).</p>
+        <p><em>Step 1.</em> $P(t) = \int_1^t\left(a + \frac1s\right)ds = \left[a s + \ln s\right]_1^t = a(t - 1) + \ln t$, so $I(t) = e^{a(t-1) + \ln t} = t\,e^{a(t-1)}$ and $I(1) = 1$.</p>
+        <p><em>Step 2.</em> $(I x)' = I q = b\,t\,e^{a(t-1)}$; integrate from $1$ to $t$:</p>
+        $$ \int_1^t \big(I(s)x(s)\big)'\,ds = b\int_1^t s\,e^{a(s-1)}\,ds. $$
+        <p>Integration by parts ($u = s$, $du = ds$, $dv = e^{a(s-1)}ds$, $v = e^{a(s-1)}/a$):</p>
+        $$ \int_1^t s\,e^{a(s-1)}\,ds = \left[\frac{s\,e^{a(s-1)}}{a} - \frac{e^{a(s-1)}}{a^2}\right]_1^t = \frac{t\,e^{a(t-1)}}{a} - \frac{e^{a(t-1)}}{a^2} - \frac{1}{a} + \frac{1}{a^2}. $$
+        <p><em>Step 3.</em> Barrow's rule on the left gives $I(t)x(t) - I(1)x(1) = t\,e^{a(t-1)}x(t) - x_0$, hence</p>
+        $$ t\,e^{a(t-1)}x(t) = x_0 + b\left[\frac{t\,e^{a(t-1)}}{a} - \frac{e^{a(t-1)}}{a^2} - \frac{1}{a} + \frac{1}{a^2}\right]. $$
+        <p>Divide by $I(t) = t\,e^{a(t-1)}$ (the bracket's last two terms carry the factor $\frac{e^{-a(t-1)}}{t}$, like $x_0$):</p>
         $$ x(t) = \frac{b}{a} - \frac{b}{a^2\,t} + \frac{e^{-a(t-1)}}{t}\left(x_0 - \frac{b}{a} + \frac{b}{a^2}\right). $$
         <p>Limit $t \to \infty$ with $a &gt; 0$: $\frac{b}{a^2 t} \to 0$, and the last term is $\frac{K\,e^{-a(t-1)}}{t}$ with $K = x_0 - b/a + b/a^2$ constant; since $e^{-a(t-1)} \to 0$ and $1/t \to 0$ the product tends to $0$. Therefore</p>
         $$ \lim_{t\to\infty} x(t) = \frac{b}{a}. $$
@@ -1187,6 +1209,11 @@
           <li>(c) Differentiate in $y$ and impose $F_y = N$: $h'(y) = N - \partial_y\int M\,dx$. The right side depends on $y$ only because $M_y = N_x$.</li>
           <li>(d) Integrate $h'$ and write the implicit solution $F(x,y) = C$.</li>
         </ul>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=4" target="_blank" rel="noopener" title="Open Notes.pdf at page 4">4</a>]</span></div>
+          <p>The notes write the equation as $f(x, y) + g(x, y)\,\frac{dy}{dx} = 0$ (here $f = M$, $g = N$) and start from the answer: if $y = y(x)$ lies on a level set $F(x, y) = C$, the chain rule gives $F_x + F_y\,\frac{dy}{dx} = 0$, so an equation with $F_x = f$, $F_y = g$ is solved by $F = C$. Schwarz's theorem, $f_y = F_{yx} = F_{xy} = g_x$, gives the test, and the theorem of the notes reads: if $f$, $g$, $f_y$, $g_x$ are continuous and $f_y = g_x$, the equation is exact.</p>
+          <p>The construction is steps (b) to (d) above, with the notes' $\varphi(y)$ in place of $h(y)$. Part (ii) is Ex 2 of the notes; there $\int x e^x\,dx = x e^x - e^x$ is done by parts ($u = x$, $dv = e^x\,dx$), which gives the same $F = x + x e^x y + 2y$ and $y = \frac{C - x}{x e^x + 2}$.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1292,6 +1319,10 @@
         <p>Why this method: multiplying the equation by a nonzero function does not change its solution set (on the region where the factor is nonzero) but can restore exactness. The requirement is $(\mu M)_y = (\mu N)_x$. If $\mu$ depends only on $x$, then $(\mu M)_y = \mu M_y$ and $(\mu N)_x = \mu' N + \mu N_x$, so the condition becomes</p>
         $$ \mu M_y = \mu' N + \mu N_x \quad\Longleftrightarrow\quad \frac{\mu'}{\mu} = \frac{M_y - N_x}{N}. $$
         <p>This ordinary differential equation for $\mu(x)$ is solvable only if the right-hand side depends on $x$ alone (otherwise no integrating factor of the form $\mu(x)$ exists). Then we integrate it, and continue with the standard exact-equation construction $F_x = \mu M$, $F_y = \mu N$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Class notes and complement <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=4" target="_blank" rel="noopener" title="Open Notes.pdf at page 4">4</a>]</span></div>
+          <p>The class notes solve exact equations only; the search for an integrating factor $\mu(x)$ that makes a non-exact equation exact is a complement (not in the class notes). Once $\mu$ is found, $\mu M + \mu N\,y' = 0$ is solved with the construction of the notes: test $f_y = g_x$ for $f = \mu M$, $g = \mu N$, integrate $f$ in $x$ and add $\varphi(y)$, and fix $\varphi$ from $F_y = g$.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1379,6 +1410,10 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method: the exactness criterion $M_y = N_x$ (Robinson, Section <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=105" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 105">10.1</a>) is the hypothesis for a potential function $F$ with $F_x = M$, $F_y = N$ to exist on $\Omega$. Here both partial derivatives are trivial, so the criterion can be checked at once, and the potential can be constructed by integrating each variable separately.</p>
         <p>Construction: integrate $F_x = f(x)$ in $x$, then fix the $y$-dependent integration function $h(y)$ from $F_y = g(y)$. Level sets of $F$ are the solutions.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3–4</a>]</span></div>
+          <p>In the notation of the notes the equation is $f + g\,\frac{dy}{dx} = 0$ with $f = f(x)$ and $g = g(y)$, so $\frac{\partial f}{\partial y} = 0 = \frac{\partial g}{\partial x}$ and the theorem of the notes (with $f$, $g$ continuous) gives exactness. The construction of the notes then reads $F = \int f(x)\,dx + \varphi(y)$, $F_y = \varphi'(y) = g(y)$, so $F = \int f(x)\,dx + \int g(y)\,dy = C$: the separable formula of p. 3 written as a level set.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1462,6 +1497,10 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this substitution: multiplying the equation by $y$ gives $y\,y' = y^2 + x$, and the left side is $\frac{1}{2}\frac{d}{dx}(y^2)$. In terms of $z = y^2$ the right side $y^2 + x = z + x$ is linear, so the problem becomes a linear first-order equation, solvable with an integrating factor.</p>
         <p>Change of variables written explicitly: $z = y^2$, $\ z' = 2y\,y'$ (chain rule), $\ z(0) = y(0)^2 = 1$. Back-substitution: since $y &gt; 0$, $y = +\sqrt{z}$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Class notes and complement <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The substitution $z = y^2$ is a complement (not in the class notes). The linear equation it produces, $z' - 2z = 2x$, $z(0) = 1$, is solved in Step 2 below with the three-step algorithm of the notes ($\mu$ there is the notes' $I$): Step 1, $P(x) = \int_0^x (-2)\,ds = -2x$, $I(x) = e^{-2x}$, $I(0) = 1$; Step 2, $\int_0^x (I z)'\,ds = \int_0^x 2s\,e^{-2s}\,ds$; Step 3, $z(x) = \frac{z(0)}{I(x)} + \frac{1}{I(x)}\int_0^x I(s)\,2s\,ds$.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1544,6 +1583,10 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this substitution: dividing by $y^{\alpha}$ gives $y^{-\alpha}y' = a\,y^{1-\alpha} + b$, where the left side is, up to a constant factor, the derivative of $y^{1-\alpha}$ and the right side contains $y^{1-\alpha}$ linearly. So the natural unknown is $z = y^{1-\alpha}$.</p>
         <p>Change of variables written explicitly: $z = y^{1-\alpha}$, $\ z' = (1-\alpha)\,y^{-\alpha}\,y'$ (chain rule), $\ y = z^{1/(1-\alpha)}$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Class notes and complement <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The Bernoulli substitution $z = y^{1-\alpha}$ is a complement (not in the class notes). The linear equation for $z$ is then solved in Step 2 below with the three-step algorithm of the notes ($\mu$ there is the notes' $I$): Step 1 takes $P(x) = \int_{x_0}^{x} p(s)\,ds = -(1-\alpha)A(x)$, so $I(x_0) = 1$; Step 2 integrates $(Iz)' = Iq$ from $x_0$ to $x$; Step 3 gives $z = \frac{z_0}{I} + \frac{1}{I}\int_{x_0}^{x} I q\,ds$, which is the formula of Step 2.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1642,6 +1685,11 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method: for each $f$, check where $f$ and $f'$ are continuous. On those sets Theorem 6.2 applies. At any point $x_0 \geq 0$ where it does not apply (here only $x_0 = 0$ in (iii) and (iv), where $f'$ is unbounded), decide uniqueness by constructing two solutions (separation of variables) or by showing that they cannot exist.</p>
         <p>For a decisive non-uniqueness test at $x_0 = 0$ with $f(0) = 0$ and $f &gt; 0$ for $x &gt; 0$: the constant $x \equiv 0$ is always a solution, and by separation of variables, $t = \int_0^x ds/f(s)$ defines a second solution $x(t) &gt; 0$ for $t &gt; 0$ whenever the integral $\int_0^{\varepsilon} ds/f(s)$ is finite (the time needed to leave $0$ is then finite).</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The class notes state Picard's theorem: if $f$ and $\partial f/\partial y$ are continuous near $(x_0, y_0)$, there is $h &gt; 0$ such that $y' = f(x, y)$, $y(x_0) = y_0$ has a unique solution for $|x - x_0| &lt; h$. Here the unknown is $x(t)$ and $f = f(x)$, so the test is the continuity of $f$ and $f'(x)$ near the initial value: this is the check made below (Robinson's Theorem 6.2 is the same statement).</p>
+          <p>The theorem is a sufficient condition only. Where $f'$ is not continuous it says nothing, and uniqueness must be decided by hand, as in (iii) and (iv) at $x_0 = 0$.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1727,6 +1775,10 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method (the hint): the function $P(t) = \int_{t_0}^{t}p(s)\,ds$ is differentiable with $P' = p$ because $p$ is continuous (Fundamental Theorem of Calculus). The function $e^{P(t)}$ is exactly an integrating factor $\mu$ for $y' + p y = 0$. For any solution $y$, the product $z = y\,e^{P}$ should have zero derivative, which forces $z$ to be constant.</p>
         <p>Change of unknown, written explicitly: $z(t) = y(t)\,e^{P(t)}$, $P(t) = \int_{t_0}^{t}p(s)\,ds$, $P(t_0) = 0$, hence $z(t_0) = y_0$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The hint is Step 1 of the three-step algorithm of the notes with $q = 0$: $P(t) = \int_{t_0}^{t}p(s)\,ds$, $P(t_0) = 0$, $I(t_0) = 1$, and $z = I\,y$. Step 2 with $q = 0$ is $(Iy)' = 0$, and Step 3 gives $y(t) = \frac{y_0}{I(t)} = y_0\,e^{-P(t)}$. What the notes take for granted (that every solution has this form) is what this problem proves: the zero derivative forces $z$ to be constant by the Mean Value Theorem, with no appeal to Picard.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1793,6 +1845,10 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method: to show that a function is constant on an interval it is enough to show that its derivative is zero (Mean Value Theorem). The derivative of a quotient can be computed with the quotient rule, and the ODE lets us replace $y_1'$ and $y_2'$ by $-p\,y_1$ and $-p\,y_2$ without solving anything.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>By the formula of the notes with $q = 0$, every solution is $y = y(t_0)\,e^{-P(t)}$ with $P(t) = \int_{t_0}^{t}p$ (uniqueness from Problem 2.10), so $y_1/y_2 = y_1(t_0)/y_2(t_0)$ wherever $y_2(t_0) \neq 0$. The problem asks for the same conclusion without solving, which is the quotient-rule argument below.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1853,6 +1909,10 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method: the Intermediate Value Theorem states that a continuous function with no zeros on an interval has constant sign there. Apply it to $u - v$ for two solutions that never meet. The sign at $t = 0$, known from the initial data, then fixes the sign on all of $J$. This gives bounds without knowing $f$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>Picard's theorem of the notes gives one solution per initial value, so two different solutions never meet: if they met at $t_1$, both would solve the IVP with data at $t_1$ and would coincide. This is the argument of step 1 of the logistic example of the notes ($x$ never reaches $0$ or $M$, so $M - x$ keeps the sign of $M - x_0$), used here with $y_1$ and $y_2$ in place of the constant solutions.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -1938,6 +1998,10 @@
         </table></div>
         <p>Stability: $f'(0) = 6 &gt; 0$ (unstable), $f'(2) = 12 - 20 + 6 = -2 &lt; 0$ (asymptotically stable), $f'(3) = 27 - 30 + 6 = 3 &gt; 0$ (unstable). This agrees with the arrows: flow leaves $0$ and $3$ on both sides and enters $2$ from both sides.</p>
         <p>Time scale for blow-up: for $\lvert y\rvert$ large, $f(y) \sim y^3$, and the time needed to reach infinity is $\int^{\infty}dy/f(y) \sim \int^{\infty}dy/y^3 &lt; \infty$. This finite integral signals that infinity is reached in finite time. We compute the time exactly by separation of variables.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The notes classify a stationary point $x^*$ ($f(x^*) = 0$) by the sign of $f'(x^*)$: $f'(x^*) &gt; 0$ unstable, $f'(x^*) &lt; 0$ stable. With $f(y) = y(y - 2)(y - 3) = y^3 - 5y^2 + 6y$, $f'(y) = 3y^2 - 10y + 6$, which gives the three values above. The sketch argument of the notes (the solution moves right where $f &gt; 0$ and left where $f &lt; 0$) is the sign table, and both routes give the same classification.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -2040,6 +2104,10 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method: to show that a candidate is a solution of an IVP we verify the ODE and the initial condition by direct substitution. To decide whether the non-uniqueness contradicts Picard's theorem, we test the Lipschitz condition $\lvert f(y,t) - f(\tilde{y},t)\rvert \leq L\lvert y - \tilde{y}\rvert$ near $y = 0$; if it fails, the theorem does not apply and no contradiction arises.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>In the form of the notes, $y' = f(t, y)$ with $f = 3y^{2/3}$, Picard's theorem needs $f$ and $\partial f/\partial y$ continuous near $(t_0, y_0) = (0, 0)$. Here $f$ is continuous, but $\frac{\partial f}{\partial y} = 3\cdot\frac{2}{3}\,y^{-1/3} = 2y^{-1/3}$ is not defined at $y = 0$ and is unbounded as $y \to 0$. The hypothesis fails, so the theorem says nothing at $(0, 0)$; the Lipschitz test below (Robinson's form of the hypothesis) reaches the same conclusion.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -2112,6 +2180,11 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why this method: the equation is separable ($g(t) = 1/t$, $h(y) = 2y+1$) and also linear. We solve it by separation of variables on each half-line $t \neq 0$, and use the integrating-factor method as an independent check. Then we study what happens at $t = 0$, where the hypotheses of the uniqueness theorem fail.</p>
         <p>Change of variables written explicitly: $u = 2y + 1$, $du = 2\,dy$, which reduces the equation to $du/dt = 2u/t$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The equation is separable in the form of the notes, $y' = f(y)\,g(t)$ with $f(y) = 2y + 1$ and $g(t) = 1/t$: if $f \neq 0$ (never, since $y \equiv -1/2$ is the constant solution), divide by $f$ and integrate from $t_0$ to $t$ on a half-line that does not contain $0$.</p>
+          <p>Picard's theorem of the notes needs the right side $F(t, y) = \frac{2y + 1}{t}$ and $\frac{\partial F}{\partial y} = \frac{2}{t}$ continuous near $(t_0, y_0)$. This holds for $t_0 \neq 0$ and fails at $t_0 = 0$, which is exactly where the solutions with $y(0) = -1/2$ are not unique.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -2185,6 +2258,10 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Choice of Method and Change of Variables</div>
         <p>Why these methods: (a) the phase line (sign of $f$ between equilibria) and the no-crossing consequence of uniqueness give the qualitative picture for every $x_0$ without solving; (b) the equation is a Bernoulli equation ($\alpha = 3$, see Problem 2.8), so the substitution $w = x^{-2}$ turns it into a linear equation and gives the exact solution to confirm the qualitative picture and to find timescales.</p>
         <p>Change of variables written explicitly: $w = x^{1-\alpha} = x^{-2}$ (valid for $x \neq 0$), $\ w' = -2x^{-3}x'$, $\ w(0) = 1/x_0^2$.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The test of the notes: a stationary point $x^*$ with $f'(x^*) &gt; 0$ is unstable, with $f'(x^*) &lt; 0$ stable. Here $f(x) = \kappa^2 x - x^3$ and $f'(x) = \kappa^2 - 3x^2$: $f'(0) = \kappa^2 &gt; 0$ (unstable) and $f'(\pm\kappa) = \kappa^2 - 3\kappa^2 = -2\kappa^2 &lt; 0$ (stable). Between consecutive zeros the sign of $f$ fixes the direction of motion, as in the sketch of the notes, and Picard's theorem ($f$ and $f'$ continuous everywhere) makes the stationary solutions barriers that no other solution crosses.</p>
+        </div>
       </div>
 
       <div class="phase-section">
@@ -2293,6 +2370,11 @@
           <li>Approach B (integrating factor): $\left(w\,e^{a(t-t_0)}\right)' = 0$ directly.</li>
         </ul>
         <p>In both approaches we must not write down the solution formula of the equation for $w$ or $E$, because that formula presupposes the uniqueness we are proving. We only differentiate a product and apply the Mean Value Theorem.</p>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span></div>
+          <p>The three-step algorithm of the notes with $p = a$, $q = 0$ gives the candidate: $P(t) = \int_{t_0}^{t} a\,d\tau = a(t - t_0)$, $I(t) = e^{a(t - t_0)}$, $I(t_0) = 1$, and $y(t) = \frac{y_0}{I(t)} = y_0\,e^{-a(t - t_0)}$. Approach B below is the uniqueness half of that algorithm: Step 2 with $q = 0$ says $(I w)' = 0$.</p>
+          <p>Picard's theorem of the notes would also give uniqueness ($f = -a\,y$ and $\partial f/\partial y = -a$ are continuous), but only on a small interval $|t - t_0| &lt; h$; the difference argument gives it on all of $\mathbb{R}$.</p>
+        </div>
       </div>
 
       <div class="phase-section">

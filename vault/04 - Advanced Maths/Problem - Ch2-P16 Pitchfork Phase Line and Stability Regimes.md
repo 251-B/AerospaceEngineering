@@ -51,6 +51,8 @@ Why these methods: (a) the phase line (sign of $f$ between equilibria) and the n
 
 Change of variables written explicitly: $w = x^{1-\alpha} = x^{-2}$ (valid for $x \neq 0$), $\ w' = -2x^{-3}x'$, $\ w(0) = 1/x_0^2$.
 
+**Method of the class notes [Notes.pdf, p. 3].** The test of the notes: a stationary point $x^*$ with $f'(x^*) > 0$ is unstable, with $f'(x^*) < 0$ stable. Here $f(x) = \kappa^2 x - x^3$ and $f'(x) = \kappa^2 - 3x^2$: $f'(0) = \kappa^2 > 0$ (unstable) and $f'(\pm\kappa) = \kappa^2 - 3\kappa^2 = -2\kappa^2 < 0$ (stable). Between consecutive zeros the sign of $f$ fixes the direction of motion, as in the sketch of the notes, and Picard's theorem ($f$ and $f'$ continuous everywhere) makes the stationary solutions barriers that no other solution crosses.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

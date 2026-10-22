@@ -45,6 +45,8 @@ which is unbounded as $y \to 0$ and not defined at $y = 0$, which is precisely t
 
 Why this method: to show that a candidate is a solution of an IVP we verify the ODE and the initial condition by direct substitution. To decide whether the non-uniqueness contradicts Picard's theorem, we test the Lipschitz condition $\lvert f(y,t) - f(\tilde{y},t)\rvert \leq L\lvert y - \tilde{y}\rvert$ near $y = 0$; if it fails, the theorem does not apply and no contradiction arises.
 
+**Method of the class notes [Notes.pdf, p. 3].** In the form of the notes, $y' = f(t, y)$ with $f = 3y^{2/3}$, Picard's theorem needs $f$ and $\partial f/\partial y$ continuous near $(t_0, y_0) = (0, 0)$. Here $f$ is continuous, but $\frac{\partial f}{\partial y} = 3\cdot\frac{2}{3}\,y^{-1/3} = 2y^{-1/3}$ is not defined at $y = 0$ and is unbounded as $y \to 0$. The hypothesis fails, so the theorem says nothing at $(0, 0)$; the Lipschitz test below (Robinson's form of the hypothesis) reaches the same conclusion.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

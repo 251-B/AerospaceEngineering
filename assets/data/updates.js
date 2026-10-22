@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-ch2-problems-class-method",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Chapter 2 problems linked to the class notes method",
+    "text": "Each of the 17 Chapter 2 problems now shows the class-notes route: separation, the three-step integrating factor, exact equations, Picard and the f' stability test.",
+    "link": "subjects/advanced-maths/problemas/topic-2-problems.html"
+  },
+  {
     "id": "2026-10-22-maths-ch1-problems-class-method",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

@@ -43,6 +43,8 @@ Why this substitution: multiplying the equation by $y$ gives $y\,y' = y^2 + x$, 
 
 Change of variables written explicitly: $z = y^2$, $\ z' = 2y\,y'$ (chain rule), $\ z(0) = y(0)^2 = 1$. Back-substitution: since $y > 0$, $y = +\sqrt{z}$.
 
+**Class notes and complement [Notes.pdf, p. 3].** The substitution $z = y^2$ is a complement (not in the class notes). The linear equation it produces, $z' - 2z = 2x$, $z(0) = 1$, is solved in Step 2 below with the three-step algorithm of the notes ($\mu$ there is the notes' $I$): Step 1, $P(x) = \int_0^x (-2)\,ds = -2x$, $I(x) = e^{-2x}$, $I(0) = 1$; Step 2, $\int_0^x (I z)'\,ds = \int_0^x 2s\,e^{-2s}\,ds$; Step 3, $z(x) = \frac{z(0)}{I(x)} + \frac{1}{I(x)}\int_0^x I(s)\,2s\,ds$.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

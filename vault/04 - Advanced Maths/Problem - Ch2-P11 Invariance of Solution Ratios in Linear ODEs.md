@@ -41,6 +41,8 @@ Fact needed: a solution of this equation either vanishes identically or has no z
 
 Why this method: to show that a function is constant on an interval it is enough to show that its derivative is zero (Mean Value Theorem). The derivative of a quotient can be computed with the quotient rule, and the ODE lets us replace $y_1'$ and $y_2'$ by $-p\,y_1$ and $-p\,y_2$ without solving anything.
 
+**Method of the class notes [Notes.pdf, p. 3].** By the formula of the notes with $q = 0$, every solution is $y = y(t_0)\,e^{-P(t)}$ with $P(t) = \int_{t_0}^{t}p$ (uniqueness from Problem 2.10), so $y_1/y_2 = y_1(t_0)/y_2(t_0)$ wherever $y_2(t_0) \neq 0$. The problem asks for the same conclusion without solving, which is the quotient-rule argument below.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

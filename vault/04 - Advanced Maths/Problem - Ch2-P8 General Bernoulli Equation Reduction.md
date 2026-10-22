@@ -43,6 +43,8 @@ Why this substitution: dividing by $y^{\alpha}$ gives $y^{-\alpha}y' = a\,y^{1-\
 
 Change of variables written explicitly: $z = y^{1-\alpha}$, $\ z' = (1-\alpha)\,y^{-\alpha}\,y'$ (chain rule), $\ y = z^{1/(1-\alpha)}$.
 
+**Class notes and complement [Notes.pdf, p. 3].** The Bernoulli substitution $z = y^{1-\alpha}$ is a complement (not in the class notes). The linear equation for $z$ is then solved in Step 2 below with the three-step algorithm of the notes ($\mu$ there is the notes' $I$): Step 1 takes $P(x) = \int_{x_0}^{x} p(s)\,ds = -(1-\alpha)A(x)$, so $I(x_0) = 1$; Step 2 integrates $(Iz)' = Iq$ from $x_0$ to $x$; Step 3 gives $z = \frac{z_0}{I} + \frac{1}{I}\int_{x_0}^{x} I q\,ds$, which is the formula of Step 2.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

@@ -56,6 +56,12 @@ $$
 y(x) = \int f(x)\,dx = F(x) + C.
 $$
 
+**Method of the class notes [Notes.pdf, pp. 2–3].** The class notes integrate a first-order equation from the initial point to the current point and close with Barrow's rule (the population equation, p. 2; Step 2 of the integrating-factor algorithm, p. 3). When the right side does not contain $y$, $y' = f(x)$ with $f$ continuous on an interval $J$, pick any $x_0 \in J$:
+
+$$ \int_{x_0}^{x} y'(s)\,ds = y(x) - y(x_0) = \int_{x_0}^{x} f(s)\,ds, $$
+
+so the free value $y(x_0)$ is the constant $C$ of the general solution, one for each interval of continuity. In the form (L) of the notes, (ii), (iv) and (v) read $a_0(x)\,y' = b(x)$; dividing by $a_0$ is allowed only where $a_0 \neq 0$, which is why (ii) and (iv) split into two intervals.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

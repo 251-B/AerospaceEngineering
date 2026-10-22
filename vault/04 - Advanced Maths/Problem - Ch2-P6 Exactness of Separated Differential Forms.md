@@ -47,6 +47,8 @@ Why this method: the exactness criterion $M_y = N_x$ (Robinson, Section 10.1) is
 
 Construction: integrate $F_x = f(x)$ in $x$, then fix the $y$-dependent integration function $h(y)$ from $F_y = g(y)$. Level sets of $F$ are the solutions.
 
+**Method of the class notes [Notes.pdf, pp. 3–4].** In the notation of the notes the equation is $f + g\,\frac{dy}{dx} = 0$ with $f = f(x)$ and $g = g(y)$, so $\frac{\partial f}{\partial y} = 0 = \frac{\partial g}{\partial x}$ and the theorem of the notes (with $f$, $g$ continuous) gives exactness. The construction of the notes then reads $F = \int f(x)\,dx + \varphi(y)$, $F_y = \varphi'(y) = g(y)$, so $F = \int f(x)\,dx + \int g(y)\,dy = C$: the separable formula of p. 3 written as a level set.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

@@ -43,6 +43,10 @@ Why this method: the equation is separable ($g(t) = 1/t$, $h(y) = 2y+1$) and als
 
 Change of variables written explicitly: $u = 2y + 1$, $du = 2\,dy$, which reduces the equation to $du/dt = 2u/t$.
 
+**Method of the class notes [Notes.pdf, p. 3].** The equation is separable in the form of the notes, $y' = f(y)\,g(t)$ with $f(y) = 2y + 1$ and $g(t) = 1/t$: if $f \neq 0$ (never, since $y \equiv -1/2$ is the constant solution), divide by $f$ and integrate from $t_0$ to $t$ on a half-line that does not contain $0$.
+
+Picard's theorem of the notes needs the right side $F(t, y) = \frac{2y + 1}{t}$ and $\frac{\partial F}{\partial y} = \frac{2}{t}$ continuous near $(t_0, y_0)$. This holds for $t_0 \neq 0$ and fails at $t_0 = 0$, which is exactly where the solutions with $y(0) = -1/2$ are not unique.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

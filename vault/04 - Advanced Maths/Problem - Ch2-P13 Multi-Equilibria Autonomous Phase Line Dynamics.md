@@ -72,6 +72,8 @@ Stability: $f'(0) = 6 > 0$ (unstable), $f'(2) = 12 - 20 + 6 = -2 < 0$ (asymptoti
 
 Time scale for blow-up: for $\lvert y\rvert$ large, $f(y) \sim y^3$, and the time needed to reach infinity is $\int^{\infty}dy/f(y) \sim \int^{\infty}dy/y^3 < \infty$. This finite integral signals that infinity is reached in finite time. We compute the time exactly by separation of variables.
 
+**Method of the class notes [Notes.pdf, p. 3].** The notes classify a stationary point $x^*$ ($f(x^*) = 0$) by the sign of $f'(x^*)$: $f'(x^*) > 0$ unstable, $f'(x^*) < 0$ stable. With $f(y) = y(y - 2)(y - 3) = y^3 - 5y^2 + 6y$, $f'(y) = 3y^2 - 10y + 6$, which gives the three values above. The sketch argument of the notes (the solution moves right where $f > 0$ and left where $f < 0$) is the sign table, and both routes give the same classification.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation

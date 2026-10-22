@@ -56,6 +56,8 @@ $$
 
 This ordinary differential equation for $\mu(x)$ is solvable only if the right-hand side depends on $x$ alone (otherwise no integrating factor of the form $\mu(x)$ exists). Then we integrate it, and continue with the standard exact-equation construction $F_x = \mu M$, $F_y = \mu N$.
 
+**Class notes and complement [Notes.pdf, p. 4].** The class notes solve exact equations only; the search for an integrating factor $\mu(x)$ that makes a non-exact equation exact is a complement (not in the class notes). Once $\mu$ is found, $\mu M + \mu N\,y' = 0$ is solved with the construction of the notes: test $f_y = g_x$ for $f = \mu M$, $g = \mu N$, integrate $f$ in $x$ and add $\varphi(y)$, and fix $\varphi$ from $F_y = g$.
+
 ---
 
 ## Phase 3: Step-by-Step Derivation
