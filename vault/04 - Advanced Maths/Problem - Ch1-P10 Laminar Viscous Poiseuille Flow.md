@@ -76,6 +76,8 @@ flowchart TD
 5. Enforce finiteness of the velocity at the pipe center $r = 0$: because $\lim_{r\to 0^+} \ln r = -\infty$, the constant $c$ must vanish ($c = 0$).
 6. Enforce the no-slip condition at the solid wall $V(a) = 0$ to determine $C_2$, concluding with the classic parabolic Poiseuille distribution.
 
+**Classification with the class notes [Notes.pdf, p. 2].** Expanding $\frac1r\frac{d}{dr}\left(r\frac{dV}{dr}\right) = V'' + \frac1rV'$, the equation is $V'' + \frac1rV' = -P$: an ODE (one independent variable, $r$), of order 2, linear (form (L) with $a_0 = 1$, $a_1 = \frac1r$, $a_2 = 0$, $b = -P$) and inhomogeneous. Written as $\frac{d}{dr}\left(rV'\right) = -Pr$, it is solved, like the free fall of the notes, by integrating twice.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

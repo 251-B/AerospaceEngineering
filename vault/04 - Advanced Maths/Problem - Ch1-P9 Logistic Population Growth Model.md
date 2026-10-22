@@ -55,74 +55,34 @@ Solve the equation for a generic initial condition $p(t_0) = p_0$ and discuss th
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)
 
-### Step 1: Separation of Variables
-Starting from:
-$$ \frac{dp}{dt} = k p \left( 1 - \frac{p}{M} \right) = k p \left( \frac{M - p}{M} \right) = \frac{k}{M} p(M - p) $$
-
-Assuming $p \neq 0$ and $p \neq M$, divide by $p(M - p)$ and multiply by $dt$:
-$$ \frac{1}{p (M - p)} \, dp = \frac{k}{M} \, dt \tag{1} $$
+### Step 1: Constant solutions and separation (method of the class notes [Notes.pdf, p. 3])
+The class notes solve this equation as their example of a separable equation. By Picard's theorem a solution that takes the value $0$ or $M$ is constant: $p \equiv 0$ or $p \equiv M$, or $p$ never reaches these values. Take $p_0 > 0$, $p_0 \neq M$; then $p(t) > 0$ and $M - p(t)$ keeps the sign of $M - p_0$. Separating ($f(p) = p(1 - p/M)$, $g = k$):
+$$ \int_{p_0}^{p} \frac{du}{u\left(1 - \frac{u}{M}\right)} = \int_{t_0}^{t} k\,d\tau = k(t - t_0) \tag{1} $$
 
 ---
 
-### Step 2: Partial Fraction Decomposition
-Express the rational integrand in terms of simple fractions:
-$$ \frac{1}{p (M - p)} = \frac{A}{p} + \frac{B}{M - p} $$
+### Step 2: Partial fractions (as in the notes)
+$$ \frac{1}{u\left(1 - \frac uM\right)} = \frac{A}{u} + \frac{B}{1 - \frac uM} \implies 1 = A\left(1 - \frac uM\right) + Bu $$
+* $u = 0$: $1 = A$.
+* $u = M$: $1 = 0 + BM \implies B = \frac1M$.
 
-Multiply both sides by the denominator $p(M - p)$:
-$$ 1 = A(M - p) + B p $$
-
-Determine constants $A$ and $B$:
-* Substitute $p = 0$:
-  $$ 1 = A(M - 0) + B(0) \implies 1 = A M \implies A = \frac{1}{M} $$
-* Substitute $p = M$:
-  $$ 1 = A(M - M) + B(M) \implies 1 = B M \implies B = \frac{1}{M} $$
-
-Substitute $A$ and $B$ back:
-$$ \frac{1}{p(M - p)} = \frac{1}{M} \left( \frac{1}{p} + \frac{1}{M - p} \right) $$
-
-Substitute this decomposition into equation $(1)$:
-$$ \frac{1}{M} \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = \frac{k}{M} \, dt $$
-
-Multiply both sides by $M$:
-$$ \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = k \, dt \tag{2} $$
+Hence, multiplying top and bottom of the second fraction by $M$:
+$$ \frac{1}{u\left(1 - \frac uM\right)} = \frac1u + \frac{1/M}{1 - u/M} = \frac1u + \frac{1}{M - u} \tag{2} $$
 
 ---
 
-### Step 3: Exact Definite Integration
-Integrate equation $(2)$ from $t_0$ (where $p = p_0$) to $t$ (where $p = p(t)$):
-$$ \int_{p_0}^p \left( \frac{1}{u} + \frac{1}{M - u} \right) du = \int_{t_0}^t k \, ds $$
-
-Compute the antiderivatives:
-$$ \int \frac{1}{u} \, du = \ln|u| $$
-$$ \int \frac{1}{M - u} \, du = -\ln|M - u| $$
-
-Applying the integration limits:
-$$ \left[ \ln|u| - \ln|M - u| \right]_{p_0}^p = k [s]_{t_0}^t $$
-$$ \left[ \ln\left| \frac{u}{M - u} \right| \right]_{p_0}^p = k(t - t_0) $$
-$$ \ln\left| \frac{p}{M - p} \right| - \ln\left| \frac{p_0}{M - p_0} \right| = k(t - t_0) $$
-
-Combine the logarithms on the left-hand side:
-$$ \ln\left| \frac{p(M - p_0)}{p_0(M - p)} \right| = k(t - t_0) \tag{3} $$
+### Step 3: Exact definite integration
+An antiderivative of $\frac1u$ ($u > 0$) is $\ln u$; for $\frac{1}{M - u}$ substitute $w = M - u$, $dw = -du$: $\int\frac{du}{M - u} = -\ln|M - u|$. By Barrow's rule
+$$ \int_{p_0}^{p}\frac{du}{u} + \int_{p_0}^{p}\frac{du}{M - u} = \ln\frac{p}{p_0} + \ln\frac{|M - p_0|}{|M - p|} = \ln\frac{p\,(M - p_0)}{p_0\,(M - p)} \tag{3} $$
+(the moduli cancel because $M - p$ and $M - p_0$ have the same sign).
 
 ---
 
-### Step 4: Exponentiation and Algebraic Isolation of $p(t)$
-Exponentiate both sides of $(3)$:
-$$ \frac{p(M - p_0)}{(M - p) p_0} = e^{k(t - t_0)} $$
-
-Multiply both sides by $(M - p) p_0$:
-$$ p (M - p_0) = p_0 (M - p) e^{k(t - t_0)} $$
-Expand the right-hand side:
-$$ p (M - p_0) = M p_0 e^{k(t - t_0)} - p p_0 e^{k(t - t_0)} $$
-
-Move all terms involving $p$ to the left-hand side:
-$$ p (M - p_0) + p p_0 e^{k(t - t_0)} = M p_0 e^{k(t - t_0)} $$
-
-Factor out $p$:
-$$ p \left[ (M - p_0) + p_0 e^{k(t - t_0)} \right] = M p_0 e^{k(t - t_0)} $$
-
-Divide by the bracketed expression:
-$$ p(t) = \frac{M p_0 e^{k(t - t_0)}}{(M - p_0) + p_0 e^{k(t - t_0)}} \tag{4} $$
+### Step 4: Exponentiation and isolation of $p(t)$ (the notes' $E$)
+Equating (1) and (3) and exponentiating:
+$$ \frac{p}{M - p} = \frac{p_0\,e^{k(t - t_0)}}{M - p_0} =: E $$
+Then $p = (M - p)E = ME - pE$, so $p(1 + E) = ME$ and
+$$ p(t) = \frac{ME}{1 + E} = \frac{M p_0 e^{k(t - t_0)}}{(M - p_0) + p_0 e^{k(t - t_0)}} \tag{4} $$
 
 Divide both the numerator and the denominator by $e^{k(t - t_0)}$:
 $$ \mathbf{p(t) = \frac{M p_0}{p_0 + (M - p_0) e^{-k(t - t_0)}}} \tag{5} $$

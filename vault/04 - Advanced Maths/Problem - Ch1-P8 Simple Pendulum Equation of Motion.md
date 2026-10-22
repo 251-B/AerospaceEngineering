@@ -56,6 +56,10 @@ flowchart TD
 1. **Method 1 (Direct Newtonian Projection):** Define polar unit vectors $(\hat{e}_r, \hat{e}_\theta)$ attached to the string. Resolve string tension $\vec{T}$ and gravity $\vec{F}_g = m\vec{g}$ along the tangential unit vector $\hat{e}_\theta$, where tension vanishes identically because it acts purely radially. Equate to mass times tangential acceleration $a_\theta = l \ddot{\theta}$.
 2. **Method 2 (Energy Conservation):** Formulate total mechanical energy $E = E_k + E_p$ and differentiate with respect to time $\frac{dE}{dt} = 0$.
 
+**Method of the class notes [Notes.pdf, p. 2]: nonlinearity by the superposition test.** If $\theta_1$, $\theta_2$ solve $\ddot\theta + \frac{g}{l}\sin\theta = 0$ and $\theta = \alpha\theta_1 + \beta\theta_2$, then $\ddot\theta = \alpha\ddot\theta_1 + \beta\ddot\theta_2 = -\frac gl(\alpha\sin\theta_1 + \beta\sin\theta_2)$, so
+$$ \ddot\theta + \frac gl\sin\theta = \frac gl\big[\sin(\alpha\theta_1 + \beta\theta_2) - \alpha\sin\theta_1 - \beta\sin\theta_2\big]. $$
+With $\alpha = 2$, $\beta = 0$: $\frac gl(\sin2\theta_1 - 2\sin\theta_1) = \frac{2g}{l}\sin\theta_1(\cos\theta_1 - 1)$, which is not zero while $\sin\theta_1 \neq 0$ and $\cos\theta_1 \neq 1$. The equation is nonlinear.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

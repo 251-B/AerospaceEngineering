@@ -76,6 +76,10 @@ For each of the 10 equations:
 3. Locate the highest derivative to determine the order.
 4. Test the linearity of the operator by examining whether the dependent variable or its derivatives appear with powers $\neq 1$, in products with each other, or inside transcendental functions.
 
+**Method of the class notes [Notes.pdf, p. 2].** An ODE is an equation whose unknown function depends on only one independent variable; a PDE has an unknown depending on more than one. The order is that of the highest derivative. A system has two or more dependent variables. An ODE is linear if it has the form $a_0(x)y^{(n)} + \dots + a_n(x)y = b(x)$; the notes test it with superposition (for the homogeneous part): if $u_1$, $u_2$ are solutions, $\alpha u_1 + \beta u_2$ must be a solution for all $\alpha, \beta$.
+
+*Superposition test on Duffing (iii).* If $x_1$, $x_2$ solve $m\ddot x + (k - a)x + bx^3 = 0$ and $x = \alpha x_1 + \beta x_2$, linearity of differentiation gives $m\ddot x + (k - a)x = \alpha(-bx_1^3) + \beta(-bx_2^3)$, so $m\ddot x + (k - a)x + bx^3 = b\big[(\alpha x_1 + \beta x_2)^3 - \alpha x_1^3 - \beta x_2^3\big]$. With $\alpha = 2$, $\beta = 0$ this is $b(8 - 2)x_1^3 = 6bx_1^3 \neq 0$ (for $b \neq 0$, $x_1 \not\equiv 0$): nonlinear.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

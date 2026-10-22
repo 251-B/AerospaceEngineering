@@ -48,6 +48,8 @@ Consider an object in free fall from an initial point $y(0) = y_0$ and with init
 4. Perform two successive integrations with respect to time $t$, enforcing the initial conditions at each step.
 5. Verify energy conservation and compute the time and speed of ground impact.
 
+**Method of the class notes [Notes.pdf, p. 2].** The notes write Newton's second law for free fall as $-mg = m\,y''(t)$, a second-order linear ODE ($y'' = -g$: form (L) with $a_0 = 1$, $b = -g$), and integrate twice: $y = -\iint g\,dt\,dt$. With the data of this problem, $y(0) = y_0$ and $y'(0) = 0$, the two integrations below give $y = y_0 - \frac12gt^2$; with $y_0 = 0$ this is the $-\frac12gt^2$ of the notes.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

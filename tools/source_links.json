@@ -523,10 +523,19 @@
     [
      "am-book",
      "auto"
+    ],
+    [
+     "am-notes",
+     2
+    ],
+    [
+     "am-notes",
+     3
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    },
    "cards": {
     "p1": [

@@ -72,12 +72,9 @@ with the initial condition $x(0) = 0.01\text{ kg/L}$.
 ---
 
 ### Part (ii): Solution and Asymptotic Limit as $t \to \infty$
-Equation $(1)$ is a separable first-order linear ODE:
-$$ \frac{1}{x} \, dx = -\frac{1}{100} \, dt $$
-
-Integrate both sides from $t = 0$ ($x = 0.01$) to $t$ ($x = x(t)$):
-$$ \int_{0.01}^{x(t)} \frac{1}{\xi} \, d\xi = \int_0^t -\frac{1}{100} \, ds $$
-$$ \left[ \ln\xi \right]_{0.01}^{x(t)} = -\frac{1}{100} [s]_0^t $$
+Equation $(1)$ is the population equation of the class notes with constant $-\frac{1}{100}$ [Notes.pdf, p. 2]. Since $x > 0$, divide by $x$ and integrate from $0$ to $t$; on the left substitute $u = x(\tau)$, $du = x'(\tau)\,d\tau$, with limits $u = 0.01$ and $u = x(t)$:
+$$ \int_0^t \frac{x'(\tau)}{x(\tau)}\,d\tau = \int_{0.01}^{x(t)} \frac{du}{u} = \int_0^t -\frac{1}{100} \, d\tau $$
+$$ \left[ \ln u \right]_{0.01}^{x(t)} = -\frac{1}{100} [\tau]_0^t $$
 $$ \ln(x(t)) - \ln(0.01) = -\frac{t}{100} $$
 Exponentiating both sides:
 $$ \mathbf{x(t) = 0.01\,e^{-t/100}\text{ kg/L}} \tag{2} $$
@@ -101,29 +98,15 @@ $$ \frac{dM}{dt} = Q s - \frac{Q}{V} M(t) $$
 Rearranging into standard linear form (for $M$; the concentration is $x = M/V$ and satisfies $\frac{dx}{dt} + \frac{Q}{V}x = \frac{Q}{V}s$):
 $$ \mathbf{\frac{dM}{dt} + \frac{Q}{V} M(t) = Q s} \tag{3} $$
 
-#### Solving via Integrating Factor:
-Define the characteristic residence timescale $\tau = \frac{V}{Q}$:
-$$ \frac{dM}{dt} + \frac{1}{\tau} M = Q s $$
-The integrating factor is:
-$$ \mu(t) = \exp\left( \int \frac{1}{\tau} \, dt \right) = e^{t/\tau} $$
+#### Solving with the three-step algorithm of the class notes [Notes.pdf, p. 3]:
+Equation $(3)$ is $x' + p(t)x = q(t)$ with $p = \frac{Q}{V}$, $q = Qs$, $t_0 = 0$ and $M(0) = M_0$.
 
-Multiply both sides of $(3)$ by $e^{t/\tau}$:
-$$ e^{t/\tau} \frac{dM}{dt} + \frac{1}{\tau} e^{t/\tau} M = Q s e^{t/\tau} $$
-Recognizing the product rule on the left-hand side:
-$$ \frac{d}{dt}\left[ M(t) e^{t/\tau} \right] = Q s e^{t/\tau} $$
+1. **Step 1, find $I$.** $P(t) = \int_0^t \frac{Q}{V}\,d\tau = \frac{Q}{V}t$, so $I(t) = e^{Qt/V}$ and $I(0) = 1$.
+2. **Step 2, integrate from $0$ to $t$.** $\int_0^t \big(e^{Q\tau/V}M(\tau)\big)'\,d\tau = \int_0^t Qs\,e^{Q\tau/V}\,d\tau$. On the right substitute $u = \frac{Q\tau}{V}$, $du = \frac{Q}{V}\,d\tau$ (so $Q\,d\tau = V\,du$): $sV\int_0^{Qt/V}e^{u}\,du = sV\big(e^{Qt/V} - 1\big)$.
+3. **Step 3, simplify.** Barrow's rule on the left: $e^{Qt/V}M(t) - M_0 = sV\big(e^{Qt/V} - 1\big)$. Dividing by $e^{Qt/V}$:
+$$ M(t) = M_0e^{-Qt/V} + sV\big(1 - e^{-Qt/V}\big) \tag{4} $$
 
-Integrate both sides with respect to $t$:
-$$ M(t) e^{t/\tau} = \int Q s e^{t/\tau} \, dt = Q s \left( \tau e^{t/\tau} \right) + C $$
-Since $Q \tau = Q \cdot \frac{V}{Q} = V$:
-$$ M(t) e^{t/\tau} = s V e^{t/\tau} + C $$
-
-Multiply both sides by $e^{-t/\tau}$:
-$$ M(t) = s V + C e^{-t/\tau} \tag{4} $$
-
-#### Applying the Initial Condition $M(0) = M_0$:
-$$ M_0 = s V + C e^0 \implies C = M_0 - s V $$
-
-Substituting $C$ back into $(4)$:
+Regrouping the terms:
 $$ \mathbf{M(t) = s V + (M_0 - s V) e^{-\frac{Q}{V} t}} \tag{5} $$
 
 #### Asymptotic Behavior as $t \to \infty$:

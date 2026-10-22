@@ -19,7 +19,7 @@ bytes: 1597287
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 1.6 MB
-- **Status:** referenced by 16 note(s) below
+- **Status:** referenced by 26 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
@@ -36,6 +36,16 @@ bytes: 1597287
 - [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues]]
 - [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue]]
 - [[04 - Advanced Maths/Concept - Well-Posed Problems and Picard Theorem]]
+- [[04 - Advanced Maths/Problem - Ch1-P1 Classification of Differential Equations]]
+- [[04 - Advanced Maths/Problem - Ch1-P10 Laminar Viscous Poiseuille Flow]]
+- [[04 - Advanced Maths/Problem - Ch1-P2 Malthusian Population Dynamics]]
+- [[04 - Advanced Maths/Problem - Ch1-P3 Plutonium 239 Radioactive Decay]]
+- [[04 - Advanced Maths/Problem - Ch1-P4 Newton Law of Cooling Modeling]]
+- [[04 - Advanced Maths/Problem - Ch1-P5 Forensic Time of Death Estimation]]
+- [[04 - Advanced Maths/Problem - Ch1-P6 Saline Mixing Tank Dynamics]]
+- [[04 - Advanced Maths/Problem - Ch1-P7 Free Fall Motion under Gravity]]
+- [[04 - Advanced Maths/Problem - Ch1-P8 Simple Pendulum Equation of Motion]]
+- [[04 - Advanced Maths/Problem - Ch1-P9 Logistic Population Growth Model]]
 - [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs]]
 - [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics]]
 - [[04 - Advanced Maths/Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients]]

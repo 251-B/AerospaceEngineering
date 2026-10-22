@@ -59,16 +59,12 @@ This is an autonomous, 1st-order linear ODE.
 ---
 
 ### Part (ii): Analytical Solution and Asymptotic Behavior
-Assuming $x(t) > 0$, divide both sides of $(1)$ by $x(t)$ and multiply by $dt$ to separate variables:
-$$ \frac{1}{x} \, dx = k \, dt \tag{2} $$
+Method of the class notes [Notes.pdf, p. 2]. The population is positive, $x(t) > 0$, so divide by it, $\frac{x'(\tau)}{x(\tau)} = k$, and integrate both sides from $0$ to $t$:
+$$ \int_0^t \frac{x'(\tau)}{x(\tau)}\,d\tau = \int_0^t k\,d\tau \tag{2} $$
 
-Integrate both sides from the initial state $(t = 0, x = x_0)$ to an arbitrary state $(t, x)$:
-$$ \int_{x_0}^x \frac{1}{\xi} \, d\xi = \int_0^t k \, ds $$
-
-Evaluating the definite integrals:
-$$ \left[ \ln|\xi| \right]_{x_0}^x = [k s]_0^t $$
-$$ \ln(x) - \ln(x_0) = k(t - 0) $$
-Using the logarithm quotient property:
+*Left side.* Substitute $u = x(\tau)$, $du = x'(\tau)\,d\tau$; the limits $\tau = 0$, $\tau = t$ become $u = x_0$, $u = x(t)$. An antiderivative of $1/u$ ($u > 0$) is $\ln u$, so by Barrow's rule
+$$ \int_{x_0}^{x(t)}\frac{du}{u} = \big[\ln u\big]_{x_0}^{x(t)} = \ln x(t) - \ln x_0 = \ln\left(\frac{x(t)}{x_0}\right). $$
+(Second route of the notes: by the chain rule $\frac{d}{d\tau}\ln x(\tau) = \frac{x'(\tau)}{x(\tau)}$, so the integrand is $(\ln x(\tau))'$.) *Right side.* $\int_0^t k\,d\tau = [k\tau]_0^t = kt$. Hence
 $$ \ln\left( \frac{x}{x_0} \right) = k t $$
 
 Apply the exponential function $\exp(\cdot)$ to both sides:
@@ -78,7 +74,7 @@ Multiplying by $x_0$:
 $$ \mathbf{x(t) = x_0 e^{kt}} \tag{3} $$
 
 #### Asymptotic Analysis as $t \to \infty$:
-We evaluate $\lim_{t \to \infty} x(t) = \lim_{t \to \infty} x_0 e^{kt}$ according to the sign of $k$:
+We evaluate $\lim_{t \to \infty} x(t) = \lim_{t \to \infty} x_0 e^{kt}$ according to the sign of $k$ (the notes: "if $k > 0$ population increases, if $k < 0$ it decreases"; the case $k = 0$ is added here):
 
 1. **Case $k > 0$ (Supercritical / Net Positive Growth):**
    $$ \lim_{t \to \infty} x_0 e^{kt} = x_0 \lim_{t \to \infty} e^{kt} = +\infty $$

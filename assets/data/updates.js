@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-ch1-problems-class-method",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Chapter 1 problems solved the way of the class notes",
+    "text": "The ten Chapter 1 problems now use the methods of the class notes: integration from 0 to t, the three-step integrating factor and the superposition test.",
+    "link": "subjects/advanced-maths/problemas/topic-1-problems.html"
+  },
+  {
     "id": "2026-10-22-maths-topic-4-class-notes",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

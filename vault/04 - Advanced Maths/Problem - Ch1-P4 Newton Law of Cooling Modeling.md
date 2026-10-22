@@ -47,6 +47,10 @@ A cup of hot chocolate is initially at temperature $T(0)$ and is left in the roo
    $$ \dot{Q}_{\text{loss}} = h A_s \left( T(t) - T_A(t) \right) $$
 4. Combine the energy balance with the convective relation, divide by the thermal capacitance $m c_p$, and define the lumped thermal relaxation constant $k = \frac{h A_s}{m c_p} > 0$.
 
+**Method of the class notes [Notes.pdf, pp. 2-3].** The equation is linear of the form (L) of the notes, $1\cdot T' + k\,T = k\,T_A(t)$, i.e. $x' + p(t)x = q(t)$ with $p = k$, $q = kT_A(t)$. The three-step algorithm of the notes solves it for any $T_A$: Step 1, $P(t) = \int_0^t k\,d\tau = kt$, $I(t) = e^{kt}$, $I(0) = 1$; Step 2, $\int_0^t \big(e^{k\tau}T(\tau)\big)'\,d\tau = \int_0^t e^{k\tau}kT_A(\tau)\,d\tau$; Step 3, Barrow's rule on the left:
+$$ T(t) = T(0)e^{-kt} + e^{-kt}\int_0^t k\,e^{k\tau}\,T_A(\tau)\,d\tau. $$
+Problem 1.5 applies it with constant $T_A$.
+
 ---
 
 ## 🔢 3. Resolución Matemática Paso a Paso (Phase 3)

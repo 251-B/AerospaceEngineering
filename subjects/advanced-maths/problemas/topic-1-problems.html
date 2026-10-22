@@ -688,6 +688,8 @@
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-01-introduction-ode-modeling/problemas/ProblemsCh1.pdf" target="_blank" rel="noopener">ProblemsCh1.pdf</a>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf" target="_blank" rel="noopener">Robinson (2004).pdf</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener">Notes.pdf · p. 2</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener">Notes.pdf · p. 3</a>
       </nav>
     </header>
 
@@ -727,13 +729,15 @@
       <!-- Phase 2 -->
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation & Criteria</div>
-        <p>We apply the four foundational mathematical tests established by the UC3M Department of Mathematics:</p>
-        <ul>
-          <li><strong>Type (ODE vs PDE):</strong> An ODE depends on exactly 1 independent variable; a PDE depends on 2 or more independent variables.</li>
-          <li><strong>Order:</strong> The highest derivative index present in the equation.</li>
-          <li><strong>Dependent vs Independent:</strong> Independent is the differentiation variable(s); dependent is the unknown state function(s).</li>
-          <li><strong>Linearity (Cátedra Standard):</strong> An equation is linear if and only if it is of degree 1 in the dependent variable and all its derivatives, with no mutual products or transcendental compositions: $\sum_{j=0}^n a_j(x) y^{(j)} = b(x)$.</li>
-        </ul>
+        <div class="note-box">
+          <div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></div>
+          <ul>
+            <li><strong>ODE / PDE:</strong> the unknown function depends on only one independent variable (ODE) or on more than one (PDE).</li>
+            <li><strong>Order:</strong> the order of the highest derivative.</li>
+            <li><strong>System:</strong> two or more dependent variables.</li>
+            <li><strong>Linear:</strong> the ODE has the form $a_0(x)y^{(n)} + \dots + a_n(x)y = b(x)$, with coefficients and right-hand side depending only on the independent variable. The notes test it by superposition (on the homogeneous part): if $u_1$, $u_2$ are solutions, $\alpha u_1 + \beta u_2$ must be a solution for all $\alpha, \beta \in \mathbb R$.</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Phase 3 -->
@@ -753,7 +757,9 @@
         <p><strong>(iii) Duffing's equation: $m \ddot{x} + k x = a x - b x^3$</strong><br>
         Overdot signifies time derivative: $\ddot{x} = \frac{d^2 x}{dt^2}$. Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $x(t)$.<br>
         Highest derivative: $\ddot{x}$ $\implies$ <strong>Order 2</strong>.<br>
-        Linearity: Rearranging gives $m \ddot{x} + (k - a)x + b x^3 = 0$. If $b \neq 0$, the cubic power $x^3$ violates linearity $\implies$ <strong>Nonlinear</strong>.</p>
+        Linearity: Rearranging gives $m \ddot{x} + (k - a)x + b x^3 = 0$. If $b \neq 0$, the cubic power $x^3$ violates linearity $\implies$ <strong>Nonlinear</strong>.<br>
+        <em>Superposition test of the notes.</em> If $x_1$, $x_2$ are solutions and $x = \alpha x_1 + \beta x_2$, linearity of differentiation gives $m\ddot x + (k - a)x = \alpha(-bx_1^3) + \beta(-bx_2^3)$, so
+        $m\ddot x + (k - a)x + bx^3 = b\big[(\alpha x_1 + \beta x_2)^3 - \alpha x_1^3 - \beta x_2^3\big]$. With $\alpha = 2$, $\beta = 0$ this equals $b(8 - 2)x_1^3 = 6bx_1^3 \neq 0$: superposition fails.</p>
 
         <p><strong>(iv) Riccati Type: $\frac{dy}{dt} = t - y^2$</strong><br>
         Independent variable: $t$ $\implies$ <strong>ODE</strong>. Dependent variable: $y(t)$. Highest derivative: $\frac{dy}{dt}$ $\implies$ <strong>Order 1</strong>.<br>
@@ -848,7 +854,8 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
         <p>The rate of change is the time derivative $\frac{dx}{dt}$. Proportionality to $x(t)$ with constant $k$ yields:</p>
         $$ \frac{dx}{dt} = k x(t), \quad x(0) = x_0 > 0 $$
-        <p>This is a first-order linear separable homogeneous ODE.</p>
+        <p>This is a first-order linear separable homogeneous ODE: the population equation of the class notes.</p>
+        <div class="note-box"><div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></div><p>Since $x(t) &gt; 0$, divide by $x$ and integrate both sides from $0$ to $t$; evaluate the left side either with the substitution $u = x(\tau)$ or by recognising $\big(\ln x(\tau)\big)'$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -856,18 +863,18 @@
         <p><strong>Part (i):</strong> By definition, the ODE is:</p>
         $$ \mathbf{\frac{dx}{dt} = k x} \tag{1.2.1} $$
 
-        <p><strong>Part (ii):</strong> Separate variables assuming $x > 0$:</p>
-        $$ \frac{1}{x} \, dx = k \, dt $$
-        <p>Integrate both sides from initial state $(0, x_0)$ to arbitrary state $(t, x(t))$:</p>
-        $$ \int_{x_0}^{x(t)} \frac{1}{\xi} \, d\xi = \int_0^t k \, ds \implies [\ln\xi]_{x_0}^{x(t)} = k [s]_0^t \implies \ln\left(\frac{x(t)}{x_0}\right) = k t $$
-        <p>Exponentiate both sides:</p>
+        <p><strong>Part (ii):</strong> The population is positive, $x(t) &gt; 0$, so divide by it, $\frac{x'(\tau)}{x(\tau)} = k$, and integrate both sides from $0$ to $t$ <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span>:</p>
+        $$ \int_0^t \frac{x'(\tau)}{x(\tau)}\,d\tau = \int_0^t k\,d\tau $$
+        <p><em>Left side.</em> Substitute $u = x(\tau)$, $du = x'(\tau)\,d\tau$; the limits $\tau = 0$, $\tau = t$ become $u = x_0$, $u = x(t)$. An antiderivative of $1/u$ ($u &gt; 0$) is $\ln u$, so by Barrow's rule</p>
+        $$ \int_{x_0}^{x(t)}\frac{du}{u} = \big[\ln u\big]_{x_0}^{x(t)} = \ln x(t) - \ln x_0 = \ln\left(\frac{x(t)}{x_0}\right). $$
+        <p>(Second route of the notes: by the chain rule $\frac{d}{d\tau}\ln x(\tau) = \frac{x'(\tau)}{x(\tau)}$, so the integrand is $\big(\ln x(\tau)\big)'$.) <em>Right side.</em> $\int_0^t k\,d\tau = [k\tau]_0^t = kt$. So $\ln\left(\frac{x(t)}{x_0}\right) = kt$. Exponentiate both sides:</p>
         $$ \frac{x(t)}{x_0} = e^{kt} \implies \mathbf{x(t) = x_0 e^{kt}} \tag{1.2.2} $$
 
-        <p><em>Asymptotic limits as $t \to \infty$:</em></p>
+        <p><em>Asymptotic limits as $t \to \infty$</em> (the notes: "if $k &gt; 0$ population increases, if $k &lt; 0$ it decreases"; the case $k = 0$ is added here):</p>
         <ul>
           <li>If $k > 0$: $\lim_{t\to\infty} x(t) = \lim_{t\to\infty} x_0 e^{kt} = +\infty$ (Exponential Malthusian explosion; natality exceeds mortality).</li>
           <li>If $k = 0$: $x(t) = x_0 e^0 = x_0$ (Static equilibrium; births perfectly balance deaths).</li>
-          <li>If $k < 0$: $\lim_{t\to\infty} x(t) = \lim_{t\to\infty} x_0 e^{-|k|t} = 0$ (Exponential extinction; mortality exceeds natality).</li>
+          <li>If $k &lt; 0$: $\lim_{t\to\infty} x(t) = \lim_{t\to\infty} x_0 e^{-|k|t} = 0$ (Exponential extinction; mortality exceeds natality).</li>
         </ul>
 
         <p><strong>Part (iii): Doubling Time $t_d$:</strong></p>
@@ -915,8 +922,9 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
-        <p>Separate variables and integrate from $t = 0$ ($N = N_0$) to $t$:</p>
-        $$ \int_{N_0}^{N(t)} \frac{d\xi}{\xi} = \int_0^t -k \, ds \implies \ln\left(\frac{N(t)}{N_0}\right) = -k t \implies N(t) = N_0 e^{-kt} $$
+        <p>This is the population equation of the class notes with constant $-k$, the decay case <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span>. For $N &gt; 0$ divide by $N$ and integrate from $0$ to $t$; on the left substitute $u = N(\tau)$, $du = N'(\tau)\,d\tau$, with limits $u = N_0$ and $u = N(t)$:</p>
+        $$ \int_0^t \frac{N'(\tau)}{N(\tau)}\,d\tau = \int_{N_0}^{N(t)} \frac{du}{u} = \big[\ln u\big]_{N_0}^{N(t)} = \ln\left(\frac{N(t)}{N_0}\right), \qquad \int_0^t -k \, d\tau = -kt $$
+        $$ \ln\left(\frac{N(t)}{N_0}\right) = -k t \implies N(t) = N_0 e^{-kt} $$
         <p>Substitute $t = t_{1/2}$ and $N(t_{1/2}) = \frac{1}{2}N_0$:</p>
         $$ N_0 e^{-k t_{1/2}} = \frac{1}{2} N_0 \implies e^{-k t_{1/2}} = 2^{-1} $$
         <p>Apply the natural logarithm to both sides:</p>
@@ -992,6 +1000,11 @@
           <div class="result-box-title">Boxed Result</div>
           $$ \frac{dT}{dt} = -k(T - T_A(t)) \iff \frac{dT}{dt} + k T = k T_A(t) $$
           <p><strong>Linearity:</strong> In form $a_1(t)T' + a_0(t)T = b(t)$ with $a_1(t)=1, a_0(t)=k, b(t)=k T_A(t)$. Strictly 1st-order linear ODE.</p>
+          <div class="note-box"><div class="note-box-title">Method of the class notes <span class="cite">[Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2–3</a>]</span></div>
+            <p>The equation is $x' + p(t)x = q(t)$ with $p = k$, $q = kT_A(t)$, which the three-step algorithm of the notes solves for any $T_A$. Step 1: $P(t) = \int_0^t k\,d\tau = kt$, $I(t) = e^{kt}$, $I(0) = 1$. Step 2: $\int_0^t \big(e^{k\tau}T(\tau)\big)'\,d\tau = \int_0^t e^{k\tau}kT_A(\tau)\,d\tau$. Step 3: Barrow's rule on the left gives</p>
+            $$ T(t) = T(0)e^{-kt} + e^{-kt}\int_0^t k\,e^{k\tau}\,T_A(\tau)\,d\tau. $$
+            <p>Problem 1.5 applies it with constant $T_A$.</p>
+          </div>
         </div>
       </div>
     </article>
@@ -1018,15 +1031,19 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
-        <p>Let $t = 0\text{ h}$ correspond to 3:00 pm. Known data: $T_A = 5^\circ\text{C}$, $T(0) = 19^\circ\text{C}$, and $T(1) = 15^\circ\text{C}$ (at 4:00 pm). We seek the negative time $t_d < 0$ when $T(t_d) = 37^\circ\text{C}$.</p>
+        <p>Let $t = 0\text{ h}$ correspond to 3:00 pm. Known data: $T_A = 5^\circ\text{C}$, $T(0) = 19^\circ\text{C}$, and $T(1) = 15^\circ\text{C}$ (at 4:00 pm). We seek the negative time $t_d &lt; 0$ when $T(t_d) = 37^\circ\text{C}$.</p>
       </div>
 
       <div class="phase-section">
         <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
-        <p><strong>Step 1: General Solution:</strong></p>
-        $$ \frac{dT}{dt} = -k(T - 5) \implies \frac{d(T - 5)}{T - 5} = -k \, dt \implies T(t) - 5 = [T(0) - 5] e^{-kt} $$
-        <p>With $T(0) = 19^\circ\text{C}$, the temperature difference is $19 - 5 = 14^\circ\text{C}$:</p>
+        <p><strong>Step 1: Solution with the integrating factor of the class notes</strong> <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span>. In standard form $T' + kT = 5k$: the linear equation $x' + p(t)x = q(t)$ with $p = k$, $q = 5k$, $t_0 = 0$, $T(0) = 19$.</p>
+        <ol>
+          <li><strong>Find $I$.</strong> $P(t) = \int_0^t k\,d\tau = kt$, so $I(t) = e^{kt}$ and $I(0) = e^0 = 1$.</li>
+          <li><strong>Integrate from $0$ to $t$.</strong> $\int_0^t \big(e^{k\tau}T(\tau)\big)'\,d\tau = \int_0^t 5k\,e^{k\tau}\,d\tau$. On the right substitute $s = k\tau$, $ds = k\,d\tau$: $5\int_0^{kt}e^{s}\,ds = 5\big[e^{s}\big]_0^{kt} = 5\big(e^{kt} - 1\big)$.</li>
+          <li><strong>Simplify.</strong> Barrow's rule on the left: $e^{kt}T(t) - I(0)T(0) = e^{kt}T(t) - 19$, so $e^{kt}T(t) = 19 + 5e^{kt} - 5$. Dividing by $e^{kt}$: $T(t) = 19e^{-kt} + 5 - 5e^{-kt}$.</li>
+        </ol>
         $$ T(t) = 5 + 14 e^{-kt} \tag{1.5.1} $$
+        <p>This is the formula of the notes, $x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^t I(\tau)q(\tau)\,d\tau$. Check: $T' = -14ke^{-kt} = -k(T - 5)$ and $T(0) = 19$ ✓.</p>
 
         <p><strong>Step 2: Determination of $k$:</strong></p>
         <p>At $t = 1\text{ h}$, $T(1) = 15^\circ\text{C}$:</p>
@@ -1095,18 +1112,20 @@
         $$ \mathbf{\frac{dx}{dt} = -\frac{x(t)}{100}}, \quad x(0) = 0.01\text{ kg/L} \tag{1.6.1} $$
 
         <p><strong>Part (ii): Analytical Solution and Limit as $t \to \infty$:</strong></p>
-        $$ \int_{0.01}^{x(t)} \frac{d\xi}{\xi} = \int_0^t -\frac{1}{100} ds \implies \ln\frac{x(t)}{0.01} = -\frac{t}{100} \implies \mathbf{x(t) = 0.01\,e^{-t/100}\text{ kg/L}} $$
+        <p>Equation (1.6.1) is the population equation of the class notes with constant $-\frac{1}{100}$ <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span>. Since $x &gt; 0$, divide by $x$ and integrate from $0$ to $t$; on the left substitute $u = x(\tau)$, $du = x'(\tau)\,d\tau$, with limits $u = 0.01$ and $u = x(t)$:</p>
+        $$ \int_0^t \frac{x'(\tau)}{x(\tau)}\,d\tau = \int_{0.01}^{x(t)} \frac{du}{u} = \int_0^t -\frac{1}{100}\, d\tau \implies \ln\frac{x(t)}{0.01} = -\frac{t}{100} \implies \mathbf{x(t) = 0.01\,e^{-t/100}\text{ kg/L}} $$
         <p>The dissolved salt mass is $M(t) = 100\,x(t) = e^{-t/100}\text{ kg}$. Taking the limit as $t \to \infty$:</p>
         $$ \lim_{t\to\infty} x(t) = \mathbf{0\text{ kg/L}}, \qquad \lim_{t\to\infty} M(t) = \lim_{t\to\infty} e^{-t/100} = \mathbf{0\text{ kg}} $$
 
         <p><strong>Part (iii): Saline Inflow at Concentration $s\text{ kg/L}$:</strong></p>
         <p>Now $\dot{m}_{\text{in}} = Q \cdot s = 1 \cdot s = s\text{ kg/min}$, so $100\,\frac{dx}{dt} = s - x(t)$, leading to the inhomogeneous linear ODE:</p>
         $$ \frac{dx}{dt} + \frac{1}{100} x(t) = \frac{s}{100} \tag{1.6.2} $$
-        <p>Multiplying by integrating factor $\mu(t) = \exp\left(\int \frac{1}{100} dt\right) = e^{t/100}$:</p>
-        $$ \frac{d}{dt}\left[ x(t) e^{t/100} \right] = \frac{s}{100} e^{t/100} $$
-        <p>Integrating both sides from $0$ to $t$ (Barrow's rule):</p>
-        $$ x(t) e^{t/100} - x(0) = \frac{s}{100} \int_0^t e^{\tau/100} d\tau = s \left[ e^{t/100} - 1 \right] $$
-        <p>With $x(0) = 0.01\text{ kg/L}$:</p>
+        <p>Three-step algorithm of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span>, with $p = \frac{1}{100}$, $q = \frac{s}{100}$, $t_0 = 0$, $x(0) = 0.01$:</p>
+        <ol>
+          <li><strong>Find $I$.</strong> $P(t) = \int_0^t \frac{d\tau}{100} = \frac{t}{100}$, so $I(t) = e^{t/100}$ and $I(0) = 1$.</li>
+          <li><strong>Integrate from $0$ to $t$.</strong> $\int_0^t \big(e^{\tau/100}x(\tau)\big)'\,d\tau = \int_0^t \frac{s}{100}e^{\tau/100}\,d\tau$. On the right substitute $u = \frac{\tau}{100}$, $du = \frac{d\tau}{100}$: $s\int_0^{t/100}e^{u}\,du = s\big(e^{t/100} - 1\big)$.</li>
+          <li><strong>Simplify.</strong> Barrow's rule on the left: $x(t)e^{t/100} - 1\cdot 0.01 = s\big(e^{t/100} - 1\big)$.</li>
+        </ol>
         $$ x(t) e^{t/100} = 0.01 + s e^{t/100} - s = s e^{t/100} + (0.01 - s) $$
         <p>Dividing by $e^{t/100}$:</p>
         $$ \mathbf{x(t) = s + (0.01 - s) e^{-t/100}\text{ kg/L}} \tag{1.6.3} $$
@@ -1148,6 +1167,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
         <p>Coordinate $y$ oriented vertically upward. Forces: $\vec{F}_g = -m g \hat{j}$. Newton's second law: $m \frac{d^2 y}{dt^2} = -mg \implies \frac{d^2 y}{dt^2} = -g$. Initial data: $y(0) = y_0$, $y'(0) = 0$.</p>
+        <div class="note-box"><div class="note-box-title">Method of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></div><p>The notes write the law as $-mg = m\,y''(t)$, a second-order linear ODE, and integrate twice: $y = -\iint g\,dt\,dt$. With $y_0 = 0$ the result below is the $-\frac12gt^2$ of the notes.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1223,6 +1243,9 @@
           <div class="result-box-title">Boxed Result</div>
           $$ \ddot{\theta}(t) + \frac{g}{l} \sin\theta(t) = 0 $$
           <p><strong>Classification:</strong> 2nd-order, autonomous, <strong>nonlinear</strong> ODE due to the transcendental term $\sin\theta$. For small amplitudes ($\theta \ll 1$, $\sin\theta \approx \theta$), it linearizes to the harmonic oscillator $\ddot{\theta} + \omega_0^2 \theta = 0$ with natural frequency $\omega_0 = \sqrt{g/l}$.</p>
+          <div class="note-box"><div class="note-box-title">Nonlinearity by the superposition test of the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></div>
+            <p>If $\theta_1$, $\theta_2$ are solutions and $\theta = \alpha\theta_1 + \beta\theta_2$, then $\ddot\theta = -\frac gl(\alpha\sin\theta_1 + \beta\sin\theta_2)$, so $\ddot\theta + \frac gl\sin\theta = \frac gl\big[\sin(\alpha\theta_1 + \beta\theta_2) - \alpha\sin\theta_1 - \beta\sin\theta_2\big]$. With $\alpha = 2$, $\beta = 0$ this is $\frac gl(\sin2\theta_1 - 2\sin\theta_1) = \frac{2g}{l}\sin\theta_1(\cos\theta_1 - 1)$, not zero while $\sin\theta_1 \neq 0$ and $\cos\theta_1 \neq 1$: the equation is nonlinear.</p>
+          </div>
         </div>
       </div>
     </article>
@@ -1252,28 +1275,26 @@
 
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
-        <p>First-order nonlinear autonomous ODE. Separate variables by moving all terms in $p$ to the LHS, decompose into partial fractions, and integrate from $(t_0, p_0)$ to $(t, p)$.</p>
+        <p>First-order nonlinear autonomous ODE: the logistic equation that the class notes solve as their example of a separable equation <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span>. The solution below follows their steps: constant solutions by Picard's theorem, separation, the partial fractions $\frac{1}{u(1 - u/M)} = \frac1u + \frac{1/M}{1 - u/M}$, and isolation of $p$ through $E = \frac{p}{M - p}$.</p>
       </div>
 
       <div class="phase-section">
         <div class="phase-badge-title phase-3-badge">Phase 3: Step-by-Step Derivation</div>
-        <p><strong>Step 1: Separation of Variables:</strong></p>
-        $$ \frac{dp}{dt} = \frac{k}{M} p (M - p) \implies \frac{dp}{p(M - p)} = \frac{k}{M} \, dt \tag{1.9.1} $$
+        <p><strong>Step 1: Constant solutions and separation.</strong> By Picard's theorem a solution that takes the value $0$ or $M$ is constant: $p \equiv 0$ or $p \equiv M$, or $p$ never reaches these values <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=3" target="_blank" rel="noopener" title="Open Notes.pdf at page 3">3</a>]</span>. Take $p_0 &gt; 0$, $p_0 \neq M$; then $p(t) &gt; 0$ and $M - p(t)$ keeps the sign of $M - p_0$. Separating:</p>
+        $$ \int_{p_0}^{p} \frac{du}{u\left(1 - \frac{u}{M}\right)} = \int_{t_0}^{t} k\,d\tau = k(t - t_0) \tag{1.9.1} $$
 
-        <p><strong>Step 2: Partial Fraction Decomposition:</strong></p>
-        $$ \frac{1}{p(M - p)} = \frac{A}{p} + \frac{B}{M - p} \implies 1 = A(M - p) + B p $$
-        <p>At $p = 0 \implies A = \frac{1}{M}$; at $p = M \implies B = \frac{1}{M}$. Substituting back:</p>
-        $$ \frac{1}{M} \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = \frac{k}{M} \, dt \implies \left( \frac{1}{p} + \frac{1}{M - p} \right) dp = k \, dt \tag{1.9.2} $$
+        <p><strong>Step 2: Partial fractions (as in the notes):</strong></p>
+        $$ \frac{1}{u\left(1 - \frac uM\right)} = \frac{A}{u} + \frac{B}{1 - \frac uM} \implies 1 = A\left(1 - \frac uM\right) + Bu $$
+        <p>At $u = 0$: $A = 1$. At $u = M$: $1 = BM$, so $B = \frac1M$. Multiplying top and bottom of the second fraction by $M$:</p>
+        $$ \frac{1}{u\left(1 - \frac uM\right)} = \frac1u + \frac{1/M}{1 - u/M} = \frac1u + \frac{1}{M - u} \tag{1.9.2} $$
 
-        <p><strong>Step 3: Definite Integration:</strong></p>
-        $$ \int_{p_0}^p \left( \frac{1}{u} + \frac{1}{M - u} \right) du = \int_{t_0}^t k \, ds $$
-        <p>Recall $\int \frac{1}{M - u} du = -\ln|M - u|$:</p>
-        $$ \left[ \ln|u| - \ln|M - u| \right]_{p_0}^p = k(t - t_0) \implies \left[ \ln\left| \frac{u}{M - u} \right| \right]_{p_0}^p = k(t - t_0) $$
-        $$ \ln\left| \frac{p(M - p_0)}{(M - p) p_0} \right| = k(t - t_0) $$
+        <p><strong>Step 3: Definite integration.</strong> An antiderivative of $\frac1u$ ($u &gt; 0$) is $\ln u$; for $\frac{1}{M - u}$ substitute $w = M - u$, $dw = -du$: $\int\frac{du}{M - u} = -\ln|M - u|$. By Barrow's rule</p>
+        $$ \int_{p_0}^{p}\frac{du}{u} + \int_{p_0}^{p}\frac{du}{M - u} = \ln\frac{p}{p_0} + \ln\frac{|M - p_0|}{|M - p|} = \ln\frac{p\,(M - p_0)}{p_0\,(M - p)} $$
+        <p>(the moduli cancel because $M - p$ and $M - p_0$ have the same sign).</p>
 
-        <p><strong>Step 4: Exponentiation and Isolation of $p(t)$:</strong></p>
-        $$ \frac{p(M - p_0)}{(M - p) p_0} = e^{k(t - t_0)} \implies p(M - p_0) = p_0 (M - p) e^{k(t - t_0)} $$
-        $$ p(M - p_0) + p p_0 e^{k(t - t_0)} = M p_0 e^{k(t - t_0)} \implies p \left[ (M - p_0) + p_0 e^{k(t - t_0)} \right] = M p_0 e^{k(t - t_0)} $$
+        <p><strong>Step 4: Exponentiation and isolation of $p(t)$.</strong> Equating to $k(t - t_0)$ and exponentiating, with the abbreviation of the notes:</p>
+        $$ \frac{p}{M - p} = \frac{p_0\,e^{k(t - t_0)}}{M - p_0} =: E \implies p = (M - p)E \implies p\,(1 + E) = ME $$
+        $$ p(t) = \frac{ME}{1 + E} = \frac{M p_0 e^{k(t - t_0)}}{(M - p_0) + p_0 e^{k(t - t_0)}} $$
         <p>Dividing numerator and denominator by $e^{k(t - t_0)}$:</p>
         $$ \mathbf{p(t) = \frac{M p_0}{p_0 + (M - p_0) e^{-k(t - t_0)}}} \tag{1.9.3} $$
 
@@ -1292,7 +1313,7 @@
           <div class="result-box-title">Boxed Result</div>
           $$ p(t) = \frac{M p_0}{p_0 + (M - p_0) e^{-k(t - t_0)}} $$
           $$ \lim_{t\to\infty} p(t) = M, \quad \lim_{M\to\infty} p(t) = p_0 e^{k(t - t_0)} $$
-          <p><strong>Physical Interpretation:</strong> The logistic curve exhibits a sigmoidal shape when $p_0 < M/2$, passing through an inflection point of maximum growth rate at $p = M/2$.</p>
+          <p><strong>Physical Interpretation:</strong> The logistic curve exhibits a sigmoidal shape when $p_0 &lt; M/2$, passing through an inflection point of maximum growth rate at $p = M/2$.</p>
         </div>
       </div>
     </article>
@@ -1331,6 +1352,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Fundamental Formulation</div>
         <p>This is a linear second-order Boundary Value Problem (BVP) in radial coordinate $r \in [0, a]$. The parameter $P \equiv -\frac{1}{\mu}\frac{dp}{dz} > 0$ represents the pressure driving force per unit dynamic viscosity.</p>
+        <div class="note-box"><div class="note-box-title">Classification with the class notes <span class="cite">[Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=2" target="_blank" rel="noopener" title="Open Notes.pdf at page 2">2</a>]</span></div><p>Expanding $\frac1r\frac{d}{dr}\left(r\frac{dV}{dr}\right) = V'' + \frac1rV'$, the equation is $V'' + \frac1rV' = -P$: an ODE (one independent variable, $r$), of order 2, linear (form (L) with $a_0 = 1$, $a_1 = \frac1r$, $a_2 = 0$, $b = -P$) and inhomogeneous. Written as $\frac{d}{dr}\left(rV'\right) = -Pr$, it is solved, like the free fall of the notes, by integrating twice.</p></div>
       </div>
 
       <div class="phase-section">

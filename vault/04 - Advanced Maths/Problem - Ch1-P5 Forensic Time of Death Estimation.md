@@ -57,13 +57,14 @@ A body is found in a cold room ($T_A = 5^\circ\text{C}$) at 3 pm, and its temper
 With constant $T_A = 5^\circ\text{C}$:
 $$ \frac{dT}{dt} = -k(T - 5) $$
 
-Defining the temperature difference variable $\theta(t) = T(t) - 5$:
-$$ \frac{d\theta}{dt} = -k \theta $$
-Separating variables and integrating from $t = 0$ to $t$:
-$$ \int_{\theta(0)}^{\theta(t)} \frac{d\xi}{\xi} = \int_0^t -k \, ds \implies \ln\left( \frac{\theta(t)}{\theta(0)} \right) = -kt $$
-$$ \theta(t) = \theta(0) e^{-kt} $$
+In standard form $T' + kT = 5k$: the linear equation $x' + p(t)x = q(t)$ of the class notes with $p = k$, $q = 5k$, $t_0 = 0$, $T(0) = 19$. Three-step algorithm [Notes.pdf, p. 3]:
 
-Since $\theta(0) = T(0) - 5 = 19 - 5 = 14^\circ\text{C}$:
+1. **Step 1, find $I$.** $P(t) = \int_0^t k\,d\tau = kt$, so $I(t) = e^{P(t)} = e^{kt}$ and $I(0) = e^0 = 1$.
+2. **Step 2, integrate from $0$ to $t$.** $\int_0^t \big(e^{k\tau}T(\tau)\big)'\,d\tau = \int_0^t 5k\,e^{k\tau}\,d\tau$. On the right substitute $s = k\tau$, $ds = k\,d\tau$: $5\int_0^{kt}e^{s}\,ds = 5\big[e^{s}\big]_0^{kt} = 5\big(e^{kt} - 1\big)$.
+3. **Step 3, simplify.** Barrow's rule on the left: $e^{kt}T(t) - I(0)T(0) = e^{kt}T(t) - 19$. So $e^{kt}T(t) = 19 + 5e^{kt} - 5$ and, dividing by $e^{kt}$,
+$$ T(t) = 19e^{-kt} + 5 - 5e^{-kt} = 5 + 14e^{-kt}. $$
+
+This is the formula of the notes, $x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^t I(\tau)q(\tau)\,d\tau$. Check: $T' = -14ke^{-kt}$ and $-k(T - 5) = -14ke^{-kt}$; $T(0) = 19$.
 $$ T(t) - 5 = 14 e^{-kt} $$
 $$ \mathbf{T(t) = 5 + 14 e^{-kt}} \tag{1} $$
 

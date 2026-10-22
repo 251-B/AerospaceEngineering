@@ -53,12 +53,9 @@ Using $\frac{dN}{dt} = -kN$ as an appropriate model for radioactive decay, where
 The governing differential equation is:
 $$ \frac{dN}{dt} = -k N $$
 
-For $N > 0$, separate variables:
-$$ \frac{1}{N} \, dN = -k \, dt $$
-
-Integrate both sides from $t = 0$ ($N = N_0$) to time $t$ ($N = N(t)$):
-$$ \int_{N_0}^{N(t)} \frac{1}{\xi} \, d\xi = \int_0^t -k \, ds $$
-$$ \left[ \ln(\xi) \right]_{N_0}^{N(t)} = -k [s]_0^t $$
+This is the population equation of the class notes with constant $-k$ (the decay case) [Notes.pdf, p. 2]. For $N > 0$ divide by $N$ and integrate from $0$ to $t$; on the left substitute $u = N(\tau)$, $du = N'(\tau)\,d\tau$, with limits $u = N_0$ and $u = N(t)$:
+$$ \int_0^t \frac{N'(\tau)}{N(\tau)}\,d\tau = \int_{N_0}^{N(t)} \frac{du}{u} = \int_0^t -k \, d\tau $$
+$$ \left[ \ln u \right]_{N_0}^{N(t)} = -k [\tau]_0^t $$
 $$ \ln(N(t)) - \ln(N_0) = -k t $$
 Combine logarithms:
 $$ \ln\left( \frac{N(t)}{N_0} \right) = -k t $$
