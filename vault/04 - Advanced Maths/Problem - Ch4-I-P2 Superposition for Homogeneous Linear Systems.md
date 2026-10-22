@@ -41,6 +41,9 @@ $$ \dot x_j = a_1x_j + b_1y_j, \qquad \dot y_j = a_2x_j + b_2y_j \qquad (j = 1, 
 
 To show: with $x = c_1x_1 + c_2x_2$ and $y = c_1y_1 + c_2y_2$ the two equations of (1) hold. Tool: differentiation is linear, $\frac{d}{dt}(c_1f + c_2g) = c_1\dot f + c_2\dot g$ for constants $c_1, c_2$. In vector notation: $\mathbf x = c_1\mathbf x_1 + c_2\mathbf x_2$ solves $\dot{\mathbf x} = A(t)\mathbf x$ because the right-hand side is linear in $\mathbf x$ (Robinson Eq. 27.3).
 
+> [!info] Method of the class notes [Notes, p. 9]
+> The notes state superposition for $\dot{\mathbf x} = A(t)\mathbf x$: combinations of solutions are solutions. This exercise is that statement written out in components, with $A(t) = \begin{pmatrix} a_1 & b_1 \\ a_2 & b_2 \end{pmatrix}$.
+
 ## Phase 3: Derivation
 
 First equation. Differentiate $x = c_1x_1 + c_2x_2$ and use (H):

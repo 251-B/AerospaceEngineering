@@ -33,6 +33,9 @@ The standard (canonical) form for a complex pair $\rho \pm i\omega$ is $\dot{\ma
 
 Steps for each matrix: characteristic equation, eigenvalue $\rho + i\omega$, eigenvector via the first row, $\mathbf u, \mathbf w$, relations (7.4), $Q$ and $Q^{-1}$, and the explicit product $Q^{-1}AQ = J$.
 
+> [!info] Method of the class notes [Notes, p. 10]
+> The construction of the notes: complex diagonalisation $A = PDP^{-1}$ with $P = (\mathbf v_+ \mid \mathbf v_-)$, then $Q = (\mathbf v_1 \mid \mathbf v_2) = PM$ with $M = \begin{pmatrix} 1/2 & -i/2 \\ 1/2 & i/2 \end{pmatrix}$, so that $Q^{-1}AQ = M^{-1}P^{-1}APM = M^{-1}DM = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$. The explicit product $Q^{-1}AQ$ computed for each matrix below checks this canonical form.
+
 ## Phase 3: Derivation
 
 ### (i) $A = \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}$

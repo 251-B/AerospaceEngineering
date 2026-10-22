@@ -47,6 +47,9 @@ The data fix the **type** of the origin and the position of the eigenlines, whic
 
 At the point $(0, 1)$ the vector field is $A(0, 1)^T = (a_{12}, a_{22})^T$, so the sign of $\dot x$ there is the sign of $a_{12}$: positive means motion to the right at the top of the plane, which is clockwise; negative means counter-clockwise. At $(1, 0)$ the field is $(a_{11}, a_{21})^T$, so the sign of $\dot y$ there is the sign of $a_{21}$: negative means downwards on the right-hand side, i.e. clockwise; positive means counter-clockwise (Topic 4 Sec. 7.8).
 
+> [!info] Method of the class notes [Notes, pp. 9–10]
+> The classification of the notes decides each item. Two real eigenvalues (Case 1) give a node or a saddle, read from the sign table of $\lambda_2/\lambda_1$. A complex pair (Case 2) gives a spiral or a centre from the sign of $\rho$, with the sense of rotation read from the sign of $\dot x$ or $\dot y$ on an axis, as in the example of the notes. A repeated eigenvalue (Case 3) gives a star when $A = \lambda I$ and an improper node, with one eigenvector, otherwise.
+
 ## Phase 3: Derivation of the nine portraits
 
 ### (i) $\lambda_1 = 3$ with $\mathbf v_1 = (1, 1)$ and $\lambda_2 = -2$ with $\mathbf v_2 = (1, -2)$

@@ -40,6 +40,13 @@ Real constants $\lambda_1, \lambda_2$. The chain rule is valid where $x(t)$ is a
 
 The orbit equation $\frac{dy}{dx} = \frac{\lambda_2}{\lambda_1}\frac{y}{x}$ has no explicit $t$ and is **separable**: all the $y$ on the left and all the $x$ on the right.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> This is the step of the notes that turns Case 1 into a portrait. From $z_1 = C_1e^{\lambda_1t}$ and $z_2 = C_2e^{\lambda_2t}$ they eliminate $t$ (for $C_1 > 0$):
+>
+> $$ z_2 = C_2\big(e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = C_2C_1^{-\lambda_2/\lambda_1}\big(C_1e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = \tilde C\,z_1^{\lambda_2/\lambda_1}. $$
+>
+> The chain-rule route below reaches the same curves, $y = \tilde C\,\lvert x\rvert^{\lambda_2/\lambda_1}$ on each half-plane, without solving for $t$.
+
 ## Phase 3: Derivation
 
 #### Integration

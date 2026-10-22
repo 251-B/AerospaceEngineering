@@ -651,6 +651,7 @@
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-i_2627_v2.pdf" target="_blank" rel="noopener">probls_ch4-i_2627_v2.pdf</a>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=128" target="_blank" rel="noopener">Robinson (2004).pdf · p. 128</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener">Notes.pdf · p. 9</a>
       </nav>
     </header>
 
@@ -678,6 +679,7 @@
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: the new variables</div>
 <p>Introduce one variable for the function and for each derivative below the highest order (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=267" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 267">25.1</a>):</p>
 <p>$$ x_1 = x,\quad x_2 = \frac{dx}{dt},\quad x_3 = \frac{d^2x}{dt^2},\quad \dots,\quad x_n = \frac{d^{n-1}x}{dt^{n-1}}, \qquad\text{i.e. } x_k = x^{(k-1)}\ (k = 1, \dots, n) $$</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The important point of the notes: an ODE of order $n \ge 2$ is a system of $n$ first-order ODEs; for $\ddot x = f(\dot x, x, t)$ they set $x_1 = x$, $x_2 = \dot x$, so that $\dot x_1 = x_2$ and $\dot x_2 = f(x_2, x_1, t)$. The variables above are the same choice for order $n$. Uniqueness then follows from the condition the notes state for systems: $\mathbf f$ and its Jacobian $D\mathbf f$ continuous near $(\mathbf x_0, t_0)$. Only the last component $f$ is not trivial, so the condition falls on $f$ and its partial derivatives $\partial f/\partial x_k$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -726,6 +728,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>To show: with $x = c_1x_1 + c_2x_2$ and $y = c_1y_1 + c_2y_2$ the two equations of (1) hold. Tool: differentiation is linear, $\frac{d}{dt}(c_1f + c_2g) = c_1\dot f + c_2\dot g$ for constants $c_1, c_2$. In vector notation: $\mathbf x = c_1\mathbf x_1 + c_2\mathbf x_2$ solves $\dot{\mathbf x} = A(t)\mathbf x$ because the right-hand side is linear in $\mathbf x$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=276" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 276">27.3</a>).</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The notes state superposition for $\dot{\mathbf x} = A(t)\mathbf x$: combinations of solutions are solutions. This exercise is that statement written out in components, with $A(t) = \begin{pmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2 \end{pmatrix}$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -772,6 +775,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Differentiate $W$ with the product rule, substitute the equations (H) of Exercise 2 for each derivative, and recognise $W$. The resulting scalar linear ODE is solved by an integrating factor.</p>
+<div class="note-box"><div class="note-box-title">Class notes and complement [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The notes state that $\mathbf x_1, \mathbf x_2$ are independent if and only if $W = \det(x_{ij}) \neq 0$ for all $t \in I$; the words for all $t$ are what this exercise proves. The equation $W' = (\operatorname{tr}A)\,W$ and its solution $W(t) = W(t_0)e^{\int_{t_0}^{t}\operatorname{tr}A}$ (Liouville's formula) are a complement (not in the class notes). For the system of a second-order equation $\operatorname{tr}A = -p$, and it becomes the $W' = -pW$ of Topic 3 (Exercise 6).</p></div>
       </div>
 
       <div class="phase-section">
@@ -821,6 +825,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Tools: (a) uniqueness for linear systems with continuous coefficients: two solutions with the same value at one instant $t_0 \in [a, b]$ coincide on all of $[a, b]$. Robinson Thm 25.2 gives this locally (near $t_0$); the extension to $[a, b]$ is a continuation argument: the set $S$ of instants where the two solutions agree contains $t_0$, is closed (the solutions are continuous) and is open in $[a, b]$ (at each point of $S$ the local uniqueness applies, since the coefficients are continuous), and an interval is connected, so $S = [a, b]$; (b) Cramer's rule: a $2\times 2$ linear system with non-zero determinant has exactly one solution. Plan: match the given solution at one instant with a combination, then invoke uniqueness.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The notes: for $n = 2$ a fundamental set is a pair of solutions with $W(\mathbf x_1, \mathbf x_2) \neq 0$, and every solution is a combination of it. This exercise proves that statement. Matching the data at $t_0$ is the $2 \times 2$ system with determinant $W(t_0)$, as in the second-order example of the notes (p. 5), and uniqueness does the rest.</p></div>
       </div>
 
       <div class="phase-section">
@@ -866,6 +871,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Two claims: (A) every function of the displayed form solves (4); (B) every solution of (4) has that form. The key idea (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=147" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 147">14.1</a> for scalar equations, Topic 4 Sec. 3.1) is that the difference of two solutions of (4) solves the <strong>homogeneous</strong> system.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The last theorem of the notes for linear systems: $\mathbf x = \mathbf x_h + \mathbf x_p$. The proof is the one of the scalar case (Topic 3, notes p. 6): the difference of two solutions of the inhomogeneous system solves the homogeneous one.</p></div>
       </div>
 
       <div class="phase-section">
@@ -911,6 +917,7 @@
 <p>Introduce $y = x'$ (Robinson Sec. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=267" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 267">25.1</a>: $x_1 \to x$, $x_2 \to x'$). Then $x' = y$ and, from the ODE, $y' = x'' = -p\,x' - q\,x = -q\,x - p\,y$:</p>
 <p>$$ \begin{cases} x' = 0\cdot x + 1\cdot y \\ y' = -q(t)\,x - p(t)\,y \end{cases} \qquad \dot{\mathbf x} = \begin{pmatrix} 0 &amp; 1 \\ -q &amp; -p \end{pmatrix}\mathbf x $$</p>
 <p>This has the form (1) with $a_1 = 0$, $b_1 = 1$, $a_2 = -q$, $b_2 = -p$ (continuous). A solution $x_j(t)$ of the ODE gives the solution $(x_j, y_j) = (x_j, x_j')$ of the system, and conversely the first component of a system solution solves the ODE.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>This is the important point of the notes with $x_1 = x$ and $x_2 = \dot x$ (here $y$), applied to $x'' + px' + qx = 0$: $A = \begin{pmatrix} 0 &amp; 1 \\ -q &amp; -p \end{pmatrix}$. The Wronskian of the system, $\det\begin{pmatrix} x_1 &amp; x_2 \\ y_1 &amp; y_2 \end{pmatrix} = x_1y_2 - x_2y_1$ with $y_j = x_j'$, is then the Wronskian $x_1x_2' - x_2x_1'$ of the notes for second-order equations (p. 5).</p></div>
       </div>
 
       <div class="phase-section">
@@ -954,6 +961,7 @@
 <p>Solve the first equation for $y = (\dot x - ax - f)/b$ (26.2), differentiate, and substitute in the second equation. The result is one second-order equation for $x$ (26.3):</p>
 <p>$$ \ddot x - (a + d)\dot x + (ad - bc)x = \dot f + bg - df $$</p>
 <p>Its coefficients are the trace and determinant of the matrix $\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}$, so its characteristic polynomial is the one of the eigenvalue method. It is solved by the methods of Topic 3 (complementary function plus undetermined coefficients). Then $y$ is recovered from (26.2) and the constants from the data.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>Method 1 of the notes: for $\dot x = ax + by$, $\dot y = cx + dy$ with $b \neq 0$ (true in all seven items), $y = (\dot x - ax)/b$ and $\dot y = (\ddot x - a\dot x)/b$; substituting and multiplying by $b$ gives $\ddot x - (a + d)\dot x + (ad - bc)x = 0$, the homogeneous part of the equation above. The forcing terms are a complement (not in the class notes); the second-order equation is then solved as in Topic 3, $x = x_H + x_N$ with the educated guess.</p><p>Discrepancy with the notes: they box $\ddot x - (a + b)\dot x + (ad - bc)x = 0$, but the steps give $a + d$. Check with $x' = 2x - y$, $y' = -x + 3y$: elimination gives $\ddot x - 5\dot x + 5x = 0$, and $a + d = 5$ while $a + b = 1$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1433,6 +1441,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: how each item is treated</div>
 <p>For each item: (1) the general solution; (2) the matrix $A = Q\Lambda Q^{-1}$ reconstructed from the data, used to draw and to check; (3) the canonical system $\dot{\mathbf z} = \Lambda\mathbf z$ with $\mathbf z = Q^{-1}\mathbf x$ and its solution; (4) the portrait in the $\mathbf z$-plane and its image under $\mathbf x = Q\mathbf z$ in the $(x, y)$-plane, with the arrows and the tangent direction decided by the rules above.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>Case 1 of the notes: $\mathbf x = C_1e^{\lambda_1t}\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$. With $P = (\mathbf v_1, \mathbf v_2)$ (the $Q$ of this page), $\mathbf z = P^{-1}\mathbf x$ gives $\dot{\mathbf z} = D\mathbf z$ and the orbits $z_2 = \tilde C z_1^{\lambda_2/\lambda_1}$. The table of the notes reads the portrait from $r = \lambda_2/\lambda_1$: eigenvalues of one sign give a node, tangent at the origin to the axis of the eigenvalue of smaller modulus ($z_1$-axis when $r &gt; 1$, $z_2$-axis when $0 &lt; r &lt; 1$); opposite signs give a saddle. Back in $\mathbf x$ the $z$-axes become the eigenvector lines.</p></div>
       </div>
 
       <div class="phase-section">
@@ -2876,6 +2885,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Since $\mathbf x = Q\mathbf z$ with $Q$ constant, $\dot{\mathbf x} = Q\dot{\mathbf z}$ and $A\mathbf x = AQ\mathbf z$, so $\dot{\mathbf z} = Q^{-1}AQ\,\mathbf z$. If $Q^{-1}AQ = \Lambda = \operatorname{diag}(\lambda_1, \lambda_2)$ the equations $\dot z_1 = \lambda_1z_1$, $\dot z_2 = \lambda_2z_2$ are uncoupled.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>The diagonalisation of the notes: $A = PDP^{-1}$ with $P = (\mathbf v_1, \mathbf v_2)$ and $D = \operatorname{diag}(\lambda_1, \lambda_2)$; with $\mathbf z = P^{-1}\mathbf x$, $\dot{\mathbf z} = P^{-1}A\mathbf x = DP^{-1}\mathbf x = D\mathbf z$, so $z_1 = C_1e^{\lambda_1t}$ and $z_2 = C_2e^{\lambda_2t}$ are uncoupled. The $Q$ and $\Lambda$ of this page are the notes' $P$ and $D$. Item (i) is the matrix of Exercise 7 (vii): elimination and eigenvalues give the same characteristic polynomial, $\lambda^2 - 9\lambda - 90$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -3688,6 +3698,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>The orbit equation $\frac{dy}{dx} = \frac{\lambda_2}{\lambda_1}\frac{y}{x}$ has no explicit $t$ and is <strong>separable</strong>: all the $y$ on the left and all the $x$ on the right.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>This is the step of the notes that turns Case 1 into a portrait. From $z_1 = C_1e^{\lambda_1t}$ and $z_2 = C_2e^{\lambda_2t}$ they eliminate $t$ (for $C_1 &gt; 0$):</p><p>$$ z_2 = C_2\big(e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = C_2C_1^{-\lambda_2/\lambda_1}\big(C_1e^{\lambda_1t}\big)^{\lambda_2/\lambda_1} = \tilde C\,z_1^{\lambda_2/\lambda_1}. $$</p><p>The chain-rule route below reaches the same curves, $y = \tilde C\,\lvert x\rvert^{\lambda_2/\lambda_1}$ on each half-plane, without solving for $t$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -3737,6 +3748,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Use the general result for distinct eigenvalues, $\mathbf x = c_1e^{\lambda_1t}\mathbf v_1 + c_2e^{\lambda_2t}\mathbf v_2$ (Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=286" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 286">28.1</a>), valid whenever the eigenvalues differ, in particular if one of them is $0$; and $Q = [\mathbf v_1\ \mathbf v_2]$, $\mathbf z = Q^{-1}\mathbf x$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9</a>]</div><p>Special case $\lambda_1 = 0$ of the notes: $A\mathbf v_1 = \mathbf 0$, so the line spanned by $\mathbf v_1$ is made of equilibria, and $\mathbf x = C_1\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$: straight orbits parallel to $\mathbf v_2$.</p><p>Reading of the handwriting: the notes write $\mathbf x(t) = C_2\mathbf v_2e^{\lambda_2t}$, which drops the line of equilibria $C_1\mathbf v_1$. The general solution needs both terms, since it must match any $\mathbf x(0)$.</p></div>
       </div>
 
       <div class="phase-section">

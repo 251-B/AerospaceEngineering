@@ -32,6 +32,13 @@ $$ \mathbf x(t) = e^{\rho t}\Big[\left(c_1\cos\omega t + c_2\sin\omega t\right)\
 
 Check of the derivation of the real part: $(a + ib)(\mathbf u + i\mathbf w)$ has real part $a\mathbf u - b\mathbf w$ because $i\cdot i = -1$; with $a = \alpha\cos\omega t - \beta\sin\omega t$ and $b = \beta\cos\omega t + \alpha\sin\omega t$ this is $\frac12[(c_1\cos\omega t + c_2\sin\omega t)\mathbf u + (c_2\cos\omega t - c_1\sin\omega t)\mathbf w]$ after substituting $\alpha = c_1/2$, $\beta = -c_2/2$.
 
+> [!info] Method of the class notes [Notes, p. 10]
+> The notes write the real general solution as $\mathbf x = C_1\operatorname{Re}\{\mathbf v e^{\lambda t}\} + C_2\operatorname{Im}\{\mathbf v e^{\lambda t}\}$ with $\mathbf v = \mathbf v_1 + i\mathbf v_2$ and $\lambda = \rho + i\omega$. Since $\mathbf ve^{\lambda t} = e^{\rho t}(\cos\omega t + i\sin\omega t)(\mathbf v_1 + i\mathbf v_2)$,
+>
+> $$ \operatorname{Re}\{\mathbf ve^{\lambda t}\} = e^{\rho t}(\cos\omega t\,\mathbf v_1 - \sin\omega t\,\mathbf v_2), \qquad \operatorname{Im}\{\mathbf ve^{\lambda t}\} = e^{\rho t}(\sin\omega t\,\mathbf v_1 + \cos\omega t\,\mathbf v_2), $$
+>
+> so it is the formula above with $c_1 = C_1$ and $c_2 = C_2$.
+
 ## Phase 3: Derivation: the eight solutions
 
 ### (i) $\lambda_\pm = 1 \pm 3i \text{ with } \boldsymbol\eta_\pm = (1,\ 2 \mp i),\ \dot x < 0$

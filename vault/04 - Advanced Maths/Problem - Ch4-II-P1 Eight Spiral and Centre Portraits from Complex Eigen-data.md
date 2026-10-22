@@ -49,6 +49,9 @@ In each item $\lambda_\pm = \rho \pm i\omega$ with $\omega > 0$ and $\boldsymbol
 
 For each item the eigenvector gives $\mathbf u = \operatorname{Re}\boldsymbol\eta_+$ and $\mathbf w = \operatorname{Im}\boldsymbol\eta_+$, hence $Q = [\mathbf u \mid \mathbf w]$ and the canonical form $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$ (rotation clockwise in the $\mathbf z$-plane). The matrix $A = QJQ^{-1}$ is rebuilt, the given sign of $\dot x$ is checked against $a_{12}$, and the portrait is drawn in the $\mathbf z$-plane and in the $(x, y)$-plane ($\mathbf x = Q\mathbf z$).
 
+> [!info] Method of the class notes [Notes, p. 10]
+> Case 2 of the notes: with $\mathbf v_\pm = \mathbf v_1 \pm i\mathbf v_2$ (here $\mathbf u = \mathbf v_1$, $\mathbf w = \mathbf v_2$) and $Q = (\mathbf v_1 \mid \mathbf v_2)$, $\mathbf z = Q^{-1}\mathbf x$ satisfies $\dot{\mathbf z} = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}\mathbf z$. In polar form $r = r(0)e^{\rho t}$ and $\theta = \theta(0) - \omega t$: clockwise in the $\mathbf z$-plane, a stable spiral for $\rho < 0$, an unstable spiral for $\rho > 0$ and a centre for $\rho = 0$. The sense of rotation in the $(x, y)$-plane is read, as in the example of the notes, from the sign of $\dot x$ on the positive $y$-axis.
+
 ## Phase 3: Derivation of the eight portraits
 
 ### (i) $\lambda_\pm = 1 \pm 3i \text{ with } \boldsymbol\eta_\pm = (1,\ 2 \mp i),\ \dot x < 0$

@@ -40,6 +40,11 @@ $$ \ddot x - (a + d)\dot x + (ad - bc)x = \dot f + bg - df $$
 
 Its coefficients are the trace and determinant of the matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$, so its characteristic polynomial is the one of the eigenvalue method. It is solved by the methods of Topic 3 (complementary function plus undetermined coefficients). Then $y$ is recovered from (26.2) and the constants from the data.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> Method 1 of the notes: for $\dot x = ax + by$, $\dot y = cx + dy$ with $b \neq 0$ (true in all seven items), $y = (\dot x - ax)/b$ and $\dot y = (\ddot x - a\dot x)/b$; substituting and multiplying by $b$ gives $\ddot x - (a + d)\dot x + (ad - bc)x = 0$, the homogeneous part of the equation above. The forcing terms are a complement (not in the class notes); the second-order equation is then solved as in Topic 3, $x = x_H + x_N$ with the educated guess.
+>
+> Discrepancy with the notes: they box $\ddot x - (a + b)\dot x + (ad - bc)x = 0$, but the steps give $a + d$. Check with $x' = 2x - y$, $y' = -x + 3y$: elimination gives $\ddot x - 5\dot x + 5x = 0$, and $a + d = 5$ while $a + b = 1$.
+
 ## Phase 3: Derivation of the seven solutions
 
 ### (i) $\dot x = 4x - y,\quad \dot y = 2x + y + t^2$, $\ x(0) = 0,\ y(0) = 1$

@@ -55,6 +55,9 @@ In every item the two eigenvalues are real and distinct, with linearly independe
 
 For each item: (1) the general solution; (2) the matrix $A = Q\Lambda Q^{-1}$ reconstructed from the data, used to draw and to check; (3) the canonical system $\dot{\mathbf z} = \Lambda\mathbf z$ with $\mathbf z = Q^{-1}\mathbf x$ and its solution; (4) the portrait in the $\mathbf z$-plane and its image under $\mathbf x = Q\mathbf z$ in the $(x, y)$-plane, with the arrows and the tangent direction decided by the rules above.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> Case 1 of the notes: $\mathbf x = C_1e^{\lambda_1t}\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$. With $P = (\mathbf v_1, \mathbf v_2)$ (the $Q$ of this page), $\mathbf z = P^{-1}\mathbf x$ gives $\dot{\mathbf z} = D\mathbf z$ and the orbits $z_2 = \tilde C z_1^{\lambda_2/\lambda_1}$. The table of the notes reads the portrait from $r = \lambda_2/\lambda_1$: eigenvalues of one sign give a node, tangent at the origin to the axis of the eigenvalue of smaller modulus ($z_1$-axis when $r > 1$, $z_2$-axis when $0 < r < 1$); opposite signs give a saddle. Back in $\mathbf x$ the $z$-axes become the eigenvector lines.
+
 ## Phase 3: Derivation of the eight portraits
 
 ### (i) $\lambda_1 = 1$, $\mathbf v_1 = (1, 1)^T$; $\lambda_2 = 2$, $\mathbf v_2 = (1, -1)^T$

@@ -37,6 +37,9 @@ Coefficients and forcings $f_1, f_2$ continuous on $[a, b]$. The homogeneous sys
 
 Two claims: (A) every function of the displayed form solves (4); (B) every solution of (4) has that form. The key idea (Robinson Sec. 14.1 for scalar equations, Topic 4 Sec. 3.1) is that the difference of two solutions of (4) solves the **homogeneous** system.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> The last theorem of the notes for linear systems: $\mathbf x = \mathbf x_h + \mathbf x_p$. The proof is the one of the scalar case (Topic 3, notes p. 6): the difference of two solutions of the inhomogeneous system solves the homogeneous one.
+
 ## Phase 3: Derivation
 
 #### (A) The family solves (4)

@@ -28,6 +28,9 @@ Let $A$ be a real $2\times 2$ matrix with a non-real eigenvalue $\lambda = \rho 
 
 Ingredients: (a) $\bar{\mathbf v} = \mathbf u - i\mathbf w$ is an eigenvector for $\bar\lambda$ (conjugate $A\mathbf v = \lambda\mathbf v$ and use $\bar A = A$ since $A$ is real); (b) $\lambda \neq \bar\lambda$ because $\omega \neq 0$; (c) eigenvectors of distinct eigenvalues are linearly independent (over $\mathbb C$) (Topic 4, Appendix B argument).
 
+> [!info] Method of the class notes [Notes, p. 10]
+> Route of the notes: $\mathbf v_1 = \tfrac12(\mathbf v_+ + \mathbf v_-)$ and $\mathbf v_2 = -\tfrac i2(\mathbf v_+ - \mathbf v_-)$, that is $Q = (\mathbf v_1 \mid \mathbf v_2) = PM$ with $P = (\mathbf v_+ \mid \mathbf v_-)$ and $M = \begin{pmatrix} 1/2 & -i/2 \\ 1/2 & i/2 \end{pmatrix}$. $P$ is invertible because $\mathbf v_\pm$ belong to the distinct eigenvalues $\rho \pm i\omega$ ($\omega \neq 0$), and $\det M = \frac{i}{4} + \frac{i}{4} = \frac{i}{2} \neq 0$. So $\det Q = \det P\,\det M \neq 0$ and the real vectors $\mathbf v_1$, $\mathbf v_2$ are independent: the argument below, written with matrices.
+
 ## Phase 3: Derivation
 
 #### Step 1: $\mathbf v$ and $\bar{\mathbf v}$ are independent

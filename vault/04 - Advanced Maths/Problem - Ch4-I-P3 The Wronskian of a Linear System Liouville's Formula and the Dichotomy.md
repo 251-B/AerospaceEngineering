@@ -34,6 +34,9 @@ $$ W(t) = \begin{vmatrix} x_1 & x_2 \\ y_1 & y_2 \end{vmatrix} = x_1y_2 - x_2y_1
 
 Differentiate $W$ with the product rule, substitute the equations (H) of Exercise 2 for each derivative, and recognise $W$. The resulting scalar linear ODE is solved by an integrating factor.
 
+> [!info] Class notes and complement [Notes, p. 9]
+> The notes state that $\mathbf x_1, \mathbf x_2$ are independent if and only if $W = \det(x_{ij}) \neq 0$ for all $t \in I$; the words for all $t$ are what this exercise proves. The equation $W' = (\operatorname{tr}A)\,W$ and its solution $W(t) = W(t_0)e^{\int_{t_0}^{t}\operatorname{tr}A}$ (Liouville's formula) are a complement (not in the class notes). For the system of a second-order equation $\operatorname{tr}A = -p$, and it becomes the $W' = -pW$ of Topic 3 (Exercise 6).
+
 ## Phase 3: Derivation
 
 #### Step 1: the product rule

@@ -38,6 +38,9 @@ $$ A\mathbf v_1 = \mathbf 0 = 0\cdot\mathbf v_1 + 0\cdot\mathbf v_2, \qquad A\ma
 
 With $Q = [\mathbf v_1 \mid \mathbf v_2]$ and $\mathbf x = Q\tilde{\mathbf x} = \tilde x\mathbf v_1 + \tilde y\mathbf v_2$ the canonical system is $\dot{\tilde x} = \tilde y$, $\dot{\tilde y} = 0$ (the Jordan block of Topic 4 Eq. 8.3 with $\lambda = 0$).
 
+> [!info] Method of the class notes [Notes, p. 10]
+> Case 3.2 of the notes with $\lambda = 0$: $\mathbf v_1 = (A - 0I)\mathbf v_2 = A\mathbf v_2$, exactly the change of coordinates of the statement. The solution of the notes becomes $z_2 = C$, $z_1 = Ct + D$ and $\mathbf x = (Ct + D)\mathbf v_1 + C\mathbf v_2$: horizontal lines in the $\tilde{\mathbf x}$-plane, with the line of $\mathbf v_1$ ($C = 0$) made of equilibria.
+
 ## Phase 3: Derivation
 
 ### (i) Solution

@@ -40,6 +40,9 @@ $$ \boxed{A = QJQ^{-1}, \qquad Q = [\mathbf v_1 \mid \mathbf v_2], \qquad J = \b
 
 This $A$ is real (a product of real matrices), has the eigenvalues of $J$, $\rho \pm i\omega$ (similar matrices have the same characteristic polynomial), and $A\boldsymbol\eta_+ = \lambda_+\boldsymbol\eta_+$ by construction.
 
+> [!info] Method of the class notes [Notes, p. 10]
+> The identities of the notes read backwards: $A = PDP^{-1}$ and $Q = PM$ give $A = QM^{-1}DMQ^{-1} = QJQ^{-1}$ with $J = M^{-1}DM = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$. It is the matrix of the construction above, which only needs the real and imaginary parts of $A\boldsymbol\eta_+ = \lambda_+\boldsymbol\eta_+$.
+
 ## Phase 3: Derivation of the three matrices
 
 ### (i) $\lambda_\pm = 3 \pm 3i,\ \boldsymbol\eta_\pm = (2 \pm i,\ 1 \mp i)$

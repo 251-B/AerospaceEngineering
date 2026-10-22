@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-ch4-problems-class-method",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Chapter 4 problems linked to the class notes method",
+    "text": "All 19 Chapter 4 problems now show the class-notes route: elimination, diagonalisation z = P^-1 x, the zero eigenvalue, Q = PM for complex pairs and the repeated-eigenvalue cases.",
+    "link": "subjects/advanced-maths/problemas/topic-4-part-1.html"
+  },
+  {
     "id": "2026-10-22-maths-ch3-problems-class-method",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

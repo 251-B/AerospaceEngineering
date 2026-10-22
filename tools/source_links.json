@@ -2255,10 +2255,15 @@
     [
      "am-book",
      "auto"
+    ],
+    [
+     "am-notes",
+     9
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    },
    "cards": {
     "e1": [
@@ -2316,10 +2321,15 @@
     [
      "am-book",
      "auto"
+    ],
+    [
+     "am-notes",
+     10
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    },
    "cards": {
     "e1": [

@@ -34,6 +34,11 @@ For every matrix the discriminant $\Delta = (\operatorname{tr}A)^2 - 4\det A$ is
 
 Algorithm (Topic 4 Sec. 8.10): $\lambda = \tfrac12\operatorname{tr}A$; $N = A - \lambda I$; if $N = O$ star, $\mathbf x = e^{\lambda t}\mathbf x_0$; otherwise $\mathbf v_1 \in \ker N$, solve $N\mathbf v_2 = \mathbf v_1$, $Q = [\mathbf v_1 \mid \mathbf v_2]$, $\mathbf z = Q^{-1}\mathbf x$, $z_1 = (c_1 + c_2t)e^{\lambda t}$, $z_2 = c_2e^{\lambda t}$, $\mathbf x = Q\mathbf z$.
 
+> [!info] Method of the class notes [Notes, p. 10]
+> Case 3 of the notes. 3.1, two independent eigenvectors: $A = P(\lambda I)P^{-1} = \lambda I$, so $\mathbf x = \mathbf x_0e^{\lambda t}$, a star (item (iv)). 3.2, one eigenvector: the notes choose $\mathbf v_2$ independent of the eigenvector and set $\mathbf v_1 = (A - \lambda I)\mathbf v_2$, which is an eigenvector; then $A\mathbf v_2 = \mathbf v_1 + \lambda\mathbf v_2$, $A = P\begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}P^{-1}$, $z_2 = Ce^{\lambda t}$, $z_1 = (Ct + D)e^{\lambda t}$ and $\mathbf x = (Ct + D)e^{\lambda t}\mathbf v_1 + Ce^{\lambda t}\mathbf v_2$, an improper node.
+>
+> The algorithm above uses the same relation $N\mathbf v_2 = \mathbf v_1$ the other way round: it fixes the eigenvector $\mathbf v_1$ first and solves for $\mathbf v_2$ ($c_1 = D$, $c_2 = C$).
+
 ## Phase 3: Derivation
 
 ### (i) $A = \begin{pmatrix} 5 & -4 \\ 1 & 1 \end{pmatrix}$

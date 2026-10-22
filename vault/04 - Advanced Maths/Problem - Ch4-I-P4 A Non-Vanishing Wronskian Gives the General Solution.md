@@ -28,6 +28,9 @@ System (1) with coefficients continuous on $[a, b]$ (as in Exercise 3). $(x_1, y
 
 Tools: (a) uniqueness for linear systems with continuous coefficients: two solutions with the same value at one instant $t_0 \in [a, b]$ coincide on all of $[a, b]$. Robinson Thm 25.2 gives this locally (near $t_0$); the extension to $[a, b]$ is a continuation argument: the set $S$ of instants where the two solutions agree contains $t_0$, is closed (the solutions are continuous) and is open in $[a, b]$ (at each point of $S$ the local uniqueness applies, since the coefficients are continuous), and an interval is connected, so $S = [a, b]$; (b) Cramer's rule: a $2\times 2$ linear system with non-zero determinant has exactly one solution. Plan: match the given solution at one instant with a combination, then invoke uniqueness.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> The notes: for $n = 2$ a fundamental set is a pair of solutions with $W(\mathbf x_1, \mathbf x_2) \neq 0$, and every solution is a combination of it. This exercise proves that statement. Matching the data at $t_0$ is the $2 \times 2$ system with determinant $W(t_0)$, as in the second-order example of the notes (p. 5), and uniqueness does the rest.
+
 ## Phase 3: Derivation
 
 #### Step 1: choose the constants at one instant

@@ -34,6 +34,9 @@ Introduce one variable for the function and for each derivative below the highes
 
 $$ x_1 = x,\quad x_2 = \frac{dx}{dt},\quad x_3 = \frac{d^2x}{dt^2},\quad \dots,\quad x_n = \frac{d^{n-1}x}{dt^{n-1}}, \qquad\text{i.e. } x_k = x^{(k-1)}\ (k = 1, \dots, n) $$
 
+> [!info] Method of the class notes [Notes, p. 9]
+> The important point of the notes: an ODE of order $n \ge 2$ is a system of $n$ first-order ODEs; for $\ddot x = f(\dot x, x, t)$ they set $x_1 = x$, $x_2 = \dot x$, so that $\dot x_1 = x_2$ and $\dot x_2 = f(x_2, x_1, t)$. The variables above are the same choice for order $n$. Uniqueness then follows from the condition the notes state for systems: $\mathbf f$ and its Jacobian $D\mathbf f$ continuous near $(\mathbf x_0, t_0)$. Only the last component $f$ is not trivial, so the condition falls on $f$ and its partial derivatives $\partial f/\partial x_k$.
+
 ## Phase 3: Derivation
 
 #### The system

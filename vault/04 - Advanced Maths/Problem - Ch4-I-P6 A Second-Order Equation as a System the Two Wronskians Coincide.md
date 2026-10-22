@@ -36,6 +36,9 @@ $$ \begin{cases} x' = 0\cdot x + 1\cdot y \\ y' = -q(t)\,x - p(t)\,y \end{cases}
 
 This has the form (1) with $a_1 = 0$, $b_1 = 1$, $a_2 = -q$, $b_2 = -p$ (continuous). A solution $x_j(t)$ of the ODE gives the solution $(x_j, y_j) = (x_j, x_j')$ of the system, and conversely the first component of a system solution solves the ODE.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> This is the important point of the notes with $x_1 = x$ and $x_2 = \dot x$ (here $y$), applied to $x'' + px' + qx = 0$: $A = \begin{pmatrix} 0 & 1 \\ -q & -p \end{pmatrix}$. The Wronskian of the system, $\det\begin{pmatrix} x_1 & x_2 \\ y_1 & y_2 \end{pmatrix} = x_1y_2 - x_2y_1$ with $y_j = x_j'$, is then the Wronskian $x_1x_2' - x_2x_1'$ of the notes for second-order equations (p. 5).
+
 ## Phase 3: Derivation
 
 The corresponding solutions of the system are $\mathbf x_1 = (x_1, x_1')^T$ and $\mathbf x_2 = (x_2, x_2')^T$, so $y_j = x_j'$. Their system Wronskian is

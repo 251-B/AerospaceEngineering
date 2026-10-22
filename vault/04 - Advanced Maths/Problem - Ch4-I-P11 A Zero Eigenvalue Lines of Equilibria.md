@@ -32,6 +32,11 @@ $A$ is $2\times 2$ real with eigenvalues $0$ and $\lambda_2 \neq 0$ (both real: 
 
 Use the general result for distinct eigenvalues, $\mathbf x = c_1e^{\lambda_1t}\mathbf v_1 + c_2e^{\lambda_2t}\mathbf v_2$ (Robinson Eq. 28.1), valid whenever the eigenvalues differ, in particular if one of them is $0$; and $Q = [\mathbf v_1\ \mathbf v_2]$, $\mathbf z = Q^{-1}\mathbf x$.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> Special case $\lambda_1 = 0$ of the notes: $A\mathbf v_1 = \mathbf 0$, so the line spanned by $\mathbf v_1$ is made of equilibria, and $\mathbf x = C_1\mathbf v_1 + C_2e^{\lambda_2t}\mathbf v_2$: straight orbits parallel to $\mathbf v_2$.
+>
+> Reading of the handwriting: the notes write $\mathbf x(t) = C_2\mathbf v_2e^{\lambda_2t}$, which drops the line of equilibria $C_1\mathbf v_1$. The general solution needs both terms, since it must match any $\mathbf x(0)$.
+
 ## Phase 3: Derivation
 
 ### (i) General solution

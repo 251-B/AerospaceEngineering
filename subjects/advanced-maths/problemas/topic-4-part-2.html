@@ -651,6 +651,7 @@
         <span class="src-panel-label">Official material</span>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch4-ii_2627.pdf" target="_blank" rel="noopener">probls_ch4-ii_2627.pdf</a>
         <a href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=285" target="_blank" rel="noopener">Robinson (2004).pdf · p. 285</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener">Notes.pdf · p. 10</a>
       </nav>
     </header>
 
@@ -678,6 +679,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>For each item the eigenvector gives $\mathbf u = \operatorname{Re}\boldsymbol\eta_+$ and $\mathbf w = \operatorname{Im}\boldsymbol\eta_+$, hence $Q = [\mathbf u \mid \mathbf w]$ and the canonical form $J = \begin{pmatrix} \rho &amp; \omega \\ -\omega &amp; \rho \end{pmatrix}$ (rotation clockwise in the $\mathbf z$-plane). The matrix $A = QJQ^{-1}$ is rebuilt, the given sign of $\dot x$ is checked against $a_{12}$, and the portrait is drawn in the $\mathbf z$-plane and in the $(x, y)$-plane ($\mathbf x = Q\mathbf z$).</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>Case 2 of the notes: with $\mathbf v_\pm = \mathbf v_1 \pm i\mathbf v_2$ (here $\mathbf u = \mathbf v_1$, $\mathbf w = \mathbf v_2$) and $Q = (\mathbf v_1 \mid \mathbf v_2)$, $\mathbf z = Q^{-1}\mathbf x$ satisfies $\dot{\mathbf z} = \begin{pmatrix} \rho &amp; \omega \\ -\omega &amp; \rho \end{pmatrix}\mathbf z$. In polar form $r = r(0)e^{\rho t}$ and $\theta = \theta(0) - \omega t$: clockwise in the $\mathbf z$-plane, a stable spiral for $\rho &lt; 0$, an unstable spiral for $\rho &gt; 0$ and a centre for $\rho = 0$. The sense of rotation in the $(x, y)$-plane is read, as in the example of the notes, from the sign of $\dot x$ on the positive $y$-axis.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1499,6 +1501,7 @@
 <p>Complex solutions $e^{\lambda_+t}\boldsymbol\eta_+$ and $e^{\lambda_-t}\bar{\boldsymbol\eta}_+$ combine into real ones: choose conjugate coefficients, $\mathbf x = 2\operatorname{Re}\left[Ce^{(\rho + i\omega)t}(\mathbf u + i\mathbf w)\right]$ with $C = \alpha + i\beta$. Expanding $e^{i\omega t} = \cos\omega t + i\sin\omega t$ (Euler) and keeping the real part, with $c_1 = 2\alpha$, $c_2 = -2\beta$ (Topic 4 Eq. 7.3, Robinson Eq. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/J__C__Robinson__An_Introduction_to_Ordinary_Differential_Equations__Cambridge_University_Press__2004__2_.pdf#page=302" target="_blank" rel="noopener" title="Open Robinson (2004).pdf at page 302">29.2</a>):</p>
 <p>$$ \mathbf x(t) = e^{\rho t}\Big[\left(c_1\cos\omega t + c_2\sin\omega t\right)\mathbf u + \left(c_2\cos\omega t - c_1\sin\omega t\right)\mathbf w\Big] $$</p>
 <p>Check of the derivation of the real part: $(a + ib)(\mathbf u + i\mathbf w)$ has real part $a\mathbf u - b\mathbf w$ because $i\cdot i = -1$; with $a = \alpha\cos\omega t - \beta\sin\omega t$ and $b = \beta\cos\omega t + \alpha\sin\omega t$ this is $\frac12[(c_1\cos\omega t + c_2\sin\omega t)\mathbf u + (c_2\cos\omega t - c_1\sin\omega t)\mathbf w]$ after substituting $\alpha = c_1/2$, $\beta = -c_2/2$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>The notes write the real general solution as $\mathbf x = C_1\operatorname{Re}\{\mathbf v e^{\lambda t}\} + C_2\operatorname{Im}\{\mathbf v e^{\lambda t}\}$ with $\mathbf v = \mathbf v_1 + i\mathbf v_2$ and $\lambda = \rho + i\omega$. Since $\mathbf ve^{\lambda t} = e^{\rho t}(\cos\omega t + i\sin\omega t)(\mathbf v_1 + i\mathbf v_2)$,</p><p>$$ \operatorname{Re}\{\mathbf ve^{\lambda t}\} = e^{\rho t}(\cos\omega t\,\mathbf v_1 - \sin\omega t\,\mathbf v_2), \qquad \operatorname{Im}\{\mathbf ve^{\lambda t}\} = e^{\rho t}(\sin\omega t\,\mathbf v_1 + \cos\omega t\,\mathbf v_2), $$</p><p>so it is the formula above with $c_1 = C_1$ and $c_2 = C_2$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1591,6 +1594,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Steps for each matrix: characteristic equation, eigenvalue $\rho + i\omega$, eigenvector via the first row, $\mathbf u, \mathbf w$, relations (7.4), $Q$ and $Q^{-1}$, and the explicit product $Q^{-1}AQ = J$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>The construction of the notes: complex diagonalisation $A = PDP^{-1}$ with $P = (\mathbf v_+ \mid \mathbf v_-)$, then $Q = (\mathbf v_1 \mid \mathbf v_2) = PM$ with $M = \begin{pmatrix} 1/2 &amp; -i/2 \\ 1/2 &amp; i/2 \end{pmatrix}$, so that $Q^{-1}AQ = M^{-1}P^{-1}APM = M^{-1}DM = \begin{pmatrix} \rho &amp; \omega \\ -\omega &amp; \rho \end{pmatrix}$. The explicit product $Q^{-1}AQ$ computed for each matrix below checks this canonical form.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1791,6 +1795,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Ingredients: (a) $\bar{\mathbf v} = \mathbf u - i\mathbf w$ is an eigenvector for $\bar\lambda$ (conjugate $A\mathbf v = \lambda\mathbf v$ and use $\bar A = A$ since $A$ is real); (b) $\lambda \neq \bar\lambda$ because $\omega \neq 0$; (c) eigenvectors of distinct eigenvalues are linearly independent (over $\mathbb C$) (Topic 4, Appendix B argument).</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>Route of the notes: $\mathbf v_1 = \tfrac12(\mathbf v_+ + \mathbf v_-)$ and $\mathbf v_2 = -\tfrac i2(\mathbf v_+ - \mathbf v_-)$, that is $Q = (\mathbf v_1 \mid \mathbf v_2) = PM$ with $P = (\mathbf v_+ \mid \mathbf v_-)$ and $M = \begin{pmatrix} 1/2 &amp; -i/2 \\ 1/2 &amp; i/2 \end{pmatrix}$. $P$ is invertible because $\mathbf v_\pm$ belong to the distinct eigenvalues $\rho \pm i\omega$ ($\omega \neq 0$), and $\det M = \frac{i}{4} + \frac{i}{4} = \frac{i}{2} \neq 0$. So $\det Q = \det P\,\det M \neq 0$ and the real vectors $\mathbf v_1$, $\mathbf v_2$ are independent: the argument below, written with matrices.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1841,6 +1846,7 @@
 <p>Collect the two vector equations in one matrix equation, with $Q = [\mathbf v_1 \mid \mathbf v_2]$ (columns): the first column of $QJ$ is $\rho\mathbf v_1 - \omega\mathbf v_2$ for $J = \begin{pmatrix} \rho &amp; \omega \\ -\omega &amp; \rho \end{pmatrix}$ and the second is $\omega\mathbf v_1 + \rho\mathbf v_2$. Hence $AQ = QJ$, and since $\mathbf v_1, \mathbf v_2$ are independent (Exercise 4) $Q$ is invertible:</p>
 <p>$$ \boxed{A = QJQ^{-1}, \qquad Q = [\mathbf v_1 \mid \mathbf v_2], \qquad J = \begin{pmatrix} \rho &amp; \omega \\ -\omega &amp; \rho \end{pmatrix}} $$</p>
 <p>This $A$ is real (a product of real matrices), has the eigenvalues of $J$, $\rho \pm i\omega$ (similar matrices have the same characteristic polynomial), and $A\boldsymbol\eta_+ = \lambda_+\boldsymbol\eta_+$ by construction.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>The identities of the notes read backwards: $A = PDP^{-1}$ and $Q = PM$ give $A = QM^{-1}DMQ^{-1} = QJQ^{-1}$ with $J = M^{-1}DM = \begin{pmatrix} \rho &amp; \omega \\ -\omega &amp; \rho \end{pmatrix}$. It is the matrix of the construction above, which only needs the real and imaginary parts of $A\boldsymbol\eta_+ = \lambda_+\boldsymbol\eta_+$.</p></div>
       </div>
 
       <div class="phase-section">
@@ -1907,6 +1913,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>Algorithm (Topic 4 Sec. 8.10): $\lambda = \tfrac12\operatorname{tr}A$; $N = A - \lambda I$; if $N = O$ star, $\mathbf x = e^{\lambda t}\mathbf x_0$; otherwise $\mathbf v_1 \in \ker N$, solve $N\mathbf v_2 = \mathbf v_1$, $Q = [\mathbf v_1 \mid \mathbf v_2]$, $\mathbf z = Q^{-1}\mathbf x$, $z_1 = (c_1 + c_2t)e^{\lambda t}$, $z_2 = c_2e^{\lambda t}$, $\mathbf x = Q\mathbf z$.</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>Case 3 of the notes. 3.1, two independent eigenvectors: $A = P(\lambda I)P^{-1} = \lambda I$, so $\mathbf x = \mathbf x_0e^{\lambda t}$, a star (item (iv)). 3.2, one eigenvector: the notes choose $\mathbf v_2$ independent of the eigenvector and set $\mathbf v_1 = (A - \lambda I)\mathbf v_2$, which is an eigenvector; then $A\mathbf v_2 = \mathbf v_1 + \lambda\mathbf v_2$, $A = P\begin{pmatrix} \lambda &amp; 1 \\ 0 &amp; \lambda \end{pmatrix}P^{-1}$, $z_2 = Ce^{\lambda t}$, $z_1 = (Ct + D)e^{\lambda t}$ and $\mathbf x = (Ct + D)e^{\lambda t}\mathbf v_1 + Ce^{\lambda t}\mathbf v_2$, an improper node.</p><p>The algorithm above uses the same relation $N\mathbf v_2 = \mathbf v_1$ the other way round: it fixes the eigenvector $\mathbf v_1$ first and solves for $\mathbf v_2$ ($c_1 = D$, $c_2 = C$).</p></div>
       </div>
 
       <div class="phase-section">
@@ -2786,6 +2793,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation</div>
 <p>With $Q = [\mathbf v_1 \mid \mathbf v_2]$ and $\mathbf x = Q\tilde{\mathbf x} = \tilde x\mathbf v_1 + \tilde y\mathbf v_2$ the canonical system is $\dot{\tilde x} = \tilde y$, $\dot{\tilde y} = 0$ (the Jordan block of Topic 4 Eq. 8.3 with $\lambda = 0$).</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, p. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=10" target="_blank" rel="noopener" title="Open Notes.pdf at page 10">10</a>]</div><p>Case 3.2 of the notes with $\lambda = 0$: $\mathbf v_1 = (A - 0I)\mathbf v_2 = A\mathbf v_2$, exactly the change of coordinates of the statement. The solution of the notes becomes $z_2 = C$, $z_1 = Ct + D$ and $\mathbf x = (Ct + D)\mathbf v_1 + C\mathbf v_2$: horizontal lines in the $\tilde{\mathbf x}$-plane, with the line of $\mathbf v_1$ ($C = 0$) made of equilibria.</p></div>
       </div>
 
       <div class="phase-section">
@@ -2912,6 +2920,7 @@
       <div class="phase-section">
         <div class="phase-badge-title phase-2-badge">Phase 2: Formulation: how the sign conditions are read</div>
 <p>At the point $(0, 1)$ the vector field is $A(0, 1)^T = (a_{12}, a_{22})^T$, so the sign of $\dot x$ there is the sign of $a_{12}$: positive means motion to the right at the top of the plane, which is clockwise; negative means counter-clockwise. At $(1, 0)$ the field is $(a_{11}, a_{21})^T$, so the sign of $\dot y$ there is the sign of $a_{21}$: negative means downwards on the right-hand side, i.e. clockwise; positive means counter-clockwise (Topic 4 Sec. 7.8).</p>
+<div class="note-box"><div class="note-box-title">Method of the class notes [Notes, pp. <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf#page=9" target="_blank" rel="noopener" title="Open Notes.pdf at page 9">9–10</a>]</div><p>The classification of the notes decides each item. Two real eigenvalues (Case 1) give a node or a saddle, read from the sign table of $\lambda_2/\lambda_1$. A complex pair (Case 2) gives a spiral or a centre from the sign of $\rho$, with the sense of rotation read from the sign of $\dot x$ or $\dot y$ on an axis, as in the example of the notes. A repeated eigenvalue (Case 3) gives a star when $A = \lambda I$ and an improper node, with one eigenvector, otherwise.</p></div>
       </div>
 
       <div class="phase-section">

@@ -33,6 +33,9 @@ Each system is $\dot{\mathbf x} = A\mathbf x$ with a constant $2\times 2$ matrix
 
 Since $\mathbf x = Q\mathbf z$ with $Q$ constant, $\dot{\mathbf x} = Q\dot{\mathbf z}$ and $A\mathbf x = AQ\mathbf z$, so $\dot{\mathbf z} = Q^{-1}AQ\,\mathbf z$. If $Q^{-1}AQ = \Lambda = \operatorname{diag}(\lambda_1, \lambda_2)$ the equations $\dot z_1 = \lambda_1z_1$, $\dot z_2 = \lambda_2z_2$ are uncoupled.
 
+> [!info] Method of the class notes [Notes, p. 9]
+> The diagonalisation of the notes: $A = PDP^{-1}$ with $P = (\mathbf v_1, \mathbf v_2)$ and $D = \operatorname{diag}(\lambda_1, \lambda_2)$; with $\mathbf z = P^{-1}\mathbf x$, $\dot{\mathbf z} = P^{-1}A\mathbf x = DP^{-1}\mathbf x = D\mathbf z$, so $z_1 = C_1e^{\lambda_1t}$ and $z_2 = C_2e^{\lambda_2t}$ are uncoupled. The $Q$ and $\Lambda$ of this page are the notes' $P$ and $D$. Item (i) is the matrix of Exercise 7 (vii): elimination and eigenvalues give the same characteristic polynomial, $\lambda^2 - 9\lambda - 90$.
+
 ## Phase 3: Derivation
 
 ### (i) $A = \begin{pmatrix} 8 & 14 \\ 7 & 1 \end{pmatrix}$
