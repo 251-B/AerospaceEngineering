@@ -254,7 +254,7 @@ window.AE_NAV = {
           "pages": [
             {
               "href": "subjects/advanced-maths/teoria/topic-1.html",
-              "label": "1 · Modelling, first-order IVPs"
+              "label": "1 · Classification, first models"
             },
             {
               "href": "subjects/advanced-maths/teoria/topic-2.html",

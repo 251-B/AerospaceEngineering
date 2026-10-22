@@ -148,3 +148,7 @@ Thus, Verhulst's nonlinear model reduces strictly and smoothly to Malthus' expon
 * [[04 - Advanced Maths/Concept - Well-Posed Problems and Picard Theorem|Well-Posed Problems and Picard Theorem]]
 * [[04 - Advanced Maths/Problem - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Malthusian Population Dynamics]]
 * [[04 - Advanced Maths/Problem - Ch1-P9 Logistic Population Growth Model|Problem 1.9: Full Step-by-Step Logistic Solution]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 3) treat the logistic equation twice: as the concrete example of stability ($f'(0) = k > 0$ unstable, $f'(M) = -k < 0$ stable) and as the worked separable equation, with $\frac{1}{x(1 - x/M)} = \frac1x + \frac{1/M}{1 - x/M}$ and $x(t) = \frac{Mx_0}{x_0 + (M - x_0)e^{-k(t - t_0)}}$. Both are worked step by step in [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics|Topic 2]], Sections 4 and 6.

@@ -9,66 +9,143 @@ tags:
   - dinamica-cualitativa
 dificultad: media
 fuentes:
-  - "Book ODE's (UC3M Lecture Notes, Chapters 5-10, J.C. Robinson)"
+  - "Notes.pdf (class notes 'Diff Eq', pp. 3-4), sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf"
+  - "Robinson (2004), An Introduction to Ordinary Differential Equations, Ch. 6-10"
   - "ProblemsCh2.pdf (Department of Mathematics, UC3M)"
 ---
 
-# 📘 Tema 2: First-Order ODEs and Qualitative Dynamics
+# Topic 2: First-Order ODEs: Existence, Stability and Explicit Solutions
 
-> **Key takeaway in one sentence:** Tema 2 masters the complete taxonomy of first-order differential equations—uniting exact analytical integration techniques (direct integration, separable forms, integrating factors, exact differentials, and Bernoulli/nonlinear reductions) with the powerful qualitative theory of autonomous dynamical systems (Picard uniqueness, trajectory non-crossing theorems, phase line flows, and linear stability of equilibria).
+> **Key takeaway:** an initial value problem has exactly one local solution when $f$ and $\partial f/\partial y$ are continuous (Picard). For autonomous equations the sign of $f'$ at a stationary point decides its stability. Three classes of equations have explicit solutions: separable equations, linear equations (integrating factor) and exact equations.
 
----
-
-## 🎯 1. Learning Objectives & Scope
-
-Upon completing this unit, students will be able to:
-1. **Solve first-order ODEs analytically:**
-   * Directly integrate functions of the independent variable $y' = f(x)$.
-   * Separate variables in nonlinear equations $y' = g(x) h(y)$ and handle non-elementary integrals (e.g., Gaussian integrals $\int e^{-s^2} ds$) and finite-time blow-ups.
-   * Apply integrating factors $\mu(t) = \exp\left(\int p(t) dt\right)$ to solve non-homogeneous linear equations $x' + p(t)x = q(t)$ and compute long-time asymptotic limits ($t \to \infty$).
-   * Identify exact differential equations $M(x, y) dx + N(x, y) dy = 0$ via the Euler-Cauchy compatibility condition $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$, reconstruct potential functions $F(x, y) = C$, and calculate integrating factors $\mu(x)$ for non-exact equations.
-   * Execute nonlinear coordinate transformations, notably reducing the general Bernoulli equation $y' = a(x)y + b(x)y^\alpha$ into a linear equation using $z = y^{1-\alpha}$.
-2. **Master the qualitative theory of ODEs:**
-   * Apply the **Picard-Lindelöf Existence and Uniqueness Theorem** and test local Lipschitz continuity via bounded partial derivatives $\left|\frac{\partial f}{\partial y}\right| \le L$.
-   * Exploit the **No-Crossing Theorem** (geometric consequence of uniqueness): solutions to smooth ODEs cannot intersect in the $(t, y)$ plane, establishing strict upper and lower bounds on unknown trajectories.
-   * Understand failure modes: non-Lipschitz branch points (e.g., $y' = 3y^{2/3}$ at $y=0$) and domain singularities (e.g., $y' = \frac{2y+1}{t}$ at $t=0$).
-   * Perform **1D phase line analysis** for autonomous equations $x' = f(x)$: find stationary points $f(x^*) = 0$, evaluate analytical stability via the sign of $f'(x^*)$, and sketch global flow trajectories.
-   * Prove solution uniqueness and stability independently of Picard's theorem using energy/difference functions ($E(t) = (y_1 - y_2)^2$).
+This note follows pages 3 and 4 of the class notes (`Notes.pdf`) in their order. Robinson (2004) formalises and extends each step; material that is not in the notes is labelled **Complement (Robinson)**. The web page is `subjects/advanced-maths/teoria/topic-2.html`; sections 1-10 below match its sections.
 
 ---
 
-## 🧭 2. Conceptual Architecture
+## 1. Initial value problems [Notes, p. 3; Robinson, Sec. 6.1]
 
-The theoretical foundation of Tema 2 is structured across five core concept modules:
+An IVP for a first-order ODE is
+$$\begin{cases} y'(x) = f\big(x, y(x)\big),\\ y(x_0) = y_0. \end{cases}$$
+We look for the **existence** and the **uniqueness** of the solution. (Reading note: the first line of p. 3 writes $y(a_0) = x_0$; the statement of Picard's theorem on the same page writes $y(x_0) = y_0$.)
 
-```mermaid
-graph TD
-    T2["Tema 2: First-Order ODEs & Qualitative Theory"] --> A["Analytical Integration Techniques"]
-    T2 --> Q["Qualitative & Geometric Dynamics"]
-    
-    A --> C1["[[04 - Advanced Maths/Concept - Direct Integration and Separable Equations|1. Direct Integration & Separable Equations]]"]
-    A --> C2["[[04 - Advanced Maths/Concept - Integrating Factor and First-Order Linear Equations|2. Integrating Factor & Linear 1st-Order ODEs]]"]
-    A --> C3["[[04 - Advanced Maths/Concept - Exact Equations and Special Integrating Factors|3. Exact Equations & Special Integrating Factors]]"]
-    A --> C4["[[04 - Advanced Maths/Concept - Nonlinear Substitutions and the Bernoulli Equation|4. Nonlinear Substitutions & Bernoulli Equation]]"]
-    
-    Q --> C5["[[04 - Advanced Maths/Concept - Qualitative Analysis of Autonomous ODEs and Stability|5. Qualitative Analysis of Autonomous ODEs & Stability]]"]
-```
+Robinson writes the same problem as $\dot x = f(x, t)$, $x(t_0) = x_0$ (Eq. 6.2) and defines a solution on an open interval $I \ni t_0$ (Definition 6.1, p. 40).
 
-### Core Concept Modules:
-1. [[04 - Advanced Maths/Concept - Direct Integration and Separable Equations|Concept 1: Metodos de Integracion Directa y Ecuaciones Separables]]  
-   Direct antiderivatives, Leibniz notation justification, chain rule for separable equations $H'(x)x' = g(t)$, asymptotic integrals with Gaussian error functions, and finite-time blow-up thresholds.
-2. [[04 - Advanced Maths/Concept - Integrating Factor and First-Order Linear Equations|Concept 2: Factor Integrante y Ecuaciones Lineales de Primer Orden]]  
-   Standard form $x' + p(t)x = q(t)$, rigorous derivation of integrating factor $\mu(t) = \exp(\int p(t)dt)$, general solution, and steady-state asymptotic limits as $t \to \infty$.
-3. [[04 - Advanced Maths/Concept - Exact Equations and Special Integrating Factors|Concept 3: Ecuaciones Exactas y Factores Integrantes Especiales]]  
-   Differential forms $M(x, y) dx + N(x, y) dy = 0$, necessary and sufficient condition $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$ via Schwarz's theorem on mixed partials, potential surface construction, and finding integrating factors $\mu(x)$ or $\mu(y)$.
-4. [[04 - Advanced Maths/Concept - Nonlinear Substitutions and the Bernoulli Equation|Concept 4: Sustituciones No Lineales y Ecuacion de Bernoulli]]  
-   Bernoulli's transformation $z = y^{1-\alpha}$, homogeneous equations $u = y/x$, and algebraic reductions of nonlinear derivatives into solvable linear forms.
-5. [[04 - Advanced Maths/Concept - Qualitative Analysis of Autonomous ODEs and Stability|Concept 5: Analisis Cualitativo de EDOs Autonomas y Estabilidad]]  
-   Autonomous equations $x' = f(x)$, equilibria $f(x^*) = 0$, linear stability criterion $f'(x^*)$, phase line vector fields, Picard-Lindelöf geometric trajectory confinement, and bifurcations.
+**Complement (Robinson).** Hadamard's well-posedness (existence, uniqueness, continuous dependence); uniqueness means the model is deterministic (p. 39); an IVP with no solution: $x^2 + t^2\dot x = 0$, $x(0) = c \neq 0$ (p. 38).
+
+## 2. Picard's theorem [Notes, p. 3; Robinson, Thm 6.2, p. 40]
+
+> Let $f$ and $\dfrac{\partial f}{\partial y}$ be continuous functions of $x$ and $y$ near the initial value $(x_0, y_0)$. Then there exists $h > 0$ such that the IVP $y' = f(x, y)$, $y(x_0) = y_0$ has a unique solution for $|x - x_0| < h$.
+
+In Robinson's variables ($t$ independent, $x$ unknown) the derivative to check is $\partial f/\partial x$. The conclusion is local.
+
+**Complement (Robinson).** Lipschitz condition $|f(x,t) - f(y,t)| \le L|x - y|$ (Eq. 6.5) and the Mean Value Theorem proof that a bounded derivative gives it; uniqueness and continuous dependence from $Z = (x - y)^2$, $\dot Z \le 2LZ$, so $|x(t) - y(t)| \le |x_0 - y_0|e^{L(t - t_0)}$ (Exercises 6.3, 9.7); Picard iteration $x_{n+1} = x_0 + \int_0^t f(x_n)$, which for $\dot x = x$ gives the Taylor polynomials of $e^t$ (Exercise 6.4).
+
+## 3. Complement: when the theorem fails [Robinson, Secs. 6.1, 6.3]
+
+- $\dot x = \sqrt x$, $x(0) = 0$: infinitely many solutions $x_c = (t - c)^2/4$ for $t > c$, because $\partial f/\partial x = \tfrac12 x^{-1/2}$ is unbounded at $0$ (same for $x^{1/3}$).
+- $\dot x = x^2$: unique, but $x = 1/(x_0^{-1} - t)$ blows up at $t = 1/x_0$: the theorem is only local.
+- Navier-Stokes global existence is open (Millennium Prize).
+
+## 4. Autonomous first-order ODEs and stationary points [Notes, p. 3; Robinson, Secs. 7.1-7.3]
+
+**Autonomous:** $x'(t) = f$ with $f$ depending only on $x$. $x' = x^3$ is autonomous ($f(x) = x^3$); $x' = t^2x$ is not ($f(x, t) = t^2x$).
+
+**Stationary points [Notes, p. 3]:** points $x$ with $f(x) = 0$.
+- $f(x) = 0$ and $f'(x) > 0$: $x$ is **unstable**.
+- $f(x) = 0$ and $f'(x) < 0$: $x$ is a **stable** stationary point.
+
+If $x(0) = x^*$ with $f(x^*) = 0$, then $x'(0) = 0$ and by uniqueness $x(t) \equiv x^*$.
+
+**The sketch of the notes.** $f$ an arch with zeros $\underline x < \overline x$, $f > 0$ between them:
+- $\underline x < x_0 < \overline x$: $f(x_0) > 0$, $x' > 0$, the solution goes right;
+- $x_0 < \underline x$ or $x_0 > \overline x$: $f(x_0) < 0$, $x' < 0$, it goes left.
+
+So point 1 ($\underline x$, where $f' > 0$) is unstable and point 2 ($\overline x$, where $f' < 0$) is stable. For $f = (x - \underline x)(\overline x - x)$: $f' = (\overline x - x) - (x - \underline x)$, $f'(\underline x) = \overline x - \underline x > 0$, $f'(\overline x) = -(\overline x - \underline x) < 0$.
+
+**Concrete example [Notes, p. 3]:** $x' = kx(1 - x/M) = kx - \frac kMx^2$ (non-linear), $x(0) = x_0 \ge 0$, $k, M > 0$.
+1. Critical points: $x = 0$, $x = M$.
+2. $f'(x) = k - \frac{2k}{M}x$.
+3. $f'(0) = k > 0$: unstable. $f'(M) = k - 2k = -k < 0$: stable.
+
+Each curve of the sketch is a solution; $0$ is unstable because a slight variation goes to $M$; $x_0 = 0$ stays at $0$; $x_0 \neq 0$ ends up at $M$.
+
+**Complement (Robinson).** Monotonicity of solutions and no finite-time arrival at a stationary point (p. 47); $\varepsilon$-$\delta$ definitions of stable and attracting (Eqs. 7.2-7.3); linearisation $\dot\xi \approx f'(x^*)\xi$; the cubic $-x(1-x)(2-x)$; terminal velocity $v^* = \sqrt{mg/k}$; $\dot x = |x|$ vs $\dot x = x^2$ (same phase line, different speed).
+
+## 5. Complement: bifurcations [Robinson, Secs. 7.4, 7.6]
+
+Structural stability; bifurcation near $x^*$ requires $f'(x^*) = 0$; pitchfork $\dot x = x(k - x^2)$, saddle-node $\dot x = x^2 - k$, transcritical $\dot x = kx - x^2$.
+
+## 6. Explicit solutions (1): separable equations [Notes, p. 3; Robinson, Ch. 8]
+
+$$x'(t) = f\big(x(t)\big)\,g(t), \quad x(t_0) = x_0.$$
+If $f \neq 0$ (never), divide by $f$ and integrate from $t_0$ to $t$; with $u = x(\tau)$, $du = x'(\tau)\,d\tau$:
+$$\int_{t_0}^{t}\frac{x'(\tau)}{f(x(\tau))}\,d\tau = \int_{x_0}^{x(t)}\frac{du}{f(u)} = \int_{t_0}^{t} g(\tau)\,d\tau.$$
+"Never" is guaranteed by Picard: a solution that touches a zero of $f$ is constant. Robinson's proof: $H' = 1/f$, $\frac{d}{dt}H(x(t)) = g(t)$ by the chain rule (Sec. 8.4).
+
+**Example [Notes]:** $x' = kx \Rightarrow x = Ce^{kt}$.
+
+**The logistic equation [Notes, p. 3]:** $x' = kx(1 - x/M)$, $x(t_0) = x_0$ (the notes write $x(t_0) = t_0$; $x_0$ is meant).
+1. Picard: $x \equiv 0$ or $x \equiv M$, or $x$ never reaches $0$ or $M$; $M - x$ keeps the sign of $M - x_0$.
+2. $\displaystyle\int_{x_0}^{x}\frac{dx}{x(1 - x/M)} = k(t - t_0)$.
+3. $\frac{1}{x(1 - x/M)} = \frac Ax + \frac{B}{1 - x/M}$: $1 = A(1 - x/M) + Bx$; $x = 0 \Rightarrow A = 1$; $x = M \Rightarrow B = 1/M$. So $\frac1x + \frac{1/M}{1 - x/M} = \frac1x + \frac{1}{M - x}$.
+4. $\int_{x_0}^{x}\frac{dx}{x} + \int_{x_0}^{x}\frac{dx}{M - x} = \ln\frac{x}{x_0} + \ln\frac{M - x_0}{M - x} = \ln\frac{x(M - x_0)}{x_0(M - x)}$ (substitution $u = M - x$, $du = -dx$ in the second).
+5. $\frac{x}{M - x} = \frac{x_0e^{k(t - t_0)}}{M - x_0} =: E$.
+6. $x = ME - xE \Rightarrow x(1 + E) = ME \Rightarrow x = \frac{Mx_0e^{k(t - t_0)}}{M - x_0 + x_0e^{k(t - t_0)}}$.
+7. $$x(t) = \frac{Mx_0}{x_0 + (M - x_0)e^{-k(t - t_0)}}, \qquad \lim_{t\to\infty}x(t) = \frac{Mx_0}{x_0 + 0} = M.$$
+
+Checks: $x(t_0) = x_0$; $x_0 = M$ gives $M$; small $x$ gives $x_0e^{k(t - t_0)}$; fastest growth at $x = M/2$. Robinson's $\frac{M}{p(M - p)} = \frac1p + \frac{1}{M - p}$ (Eq. 8.13) is step 3 times $M$.
+
+**Complement (Robinson).** Example 8.1 ($\dot x = x^2$); census fit of the logistic model ($M = 83.1$ million, $k = 0.0141\ \text{yr}^{-1}$, Eq. 8.14); pitchfork solved by partial fractions (Sec. 8.6.1).
+
+## 7. Explicit solutions (2): the integrating factor [Notes, p. 3; Robinson, Ch. 9]
+
+$x' + p(t)x = q(t)$ is not separable in general. Multiply by $I(t)$: $Ix' + Ipx = Iq$. Choose $I$ with $(Ix)' = Ix' + Ipx$; the product rule $(Ix)' = I'x + Ix'$ leaves $I' = Ip$, so $I'/I = p$, $\ln I = \int p\,dt = P(t)$ and
+$$I(t) = e^{P(t)} \quad\text{(integrating factor; e.g. } p = t \Rightarrow P = t^2/2).$$
+Then $(Ix)' = Iq$, $Ix = \int Iq\,dt$, and $x(t) = \frac{1}{I(t)}\int I(t)q(t)\,dt$ (general solution).
+
+**IVP in three steps [Notes, p. 3]** ($x(t_0) = x_0$, $t > t_0$):
+1. $P(t) = \int_{t_0}^{t}p(\tau)\,d\tau$, so $P(t_0) = 0$ and $I(t_0) = e^0 = 1$.
+2. $\int_{t_0}^{t}(I(\tau)x(\tau))'\,d\tau = \int_{t_0}^{t}I(\tau)q(\tau)\,d\tau$.
+3. $I(t)x(t) - I(t_0)x(t_0) = I(t)x(t) - x_0$, so
+$$x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^{t} I(\tau)q(\tau)\,d\tau, \qquad I(t) = e^{P(t)}.$$
+
+**Worked example (written for the portal):** $x' + tx = t$, $x(0) = x_0$. $P = t^2/2$, $I = e^{t^2/2}$; $\int_0^t \tau e^{\tau^2/2}d\tau = \int_0^{t^2/2}e^u\,du = e^{t^2/2} - 1$ ($u = \tau^2/2$, $du = \tau\,d\tau$); $x(t) = 1 + (x_0 - 1)e^{-t^2/2}$. Check: $x' + tx = t$; $x \to 1$.
+
+**Complement (Robinson).** Constant coefficients (Eqs. 9.3-9.6); Examples 9.1 ($x = e^{-3t} + t/3 - 1/9$) and 9.2 ($y = 3 + c/(x^2 + 1)^2$); Newton's law of cooling (Eq. 9.9), the time-of-death erratum of p. 81 ($t_0 \approx 6{:}18$ a.m., not 1:42 a.m.), periodic surroundings (Eq. 9.17), cabin ventilation as a stirred tank.
+
+## 8. Explicit solutions (3): exact equations [Notes, p. 4; Robinson, Sec. 10.1]
+
+Let $y = y(x)$ and $F(x, y) = C$. By the chain rule $\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y}\frac{dy}{dx} = 0$, a first-order ODE. So if $f(x, y) + g(x, y)\frac{dy}{dx} = 0$ and $F$ satisfies $F_x = f$, $F_y = g$, the solution is $F(x, y) = C$. Observation: $\frac{\partial f}{\partial y} = \frac{\partial^2F}{\partial y\,\partial x} = \frac{\partial^2F}{\partial x\,\partial y} = \frac{\partial g}{\partial x}$ (Schwarz).
+
+> **Theorem [Notes, p. 4].** Let $f, g, \frac{\partial f}{\partial y}, \frac{\partial g}{\partial x}$ be continuous. Then $f + g\frac{dy}{dx} = 0$ is exact iff $\frac{\partial f}{\partial y} = \frac{\partial g}{\partial x}$; the solution is $F(x, y) = C$ with $F_x = f$, $F_y = g$.
+
+Sufficiency (Robinson, Eqs. 10.6-10.7): $F = \int f\,dx + \varphi(y)$ and $\varphi' = g - \partial_y\int f\,dx$ is free of $x$ because $f_y = g_x$.
+
+**Ex 1 [Notes, p. 4; Robinson Example 10.1]:** $x^3 + \frac yx + (y^2 + \ln x)\frac{dy}{dx} = 0$, $x > 0$. Not linear ($y^2y'$). $f_y = \frac1x = g_x$. $F = \frac{x^4}{4} + y\ln x + \varphi(y)$; $F_y = \ln x + \varphi'(y) = y^2 + \ln x \Rightarrow \varphi = \frac{y^3}{3}$. Implicit solution $F = \frac{x^4}{4} + \frac{y^3}{3} + y\ln x = C$.
+
+**Ex 2 [Notes, p. 4]:** $(1 + e^xy + xe^xy) + (xe^x + 2)\frac{dy}{dx} = 0$. $f_y = e^x + xe^x$; $g_x = e^x + xe^x$ (product rule). By parts ($u = x$, $dv = e^xdx$): $\int xe^x\,dx = xe^x - e^x$, so $F = x + ye^x + y(xe^x - e^x) + \varphi(y) = x + yxe^x + \varphi(y)$; $F_y = xe^x + \varphi' = xe^x + 2 \Rightarrow \varphi = 2y$.
+$$F = x + yxe^x + 2y = C \quad\Longrightarrow\quad y = \frac{C - x}{xe^x + 2}.$$
+$xe^x + 2 \ge 2 - 1/e > 0$ (minimum of $xe^x$ at $x = -1$), so $y$ is defined for every $x$. Check: $\frac{d}{dx}[y(xe^x + 2)] = -1$ gives back the ODE.
+
+**Complement (Robinson).** Integrating factors $I(x)$ and $I(y)$ for non-exact equations (Eqs. 10.9-10.11, Example 10.2).
+
+## 9. Complement: homogeneous and Bernoulli substitutions [Robinson, Sec. 10.2]
+
+$y' = F(y/x)$ with $y = ux$; $y' + py = qy^n$ with $u = y^{1-n}$ (Example 10.4: $y = 3/(Ce^{-3x^2} - 1)$).
+
+## 10. Choosing a method
+
+| Equation | Test | Method | Notes |
+| :--- | :--- | :--- | :--- |
+| IVP $y' = f(x, y)$ | $f$, $f_y$ continuous | Picard: unique local solution | p. 3 |
+| Autonomous $x' = f(x)$ | no explicit $t$ | stationary points, sign of $f'$ | p. 3 |
+| Separable $x' = f(x)g(t)$ | right side factorises | $\int du/f = \int g$ | p. 3 |
+| Linear $x' + px = q$ | first powers of $x$, $x'$ | $I = e^{P}$, three steps | p. 3 |
+| Exact $f + gy' = 0$ | $f_y = g_x$ | $F_x = f$, $F_y = g$, $F = C$ | p. 4 |
 
 ---
 
-## 📝 3. Solved Problem Collection (ProblemsCh2.pdf — 17 Problems)
+## Solved problems (ProblemsCh2.pdf, 17 problems)
 
 Every problem from Sheet 2 is developed in 4 exhaustive phases with zero omitted algebraic steps:
 
@@ -94,7 +171,7 @@ Every problem from Sheet 2 is developed in 4 exhaustive phases with zero omitted
 
 ---
 
-## 🧪 4. Worked Examples, One per Method (verified)
+## Further worked examples, one per method (verified)
 
 Examples B to F come from the official notes (Book ODE's, J.C. Robinson; the printed page is cited, the PDF page is printed page plus 16). Example A is an **illustrative example**. Every closed form was checked with sympy (residual 0 in the ODE and the initial datum) and with an RK4 integration in pure Python.
 
@@ -133,13 +210,13 @@ The denominator vanishes at $T = x_0^{-1}$; equivalently $T = \int_{x_0}^{\infty
 
 ---
 
-## 🔗 Interdisciplinary Aerospace Connections
+## Interdisciplinary aerospace connections
 * **Aerospace Propulsion & Combustion:** The Gaussian integral and blow-up threshold analyzed in Problem 2.2 model thermal runaway in adiabatic chemical reactors and rocket engine pre-burners.
 * **Flight Mechanics & Aerodynamic Stability:** The autonomous phase line dynamics and pitchfork bifurcation studied in Problem 2.16 govern roll-coupling stability and angle-of-attack trim states in transonic flight.
 
 ---
 
-## ⬅️ Navigation
+## Navigation
 * **Upward Navigation:** [[04 - Advanced Maths/Advanced Maths MOC|⬅️ Advanced Mathematics MOC]]
 * **Previous Unit:** [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs|Tema 1: Introduction, Modeling and Classification]]
 * **Root Index:** [[00 - Indice Central/Master Index|⬅️ Central Master Index]]

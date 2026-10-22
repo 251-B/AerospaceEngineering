@@ -128,3 +128,7 @@ $$ \frac{dx}{dt} + \left( a + \frac{1}{t} \right) x = b \quad (a > 0) $$
 * [[04 - Advanced Maths/Concept - First-Order Physical Models|First-Order Physical Models (Newton Cooling, CSTR)]]
 * [[04 - Advanced Maths/Problem - Ch2-P3 Integrating Factor Method and Asymptotics|Problem 2.3: 8 Integrating Factor Problems]]
 * [[04 - Advanced Maths/Problem - Ch2-P10 Uniqueness via Integrating Transformation|Problem 2.10: Uniqueness Proof via Integrating Transformation]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 3) derive $I = e^{P}$ from $I' = Ip$ and solve the IVP in three steps with $P(t) = \int_{t_0}^{t}p$, so that $I(t_0) = 1$ and $x(t) = \frac{x_0}{I(t)} + \frac{1}{I(t)}\int_{t_0}^{t}I(\tau)q(\tau)\,d\tau$. See [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics|Topic 2]], Section 7.

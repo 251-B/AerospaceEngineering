@@ -155,3 +155,7 @@ $$ \begin{cases} \dfrac{dy}{dt} = y^2 \\ y(0) = y_0 > 0 \end{cases} $$
 * [[04 - Advanced Maths/Concept - Logistic Equation and Carrying Capacity|Logistic Equation (Saturation vs. Blow-up)]]
 * [[04 - Advanced Maths/Problem - Ch1-P2 Malthusian Population Dynamics|Problem 1.2: Malthusian Population Dynamics]]
 * [[04 - Advanced Maths/Problem - Ch1-P9 Logistic Population Growth Model|Problem 1.9: Logistic Population Growth Model]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 3) state Picard's theorem for $y' = f(x, y)$, $y(x_0) = y_0$: if $f$ and $\partial f/\partial y$ are continuous near $(x_0, y_0)$, there is $h > 0$ with a unique solution for $|x - x_0| < h$. On the portal this material is now in [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics|Topic 2]], Sections 1-3.

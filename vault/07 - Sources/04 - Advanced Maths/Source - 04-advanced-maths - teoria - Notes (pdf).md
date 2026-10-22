@@ -19,10 +19,15 @@ bytes: 1597287
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/teoria/Notes.pdf`
 - **Kind:** teoria
 - **Size:** 1.6 MB
-- **Status:** referenced by 2 note(s) below
+- **Status:** referenced by 7 note(s) below
 - **Shared name:** the file name is shared with 2 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
+- [[04 - Advanced Maths/Concept - Exact Equations and Special Integrating Factors]]
+- [[04 - Advanced Maths/Concept - Integrating Factor and First-Order Linear Equations]]
 - [[04 - Advanced Maths/Concept - Linearity and Order of Differential Equations]]
+- [[04 - Advanced Maths/Concept - Logistic Equation and Carrying Capacity]]
+- [[04 - Advanced Maths/Concept - Well-Posed Problems and Picard Theorem]]
 - [[04 - Advanced Maths/Topic 1 - Introduction, Modeling and Classification of ODEs]]
+- [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics]]

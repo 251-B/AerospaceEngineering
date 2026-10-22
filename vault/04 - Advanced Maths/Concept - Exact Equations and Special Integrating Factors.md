@@ -138,3 +138,7 @@ $$ F(x, y) = \int f(x) \, dx + \int g(y) \, dy = C $$
 * [[04 - Advanced Maths/Problem - Ch2-P4 Exact Differential Equations|Problem 2.4: 4 Exact Equations Solved]]
 * [[04 - Advanced Maths/Problem - Ch2-P5 Integrating Factor for Non-Exact Equations|Problem 2.5: Special Integrating Factor μ(x)=x]]
 * [[04 - Advanced Maths/Problem - Ch2-P6 Exactness of Separated Differential Forms|Problem 2.6: Exactness of Separated Forms]]
+
+## Class notes
+
+The class notes (Notes.pdf, p. 4) derive the exactness condition from $F(x, y) = C$ and Schwarz's theorem and solve two examples: $x^3 + \frac yx + (y^2 + \ln x)y' = 0$ (implicit solution $\frac{x^4}{4} + \frac{y^3}{3} + y\ln x = C$) and $(1 + e^xy + xe^xy) + (xe^x + 2)y' = 0$ (explicit solution $y = \frac{C - x}{xe^x + 2}$). See [[04 - Advanced Maths/Topic 2 - First-Order ODEs and Qualitative Dynamics|Topic 2]], Section 8.

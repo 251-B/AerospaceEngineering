@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-topic-2-class-notes",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Topic 2 now follows the class notes",
+    "text": "Picard's theorem, stability, separable, linear and exact equations in the order of the notes, with the logistic equation and both exact examples solved step by step.",
+    "link": "subjects/advanced-maths/teoria/topic-2.html"
+  },
+  {
     "id": "2026-10-22-maths-topic-1-class-notes",
     "date": "2026-10-22",
     "tag": "Advanced Maths",
