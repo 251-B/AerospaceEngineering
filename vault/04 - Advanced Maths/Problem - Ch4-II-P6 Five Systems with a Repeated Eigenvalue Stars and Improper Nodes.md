@@ -461,7 +461,7 @@ Orientation in the $\mathbf x$-plane, from $N\mathbf x = (A - \lambda I)\mathbf 
 | (iv) | $13$ | unstable star |
 | (v) | $5$ | unstable improper node |
 
-- (i) is exactly the worked Example 8.2 of Topic 4 (Robinson Example 30.1): $\lambda = 3$, $\mathbf v_1 = (2, 1)^T$, $\mathbf v_2 = (1, 0)^T$ and $J = \begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$ — the result reproduces it step by step.
+- (i) is exactly the worked Example 8.1 of Topic 4 (Robinson Example 30.1): $\lambda = 3$, $\mathbf v_1 = (2, 1)^T$, $\mathbf v_2 = (1, 0)^T$ and $J = \begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$ — the result reproduces it step by step.
 - In each improper node $Q^{-1}AQ = J$ was multiplied out entry by entry; $N^2 = O$ was checked (Cayley-Hamilton).
 - The general solution $\mathbf x = e^{\lambda t}[c_1\mathbf v_1 + c_2(t\mathbf v_1 + \mathbf v_2)]$ contains the secular term $te^{\lambda t}\mathbf v_1$, which makes all orbits tangent to $\mathbf v_1$ at both ends (S-shaped).
 - (iv) is a multiple of the identity: every vector is an eigenvector and the orbits are rays; the canonical form is $A$ itself, and any basis (for instance $Q = I$) works.

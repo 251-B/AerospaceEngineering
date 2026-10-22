@@ -170,6 +170,65 @@ def jordan_flow(lam, z0):
     return fn
 
 
+def node_flow(l1, l2, z0):
+    def fn(t):
+        return (z0[0] * math.exp(l1 * t), z0[1] * math.exp(l2 * t))
+    return fn
+
+
+def node_panel(uid, title, label, l1, l2, Q=None, R=1.0, Rview=None):
+    """Portrait of x' = A x with Q^-1 A Q = diag(l1, l2), l1 != l2 real and non-zero.  Q None: draw the z-plane."""
+    Rv = Rview or (R * (_sigma_max(Q) if Q else 1.0))
+    eq = "st" if (l1 < 0 and l2 < 0) else "un"
+    pan = Panel(uid, title, Rv, axes=("x₁", "x₂") if Q else ("z₁", "z₂"), eq=eq)
+    pan.axis_lines()
+    if Q:
+        pan.eig_line(_matvec(Q, (1, 0)), "v₁", "eig dash")
+        pan.eig_line(_matvec(Q, (0, 1)), "v₂", "eig dash")
+    pan.axis_labels()
+    bound = 1.2 * Rv
+    to_plot = (lambda p: _matvec(Q, p)) if Q else (lambda p: p)
+    T = math.log(400.0) / min(abs(l1), abs(l2))
+    for k in range(16):
+        a = 2 * math.pi * (k + 0.5) / 16
+        z0 = (0.9 * R * math.cos(a), 0.9 * R * math.sin(a))
+        fn = node_flow(l1, l2, z0)
+        pan.traj(sample(lambda t, fn=fn: to_plot(fn(t)), -T, T, 6000, bound), fracs=(0.5,))
+    # the two eigen-axes are orbits: four half-lines, arrows by the sign of the eigenvalue
+    for d, lam in (((1, 0), l1), ((-1, 0), l1), ((0, 1), l2), ((0, -1), l2)):
+        pts = [to_plot((d[0] * R * 1.3 * s / 40, d[1] * R * 1.3 * s / 40)) for s in range(1, 41)]
+        if lam < 0:
+            pts = pts[::-1]
+        pan.traj([pts], cls="c3", ah="ah3", fracs=(0.55,), thin=False)
+    return pan.svg(label)
+
+
+def zero_panel(uid, title, label, l2, Q=None, R=1.0, Rview=None):
+    """x' = A x with Q^-1 A Q = diag(0, l2): a line of equilibria (span v1) and straight orbits parallel to v2."""
+    Rv = Rview or (R * (_sigma_max(Q) if Q else 1.0))
+    pan = Panel(uid, title, Rv, axes=("x₁", "x₂") if Q else ("z₁", "z₂"), eq="semi")
+    pan.axis_lines()
+    if Q:
+        pan.eig_line(_matvec(Q, (0, 1)), "v₂", "eig dash")
+    pan.axis_labels()
+    to_plot = (lambda p: _matvec(Q, p)) if Q else (lambda p: p)
+    span = 3.0 * Rv
+    a, b = to_plot((-span, 0)), to_plot((span, 0))
+    pa, pb = pan.px(a), pan.px(b)
+    pan.parts.append(f'<line class="c3" x1="{_f(pa[0])}" y1="{_f(pa[1])}" x2="{_f(pb[0])}" y2="{_f(pb[1])}"/>')
+    for k in range(-6, 7):
+        if k == 0:
+            continue
+        c = 1.25 * Rv * k / 6
+        for sgn in (1, -1):
+            pts = [to_plot((c, sgn * 1.3 * Rv * s / 40)) for s in range(1, 41)]
+            if l2 < 0:
+                pts = pts[::-1]
+            pan.traj([pts], fracs=(0.5,))
+        pan.mark(to_plot((c, 0)))
+    return pan.svg(label)
+
+
 def _ring(r, k, phase=0.0):
     return [(r * math.cos(phase + 2 * math.pi * i / k), r * math.sin(phase + 2 * math.pi * i / k)) for i in range(k)]
 
@@ -268,10 +327,10 @@ def _fig(panels, caption, trio=False):
     return f'<figure class="{cls}">{inner}<figcaption>{caption}</figcaption></figure>'
 
 
-Q0 = ((1, 2), (1, 0))     # Example 8.1:  u = (1, 1),  w = (2, 0)
+Q0 = ((1, 2), (1, 0))     # Example 7.3:  u = (1, 1),  w = (2, 0)
 Q1 = ((5, 0), (-1, 3))    # Example 7.1:  u = (5, -1), w = (0, 3)
 Q2 = ((2, 0), (1, -1))    # Example 7.2:  u = (2, 1),  w = (0, -1)
-Q3 = ((2, 1), (1, 0))     # Example 8.2:  v1 = (2, 1), v2 = (1, 0)
+Q3 = ((2, 1), (1, 0))     # Example 8.1:  v1 = (2, 1), v2 = (1, 0)
 Q3s = ((2, -1), (1, 0))   # stable twin:  v1 = (2, 1), v2' = (-1, 0)
 
 
@@ -281,35 +340,49 @@ def build():
         spiral_panel("am-sz1", "stable spiral: ρ = −0.3, ω = 1", "stable spiral in the z-plane", -0.3, 1.0),
         spiral_panel("am-sz2", "unstable spiral: ρ = 0.3, ω = 1", "unstable spiral in the z-plane", 0.3, 1.0),
         spiral_panel("am-sz3", "centre: ρ = 0, ω = 1", "centre in the z-plane", 0.0, 1.0),
-    ], "<b>Figure 4.3.</b> The canonical complex system in the $\\mathbf z$-plane. All three turn <em>clockwise</em> ($\\dot\\theta = -\\omega$); the sign of $\\rho$ decides whether the radius shrinks, grows or stays fixed.", trio=True)
+    ], "<b>Figure 4.4.</b> The canonical complex system in the $\\mathbf z$-plane. All three turn <em>clockwise</em> ($\\dot\\theta = -\\omega$); the sign of $\\rho$ decides whether the radius shrinks, grows or stays fixed.", trio=True)
     f["ex71"] = _fig([
         spiral_panel("am-e1z", "z-plane: J = (1 3; −3 1)", "Example 7.1 in the z-plane", 1.0, 3.0, marks=[((1.0, 0.0), "(1,0)"), ((0.0, 1.0), "(0,1)")], R=1.25, arms=4),
         spiral_panel("am-e1x", "x-plane: x = Q z", "Example 7.1 in the x-plane", 1.0, 3.0, Q=Q1, marks=[((1.0, 0.0), ""), ((0.0, 1.0), "")], R=1.25, arms=4),
-    ], "<b>Figure 4.4.</b> Example 7.1, $\\dot x = 2x + 5y$, $\\dot y = -2x$ (unstable spiral). Left: the canonical portrait. Right: the same orbits seen in the $(x_1, x_2)$-plane after $\\mathbf x = Q\\mathbf z$; the dashed lines are the images of the $z_1$- and $z_2$-axes, i.e. the lines through $\\mathbf u$ and $\\mathbf w$. Both turn clockwise because $\\det Q > 0$.")
+    ], "<b>Figure 4.5.</b> Example 7.1, $\\dot x = 2x + 5y$, $\\dot y = -2x$ (unstable spiral). Left: the canonical portrait. Right: the same orbits seen in the $(x_1, x_2)$-plane after $\\mathbf x = Q\\mathbf z$; the dashed lines are the images of the $z_1$- and $z_2$-axes, i.e. the lines through $\\mathbf u$ and $\\mathbf w$. Both turn clockwise because $\\det Q > 0$.")
     f["ex72"] = _fig([
         spiral_panel("am-e2z", "z-plane: J = (0 1; −1 0)", "Example 7.2 in the z-plane", 0.0, 1.0, marks=[((1.0, 0.0), "(1,0)")], R=1.25),
         spiral_panel("am-e2x", "x-plane: x = Q z", "Example 7.2 in the x-plane", 0.0, 1.0, Q=Q2, marks=[((1.0, 0.0), "")], R=1.25),
-    ], "<b>Figure 4.5.</b> Example 7.2, $\\dot x = x - 2y$, $\\dot y = x - y$ (centre). The circles of the $\\mathbf z$-plane turn clockwise, but $\\det Q = -2 < 0$ reflects the plane, so the ellipses of the $\\mathbf x$-plane turn <em>counter-clockwise</em>.")
+    ], "<b>Figure 4.6.</b> Example 7.2, $\\dot x = x - 2y$, $\\dot y = x - y$ (centre). The circles of the $\\mathbf z$-plane turn clockwise, but $\\det Q = -2 < 0$ reflects the plane, so the ellipses of the $\\mathbf x$-plane turn <em>counter-clockwise</em>.")
     f["ex81"] = _fig([
-        spiral_panel("am-e0z", "z-plane: J = (−1 2; −2 −1)", "Example 8.1 in the z-plane", -1.0, 2.0, marks=[((1.0, 0.0), "(1,0)")], R=1.25),
-        spiral_panel("am-e0x", "x-plane: x = Q z", "Example 8.1 in the x-plane", -1.0, 2.0, Q=Q0, marks=[((1.0, 0.0), "")], R=1.25),
-    ], "<b>Figure 4.6.</b> Example 8.1, $\dot x = -5y$, $\dot y = x - 2y$ (stable spiral). The spiral turns clockwise in the $\mathbf z$-plane and counter-clockwise in the $\mathbf x$-plane, because $\det Q = -2 < 0$.")
+        spiral_panel("am-e0z", "z-plane: J = (−1 2; −2 −1)", "Example 7.3 in the z-plane", -1.0, 2.0, marks=[((1.0, 0.0), "(1,0)")], R=1.25),
+        spiral_panel("am-e0x", "x-plane: x = Q z", "Example 7.3 in the x-plane", -1.0, 2.0, Q=Q0, marks=[((1.0, 0.0), "")], R=1.25),
+    ], "<b>Figure 4.7.</b> Example 7.3, $\dot x = -5y$, $\dot y = x - 2y$ (stable spiral). The spiral turns clockwise in the $\mathbf z$-plane and counter-clockwise in the $\mathbf x$-plane, because $\det Q = -2 < 0$.")
     f["stars"] = _fig([
         star_panel("am-st1", "stable star: λ = −1", "stable star", -1.0),
         star_panel("am-st2", "unstable star: λ = 1", "unstable star", 1.0),
-    ], "<b>Figure 4.7.</b> $A = \\lambda I$: every line through the origin is invariant and every solution moves along its own line. The picture is the same in any basis, so there is no separate $\\mathbf z$-plane.")
+    ], "<b>Figure 4.8.</b> $A = \\lambda I$: every line through the origin is invariant and every solution moves along its own line. The picture is the same in any basis, so there is no separate $\\mathbf z$-plane.")
     f["improper_z"] = _fig([
         jordan_panel("am-jz1", "unstable improper node: J = (3 1; 0 3)", "improper node in the z-plane", 3.0, R=1.25, highlight=[(0.0, 1.0)]),
         jordan_panel("am-jz2", "stable improper node: J = (−3 1; 0 −3)", "stable improper node in the z-plane", -3.0, R=1.25, highlight=[(0.0, 1.0)]),
-    ], "<b>Figure 4.8.</b> The canonical improper node in the $\\mathbf z$-plane. Amber: the invariant $z_1$-axis (the only eigendirection). Green: the orbit through $(0, 1)$. All orbits are tangent to the $z_1$-axis at the origin and become parallel to it at infinity; above the axis they move right, below it left.")
+    ], "<b>Figure 4.9.</b> The canonical improper node in the $\\mathbf z$-plane. Amber: the invariant $z_1$-axis (the only eigendirection). Green: the orbit through $(0, 1)$. All orbits are tangent to the $z_1$-axis at the origin and become parallel to it at infinity; above the axis they move right, below it left.")
     f["ex82"] = _fig([
-        jordan_panel("am-e3z", "z-plane: J = (3 1; 0 3)", "Example 8.2 in the z-plane", 3.0, R=1.25, highlight=[(0.0, 1.0)], marks=[((0.0, 1.0), "(0,1)")]),
-        jordan_panel("am-e3x", "x-plane: x = Q z", "Example 8.2 in the x-plane", 3.0, Q=Q3, Rview=2.6, highlight=[(0.0, 1.0)], marks=[((0.0, 1.0), "(1,0)")]),
-    ], "<b>Figure 4.9.</b> Example 8.2, $\\dot x = 5x - 4y$, $\\dot y = x + y$ (unstable improper node, $\\lambda = 3$). Left: canonical portrait. Right: the same orbits in the $(x_1, x_2)$-plane, with $\\mathbf v_1 = (2,1)^T$ and $\\mathbf v_2 = (1,0)^T$. The amber line is $\\mathrm{span}\\,\\mathbf v_1$; the green orbit is $\\mathbf x(t) = e^{3t}(2t+1,\\ t)^T$. Because $\\det Q = -1$, the map reverses orientation, so the S is traversed in the opposite sense to the one in the $\\mathbf z$-plane.")
+        jordan_panel("am-e3z", "z-plane: J = (3 1; 0 3)", "Example 8.1 in the z-plane", 3.0, R=1.25, highlight=[(0.0, 1.0)], marks=[((0.0, 1.0), "(0,1)")]),
+        jordan_panel("am-e3x", "x-plane: x = Q z", "Example 8.1 in the x-plane", 3.0, Q=Q3, Rview=2.6, highlight=[(0.0, 1.0)], marks=[((0.0, 1.0), "(1,0)")]),
+    ], "<b>Figure 4.10.</b> Example 8.1, $\\dot x = 5x - 4y$, $\\dot y = x + y$ (unstable improper node, $\\lambda = 3$). Left: canonical portrait. Right: the same orbits in the $(x_1, x_2)$-plane, with $\\mathbf v_1 = (2,1)^T$ and $\\mathbf v_2 = (1,0)^T$. The amber line is $\\mathrm{span}\\,\\mathbf v_1$; the green orbit is $\\mathbf x(t) = e^{3t}(2t+1,\\ t)^T$. Because $\\det Q = -1$, the map reverses orientation, so the S is traversed in the opposite sense to the one in the $\\mathbf z$-plane.")
     f["ex82s"] = _fig([
         jordan_panel("am-e4z", "z-plane: J = (−3 1; 0 −3)", "stable twin in the z-plane", -3.0, R=1.25, highlight=[(0.0, 1.0)]),
         jordan_panel("am-e4x", "x-plane: x = Q' z", "stable twin in the x-plane", -3.0, Q=Q3s, Rview=2.6, highlight=[(0.0, 1.0)]),
-    ], "<b>Figure 4.10.</b> The stable twin $A' = -A = \\begin{pmatrix} -5 & 4 \\\\ -1 & -1\\end{pmatrix}$ ($\\lambda = -3$, $Q' = [\\mathbf v_1\\mid -\\mathbf v_2]$): the same curves with every arrow reversed.")
+    ], "<b>Figure 4.11.</b> The stable twin $A' = -A = \\begin{pmatrix} -5 & 4 \\\\ -1 & -1\\end{pmatrix}$ ($\\lambda = -3$, $Q' = [\\mathbf v_1\\mid -\\mathbf v_2]$): the same curves with every arrow reversed.")
+    f["real_z6a"] = _fig([
+        node_panel("am-n1", "0 < λ₁ < λ₂ (1, 2)", "unstable node, lambda1 less than lambda2", 1.0, 2.0),
+        node_panel("am-n2", "0 < λ₂ < λ₁ (2, 1)", "unstable node, lambda2 less than lambda1", 2.0, 1.0),
+        node_panel("am-n3", "λ₁ < 0 < λ₂ (−1, 1)", "saddle, lambda1 less than 0 less than lambda2", -1.0, 1.0),
+    ], "<b>Figure 4.1 (a).</b> The uncoupled system $\\dot z_1 = \\lambda_1z_1$, $\\dot z_2 = \\lambda_2z_2$ in the $\\mathbf z$-plane, with the orderings drawn in the class notes (p. 9). Amber: the axes, which are orbits. Unstable nodes leave the origin tangent to the axis of the eigenvalue with the smaller modulus; at a saddle the axis of the negative eigenvalue comes in and the other goes out.", trio=True)
+    f["real_z6b"] = _fig([
+        node_panel("am-n4", "λ₂ < λ₁ < 0 (−1, −2)", "stable node, lambda2 less than lambda1 less than 0", -1.0, -2.0),
+        node_panel("am-n5", "λ₁ < λ₂ < 0 (−2, −1)", "stable node, lambda1 less than lambda2 less than 0", -2.0, -1.0),
+        node_panel("am-n6", "λ₂ < 0 < λ₁ (1, −1)", "saddle, lambda2 less than 0 less than lambda1", 1.0, -1.0),
+    ], "<b>Figure 4.1 (b).</b> The same with the arrows reversed: stable nodes, entering the origin tangent to the axis of the eigenvalue with the smaller modulus, and the other saddle. Each orbit is the curve $z_2 = \\tilde C\\,z_1^{\\lambda_2/\\lambda_1}$.", trio=True)
+    f["zero_eig"] = _fig([
+        zero_panel("am-zz", "z-plane: λ₁ = 0, λ₂ = −2", "zero eigenvalue in the z-plane", -2.0, R=1.25),
+        zero_panel("am-zx", "x-plane: x = P z", "zero eigenvalue in the x-plane", -2.0, Q=((1, 1), (1, -1)), R=1.25, Rview=2.0),
+    ], "<b>Figure 4.3.</b> A zero eigenvalue: $\\dot{\\mathbf x} = A\\mathbf x$ with $A = \\begin{pmatrix} -1 & 1 \\\\ 1 & -1\\end{pmatrix}$, $\\lambda_1 = 0$ with $\\mathbf v_1 = (1, 1)^T$ and $\\lambda_2 = -2$ with $\\mathbf v_2 = (1, -1)^T$. Amber: the line $\\operatorname{span}\\mathbf v_1$, made of equilibria (dots). Every other orbit is a straight segment parallel to $\\mathbf v_2$ that ends on that line, as in the sketch of the class notes.")
     return f
 
 

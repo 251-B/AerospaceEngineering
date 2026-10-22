@@ -792,12 +792,21 @@
      "auto"
     ],
     [
+     "am-notes",
+     9
+    ],
+    [
+     "am-notes",
+     10
+    ],
+    [
      "am-lin",
      1
     ]
    ],
    "cite": {
-    "robinson": "am-book"
+    "robinson": "am-book",
+    "notes": "am-notes"
    }
   },
   "subjects/aerospace-materials-1/problemas/topic-2-problems.html": {

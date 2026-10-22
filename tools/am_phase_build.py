@@ -4,7 +4,9 @@
 The text lives in tools/am_phase/sections_7_8.html (tokens {{fig:NAME}}), the
 phase portraits in tools/figures/am_phase.py.  The block between the markers
 AM-PHASE:START and AM-PHASE:END of the page is generated: edit the template or
-the figure module, never the block.  `--check` fails if the page is stale.
+the figure module, never the block.  Figures used elsewhere on the page (section 6)
+sit between <!-- AM-FIG:NAME --> and <!-- /AM-FIG --> and are refilled from the
+same module.  `--check` fails if the page is stale.
 
     python tools/am_phase_build.py            # rewrite the block
     python tools/am_phase_build.py --check    # exit 1 if the page differs
@@ -49,6 +51,19 @@ def splice(page, block):
     return page[:a] + "    " + START + "\n" + block + "    " + END + "\n\n" + page[b:]
 
 
+FIG_BLOCK = re.compile(r"<!-- AM-FIG:(\w+) -->.*?<!-- /AM-FIG -->", re.S)
+
+
+def fill_figures(page):
+    """Single figures used outside sections 7-8 (section 6): <!-- AM-FIG:name --> ... <!-- /AM-FIG -->."""
+    figs = am_phase.FIGURES
+
+    def sub(m):
+        return f"<!-- AM-FIG:{m.group(1)} -->{figs[m.group(1)]}<!-- /AM-FIG -->"
+
+    return FIG_BLOCK.sub(sub, page)
+
+
 SRC_LINK = re.compile(r'<a class="src-cite" data-srclink[^>]*>(.*?)</a>', re.S)
 
 
@@ -59,7 +74,7 @@ def _plain(html):
 
 def main():
     page = PAGE.read_text(encoding="utf-8")
-    new = splice(page, render())
+    new = fill_figures(splice(page, render()))
     if "--check" in sys.argv:
         if _plain(new) != _plain(page):
             print("topic-4.html is stale: run python tools/am_phase_build.py")

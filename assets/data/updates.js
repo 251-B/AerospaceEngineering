@@ -15,6 +15,14 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-10-22-maths-topic-4-class-notes",
+    "date": "2026-10-22",
+    "tag": "Advanced Maths",
+    "title": "Maths Topic 4 now follows the class notes",
+    "text": "Systems in the order of the notes, with new phase portraits for two real eigenvalues and a zero eigenvalue, and the notes' route for complex and repeated eigenvalues.",
+    "link": "subjects/advanced-maths/teoria/topic-4.html"
+  },
+  {
     "id": "2026-10-22-maths-topic-3-class-notes",
     "date": "2026-10-22",
     "tag": "Advanced Maths",

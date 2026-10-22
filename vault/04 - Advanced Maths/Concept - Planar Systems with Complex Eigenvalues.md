@@ -94,7 +94,7 @@ $\mathbf x(t) = e^{\rho t}\big[(z_{10}\cos\omega t + z_{20}\sin\omega t)\mathbf 
 
 **Example 7.2** (written for the portal): $A = \begin{pmatrix}1 & -2 \\ 1 & -1\end{pmatrix}$, $\lambda = \pm i$, $\mathbf u = (2, 1)^T$, $\mathbf w = (0, -1)^T$, $Q = \begin{pmatrix}2 & 0 \\ 1 & -1\end{pmatrix}$, $\det Q = -2$, $Q^{-1}AQ = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}$. Orbits: ellipses $\tfrac12x_1^2 - x_1x_2 + x_2^2 = r_0^2$ ($\dot V = 0$ checked). Clockwise in $\mathbf z$, **anticlockwise in $\mathbf x$** ($a_{12} = -2 < 0$).
 
-**Example 8.1** (practice item opening the Oct 15 block, written for the portal; the lecture's own exercise is not in the course files): $A = \begin{pmatrix}0 & -5 \\ 1 & -2\end{pmatrix}$, $\lambda = -1 \pm 2i$, $\mathbf u = (1, 1)^T$, $\mathbf w = (2, 0)^T$, $Q = \begin{pmatrix}1 & 2 \\ 1 & 0\end{pmatrix}$, $Q^{-1}AQ = \begin{pmatrix}-1 & 2 \\ -2 & -1\end{pmatrix}$; $\mathbf x_0 = (1,1)^T \Rightarrow \mathbf x(t) = e^{-t}(\cos2t - 2\sin2t,\ \cos2t)^T$. Stable spiral, anticlockwise in $\mathbf x$.
+**Example 7.3** (practice item written for the portal, not in the class notes): $A = \begin{pmatrix}0 & -5 \\ 1 & -2\end{pmatrix}$, $\lambda = -1 \pm 2i$, $\mathbf u = (1, 1)^T$, $\mathbf w = (2, 0)^T$, $Q = \begin{pmatrix}1 & 2 \\ 1 & 0\end{pmatrix}$, $Q^{-1}AQ = \begin{pmatrix}-1 & 2 \\ -2 & -1\end{pmatrix}$; $\mathbf x_0 = (1,1)^T \Rightarrow \mathbf x(t) = e^{-t}(\cos2t - 2\sin2t,\ \cos2t)^T$. Stable spiral, anticlockwise in $\mathbf x$.
 
 ---
 
@@ -103,3 +103,7 @@ $\mathbf x(t) = e^{\rho t}\big[(z_{10}\cos\omega t + z_{20}\sin\omega t)\mathbf 
 * [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue|Planar Systems with a Repeated Eigenvalue]] (Oct 15 lecture).
 * [[04 - Advanced Maths/Concept - Homogeneous Equations with Constant Coefficients and the Characteristic Equation|Constant Coefficients and the Characteristic Equation]]: complex roots there are the scalar version of this case.
 * [[04 - Advanced Maths/Advanced Maths MOC|Advanced Maths MOC]].
+
+## Class notes (p. 10)
+
+The notes write $\mathbf v_\pm = \mathbf v_1 \pm i\mathbf v_2$ ($\mathbf v_1 = \mathbf u$, $\mathbf v_2 = \mathbf w$) and reach $J$ by a complex diagonalisation: $A = PDP^{-1}$ with $P = (\mathbf v_+ \mid \mathbf v_-)$, $D = \operatorname{diag}(\rho + i\omega, \rho - i\omega)$; $Q = (\mathbf v_1 \mid \mathbf v_2) = PM$ with $M = \begin{pmatrix} 1/2 & -i/2 \\ 1/2 & i/2\end{pmatrix}$, $M^{-1} = \begin{pmatrix} 1 & 1 \\ i & -i\end{pmatrix}$, so $Q^{-1}AQ = M^{-1}DM = \begin{pmatrix} \rho & \omega \\ -\omega & \rho\end{pmatrix}$. General solution $\mathbf x = C_1\operatorname{Re}\{\mathbf v e^{\lambda t}\} + C_2\operatorname{Im}\{\mathbf v e^{\lambda t}\}$; particular solution $\mathbf x = r(0)e^{\rho t}\big(\cos(\theta(0) - \omega t)\mathbf v_1 + \sin(\theta(0) - \omega t)\mathbf v_2\big)$. Their four-step example is $A = \begin{pmatrix} 2 & 5 \\ -2 & 0\end{pmatrix}$ (Example 7.1): $\lambda = 1 \pm 3i$, $\mathbf v_\pm = (-5, 1 \mp 3i)^T$, $\dot{\mathbf z} = \begin{pmatrix} 1 & 3 \\ -3 & 1\end{pmatrix}\mathbf z$, unstable spiral, clockwise ($\dot x_1 = 5x_2 > 0$ on the positive $x_2$-axis). See [[04 - Advanced Maths/Topic 4 - Systems of Linear ODEs and Phase Portraits|Topic 4]], Section 7.
